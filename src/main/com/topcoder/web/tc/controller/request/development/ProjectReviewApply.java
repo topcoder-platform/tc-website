@@ -104,6 +104,15 @@ public class ProjectReviewApply extends Base {
     public ProjectReviewApply() {
     }
 
+    /**
+     * Processes the review position apply on the project.
+     * 
+     * Updated for Specification Review Integration 1.0
+     *      - Now specification review projects are also included in validating supported project type.
+     *      - specification review project type is handled. 
+     * 
+     * @throws TCWebException if any error occurs during processing.
+     */
     @SuppressWarnings("unchecked")
     protected void developmentProcessing() throws TCWebException {
         projectTypeId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
@@ -210,6 +219,10 @@ public class ProjectReviewApply extends Base {
 
     /**
      * Performs non transactional validation of the reviewer.
+     * 
+     * Updated for Specification Review Integration 1.0
+     *      - handles specification review project types.
+     *      - but RBoard validation happens as per the rules for parent project type only. 
      *
      * @param catalog the catalog to validate
      * @param reviewTypeId the review type id to validate
@@ -274,6 +287,9 @@ public class ProjectReviewApply extends Base {
 
     /**
      * Private helper method to decide if a project type should be validated with catalog or not
+     * 
+     * Updated for Specification Review Integration 1.0
+     *      - specification project type ids are included in validation.
      *
      * @param projectTypeId the project type id
      * @return true if the project type should be validated with the catalog

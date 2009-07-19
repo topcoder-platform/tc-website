@@ -100,10 +100,15 @@ import java.util.Map;
  *     <li>Updated Application Testing to Test Suites.</li>
  *     <li>Added support for new Test Scenarios competitions.</li>
  *   </ol>
+ *
+ *   Version 1.0.11 (Specification Review Integration 1.0) Change notes:
+ *   <ol>
+ *     <li>Added new method createSpecReviewRBoardApplication to apply for spec reviews.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, ivern, isv, pulky
- * @version 1.0.10
+ * @author dok, ivern, isv, pulky, TCSASSEMBLER
+ * @version 1.0.11
  */
 public class RBoardApplicationBean extends BaseEJB {
     private static final int INTERNAL_ADMIN_USER = 100129;
@@ -616,6 +621,9 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param opensOn timestamp when the positions opens on
      * @param reviewTypeId the type of the review
      * @param primary true if the reviewer is signing up for primary reviewer position
+	 * @throws RBoardRegistrationException if an unexpected error occurs.
+     * @throws RemoteException if an error occurs while calling EJB method remotely.
+	 * @since 1.0.11
      */
     @SuppressWarnings("unchecked")
     public void createSpecReviewRBoardApplication(String dataSource, long userId,
@@ -673,6 +681,7 @@ public class RBoardApplicationBean extends BaseEJB {
      * 
      * @param conn the database connection for the update.
      * @param projectId the project id for which to update.
+	 * @since 1.0.11
      */
     private void updateSpecReviewToAssigned(Connection conn, long projectId) {
         PreparedStatement ps = null;
@@ -700,6 +709,7 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param conn the datbase connection to be used.
      * @param projectId the project id for which reviewer entry should be added.
      * @param userId the reviewer's user id.
+	 * @since 1.0.11
      */
     private void addSpecReviewReviewer(Connection conn, long projectId, long userId) {
         PreparedStatement ps = null;

@@ -55,7 +55,7 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *         </td>
  *     </tr>
  *     <tr>
- *         <td>Version 1.4 (Specification Review Integration, Copied from: Specification Review Signup Pages 1.0)</td>
+ *         <td>Version 1.4 (Specification Review Integration 1.0)</td>
  *         <td>
  *           <ul>
  *             <li>Updated <code>isProjectTypeSupported</code> to support specification review projects.</li>

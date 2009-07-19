@@ -1,6 +1,6 @@
 <%--
-  - Author: pulky
-  - Version: 1.2
+  - Author: pulky, TCSASSEMBLER
+  - Version: 1.3
   - Since: TCS Release 2.2.2
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
@@ -15,6 +15,9 @@
   -
   - Version 1.2 (Testing Competition Split Release Assembly 1.0) changes: Updated Application Testing to Test Suites
   - and added support for new Test Scenarios competitions.
+  -
+  - Version 1.3 (Specification Review Integration 1.0) Change Notes:
+  - added support for handling new contest types.
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>

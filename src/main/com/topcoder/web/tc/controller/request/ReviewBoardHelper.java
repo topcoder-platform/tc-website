@@ -38,8 +38,7 @@ import com.topcoder.web.common.WebConstants;
  *         </td>
  *     </tr>
  *     <tr>
- *         <td>Version 1.3 (Spec Review Integration,
- 							Copied from Specification Review Signup Pages 1.0)</td>
+ *         <td>Version 1.3 (Specification Review Integration 1.0)</td>
  *         <td>
  *           <ul>
  *             <li>Updated <code>isProjectTypeSupported</code> methods to support specification review projects.</li>
@@ -74,7 +73,7 @@ public final class ReviewBoardHelper {
      * or not. As of current version only Design, Development, Assembly, Architecture, Conceptualization, Specification,
      * Test Suites and Test Scenarios review boards and their specification reviews are supported.</p>
      * 
-     * Updated for Spec Review Integration 1.0
+     * Updated for Specification Review Integration 1.0
      *      - Added check for spec review project types.
      *
      * @param reviewBoardType a <code>String</code> referencing the review board type requested by client.

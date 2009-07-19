@@ -64,7 +64,7 @@ import java.util.Map;
  *     <li>Added support for UI Prototype, RIA Build and RIA Component competitions.</li>
  *   </ol>
  *
- *   Version 1.0.6 (Specification Review Integration, Copied from: Specification Review Signup Pages 1.0) Change notes:
+ *   Version 1.0.6 (Specification Review Integration 1.0) Change notes:
  *   <ol>
  *     <li>Added support for Specification review project types.</li>
  *   </ol>
@@ -89,6 +89,9 @@ public class ReviewProjectDetail extends Base {
      *
      * <p>Looks up for the details of requested review project, binds it to request and forwards to the corresponding
      * JSP depending on requested project type.</p>
+     * 
+     * Updated for Specification Review Integration 1.0
+     *      - Refactored to differently handle normal project and specification review project details.
      *
      * @throws TCWebException if an unexpected error occurs or if requested project type is not supported.
      */
@@ -100,7 +103,7 @@ public class ReviewProjectDetail extends Base {
             throw new TCWebException("Invalid project type specified " + projectTypeId);
         }
 
-        int phaseId = (Integer.parseInt(projectTypeId) + 111);
+        int phaseId = (Integer.parseInt(projectTypeId) + (int) Constants.GENERAL_PHASE_OFFSET);
         String projectId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID));
 
         if (phaseId > Constants.SPECIFICATION_COMPETITION_OFFSET) {
@@ -116,10 +119,13 @@ public class ReviewProjectDetail extends Base {
     /**
      * <p>Looks up for the details of requested review project, binds it to request.</p>
      * 
+     * In this version refactored from developmentProcessing method.
+     * 
      * @param projectId project id to look for.
      * @param phaseId phase id of the project
      * @param projectTypeId identifier of the type of project
      * @throws TCWebException if an unexpected error occurs
+     * @since 1.0.6
      */
     @SuppressWarnings("unchecked")
     private void retrieveReviewProjectDetail(String projectId, int phaseId, String projectTypeId) throws TCWebException {
@@ -239,6 +245,8 @@ public class ReviewProjectDetail extends Base {
      * @param phaseId phase id of the project
      * @param projectTypeId identifier of the type of project
      * @throws TCWebException if an unexpected error occurs
+     * 
+     * @since 1.0.6
      */
     @SuppressWarnings("unchecked")
     private void retrieveSpecReviewProjectDetail(String projectId, int phaseId) throws TCWebException {
@@ -478,6 +486,8 @@ public class ReviewProjectDetail extends Base {
      * @param reviewTypeId the id of the reviewer type.
      * @return a <code>ReviewBoardApplication</code> providing the reviewer payments for the specified project.
      * @throws Exception if an unexpected error occurs.
+     * 
+     * @since 1.0.6
      */
     @SuppressWarnings("unchecked")
     protected ReviewBoardApplication makeSpecReviewApp(int phaseId, int levelId, long projectId, float prize, int reviewerTypeId, String reviewerType) throws Exception {
@@ -518,7 +528,6 @@ public class ReviewProjectDetail extends Base {
      * @since TCS Release 2.2.0 (TCS-54)
      */
     private String getReviewProjectDetailView(String projectType) {
-		System.out.println("getReviewProjectDetailView: " + projectType);
         if (projectType.equals(String.valueOf(WebConstants.DESIGN_PROJECT_TYPE))) {
             return Constants.REVIEW_PROJECT_DETAIL;
         } else if (projectType.equals(String.valueOf(WebConstants.DEVELOPMENT_PROJECT_TYPE))) {
