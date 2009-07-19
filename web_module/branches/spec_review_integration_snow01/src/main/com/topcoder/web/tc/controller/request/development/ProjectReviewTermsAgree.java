@@ -100,6 +100,7 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
         }
     }
 
+    @SuppressWarnings("unchecked")
     private void apply(Timestamp opensOn, int reviewTypeId) throws Exception {
         String primary = StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_FLAG));
 
@@ -109,16 +110,30 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
         rBoardApplication.createRBoardApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId,
                 reviewTypeId, phaseId, opensOn, reviewTypeId, new Boolean(primary).booleanValue());
 
-        //send email
+        ResultSetContainer detail = null;
+        
+        // send email
         Request r = new Request();
-        r.setContentHandle("review_project_detail");
         String projectId = String.valueOf(this.projectId);
-        String phaseId = String.valueOf(this.phaseId);
-        r.setProperty(Constants.PROJECT_ID, projectId);
-        r.setProperty(Constants.PHASE_ID, phaseId);
-        r.setProperty(Constants.PROJECT_TYPE_ID, this.projectTypeId);
+        if (this.phaseId > Constants.SPECIFICATION_COMPETITION_OFFSET) {
+            r.setContentHandle("spec_review_project_detail");
+            
+            r.setProperty(Constants.PROJECT_ID, projectId);
+            Map results = getDataAccess().getData(r);
+            detail = (ResultSetContainer) results.get("spec_review_project_detail");
+        } else {
+            r.setContentHandle("review_project_detail");
+            
+            String phaseIdStr = String.valueOf(this.phaseId);
+            r.setProperty(Constants.PROJECT_ID, projectId);
+            r.setProperty(Constants.PHASE_ID, phaseIdStr);
+            r.setProperty(Constants.PROJECT_TYPE_ID, this.projectTypeId);
+            Map results = getDataAccess().getData(r);
+            detail = (ResultSetContainer) results.get("review_project_detail");
+        }
+        
         Map results = getDataAccess(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, false).getData(r);
-        ResultSetContainer detail = (ResultSetContainer) results.get("review_project_detail");
+        detail = (ResultSetContainer) results.get("review_project_detail");
 
         String component_name = detail.getStringItem(0, "component_name");
         String phase = detail.getStringItem(0, "phase_desc");

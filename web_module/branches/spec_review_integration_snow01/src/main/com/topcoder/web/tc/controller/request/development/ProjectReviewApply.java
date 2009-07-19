@@ -104,6 +104,7 @@ public class ProjectReviewApply extends Base {
     public ProjectReviewApply() {
     }
 
+    @SuppressWarnings("unchecked")
     protected void developmentProcessing() throws TCWebException {
         projectTypeId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
         // include specification review project types in the validation
@@ -124,24 +125,23 @@ public class ProjectReviewApply extends Base {
                 //talking high volume here
                 Request r = new Request();
                 
-                Map results=null;
                 ResultSetContainer detail=null;
-                int catalog=0;
+                
                 if (phaseId > Constants.SPECIFICATION_COMPETITION_OFFSET) {
                     r.setContentHandle("spec_review_project_detail");
                     r.setProperty(Constants.PROJECT_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
-                    results = getDataAccess().getData(r);
+                    Map results = getDataAccess().getData(r);
                     detail = (ResultSetContainer) results.get("spec_review_project_detail");
-                    catalog = detail.getIntItem(0, "category_id");
                 } else {
                     r.setContentHandle("review_project_detail");
                     r.setProperty(Constants.PROJECT_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
                     r.setProperty(Constants.PHASE_ID, String.valueOf(phaseId));
                     r.setProperty(Constants.PROJECT_TYPE_ID, projectTypeId);
-                    results = getDataAccess().getData(r);
+                    Map results = getDataAccess().getData(r);
                     detail = (ResultSetContainer) results.get("review_project_detail");
-                    catalog = detail.getIntItem(0, "category_id");
                 }
+                
+                int catalog = detail.getIntItem(0, "category_id");
                 
                 getRequest().setAttribute("phase_id", detail.getIntItem(0, "phase_id"));
 
