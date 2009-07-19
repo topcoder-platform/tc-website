@@ -97,7 +97,7 @@ create table spec_review (
 create table spec_review_reviewer_xref (
     spec_review_reviewer_id decimal(10) NOT NULL,
     spec_review_id decimal(10) NOT NULL,
-    review_user VARCHAR(64),
+    review_user_id decimal(10),
     review_start_time DATETIME YEAR to FRACTION(3) NOT NULL,
     is_active SMALLINT, -- Would be true only for the last active reviewer.
     creation_user VARCHAR(64),
