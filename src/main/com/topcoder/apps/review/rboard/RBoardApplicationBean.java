@@ -600,6 +600,137 @@ public class RBoardApplicationBean extends BaseEJB {
             close(conn);
         }
     }
+    
+    /**
+     * Creates the spec review rboard_application. 
+     * 
+     * Unlike normal rboard_application, 
+     *  - it inserts a new entry in spec_review_reviewer_xref
+     *  - update the status in spec_review table to REVIEWER_ASSIGNED (i.e id 5)
+     *
+     * @param dataSource the datasource being used
+     * @param userId the user id to insert
+     * @param projectId the project id to insert
+     * @param reviewRespId the review responsibility id to insert
+     * @param phaseId the phase id
+     * @param opensOn timestamp when the positions opens on
+     * @param reviewTypeId the type of the review
+     * @param primary true if the reviewer is signing up for primary reviewer position
+     */
+    @SuppressWarnings("unchecked")
+    public void createSpecReviewRBoardApplication(String dataSource, long userId,
+                                        long projectId, int reviewRespId, int phaseId, Timestamp opensOn,
+                                        int reviewTypeId, boolean primary) throws RBoardRegistrationException {
+
+        log.debug("createRBoardApplications called...");
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+            conn = DBMS.getConnection(dataSource);
+
+            conn.setAutoCommit(false);
+
+            //we're doing this so that we can have something to sync on.  if we don't lock
+            //project, then people get register while we're still doing the selects to determine
+            //if one should be able to register.  both people end up coming up ok to register and we
+            //end up with more than one person in the same slot.
+            updateForLock(conn, projectId);
+
+            long start = System.currentTimeMillis();
+            validateUserTrans(conn, projectId, phaseId, userId, opensOn, reviewTypeId, primary);
+            
+            // adds a new entry in spec_review_reviewer_xref table
+            addSpecReviewReviewer(conn, projectId, userId);
+            
+            // set the status of spec_review entry to be REVIEWER_ASSIGNED (i.e. id 5)
+            updateSpecReviewToAssigned(conn, projectId);
+            
+            conn.commit();
+            log.debug("Registration for project " + projectId + " completed in " + (System.currentTimeMillis() - start)
+                      + " milliseconds");
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            rollback(conn);
+            throw new EJBException(sqle);
+        } catch (RBoardRegistrationException rbre) {
+            rollback(conn);
+            throw rbre;
+        } catch (Exception e) {
+            rollback(conn);
+            throw new EJBException(e);
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+        }
+    }
+    
+    /**
+     * Updates the spec_review table's entry to REVIEWER_ASSIGNED i.e. id = 5
+     * 
+     * @param conn the database connection for the update.
+     * @param projectId the project id for which to update.
+     */
+    private void updateSpecReviewToAssigned(Connection conn, long projectId) {
+        PreparedStatement ps = null;
+        InitialContext ctx = null;
+        try {
+            ps = conn.prepareStatement("UPDATE spec_review " 
+                    + " SET review_status_type_id = 5, "
+                    + " modification_time = CURRENT, "
+                    + " modification_user = 'System' "
+                    + " WHERE contest_id = " + projectId 
+                    + " AND is_studio = 0");
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw(new EJBException(e.getMessage()));
+        } finally {
+            close(ps);
+            close(ctx);
+        }
+    }
+    
+    /**
+     * Adds a new entry for the reviewer in spec_review_reviewer_xref table
+     * 
+     * @param conn the datbase connection to be used.
+     * @param projectId the project id for which reviewer entry should be added.
+     * @param userId the reviewer's user id.
+     */
+    private void addSpecReviewReviewer(Connection conn, long projectId, long userId) {
+        PreparedStatement ps = null;
+        InitialContext ctx = null;
+        try {
+            ps = conn.prepareStatement("INSERT INTO spec_review_reviewer_xref(spec_review_reviewer_id, " 
+                    + "                                                         spec_review_id, "
+                    + "                                                         review_user_id, "
+                    + "                                                         review_start_time, "
+                    + "                                                         is_active, "
+                    + "                                                         creation_user, "
+                    + "                                                         creation_time) "
+            		+ " SELECT SPEC_REVIEW_REVIEWER_SEQ.NEXTVAL, " 
+            		+ "           spec_review_id, " 
+            		+ "       " + userId + ", " 
+            		+ "           CURRENT, " 
+            		+ "           1, "
+            		+ "           CURRENT, "
+            		+ "           'System' " 
+            		+ " FROM spec_review " 
+            		+ " WHERE contest_id = " + projectId 
+            		+ " AND is_studio = 0");
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw(new EJBException(e.getMessage()));
+        } finally {
+            close(ps);
+            close(ctx);
+        }
+    }
 
     /**
      * Searches for existence of a particular row in rboard_application
