@@ -92,7 +92,7 @@
                                         projectType == DESIGN_SPECIFICATION_PROJECT_TYPE}">
                                         ${projectDetailRow.map['catalog']}
                                     </c:when>
-                                    <c:when test="isSpecificationReview">
+                                    <c:when test="{isSpecificationReview}">
                                     	Specification Review
                                     </c:when>
                                     <c:otherwise>
