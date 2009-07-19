@@ -62,8 +62,7 @@ import com.topcoder.shared.util.logging.Logger;
  *     <li>Added support for new Test Scenarios competitions.</li>
  *   </ol>
  *
- *	 Version 1.1.3 (Specification Review Integration,
- *					copied from Specification Review Signup Pages 1.0) Change notes:
+ *	 Version 1.1.3 (Specification Review Integration 1.0) Change notes:
  *   <ol>
  *     <li>Added support for Specification Review projects.</li>
  *   </ol>
@@ -171,6 +170,9 @@ public class DefaultPriceComponent implements SoftwareComponent {
 
     /**
      * <p>Factory method that returns the correct instance of ReviewerPaymentCalculator for a given phase.</p>
+	 *
+	 * Updated for Specification Review Integration 1.0
+	 *		- Added specification review calculator.
      *
      * @param prize first place prize for the competition.
      * @param submissionCount number of submissions.
@@ -288,6 +290,8 @@ public class DefaultPriceComponent implements SoftwareComponent {
     /**
      * <p>A command line interface to be used for calculating the prices for the projects with parameters passed as
      * command line arguments.</p>
+	 *
+	 * Updated for Specification Review Integration 1.0
      *
      * @param args a <code>String</code> array providing the command line arguments.
      */

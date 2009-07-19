@@ -1,6 +1,6 @@
 <%--
-  - Author: pulky
-  - Version: 1.2
+  - Author: pulky, TCSASSEMBLER
+  - Version: 1.3
   - Since: TCS Release 2.2.2
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
@@ -15,7 +15,7 @@
   - Version 1.2 (Testing Competition Split Release Assembly 1.0) changes: Updated Application Testing to Test Suites
   - and added support for new Test Scenarios competitions.
   -
-  - Version 1.3 (Specification Review Integration, Copied from: Specification Review Signup Pages 1.0) changes:
+  - Version 1.3 (Specification Review Integration 1.0) changes:
   -      * support for specification reviews was added.
   -      * code was refactored to avoid duplication.  
 --%>
