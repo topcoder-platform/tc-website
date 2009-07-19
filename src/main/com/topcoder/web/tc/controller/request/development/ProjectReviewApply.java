@@ -215,6 +215,11 @@ public class ProjectReviewApply extends Base {
      */
     protected void nonTransactionalValidation(int catalog, int reviewTypeId) throws Exception {
         int type = Integer.parseInt(this.projectTypeId);
+        
+        // for specification review we validate for the parent project type only.
+        if (type > Constants.SPECIFICATION_COMPETITION_OFFSET) {
+            type = type - Constants.SPECIFICATION_COMPETITION_OFFSET;
+        }
         // Assembly, Architecture, Conceptualization, Specification, Test Suites, Test Scenarios and
         // Studio related competition reviews do not take into consideration the catalogs as for now
         if (validateWithCatalog(type)) {
