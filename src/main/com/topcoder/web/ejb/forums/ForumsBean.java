@@ -381,6 +381,19 @@ public class ForumsBean extends BaseEJB {
     public long createSoftwareComponentForums(String componentName, long componentID,
                                               long versionID, long phaseID, long componentStatusID, long rootCategoryID, String description,
                                               String versionText, boolean isPublic) throws Exception {
+
+       return createSoftwareComponentForums(componentName, componentID, versionID, phaseID, componentStatusID, rootCategoryID, 
+		                             description, versionText, isPublic, 0);
+            
+    }
+
+
+	/* 
+    * Create a new component category and constituent forums.
+    */
+    public long createSoftwareComponentForums(String componentName, long componentID,
+                                              long versionID, long phaseID, long componentStatusID, long rootCategoryID, String description,
+                                              String versionText, boolean isPublic, long projectCategoryId) throws Exception {
         try {
             String categoryName = ForumsUtil.getComponentCategoryName(componentName, versionText);
             ForumCategory newCategory = forumFactory.getForumCategory(TCS_FORUMS_ROOT_CATEGORY_ID).createCategory(categoryName, description);
@@ -393,17 +406,45 @@ public class ForumsBean extends BaseEJB {
             newCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_TEXT, versionText);
             newCategory.setProperty(ForumConstants.PROPERTY_MODIFY_FORUMS, "true");
 
-            Connection forumsConn = DBMS.getConnection(DBMS.FORUMS_DATASOURCE_NAME);
-            PreparedStatement forumsPS = forumsConn.prepareStatement(
+            
+
+			boolean found = false;
+			// try get by contest type id
+			if (projectCategoryId > 0)
+			{
+				Connection forumsConn = DBMS.getConnection(DBMS.FORUMS_DATASOURCE_NAME);
+
+				PreparedStatement forumsPS = forumsConn.prepareStatement(
+                    "select name, description from template_forum t " +
+                            "where t.project_category_id = " + projectCategoryId +  " order by t.display_order, t.template_forum_id");
+				ResultSet rs = forumsPS.executeQuery();
+				while (rs.next()) {
+					found = true;
+					forumFactory.createForum(rs.getString("name"), rs.getString("description"), newCategory);
+				}
+				rs.close();
+				forumsPS.close();
+				forumsConn.close();
+			}
+			
+	        // if contest type id is 0 or not found by contest type id,
+			// use template_id = 2
+			if (projectCategoryId == 0 || !found)
+			{
+				Connection forumsConn = DBMS.getConnection(DBMS.FORUMS_DATASOURCE_NAME);
+
+				PreparedStatement forumsPS = forumsConn.prepareStatement(
                     "select name, description from template_forum t " +
                             "where t.template_id = 2 order by t.display_order, t.template_forum_id");
-            ResultSet rs = forumsPS.executeQuery();
-            while (rs.next()) {
-                forumFactory.createForum(rs.getString("name"), rs.getString("description"), newCategory);
-            }
-            rs.close();
-            forumsPS.close();
-            forumsConn.close();
+				ResultSet rs = forumsPS.executeQuery();
+				while (rs.next()) {
+					forumFactory.createForum(rs.getString("name"), rs.getString("description"), newCategory);
+				}
+				rs.close();
+				forumsPS.close();
+				forumsConn.close();
+			}
+            
 
             // SW admin posts one introductory message in every category so that it will rise to the top
             // of the list of forums. This should be replaced by a search function that will find category

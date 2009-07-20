@@ -64,6 +64,11 @@ public interface ForumsLocal extends EJBLocalObject {
                                               boolean isPublic)
             throws EJBException, Exception;
 
+	public long createSoftwareComponentForums(String componentName, long componentID, long versionID,
+    		long phaseID, long componentStatusID, long rootCategoryID, String description, String versionText, 
+    		boolean isPublic, long projectCategoryId)
+    	throws EJBException, Exception;
+
     public Hashtable getComponentVersionPhases(long[] compVersIDs) throws EJBException;
 
     public long getComponentVersionPhase(long compVersID) throws EJBException;
