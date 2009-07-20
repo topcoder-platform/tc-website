@@ -137,8 +137,6 @@
 					Glastonbury, CT 06033 </p>
 				<p><strong>3)	By fax to:</strong>
 					  (US) +1 (860) 371.2165 <br />
-						  (China) +86 (010) 5885.0676<br />
-						  (Poland) +48 (22) 485.3022 <br />
 						  (Note: no cover sheet necessary). 
 						  </p>
 				</div>
