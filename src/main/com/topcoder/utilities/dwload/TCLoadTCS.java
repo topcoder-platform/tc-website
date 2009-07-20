@@ -77,7 +77,7 @@ public class TCLoadTCS extends TCLoad {
      * <p>An <code>int</code> array representing all project categories that are currently being rated.
      * IF YOU CHANGE THIS LIST, YOU MUST ALSO UPDATE THE <code>getCurrentRatings</code> METHOD!</p>
      */
-    private static final int[] RATED_CATEGORIES = new int[] {1, 2, 6, 7, 13, 14, 23};
+    private static final int[] RATED_CATEGORIES = new int[] {1, 2, 6, 7, 13, 14, 23, 26};
 
     private static Logger log = Logger.getLogger(TCLoadTCS.class);
 
@@ -2632,6 +2632,9 @@ public class TCLoadTCS extends TCLoad {
             query.append(" , case");
             query.append(" when ur.phase_id = 124 and exists (select '1' from active_application_testers ates where ates.user_id = ur.user_id)");
             query.append(" then 1 else 0 end as active_tes");
+            query.append(" , case");
+            query.append(" when ur.phase_id = 137 and exists (select '1' from active_test_scenarios_competitors asce where asce.user_id = ur.user_id)");
+            query.append(" then 1 else 0 end as active_sce");
             query.append(" , cs.school_id");
             query.append(" , c.coder_type_id");
             query.append(" , c.comp_country_code");
@@ -2670,6 +2673,9 @@ public class TCLoadTCS extends TCLoad {
                     } else if (rs.getInt("phase_id") == 124) {
                         ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"),
                                 rs.getInt("active_tes") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
+                    } else if (rs.getInt("phase_id") == 137) {
+                        ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"),
+                                rs.getInt("active_sce") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
                     }
                 } else {
                     //students
@@ -2694,8 +2700,10 @@ public class TCLoadTCS extends TCLoad {
                     } else if (rs.getInt("phase_id") == 124) {
                         ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"), rs.getLong("school_id"),
                                 rs.getInt("active_tes") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
+                    } else if (rs.getInt("phase_id") == 137) {
+                        ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"), rs.getLong("school_id"),
+                                rs.getInt("active_sce") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
                     }
-
                 }
             }
 
