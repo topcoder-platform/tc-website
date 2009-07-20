@@ -37,6 +37,7 @@ public class RatingQubits {
     private static final int SPECIFICATION_PHASE_ID = 117;
     private static final int CONCEPTUALIZATION_PHASE_ID = 134;
     private static final int TESTING_PHASE_ID = 124;
+    private static final int TEST_SCENARIOS_PHASE_ID = 137;
     private final static String NEW_RATING_CATEGORIES = "(4, 7, 8)";
 
     public static void main(String[] args) {
@@ -120,6 +121,7 @@ public class RatingQubits {
         runScore(conn, historyLength, SPECIFICATION_PHASE_ID, newPhasesCutoff);
         runScore(conn, historyLength, CONCEPTUALIZATION_PHASE_ID, newPhasesCutoff);
         runScore(conn, historyLength, TESTING_PHASE_ID, newPhasesCutoff);
+        runScore(conn, historyLength, TEST_SCENARIOS_PHASE_ID, newPhasesCutoff);
     }
 
     // Run a score without a specific cut off time

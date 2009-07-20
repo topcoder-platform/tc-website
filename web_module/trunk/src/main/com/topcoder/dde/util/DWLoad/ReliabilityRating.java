@@ -107,8 +107,11 @@ public class ReliabilityRating {
             // Assembly
             rc.calculateReliability(c, historyLength, 14, NEW_PHASE_DATE, NEW_PHASE_DATE);
 
-            // Application Testing
+            // Test Suites
             rc.calculateReliability(c, historyLength, 13, NEW_PHASE_DATE, NEW_PHASE_DATE);
+            
+            // Test Scenarios
+            rc.calculateReliability(c, historyLength, 26, NEW_PHASE_DATE, NEW_PHASE_DATE);
         } catch (SQLException e) {
                 DBMS.printException(e);
         } catch (Exception e) {
