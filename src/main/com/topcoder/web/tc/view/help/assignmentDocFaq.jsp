@@ -66,7 +66,7 @@
                 </div>
                 <div>
                     <p><strong>How do I return the Assignment?</strong></p>
-                    <p>Each individual member's assignment document must be completed in full and either (i) a legible scan/photo taken and sent as an email attachment to <a href="mailto:payments@topcoder.com?subject=Assignment Document">payments@topcoder.com</a> or (ii) mailed to: TopCoder, Inc., Attn: Payments, 95 Glastonbury Blvd, Glastonbury, CT 06033 or (iii) communicated by fax to (US) +1 (860) 371.2165 or (China) +86 (010) 5885.0676 or (Poland) +48 (22) 485.3022 (no cover sheet necessary).  However, please keep in mind that we must actually receive the Assignment before the expiration of 30 days.</p>
+                    <p>Each individual member's assignment document must be completed in full and either (i) a legible scan/photo taken and sent as an email attachment to <a href="mailto:payments@topcoder.com?subject=Assignment Document">payments@topcoder.com</a> or (ii) mailed to: TopCoder, Inc., Attn: Payments, 95 Glastonbury Blvd, Glastonbury, CT 06033 or (iii) communicated by fax to (US) +1 (860) 371.2165 (no cover sheet necessary).  However, please keep in mind that we must actually receive the Assignment before the expiration of 30 days.</p>
                 </div>
                 <div>
                     <p><strong>How much time do I have to return the Assignment?</strong></p>
