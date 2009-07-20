@@ -14,7 +14,7 @@
 <div class="leftColContent">
    <div style="padding-left:3px;">
    <div style="padding-bottom:10px;"><img src="/i/home/com_title.gif" alt="Coder of the Month" /><br />
-   - May</div>
+   - June</div>
    <table cellpadding="0" cellspacing="0" border="0" width="165">
    <tr>
       <td style="border-top: 1px solid #CCCCCC; padding: 5px 0;" valign="top" ><img src="/i/m/knightry_big.jpg" alt="" width="55" height="61"/></td>
@@ -46,7 +46,7 @@
    </table>
    <%-- On/Off --%>
    
- <%--   <div><a class="cotmFeature" href="http://www.topcoder.com/news/2009/06/19/meet-the-may-coders-and-designers-of-the-month/">Read Their Interviews</a></div> --%>
+ <div><a class="cotmFeature" href="http://www.topcoder.com/news/2009/07/20/meet-the-june-coders-and-designers-of-the-month/">Read Their Interviews</a></div>
    
    </div>
 </div>
