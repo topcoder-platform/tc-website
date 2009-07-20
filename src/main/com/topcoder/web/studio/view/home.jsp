@@ -231,7 +231,7 @@ String totalPrizePaid = formatter.format(totalPrizePaidRS.getFloatItem(0,0)+1345
             <b>June 2009</b><br />
             <b><a href="http://studio.topcoder.com/?module=ViewMemberProfile&ha=iamtong">iamtong</a></b>
             won $4,625 in 5 contests!<br /><br />
-      <%--      <b><a href="http://www.topcoder.com/news/2009/06/19/meet-the-may-coders-and-designers-of-the-month/">Read The Interview</a></b> --%>
+      <b><a href="http://www.topcoder.com/news/2009/07/20/meet-the-june-coders-and-designers-of-the-month/">Read The Interview</a></b>
         </p>
 
         <div></div>
