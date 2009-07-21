@@ -50,7 +50,7 @@
 <td width="180">
     <jsp:include page="/includes/global_left.jsp">
         <jsp:param name="node"
-                   value='<%="112".equals(projectInfo.getStringItem(0, "phase_id"))?"des_stats":"dev_stats"%>'/>
+                   value='<%=request.getAttribute("leftNavNode")%>'/>
     </jsp:include>
 </td>
 

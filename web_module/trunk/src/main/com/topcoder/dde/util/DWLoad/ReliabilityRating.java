@@ -35,6 +35,11 @@ public class ReliabilityRating {
      * the date when new tracks counted for reliability.
      */
     public static final Date NEW_PHASE_DATE = getDate(2009, Calendar.MARCH, 23, 0, 0);
+    
+    /**
+     * The date when UI Prototypes and RIA Builds count for reliability.
+     */
+    public static final Date UI_PROTOTYPE_AND_RIA_BUILD_START_DATE = getDate(2009, Calendar.AUGUST, 1, 0, 0);
 
     public static void main(String[] args) {
         long start = System.currentTimeMillis();
@@ -112,6 +117,12 @@ public class ReliabilityRating {
             
             // Test Scenarios
             rc.calculateReliability(c, historyLength, 26, NEW_PHASE_DATE, NEW_PHASE_DATE);
+            
+            // UI Prototypes
+            rc.calculateReliability(c, historyLength, 19, UI_PROTOTYPE_AND_RIA_BUILD_START_DATE, UI_PROTOTYPE_AND_RIA_BUILD_START_DATE);
+            
+            // RIA Builds
+            rc.calculateReliability(c, historyLength, 24, UI_PROTOTYPE_AND_RIA_BUILD_START_DATE, UI_PROTOTYPE_AND_RIA_BUILD_START_DATE);
         } catch (SQLException e) {
                 DBMS.printException(e);
         } catch (Exception e) {
