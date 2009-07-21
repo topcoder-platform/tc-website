@@ -29,6 +29,7 @@ public class RatingQubits {
     public static final String HISTORY_LENGTH_KEY = "HistoryLength";
 
     private static final String NEW_PHASES_CUT_OFF = "03/23/2009 00:00:00";
+    private static final String UI_PROTOTYPE_AND_RIA_BUILD_CUT_OFF = "08/01/2009 00:00:00";
 
     private static final int DESIGN_PHASE_ID = 112;
     private static final int DEV_PHASE_ID = 113;
@@ -38,6 +39,8 @@ public class RatingQubits {
     private static final int CONCEPTUALIZATION_PHASE_ID = 134;
     private static final int TESTING_PHASE_ID = 124;
     private static final int TEST_SCENARIOS_PHASE_ID = 137;
+    private static final int UI_PROTOTYPES_PHASE_ID = 130;
+    private static final int RIA_BUILDS_PHASE_ID = 135;
     private final static String NEW_RATING_CATEGORIES = "(4, 7, 8)";
 
     public static void main(String[] args) {
@@ -112,7 +115,14 @@ public class RatingQubits {
             System.err.println("Invalid value for constant NEW_PHASES_CUT_OFF, please check it");
             return;
         }
-
+        
+        Date uiPrototypeAndRiaBuildCutoff = null;        
+        try {
+            uiPrototypeAndRiaBuildCutoff = new Date(sdf.parse(UI_PROTOTYPE_AND_RIA_BUILD_CUT_OFF).getTime());
+        } catch (ParseException e1) {
+            System.err.println("Invalid value for constant UI_PROTOTYPE_AND_RIA_BUILD_CUT_OFF, please check it");
+            return;
+        }
 
         runScore(conn, historyLength, DESIGN_PHASE_ID);
         runScore(conn, historyLength, DEV_PHASE_ID);
@@ -122,6 +132,8 @@ public class RatingQubits {
         runScore(conn, historyLength, CONCEPTUALIZATION_PHASE_ID, newPhasesCutoff);
         runScore(conn, historyLength, TESTING_PHASE_ID, newPhasesCutoff);
         runScore(conn, historyLength, TEST_SCENARIOS_PHASE_ID, newPhasesCutoff);
+        runScore(conn, historyLength, UI_PROTOTYPES_PHASE_ID, uiPrototypeAndRiaBuildCutoff);
+        runScore(conn, historyLength, RIA_BUILDS_PHASE_ID, uiPrototypeAndRiaBuildCutoff);
     }
 
     // Run a score without a specific cut off time

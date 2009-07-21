@@ -128,6 +128,40 @@ public class CompContestDetails extends Base {
             getRequest().setAttribute("pid", Long.decode(projId));
             getRequest().setAttribute("dates", dates);
 
+            switch (Integer.parseInt(projectInfo.getStringItem(0, "phase_id"))) {
+            case 134:
+                getRequest().setAttribute("leftNavNode", "conceptualization_stats");
+                break;
+            case 117:
+                getRequest().setAttribute("leftNavNode", "specification_stats");
+                break;
+            case 118:
+                getRequest().setAttribute("leftNavNode", "architecture_stats");
+                break;
+            case 112:
+                getRequest().setAttribute("leftNavNode", "des_stats");
+                break;
+            case 113:
+                getRequest().setAttribute("leftNavNode", "dev_stats");
+                break;
+            case 125:
+                getRequest().setAttribute("leftNavNode", "assembly_stats");
+                break;
+            case 137:
+                getRequest().setAttribute("leftNavNode", "test_scenarios_stats");
+                break;
+            case 124:
+                getRequest().setAttribute("leftNavNode", "test_suites_stats");
+                break;
+            case 130:
+                getRequest().setAttribute("leftNavNode", "ui_prototype_stats");
+                break;
+            case 135:
+                getRequest().setAttribute("leftNavNode", "ria_build_stats");
+                break;
+            default:
+                getRequest().setAttribute("leftNavNode", "competition_home");
+            }
 
             setNextPage("/compstats/compContestDetails.jsp");
             setIsNextPageInContext(true);

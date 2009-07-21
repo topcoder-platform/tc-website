@@ -77,7 +77,7 @@ public class TCLoadTCS extends TCLoad {
      * <p>An <code>int</code> array representing all project categories that are currently being rated.
      * IF YOU CHANGE THIS LIST, YOU MUST ALSO UPDATE THE <code>getCurrentRatings</code> METHOD!</p>
      */
-    private static final int[] RATED_CATEGORIES = new int[] {1, 2, 6, 7, 13, 14, 23, 26};
+    private static final int[] RATED_CATEGORIES = new int[] {1, 2, 6, 7, 13, 14, 23, 26, 19, 24};
 
     private static Logger log = Logger.getLogger(TCLoadTCS.class);
 
@@ -2635,6 +2635,12 @@ public class TCLoadTCS extends TCLoad {
             query.append(" , case");
             query.append(" when ur.phase_id = 137 and exists (select '1' from active_test_scenarios_competitors asce where asce.user_id = ur.user_id)");
             query.append(" then 1 else 0 end as active_sce");
+            query.append(" , case");
+            query.append(" when ur.phase_id = 130 and exists (select '1' from active_ui_prototypes_competitors auip where auip.user_id = ur.user_id)");
+            query.append(" then 1 else 0 end as active_uip");
+            query.append(" , case");
+            query.append(" when ur.phase_id = 135 and exists (select '1' from active_ria_builds_competitors arbu where arbu.user_id = ur.user_id)");
+            query.append(" then 1 else 0 end as active_rbu");
             query.append(" , cs.school_id");
             query.append(" , c.coder_type_id");
             query.append(" , c.comp_country_code");
@@ -2676,6 +2682,12 @@ public class TCLoadTCS extends TCLoad {
                     } else if (rs.getInt("phase_id") == 137) {
                         ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"),
                                 rs.getInt("active_sce") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
+                    } else if (rs.getInt("phase_id") == 130) {
+                        ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"),
+                                rs.getInt("active_uip") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
+                    } else if (rs.getInt("phase_id") == 135) {
+                        ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"),
+                                rs.getInt("active_rbu") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
                     }
                 } else {
                     //students
@@ -2703,6 +2715,12 @@ public class TCLoadTCS extends TCLoad {
                     } else if (rs.getInt("phase_id") == 137) {
                         ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"), rs.getLong("school_id"),
                                 rs.getInt("active_sce") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
+                    } else if (rs.getInt("phase_id") == 130) {
+                        ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"), rs.getLong("school_id"),
+                                rs.getInt("active_uip") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
+                    } else if (rs.getInt("phase_id") == 135) {
+                        ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"), rs.getLong("school_id"),
+                                rs.getInt("active_rbu") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
                     }
                 }
             }
