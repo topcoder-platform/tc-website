@@ -230,5 +230,42 @@ public class ProjectRoleTermsOfUseBean extends BaseEJB {
         return ret;
     }
 
+    /**
+     * This method will remove all project role terms of use association for a given project
+     *
+     * @param projectId the project id to remove
+     * @param dataSource a <code>String</code> containing the datasource.
+     * @throws EJBException if any error occurs
+     * @throws RemoteException if any error occurs during remote invocation
+     */
+    public void removeAllProjectRoleTermsOfUse(int projectId, String dataSource)
+        throws EJBException {
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+
+        InitialContext ctx = null;
+        try {
+
+            StringBuffer query = new StringBuffer(1024);
+            query.append("DELETE ");
+            query.append("FROM project_role_terms_of_use_xref ");
+            query.append("WHERE project_id = ? ");
+
+            conn = DBMS.getConnection(dataSource);
+            ps = conn.prepareStatement(query.toString());
+            ps.setInt(1, projectId);
+
+            ps.executeUpdate();
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw(new EJBException(sqle.getMessage()));
+        } finally {
+            close(ps);
+            close(conn);
+            close(ctx);
+        }
+    }
+
 }
 
