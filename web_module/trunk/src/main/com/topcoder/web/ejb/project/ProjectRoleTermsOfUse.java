@@ -70,4 +70,15 @@ public interface ProjectRoleTermsOfUse extends EJBObject {
     public List<Long> getTermsOfUse(int projectId, int[] resourceRoleIds, String dataSource)
         throws EJBException, RemoteException;
 
+    /**
+     * This method will remove all project role terms of use association for a given project
+     *
+     * @param projectId the project id to remove
+     * @param dataSource a <code>String</code> containing the datasource.
+     * @throws EJBException if any error occurs
+     * @throws RemoteException if any error occurs during remote invocation
+     */
+    public void removeAllProjectRoleTermsOfUse(int projectId, String dataSource)
+            throws EJBException, RemoteException;
+    
 }

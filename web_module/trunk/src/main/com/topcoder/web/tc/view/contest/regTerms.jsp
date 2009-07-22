@@ -246,7 +246,7 @@
                                             <li>
                                                 ${terms_agreed_item.title}
                                                 <c:choose>
-                                                    <c:when test="${not empty terms_agreed_item.url}">
+                                                    <c:when test="${terms_agreed_item.electronicallySignable != 1}">
                                                         <a href="${terms_agreed_item.url}">(View)</a>
                                                     </c:when>
                                                     <c:otherwise>

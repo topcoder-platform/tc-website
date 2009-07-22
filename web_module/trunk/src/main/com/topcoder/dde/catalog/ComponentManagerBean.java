@@ -1095,6 +1095,18 @@ public class ComponentManagerBean
             projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(),
                     reviewerRoleId, reviewerTermsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
         }
+
+        // also add terms for the rest of the reviewer roles
+        int primaryScreenerRoleId = Integer.parseInt(getConfigValue("primary_screener_role_id"));
+        int aggregatorRoleId = Integer.parseInt(getConfigValue("aggregator_role_id"));
+        int finalReviewerRoleId = Integer.parseInt(getConfigValue("final_reviewer_role_id"));
+
+        projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(),
+                primaryScreenerRoleId, reviewerTermsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+        projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(),
+                aggregatorRoleId, reviewerTermsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+        projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(),
+                finalReviewerRoleId, reviewerTermsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
     }
 
 
