@@ -133,9 +133,9 @@
                         </tr>
                     </c:when>
                     <c:otherwise>
-                        You cannot agree to this terms electronically. You must print the terms and
-                        send a signed hard copy to TopCoder. You can get a printer friendly version
-                        <a href="${terms.url}">here</a>.
+                        <jsp:include page="/terms/paper_terms.jsp">
+                            <jsp:param name="terms.url" value="terms.url"/>
+                        </jsp:include>
                     </c:otherwise>
                 </c:choose>
             </c:if>
