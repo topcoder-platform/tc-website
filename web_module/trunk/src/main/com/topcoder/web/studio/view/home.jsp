@@ -45,6 +45,10 @@
             <jsp:param name="key" value="tc_studio_home"/>
         </jsp:include>
 
+		<!--[if lt IE 7]>
+				<script type="text/javascript" src="js/pngfix/unitpngfix.js"></script>
+		<![endif]--> 		
+
         <%-- Javascript code --%>
         <script src="/js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"></script>
         <script src="/js/NewStyleHeaderFooter/preloadCssImages.jQuery_v5.js" language="javascript"></script>
@@ -102,25 +106,25 @@
                             </div>
                             <ul>
                                 <li>
-                                    <a href="#"><img width="909" height="203" src="i/v4/1.png" alt="" /></a>
+                                    <a href="http://studio.topcoder.com/?module=ViewPastContests"><img width="909" height="203" src="i/v4/1.png" alt="" /></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img width="909" height="203" src="i/v4/2.png" alt="" /></a>
+                                    <a href="http://www.topcoder.com/news/2009/07/20/meet-the-june-coders-and-designers-of-the-month/"><img width="909" height="203" src="i/v4/2.png" alt="" /></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img width="909" height="203" src="i/v4/3.png" alt="" /></a>
+                                    <a href="http://studio.topcoder.com/?module=Static&d1=support&d2=memberRefferalProgram"><img width="909" height="203" src="i/v4/3.png" alt="" /></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img width="909" height="203" src="i/v4/4.png" alt="" /></a>
+                                    <a href="http://www.topcoder.com/tco09"><img width="909" height="203" src="i/v4/4.png" alt="" /></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img width="909" height="203" src="i/v4/5.png" alt="" /></a>
+                                    <a href="http://www.remixchallenge.com"><img width="909" height="203" src="i/v4/5.png" alt="" /></a>
                                 </li>
                                 <li>
-                                    <a href="#"><img width="909" height="203" src="i/v4/6.png" alt="" /></a>
+                                    <a href="http://www.topcoder.com/reg/"><img width="909" height="203" src="i/v4/6.png" alt="" /></a>
                                 </li>
-                                <li
-                                    <a href="#"><img width="909" height="203" src="i/v4/7.png" alt="" /></a>
+                                <li>
+                                    <a href="http://studio.topcoder.com/?module=Static&d1=support&d2=startingACompetition"><img width="909" height="203" src="i/v4/7.png" alt="" /></a>
                                 </li>
                             </ul>
                             <div class="jcarousel-control">
