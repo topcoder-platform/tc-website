@@ -66,31 +66,41 @@
         
                         <h1>Starting a Competition</h1>
                         
-                        <h3>How do I post a competition to Studio?</h3>
-						<p>
-						If you're interested in posting your own competition, you can click on over to TopCoder's new gateway to accessing the community directly, aptly named "<a href="http://www.topcoder.com/direct/">TopCoder Direct</a>". If you need additional support, or wish to explore our enterprise engagements, please <a href="mailto:studioadmin@topcoder.com">contact us</a>. 
-						</p>
-						<p>
+  <h3>How do I post a competition to Studio?</h3>
+	<p>
+	If you're interested in posting your own competition, you can click on over to <a href="http://www.topcoder.com/direct/">TopCoder Direct</a>. If you need additional support, or wish to explore our enterprise engagements, please <a href="mailto:studioadmin@topcoder.com">contact us</a>.  
+	</p>
+
+	<p>
 						
-                        <h3>What is TopCoder Direct?</h3>
-                        <p>
-                        TopCoder Direct is the bridge between you and the TopCoder community. This service allows you to access and utilize the designers within Studio to get all of your creative work done in the most efficient and cost effective way... through competition. You can launch and monitor a project, view and choose winners for your competitions, pay for and download your finished product, all through functional widgets.
-                        </p>
+   <h3>What is TopCoder Direct?</h3>
+          <p>
+           TopCoder Direct is the bridge between you and the TopCoder community. This service allows you to access and utilize the designers within Studio to get all of your creative work done in the most efficient and cost effective way... through competition. You can launch and monitor a project, view and choose winners for your competitions, pay for and download your finished product, all through functional widgets.
+           </p>
 						
-						<h3>What can I do in this first release?</h3>
-                        <p>
-                        For this beta release of TopCoder Direct, you can launch image-only design contests (logos, icons, print pieces, web screens) directly into TopCoder Studio. You'll have the ability to create and manage projects and contests, view and evaluate submissions that come in from the members, choose your winners, and download winning files.
-                        </p>
+   <h3>What kind of contests can I run on Studio through TopCoder Direct?</h3>
+           <p>
+           <ul>
+           <li> Logo contests</li>
+           <li> Web Design and Application UI contests (static designs for look and feel)</li>
+           <li> Print design contests </li>
+           <li> Banners, icons and buttons contests</li>
+           <li> Wireframe contests</li>
+           <li> Idea Generation contests</li>
+           </ul><br />
+           Need something different or want to take your web/application designs to the coding phase? <a href="mailto:directassist@topcoder.com">Contact us</a> and we'll be happy to help!
+           </p>
+
                         
-						<h3>How much does it cost?</h3>
-                        <p>
-                        Accessing the Direct is completely free. You only pay when you launch a contest. There are two fees associated with launching a contest: the administration fee and the prize amount you are willing to give the first place winner of your contest. The fees vary depending on what type of contest you are launching.
-                        </p>
+    <h3>How much does it cost?</h3>
+            <p>
+             Accessing TopCoder Direct is completely free. You only pay when you launch a contest. There are two fees associated with launching a contest: the administration fee and the prize purse amount you are willing to give the winners of your contest. The fees vary depending on what type of contest you are launching.
+             </p>
                         
-                        <h3>How do I get started?</h3>
-                        <p>
-                        Harnessing the creativity of the Studio community is easy! Just use the "Launch a Project" widget to create your project and then start adding contests. We've provided a simple <a href="http://www.topcoder.com/html/cockpit/landing_page/contestPreparationGuide.html">Contest Preparation Guide</a> to help you get started. Want to learn more about using Direct? <a href="http://www.topcoder.com/html/cockpit/landing_page/message.html">Check out the help topics</a>. 
-                        </p>
+     <h3>How do I get started?</h3>
+              <p>
+               Harnessing the creativity of the Studio community is easy! Just use the "Launch a Project" widget to create your project and then start adding contests. Follow the "hints" for each section for even more help. We've provided a simple <a href="http://www.topcoder.com/wiki/display/tcstudio/Contest+Preparation+Guide">Contest Preparation Guide</a> to help you get started. Follow the "hints" within the widget for even more help.
+               </p>
                         
                         <br clear="all"/>
                     </div>                
