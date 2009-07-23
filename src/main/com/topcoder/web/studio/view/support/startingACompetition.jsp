@@ -68,7 +68,7 @@
                         
                         <h3>How do I post a competition to Studio?</h3>
 						<p>
-						If you're interested in posting your own competition, you can click on over to TopCoder's new gateway to accessing the community directly, aptly named "[TopCoder Direct]." If you need additional support, or wish to explore our enterprise engagements, please <a href="mailto:studioadmin@topcoder.com">contact us</a>. 
+						If you're interested in posting your own competition, you can click on over to TopCoder's new gateway to accessing the community directly, aptly named "<a href="http://www.topcoder.com/direct/">TopCoder Direct</a>". If you need additional support, or wish to explore our enterprise engagements, please <a href="mailto:studioadmin@topcoder.com">contact us</a>. 
 						</p>
 						<p>
 						
