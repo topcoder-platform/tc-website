@@ -288,19 +288,6 @@
                     </div>
 
 
-					<%-- designer box --%>
-					<div class="designerBox">
-						<h2>DESIGNER OF THE MONTH</h2>
-						<p>
-							<img class="member" width="57" height="63" alt="Designer of the Month" src="http://<%=ApplicationServer.SERVER_NAME%>/i/m/nophoto.jpg"/>
-							<b>June 2009</b><br />
-							<b><a href="http://studio.topcoder.com/?module=ViewMemberProfile&ha=iamtong">iamtong</a></b>
-							won $4,625 in 5 contests!<br /><br />
-					  <b><a href="http://www.topcoder.com/news/2009/07/20/meet-the-june-coders-and-designers-of-the-month/">Read The Interview</a></b>
-						</p>
-					</div>
-
-
                 </div><%-- .wrapper ends --%>
             </div><%-- #links block ends --%>
         </div><%-- #page-wrap ends --%>
