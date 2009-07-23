@@ -196,7 +196,7 @@ public class ProjectRoleTermsOfUseBean extends BaseEJB {
         InitialContext ctx = null;
         try {
             StringBuffer query = new StringBuffer(1024);
-            query.append("SELECT terms_of_use_id ");
+            query.append("SELECT DISTINCT terms_of_use_id ");
             query.append("FROM project_role_terms_of_use_xref ");
             query.append("WHERE project_id = ? and resource_role_id in (");
 
