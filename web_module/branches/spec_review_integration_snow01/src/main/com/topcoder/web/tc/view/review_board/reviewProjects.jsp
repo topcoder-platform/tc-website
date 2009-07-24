@@ -21,12 +21,19 @@
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
+<%@ page import="com.topcoder.web.common.model.SoftwareComponent" %>
+
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>  
+<%@ taglib prefix="tc_tags" tagdir="/WEB-INF/tags" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <%-- Variables to use JSTL --%>
 <c:set var="PROJECT_TYPE_ID" value="<%=Constants.PROJECT_TYPE_ID%>"/>
+<c:set var="APPLICATIONS_CATALOG_ID" value="<%=Constants.APPLICATIONS_CATALOG_ID%>"/>
+<c:set var="DEV_PHASE" value="<%=SoftwareComponent.DEV_PHASE%>"/>
 <c:set var="projectType" value="${param[PROJECT_TYPE_ID]}" scope="request"/>
 <jsp:include page="reviewCommonVariables.jsp"/>
 
@@ -64,11 +71,10 @@
                     of review positions available for each project. If you click on an
                     ${fn:toLowerCase(projectTypeDesc)} name you will be able to see all of the details associated with
                     that ${fn:toLowerCase(projectTypeDesc)} review.</p>
-                <p>If you are not currently on the TopCoder ${projectTypeDesc} Review Board you may send an email to
+                <p>If you are not currently on ${eligibleReviewBoardName} you may send an email to
                     <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a> requesting permission
                     to perform reviews. Please keep in mind only members that have completed
-                    ${fn:toLowerCase(projectTypeDesc)} projects are eligible to join the TopCoder ${projectTypeDesc}
-                    Review board.</p>
+                    ${fn:toLowerCase(projectTypeDesc)} projects are eligible to join ${eligibleReviewBoardName}.</p>
                 <p>In order to sign up for a review position, click on the "details" link for any
                     ${fn:toLowerCase(projectTypeDesc)} with positions available,and then select "Apply Now" next to the
                     position that you would like to commit to.</p>
@@ -80,11 +86,18 @@
                                     <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
                                         <tr>
                                             <td class="tableTitle" colspan="11">
-                                                ${projectTypeDesc} Review Opportunities
+                                                ${projectTypeTitle} Review Opportunities
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="tableHeader" align="center">Type</td>
+                                        	<c:choose>
+	                                            <c:when test="${projectType == DESIGN_PROJECT_TYPE ||
+	                                            	projectType == DESIGN_SPECIFICATION_PROJECT_TYPE}">
+	                                            </c:when>
+	                                            <c:otherwise>
+	                                            	<td class="tableHeader" align="center">Type</td>
+	                                            </c:otherwise>
+                                            </c:choose>
                                             <td class="tableHeader" align="center">Catalog</td>
                                             <td class="tableHeader" width="100%">${projectTypeDesc}</td>
                                             <td class="tableHeader" align="right" nowrap="nowrap">
@@ -102,13 +115,52 @@
                                         <c:set var="i" value="0"/>
                                         <c:forEach items="${projectList}" var="resultRow">
                                             <tr>
-                                                <td class="statDk" align="center">${projectTypeDesc}</td>
-                                                <td class="statDk" align="center">${projectTypeDesc}</td>
+                                            	<c:choose>
+	                                                <c:when test="${projectType == DESIGN_PROJECT_TYPE ||
+	                                                	projectType == DESIGN_SPECIFICATION_PROJECT_TYPE}">
+	                                                </c:when>
+	                                                <c:when test="${projectType == DEVELOPMENT_PROJECT_TYPE ||
+	                                                	projectType == DEVELOPMENT_SPECIFICATION_PROJECT_TYPE}">
+	                                                	<td class="statDk" align="center">
+	                                                		<c:choose>
+					                                            <c:when test="${resultRow.map['phase_id'] == DEV_PHASE}">
+					                                            	Development
+					                                            </c:when>
+					                                            <c:otherwise>
+					                                            	Testing
+					                                            </c:otherwise>
+				                                            </c:choose>
+	                                                	</td> 
+	                                                </c:when>
+	                                                <c:otherwise>
+	                                                	<td class="statDk" align="center">${projectTypeDesc}</td>
+	                                                </c:otherwise>
+                                                </c:choose>
+                                                <td class="statDk" align="center">
+	                                                <c:choose>
+		                                                <c:when test="${projectType == DEVELOPMENT_PROJECT_TYPE ||
+		                                                	projectType == DESIGN_PROJECT_TYPE ||
+		                                                	projectType == DESIGN_SPECIFICATION_PROJECT_TYPE ||
+		                                                	projectType == DEVELOPMENT_SPECIFICATION_PROJECT_TYPE}">
+		                                                	<tc_tags:languageIcon catalogName = "${resultRow.map['catalog']}" aolBrand="${resultRow.map['aol_brand'] != null}"/> 
+		                                                </c:when>
+		                                                <c:otherwise>
+		                                                	${projectTypeDesc}
+		                                                </c:otherwise>
+	                                                </c:choose>
+                                                </td>
                                                 <td class="statDk">
-                                                    <a href="${sessionInfo.servletPath}?${MODULE_KEY}=ProjectDetail&${PROJECT_ID}=${resultRow.map['project_id']}">
-                                                        ${resultRow.map["component_name"]}
-                                                        ${resultRow.map["version"]}
-                                                    </a>
+                                                	<c:choose>
+			                                            <c:when test="${resultRow.map['category_id'] == APPLICATIONS_CATALOG_ID}">
+			                                            	${resultRow.map["component_name"]} ${resultRow.map["version"]}
+			                                            </c:when>
+			                                            <c:otherwise>
+			                                            	<a href="${sessionInfo.servletPath}?${MODULE_KEY}=ProjectDetail&${PROJECT_ID}=${resultRow.map['project_id']}">
+		                                                        ${resultRow.map["component_name"]}
+		                                                        ${resultRow.map["version"]}
+		                                                    </a>
+			                                            </c:otherwise>
+		                                            </c:choose>
                                                 </td>
                                                 <td class="statDk" align="right">
                                                     $ <fmt:formatNumber value="${prices[i].primaryReviewPrice}"

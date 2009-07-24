@@ -85,9 +85,11 @@
                         <tr>
                             <td class="projectCells" align="left">
                                 <c:choose>
-                                    <c:when test="${projectType == DEVELOPMENT_SPECIFICATION_PROJECT_TYPE ||
+                                    <c:when test="${projectType == DEVELOPMENT_PROJECT_TYPE ||
+                                        projectType == DESIGN_PROJECT_TYPE ||
+                                        projectType == DEVELOPMENT_SPECIFICATION_PROJECT_TYPE ||
                                         projectType == DESIGN_SPECIFICATION_PROJECT_TYPE}">
-                                        ${projectDetailRow.map['catalog']}
+                                        	${projectDetailRow.map['catalog']}
                                     </c:when>
                                     <c:otherwise>
                                         ${projectTypeDesc}

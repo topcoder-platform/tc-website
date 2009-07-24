@@ -623,6 +623,7 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param primary true if the reviewer is signing up for primary reviewer position
 	 * @throws RBoardRegistrationException if an unexpected error occurs.
      * @throws RemoteException if an error occurs while calling EJB method remotely.
+     * @throws EJBException if an error occurs doing persistence operations
 	 * @since 1.0.11
      */
     @SuppressWarnings("unchecked")
@@ -681,6 +682,7 @@ public class RBoardApplicationBean extends BaseEJB {
      * 
      * @param conn the database connection for the update.
      * @param projectId the project id for which to update.
+     * @throws EJBException if an error occurs doing persistence operations
 	 * @since 1.0.11
      */
     private void updateSpecReviewToAssigned(Connection conn, long projectId) {
@@ -709,6 +711,7 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param conn the datbase connection to be used.
      * @param projectId the project id for which reviewer entry should be added.
      * @param userId the reviewer's user id.
+     * @throws EJBException if an error occurs doing persistence operations
 	 * @since 1.0.11
      */
     private void addSpecReviewReviewer(Connection conn, long projectId, long userId) {

@@ -66,12 +66,14 @@
                 <jsp:param name="node" value="assembly_review"/>
             </jsp:include>
         </c:when>
-        <c:when test="${projectType == DESIGN_SPECIFICATION_PROJECT_TYPE}">
+        <c:when test="${projectType == DESIGN_PROJECT_TYPE ||
+        	projectType == DESIGN_SPECIFICATION_PROJECT_TYPE}">
             <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="des_review"/>
             </jsp:include>
         </c:when>
-        <c:when test="${projectType == DEVELOPMENT_SPECIFICATION_PROJECT_TYPE}">
+        <c:when test="${projectType == DEVELOPMENT_PROJECT_TYPE ||
+        	projectType == DEVELOPMENT_SPECIFICATION_PROJECT_TYPE}">
             <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="dev_review"/>
             </jsp:include>
