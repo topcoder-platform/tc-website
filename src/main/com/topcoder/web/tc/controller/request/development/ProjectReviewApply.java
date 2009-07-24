@@ -264,6 +264,8 @@ public class ProjectReviewApply extends Base {
     /**
      * <p>Gets the logical name for the view which is to be used for displaying the terms of use for the reviews of
      * specified type requested by client.</p>
+     * 
+     * Updated for Version 1.0.8 - now review terms are viewable through unified page.
      *
      * @param projectType a <code>String</code> referencing the project type requested by client.
      * @return a <code>String</code> referencing the view to be used for displaying the terms of use for projects of
@@ -271,24 +273,14 @@ public class ProjectReviewApply extends Base {
      * @since TCS Release 2.2.0 (TCS-54)
      */
     private String getReviewTermsView(String projectType) {
-        if (projectType.equals(String.valueOf(WebConstants.DESIGN_PROJECT_TYPE))) {
-            return Constants.REVIEWER_TERMS;
-        } else if (projectType.equals(String.valueOf(WebConstants.DEVELOPMENT_PROJECT_TYPE))) {
-            return Constants.REVIEWER_TERMS;
-        } else if (projectType.equals(String.valueOf(WebConstants.ASSEMBLY_PROJECT_TYPE))) {
-            return Constants.ASSEMBLY_REVIEWER_TERMS;
-        } else if (projectType.equals(String.valueOf(WebConstants.ARCHITECTURE_PROJECT_TYPE))) {
-            return Constants.ARCHITECTURE_REVIEWER_TERMS;
-        } else {
-            // we don't need to check for project types, they are already verified.
-            return Constants.UNIFIED_REVIEWER_TERMS_PAGE;
-        }
+        // we don't need to check for project types, they are already verified.
+        return Constants.UNIFIED_REVIEWER_TERMS_PAGE;
     }
 
     /**
      * Private helper method to decide if a project type should be validated with catalog or not
      * 
-     * Updated for Specification Review Integration 1.0
+     * Updated for 1.0.8
      *      - specification project type ids are included in validation.
      *
      * @param projectTypeId the project type id

@@ -215,6 +215,8 @@ public class ViewReviewProjects extends ReviewProjectDetail {
     /**
      * <p>Gets the logical name for the view which is to be used for displaying the list of review opportunities of
      * specified type requested by client.</p>
+     * 
+     * Updated for Version 1.0.7 - now all review opportunities are viewable through unified page.
      *
      * @param projectType a <code>String</code> referencing the project type requested by client.
      * @return a <code>String</code> referencing the view to be used for displaying the list of review opportunities for
@@ -222,17 +224,6 @@ public class ViewReviewProjects extends ReviewProjectDetail {
      * @since TCS Release 2.2.0 (TCS-54)
      */
     private String getReviewOpportunitiesView(String projectType) {
-        if (projectType.equals(String.valueOf(WebConstants.DESIGN_PROJECT_TYPE))) {
-            return Constants.REVIEW_PROJECTS;
-        } else if (projectType.equals(String.valueOf(WebConstants.DEVELOPMENT_PROJECT_TYPE))) {
-            return Constants.REVIEW_PROJECTS;
-        } else if (projectType.equals(String.valueOf(WebConstants.ASSEMBLY_PROJECT_TYPE))) {
-            return Constants.ASSEMBLY_REVIEW_PROJECTS;
-        } else if (projectType.equals(String.valueOf(WebConstants.ARCHITECTURE_PROJECT_TYPE))) {
-            return Constants.ARCHITECTURE_REVIEW_PROJECTS;
-        } else {
-            // we don't need to check for project types, they are already verified.
-            return Constants.UNIFIED_REVIEW_PROJECTS_PAGE;
-        }
+        return Constants.UNIFIED_REVIEW_PROJECTS_PAGE;
     }
 }

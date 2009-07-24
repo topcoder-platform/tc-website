@@ -56,21 +56,23 @@
     <c:when test="${projectType == ARCHITECTURE_PROJECT_TYPE ||
         projectType == ARCHITECTURE_SPECIFICATION_PROJECT_TYPE}">
         <jsp:include page="/top.jsp">
-            <jsp:param name="level1" value="architecture"/>
+            <jsp:param name="level1" value="development"/>
         </jsp:include>
     </c:when>
     <c:when test="${projectType == ASSEMBLY_PROJECT_TYPE ||
         projectType == ASSEMBLY_SPECIFICATION_PROJECT_TYPE}">
         <jsp:include page="/top.jsp">
-            <jsp:param name="level1" value="assembly"/>
+            <jsp:param name="level1" value="development"/>
         </jsp:include>
     </c:when>
-    <c:when test="${projectType == DESIGN_SPECIFICATION_PROJECT_TYPE}">
+    <c:when test="${projectType == DESIGN_PROJECT_TYPE ||
+    	projectType == DESIGN_SPECIFICATION_PROJECT_TYPE}">
         <jsp:include page="/top.jsp">
-            <jsp:param name="level1" value="design"/>
+            <jsp:param name="level1" value="development"/>
         </jsp:include>
     </c:when>
-    <c:when test="${projectType == DEVELOPMENT_SPECIFICATION_PROJECT_TYPE}">
+    <c:when test="${projectType == DEVELOPMENT_PROJECT_TYPE ||
+    	projectType == DEVELOPMENT_SPECIFICATION_PROJECT_TYPE}">
         <jsp:include page="/top.jsp">
             <jsp:param name="level1" value="development"/>
         </jsp:include>

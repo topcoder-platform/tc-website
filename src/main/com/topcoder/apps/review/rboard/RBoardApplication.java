@@ -1,9 +1,10 @@
 /*
- * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
+ * Copyright (c) 2006-2009 TopCoder, Inc. All rights reserved.
  */
 
 package com.topcoder.apps.review.rboard;
 
+import javax.ejb.EJBException;
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
 import java.sql.Timestamp;
@@ -86,6 +87,7 @@ public interface RBoardApplication extends EJBObject {
      * @param primary true if the reviewer is signing up for primary reviewer position
 	 * @throws RBoardRegistrationException if an unexpected error occurs.
      * @throws RemoteException if an error occurs while calling EJB method remotely.
+     * @throws EJBException if an error occurs doing persistence operations
 	 *
 	 * @since 1.0.4
      */
