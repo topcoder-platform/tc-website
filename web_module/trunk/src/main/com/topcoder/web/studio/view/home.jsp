@@ -269,7 +269,9 @@
                             <li><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/">TopCoder Forums</a></li>
                             <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums">Studio Forums</a></li>
                         </ul>
-
+					</div>
+					
+					<div class="col">
                         <h4>TopCoder Blogs</h4>
                         <ul>
                             <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/blogs/">TopCoder Direct</a></li>
