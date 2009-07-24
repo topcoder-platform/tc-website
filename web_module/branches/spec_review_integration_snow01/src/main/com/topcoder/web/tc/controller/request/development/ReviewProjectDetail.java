@@ -70,7 +70,7 @@ import java.util.Map;
  *   </ol>
  * </p>
  *
- * @author dok, isv, pulky, TCSASSEMBLER
+ * @author dok, isv, pulky, snow01
  * @version 1.0.6
  * @since 1.0
  */

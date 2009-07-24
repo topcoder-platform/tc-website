@@ -88,7 +88,7 @@ import java.io.FileOutputStream;
  *   </ol>
  * </p>
  *
- * @author dok, isv, pulky, TCSASSEMBLER
+ * @author dok, isv, pulky, snow01
  * @version 1.0.8
  */
 public class ProjectReviewApply extends Base {

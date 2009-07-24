@@ -107,7 +107,7 @@ import java.util.Map;
  *   </ol>
  * </p>
  *
- * @author dok, ivern, isv, pulky, TCSASSEMBLER
+ * @author dok, ivern, isv, pulky, snow01
  * @version 1.0.11
  */
 public class RBoardApplicationBean extends BaseEJB {

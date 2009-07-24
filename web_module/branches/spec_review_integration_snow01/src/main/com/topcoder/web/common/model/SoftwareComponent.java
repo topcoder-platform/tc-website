@@ -37,7 +37,7 @@ import com.topcoder.web.common.WebConstants;
  * </p>
 
  *
- * @author dok, pulky, TCSASSEMBLER
+ * @author dok, pulky, snow01
  * @version 1.3
  */
 public interface SoftwareComponent extends Cloneable, Serializable {

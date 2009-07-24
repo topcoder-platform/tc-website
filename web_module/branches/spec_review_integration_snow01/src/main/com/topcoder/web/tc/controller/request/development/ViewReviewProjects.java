@@ -65,7 +65,7 @@ import com.topcoder.web.tc.Constants;
  *   </ol> 
  * </p>
  *
- * @author dok, ivern, isv, pulky, TCSASSEMBLER
+ * @author dok, ivern, isv, pulky, snow01
  * @version 1.0.7
  */
 public class ViewReviewProjects extends ReviewProjectDetail {
