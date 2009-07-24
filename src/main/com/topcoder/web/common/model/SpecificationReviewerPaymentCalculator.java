@@ -6,7 +6,7 @@ package com.topcoder.web.common.model;
 /**
  * <p><strong>Purpose</strong>: This class is used to calculate review costs for specification review projects.</p>
  *
- * @author TCSASSEMBLER
+ * @author snow01
  * @version 1.0 (Specification Review Integration 1.0)
  */
 public class SpecificationReviewerPaymentCalculator implements ReviewerPaymentCalculator {

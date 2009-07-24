@@ -28,7 +28,7 @@ package com.topcoder.web.common;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, TCSASSEMBLER
+ * @author dok, pulky, snow01
  * @version 1.3
  */
 public interface WebConstants {

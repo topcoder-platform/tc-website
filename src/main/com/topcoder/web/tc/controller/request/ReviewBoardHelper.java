@@ -48,7 +48,7 @@ import com.topcoder.web.common.WebConstants;
  *   </table>
  * </p>
  *
- * @author pulky, TCSASSEMBLER
+ * @author pulky, snow01
  * @version 1.3
  */
 public final class ReviewBoardHelper {

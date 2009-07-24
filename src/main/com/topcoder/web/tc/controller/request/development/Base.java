@@ -65,7 +65,7 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *   </table>
  * </p>
  *
- * @author dok, isv, pulky, TCSASSEMBLER
+ * @author dok, isv, pulky, snow01
  * @version 1.4
  */
 public abstract class Base extends ShortHibernateProcessor {
