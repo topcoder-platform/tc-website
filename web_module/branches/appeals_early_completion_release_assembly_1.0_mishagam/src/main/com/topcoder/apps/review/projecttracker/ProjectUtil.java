@@ -209,9 +209,20 @@ public class ProjectUtil {
         ps.setString(index++, String.valueOf(userId));
         ps.setString(index++, String.valueOf(userId));
         nr = ps.executeUpdate();
-
         if (nr != 1) {
             throw new RuntimeException("Could not create Registration Date resourceinfo !");
+        }
+
+        // Appeals Ended Early 13 M.G. 7/26/2009
+        index = 1;
+        ps.setLong(index++, resourceId);
+        ps.setLong(index++, 13);
+        ps.setString(index++, "No");
+        ps.setString(index++, String.valueOf(userId));
+        ps.setString(index++, String.valueOf(userId));
+        nr = ps.executeUpdate();
+        if (nr != 1) {
+            throw new RuntimeException("Could not create Appeals Ended Early resourceinfo !");
         }
 
         close(ps);
