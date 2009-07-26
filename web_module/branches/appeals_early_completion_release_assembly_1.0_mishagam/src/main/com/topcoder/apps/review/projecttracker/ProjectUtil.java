@@ -56,9 +56,14 @@ public class ProjectUtil {
 
     public static final int COMPONENT_TESTING_PROJECT_TYPE = 5;
 
+    private static Logger log;
+
     static void userInquiry(Connection conn, long userId, long projectId) throws SQLException {
         PreparedStatement ps = null;
         ResultSet rs = null;
+        
+        log = Logger.getLogger(ProjectTrackerV2Bean.class);
+        log.info("ProjectUtiluserInquiry started"); // XXX
 
         // Prepare resource
         ps = conn.prepareStatement("INSERT INTO resource " +
@@ -214,6 +219,7 @@ public class ProjectUtil {
         }
 
         // Appeals Ended Early 13 M.G. 7/26/2009
+        log.info("ProjectUtil::userInquiry - creating Appel Ended Early");
         index = 1;
         ps.setLong(index++, resourceId);
         ps.setLong(index++, 13);

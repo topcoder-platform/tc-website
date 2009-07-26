@@ -173,5 +173,6 @@
 	<classpathentry kind="var" path="ARTIFACTS/logging-1.0.0.jar"/>
 	<classpathentry kind="lib" path="lib/jars/tcs/studio_service.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/shared"/>
+	<classpathentry kind="lib" path="C:/Topcoder/Apps/TopcoderSite/shared_src"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
