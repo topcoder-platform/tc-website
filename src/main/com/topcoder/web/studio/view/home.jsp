@@ -100,41 +100,41 @@
                 <div class="home_content">
                     <div id="top_part">
                         <div id="mycarousel" class="jcarousel-skin-tango">
-                            <div class="jcarousel-control">
+                            <div class="jcarousel-control loadWorkaround" 	style="position:relative;">
                                 <a href="#" class="bt6" id="tab6">6</a>
                                 <a href="#" class="bt7" id="tab7">7</a>
                             </div>
                             <ul>
-                                <li>
+                                <li style="display:none" class="loadWorkaround">
                                     <a href="http://studio.topcoder.com/?module=ViewPastContests"><img width="909" height="203" src="i/v4/1.png" alt="" /></a>
                                 </li>
-                                <li>
+                                <li style="display:none" class="loadWorkaround">
                                     <a href="http://www.topcoder.com/news/2009/07/20/meet-the-june-coders-and-designers-of-the-month/"><img width="909" height="203" src="i/v4/2.png" alt="" /></a>
                                 </li>
-                                <li>
+                                <li style="display:none" class="loadWorkaround">
                                     <a href="http://studio.topcoder.com/?module=Static&d1=support&d2=memberRefferalProgram"><img width="909" height="203" src="i/v4/3.png" alt="" /></a>
                                 </li>
-                                <li>
+                                <li style="display:none" class="loadWorkaround">
                                     <a href="http://www.topcoder.com/tco09"><img width="909" height="203" src="i/v4/4.png" alt="" /></a>
                                 </li>
-                                <li>
+                                <li style="display:none" class="loadWorkaround">
                                     <a href="http://www.remixchallenge.com"><img width="909" height="203" src="i/v4/5.png" alt="" /></a>
                                 </li>
-                                <li>
+                                <li >
                                     <a href="http://www.topcoder.com/reg/"><img width="909" height="203" src="i/v4/6.png" alt="" /></a>
                                 </li>
-                                <li>
+                                <li style="display:none" class="loadWorkaround">
                                     <a href="http://studio.topcoder.com/?module=Static&d1=support&d2=startingACompetition"><img width="909" height="203" src="i/v4/7.png" alt="" /></a>
                                 </li>
                             </ul>
-                            <div class="jcarousel-control">
+                            <div class="jcarousel-control loadWorkaround" style="position:absolute; top:225px; left:160px;">
                                 <a href="#" class="bt1_5 bt1" id="tab1"><span>1</span></a>
                                 <a href="#" class="bt1_5 bt2" id="tab2"><span>2</span></a>
                                 <a href="#" class="bt1_5 bt3" id="tab3"><span>3</span></a>
                                 <a href="#" class="bt1_5 bt4" id="tab4"><span>4</span></a>
                                 <a href="#" class="bt1_5 bt5" id="tab5"><span>5</span></a>
                             </div>
-                            <div class="jcarousel-scroll">
+                            <div class="jcarousel-scroll loadWorkaround" style="position:absolute; top:215px; left:160px;">
                                 <form action="">
                                     <a href="#" id="mycarousel-prev"></a><a href="#" id="mycarousel-next"></a>
                                 </form>
