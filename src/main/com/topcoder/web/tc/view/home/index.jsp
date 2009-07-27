@@ -234,7 +234,6 @@ $(document).ready(function(){
                                 <h3><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/">TopCoder Studio</a></h3>
                                 <p>The creative side of TopCoder. Logos, posters, storyboards, prototypes&hellip;</p>
                             </div>
-                            <div id="remix"> <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor3"><img src="/i/tournament/tco09/tco09-fb-340x76.png" alt="Facebook - TCO09 Sponsor" /></a></div>
                             <div id="remix"> <a href="http://www.topcoder.com/remix"><img src="/i/remix/remix-340.jpg" alt="REMIX Challenge" /></a></div>
                         </div>
                     </div>
