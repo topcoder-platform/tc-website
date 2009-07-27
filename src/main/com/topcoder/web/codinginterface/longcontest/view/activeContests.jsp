@@ -57,7 +57,7 @@
 
             <div align="right" style="margin: 6px 0px;">
                 <a href="/longcontest/?module=Static&amp;d1=instructions"><img src="/i/interface/getStarted.png" alt="Need help? Learn how to get started" /></a><br /><br />
-          		<a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor3"><img src="/i/tournament/tco09/tco09-fb-340x76.png" alt="Facebook - TCO09 Sponsor" /></a><br /><br />
+          		<a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor1"><img src="/i/tournament/tco09/tco09-ieee-340x76.png" alt="IEEE - TCO09 Sponsor" /></a><br /><br />
             </div>
             
         <%-- MM Promo On/Off--%>
