@@ -1,1 +1,0 @@
-runfix.sh fixdr.xml
