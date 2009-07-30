@@ -34,7 +34,7 @@
 
 <span class="title">Overview</span>
 <br /><br />
-Each contest posted in <a href="/tc?module=ViewActiveContests&amp;ph=112">Software Design</a> and <a href="/tc?module=ViewArchitectureActiveContests">Software Architecture</a> will carry a point value. Placement points will be awarded based on the number of submissions that pass review, as follows:
+Each contest posted in <a href="/tc?module=ViewActiveContests&amp;ph=112">Software Design</a>, <a href="/tc?module=ActiveContests&amp;pt=7">Software Architecture</a>, <a href="/tc?module=ActiveContests&amp;pt=23">Software Conceptualization</a>, <a href="/tc?module=ActiveContests&amp;pt=6">Software Specification</a>, and <a href="/tc?module=ActiveContests&amp;pt=26">Test Scenarios</a> will carry a point value. Placement points will be awarded based on the number of submissions that pass review, as follows:
 <br /><br />
 <a class="bcLink" name="point_table"></a>
 <div align="center">
