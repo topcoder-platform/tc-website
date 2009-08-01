@@ -91,8 +91,8 @@ public class Register extends ViewRegistration {
 
             String termsOfUseId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_ID));
 
+            long userId = getLoggedInUser().getId();
             if (!"".equals(termsOfUseId)) {
-                long userId = getLoggedInUser().getId();
 
                 boolean agreed = "on".equals(getRequest().getParameter(Constants.TERMS_AGREE));
                 if (agreed) {
@@ -116,7 +116,13 @@ public class Register extends ViewRegistration {
                 setNextPage("/contest/regTerms.jsp");
                 setIsNextPageInContext(true);
             } else {
-                // they don't have pending terms of use
+                // make sure they don't have pending terms of use (they could get here faking the URL)
+                if (processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS)) {
+                    setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
+                    setNextPage("/contest/regTerms.jsp");
+                    setIsNextPageInContext(true);
+                    return;
+                }
                 boolean isEligible = getRequest().getAttribute(Constants.MESSAGE) == null;
                 if (isEligible) {
                     if (log.isDebugEnabled()) {
