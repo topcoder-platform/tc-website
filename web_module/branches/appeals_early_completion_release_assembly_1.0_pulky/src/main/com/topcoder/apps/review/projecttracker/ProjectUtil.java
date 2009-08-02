@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006-2009 TopCoder, Inc. All rights reserved.
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.apps.review.projecttracker;
 
@@ -49,14 +49,14 @@ import java.util.Set;
  *     <li>Added Appeals Completed Early flag store when a new user registers.</li>
  *   </ol>
  * </p>
- * 
- * @author brain_cn, pulky, TCSDEVELOPER
+ *
+ * @author brain_cn, pulky
  * @version 1.2
  */
 public class ProjectUtil {
 
     /**
-     * This constant stores "No" value for Appeals Completed Early flag property 
+     * This constant stores "No" value for Appeals Completed Early flag property
      *
      * @since 1.2
      */
@@ -80,7 +80,7 @@ public class ProjectUtil {
 
     /**
      * This method processes user inquiry for a particular project
-     * 
+     *
      * @param conn the <code>Connection</code> being used.
      * @param userId the user id to register.
      * @param projectId the project id the user is registering to.
@@ -252,18 +252,18 @@ public class ProjectUtil {
 
     /**
      * Private helper method to save a resource info record.
-     * 
+     *
      * @param resourceId the resource id being saved
      * @param propertyId the property id being saved
      * @param propertyValue the property value being saved
-     * @param userId the user saving this record 
+     * @param userId the user saving this record
      * @param ps the prepared statement for this insertion
      * @throws SQLException if any error occurs in the underlying layer
      * @throws RuntimeException if not exactly one record was saved
-     * 
+     *
      * @since 1.2
      */
-    private static void saveResourceInfoRecord(long resourceId, long propertyId, String propertyValue, 
+    private static void saveResourceInfoRecord(long resourceId, long propertyId, String propertyValue,
             String userId, PreparedStatement ps) throws SQLException, RuntimeException {
 
         int index = 1;
