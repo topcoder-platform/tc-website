@@ -639,8 +639,8 @@
         ========== Configuration for Online Review Phases component ==========
     -->
     <Config name="com.cronos.onlinereview.phases.ManagerHelper">
-        <Property name="projectDetailsBaseURL">
-            <Value>http://software.topcoder.com/review/actions/ViewProjectDetails.do?method=viewProjectDetails&pid=</Value>
+        <Property name="ProjectDetailsURL">
+            <Value>http://tcs.cloud.topcoder.com/review/actions/ViewProjectDetails.do?method=viewProjectDetails&amp;pid=</Value>
         </Property>
         <Property name="ProjectManager">
             <Property name="ClassName">
@@ -2860,8 +2860,8 @@
         <Property name="user_identifer_key">
             <Value>userId</Value>
         </Property>
-        <Property name="projectDetailsBaseURL">
-            <Value>http://software.topcoder.com/review/actions/ViewProjectDetails.do?method=viewProjectDetails&pid=</Value>
+        <Property name="ProjectDetailsURL">
+            <Value>http://tcs.cloud.topcoder.com/review/actions/ViewProjectDetails.do?method=viewProjectDetails&amp;pid=</Value>
         </Property>
         <Property name="RootCatalogs">
             <Property name="Java">
