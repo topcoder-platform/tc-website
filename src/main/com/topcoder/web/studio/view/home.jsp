@@ -115,7 +115,7 @@
                                     <a href="http://studio.topcoder.com/?module=Static&d1=support&d2=memberRefferalProgram"><img width="909" height="203" src="i/v4/3.png" alt="" /></a>
                                 </li>
                                 <li style="display:none" class="loadWorkaround">
-                                    <a href="http://www.topcoder.com/tco09"><img width="909" height="203" src="i/v4/4.png" alt="" /></a>
+                                    <a href="http://studio.topcoder.com/blog/?p=264"><img width="909" height="203" src="i/v4/4.png" alt="" /></a>
                                 </li>
                                 <li style="display:none" class="loadWorkaround">
                                     <a href="http://www.remixchallenge.com"><img width="909" height="203" src="i/v4/5.png" alt="" /></a>
