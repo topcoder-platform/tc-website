@@ -1,27 +1,18 @@
+The following items were fixed:
+
 BeBetter:
 1.1.1:
-    #1: not required
-    #2: not required
-    #3: fixed (2.1.2)
+    #3: fixed (see 2.1.2)
 
 2.1.2:
     #1: fixed, made configurable
 
 PE:
 1.1.1:
-    #1: not required
     #2: code was cleaned up and commented
     #3: fixed
-    
-    Response 3:  Required  https://www.topcoder.com/bugs/browse/OR-671, requirement 6, "if all submitters that passed 
-    screening are done with their appeals. ", please note the "submitters that passed screening" criteria. It seems you did not check it.
-    
 2.1.2:
-    #1: fixed, made configurable
-    
-    Response 1:  Required  The newly added com.cronos.onlinereview.actions.Constants#PROJECT_DETAILS_URL should not be hard coded, especially for the host name and servlet path.
-Same for com.cronos.onlinereview.phases.AbstractPhaseHandler#PROJECT_DETAILS_URL 
-    
+    #1: fixed, made configurable    
 2.2.2:
     #1: fixed
     #2: fixed
@@ -32,8 +23,16 @@ Same for com.cronos.onlinereview.phases.AbstractPhaseHandler#PROJECT_DETAILS_URL
     #2: fixed
 4.1.1:
     #1 fixed
-    
-* deployment document was updated with changes to 2.1.2
-* TCSDEVELOPER was updated
+
+
+Other work performed:    
+1) deployment document was updated with changes to 2.1.2
+2) TCSDEVELOPER was updated in all deliverables
+3) Hardcoded minimum screening pass score was fixed. 
+    Please refer to http://forums.topcoder.com/?module=Thread&threadID=648125.
+    You can easily test it by making a screening score 25 (score 1 in the single scorecard item) and run: (design scorecard)
+    update scorecard set min_score = 26 where scorecard_id = 30000410;
+    update scorecard set min_score = 10 where scorecard_id = 30000410;
+    You'll see how the project details page react to this.
 
 Thanks.
