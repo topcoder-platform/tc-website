@@ -22,7 +22,7 @@ PE:
     #1: PROJECT_DETAILS_URL is no longer there.
     #2: fixed
 4.1.1:
-    #1 fixed
+    #1: fixed
 
 
 Other work performed:    
