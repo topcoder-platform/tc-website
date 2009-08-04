@@ -20,6 +20,8 @@ public class UserTermsOfUseBean extends BaseEJB {
     public void createUserTermsOfUse(long userId, long _terms_of_use_id, String dataSource)
             throws EJBException {
 
+        log.debug("ivern debug: createUserTermsOfUse(" + userId + ", " + _terms_of_use_id + ") called.");
+
         Connection conn = null;
         PreparedStatement ps = null;
 
@@ -36,13 +38,16 @@ public class UserTermsOfUseBean extends BaseEJB {
             ps.setLong(1, userId);
             ps.setLong(2, _terms_of_use_id);
 
+            log.debug("ivern debug: before update.");
             int rc = ps.executeUpdate();
             if (rc != 1) {
                 throw(new EJBException("Wrong number of rows inserted into " +
                         "'user_terms_of_use_xref'. Inserted " + rc + ", " +
                         "should have inserted 1."));
             }
+            log.debug("ivern debug: insert OK.");
         } catch (SQLException _sqle) {
+            log.debug("ivern debug: Exception thrown, stacktrace:");
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
         } finally {
