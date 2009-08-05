@@ -2,7 +2,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 
-<%-- Competitions at TopCoder V2 --%>
+<%-- Competitions at TopCoder V2
 <img id="competitions" src="/i/home/catcStaticV2.png" alt="All New Digital Run" border="0" usemap="#Competitions" />
     <map name="Competitions" id="Competitions">
         <area shape="poly" coords="154,177,356,179,333,310,175,309" href="/dr" alt="Digital Run - All New Digital Run" onmouseover="MM_swapImage('competitions','','/i/home/catcDigitalRunV2.png',1)" onmouseout="MM_swapImgRestore()" />
@@ -15,7 +15,7 @@
         <area shape="poly" coords="464,110,341,129,355,53,480,44" href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/" alt="Studio" onmouseover="MM_swapImage('competitions','','/i/home/catcStudioV2.png',1)" onmouseout="MM_swapImgRestore()" />
     </map>
     
-
+--%>
 
 <%-- TCO08 
 <br />
