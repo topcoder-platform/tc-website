@@ -119,6 +119,19 @@
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
                 
+                <%-- Youdao begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_072209"><img src="/i/pressroom/youdao-logo.gif" alt="youdao" border="0" /></a></div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_072209">Chinese Search Engine Youdao Uses TopCoder Competition Platform to Find Technical Talent</a></h3>
+                        <p>Search Engine Subsidiary of NetEase Attracts 17,000 Competitors in Algorithm Tournament for Cash and Jobs 
+                        <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_072209">[July 22nd]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Youdao end --%>
+                
                 <%-- BusinessWeek begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
