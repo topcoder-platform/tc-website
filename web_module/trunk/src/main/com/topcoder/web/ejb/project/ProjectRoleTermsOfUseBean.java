@@ -209,6 +209,8 @@ public class ProjectRoleTermsOfUseBean extends BaseEJB {
             }
 
             query.append(inClause).append(")");
+            
+            System.out.println("ivern debug (project_id: " + projectId + "): " + query.toString());
 
             conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
