@@ -119,6 +119,19 @@
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
                 
+                <%-- Hackers begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="http://www.huffingtonpost.com/tom-luce/educating-our-own-compute_b_242436.html"><img src="/i/pressroom/huffington-post-logo.gif" alt="Huffington Post" border="0" /></a></div>
+                    <div class="pr_headlines">
+                        <h3><a href="http://www.huffingtonpost.com/tom-luce/educating-our-own-compute_b_242436.html">Educating Our Own Computer Hackers</a></h3>
+                        <p>The recent wave of cyber-attacks on American and South Korean websites raises a new kind of security issue: Do we have enough brainpower in the pipeline to counter such sabotage in the future? 
+                        <small><a href="http://www.huffingtonpost.com/tom-luce/educating-our-own-compute_b_242436.html">[August 5th]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Hackers end --%>
+                                
                 <%-- Youdao begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
@@ -131,6 +144,19 @@
                     <div class="pr_clear"></div>
                 </div>
                 <%-- Youdao end --%>
+                
+                <%-- STN begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/i/pressroom/pdfs/STN_June09.pdf"><img src="/i/pressroom/software-tech-logo.gif" alt="Software Tech" border="0" /></a></div>
+                    <div class="pr_headlines">
+                        <h3><a href="/i/pressroom/pdfs/STN_June09.pdf">Competitive Testing: Eyes on the Quality Prize</a></h3>
+                        <p>Director of Development Brendan Wright discusses the TopCoder software development model in the July issue of Software Technology News. 
+                        <small><a href="/i/pressroom/pdfs/STN_June09.pdf">[June]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- STN end --%>
                 
                 <%-- BusinessWeek begin --%>
                 <div class="pr_newsitem">
