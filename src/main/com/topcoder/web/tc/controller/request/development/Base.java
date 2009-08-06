@@ -371,10 +371,13 @@ public abstract class Base extends ShortHibernateProcessor {
         switch (reviewTypeId) {
             case 1:
                 roleId = 7;
+                break;
             case 2:
                 roleId = 6;
+                break;
             case 3:
                 roleId = 5;
+                break;
             default:
                 roleId = 4;
         }
