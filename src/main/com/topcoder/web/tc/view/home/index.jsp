@@ -18,17 +18,17 @@
 
 
 <!-- External CSS -->
-<link rel="stylesheet" href="css/main.css" media="all" type="text/css" />
-<link rel="stylesheet" href="css/jquery.jcarousel.css" media="all" type="text/css" />
+<link rel="stylesheet" href="css/home/main.css" media="all" type="text/css" />
+<link rel="stylesheet" href="css/home/jquery.jcarousel.css" media="all" type="text/css" />
 
 <!--[if IE 6]>
 <link rel="stylesheet" type="text/css" media="screen" href="css/main-ie6.css" />
 <![endif]-->
 
 <!-- External JavaScript -->
-<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
-<script type="text/javascript" src="js/jquery.jcarousel.pack.js"></script>
-<script type="text/javascript" src="js/scripts.js"></script>
+<script type="text/javascript" src="js/home/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="js/home/jquery.jcarousel.pack.js"></script>
+<script type="text/javascript" src="js/home/scripts.js"></script>
 
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -85,7 +85,7 @@
 							
 							<div id="header">
 							
-								<a href="#" title="TopCoder" class="logo" onclick="test();"><img src="i/TopCoder_logo.png" alt="TopCoder" /></a>
+								<a href="#" title="TopCoder" class="logo" onclick="test();"><img src="i/home/home/TopCoder_logo.png" alt="TopCoder" /></a>
 								
 								<h2 class="topTitle"><span class="hide">What could you accomplish  with a staff of</span><span class="questionMark"><tc-webtag:format object="${sessionInfo.memberCount}" format="#,##0"/></span></h2>
 								
