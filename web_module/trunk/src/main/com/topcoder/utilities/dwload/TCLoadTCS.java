@@ -1487,8 +1487,11 @@ public class TCLoadTCS extends TCLoad {
                     if (stage != null &&
                             (projectResults.getInt("project_stat_id") == 7 ||  // COMPLETED
                                     projectResults.getInt("project_stat_id") == 1) && // ACTIVE
-                            // component testing and Specification contest doesn't need to check for rating
-                            (projectResults.getInt("rating_ind") == 1 || projectResults.getInt("project_category_id") == 5) &&
+                            // Component Testing and RIA Build contests don't need to have the rating flag on to count
+                            // towards DR.
+                            (projectResults.getInt("rating_ind") == 1
+                                    || projectResults.getInt("project_category_id") == 5
+                                    || projectResults.getInt("project_category_id") == 24) &&
                             "On".equals(projectResults.getString("dr_ind"))) {
 
                         hasDR = true;
