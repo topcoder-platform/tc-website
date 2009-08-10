@@ -77,7 +77,7 @@ public class TCLoadTCS extends TCLoad {
      * <p>An <code>int</code> array representing all project categories that are currently being rated.
      * IF YOU CHANGE THIS LIST, YOU MUST ALSO UPDATE THE <code>getCurrentRatings</code> METHOD!</p>
      */
-    private static final int[] RATED_CATEGORIES = new int[] {1, 2, 6, 7, 13, 14, 23, 26, 19, 24};
+    private static final int[] RATED_CATEGORIES = new int[] {1, 2, 6, 7, 13, 14, 23, 26, 19};
 
     private static Logger log = Logger.getLogger(TCLoadTCS.class);
 
@@ -1487,8 +1487,11 @@ public class TCLoadTCS extends TCLoad {
                     if (stage != null &&
                             (projectResults.getInt("project_stat_id") == 7 ||  // COMPLETED
                                     projectResults.getInt("project_stat_id") == 1) && // ACTIVE
-                            // component testing and Specification contest doesn't need to check for rating
-                            (projectResults.getInt("rating_ind") == 1 || projectResults.getInt("project_category_id") == 5) &&
+                            // Component Testing and RIA Build contests don't need to have the rating flag on to count
+                            // towards DR.
+                            (projectResults.getInt("rating_ind") == 1
+                                    || projectResults.getInt("project_category_id") == 5
+                                    || projectResults.getInt("project_category_id") == 24) &&
                             "On".equals(projectResults.getString("dr_ind"))) {
 
                         hasDR = true;
@@ -2638,9 +2641,9 @@ public class TCLoadTCS extends TCLoad {
             query.append(" , case");
             query.append(" when ur.phase_id = 130 and exists (select '1' from active_ui_prototypes_competitors auip where auip.user_id = ur.user_id)");
             query.append(" then 1 else 0 end as active_uip");
-            query.append(" , case");
-            query.append(" when ur.phase_id = 135 and exists (select '1' from active_ria_builds_competitors arbu where arbu.user_id = ur.user_id)");
-            query.append(" then 1 else 0 end as active_rbu");
+            //query.append(" , case");
+            //query.append(" when ur.phase_id = 135 and exists (select '1' from active_ria_builds_competitors arbu where arbu.user_id = ur.user_id)");
+            //query.append(" then 1 else 0 end as active_rbu");
             query.append(" , cs.school_id");
             query.append(" , c.coder_type_id");
             query.append(" , c.comp_country_code");
@@ -2685,10 +2688,10 @@ public class TCLoadTCS extends TCLoad {
                     } else if (rs.getInt("phase_id") == 130) {
                         ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"),
                                 rs.getInt("active_uip") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
-                    } else if (rs.getInt("phase_id") == 135) {
-                        ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"),
-                                rs.getInt("active_rbu") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
-                    }
+                    } //else if (rs.getInt("phase_id") == 135) {
+                    //    ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"),
+                    //            rs.getInt("active_rbu") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
+                    //}
                 } else {
                     //students
                     if (rs.getInt("phase_id") == 113) {
@@ -2718,10 +2721,10 @@ public class TCLoadTCS extends TCLoad {
                     } else if (rs.getInt("phase_id") == 130) {
                         ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"), rs.getLong("school_id"),
                                 rs.getInt("active_uip") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
-                    } else if (rs.getInt("phase_id") == 135) {
-                        ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"), rs.getLong("school_id"),
-                                rs.getInt("active_rbu") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
-                    }
+                    } //else if (rs.getInt("phase_id") == 135) {
+                    //    ret.add(new CoderRating(rs.getLong("user_id"), rs.getInt("rating"), rs.getLong("school_id"),
+                    //            rs.getInt("active_rbu") == 1, rs.getInt("phase_id"), rs.getString("comp_country_code")));
+                    //}
                 }
             }
 

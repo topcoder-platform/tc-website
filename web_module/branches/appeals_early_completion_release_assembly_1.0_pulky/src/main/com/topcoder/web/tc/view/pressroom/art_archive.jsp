@@ -72,8 +72,10 @@
             
                 <div class="pr_newsarchive">
                     <dl>
-                    <dd><a href="/pdfs/press_room/MITSloanMR.pdf">What is Your Management Model?<br /><small style="margin-left:10px;">[February 16th]</small></a></dd>
-                    <dd><a href="/pdfs/press_room/virtual_workforce.pdf">How The Virtual Workforce is Changing Everything<br /><small style="margin-left:10px;">[January 9th]</small></a></dd>                  
+                    <dd><a href="http://www.huffingtonpost.com/tom-luce/educating-our-own-compute_b_242436.html">Educating Our Own Computer Hackers<br /><small style="margin-left:10px;">[August 5th - Huffington Post]</small></a></dd>
+                    <dd><a href="/i/pressroom/pdfs/STN_June09.pdf">Competitive Testing: Eyes on the Quality Prize<br /><small style="margin-left:10px;">[June - Software Tech News]</small></a></dd>
+                    <dd><a href="/pdfs/press_room/MITSloanMR.pdf">What is Your Management Model?<br /><small style="margin-left:10px;">[February 16th - MIT Sloan]</small></a></dd>
+                    <dd><a href="/pdfs/press_room/virtual_workforce.pdf">How The Virtual Workforce is Changing Everything<br /><small style="margin-left:10px;">[January 9th - Linux Insider]</small></a></dd>                  
                     </dl>
                 </div>
             </div></div></div>

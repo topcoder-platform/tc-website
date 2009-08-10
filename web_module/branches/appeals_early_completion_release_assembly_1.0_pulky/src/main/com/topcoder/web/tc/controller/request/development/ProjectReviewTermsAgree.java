@@ -71,7 +71,7 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
         boolean primary = new Boolean(StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_FLAG))).booleanValue();
         setDefault(Constants.PRIMARY_FLAG, primary);
 
-        long userId = getLoggedInUser().getId();
+        long userId = getUser().getId();
 
         if ("POST".equals(getRequest().getMethod())) {
             if (!"".equals(termsOfUseId)) {
@@ -91,22 +91,19 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
 
                     // process terms of use
                     int[] roleIds = getResourceRoleIds(reviewTypeId, primary);
-                    processTermsOfUse(String.valueOf(projectId), getUser().getId(), roleIds);
+                    processTermsOfUse(String.valueOf(projectId), userId, roleIds);
                 }
                 setNextPage(Constants.REVIEWER_TERMS);
                 setIsNextPageInContext(true);
             } else {
-                // they don't have pending terms of use
-
                 if (!answeredCaptchaCorrectly()) {
                     addError(Constants.CAPTCHA_RESPONSE, "Sorry, your response was incorect.");
                 }
 
-                if (hasErrors()) {
+                // make sure they don't have pending terms of use
+                int[] roleIds = getResourceRoleIds(reviewTypeId, primary);
+                if (hasErrors() || processTermsOfUse(String.valueOf(projectId), userId, roleIds)) {
                     loadCaptcha();
-
-                    int[] roleIds = getResourceRoleIds(reviewTypeId, primary);
-                    processTermsOfUse(String.valueOf(projectId), getUser().getId(), roleIds);
 
                     setNextPage(Constants.REVIEWER_TERMS);
                     setIsNextPageInContext(true);

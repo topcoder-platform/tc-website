@@ -117,7 +117,13 @@ public class Register extends ViewRegistration {
                 setNextPage("/contest/regTerms.jsp");
                 setIsNextPageInContext(true);
             } else {
-                // they don't have pending terms of use
+                // make sure they don't have pending terms of use (they could get here faking the URL)
+                if (processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS)) {
+                    setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
+                    setNextPage("/contest/regTerms.jsp");
+                    setIsNextPageInContext(true);
+                    return;
+                }
 
                 List responses = validateSurvey();
 
