@@ -18,17 +18,17 @@
 
 
 <!-- External CSS -->
-<link rel="stylesheet" href="css/home/main.css" media="all" type="text/css" />
-<link rel="stylesheet" href="css/home/jquery.jcarousel.css" media="all" type="text/css" />
+<link rel="stylesheet" href="./css/home/main.css" media="all" type="text/css" />
+<link rel="stylesheet" href="./css/home/jquery.jcarousel.css" media="all" type="text/css" />
 
 <!--[if IE 6]>
 <link rel="stylesheet" type="text/css" media="screen" href="css/main-ie6.css" />
 <![endif]-->
 
 <!-- External JavaScript -->
-<script type="text/javascript" src="js/home/jquery-1.3.2.min.js"></script>
-<script type="text/javascript" src="js/home/jquery.jcarousel.pack.js"></script>
-<script type="text/javascript" src="js/home/scripts.js"></script>
+<script type="text/javascript" src="./js/home/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="./js/home/jquery.jcarousel.pack.js"></script>
+<script type="text/javascript" src="./js/home/scripts.js"></script>
 
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -72,7 +72,7 @@
 </head>
 
 <body>
-
+	
 	<div id="wrapper">
 		
 		<div class="wrapperContent">
@@ -85,110 +85,98 @@
 							
 							<div id="header">
 							
-								<a href="#" title="TopCoder" class="logo" onclick="test();"><img src="i/home/home/TopCoder_logo.png" alt="TopCoder" /></a>
+								<a href="#" title="TopCoder" class="logo"><img src="./i/home/TopCoder_logo.png" alt="TopCoder" /></a>
 								
-								<h2 class="topTitle"><span class="hide">What could you accomplish  with a staff of</span><span class="questionMark"><tc-webtag:format object="${sessionInfo.memberCount}" format="#,##0"/></span></h2>
+								<h2 class="mainTitle"><span>What could you accomplish with a staff of</span><strong> <tc-webtag:format object="${sessionInfo.memberCount}" format="#,##0"/>?</strong></h2>
 								
-							  	<div id="popupLinks"></div><!-- End #popupLinks -->
-								<div id="popup"></div><!-- End #popup -->
+								<!-- We will use the XML file to populate this area by people links -->
+							  	<div id="popupLinks"></div>
 								
-								<h2 class="bottomTitle"><span class="hide">Our clients are finding out every day</span></h2>
+								<!-- We will use the XML file to populate this area by popup messages -->
+								<div id="popup"></div>
+								
+								<h2 class="title2"><span class="hide">Our clients are finding out every day</span></h2>
 							
-							</div>
+							</div><!-- End #header -->
 							
-							<div class="contentTop">
-								<div class="contentLeft">
+							<div class="clientArea">
+								<div class="buttonArea">
 									
-									<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>" class="getStarted"></a>
+									<a href="http://software.topcoder.com" class="getStarted"></a>
 								
 								</div><!-- End .leftArea -->
 								<div class="description">
 									
 									<h2>We've been "crowdsourcing" <br />since before there was a name for it.</h2>
 									
-									<p>
-										Find out what customers ranging from small businesses to Fortune <br />500's have known since 2001. TopCoder's global community and unique model of competition-based development delivers higher quality results, faster and less expensively than has ever been previously possible.
-									</p>
+									<p>Find out what customers ranging from small businesses to Fortune <br />500's have known since 2001. TopCoder's global community and unique model of competition-based development delivers higher quality results, faster and less expensively than has ever been previously possible.</p>
 									
-									
-								
 								</div><!-- End .description -->
 							</div><!-- End .getStarted -->
 							
-							<div class="contentTop contentBg2">
-								<div class="contentLeft">
+							<div class="clientArea contentBg2">
+								<div class="buttonArea">
 									
-									<a href="http://<%=ApplicationServer.SERVER_NAME%>/tc" class="competeNow"></a>
+									<a href="http://www.topcoder.com/tc" class="competeNow"></a>
 								
 								</div><!-- End .leftArea -->
 								<div class="description">
 									
 									<h2>Designers and Developers</h2>
 									
-									<p>
-										At this moment, there are <strong>75</strong> active competitions with<br />
-<strong>$50,000</strong> in total prizes. Get your piece of the pie.
-									</p>
-									
-									
+									<p>At this moment, there are <strong>75</strong> active competitions with<br />
+<strong>$50,000</strong> in total prizes. Get your piece of the pie.</p>	
 								
 								</div><!-- End .description -->
 							</div><!-- End .getStarted -->
 							
-							<div class="carouselContainer" style="position: relative;">
+							<div class="carouselContainer">
+							
+								<!-- Vertical lines behind the carousel buttons -->
 								<div class="carouselBorderLeft"></div>
 								
 								<div class="carouselBorderRight"></div>
 								
 								<ul id="mycarousel" class="jcarousel-skin-topCoder">
 									<li>
-										<div class="carouselLeft">
+										<div class="carouselImage">
+											<!-- To add a new image replace the class name with background-image=url(path-of-your-image)-->
 											<a href="#" class="topCoderDirect"></a>
 										</div>
-										<div class="carouselRight">
-											<p>
-												TopCoder Direct Platform Opens Access to 170,000 Member Community of Software Designers, <br />Developers &amp; Creative Artists
-											</p>
+										<div class="carouselContent">
+											<p>TopCoder Direct Platform Opens Access to 170,000 Member Community of Software Designers, <br />Developers &amp; Creative Artists</p>
 										</div>
 									</li>
 									<li>
-										<div class="carouselLeft">
+										<div class="carouselImage">
 											<a href="#" class="placeholder"></a>
 										</div>
-										<div class="carouselRight">
-											<p>
-												Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquam velit sed dolor convallis molestie. Pellentesque ac nisl at tortor laoreet bibendum.
-											</p>
+										<div class="carouselContent">
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquam velit sed dolor convallis molestie. Pellentesque ac nisl at tortor laoreet bibendum.</p>
 										</div>
 									</li>
 									<li>
-										<div class="carouselLeft">
+										<div class="carouselImage">
 											<a href="#" class="placeholder"></a>
 										</div>
-										<div class="carouselRight">
-											<p>
-												3- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquam velit sed dolor convallis molestie. Pellentesque ac nisl at tortor laoreet bibendum.
-											</p>
+										<div class="carouselContent">
+											<p>3- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquam velit sed dolor convallis molestie. Pellentesque ac nisl at tortor laoreet bibendum.</p>
 										</div>
 									</li>
 									<li>
-										<div class="carouselLeft">
+										<div class="carouselImage">
 											<a href="#" class="placeholder"></a>
 										</div>
-										<div class="carouselRight">
-											<p>
-												4- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquam velit sed dolor convallis molestie. Pellentesque ac nisl at tortor laoreet bibendum.
-											</p>
+										<div class="carouselContent">
+											<p>4- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquam velit sed dolor convallis molestie. Pellentesque ac nisl at tortor laoreet bibendum.</p>
 										</div>
 									</li>
 									<li>
-										<div class="carouselLeft">
+										<div class="carouselImage">
 											<a href="#" class="placeholder"></a>
 										</div>
-										<div class="carouselRight">
-											<p>
-												5- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquam velit sed dolor convallis molestie. Pellentesque ac nisl at tortor laoreet bibendum.
-											</p>
+										<div class="carouselContent">
+											<p>5- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquam velit sed dolor convallis molestie. Pellentesque ac nisl at tortor laoreet bibendum.</p>
 										</div>
 									</li>
 								</ul>
@@ -196,7 +184,7 @@
 							
 							<div id="footer">
 								<h2>1-866-TOPCODER OR <a href="mailto:answers@topcoder.com">ANSWERS@TOPCODER.COM</a></h2>
-								<p>TopCoder is the world's largest competitive software development community with 212,587 developers representing over 200 countries.</p>
+								<p>TopCoder is the world's largest competitive software development community with <tc-webtag:format object="${sessionInfo.memberCount}" format="#,##0"/> developers representing over 200 countries.</p>
 								<p>Copyright ©2001-2009, TopCoder, Inc. All rights reserved</p>
 							</div><!-- End #footer -->
 							
@@ -209,17 +197,6 @@
 		</div><!-- End .wrappeerContent -->
 	
 	</div><!-- End #wrapper -->
-
-
-<%-- Google Analytics --%>
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-var pageTracker = _gat._getTracker("UA-6340959-1");
-pageTracker._trackPageview();
-</script>
 
 </body>
 </html>
