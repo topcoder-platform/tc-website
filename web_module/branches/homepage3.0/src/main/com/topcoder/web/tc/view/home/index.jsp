@@ -102,7 +102,7 @@
 							<div class="clientArea">
 								<div class="buttonArea">
 									
-									<a href="http://software.topcoder.com" class="getStarted"></a>
+									<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>" class="getStarted"></a>
 								
 								</div><!-- End .leftArea -->
 								<div class="description">
@@ -116,19 +116,28 @@
 							
 							<div class="clientArea contentBg2">
 								<div class="buttonArea">
-									
-									<a href="http://www.topcoder.com/tc" class="competeNow"></a>
-								
+
+                                    <div>
+                                        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>" class="createNow"></a>
+                                        <p>Graphic designers,ready for a creative challenge? Enter here!</p>
+                                    </div>
+                                    <div>
+                                        <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc" class="competeNow"></a>
+                                        <p>Programmers,think you can handle it? Go!</p>
+                                    </div>
+
 								</div><!-- End .leftArea -->
 								<div class="description">
 									
-									<h2>Designers and Developers</h2>
+									<!--<h2>Designers and Developers</h2>-->
 									
 									<p>At this moment, there are <strong>75</strong> active competitions with<br />
-<strong>$50,000</strong> in total prizes. Get your piece of the pie.</p>	
+									<strong>$50,000</strong> in total prizes. Get your piece of the pie.</p>	
 								
 								</div><!-- End .description -->
+
 							</div><!-- End .getStarted -->
+
 							
 							<div class="carouselContainer">
 							
