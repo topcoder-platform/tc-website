@@ -1,5 +1,9 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer,
                  com.topcoder.web.common.BaseServlet, com.topcoder.web.common.SessionInfo" %>
+<%@ page import="com.topcoder.web.tc.controller.request.Home" %>
+<%@ page import="com.topcoder.web.tc.controller.request.HomeHelper" %>
+<%@ page import="com.topcoder.web.tc.model.ActiveContestsSummary" %>
+<%@ page import="java.util.Map" %>
 <%@ page language="java" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -69,6 +73,18 @@
 	});
 </script>
 
+<%
+    // get active contests summary for totals
+    Map<String, ActiveContestsSummary> activeContests = HomeHelper.getActiveContests();
+    int activeCount = 0;
+    double activeTotal = 0;
+    for (Map.Entry<String, ActiveContestsSummary> e : activeContests .entrySet()) {
+         if (e.getKey() != Home.MM && e.getKey() != Home.DR) {
+             activeCount += e.getValue().getContestCount();
+             activeTotal += e.getValue().getPrizeTotal();
+         }
+    }
+%>
 </head>
 
 <body>
@@ -131,8 +147,8 @@
 									
 									<!--<h2>Designers and Developers</h2>-->
 									
-									<p>At this moment, there are <strong>75</strong> active competitions with<br />
-									<strong>$50,000</strong> in total prizes. Get your piece of the pie.</p>	
+									<p>At this moment, there are <strong><%=activeCount%></strong> active competitions with<br />
+<strong>$<tc-webtag:format object="<%=activeTotal%>" format="#,##0"/></strong> in total prizes. Get your piece of the pie.</p	
 								
 								</div><!-- End .description -->
 
