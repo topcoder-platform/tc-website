@@ -123,9 +123,9 @@
 								</div><!-- End .leftArea -->
 								<div class="description">
 									
-									<h2>We've been "crowdsourcing" since before there was a name for it.</h2>
-									<p>TopCoder's global community and unique model of competition-based development delivers higher quality results, faster and less expensively than has ever been previously possible.</p>
-									<p>Find out what customers ranging from small businesses to Fortune 500's have known since 2001.</p>
+									<h2>We've been "crowdsourcing"<br />since before there was a name for it.</h2>
+									<p>Find out what customers ranging from small businesses to Fortune 500's have known since 2001. TopCoder's global community and unique model of competition-based development delivers higher quality results, faster and less expensively than has ever been previously possible.</p>
+									
 									
 								</div><!-- End .description -->
 							</div><!-- End .getStarted -->
