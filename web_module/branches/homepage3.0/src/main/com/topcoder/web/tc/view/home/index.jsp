@@ -32,6 +32,7 @@
 <!-- External JavaScript -->
 <script type="text/javascript" src="./js/home/jquery-1.3.2.min.js"></script>
 <script type="text/javascript" src="./js/home/jquery.jcarousel.pack.js"></script>
+<script type="text/javascript" src="./js/jquery.timers.js"></script>
 <script type="text/javascript" src="./js/home/scripts.js"></script>
 
 <script type="text/javascript">
