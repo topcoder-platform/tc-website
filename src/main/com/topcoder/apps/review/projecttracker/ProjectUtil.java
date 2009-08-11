@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006-2009 TopCoder, Inc. All rights reserved.
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.apps.review.projecttracker;
 
@@ -43,10 +43,32 @@ import java.util.Set;
  *   </ol>
  * </p>
  *
+ * <p>
+ *   Version 1.2 (Appeals Early Completion Release Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added Appeals Completed Early flag store when a new user registers.</li>
+ *   </ol>
+ * </p>
+ *
  * @author brain_cn, pulky
- * @version 1.1
+ * @version 1.2
  */
 public class ProjectUtil {
+
+    /**
+     * This constant stores "No" value for Appeals Completed Early flag property
+     *
+     * @since 1.2
+     */
+    static final String NO_VALUE = "No";
+
+    /**
+     * This constant stores Appeals Completed Early flag property id
+     *
+     * @since 1.2
+     */
+    static final long APPEALS_COMPLETED_EARLY_PROPERTY_ID = 13;
+
     private static final int PHASE_TYPE_REGISTRATION = 1;
     private static final int PHASE_TYPE_SUBMISSION = 2;
     private static final int PHASE_TYPE_SCREEN = 3;
@@ -56,6 +78,14 @@ public class ProjectUtil {
 
     public static final int COMPONENT_TESTING_PROJECT_TYPE = 5;
 
+    /**
+     * This method processes user inquiry for a particular project
+     *
+     * @param conn the <code>Connection</code> being used.
+     * @param userId the user id to register.
+     * @param projectId the project id the user is registering to.
+     * @throws SQLException if any error occurs in the underlying layer.
+     */
     static void userInquiry(Connection conn, long userId, long projectId) throws SQLException {
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -214,7 +244,39 @@ public class ProjectUtil {
             throw new RuntimeException("Could not create Registration Date resourceinfo !");
         }
 
+        // Appeals Completed Early flag
+        saveResourceInfoRecord(resourceId, APPEALS_COMPLETED_EARLY_PROPERTY_ID, NO_VALUE, String.valueOf(userId), ps);
+
         close(ps);
+    }
+
+    /**
+     * Private helper method to save a resource info record.
+     *
+     * @param resourceId the resource id being saved
+     * @param propertyId the property id being saved
+     * @param propertyValue the property value being saved
+     * @param userId the user saving this record
+     * @param ps the prepared statement for this insertion
+     * @throws SQLException if any error occurs in the underlying layer
+     * @throws RuntimeException if not exactly one record was saved
+     *
+     * @since 1.2
+     */
+    private static void saveResourceInfoRecord(long resourceId, long propertyId, String propertyValue,
+            String userId, PreparedStatement ps) throws SQLException, RuntimeException {
+
+        int index = 1;
+        ps.setLong(index++, resourceId);
+        ps.setLong(index++, propertyId);
+        ps.setString(index++, propertyValue);
+        ps.setString(index++, userId);
+        ps.setString(index++, userId);
+        int nr = ps.executeUpdate();
+
+        if (nr != 1) {
+            throw new RuntimeException("Could not create resource info record for id = " + propertyId);
+        }
     }
 
     static long createProject(Connection conn, String projectVersion, long compVersId, long projectTypeId, long modUserId, long forumCategoryId, double price) throws SQLException, BaseException {
