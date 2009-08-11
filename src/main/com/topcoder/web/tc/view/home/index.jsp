@@ -103,7 +103,7 @@
 							
 								<a href="#" title="TopCoder" class="logo"><img src="./i/home/TopCoder_logo.png" alt="TopCoder" /></a>
 								
-								<h2 class="mainTitle"><span>What could you accomplish with a staff of</span><strong> <tc-webtag:format object="${sessionInfo.memberCount}" format="#,##0"/>?</strong></h2>
+								<h2 class="mainTitle"><span>What could you accomplish with a team of</span><strong> <tc-webtag:format object="${sessionInfo.memberCount}" format="#,##0"/>?</strong></h2>
 								
 								<!-- We will use the XML file to populate this area by people links -->
 							  	<div id="popupLinks"></div>
