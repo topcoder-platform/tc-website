@@ -15,7 +15,7 @@
 		<div class="wrapper">
 
 <%-- MASTHEAD AND LOGO --%>
-			<h1><a href="http://<%=ApplicationServer.SERVER_NAME%>/" title="TopCoder Direct"><span>TopCoder Direct</span></a> <sup><small>BETA</small></sup></h1>
+			<h1><a href="http://<%=ApplicationServer.SERVER_NAME%>/" title="TopCoder Direct"><span>TopCoder Direct</span></a></h1>
 			<h2 id="ready_engage"><span>Ready.. ENGAGE</span></h2>
 
 <%-- MAIN NAVIGATION --%>
@@ -28,7 +28,6 @@
                     	<ul>
                             <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/">TopCoder Direct</a></li>
                             <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/">Components</a></li>
-                            <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/indexTCS.jsp">Software</a></li>
                             <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/platform-tools.jsp">Platform Tools</a></li>
                             <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/training.jsp">Training &amp; Mentoring</a></li>
                             <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/support.jsp">Support &amp; Maintenance</a></li>
@@ -75,8 +74,7 @@
 			<div id="nav_support">
 				<h3 class="hide">SUB Navigation</h3>
 				<ul>
-                	<li class="left"><a href="http://<%=ApplicationServer.SERVER_NAME%>/">TopCoder.com</a></li>
-                	<li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/about.jsp">About TopCoder</a></li>
+                	<li class="left"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=index">About TopCoder</a></li>
 					<li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=index">News</a></li>
 					<li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/contact.jsp">Contact Us</a></li>
 
