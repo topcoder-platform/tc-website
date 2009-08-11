@@ -35,8 +35,8 @@
 		</div><%-- platform_row_dark ends--%>
 		<div class="platform_row">
 			<div>
-			  <img src="/i/control_panel.png" alt="Control Panel" class="platform_img" />
-			  <h3 class="image-header"><img src="/i/control_panel_text.png" alt="Control Panel" width="139" height="22" /></h3>
+			  <a href="http://www.topcoder.com/direct/"><img src="/i/direct_text.png" alt="Direct" class="platform_img" /></a>
+			  <h3 class="image-header"><img src="/i/control_panel_text.png" alt="Direct" width="139" height="22" /></h3>
 			  <p class="red-title">Getting your project moving forward.</p>
 				<p>Administrators can vary from TopCoder staff, members, or even clients in TopCoder Direct. These are the people that help make the contests happen, ensure they run smoothly and handle all of the little details along the way.</p>
 			</div>
