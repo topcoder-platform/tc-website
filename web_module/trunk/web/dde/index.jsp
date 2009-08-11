@@ -22,7 +22,7 @@
 
 		<%--BANNER--%>
 		<div id="banner">
-			<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/about.jsp"><img src="images/learnmore.png" alt="Learn More About TopCoder Direct" /></a>
+		   <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=index"><img src="images/learnmore.png" alt="Learn More About TopCoder" /></a>
 		</div>
 
 		<div class="wrapper">
