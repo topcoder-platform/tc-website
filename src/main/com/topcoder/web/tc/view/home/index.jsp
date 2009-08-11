@@ -145,10 +145,9 @@
 								</div><!-- End .leftArea -->
 								<div class="description">
 									
-									<!--<h2>Designers and Developers</h2>-->
+									<h2>At TopCoder you really can "earn money from home."</h2>
 									
-									<p>At this moment, there are <strong><%=activeCount%></strong> active competitions with<br />
-<strong>$<tc-webtag:format object="<%=activeTotal%>" format="#,##0"/></strong> in total prizes. Get your piece of the pie.</p	
+									<b>At this moment, there are <strong><%=activeCount%></strong> active competitions with <strong>$<tc-webtag:format object="<%=activeTotal%>" format="#,##0"/></strong> in total prizes. Get in the game.</b>	
 								
 								</div><!-- End .description -->
 
@@ -214,6 +213,10 @@
 								<h2>1-866-TOPCODER OR <a href="mailto:answers@topcoder.com">ANSWERS@TOPCODER.COM</a></h2>
 								<p>TopCoder is the world's largest competitive software development community with <tc-webtag:format object="${sessionInfo.memberCount}" format="#,##0"/> developers representing over 200 countries.</p>
 								<p>Copyright ©2001-2009, TopCoder, Inc. All rights reserved</p>
+
+								<br>
+								<p><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/contact.jsp">Contact Us</a> | <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=index">About TopCoder</a> | <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/">Register</a></p>
+
 							</div><!-- End #footer -->
 							
 						</div><!-- End #mainContent -->
