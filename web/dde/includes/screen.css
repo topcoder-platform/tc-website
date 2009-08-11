@@ -722,7 +722,7 @@ CONTENT
     background: url( "../images/leftBg.png" ) no-repeat;
     padding-top: 100px;
     text-align: center;
-    margin-left: 45px;
+    margin-left: 42px;
     display: inline;
 	background-position: left -2px;
 }
@@ -859,7 +859,7 @@ BANNER
 #banner
 {
 	padding-top: 20px;
-	padding-bottom: 50px;
+	padding-bottom: 20px;
 	background-color: #FFF;
 }
 
