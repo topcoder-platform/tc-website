@@ -132,23 +132,25 @@
 							</div><!-- End .getStarted -->
 							
 							<div class="clientArea contentBg2">
-								<div class="competeText">At this moment, there are <strong><%=activeCount%></strong> active competitions with <strong>$<tc-webtag:format object="<%=activeTotal%>" format="#,##0"/></strong> in total prizes.
-									<div class="action">Compete and get your piece of the pie!</div>
+								<div class="competeText">
+									<div class="action">Compete on TopCoder and get your piece of the pie!</div>
+									At this moment, there are <strong><%=activeCount%></strong> active competitions with <strong>$<tc-webtag:format object="<%=activeTotal%>" format="#,##0"/></strong> in total prizes.
 								</div>
 								<div class="buttonArea2">	
-                                    <div>
-                                        <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc" class="competeNow"></a>
-                                        <p class="dev">Programmers,think you can handle it? Enter here!</p>
+                                    <div class="studio">
+                                        <a href="http://studio.topcoder.com" class="designNow"></a>
+                                        <p>Ready for a creative challenge?</p>
                                     </div>
-                                    <div>
-                                        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>" class="createNow"></a>
-                                        <p class="studio">Graphic designers,ready for a creative challenge? Go!</p>
+                                    <div class="dev">
+                                        <a href="http://www.topcoder.com/tc" class="developNow"></a>
+                                        <p>Think you can handle the development?</p>
                                     </div>
+                                    
+                                    
 
 								</div><!-- End .leftArea -->
 								
 							</div><!-- End .getStarted -->
-
 							
 							<div class="carouselContainer">
 							
