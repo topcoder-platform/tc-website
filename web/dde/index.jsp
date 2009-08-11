@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <jsp:include page="/includes/header-files.jsp" />
-<title>TopCoder Direct - The world's most talented programmers and graphic designers are standing by to help develop your next application.</title>
+<title>TopCoder - The world's most talented programmers and graphic designers are standing by to help develop your next application.</title>
 
 <script src="/scripts/direct.js" type="text/javascript"></script>
 
@@ -30,9 +30,9 @@
         <div id="content_main">
             <div class="left_content">
                 <ul>
-                    <li><a class="button1" href="http://<%=ApplicationServer.SERVER_NAME%>/direct">WEB SITES</a></li>
-                    <li><a class="button1" href="http://<%=ApplicationServer.SERVER_NAME%>/direct">LOGO DESIGN</a></li>
-                    <li><a class="button2" href="http://<%=ApplicationServer.SERVER_NAME%>/direct">PRINT DESIGN</a></li>
+                    <li><a class="button1" href="http://<%=ApplicationServer.SERVER_NAME%>/html/cockpit/landing_page/websites.html">WEB SITES</a></li>
+                    <li><a class="button1" href="http://<%=ApplicationServer.SERVER_NAME%>/html/cockpit/landing_page/logos.html">LOGO DESIGN</a></li>
+                    <li><a class="button2" href="http://<%=ApplicationServer.SERVER_NAME%>/html/cockpit/landing_page/print.html">PRINT DESIGN</a></li>
                     <li><a class="button2" href="http://<%=ApplicationServer.SERVER_NAME%>/direct">APPLICATIONS</a></li>
                 </ul>
                 <a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/"><img class="startNow" src="/i/start_your_project_now.png" alt="start your project now" /></a>
@@ -46,10 +46,10 @@
                     <li><a class="button2" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/support.jsp">SUPPORT</a></li>
                 </ul>
                 <ul class="icons">
-                    <li class="discovery"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/about.jsp">Discovery</a></li>
-                    <li class="design"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/about.jsp">Design</a></li>
-                    <li class="build"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/about.jsp">Build</a></li>
-                    <li class="test"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/about.jsp">Test</a></li>
+                    <li class="discovery"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/methodology.jsp">Discovery</a></li>
+                    <li class="design"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/methodology.jsp">Design</a></li>
+                    <li class="build"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/methodology.jsp">Build</a></li>
+                    <li class="test"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/methodology.jsp">Test</a></li>
                 </ul>
                 <img class="findOut" src="images/find_out_more.png" alt="find out more" />
                 <a class="button" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/contact.jsp">CONTACT US</a>
