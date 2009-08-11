@@ -123,34 +123,29 @@
 								</div><!-- End .leftArea -->
 								<div class="description">
 									
-									<h2>We've been "crowdsourcing" <br />since before there was a name for it.</h2>
-									
-									<p>Find out what customers ranging from small businesses to Fortune <br />500's have known since 2001. TopCoder's global community and unique model of competition-based development delivers higher quality results, faster and less expensively than has ever been previously possible.</p>
+									<h2>We've been "crowdsourcing" since before there was a name for it.</h2>
+									<p>TopCoder's global community and unique model of competition-based development delivers higher quality results, faster and less expensively than has ever been previously possible.</p>
+									<p>Find out what customers ranging from small businesses to Fortune 500's have known since 2001.</p>
 									
 								</div><!-- End .description -->
 							</div><!-- End .getStarted -->
 							
 							<div class="clientArea contentBg2">
-								<div class="buttonArea">
-
-                                    <div>
-                                        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>" class="createNow"></a>
-                                        <p>Graphic designers,ready for a creative challenge? Enter here!</p>
-                                    </div>
+								<div class="competeText">At this moment, there are <strong><%=activeCount%></strong> active competitions with <strong>$<tc-webtag:format object="<%=activeTotal%>" format="#,##0"/></strong> in total prizes.
+									<div class="action">Compete and get your piece of the pie!</div>
+								</div>
+								<div class="buttonArea2">	
                                     <div>
                                         <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc" class="competeNow"></a>
-                                        <p>Programmers,think you can handle it? Go!</p>
+                                        <p class="dev">Programmers,think you can handle it? Enter here!</p>
+                                    </div>
+                                    <div>
+                                        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>" class="createNow"></a>
+                                        <p class="studio">Graphic designers,ready for a creative challenge? Go!</p>
                                     </div>
 
 								</div><!-- End .leftArea -->
-								<div class="description">
-									
-									<h2>At TopCoder you really can "earn money from home."</h2>
-									
-									<b>At this moment, there are <strong><%=activeCount%></strong> active competitions with <strong>$<tc-webtag:format object="<%=activeTotal%>" format="#,##0"/></strong> in total prizes. Get in the game.</b>	
 								
-								</div><!-- End .description -->
-
 							</div><!-- End .getStarted -->
 
 							
