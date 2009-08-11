@@ -60,8 +60,7 @@
 							<h4 class="red">Co-Pilots</h4>
 							<p>TopCoder resources are available virtually to service your support requests.  A co-pilot is assigned to your project and is responsible for working with your team to complete tasks at hand.</p>
 							<h4 class="red">Telephone &amp; Email Support</h4>
-							<p>Immediate access is available to TopCoder resources via a convenient 800 number and/or email.</p>
-
+							<p>Immediate access is available to TopCoder resources via 1-866-TOPCODER and/or <a href="mailto:service@topcoder.com">service@topcoder.com</a>.</p>
 							<h4 class="red">Catalog Upgrades</h4>
 							<p>Includes support of existing components in the TopCoder Catalog.</p>
 							<h4 class="red">Alerts and Notifications</h4>
