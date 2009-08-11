@@ -19,13 +19,14 @@
 
 <%-- CONTENT BLOCKS --%>
 	<div id="content">
+
+		<%--BANNER--%>
+		<div id="banner">
+			<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/about.jsp"><img src="images/learnmore.png" alt="Learn More About TopCoder Direct" /></a>
+		</div>
+
 		<div class="wrapper">
 		
-<%-- TOPCODER DIRECT BANNER --%>
-    <div id="direct_banner">
-            <p><img src="images/plug_into_the_world_largest.png" width="556" height="68"
-                    alt="Plug into the world largest community of competitive software developers and designers" /></p>
-        </div>
 
         <div id="content_main">
             <div class="left_content">
@@ -62,10 +63,6 @@
 </div>
 <%-- #content ends --%>
 
-<%--BANNER--%>
-<div id="banner">
-    <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/about.jsp"><img src="images/learnmore.png" alt="Learn More About TopCoder Direct" /></a>
-</div>
 <%-- NEWS --%>
 
 <div id="news">
