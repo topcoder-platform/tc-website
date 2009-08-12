@@ -3,6 +3,7 @@
 <html>
 <head>
 <title>TopCoder - Help</title>
+<META http-equiv="refresh" content="0;URL=http://www.topcoder.com/wiki/pages/viewpage.action?pageId=4096369">
 
 <jsp:include page="../script.jsp" />
 <jsp:include page="/style.jsp">
