@@ -25,8 +25,8 @@
 <link rel="stylesheet" href="./css/home/main.css" media="all" type="text/css" />
 <link rel="stylesheet" href="./css/home/jquery.jcarousel.css" media="all" type="text/css" />
 
-<!--[if IE 6]>
-<link rel="stylesheet" type="text/css" media="screen" href="css/main-ie6.css" />
+<!--[if lt IE 7]>
+	<script type="text/javascript" src="./js/home/unitpngfix.js"></script>
 <![endif]-->
 
 <!-- External JavaScript -->
@@ -35,44 +35,6 @@
 <script type="text/javascript" src="./js/home/jquery.timers.js"></script>
 <script type="text/javascript" src="./js/home/scripts.js"></script>
 
-<script type="text/javascript">
-	$(document).ready(function(){
-		
-		// Setup the carousel functionalities
-		
-		setHoverClickFunctions = function(carousel){
-			
-			carousel.setup();
-			carousel.options.auto = 5;
-			
-			$('#mycarousel LI').bind('mouseover', function(){
-				carousel.stopAuto();
-			});
-
-			$('#mycarousel LI').bind('mouseout', function(){
-				carousel.startAuto(5);
-			});
-			
-			$(carousel.buttonNext).bind('click',function(){
-				carousel.next();
-			});
-			
-			$(carousel.buttonPrev).bind('click',function(){
-				carousel.prev();
-			});
-
-		}
-		
-		$('#mycarousel').jcarousel({
-			start: 1,
-			scroll: 1,
-			wrap: "both",
-			initCallback: setHoverClickFunctions
-		});
-	
-
-	});
-</script>
 
 <%
     // get active contests summary for totals
