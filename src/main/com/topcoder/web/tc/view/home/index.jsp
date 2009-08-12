@@ -23,6 +23,7 @@
 
 <!-- External CSS -->
 <link rel="stylesheet" href="./css/home/main.css" media="all" type="text/css" />
+<link rel="stylesheet" href="./css/home/main-ie6.css" media="all" type="text/css" />
 <link rel="stylesheet" href="./css/home/jquery.jcarousel.css" media="all" type="text/css" />
 
 <!--[if lt IE 7]>
