@@ -335,7 +335,7 @@ rated event following the rating change.
     <br/>
     <li>
         <b>Scoring during Online Tournament Rounds</b><br>
-        All contestants, who opened any problem during the round, will have their ratings
+        In the event that an SRM is being rated, all contestants who opened any problem during the round will have their algorithm rating
         adjusted up or down to reflect their performance, based on TopCoder's rating formula.
         Contestant ratings play no role in a Coder's final standing in the competition room.
     </li>
