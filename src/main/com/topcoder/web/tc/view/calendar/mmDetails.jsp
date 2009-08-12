@@ -159,7 +159,7 @@ Please check out the rules link below for more detail.
 </p>
 <%}%>
 
-<%if(rsr.getIntItem("round_id") == 10862 || rsr.getIntItem("round_id") == 13754 || rsr.getIntItem("round_id") == 13772 ) {%>
+<%if(rsr.getIntItem("round_id") == 10862 || rsr.getIntItem("round_id") == 13754 || rsr.getIntItem("round_id") == 13772 || rsr.getIntItem("round_id") == 13934 ) {%>
 <p align="justify">
     This Marathon Match has some different rules and terms.  Please make sure to read
     the rules carefully before competing.  <b>You must be eligible to compete in the match 
@@ -176,7 +176,7 @@ Please check out the rules link below for more detail.
 </p>
 <%}%>
 
-<%if(rsr.getIntItem("round_id") == 13754 ) {%>
+<%if(rsr.getIntItem("round_id") == 13754 || rsr.getIntItem("round_id") == 13934) {%>
 <p align="justify">
     This Marathon Match is a money match that has a <b>$5,000 prize purse</b>! The top five highest scorers 
 	will receive prizes with the first place winner receiving $2,500!
@@ -262,7 +262,7 @@ Please check out the rules link below for more detail.
     
 </p>
 <%}%>
-<%if(rsr.getIntItem("round_id") == 13754) {%>
+<%if(rsr.getIntItem("round_id") == 13754 || rsr.getIntItem("round_id") == 13934 ) {%>
 <div class="sectionHeader">Prizes</div>
     <p align="justify">There will be $5000 in total prize money.  The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
 
@@ -283,6 +283,9 @@ Please check out the rules link below for more detail.
         <td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$250</td>
     </tr>
 </table>
+<br>
+<b>* NOTE:</b> All prize winners are required to submit to TopCoder a one-page description, explaining their winning 
+submission, within one week of the announcment of the winners in order to receive their prize.
     
 <p align="justify">
     
@@ -320,7 +323,7 @@ Please check out the rules link below for more detail.
 <%}%>
 
 <%if(rsr.getIntItem("round_id") == 13754 || rsr.getIntItem("round_id") == 13772 || rsr.getIntItem("round_id") == 13793 || rsr.getIntItem("round_id") == 13796 || rsr.getIntItem("round_id") == 13797 || rsr.getIntItem("round_id") == 13798 
-     || rsr.getIntItem("round_id") == 13799 || rsr.getIntItem("round_id") == 13800 || rsr.getIntItem("round_id") == 13801 ) {%>
+     || rsr.getIntItem("round_id") == 13799 || rsr.getIntItem("round_id") == 13800 || rsr.getIntItem("round_id") == 13801 || rsr.getIntItem("round_id") == 13934) {%>
 <div class="sectionHeader">Eligibility</div>
   <p align="justify">
     You must be a TopCoder member, at least 18 years of age, meeting all of the membership requirements. In addition,
