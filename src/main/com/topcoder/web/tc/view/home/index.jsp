@@ -152,61 +152,6 @@
 								
 							</div><!-- End .getStarted -->
 							
-<!--
-                                <div class="carouselContainer">
-							
-								<!-- Vertical lines behind the carousel buttons -->
-								<div class="carouselBorderLeft"></div>
-								
-								<div class="carouselBorderRight"></div>
-								
-									<ul id="mycarousel" class="jcarousel-skin-topCoder">
-											<li>
-													<div class="carouselImage">
-															<!-- To add a new image replace the class name with background-image=url(path-of-your-image)-->
-															<a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=pr_103008"><img src="http://www.topcoder.com/images/home/news-carousel/tcdirect.png" alt="TopCoder Direct" /></a>
-													</div>
-													<div class="carouselContent">
-															<p>TopCoder Direct Platform Opens Access to <tc-webtag:format object="${sessionInfo.memberCount}" format="#,##0"/> Member Community of Software Designers, <br />Developers &amp; Creative Artists</p>
-													</div>
-											</li>
-											<li>
-													<div class="carouselImage">
-															<a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=pr_102308"><img src="http://www.topcoder.com/images/home/news-carousel/fast50.png" alt="Deloitte Technology Fast 50" /></a>
-													</div>
-													<div class="carouselContent">
-															<p><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=pr_102308">TopCoder Ranked Number 11 in Deloitte's Technology Fast 50 Program for New York, New Jersey and Connecticut</a> </p>
-													</div>
-											</li>
-											<li>
-													<div class="carouselImage">
-															<a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=pr_100608"><img src="http://www.topcoder.com/images/home/news-carousel/sd-bestpractices.png" alt="Software Development Best Practices TopCoder Challenge" /></a>
-													</div>
-													<div class="carouselContent">
-															<p><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=pressroom&amp;d2=pr_100608">TopCoder Joins Lineups for SD Best Practices and Software Business 2008 Conferences October 28-31</a></p>
-													</div>
-											</li>
-											<li>
-													<div class="carouselImage">
-															<a target="_blank" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=LinkTracking&amp;link=http://industry.bnet.com/technology/1000470/aol-finds-topcoder-tops/&amp;refer=homepage"><img src="http://www.topcoder.com/images/home/news-carousel/bnet.png" alt="BNET" /></a>
-													</div>
-													<div class="carouselContent">
-															<p><a target="_blank" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=LinkTracking&amp;link=http://industry.bnet.com/technology/1000470/aol-finds-topcoder-tops/&amp;refer=homepage">AOL Finds TopCoder Tops</a></p>
-					AOL technical director Nic Perez talks about his experience as a TopCoder client for a number of major projects over the last three years.
-													</div>
-											</li>
-											<li>
-													<div class="carouselImage">
-															<a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=LinkTracking&amp;link=http://www.pcworld.com/businesscenter/article/152324/topcoder_eyeing_smb_market.html&amp;refer=homepage"><img src="http://www.topcoder.com/images/home/news-carousel/pcworld.png" alt="PCWorld" /></a>
-													</div>
-													<div class="carouselContent">
-															<p><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=LinkTracking&amp;link=http://www.pcworld.com/businesscenter/article/152324/topcoder_eyeing_smb_market.html&amp;refer=homepage">TopCoder Eyeing SMB Market</a></p>
-					TopCoder is turning its sights on the SMB market with a new portal called TopCoder Direct that will come out of beta at the end of October.
-													</div>
-											</li>
-									</ul>
-							</div><!-- End .carouselContainer -->
--->
 							
 							<div id="footer">
 								<p>TopCoder is the world's largest competitive software development community with <tc-webtag:format object="${sessionInfo.memberCount}" format="#,##0"/> developers representing over 200 countries.</p>
