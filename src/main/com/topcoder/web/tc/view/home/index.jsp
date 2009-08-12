@@ -152,7 +152,8 @@
 								
 							</div><!-- End .getStarted -->
 							
-							<div class="carouselContainer">
+<!--
+                                <div class="carouselContainer">
 							
 								<!-- Vertical lines behind the carousel buttons -->
 								<div class="carouselBorderLeft"></div>
@@ -205,10 +206,9 @@
 											</li>
 									</ul>
 							</div><!-- End .carouselContainer -->
-
+-->
 							
 							<div id="footer">
-								<h2>1-866-TOPCODER OR <a href="mailto:answers@topcoder.com">ANSWERS@TOPCODER.COM</a></h2>
 								<p>TopCoder is the world's largest competitive software development community with <tc-webtag:format object="${sessionInfo.memberCount}" format="#,##0"/> developers representing over 200 countries.</p>
 								<p>Copyright ©2001-2009, TopCoder, Inc. All rights reserved</p>
 
