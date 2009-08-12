@@ -153,14 +153,13 @@
 							</div><!-- End .getStarted -->
 							
 							
-							<div id="footer">
-								<p>TopCoder is the world's largest competitive software development community with <tc-webtag:format object="${sessionInfo.memberCount}" format="#,##0"/> developers representing over 200 countries.</p>
-								<p>Copyright ©2001-2009, TopCoder, Inc. All rights reserved</p>
-
-								<br>
-								<p><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/contact.jsp">Contact Us</a> | <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=index">About TopCoder</a> | <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/">Register</a></p>
-
-							</div><!-- End #footer -->
+							<div id="footer"> 
+                           			<p>TopCoder is the world's largest competitive software development community with <tc-webtag:format object="${sessionInfo.memberCount}" format="#,##0"/> developers representing over 200 countries.<br /> 
+									Copyright ©2001-2009, TopCoder, Inc. All rights reserved</p> 
+ 
+                                    <p><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/contact.jsp">Contact Us</a> | <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=index">About TopCoder</a> | <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/">Register</a></p> 
+ 
+                            </div><!-- End #footer -->
 							
 						</div><!-- End #mainContent -->
 					
