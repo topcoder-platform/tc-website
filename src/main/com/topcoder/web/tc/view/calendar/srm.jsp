@@ -17,6 +17,9 @@
             10773,10778,10787,11122,11126,12169,12172,12177};
     //sort it just for insurance, we're going to use binary search later
     Arrays.sort(regularPrizeRounds);
+	
+	long[] unratedRounds = {13935};
+	Arrays.sort(unratedRounds);
 
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -124,22 +127,6 @@
     <a HREF="<%="http://www.timeanddate.com/worldclock/fixedtime.html?" + time+"&amp;p1=179"%>">here</a>
     to see when coding begins in other time zones.<br/></center>
 
-<% if (roundId == 10004) { %>
-<hr />
-<p>In memoriam: <tc-webtag:handle coderId="13377493"/></p>
-
-<p>Last month, TopCoder lost a valued member and friend with the passing of Victor_lxd. We are dedicating this match
-to his memory, along with a $5,000 prize purse.</p>
-
-<p>With his wife also injured, we believe the best tribute we can make is to lend our support to <tc-webtag:handle coderId="13377493"/>'s family.
-We invite all SRM 324 participants to consider pledging their winnings as a gift in Victor's memory, though there is
-no obligation to do so - please indicate your preference when registering for the match.</p>
-
-<p>TopCoder will match any and all donations that members make during this SRM, up to a potential total gift of $10,000.
-Please join us in this tribute to one of our own.</p>
-
-<hr />
-<% } %>
 
 <% if (rsr.getItem("forum_id").getResultData() != null && rsr.getIntItem("forum_id") != 0) { %>
 <center><strong>
@@ -147,265 +134,7 @@ Please join us in this tribute to one of our own.</p>
 </strong>
     <br/><br/></center>
 <% } %>
-<% if (roundId == 8075) { %>
-<br/>
-TopCoder Employment Services is placing members in the Tampa Bay, FL area. <A HREF="/tc?module=ContractingPreferences">Click
-    here to register.</A><br/><br/>
-<% } else if (roundId == 8070 || roundId == 8073 || roundId == 8076) { %>
-<br/>
-<b>If you're a member of <A href="/tc?module=Static&amp;d1=sponsors&amp;d2=sap">SAP Developer Network</A> AND take part
-    in
-    <rsc:item name="contest_name" row="<%=rsr%>"/>
-    , you'll be eligible for a chance to win one 60GB Apple iPod!</b>
-<br/><br/>
-<table width="428" border="0" cellpadding="6" cellspacing="2">
-    <tr valign="top">
-        <td align="center" valign="middle">
-            <img src="http://www.topcoder.com/i/sponsor/sap_ipod.jpg"/>
-        </td>
-    </tr>
-</table>
-<br/><br/>
-For Official Contest Rules on how to win a 60GB Apple iPod click
-<A href="javascript:openWin('/tc?module=Static&amp;d1=sponsors&amp;d2=sap_ipod_rules','rules',545,655)">here</A>.<br/>
-<br/>
-<% } else if (roundId == 4710) { %>
-<b>For information on how to win an Intel&#174; Centrino(TM) mobile technology-based notebook computer click
-    <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_intel">here</a></b><br/><br/>
-<% } else if (roundId == 5856) { %>
-<p>
-    If you're a member of
-    <a href="/?t=sponsor&amp;c=link&amp;link=http://www.intel.com/IDS&amp;refer=srm_details" target="_blank">Intel
-        Developer Services</a> AND take part in Single Round Match 210, you'll be eligible for a chance to win one Intel&#174;
-    Centrino(TM) mobile technology-based notebook!
-</p>
-<table width="428" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
-    <tr>
-        <td align="left" valign="middle">
-        </td>
-    </tr>
-    <tr valign="top">
-        <td align="left" valign="middle">
-            <h2>Intel<sup>&#174;</sup><br/>Centrino(TM)<br/>Mobile<br/>Technology-<br/>based Tablet<br/>PC Quick<br/>
-                Specs</h2>
-        </td>
-        <td align="left" valign="middle">
-            <img src="/i/tournament/tco04/intel_tablet.jpg" width="216" height="167" border="0"/>
-        </td>
-    </tr>
-</table>
-<table width="428" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
-    <tr valign="top">
-        <td class="sidebarTitle">Configuration Details:</td>
-        <td class="sidebarText">1 Intel<sup>&#174;</sup> Pentium<sup>&#174;</sup> M PROCESSOR 1.0GHz, Intel<sup>
-            &#174;</sup>
-            855GM CHIPSET, OEM BASEBOARD, DDR266 512MB (1x512MB) MEMORY, INTEGRATED GRAPHICS, TABLET FORM FACTOR
-            CHASSIS, WINDOWS
-            XP TABLET PC OS, CALEXICO 802.11b (Intel<sup>&#174;</sup> PRO/Wireless 2100 network connection)
-        </td>
-    </tr>
 
-    <tr valign="top">
-        <td class="sidebarTitle">Description:</td>
-        <td class="sidebarText">Intel<sup>&#174;</sup> Pentium<sup>&#174;</sup> M based Centrino(TM) Tablet Platform
-        </td>
-    </tr>
-
-    <tr valign="top">
-        <td class="sidebarTitle">Functionality:</td>
-        <td class="sidebarText">Production-level</td>
-    </tr>
-
-    <tr valign="top">
-        <td class="sidebarTitle">New Technologies:</td>
-        <td class="sidebarText">Intel<sup>&#174;</sup> Pentium<sup>&#174;</sup> M processor, Intel<sup>&#174;</sup> 855
-            Chipset family, Intel<sup>&#174;</sup> PRO/Wireless 2100 network connection (Centrino(TM) Mobile Technology)
-        </td>
-    </tr>
-</table>
-<p><b>For Official Contest Rules on how to win an Intel&#174; Centrino(TM) Mobile Technology-based Tablet PC click
-    <a href="Javascript:openWin('/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=intel&amp;d4=tablet_rules','comp',545,655)">here</a></b>
-</p><br/>
-<% } else if (roundId == 5075) { %>
-In celebration of SRM 200, TopCoder will hold 10 random drawings at the conclusion of the challenge phase. In order to
-be eligible to be randomly chosen for a prize, you must both register for SRM 200 during the registration period and
-participate in the match.<br/>
-<br/>
-The prizes to be given away are: <br/>
-<br/>
-(3) TopCoder Hooded Jackets<br/>
-(3) TopCoder Backpacks<br/>
-(4) TopCoder Polo Shirts<br/>
-<br/>
-A given competitor will only be eligible to win, at most, one random drawing.
-<br/>
-<br/>
-<% } else if (roundId == 5849) { %>
-<table>
-    <tr>
-        <td class="bodyText" colspan="3">TopCoder has adjusted the hours of certain SRMs to better accommodate members
-            in Europe, Asia and Australia. The additional dates and times are as follows:
-        </td>
-    </tr>
-    <tr>
-        <td class="bodyText"></td>
-    </tr>
-    <tr>
-        <td class="bodyText">August 10:</td>
-        <td class="bodyText">Register - 10:00AM ET</td>
-        <td class="bodyText">Compete
-            - 1:00PM ET
-        </td>
-    </tr>
-    <tr>
-        <td class="bodyText">September 14:</td>
-        <td class="bodyText">Register - 6:00AM ET</td>
-        <td class="bodyText">
-            Compete - 9:00AM ET
-        </td>
-    </tr>
-    <tr>
-        <td class="bodyText">October 4:</td>
-        <td class="bodyText">Register - 10:00AM ET</td>
-        <td class="bodyText">Compete
-            - 1:00PM ET
-        </td>
-    </tr>
-    <tr>
-        <td class="bodyText">November 4:</td>
-        <td class="bodyText">Register - 6:00AM ET</td>
-        <td class="bodyText">Compete
-            - 9:00AM ET
-        </td>
-    </tr>
-    <tr>
-        <td class="bodyText">December 6:</td>
-        <td class="bodyText">Register - 10:00AM ET</td>
-        <td class="bodyText">
-            Compete - 1:00PM ET
-        </td>
-    </tr>
-</table>
-<br/>
-<% } else if (roundId == 5853) { %>
-<table>
-    <tr>
-        <td class="bodyText" colspan="3">TopCoder has adjusted the hours of certain SRMs to better accommodate members
-            in Europe, Asia and Australia. The additional dates and times are as follows:
-        </td>
-    </tr>
-    <tr>
-        <td class="bodyText"></td>
-    </tr>
-    <tr>
-        <td class="bodyText">September 14:</td>
-        <td class="bodyText">Register - 6:00AM ET</td>
-        <td class="bodyText">
-            Compete - 9:00AM ET
-        </td>
-    </tr>
-    <tr>
-        <td class="bodyText">October 4:</td>
-        <td class="bodyText">Register - 10:00AM ET</td>
-        <td class="bodyText">Compete
-            - 1:00PM ET
-        </td>
-    </tr>
-    <tr>
-        <td class="bodyText">November 4:</td>
-        <td class="bodyText">Register - 6:00AM ET</td>
-        <td class="bodyText">Compete
-            - 9:00AM ET
-        </td>
-    </tr>
-    <tr>
-        <td class="bodyText">December 6:</td>
-        <td class="bodyText">Register - 10:00AM ET</td>
-        <td class="bodyText">
-            Compete - 1:00PM ET
-        </td>
-    </tr>
-</table>
-<br/>
-<% } else if (roundId == 5857) { %>
-<table>
-    <tr>
-        <td class="bodyText" colspan="3">TopCoder has adjusted the hours of certain SRMs to better accommodate members
-            in Europe, Asia and Australia. The additional dates and times are as follows:
-        </td>
-    </tr>
-    <tr>
-        <td class="bodyText"></td>
-    </tr>
-    <tr>
-        <td class="bodyText">October 4:</td>
-        <td class="bodyText">Register - 10:00AM ET</td>
-        <td class="bodyText">Compete
-            - 1:00PM ET
-        </td>
-    </tr>
-    <tr>
-        <td class="bodyText">November 4:</td>
-        <td class="bodyText">Register - 6:00AM ET</td>
-        <td class="bodyText">Compete
-            - 9:00AM ET
-        </td>
-    </tr>
-    <tr>
-        <td class="bodyText">December 6:</td>
-        <td class="bodyText">Register - 10:00AM ET</td>
-        <td class="bodyText">
-            Compete - 1:00PM ET
-        </td>
-    </tr>
-</table>
-<br/>
-<% } else if (roundId == 5860) { %>
-<table>
-    <tr>
-        <td class="bodyText" colspan="3">TopCoder has adjusted the hours of certain SRMs to better accommodate members
-            in Europe, Asia and Australia. The additional dates and times are as follows:
-        </td>
-    </tr>
-    <tr>
-        <td class="bodyText"></td>
-    </tr>
-    <tr>
-        <td class="bodyText">November 4:</td>
-        <td class="bodyText">Register - 6:00AM ET</td>
-        <td class="bodyText">Compete
-            - 9:00AM ET
-        </td>
-    </tr>
-    <tr>
-        <td class="bodyText">December 6:</td>
-        <td class="bodyText">Register - 10:00AM ET</td>
-        <td class="bodyText">
-            Compete - 1:00PM ET
-        </td>
-    </tr>
-</table>
-<br/>
-<% } else if (roundId == 5864) { %>
-<table>
-    <tr>
-        <td class="bodyText" colspan="3">TopCoder has adjusted the hours of certain SRMs to better accommodate members
-            in Europe, Asia and Australia. The additional dates and times are as follows:
-        </td>
-    </tr>
-    <tr>
-        <td class="bodyText"></td>
-    </tr>
-    <tr>
-        <td class="bodyText">December 7:</td>
-        <td class="bodyText">Register - 10:00AM ET</td>
-        <td class="bodyText">
-            Compete - 1:00PM ET
-        </td>
-    </tr>
-</table>
-<br/>
-<% } %>
 </TD>
 </TR>
 
@@ -582,6 +311,36 @@ A given competitor will only be eligible to win, at most, one random drawing.
         </UL>
         <BR/><BR/>
 
+        <A CLASS="bodyText" HREF="/tc?module=MatchRules&amp;rd=<rsc:item name="round_id" row="<%=rsr%>"/>"><B>Click here for
+            complete rules &amp; regulations</B></A>
+    </TD>
+</TR>
+
+<% } else if (Arrays.binarySearch(unratedRounds, roundId)>=0) { %>
+
+<TR>
+    <TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
+        <B>Single Round Match Description</B>
+        <UL>
+            <LI>Maximum of 20 coders per room</LI>
+            <LI>This event is unrated - no ratings will be adjusted during this event</LI>
+            <LI>Members will be emailed prior to the match with date and time (opt-in)</LI>
+        </UL>
+        The match will feature a mixed programming language format. For each individual problem, the coder will have the
+        option of using either Java, C++, Microsoft&#174; Visual C#&#174; .NET or Microsoft&#174; Visual Basic&#174;
+        .NET to
+        code the solution. Syntactical knowledge of all four languages will be helpful during the challenge phase of
+        each
+        round of competition.<BR/><BR/>
+        <B>Divisions and Room Assignments:</B>
+        <UL>
+            <LI>Members rated 1200 or better compete in Division-I</LI>
+            <LI>Members rated 1199 or lower compete in Division-II</LI>
+            <LI>Members who have not yet been rated will compete in Division-II</LI>
+            <LI>Room assignments place members of like divisions together</LI>
+        </UL>
+        <B>Eligibility:</B><BR/><BR/>
+        Anyone who is at least 13 years of age may compete in any Single Round Match.<BR/><BR/>
         <A CLASS="bodyText" HREF="/tc?module=MatchRules&amp;rd=<rsc:item name="round_id" row="<%=rsr%>"/>"><B>Click here for
             complete rules &amp; regulations</B></A>
     </TD>
