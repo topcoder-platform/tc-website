@@ -118,6 +118,10 @@
       <td class="value">17
       </td>
       <td class="value">18
+         <div class="srm">
+         <strong><A href="http://forums.topcoder.com/?module=Thread&threadID=648859">Beta SRM</A></strong><br />
+         11:00 AM
+         </div>       
       </td>
       <td class="value">19
       </td>
