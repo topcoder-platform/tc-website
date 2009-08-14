@@ -23,12 +23,6 @@ import com.topcoder.web.studio.model.ContestRegistration;
  *          Create Date: Jul 20, 2006
  */
 public class Register extends ShortHibernateProcessor {
-    /**
-     * Constant containing submitter role id
-     *
-     * @since
-     */
-    protected static final Integer[] SUBMITTER_ROLE_IDS = new Integer[] {1};
 
     protected void dbProcessing() throws Exception {
         if (userLoggedIn()) {
@@ -66,7 +60,7 @@ public class Register extends ShortHibernateProcessor {
                             u.addTerms(tou);
 
                             // process terms of use
-                            processTermsOfUse(c, u, SUBMITTER_ROLE_IDS);
+                            RegistrationHelper.processTermsOfUse(getRequest(), c, u, RegistrationHelper.SUBMITTER_ROLE_IDS);
                         } else {
                             addError(Constants.TERMS_AGREE, "You must agree to the terms in order to continue.");
                             setDefault(Constants.CONTEST_ID, contestId.toString());
@@ -76,7 +70,7 @@ public class Register extends ShortHibernateProcessor {
                         }
                     } else {
                         // make sure they don't have pending terms of use (they could get here faking the URL)
-                        if (processTermsOfUse(c, u, SUBMITTER_ROLE_IDS)) {
+                        if (RegistrationHelper.processTermsOfUse(getRequest(), c, u, RegistrationHelper.SUBMITTER_ROLE_IDS)) {
                             setDefault(Constants.CONTEST_ID, contestId.toString());
                             getRequest().setAttribute("contest", c);
                             setNextPage("/contestReg.jsp");
@@ -143,24 +137,5 @@ public class Register extends ShortHibernateProcessor {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 
-    }
-
-    private boolean processTermsOfUse(Contest c, User u, Integer[] submitterRoleIds) {
-        // validate that registrant has agreed to the necessary terms of use
-        Set<TermsOfUse> necessaryTerms = 
-            StudioDAOUtil.getFactory().getContestDAO().findNecessaryTerms(c.getId(), submitterRoleIds);
-        
-        Set<TermsOfUse> termsAgreed = u.getTerms();
-
-        for (TermsOfUse tou : necessaryTerms) {
-            if (!termsAgreed.contains(tou)) {
-                getRequest().setAttribute(Constants.TERMS, tou);
-                return true;
-            }
-        }
-
-        // the user agreed to all necessary terms
-        getRequest().setAttribute(Constants.TERMS_AGREED, necessaryTerms);
-        return false;
     }
 }

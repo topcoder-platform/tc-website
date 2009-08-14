@@ -13,6 +13,11 @@ public class TermsOfUse extends Base {
     private Integer id;
     private String text;
     private Integer typeId;
+
+    private String title;
+    private Integer electronicallySignable;
+    private String url;
+
     private Set users;
 
     public TermsOfUse() {
@@ -40,6 +45,48 @@ public class TermsOfUse extends Base {
 
     public void setTypeId(Integer typeId) {
         this.typeId = typeId;
+    }
+
+    /**
+     * @return the title
+     */
+    public String getTitle() {
+        return title;
+    }
+
+    /**
+     * @param title the title to set
+     */
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    /**
+     * @return the electronicallySignable
+     */
+    public Integer getElectronicallySignable() {
+        return electronicallySignable;
+    }
+
+    /**
+     * @param electronicallySignable the electronicallySignable to set
+     */
+    public void setElectronicallySignable(Integer electronicallySignable) {
+        this.electronicallySignable = electronicallySignable;
+    }
+
+    /**
+     * @return the url
+     */
+    public String getUrl() {
+        return url;
+    }
+
+    /**
+     * @param url the url to set
+     */
+    public void setUrl(String url) {
+        this.url = url;
     }
 
 

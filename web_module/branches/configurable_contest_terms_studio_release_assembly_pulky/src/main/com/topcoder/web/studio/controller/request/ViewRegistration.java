@@ -7,10 +7,13 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestStatus;
+import com.topcoder.web.tc.controller.request.development.Base;
 
 /**
  * @author dok
@@ -32,6 +35,7 @@ public class ViewRegistration extends ShortHibernateProcessor {
                     throw new NavigationException("Invalid contest specified");
                 }
                 Contest contest = StudioDAOUtil.getFactory().getContestDAO().find(cid);
+                User u = DAOUtil.getFactory().getUserDAO().find(getUser().getId());
 
                 if (ContestStatus.ACTIVE.equals(contest.getStatus().getId())) {
                     Date now = new Date();
@@ -49,6 +53,9 @@ public class ViewRegistration extends ShortHibernateProcessor {
                     getRequest().setAttribute("has_global_ad", PactsServicesLocator.getService().hasGlobalAD(getUser().getId()));
                 }
 
+                // process terms of use
+                RegistrationHelper.processTermsOfUse(getRequest(), contest, u, RegistrationHelper.SUBMITTER_ROLE_IDS);
+                
                 setNextPage("/contestReg.jsp");
                 setIsNextPageInContext(true);
             }

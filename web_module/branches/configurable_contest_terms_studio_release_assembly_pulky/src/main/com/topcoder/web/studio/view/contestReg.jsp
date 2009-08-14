@@ -68,6 +68,8 @@
                     <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a>
                     &gt; ${contest.name}
                 </div>
+
+
 				<br />
                 <h1>Contest Registration</h1>
 
@@ -80,8 +82,44 @@
                         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Register"/>
                         <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
+                        <c:if test="${not empty terms}">
+                            <tc-webtag:hiddenInput name="<%=Constants.TERMS_OF_USE_ID%>" value="${terms.id}"/>
+                        </c:if>
 
-                        <iframe width="590" height="300" marginWidth="5" src="${sessionInfo.servletPath}?module=Terms&amp;<%=Constants.TERMS_OF_USE_ID%>=<%=Constants.CONTEST_TERMS_OF_USE_ID%>"></iframe>
+                        <c:choose>
+                            <c:when test="${not empty terms}">
+                                ${terms.title}<br/>
+                                <iframe width="590" height="300" marginWidth="5" src="${sessionInfo.servletPath}?module=Terms&amp;<%=Constants.TERMS_OF_USE_ID%>=${terms.id}"></iframe>
+                            </c:when>
+                            <c:otherwise>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            The following terms (that you already agreed to) apply to this project:
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <c:forEach items="${terms_agreed}" var="terms_agreed_item">
+                                                <ul>
+                                                    <li>
+                                                        ${terms_agreed_item.title}
+                                                        <c:choose>
+                                                            <c:when test="${terms_agreed_item.electronicallySignable != 1}">
+                                                                <a href="${terms_agreed_item.url}">(View)</a>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                <a href="/tc?module=Terms&tuid=${terms_agreed_item.termsOfUseId}" target="_blank">(View)</a>
+                                                            </c:otherwise>
+                                                        </c:choose>
+                                                    </li>
+                                                </ul>
+                                            </c:forEach>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </c:otherwise>
+                        </c:choose>
 
                         <br /><br />
                         <!-- could also use <input>'s button <button> gives you more display freedom and is documented on w3c -->
@@ -89,21 +127,35 @@
                 </div>
                 
                 <div align="center">
-                <div class="bigRed" style="text-align: left; width:590px"><tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>">${err}
-                    <br /></tc-webtag:errorIterator></div>
                         <c:if test="${not empty has_global_ad and not has_global_ad}">
-                            
                             <div class="bigRed" style="text-align: left; width:590px">
                                  You have not yet signed the Assignment Document that is required in order to submit for this contest. Please go <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">here</a> to read more about Assignment Documents and what you need to do. 
                                  You will not be able to submit for this contest without first sending in the signed Assignment Document.<br /><br />
                            </div>
                         </c:if>
+
+                        <c:if test="${not empty terms}">
+                            <c:choose>
+                                <c:when test="${terms.electronicallySignable == 1}">
+                                    <div class="bigRed" style="text-align: left; width:590px"><tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>">${err}
+                                        <br /></tc-webtag:errorIterator></div>
+                                   <INPUT TYPE="checkbox" NAME="<%=Constants.TERMS_AGREE%>"/> I agree
+                                    <br /><br />
+                                    <input type="image" src="/i/v2/interface/btnSubmit.png" />
+                                    <br /><br />
+                                </c:when>
+                                <c:otherwise>
+                                    <p>You cannot agree to these terms electronically. You must print the terms and send a signed hard copy to TopCoder. You
+                                    can get a printer friendly version <a href="${terms.url}">here</a>.</p>
+                                    
+                                    <p>For submission by <b>email</b>, send a clear and legible scan or photo of the entire page (completed, signed, and dated) as
+                                    an attachment to member-agreements@topcoder.com.  For submission by <b>fax</b>, you may fax the completed, signed, and dated
+                                    form (without a cover sheet) to: (US) +1 (860) 631-1027.  For submission by <b>mail</b>, send the completed, signed, and
+                                    dated form to: Attention: Legal Department, TopCoder, Inc., 95 Glastonbury Blvd., Glastonbury, CT 06033.</p>
+                                </c:otherwise>
+                            </c:choose>
+                        </c:if>
                        
-                       <INPUT TYPE="checkbox" NAME="<%=Constants.TERMS_AGREE%>"/> I agree
-                        <br /><br />
-                        <input type="image" src="/i/v2/interface/btnSubmit.png" />
-                        <br /><br />
-					
 					</form>
                 </div>
 
