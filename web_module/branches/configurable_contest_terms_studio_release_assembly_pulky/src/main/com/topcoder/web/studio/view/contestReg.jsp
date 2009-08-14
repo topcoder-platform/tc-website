@@ -134,18 +134,6 @@
                            </div>
                         </c:if>
 
-
-                    <c:choose>
-                        <c:when test="${not empty terms}">
-                            <c:if test="${terms.electronicallySignable == 1}">
-                                <a class="button" href="Javascript:document.regForm.submit();" style="width:60px;">Continue</a>
-                            </c:if>
-                        </c:when>
-                        <c:otherwise>
-                            <a class="button" href="Javascript:document.regForm.submit();" style="width:60px;">Register</a>
-                        </c:otherwise>
-                    </c:choose>
-
                         <c:choose>
                             <c:when test="${not empty terms}">
                                 <c:choose>
