@@ -1,7 +1,5 @@
 package com.topcoder.web.studio.controller.request;
 
-import java.util.Set;
-
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
@@ -63,11 +61,11 @@ public class Register extends ShortHibernateProcessor {
                             RegistrationHelper.processTermsOfUse(getRequest(), c, u, RegistrationHelper.SUBMITTER_ROLE_IDS);
                         } else {
                             addError(Constants.TERMS_AGREE, "You must agree to the terms in order to continue.");
-                            setDefault(Constants.CONTEST_ID, contestId.toString());
-                            getRequest().setAttribute("contest", c);
-                            setNextPage("/contestReg.jsp");
-                            setIsNextPageInContext(true);
                         }
+                        setDefault(Constants.CONTEST_ID, contestId.toString());
+                        getRequest().setAttribute("contest", c);
+                        setNextPage("/contestReg.jsp");
+                        setIsNextPageInContext(true);
                     } else {
                         // make sure they don't have pending terms of use (they could get here faking the URL)
                         if (RegistrationHelper.processTermsOfUse(getRequest(), c, u, RegistrationHelper.SUBMITTER_ROLE_IDS)) {

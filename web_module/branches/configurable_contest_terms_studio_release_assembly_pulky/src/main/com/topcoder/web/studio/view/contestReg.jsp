@@ -73,10 +73,6 @@
 				<br />
                 <h1>Contest Registration</h1>
 
-                <div align="center" style="padding-top:20px;">
-                    Please read through the following terms and then click <strong>"I Agree"</strong> when you're done.
-                </div>
-                 <br />
 				<div align="center">
                     <form name="terms" method="POST" action="${sessionInfo.servletPath}">
                         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Register"/>
@@ -88,6 +84,10 @@
 
                         <c:choose>
                             <c:when test="${not empty terms}">
+                                <div align="center" style="padding-top:20px;">
+                                    Please read through the following terms and then click <strong>"I Agree"</strong> when you're done.
+                                </div>
+                                 <br />
                                 ${terms.title}<br/>
                                 <iframe width="590" height="300" marginWidth="5" src="${sessionInfo.servletPath}?module=Terms&amp;<%=Constants.TERMS_OF_USE_ID%>=${terms.id}"></iframe>
                             </c:when>
@@ -109,7 +109,7 @@
                                                                 <a href="${terms_agreed_item.url}">(View)</a>
                                                             </c:when>
                                                             <c:otherwise>
-                                                                <a href="/tc?module=Terms&tuid=${terms_agreed_item.termsOfUseId}" target="_blank">(View)</a>
+                                                                <a href="${sessionInfo.servletPath}?module=Terms&amp;<%=Constants.TERMS_OF_USE_ID%>=${terms_agreed_item.id}" target="_blank">(View)</a>
                                                             </c:otherwise>
                                                         </c:choose>
                                                     </li>
