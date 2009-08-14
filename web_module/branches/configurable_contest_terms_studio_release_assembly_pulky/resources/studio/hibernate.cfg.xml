@@ -111,6 +111,7 @@
         <mapping resource="com/topcoder/web/studio/model/ContestProperty.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ContestRegistration.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ContestResult.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/model/ContestRoleTermsOfUse.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ContestStatus.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ContestType.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/Document.hbm.xml"/>
