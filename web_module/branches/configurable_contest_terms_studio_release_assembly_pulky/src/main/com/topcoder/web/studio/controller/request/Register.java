@@ -56,12 +56,13 @@ public class Register extends ShortHibernateProcessor {
                             
                             // add user terms of use record
                             u.addTerms(tou);
-
-                            // process terms of use
-                            RegistrationHelper.processTermsOfUse(getRequest(), c, u, RegistrationHelper.SUBMITTER_ROLE_IDS);
                         } else {
                             addError(Constants.TERMS_AGREE, "You must agree to the terms in order to continue.");
                         }
+
+                        // process terms of use
+                        RegistrationHelper.processTermsOfUse(getRequest(), c, u, RegistrationHelper.SUBMITTER_ROLE_IDS);
+
                         setDefault(Constants.CONTEST_ID, contestId.toString());
                         getRequest().setAttribute("contest", c);
                         setNextPage("/contestReg.jsp");
