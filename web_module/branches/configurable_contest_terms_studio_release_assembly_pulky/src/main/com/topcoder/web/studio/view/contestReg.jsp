@@ -146,26 +146,28 @@
                         </c:otherwise>
                     </c:choose>
 
-                        <c:choose test="${not empty terms}">
-                            <c:choose>
-                                <c:when test="${terms.electronicallySignable == 1}">
-                                    <div class="bigRed" style="text-align: left; width:590px"><tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>">${err}
-                                        <br /></tc-webtag:errorIterator></div>
-                                   <INPUT TYPE="checkbox" NAME="<%=Constants.TERMS_AGREE%>"/> I agree
-                                    <br /><br />
-                                    <input type="image" src="/i/v2/interface/btnSubmit.png" />
-                                    <br /><br />
-                                </c:when>
-                                <c:otherwise>
-                                    <p>You cannot agree to these terms electronically. You must print the terms and send a signed hard copy to TopCoder. You
-                                    can get a printer friendly version <a href="${terms.url}">here</a>.</p>
-                                    
-                                    <p>For submission by <b>email</b>, send a clear and legible scan or photo of the entire page (completed, signed, and dated) as
-                                    an attachment to member-agreements@topcoder.com.  For submission by <b>fax</b>, you may fax the completed, signed, and dated
-                                    form (without a cover sheet) to: (US) +1 (860) 631-1027.  For submission by <b>mail</b>, send the completed, signed, and
-                                    dated form to: Attention: Legal Department, TopCoder, Inc., 95 Glastonbury Blvd., Glastonbury, CT 06033.</p>
-                                </c:otherwise>
-                            </c:choose>
+                        <c:choose>
+                            <c:when test="${not empty terms}">
+                                <c:choose>
+                                    <c:when test="${terms.electronicallySignable == 1}">
+                                        <div class="bigRed" style="text-align: left; width:590px"><tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>">${err}
+                                            <br /></tc-webtag:errorIterator></div>
+                                       <INPUT TYPE="checkbox" NAME="<%=Constants.TERMS_AGREE%>"/> I agree
+                                        <br /><br />
+                                        <input type="image" src="/i/v2/interface/btnSubmit.png" />
+                                        <br /><br />
+                                    </c:when>
+                                    <c:otherwise>
+                                        <p>You cannot agree to these terms electronically. You must print the terms and send a signed hard copy to TopCoder. You
+                                        can get a printer friendly version <a href="${terms.url}">here</a>.</p>
+                                        
+                                        <p>For submission by <b>email</b>, send a clear and legible scan or photo of the entire page (completed, signed, and dated) as
+                                        an attachment to member-agreements@topcoder.com.  For submission by <b>fax</b>, you may fax the completed, signed, and dated
+                                        form (without a cover sheet) to: (US) +1 (860) 631-1027.  For submission by <b>mail</b>, send the completed, signed, and
+                                        dated form to: Attention: Legal Department, TopCoder, Inc., 95 Glastonbury Blvd., Glastonbury, CT 06033.</p>
+                                    </c:otherwise>
+                                </c:choose>
+                            </c:when>
                             <c:otherwise>
                                 <input type="image" src="/i/v2/interface/btnSubmit.png" />
                                 <br /><br />
