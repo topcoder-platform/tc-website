@@ -88,12 +88,12 @@
 
 <%-- FOOTER BLOCK --%>
     <div id="footer">
-        <div class="wrapper">
-            <p id="footer_1800"><strong>1-866-TOPCODER or Service@TopCoder.com</strong></p>
+        <div class="">
+            <p id="footer_1800"><strong>1-866-TopCoder or answers@topcoder.com</strong></p>
 
             <p>TopCoder is the world's largest competitive software development community with more than <tc-webtag:format object="<%=memberCount%>" format="#,##0"/> developers representing over 200 countries.</p>
             
-            <p>Copyright &copy;2001-2008, TopCoder, Inc. All rights reserved.</p>
+            <p>Copyright &copy;2001-2009, TopCoder, Inc. All rights reserved.</p>
         </div><%-- .wrapper ends --%>
     </div><%-- #footer ends --%>
 
