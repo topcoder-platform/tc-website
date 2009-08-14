@@ -66,6 +66,7 @@ public class Register extends ShortHibernateProcessor {
                         getRequest().setAttribute("contest", c);
                         setNextPage("/contestReg.jsp");
                         setIsNextPageInContext(true);
+                        return;
                     } else {
                         // make sure they don't have pending terms of use (they could get here faking the URL)
                         if (RegistrationHelper.processTermsOfUse(getRequest(), c, u, RegistrationHelper.SUBMITTER_ROLE_IDS)) {
