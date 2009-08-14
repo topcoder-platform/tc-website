@@ -1,11 +1,18 @@
 package com.topcoder.web.studio.dao.hibernate;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import org.hibernate.Criteria;
+import org.hibernate.Query;
+import org.hibernate.criterion.Restrictions;
+
 import com.topcoder.web.common.dao.hibernate.Base;
+import com.topcoder.web.common.model.TermsOfUse;
 import com.topcoder.web.studio.dao.ContestDAO;
 import com.topcoder.web.studio.model.Contest;
-import org.hibernate.Query;
-
-import java.util.List;
+import com.topcoder.web.studio.model.ContestRoleTermsOfUse;
 
 /**
  * @author dok
@@ -24,6 +31,22 @@ public class ContestDAOHibernate extends Base implements ContestDAO {
 
     public Contest find(Long id) {
         return (Contest) super.find(Contest.class, id);
+    }
+
+    @SuppressWarnings("unchecked")
+    public Set<TermsOfUse> findNecessaryTerms(Long contestId, Integer[] submitterRoleIds) {
+        Criteria c = session.createCriteria(ContestRoleTermsOfUse.class);
+        
+        c.add(Restrictions.eq("id.contest.id", contestId))
+         .add(Restrictions.in("id.roleId", submitterRoleIds));
+        
+        Set<TermsOfUse> necessaryTerms = new HashSet<TermsOfUse>();
+
+        for (ContestRoleTermsOfUse crtou : (List<ContestRoleTermsOfUse>) c.list()) {
+            necessaryTerms.add(crtou.getId().getTerms());
+        }
+        
+        return necessaryTerms;
     }
 
     public void saveOrUpdate(Contest c) {

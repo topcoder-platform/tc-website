@@ -1,9 +1,11 @@
 package com.topcoder.web.studio.dao;
 
 
-import com.topcoder.web.studio.model.Contest;
-
 import java.util.List;
+import java.util.Set;
+
+import com.topcoder.web.common.model.TermsOfUse;
+import com.topcoder.web.studio.model.Contest;
 
 /**
  * @author dok
@@ -15,6 +17,8 @@ public interface ContestDAO {
     List getContests();
 
     Contest find(Long id);
+
+    Set<TermsOfUse> findNecessaryTerms(Long contestId, Integer[] submitterRoleIds);
 
     void saveOrUpdate(Contest c);
 

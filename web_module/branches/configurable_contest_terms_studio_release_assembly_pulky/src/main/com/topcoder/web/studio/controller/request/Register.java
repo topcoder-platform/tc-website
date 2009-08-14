@@ -1,12 +1,15 @@
 package com.topcoder.web.studio.controller.request;
 
+import java.util.Set;
+
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.model.CoderType;
+import com.topcoder.web.common.model.TermsOfUse;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOFactory;
@@ -20,6 +23,13 @@ import com.topcoder.web.studio.model.ContestRegistration;
  *          Create Date: Jul 20, 2006
  */
 public class Register extends ShortHibernateProcessor {
+    /**
+     * Constant containing submitter role id
+     *
+     * @since
+     */
+    protected static final Integer[] SUBMITTER_ROLE_IDS = new Integer[] {1};
+
     protected void dbProcessing() throws Exception {
         if (userLoggedIn()) {
             if ("POST".equals(getRequest().getMethod())) {
@@ -45,11 +55,37 @@ public class Register extends ShortHibernateProcessor {
                 log.debug("Bother: " + bother);
 
                 if (cFactory.getContestRegistrationDAO().find(c, u) == null) {
-                    if ("on".equals(getRequest().getParameter(Constants.TERMS_AGREE))) {
+                    String termsOfUseId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_ID));
+
+                    if (!"".equals(termsOfUseId)) {
+                        TermsOfUse tou = factory.getTermsOfUse().find(Integer.parseInt(termsOfUseId));
+                        if ("on".equals(getRequest().getParameter(Constants.TERMS_AGREE))) {
+                            log.debug("agreed to terms");
+                            
+                            // add user terms of use record
+                            u.addTerms(tou);
+
+                            // process terms of use
+                            processTermsOfUse(c, u, SUBMITTER_ROLE_IDS);
+                        } else {
+                            addError(Constants.TERMS_AGREE, "You must agree to the terms in order to continue.");
+                            setDefault(Constants.CONTEST_ID, contestId.toString());
+                            getRequest().setAttribute("contest", c);
+                            setNextPage("/contestReg.jsp");
+                            setIsNextPageInContext(true);
+                        }
+                    } else {
+                        // make sure they don't have pending terms of use (they could get here faking the URL)
+                        if (processTermsOfUse(c, u, SUBMITTER_ROLE_IDS)) {
+                            setDefault(Constants.CONTEST_ID, contestId.toString());
+                            getRequest().setAttribute("contest", c);
+                            setNextPage("/contestReg.jsp");
+                            setIsNextPageInContext(true);
+                            return;
+                        }
 
                         //if contest is part of an event, and user is registered for the event, and
-                        //they are overriding the warning then allow them to register
-
+                        //they are overriding the warning then allow them to register    
                         boolean isApproved = false;
 
                         if (bother && c.getEvent() != null) {
@@ -85,13 +121,7 @@ public class Register extends ShortHibernateProcessor {
                             setDefault(Constants.REG_CONFIRM, String.valueOf(true));
                             setNextPage("/eventConfirm.jsp");
                             setIsNextPageInContext(true);
-                        }
-                    } else {
-                        addError(Constants.TERMS_AGREE, "You must agree to the terms in order to continue.");
-                        setDefault(Constants.CONTEST_ID, contestId.toString());
-                        getRequest().setAttribute("contest", c);
-                        setNextPage("/contestReg.jsp");
-                        setIsNextPageInContext(true);
+                        }                        
                     }
                 }
 
@@ -113,5 +143,24 @@ public class Register extends ShortHibernateProcessor {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 
+    }
+
+    private boolean processTermsOfUse(Contest c, User u, Integer[] submitterRoleIds) {
+        // validate that registrant has agreed to the necessary terms of use
+        Set<TermsOfUse> necessaryTerms = 
+            StudioDAOUtil.getFactory().getContestDAO().findNecessaryTerms(c.getId(), submitterRoleIds);
+        
+        Set<TermsOfUse> termsAgreed = u.getTerms();
+
+        for (TermsOfUse tou : necessaryTerms) {
+            if (!termsAgreed.contains(tou)) {
+                getRequest().setAttribute(Constants.TERMS, tou);
+                return true;
+            }
+        }
+
+        // the user agreed to all necessary terms
+        getRequest().setAttribute(Constants.TERMS_AGREED, necessaryTerms);
+        return false;
     }
 }
