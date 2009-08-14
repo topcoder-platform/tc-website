@@ -6,7 +6,7 @@
 <hibernate-mapping package="com.topcoder.web.studio.model">
     <class name="ContestRoleTermsOfUse" table="project_role_terms_of_use_xref">
         <composite-id name="id" class="ContestRoleTermsOfUse$Identifier">
-            <key-many-to-one name="contest" class="Contest" column="contest_id"/>
+            <key-many-to-one name="contest" class="Contest" column="project_id"/>
             <key-property name="roleId" column="resource_role_id" access="field"/>
             <key-many-to-one name="terms" class="com.topcoder.web.common.model.TermsOfUse" column="terms_of_use_id"/>
         </composite-id>
