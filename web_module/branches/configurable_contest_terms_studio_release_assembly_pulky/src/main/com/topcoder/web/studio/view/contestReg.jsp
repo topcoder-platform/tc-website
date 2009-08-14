@@ -134,7 +134,19 @@
                            </div>
                         </c:if>
 
-                        <c:if test="${not empty terms}">
+
+                    <c:choose>
+                        <c:when test="${not empty terms}">
+                            <c:if test="${terms.electronicallySignable == 1}">
+                                <a class="button" href="Javascript:document.regForm.submit();" style="width:60px;">Continue</a>
+                            </c:if>
+                        </c:when>
+                        <c:otherwise>
+                            <a class="button" href="Javascript:document.regForm.submit();" style="width:60px;">Register</a>
+                        </c:otherwise>
+                    </c:choose>
+
+                        <c:choose test="${not empty terms}">
                             <c:choose>
                                 <c:when test="${terms.electronicallySignable == 1}">
                                     <div class="bigRed" style="text-align: left; width:590px"><tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>">${err}
@@ -154,7 +166,11 @@
                                     dated form to: Attention: Legal Department, TopCoder, Inc., 95 Glastonbury Blvd., Glastonbury, CT 06033.</p>
                                 </c:otherwise>
                             </c:choose>
-                        </c:if>
+                            <c:otherwise>
+                                <input type="image" src="/i/v2/interface/btnSubmit.png" />
+                                <br /><br />
+                            </c:otherwise>
+                        </c:choose>
                        
 					</form>
                 </div>
