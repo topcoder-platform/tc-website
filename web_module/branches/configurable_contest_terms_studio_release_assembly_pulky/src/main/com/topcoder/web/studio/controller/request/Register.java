@@ -8,6 +8,7 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.TermsOfUse;
@@ -19,18 +20,34 @@ import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestRegistration;
 
 /**
- * @author dok
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Jul 20, 2006
+ * <p>This class will process a contest registration request.</p>
+ *
+ * <p>
+ *   Version 1.1 (Configurable Contest Terms-Studio Release Assembly v1.0) Change notes:
+ *   <ol>
+ *     <li>Added new terms of use processing.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, TCSDEVELOPER
+ * @version 1.1
  */
 public class Register extends ShortHibernateProcessor {
 
+    /**
+     * This method executes the actual business logic for this processor.  
+     * 
+     * @throws Exception if any error occurs
+     * @see com.topcoder.web.common.LongHibernateProcessor#dbProcessing()
+     */
     protected void dbProcessing() throws Exception {
+        TCRequest request = getRequest();
+        
         if (userLoggedIn()) {
-            if ("POST".equals(getRequest().getMethod())) {
+            if ("POST".equals(request.getMethod())) {
                 Long contestId;
                 try {
-                    contestId = new Long(getRequest().getParameter(Constants.CONTEST_ID));
+                    contestId = new Long(request.getParameter(Constants.CONTEST_ID));
                 } catch (NumberFormatException e) {
                     throw new NavigationException("Invalid Contest Specified");
                 }
@@ -50,34 +67,26 @@ public class Register extends ShortHibernateProcessor {
                 log.debug("Bother: " + bother);
 
                 if (cFactory.getContestRegistrationDAO().find(c, u) == null) {
-                    String termsOfUseId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_ID));
+                    String termsOfUseId = StringUtils.checkNull(request.getParameter(Constants.TERMS_OF_USE_ID));
 
                     if (!"".equals(termsOfUseId)) {
-                        TermsOfUse tou = factory.getTermsOfUse().find(Integer.parseInt(termsOfUseId));
-                        if ("on".equals(getRequest().getParameter(Constants.TERMS_AGREE))) {
+                        if ("on".equals(request.getParameter(Constants.TERMS_AGREE))) {
                             log.debug("agreed to terms");
-                            
                             // add user terms of use record
+                            TermsOfUse tou = factory.getTermsOfUse().find(Integer.parseInt(termsOfUseId));
                             u.addTerms(tou);
                         } else {
                             addError(Constants.TERMS_AGREE, "You must agree to the terms in order to continue.");
                         }
 
                         // process terms of use
-                        RegistrationHelper.processTermsOfUse(getRequest(), c, u, RegistrationHelper.SUBMITTER_ROLE_IDS);
-
-                        setDefault(Constants.CONTEST_ID, contestId.toString());
-                        getRequest().setAttribute("contest", c);
-                        setNextPage("/contestReg.jsp");
-                        setIsNextPageInContext(true);
+                        RegistrationHelper.processTermsOfUse(request, c, u, RegistrationHelper.SUBMITTER_ROLE_IDS);
+                        backToTermsResponse(request, c);
                         return;
                     } else {
-                        // make sure they don't have pending terms of use (they could get here faking the URL)
-                        if (RegistrationHelper.processTermsOfUse(getRequest(), c, u, RegistrationHelper.SUBMITTER_ROLE_IDS)) {
-                            setDefault(Constants.CONTEST_ID, contestId.toString());
-                            getRequest().setAttribute("contest", c);
-                            setNextPage("/contestReg.jsp");
-                            setIsNextPageInContext(true);
+                        // make sure user don't have pending terms of use (he could get here faking the URL)
+                        if (RegistrationHelper.processTermsOfUse(request, c, u, RegistrationHelper.SUBMITTER_ROLE_IDS)) {
+                            backToTermsResponse(request, c);
                             return;
                         }
 
@@ -89,7 +98,7 @@ public class Register extends ShortHibernateProcessor {
                             log.debug("event not null");
                             if (factory.getEventRegistrationDAO().find(getUser().getId(), c.getEvent().getId()) == null) {
                                 log.debug("user not registered");
-                                if (String.valueOf(true).equals(getRequest().getParameter(Constants.REG_CONFIRM))) {
+                                if (String.valueOf(true).equals(request.getParameter(Constants.REG_CONFIRM))) {
                                     log.debug("user confirmed");
                                     isApproved = true;
                                 }
@@ -141,5 +150,20 @@ public class Register extends ShortHibernateProcessor {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 
+    }
+
+    /**
+     * Private helper method to prepare request to go back to the terms page
+     * 
+     * @param request the request being processed
+     * @param contest the inquired contest
+     * 
+     * @since 1.1 
+     */
+    private void backToTermsResponse(TCRequest request, Contest contest) {
+        setDefault(Constants.CONTEST_ID, contest.getId().toString());
+        request.setAttribute("contest", contest);
+        setNextPage("/contestReg.jsp");
+        setIsNextPageInContext(true);
     }
 }

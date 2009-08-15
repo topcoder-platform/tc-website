@@ -18,11 +18,26 @@ import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestStatus;
 
 /**
- * @author dok
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Jul 18, 2006
+ * <p>This class will process a contest registration application request.</p>
+ *
+ * <p>
+ *   Version 1.1 (Configurable Contest Terms-Studio Release Assembly v1.0) Change notes:
+ *   <ol>
+ *     <li>Added new terms of use processing.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, TCSDEVELOPER
+ * @version 1.1
  */
 public class ViewRegistration extends ShortHibernateProcessor {
+
+    /**
+     * This method executes the actual business logic for this processor.  
+     * 
+     * @throws Exception if any error occurs
+     * @see com.topcoder.web.common.LongHibernateProcessor#dbProcessing()
+     */
     protected void dbProcessing() throws Exception {
 
         if (userLoggedIn()) {
@@ -52,7 +67,8 @@ public class ViewRegistration extends ShortHibernateProcessor {
                 }
 
                 if ("on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
-                    getRequest().setAttribute("has_global_ad", PactsServicesLocator.getService().hasGlobalAD(getUser().getId()));
+                    getRequest().setAttribute("has_global_ad", PactsServicesLocator.getService().
+                        hasGlobalAD(getUser().getId()));
                 }
 
                 // process terms of use
@@ -64,6 +80,5 @@ public class ViewRegistration extends ShortHibernateProcessor {
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
-
     }
 }

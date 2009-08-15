@@ -47,13 +47,13 @@ public class RegistrationHelper {
      * @param request the request being processed
      * @param contest the contest the user is registering to
      * @param user the user applying to this contest 
-     * @param submitterRoleIds an array of role ids corresponding to the user  
+     * @param roleIds an array of role ids corresponding to the user  
      * 
      * @return true if there are pending terms of use to agree to. 
      */
-    public static boolean processTermsOfUse(TCRequest request, Contest contest, User user, Integer[] submitterRoleIds) {
+    protected static boolean processTermsOfUse(TCRequest request, Contest contest, User user, Integer[] roleIds) {
         Set<TermsOfUse> necessaryTerms = 
-            StudioDAOUtil.getFactory().getContestDAO().findNecessaryTerms(contest.getId(), submitterRoleIds);
+            StudioDAOUtil.getFactory().getContestDAO().findNecessaryTerms(contest.getId(), roleIds);
         Set<TermsOfUse> termsAgreed = user.getTerms();
 
         // validate the user has agreed to the necessary terms of use

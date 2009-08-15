@@ -7,9 +7,17 @@ import java.util.Collections;
 import java.util.Set;
 
 /**
- * @author dok
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: May 25, 2006
+ * <p>This class represents a Terms Of Use entity.</p>
+ *
+ * <p>
+ *   Version 1.1 (Configurable Contest Terms-Studio Release Assembly v1.0) Change notes:
+ *   <ol>
+ *     <li>Added title, electronicallySignable and url attributes.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author TCSDEVELOPER
+ * @version 1.1
  */
 public class TermsOfUse extends Base {
 
@@ -17,8 +25,25 @@ public class TermsOfUse extends Base {
     private String text;
     private Integer typeId;
 
+    /**
+     * The terms of use title.
+     * 
+     * @since 1.1
+     */
     private String title;
+    
+    /**
+     * A flag indicating if the terms of use is electronically signable.
+     * 
+     * @since 1.1
+     */
     private Integer electronicallySignable;
+    
+    /**
+     * A URL address for a printer friendly terms of use page.
+     * 
+     * @since 1.1
+     */
     private String url;
 
     private Set users;
@@ -51,42 +76,66 @@ public class TermsOfUse extends Base {
     }
 
     /**
+     * Returns the terms of use title
+     * 
      * @return the title
+     * 
+     * @since 1.1
      */
     public String getTitle() {
         return title;
     }
 
     /**
+     * Sets the terms of use title
+     * 
      * @param title the title to set
+     * 
+     * @since 1.1
      */
     public void setTitle(String title) {
         this.title = title;
     }
 
     /**
-     * @return the electronicallySignable
+     * Returns the terms of use electronically signable flag
+     * 
+     * @return 1 if the terms of use is electronically signable and 0 otherwise
+     * 
+     * @since 1.1
      */
     public Integer getElectronicallySignable() {
         return electronicallySignable;
     }
 
     /**
-     * @param electronicallySignable the electronicallySignable to set
+     * Sets the terms of use electronically signable flag
+     * 
+     * @param electronicallySignable the flag value to set
+     * 
+     * @since 1.1
      */
     public void setElectronicallySignable(Integer electronicallySignable) {
         this.electronicallySignable = electronicallySignable;
     }
 
     /**
+     * Returns the terms of use printer friendly version URL address
+     * 
      * @return the url
+     * 
+     * @since 1.1
      */
     public String getUrl() {
         return url;
     }
 
     /**
+     * Sets the terms of use printer friendly version URL address
+     * 
      * @param url the url to set
+     * 
+     * @since 1.1
      */
     public void setUrl(String url) {
         this.url = url;
