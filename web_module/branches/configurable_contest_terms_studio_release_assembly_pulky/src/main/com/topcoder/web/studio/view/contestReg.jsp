@@ -125,11 +125,11 @@
                                                 </c:otherwise>
                                             </c:choose> 
                                             <br /> <br />
-                                            <!-- could also use <input>'s button <button> gives you more display freedom
-                                            and is documented on w3c -->
-                                            <!-- resulting page from click has value at the end of the URL, which is 
+                                            <%-- could also use <input>'s button <button> gives you more display freedom
+                                            and is documented on w3c --%>
+                                            <%-- resulting page from click has value at the end of the URL, which is 
                                             pointless. Feel free to use any html/js element/method but i want the nice 
-                                            looking button -->
+                                            looking button --%>
     
                                             <div align="center">
                                                 <c:if test="${not empty has_global_ad and not has_global_ad}">
