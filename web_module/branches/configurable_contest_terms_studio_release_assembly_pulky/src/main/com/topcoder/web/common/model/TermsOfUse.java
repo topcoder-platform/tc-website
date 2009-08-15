@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.common.model;
 
 import java.util.Collections;

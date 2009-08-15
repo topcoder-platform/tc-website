@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.studio.controller.request;
 
 import com.topcoder.shared.security.ClassResource;
@@ -103,7 +106,8 @@ public class Register extends ShortHibernateProcessor {
                             ContestRegistration cr = new ContestRegistration();
                             cr.setContest(c);
                             cr.setUser(u);
-                            cr.setTerms(DAOUtil.getFactory().getTermsOfUse().find(Constants.CONTEST_TERMS_OF_USE_ID));
+//                            ToDo: pulky: remove
+//                            cr.setTerms(DAOUtil.getFactory().getTermsOfUse().find(Constants.CONTEST_TERMS_OF_USE_ID));
                             cr.getId().setContest(c);
                             cr.getId().setUser(u);
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2001-2009 TopCoder Inc.  All Rights Reserved.
+ * Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.studio.controller.request;
 
@@ -13,29 +13,50 @@ import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
 
 /**
- * Copyright (c) 2001-2009 TopCoder, Inc. All rights reserved.
- * Only for use in connection with a TopCoder competition.
+ * <p>This helper class provides common functionality among registration processors.</p>
  *
- * @author pulky
- * @version $Id$
- * Create Date: Aug 14, 2009
+ * <p>
+ *   Version 1.0 (Configurable Contest Terms-Studio Release Assembly v1.0) Change notes:
+ *   <ol>
+ *     <li>Added generic terms of use processing.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author TCSDEVELOPER
+ * @version 1.0
  */
 public class RegistrationHelper {
 
     /**
-     * Constant containing submitter role id
-     *
-     * @since
+     * An <code>Integer[]</code> containing resource role ids for a submitter. 
      */
-    protected static final Integer[] SUBMITTER_ROLE_IDS = new Integer[] {1};
+    protected static final Integer[] SUBMITTER_ROLE_IDS = new Integer[] {Constants.SUBMITTER_RESOURCE_ROLE_ID};
 
-    public static boolean processTermsOfUse(TCRequest request, Contest c, User u, Integer[] submitterRoleIds) {
-        // validate that registrant has agreed to the necessary terms of use
+    /**
+     * <p>This helper method provides terms of use processing for Studio contest registration requests.</p>
+     *  
+     * <p>The code will go through all necessary terms of use for this particular contest and resource roles and
+     * verify the user has already agreed to them. If it finds a terms of use the user has not agreed to yet, it will
+     * add it to the request so that it is presented as corresponds. If all terms of use are correct, the list is
+     * added to the request so it can showed in the confirmation page before actual registration.</p> 
+     * 
+     * <p>Note: Even though Studio will only use Submitter role for now, it's likely to change in the future to
+     * support reviewer registration or any other kind of resources so it's important to prepare for that change. 
+     * This is why this method accepts an array of roles and not just a single role id.</p>
+     * 
+     * @param request the request being processed
+     * @param contest the contest the user is registering to
+     * @param user the user applying to this contest 
+     * @param submitterRoleIds an array of role ids corresponding to the user  
+     * 
+     * @return true if there are pending terms of use to agree to. 
+     */
+    public static boolean processTermsOfUse(TCRequest request, Contest contest, User user, Integer[] submitterRoleIds) {
         Set<TermsOfUse> necessaryTerms = 
-            StudioDAOUtil.getFactory().getContestDAO().findNecessaryTerms(c.getId(), submitterRoleIds);
-        
-        Set<TermsOfUse> termsAgreed = u.getTerms();
+            StudioDAOUtil.getFactory().getContestDAO().findNecessaryTerms(contest.getId(), submitterRoleIds);
+        Set<TermsOfUse> termsAgreed = user.getTerms();
 
+        // validate the user has agreed to the necessary terms of use
         for (TermsOfUse tou : necessaryTerms) {
             if (!termsAgreed.contains(tou)) {
                 request.setAttribute(Constants.TERMS, tou); 
@@ -47,5 +68,4 @@ public class RegistrationHelper {
         request.setAttribute(Constants.TERMS_AGREED, necessaryTerms);
         return false;
     }
-
 }

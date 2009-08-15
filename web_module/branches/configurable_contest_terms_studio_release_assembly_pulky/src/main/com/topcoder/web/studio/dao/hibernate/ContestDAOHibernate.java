@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.studio.dao.hibernate;
 
 import java.util.HashSet;
