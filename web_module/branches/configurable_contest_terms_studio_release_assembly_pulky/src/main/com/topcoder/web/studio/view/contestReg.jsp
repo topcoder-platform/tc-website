@@ -84,22 +84,25 @@
                                             </c:if>
                                             <c:choose>
                                                 <c:when test="${not empty terms}">
+                                                    <c:if test="${terms.electronicallySignable == 1}">
+                                                        <div align="center" style="padding-top: 20px;">
+                                                            Please read through the following terms and then click 
+                                                            <strong>"I Agree"</strong> when you're done.
+                                                        </div>
+                                                    </c:if>
                                                     <div align="center" style="padding-top: 20px;">
-                                                        Please read through the following terms and then click 
-                                                        <strong>"I Agree"</strong> when you're done.
+                                                        ${terms.title}
                                                     </div><br />
-                                                    ${terms.title}<br /><br />
                                                     <iframe width="590" height="300" marginWidth="5"
-                                                        src="${sessionInfo.servletPath}?module=Terms&amp;<%=Constants.TERMS_OF_USE_ID%>=${terms.id}"/>
+                                                        src="${sessionInfo.servletPath}?module=Terms&amp;<%=Constants.TERMS_OF_USE_ID%>=${terms.id}">
+                                                    </iframe>
                                                 </c:when>
                                                 <c:otherwise>
+                                                    <div align="center" style="padding-top: 20px;">
+                                                        The following terms (that you already agreed to) apply to 
+                                                        this contest:
+                                                    </div>
                                                     <table>
-                                                        <tr>
-                                                            <td>
-                                                                The following terms (that you already agreed to) apply to 
-                                                                this project:
-                                                            </td>
-                                                        </tr>
                                                         <tr>
                                                             <td>
                                                                 <c:forEach items="${terms_agreed}" var="terms_agreed_item">
@@ -145,7 +148,8 @@
                                                     <c:when test="${not empty terms}">
                                                         <c:choose>
                                                             <c:when test="${terms.electronicallySignable == 1}">
-                                                                <div class="bigRed" style="text-align: left; width: 590px">
+                                                                <div align="center" class="bigRed" 
+                                                                    style="text-align: left; width: 590px">
                                                                     <tc-webtag:errorIterator
                                                                         id="err" name="<%=Constants.TERMS_AGREE%>">
                                                                             ${err} <br />
