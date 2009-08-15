@@ -88,7 +88,7 @@
                                                         Please read through the following terms and then click 
                                                         <strong>"I Agree"</strong> when you're done.
                                                     </div><br />
-                                                    ${terms.title}<br />
+                                                    ${terms.title}<br /><br />
                                                     <iframe width="590" height="300" marginWidth="5"
                                                         src="${sessionInfo.servletPath}?module=Terms&amp;<%=Constants.TERMS_OF_USE_ID%>=${terms.id}"/>
                                                 </c:when>

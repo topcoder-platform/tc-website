@@ -455,11 +455,11 @@ public class Constants implements WebConstants {
     public static final String PAGE_SIZE_KEY = "ps";
 
     /**
-     * <p>An <code>Integer</code> providing the resource role id of a submitter.</p>
+     * <p>An <code>int</code> providing the resource role id of a submitter.</p>
      *
      * @since 1.2
      */
-    public static Integer SUBMITTER_RESOURCE_ROLE_ID;
+    public static int SUBMITTER_RESOURCE_ROLE_ID;
 
     static {
         initialize();
