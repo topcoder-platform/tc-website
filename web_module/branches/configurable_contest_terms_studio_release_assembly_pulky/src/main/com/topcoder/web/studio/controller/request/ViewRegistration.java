@@ -33,8 +33,8 @@ import com.topcoder.web.studio.model.ContestStatus;
 public class ViewRegistration extends ShortHibernateProcessor {
 
     /**
-     * This method executes the actual business logic for this processor.  
-     * 
+     * This method executes the actual business logic for this processor.
+     *
      * @throws Exception if any error occurs
      * @see com.topcoder.web.common.LongHibernateProcessor#dbProcessing()
      */
@@ -73,7 +73,7 @@ public class ViewRegistration extends ShortHibernateProcessor {
 
                 // process terms of use
                 RegistrationHelper.processTermsOfUse(getRequest(), contest, u, RegistrationHelper.REGISTRANT_ROLE_IDS);
-                
+
                 setNextPage("/contestReg.jsp");
                 setIsNextPageInContext(true);
             }

@@ -27,21 +27,21 @@ public class TermsOfUse extends Base {
 
     /**
      * The terms of use title.
-     * 
+     *
      * @since 1.1
      */
     private String title;
-    
+
     /**
      * A flag indicating if the terms of use is electronically signable.
-     * 
+     *
      * @since 1.1
      */
     private Integer electronicallySignable;
-    
+
     /**
      * A URL address for a printer friendly terms of use page.
-     * 
+     *
      * @since 1.1
      */
     private String url;
@@ -77,9 +77,9 @@ public class TermsOfUse extends Base {
 
     /**
      * Returns the terms of use title
-     * 
+     *
      * @return the title
-     * 
+     *
      * @since 1.1
      */
     public String getTitle() {
@@ -88,9 +88,9 @@ public class TermsOfUse extends Base {
 
     /**
      * Sets the terms of use title
-     * 
+     *
      * @param title the title to set
-     * 
+     *
      * @since 1.1
      */
     public void setTitle(String title) {
@@ -99,9 +99,9 @@ public class TermsOfUse extends Base {
 
     /**
      * Returns the terms of use electronically signable flag
-     * 
+     *
      * @return 1 if the terms of use is electronically signable and 0 otherwise
-     * 
+     *
      * @since 1.1
      */
     public Integer getElectronicallySignable() {
@@ -110,9 +110,9 @@ public class TermsOfUse extends Base {
 
     /**
      * Sets the terms of use electronically signable flag
-     * 
+     *
      * @param electronicallySignable the flag value to set
-     * 
+     *
      * @since 1.1
      */
     public void setElectronicallySignable(Integer electronicallySignable) {
@@ -121,9 +121,9 @@ public class TermsOfUse extends Base {
 
     /**
      * Returns the terms of use printer friendly version URL address
-     * 
+     *
      * @return the url
-     * 
+     *
      * @since 1.1
      */
     public String getUrl() {
@@ -132,9 +132,9 @@ public class TermsOfUse extends Base {
 
     /**
      * Sets the terms of use printer friendly version URL address
-     * 
+     *
      * @param url the url to set
-     * 
+     *
      * @since 1.1
      */
     public void setUrl(String url) {

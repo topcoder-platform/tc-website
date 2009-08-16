@@ -32,12 +32,12 @@ public interface ContestDAO {
     /**
      * <p>This method will track all necessary terms of use for a particular contest and role ids and return
      * a <code>Set</code> with the terms of use collection.</p>
-     *  
+     *
      * @param contestId the contest id being queried
      * @param roleIds the resource role ids to filter
      * @return a <code>Set</code> with the necessary terms of use collection.
-     * @throws IllegalArgumentException if contestId is null or roleIds is null or empty 
-     * 
+     * @throws IllegalArgumentException if contestId is null or roleIds is null or empty
+     *
      * @since 1.1
      */
     Set<TermsOfUse> findNecessaryTerms(Long contestId, Integer[] roleIds);

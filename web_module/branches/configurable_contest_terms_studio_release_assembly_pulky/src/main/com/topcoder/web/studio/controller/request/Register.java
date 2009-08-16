@@ -35,14 +35,14 @@ import com.topcoder.web.studio.model.ContestRegistration;
 public class Register extends ShortHibernateProcessor {
 
     /**
-     * This method executes the actual business logic for this processor.  
-     * 
+     * This method executes the actual business logic for this processor.
+     *
      * @throws Exception if any error occurs
      * @see com.topcoder.web.common.LongHibernateProcessor#dbProcessing()
      */
     protected void dbProcessing() throws Exception {
         TCRequest request = getRequest();
-        
+
         if (userLoggedIn()) {
             if ("POST".equals(request.getMethod())) {
                 Long contestId;
@@ -57,12 +57,12 @@ public class Register extends ShortHibernateProcessor {
 
                 Contest c = cFactory.getContestDAO().find(contestId);
                 User u = factory.getUserDAO().find(getUser().getId());
-                
-                boolean bother = true; 
-                
+
+                boolean bother = true;
+
                 // only bother if the user is not a professional (tccc)
                 // comment this line if not needed
-//                bother = !CoderType.PROFESSIONAL.equals(u.getCoder().getCoderType().getId()); 
+//                bother = !CoderType.PROFESSIONAL.equals(u.getCoder().getCoderType().getId());
                 log.debug("Coder type: " + u.getCoder().getCoderType().getDescription());
                 log.debug("Bother: " + bother);
 
@@ -91,7 +91,7 @@ public class Register extends ShortHibernateProcessor {
                         }
 
                         //if contest is part of an event, and user is registered for the event, and
-                        //they are overriding the warning then allow them to register    
+                        //they are overriding the warning then allow them to register
                         boolean isApproved = false;
 
                         if (bother && c.getEvent() != null) {
@@ -115,8 +115,8 @@ public class Register extends ShortHibernateProcessor {
                             ContestRegistration cr = new ContestRegistration();
                             cr.setContest(c);
                             cr.setUser(u);
-                            
-                            // This is done only to keep compatibility, the use of 
+
+                            // This is done only to keep compatibility, the use of
                             // ContestRegistration's terms of use should be removed ASAP.
                             cr.setTerms(DAOUtil.getFactory().getTermsOfUse().find(Constants.CONTEST_TERMS_OF_USE_ID));
                             cr.getId().setContest(c);
@@ -130,7 +130,7 @@ public class Register extends ShortHibernateProcessor {
                             setDefault(Constants.REG_CONFIRM, String.valueOf(true));
                             setNextPage("/eventConfirm.jsp");
                             setIsNextPageInContext(true);
-                        }                        
+                        }
                     }
                 }
 
@@ -156,11 +156,11 @@ public class Register extends ShortHibernateProcessor {
 
     /**
      * Private helper method to prepare request to go back to the terms page
-     * 
+     *
      * @param request the request being processed
      * @param contest the inquired contest
-     * 
-     * @since 1.1 
+     *
+     * @since 1.1
      */
     private void backToTermsResponse(TCRequest request, Contest contest) {
         setDefault(Constants.CONTEST_ID, contest.getId().toString());

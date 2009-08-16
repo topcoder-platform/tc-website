@@ -30,34 +30,34 @@
         <jsp:include page="style.jsp">
             <jsp:param name="key" value="tc_studio" />
         </jsp:include>
-        
+
         <script src="/js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"/>
         <script src="/js/NewStyleHeaderFooter/preloadCssImages.jQuery_v5.js" language="javascript"/>
         <script type="text/javascript">
-			$(document).ready(function(){
-				//Run the script to preload images from CSS
-				$.preloadCssImages(); 
-			});
-    	</script>
+            $(document).ready(function(){
+                //Run the script to preload images from CSS
+                $.preloadCssImages();
+            });
+        </script>
         <script src="/js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"/>
         <script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"/>
         <script type="text/javascript" language="javascript">
-        	$(document).ready(function(){
-        		$("#nav ul li").hoverIntent(function(){
-        			$(this).children("ul").slideDown("fast");
-        		}, function() {
-        			$(this).children("ul").slideUp("fast");
-        		});
-        		
-        		$("#nav ul ul li").hover(function() {
-        			$(this).parents("#nav ul li").children('a').addClass("active-item");
-        		}, function() {
-        			$(this).parents("#nav ul li").children('a').removeClass("active-item");
-        		});
-        	});
-    	</script>
+            $(document).ready(function(){
+                $("#nav ul li").hoverIntent(function(){
+                    $(this).children("ul").slideDown("fast");
+                }, function() {
+                    $(this).children("ul").slideUp("fast");
+                });
+
+                $("#nav ul ul li").hover(function() {
+                    $(this).parents("#nav ul li").children('a').addClass("active-item");
+                }, function() {
+                    $(this).parents("#nav ul li").children('a').removeClass("active-item");
+                });
+            });
+        </script>
     </head>
-    
+
     <body>
         <div id="page-wrap">
             <div align="center">
@@ -80,11 +80,11 @@
                                     </div>
                                     <br />
                                     <h1>Contest Registration</h1>
-                                
+
                                     <div align="center">
                                         <form name="terms" method="POST" action="${sessionInfo.servletPath}">
                                             <tc-webtag:hiddenInput name="${MODULE_KEY}" value="Register" />
-                                            <tc-webtag:hiddenInput name="${CONTEST_ID}" /> 
+                                            <tc-webtag:hiddenInput name="${CONTEST_ID}" />
                                             <c:if test="${not empty terms}">
                                                 <tc-webtag:hiddenInput name="${TERMS_OF_USE_ID}" value="${terms.id}" />
                                             </c:if>
@@ -92,7 +92,7 @@
                                                 <c:when test="${not empty terms}">
                                                     <c:if test="${terms.electronicallySignable == 1}">
                                                         <div align="center" style="padding-top: 20px;">
-                                                            Please read through the following terms and then click 
+                                                            Please read through the following terms and then click
                                                             <strong>"I Agree"</strong> when you're done.
                                                         </div>
                                                     </c:if>
@@ -105,7 +105,7 @@
                                                 </c:when>
                                                 <c:otherwise>
                                                     <div align="center" style="padding-top: 20px;">
-                                                        The following terms (that you already agreed to) apply to 
+                                                        The following terms (that you already agreed to) apply to
                                                         this contest:
                                                     </div>
                                                     <table>
@@ -132,36 +132,36 @@
                                                         </tr>
                                                     </table>
                                                 </c:otherwise>
-                                            </c:choose> 
+                                            </c:choose>
                                             <br /> <br />
                                             <!-- could also use <input>'s button <button> gives you more display freedom and is documented on w3c -->
                                             <!-- resulting page from click has value at the end of the URL, which is pointless. Feel free to use any html/js element/method but i want the nice looking button -->
-    
+
                                             <div align="center">
                                                 <c:if test="${not empty has_global_ad and not has_global_ad}">
                                                     <div class="bigRed" style="text-align: left; width: 590px">
                                                         You have not yet signed the Assignment Document that is required
-                                                        in order to submit for this contest. Please go 
+                                                        in order to submit for this contest. Please go
                                                         <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">
                                                             here
                                                         </a>
-                                                        to read more about Assignment Documents and what you need to do. 
-                                                        You will not be able to submit for this contest without first 
+                                                        to read more about Assignment Documents and what you need to do.
+                                                        You will not be able to submit for this contest without first
                                                         sending in the signed Assignment Document.<br /><br />
                                                     </div>
-                                                </c:if> 
+                                                </c:if>
                                                 <c:choose>
                                                     <c:when test="${not empty terms}">
                                                         <c:choose>
                                                             <c:when test="${terms.electronicallySignable == 1}">
-                                                                <div align="center" class="bigRed" 
+                                                                <div align="center" class="bigRed"
                                                                     style="text-align: left; width: 590px">
                                                                     <tc-webtag:errorIterator
                                                                         id="err" name="${TERMS_AGREE}">
                                                                         ${err} <br />
                                                                     </tc-webtag:errorIterator>
                                                                 </div>
-                                                                <INPUT TYPE="checkbox" NAME="${TERMS_AGREE}" />     
+                                                                <INPUT TYPE="checkbox" NAME="${TERMS_AGREE}" />
                                                                 I agree <br /> <br />
                                                                 <input type="image" src="/i/v2/interface/btnContinue.png" />
                                                                 <br /><br />
@@ -170,20 +170,20 @@
                                                                 <p>
                                                                     You cannot agree to these terms electronically.
                                                                     You must print the terms and send a signed hard copy
-                                                                    to TopCoder. You can get a printer friendly version 
+                                                                    to TopCoder. You can get a printer friendly version
                                                                     <a href="${terms.url}">here</a>.
                                                                 </p>
                                                                 <p>
                                                                     For submission by <b>email</b>, send a clear and
                                                                     legible scan or photo of the entire page (completed,
                                                                     signed, and dated) as an attachment to
-                                                                    member-agreements@topcoder.com. For submission by 
-                                                                    <b>fax</b>, you may fax the completed, signed, and 
-                                                                    dated form (without a cover sheet) to: 
-                                                                    (US) +1 (860) 631-1027. For submission by 
+                                                                    member-agreements@topcoder.com. For submission by
+                                                                    <b>fax</b>, you may fax the completed, signed, and
+                                                                    dated form (without a cover sheet) to:
+                                                                    (US) +1 (860) 631-1027. For submission by
                                                                     <b>mail</b>, send the completed, signed,
                                                                     and dated form to: Attention: Legal Department,
-                                                                    TopCoder, Inc., 95 Glastonbury Blvd., Glastonbury, 
+                                                                    TopCoder, Inc., 95 Glastonbury Blvd., Glastonbury,
                                                                     CT 06033.
                                                                 </p>
                                                             </c:otherwise>

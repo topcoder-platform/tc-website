@@ -11,7 +11,7 @@ import com.topcoder.web.common.model.Base;
  * <p>
  *   Version 1.0 (Configurable Contest Terms-Studio Release Assembly v1.0) Change notes:
  *   <ol>
- *       This class was created to support the new Contest - Terms of use - role relationship. 
+ *       This class was created to support the new Contest - Terms of use - role relationship.
  *   </ol>
  * </p>
  *
@@ -23,7 +23,7 @@ public class ResourceRole extends Base {
 
     /**
      * Serial version UID for this class.
-     * 
+     *
      * Please change that number if you affect the fields in a way that will affect the
      * serialization for this object, i.e. when data members are changed.
      * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
@@ -34,7 +34,7 @@ public class ResourceRole extends Base {
      * <p>An <code>Integer</code> referencing the resource role id corresponding to a submitter.</p>
      */
     public static final Integer SUBMITTER_RESOURCE_ROLE_ID = 1;
-    
+
     /**
      * The resource role id.
      */
@@ -56,8 +56,8 @@ public class ResourceRole extends Base {
     private String description;
 
     /**
-     * Gets the identifier 
-     * 
+     * Gets the identifier
+     *
      * @return the identifier
      */
     public Integer getId() {
@@ -66,7 +66,7 @@ public class ResourceRole extends Base {
 
     /**
      * Sets the identifier
-     * 
+     *
      * @param id the identifier to set
      */
     public void setId(Integer id) {
@@ -74,8 +74,8 @@ public class ResourceRole extends Base {
     }
 
     /**
-     * Gets the phase type 
-     * 
+     * Gets the phase type
+     *
      * @return the phase type
      */
     public PhaseType getPhaseType() {
@@ -84,7 +84,7 @@ public class ResourceRole extends Base {
 
     /**
      * Sets the phase type
-     * 
+     *
      * @param id the phase type to set
      */
     public void setPhaseType(PhaseType phaseType) {
@@ -92,8 +92,8 @@ public class ResourceRole extends Base {
     }
 
     /**
-     * Gets the name 
-     * 
+     * Gets the name
+     *
      * @return the name
      */
     public String getName() {
@@ -102,7 +102,7 @@ public class ResourceRole extends Base {
 
     /**
      * Sets the name
-     * 
+     *
      * @param id the name to set
      */
     public void setName(String name) {
@@ -110,8 +110,8 @@ public class ResourceRole extends Base {
     }
 
     /**
-     * Gets the description 
-     * 
+     * Gets the description
+     *
      * @return the description
      */
     public String getDescription() {
@@ -120,7 +120,7 @@ public class ResourceRole extends Base {
 
     /**
      * Sets the description
-     * 
+     *
      * @param id the description to set
      */
     public void setDescription(String description) {
@@ -129,10 +129,10 @@ public class ResourceRole extends Base {
 
     /**
      * Equals implementation for this class.
-     * 
+     *
      * @param obj the object to compare
      * @return true if the two objects are equal (identifiers are equal)
-     * 
+     *
      * @see java.lang.Object#equals(java.lang.Object)
      */
     public boolean equals(Object obj) {
@@ -148,9 +148,9 @@ public class ResourceRole extends Base {
 
     /**
      * Hashcode implementation for this class.
-     * 
+     *
      * @return an <code>int</code> with the hashcode (identifier hashcode)
-     * 
+     *
      * @see java.lang.Object#hashCode()
      */
     public int hashCode() {
