@@ -72,7 +72,7 @@ public class ViewRegistration extends ShortHibernateProcessor {
                 }
 
                 // process terms of use
-                RegistrationHelper.processTermsOfUse(getRequest(), contest, u, RegistrationHelper.SUBMITTER_ROLE_IDS);
+                RegistrationHelper.processTermsOfUse(getRequest(), contest, u, RegistrationHelper.REGISTRANT_ROLE_IDS);
                 
                 setNextPage("/contestReg.jsp");
                 setIsNextPageInContext(true);

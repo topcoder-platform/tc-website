@@ -6,6 +6,7 @@ package com.topcoder.web.studio.controller.request;
 import java.util.Set;
 
 import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.model.ResourceRole;
 import com.topcoder.web.common.model.TermsOfUse;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.studio.Constants;
@@ -30,7 +31,7 @@ public class RegistrationHelper {
     /**
      * An <code>Integer[]</code> containing resource role ids for a submitter. 
      */
-    protected static final Integer[] SUBMITTER_ROLE_IDS = new Integer[] {Constants.SUBMITTER_RESOURCE_ROLE_ID};
+    protected static final Integer[] REGISTRANT_ROLE_IDS = new Integer[] {ResourceRole.SUBMITTER_RESOURCE_ROLE_ID};
 
     /**
      * <p>This helper method provides terms of use processing for Studio contest registration requests.</p>
@@ -48,10 +49,28 @@ public class RegistrationHelper {
      * @param contest the contest the user is registering to
      * @param user the user applying to this contest 
      * @param roleIds an array of role ids corresponding to the user  
+     *
+     * @throws IllegalArgumentException if any of the arguments is null (including contest.id) or roleIds is empty 
      * 
      * @return true if there are pending terms of use to agree to. 
      */
     protected static boolean processTermsOfUse(TCRequest request, Contest contest, User user, Integer[] roleIds) {
+        if (request == null) {
+            throw new IllegalArgumentException("request cannot be null");
+        }
+        
+        if (contest == null || contest.getId() == null) {
+            throw new IllegalArgumentException("contest.id cannot be null");
+        }
+        
+        if (user == null) {
+            throw new IllegalArgumentException("user cannot be null");
+        }
+        
+        if (roleIds == null || roleIds.length == 0) {
+            throw new IllegalArgumentException("roleIds cannot be null or empty");
+        }
+        
         Set<TermsOfUse> necessaryTerms = 
             StudioDAOUtil.getFactory().getContestDAO().findNecessaryTerms(contest.getId(), roleIds);
         Set<TermsOfUse> termsAgreed = user.getTerms();

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.studio;
 
@@ -23,16 +23,8 @@ import java.util.MissingResourceException;
  *   </ol>
  * </p>
  *
- * <p>
- *   Version 1.2 (Configurable Contest Terms-Studio Release Assembly v1.0) Change notes:
- *   <ol>
- *     <li>Removed <code>CONTEST_TERMS_OF_USE_ID</code> constant since it's no longer used.</li>
- *     <li>Added configuration to store submitter resource role id.</li>
- *   </ol>
- * </p>
- *
- * @author dok, isv, pulky, TCSDEVELOPER
- * @version 1.2
+ * @author dok, isv, pulky
+ * @version 1.1
  */
 public class Constants implements WebConstants {
     private static final TCResourceBundle bundle = new TCResourceBundle("Studio");
@@ -73,6 +65,7 @@ public class Constants implements WebConstants {
     public static int MAX_CONTEST_NAME_LENGTH;
     public static String JS_DATE_FORMAT;
     public static String JAVA_DATE_FORMAT;
+    public static int CONTEST_TERMS_OF_USE_ID;
     public static String ROOT_STORAGE_PATH;
     public static String SUBMISSIONS_DIRECTORY_NAME;
     public static String DOCUMENTS_DIRECTORY_NAME;
@@ -453,13 +446,6 @@ public class Constants implements WebConstants {
      * @since 1.1
      */
     public static final String PAGE_SIZE_KEY = "ps";
-
-    /**
-     * <p>An <code>int</code> providing the resource role id of a submitter.</p>
-     *
-     * @since 1.2
-     */
-    public static int SUBMITTER_RESOURCE_ROLE_ID;
 
     static {
         initialize();

@@ -6,6 +6,7 @@ package com.topcoder.web.studio.model;
 import java.io.Serializable;
 
 import com.topcoder.web.common.model.Base;
+import com.topcoder.web.common.model.ResourceRole;
 import com.topcoder.web.common.model.TermsOfUse;
 
 /**
@@ -118,9 +119,9 @@ public class ContestRoleTermsOfUse extends Base {
         private Contest contest;
 
         /**
-         * The role id of this relationship identifier 
+         * The <code>ResourceRole</code> of this relationship identifier 
          */
-        private Integer roleId;
+        private ResourceRole resourceRole;
 
         /**
          * The <code>TermsOfUse</code> of this relationship identifier 
@@ -137,31 +138,31 @@ public class ContestRoleTermsOfUse extends Base {
          * Full constructor using parameters.
          * 
          * @param contest the <code>Contest</code> to set
-         * @param roleId the role id to set
+         * @param resourceRole the resource role to set
          * @param terms the <code>TermsOfUse</code> to set
          */
-        public Identifier(Contest contest, Integer roleId, TermsOfUse terms) {
+        public Identifier(Contest contest, ResourceRole resourceRole, TermsOfUse terms) {
             this.contest = contest;
-            this.roleId = roleId;
+            this.resourceRole = resourceRole;
             this.terms = terms;
         }
 
         /**
-         * Gets the role id of this identifier
+         * Gets the resource role of this identifier
          * 
-         * @return the role id
+         * @return the resource role
          */
-        public Integer getRoleId() {
-            return roleId;
+        public ResourceRole getResourceRole() {
+            return resourceRole;
         }
 
         /**
-         * Sets the role id of this identifier
+         * Sets the resource role of this identifier
          * 
-         * @param roleId
+         * @param resourceRole the resource role to set
          */
-        public void setRoleId(Integer roleId) {
-            this.roleId = roleId;
+        public void setResourceRole(ResourceRole resourceRole) {
+            this.resourceRole = resourceRole;
         }
 
         /**
@@ -176,7 +177,7 @@ public class ContestRoleTermsOfUse extends Base {
         /**
          * Sets the contest of this identifier
          * 
-         * @param contest
+         * @param contest the contest to set
          */
         public void setContest(Contest contest) {
             this.contest = contest;
@@ -194,7 +195,7 @@ public class ContestRoleTermsOfUse extends Base {
         /**
          * Sets the terms of use of this identifier
          * 
-         * @param terms
+         * @param terms the terms to set
          */
         public void setTerms(TermsOfUse terms) {
             this.terms = terms;
@@ -216,7 +217,7 @@ public class ContestRoleTermsOfUse extends Base {
                 try {
                     ContestRoleTermsOfUse.Identifier oa = (ContestRoleTermsOfUse.Identifier) o;
                     return (oa.contest.getId().equals(contest.getId()) &&
-                            oa.roleId.equals(roleId) &&
+                            oa.resourceRole.getId().equals(resourceRole.getId()) &&
                             oa.terms.getId().equals(terms.getId()));
                 } catch (ClassCastException e) {
                     return false;
@@ -236,7 +237,7 @@ public class ContestRoleTermsOfUse extends Base {
             StringBuffer buf = new StringBuffer(100);
             buf.append(contest.getId());
             buf.append(" ");
-            buf.append(roleId);
+            buf.append(resourceRole.getId());
             buf.append(" ");
             buf.append(terms.getId());
             return buf.toString().hashCode();

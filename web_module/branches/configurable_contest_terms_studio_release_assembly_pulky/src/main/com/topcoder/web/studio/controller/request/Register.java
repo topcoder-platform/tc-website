@@ -80,12 +80,12 @@ public class Register extends ShortHibernateProcessor {
                         }
 
                         // process terms of use
-                        RegistrationHelper.processTermsOfUse(request, c, u, RegistrationHelper.SUBMITTER_ROLE_IDS);
+                        RegistrationHelper.processTermsOfUse(request, c, u, RegistrationHelper.REGISTRANT_ROLE_IDS);
                         backToTermsResponse(request, c);
                         return;
                     } else {
                         // make sure user don't have pending terms of use (he could get here faking the URL)
-                        if (RegistrationHelper.processTermsOfUse(request, c, u, RegistrationHelper.SUBMITTER_ROLE_IDS)) {
+                        if (RegistrationHelper.processTermsOfUse(request, c, u, RegistrationHelper.REGISTRANT_ROLE_IDS)) {
                             backToTermsResponse(request, c);
                             return;
                         }
@@ -115,8 +115,10 @@ public class Register extends ShortHibernateProcessor {
                             ContestRegistration cr = new ContestRegistration();
                             cr.setContest(c);
                             cr.setUser(u);
-//                            ToDo: pulky: remove
-//                            cr.setTerms(DAOUtil.getFactory().getTermsOfUse().find(Constants.CONTEST_TERMS_OF_USE_ID));
+                            
+                            // This is done only to keep compatibility, the use of 
+                            // ContestRegistration's terms of use should be removed ASAP.
+                            cr.setTerms(DAOUtil.getFactory().getTermsOfUse().find(Constants.CONTEST_TERMS_OF_USE_ID));
                             cr.getId().setContest(c);
                             cr.getId().setUser(u);
 
