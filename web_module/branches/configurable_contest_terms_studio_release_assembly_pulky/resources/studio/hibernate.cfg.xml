@@ -1,3 +1,4 @@
+<?xml version='1.0' encoding='utf-8'?>
 <!--
   - Author: TCSDEVELOPER
   - Version: 1.1
@@ -8,7 +9,6 @@
   - Version 1.1 (Configurable Contest Terms-Studio Release Assembly v1.0) changes: Added ResourceRole, PhaseType
   - and ContestRoleTermsOfUse mappings.
 -->
-<?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE hibernate-configuration PUBLIC
         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
