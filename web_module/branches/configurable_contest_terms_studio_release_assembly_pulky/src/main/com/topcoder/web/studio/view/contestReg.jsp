@@ -12,6 +12,13 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag"%>
 <%@ taglib uri="studio.tld" prefix="studio"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<%-- Constant definition to avoid use of scriptlets in the JSP body --%>
+<c:set value="<%=Constants.MODULE_KEY%>" var="MODULE_KEY"/>
+<c:set value="<%=Constants.CONTEST_ID%>" var="CONTEST_ID"/>
+<c:set value="<%=Constants.TERMS_OF_USE_ID%>" var="TERMS_OF_USE_ID"/>
+<c:set value="<%=Constants.TERMS_AGREE%>" var="TERMS_AGREE"/>
+
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -76,11 +83,10 @@
                                 
                                     <div align="center">
                                         <form name="terms" method="POST" action="${sessionInfo.servletPath}">
-                                            <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Register" />
-                                            <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>" /> 
+                                            <tc-webtag:hiddenInput name="${MODULE_KEY}" value="Register" />
+                                            <tc-webtag:hiddenInput name="${CONTEST_ID}" /> 
                                             <c:if test="${not empty terms}">
-                                                <tc-webtag:hiddenInput name="<%=Constants.TERMS_OF_USE_ID%>" 
-                                                    value="${terms.id}" />
+                                                <tc-webtag:hiddenInput name="${TERMS_OF_USE_ID}" value="${terms.id}" />
                                             </c:if>
                                             <c:choose>
                                                 <c:when test="${not empty terms}">
@@ -94,7 +100,7 @@
                                                         ${terms.title}
                                                     </div><br />
                                                     <iframe width="590" height="300" marginWidth="5"
-                                                        src="${sessionInfo.servletPath}?module=Terms&amp;<%=Constants.TERMS_OF_USE_ID%>=${terms.id}">
+                                                        src="${sessionInfo.servletPath}?module=Terms&amp;${TERMS_OF_USE_ID}=${terms.id}">
                                                     </iframe>
                                                 </c:when>
                                                 <c:otherwise>
@@ -113,7 +119,7 @@
                                                                                     <a href="${terms_agreed_item.url}">(View)</a>
                                                                                 </c:when>
                                                                                 <c:otherwise>
-                                                                                    <a href="${sessionInfo.servletPath}?module=Terms&amp;<%=Constants.TERMS_OF_USE_ID%>=${terms_agreed_item.id}"
+                                                                                    <a href="${sessionInfo.servletPath}?module=Terms&amp;${TERMS_OF_USE_ID}=${terms_agreed_item.id}"
                                                                                         target="_blank">
                                                                                         (View)
                                                                                     </a>
@@ -151,11 +157,11 @@
                                                                 <div align="center" class="bigRed" 
                                                                     style="text-align: left; width: 590px">
                                                                     <tc-webtag:errorIterator
-                                                                        id="err" name="<%=Constants.TERMS_AGREE%>">
-                                                                            ${err} <br />
+                                                                        id="err" name="${TERMS_AGREE}">
+                                                                        ${err} <br />
                                                                     </tc-webtag:errorIterator>
                                                                 </div>
-                                                                <INPUT TYPE="checkbox" NAME="<%=Constants.TERMS_AGREE%>" />     
+                                                                <INPUT TYPE="checkbox" NAME="${TERMS_AGREE}" />     
                                                                 I agree <br /> <br />
                                                                 <input type="image" src="/i/v2/interface/btnContinue.png" />
                                                                 <br /><br />
