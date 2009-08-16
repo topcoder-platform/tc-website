@@ -70,7 +70,7 @@ public class ContestDAOHibernate extends Base implements ContestDAO {
         }
         
         Criteria c = session.createCriteria(ContestRoleTermsOfUse.class);
-        c.add(Restrictions.eq("id.contest.id", contestId)).add(Restrictions.in("id.roleId", roleIds));
+        c.add(Restrictions.eq("id.contest.id", contestId)).add(Restrictions.in("id.resourceRole.id", roleIds));
         
         Set<TermsOfUse> necessaryTerms = new HashSet<TermsOfUse>();
         for (ContestRoleTermsOfUse crtou : (List<ContestRoleTermsOfUse>) c.list()) {
