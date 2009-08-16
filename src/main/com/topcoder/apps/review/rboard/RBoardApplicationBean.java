@@ -105,10 +105,15 @@ import java.util.Map;
  *   <ol>
  *     <li>Added new method createSpecReviewRBoardApplication to apply for spec reviews.</li>
  *   </ol>
+ *   
+ *   Version 1.0.12 (Spec Reviews Finishing Touches v1.0) Change notes:
+ *   <ol>
+ *     <li>Now the write permissions are assigned to the spec reviewer.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, ivern, isv, pulky, snow01
- * @version 1.0.11
+ * @author dok, ivern, isv, pulky, snow01, TCSASSEMBLER
+ * @version 1.0.12
  */
 public class RBoardApplicationBean extends BaseEJB {
     private static final int INTERNAL_ADMIN_USER = 100129;
@@ -612,6 +617,9 @@ public class RBoardApplicationBean extends BaseEJB {
      * Unlike normal rboard_application, 
      *  - it inserts a new entry in spec_review_reviewer_xref
      *  - update the status in spec_review table to REVIEWER_ASSIGNED (i.e id 5)
+     *  
+     * Updated for Version 1.0.12
+     *      - Now the write permissions for the contest are assigned to the spec reviewer.
      *
      * @param dataSource the datasource being used
      * @param userId the user id to insert
@@ -656,6 +664,9 @@ public class RBoardApplicationBean extends BaseEJB {
             
             // set the status of spec_review entry to be REVIEWER_ASSIGNED (i.e. id 5)
             updateSpecReviewToAssigned(conn, projectId);
+            
+            // adds permission for the user.
+            addSpecReviewPermission(conn, projectId, userId);
             
             conn.commit();
             log.debug("Registration for project " + projectId + " completed in " + (System.currentTimeMillis() - start)
@@ -742,6 +753,72 @@ public class RBoardApplicationBean extends BaseEJB {
         } finally {
             close(ps);
             close(ctx);
+        }
+    }
+    
+    /**
+     * Adds permission for the user.
+     * 
+     * @param conn the datbase connection to be used.
+     * @param projectId the project id for which reviewer entry should be added.
+     * @param userId the reviewer's user id.
+     * @throws EJBException if an error occurs doing persistence operations
+     * @since 1.0.12
+     */
+    private void addSpecReviewPermission(Connection conn, long projectId, long userId) {
+        PreparedStatement ps = null;
+        InitialContext ctx = null;
+        ResultSet rs = null;
+        
+        long permId = 0;
+        long permTypeId = 0;
+        
+        try {
+            ps = conn.prepareStatement("SELECT user_permission_grant_id, permission_type_id FROM user_permission_grant where resource_id = " + projectId + " AND user_id = " + userId + " AND is_studio = 0");
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                permId = rs.getLong(1);
+                permTypeId = rs.getLong(2);
+            }
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw(new EJBException(e.getMessage()));
+        } finally {
+            close(rs);
+            close(ps);
+            close(ctx);
+        }
+        
+        if (permId > 0) {
+            // we have sufficient permission
+            if (permTypeId == 5 || permTypeId == 6) {
+                return;
+            }
+            
+            try {
+                ps = conn.prepareStatement("UPDATE user_permission_grant SET permission_type_id = 5 where user_permission_grant_id = " + permId);
+                ps.executeUpdate();
+            } catch (SQLException e) {
+                DBMS.printSqlException(true, e);
+                throw(new EJBException(e.getMessage()));
+            } finally {
+                close(rs);
+                close(ps);
+                close(ctx);
+            }
+        } else {
+            try {
+                ps = conn.prepareStatement("INSERT INTO user_permission_grant(user_permission_grant_id, user_id, resource_id, permission_type_id, is_studio) "
+                        + " VALUES(PERMISSION_SEQ.NEXTVAL, " + userId + ", " + projectId + ", 5, 0)");
+                ps.executeUpdate();
+            } catch (SQLException e) {
+                DBMS.printSqlException(true, e);
+                throw(new EJBException(e.getMessage()));
+            } finally {
+                close(rs);
+                close(ps);
+                close(ctx);
+            }
         }
     }
 
