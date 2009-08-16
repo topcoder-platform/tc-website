@@ -74,9 +74,7 @@
                                         <studio:forumLink forumID="${contest.forumId}" />
                                     </div>
                                     <div class="breadcrumb">
-                                        <a href="${sessionInfo.servletPath}?module=ViewActiveContests">
-                                            Active Contests
-                                        </a> &gt; ${contest.name}
+                                        <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a> &gt; ${contest.name}
                                     </div>
                                     <br />
                                     <h1>Contest Registration</h1>
@@ -120,9 +118,7 @@
                                                                                 </c:when>
                                                                                 <c:otherwise>
                                                                                     <a href="${sessionInfo.servletPath}?module=Terms&amp;${TERMS_OF_USE_ID}=${terms_agreed_item.id}"
-                                                                                        target="_blank">
-                                                                                        (View)
-                                                                                    </a>
+                                                                                        target="_blank">(View)</a>
                                                                                 </c:otherwise>
                                                                             </c:choose>
                                                                         </li>
@@ -142,9 +138,7 @@
                                                     <div class="bigRed" style="text-align: left; width: 590px">
                                                         You have not yet signed the Assignment Document that is required
                                                         in order to submit for this contest. Please go
-                                                        <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">
-                                                            here
-                                                        </a>
+                                                        <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">here</a>
                                                         to read more about Assignment Documents and what you need to do.
                                                         You will not be able to submit for this contest without first
                                                         sending in the signed Assignment Document.<br /><br />
