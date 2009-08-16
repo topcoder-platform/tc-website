@@ -7,7 +7,7 @@
     <class name="ContestRoleTermsOfUse" table="project_role_terms_of_use_xref">
         <composite-id name="id" class="ContestRoleTermsOfUse$Identifier">
             <key-many-to-one name="contest" class="Contest" column="project_id"/>
-            <key-many-to-one name="resourceRole" class="ResourceRole" column="resource_role_id"/>
+            <key-many-to-one name="resourceRole" class="com.topcoder.web.common.model.comp.ResourceRole" column="resource_role_id"/>
             <key-many-to-one name="terms" class="com.topcoder.web.common.model.TermsOfUse" column="terms_of_use_id"/>
         </composite-id>
     </class>
