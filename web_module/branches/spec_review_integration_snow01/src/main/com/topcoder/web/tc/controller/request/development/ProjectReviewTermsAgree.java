@@ -44,7 +44,7 @@ import java.util.Map;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, isv, TCSASSEMBLER
+ * @author dok, pulky, isv, snow01
  * @version 1.0.3
  */
 public class ProjectReviewTermsAgree extends ProjectReviewApply {
