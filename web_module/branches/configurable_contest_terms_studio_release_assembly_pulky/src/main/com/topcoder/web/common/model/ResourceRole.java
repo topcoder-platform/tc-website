@@ -15,6 +15,7 @@ package com.topcoder.web.common.model;
  *
  * @author TCSDEVELOPER
  * @version 1.0
+ * @since Configurable Contest Terms-Studio Release Assembly v1.0
  */
 public class ResourceRole extends Base {
 

@@ -25,6 +25,7 @@ import com.topcoder.web.studio.model.Contest;
  *
  * @author TCSDEVELOPER
  * @version 1.0
+ * @since Configurable Contest Terms-Studio Release Assembly v1.0
  */
 public class RegistrationHelper {
 
