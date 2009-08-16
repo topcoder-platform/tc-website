@@ -6,9 +6,9 @@ package com.topcoder.web.studio.controller.request;
 import java.util.Set;
 
 import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.common.model.ResourceRole;
 import com.topcoder.web.common.model.TermsOfUse;
 import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.model.comp.ResourceRole;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;

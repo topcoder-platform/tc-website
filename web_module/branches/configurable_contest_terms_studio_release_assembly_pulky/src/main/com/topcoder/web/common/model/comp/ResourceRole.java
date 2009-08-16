@@ -1,15 +1,17 @@
 /*
  * Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
  */
-package com.topcoder.web.common.model;
+package com.topcoder.web.common.model.comp;
+
+import com.topcoder.web.common.model.Base;
 
 /**
- * <p>This class represents a Phase Type entity.</p>
+ * <p>This class represents a Resource Role entity.</p>
  *
  * <p>
  *   Version 1.0 (Configurable Contest Terms-Studio Release Assembly v1.0) Change notes:
  *   <ol>
- *       This class was created to support the new role entity. 
+ *       This class was created to support the new Contest - Terms of use - role relationship. 
  *   </ol>
  * </p>
  *
@@ -17,7 +19,7 @@ package com.topcoder.web.common.model;
  * @version 1.0
  * @since Configurable Contest Terms-Studio Release Assembly v1.0
  */
-public class PhaseType extends Base {
+public class ResourceRole extends Base {
 
     /**
      * Serial version UID for this class.
@@ -27,19 +29,29 @@ public class PhaseType extends Base {
      * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
     private static final long serialVersionUID = 1L;
+
+    /**
+     * <p>An <code>Integer</code> referencing the resource role id corresponding to a submitter.</p>
+     */
+    public static final Integer SUBMITTER_RESOURCE_ROLE_ID = 1;
     
     /**
-     * The phase type id.
+     * The resource role id.
      */
     private Integer id;
 
     /**
-     * The phase type name.
+     * The resource role phase type.
+     */
+    private PhaseType phaseType;
+
+    /**
+     * The resource role name.
      */
     private String name;
 
     /**
-     * The phase type description
+     * The resource role description
      */
     private String description;
 
@@ -59,6 +71,24 @@ public class PhaseType extends Base {
      */
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    /**
+     * Gets the phase type 
+     * 
+     * @return the phase type
+     */
+    public PhaseType getPhaseType() {
+        return phaseType;
+    }
+
+    /**
+     * Sets the phase type
+     * 
+     * @param id the phase type to set
+     */
+    public void setPhaseType(PhaseType phaseType) {
+        this.phaseType = phaseType;
     }
 
     /**
@@ -108,7 +138,7 @@ public class PhaseType extends Base {
     public boolean equals(Object obj) {
         boolean ret = false;
         try {
-            PhaseType other = (PhaseType) obj;
+            ResourceRole other = (ResourceRole) obj;
             ret = other.getId().equals(getId());
         } catch (ClassCastException e) {
             ret = false;

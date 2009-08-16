@@ -6,8 +6,8 @@ package com.topcoder.web.studio.model;
 import java.io.Serializable;
 
 import com.topcoder.web.common.model.Base;
-import com.topcoder.web.common.model.ResourceRole;
 import com.topcoder.web.common.model.TermsOfUse;
+import com.topcoder.web.common.model.comp.ResourceRole;
 
 /**
  * <p>This class represents a Contest Role Terms Of Use relationship.</p>
