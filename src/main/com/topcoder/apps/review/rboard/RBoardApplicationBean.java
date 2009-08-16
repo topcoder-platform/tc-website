@@ -108,7 +108,7 @@ import java.util.Map;
  *   
  *   Version 1.0.12 (Spec Reviews Finishing Touches v1.0) Change notes:
  *   <ol>
- *     <li>Now the write permissions are assigned to the spec reviewer.</li>
+ *     <li>Now the read permissions are assigned to the spec reviewer.</li>
  *   </ol>
  * </p>
  *
@@ -791,12 +791,12 @@ public class RBoardApplicationBean extends BaseEJB {
         
         if (permId > 0) {
             // we have sufficient permission
-            if (permTypeId == 5 || permTypeId == 6) {
+            if (permTypeId >= 4 && permTypeId <= 6) {
                 return;
             }
             
             try {
-                ps = conn.prepareStatement("UPDATE user_permission_grant SET permission_type_id = 5 where user_permission_grant_id = " + permId);
+                ps = conn.prepareStatement("UPDATE user_permission_grant SET permission_type_id = 4 where user_permission_grant_id = " + permId);
                 ps.executeUpdate();
             } catch (SQLException e) {
                 DBMS.printSqlException(true, e);
@@ -809,7 +809,7 @@ public class RBoardApplicationBean extends BaseEJB {
         } else {
             try {
                 ps = conn.prepareStatement("INSERT INTO user_permission_grant(user_permission_grant_id, user_id, resource_id, permission_type_id, is_studio) "
-                        + " VALUES(PERMISSION_SEQ.NEXTVAL, " + userId + ", " + projectId + ", 5, 0)");
+                        + " VALUES(PERMISSION_SEQ.NEXTVAL, " + userId + ", " + projectId + ", 4, 0)");
                 ps.executeUpdate();
             } catch (SQLException e) {
                 DBMS.printSqlException(true, e);
