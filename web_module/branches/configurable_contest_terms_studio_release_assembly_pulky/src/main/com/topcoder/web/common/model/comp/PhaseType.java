@@ -75,7 +75,7 @@ public class PhaseType extends Base {
     /**
      * Sets the name
      *
-     * @param id the name to set
+     * @param name the name to set
      */
     public void setName(String name) {
         this.name = name;
@@ -93,7 +93,7 @@ public class PhaseType extends Base {
     /**
      * Sets the description
      *
-     * @param id the description to set
+     * @param description the description to set
      */
     public void setDescription(String description) {
         this.description = description;

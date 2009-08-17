@@ -85,7 +85,7 @@ public class ResourceRole extends Base {
     /**
      * Sets the phase type
      *
-     * @param id the phase type to set
+     * @param phaseType the phase type to set
      */
     public void setPhaseType(PhaseType phaseType) {
         this.phaseType = phaseType;
@@ -103,7 +103,7 @@ public class ResourceRole extends Base {
     /**
      * Sets the name
      *
-     * @param id the name to set
+     * @param name the name to set
      */
     public void setName(String name) {
         this.name = name;
@@ -121,7 +121,7 @@ public class ResourceRole extends Base {
     /**
      * Sets the description
      *
-     * @param id the description to set
+     * @param description the description to set
      */
     public void setDescription(String description) {
         this.description = description;

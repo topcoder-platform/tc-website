@@ -114,7 +114,7 @@
                                                                         <li>${terms_agreed_item.title}
                                                                             <c:choose>
                                                                                 <c:when test="${terms_agreed_item.electronicallySignable != 1}">
-                                                                                    <a href="${terms_agreed_item.url}">(View)</a>
+                                                                                    <a href="${terms_agreed_item.url}" target="_blank">(View)</a>
                                                                                 </c:when>
                                                                                 <c:otherwise>
                                                                                     <a href="${sessionInfo.servletPath}?module=Terms&amp;${TERMS_OF_USE_ID}=${terms_agreed_item.id}"
@@ -165,7 +165,7 @@
                                                                     You cannot agree to these terms electronically.
                                                                     You must print the terms and send a signed hard copy
                                                                     to TopCoder. You can get a printer friendly version
-                                                                    <a href="${terms.url}">here</a>.
+                                                                    <a href="${terms.url}" target="_blank">here</a>.
                                                                 </p>
                                                                 <p>
                                                                     For submission by <b>email</b>, send a clear and
