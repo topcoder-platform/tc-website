@@ -51,6 +51,13 @@ import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.web.ejb.termsofuse.TermsOfUseEntity;
 import com.topcoder.web.ejb.termsofuse.TermsOfUseLocator;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.randomstringimg.InvalidConfigException;
+import com.topcoder.randomstringimg.ObfuscationException;
+import com.topcoder.randomstringimg.RandomStringImage;
+import java.io.IOException;
+import java.io.FileOutputStream;
+import com.topcoder.util.spell.ConfigException;
+import com.topcoder.web.common.NavigationException;
 
 /**
  * <p><strong>Purpose</strong>: This processor handle requests to register to a specific design or development
@@ -113,19 +120,27 @@ public class Register extends ViewRegistration {
                             DBMS.COMMON_OLTP_DATASOURCE_NAME);
                     getRequest().setAttribute(Constants.TERMS, terms);
                 }
+                
                 setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
+                loadCaptcha();
                 setNextPage("/contest/regTerms.jsp");
                 setIsNextPageInContext(true);
             } else {
                 // make sure they don't have pending terms of use (they could get here faking the URL)
                 if (processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS)) {
                     setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
+                    loadCaptcha();
                     setNextPage("/contest/regTerms.jsp");
                     setIsNextPageInContext(true);
                     return;
                 }
 
                 List responses = validateSurvey();
+                
+                if (!answeredCaptchaCorrectly()) {
+                    addError(Constants.CAPTCHA_RESPONSE, "Sorry, your response was incorect.");
+                }
+
 
                 boolean bother = true;
 
@@ -192,6 +207,7 @@ public class Register extends ViewRegistration {
                     processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS);
 
                     setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
+                    loadCaptcha();
                     setNextPage("/contest/regTerms.jsp");
                     setIsNextPageInContext(true);
                 }
@@ -200,6 +216,30 @@ public class Register extends ViewRegistration {
             throw e;
         } catch (Throwable e) {
             throw new TCWebException(e);
+        }
+    }
+     protected void loadCaptcha() throws IOException, InvalidConfigException, ObfuscationException, ConfigException {
+        RandomStringImage rsi = new RandomStringImage(Constants.RANDOM_STRING_IMAGE_CONFIG);
+
+        String fileName = getUser().getId() + "_" + System.currentTimeMillis() + ".png";
+        FileOutputStream fos = new FileOutputStream(Constants.CAPTCHA_PATH + fileName);
+        //so, i'm using the dictionary here because you can't use this component without configuring
+        //a dictionary, i went to the effort of getting one, so might as well use it.
+        //i'd rather just use a random string, but then i would need a keygenerator component
+        //to do that, so i'll just use the dictionary
+        String word = rsi.generateRandomFromDictionaries(fos);
+        fos.close();
+        getRequest().getSession().setAttribute(Constants.CAPTCHA_WORD, word);
+        getRequest().setAttribute(Constants.CAPTCHA_FILE_NAME, fileName);
+    }
+    
+    private boolean answeredCaptchaCorrectly() throws NavigationException {
+        String response = StringUtils.checkNull(getRequest().getParameter(Constants.CAPTCHA_RESPONSE));
+        String word = (String)getRequest().getSession().getAttribute(Constants.CAPTCHA_WORD);
+        if (word==null) {
+            throw new NavigationException("Sorry, your session has expired, please start your registration again.");
+        } else {
+            return word.compareToIgnoreCase(response.trim())==0;
         }
     }
 

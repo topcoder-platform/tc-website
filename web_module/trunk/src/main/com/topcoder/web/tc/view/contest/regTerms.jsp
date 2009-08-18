@@ -258,6 +258,33 @@
                                     </c:forEach>
                                 </td>
                             </tr>
+                            
+                            <c:set var="captchaFileName" value="<%=Constants.CAPTCHA_FILE_NAME%>"/>
+                        <tr>
+                        <td class="errorText">
+                            <img src="/i/captcha/${requestScope[captchaFileName]}" alt="captcha image"/>
+
+                         <p>
+                             <a href="javascript:window.location.reload()">This image is hard to read. Show me a different
+                                    one.</a>
+                            </p>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td class="errorText">
+                          <tc-webtag:errorIterator id="err" name="<%=Constants.CAPTCHA_RESPONSE%>">${err}
+                             <br/></tc-webtag:errorIterator>
+                        </td>
+                         </tr>
+                         <tr>
+                          <td>
+                        <p>
+                          Please enter the characters you see in the image above:
+                          <tc-webtag:textInput name="<%=Constants.CAPTCHA_RESPONSE%>"/>
+                       </p>
+                      </td>
+            </tr>
                         </table>
                     </c:otherwise>
                 </c:choose>

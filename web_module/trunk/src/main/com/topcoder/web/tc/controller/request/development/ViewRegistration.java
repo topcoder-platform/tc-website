@@ -33,6 +33,15 @@ import com.topcoder.web.ejb.project.ProjectLocal;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 
+
+import com.topcoder.randomstringimg.InvalidConfigException;
+import com.topcoder.randomstringimg.ObfuscationException;
+import com.topcoder.randomstringimg.RandomStringImage;
+import java.io.IOException;
+import java.io.FileOutputStream;
+import com.topcoder.util.spell.ConfigException;
+
+
 /**
  * <p><strong>Purpose</strong>: This processor handle requests to register to a specific design or development
  * project.</p>
@@ -85,6 +94,7 @@ public class ViewRegistration extends Base {
 
                 //we're assuming that if we're here, we got a valid project id
                 setDefault(Constants.PROJECT_ID, projectId);
+                loadCaptcha();
                 setNextPage("/contest/regTerms.jsp");
                 setIsNextPageInContext(true);
             } else {
@@ -196,6 +206,21 @@ public class ViewRegistration extends Base {
             }
         }
 */
+}
+
+protected void loadCaptcha() throws IOException, InvalidConfigException, ObfuscationException, ConfigException {
+        RandomStringImage rsi = new RandomStringImage(Constants.RANDOM_STRING_IMAGE_CONFIG);
+
+        String fileName = getUser().getId() + "_" + System.currentTimeMillis() + ".png";
+        FileOutputStream fos = new FileOutputStream(Constants.CAPTCHA_PATH + fileName);
+        //so, i'm using the dictionary here because you can't use this component without configuring
+        //a dictionary, i went to the effort of getting one, so might as well use it.
+        //i'd rather just use a random string, but then i would need a keygenerator component
+        //to do that, so i'll just use the dictionary
+        String word = rsi.generateRandomFromDictionaries(fos);
+        fos.close();
+        getRequest().getSession().setAttribute(Constants.CAPTCHA_WORD, word);
+        getRequest().setAttribute(Constants.CAPTCHA_FILE_NAME, fileName);
     }
 
     protected boolean isTournamentTime() {
