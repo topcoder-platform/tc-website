@@ -85,10 +85,6 @@
       <td class="value">9
       </td>
       <td class="value">10
-         <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=13904">SRM 450</A></strong><br />
-         12:00 NOON
-         </div>        
       </td>
    </tr>
    
@@ -106,6 +102,10 @@
       <td class="value">16
       </td>
       <td class="value">17
+         <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=13904">SRM 450</A></strong> - <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor1" target="_blank"><strong>IEEE</strong></a><br />
+         12:00 NOON
+         </div>        
       </td>
    </tr>
    
@@ -116,7 +116,7 @@
       </td>
       <td class="value">20
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=13905">SRM 451</A> - <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=eventPatron">NSA</a></strong><br />
+         <strong><A href="/tc?module=MatchDetails&rd=13905">SRM 451</A> - <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=eventPatron" target="_blank">NSA</a></strong><br />
          9:00 PM
          </div>       
       </td>
