@@ -120,7 +120,7 @@
       </td>
       <td class="value">23
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=13903">SRM 449</A></strong><br />
+         <strong><A href="/tc?module=MatchDetails&rd=13903">SRM 449</A></strong> - <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor1" target="_blank"><strong>IEEE</strong></a><br />
          11:00 AM
          </div>       
       </td>
