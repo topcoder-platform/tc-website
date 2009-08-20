@@ -128,7 +128,7 @@ public abstract class BaseBoardV2 extends BaseProcessor {
                  row.getDoubleItem("final_points"), row.getDoubleItem("potential_points"), 
                  row.getStringItem("current_top_performer_prize") == null? 0.0 : row.getDoubleItem("current_top_performer_prize"),
                  row.getStringItem("current_top_n_prize") == null? 0.0 : row.getDoubleItem("current_top_n_prize"),
-                 hasWonTrip(row.getIntItem("current_place"), 1));
+                 row.getIntItem("has_won_trip") == 1);
             
             results.add(lbr);
 
@@ -168,18 +168,6 @@ public abstract class BaseBoardV2 extends BaseProcessor {
         }
         return ti;
     }
-    
-    /**
-     * Checks if the coder has win a trip
-     * 
-     * @param rank
-     * @param topTripWinners
-     * @return true if the winner won a trip
-     */
-    protected boolean hasWonTrip(int rank, int topTripWinners) {
-        return rank <= topTripWinners;
-    }    
-
 
     protected String numToLetters(int i) {
         switch (i) {
