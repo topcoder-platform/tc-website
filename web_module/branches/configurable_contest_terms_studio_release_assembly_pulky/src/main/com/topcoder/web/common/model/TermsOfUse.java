@@ -16,7 +16,7 @@ import java.util.Set;
  *   </ol>
  * </p>
  *
- * @author TCSDEVELOPER
+ * @author pulky
  * @version 1.1
  */
 public class TermsOfUse extends Base {

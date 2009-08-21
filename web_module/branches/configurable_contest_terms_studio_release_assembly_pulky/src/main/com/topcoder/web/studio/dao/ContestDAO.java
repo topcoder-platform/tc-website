@@ -20,7 +20,7 @@ import com.topcoder.web.studio.model.Contest;
  *   </ol>
  * </p>
  *
- * @author dok, TCSDEVELOPER
+ * @author dok, pulky
  * @version 1.1
  */
 public interface ContestDAO {

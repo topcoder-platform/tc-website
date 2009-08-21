@@ -15,7 +15,7 @@ import com.topcoder.web.common.model.Base;
  *   </ol>
  * </p>
  *
- * @author TCSDEVELOPER
+ * @author pulky
  * @version 1.0
  * @since Configurable Contest Terms-Studio Release Assembly v1.0
  */

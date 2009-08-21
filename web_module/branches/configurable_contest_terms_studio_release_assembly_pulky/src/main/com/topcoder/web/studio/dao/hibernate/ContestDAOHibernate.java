@@ -27,7 +27,7 @@ import com.topcoder.web.studio.model.ContestRoleTermsOfUse;
  *   </ol>
  * </p>
  *
- * @author dok, TCSDEVELOPER
+ * @author dok, pulky
  * @version 1.1
  */
 public class ContestDAOHibernate extends Base implements ContestDAO {
