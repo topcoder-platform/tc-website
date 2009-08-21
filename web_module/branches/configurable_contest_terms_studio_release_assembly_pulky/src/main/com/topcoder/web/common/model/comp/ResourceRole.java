@@ -136,14 +136,12 @@ public class ResourceRole extends Base {
      * @see java.lang.Object#equals(java.lang.Object)
      */
     public boolean equals(Object obj) {
-        boolean ret = false;
-        try {
+        if (obj == null || id == null || !(obj instanceof ResourceRole)) {
+            return false;
+        } else {
             ResourceRole other = (ResourceRole) obj;
-            ret = other.getId().equals(getId());
-        } catch (ClassCastException e) {
-            ret = false;
+            return id.equals(other.getId());
         }
-        return ret;
     }
 
     /**

@@ -4,6 +4,7 @@
 package com.topcoder.web.common.model.comp;
 
 import com.topcoder.web.common.model.Base;
+import com.topcoder.web.studio.model.ContestRoleTermsOfUse;
 
 /**
  * <p>This class represents a Phase Type entity.</p>
@@ -108,14 +109,12 @@ public class PhaseType extends Base {
      * @see java.lang.Object#equals(java.lang.Object)
      */
     public boolean equals(Object obj) {
-        boolean ret = false;
-        try {
+        if (obj == null || id == null || !(obj instanceof PhaseType)) {
+            return false;
+        } else {
             PhaseType other = (PhaseType) obj;
-            ret = other.getId().equals(getId());
-        } catch (ClassCastException e) {
-            ret = false;
+            return id.equals(other.getId());
         }
-        return ret;
     }
 
     /**
