@@ -1,6 +1,6 @@
 <%--
   - Author: TCSDEVELOPER
-  - Version: 1.1
+  - Version: 1.2
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page renders studio home page.
@@ -11,6 +11,12 @@
   -    * New Design Showcase section.
   -    * New Thoughts From The Blog section.
   -    * New Contest Chatter section.
+  -
+  - Version 1.2 (BUGR-2268) Change Notes:
+  -    * Added carousal buttons #6 and #7.'Compete' and 'Post a Project' links to external pages.
+  -    * Added banner rotation every 5 sec. on carousal.
+  -    * Right justified the prize amount.
+  -    * Added proper links on RSS feeds for 'Thoughts for blogs' and 'Contest Chatter'.
 --%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
@@ -81,6 +87,7 @@
         <script type="text/JavaScript" src="/js/AJAXProcessor.js"> </script>
         <script type="text/javascript" src="/js/NewStyleHeaderFooter/carousel/jquery.jcarousel.js"></script>
         <script type="text/javascript" src="/js/NewStyleHeaderFooter/carousel/scripts.js"></script>
+        <script type="text/javascript" src="/js/jquery.timers.js"> </script> <%-- BUGR-2268: Timers library added --%>
     </head>
 
     <c:set var="contests" value="<%=activeContests%>"/>
@@ -101,9 +108,9 @@
                     <div id="top_part">
                         <div id="mycarousel" class="jcarousel-skin-tango">
                             <div class="jcarousel-control loadWorkaround" 	style="position:relative;">
-                                <a href="#" class="bt6" id="tab6">6</a>
-                                <a href="#" class="bt7" id="tab7">7</a>
-                            </div>
+                                <a href="http://www.topcoder.com/reg/" class="bt6_compete" id="tab6_compete">6_compete</a>
+                                <a href="http://studio.topcoder.com/?module=Static&d1=support&d2=startingACompetition" class="bt7_post_project" id="tab7_post_project">7_post_project</a>
+                             </div>
                             <ul>
                                 <li style="display:none" class="loadWorkaround">
                                     <a href="http://studio.topcoder.com/?module=ViewPastContests"><img width="909" height="203" src="i/v4/1.png" alt="" /></a>
@@ -133,7 +140,9 @@
                                 <a href="#" class="bt1_5 bt3" id="tab3"><span>3</span></a>
                                 <a href="#" class="bt1_5 bt4" id="tab4"><span>4</span></a>
                                 <a href="#" class="bt1_5 bt5" id="tab5"><span>5</span></a>
-                            </div>
+                                <a href="#" class="bt1_5 bt6" id="tab6"><span>6</span></a>
+                                <a href="#" class="bt1_5 bt7" id="tab7"><span>7</span></a>
+                             </div>
                             <div class="jcarousel-scroll loadWorkaround" style="position:absolute; top:215px; left:160px;">
                                 <form action="">
                                     <a href="#" id="mycarousel-prev"></a><a href="#" id="mycarousel-next"></a>
