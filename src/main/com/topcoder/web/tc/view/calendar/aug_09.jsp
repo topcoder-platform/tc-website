@@ -141,7 +141,8 @@
       <td class="value">25
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=13901">SRM 447</A></strong> - <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor3">Facebook</a><br />
-         9:00 PM
+         9:00 PM<br />
+         $5,000 in prizes
          </div>       
       </td>
       <td class="value">26
