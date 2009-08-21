@@ -1,0 +1,41 @@
+Steps to prepare the VM for testing: (these steps assume a fresh working VM)
+
+1) login to studio account
+2) update web_module in te vm
+        - in ~/web/: svn up
+3) if you are provided with SVN branches, switch them
+        - in ~/web/: svn switch [submitter_branch]
+     otherwise copy source files to VM
+        - /web_module/* -> ~/web/
+4) Run DML: 
+        - /test_files/scripts/common_oltp.sql
+        - /scripts/studio_oltp.sql
+5) Copy placeholder icon for "Continue" button (this placeholder uses "More..." caption)
+        - cp /mnt/apache/studiodocs/i/v2/interface/btnMore.png /mnt/apache/studiodocs/i/v2/interface/btnContinue.png
+6) Kill jboss:
+        - run jps, kill the id that is listed as Main, wait till it's dead (when you type jps and don't see main any more)
+7) Remove security.ear in JBoss deploy directory (if this directory exists, it won't allow deployment)
+        - jbd; rm security.ear/ -R
+8) Deploy Studio:                
+        - in ~/web/: ant -f build_studio.xml deploy
+9) Start jboss:
+        - type jbb, then ./start.sh, then tn and wait till it tells you it's up.
+10) Once JBoss is running, you are all set for testing.
+
+Note: due to some missing images in VM's apache, some pages could be missing icons or images, but this is not a 
+code problem.
+
+-------------------------------
+
+Testing tips:
+- There are three active contests in VM studio installation, so you can use one of them to test, for instance:
+  http://studio.cloud.topcoder.com/?module=ViewContestDetails&ct=89 (You can use Yoshi/password as test user)
+- Two terms of use associations were created to make testing easier. 
+- You may find the following SQL commnands useful: (studio_oltp)
+    update terms_of_use set electronically_signable = 0;  -- makes terms of use not electronically signable
+    update terms_of_use set electronically_signable = 1;  -- makes terms of use electronically signable
+    delete from contest_registration where contest_id = 89;  -- removes registrations for contest 89
+    delete from user_terms_of_use_xref;  -- removes agreed terms of use
+
+
+Thanks!!!
