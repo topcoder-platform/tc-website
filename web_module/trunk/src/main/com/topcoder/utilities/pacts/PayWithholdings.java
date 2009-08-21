@@ -72,6 +72,10 @@ public class PayWithholdings extends DBUtility {
         query.append(PactsConstants.ARCHITECTURE_PAYMENT).append(", ");
         query.append(PactsConstants.ASSEMBLY_PAYMENT).append(", ");
         query.append(PactsConstants.REVIEW_BOARD_PAYMENT).append(", ");
+        query.append(PactsConstants.TEST_SUITES_PAYMENT).append(", ");
+        query.append(PactsConstants.TEST_SCENARIOS_PAYMENT).append(", ");
+        query.append(PactsConstants.UI_PROTOTYPE_COMPETITION_PAYMENT).append(", ");
+        query.append(PactsConstants.RIA_BUILD_COMPETITION_PAYMENT).append(", ");
         query.append(PactsConstants.COMPONENT_PAYMENT).append(") ");
         query.append(" AND (select max(pp.actual_end_time) from tcs_catalog:project_phase pp "); 
         query.append("         where pp.project_id = pd.component_project_id ");
