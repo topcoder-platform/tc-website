@@ -149,7 +149,7 @@
             <rsc:item set="<%=projectDetail%>" name="description"/>
         </p>
     </c:otherwise>
-</c:choose>>
+</c:choose>
 
 <%-- Technologies --%>
 <p class="noSpListTitle"><strong>Technologies</strong></p>
