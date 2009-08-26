@@ -120,6 +120,11 @@ String section = request.getParameter("section") == null ? "" : request.getParam
                         <li class="last-li"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums">Studio Forums</a></li>
                     </ul>
                 </li>
+                <li><a href="http://www.topcoder.com/tc">Review Opportunities</a>
+                    <ul>
+                        <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/">Join TopCoder</a></li>
+                    </ul>
+                </li>
             </ul>
         </div><%-- #navigation ends --%>
 
