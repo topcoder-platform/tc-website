@@ -5,19 +5,13 @@
   -
   - Description: This page presents review opportunities
 --%>
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
-<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="studio" uri="studio.tld" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%-- Set some constants to avoid use of scriptlets in the body --%>
-<% ResultSetContainer reviewsRSC = (ResultSetContainer) request.getAttribute("reviews");%>
-<c:set value="<%=new Integer(reviewsRSC.getColumnIndex("contest_type_desc"))%>" var="TYPE_COLUMN_INDEX"/>
-<c:set value="<%=new Integer(reviewsRSC.getColumnIndex("name"))%>" var="CONTEST_NAME_COLUMN_INDEX"/>
-<c:set value="<%=new Integer(reviewsRSC.getColumnIndex("start_time"))%>" var="START_TIME_COLUMN_INDEX"/>
 <c:set value="<%=new Double(Constants.SPEC_REVIEW_PAYMENT_AMOUNT)%>" var="SPEC_REVIEW_PAYMENT_AMOUNT"/>
 <c:set value="<%=Constants.MODULE_KEY%>" var="MODULE_KEY"/>
 <c:set value="<%=Constants.CONTEST_ID%>" var="CONTEST_ID"/>
@@ -108,17 +102,11 @@
 							<table class="stat" cellpadding="0" cellspacing="0" width="100%">
 							<tbody>
 								<tr>
-									<td class="header">
-										<a href="${sessionInfo.servletPath}<tc-webtag:sort column="${TYPE_COLUMN_INDEX}" includeParams="true"/>">Type</a>
-									</td>
-									<td class="header">
-                                        <a href="${sessionInfo.servletPath}<tc-webtag:sort column="${CONTEST_NAME_COLUMN_INDEX}" includeParams="true"/>">Contest Name</a>
-                                    </td>
-									<td class="headerC">
-                                        <a href="${sessionInfo.servletPath}<tc-webtag:sort column="${START_TIME_COLUMN_INDEX}" includeParams="true"/>">Scheduled Start Date</a>
-                                    </td>
+									<td class="header">Type</td>
+									<td class="header">Contest Name</td>
+									<td class="headerC">Scheduled Start Date</td>
 									<td class="headerC">Reviewer Payment</td>
-									<td class="header">Review Status</td>
+									<td class="headerC">Review Status</td>
 								</tr>
 								<c:choose>
 									<c:when test="${fn:length(reviews)==0}">

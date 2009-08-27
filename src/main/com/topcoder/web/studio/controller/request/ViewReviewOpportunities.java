@@ -4,13 +4,10 @@
 package com.topcoder.web.studio.controller.request;
 
 import com.topcoder.shared.dataAccess.DataAccess;
-import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.model.SortInfo;
-import com.topcoder.web.studio.Constants;
 
 /**
  * <p>This class will process a view review opportunities request.</p>
@@ -34,16 +31,6 @@ public class ViewReviewOpportunities extends BaseProcessor {
         Request r = new Request();
         r.setContentHandle("review_opportunities");
 
-        String col = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
-        String dir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
-
-        if (!"".equals(col) && !"".equals(dir)) {
-            r.setProperty(DataAccessConstants.SORT_COLUMN, getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
-            r.setProperty(DataAccessConstants.SORT_DIRECTION, 
-                getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
-        }
-
-        r.setProperty(Constants.USER_ID, String.valueOf(getUser().getId()));
         getRequest().setAttribute("reviews", da.getData(r).get("review_opportunities"));
         getRequest().setAttribute("userLoggedIn", userLoggedIn());
         
