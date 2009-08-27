@@ -22,6 +22,13 @@ import com.topcoder.web.studio.Constants;
  * @since Studio Release Assembly - Spec Review Sign up page v1.0
  */
 public class ViewReviewOpportunities extends BaseProcessor {
+
+    /**
+     * This method executes the actual business logic for this processor.
+     *
+     * @throws Exception if any error occurs
+     * @see com.topcoder.web.common.BaseProcessor#businessProcessing()
+     */
     protected void businessProcessing() throws Exception {
         DataAccess da = new DataAccess(DBMS.STUDIO_DATASOURCE_NAME);
         Request r = new Request();
@@ -32,7 +39,8 @@ public class ViewReviewOpportunities extends BaseProcessor {
 
         if (!"".equals(col) && !"".equals(dir)) {
             r.setProperty(DataAccessConstants.SORT_COLUMN, getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
-            r.setProperty(DataAccessConstants.SORT_DIRECTION, getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+            r.setProperty(DataAccessConstants.SORT_DIRECTION, 
+                getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
         }
 
         r.setProperty(Constants.USER_ID, String.valueOf(getUser().getId()));
