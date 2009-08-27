@@ -36,10 +36,11 @@
         <td width="100%" align="center" class="bodyColumn">
             <div class="fixedWidthBody">
            
-        <div align="center"><img src="/i/tournament/tccc05/nvidia_right.gif" border="0px" alt="NVIDIA Logo" /></div>
+        <div align="center"><img src="/i/events/nvidia_logo.jpg" border="0px" alt="NVIDIA Logo" /></div>
+		
         <br /><br />
         
-		<!--REMOVED
+		
 		<%-- 
         <div style="float: right;">
         <h3 style="border-bottom: 1px solid #999999;">Chat Session Transcripts</h3>
@@ -52,30 +53,20 @@
 
         <p align="center">
             Overview&#160;&#160;|&#160;&#160;
-            
-			
-			<!--
-			<a href="/tc?module=Static&amp;d1=sponsors&amp;d2=NVIDIAInstructions">How to Compete</a>
-			-->
-			<span class="grayedOut">How to Compete (coming soon)</span>&#160;&#160;|&#160;&#160;
-            <!---
-			<a href="/tc?module=Static&amp;d1=sponsors&amp;d2=NVIDIARules">Rules</a>&#160;&#160;|&#160;&#160;
-            -->
-			<span class="grayedOut">Rules (coming soon)</span>&#160;&#160;|&#160;&#160;
-            <span class="grayedOut">Active Contests (coming soon)</span>
-            <%--
+            <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=NVIDIAInstructions">How to Compete</a> &#160;&#160;|&#160;&#160;
+			<span class="grayedOut">Rules (coming soon)</span> &#160;&#160;|&#160;&#160;
             <a href="/longcontest/?module=ViewActiveContests">Active Contests</a>
-			--%>
-        </p>
+		</p>
         
         <span class="bigTitle">Overview</span>
-        <p><a target="_blank" href="<tc-webtag:linkTracking link='http://www.nvidia.com/object/cuda_home.html#' refer='nvidia_superhero' />">CUDA Zone</a> is pleased to host a series of online multithreading coding competitions with TopCoder!  We are excited to be part of the creative genius shown by TopCoder competitors and can't wait to see what you come up with.  And of course this wouldn't be a competition without cash prizes!<%--  Mark your calendars for March 12<sup>th</sup> 2008 to enter in the first of the four competitions. --%></p>
-        
+        <p>NVIDIA's <a target="_blank" href="<tc-webtag:linkTracking link='http://www.nvidia.com/object/cuda_home.html#' refer='nvidia_superhero' />">CUDA Zone</a> is pleased to host the CUDA Superhero Challenge, a series of marathon matches which will harness the parallel processing power of the NVIDIA CUDA architecture to solve some of computing's biggest challenges. We are excited to be announce these contests and can't wait to see what you come up with.  And of course this wouldn't be a competition without cash prizes!</p>
+        <p>The first contest, which is open to all developers, begins September 15th and will conclude September 29th.   The contest will award $5,000 of prizes divided among five winners, who will be announced at the GPU Technology Conference to be held at the Fairmont Hotel in San Jose, California, beginning Sept. 30. </P>
         <p>NVIDIA recommends that all contestants do the following:</p>
         <ol>
             <li>Sign up for <a target="_blank" href="<tc-webtag:linkTracking link='http://www.nvidia.com/object/io_1233138441508.html' refer='nvidia_superhero' />">CUDA Alerts</a></li>
             <li>Learn more about <a target="_blank" href="<tc-webtag:linkTracking link='http://www.nvidia.com/object/cuda_what_is.html' refer='nvidia_superhero' />">CUDA</a></li>
             <li>Download and try out <a target="_blank" href="<tc-webtag:linkTracking link='http://www.nvidia.com/object/cuda_get.html' refer='nvidia_superhero' />">CUDA development tools</a></li>
+			<li>Register and attend a <a target="_blank" href="<tc-webtag:linkTracking link='http://www.nvidia.com/object/cuda_get.html' refer='nvidia_superhero' />">webinar</a> to learn how to harness the power of CUDA.</li>
         </ol>
         <p>&nbsp;</p>
 
