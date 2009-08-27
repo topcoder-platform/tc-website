@@ -8,7 +8,7 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib prefix="studio_tags" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="studio" uri="studio.tld" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -21,9 +21,11 @@
 <c:set value="<%=new Double(Constants.SPEC_REVIEW_PAYMENT_AMOUNT)%>" var="SPEC_REVIEW_PAYMENT_AMOUNT"/>
 <c:set value="<%=Constants.MODULE_KEY%>" var="MODULE_KEY"/>
 <c:set value="<%=Constants.CONTEST_ID%>" var="CONTEST_ID"/>
+<c:set value="<%=Constants.SPEC_REVIEW_ID%>" var="SPEC_REVIEW_ID"/>
 <c:set value="${sessionInfo.servletPath}?${MODULE_KEY}" var="BASE_URL"/>
 <c:set value="${BASE_URL}=Static&amp;d1=support&amp;d2=getStarted" var="GET_STARTED_LINK"/>
 <c:set value="${BASE_URL}=ViewContestDetails&amp;${CONTEST_ID}" var="VIEW_CONTEST_DETAILS_LINK"/>
+<c:set value="${BASE_URL}=ReviewRegistration&amp;${SPEC_REVIEW_ID}" var="REVIEW_REGISTRATION_LINK"/>
 
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -149,7 +151,7 @@
 											</td>
                                             <td class="valueW">
                                                 <c:choose>
-                                                    <c:when test="${not empty ${resultRow.map['review_user_id']}}">
+                                                    <c:when test="${not empty resultRow.map['review_user_id']}">
                                                         <studio:handle coderId="${resultRow.map['review_user_id']}"/>
                                                     </c:when>
                                                     <c:otherwise>
