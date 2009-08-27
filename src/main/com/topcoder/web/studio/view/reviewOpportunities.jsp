@@ -6,20 +6,24 @@
   - Description: This page presents review opportunities
 --%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
-<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
-<%@ page import="com.topcoder.web.studio.model.ContestChannel" %>
-<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="studio_tags" tagdir="/WEB-INF/tags" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+<%-- Set some constants to avoid use of scriptlets in the body --%>
 <% ResultSetContainer reviewsRSC = (ResultSetContainer) request.getAttribute("reviews");%>
-<c:set value="<%=reviewsRSC.getColumnIndex("contest_type_desc")%>" var="TYPE_COLUMN_INDEX"/>
-<c:set value="<%=reviewsRSC.getColumnIndex("name")%>" var="CONTEST_NAME_COLUMN_INDEX"/>
-<c:set value="<%=reviewsRSC.getColumnIndex("start_time")%>" var="START_TIME_COLUMN_INDEX"/>
-<c:set value="<%=Constants.SPEC_REVIEW_PAYMENT_AMOUNT%>" var="SPEC_REVIEW_PAYMENT_AMOUNT"/>
+<c:set value="<%=new Integer(reviewsRSC.getColumnIndex("contest_type_desc"))%>" var="TYPE_COLUMN_INDEX"/>
+<c:set value="<%=new Integer(reviewsRSC.getColumnIndex("name"))%>" var="CONTEST_NAME_COLUMN_INDEX"/>
+<c:set value="<%=new Integer(reviewsRSC.getColumnIndex("start_time"))%>" var="START_TIME_COLUMN_INDEX"/>
+<c:set value="<%=new Double(Constants.SPEC_REVIEW_PAYMENT_AMOUNT)%>" var="SPEC_REVIEW_PAYMENT_AMOUNT"/>
+<c:set value="<%=Constants.MODULE_KEY%>" var="MODULE_KEY"/>
+<c:set value="<%=Constants.CONTEST_ID%>" var="CONTEST_ID"/>
+<c:set value="${sessionInfo.servletPath}?${MODULE_KEY}" var="BASE_URL"/>
+<c:set value="${BASE_URL}=Static&amp;d1=support&amp;d2=getStarted" var="GET_STARTED_LINK"/>
+<c:set value="${BASE_URL}=ViewContestDetails&amp;${CONTEST_ID}" var="VIEW_CONTEST_DETAILS_LINK"/>
 
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -85,7 +89,7 @@
 					<h1>Review Opportunities</h1>
 					
 					<div align="right"><strong>Need help? Learn how to
-						<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=Static&amp;d1=support&amp;d2=getStarted">get started</a></strong>.<br />
+						<a href="${GET_STARTED_LINK}">get started</a></strong>.<br />
 					</div>
 					
                     <div class="tableTabOff" style="margin-left: 20px;"><a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a></div>
@@ -113,13 +117,12 @@
                                     </td>
 									<td class="headerC">Reviewer Payment</td>
 									<td class="header">Review Status</td>
-									<td class="header">&nbsp;</td>
 								</tr>
 								<c:choose>
 									<c:when test="${fn:length(reviews)==0}">
-										<tr><td class="space" colspan="10">&nbsp;</td></tr>
+										<tr><td class="space" colspan="5">&nbsp;</td></tr>
 										<tr class="light">
-											<td class="valueC" colspan="10">
+											<td class="valueC" colspan="5">
 												<div align="center" style="margin: 40px 0px 40px 0px;">
 													There are currently no review opportunities, but check back soon.
 												</div>
@@ -127,14 +130,14 @@
 										</tr>
 									</c:when>
 									<c:otherwise>
-                                      <c:forEach items="${projectList}" var="resultRow" varStatus="status">
-										<tr><td class="space" colspan="10">&nbsp;</td></tr>
-										<tr class="${status.index % 2 == 1? "dark" : "light" }">
-                                            <td class="value">
+                                      <c:forEach items="${reviews}" var="resultRow" varStatus="status">
+										<tr><td class="space" colspan="5">&nbsp;</td></tr>
+										<tr class="${status.index % 2 == 1? 'dark' : 'light' }">
+                                            <td class="valueE">
                                                 ${resultRow.map['contest_type_desc']}
                                             </td>
 											<td class="value">
-												<a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${resultRow.map['contest_id']}">
+												<a href="${VIEW_CONTEST_DETAILS_LINK}=${resultRow.map['contest_id']}">
 													${resultRow.map['name']}
 												</a>
 											</td>
@@ -144,9 +147,25 @@
 											<td class="valueC">
                                                 <fmt:formatNumber value="${SPEC_REVIEW_PAYMENT_AMOUNT}" pattern="$###,###.00"/>
 											</td>
-											<td class="value">
-                                                <studio:handle coderId="${resultRow.map['review_user_id ']}"/>
-											</td>
+                                            <td class="valueW">
+                                                <c:choose>
+                                                    <c:when test="${not empty ${resultRow.map['review_user_id']}}">
+                                                        <studio:handle coderId="${resultRow.map['review_user_id']}"/>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <a href="${REVIEW_REGISTRATION_LINK}=${resultRow.map['spec_review_id']}">
+                                                            <c:choose>
+                                                                <c:when test="${userLoggedIn}">
+                                                                        Apply Now
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                        Open
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </a>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </td>
 										</tr>
 									</c:forEach>
 								</c:otherwise>
