@@ -69,6 +69,12 @@ public class SpecReviewStatus extends Base {
     private String name;
         
     /**
+     * Default empty Constructor 
+     */
+    public SpecReviewStatus() {
+    }
+
+    /**
      * Constructor using Specification Review Status Id 
      * 
      * @param id the Specification Review Status Id
