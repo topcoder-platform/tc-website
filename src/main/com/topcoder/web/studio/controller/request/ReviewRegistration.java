@@ -84,6 +84,9 @@ public class ReviewRegistration extends ShortHibernateProcessor {
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
+
+        setNextPage("/reviewOpportunities.jsp");
+        setIsNextPageInContext(true);
     }
 
     /**

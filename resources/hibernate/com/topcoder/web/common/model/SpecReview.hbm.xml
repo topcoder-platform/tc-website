@@ -17,7 +17,7 @@
         <property name="readyForReviewTime" column="ready_for_review_time" />
         <property name="reviewDoneTime" column="review_done_time" />
 
-        <set name="specReviewers" cascade="none" inverse="true">
+        <set name="specReviewers" cascade="save-update" inverse="true">
             <key column="spec_review_id" not-null="true"/>
             <one-to-many class="SpecReviewReviewer"/>
         </set>
