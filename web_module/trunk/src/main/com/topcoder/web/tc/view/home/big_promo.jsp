@@ -32,6 +32,3 @@
 <br />
 <a href="<tc-webtag:linkTracking link='http://www.topcoder.com/remix' refer='/tc' />"><img src="/images/remix/remix-510.jpg" alt="REMIX Challenge" /></a>
 <br />
-<br />
-<a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor3"><img src="/images/srm/srm447_facebook.png" alt="SRM 447 brought to you by Facebook" /></a>
-<br />
