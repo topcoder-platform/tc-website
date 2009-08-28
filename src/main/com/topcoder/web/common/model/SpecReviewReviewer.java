@@ -54,6 +54,12 @@ public class SpecReviewReviewer extends Base {
     private Integer isActive;
         
     /**
+     * Default empty Constructor 
+     */
+    public SpecReviewReviewer() {
+    }
+
+    /**
      * Constructor using fields
      * 
      * @param specReview the Specification Review to set

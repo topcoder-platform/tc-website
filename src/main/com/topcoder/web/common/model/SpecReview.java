@@ -67,6 +67,12 @@ public class SpecReview extends Base {
     private Set<SpecReviewReviewer> specReviewers;
         
     /**
+     * Default empty Constructor 
+     */
+    public SpecReview() {
+    }
+
+    /**
      * Gets the identifier
      *
      * @return the identifier
