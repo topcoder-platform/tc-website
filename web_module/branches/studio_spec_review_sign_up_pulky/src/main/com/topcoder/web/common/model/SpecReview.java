@@ -223,6 +223,6 @@ public class SpecReview extends Base {
      * @see java.lang.Object#hashCode()
      */
     public int hashCode() {
-        return id.hashCode();
+        return (id != null ? id.hashCode() : 0);
     }
 }
