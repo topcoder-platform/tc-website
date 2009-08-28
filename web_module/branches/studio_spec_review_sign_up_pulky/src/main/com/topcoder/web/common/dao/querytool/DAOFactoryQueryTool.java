@@ -280,4 +280,17 @@ public class DAOFactoryQueryTool implements DAOFactory {
     public SpecReviewDAO getSpecReviewDAO() {
         throw new RuntimeException("Not supported");
     }
+
+    /**
+     * This method constructs the corresponding User Permission Grant DAO object
+     * 
+     * Note: this is not currently supported
+     * 
+     * @return Query Tool implementation of the <code>UserPermissionGrantDAO</code>
+     * @throws RuntimeException always since this DAO is not currently supported 
+     * @since 1.1
+     */
+    public UserPermissionGrantDAO getUserPermissionGrantDAO() {
+        throw new RuntimeException("Not supported");
+    }
 }

@@ -31,9 +31,9 @@ public class SpecReviewReviewer extends Base {
     private static final long serialVersionUID = 1L;
 
     /**
-     * Constant to store is_active flag ACTIVE value
+     * Constant to store is_active flag TRUE value
      */
-    public static final Integer ACTIVE = 1;
+    public static final Integer TRUE = 1;
 
     /**
      * The Specification Review id.

@@ -11,6 +11,9 @@ package com.topcoder.web.common.dao;
  *   <ol>
  *       Added method to get Specification Review DAO
  *   </ol>
+ *   <ol>
+ *       Added method to get User Permission Grant DAO
+ *   </ol>
  * </p>
  *
  * @author dok, TCSDEVELOPER
@@ -146,4 +149,13 @@ public interface DAOFactory {
      * @since 1.1
      */
     SpecReviewDAO getSpecReviewDAO();
+    
+    /**
+     * This method constructs the corresponding User Permission Grant DAO object
+     * 
+     * @return an instance of the <code>UserPermissionGrantDAO</code>
+     * @since 1.1
+     */
+    UserPermissionGrantDAO getUserPermissionGrantDAO();
+
 }

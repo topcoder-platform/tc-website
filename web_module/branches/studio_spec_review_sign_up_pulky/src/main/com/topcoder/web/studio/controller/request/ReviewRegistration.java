@@ -16,10 +16,12 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.PermissionType;
 import com.topcoder.web.common.model.SpecReview;
 import com.topcoder.web.common.model.SpecReviewReviewer;
 import com.topcoder.web.common.model.SpecReviewStatus;
 import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.model.UserPermissionGrant;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOFactory;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
@@ -56,9 +58,21 @@ public class ReviewRegistration extends ShortHibernateProcessor {
             DAOFactory factory = DAOUtil.getFactory();
             SpecReview specReview = factory.getSpecReviewDAO().find(specReviewId);
             if (specReview == null) {
-                throw new NavigationException("Specification Review Specified doesn't exist");                
+                throw new NavigationException("The Specified Specification Review doesn't exist");                
             }
 
+            // double check that this spot is open
+            if (!specReview.getSpecReviewStatus().getId().equals(SpecReviewStatus.READY)) {
+                throw new NavigationException("The Specified Specification Review is not open for review");                
+            }
+            
+            // double check that this spot is not taken
+            for (SpecReviewReviewer specReviewReviewer : specReview.getSpecReviewers()) {
+                if (specReviewReviewer.getIsActive() == specReviewReviewer.TRUE) {
+                    throw new NavigationException("The Specified Specification Review is already taken");                    
+                }
+            }
+            
             // get associated studio contest
             Contest c = cFactory.getContestDAO().find(specReview.getContestId());
             if (c == null) {
@@ -78,11 +92,17 @@ public class ReviewRegistration extends ShortHibernateProcessor {
                 
                 // create spec_review_reviewer_xref row
                 SpecReviewReviewer specReviewReviewer = new SpecReviewReviewer(specReview, u, now, 
-                    SpecReviewReviewer.ACTIVE, u.getHandle(), now);
+                    SpecReviewReviewer.TRUE, u.getHandle(), now);
                 specReview.getSpecReviewers().add(specReviewReviewer);
                 
                 // insert to user_permission_grant
-                // ToDo pulky!!!
+                UserPermissionGrant permission = new UserPermissionGrant();
+                permission.setPermissionType(new PermissionType(PermissionType.PROJECT_READ));
+                permission.setUser(u);
+                permission.setResourceId(c.getId());
+                permission.setIsStudio(UserPermissionGrant.TRUE);
+
+                factory.getUserPermissionGrantDAO().saveOrUpdate(permission);
             } else {
                 throw new NavigationException("Sorry, you are not authorized to perform specification reviews for " + 
                     c.getType().getDescription() + " contests.");
