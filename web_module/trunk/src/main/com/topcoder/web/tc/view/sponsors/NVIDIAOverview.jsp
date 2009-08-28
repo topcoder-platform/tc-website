@@ -67,7 +67,22 @@
             <li>Learn more about <a target="_blank" href="<tc-webtag:linkTracking link='http://www.nvidia.com/object/cuda_what_is.html' refer='nvidia_superhero' />">CUDA</a></li>
             <li>Download and try out <a target="_blank" href="<tc-webtag:linkTracking link='http://www.nvidia.com/object/cuda_get.html' refer='nvidia_superhero' />">CUDA development tools</a></li>
 			<li>Register and attend a <a target="_blank" href="<tc-webtag:linkTracking link='http://www.nvidia.com/object/cuda_get.html' refer='nvidia_superhero' />">webinar</a> to learn how to harness the power of CUDA.</li>
-        </ol>
+        </ol></p>
+        <p>NVIDIA has also scheduled a series Webinars exclusively for TopCoder members, so that everyone can get up-to-speed on  parallel programming quickly.</p>
+        <p><strong>GPU Computing Tutorial Series-CUDA Introduction for TopCoder</strong><br />
+        	Monday, August 31, 2009<br />
+        	7:30 AM - 9:30 AM PDT<br />
+        	<a href="https://www2.gotomeeting.com/register/767410586">https://www2.gotomeeting.com/register/767410586</a></p>
+		<p><strong>GPU Computing Tutorial Series-Performance & Memory Optimization for TopCoder</strong><br />
+        	Wednesday, September 2, 2009<br />
+        	7:30 AM - 9:30 AM PDT<br />
+        	<a href="https://www2.gotomeeting.com/register/567512514">https://www2.gotomeeting.com/register/567512514</a></p>
+        <p><strong>GPU Computing Tutorial Series-Further CUDA Optimization for TopCoder</strong><br />
+        	Friday, September 4, 2009<br />
+        	7:30 AM - 9:30 AM PDT<br />
+        	<a href="https://www2.gotomeeting.com/register/830329419">https://www2.gotomeeting.com/register/830329419</a></p>
+        	<p>In addition to the TopCoder specific Webinars, there are a number of public Webinars that are also available so you can find the Webinar that fits your schedule.  The public Webinar schedule and sign-up are located on the following link:<br />
+        	<a href="http://developer.nvidia.com/object/gpu_computing_online.html">http://developer.nvidia.com/object/gpu_computing_online.html</a></p>
         <p>&nbsp;</p>
 
             </div>
