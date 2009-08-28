@@ -470,6 +470,7 @@ public class Constants implements WebConstants {
      */
     public static final String SPEC_REVIEW_ID = "srid";    
     
+    
     static {
         initialize();
     }

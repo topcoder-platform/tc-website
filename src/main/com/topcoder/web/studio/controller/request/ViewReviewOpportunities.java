@@ -34,9 +34,6 @@ public class ViewReviewOpportunities extends BaseProcessor {
         getRequest().setAttribute("reviews", da.getData(r).get("review_opportunities"));
         getRequest().setAttribute("userLoggedIn", userLoggedIn());
         
-        SortInfo s = new SortInfo();
-        getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
-
         setNextPage("/reviewOpportunities.jsp");
         setIsNextPageInContext(true);
     }
