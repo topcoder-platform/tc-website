@@ -66,6 +66,7 @@
         <mapping resource="com/topcoder/web/common/model/Notification.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/NotificationType.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Path.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/PermissionType.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Phone.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Preference.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/PreferenceGroup.hbm.xml"/>
@@ -96,6 +97,7 @@
         <mapping resource="com/topcoder/web/common/model/TimeZone.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/User.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/UserGroup.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/UserPermissionGrant.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/UserPreference.hbm.xml"/>
         <mapping class="com.topcoder.web.common.model.UserSchool"/>
         <mapping resource="com/topcoder/web/common/model/UserSecurityKey.hbm.xml"/>
