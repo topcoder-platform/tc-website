@@ -85,6 +85,9 @@
         <mapping resource="com/topcoder/web/common/model/SchoolType.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/SecretQuestion.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/SecurityGroup.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/SpecReview.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/SpecReviewReviewer.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/SpecReviewStatus.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/State.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Survey.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Team.hbm.xml"/>
