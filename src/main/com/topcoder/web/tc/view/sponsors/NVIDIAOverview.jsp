@@ -60,7 +60,7 @@
         
         <span class="bigTitle">Overview</span>
         <p>NVIDIA's <a target="_blank" href="<tc-webtag:linkTracking link='http://www.nvidia.com/object/cuda_home.html#' refer='nvidia_superhero' />">CUDA Zone</a> is pleased to host the CUDA Superhero Challenge, a series of marathon matches which will harness the parallel processing power of the NVIDIA CUDA architecture to solve some of computing's biggest challenges. We are excited to be announce these contests and can't wait to see what you come up with.  And of course this wouldn't be a competition without cash prizes!</p>
-        <p>The first contest, which is open to all developers, begins September 15th and will conclude September 29th.   The contest will award $5,000 of prizes divided among five winners, who will be announced at the GPU Technology Conference to be held at the Fairmont Hotel in San Jose, California, beginning Sept. 30. </P>
+        <p>The first contest, which is open to all developers, begins September 14th and will conclude September 25th.   The contest will award $5,000 of prizes divided among five winners, who will be announced at the GPU Technology Conference to be held at the Fairmont Hotel in San Jose, California, beginning Sept. 30. </P>
         <p>NVIDIA recommends that all contestants do the following:</p>
         <ol>
             <li>Sign up for <a target="_blank" href="<tc-webtag:linkTracking link='http://www.nvidia.com/object/io_1233138441508.html' refer='nvidia_superhero' />">CUDA Alerts</a></li>
