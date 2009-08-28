@@ -52,6 +52,26 @@ public class SpecReview extends Base {
     private SpecReviewStatus reviewStatus;
 
     /**
+     * The Specification Review creation time.
+     */
+    private Date creationTime;
+
+    /**
+     * The Specification Review creation user.
+     */
+    private String creationUser;
+
+    /**
+     * The Specification Review modification time.
+     */
+    private Date modificationTime;
+
+    /**
+     * The Specification Review modification user.
+     */
+    private String modificationUser;
+
+    /**
      * The Specification Review "ready for review" time.
      */
     private Date readyForReviewTime;
@@ -142,6 +162,78 @@ public class SpecReview extends Base {
      */
     public void setSpecReviewStatus(SpecReviewStatus reviewStatus) {
         this.reviewStatus = reviewStatus;
+    }
+
+    /**
+     * Gets the Specification creation Time
+     *
+     * @return the Specification creation Time
+     */
+    public Date getCreationTime() {
+        return creationTime;
+    }
+
+    /**
+     * Sets the Specification creation Time
+     *
+     * @param creationTime the Specification creation Time to set
+     */
+    public void setCreationTime(Date creationTime) {
+        this.creationTime = creationTime;
+    }
+
+    /**
+     * Gets the Specification creation User
+     *
+     * @return the Specification creation User
+     */
+    public String getCreationUser() {
+        return creationUser;
+    }
+
+    /**
+     * Sets the Specification creation User
+     *
+     * @param creationUser the Specification creation User to set
+     */
+    public void setCreationUser(String creationUser) {
+        this.creationUser = creationUser;
+    }
+
+    /**
+     * Gets the Specification modification Time
+     *
+     * @return the Specification modification Time
+     */
+    public Date getModificationTime() {
+        return modificationTime;
+    }
+
+    /**
+     * Sets the Specification modification Time
+     *
+     * @param modificationTime the Specification modification Time to set
+     */
+    public void setModificationTime(Date modificationTime) {
+        this.modificationTime = modificationTime;
+    }
+
+    /**
+     * Gets the Specification modification User
+     *
+     * @return the Specification modification User
+     */
+    public String getModificationUser() {
+        return modificationUser;
+    }
+
+    /**
+     * Sets the Specification modification User
+     *
+     * @param modificationUser the Specification modification User to set
+     */
+    public void setModificationUser(String modificationUser) {
+        this.modificationUser = modificationUser;
     }
 
     /**

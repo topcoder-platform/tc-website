@@ -3,6 +3,8 @@
  */
 package com.topcoder.web.common.model;
 
+import java.util.Date;
+
 /**
  * <p>This class represents a Specification Review Reviewer association.</p>
  *
@@ -49,10 +51,25 @@ public class SpecReviewReviewer extends Base {
     private User user;
 
     /**
+     * The Specification Review start time.
+     */
+    private Date reviewStartTime;
+
+    /**
      * The Association's "is active" flag.
      */
     private Integer isActive;
         
+    /**
+     * The Specification Review creation user.
+     */
+    private String creationUser;
+
+    /**
+     * The Specification Review creation time.
+     */
+    private Date creationTime;
+
     /**
      * Default empty Constructor 
      */
@@ -64,13 +81,19 @@ public class SpecReviewReviewer extends Base {
      * 
      * @param specReview the Specification Review to set
      * @param user the User to set
+     * @param reviewStartTime the Review Start Time to set
      * @param isActive the "is_active" flag to set
+     * @param creationUser the Association creation user to set
+     * @param creationTime the Association creation time to set
      */
-    public SpecReviewReviewer(SpecReview specReview, User user,
-            Integer isActive) {
+    public SpecReviewReviewer(SpecReview specReview, User user, Date reviewStartTime, Integer isActive,
+            String creationUser, Date creationTime) {
         this.specReview = specReview; 
         this.user = user; 
+        this.reviewStartTime = reviewStartTime;
         this.isActive = isActive; 
+        this.creationUser = creationUser; 
+        this.creationTime = creationTime; 
     }
 
     /**
@@ -128,6 +151,24 @@ public class SpecReviewReviewer extends Base {
     }
 
     /**
+     * Gets the Specification review start Time
+     *
+     * @return the Specification review start Time
+     */
+    public Date getReviewStartTime() {
+        return reviewStartTime;
+    }
+
+    /**
+     * Sets the Specification review start Time
+     *
+     * @param reviewStartTime the Specification review start Time to set
+     */
+    public void setReviewStartTime(Date reviewStartTime) {
+        this.reviewStartTime = reviewStartTime;
+    }
+
+    /**
      * Gets the Association's "is_active" flag
      *
      * @return the Association's "is_active" flag
@@ -143,6 +184,42 @@ public class SpecReviewReviewer extends Base {
      */
     public void setIsActive(Integer isActive) {
         this.isActive = isActive;
+    }
+
+    /**
+     * Gets the Association creation User
+     *
+     * @return the Association creation User
+     */
+    public String getCreationUser() {
+        return creationUser;
+    }
+
+    /**
+     * Sets the Association creation User
+     *
+     * @param creationUser the Association creation User to set
+     */
+    public void setCreationUser(String creationUser) {
+        this.creationUser = creationUser;
+    }
+
+    /**
+     * Gets the Association creation Time
+     *
+     * @return the Association creation Time
+     */
+    public Date getCreationTime() {
+        return creationTime;
+    }
+
+    /**
+     * Sets the Association creation Time
+     *
+     * @param creationTime the Association creation Time to set
+     */
+    public void setCreationTime(Date creationTime) {
+        this.creationTime = creationTime;
     }
 
     /**

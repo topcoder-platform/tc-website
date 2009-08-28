@@ -3,6 +3,8 @@
  */
 package com.topcoder.web.studio.controller.request;
 
+import java.util.Date;
+
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
@@ -66,13 +68,17 @@ public class ReviewRegistration extends ShortHibernateProcessor {
             // check if the user is part of the review board
             if (userInReviewBoard(getUser().getId(), c.getType().getId())) {
                 // we are all set, register the user for this review
+                User u = factory.getUserDAO().find(getUser().getId());
+                Date now = new Date();
+
                 // update specification review status to REVIEWER_ASSIGNED
                 specReview.setSpecReviewStatus(new SpecReviewStatus(SpecReviewStatus.REVIEWER_ASSIGNED));
+                specReview.setModificationTime(now);
+                specReview.setModificationUser(u.getHandle());
                 
                 // create spec_review_reviewer_xref row
-                User u = factory.getUserDAO().find(getUser().getId());
-                SpecReviewReviewer specReviewReviewer = new SpecReviewReviewer(specReview, u, 
-                    SpecReviewReviewer.ACTIVE);
+                SpecReviewReviewer specReviewReviewer = new SpecReviewReviewer(specReview, u, now, 
+                    SpecReviewReviewer.ACTIVE, u.getHandle(), now);
                 specReview.getSpecReviewers().add(specReviewReviewer);
                 
                 // insert to user_permission_grant
@@ -85,8 +91,8 @@ public class ReviewRegistration extends ShortHibernateProcessor {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 
-        setNextPage("/reviewOpportunities.jsp");
-        setIsNextPageInContext(true);
+        setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY + "=ViewReviewOpportunities");
+        setIsNextPageInContext(false);
     }
 
     /**
@@ -97,20 +103,30 @@ public class ReviewRegistration extends ShortHibernateProcessor {
      * @return true if the user is an active reviewer for the specified contest type
      * @throws Exception if an error occurs in the underlying layer
      */
-    private boolean userInReviewBoard(long userId, Integer contestTypeId) throws Exception {
+    private boolean userInReviewBoard(long userId, int contestTypeId) throws Exception {
+        if (log.isDebugEnabled()) {
+            log.debug("checking if userId " + userId + " can perform reviews for contest type id: " + contestTypeId);
+        }
+        
         DataAccess da = new CachedDataAccess(DBMS.STUDIO_DATASOURCE_NAME);
         Request r = new Request();
         r.setContentHandle("review_board_member");
 
         r.setProperty(Constants.USER_ID, String.valueOf(userId));
-        r.setProperty(Constants.CONTEST_TYPE, contestTypeId.toString());
+        r.setProperty(Constants.CONTEST_TYPE, String.valueOf(contestTypeId));
 
         ResultSetContainer rsc = da.getData(r).get("review_board_member");
         
         if (rsc.size() == 0) {
+            if (log.isDebugEnabled()) {
+                log.debug("userId: " + userId + " can perform reviews for contest type id: " + contestTypeId);
+            }
             return false;
         }
 
+        if (log.isDebugEnabled()) {
+            log.debug("userId: " + userId + " cannot perform reviews for contest type id: " + contestTypeId);
+        }
         return true;
     }
 }
