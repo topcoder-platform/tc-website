@@ -7,7 +7,6 @@ import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.model.SortInfo;
 
 /**
  * <p>This class will process a view review opportunities request.</p>
