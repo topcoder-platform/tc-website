@@ -15,7 +15,7 @@
         <many-to-one name="user" column="review_user_id" access="field" class="User" fetch="select"/>
         <property name="reviewStartTime" column="review_start_time" access="field"/>
         <property name="isActive" column="is_active" access="field"/>
-        <property name="creationuser" column="creation_user" />
+        <property name="creationUser" column="creation_user" />
         <property name="creationTime" column="creation_time" />
     </class>
 </hibernate-mapping>
