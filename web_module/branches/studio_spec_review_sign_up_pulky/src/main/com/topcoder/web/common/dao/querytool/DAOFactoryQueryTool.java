@@ -1,11 +1,22 @@
+/*
+ * Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.common.dao.querytool;
 
 import com.topcoder.web.common.dao.*;
 
 /**
- * @author pulky
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: May 11, 2006
+ * <p>Query Tool implementation for the DAO Factory.</p>
+ *
+ * <p>
+ *   Version 1.1 (Studio Release Assembly - Spec Review Sign up page v1.0) Change notes:
+ *   <ol>
+ *       Added method to get Specification Review DAO
+ *   </ol>
+ * </p>
+ *
+ * @author pulky, TCSDEVELOPER
+ * @version 1.1
  */
 public class DAOFactoryQueryTool implements DAOFactory {
 
@@ -257,4 +268,16 @@ public class DAOFactoryQueryTool implements DAOFactory {
         throw new RuntimeException("Not supported");
     }
 
+    /**
+     * This method constructs the corresponding Specification Review DAO object
+     * 
+     * Note: this is not currently supported
+     * 
+     * @return Query Tool implementation of the <code>SpecReviewDAO</code>
+     * @throws RuntimeException always since this DAO is not currently supported 
+     * @since 1.1
+     */
+    public SpecReviewDAO getSpecReviewDAO() {
+        throw new RuntimeException("Not supported");
+    }
 }

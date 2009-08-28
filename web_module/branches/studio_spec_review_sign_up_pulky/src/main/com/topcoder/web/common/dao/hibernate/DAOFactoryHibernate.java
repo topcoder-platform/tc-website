@@ -1,11 +1,22 @@
+/*
+ * Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.common.dao.hibernate;
 
 import com.topcoder.web.common.dao.*;
 
 /**
- * @author dok
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: May 11, 2006
+ * <p>Hibernate implementation for the DAO Factory.</p>
+ *
+ * <p>
+ *   Version 1.1 (Studio Release Assembly - Spec Review Sign up page v1.0) Change notes:
+ *   <ol>
+ *       Added method to get Specification Review DAO
+ *   </ol>
+ * </p>
+ *
+ * @author dok, TCSDEVELOPER
+ * @version 1.1
  */
 public class DAOFactoryHibernate implements DAOFactory {
     public AlgoRatingTypeDAO getAlgoRatingTypeDAO() {
@@ -252,4 +263,14 @@ public class DAOFactoryHibernate implements DAOFactory {
         return new AlgoSubmissionDAOHibernate();
     }
 
+    /**
+     * This method constructs the corresponding Specification Review DAO object
+     * 
+     * @return hibernate implementation of the <code>SpecReviewDAO</code>
+     * @since 1.1
+     */
+    public SpecReviewDAO getSpecReviewDAO() {
+        return new SpecReviewDAOHibernate();
+    }
+    
 }
