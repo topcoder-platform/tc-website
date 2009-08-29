@@ -30,7 +30,42 @@ import com.topcoder.web.studio.model.Contest;
 /**
  * <p>This class will process a review registration request.</p>
  *
- * <p>ToDo.</p>
+ * <p>
+ *      Registration process will include the following validations:
+ *      <ol>
+ *          <li>
+ *              That the specified specification review id parameter is correctly formed and the corresponding
+ *              Specification Review exists.
+ *          </li>
+ *          <li>
+ *              That the review spot is open and the spot is empty. It is very important to double check this within
+ *              hibernate's transaction because of the race conditions. The check and registration must be atomic,
+ *              otherwise concurrent registrations may overwrite each other. 
+ *          </li>
+ *          <li>
+ *              That the associated specification review contest exists. 
+ *          </li>
+ *          <li>
+ *              Finally That the user is an active or immune member of the review board for the corresponding contest
+ *              type. 
+ *          </li>
+ *      </ol>
+ * </p>
+ *
+ * <p>
+ *      If validation process is successful the following is done:
+ *      <ol>
+ *          <li>
+ *              Specification Review status is updated to REVIEWER_ASSIGNED.
+ *          </li>
+ *          <li>
+ *              A specification review - reviewer association is created.
+ *          </li>
+ *          <li>
+ *              User gets PROJECT_READ permission over the contest.  
+ *          </li>
+ *      </ol>
+ * </p>
  *
  * @author TCSDEVELOPER
  * @version 1.0
@@ -61,14 +96,14 @@ public class ReviewRegistration extends ShortHibernateProcessor {
                 throw new NavigationException("The Specified Specification Review doesn't exist");                
             }
 
-            // double check that this spot is open
+            // double check that this spot is open (we need this again in the transaction)
             if (!specReview.getSpecReviewStatus().getId().equals(SpecReviewStatus.READY)) {
                 throw new NavigationException("The Specified Specification Review is not open for review");                
             }
             
-            // double check that this spot is not taken
+            // double check that this spot is not taken (we need this again in the transaction)
             for (SpecReviewReviewer specReviewReviewer : specReview.getSpecReviewers()) {
-                if (specReviewReviewer.getIsActive() == specReviewReviewer.TRUE) {
+                if (specReviewReviewer.getIsActive().equals(SpecReviewReviewer.TRUE)) {
                     throw new NavigationException("The Specified Specification Review is already taken");                    
                 }
             }
