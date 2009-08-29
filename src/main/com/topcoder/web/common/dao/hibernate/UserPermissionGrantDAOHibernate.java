@@ -12,7 +12,7 @@ import com.topcoder.web.common.model.UserPermissionGrant;
  * <p>
  *   Version 1.0 (Studio Release Assembly - Spec Review Sign up page v1.0) Change notes:
  *   <ol>
- *       This class was created to support the new User Permission Grant entities.
+ *       This class was created to support the new User Permission Grant related entities.
  *   </ol>
  * </p>
  *
@@ -20,7 +20,8 @@ import com.topcoder.web.common.model.UserPermissionGrant;
  * @version 1.0
  * @since Studio Release Assembly - Spec Review Sign up page v1.0
  */
-public class UserPermissionGrantDAOHibernate extends GenericBase<UserPermissionGrant, Long> implements UserPermissionGrantDAO {
+public class UserPermissionGrantDAOHibernate extends GenericBase<UserPermissionGrant, Long> 
+    implements UserPermissionGrantDAO {
 
 }
 

@@ -1,4 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
+<!--
+  - Author: TCSDEVELOPER
+  - Version: 1.1
+  - Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: Studio Hibernate configuration file
+  -
+  - Version 1.1 (Studio Release Assembly - Spec Review Sign up page v1.0) changes: Added PermissionType, SpecReview,
+  - SpecReviewReviewer, SpecReviewStatus and UserPermissionGrant mappings.
+-->
 <!DOCTYPE hibernate-configuration PUBLIC
         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">

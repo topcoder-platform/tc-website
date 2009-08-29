@@ -82,7 +82,7 @@ public class SpecReview extends Base {
     private Date reviewDoneTime;
 
     /** 
-     * The Specification Review reviewers 
+     * The Specification Review associated reviewers 
      */
     private Set<SpecReviewReviewer> specReviewers;
         
@@ -165,72 +165,72 @@ public class SpecReview extends Base {
     }
 
     /**
-     * Gets the Specification creation Time
+     * Gets the Specification Review creation Time
      *
-     * @return the Specification creation Time
+     * @return the Specification Review creation Time
      */
     public Date getCreationTime() {
         return creationTime;
     }
 
     /**
-     * Sets the Specification creation Time
+     * Sets the Specification Review creation Time
      *
-     * @param creationTime the Specification creation Time to set
+     * @param creationTime the Specification Review creation Time to set
      */
     public void setCreationTime(Date creationTime) {
         this.creationTime = creationTime;
     }
 
     /**
-     * Gets the Specification creation User
+     * Gets the Specification Review creation User
      *
-     * @return the Specification creation User
+     * @return the Specification Review creation User
      */
     public String getCreationUser() {
         return creationUser;
     }
 
     /**
-     * Sets the Specification creation User
+     * Sets the Specification Review creation User
      *
-     * @param creationUser the Specification creation User to set
+     * @param creationUser the Specification Review creation User to set
      */
     public void setCreationUser(String creationUser) {
         this.creationUser = creationUser;
     }
 
     /**
-     * Gets the Specification modification Time
+     * Gets the Specification Review modification Time
      *
-     * @return the Specification modification Time
+     * @return the Specification Review modification Time
      */
     public Date getModificationTime() {
         return modificationTime;
     }
 
     /**
-     * Sets the Specification modification Time
+     * Sets the Specification Review modification Time
      *
-     * @param modificationTime the Specification modification Time to set
+     * @param modificationTime the Specification Review modification Time to set
      */
     public void setModificationTime(Date modificationTime) {
         this.modificationTime = modificationTime;
     }
 
     /**
-     * Gets the Specification modification User
+     * Gets the Specification Review modification User
      *
-     * @return the Specification modification User
+     * @return the Specification Review modification User
      */
     public String getModificationUser() {
         return modificationUser;
     }
 
     /**
-     * Sets the Specification modification User
+     * Sets the Specification Review modification User
      *
-     * @param modificationUser the Specification modification User to set
+     * @param modificationUser the Specification Review modification User to set
      */
     public void setModificationUser(String modificationUser) {
         this.modificationUser = modificationUser;
@@ -255,36 +255,36 @@ public class SpecReview extends Base {
     }
 
     /**
-     * Gets the Specification "Review Done" Time
+     * Gets the Specification Review "Review Done" Time
      *
-     * @return the Specification "Review Done" Time
+     * @return the Specification Review "Review Done" Time
      */
     public Date getReviewDoneTime() {
         return reviewDoneTime;
     }
 
     /**
-     * Sets the Specification "Review Done" Time
+     * Sets the Specification Review "Review Done" Time
      *
-     * @param reviewDoneTime the Specification "Review Done" Time to set
+     * @param reviewDoneTime the Specification Review "Review Done" Time to set
      */
     public void setReviewDoneTime(Date reviewDoneTime) {
         this.reviewDoneTime = reviewDoneTime;
     }
 
     /**
-     * Gets the Specification Review reviewers
+     * Gets the Specification Review associated reviewers
      *
-     * @return the Specification Review reviewers
+     * @return the Specification Review associated reviewers
      */
     public Set<SpecReviewReviewer> getSpecReviewers() {
         return specReviewers;
     }
 
     /**
-     * Sets the Specification Review reviewers
+     * Sets the Specification Review associated reviewers
      *
-     * @param specReviewers the Specification Review reviewers
+     * @param specReviewers the Specification Review associated reviewers to set
      */
     public void setSpecReviewers(Set<SpecReviewReviewer> specReviewers) {
         this.specReviewers = specReviewers;

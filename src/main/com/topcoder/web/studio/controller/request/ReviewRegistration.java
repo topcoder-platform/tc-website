@@ -62,7 +62,8 @@ import com.topcoder.web.studio.model.Contest;
  *              A specification review - reviewer association is created.
  *          </li>
  *          <li>
- *              User gets PROJECT_READ permission over the contest.  
+ *              User gets PROJECT_READ permission over the associated TC Direct Project if it exists or 
+ *              CONTEST_READ permission over the contest.  
  *          </li>
  *      </ol>
  * </p>
@@ -74,13 +75,20 @@ import com.topcoder.web.studio.model.Contest;
 public class ReviewRegistration extends ShortHibernateProcessor {
 
     /**
+     * A <code>String</code> constant that stores the query name for the review_board_member query
+     */
+    private static final String REVIEW_BOARD_MEMBER_QUERY_NAME = "review_board_member";
+
+    /**
      * This method executes the actual business logic for this processor.
      *
      * @throws Exception if any error occurs
      * @see com.topcoder.web.common.LongHibernateProcessor#dbProcessing()
      */
     protected void dbProcessing() throws Exception {
+        // user must be logged in
         if (userLoggedIn()) {
+            // get specification review id from the request
             Long specReviewId;
             try {
                 specReviewId = new Long(getRequest().getParameter(Constants.SPEC_REVIEW_ID));
@@ -89,7 +97,6 @@ public class ReviewRegistration extends ShortHibernateProcessor {
             }
 
             // get Specification Review
-            StudioDAOFactory cFactory = StudioDAOUtil.getFactory();
             DAOFactory factory = DAOUtil.getFactory();
             SpecReview specReview = factory.getSpecReviewDAO().find(specReviewId);
             if (specReview == null) {
@@ -109,6 +116,7 @@ public class ReviewRegistration extends ShortHibernateProcessor {
             }
             
             // get associated studio contest
+            StudioDAOFactory cFactory = StudioDAOUtil.getFactory();
             Contest c = cFactory.getContestDAO().find(specReview.getContestId());
             if (c == null) {
                 throw new NavigationException("Invalid Specification Review Specified");                
@@ -132,11 +140,17 @@ public class ReviewRegistration extends ShortHibernateProcessor {
                 
                 // insert to user_permission_grant
                 UserPermissionGrant permission = new UserPermissionGrant();
-                permission.setPermissionType(new PermissionType(PermissionType.PROJECT_READ));
+                // if there is an associated direct project id, add PROJECT_READ permission for that resource_id
+                if (c.getDirectProjectId() != null) {
+                    permission.setPermissionType(new PermissionType(PermissionType.PROJECT_READ));
+                    permission.setResourceId(new Long(c.getDirectProjectId()));                    
+                } else {
+                    // otherwise, add CONTEST_READ permission for the contest_id
+                    permission.setPermissionType(new PermissionType(PermissionType.CONTEST_READ));
+                    permission.setResourceId(new Long(c.getId()));                    
+                }
                 permission.setUser(u);
-                permission.setResourceId(new Long(c.getDirectProjectId()));
                 permission.setIsStudio(UserPermissionGrant.TRUE);
-
                 factory.getUserPermissionGrantDAO().saveOrUpdate(permission);
             } else {
                 throw new NavigationException("Sorry, you are not authorized to perform specification reviews for " + 
@@ -146,7 +160,8 @@ public class ReviewRegistration extends ShortHibernateProcessor {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 
-        setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY + "=ViewReviewOpportunities");
+        setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY + "=" + 
+            ViewReviewOpportunities.MODULE_NAME);
         setIsNextPageInContext(false);
     }
 
@@ -155,7 +170,7 @@ public class ReviewRegistration extends ShortHibernateProcessor {
      * 
      * @param userId the user id to query
      * @param contestTypeId the contest type id to query
-     * @return true if the user is an active reviewer for the specified contest type
+     * @return true if the user is an active or immune reviewer for the specified contest type
      * @throws Exception if an error occurs in the underlying layer
      */
     private boolean userInReviewBoard(long userId, int contestTypeId) throws Exception {
@@ -165,12 +180,12 @@ public class ReviewRegistration extends ShortHibernateProcessor {
         
         DataAccess da = new CachedDataAccess(DBMS.STUDIO_DATASOURCE_NAME);
         Request r = new Request();
-        r.setContentHandle("review_board_member");
+        r.setContentHandle(REVIEW_BOARD_MEMBER_QUERY_NAME);
 
         r.setProperty(Constants.USER_ID, String.valueOf(userId));
         r.setProperty(Constants.CONTEST_TYPE, String.valueOf(contestTypeId));
 
-        ResultSetContainer rsc = da.getData(r).get("review_board_member");
+        ResultSetContainer rsc = da.getData(r).get(REVIEW_BOARD_MEMBER_QUERY_NAME);
         
         if (rsc.size() == 0) {
             if (log.isDebugEnabled()) {

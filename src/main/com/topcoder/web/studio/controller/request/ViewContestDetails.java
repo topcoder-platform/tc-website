@@ -21,7 +21,7 @@ import com.topcoder.web.studio.model.ContestStatus;
 import com.topcoder.web.studio.util.Util;
 
 /**
- * <p>This class will process a review registration request.</p>
+ * <p>This class will process a request to view specific contest details.</p>
  *
  * <p>
  *   Version 1.1 (Studio Release Assembly - Spec Review Sign up page v1.0) Change notes:
@@ -32,7 +32,7 @@ import com.topcoder.web.studio.util.Util;
  *         project settings, then they can also view the contest.
  *     </li>
  *     <li>
- *         All contest details pages are viewable to every logged in user after the spec 
+ *         All contest details pages are viewable to every logged in user after the specification 
  *         review is complete. (Review Status Type is PASSED)
  *     </li>
  *   </ol>
@@ -42,6 +42,13 @@ import com.topcoder.web.studio.util.Util;
  * @version 1.1
  */
 public class ViewContestDetails extends ShortHibernateProcessor {
+
+    /**
+     * A <code>String</code> constant that stores the query name for the can_view_contest_details query
+     * 
+     * @since 1.1 
+     */
+    private static final String CAN_VIEW_CONTEST_DETAILS_QUERY_NAME = "can_view_contest_details";
 
     /**
      * This method executes the actual business logic for this processor.
@@ -120,15 +127,18 @@ public class ViewContestDetails extends ShortHibernateProcessor {
      *         project settings, then they can also view the contest.
      *      </li>
      *      <li>
-     *         All contest details pages are viewable to every logged in user after the specification 
+     *         If contest details pages are viewable to every logged in user after the specification 
      *         review is complete. (Review Status Type is PASSED)
      *      </li>
      *   </ol>
      * </p>
      *
      * @param userId the user id to query
+     * @param contestId the contest id to query
      * @return true if the user has permissions to see contest details even before the contest is active
      * @throws Exception if an error occurs in the underlying layer
+     * 
+     * @since 1.1 
      */
     private boolean hasPermissions(long userId, long contestId) throws Exception {
         if (userIdentified()) {
@@ -138,12 +148,12 @@ public class ViewContestDetails extends ShortHibernateProcessor {
             
             DataAccess da = new DataAccess(DBMS.STUDIO_DATASOURCE_NAME);
             Request r = new Request();
-            r.setContentHandle("can_view_contest_details");
+            r.setContentHandle(CAN_VIEW_CONTEST_DETAILS_QUERY_NAME);
     
             r.setProperty(Constants.USER_ID, String.valueOf(userId));
             r.setProperty(Constants.CONTEST_ID, String.valueOf(contestId));
     
-            ResultSetContainer rsc = da.getData(r).get("can_view_contest_details");
+            ResultSetContainer rsc = da.getData(r).get(CAN_VIEW_CONTEST_DETAILS_QUERY_NAME);
             
             if (rsc.size() > 0) {
                 if (log.isDebugEnabled()) {
