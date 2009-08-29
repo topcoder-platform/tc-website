@@ -34,7 +34,7 @@ public class UserPermissionGrant extends Base {
     public static final Integer TRUE = 1;
 
     /**
-     * The User Permission id.
+     * The User Permission Grant id.
      */
     private Long id;
 

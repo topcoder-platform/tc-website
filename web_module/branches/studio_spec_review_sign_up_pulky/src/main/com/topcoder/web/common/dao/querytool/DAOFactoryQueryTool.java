@@ -13,6 +13,9 @@ import com.topcoder.web.common.dao.*;
  *   <ol>
  *       Added method to get Specification Review DAO
  *   </ol>
+ *   <ol>
+ *       Added method to get User Permission Grant DAO
+ *   </ol>
  * </p>
  *
  * @author pulky, TCSDEVELOPER

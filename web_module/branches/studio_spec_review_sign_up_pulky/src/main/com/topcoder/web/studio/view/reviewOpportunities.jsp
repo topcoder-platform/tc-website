@@ -3,7 +3,7 @@
   - Version: 1.0 (Studio Release Assembly - Spec Review Sign up page v1.0)
   - Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
   -
-  - Description: This page presents review opportunities
+  - Description: This page presents specification review opportunities
 --%>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ taglib prefix="studio" uri="studio.tld" %>

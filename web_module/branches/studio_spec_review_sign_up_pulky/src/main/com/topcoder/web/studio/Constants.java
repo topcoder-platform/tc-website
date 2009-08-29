@@ -26,8 +26,9 @@ import java.util.MissingResourceException;
  * <p>
  *   Version 1.2 (Studio Release Assembly - Spec Review Sign up page v1.0) Change notes:
  *   <ol>
- *     <li>Added constants to support spec review signup - payment amount.</li>
+ *     <li>Added configuration to support spec review signup - payment amount.</li>
  *     <li>Updated class initialization to support <code>double</code> type.</li>
+ *     <li>Added SPEC_REVIEW_ID request attribute key constant.</li>
  *   </ol>
  * </p>
  *

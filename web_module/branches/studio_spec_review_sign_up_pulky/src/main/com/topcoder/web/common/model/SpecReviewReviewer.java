@@ -11,7 +11,7 @@ import java.util.Date;
  * <p>
  *   Version 1.0 (Studio Release Assembly - Spec Review Sign up page v1.0) Change notes:
  *   <ol>
- *       This class was created to support the new Specification Review entity.
+ *       This class was created to support the new Specification Review Reviewer association.
  *   </ol>
  * </p>
  *
@@ -36,7 +36,7 @@ public class SpecReviewReviewer extends Base {
     public static final Integer TRUE = 1;
 
     /**
-     * The Specification Review id.
+     * The Specification Review reviewer association id.
      */
     private Long id;
 
@@ -61,12 +61,12 @@ public class SpecReviewReviewer extends Base {
     private Integer isActive;
         
     /**
-     * The Specification Review creation user.
+     * The Association's creation user.
      */
     private String creationUser;
 
     /**
-     * The Specification Review creation time.
+     * The Association's creation time.
      */
     private Date creationTime;
 
@@ -79,12 +79,12 @@ public class SpecReviewReviewer extends Base {
     /**
      * Constructor using fields
      * 
-     * @param specReview the Specification Review to set
-     * @param user the User to set
+     * @param specReview the Association's Specification Review to set
+     * @param user the Association's User to set
      * @param reviewStartTime the Review Start Time to set
-     * @param isActive the "is_active" flag to set
-     * @param creationUser the Association creation user to set
-     * @param creationTime the Association creation time to set
+     * @param isActive the Association's "is_active" flag to set
+     * @param creationUser the Association's creation user to set
+     * @param creationTime the Association's creation time to set
      */
     public SpecReviewReviewer(SpecReview specReview, User user, Date reviewStartTime, Integer isActive,
             String creationUser, Date creationTime) {
@@ -187,36 +187,36 @@ public class SpecReviewReviewer extends Base {
     }
 
     /**
-     * Gets the Association creation User
+     * Gets the Association's creation User
      *
-     * @return the Association creation User
+     * @return the Association's creation User
      */
     public String getCreationUser() {
         return creationUser;
     }
 
     /**
-     * Sets the Association creation User
+     * Sets the Association's creation User
      *
-     * @param creationUser the Association creation User to set
+     * @param creationUser the Association's creation User to set
      */
     public void setCreationUser(String creationUser) {
         this.creationUser = creationUser;
     }
 
     /**
-     * Gets the Association creation Time
+     * Gets the Association's creation Time
      *
-     * @return the Association creation Time
+     * @return the Association's creation Time
      */
     public Date getCreationTime() {
         return creationTime;
     }
 
     /**
-     * Sets the Association creation Time
+     * Sets the Association's creation Time
      *
-     * @param creationTime the Association creation Time to set
+     * @param creationTime the Association's creation Time to set
      */
     public void setCreationTime(Date creationTime) {
         this.creationTime = creationTime;

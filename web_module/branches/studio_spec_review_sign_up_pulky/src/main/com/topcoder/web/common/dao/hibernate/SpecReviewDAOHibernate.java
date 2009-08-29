@@ -12,7 +12,7 @@ import com.topcoder.web.common.model.SpecReview;
  * <p>
  *   Version 1.0 (Studio Release Assembly - Spec Review Sign up page v1.0) Change notes:
  *   <ol>
- *       This class was created to support the new Specification Review entities.
+ *       This class was created to support the new Specification Review related entities.
  *   </ol>
  * </p>
  *
