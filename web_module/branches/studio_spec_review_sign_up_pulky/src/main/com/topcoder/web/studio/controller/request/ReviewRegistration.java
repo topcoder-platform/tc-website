@@ -134,7 +134,7 @@ public class ReviewRegistration extends ShortHibernateProcessor {
                 UserPermissionGrant permission = new UserPermissionGrant();
                 permission.setPermissionType(new PermissionType(PermissionType.PROJECT_READ));
                 permission.setUser(u);
-                permission.setResourceId(c.getId());
+                permission.setResourceId(new Long(c.getDirectProjectId()));
                 permission.setIsStudio(UserPermissionGrant.TRUE);
 
                 factory.getUserPermissionGrantDAO().saveOrUpdate(permission);
