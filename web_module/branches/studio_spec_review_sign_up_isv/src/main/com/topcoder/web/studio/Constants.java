@@ -23,8 +23,15 @@ import java.util.MissingResourceException;
  *   </ol>
  * </p>
  *
- * @author dok, isv, pulky
- * @version 1.1
+ * <p>
+ *   Version 1.2 (Studio Spec Review Signup Page - Release Assembly) Change notes:
+ *   <ol>
+ *     <li>Added constants for specification review fixed payment, request parameter name for review ID.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, isv, pulky, TCSDEVELOPER
+ * @version 1.2
  */
 public class Constants implements WebConstants {
     private static final TCResourceBundle bundle = new TCResourceBundle("Studio");
@@ -447,6 +454,26 @@ public class Constants implements WebConstants {
      */
     public static final String PAGE_SIZE_KEY = "ps";
 
+    /**
+     * <p>A <code>String</code> providing the name of request parameter to specify the ID for the specification review.
+     * </p>
+     *
+     * @since 1.2
+     */
+    public static final String SPEC_REVIEW_ID = "srid";
+
+    /**
+     * <p>A <code>double</code> providing the amount of fixed payment for specification review.</p>
+     *
+     * @since 1.2
+     */
+    public static double SPEC_REVIEW_PAYMENT;
+
+    /**
+     * <p>An <code>int</code> providing the ID for the terms of use to be presented to specification reviewers.</p>
+     */
+    public static int SPEC_REVIEWER_TERMS_ID;
+
     static {
         initialize();
     }
@@ -464,6 +491,11 @@ public class Constants implements WebConstants {
                         try {
                             //log.debug("set " + f[i] + " to " + bundle.getIntProperty(f[i].getName().toLowerCase()));
                             f[i].setInt(null, bundle.getIntProperty(f[i].getName().toLowerCase()));
+                        } catch (MissingResourceException ignore) {
+                        }
+                    } else if (f[i].getType().getName().equals("double")) {
+                        try {
+                            f[i].setDouble(null, bundle.getIntProperty(f[i].getName().toLowerCase()));
                         } catch (MissingResourceException ignore) {
                         }
                     } else if (f[i].getType().getName().equals("java.lang.String")) {
