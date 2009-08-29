@@ -40,14 +40,14 @@ import com.topcoder.web.studio.model.Contest;
  *          <li>
  *              That the review spot is open and the spot is empty. It is very important to double check this within
  *              hibernate's transaction because of the race conditions. The check and registration must be atomic,
- *              otherwise concurrent registrations may overwrite each other. 
+ *              otherwise concurrent registrations may overwrite each other.
  *          </li>
  *          <li>
- *              That the associated specification review contest exists. 
+ *              That the associated specification review contest exists.
  *          </li>
  *          <li>
  *              Finally That the user is an active or immune member of the review board for the corresponding contest
- *              type. 
+ *              type.
  *          </li>
  *      </ol>
  * </p>
@@ -62,8 +62,8 @@ import com.topcoder.web.studio.model.Contest;
  *              A specification review - reviewer association is created.
  *          </li>
  *          <li>
- *              User gets PROJECT_READ permission over the associated TC Direct Project if it exists or 
- *              CONTEST_READ permission over the contest.  
+ *              User gets PROJECT_READ permission over the associated TC Direct Project if it exists or
+ *              CONTEST_READ permission over the contest.
  *          </li>
  *      </ol>
  * </p>
@@ -100,26 +100,26 @@ public class ReviewRegistration extends ShortHibernateProcessor {
             DAOFactory factory = DAOUtil.getFactory();
             SpecReview specReview = factory.getSpecReviewDAO().find(specReviewId);
             if (specReview == null) {
-                throw new NavigationException("The Specified Specification Review doesn't exist");                
+                throw new NavigationException("The Specified Specification Review doesn't exist");
             }
 
             // double check that this spot is open (we need this again in the transaction)
             if (!specReview.getSpecReviewStatus().getId().equals(SpecReviewStatus.READY)) {
-                throw new NavigationException("The Specified Specification Review is not open for review");                
+                throw new NavigationException("The Specified Specification Review is not open for review");
             }
-            
+
             // double check that this spot is not taken (we need this again in the transaction)
             for (SpecReviewReviewer specReviewReviewer : specReview.getSpecReviewers()) {
                 if (specReviewReviewer.getIsActive().equals(SpecReviewReviewer.TRUE)) {
-                    throw new NavigationException("The Specified Specification Review is already taken");                    
+                    throw new NavigationException("The Specified Specification Review is already taken");
                 }
             }
-            
+
             // get associated studio contest
             StudioDAOFactory cFactory = StudioDAOUtil.getFactory();
             Contest c = cFactory.getContestDAO().find(specReview.getContestId());
             if (c == null) {
-                throw new NavigationException("Invalid Specification Review Specified");                
+                throw new NavigationException("Invalid Specification Review Specified");
             }
 
             // check if the user is part of the review board
@@ -132,42 +132,42 @@ public class ReviewRegistration extends ShortHibernateProcessor {
                 specReview.setSpecReviewStatus(new SpecReviewStatus(SpecReviewStatus.REVIEWER_ASSIGNED));
                 specReview.setModificationTime(now);
                 specReview.setModificationUser(u.getHandle());
-                
+
                 // create spec_review_reviewer_xref row
-                SpecReviewReviewer specReviewReviewer = new SpecReviewReviewer(specReview, u, now, 
+                SpecReviewReviewer specReviewReviewer = new SpecReviewReviewer(specReview, u, now,
                     SpecReviewReviewer.TRUE, u.getHandle(), now);
                 specReview.getSpecReviewers().add(specReviewReviewer);
-                
+
                 // insert to user_permission_grant
                 UserPermissionGrant permission = new UserPermissionGrant();
                 // if there is an associated direct project id, add PROJECT_READ permission for that resource_id
                 if (c.getDirectProjectId() != null) {
                     permission.setPermissionType(new PermissionType(PermissionType.PROJECT_READ));
-                    permission.setResourceId(new Long(c.getDirectProjectId()));                    
+                    permission.setResourceId(new Long(c.getDirectProjectId()));
                 } else {
                     // otherwise, add CONTEST_READ permission for the contest_id
                     permission.setPermissionType(new PermissionType(PermissionType.CONTEST_READ));
-                    permission.setResourceId(new Long(c.getId()));                    
+                    permission.setResourceId(new Long(c.getId()));
                 }
                 permission.setUser(u);
                 permission.setIsStudio(UserPermissionGrant.TRUE);
                 factory.getUserPermissionGrantDAO().saveOrUpdate(permission);
             } else {
-                throw new NavigationException("Sorry, you are not authorized to perform specification reviews for " + 
+                throw new NavigationException("Sorry, you are not authorized to perform specification reviews for " +
                     c.getType().getDescription() + " contests.");
             }
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 
-        setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY + "=" + 
+        setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY + "=" +
             ViewReviewOpportunities.MODULE_NAME);
         setIsNextPageInContext(false);
     }
 
     /**
      * Private helper method to check if a user is in the review board of a certain contest type
-     * 
+     *
      * @param userId the user id to query
      * @param contestTypeId the contest type id to query
      * @return true if the user is an active or immune reviewer for the specified contest type
@@ -177,7 +177,7 @@ public class ReviewRegistration extends ShortHibernateProcessor {
         if (log.isDebugEnabled()) {
             log.debug("checking if userId " + userId + " can perform reviews for contest type id: " + contestTypeId);
         }
-        
+
         DataAccess da = new CachedDataAccess(DBMS.STUDIO_DATASOURCE_NAME);
         Request r = new Request();
         r.setContentHandle(REVIEW_BOARD_MEMBER_QUERY_NAME);
@@ -186,7 +186,7 @@ public class ReviewRegistration extends ShortHibernateProcessor {
         r.setProperty(Constants.CONTEST_TYPE, String.valueOf(contestTypeId));
 
         ResultSetContainer rsc = da.getData(r).get(REVIEW_BOARD_MEMBER_QUERY_NAME);
-        
+
         if (rsc.size() == 0) {
             if (log.isDebugEnabled()) {
                 log.debug("userId: " + userId + " can perform reviews for contest type id: " + contestTypeId);

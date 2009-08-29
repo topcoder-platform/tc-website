@@ -141,18 +141,18 @@ public interface DAOFactory {
     SystemTestResultDAO getSystemTestResultDAO();
 
     AlgoSubmissionDAO getAlgoSubmissionDAO();
-    
+
     /**
      * This method constructs the corresponding Specification Review DAO object
-     * 
+     *
      * @return an instance of the <code>SpecReviewDAO</code>
      * @since 1.1
      */
     SpecReviewDAO getSpecReviewDAO();
-    
+
     /**
      * This method constructs the corresponding User Permission Grant DAO object
-     * 
+     *
      * @return an instance of the <code>UserPermissionGrantDAO</code>
      * @since 1.1
      */

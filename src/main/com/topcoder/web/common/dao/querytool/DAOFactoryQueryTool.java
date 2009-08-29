@@ -273,11 +273,11 @@ public class DAOFactoryQueryTool implements DAOFactory {
 
     /**
      * This method constructs the corresponding Specification Review DAO object
-     * 
+     *
      * Note: this is not currently supported
-     * 
+     *
      * @return Query Tool implementation of the <code>SpecReviewDAO</code>
-     * @throws RuntimeException always since this DAO is not currently supported 
+     * @throws RuntimeException always since this DAO is not currently supported
      * @since 1.1
      */
     public SpecReviewDAO getSpecReviewDAO() {
@@ -286,11 +286,11 @@ public class DAOFactoryQueryTool implements DAOFactory {
 
     /**
      * This method constructs the corresponding User Permission Grant DAO object
-     * 
+     *
      * Note: this is not currently supported
-     * 
+     *
      * @return Query Tool implementation of the <code>UserPermissionGrantDAO</code>
-     * @throws RuntimeException always since this DAO is not currently supported 
+     * @throws RuntimeException always since this DAO is not currently supported
      * @since 1.1
      */
     public UserPermissionGrantDAO getUserPermissionGrantDAO() {
