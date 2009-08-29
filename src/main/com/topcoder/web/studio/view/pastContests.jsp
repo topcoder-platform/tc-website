@@ -103,6 +103,7 @@
 					<div class="tableTabOn"><a href="${sessionInfo.servletPath}?module=ViewPastContests">Past Contests</a></div>
                               <%-- BUGR-1211 Added Active Bug Race Tab --%>
                               <div class="tableTabOff"><a href="${sessionInfo.servletPath}?module=ViewActiveBugRaces">Active Bug Races</a></div>
+                        <div class="tableTabOff"><a href="${sessionInfo.servletPath}?module=ViewSpecReviewOpportunities">Review Opportunities</a></div>
 
 					<br  clear="all"/>
 					
