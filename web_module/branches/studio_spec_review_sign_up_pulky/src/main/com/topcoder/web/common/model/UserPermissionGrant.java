@@ -59,7 +59,7 @@ public class UserPermissionGrant extends Base {
     private Integer isStudio;
 
     /**
-     * Default empty Constructor 
+     * Default empty Constructor
      */
     public UserPermissionGrant() {
     }
@@ -85,16 +85,16 @@ public class UserPermissionGrant extends Base {
     /**
      * Gets the associated User
      *
-     * @return the associated User 
+     * @return the associated User
      */
     public User getUser() {
         return user;
     }
 
     /**
-     * Sets the associated User 
+     * Sets the associated User
      *
-     * @param user the associated User to set 
+     * @param user the associated User to set
      */
     public void setUser(User user) {
         this.user = user;

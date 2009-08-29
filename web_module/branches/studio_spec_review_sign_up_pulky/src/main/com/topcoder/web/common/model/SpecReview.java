@@ -81,13 +81,13 @@ public class SpecReview extends Base {
      */
     private Date reviewDoneTime;
 
-    /** 
-     * The Specification Review associated reviewers 
+    /**
+     * The Specification Review associated reviewers
      */
     private Set<SpecReviewReviewer> specReviewers;
-        
+
     /**
-     * Default empty Constructor 
+     * Default empty Constructor
      */
     public SpecReview() {
     }

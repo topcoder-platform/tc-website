@@ -59,7 +59,7 @@ public class SpecReviewReviewer extends Base {
      * The Association's "is active" flag.
      */
     private Integer isActive;
-        
+
     /**
      * The Association's creation user.
      */
@@ -71,14 +71,14 @@ public class SpecReviewReviewer extends Base {
     private Date creationTime;
 
     /**
-     * Default empty Constructor 
+     * Default empty Constructor
      */
     public SpecReviewReviewer() {
     }
 
     /**
      * Constructor using fields
-     * 
+     *
      * @param specReview the Association's Specification Review to set
      * @param user the Association's User to set
      * @param reviewStartTime the Review Start Time to set
@@ -88,12 +88,12 @@ public class SpecReviewReviewer extends Base {
      */
     public SpecReviewReviewer(SpecReview specReview, User user, Date reviewStartTime, Integer isActive,
             String creationUser, Date creationTime) {
-        this.specReview = specReview; 
-        this.user = user; 
+        this.specReview = specReview;
+        this.user = user;
         this.reviewStartTime = reviewStartTime;
-        this.isActive = isActive; 
-        this.creationUser = creationUser; 
-        this.creationTime = creationTime; 
+        this.isActive = isActive;
+        this.creationUser = creationUser;
+        this.creationTime = creationTime;
     }
 
     /**
@@ -117,16 +117,16 @@ public class SpecReviewReviewer extends Base {
     /**
      * Gets the associated Specification Review
      *
-     * @return the associated Specification Review 
+     * @return the associated Specification Review
      */
     public SpecReview getSpecReview() {
         return specReview;
     }
 
     /**
-     * Sets the associated Specification Review 
+     * Sets the associated Specification Review
      *
-     * @param specReview the associated Specification Review to set 
+     * @param specReview the associated Specification Review to set
      */
     public void setSpecReview(SpecReview specReview) {
         this.specReview = specReview;
@@ -135,16 +135,16 @@ public class SpecReviewReviewer extends Base {
     /**
      * Gets the associated User
      *
-     * @return the associated User 
+     * @return the associated User
      */
     public User getUser() {
         return user;
     }
 
     /**
-     * Sets the associated User 
+     * Sets the associated User
      *
-     * @param user the associated User to set 
+     * @param user the associated User to set
      */
     public void setUser(User user) {
         this.user = user;

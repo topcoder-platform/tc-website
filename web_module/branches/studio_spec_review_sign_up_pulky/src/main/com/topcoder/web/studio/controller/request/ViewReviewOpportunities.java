@@ -47,7 +47,7 @@ public class ViewReviewOpportunities extends BaseProcessor {
 
         getRequest().setAttribute("reviews", da.getData(r).get(REVIEW_OPPORTUNITIES_QUERY_NAME));
         getRequest().setAttribute("userLoggedIn", userLoggedIn());
-        
+
         setNextPage(REVIEW_OPPORTUNITIES_JSP);
         setIsNextPageInContext(true);
     }

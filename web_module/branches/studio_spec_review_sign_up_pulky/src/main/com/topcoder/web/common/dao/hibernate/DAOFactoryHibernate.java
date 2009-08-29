@@ -331,22 +331,22 @@ public class DAOFactoryHibernate implements DAOFactory {
 
     /**
      * This method constructs the corresponding Specification Review DAO object
-     * 
+     *
      * @return hibernate implementation of the <code>SpecReviewDAO</code>
      * @since 1.1
      */
     public SpecReviewDAO getSpecReviewDAO() {
         return new SpecReviewDAOHibernate();
     }
-    
+
     /**
      * This method constructs the corresponding User Permission Grant DAO object
-     * 
+     *
      * @return hibernate implementation of the <code>UserPermissionGrantDAO</code>
      * @since 1.1
      */
     public UserPermissionGrantDAO getUserPermissionGrantDAO() {
         return new UserPermissionGrantDAOHibernate();
     }
-    
+
 }

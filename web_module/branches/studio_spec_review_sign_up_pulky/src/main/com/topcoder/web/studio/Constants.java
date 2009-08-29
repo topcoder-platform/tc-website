@@ -461,24 +461,24 @@ public class Constants implements WebConstants {
      *
      * @since 1.2
      */
-    public static double SPEC_REVIEW_PAYMENT_AMOUNT;    
- 
+    public static double SPEC_REVIEW_PAYMENT_AMOUNT;
+
     /**
      * <p>A <code>String</code> providing the name of default request attribute which refers to
      * specification review id.</p>
      *
      * @since 1.2
      */
-    public static final String SPEC_REVIEW_ID = "srid";    
-    
-    
+    public static final String SPEC_REVIEW_ID = "srid";
+
+
     static {
         initialize();
     }
 
     /**
      * This method initializes fields to their corresponding value
-     * 
+     *
      * Note: <code>double</code> type supported since 1.2
      */
     public static void initialize() {

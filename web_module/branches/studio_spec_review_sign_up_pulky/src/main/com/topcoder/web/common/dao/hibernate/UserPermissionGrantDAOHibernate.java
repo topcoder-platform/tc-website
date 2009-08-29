@@ -20,7 +20,7 @@ import com.topcoder.web.common.model.UserPermissionGrant;
  * @version 1.0
  * @since Studio Release Assembly - Spec Review Sign up page v1.0
  */
-public class UserPermissionGrantDAOHibernate extends GenericBase<UserPermissionGrant, Long> 
+public class UserPermissionGrantDAOHibernate extends GenericBase<UserPermissionGrant, Long>
     implements UserPermissionGrantDAO {
 
 }

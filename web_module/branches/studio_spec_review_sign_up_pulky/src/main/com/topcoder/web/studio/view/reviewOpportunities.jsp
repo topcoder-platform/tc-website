@@ -30,113 +30,113 @@
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>TopCoder Studio : Review Opportunities</title>
-    
+
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
-    
+
     <script src="/js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"></script>
     <script src="/js/NewStyleHeaderFooter/preloadCssImages.jQuery_v5.js" language="javascript"></script>
     <script type="text/javascript">
-			$(document).ready(function(){
-				//Run the script to preload images from CSS
-				$.preloadCssImages(); 
-			});
-	</script>
-	<script src="/js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
-	<script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
-	<script type="text/javascript" language="javascript">
+            $(document).ready(function(){
+                //Run the script to preload images from CSS
+                $.preloadCssImages();
+            });
+    </script>
+    <script src="/js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
+    <script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
+    <script type="text/javascript" language="javascript">
 
-	$(document).ready(function(){
-	
-	
-		$("#nav ul li").hoverIntent(function(){
-			$(this).children("ul").slideDown("fast");
-		}, function() {
-			$(this).children("ul").slideUp("fast");
-		});
-		
-		$("#nav ul ul li").hover(function() {
-			$(this).parents("#nav ul li").children('a').addClass("active-item");
-		}, function() {
-			$(this).parents("#nav ul li").children('a').removeClass("active-item");
-		});
-	
-	
-	});
-	</script>
+    $(document).ready(function(){
+
+
+        $("#nav ul li").hoverIntent(function(){
+            $(this).children("ul").slideDown("fast");
+        }, function() {
+            $(this).children("ul").slideUp("fast");
+        });
+
+        $("#nav ul ul li").hover(function() {
+            $(this).parents("#nav ul li").children('a').addClass("active-item");
+        }, function() {
+            $(this).parents("#nav ul li").children('a').removeClass("active-item");
+        });
+
+
+    });
+    </script>
 </head>
 
 <body>
-	<div id="page-wrap">
-    	<div align="center">
-		<jsp:include page="top.jsp">
+    <div id="page-wrap">
+        <div align="center">
+        <jsp:include page="top.jsp">
             <jsp:param name="section" value="contest" />
         </jsp:include>
         <br />
         <%-- container --%>
-        <div id="container">    
-        	<div id="wrapper">
-			<%-- content --%>
+        <div id="container">
+            <div id="wrapper">
+            <%-- content --%>
             <div id="content">
                 <div class="contentTop">
                     <div class="contentMiddle">
 
-					<h1>Review Opportunities</h1>
-					
-					<div align="right"><strong>Need help? Learn how to
-						<a href="${GET_STARTED_LINK}">get started</a></strong>.<br />
-					</div>
-					
+                    <h1>Review Opportunities</h1>
+
+                    <div align="right"><strong>Need help? Learn how to
+                        <a href="${GET_STARTED_LINK}">get started</a></strong>.<br />
+                    </div>
+
                     <div class="tableTabOff" style="margin-left: 20px;"><a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a></div>
-					<div class="tableTabOff"><a href="${sessionInfo.servletPath}?module=ViewPastContests">Past Contests</a></div>
+                    <div class="tableTabOff"><a href="${sessionInfo.servletPath}?module=ViewPastContests">Past Contests</a></div>
                     <div class="tableTabOff"><a href="${sessionInfo.servletPath}?module=ViewActiveBugRaces">Active Bug Races</a></div>
                     <div class="tableTabOn"><a href="${sessionInfo.servletPath}?module=ViewReviewOpportunities">Review Opportunities</a></div>
-							
-					<br  clear="all"/>
-					
-					<div class="statHolder">
-						<div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
-						<div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
-						<div class="container">
-							<table class="stat" cellpadding="0" cellspacing="0" width="100%">
-							<tbody>
-								<tr>
-									<td class="header">Type</td>
-									<td class="header">Contest Name</td>
-									<td class="headerC">Scheduled Start Date</td>
-									<td class="headerC">Reviewer Payment</td>
-									<td class="headerC">Review Status</td>
-								</tr>
-								<c:choose>
-									<c:when test="${fn:length(reviews)==0}">
-										<tr><td class="space" colspan="5">&nbsp;</td></tr>
-										<tr class="light">
-											<td class="valueC" colspan="5">
-												<div align="center" style="margin: 40px 0px 40px 0px;">
-													There are currently no review opportunities, but check back soon.
-												</div>
-											</td>
-										</tr>
-									</c:when>
-									<c:otherwise>
+
+                    <br  clear="all"/>
+
+                    <div class="statHolder">
+                        <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
+                        <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
+                        <div class="container">
+                            <table class="stat" cellpadding="0" cellspacing="0" width="100%">
+                            <tbody>
+                                <tr>
+                                    <td class="header">Type</td>
+                                    <td class="header">Contest Name</td>
+                                    <td class="headerC">Scheduled Start Date</td>
+                                    <td class="headerC">Reviewer Payment</td>
+                                    <td class="headerC">Review Status</td>
+                                </tr>
+                                <c:choose>
+                                    <c:when test="${fn:length(reviews)==0}">
+                                        <tr><td class="space" colspan="5">&nbsp;</td></tr>
+                                        <tr class="light">
+                                            <td class="valueC" colspan="5">
+                                                <div align="center" style="margin: 40px 0px 40px 0px;">
+                                                    There are currently no review opportunities, but check back soon.
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </c:when>
+                                    <c:otherwise>
                                       <c:forEach items="${reviews}" var="resultRow" varStatus="status">
-										<tr><td class="space" colspan="5">&nbsp;</td></tr>
-										<tr class="${status.index % 2 == 1? 'dark' : 'light' }">
+                                        <tr><td class="space" colspan="5">&nbsp;</td></tr>
+                                        <tr class="${status.index % 2 == 1? 'dark' : 'light' }">
                                             <td class="valueE">
                                                 ${resultRow.map['contest_type_desc']}
                                             </td>
-											<td class="value">
-												<a href="${VIEW_CONTEST_DETAILS_LINK}=${resultRow.map['contest_id']}">
-													${resultRow.map['name']}
-												</a>
-											</td>
-											<td class="valueC">
+                                            <td class="value">
+                                                <a href="${VIEW_CONTEST_DETAILS_LINK}=${resultRow.map['contest_id']}">
+                                                    ${resultRow.map['name']}
+                                                </a>
+                                            </td>
+                                            <td class="valueC">
                                                 <fmt:formatDate value="${resultRow.map['start_time']}" pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
-    										</td>
-											<td class="valueC">
+                                            </td>
+                                            <td class="valueC">
                                                 <fmt:formatNumber value="${SPEC_REVIEW_PAYMENT_AMOUNT}" pattern="$###,###.00"/>
-											</td>
+                                            </td>
                                             <td class="valueW">
                                                 <c:choose>
                                                     <c:when test="${not empty resultRow.map['review_user_id']}">
@@ -156,25 +156,25 @@
                                                     </c:otherwise>
                                                 </c:choose>
                                             </td>
-										</tr>
-									</c:forEach>
-								</c:otherwise>
-							</c:choose>
-						</tbody>
-						</table>
-					</div>
-					<div class="SE"><img src="/i/v2/stat_tableSE.png" alt="" /></div>
-					<div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
-				</div>
+                                        </tr>
+                                    </c:forEach>
+                                </c:otherwise>
+                            </c:choose>
+                        </tbody>
+                        </table>
+                    </div>
+                    <div class="SE"><img src="/i/v2/stat_tableSE.png" alt="" /></div>
+                    <div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
+                </div>
 
-				<br clear="all"/>
-			</div>                
-			<div class="contentBottom"></div>
-		</div>
-	</div>
+                <br clear="all"/>
+            </div>
+            <div class="contentBottom"></div>
+        </div>
+    </div>
 </div>
 
 <jsp:include page="foot.jsp"/>
-        	
+
 </body>
 </html>

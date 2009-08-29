@@ -67,16 +67,16 @@ public class PermissionType extends Base {
      * The permission type name.
      */
     private String name;
-        
+
     /**
-     * Default empty Constructor 
+     * Default empty Constructor
      */
     public PermissionType() {
     }
 
     /**
-     * Constructor using Permission Type Id 
-     * 
+     * Constructor using Permission Type Id
+     *
      * @param id the Permission Type Id
      */
     public PermissionType(Integer id) {

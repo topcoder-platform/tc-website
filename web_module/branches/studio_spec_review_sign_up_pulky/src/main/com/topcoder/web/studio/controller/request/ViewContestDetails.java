@@ -27,12 +27,12 @@ import com.topcoder.web.studio.util.Util;
  *   Version 1.1 (Studio Release Assembly - Spec Review Sign up page v1.0) Change notes:
  *   <ol>
  *     <li>
- *         If the user has access (read, write or full) from the cockpit permission 
- *         (table user_permission_grant) on the contest or the associated tc direct 
+ *         If the user has access (read, write or full) from the cockpit permission
+ *         (table user_permission_grant) on the contest or the associated tc direct
  *         project settings, then they can also view the contest.
  *     </li>
  *     <li>
- *         All contest details pages are viewable to every logged in user after the specification 
+ *         All contest details pages are viewable to every logged in user after the specification
  *         review is complete. (Review Status Type is PASSED)
  *     </li>
  *   </ol>
@@ -45,8 +45,8 @@ public class ViewContestDetails extends ShortHibernateProcessor {
 
     /**
      * A <code>String</code> constant that stores the query name for the can_view_contest_details query
-     * 
-     * @since 1.1 
+     *
+     * @since 1.1
      */
     private static final String CAN_VIEW_CONTEST_DETAILS_QUERY_NAME = "can_view_contest_details";
 
@@ -92,12 +92,12 @@ public class ViewContestDetails extends ShortHibernateProcessor {
                     registered = true;
                 }
             }
-            
+
             getRequest().setAttribute("registered", registered);
 
             if ("on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
                 if (userIdentified()) {
-                    getRequest().setAttribute("has_global_ad", 
+                    getRequest().setAttribute("has_global_ad",
                         PactsServicesLocator.getService().hasGlobalAD(getUser().getId()));
                 } else {
                     getRequest().setAttribute("has_global_ad", false);
@@ -114,7 +114,7 @@ public class ViewContestDetails extends ShortHibernateProcessor {
 
     /**
      * Private helper method to check if a user has permissions to see contest details even before the contest is active
-     * 
+     *
      * <p>
      *   The query will check the following:
      *   <ol>
@@ -122,12 +122,12 @@ public class ViewContestDetails extends ShortHibernateProcessor {
      *         If the specified user is the create_user from the contest table
      *      </li>
      *      <li>
-     *         If the user has access (read, write or full) from the cockpit permission 
-     *         (table user_permission_grant) on the contest or the associated tc direct 
+     *         If the user has access (read, write or full) from the cockpit permission
+     *         (table user_permission_grant) on the contest or the associated tc direct
      *         project settings, then they can also view the contest.
      *      </li>
      *      <li>
-     *         If contest details pages are viewable to every logged in user after the specification 
+     *         If contest details pages are viewable to every logged in user after the specification
      *         review is complete. (Review Status Type is PASSED)
      *      </li>
      *   </ol>
@@ -137,24 +137,24 @@ public class ViewContestDetails extends ShortHibernateProcessor {
      * @param contestId the contest id to query
      * @return true if the user has permissions to see contest details even before the contest is active
      * @throws Exception if an error occurs in the underlying layer
-     * 
-     * @since 1.1 
+     *
+     * @since 1.1
      */
     private boolean hasPermissions(long userId, long contestId) throws Exception {
         if (userIdentified()) {
             if (log.isDebugEnabled()) {
                 log.debug("checking if userId " + userId + " can preview contest details for contest_id: " + contestId);
             }
-            
+
             DataAccess da = new DataAccess(DBMS.STUDIO_DATASOURCE_NAME);
             Request r = new Request();
             r.setContentHandle(CAN_VIEW_CONTEST_DETAILS_QUERY_NAME);
-    
+
             r.setProperty(Constants.USER_ID, String.valueOf(userId));
             r.setProperty(Constants.CONTEST_ID, String.valueOf(contestId));
-    
+
             ResultSetContainer rsc = da.getData(r).get(CAN_VIEW_CONTEST_DETAILS_QUERY_NAME);
-            
+
             if (rsc.size() > 0) {
                 if (log.isDebugEnabled()) {
                     log.debug("userId: " + userId + " can preview details for contest id: " + contestId);
