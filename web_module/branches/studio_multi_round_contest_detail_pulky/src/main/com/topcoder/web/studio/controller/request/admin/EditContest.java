@@ -268,8 +268,6 @@ public class EditContest extends Base {
             // populate multi round specific attributes
             String contestFormat = request.getParameter(Constants.CONTEST_FORMAT);
             if (contestFormat != null && contestFormat.equals(ViewContest.MULTI_ROUND)) {
-                contest.setMultiRound(Boolean.TRUE);
-                
                 ContestMilestonePrize milestonePrize = new ContestMilestonePrize();
                 milestonePrize.setAmount(new Float(request.getParameter(Constants.MILESTONE_PRIZE_AMOUNT)));
                 milestonePrize.setCreateDate(new Timestamp(new Date().getTime()));
@@ -278,7 +276,8 @@ public class EditContest extends Base {
                 PrizeType prizeType = new PrizeType();
                 prizeType.setId(PrizeType.MILESTONE);
                 milestonePrize.setType(prizeType);
-                contest.setMilestonePrize(milestonePrize);
+                
+                StudioDAOUtil.getFactory().getContestMilestonePrizeDAO().saveOrUpdate(milestonePrize);
                 
                 ContestMultiRoundInformation multiRoundInformation = new ContestMultiRoundInformation();
                 multiRoundInformation.setMilestoneDate(
@@ -287,7 +286,12 @@ public class EditContest extends Base {
                     request.getParameter(Constants.CONTEST_ROUND_ONE_SPECIFICS));
                 multiRoundInformation.setRoundTwoIntroduction(
                     request.getParameter(Constants.CONTEST_ROUND_TWO_SPECIFICS));
-                contest.setMultiRoundInformation(multiRoundInformation);                
+                
+                StudioDAOUtil.getFactory().getContestMultiRoundInformationDAO().saveOrUpdate(multiRoundInformation);
+
+                contest.setMultiRound(Boolean.TRUE);
+                contest.setMilestonePrize(milestonePrize);
+                contest.setMultiRoundInformation(multiRoundInformation);
             } else {
                 contest.setMultiRound(Boolean.FALSE);
             }

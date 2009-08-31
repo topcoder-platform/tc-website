@@ -1,6 +1,26 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.studio.dao.hibernate;
 
-import com.topcoder.web.studio.dao.*;
+import com.topcoder.web.studio.dao.ContestChannelDAO;
+import com.topcoder.web.studio.dao.ContestDAO;
+import com.topcoder.web.studio.dao.ContestPropertyDAO;
+import com.topcoder.web.studio.dao.ContestRegistrationDAO;
+import com.topcoder.web.studio.dao.ContestStatusDAO;
+import com.topcoder.web.studio.dao.ContestTypeDAO;
+import com.topcoder.web.studio.dao.DocumentDAO;
+import com.topcoder.web.studio.dao.DocumentTypeDAO;
+import com.topcoder.web.studio.dao.FileTypeDAO;
+import com.topcoder.web.studio.dao.MediumDAO;
+import com.topcoder.web.studio.dao.MimeTypeDAO;
+import com.topcoder.web.studio.dao.PrizeTypeDAO;
+import com.topcoder.web.studio.dao.ReviewStatusDAO;
+import com.topcoder.web.studio.dao.StudioDAOFactory;
+import com.topcoder.web.studio.dao.SubmissionDAO;
+import com.topcoder.web.studio.dao.SubmissionReviewDAO;
+import com.topcoder.web.studio.dao.SubmissionStatusDAO;
+import com.topcoder.web.studio.dao.SubmissionTypeDAO;
 
 /**
  * @author dok, isv
@@ -96,4 +116,28 @@ public class StudioDAOFactoryHibernate implements StudioDAOFactory {
     public MediumDAO getMediumDAO() {
         return new MediumDAOHibernate();
     }
+    
+    /**
+     * <p>Gets the DAO to be used for accessing/managing contest milestone prize.</p>
+     *
+     * @return a <code>ContestMilestonePrizeDAO</code> to be used for accessing/managing contest milestone prize 
+     * in underlying persistent data store.
+     * @since 1.1
+     */
+    ContestMilestonePrizeDAO getContestMilestonePrizeDAO() {
+        return new ContestMilestonePrizeDAOHibernate();
+    }
+    
+    /**
+     * <p>Gets the DAO to be used for accessing/managing contest multi round information.</p>
+     *
+     * @return a <code>ContestMultiRoundInformationDAO</code> to be used for accessing/managing contest multi round 
+     * information in underlying persistent data store.
+     * @since 1.1
+     */
+    ContestMultiRoundInformationDAO getContestMultiRoundInformationDAO() {
+        return new ContestMultiRoundInformationDAOHibernate();
+    }
+    
+
 }
