@@ -189,8 +189,9 @@ public class Contest extends Base {
             }
         }
         
-        if (milestonePrize != null && milestonePrize.getAmount() != null) {
-            total += milestonePrize.getAmount();
+        if (milestonePrize != null && milestonePrize.getAmount() != null && 
+            milestonePrize.getNumberOfSubmissions() != null) {
+            total += milestonePrize.getAmount() * milestonePrize.getNumberOfSubmissions();
         }
         
         return total;
