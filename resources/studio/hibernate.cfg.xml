@@ -98,8 +98,6 @@
         <mapping resource="com/topcoder/web/common/model/UserSecurityKey.hbm.xml"/>
 
         <mapping resource="com/topcoder/web/common/model/comp/Contest.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/comp/ContestMilestonePrize.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/comp/ContestMultiRoundInformation.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/ContestPrize.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/Project.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/ProjectInfo.hbm.xml"/>
@@ -110,6 +108,8 @@
         <mapping resource="com/topcoder/web/studio/model/Contest.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ContestChannel.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ContestConfig.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/model/ContestMilestonePrize.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/model/ContestMultiRoundInformation.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ContestProperty.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ContestRegistration.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ContestResult.hbm.xml"/>
