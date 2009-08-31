@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.studio.controller.request.admin;
 
 import java.sql.Timestamp;
@@ -5,6 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Date;
 import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -29,10 +33,13 @@ import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestChannel;
 import com.topcoder.web.studio.model.ContestConfig;
+import com.topcoder.web.studio.model.ContestMilestonePrize;
+import com.topcoder.web.studio.model.ContestMultiRoundInformation;
 import com.topcoder.web.studio.model.ContestProperty;
 import com.topcoder.web.studio.model.ContestStatus;
 import com.topcoder.web.studio.model.ContestType;
 import com.topcoder.web.studio.model.Medium;
+import com.topcoder.web.studio.model.PrizeType;
 import com.topcoder.web.studio.model.StudioFileType;
 import com.topcoder.web.studio.validation.BooleanValidator;
 import com.topcoder.web.studio.validation.ClientNameValidator;
@@ -40,6 +47,8 @@ import com.topcoder.web.studio.validation.ContestChannelValidator;
 import com.topcoder.web.studio.validation.ContestConfigValueValidator;
 import com.topcoder.web.studio.validation.ContestNameValidator;
 import com.topcoder.web.studio.validation.ContestOverviewValidator;
+import com.topcoder.web.studio.validation.ContestRoundOneSpecificsValidator;
+import com.topcoder.web.studio.validation.ContestRoundTwoSpecificsValidator;
 import com.topcoder.web.studio.validation.ContestTypeValidator;
 import com.topcoder.web.studio.validation.DigitalRunPointsValidator;
 import com.topcoder.web.studio.validation.EndTimeValidator;
@@ -48,6 +57,8 @@ import com.topcoder.web.studio.validation.MaxHeightValidator;
 import com.topcoder.web.studio.validation.MaxSubmissionsValidator;
 import com.topcoder.web.studio.validation.MaxWidthValidator;
 import com.topcoder.web.studio.validation.MediumValidator;
+import com.topcoder.web.studio.validation.MilestoneDateValidator;
+import com.topcoder.web.studio.validation.MilestonePrizeAmountValidator;
 import com.topcoder.web.studio.validation.MinHeightValidator;
 import com.topcoder.web.studio.validation.MinWidthValidator;
 import com.topcoder.web.studio.validation.PrizeDescriptionValidator;
@@ -55,9 +66,17 @@ import com.topcoder.web.studio.validation.StartTimeValidator;
 import com.topcoder.web.studio.validation.WinnerAnnouncementTimeValidator;
 
 /**
- * @author dok, isv
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Jul 17, 2006
+ * <p>This class will process an administrator request to edit contest information.</p>
+ *
+ * <p>
+ *   Version 1.1 (Studio Multi-Rounds Assembly - Studio Contest Details v1.0) Change notes:
+ *   <ol>
+ *     <li>Added Validations to new multi round specific fields.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, isv, TCSDEVELOPER
+ * @version 1.1
  */
 public class EditContest extends Base {
 
@@ -94,6 +113,13 @@ public class EditContest extends Base {
     private final static boolean[] ADDITIONAL_CONTEST_CONFIG_REQ
             = {true, false, false, false, false, false, true, true, true, false};
 
+
+    /**
+     * This method executes the actual business logic for this processor.
+     *
+     * @throws Exception if any error occurs
+     * @see com.topcoder.web.common.LongHibernateProcessor#dbProcessing()
+     */
     protected void dbProcessing() throws Exception {
 
         inputValidation();
@@ -155,6 +181,15 @@ public class EditContest extends Base {
             setDefault(Constants.CONTEST_TYPE, contestTypeId);
             setDefault(Constants.CONTEST_CHANNEL, contestChannelId);
 
+            setDefault(Constants.CONTEST_FORMAT, request.getParameter(Constants.CONTEST_FORMAT));
+            setDefault(Constants.MILESTONE_DATE, request.getParameter(Constants.MILESTONE_DATE));
+            setDefault(Constants.CONTEST_ROUND_ONE_SPECIFICS, 
+                request.getParameter(Constants.CONTEST_ROUND_ONE_SPECIFICS));
+            setDefault(Constants.CONTEST_ROUND_TWO_SPECIFICS, 
+                request.getParameter(Constants.CONTEST_ROUND_TWO_SPECIFICS));
+            setDefault(Constants.MILESTONE_PRIZE_AMOUNT, request.getParameter(Constants.MILESTONE_PRIZE_AMOUNT));
+            setDefault(Constants.NUMBER_MILESTONE_PRIZES, request.getParameter(Constants.NUMBER_MILESTONE_PRIZES));
+            
             setNextPage("/admin/editContest.jsp");
             setIsNextPageInContext(true);
         } else {
@@ -230,6 +265,33 @@ public class EditContest extends Base {
             ContestChannel contestChanel = contestChannelDAO.find(new Integer(contestChannelId));
             contest.setChannel(contestChanel);
 
+            // populate multi round specific attributes
+            String contestFormat = request.getParameter(Constants.CONTEST_FORMAT);
+            if (contestFormat != null && contestFormat.equals(ViewContest.MULTI_ROUND)) {
+                contest.setMultiRound(Boolean.TRUE);
+                
+                ContestMilestonePrize milestonePrize = new ContestMilestonePrize();
+                milestonePrize.setAmount(new Float(request.getParameter(Constants.MILESTONE_PRIZE_AMOUNT)));
+                milestonePrize.setCreateDate(new Timestamp(new Date().getTime()));
+                milestonePrize.setNumberOfSubmissions(
+                    new Integer(request.getParameter(Constants.NUMBER_MILESTONE_PRIZES)));
+                PrizeType prizeType = new PrizeType();
+                prizeType.setId(PrizeType.MILESTONE);
+                milestonePrize.setType(prizeType);
+                contest.setMilestonePrize(milestonePrize);
+                
+                ContestMultiRoundInformation multiRoundInformation = new ContestMultiRoundInformation();
+                multiRoundInformation.setMilestoneDate(
+                    new Timestamp(sdf.parse(request.getParameter(Constants.MILESTONE_DATE)).getTime()));
+                multiRoundInformation.setRoundOneIntroduction(
+                    request.getParameter(Constants.CONTEST_ROUND_ONE_SPECIFICS));
+                multiRoundInformation.setRoundTwoIntroduction(
+                    request.getParameter(Constants.CONTEST_ROUND_TWO_SPECIFICS));
+                contest.setMultiRoundInformation(multiRoundInformation);                
+            } else {
+                contest.setMultiRound(Boolean.FALSE);
+            }
+            
             StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
 
             if (log.isDebugEnabled()) {
@@ -249,6 +311,11 @@ public class EditContest extends Base {
 
     }
 
+    /**
+     * Private helper method to validate contest input
+     * 
+     * @throws Exception if any error occurs
+     */
     private void inputValidation() throws Exception {
         TCRequest request = getRequest();
         String name = request.getParameter(Constants.CONTEST_NAME);
@@ -285,6 +352,7 @@ public class EditContest extends Base {
         if (!nameResult.isValid()) {
             addError(Constants.CONTEST_NAME, nameResult.getMessage());
         }
+        
         if (!startTimeResult.isValid()) {
             addError(Constants.START_TIME, startTimeResult.getMessage());
         }
@@ -463,6 +531,50 @@ public class EditContest extends Base {
         if (!requirePreviewFileResult.isValid()) {
             addError(Constants.CONTEST_PROPERTY + ContestProperty.REQUIRE_PREVIEW_FILE,
                      requirePreviewFileResult.getMessage());
+        }
+        
+        // validation for multi round contests 
+        String contestFormat = request.getParameter(Constants.CONTEST_FORMAT);
+        if (contestFormat != null && contestFormat.equals(ViewContest.MULTI_ROUND)) {
+            // validate milestone date only if start and end time are already ok
+            if (startTimeResult.isValid() && endTimeResult.isValid()) {
+                String milestoneDate = request.getParameter(Constants.MILESTONE_DATE);
+                ValidationResult milestoneDateResult = 
+                    new MilestoneDateValidator(startTime, endTime).validate(new StringInput(milestoneDate));
+    
+                if (!milestoneDateResult.isValid()) {
+                    addError(Constants.MILESTONE_DATE, milestoneDateResult.getMessage());
+                }
+            }
+
+            // validate round one specifics
+            String contestRoundOneSpecifics = request.getParameter(Constants.CONTEST_ROUND_ONE_SPECIFICS);
+            ValidationResult contestRoundOneSpecificsResult = 
+                new ContestRoundOneSpecificsValidator().validate(new StringInput(contestRoundOneSpecifics));
+
+            if (!contestRoundOneSpecificsResult.isValid()) {
+                addError(Constants.CONTEST_ROUND_ONE_SPECIFICS, contestRoundOneSpecificsResult.getMessage());
+            }
+        
+            // validate round two specifics
+            String contestRoundTwoSpecifics = request.getParameter(Constants.CONTEST_ROUND_TWO_SPECIFICS);
+            ValidationResult contestRoundTwoSpecificsResult = 
+                new ContestRoundTwoSpecificsValidator().validate(new StringInput(contestRoundTwoSpecifics));
+
+            if (!contestRoundTwoSpecificsResult.isValid()) {
+                addError(Constants.CONTEST_ROUND_TWO_SPECIFICS, contestRoundTwoSpecificsResult.getMessage());
+            }
+
+            // validate milestone prize
+            String milestonePrizeAmount = request.getParameter(Constants.MILESTONE_PRIZE_AMOUNT);
+            String numberMilestonePrizes = request.getParameter(Constants.NUMBER_MILESTONE_PRIZES);
+            ValidationResult milestonePrizeAmountResult = 
+                new MilestonePrizeAmountValidator(numberMilestonePrizes).validate(
+                    new StringInput(milestonePrizeAmount));
+
+            if (!contestRoundTwoSpecificsResult.isValid()) {
+                addError(Constants.MILESTONE_PRIZE_AMOUNT, milestonePrizeAmountResult.getMessage());
+            }
         }
     }
 
