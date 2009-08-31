@@ -20,9 +20,8 @@ import com.topcoder.web.studio.model.ContestStatus;
  * <p>
  *   Version 1.1 (Studio Multi-Rounds Assembly - Studio Contest Details v1.0) Change notes:
  *   <ol>
- *     <li>
- *          Added constant with all the options for the number of milestone prizes.
- *     </li>
+ *     <li>Added constant with all the options for the number of milestone prizes.</li>
+ *     <li>Added constants with the values for the Contest Format radiobuttons.</li>
  *   </ol>
  * </p>
  *

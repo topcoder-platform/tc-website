@@ -44,8 +44,8 @@
 <c:set value="<%=Constants.MILESTONE_PRIZE_AMOUNT%>" var="MILESTONE_PRIZE_AMOUNT"/>
 <c:set value="<%=Constants.NUMBER_MILESTONE_PRIZES%>" var="NUMBER_MILESTONE_PRIZES"/>
 <c:set value="<%=ViewContest.NUMBER_MILESTONE_PRIZES_OPTIONS%>" var="NUMBER_MILESTONE_PRIZES_OPTIONS"/>
-<c:set value="<%=Constants.SINGLE_ROUND%>" var="SINGLE_ROUND"/>
-<c:set value="<%=Constants.MULTI_ROUND%>" var="MULTI_ROUND"/>
+<c:set value="<%=ViewContest.SINGLE_ROUND%>" var="SINGLE_ROUND"/>
+<c:set value="<%=ViewContest.MULTI_ROUND%>" var="MULTI_ROUND"/>
 
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -346,8 +346,8 @@
         <div>Contest Format:</div>
     </td>
     <td class="value" width="100%">
-        <tc-webtag:radioButton name="${CONTEST_FORMAT}" value="${SINGLE_ROUND}"/>Single-Round
-        <tc-webtag:radioButton name="${CONTEST_FORMAT}" value="${MULTI_ROUND}"/>Multi-Round
+        <tc-webtag:radioButton name="${CONTEST_FORMAT}" value="${SINGLE_ROUND}"/> Single-Round<br/>
+        <tc-webtag:radioButton name="${CONTEST_FORMAT}" value="${MULTI_ROUND}"/> Multi-Round
     </td>
 </tr>
 
@@ -675,6 +675,35 @@
 
 </fieldset>
 
+<fieldset>
+<legend>Add Milestone Prizes</legend>
+    <table cellpadding="0" cellspacing="0" class="input">
+        <tr>
+            <td colspan="2">
+                <span class="bigRed"><tc-webtag:errorIterator id="err" name="${MILESTONE_PRIZE_AMOUNT}">${err}
+                  <br /></tc-webtag:errorIterator></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="field">
+                <div>Number of prizes:</div>
+            </td>
+            <td class="value">
+                <tc-webtag:stringSelect name="${NUMBER_MILESTONE_PRIZES}" useTopValue="false" 
+                    list="${NUMBER_MILESTONE_PRIZES_OPTIONS}"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="field">
+                <div>Amount:</div>
+            </td>
+            <td class="value">
+                <tc-webtag:textInput name="${MILESTONE_PRIZE_AMOUNT}"/>
+            </td>
+        </tr>
+    </table>
+</fieldset>
+
 <%-- Since TopCoder Studio Modifications v2 Assembly (Req.# 5.1.3, 5.1.4)
      - the width and height are replaced with size requirements --%>
 
@@ -967,36 +996,6 @@
 </fieldset>
 
 </form>
-
-<fieldset>
-<legend>Add Milestone Prizes</legend>
-    <table cellpadding="0" cellspacing="0" class="input">
-        <tr>
-            <td colspan="2">
-                <span class="bigRed"><tc-webtag:errorIterator id="err" name="${MILESTONE_PRIZE_AMOUNT}">${err}
-                  <br /></tc-webtag:errorIterator></span>
-            </td>
-        </tr>
-        <tr>
-            <td class="field">
-                <div>Number of prizes:</div>
-            </td>
-            <td class="value">
-                <tc-webtag:listSelect name="${NUMBER_MILESTONE_PRIZES}" useTopValue="true" 
-                    list="${NUMBER_MILESTONE_PRIZES_OPTIONS}"/>
-            </td>
-        </tr>
-        <tr>
-            <td class="field">
-                <div>Amount:</div>
-            </td>
-            <td class="value">
-                <tc-webtag:textInput name="${MILESTONE_PRIZE_AMOUNT}"/>
-            </td>
-        </tr>
-    </table>
-</fieldset>
-
 
 <p>
     * = required <br/>

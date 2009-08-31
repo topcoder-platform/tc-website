@@ -36,9 +36,8 @@ import java.util.Set;
  * <p>
  *   Version 1.1 (Studio Multi-Rounds Assembly - Studio Contest Details v1.0) Change notes:
  *   <ol>
- *     <li>
- *          New fields were added to <code>loadEditContestData</code> to display stored information.
- *     </li>
+ *     <li>New fields were added to <code>loadEditContestData</code> to display stored information.</li>
+ *     <li>Contest Format default was added to <code>loadGeneralEditContestData</code>.</li>
  *   </ol>
  * </p>
  *
@@ -64,6 +63,12 @@ public abstract class Base extends ShortHibernateProcessor {
             ContestProperty.REQUIRE_PREVIEW_FILE, ContestProperty.DIGITAL_RUN_POINTS};
 
 
+    /**
+     * This method loads all the general data required to present the contest edition page  
+     * 
+     * @param contest the contest being edited
+     * @throws Exception if any error occurs
+     */
     protected void loadGeneralEditContestData() throws Exception {
         getRequest().setAttribute("docTypes", StudioDAOUtil.getFactory().getDocumentTypeDAO().getDocumentTypes());
         getRequest().setAttribute("contestStatuses", StudioDAOUtil.getFactory().getContestStatusDAO().getContestStatuses());
@@ -102,6 +107,9 @@ public abstract class Base extends ShortHibernateProcessor {
         requirePreviewFileAnswers.add(new ListSelectTag.Option(String.valueOf(true), "Yes"));
         requirePreviewFileAnswers.add(new ListSelectTag.Option(String.valueOf(false), "No"));
         getRequest().setAttribute("requirePreviewFileAnswers", requirePreviewFileAnswers);
+
+        // single round contest format by default
+        setDefault(Constants.CONTEST_FORMAT, ViewContest.SINGLE_ROUND);
     }
 
     protected ResultSetContainer getForumList() throws Exception {

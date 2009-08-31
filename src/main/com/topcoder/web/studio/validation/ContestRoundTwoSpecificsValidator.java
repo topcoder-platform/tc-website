@@ -1,0 +1,33 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
+package com.topcoder.web.studio.validation;
+
+import com.topcoder.web.common.validation.NonEmptyValidator;
+import com.topcoder.web.common.validation.ValidationInput;
+import com.topcoder.web.common.validation.ValidationResult;
+import com.topcoder.web.common.validation.Validator;
+
+/**
+ * <p>This class will validate the contest round two specifics.</p>
+ *
+ * <p>Currently it will only validate the input is not empty.</p>
+ *
+ * @author TCSDEVELOPER
+ * @version 1.0
+ * @since Studio Multi-Rounds Assembly - Studio Contest Details v1.0
+ */
+public class ContestRoundTwoSpecificsValidator implements Validator {
+
+    /**
+     * This method will validate the input according to the defined business rules
+     * 
+     * @param input a <code>ValidationInput</code> to validate
+     * @return an <code>ValidationResult</code> with the corresponding validation result
+     * 
+     * @see com.topcoder.web.common.validation.Validator#validate(com.topcoder.web.common.validation.ValidationInput)
+     */
+    public ValidationResult validate(ValidationInput input) {
+        return new NonEmptyValidator("Please enter the round two specifics text for this contest.").validate(input);
+    }
+}
