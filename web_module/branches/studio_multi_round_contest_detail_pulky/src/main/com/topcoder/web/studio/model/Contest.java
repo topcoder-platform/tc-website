@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.studio.model;
 
 import com.topcoder.web.common.model.Base;
