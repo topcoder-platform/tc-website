@@ -1,3 +1,16 @@
+<%--
+  - Author: TCSDEVELOPER
+  - Version: 1.1
+  - Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page presents specific contest details
+  -
+  - Version 1.1 (Studio Multi-Rounds Assembly - Studio Contest Details v1.0) changes: 
+  -     - If the contest is a multi-round contest, display multi-round specific "Studio Tournament Format" information.
+  -       including total prize purse, round 1 and round 2 information.
+  -     - If the contest is a multi-round contest display "Milestone date" between the Start Date and End Date.
+  -     - If the contest is a multi-round contest display the milestone prize amount below the standard prize list.
+--%>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.studio.model.PrizeType" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -134,6 +147,16 @@
                     <tc-webtag:format object="${contest.startTime}" format="EEEE, MMMM d, yyyy '<br />at' HH:mm z" timeZone="${sessionInfo.timezone}"/>
                 </td>
             </tr>
+            <c:if test="${not empty contest.multiRound and contest.multiRound}">
+                <tr>
+                    <td class="field">
+                        Milestone Date:
+                    </td>
+                    <td class="value">
+                        <tc-webtag:format object="${contest.milestoneDate}" format="EEEE, MMMM d, yyyy '<br />at' HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                    </td>
+                </tr>
+            </c:if>
             <tr>
                 <td class="field">
                     End Date:
@@ -307,6 +330,15 @@
                 </c:forEach>
             </c:otherwise>
         </c:choose>
+        <c:if test="${not empty contest.multiRound and contest.multiRound}">
+            <tr>
+                <td class="field">Milestone Prizes:</td>
+                <td class="value">
+                    ${contest.milestonePrize.numberOfSubmissions} milestone prizes worth 
+                    <fmt:formatNumber value="${contest.milestonePrize.amount}" pattern="$###,###.00"/> each.
+                </td>
+            </tr>
+        </c:if>
         <c:if test="${fn:length(contest.digitalRunPoints.value)>0 and contest.digitalRunPoints.value != '0'}">
             <tr>
                 <td class="field">Studio Cup Points:<br /><br /></td>
@@ -386,9 +418,23 @@
 <p><b>Entries must be your original work, and must not infringe on the copyright or licenses of others. Stock art, clip art, templates and other design elements from other sources are prohibited unless specifically permitted here in the Contest Details.</b></p>
 
  <%-- Full Description and Project Guide --%>
-<c:if test="${not empty contest.fullDescription.value}">
+<c:if test="${not empty contest.fullDescription.value or (not empty contest.multiRound and contest.multiRound)}">
     <div class="header"><span>Full Description &amp; Project Guide</span></div>
-    <studio:formatField text="${contest.fullDescription.value}"/>
+    <c:if test="${not empty contest.multiRound and contest.multiRound}">
+        <p>Studio Tournament Format
+        This Studio competition will be run as a two-round tournament with a total prize purse of ${contest.totalPrizePurse}</p> 
+        <p>
+            <b>Round One (1)</b>
+c            <studio:formatField text="${contest.roundOneIntroduction}"/>
+        </p>
+        <p>
+            <b>Round Two (2)</b>
+            <studio:formatField text="${contest.roundTwoIntroduction}"/>
+        </p>
+    </c:if>
+    <c:if test="${not empty contest.fullDescription.value}">
+        <studio:formatField text="${contest.fullDescription.value}"/>
+    </c:if>
 </c:if>
 
 <c:if test="${not empty contest.sizeRequirements.value or not empty contest.fontRequirements.value 
