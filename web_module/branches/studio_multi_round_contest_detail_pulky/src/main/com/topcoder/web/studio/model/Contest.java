@@ -586,6 +586,17 @@ public class Contest extends Base {
     }
 
     /**
+     * Returns whether the contest is a multi-round contest
+     *
+     * @return true if the contest is a multi-round contest 
+     *
+     * @since 1.1
+     */
+    public Boolean getMultiRound() {
+        return multiRound;
+    }
+
+    /**
      * Sets the multi-round contest flag
      *
      * @param url the multi-round contest flag value to set
