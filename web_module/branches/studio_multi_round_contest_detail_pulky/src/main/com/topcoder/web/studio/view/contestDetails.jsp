@@ -19,6 +19,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
 <c:set var="clientPrize" value="<%=PrizeType.BONUS%>"/>
+<c:set var="isMultiRound" value="${not empty contest.multiRound and contest.multiRound}"/>
 
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -147,13 +148,15 @@
                     <tc-webtag:format object="${contest.startTime}" format="EEEE, MMMM d, yyyy '<br />at' HH:mm z" timeZone="${sessionInfo.timezone}"/>
                 </td>
             </tr>
-            <c:if test="${not empty contest.multiRound and contest.multiRound}">
+            <c:if test="${isMultiRound and not empty contest.multiRoundInformation 
+                and not empty contest.multiRoundInformation.milestoneDate}">
                 <tr>
                     <td class="field">
                         Milestone Date:
                     </td>
                     <td class="value">
-                        <tc-webtag:format object="${contest.milestoneDate}" format="EEEE, MMMM d, yyyy '<br />at' HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                        <tc-webtag:format object="${contest.multiRoundInformation.milestoneDate}" 
+                        format="EEEE, MMMM d, yyyy '<br />at' HH:mm z" timeZone="${sessionInfo.timezone}"/>
                     </td>
                 </tr>
             </c:if>
@@ -330,7 +333,8 @@
                 </c:forEach>
             </c:otherwise>
         </c:choose>
-        <c:if test="${not empty contest.multiRound and contest.multiRound}">
+        <c:if test="${isMultiRound and not empty contest.milestonePrize 
+            and not empty contest.milestonePrize.numberOfSubmissions and not empty contest.milestonePrize.amount}">
             <tr>
                 <td class="field">Milestone Prizes:</td>
                 <td class="value">
@@ -418,22 +422,27 @@
 <p><b>Entries must be your original work, and must not infringe on the copyright or licenses of others. Stock art, clip art, templates and other design elements from other sources are prohibited unless specifically permitted here in the Contest Details.</b></p>
 
  <%-- Full Description and Project Guide --%>
-<c:if test="${not empty contest.fullDescription.value or (not empty contest.multiRound and contest.multiRound)}">
+<c:if test="${not empty contest.fullDescription.value or isMultiRound}">
     <div class="header"><span>Full Description &amp; Project Guide</span></div>
-    <c:if test="${not empty contest.multiRound and contest.multiRound}">
-        <p>Studio Tournament Format
-        This Studio competition will be run as a two-round tournament with a total prize purse of ${contest.totalPrizePurse}</p> 
+    <c:if test="${isMultiRound and not empty contest.multiRoundInformation
+        and not empty contest.milestonePrize and not empty contest.multiRoundInformation.roundOneIntroduction
+        and not empty contest.multiRoundInformation.roundTwoIntroduction}">
+        <p><font color="#336699"><b>Studio Tournament Format</b></font><br/>
+        This Studio competition will be run as a two-round tournament with a total prize purse of 
+        <fmt:formatNumber value="${contest.totalPrizePurse}" pattern="$###,###.00"/></p> 
         <p>
-            <b>Round One (1)</b>
-c            <studio:formatField text="${contest.roundOneIntroduction}"/>
+            <b>Round One (1)</b><br/>
+            <studio:formatField text="${contest.multiRoundInformation.roundOneIntroduction}"/>
         </p>
         <p>
-            <b>Round Two (2)</b>
-            <studio:formatField text="${contest.roundTwoIntroduction}"/>
+            <b>Round Two (2)</b><br/>
+            <studio:formatField text="${contest.multiRoundInformation.roundTwoIntroduction}"/>
         </p>
     </c:if>
     <c:if test="${not empty contest.fullDescription.value}">
+        <p>
         <studio:formatField text="${contest.fullDescription.value}"/>
+        </p>
     </c:if>
 </c:if>
 

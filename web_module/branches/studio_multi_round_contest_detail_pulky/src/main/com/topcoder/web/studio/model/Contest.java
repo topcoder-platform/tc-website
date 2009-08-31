@@ -13,13 +13,14 @@ import java.util.Set;
 import java.util.TreeSet;
 
 /**
- * <p>This class represents a Terms Of Use entity.</p>
+ * <p>This class represents a Contest entity.</p>
  *
  * <p>
  *   Version 1.1 (Studio Multi-Rounds Assembly - Studio Contest Details v1.0) Change notes:
  *   <ol>
  *     <li>Added Serial version UID.</li>
- *     <li>Added multiRound attribute.</li>
+ *     <li>Added multiRound, multiRoundInformation and milestonePrize attributes.</li>
+ *     <li>Added method to calculate and retrieve total prize purse.</li>
  *   </ol>
  * </p>
  *
@@ -52,13 +53,6 @@ public class Contest extends Base {
     private Set<ContestResult> results = new TreeSet<ContestResult>();
     private Event event;
     private Project project;
-
-    /**
-     * A flag indicating whether the contest is a multi round contest
-     *
-     * @since 1.1
-     */
-    private Boolean multiRound;
 
     /**
      * <p>A <code>ContestChannel</code> representing the contest channel which this contest originated from.</p>
@@ -103,6 +97,27 @@ public class Contest extends Base {
      * @since TopCoder Studio Modifications Assembly v2 (Req# 5.1.5)
      */
     private Set<Medium> mediums = new HashSet<Medium>();
+
+    /**
+     * A flag indicating whether the contest is a multi round contest
+     *
+     * @since 1.1
+     */
+    private Boolean multiRound;
+
+    /**
+     * The Contest's Multi Round Information
+     *
+     * @since 1.1
+     */
+    private ContestMultiRoundInformation multiRoundInformation;
+
+    /**
+     * The Contest's Milestone prize
+     *
+     * @since 1.1
+     */
+    private ContestMilestonePrize milestonePrize;
 
     public Long getId() {
         return id;
@@ -160,6 +175,28 @@ public class Contest extends Base {
         this.prizes = prizes;
     }
 
+    /**
+     * Gets the contest's total prize purse. It will sum all regular prizes and the milestone prize if it exists
+     *
+     * @return the contest's total prize purse
+     */
+    public Float getTotalPrizePurse() {
+        float total = 0;
+        
+        for (Prize p : prizes) {
+            if (p.getAmount() != null) {
+                total += p.getAmount();
+            }
+        }
+        
+        if (milestonePrize != null && milestonePrize.getAmount() != null) {
+            total += milestonePrize.getAmount();
+        }
+        
+        return total;
+    }
+
+    
     public void addConfig(ContestConfig config) {
         config.setContest(this);
         this.config.add(config);
@@ -575,9 +612,9 @@ public class Contest extends Base {
     }
 
     /**
-     * Returns whether the contest is a multi-round contest
+     * <p>Gets the flag representing whether the contest is a multi-round contest or not.</p>
      *
-     * @return true if the contest is a multi-round contest 
+     * @return a <code>Boolean</code> representing whether the contest is a multi-round contest or not
      *
      * @since 1.1
      */
@@ -586,9 +623,9 @@ public class Contest extends Base {
     }
 
     /**
-     * Returns whether the contest is a multi-round contest
+     * <p>Gets the flag representing whether the contest is a multi-round contest or not.</p>
      *
-     * @return true if the contest is a multi-round contest 
+     * @return a <code>Boolean</code> representing whether the contest is a multi-round contest or not
      *
      * @since 1.1
      */
@@ -599,11 +636,55 @@ public class Contest extends Base {
     /**
      * Sets the multi-round contest flag
      *
-     * @param url the multi-round contest flag value to set
+     * @param multiRound the multi-round contest flag value to set
      *
      * @since 1.1
      */
     public void setMultiRound(Boolean multiRound) {
         this.multiRound = multiRound;
+    }
+
+    /**
+     * <p>Gets the Contest's Multi Round Information.</p>
+     *
+     * @return a <code>ContestMultiRoundInformation</code> representing Contest's Multi Round Information
+     *
+     * @since 1.1
+     */
+    public ContestMultiRoundInformation getMultiRoundInformation() {
+        return multiRoundInformation;
+    }
+
+    /**
+     * Sets the multi-round contest flag
+     *
+     * @param multiRoundInformation the Contest's Multi Round Information to set
+     *
+     * @since 1.1
+     */
+    public void setMultiRoundInformation(ContestMultiRoundInformation multiRoundInformation) {
+        this.multiRoundInformation = multiRoundInformation;
+    }
+
+    /**
+     * <p>Gets the Contest's Milestone prize.</p>
+     *
+     * @return a <code>ContestMilestonePrize</code> representing Contest's Milestone prize
+     *
+     * @since 1.1
+     */
+    public ContestMilestonePrize getMilestonePrize() {
+        return milestonePrize;
+    }
+
+    /**
+     * Sets the Contest's Milestone prize
+     *
+     * @param milestonePrize the Contest's Milestone prize to set
+     *
+     * @since 1.1
+     */
+    public void setMilestonePrize(ContestMilestonePrize milestonePrize) {
+        this.milestonePrize = milestonePrize;
     }
 }
