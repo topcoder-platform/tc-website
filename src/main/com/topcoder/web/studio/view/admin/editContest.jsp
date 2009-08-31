@@ -7,7 +7,7 @@
   -
   - Version 1.1 (Studio Multi-Rounds Assembly - Studio Contest Details v1.0) changes: 
   - The following fields were added:
-  -     - Radio buttons to select contest round type "single-round" or "multi-round"
+  -     - Radio buttons to select contest format "single-round" or "multi-round"
   -     - Round One Specifics
   -     - Round Two Specifics
   -     - Milestone's number of prizes and amount 
@@ -15,6 +15,7 @@
 --%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
+<%@ page import="com.topcoder.web.studio.controller.request.admin.ViewContest" %>
 <%@ page import="com.topcoder.web.studio.model.ContestProperty" %>
 <%@ page import="com.topcoder.web.studio.model.PrizeType" %>
 <%@ page contentType="text/html;charset=utf-8" %>
@@ -36,6 +37,15 @@
 <c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.ELIGIBILITY%>" var="eligibility"/>
 <c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.WINNER_SELECTION%>" var="winnerSelection"/>
 <c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.DIGITAL_RUN_POINTS%>" var="digitalRunPoints"/>
+<c:set value="<%=Constants.CONTEST_FORMAT%>" var="CONTEST_FORMAT"/>
+<c:set value="<%=Constants.MILESTONE_DATE%>" var="MILESTONE_DATE"/>
+<c:set value="<%=Constants.CONTEST_ROUND_ONE_SPECIFICS%>" var="CONTEST_ROUND_ONE_SPECIFICS"/>
+<c:set value="<%=Constants.CONTEST_ROUND_TWO_SPECIFICS%>" var="CONTEST_ROUND_TWO_SPECIFICS"/>
+<c:set value="<%=Constants.MILESTONE_PRIZE_AMOUNT%>" var="MILESTONE_PRIZE_AMOUNT"/>
+<c:set value="<%=Constants.NUMBER_MILESTONE_PRIZES%>" var="NUMBER_MILESTONE_PRIZES"/>
+<c:set value="<%=ViewContest.NUMBER_MILESTONE_PRIZES_OPTIONS%>" var="NUMBER_MILESTONE_PRIZES_OPTIONS"/>
+<c:set value="<%=Constants.SINGLE_ROUND%>" var="SINGLE_ROUND"/>
+<c:set value="<%=Constants.MULTI_ROUND%>" var="MULTI_ROUND"/>
 
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -233,7 +243,8 @@
 <p>Created by ${contestCreatorHandle}</p>
 
 <p>
-    * = required
+    * = required <br/>
+    ** = only required if multi-round is selected
 </p>
 
 <fieldset>
@@ -326,16 +337,17 @@
 
 <tr>
     <td colspan="2">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.CONTEST_ROUND_TYPE>">
+        <tc-webtag:errorIterator id="err" name="${CONTEST_FORMAT}">
             <span class="bigRed">${err}<br /></span></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
     <td class="field">
-        <div>Contest Channel:</div>
+        <div>Contest Format:</div>
     </td>
     <td class="value" width="100%">
-        <tc-webtag:radioButton name="<%=Constants.CONTEST_ROUND_TYPE%>"/>
+        <tc-webtag:radioButton name="${CONTEST_FORMAT}" value="${SINGLE_ROUND}"/>Single-Round
+        <tc-webtag:radioButton name="${CONTEST_FORMAT}" value="${MULTI_ROUND}"/>Multi-Round
     </td>
 </tr>
 
@@ -392,17 +404,17 @@
 </tr>
 <tr>
     <td colspan="2">
-        <tc-webtag:errorIterator id="err" name="<%=Constants.MILESTONE_DATE%>"><span class="bigRed">${err}
+        <tc-webtag:errorIterator id="err" name="${MILESTONE_DATE}"><span class="bigRed">${err}
             <br /></span></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
     <td class="field">
-        <div>Milestone Date (Eastern Time):</div>
+        <div>** Milestone Date (Eastern Time):</div>
     </td>
     <td class="value">
-        <tc-webtag:textInput name="<%=Constants.MILESTONE_DATE%>" id="<%=Constants.MILESTONE_DATE%>"/>
-        <button id="trigger<%=Constants.MILESTONE_DATE%>">Set</button>
+        <tc-webtag:textInput name="${MILESTONE_DATE}" id="${MILESTONE_DATE}"/>
+        <button id="trigger${MILESTONE_DATE}">Set</button>
     </td>
 </tr>
 <tr>
@@ -560,8 +572,8 @@
 <table>
 <tbody>
 <studio_tags:editContestProperty name="${overviewText}" title="* Contest Summary"/>
-<studio_tags:editContestProperty name="${roundOneSpecifics}" title="Round 1 Specifics"/>
-<studio_tags:editContestProperty name="${roundTwoSpecifics}" title="Round 2 Specifics"/>
+<studio_tags:editContestProperty name="${CONTEST_ROUND_ONE_SPECIFICS}" title="** Round 1 Specifics"/>
+<studio_tags:editContestProperty name="${CONTEST_ROUND_TWO_SPECIFICS}" title="** Round 2 Specifics"/>
 <studio_tags:editContestProperty name="${fullDescription}" title="* Full Description"/>
 <studio_tags:editContestProperty name="${eligibility}" title="* Eligibility"/>
 <studio_tags:editContestProperty name="${winnerSelection}" title="* Notes on Winners Selection"/>
@@ -762,9 +774,9 @@
             );
     Calendar.setup(
             {
-                inputField  : "<%=Constants.MILESTONE_DATE%>",         // ID of the input field
+                inputField  : "${MILESTONE_DATE}",         // ID of the input field
                 ifFormat    : "<%=Constants.JS_DATE_FORMAT%>",    // the date format
-                button      : "trigger<%=Constants.MILESTONE_DATE%>",      // ID of the button
+                button      : "trigger${MILESTONE_DATE}",      // ID of the button
                 showsTime    : true,
                 singleClick  : false,
                 cache       : true
@@ -961,7 +973,7 @@
     <table cellpadding="0" cellspacing="0" class="input">
         <tr>
             <td colspan="2">
-                <span class="bigRed"><tc-webtag:errorIterator id="err" name="${milestonePrizeAmount}">${err}
+                <span class="bigRed"><tc-webtag:errorIterator id="err" name="${MILESTONE_PRIZE_AMOUNT}">${err}
                   <br /></tc-webtag:errorIterator></span>
             </td>
         </tr>
@@ -970,8 +982,8 @@
                 <div>Number of prizes:</div>
             </td>
             <td class="value">
-                <tc-webtag:objectSelect name='${numberMilestonePrizes}' list="${numberMilestonePrizes}" valueField="id" 
-                    textField="description"/>
+                <tc-webtag:listSelect name="${NUMBER_MILESTONE_PRIZES}" useTopValue="true" 
+                    list="${NUMBER_MILESTONE_PRIZES_OPTIONS}"/>
             </td>
         </tr>
         <tr>
@@ -979,7 +991,7 @@
                 <div>Amount:</div>
             </td>
             <td class="value">
-                <tc-webtag:textInput name="${milestonePrizeAmount}"/>
+                <tc-webtag:textInput name="${MILESTONE_PRIZE_AMOUNT}"/>
             </td>
         </tr>
     </table>
@@ -987,7 +999,8 @@
 
 
 <p>
-    * = required
+    * = required <br/>
+    ** = only required if multi-round is selected
 </p>
 
 

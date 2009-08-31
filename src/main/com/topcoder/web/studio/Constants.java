@@ -3,15 +3,15 @@
  */
 package com.topcoder.web.studio;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+import java.util.MissingResourceException;
+
+import com.topcoder.imaging.overlay.ImagePersistenceHandler;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.studio.model.ContestProperty;
-import com.topcoder.imaging.overlay.ImagePersistenceHandler;
-
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
-import java.util.MissingResourceException;
 
 /**
  * <p>This class stores a variety of constants for general use of Studio application.</p>
@@ -26,7 +26,7 @@ import java.util.MissingResourceException;
  * <p>
  *   Version 1.2 (Studio Multi-Rounds Assembly - Studio Contest Details v1.0) Change notes:
  *   <ol>
- *     <li>Added Constant to support new fields in Studio Contest Administration page.</li>
+ *     <li>Added Constants to support new fields in Studio Contest Administration page.</li>
  *   </ol>
  * </p>
  *
@@ -462,7 +462,41 @@ public class Constants implements WebConstants {
      */
     public static final String MILESTONE_DATE = "md";
 
+    /**
+     * <p>A <code>String</code> providing the name of request parameter to specify the contest round type.</p>
+     *
+     * @since 1.2 
+     */
+    public static final String CONTEST_FORMAT = "cf";
 
+    /**
+     * <p>A <code>String</code> providing the name of request parameter to specify the round one specifics.</p>
+     *
+     * @since 1.2 
+     */
+    public static final String CONTEST_ROUND_ONE_SPECIFICS = "cros";
+
+    /**
+     * <p>A <code>String</code> providing the name of request parameter to specify the round two specifics.</p>
+     *
+     * @since 1.2 
+     */
+    public static final String CONTEST_ROUND_TWO_SPECIFICS = "crts";
+
+    /**
+     * <p>A <code>String</code> providing the name of request parameter to specify the milestone prize amount.</p>
+     *
+     * @since 1.2 
+     */
+    public static final String MILESTONE_PRIZE_AMOUNT = "mpa";
+
+    /**
+     * <p>A <code>String</code> providing the name of request parameter to specify the number of milestone prizes.</p>
+     *
+     * @since 1.2 
+     */
+    public static final String NUMBER_MILESTONE_PRIZES = "nmp";
+    
     static {
         initialize();
     }
