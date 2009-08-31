@@ -5,6 +5,8 @@ package com.topcoder.web.studio.dao.hibernate;
 
 import com.topcoder.web.studio.dao.ContestChannelDAO;
 import com.topcoder.web.studio.dao.ContestDAO;
+import com.topcoder.web.studio.dao.ContestMilestonePrizeDAO;
+import com.topcoder.web.studio.dao.ContestMultiRoundInformationDAO;
 import com.topcoder.web.studio.dao.ContestPropertyDAO;
 import com.topcoder.web.studio.dao.ContestRegistrationDAO;
 import com.topcoder.web.studio.dao.ContestStatusDAO;
@@ -124,7 +126,7 @@ public class StudioDAOFactoryHibernate implements StudioDAOFactory {
      * in underlying persistent data store.
      * @since 1.1
      */
-    ContestMilestonePrizeDAO getContestMilestonePrizeDAO() {
+    public ContestMilestonePrizeDAO getContestMilestonePrizeDAO() {
         return new ContestMilestonePrizeDAOHibernate();
     }
     
@@ -135,7 +137,7 @@ public class StudioDAOFactoryHibernate implements StudioDAOFactory {
      * information in underlying persistent data store.
      * @since 1.1
      */
-    ContestMultiRoundInformationDAO getContestMultiRoundInformationDAO() {
+    public ContestMultiRoundInformationDAO getContestMultiRoundInformationDAO() {
         return new ContestMultiRoundInformationDAOHibernate();
     }
     
