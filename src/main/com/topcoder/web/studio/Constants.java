@@ -23,8 +23,15 @@ import java.util.MissingResourceException;
  *   </ol>
  * </p>
  *
- * @author dok, isv, pulky
- * @version 1.1
+ * <p>
+ *   Version 1.2 (Studio Multi-Rounds Assembly - Studio Contest Details v1.0) Change notes:
+ *   <ol>
+ *     <li>Added Constant to support new fields in Studio Contest Administration page.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, isv, pulky, TCSDEVELOPER
+ * @version 1.2
  */
 public class Constants implements WebConstants {
     private static final TCResourceBundle bundle = new TCResourceBundle("Studio");
@@ -446,6 +453,15 @@ public class Constants implements WebConstants {
      * @since 1.1
      */
     public static final String PAGE_SIZE_KEY = "ps";
+
+    /**
+     * <p>A <code>String</code> providing the name of request parameter to specify the milestone date for a multi
+     * round contest.</p>
+     *
+     * @since 1.2 
+     */
+    public static final String MILESTONE_DATE = "md";
+
 
     static {
         initialize();

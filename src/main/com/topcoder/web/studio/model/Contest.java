@@ -13,11 +13,31 @@ import java.util.Set;
 import java.util.TreeSet;
 
 /**
- * @author dok, isv
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Jun 27, 2006
+ * <p>This class represents a Terms Of Use entity.</p>
+ *
+ * <p>
+ *   Version 1.1 (Studio Multi-Rounds Assembly - Studio Contest Details v1.0) Change notes:
+ *   <ol>
+ *     <li>Added Serial version UID.</li>
+ *     <li>Added multiRound attribute.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, isv, TCSDEVELOPER
+ * @version 1.1
  */
 public class Contest extends Base {
+
+    /**
+     * Serial version UID for this class.
+     *
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object, i.e. when data members are changed.
+     * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
+     * @since 1.1
+     */
+    private static final long serialVersionUID = 1L;
+    
     private Long id;
     private String name;
     private Timestamp startTime;
@@ -32,6 +52,13 @@ public class Contest extends Base {
     private Set<ContestResult> results = new TreeSet<ContestResult>();
     private Event event;
     private Project project;
+
+    /**
+     * A flag indicating whether the contest is a multi round contest
+     *
+     * @since 1.1
+     */
+    private Boolean multiRound;
 
     /**
      * <p>A <code>ContestChannel</code> representing the contest channel which this contest originated from.</p>
@@ -547,4 +574,25 @@ public class Contest extends Base {
         return getConfig(ContestProperty.DIGITAL_RUN_POINTS);
     }
 
+    /**
+     * Returns whether the contest is a multi-round contest
+     *
+     * @return true if the contest is a multi-round contest 
+     *
+     * @since 1.1
+     */
+    public Boolean isMultiRound() {
+        return multiRound;
+    }
+
+    /**
+     * Sets the multi-round contest flag
+     *
+     * @param url the multi-round contest flag value to set
+     *
+     * @since 1.1
+     */
+    public void setMultiRound(Boolean multiRound) {
+        this.multiRound = multiRound;
+    }
 }

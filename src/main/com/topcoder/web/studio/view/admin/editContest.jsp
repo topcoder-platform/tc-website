@@ -1,3 +1,18 @@
+<%--
+  - Author: TCSDEVELOPER
+  - Version: 1.1
+  - Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page presents new/edit contest page for Studio administrators
+  -
+  - Version 1.1 (Studio Multi-Rounds Assembly - Studio Contest Details v1.0) changes: 
+  - The following fields were added:
+  -     - Radio buttons to select contest round type "single-round" or "multi-round"
+  -     - Round One Specifics
+  -     - Round Two Specifics
+  -     - Milestone's number of prizes and amount 
+  -     - Milestone date
+--%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.studio.model.ContestProperty" %>
@@ -309,6 +324,21 @@
     </td>
 </tr>
 
+<tr>
+    <td colspan="2">
+        <tc-webtag:errorIterator id="err" name="<%=Constants.CONTEST_ROUND_TYPE>">
+            <span class="bigRed">${err}<br /></span></tc-webtag:errorIterator>
+    </td>
+</tr>
+<tr>
+    <td class="field">
+        <div>Contest Channel:</div>
+    </td>
+    <td class="value" width="100%">
+        <tc-webtag:radioButton name="<%=Constants.CONTEST_ROUND_TYPE%>"/>
+    </td>
+</tr>
+
 <%-- Since TopCoder Studio Modifications Assembly v2 (Req# 5.1.5) - the intended medium types are added --%>
 <c:set var="mediumTypePrefix" value="<%=Constants.MEDIUM%>"/>
 <c:set var="mediumTypes" value="${requestScope['mediums']}"/>
@@ -358,6 +388,21 @@
     <td class="value">
         <tc-webtag:textInput name="<%=Constants.START_TIME%>" id="<%=Constants.START_TIME%>"/>
         <button id="trigger<%=Constants.START_TIME%>">Set</button>
+    </td>
+</tr>
+<tr>
+    <td colspan="2">
+        <tc-webtag:errorIterator id="err" name="<%=Constants.MILESTONE_DATE%>"><span class="bigRed">${err}
+            <br /></span></tc-webtag:errorIterator>
+    </td>
+</tr>
+<tr>
+    <td class="field">
+        <div>Milestone Date (Eastern Time):</div>
+    </td>
+    <td class="value">
+        <tc-webtag:textInput name="<%=Constants.MILESTONE_DATE%>" id="<%=Constants.MILESTONE_DATE%>"/>
+        <button id="trigger<%=Constants.MILESTONE_DATE%>">Set</button>
     </td>
 </tr>
 <tr>
@@ -515,6 +560,8 @@
 <table>
 <tbody>
 <studio_tags:editContestProperty name="${overviewText}" title="* Contest Summary"/>
+<studio_tags:editContestProperty name="${roundOneSpecifics}" title="Round 1 Specifics"/>
+<studio_tags:editContestProperty name="${roundTwoSpecifics}" title="Round 2 Specifics"/>
 <studio_tags:editContestProperty name="${fullDescription}" title="* Full Description"/>
 <studio_tags:editContestProperty name="${eligibility}" title="* Eligibility"/>
 <studio_tags:editContestProperty name="${winnerSelection}" title="* Notes on Winners Selection"/>
@@ -704,14 +751,24 @@
     }
             );
     Calendar.setup(
-    {
-        inputField  : "<%=Constants.WINNER_ANNOUNCEMENT_TIME%>",         // ID of the input field
-        ifFormat    : "<%=Constants.JS_DATE_FORMAT%>",    // the date format
-        button      : "trigger<%=Constants.WINNER_ANNOUNCEMENT_TIME%>",      // ID of the button
-        showsTime    : true,
-        singleClick  : false,
-        cache       : true
-    }
+            {
+                inputField  : "<%=Constants.WINNER_ANNOUNCEMENT_TIME%>",         // ID of the input field
+                ifFormat    : "<%=Constants.JS_DATE_FORMAT%>",    // the date format
+                button      : "trigger<%=Constants.WINNER_ANNOUNCEMENT_TIME%>",      // ID of the button
+                showsTime    : true,
+                singleClick  : false,
+                cache       : true
+            }
+            );
+    Calendar.setup(
+            {
+                inputField  : "<%=Constants.MILESTONE_DATE%>",         // ID of the input field
+                ifFormat    : "<%=Constants.JS_DATE_FORMAT%>",    // the date format
+                button      : "trigger<%=Constants.MILESTONE_DATE%>",      // ID of the button
+                showsTime    : true,
+                singleClick  : false,
+                cache       : true
+            }
             );
 </script>
 
@@ -898,6 +955,35 @@
 </fieldset>
 
 </form>
+
+<fieldset>
+<legend>Add Milestone Prizes</legend>
+    <table cellpadding="0" cellspacing="0" class="input">
+        <tr>
+            <td colspan="2">
+                <span class="bigRed"><tc-webtag:errorIterator id="err" name="${milestonePrizeAmount}">${err}
+                  <br /></tc-webtag:errorIterator></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="field">
+                <div>Number of prizes:</div>
+            </td>
+            <td class="value">
+                <tc-webtag:objectSelect name='${numberMilestonePrizes}' list="${numberMilestonePrizes}" valueField="id" 
+                    textField="description"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="field">
+                <div>Amount:</div>
+            </td>
+            <td class="value">
+                <tc-webtag:textInput name="${milestonePrizeAmount}"/>
+            </td>
+        </tr>
+    </table>
+</fieldset>
 
 
 <p>
