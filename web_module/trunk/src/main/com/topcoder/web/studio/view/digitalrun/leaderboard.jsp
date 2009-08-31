@@ -218,7 +218,7 @@ Please select a <strong>${trackInfo.trackTypeDesc} Track</strong><br />
                 <span class="coderText"><tc-webtag:handle coderId='${boardRow.userId}' context='${context}'/></span></td>
             <td class="c">
                 <c:if test="${boardRow.winTrip}">
-                    <div align="center"><a href="#"><img src="/i/digital_run/trip.gif" alt="" /><span>Trip to the next TCO Finals for placing in the <strong>Top Three</strong></span></a></div>
+                    <div align="center"><a href="#"><img src="/i/digital_run/trip.gif" alt="" /><span>Trip to the next TCO Finals</span></a></div>
                 </c:if>
             </td>
             <td class="c">
