@@ -1,6 +1,6 @@
 <%--
   - Author: pulky
-  - Version: 1.2
+  - Version: 1.3
   - Since: Studio Submission Viewer Upgrade Integration v1.0
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
@@ -9,11 +9,13 @@
   -
   - Version 1.1 (BUGR-1755/1756): removed full preview javascript.
   - Version 1.2 (BUGR-1914): Added prize information.
+  - Version 1.3 (BUGR-2434): Added parameter to hide preview and download link.
   -
   - Required attributes:
   -     * row: the submission information
   -     * showPlacement: whether to show placements or not.
   -     * viewSubmitters: whether to show submitters or not.
+  -     * viewSubmissions: whether to show preview image and download links.
 --%>
 
 <%@ tag import="com.topcoder.web.studio.Constants" %>
@@ -24,6 +26,7 @@
 <%@ attribute name="row" required="true" type="java.lang.Object" %>
 <%@ attribute name="showPlacement" required="true" type="java.lang.Boolean" %>
 <%@ attribute name="viewSubmitters" required="true" type="java.lang.Boolean" %>
+<%@ attribute name="viewSubmissions" required="false" type="java.lang.Boolean" %>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -81,49 +84,51 @@
 
 <%-- Render the preview box --%>
 <div id="sub${row.map["submission_id"]}" class="submission">
-    <div class="previewImg">
-        <c:choose>
-            <c:when test="${multi}">
-                <ul>
-                    <c:forEach begin="1" end="${row.map['gallery_image_count']}" step="1" varStatus="index">
-                        <li>
-                            <a class="viewFullSizeMulti" href="?${modKey}=${module}&amp;ct=${contestId}&amp;sbmid=${row.map['submission_id']}&amp;pn=${pn}&amp;ps=${ps}">
-                                <span class="prevImg${index.index}">
-                                    <img src="${downloadSubmissionBaseUrl}&amp;${subFileIdx}=${index.index}" alt="" />
-                                </span>
-                            </a>
-                        </li>
-                    </c:forEach>
-                </ul>
-            </c:when>
-            <c:otherwise>
-                <a class="viewFullSize" href="?${modKey}=${module}&amp;ct=${contestId}&amp;sbmid=${row.map['submission_id']}&amp;pn=${pn}&amp;ps=${ps}">
-                    <span class="prevImg">
-                        <img src="${previewImageSrc}" alt="" />
+    <c:if test="${empty viewSubmissions || viewSubmissions}">
+        <div class="previewImg">
+            <c:choose>
+                <c:when test="${multi}">
+                    <ul>
+                        <c:forEach begin="1" end="${row.map['gallery_image_count']}" step="1" varStatus="index">
+                            <li>
+                                <a class="viewFullSizeMulti" href="?${modKey}=${module}&amp;ct=${contestId}&amp;sbmid=${row.map['submission_id']}&amp;pn=${pn}&amp;ps=${ps}">
+                                    <span class="prevImg${index.index}">
+                                        <img src="${downloadSubmissionBaseUrl}&amp;${subFileIdx}=${index.index}" alt="" />
+                                    </span>
+                                </a>
+                            </li>
+                        </c:forEach>
+                    </ul>
+                </c:when>
+                <c:otherwise>
+                    <a class="viewFullSize" href="?${modKey}=${module}&amp;ct=${contestId}&amp;sbmid=${row.map['submission_id']}&amp;pn=${pn}&amp;ps=${ps}">
+                        <span class="prevImg">
+                            <img src="${previewImageSrc}" alt="" />
+                        </span>
+                    </a>
+                </c:otherwise>
+            </c:choose>
+        </div>
+        <c:if test="${multi}">
+            <div class="control">
+                <a href="javascript:;" class="btnPrevious">
+                    <span class="hide">
+                        Previous
                     </span>
                 </a>
-            </c:otherwise>
-        </c:choose>
-    </div>
-    <c:if test="${multi}">
-        <div class="control">
-            <a href="javascript:;" class="btnPrevious">
-                <span class="hide">
-                    Previous
+                <a href="javascript:;" class="btnNext">
+                    <span class="hide">
+                        Next
+                    </span>
+                </a>
+                <span>
+                    Image
+                    <span class="curItem">1</span>
+                    of
+                    <span class="totalCount">${row.map["gallery_image_count"]}</span>
                 </span>
-            </a>
-            <a href="javascript:;" class="btnNext">
-                <span class="hide">
-                    Next
-                </span>
-            </a>
-            <span>
-                Image
-                <span class="curItem">1</span>
-                of
-                <span class="totalCount">${row.map["gallery_image_count"]}</span>
-            </span>
-        </div>
+            </div>
+        </c:if>
     </c:if>
     <div class="text">
         <c:if test="${showPlacement}">
@@ -180,18 +185,20 @@
             <fmt:formatDate value="${createDate}" pattern="MM.dd.yyyy 'at' HH:mm z" timeZone="${sessionInfo.timezone}"/>
         </span>
         <br />
-        <c:choose>
-            <c:when test="${multi}">
-                <c:set var="fullSizeClass" value="viewFullSizeMulti"/>
-            </c:when>
-            <c:otherwise>
-                <c:set var="fullSizeClass" value="viewFullSize"/>
-            </c:otherwise>
-        </c:choose>
-        <span>
-            <a class="${fullSizeClass}" href="?${modKey}=${module}&amp;ct=${contestId}&amp;sbmid=${row.map['submission_id']}&amp;pn=${pn}&amp;ps=${ps}">View Full Size</a>
-            &nbsp;|&nbsp;
-            <a href="?${modKey}=DownloadSubmission&amp;${subId}=${row.map["submission_id"]}">Download</a>
-        </span>
+        <c:if test="${not empty viewSubmissions && viewSubmissions}">
+            <c:choose>
+                <c:when test="${multi}">
+                    <c:set var="fullSizeClass" value="viewFullSizeMulti"/>
+                </c:when>
+                <c:otherwise>
+                    <c:set var="fullSizeClass" value="viewFullSize"/>
+                </c:otherwise>
+            </c:choose>
+            <span>
+                <a class="${fullSizeClass}" href="?${modKey}=${module}&amp;ct=${contestId}&amp;sbmid=${row.map['submission_id']}&amp;pn=${pn}&amp;ps=${ps}">View Full Size</a>
+                &nbsp;|&nbsp;
+                <a href="?${modKey}=DownloadSubmission&amp;${subId}=${row.map["submission_id"]}">Download</a>
+            </span>
+        </c:if>
     </div>
 </div>

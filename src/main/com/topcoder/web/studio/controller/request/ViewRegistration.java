@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.studio.controller.request;
 
 import java.util.Date;
@@ -7,17 +10,34 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestStatus;
 
 /**
- * @author dok
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Jul 18, 2006
+ * <p>This class will process a contest registration application request.</p>
+ *
+ * <p>
+ *   Version 1.1 (Configurable Contest Terms-Studio Release Assembly v1.0) Change notes:
+ *   <ol>
+ *     <li>Added new terms of use processing.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky
+ * @version 1.1
  */
 public class ViewRegistration extends ShortHibernateProcessor {
+
+    /**
+     * This method executes the actual business logic for this processor.
+     *
+     * @throws Exception if any error occurs
+     * @see com.topcoder.web.common.LongHibernateProcessor#dbProcessing()
+     */
     protected void dbProcessing() throws Exception {
 
         if (userLoggedIn()) {
@@ -32,6 +52,7 @@ public class ViewRegistration extends ShortHibernateProcessor {
                     throw new NavigationException("Invalid contest specified");
                 }
                 Contest contest = StudioDAOUtil.getFactory().getContestDAO().find(cid);
+                User u = DAOUtil.getFactory().getUserDAO().find(getUser().getId());
 
                 if (ContestStatus.ACTIVE.equals(contest.getStatus().getId())) {
                     Date now = new Date();
@@ -46,8 +67,12 @@ public class ViewRegistration extends ShortHibernateProcessor {
                 }
 
                 if ("on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
-                    getRequest().setAttribute("has_global_ad", PactsServicesLocator.getService().hasGlobalAD(getUser().getId()));
+                    getRequest().setAttribute("has_global_ad", PactsServicesLocator.getService().
+                        hasGlobalAD(getUser().getId()));
                 }
+
+                // process terms of use
+                RegistrationHelper.processTermsOfUse(getRequest(), contest, u, RegistrationHelper.REGISTRANT_ROLE_IDS);
 
                 setNextPage("/contestReg.jsp");
                 setIsNextPageInContext(true);
@@ -55,6 +80,5 @@ public class ViewRegistration extends ShortHibernateProcessor {
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
-
     }
 }
