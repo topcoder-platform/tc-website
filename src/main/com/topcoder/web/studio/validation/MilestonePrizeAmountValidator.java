@@ -3,7 +3,7 @@
  */
 package com.topcoder.web.studio.validation;
 
-import com.topcoder.web.common.validation.FloatValidator;
+import com.topcoder.web.common.validation.BasicResult;
 import com.topcoder.web.common.validation.ValidationInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.common.validation.Validator;
@@ -40,9 +40,15 @@ public class MilestonePrizeAmountValidator implements Validator {
      * @param input a <code>ValidationInput</code> to validate
      * @return an <code>ValidationResult</code> with the corresponding validation result
      * 
+     * @throws IllegalArgumentException if the specified input is an invalid object
      * @see com.topcoder.web.common.validation.Validator#validate(com.topcoder.web.common.validation.ValidationInput)
      */
     public ValidationResult validate(ValidationInput input) {
+        // verify parameter
+        if (input == null || input.getInput() == null) {
+            throw new IllegalArgumentException("Invalid input specified");
+        }
+        
         // if the number of milestone prizes is null, no need to continue validation
         if (numberMilestonePrizes == null) {
             return ValidationResult.SUCCESS;
@@ -53,7 +59,18 @@ public class MilestonePrizeAmountValidator implements Validator {
             return ValidationResult.SUCCESS;            
         }
 
-        // validate amount is a valid float
-        return new FloatValidator("Please enter a valid milestone prize amount for this contest.").validate(input);
+        // validate amount is a valid positive float
+        String num = (String) input.getInput();
+        try {
+            Float floatNum = Float.parseFloat(num);
+            
+            if (floatNum > 0) {
+                return ValidationResult.SUCCESS;
+            } else {
+                return new BasicResult(false, "Please enter a positive milestone prize amount for this contest.");
+            }
+        } catch (NumberFormatException e) {
+            return new BasicResult(false, "Please enter a valid milestone prize amount for this contest.");
+        }
     }
 }
