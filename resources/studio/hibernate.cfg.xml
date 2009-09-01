@@ -1,4 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
+<!--
+  - Author: pulky
+  - Version: 1.1
+  - Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: Studio Hibernate configuration file
+  -
+  - Version 1.1 (Configurable Contest Terms-Studio Release Assembly v1.0) changes: Added ResourceRole, PhaseType
+  - and ContestRoleTermsOfUse mappings.
+-->
 <!DOCTYPE hibernate-configuration PUBLIC
         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
@@ -99,9 +109,11 @@
 
         <mapping resource="com/topcoder/web/common/model/comp/Contest.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/ContestPrize.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/comp/PhaseType.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/Project.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/ProjectInfo.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/ProjectPhase.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/comp/ResourceRole.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/Submission.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/UserContestPrize.hbm.xml"/>
 
@@ -111,6 +123,7 @@
         <mapping resource="com/topcoder/web/studio/model/ContestProperty.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ContestRegistration.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ContestResult.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/model/ContestRoleTermsOfUse.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ContestStatus.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ContestType.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/Document.hbm.xml"/>
