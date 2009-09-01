@@ -268,7 +268,8 @@ public class EditContest extends Base {
             // populate multi round specific attributes
             String contestFormat = request.getParameter(Constants.CONTEST_FORMAT);
             if (contestFormat != null && contestFormat.equals(ViewContest.MULTI_ROUND)) {
-                ContestMilestonePrize milestonePrize = new ContestMilestonePrize();
+                ContestMilestonePrize milestonePrize = 
+                    contest.getMilestonePrize() != null ? contest.getMilestonePrize() : new ContestMilestonePrize();
                 milestonePrize.setAmount(new Float(request.getParameter(Constants.MILESTONE_PRIZE_AMOUNT)));
                 milestonePrize.setCreateDate(new Timestamp(new Date().getTime()));
                 milestonePrize.setNumberOfSubmissions(
@@ -277,9 +278,14 @@ public class EditContest extends Base {
                 prizeType.setId(PrizeType.MILESTONE);
                 milestonePrize.setType(prizeType);
                 
-                StudioDAOUtil.getFactory().getContestMilestonePrizeDAO().saveOrUpdate(milestonePrize);
+                if (milestonePrize.getId() == null) {
+                    StudioDAOUtil.getFactory().getContestMilestonePrizeDAO().saveOrUpdate(milestonePrize);
+                    contest.setMilestonePrize(milestonePrize);
+                }
                 
-                ContestMultiRoundInformation multiRoundInformation = new ContestMultiRoundInformation();
+                ContestMultiRoundInformation multiRoundInformation = 
+                    contest.getMultiRoundInformation() != null ? contest.getMultiRoundInformation() : 
+                        new ContestMultiRoundInformation();
                 multiRoundInformation.setMilestoneDate(
                     new Timestamp(sdf.parse(request.getParameter(Constants.MILESTONE_DATE)).getTime()));
                 multiRoundInformation.setRoundOneIntroduction(
@@ -287,11 +293,12 @@ public class EditContest extends Base {
                 multiRoundInformation.setRoundTwoIntroduction(
                     request.getParameter(Constants.CONTEST_ROUND_TWO_SPECIFICS));
                 
-                StudioDAOUtil.getFactory().getContestMultiRoundInformationDAO().saveOrUpdate(multiRoundInformation);
+                if (multiRoundInformation.getId() == null) {
+                    StudioDAOUtil.getFactory().getContestMultiRoundInformationDAO().saveOrUpdate(multiRoundInformation);
+                    contest.setMultiRoundInformation(multiRoundInformation);
+                }
 
                 contest.setMultiRound(Boolean.TRUE);
-                contest.setMilestonePrize(milestonePrize);
-                contest.setMultiRoundInformation(multiRoundInformation);
             } else {
                 contest.setMultiRound(Boolean.FALSE);
             }
