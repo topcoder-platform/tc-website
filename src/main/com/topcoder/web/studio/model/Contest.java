@@ -179,19 +179,23 @@ public class Contest extends Base {
     }
 
     /**
-     * Gets the contest's total prize purse. It will sum all regular prizes and the milestone prize if it exists
+     * Gets the contest's total prize purse. It will sum all regular and milestone prizes
      *
      * @return the contest's total prize purse
+     * 
+     * @since 1.1
      */
     public Float getTotalPrizePurse() {
         float total = 0;
-        
+       
+        // add all regular prizes
         for (Prize p : prizes) {
             if (p.getAmount() != null) {
                 total += p.getAmount();
             }
         }
         
+        // add milestone prizes
         if (milestonePrize != null && milestonePrize.getAmount() != null && 
             milestonePrize.getNumberOfSubmissions() != null) {
             total += milestonePrize.getAmount() * milestonePrize.getNumberOfSubmissions();

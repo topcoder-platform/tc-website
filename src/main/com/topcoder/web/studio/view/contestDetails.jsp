@@ -427,7 +427,7 @@
     <c:if test="${isMultiRound and not empty contest.multiRoundInformation
         and not empty contest.milestonePrize and not empty contest.multiRoundInformation.roundOneIntroduction
         and not empty contest.multiRoundInformation.roundTwoIntroduction}">
-        <p><font color="#336699"><b>Studio Tournament Format</b></font><br/>
+        <p class="subSection">Studio Tournament Format<br/>
         This Studio competition will be run as a two-round tournament with a total prize purse of 
         <fmt:formatNumber value="${contest.totalPrizePurse}" pattern="$###,###.00"/></p> 
         <p>
