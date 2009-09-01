@@ -25,9 +25,20 @@ import com.topcoder.web.studio.dao.SubmissionStatusDAO;
 import com.topcoder.web.studio.dao.SubmissionTypeDAO;
 
 /**
- * @author dok, isv
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Jul 17, 2006
+ * <p>Hibernate implementation for the DAO Factory.</p>
+ *
+ * <p>
+ *   Version 1.1 (Studio Multi-Rounds Assembly - Studio Contest Details v1.0) Change notes:
+ *   <ol>
+ *       Added method to get Contest Milestone Prize DAO
+ *   </ol>
+ *   <ol>
+ *       Added method to get Contest Multi Round Information DAO
+ *   </ol>
+ * </p>
+ *
+ * @author dok, isv, TCSDEVELOPER
+ * @version 1.1
  */
 public class StudioDAOFactoryHibernate implements StudioDAOFactory {
     public ContestDAO getContestDAO() {
@@ -118,28 +129,28 @@ public class StudioDAOFactoryHibernate implements StudioDAOFactory {
     public MediumDAO getMediumDAO() {
         return new MediumDAOHibernate();
     }
-    
+
     /**
      * <p>Gets the DAO to be used for accessing/managing contest milestone prize.</p>
      *
-     * @return a <code>ContestMilestonePrizeDAO</code> to be used for accessing/managing contest milestone prize 
+     * @return a <code>ContestMilestonePrizeDAO</code> to be used for accessing/managing contest milestone prize
      * in underlying persistent data store.
      * @since 1.1
      */
     public ContestMilestonePrizeDAO getContestMilestonePrizeDAO() {
         return new ContestMilestonePrizeDAOHibernate();
     }
-    
+
     /**
      * <p>Gets the DAO to be used for accessing/managing contest multi round information.</p>
      *
-     * @return a <code>ContestMultiRoundInformationDAO</code> to be used for accessing/managing contest multi round 
+     * @return a <code>ContestMultiRoundInformationDAO</code> to be used for accessing/managing contest multi round
      * information in underlying persistent data store.
      * @since 1.1
      */
     public ContestMultiRoundInformationDAO getContestMultiRoundInformationDAO() {
         return new ContestMultiRoundInformationDAOHibernate();
     }
-    
+
 
 }

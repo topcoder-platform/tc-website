@@ -33,10 +33,10 @@ public class PrizeType extends Base {
 
     public static final Integer CONTEST = 1;
     public static final Integer BONUS = 2;
-    
+
     /**
      * Constant to store milestone prize type
-     * 
+     *
      * @since 1.1
      */
     public static final Integer MILESTONE = 3;

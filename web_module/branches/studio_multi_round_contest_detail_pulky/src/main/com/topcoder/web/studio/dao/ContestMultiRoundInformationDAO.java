@@ -7,7 +7,7 @@ import com.topcoder.web.common.dao.GenericDAO;
 import com.topcoder.web.studio.model.ContestMultiRoundInformation;
 
 /**
- * <p>An interface for the <code>DAO</code> to be used for accessing/managing the data for existing Contest 
+ * <p>An interface for the <code>DAO</code> to be used for accessing/managing the data for existing Contest
  * Multi Round information in persistent data store.</p>
  *
  * @author TCSDEVELOPER

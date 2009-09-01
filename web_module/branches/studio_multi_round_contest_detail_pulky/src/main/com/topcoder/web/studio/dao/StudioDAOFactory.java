@@ -48,7 +48,7 @@ public interface StudioDAOFactory {
     MimeTypeDAO getMimeTypeDAO();
 
     SubmissionStatusDAO getSubmissionStatusDAO();
-    
+
     /**
      * <p>Gets the DAO to be used for accessing/managing studio contest types.</p>
      *
@@ -79,19 +79,19 @@ public interface StudioDAOFactory {
     /**
      * <p>Gets the DAO to be used for accessing/managing contest milestone prize.</p>
      *
-     * @return a <code>ContestMilestonePrizeDAO</code> to be used for accessing/managing contest milestone prize 
+     * @return a <code>ContestMilestonePrizeDAO</code> to be used for accessing/managing contest milestone prize
      * in underlying persistent data store.
      * @since 1.1
      */
     ContestMilestonePrizeDAO getContestMilestonePrizeDAO();
-    
+
     /**
      * <p>Gets the DAO to be used for accessing/managing contest multi round information.</p>
      *
-     * @return a <code>ContestMultiRoundInformationDAO</code> to be used for accessing/managing contest multi round 
+     * @return a <code>ContestMultiRoundInformationDAO</code> to be used for accessing/managing contest multi round
      * information in underlying persistent data store.
      * @since 1.1
      */
     ContestMultiRoundInformationDAO getContestMultiRoundInformationDAO();
-    
+
 }

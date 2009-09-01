@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.studio.model;
 
 import java.sql.Timestamp;
@@ -28,7 +31,7 @@ public class ContestMultiRoundInformation extends Base {
      * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
     private static final long serialVersionUID = 1L;
-    
+
     /**
      * The Contest Multi Round Information id.
      */
@@ -53,7 +56,7 @@ public class ContestMultiRoundInformation extends Base {
      * The Contest's round two information
      */
     private String roundTwoIntroduction;
-    
+
     /**
      * Gets the identifier
      *
@@ -153,7 +156,7 @@ public class ContestMultiRoundInformation extends Base {
     public void setRoundTwoIntroduction(String roundTwoIntroduction) {
         this.roundTwoIntroduction = roundTwoIntroduction;
     }
-    
+
     /**
      * Equals implementation for this class.
      *

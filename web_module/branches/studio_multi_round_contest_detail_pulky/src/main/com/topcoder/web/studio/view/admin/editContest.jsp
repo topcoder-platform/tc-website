@@ -5,12 +5,12 @@
   -
   - Description: This page presents new/edit contest page for Studio administrators
   -
-  - Version 1.1 (Studio Multi-Rounds Assembly - Studio Contest Details v1.0) changes: 
+  - Version 1.1 (Studio Multi-Rounds Assembly - Studio Contest Details v1.0) changes:
   - The following fields were added:
   -     - Radio buttons to select contest format "single-round" or "multi-round"
   -     - Round One Specifics
   -     - Round Two Specifics
-  -     - Milestone's number of prizes and amount 
+  -     - Milestone's number of prizes and amount
   -     - Milestone date
 --%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
@@ -56,43 +56,43 @@
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>TopCoder Studio : Edit Contests</title>
-    
+
     <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
-    
+
     <script src="/js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"></script>
     <script src="/js/NewStyleHeaderFooter/preloadCssImages.jQuery_v5.js" language="javascript"></script>
     <script type="text/javascript">
-			$(document).ready(function(){
-				//Run the script to preload images from CSS
-				$.preloadCssImages(); 
-			});
-	</script>
-	<script src="/js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
-	<script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
-	<%-- Turn off in Admin  
-	<script type="text/javascript" language="javascript">
+            $(document).ready(function(){
+                //Run the script to preload images from CSS
+                $.preloadCssImages();
+            });
+    </script>
+    <script src="/js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
+    <script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
+    <%-- Turn off in Admin
+    <script type="text/javascript" language="javascript">
 
-	$(document).ready(function(){
-	
-	
-		$("#nav ul li").hoverIntent(function(){
-			$(this).children("ul").slideDown("fast");
-		}, function() {
-			$(this).children("ul").slideUp("fast");
-		});
-		
-		$("#nav ul ul li").hover(function() {
-			$(this).parents("#nav ul li").children('a').addClass("active-item");
-		}, function() {
-			$(this).parents("#nav ul li").children('a').removeClass("active-item");
-		});
-	
-	
-	});
-	</script>
-	--%>
+    $(document).ready(function(){
+
+
+        $("#nav ul li").hoverIntent(function(){
+            $(this).children("ul").slideDown("fast");
+        }, function() {
+            $(this).children("ul").slideUp("fast");
+        });
+
+        $("#nav ul ul li").hover(function() {
+            $(this).parents("#nav ul li").children('a').addClass("active-item");
+        }, function() {
+            $(this).parents("#nav ul li").children('a').removeClass("active-item");
+        });
+
+
+    });
+    </script>
+    --%>
     <link type="text/css" rel="stylesheet" href="/js/jscal/skins/aqua/theme.css" />
     <script type="text/javascript" src="/js/jscal/calendar.js"></script>
     <script type="text/javascript" src="/js/jscal/lang/calendar-en.js"></script>
@@ -117,15 +117,15 @@
                                      "Stock art, clip art, templates and other design elements from other sources are " +
                                      " prohibited unless specifically permitted here in the Contest Details.</b></p>"
         defaults['${prizeDesc}'] ="The payment will be distributed in one full installment once the final version of the " +
-                    "winning submission has been downloaded by the client. If final fixes were required and not completed" + 
-					" on time, the member's payment may be reduced. " + 
-					"Any and all applicable taxes on prizes are the sole responsibility of the prizewinner(s)." ;
+                    "winning submission has been downloaded by the client. If final fixes were required and not completed" +
+                    " on time, the member's payment may be reduced. " +
+                    "Any and all applicable taxes on prizes are the sole responsibility of the prizewinner(s)." ;
         defaults['${winnerSelection}'] = "Submissions go through an initial screening process during the submission phase. " +
                                          "Passing submissions are then presented to the client. Winners are selected by the " +
                                          "client and are chosen solely at the Client's discretion." +
-										 " If a winning member has not met all of the requirements listed on the Contest Details page," +
-										 " the winner may be contacted with a clear list of final fixes. If the member does" +
-										 " not complete the final fixes within 72 hours, their payment may be reduced." ;
+                                         " If a winning member has not met all of the requirements listed on the Contest Details page," +
+                                         " the winner may be contacted with a clear list of final fixes. If the member does" +
+                                         " not complete the final fixes within 72 hours, their payment may be reduced." ;
         defaults['${eligibility}'] = "You must be a TopCoder Studio member, at least 18 years of age, meeting all of the " +
                                      " membership requirements. In addition, you must fit into one of the following categories. " +
                                    " If you reside in the United States, you must be either: " +
@@ -203,13 +203,13 @@
 </head>
 
 <body>
-	<div id="page-wrap">
-    	<div align="center">
-			<jsp:include page="../top.jsp"/>
+    <div id="page-wrap">
+        <div align="center">
+            <jsp:include page="../top.jsp"/>
         <br />
         <!-- container -->
         <div id="container">
-        	<div id="wrapper">
+            <div id="wrapper">
             <!-- content -->
             <div id="content">
                 <div class="contentTop">
@@ -690,7 +690,7 @@
                 <div>Number of prizes:</div>
             </td>
             <td class="value">
-                <tc-webtag:stringSelect name="${NUMBER_MILESTONE_PRIZES}" useTopValue="false" 
+                <tc-webtag:stringSelect name="${NUMBER_MILESTONE_PRIZES}" useTopValue="false"
                     list="${NUMBER_MILESTONE_PRIZES_OPTIONS}"/>
             </td>
         </tr>
@@ -834,7 +834,7 @@
     <c:set value="<%=Constants.DOCUMENT%>" var="doc"/>
     <c:set value="<%=Constants.DOCUMENT_TYPE_ID%>" var="docType"/>
     <c:set value="<%=Constants.DOC_DESC%>" var="docDesc"/>
-    
+
 
 <h2>Documentation</h2>
 
@@ -1036,7 +1036,7 @@
 
 
                         <br clear="all"/>
-                    </div>                
+                    </div>
                     <div class="contentBottom"></div>
                 </div>
             </div>

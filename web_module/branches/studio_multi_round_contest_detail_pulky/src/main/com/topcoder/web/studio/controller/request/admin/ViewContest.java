@@ -33,24 +33,24 @@ public class ViewContest extends Base {
     /**
      * <p>A <code>List<Integer></code> providing a list with all the options for the number of milestone prizes.</p>
      *
-     * @since 1.1 
+     * @since 1.1
      */
     public static final List<Integer> NUMBER_MILESTONE_PRIZES_OPTIONS = Arrays.asList(0, 1, 2, 3, 4, 5);
 
     /**
      * <p>A <code>String</code> providing the value of the single round option for the radiobutton selection.</p>
      *
-     * @since 1.1 
+     * @since 1.1
      */
     public static final String SINGLE_ROUND = "sr";
-    
+
     /**
      * <p>A <code>String</code> providing the value of the single round option for the radiobutton selection.</p>
      *
-     * @since 1.1 
+     * @since 1.1
      */
     public static final String MULTI_ROUND = "mr";
-    
+
     protected void dbProcessing() throws Exception {
         String contestId = getRequest().getParameter(Constants.CONTEST_ID);
 
