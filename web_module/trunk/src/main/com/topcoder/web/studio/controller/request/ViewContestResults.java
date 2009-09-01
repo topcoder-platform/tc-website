@@ -44,8 +44,15 @@ import java.util.Date;
  *   </ol>
  * </p>
  *
+ * <p>
+ *   Version 1.4 (BUGR-2434) Change notes:
+ *   <ol>
+ *     <li>Change result page for the case when submissions are not viewable.</li>
+ *   </ol>
+ * </p>
+ *
  * @author dok, pulky
- * @version 1.3
+ * @version 1.4
  */
 public class ViewContestResults extends ShortHibernateProcessor {
     protected void dbProcessing() throws Exception {
@@ -79,21 +86,29 @@ public class ViewContestResults extends ShortHibernateProcessor {
                 }
             }
 
-            // added for BUGR-2096 - Fix the Winners Page on Studio when "show submissions" flag is set to "no"
-            if (!String.valueOf(true).equals(contest.getViewableSubmissions().getValue())) {
-                throw new NavigationException("Submissions are not available for this contest");
-            }
-
-
-            // added after BUGR-1915: process all submissions information to show on the page
-            processSubmissionsSection(contest);
-            
             Long submissionId = 0l;
             try {
                 submissionId = new Long(getRequest().getParameter(Constants.SUBMISSION_ID));
             } catch (NumberFormatException e) {
                 // if the submission id is invalid, just ignore it.
             }
+
+            // added for BUGR-2096 - Fix the Winners Page on Studio when "show submissions" flag is set to "no"
+            if (!String.valueOf(true).equals(contest.getViewableSubmissions().getValue())) {
+                // BUGR-2434: avoid throwing for the full results page and set a flag in the request instead
+                if (submissionId > 0) {
+                    // the full size preview will still throw exception since this url is not accessible via 
+                    // the application. Users should fake the url to get here.
+                    throw new NavigationException("Submissions are not available for this contest");   
+                }
+
+                getRequest().setAttribute("viewableSubmissions", Boolean.FALSE);
+            } else {
+                getRequest().setAttribute("viewableSubmissions", Boolean.TRUE);                
+            }
+
+            // added after BUGR-1915: process all submissions information to show on the page
+            processSubmissionsSection(contest);
 
             if (submissionId > 0) {
                 getRequest().setAttribute(Constants.SUBMISSION_ID, submissionId);
