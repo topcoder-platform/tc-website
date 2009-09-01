@@ -23,6 +23,6 @@
         <property name="milestoneDate" column="milestone_date"/>
         <property name="submittersLockedBetweenRounds" column="submitters_locked_between_rounds"/>
         <property name="roundOneIntroduction" column="round_one_introduction"/>
-        <property name="roundTwoIntroduction" column="round_two_introduction"/>        
+        <property name="roundTwoIntroduction" column="round_two_introduction"/>
     </class>
 </hibernate-mapping>

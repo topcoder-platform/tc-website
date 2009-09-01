@@ -64,8 +64,8 @@ public abstract class Base extends ShortHibernateProcessor {
 
 
     /**
-     * This method loads all the general data required to present the contest edition page  
-     * 
+     * This method loads all the general data required to present the contest edition page
+     *
      * @param contest the contest being edited
      * @throws Exception if any error occurs
      */
@@ -75,7 +75,7 @@ public abstract class Base extends ShortHibernateProcessor {
         getRequest().setAttribute("fileTypes", StudioDAOUtil.getFactory().getFileTypeDAO().getFileTypes());
 
         getRequest().setAttribute("forums", getForumList());
-		// 2/10/2009 - changed event type from studio to generic tournament id
+        // 2/10/2009 - changed event type from studio to generic tournament id
         getRequest().setAttribute("events", DAOUtil.getFactory().getEventDAO().getEvents(EventType.TOURNAMENT_ID));
 
         ArrayList<ListSelectTag.Option> viewSubmissionAnswers = new ArrayList<ListSelectTag.Option>();
@@ -121,8 +121,8 @@ public abstract class Base extends ShortHibernateProcessor {
     }
 
     /**
-     * This method loads all the data required to present the contest edition page for an existing contest  
-     * 
+     * This method loads all the data required to present the contest edition page for an existing contest
+     *
      * @param contest the contest being edited
      * @throws Exception if any error occurs
      */
@@ -189,7 +189,7 @@ public abstract class Base extends ShortHibernateProcessor {
         // set defaults for all new multi-round contest format
         if (contest.getMultiRound() != null && contest.getMultiRound()) {
             setDefault(Constants.CONTEST_FORMAT, ViewContest.MULTI_ROUND);
-            
+
             ContestMultiRoundInformation multiRoundInfo = contest.getMultiRoundInformation();
             if (multiRoundInfo != null) {
                 if (multiRoundInfo.getMilestoneDate() != null) {

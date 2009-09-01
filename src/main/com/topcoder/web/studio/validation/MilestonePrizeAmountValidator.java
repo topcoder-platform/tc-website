@@ -11,7 +11,7 @@ import com.topcoder.web.common.validation.Validator;
 /**
  * <p>This class will validate the contest's milestone prize amount.</p>
  *
- * <p>It will basically validate the amount is not empty and positive if the number of milestone prizes is greater 
+ * <p>It will basically validate the amount is not empty and positive if the number of milestone prizes is greater
  *    than zero and that the formatting is correct.</p>
  *
  * @author TCSDEVELOPER
@@ -27,7 +27,7 @@ public class MilestonePrizeAmountValidator implements Validator {
 
     /**
      * Constructor using fields
-     * 
+     *
      * @param numberMilestonePrizes the number of milestone prizes
      */
     public MilestonePrizeAmountValidator(String numberMilestonePrizes) {
@@ -36,10 +36,10 @@ public class MilestonePrizeAmountValidator implements Validator {
 
     /**
      * This method will validate the input according to the defined business rules
-     * 
+     *
      * @param input a <code>ValidationInput</code> to validate
      * @return an <code>ValidationResult</code> with the corresponding validation result
-     * 
+     *
      * @throws IllegalArgumentException if the specified input is an invalid object
      * @see com.topcoder.web.common.validation.Validator#validate(com.topcoder.web.common.validation.ValidationInput)
      */
@@ -48,7 +48,7 @@ public class MilestonePrizeAmountValidator implements Validator {
         if (input == null || input.getInput() == null) {
             throw new IllegalArgumentException("Invalid input specified");
         }
-        
+
         // if the number of milestone prizes is null, no need to continue validation
         if (numberMilestonePrizes == null) {
             return ValidationResult.SUCCESS;
@@ -56,14 +56,14 @@ public class MilestonePrizeAmountValidator implements Validator {
         numberMilestonePrizes = numberMilestonePrizes.trim();
         // if the number of milestone prizes is empty or zero, no need to continue validation
         if (numberMilestonePrizes.equals("") || numberMilestonePrizes.equals("0")) {
-            return ValidationResult.SUCCESS;            
+            return ValidationResult.SUCCESS;
         }
 
         // validate amount is a valid positive float
         String num = (String) input.getInput();
         try {
             Float floatNum = Float.parseFloat(num);
-            
+
             if (floatNum > 0) {
                 return ValidationResult.SUCCESS;
             } else {

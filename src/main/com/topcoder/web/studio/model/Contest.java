@@ -41,7 +41,7 @@ public class Contest extends Base {
      * @since 1.1
      */
     private static final long serialVersionUID = 1L;
-    
+
     private Long id;
     private String name;
     private Timestamp startTime;
@@ -182,29 +182,29 @@ public class Contest extends Base {
      * Gets the contest's total prize purse. It will sum all regular and milestone prizes
      *
      * @return the contest's total prize purse
-     * 
+     *
      * @since 1.1
      */
     public Float getTotalPrizePurse() {
         float total = 0;
-       
+
         // add all regular prizes
         for (Prize p : prizes) {
             if (p.getAmount() != null) {
                 total += p.getAmount();
             }
         }
-        
+
         // add milestone prizes
-        if (milestonePrize != null && milestonePrize.getAmount() != null && 
+        if (milestonePrize != null && milestonePrize.getAmount() != null &&
             milestonePrize.getNumberOfSubmissions() != null) {
             total += milestonePrize.getAmount() * milestonePrize.getNumberOfSubmissions();
         }
-        
+
         return total;
     }
 
-    
+
     public void addConfig(ContestConfig config) {
         config.setContest(this);
         this.config.add(config);

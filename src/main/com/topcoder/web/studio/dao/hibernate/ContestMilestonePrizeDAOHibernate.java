@@ -8,13 +8,13 @@ import com.topcoder.web.studio.dao.ContestMilestonePrizeDAO;
 import com.topcoder.web.studio.model.ContestMilestonePrize;
 
 /**
- * <p>This class implements the hibernate DAO to be used for accessing/managing the data for existing contest 
+ * <p>This class implements the hibernate DAO to be used for accessing/managing the data for existing contest
  * Milestone Prize in persistent data store.</p>
  *
  * @author TCSDEVELOPER
  * @version 1.0
  * @since Studio Multi-Rounds Assembly - Studio Contest Details v1.0
  */
-public class ContestMilestonePrizeDAOHibernate extends GenericBase<ContestMilestonePrize, Long> 
+public class ContestMilestonePrizeDAOHibernate extends GenericBase<ContestMilestonePrize, Long>
     implements ContestMilestonePrizeDAO {
 }

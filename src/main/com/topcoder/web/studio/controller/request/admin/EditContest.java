@@ -183,13 +183,13 @@ public class EditContest extends Base {
 
             setDefault(Constants.CONTEST_FORMAT, request.getParameter(Constants.CONTEST_FORMAT));
             setDefault(Constants.MILESTONE_DATE, request.getParameter(Constants.MILESTONE_DATE));
-            setDefault(Constants.CONTEST_ROUND_ONE_SPECIFICS, 
+            setDefault(Constants.CONTEST_ROUND_ONE_SPECIFICS,
                 request.getParameter(Constants.CONTEST_ROUND_ONE_SPECIFICS));
-            setDefault(Constants.CONTEST_ROUND_TWO_SPECIFICS, 
+            setDefault(Constants.CONTEST_ROUND_TWO_SPECIFICS,
                 request.getParameter(Constants.CONTEST_ROUND_TWO_SPECIFICS));
             setDefault(Constants.MILESTONE_PRIZE_AMOUNT, request.getParameter(Constants.MILESTONE_PRIZE_AMOUNT));
             setDefault(Constants.NUMBER_MILESTONE_PRIZES, request.getParameter(Constants.NUMBER_MILESTONE_PRIZES));
-            
+
             setNextPage("/admin/editContest.jsp");
             setIsNextPageInContext(true);
         } else {
@@ -268,10 +268,10 @@ public class EditContest extends Base {
             // populate multi round specific attributes
             String contestFormat = request.getParameter(Constants.CONTEST_FORMAT);
             if (contestFormat != null && contestFormat.equals(ViewContest.MULTI_ROUND)) {
-                ContestMilestonePrize milestonePrize = 
+                ContestMilestonePrize milestonePrize =
                     contest.getMilestonePrize() != null ? contest.getMilestonePrize() : new ContestMilestonePrize();
-                
-                String numberMilestonePrizes = 
+
+                String numberMilestonePrizes =
                     StringUtils.checkNull(request.getParameter(Constants.NUMBER_MILESTONE_PRIZES)).trim();
                 if (numberMilestonePrizes.equals("") || numberMilestonePrizes.equals("0")) {
                     milestonePrize.setNumberOfSubmissions(0);
@@ -287,14 +287,14 @@ public class EditContest extends Base {
                 PrizeType prizeType = new PrizeType();
                 prizeType.setId(PrizeType.MILESTONE);
                 milestonePrize.setType(prizeType);
-                
+
                 if (milestonePrize.getId() == null) {
                     StudioDAOUtil.getFactory().getContestMilestonePrizeDAO().saveOrUpdate(milestonePrize);
                     contest.setMilestonePrize(milestonePrize);
                 }
-                
-                ContestMultiRoundInformation multiRoundInformation = 
-                    contest.getMultiRoundInformation() != null ? contest.getMultiRoundInformation() : 
+
+                ContestMultiRoundInformation multiRoundInformation =
+                    contest.getMultiRoundInformation() != null ? contest.getMultiRoundInformation() :
                         new ContestMultiRoundInformation();
                 multiRoundInformation.setMilestoneDate(
                     new Timestamp(sdf.parse(request.getParameter(Constants.MILESTONE_DATE)).getTime()));
@@ -302,7 +302,7 @@ public class EditContest extends Base {
                     request.getParameter(Constants.CONTEST_ROUND_ONE_SPECIFICS));
                 multiRoundInformation.setRoundTwoIntroduction(
                     request.getParameter(Constants.CONTEST_ROUND_TWO_SPECIFICS));
-                
+
                 if (multiRoundInformation.getId() == null) {
                     StudioDAOUtil.getFactory().getContestMultiRoundInformationDAO().saveOrUpdate(multiRoundInformation);
                     contest.setMultiRoundInformation(multiRoundInformation);
@@ -312,7 +312,7 @@ public class EditContest extends Base {
             } else {
                 contest.setMultiRound(Boolean.FALSE);
             }
-            
+
             StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
 
             if (log.isDebugEnabled()) {
@@ -334,7 +334,7 @@ public class EditContest extends Base {
 
     /**
      * Private helper method to validate contest input
-     * 
+     *
      * @throws Exception if any error occurs
      */
     private void inputValidation() throws Exception {
@@ -373,7 +373,7 @@ public class EditContest extends Base {
         if (!nameResult.isValid()) {
             addError(Constants.CONTEST_NAME, nameResult.getMessage());
         }
-        
+
         if (!startTimeResult.isValid()) {
             addError(Constants.START_TIME, startTimeResult.getMessage());
         }
@@ -553,16 +553,16 @@ public class EditContest extends Base {
             addError(Constants.CONTEST_PROPERTY + ContestProperty.REQUIRE_PREVIEW_FILE,
                      requirePreviewFileResult.getMessage());
         }
-        
-        // validation for multi round contests 
+
+        // validation for multi round contests
         String contestFormat = request.getParameter(Constants.CONTEST_FORMAT);
         if (contestFormat != null && contestFormat.equals(ViewContest.MULTI_ROUND)) {
             // validate milestone date only if start and end time are already ok
             if (startTimeResult.isValid() && endTimeResult.isValid()) {
                 String milestoneDate = request.getParameter(Constants.MILESTONE_DATE);
-                ValidationResult milestoneDateResult = 
+                ValidationResult milestoneDateResult =
                     new MilestoneDateValidator(startTime, endTime).validate(new StringInput(milestoneDate));
-    
+
                 if (!milestoneDateResult.isValid()) {
                     addError(Constants.MILESTONE_DATE, milestoneDateResult.getMessage());
                 }
@@ -570,16 +570,16 @@ public class EditContest extends Base {
 
             // validate round one specifics
             String contestRoundOneSpecifics = request.getParameter(Constants.CONTEST_ROUND_ONE_SPECIFICS);
-            ValidationResult contestRoundOneSpecificsResult = 
+            ValidationResult contestRoundOneSpecificsResult =
                 new ContestRoundOneSpecificsValidator().validate(new StringInput(contestRoundOneSpecifics));
 
             if (!contestRoundOneSpecificsResult.isValid()) {
                 addError(Constants.CONTEST_ROUND_ONE_SPECIFICS, contestRoundOneSpecificsResult.getMessage());
             }
-        
+
             // validate round two specifics
             String contestRoundTwoSpecifics = request.getParameter(Constants.CONTEST_ROUND_TWO_SPECIFICS);
-            ValidationResult contestRoundTwoSpecificsResult = 
+            ValidationResult contestRoundTwoSpecificsResult =
                 new ContestRoundTwoSpecificsValidator().validate(new StringInput(contestRoundTwoSpecifics));
 
             if (!contestRoundTwoSpecificsResult.isValid()) {
@@ -589,7 +589,7 @@ public class EditContest extends Base {
             // validate milestone prize
             String milestonePrizeAmount = request.getParameter(Constants.MILESTONE_PRIZE_AMOUNT);
             String numberMilestonePrizes = request.getParameter(Constants.NUMBER_MILESTONE_PRIZES);
-            ValidationResult milestonePrizeAmountResult = 
+            ValidationResult milestonePrizeAmountResult =
                 new MilestonePrizeAmountValidator(numberMilestonePrizes).validate(
                     new StringInput(milestonePrizeAmount));
 
@@ -602,7 +602,7 @@ public class EditContest extends Base {
     /**
      * <p>Gets the IDs of selected medium types based on the parameters of the current request.</p>
      *
-     * @return a <code>List</code> listing the IDs of selected medium types. 
+     * @return a <code>List</code> listing the IDs of selected medium types.
      * @since TopCoder Studio Modifications v2 Assembly (Req# 5.1.5)
      */
     private List<String> getSelectedMediums() {

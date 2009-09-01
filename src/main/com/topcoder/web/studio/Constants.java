@@ -458,45 +458,45 @@ public class Constants implements WebConstants {
      * <p>A <code>String</code> providing the name of request parameter to specify the milestone date for a multi
      * round contest.</p>
      *
-     * @since 1.2 
+     * @since 1.2
      */
     public static final String MILESTONE_DATE = "md";
 
     /**
      * <p>A <code>String</code> providing the name of request parameter to specify the contest round type.</p>
      *
-     * @since 1.2 
+     * @since 1.2
      */
     public static final String CONTEST_FORMAT = "cf";
 
     /**
      * <p>A <code>String</code> providing the name of request parameter to specify the round one specifics.</p>
      *
-     * @since 1.2 
+     * @since 1.2
      */
     public static final String CONTEST_ROUND_ONE_SPECIFICS = "cros";
 
     /**
      * <p>A <code>String</code> providing the name of request parameter to specify the round two specifics.</p>
      *
-     * @since 1.2 
+     * @since 1.2
      */
     public static final String CONTEST_ROUND_TWO_SPECIFICS = "crts";
 
     /**
      * <p>A <code>String</code> providing the name of request parameter to specify the milestone prize amount.</p>
      *
-     * @since 1.2 
+     * @since 1.2
      */
     public static final String MILESTONE_PRIZE_AMOUNT = "mpa";
 
     /**
      * <p>A <code>String</code> providing the name of request parameter to specify the number of milestone prizes.</p>
      *
-     * @since 1.2 
+     * @since 1.2
      */
     public static final String NUMBER_MILESTONE_PRIZES = "nmp";
-    
+
     static {
         initialize();
     }

@@ -8,13 +8,13 @@ import com.topcoder.web.studio.dao.ContestMultiRoundInformationDAO;
 import com.topcoder.web.studio.model.ContestMultiRoundInformation;
 
 /**
- * <p>This class implements the hibernate DAO to be used for accessing/managing the data for existing contest 
+ * <p>This class implements the hibernate DAO to be used for accessing/managing the data for existing contest
  * Multi Round information in persistent data store.</p>
  *
  * @author TCSDEVELOPER
  * @version 1.0
  * @since Studio Multi-Rounds Assembly - Studio Contest Details v1.0
  */
-public class ContestMultiRoundInformationDAOHibernate extends GenericBase<ContestMultiRoundInformation, Long> 
+public class ContestMultiRoundInformationDAOHibernate extends GenericBase<ContestMultiRoundInformation, Long>
     implements ContestMultiRoundInformationDAO {
 }
