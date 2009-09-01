@@ -46,6 +46,7 @@
 <c:set value="<%=ViewContest.NUMBER_MILESTONE_PRIZES_OPTIONS%>" var="NUMBER_MILESTONE_PRIZES_OPTIONS"/>
 <c:set value="<%=ViewContest.SINGLE_ROUND%>" var="SINGLE_ROUND"/>
 <c:set value="<%=ViewContest.MULTI_ROUND%>" var="MULTI_ROUND"/>
+<c:set value="<%=Constants.JS_DATE_FORMAT%>" var="JS_DATE_FORMAT"/>
 
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -774,7 +775,7 @@
     Calendar.setup(
     {
         inputField  : "<%=Constants.START_TIME%>",         // ID of the input field
-        ifFormat    : "<%=Constants.JS_DATE_FORMAT%>",    // the date format
+        ifFormat    : "${JS_DATE_FORMAT}",    // the date format
         button      : "trigger<%=Constants.START_TIME%>",       // ID of the button
         showsTime   : true,
         singleClick  : false,
@@ -784,7 +785,7 @@
     Calendar.setup(
     {
         inputField  : "<%=Constants.END_TIME%>",         // ID of the input field
-        ifFormat    : "<%=Constants.JS_DATE_FORMAT%>",    // the date format
+        ifFormat    : "${JS_DATE_FORMAT}",    // the date format
         button      : "trigger<%=Constants.END_TIME%>",      // ID of the button
         showsTime    : true,
         singleClick  : false,
@@ -794,7 +795,7 @@
     Calendar.setup(
             {
                 inputField  : "<%=Constants.WINNER_ANNOUNCEMENT_TIME%>",         // ID of the input field
-                ifFormat    : "<%=Constants.JS_DATE_FORMAT%>",    // the date format
+                ifFormat    : "${JS_DATE_FORMAT}",    // the date format
                 button      : "trigger<%=Constants.WINNER_ANNOUNCEMENT_TIME%>",      // ID of the button
                 showsTime    : true,
                 singleClick  : false,
@@ -804,7 +805,7 @@
     Calendar.setup(
             {
                 inputField  : "${MILESTONE_DATE}",         // ID of the input field
-                ifFormat    : "<%=Constants.JS_DATE_FORMAT%>",    // the date format
+                ifFormat    : "${JS_DATE_FORMAT}",    // the date format
                 button      : "trigger${MILESTONE_DATE}",      // ID of the button
                 showsTime    : true,
                 singleClick  : false,
