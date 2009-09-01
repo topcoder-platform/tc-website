@@ -270,7 +270,14 @@ public class EditContest extends Base {
             if (contestFormat != null && contestFormat.equals(ViewContest.MULTI_ROUND)) {
                 ContestMilestonePrize milestonePrize = 
                     contest.getMilestonePrize() != null ? contest.getMilestonePrize() : new ContestMilestonePrize();
-                milestonePrize.setAmount(new Float(request.getParameter(Constants.MILESTONE_PRIZE_AMOUNT)));
+                
+                String numberMilestonePrizes = 
+                    StringUtils.checkNull(request.getParameter(Constants.NUMBER_MILESTONE_PRIZES)).trim();
+                if (!(numberMilestonePrizes.equals("") && numberMilestonePrizes.equals("0"))) {
+                    milestonePrize.setNumberOfSubmissions(
+                            new Integer(request.getParameter(Constants.NUMBER_MILESTONE_PRIZES)));
+                    milestonePrize.setAmount(new Float(request.getParameter(Constants.MILESTONE_PRIZE_AMOUNT)));
+                }
                 milestonePrize.setCreateDate(new Timestamp(new Date().getTime()));
                 milestonePrize.setNumberOfSubmissions(
                     new Integer(request.getParameter(Constants.NUMBER_MILESTONE_PRIZES)));
@@ -583,7 +590,7 @@ public class EditContest extends Base {
                 new MilestonePrizeAmountValidator(numberMilestonePrizes).validate(
                     new StringInput(milestonePrizeAmount));
 
-            if (!contestRoundTwoSpecificsResult.isValid()) {
+            if (!milestonePrizeAmountResult.isValid()) {
                 addError(Constants.MILESTONE_PRIZE_AMOUNT, milestonePrizeAmountResult.getMessage());
             }
         }
