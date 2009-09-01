@@ -427,17 +427,16 @@
     <c:if test="${isMultiRound and not empty contest.multiRoundInformation
         and not empty contest.milestonePrize and not empty contest.multiRoundInformation.roundOneIntroduction
         and not empty contest.multiRoundInformation.roundTwoIntroduction}">
-        <p class="subSection">Studio Tournament Format<br/>
+        <span class="subSection">Studio Tournament Format</span><br/>
         This Studio competition will be run as a two-round tournament with a total prize purse of 
-        <fmt:formatNumber value="${contest.totalPrizePurse}" pattern="$###,###.00"/></p> 
-        <p>
-            <b>Round One (1)</b><br/>
-            <studio:formatField text="${contest.multiRoundInformation.roundOneIntroduction}"/>
-        </p>
-        <p>
-            <b>Round Two (2)</b><br/>
-            <studio:formatField text="${contest.multiRoundInformation.roundTwoIntroduction}"/>
-        </p>
+        <fmt:formatNumber value="${contest.totalPrizePurse}" pattern="$###,###.00"/>. 
+        <br/><br/>
+        <span class="subSectionTitle">Round One (1)</span><br/>
+        <studio:formatField text="${contest.multiRoundInformation.roundOneIntroduction}"/>
+        <br/><br/>
+        <span class="subSectionTitle">Round Two (2)</span><br/>
+        <studio:formatField text="${contest.multiRoundInformation.roundTwoIntroduction}"/>
+        <br/>
     </c:if>
     <c:if test="${not empty contest.fullDescription.value}">
         <p>
