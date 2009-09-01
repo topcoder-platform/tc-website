@@ -273,7 +273,10 @@ public class EditContest extends Base {
                 
                 String numberMilestonePrizes = 
                     StringUtils.checkNull(request.getParameter(Constants.NUMBER_MILESTONE_PRIZES)).trim();
-                if (!numberMilestonePrizes.equals("") && !numberMilestonePrizes.equals("0")) {
+                if (numberMilestonePrizes.equals("") || numberMilestonePrizes.equals("0")) {
+                    milestonePrize.setNumberOfSubmissions(0);
+                    milestonePrize.setAmount(null);
+                } else {
                     milestonePrize.setNumberOfSubmissions(
                             new Integer(request.getParameter(Constants.NUMBER_MILESTONE_PRIZES)));
                     milestonePrize.setAmount(new Float(request.getParameter(Constants.MILESTONE_PRIZE_AMOUNT)));
