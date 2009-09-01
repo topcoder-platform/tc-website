@@ -64,10 +64,10 @@ public class MilestoneDateValidator implements Validator {
                 Date end = sdf.parse(endTime);
                 Date milestone = sdf.parse((String) input.getInput());
                 if (end.before(milestone) || end.equals(milestone)) {
-                    return new BasicResult(false, "The end time must be after the milestone date.");
+                    return new BasicResult(false, "The milestone date must be before the contest end.");
                 }
                 if (start.after(milestone) || start.equals(milestone)) {
-                    return new BasicResult(false, "The start time must be before the milestone date.");
+                    return new BasicResult(false, "The milestone date must be after the contest start.");
                 }
             } catch (ParseException e) {
                 // this shouldn't happen (everything was already validated), but we'll handle it anyway
