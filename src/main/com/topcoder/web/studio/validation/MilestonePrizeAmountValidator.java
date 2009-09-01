@@ -11,8 +11,8 @@ import com.topcoder.web.common.validation.Validator;
 /**
  * <p>This class will validate the contest's milestone prize amount.</p>
  *
- * <p>It will basically validate the amount is not empty if the number of milestone prizes is greater than zero and
- *    that the formatting is correct.</p>
+ * <p>It will basically validate the amount is not empty and positive if the number of milestone prizes is greater 
+ *    than zero and that the formatting is correct.</p>
  *
  * @author TCSDEVELOPER
  * @version 1.0
