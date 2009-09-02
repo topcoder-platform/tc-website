@@ -112,26 +112,26 @@
                                 <a href="http://studio.topcoder.com/?module=Static&d1=support&d2=startingACompetition" class="bt7_post_project" id="tab7_post_project">7_post_project</a>
                              </div>
                             <ul>
+                                <li>
+                                    <a href="http://www.topcoder.com/reg/"><img width="909" height="203" src="i/v4/6.png" alt="" /></a>
+                                </li>
                                 <li style="display:none" class="loadWorkaround">
                                     <a href="http://studio.topcoder.com/?module=ViewPastContests"><img width="909" height="203" src="i/v4/1.png" alt="" /></a>
                                 </li>
                                 <li style="display:none" class="loadWorkaround">
-                                    <a href="http://www.topcoder.com/news/2009/07/20/meet-the-june-coders-and-designers-of-the-month/"><img width="909" height="203" src="i/v4/2.png" alt="" /></a>
+                                    <a href="http://studio.topcoder.com/?module=Static&d1=support&d2=startingACompetition"><img width="909" height="203" src="i/v4/7.png" alt="" /></a>
                                 </li>
                                 <li style="display:none" class="loadWorkaround">
                                     <a href="http://studio.topcoder.com/?module=Static&d1=support&d2=memberRefferalProgram"><img width="909" height="203" src="i/v4/3.png" alt="" /></a>
                                 </li>
-                                <li style="display:none" class="loadWorkaround">
-                                    <a href="http://studio.topcoder.com/?module=ViewContestDetails&ct=1001077"><img width="909" height="203" src="i/v4/4.png" alt="" /></a>
+                                <li>
+                                    <a href="http://www.topcoder.com/reg/"><img width="909" height="203" src="i/v4/6.png" alt="" /></a>
                                 </li>
                                 <li style="display:none" class="loadWorkaround">
                                     <a href="http://www.remixchallenge.com"><img width="909" height="203" src="i/v4/5.png" alt="" /></a>
                                 </li>
-                                <li >
-                                    <a href="http://www.topcoder.com/reg/"><img width="909" height="203" src="i/v4/6.png" alt="" /></a>
-                                </li>
                                 <li style="display:none" class="loadWorkaround">
-                                    <a href="http://studio.topcoder.com/?module=Static&d1=support&d2=startingACompetition"><img width="909" height="203" src="i/v4/7.png" alt="" /></a>
+                                    <a href="http://www.topcoder.com/news/2009/07/20/meet-the-june-coders-and-designers-of-the-month/"><img width="909" height="203" src="i/v4/2.png" alt="" /></a>
                                 </li>
                             </ul>
                             <div class="jcarousel-control loadWorkaround" style="position:absolute; top:225px; left:160px;">
