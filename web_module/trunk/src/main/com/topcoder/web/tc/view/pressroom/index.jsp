@@ -116,8 +116,8 @@
                     <div class="pr_img">
                         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_082709"><img src="/i/pressroom/nvidia-logo.jpg" alt="NVIDIA" border="0" /></a></div>
                     <div class="pr_headlines">
-                        <h3><a href="http://www.huffingtonpost.com/tom-luce/educating-our-own-compute_b_242436.html">Educating Our Own Computer Hackers</a></h3>
-                        <p>The recent wave of cyber-attacks on American and South Korean websites raises a new kind of security issue: Do we have enough brainpower in the pipeline to counter such sabotage in the future? 
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_082709">TopCoder and NVIDIA Announce Superhero Challenge</a></h3>
+                        <p>Developers Invited by NVIDIA and TopCoder to Tackle Parallel Computing with the NVIDIA CUDA Architecture 
                         <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_082709">[August 27th]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>
