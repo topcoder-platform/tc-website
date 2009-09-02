@@ -98,6 +98,19 @@
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
                 
+                <%-- On Point begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_090209"><img src="/i/pressroom/inc_com_logo.gif" alt="INC.com logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_090209">Online B2B Marketplaces: Should You Dive In?</a></h3>
+                        <p>Business-to-business marketplaces are proliferating on the Web. Here's how to tell a site is right for you. <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_090209">[September 2nd]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- On Point end --%>
+                
                 <%-- NVIDIA begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
