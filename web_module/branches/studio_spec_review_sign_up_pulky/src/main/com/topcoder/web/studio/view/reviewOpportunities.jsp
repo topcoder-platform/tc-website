@@ -1,5 +1,5 @@
 <%--
-  - Author: TCSDEVELOPER
+  - Author: pulky
   - Version: 1.0 (Studio Release Assembly - Spec Review Sign up page v1.0)
   - Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
   -

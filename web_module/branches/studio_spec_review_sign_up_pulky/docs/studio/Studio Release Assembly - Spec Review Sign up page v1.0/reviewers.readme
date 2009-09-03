@@ -1,0 +1,95 @@
+Steps to prepare the VM for testing: (these steps assume a fresh working VM)
+
+1) login to studio account
+2) update web_module in te vm (in case there are updates since instantiation)
+        - in ~/web/: svn up
+3) if you are provided with SVN branches, switch them
+        - in ~/web/: svn switch [submitter_branch]
+     otherwise copy source files to VM
+        - /web_module/* -> ~/web/
+4) Run DML:
+        - /test_files/scripts/script.sql
+        - /scripts/studio_oltp.sql
+        - /scripts/common_oltp.sql
+        - /test_files/scripts/script2.sql
+5) Create the following query tool inputs: (studio_oltp database: DB:java:JTS_STUDIO_OLTP)
+    5.1) Description: "Contest Type Id" / code: "ctt" / Data Type: "Decimal Input"
+
+    Note: if you are not familiar with query tool, check "Steps to create new input in Query Tool"
+6) Create the following query tool commands/queries: (studio_oltp database: DB:java:JTS_STUDIO_OLTP)
+    6.1) review_opportunities (same command name, "General Site" command group)
+            Text for this query is located in /query_tool/review_opportunities.txt
+            (There are no query inputs)
+    6.2) review_board_member (same command name, "General Site" command group)
+            Text for this query is located in /query_tool/review_board_member.txt
+            Query inputs:
+            - uid - User Id
+            - ctt - Contest Type Id
+    6.3) can_view_contest_details (same command name, "General Site" command group)
+            Text for this query is located in /query_tool/can_view_contest_details.txt
+            Query inputs:
+            - uid - User Id
+            - ct  - Contest Id
+
+    Note: if you are not familiar with query tool, check "Steps to create new queries in Query Tool"
+7) Kill jboss:
+        - run jps, kill the id that is listed as Main, wait till it's dead (when you type jps and don't see main any more)
+8) Remove security.ear in JBoss deploy directory (if this directory exists, it won't allow deployment)
+        - jbd; rm security.ear/ -R
+9) Deploy Studio:
+        - in ~/web/: ant -f build_studio.xml deploy
+10) It seems PactsServices is not deployed correctly, so in order to be able to view contest details without any problems
+   turn off global_ad_flag:
+        - vi ~/jboss-4.0.4.GA/server/default/conf/Studio.properties
+        - replace global_ad_flag = on with global_ad_flag = off and save.
+11) Start jboss:
+        - type jbb, then ./start.sh, then tn and wait till it tells you it's up.
+12) Once JBoss is running, you are all set for testing.
+
+Note: due to some missing images in VM's apache or different CSSs, some pages could be missing icons or images or have
+different formatting, but this is not a code problem.
+
+-------------------------------
+
+Testing tips:
+- Three specification review projects were setup for testing.
+- You can browse http://studio.cloud.topcoder.com/?module=ViewReviewOpportunities to see them.
+- Review board members were also added to make testing easier. Partha and Hung users were used. Please check
+  /test_files/script2.sql to see what each reviewer can do.
+- You may find the following SQL commnands useful: (studio_oltp)
+
+    Roll back registrations:
+        delete from user_permission_grant;                  -- removes granted permissions
+        delete from spec_review_reviewer_xref;              -- removes registered reviewers
+        update spec_review set review_status_type_id = 4;   -- makes spec_reviews "READY"
+
+Thanks!!!
+
+-------------------------------
+
+Steps to create new input in Query Tool:
+1) Go to http://studio.cloud.topcoder.com/?module=Login then login as heffan/password (check remember me) -> this is important
+2) Go to http://studio.cloud.topcoder.com/query/query?t=CommandList&db=java:JTS_STUDIO_OLTP
+3) Click on left menu "New Input" link.
+4) Enter fields as specified.
+5) Click save.
+
+-------------------------------
+
+Steps to create new queries in Query Tool:
+1) Go to http://studio.cloud.topcoder.com/?module=Login then login as heffan/password (check remember me) -> this is important
+2) Go to http://studio.cloud.topcoder.com/query/query?t=CommandList&db=java:JTS_STUDIO_OLTP
+3) Click on left menu "New Query" link.
+4) Complete query name and text, click save
+5) if there are query inputs:
+    5.1) click on "edit query input" link
+    5.2) select the corresponding query input from the list, then click add
+    5.3) Repeat for all query inputs
+    5.4) If you need to edit sort/optional/default fields, do this after adding the input and click save.
+6) Click on left menu "New Command" link.
+7) Complete command name and group, click save
+8) Click on "edit command query" link
+9) select the corresponding query from the list, then click add
+
+Note: Query Tool looks awful in the VM. Since coloring is bad and there is a lot of text hidden, you can select all
+the text in the page to be able to see it.

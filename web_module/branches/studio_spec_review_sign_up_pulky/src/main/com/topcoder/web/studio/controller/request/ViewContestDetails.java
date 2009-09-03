@@ -38,7 +38,7 @@ import com.topcoder.web.studio.util.Util;
  *   </ol>
  * </p>
  *
- * @author dok, TCSDEVELOPER
+ * @author dok, pulky
  * @version 1.1
  */
 public class ViewContestDetails extends ShortHibernateProcessor {

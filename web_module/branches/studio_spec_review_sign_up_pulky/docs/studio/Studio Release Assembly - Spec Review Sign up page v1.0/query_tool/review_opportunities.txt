@@ -1,0 +1,16 @@
+-- Author: pulky
+-- Version: 1.0 (Studio Release Assembly - Spec Review Sign up page v1.0)
+-- Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+--
+-- Description: This query returns specification reviews information for the review opportunities page.
+--
+-- Important Note: do not include this comments in query tool since it will fail to create/update the query.
+
+select ctl.contest_type_desc, c.name, c.start_time, c.contest_id, sr.spec_review_id, srrx.review_user_id
+from contest c, contest_type_lu ctl, spec_review sr, outer (spec_review_reviewer_xref srrx)
+where c.contest_type_id = ctl.contest_type_id
+and c.contest_id = sr.contest_id and sr.is_studio = 1
+and sr.review_status_type_id in (4, 5) -- READY / REVIEWER_ASSIGNED
+and sr.spec_review_id = srrx.spec_review_id
+and srrx.is_active = 1
+order by c.start_time desc

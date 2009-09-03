@@ -1,0 +1,18 @@
+-- Author: pulky
+-- Version: 1.0 (Studio Release Assembly - Spec Review Sign up page v1.0)
+-- Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+--
+-- Description: This query returns a single row, column with true value if the user can do reviews for the specified
+--              user id, contest type id.
+--
+-- Query inputs:
+--      uid - User Id (required)
+--      ctt - Contest Type Id (required)
+--
+-- Important Note: do not include this comments in query tool since it will fail to create/update the query.
+
+select 'can perform reviews' from rboard_user
+where user_id = @uid@
+and contest_type_id = @ctt@
+and (immune_ind = 1 or status_id = 100) -- immune or ACTIVE
+
