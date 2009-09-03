@@ -15,7 +15,7 @@ import java.util.Date;
  *   </ol>
  * </p>
  *
- * @author TCSDEVELOPER
+ * @author pulky
  * @version 1.0
  * @since Studio Release Assembly - Spec Review Sign up page v1.0
  */

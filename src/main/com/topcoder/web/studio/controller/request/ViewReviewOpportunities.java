@@ -13,7 +13,7 @@ import com.topcoder.web.common.BaseProcessor;
  *
  * <p>This processor will use Query Tool to retrieve from the database Studio contests specification reviews.</p>
  *
- * @author TCSDEVELOPER
+ * @author pulky
  * @version 1.0
  * @since Studio Release Assembly - Spec Review Sign up page v1.0
  */

@@ -1,0 +1,29 @@
+-- Author: pulky
+-- Version: 1.0 (Studio Release Assembly - Spec Review Sign up page v1.0)
+-- Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+--
+-- Description: This query will check some queries to see if the specified user can see the specified contest details.
+--
+-- Note: if any row is returned, the user can see the details.
+--
+-- Query inputs:
+--      uid - User Id (required)
+--      ct  - Contest Id (required)
+--
+-- Important Note: do not include this comments in query tool since it will fail to create/update the query.
+
+select 'is_contest_creator' from contest c
+where c.contest_id = @ct@ and c.create_user_id = @uid@
+union
+select 'spec_review_passed' from spec_review sr
+where sr.contest_id = @ct@ and sr.review_status_type_id = 1 -- PASSED
+union
+select 'user_has_permission_over_contest' from user_permission_grant upg
+where upg.resource_id = @ct@ and upg.permission_type_id in (4,5,6) -- CONTEST_READ, CONTEST_WRITE, CONTEST_FULL
+and upg.is_studio = 1 and upg.user_id = @uid@
+union
+select 'user_has_permission_over_tc_direct_project' from user_permission_grant upg, contest c
+where c.contest_id = @ct@ and upg.resource_id = c.tc_direct_project_id
+and upg.permission_type_id in (1,2,3) -- PROJECT_READ, PROJECT_WRITE, PROJECT_FULL
+and upg.is_studio = 1 and upg.user_id = @uid@
+

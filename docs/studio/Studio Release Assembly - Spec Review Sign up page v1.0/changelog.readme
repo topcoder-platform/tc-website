@@ -1,0 +1,22 @@
+This is a summary of the changes made:
+
+- New mappings and POJO classes were created for permission_type, spec_review, spec_review_reviewer_xref,
+  spec_review_status_type_lu and user_permission_grant tables.
+- Studio hibernate configuration was updated to include the new entities and associations.
+- A new configuration was added to Studio.properties (and mapped in Constants.java) to store the spec review payment
+  amount.
+- Added new Request key constant to for Specification Review Ids in Constants.java and updated class initialization to
+  support double type.
+- New SpecReview and UserPermissionGrant DAOs was were created.
+- DAO Factory related classes were updated to support the new DAOs.
+- ReviewRegistration and ViewReviewOpportunities processors were created to implement the new functionality.
+- ViewContestDetails processor was updated to handle the new security schema for this page.
+- activeBugRaces.jsp, activeContests.jsp and pastContests.jsp were updated to include the new Review Opportunities tab.
+- countDownClocck.tag was added to SVN since it was missing.
+- reviewOpportunities.jsp was created to implement the new functionality.
+- New Contest Type Id input was created in Query Tool
+- New review_opportunities, review_board_member, can_view_contest_details queries / commands were created in Query Tool
+- SQL scripts were provided for synonym and review board tables creation and population. Security perms inserts were
+  also provided for the new processors.
+
+Thanks!
