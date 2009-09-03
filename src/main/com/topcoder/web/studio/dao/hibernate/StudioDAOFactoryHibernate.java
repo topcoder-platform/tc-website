@@ -37,7 +37,7 @@ import com.topcoder.web.studio.dao.SubmissionTypeDAO;
  *   </ol>
  * </p>
  *
- * @author dok, isv, TCSDEVELOPER
+ * @author dok, isv, pulky
  * @version 1.1
  */
 public class StudioDAOFactoryHibernate implements StudioDAOFactory {

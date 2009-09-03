@@ -17,7 +17,7 @@ import com.topcoder.web.common.model.Base;
  *   </ol>
  * </p>
  *
- * @author TCSDEVELOPER
+ * @author pulky
  * @version 1.0
  * @since Studio Multi-Rounds Assembly - Studio Contest Details v1.0
  */

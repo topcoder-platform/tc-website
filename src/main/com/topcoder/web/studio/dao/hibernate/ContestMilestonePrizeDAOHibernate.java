@@ -11,7 +11,7 @@ import com.topcoder.web.studio.model.ContestMilestonePrize;
  * <p>This class implements the hibernate DAO to be used for accessing/managing the data for existing contest
  * Milestone Prize in persistent data store.</p>
  *
- * @author TCSDEVELOPER
+ * @author pulky
  * @version 1.0
  * @since Studio Multi-Rounds Assembly - Studio Contest Details v1.0
  */

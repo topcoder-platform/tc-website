@@ -30,7 +30,7 @@ import com.topcoder.web.studio.model.ContestProperty;
  *   </ol>
  * </p>
  *
- * @author dok, isv, pulky, TCSDEVELOPER
+ * @author dok, isv, pulky
  * @version 1.2
  */
 public class Constants implements WebConstants {

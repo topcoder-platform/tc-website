@@ -1,0 +1,841 @@
+@charset   "UTF-8";
+
+/* CSS Document */
+*
+{
+    margin: 0px;
+    padding: 0px;
+}
+
+body
+{
+    background: #000000;
+    font-family: Arial, Verdana, Helvetica, sans-serif;
+    font-size: 85%;
+    color: #333333;
+    padding: 0px;
+    margin: 0px auto;
+}
+
+/* ----- IMAGES ----- */
+img { border: 0; }
+
+/* Firefox Outline */
+a:active { outline: none; }
+a:focus { -moz-outline-style: none; }
+
+.small { font-size: 11px; }
+
+form
+{
+    padding: 0px;
+    margin: 0px;
+}
+
+a
+{
+    color: #333333;
+    text-decoration: underline;
+    z-index: 10;
+}
+
+a:link, a:visited
+{
+    color: #333333;
+    text-decoration: underline;
+}
+
+a:hover, a:active
+{
+    color: #F90;
+    text-decoration: underline;
+    position: relative;
+    z-index: 100;
+}
+
+#page-wrap
+{
+    margin: 0px auto;
+    background: #FFFFFF;
+    min-height: 640px;
+}
+
+/* Wrapper */
+#wrapper div, td { font-size: 12px; line-height: 15px; }
+#wrapper p { margin: 10px 0; }
+#wrapper
+{
+    width: 870px;
+    text-align: left;
+    margin: 0px auto;
+    padding-right: 24px;
+}
+
+/* ----- HEADINGS ----- */
+#wrapper h1
+{
+    color: #036;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    background: transparent url(/i/v2/line_dots.png) repeat-x left bottom;
+    padding-bottom: 15px;
+    padding-top: 5px;
+    margin-top: 0px;
+}
+
+#wrapper h2
+{
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+#wrapper h3
+{
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+#wrapper h4
+{
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+#wrapper ol
+{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+#wrapper li { margin-left: 45px; }
+
+/* makes 3rd party calendar show on top of everything else */
+div.calendar { z-index: 4; }
+
+
+div.header
+{
+    font-size: 150%;
+    font-weight: bold;
+    margin: 30px 0px 5px 0px;
+    padding: 0;
+    color: #2A81B3;
+    background: transparent;
+}
+
+div.header span { font-size: 16px; }
+
+/*
+ A SPAN TAG INSIDE AN A TAG CREATES A TOOLTIP MOUSEOVER
+ Only use this for single line tooltips that are not in danger of stretching beyond the boundaries of the screen.
+ You can use this method for long tooltips if you have the ability to manually add linebreaks to tooltip text.
+*/
+
+a span
+{
+    display: none;
+    text-decoration: none;
+}
+
+a:hover span
+{
+    display: block;
+    position: absolute;
+    top: -2.2em;
+    left: 100%;
+    background: #fffcd1;
+    border: 1px solid #444;
+    color: #444;
+    padding: 1px 5px;
+    z-index: 10;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+a.noLink
+{
+    cursor: default;
+    text-decoration: none;
+}
+
+.bigRed, A.bigRed
+{
+    color: #FF0000;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+A.bigRed:link, A.bigRed:visited
+{
+    color: #FF0000;
+    text-decoration: none;
+}
+
+A.bigRed:hover, A.bigRed:active
+{
+    color: #990000;
+    text-decoration: underline;
+}
+
+.bigGreen
+{
+    color: #009900;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+A.bigGreen:link, A.bigGreen:visited
+{
+    color: #009900;
+    text-decoration: underline;
+}
+
+A.bigGreen:hover, A.bigGreen:active
+{
+    color: #000000;
+    text-decoration: underline;
+}
+
+.grayedOut, a.grayedOut { color: #999999; }
+
+a.grayedOut:link, a.grayedOut:visited
+{
+    color: #999999;
+    text-decoration: underline;
+}
+
+a.grayedOut:hover, a.grayedOut:active
+{
+    color: #990000;
+    text-decoration: underline;
+}
+
+div.popUp
+{
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 100;
+}
+
+div.popUp div
+{
+    float: left;
+    line-height: normal;
+    font-weight: normal;
+    font-size: 11px;
+    background: #FFFFCC;
+    border: 1px solid #999999;
+    padding: 4px 6px 4px 6px;
+    white-space: nowrap;
+}
+
+div.linkBox
+{
+    float: right;
+    font-size: 11px;
+    margin: 0px 0px 0px 6px;
+    padding: 0px 0px 3px 8px;
+    border-left: 6px solid #2A81B3;
+    border-bottom: 1px solid #2A81B3;
+    letter-spacing: 4px;
+}
+
+div.pagingBox
+{
+    font-size: 11px;
+    padding: 10px 5px 10px 5px;
+    text-align: center;
+    clear: both;
+}
+
+div.conDetRightBox
+{
+    float: right;
+    width: 270px;
+    margin: 0px 0 20px 20px;
+    padding: 0;
+}
+
+div.conDetRightBox div.section
+{
+    padding: 7px 10px;
+    background: #359CD3;
+    color: #ffffff;
+    font-size: 125%;
+    font-weight: bold;
+}
+
+div.conDetRightBox div.padder
+{
+    padding: 4px 10px;
+    overflow: hidden;
+    border-right: 1px solid #49adfb;
+    border-bottom: 1px solid #49adfb;
+    border-left: 1px solid #49adfb;
+    background: #f6f6f6;
+}
+
+table.conDetDates
+{
+    /* work around to only have interior borders */
+    border: 0px solid #eff8fd;
+    border-collapse: collapse;
+}
+
+table.conDetDates td
+{
+    border-collapse: collapse;
+    padding: 2px 0;
+}
+
+table.conDetDates td.field
+{
+    font-weight: bold;
+    vertical-align: top;
+    border-bottom: 0px solid #49adfb;
+    padding-right: 1px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    white-space: nowrap;
+}
+
+table.conDetDates td.value
+{
+    width: 100%;
+    border-bottom: 0px solid #49adfb;
+    text-align: center;
+    vertical-align: top;
+    white-space: nowrap;
+    padding-left: 1px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.contentDetails { width: 550px; }
+
+.subSection
+{
+    color: #336699;
+    font-weight: bold;
+}
+
+.subSectionTitle
+{
+        font-weight: bold;
+}
+
+table.conDetIntro {
+    margin: 0;
+    background: transparent url(/i/v2/line_dots.png) repeat-x left bottom;
+}
+
+table.conDetIntro td.field
+{
+    color: #cf8508;
+    font-weight: bold;
+    font-size: 110%;
+    padding: 5px 15px 5px 0;
+    vertical-align: top;
+}
+
+table.conDetIntro td.value
+{
+    color: #000000;
+    font-weight: bold;
+    font-size: 110%;
+    padding: 5px 10px 5px 0;
+    vertical-align: top;
+}
+
+/* --- content --- */
+#content { padding-bottom: 20px; }
+
+#content .contentTop
+{
+    padding-top: 20px;
+}
+
+#content .contentMiddle
+{
+    background: #ffffff;
+    padding-bottom: 40px;
+    text-align: left;
+}
+
+#content .forums
+{
+    width: 870px;
+    padding-top: 15px;
+}
+
+#content .contentBottom { height: 21px; }
+
+/* --- tableContent --- */
+#tableContent
+{
+    padding-top: 0px;
+    padding-bottom: 20px;
+}
+
+#tableContent .tableTop
+{
+    min-height: 9px;
+    background: transparent url(/i/v2/bg_table_top.png) no-repeat left top;
+    padding-top: 9px;
+}
+
+#tableContent .tableMiddle
+{
+    background: transparent url(/i/v2/bg_table_middle.png) repeat-y left top;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+#tableContent .tableBottom
+{
+    height: 9px;
+    background: transparent url(/i/v2/bg_table_bottom.png) no-repeat left bottom;
+}
+
+/* --- stat --- */
+div.statHolder
+{
+    padding: 0 10px;
+    border: 1px solid #dcdcdc;
+    background: #ffffff url(/i/v2/stat_tableBG.png) left top no-repeat;
+    text-align: left;
+}
+
+div.statHolder div.NE, div.statHolder div.SE { float: right; }
+
+div.statHolder div.NW img
+{
+    position: relative;
+    left: -11px;
+    top: -1px;
+}
+
+div.statHolder div.SW img
+{
+    position: relative;
+    left: -11px;
+    bottom: -1px;
+}
+
+div.statHolder div.NE img
+{
+    position: relative;
+    right: -11px;
+    top: -1px;
+}
+
+div.statHolder div.SE img
+{
+    position: relative;
+    right: -11px;
+    bottom: -1px;
+}
+
+div.statHolder div.container
+{
+    position: relative;
+    width: 100%;
+}
+
+select.contest-filter
+{
+    font-size: 11px;
+    width: 110px;
+    padding: 1px 1px 1px 2px;
+    margin-right: 4px;
+    line-height: 18px;
+}
+
+table.stat { margin: 0px; }
+
+table.stat td
+{
+    color: #333333;
+    font-size: 11px;
+    font-weight: normal;
+    text-align: left;
+    vertical-align: middle;
+    padding: 5px;
+}
+
+table.stat td.title
+{
+    color: #333333;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: left;
+    padding-top: 0px;
+}
+
+table.stat td.header
+{
+    font-weight: bold;
+    text-align: left;
+    background: #2788bc url(/i/v2/bg_header_middle.png) repeat-y left top;
+    color: #FFF;
+}
+
+table.stat td.headerR
+{
+    font-weight: bold;
+    text-align: right;
+    background: #2788bc url(/i/v2/bg_header_middle.png) repeat-y left top;
+    color: #FFF;
+}
+
+table.stat td.headerC
+{
+    font-weight: bold;
+    text-align: center;
+    background: #2788bc url(/i/v2/bg_header_middle.png) repeat-y left top;
+    color: #FFF;
+}
+
+table.stat td.headerW
+{
+    width: 7px;
+    vertical-align: top;
+    padding: 0px 0px 7px 0px;
+    background: transparent url(/i/v2/bg_headerSW.png) no-repeat left bottom;
+    color: #FFF;
+}
+
+table.stat td.headerW div
+{
+    width: 7px;
+    background: transparent url(/i/v2/bg_headerNW.png) no-repeat left top;
+}
+
+table.stat td.headerE
+{
+    width: 7px;
+    vertical-align: top;
+    text-align: right;
+    padding: 0px 0px 7px 0px;
+    background: transparent url(/i/v2/bg_headerSE.png) no-repeat right bottom;
+    color: #FFF;
+}
+
+table.stat td.headerE div
+{
+    width: 7px;
+    background: transparent url(/i/v2/bg_headerNE.png) no-repeat right top;
+}
+
+table.stat td.value { text-align: left; }
+table.stat td.valueR { text-align: right; }
+table.stat td.valueC { text-align: center; }
+
+table.stat td.header a, table.stat td.headerC a, table.stat td.headerW a, table.stat td.headerR a
+{
+    color: #FFF;
+    text-decoration: underline;
+}
+
+table.stat td.header a:hover, table.stat td.headerC a:hover, table.stat td.headerW a:hover, table.stat td.headerR a:hover
+{
+    text-decoration: none;
+}
+
+table.stat td.space
+{
+    padding: 0px;
+    font-size: 8px;
+}
+
+table.stat td.btnRight
+{
+    text-align: right;
+    padding: 10px 0px 0px 0px;
+}
+
+table.stat td.valueC div.countdown {
+    color: #2788BC;
+}
+
+table.stat td.valueC div.strongRed {
+?? ? ? ?font-weight: normal;
+?? ? ? ?font-size: 11px;
+?? ? ? ?vertical-align: middle;
+?? ? ? ?padding: 5px;
+?? ? ? ?text-align: center;
+?? ? ? ?white-space: nowrap;
+?? ? ? ?color: #B10000;
+}
+
+table.stat td.valueC div.softRed {
+?? ? ? ?font-weight: normal;
+?? ? ? ?font-size: 11px;
+?? ? ? ?vertical-align: middle;
+?? ? ? ?padding: 5px;
+?? ? ? ?text-align: center;
+?? ? ? ?white-space: nowrap;
+?? ? ? ?color: #E74C37;
+}
+
+table.stat tr.light td
+{
+    background: #EEEEEE;
+    border-top: solid 1px #A1A1A1;
+    border-bottom: solid 1px #A1A1A1;
+}
+
+table.stat tr.dark td
+{
+    background: #DDDDDD;
+    border-top: solid 1px #A1A1A1;
+    border-bottom: solid 1px #A1A1A1;
+}
+
+table.stat tr.light td.valueE { border-left: 1px #A1A1A1 solid; }
+table.stat tr.light td.valueW
+{
+    border-right: 1px #A1A1A1 solid;
+    text-align: center;
+}
+
+table.stat tr.dark td.valueE { border-left: 1px #A1A1A1 solid; }
+table.stat tr.dark td.valueW
+{
+    border-right: 1px #A1A1A1 solid;
+    text-align: center;
+}
+
+table.stat span.big
+{
+    font-size: 2em;
+    font-weight: bold;
+}
+
+/* INPUT TABLE */
+table.input td.field, table.input td.value
+{
+    font-size: 12px;
+    font-weight: normal;
+    font-style: normal;
+}
+
+table.input td.field
+{
+    padding: 4px;
+    text-align: left;
+    vertical-align: top;
+    background-color: #EEEEEE;
+    border-top: 1px solid #FFFFFF;
+}
+
+table.input td.field div { width: 200px; }
+table.input td.value { padding: 4px 0px 4px 4px; }
+form fieldset { margin: 20px 0; }
+form legend { font-weight: bold; }
+
+div.tableTabOn, div.tableTabOff
+{
+    float: left;
+    position: relative;
+    top: 0px;
+    padding: 4px 10px;
+    margin-right: 4px;
+    background: #cccccc;
+    border-top: 1px solid #dcdcdc;
+    border-right: 1px solid #dcdcdc;
+    border-left: 1px solid #dcdcdc;
+    font-weight: bold;
+}
+
+div.tableTabOn { background: #dcdcdc; }
+div.tableTabOff { background: #eeeeee; }
+div.tableTabOff a:link, div.tableTabOff a:visited { color: #999999; }
+div.tableTabOff a:hover, div.tableTabOff a:active { color: #F93; }
+
+#content .coderText { font-weight: bold; }
+#content a.coderText { text-decoration: none; }
+#content a.coderText:hover { text-decoration: underline; }
+
+#content a.coderTextOrange
+{
+    color: #F90;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#content a.coderTextOrange:hover
+{
+    text-decoration: underline;
+}
+
+/*Contest Details*/
+#conDetInstructionsBox
+{
+    margin: 24px 0;
+    /*this width restriction keeps the div from stretching out and over the downloads section links*/
+    width: 430px;
+    background: transparent;
+    text-align: left;
+}
+
+#conDetInstructionsBox ul
+{
+    display: block;
+    margin: 6px 0;
+    padding: 0;
+}
+
+#conDetInstructionsBox ul li
+{
+    position: relative;
+    display: block;
+    list-style-type: none;
+    height: 28px;
+    padding: 0 0 0 34px;
+    margin: 6px 0;
+    background: transparent;
+}
+
+#conDetInstructionsBox ul li div { padding-top: 4px; }
+
+#conDetInstructionsBox ul li a.icon
+{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+img.inlineEmblem { vertical-align: middle; }
+.hide { display: none; }
+.showBlock { display: block; }
+.showInline { display: inline; }
+div.editConDoc { margin: 10px 0; }
+
+div.editConDoc div.editConDocIndent
+{
+    margin: 0;
+    padding-left: 60px;
+}
+
+div.editConDoc div
+{
+    margin: 4px 0;
+    padding: 0;
+}
+
+div.contestEmblem
+{
+    float: left;
+    padding: 0 10px 0 0;
+    vertical-align: middle;
+    height: 3em;
+}
+
+div.contestTitle
+{
+    display: inline;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+div.contestLinks
+{
+    float: left;
+    clear: both;
+    padding: 8px 10px;
+    white-space: nowrap;
+}
+
+/* Slideshow */
+#fullSizeView
+{
+    margin: 20px;
+    color: #ffffff;
+}
+
+#fullSizeView div.logo
+{
+    float: left;
+    padding: 0 20px 20px 0;
+}
+
+#fullSizeView a, #fullSizeView a:link, #fullSizeView a:visited
+{
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+#fullSizeView a:hover, #fullSizeView a:active
+{
+    color: #F90;
+    text-decoration: underline;
+}
+
+/*Contact */
+#contact address
+{
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+}
+
+#contact td
+{
+    padding: 5px;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+/* Input Styles for Login */
+input.textfield
+{
+    color: #000;
+    margin: 0 0 5px 0;
+    border: 1px solid #ccc;
+    text-align: left;
+    display: block;
+    padding: 5px;
+    background-color: #fff !important;
+}
+
+html * input.textfield:focus
+{
+    border: 1px #39F solid;
+    color: #000 !important;
+}
+
+/* TC Login Page */
+#tc-login
+{
+    width: 500px;
+    font-size: 93%;
+}
+#tc-login p { padding-bottom: 10px; }
+
+#tc-login table
+{
+    width: 240px;
+    padding-top: 5px;
+}
+
+#tc-login td { padding: 5px; }
+
+#tc-login span.tc-alert
+{
+    color: #F00;
+    font-size: 14px;
+}
+
+#tc-login td.tc-login { text-align: center; }
+
+#tc-login td.name
+{
+    text-align: left;
+    vertical-align: middle;
+}

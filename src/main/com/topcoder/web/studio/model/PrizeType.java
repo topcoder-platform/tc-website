@@ -16,7 +16,7 @@ import com.topcoder.web.common.model.Base;
  *   </ol>
  * </p>
  *
- * @author dok, TCSDEVELOPER
+ * @author dok, pulky
  * @version 1.1
  */
 public class PrizeType extends Base {

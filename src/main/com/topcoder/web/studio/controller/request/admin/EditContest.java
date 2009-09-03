@@ -75,7 +75,7 @@ import com.topcoder.web.studio.validation.WinnerAnnouncementTimeValidator;
  *   </ol>
  * </p>
  *
- * @author dok, isv, TCSDEVELOPER
+ * @author dok, isv, pulky
  * @version 1.1
  */
 public class EditContest extends Base {
@@ -267,13 +267,13 @@ public class EditContest extends Base {
 
             // populate multi round specific attributes
             String contestFormat = request.getParameter(Constants.CONTEST_FORMAT);
-            if (contestFormat != null && contestFormat.equals(ViewContest.MULTI_ROUND)) {
+            if (ViewContest.MULTI_ROUND.equals(contestFormat)) {
                 ContestMilestonePrize milestonePrize =
                     contest.getMilestonePrize() != null ? contest.getMilestonePrize() : new ContestMilestonePrize();
 
                 String numberMilestonePrizes =
                     StringUtils.checkNull(request.getParameter(Constants.NUMBER_MILESTONE_PRIZES)).trim();
-                if (numberMilestonePrizes.equals("") || numberMilestonePrizes.equals("0")) {
+                if (numberMilestonePrizes.length() == 0 || numberMilestonePrizes.equals("0")) {
                     milestonePrize.setNumberOfSubmissions(0);
                     milestonePrize.setAmount(null);
                 } else {
@@ -556,7 +556,7 @@ public class EditContest extends Base {
 
         // validation for multi round contests
         String contestFormat = request.getParameter(Constants.CONTEST_FORMAT);
-        if (contestFormat != null && contestFormat.equals(ViewContest.MULTI_ROUND)) {
+        if (ViewContest.MULTI_ROUND.equals(contestFormat)) {
             // validate milestone date only if start and end time are already ok
             if (startTimeResult.isValid() && endTimeResult.isValid()) {
                 String milestoneDate = request.getParameter(Constants.MILESTONE_DATE);
