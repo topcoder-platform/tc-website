@@ -120,9 +120,9 @@
 		
 		<div class="sectionHeader">SUBMISSION GUIDELINES</div>
 		<p align="justify">
-		Registered members will see a Submit option for their event. Clicking the Submit link will take you to a page that will allow you to paste in a solution, select the proper language and either submit (for compilation and testing) or save your code. When the Submit button is selected, the code will be immediately compiled. Any compilation messages or errors will be shown in the Messages Area. If the compilation was successful, the submission will then be placed on a queue for automated testing.  When your submission has been processed, you will receive an email indicating such and your place in the standings will be adjusted accordingly. During the submission phase, overall ranking and provisional score are the only pieces of information that will be made available. A given Contestant will only be allowed to submit once every 4 hours. Additionally, if a Contestant has a pending submission on the testing queue it must finish testing before that Contestant may submit again. 
+		Registered members will see a Submit option for their event. Clicking the Submit link will take you to a page that will allow you to paste in a solution, select the proper language and either submit (for compilation and testing) or save your code. When the Submit button is selected, the code will be immediately compiled. Any compilation messages or errors will be shown in the Messages Area. If the compilation was successful, the submission will then be placed on a queue for automated testing.  When your submission has been processed, you will receive an email indicating such and your place in the standings will be adjusted accordingly. During the submission phase, overall ranking and provisional score are the only pieces of information that will be made available. A given Contestant will only be allowed to submit once every 2 hours. Additionally, if a Contestant has a pending submission on the testing queue it must finish testing before that Contestant may submit again. 
 		<br><br>
-		Clicking the Test Examples button will immediately compile and place your Submission on a queue for automated testing of just the example test cases. Detailed feedback will be made available when the tests are complete, including processing time, score, and any output from the program. Contestants may submit test Submissions once every 30 minutes. The Contestant's rank and overall score will not be updated. 
+		Clicking the Test Examples button will immediately compile and place your Submission on a queue for automated testing of just the example test cases. Detailed feedback will be made available when the tests are complete, including processing time, score, and any output from the program. Contestants may submit test Submissions once every 15 minutes. The Contestant's rank and overall score will not be updated. 
 		<br><br>
 		In a Marathon Match, all Contestants are encouraged to improve their solutions and resubmit iteratively throughout the length of the submission phase. The most recent Submission is always the one that counts, so if you enter a Submission that does not score as well as a prior Submission, the most recent will still be the one that counts in the standings. Contestants may submit code written in one of the following languages: Java, C++, C#.NET, VB.NET, or Python.
 		<br><br>
@@ -340,7 +340,7 @@
             be adjusted accordingly. During the submission phase, overall ranking and 
             provisional score are the only pieces of information that will be made 
             available. A given competitor will only be allowed to submit once every 
-            4 hours.  Additionally, if a competitor has a pending submission on the 
+            2 hours.  Additionally, if a competitor has a pending submission on the 
             testing queue it must finish testing before they may submit again.
         </p>
         <p align="justify">
@@ -348,7 +348,7 @@
             submission on a queue for automated testing of just the example test cases. 
             Detailed feedback will be made available when the tests are complete, 
             including processing time, score, and any output from the program. 
-            Competitors may submit test examples once every 30 minutes. The competitor's 
+            Competitors may submit test examples once every 15 minutes. The competitor's 
             rank and overall score will not be updated.
         </p>
 
