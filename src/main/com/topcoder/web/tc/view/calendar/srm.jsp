@@ -14,7 +14,7 @@
 
     long[] regularPrizeRounds = {7223,8004 ,8005,7227,8007,8080,8069,8074,8083,9812,9815,9816,9820,9822,9997,9992,9999,
             10004,9995,10005,10002,10659,10663,10665,10669,10674,10664,10666,10669,10712,10710,10675,10711,10766,10770,
-            10773,10778,10787,11122,11126,12169,12172,12177};
+            10773,10778,10787,11122,11126,12169,12172,12177,13901};
     //sort it just for insurance, we're going to use binary search later
     Arrays.sort(regularPrizeRounds);
 	
@@ -164,12 +164,28 @@
     </TD>
 </TR>
 
-<% if (roundId == 8070 || roundId == 8073 || roundId == 8076) { %>
+<% if (roundId == 13901) { %>
+
 <TR>
     <TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
-        <font size="3"><b>***TopCoder will be giving away $5,000 per match sponsored by SAP. There will also be a raffle
-            for
-            an iPod during each match.***</b></font><br/><br/>
+        <font size="3"><b>Total Prize Purse of $5,000 !!!</b></font><br/><br/>
+
+		<hr>
+		Facebook is excited to sponsor TopCoder single-round match 447.  
+		Seasoned veterans and newcomers alike will get to duke it out in real time to see who can solve the toughest problems the fastest. 
+		We will be distributing $5,000 worth of cash prizes to top performers, 
+		and all match registrants will have the chance to opt-in to be contacted by Facebook recruiting if they put on an impressive show.
+		<br><br>
+		Anyone interested in competing in the Facebook-sponsored match on August 25th should take a look at 
+		<a HREF="http://www.facebook.com/careers/puzzles.php">Facebook Puzzles</a> as great fodder for getting your brain 
+		and your fingers warmed up and ready to compete.  
+		Keep an eye out for Facebook engineers in the Arena during the hour before the match; 
+		we will be around to chat and answer any questions that come our way.  
+		Hope to see you all there, and good luck! 
+		<hr>
+		<br><br>
+
+
         <B>Single Round Match Description</B>
         <UL>
             <li>Competitors with a rating of 1200 or higher at the start of the match will be placed into a division one
@@ -201,7 +217,7 @@
                 Quebec
                 province of Canada, or anywhere else where this contest is prohibited by applicable law.
             </li>
-            <li><a href="/tc?module=Static&d1=help&d2=ratings">Rating changes</a> go into effect in next participated
+            <li><a href="/tc?module=Static&amp;d1=help&amp;d2=ratings">Rating changes</a> go into effect in next participated
                 rated
                 event
             </li>
@@ -226,25 +242,11 @@
                 charity to
                 which the ineligible member's prize will be paid.
             </li>
-            <li>Employees of SAP and/or persons living in the same household as such employees are ineligible to win
-                prizes
-                in this competition and are ineligible to donate any prize to charity. If any such employee finishes in
-                a
-                prize-winning position in the competition, the next-best competitor will either receive the prize or be
-                able
-                to donate the applicable prize to a charity.
-            </li>
-            <li>You must be a member of the SAP Developer Network to be eligible for the iPod raffle. Go here to
-                register:
-                <a href="http://www.topcoder.com/?t=sponsor&amp;c=link&amp;link=http://sdn.sap.com">http://sdn.sap.com</a>
-                and use “TopCoder” as a referral.
-            </li>
         </UL>
         <BR/><BR/>
 
-        <A CLASS="bodyText" href="/tc?module=MatchDetails&rd=<%=roundId%>&c=rules"><B>Click here for complete rules
-            &amp;
-            regulations</B></A>
+        <A CLASS="bodyText" HREF="/tc?module=MatchRules&amp;rd=<rsc:item name="round_id" row="<%=rsr%>"/>"><B>Click here for
+            complete rules &amp; regulations</B></A>
     </TD>
 </TR>
 
