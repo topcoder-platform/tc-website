@@ -110,9 +110,11 @@
         </tr>
         <tr>
             <td class="value" colspan="2" style="border: 0px none ;"><strong>Contest:</strong><br>
-                <rsc:item set="<%=projectInfo%>" name="component_name"/>
-                <rsc:item set="<%=projectInfo%>" name="version_text"/>
-                <br><br>
+
+				<a href="/tc?module=ProjectDetail&pj=<%=projectId%>"><rsc:item set="<%=projectInfo%>" name="component_name"/>
+                <rsc:item set="<%=projectInfo%>" name="version_text"/></a>
+
+				<br><br>
             </TD>
         </tr>
         <tr>
