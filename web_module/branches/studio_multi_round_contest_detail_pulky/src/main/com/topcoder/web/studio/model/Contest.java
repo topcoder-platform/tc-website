@@ -27,7 +27,7 @@ import java.util.TreeSet;
  *   </ol>
  * </p>
  *
- * @author dok, isv, TCSDEVELOPER
+ * @author dok, isv, pulky
  * @version 1.1
  */
 public class Contest extends Base {

@@ -1,0 +1,19 @@
+The following items in the aggregation scorecard are marked required and accepted:
+
+_skip:
+1.1.1:
+    #1: fixed
+2.2.1:
+    #1: fixed    
+
+BeBetter:
+2.2.2:
+    #1: fixed
+4.1.1:
+    #1: fixed
+
+Other work performed:    
+1) TCSDEVELOPER was updated in all deliverables
+2) Documentation added to branch.
+
+Thanks.

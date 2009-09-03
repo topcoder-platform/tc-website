@@ -1,0 +1,15 @@
+This is a summary of the changes made:
+
+- New mappings and POJO classes were created for contest_multi_round_information and contest_milestone_prize tables.
+- Contest mappings were updated to include the new columns and associations.
+- PrizeType was updated to include the new milestone prize tyle id constant.
+- Studio hibernate configuration was updated to include the new entities and associations.
+- Added new constants to support the new processors to Constants.java.
+- New ContestMilestonePrize and ContestMultiRoundInformation DAOs were created.
+- DAO Factory related classes were updated to support the new DAOs.
+- Contest administration pages and processors were updated to include the new fields.
+- New validators were created for the new fields in contest administration pages.
+- Contest details page was updated to show the new fields.
+- SQL scripts were provided for the new schema updates and new prize_type_lu (milestone) insert was also provided.
+
+Thanks!

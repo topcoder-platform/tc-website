@@ -14,7 +14,7 @@ import com.topcoder.web.common.validation.Validator;
  * <p>It will basically validate the amount is not empty and positive if the number of milestone prizes is greater
  *    than zero and that the formatting is correct.</p>
  *
- * @author TCSDEVELOPER
+ * @author pulky
  * @version 1.0
  * @since Studio Multi-Rounds Assembly - Studio Contest Details v1.0
  */
@@ -55,7 +55,7 @@ public class MilestonePrizeAmountValidator implements Validator {
         }
         numberMilestonePrizes = numberMilestonePrizes.trim();
         // if the number of milestone prizes is empty or zero, no need to continue validation
-        if (numberMilestonePrizes.equals("") || numberMilestonePrizes.equals("0")) {
+        if (numberMilestonePrizes.length() == 0  || numberMilestonePrizes.equals("0")) {
             return ValidationResult.SUCCESS;
         }
 

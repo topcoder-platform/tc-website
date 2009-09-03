@@ -18,7 +18,7 @@ import com.topcoder.web.studio.Constants;
  *
  * <p>It will basically validate date's formatting, and chronological order compared to start time and end time.</p>
  *
- * @author TCSDEVELOPER
+ * @author pulky
  * @version 1.0
  * @since Studio Multi-Rounds Assembly - Studio Contest Details v1.0
  */

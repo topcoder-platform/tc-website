@@ -16,7 +16,7 @@ package com.topcoder.web.studio.dao;
  *   </ol>
  * </p>
  *
- * @author dok, TCSDEVELOPER
+ * @author dok, pulky
  * @version 1.1
  */
 public interface StudioDAOFactory {

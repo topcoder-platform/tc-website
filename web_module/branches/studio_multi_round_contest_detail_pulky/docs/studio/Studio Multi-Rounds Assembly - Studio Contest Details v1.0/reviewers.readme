@@ -1,0 +1,48 @@
+Steps to prepare the VM for testing: (these steps assume a fresh working VM)
+
+1) login to studio account
+2) update web_module in te vm (in case there were updates since instantiation)
+        - in ~/web/: svn up
+3) Since there were changes in trunk, you won't be able to just copy over submission's files, so you will have to
+   switch to my SVN branch: (this was confirmed with PM)
+        - in ~/web/: svn switch https://coder.topcoder.com/internal/web_module/branches/studio_multi_round_contest_detail_pulky
+4) Run DML:
+        - /test_files/scripts/script.sql
+        - /scripts/studio_oltp.sql
+5) Copy new css to apache:
+        - /studiodocs/* -> /mnt/apache/studiodocs/
+6) Copy missing calendar javascripts
+        - /test_files/studiodocs/* -> /mnt/apache/studiodocs/
+7) Kill jboss:
+        - run jps, kill the id that is listed as Main, wait till it's dead (when you type jps and don't see main any more)
+8) Remove security.ear in JBoss deploy directory (if this directory exists, it won't allow deployment)
+        - jbd; rm security.ear/ -R
+9) Deploy Studio:
+        - in ~/web/: ant -f build_studio.xml deploy
+10) It seems PactsServices is not deployed correctly, so in order to be able to view contest details without any problems
+    turn off global_ad_flag:
+        - vi ~/jboss-4.0.4.GA/server/default/conf/Studio.properties
+        - replace global_ad_flag = on with global_ad_flag = off and save.
+11) Start jboss:
+        - type jbb, then ./start.sh, then tn and wait till it tells you it's up.
+12) Once JBoss is running, you are all set for testing.
+
+Note: due to some missing images in VM's apache or different CSSs, some pages could be missing icons or images or have
+different formatting, but this is not a code problem.
+
+-------------------------------
+
+Testing tips:
+- You can edit an existing contest (http://studio.cloud.topcoder.com/admin?module=ViewContest&ct=89 for instance) or 
+  create a new one (http://studio.cloud.topcoder.com/admin?module=ViewContest)
+- You will have to use heffan/password to login to Studio admin tool.
+- In the admin tool you can verify the different validation messages.
+- After each change, you can verify how contest details page is updated as specified in the corresponding studio 
+  contest details page: http://studio.cloud.topcoder.com/?module=ViewContestDetails&ct=89
+- You may find the following SQL commnands useful: (studio_oltp)
+
+    select * from contest where is_multi_round      -- check multi round contests
+    select * from contest_milestone_prize           -- check contest milestone prize association
+    select * from contest_multi_round_information   -- check contest multi round information
+
+Thanks!!!

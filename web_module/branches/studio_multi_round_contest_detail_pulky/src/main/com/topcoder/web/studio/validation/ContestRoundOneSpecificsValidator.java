@@ -13,7 +13,7 @@ import com.topcoder.web.common.validation.Validator;
  *
  * <p>Currently it will only validate the input is not empty.</p>
  *
- * @author TCSDEVELOPER
+ * @author pulky
  * @version 1.0
  * @since Studio Multi-Rounds Assembly - Studio Contest Details v1.0
  */
