@@ -54,7 +54,7 @@
         <p align="center">
             Overview&#160;&#160;|&#160;&#160;
             <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=NVIDIAInstructions">How to Compete</a> &#160;&#160;|&#160;&#160;
-			<span class="grayedOut">Rules (coming soon)</span> &#160;&#160;|&#160;&#160;
+			<a href="/tc?module=Static&amp;d1=sponsors&amp;d2=NVIDIARules">Rules</a>&#160;&#160;|&#160;&#160;
             <a href="/longcontest/?module=ViewActiveContests">Active Contests</a>
 		</p>
         

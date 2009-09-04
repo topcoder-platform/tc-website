@@ -41,10 +41,7 @@
         <p align="center">
             <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=NVIDIAOverview">Overview</a>&#160;&#160;|&#160;&#160;
             How to Compete&#160;&#160;|&#160;&#160;
-            <span class="grayedOut">Rules (coming soon)</span> &#160;&#160;|&#160;&#160;
-            <%--
-            <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=amdRules">Rules</a>&#160;&#160;|&#160;&#160;
-            --%>
+            <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=NVIDIARules">Rules</a>&#160;&#160;|&#160;&#160;
             <a href="/longcontest/?module=ViewActiveContests">Active Contests</a>
         </p>
         
@@ -61,19 +58,21 @@
         <p>Clicking the Test Examples button will immediately compile and place your submission on a queue for automated testing of just the example test cases. Detailed feedback will be made available when the tests are complete, including processing time, score, and any output from the program. Competitors may submit test examples once every 30 minutes. The competitor's rank and overall score will not be updated.</p>
         <p>In this event, all competitors are encouraged to improve their solutions and resubmit iteratively throughout the two weeks of the submission phase. The most recent submission is always the one that counts, so if you make a submission that does not score as well as a prior submission, the most recent will still be the one that counts in the standings.</p>
         <p><span class="bodySubtitle">Languages</span><br />
-        Details coming soon</p>
+        C++</p>
         <p>Note: The language must be appropriately selected on the submission screen.</p>
         
         <p><span class="bodySubtitle">Hardware</span><br />
         Each individual test case will be run against a competitor's submission on a dedicated machine with the following specifications:</p>
 		
         <ul>
-			Coming soon
-        <!--
-			<li>Processors(2): Quad-Core AMD Opteron(tm) Processor 2350  2 GHz,  512 KB Level II Cache</li>
-            <li>Memory: 8 GB</li>
-            <li>OS: SUSE Linux 10.3, kernel 2.6.22.17</li>
-        -->
+			<li>UNI1250 -- Intel Quad Core 8200 system</li>
+			<li>EVGA 790i SLI Motherboard</li>
+			<li>Intel Q8200 Quad Core CPU</li>
+            <li>4GB DDR3 Memory</li>
+            <li>8400GS GPU</li>
+			<li>250GB SATAII Hard Disk, 7200RPM</li>
+			<li>Centos 5.3</li>
+			<li>TESLA C1060 4GB</li>
 		</ul>
 
         <p><span class="bodySubtitle">Viewing Match Standings</span><br />
