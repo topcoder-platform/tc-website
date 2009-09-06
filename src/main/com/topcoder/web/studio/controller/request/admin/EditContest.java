@@ -21,6 +21,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.validation.ListInput;
+import com.topcoder.web.common.validation.NonEmptyValidator;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.studio.Constants;
@@ -47,8 +48,6 @@ import com.topcoder.web.studio.validation.ContestChannelValidator;
 import com.topcoder.web.studio.validation.ContestConfigValueValidator;
 import com.topcoder.web.studio.validation.ContestNameValidator;
 import com.topcoder.web.studio.validation.ContestOverviewValidator;
-import com.topcoder.web.studio.validation.ContestRoundOneSpecificsValidator;
-import com.topcoder.web.studio.validation.ContestRoundTwoSpecificsValidator;
 import com.topcoder.web.studio.validation.ContestTypeValidator;
 import com.topcoder.web.studio.validation.DigitalRunPointsValidator;
 import com.topcoder.web.studio.validation.EndTimeValidator;
@@ -571,7 +570,8 @@ public class EditContest extends Base {
             // validate round one specifics
             String contestRoundOneSpecifics = request.getParameter(Constants.CONTEST_ROUND_ONE_SPECIFICS);
             ValidationResult contestRoundOneSpecificsResult =
-                new ContestRoundOneSpecificsValidator().validate(new StringInput(contestRoundOneSpecifics));
+                new NonEmptyValidator("Please enter the round one specifics text for this contest.").validate(
+                    new StringInput(contestRoundOneSpecifics));
 
             if (!contestRoundOneSpecificsResult.isValid()) {
                 addError(Constants.CONTEST_ROUND_ONE_SPECIFICS, contestRoundOneSpecificsResult.getMessage());
@@ -580,8 +580,9 @@ public class EditContest extends Base {
             // validate round two specifics
             String contestRoundTwoSpecifics = request.getParameter(Constants.CONTEST_ROUND_TWO_SPECIFICS);
             ValidationResult contestRoundTwoSpecificsResult =
-                new ContestRoundTwoSpecificsValidator().validate(new StringInput(contestRoundTwoSpecifics));
-
+                new NonEmptyValidator("Please enter the round two specifics text for this contest.").validate(
+                    new StringInput(contestRoundTwoSpecifics));
+            
             if (!contestRoundTwoSpecificsResult.isValid()) {
                 addError(Constants.CONTEST_ROUND_TWO_SPECIFICS, contestRoundTwoSpecificsResult.getMessage());
             }
