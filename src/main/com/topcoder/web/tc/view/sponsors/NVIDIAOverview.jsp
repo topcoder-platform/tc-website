@@ -68,19 +68,35 @@
             <li>Download and try out <a target="_blank" href="<tc-webtag:linkTracking link='http://www.nvidia.com/object/cuda_get.html' refer='nvidia_superhero' />">CUDA development tools</a></li>
 			<li>Register and attend a <a target="_blank" href="<tc-webtag:linkTracking link='http://www.nvidia.com/object/cuda_get.html' refer='nvidia_superhero' />">webinar</a> to learn how to harness the power of CUDA.</li>
         </ol></p>
-        <p>NVIDIA has also scheduled a series Webinars exclusively for TopCoder members, so that everyone can get up-to-speed on  parallel programming quickly.</p>
-        <p><strong>GPU Computing Tutorial Series-CUDA Introduction for TopCoder</strong><br />
-        	Monday, August 31, 2009<br />
-        	7:30 AM - 9:30 AM PDT<br />
-        	<a href="https://www2.gotomeeting.com/register/767410586">https://www2.gotomeeting.com/register/767410586</a></p>
-		<p><strong>GPU Computing Tutorial Series-Performance & Memory Optimization for TopCoder</strong><br />
-        	Wednesday, September 2, 2009<br />
-        	7:30 AM - 9:30 AM PDT<br />
-        	<a href="https://www2.gotomeeting.com/register/567512514">https://www2.gotomeeting.com/register/567512514</a></p>
-        <p><strong>GPU Computing Tutorial Series-Further CUDA Optimization for TopCoder</strong><br />
-        	Friday, September 4, 2009<br />
-        	7:30 AM - 9:30 AM PDT<br />
-        	<a href="https://www2.gotomeeting.com/register/830329419">https://www2.gotomeeting.com/register/830329419</a></p>
+        <p>NVIDIA has scheduled a series Webinars exclusively for TopCoder members, so that everyone can get up-to-speed on parallel programming.</p>
+        <p>Please follow the links to register for each webinar you would like to attend. Advance registration is required. Please note all times are listed in Eastern Daylight Time (EDT) GMT/UTC -4.  See what the times are in your area.</p>
+        <p><a href="http://timeanddate.com/worldclock/fixedtime.html?month=9&amp;day=9&amp;year=2009&amp;hour=12&amp;min=0&amp;sec=0&amp;p1=98" target="_blank">Noon EDT</a> and <a href="http://timeanddate.com/worldclock/fixedtime.html?month=9&amp;day=10&amp;year=2009&amp;hour=0&amp;min=0&amp;sec=0&amp;p1=98" target="_blank">Midnight EDT</a><br />
+          <br />
+          Full Schedule and short abstracts can be viewed <a href="http://developer.nvidia.com/object/gpu_computing_online.html?refCode=nvinvite" target="_blank">here.</a></p>
+        <p><strong>An Introduction to GPU Computing and The CUDA Architecture, 1.5 Hour</strong><br />
+        	Wednesday, September 9, 2009: Noon EDT<br />
+        	<a href="https://www2.gotomeeting.com/register/165166034" target="_blank">https://www2.gotomeeting.com/register/165166034</a></p>
+        <p>Wednesday September 9, 2009: Midnight EDT<br />
+          <a href="https://www2.gotomeeting.com/register/151806587" target="_blank">https://www2.gotomeeting.com/register/151806587</a><br />
+          <br />
+          Monday September 21, 2009:  Noon EDT<br />
+          <a href="https://www2.gotomeeting.com/register/691302954" target="_blank">https://www2.gotomeeting.com/register/691302954</a></p>
+        <p><strong>Memory Optimization and Performance Considerations for CUDA, 1.5 hours</strong><br />
+          Thursday September 10, 2009:  Noon EDT<br />
+          <a href="https://www2.gotomeeting.com/register/323885467" target="_blank">https://www2.gotomeeting.com/register/323885467</a><br />
+          <br />
+          Thursday September 10, 2009:  Midnight EDT<br />
+          <a href="https://www2.gotomeeting.com/register/492323699" target="_blank">https://www2.gotomeeting.com/register/492323699</a><br />
+          <br />
+          Thursday September 24, 2009:  Noon EDT<br />
+          <a href="https://www2.gotomeeting.com/register/914977899" target="_blank">https://www2.gotomeeting.com/register/914977899</a><br />
+</p>
+        <p><strong>Further CUDA Optimization Techniques, 1.5 hours</strong><br />
+          Friday September 11, 2009:  Noon EDT<br />
+          <a href="https://www2.gotomeeting.com/register/611462842" target="_blank">https://www2.gotomeeting.com/register/611462842</a><br />
+          <br />
+          Friday September 25, 2009: Noon EDT<br />
+          <a href="https://www2.gotomeeting.com/register/547728371" target="_blank">https://www2.gotomeeting.com/register/547728371</a></p>
         	<p>In addition to the TopCoder specific Webinars, there are a number of public Webinars that are also available so you can find the Webinar that fits your schedule.  The public Webinar schedule and sign-up are located on the following link:<br />
         	<a href="http://developer.nvidia.com/object/gpu_computing_online.html">http://developer.nvidia.com/object/gpu_computing_online.html</a></p>
         <p>&nbsp;</p>
