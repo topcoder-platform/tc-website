@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+  - Author: TCSDEVELOPER
+  - Version: 1.0
+  - Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: Hibernate mapping file for spec_review_reviewer_xref table
+  -
+  - Since: Studio Release Assembly - Spec Review Sign up page v1.0
+-->
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+    <class name="SpecReviewReviewer" table="spec_review_reviewer_xref">
+        <id name="id" column="spec_review_reviewer_id" type="long" unsaved-value="-1">
+            <generator class="sequence">
+                <param name="sequence">SPEC_REVIEW_REVIEWER_SEQ</param>
+            </generator>
+        </id>
+
+        <many-to-one name="specReview" column="spec_review_id" access="field" class="SpecReview" fetch="select"/>
+        <many-to-one name="user" column="review_user_id" access="field" class="User" fetch="select"/>
+        <property name="reviewStartTime" column="review_start_time" access="field"/>
+        <property name="isActive" column="is_active" access="field"/>
+        <property name="creationUser" column="creation_user" />
+        <property name="creationTime" column="creation_time" />
+    </class>
+</hibernate-mapping>
+
