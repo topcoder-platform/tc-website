@@ -20,7 +20,7 @@
       <td height="76" valign="top" style="border-top: 1px solid #CCCCCC; padding: 5px 0;" ><img src="/i/m/nophoto.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;" width="100%">
          <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_ALGO_COM%>" class="gMetal">Algorithm</a></strong><br />
-         <tc-webtag:handle coderId="22263204" context="<%=HandleTag.ALGORITHM%>" darkBG="true" />
+         <tc-webtag:handle coderId="22714999" context="<%=HandleTag.ALGORITHM%>" darkBG="true" />
          <br />
          <br />
       </td>
@@ -29,8 +29,8 @@
       <td style="border-top: 1px solid #CCCCCC; padding: 5px 0;" valign="top"><img src="/i/m/nophoto.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
          <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DESIGN_COM%>" class="gMetal">Design</a></strong><br />
-         <tc-webtag:handle coderId="22827136" context="<%=HandleTag.DESIGN%>" darkBG="true" /><br />
-         with 3 wins, 1 fourth place<br />
+         <tc-webtag:handle coderId="22780167" context="<%=HandleTag.DESIGN%>" darkBG="true" /><br />
+         4 wins<br />
          <br />
       </td>
    </tr>
@@ -38,9 +38,8 @@
       <td style="border-top: 1px solid #CCCCCC; padding: 5px 0;" valign="top"><img src="/i/m/nophoto.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
          <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DEV_COM%>" class="gMetal">Development</a></strong><br />
-         <tc-webtag:handle coderId="22766903" context="<%=HandleTag.DEVELOPMENT%>" darkBG="true" /><br />
-         with 7 wins, 1 second place
-         <br />
+         <tc-webtag:handle coderId="22768922" context="<%=HandleTag.DEVELOPMENT%>" darkBG="true" /><br />
+         5 wins<br />
       </td>
    </tr>
    </table>
