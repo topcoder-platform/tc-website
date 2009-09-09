@@ -1,18 +1,24 @@
 <?xml version="1.0"?>
 <paymentConfiguration>
   <paymentRange>
-    <reliabilityAbove reliability=".95" paymentPercentage=".2"/>
-    <reliabilityAbove reliability=".90" paymentPercentage=".15"/>
-    <reliabilityAbove reliability=".80" paymentPercentage=".10"/>
+    <projectCategory>
+      <reliabilityAbove reliability=".95" paymentPercentage=".2"/>
+      <reliabilityAbove reliability=".90" paymentPercentage=".15"/>
+      <reliabilityAbove reliability=".80" paymentPercentage=".10"/>
+    </projectCategory>
   </paymentRange>
   <paymentRange startDate="2007-04-24 09:00 AM">
-    <reliabilityAbove reliability=".95" paymentPercentage=".5"/>
-    <reliabilityAbove reliability=".90" paymentPercentage=".2"/>
-    <reliabilityAbove reliability=".80" paymentPercentage=".1"/>
+    <projectCategory>
+      <reliabilityAbove reliability=".95" paymentPercentage=".5"/>
+      <reliabilityAbove reliability=".90" paymentPercentage=".2"/>
+      <reliabilityAbove reliability=".80" paymentPercentage=".1"/>
+    </projectCategory>
   </paymentRange>
   <paymentRange startDate="2009-01-07 00:00 AM">
-    <reliabilityAbove reliability=".95" paymentPercentage=".2"/>
-    <reliabilityAbove reliability=".90" paymentPercentage=".15"/>
-    <reliabilityAbove reliability=".80" paymentPercentage=".10"/>
+    <projectCategory>
+      <reliabilityAbove reliability=".95" paymentPercentage=".2"/>
+      <reliabilityAbove reliability=".90" paymentPercentage=".15"/>
+      <reliabilityAbove reliability=".80" paymentPercentage=".10"/>
+    </projectCategory>
   </paymentRange>
 </paymentConfiguration>
