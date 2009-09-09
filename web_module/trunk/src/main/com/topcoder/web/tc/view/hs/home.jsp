@@ -37,8 +37,8 @@
         <td width="100%" align="center" class="bodyColumn">
             <div class="fixedWidthBody">
 
-                <div align="center">
-                    <img src="/i/hs/banner.jpg" alt="TopCoder High School" border="0">
+                <div align="center"><br><br>
+                    <img src="/i/tournament/tchs10/tchs10-logo.png" alt="TopCoder High School" border="0">
                 </div>
                 <br />
                 <div align="center">
