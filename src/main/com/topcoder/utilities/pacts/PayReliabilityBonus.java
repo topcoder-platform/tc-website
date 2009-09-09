@@ -44,17 +44,17 @@ public class PayReliabilityBonus extends DBUtility {
     /**
      * This variable saves information about bonuses.
      */
-    private TreeMap<Date, TreeMap<Double, Double>> bonusTable;
+    private TreeMap<Date,TreeMap<Long, TreeMap<Double, Double>>> bonusTable;
 
-	protected void runUtility() throws Exception {
-		PactsClientServices  ejb = (PactsClientServices) createEJB();
+    protected void runUtility() throws Exception {
+        PactsClientServices  ejb = (PactsClientServices) createEJB();
         
-		StringBuffer query = new StringBuffer(200);
+        StringBuffer query = new StringBuffer(200);
 
-		// Find all the project result that have a payment but not a reliability bonus payment
-		// If a reliability bonus is deleted (status 69) it will be found anyways, so that if 
-		// someone deletes a reliability bonus, it is not created again.
-		query.append("SELECT pr.user_id, pr.project_id, pr.old_reliability, pd.total_amount, pd.client, p.payment_id, ");
+        // Find all the project result that have a payment but not a reliability bonus payment
+        // If a reliability bonus is deleted (status 69) it will be found anyways, so that if 
+        // someone deletes a reliability bonus, it is not created again.
+        query.append("SELECT pr.user_id, pr.project_id, pr.old_reliability, pd.total_amount, pd.client, p.payment_id,  pro.project_category_id , ");
         query.append("       (select NVL(ppd.actual_start_time, psd.actual_start_time)   ");
         query.append("          from tcs_catalog:project proj  ");
         query.append("               , OUTER tcs_catalog:project_phase psd  ");
@@ -82,48 +82,56 @@ public class PayReliabilityBonus extends DBUtility {
         query.append("     AND pd2.payment_type_id=" + PactsConstants.RELIABILITY_BONUS_PAYMENT + ")");
         
         PreparedStatement psSelProjects = prepareStatement("informixoltp", query.toString());
+
+        log.info("user_id, project_id, posting date, bonus amount, old reliability, total amount, parent payment id");
         
-		log.info("user_id, project_id, posting date, bonus amount, old reliability, total amount, parent payment id");
-
-
         int count = 0;
         ResultSet rs = psSelProjects.executeQuery();
         while (rs.next()) {
-        	long userId = rs.getLong("user_id");
-        	long projectId = rs.getLong("project_id");
-        	double reliability = rs.getDouble("old_reliability");
-        	double amount = rs.getDouble("total_amount");
-        	long paymentId = rs.getLong("payment_id");
-        	Date postingDate = rs.getDate("posting_Date");
+            long userId = rs.getLong("user_id");
+            long projectId = rs.getLong("project_id");
+            double reliability = rs.getDouble("old_reliability");
+            double amount = rs.getDouble("total_amount");
+            long paymentId = rs.getLong("payment_id");
+            Date postingDate = rs.getDate("posting_Date");
+            long projectTypeId = rs.getLong("project_category_id");
 
-        	// use parent's client for the reliability payment
-        	String client = rs.getString("client");
+            // use parent's client for the reliability payment
+            String client = rs.getString("client");
 
-            double bonusAmount = getReliabilityPercent(reliability, postingDate) * amount;
+            double bonusAmount = getReliabilityPercent(reliability, postingDate, projectTypeId) * amount;
 
             if (onlyAnalyze.equalsIgnoreCase("false")) {
-            	ReliabilityBonusPayment bp = new ReliabilityBonusPayment(userId, bonusAmount, paymentId);
-            	bp.setClient(client);
-            	bp.setNetAmount(bonusAmount);
-
-            	ejb.addPayment(bp);
+                ReliabilityBonusPayment bp = new ReliabilityBonusPayment(userId, bonusAmount, paymentId);
+                bp.setClient(client);
+                bp.setNetAmount(bonusAmount);
+    
+                ejb.addPayment(bp);
             }
-
+    
             log.info("" + userId + ", " + projectId + ", " + postingDate + ", " + bonusAmount + ", " + reliability + ", "
-                    + amount + ",  " + paymentId);
-			count++;			
+                    + amount + ",  " + paymentId+" , "+projectTypeId);
+                
+            count++;                        
         }
+            
         log.info("Done. Bonus rows inserted: " + count);
-	}
+    }
 
-    private double getReliabilityPercent(double reliability, Date reliabilityDate) {
+    private double getReliabilityPercent(double reliability, Date reliabilityDate, long projectTypeId ) {
         Date startDate = new Date();
         for (Date date : bonusTable.keySet()) {
             if (date.compareTo(reliabilityDate) > 0) break;
             startDate = date;
-    }
+        }
+        
+        TreeMap<Long, TreeMap<Double, Double>> categoryMap=bonusTable.get(startDate);
+        Long cId=new Long(0);
+        if (categoryMap.containsKey(new Long(projectTypeId))) {
+            cId = new Long(projectTypeId);
+        }
     
-        TreeMap<Double, Double> bonus = bonusTable.get(startDate);
+        TreeMap<Double, Double> bonus = categoryMap.get(cId);
         double reliabilityValue = .0;
         for (double rel : bonus.keySet()) {
             if (rel > reliability) break;
@@ -131,8 +139,6 @@ public class PayReliabilityBonus extends DBUtility {
         }
         return bonus.get(new Double(reliabilityValue));
     }
-
-
 
     public static Object createEJB() throws Exception {
         InitialContext initial = TCContext.getInitial();
@@ -145,7 +151,7 @@ public class PayReliabilityBonus extends DBUtility {
     }
 
     private void parseReliabilityDetails(String reliabilityFilename) throws Exception {
-        bonusTable = new TreeMap<Date, TreeMap<Double, Double>>();
+        bonusTable = new TreeMap<Date,TreeMap<Long, TreeMap<Double, Double>>>();
         DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
         Document doc = docBuilder.parse(new File(reliabilityFilename));
@@ -164,18 +170,31 @@ public class PayReliabilityBonus extends DBUtility {
             } else {
                 startDate = df.parse("1900-01-01 01:00 AM");
             }
-
-            NodeList reliabilities = paymentRange.getElementsByTagName("reliabilityAbove");
-            TreeMap<Double, Double> reliabilitiesMap = new TreeMap<Double, Double>();
-            reliabilitiesMap.put(0.0, 0.0);
-            for (int j = 0; j < reliabilities.getLength(); ++j) {
-                NamedNodeMap attr = reliabilities.item(j).getAttributes();
-                double reliabilityValue = Double.parseDouble(attr.getNamedItem("reliability").getNodeValue());
-                double paymentPercentage = Double.parseDouble(attr.getNamedItem("paymentPercentage").getNodeValue());
-                reliabilitiesMap.put(reliabilityValue, paymentPercentage);
+            
+            NodeList projectCategoryList = doc.getElementsByTagName("projectCategory");
+            TreeMap<Long, TreeMap<Double, Double>> projectCategoryMap = new TreeMap<Long, TreeMap<Double, Double>>();
+            projectCategoryMap.put(new Long(0),new TreeMap<Double, Double>());
+            for (int k = 0; k < projectCategoryList.getLength(); k++) {
+                Element projectCategory = (Element) projectCategoryList.item(k);
+                Node categoryAttr =  projectCategory.getAttributes().getNamedItem("category");
+                long categoryId = 0;
+                if (categoryAttr != null) {
+                    categoryId = new Long(Long.parseLong(categoryAttr.getNodeValue()));
+                }
+            	            	
+            	NodeList reliabilities = projectCategory.getElementsByTagName("reliabilityAbove");
+            	TreeMap<Double, Double> reliabilitiesMap = new TreeMap<Double, Double>();
+            	reliabilitiesMap.put(0.0, 0.0);
+            	for (int j = 0; j < reliabilities.getLength(); ++j) {
+                	NamedNodeMap attr = reliabilities.item(j).getAttributes();
+                	double reliabilityValue = Double.parseDouble(attr.getNamedItem("reliability").getNodeValue());
+                	double paymentPercentage = Double.parseDouble(attr.getNamedItem("paymentPercentage").getNodeValue());
+                	reliabilitiesMap.put(reliabilityValue, paymentPercentage);
+            	}
+            	projectCategoryMap.put(categoryId,reliabilitiesMap);
             }
-            bonusTable.put(startDate,  reliabilitiesMap);
-
+           
+            bonusTable.put(startDate,  projectCategoryMap);
         }
     }
     
@@ -187,7 +206,7 @@ public class PayReliabilityBonus extends DBUtility {
 
         onlyAnalyze = (String) params.get("onlyAnalyze");
         if (onlyAnalyze == null) {
-        	onlyAnalyze = "false";
+            onlyAnalyze = "false";
         }
         params.remove("onlyAnalyze");
 
