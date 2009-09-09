@@ -1,3 +1,12 @@
+<%--
+  - Author: TCSDEVELOPER
+  - Version: 1.1
+  - Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page presents past contests
+  -
+  - Version 1.1 (Studio Release Assembly - Spec Review Sign up page v1.0) changes: Added "Review Opportunities" tab.
+--%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
@@ -103,6 +112,7 @@
 					<div class="tableTabOn"><a href="${sessionInfo.servletPath}?module=ViewPastContests">Past Contests</a></div>
                               <%-- BUGR-1211 Added Active Bug Race Tab --%>
                               <div class="tableTabOff"><a href="${sessionInfo.servletPath}?module=ViewActiveBugRaces">Active Bug Races</a></div>
+                    <div class="tableTabOff"><a href="${sessionInfo.servletPath}?module=ViewReviewOpportunities">Review Opportunities</a></div>
 
 					<br  clear="all"/>
 					

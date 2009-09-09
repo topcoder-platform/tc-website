@@ -23,8 +23,17 @@ import java.util.MissingResourceException;
  *   </ol>
  * </p>
  *
- * @author dok, isv, pulky
- * @version 1.1
+ * <p>
+ *   Version 1.2 (Studio Release Assembly - Spec Review Sign up page v1.0) Change notes:
+ *   <ol>
+ *     <li>Added configuration to support spec review signup - payment amount.</li>
+ *     <li>Updated class initialization to support <code>double</code> type.</li>
+ *     <li>Added SPEC_REVIEW_ID request attribute key constant.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, isv, pulky, TCSDEVELOPER
+ * @version 1.2
  */
 public class Constants implements WebConstants {
     private static final TCResourceBundle bundle = new TCResourceBundle("Studio");
@@ -447,10 +456,31 @@ public class Constants implements WebConstants {
      */
     public static final String PAGE_SIZE_KEY = "ps";
 
+    /**
+     * <p>A <code>double</code> providing the payment amount for specification reviews.</p>
+     *
+     * @since 1.2
+     */
+    public static double SPEC_REVIEW_PAYMENT_AMOUNT;
+
+    /**
+     * <p>A <code>String</code> providing the name of default request attribute which refers to
+     * specification review id.</p>
+     *
+     * @since 1.2
+     */
+    public static final String SPEC_REVIEW_ID = "srid";
+
+
     static {
         initialize();
     }
 
+    /**
+     * This method initializes fields to their corresponding value
+     *
+     * Note: <code>double</code> type supported since 1.2
+     */
     public static void initialize() {
         //log.debug("XXXXX initialize called");
 
@@ -470,6 +500,11 @@ public class Constants implements WebConstants {
                         try {
                             //log.debug("set " + f[i] + " to " + bundle.getProperty(f[i].getName().toLowerCase()));
                             f[i].set(null, bundle.getProperty(f[i].getName().toLowerCase()));
+                        } catch (MissingResourceException ignore) {
+                        }
+                    } else if (f[i].getType().getName().equals("double")) {
+                        try {
+                            f[i].setDouble(null, bundle.getDoubleProperty(f[i].getName().toLowerCase()));
                         } catch (MissingResourceException ignore) {
                         }
                     } else {

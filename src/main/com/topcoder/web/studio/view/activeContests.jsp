@@ -1,3 +1,12 @@
+<%--
+  - Author: TCSDEVELOPER
+  - Version: 1.1
+  - Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page presents active contests
+  -
+  - Version 1.1 (Studio Release Assembly - Spec Review Sign up page v1.0) changes: Added "Review Opportunities" tab.
+--%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
@@ -81,120 +90,121 @@
 					<div class="tableTabOn" style="margin-left: 20px;"><a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a></div>
 					<div class="tableTabOff"><a href="${sessionInfo.servletPath}?module=ViewPastContests">Past Contests</a></div>
                               <%-- BUGR-1211 Added Active Bug Race Tab --%>
-					<div class="tableTabOff"><a href="${sessionInfo.servletPath}?module=ViewActiveBugRaces">Active Bug Races</a></div>
-							
-					<a href="http://feeds.feedburner.com/ActiveContests" rel="alternate" type="application/rss+xml"><img align="right" src="/i/v2/interface/btnRSS.png" alt="RSS" style="vertical-align:midium; margin-right: 5px; margin-top:5px "/></a>
-					<br  clear="all"/>
-					
-					<div class="statHolder">
-						<div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
-						<div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
-						<div class="container">
-							<table class="stat" cellpadding="0" cellspacing="0" width="100%">
-							<tbody>
-								<tr>
-									<td class="header" colspan="2" width="100%">
-										<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Project</a>
-									</td>
-									<td class="headerC">
-										<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("start_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Start Date</a></td>
-									<td class="headerC">
-										<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("end_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">End Date</a></td>
-									<td class="headerC" nowrap="nowrap">
-										<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("end_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Time Left</a></td>
-									<td class="headerR" nowrap="nowrap">
-										<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("prize_total")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Prize Purse</a>
-									</td>
-									<td class="headerR" nowrap="nowrap">
-										<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("dr_points")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Points</a>
-									</td>
-									<td class="headerC">
-										<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("registrants")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Registrants</a>
-									</td>
-									<td class="headerC">
-										<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("submission_count")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submissions</a>
-									</td>
-									<td class="header">&nbsp;</td>
-								</tr>
-								<c:choose>
-									<c:when test="${fn:length(contests)==0}">
-										<tr><td class="space" colspan="10">&nbsp;</td></tr>
-										<tr class="light">
-											<td class="valueC" colspan="10">
-												<div align="center" style="margin: 40px 0px 40px 0px;">
-													There are currently no active contests, but check back soon.
-												</div>
-											</td>
-										</tr>
-									</c:when>
-									<c:otherwise>
-        
-									<% boolean even = true;%>
-									<rsc:iterator list="${contests}" id="resultRow">
-										<tr><td class="space" colspan="10">&nbsp;</td></tr>
-										<tr class="<%=even?"light":"dark"%>">
-											<td class="valueE">
-												<%-- Since TopCoder Studio Modifications assembly Req# 5.2 --%>
-												<div class="contestEmblem"><img src="/i/v4/iconStudio.png" alt="" /></div>
-												<div class="contestTitle">
-													<a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
-														<rsc:item name="name" row="<%=resultRow%>"/>
-													</a>
-												</div>
-											</td>
-											<td class="value">
-												<%-- todo no scriptlet code!, fix this--%>
-												<% if ("3009".equals(resultRow.getStringItem("event_id"))) { %>
-												<a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tournaments&d2=tco09&d3=studio&d4=description"><img src="/i/tournament/tco09/09emblem.png" alt="Eligible for the TCO09" /><span>Eligible for the TCO09</span></a>
-												<% } else { %>
-												&nbsp;
-												<% } %>
-											</td>
-											<td class="valueC">
-												<rsc:item name="start_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
-											</td>
-											<td class="valueC">
-												<rsc:item name="end_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
-											</td>
-											<td class="valueC">
-												<div class="countdown"><studio_tags:countdownClock mode="short" end="<%=resultRow.getTimestampItem("end_time")%>"/></div>
-											</td>											
-											<td class="valueR">
-												<rsc:item name="prize_total" row="<%=resultRow%>" format="$###,###.00" ifNull="&nbsp;"/>
-											</td>
-											<td class="valueR">
-												<rsc:item name="dr_points" row="<%=resultRow%>" format="######" ifNull="&nbsp;"/>
-											</td>
-											<td class="valueC">
-												<rsc:item name="registrants" row="<%=resultRow%>"/>
-											</td>
-											<td class="valueC">
-												<rsc:item name="submission_count" row="<%=resultRow%>"/>
-											</td>
-											<td class="valueW" nowrap="nowrap">
-												<% if (resultRow.getIntItem("is_user_registered") == 1) { %>
-												<a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" onfocus="this.blur();"><img src="/i/v2/interface/btnSubmitOrganize.png" alt="Submit &amp; Organize" style="margin: 6px 0px 6px 0px;"/></a>
-												<% } else { %>
-												<a href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" onfocus="this.blur();"><img src="/i/v2/interface/btnRegister.png" alt="Register" style="margin: 6px 0px 6px 0px;"/></a>
-												<% } %>
-											</td>
-										</tr>
-										<% even = !even;%>
-									</rsc:iterator>
-								</c:otherwise>
-							</c:choose>
-						</tbody>
-						</table>
-					</div>
-					<div class="SE"><img src="/i/v2/stat_tableSE.png" alt="" /></div>
-					<div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
-				</div>
+                    <div class="tableTabOff"><a href="${sessionInfo.servletPath}?module=ViewActiveBugRaces">Active Bug Races</a></div>
+                    <div class="tableTabOff"><a href="${sessionInfo.servletPath}?module=ViewReviewOpportunities">Review Opportunities</a></div>
 
-				<br clear="all"/>
-			</div>                
-			<div class="contentBottom"></div>
-		</div>
-	</div>
+                    <a href="http://feeds.feedburner.com/ActiveContests" rel="alternate" type="application/rss+xml"><img align="right" src="/i/v2/interface/btnRSS.png" alt="RSS" style="vertical-align:midium; margin-right: 5px; margin-top:5px "/></a>
+                    <br  clear="all"/>
+
+                    <div class="statHolder">
+                        <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
+                        <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
+                        <div class="container">
+                            <table class="stat" cellpadding="0" cellspacing="0" width="100%">
+                            <tbody>
+                                <tr>
+                                    <td class="header" colspan="2" width="100%">
+                                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Project</a>
+                                    </td>
+                                    <td class="headerC">
+                                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("start_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Start Date</a></td>
+                                    <td class="headerC">
+                                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("end_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">End Date</a></td>
+                                    <td class="headerC" nowrap="nowrap">
+                                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("end_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Time Left</a></td>
+                                    <td class="headerR" nowrap="nowrap">
+                                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("prize_total")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Prize Purse</a>
+                                    </td>
+                                    <td class="headerR" nowrap="nowrap">
+                                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("dr_points")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Points</a>
+                                    </td>
+                                    <td class="headerC">
+                                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("registrants")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Registrants</a>
+                                    </td>
+                                    <td class="headerC">
+                                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("submission_count")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submissions</a>
+                                    </td>
+                                    <td class="header">&nbsp;</td>
+                                </tr>
+                                <c:choose>
+                                    <c:when test="${fn:length(contests)==0}">
+                                        <tr><td class="space" colspan="10">&nbsp;</td></tr>
+                                        <tr class="light">
+                                            <td class="valueC" colspan="10">
+                                                <div align="center" style="margin: 40px 0px 40px 0px;">
+                                                    There are currently no active contests, but check back soon.
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </c:when>
+                                    <c:otherwise>
+
+                                    <% boolean even = true;%>
+                                    <rsc:iterator list="${contests}" id="resultRow">
+                                        <tr><td class="space" colspan="10">&nbsp;</td></tr>
+                                        <tr class="<%=even?"light":"dark"%>">
+                                            <td class="valueE">
+                                                <%-- Since TopCoder Studio Modifications assembly Req# 5.2 --%>
+                                                <div class="contestEmblem"><img src="/i/v4/iconStudio.png" alt="" /></div>
+                                                <div class="contestTitle">
+                                                    <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
+                                                        <rsc:item name="name" row="<%=resultRow%>"/>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td class="value">
+                                                <%-- todo no scriptlet code!, fix this--%>
+                                                <% if ("3009".equals(resultRow.getStringItem("event_id"))) { %>
+                                                <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tournaments&d2=tco09&d3=studio&d4=description"><img src="/i/tournament/tco09/09emblem.png" alt="Eligible for the TCO09" /><span>Eligible for the TCO09</span></a>
+                                                <% } else { %>
+                                                &nbsp;
+                                                <% } %>
+                                            </td>
+                                            <td class="valueC">
+                                                <rsc:item name="start_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                                            </td>
+                                            <td class="valueC">
+                                                <rsc:item name="end_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                                            </td>
+                                            <td class="valueC">
+                                                <div class="countdown"><studio_tags:countdownClock mode="short" end="<%=resultRow.getTimestampItem("end_time")%>"/></div>
+                                            </td>
+                                            <td class="valueR">
+                                                <rsc:item name="prize_total" row="<%=resultRow%>" format="$###,###.00" ifNull="&nbsp;"/>
+                                            </td>
+                                            <td class="valueR">
+                                                <rsc:item name="dr_points" row="<%=resultRow%>" format="######" ifNull="&nbsp;"/>
+                                            </td>
+                                            <td class="valueC">
+                                                <rsc:item name="registrants" row="<%=resultRow%>"/>
+                                            </td>
+                                            <td class="valueC">
+                                                <rsc:item name="submission_count" row="<%=resultRow%>"/>
+                                            </td>
+                                            <td class="valueW" nowrap="nowrap">
+                                                <% if (resultRow.getIntItem("is_user_registered") == 1) { %>
+                                                <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" onfocus="this.blur();"><img src="/i/v2/interface/btnSubmitOrganize.png" alt="Submit &amp; Organize" style="margin: 6px 0px 6px 0px;"/></a>
+                                                <% } else { %>
+                                                <a href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" onfocus="this.blur();"><img src="/i/v2/interface/btnRegister.png" alt="Register" style="margin: 6px 0px 6px 0px;"/></a>
+                                                <% } %>
+                                            </td>
+                                        </tr>
+                                        <% even = !even;%>
+                                    </rsc:iterator>
+                                </c:otherwise>
+                            </c:choose>
+                        </tbody>
+                        </table>
+                    </div>
+                    <div class="SE"><img src="/i/v2/stat_tableSE.png" alt="" /></div>
+                    <div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
+                </div>
+
+                <br clear="all"/>
+            </div>
+            <div class="contentBottom"></div>
+        </div>
+    </div>
 </div>
 
 <jsp:include page="foot.jsp"/>
