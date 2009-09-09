@@ -1,9 +1,23 @@
+/*
+ * Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.common.dao;
 
 /**
- * @author dok
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: May 11, 2006
+ * <p>An interface for the DAO Factory.</p>
+ *
+ * <p>
+ *   Version 1.1 (Studio Release Assembly - Spec Review Sign up page v1.0) Change notes:
+ *   <ol>
+ *       Added method to get Specification Review DAO
+ *   </ol>
+ *   <ol>
+ *       Added method to get User Permission Grant DAO
+ *   </ol>
+ * </p>
+ *
+ * @author dok, TCSDEVELOPER
+ * @version 1.1
  */
 public interface DAOFactory {
     AlgoRatingTypeDAO getAlgoRatingTypeDAO();
@@ -127,4 +141,21 @@ public interface DAOFactory {
     SystemTestResultDAO getSystemTestResultDAO();
 
     AlgoSubmissionDAO getAlgoSubmissionDAO();
+
+    /**
+     * This method constructs the corresponding Specification Review DAO object
+     *
+     * @return an instance of the <code>SpecReviewDAO</code>
+     * @since 1.1
+     */
+    SpecReviewDAO getSpecReviewDAO();
+
+    /**
+     * This method constructs the corresponding User Permission Grant DAO object
+     *
+     * @return an instance of the <code>UserPermissionGrantDAO</code>
+     * @since 1.1
+     */
+    UserPermissionGrantDAO getUserPermissionGrantDAO();
+
 }
