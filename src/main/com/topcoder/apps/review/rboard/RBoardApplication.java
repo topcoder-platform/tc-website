@@ -1,9 +1,10 @@
 /*
- * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
+ * Copyright (c) 2006-2009 TopCoder, Inc. All rights reserved.
  */
 
 package com.topcoder.apps.review.rboard;
 
+import javax.ejb.EJBException;
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
 import java.sql.Timestamp;
@@ -28,10 +29,15 @@ import java.sql.Timestamp;
  *     <li>Added {@link #validateUserWithoutCatalog(String, int, long, int)} method to validate the Assembly reviewer
  *     permissions without taking any catalog into consideration.</li>
  *   </ol>
- * </p>
  *
- * @author dok, pulky, ivern, isv
- * @version 1.0.3
+ *   Version 1.0.4 (Specification Review Integration 1.0) Change notes:
+ *   <ol>
+ *     <li>Added new method createSpecReviewRBoardApplication to apply for spec reviews.</li>
+ *   </ol>
+ * </p> 
+ *
+ * @author dok, pulky, ivern, isv, snow01
+ * @version 1.0.4
  */
 public interface RBoardApplication extends EJBObject {
 
@@ -63,4 +69,29 @@ public interface RBoardApplication extends EJBObject {
      */
     void validateUserWithoutCatalog(String dataSource, int reviewTypeId, long userId, int projectTypeId)
         throws RBoardRegistrationException, RemoteException;
+    
+    /**
+     * Creates the spec review rboard_application. 
+     * 
+     * Unlike normal rboard_application, 
+     *  - it inserts a new entry in spec_review_reviewer_xref
+     *  - update the status in spec_review table to REVIEWER_ASSIGNED (i.e id 5)
+     *
+     * @param dataSource the datasource being used
+     * @param userId the user id to insert
+     * @param projectId the project id to insert
+     * @param reviewRespId the review responsibility id to insert
+     * @param phaseId the phase id
+     * @param opensOn timestamp when the positions opens on
+     * @param reviewTypeId the type of the review
+     * @param primary true if the reviewer is signing up for primary reviewer position
+	 * @throws RBoardRegistrationException if an unexpected error occurs.
+     * @throws RemoteException if an error occurs while calling EJB method remotely.
+     * @throws EJBException if an error occurs doing persistence operations
+	 *
+	 * @since 1.0.4
+     */
+    public void createSpecReviewRBoardApplication(String dataSource, long userId,
+                                        long projectId, int reviewRespId, int phaseId, Timestamp opensOn,
+                                        int reviewTypeId, boolean primary) throws RBoardRegistrationException, RemoteException;
 }

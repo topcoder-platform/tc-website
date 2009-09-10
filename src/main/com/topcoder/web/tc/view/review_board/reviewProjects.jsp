@@ -1,6 +1,6 @@
 <%--
-  - Author: pulky
-  - Version: 1.2
+  - Author: pulky, snow01
+  - Version: 1.3
   - Since: TCS Release 2.2.2
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
@@ -14,49 +14,28 @@
   -
   - Version 1.2 (Testing Competition Split Release Assembly 1.0) changes: Updated Application Testing to Test Suites
   - and added support for new Test Scenarios competitions.
+  -
+  - Version 1.3 (Specification Review Integration 1.0) changes:
+  -      * support for specification reviews was added.
+  -      * code was refactored to avoid duplication.
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
+<%@ page import="com.topcoder.web.common.model.SoftwareComponent" %>
+
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>  
+<%@ taglib prefix="tc_tags" tagdir="/WEB-INF/tags" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <%-- Variables to use JSTL --%>
-<c:set var="PROJECT_ID" value="<%=Constants.PROJECT_ID%>"/>
-<c:set var="MODULE_KEY" value="<%=Constants.MODULE_KEY%>"/>
 <c:set var="PROJECT_TYPE_ID" value="<%=Constants.PROJECT_TYPE_ID%>"/>
-<c:set var="CONCEPTUALIZATION_PROJECT_TYPE" value="<%=Constants.CONCEPTUALIZATION_PROJECT_TYPE%>"/>
-<c:set var="SPECIFICATION_PROJECT_TYPE" value="<%=Constants.SPECIFICATION_PROJECT_TYPE%>"/>
-<c:set var="TEST_SUITES_PROJECT_TYPE" value="<%=Constants.TEST_SUITES_PROJECT_TYPE%>"/>
-<c:set var="TEST_SCENARIOS_PROJECT_TYPE" value="<%=Constants.TEST_SCENARIOS_PROJECT_TYPE%>"/>
-<c:set var="UI_PROTOTYPE_PROJECT_TYPE" value="<%=Constants.UI_PROTOTYPE_PROJECT_TYPE%>" />
-<c:set var="RIA_BUILD_PROJECT_TYPE" value="<%=Constants.RIA_BUILD_PROJECT_TYPE%>" />
-<c:set var="RIA_COMPONENT_PROJECT_TYPE" value="<%=Constants.RIA_COMPONENT_PROJECT_TYPE%>" />
-<c:set var="projectType" value="${param[PROJECT_TYPE_ID]}"/>
-
-<c:choose>
-    <c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
-        <c:set var="projectTypeDesc" value="Conceptualization"/>
-    </c:when>
-    <c:when test="${projectType == SPECIFICATION_PROJECT_TYPE}">
-        <c:set var="projectTypeDesc" value="Specification"/>
-    </c:when>
-    <c:when test="${projectType == TEST_SUITES_PROJECT_TYPE}">
-        <c:set var="projectTypeDesc" value="Test Suites"/>
-    </c:when>
-    <c:when test="${projectType == TEST_SCENARIOS_PROJECT_TYPE}">
-        <c:set var="projectTypeDesc" value="Test Scenarios"/>
-    </c:when>
-    <c:when test="${projectType == UI_PROTOTYPE_PROJECT_TYPE}">
-        <c:set var="projectTypeDesc" value="UI Prototype"/>
-    </c:when>
-    <c:when test="${projectType == RIA_BUILD_PROJECT_TYPE}">
-        <c:set var="projectTypeDesc" value="RIA Build"/>
-    </c:when>
-    <c:when test="${projectType == RIA_COMPONENT_PROJECT_TYPE}">
-        <c:set var="projectTypeDesc" value="RIA Component"/>
-    </c:when>
-</c:choose>
+<c:set var="APPLICATIONS_CATALOG_ID" value="<%=Constants.APPLICATIONS_CATALOG_ID%>"/>
+<c:set var="DEV_PHASE" value="<%=SoftwareComponent.DEV_PHASE%>"/>
+<c:set var="projectType" value="${param[PROJECT_TYPE_ID]}" scope="request"/>
+<jsp:include page="reviewCommonVariables.jsp"/>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -69,86 +48,12 @@
     </head>
 
     <body>
-        <c:choose>
-            <c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
-                <jsp:include page="/top.jsp">
-                    <jsp:param name="level1" value="conceptualization"/>
-                </jsp:include>
-            </c:when>
-            <c:when test="${projectType == SPECIFICATION_PROJECT_TYPE}">
-                <jsp:include page="/top.jsp">
-                    <jsp:param name="level1" value="specification"/>
-                </jsp:include>
-            </c:when>
-            <c:when test="${projectType == TEST_SUITES_PROJECT_TYPE}">
-                <jsp:include page="/top.jsp">
-                    <jsp:param name="level1" value="test_suites"/>
-                </jsp:include>
-            </c:when>
-            <c:when test="${projectType == TEST_SCENARIOS_PROJECT_TYPE}">
-                <jsp:include page="/top.jsp">
-                    <jsp:param name="level1" value="test_scenarios"/>
-                </jsp:include>
-            </c:when>
-            <c:when test="${projectType == UI_PROTOTYPE_PROJECT_TYPE}">
-                <jsp:include page="/top.jsp" >
-                    <jsp:param name="level1" value="ui_prototype"/>
-                </jsp:include>
-            </c:when>
-            <c:when test="${projectType == RIA_BUILD_PROJECT_TYPE}">
-                <jsp:include page="/top.jsp" >
-                    <jsp:param name="level1" value="ria_build"/>
-                </jsp:include>
-            </c:when>
-            <c:when test="${projectType == RIA_COMPONENT_PROJECT_TYPE}">
-                <jsp:include page="/top.jsp" >
-                    <jsp:param name="level1" value="ria_component"/>
-                </jsp:include>
-            </c:when>
-        </c:choose>
+        <jsp:include page="reviewTop.jsp"/>
 
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <tr valign="top">
-                <!-- Left Column Begins-->
-                <td width="180">
-                    <c:choose>
-                        <c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
-                            <jsp:include page="/includes/global_left.jsp">
-                                <jsp:param name="node" value="conceptualization_review"/>
-                            </jsp:include>
-                        </c:when>
-                        <c:when test="${projectType == SPECIFICATION_PROJECT_TYPE}">
-                            <jsp:include page="/includes/global_left.jsp">
-                                <jsp:param name="node" value="specification_review"/>
-                            </jsp:include>
-                        </c:when>
-                        <c:when test="${projectType == TEST_SUITES_PROJECT_TYPE}">
-                            <jsp:include page="/includes/global_left.jsp">
-                                <jsp:param name="node" value="test_suites_review"/>
-                            </jsp:include>
-                        </c:when>
-                        <c:when test="${projectType == TEST_SCENARIOS_PROJECT_TYPE}">
-                            <jsp:include page="/includes/global_left.jsp">
-                                <jsp:param name="node" value="test_scenarios_review"/>
-                            </jsp:include>
-                        </c:when>
-                        <c:when test="${projectType == UI_PROTOTYPE_PROJECT_TYPE}">
-                            <jsp:include page="/includes/global_left.jsp">
-                                <jsp:param name="node" value="ui_prototype_review"/>
-                            </jsp:include>
-                        </c:when>
-                        <c:when test="${projectType == RIA_BUILD_PROJECT_TYPE}">
-                            <jsp:include page="/includes/global_left.jsp">
-                                <jsp:param name="node" value="ria_build_review"/>
-                            </jsp:include>
-                        </c:when>
-                        <c:when test="${projectType == RIA_COMPONENT_PROJECT_TYPE}">
-                            <jsp:include page="/includes/global_left.jsp">
-                                <jsp:param name="node" value="ria_component_review"/>
-                            </jsp:include>
-                        </c:when>
-                    </c:choose>
-                </td>
+	    	<!-- Left Column Begins-->
+                <jsp:include page="reviewGlobalLeft.jsp"/>
                 <!-- Left Column Ends -->
 
                 <!-- Gutter Begins -->
@@ -157,50 +62,7 @@
 
                 <!-- Center Column Begins -->
                 <td width="100%" class="bodyText">
-                <c:choose>
-                    <c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
-                        <jsp:include page="/page_title.jsp">
-                            <jsp:param name="image" value="conceptualization"/>
-                            <jsp:param name="title" value="Review Opportunities"/>
-                        </jsp:include>
-                    </c:when>
-                    <c:when test="${projectType == SPECIFICATION_PROJECT_TYPE}">
-                        <jsp:include page="/page_title.jsp">
-                            <jsp:param name="image" value="specification"/>
-                            <jsp:param name="title" value="Review Opportunities"/>
-                        </jsp:include>
-                    </c:when>
-                    <c:when test="${projectType == TEST_SUITES_PROJECT_TYPE}">
-                        <jsp:include page="/page_title.jsp">
-                            <jsp:param name="image" value="test_suites"/>
-                            <jsp:param name="title" value="Review Opportunities"/>
-                        </jsp:include>
-                    </c:when>
-                    <c:when test="${projectType == TEST_SCENARIOS_PROJECT_TYPE}">
-                        <jsp:include page="/page_title.jsp">
-                            <jsp:param name="image" value="test_scenarios"/>
-                            <jsp:param name="title" value="Review Opportunities"/>
-                        </jsp:include>
-                    </c:when>
-                    <c:when test="${projectType == UI_PROTOTYPE_PROJECT_TYPE}">
-                        <jsp:include page="/page_title.jsp">
-                            <jsp:param name="image" value="ui_prototype"/>
-                            <jsp:param name="title" value="Review Opportunities"/>
-                        </jsp:include>
-                    </c:when>
-                    <c:when test="${projectType == RIA_BUILD_PROJECT_TYPE}">
-                        <jsp:include page="/page_title.jsp">
-                            <jsp:param name="image" value="ria_build"/>
-                            <jsp:param name="title" value="Review Opportunities"/>
-                        </jsp:include>
-                    </c:when>
-                    <c:when test="${projectType == RIA_COMPONENT_PROJECT_TYPE}">
-                        <jsp:include page="/page_title.jsp">
-                            <jsp:param name="image" value="ria_component"/>
-                            <jsp:param name="title" value="Review Opportunities"/>
-                        </jsp:include>
-                    </c:when>
-                </c:choose>
+                    <jsp:include page="reviewPageTitle.jsp"/>
 
                 <span class="bigTitle">Review opportunities</span>
 
@@ -209,28 +71,33 @@
                     of review positions available for each project. If you click on an
                     ${fn:toLowerCase(projectTypeDesc)} name you will be able to see all of the details associated with
                     that ${fn:toLowerCase(projectTypeDesc)} review.</p>
-                <p>If you are not currently on the TopCoder ${projectTypeDesc} Review Board you may send an email to
+                <p>If you are not currently on ${eligibleReviewBoardName} you may send an email to
                     <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a> requesting permission
                     to perform reviews. Please keep in mind only members that have completed
-                    ${fn:toLowerCase(projectTypeDesc)} projects are eligible to join the TopCoder ${projectTypeDesc}
-                    Review board.</p>
+                    ${fn:toLowerCase(projectTypeDesc)} projects are eligible to join ${eligibleReviewBoardName}.</p>
                 <p>In order to sign up for a review position, click on the "details" link for any
                     ${fn:toLowerCase(projectTypeDesc)} with positions available,and then select "Apply Now" next to the
                     position that you would like to commit to.</p>
                 <br/>
-                <c:choose>
-                    <c:when test="${fn:length(projectList) > 0}">
+                    <c:if test="${fn:length(projectList) > 0}">
                         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
                             <tr>
                                 <td>
                                     <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
                                         <tr>
                                             <td class="tableTitle" colspan="11">
-                                                ${projectTypeDesc} Review Opportunities
+                                                ${projectTypeTitle} Review Opportunities
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="tableHeader" align="center">Type</td>
+                                        	<c:choose>
+	                                            <c:when test="${projectType == DESIGN_PROJECT_TYPE ||
+	                                            	projectType == DESIGN_SPECIFICATION_PROJECT_TYPE}">
+	                                            </c:when>
+	                                            <c:otherwise>
+	                                            	<td class="tableHeader" align="center">Type</td>
+	                                            </c:otherwise>
+                                            </c:choose>
                                             <td class="tableHeader" align="center">Catalog</td>
                                             <td class="tableHeader" width="100%">${projectTypeDesc}</td>
                                             <td class="tableHeader" align="right" nowrap="nowrap">
@@ -248,13 +115,52 @@
                                         <c:set var="i" value="0"/>
                                         <c:forEach items="${projectList}" var="resultRow">
                                             <tr>
-                                                <td class="statDk" align="center">${projectTypeDesc}</td>
-                                                <td class="statDk" align="center">${projectTypeDesc}</td>
+                                            	<c:choose>
+	                                                <c:when test="${projectType == DESIGN_PROJECT_TYPE ||
+	                                                	projectType == DESIGN_SPECIFICATION_PROJECT_TYPE}">
+	                                                </c:when>
+	                                                <c:when test="${projectType == DEVELOPMENT_PROJECT_TYPE ||
+	                                                	projectType == DEVELOPMENT_SPECIFICATION_PROJECT_TYPE}">
+	                                                	<td class="statDk" align="center">
+	                                                		<c:choose>
+					                                            <c:when test="${resultRow.map['phase_id'] == DEV_PHASE}">
+					                                            	Development
+					                                            </c:when>
+					                                            <c:otherwise>
+					                                            	Testing
+					                                            </c:otherwise>
+				                                            </c:choose>
+	                                                	</td> 
+	                                                </c:when>
+	                                                <c:otherwise>
+	                                                	<td class="statDk" align="center">${projectTypeDesc}</td>
+	                                                </c:otherwise>
+                                                </c:choose>
+                                                <td class="statDk" align="center">
+	                                                <c:choose>
+		                                                <c:when test="${projectType == DEVELOPMENT_PROJECT_TYPE ||
+		                                                	projectType == DESIGN_PROJECT_TYPE ||
+		                                                	projectType == DESIGN_SPECIFICATION_PROJECT_TYPE ||
+		                                                	projectType == DEVELOPMENT_SPECIFICATION_PROJECT_TYPE}">
+		                                                	<tc_tags:languageIcon catalogName = "${resultRow.map['catalog']}" aolBrand="${resultRow.map['aol_brand'] != null}"/> 
+		                                                </c:when>
+		                                                <c:otherwise>
+		                                                	${projectTypeDesc}
+		                                                </c:otherwise>
+	                                                </c:choose>
+                                                </td>
                                                 <td class="statDk">
-                                                    <a href="${sessionInfo.servletPath}?${MODULE_KEY}=ProjectDetail&${PROJECT_ID}=${resultRow.map['project_id']}">
-                                                        ${resultRow.map["component_name"]}
-                                                        ${resultRow.map["version"]}
-                                                    </a>
+                                                	<c:choose>
+			                                            <c:when test="${resultRow.map['category_id'] == APPLICATIONS_CATALOG_ID}">
+			                                            	${resultRow.map["component_name"]} ${resultRow.map["version"]}
+			                                            </c:when>
+			                                            <c:otherwise>
+			                                            	<a href="${sessionInfo.servletPath}?${MODULE_KEY}=ProjectDetail&${PROJECT_ID}=${resultRow.map['project_id']}">
+		                                                        ${resultRow.map["component_name"]}
+		                                                        ${resultRow.map["version"]}
+		                                                    </a>
+			                                            </c:otherwise>
+		                                            </c:choose>
                                                 </td>
                                                 <td class="statDk" align="right">
                                                     $ <fmt:formatNumber value="${prices[i].primaryReviewPrice}"
@@ -319,13 +225,84 @@
                             </p>
                         </c:if>
                         <br/>
-                    </c:when>
-                    <c:otherwise>
+                    </c:if>
+
+
+                    <c:if test="${fn:length(specificationReviewList) > 0}">
+                        <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
+                            <tr>
+                                <td>
+                                    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
+                                        <tr>
+                                            <td class="tableTitle" colspan="8">
+                                                ${projectTypeDesc} Specification Review Opportunities
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tableHeader" align="center">Type</td>
+                                            <td class="tableHeader" align="center">Catalog</td>
+                                            <td class="tableHeader" align="center" width="100%">${projectTypeDesc}</td>
+                                            <td class="tableHeader" align="right">Reviewer<br>Payment</td>
+                                            <td class="tableHeader" align="center">Review<br>Start</td>
+                                            <td class="tableHeader" align="center">Review<br>End</td>
+                                            <td class="tableHeader" align="center">Positions<br>Available</td>
+                                            <td class="tableHeader">Details</td>
+                                        </tr>
+
+                                        <c:set var="i" value="0"/>
+                                        <c:forEach items="${specificationReviewList}" var="resultRow">
+                                            <tr>
+                                                <td class="statDk" align="center">Specification Review</td>
+                                                <td class="statDk" align="center">${projectTypeDesc}</td>
+                                                <td class="statDk" align="center" >
+                                                    ${resultRow.map["component_name"]}
+                                                    ${resultRow.map["version"]}
+                                                </td>
+                                                <td class="statDk" align="right">
+                                                    $ <fmt:formatNumber
+                                                        value="${specificationReviewPrices[i].primaryReviewPrice}"
+                                                        pattern="#,###.00"/>
+                                                </td>
+                                                <td class="statDk" align="center">
+                                                    <fmt:formatDate value="${resultRow.map['review_start']}"
+                                                                pattern="MM.dd.yyyy"/>
+                                                </td>
+                                                <td class="statDk" align="center">
+                                                    <fmt:formatDate value="${resultRow.map['review_end']}"
+                                                                pattern="MM.dd.yyyy"/>
+                                                </td>
+                                                <td class="statDk" align="center">
+                                                    ${resultRow.map["available_spots"]}
+                                                </td>
+                                                <td class="statDk" align="left" nowrap="nowrap">
+                                                    <a href="${sessionInfo.servletPath}?${MODULE_KEY}=ReviewProjectDetail&${PROJECT_ID}=${resultRow.map['project_id']}&${PROJECT_TYPE_ID}=${specificationReviewProjectTypeId}">
+                                                        details
+                                                    </a>
+                                                    <c:if test="${resultRow.map['price_changes'] > 0}">
+                                                        <img src="/i/development/up_arrow_gr.gif" border="0" alt=""/>
+                                                    </c:if>
+                                                </td>
+                                            </tr>
+                                            <c:set var="i" value="${i + 1}"/>
+                                        </c:forEach>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="tableHeader" align="left" nowrap="nowrap" colspan="10">
+                                    <img src="/i/development/up_arrow_gr.gif" border="0" alt=""/>: the payment for
+                                    reviewing this specification has increased
+                                </td>
+                            </tr>
+                        </table>
+                        <br/>
+                    </c:if>
+
+                    <c:if test="${fn:length(projectList) + fn:length(specificationReviewList) == 0}">
                         <br/>
                         <p align="center">Sorry, there are currently no review positions available.</p>
                         <br/>
-                    </c:otherwise>
-                </c:choose>
+                    </c:if>
 
                 </td>
                 <!-- Center Column Ends -->

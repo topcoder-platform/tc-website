@@ -100,10 +100,20 @@ import java.util.Map;
  *     <li>Updated Application Testing to Test Suites.</li>
  *     <li>Added support for new Test Scenarios competitions.</li>
  *   </ol>
+ *
+ *   Version 1.0.11 (Specification Review Integration 1.0) Change notes:
+ *   <ol>
+ *     <li>Added new method createSpecReviewRBoardApplication to apply for spec reviews.</li>
+ *   </ol>
+ *   
+ *   Version 1.0.12 (Spec Reviews Finishing Touches v1.0) Change notes:
+ *   <ol>
+ *     <li>Now the read permissions are assigned to the spec reviewer.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, ivern, isv, pulky
- * @version 1.0.10
+ * @author dok, ivern, isv, pulky, snow01, TCSASSEMBLER
+ * @version 1.0.12
  */
 public class RBoardApplicationBean extends BaseEJB {
     private static final int INTERNAL_ADMIN_USER = 100129;
@@ -600,6 +610,217 @@ public class RBoardApplicationBean extends BaseEJB {
             close(conn);
         }
     }
+    
+    /**
+     * Creates the spec review rboard_application. 
+     * 
+     * Unlike normal rboard_application, 
+     *  - it inserts a new entry in spec_review_reviewer_xref
+     *  - update the status in spec_review table to REVIEWER_ASSIGNED (i.e id 5)
+     *  
+     * Updated for Version 1.0.12
+     *      - Now the write permissions for the contest are assigned to the spec reviewer.
+     *
+     * @param dataSource the datasource being used
+     * @param userId the user id to insert
+     * @param projectId the project id to insert
+     * @param reviewRespId the review responsibility id to insert
+     * @param phaseId the phase id
+     * @param opensOn timestamp when the positions opens on
+     * @param reviewTypeId the type of the review
+     * @param primary true if the reviewer is signing up for primary reviewer position
+	 * @throws RBoardRegistrationException if an unexpected error occurs.
+     * @throws RemoteException if an error occurs while calling EJB method remotely.
+     * @throws EJBException if an error occurs doing persistence operations
+	 * @since 1.0.11
+     */
+    @SuppressWarnings("unchecked")
+    public void createSpecReviewRBoardApplication(String dataSource, long userId,
+                                        long projectId, int reviewRespId, int phaseId, Timestamp opensOn,
+                                        int reviewTypeId, boolean primary) throws RBoardRegistrationException {
+
+        log.debug("createRBoardApplications called...");
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+            conn = DBMS.getConnection(dataSource);
+
+            conn.setAutoCommit(false);
+
+            //we're doing this so that we can have something to sync on.  if we don't lock
+            //project, then people get register while we're still doing the selects to determine
+            //if one should be able to register.  both people end up coming up ok to register and we
+            //end up with more than one person in the same slot.
+            updateForLock(conn, projectId);
+
+            long start = System.currentTimeMillis();
+            validateUserTrans(conn, projectId, phaseId, userId, opensOn, reviewTypeId, primary);
+            
+            // adds a new entry in spec_review_reviewer_xref table
+            addSpecReviewReviewer(conn, projectId, userId);
+            
+            // set the status of spec_review entry to be REVIEWER_ASSIGNED (i.e. id 5)
+            updateSpecReviewToAssigned(conn, projectId);
+            
+            // adds permission for the user.
+            addSpecReviewPermission(conn, projectId, userId);
+            
+            conn.commit();
+            log.debug("Registration for project " + projectId + " completed in " + (System.currentTimeMillis() - start)
+                      + " milliseconds");
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            rollback(conn);
+            throw new EJBException(sqle);
+        } catch (RBoardRegistrationException rbre) {
+            rollback(conn);
+            throw rbre;
+        } catch (Exception e) {
+            rollback(conn);
+            throw new EJBException(e);
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+        }
+    }
+    
+    /**
+     * Updates the spec_review table's entry to REVIEWER_ASSIGNED i.e. id = 5
+     * 
+     * @param conn the database connection for the update.
+     * @param projectId the project id for which to update.
+     * @throws EJBException if an error occurs doing persistence operations
+	 * @since 1.0.11
+     */
+    private void updateSpecReviewToAssigned(Connection conn, long projectId) {
+        PreparedStatement ps = null;
+        InitialContext ctx = null;
+        try {
+            ps = conn.prepareStatement("UPDATE spec_review " 
+                    + " SET review_status_type_id = 5, "
+                    + " modification_time = CURRENT, "
+                    + " modification_user = 'System' "
+                    + " WHERE contest_id = " + projectId 
+                    + " AND is_studio = 0");
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw(new EJBException(e.getMessage()));
+        } finally {
+            close(ps);
+            close(ctx);
+        }
+    }
+    
+    /**
+     * Adds a new entry for the reviewer in spec_review_reviewer_xref table
+     * 
+     * @param conn the datbase connection to be used.
+     * @param projectId the project id for which reviewer entry should be added.
+     * @param userId the reviewer's user id.
+     * @throws EJBException if an error occurs doing persistence operations
+	 * @since 1.0.11
+     */
+    private void addSpecReviewReviewer(Connection conn, long projectId, long userId) {
+        PreparedStatement ps = null;
+        InitialContext ctx = null;
+        try {
+            ps = conn.prepareStatement("INSERT INTO spec_review_reviewer_xref(spec_review_reviewer_id, " 
+                    + "                                                         spec_review_id, "
+                    + "                                                         review_user_id, "
+                    + "                                                         review_start_time, "
+                    + "                                                         is_active, "
+                    + "                                                         creation_time, "
+                    + "                                                         creation_user) "
+            		+ " SELECT SPEC_REVIEW_REVIEWER_SEQ.NEXTVAL, " 
+            		+ "           spec_review_id, " 
+            		+ "       " + userId + ", " 
+            		+ "           CURRENT, " 
+            		+ "           1, "
+            		+ "           CURRENT, "
+            		+ "           'System' " 
+            		+ " FROM spec_review " 
+            		+ " WHERE contest_id = " + projectId 
+            		+ " AND is_studio = 0");
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw(new EJBException(e.getMessage()));
+        } finally {
+            close(ps);
+            close(ctx);
+        }
+    }
+    
+    /**
+     * Adds permission for the user.
+     * 
+     * @param conn the datbase connection to be used.
+     * @param projectId the project id for which reviewer entry should be added.
+     * @param userId the reviewer's user id.
+     * @throws EJBException if an error occurs doing persistence operations
+     * @since 1.0.12
+     */
+    private void addSpecReviewPermission(Connection conn, long projectId, long userId) {
+        PreparedStatement ps = null;
+        InitialContext ctx = null;
+        ResultSet rs = null;
+        
+        long permId = 0;
+        long permTypeId = 0;
+        
+        try {
+            ps = conn.prepareStatement("SELECT user_permission_grant_id, permission_type_id FROM user_permission_grant where resource_id = " + projectId + " AND user_id = " + userId + " AND is_studio = 0");
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                permId = rs.getLong(1);
+                permTypeId = rs.getLong(2);
+            }
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw(new EJBException(e.getMessage()));
+        } finally {
+            close(rs);
+            close(ps);
+            close(ctx);
+        }
+        
+        if (permId > 0) {
+            // we have sufficient permission
+            if (permTypeId >= 4 && permTypeId <= 6) {
+                return;
+            }
+            
+            try {
+                ps = conn.prepareStatement("UPDATE user_permission_grant SET permission_type_id = 4 where user_permission_grant_id = " + permId);
+                ps.executeUpdate();
+            } catch (SQLException e) {
+                DBMS.printSqlException(true, e);
+                throw(new EJBException(e.getMessage()));
+            } finally {
+                close(rs);
+                close(ps);
+                close(ctx);
+            }
+        } else {
+            try {
+                ps = conn.prepareStatement("INSERT INTO user_permission_grant(user_permission_grant_id, user_id, resource_id, permission_type_id, is_studio) "
+                        + " VALUES(PERMISSION_SEQ.NEXTVAL, " + userId + ", " + projectId + ", 4, 0)");
+                ps.executeUpdate();
+            } catch (SQLException e) {
+                DBMS.printSqlException(true, e);
+                throw(new EJBException(e.getMessage()));
+            } finally {
+                close(rs);
+                close(ps);
+                close(ctx);
+            }
+        }
+    }
 
     /**
      * Searches for existence of a particular row in rboard_application
@@ -869,8 +1090,8 @@ public class RBoardApplicationBean extends BaseEJB {
                 status = getStatus(conn, userId, projectTypeId);
             } catch (RowNotFoundException rnfe) {
                 rnfe.printStackTrace();
-                try {
-                    throw new RBoardRegistrationException("Sorry, you are not a "
+                try { 
+                    throw new RBoardRegistrationException("Sorryyyy, you are not a "
                                                           + getProjectCategoryName(conn, projectTypeId)
                                                           + " reviewer. Please contact TopCoder if you would like to "
                                                           + "become one.");

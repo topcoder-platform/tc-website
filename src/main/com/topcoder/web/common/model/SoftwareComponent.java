@@ -28,8 +28,17 @@ import com.topcoder.web.common.WebConstants;
  *   </ol>
  * </p>
  *
- * @author dok, pulky
- * @version 1.2
+ * <p>
+ *   Version 1.3 (Specification Review Integration,
+ *					copied from Specification Review Signup Pages 1.0) Change notes:
+ *   <ol>
+ *     <li>Added constants for Specification Review projects.</li>
+ *   </ol>
+ * </p>
+
+ *
+ * @author dok, pulky, snow01
+ * @version 1.3
  */
 public interface SoftwareComponent extends Cloneable, Serializable {
 
@@ -74,6 +83,89 @@ public interface SoftwareComponent extends Cloneable, Serializable {
      * @since 1.1
      */
     public final static int RIA_COMPONENT_PHASE = (int) WebConstants.PHASE_RIA_COMPONENT;
+	
+	/**
+     * <p>An <code>int</code> representing design specification phase id.</p>
+     *
+     * @since 1.3
+     */
+    public final static int DESIGN_SPECIFICATION_PHASE = (int) WebConstants.PHASE_DESIGN_SPECIFICATION;
+
+    /**
+     * <p>An <code>int</code> representing development specification phase id.</p>
+     *
+     * @since 1.3
+     */
+    public final static int DEVELOPMENT_SPECIFICATION_PHASE = (int) WebConstants.PHASE_DEVELOPMENT_SPECIFICATION;
+
+    /**
+     * <p>An <code>int</code> representing conceptualization specification phase id.</p>
+     *
+     * @since 1.3
+     */
+    public final static int CONCEPTUALIZATION_SPECIFICATION_PHASE =
+            (int) WebConstants.PHASE_CONCEPTUALIZATION_SPECIFICATION;
+
+    /**
+     * <p>An <code>int</code> representing specification specification phase id.</p>
+     *
+     * @since 1.3
+     */
+    public final static int SPECIFICATION_SPECIFICATION_PHASE = (int) WebConstants.PHASE_SPECIFICATION_SPECIFICATION;
+
+    /**
+     * <p>An <code>int</code> representing architecture specification phase id.</p>
+     *
+     * @since 1.3
+     */
+    public final static int ARCHITECTURE_SPECIFICATION_PHASE = (int) WebConstants.PHASE_ARCHITECTURE_SPECIFICATION;
+
+    /**
+     * <p>An <code>int</code> representing assembly specification phase id.</p>
+     *
+     * @since 1.3
+     */
+    public final static int ASSEMBLY_SPECIFICATION_PHASE = (int) WebConstants.PHASE_ASSEMBLY_SPECIFICATION;
+
+    /**
+     * <p>An <code>int</code> representing test suites competition specification phase id.</p>
+     *
+     * @since 1.3
+     */
+    public final static int TEST_SUITES_SPECIFICATION_PHASE =
+            (int) WebConstants.PHASE_TEST_SUITES_SPECIFICATION;
+			
+	/**
+     * <p>An <code>int</code> representing test scenarios competition specification phase id.</p>
+     *
+     * @since 1.3
+     */
+    public final static int TEST_SCENARIOS_SPECIFICATION_PHASE =
+            (int) WebConstants.PHASE_TEST_SCENARIOS_SPECIFICATION;
+            
+    /**
+     * <p>An <code>int</code> representing ui prototype competition specification phase id.</p>
+     *
+     * @since 1.3
+     */
+    public final static int UI_PROTOTYPE_SPECIFICATION_PHASE =
+            (int) WebConstants.PHASE_UI_PROTOTYPE_SPECIFICATION;
+            
+    /**
+     * <p>An <code>int</code> representing ria build competition specification phase id.</p>
+     *
+     * @since 1.3
+     */
+    public final static int RIA_BUILD_SPECIFICATION_PHASE =
+            (int) WebConstants.PHASE_RIA_BUILD_SPECIFICATION;
+            
+    /**
+     * <p>An <code>int</code> representing ria component competition specification phase id.</p>
+     *
+     * @since 1.3
+     */
+    public final static int RIA_COMPONENT_SPECIFICATION_PHASE =
+            (int) WebConstants.PHASE_RIA_COMPONENT_SPECIFICATION;
 
     public final static int LEVEL1 = 100;
     public final static int LEVEL2 = 200;

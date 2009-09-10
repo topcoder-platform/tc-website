@@ -44,10 +44,15 @@ import com.topcoder.web.tc.Constants;
  *   <ol>
  *     <li>Added new functionality that asks for several terms of use and show those the user already agreed to.</li>
  *   </ol>
+
+	 Version 1.0.4 (Specification Review Integration 1.0) Change notes:
+ *   <ol>
+ *     <li>Added apply logic to handle apply for specification review positions</li>
+ *   </ol>
  * </p>
  *
- * @author dok, pulky, isv, pulky
- * @version 1.0.3
+ * @author dok, pulky, isv, pulky, snow01
+ * @version 1.0.4
  */
 public class ProjectReviewTermsAgree extends ProjectReviewApply {
 
@@ -129,25 +134,58 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
         }
     }
 
+    /**
+     * Does the apply to the review.
+     * 
+     * It adds database entry to add user for the project review.
+     * It additionally sends email to PM.
+     * 
+     * Updated for Specification Review Integration 1.0
+     *      - Now handles the logic for apply to specification review positions too.
+     *      - Specification Review Positions has phase id or project id +1000 than normal phase id or project id, respectively.
+     *        This logic is used to identify the case and then differently handle the apply.
+     * 
+     * @param opensOn the time at which review opens
+     * @param reviewTypeId the type of reviewer
+     * @throws Exception if any error occurs during apply.
+     */
     private void apply(Timestamp opensOn, int reviewTypeId) throws Exception {
         String primary = StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_FLAG));
 
         log.info("processing application for " + getUser().getUserName() + " phase " + phaseId +
                 " primary " + primary + " type " + reviewTypeId + " project " + projectId);
 
-        rBoardApplication.createRBoardApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId,
-                reviewTypeId, phaseId, opensOn, reviewTypeId, new Boolean(primary).booleanValue());
+        if (this.phaseId > Constants.SPECIFICATION_COMPETITION_OFFSET) {
+            rBoardApplication.createSpecReviewRBoardApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId,
+                    reviewTypeId, phaseId, opensOn, reviewTypeId, new Boolean(primary).booleanValue());
+        } else {
+            rBoardApplication.createRBoardApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId,
+                    reviewTypeId, phaseId, opensOn, reviewTypeId, new Boolean(primary).booleanValue());
+        }
 
-        //send email
+
+		 ResultSetContainer detail = null;
+        Map results = null;
+        
+        // send email
         Request r = new Request();
-        r.setContentHandle("review_project_detail");
         String projectId = String.valueOf(this.projectId);
-        String phaseId = String.valueOf(this.phaseId);
-        r.setProperty(Constants.PROJECT_ID, projectId);
-        r.setProperty(Constants.PHASE_ID, phaseId);
-        r.setProperty(Constants.PROJECT_TYPE_ID, this.projectTypeId);
-        Map results = getDataAccess(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, false).getData(r);
-        ResultSetContainer detail = (ResultSetContainer) results.get("review_project_detail");
+        if (this.phaseId > Constants.SPECIFICATION_COMPETITION_OFFSET) {
+            r.setContentHandle("spec_review_project_detail");
+            
+            r.setProperty(Constants.PROJECT_ID, projectId);
+            results = getDataAccess(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, false).getData(r);
+            detail = (ResultSetContainer) results.get("spec_review_project_detail");
+        } else {
+            r.setContentHandle("review_project_detail");
+            
+            String phaseIdStr = String.valueOf(this.phaseId);
+            r.setProperty(Constants.PROJECT_ID, projectId);
+            r.setProperty(Constants.PHASE_ID, phaseIdStr);
+            r.setProperty(Constants.PROJECT_TYPE_ID, this.projectTypeId);
+            results = getDataAccess(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, false).getData(r);
+            detail = (ResultSetContainer) results.get("review_project_detail");
+        }
 
         String component_name = detail.getStringItem(0, "component_name");
         String phase = detail.getStringItem(0, "phase_desc");

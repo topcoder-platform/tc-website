@@ -58,10 +58,15 @@ import com.topcoder.web.tc.Constants;
  *   <ol>
  *     <li>Added support for UI Prototype, RIA Build and RIA Component competitions.</li>
  *   </ol>
+ *
+ *   Version 1.0.7 (Specification Review Signup Pages 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for Specification review project types.</li>
+ *   </ol> 
  * </p>
  *
- * @author dok, ivern, isv, pulky
- * @version 1.0.6
+ * @author dok, ivern, isv, pulky, snow01
+ * @version 1.0.7
  */
 public class ViewReviewProjects extends ReviewProjectDetail {
 
@@ -77,6 +82,9 @@ public class ViewReviewProjects extends ReviewProjectDetail {
      *
      * <p>Looks up for the list of active review projects of requested project type, binds it to request and forwards
      * to the corresponding JSP depending on requested project type.</p>
+     * 
+     * Updated for Specification Review Integration 1.0
+     *      - specification review projects are also processed/fetched. 
      *
      * @throws TCWebException if an unexpected error occurs or if requested project type is not supported.
      */
@@ -86,7 +94,7 @@ public class ViewReviewProjects extends ReviewProjectDetail {
             throw new TCWebException("Invalid project type specified " + projectTypeId);
         }
 
-        int phase_id = (Integer.parseInt(projectTypeId) + 111);
+        int phase_id = (Integer.parseInt(projectTypeId) + (int)Constants.GENERAL_PHASE_OFFSET);
         getRequest().setAttribute("phase_id", new Integer(phase_id));
 
         Request r = new Request();
@@ -144,6 +152,9 @@ public class ViewReviewProjects extends ReviewProjectDetail {
 
             // getRequest().setAttribute("tournamentProjectList", getDataAccess().getData(r).
             //             get("tournament_review_projects"));
+
+            // process specification review positions
+            processSpecificationReviewPositions(projectTypeId);
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
@@ -154,8 +165,56 @@ public class ViewReviewProjects extends ReviewProjectDetail {
     }
 
     /**
+     * <p>Private helper method to process specification review positions for the specified project type id.</p>
+     *
+     * @param projectTypeId the project type id to process
+     * @throws TCWebException if any error occurs during the process
+     *
+     * @since 1.0.7
+     */
+    @SuppressWarnings("unchecked")
+    private void processSpecificationReviewPositions(String projectTypeId) throws TCWebException {
+        String specificationReviewProjectTypeId = Integer.toString(Integer.parseInt(projectTypeId)
+                + Constants.SPECIFICATION_COMPETITION_OFFSET);
+        if (!isProjectTypeSupported(specificationReviewProjectTypeId, true)) {
+            // simply return from here.
+            return;
+        }
+
+        Request r = new Request();
+        r.setContentHandle("spec_review_projects");
+        r.setProperty(Constants.PROJECT_TYPE_ID, projectTypeId);
+
+        try {
+            ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("spec_review_projects");
+            getRequest().setAttribute("specificationReviewList", rsc);
+
+            ResultSetContainer.ResultSetRow rsr = null;
+
+            ArrayList prices = new ArrayList();
+
+            for (Iterator it = rsc.iterator(); it.hasNext();) {
+                rsr = (ResultSetContainer.ResultSetRow) it.next();
+                // default to 1 submission, dr points is not applicable so default to zero.
+                prices.add(makeSpecReviewApp(rsr.getIntItem("phase_id"), rsr.getIntItem("level_id"),
+                        rsr.getLongItem("project_id"), rsr.getFloatItem("prize"), 0,
+                        Constants.SPECIFICATION_REVIEWER_TYPE).getComponent());
+            }
+
+            getRequest().setAttribute("specificationReviewPrices", prices);
+            getRequest().setAttribute("specificationReviewProjectTypeId", specificationReviewProjectTypeId);
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new TCWebException(e);
+        }
+    }
+
+    /**
      * <p>Gets the logical name for the view which is to be used for displaying the list of review opportunities of
      * specified type requested by client.</p>
+     * 
+     * Updated for Version 1.0.7 - now all review opportunities are viewable through unified page.
      *
      * @param projectType a <code>String</code> referencing the project type requested by client.
      * @return a <code>String</code> referencing the view to be used for displaying the list of review opportunities for
@@ -163,17 +222,6 @@ public class ViewReviewProjects extends ReviewProjectDetail {
      * @since TCS Release 2.2.0 (TCS-54)
      */
     private String getReviewOpportunitiesView(String projectType) {
-        if (projectType.equals(String.valueOf(WebConstants.DESIGN_PROJECT_TYPE))) {
-            return Constants.REVIEW_PROJECTS;
-        } else if (projectType.equals(String.valueOf(WebConstants.DEVELOPMENT_PROJECT_TYPE))) {
-            return Constants.REVIEW_PROJECTS;
-        } else if (projectType.equals(String.valueOf(WebConstants.ASSEMBLY_PROJECT_TYPE))) {
-            return Constants.ASSEMBLY_REVIEW_PROJECTS;
-        } else if (projectType.equals(String.valueOf(WebConstants.ARCHITECTURE_PROJECT_TYPE))) {
-            return Constants.ARCHITECTURE_REVIEW_PROJECTS;
-        } else {
-            // we don't need to check for project types, they are already verified.
-            return Constants.UNIFIED_REVIEW_PROJECTS_PAGE;
-        }
+        return Constants.UNIFIED_REVIEW_PROJECTS_PAGE;
     }
 }

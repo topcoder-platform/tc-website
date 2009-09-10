@@ -32,7 +32,21 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.common.error.RequestRateExceededException;
 import com.topcoder.web.common.throttle.Throttle;
+import com.topcoder.web.ejb.termsofuse.TermsOfUse;
+import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.randomstringimg.InvalidConfigException;
+import com.topcoder.randomstringimg.ObfuscationException;
+import com.topcoder.randomstringimg.RandomStringImage;
+import com.topcoder.util.spell.ConfigException;
+
+import javax.ejb.CreateException;
+import javax.naming.InitialContext;
+import javax.rmi.PortableRemoteObject;
+import java.sql.Timestamp;
+import java.util.Map;
+import java.io.IOException;
+import java.io.FileOutputStream;
 
 /**
  * <p>Processor for the user requests to review the components.</p>
@@ -84,10 +98,15 @@ import com.topcoder.web.tc.Constants;
  *   <ol>
  *     <li>Added new functionality that asks for several terms of use and show those the user already agreed to.</li>
  *   </ol>
+ *
+ *  Version 1.0.9 (Specification Review Signup Pages 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for Specification review project types.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, isv, pulky
- * @version 1.0.8
+ * @author dok, isv, pulky, snow01
+ * @version 1.0.9
  */
 public class ProjectReviewApply extends Base {
     protected long projectId = 0;
@@ -103,14 +122,19 @@ public class ProjectReviewApply extends Base {
     }
 
     /**
-     * This method is the final processor for the request
-     *
-     * @throws TCWebException if any error occurs
-     * @see com.topcoder.web.tc.controller.request.development.Base#developmentProcessing()
+     * Processes the review position apply on the project.
+     * 
+     * Updated for Specification Review Integration 1.0
+     *      - Now specification review projects are also included in validating supported project type.
+     *      - specification review project type is handled. 
+     * 
+     * @throws TCWebException if any error occurs during processing.
      */
+    @SuppressWarnings("unchecked")
     protected void developmentProcessing() throws TCWebException {
         projectTypeId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
-        if (!isProjectTypeSupported(projectTypeId)) {
+        // include specification review project types in the validation
+        if (!isProjectTypeSupported(projectTypeId, true)) {
             throw new TCWebException("Invalid project type specified " + projectTypeId);
         }
 
@@ -126,19 +150,32 @@ public class ProjectReviewApply extends Base {
                 //we'll use the existing command, it's overkill, but we're probably not
                 //talking high volume here
                 Request r = new Request();
-                r.setContentHandle("review_project_detail");
-                r.setProperty(Constants.PROJECT_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
-                r.setProperty(Constants.PHASE_ID, String.valueOf(phaseId));
-                r.setProperty(Constants.PROJECT_TYPE_ID, projectTypeId);
-                Map results = getDataAccess().getData(r);
-                ResultSetContainer detail = (ResultSetContainer) results.get("review_project_detail");
+                
+                ResultSetContainer detail=null;
+                
+                if (phaseId > Constants.SPECIFICATION_COMPETITION_OFFSET) {
+                    r.setContentHandle("spec_review_project_detail");
+                    r.setProperty(Constants.PROJECT_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
+                    Map results = getDataAccess().getData(r);
+                    detail = (ResultSetContainer) results.get("spec_review_project_detail");
+                } else {
+                    r.setContentHandle("review_project_detail");
+                    r.setProperty(Constants.PROJECT_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
+                    r.setProperty(Constants.PHASE_ID, String.valueOf(phaseId));
+                    r.setProperty(Constants.PROJECT_TYPE_ID, projectTypeId);
+                    Map results = getDataAccess().getData(r);
+                    detail = (ResultSetContainer) results.get("review_project_detail");
+                }
+                
                 int catalog = detail.getIntItem(0, "category_id");
+                
                 getRequest().setAttribute("phase_id", detail.getIntItem(0, "phase_id"));
 
                 rBoardApplication = createRBoardApplication();
                 nonTransactionalValidation(catalog, reviewTypeId);
 
                 applicationProcessing((Timestamp) detail.getItem(0, "opens_on").getResultData(), reviewTypeId);
+
             } else {
                 throw new PermissionException(getUser(), new ClassResource(this.getClass()));
             }
@@ -198,6 +235,10 @@ public class ProjectReviewApply extends Base {
 
     /**
      * Performs non transactional validation of the reviewer.
+     * 
+     * Updated for Specification Review Integration 1.0
+     *      - handles specification review project types.
+     *      - but RBoard validation happens as per the rules for parent project type only. 
      *
      * @param catalog the catalog to validate
      * @param reviewTypeId the review type id to validate
@@ -205,11 +246,22 @@ public class ProjectReviewApply extends Base {
      */
     protected void nonTransactionalValidation(int catalog, int reviewTypeId) throws Exception {
         int type = Integer.parseInt(this.projectTypeId);
+        
+        // for specification review we validate for the parent project type only.
+        if (type > Constants.SPECIFICATION_COMPETITION_OFFSET) {
+            type = type - Constants.SPECIFICATION_COMPETITION_OFFSET;
+        }
+
+        int pid = this.phaseId;
+        if (pid > Constants.SPECIFICATION_COMPETITION_OFFSET) {
+            pid = pid - Constants.SPECIFICATION_COMPETITION_OFFSET;
+        }
+
         // Assembly, Architecture, Conceptualization, Specification, Test Suites, Test Scenarios and
         // Studio related competition reviews do not take into consideration the catalogs as for now
         if (validateWithCatalog(type)) {
             rBoardApplication.validateUser(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, catalog, reviewTypeId, getUser().getId(),
-                    this.phaseId);
+                    pid);
         } else {
             rBoardApplication.validateUserWithoutCatalog(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, reviewTypeId,
                     getUser().getId(), type);
@@ -257,6 +309,9 @@ public class ProjectReviewApply extends Base {
 
     /**
      * Private helper method to decide if a project type should be validated with catalog or not
+     * 
+     * Updated for Specification Review Integration 1.0
+     *      - specification project type ids are included in validation.
      *
      * @param projectTypeId the project type id
      * @return true if the project type should be validated with the catalog
@@ -272,6 +327,15 @@ public class ProjectReviewApply extends Base {
             projectTypeId != WebConstants.TEST_SCENARIOS_PROJECT_TYPE &&
             projectTypeId != WebConstants.UI_PROTOTYPE_PROJECT_TYPE &&
             projectTypeId != WebConstants.RIA_BUILD_PROJECT_TYPE &&
-            projectTypeId != WebConstants.RIA_COMPONENT_PROJECT_TYPE;
+            projectTypeId != WebConstants.RIA_COMPONENT_PROJECT_TYPE &&
+            projectTypeId != WebConstants.ASSEMBLY_SPECIFICATION_PROJECT_TYPE &&
+            projectTypeId != WebConstants.ARCHITECTURE_SPECIFICATION_PROJECT_TYPE &&
+            projectTypeId != WebConstants.CONCEPTUALIZATION_SPECIFICATION_PROJECT_TYPE &&
+            projectTypeId != WebConstants.SPECIFICATION_SPECIFICATION_PROJECT_TYPE &&
+            projectTypeId != WebConstants.TEST_SUITES_SPECIFICATION_PROJECT_TYPE &&
+            projectTypeId != WebConstants.TEST_SCENARIOS_SPECIFICATION_PROJECT_TYPE &&
+            projectTypeId != WebConstants.UI_PROTOTYPE_SPECIFICATION_PROJECT_TYPE &&
+            projectTypeId != WebConstants.RIA_BUILD_SPECIFICATION_PROJECT_TYPE &&
+            projectTypeId != WebConstants.RIA_COMPONENT_SPECIFICATION_PROJECT_TYPE;
     }
 }
