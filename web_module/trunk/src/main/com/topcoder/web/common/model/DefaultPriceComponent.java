@@ -61,10 +61,15 @@ import com.topcoder.shared.util.logging.Logger;
  *     <li>Updated Application Testing to Test Suites.</li>
  *     <li>Added support for new Test Scenarios competitions.</li>
  *   </ol>
+ *
+ *	 Version 1.1.3 (Specification Review Integration 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for Specification Review projects.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, ivern, isv, pulky
- * @version 1.1.2
+ * @author dok, ivern, isv, pulky, snow01
+ * @version 1.1.3
  */
 
 public class DefaultPriceComponent implements SoftwareComponent {
@@ -165,6 +170,9 @@ public class DefaultPriceComponent implements SoftwareComponent {
 
     /**
      * <p>Factory method that returns the correct instance of ReviewerPaymentCalculator for a given phase.</p>
+	 *
+	 * Updated for Specification Review Integration 1.0
+	 *		- Added specification review calculator.
      *
      * @param prize first place prize for the competition.
      * @param submissionCount number of submissions.
@@ -186,6 +194,13 @@ public class DefaultPriceComponent implements SoftwareComponent {
         } else if (phaseId == UI_PROTOTYPE_PHASE || phaseId == RIA_BUILD_PHASE ||
                 phaseId == RIA_COMPONENT_PHASE) {
             return new StudioReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
+        } else if (phaseId == DESIGN_SPECIFICATION_PHASE || phaseId == DEVELOPMENT_SPECIFICATION_PHASE ||
+                phaseId == CONCEPTUALIZATION_SPECIFICATION_PHASE || phaseId == SPECIFICATION_SPECIFICATION_PHASE ||
+                phaseId == ARCHITECTURE_SPECIFICATION_PHASE || phaseId == ASSEMBLY_SPECIFICATION_PHASE ||
+                phaseId == TEST_SUITES_SPECIFICATION_PHASE || phaseId == TEST_SCENARIOS_SPECIFICATION_PHASE ||
+                phaseId == UI_PROTOTYPE_SPECIFICATION_PHASE || phaseId == RIA_BUILD_SPECIFICATION_PHASE ||
+                phaseId == RIA_COMPONENT_SPECIFICATION_PHASE) {
+            return new SpecificationReviewerPaymentCalculator(phaseId);
         } else {
             throw new IllegalArgumentException("Invalid phaseId (" + phaseId + ")");
         }
@@ -275,6 +290,8 @@ public class DefaultPriceComponent implements SoftwareComponent {
     /**
      * <p>A command line interface to be used for calculating the prices for the projects with parameters passed as
      * command line arguments.</p>
+	 *
+	 * Updated for Specification Review Integration 1.0
      *
      * @param args a <code>String</code> array providing the command line arguments.
      */
@@ -293,7 +310,16 @@ public class DefaultPriceComponent implements SoftwareComponent {
             System.out.println("UI Prototype phaseId          : " + UI_PROTOTYPE_PHASE);
             System.out.println("RIA Build phaseId             : " + RIA_BUILD_PHASE);
             System.out.println("RIA Component phaseId         : " + RIA_COMPONENT_PHASE);
-
+			System.out.println("Design Specification phaseId              : " + DESIGN_SPECIFICATION_PHASE);
+            System.out.println("Development Specification phaseId         : " + DEVELOPMENT_SPECIFICATION_PHASE);
+            System.out.println("Conceptualization Specification phaseId   : " + CONCEPTUALIZATION_SPECIFICATION_PHASE);
+            System.out.println("Specification Specification phaseId       : " + SPECIFICATION_SPECIFICATION_PHASE);
+            System.out.println("Architecture Specification phaseId        : " + ARCHITECTURE_SPECIFICATION_PHASE);
+			System.out.println("Test Suites Specification phaseId           : " + TEST_SUITES_SPECIFICATION_PHASE);
+            System.out.println("Test Scenarios Specification phaseId        : " + TEST_SCENARIOS_SPECIFICATION_PHASE);
+            System.out.println("UI Prototype Specification phaseId        : " + UI_PROTOTYPE_SPECIFICATION_PHASE);
+            System.out.println("RIA Build Specification phaseId        : " + RIA_BUILD_SPECIFICATION_PHASE);
+            System.out.println("RIA Component Specification phaseId        : " + RIA_COMPONENT_SPECIFICATION_PHASE);
         } else {
             DefaultPriceComponent sc = new DefaultPriceComponent(1, Integer.parseInt(args[0]),
                                                                  Integer.parseInt(args[1]), Integer.parseInt(args[2]),
