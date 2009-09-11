@@ -1091,7 +1091,7 @@ public class RBoardApplicationBean extends BaseEJB {
             } catch (RowNotFoundException rnfe) {
                 rnfe.printStackTrace();
                 try { 
-                    throw new RBoardRegistrationException("Sorryyyy, you are not a "
+                    throw new RBoardRegistrationException("Sorry, you are not a "
                                                           + getProjectCategoryName(conn, projectTypeId)
                                                           + " reviewer. Please contact TopCoder if you would like to "
                                                           + "become one.");
