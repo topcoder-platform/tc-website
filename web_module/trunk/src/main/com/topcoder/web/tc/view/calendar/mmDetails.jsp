@@ -159,7 +159,7 @@ Please check out the rules link below for more detail.
 </p>
 <%}%>
 
-<%if(rsr.getIntItem("round_id") == 10862 || rsr.getIntItem("round_id") == 13754 || rsr.getIntItem("round_id") == 13772 || rsr.getIntItem("round_id") == 13934 ) {%>
+<%if(rsr.getIntItem("round_id") == 10862 || rsr.getIntItem("round_id") == 13754 || rsr.getIntItem("round_id") == 13772 || rsr.getIntItem("round_id") == 13934 || rsr.getIntItem("round_id") == 13953 ) {%>
 <p align="justify">
     This Marathon Match has some different rules and terms.  Please make sure to read
     the rules carefully before competing.  <b>You must be eligible to compete in the match 
@@ -176,7 +176,7 @@ Please check out the rules link below for more detail.
 </p>
 <%}%>
 
-<%if(rsr.getIntItem("round_id") == 13754 || rsr.getIntItem("round_id") == 13934) {%>
+<%if(rsr.getIntItem("round_id") == 13754 || rsr.getIntItem("round_id") == 13934 || rsr.getIntItem("round_id") == 13953) {%>
 <p align="justify">
     This Marathon Match is a money match that has a <b>$5,000 prize purse</b>! The top five highest scorers 
 	will receive prizes with the first place winner receiving $2,500!
@@ -215,10 +215,17 @@ Please check out the rules link below for more detail.
 
 
 <p align="justify">
+<%if(rsr.getIntItem("round_id") == 13953 ) {%>
+    Once the submission phase of a Marathon Match has ended, 
+    the final results will become available by clicking the Results link. 
+    Competitors will be able to see the test cases, other competitors' submissions, and results.
+    <b>Ratings will NOT be adjusted as a result of participation in this competition.</b>
+<%} else { %>
     Once the submission phase of a Marathon Match has ended, 
     the final results will become available by clicking the Results link. 
     Competitors will be able to see the test cases, other competitors' submissions, and results.
     Once the results are final, ratings will be adjusted.
+<%} %>
 </p>
 <p align="justify">
     For more details on the Marathon Match format, <a href="/longcontest/?module=Static&d1=instructions">click here</a>
@@ -262,7 +269,7 @@ Please check out the rules link below for more detail.
     
 </p>
 <%}%>
-<%if(rsr.getIntItem("round_id") == 13754 || rsr.getIntItem("round_id") == 13934 ) {%>
+<%if(rsr.getIntItem("round_id") == 13754 || rsr.getIntItem("round_id") == 13934 || rsr.getIntItem("round_id") == 13953 ) {%>
 <div class="sectionHeader">Prizes</div>
     <p align="justify">There will be $5000 in total prize money.  The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
 
@@ -323,7 +330,7 @@ submission, within one week of the announcment of the winners in order to receiv
 <%}%>
 
 <%if(rsr.getIntItem("round_id") == 13754 || rsr.getIntItem("round_id") == 13772 || rsr.getIntItem("round_id") == 13793 || rsr.getIntItem("round_id") == 13796 || rsr.getIntItem("round_id") == 13797 || rsr.getIntItem("round_id") == 13798 
-     || rsr.getIntItem("round_id") == 13799 || rsr.getIntItem("round_id") == 13800 || rsr.getIntItem("round_id") == 13801 || rsr.getIntItem("round_id") == 13934) {%>
+     || rsr.getIntItem("round_id") == 13799 || rsr.getIntItem("round_id") == 13800 || rsr.getIntItem("round_id") == 13801 || rsr.getIntItem("round_id") == 13934 || rsr.getIntItem("round_id") == 13953) {%>
 <div class="sectionHeader">Eligibility</div>
   <p align="justify">
     You must be a TopCoder member, at least 18 years of age, meeting all of the membership requirements. In addition,
