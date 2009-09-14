@@ -131,7 +131,7 @@
                                     <a href="http://www.remixchallenge.com"><img width="909" height="203" src="i/v4/5.png" alt="" /></a>
                                 </li>
                                 <li style="display:none" class="loadWorkaround">
-                                    <a href="http://www.topcoder.com/news/2009/07/20/meet-the-june-coders-and-designers-of-the-month/"><img width="909" height="203" src="i/v4/2.png" alt="" /></a>
+                                    <a href="http://www.topcoder.com/news/2009/09/14/meet-the-august-coders-and-designers-of-the-month/"><img width="909" height="203" src="i/v4/2.png" alt="" /></a>
                                 </li>
                             </ul>
                             <div class="jcarousel-control loadWorkaround" style="position:absolute; top:225px; left:160px;">
