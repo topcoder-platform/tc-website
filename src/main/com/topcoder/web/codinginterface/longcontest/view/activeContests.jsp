@@ -57,7 +57,8 @@
 
             <div align="right" style="margin: 6px 0px;">
                 <a href="/longcontest/?module=Static&amp;d1=instructions"><img src="/i/interface/getStarted.png" alt="Need help? Learn how to get started" /></a><br /><br />
-                <a href="/tc?module=Static&d1=sponsors&d2=NVIDIAOverview"><img src="/i/longcontest/mm-banner-nvidia-cuda.png" alt="CUDA Superhero Challenge!" /></a>
+                <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=sponsors&d2=NVIDIAOverview' refer='mm' />"><img src="/i/longcontest/mm-banner-nvidia-cuda.png" alt="CUDA Superhero Challenge!" /></a>
+                
               <br />
             </div>
             
