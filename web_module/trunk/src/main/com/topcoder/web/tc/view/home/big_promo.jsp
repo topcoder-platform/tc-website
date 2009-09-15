@@ -30,5 +30,7 @@
 
 <%-- REMIX --%>
 <br />
-<a href="<tc-webtag:linkTracking link='http://www.topcoder.com/remix' refer='/tc' />"><img src="/images/remix/remix-510.jpg" alt="REMIX Challenge" /></a>
+<a href="<tc-webtag:linkTracking link='http://www.topcoder.com/remix' refer='/tc' />"><img src="/images/remix/remix-510.jpg" alt="REMIX Challenge" /></a><br /><br />
+<a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=sponsors&d2=NVIDIAOverview' refer='/tc' />"><img src="/i/longcontest/mm-banner-nvidia-cuda-510.jpg"" alt="CUDA Superhero Challenge!" /></a>
+
 <br />
