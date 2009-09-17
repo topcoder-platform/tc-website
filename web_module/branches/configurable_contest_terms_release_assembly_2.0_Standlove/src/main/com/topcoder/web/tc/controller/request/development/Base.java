@@ -340,7 +340,7 @@ public abstract class Base extends ShortHibernateProcessor {
         List<TermsOfUseEntity> paperTermsNotAgreed = new ArrayList<TermsOfUseEntity>();
 
         boolean hasPendingTerms = false;
-        for (int i = 0; i < necessaryTerms.size() && !hasPendingTerms; i++) {
+        for (int i = 0; i < necessaryTerms.size(); i++) {
             Long termsId = necessaryTerms.get(i);
 
             // get terms of use
@@ -359,6 +359,11 @@ public abstract class Base extends ShortHibernateProcessor {
                 termsAgreed.add(terms);
             }
         }
+        System.out.println("necessary terms: " + necessaryTerms.size());
+
+        System.out.println(Constants.ELETRONIC_TERMS_NOT_AGREED + ": " + electronicTermsNotAgreed.size());
+        System.out.println(Constants.PAPER_TERMS_NOT_AGREED + ": " + paperTermsNotAgreed.size());
+        System.out.println(Constants.TERMS_AGREED + ": " + termsAgreed.size());
         
         // store not-agreed terms in the request
         getRequest().setAttribute(Constants.ELETRONIC_TERMS_NOT_AGREED, electronicTermsNotAgreed);
