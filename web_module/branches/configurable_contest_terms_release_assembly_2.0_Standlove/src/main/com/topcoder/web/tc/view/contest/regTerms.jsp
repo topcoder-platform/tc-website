@@ -233,7 +233,7 @@
 					</div>
 				   <c:forEach items="${eletronic_terms_not_agreed}" var="terms" varStatus="row">
                         <%-- TCWEB-664 --%>
-						<tc-webtag:hiddenInput name="<%=Constants.TERMS_OF_USE_ID + ${row.index} %>" value="${terms.termsOfUseId}"/>
+						<tc-webtag:hiddenInput name="<%= (Constants.TERMS_OF_USE_ID + ${row.index}) %>" value="${terms.termsOfUseId}"/>
 
 						<div align="center" style="padding-top: 20px;">
 							${terms.title}
@@ -242,11 +242,11 @@
 							src="${sessionInfo.servletPath}?module=Terms&amp;${TERMS_OF_USE_ID}=${terms.termsOfUseId}">
 						</iframe>
 						<p style="width: 510px;">
-							<span class="errorText"><tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE + ${row.index} %>"><%=err%>
+							<span class="errorText"><tc-webtag:errorIterator id="err" name="<%= (Constants.TERMS_AGREE + ${row.index}) %>"><%=err%>
                                     <br /></tc-webtag:errorIterator></span>
 
 								I Agree to the Terms and Conditions stated above&#160;
-								<tc-webtag:chkBox name="<%=Constants.TERMS_AGREE + ${row.index} %>"/>
+								<tc-webtag:chkBox name="<%= (Constants.TERMS_AGREE + ${row.index}) %>"/>
 						</p>
 					</c:forEach>
 				</c:if>
@@ -262,7 +262,7 @@
 						dated form to: Attention: Legal Department, TopCoder, Inc., 95 Glastonbury Blvd., Glastonbury, CT 06033.
 					</div>					
 					<c:forEach items="${paper_terms_not_agreed}" var="terms">
-						<a href="${terms.url}" target="_blank"><%=${terms.title}%></a> <br/>
+						<a href="${terms.url}" target="_blank">${terms.title}</a> <br/>
 					</c:forEach>
 				</c:if>
 
