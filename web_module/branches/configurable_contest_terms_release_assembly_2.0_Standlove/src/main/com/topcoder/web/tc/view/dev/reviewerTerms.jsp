@@ -81,7 +81,7 @@
 					</div>
 				   <c:forEach items="${eletronic_terms_not_agreed}" var="terms" varStatus="row">
                         <c:set var="index" value="${row.index}"/>
-						<jsp:useBean id="index" type="java.lang.String" />
+						<jsp:useBean id="index" type="java.lang.Integer" />
 						<tc-webtag:hiddenInput name="<%= (Constants.TERMS_OF_USE_ID + index) %>" value="${terms.termsOfUseId}"/>
 
 						<div align="center" style="padding-top: 20px;">
