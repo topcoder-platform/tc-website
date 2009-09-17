@@ -79,6 +79,12 @@
 						Please read through the following electronic terms and then click
 						<strong>"I Agree"</strong> for each terms.
 					</div>
+					<p style="width: 510px;">
+						<span class="errorText">
+							<tc-webtag:errorIterator id="err" name="<%= Constants.TERMS_AGREE %>">
+								<%=err%><br />
+							</tc-webtag:errorIterator></span>
+					</p>
 				   <c:forEach items="${eletronic_terms_not_agreed}" var="terms" varStatus="row">
                         <c:set var="index" value="${row.index}"/>
 						<jsp:useBean id="index" type="java.lang.Integer" />
@@ -91,11 +97,8 @@
 							src="${sessionInfo.servletPath}?module=Terms&amp;${TERMS_OF_USE_ID}=${terms.termsOfUseId}">
 						</iframe>
 						<p style="width: 510px;">
-							<span class="errorText"><tc-webtag:errorIterator id="err" name="<%= (Constants.TERMS_AGREE + index) %>"><%=err%>
-                                    <br /></tc-webtag:errorIterator></span>
-
-								I Agree to the Terms and Conditions stated above&#160;
-								<tc-webtag:chkBox name="<%= (Constants.TERMS_AGREE + index) %>"/>
+							I Agree to the Terms and Conditions stated above&#160;
+							<tc-webtag:chkBox name="<%= (Constants.TERMS_AGREE + index) %>"/>
 						</p>
 					</c:forEach>
 				</c:if>

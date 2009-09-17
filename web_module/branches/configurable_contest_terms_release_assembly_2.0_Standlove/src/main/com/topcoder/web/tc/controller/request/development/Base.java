@@ -366,9 +366,7 @@ public abstract class Base extends ShortHibernateProcessor {
         System.err.println(Constants.PAPER_TERMS_NOT_AGREED + ": " + paperTermsNotAgreed.size());
         System.err.println(Constants.TERMS_AGREED + ": " + termsAgreed.size());
 
-        log.debug("terms: " + necessaryTerms.size());
-        log.error("terms: " + necessaryTerms.size());
-        
+       
         // store not-agreed terms in the request
         getRequest().setAttribute(Constants.ELETRONIC_TERMS_NOT_AGREED, electronicTermsNotAgreed);
         getRequest().setAttribute(Constants.PAPER_TERMS_NOT_AGREED, paperTermsNotAgreed);

@@ -189,7 +189,7 @@
 
                 <tc-webtag:hiddenInput name="<%=Constants.PROJECT_ID%>"/>
 
-				<c:if test="${(empty eletronic_terms_not_agreed) && (empty paper_terms_not_agreed)}"> 
+				<c:if test="${(empty eletronic_terms_not_agreed) && (empty paper_terms_not_agreed)}">  
 					<c:if test="${pt == DESIGN_PROJECT_TYPE || pt == DEVELOPMENT_PROJECT_TYPE}">
 						<tc:questionIterator list="<%=questionInfo%>" id="question">
 							<table width="510" border="0" cellpadding="5" cellspacing="0" class="formFrame" align="center">
@@ -231,6 +231,12 @@
 						Please read through the following electronic terms and then click
 						<strong>"I Agree"</strong> for each terms.
 					</div>
+					<p style="width: 510px;">
+						<span class="errorText">
+							<tc-webtag:errorIterator id="err" name="<%= Constants.TERMS_AGREE %>">
+								<%=err%><br />
+							</tc-webtag:errorIterator></span>
+					</p>
 				   <c:forEach items="${eletronic_terms_not_agreed}" var="terms" varStatus="row">
 						<c:set var="index" value="${row.index}"/>
 						<jsp:useBean id="index" type="java.lang.Integer" />
@@ -244,10 +250,7 @@
 							src="${sessionInfo.servletPath}?module=Terms&amp;${TERMS_OF_USE_ID}=${terms.termsOfUseId}">
 						</iframe>
 						<p style="width: 510px;">
-							<span class="errorText">
-								<tc-webtag:errorIterator id="err" name="<%= (Constants.TERMS_AGREE + index) %>">
-									<%=err%><br />
-								</tc-webtag:errorIterator></span>
+							
 
 								I Agree to the Terms and Conditions stated above&#160;
 								<tc-webtag:chkBox name="<%= (Constants.TERMS_AGREE + index) %>"/>

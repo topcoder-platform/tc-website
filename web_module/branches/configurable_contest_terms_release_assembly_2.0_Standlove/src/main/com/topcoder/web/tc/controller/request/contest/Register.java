@@ -135,6 +135,7 @@ public class Register extends ViewRegistration {
 
             if (termsOfUseIds.size() > 0) {
                 // if there are terms that user needs to agree
+                boolean allAgreed = true;
                 for (int i = 0; i < termsOfUseIds.size(); ++i) {
                     boolean agreed = "on".equals(getRequest().getParameter(Constants.TERMS_AGREE + i));
                     if (agreed) {
@@ -144,8 +145,12 @@ public class Register extends ViewRegistration {
                         // save user terms of use record
                         saveUserTermsOfUse(userId, (Long) termsOfUseIds.get(i));                                                
                     } else {
-                        addError(Constants.TERMS_AGREE + i, "You must agree to the terms in order to proceed.");
+                        allAgreed = false;                        
                     }
+                }
+
+                if (!allAgreed) {
+                    addError(Constants.TERMS_AGREE, "You must agree all terms in order to proceed.");
                 }
 
                 // process terms of use
