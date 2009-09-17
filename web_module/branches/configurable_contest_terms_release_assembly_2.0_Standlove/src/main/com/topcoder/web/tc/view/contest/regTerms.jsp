@@ -47,7 +47,8 @@
 <c:set value="<%=Constants.UI_PROTOTYPE_PROJECT_TYPE%>" var="UI_PROTOTYPE_PROJECT_TYPE"/>
 <c:set value="<%=Constants.RIA_BUILD_PROJECT_TYPE%>" var="RIA_BUILD_PROJECT_TYPE"/>
 <c:set value="<%=Constants.RIA_COMPONENT_PROJECT_TYPE%>" var="RIA_COMPONENT_PROJECT_TYPE"/>
-<c:set value="<%=Constants.TERMS_OF_USE_ID%>" var="TERMS_OF_USE_ID"/>
+<c:set value="<%=Constants.ELETRONIC_TERMS_NOT_AGREED%>" var="ELETRONIC_TERMS_NOT_AGREED"/>
+<c:set value="<%=Constants.PAPER_TERMS_NOT_AGREED%>" var="PAPER_TERMS_NOT_AGREED"/>
 
 <body>
 
@@ -187,119 +188,143 @@
                 </c:choose>
 
                 <tc-webtag:hiddenInput name="<%=Constants.PROJECT_ID%>"/>
-                <c:choose>
-                    <c:when test="${not empty terms}">
-                        <tc-webtag:hiddenInput name="<%=Constants.TERMS_OF_USE_ID%>" value="${terms.termsOfUseId}"/>
-                    </c:when>
-                    <c:otherwise>
-                        <c:if test="${pt == DESIGN_PROJECT_TYPE || pt == DEVELOPMENT_PROJECT_TYPE}">
-                            <tc:questionIterator list="<%=questionInfo%>" id="question">
-                                <table width="510" border="0" cellpadding="5" cellspacing="0" class="formFrame" align="center">
-                                    <tr>
-                                        <td colspan="2" class="bodySubtitle" valign="top" width="100%">
-                                            <jsp:getProperty name="question" property="text"/>
-                                            <br /><br />
-                                            <hr width="100%" size="1" noshade/>
-                                        </td>
 
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2" class="errorText">
-                                            <tc-webtag:errorIterator id="err" name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%>
-                                                <br /></tc-webtag:errorIterator>
-                                        </td>
-                                    </tr>
-                                 <% boolean even = false; %>
-                                    <tc:answerInput id="answerInput" question="<%=question%>">
-                                        <tr class="<%=even?"formTextOdd":"formTextEven"%>">
-                                            <td width="100%">
-                                                <%=answerText%>
-                                            </td>
-                                            <td align="center">
-                                                <%=answerInput%>
-                                            </td>
-                                        </tr>
-                                        <% even = !even; %>
-                                    </tc:answerInput>
-                                </table>
-                                <p><br /></p>
-                            </tc:questionIterator>
-                        </c:if>
-                    </c:otherwise>
-                </c:choose>
+				<c:if test="${(empty eletronic_terms_not_agreed) && (empty paper_terms_not_agreed)}"> 
+					<c:if test="${pt == DESIGN_PROJECT_TYPE || pt == DEVELOPMENT_PROJECT_TYPE}">
+						<tc:questionIterator list="<%=questionInfo%>" id="question">
+							<table width="510" border="0" cellpadding="5" cellspacing="0" class="formFrame" align="center">
+								<tr>
+									<td colspan="2" class="bodySubtitle" valign="top" width="100%">
+										<jsp:getProperty name="question" property="text"/>
+										<br /><br />
+										<hr width="100%" size="1" noshade/>
+									</td>
 
-                <c:choose>
-                    <c:when test="${not empty terms}">
+								</tr>
+								<tr>
+									<td colspan="2" class="errorText">
+										<tc-webtag:errorIterator id="err" name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%>
+											<br /></tc-webtag:errorIterator>
+									</td>
+								</tr>
+							 <% boolean even = false; %>
+								<tc:answerInput id="answerInput" question="<%=question%>">
+									<tr class="<%=even?"formTextOdd":"formTextEven"%>">
+										<td width="100%">
+											<%=answerText%>
+										</td>
+										<td align="center">
+											<%=answerInput%>
+										</td>
+									</tr>
+									<% even = !even; %>
+								</tc:answerInput>
+							</table>
+							<p><br /></p>
+						</tc:questionIterator>
+					</c:if>
+				</c:if>
+
+
+                <c:if test="${not empty eletronic_terms_not_agreed}">
+					<div align="center" style="padding-top: 20px;">
+						Please read through the following electronic terms and then click
+						<strong>"I Agree"</strong> for each terms.
+					</div>
+				   <c:forEach items="${eletronic_terms_not_agreed}" var="terms" varStatus="row">
                         <%-- TCWEB-664 --%>
-                        <c:if test="${terms.electronicallySignable == 1}">
-							<div align="center" style="padding-top: 20px;">
-								Please read through the following terms and then click
-								<strong>"I Agree"</strong> when you're done.
-							</div>
-						</c:if>
+						<tc-webtag:hiddenInput name="<%=Constants.TERMS_OF_USE_ID + ${row.index} %>" value="${terms.termsOfUseId}"/>
+
 						<div align="center" style="padding-top: 20px;">
 							${terms.title}
 						</div><br />
 						<iframe width="590" height="300" marginWidth="5"
 							src="${sessionInfo.servletPath}?module=Terms&amp;${TERMS_OF_USE_ID}=${terms.termsOfUseId}">
 						</iframe>
-                    </c:when>
-                    <c:otherwise>
-                        <table>
-                            <tr>
-                                <td>
-                                    The following terms (that you already agreed to) apply to this project:
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <c:forEach items="${terms_agreed}" var="terms_agreed_item">
-                                        <ul>
-                                            <li>
-                                                ${terms_agreed_item.title}
-                                                <c:choose>
-                                                    <c:when test="${terms_agreed_item.electronicallySignable != 1}">
-                                                        <a href="${terms_agreed_item.url}">(View)</a>
-                                                    </c:when>
-                                                    <c:otherwise>
-                                                        <a href="/tc?module=Terms&tuid=${terms_agreed_item.termsOfUseId}" target="_blank">(View)</a>
-                                                    </c:otherwise>
-                                                </c:choose>
-                                            </li>
-                                        </ul>
-                                    </c:forEach>
-                                </td>
-                            </tr>
-                            
-                            <c:set var="captchaFileName" value="<%=Constants.CAPTCHA_FILE_NAME%>"/>
-                        <tr>
-                        <td class="errorText">
-                            <img src="/i/captcha/${requestScope[captchaFileName]}" alt="captcha image"/>
+						<p style="width: 510px;">
+							<span class="errorText"><tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE + ${row.index} %>"><%=err%>
+                                    <br /></tc-webtag:errorIterator></span>
 
-                         <p>
-                             <a href="javascript:window.location.reload()">This image is hard to read. Show me a different
-                                    one.</a>
-                            </p>
-                        </td>
-                      </tr>
+								I Agree to the Terms and Conditions stated above&#160;
+								<tc-webtag:chkBox name="<%=Constants.TERMS_AGREE + ${row.index} %>"/>
+						</p>
+					</c:forEach>
+				</c:if>
 
-                      <tr>
-                        <td class="errorText">
-                          <tc-webtag:errorIterator id="err" name="<%=Constants.CAPTCHA_RESPONSE%>">${err}
-                             <br/></tc-webtag:errorIterator>
-                        </td>
-                         </tr>
-                         <tr>
-                          <td>
-                        <p>
-                          Please enter the characters you see in the image above:
-                          <tc-webtag:textInput name="<%=Constants.CAPTCHA_RESPONSE%>"/>
-                       </p>
-                      </td>
-            </tr>
-                        </table>
-                    </c:otherwise>
-                </c:choose>
+				<c:if test="${not empty paper_terms_not_agreed}">
+					<div align="center" style="padding-top: 20px;">
+						You cannot agree to the following terms electronically.
+						You must print the terms and send a signed hard copy
+						to TopCoder. <br/>
+						For submission by <b>email</b>, send a clear and legible scan or photo of the entire page (completed, signed, and dated) as
+						an attachment to member-agreements@topcoder.com.  For submission by <b>fax</b>, you may fax the completed, signed, and dated
+						form (without a cover sheet) to: (US) +1 (860) 631-1027.  For submission by <b>mail</b>, send the completed, signed, and
+						dated form to: Attention: Legal Department, TopCoder, Inc., 95 Glastonbury Blvd., Glastonbury, CT 06033.
+					</div>					
+					<c:forEach items="${paper_terms_not_agreed}" var="terms">
+						<a href="${terms.url}" target="_blank"><%=${terms.title}%></a> <br/>
+					</c:forEach>
+				</c:if>
+
+				<table>
+					<c:if test="${not empty terms_agreed}">                        
+					<tr>
+						<td>
+							The following terms (that you already agreed to) apply to this project:
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<c:forEach items="${terms_agreed}" var="terms_agreed_item">
+								<ul>
+									<li>
+										${terms_agreed_item.title}
+										<c:choose>
+											<c:when test="${terms_agreed_item.electronicallySignable != 1}">
+												<a href="${terms_agreed_item.url}">(View)</a>
+											</c:when>
+											<c:otherwise>
+												<a href="/tc?module=Terms&tuid=${terms_agreed_item.termsOfUseId}" target="_blank">(View)</a>
+											</c:otherwise>
+										</c:choose>
+									</li>
+								</ul>
+							</c:forEach>
+						</td>
+					</tr>
+					</c:if>
+					
+					<c:if test="${(empty eletronic_terms_not_agreed) && (empty paper_terms_not_agreed)}">  
+						<c:set var="captchaFileName" value="<%=Constants.CAPTCHA_FILE_NAME%>"/>
+						<tr>
+							<td class="errorText">
+								<img src="/i/captcha/${requestScope[captchaFileName]}" alt="captcha image"/>
+
+							 <p>
+								 <a href="javascript:window.location.reload()">This image is hard to read. Show me a different
+										one.</a>
+								</p>
+							</td>
+						  </tr>
+
+						  <tr>
+							<td class="errorText">
+							  <tc-webtag:errorIterator id="err" name="<%=Constants.CAPTCHA_RESPONSE%>">${err}
+								 <br/></tc-webtag:errorIterator>
+							</td>
+						  </tr>
+						  <tr>
+							<td>
+							<p>
+							  Please enter the characters you see in the image above:
+							  <tc-webtag:textInput name="<%=Constants.CAPTCHA_RESPONSE%>"/>
+						   </p>
+						  </td>
+						</tr>
+					</c:if>
+				 </table>
+
+
 
                 <p style="width: 510px;">
                     <c:if test="${(pt == DESIGN_PROJECT_TYPE || pt == DEVELOPMENT_PROJECT_TYPE) and not empty notRegistered}">
@@ -307,31 +332,12 @@
                          Please be aware that you are NOT REGISTERED for the tournament, and registering for this contest will not register you for the tournament.  If you don't register for the tournament prior to registering for this contest, it will not count in the tournament standings even if you sign up at a later date.
                          </span><br /><br />
                     </c:if>
-
-                    <c:if test="${not empty terms}">
-                        <c:choose>
-                            <c:when test="${terms.electronicallySignable == 1}">
-                                <span class="errorText"><tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>"><%=err%>
-                                    <br /></tc-webtag:errorIterator></span>
-
-                                    I Agree to the Terms and Conditions stated above&#160;
-                                    <tc-webtag:chkBox name="<%=Constants.TERMS_AGREE%>"/>
-                            </c:when>
-                            <c:otherwise>
-                                <jsp:include page="/terms/paper_terms.jsp">
-                                    <jsp:param name="terms.url" value="terms.url"/>
-                                </jsp:include>
-                            </c:otherwise>
-                        </c:choose>
-                    </c:if>
                 </p>
 
                 <p style="width: 510px;">
                     <c:choose>
-                        <c:when test="${not empty terms}">
-                            <c:if test="${terms.electronicallySignable == 1}">
-                                <a class="button" href="Javascript:document.regForm.submit();" style="width:60px;">Continue</a>
-                            </c:if>
+                        <c:when test="${(not empty eletronic_terms_not_agreed) || (not empty paper_terms_not_agreed)}">                            
+                            <a class="button" href="Javascript:document.regForm.submit();" style="width:60px;">Continue</a>
                         </c:when>
                         <c:otherwise>
                             <a class="button" href="Javascript:document.regForm.submit();" style="width:60px;">Register</a>

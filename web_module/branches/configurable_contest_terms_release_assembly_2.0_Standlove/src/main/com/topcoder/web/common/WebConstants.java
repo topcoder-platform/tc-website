@@ -33,9 +33,15 @@ package com.topcoder.web.common;
  *     <li>Added several constants to support Specification Review projects.</li>
  *   </ol>
  * </p>
+ * <p>
+ *   Version 1.5 (Other Configurable Contest Terms Release Assembly 2.0 ) Change notes:
+ *   <ol>
+ *     <li>Added several constants for eletronic and paper terms.</li>
+ *   </ol>
+ * </p>
  *
- * @author dok, pulky, snow01
- * @version 1.4
+ * @author dok, pulky, snow01, ASSEMBLER
+ * @version 1.5
  */
 public interface WebConstants {
     public static final String HANDLE = "ha";
@@ -97,6 +103,20 @@ public interface WebConstants {
      * @since 1.2
      */
     public static final String TERMS_AGREED = "terms_agreed";
+    
+    /**
+     * <p>A <code>String</code> representing not agreed eletronic terms attribute key.</p>
+     *
+     * @since 1.5
+     */
+    public static final String ELETRONIC_TERMS_NOT_AGREED = "eletronic_terms_not_agreed";
+
+    /**
+     * <p>A <code>String</code> representing not agreed paper terms attribute key.</p>
+     *
+     * @since 1.5
+     */
+    public static final String PAPER_TERMS_NOT_AGREED = "paper_terms_not_agreed";
 
     public static final String TERMS_AGREE = "terms_agree";
     public static final String TERMS_OF_USE_ID = "tuid";

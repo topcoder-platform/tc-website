@@ -336,6 +336,8 @@ public abstract class Base extends ShortHibernateProcessor {
                 roleIds, DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
         List<TermsOfUseEntity> termsAgreed = new ArrayList<TermsOfUseEntity>();
+        List<TermsOfUseEntity> electronicTermsNotAgreed = new ArrayList<TermsOfUseEntity>();
+        List<TermsOfUseEntity> paperTermsNotAgreed = new ArrayList<TermsOfUseEntity>();
 
         boolean hasPendingTerms = false;
         for (int i = 0; i < necessaryTerms.size() && !hasPendingTerms; i++) {
@@ -347,15 +349,24 @@ public abstract class Base extends ShortHibernateProcessor {
             // check if the user has this terms
             if (!userTermsOfUse.hasTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
                 hasPendingTerms = true;
-                getRequest().setAttribute(Constants.TERMS, terms);
+                // getRequest().setAttribute(Constants.TERMS, terms);
+                if (terms.getElectronicallySignable() == 1) {
+                    electronicTermsNotAgreed.add(terms);
+                } else {
+                    paperTermsNotAgreed.add(terms);
+                }
             } else {
                 termsAgreed.add(terms);
             }
         }
+        
+        // store not-agreed terms in the request
+        getRequest().setAttribute(Constants.ELETRONIC_TERMS_NOT_AGREED, electronicTermsNotAgreed);
+        getRequest().setAttribute(Constants.PAPER_TERMS_NOT_AGREED, paperTermsNotAgreed);
 
-        if (!hasPendingTerms) {
-            getRequest().setAttribute(Constants.TERMS_AGREED, termsAgreed);
-        }
+        //if (!hasPendingTerms) {
+        getRequest().setAttribute(Constants.TERMS_AGREED, termsAgreed);
+        //}
         
         return hasPendingTerms;
     }

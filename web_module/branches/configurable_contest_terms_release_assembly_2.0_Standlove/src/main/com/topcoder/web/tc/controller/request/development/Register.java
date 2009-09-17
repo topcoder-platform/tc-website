@@ -69,6 +69,12 @@ import com.topcoder.web.common.NavigationException;
  *     <li>Added new functionality that asks for several terms of use and show those the user already agreed to.</li>
  *   </ol>
  * </p>
+ * <p>
+ *   Version 1.2 (Configurable Contest Terms Release Assembly v1.0) Change notes:
+ *   <ol>
+ *     <li>Added new functionality that asks for several terms of use and show those the user already agreed to.</li>
+ *   </ol>
+ * </p>
  *
  * @author dok, pulky
  * @version 1.1
@@ -95,10 +101,21 @@ public class Register extends ViewRegistration {
             String projectId = getRequest().getParameter(Constants.PROJECT_ID);
             getRequest().setAttribute(Constants.PROJECT_ID, projectId);
 
-            String termsOfUseId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_ID));
+            // get all submitted terms of use ids
+            List termsOfUseIds = new ArrayList();            
+            for (int i = 0;; ++i) {
+                String termsOfUseId = getRequest().getParameter(Constants.TERMS_OF_USE_ID + i);
+                if (termsOfUseId == null) {
+                    break;
+                } else {
+                    termsOfUseIds.add(Long.parseLong(termsOfUseId));
+                }
+            }
+
+            //String termsOfUseId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_ID));
             long userId = getLoggedInUser().getId();
 
-            if (!"".equals(termsOfUseId)) {
+            /*if (!"".equals(termsOfUseId)) {
                 boolean agreed = "on".equals(getRequest().getParameter(Constants.TERMS_AGREE));
                 if (agreed) {
                     if (log.isDebugEnabled()) {
@@ -119,7 +136,25 @@ public class Register extends ViewRegistration {
                     TermsOfUseEntity terms =  termsOfUse.getEntity(Long.parseLong(termsOfUseId),
                             DBMS.COMMON_OLTP_DATASOURCE_NAME);
                     getRequest().setAttribute(Constants.TERMS, terms);
+                } */
+
+            if (termsOfUseIds.size() > 0) {
+                // if there are terms that user needs to agree
+                for (int i = 0; i < termsOfUseIds.size(); ++i) {
+                    boolean agreed = "on".equals(getRequest().getParameter(Constants.TERMS_AGREE + i));
+                    if (agreed) {
+                        if (log.isDebugEnabled()) {
+                            log.debug("they agree to terms" + termsOfUseIds.get(i));
+                        }
+                        // save user terms of use record
+                        saveUserTermsOfUse(userId, (Long) termsOfUseIds.get(i));                                                
+                    } else {
+                        addError(Constants.TERMS_AGREE + i, "You must agree to the terms in order to proceed.");
+                    }
                 }
+
+                // process terms of use
+                processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS);
                 
                 setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
                 loadCaptcha();
