@@ -87,6 +87,7 @@ public class Register extends ViewRegistration {
      * @see com.topcoder.web.tc.controller.request.development.Base#developmentProcessing()
      */
     protected void developmentProcessing() throws TCWebException {
+        System.err.println("Contest - Register");
 
         try {
             if (!SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(this.getClass()))) {
@@ -154,14 +155,18 @@ public class Register extends ViewRegistration {
                 }
 
                 // process terms of use
-                processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS);
-            
+                boolean hasPendingTerms = processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS);
 
+                if (!hasPendingTerms) {
+                    getRequest().setAttribute("questionInfo", getQuestions());
+                    loadCaptcha();
+                }            
+                /*
                 if (!answeredCaptchaCorrectly()) {
                     addError(Constants.CAPTCHA_RESPONSE, "Sorry, your response was incorect.");
-                }
+                }*/
                 setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
-                 loadCaptcha();
+                //loadCaptcha(); 
                 setNextPage("/contest/regTerms.jsp");
                 setIsNextPageInContext(true);
             } else {
@@ -173,17 +178,29 @@ public class Register extends ViewRegistration {
                     setIsNextPageInContext(true);
                     return;
                 }
-                boolean isEligible = getRequest().getAttribute(Constants.MESSAGE) == null;
-                if (isEligible) {
-                    if (log.isDebugEnabled()) {
-                        log.debug("they are eligible");
-                    }
-                    register();
-                    setNextPage("/contest/regSuccess.jsp");
+
+                if (!answeredCaptchaCorrectly()) {
+                    addError(Constants.CAPTCHA_RESPONSE, "Sorry, your response was incorect.");
+                }
+
+                if (hasErrors()) {
+                    setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
+                    loadCaptcha();
+                    setNextPage("/contest/regTerms.jsp");
                     setIsNextPageInContext(true);
                 } else {
-                    setNextPage("/contest/message.jsp");
-                    setIsNextPageInContext(true);
+                    boolean isEligible = getRequest().getAttribute(Constants.MESSAGE) == null;
+                    if (isEligible) {
+                        if (log.isDebugEnabled()) {
+                            log.debug("they are eligible");
+                        }
+                        register();
+                        setNextPage("/contest/regSuccess.jsp");
+                        setIsNextPageInContext(true);
+                    } else {
+                        setNextPage("/contest/message.jsp");
+                        setIsNextPageInContext(true);
+                    }
                 }
             }
         } catch (TCWebException e) {

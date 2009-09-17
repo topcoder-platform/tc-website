@@ -88,7 +88,7 @@ public class Register extends ViewRegistration {
      * @see com.topcoder.web.tc.controller.request.development.Base#developmentProcessing()
      */
     protected void developmentProcessing() throws TCWebException {
-
+        System.err.println("Development - Register");
         try {
             loadPhase();
 
@@ -159,10 +159,15 @@ public class Register extends ViewRegistration {
                 }
 
                 // process terms of use
-                processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS);
+                boolean hasPendingTerms = processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS);
+
+                if (!hasPendingTerms) {
+                    getRequest().setAttribute("questionInfo", getQuestions());
+                    loadCaptcha();
+                }
                 
-                setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
-                loadCaptcha();
+                setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));    
+                //loadCaptcha();
                 setNextPage("/contest/regTerms.jsp");
                 setIsNextPageInContext(true);
             } else {
