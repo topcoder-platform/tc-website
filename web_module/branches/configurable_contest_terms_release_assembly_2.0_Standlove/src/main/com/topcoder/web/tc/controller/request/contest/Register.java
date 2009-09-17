@@ -158,7 +158,6 @@ public class Register extends ViewRegistration {
                 boolean hasPendingTerms = processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS);
 
                 if (!hasPendingTerms) {
-                    getRequest().setAttribute("questionInfo", getQuestions());
                     loadCaptcha();
                 }            
                 /*
