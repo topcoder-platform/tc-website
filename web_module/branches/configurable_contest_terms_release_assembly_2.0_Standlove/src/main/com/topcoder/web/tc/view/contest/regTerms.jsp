@@ -229,8 +229,19 @@
 
                 <c:choose>
                     <c:when test="${not empty terms}">
-                        ${terms.title}<br/>
-                        <tc-webtag:textArea name="<%=Constants.TERMS%>" text="${terms.termsText}" rows="10" cols="60"/>
+                        <%-- TCWEB-664 --%>
+                        <c:if test="${terms.electronicallySignable == 1}">
+							<div align="center" style="padding-top: 20px;">
+								Please read through the following terms and then click
+								<strong>"I Agree"</strong> when you're done.
+							</div>
+						</c:if>
+						<div align="center" style="padding-top: 20px;">
+							${terms.title}
+						</div><br />
+						<iframe width="590" height="300" marginWidth="5"
+							src="${sessionInfo.servletPath}?module=Terms&amp;${TERMS_OF_USE_ID}=${terms.id}">
+						</iframe>
                     </c:when>
                     <c:otherwise>
                         <table>
