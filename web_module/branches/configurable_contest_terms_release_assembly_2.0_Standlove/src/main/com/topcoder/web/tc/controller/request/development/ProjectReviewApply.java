@@ -103,10 +103,15 @@ import java.io.FileOutputStream;
  *   <ol>
  *     <li>Added support for Specification review project types.</li>
  *   </ol>
+ *   
+ *   Version 1.0.10 (Other Configurable Contest Terms Release Assembly 2.0) Change notes:
+ *   <ol>
+ *     <li>Added support for multiple terms and resource (reviewer) audit.</li>
+ *   </ol>
  * </p>
  *
  * @author dok, isv, pulky, snow01
- * @version 1.0.9
+ * @version 1.0.10
  */
 public class ProjectReviewApply extends Base {
     protected long projectId = 0;
@@ -226,6 +231,10 @@ public class ProjectReviewApply extends Base {
 
         // get corresponding resource role ids
         int[] roleIds = getResourceRoleIds(reviewTypeId, primary);
+        
+        // audit reviewer roles
+        auditSelfRegistration(projectId, getUser().getId(), roleIds);
+        
         processTermsOfUse(String.valueOf(projectId), getUser().getId(), roleIds);
 
         loadCaptcha();

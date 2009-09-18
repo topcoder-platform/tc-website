@@ -5,6 +5,7 @@ package com.topcoder.web.tc.controller.request.development;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -31,6 +32,9 @@ import com.topcoder.web.ejb.project.ProjectRoleTermsOfUseLocator;
 import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.web.ejb.termsofuse.TermsOfUseEntity;
 import com.topcoder.web.ejb.termsofuse.TermsOfUseLocator;
+import com.topcoder.web.ejb.user.ProjectUser;
+import com.topcoder.web.ejb.user.ProjectUserEntity;
+import com.topcoder.web.ejb.user.ProjectUserLocal;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.ejb.user.UserTermsOfUseLocator;
 import com.topcoder.web.tc.Constants;
@@ -427,5 +431,24 @@ public abstract class Base extends ShortHibernateProcessor {
      */
     protected boolean isProjectTypeSupported(String projectType, boolean includeSpecificationReviews) {
         return ReviewBoardHelper.isReviewBoardTypeSupported(projectType, includeSpecificationReviews);
+    }
+    
+    protected void auditSubmitterRegistration(long projectId, long userId) throws Exception {
+    	auditSelfRegistration(projectId, userId, new int[] {Constants.SUBMITTER_RESOURCE_ROLE_ID });
+    }
+    
+    protected void auditSelfRegistration(long projectId, long userId, int[] roleIds) throws Exception {
+    	ProjectUserLocal pl = (ProjectUserLocal) createLocalEJB(getInitialContext(), ProjectUser.class);
+    	ProjectUserEntity entity = new ProjectUserEntity();
+    	entity.setActionUserId(userId);
+    	entity.setResourceUserId(userId);
+    	entity.setProjectId(projectId);
+    	entity.setActionDate(new Date());
+    	entity.setAuditActionTypeId(Constants.CREATE_AUDIT_ACTION_TYPE_ID);
+    	
+    	for (int i = 0; i < roleIds.length; ++i) {
+    		entity.setResourceRoleId(roleIds[i]);
+    		pl.auditProjectUser(entity, DBMS.TCS_OLTP_DATASOURCE_NAME);
+    	}
     }
 }

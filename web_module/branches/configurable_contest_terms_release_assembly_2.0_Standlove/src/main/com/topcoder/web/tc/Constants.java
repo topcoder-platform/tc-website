@@ -50,6 +50,10 @@ public class Constants implements WebConstants {
 
     private static final TCResourceBundle bundle = new TCResourceBundle("TC");
     private static final Logger log = Logger.getLogger(Constants.class);
+    
+    public static int SUBMITTER_RESOURCE_ROLE_ID = 1;
+    public static int CREATE_AUDIT_ACTION_TYPE_ID = 1;
+    public static int DELETE_AUDIT_ACTION_TYPE_ID = 2;
 
     public static String DEFAULT_PAGE;
     public static String HOME_PAGE;

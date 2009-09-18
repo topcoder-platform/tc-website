@@ -44,16 +44,12 @@ public class AddTermAgreement extends Base {
 		List<UserOfTerms> users = userTerms.getUsersOfTerms(termsOfUseId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
 		getRequest().setAttribute(Constants.USERS_OF_TERMS, users);
 		
-		// get the terms
-		
+		// get the terms		
 		TermsOfUseEntity terms = termsOfUse.getEntity(termsOfUseId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
 		getRequest().setAttribute(Constants.TERMS, terms);
 		
 		setNextPage("/usersOfTerms.jsp");
         setIsNextPageInContext(true);
-        
-        System.err.println("Exit AddTermAgreement ");
-
 	}
 
 }

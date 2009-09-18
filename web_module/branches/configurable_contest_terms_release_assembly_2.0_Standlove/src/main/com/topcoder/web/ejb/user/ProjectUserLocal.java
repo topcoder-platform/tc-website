@@ -1,0 +1,10 @@
+package com.topcoder.web.ejb.user;
+
+import javax.ejb.EJBException;
+import javax.ejb.EJBLocalObject;
+
+public interface ProjectUserLocal extends EJBLocalObject {
+	void auditProjectUser(ProjectUserEntity entity, String dataSource)
+    	throws EJBException;
+
+}

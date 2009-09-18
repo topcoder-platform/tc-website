@@ -6,6 +6,11 @@
             <jndi-name>com.topcoder.web.ejb.user.UserHome</jndi-name>
             <local-jndi-name>java:/com.topcoder.web.ejb.user.UserLocalHome</local-jndi-name>
         </session>
+		<session>
+            <ejb-name>ProjectUser</ejb-name>
+            <jndi-name>com.topcoder.web.ejb.user.ProjectUserHome</jndi-name>
+            <local-jndi-name>java:/com.topcoder.web.ejb.user.ProjectUserLocalHome</local-jndi-name>
+        </session>
         <session>
             <ejb-name>UserTermsOfUse</ejb-name>
             <jndi-name>com.topcoder.web.ejb.user.UserTermsOfUseHome</jndi-name>

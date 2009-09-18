@@ -73,10 +73,16 @@ import com.topcoder.web.common.NavigationException;
  *   <ol>
  *     <li>Added new functionality that asks for several terms of use and show those the user already agreed to.</li>
  *   </ol>
+ *   
+ *   Version 1.3 (Other Configurable Contest Terms Release Assembly 2.0) Change notes:
+ *   <ol>
+ *     <li>Added support for multiple terms and resource (submitter) audit.</li>
+ *   </ol>
  * </p>
+ * 
  *
  * @author dok, pulky
- * @version 1.2
+ * @version 1.3
  */
 public class Register extends ViewRegistration {
 
@@ -292,6 +298,9 @@ public class Register extends ViewRegistration {
             try {
                 tm.begin();
                 userManager.registerForProject(getUser().getId(), getRequest().getParameter("Comment"), projectId);
+                
+                // audit submitter
+                auditSubmitterRegistration(getUser().getId(), projectId);
                 tm.commit();
             } catch (Exception e) {
                 if (tm != null && (tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK)) {
