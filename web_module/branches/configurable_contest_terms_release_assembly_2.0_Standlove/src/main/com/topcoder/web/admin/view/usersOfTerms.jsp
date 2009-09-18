@@ -67,7 +67,7 @@
                 <tr>
 				   <form method="post" action="/admin/?module=AddTermAgreement">
 				    <input type="hidden" name="<%=Constants.TERMS_OF_USE_ID%>" value="<c:out value='${terms.termsOfUseId}' />" /> 					
-					<td class="big"><tc-webtag:textInput name="<%=Constants.HANDLE%>" size="100" maxlength="100"/></td>
+					<td class="big"><tc-webtag:textInput name="<%=Constants.HANDLE%>" size="30" maxlength="100"/></td>
 					<td><input type="submit" name="Submit" value="Add Agreement" /></td>
 				   </form>
                 </tr>
