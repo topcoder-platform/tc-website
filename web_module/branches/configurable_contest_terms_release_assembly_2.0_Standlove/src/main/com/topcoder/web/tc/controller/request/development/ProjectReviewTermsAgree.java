@@ -144,7 +144,7 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
             } else {
                 // make sure they don't have pending terms of use (they could get here faking the URL)
                 int[] roleIds = getResourceRoleIds(reviewTypeId, primary);
-                if (processTermsOfUse(projectId, userId, roleIds)) {
+                if (processTermsOfUse(String.valueOf(projectId), userId, roleIds)) {
                     setNextPage(Constants.REVIEWER_TERMS);
                     setIsNextPageInContext(true);
                     return;
