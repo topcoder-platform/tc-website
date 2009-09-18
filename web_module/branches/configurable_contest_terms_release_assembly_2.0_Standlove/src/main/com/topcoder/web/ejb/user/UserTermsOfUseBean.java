@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.ejb.EJBException;
 import javax.naming.InitialContext;
@@ -124,6 +126,44 @@ public class UserTermsOfUseBean extends BaseEJB {
             close(ctx);
         }
         return ret;
+    }
+    
+    public List<UserOfTerms> getUsersOfTerms(long termsOfUseId, String dataSource) 
+    	 throws EJBException {
+    	
+    	Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        List<UserOfTerms> users = new ArrayList<UserOfTerms>();
+
+        try {
+            StringBuffer query = new StringBuffer(1024);
+            query.append("SELECT xref.user_id, xref.create_date, handle ");
+            query.append("FROM user_terms_of_use_xref as xref, user as user  ");
+            query.append("WHERE xref.user_id = user.user_id and terms_of_use_id= ? order by handle ");
+
+            conn = DBMS.getConnection(dataSource);
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, termsOfUseId);
+
+            rs = ps.executeQuery();
+            while (rs.next()) {
+            	UserOfTerms userOfTerms = new UserOfTerms();
+            	userOfTerms.setUserId(rs.getLong(1));
+            	userOfTerms.setAgreedDate(rs.getDate(2));
+            	userOfTerms.setHandle(rs.getString(3));
+            	
+            	users.add(userOfTerms);
+            }            
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw(new EJBException(sqle.getMessage()));
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+        }
+        return users;
     }
 
 

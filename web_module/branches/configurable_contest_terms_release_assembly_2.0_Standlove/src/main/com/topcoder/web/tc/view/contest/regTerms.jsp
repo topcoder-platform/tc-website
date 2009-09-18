@@ -259,7 +259,7 @@
 				</c:if>
 
 				<c:if test="${not empty paper_terms_not_agreed}">
-					<div align="center" style="padding-top: 20px;">
+					<div align="left" style="padding-top: 20px;">
 						You cannot agree to the following terms electronically.
 						You must print the terms and send a signed hard copy
 						to TopCoder. <br/>

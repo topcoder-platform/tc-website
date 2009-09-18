@@ -1,5 +1,7 @@
 package com.topcoder.web.ejb.user;
 
+import java.rmi.RemoteException;
+
 import com.topcoder.web.common.RowNotFoundException;
 
 import javax.ejb.EJBException;
@@ -59,6 +61,8 @@ public interface UserLocal extends EJBLocalObject {
     boolean userExists(long userId, String dataSource) throws EJBException;
 
     public boolean userExists(String handle, String dataSource) throws EJBException;
+    
+    long getUserId(String handle, String dataSource) throws EJBException;
 
 
 }

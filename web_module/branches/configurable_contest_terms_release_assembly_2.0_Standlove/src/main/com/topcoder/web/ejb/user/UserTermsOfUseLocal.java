@@ -1,5 +1,9 @@
 package com.topcoder.web.ejb.user;
 
+import java.rmi.RemoteException;
+import java.util.List;
+
+import javax.ejb.EJBException;
 import javax.ejb.EJBLocalObject;
 
 /**
@@ -12,4 +16,6 @@ public interface UserTermsOfUseLocal extends EJBLocalObject {
     public void removeUserTermsOfUse(long userId, long _terms_of_use_id, String dataSource);
 
 	public boolean hasTermsOfUse(long userId, long termsOfUseId, String dataSource);
+	
+	public List<UserOfTerms> getUsersOfTerms(long termsOfUseId, String dataSource);
 }

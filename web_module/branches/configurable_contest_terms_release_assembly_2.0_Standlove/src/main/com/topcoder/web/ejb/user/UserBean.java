@@ -9,6 +9,8 @@ import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
 import javax.naming.InitialContext;
+
+import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -665,7 +667,38 @@ public class UserBean extends BaseEJB {
                 new String[]{String.valueOf(userId)},
                 dataSource);
     }
+    
+    public long getUserId(String handle, String dataSource) throws EJBException {
+    	PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = null;
 
 
+        try {
+            conn = DBMS.getConnection(dataSource);
+
+            StringBuffer query = new StringBuffer(1024);
+            query.append("SELECT user_id ");
+            query.append("FROM user ");
+            query.append("WHERE lower(handle) = lower(?)");
+
+            ps = conn.prepareStatement(query.toString());
+            ps.setString(1, handle);
+
+            rs = ps.executeQuery();
+            if (!rs.next()) {
+            	return Long.MIN_VALUE;
+            } else {
+            	return rs.getLong(1);
+            }
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw (new EJBException(sqle.getMessage()));
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+        }
+    }
 }
 

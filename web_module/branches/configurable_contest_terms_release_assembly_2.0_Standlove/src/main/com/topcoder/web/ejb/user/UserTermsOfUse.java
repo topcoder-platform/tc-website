@@ -3,6 +3,7 @@ package com.topcoder.web.ejb.user;
 import javax.ejb.EJBException;
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
+import java.util.List;
 
 public interface UserTermsOfUse extends EJBObject {
 
@@ -14,6 +15,9 @@ public interface UserTermsOfUse extends EJBObject {
 
     public boolean hasTermsOfUse(long userId, long termsOfUseId, String dataSource)
             throws EJBException, RemoteException;
+    
+    public List<UserOfTerms> getUsersOfTerms(long termsOfUseId, String dataSource)
+    	throws EJBException, RemoteException;
 }
 
 ;

@@ -47,6 +47,25 @@ public interface AdminConstants {
      * @since 1.1
      */
     public static final String TERMS_URL = "turl";
+    
+    /**
+     * <p>
+     * A <code>String</code> containing the attribute key for users agreed terms
+     * </p>
+     *
+     * @since 1.2
+     */
+    public static final String USERS_OF_TERMS = "users_of_terms";
+    
+    /**
+     * <p>
+     * A <code>String</code> containing the attribute key for user's handle
+     * </p>
+     *
+     * @since 1.2
+     */
+    public static final String HANDLE = "handle";    
+    
 
     public static final String SURVEY_ID = "sid";
     public static final String QUESTION_ID = "qid";

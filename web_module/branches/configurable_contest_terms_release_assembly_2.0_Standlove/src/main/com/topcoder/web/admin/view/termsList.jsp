@@ -43,7 +43,11 @@
                         <td class="<%=even?"even":"odd"%>"><a
                                 href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=EditTerms&<%=Constants.TERMS_OF_USE_ID%>=<rsc:item row="<%=terms%>" name="terms_of_use_id"/>">edit</a>
                             <rsc:item row="<%=terms%>" name="terms_of_use_id"/></td>
-                        <td class="<%=even?"even":"odd"%>"><%=terms.getStringItem("title")%></td>
+                        <td class="<%=even?"even":"odd"%>">
+							<a href="/admin/?module=UsersOfTerms&<%=Constants.TERMS_OF_USE_ID%>=<rsc:item row="<%=terms%>" name="terms_of_use_id"/>">
+								<%=terms.getStringItem("title")%>
+							</a>
+						</td>
                         <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=terms%>"
                                                                      name="terms_of_use_type_desc"/></td>
                         <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=terms%>" name="create_date"
