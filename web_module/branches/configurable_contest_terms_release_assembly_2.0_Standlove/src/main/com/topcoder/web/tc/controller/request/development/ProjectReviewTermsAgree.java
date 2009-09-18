@@ -71,16 +71,53 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
      * @param reviewTypeId the review type id
      * @throws Exception if any error occurs
      */
-    protected void applicationProcessing(Timestamp opensOn, int reviewTypeId) throws Exception {
-        String termsOfUseId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_ID));
+    protected void applicationProcessing(Timestamp opensOn, int reviewTypeId) throws Exception {        
         boolean primary = new Boolean(StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_FLAG))).booleanValue();
         setDefault(Constants.PRIMARY_FLAG, primary);
 
+        System.err.println("Review - Controllers");
+
+        // get all submitted terms of use ids
+        List<Long> termsOfUseIds = new ArrayList<Long>();            
+        for (int i = 0;; ++i) {
+            String termsOfUseId = getRequest().getParameter(Constants.TERMS_OF_USE_ID + i);
+            if (termsOfUseId == null) {
+                break;
+            } else {
+                termsOfUseIds.add(Long.parseLong(termsOfUseId));
+            }
+        }
+
         long userId = getUser().getId();
 
-        if ("POST".equals(getRequest().getMethod())) {
-            if (!"".equals(termsOfUseId)) {
+        if ("POST".equals(getRequest().getMethod())) {            
+            if (termsOfUseIds.size() > 0) {
+                // if there are terms that user needs to agree
+                boolean allAgreed = true;
+                for (int i = 0; i < termsOfUseIds.size(); ++i) {
+                    boolean agreed = "on".equals(getRequest().getParameter(Constants.TERMS_AGREE + i));
+                    if (agreed) {
+                        if (log.isDebugEnabled()) {
+                            log.debug("they agree to terms" + termsOfUseIds.get(i));
+                        }
+                        // save user terms of use record
+                        saveUserTermsOfUse(userId, (Long) termsOfUseIds.get(i));                                                
+                    } else {
+                        allAgreed = false;   
+                    }
+                }
 
+                if (!allAgreed) {
+                    addError(Constants.TERMS_AGREE, "You must agree all terms in order to proceed.");
+                }
+
+                // process terms of use
+                boolean hasPendingTerms = processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS);
+
+                if (!hasPendingTerms) {
+                    loadCaptcha();
+                }
+            /*if (!"".equals(termsOfUseId)) {
                 if (!"on".equalsIgnoreCase(getRequest().getParameter(Constants.TERMS_AGREE))) {
                     addError(Constants.TERMS_AGREE, "You must agree to the terms in order to review a component.");
 
@@ -97,9 +134,10 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
                     // process terms of use
                     int[] roleIds = getResourceRoleIds(reviewTypeId, primary);
                     processTermsOfUse(String.valueOf(projectId), userId, roleIds);
-                }
+                } */
+
                 setNextPage(Constants.REVIEWER_TERMS);
-                setIsNextPageInContext(true);
+                setIsNextPageInContext(true); 
             } else {
                 if (!answeredCaptchaCorrectly()) {
                     addError(Constants.CAPTCHA_RESPONSE, "Sorry, your response was incorect.");

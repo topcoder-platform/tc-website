@@ -169,38 +169,32 @@ public class Register extends ViewRegistration {
                 setNextPage("/contest/regTerms.jsp");
                 setIsNextPageInContext(true);
             } else {
+                if (!answeredCaptchaCorrectly()) {
+                    addError(Constants.CAPTCHA_RESPONSE, "Sorry, your response was incorect.");
+                }
+
                 // make sure they don't have pending terms of use (they could get here faking the URL)
-                if (processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS)) {
+                if (hasErrors() || processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS)) {
                     setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
                      loadCaptcha();
                     setNextPage("/contest/regTerms.jsp");
                     setIsNextPageInContext(true);
                     return;
                 }
-
-                if (!answeredCaptchaCorrectly()) {
-                    addError(Constants.CAPTCHA_RESPONSE, "Sorry, your response was incorect.");
-                }
-
-                if (hasErrors()) {
-                    setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
-                    loadCaptcha();
-                    setNextPage("/contest/regTerms.jsp");
+                
+                boolean isEligible = getRequest().getAttribute(Constants.MESSAGE) == null;
+                if (isEligible) {
+                    if (log.isDebugEnabled()) {
+                        log.debug("they are eligible");
+                    }
+                    register();
+                    setNextPage("/contest/regSuccess.jsp");
                     setIsNextPageInContext(true);
                 } else {
-                    boolean isEligible = getRequest().getAttribute(Constants.MESSAGE) == null;
-                    if (isEligible) {
-                        if (log.isDebugEnabled()) {
-                            log.debug("they are eligible");
-                        }
-                        register();
-                        setNextPage("/contest/regSuccess.jsp");
-                        setIsNextPageInContext(true);
-                    } else {
-                        setNextPage("/contest/message.jsp");
-                        setIsNextPageInContext(true);
-                    }
+                    setNextPage("/contest/message.jsp");
+                    setIsNextPageInContext(true);
                 }
+                
             }
         } catch (TCWebException e) {
             throw e;
