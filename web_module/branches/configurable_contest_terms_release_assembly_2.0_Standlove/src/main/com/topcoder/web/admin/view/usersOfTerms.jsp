@@ -31,7 +31,7 @@
         <td>
             <jsp:include page="left.jsp"/>
         </td>
-        <td>
+        <td align="left">
             <table>
                 <tr><td class="big" align="center" colspan="2"><c:out value="${terms.title}" /></td></tr>
 				<c:choose>
