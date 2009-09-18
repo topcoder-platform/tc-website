@@ -5,6 +5,8 @@ package com.topcoder.web.tc.controller.request.development;
 
 import java.sql.Timestamp;
 import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
 
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -101,7 +103,7 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
                             log.debug("they agree to terms" + termsOfUseIds.get(i));
                         }
                         // save user terms of use record
-                        saveUserTermsOfUse(userId, (Long) termsOfUseIds.get(i));                                                
+                        saveUserTermsOfUse(userId, termsOfUseIds.get(i));                                                
                     } else {
                         allAgreed = false;   
                     }
@@ -112,7 +114,7 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
                 }
 
                 // process terms of use
-                boolean hasPendingTerms = processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS);
+                boolean hasPendingTerms = processTermsOfUse(String.valueOf(projectId), userId, Base.SUBMITTER_ROLE_IDS);
 
                 if (!hasPendingTerms) {
                     loadCaptcha();
