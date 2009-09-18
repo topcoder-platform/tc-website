@@ -49,13 +49,13 @@
 								<c:when test="${row.index % 2 == 0}">
 									<td class="even"><c:out value="${user.handle}" /></td>
 									<td class="even">
-										${user.agreedDate}
+										<fmt:formatDate value="${user.agreedDate}" type="both" pattern="MM.dd.yyyy HH:mm:ss"/>
 									</td>
 								</c:when>
 								<c:otherwise>
 									<td class="odd"><c:out value="${user.handle}" /></td>
 									<td class="odd">
-										${user.agreedDate}
+										<fmt:formatDate value="${user.agreedDate}" type="both" pattern="MM.dd.yyyy HH:mm:ss"/>
 									</td>
 								</c:otherwise>
 							  </c:choose>
