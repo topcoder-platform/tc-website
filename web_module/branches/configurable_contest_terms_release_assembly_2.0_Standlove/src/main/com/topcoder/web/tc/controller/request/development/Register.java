@@ -214,7 +214,7 @@ public class Register extends ViewRegistration {
                         log.debug("there are no errors");
                     }
                     getRequest().getSession().setAttribute("responses", responses);
-                    boolean isEligible = getRequest().getAttribute(Constants.MESSAGE) == null;
+                    isEligible = getRequest().getAttribute(Constants.MESSAGE) == null;
                     if (isEligible) {
                         if (log.isDebugEnabled()) {
                             log.debug("they are eligible");

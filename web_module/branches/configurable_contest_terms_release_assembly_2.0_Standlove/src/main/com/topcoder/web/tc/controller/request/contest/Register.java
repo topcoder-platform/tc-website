@@ -203,7 +203,7 @@ public class Register extends ViewRegistration {
                     return;
                 }
                 
-                boolean isEligible = getRequest().getAttribute(Constants.MESSAGE) == null;
+                isEligible = getRequest().getAttribute(Constants.MESSAGE) == null;
                 if (isEligible) {
                     if (log.isDebugEnabled()) {
                         log.debug("they are eligible");
