@@ -44,9 +44,9 @@ public class ProjectUserBean extends BaseEJB {
                 throw new EJBException("Wrong number of rows in insert: " + rows);
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException creating contact");
+            throw new EJBException("SQLException creating ProjectUserEntity");
         } catch (Exception e) {
-            throw new EJBException("Exception creating contact:\n" +
+            throw new EJBException("Exception creating ProjectUserEntity:\n" +
                     e.getMessage());
         } finally {
             close(ps);

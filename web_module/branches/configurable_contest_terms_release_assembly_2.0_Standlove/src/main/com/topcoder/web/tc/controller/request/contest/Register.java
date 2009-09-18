@@ -309,7 +309,7 @@ public class Register extends ViewRegistration {
                 throw e;
             }
             // audit submitter
-            auditSubmitterRegistration(getUser().getId(), projectId);
+            auditSubmitterRegistration(projectId, getUser().getId());
 
             TCSEmailMessage mail = new TCSEmailMessage();
             Email e = (Email) createEJB(getInitialContext(), Email.class);

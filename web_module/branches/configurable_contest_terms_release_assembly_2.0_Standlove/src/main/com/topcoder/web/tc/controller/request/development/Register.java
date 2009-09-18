@@ -516,7 +516,7 @@ public class Register extends ViewRegistration {
             }
             
             // audit submitter
-            auditSubmitterRegistration(getUser().getId(), projectId);
+            auditSubmitterRegistration(projectId, getUser().getId());
 
             TCSEmailMessage mail = new TCSEmailMessage();
             Email e = (Email) createEJB(getInitialContext(), Email.class);
