@@ -1125,6 +1125,8 @@
             <webinf dir="${resources}/taglib">
                 <include name="rsc-taglib.tld"/>
                 <include name="tc-webtags.tld"/>
+				<include name="c.tld"/>
+				<include name="fmt.tld"/>
             </webinf>
             <webinf dir="${resources}/admin">
                 <include name="jboss-web.xml"/>
