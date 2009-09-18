@@ -28,7 +28,7 @@
 <jsp:include page="top.jsp"/>
 <table>
     <tr valign="top">
-        <td>
+        <td width="20%">
             <jsp:include page="left.jsp"/>
         </td>
         <td align="left">
@@ -67,12 +67,12 @@
                 <tr>
 				   <form method="post" action="/admin/?module=AddTermAgreement">
 				    <input type="hidden" name="<%=Constants.TERMS_OF_USE_ID%>" value="<c:out value='${terms.termsOfUseId}' />" /> 					
-					<td class="big"><input type="text" name="<%=Constants.HANDLE%>" /></td>
+					<td class="big"><tc-webtag:textInput name="<%=Constants.HANDLE%>" size="100" maxlength="100"/></td>
 					<td><input type="submit" name="Submit" value="Add Agreement" /></td>
 				   </form>
                 </tr>
 				<tr>
-					<td colspan="2"><span class="errorText">
+					<td colspan="2"><span class="big">
 						<tc-webtag:errorIterator id="err" name="<%= Constants.HANDLE %>">
 							<%=err%>
 						</tc-webtag:errorIterator></span>
