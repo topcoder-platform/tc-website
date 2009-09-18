@@ -102,6 +102,13 @@ public class Register extends ViewRegistration {
             }
 
             validation();
+            
+            boolean isEligible = getRequest().getAttribute(Constants.MESSAGE) == null;
+            if (!isEligible) {
+	            setNextPage("/contest/message.jsp");
+	            setIsNextPageInContext(true);
+	            return;
+	        }
 
             String projectId = getRequest().getParameter(Constants.PROJECT_ID);
             getRequest().setAttribute(Constants.PROJECT_ID, projectId);
