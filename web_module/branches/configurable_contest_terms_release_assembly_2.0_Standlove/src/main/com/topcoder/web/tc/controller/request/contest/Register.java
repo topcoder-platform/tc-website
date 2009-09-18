@@ -169,14 +169,22 @@ public class Register extends ViewRegistration {
                 setNextPage("/contest/regTerms.jsp");
                 setIsNextPageInContext(true);
             } else {
+                // make sure they don't have pending terms of use (they could get here faking the URL)
+                if (processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS)) {
+                    setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
+                    setNextPage("/contest/regTerms.jsp");
+                    setIsNextPageInContext(true);
+                    return;
+                }
+
                 if (!answeredCaptchaCorrectly()) {
                     addError(Constants.CAPTCHA_RESPONSE, "Sorry, your response was incorect.");
                 }
 
-                // make sure they don't have pending terms of use (they could get here faking the URL)
-                if (hasErrors() || processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS)) {
+                // make sure the captcha is answered correctly
+                if (hasErrors()) {
                     setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
-                     loadCaptcha();
+                    loadCaptcha();
                     setNextPage("/contest/regTerms.jsp");
                     setIsNextPageInContext(true);
                     return;

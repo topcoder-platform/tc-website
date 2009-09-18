@@ -114,7 +114,8 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
                 }
 
                 // process terms of use
-                boolean hasPendingTerms = processTermsOfUse(String.valueOf(projectId), userId, Base.SUBMITTER_ROLE_IDS);
+                int[] roleIds = getResourceRoleIds(reviewTypeId, primary);
+                boolean hasPendingTerms = processTermsOfUse(String.valueOf(projectId), userId, roleIds);
 
                 if (!hasPendingTerms) {
                     loadCaptcha();
@@ -141,15 +142,22 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
                 setNextPage(Constants.REVIEWER_TERMS);
                 setIsNextPageInContext(true); 
             } else {
+                // make sure they don't have pending terms of use (they could get here faking the URL)
+                int[] roleIds = getResourceRoleIds(reviewTypeId, primary);
+                if (processTermsOfUse(projectId, userId, roleIds)) {
+                    setNextPage(Constants.REVIEWER_TERMS);
+                    setIsNextPageInContext(true);
+                    return;
+                }
+
+                // make sure the captcha is answered correctly
                 if (!answeredCaptchaCorrectly()) {
                     addError(Constants.CAPTCHA_RESPONSE, "Sorry, your response was incorect.");
                 }
 
-                // make sure they don't have pending terms of use
-                int[] roleIds = getResourceRoleIds(reviewTypeId, primary);
-                if (hasErrors() || processTermsOfUse(String.valueOf(projectId), userId, roleIds)) {
+                
+                if (hasErrors()) {
                     loadCaptcha();
-
                     setNextPage(Constants.REVIEWER_TERMS);
                     setIsNextPageInContext(true);
                 } else {
