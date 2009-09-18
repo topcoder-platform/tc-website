@@ -58,6 +58,8 @@
         <taglib-uri>tc-webtags.tld</taglib-uri>
         <taglib-location>/WEB-INF/tc-webtags.tld</taglib-location>
     </taglib>
-
-
+	<taglib>
+        <taglib-uri>http://java.sun.com/jstl/fmt</taglib-uri>
+        <taglib-location>/WEB-INF/fmt.tld</taglib-location>
+    </taglib>
 </web-app>
