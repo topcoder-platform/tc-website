@@ -507,7 +507,6 @@ public class Register extends ViewRegistration {
             try {
                 tm.begin();
                 userManager.registerForProject(getUser().getId(), getRequest().getParameter("Comment"), projectId);
-                auditSubmitterRegistration(getUser().getId(), projectId);
                 tm.commit();
             } catch (Exception e) {
                 if (tm != null && (tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK)) {
@@ -515,6 +514,9 @@ public class Register extends ViewRegistration {
                 }
                 throw e;
             }
+            
+            // audit submitter
+            auditSubmitterRegistration(getUser().getId(), projectId);
 
             TCSEmailMessage mail = new TCSEmailMessage();
             Email e = (Email) createEJB(getInitialContext(), Email.class);

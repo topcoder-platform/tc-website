@@ -117,6 +117,10 @@ public interface WebConstants {
      * @since 1.5
      */
     public static final String PAPER_TERMS_NOT_AGREED = "paper_terms_not_agreed";
+    
+    public static final int SUBMITTER_RESOURCE_ROLE_ID = 1;
+    public static final int CREATE_AUDIT_ACTION_TYPE_ID = 1;
+    public static final int DELETE_AUDIT_ACTION_TYPE_ID = 2;
 
     public static final String TERMS_AGREE = "terms_agree";
     public static final String TERMS_OF_USE_ID = "tuid";
