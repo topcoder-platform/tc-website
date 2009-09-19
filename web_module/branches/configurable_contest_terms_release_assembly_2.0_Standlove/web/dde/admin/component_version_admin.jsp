@@ -23,6 +23,7 @@
 
 <%@ page import="com.topcoder.dde.catalog.*" %>
 <%@ page import="com.topcoder.web.ejb.forums.*" %>
+<%@ page import="com.topcoder.web.ejb.user.*" %>
 <%@ page import="com.topcoder.util.config.*" %>
 <%@ page import="com.topcoder.servlet.request.*" %>
 <%@ page import="com.topcoder.shared.util.TCContext" %>
@@ -50,6 +51,9 @@
 	} catch (Exception e) { 
     	debug.addMsg("user admin", "error initializing Forums EJB");
     }
+
+	
+
 %>
 
 
@@ -121,6 +125,31 @@ public Object[] parseDocumentNameAndType(String componentName, String fileName, 
 
     return new Object[] {name, new Long(lngType)};
 }
+
+public void auditTeamRoleAction(long projectId, TeamMemberRole role, long actionUserId, String action) {
+	ProjectUser projectUserService = null;
+	try {
+		ProjectUserHome projectUserHome = 
+			(ProjectUserHome) (new InitialContext()).lookup(ProjectUserHome.EJB_REF_NAME)
+		projectUserService = projectUserHome.create();
+
+		final int RESOURCE_ROLE_ID_ADDUP = 2000;
+
+		// audit 
+		ProjectUserEntity entity = new ProjectUserEntity();
+    	entity.setActionUserId(actionUserId);
+    	entity.setResourceUserId(role.getUserId());
+    	entity.setProjectId(projectId);
+    	entity.setActionDate(new Date());
+		entity.setResourceRoleId(role.getRoleId() + RESOURCE_ROLE_ID);
+    	entity.setAuditActionTypeId("ADD".equalsIgnoreCase(action) ? 
+			Constants.CREATE_AUDIT_ACTION_TYPE_ID : Constants.DELETE_AUDIT_ACTION_TYPE_ID);
+
+	} catch (Exception e) {
+		System.err.println("Failed to create ProjectUser EJB");
+	}
+}
+
 %>
 
 <%
@@ -1064,6 +1093,10 @@ if (action != null) {
                     strDescription);
                 componentManager.addTeamMemberRole(role);
                 strMessage += "Role " + strRole + " was assigned.";
+
+				// audit role addition
+				component = componentManager.getComponentInfo();
+				auditTeamRoleAction(component.getId(), role, tcUser.getId(), "ADD");
                 //response.sendRedirect("component_version_admin.jsp?comp=" + lngComponent + "ver=" + lngVersion);
             } catch (com.topcoder.dde.user.NoSuchUserException nsue) {
                 strError = "User '" + strUsername + "' was not found.";
@@ -1077,6 +1110,10 @@ if (action != null) {
         String strRole = request.getParameter("role");
         long roleId = Long.parseLong(strRole);
         componentManager.removeTeamMemberRole(roleId);
+
+		// audit role addition
+		component = componentManager.getComponentInfo();
+		auditTeamRoleAction(component.getId(), role, tcUser.getId(), "DEL");
         //response.sendRedirect("component_version_admin.jsp?comp=" + lngComponent + "ver=" + lngVersion);
     }
 
