@@ -327,9 +327,11 @@ public abstract class Base extends ShortHibernateProcessor {
      * @throws CreateException if any errors occur during EJB creation
      * @throws EJBException if any other errors occur while invoking EJB services
      * 
+     * @return true if the user has pending terms to agree to
+     * 
      * @since 1.4
      */
-    protected void processTermsOfUse(String projectId, long userId, int[] roleIds)
+    protected boolean processTermsOfUse(String projectId, long userId, int[] roleIds)
             throws NamingException, RemoteException, CreateException, EJBException {
 
         // check if the user agreed to all terms of use
@@ -359,6 +361,8 @@ public abstract class Base extends ShortHibernateProcessor {
         }
         getRequest().setAttribute(Constants.TERMS_AGREED, termsAgreed);
         getRequest().setAttribute(Constants.TERMS_PENDING, termsAgreed);
+        
+        return termsPending.size() > 0;
     }
 
     /**
