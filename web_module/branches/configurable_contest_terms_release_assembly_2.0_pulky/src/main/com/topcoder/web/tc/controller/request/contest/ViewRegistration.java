@@ -16,6 +16,13 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServices;
 import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServicesLocal;
+import com.topcoder.web.ejb.project.ProjectRoleTermsOfUse;
+import com.topcoder.web.ejb.project.ProjectRoleTermsOfUseLocator;
+import com.topcoder.web.ejb.termsofuse.TermsOfUse;
+import com.topcoder.web.ejb.termsofuse.TermsOfUseEntity;
+import com.topcoder.web.ejb.termsofuse.TermsOfUseLocator;
+import com.topcoder.web.ejb.user.UserTermsOfUse;
+import com.topcoder.web.ejb.user.UserTermsOfUseLocator;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.development.Base;
 
@@ -75,23 +82,32 @@ public class ViewRegistration extends Base {
 
             validation();
 
-            if (getRequest().getAttribute(Constants.MESSAGE) == null) {
-                String projectId = getRequest().getParameter(Constants.PROJECT_ID);
-                long userId = getLoggedInUser().getId();
-
-                // process terms of use
-                processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS);
-                
-                //we're assuming that if we're here, we got a valid project id
-                setDefault(Constants.PROJECT_ID, projectId);
-                loadCaptcha();
-                setNextPage("/contest/regTerms.jsp");
-                setIsNextPageInContext(true);
-            } else {
+            if (getRequest().getAttribute(Constants.MESSAGE) != null) {
                 setNextPage("/contest/message.jsp");
                 setIsNextPageInContext(true);
+            } else {
+                String termsOfUseId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_ID));
+                String projectId = getRequest().getParameter(Constants.PROJECT_ID);
+                
+                if (!"".equals(termsOfUseId)) {
+                    // get the terms of use and add it to the request
+                    TermsOfUseEntity terms =  TermsOfUseLocator.getService().getEntity(Long.parseLong(termsOfUseId), 
+                        DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    getRequest().setAttribute(Constants.TERMS, terms);
+                } else if (getRequest().getAttribute(Constants.MESSAGE) == null) {
+                    long userId = getLoggedInUser().getId();
+    
+                    // process terms of use
+                    processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS);
+                    
+                    //we're assuming that if we're here, we got a valid project id
+                    setDefault(Constants.PROJECT_ID, projectId);
+                    loadCaptcha();
+                }
+                setDefault(Constants.PROJECT_ID, projectId);
+                setNextPage("/contest/regTerms.jsp");
+                setIsNextPageInContext(true);
             }
-
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {

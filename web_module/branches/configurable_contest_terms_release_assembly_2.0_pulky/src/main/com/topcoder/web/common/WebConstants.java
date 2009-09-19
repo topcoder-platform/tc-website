@@ -34,8 +34,15 @@ package com.topcoder.web.common;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, snow01
- * @version 1.4
+ * <p>
+ *   Version 1.5 (Configurable Contest Terms Release Assembly v2.0) Change notes:
+ *   <ol>
+ *     <li>Added new constant for terms pending attribute key.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky, snow01, TCSDEVELOPER
+ * @version 1.5
  */
 public interface WebConstants {
     public static final String HANDLE = "ha";
@@ -97,6 +104,13 @@ public interface WebConstants {
      * @since 1.2
      */
     public static final String TERMS_AGREED = "terms_agreed";
+
+    /**
+     * <p>A <code>String</code> representing terms pending attribute key.</p>
+     *
+     * @since 1.5
+     */
+    public static final String TERMS_PENDING = "terms_pending";
 
     public static final String TERMS_AGREE = "terms_agree";
     public static final String TERMS_OF_USE_ID = "tuid";

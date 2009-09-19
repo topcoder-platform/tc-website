@@ -51,6 +51,7 @@
 <c:set value="<%=Constants.UI_PROTOTYPE_PROJECT_TYPE%>" var="UI_PROTOTYPE_PROJECT_TYPE"/>
 <c:set value="<%=Constants.RIA_BUILD_PROJECT_TYPE%>" var="RIA_BUILD_PROJECT_TYPE"/>
 <c:set value="<%=Constants.RIA_COMPONENT_PROJECT_TYPE%>" var="RIA_COMPONENT_PROJECT_TYPE"/>
+<c:set var="TERMS_OF_USE_ID" value="<%=Constants.TERMS_OF_USE_ID%>"/>
 
 <body>
 
@@ -192,7 +193,7 @@
                 <tc-webtag:hiddenInput name="<%=Constants.PROJECT_ID%>"/>
                 <c:choose>
                     <c:when test="${not empty terms}">
-                        <tc-webtag:hiddenInput name="<%=Constants.TERMS_OF_USE_ID%>" value="${terms.termsOfUseId}"/>
+                        <tc-webtag:hiddenInput name="{TERMS_OF_USE_ID}" value="${terms.termsOfUseId}"/>
                     </c:when>
                     <c:otherwise>
                         <c:if test="${pt == DESIGN_PROJECT_TYPE || pt == DEVELOPMENT_PROJECT_TYPE}">
@@ -234,9 +235,8 @@
                 <c:choose>
                     <c:when test="${not empty terms}">
                         ${terms.title}<br/>
-                        <tc-webtag:textArea name="<%=Constants.TERMS%>" text="${terms.termsText}" rows="10" cols="60"/>
                         <iframe width="590" height="300" marginWidth="5"
-                            src="${sessionInfo.servletPath}?module=Terms&amp;${TERMS_OF_USE_ID}=${terms.id}">
+                            src="${sessionInfo.servletPath}?module=Terms&amp;${TERMS_OF_USE_ID}=${terms.termsOfUseId}">
                         </iframe>
                     </c:when>
                     <c:otherwise>
@@ -265,33 +265,59 @@
                                     </c:forEach>
                                 </td>
                             </tr>
+                            <tr>
+                                <td>
+                                    The following terms are still pending for agreement:
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <c:forEach items="${terms_pending}" var="terms_pending_item">
+                                        <ul>
+                                            <li>
+                                                ${terms_pending_item.title}
+                                                <c:choose>
+                                                    <c:when test="${terms_pending_item.electronicallySignable != 1}">
+                                                        <a href="${terms_pending_item.url}">(View)</a>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <a href="/tc?module=Terms&tuid=${terms_pending_item.termsOfUseId}" target="_blank">(View)</a>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </li>
+                                        </ul>
+                                    </c:forEach>
+                                </td>
+                            </tr>
                             
-                            <c:set var="captchaFileName" value="<%=Constants.CAPTCHA_FILE_NAME%>"/>
-                        <tr>
-                        <td class="errorText">
-                            <img src="/i/captcha/${requestScope[captchaFileName]}" alt="captcha image"/>
-
-                         <p>
-                             <a href="javascript:window.location.reload()">This image is hard to read. Show me a different
-                                    one.</a>
-                            </p>
-                        </td>
-                      </tr>
-
-                      <tr>
-                        <td class="errorText">
-                          <tc-webtag:errorIterator id="err" name="<%=Constants.CAPTCHA_RESPONSE%>">${err}
-                             <br/></tc-webtag:errorIterator>
-                        </td>
-                         </tr>
-                         <tr>
-                          <td>
-                        <p>
-                          Please enter the characters you see in the image above:
-                          <tc-webtag:textInput name="<%=Constants.CAPTCHA_RESPONSE%>"/>
-                       </p>
-                      </td>
-            </tr>
+                            <c:if test="${empty terms_pending}">
+                                <c:set var="captchaFileName" value="<%=Constants.CAPTCHA_FILE_NAME%>"/>
+                                    <tr>
+                                    <td class="errorText">
+                                        <img src="/i/captcha/${requestScope[captchaFileName]}" alt="captcha image"/>
+            
+                                     <p>
+                                         <a href="javascript:window.location.reload()">This image is hard to read. Show me a different
+                                                one.</a>
+                                        </p>
+                                    </td>
+                                  </tr>
+    
+                                  <tr>
+                                    <td class="errorText">
+                                      <tc-webtag:errorIterator id="err" name="<%=Constants.CAPTCHA_RESPONSE%>">${err}
+                                         <br/></tc-webtag:errorIterator>
+                                    </td>
+                                     </tr>
+                                         <tr>
+                                          <td>
+                                        <p>
+                                          Please enter the characters you see in the image above:
+                                          <tc-webtag:textInput name="<%=Constants.CAPTCHA_RESPONSE%>"/>
+                                       </p>
+                                      </td>
+                                    </tr>
+                             </c:if>
                         </table>
                     </c:otherwise>
                 </c:choose>
@@ -329,7 +355,9 @@
                             </c:if>
                         </c:when>
                         <c:otherwise>
-                            <a class="button" href="Javascript:document.regForm.submit();" style="width:60px;">Register</a>
+                            <c:if test="${empty terms_pending}">
+                                <a class="button" href="Javascript:document.regForm.submit();" style="width:60px;">Register</a>
+                            </c:if>
                         </c:otherwise>
                     </c:choose>
                 </p>

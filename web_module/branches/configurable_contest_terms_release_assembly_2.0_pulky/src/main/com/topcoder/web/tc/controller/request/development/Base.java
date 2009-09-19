@@ -76,7 +76,7 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *           </ul>
  *         </td>
  *     </tr>
-		 <tr>
+ *     <tr>
  *         <td>Version 1.5 (Specification Review Integration 1.0)</td>
  *         <td>
  *           <ul>
@@ -84,11 +84,19 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *           </ul>
  *         </td>
  *     </tr> 
+ *     <tr>
+ *         <td>Version 1.6 (Configurable Contest Terms Release Assembly v2.0)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Updated <code>processTermsOfUse</code> to return both agreed and pending terms.</li>
+ *           </ul>
+ *         </td>
+ *     </tr> 
  *   </table>
  * </p>
  *
- * @author dok, isv, pulky, TCSASSEMBLER
- * @version 1.5
+ * @author dok, isv, pulky, TCSDEVELOPER
+ * @version 1.6
  */
 public abstract class Base extends ShortHibernateProcessor {
     /**
@@ -308,22 +316,20 @@ public abstract class Base extends ShortHibernateProcessor {
 
     /**
      * This helper method will go through all required terms of use and check whether the user has agreed to
-     * them or not. If the user agreed to all required terms of use, the list of these terms of use will be
-     * added to the request. If the user is missing a terms of use, that terms of use will be added to the request.
+     * them or not. Both lists will be added to the request so that the user can review the terms he agreed to
+     * and agree to those he has pending.
      *
      * @param projectId the project id the user is registering to
      * @param userId the user id that is requesting the registration
-     * 
-     * @return true if the user has pending terms to agree to
      * 
      * @throws NamingException if any errors occur during EJB lookup
      * @throws RemoteException if any errors occur during EJB remote invocation
      * @throws CreateException if any errors occur during EJB creation
      * @throws EJBException if any other errors occur while invoking EJB services
      * 
-     * @since 1.3
+     * @since 1.4
      */
-    protected boolean processTermsOfUse(String projectId, long userId, int[] roleIds)
+    protected void processTermsOfUse(String projectId, long userId, int[] roleIds)
             throws NamingException, RemoteException, CreateException, EJBException {
 
         // check if the user agreed to all terms of use
@@ -336,9 +342,9 @@ public abstract class Base extends ShortHibernateProcessor {
                 roleIds, DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
         List<TermsOfUseEntity> termsAgreed = new ArrayList<TermsOfUseEntity>();
+        List<TermsOfUseEntity> termsPending = new ArrayList<TermsOfUseEntity>();
 
-        boolean hasPendingTerms = false;
-        for (int i = 0; i < necessaryTerms.size() && !hasPendingTerms; i++) {
+        for (int i = 0; i < necessaryTerms.size(); i++) {
             Long termsId = necessaryTerms.get(i);
 
             // get terms of use
@@ -346,18 +352,13 @@ public abstract class Base extends ShortHibernateProcessor {
 
             // check if the user has this terms
             if (!userTermsOfUse.hasTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
-                hasPendingTerms = true;
-                getRequest().setAttribute(Constants.TERMS, terms);
+                termsPending.add(terms);
             } else {
                 termsAgreed.add(terms);
             }
         }
-
-        if (!hasPendingTerms) {
-            getRequest().setAttribute(Constants.TERMS_AGREED, termsAgreed);
-        }
-        
-        return hasPendingTerms;
+        getRequest().setAttribute(Constants.TERMS_AGREED, termsAgreed);
+        getRequest().setAttribute(Constants.TERMS_PENDING, termsAgreed);
     }
 
     /**

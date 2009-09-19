@@ -94,7 +94,7 @@
                                             <tc-webtag:textArea name="${TERMS}" text="${terms.termsText}" rows="10"
                                                 cols="80" readOnly="true" styleClass="bodyText"/>
                                             <iframe width="590" height="300" marginWidth="5"
-                                                src="${sessionInfo.servletPath}?module=Terms&amp;${TERMS_OF_USE_ID}=${terms.id}">
+                                                src="${sessionInfo.servletPath}?module=Terms&amp;${TERMS_OF_USE_ID}=${terms.termsOfUseId}">
                                             </iframe>
                                         </td>
                                     </tr>
