@@ -360,7 +360,7 @@ public abstract class Base extends ShortHibernateProcessor {
             }
         }
         getRequest().setAttribute(Constants.TERMS_AGREED, termsAgreed);
-        getRequest().setAttribute(Constants.TERMS_PENDING, termsAgreed);
+        getRequest().setAttribute(Constants.TERMS_PENDING, termsPending);
         
         return termsPending.size() > 0;
     }

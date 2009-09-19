@@ -265,59 +265,63 @@
                                     </c:forEach>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    The following terms are still pending for agreement:
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <c:forEach items="${terms_pending}" var="terms_pending_item">
-                                        <ul>
-                                            <li>
-                                                ${terms_pending_item.title}
-                                                <c:choose>
-                                                    <c:when test="${terms_pending_item.electronicallySignable != 1}">
-                                                        <a href="${terms_pending_item.url}">(View)</a>
-                                                    </c:when>
-                                                    <c:otherwise>
-                                                        <a href="/tc?module=Terms&tuid=${terms_pending_item.termsOfUseId}" target="_blank">(View)</a>
-                                                    </c:otherwise>
-                                                </c:choose>
-                                            </li>
-                                        </ul>
-                                    </c:forEach>
-                                </td>
-                            </tr>
-                            
-                            <c:if test="${empty terms_pending}">
-                                <c:set var="captchaFileName" value="<%=Constants.CAPTCHA_FILE_NAME%>"/>
+                            <c:choose>
+                                <c:when test="${not empty terms_pending}">
+        
                                     <tr>
-                                    <td class="errorText">
-                                        <img src="/i/captcha/${requestScope[captchaFileName]}" alt="captcha image"/>
-            
-                                     <p>
-                                         <a href="javascript:window.location.reload()">This image is hard to read. Show me a different
-                                                one.</a>
-                                        </p>
-                                    </td>
-                                  </tr>
-    
-                                  <tr>
-                                    <td class="errorText">
-                                      <tc-webtag:errorIterator id="err" name="<%=Constants.CAPTCHA_RESPONSE%>">${err}
-                                         <br/></tc-webtag:errorIterator>
-                                    </td>
-                                     </tr>
-                                         <tr>
-                                          <td>
-                                        <p>
-                                          Please enter the characters you see in the image above:
-                                          <tc-webtag:textInput name="<%=Constants.CAPTCHA_RESPONSE%>"/>
-                                       </p>
-                                      </td>
+                                        <td>
+                                            The following terms are still pending for agreement:
+                                        </td>
                                     </tr>
-                             </c:if>
+                                    <tr>
+                                        <td>
+                                            <c:forEach items="${terms_pending}" var="terms_pending_item">
+                                                <ul>
+                                                    <li>
+                                                        ${terms_pending_item.title}
+                                                        <c:choose>
+                                                            <c:when test="${terms_pending_item.electronicallySignable != 1}">
+                                                                <a href="${terms_pending_item.url}">(View)</a>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                <a href="/tc?module=Terms&tuid=${terms_pending_item.termsOfUseId}" target="_blank">(View)</a>
+                                                            </c:otherwise>
+                                                        </c:choose>
+                                                    </li>
+                                                </ul>
+                                            </c:forEach>
+                                        </td>
+                                    </tr>
+                                </c:when>
+                                <c:otherwise>                                    
+                                    <c:set var="captchaFileName" value="<%=Constants.CAPTCHA_FILE_NAME%>"/>
+                                        <tr>
+                                        <td class="errorText">
+                                            <img src="/i/captcha/${requestScope[captchaFileName]}" alt="captcha image"/>
+                
+                                         <p>
+                                             <a href="javascript:window.location.reload()">This image is hard to read. Show me a different
+                                                    one.</a>
+                                            </p>
+                                        </td>
+                                      </tr>
+        
+                                      <tr>
+                                        <td class="errorText">
+                                          <tc-webtag:errorIterator id="err" name="<%=Constants.CAPTCHA_RESPONSE%>">${err}
+                                             <br/></tc-webtag:errorIterator>
+                                        </td>
+                                         </tr>
+                                             <tr>
+                                              <td>
+                                            <p>
+                                              Please enter the characters you see in the image above:
+                                              <tc-webtag:textInput name="<%=Constants.CAPTCHA_RESPONSE%>"/>
+                                           </p>
+                                          </td>
+                                        </tr>
+                                </c:otherwise>
+                            </c:choose>
                         </table>
                     </c:otherwise>
                 </c:choose>
