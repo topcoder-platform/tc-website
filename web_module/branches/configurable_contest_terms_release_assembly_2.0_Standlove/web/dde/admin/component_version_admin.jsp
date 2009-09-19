@@ -23,9 +23,12 @@
 
 <%@ page import="com.topcoder.dde.catalog.*" %>
 <%@ page import="com.topcoder.web.ejb.forums.*" %>
-<%@ page import="com.topcoder.web.ejb.user.*" %>
+
 <%@ page import="com.topcoder.util.config.*" %>
 <%@ page import="com.topcoder.servlet.request.*" %>
+<%@ page import="com.topcoder.web.ejb.user.ProjectUser" %>
+<%@ page import="com.topcoder.web.ejb.user.ProjectUserHome" %>
+<%@ page import="com.topcoder.shared.util.DBMS" %>
 <%@ page import="com.topcoder.shared.util.TCContext" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
@@ -145,8 +148,13 @@ public void auditTeamRoleAction(long projectId, TeamMemberRole role, long action
     	entity.setAuditActionTypeId("ADD".equalsIgnoreCase(action) ? 
 			Constants.CREATE_AUDIT_ACTION_TYPE_ID : Constants.DELETE_AUDIT_ACTION_TYPE_ID);
 
+		projectUserService.auditProjectUser(entity, DBMS.TCS_OLTP_DATASOURCE_NAME);
+
+		System.err.println("audited successfully.");
+
 	} catch (Exception e) {
-		System.err.println("Failed to create ProjectUser EJB");
+		System.err.println("Failed to audit team role.");
+		e.printStackTrace();
 	}
 }
 
