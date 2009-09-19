@@ -11,6 +11,7 @@ import javax.ejb.EJBException;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.ejb.BaseEJB;
 
+
 public class ProjectUserBean extends BaseEJB {
 	
 	public ProjectUserBean() {}
@@ -53,5 +54,4 @@ public class ProjectUserBean extends BaseEJB {
             close(conn);
         }
 	}
-
 }

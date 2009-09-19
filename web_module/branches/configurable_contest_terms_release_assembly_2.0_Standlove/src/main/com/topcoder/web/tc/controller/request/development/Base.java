@@ -433,11 +433,11 @@ public abstract class Base extends ShortHibernateProcessor {
         return ReviewBoardHelper.isReviewBoardTypeSupported(projectType, includeSpecificationReviews);
     }
     
-    protected void auditSubmitterRegistration(long projectId, long userId) throws Exception {
+	public void auditSubmitterRegistration(long projectId, long userId) throws Exception {
     	auditSelfRegistration(projectId, userId, new int[] {Constants.SUBMITTER_RESOURCE_ROLE_ID });
     }
     
-    protected void auditSelfRegistration(long projectId, long userId, int[] roleIds) throws Exception {
+	public void auditSelfRegistration(long projectId, long userId, int[] roleIds) throws Exception {
     	ProjectUserLocal pl = (ProjectUserLocal) createLocalEJB(getInitialContext(), ProjectUser.class);
     	ProjectUserEntity entity = new ProjectUserEntity();
     	entity.setActionUserId(userId);

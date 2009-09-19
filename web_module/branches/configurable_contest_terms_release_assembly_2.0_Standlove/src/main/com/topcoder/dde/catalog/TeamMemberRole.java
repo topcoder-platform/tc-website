@@ -263,6 +263,4 @@ public class TeamMemberRole implements java.io.Serializable {
         return "Development Role " + getId() + ": " + getUserId() + " - " +
             getRoleId() + " " + getRoleName() + " (" + getRoleDescription() + ")";
     }
-
-
 }
