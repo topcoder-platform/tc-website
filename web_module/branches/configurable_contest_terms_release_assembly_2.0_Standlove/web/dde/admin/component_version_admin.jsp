@@ -151,7 +151,6 @@ public void auditTeamRoleAction(long projectId, TeamMemberRole role, long action
 		projectUserService.auditProjectUser(entity, DBMS.TCS_OLTP_DATASOURCE_NAME);
 
 		System.err.println("audited successfully.");
-
 	} catch (Exception e) {
 		System.err.println("Failed to audit team role.");
 		e.printStackTrace();
@@ -1980,7 +1979,7 @@ if (action != null) {
 
 <!-- Team Member Roles begins -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
-                <tr><td class="adminSubhead">Team Member Roles</td></tr>
+                <tr><td class="adminSubhead">Team Member Roles TEST</td></tr>
             </table>
 
 <%
