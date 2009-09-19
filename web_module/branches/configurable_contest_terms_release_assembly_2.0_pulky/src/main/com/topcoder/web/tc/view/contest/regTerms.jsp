@@ -1,6 +1,6 @@
 <%--
-  - Author: pulky
-  - Version: 1.3
+  - Author: pulky, TCSDEVELOPER
+  - Version: 1.4
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page shows the registration terms for a specific project.
@@ -10,8 +10,12 @@
   -
   - Version 1.2 (Testing Competition Split Release Assembly 1.0) changes: Updated Application Testing to Test Suites
   - and added support for new Test Scenarios competitions.
+  -
   - Version 1.3 (Configurable Contest Terms Release Assembly v1.0) changes: Added new functionality that asks for
   - several terms of use and show those the user already agreed to.
+  -
+  - Version 1.4 (Configurable Contest Terms Release Assembly v2.0) changes: Replaced textarea with iframe to show
+  - terms of use.
 --%>
 <%@ page language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -231,6 +235,9 @@
                     <c:when test="${not empty terms}">
                         ${terms.title}<br/>
                         <tc-webtag:textArea name="<%=Constants.TERMS%>" text="${terms.termsText}" rows="10" cols="60"/>
+                        <iframe width="590" height="300" marginWidth="5"
+                            src="${sessionInfo.servletPath}?module=Terms&amp;${TERMS_OF_USE_ID}=${terms.id}">
+                        </iframe>
                     </c:when>
                     <c:otherwise>
                         <table>

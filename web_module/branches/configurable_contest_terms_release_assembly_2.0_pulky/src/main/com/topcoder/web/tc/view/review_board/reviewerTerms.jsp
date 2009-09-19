@@ -1,6 +1,6 @@
 <%--
-  - Author: pulky, snow01
-  - Version: 1.4
+  - Author: pulky, snow01, TCSDEVELOPER
+  - Version: 1.5
   - Since: TCS Release 2.2.2
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
@@ -21,6 +21,9 @@
   -
   - Version 1.4 (Configurable Contest Terms Release Assembly v1.0) changes: Added new functionality that asks for
   - several terms of use and show those the reviewer already agreed to.
+  -
+  - Version 1.5 (Configurable Contest Terms Release Assembly v2.0) changes: Replaced textarea with iframe to show
+  - terms of use.
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
@@ -90,6 +93,9 @@
                                         <td>
                                             <tc-webtag:textArea name="${TERMS}" text="${terms.termsText}" rows="10"
                                                 cols="80" readOnly="true" styleClass="bodyText"/>
+                                            <iframe width="590" height="300" marginWidth="5"
+                                                src="${sessionInfo.servletPath}?module=Terms&amp;${TERMS_OF_USE_ID}=${terms.id}">
+                                            </iframe>
                                         </td>
                                     </tr>
                                 </c:when>
