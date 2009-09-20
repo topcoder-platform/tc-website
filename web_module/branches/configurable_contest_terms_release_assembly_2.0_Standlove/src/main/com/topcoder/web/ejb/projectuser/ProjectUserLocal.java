@@ -8,9 +8,9 @@ public interface ProjectUserLocal extends EJBLocalObject {
 	void auditProjectUser(ProjectUserEntity entity, String dataSource)
     	throws EJBException;
 	
-	/*
+
 	long getProjectId(long componentVersionId, String dataSource)
-   		throws EJBException; */
+   		throws EJBException;
 
 
 }

@@ -57,7 +57,7 @@ public class ProjectUserBean extends BaseEJB {
         }
 	}
 	
-	/*
+
 	public long getProjectId(long componentVersionId, String dataSource)
    		throws EJBException {
 		
@@ -90,5 +90,5 @@ public class ProjectUserBean extends BaseEJB {
             close(ps);
             close(conn);            
         }
-	} */
+	} 
 }

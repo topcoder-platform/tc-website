@@ -13,7 +13,7 @@ public interface ProjectUser extends EJBObject {
            throws RemoteException, EJBException;
    
    
-   /*
+
    long getProjectId(long componentVersionId, String dataSource)
-   	throws RemoteException, EJBException; */
+   	throws RemoteException, EJBException; 
 }
