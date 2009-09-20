@@ -1144,8 +1144,14 @@ if (action != null) {
     }
 
     if (action.equals("DeleteRole")) {
+		String strUsername = request.getParameter("txtTeamMemberRoleUsername");
+		String strDescription = request.getParameter("txtTeamMemberDescription");
         String strRole = request.getParameter("role");
         long roleId = Long.parseLong(strRole);
+
+		User user = USER_MANAGER.getUser(strUsername);
+        TeamMemberRole role = new TeamMemberRole(user, catalog.getRole(roleId),
+                    strDescription);
         componentManager.removeTeamMemberRole(roleId);
 
 		// audit role addition
