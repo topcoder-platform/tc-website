@@ -133,10 +133,37 @@ public void auditTeamRoleAction(long projectId, TeamMemberRole role, long action
 	ProjectUser projectUserService = null;
 	try {
 		ProjectUserHome projectUserHome = 
-			(ProjectUserHome) (new InitialContext()).lookup(ProjectUserHome.EJB_REF_NAME)
+			(ProjectUserHome) (new InitialContext()).lookup(ProjectUserHome.EJB_REF_NAME);
 		projectUserService = projectUserHome.create();
 
-		final int RESOURCE_ROLE_ID_ADDUP = 2000;
+		final int MANAGER_RESOURCE_ROLE = 13;
+		final int SUBMITTER_RESOURCE_ROLE = 1;
+		final int DESIGNER_RESOURCE_ROLE = 11;
+		final int REVIEWER_RESOURCE_ROLE = 4;
+
+		int resourceRoleId = -1;
+		switch ((int) role.getId()) {
+			case TeamMemberRole.ROLE_REQUESTOR:
+				resourceRoleId = MANAGER_RESOURCE_ROLE ; // manager
+				break;
+			case TeamMemberRole.ROLE_ARCHITECT:
+			case TeamMemberRole.ROLE_DEVELOPER:
+			case TeamMemberRole.ROLE_QA_DEVELOPER:			
+			case TeamMemberRole.ROLE_COMPONENT_DEVELOPER:
+				resourceRoleId = SUBMITTER_RESOURCE_ROLE;
+				break;
+			case TeamMemberRole.ROLE_COMPONENT_DESIGNER:
+				resourceRoleId = DESIGNER_RESOURCE_ROLE;
+				break;
+			case TeamMemberRole.ROLE_COMPONENT_DESIGN_REVIEWER:
+			case TeamMemberRole.ROLE_COMPONENT_DEVELOPMENT_REVIEWER:
+				resourceRoleId = REVIEWER_RESOURCE_ROLE;
+				break;
+			default:
+				System.err.println("unknown role.");
+				// unknown role
+				return;
+		}
 
 		// audit 
 		ProjectUserEntity entity = new ProjectUserEntity();
@@ -144,7 +171,7 @@ public void auditTeamRoleAction(long projectId, TeamMemberRole role, long action
     	entity.setResourceUserId(role.getUserId());
     	entity.setProjectId(projectId);
     	entity.setActionDate(new Date());
-		entity.setResourceRoleId(role.getRoleId() + RESOURCE_ROLE_ID);
+		entity.setResourceRoleId(resourceRoleId);
     	entity.setAuditActionTypeId("ADD".equalsIgnoreCase(action) ? 
 			Constants.CREATE_AUDIT_ACTION_TYPE_ID : Constants.DELETE_AUDIT_ACTION_TYPE_ID);
 
