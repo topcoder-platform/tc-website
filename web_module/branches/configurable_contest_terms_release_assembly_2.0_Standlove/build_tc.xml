@@ -857,6 +857,7 @@
         <antcall target="package-EJB-SessionProfileBean"/>
         <antcall target="package-EJB-TermsOfUseBean"/>
         <antcall target="package-EJB-UserBean"/>
+		<antcall target="package-EJB-ProjectUserBean"/>
         <antcall target="expand-corp"/>
     </target>
 
@@ -1185,6 +1186,7 @@
         <antcall target="package-EJB-RatingBean"/>
         <antcall target="package-EJB-SchoolBean"/>
         <antcall target="package-EJB-UserBean"/>
+		<antcall target="package-EJB-ProjectUserBean"/>
 
         <antcall target="war-privatelabel"/>
         <antcall target="expand-privatelabel"/>
@@ -1334,6 +1336,7 @@
         <antcall target="package-EJB-SurveyBean"/>
         <antcall target="package-EJB-UserEvent"/>
         <antcall target="package-EJB-UserBean"/>
+		<antcall target="package-EJB-ProjectUserBean"/>
         <antcall target="package-EJB-UserServicesBean"/>
         <antcall target="package-EJB-UtilBean"/>
 
