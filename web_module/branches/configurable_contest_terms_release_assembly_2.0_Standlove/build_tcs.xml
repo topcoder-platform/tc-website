@@ -586,6 +586,7 @@
     </target>
 
     <target name="explode">
+		<delete dir="${jboss.deploy.dir}/dde.ear"/>
         <mkdir dir="${jboss.deploy.dir}/dde.ear"/>
         <unjar src="${ear.dir}/dde.ear" dest="${jboss.deploy.dir}/dde.ear" overwrite="yes"/>
 
