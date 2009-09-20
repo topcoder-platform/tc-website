@@ -34,6 +34,8 @@
 <%@ page import="com.topcoder.shared.util.DBMS" %>
 <%@ page import="com.topcoder.shared.util.TCContext" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.shared.util.logging.Logger" %>
+
 
 <%@ include file="/includes/util.jsp" %>
 <%@ include file="session.jsp" %>
@@ -65,7 +67,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>TEST TopCoder Software TEST</title>
+	<title>TopCoder Software</title>
 
 <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
 <jsp:include page="/includes/header-files.jsp" />
@@ -133,6 +135,8 @@ public Object[] parseDocumentNameAndType(String componentName, String fileName, 
 }
 
 public void auditTeamRoleAction(long componentVersionId, TeamMemberRole role, long actionUserId, String action) {
+	Logger logger = Logger.getLogger("Aduit Team Role Action");
+
 	ProjectUser projectUserService = null;
 	try {
 		ProjectUserHome projectUserHome = 
@@ -140,8 +144,7 @@ public void auditTeamRoleAction(long componentVersionId, TeamMemberRole role, lo
 		projectUserService = projectUserHome.create();
 
 		// get project id
-		System.err.println(componentVersionId);
-		long projectId = projectUserService.getProjectId(componentVersionId, DBMS.TCS_OLTP_DATASOURCE_NAME);
+		long projectId = projectUserService.getORProjectId(componentVersionId, DBMS.TCS_OLTP_DATASOURCE_NAME);
 
 		final int MANAGER_RESOURCE_ROLE = 13;
 		final int SUBMITTER_RESOURCE_ROLE = 1;
@@ -167,8 +170,8 @@ public void auditTeamRoleAction(long componentVersionId, TeamMemberRole role, lo
 				resourceRoleId = REVIEWER_RESOURCE_ROLE;
 				break;
 			default:
-				System.err.println("unknown role.");
 				// unknown role
+				logger.info("unknown role");
 				return;
 		}
 
@@ -183,11 +186,8 @@ public void auditTeamRoleAction(long componentVersionId, TeamMemberRole role, lo
 			WebConstants.CREATE_AUDIT_ACTION_TYPE_ID : WebConstants.DELETE_AUDIT_ACTION_TYPE_ID);
 
 		projectUserService.auditProjectUser(entity, DBMS.TCS_OLTP_DATASOURCE_NAME);
-
-		System.err.println("audited successfully.");
 	} catch (Exception e) {
-		System.err.println("Failed to audit team role.");
-		e.printStackTrace();
+		logger.warn("unknown role", e);
 	}
 }
 
@@ -2017,7 +2017,7 @@ if (action != null) {
 
 <!-- Team Member Roles begins -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
-                <tr><td class="adminSubhead">TEST Team Member Roles</td></tr>
+                <tr><td class="adminSubhead">Team Member Roles</td></tr>
             </table>
 
 <%
