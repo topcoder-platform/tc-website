@@ -66,6 +66,8 @@ public class CreateTermsOfUseAgreement extends Base {
                 }
                 
                 getRequest().setAttribute("message", "The agreement for " + handle + " was successfully generated.");                
+
+                loadExistingAgreements(tId);
             } else {
                 throw new NavigationException("Terms of use id was not specified.");
             }
@@ -76,12 +78,17 @@ public class CreateTermsOfUseAgreement extends Base {
         setIsNextPageInContext(true);
     }
 
-    private Long getUserIdFromHandle(String handle) throws NoSuchUserException, RemoteException, 
+    private Long getUserIdFromHandle(String handle) throws RemoteException, 
         GeneralSecurityException, EJBException, CreateException, NamingException {
         
         PrincipalMgrRemoteHome principalMgrHome = (PrincipalMgrRemoteHome) getInitialContext().lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
         PrincipalMgrRemote principalMgr = principalMgrHome.create();
-        UserPrincipal up = principalMgr.getUser(handle);
+        UserPrincipal up = null;
+        try {
+            up = principalMgr.getUser(handle);
+        } catch (NoSuchUserException nsue) {
+            // don't do anything, return null
+        }
 
         if (up != null) {
             return up.getId();
