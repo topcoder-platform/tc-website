@@ -54,7 +54,7 @@
                                     </tr>
                                     <tr>
                                         <td align="left">
-                                            <tc-webtag:errorIterator id="err" name="ha">${err}</tc-webtag:errorIterator>
+                                            <strong><tc-webtag:errorIterator id="err" name="ha">${err}</tc-webtag:errorIterator></strong>
                                         </td>
                                     </tr>
                                     <tr>
