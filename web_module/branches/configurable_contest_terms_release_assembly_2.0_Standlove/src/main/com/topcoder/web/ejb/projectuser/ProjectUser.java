@@ -7,7 +7,7 @@ import javax.ejb.EJBObject;
 
 public interface ProjectUser extends EJBObject {
 	/**
-    *
+    * 
     */
    void auditProjectUser(ProjectUserEntity entity, String dataSource)
            throws RemoteException, EJBException;
