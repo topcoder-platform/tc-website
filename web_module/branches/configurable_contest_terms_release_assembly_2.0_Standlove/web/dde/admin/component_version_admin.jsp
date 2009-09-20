@@ -1,3 +1,11 @@
+<%--
+  - Author: ASSEMBLER
+  - Version: 1.1
+  - Copyright (C) 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Version 1.1 (Other Configurable Contest Terms Release Assembly 2.0) changes: Added new functionality that:
+  - OR-679  Keep a record of all project resource additions and removals. 
+--%>
 <%@ page import="javax.naming.*,
                  javax.ejb.FinderException,
                  com.topcoder.dde.submission.Submission,
@@ -134,6 +142,16 @@ public Object[] parseDocumentNameAndType(String componentName, String fileName, 
     return new Object[] {name, new Long(lngType)};
 }
 
+/**
+ * This method audits the resource for the user added to the project. 
+ *
+ * @param componentVersionId the component version id.
+ * @param role the member role.
+ * @param actionUserId the user id who performs the action.
+ * @param action the action (create or delete).
+ *
+ * @since 1.1
+ */
 public void auditTeamRoleAction(long componentVersionId, TeamMemberRole role, long actionUserId, String action) {
 	Logger logger = Logger.getLogger("Aduit Team Role Action");
 
