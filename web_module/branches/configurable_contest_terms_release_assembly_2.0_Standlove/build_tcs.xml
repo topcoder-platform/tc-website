@@ -141,6 +141,7 @@
             <include name="com/topcoder/security/**"/>
             <exclude name="com/topcoder/apps/screening/**"/>
             <include name="com/topcoder/web/ejb/forums/**"/>
+			<include name="com/topcoder/web/ejb/user/**"/>
         </javac>
     </target>
 
@@ -245,10 +246,10 @@
 
 
         <jar jarfile="${ejb.jars.dir}/tcUser.jar">
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/user/*.class"/>
-            <metainf dir="${java}/com/topcoder/web/ejb/user" includes="*.xml"/>
-            <metainf dir="${java}/com/topcoder/web/ejb/user" includes="wsdl"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/web/ejb/user/*.class"/>
+            <metainf dir="${java.dir}/com/topcoder/web/ejb/user" includes="*.xml"/>
+            <metainf dir="${java.dir}/com/topcoder/web/ejb/user" includes="wsdl"/>
         </jar>
 
 
