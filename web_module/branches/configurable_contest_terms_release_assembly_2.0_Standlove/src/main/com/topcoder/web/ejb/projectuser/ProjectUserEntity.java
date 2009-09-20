@@ -1,4 +1,4 @@
-package com.topcoder.web.ejb.user;
+package com.topcoder.web.ejb.projectuser;
 
 import java.io.Serializable;
 import java.util.Date;

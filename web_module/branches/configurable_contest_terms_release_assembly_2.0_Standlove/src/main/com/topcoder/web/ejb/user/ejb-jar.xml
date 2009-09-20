@@ -21,19 +21,6 @@
             <session-type>Stateless</session-type>
         </session>
 
-		<session>
-            <description>Project User EJB</description>
-            <display-name>Project User EJB</display-name>
-            <ejb-name>ProjectUser</ejb-name>
-            <home>com.topcoder.web.ejb.user.ProjectUserHome</home>
-            <remote>com.topcoder.web.ejb.user.ProjectUser</remote>
-            <local-home>com.topcoder.web.ejb.user.ProjectUserLocalHome</local-home>
-            <local>com.topcoder.web.ejb.user.ProjectUserLocal</local>
-            <ejb-class>com.topcoder.web.ejb.user.ProjectUserBean</ejb-class>
-            <transaction-type>Container</transaction-type>
-            <session-type>Stateless</session-type>
-        </session>
-
         <session>
             <description>User Terms Of Use EJB</description>
             <display-name>User Terms of Use EJB</display-name>
