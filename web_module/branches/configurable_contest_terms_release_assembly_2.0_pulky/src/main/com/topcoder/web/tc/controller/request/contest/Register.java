@@ -119,22 +119,23 @@ public class Register extends ViewRegistration {
                             DBMS.COMMON_OLTP_DATASOURCE_NAME);
                     getRequest().setAttribute(Constants.TERMS, terms);
                 }
-                if (!answeredCaptchaCorrectly()) {
-                    addError(Constants.CAPTCHA_RESPONSE, "Sorry, your response was incorect.");
-                }
                 setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
                  loadCaptcha();
                 setNextPage("/contest/regTerms.jsp");
                 setIsNextPageInContext(true);
             } else {
                 // make sure they don't have pending terms of use (they could get here faking the URL)
-                if (processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS)) {
+                if (!answeredCaptchaCorrectly()) {
+                    addError(Constants.CAPTCHA_RESPONSE, "Sorry, your response was incorect.");
+                }
+                if (processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS) || hasErrors()) {
                     setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
                      loadCaptcha();
                     setNextPage("/contest/regTerms.jsp");
                     setIsNextPageInContext(true);
                     return;
                 }
+
                 boolean isEligible = getRequest().getAttribute(Constants.MESSAGE) == null;
                 if (isEligible) {
                     if (log.isDebugEnabled()) {

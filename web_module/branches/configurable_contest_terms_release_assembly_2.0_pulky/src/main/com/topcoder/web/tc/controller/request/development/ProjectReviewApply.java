@@ -33,6 +33,8 @@ import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.common.error.RequestRateExceededException;
 import com.topcoder.web.common.throttle.Throttle;
 import com.topcoder.web.ejb.termsofuse.TermsOfUse;
+import com.topcoder.web.ejb.termsofuse.TermsOfUseEntity;
+import com.topcoder.web.ejb.termsofuse.TermsOfUseLocator;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.randomstringimg.InvalidConfigException;
@@ -224,11 +226,19 @@ public class ProjectReviewApply extends Base {
         rBoardApplication.validateUserTrans(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, projectId, phaseId, getUser().getId(),
                                             opensOn, reviewTypeId, primary);
 
-        // get corresponding resource role ids
-        int[] roleIds = getResourceRoleIds(reviewTypeId, primary);
-        processTermsOfUse(String.valueOf(projectId), getUser().getId(), roleIds);
-
-        loadCaptcha();
+        String termsOfUseId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_ID));
+        if (!"".equals(termsOfUseId)) {
+            // get the terms of use and add it to the request
+            TermsOfUseEntity terms =  TermsOfUseLocator.getService().getEntity(Long.parseLong(termsOfUseId), 
+                DBMS.COMMON_OLTP_DATASOURCE_NAME);
+            getRequest().setAttribute(Constants.TERMS, terms);
+        } else {
+            // get corresponding resource role ids
+            int[] roleIds = getResourceRoleIds(reviewTypeId, primary);
+            processTermsOfUse(String.valueOf(projectId), getUser().getId(), roleIds);
+    
+            loadCaptcha();
+        }
         setNextPage(getReviewTermsView(this.projectTypeId));
         setIsNextPageInContext(true);
     }
