@@ -1,7 +1,9 @@
 package com.topcoder.web.ejb.projectuser;
 
+import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 
@@ -52,6 +54,39 @@ public class ProjectUserBean extends BaseEJB {
         } finally {
             close(ps);
             close(conn);
+        }
+	}
+	
+	public long getProjectId(long componentVersionId, String dataSource)
+   		throws EJBException {
+		
+		PreparedStatement ps = null;
+        Connection conn = null;
+        ResultSet rs = null;
+        try {
+            conn = DBMS.getConnection(dataSource);
+            final String sql = "select project_id from project_info " +
+            		"where project_info_type_id = 1 and value = ?";
+            
+            ps = conn.prepareStatement(sql);
+            ps.setLong(1, componentVersionId);
+
+            rs = ps.executeQuery();
+            if (rs.next()) {
+            	return rs.getLong(1);
+            } else {
+                throw new EJBException("Unable to get the project id for component :" + componentVersionId);
+            }
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
+            throw new EJBException("SQLException occurs when getting project id for component.");
+        } catch (Exception e) {
+            throw new EJBException("Exception occurs when getting project id for component:\n" +
+                    e.getMessage());
+        } finally {
+        	close(rs);
+            close(ps);
+            close(conn);            
         }
 	}
 }
