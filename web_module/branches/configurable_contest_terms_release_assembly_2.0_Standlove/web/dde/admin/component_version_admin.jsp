@@ -162,7 +162,7 @@ public void auditTeamRoleAction(long componentVersionId, TeamMemberRole role, lo
 		projectUserService = projectUserHome.create();
 
 		// get project id
-		long projectId = projectUserService.getORProjectId(componentVersionId, DBMS.TCS_OLTP_DATASOURCE_NAME);
+		long projectId = projectUserService.getProjectId(componentVersionId, DBMS.TCS_OLTP_DATASOURCE_NAME);
 
 		final int MANAGER_RESOURCE_ROLE = 13;
 		final int SUBMITTER_RESOURCE_ROLE = 1;
