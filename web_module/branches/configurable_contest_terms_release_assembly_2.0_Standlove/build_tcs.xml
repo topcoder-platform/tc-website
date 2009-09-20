@@ -243,6 +243,15 @@
             <metainf dir="${java.dir}/com/topcoder/web/ejb/forums" includes="*.xml"/>
         </jar>
 
+
+        <jar jarfile="${ejb.jars.dir}/tcUser.jar">
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/user/*.class"/>
+            <metainf dir="${java}/com/topcoder/web/ejb/user" includes="*.xml"/>
+            <metainf dir="${java}/com/topcoder/web/ejb/user" includes="wsdl"/>
+        </jar>
+
+
         <jar jarfile="${ejb.jars.dir}/notification.jar">
             <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/notification/**, com/topcoder/apps/review/ConfigHelper.class, com/topcoder/apps/review/EJBHelper.class, com/topcoder/apps/review/persistence/Common.class"/>
             <metainf dir="${java.dir}/com/topcoder/dde/notification" includes="*.xml"/>
