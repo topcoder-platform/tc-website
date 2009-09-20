@@ -128,13 +128,6 @@
             </method>
             <trans-attribute>Supports</trans-attribute>
         </container-transaction>
-		<container-transaction>
-            <method>
-                <ejb-name>ProjectUser</ejb-name>
-                <method-name>*</method-name>
-            </method>
-            <trans-attribute>Supports</trans-attribute>
-        </container-transaction>
         <container-transaction>
             <method>
                 <ejb-name>UserTermsOfUse</ejb-name>
