@@ -51,7 +51,9 @@
 <c:set value="<%=Constants.UI_PROTOTYPE_PROJECT_TYPE%>" var="UI_PROTOTYPE_PROJECT_TYPE"/>
 <c:set value="<%=Constants.RIA_BUILD_PROJECT_TYPE%>" var="RIA_BUILD_PROJECT_TYPE"/>
 <c:set value="<%=Constants.RIA_COMPONENT_PROJECT_TYPE%>" var="RIA_COMPONENT_PROJECT_TYPE"/>
-<c:set var="TERMS_OF_USE_ID" value="<%=Constants.TERMS_OF_USE_ID%>"/>
+<c:set value="<%=Constants.TERMS_OF_USE_ID%>" var="TERMS_OF_USE_ID"/>
+<c:set value="<%=com.topcoder.web.common.BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
+<c:set value="<%=Constants.PROJECT_ID%>" var="PROJECT_ID"/>
 
 <body>
 
@@ -190,10 +192,10 @@
                     </c:otherwise>
                 </c:choose>
 
-                <tc-webtag:hiddenInput name="<%=Constants.PROJECT_ID%>"/>
+                <tc-webtag:hiddenInput name="${PROJECT_ID}"/>
                 <c:choose>
                     <c:when test="${not empty terms}">
-                        <tc-webtag:hiddenInput name="{TERMS_OF_USE_ID}" value="${terms.termsOfUseId}"/>
+                        <tc-webtag:hiddenInput name="${TERMS_OF_USE_ID}" value="${terms.termsOfUseId}"/>
                     </c:when>
                     <c:otherwise>
                         <c:if test="${pt == DESIGN_PROJECT_TYPE || pt == DEVELOPMENT_PROJECT_TYPE}">
@@ -241,36 +243,37 @@
                     </c:when>
                     <c:otherwise>
                         <table>
-                            <tr>
-                                <td>
-                                    The following terms (that you already agreed to) apply to this project:
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <c:forEach items="${terms_agreed}" var="terms_agreed_item">
-                                        <ul>
-                                            <li>
-                                                ${terms_agreed_item.title}
-                                                <c:choose>
-                                                    <c:when test="${terms_agreed_item.electronicallySignable != 1}">
-                                                        <a href="${terms_agreed_item.url}">(View)</a>
-                                                    </c:when>
-                                                    <c:otherwise>
-                                                        <a href="/tc?module=Terms&tuid=${terms_agreed_item.termsOfUseId}" target="_blank">(View)</a>
-                                                    </c:otherwise>
-                                                </c:choose>
-                                            </li>
-                                        </ul>
-                                    </c:forEach>
-                                </td>
-                            </tr>
+                            <c:if test="${not empty terms_agreed}">
+                                <tr>
+                                    <td>
+                                        The following terms (that you already agreed to) apply to this project:
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <c:forEach items="${terms_agreed}" var="terms_agreed_item">
+                                            <ul>
+                                                <li>
+                                                    ${terms_agreed_item.title}
+                                                    <c:choose>
+                                                        <c:when test="${terms_agreed_item.electronicallySignable != 1}">
+                                                            <a href="${terms_agreed_item.url}">(View)</a>
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <a href="/tc?module=Terms&tuid=${terms_agreed_item.termsOfUseId}" target="_blank">(View)</a>
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                </li>
+                                            </ul>
+                                        </c:forEach>
+                                    </td>
+                                </tr>
+                            </c:if>
                             <c:choose>
                                 <c:when test="${not empty terms_pending}">
-        
                                     <tr>
                                         <td>
-                                            The following terms are still pending for agreement:
+                                            You have the following terms pending for agreement:
                                         </td>
                                     </tr>
                                     <tr>
@@ -279,17 +282,15 @@
                                                 <ul>
                                                     <li>
                                                         ${terms_pending_item.title}
-                                                        <c:choose>
-                                                            <c:when test="${terms_pending_item.electronicallySignable != 1}">
-                                                                <a href="${terms_pending_item.url}">(View)</a>
-                                                            </c:when>
-                                                            <c:otherwise>
-                                                                <a href="/tc?module=Terms&tuid=${terms_pending_item.termsOfUseId}" target="_blank">(View)</a>
-                                                            </c:otherwise>
-                                                        </c:choose>
+                                                        <a href="/tc?module=ViewRegistration&${PROJECT_ID}=${requestScope[defaults][PROJECT_ID]}&tuid=${terms_pending_item.termsOfUseId}">(View and agree)</a>
                                                     </li>
                                                 </ul>
                                             </c:forEach>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            In order to register you must agree to all pending terms of use.
                                         </td>
                                     </tr>
                                 </c:when>
@@ -354,9 +355,12 @@
                 <p style="width: 510px;">
                     <c:choose>
                         <c:when test="${not empty terms}">
+                            <c:set value="Go back" var="returnMessage"/>
                             <c:if test="${terms.electronicallySignable == 1}">
                                 <a class="button" href="Javascript:document.regForm.submit();" style="width:60px;">Continue</a>
+                                <c:set value="Cancel" var="returnMessage"/>
                             </c:if>
+                            <a class="button" href="/tc?module=ViewRegistration&${PROJECT_ID}=${requestScope[defaults][PROJECT_ID]}" style="width:60px;">${returnMessage}</a>
                         </c:when>
                         <c:otherwise>
                             <c:if test="${empty terms_pending}">

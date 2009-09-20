@@ -111,6 +111,9 @@ public class ProjectUtil {
         close(rs);
         close(ps);
 
+        // Audit resource addition
+        auditResourceAddition(conn, userId, projectId, 1); // role = submitter
+
         // prepare rating/Reliability
         ps = conn.prepareStatement("SELECT rating, phase_id, (select project_category_id from project where project_id = ?) as project_category_id from user_rating where user_id = ? ");
         ps.setLong(1, projectId);
@@ -246,6 +249,39 @@ public class ProjectUtil {
 
         // Appeals Completed Early flag
         saveResourceInfoRecord(resourceId, APPEALS_COMPLETED_EARLY_PROPERTY_ID, NO_VALUE, String.valueOf(userId), ps);
+
+        close(ps);
+    }
+
+    /**
+     * @param conn
+     * @param userId
+     * @param projectId
+     * @param rs
+     * @param index
+     * @throws SQLException
+     * @throws RuntimeException
+     */
+    private static void auditResourceAddition(Connection conn, long userId,
+            long projectId, long userRoleId) throws SQLException,
+            RuntimeException {
+        int nr;
+        PreparedStatement ps = conn.prepareStatement("insert into project_user_audit (project_user_audit_id, project_id, resource_user_id, " +
+                " resource_role_id, audit_action_type_id, action_date, action_user_id) " +
+                " values (PROJECT_USER_AUDIT_SEQ.nextval, ?, ?, ?, ?, CURRENT, ?)");
+
+        int index = 1;
+        ps.setObject(index++, projectId);
+        ps.setObject(index++, userId);
+        ps.setLong(index++, userRoleId);  // submitter
+        ps.setInt(index++, 1); // create
+        ps.setLong(index++, userId);
+
+        nr = ps.executeUpdate();
+
+        if (nr != 1) {
+            throw new RuntimeException("Could not save project user audit record!");
+        }
 
         close(ps);
     }
@@ -475,6 +511,9 @@ public class ProjectUtil {
 
         close(ps);
 
+        // Audit resource addition
+        auditResourceAddition(conn, modUserId, projectId, 13); // role = manager
+        
         // Clean up this variable for reuse - bblais
         ps = null;
         return projectId;

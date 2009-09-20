@@ -411,6 +411,21 @@ public class RBoardApplicationBean extends BaseEJB {
             ps.executeUpdate();
             Common.close(ps);
 
+            // Audit resource addition
+            ps = conn.prepareStatement("insert into project_user_audit (project_user_audit_id, project_id, resource_user_id, " +
+                    " resource_role_id, audit_action_type_id, action_date, action_user_id) " +
+                    " values (PROJECT_USER_AUDIT_SEQ.nextval, ?, ?, ?, ?, CURRENT, ?)");
+
+            index = 1;
+            ps.setObject(index++, projectId);
+            ps.setObject(index++, userId);
+            ps.setLong(index++, resourceRoleId);
+            ps.setInt(index++, 1); // create
+            ps.setLong(index++, userId);
+
+            ps.executeUpdate();
+            Common.close(ps);
+            
             // External Reference ID
             ps = conn.prepareStatement("INSERT INTO resource_info " +
                                        "(resource_id, resource_info_type_id, value, create_user, create_date, " +
