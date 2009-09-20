@@ -26,8 +26,8 @@
 
 <%@ page import="com.topcoder.util.config.*" %>
 <%@ page import="com.topcoder.servlet.request.*" %>
-<%@ page import="com.topcoder.web.ejb.user.ProjectUser" %>
-<%@ page import="com.topcoder.web.ejb.user.ProjectUserHome" %>
+<%@ page import="com.topcoder.web.ejb.projectuser.ProjectUser" %>
+<%@ page import="com.topcoder.web.ejb.projectuser.ProjectUserHome" %>
 <%@ page import="com.topcoder.shared.util.DBMS" %>
 <%@ page import="com.topcoder.shared.util.TCContext" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
