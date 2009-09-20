@@ -132,12 +132,16 @@ public Object[] parseDocumentNameAndType(String componentName, String fileName, 
     return new Object[] {name, new Long(lngType)};
 }
 
-public void auditTeamRoleAction(long projectId, TeamMemberRole role, long actionUserId, String action) {
+public void auditTeamRoleAction(long componentVersionId, TeamMemberRole role, long actionUserId, String action) {
 	ProjectUser projectUserService = null;
 	try {
 		ProjectUserHome projectUserHome = 
 			(ProjectUserHome) (new InitialContext()).lookup(ProjectUserHome.EJB_REF_NAME);
 		projectUserService = projectUserHome.create();
+
+		// get project id
+		System.err.println(componentVersionId);
+		long projectId = projectUserService.getProjectId(componentVersionId, DBMS.TCS_OLTP_DATASOURCE_NAME);
 
 		final int MANAGER_RESOURCE_ROLE = 13;
 		final int SUBMITTER_RESOURCE_ROLE = 1;
@@ -1132,8 +1136,7 @@ if (action != null) {
                 strMessage += "Role " + strRole + " was assigned.";
 
 				// audit role addition
-				component = componentManager.getComponentInfo();
-				auditTeamRoleAction(component.getId(), role, tcUser.getId(), "ADD");
+				auditTeamRoleAction(componentManager.getVersionInfo().getVersionId(), role, tcUser.getId(), "ADD");
                 //response.sendRedirect("component_version_admin.jsp?comp=" + lngComponent + "ver=" + lngVersion);
             } catch (com.topcoder.dde.user.NoSuchUserException nsue) {
                 strError = "User '" + strUsername + "' was not found.";
@@ -1155,8 +1158,7 @@ if (action != null) {
         componentManager.removeTeamMemberRole(roleId);
 
 		// audit role addition
-		component = componentManager.getComponentInfo();
-		auditTeamRoleAction(component.getId(), role, tcUser.getId(), "DEL");
+		auditTeamRoleAction(componentManager.getVersionInfo().getVersionId(), role, tcUser.getId(), "DEL");
         //response.sendRedirect("component_version_admin.jsp?comp=" + lngComponent + "ver=" + lngVersion);
     }
 
