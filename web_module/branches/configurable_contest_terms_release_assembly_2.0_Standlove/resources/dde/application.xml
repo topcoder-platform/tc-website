@@ -42,9 +42,6 @@
     <module>
         <ejb>user.jar</ejb>
     </module>
-	<module>
-        <ejb>ProjectUser.jar</ejb>
-    </module>
     <module>
         <web>
             <web-uri>dde.war</web-uri>
