@@ -12,11 +12,11 @@
             <description>Project User EJB</description>
             <display-name>Project User EJB</display-name>
             <ejb-name>ProjectUser</ejb-name>
-            <home>com.topcoder.web.ejb.user.ProjectUserHome</home>
-            <remote>com.topcoder.web.ejb.user.ProjectUser</remote>
-            <local-home>com.topcoder.web.ejb.user.ProjectUserLocalHome</local-home>
-            <local>com.topcoder.web.ejb.user.ProjectUserLocal</local>
-            <ejb-class>com.topcoder.web.ejb.user.ProjectUserBean</ejb-class>
+            <home>com.topcoder.web.ejb.projectuser.ProjectUserHome</home>
+            <remote>com.topcoder.web.ejb.projectuser.ProjectUser</remote>
+            <local-home>com.topcoder.web.ejb.projectuser.ProjectUserLocalHome</local-home>
+            <local>com.topcoder.web.ejb.projectuser.ProjectUserLocal</local>
+            <ejb-class>com.topcoder.web.ejb.projectuser.ProjectUserBean</ejb-class>
             <transaction-type>Container</transaction-type>
             <session-type>Stateless</session-type>
         </session>
