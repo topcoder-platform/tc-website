@@ -1,6 +1,6 @@
 package com.topcoder.web.ejb.projectuser;
 
-import java.rmi.RemoteException;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

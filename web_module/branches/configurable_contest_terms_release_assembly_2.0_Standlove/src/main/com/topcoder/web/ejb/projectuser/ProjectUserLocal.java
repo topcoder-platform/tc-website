@@ -9,6 +9,6 @@ public interface ProjectUserLocal extends EJBLocalObject {
     	throws EJBException;
 	
 	long getProjectId(long componentVersionId, String dataSource)
-   	throws EJBException;
+   		throws EJBException;
 
 }
