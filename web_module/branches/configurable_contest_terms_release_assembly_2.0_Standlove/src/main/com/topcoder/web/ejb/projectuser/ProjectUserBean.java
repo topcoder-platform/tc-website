@@ -57,9 +57,11 @@ public class ProjectUserBean extends BaseEJB {
         }
 	}
 	
-	public long getORProjectId(long componentVersionId, String dataSource)
+	/*
+	public long getProjectId(long componentVersionId, String dataSource)
    		throws EJBException {
 		
+	
 		PreparedStatement ps = null;
         Connection conn = null;
         ResultSet rs = null;
@@ -88,5 +90,5 @@ public class ProjectUserBean extends BaseEJB {
             close(ps);
             close(conn);            
         }
-	}
+	} */
 }

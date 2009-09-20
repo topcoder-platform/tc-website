@@ -12,6 +12,8 @@ public interface ProjectUser extends EJBObject {
    void auditProjectUser(ProjectUserEntity entity, String dataSource)
            throws RemoteException, EJBException;
    
-   long getORProjectId(long componentVersionId, String dataSource)
-   	throws RemoteException, EJBException;
+   
+   /*
+   long getProjectId(long componentVersionId, String dataSource)
+   	throws RemoteException, EJBException; */
 }
