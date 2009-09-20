@@ -106,11 +106,12 @@ import java.io.FileOutputStream;
  *   
  *   Version 1.0.10 (Other Configurable Contest Terms Release Assembly 2.0) Change notes:
  *   <ol>
- *     <li>Added support for multiple terms and resource (reviewer) audit.</li>
+ *     <li>OR-679 Keep a record of all project resource additions and removals. </li>
+ *      <li>TCWEB-665  Allow access to all non-electronically-signable terms at the same time. </li>   
  *   </ol>
  * </p>
  *
- * @author dok, isv, pulky, snow01
+ * @author dok, isv, pulky, snow01, ASSEMBLER
  * @version 1.0.10
  */
 public class ProjectReviewApply extends Base {
@@ -219,6 +220,8 @@ public class ProjectReviewApply extends Base {
 
     /**
      * This method processes review application.
+     * 
+     * Changed in version 1.0.10 to audit reviewer registration.
      *
      * @param opensOn the time the review position opens
      * @param reviewTypeId the review type id

@@ -44,14 +44,14 @@ import com.topcoder.util.spell.ConfigException;
  * </p>
  *
  * <p>
- *   Version 1.2 (Configurable Contest Terms Release Assembly v1.0) Change notes:
+ *   Version 1.3 (Configurable Contest Terms Release Assembly v1.0) Change notes:
  *   <ol>
  *     <li>Added new functionality that asks for several terms of use and show those the user already agreed to.</li>
  *   </ol>
  * </p>
- *
+ * 
  * @author dok, pulky
- * @version 1.2
+ * @version 1.3
  */
 public class ViewRegistration extends Base {
 

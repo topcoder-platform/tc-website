@@ -80,7 +80,7 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *           </ul>
  *         </td>
  *     </tr>
-		 <tr>
+ *     <tr>
  *         <td>Version 1.5 (Specification Review Integration 1.0)</td>
  *         <td>
  *           <ul>
@@ -88,11 +88,20 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *           </ul>
  *         </td>
  *     </tr> 
+ *     <tr>
+ *         <td>Version 1.6 (Other Configurable Contest Terms Release Assembly 2.0 )</td>
+ *         <td>
+ *           <ul>
+ *             <li>OR-679 Keep a record of all project resource additions and removals. </li>
+ *             <li>TCWEB-665  Allow access to all non-electronically-signable terms at the same time. </li>    
+ *           </ul>
+ *         </td>
+ *     </tr> 
  *   </table>
  * </p>
  *
- * @author dok, isv, pulky, TCSASSEMBLER
- * @version 1.5
+ * @author dok, isv, pulky, ASSEMBLER
+ * @version 1.6
  */
 public abstract class Base extends ShortHibernateProcessor {
     /**
@@ -314,9 +323,12 @@ public abstract class Base extends ShortHibernateProcessor {
      * This helper method will go through all required terms of use and check whether the user has agreed to
      * them or not. If the user agreed to all required terms of use, the list of these terms of use will be
      * added to the request. If the user is missing a terms of use, that terms of use will be added to the request.
+     * 
+     * Changed in version 1.6 to support multiple terms. 
      *
      * @param projectId the project id the user is registering to
      * @param userId the user id that is requesting the registration
+     * @param roleIds the user's roles in the project
      * 
      * @return true if the user has pending terms to agree to
      * 
@@ -363,13 +375,6 @@ public abstract class Base extends ShortHibernateProcessor {
                 termsAgreed.add(terms);
             }
         }
-
-        System.err.println("necessary terms: " + necessaryTerms.size());
-
-        System.err.println(Constants.ELETRONIC_TERMS_NOT_AGREED + ": " + electronicTermsNotAgreed.size());
-        System.err.println(Constants.PAPER_TERMS_NOT_AGREED + ": " + paperTermsNotAgreed.size());
-        System.err.println(Constants.TERMS_AGREED + ": " + termsAgreed.size());
-
        
         // store not-agreed terms in the request
         getRequest().setAttribute(Constants.ELETRONIC_TERMS_NOT_AGREED, electronicTermsNotAgreed);
@@ -433,10 +438,28 @@ public abstract class Base extends ShortHibernateProcessor {
         return ReviewBoardHelper.isReviewBoardTypeSupported(projectType, includeSpecificationReviews);
     }
     
+    /**
+     * Audit submitter registration. 
+     * 
+     * @param projectId the project id. 
+     * @param userId the user id. 
+     * @throws Exception if error occurs when auditing submitter registration.
+     * 
+     * @since 1.6
+     */
 	public void auditSubmitterRegistration(long projectId, long userId) throws Exception {
     	auditSelfRegistration(projectId, userId, new int[] {Constants.SUBMITTER_RESOURCE_ROLE_ID });
     }
     
+	/**
+	 * Audit user's registration. 
+	 * 
+	 * @param projectId the project id.
+	 * @param userId the user id.
+	 * @param roleIds an array of resource role ids.
+	 * @throws Exception if error occurs when auditing user's registration.
+	 * @since 1.6
+	 */
 	public void auditSelfRegistration(long projectId, long userId, int[] roleIds) throws Exception {
     	ProjectUserLocal pl = (ProjectUserLocal) createLocalEJB(getInitialContext(), ProjectUser.class);
     	ProjectUserEntity entity = new ProjectUserEntity();

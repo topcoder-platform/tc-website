@@ -77,23 +77,25 @@ import com.topcoder.web.common.NavigationException;
  *   
  *   Version 1.3 (Other Configurable Contest Terms Release Assembly 2.0) Change notes:
  *   <ol>
- *     <li>Added support for multiple terms and resource (submitter) audit.</li>
+ *     <li>OR-679 Keep a record of all project resource additions and removals. </li>
+ *     <li>TCWEB-665  Allow access to all non-electronically-signable terms at the same time. </li>   
  *   </ol>
  * </p>
  *
- * @author dok, pulky
+ * @author dok, pulky, ASSEMBLER
  * @version 1.3
  */
 public class Register extends ViewRegistration {
 
     /**
      * This method is the final processor for the request
+     * 
+     * Changed in version 1.3 to support multiple terms on the same page. 
      *
      * @throws TCWebException if any error occurs
      * @see com.topcoder.web.tc.controller.request.development.Base#developmentProcessing()
      */
     protected void developmentProcessing() throws TCWebException {
-        System.err.println("Development - Register");
         try {
             loadPhase();
 
@@ -480,6 +482,15 @@ public class Register extends ViewRegistration {
         return found;
     }
 
+    /**
+     * <p>This helper method registers a user to a project.</p>
+     * 
+     * Changed in version 1.3 to audit user's registration. 
+     *
+     * @throws CreateException if the underlying service fails to be created.
+     * @throws RemoteException if the underlying service fails to execute.
+     * @throws Exception if any other error occurs while performing registration.
+     */
     private void register() throws Exception, RemoteException, CreateException {
         InitialContext ctx = null;
         try {

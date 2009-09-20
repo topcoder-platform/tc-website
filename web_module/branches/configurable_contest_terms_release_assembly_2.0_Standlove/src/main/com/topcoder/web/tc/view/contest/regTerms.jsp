@@ -1,6 +1,6 @@
 <%--
-  - Author: pulky
-  - Version: 1.3
+  - Author: pulky, ASSEMBLER
+  - Version: 1.4
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page shows the registration terms for a specific project.
@@ -12,6 +12,9 @@
   - and added support for new Test Scenarios competitions.
   - Version 1.3 (Configurable Contest Terms Release Assembly v1.0) changes: Added new functionality that asks for
   - several terms of use and show those the user already agreed to.
+  - Version 1.4 (Other Configurable Contest Terms Release Assembly 2.0 ) changes: Added new functionality that
+  - 1) TCWEB-664  Replace the terms of use TEXTAREA with an IFRAME so that it applies HTML formatting in the terms. 
+  - 2) TCWEB-665  Allow access to all non-electronically-signable terms at the same time. 
 --%>
 <%@ page language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>

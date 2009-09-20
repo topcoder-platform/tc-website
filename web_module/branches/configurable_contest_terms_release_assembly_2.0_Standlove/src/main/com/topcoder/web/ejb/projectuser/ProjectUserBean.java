@@ -1,6 +1,10 @@
+/*
+ * Copyright (C) 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.ejb.projectuser;
 
 
+import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,11 +17,34 @@ import javax.ejb.EJBException;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.ejb.BaseEJB;
 
-
+/**
+ * <p>
+ * Version 1.0 (Other Configurable Contest Terms Release Assembly 2.0 )
+ * This stateless EJB bean defines the following functionalities:
+ *   <ol>
+ *     <li>audit project resource change behaviour.</li>
+ *     <li>retrieve project id by component version id.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @version 1.0
+ * @author ASSEMBLER
+ */
 public class ProjectUserBean extends BaseEJB {
 	
+	/**
+	 * Empty constructor.
+	 */
 	public ProjectUserBean() {}
 	
+	/**
+	 * Audit the project resource (User).
+	 * 
+	 * @param entity the entity to audit.
+	 * @param dataSource the data source name.
+	 * @throws RemoteException if communication error occurs.
+	 * @throws EJBException if error occurs when auditing the project resource.
+	 */
 	public void auditProjectUser(ProjectUserEntity entity, String dataSource)
 		throws EJBException {		
 
@@ -58,10 +85,17 @@ public class ProjectUserBean extends BaseEJB {
 	}
 	
 
+	/**
+	 * Get project id by the component version id.
+	 * 
+	 * @param componentVersionId the component version id.
+	 * @param dataSource the data source name.
+	 * @return the project id.
+	 * @throws RemoteException if communication error occurs.
+	 * @throws EJBException if error occurs when getting the project id.
+	 */
 	public long getProjectId(long componentVersionId, String dataSource)
-   		throws EJBException {
-		
-	
+   		throws EJBException {	
 		PreparedStatement ps = null;
         Connection conn = null;
         ResultSet rs = null;

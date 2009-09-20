@@ -51,10 +51,16 @@ import com.topcoder.web.tc.Constants;
  *   <ol>
  *     <li>Added apply logic to handle apply for specification review positions</li>
  *   </ol>
+ *   
+ *   Version 1.0.5 (Other Configurable Contest Terms Release Assembly 2.0) Change notes:
+ *   <ol>
+ *     <li>OR-679 Keep a record of all project resource additions and removals. </li>
+ *     <li>TCWEB-665  Allow access to all non-electronically-signable terms at the same time. </li>   
+ *   </ol>
  * </p>
  *
- * @author dok, pulky, isv, pulky, snow01
- * @version 1.0.4
+ * @author dok, pulky, isv, pulky, snow01, ASSEMBLER
+ * @version 1.0.5
  */
 public class ProjectReviewTermsAgree extends ProjectReviewApply {
 
@@ -68,6 +74,8 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
 
     /**
      * This method processes review application.
+     * 
+     * Changed in version 1.0.5 to support multiple terms on the same page. 
      *
      * @param opensOn the time the review position opens
      * @param reviewTypeId the review type id
@@ -76,8 +84,6 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
     protected void applicationProcessing(Timestamp opensOn, int reviewTypeId) throws Exception {        
         boolean primary = new Boolean(StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_FLAG))).booleanValue();
         setDefault(Constants.PRIMARY_FLAG, primary);
-
-        System.err.println("Review - Controllers");
 
         // get all submitted terms of use ids
         List<Long> termsOfUseIds = new ArrayList<Long>();            

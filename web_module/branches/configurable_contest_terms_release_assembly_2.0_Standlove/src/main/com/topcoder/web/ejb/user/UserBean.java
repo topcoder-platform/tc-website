@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.ejb.user;
 
 import com.topcoder.shared.util.DBMS;
@@ -10,15 +13,22 @@ import com.topcoder.web.ejb.BaseEJB;
 import javax.ejb.EJBException;
 import javax.naming.InitialContext;
 
-import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
 /**
- * @author Nathan Egge (negge@vt.edu)
- */
+* <p>
+*   Version 1.1 (Other Configurable Contest Terms Release Assembly 2.0 )
+*   Added method to get user id by handle. 
+* </p>
+*
+* @author Nathan Egge (negge@vt.edu), ASSEMBLER
+* @version 1.1
+* @since 1.0
+*/
 public class UserBean extends BaseEJB {
 
     private final static Logger log = Logger.getLogger(UserBean.class);
@@ -668,12 +678,20 @@ public class UserBean extends BaseEJB {
                 dataSource);
     }
     
+    /**
+     * Get the user id by handle. 
+     * 
+     * @param handle the user's handle.
+     * @param dataSource the data source.
+     * @return the user id.
+     * @throws EJBException if fail to get the user id.
+     * 
+     * @since 1.1
+     */
     public long getUserId(String handle, String dataSource) throws EJBException {
     	PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conn = null;
-
-
         try {
             conn = DBMS.getConnection(dataSource);
 

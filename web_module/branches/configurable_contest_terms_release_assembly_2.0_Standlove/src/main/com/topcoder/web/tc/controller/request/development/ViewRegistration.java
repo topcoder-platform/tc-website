@@ -52,6 +52,7 @@ import com.topcoder.util.spell.ConfigException;
  *     <li>Added new functionality that asks for several terms of use and show those the user already agreed to.</li>
  *   </ol>
  * </p>
+ * 
  *
  * @author dok, pulky
  * @version 1.1

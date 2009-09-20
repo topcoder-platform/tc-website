@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.admin.controller.request;
 
 import java.util.List;
@@ -13,12 +16,25 @@ import com.topcoder.web.ejb.user.UserOfTerms;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.ejb.user.UserTermsOfUseLocator;
 
+/**
+ * <p>
+ * Version 1.0 (Other Configurable Contest Terms Release Assembly 2.0 )
+ * This controller adds the user terms agreements.
+ * 
+ * TCWEB-666 Administrator tool to add user terms agreements. 
+ * </p>
+ * 
+ * @author ASSEMBLER
+ * @version 1.0
+ */
 public class AddTermAgreement extends Base {
 
-	@Override
-	protected void businessProcessing() throws Exception {
-		System.err.println("Enter AddTermAgreement ");
-		
+	/**
+	 * Process the request to add user terms agreements. 
+	 * 
+	 * @throws Exception if error occurs when processing the request.
+	 */
+	protected void businessProcessing() throws Exception {	
 		UserTermsOfUse userTerms = UserTermsOfUseLocator.getService();
 		TermsOfUse termsOfUse = TermsOfUseLocator.getService();
 		String tid = getRequest().getParameter(Constants.TERMS_OF_USE_ID);

@@ -37,6 +37,7 @@ package com.topcoder.web.common;
  *   Version 1.5 (Other Configurable Contest Terms Release Assembly 2.0 ) Change notes:
  *   <ol>
  *     <li>Added several constants for eletronic and paper terms.</li>
+ *     <li>Added several constants for resource roles and audit action type ids.</li>
  *   </ol>
  * </p>
  *
@@ -118,8 +119,25 @@ public interface WebConstants {
      */
     public static final String PAPER_TERMS_NOT_AGREED = "paper_terms_not_agreed";
     
+    /**
+     * <p>A <code>int</code> representing submitter resource role id.</p>
+     *
+     * @since 1.5
+     */
     public static final int SUBMITTER_RESOURCE_ROLE_ID = 1;
+    
+    /**
+     * <p>A <code>int</code> representing create audit action type id.</p>
+     *
+     * @since 1.5
+     */
     public static final int CREATE_AUDIT_ACTION_TYPE_ID = 1;
+    
+    /**
+     * <p>A <code>int</code> representing delete audit action type id.</p>
+     *
+     * @since 1.5
+     */
     public static final int DELETE_AUDIT_ACTION_TYPE_ID = 2;
 
     public static final String TERMS_AGREE = "terms_agree";

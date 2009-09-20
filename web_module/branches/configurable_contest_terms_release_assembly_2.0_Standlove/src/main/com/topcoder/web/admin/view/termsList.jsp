@@ -1,11 +1,13 @@
 <%--
-  - Author: pulky
-  - Version: 1.1
+  - Author: pulky, ASSEMBLER
+  - Version: 1.2
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page lists terms of use.
   -
   - Version 1.1 (Configurable Contest Terms Release Assembly v1.0) changes: replaced terms_text by title.
+  - Version 1.2 (Other Configurable Contest Terms Release Assembly 2.0) changes:
+  -    TCWEB-666 Administrator tool to list and add user terms agreements. 
 --%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.web.admin.Constants" %>

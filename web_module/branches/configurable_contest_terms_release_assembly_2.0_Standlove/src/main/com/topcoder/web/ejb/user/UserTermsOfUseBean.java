@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.ejb.user;
 
 import java.sql.Connection;
@@ -14,6 +17,15 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.BaseEJB;
 
+/**
+* <p>
+*   Version 1.1 (Other Configurable Contest Terms Release Assembly 2.0 ) Change notes:
+*   Added method to get the list of users who agree the terms. 
+* </p>
+*
+* @author ASSEMBLER
+* @version 1.1
+*/
 public class UserTermsOfUseBean extends BaseEJB {
 
     private static Logger log = Logger.getLogger(UserTermsOfUseBean.class);
@@ -128,6 +140,15 @@ public class UserTermsOfUseBean extends BaseEJB {
         return ret;
     }
     
+    /**
+     * Get the list of users who agree the given terms. 
+     * 
+     * @param termsOfUseId the id of the terms.
+     * @param dataSource the data source.
+     * @return the list of users who agree the given terms. 
+     * @throws EJBException if fail to get the list. 
+     * @since 1.1
+     */
     public List<UserOfTerms> getUsersOfTerms(long termsOfUseId, String dataSource) 
     	 throws EJBException {
     	
