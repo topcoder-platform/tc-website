@@ -145,7 +145,7 @@ public void auditTeamRoleAction(long projectId, TeamMemberRole role, long action
 		final int REVIEWER_RESOURCE_ROLE = 4;
 
 		int resourceRoleId = -1;
-		switch ((int) role.getId()) {
+		switch ((int) role.getRoleId()) {
 			case TeamMemberRole.ROLE_REQUESTOR:
 				resourceRoleId = MANAGER_RESOURCE_ROLE ; // manager
 				break;
