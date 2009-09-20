@@ -62,7 +62,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>TopCoder Software TEST</title>
+	<title>TEST TopCoder Software TEST</title>
 
 <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
 <jsp:include page="/includes/header-files.jsp" />
