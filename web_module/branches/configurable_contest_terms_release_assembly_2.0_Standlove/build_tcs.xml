@@ -245,11 +245,11 @@
         </jar>
 
 
-        <jar jarfile="${ejb.jars.dir}/tcUser.jar">
+        <jar jarfile="${ejb.jars.dir}/ProjectUser.jar">
             <zipfileset dir="${classes.dir}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/web/ejb/user/*.class"/>
-            <metainf dir="${java.dir}/com/topcoder/web/ejb/user" includes="*.xml"/>
-            <metainf dir="${java.dir}/com/topcoder/web/ejb/user" includes="wsdl"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/web/ejb/projectuser/*.class"/>
+            <metainf dir="${java.dir}/com/topcoder/web/ejb/projectuser" includes="*.xml"/>
+            <metainf dir="${java.dir}/com/topcoder/web/ejb/projectuser" includes="wsdl"/>
         </jar>
 
 

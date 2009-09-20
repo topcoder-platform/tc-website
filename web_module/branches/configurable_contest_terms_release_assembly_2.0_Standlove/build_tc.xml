@@ -320,6 +320,15 @@
         </jar>
     </target>
 
+	<target name="package-EJB-ProjectUserBean" depends="compile">
+        <jar jarfile="${ejb_jars}/ProjectUser.jar">
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/projectuser/*.class"/>
+            <metainf dir="${java}/com/topcoder/web/ejb/projectuser" includes="*.xml"/>
+            <metainf dir="${java}/com/topcoder/web/ejb/projectuser" includes="wsdl"/>
+        </jar>
+    </target>
+
     <target name="package-EJB-UserServicesBean" depends="compile">
         <jar jarfile="${ejb_jars}/UserServices.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
