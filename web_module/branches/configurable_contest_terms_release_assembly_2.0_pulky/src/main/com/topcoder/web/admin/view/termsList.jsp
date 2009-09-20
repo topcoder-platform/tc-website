@@ -36,6 +36,7 @@
                     <td class="header">Type</td>
                     <td class="header">Create Date</td>
                     <td class="header">Modify Date</td>
+                    <td class="header">&nbsp;</td>
                 </tr>
                 <% boolean even = false; %>
                 <rsc:iterator list="<%=termsList%>" id="terms">
@@ -50,6 +51,9 @@
                                                                      format="MM.dd.yyyy HH:mm:ss"/></td>
                         <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=terms%>" name="modify_date"
                                                                      format="MM.dd.yyyy HH:mm:ss"/></td>
+                        <td class="<%=even?"even":"odd"%>"><a
+                                href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewEditTermsUsers&<%=Constants.TERMS_OF_USE_ID%>=<rsc:item row="<%=terms%>" name="terms_of_use_id"/>">view users</a>
+                            </td>
                     </tr>
                     <% even = !even;%>
                 </rsc:iterator>
