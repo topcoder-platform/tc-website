@@ -75,16 +75,11 @@
                         <input type="hidden" name="${REVIEWER_TYPE_ID}" value="${param[REVIEWER_TYPE_ID]}"/>
                         <input type="hidden" name="${PRIMARY_FLAG}" value="${param[PRIMARY_FLAG]}"/>
                         <input type="hidden" name="${PROJECT_TYPE_ID}" value="${projectType}"/>
+                        <input type="hidden" name="${MODULE_KEY}" value="ProjectReviewTermsAgree"/>
 
-                        <c:choose>
-                            <c:when test="${not empty terms}">
-                                <input type="hidden" name="${MODULE_KEY}" value="ProjectReviewApply"/>
-                                <input type="hidden" name="${TERMS_OF_USE_ID}" value="${terms.termsOfUseId}"/>
-                            </c:when>
-                            <c:otherwise>
-                                <input type="hidden" name="${MODULE_KEY}" value="ProjectReviewTermsAgree"/>
-                            </c:otherwise>
-                        </c:choose>
+                        <c:if test="${not empty terms}">
+                            <input type="hidden" name="${TERMS_OF_USE_ID}" value="${terms.termsOfUseId}"/>
+                        </c:if>
 
                         <table border="0" cellspacing="0" cellpadding="5">
                             <c:choose>
@@ -96,8 +91,6 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <tc-webtag:textArea name="${TERMS}" text="${terms.termsText}" rows="10"
-                                                cols="80" readOnly="true" styleClass="bodyText"/>
                                             <iframe width="590" height="300" marginWidth="5"
                                                 src="${sessionInfo.servletPath}?module=Terms&amp;${TERMS_OF_USE_ID}=${terms.termsOfUseId}">
                                             </iframe>
@@ -165,7 +158,7 @@
                                                         <ul>
                                                             <li>
                                                                 ${terms_pending_item.title}
-                                                                <a href="/tc?module=ViewRegistration&${PROJECT_ID}=${requestScope[defaults][PROJECT_ID]}&tuid=${terms_pending_item.termsOfUseId}">(View and agree)</a>
+                                                                <a href="/tc?module=ProjectReviewApply&${PROJECT_ID}=${param[PROJECT_ID]}&${REVIEWER_TYPE_ID}=${param[REVIEWER_TYPE_ID]}&${PRIMARY_FLAG}=${param[PRIMARY_FLAG]}&${PROJECT_TYPE_ID}=${projectType}&${TERMS_OF_USE_ID}=${terms_pending_item.termsOfUseId}">(View and agree)</a>
                                                             </li>
                                                         </ul>
                                                     </c:forEach>
@@ -209,24 +202,26 @@
                             </c:choose>
                             <c:choose>
                                 <c:when test="${not empty terms}">
-                                    <c:set value="Go back" var="returnMessage"/>
-                                    <c:if test="${terms.electronicallySignable == 1}">
-                                        <tr>
-                                            <td align="center">
-                                                <input type="submit" onClick="" name="submit" value=" Continue"/>
-                                            </td>
-                                        </tr>
-                                        <c:set value="Cancel" var="returnMessage"/>
-                                    </c:if>
-
-                                    <input type="submit" onClick="" name="${returnMessage}" value="${returnMessage}"/>
-                                </c:when>
-                                <c:otherwise>
                                     <tr>
                                         <td align="center">
-                                            <input type="submit" onClick="" name="submit" value=" Register"/>
+                                            <c:set value="Go back" var="returnMessage"/>
+                                            <c:if test="${terms.electronicallySignable == 1}">
+                                                <input type="submit" onClick="" name="submit" value=" Continue"/>
+                                                <c:set value="Cancel" var="returnMessage"/>
+                                            </c:if>
+
+                                            <input type="button" onClick="location.href='/tc?module=ProjectReviewApply&${PROJECT_ID}=${param[PROJECT_ID]}&${REVIEWER_TYPE_ID}=${param[REVIEWER_TYPE_ID]}&${PRIMARY_FLAG}=${param[PRIMARY_FLAG]}&${PROJECT_TYPE_ID}=${projectType}'" name="${returnMessage}" value="${returnMessage}"/>
                                         </td>
                                     </tr>
+                                </c:when>
+                                <c:otherwise>
+                                    <c:if test="${empty terms_pending}">
+                                        <tr>
+                                            <td align="center">
+                                                <input type="submit" onClick="" name="submit" value=" Register"/>
+                                            </td>
+                                        </tr>
+                                    </c:if>
                                 </c:otherwise>
                             </c:choose>
 

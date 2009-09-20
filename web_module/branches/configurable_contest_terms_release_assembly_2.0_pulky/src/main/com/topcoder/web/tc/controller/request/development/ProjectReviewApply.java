@@ -302,7 +302,7 @@ public class ProjectReviewApply extends Base {
      *         specified type.
      * @since TCS Release 2.2.0 (TCS-54)
      */
-    private String getReviewTermsView(String projectType) {
+    protected String getReviewTermsView(String projectType) {
         if (projectType.equals(String.valueOf(WebConstants.DESIGN_PROJECT_TYPE))) {
             return Constants.REVIEWER_TERMS;
         } else if (projectType.equals(String.valueOf(WebConstants.DEVELOPMENT_PROJECT_TYPE))) {

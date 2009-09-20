@@ -98,7 +98,7 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
                     int[] roleIds = getResourceRoleIds(reviewTypeId, primary);
                     processTermsOfUse(String.valueOf(projectId), userId, roleIds);
                 }
-                setNextPage(Constants.REVIEWER_TERMS);
+                setNextPage(getReviewTermsView(projectTypeId));
                 setIsNextPageInContext(true);
             } else {
                 if (!answeredCaptchaCorrectly()) {
@@ -110,7 +110,7 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
                 if (hasErrors() || processTermsOfUse(String.valueOf(projectId), userId, roleIds)) {
                     loadCaptcha();
 
-                    setNextPage(Constants.REVIEWER_TERMS);
+                    setNextPage(getReviewTermsView(projectTypeId));
                     setIsNextPageInContext(true);
                 } else {
                     apply(opensOn, reviewTypeId);
