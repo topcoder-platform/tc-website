@@ -35,10 +35,18 @@
                     <c:choose>
                         <c:when test="${not empty existing_agreements}">
                             <p>Terms of use title: ${ttit}</p>
+                            <hr/>
                             <form action="${sessionInfo.servletPath}" method="POST" name="createAgreementForm">
                                 <input type="hidden" name="module" value="CreateTermsOfUseAgreement"/>
                                 <tc-webtag:hiddenInput name="${TERMS_OF_USE_ID}" value="${tid}"/>
                                 <table>
+                                    <c:if test="${not empty message}">
+                                        <tr>
+                                            <td align="left">
+                                                <strong>${message}</strong>
+                                            </td>
+                                        </tr>
+                                    </c:if>
                                     <tr>
                                         <td align="left">
                                             Add new agreement:
@@ -55,13 +63,15 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td align="center">
-                                            <input type="submit" name="submit" value="Save"/>
+                                        <td align="left">
+                                            <input type="submit" name="submit" value="Add"/>
                                         </td>
                                     </tr>
                                 </table>
                             </form>
                             <br/>
+                            <hr/>
+                            <p>Existing Agreements:</p>                            
                             <table>
                                 <tr>
                                     <td class="header">Handle</td>
@@ -74,7 +84,7 @@
                                             <tc-webtag:handle coderId='${agreement.map["user_id"]}'/>
                                         </td>
                                         <td class="${status.index % 2 == 1? 'even' : 'odd'}">
-                                            <fmt:formatDate value="${row.map['create_date']}" pattern="MM.dd.yyyy HH:mm:ss"/>
+                                            <fmt:formatDate value="${agreement.map['create_date']}" pattern="MM.dd.yyyy HH:mm:ss"/>
                                         </td>
                                     </tr>
                                 </c:forEach>

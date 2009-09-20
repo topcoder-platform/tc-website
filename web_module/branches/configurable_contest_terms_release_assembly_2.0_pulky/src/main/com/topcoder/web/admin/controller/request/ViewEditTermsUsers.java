@@ -3,6 +3,7 @@ package com.topcoder.web.admin.controller.request;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.admin.Constants;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.web.ejb.termsofuse.TermsOfUseEntity;
 
@@ -14,21 +15,29 @@ import com.topcoder.web.ejb.termsofuse.TermsOfUseEntity;
 public class ViewEditTermsUsers extends Base {
     protected void businessProcessing() throws Exception {
         String tId = getRequest().getParameter(Constants.TERMS_OF_USE_ID);
-        if (tId!=null) {
-            TermsOfUse termsOfUse = (TermsOfUse)createEJB(getInitialContext(), TermsOfUse.class);
-            TermsOfUseEntity terms = termsOfUse.getEntity(Long.parseLong(tId), DBMS.OLTP_DATASOURCE_NAME);
-
-            if (terms != null) {
-                getRequest().setAttribute(Constants.TERMS_OF_USE_ID, tId);
-                getRequest().setAttribute(Constants.TERMS_TITLE, terms.getTitle());
+        try {
+            if (tId!=null) {
+                TermsOfUseEntity terms;
+                TermsOfUse termsOfUse = (TermsOfUse)createEJB(getInitialContext(), TermsOfUse.class);
+                terms = termsOfUse.getEntity(Long.parseLong(tId), DBMS.OLTP_DATASOURCE_NAME);
+  
+                if (terms != null) {
+                    getRequest().setAttribute(Constants.TERMS_OF_USE_ID, tId);
+                    getRequest().setAttribute(Constants.TERMS_TITLE, terms.getTitle());
+                } else {
+                    throw new NavigationException("The specified terms of use was not found.");
+                }
+   
+                loadExistingAgreements(tId);
+                
+                setNextPage("/viewEditTermsUsers.jsp");
+                setIsNextPageInContext(true);
             } else {
-                addError(Constants.TERMS_OF_USE_ID, "Could not retrieve the specified terms of use.");
+                throw new NavigationException("Terms of use id was not specified.");
             }
-
-            loadExistingAgreements(tId);
+        } catch (Exception e) {
+            throw new NavigationException("There was an unexpected error while processing the specified terms of use.", e);
         }
-        setNextPage("/viewEditTermsUsers.jsp");
-        setIsNextPageInContext(true);
     }
 
     private void loadExistingAgreements(String id) throws Exception {
