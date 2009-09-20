@@ -46,27 +46,38 @@ public class CreateTermsOfUseAgreement extends Base {
                     addError("ha", "You must enter a handle.");
                 }
 
-                Long userId;
-                try {
-                    userId = getUserIdFromHandle(handle);
-                } catch (Exception e) {
-                    throw new NavigationException("There was an unexpected error while retrieving specified user.", e);
+                if (!hasErrors()) {
+                    Long userId;
+                    try {
+                        userId = getUserIdFromHandle(handle);
+                    } catch (Exception e) {
+                        throw new NavigationException("There was an unexpected error while retrieving specified user.", e);
+                    }
+                    
+                    if (userId == null) {
+                        addError("ha", "The handle you entered doesn't exist. Please enter a valid handle.");
+                    }
+    
+                    if (!hasErrors()) {
+                        long termsId = Long.parseLong(tId);
+                        UserTermsOfUse userTermsOfUse = UserTermsOfUseLocator.getService();
+                        // check if the agreement already exists
+                        if (userTermsOfUse.hasTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
+                            addError("ha", "The agreement already exists for the specified handle.");
+                        }
+                        
+                        if (!hasErrors()) {
+                            try {
+                                userTermsOfUse.createUserTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                            } catch (Exception e) {
+                                throw new NavigationException("There was an unexpected error while generating.", e);
+                            }
+                            
+                            getRequest().setAttribute("message", "The agreement for " + handle + " was successfully generated.");
+                        }
+                    }
                 }
                 
-                if (userId == null) {
-                    addError("ha", "The handle you entered doesn't exist. Please enter a valid handle.");
-                }
-                
-                try {
-                    long termsId = Long.parseLong(tId);
-                    UserTermsOfUse userTermsOfUse = UserTermsOfUseLocator.getService();
-                    userTermsOfUse.createUserTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                } catch (Exception e) {
-                    throw new NavigationException("There was an unexpected error while generating.", e);
-                }
-                
-                getRequest().setAttribute("message", "The agreement for " + handle + " was successfully generated.");                
-
                 loadExistingAgreements(tId);
             } else {
                 throw new NavigationException("Terms of use id was not specified.");
