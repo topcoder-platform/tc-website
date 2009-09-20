@@ -28,6 +28,9 @@
 <%@ page import="com.topcoder.servlet.request.*" %>
 <%@ page import="com.topcoder.web.ejb.projectuser.ProjectUser" %>
 <%@ page import="com.topcoder.web.ejb.projectuser.ProjectUserHome" %>
+<%@ page import="com.topcoder.web.ejb.projectuser.ProjectUserEntity" %>
+<%@ page import="com.topcoder.web.common.WebConstants" %>
+
 <%@ page import="com.topcoder.shared.util.DBMS" %>
 <%@ page import="com.topcoder.shared.util.TCContext" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
@@ -170,10 +173,10 @@ public void auditTeamRoleAction(long projectId, TeamMemberRole role, long action
     	entity.setActionUserId(actionUserId);
     	entity.setResourceUserId(role.getUserId());
     	entity.setProjectId(projectId);
-    	entity.setActionDate(new Date());
+    	entity.setActionDate(new java.util.Date());
 		entity.setResourceRoleId(resourceRoleId);
     	entity.setAuditActionTypeId("ADD".equalsIgnoreCase(action) ? 
-			Constants.CREATE_AUDIT_ACTION_TYPE_ID : Constants.DELETE_AUDIT_ACTION_TYPE_ID);
+			WebConstants.CREATE_AUDIT_ACTION_TYPE_ID : WebConstants.DELETE_AUDIT_ACTION_TYPE_ID);
 
 		projectUserService.auditProjectUser(entity, DBMS.TCS_OLTP_DATASOURCE_NAME);
 
