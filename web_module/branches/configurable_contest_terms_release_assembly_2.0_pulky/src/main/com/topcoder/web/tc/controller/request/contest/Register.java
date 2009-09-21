@@ -67,14 +67,21 @@ import com.topcoder.web.common.NavigationException;
  * </p>
  *
  * <p>
- *   Version 1.2 (Configurable Contest Terms Release Assembly v1.0) Change notes:
+ *   Version 1.3 (Configurable Contest Terms Release Assembly v1.0) Change notes:
  *   <ol>
  *     <li>Added new functionality that asks for several terms of use and show those the user already agreed to.</li>
  *   </ol>
  * </p>
  *
- * @author dok, pulky
- * @version 1.2
+ * <p>
+ *   Version 1.4 (Configurable Contest Terms Release Assembly v2.0) Change notes:
+ *   <ol>
+ *     <li>Fixed bug where captcha was shown in each terms of use step.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky, TCSDEVELOPER
+ * @version 1.4
  */
 public class Register extends ViewRegistration {
 

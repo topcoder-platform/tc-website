@@ -88,7 +88,7 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *         <td>Version 1.6 (Configurable Contest Terms Release Assembly v2.0)</td>
  *         <td>
  *           <ul>
- *             <li>Updated <code>processTermsOfUse</code> to return both agreed and pending terms.</li>
+ *             <li>Updated <code>processTermsOfUse</code> to set both agreed and pending terms in the request.</li>
  *           </ul>
  *         </td>
  *     </tr> 
@@ -322,14 +322,14 @@ public abstract class Base extends ShortHibernateProcessor {
      * @param projectId the project id the user is registering to
      * @param userId the user id that is requesting the registration
      * 
+     * @return true if the user has pending terms to agree to
+     * 
      * @throws NamingException if any errors occur during EJB lookup
      * @throws RemoteException if any errors occur during EJB remote invocation
      * @throws CreateException if any errors occur during EJB creation
      * @throws EJBException if any other errors occur while invoking EJB services
      * 
-     * @return true if the user has pending terms to agree to
-     * 
-     * @since 1.4
+     * @since 1.3
      */
     protected boolean processTermsOfUse(String projectId, long userId, int[] roleIds)
             throws NamingException, RemoteException, CreateException, EJBException {

@@ -32,23 +32,9 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.common.error.RequestRateExceededException;
 import com.topcoder.web.common.throttle.Throttle;
-import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.web.ejb.termsofuse.TermsOfUseEntity;
 import com.topcoder.web.ejb.termsofuse.TermsOfUseLocator;
-import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.randomstringimg.InvalidConfigException;
-import com.topcoder.randomstringimg.ObfuscationException;
-import com.topcoder.randomstringimg.RandomStringImage;
-import com.topcoder.util.spell.ConfigException;
-
-import javax.ejb.CreateException;
-import javax.naming.InitialContext;
-import javax.rmi.PortableRemoteObject;
-import java.sql.Timestamp;
-import java.util.Map;
-import java.io.IOException;
-import java.io.FileOutputStream;
 
 /**
  * <p>Processor for the user requests to review the components.</p>
@@ -105,10 +91,15 @@ import java.io.FileOutputStream;
  *   <ol>
  *     <li>Added support for Specification review project types.</li>
  *   </ol>
+ *   
+ *   Version 1.0.10 (Configurable Contest Terms Release Assembly v2.0) Change notes:
+ *   <ol>
+ *     <li>Changed the processor so that a terms of use can be agreed to without any dependency to others.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, isv, pulky, snow01
- * @version 1.0.9
+ * @author dok, isv, pulky, snow01, TCSDEVELOPER
+ * @version 1.0.10
  */
 public class ProjectReviewApply extends Base {
     protected long projectId = 0;
@@ -216,6 +207,8 @@ public class ProjectReviewApply extends Base {
 
     /**
      * This method processes review application.
+     *
+     * Note: this method was modified so that a terms of use can be agreed to without any dependency to others.
      *
      * @param opensOn the time the review position opens
      * @param reviewTypeId the review type id

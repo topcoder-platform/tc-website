@@ -23,7 +23,7 @@
   - several terms of use and show those the reviewer already agreed to.
   -
   - Version 1.5 (Configurable Contest Terms Release Assembly v2.0) changes: Replaced textarea with iframe to show
-  - terms of use.
+  - terms of use and also added pending terms of use list so that each terms of use can be accepted separatedly.
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>

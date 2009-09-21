@@ -15,7 +15,7 @@
   - several terms of use and show those the user already agreed to.
   -
   - Version 1.4 (Configurable Contest Terms Release Assembly v2.0) changes: Replaced textarea with iframe to show
-  - terms of use.
+  - terms of use and also added pending terms of use list so that each terms of use can be accepted separatedly.
 --%>
 <%@ page language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -26,6 +26,7 @@
 <%@ page import="com.topcoder.web.common.model.SoftwareComponent" %>
 <%@ page import="com.topcoder.web.common.tag.AnswerInput" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
+<%@ page import="com.topcoder.web.common.BaseProcessor" %>
 <%@ page import="java.util.List" %>
 
 <%@ page contentType="text/html;charset=utf-8" %>
@@ -52,7 +53,7 @@
 <c:set value="<%=Constants.RIA_BUILD_PROJECT_TYPE%>" var="RIA_BUILD_PROJECT_TYPE"/>
 <c:set value="<%=Constants.RIA_COMPONENT_PROJECT_TYPE%>" var="RIA_COMPONENT_PROJECT_TYPE"/>
 <c:set value="<%=Constants.TERMS_OF_USE_ID%>" var="TERMS_OF_USE_ID"/>
-<c:set value="<%=com.topcoder.web.common.BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
+<c:set value="<%=BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
 <c:set value="<%=Constants.PROJECT_ID%>" var="PROJECT_ID"/>
 
 <body>

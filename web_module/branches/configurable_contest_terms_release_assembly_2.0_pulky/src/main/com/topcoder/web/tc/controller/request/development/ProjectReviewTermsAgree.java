@@ -44,15 +44,20 @@ import com.topcoder.web.tc.Constants;
  *   <ol>
  *     <li>Added new functionality that asks for several terms of use and show those the user already agreed to.</li>
  *   </ol>
-
-	 Version 1.0.4 (Specification Review Integration 1.0) Change notes:
+ *   
+ *   Version 1.0.4 (Specification Review Integration 1.0) Change notes:
  *   <ol>
  *     <li>Added apply logic to handle apply for specification review positions</li>
  *   </ol>
+ *   
+ *   Version 1.0.5 (Configurable Contest Terms Release Assembly v2.0) Change notes:
+ *   <ol>
+ *     <li>Fixed processor to redirect to the corresponding page based on project type.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, pulky, isv, pulky, snow01
- * @version 1.0.4
+ * @author dok, pulky, isv, snow01, TCSDEVELOPER
+ * @version 1.0.5
  */
 public class ProjectReviewTermsAgree extends ProjectReviewApply {
 

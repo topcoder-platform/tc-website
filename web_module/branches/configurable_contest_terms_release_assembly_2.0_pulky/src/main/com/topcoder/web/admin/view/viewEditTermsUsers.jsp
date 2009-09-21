@@ -1,11 +1,10 @@
 <%--
   - Author: TCSDEVELOPER
-  - Version: 1.1
+  - Version: 1.0 (Configurable Contest Terms Release Assembly v2.0)
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
-  - Description: This page lists terms of use.
-  -
-  - Version 1.1 (Configurable Contest Terms Release Assembly v1.0) changes: replaced terms_text by title.
+  - Description: This page lists all users that agreed to a particular terms of use and also presents a form to add
+  - new agreements
 --%>
 <%@ page import="com.topcoder.web.admin.Constants" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
@@ -15,6 +14,7 @@
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 
 <c:set value="<%=Constants.TERMS_OF_USE_ID%>" var="TERMS_OF_USE_ID"/>
+<c:set value="<%=Constants.HANDLE%>" var="HANDLE"/>
 
 <html>
 <head>
@@ -54,12 +54,16 @@
                                     </tr>
                                     <tr>
                                         <td align="left">
-                                            <strong><tc-webtag:errorIterator id="err" name="ha">${err}</tc-webtag:errorIterator></strong>
+                                            <strong>
+                                                <tc-webtag:errorIterator id="err" name="${HANDLE}">
+                                                    ${err}
+                                                </tc-webtag:errorIterator>
+                                            </strong>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td align="left">
-                                            Handle: <tc-webtag:textInput name="ha" size="100" maxlength="50"/>
+                                            Handle: <tc-webtag:textInput name="${HANDLE}" size="100" maxlength="50"/>
                                         </td>
                                     </tr>
                                     <tr>
@@ -80,11 +84,13 @@
                     
                                 <c:forEach items="${existing_agreements}" var="agreement" varStatus="status">
                                     <tr>
-                                        <td class="${status.index % 2 == 1? 'even' : 'odd'}">
+                                        <c:set value="${status.index % 2 == 1? 'even' : 'odd'}" var="tdClass"/>
+                                        <td class="${tcClass}">
                                             <tc-webtag:handle coderId='${agreement.map["user_id"]}'/>
                                         </td>
-                                        <td class="${status.index % 2 == 1? 'even' : 'odd'}">
-                                            <fmt:formatDate value="${agreement.map['create_date']}" pattern="MM.dd.yyyy HH:mm:ss"/>
+                                        <td class="${tcClass}">
+                                            <fmt:formatDate value="${agreement.map['create_date']}" 
+                                                pattern="MM.dd.yyyy HH:mm:ss"/>
                                         </td>
                                     </tr>
                                 </c:forEach>

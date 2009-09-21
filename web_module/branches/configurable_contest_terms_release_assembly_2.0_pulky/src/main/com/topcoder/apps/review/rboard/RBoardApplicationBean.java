@@ -3,6 +3,27 @@
  */
 package com.topcoder.apps.review.rboard;
 
+import java.rmi.RemoteException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.FieldPosition;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Locale;
+import java.util.Map;
+
+import javax.ejb.CreateException;
+import javax.ejb.EJBException;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.rmi.PortableRemoteObject;
+
 import com.topcoder.apps.review.persistence.Common;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
@@ -21,26 +42,6 @@ import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.ejb.forums.Forums;
 import com.topcoder.web.ejb.forums.ForumsHome;
-
-import javax.ejb.CreateException;
-import javax.ejb.EJBException;
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.rmi.PortableRemoteObject;
-import java.rmi.RemoteException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.text.DateFormat;
-import java.text.FieldPosition;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Locale;
-import java.util.Map;
 
 /**
  * <p>An implementation of the <code>RBoard EJB</code>.</p>
@@ -110,10 +111,15 @@ import java.util.Map;
  *   <ol>
  *     <li>Now the read permissions are assigned to the spec reviewer.</li>
  *   </ol>
+ *   
+ *   Version 1.0.13 (Configurable Contest Terms Release Assembly v2.0) Change notes:
+ *   <ol>
+ *     <li>Added audit information when a resource is saved. (reviewer registration)</li>
+ *   </ol>
  * </p>
  *
- * @author dok, ivern, isv, pulky, snow01, TCSASSEMBLER
- * @version 1.0.12
+ * @author dok, ivern, isv, pulky, snow01, TCSDEVELOPER
+ * @version 1.0.13
  */
 public class RBoardApplicationBean extends BaseEJB {
     private static final int INTERNAL_ADMIN_USER = 100129;
@@ -241,6 +247,24 @@ public class RBoardApplicationBean extends BaseEJB {
         "(primary reviewers must be failure reviewers, and " +
         "vice versa).";
 
+    /**
+     * This constant represents the project user audit creation type
+     *
+     * @since 1.0.13
+     */
+    private static final int PROJECT_USER_AUDIT_CREATE_TYPE = 1;
+
+    /**
+     * This constant represents the SQL for inserting project user audit records
+     *
+     * @since 1.0.13
+     */
+    private static final String SQL_INSERT_PROJECT_USER_AUDIT =
+        "INSERT INTO project_user_audit (project_user_audit_id, project_id, resource_user_id, " +
+            " resource_role_id, audit_action_type_id, action_date, action_user_id) " +
+            " VALUES (PROJECT_USER_AUDIT_SEQ.nextval, ?, ?, ?, ?, CURRENT, ?)";
+    
+    
     private static Logger log = Logger.getLogger(RBoardApplicationBean.class);
 
     /**
@@ -412,19 +436,7 @@ public class RBoardApplicationBean extends BaseEJB {
             Common.close(ps);
 
             // Audit resource addition
-            ps = conn.prepareStatement("insert into project_user_audit (project_user_audit_id, project_id, resource_user_id, " +
-                    " resource_role_id, audit_action_type_id, action_date, action_user_id) " +
-                    " values (PROJECT_USER_AUDIT_SEQ.nextval, ?, ?, ?, ?, CURRENT, ?)");
-
-            index = 1;
-            ps.setObject(index++, projectId);
-            ps.setObject(index++, userId);
-            ps.setLong(index++, resourceRoleId);
-            ps.setInt(index++, 1); // create
-            ps.setLong(index++, userId);
-
-            ps.executeUpdate();
-            Common.close(ps);
+            auditResourceAddition(conn, userId, projectId, resourceRoleId);
             
             // External Reference ID
             ps = conn.prepareStatement("INSERT INTO resource_info " +
@@ -1362,6 +1374,38 @@ public class RBoardApplicationBean extends BaseEJB {
     private String getProjectCategoryName(Connection conn, long projectTypeId) throws RowNotFoundException {
         return selectString(conn, "project_category_lu", "name", new String[]{"project_category_id"},
                             new String[] {String.valueOf(projectTypeId)});
+    }
+
+    /**
+     * This method will audit project user information. This information is generated when reviewers register.
+     * 
+     * @param conn the connection to database
+     * @param userId the user id being audited
+     * @param projectId the project id being audited
+     * @param userRoleId the user role id. Can be SUBMITTER_RESOURCE_ROLE_ID or MANAGER_RESOURCE_ROLE_ID.
+     * 
+     * @throws SQLException if any error occurs in the underlying layer
+     * 
+     * @since 1.0.13
+     */
+    private static void auditResourceAddition(Connection conn, long userId,
+            long projectId, long userRoleId) throws SQLException {
+        
+        PreparedStatement ps = null;
+        try {
+            ps = conn.prepareStatement(SQL_INSERT_PROJECT_USER_AUDIT);
+
+            int index = 1;
+            ps.setObject(index++, projectId);
+            ps.setObject(index++, userId);
+            ps.setLong(index++, userRoleId);
+            ps.setInt(index++, PROJECT_USER_AUDIT_CREATE_TYPE);
+            ps.setLong(index++, userId);
+
+            ps.executeUpdate();
+        } finally  {
+            Common.close(ps);
+        }
     }
 
     /**
