@@ -1,13 +1,18 @@
 <%--
-  - Author: pulky
+  - Author: pulky, TCSDEVELOPER
   - Date: 21 Jan 2009
-  - Version: 1.1
+  - Version: 1.2
   - Copyright (C) 2009 TopCoder Inc., All Rights Reserved.
   -
   - Description: Displays the Terms Of User for Design and Development Project Review and provides a form for the
   - user to accept the terms and submit the response to server to continue signing up for review.
+  -
   - Version 1.1 (Configurable Contest Terms Release Assembly v1.0) changes: Added new functionality that asks for
   - several terms of use and show those the reviewer already agreed to.
+  - 
+  - Version 1.2 (Configurable Contest Terms Release Assembly v2.0) changes: Replaced TEXTAREA element used for
+  - displaying the terms of use with the IFRAME element for displaying the terms
+
 --%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -86,8 +91,13 @@
                         </tr>
                         <tr>
                             <td>
+<%--
                                 <tc-webtag:textArea name="<%=Constants.TERMS%>" text="${terms.termsText}" rows="10"
                                     cols="80" readOnly="true" styleClass="bodyText"/>
+--%>
+                                <iframe width="590" height="300" marginWidth="5"
+                                    src="/tc?module=Terms&amp;${TERMS_OF_USE_ID}=${terms.id}">
+                                </iframe>
                             </td>
                         </tr>
                     </c:when>
