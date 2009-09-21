@@ -354,22 +354,27 @@
                 </p>
 
                 <p style="width: 510px;">
-                    <c:if test="${not empty terms}">
-                        <table>
-                        <tr>
-                        <c:set value="Go back" var="returnMessage"/>
-                        <c:if test="${terms.electronicallySignable == 1}">
+                    <c:choose>
+                        <c:when test="${not empty terms}">
+                            <table>
+                            <tr>
+                            <c:set value="Go back" var="returnMessage"/>
+                            <c:if test="${terms.electronicallySignable == 1}">
+                                <td>
+                                <a class="button" href="Javascript:document.regForm.submit();" style="width:60px;">Continue</a>
+                                </td>
+                                <c:set value="Cancel" var="returnMessage"/>
+                            </c:if>
                             <td>
-                            <a class="button" href="Javascript:document.regForm.submit();" style="width:60px;">Continue</a>
+                            <a class="button" href="/tc?module=ViewRegistration&${PROJECT_ID}=${requestScope[defaults][PROJECT_ID]}" style="width:60px;">${returnMessage}</a>
                             </td>
-                            <c:set value="Cancel" var="returnMessage"/>
-                        </c:if>
-                        <td>
-                        <a class="button" href="/tc?module=ViewRegistration&${PROJECT_ID}=${requestScope[defaults][PROJECT_ID]}" style="width:60px;">${returnMessage}</a>
-                        </td>
-                        </tr>
-                        </table>
-                    </c:if>
+                            </tr>
+                            </table>
+                        </c:when>
+                        <c:otherwise>
+                            <a class="button" href="Javascript:document.regForm.submit();" style="width:60px;">Register</a>
+                        </c:otherwise>
+                    </c:choose>
                 </p>
 
             </form>
