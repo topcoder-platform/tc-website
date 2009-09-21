@@ -5,11 +5,11 @@
 <c:set value="${requestScope[PAPER_TERMS]}" var="paperTerms"/>
 
 <ul>
-    <li>
-        <c:forEach var="term" items="${paperTerms}">
+    <c:forEach var="term" items="${paperTerms}">
+        <li>
             <c:out value="${term.title}"/> <a href="${term.url}">(Download)</a>
-        </c:forEach>
-    </li>
+        </li>
+    </c:forEach>
 </ul>
 
 <p>

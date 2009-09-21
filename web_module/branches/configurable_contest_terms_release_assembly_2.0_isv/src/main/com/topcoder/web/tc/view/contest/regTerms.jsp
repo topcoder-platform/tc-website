@@ -200,6 +200,7 @@
                     <c:when test="${not empty terms}">
                         <tc-webtag:hiddenInput name="<%=Constants.TERMS_OF_USE_ID%>" value="${terms.termsOfUseId}"/>
                     </c:when>
+                    <c:when test="${not empty paperTerms}">&nbsp;</c:when>
                     <c:otherwise>
                         <c:if test="${pt == DESIGN_PROJECT_TYPE || pt == DEVELOPMENT_PROJECT_TYPE}">
                             <tc:questionIterator list="<%=questionInfo%>" id="question">
@@ -241,7 +242,7 @@
                     <c:when test="${not empty terms}">
                         ${terms.title}<br/>
                         <iframe width="590" height="300" marginWidth="5"
-                            src="/tc?module=Terms&amp;${TERMS_OF_USE_ID}=${terms.id}">
+                            src="/tc?module=Terms&amp;${TERMS_OF_USE_ID}=${terms.termsOfUseId}">
                         </iframe>
                     </c:when>
                     <c:when test="${not empty paperTerms}">&nbsp;</c:when>

@@ -96,7 +96,7 @@
                         <tr>
                             <td>
                                 <iframe width="590" height="300" marginWidth="5"
-                                    src="/tc?module=Terms&amp;${TERMS_OF_USE_ID}=${terms.id}">
+                                    src="/tc?module=Terms&amp;${TERMS_OF_USE_ID}=${terms.termsOfUseId}">
                                 </iframe>
                             </td>
                         </tr>
