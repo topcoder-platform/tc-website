@@ -519,6 +519,8 @@ public class Register extends ViewRegistration {
             UserManagerRemoteHome userManagerHome =
                     (UserManagerRemoteHome) PortableRemoteObject.narrow(objUserManager, UserManagerRemoteHome.class);
             UserManagerRemote userManager = userManagerHome.create();
+            
+            System.err.println("HERE1");
 
             TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
 
@@ -532,6 +534,9 @@ public class Register extends ViewRegistration {
                 }
                 throw e;
             }
+            
+            System.err.println("HERE2");
+            
             
             // audit submitter
             auditSubmitterRegistration(projectId, getUser().getId());
