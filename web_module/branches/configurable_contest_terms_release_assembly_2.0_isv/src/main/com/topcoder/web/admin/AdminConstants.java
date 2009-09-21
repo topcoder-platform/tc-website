@@ -13,13 +13,27 @@ package com.topcoder.web.admin;
  *   </ol>
  * </p>
  *
- * @author dok, pulky
- * @version 1.1
+ * <p>
+ *   Version 1.2 (Configurable Contest Terms Release Assembly v2.0) Change notes:
+ *   <ol>
+ *     <li>Added constants to support new Add Agreement form.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky, TCSDEVELOPER
+ * @version 1.2
  */
 public interface AdminConstants {
     public static final String TERMS_OF_USE_ID = "tid";
     public static final String TERMS = "terms";
     public static final String TERMS_OF_USE_TYPE_ID = "ttid";
+
+    /**
+     * <p>A <code>String</code> providing the name for request parameter providing the user handle.</p>
+     *
+     * @since 1.2
+     */
+    public static final String HANDLE = "handle";
 
     /**
      * <p>

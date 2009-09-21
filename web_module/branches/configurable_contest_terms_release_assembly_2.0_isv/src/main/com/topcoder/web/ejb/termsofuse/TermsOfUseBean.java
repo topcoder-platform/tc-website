@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.rmi.RemoteException;
 
 import javax.ejb.EJBException;
 import javax.naming.InitialContext;
@@ -28,8 +29,15 @@ import com.topcoder.web.ejb.BaseEJB;
  *   </ol>
  * </p>
  *
- * @author pulky
- * @version 1.1
+ * <p>
+ *   Version 1.2 (Configurable Contest Terms Release Assembly v2.0) Change notes:
+ *   <ol>
+ *     <li>Added {@link #addUserAgreement(long, String, String)} method.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author pulky, TCSDEVELOPER
+ * @version 1.2
  */
 public class TermsOfUseBean extends BaseEJB {
 
@@ -343,4 +351,56 @@ public class TermsOfUseBean extends BaseEJB {
         }
     }
 
+    /**
+     * <p>Records the fact of agrrement of specified user to specified terms of use.</p>
+     *
+     * @param termsOfUseId a <code>long</code> containing the terms of use id to retrieve.
+     * @param handle a <code>String</code> providing the handle for the user.
+     * @param dataSource a <code>String</code> containing the datasource.
+     * @throws EJBException if EJB error occurs.
+     * @throws RemoteException if an unexpected error occurs.
+     * @throws AddAgreementException if an unexpected error occurs.
+     * @since 1.2
+     */
+    public void addUserAgreement(long termsOfUseId, String handle, String dataSource)
+        throws EJBException, RemoteException, AddAgreementException {
+        StringBuilder query = new StringBuilder();
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+
+        try {
+            conn = DBMS.getConnection(dataSource);
+            query.append("INSERT INTO user_terms_of_use_xref (user_id, terms_of_use_id, create_date, modify_date) ");
+            query.append("SELECT login_id, ");
+            query.append(termsOfUseId);
+            query.append(", CURRENT, CURRENT FROM security_user WHERE user_id = ?");
+
+            ps = conn.prepareStatement(query.toString());
+            ps.setString(1, handle);
+            int rc = ps.executeUpdate();
+            if (rc != 1) {
+                throw(new AddAgreementException(AddAgreementException.Reason.INVALID_USER));
+            }
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            if (sqle.getErrorCode() == -268) {
+                throw(new AddAgreementException(AddAgreementException.Reason.DUPLICATE_AGREEMENT));
+            } else if (sqle.getErrorCode() == -691) {
+                throw(new AddAgreementException(AddAgreementException.Reason.INVALID_TERMS));
+            } else {
+                throw(new EJBException(sqle.getMessage()));
+            }
+        } catch (Exception e) {
+            if (e instanceof AddAgreementException) {
+                throw (AddAgreementException) e;
+            } else {
+                e.printStackTrace();
+                throw(new EJBException(e.getMessage()));
+            }
+        } finally {
+            close(ps);
+            close(conn);
+        }
+    }
 }

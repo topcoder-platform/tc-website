@@ -1,11 +1,13 @@
 <%--
-  - Author: pulky
-  - Version: 1.1
+  - Author: pulky, TCSDEVELOPER
+  - Version: 1.2
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page lists terms of use.
   -
   - Version 1.1 (Configurable Contest Terms Release Assembly v1.0) changes: replaced terms_text by title.
+  - Version 1.2 (Configurable Contest Terms Release Assembly v2.0) changes: added column with links to list of users
+  - accepted the terms.
 --%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.web.admin.Constants" %>
@@ -36,6 +38,7 @@
                     <td class="header">Type</td>
                     <td class="header">Create Date</td>
                     <td class="header">Modify Date</td>
+                    <td class="header">&#160;</td>
                 </tr>
                 <% boolean even = false; %>
                 <rsc:iterator list="<%=termsList%>" id="terms">
@@ -50,6 +53,10 @@
                                                                      format="MM.dd.yyyy HH:mm:ss"/></td>
                         <td class="<%=even?"even":"odd"%>"><rsc:item row="<%=terms%>" name="modify_date"
                                                                      format="MM.dd.yyyy HH:mm:ss"/></td>
+                        <td class="<%=even?"even":"odd"%>">
+                            <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=TermsUsersList&<%=Constants.TERMS_OF_USE_ID%>=<rsc:item row="<%=terms%>" name="terms_of_use_id"/>">
+                                Users</a>
+                        </td>
                     </tr>
                     <% even = !even;%>
                 </rsc:iterator>

@@ -18,9 +18,16 @@ import java.rmi.RemoteException;
  *     <li>Deprecated old methods.</li>
  *   </ol>
  * </p>
+ * 
+ * <p>
+ *   Version 1.2 (Configurable Contest Terms Release Assembly v2.0) Change notes:
+ *   <ol>
+ *     <li>Added {@link #addUserAgreement(long, String, String)} method.</li>
+ *   </ol>
+ * </p>
  *
- * @author pulky
- * @version 1.1
+ * @author pulky, TCSDEVELOPER
+ * @version 1.2
  */
 public interface TermsOfUse extends EJBObject {
 
@@ -79,5 +86,19 @@ public interface TermsOfUse extends EJBObject {
      */
     void setText(long termsOfUseId, String text, String dataSource)
             throws EJBException, RemoteException;
+
+    /**
+     * <p>Records the fact of agrrement of specified user to specified terms of use.</p>
+     *
+     * @param termsOfUseId a <code>long</code> containing the terms of use id to retrieve.
+     * @param handle a <code>String</code> providing the handle for the user.
+     * @param dataSource a <code>String</code> containing the datasource.
+     * @throws EJBException if EJB error occurs.
+     * @throws RemoteException if an unexpected error occurs.
+     * @throws AddAgreementException if an unexpected error occurs.
+     * @since 1.2
+     */
+    void addUserAgreement(long termsOfUseId, String handle, String dataSource) throws AddAgreementException,
+                                                                                      EJBException, RemoteException;
 
 }
