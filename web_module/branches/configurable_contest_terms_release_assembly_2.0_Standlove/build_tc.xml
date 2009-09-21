@@ -1363,6 +1363,7 @@
                 <include name="PreferenceLevel.jar"/>
                 <include name="ProblemRatingServices.jar"/>
                 <include name="Project.jar"/>
+				<include name="ProjectUser.jar"/>
                 <include name="Reporting.jar"/>
                 <include name="ResumeServices.jar"/>
                 <include name="Survey.jar"/>
