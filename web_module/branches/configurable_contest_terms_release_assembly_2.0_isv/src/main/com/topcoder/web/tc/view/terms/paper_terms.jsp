@@ -14,7 +14,7 @@
 
 <p>
     You cannot agree to these terms electronically. You must print the terms and send a signed hard copy to TopCoder.
-    You can get a printer friendly version by clicking "Donwload" link.
+    You can get a printer friendly version by clicking "Download" link.
 </p>
 
 <p>
