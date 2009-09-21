@@ -33,9 +33,15 @@ package com.topcoder.web.common;
  *     <li>Added several constants to support Specification Review projects.</li>
  *   </ol>
  * </p>
+ * <p>
+ *   Version 1.5 (Configurable Contest Terms Release Assembly v2.0) Change notes:
+ *   <ol>
+ *     <li>Added new constant for paper terms attribute key.</li>
+ *   </ol>
+ * </p>
  *
- * @author dok, pulky, snow01
- * @version 1.4
+ * @author dok, pulky, snow01, TCSDEVELOPER
+ * @version 1.5
  */
 public interface WebConstants {
     public static final String HANDLE = "ha";
@@ -90,6 +96,14 @@ public interface WebConstants {
     public static final String EVENT_ID = "eid";
 
     public static final String TERMS = "terms";
+
+    /**
+     * <p>A <code>String</code> providing the name of request attribute which the list of paper terms can be bound to.
+     * </p>
+     *
+     * @since 1.5
+     */
+    public static final String PAPER_TERMS = "paperTerms";
 
     /**
      * <p>A <code>String</code> representing terms agree attribute key.</p>

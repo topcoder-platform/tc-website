@@ -15,7 +15,7 @@
   - several terms of use and show those the user already agreed to.
   -
   - Version 1.4 (Configurable Contest Terms Release Assembly v2.0) changes: Replaced TEXTAREA element used for
-  - displaying the terms of use with the IFRAME element for displaying the terms
+  - displaying the terms of use with the IFRAME element for displaying the terms.
 --%>
 <%@ page language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -54,6 +54,9 @@
 <c:set value="<%=Constants.UI_PROTOTYPE_PROJECT_TYPE%>" var="UI_PROTOTYPE_PROJECT_TYPE"/>
 <c:set value="<%=Constants.RIA_BUILD_PROJECT_TYPE%>" var="RIA_BUILD_PROJECT_TYPE"/>
 <c:set value="<%=Constants.RIA_COMPONENT_PROJECT_TYPE%>" var="RIA_COMPONENT_PROJECT_TYPE"/>
+<c:set value="<%=Constants.PAPER_TERMS%>" var="PAPER_TERMS"/>
+<c:set value="${requestScope[PAPER_TERMS]}" var="paperTerms"/>
+<c:set value="${requestScope.pt}" var="pt"/>
 
 <body>
 
@@ -237,13 +240,11 @@
                 <c:choose>
                     <c:when test="${not empty terms}">
                         ${terms.title}<br/>
-<%--
-                        <tc-webtag:textArea name="<%=Constants.TERMS%>" text="${terms.termsText}" rows="10" cols="60"/>
---%>
                         <iframe width="590" height="300" marginWidth="5"
                             src="/tc?module=Terms&amp;${TERMS_OF_USE_ID}=${terms.id}">
                         </iframe>
                     </c:when>
+                    <c:when test="${not empty paperTerms}">&nbsp;</c:when>
                     <c:otherwise>
                         <table>
                             <tr>
@@ -304,35 +305,32 @@
                 <p style="width: 510px;">
                     <c:if test="${(pt == DESIGN_PROJECT_TYPE || pt == DEVELOPMENT_PROJECT_TYPE) and not empty notRegistered}">
                         <span class="errorText">
-                         Please be aware that you are NOT REGISTERED for the tournament, and registering for this contest will not register you for the tournament.  If you don't register for the tournament prior to registering for this contest, it will not count in the tournament standings even if you sign up at a later date.
+                         Please be aware that you are NOT REGISTERED for the tournament, and registering for this
+                            contest will not register you for the tournament.  If you don't register for the tournament
+                            prior to registering for this contest, it will not count in the tournament standings even if
+                            you sign up at a later date.
                          </span><br /><br />
                     </c:if>
 
-                    <c:if test="${not empty terms}">
-                        <c:choose>
-                            <c:when test="${terms.electronicallySignable == 1}">
+                    <c:choose>
+                        <c:when test="${not empty terms}">
                                 <span class="errorText"><tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>"><%=err%>
-                                    <br /></tc-webtag:errorIterator></span>
-
-                                    I Agree to the Terms and Conditions stated above&#160;
-                                    <tc-webtag:chkBox name="<%=Constants.TERMS_AGREE%>"/>
-                            </c:when>
-                            <c:otherwise>
-                                <jsp:include page="/terms/paper_terms.jsp">
-                                    <jsp:param name="terms.url" value="terms.url"/>
-                                </jsp:include>
-                            </c:otherwise>
-                        </c:choose>
-                    </c:if>
+                                    <br/></tc-webtag:errorIterator></span>
+                            I Agree to the Terms and Conditions stated above&#160;
+                            <tc-webtag:chkBox name="<%=Constants.TERMS_AGREE%>"/>
+                        </c:when>
+                        <c:when test="${not empty paperTerms}">
+                            <jsp:include page="/terms/paper_terms.jsp"/>
+                        </c:when>
+                    </c:choose>
                 </p>
 
                 <p style="width: 510px;">
                     <c:choose>
                         <c:when test="${not empty terms}">
-                            <c:if test="${terms.electronicallySignable == 1}">
-                                <a class="button" href="Javascript:document.regForm.submit();" style="width:60px;">Continue</a>
-                            </c:if>
+                            <a class="button" href="Javascript:document.regForm.submit();" style="width:60px;">Continue</a>
                         </c:when>
+                        <c:when test="${not empty paperTerms}">&nbsp;</c:when>
                         <c:otherwise>
                             <a class="button" href="Javascript:document.regForm.submit();" style="width:60px;">Register</a>
                         </c:otherwise>

@@ -1,13 +1,17 @@
 <%--
-  - Author: pulky
+  - Author: pulky, TCSDEVELOPER
   - Date: 21 Jan 2009
-  - Version: 1.1
+  - Version: 1.2
   - Copyright (C) 2009 TopCoder Inc., All Rights Reserved.
   -
   - Description: Displays the Terms Of User for Architecture Project Review and provides a form for the user to accept
   - the terms and submit the response to server to continue signing up for review.
   - Version 1.1 (Configurable Contest Terms Release Assembly v1.0) changes: Added new functionality that asks for
   - several terms of use and show those the reviewer already agreed to.
+  -
+  - Version 1.2 (Configurable Contest Terms Release Assembly v2.0) changes: Replaced TEXTAREA element used for
+  - displaying the terms of use with the IFRAME element for displaying the terms. Updated the logic to show paper terms
+  - at once
 --%>
 <%@ page language="java" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -16,6 +20,8 @@
 
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set value="<%=Constants.PAPER_TERMS%>" var="PAPER_TERMS"/>
+<c:set value="${requestScope[PAPER_TERMS]}" var="paperTerms"/>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 
 <head>
@@ -70,8 +76,7 @@
                value="<%=request.getParameter(Constants.PROJECT_TYPE_ID)%>"/>
 
         <c:if test="${not empty terms}">
-            <input type="hidden" name="<%=Constants.TERMS_OF_USE_ID%>"
-                   value="${terms.termsOfUseId}"/>
+            <input type="hidden" name="<%=Constants.TERMS_OF_USE_ID%>" value="${terms.termsOfUseId}"/>
         </c:if>
 
         <table border="0" cellspacing="0" cellpadding="5">
@@ -84,11 +89,13 @@
                     </tr>
                     <tr>
                         <td>
-                            <tc-webtag:textArea name="<%=Constants.TERMS%>" text="${terms.termsText}" rows="10"
-                                cols="80" readOnly="true" styleClass="bodyText"/>
+                            <iframe width="590" height="300" marginWidth="5"
+                                src="/tc?module=Terms&amp;<%=Constants.TERMS_OF_USE_ID%>=${terms.id}">
+                            </iframe>
                         </td>
                     </tr>
                 </c:when>
+                <c:when test="${not empty paperTerms}">&nbsp;</c:when>
                 <c:otherwise>
                     <tr>
                         <td>
@@ -116,9 +123,8 @@
                     </tr>
                 </c:otherwise>
             </c:choose>
-            <c:if test="${not empty terms}">
                 <c:choose>
-                    <c:when test="${terms.electronicallySignable == 1}">
+                    <c:when test="${not empty terms}">
                         <tr>
                             <td class="errorText">
                                 <tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>">${err}
@@ -132,15 +138,12 @@
                             </td>
                         </tr>
                     </c:when>
-                    <c:otherwise>
-                        <jsp:include page="/terms/paper_terms.jsp">
-                            <jsp:param name="terms.url" value="terms.url"/>
-                        </jsp:include>
-                    </c:otherwise>
+                    <c:when test="${not empty paperTerms}">
+                        <jsp:include page="/terms/paper_terms.jsp"/>
+                    </c:when>
                 </c:choose>
-            </c:if>
 
-            <c:if test="${empty terms}">
+            <c:if test="${empty terms and empty paperTerms}">
                 <c:set var="captchaFileName" value="<%=Constants.CAPTCHA_FILE_NAME%>"/>
                 <tr>
                     <td class="errorText">
@@ -171,14 +174,13 @@
 
             <c:choose>
                 <c:when test="${not empty terms}">
-                    <c:if test="${terms.electronicallySignable == 1}">
-                        <tr>
-                            <td align="center">
-                                <input type="submit" onClick="" name="submit" value=" Continue"/>
-                            </td>
-                        </tr>
-                    </c:if>
+                    <tr>
+                        <td align="center">
+                            <input type="submit" onClick="" name="submit" value=" Continue"/>
+                        </td>
+                    </tr>
                 </c:when>
+                <c:when test="${not empty paperTerms}">&nbsp;</c:when>
                 <c:otherwise>
                     <tr>
                         <td align="center">

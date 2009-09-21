@@ -76,7 +76,7 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *           </ul>
  *         </td>
  *     </tr>
-		 <tr>
+ *	  <tr>
  *         <td>Version 1.5 (Specification Review Integration 1.0)</td>
  *         <td>
  *           <ul>
@@ -84,11 +84,19 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *           </ul>
  *         </td>
  *     </tr> 
+ *	  <tr>
+ *         <td>Version 1.6 (Configurable Contest Terms Release Assembly v2.0)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Updated <code>processTermsOfUse</code> to gather unaccepted paper terms at once.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
  *   </table>
  * </p>
  *
- * @author dok, isv, pulky, TCSASSEMBLER
- * @version 1.5
+ * @author dok, isv, pulky, TCSDEVELOPER
+ * @version 1.6
  */
 public abstract class Base extends ShortHibernateProcessor {
     /**
@@ -336,9 +344,10 @@ public abstract class Base extends ShortHibernateProcessor {
                 roleIds, DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
         List<TermsOfUseEntity> termsAgreed = new ArrayList<TermsOfUseEntity>();
+        List<TermsOfUseEntity> paperTermsToAgree = new ArrayList<TermsOfUseEntity>();
 
-        boolean hasPendingTerms = false;
-        for (int i = 0; i < necessaryTerms.size() && !hasPendingTerms; i++) {
+        boolean hasPendingElectronicallySignableTerms = false;
+        for (int i = 0; i < necessaryTerms.size() && !hasPendingElectronicallySignableTerms; i++) {
             Long termsId = necessaryTerms.get(i);
 
             // get terms of use
@@ -346,18 +355,25 @@ public abstract class Base extends ShortHibernateProcessor {
 
             // check if the user has this terms
             if (!userTermsOfUse.hasTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
-                hasPendingTerms = true;
-                getRequest().setAttribute(Constants.TERMS, terms);
+                if (1 == terms.getElectronicallySignable()) {
+                    hasPendingElectronicallySignableTerms = true;
+                    getRequest().setAttribute(Constants.TERMS, terms);
+                } else {
+                    paperTermsToAgree.add(terms);
+                }
             } else {
                 termsAgreed.add(terms);
             }
         }
 
-        if (!hasPendingTerms) {
+        boolean hasPendingPaperTerms = !paperTermsToAgree.isEmpty();
+        if (!hasPendingElectronicallySignableTerms && !hasPendingPaperTerms) {
             getRequest().setAttribute(Constants.TERMS_AGREED, termsAgreed);
+        } else if (hasPendingPaperTerms) {
+            getRequest().setAttribute(Constants.PAPER_TERMS, paperTermsToAgree);
         }
         
-        return hasPendingTerms;
+        return hasPendingElectronicallySignableTerms || hasPendingPaperTerms;
     }
 
     /**
