@@ -43,7 +43,6 @@
             <div id="wrapperContent">
                 
                 <div id="wrapperContentInner">
-                
                     <jsp:include page="../../header.jsp"/>
                     
                     <jsp:include page="../../mainNav.jsp" >
@@ -82,6 +81,8 @@
                                                         <div>
                                                             <div class="pageContent">
                                                                 <h2 class="title">Facebook</h2>
+                                                                
+                                                                <h3 class="subtitle"><a href="tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=sponsors&d5=sponsor3-chat">TCO Chat Session Transcript</a></h3>
                                                                 	<p><object width="576" height="324" ><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://www.facebook.com/v/183757000483" /><embed src="http://www.facebook.com/v/183757000483" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="576" height="324"></embed></object></p>
                                                                 	<p>Facebook is hiring brilliant engineers who like to build. Because we’re growing so quickly, there is enormous opportunity for individuals to have an impact and to grow as our service and our company grows. What matters here is what you contribute, not your credentials.</p>
                                                                 	<p>No one has ever done what we are trying to do at such speed and scale, and we do it all with less than two hundred engineers. Our active user to engineer ratio is over 1,000,000:1... and growing, and you just won’t get that personal impact at any other company.</p>
