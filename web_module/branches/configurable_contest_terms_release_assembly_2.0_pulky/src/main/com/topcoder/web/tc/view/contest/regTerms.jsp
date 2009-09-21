@@ -296,6 +296,11 @@
                                     </tr>
                                 </c:when>
                                 <c:otherwise>
+                                    <c:if test="${(pt == DESIGN_PROJECT_TYPE || pt == DEVELOPMENT_PROJECT_TYPE) and not empty notRegistered}">
+                                        <span class="errorText">
+                                         Please be aware that you are NOT REGISTERED for the tournament, and registering for this contest will not register you for the tournament.  If you don't register for the tournament prior to registering for this contest, it will not count in the tournament standings even if you sign up at a later date.
+                                         </span><br /><br />
+                                    </c:if>
                                     <c:set var="captchaFileName" value="<%=Constants.CAPTCHA_FILE_NAME%>"/>
                                         <tr>
                                         <td class="errorText">
@@ -329,12 +334,6 @@
                 </c:choose>
 
                 <p style="width: 510px;">
-                    <c:if test="${(pt == DESIGN_PROJECT_TYPE || pt == DEVELOPMENT_PROJECT_TYPE) and not empty notRegistered}">
-                        <span class="errorText">
-                         Please be aware that you are NOT REGISTERED for the tournament, and registering for this contest will not register you for the tournament.  If you don't register for the tournament prior to registering for this contest, it will not count in the tournament standings even if you sign up at a later date.
-                         </span><br /><br />
-                    </c:if>
-
                     <c:if test="${not empty terms}">
                         <c:choose>
                             <c:when test="${terms.electronicallySignable == 1}">
