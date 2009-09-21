@@ -56,6 +56,17 @@
 <c:set value="<%=BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
 <c:set value="<%=Constants.PROJECT_ID%>" var="PROJECT_ID"/>
 
+<c:choose>
+    <c:when test="${pt == DESIGN_PROJECT_TYPE || pt == DEVELOPMENT_PROJECT_TYPE}">
+        <c:set value="ProjectRegister" var="registrationModule"/>
+        <c:set value="ViewProjectRegistration" var="viewRegistrationModule"/>
+    </c:when>
+    <c:otherwise>
+        <c:set value="Register" var="registrationModule"/>
+        <c:set value="ViewRegistration" var="viewRegistrationModule"/>
+    </c:otherwise>
+</c:choose>
+
 <body>
 
 <jsp:include page="../top.jsp">
@@ -184,59 +195,13 @@
             </c:choose>
 
             <form action="${sessionInfo.servletPath}" method="POST" name="regForm">
-                <c:choose>
-                    <c:when test="${pt == DESIGN_PROJECT_TYPE || pt == DEVELOPMENT_PROJECT_TYPE}">
-                        <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ProjectRegister"/>
-                    </c:when>
-                    <c:otherwise>
-                        <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="Register"/>
-                    </c:otherwise>
-                </c:choose>
+                <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="${registrationModule}"/>
 
                 <tc-webtag:hiddenInput name="${PROJECT_ID}"/>
+
                 <c:choose>
                     <c:when test="${not empty terms}">
                         <tc-webtag:hiddenInput name="${TERMS_OF_USE_ID}" value="${terms.termsOfUseId}"/>
-                    </c:when>
-                    <c:otherwise>
-                        <c:if test="${pt == DESIGN_PROJECT_TYPE || pt == DEVELOPMENT_PROJECT_TYPE}">
-                            <tc:questionIterator list="<%=questionInfo%>" id="question">
-                                <table width="510" border="0" cellpadding="5" cellspacing="0" class="formFrame" align="center">
-                                    <tr>
-                                        <td colspan="2" class="bodySubtitle" valign="top" width="100%">
-                                            <jsp:getProperty name="question" property="text"/>
-                                            <br /><br />
-                                            <hr width="100%" size="1" noshade/>
-                                        </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2" class="errorText">
-                                            <tc-webtag:errorIterator id="err" name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%>
-                                                <br /></tc-webtag:errorIterator>
-                                        </td>
-                                    </tr>
-                                 <% boolean even = false; %>
-                                    <tc:answerInput id="answerInput" question="<%=question%>">
-                                        <tr class="<%=even?"formTextOdd":"formTextEven"%>">
-                                            <td width="100%">
-                                                <%=answerText%>
-                                            </td>
-                                            <td align="center">
-                                                <%=answerInput%>
-                                            </td>
-                                        </tr>
-                                        <% even = !even; %>
-                                    </tc:answerInput>
-                                </table>
-                                <p><br /></p>
-                            </tc:questionIterator>
-                        </c:if>
-                    </c:otherwise>
-                </c:choose>
-
-                <c:choose>
-                    <c:when test="${not empty terms}">
                         ${terms.title}<br/>
                         <iframe width="590" height="300" marginWidth="5"
                             src="${sessionInfo.servletPath}?module=Terms&amp;${TERMS_OF_USE_ID}=${terms.termsOfUseId}">
@@ -283,7 +248,7 @@
                                                 <ul>
                                                     <li>
                                                         ${terms_pending_item.title}
-                                                        <a href="/tc?module=ViewRegistration&${PROJECT_ID}=${requestScope[defaults][PROJECT_ID]}&tuid=${terms_pending_item.termsOfUseId}">(View and agree)</a>
+                                                        <a href="/tc?module=${viewRegistrationModule}&${PROJECT_ID}=${requestScope[defaults][PROJECT_ID]}&tuid=${terms_pending_item.termsOfUseId}">(View and agree)</a>
                                                     </li>
                                                 </ul>
                                             </c:forEach>
@@ -296,6 +261,39 @@
                                     </tr>
                                 </c:when>
                                 <c:otherwise>
+                                    <c:if test="${pt == DESIGN_PROJECT_TYPE || pt == DEVELOPMENT_PROJECT_TYPE}">
+                                        <tc:questionIterator list="<%=questionInfo%>" id="question">
+                                            <table width="510" border="0" cellpadding="5" cellspacing="0" class="formFrame" align="center">
+                                                <tr>
+                                                    <td colspan="2" class="bodySubtitle" valign="top" width="100%">
+                                                        <jsp:getProperty name="question" property="text"/>
+                                                        <br /><br />
+                                                        <hr width="100%" size="1" noshade/>
+                                                    </td>
+            
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" class="errorText">
+                                                        <tc-webtag:errorIterator id="err" name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%>
+                                                            <br /></tc-webtag:errorIterator>
+                                                    </td>
+                                                </tr>
+                                             <% boolean even = false; %>
+                                                <tc:answerInput id="answerInput" question="<%=question%>">
+                                                    <tr class="<%=even?"formTextOdd":"formTextEven"%>">
+                                                        <td width="100%">
+                                                            <%=answerText%>
+                                                        </td>
+                                                        <td align="center">
+                                                            <%=answerInput%>
+                                                        </td>
+                                                    </tr>
+                                                    <% even = !even; %>
+                                                </tc:answerInput>
+                                            </table>
+                                            <p><br /></p>
+                                        </tc:questionIterator>
+                                    </c:if>
                                     <c:if test="${(pt == DESIGN_PROJECT_TYPE || pt == DEVELOPMENT_PROJECT_TYPE) and not empty notRegistered}">
                                         <span class="errorText">
                                          Please be aware that you are NOT REGISTERED for the tournament, and registering for this contest will not register you for the tournament.  If you don't register for the tournament prior to registering for this contest, it will not count in the tournament standings even if you sign up at a later date.
@@ -365,13 +363,15 @@
                                 <c:set value="Cancel" var="returnMessage"/>
                             </c:if>
                             <td>
-                            <a class="button" href="/tc?module=ViewRegistration&${PROJECT_ID}=${requestScope[defaults][PROJECT_ID]}" style="width:60px;">${returnMessage}</a>
+                            <a class="button" href="/tc?module=${viewRegistrationModule}&${PROJECT_ID}=${requestScope[defaults][PROJECT_ID]}" style="width:60px;">${returnMessage}</a>
                             </td>
                             </tr>
                             </table>
                         </c:when>
                         <c:otherwise>
-                            <a class="button" href="Javascript:document.regForm.submit();" style="width:60px;">Register</a>
+                            <c:if test="${empty terms_pending}">
+                                <a class="button" href="Javascript:document.regForm.submit();" style="width:60px;">Register</a>
+                            </c:if>
                         </c:otherwise>
                     </c:choose>
                 </p>
