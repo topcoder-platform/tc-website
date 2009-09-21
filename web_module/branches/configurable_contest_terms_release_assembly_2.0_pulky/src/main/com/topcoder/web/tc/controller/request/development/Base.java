@@ -310,8 +310,9 @@ public abstract class Base extends ShortHibernateProcessor {
 
         // check if the user agreed to all terms of use
         UserTermsOfUse userTermsOfUse = UserTermsOfUseLocator.getService();
-
-        userTermsOfUse.createUserTermsOfUse(userId, termsOfUseId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+        if (!userTermsOfUse.hasTermsOfUse(userId, termsOfUseId, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
+            userTermsOfUse.createUserTermsOfUse(userId, termsOfUseId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+        }
     }
 
     /**
