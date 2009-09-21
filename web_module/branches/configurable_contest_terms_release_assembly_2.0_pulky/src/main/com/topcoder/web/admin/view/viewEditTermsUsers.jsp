@@ -8,7 +8,7 @@
 --%>
 <%@ page import="com.topcoder.web.admin.Constants" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>                 
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
@@ -75,13 +75,13 @@
                             </form>
                             <br/>
                             <hr/>
-                            <p>Existing Agreements:</p>                            
+                            <p>Existing Agreements:</p>
                             <table>
                                 <tr>
                                     <td class="header">Handle</td>
                                     <td class="header">Timestamp</td>
                                 </tr>
-                    
+
                                 <c:forEach items="${existing_agreements}" var="agreement" varStatus="status">
                                     <tr>
                                         <c:set value="${status.index % 2 == 1? 'even' : 'odd'}" var="tdClass"/>
@@ -89,7 +89,7 @@
                                             <tc-webtag:handle coderId='${agreement.map["user_id"]}'/>
                                         </td>
                                         <td class="${tcClass}">
-                                            <fmt:formatDate value="${agreement.map['create_date']}" 
+                                            <fmt:formatDate value="${agreement.map['create_date']}"
                                                 pattern="MM.dd.yyyy HH:mm:ss"/>
                                         </td>
                                     </tr>

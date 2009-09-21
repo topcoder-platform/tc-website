@@ -295,19 +295,19 @@
                                         </td>
                                     </tr>
                                 </c:when>
-                                <c:otherwise>                                    
+                                <c:otherwise>
                                     <c:set var="captchaFileName" value="<%=Constants.CAPTCHA_FILE_NAME%>"/>
                                         <tr>
                                         <td class="errorText">
                                             <img src="/i/captcha/${requestScope[captchaFileName]}" alt="captcha image"/>
-                
+
                                          <p>
                                              <a href="javascript:window.location.reload()">This image is hard to read. Show me a different
                                                     one.</a>
                                             </p>
                                         </td>
                                       </tr>
-        
+
                                       <tr>
                                         <td class="errorText">
                                           <tc-webtag:errorIterator id="err" name="<%=Constants.CAPTCHA_RESPONSE%>">${err}

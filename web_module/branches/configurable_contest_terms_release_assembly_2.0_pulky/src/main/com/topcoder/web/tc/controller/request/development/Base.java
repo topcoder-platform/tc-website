@@ -83,7 +83,7 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *             <li>Updated <code>isProjectTypeSupported</code> to support specification review projects.</li>
  *           </ul>
  *         </td>
- *     </tr> 
+ *     </tr>
  *     <tr>
  *         <td>Version 1.6 (Configurable Contest Terms Release Assembly v2.0)</td>
  *         <td>
@@ -91,7 +91,7 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *             <li>Updated <code>processTermsOfUse</code> to set both agreed and pending terms in the request.</li>
  *           </ul>
  *         </td>
- *     </tr> 
+ *     </tr>
  *   </table>
  * </p>
  *
@@ -110,7 +110,7 @@ public abstract class Base extends ShortHibernateProcessor {
      * Constant containing primary reviewer role ids
      *
      * Note: first item is just a placeholder. It will be filled with the corresponding review role id.
-     * Note2: there is "similar" logic in RBoardApplicationBean. It is recommended to rewrite that method to be 
+     * Note2: there is "similar" logic in RBoardApplicationBean. It is recommended to rewrite that method to be
      * able to extract the logic. Then, it should be possible to reuse it here.
      *
      * @since 1.3
@@ -321,14 +321,14 @@ public abstract class Base extends ShortHibernateProcessor {
      *
      * @param projectId the project id the user is registering to
      * @param userId the user id that is requesting the registration
-     * 
+     *
      * @return true if the user has pending terms to agree to
-     * 
+     *
      * @throws NamingException if any errors occur during EJB lookup
      * @throws RemoteException if any errors occur during EJB remote invocation
      * @throws CreateException if any errors occur during EJB creation
      * @throws EJBException if any other errors occur while invoking EJB services
-     * 
+     *
      * @since 1.3
      */
     protected boolean processTermsOfUse(String projectId, long userId, int[] roleIds)
@@ -361,7 +361,7 @@ public abstract class Base extends ShortHibernateProcessor {
         }
         getRequest().setAttribute(Constants.TERMS_AGREED, termsAgreed);
         getRequest().setAttribute(Constants.TERMS_PENDING, termsPending);
-        
+
         return termsPending.size() > 0;
     }
 
@@ -399,7 +399,7 @@ public abstract class Base extends ShortHibernateProcessor {
         return roleIds;
     }
 
-	/**
+    /**
      * <p>Checks whether the specified project type requested by client is currently supported by this controller
      * or not.</p>
      *

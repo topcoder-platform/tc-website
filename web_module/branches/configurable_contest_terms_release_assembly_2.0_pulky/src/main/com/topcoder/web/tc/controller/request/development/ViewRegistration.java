@@ -102,13 +102,13 @@ public class ViewRegistration extends Base {
                 // check if a specific terms was requested
                 if (!"".equals(termsOfUseId)) {
                     // get the terms of use and add it to the request
-                    TermsOfUseEntity terms =  TermsOfUseLocator.getService().getEntity(Long.parseLong(termsOfUseId), 
+                    TermsOfUseEntity terms =  TermsOfUseLocator.getService().getEntity(Long.parseLong(termsOfUseId),
                         DBMS.COMMON_OLTP_DATASOURCE_NAME);
                     getRequest().setAttribute(Constants.TERMS, terms);
                 } else {
                     // process terms of use
                     processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS);
-    
+
                     //we're assuming that if we're here, we got a valid project id
                     loadCaptcha();
                 }

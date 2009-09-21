@@ -6,7 +6,7 @@
   - Description: This page lists terms of use.
   -
   - Version 1.1 (Configurable Contest Terms Release Assembly v1.0) changes: replaced terms_text by title.
-  - Version 1.2 (Configurable Contest Terms Release Assembly v2.0) changes: added a new column that links to a new 
+  - Version 1.2 (Configurable Contest Terms Release Assembly v2.0) changes: added a new column that links to a new
   - page showing the users that agreed to that particular terms of use.
 --%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,

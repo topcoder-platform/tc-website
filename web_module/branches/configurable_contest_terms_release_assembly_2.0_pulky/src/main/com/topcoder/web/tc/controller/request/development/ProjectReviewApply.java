@@ -91,7 +91,7 @@ import com.topcoder.web.tc.Constants;
  *   <ol>
  *     <li>Added support for Specification review project types.</li>
  *   </ol>
- *   
+ *
  *   Version 1.0.10 (Configurable Contest Terms Release Assembly v2.0) Change notes:
  *   <ol>
  *     <li>Changed the processor so that a terms of use can be agreed to without any dependency to others.</li>
@@ -116,11 +116,11 @@ public class ProjectReviewApply extends Base {
 
     /**
      * Processes the review position apply on the project.
-     * 
+     *
      * Updated for Specification Review Integration 1.0
      *      - Now specification review projects are also included in validating supported project type.
-     *      - specification review project type is handled. 
-     * 
+     *      - specification review project type is handled.
+     *
      * @throws TCWebException if any error occurs during processing.
      */
     @SuppressWarnings("unchecked")
@@ -143,9 +143,9 @@ public class ProjectReviewApply extends Base {
                 //we'll use the existing command, it's overkill, but we're probably not
                 //talking high volume here
                 Request r = new Request();
-                
+
                 ResultSetContainer detail=null;
-                
+
                 if (phaseId > Constants.SPECIFICATION_COMPETITION_OFFSET) {
                     r.setContentHandle("spec_review_project_detail");
                     r.setProperty(Constants.PROJECT_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
@@ -159,9 +159,9 @@ public class ProjectReviewApply extends Base {
                     Map results = getDataAccess().getData(r);
                     detail = (ResultSetContainer) results.get("review_project_detail");
                 }
-                
+
                 int catalog = detail.getIntItem(0, "category_id");
-                
+
                 getRequest().setAttribute("phase_id", detail.getIntItem(0, "phase_id"));
 
                 rBoardApplication = createRBoardApplication();
@@ -222,14 +222,14 @@ public class ProjectReviewApply extends Base {
         String termsOfUseId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_ID));
         if (!"".equals(termsOfUseId)) {
             // get the terms of use and add it to the request
-            TermsOfUseEntity terms =  TermsOfUseLocator.getService().getEntity(Long.parseLong(termsOfUseId), 
+            TermsOfUseEntity terms =  TermsOfUseLocator.getService().getEntity(Long.parseLong(termsOfUseId),
                 DBMS.COMMON_OLTP_DATASOURCE_NAME);
             getRequest().setAttribute(Constants.TERMS, terms);
         } else {
             // get corresponding resource role ids
             int[] roleIds = getResourceRoleIds(reviewTypeId, primary);
             processTermsOfUse(String.valueOf(projectId), getUser().getId(), roleIds);
-    
+
             loadCaptcha();
         }
         setNextPage(getReviewTermsView(this.projectTypeId));
@@ -238,10 +238,10 @@ public class ProjectReviewApply extends Base {
 
     /**
      * Performs non transactional validation of the reviewer.
-     * 
+     *
      * Updated for Specification Review Integration 1.0
      *      - handles specification review project types.
-     *      - but RBoard validation happens as per the rules for parent project type only. 
+     *      - but RBoard validation happens as per the rules for parent project type only.
      *
      * @param catalog the catalog to validate
      * @param reviewTypeId the review type id to validate
@@ -249,7 +249,7 @@ public class ProjectReviewApply extends Base {
      */
     protected void nonTransactionalValidation(int catalog, int reviewTypeId) throws Exception {
         int type = Integer.parseInt(this.projectTypeId);
-        
+
         // for specification review we validate for the parent project type only.
         if (type > Constants.SPECIFICATION_COMPETITION_OFFSET) {
             type = type - Constants.SPECIFICATION_COMPETITION_OFFSET;
@@ -312,7 +312,7 @@ public class ProjectReviewApply extends Base {
 
     /**
      * Private helper method to decide if a project type should be validated with catalog or not
-     * 
+     *
      * Updated for Specification Review Integration 1.0
      *      - specification project type ids are included in validation.
      *

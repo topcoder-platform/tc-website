@@ -168,18 +168,18 @@
                                     </td>
                                 </tr>
                             </c:when>
-                            <c:otherwise>                                    
+                            <c:otherwise>
                                 <tr>
                                     <td class="errorText">
                                         <img src="/i/captcha/${requestScope[CAPTCHA_FILE_NAME]}" alt="captcha image"/>
-    
+
                                         <p>
                                             <a href="javascript:window.location.reload()">This image is hard to read.
                                                 Show me a different one.</a>
                                         </p>
                                     </td>
                                 </tr>
-    
+
                                 <tr>
                                     <td class="errorText">
                                         <tc-webtag:errorIterator id="err" name="${CAPTCHA_RESPONSE}">${err}

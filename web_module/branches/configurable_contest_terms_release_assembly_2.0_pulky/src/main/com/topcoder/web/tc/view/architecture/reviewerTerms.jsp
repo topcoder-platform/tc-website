@@ -166,7 +166,7 @@
                                 </td>
                             </tr>
                         </c:when>
-                        <c:otherwise>                                    
+                        <c:otherwise>
                             <tr>
                                 <td class="errorText">
                                     <img src="/i/captcha/${requestScope[CAPTCHA_FILE_NAME]}" alt="captcha image"/>

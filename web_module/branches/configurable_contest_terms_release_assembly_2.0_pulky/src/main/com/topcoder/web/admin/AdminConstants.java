@@ -14,7 +14,7 @@ package com.topcoder.web.admin;
  * </p>
  *
  * <p>
- *   Version 1.1 (Configurable Contest Terms Release Assembly v2.0) Change notes:
+ *   Version 1.2 (Configurable Contest Terms Release Assembly v2.0) Change notes:
  *   <ol>
  *     <li>Added "handle" request parameter name constants.</li>
  *   </ol>

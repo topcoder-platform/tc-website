@@ -120,7 +120,7 @@ public class ProjectUtil {
      * This method processes user inquiry for a particular project
      *
      * Note: since version 1.3, audit information is saved for resource.
-     * 
+     *
      * @param conn the <code>Connection</code> being used.
      * @param userId the user id to register.
      * @param projectId the project id the user is registering to.
@@ -326,7 +326,7 @@ public class ProjectUtil {
      * This method creates a project
      *
      * Note: since version 1.3, audit information is saved for resource.
-     * 
+     *
      * @param conn the connection
      * @param projectVersion the project version
      * @param compVersId the component version id
@@ -334,9 +334,9 @@ public class ProjectUtil {
      * @param modUserId the modifying user id
      * @param forumCategoryId the forum category id
      * @param price the price
-     * 
+     *
      * @return the created project id
-     * 
+     *
      * @throws SQLException if any error occurs in the underlying layer.
      * @throws BaseException if any business error occurs
      */
@@ -538,7 +538,7 @@ public class ProjectUtil {
 
         // Audit resource addition
         auditResourceAddition(conn, modUserId, projectId, MANAGER_RESOURCE_ROLE_ID);
-        
+
         // Clean up this variable for reuse - bblais
         ps = null;
         return projectId;
@@ -857,19 +857,19 @@ public class ProjectUtil {
     /**
      * This method will audit project user information. This information is generated when a project is
      * created or a user registers to a project.
-     * 
+     *
      * @param conn the connection to database
      * @param userId the user id being audited
      * @param projectId the project id being audited
      * @param userRoleId the user role id. Can be SUBMITTER_RESOURCE_ROLE_ID or MANAGER_RESOURCE_ROLE_ID.
-     * 
+     *
      * @throws SQLException if any error occurs in the underlying layer
-     * 
+     *
      * @since 1.3
      */
     private static void auditResourceAddition(Connection conn, long userId,
             long projectId, long userRoleId) throws SQLException {
-        
+
         PreparedStatement ps = null;
         try {
             ps = conn.prepareStatement(SQL_INSERT_PROJECT_USER_AUDIT);

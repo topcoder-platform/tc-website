@@ -162,7 +162,7 @@ public class Register extends ViewRegistration {
             throw new TCWebException(e);
         }
     }
-    
+
     protected void loadCaptcha() throws IOException, InvalidConfigException, ObfuscationException, ConfigException {
         RandomStringImage rsi = new RandomStringImage(Constants.RANDOM_STRING_IMAGE_CONFIG);
 
@@ -177,7 +177,7 @@ public class Register extends ViewRegistration {
         getRequest().getSession().setAttribute(Constants.CAPTCHA_WORD, word);
         getRequest().setAttribute(Constants.CAPTCHA_FILE_NAME, fileName);
     }
-    
+
     private boolean answeredCaptchaCorrectly() throws NavigationException {
         String response = StringUtils.checkNull(getRequest().getParameter(Constants.CAPTCHA_RESPONSE));
         String word = (String)getRequest().getSession().getAttribute(Constants.CAPTCHA_WORD);

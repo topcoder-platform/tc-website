@@ -17,7 +17,7 @@
   -
   - Version 1.3 (Specification Review Integration 1.0) changes:
   -      * support for specification reviews was added.
-  -      * code was refactored to avoid duplication.  
+  -      * code was refactored to avoid duplication.
   -
   - Version 1.4 (Configurable Contest Terms Release Assembly v1.0) changes: Added new functionality that asks for
   - several terms of use and show those the reviewer already agreed to.
@@ -170,18 +170,18 @@
                                                 </td>
                                             </tr>
                                         </c:when>
-                                        <c:otherwise>                                    
+                                        <c:otherwise>
                                             <tr>
                                                 <td class="errorText">
                                                     <img src="/i/captcha/${requestScope[CAPTCHA_FILE_NAME]}" alt="captcha image"/>
-            
+
                                                     <p>
                                                         <a href="javascript:window.location.reload()">This image is hard to read.
                                                             Show me a different one.</a>
                                                     </p>
                                                 </td>
                                             </tr>
-            
+
                                             <tr>
                                                 <td class="errorText">
                                                     <tc-webtag:errorIterator id="err" name="${CAPTCHA_RESPONSE}">${err}
