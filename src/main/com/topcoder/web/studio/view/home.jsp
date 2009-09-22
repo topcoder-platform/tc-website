@@ -113,7 +113,7 @@
                              </div>
                             <ul>
                                 <li>
-                                    <a href="http://www.topcoder.com/reg/"><img width="909" height="203" src="i/v4/6.png" alt="" /></a>
+                                    <a href="http://studio.topcoder.com/blog/?page_id=314"><img width="909" height="203" src="i/v4/4.png" alt="" /></a>
                                 </li>
                                 <li style="display:none" class="loadWorkaround">
                                     <a href="http://studio.topcoder.com/?module=ViewPastContests"><img width="909" height="203" src="i/v4/1.png" alt="" /></a>

@@ -1,3 +1,16 @@
+<%--
+  - Author: pulky
+  - Version: 1.1
+  - Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page presents specific contest details
+  -
+  - Version 1.1 (Studio Multi-Rounds Assembly - Studio Contest Details v1.0) changes:
+  -     - If the contest is a multi-round contest, display multi-round specific "Studio Tournament Format" information.
+  -       including total prize purse, round 1 and round 2 information.
+  -     - If the contest is a multi-round contest display "Milestone date" between the Start Date and End Date.
+  -     - If the contest is a multi-round contest display the milestone prize amount below the standard prize list.
+--%>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.studio.model.PrizeType" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -6,6 +19,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
 <c:set var="clientPrize" value="<%=PrizeType.BONUS%>"/>
+<c:set var="isMultiRound" value="${not empty contest.multiRound and contest.multiRound}"/>
 
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -18,59 +32,59 @@
         <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
-    
+
     <script src="/js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"></script>
     <script src="/js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
-	<script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
-	<script type="text/javascript" language="javascript">
+    <script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
+    <script type="text/javascript" language="javascript">
 
-	$(document).ready(function(){
-	
-	
-		$("#nav ul li").hoverIntent(function(){
-			$(this).children("ul").slideDown("fast");
-		}, function() {
-			$(this).children("ul").slideUp("fast");
-		});
-		
-		$("#nav ul ul li").hover(function() {
-			$(this).parents("#nav ul li").children('a').addClass("active-item");
-		}, function() {
-			$(this).parents("#nav ul li").children('a').removeClass("active-item");
-		});
-	
-	
-	});
-	</script>
+    $(document).ready(function(){
+
+
+        $("#nav ul li").hoverIntent(function(){
+            $(this).children("ul").slideDown("fast");
+        }, function() {
+            $(this).children("ul").slideUp("fast");
+        });
+
+        $("#nav ul ul li").hover(function() {
+            $(this).parents("#nav ul li").children('a').addClass("active-item");
+        }, function() {
+            $(this).parents("#nav ul li").children('a').removeClass("active-item");
+        });
+
+
+    });
+    </script>
 </head>
 
 <body>
-	<div id="page-wrap">
-    	<div align="center">
-			<jsp:include page="top.jsp">
-            	<jsp:param name="section" value="contest" />
-        	</jsp:include>
+    <div id="page-wrap">
+        <div align="center">
+            <jsp:include page="top.jsp">
+                <jsp:param name="section" value="contest" />
+            </jsp:include>
         <br />
 <%-- container --%>
 <div id="container">
-	<div id="wrapper">
-		
+    <div id="wrapper">
+
 <%-- content --%>
 <div id="content">
-	<div class="contentTop">
-		<div class="contentMiddle">
+    <div class="contentTop">
+        <div class="contentMiddle">
 
-			<div class="breadcrumb">
-				<c:choose>
-					<c:when test="${currentTime>contest.endTime}">
-						<a href="${sessionInfo.servletPath}?module=ViewPastContests">Past Contests</a> &gt;
-					</c:when>
-					<c:otherwise>
-						<a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a> &gt;
-					</c:otherwise>
-				</c:choose>
-				${contest.name}
-			</div>
+            <div class="breadcrumb">
+                <c:choose>
+                    <c:when test="${currentTime>contest.endTime}">
+                        <a href="${sessionInfo.servletPath}?module=ViewPastContests">Past Contests</a> &gt;
+                    </c:when>
+                    <c:otherwise>
+                        <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a> &gt;
+                    </c:otherwise>
+                </c:choose>
+                ${contest.name}
+            </div>
 <br />
 
 
@@ -83,45 +97,45 @@
 <br />
 
 <div style="float: right; width: 135px;">
-	<%-- ADDTHIS BUTTON BEGIN --%>
-	<script type="text/javascript">
-	addthis_pub = 'topcoderstudio';
-	addthis_brand = 'TopCoder Studio';
-	addthis_options = 'facebook, twitter, google, del.icio.us, stumbleupon, reddit, myspace, favorites, email';
-	</script>
-	<a href="http://www.addthis.com/bookmark.php" onMouseOver="return addthis_open(this, '', '[URL]', '[TITLE]')" onMouseOut="addthis_close()" onClick="return addthis_sendto()">
-	<img src="/i/v2/interface/btnShare.png" width="122" height="35" border="0" alt="Share" /></a>
-	<script type="text/javascript" src="http://s7.addthis.com/js/152/addthis_widget.js"></script>
-	<%-- ADDTHIS BUTTON END --%>
+    <%-- ADDTHIS BUTTON BEGIN --%>
+    <script type="text/javascript">
+    addthis_pub = 'topcoderstudio';
+    addthis_brand = 'TopCoder Studio';
+    addthis_options = 'facebook, twitter, google, del.icio.us, stumbleupon, reddit, myspace, favorites, email';
+    </script>
+    <a href="http://www.addthis.com/bookmark.php" onMouseOver="return addthis_open(this, '', '[URL]', '[TITLE]')" onMouseOut="addthis_close()" onClick="return addthis_sendto()">
+    <img src="/i/v2/interface/btnShare.png" width="122" height="35" border="0" alt="Share" /></a>
+    <script type="text/javascript" src="http://s7.addthis.com/js/152/addthis_widget.js"></script>
+    <%-- ADDTHIS BUTTON END --%>
 </div>
 
-	<%-- Visit Contest Forum Button --%>
+    <%-- Visit Contest Forum Button --%>
     <studio:forumLink forumID="${contest.forumId}" message="<img src='/i/v2/interface/btnContestForum.png' alt='Visit Contest Forum' />"/>
-	
-	<br /><br />
-	
-	<div style="float: right; width: 135px;">
-			<c:choose>
-				<c:when test="${not empty contest.results}">
-	        <a href="${sessionInfo.servletPath}?module=ViewContestResults&amp;<%=Constants.CONTEST_ID%>=${contest.id}"><img src='/i/v4/btnSeeWinners.png' alt='See the Winners' /></a>
-				</c:when>
-			  <c:otherwise>
-		    <img src='/i/v4/btnSeeWinnersDisabled.png' alt='See the Winners' />
-				</c:otherwise>
-			</c:choose>
+
+    <br /><br />
+
+    <div style="float: right; width: 135px;">
+            <c:choose>
+                <c:when test="${not empty contest.results}">
+            <a href="${sessionInfo.servletPath}?module=ViewContestResults&amp;<%=Constants.CONTEST_ID%>=${contest.id}"><img src='/i/v4/btnSeeWinners.png' alt='See the Winners' /></a>
+                </c:when>
+              <c:otherwise>
+            <img src='/i/v4/btnSeeWinnersDisabled.png' alt='See the Winners' />
+                </c:otherwise>
+            </c:choose>
     </div>
-    
+
     <c:choose>
         <c:when test="${currentTime>contest.endTime}">
-		    <a href="${sessionInfo.servletPath}?module=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}"><img src='/i/v4/btnViewSubmissions.png' alt='View Submissions' /></a>
+            <a href="${sessionInfo.servletPath}?module=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}"><img src='/i/v4/btnViewSubmissions.png' alt='View Submissions' /></a>
         </c:when>
         <c:otherwise>
-		    <img src='/i/v4/btnViewSubmissionsDisabled.png' alt='View Submissions' />
+            <img src='/i/v4/btnViewSubmissionsDisabled.png' alt='View Submissions' />
         </c:otherwise>
     </c:choose>
-	
-	<br /><br />
-		
+
+    <br /><br />
+
 <div class="section">Dates:</div>
 <div class="padder">
     <table cellpadding="0" cellspacing="0" class="conDetDates">
@@ -134,6 +148,18 @@
                     <tc-webtag:format object="${contest.startTime}" format="EEEE, MMMM d, yyyy '<br />at' HH:mm z" timeZone="${sessionInfo.timezone}"/>
                 </td>
             </tr>
+            <c:if test="${isMultiRound and not empty contest.multiRoundInformation
+                and not empty contest.multiRoundInformation.milestoneDate}">
+                <tr>
+                    <td class="field">
+                        Milestone Date:
+                    </td>
+                    <td class="value">
+                        <tc-webtag:format object="${contest.multiRoundInformation.milestoneDate}"
+                        format="EEEE, MMMM d, yyyy '<br />at' HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                    </td>
+                </tr>
+            </c:if>
             <tr>
                 <td class="field">
                     End Date:
@@ -161,8 +187,8 @@
     <c:choose>
         <c:when test="${fn:length(contest.documents)>0}">
             <c:choose>
-            
-            	<c:when test="${currentTime>contest.endTime}">
+
+                <c:when test="${currentTime>contest.endTime}">
                         <p>
                             <strong>Since this contest has ended all attached files are no longer available for viewing</strong>
                         </p>
@@ -176,9 +202,9 @@
                                 <br />${document.description}
                             </c:if>
                         </p>
-             		</c:forEach>
+                     </c:forEach>
                </c:when>
-            
+
            <%--     <c:when test="${registered || currentTime>contest.endTime}">
                     <c:forEach items="${contest.documents}" var="document">
                         <p>
@@ -188,12 +214,12 @@
                                 <br />${document.description}
                             </c:if>
                         </p>
-              </c:forEach> 
+              </c:forEach>
                 </c:when>  --%>
                 <c:otherwise>
                     <p align="center" class="bigRed">
                         You must register for the contest<br />to download any attached files.<br /><br />
-                        <a href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}" onfocus="this.blur();"><img src="/i/v2/interface/btnRegister.png" alt="Register" style="margin: 6px 0px 6px 0px;"/></a> 
+                        <a href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}" onfocus="this.blur();"><img src="/i/v2/interface/btnRegister.png" alt="Register" style="margin: 6px 0px 6px 0px;"/></a>
                     </p>
                 </c:otherwise>
             </c:choose>
@@ -251,7 +277,7 @@
 </div>
 
 <div class="contentDetails">
-	<table cellspacing="0" cellpadding="0" class="conDetIntro">
+    <table cellspacing="0" cellpadding="0" class="conDetIntro">
     <tbody>
         <tr>
             <td class="field">Contest Title:</td>
@@ -307,6 +333,16 @@
                 </c:forEach>
             </c:otherwise>
         </c:choose>
+        <c:if test="${isMultiRound and not empty contest.milestonePrize
+            and not empty contest.milestonePrize.numberOfSubmissions and not empty contest.milestonePrize.amount}">
+            <tr>
+                <td class="field">Milestone Prizes:</td>
+                <td class="value">
+                    ${contest.milestonePrize.numberOfSubmissions} milestone prizes worth
+                    <fmt:formatNumber value="${contest.milestonePrize.amount}" pattern="$###,###.00"/> each.
+                </td>
+            </tr>
+        </c:if>
         <c:if test="${fn:length(contest.digitalRunPoints.value)>0 and contest.digitalRunPoints.value != '0'}">
             <tr>
                 <td class="field">Studio Cup Points:<br /><br /></td>
@@ -319,7 +355,7 @@
 <c:if test="${currentTime<=contest.endTime && currentTime>=contest.startTime}">
     <div id="conDetInstructionsBox">
         <ul>
-        	<c:choose>
+            <c:choose>
                 <c:when test="${registered}">
                     <%-- REGISTERED --%>
                     <li>
@@ -386,51 +422,69 @@
 <p><b>Entries must be your original work, and must not infringe on the copyright or licenses of others. Stock art, clip art, templates and other design elements from other sources are prohibited unless specifically permitted here in the Contest Details.</b></p>
 
  <%-- Full Description and Project Guide --%>
-<c:if test="${not empty contest.fullDescription.value}">
+<c:if test="${not empty contest.fullDescription.value or isMultiRound}">
     <div class="header"><span>Full Description &amp; Project Guide</span></div>
-    <studio:formatField text="${contest.fullDescription.value}"/>
+    <c:if test="${isMultiRound and not empty contest.multiRoundInformation
+        and not empty contest.milestonePrize and not empty contest.multiRoundInformation.roundOneIntroduction
+        and not empty contest.multiRoundInformation.roundTwoIntroduction}">
+        <span class="subSection">Studio Tournament Format</span><br/>
+        This Studio competition will be run as a two-round tournament with a total prize purse of
+        <fmt:formatNumber value="${contest.totalPrizePurse}" pattern="$###,###.00"/>.
+        <br/><br/>
+        <span class="subSectionTitle">Round One (1)</span><br/>
+        <studio:formatField text="${contest.multiRoundInformation.roundOneIntroduction}"/>
+        <br/><br/>
+        <span class="subSectionTitle">Round Two (2)</span><br/>
+        <studio:formatField text="${contest.multiRoundInformation.roundTwoIntroduction}"/>
+        <br/>
+    </c:if>
+    <c:if test="${not empty contest.fullDescription.value}">
+        <p>
+        <studio:formatField text="${contest.fullDescription.value}"/>
+        </p>
+    </c:if>
 </c:if>
 
-<c:if test="${not empty contest.sizeRequirements.value or not empty contest.fontRequirements.value 
+<c:if test="${not empty contest.sizeRequirements.value or not empty contest.fontRequirements.value
              or not empty contest.colorRequirements.value or not empty contest.contentRequirements.value
              or not empty contest.otherRequirements.value}">
 
  <%-- Specific Contest Details --%>
 <div class="header"><span>Specific Contest Details</span></div>
-<div id="specific-details">  
-    <table cellpadding="0" cellspacing="0" border="0">
-		<tbody>
-			<c:if test="${not empty contest.sizeRequirements.value}">
-			<tr>
-				<td nowrap="nowrap" valign="top"><strong>Size:</strong></td>
-				<td><studio:formatField text="${contest.sizeRequirements.value}"/></td>
-			</tr>
-			</c:if>
-			<c:if test="${not empty contest.fontRequirements.value}">
-			<tr>
-				<td nowrap="nowrap" valign="top"><strong>Font:</strong></td>
-				<td><studio:formatField text="${contest.fontRequirements.value}"/></td>
-			</tr>
-			</c:if>
-			<c:if test="${not empty contest.colorRequirements.value}">
-			<tr>
-				<td nowrap="nowrap" valign="top"> <strong>Color:</strong></td>
-				<td><studio:formatField text="${contest.colorRequirements.value}"/></td>
-			</tr>
-			</c:if>
-			<c:if test="${not empty contest.contentRequirements.value}">
-			<tr>
-				<td nowrap="nowrap" valign="top"><strong>Content:</strong></td>
-				<td><studio:formatField text="${contest.contentRequirements.value}"/></td>
-			</tr>
-			</c:if>
-			<c:if test="${not empty contest.otherRequirements.value}">
-			<tr>
-				<td nowrap="nowrap" valign="top"><strong>Other:</strong></td>
-				<td><studio:formatField text="${contest.otherRequirements.value}"/></td>
-			</tr>
-			</c:if>
-		</tbody>
+<div id="specific-details">
+    <table cellpadding="0" cellspacing="10" border="0">
+        <tbody>
+            <c:if test="${not empty contest.sizeRequirements.value}">
+            <tr>
+                <td nowrap="nowrap" valign="top"><strong>Size:</strong></td>
+                <td><studio:formatField text="${contest.sizeRequirements.value}"/></td>
+            </tr>
+            </c:if>
+            <c:if test="${not empty contest.fontRequirements.value}">
+            <tr>
+                <td nowrap="nowrap" valign="top"><strong>Font:</strong></td>
+                <td><studio:formatField text="${contest.fontRequirements.value}"/></td>
+            </tr>
+            </c:if>
+            <c:if test="${not empty contest.colorRequirements.value}">
+            <tr>
+                <td nowrap="nowrap" valign="top"> <strong>Color:</strong></td>
+                <td><studio:formatField text="${contest.colorRequirements.value}"/></td>
+            </tr>
+            </c:if>
+            <c:if test="${not empty contest.contentRequirements.value}">
+            <tr>
+                <td nowrap="nowrap" valign="top"><strong>Content:</strong></td>
+                <td><studio:formatField text="${contest.contentRequirements.value}"/></td>
+            </tr>
+            </c:if>
+            <c:if test="${not empty contest.otherRequirements.value}">
+            <tr>
+                <td nowrap="nowrap" valign="top"><strong>Other:</strong></td>
+                <td><studio:formatField text="${contest.otherRequirements.value}"/></td>
+            </tr>
+            </c:if>
+        </tbody>
     </table>
 </div>
 </c:if>
@@ -438,16 +492,16 @@
 <%-- How to Submit --%>
 <div class="header"><span>How to Submit</span></div>
 <div id="how-to">
-	<ul>
-		<li>New to Studio? <A href="http://studio.topcoder.com/?module=Static&d1=support&d2=newMemberFaqs">Learn how to compete here</a>.
-		</li>
-		<li>Upload your submission in three parts (<A href="http://studio.topcoder.com/?module=Static&d1=support&d2=newMemberFaqs#QA_5-9">see this FAQs for more information</a>). Your design should be finalized and should contain only a single design concept (do not include multiple designs in a single submission).
-		</li>
-		<li>If your submission wins, your source files must be correct and "Final Fixes" (if applicable) must be completed before payment can be released.
-		</li>
-		<li>You may submit as many times as you'd like during the submission phase, but only the number of files listed above in the Submission Limit that you rank the highest will be considered. You can change the order of your submissions at any time during the submission phase. If you make revisions to your design, please delete submissions you are replacing.</li>
-		
-	</ul>
+    <ul>
+        <li>New to Studio? <A href="http://studio.topcoder.com/?module=Static&d1=support&d2=newMemberFaqs">Learn how to compete here</a>.
+        </li>
+        <li>Upload your submission in three parts (<A href="http://studio.topcoder.com/?module=Static&d1=support&d2=newMemberFaqs#QA_5-9">see this FAQs for more information</a>). Your design should be finalized and should contain only a single design concept (do not include multiple designs in a single submission).
+        </li>
+        <li>If your submission wins, your source files must be correct and "Final Fixes" (if applicable) must be completed before payment can be released.
+        </li>
+        <li>You may submit as many times as you'd like during the submission phase, but only the number of files listed above in the Submission Limit that you rank the highest will be considered. You can change the order of your submissions at any time during the submission phase. If you make revisions to your design, please delete submissions you are replacing.</li>
+
+    </ul>
 </div>
 
 
@@ -463,7 +517,7 @@ ${contest.prizeDescription.value}
 
 <div class="header"><span>Eligibility</span></div>
 <div id="eligibility">
-	<studio:formatField text="${contest.eligibility.value}"/>
+    <studio:formatField text="${contest.eligibility.value}"/>
 </div>
 <%--
 <c:choose>

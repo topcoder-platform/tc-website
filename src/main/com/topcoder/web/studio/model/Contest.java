@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.studio.model;
 
 import com.topcoder.web.common.model.Base;
@@ -13,11 +16,32 @@ import java.util.Set;
 import java.util.TreeSet;
 
 /**
- * @author dok, isv
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Jun 27, 2006
+ * <p>This class represents a Contest entity.</p>
+ *
+ * <p>
+ *   Version 1.1 (Studio Multi-Rounds Assembly - Studio Contest Details v1.0) Change notes:
+ *   <ol>
+ *     <li>Added Serial version UID.</li>
+ *     <li>Added multiRound, multiRoundInformation and milestonePrize attributes.</li>
+ *     <li>Added method to calculate and retrieve total prize purse.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, isv, pulky
+ * @version 1.1
  */
 public class Contest extends Base {
+
+    /**
+     * Serial version UID for this class.
+     *
+     * Please change that number if you affect the fields in a way that will affect the
+     * serialization for this object, i.e. when data members are changed.
+     * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
+     * @since 1.1
+     */
+    private static final long serialVersionUID = 1L;
+
     private Long id;
     private String name;
     private Timestamp startTime;
@@ -77,6 +101,27 @@ public class Contest extends Base {
      */
     private Set<Medium> mediums = new HashSet<Medium>();
 
+    /**
+     * A flag indicating whether the contest is a multi round contest
+     *
+     * @since 1.1
+     */
+    private Boolean multiRound;
+
+    /**
+     * The Contest's Multi Round Information
+     *
+     * @since 1.1
+     */
+    private ContestMultiRoundInformation multiRoundInformation;
+
+    /**
+     * The Contest's Milestone prize
+     *
+     * @since 1.1
+     */
+    private ContestMilestonePrize milestonePrize;
+
     public Long getId() {
         return id;
     }
@@ -132,6 +177,33 @@ public class Contest extends Base {
     public void setPrizes(Set<Prize> prizes) {
         this.prizes = prizes;
     }
+
+    /**
+     * Gets the contest's total prize purse. It will sum all regular and milestone prizes
+     *
+     * @return the contest's total prize purse
+     *
+     * @since 1.1
+     */
+    public Float getTotalPrizePurse() {
+        float total = 0;
+
+        // add all regular prizes
+        for (Prize p : prizes) {
+            if (p.getAmount() != null) {
+                total += p.getAmount();
+            }
+        }
+
+        // add milestone prizes
+        if (milestonePrize != null && milestonePrize.getAmount() != null &&
+            milestonePrize.getNumberOfSubmissions() != null) {
+            total += milestonePrize.getAmount() * milestonePrize.getNumberOfSubmissions();
+        }
+
+        return total;
+    }
+
 
     public void addConfig(ContestConfig config) {
         config.setContest(this);
@@ -547,4 +619,80 @@ public class Contest extends Base {
         return getConfig(ContestProperty.DIGITAL_RUN_POINTS);
     }
 
+    /**
+     * <p>Gets the flag representing whether the contest is a multi-round contest or not.</p>
+     *
+     * @return a <code>Boolean</code> representing whether the contest is a multi-round contest or not
+     *
+     * @since 1.1
+     */
+    public Boolean isMultiRound() {
+        return multiRound;
+    }
+
+    /**
+     * <p>Gets the flag representing whether the contest is a multi-round contest or not.</p>
+     *
+     * @return a <code>Boolean</code> representing whether the contest is a multi-round contest or not
+     *
+     * @since 1.1
+     */
+    public Boolean getMultiRound() {
+        return multiRound;
+    }
+
+    /**
+     * Sets the multi-round contest flag
+     *
+     * @param multiRound the multi-round contest flag value to set
+     *
+     * @since 1.1
+     */
+    public void setMultiRound(Boolean multiRound) {
+        this.multiRound = multiRound;
+    }
+
+    /**
+     * <p>Gets the Contest's Multi Round Information.</p>
+     *
+     * @return a <code>ContestMultiRoundInformation</code> representing Contest's Multi Round Information
+     *
+     * @since 1.1
+     */
+    public ContestMultiRoundInformation getMultiRoundInformation() {
+        return multiRoundInformation;
+    }
+
+    /**
+     * Sets the multi-round contest flag
+     *
+     * @param multiRoundInformation the Contest's Multi Round Information to set
+     *
+     * @since 1.1
+     */
+    public void setMultiRoundInformation(ContestMultiRoundInformation multiRoundInformation) {
+        this.multiRoundInformation = multiRoundInformation;
+    }
+
+    /**
+     * <p>Gets the Contest's Milestone prize.</p>
+     *
+     * @return a <code>ContestMilestonePrize</code> representing Contest's Milestone prize
+     *
+     * @since 1.1
+     */
+    public ContestMilestonePrize getMilestonePrize() {
+        return milestonePrize;
+    }
+
+    /**
+     * Sets the Contest's Milestone prize
+     *
+     * @param milestonePrize the Contest's Milestone prize to set
+     *
+     * @since 1.1
+     */
+    public void setMilestonePrize(ContestMilestonePrize milestonePrize) {
+        this.milestonePrize = milestonePrize;
+    }
 }
