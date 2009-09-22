@@ -31,9 +31,9 @@
         <div id="content_main">
             <div class="left_content">
                 <ul>
-                    <li><a class="button1" href="http://<%=ApplicationServer.SERVER_NAME%>/html/cockpit/landing_page/websites.html">WEB SITES</a></li>
-                    <li><a class="button1" href="http://<%=ApplicationServer.SERVER_NAME%>/html/cockpit/landing_page/logos.html">LOGO DESIGN</a></li>
-                    <li><a class="button2" href="http://<%=ApplicationServer.SERVER_NAME%>/html/cockpit/landing_page/print.html">PRINT DESIGN</a></li>
+                    <li><a class="button1" href="http://<%=ApplicationServer.SERVER_NAME%>/direct">WEB SITES</a></li>
+                    <li><a class="button1" href="http://<%=ApplicationServer.SERVER_NAME%>/direct">LOGO DESIGN</a></li>
+                    <li><a class="button2" href="http://<%=ApplicationServer.SERVER_NAME%>/direct">PRINT DESIGN</a></li>
                     <li><a class="button2" href="http://<%=ApplicationServer.SERVER_NAME%>/direct">APPLICATIONS</a></li>
                 </ul>
                 <a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/"><img class="startNow" src="/i/start_your_project_now.png" alt="start your project now" /></a>
