@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+  - Author: pulky
+  - Version: 1.0
+  - Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: Hibernate mapping file for contest_multi_round_information table
+  -
+  - Since: Studio Multi-Rounds Assembly - Studio Contest Details v1.0
+-->
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.studio.model">
+    <class name="ContestMultiRoundInformation" table="contest_multi_round_information">
+        <id name="id" column="contest_multi_round_information_id" type="long" unsaved-value="-1">
+            <generator class="sequence">
+                <param name="sequence">CONTEST_MULTI_ROUND_INFORMATION_SEQ</param>
+            </generator>
+        </id>
+
+        <property name="milestoneDate" column="milestone_date"/>
+        <property name="submittersLockedBetweenRounds" column="submitters_locked_between_rounds"/>
+        <property name="roundOneIntroduction" column="round_one_introduction"/>
+        <property name="roundTwoIntroduction" column="round_two_introduction"/>
+    </class>
+</hibernate-mapping>

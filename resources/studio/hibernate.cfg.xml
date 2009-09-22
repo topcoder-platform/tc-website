@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!--
-  - Author: TCSDEVELOPER
+  - Author: pulky
   - Version: 1.1
   - Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
   -
@@ -10,6 +10,8 @@
   - and ContestRoleTermsOfUse mappings.
   - Version 1.2 (Studio Release Assembly - Spec Review Sign up page v1.0) changes: Added PermissionType, SpecReview,
   - SpecReviewReviewer, SpecReviewStatus and UserPermissionGrant mappings.
+  - Version 1.3 (Studio Multi-Rounds Assembly - Studio Contest Details v1.0) changes: Added ContestMilestonePrize and
+  - ContestMultiRoundInformation mappings.
 -->
 <!DOCTYPE hibernate-configuration PUBLIC
         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
@@ -127,6 +129,8 @@
         <mapping resource="com/topcoder/web/studio/model/Contest.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ContestChannel.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ContestConfig.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/model/ContestMilestonePrize.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/model/ContestMultiRoundInformation.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ContestProperty.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ContestRegistration.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ContestResult.hbm.xml"/>
