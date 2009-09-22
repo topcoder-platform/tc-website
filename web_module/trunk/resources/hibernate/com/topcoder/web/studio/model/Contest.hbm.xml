@@ -1,4 +1,14 @@
 <?xml version="1.0"?>
+<!--
+  - Author: pulky
+  - Version: 1.1
+  - Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: Hibernate mapping file for contest table
+  -
+  - Version 1.1 (Studio Multi-Rounds Assembly - Studio Contest Details v1.0) changes: Added multiRound,
+  - multiRoundInformation and milestonePrize properties.
+-->
 <!DOCTYPE hibernate-mapping PUBLIC
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
@@ -52,5 +62,10 @@
             <key column="contest_id" not-null="true"/>
             <many-to-many column="medium_id" class="Medium"/>
         </set>
+        <property name="multiRound" type="boolean" column="is_multi_round"/>
+        <many-to-one name="multiRoundInformation" column="contest_multi_round_information_id"
+            class="ContestMultiRoundInformation"/>
+        <many-to-one name="milestonePrize" column="contest_milestone_prize_id" class="ContestMilestonePrize"/>
+
     </class>
 </hibernate-mapping>
