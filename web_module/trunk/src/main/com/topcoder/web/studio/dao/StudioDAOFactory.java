@@ -1,9 +1,23 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.studio.dao;
 
 /**
- * @author dok
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Jul 17, 2006
+ * <p>An interface for the DAO Factory.</p>
+ *
+ * <p>
+ *   Version 1.1 (Studio Multi-Rounds Assembly - Studio Contest Details v1.0) Change notes:
+ *   <ol>
+ *       Added method to get Contest Milestone Prize DAO
+ *   </ol>
+ *   <ol>
+ *       Added method to get Contest Multi Round Information DAO
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky
+ * @version 1.1
  */
 public interface StudioDAOFactory {
     ContestDAO getContestDAO();
@@ -34,7 +48,7 @@ public interface StudioDAOFactory {
     MimeTypeDAO getMimeTypeDAO();
 
     SubmissionStatusDAO getSubmissionStatusDAO();
-    
+
     /**
      * <p>Gets the DAO to be used for accessing/managing studio contest types.</p>
      *
@@ -61,4 +75,23 @@ public interface StudioDAOFactory {
      * @since TopCoder Studio Modifications Assembly v2 (Req# 5.1.5)
      */
     MediumDAO getMediumDAO();
+
+    /**
+     * <p>Gets the DAO to be used for accessing/managing contest milestone prize.</p>
+     *
+     * @return a <code>ContestMilestonePrizeDAO</code> to be used for accessing/managing contest milestone prize
+     * in underlying persistent data store.
+     * @since 1.1
+     */
+    ContestMilestonePrizeDAO getContestMilestonePrizeDAO();
+
+    /**
+     * <p>Gets the DAO to be used for accessing/managing contest multi round information.</p>
+     *
+     * @return a <code>ContestMultiRoundInformationDAO</code> to be used for accessing/managing contest multi round
+     * information in underlying persistent data store.
+     * @since 1.1
+     */
+    ContestMultiRoundInformationDAO getContestMultiRoundInformationDAO();
+
 }
