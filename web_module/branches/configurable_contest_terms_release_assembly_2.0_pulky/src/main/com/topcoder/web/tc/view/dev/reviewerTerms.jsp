@@ -21,6 +21,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
  <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 
+<%-- Variables to use JSTL --%>
+<c:set var="PROJECT_ID" value="<%=Constants.PROJECT_ID%>" scope="request"/>
+<c:set var="PROJECT_TYPE_ID" value="<%=Constants.PROJECT_TYPE_ID%>"/>
+<c:set var="REVIEWER_TYPE_ID" value="<%=Constants.REVIEWER_TYPE_ID%>"/>
+<c:set var="PRIMARY_FLAG" value="<%=Constants.PRIMARY_FLAG%>"/>
+<c:set var="TERMS_OF_USE_ID" value="<%=Constants.TERMS_OF_USE_ID%>"/>
+<c:set var="TERMS_AGREE" value="<%=Constants.TERMS_AGREE%>"/>
+<c:set var="CAPTCHA_RESPONSE" value="<%=Constants.CAPTCHA_RESPONSE%>"/>
+<c:set var="CAPTCHA_FILE_NAME" value="<%=Constants.CAPTCHA_FILE_NAME%>"/>
+<c:set var="projectType" value="${param[PROJECT_TYPE_ID]}" scope="request"/>
+
 <head>
 <title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
 
