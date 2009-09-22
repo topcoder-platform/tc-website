@@ -262,6 +262,8 @@
                                 </c:when>
                                 <c:otherwise>
                                     <c:if test="${pt == DESIGN_PROJECT_TYPE || pt == DEVELOPMENT_PROJECT_TYPE}">
+                                    <tr>
+                                        <td>
                                         <tc:questionIterator list="<%=questionInfo%>" id="question">
                                             <table width="510" border="0" cellpadding="5" cellspacing="0" class="formFrame" align="center">
                                                 <tr>
@@ -293,6 +295,8 @@
                                             </table>
                                             <p><br /></p>
                                         </tc:questionIterator>
+                                        </td>
+                                    </tr>
                                     </c:if>
                                     <c:if test="${(pt == DESIGN_PROJECT_TYPE || pt == DEVELOPMENT_PROJECT_TYPE) and not empty notRegistered}">
                                         <span class="errorText">
