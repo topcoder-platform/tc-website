@@ -41,7 +41,7 @@ public class CreateTermsOfUseAgreement extends Base {
             long termsId = TermsOfUseHelper.validateTermsOfUse(getRequest(), getInitialContext());
 
             // validate handle
-            long userId = validateHandle();
+            Long userId = validateHandle();
 
             // create agreement
             if (!hasErrors()) {
