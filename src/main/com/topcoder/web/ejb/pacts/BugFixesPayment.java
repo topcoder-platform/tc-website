@@ -93,7 +93,7 @@ public class BugFixesPayment extends ComponentProjectReferencePayment {
          */
         public String lookupDescription(BasePayment payment) throws SQLException {
             ComponentProjectReferencePayment p = (ComponentProjectReferencePayment) payment;
-            return getComponentName(p.getProjectId()) + " - Bug fixes";
+            return getComponentName(p.getProjectId()) + " - Bug Fixes";
         }
     }
 }
