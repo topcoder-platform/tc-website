@@ -118,15 +118,15 @@ public class PayReliabilityBonus extends DBUtility {
         log.info("Done. Bonus rows inserted: " + count);
     }
 
-    private double getReliabilityPercent(double reliability, Date reliabilityDate, long projectTypeId ) {
+    private double getReliabilityPercent(double reliability, Date reliabilityDate, long projectTypeId) {
         Date startDate = new Date();
         for (Date date : bonusTable.keySet()) {
             if (date.compareTo(reliabilityDate) > 0) break;
             startDate = date;
         }
         
-        TreeMap<Long, TreeMap<Double, Double>> categoryMap=bonusTable.get(startDate);
-        Long cId=new Long(0);
+        TreeMap<Long, TreeMap<Double, Double>> categoryMap = bonusTable.get(startDate);
+        Long cId = new Long(0);
         if (categoryMap.containsKey(new Long(projectTypeId))) {
             cId = new Long(projectTypeId);
         }
