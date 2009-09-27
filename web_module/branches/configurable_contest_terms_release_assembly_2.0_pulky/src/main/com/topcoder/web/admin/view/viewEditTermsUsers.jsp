@@ -1,5 +1,5 @@
 <%--
-  - Author: TCSDEVELOPER
+  - Author: pulky
   - Version: 1.0 (Configurable Contest Terms Release Assembly v2.0)
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
@@ -32,47 +32,47 @@
         <td>
             <c:choose>
                 <c:when test="${not empty ttit}">
-                    <p>Terms of use title: ${ttit}</p>
-                    <hr/>
-                    <form action="${sessionInfo.servletPath}" method="POST" name="createAgreementForm">
-                        <input type="hidden" name="module" value="CreateTermsOfUseAgreement"/>
-                        <tc-webtag:hiddenInput name="${TERMS_OF_USE_ID}" value="${tid}"/>
-                        <table>
-                            <c:if test="${not empty message}">
-                                <tr>
-                                    <td align="left">
-                                        <strong>${message}</strong>
-                                    </td>
-                                </tr>
-                            </c:if>
-                            <tr>
-                                <td align="left">
-                                    Add new agreement:
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="left">
-                                    <strong>
-                                        <tc-webtag:errorIterator id="err" name="${HANDLE}">
-                                            ${err}
-                                        </tc-webtag:errorIterator>
-                                    </strong>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="left">
-                                    Handle: <tc-webtag:textInput name="${HANDLE}" size="100" maxlength="50"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="left">
-                                    <input type="submit" name="submit" value="Add Agreement"/>
-                                </td>
-                            </tr>
-                        </table>
-                    </form>
-                    <br/>
-                    <hr/>
+                            <p>Terms of use title: ${ttit}</p>
+                            <hr/>
+                            <form action="${sessionInfo.servletPath}" method="POST" name="createAgreementForm">
+                                <input type="hidden" name="module" value="CreateTermsOfUseAgreement"/>
+                                <tc-webtag:hiddenInput name="${TERMS_OF_USE_ID}" value="${tid}"/>
+                                <table>
+                                    <c:if test="${not empty message}">
+                                        <tr>
+                                            <td align="left">
+                                                <strong>${message}</strong>
+                                            </td>
+                                        </tr>
+                                    </c:if>
+                                    <tr>
+                                        <td align="left">
+                                            Add new agreement:
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <strong>
+                                                <tc-webtag:errorIterator id="err" name="${HANDLE}">
+                                                    ${err}
+                                                </tc-webtag:errorIterator>
+                                            </strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            Handle: <tc-webtag:textInput name="${HANDLE}" size="100" maxlength="50"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <input type="submit" name="submit" value="Add Agreement"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </form>
+                            <br/>
+                            <hr/>
                     <c:choose>
                         <c:when test="${not empty existing_agreements}">
                             <p>Existing Agreements:</p>

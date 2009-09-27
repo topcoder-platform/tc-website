@@ -80,7 +80,7 @@ import com.topcoder.web.common.NavigationException;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, TCSDEVELOPER
+ * @author dok, pulky
  * @version 1.4
  */
 public class Register extends ViewRegistration {

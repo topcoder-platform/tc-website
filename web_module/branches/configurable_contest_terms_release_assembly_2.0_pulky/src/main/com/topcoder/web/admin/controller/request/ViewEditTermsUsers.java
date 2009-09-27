@@ -11,7 +11,7 @@ import com.topcoder.web.common.NavigationException;
  *
  * This processor handles a detailed terms of use agreement view requested from the terms of use administration page.
  *
- * @author TCSDEVELOPER
+ * @author pulky
  * @version 1.0 (Configurable Contest Terms Release Assembly v2.0)
  */
 public class ViewEditTermsUsers extends Base {

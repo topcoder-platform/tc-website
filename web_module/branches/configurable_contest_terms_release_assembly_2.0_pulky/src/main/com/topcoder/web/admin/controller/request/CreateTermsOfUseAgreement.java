@@ -19,7 +19,7 @@ import com.topcoder.web.ejb.user.UserTermsOfUseLocator;
  *
  * This processor handles a terms of use agreement creation requested from the terms of use administration page.
  *
- * @author TCSDEVELOPER
+ * @author pulky
  * @version 1.0 (Configurable Contest Terms Release Assembly v2.0)
  */
 public class CreateTermsOfUseAgreement extends Base {

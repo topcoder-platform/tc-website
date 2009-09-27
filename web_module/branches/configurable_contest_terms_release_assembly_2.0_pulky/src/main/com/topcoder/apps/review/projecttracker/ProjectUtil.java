@@ -57,7 +57,7 @@ import com.topcoder.util.idgenerator.IDGeneratorFactory;
  *   </ol>
  * </p>
  *
- * @author brain_cn, pulky, TCSDEVELOPER
+ * @author brain_cn, pulky
  * @version 1.3
  */
 public class ProjectUtil {

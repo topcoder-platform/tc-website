@@ -118,7 +118,7 @@ import com.topcoder.web.ejb.forums.ForumsHome;
  *   </ol>
  * </p>
  *
- * @author dok, ivern, isv, pulky, snow01, TCSDEVELOPER
+ * @author dok, ivern, isv, pulky, snow01
  * @version 1.0.13
  */
 public class RBoardApplicationBean extends BaseEJB {

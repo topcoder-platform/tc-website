@@ -41,7 +41,7 @@ package com.topcoder.web.common;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, snow01, TCSDEVELOPER
+ * @author dok, pulky, snow01
  * @version 1.5
  */
 public interface WebConstants {

@@ -22,7 +22,7 @@ import com.topcoder.web.ejb.termsofuse.TermsOfUseEntity;
  *
  * Helper providing common functionality for the terms of use administration pages
  *
- * @author TCSDEVELOPER
+ * @author pulky
  * @version 1.0 (Configurable Contest Terms Release Assembly v2.0)
  */
 public final class TermsOfUseHelper {
