@@ -148,6 +148,10 @@
       <td class="value">28
       </td>
       <td class="value">29
+         <div class="srm">
+         <strong>Beta SRM</strong><br />
+         11:00 AM
+         </div>       
       </td>
       <td class="value">30
       </td>
