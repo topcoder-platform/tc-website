@@ -115,7 +115,7 @@
                            			<p>TopCoder is the world's largest competitive software development community with <tc-webtag:format object="${sessionInfo.memberCount}" format="#,##0"/> developers representing over 200 countries.<br /> 
 									Copyright ©2001-2009, TopCoder, Inc. All rights reserved</p> 
  
-                                    <p><a href="home/contact-us/">Contact Us</a> | <a href="home/what-is-topcoder/">About TopCoder</a> | <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/">Register</a></p> 
+                                    <p><a href="http://topcoder.com/home/contact-us/">Contact Us</a> | <a href="http://topcoder.com/home/what-is-topcoder/">About TopCoder</a> | <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/">Register</a></p> 
  
                             </div><!-- End #footer -->
 							
