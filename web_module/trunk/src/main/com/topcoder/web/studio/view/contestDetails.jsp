@@ -152,7 +152,7 @@
                 and not empty contest.multiRoundInformation.milestoneDate}">
                 <tr>
                     <td class="field">
-                        Milestone Date:
+                        Milestone <br/>Date:
                     </td>
                     <td class="value">
                         <tc-webtag:format object="${contest.multiRoundInformation.milestoneDate}"
