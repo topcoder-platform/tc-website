@@ -68,7 +68,7 @@ public class ReliabilityBonusCalculator {
         bonusTable = new TreeMap<Date,TreeMap<Long, TreeMap<Double, Double>>>();
         DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
-        Document doc = docBuilder.parse(new File(reliabilityFilename));
+        Document doc = docBuilder.parse(new File(ClassLoader.getSystemResource(reliabilityFilename).getFile()));
         doc.getDocumentElement().normalize();
     
         NodeList paymentRangesList = doc.getElementsByTagName("paymentRange");
@@ -111,5 +111,4 @@ public class ReliabilityBonusCalculator {
             bonusTable.put(startDate,  projectCategoryMap);
         }
     }
-
 }
