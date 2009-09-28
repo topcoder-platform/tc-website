@@ -3,6 +3,9 @@
  */
 package com.topcoder.web.tc.controller.request.contest;
 
+import java.util.Date;
+import java.util.Map;
+
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.NavigationException;
@@ -10,8 +13,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.development.Base;
-
-import java.util.Map;
+import com.topcoder.web.tc.controller.request.util.ReliabilityBonusCalculator;
 
 /**
  * <p>A controller to handle the requests for displaying the details of a given project.</p>
@@ -48,7 +50,7 @@ public class ProjectDetail extends Base {
             r.setContentHandle("project_detail");
             r.setProperty(Constants.PROJECT_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
 
-            Map resultMap = getDataAccess().getData(r);
+            Map<String, ResultSetContainer> resultMap = getDataAccess().getData(r);
 
             ResultSetContainer details = (ResultSetContainer) resultMap.get("project_detail");
             getRequest().setAttribute("projectDetail", details);
@@ -64,6 +66,13 @@ public class ProjectDetail extends Base {
             }
 
             getRequest().setAttribute("paysRoyalties", !details.getBooleanItem(0, "is_custom") );
+            
+            ReliabilityBonusCalculator reliabilityBonus = ReliabilityBonusCalculator.getInstance();
+            Double firstPlacePrize = details.getDoubleItem(0, "total_payment");
+            Date postingDate = details.getTimestampItem(0, "posting_date");
+            Long categoryId = details.getLongItem(0, "project_category_id");
+            getRequest().setAttribute("maxReliabilityBonus",
+                    reliabilityBonus.getReliabilityPercent(1.0, postingDate, categoryId) * firstPlacePrize);
 
             String projectDetailPage = getProjectDetailPage(projectTypeId);
             if (projectDetailPage.equals("")) {
