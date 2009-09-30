@@ -220,14 +220,14 @@
                                 </p>
                                 
                                 <p>
-                                    <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="250">
+                                    <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="350">
                                         <tr>
                                             <td class="bodyText">
                                                 Posting Date:
                                             </td>
                                             <td class="bodyText" align="right">
                                                 <fmt:formatDate value="${projectDetailRow.map['posting_date']}"
-                                                    pattern="MM.dd.yyyy"/>
+                                                    pattern="MM.dd.yyyy hh:mm a z"/>
                                             </td>
                                         </tr>
                                         <tr>
@@ -236,7 +236,7 @@
                                             </td>
                                             <td class="bodyText" align="right">
                                                 <fmt:formatDate value="${projectDetailRow.map['initial_submission_date']}"
-                                                    pattern="MM.dd.yyyy"/>
+                                                    pattern="MM.dd.yyyy hh:mm a z"/>
                                             </td>
                                         </tr>
                                         <tr>
@@ -245,7 +245,7 @@
                                             </td>
                                             <td class="bodyText" align="right">
                                                 <fmt:formatDate value="${projectDetailRow.map['winner_announced_date']}"
-                                                    pattern="MM.dd.yyyy"/>
+                                                    pattern="MM.dd.yyyy hh:mm a z"/>
                                             </td>
                                         </tr>
                                         <tr>
@@ -254,7 +254,7 @@
                                             </td>
                                             <td class="bodyText" align="right">
                                                 <fmt:formatDate value="${projectDetailRow.map['final_submission_date']}"
-                                                    pattern="MM.dd.yyyy"/>
+                                                    pattern="MM.dd.yyyy hh:mm a z"/>
                                             </td>
                                         </tr>
                                     </table>
