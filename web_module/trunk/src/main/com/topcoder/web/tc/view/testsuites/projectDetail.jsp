@@ -178,22 +178,22 @@
 </p>
 
 <p>
-<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="250">
+<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="350">
     <tr>
         <td class="bodyText">Posting Date:</td><td class="bodyText" align="right">
-        <rsc:item set="<%=projectDetail%>" name="posting_date" format="MM.dd.yyyy"/></td>
+        <rsc:item set="<%=projectDetail%>" name="posting_date" format="MM.dd.yyyy hh:mm a z"/></td>
     </tr>
     <tr>
         <td class="bodyText">Initial Submission Due Date:</td><td class="bodyText" align="right">
-        <rsc:item set="<%=projectDetail%>" name="initial_submission_date" format="MM.dd.yyyy"/></td>
+        <rsc:item set="<%=projectDetail%>" name="initial_submission_date" format="MM.dd.yyyy hh:mm a z"/></td>
     </tr>
     <tr>
         <td class="bodyText">Winner Announced:</td><td class="bodyText" align="right">
-        <rsc:item set="<%=projectDetail%>" name="winner_announced_date" format="MM.dd.yyyy"/></td>
+        <rsc:item set="<%=projectDetail%>" name="winner_announced_date" format="MM.dd.yyyy hh:mm a z"/></td>
     </tr>
     <tr>
         <td class="bodyText">Final Submission Due Date:</td><td class="bodyText" align="right">
-        <rsc:item set="<%=projectDetail%>" name="final_submission_date" format="MM.dd.yyyy"/></td>
+        <rsc:item set="<%=projectDetail%>" name="final_submission_date" format="MM.dd.yyyy hh:mm a z"/></td>
     </tr>
 </table>
 </p>

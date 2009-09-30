@@ -80,7 +80,7 @@ public abstract class ActiveContestsBase extends Base {
 
             getRequest().setAttribute(Constants.PROJECT_TYPE_ID, getProjectType());
             getRequest().setAttribute("hasDR", hasDR());
-
+            
             setNextPage(getActiveContestsPage());
             setIsNextPageInContext(true);
         } catch (TCWebException e) {
