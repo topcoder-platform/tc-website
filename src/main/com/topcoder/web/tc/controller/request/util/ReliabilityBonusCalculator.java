@@ -1,6 +1,7 @@
 package com.topcoder.web.tc.controller.request.util;
 
 import java.io.File;
+import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -68,7 +69,10 @@ public class ReliabilityBonusCalculator {
         bonusTable = new TreeMap<Date,TreeMap<Long, TreeMap<Double, Double>>>();
         DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
-        Document doc = docBuilder.parse(new File(ClassLoader.getSystemResource(reliabilityFilename).getFile()));
+        URL url = ClassLoader.getSystemResource(reliabilityFilename);
+        String urlFileName = url.getFile();
+        System.out.println(urlFileName);
+        Document doc = docBuilder.parse(new File(urlFileName));
         doc.getDocumentElement().normalize();
     
         NodeList paymentRangesList = doc.getElementsByTagName("paymentRange");
