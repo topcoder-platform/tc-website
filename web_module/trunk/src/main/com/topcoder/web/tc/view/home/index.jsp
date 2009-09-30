@@ -77,7 +77,7 @@
 							<div class="clientArea">
 								<div class="buttonArea">
 									
-									<a href="home>" class="getStarted"></a>
+									<a href="home" class="getStarted"></a>
 								
 								</div><!-- End .leftArea -->
 								<div class="description">
