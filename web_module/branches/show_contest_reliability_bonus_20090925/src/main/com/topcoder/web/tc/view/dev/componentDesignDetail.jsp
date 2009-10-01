@@ -8,6 +8,7 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt" %>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <% ResultSetContainer projectDetail = (ResultSetContainer) request.getAttribute("projectDetail");%>
 <% ResultSetContainer technologies = (ResultSetContainer) request.getAttribute("technologies");%>
@@ -92,10 +93,16 @@
          <div style="float:right; text-align:right;">
          $<rsc:item set="<%=projectDetail%>" name="total_payment" format="0.00"/><br>
          $<rsc:item set="<%=projectDetail%>" name="second_place_payment" format="0.00"/><br>
+         <c:if test="${maxReliabilityBonus > 0}">
+           <fmt:formatNumber type="number" minFractionDigits="2" maxFractionDigits="2" value="${maxReliabilityBonus}"/>
+         </c:if>
          <rsc:item set="<%=projectDetail%>" name="initial_submission_date" format="MM.dd.yyyy"/>
          </div>
       <strong>1st Place:<br>
       2nd Place:<br>
+      <c:if test="${maxReliabilityBonus > 0}">
+        Reliability Bonus<br>
+      </c:if>
       Due date:</strong> 
       </div>
       </td>
