@@ -18,7 +18,7 @@
     //sort it just for insurance, we're going to use binary search later
     Arrays.sort(regularPrizeRounds);
 	
-	long[] unratedRounds = {13935};
+	long[] unratedRounds = {13935,13952};
 	Arrays.sort(unratedRounds);
 
 %>

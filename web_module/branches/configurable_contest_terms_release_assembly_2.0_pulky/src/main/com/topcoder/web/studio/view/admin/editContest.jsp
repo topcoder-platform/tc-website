@@ -1,5 +1,21 @@
+<%--
+  - Author: pulky
+  - Version: 1.1
+  - Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page presents new/edit contest page for Studio administrators
+  -
+  - Version 1.1 (Studio Multi-Rounds Assembly - Studio Contest Details v1.0) changes:
+  - The following fields were added:
+  -     - Radio buttons to select contest format "single-round" or "multi-round"
+  -     - Round One Specifics
+  -     - Round Two Specifics
+  -     - Milestone's number of prizes and amount
+  -     - Milestone date
+--%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
+<%@ page import="com.topcoder.web.studio.controller.request.admin.ViewContest" %>
 <%@ page import="com.topcoder.web.studio.model.ContestProperty" %>
 <%@ page import="com.topcoder.web.studio.model.PrizeType" %>
 <%@ page contentType="text/html;charset=utf-8" %>
@@ -21,6 +37,16 @@
 <c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.ELIGIBILITY%>" var="eligibility"/>
 <c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.WINNER_SELECTION%>" var="winnerSelection"/>
 <c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.DIGITAL_RUN_POINTS%>" var="digitalRunPoints"/>
+<c:set value="<%=Constants.CONTEST_FORMAT%>" var="CONTEST_FORMAT"/>
+<c:set value="<%=Constants.MILESTONE_DATE%>" var="MILESTONE_DATE"/>
+<c:set value="<%=Constants.CONTEST_ROUND_ONE_SPECIFICS%>" var="CONTEST_ROUND_ONE_SPECIFICS"/>
+<c:set value="<%=Constants.CONTEST_ROUND_TWO_SPECIFICS%>" var="CONTEST_ROUND_TWO_SPECIFICS"/>
+<c:set value="<%=Constants.MILESTONE_PRIZE_AMOUNT%>" var="MILESTONE_PRIZE_AMOUNT"/>
+<c:set value="<%=Constants.NUMBER_MILESTONE_PRIZES%>" var="NUMBER_MILESTONE_PRIZES"/>
+<c:set value="<%=ViewContest.NUMBER_MILESTONE_PRIZES_OPTIONS%>" var="NUMBER_MILESTONE_PRIZES_OPTIONS"/>
+<c:set value="<%=ViewContest.SINGLE_ROUND%>" var="SINGLE_ROUND"/>
+<c:set value="<%=ViewContest.MULTI_ROUND%>" var="MULTI_ROUND"/>
+<c:set value="<%=Constants.JS_DATE_FORMAT%>" var="JS_DATE_FORMAT"/>
 
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -30,43 +56,43 @@
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>TopCoder Studio : Edit Contests</title>
-    
+
     <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
-    
+
     <script src="/js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"></script>
     <script src="/js/NewStyleHeaderFooter/preloadCssImages.jQuery_v5.js" language="javascript"></script>
     <script type="text/javascript">
-			$(document).ready(function(){
-				//Run the script to preload images from CSS
-				$.preloadCssImages(); 
-			});
-	</script>
-	<script src="/js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
-	<script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
-	<%-- Turn off in Admin  
-	<script type="text/javascript" language="javascript">
+            $(document).ready(function(){
+                //Run the script to preload images from CSS
+                $.preloadCssImages();
+            });
+    </script>
+    <script src="/js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
+    <script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
+    <%-- Turn off in Admin
+    <script type="text/javascript" language="javascript">
 
-	$(document).ready(function(){
-	
-	
-		$("#nav ul li").hoverIntent(function(){
-			$(this).children("ul").slideDown("fast");
-		}, function() {
-			$(this).children("ul").slideUp("fast");
-		});
-		
-		$("#nav ul ul li").hover(function() {
-			$(this).parents("#nav ul li").children('a').addClass("active-item");
-		}, function() {
-			$(this).parents("#nav ul li").children('a').removeClass("active-item");
-		});
-	
-	
-	});
-	</script>
-	--%>
+    $(document).ready(function(){
+
+
+        $("#nav ul li").hoverIntent(function(){
+            $(this).children("ul").slideDown("fast");
+        }, function() {
+            $(this).children("ul").slideUp("fast");
+        });
+
+        $("#nav ul ul li").hover(function() {
+            $(this).parents("#nav ul li").children('a').addClass("active-item");
+        }, function() {
+            $(this).parents("#nav ul li").children('a').removeClass("active-item");
+        });
+
+
+    });
+    </script>
+    --%>
     <link type="text/css" rel="stylesheet" href="/js/jscal/skins/aqua/theme.css" />
     <script type="text/javascript" src="/js/jscal/calendar.js"></script>
     <script type="text/javascript" src="/js/jscal/lang/calendar-en.js"></script>
@@ -91,15 +117,15 @@
                                      "Stock art, clip art, templates and other design elements from other sources are " +
                                      " prohibited unless specifically permitted here in the Contest Details.</b></p>"
         defaults['${prizeDesc}'] ="The payment will be distributed in one full installment once the final version of the " +
-                    "winning submission has been downloaded by the client. If final fixes were required and not completed" + 
-					" on time, the member's payment may be reduced. " + 
-					"Any and all applicable taxes on prizes are the sole responsibility of the prizewinner(s)." ;
+                    "winning submission has been downloaded by the client. If final fixes were required and not completed" +
+                    " on time, the member's payment may be reduced. " +
+                    "Any and all applicable taxes on prizes are the sole responsibility of the prizewinner(s)." ;
         defaults['${winnerSelection}'] = "Submissions go through an initial screening process during the submission phase. " +
                                          "Passing submissions are then presented to the client. Winners are selected by the " +
                                          "client and are chosen solely at the Client's discretion." +
-										 " If a winning member has not met all of the requirements listed on the Contest Details page," +
-										 " the winner may be contacted with a clear list of final fixes. If the member does" +
-										 " not complete the final fixes within 72 hours, their payment may be reduced." ;
+                                         " If a winning member has not met all of the requirements listed on the Contest Details page," +
+                                         " the winner may be contacted with a clear list of final fixes. If the member does" +
+                                         " not complete the final fixes within 72 hours, their payment may be reduced." ;
         defaults['${eligibility}'] = "You must be a TopCoder Studio member, at least 18 years of age, meeting all of the " +
                                      " membership requirements. In addition, you must fit into one of the following categories. " +
                                    " If you reside in the United States, you must be either: " +
@@ -177,13 +203,13 @@
 </head>
 
 <body>
-	<div id="page-wrap">
-    	<div align="center">
-			<jsp:include page="../top.jsp"/>
+    <div id="page-wrap">
+        <div align="center">
+            <jsp:include page="../top.jsp"/>
         <br />
         <!-- container -->
         <div id="container">
-        	<div id="wrapper">
+            <div id="wrapper">
             <!-- content -->
             <div id="content">
                 <div class="contentTop">
@@ -218,7 +244,8 @@
 <p>Created by ${contestCreatorHandle}</p>
 
 <p>
-    * = required
+    * = required <br/>
+    ** = only required if multi-round is selected
 </p>
 
 <fieldset>
@@ -309,6 +336,22 @@
     </td>
 </tr>
 
+<tr>
+    <td colspan="2">
+        <tc-webtag:errorIterator id="err" name="${CONTEST_FORMAT}">
+            <span class="bigRed">${err}<br /></span></tc-webtag:errorIterator>
+    </td>
+</tr>
+<tr>
+    <td class="field">
+        <div>Contest Format:</div>
+    </td>
+    <td class="value" width="100%">
+        <tc-webtag:radioButton name="${CONTEST_FORMAT}" value="${SINGLE_ROUND}"/> Single-Round<br/>
+        <tc-webtag:radioButton name="${CONTEST_FORMAT}" value="${MULTI_ROUND}"/> Multi-Round
+    </td>
+</tr>
+
 <%-- Since TopCoder Studio Modifications Assembly v2 (Req# 5.1.5) - the intended medium types are added --%>
 <c:set var="mediumTypePrefix" value="<%=Constants.MEDIUM%>"/>
 <c:set var="mediumTypes" value="${requestScope['mediums']}"/>
@@ -358,6 +401,21 @@
     <td class="value">
         <tc-webtag:textInput name="<%=Constants.START_TIME%>" id="<%=Constants.START_TIME%>"/>
         <button id="trigger<%=Constants.START_TIME%>">Set</button>
+    </td>
+</tr>
+<tr>
+    <td colspan="2">
+        <tc-webtag:errorIterator id="err" name="${MILESTONE_DATE}"><span class="bigRed">${err}
+            <br /></span></tc-webtag:errorIterator>
+    </td>
+</tr>
+<tr>
+    <td class="field">
+        <div>** Milestone Date (Eastern Time):</div>
+    </td>
+    <td class="value">
+        <tc-webtag:textInput name="${MILESTONE_DATE}" id="${MILESTONE_DATE}"/>
+        <button id="trigger${MILESTONE_DATE}">Set</button>
     </td>
 </tr>
 <tr>
@@ -515,6 +573,8 @@
 <table>
 <tbody>
 <studio_tags:editContestProperty name="${overviewText}" title="* Contest Summary"/>
+<studio_tags:editContestProperty name="${CONTEST_ROUND_ONE_SPECIFICS}" title="** Round 1 Specifics"/>
+<studio_tags:editContestProperty name="${CONTEST_ROUND_TWO_SPECIFICS}" title="** Round 2 Specifics"/>
 <studio_tags:editContestProperty name="${fullDescription}" title="* Full Description"/>
 <studio_tags:editContestProperty name="${eligibility}" title="* Eligibility"/>
 <studio_tags:editContestProperty name="${winnerSelection}" title="* Notes on Winners Selection"/>
@@ -616,6 +676,35 @@
 
 </fieldset>
 
+<fieldset>
+<legend>Add Milestone Prizes</legend>
+    <table cellpadding="0" cellspacing="0" class="input">
+        <tr>
+            <td colspan="2">
+                <span class="bigRed"><tc-webtag:errorIterator id="err" name="${MILESTONE_PRIZE_AMOUNT}">${err}
+                  <br /></tc-webtag:errorIterator></span>
+            </td>
+        </tr>
+        <tr>
+            <td class="field">
+                <div>Number of prizes:</div>
+            </td>
+            <td class="value">
+                <tc-webtag:stringSelect name="${NUMBER_MILESTONE_PRIZES}" useTopValue="false"
+                    list="${NUMBER_MILESTONE_PRIZES_OPTIONS}"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="field">
+                <div>Amount:</div>
+            </td>
+            <td class="value">
+                <tc-webtag:textInput name="${MILESTONE_PRIZE_AMOUNT}"/>
+            </td>
+        </tr>
+    </table>
+</fieldset>
+
 <%-- Since TopCoder Studio Modifications v2 Assembly (Req.# 5.1.3, 5.1.4)
      - the width and height are replaced with size requirements --%>
 
@@ -713,6 +802,16 @@
         cache       : true
     }
             );
+    Calendar.setup(
+            {
+                inputField  : "${MILESTONE_DATE}",         // ID of the input field
+                ifFormat    : "${JS_DATE_FORMAT}",    // the date format
+                button      : "trigger${MILESTONE_DATE}",      // ID of the button
+                showsTime    : true,
+                singleClick  : false,
+                cache       : true
+            }
+            );
 </script>
 
 <p>
@@ -735,7 +834,7 @@
     <c:set value="<%=Constants.DOCUMENT%>" var="doc"/>
     <c:set value="<%=Constants.DOCUMENT_TYPE_ID%>" var="docType"/>
     <c:set value="<%=Constants.DOC_DESC%>" var="docDesc"/>
-    
+
 
 <h2>Documentation</h2>
 
@@ -899,9 +998,9 @@
 
 </form>
 
-
 <p>
-    * = required
+    * = required <br/>
+    ** = only required if multi-round is selected
 </p>
 
 
@@ -937,7 +1036,7 @@
 
 
                         <br clear="all"/>
-                    </div>                
+                    </div>
                     <div class="contentBottom"></div>
                 </div>
             </div>

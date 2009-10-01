@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.studio.controller.request.admin;
 
 import com.topcoder.shared.dataAccess.DataAccess;
@@ -15,6 +18,8 @@ import com.topcoder.web.studio.dao.ContestPropertyDAO;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestConfig;
+import com.topcoder.web.studio.model.ContestMilestonePrize;
+import com.topcoder.web.studio.model.ContestMultiRoundInformation;
 import com.topcoder.web.studio.model.ContestProperty;
 import com.topcoder.web.studio.model.Document;
 import com.topcoder.web.studio.model.Medium;
@@ -26,9 +31,18 @@ import java.util.ArrayList;
 import java.util.Set;
 
 /**
- * @author dok, isv
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Aug 2, 2006
+ * <p>This abstract class provides base functionality for studio administration pages.
+ *
+ * <p>
+ *   Version 1.1 (Studio Multi-Rounds Assembly - Studio Contest Details v1.0) Change notes:
+ *   <ol>
+ *     <li>New fields were added to <code>loadEditContestData</code> to display stored information.</li>
+ *     <li>Contest Format default was added to <code>loadGeneralEditContestData</code>.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, isv, pulky
+ * @version 1.1
  */
 public abstract class Base extends ShortHibernateProcessor {
 
@@ -49,13 +63,19 @@ public abstract class Base extends ShortHibernateProcessor {
             ContestProperty.REQUIRE_PREVIEW_FILE, ContestProperty.DIGITAL_RUN_POINTS};
 
 
+    /**
+     * This method loads all the general data required to present the contest edition page
+     *
+     * @param contest the contest being edited
+     * @throws Exception if any error occurs
+     */
     protected void loadGeneralEditContestData() throws Exception {
         getRequest().setAttribute("docTypes", StudioDAOUtil.getFactory().getDocumentTypeDAO().getDocumentTypes());
         getRequest().setAttribute("contestStatuses", StudioDAOUtil.getFactory().getContestStatusDAO().getContestStatuses());
         getRequest().setAttribute("fileTypes", StudioDAOUtil.getFactory().getFileTypeDAO().getFileTypes());
 
         getRequest().setAttribute("forums", getForumList());
-		// 2/10/2009 - changed event type from studio to generic tournament id
+        // 2/10/2009 - changed event type from studio to generic tournament id
         getRequest().setAttribute("events", DAOUtil.getFactory().getEventDAO().getEvents(EventType.TOURNAMENT_ID));
 
         ArrayList<ListSelectTag.Option> viewSubmissionAnswers = new ArrayList<ListSelectTag.Option>();
@@ -87,6 +107,9 @@ public abstract class Base extends ShortHibernateProcessor {
         requirePreviewFileAnswers.add(new ListSelectTag.Option(String.valueOf(true), "Yes"));
         requirePreviewFileAnswers.add(new ListSelectTag.Option(String.valueOf(false), "No"));
         getRequest().setAttribute("requirePreviewFileAnswers", requirePreviewFileAnswers);
+
+        // single round contest format by default
+        setDefault(Constants.CONTEST_FORMAT, ViewContest.SINGLE_ROUND);
     }
 
     protected ResultSetContainer getForumList() throws Exception {
@@ -97,6 +120,12 @@ public abstract class Base extends ShortHibernateProcessor {
 
     }
 
+    /**
+     * This method loads all the data required to present the contest edition page for an existing contest
+     *
+     * @param contest the contest being edited
+     * @throws Exception if any error occurs
+     */
     protected void loadEditContestData(Contest contest) throws Exception {
         if (contest == null) {
             throw new IllegalArgumentException("null contest specified");
@@ -157,6 +186,34 @@ public abstract class Base extends ShortHibernateProcessor {
 
         getRequest().setAttribute("resultsReady", onlineReviewResultsReady(contest.getId()));
 
+        // set defaults for all new multi-round contest format
+        if (contest.getMultiRound() != null && contest.getMultiRound()) {
+            setDefault(Constants.CONTEST_FORMAT, ViewContest.MULTI_ROUND);
+
+            ContestMultiRoundInformation multiRoundInfo = contest.getMultiRoundInformation();
+            if (multiRoundInfo != null) {
+                if (multiRoundInfo.getMilestoneDate() != null) {
+                    setDefault(Constants.MILESTONE_DATE, sdf.format(multiRoundInfo.getMilestoneDate()));
+                }
+                if (multiRoundInfo.getRoundOneIntroduction() != null) {
+                    setDefault(Constants.CONTEST_ROUND_ONE_SPECIFICS, multiRoundInfo.getRoundOneIntroduction());
+                }
+                if (multiRoundInfo.getRoundTwoIntroduction() != null) {
+                    setDefault(Constants.CONTEST_ROUND_TWO_SPECIFICS, multiRoundInfo.getRoundTwoIntroduction());
+                }
+            }
+            ContestMilestonePrize milestonePrize = contest.getMilestonePrize();
+            if (milestonePrize != null) {
+                if (milestonePrize.getAmount() != null) {
+                    setDefault(Constants.MILESTONE_PRIZE_AMOUNT, milestonePrize.getAmount());
+                }
+                if (milestonePrize.getNumberOfSubmissions() != null) {
+                    setDefault(Constants.NUMBER_MILESTONE_PRIZES, milestonePrize.getNumberOfSubmissions());
+                }
+            }
+        } else {
+            setDefault(Constants.CONTEST_FORMAT, ViewContest.SINGLE_ROUND);
+        }
     }
 
     protected ResultSetContainer getProjectList() throws Exception {
