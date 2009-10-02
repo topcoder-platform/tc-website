@@ -72,7 +72,7 @@
         </ol>
         <p>NVIDIA has scheduled a series Webinars exclusively for TopCoder members, so that everyone can get up-to-speed on parallel programming.</p>
         <p>There are a number of public Webinars that are also available so you can find the Webinar that fits your schedule. The public Webinar schedule and sign-up are located on the following link:
-              <a target="_blank">              http://developer.nvidia.com/object/gpu_computing_online.html </a></p>
+              <a href="http://developer.nvidia.com/object/gpu_computing_online.html" target="_blank">              http://developer.nvidia.com/object/gpu_computing_online.html </a></p>
         <p>&nbsp;</p>
 
             </div>
