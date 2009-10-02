@@ -67,12 +67,12 @@ public class ProjectDetail extends Base {
 
             getRequest().setAttribute("paysRoyalties", !details.getBooleanItem(0, "is_custom") );
             
-            //ReliabilityBonusCalculator reliabilityBonus = ReliabilityBonusCalculator.getInstance();
-            //Double firstPlacePrize = details.getDoubleItem(0, "total_payment");
-            //Date postingDate = details.getTimestampItem(0, "posting_date");
-            //Long categoryId = details.getLongItem(0, "project_category_id");
-            //getRequest().setAttribute("maxReliabilityBonus",
-            //        reliabilityBonus.getReliabilityPercent(1.0, postingDate, categoryId) * firstPlacePrize);
+            ReliabilityBonusCalculator reliabilityBonus = ReliabilityBonusCalculator.getInstance();
+            Double firstPlacePrize = details.getDoubleItem(0, "total_payment");
+            Date postingDate = details.getTimestampItem(0, "posting_date");
+            Long categoryId = details.getLongItem(0, "project_category_id");
+            getRequest().setAttribute("maxReliabilityBonus",
+                    reliabilityBonus.getReliabilityPercent(1.0, postingDate, categoryId) * firstPlacePrize);
 
             String projectDetailPage = getProjectDetailPage(projectTypeId);
             if (projectDetailPage.equals("")) {
