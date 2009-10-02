@@ -3,17 +3,23 @@
  */
 package com.topcoder.web.tc.controller.request.development;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import com.topcoder.randomstringimg.InvalidConfigException;
+import com.topcoder.randomstringimg.ObfuscationException;
+import com.topcoder.randomstringimg.RandomStringImage;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.util.spell.ConfigException;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.SecurityHelper;
@@ -30,16 +36,10 @@ import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationS
 import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServicesLocal;
 import com.topcoder.web.ejb.project.Project;
 import com.topcoder.web.ejb.project.ProjectLocal;
+import com.topcoder.web.ejb.termsofuse.TermsOfUseEntity;
+import com.topcoder.web.ejb.termsofuse.TermsOfUseLocator;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
-
-
-import com.topcoder.randomstringimg.InvalidConfigException;
-import com.topcoder.randomstringimg.ObfuscationException;
-import com.topcoder.randomstringimg.RandomStringImage;
-import java.io.IOException;
-import java.io.FileOutputStream;
-import com.topcoder.util.spell.ConfigException;
 
 
 /**
@@ -53,8 +53,15 @@ import com.topcoder.util.spell.ConfigException;
  *   </ol>
  * </p>
  *
+ * <p>
+ *   Version 1.2 (Configurable Contest Terms Release Assembly v2.0) Change notes:
+ *   <ol>
+ *     <li>Changed the processor so that a terms of use can be agreed to without any dependency to others.</li>
+ *   </ol>
+ * </p>
+ *
  * @author dok, pulky
- * @version 1.1
+ * @version 1.2
  */
 public class ViewRegistration extends Base {
 
@@ -78,8 +85,10 @@ public class ViewRegistration extends Base {
             validation();
 
 
-            if (getRequest().getAttribute(Constants.MESSAGE) == null) {
-
+            if (getRequest().getAttribute(Constants.MESSAGE) != null) {
+                setNextPage("/contest/message.jsp");
+                setIsNextPageInContext(true);
+            } else {
                 if ("on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
                     getRequest().setAttribute("has_global_ad", (new DataInterfaceBean()).hasGlobalAD(getUser().getId()));
                 }
@@ -88,17 +97,23 @@ public class ViewRegistration extends Base {
 
                 String projectId = getRequest().getParameter(Constants.PROJECT_ID);
                 long userId = getLoggedInUser().getId();
+                String termsOfUseId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_ID));
 
-                // process terms of use
-                processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS);
+                // check if a specific terms was requested
+                if (!"".equals(termsOfUseId)) {
+                    // get the terms of use and add it to the request
+                    TermsOfUseEntity terms =  TermsOfUseLocator.getService().getEntity(Long.parseLong(termsOfUseId),
+                        DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    getRequest().setAttribute(Constants.TERMS, terms);
+                } else {
+                    // process terms of use
+                    processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS);
 
-                //we're assuming that if we're here, we got a valid project id
+                    //we're assuming that if we're here, we got a valid project id
+                    loadCaptcha();
+                }
                 setDefault(Constants.PROJECT_ID, projectId);
-                loadCaptcha();
                 setNextPage("/contest/regTerms.jsp");
-                setIsNextPageInContext(true);
-            } else {
-                setNextPage("/contest/message.jsp");
                 setIsNextPageInContext(true);
             }
 
