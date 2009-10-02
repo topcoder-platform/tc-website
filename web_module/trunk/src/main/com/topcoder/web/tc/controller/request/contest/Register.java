@@ -67,21 +67,14 @@ import com.topcoder.web.common.NavigationException;
  * </p>
  *
  * <p>
- *   Version 1.3 (Configurable Contest Terms Release Assembly v1.0) Change notes:
+ *   Version 1.2 (Configurable Contest Terms Release Assembly v1.0) Change notes:
  *   <ol>
  *     <li>Added new functionality that asks for several terms of use and show those the user already agreed to.</li>
  *   </ol>
  * </p>
  *
- * <p>
- *   Version 1.4 (Configurable Contest Terms Release Assembly v2.0) Change notes:
- *   <ol>
- *     <li>Fixed bug where captcha was shown in each terms of use step.</li>
- *   </ol>
- * </p>
- *
  * @author dok, pulky
- * @version 1.4
+ * @version 1.2
  */
 public class Register extends ViewRegistration {
 
@@ -126,23 +119,22 @@ public class Register extends ViewRegistration {
                             DBMS.COMMON_OLTP_DATASOURCE_NAME);
                     getRequest().setAttribute(Constants.TERMS, terms);
                 }
+                if (!answeredCaptchaCorrectly()) {
+                    addError(Constants.CAPTCHA_RESPONSE, "Sorry, your response was incorect.");
+                }
                 setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
                  loadCaptcha();
                 setNextPage("/contest/regTerms.jsp");
                 setIsNextPageInContext(true);
             } else {
                 // make sure they don't have pending terms of use (they could get here faking the URL)
-                if (!answeredCaptchaCorrectly()) {
-                    addError(Constants.CAPTCHA_RESPONSE, "Sorry, your response was incorect.");
-                }
-                if (processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS) || hasErrors()) {
+                if (processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS)) {
                     setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
                      loadCaptcha();
                     setNextPage("/contest/regTerms.jsp");
                     setIsNextPageInContext(true);
                     return;
                 }
-
                 boolean isEligible = getRequest().getAttribute(Constants.MESSAGE) == null;
                 if (isEligible) {
                     if (log.isDebugEnabled()) {
@@ -162,7 +154,7 @@ public class Register extends ViewRegistration {
             throw new TCWebException(e);
         }
     }
-
+    
     protected void loadCaptcha() throws IOException, InvalidConfigException, ObfuscationException, ConfigException {
         RandomStringImage rsi = new RandomStringImage(Constants.RANDOM_STRING_IMAGE_CONFIG);
 
@@ -177,7 +169,7 @@ public class Register extends ViewRegistration {
         getRequest().getSession().setAttribute(Constants.CAPTCHA_WORD, word);
         getRequest().setAttribute(Constants.CAPTCHA_FILE_NAME, fileName);
     }
-
+    
     private boolean answeredCaptchaCorrectly() throws NavigationException {
         String response = StringUtils.checkNull(getRequest().getParameter(Constants.CAPTCHA_RESPONSE));
         String word = (String)getRequest().getSession().getAttribute(Constants.CAPTCHA_WORD);

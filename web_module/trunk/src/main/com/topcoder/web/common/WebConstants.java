@@ -34,15 +34,8 @@ package com.topcoder.web.common;
  *   </ol>
  * </p>
  *
- * <p>
- *   Version 1.5 (Configurable Contest Terms Release Assembly v2.0) Change notes:
- *   <ol>
- *     <li>Added new constant for terms pending attribute key.</li>
- *   </ol>
- * </p>
- *
  * @author dok, pulky, snow01
- * @version 1.5
+ * @version 1.4
  */
 public interface WebConstants {
     public static final String HANDLE = "ha";
@@ -104,13 +97,6 @@ public interface WebConstants {
      * @since 1.2
      */
     public static final String TERMS_AGREED = "terms_agreed";
-
-    /**
-     * <p>A <code>String</code> representing terms pending attribute key.</p>
-     *
-     * @since 1.5
-     */
-    public static final String TERMS_PENDING = "terms_pending";
 
     public static final String TERMS_AGREE = "terms_agree";
     public static final String TERMS_OF_USE_ID = "tuid";
@@ -300,8 +286,8 @@ public interface WebConstants {
      * @since 1.1
      */
     public static final int RIA_COMPONENT_PROJECT_TYPE = 25;
-    
-    /**
+	
+	/**
      * <p>An <code>long</code> representing design specification project category id.</p>
      *
      * @since 1.3
@@ -348,7 +334,7 @@ public interface WebConstants {
      */
     public static final long ASSEMBLY_SPECIFICATION_PROJECT_TYPE =
         ASSEMBLY_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;
-
+    
     /**
      * <p>An <code>long</code> representing test suites specification project category id.</p>
      *
@@ -356,7 +342,7 @@ public interface WebConstants {
      */
     public static final long TEST_SUITES_SPECIFICATION_PROJECT_TYPE =
         TEST_SUITES_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;
-
+        
     /**
      * <p>An <code>long</code> representing test scenarios specification project category id.</p>
      *
@@ -364,7 +350,7 @@ public interface WebConstants {
      */
     public static final long TEST_SCENARIOS_SPECIFICATION_PROJECT_TYPE =
         TEST_SCENARIOS_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;
-
+        
     /**
      * <p>An <code>long</code> representing ui prototype specification project category id.</p>
      *
@@ -372,7 +358,7 @@ public interface WebConstants {
      */
     public static final long UI_PROTOTYPE_SPECIFICATION_PROJECT_TYPE =
         UI_PROTOTYPE_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;
-
+        
     /**
      * <p>An <code>long</code> representing ria buid specification project category id.</p>
      *
@@ -380,7 +366,7 @@ public interface WebConstants {
      */
     public static final long RIA_BUILD_SPECIFICATION_PROJECT_TYPE =
         RIA_BUILD_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;
-
+        
     /**
      * <p>An <code>long</code> representing ria component specification project category id.</p>
      *
@@ -475,15 +461,15 @@ public interface WebConstants {
      */
     public static final long PHASE_TEST_SUITES_SPECIFICATION =
         PHASE_TEST_SUITES + SPECIFICATION_COMPETITION_OFFSET;
-        
-    /**
+		
+	/**
      * <p>An <code>long</code> representing test scenarios competition specification phase id.</p>
      *
      * @since 1.3
      */
     public static final long PHASE_TEST_SCENARIOS_SPECIFICATION =
         PHASE_TEST_SCENARIOS + SPECIFICATION_COMPETITION_OFFSET;
-
+        
     /**
      * <p>An <code>long</code> representing ui prototype competition specification phase id.</p>
      *
@@ -491,7 +477,7 @@ public interface WebConstants {
      */
     public static final long PHASE_UI_PROTOTYPE_SPECIFICATION =
         PHASE_UI_PROTOTYPE + SPECIFICATION_COMPETITION_OFFSET;
-
+        
     /**
      * <p>An <code>long</code> representing ria build competition specification phase id.</p>
      *
@@ -499,7 +485,7 @@ public interface WebConstants {
      */
     public static final long PHASE_RIA_BUILD_SPECIFICATION =
         PHASE_RIA_BUILD + SPECIFICATION_COMPETITION_OFFSET;
-
+        
     /**
      * <p>An <code>long</code> representing ria component competition specification phase id.</p>
      *
