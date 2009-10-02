@@ -82,13 +82,13 @@
                 </tr>
                 <tr class="light">
                     <td class="value">Competition 1</td>
-                    <td class="value C">September 14, 2008<br />1:00 PM EDT</td>
-                    <td class="value R">September 25, 2008<br />1:00 PM EDT</td>
+                    <td class="value C">September 14, 2009<br />1:00 PM EDT</td>
+                    <td class="value R">September 25, 2009<br />1:00 PM EDT</td>
                 </tr>
                 <tr class="dark">
                     <td class="value">Competition 2</td>
-                    <td class="value C">TBD<br />1:00 PM EDT</td>
-                    <td class="value R">TBD<br />1:00 PM EDT</td>
+                    <td class="value C">November 23, 2009<br />1:00 PM EDT</td>
+                    <td class="value R">December 7, 2009<br />1:00 PM EDT</td>
                 </tr>
                 <tr class="light">
                     <!-- <td class="value" colspan="3">*Please note the change in Daylight Saving Time in November for deadlines.</td> -->
