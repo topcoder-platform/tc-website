@@ -172,6 +172,6 @@
 	<classpathentry kind="var" path="ARTIFACTS/custom-serialization-1.0.0.jar"/>
 	<classpathentry kind="var" path="ARTIFACTS/logging-1.0.0.jar"/>
 	<classpathentry kind="lib" path="lib/jars/tcs/studio_service.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/shared"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/topcoder-shared"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

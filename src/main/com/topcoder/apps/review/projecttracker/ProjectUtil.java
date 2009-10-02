@@ -4,17 +4,6 @@
 package com.topcoder.apps.review.projecttracker;
 
 
-import com.topcoder.project.phases.Dependency;
-import com.topcoder.project.phases.Phase;
-import com.topcoder.project.phases.PhaseStatus;
-import com.topcoder.project.phases.template.ConfigurationException;
-import com.topcoder.project.phases.template.DefaultPhaseTemplate;
-import com.topcoder.project.phases.template.PhaseTemplate;
-import com.topcoder.util.errorhandling.BaseException;
-import com.topcoder.util.idgenerator.IDGenerationException;
-import com.topcoder.util.idgenerator.IDGenerator;
-import com.topcoder.util.idgenerator.IDGeneratorFactory;
-
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -30,6 +19,17 @@ import java.util.Iterator;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
+
+import com.topcoder.project.phases.Dependency;
+import com.topcoder.project.phases.Phase;
+import com.topcoder.project.phases.PhaseStatus;
+import com.topcoder.project.phases.template.ConfigurationException;
+import com.topcoder.project.phases.template.DefaultPhaseTemplate;
+import com.topcoder.project.phases.template.PhaseTemplate;
+import com.topcoder.util.errorhandling.BaseException;
+import com.topcoder.util.idgenerator.IDGenerationException;
+import com.topcoder.util.idgenerator.IDGenerator;
+import com.topcoder.util.idgenerator.IDGeneratorFactory;
 
 /**
  * <strong>Purpose</strong>:
@@ -50,8 +50,15 @@ import java.util.Set;
  *   </ol>
  * </p>
  *
+ * <p>
+ *   Version 1.3 (Configurable Contest Terms Release Assembly v2.0) Change notes:
+ *   <ol>
+ *     <li>Added audit information when a resource is saved. (project creation and registration)</li>
+ *   </ol>
+ * </p>
+ *
  * @author brain_cn, pulky
- * @version 1.2
+ * @version 1.3
  */
 public class ProjectUtil {
 
@@ -79,7 +86,40 @@ public class ProjectUtil {
     public static final int COMPONENT_TESTING_PROJECT_TYPE = 5;
 
     /**
+     * This constant represents the submitter resource role id
+     *
+     * @since 1.3
+     */
+    private static final long SUBMITTER_RESOURCE_ROLE_ID = 1;
+
+    /**
+     * This constant represents the manager resource role id
+     *
+     * @since 1.3
+     */
+    private static final long MANAGER_RESOURCE_ROLE_ID = 13;
+
+    /**
+     * This constant represents the project user audit creation type
+     *
+     * @since 1.3
+     */
+    private static final int PROJECT_USER_AUDIT_CREATE_TYPE = 1;
+
+    /**
+     * Represents the SQL for inserting project user audit records
+     *
+     * @since 1.3
+     */
+    private static final String SQL_INSERT_PROJECT_USER_AUDIT =
+        "INSERT INTO project_user_audit (project_user_audit_id, project_id, resource_user_id, " +
+            " resource_role_id, audit_action_type_id, action_date, action_user_id) " +
+            " VALUES (PROJECT_USER_AUDIT_SEQ.nextval, ?, ?, ?, ?, CURRENT, ?)";
+
+    /**
      * This method processes user inquiry for a particular project
+     *
+     * Note: since version 1.3, audit information is saved for resource.
      *
      * @param conn the <code>Connection</code> being used.
      * @param userId the user id to register.
@@ -110,6 +150,9 @@ public class ProjectUtil {
 
         close(rs);
         close(ps);
+
+        // Audit resource addition
+        auditResourceAddition(conn, userId, projectId, SUBMITTER_RESOURCE_ROLE_ID);
 
         // prepare rating/Reliability
         ps = conn.prepareStatement("SELECT rating, phase_id, (select project_category_id from project where project_id = ?) as project_category_id from user_rating where user_id = ? ");
@@ -279,6 +322,24 @@ public class ProjectUtil {
         }
     }
 
+    /**
+     * This method creates a project
+     *
+     * Note: since version 1.3, audit information is saved for resource.
+     *
+     * @param conn the connection
+     * @param projectVersion the project version
+     * @param compVersId the component version id
+     * @param projectTypeId the project type id
+     * @param modUserId the modifying user id
+     * @param forumCategoryId the forum category id
+     * @param price the price
+     *
+     * @return the created project id
+     *
+     * @throws SQLException if any error occurs in the underlying layer.
+     * @throws BaseException if any business error occurs
+     */
     static long createProject(Connection conn, String projectVersion, long compVersId, long projectTypeId, long modUserId, long forumCategoryId, double price) throws SQLException, BaseException {
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -474,6 +535,9 @@ public class ProjectUtil {
         ps.executeUpdate();
 
         close(ps);
+
+        // Audit resource addition
+        auditResourceAddition(conn, modUserId, projectId, MANAGER_RESOURCE_ROLE_ID);
 
         // Clean up this variable for reuse - bblais
         ps = null;
@@ -788,6 +852,39 @@ public class ProjectUtil {
         ps.setString(index++, String.valueOf(userId));
         ps.execute();
         close(ps);
+    }
+
+    /**
+     * This method will audit project user information. This information is generated when a project is
+     * created or a user registers to a project.
+     *
+     * @param conn the connection to database
+     * @param userId the user id being audited
+     * @param projectId the project id being audited
+     * @param userRoleId the user role id. Can be SUBMITTER_RESOURCE_ROLE_ID or MANAGER_RESOURCE_ROLE_ID.
+     *
+     * @throws SQLException if any error occurs in the underlying layer
+     *
+     * @since 1.3
+     */
+    private static void auditResourceAddition(Connection conn, long userId,
+            long projectId, long userRoleId) throws SQLException {
+
+        PreparedStatement ps = null;
+        try {
+            ps = conn.prepareStatement(SQL_INSERT_PROJECT_USER_AUDIT);
+
+            int index = 1;
+            ps.setObject(index++, projectId);
+            ps.setObject(index++, userId);
+            ps.setLong(index++, userRoleId);
+            ps.setInt(index++, PROJECT_USER_AUDIT_CREATE_TYPE);
+            ps.setLong(index++, userId);
+
+            ps.executeUpdate();
+        } finally  {
+            close(ps);
+        }
     }
 
     private static void close(Object obj) {

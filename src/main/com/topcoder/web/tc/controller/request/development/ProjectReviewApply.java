@@ -32,21 +32,9 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.common.error.RequestRateExceededException;
 import com.topcoder.web.common.throttle.Throttle;
-import com.topcoder.web.ejb.termsofuse.TermsOfUse;
-import com.topcoder.web.ejb.user.UserTermsOfUse;
+import com.topcoder.web.ejb.termsofuse.TermsOfUseEntity;
+import com.topcoder.web.ejb.termsofuse.TermsOfUseLocator;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.randomstringimg.InvalidConfigException;
-import com.topcoder.randomstringimg.ObfuscationException;
-import com.topcoder.randomstringimg.RandomStringImage;
-import com.topcoder.util.spell.ConfigException;
-
-import javax.ejb.CreateException;
-import javax.naming.InitialContext;
-import javax.rmi.PortableRemoteObject;
-import java.sql.Timestamp;
-import java.util.Map;
-import java.io.IOException;
-import java.io.FileOutputStream;
 
 /**
  * <p>Processor for the user requests to review the components.</p>
@@ -103,10 +91,15 @@ import java.io.FileOutputStream;
  *   <ol>
  *     <li>Added support for Specification review project types.</li>
  *   </ol>
+ *
+ *   Version 1.0.10 (Configurable Contest Terms Release Assembly v2.0) Change notes:
+ *   <ol>
+ *     <li>Changed the processor so that a terms of use can be agreed to without any dependency to others.</li>
+ *   </ol>
  * </p>
  *
  * @author dok, isv, pulky, snow01
- * @version 1.0.9
+ * @version 1.0.10
  */
 public class ProjectReviewApply extends Base {
     protected long projectId = 0;
@@ -123,11 +116,11 @@ public class ProjectReviewApply extends Base {
 
     /**
      * Processes the review position apply on the project.
-     * 
+     *
      * Updated for Specification Review Integration 1.0
      *      - Now specification review projects are also included in validating supported project type.
-     *      - specification review project type is handled. 
-     * 
+     *      - specification review project type is handled.
+     *
      * @throws TCWebException if any error occurs during processing.
      */
     @SuppressWarnings("unchecked")
@@ -150,9 +143,9 @@ public class ProjectReviewApply extends Base {
                 //we'll use the existing command, it's overkill, but we're probably not
                 //talking high volume here
                 Request r = new Request();
-                
+
                 ResultSetContainer detail=null;
-                
+
                 if (phaseId > Constants.SPECIFICATION_COMPETITION_OFFSET) {
                     r.setContentHandle("spec_review_project_detail");
                     r.setProperty(Constants.PROJECT_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
@@ -166,9 +159,9 @@ public class ProjectReviewApply extends Base {
                     Map results = getDataAccess().getData(r);
                     detail = (ResultSetContainer) results.get("review_project_detail");
                 }
-                
+
                 int catalog = detail.getIntItem(0, "category_id");
-                
+
                 getRequest().setAttribute("phase_id", detail.getIntItem(0, "phase_id"));
 
                 rBoardApplication = createRBoardApplication();
@@ -215,6 +208,8 @@ public class ProjectReviewApply extends Base {
     /**
      * This method processes review application.
      *
+     * Note: this method was modified so that a terms of use can be agreed to without any dependency to others.
+     *
      * @param opensOn the time the review position opens
      * @param reviewTypeId the review type id
      * @throws Exception if any error occurs
@@ -224,21 +219,29 @@ public class ProjectReviewApply extends Base {
         rBoardApplication.validateUserTrans(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, projectId, phaseId, getUser().getId(),
                                             opensOn, reviewTypeId, primary);
 
-        // get corresponding resource role ids
-        int[] roleIds = getResourceRoleIds(reviewTypeId, primary);
-        processTermsOfUse(String.valueOf(projectId), getUser().getId(), roleIds);
+        String termsOfUseId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_ID));
+        if (!"".equals(termsOfUseId)) {
+            // get the terms of use and add it to the request
+            TermsOfUseEntity terms =  TermsOfUseLocator.getService().getEntity(Long.parseLong(termsOfUseId),
+                DBMS.COMMON_OLTP_DATASOURCE_NAME);
+            getRequest().setAttribute(Constants.TERMS, terms);
+        } else {
+            // get corresponding resource role ids
+            int[] roleIds = getResourceRoleIds(reviewTypeId, primary);
+            processTermsOfUse(String.valueOf(projectId), getUser().getId(), roleIds);
 
-        loadCaptcha();
+            loadCaptcha();
+        }
         setNextPage(getReviewTermsView(this.projectTypeId));
         setIsNextPageInContext(true);
     }
 
     /**
      * Performs non transactional validation of the reviewer.
-     * 
+     *
      * Updated for Specification Review Integration 1.0
      *      - handles specification review project types.
-     *      - but RBoard validation happens as per the rules for parent project type only. 
+     *      - but RBoard validation happens as per the rules for parent project type only.
      *
      * @param catalog the catalog to validate
      * @param reviewTypeId the review type id to validate
@@ -246,7 +249,7 @@ public class ProjectReviewApply extends Base {
      */
     protected void nonTransactionalValidation(int catalog, int reviewTypeId) throws Exception {
         int type = Integer.parseInt(this.projectTypeId);
-        
+
         // for specification review we validate for the parent project type only.
         if (type > Constants.SPECIFICATION_COMPETITION_OFFSET) {
             type = type - Constants.SPECIFICATION_COMPETITION_OFFSET;
@@ -292,7 +295,7 @@ public class ProjectReviewApply extends Base {
      *         specified type.
      * @since TCS Release 2.2.0 (TCS-54)
      */
-    private String getReviewTermsView(String projectType) {
+    protected String getReviewTermsView(String projectType) {
         if (projectType.equals(String.valueOf(WebConstants.DESIGN_PROJECT_TYPE))) {
             return Constants.REVIEWER_TERMS;
         } else if (projectType.equals(String.valueOf(WebConstants.DEVELOPMENT_PROJECT_TYPE))) {
@@ -309,7 +312,7 @@ public class ProjectReviewApply extends Base {
 
     /**
      * Private helper method to decide if a project type should be validated with catalog or not
-     * 
+     *
      * Updated for Specification Review Integration 1.0
      *      - specification project type ids are included in validation.
      *
