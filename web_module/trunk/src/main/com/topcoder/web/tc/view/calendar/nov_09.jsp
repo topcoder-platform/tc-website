@@ -121,6 +121,11 @@
       <td class="value">22
       </td>
       <td class="value">23
+         <div class="long">
+         <strong><a href="/tc?module=Static&d1=sponsors&d2=NVIDIAOverview">NVIDIA CUDA Superhero Challenge 2 Marathon Match</a></strong><br />
+         1:00 PM<br />
+         $5,000 in prizes<br />
+         Ends December 7 1:00 PM</div>
       </td>
       <td class="value">24
       </td>
