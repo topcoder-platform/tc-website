@@ -102,12 +102,18 @@
                                                         <div style="float:right; text-align:right;">
                                                             $<fmt:formatNumber value="${projectDetailRow.map['total_payment']}" pattern="#,###.00"/><br>
                                                             $<fmt:formatNumber value="${projectDetailRow.map['second_place_payment']}" pattern="#,###.00"/><br>
+                                                            <c:if test="${maxReliabilityBonus > 0}">
+                                                              $<fmt:formatNumber type="number" pattern="#,###.00" value="${maxReliabilityBonus}"/><br/>
+                                                            </c:if>
                                                             <fmt:formatDate value="${projectDetailRow.map['initial_submission_date']}" pattern="MM.dd.yyyy"/>
                                                         </div>
                                                         <strong>
                                                             First place:<br>
                                                             Second place:<br>
-                                                            Due date:
+                                                            <c:if test="${maxReliabilityBonus > 0}">
+                                                              Reliability Bonus:<br/>
+                                                            </c:if>
+                                                            Due Date:
                                                         </strong>
                                                     </div>
                                                 </td>
