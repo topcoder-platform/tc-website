@@ -614,7 +614,7 @@ public class ProcessJiraPayments extends DBUtility {
          *            the RemoteIssue to obtain data from.
          */
         private void populateDescription(RemoteIssue remoteIssue) {
-            description = "[" + remoteIssue.getKey() + "] - " + referenceInfo;
+            description = "[" + remoteIssue.getKey() + "] - " + remoteIssue.getSummary();
         }
 
         /**
