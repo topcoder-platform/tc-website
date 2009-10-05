@@ -835,7 +835,8 @@ public class ProcessJiraPayments extends DBUtility {
             + "     , tcs_catalog:project_info pi_version"
             + " WHERE pi_name.project_id = ?"
             + "   AND pi_name.project_info_type_id = 6"
-            + "   AND pi_version.project_id = pi_name.project_id" + "   AND pi_version.project_info_type_id = 7";
+            + "   AND pi_version.project_id = pi_name.project_id"
+            + "   AND pi_version.project_info_type_id = 7";
 
     /** A query that finds a Studio contest by id and returns its name. */
     private static final String QUERY_STUDIO_CONTEST_INFO_BY_ID =
