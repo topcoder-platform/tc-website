@@ -437,6 +437,16 @@
         <span class="subSectionTitle">Round Two (2)</span><br/>
         <studio:formatField text="${contest.multiRoundInformation.roundTwoIntroduction}"/>
         <br/>
+        <br>
+
+        <font color="#ff7600">Please read the contest specification carefully and watch the forums for any questions or feedback concerning this contest. It is important that you monitor any updates provided by the client or Studio Admins in the forums. Please post any questions you might have for the client in the forums.<br><br>
+        <b>Regarding the Rounds:</b><br><br>
+        <ul>
+            <li>To be eligible for Round 1 prizes and design feedback, you must submit before the Milestone deadline.</li>
+            <li>The contest holder will announce Round 1 winners and provide design feedback to those winners in the forum after the milestone deadline. </li>
+            <li>You must submit to Round 1 to be eligible to compete in Round 2. If your submission fails screening for a small mistake in Round 1, you may still submit to Round 2.</li></font>
+        </ul>
+
     </c:if>
     <c:if test="${not empty contest.fullDescription.value}">
         <p>
