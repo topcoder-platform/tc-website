@@ -128,7 +128,7 @@ public class ViewContestDetails extends ShortHibernateProcessor {
      *      </li>
      *      <li>
      *         If contest details pages are viewable to every logged in user after the specification
-     *         review is complete. (Review Status Type is PASSED)
+     *         review is initiated.
      *      </li>
      *   </ol>
      * </p>
