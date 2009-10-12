@@ -80,6 +80,11 @@
                     position that you would like to commit to.</p>
                 <br/>
                     <c:if test="${fn:length(projectList) > 0}">
+					    <div align="right" style="padding-top: 10px">
+						    <b>Review opportunities via RSS -</b>
+							<a href="/tc?module=BasicRSS&c=rss_Open_Review_Positions&dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
+						    <br />
+						</div>
                         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
                             <tr>
                                 <td>
@@ -229,6 +234,11 @@
 
 
                     <c:if test="${fn:length(specificationReviewList) > 0}">
+						<div align="right" style="padding-top: 10px">
+						    <b>Review opportunities via RSS -</b>
+							<a href="/tc?module=BasicRSS&c=rss_spec_review_opportunities&dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
+						    <br />
+						</div>
                         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
                             <tr>
                                 <td>
