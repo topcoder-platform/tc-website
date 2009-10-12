@@ -1,6 +1,6 @@
 <%--
   - Author: pulky
-  - Version: 1.2
+  - Version: 1.3
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page lists all active contests for a specific project type.
@@ -10,6 +10,8 @@
   -
   - Version 1.2 (Testing Competition Split Release Assembly 1.0) changes: Updated Application Testing to Test Suites
   - and added support for new Test Scenarios competitions.
+  -
+  - Version 1.3 (BUGR-2749) changes: Added reliability bonus column.
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
@@ -263,10 +265,10 @@
     <tr>
           <c:choose>
             <c:when test="${hasDR}">
-                <td class="title" colspan="9">
+                <td class="title" colspan="10">
             </c:when>
             <c:otherwise>
-                <td class="title" colspan="8">
+                <td class="title" colspan="9">
             </c:otherwise>
           </c:choose>
 
@@ -307,6 +309,7 @@
       <td class="headerC" width="10%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Register by</a></td>
       <td class="headerC" width="10%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Submit by</a></td>
       <td class="headerC" width="10%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true"/>">Payment</a></td>
+      <td class="headerC" width="10%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="99" includeParams="true"/>">Reliability Bonus</a></td>
       <c:if test="${hasDR}">
           <td class="headerC" width="10%">
               <div align="center">
@@ -362,6 +365,8 @@
                 <rsc:item name="initial_submission_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/></td>
             <td class="valueC">
                 <rsc:item name="price" row="<%=resultRow%>" format="$###,###.00"/></td>
+            <td class="valueC">
+                <rsc:item name="reliability_bonus" row="<%=resultRow%>" format="$###,###.00"/></td>
             <c:if test="${hasDR}">
                 <td class="valueC">
                     <rsc:item name="dr_points" row="<%=resultRow%>" format="######"/>

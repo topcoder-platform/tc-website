@@ -1,3 +1,12 @@
+<%--
+  - Author: pulky
+  - Version: 1.1
+  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page lists all active contests for design/development contests.
+  -
+  - Version 1.1 (BUGR-2749) changes: Added reliability bonus column.
+--%>
 <%@ page language="java" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -11,9 +20,9 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="tc_tags" tagdir="/WEB-INF/tags" %>
-<% ResultSetContainer devContests = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("dev_contests");%>
-<% ResultSetContainer designContests = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("design_contests");%>
 <% boolean design = ((Boolean) request.getAttribute("phase_id_is_design")).booleanValue(); %>
+<% ResultSetContainer devContests = (ResultSetContainer) request.getAttribute("devContests");%>
+<% ResultSetContainer designContests = (ResultSetContainer) request.getAttribute("designContests");%>
 
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <head>
@@ -75,7 +84,7 @@
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-        <td class="title" colspan="10">Active Component Design Contests</td>
+        <td class="title" colspan="11">Active Component Design Contests</td>
     </tr>
     <tr>
         <td class="headerC">
@@ -94,6 +103,9 @@
         </td>
         <td class="headerC" width="10%">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Payment*</a>
+        </td>
+        <td class="headerC" width="10%">
+            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="99" includeParams="true"/>">Reliability Bonus</a>
         </td>
         <td class="headerC" width="10%">
             <div align="center">
@@ -158,6 +170,9 @@
                 <rsc:item name="price" row="<%=resultRow%>" format="$###,###.00"/>
             </td>
             <td class="valueC">
+                <rsc:item name="reliability_bonus" row="<%=resultRow%>" format="$###,###.00"/>
+            </td>
+            <td class="valueC">
                 <rsc:item name="dr_points" row="<%=resultRow%>" format="######"/>
             </td>
             <td class="valueC">
@@ -205,7 +220,7 @@
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-        <td class="title" colspan="11">Active Component Development Contests</td>
+        <td class="title" colspan="12">Active Component Development Contests</td>
     </tr>
     <tr>
         <td class="headerC">
@@ -227,6 +242,9 @@
         </td>
         <td class="headerC" width="10%">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Payment*</a>
+        </td>
+        <td class="headerC" width="10%">
+            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="99" includeParams="true"/>">Reliability Bonus</a>
         </td>
         <td class="headerC" width="10%">
             <div align="center">
@@ -290,6 +308,9 @@
             </td>
             <td class="valueC">
                 <rsc:item name="price" row="<%=resultRow%>" format="$###,###.00"/>
+            </td>
+            <td class="valueC">
+                <rsc:item name="reliability_bonus" row="<%=resultRow%>" format="$###,###.00"/>
             </td>
             <td class="valueC">
                 <rsc:item name="dr_points" row="<%=resultRow%>" format="######"/>
