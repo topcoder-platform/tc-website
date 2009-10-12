@@ -13,14 +13,27 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.development.Base;
+import com.topcoder.web.tc.controller.request.development.ReliabilityBonusColumnCalculator;
 
 /**
- * Copyright (c) 2001-2008 TopCoder, Inc. All rights reserved.
- * Only for use in connection with a TopCoder competition.
+ * <p>Base class for generic active contests processing.</p>
+ *
+ * <p><b>Change Log:</b></p>
+ * <p>
+ *   <table>
+ *     <tr>
+ *         <td>Version 1.1 (BUGR-2749)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Added reliabiity bonus column calculation.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
+ *   </table>
+ * </p>
  *
  * @author pulky
- * @version $Id$
- * Create Date: Apr 16, 2008
+ * @version 1.1
  */
 public abstract class ActiveContestsBase extends Base {
 
@@ -55,7 +68,7 @@ public abstract class ActiveContestsBase extends Base {
 
             Request r = new Request();
             r.setContentHandle(getCommandName());
-            if (!(sortCol.equals("") || sortDir.equals(""))) {  
+            if (!sortCol.equals("") && !sortDir.equals("") && !sortCol.equals(RELIABILITY_BONUS_COLUMN_INDEX)) {  
                 r.setProperty(DataAccessConstants.SORT_DIRECTION, sortDir);
                 r.setProperty(DataAccessConstants.SORT_COLUMN, sortCol);
             }
@@ -63,8 +76,15 @@ public abstract class ActiveContestsBase extends Base {
             r.setProperty(Constants.PROJECT_TYPE_ID, String.valueOf(getProjectType()));
             r.setProperty(DataAccessConstants.SORT_QUERY, getCommandName());
             Map<String, ResultSetContainer> result = getDataAccess().getData(r);
-            getRequest().setAttribute("contests", result.get(getCommandName()));
+            ResultSetContainer rsc = new ResultSetContainer(result.get(getCommandName()), 
+                    new ReliabilityBonusColumnCalculator());
+            getRequest().setAttribute("contests", rsc);
 
+            
+            if (sortCol.equals(RELIABILITY_BONUS_COLUMN_INDEX) && !sortDir.equals("")) {
+                rsc.sortByColumn(rsc.getColumnCount() - 1, sortDir.equals("asc"));
+            }
+            
             // defines column's default sort.
             SortInfo s = new SortInfo();
             s.addDefault(3, "asc");   // Catalog    
@@ -76,6 +96,7 @@ public abstract class ActiveContestsBase extends Base {
             s.addDefault(7, "desc");  // Submissions
             s.addDefault(10, "desc");  // Payment    
             s.addDefault(0, "desc");  // Submit by  
+            s.addDefault(99, "desc");  // reliability bonus  
             getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
             getRequest().setAttribute(Constants.PROJECT_TYPE_ID, getProjectType());

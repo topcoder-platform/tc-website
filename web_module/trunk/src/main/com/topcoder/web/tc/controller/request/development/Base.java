@@ -76,7 +76,7 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *           </ul>
  *         </td>
  *     </tr>
-		 <tr>
+         <tr>
  *         <td>Version 1.5 (Specification Review Integration 1.0)</td>
  *         <td>
  *           <ul>
@@ -84,13 +84,29 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *           </ul>
  *         </td>
  *     </tr> 
+         <tr>
+ *         <td>Version 1.6 (BUGR-2749)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Added constant to support reliability bonus column in active contests page.</li>
+ *           </ul>
+ *         </td>
+ *     </tr> 
  *   </table>
  * </p>
  *
- * @author dok, isv, pulky, TCSASSEMBLER
- * @version 1.5
+ * @author dok, isv, pulky
+ * @version 1.6
  */
 public abstract class Base extends ShortHibernateProcessor {
+
+    /**
+     * Constant containing reliability bonus column index
+     *
+     * @since 1.6
+     */
+    protected static final String RELIABILITY_BONUS_COLUMN_INDEX = "99";
+    
     /**
      * Constant containing submitter role id
      *
