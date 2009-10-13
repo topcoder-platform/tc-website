@@ -3,6 +3,8 @@
  */
 package com.topcoder.web.tc.controller.request.contest;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.rmi.RemoteException;
 import java.sql.Timestamp;
 import java.util.Calendar;
@@ -19,6 +21,9 @@ import com.topcoder.dde.catalog.ComponentManager;
 import com.topcoder.dde.catalog.ComponentManagerHome;
 import com.topcoder.dde.user.UserManagerRemote;
 import com.topcoder.dde.user.UserManagerRemoteHome;
+import com.topcoder.randomstringimg.InvalidConfigException;
+import com.topcoder.randomstringimg.ObfuscationException;
+import com.topcoder.randomstringimg.RandomStringImage;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
@@ -29,6 +34,8 @@ import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.util.format.ObjectFormatter;
 import com.topcoder.util.format.ObjectFormatterFactory;
+import com.topcoder.util.spell.ConfigException;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.StringUtils;
@@ -37,18 +44,8 @@ import com.topcoder.web.common.tag.CalendarDateFormatMethod;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.project.Project;
 import com.topcoder.web.ejb.project.ProjectLocal;
-import com.topcoder.web.ejb.termsofuse.TermsOfUse;
-import com.topcoder.web.ejb.termsofuse.TermsOfUseEntity;
-import com.topcoder.web.ejb.termsofuse.TermsOfUseLocator;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.development.Base;
-import com.topcoder.randomstringimg.InvalidConfigException;
-import com.topcoder.randomstringimg.ObfuscationException;
-import com.topcoder.randomstringimg.RandomStringImage;
-import java.io.IOException;
-import java.io.FileOutputStream;
-import com.topcoder.util.spell.ConfigException;
-import com.topcoder.web.common.NavigationException;
 
 /**
  * <p><strong>Purpose</strong>: This processor handle registration to a specific project.</p>
@@ -67,14 +64,22 @@ import com.topcoder.web.common.NavigationException;
  * </p>
  *
  * <p>
- *   Version 1.2 (Configurable Contest Terms Release Assembly v1.0) Change notes:
+ *   Version 1.3 (Configurable Contest Terms Release Assembly v1.0) Change notes:
  *   <ol>
  *     <li>Added new functionality that asks for several terms of use and show those the user already agreed to.</li>
  *   </ol>
  * </p>
  *
+ * <p>
+ *   Version 1.4 (Configurable Contest Terms Release Assembly v2.0) Change notes:
+ *   <ol>
+ *     <li>Fixed bug where captcha was shown in each terms of use step.</li>
+ *     <li>Added sort order to displayed terms of use.</li>
+ *   </ol>
+ * </p>
+ *
  * @author dok, pulky
- * @version 1.2
+ * @version 1.4
  */
 public class Register extends ViewRegistration {
 
@@ -100,7 +105,6 @@ public class Register extends ViewRegistration {
 
             long userId = getLoggedInUser().getId();
             if (!"".equals(termsOfUseId)) {
-
                 boolean agreed = "on".equals(getRequest().getParameter(Constants.TERMS_AGREE));
                 if (agreed) {
                     if (log.isDebugEnabled()) {
@@ -108,33 +112,34 @@ public class Register extends ViewRegistration {
                     }
                     // save user terms of use record
                     saveUserTermsOfUse(userId, Long.parseLong(termsOfUseId));
-
-                    // process terms of use
-                    processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS);
                 } else {
                     addError(Constants.TERMS_AGREE, "You must agree to the terms in order to proceed.");
+                }
 
-                    TermsOfUse termsOfUse = TermsOfUseLocator.getService();
-                    TermsOfUseEntity terms =  termsOfUse.getEntity(Long.parseLong(termsOfUseId),
-                            DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                    getRequest().setAttribute(Constants.TERMS, terms);
+                // process terms of use
+                boolean hasMoreTerms = processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS, Long.parseLong(termsOfUseId));
+                if (!hasMoreTerms) {
+                    //we're assuming that if we're here, we got a valid project id
+                    loadCaptcha();
                 }
-                if (!answeredCaptchaCorrectly()) {
-                    addError(Constants.CAPTCHA_RESPONSE, "Sorry, your response was incorect.");
-                }
+                getRequest().setAttribute("showCaptcha", !hasMoreTerms);
+
                 setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
-                 loadCaptcha();
                 setNextPage("/contest/regTerms.jsp");
                 setIsNextPageInContext(true);
             } else {
                 // make sure they don't have pending terms of use (they could get here faking the URL)
-                if (processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS)) {
+                if (!answeredCaptchaCorrectly()) {
+                    addError(Constants.CAPTCHA_RESPONSE, "Sorry, your response was incorect.");
+                }
+                if (processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS, -1) || hasErrors()) {
                     setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
                      loadCaptcha();
                     setNextPage("/contest/regTerms.jsp");
                     setIsNextPageInContext(true);
                     return;
                 }
+
                 boolean isEligible = getRequest().getAttribute(Constants.MESSAGE) == null;
                 if (isEligible) {
                     if (log.isDebugEnabled()) {
@@ -154,7 +159,7 @@ public class Register extends ViewRegistration {
             throw new TCWebException(e);
         }
     }
-    
+
     protected void loadCaptcha() throws IOException, InvalidConfigException, ObfuscationException, ConfigException {
         RandomStringImage rsi = new RandomStringImage(Constants.RANDOM_STRING_IMAGE_CONFIG);
 
@@ -169,7 +174,7 @@ public class Register extends ViewRegistration {
         getRequest().getSession().setAttribute(Constants.CAPTCHA_WORD, word);
         getRequest().setAttribute(Constants.CAPTCHA_FILE_NAME, fileName);
     }
-    
+
     private boolean answeredCaptchaCorrectly() throws NavigationException {
         String response = StringUtils.checkNull(getRequest().getParameter(Constants.CAPTCHA_RESPONSE));
         String word = (String)getRequest().getSession().getAttribute(Constants.CAPTCHA_WORD);

@@ -13,8 +13,15 @@ package com.topcoder.web.admin;
  *   </ol>
  * </p>
  *
+ * <p>
+ *   Version 1.2 (Configurable Contest Terms Release Assembly v2.0) Change notes:
+ *   <ol>
+ *     <li>Added "handle" request parameter name constants.</li>
+ *   </ol>
+ * </p>
+ *
  * @author dok, pulky
- * @version 1.1
+ * @version 1.2
  */
 public interface AdminConstants {
     public static final String TERMS_OF_USE_ID = "tid";
@@ -47,6 +54,15 @@ public interface AdminConstants {
      * @since 1.1
      */
     public static final String TERMS_URL = "turl";
+
+    /**
+     * <p>
+     * A <code>String</code> containing the request parameter name for "handle".
+     * </p>
+     *
+     * @since 1.2
+     */
+    public static final String HANDLE = "ha";
 
     public static final String SURVEY_ID = "sid";
     public static final String QUESTION_ID = "qid";

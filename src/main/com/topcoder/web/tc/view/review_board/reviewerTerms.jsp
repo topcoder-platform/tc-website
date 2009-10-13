@@ -1,6 +1,6 @@
 <%--
   - Author: pulky, snow01
-  - Version: 1.4
+  - Version: 1.5
   - Since: TCS Release 2.2.2
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
@@ -17,10 +17,13 @@
   -
   - Version 1.3 (Specification Review Integration 1.0) changes:
   -      * support for specification reviews was added.
-  -      * code was refactored to avoid duplication.  
+  -      * code was refactored to avoid duplication.
   -
   - Version 1.4 (Configurable Contest Terms Release Assembly v1.0) changes: Added new functionality that asks for
   - several terms of use and show those the reviewer already agreed to.
+  -
+  - Version 1.5 (Configurable Contest Terms Release Assembly v2.0) changes: Replaced textarea with iframe to show
+  - terms of use and also added pending terms of use list so that each terms of use can be accepted separatedly.
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
@@ -71,8 +74,8 @@
                         <input type="hidden" name="${PROJECT_ID}" value="${param[PROJECT_ID]}"/>
                         <input type="hidden" name="${REVIEWER_TYPE_ID}" value="${param[REVIEWER_TYPE_ID]}"/>
                         <input type="hidden" name="${PRIMARY_FLAG}" value="${param[PRIMARY_FLAG]}"/>
-                        <input type="hidden" name="${MODULE_KEY}" value="ProjectReviewTermsAgree"/>
                         <input type="hidden" name="${PROJECT_TYPE_ID}" value="${projectType}"/>
+                        <input type="hidden" name="${MODULE_KEY}" value="ProjectReviewTermsAgree"/>
 
                         <c:if test="${not empty terms}">
                             <input type="hidden" name="${TERMS_OF_USE_ID}" value="${terms.termsOfUseId}"/>
@@ -88,106 +91,137 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <tc-webtag:textArea name="${TERMS}" text="${terms.termsText}" rows="10"
-                                                cols="80" readOnly="true" styleClass="bodyText"/>
+                                            <iframe width="590" height="300" marginWidth="5"
+                                                src="${sessionInfo.servletPath}?module=Terms&amp;${TERMS_OF_USE_ID}=${terms.termsOfUseId}">
+                                            </iframe>
                                         </td>
                                     </tr>
+                                    <c:choose>
+                                        <c:when test="${terms.electronicallySignable == 1}">
+                                            <tr>
+                                                <td class="errorText">
+                                                    <tc-webtag:errorIterator id="err" name="${TERMS_AGREE}">${err}
+                                                    </tc-webtag:errorIterator>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    I Agree to the Terms and Conditions stated above&#160;
+                                                    <tc-webtag:chkBox name="${TERMS_AGREE}"/>
+                                                </td>
+                                            </tr>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <jsp:include page="/terms/paper_terms.jsp">
+                                                <jsp:param name="terms.url" value="terms.url"/>
+                                            </jsp:include>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </c:when>
                                 <c:otherwise>
-                                    <tr>
-                                        <td>
-                                            The following terms (that you already agreed to) apply to this review:
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <c:forEach items="${terms_agreed}" var="terms_agreed_item">
-                                                <ul>
-                                                    <li>
-                                                        ${terms_agreed_item.title}
-                                                        <c:choose>
-                                                            <c:when test="${terms_agreed_item.electronicallySignable != 1}">
-                                                                <a href="${terms_agreed_item.url}">(View)</a>
-                                                            </c:when>
-                                                            <c:otherwise>
-                                                                <a href="/tc?module=Terms&tuid=${terms_agreed_item.termsOfUseId}" target="_blank">(View)</a>
-                                                            </c:otherwise>
-                                                        </c:choose>
-                                                    </li>
-                                                </ul>
-                                            </c:forEach>
-                                        </td>
-                                    </tr>
-                                </c:otherwise>
-                            </c:choose>
-                            <c:if test="${not empty terms}">
-                                <c:choose>
-                                    <c:when test="${terms.electronicallySignable == 1}">
+                                    <c:if test="${not empty terms_agreed}">
                                         <tr>
-                                            <td class="errorText">
-                                                <tc-webtag:errorIterator id="err" name="${TERMS_AGREE}">${err}
-                                                </tc-webtag:errorIterator>
+                                            <td>
+                                                The following terms (that you already agreed to) apply to this review:
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                I Agree to the Terms and Conditions stated above&#160;
-                                                <tc-webtag:chkBox name="${TERMS_AGREE}"/>
-                                            </td>
-                                        </tr>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <jsp:include page="/terms/paper_terms.jsp">
-                                            <jsp:param name="terms.url" value="terms.url"/>
-                                        </jsp:include>
-                                    </c:otherwise>
-                                </c:choose>
-                            </c:if>
-
-                            <c:if test="${empty terms}">
-                                <tr>
-                                    <td class="errorText">
-                                        <img src="/i/captcha/${requestScope[CAPTCHA_FILE_NAME]}" alt="captcha image"/>
-
-                                        <p>
-                                            <a href="javascript:window.location.reload()">This image is hard to read.
-                                                Show me a different one.</a>
-                                        </p>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class="errorText">
-                                        <tc-webtag:errorIterator id="err" name="${CAPTCHA_RESPONSE}">${err}
-                                            <br/></tc-webtag:errorIterator>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p>
-                                            Please enter the characters you see in the image above:
-                                            <tc-webtag:textInput name="${CAPTCHA_RESPONSE}"/>
-                                        </p>
-                                    </td>
-                                </tr>
-                            </c:if>
-
-                            <c:choose>
-                                <c:when test="${not empty terms}">
-                                    <c:if test="${terms.electronicallySignable == 1}">
-                                        <tr>
-                                            <td align="center">
-                                                <input type="submit" onClick="" name="submit" value=" Continue"/>
+                                                <c:forEach items="${terms_agreed}" var="terms_agreed_item">
+                                                    <ul>
+                                                        <li>
+                                                            ${terms_agreed_item.title}
+                                                            <c:choose>
+                                                                <c:when test="${terms_agreed_item.electronicallySignable != 1}">
+                                                                    <a href="${terms_agreed_item.url}">(View)</a>
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    <a href="/tc?module=Terms&tuid=${terms_agreed_item.termsOfUseId}" target="_blank">(View)</a>
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </li>
+                                                    </ul>
+                                                </c:forEach>
                                             </td>
                                         </tr>
                                     </c:if>
-                                </c:when>
-                                <c:otherwise>
+                                    <c:choose>
+                                        <c:when test="${not empty terms_pending}">
+                                            <tr>
+                                                <td>
+                                                    You have the following terms pending for agreement:
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <c:forEach items="${terms_pending}" var="terms_pending_item">
+                                                        <ul>
+                                                            <li>
+                                                                ${terms_pending_item.title}
+                                                                <a href="/tc?module=ProjectReviewApply&${PROJECT_ID}=${param[PROJECT_ID]}&${REVIEWER_TYPE_ID}=${param[REVIEWER_TYPE_ID]}&${PRIMARY_FLAG}=${param[PRIMARY_FLAG]}&${PROJECT_TYPE_ID}=${projectType}&${TERMS_OF_USE_ID}=${terms_pending_item.termsOfUseId}">(View and agree)</a>
+                                                            </li>
+                                                        </ul>
+                                                    </c:forEach>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    In order to register you must agree to all pending terms of use.
+                                                </td>
+                                            </tr>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <tr>
+                                                <td class="errorText">
+                                                    <img src="/i/captcha/${requestScope[CAPTCHA_FILE_NAME]}" alt="captcha image"/>
+
+                                                    <p>
+                                                        <a href="javascript:window.location.reload()">This image is hard to read.
+                                                            Show me a different one.</a>
+                                                    </p>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="errorText">
+                                                    <tc-webtag:errorIterator id="err" name="${CAPTCHA_RESPONSE}">${err}
+                                                        <br/></tc-webtag:errorIterator>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p>
+                                                        Please enter the characters you see in the image above:
+                                                        <tc-webtag:textInput name="${CAPTCHA_RESPONSE}"/>
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:otherwise>
+                            </c:choose>
+                            <c:choose>
+                                <c:when test="${not empty terms}">
                                     <tr>
                                         <td align="center">
-                                            <input type="submit" onClick="" name="submit" value=" Register"/>
+                                            <c:set value="Go back" var="returnMessage"/>
+                                            <c:if test="${terms.electronicallySignable == 1}">
+                                                <input type="submit" onClick="" name="submit" value=" Continue"/>
+                                                <c:set value="Cancel" var="returnMessage"/>
+                                            </c:if>
+
+                                            <input type="button" onClick="location.href='/tc?module=ProjectReviewApply&${PROJECT_ID}=${param[PROJECT_ID]}&${REVIEWER_TYPE_ID}=${param[REVIEWER_TYPE_ID]}&${PRIMARY_FLAG}=${param[PRIMARY_FLAG]}&${PROJECT_TYPE_ID}=${projectType}'" name="${returnMessage}" value="${returnMessage}"/>
                                         </td>
                                     </tr>
+                                </c:when>
+                                <c:otherwise>
+                                    <c:if test="${empty terms_pending}">
+                                        <tr>
+                                            <td align="center">
+                                                <input type="submit" onClick="" name="submit" value=" Register"/>
+                                            </td>
+                                        </tr>
+                                    </c:if>
                                 </c:otherwise>
                             </c:choose>
 

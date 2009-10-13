@@ -20,8 +20,16 @@ import com.topcoder.web.ejb.BaseEJB;
 /**
  * <p>EJB to handle project_role_terms_of_use_xref table.</p>
  *
+ * <p>Version 1.1 (Configurable Contest Terms Release Assembly v2.0) Change notes:
+ *   <ol>
+ *     <li>Added sort order to creation.</li>
+ *     <li>Added sort order to terms list retrieval.</li>
+ *   </ol>
+ * </p>
+ * 
  * @author pulky
- * @version 1.0 (Configurable Contest Terms Release Assembly v1.0)
+ * @version 1.1
+ * @since Configurable Contest Terms Release Assembly v1.0
  */
 public class ProjectRoleTermsOfUseBean extends BaseEJB {
 
@@ -31,20 +39,21 @@ public class ProjectRoleTermsOfUseBean extends BaseEJB {
      *
      * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 2L;
 
     /**
      * This method will create a project role terms of use association.
      *
      * @param projectId the project id to associate
      * @param resourceRoleId the role id to associate
+     * @param sortOrder the association sort order
      * @param termsOfUseId the terms of use id to associate
      * @param dataSource a <code>String</code> containing the datasource.
      * @throws EJBException if any error occurs
      * @throws RemoteException if any error occurs during remote invocation
      */
-    public void createProjectRoleTermsOfUse(int projectId, int resourceRoleId, long termsOfUseId, String dataSource)
-            throws EJBException {
+    public void createProjectRoleTermsOfUse(int projectId, int resourceRoleId, long termsOfUseId, int sortOrder, 
+        String dataSource) throws EJBException {
 
         Connection conn = null;
         PreparedStatement ps = null;
@@ -54,14 +63,15 @@ public class ProjectRoleTermsOfUseBean extends BaseEJB {
 
             StringBuffer query = new StringBuffer(1024);
             query.append("INSERT ");
-            query.append("INTO project_role_terms_of_use_xref (project_id, resource_role_id, terms_of_use_id) ");
-            query.append("VALUES (?, ?, ?)");
+            query.append("INTO project_role_terms_of_use_xref (project_id, resource_role_id, terms_of_use_id, sort_order) ");
+            query.append("VALUES (?, ?, ?, ?)");
 
             conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setInt(1, projectId);
             ps.setInt(2, resourceRoleId);
             ps.setLong(3, termsOfUseId);
+            ps.setInt(4, sortOrder);
 
             int rc = ps.executeUpdate();
             if (rc != 1) {
@@ -176,11 +186,12 @@ public class ProjectRoleTermsOfUseBean extends BaseEJB {
      * @param projectId the project id to query
      * @param resourceRoleIds the an array of roles ids to query
      * @param dataSource a <code>String</code> containing the datasource.
-     * @return a <code>List<Long></code> containing associated the terms of use ids
+     * @return an array of <code>List<Long></code> containing associated the terms of use ids in sort_order position
      * @throws EJBException if any error occurs
      * @throws RemoteException if any error occurs during remote invocation
      */
-    public List<Long> getTermsOfUse(int projectId, int[] resourceRoleIds, String dataSource)
+    @SuppressWarnings("unchecked")
+    public List<Long>[] getTermsOfUse(int projectId, int[] resourceRoleIds, String dataSource)
         throws EJBException {
 
         // validate resourceRoleIds array
@@ -191,12 +202,12 @@ public class ProjectRoleTermsOfUseBean extends BaseEJB {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        List<Long> ret = new ArrayList<Long>();
 
+        List<Long>[] ret = (List<Long>[]) new ArrayList[10];        
         InitialContext ctx = null;
         try {
             StringBuffer query = new StringBuffer(1024);
-            query.append("SELECT DISTINCT terms_of_use_id ");
+            query.append("SELECT DISTINCT terms_of_use_id, sort_order ");
             query.append("FROM project_role_terms_of_use_xref ");
             query.append("WHERE project_id = ? and resource_role_id in (");
 
@@ -217,7 +228,11 @@ public class ProjectRoleTermsOfUseBean extends BaseEJB {
 
             rs = ps.executeQuery();
             while (rs.next()) {
-                ret.add(rs.getLong("terms_of_use_id"));
+                if (ret[rs.getInt("sort_order")] == null) {
+                    ret[rs.getInt("sort_order")] = new ArrayList<Long>();
+                }
+                
+                ret[rs.getInt("sort_order")].add(rs.getLong("terms_of_use_id"));
             }
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);

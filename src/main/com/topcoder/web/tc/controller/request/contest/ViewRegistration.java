@@ -3,12 +3,19 @@
  */
 package com.topcoder.web.tc.controller.request.contest;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import com.topcoder.randomstringimg.InvalidConfigException;
+import com.topcoder.randomstringimg.ObfuscationException;
+import com.topcoder.randomstringimg.RandomStringImage;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.util.spell.ConfigException;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.SecurityHelper;
@@ -18,13 +25,6 @@ import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationS
 import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServicesLocal;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.development.Base;
-
-import com.topcoder.randomstringimg.InvalidConfigException;
-import com.topcoder.randomstringimg.ObfuscationException;
-import com.topcoder.randomstringimg.RandomStringImage;
-import java.io.IOException;
-import java.io.FileOutputStream;
-import com.topcoder.util.spell.ConfigException;
 
 
 /**
@@ -50,8 +50,16 @@ import com.topcoder.util.spell.ConfigException;
  *   </ol>
  * </p>
  *
+ * <p>
+ *   Version 1.3 (Configurable Contest Terms Release Assembly v2.0) Change notes:
+ *   <ol>
+ *     <li>Changed the processor so that a terms of use can be agreed to without any dependency to others.</li>
+ *     <li>Added sort order to displayed terms of use.</li>
+ *   </ol>
+ * </p>
+ *
  * @author dok, pulky
- * @version 1.2
+ * @version 1.3
  */
 public class ViewRegistration extends Base {
 
@@ -75,30 +83,32 @@ public class ViewRegistration extends Base {
 
             validation();
 
-            if (getRequest().getAttribute(Constants.MESSAGE) == null) {
-                String projectId = getRequest().getParameter(Constants.PROJECT_ID);
-                long userId = getLoggedInUser().getId();
-
-                // process terms of use
-                processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS);
-                
-                //we're assuming that if we're here, we got a valid project id
-                setDefault(Constants.PROJECT_ID, projectId);
-                loadCaptcha();
-                setNextPage("/contest/regTerms.jsp");
-                setIsNextPageInContext(true);
-            } else {
+            if (getRequest().getAttribute(Constants.MESSAGE) != null) {
                 setNextPage("/contest/message.jsp");
                 setIsNextPageInContext(true);
-            }
+            } else {
+                String termsOfUseId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_ID));
+                String projectId = getRequest().getParameter(Constants.PROJECT_ID);
 
+                // process terms of use
+                long userId = getLoggedInUser().getId();
+                boolean hasMoreTerms = processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS, 
+                    "".equals(termsOfUseId) ? -1 : Long.parseLong(termsOfUseId));
+                if (!hasMoreTerms) {
+                    //we're assuming that if we're here, we got a valid project id
+                    loadCaptcha();
+                }
+
+                setDefault(Constants.PROJECT_ID, projectId);
+                setNextPage("/contest/regTerms.jsp");
+                setIsNextPageInContext(true);
+            }
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
             throw new TCWebException(e);
         }
-
-}
+    }
 
 
    protected void loadCaptcha() throws IOException, InvalidConfigException, ObfuscationException, ConfigException {
@@ -115,7 +125,7 @@ public class ViewRegistration extends Base {
         getRequest().getSession().setAttribute(Constants.CAPTCHA_WORD, word);
         getRequest().setAttribute(Constants.CAPTCHA_FILE_NAME, fileName);
     }
-    
+
 
     /**
      * <p>This helper method handles the validation of the request.</p>

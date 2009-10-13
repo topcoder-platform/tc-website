@@ -15,9 +15,6 @@ import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.ejb.termsofuse.TermsOfUse;
-import com.topcoder.web.ejb.termsofuse.TermsOfUseEntity;
-import com.topcoder.web.ejb.termsofuse.TermsOfUseLocator;
 import com.topcoder.web.tc.Constants;
 
 /**
@@ -44,15 +41,21 @@ import com.topcoder.web.tc.Constants;
  *   <ol>
  *     <li>Added new functionality that asks for several terms of use and show those the user already agreed to.</li>
  *   </ol>
-
-	 Version 1.0.4 (Specification Review Integration 1.0) Change notes:
+ *
+ *   Version 1.0.4 (Specification Review Integration 1.0) Change notes:
  *   <ol>
  *     <li>Added apply logic to handle apply for specification review positions</li>
  *   </ol>
+ *
+ *   Version 1.0.5 (Configurable Contest Terms Release Assembly v2.0) Change notes:
+ *   <ol>
+ *     <li>Fixed processor to redirect to the corresponding page based on project type.</li>
+ *     <li>Added sort order to displayed terms of use.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, pulky, isv, pulky, snow01
- * @version 1.0.4
+ * @author dok, pulky, isv, snow01
+ * @version 1.0.5
  */
 public class ProjectReviewTermsAgree extends ProjectReviewApply {
 
@@ -83,22 +86,19 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
 
                 if (!"on".equalsIgnoreCase(getRequest().getParameter(Constants.TERMS_AGREE))) {
                     addError(Constants.TERMS_AGREE, "You must agree to the terms in order to review a component.");
-
-                    TermsOfUse termsOfUse = TermsOfUseLocator.getService();
-                    TermsOfUseEntity terms =  termsOfUse.getEntity(Long.parseLong(termsOfUseId),
-                            DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                    getRequest().setAttribute(Constants.TERMS, terms);
                 } else {
                     // save user terms of use record
                     saveUserTermsOfUse(userId, Long.parseLong(termsOfUseId));
-
-                    loadCaptcha();
-
-                    // process terms of use
-                    int[] roleIds = getResourceRoleIds(reviewTypeId, primary);
-                    processTermsOfUse(String.valueOf(projectId), userId, roleIds);
                 }
-                setNextPage(Constants.REVIEWER_TERMS);
+                
+                int[] roleIds = getResourceRoleIds(reviewTypeId, primary);
+                boolean hasMoreTerms = processTermsOfUse(String.valueOf(projectId), userId, 
+                        roleIds, Long.parseLong(termsOfUseId));
+                if (!hasMoreTerms) {
+                    loadCaptcha();
+                }
+                
+                setNextPage(getReviewTermsView(projectTypeId));
                 setIsNextPageInContext(true);
             } else {
                 if (!answeredCaptchaCorrectly()) {
@@ -107,10 +107,10 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
 
                 // make sure they don't have pending terms of use
                 int[] roleIds = getResourceRoleIds(reviewTypeId, primary);
-                if (hasErrors() || processTermsOfUse(String.valueOf(projectId), userId, roleIds)) {
+                if (processTermsOfUse(String.valueOf(projectId), userId, roleIds, -1) || hasErrors()) {
                     loadCaptcha();
 
-                    setNextPage(Constants.REVIEWER_TERMS);
+                    setNextPage(getReviewTermsView(projectTypeId));
                     setIsNextPageInContext(true);
                 } else {
                     apply(opensOn, reviewTypeId);
@@ -136,15 +136,15 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
 
     /**
      * Does the apply to the review.
-     * 
+     *
      * It adds database entry to add user for the project review.
      * It additionally sends email to PM.
-     * 
+     *
      * Updated for Specification Review Integration 1.0
      *      - Now handles the logic for apply to specification review positions too.
      *      - Specification Review Positions has phase id or project id +1000 than normal phase id or project id, respectively.
      *        This logic is used to identify the case and then differently handle the apply.
-     * 
+     *
      * @param opensOn the time at which review opens
      * @param reviewTypeId the type of reviewer
      * @throws Exception if any error occurs during apply.
@@ -164,21 +164,21 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
         }
 
 
-		 ResultSetContainer detail = null;
+         ResultSetContainer detail = null;
         Map results = null;
-        
+
         // send email
         Request r = new Request();
         String projectId = String.valueOf(this.projectId);
         if (this.phaseId > Constants.SPECIFICATION_COMPETITION_OFFSET) {
             r.setContentHandle("spec_review_project_detail");
-            
+
             r.setProperty(Constants.PROJECT_ID, projectId);
             results = getDataAccess(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, false).getData(r);
             detail = (ResultSetContainer) results.get("spec_review_project_detail");
         } else {
             r.setContentHandle("review_project_detail");
-            
+
             String phaseIdStr = String.valueOf(this.phaseId);
             r.setProperty(Constants.PROJECT_ID, projectId);
             r.setProperty(Constants.PHASE_ID, phaseIdStr);
