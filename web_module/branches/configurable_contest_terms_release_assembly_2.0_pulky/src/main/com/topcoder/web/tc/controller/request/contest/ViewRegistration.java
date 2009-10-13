@@ -23,8 +23,6 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServices;
 import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServicesLocal;
-import com.topcoder.web.ejb.termsofuse.TermsOfUseEntity;
-import com.topcoder.web.ejb.termsofuse.TermsOfUseLocator;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.development.Base;
 
@@ -56,6 +54,7 @@ import com.topcoder.web.tc.controller.request.development.Base;
  *   Version 1.3 (Configurable Contest Terms Release Assembly v2.0) Change notes:
  *   <ol>
  *     <li>Changed the processor so that a terms of use can be agreed to without any dependency to others.</li>
+ *     <li>Added sort order to displayed terms of use.</li>
  *   </ol>
  * </p>
  *
@@ -92,20 +91,30 @@ public class ViewRegistration extends Base {
                 String projectId = getRequest().getParameter(Constants.PROJECT_ID);
 
                 // check if a specific terms was requested
-                if (!"".equals(termsOfUseId)) {
-                    // get the terms of use and add it to the request
-                    TermsOfUseEntity terms =  TermsOfUseLocator.getService().getEntity(Long.parseLong(termsOfUseId),
-                        DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                    getRequest().setAttribute(Constants.TERMS, terms);
-                } else {
-                    long userId = getLoggedInUser().getId();
+//                if (!"".equals(termsOfUseId)) {
+//                    // get the terms of use and add it to the request
+//                    TermsOfUseEntity terms =  TermsOfUseLocator.getService().getEntity(Long.parseLong(termsOfUseId),
+//                        DBMS.COMMON_OLTP_DATASOURCE_NAME);
+//                    getRequest().setAttribute(Constants.TERMS, terms);
+//                } else {
+//                    long userId = getLoggedInUser().getId();
+//
+//                    // process terms of use
+//                    processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS);
+//
+//                    //we're assuming that if we're here, we got a valid project id
+//                    loadCaptcha();
+//                }
 
-                    // process terms of use
-                    processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS);
-
+                // process terms of use
+                long userId = getLoggedInUser().getId();
+                boolean hasMoreTerms = processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS, Long.parseLong(termsOfUseId));
+                if (!hasMoreTerms) {
                     //we're assuming that if we're here, we got a valid project id
                     loadCaptcha();
                 }
+//                getRequest().setAttribute("showCaptcha", !hasMoreTerms);
+
                 setDefault(Constants.PROJECT_ID, projectId);
                 setNextPage("/contest/regTerms.jsp");
                 setIsNextPageInContext(true);

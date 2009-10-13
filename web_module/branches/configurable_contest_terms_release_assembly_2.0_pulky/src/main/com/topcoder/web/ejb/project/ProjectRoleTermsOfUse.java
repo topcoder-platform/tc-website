@@ -12,8 +12,16 @@ import javax.ejb.EJBObject;
 /**
  * <p>Remote interface for the project role terms of use EJB.</p>
  *
+ * <p>Version 1.1 (Configurable Contest Terms Release Assembly v2.0) Change notes:
+ *   <ol>
+ *     <li>Added sort order to creation.</li>
+ *     <li>Added sort order to terms list retrieval.</li>
+ *   </ol>
+ * </p>
+ * 
  * @author pulky
- * @version 1.0 (Configurable Contest Terms Release Assembly v1.0)
+ * @version 1.1
+ * @since Configurable Contest Terms Release Assembly v1.0
  */
 public interface ProjectRoleTermsOfUse extends EJBObject {
 
@@ -22,13 +30,14 @@ public interface ProjectRoleTermsOfUse extends EJBObject {
      *
      * @param projectId the project id to associate
      * @param resourceRoleId the role id to associate
+     * @param sortOrder the association sort order
      * @param termsOfUseId the terms of use id to associate
      * @param dataSource a <code>String</code> containing the datasource.
      * @throws EJBException if any error occurs
      * @throws RemoteException if any error occurs during remote invocation
      */
-    public void createProjectRoleTermsOfUse(int projectId, int resourceRoleId, long termsOfUseId, String dataSource)
-            throws EJBException, RemoteException;
+    public void createProjectRoleTermsOfUse(int projectId, int resourceRoleId, long termsOfUseId, int sortOrder,
+        String dataSource) throws EJBException, RemoteException;
 
     /**
      * This method will remove a project role terms of use association.
@@ -63,11 +72,11 @@ public interface ProjectRoleTermsOfUse extends EJBObject {
      * @param projectId the project id to query
      * @param resourceRoleIds the an array of roles ids to query
      * @param dataSource a <code>String</code> containing the datasource.
-     * @return a <code>List<Long></code> containing associated the terms of use ids
+     * @return an array of <code>List<Long></code> containing associated the terms of use ids in sort_order position
      * @throws EJBException if any error occurs
      * @throws RemoteException if any error occurs during remote invocation
      */
-    public List<Long> getTermsOfUse(int projectId, int[] resourceRoleIds, String dataSource)
+    public List<Long>[] getTermsOfUse(int projectId, int[] resourceRoleIds, String dataSource)
         throws EJBException, RemoteException;
 
     /**

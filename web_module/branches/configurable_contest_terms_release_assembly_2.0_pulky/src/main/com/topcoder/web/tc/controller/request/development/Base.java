@@ -89,6 +89,7 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *         <td>
  *           <ul>
  *             <li>Updated <code>processTermsOfUse</code> to set both agreed and pending terms in the request.</li>
+ *              <li>Added sort order to displayed terms of use.</li>
  *           </ul>
  *         </td>
  *     </tr>
@@ -332,7 +333,7 @@ public abstract class Base extends ShortHibernateProcessor {
      *
      * @since 1.3
      */
-    protected boolean processTermsOfUse(String projectId, long userId, int[] roleIds)
+    protected boolean processTermsOfUse(String projectId, long userId, int[] roleIds, long currentTermsId)
             throws NamingException, RemoteException, CreateException, EJBException {
 
         // check if the user agreed to all terms of use
@@ -341,29 +342,56 @@ public abstract class Base extends ShortHibernateProcessor {
         TermsOfUse termsOfUse = TermsOfUseLocator.getService();
 
         // validate that new resources have agreed to the necessary terms of use
-        List<Long> necessaryTerms = projectRoleTermsOfUse.getTermsOfUse(Integer.parseInt(projectId),
+        List<Long>[] necessaryTerms = projectRoleTermsOfUse.getTermsOfUse(Integer.parseInt(projectId),
                 roleIds, DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
         List<TermsOfUseEntity> termsAgreed = new ArrayList<TermsOfUseEntity>();
+        List<TermsOfUseEntity> termsAgreedGlobal = new ArrayList<TermsOfUseEntity>();
         List<TermsOfUseEntity> termsPending = new ArrayList<TermsOfUseEntity>();
 
-        for (int i = 0; i < necessaryTerms.size(); i++) {
-            Long termsId = necessaryTerms.get(i);
-
-            // get terms of use
-            TermsOfUseEntity terms =  termsOfUse.getEntity(termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-
-            // check if the user has this terms
-            if (!userTermsOfUse.hasTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
-                termsPending.add(terms);
-            } else {
-                termsAgreed.add(terms);
+        
+        TermsOfUseEntity currentTerms = null;
+        boolean exit = false;
+        for (int i = 0; i < necessaryTerms.length && !exit; i++) {
+            if (necessaryTerms[i] != null) {
+                for (int j = 0; j < necessaryTerms[i].size(); j++) {
+                    Long termsId = necessaryTerms[i].get(j);
+        
+                    // get terms of use
+                    TermsOfUseEntity terms =  termsOfUse.getEntity(termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+        
+                    // check if the user has this terms
+                    if (!userTermsOfUse.hasTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
+                        termsPending.add(terms);
+                        if (termsId.equals(currentTermsId)) {
+                            currentTerms = terms;
+                        }
+                    } else {
+                        termsAgreed.add(terms);
+                        termsAgreedGlobal.add(terms);
+                    }
+                    
+                }
+                if (currentTerms != null || (termsPending.size() == 1 && termsAgreed.size() == 0)) {
+                    if (currentTerms != null) {
+                        getRequest().setAttribute(Constants.TERMS, currentTerms);
+                    } else {
+                        getRequest().setAttribute(Constants.TERMS, termsPending.get(0));
+                    }
+                    return true;
+                } else if (termsPending.size() > 0 && (termsPending.size() + termsAgreed.size()) > 1){
+                    getRequest().setAttribute(Constants.TERMS_AGREED, termsAgreed);
+                    getRequest().setAttribute(Constants.TERMS_PENDING, termsPending);
+                    return true;
+                }
             }
         }
-        getRequest().setAttribute(Constants.TERMS_AGREED, termsAgreed);
-        getRequest().setAttribute(Constants.TERMS_PENDING, termsPending);
 
-        return termsPending.size() > 0;
+        // if everything is ok, show summary with captcha 
+        getRequest().setAttribute(Constants.TERMS_AGREED, termsAgreedGlobal);
+        getRequest().setAttribute(Constants.TERMS_PENDING, new ArrayList<TermsOfUseEntity>());
+        
+        return false;
     }
 
     /**

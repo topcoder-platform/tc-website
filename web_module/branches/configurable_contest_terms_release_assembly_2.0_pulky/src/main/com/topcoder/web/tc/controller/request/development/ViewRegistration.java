@@ -36,8 +36,6 @@ import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationS
 import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServicesLocal;
 import com.topcoder.web.ejb.project.Project;
 import com.topcoder.web.ejb.project.ProjectLocal;
-import com.topcoder.web.ejb.termsofuse.TermsOfUseEntity;
-import com.topcoder.web.ejb.termsofuse.TermsOfUseLocator;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 
@@ -57,6 +55,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
  *   Version 1.2 (Configurable Contest Terms Release Assembly v2.0) Change notes:
  *   <ol>
  *     <li>Changed the processor so that a terms of use can be agreed to without any dependency to others.</li>
+ *     <li>Added sort order to displayed terms of use.</li>
  *   </ol>
  * </p>
  *
@@ -99,19 +98,28 @@ public class ViewRegistration extends Base {
                 long userId = getLoggedInUser().getId();
                 String termsOfUseId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_ID));
 
-                // check if a specific terms was requested
-                if (!"".equals(termsOfUseId)) {
-                    // get the terms of use and add it to the request
-                    TermsOfUseEntity terms =  TermsOfUseLocator.getService().getEntity(Long.parseLong(termsOfUseId),
-                        DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                    getRequest().setAttribute(Constants.TERMS, terms);
-                } else {
-                    // process terms of use
-                    processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS);
-
+//                // check if a specific terms was requested
+//                if (!"".equals(termsOfUseId)) {
+//                    // get the terms of use and add it to the request
+//                    TermsOfUseEntity terms =  TermsOfUseLocator.getService().getEntity(Long.parseLong(termsOfUseId),
+//                        DBMS.COMMON_OLTP_DATASOURCE_NAME);
+//                    getRequest().setAttribute(Constants.TERMS, terms);
+//                } else {
+//                    // process terms of use
+//                    processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS);
+//
+//                    //we're assuming that if we're here, we got a valid project id
+//                    loadCaptcha();
+//                }
+                
+                // process terms of use
+                boolean hasMoreTerms = processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS, Long.parseLong(termsOfUseId));
+                if (!hasMoreTerms) {
                     //we're assuming that if we're here, we got a valid project id
                     loadCaptcha();
                 }
+//                getRequest().setAttribute("showCaptcha", !hasMoreTerms);
+                
                 setDefault(Constants.PROJECT_ID, projectId);
                 setNextPage("/contest/regTerms.jsp");
                 setIsNextPageInContext(true);

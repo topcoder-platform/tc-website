@@ -95,6 +95,7 @@ import com.topcoder.web.tc.Constants;
  *   Version 1.0.10 (Configurable Contest Terms Release Assembly v2.0) Change notes:
  *   <ol>
  *     <li>Changed the processor so that a terms of use can be agreed to without any dependency to others.</li>
+ *     <li>Added sort order to displayed terms of use.</li>
  *   </ol>
  * </p>
  *
@@ -220,18 +221,24 @@ public class ProjectReviewApply extends Base {
                                             opensOn, reviewTypeId, primary);
 
         String termsOfUseId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_ID));
-        if (!"".equals(termsOfUseId)) {
-            // get the terms of use and add it to the request
-            TermsOfUseEntity terms =  TermsOfUseLocator.getService().getEntity(Long.parseLong(termsOfUseId),
-                DBMS.COMMON_OLTP_DATASOURCE_NAME);
-            getRequest().setAttribute(Constants.TERMS, terms);
-        } else {
-            // get corresponding resource role ids
-            int[] roleIds = getResourceRoleIds(reviewTypeId, primary);
-            processTermsOfUse(String.valueOf(projectId), getUser().getId(), roleIds);
-
+//        if (!"".equals(termsOfUseId)) {
+//            // get the terms of use and add it to the request
+//            TermsOfUseEntity terms =  TermsOfUseLocator.getService().getEntity(Long.parseLong(termsOfUseId),
+//                DBMS.COMMON_OLTP_DATASOURCE_NAME);
+//            getRequest().setAttribute(Constants.TERMS, terms);
+//        } else {
+//            // get corresponding resource role ids
+//            int[] roleIds = getResourceRoleIds(reviewTypeId, primary);
+//            processTermsOfUse(String.valueOf(projectId), getUser().getId(), roleIds);
+//
+//            loadCaptcha();
+//        }
+        boolean hasMoreTerms = processTermsOfUse(String.valueOf(projectId), getUser().getId(), 
+            Base.SUBMITTER_ROLE_IDS, Long.parseLong(termsOfUseId));
+        if (!hasMoreTerms) {
             loadCaptcha();
         }
+
         setNextPage(getReviewTermsView(this.projectTypeId));
         setIsNextPageInContext(true);
     }

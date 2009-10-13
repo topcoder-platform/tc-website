@@ -53,6 +53,7 @@ import com.topcoder.web.tc.Constants;
  *   Version 1.0.5 (Configurable Contest Terms Release Assembly v2.0) Change notes:
  *   <ol>
  *     <li>Fixed processor to redirect to the corresponding page based on project type.</li>
+ *     <li>Added sort order to displayed terms of use.</li>
  *   </ol>
  * </p>
  *
@@ -89,20 +90,28 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
                 if (!"on".equalsIgnoreCase(getRequest().getParameter(Constants.TERMS_AGREE))) {
                     addError(Constants.TERMS_AGREE, "You must agree to the terms in order to review a component.");
 
-                    TermsOfUse termsOfUse = TermsOfUseLocator.getService();
-                    TermsOfUseEntity terms =  termsOfUse.getEntity(Long.parseLong(termsOfUseId),
-                            DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                    getRequest().setAttribute(Constants.TERMS, terms);
+//                    TermsOfUse termsOfUse = TermsOfUseLocator.getService();
+//                    TermsOfUseEntity terms =  termsOfUse.getEntity(Long.parseLong(termsOfUseId),
+//                            DBMS.COMMON_OLTP_DATASOURCE_NAME);
+//                    getRequest().setAttribute(Constants.TERMS, terms);
                 } else {
                     // save user terms of use record
                     saveUserTermsOfUse(userId, Long.parseLong(termsOfUseId));
 
-                    loadCaptcha();
-
-                    // process terms of use
-                    int[] roleIds = getResourceRoleIds(reviewTypeId, primary);
-                    processTermsOfUse(String.valueOf(projectId), userId, roleIds);
+//                    loadCaptcha();
+//
+//                    // process terms of use
+//                    int[] roleIds = getResourceRoleIds(reviewTypeId, primary);
+//                    processTermsOfUse(String.valueOf(projectId), userId, roleIds);
                 }
+                
+                int[] roleIds = getResourceRoleIds(reviewTypeId, primary);
+                boolean hasMoreTerms = processTermsOfUse(String.valueOf(projectId), userId, 
+                        roleIds, Long.parseLong(termsOfUseId));
+                if (!hasMoreTerms) {
+                    loadCaptcha();
+                }
+                
                 setNextPage(getReviewTermsView(projectTypeId));
                 setIsNextPageInContext(true);
             } else {
@@ -112,7 +121,7 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
 
                 // make sure they don't have pending terms of use
                 int[] roleIds = getResourceRoleIds(reviewTypeId, primary);
-                if (hasErrors() || processTermsOfUse(String.valueOf(projectId), userId, roleIds)) {
+                if (hasErrors() || processTermsOfUse(String.valueOf(projectId), userId, roleIds, -1)) {
                     loadCaptcha();
 
                     setNextPage(getReviewTermsView(projectTypeId));
