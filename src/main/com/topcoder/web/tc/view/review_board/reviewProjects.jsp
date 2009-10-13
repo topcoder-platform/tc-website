@@ -235,7 +235,7 @@
 
                     <c:if test="${fn:length(specificationReviewList) > 0}">
 						<div align="right" style="padding-top: 10px">
-						    <b>Review opportunities via RSS -</b>
+						    <b>Spec Review opportunities via RSS -</b>
 							<a href="/tc?module=BasicRSS&c=rss_spec_review_opportunities&dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
 						    <br />
 						</div>
