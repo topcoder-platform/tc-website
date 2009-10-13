@@ -98,20 +98,6 @@ public class ViewRegistration extends Base {
                 long userId = getLoggedInUser().getId();
                 String termsOfUseId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_ID));
 
-//                // check if a specific terms was requested
-//                if (!"".equals(termsOfUseId)) {
-//                    // get the terms of use and add it to the request
-//                    TermsOfUseEntity terms =  TermsOfUseLocator.getService().getEntity(Long.parseLong(termsOfUseId),
-//                        DBMS.COMMON_OLTP_DATASOURCE_NAME);
-//                    getRequest().setAttribute(Constants.TERMS, terms);
-//                } else {
-//                    // process terms of use
-//                    processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS);
-//
-//                    //we're assuming that if we're here, we got a valid project id
-//                    loadCaptcha();
-//                }
-                
                 // process terms of use
                 boolean hasMoreTerms = processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS, 
                     "".equals(termsOfUseId) ? -1 : Long.parseLong(termsOfUseId));
@@ -119,7 +105,6 @@ public class ViewRegistration extends Base {
                     //we're assuming that if we're here, we got a valid project id
                     loadCaptcha();
                 }
-//                getRequest().setAttribute("showCaptcha", !hasMoreTerms);
                 
                 setDefault(Constants.PROJECT_ID, projectId);
                 setNextPage("/contest/regTerms.jsp");

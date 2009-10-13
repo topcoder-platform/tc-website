@@ -219,18 +219,6 @@ public class ProjectReviewApply extends Base {
                                             opensOn, reviewTypeId, primary);
 
         String termsOfUseId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_ID));
-//        if (!"".equals(termsOfUseId)) {
-//            // get the terms of use and add it to the request
-//            TermsOfUseEntity terms =  TermsOfUseLocator.getService().getEntity(Long.parseLong(termsOfUseId),
-//                DBMS.COMMON_OLTP_DATASOURCE_NAME);
-//            getRequest().setAttribute(Constants.TERMS, terms);
-//        } else {
-//            // get corresponding resource role ids
-//            int[] roleIds = getResourceRoleIds(reviewTypeId, primary);
-//            processTermsOfUse(String.valueOf(projectId), getUser().getId(), roleIds);
-//
-//            loadCaptcha();
-//        }
         int[] roleIds = getResourceRoleIds(reviewTypeId, primary);
         boolean hasMoreTerms = processTermsOfUse(String.valueOf(projectId), getUser().getId(), 
             roleIds, "".equals(termsOfUseId) ? -1 : Long.parseLong(termsOfUseId));

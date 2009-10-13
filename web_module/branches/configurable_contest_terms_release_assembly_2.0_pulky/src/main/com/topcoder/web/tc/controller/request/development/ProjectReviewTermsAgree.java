@@ -86,20 +86,9 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
 
                 if (!"on".equalsIgnoreCase(getRequest().getParameter(Constants.TERMS_AGREE))) {
                     addError(Constants.TERMS_AGREE, "You must agree to the terms in order to review a component.");
-
-//                    TermsOfUse termsOfUse = TermsOfUseLocator.getService();
-//                    TermsOfUseEntity terms =  termsOfUse.getEntity(Long.parseLong(termsOfUseId),
-//                            DBMS.COMMON_OLTP_DATASOURCE_NAME);
-//                    getRequest().setAttribute(Constants.TERMS, terms);
                 } else {
                     // save user terms of use record
                     saveUserTermsOfUse(userId, Long.parseLong(termsOfUseId));
-
-//                    loadCaptcha();
-//
-//                    // process terms of use
-//                    int[] roleIds = getResourceRoleIds(reviewTypeId, primary);
-//                    processTermsOfUse(String.valueOf(projectId), userId, roleIds);
                 }
                 
                 int[] roleIds = getResourceRoleIds(reviewTypeId, primary);
@@ -118,7 +107,7 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
 
                 // make sure they don't have pending terms of use
                 int[] roleIds = getResourceRoleIds(reviewTypeId, primary);
-                if (hasErrors() || processTermsOfUse(String.valueOf(projectId), userId, roleIds, -1)) {
+                if (processTermsOfUse(String.valueOf(projectId), userId, roleIds, -1) || hasErrors()) {
                     loadCaptcha();
 
                     setNextPage(getReviewTermsView(projectTypeId));

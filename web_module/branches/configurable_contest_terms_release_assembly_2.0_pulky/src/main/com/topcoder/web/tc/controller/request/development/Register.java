@@ -112,16 +112,8 @@ public class Register extends ViewRegistration {
 
                     // get survey
                     getRequest().setAttribute("questionInfo", getQuestions());
-
-//                    // process terms of use
-//                    processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS);
                 } else {
                     addError(Constants.TERMS_AGREE, "You must agree to the terms in order to proceed.");
-
-//                    TermsOfUse termsOfUse = TermsOfUseLocator.getService();
-//                    TermsOfUseEntity terms =  termsOfUse.getEntity(Long.parseLong(termsOfUseId),
-//                            DBMS.COMMON_OLTP_DATASOURCE_NAME);
-//                    getRequest().setAttribute(Constants.TERMS, terms);
                 }
                 
                 // process terms of use
@@ -130,11 +122,8 @@ public class Register extends ViewRegistration {
                     //we're assuming that if we're here, we got a valid project id
                     loadCaptcha();
                 }
-//                getRequest().setAttribute("showCaptcha", !hasMoreTerms);
-
 
                 setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
-//                loadCaptcha();
                 setNextPage("/contest/regTerms.jsp");
                 setIsNextPageInContext(true);
             } else {
