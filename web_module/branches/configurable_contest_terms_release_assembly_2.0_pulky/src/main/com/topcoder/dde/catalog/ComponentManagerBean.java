@@ -150,7 +150,7 @@ public class ComponentManagerBean
      * 
      * @since 1.0.4
      */
-    private static final int DEFAULT_TERMS_SORT_ORDER = 5;
+    private static final int DEFAULT_TERMS_SORT_ORDER = 1;
     
     private static final String
             CONFIG_NAMESPACE = "com.topcoder.dde.catalog.ComponentManagerBean";
