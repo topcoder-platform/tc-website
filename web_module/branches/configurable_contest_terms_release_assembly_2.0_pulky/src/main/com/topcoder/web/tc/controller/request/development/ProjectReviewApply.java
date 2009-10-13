@@ -231,8 +231,9 @@ public class ProjectReviewApply extends Base {
 //
 //            loadCaptcha();
 //        }
+        int[] roleIds = getResourceRoleIds(reviewTypeId, primary);
         boolean hasMoreTerms = processTermsOfUse(String.valueOf(projectId), getUser().getId(), 
-            Base.SUBMITTER_ROLE_IDS, "".equals(termsOfUseId) ? -1 : Long.parseLong(termsOfUseId));
+            roleIds, "".equals(termsOfUseId) ? -1 : Long.parseLong(termsOfUseId));
         if (!hasMoreTerms) {
             loadCaptcha();
         }
