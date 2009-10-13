@@ -32,8 +32,6 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.common.error.RequestRateExceededException;
 import com.topcoder.web.common.throttle.Throttle;
-import com.topcoder.web.ejb.termsofuse.TermsOfUseEntity;
-import com.topcoder.web.ejb.termsofuse.TermsOfUseLocator;
 import com.topcoder.web.tc.Constants;
 
 /**

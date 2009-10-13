@@ -15,9 +15,6 @@ import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.ejb.termsofuse.TermsOfUse;
-import com.topcoder.web.ejb.termsofuse.TermsOfUseEntity;
-import com.topcoder.web.ejb.termsofuse.TermsOfUseLocator;
 import com.topcoder.web.tc.Constants;
 
 /**
