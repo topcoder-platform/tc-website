@@ -372,12 +372,12 @@ public abstract class Base extends ShortHibernateProcessor {
                     }
                     
                 }
-                if (currentTerms != null || termsPending.size() == 1) {
-                    if (currentTerms != null) {
+                if (currentTerms != null) // || termsPending.size() == 1) {
+//                    if (currentTerms != null) {
                         getRequest().setAttribute(Constants.TERMS, currentTerms);
-                    } else {
-                        getRequest().setAttribute(Constants.TERMS, termsPending.get(0));
-                    }
+//                    } else {
+//                        getRequest().setAttribute(Constants.TERMS, termsPending.get(0));
+//                    }
                     return true;
                 } else if (termsPending.size() > 0 && (termsPending.size() + termsAgreed.size()) > 1){
                     getRequest().setAttribute(Constants.TERMS_AGREED, termsAgreed);
