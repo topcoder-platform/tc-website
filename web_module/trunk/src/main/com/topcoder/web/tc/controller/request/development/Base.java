@@ -76,14 +76,23 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *           </ul>
  *         </td>
  *     </tr>
-         <tr>
+ *     <tr>
  *         <td>Version 1.5 (Specification Review Integration 1.0)</td>
  *         <td>
  *           <ul>
  *             <li>Updated <code>isProjectTypeSupported</code> to support specification review projects.</li>
  *           </ul>
  *         </td>
- *     </tr> 
+ *     </tr>
+ *     <tr>
+ *         <td>Version 1.6 (Configurable Contest Terms Release Assembly v2.0)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Updated <code>processTermsOfUse</code> to set both agreed and pending terms in the request.</li>
+ *              <li>Added sort order to displayed terms of use.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
          <tr>
  *         <td>Version 1.6 (BUGR-2749)</td>
  *         <td>
@@ -118,7 +127,7 @@ public abstract class Base extends ShortHibernateProcessor {
      * Constant containing primary reviewer role ids
      *
      * Note: first item is just a placeholder. It will be filled with the corresponding review role id.
-     * Note2: there is "similar" logic in RBoardApplicationBean. It is recommended to rewrite that method to be 
+     * Note2: there is "similar" logic in RBoardApplicationBean. It is recommended to rewrite that method to be
      * able to extract the logic. Then, it should be possible to reuse it here.
      *
      * @since 1.3
@@ -318,28 +327,29 @@ public abstract class Base extends ShortHibernateProcessor {
 
         // check if the user agreed to all terms of use
         UserTermsOfUse userTermsOfUse = UserTermsOfUseLocator.getService();
-
-        userTermsOfUse.createUserTermsOfUse(userId, termsOfUseId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+        if (!userTermsOfUse.hasTermsOfUse(userId, termsOfUseId, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
+            userTermsOfUse.createUserTermsOfUse(userId, termsOfUseId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+        }
     }
 
     /**
      * This helper method will go through all required terms of use and check whether the user has agreed to
-     * them or not. If the user agreed to all required terms of use, the list of these terms of use will be
-     * added to the request. If the user is missing a terms of use, that terms of use will be added to the request.
+     * them or not. Both lists will be added to the request so that the user can review the terms he agreed to
+     * and agree to those he has pending.
      *
      * @param projectId the project id the user is registering to
      * @param userId the user id that is requesting the registration
-     * 
+     *
      * @return true if the user has pending terms to agree to
-     * 
+     *
      * @throws NamingException if any errors occur during EJB lookup
      * @throws RemoteException if any errors occur during EJB remote invocation
      * @throws CreateException if any errors occur during EJB creation
      * @throws EJBException if any other errors occur while invoking EJB services
-     * 
+     *
      * @since 1.3
      */
-    protected boolean processTermsOfUse(String projectId, long userId, int[] roleIds)
+    protected boolean processTermsOfUse(String projectId, long userId, int[] roleIds, long currentTermsId)
             throws NamingException, RemoteException, CreateException, EJBException {
 
         // check if the user agreed to all terms of use
@@ -348,32 +358,52 @@ public abstract class Base extends ShortHibernateProcessor {
         TermsOfUse termsOfUse = TermsOfUseLocator.getService();
 
         // validate that new resources have agreed to the necessary terms of use
-        List<Long> necessaryTerms = projectRoleTermsOfUse.getTermsOfUse(Integer.parseInt(projectId),
+        List<Long>[] necessaryTerms = projectRoleTermsOfUse.getTermsOfUse(Integer.parseInt(projectId),
                 roleIds, DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
         List<TermsOfUseEntity> termsAgreed = new ArrayList<TermsOfUseEntity>();
+        List<TermsOfUseEntity> termsAgreedGlobal = new ArrayList<TermsOfUseEntity>();
+        List<TermsOfUseEntity> termsPending = new ArrayList<TermsOfUseEntity>();
 
-        boolean hasPendingTerms = false;
-        for (int i = 0; i < necessaryTerms.size() && !hasPendingTerms; i++) {
-            Long termsId = necessaryTerms.get(i);
-
-            // get terms of use
-            TermsOfUseEntity terms =  termsOfUse.getEntity(termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-
-            // check if the user has this terms
-            if (!userTermsOfUse.hasTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
-                hasPendingTerms = true;
-                getRequest().setAttribute(Constants.TERMS, terms);
-            } else {
-                termsAgreed.add(terms);
+        
+        TermsOfUseEntity currentTerms = null;
+        boolean exit = false;
+        for (int i = 0; i < necessaryTerms.length && !exit; i++) {
+            if (necessaryTerms[i] != null) {
+                for (int j = 0; j < necessaryTerms[i].size(); j++) {
+                    Long termsId = necessaryTerms[i].get(j);
+        
+                    // get terms of use
+                    TermsOfUseEntity terms =  termsOfUse.getEntity(termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+        
+                    // check if the user has this terms
+                    if (!userTermsOfUse.hasTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
+                        termsPending.add(terms);
+                        if (termsId.equals(currentTermsId)) {
+                            currentTerms = terms;
+                        }
+                    } else {
+                        termsAgreed.add(terms);
+                        termsAgreedGlobal.add(terms);
+                    }
+                    
+                }
+                if (currentTerms != null) {
+                    getRequest().setAttribute(Constants.TERMS, currentTerms);
+                    return true;
+                } else if (termsPending.size() > 0) {
+                    getRequest().setAttribute(Constants.TERMS_AGREED, termsAgreed);
+                    getRequest().setAttribute(Constants.TERMS_PENDING, termsPending);
+                    return true;
+                }
             }
         }
 
-        if (!hasPendingTerms) {
-            getRequest().setAttribute(Constants.TERMS_AGREED, termsAgreed);
-        }
+        // if everything is ok, show summary with captcha 
+        getRequest().setAttribute(Constants.TERMS_AGREED, termsAgreedGlobal);
+        getRequest().setAttribute(Constants.TERMS_PENDING, new ArrayList<TermsOfUseEntity>());
         
-        return hasPendingTerms;
+        return false;
     }
 
     /**
@@ -410,7 +440,7 @@ public abstract class Base extends ShortHibernateProcessor {
         return roleIds;
     }
 
-	/**
+    /**
      * <p>Checks whether the specified project type requested by client is currently supported by this controller
      * or not.</p>
      *

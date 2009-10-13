@@ -127,10 +127,16 @@ import com.topcoder.web.ejb.userservices.UserServicesLocator;
  * <li>Added Project Role User Terms Of Use association generation to project creation.</li>
  * </ol>
  * </p>
+ * <p>
+ * Version 1.0.4 (Configurable Contest Terms Release Assembly v2.0) Change notes:
+ * <ol>
+ * <li>Added sort order parameter to project role terms of use service call.</li>
+ * </ol>
+ * </p>
  *
  *
  * @author Albert Mao, pulky
- * @version 1.0.3
+ * @version 1.0.4
  * @see ComponentManager
  * @see ComponentManagerHome
  */
@@ -139,6 +145,13 @@ public class ComponentManagerBean
 
     private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(ComponentManagerBean.class);
 
+    /**
+     * Default sort order for project role terms of use generation
+     * 
+     * @since 1.0.4
+     */
+    private static final int DEFAULT_TERMS_SORT_ORDER = 1;
+    
     private static final String
             CONFIG_NAMESPACE = "com.topcoder.dde.catalog.ComponentManagerBean";
 
@@ -1072,7 +1085,7 @@ public class ComponentManagerBean
         // create ProjectRoleTermsOfUse default associations
         ProjectRoleTermsOfUse projectRoleTermsOfUse = ProjectRoleTermsOfUseLocator.getService();
         projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(),
-                submitterRoleId, submitterTermsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                submitterRoleId, submitterTermsId, DEFAULT_TERMS_SORT_ORDER, DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
         if (projectTypeId == ProjectType.ID_DEVELOPMENT) {
             int accuracyReviewerRoleId = Integer.parseInt(getConfigValue("accuracy_reviewer_role_id"));
@@ -1081,19 +1094,19 @@ public class ComponentManagerBean
 
             // if it's a development project there are several reviewer roles
             projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(),
-                    accuracyReviewerRoleId, reviewerTermsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    accuracyReviewerRoleId, reviewerTermsId, DEFAULT_TERMS_SORT_ORDER, DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
             projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(),
-                    failureReviewerRoleId, reviewerTermsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    failureReviewerRoleId, reviewerTermsId, DEFAULT_TERMS_SORT_ORDER, DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
             projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(),
-                    stressReviewerRoleId, reviewerTermsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    stressReviewerRoleId, reviewerTermsId, DEFAULT_TERMS_SORT_ORDER, DBMS.COMMON_OLTP_DATASOURCE_NAME);
         } else {
             int reviewerRoleId = Integer.parseInt(getConfigValue("reviewer_role_id"));
 
             // if it's not development there is a single reviewer role
             projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(),
-                    reviewerRoleId, reviewerTermsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    reviewerRoleId, reviewerTermsId, DEFAULT_TERMS_SORT_ORDER, DBMS.COMMON_OLTP_DATASOURCE_NAME);
         }
 
         // also add terms for the rest of the reviewer roles
@@ -1102,11 +1115,11 @@ public class ComponentManagerBean
         int finalReviewerRoleId = Integer.parseInt(getConfigValue("final_reviewer_role_id"));
 
         projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(),
-                primaryScreenerRoleId, reviewerTermsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                primaryScreenerRoleId, reviewerTermsId, DEFAULT_TERMS_SORT_ORDER, DBMS.COMMON_OLTP_DATASOURCE_NAME);
         projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(),
-                aggregatorRoleId, reviewerTermsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                aggregatorRoleId, reviewerTermsId, DEFAULT_TERMS_SORT_ORDER, DBMS.COMMON_OLTP_DATASOURCE_NAME);
         projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(),
-                finalReviewerRoleId, reviewerTermsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                finalReviewerRoleId, reviewerTermsId, DEFAULT_TERMS_SORT_ORDER, DBMS.COMMON_OLTP_DATASOURCE_NAME);
     }
 
 

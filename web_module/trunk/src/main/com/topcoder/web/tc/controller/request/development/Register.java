@@ -3,6 +3,8 @@
  */
 package com.topcoder.web.tc.controller.request.development;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.rmi.RemoteException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -25,6 +27,9 @@ import com.topcoder.dde.catalog.ComponentManagerHome;
 import com.topcoder.dde.catalog.ComponentVersionInfo;
 import com.topcoder.dde.user.UserManagerRemote;
 import com.topcoder.dde.user.UserManagerRemoteHome;
+import com.topcoder.randomstringimg.InvalidConfigException;
+import com.topcoder.randomstringimg.ObfuscationException;
+import com.topcoder.randomstringimg.RandomStringImage;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
@@ -35,6 +40,8 @@ import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.util.format.ObjectFormatter;
 import com.topcoder.util.format.ObjectFormatterFactory;
+import com.topcoder.util.spell.ConfigException;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.StringUtils;
@@ -47,17 +54,7 @@ import com.topcoder.web.common.tag.CalendarDateFormatMethod;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.project.Project;
 import com.topcoder.web.ejb.project.ProjectLocal;
-import com.topcoder.web.ejb.termsofuse.TermsOfUse;
-import com.topcoder.web.ejb.termsofuse.TermsOfUseEntity;
-import com.topcoder.web.ejb.termsofuse.TermsOfUseLocator;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.randomstringimg.InvalidConfigException;
-import com.topcoder.randomstringimg.ObfuscationException;
-import com.topcoder.randomstringimg.RandomStringImage;
-import java.io.IOException;
-import java.io.FileOutputStream;
-import com.topcoder.util.spell.ConfigException;
-import com.topcoder.web.common.NavigationException;
 
 /**
  * <p><strong>Purpose</strong>: This processor handle requests to register to a specific design or development
@@ -69,9 +66,15 @@ import com.topcoder.web.common.NavigationException;
  *     <li>Added new functionality that asks for several terms of use and show those the user already agreed to.</li>
  *   </ol>
  * </p>
+ * <p>
+ *   Version 1.2 (Configurable Contest Terms Release Assembly v2.0) Change notes:
+ *   <ol>
+ *     <li>Added sort order to displayed terms of use.</li>
+ *   </ol>
+ * </p>
  *
  * @author dok, pulky
- * @version 1.1
+ * @version 1.2
  */
 public class Register extends ViewRegistration {
 
@@ -109,25 +112,23 @@ public class Register extends ViewRegistration {
 
                     // get survey
                     getRequest().setAttribute("questionInfo", getQuestions());
-
-                    // process terms of use
-                    processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS);
                 } else {
                     addError(Constants.TERMS_AGREE, "You must agree to the terms in order to proceed.");
-
-                    TermsOfUse termsOfUse = TermsOfUseLocator.getService();
-                    TermsOfUseEntity terms =  termsOfUse.getEntity(Long.parseLong(termsOfUseId),
-                            DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                    getRequest().setAttribute(Constants.TERMS, terms);
                 }
                 
+                // process terms of use
+                boolean hasMoreTerms = processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS, Long.parseLong(termsOfUseId));
+                if (!hasMoreTerms) {
+                    //we're assuming that if we're here, we got a valid project id
+                    loadCaptcha();
+                }
+
                 setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
-                loadCaptcha();
                 setNextPage("/contest/regTerms.jsp");
                 setIsNextPageInContext(true);
             } else {
                 // make sure they don't have pending terms of use (they could get here faking the URL)
-                if (processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS)) {
+                if (processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS, -1)) {
                     setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
                     loadCaptcha();
                     setNextPage("/contest/regTerms.jsp");
@@ -204,7 +205,7 @@ public class Register extends ViewRegistration {
                     setDefaults(responses);
 
                     // process terms of use
-                    processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS);
+                    processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS, -1);
 
                     setDefault(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
                     loadCaptcha();
