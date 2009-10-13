@@ -232,7 +232,7 @@ public class ProjectReviewApply extends Base {
 //            loadCaptcha();
 //        }
         boolean hasMoreTerms = processTermsOfUse(String.valueOf(projectId), getUser().getId(), 
-            Base.SUBMITTER_ROLE_IDS, Long.parseLong(termsOfUseId));
+            Base.SUBMITTER_ROLE_IDS, "".equals(termsOfUseId) ? -1 : Long.parseLong(termsOfUseId));
         if (!hasMoreTerms) {
             loadCaptcha();
         }
