@@ -620,6 +620,11 @@
             </fileset>
         </copy>
 -->
+    	<copy todir="${jboss_conf}">
+    	    <fileset dir="scripts/pacts">
+    	        <include name="paymentRanges.xml"/>
+    	    </fileset>
+    	</copy>
     </target>
     <target name="move-libs">
         <copy todir="${jboss_lib}">
