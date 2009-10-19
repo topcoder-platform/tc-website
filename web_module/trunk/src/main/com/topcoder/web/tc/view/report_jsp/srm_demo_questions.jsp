@@ -156,7 +156,8 @@ else
     sqlStr5.append("  user u ");
     sqlStr5.append("  ,coder c, ");
     sqlStr5.append("  rating cr, ");
-    sqlStr5.append("  coder_notify cn ");
+    sqlStr5.append("  user_notify_xref unx ");
+	sqlStr5.append("  email e ");
     sqlStr5.append("where ");
     sqlStr5.append("  status = 'A' and ");
 
@@ -167,11 +168,11 @@ else
     //sqlStr5.append("c.coder_id in (select coder_id from room_result where round_id in (4324,4325) and attended = 'Y' and old_rating is not null) and ");
 
 
-    sqlStr5.append("  email not like '%topcoder.com%' and ");
+    sqlStr5.append("  e.address not like '%topcoder.com%' and ");
     sqlStr5.append("  u.user_id = c.coder_id and ");
     sqlStr5.append("  c.coder_id = cr.coder_id and ");
-    sqlStr5.append("  c.coder_id = cn.coder_id and ");
-    sqlStr5.append("  cn.notify_id = 1 and ");
+    sqlStr5.append("  c.coder_id = unx.user_id and ");
+    sqlStr5.append("  unx.notify_id = 1 and ");
     sqlStr5.append("  c.coder_type_id = ? ");
 
     sqlStr5.append("  and c.coder_id not in (133670,107165) ");
