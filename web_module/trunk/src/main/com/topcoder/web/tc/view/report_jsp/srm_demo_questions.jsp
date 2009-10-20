@@ -92,10 +92,11 @@ else
     sqlStr2.append("  count(*) as cnt ");
     sqlStr2.append("from ");
     sqlStr2.append("  coder c, ");
-    sqlStr2.append("  user u ");
-    sqlStr2.append("  ,rating cr ");
-    sqlStr2.append("  ,demographic_response dr, ");
-    sqlStr2.append("  demographic_answer da ");
+    sqlStr2.append("  user u, ");
+    sqlStr2.append("  rating cr,");
+    sqlStr2.append("  demographic_response dr, ");
+    sqlStr2.append("  demographic_answer da, ");
+	sqlStr2.append("  email e ");
     sqlStr2.append("where ");
     sqlStr2.append("  c.coder_type_id = ? and ");
 
@@ -107,10 +108,12 @@ else
 
 
     sqlStr2.append("  dr.demographic_question_id = ? and ");
-    sqlStr2.append("  c.coder_id = dr.coder_id and ");
+    sqlStr2.append("  c.coder_id = dr.user_id and ");
     sqlStr2.append("  c.coder_id = cr.coder_id and ");
+    sqlStr2.append("  c.coder_id = e.user_id and ");
     sqlStr2.append("  u.user_id = c.coder_id and ");
-    sqlStr2.append("  u.status = 'A' and u.email not like '%topcoder.com%' and ");
+    sqlStr2.append("  u.status = 'A' and ");
+	sqlStr2.append("  e.address not like '%topcoder.com%' and ");
     sqlStr2.append("  dr.demographic_answer_id = da.demographic_answer_id ");
 
     sqlStr2.append("  and c.coder_id not in (133670,107165) ");
@@ -128,6 +131,7 @@ else
     sqlStr3.append("  ,coder c, ");
     sqlStr3.append("  rating cr, ");
     sqlStr3.append("  referral rt, ");
+    sqlStr3.append("  email e, ");
     sqlStr3.append("  coder_referral cor ");
     sqlStr3.append("where ");
     sqlStr3.append("  status = 'A' and ");
@@ -138,9 +142,10 @@ else
     }
     //sqlStr3.append("c.coder_id in (select coder_id from room_result where round_id in (4324,4325) and attended = 'Y' and old_rating is not null) and ");
 
-    sqlStr3.append("  email not like '%topcoder.com%' and ");
+    sqlStr3.append("  e.address not like '%topcoder.com%' and ");
     sqlStr3.append("  u.user_id = c.coder_id and ");
     sqlStr3.append("  c.coder_id = cr.coder_id and ");
+    sqlStr3.append("  c.coder_id = e.user_id and ");
     sqlStr3.append("  c.coder_type_id = ? and ");
     sqlStr3.append("  c.coder_id = cor.coder_id and ");
     sqlStr3.append("  cor.referral_id = rt.referral_id ");
@@ -153,10 +158,10 @@ else
     sqlStr5.append("select ");
     sqlStr5.append("  count(*) ");
     sqlStr5.append("from ");
-    sqlStr5.append("  user u ");
-    sqlStr5.append("  ,coder c, ");
+    sqlStr5.append("  user u, ");
+    sqlStr5.append("  coder c, ");
     sqlStr5.append("  rating cr, ");
-    sqlStr5.append("  user_notify_xref unx ");
+    sqlStr5.append("  user_notify_xref unx, ");
 	sqlStr5.append("  email e ");
     sqlStr5.append("where ");
     sqlStr5.append("  status = 'A' and ");
@@ -172,6 +177,7 @@ else
     sqlStr5.append("  u.user_id = c.coder_id and ");
     sqlStr5.append("  c.coder_id = cr.coder_id and ");
     sqlStr5.append("  c.coder_id = unx.user_id and ");
+    sqlStr5.append("  e.user_id = u.user_id and ");
     sqlStr5.append("  unx.notify_id = 1 and ");
     sqlStr5.append("  c.coder_type_id = ? ");
 
@@ -179,7 +185,7 @@ else
 
 
     StringBuffer sqlStr4 = new StringBuffer(228);
-    sqlStr4.append("select count(*) from coder c, rating cr, user u where c.coder_id = cr.coder_id and u.user_id = c.coder_id and coder_type_id = ? and u.status = 'A' and email not like '%topcoder.com%'");
+    sqlStr4.append("select count(*) from coder c, rating cr, user u, email e where c.coder_id = cr.coder_id and u.user_id = c.coder_id and coder_type_id = ? and u.status = 'A' and c.coder_id = e.user_id and e.address not like '%topcoder.com%'");
 
 
     if (roundID > 0)
