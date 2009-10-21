@@ -126,6 +126,11 @@
          </div>       
       </td>
       <td class="value">21
+         <div class="long">
+         <strong><a href="/tc?module=MatchDetails&rd=13992">NASA-TopCoder Challenge Registration</a></strong><br />
+         9:00 AM<br />
+         1 week
+         </div>      
       </td>
       <td class="value">22
       </td>

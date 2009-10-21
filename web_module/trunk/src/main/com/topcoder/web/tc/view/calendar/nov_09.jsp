@@ -66,6 +66,10 @@
       <td class="value">3
       </td>
       <td class="value">4
+         <div class="long">
+         <strong><a href="http://www.topcoder.com/nasacontest">NASA-TopCoder Challenge! $24,000 in prizes!</a></strong><br />
+         1:00 PM<br />
+         ends November 14, 1:00 PM</div>      
       </td>
       <td class="value">5
          <div class="srm">
