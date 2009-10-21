@@ -98,6 +98,19 @@
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
                 
+                <%-- NASA begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_102109"><img src="/i/pressroom/nasa-patch-09.png" alt="NASA" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_102109">TopCoder Announces Experimental Crowdsourcing Competition to Benefit Human Space Flight</a></h3>
+                        <p>NASA-TopCoder Challenge Seeks Software Programmers to Write Algorithms That Identify Optimal Contents of Emergency Medical Kit for Future Missions <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_102109">[October 21st]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- NASA end --%>
+                
                 <%-- On Point begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">

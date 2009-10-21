@@ -72,6 +72,7 @@
             
                 <div class="pr_newsarchive">
                     <dl>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_102109">TopCoder Announces Experimental Crowdsourcing Competition to Benefit Human Space Flight<br /><small style="margin-left:10px;">[October 21st]</small></a></dd>
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_072209">Chinese Search Engine Youdao Uses TopCoder Competition Platform to Find Technical Talent<br /><small style="margin-left:10px;">[July 22nd]</small></a></dd>
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_040409">IEEE-USA Becomes Sponsor of 2009 TopCoder Open<br /><small style="margin-left:10px;">[April 9th]</small></a></dd>
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_032509">TopCoder Named 2009 "Cool Vendor" for Application Development by Leading Analyst Firm<br /><small style="margin-left:10px;">[March 25th]</small></a></dd>
