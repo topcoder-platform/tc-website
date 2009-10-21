@@ -65,15 +65,32 @@
         <jsp:param name="title" value="Contest Details"/>
     </jsp:include>
 
-<%-- BRANDING --%>
-    <c:if test="${row.map['mm_image_path']!=null}">
-    <div style="padding: 0px 0px 0px 5px; float: right;">
-        <img src="${row.map['mm_image_path']}" alt="Sponsor" border="0">
-    </div>
-    </c:if>
+<%if(roundId == 13992 ) {%>
 
-<%-- BRANDING --%>
-<h2>${row.map['contest_name']} &gt; ${row.map['round_name']}</h2>
+	<%-- BRANDING --%>
+	<div align="center">
+	<h2>The NASA-TopCoder Challenge</h2>
+	</div>
+
+	<%-- BRANDING --%>
+	<div align="center">
+	<img src="http://www.topcoder.com/i/srm/srm_banner/nasa_banner.jpg" alt="Sponsor" border="0">
+	</div>
+
+	
+<%} else { %>
+	<%-- BRANDING --%>
+		<c:if test="${row.map['mm_image_path']!=null}">
+		<div style="padding: 0px 0px 0px 5px; float: right;">
+			<img src="${row.map['mm_image_path']}" alt="Sponsor" border="0">
+		</div>
+		</c:if>
+
+	<%-- BRANDING --%>
+	<h2>${row.map['contest_name']} &gt; ${row.map['round_name']}</h2>
+
+<%} %>
+
 
 
     <c:set value="<%=new Date()%>" var="currentDate"/>
@@ -143,7 +160,8 @@ contribution, as judged by the others in their Room.
 <br>
 Participants in all groups may submit code written in any of the following languages: Java, C++, C#.NET, VB.NET, or Python.
 All sets of 20 will be isolated from one another so that there are no spillovers of information, discussions, or code amongst the groups. 
-In addition, each team will be placed into a private competition with their own forum and standings information.
+In addition, each team will be placed into a private competition with their own forum and standings information.  Competitors will need
+to use the web-based interface for participating in the competition - no experimental rounds will be accessible from within the TopCoder Arena.
 <br><br>
 Keep in mind that there is no actual problem statement associated with the "registration" round.  
 <br><br>
