@@ -31,6 +31,6 @@
 <%-- REMIX --%>
 <br />
 <a href="<tc-webtag:linkTracking link='http://www.topcoder.com/remix' refer='/tc' />"><img src="/images/remix/remix-510.jpg" alt="REMIX Challenge" /></a><br /><br />
-<a href="<tc-webtag:linkTracking link='/tc?module=MatchDetails&rd=13992' />"><img src="/i/sponsor/nasa/nasa-banner-09-510x54.jpg" alt="NASA-TopCoder Challenge!" /></a>
+<a href="<tc-webtag:linkTracking link='/tc?module=MatchDetails&rd=13992'  refer='/tc' />"><img src="/i/sponsor/nasa/nasa-banner-09-510x54.jpg" alt="NASA-TopCoder Challenge!" /></a>
 
 <br />
