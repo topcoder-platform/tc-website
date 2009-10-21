@@ -198,7 +198,7 @@
 		<p align="justify">
 		The Contest Period ends 12:59:59 p.m. U.S. EST on November 14, 2009.  During the Contest, all Submissions submitted will be judged for performance.  
 		<br><br>
-		All Submissions will be judged according to the judging criteria below. Afterthe Contest, TopCoder will announce and display each winner and runners-up by handle. 
+		All Submissions will be judged according to the judging criteria below. After the Contest, TopCoder will announce and display each winner and runners-up by handle. 
 
 		</p>
 		
@@ -317,7 +317,7 @@
 		
 		<div class="sectionHeader">PRIVACY</div>
 		<p align="justify">
-		<b>All Contest data will be shared with researchers atHarvard Business School and London Business School ("Researchers") for use in research and may be 
+		<b>All Contest data will be shared with researchers at Harvard Business School and London Business School ("Researchers") for use in research and may be 
 		published. Members may be publicly identified by handle in such published research.  Contact information provided by Contestants for this competition 
 		may be provided to the Researchers and used by TopCoder or Researchers to contact Contestants during or immediately following the Competition for the purposes 
 		of administering the Competition and research.  Contribution lists, competition survey results will be provided to Researchers for use in the research.</b>  
