@@ -190,6 +190,10 @@
         Specification</a> for this component project
 </p>
 
+<p><strong>Scorecards</strong><br/>
+    View the <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review/actions/ViewScorecard.do?method=viewScorecard&scid=<rsc:item set="<%=projectDetail%>" name="screening_scorecard_id"/>">screening</a> and <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review/actions/ViewScorecard.do?method=viewScorecard&scid=<rsc:item set="<%=projectDetail%>" name="review_scorecard_id"/>">review</a> scorecards for this project.
+</p>
+
 <%-- Time Line --%>
 <p>
 <table cellspacing="0" class="formFrame" align="center" width="530">
