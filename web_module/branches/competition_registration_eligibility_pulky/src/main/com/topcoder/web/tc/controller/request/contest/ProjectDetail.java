@@ -11,6 +11,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.eligibility.ContestEligibilityServiceLocator;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.development.Base;
 import com.topcoder.web.tc.controller.request.util.ReliabilityBonusCalculator;
@@ -34,6 +35,10 @@ public class ProjectDetail extends Base {
     protected void developmentProcessing() throws TCWebException {
 
         try {
+            System.out.println("pulky: calling eligibility locator");
+            System.out.println("pulky: result: " + ContestEligibilityServiceLocator.getServices().isEligible(1, 1, false));
+            System.out.println("pulky: end calling eligibility locator");
+            
             String projectId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID));
 
             if (projectId.equals("")) {
