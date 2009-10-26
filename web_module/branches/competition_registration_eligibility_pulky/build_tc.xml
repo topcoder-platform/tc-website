@@ -1300,7 +1300,18 @@
                 <include name="standard.jar"/>
                 <include name="taconite.jar"/>
             </lib>
-
+            <!-- Added libs to support ejb3 calls -->
+            <lib dir="${jars.dir}/jboss-add/">
+            	<include name="jboss-saaj.jar"/>
+            	<include name="jboss-ejb3-client.jar"/>
+            	<include name="jboss-ejb3x.jar"/>            	
+            	<include name="jboss-aop-jdk50-client.jar"/>
+            	<include name="jboss-aspect-jdk50-client.jar"/>
+            	<include name="jboss-remoting.jar"/>
+            	<include name="jboss-remoting-int.jar"/>
+            	<include name="jboss-common-core.jar"/>
+            	<include name="jboss-serialization.jar"/>
+            </lib>
         </war>
         <unwar src="${war.dir}/tc.war" dest="${jboss_deploy}/tc.war/" overwrite="yes"/>
         <delete dir="${jboss_deploy}/tc.war/META-INF"/>
