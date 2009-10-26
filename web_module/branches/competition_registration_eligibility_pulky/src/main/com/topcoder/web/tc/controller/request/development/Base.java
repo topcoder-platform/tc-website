@@ -16,13 +16,16 @@ import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.CachedDataAccess;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.eligibility.ContestEligibilityServiceLocator;
 import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.ejb.project.Project;
 import com.topcoder.web.ejb.project.ProjectLocal;
@@ -101,11 +104,19 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *           </ul>
  *         </td>
  *     </tr> 
+         <tr>
+ *         <td>Version 1.7 (Competition Registration Eligibility v1.0)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Added method to check for eligibility constraints.</li>
+ *           </ul>
+ *         </td>
+ *     </tr> 
  *   </table>
  * </p>
  *
- * @author dok, isv, pulky
- * @version 1.6
+ * @author dok, isv, pulky, TCSDEVELOPER
+ * @version 1.7
  */
 public abstract class Base extends ShortHibernateProcessor {
 
@@ -455,5 +466,39 @@ public abstract class Base extends ShortHibernateProcessor {
      */
     protected boolean isProjectTypeSupported(String projectType, boolean includeSpecificationReviews) {
         return ReviewBoardHelper.isReviewBoardTypeSupported(projectType, includeSpecificationReviews);
+    }
+    
+    /**
+     * This method will check eligibility constraints for a particular project. 
+     * It will first test if the user is logged in, and in this case it will call directly the isEligible service.
+     * If the user is not logged in, it will ask for login only if the project has an eligibility constraint.
+     * 
+     * @param pid the project id to check for
+     * @param r the resource that is asking for login
+     * 
+     * @return true if the user can see this project, false otherwise
+     * 
+     * @throws TCWebException if any error occurs during service call
+     * @throws PermissionException if the user is not logged in and the project has elibility constraints
+     * 
+     * @since 1.7
+     */
+    protected boolean checkEligibilityConstraints(long pid, Resource r) throws TCWebException, PermissionException {
+        // if the user is logged in, check eligibility
+        try {
+            if (userIdentified()) {
+                if (!ContestEligibilityServiceLocator.getServices().isEligible(getLoggedInUser().getId(), pid, false)) {
+                    return false;
+                }
+            } else {
+                // otherwise, if this project has any eligibility constraint, ask for login 
+                if (!ContestEligibilityServiceLocator.getServices().hasEligibility(pid, false)) {
+                    throw new PermissionException(getUser(), r);
+                }
+            }
+            return true;
+        } catch (Exception e) {
+            throw new TCWebException("Failed to retrieve eligibility constraints information.");
+        }
     }
 }
