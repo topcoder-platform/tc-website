@@ -13,9 +13,19 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 /**
- * @author dok
- * @version $Revision$ Date: 2005/01/01 00:00:00 Create Date: Aug 7,
- *          2006
+ * <p>This class will process a request to view past contests.</p>
+ *
+ * <p>
+ *   Version 1.1 (BUGR-2786) Change notes:
+ *   <ol>
+ *     <li>
+ *          Added sort order for milestone_date column.
+ *     </li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky
+ * @version 1.1
  */
 public class ViewPastContests extends BaseProcessor {
 
@@ -102,6 +112,7 @@ public class ViewPastContests extends BaseProcessor {
         s.addDefault(rsc.getColumnIndex("name"), "asc");
         s.addDefault(rsc.getColumnIndex("start_time"), "desc");
         s.addDefault(rsc.getColumnIndex("end_time"), "desc");
+        s.addDefault(rsc.getColumnIndex("milestone_date"), "desc");
         s.addDefault(rsc.getColumnIndex("amount"), "desc");
         s.addDefault(rsc.getColumnIndex("registrants"), "desc");
         s.addDefault(rsc.getColumnIndex("submission_count"), "desc");

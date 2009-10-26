@@ -1,6 +1,6 @@
 <%--
-  - Author: TCSDEVELOPER
-  - Version: 1.2
+  - Author: pulky
+  - Version: 1.3
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page renders studio home page.
@@ -17,6 +17,9 @@
   -    * Added banner rotation every 5 sec. on carousal.
   -    * Right justified the prize amount.
   -    * Added proper links on RSS feeds for 'Thoughts for blogs' and 'Contest Chatter'.
+  -
+  - Version 1.3 (BUGR-2786) Change Notes:
+  -    * If the milestone date has not been reached, use this date to calculate time left 
 --%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
@@ -180,7 +183,15 @@
                                                     </td>
                                                     <td class="last">
                                                         <%
-                                                        int hours = (int)((((Date)(resultRow.getItem("end_time").getResultData())).getTime() - 
+                                                        Date endDate;
+                                                        Object milestoneDate = resultRow.getItem("milestone_date").getResultData(); 
+                                                        if (milestoneDate != null && (new Date()).before((Date) milestoneDate)) {
+                                                            endDate = (Date) milestoneDate;
+                                                        } else {
+                                                            endDate = (Date)(resultRow.getItem("end_time").getResultData());
+                                                        }
+                                                        
+                                                        int hours = (int)(((endDate).getTime() - 
                                                             System.currentTimeMillis()) / 1000 / 3600);
                                                         if (hours < 24) {
                                                             out.print(hours + " hour");
