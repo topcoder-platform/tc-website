@@ -8,10 +8,10 @@ import java.util.Map;
 
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.eligibility.ContestEligibilityServiceLocator;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.development.Base;
 import com.topcoder.web.tc.controller.request.util.ReliabilityBonusCalculator;
@@ -26,8 +26,15 @@ import com.topcoder.web.tc.controller.request.util.ReliabilityBonusCalculator;
  *   </ol>
  * </p>
  *
- * @author dok, pulky
- * @version 1.1
+ * <p>
+ *   Version 1.2 (Competition Registration Eligibility v1.0) Change notes:
+ *   <ol>
+ *     <li>Added eligibility constraints check.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky, TCSDEVELOPER
+ * @version 1.2
  */
 public class ProjectDetail extends Base {
 
@@ -35,14 +42,22 @@ public class ProjectDetail extends Base {
     protected void developmentProcessing() throws TCWebException {
 
         try {
-            System.out.println("pulky: calling eligibility locator");
-            System.out.println("pulky: result: " + ContestEligibilityServiceLocator.getServices().isEligible(1, 1, false));
-            System.out.println("pulky: end calling eligibility locator");
-            
             String projectId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID));
 
             if (projectId.equals("")) {
                 throw new TCWebException("parameter " + Constants.PROJECT_ID + " expected.");
+            }
+
+            long pid;
+            try {
+                pid = Long.parseLong(projectId);
+            } catch (NumberFormatException nfe) {
+                throw new TCWebException("parameter " + Constants.PROJECT_ID + " invalid.");
+            }
+
+            // check eligibility constraints
+            if (!checkEligibilityConstraints(pid, new ClassResource(this.getClass()))) {
+                throw new TCWebException("Could not find project information.");
             }
 
             int projectTypeId = getProjectTypeId(Long.parseLong(projectId));
@@ -50,7 +65,7 @@ public class ProjectDetail extends Base {
             if (projectTypeId == -1) {
                 throw new TCWebException("Could not find project information.");
             }
-
+            
             Request r = new Request();
             r.setContentHandle("project_detail");
             r.setProperty(Constants.PROJECT_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
@@ -92,7 +107,5 @@ public class ProjectDetail extends Base {
         } catch (Exception e) {
             throw new TCWebException(e);
         }
-
-
     }
 }
