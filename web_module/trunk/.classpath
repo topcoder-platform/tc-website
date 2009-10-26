@@ -168,10 +168,10 @@
 	<classpathentry kind="var" path="EXTERNAL_ARTIFACTS/jboss-4.2.2-ejb3x.jar"/>
 	<classpathentry kind="var" path="EXTERNAL_ARTIFACTS/jboss-4.2.2-jaxws.jar"/>
 	<classpathentry kind="var" path="EXTERNAL_ARTIFACTS"/>
-	<classpathentry kind="var" path="ARTIFACTS/arena-shared-6.5.1.jar"/>
+	<classpathentry kind="var" path="ARTIFACTS/arena-shared-6.5.2.jar"/>
 	<classpathentry kind="var" path="ARTIFACTS/custom-serialization-1.0.0.jar"/>
 	<classpathentry kind="var" path="ARTIFACTS/logging-1.0.0.jar"/>
 	<classpathentry kind="lib" path="lib/jars/tcs/studio_service.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/topcoder-shared"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/shared"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
