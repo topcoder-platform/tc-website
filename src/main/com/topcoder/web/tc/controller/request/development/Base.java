@@ -493,7 +493,7 @@ public abstract class Base extends ShortHibernateProcessor {
                 }
             } else {
                 // otherwise, if this project has any eligibility constraint, ask for login 
-                if (!ContestEligibilityServiceLocator.getServices().hasEligibility(pid, false)) {
+                if (ContestEligibilityServiceLocator.getServices().hasEligibility(pid, false)) {
                     throw new PermissionException(getUser(), r);
                 }
             }
