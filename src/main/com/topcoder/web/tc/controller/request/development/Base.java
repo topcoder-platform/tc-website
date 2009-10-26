@@ -12,6 +12,7 @@ import javax.ejb.CreateException;
 import javax.ejb.EJBException;
 import javax.naming.NamingException;
 
+import com.topcoder.service.contest.eligibilityvalidation.ContestEligibilityValidatorException;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -497,7 +498,13 @@ public abstract class Base extends ShortHibernateProcessor {
                 }
             }
             return true;
-        } catch (Exception e) {
+        } catch (RemoteException e) {
+            throw new TCWebException("Failed to retrieve eligibility constraints information.", e);
+        } catch (ContestEligibilityValidatorException e) {
+            throw new TCWebException("Failed to retrieve eligibility constraints information.", e);
+        } catch (CreateException e) {
+            throw new TCWebException("Failed to retrieve eligibility constraints information.", e);
+        } catch (NamingException e) {
             throw new TCWebException("Failed to retrieve eligibility constraints information.", e);
         }
     }
