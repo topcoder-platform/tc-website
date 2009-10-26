@@ -479,7 +479,7 @@ public abstract class Base extends ShortHibernateProcessor {
      * @return true if the user can see this project, false otherwise
      * 
      * @throws TCWebException if any error occurs during service call
-     * @throws PermissionException if the user is not logged in and the project has elibility constraints
+     * @throws PermissionException if the user is not logged in and the project has eligibility constraints
      * 
      * @since 1.7
      */
@@ -498,7 +498,7 @@ public abstract class Base extends ShortHibernateProcessor {
             }
             return true;
         } catch (Exception e) {
-            throw new TCWebException("Failed to retrieve eligibility constraints information.");
+            throw new TCWebException("Failed to retrieve eligibility constraints information.", e);
         }
     }
 }
