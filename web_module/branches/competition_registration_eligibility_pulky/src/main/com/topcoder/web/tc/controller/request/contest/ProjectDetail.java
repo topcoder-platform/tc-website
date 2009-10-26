@@ -57,7 +57,7 @@ public class ProjectDetail extends Base {
 
             // check eligibility constraints
             if (!checkEligibilityConstraints(pid, new ClassResource(this.getClass()))) {
-                throw new TCWebException("Could not find project information.");
+                throw new NavigationException("Could not find project information.");
             }
 
             int projectTypeId = getProjectTypeId(Long.parseLong(projectId));
