@@ -1,17 +1,21 @@
 <%--
-  - Author: TCSDEVELOPER
-  - Version: 1.1
+  - Author: pulky
+  - Version: 1.2
   - Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page presents active contests
   -
   - Version 1.1 (Studio Release Assembly - Spec Review Sign up page v1.0) changes: Added "Review Opportunities" tab.
+  - Version 1.2 (BUGR-2786) changes: Added "Round 1 End" column. Fixed "time left" column to count towards milestone
+  - date if it has not been reached yet. (Only for multi round contests)
 --%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.studio.model.ContestChannel" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.sql.Timestamp" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="studio_tags" tagdir="/WEB-INF/tags" %>
@@ -108,10 +112,12 @@
                                     </td>
                                     <td class="headerC">
                                         <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("start_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Start Date</a></td>
+                                    <td class="headerC" nowrap="nowrap">
+                                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("milestone_date")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Round 1 End</a></td>
                                     <td class="headerC">
                                         <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("end_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">End Date</a></td>
                                     <td class="headerC" nowrap="nowrap">
-                                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("end_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Time Left</a></td>
+                                        Time Left</td>
                                     <td class="headerR" nowrap="nowrap">
                                         <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("prize_total")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Prize Purse</a>
                                     </td>
@@ -141,7 +147,7 @@
 
                                     <% boolean even = true;%>
                                     <rsc:iterator list="${contests}" id="resultRow">
-                                        <tr><td class="space" colspan="10">&nbsp;</td></tr>
+                                        <tr><td class="space" colspan="11">&nbsp;</td></tr>
                                         <tr class="<%=even?"light":"dark"%>">
                                             <td class="valueE">
                                                 <%-- Since TopCoder Studio Modifications assembly Req# 5.2 --%>
@@ -164,10 +170,22 @@
                                                 <rsc:item name="start_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
                                             </td>
                                             <td class="valueC">
+                                                <rsc:item name="milestone_date" row="<%=resultRow%>" ifNull="-" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                                            </td>
+                                            <td class="valueC">
                                                 <rsc:item name="end_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
                                             </td>
                                             <td class="valueC">
-                                                <div class="countdown"><studio_tags:countdownClock mode="short" end="<%=resultRow.getTimestampItem("end_time")%>"/></div>
+                                                <%
+                                                    Timestamp endDate;
+                                                    Object milestoneDate = resultRow.getItem("milestone_date").getResultData(); 
+                                                    if (milestoneDate != null && (new Date()).before((Date) milestoneDate)) {
+                                                        endDate = (Timestamp) milestoneDate;
+                                                    } else {
+                                                        endDate = (Timestamp)(resultRow.getItem("end_time").getResultData());
+                                                    }
+                                                %>
+                                                 <div class="countdown"><studio_tags:countdownClock mode="short" end="<%=endDate%>"/></div>
                                             </td>
                                             <td class="valueR">
                                                 <rsc:item name="prize_total" row="<%=resultRow%>" format="$###,###.00" ifNull="&nbsp;"/>

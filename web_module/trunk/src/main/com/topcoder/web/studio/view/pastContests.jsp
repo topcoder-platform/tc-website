@@ -1,11 +1,12 @@
 <%--
-  - Author: TCSDEVELOPER
-  - Version: 1.1
+  - Author: pulky
+  - Version: 1.2
   - Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page presents past contests
   -
   - Version 1.1 (Studio Release Assembly - Spec Review Sign up page v1.0) changes: Added "Review Opportunities" tab.
+  - Version 1.2 (BUGR-2786) changes: Added "Round 1 End" column.
 --%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
@@ -173,8 +174,10 @@
 								</td>
 								<td class="headerC" nowrap="nowrap">
 									<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewPastContests<tc-webtag:sort column="<%=contests.getColumnIndex("start_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Start Date</a></td>
-								<td class="headerC" nowrap="nowrap">
-									<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewPastContests<tc-webtag:sort column="<%=contests.getColumnIndex("end_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">End Date</a></td>
+                                <td class="headerC" nowrap="nowrap">
+                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewPastContests<tc-webtag:sort column="<%=contests.getColumnIndex("milestone_date")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Round 1 End</a></td>
+                                <td class="headerC" nowrap="nowrap">
+                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewPastContests<tc-webtag:sort column="<%=contests.getColumnIndex("end_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">End Date</a></td>
 								<td class="headerR" nowrap="nowrap">
 									<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewPastContests<tc-webtag:sort column="<%=contests.getColumnIndex("prize_total")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Prize Purse</a>
 								</td>
@@ -194,7 +197,7 @@
 							<% boolean even = true;
 								int i = 0; %>
 							<rsc:iterator list="<%=contests%>" id="resultRow">
-								<tr><td class="space" colspan="8">&nbsp;</td></tr>
+								<tr><td class="space" colspan="9">&nbsp;</td></tr>
 								<tr class="<%=even?"light":"dark"%>">
 									<td class="valueE">
 										<%-- Since TopCoder Studio Modifications assembly Req# 5.2 --%>
@@ -222,9 +225,12 @@
 									<td class="valueC">
 										<rsc:item name="start_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
 									</td>
-									<td class="valueC">
-										<rsc:item name="end_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
-									</td>
+                                    <td class="valueC">
+                                        <rsc:item name="milestone_date" row="<%=resultRow%>" ifNull="-" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                                    </td>
+                                    <td class="valueC">
+                                        <rsc:item name="end_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                                    </td>
 									<td class="valueR">
 										<rsc:item name="prize_total" row="<%=resultRow%>" format="$###,###.00" ifNull="&nbsp;"/>
 									</td>
