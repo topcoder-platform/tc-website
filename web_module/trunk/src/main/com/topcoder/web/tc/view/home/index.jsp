@@ -101,7 +101,7 @@
                                     </div>
                                     <div class="dev">
                                         <a href="http://www.topcoder.com/tc" class="developNow"></a>
-                                        <p>Think you can handle the development?</p>
+                                        <p>Compete in Coding &amp; Software Contests.</p>
                                     </div>
                                     
                                     
