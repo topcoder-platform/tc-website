@@ -39,6 +39,12 @@ import com.topcoder.web.tc.controller.request.util.ReliabilityBonusCalculator;
 public class ProjectDetail extends Base {
 
 
+    /**
+     * This method executes the actual logic for this processor.
+     *
+     * @throws TCWebException if any error occurs
+     * @see com.topcoder.web.tc.controller.request.development.Base#developmentProcessing()
+     */
     protected void developmentProcessing() throws TCWebException {
 
         try {
@@ -48,15 +54,8 @@ public class ProjectDetail extends Base {
                 throw new TCWebException("parameter " + Constants.PROJECT_ID + " expected.");
             }
 
-            long pid;
-            try {
-                pid = Long.parseLong(projectId);
-            } catch (NumberFormatException nfe) {
-                throw new TCWebException("parameter " + Constants.PROJECT_ID + " invalid.");
-            }
-
             // check eligibility constraints
-            if (!checkEligibilityConstraints(pid, new ClassResource(this.getClass()))) {
+            if (!checkEligibilityConstraints(projectId, new ClassResource(this.getClass()))) {
                 throw new NavigationException("Could not find project information.");
             }
 

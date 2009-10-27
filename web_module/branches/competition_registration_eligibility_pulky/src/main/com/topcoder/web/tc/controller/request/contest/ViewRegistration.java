@@ -58,8 +58,15 @@ import com.topcoder.web.tc.controller.request.development.Base;
  *   </ol>
  * </p>
  *
- * @author dok, pulky
- * @version 1.3
+ * <p>
+ *   Version 1.4 (Competition Registration Eligibility v1.0) Change notes:
+ *   <ol>
+ *     <li>Added eligibility constraints check.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky, TCSDEVELOPER
+ * @version 1.4
  */
 public class ViewRegistration extends Base {
 
@@ -141,6 +148,11 @@ public class ViewRegistration extends Base {
             throw new NavigationException("Invalid project specified");
         } else {
             projectId = Long.parseLong(getRequest().getParameter(Constants.PROJECT_ID));
+        }
+
+        // check eligibility constraints
+        if (!checkEligibilityConstraints(projectId, new ClassResource(this.getClass()))) {
+            throw new NavigationException("Could not find project information.");
         }
 
         projectTypeId = getProjectTypeId(projectId);
