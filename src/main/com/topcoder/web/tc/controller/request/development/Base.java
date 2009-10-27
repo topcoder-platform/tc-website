@@ -474,17 +474,51 @@ public abstract class Base extends ShortHibernateProcessor {
      * It will first test if the user is logged in, and in this case it will call directly the isEligible service.
      * If the user is not logged in, it will ask for login only if the project has an eligibility constraint.
      * 
+     * @param pid the project id (string representation) to check for
+     * @param r the resource that is asking for login
+     * 
+     * @return true if the user can see this project, false otherwise
+     * 
+     * @throws TCWebException if any error occurs during service call or if parameters are invalid
+     * @throws PermissionException if the user is not logged in and the project has eligibility constraints
+     * 
+     * @since 1.7
+     */
+    protected boolean checkEligibilityConstraints(String projectId, Resource r) throws TCWebException, PermissionException {
+        if (projectId == null) {
+            throw new TCWebException("parameter " + Constants.PROJECT_ID + " invalid.");
+        }
+        
+        long pid;
+        try {
+            pid = Long.parseLong(projectId);
+        } catch (NumberFormatException nfe) {
+            throw new TCWebException("parameter " + Constants.PROJECT_ID + " invalid.");
+        }
+        
+        return checkEligibilityConstraints(pid, r);
+    }
+    
+    /**
+     * This method will check eligibility constraints for a particular project. 
+     * It will first test if the user is logged in, and in this case it will call directly the isEligible service.
+     * If the user is not logged in, it will ask for login only if the project has an eligibility constraint.
+     * 
      * @param pid the project id to check for
      * @param r the resource that is asking for login
      * 
      * @return true if the user can see this project, false otherwise
      * 
-     * @throws TCWebException if any error occurs during service call
+     * @throws TCWebException if any error occurs during service call or if parameters are invalid
      * @throws PermissionException if the user is not logged in and the project has eligibility constraints
      * 
      * @since 1.7
      */
     protected boolean checkEligibilityConstraints(long pid, Resource r) throws TCWebException, PermissionException {
+        if (r == null) {
+            throw new TCWebException("Invalid resource checking eligibility.");
+        }
+        
         // if the user is logged in, check eligibility
         try {
             if (userIdentified()) {

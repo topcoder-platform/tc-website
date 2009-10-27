@@ -1,16 +1,29 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.tc.controller.request.development;
 
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.security.ClassResource;
 
 /**
- * Added some code to permit other projects different from component competitions.
+ * <p><strong>Purpose</strong>: This processor handle requests to show registrants for aspecific project.</p>
  * 
- * @author dok, pulky
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Jan 4, 2006
+ * <p>Added some code to permit other projects different from component competitions.</p>
+ *
+ * <p>
+ *   Version 1.1 (Competition Registration Eligibility v1.0) Change notes:
+ *   <ol>
+ *     <li>Added eligibility constraints check.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky, TCSDEVELOPER
+ * @version 1.1
  */
 public class ViewRegistrants extends Base {
     protected void developmentProcessing() throws TCWebException {
@@ -21,6 +34,11 @@ public class ViewRegistrants extends Base {
                 throw new TCWebException("parameter " + Constants.PROJECT_ID + " expected.");
             }
             
+            // check eligibility constraints
+            if (!checkEligibilityConstraints(projectId, new ClassResource(this.getClass()))) {
+                throw new NavigationException("Could not find project information.");
+            }
+
             int projectTypeId = getProjectTypeId(Long.parseLong(projectId)); 
             
             if (projectTypeId == -1) {
