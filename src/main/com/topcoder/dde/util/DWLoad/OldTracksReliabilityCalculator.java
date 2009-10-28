@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.dde.util.DWLoad;
 
 
@@ -18,8 +21,20 @@ import java.util.Set;
 
 import javax.naming.Context;
 
-
-
+/**
+ * <p><strong>Purpose</strong>:
+ * This class calculates Reliability Rating for old competition tracks.</p>
+ *
+ * <p>
+ *   Version 1.1 (Competition Registration Eligibility v1.0) Change notes:
+ *   <ol>
+ *     <li>Added eligibility constraints check.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author TCSDEVELOPER
+ * @version 1.1
+ */
 public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
     protected static final Logger log = Logger.getLogger(ReliabilityRating.class);
 
@@ -48,16 +63,29 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
     private static final String insertUserReliability =
         "insert into user_reliability (rating, user_id, phase_id) values (?,?,?)";
 
+    /**
+     * SQL query that clears current reliability
+     */
     private static final String clearCurrentReliability = "update project_result set current_reliability_ind = 0 where project_id in " +
-        "(select project_id from project where project_category_id+111 = ?)";
+        "(select project_id from project where project_category_id+111 = ?) " +
+        " and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+        " where ce.is_studio = 0 and ce.contest_id = project_id) ";
 
+    /**
+     * SQL query that mars records that should be included in the process
+     */
     private final static String markIncluded =
         "update project_result " +
         "set reliability_ind = 1 " +
-        "where reliability_ind is null " +
+        "where reliability_ind is null " + 
         "and final_score >= ? "+
-        " and project_id in (select project_id from project where project_category_id = ?) ";
+        " and project_id in (select project_id from project where project_category_id = ?) " +
+        " and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+        " where ce.is_studio = 0 and ce.contest_id = project_id) ";
 
+    /**
+     * SQL query that retrieves unmarked records
+     */
     private final static String getUnmarked =
         "select pr.user_id, pr.project_id, p.project_category_id, ci.create_time " +
         " from project_result pr " +
@@ -71,12 +99,18 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         "and ci.project_id = pr.project_id " +
         "and ci.user_id = pr.user_id " +
         " and p.project_category_id = ? " +
+        " and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+        " where ce.is_studio = 0 and ce.contest_id = p.project_id) " +
         " order by ci.create_time";
 
     private final static String setReliability =
         "update project_result set reliability_ind = ? where project_id = ? and user_id = ?";
 
-    /* BUGR-852 modification: add one item 'pi.scheduled_start_time' in the select clause */
+    /**
+     * SQL query that retrieves prior projects
+     * 
+     * BUGR-852 modification: add one item 'pi.scheduled_start_time' in the select clause
+     */
     private static final String priorProjects =
         "select pr.reliability_ind, pr.project_id, pr.user_id, pi.scheduled_start_time " +
         "from component_inquiry ci " +
@@ -91,6 +125,8 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         "and pi.project_id = p.project_id " +
         "and pi.phase_type_id = 1 " +
         "and ci.create_time < (select min(create_time) " +
+        "and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+        "where ce.is_studio = 0 and ce.contest_id = p.project_id) " +
         "from component_inquiry " +
         "where user_id = ci.user_id " +
         "and project_id = ?)";
@@ -232,6 +268,8 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         " and pr.reliability_ind = 1" +
         " and pr.project_id = p.project_id" +
         " and p.project_category_id+111=?" +
+        " and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+        " where ce.is_studio = 0 and ce.contest_id = p.project_id) " +
         " union" +
         " select distinct pr.user_id" +
         " from project_result pr" +
@@ -243,7 +281,9 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         " and pr.reliability_ind = 1" +
         " and pr.final_score >= ?" +
         " and pr.project_id = p.project_id" +
-        " and p.project_category_id+111=?";
+        " and p.project_category_id+111=?" +
+        " and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+        " where ce.is_studio = 0 and ce.contest_id = p.project_id) ";
 
     protected Set<Long> getIncludedUsers(Connection conn, int competitionTypeId, Date startDate, Date pivotDate) throws SQLException {
         PreparedStatement ps = null;
@@ -270,6 +310,9 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         return ret;
     }
 
+    /**
+     * SQL query that retrieves the new records to mark
+     */
     private static final String getNewRecordsToMark =
         " select pr.user_id" +
         " , pr.project_id" +
@@ -283,7 +326,9 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         " and p.project_category_id = ? " +
         " and pi.scheduled_start_time >= ?" +
         " and pr.reliability_ind = 1" +
-        " and pr.reliable_submission_ind is null";
+        " and pr.reliable_submission_ind is null" +
+        " and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+        " where ce.is_studio = 0 and ce.contest_id = p.project_id) ";
 
     private static final String updateReliableSubmission =
         "update project_result set reliable_submission_ind = ?" +
@@ -341,6 +386,9 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         return ret;
     }
 
+    /**
+     * SQL query that retrieves the old records to mark
+     */
     private static final String getOldRecordsToMark =
         " select pr.user_id" +
         " , pr.project_id" +
@@ -354,7 +402,9 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         " and pi.scheduled_start_time < ?" +
         " and p.project_category_id = ? "+
         " and pr.reliability_ind = 1" +
-        " and pr.reliable_submission_ind is null";
+        " and pr.reliable_submission_ind is null" +
+        " and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+        " where ce.is_studio = 0 and ce.contest_id = p.project_id) ";
 
     /**
      * mark all the project result records before the change date
@@ -395,6 +445,9 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         return ret;
     }
 
+    /**
+     * SQL query that retrieves the old reliability data
+     */
     private static final String oldReliabilityData =
         " select pr.reliable_submission_ind" +
         " , ci.create_time" +
@@ -413,9 +466,15 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         " and pr.reliability_ind = 1" +
         " and pr.reliable_submission_ind is not null" +
         " and p.project_category_id = ? " +
+        " and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+        " where ce.is_studio = 0 and ce.contest_id = p.project_id) " +
         " order by ci.create_time asc";
 
-    //all the people that became part of the reliability process prior to the change date
+    /**
+     * SQL query that retrieves the new records to mark
+     * 
+     * all the people that became part of the reliability process prior to the change date
+     */
     private static final String oldReliabilityUsers =
         " select distinct pr.user_id" +
         " from project_result pr" +
@@ -427,6 +486,8 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         " and pi.project_id = pr.project_id" +
         " and pr.reliable_submission_ind is not null" +
         " and p.project_category_id = ? " +
+        " and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+        " where ce.is_studio = 0 and ce.contest_id = p.project_id) " +
         " and pr.reliability_ind = 1";
 
     protected int updateOldProjectResult(Connection conn, int competitionTypeId, Date startDate, Date pivotDate) throws SQLException {
@@ -587,7 +648,12 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
     }
 
 
-    /* BUGR-852 modification: change 'reliabilityDate' to 'reliabilityDataBeforePivot', and add 'reliabilityDataAfterPivot' */
+    /**
+     * SQL query that retrieves reliability data before pivot
+     * 
+     * BUGR-852 modification: change 'reliabilityDate' to 'reliabilityDataBeforePivot', and add 
+     * 'reliabilityDataAfterPivot'
+     */
     private static final String reliabilityDataBeforePivot =
         " select pr.reliable_submission_ind" +
         " , ci.create_time" +
@@ -612,8 +678,13 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         " and pr.reliability_ind = 1" +
         " and pr.reliable_submission_ind is not null" +
         " and pi.scheduled_start_time <= ?" + // BUGR-852 modification: scheduled_start_time should be not greater than pivot date
+        " and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+        " where ce.is_studio = 0 and ce.contest_id = p.project_id) " +
         " order by ci.create_time asc";
 
+    /**
+     * SQL query that retrieves reliability data after pivot
+     */
     private static final String reliabilityDataAfterPivot =
         " select pr.reliable_submission_ind" +
         " , ci.create_time" +
@@ -639,6 +710,8 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         " and pr.reliability_ind = 1" +
         " and pr.reliable_submission_ind is not null" +
         " and pi.scheduled_start_time > ?" + // BUGR-852 modification: scheduled_start_time should be greater than pivot date
+        " and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+        " where ce.is_studio = 0 and ce.contest_id = p.project_id) " +
         " order by complete_date asc";
 
     protected List<ReliabilityInstance> retrieveReliabilityHistory(Connection conn, long userId, int historyLength, int competitionTypeId, Date startDate, Date pivotDate) throws SQLException {

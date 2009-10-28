@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.dde.util.DWLoad;
 
 import java.sql.Connection;
@@ -21,6 +24,20 @@ import com.topcoder.util.config.ConfigManager;
 import com.topcoder.util.config.ConfigManagerException;
 import com.topcoder.util.config.UnknownNamespaceException;
 
+/**
+ * <p><strong>Purpose</strong>:
+ * This class calculates TC ratings for the corresponding competition tracks.</p>
+ *
+ * <p>
+ *   Version 1.1 (Competition Registration Eligibility v1.0) Change notes:
+ *   <ol>
+ *     <li>Added eligibility constraints check.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author TCSDEVELOPER
+ * @version 1.1
+ */
 public class RatingQubits {
     private static final Logger log = Logger.getLogger(RatingQubits.class);
 
@@ -139,7 +156,14 @@ public class RatingQubits {
         runScore(conn, historyLength, phase, null);
     }
 
-    // Run a score with the specified cut off time
+    /**
+     * Run a score with the specified cut off time
+     * 
+     * @param conn the current DB connection
+     * @param historyLength the history length
+     * @param phase the phase
+     * @param cutoff the cutoff date
+     */
     private void runScore(Connection conn, String historyLength, int phase, Date cutoff) {
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -159,6 +183,8 @@ public class RatingQubits {
                     "and p.project_category_id = ? " +
                     "and pr.rating_ind = 1 " +
                     "and pr.final_score is not null " +
+                    "and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+                    "where ce.is_studio = 0 and ce.contest_id = p.project_id) " +
                     "and pi_rd.project_id = p.project_id and pi_rd.project_info_type_id = 22 ";
             if (cutoff != null) {
             	sqlStr += "and pp.project_id = p.project_id and pp.phase_type_id = 1 " +
@@ -519,11 +545,16 @@ public class RatingQubits {
     }
 
 
+    /**
+     * SQL query to retrieve old ratings
+     */
     private final String OLD_RATINGS = "select pr.project_id, pr.user_id, pr.old_rating from project_result pr, project p " +
             "where p.project_id = pr.project_id " +
             "and p.project_status_id in  " + NEW_RATING_CATEGORIES + " " +
             "and p.project_category_id = ? " +
             "and pr.rating_ind =1 " +
+            "and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+            "where ce.is_studio = 0 and ce.contest_id = p.project_id) " +
             "and pr.final_score is not null ";
 
     /**
@@ -552,11 +583,16 @@ public class RatingQubits {
 
     }
 
+    /**
+     * SQL query to retrieve new ratings
+     */
     private final String NEW_RATINGS = "select pr.project_id, pr.user_id, pr.new_rating from project_result pr, project p " +
             "where p.project_id = pr.project_id " +
             "and p.project_status_id in  " + NEW_RATING_CATEGORIES + " " +
             "and p.project_category_id = ? " +
             "and pr.rating_ind =1 " +
+            "and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+            "where ce.is_studio = 0 and ce.contest_id = p.project_id) " +
             "and pr.final_score is not null ";
 
     /**
