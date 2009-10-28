@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.dde.util.DWLoad;
 
 import java.sql.Connection;
@@ -8,10 +11,25 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-
-
+/**
+ * <p><strong>Purpose</strong>:
+ * This class calculates Reliability Rating for new competition tracks.</p>
+ *
+ * <p>
+ *   Version 1.1 (Competition Registration Eligibility v1.0) Change notes:
+ *   <ol>
+ *     <li>Added eligibility constraints check.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author TCSDEVELOPER
+ * @version 1.1
+ */
 public class NewTracksReliabilityCalculator extends OldTracksReliabilityCalculator  {
 	
+    /**
+     * SQL query to retrieve reliability data
+     */
     private static final String reliabilityData =
         " select pr.reliable_submission_ind" +
                 " , ci.create_time" +
@@ -36,6 +54,8 @@ public class NewTracksReliabilityCalculator extends OldTracksReliabilityCalculat
                 "	OR (p.project_status_id = 1 and pi2.phase_status_id = 3))" +
                 " and pr.reliability_ind = 1" +
                 " and pr.reliable_submission_ind is not null" +
+                " and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+                " where ce.is_studio = 0 and ce.contest_id = p.project_id) " +
                 " order by complete_date asc"; 
 
     @Override
@@ -65,19 +85,29 @@ public class NewTracksReliabilityCalculator extends OldTracksReliabilityCalculat
         return history;    	
     }
     
+    /**
+     * SQL query to mark corresponding records as included in the reliability process
+     */
     private final static String markIncluded =
         "update project_result " +
         "set reliability_ind = 1 " +
         "where reliability_ind is null " +
+        "and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+        "where ce.is_studio = 0 and ce.contest_id = project_id) " +
         "and final_score >= ? " +       
         " and project_id in (select project_id from project " +
         "           where project_category_id = ?) " +
     	" and project_id in (select project_id from project_phase group by project_id having min(actual_start_time) > ?) ";
     
+    /**
+     * SQL query to mark corresponding records as not included in the reliability process
+     */
     private final static String markBeforeStartDate =
         "update project_result " +
         "set reliability_ind = 0 " +
         "where reliability_ind is null " +
+        "and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+        "where ce.is_studio = 0 and ce.contest_id = project_id) " +
         " and project_id in (select project_id from project " +
         "           where project_category_id = ?) " +
         " and project_id in (select project_id from project_phase group by project_id having min(actual_start_time) <= ?) ";
