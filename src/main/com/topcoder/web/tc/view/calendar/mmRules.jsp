@@ -93,7 +93,8 @@
 		
 		<div class="sectionHeader">TOPCODER</div>
 		<p align="justify">
-		The Contest is sponsored by TopCoder, Inc., 95 Glastonbury Blvd., Glastonbury, CT 06033 ("TopCoder") and Harvard University and London Business School 
+		The Contest is sponsored by TopCoder, Inc., 95 Glastonbury Blvd., Glastonbury, CT 06033 ("TopCoder") and Professor Karim Lakhani of Harvard Business School and 
+		Professor Kevin Boudreau of London Business School 
 		("Sponsors"). Employees of TopCoder and Sponsors, its parents and subsidiaries, advertising and promotion agencies and all other entities participating 
 		in the design, promotion, marketing, advertising, administration or fulfillment of this Contest and their immediate families and persons living in the same 
 		household are ineligible to participate in this Contest. 
@@ -278,6 +279,9 @@
 			</tr>
 
 		</table>
+		<br><br>
+		In addition, one $1000 cash prize will be awarded to either the individual in Group A or the Room in Group B with the highest score.  
+		If this prize is awarded to a Room in Group B it will be divided according to the contribution lists for that Room. 
 		<br><br>
 		Contestants must be active participants in order to be eligible to receive any prize.  In both Groups A and B, active participation means working on the 
 		problem and submitting a reasonable attempt at a solution, including all required parts (e.g., solution description, contribution list in Group B), responding 
