@@ -91,7 +91,7 @@
 							
 							<div class="clientArea contentBg2">
 								<div class="competeText">
-									<div class="action">Compete on TopCoder and get your piece of the pie!</div>
+									<div class="action">Compete on TopCoder</div>
 									At this moment, there are <strong><%=activeCount%></strong> active competitions with <strong>$<tc-webtag:format object="<%=activeTotal%>" format="#,##0"/></strong> in total prizes.
 								</div>
 								<div class="buttonArea2">	
