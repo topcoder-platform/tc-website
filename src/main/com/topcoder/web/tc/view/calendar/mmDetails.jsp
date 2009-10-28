@@ -131,7 +131,7 @@ In this contest programmers will be asked to help NASA optimize a space flight m
 TopCoder community may have an interesting take on this problem and could potentially come up with a breakthrough that will help 
 NASA explore our universe.  
 <br><br>
-This Experimental Marathon Match event has over <b>$24,000</b> in prizes! In addition, 10 participants will get <b>VIP access</b> 
+This Experimental Marathon Match event has over <b>$25,000</b> in prizes! In addition, 10 participants will get <b>VIP access</b> 
 to one of the few remaining NASA shuttle launches and all contestants who actively participate will receive a limited edition, 
 personalized <b>TopCoder/NASA T-shirt</b>.
 <br><br>
@@ -243,6 +243,9 @@ Please check out the rules link below for more detail.
 			</tr>
 
 		</table>
+		<br><br>
+		In addition, one $1,000 cash prize will be awarded to either the individual in Group A or the Room in Group B with the highest score.  
+		If this prize is awarded to a Room in Group B it will be divided according to the contribution lists for that Room. 
 		<br><br>
 		Contestants must be active participants in order to be eligible to receive any prize.  In both Groups A and B, active 
 		participation means working on the problem and submitting a reasonable attempt at a solution, including all required 
