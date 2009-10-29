@@ -12,7 +12,7 @@ import com.topcoder.shared.security.ClassResource;
 
 /**
  * <p><strong>Purpose</strong>: This processor handle requests to show registrants for aspecific project.</p>
- * 
+ *
  * <p>Added some code to permit other projects different from component competitions.</p>
  *
  * <p>
@@ -29,18 +29,18 @@ public class ViewRegistrants extends Base {
     protected void developmentProcessing() throws TCWebException {
         try {
             String projectId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID));
-            
+
             if (projectId == "") {
                 throw new TCWebException("parameter " + Constants.PROJECT_ID + " expected.");
             }
-            
+
             // check eligibility constraints
             if (!checkEligibilityConstraints(projectId, new ClassResource(this.getClass()))) {
                 throw new NavigationException("Could not find project information.");
             }
 
-            int projectTypeId = getProjectTypeId(Long.parseLong(projectId)); 
-            
+            int projectTypeId = getProjectTypeId(Long.parseLong(projectId));
+
             if (projectTypeId == -1) {
                 throw new TCWebException("Could not find project information.");
             }
@@ -56,7 +56,7 @@ public class ViewRegistrants extends Base {
         } catch (TCWebException e) {
             throw e;
           } catch (NumberFormatException nfe) {
-            throw new TCWebException("Wrong parameter " + Constants.PROJECT_ID + ".");            
+            throw new TCWebException("Wrong parameter " + Constants.PROJECT_ID + ".");
         } catch (Exception e) {
             throw new TCWebException(e);
         }

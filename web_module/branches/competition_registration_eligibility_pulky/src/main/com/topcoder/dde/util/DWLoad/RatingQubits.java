@@ -131,8 +131,8 @@ public class RatingQubits {
             System.err.println("Invalid value for constant NEW_PHASES_CUT_OFF, please check it");
             return;
         }
-        
-        Date uiPrototypeCutoff = null;        
+
+        Date uiPrototypeCutoff = null;
         try {
             uiPrototypeCutoff = new Date(sdf.parse(UI_PROTOTYPE_CUT_OFF).getTime());
         } catch (ParseException e1) {
@@ -158,7 +158,7 @@ public class RatingQubits {
 
     /**
      * Run a score with the specified cut off time
-     * 
+     *
      * @param conn the current DB connection
      * @param historyLength the history length
      * @param phase the phase
@@ -176,18 +176,18 @@ public class RatingQubits {
                     "case when substr(pi_rd.value, 18,2)='PM' then round(substr(pi_rd.value, 12, 2)) +12 else round(substr(pi_rd.value, 12, 2))  end as hour " +
                     "from project_result pr, project p, project_info pi_rd " ;
             if (cutoff != null) {
-            	sqlStr += ", project_phase pp ";
+                sqlStr += ", project_phase pp ";
             }
             sqlStr += "where p.project_id = pr.project_id " +
                     "and p.project_status_id in " + NEW_RATING_CATEGORIES + " " +
                     "and p.project_category_id = ? " +
                     "and pr.rating_ind = 1 " +
                     "and pr.final_score is not null " +
-                    "and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+                    "and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " +
                     "where ce.is_studio = 0 and ce.contest_id = p.project_id) " +
                     "and pi_rd.project_id = p.project_id and pi_rd.project_info_type_id = 22 ";
             if (cutoff != null) {
-            	sqlStr += "and pp.project_id = p.project_id and pp.phase_type_id = 1 " +
+                sqlStr += "and pp.project_id = p.project_id and pp.phase_type_id = 1 " +
                 "and pp.actual_start_time > ? ";
             }
             sqlStr += "order by year, month, day, hour, 1";
@@ -553,7 +553,7 @@ public class RatingQubits {
             "and p.project_status_id in  " + NEW_RATING_CATEGORIES + " " +
             "and p.project_category_id = ? " +
             "and pr.rating_ind =1 " +
-            "and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+            "and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " +
             "where ce.is_studio = 0 and ce.contest_id = p.project_id) " +
             "and pr.final_score is not null ";
 
@@ -591,7 +591,7 @@ public class RatingQubits {
             "and p.project_status_id in  " + NEW_RATING_CATEGORIES + " " +
             "and p.project_category_id = ? " +
             "and pr.rating_ind =1 " +
-            "and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+            "and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " +
             "where ce.is_studio = 0 and ce.contest_id = p.project_id) " +
             "and pr.final_score is not null ";
 

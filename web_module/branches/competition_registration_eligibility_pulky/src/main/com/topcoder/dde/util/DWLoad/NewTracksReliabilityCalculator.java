@@ -26,7 +26,7 @@ import java.util.List;
  * @version 1.1
  */
 public class NewTracksReliabilityCalculator extends OldTracksReliabilityCalculator  {
-	
+
     /**
      * SQL query to retrieve reliability data
      */
@@ -51,40 +51,40 @@ public class NewTracksReliabilityCalculator extends OldTracksReliabilityCalculat
                 " and pr.project_id = pi2.project_id" +
                 " and pi2.phase_type_id = 4" + // phase type 4 is review
                 " and (p.project_status_id IN (4,5,6,7,8) " +
-                "	OR (p.project_status_id = 1 and pi2.phase_status_id = 3))" +
+                "    OR (p.project_status_id = 1 and pi2.phase_status_id = 3))" +
                 " and pr.reliability_ind = 1" +
                 " and pr.reliable_submission_ind is not null" +
-                " and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+                " and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " +
                 " where ce.is_studio = 0 and ce.contest_id = p.project_id) " +
-                " order by complete_date asc"; 
+                " order by complete_date asc";
 
     @Override
     protected List<ReliabilityInstance> retrieveReliabilityHistory(Connection conn, long userId, int historyLength, int competitionTypeId, Date startDate, Date pivotDate) throws SQLException {
         PreparedStatement ps = null;
         ResultSet rs = null;
         List<ReliabilityInstance> history = new ArrayList<ReliabilityInstance>(10000);
-    	int phaseId = competitionTypeId + 111;
+        int phaseId = competitionTypeId + 111;
 
-    	
+
         try {
-        	ps = conn.prepareStatement(reliabilityData);
-        	ps.setDate(1, new java.sql.Date(startDate.getTime()));
-        	ps.setLong(2, userId);
-        	ps.setLong(3, phaseId);
-        	rs = ps.executeQuery();
+            ps = conn.prepareStatement(reliabilityData);
+            ps.setDate(1, new java.sql.Date(startDate.getTime()));
+            ps.setLong(2, userId);
+            ps.setLong(3, phaseId);
+            rs = ps.executeQuery();
             while (rs.next()) {
                 history.add(new ReliabilityInstance(rs.getLong("project_id"),
                         userId, rs.getInt("reliable_submission_ind") == 1, rs.getInt("after_start_flag") == 1));
             }
-            
+
         } finally {
             close(rs);
             close(ps);
         }
-        
-        return history;    	
+
+        return history;
     }
-    
+
     /**
      * SQL query to mark corresponding records as included in the reliability process
      */
@@ -92,13 +92,13 @@ public class NewTracksReliabilityCalculator extends OldTracksReliabilityCalculat
         "update project_result " +
         "set reliability_ind = 1 " +
         "where reliability_ind is null " +
-        "and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+        "and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " +
         "where ce.is_studio = 0 and ce.contest_id = project_id) " +
-        "and final_score >= ? " +       
+        "and final_score >= ? " +
         " and project_id in (select project_id from project " +
         "           where project_category_id = ?) " +
-    	" and project_id in (select project_id from project_phase group by project_id having min(actual_start_time) > ?) ";
-    
+        " and project_id in (select project_id from project_phase group by project_id having min(actual_start_time) > ?) ";
+
     /**
      * SQL query to mark corresponding records as not included in the reliability process
      */
@@ -106,13 +106,13 @@ public class NewTracksReliabilityCalculator extends OldTracksReliabilityCalculat
         "update project_result " +
         "set reliability_ind = 0 " +
         "where reliability_ind is null " +
-        "and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+        "and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " +
         "where ce.is_studio = 0 and ce.contest_id = project_id) " +
         " and project_id in (select project_id from project " +
         "           where project_category_id = ?) " +
         " and project_id in (select project_id from project_phase group by project_id having min(actual_start_time) <= ?) ";
 
-    
+
     protected int markForInclusionAndExclusion(Connection conn, int competitionTypeId, Date startDate, Date pivotDate) throws SQLException {
         PreparedStatement ps = null;
         PreparedStatement ps2 = null;
@@ -130,10 +130,10 @@ public class NewTracksReliabilityCalculator extends OldTracksReliabilityCalculat
             ps2.setInt(1, competitionTypeId);
             ps2.setDate(2, new java.sql.Date(startDate.getTime()));
             ret += ps2.executeUpdate();
-            
-            
+
+
             ret += markBasedOnPriorProjects(conn, competitionTypeId, startDate, pivotDate);
-            
+
         } finally {
             close(ps);
             close(ps2);

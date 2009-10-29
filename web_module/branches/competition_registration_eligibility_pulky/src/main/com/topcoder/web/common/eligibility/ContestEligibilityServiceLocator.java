@@ -26,7 +26,7 @@ public class ContestEligibilityServiceLocator extends EJB3Locator<ContestEligibi
     private static final ContestEligibilityServiceLocator locator = new ContestEligibilityServiceLocator();
 
     /**
-     * Default constructor. It will delegate to super and will use configured values in <code>ApplicationServer</code> 
+     * Default constructor. It will delegate to super and will use configured values in <code>ApplicationServer</code>
      */
     public ContestEligibilityServiceLocator() {
         super(ApplicationServer.COCKPIT_PROVIDER_URL, ApplicationServer.CONTEST_ELIGIBILITY_SERVICES_JNDI_NAME);
@@ -34,9 +34,9 @@ public class ContestEligibilityServiceLocator extends EJB3Locator<ContestEligibi
 
     /**
      * Retrieves the contest eligibility service service instance
-     * 
+     *
      * @return the contest eligibility service service instance
-     * 
+     *
      * @throws CreateException if any errors occur during creation
      * @throws NamingException if any errors occur during lookup
      * @throws RemoteException if any errors occur during remote invocation

@@ -65,7 +65,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
  *     <li>Added eligibility constraints check.</li>
  *   </ol>
  * </p>
- * 
+ *
  * @author dok, pulky, TCSDEVELOPER
  * @version 1.3
  */
@@ -107,13 +107,13 @@ public class ViewRegistration extends Base {
                 String termsOfUseId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_ID));
 
                 // process terms of use
-                boolean hasMoreTerms = processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS, 
+                boolean hasMoreTerms = processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS,
                     "".equals(termsOfUseId) ? -1 : Long.parseLong(termsOfUseId));
                 if (!hasMoreTerms) {
                     //we're assuming that if we're here, we got a valid project id
                     loadCaptcha();
                 }
-                
+
                 setDefault(Constants.PROJECT_ID, projectId);
                 setNextPage("/contest/regTerms.jsp");
                 setIsNextPageInContext(true);
@@ -142,9 +142,9 @@ public class ViewRegistration extends Base {
 
     /**
      * This method executes registration validation
-     * 
+     *
      * It will also validate eligibility constraints for this project.
-     * 
+     *
      * @throws Exception if any error occurs during validation
      */
     protected void validation() throws Exception {

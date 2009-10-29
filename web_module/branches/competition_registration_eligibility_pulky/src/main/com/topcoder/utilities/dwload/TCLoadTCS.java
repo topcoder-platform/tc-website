@@ -482,7 +482,7 @@ public class TCLoadTCS extends TCLoad {
 
     /**
      * This method loads submissions
-     * 
+     *
      * @throws Exception if any error occurs
      */
     public void doLoadSubmission() throws Exception {
@@ -525,7 +525,7 @@ public class TCLoadTCS extends TCLoad {
                             "   and ri.resource_info_type_id = 1 " +
                             "   and u.upload_type_id = 1 " +
                             "   and s.submission_status_id <> 5 " +
-                            "   and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+                            "   and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " +
                             "   where ce.is_studio = 0 and ce.contest_id = p.project_id) " +
                             (firstRun ? "" :
                                     "and (s.modify_date > ? " +
@@ -660,7 +660,7 @@ public class TCLoadTCS extends TCLoad {
 
     /**
      * Loads user ratings
-     * 
+     *
      * @throws Exception if any error occurs
      */
     public void doLoadUserRating() throws Exception {
@@ -685,7 +685,7 @@ public class TCLoadTCS extends TCLoad {
                     " where pr.user_id = ur.user_id " +
                     " and pr.project_id = p.project_id " +
                     " and pr.rating_ind = 1 " +
-                    " and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+                    " and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " +
                     " where ce.is_studio = 0 and ce.contest_id = p.project_id) " +
                     " and p.project_category_id+111 = ur.phase_id) as highest_rating " +
                     " , (select min(pr.new_rating) " +
@@ -693,7 +693,7 @@ public class TCLoadTCS extends TCLoad {
                     " where pr.user_id = ur.user_id " +
                     " and pr.project_id = p.project_id " +
                     " and pr.rating_ind = 1 " +
-                    " and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+                    " and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " +
                     " where ce.is_studio = 0 and ce.contest_id = p.project_id) " +
                     " and p.project_category_id+111 = ur.phase_id) as lowest_rating " +
                     " from user_rating ur " +
@@ -814,7 +814,7 @@ public class TCLoadTCS extends TCLoad {
      * <p/>
      * Load projects to the DW.
      * </p>
-     * 
+     *
      * @throws Exception if any error occurs
      */
     public void doLoadProjects() throws Exception {
@@ -893,7 +893,7 @@ public class TCLoadTCS extends TCLoad {
                             "   and pi1.project_info_type_id = 21 " +
                             "   and pi2.project_id = p.project_id " +
                             "   and pi2.project_info_type_id = 3 " +
-                            "   and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+                            "   and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " +
                             "   where ce.is_studio = 0 and ce.contest_id = p.project_id) " +
                             "   and cc.component_id = pir.value " +
                             "   and cc.root_category_id = cat.category_id " +
@@ -1213,7 +1213,7 @@ public class TCLoadTCS extends TCLoad {
      * <p/>
      * Load projects results to the DW.
      * </p>
-     * 
+     *
      * @throws Exception if any error occurs
      */
     public void doLoadProjectResults() throws Exception {
@@ -1246,7 +1246,7 @@ public class TCLoadTCS extends TCLoad {
                         "and pi.project_info_type_id = 1 " +
                         "and cv.comp_vers_id= pi.value " +
                         "and cc.component_id = cv.component_id " +
-                        "and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+                        "and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " +
                         "where ce.is_studio = 0 and ce.contest_id = p.project_id) " +
                         "and (p.modify_date > ? " +
                         "   OR cv.modify_date > ? " +
@@ -1795,7 +1795,7 @@ public class TCLoadTCS extends TCLoad {
 
     /**
      * Loads submission reviews
-     * 
+     *
      * @throws Exception if any error occurs
      */
     public void doLoadSubmissionReview() throws Exception {
@@ -1850,7 +1850,7 @@ public class TCLoadTCS extends TCLoad {
                         "   and ri1.resource_info_type_id = 1 " +
                         "   and ri2.resource_id = r.resource_id " +
                         "   and ri2.resource_info_type_id = 1 " +
-                        "   and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+                        "   and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " +
                         "   where ce.is_studio = 0 and ce.contest_id = p.project_id) " +
                         "   and u.project_id = ?" +
                         "   and (r.modify_date > ? " +
@@ -2040,7 +2040,7 @@ public class TCLoadTCS extends TCLoad {
 
     /**
      * Loads submission screening
-     * 
+     *
      * @throws Exception if any error occurs
      */
     public void doLoadSubmissionScreening() throws Exception {
@@ -2077,7 +2077,7 @@ public class TCLoadTCS extends TCLoad {
                         "   and ri1.resource_info_type_id = 1 " +
                         "   and ri2.resource_id = r.resource_id " +
                         "   and ri2.resource_info_type_id = 1 " +
-                        "   and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+                        "   and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " +
                         "   where ce.is_studio = 0 and ce.contest_id = p.project_id) " +
                         "   and (r.modify_date > ? " +
                         "   OR s.modify_date > ? " +
@@ -2166,7 +2166,7 @@ public class TCLoadTCS extends TCLoad {
 
     /**
      * Loads contest projects
-     * 
+     *
      * @throws Exception if any error occurs
      */
     public void doLoadContestProject() throws Exception {
@@ -2177,7 +2177,7 @@ public class TCLoadTCS extends TCLoad {
         final String SELECT = "select x.contest_id, x.project_id  " +
                 "from contest_project_xref x, project p " +
                 "where x.project_id = ? and p.project_id = x.project_id " +
-                " and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+                " and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " +
                 " where ce.is_studio = 0 and ce.contest_id = p.project_id) " +
                 " and (p.modify_date > ? or x.create_date > ?)";
 
@@ -3510,7 +3510,7 @@ public class TCLoadTCS extends TCLoad {
 
     /**
      * Loads scorecard responses
-     * 
+     *
      * @throws Exception if any error occurs
      */
     public void doLoadScorecardResponse() throws Exception {
@@ -3556,7 +3556,7 @@ public class TCLoadTCS extends TCLoad {
                         "   and p.project_category_id in " + LOAD_CATEGORIES +
                         "   and sq.scorecard_question_type_id in (1,2,4) " +
                         "   and answer <> '' " +
-                        "   and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+                        "   and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " +
                         "   where ce.is_studio = 0 and ce.contest_id = p.project_id) " +
                         "   and  u.project_id = ?  " +
                         "   and (ri.modify_date > ? " +
@@ -3668,7 +3668,7 @@ public class TCLoadTCS extends TCLoad {
 
     /**
      * Loads testcase responses
-     * 
+     *
      * @throws Exception if any error occurs
      */
     public void doLoadTestcaseResponse() throws Exception {
@@ -3709,7 +3709,7 @@ public class TCLoadTCS extends TCLoad {
                         "   and ri1.resource_info_type_id = 1 " +
                         "   and ri2.resource_id = r.resource_id " +
                         "   and ri2.resource_info_type_id = 1 " +
-                        "   and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+                        "   and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " +
                         "   where ce.is_studio = 0 and ce.contest_id = p.project_id) " +
                         "   and (ri.modify_date > ? " +
                         "   OR r.modify_date > ? " +
@@ -3817,7 +3817,7 @@ public class TCLoadTCS extends TCLoad {
 
     /**
      * Loads subjective responses
-     * 
+     *
      * @throws Exception if any error occurs
      */
     public void doLoadSubjectiveResponse() throws Exception {
@@ -3866,7 +3866,7 @@ public class TCLoadTCS extends TCLoad {
                         "   and ri1.resource_info_type_id = 1 " +
                         "   and ri2.resource_id = r.resource_id " +
                         "   and ri2.resource_info_type_id = 1 " +
-                        "   and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+                        "   and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " +
                         "   where ce.is_studio = 0 and ce.contest_id = p.project_id) " +
                         "   and u.project_id = ? " +
                         "   and (ric.modify_date > ? " +
@@ -3978,7 +3978,7 @@ public class TCLoadTCS extends TCLoad {
 
     /**
      * Loads appeals
-     * 
+     *
      * @throws Exception if any error occurs
      */
     public void doLoadAppeal() throws Exception {
@@ -4032,7 +4032,7 @@ public class TCLoadTCS extends TCLoad {
                         "   ric_resp.review_item_id = ri.review_item_id and " +
                         "   ric_resp.comment_type_id = 5 and " +
                         "   ric.comment_type_id = 4  and " +
-                        "   and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+                        "   and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " +
                         "   where ce.is_studio = 0 and ce.contest_id = p.project_id) " +
                         "   u.project_id = ? and " +
                         "   (ric.modify_date > ? OR " +
@@ -4210,7 +4210,7 @@ public class TCLoadTCS extends TCLoad {
 
     /**
      * Loads testcase appeals
-     * 
+     *
      * @throws Exception if any error occurs
      */
     public void doLoadTestcaseAppeal() throws Exception {
@@ -4264,7 +4264,7 @@ public class TCLoadTCS extends TCLoad {
                         "   and ri1.resource_info_type_id = 1 " +
                         "   and ri2.resource_id = r.resource_id " +
                         "   and ri2.resource_info_type_id = 1 " +
-                        "   and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+                        "   and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " +
                         "   where ce.is_studio = 0 and ce.contest_id = p.project_id) " +
                         "   and u.project_id = ? " +
                         "   and (ric.modify_date > ? " +
@@ -5105,7 +5105,7 @@ public class TCLoadTCS extends TCLoad {
                         " where p.project_id = pr.project_id  " +
                         " and p.project_status_id <> 3  " +
                         " and p.project_category_id in " + LOAD_CATEGORIES +
-                        " and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+                        " and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " +
                         " where ce.is_studio = 0 and ce.contest_id = p.project_id) " +
                         " and (p.modify_date > ? " +
                         "     OR pr.modify_date > ?) " +
@@ -5178,10 +5178,10 @@ public class TCLoadTCS extends TCLoad {
      * @param startDate the start date
      * @param endDate the end date
      * @param phaseId the phase id
-     * @param contestId the contest id 
+     * @param contestId the contest id
      * @param className the class name
      * @param factor the factor
-     * 
+     *
      * @throws Exception if any error occurs
      */
     private void loadDRContestResults(int seasonId, Timestamp startDate, Timestamp endDate, int projectCategoryId,
@@ -5217,7 +5217,7 @@ public class TCLoadTCS extends TCLoad {
                         " and (pr.rating_ind=1 or p.project_category_id = 5)" +
                         // for development board, load development and component testing
                         " and p.project_category_id in (" + ((projectCategoryId == 2) ? "2, 5" : String.valueOf(projectCategoryId)) + ") " +
-                        " and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " + 
+                        " and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " +
                         " where ce.is_studio = 0 and ce.contest_id = p.project_id) " +
                         " and ( " +
                         "      select NVL(ppd.actual_start_time, psd.actual_start_time)  " +
