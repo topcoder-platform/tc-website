@@ -54,8 +54,7 @@ public class NewTracksReliabilityCalculator extends OldTracksReliabilityCalculat
                 "    OR (p.project_status_id = 1 and pi2.phase_status_id = 3))" +
                 " and pr.reliability_ind = 1" +
                 " and pr.reliable_submission_ind is not null" +
-                " and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " +
-                " where ce.is_studio = 0 and ce.contest_id = p.project_id) " +
+                ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
                 " order by complete_date asc";
 
     @Override
@@ -92,8 +91,7 @@ public class NewTracksReliabilityCalculator extends OldTracksReliabilityCalculat
         "update project_result " +
         "set reliability_ind = 1 " +
         "where reliability_ind is null " +
-        "and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " +
-        "where ce.is_studio = 0 and ce.contest_id = project_id) " +
+        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT_NO_PREFIX +
         "and final_score >= ? " +
         " and project_id in (select project_id from project " +
         "           where project_category_id = ?) " +
@@ -106,8 +104,7 @@ public class NewTracksReliabilityCalculator extends OldTracksReliabilityCalculat
         "update project_result " +
         "set reliability_ind = 0 " +
         "where reliability_ind is null " +
-        "and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " +
-        "where ce.is_studio = 0 and ce.contest_id = project_id) " +
+        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT_NO_PREFIX +
         " and project_id in (select project_id from project " +
         "           where project_category_id = ?) " +
         " and project_id in (select project_id from project_phase group by project_id having min(actual_start_time) <= ?) ";
