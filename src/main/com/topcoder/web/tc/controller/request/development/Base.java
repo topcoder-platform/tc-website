@@ -532,13 +532,7 @@ public abstract class Base extends ShortHibernateProcessor {
                 }
             }
             return true;
-        } catch (RemoteException e) {
-            throw new TCWebException("Failed to retrieve eligibility constraints information.", e);
-        } catch (ContestEligibilityValidatorException e) {
-            throw new TCWebException("Failed to retrieve eligibility constraints information.", e);
-        } catch (CreateException e) {
-            throw new TCWebException("Failed to retrieve eligibility constraints information.", e);
-        } catch (NamingException e) {
+        } catch (Exception e) {
             throw new TCWebException("Failed to retrieve eligibility constraints information.", e);
         }
     }
