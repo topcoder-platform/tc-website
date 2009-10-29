@@ -72,7 +72,7 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         " where ce.is_studio = 0 and ce.contest_id = project_id) ";
 
     /**
-     * SQL query that mars records that should be included in the process
+     * SQL query that marks records that should be included in the process
      */
     private final static String markIncluded =
         "update project_result " +
