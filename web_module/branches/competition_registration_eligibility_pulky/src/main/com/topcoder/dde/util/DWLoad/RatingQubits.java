@@ -59,6 +59,15 @@ public class RatingQubits {
     private static final int UI_PROTOTYPES_PHASE_ID = 130;
     private final static String NEW_RATING_CATEGORIES = "(4, 7, 8)";
 
+    /**
+     * SQL fragment to be added to a where clause to not select projects with eligibility constraints
+     * 
+     * @since 1.1
+     */
+    private static final String ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT =
+            " and not exists (select 1 from contest_eligibility ce " +
+            " where ce.is_studio = 0 and ce.contest_id = p.project_id) ";
+
     public static void main(String[] args) {
         RatingQubits tmp = new RatingQubits();
 
@@ -183,8 +192,7 @@ public class RatingQubits {
                     "and p.project_category_id = ? " +
                     "and pr.rating_ind = 1 " +
                     "and pr.final_score is not null " +
-                    "and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " +
-                    "where ce.is_studio = 0 and ce.contest_id = p.project_id) " +
+                    ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
                     "and pi_rd.project_id = p.project_id and pi_rd.project_info_type_id = 22 ";
             if (cutoff != null) {
                 sqlStr += "and pp.project_id = p.project_id and pp.phase_type_id = 1 " +
@@ -553,8 +561,7 @@ public class RatingQubits {
             "and p.project_status_id in  " + NEW_RATING_CATEGORIES + " " +
             "and p.project_category_id = ? " +
             "and pr.rating_ind =1 " +
-            "and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " +
-            "where ce.is_studio = 0 and ce.contest_id = p.project_id) " +
+            ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
             "and pr.final_score is not null ";
 
     /**
@@ -591,8 +598,7 @@ public class RatingQubits {
             "and p.project_status_id in  " + NEW_RATING_CATEGORIES + " " +
             "and p.project_category_id = ? " +
             "and pr.rating_ind =1 " +
-            "and not exists (select 'has_eligibility_constraints' from contest_eligibility ce " +
-            "where ce.is_studio = 0 and ce.contest_id = p.project_id) " +
+            ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
             "and pr.final_score is not null ";
 
     /**
