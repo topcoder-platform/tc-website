@@ -532,6 +532,8 @@ public abstract class Base extends ShortHibernateProcessor {
                 }
             }
             return true;
+        } catch (PermissionException pe) {
+            throw pe;
         } catch (Exception e) {
             throw new TCWebException("Failed to retrieve eligibility constraints information.", e);
         }
