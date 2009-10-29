@@ -69,7 +69,7 @@ import com.topcoder.web.tc.model.ReviewBoardApplication;
  *   <ol>
  *     <li>Added support for Specification review project types.</li>
  *   </ol>
- *   
+ *
  *   Version 1.0.7 (Competition Registration Eligibility v1.0) Change notes:
  *   <ol>
  *     <li>Added eligibility constraints check.</li>
@@ -95,7 +95,7 @@ public class ReviewProjectDetail extends Base {
      *
      * <p>Looks up for the details of requested review project, binds it to request and forwards to the corresponding
      * JSP depending on requested project type.</p>
-     * 
+     *
      * Updated for Specification Review Integration 1.0
      *      - Refactored to differently handle normal project and specification review project details.
      *
@@ -103,7 +103,7 @@ public class ReviewProjectDetail extends Base {
      */
     protected void developmentProcessing() throws TCWebException {
         String projectTypeId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
-        
+
         // include specification review project types in the validation
         if (!isProjectTypeSupported(projectTypeId, true)) {
             throw new TCWebException("Invalid project type specified " + projectTypeId);
@@ -126,12 +126,12 @@ public class ReviewProjectDetail extends Base {
         setNextPage(getReviewProjectDetailView(projectTypeId));
         setIsNextPageInContext(true);
     }
-    
+
     /**
      * <p>Looks up for the details of requested review project, binds it to request.</p>
-     * 
+     *
      * In this version refactored from developmentProcessing method.
-     * 
+     *
      * @param projectId project id to look for.
      * @param phaseId phase id of the project
      * @param projectTypeId identifier of the type of project
@@ -261,12 +261,12 @@ public class ReviewProjectDetail extends Base {
 
  /**
      * <p>Looks up for the details of requested spec review project, binds it to request.</p>
-     * 
+     *
      * @param projectId project id to look for.
      * @param phaseId phase id of the project
      * @param projectTypeId identifier of the type of project
      * @throws TCWebException if an unexpected error occurs
-     * 
+     *
      * @since 1.0.6
      */
     @SuppressWarnings("unchecked")
@@ -290,17 +290,17 @@ public class ReviewProjectDetail extends Base {
             ReviewBoardApplication app = makeSpecReviewApp(detail.getIntItem(0, "phase_id"), detail.getIntItem(0,
                     "level_id"), detail.getLongItem(0, "project_id"), detail.getFloatItem(0, "prize"), detail
                     .getIntItem(0, "reviewer_type_id"), Constants.SPECIFICATION_REVIEWER_TYPE);
-            
+
             String reviewUserHandle = detail.getStringItem(0, "review_user_handle");
             if (reviewUserHandle != null && !reviewUserHandle.equals("")) {
                 app.setHandle(reviewUserHandle);
             }
-            
+
             long reviewUserId = detail.getLongItem(0, "review_user_id");
             if (reviewUserId > 0) {
                 app.setUserId(reviewUserId);
             }
-            
+
             app.setPrimary(true);
             reviewerList.add(app);
 
@@ -505,7 +505,7 @@ public class ReviewProjectDetail extends Base {
      * @param reviewTypeId the id of the reviewer type.
      * @return a <code>ReviewBoardApplication</code> providing the reviewer payments for the specified project.
      * @throws Exception if an unexpected error occurs.
-     * 
+     *
      * @since 1.0.6
      */
     @SuppressWarnings("unchecked")
@@ -540,7 +540,7 @@ public class ReviewProjectDetail extends Base {
     /**
      * <p>Gets the logical name for the view which is to be used for displaying the list of review opportunities of
      * specified type requested by client.</p>
-     * 
+     *
      * Updated for Version 1.0.6 - now review details are viewable through unified page.
      *
      * @param projectType a <code>String</code> referencing the project type requested by client.

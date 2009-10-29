@@ -99,7 +99,7 @@ public class ViewRegistration extends Base {
 
                 // process terms of use
                 long userId = getLoggedInUser().getId();
-                boolean hasMoreTerms = processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS, 
+                boolean hasMoreTerms = processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS,
                     "".equals(termsOfUseId) ? -1 : Long.parseLong(termsOfUseId));
                 if (!hasMoreTerms) {
                     //we're assuming that if we're here, we got a valid project id

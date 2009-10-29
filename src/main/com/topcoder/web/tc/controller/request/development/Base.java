@@ -104,7 +104,7 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *             <li>Added constant to support reliability bonus column in active contests page.</li>
  *           </ul>
  *         </td>
- *     </tr> 
+ *     </tr>
          <tr>
  *         <td>Version 1.7 (Competition Registration Eligibility v1.0)</td>
  *         <td>
@@ -112,7 +112,7 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *             <li>Added method to check for eligibility constraints.</li>
  *           </ul>
  *         </td>
- *     </tr> 
+ *     </tr>
  *   </table>
  * </p>
  *
@@ -127,7 +127,7 @@ public abstract class Base extends ShortHibernateProcessor {
      * @since 1.6
      */
     protected static final String RELIABILITY_BONUS_COLUMN_INDEX = "99";
-    
+
     /**
      * Constant containing submitter role id
      *
@@ -377,17 +377,17 @@ public abstract class Base extends ShortHibernateProcessor {
         List<TermsOfUseEntity> termsAgreedGlobal = new ArrayList<TermsOfUseEntity>();
         List<TermsOfUseEntity> termsPending = new ArrayList<TermsOfUseEntity>();
 
-        
+
         TermsOfUseEntity currentTerms = null;
         boolean exit = false;
         for (int i = 0; i < necessaryTerms.length && !exit; i++) {
             if (necessaryTerms[i] != null) {
                 for (int j = 0; j < necessaryTerms[i].size(); j++) {
                     Long termsId = necessaryTerms[i].get(j);
-        
+
                     // get terms of use
                     TermsOfUseEntity terms =  termsOfUse.getEntity(termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-        
+
                     // check if the user has this terms
                     if (!userTermsOfUse.hasTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
                         termsPending.add(terms);
@@ -398,7 +398,7 @@ public abstract class Base extends ShortHibernateProcessor {
                         termsAgreed.add(terms);
                         termsAgreedGlobal.add(terms);
                     }
-                    
+
                 }
                 if (currentTerms != null) {
                     getRequest().setAttribute(Constants.TERMS, currentTerms);
@@ -411,10 +411,10 @@ public abstract class Base extends ShortHibernateProcessor {
             }
         }
 
-        // if everything is ok, show summary with captcha 
+        // if everything is ok, show summary with captcha
         getRequest().setAttribute(Constants.TERMS_AGREED, termsAgreedGlobal);
         getRequest().setAttribute(Constants.TERMS_PENDING, new ArrayList<TermsOfUseEntity>());
-        
+
         return false;
     }
 
@@ -468,57 +468,57 @@ public abstract class Base extends ShortHibernateProcessor {
     protected boolean isProjectTypeSupported(String projectType, boolean includeSpecificationReviews) {
         return ReviewBoardHelper.isReviewBoardTypeSupported(projectType, includeSpecificationReviews);
     }
-    
+
     /**
-     * This method will check eligibility constraints for a particular project. 
+     * This method will check eligibility constraints for a particular project.
      * It will first test if the user is logged in, and in this case it will call directly the isEligible service.
      * If the user is not logged in, it will ask for login only if the project has an eligibility constraint.
-     * 
+     *
      * @param pid the project id (string representation) to check for
      * @param r the resource that is asking for login
-     * 
+     *
      * @return true if the user can see this project, false otherwise
-     * 
+     *
      * @throws TCWebException if any error occurs during service call or if parameters are invalid
      * @throws PermissionException if the user is not logged in and the project has eligibility constraints
-     * 
+     *
      * @since 1.7
      */
     protected boolean checkEligibilityConstraints(String projectId, Resource r) throws TCWebException, PermissionException {
         if (projectId == null) {
             throw new TCWebException("parameter " + Constants.PROJECT_ID + " invalid.");
         }
-        
+
         long pid;
         try {
             pid = Long.parseLong(projectId);
         } catch (NumberFormatException nfe) {
             throw new TCWebException("parameter " + Constants.PROJECT_ID + " invalid.");
         }
-        
+
         return checkEligibilityConstraints(pid, r);
     }
-    
+
     /**
-     * This method will check eligibility constraints for a particular project. 
+     * This method will check eligibility constraints for a particular project.
      * It will first test if the user is logged in, and in this case it will call directly the isEligible service.
      * If the user is not logged in, it will ask for login only if the project has an eligibility constraint.
-     * 
+     *
      * @param pid the project id to check for
      * @param r the resource that is asking for login
-     * 
+     *
      * @return true if the user can see this project, false otherwise
-     * 
+     *
      * @throws TCWebException if any error occurs during service call or if parameters are invalid
      * @throws PermissionException if the user is not logged in and the project has eligibility constraints
-     * 
+     *
      * @since 1.7
      */
     protected boolean checkEligibilityConstraints(long pid, Resource r) throws TCWebException, PermissionException {
         if (r == null) {
             throw new TCWebException("Invalid resource checking eligibility.");
         }
-        
+
         // if the user is logged in, check eligibility
         try {
             if (userIdentified()) {
@@ -526,7 +526,7 @@ public abstract class Base extends ShortHibernateProcessor {
                     return false;
                 }
             } else {
-                // otherwise, if this project has any eligibility constraint, ask for login 
+                // otherwise, if this project has any eligibility constraint, ask for login
                 if (ContestEligibilityServiceLocator.getServices().hasEligibility(pid, false)) {
                     throw new PermissionException(getUser(), r);
                 }

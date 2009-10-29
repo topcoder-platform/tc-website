@@ -64,7 +64,7 @@ public class ProjectDetail extends Base {
             if (projectTypeId == -1) {
                 throw new TCWebException("Could not find project information.");
             }
-            
+
             Request r = new Request();
             r.setContentHandle("project_detail");
             r.setProperty(Constants.PROJECT_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
@@ -74,18 +74,18 @@ public class ProjectDetail extends Base {
             ResultSetContainer details = (ResultSetContainer) resultMap.get("project_detail");
             getRequest().setAttribute("projectDetail", details);
             getRequest().setAttribute("technologies", resultMap.get("project_technologies"));
-			getRequest().setAttribute("requirements", resultMap.get("project_requirements"));
+            getRequest().setAttribute("requirements", resultMap.get("project_requirements"));
 
             boolean full = false;  //projects are never full in our current rules
             getRequest().setAttribute("projectFull", String.valueOf(full));
             getRequest().setAttribute("projectId", StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
-            
+
             if (details.isEmpty()) {
                 throw new NavigationException("Could not find project information.");
             }
 
             getRequest().setAttribute("paysRoyalties", !details.getBooleanItem(0, "is_custom") );
-            
+
             ReliabilityBonusCalculator reliabilityBonus = ReliabilityBonusCalculator.getInstance();
             Double firstPlacePrize = details.getDoubleItem(0, "total_payment");
             Date postingDate = details.getTimestampItem(0, "posting_date");
