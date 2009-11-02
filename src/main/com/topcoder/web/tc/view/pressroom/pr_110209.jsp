@@ -40,7 +40,7 @@
                         <jsp:param name="title" value="Press Release"/>
                     </jsp:include>
                     
-	<div align="right"><tc-webtag:forumLink forumID="530876" message="Discuss this press release" /></div>
+	<div align="right"><tc-webtag:forumLink forumID="531995" message="Discuss this press release" /></div>
                         
 <div align="center">
 <p><span class="bodyTitle">TopCoder Inc. Wins Deloitte Fast 500 and Connecticut Technology Council Tech Top 40 Awards</span><br />
@@ -49,7 +49,7 @@
       
 <p><strong>Glastonbury, CT - October 28, 2009</strong> -  <a href="http://www.topcoder.com">TopCoder&reg;, Inc.</a>, announced today that it has been recognized with two prestigious industry awards for business growth and innovation – the Deloitte <a href="http://www.deloitte.com/view/en_US/us/Industries/Technology/technologyfast500/index.htm">Technology Fast 500</a> and the <a href="http://www.ct.org/Tech_Top_40.asp">UHY LLP Tech Top 40</a>. This marks the third consecutive year TopCoder has achieved recognition from both programs.</p>
 
-<p>TopCoder ranked #151 on Deloitte’s Technology Fast 500, Deloitte LLP`s ranking of 500 of the fastest growing technology, media, telecommunications, life sciences and clean technology companies in North America. Rankings are based on percentage of fiscal year revenue growth during the five year period from 2004-2008. TopCoder ranked #43 in the Software category nationally, with growth of 990 percent during this period.</p>
+<p>TopCoder ranked #151 on Deloitte's Technology Fast 500, Deloitte LLP`s ranking of 500 of the fastest growing technology, media, telecommunications, life sciences and clean technology companies in North America. Rankings are based on percentage of fiscal year revenue growth during the five year period from 2004-2008. TopCoder ranked #43 in the Software category nationally, with growth of 990 percent during this period.</p>
 
 <p>TopCoder was also recognized by the Connecticut Technology Council and UHY LLP as a UHY LLP Tech Top 40 software company for 2009. The list of 40 Connecticut tech companies celebrates the fastest-growing technology companies in the state. TopCoder was recognized in the category reserved for Software companies. The Connecticut Technology Council and UHY LLP compile the winners list based on revenue growth over the last four years.</p>
 

@@ -97,6 +97,18 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- TopCoder Awards begin --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_110209"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder 2009 Awards" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_110209">TopCoder Inc. Wins Deloitte Fast 500 and Connecticut Technology Council Tech Top 40 Awards</a></h3>
+                        <p>Global Virtual Software Factory Connects Talent, Process & Product Using Delivery-Based Engagement Model <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_110209">[October 28th]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- TopCoder Awards end --%>
                 
                 <%-- NASA begin --%>
                 <div class="pr_newsitem">
