@@ -73,6 +73,11 @@ public class ViewSubmissionHistory extends Base {
             }            
             request.setAttribute("infoRow", infoRsc.get(0));
 
+            if (isRoundExclusive(roundId) && !getSessionInfo().isAdmin() && !isUserRegistered(getUser().getId(), roundId))
+            {
+            	throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+            }
+            
             if (isRoundCollab(roundId) && isUserRegistered(getUser().getId(), roundId))
             {
             	result.put("long_collab_round", new ResultSetContainer());

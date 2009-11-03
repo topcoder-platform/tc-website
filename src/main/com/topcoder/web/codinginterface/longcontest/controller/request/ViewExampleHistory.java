@@ -73,6 +73,13 @@ public class ViewExampleHistory extends Base {
                 throw new NavigationException("Couldn't find round info for round " + request.getParameter(Constants.ROUND_ID));
             }
             
+            long roundID = Long.parseLong(request.getParameter(Constants.ROUND_ID));
+            
+            if (isRoundExclusive(roundID) && !getSessionInfo().isAdmin() && !isUserRegistered(getUser().getId(), roundID))
+            {
+            	throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+            }
+            
             request.setAttribute("infoRow", infoRsc.get(0));
 
             setDefault(DataAccessConstants.NUMBER_RECORDS, "" + numRecords);

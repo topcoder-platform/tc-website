@@ -295,5 +295,14 @@ public abstract class Base extends BaseProcessor {
         		"long_contest_collab_round_check")).isEmpty();
            	
     }
+    
+    protected boolean isRoundExclusive(long roundID) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("long_contest_exclusive_round_check");
+        r.setProperty("rd", String.valueOf(roundID));
+        return !((ResultSetContainer)getDataAccess(true).getData(r).get(
+        		"long_contest_exclusive_round_check")).isEmpty();
+           	
+    }
 }
 
