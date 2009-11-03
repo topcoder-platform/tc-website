@@ -4,10 +4,12 @@ import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.codinginterface.longcontest.model.RoundDisplayNameCalculator;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
@@ -144,7 +146,11 @@ public class ViewStandings extends Base {
                         standings = new ResultSetContainer(standings, Integer.parseInt(startRank),
                                 Integer.parseInt(startRank) + Integer.parseInt(numRecords) - 1);
                     }
-
+                    
+                    if (isRoundExclusive(Long.parseLong(roundID)) && !getSessionInfo().isAdmin() && !isUserRegistered(getUser().getId(), Long.parseLong(roundID)))
+                    {
+                    	throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+                    }
                     
                     request.setAttribute(Constants.ROUND_STANDINGS_LIST_KEY, standings);
                     request.setAttribute(Constants.ROUND_ID, roundID);

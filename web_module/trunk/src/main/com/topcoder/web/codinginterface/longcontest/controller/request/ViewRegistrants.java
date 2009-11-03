@@ -10,6 +10,7 @@ package com.topcoder.web.codinginterface.longcontest.controller.request;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.codinginterface.longcontest.model.RoundDisplayNameCalculator;
@@ -81,9 +82,13 @@ public class ViewRegistrants extends Base {
                 throw new NavigationException("Couldn't find round info for round " + roundID);
             }
             
+            if (isRoundExclusive(Long.parseLong(roundID)) && !getSessionInfo().isAdmin() && !isUserRegistered(getUser().getId(), Long.parseLong(roundID)))
+            {
+            	throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+            }          
+            
             request.setAttribute("infoRow", infoRsc.get(0));
             
-
             request.setAttribute("resultMap", result);
 
             SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
