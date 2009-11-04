@@ -66,7 +66,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, TCSDEVELOPER
+ * @author dok, pulky
  * @version 1.3
  */
 public class ViewRegistration extends Base {

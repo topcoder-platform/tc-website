@@ -22,7 +22,7 @@ import com.topcoder.shared.security.ClassResource;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, TCSDEVELOPER
+ * @author dok, pulky
  * @version 1.1
  */
 public class ViewRegistrants extends Base {

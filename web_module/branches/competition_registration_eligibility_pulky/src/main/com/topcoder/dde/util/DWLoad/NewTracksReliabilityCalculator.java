@@ -22,7 +22,7 @@ import java.util.List;
  *   </ol>
  * </p>
  *
- * @author TCSDEVELOPER
+ * @author pulky
  * @version 1.1
  */
 public class NewTracksReliabilityCalculator extends OldTracksReliabilityCalculator  {

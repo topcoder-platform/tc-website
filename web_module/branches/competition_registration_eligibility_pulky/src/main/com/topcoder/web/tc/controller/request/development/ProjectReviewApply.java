@@ -102,7 +102,7 @@ import com.topcoder.web.tc.Constants;
  *   </ol>
  * </p>
  *
- * @author dok, isv, pulky, snow01, TCSDEVELOPER
+ * @author dok, isv, pulky, snow01
  * @version 1.0.11
  */
 public class ProjectReviewApply extends Base {

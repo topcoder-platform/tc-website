@@ -33,7 +33,7 @@ import com.topcoder.web.tc.controller.request.util.ReliabilityBonusCalculator;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, TCSDEVELOPER
+ * @author dok, pulky
  * @version 1.2
  */
 public class ProjectDetail extends Base {

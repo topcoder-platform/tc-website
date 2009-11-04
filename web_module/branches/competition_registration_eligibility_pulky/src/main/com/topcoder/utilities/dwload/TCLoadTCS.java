@@ -68,7 +68,7 @@ import com.topcoder.utilities.dwload.contestresult.drv2.ContestResultCalculatorV
  *   </ol>
  * </p>
  *
- * @author rfairfax, pulky, ivern, TCSDEVELOPER
+ * @author rfairfax, pulky, ivern
  * @version 1.1.5
  */
 public class TCLoadTCS extends TCLoad {

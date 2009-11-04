@@ -15,7 +15,7 @@ import com.topcoder.shared.util.ApplicationServer;
 /**
  * <p>A simple locator for the Contest Eligibility Service EJB</p>
  *
- * @author TCSDEVELOPER
+ * @author pulky
  * @version 1.0 (Competition Registration Eligibility v1.0)
  */
 public class ContestEligibilityServiceLocator extends EJB3Locator<ContestEligibilityService> {
