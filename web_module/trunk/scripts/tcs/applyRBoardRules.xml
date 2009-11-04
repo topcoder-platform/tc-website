@@ -38,7 +38,7 @@
     
     <!-- Architecture -->
     <t-7-alternateRuleLastNProjects>50</t-7-alternateRuleLastNProjects>
-    <t-7-submissionThresholdLong>3</t-7-submissionThresholdLong>
+    <t-7-submissionThresholdLong>4</t-7-submissionThresholdLong>
     
     <!-- Test Suites -->
     <t-13-alternateRuleLastNProjects>20</t-13-alternateRuleLastNProjects>
@@ -46,7 +46,7 @@
     
     <!-- Assembly -->
     <t-14-alternateRuleLastNProjects>160</t-14-alternateRuleLastNProjects>
-    <t-14-submissionThresholdLong>3</t-14-submissionThresholdLong>    
+    <t-14-submissionThresholdLong>4</t-14-submissionThresholdLong>    
     
     <!-- UI Prototype Competition -->    
     <t-19-submissionThresholdLong>3</t-19-submissionThresholdLong>    
