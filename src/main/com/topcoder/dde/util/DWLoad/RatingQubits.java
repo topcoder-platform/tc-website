@@ -65,8 +65,8 @@ public class RatingQubits {
      * @since 1.1
      */
     private static final String ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT =
-            " and not exists (select 1 from contest_eligibility ce " +
-            " where ce.is_studio = 0 and ce.contest_id = p.project_id) ";
+            " and p.project_id not in (select ce.contest_id from contest_eligibility ce " +
+            " where ce.is_studio = 0) ";
 
     public static void main(String[] args) {
         RatingQubits tmp = new RatingQubits();

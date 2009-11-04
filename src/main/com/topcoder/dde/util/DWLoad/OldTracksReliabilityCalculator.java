@@ -55,8 +55,8 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
      * @since 1.1
      */
     private static final String ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT_BASE =
-        " and not exists (select 1 from contest_eligibility ce " +
-        " where ce.is_studio = 0 and ce.contest_id = ";
+        " project_id not in (select ce.contest_id from contest_eligibility ce " +
+        " where ce.is_studio = 0) ";
 
     /**
      * SQL fragment to be added to a where clause to not select projects with eligibility constraints
@@ -64,7 +64,7 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
      * @since 1.1
      */
     protected static final String ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT =
-        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT_BASE + " p.project_id) ";
+        " and p." + ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT_BASE;
 
     /**
      * SQL fragment to be added to a where clause to not select projects with eligibility constraints
@@ -73,7 +73,7 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
      * @since 1.1
      */
     protected static final String ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT_NO_PREFIX =
-        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT_BASE + " project_id) ";
+        " and " + ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT_BASE;
 
     private static final String updateProjectResult =
         "UPDATE project_result SET old_reliability = ?, new_reliability = ?, current_reliability_ind = ? " +
