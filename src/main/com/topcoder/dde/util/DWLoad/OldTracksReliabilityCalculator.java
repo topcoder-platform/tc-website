@@ -32,7 +32,7 @@ import javax.naming.Context;
  *   </ol>
  * </p>
  *
- * @author TCSDEVELOPER
+ * @author pulky
  * @version 1.1
  */
 public class OldTracksReliabilityCalculator implements ReliabilityCalculator {

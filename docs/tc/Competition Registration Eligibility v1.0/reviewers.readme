@@ -1,0 +1,115 @@
+Steps to prepare the VM for testing: (these steps assume fresh working VMs)
+
+-------------------------------
+
+Note: since there is a mix of EJB usage and direct DB querying, there are three ways to test this work:
+1) Change tc/tcs to connect to cockpit DB. (Since cockpit DB is not as complete as TC DB, this is error prone)
+2) Change cockpit DB to connect to tc/tcs and create the new eligibility validation tables in TC database. (this 
+   involves changing and restarting cockpit that is not really necessary to review this assembly)
+3) Create the new eligibility validation tables in TC database and simply replicate any changes to this table to both
+   servers. When testing pages that query data, we know TC database will be used. When testing pages that use the 
+   validation service, we know cockpit database will be used. Since eligibility tables don't have RI on projects, this
+   is not a problem, and this way you don't even have to bother about cockpit VM.
+   
+Since 3) is the simplest way to test it, it will be used for the following instructions. You can choose whatever testing 
+strategy you think is more convinient.
+
+-------------------------------
+
+1) Run DML: 
+    1.1) execute /test_files/scripts/common_oltp.sql against *TC* server.
+    1.2) execute /scripts/tcs_catalog.sql against *TC* server.
+2) Copy TC website source files to VM (tc)
+    - /web_module/* -> ~/web/
+    - /shared/* -> ~/shared/
+3) Kill jboss instances in both tc and tcs:
+        - run jps, kill the id that is listed as Main, wait till it's dead (when you type jps and don't see main any more)
+4) Build and deploy TC:
+    4.1) login as tc
+    4.2) cd web
+    4.3) ant -f build_tc.xml deploy
+5) Update Online Review in the VM (it's not updated when VM is instantiated)
+    5.1) login as tcs
+    5.2) cd ~/OR_trunk/
+    5.3) svn up
+6) Copy Online Review source files to VM (tcs)
+        - /online_review/* -> ~/OR_trunk/
+7) Build and deploy Online Review:
+    7.1) login as tcs
+    7.2) cd ~/OR_trunk/
+    7.3) there is an environment issue with build.xml. You should copy over the attached file: 
+         /test_files/online_review/build.xml -> ~/OR_trunk/
+    7.4) ant deploy
+8) There are some configuration files that are not updated in tcs account. To fix this you should:
+    8.1) login as tcs
+    8.2) copy included OnlineReview.xml (/test_files/online_review/conf/) to 
+         ~/jboss-4.0.2/server/default/deploy/review.war/WEB-INF/classes/
+    8.3) copy included tcs_informix-ds.xml (/test_files/tcs/) to 
+         ~/jboss-4.0.2/server/default/deploy/
+    8.4) copy included JNDIUtils.properties (/test_files/online_review/conf/com/topcoder/naming/jndiutility/) to 
+         ~/jboss-4.0.2/server/default/deploy/review.war/WEB-INF/classes/com/topcoder/naming/jndiutility/
+9) Update ApplicationServer.properties in both accounts:
+    9.1) login as tcs
+    9.2) copy included ApplicationServer.properties (/test_files/tcs/) to 
+         ~/jboss-4.0.2/server/default/conf/
+    9.3) vi that file and update COCKPIT_PROVIDER_URL to your provided cockpit VM.
+    9.4) login as tc
+    9.5) copy included ApplicationServer.properties (/test_files/tc/) to 
+         ~/jboss-4.0.4.GA/server/all/conf
+    9.6) vi that file and update COCKPIT_PROVIDER_URL to your provided cockpit VM.
+10) It's a good practice to remove tmp, work and data directories in jboss. (due to the way we shutdown jboss)
+11) Start jboss instances:
+    11.1) login as tcs, jbb, ./start.sh
+    11.2) login as tc, jbb, ./start.sh
+12) After jboss instances are up, update Query Tool queries: (tcs_catalog database: DB:java:TCS_CATALOG)
+    All queries that need to be updated are in /query_tool/. The name of the file (without the .txt) corresponds to 
+    the name of the query to update.
+            
+    Note: if you are not familiar with query tool, check "Steps to update existing queries in Query Tool"
+13) Once all instances are running, you are all set for testing.
+
+Note: due to the current state of the VM this deployment require several manual steps as described. If something
+is not working after you deploy, please contact PM so that these issues can be handled during review.
+
+Note2: This work contains several improvements: several pages/queries were detected that needed to be updated (not 
+explicitly mentioned, but required to achieve this assembly's goal as explicitly described in the specs), existing EJB3 
+locator code was reused, same service locator is shared between TC and TCS, among other improvements.
+
+Thanks!!!
+
+-------------------------------
+
+Testing tips:
+- In order to create new projects please follow this document: 
+  http://www.topcoder.com/wiki/display/docs/Creating+a+TopCoder+Competition
+- After creating the components in the admin tool, you can go to online review and open registration and submission 
+  phases.
+- You may find the following SQL commnands useful: (common_oltp)
+
+        -- remove eligibility constraints
+        delete from group_contest_eligibility;
+        delete from contest_eligibility;
+        
+        -- add eligibility constraints for group 1000 (heffan is in this group)
+        insert into contest_eligibility values  (1000, [pid], 0);
+        insert into group_contest_eligibility values  (1000, 1000);
+        
+        -- add eligibility constraints for group 10009876 (heffan is not in this group)
+        insert into contest_eligibility values  (1000, [pid], 0);
+        insert into group_contest_eligibility values  (1000, 10009876);
+
+With these scripts and creating a project you should be able to test all functionality required in this assembly.
+
+Note: Datawarehouse load, reliability and rating calculations were allowed to be code-reviewed (it's very hard to 
+prepare the VM to test these) The involved classes are: TCLoadTCS.java, RatingQubits.java, 
+OldTracksReliabilityCalculator.java and NewTracksReliabilityCalculator.java.
+
+-------------------------------
+
+Steps to update existing queries in Query Tool:
+1) Go to http://tc.cloud.topcoder.com/query/query
+2) login as heffan/password (check remember me) -> this is important
+3) Select the corresponding Datasource as required.
+4) Click on left menu "Query List" link.
+5) Search for the specified query name and click "edit" next to it.
+6) Make your changes and click save

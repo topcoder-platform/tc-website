@@ -1,0 +1,75 @@
+-- Author: pulky
+-- Version: 1.1
+-- Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+--
+-- Description: This query returns specification review projects
+--
+-- Version 1.1 (Competition Registration Eligibility v1.0) changes: Added eligibility constraints check.
+--
+-- Important Note: do not include this comments in query tool since it will fail to create/update the query.
+SELECT distinct
+  c.component_name
+   , cat.category_name as catalog
+   , cat.category_id
+   ,
+   (select name
+    from project_category_lu
+    where project_category_id = p.project_category_id)
+   as phase_desc
+   , p.project_category_id + 1111 as phase_id
+   , p.project_id
+   , (SELECT creation_time from spec_review where contest_id = p.project_id) as review_start 
+   , (SELECT creation_time + INTERVAL (24:00) HOUR TO MINUTE from spec_review where contest_id = p.project_id) as review_end
+   , 1 as available_spots
+   , cvd.status_id
+   , (select count(*)
+    from rboard_payment
+    where project_id = p.project_id
+    and phase_id = p.project_category_id + 1111)
+   as price_changes
+   , cvd.level_id
+   , cv.version_text as version
+   , NVL(pi_prize.value,0)::FLOAT AS prize
+  FROM project p
+     , project_info projinfo
+     , comp_versions cv
+     , comp_catalog c
+     , categories cat
+     , project_phase regpp
+     , project_phase submpp
+     , project_phase screenpp
+     , project_phase reviewpp
+     , project_phase aggreviewpp
+     , comp_version_dates cvd
+     , outer project_info pi_prize
+ WHERE 1=1
+   AND projinfo.project_info_type_id = 2
+   AND projinfo.project_id = p.project_id
+   AND projinfo.value = cv.component_id
+   AND cv.phase_id in (112,113)
+   AND regpp.project_id = p.project_id
+   AND regpp.phase_type_id = 1
+   AND submpp.project_id = p.project_id
+   AND submpp.phase_type_id = 2
+   AND screenpp.project_id = p.project_id
+   AND screenpp.phase_type_id = 3
+   AND reviewpp.phase_type_id = 4
+   AND reviewpp.project_id =  p.project_id
+   AND aggreviewpp.project_id =  p.project_id
+   AND aggreviewpp.phase_type_id = 8
+   AND cvd.comp_vers_id = cv.comp_vers_id
+   AND cvd.phase_id = cv.phase_id
+   AND cvd.status_id <> 303
+   AND c.component_id = cv.component_id
+   AND c.root_category_id = cat.category_id
+   AND NOT EXISTS (SELECT 'has_eligibility_constraints' FROM contest_eligibility ce
+   WHERE ce.is_studio = 0 AND ce.contest_id = p.project_id)
+   AND p.project_status_id = 1
+   AND p.project_id = pi_prize.project_id
+   AND pi_prize.project_info_type_id = 35
+   AND p.project_category_id = @pt@
+   AND (select count(*) -- check with spec_review table.										
+        from spec_review as sp
+        where contest_id = p.project_id
+	and (review_status_type_id = 4 or review_status_type_id = 5)) > 0
+ORDER BY component_name DESC, category_id, price_changes DESC

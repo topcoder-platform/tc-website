@@ -35,7 +35,7 @@ import com.topcoder.util.config.UnknownNamespaceException;
  *   </ol>
  * </p>
  *
- * @author TCSDEVELOPER
+ * @author pulky
  * @version 1.1
  */
 public class RatingQubits {
