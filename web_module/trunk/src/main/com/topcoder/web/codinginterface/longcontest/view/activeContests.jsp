@@ -57,7 +57,7 @@
 
             <div align="right" style="margin: 6px 0px;">
                 <a href="/longcontest/?module=Static&amp;d1=instructions"><img src="/i/interface/getStarted.png" alt="Need help? Learn how to get started" /></a><br /><br />
-                <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=sponsors&d2=NVIDIAOverview' refer='mm' />"><img src="/i/longcontest/mm-banner-nvidia-cuda.png" alt="CUDA Superhero Challenge!" /></a>
+                <a href="<tc-webtag:linkTracking link='http://www.topcoder.com/nasacontest' refer='mm' />"><img src="/i/sponsor/nasa/nasa-banner-09-340x76.jpg" alt="NASA-TopCoder Challenge" /></a>
                 
               <br />
             </div>
