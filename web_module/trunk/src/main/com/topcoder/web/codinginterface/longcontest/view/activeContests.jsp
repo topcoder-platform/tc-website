@@ -162,9 +162,11 @@
                 </logic:empty>
             </table>
 
+			<%-- comment out for Harvard/NASA contest
             <div align="center" style="margin:10px;">
                 <a href="javascript:arena();"><img src="/i/longcontest/launchArena.png" alt="Launch Arena" /></a>
             </div>
+			--%>
 
         </td>
 <%-- Center Column Ends --%>
