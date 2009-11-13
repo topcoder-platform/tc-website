@@ -81,7 +81,7 @@
         <pathelement location="${jars.dir}/tcs/file_upload/2.0.2.0/file_upload.jar"/>
         <pathelement location="${jars.dir}/tcs/json_object/1.0/json_object.jar"/>
         <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
-
+        <pathelement location="${jars.dir}/tcs/contest_eligibility_validation_client/1.0.0/contest_eligibility_validation_client.jar"/>
 
         <!--required for aol alerts only -->
         <pathelement location="${jars.dir}/tcs/alerts_wrapper/1.0/java_alerts_wrapper.jar"/>
@@ -119,7 +119,7 @@
         <pathelement location="${external.jars.dir}/random_string_image-1.0.jar"/>
         <pathelement location="${external.jars.dir}/spell_check-1.0.0.jar"/>
         <pathelement location="${external.jars.dir}/random_string_generator-1.0.0.jar"/>
-        
+
         <pathelement location="${jars.dir}/TestServices.jar"/>
         <pathelement location="${jars.dir}/asyncservices.jar"/>
         <!-- app side dependencies...get rid of this if possible it's bad long contest design -->
@@ -156,8 +156,8 @@
             <include name="com/topcoder/security/**"/>
             <include name="com/topcoder/utilities/**"/>
             <include name="com/topcoder/web/**"/>
-        	<include name="com/topcoder/www/**"/>
-        	<include name="com/atlassian/**"/>
+            <include name="com/topcoder/www/**"/>
+            <include name="com/atlassian/**"/>
             <exclude name="com/topcoder/web/csf/**"/>
             <exclude name="com/topcoder/web/wiki/**"/>
             <exclude name="com/topcoder/web/studio/**"/>
@@ -503,9 +503,9 @@
     <target name="build-sars" depends="compile">
         <jar jarfile="${sar.dir}/expireOldAffidavitsAndPayments.sar" basedir="${classes}"
              includes="com/topcoder/utilities/pacts/ExpireOldAffidavitsAndPayments*,
-             		com/topcoder/web/tc/controller/legacy/pacts/bean/*.class,
-             		com/topcoder/web/tc/controller/legacy/pacts/common/*.class,
-             		com/topcoder/web/ejb/pacts/*.class">
+                     com/topcoder/web/tc/controller/legacy/pacts/bean/*.class,
+                     com/topcoder/web/tc/controller/legacy/pacts/common/*.class,
+                     com/topcoder/web/ejb/pacts/*.class">
 
             <metainf dir="${java}/com/topcoder/utilities/pacts" includes="*.xml"/>
         </jar>
@@ -684,7 +684,7 @@
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/heartbeat/1.0/heartbeat.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/ip_server/2.0.1/ip_server.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/typesafe_enum/1.0/typesafe_enum.jar"/>
-
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/contest_eligibility_validation_client/1.0.0/contest_eligibility_validation_client.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-3.2/hibernate3.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-3.2/antlr-2.7.6.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-commons-annotations.jar"/>
@@ -1302,7 +1302,18 @@
                 <include name="standard.jar"/>
                 <include name="taconite.jar"/>
             </lib>
-
+            <!-- Added libs to support ejb3 calls -->
+            <lib dir="${jars.dir}/jboss-add/">
+                <include name="jboss-saaj.jar"/>
+                <include name="jboss-ejb3-client.jar"/>
+                <include name="jboss-ejb3x.jar"/>
+                <include name="jboss-aop-jdk50-client.jar"/>
+                <include name="jboss-aspect-jdk50-client.jar"/>
+                <include name="jboss-remoting.jar"/>
+                <include name="jboss-remoting-int.jar"/>
+                <include name="jboss-common-core.jar"/>
+                <include name="jboss-serialization.jar"/>
+            </lib>
         </war>
         <unwar src="${war.dir}/tc.war" dest="${jboss_deploy}/tc.war/" overwrite="yes"/>
         <delete dir="${jboss_deploy}/tc.war/META-INF"/>
