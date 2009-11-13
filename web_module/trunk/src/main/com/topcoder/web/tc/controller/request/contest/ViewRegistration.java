@@ -58,8 +58,15 @@ import com.topcoder.web.tc.controller.request.development.Base;
  *   </ol>
  * </p>
  *
+ * <p>
+ *   Version 1.4 (Competition Registration Eligibility v1.0) Change notes:
+ *   <ol>
+ *     <li>Added eligibility constraints check.</li>
+ *   </ol>
+ * </p>
+ *
  * @author dok, pulky
- * @version 1.3
+ * @version 1.4
  */
 public class ViewRegistration extends Base {
 
@@ -92,7 +99,7 @@ public class ViewRegistration extends Base {
 
                 // process terms of use
                 long userId = getLoggedInUser().getId();
-                boolean hasMoreTerms = processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS, 
+                boolean hasMoreTerms = processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS,
                     "".equals(termsOfUseId) ? -1 : Long.parseLong(termsOfUseId));
                 if (!hasMoreTerms) {
                     //we're assuming that if we're here, we got a valid project id
@@ -141,6 +148,11 @@ public class ViewRegistration extends Base {
             throw new NavigationException("Invalid project specified");
         } else {
             projectId = Long.parseLong(getRequest().getParameter(Constants.PROJECT_ID));
+        }
+
+        // check eligibility constraints
+        if (!checkEligibilityConstraints(projectId, new ClassResource(this.getClass()))) {
+            throw new NavigationException("Could not find project information.");
         }
 
         projectTypeId = getProjectTypeId(projectId);

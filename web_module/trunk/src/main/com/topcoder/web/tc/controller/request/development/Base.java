@@ -12,17 +12,21 @@ import javax.ejb.CreateException;
 import javax.ejb.EJBException;
 import javax.naming.NamingException;
 
+import com.topcoder.service.contest.eligibilityvalidation.ContestEligibilityValidatorException;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.CachedDataAccess;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.eligibility.ContestEligibilityServiceLocator;
 import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.ejb.project.Project;
 import com.topcoder.web.ejb.project.ProjectLocal;
@@ -100,12 +104,20 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *             <li>Added constant to support reliability bonus column in active contests page.</li>
  *           </ul>
  *         </td>
- *     </tr> 
+ *     </tr>
+         <tr>
+ *         <td>Version 1.7 (Competition Registration Eligibility v1.0)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Added method to check for eligibility constraints.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
  *   </table>
  * </p>
  *
  * @author dok, isv, pulky
- * @version 1.6
+ * @version 1.7
  */
 public abstract class Base extends ShortHibernateProcessor {
 
@@ -455,5 +467,75 @@ public abstract class Base extends ShortHibernateProcessor {
      */
     protected boolean isProjectTypeSupported(String projectType, boolean includeSpecificationReviews) {
         return ReviewBoardHelper.isReviewBoardTypeSupported(projectType, includeSpecificationReviews);
+    }
+
+    /**
+     * This method will check eligibility constraints for a particular project.
+     * It will first test if the user is logged in, and in this case it will call directly the isEligible service.
+     * If the user is not logged in, it will ask for login only if the project has an eligibility constraint.
+     *
+     * @param pid the project id (string representation) to check for
+     * @param r the resource that is asking for login
+     *
+     * @return true if the user can see this project, false otherwise
+     *
+     * @throws TCWebException if any error occurs during service call or if parameters are invalid
+     * @throws PermissionException if the user is not logged in and the project has eligibility constraints
+     *
+     * @since 1.7
+     */
+    protected boolean checkEligibilityConstraints(String projectId, Resource r) throws TCWebException, PermissionException {
+        if (projectId == null) {
+            throw new TCWebException("parameter " + Constants.PROJECT_ID + " invalid.");
+        }
+
+        long pid;
+        try {
+            pid = Long.parseLong(projectId);
+        } catch (NumberFormatException nfe) {
+            throw new TCWebException("parameter " + Constants.PROJECT_ID + " invalid.");
+        }
+
+        return checkEligibilityConstraints(pid, r);
+    }
+
+    /**
+     * This method will check eligibility constraints for a particular project.
+     * It will first test if the user is logged in, and in this case it will call directly the isEligible service.
+     * If the user is not logged in, it will ask for login only if the project has an eligibility constraint.
+     *
+     * @param pid the project id to check for
+     * @param r the resource that is asking for login
+     *
+     * @return true if the user can see this project, false otherwise
+     *
+     * @throws TCWebException if any error occurs during service call or if parameters are invalid
+     * @throws PermissionException if the user is not logged in and the project has eligibility constraints
+     *
+     * @since 1.7
+     */
+    protected boolean checkEligibilityConstraints(long pid, Resource r) throws TCWebException, PermissionException {
+        if (r == null) {
+            throw new TCWebException("Invalid resource checking eligibility.");
+        }
+
+        // if the user is logged in, check eligibility
+        try {
+            if (userIdentified()) {
+                if (!ContestEligibilityServiceLocator.getServices().isEligible(getLoggedInUser().getId(), pid, false)) {
+                    return false;
+                }
+            } else {
+                // otherwise, if this project has any eligibility constraint, ask for login
+                if (ContestEligibilityServiceLocator.getServices().hasEligibility(pid, false)) {
+                    throw new PermissionException(getUser(), r);
+                }
+            }
+            return true;
+        } catch (PermissionException pe) {
+            throw pe;
+        } catch (Exception e) {
+            throw new TCWebException("Failed to retrieve eligibility constraints information.", e);
+        }
     }
 }

@@ -95,10 +95,15 @@ import com.topcoder.web.tc.Constants;
  *     <li>Changed the processor so that a terms of use can be agreed to without any dependency to others.</li>
  *     <li>Added sort order to displayed terms of use.</li>
  *   </ol>
+ *
+ *   Version 1.0.11 (Competition Registration Eligibility v1.0) Change notes:
+ *   <ol>
+ *     <li>Added eligibility constraints check.</li>
+ *   </ol>
  * </p>
  *
  * @author dok, isv, pulky, snow01
- * @version 1.0.10
+ * @version 1.0.11
  */
 public class ProjectReviewApply extends Base {
     protected long projectId = 0;
@@ -135,6 +140,12 @@ public class ProjectReviewApply extends Base {
                 throw new RequestRateExceededException(getRequest().getSession().getId(), getUser().getUserName());
             }
             projectId = Long.parseLong(getRequest().getParameter(Constants.PROJECT_ID));
+
+            // check eligibility constraints
+            if (!checkEligibilityConstraints(projectId, new ClassResource(this.getClass()))) {
+                throw new NavigationException("Could not find project information.");
+            }
+
             phaseId = (Integer.parseInt(projectTypeId) + 111);
             int reviewTypeId = Integer.parseInt(getRequest().getParameter(Constants.REVIEWER_TYPE_ID));
 
@@ -220,7 +231,7 @@ public class ProjectReviewApply extends Base {
 
         String termsOfUseId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_ID));
         int[] roleIds = getResourceRoleIds(reviewTypeId, primary);
-        boolean hasMoreTerms = processTermsOfUse(String.valueOf(projectId), getUser().getId(), 
+        boolean hasMoreTerms = processTermsOfUse(String.valueOf(projectId), getUser().getId(),
             roleIds, "".equals(termsOfUseId) ? -1 : Long.parseLong(termsOfUseId));
         if (!hasMoreTerms) {
             loadCaptcha();

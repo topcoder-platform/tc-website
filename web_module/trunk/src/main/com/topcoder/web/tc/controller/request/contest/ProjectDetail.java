@@ -8,6 +8,7 @@ import java.util.Map;
 
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
@@ -25,12 +26,25 @@ import com.topcoder.web.tc.controller.request.util.ReliabilityBonusCalculator;
  *   </ol>
  * </p>
  *
+ * <p>
+ *   Version 1.2 (Competition Registration Eligibility v1.0) Change notes:
+ *   <ol>
+ *     <li>Added eligibility constraints check.</li>
+ *   </ol>
+ * </p>
+ *
  * @author dok, pulky
- * @version 1.1
+ * @version 1.2
  */
 public class ProjectDetail extends Base {
 
 
+    /**
+     * This method executes the actual logic for this processor.
+     *
+     * @throws TCWebException if any error occurs
+     * @see com.topcoder.web.tc.controller.request.development.Base#developmentProcessing()
+     */
     protected void developmentProcessing() throws TCWebException {
 
         try {
@@ -38,6 +52,11 @@ public class ProjectDetail extends Base {
 
             if (projectId.equals("")) {
                 throw new TCWebException("parameter " + Constants.PROJECT_ID + " expected.");
+            }
+
+            // check eligibility constraints
+            if (!checkEligibilityConstraints(projectId, new ClassResource(this.getClass()))) {
+                throw new NavigationException("Could not find project information.");
             }
 
             int projectTypeId = getProjectTypeId(Long.parseLong(projectId));
