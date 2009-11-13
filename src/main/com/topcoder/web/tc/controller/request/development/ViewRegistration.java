@@ -59,8 +59,15 @@ import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
  *   </ol>
  * </p>
  *
+ * <p>
+ *   Version 1.3 (Competition Registration Eligibility v1.0) Change notes:
+ *   <ol>
+ *     <li>Added eligibility constraints check.</li>
+ *   </ol>
+ * </p>
+ *
  * @author dok, pulky
- * @version 1.2
+ * @version 1.3
  */
 public class ViewRegistration extends Base {
 
@@ -95,17 +102,18 @@ public class ViewRegistration extends Base {
                 getRequest().setAttribute("questionInfo", getQuestions());
 
                 String projectId = getRequest().getParameter(Constants.PROJECT_ID);
+
                 long userId = getLoggedInUser().getId();
                 String termsOfUseId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_ID));
 
                 // process terms of use
-                boolean hasMoreTerms = processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS, 
+                boolean hasMoreTerms = processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS,
                     "".equals(termsOfUseId) ? -1 : Long.parseLong(termsOfUseId));
                 if (!hasMoreTerms) {
                     //we're assuming that if we're here, we got a valid project id
                     loadCaptcha();
                 }
-                
+
                 setDefault(Constants.PROJECT_ID, projectId);
                 setNextPage("/contest/regTerms.jsp");
                 setIsNextPageInContext(true);
@@ -132,12 +140,24 @@ public class ViewRegistration extends Base {
         getRequest().setAttribute(Constants.PROJECT_TYPE_ID, new Integer(projectTypeId));
     }
 
+    /**
+     * This method executes registration validation
+     *
+     * It will also validate eligibility constraints for this project.
+     *
+     * @throws Exception if any error occurs during validation
+     */
     protected void validation() throws Exception {
         long projectId = 0;
         if (!StringUtils.isNumber(getRequest().getParameter(Constants.PROJECT_ID))) {
             throw new NavigationException("Invalid project specified");
         } else {
             projectId = Long.parseLong(getRequest().getParameter(Constants.PROJECT_ID));
+        }
+
+        // check eligibility constraints
+        if (!checkEligibilityConstraints(projectId, new ClassResource(this.getClass()))) {
+            throw new NavigationException("Could not find project information.");
         }
 
         ProjectLocal pl = (ProjectLocal) createLocalEJB(getInitialContext(), Project.class);

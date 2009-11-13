@@ -61,9 +61,15 @@ import com.topcoder.utilities.dwload.contestresult.drv2.ContestResultCalculatorV
  *     <li>Added support for new Test Scenarios competitions.</li>
  *   </ol>
  * </p>
+ * <p>
+ *   Version 1.1.5 (Competition Registration Eligibility v1.0) Change notes:
+ *   <ol>
+ *     <li>Added eligibility constraints check.</li>
+ *   </ol>
+ * </p>
  *
  * @author rfairfax, pulky, ivern
- * @version 1.1.4
+ * @version 1.1.5
  */
 public class TCLoadTCS extends TCLoad {
 
@@ -92,6 +98,15 @@ public class TCLoadTCS extends TCLoad {
     private static final String PROJECT_SELECT =
             "select distinct project_id from project_result";
 
+    /**
+     * SQL fragment to be added to a where clause to not select projects with eligibility constraints
+     * 
+     * @since 1.1.5
+     */
+    private static final String ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT =
+            " and p.project_id not in (select ce.contest_id from contest_eligibility ce " +
+            " where ce.is_studio = 0) ";
+            
     /**
      * Confirmed status.
      *
@@ -474,6 +489,11 @@ public class TCLoadTCS extends TCLoad {
         }
     }
 
+    /**
+     * This method loads submissions
+     *
+     * @throws Exception if any error occurs
+     */
     public void doLoadSubmission() throws Exception {
         log.info("load submissions");
         PreparedStatement select = null;
@@ -505,7 +525,6 @@ public class TCLoadTCS extends TCLoad {
                             "   ,project p " +
                             "   ,resource r" +
                             "   ,resource_info ri " +
-                            "   ,project_info piel " +
                             "where s.upload_id = u.upload_id " +
                             "   and u.project_id = p.project_id " +
                             "   and p.project_status_id <> 3 " +
@@ -515,9 +534,7 @@ public class TCLoadTCS extends TCLoad {
                             "   and ri.resource_info_type_id = 1 " +
                             "   and u.upload_type_id = 1 " +
                             "   and s.submission_status_id <> 5 " +
-                            "   and piel.project_info_type_id = 14 " +
-                            "   and piel.value = 'Open' " +
-                            "   and piel.project_id = p.project_id " +
+                            ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
                             (firstRun ? "" :
                                     "and (s.modify_date > ? " +
                                             "OR u.modify_date > ? " +
@@ -649,6 +666,11 @@ public class TCLoadTCS extends TCLoad {
         }
     }
 
+    /**
+     * Loads user ratings
+     *
+     * @throws Exception if any error occurs
+     */
     public void doLoadUserRating() throws Exception {
         log.info("load user rating");
         PreparedStatement select = null;
@@ -667,18 +689,18 @@ public class TCLoadTCS extends TCLoad {
                     "  , ur.user_id " +
                     "  , ur.phase_id " +
                     "  , (select max(pr.new_rating) " +
-                    " from project_result pr, project p, project_info piel " +
+                    " from project_result pr, project p " +
                     " where pr.user_id = ur.user_id " +
                     " and pr.project_id = p.project_id " +
                     " and pr.rating_ind = 1 " +
-                    " and piel.project_info_type_id = 14 and piel.value = 'Open' and piel.project_id = p.project_id " +
+                    ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
                     " and p.project_category_id+111 = ur.phase_id) as highest_rating " +
                     " , (select min(pr.new_rating) " +
-                    " from project_result pr, project p, project_info piel " +
+                    " from project_result pr, project p " +
                     " where pr.user_id = ur.user_id " +
                     " and pr.project_id = p.project_id " +
                     " and pr.rating_ind = 1 " +
-                    " and piel.project_info_type_id = 14 and piel.value = 'Open' and piel.project_id = p.project_id " +
+                    ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
                     " and p.project_category_id+111 = ur.phase_id) as lowest_rating " +
                     " from user_rating ur " +
                     " where ur.mod_date_time > ?";
@@ -798,6 +820,8 @@ public class TCLoadTCS extends TCLoad {
      * <p/>
      * Load projects to the DW.
      * </p>
+     *
+     * @throws Exception if any error occurs
      */
     public void doLoadProjects() throws Exception {
         log.info("load projects");
@@ -847,7 +871,6 @@ public class TCLoadTCS extends TCLoad {
                             "   ,pcl.name " +
                             "   from project p , " +
                             "   project_info pir, " +
-                            "   project_info piel, " +
                             "   project_info pivers, " +
                             "   outer project_info pivi," +
                             "   outer project_info pivt," +
@@ -876,9 +899,7 @@ public class TCLoadTCS extends TCLoad {
                             "   and pi1.project_info_type_id = 21 " +
                             "   and pi2.project_id = p.project_id " +
                             "   and pi2.project_info_type_id = 3 " +
-                            "   and piel.project_info_type_id = 14 " +
-                            "   and piel.value = 'Open' " +
-                            "   and p.project_id = piel.project_id " +
+                            ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
                             "   and cc.component_id = pir.value " +
                             "   and cc.root_category_id = cat.category_id " +
                             "   and psl.project_status_id = p.project_status_id " +
@@ -1197,6 +1218,8 @@ public class TCLoadTCS extends TCLoad {
      * <p/>
      * Load projects results to the DW.
      * </p>
+     *
+     * @throws Exception if any error occurs
      */
     public void doLoadProjectResults() throws Exception {
         log.info("load project results");
@@ -1219,7 +1242,6 @@ public class TCLoadTCS extends TCLoad {
                         "from project_result pr, " +
                         "project p, " +
                         "project_info pi, " +
-                        "project_info piel, " +
                         "comp_versions cv, " +
                         "comp_catalog cc " +
                         "where p.project_id = pr.project_id " +
@@ -1229,9 +1251,7 @@ public class TCLoadTCS extends TCLoad {
                         "and pi.project_info_type_id = 1 " +
                         "and cv.comp_vers_id= pi.value " +
                         "and cc.component_id = cv.component_id " +
-                        "and piel.project_info_type_id = 14 " +
-                        "and piel.value = 'Open' " +
-                        "and p.project_id = piel.project_id " +
+                        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
                         "and (p.modify_date > ? " +
                         "   OR cv.modify_date > ? " +
                         "   OR pi.modify_date > ? " +
@@ -1777,6 +1797,11 @@ public class TCLoadTCS extends TCLoad {
         return tracksForProject;
     }
 
+    /**
+     * Loads submission reviews
+     *
+     * @throws Exception if any error occurs
+     */
     public void doLoadSubmissionReview() throws Exception {
         log.info("load submission review");
         ResultSet submissionInfo = null;
@@ -1815,7 +1840,6 @@ public class TCLoadTCS extends TCLoad {
                         "   ,submission s " +
                         "   ,upload u " +
                         "  ,project p " +
-                        "  ,project_info piel " +
                         "  ,resource_info ri1" +
                         "  ,resource_info ri2" +
                         "   ,resource res " +
@@ -1830,9 +1854,7 @@ public class TCLoadTCS extends TCLoad {
                         "   and ri1.resource_info_type_id = 1 " +
                         "   and ri2.resource_id = r.resource_id " +
                         "   and ri2.resource_info_type_id = 1 " +
-                        "   and piel.project_info_type_id = 14 " +
-                        "   and piel.value = 'Open' " +
-                        "   and p.project_id = piel.project_id " +
+                        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
                         "   and u.project_id = ?" +
                         "   and (r.modify_date > ? " +
                         "   or s.modify_date > ? " +
@@ -2019,6 +2041,11 @@ public class TCLoadTCS extends TCLoad {
         }
     }
 
+    /**
+     * Loads submission screening
+     *
+     * @throws Exception if any error occurs
+     */
     public void doLoadSubmissionScreening() throws Exception {
         log.info("load submission screening");
 
@@ -2039,7 +2066,6 @@ public class TCLoadTCS extends TCLoad {
                         "   submission s," +
                         "   upload u," +
                         "   project p, " +
-                        "   project_info piel, " +
                         "   resource_info ri1," +
                         "   resource_info ri2," +
                         "   resource res " +
@@ -2054,9 +2080,7 @@ public class TCLoadTCS extends TCLoad {
                         "   and ri1.resource_info_type_id = 1 " +
                         "   and ri2.resource_id = r.resource_id " +
                         "   and ri2.resource_info_type_id = 1 " +
-                        "   and piel.project_info_type_id = 14 " +
-                        "   and piel.value = 'Open' " +
-                        "   and p.project_id = piel.project_id " +
+                        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
                         "   and (r.modify_date > ? " +
                         "   OR s.modify_date > ? " +
                         "   or u.modify_date > ? " +
@@ -2142,15 +2166,20 @@ public class TCLoadTCS extends TCLoad {
     }
 
 
+    /**
+     * Loads contest projects
+     *
+     * @throws Exception if any error occurs
+     */
     public void doLoadContestProject() throws Exception {
         log.info("load contest project");
         //load contest_project_xref
         long start = System.currentTimeMillis();
 
         final String SELECT = "select x.contest_id, x.project_id  " +
-                "from contest_project_xref x, project p, project_info piel " +
+                "from contest_project_xref x, project p " +
                 "where x.project_id = ? and p.project_id = x.project_id " +
-                "and piel.project_info_type_id = 14 and piel.value = 'Open' and p.project_id = piel.project_id " +
+                ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
                 " and (p.modify_date > ? or x.create_date > ?)";
 
         final String INSERT = "insert into contest_project_xref (contest_id, project_id) " +
@@ -3480,6 +3509,11 @@ public class TCLoadTCS extends TCLoad {
         }
     }
 
+    /**
+     * Loads scorecard responses
+     *
+     * @throws Exception if any error occurs
+     */
     public void doLoadScorecardResponse() throws Exception {
         log.info("load scorecard_response");
         ResultSet rs = null;
@@ -3507,7 +3541,6 @@ public class TCLoadTCS extends TCLoad {
                         "       submission s," +
                         "       upload u," +
                         "       project p, " +
-                        "       project_info piel, " +
                         "       scorecard_question sq" +
                         "    where  ri.scorecard_question_id = sq.scorecard_question_id " +
                         "   and ri.review_id = r.review_id " +
@@ -3524,9 +3557,7 @@ public class TCLoadTCS extends TCLoad {
                         "   and p.project_category_id in " + LOAD_CATEGORIES +
                         "   and sq.scorecard_question_type_id in (1,2,4) " +
                         "   and answer <> '' " +
-                        "   and piel.project_info_type_id = 14 " +
-                        "   and piel.value = 'Open' " +
-                        "   and p.project_id = piel.project_id " +
+                        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
                         "   and  u.project_id = ?  " +
                         "   and (ri.modify_date > ? " +
                         "   OR r.modify_date > ? " +
@@ -3635,6 +3666,11 @@ public class TCLoadTCS extends TCLoad {
         }
     }
 
+    /**
+     * Loads testcase responses
+     *
+     * @throws Exception if any error occurs
+     */
     public void doLoadTestcaseResponse() throws Exception {
         log.info("load testcase_response");
         ResultSet rs;
@@ -3656,7 +3692,6 @@ public class TCLoadTCS extends TCLoad {
                         "    submission s," +
                         "    upload u," +
                         "    project p, " +
-                        "    project_info piel, " +
                         "    resource_info ri1," +
                         "    resource_info ri2," +
                         "    scorecard_question sq " +
@@ -3674,9 +3709,7 @@ public class TCLoadTCS extends TCLoad {
                         "   and ri1.resource_info_type_id = 1 " +
                         "   and ri2.resource_id = r.resource_id " +
                         "   and ri2.resource_info_type_id = 1 " +
-                        "   and piel.project_info_type_id = 14 " +
-                        "   and piel.value = 'Open' " +
-                        "   and p.project_id = piel.project_id " +
+                        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
                         "   and (ri.modify_date > ? " +
                         "   OR r.modify_date > ? " +
                         "   OR res.modify_date > ? " +
@@ -3781,6 +3814,11 @@ public class TCLoadTCS extends TCLoad {
     }
 
 
+    /**
+     * Loads subjective responses
+     *
+     * @throws Exception if any error occurs
+     */
     public void doLoadSubjectiveResponse() throws Exception {
         log.info("load subjective_response");
         ResultSet rs;
@@ -3809,7 +3847,6 @@ public class TCLoadTCS extends TCLoad {
                         "       submission s," +
                         "       upload u," +
                         "       project p, " +
-                        "       project_info piel, " +
                         "       resource_info ri1," +
                         "       resource_info ri2," +
                         "       resource res " +
@@ -3828,9 +3865,7 @@ public class TCLoadTCS extends TCLoad {
                         "   and ri1.resource_info_type_id = 1 " +
                         "   and ri2.resource_id = r.resource_id " +
                         "   and ri2.resource_info_type_id = 1 " +
-                        "   and piel.project_info_type_id = 14 " +
-                        "   and piel.value = 'Open' " +
-                        "   and p.project_id = piel.project_id " +
+                        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
                         "   and u.project_id = ? " +
                         "   and (ric.modify_date > ? " +
                         "   OR ri.modify_date > ? " +
@@ -3939,6 +3974,11 @@ public class TCLoadTCS extends TCLoad {
     }
 
 
+    /**
+     * Loads appeals
+     *
+     * @throws Exception if any error occurs
+     */
     public void doLoadAppeal() throws Exception {
         log.info("load Appeal");
         ResultSet rs;
@@ -3968,7 +4008,6 @@ public class TCLoadTCS extends TCLoad {
                         "       submission s,  " +
                         "       upload u, " +
                         "       project p, " +
-                        "       project_info piel, " +
                         "       resource res,  " +
                         "       resource_info res1,  " +
                         "       resource_info res2,  " +
@@ -3991,9 +4030,7 @@ public class TCLoadTCS extends TCLoad {
                         "   ric_resp.review_item_id = ri.review_item_id and " +
                         "   ric_resp.comment_type_id = 5 and " +
                         "   ric.comment_type_id = 4  and " +
-                        "   piel.project_info_type_id = 14 and " +
-                        "   piel.value = 'Open' and " +
-                        "   p.project_id = piel.project_id and " +
+                        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
                         "   u.project_id = ? and " +
                         "   (ric.modify_date > ? OR " +
                         "   ri.modify_date > ? OR " +
@@ -4168,6 +4205,11 @@ public class TCLoadTCS extends TCLoad {
         }
     }
 
+    /**
+     * Loads testcase appeals
+     *
+     * @throws Exception if any error occurs
+     */
     public void doLoadTestcaseAppeal() throws Exception {
         log.info("load Testcase Appeal");
         ResultSet rs;
@@ -4196,7 +4238,6 @@ public class TCLoadTCS extends TCLoad {
                         "   submission s, " +
                         "   upload u, " +
                         "   project p, " +
-                        "   project_info piel, " +
                         "   resource res, " +
                         "   resource_info ri1," +
                         "   resource_info ri2," +
@@ -4220,9 +4261,7 @@ public class TCLoadTCS extends TCLoad {
                         "   and ri1.resource_info_type_id = 1 " +
                         "   and ri2.resource_id = r.resource_id " +
                         "   and ri2.resource_info_type_id = 1 " +
-                        "   and piel.project_info_type_id = 14 " +
-                        "   and piel.value = 'Open' " +
-                        "   and p.project_id = piel.project_id " +
+                        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
                         "   and u.project_id = ? " +
                         "   and (ric.modify_date > ? " +
                         "   OR ri.modify_date > ? " +
@@ -5049,7 +5088,7 @@ public class TCLoadTCS extends TCLoad {
     /**
      * Load the contest_result table for the contests belonging to stages whose results were modified.
      *
-     * @throws Exception
+     * @throws Exception if any error occurs
      */
     public void doLoadStageResults() throws Exception {
         log.debug("load stage results");
@@ -5058,14 +5097,11 @@ public class TCLoadTCS extends TCLoad {
                 " select distinct s.season_id, s.stage_id, s.start_date, s.end_date " +
                         " from project_result pr, " +
                         "      stage s, " +
-                        "      project p,  " +
-                        "      project_info piel " +
+                        "      project p  " +
                         " where p.project_id = pr.project_id  " +
                         " and p.project_status_id <> 3  " +
                         " and p.project_category_id in " + LOAD_CATEGORIES +
-                        " and piel.project_info_type_id = 14  " +
-                        " and piel.value = 'Open'  " +
-                        " and p.project_id = piel.project_id  " +
+                        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
                         " and (p.modify_date > ? " +
                         "     OR pr.modify_date > ?) " +
                         " and ( " +
@@ -5133,14 +5169,15 @@ public class TCLoadTCS extends TCLoad {
     /**
      * Helper method to load contest results for the specified contest.
      *
-     * @param seasonId
-     * @param startDate
-     * @param endDate
-     * @param phaseId
-     * @param contestId
-     * @param className
-     * @param factor
-     * @throws Exception
+     * @param seasonId the season id
+     * @param startDate the start date
+     * @param endDate the end date
+     * @param phaseId the phase id
+     * @param contestId the contest id
+     * @param className the class name
+     * @param factor the factor
+     *
+     * @throws Exception if any error occurs
      */
     private void loadDRContestResults(int seasonId, Timestamp startDate, Timestamp endDate, int projectCategoryId,
                                       int contestId, String className, double factor) throws Exception {
@@ -5166,7 +5203,6 @@ public class TCLoadTCS extends TCLoad {
                         "    else 0 end as valid_submission_ind " +
                         " from project p " +
                         "    ,project_result pr " +
-                        "    ,project_info pi_el " +
                         "    ,project_info pi_dr " +
                         " where pi_dr.project_id = p.project_id " +
                         " and pi_dr.project_info_type_id = 26 " +
@@ -5176,9 +5212,7 @@ public class TCLoadTCS extends TCLoad {
                         " and (pr.rating_ind=1 or p.project_category_id = 5)" +
                         // for development board, load development and component testing
                         " and p.project_category_id in (" + ((projectCategoryId == 2) ? "2, 5" : String.valueOf(projectCategoryId)) + ") " +
-                        " and pi_el.project_info_type_id = 14 " +
-                        " and pi_el.value = 'Open' " +
-                        " and pi_el.project_id = p.project_id " +
+                        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
                         " and ( " +
                         "      select NVL(ppd.actual_start_time, psd.actual_start_time)  " +
                         "      from project p1 " +

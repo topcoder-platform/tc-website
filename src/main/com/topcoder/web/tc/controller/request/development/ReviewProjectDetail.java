@@ -3,29 +3,30 @@
  */
 package com.topcoder.web.tc.controller.request.development;
 
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Map;
+
+import javax.ejb.CreateException;
+import javax.naming.InitialContext;
+import javax.rmi.PortableRemoteObject;
+
 import com.topcoder.apps.review.rboard.RBoardApplication;
 import com.topcoder.apps.review.rboard.RBoardApplicationHome;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.TCTimestampResult;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.ReviewBoardApplication;
-
-import javax.ejb.CreateException;
-import javax.naming.InitialContext;
-import javax.rmi.PortableRemoteObject;
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Map;
 
 /**
  * <p>A controller to handle the requests for displaying the details for the requested review project of specified type.
@@ -68,10 +69,15 @@ import java.util.Map;
  *   <ol>
  *     <li>Added support for Specification review project types.</li>
  *   </ol>
+ *
+ *   Version 1.0.7 (Competition Registration Eligibility v1.0) Change notes:
+ *   <ol>
+ *     <li>Added eligibility constraints check.</li>
+ *   </ol>
  * </p>
  *
  * @author dok, isv, pulky, snow01
- * @version 1.0.6
+ * @version 1.0.7
  * @since 1.0
  */
 public class ReviewProjectDetail extends Base {
@@ -105,6 +111,11 @@ public class ReviewProjectDetail extends Base {
 
         int phaseId = (Integer.parseInt(projectTypeId) + (int) Constants.GENERAL_PHASE_OFFSET);
         String projectId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID));
+
+        // check eligibility constraints
+        if (!checkEligibilityConstraints(projectId, new ClassResource(this.getClass()))) {
+            throw new NavigationException("Could not find project information.");
+        }
 
         if (phaseId > Constants.SPECIFICATION_COMPETITION_OFFSET) {
             retrieveSpecReviewProjectDetail(projectId, phaseId);

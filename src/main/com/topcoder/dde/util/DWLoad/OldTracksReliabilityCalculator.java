@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.dde.util.DWLoad;
 
 
@@ -18,8 +21,20 @@ import java.util.Set;
 
 import javax.naming.Context;
 
-
-
+/**
+ * <p><strong>Purpose</strong>:
+ * This class calculates Reliability Rating for old competition tracks.</p>
+ *
+ * <p>
+ *   Version 1.1 (Competition Registration Eligibility v1.0) Change notes:
+ *   <ol>
+ *     <li>Added eligibility constraints check.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author pulky
+ * @version 1.1
+ */
 public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
     protected static final Logger log = Logger.getLogger(ReliabilityRating.class);
 
@@ -34,6 +49,31 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
     private static final int BEFORE_PIVOT_PROJECT_COUNT_IDX = 3;
     private static final int BEFORE_PIVOT_MARKED_COUNT_IDX = 4;
 
+    /**
+     * Base SQL fragment to be added to a where clause to not select projects with eligibility constraints
+     * 
+     * @since 1.1
+     */
+    private static final String ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT_BASE =
+        " project_id not in (select ce.contest_id from contest_eligibility ce " +
+        " where ce.is_studio = 0) ";
+
+    /**
+     * SQL fragment to be added to a where clause to not select projects with eligibility constraints
+     * 
+     * @since 1.1
+     */
+    protected static final String ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT =
+        " and p." + ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT_BASE;
+
+    /**
+     * SQL fragment to be added to a where clause to not select projects with eligibility constraints
+     * Removed project (p) prefix
+     * 
+     * @since 1.1
+     */
+    protected static final String ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT_NO_PREFIX =
+        " and " + ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT_BASE;
 
     private static final String updateProjectResult =
         "UPDATE project_result SET old_reliability = ?, new_reliability = ?, current_reliability_ind = ? " +
@@ -48,16 +88,27 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
     private static final String insertUserReliability =
         "insert into user_reliability (rating, user_id, phase_id) values (?,?,?)";
 
+    /**
+     * SQL query that clears current reliability
+     */
     private static final String clearCurrentReliability = "update project_result set current_reliability_ind = 0 where project_id in " +
-        "(select project_id from project where project_category_id+111 = ?)";
+        "(select project_id from project where project_category_id+111 = ?) " +
+        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT_NO_PREFIX;
 
+    /**
+     * SQL query that marks records that should be included in the process
+     */
     private final static String markIncluded =
         "update project_result " +
         "set reliability_ind = 1 " +
         "where reliability_ind is null " +
         "and final_score >= ? "+
-        " and project_id in (select project_id from project where project_category_id = ?) ";
+        " and project_id in (select project_id from project where project_category_id = ?) " +
+        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT_NO_PREFIX;
 
+    /**
+     * SQL query that retrieves unmarked records
+     */
     private final static String getUnmarked =
         "select pr.user_id, pr.project_id, p.project_category_id, ci.create_time " +
         " from project_result pr " +
@@ -71,12 +122,17 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         "and ci.project_id = pr.project_id " +
         "and ci.user_id = pr.user_id " +
         " and p.project_category_id = ? " +
+        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
         " order by ci.create_time";
 
     private final static String setReliability =
         "update project_result set reliability_ind = ? where project_id = ? and user_id = ?";
 
-    /* BUGR-852 modification: add one item 'pi.scheduled_start_time' in the select clause */
+    /**
+     * SQL query that retrieves prior projects
+     *
+     * BUGR-852 modification: add one item 'pi.scheduled_start_time' in the select clause
+     */
     private static final String priorProjects =
         "select pr.reliability_ind, pr.project_id, pr.user_id, pi.scheduled_start_time " +
         "from component_inquiry ci " +
@@ -91,6 +147,7 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         "and pi.project_id = p.project_id " +
         "and pi.phase_type_id = 1 " +
         "and ci.create_time < (select min(create_time) " +
+        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
         "from component_inquiry " +
         "where user_id = ci.user_id " +
         "and project_id = ?)";
@@ -150,7 +207,7 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
             ret = ps.executeUpdate();
 
             ret += markBasedOnPriorProjects(conn, competitionTypeId, startDate, pivotDate);
-            
+
         } finally {
             close(ps);
         }
@@ -162,44 +219,44 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         PreparedStatement ps3 = null;
         ResultSet unmarked = null;
         int ret = 0;
-        
+
         try {
-	        ps2 = conn.prepareStatement(getUnmarked);
-	        ps2.setInt(1, MIN_PASSING_SCORE);
-	        ps2.setInt(2, competitionTypeId);
-	        unmarked = ps2.executeQuery();
-	
-	        ps3 = conn.prepareStatement(setReliability);
-	        while (unmarked.next()) {
-	            ps3.clearParameters();
-	            ps3.setLong(2, unmarked.getLong("project_id"));
-	            ps3.setLong(3, unmarked.getLong("user_id"));
-	            int[] info = getPriorProjects(conn, unmarked.getLong("user_id"),
-	                                          unmarked.getLong("project_id"), unmarked.getInt("project_category_id"), pivotDate);
-	
-	            if (info[RELIABLE_COUNT_IDX] > 0) {
-	                //if they have previously had projects that were reliable, then this one counts
-	                ps3.setInt(1, 1);
-	                ret += ps3.executeUpdate();
-	            } else if (info[PROJECT_COUNT_IDX] == info[MARKED_COUNT_IDX]) {
-	                //if all prior projects are not included in reliability, this one shouldn't either
-	                ps3.setInt(1, 0);
-	                ret += ps3.executeUpdate();
-	            } else if (info[BEFORE_PIVOT_PROJECT_COUNT_IDX] == info[BEFORE_PIVOT_MARKED_COUNT_IDX]) {
-	                /* BUGR-852 modification: add this 'else if' clause */
-	                // if all prior projects which created before the pivot date are not included in reliability,
-	                // and some prior projects created after the pivot date are still incomplete,
-	                // this one should be marked with 0 (not included in reliability) immediately.
-	                ps3.setInt(1, 0);
-	                ret += ps3.executeUpdate();
-	            } else {
-	                /* BUGR-852 modification: modify the comments below */
-	                // we don't know enough yet to mark them as either included or excluded.  basically, they have at least
-	                // one project prior to this one and created before pivot date that isn't complete, so we can't decide
-	                // on this one yet. (we should decide after all the projects created before pivot date are complete.)
-	                log.info("got " + info[RELIABLE_COUNT_IDX] + " " + info[PROJECT_COUNT_IDX] + " " + info[MARKED_COUNT_IDX] + " " + unmarked.getLong("user_id") + " " + unmarked.getLong("project_id"));
-	            }
-	        }
+            ps2 = conn.prepareStatement(getUnmarked);
+            ps2.setInt(1, MIN_PASSING_SCORE);
+            ps2.setInt(2, competitionTypeId);
+            unmarked = ps2.executeQuery();
+
+            ps3 = conn.prepareStatement(setReliability);
+            while (unmarked.next()) {
+                ps3.clearParameters();
+                ps3.setLong(2, unmarked.getLong("project_id"));
+                ps3.setLong(3, unmarked.getLong("user_id"));
+                int[] info = getPriorProjects(conn, unmarked.getLong("user_id"),
+                                              unmarked.getLong("project_id"), unmarked.getInt("project_category_id"), pivotDate);
+
+                if (info[RELIABLE_COUNT_IDX] > 0) {
+                    //if they have previously had projects that were reliable, then this one counts
+                    ps3.setInt(1, 1);
+                    ret += ps3.executeUpdate();
+                } else if (info[PROJECT_COUNT_IDX] == info[MARKED_COUNT_IDX]) {
+                    //if all prior projects are not included in reliability, this one shouldn't either
+                    ps3.setInt(1, 0);
+                    ret += ps3.executeUpdate();
+                } else if (info[BEFORE_PIVOT_PROJECT_COUNT_IDX] == info[BEFORE_PIVOT_MARKED_COUNT_IDX]) {
+                    /* BUGR-852 modification: add this 'else if' clause */
+                    // if all prior projects which created before the pivot date are not included in reliability,
+                    // and some prior projects created after the pivot date are still incomplete,
+                    // this one should be marked with 0 (not included in reliability) immediately.
+                    ps3.setInt(1, 0);
+                    ret += ps3.executeUpdate();
+                } else {
+                    /* BUGR-852 modification: modify the comments below */
+                    // we don't know enough yet to mark them as either included or excluded.  basically, they have at least
+                    // one project prior to this one and created before pivot date that isn't complete, so we can't decide
+                    // on this one yet. (we should decide after all the projects created before pivot date are complete.)
+                    log.info("got " + info[RELIABLE_COUNT_IDX] + " " + info[PROJECT_COUNT_IDX] + " " + info[MARKED_COUNT_IDX] + " " + unmarked.getLong("user_id") + " " + unmarked.getLong("project_id"));
+                }
+            }
         } finally {
             close(unmarked);
             close(ps2);
@@ -232,6 +289,7 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         " and pr.reliability_ind = 1" +
         " and pr.project_id = p.project_id" +
         " and p.project_category_id+111=?" +
+        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
         " union" +
         " select distinct pr.user_id" +
         " from project_result pr" +
@@ -243,7 +301,8 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         " and pr.reliability_ind = 1" +
         " and pr.final_score >= ?" +
         " and pr.project_id = p.project_id" +
-        " and p.project_category_id+111=?";
+        " and p.project_category_id+111=?" +
+        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT;
 
     protected Set<Long> getIncludedUsers(Connection conn, int competitionTypeId, Date startDate, Date pivotDate) throws SQLException {
         PreparedStatement ps = null;
@@ -270,6 +329,9 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         return ret;
     }
 
+    /**
+     * SQL query that retrieves the new records to mark
+     */
     private static final String getNewRecordsToMark =
         " select pr.user_id" +
         " , pr.project_id" +
@@ -283,7 +345,8 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         " and p.project_category_id = ? " +
         " and pi.scheduled_start_time >= ?" +
         " and pr.reliability_ind = 1" +
-        " and pr.reliable_submission_ind is null";
+        " and pr.reliable_submission_ind is null" +
+        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT;
 
     private static final String updateReliableSubmission =
         "update project_result set reliable_submission_ind = ?" +
@@ -341,6 +404,9 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         return ret;
     }
 
+    /**
+     * SQL query that retrieves the old records to mark
+     */
     private static final String getOldRecordsToMark =
         " select pr.user_id" +
         " , pr.project_id" +
@@ -354,7 +420,8 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         " and pi.scheduled_start_time < ?" +
         " and p.project_category_id = ? "+
         " and pr.reliability_ind = 1" +
-        " and pr.reliable_submission_ind is null";
+        " and pr.reliable_submission_ind is null" +
+        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT;
 
     /**
      * mark all the project result records before the change date
@@ -395,6 +462,9 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         return ret;
     }
 
+    /**
+     * SQL query that retrieves the old reliability data
+     */
     private static final String oldReliabilityData =
         " select pr.reliable_submission_ind" +
         " , ci.create_time" +
@@ -413,9 +483,14 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         " and pr.reliability_ind = 1" +
         " and pr.reliable_submission_ind is not null" +
         " and p.project_category_id = ? " +
+        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
         " order by ci.create_time asc";
 
-    //all the people that became part of the reliability process prior to the change date
+    /**
+     * SQL query that retrieves the new records to mark
+     *
+     * all the people that became part of the reliability process prior to the change date
+     */
     private static final String oldReliabilityUsers =
         " select distinct pr.user_id" +
         " from project_result pr" +
@@ -427,6 +502,7 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         " and pi.project_id = pr.project_id" +
         " and pr.reliable_submission_ind is not null" +
         " and p.project_category_id = ? " +
+        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
         " and pr.reliability_ind = 1";
 
     protected int updateOldProjectResult(Connection conn, int competitionTypeId, Date startDate, Date pivotDate) throws SQLException {
@@ -587,7 +663,12 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
     }
 
 
-    /* BUGR-852 modification: change 'reliabilityDate' to 'reliabilityDataBeforePivot', and add 'reliabilityDataAfterPivot' */
+    /**
+     * SQL query that retrieves reliability data before pivot
+     *
+     * BUGR-852 modification: change 'reliabilityDate' to 'reliabilityDataBeforePivot', and add
+     * 'reliabilityDataAfterPivot'
+     */
     private static final String reliabilityDataBeforePivot =
         " select pr.reliable_submission_ind" +
         " , ci.create_time" +
@@ -612,8 +693,12 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         " and pr.reliability_ind = 1" +
         " and pr.reliable_submission_ind is not null" +
         " and pi.scheduled_start_time <= ?" + // BUGR-852 modification: scheduled_start_time should be not greater than pivot date
+        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
         " order by ci.create_time asc";
 
+    /**
+     * SQL query that retrieves reliability data after pivot
+     */
     private static final String reliabilityDataAfterPivot =
         " select pr.reliable_submission_ind" +
         " , ci.create_time" +
@@ -639,6 +724,7 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         " and pr.reliability_ind = 1" +
         " and pr.reliable_submission_ind is not null" +
         " and pi.scheduled_start_time > ?" + // BUGR-852 modification: scheduled_start_time should be greater than pivot date
+        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
         " order by complete_date asc";
 
     protected List<ReliabilityInstance> retrieveReliabilityHistory(Connection conn, long userId, int historyLength, int competitionTypeId, Date startDate, Date pivotDate) throws SQLException {
