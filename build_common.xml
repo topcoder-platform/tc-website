@@ -47,7 +47,7 @@
         <pathelement location="${external.jars.dir}/jboss-system-4.2.2.jar"/>
         <pathelement location="${external.jars.dir}/base_exception-2.0.0.jar"/>
         <pathelement location="${external.jars.dir}/httpunit-1.6.2.jar"/>
-
+        <pathelement location="${jars.dir}/tcs/contest_eligibility_validation_client/1.0.0/contest_eligibility_validation_client.jar"/>
     </path>
     <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
     <property name="class.path" refid="class.path"/>
