@@ -4050,8 +4050,8 @@ public class TCLoadTCS extends TCLoad {
                         "   res2.resource_info_type_id = 1 and " +
                         "   ric_resp.review_item_id = ri.review_item_id and " +
                         "   ric_resp.comment_type_id = 5 and " +
-                        "   ric.comment_type_id = 4  and " +
-                        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
+                        "   ric.comment_type_id = 4 " +
+                        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT + " and " +
                         "   u.project_id = ? and " +
                         "   (ric.modify_date > ? OR " +
                         "   ri.modify_date > ? OR " +
