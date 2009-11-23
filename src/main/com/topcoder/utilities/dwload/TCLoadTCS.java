@@ -1442,7 +1442,7 @@ public class TCLoadTCS extends TCLoad {
 		
 		            boolean projectsFound = false;
 		            int numProjectsFound = 0;
-		            while (projects.next() && numProjectsFound < PROJECT_RESULT_LOAD_STEP_SIZE) {
+		            do {
 		                projectsFound = true;
 		                ++numProjectsFound;
 		                buf.append(projects.getLong("project_id"));
@@ -1451,7 +1451,7 @@ public class TCLoadTCS extends TCLoad {
 		                delQuery.append(",");
 		                delDrPointsQuery.append(projects.getLong("project_id"));
 		                delDrPointsQuery.append(",");
-		            }
+		            } while (numProjectsFound < PROJECT_RESULT_LOAD_STEP_SIZE && projects.next());
 		            buf.setCharAt(buf.length() - 1, ')');
 		            delQuery.setCharAt(delQuery.length() - 1, ')');
 		            delDrPointsQuery.setCharAt(delDrPointsQuery.length() - 1, ')');
