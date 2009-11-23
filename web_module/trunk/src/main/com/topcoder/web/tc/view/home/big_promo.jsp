@@ -51,5 +51,5 @@
 	</object>
 <br />
 <br />
-<a href="<tc-webtag:linkTracking link='/tc?module=MatchDetails&rd=13992' refer='/tc' />"><img src="/i/sponsor/nasa/nasa-banner-09-510x54.jpg" alt="NASA-TopCoder Challenge!" /></a><br />
+<a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=sponsors&d2=NVIDIAOverview' refer='/tc' />"><img src="/i/sponsor/banner-nvidia-cuda-510x54.png" alt="NVIDIA CUDA Superhero Challenge" /></a><br />
 <br />
