@@ -57,8 +57,7 @@
 
             <div align="right" style="margin: 6px 0px;">
                 <a href="/longcontest/?module=Static&amp;d1=instructions"><img src="/i/interface/getStarted.png" alt="Need help? Learn how to get started" /></a><br /><br />
-                <a href="<tc-webtag:linkTracking link='http://www.topcoder.com/nasacontest' refer='mm' />"><img src="/i/sponsor/nasa/nasa-banner-09-340x76.jpg" alt="NASA-TopCoder Challenge" /></a>
-                
+                <a href="<tc-webtag:linkTracking link='http://www.topcoder.com/cuda' refer='mm' />"><img src="/i/sponsor/mm-banner-nvidia-cuda.png" alt="NVIDIA CUDA Superhero Challenge" /></a> 
               <br />
             </div>
             
@@ -162,11 +161,9 @@
                 </logic:empty>
             </table>
 
-			<%-- comment out for Harvard/NASA contest
             <div align="center" style="margin:10px;">
                 <a href="javascript:arena();"><img src="/i/longcontest/launchArena.png" alt="Launch Arena" /></a>
             </div>
-			--%>
 
         </td>
 <%-- Center Column Ends --%>
