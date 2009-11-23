@@ -1408,7 +1408,6 @@ public class TCLoadTCS extends TCLoad {
 
             Map<Long, Integer> dRProjects = getDRProjects();
 
-
             projectSelect = prepareStatement(PROJECTS_SELECT, SOURCE_DB);
             projectSelect.setTimestamp(1, fLastLogTime);
             projectSelect.setTimestamp(2, fLastLogTime);
