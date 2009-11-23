@@ -147,9 +147,9 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         "and pi.project_id = p.project_id " +
         "and pi.phase_type_id = 1 " +
         "and ci.create_time < (select min(create_time) " +
-        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
         "from component_inquiry " +
         "where user_id = ci.user_id " +
+        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
         "and project_id = ?)";
 
     public void calculateReliability(Connection conn, int historyLength, int competitionTypeId, Date startDate, Date pivotDate) throws SQLException {
