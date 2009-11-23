@@ -1404,8 +1404,6 @@ public class TCLoadTCS extends TCLoad {
                         " group by pr2.user_id ";
 
         try {
-            long start = System.currentTimeMillis();
-
             Map<Integer, ContestResultCalculator> stageCalculators = getStageCalculators();
 
             Map<Long, Integer> dRProjects = getDRProjects();
@@ -1429,6 +1427,8 @@ public class TCLoadTCS extends TCLoad {
             projects = projectSelect.executeQuery();
             
             while (projects.next()) {
+            	long start = System.currentTimeMillis();
+            	
             	try {
 		            StringBuffer buf = new StringBuffer(1000);
 		            buf.append(RESULT_SELECT);
