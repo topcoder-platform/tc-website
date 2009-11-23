@@ -55,7 +55,7 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
      * @since 1.1
      */
     private static final String ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT_BASE =
-        " project_id not in (select ce.contest_id from contest_eligibility ce " +
+        "project_id not in (select ce.contest_id from contest_eligibility ce " +
         " where ce.is_studio = 0) ";
 
     /**
