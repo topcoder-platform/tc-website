@@ -48,7 +48,7 @@
         <p><span class="bigTitle">How To Compete</span></p>
         
         <p><span class="bodySubtitle">Registration</span><br />
-			In order to compete in an NSA Marathon event, one must first register. One may register at any time during the two-week submission phase. In order to register, you will need to click Register next to the appropriate event within the <a href="<tc-webtag:linkTracking link='/longcontest/?module=ViewActiveContests' refer='NSA'">Active Contests</a> list and agree to the rules of the event. Once registered, you may view the problem statement by clicking the Problem Name from within the Active Contests list. Problem statements will be made available to all TopCoder members once the competition starts. Registration is not required to view them.</p>
+			In order to compete in an NSA Marathon event, one must first register. One may register at any time during the two-week submission phase. In order to register, you will need to click Register next to the appropriate event within the <a href="http://www.topcoder.com/longcontest/?module=ViewActiveContests">Active Contests</a> list and agree to the rules of the event. Once registered, you may view the problem statement by clicking the Problem Name from within the Active Contests list. Problem statements will be made available to all TopCoder members once the competition starts. Registration is not required to view them.</p>
         
         <p><span class="bodySubtitle">Problem Statements</span><br />
         	During the contest, the types of problems and the associated scoring mechanism will vary for each problem. A description of the scoring mechanism will be provided in each problem statement. Competitors will have to understand the scoring mechanism in order to effectively compete.  The problems will be designed such that a perfect solution may be very difficult, if not impossible, to achieve.  This allows for competitors to work throughout the contest to continually and competetitively improve their submissions.  Each problem in the event series may have different memory usage constraints, processing time constraints, and scoring criteria. These specifics will be outlined in the problem statement form for each event in the series. </p>
@@ -134,8 +134,8 @@
         <table cellpadding="0" cellspacing="0" class="stat" width="45%" align="center">
             <tbody>
                 <tr>
-                    <td class="header">Place</td>
-                    <td class="header R">Prize</td>
+                    <td class="title">Place</td>
+                    <td class="title">Prize</td>
                 </tr>
                 <tr class="light">
                     <td class="value">1st Place </td>
