@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.common;
 
 import com.topcoder.json.object.JSONArray;
@@ -23,11 +26,29 @@ import java.io.OutputStream;
 import java.util.List;
 
 /**
- * @author  dok
- * @version  $Revision$ $Date$
- * Create Date: May 13, 2005
+ * XML / JSON convertef for ResultSetContainer
+ * 
+ * Version 1.1 (BUGR-2949) changes:
+ * - Added support for CDATA.
+ * 
+ * @author dok, pulky
+ * @version 1.1
  */
 public class ResultSetContainerConverter {
+    /**
+     * The CDATA prefix
+     * 
+     * @since 1.1
+     */
+    private static final String CDATA_PREFIX = "<![CDATA[";
+
+    /**
+     * The CDATA suffix
+     * 
+     * @since 1.1
+     */
+    private static final String CDATA_SUFFIX = "]]>";
+    
     private static Logger log = Logger.getLogger(ResultSetContainerConverter.class);
     public static void writeXML(ResultSetContainer rsc, String name, OutputStream os) throws TransformerConfigurationException, SAXException {
 
@@ -192,15 +213,29 @@ public class ResultSetContainerConverter {
 
     }
 
-
-
+    /**
+     * Adds an element to the xml. If the value starts with CDATA_HEADER, it's considered CDATA.
+     * 
+     * @param hd the TransformerHandler
+     * @param name the name of the element
+     * @param value the value of the element
+     * @param atts the attributes of the element
+     * @throws SAXException if any error occurs
+     */
     private static void addElement(TransformerHandler hd,
-                                         String name, String value, Attributes atts) throws SAXException {
+        String name, String value, Attributes atts) throws SAXException {
+        
         String temp = value == null ? "" : value;
         hd.startElement("", "", name, atts);
-        hd.characters(temp.toCharArray(), 0, temp.length());
+        if (value.startsWith(CDATA_PREFIX)) {
+            hd.startCDATA();
+            hd.characters(temp.substring(CDATA_PREFIX.length(), temp.length() - CDATA_SUFFIX.length()).toCharArray(), 
+                0, temp.length() - CDATA_PREFIX.length() - CDATA_SUFFIX.length());
+            hd.endCDATA();
+        } else {
+            hd.characters(temp.toCharArray(), 0, temp.length());
+        }
         hd.endElement("", "", name);
-
     }
 
 
