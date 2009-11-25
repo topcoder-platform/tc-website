@@ -9,8 +9,8 @@ import java.sql.SQLException;
 /**
  * The <code>DataSource</code> implementation that uses <code>DriverManager</code>.
  *
- * @version     1.0
- * @author      Timur Zambalayev
+ * @version     1.1
+ * @author      Timur Zambalayev, Javier Fernandez-Ivern
  */
 public class SimpleDataSource implements DataSource {
 
@@ -57,6 +57,24 @@ public class SimpleDataSource implements DataSource {
 
     public void setLoginTimeout(int seconds) {
         DriverManager.setLoginTimeout(seconds);
+    }
+    
+    /**
+     * Method added for compatibility with Java 6, it's not used in the current implementation.
+     * 
+     * @since 1.1
+     */
+    public boolean isWrapperFor(Class<?> iface) throws SQLException {
+    	return false;
+    }
+    
+    /**
+     * Method added for compatibility with Java 6, it's not used in the current implementation.
+     * 
+     * @since 1.1
+     */
+    public <T> T unwrap(Class<T> iface) throws SQLException {
+    	throw new SQLException("SimpleDataSource.unwrap() method not implemented.");
     }
 
 }
