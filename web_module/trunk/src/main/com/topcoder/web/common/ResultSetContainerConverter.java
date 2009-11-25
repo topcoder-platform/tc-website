@@ -227,7 +227,7 @@ public class ResultSetContainerConverter {
         
         String temp = value == null ? "" : value;
         hd.startElement("", "", name, atts);
-        if (value.startsWith(CDATA_PREFIX)) {
+        if (temp.startsWith(CDATA_PREFIX)) {
             hd.startCDATA();
             hd.characters(temp.substring(CDATA_PREFIX.length(), temp.length() - CDATA_SUFFIX.length()).toCharArray(), 
                 0, temp.length() - CDATA_PREFIX.length() - CDATA_SUFFIX.length());
