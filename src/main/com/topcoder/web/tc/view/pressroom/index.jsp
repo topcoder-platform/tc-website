@@ -97,6 +97,19 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- TopCoder Board of Directors --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_113009"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder Board of Directors" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_113009">TopCoder Names Nicholas M. Donofrio to Company's Board of Directors</a></h3>
+                        <p>Former IBM Technology Strategy Team Leader Joins Executive Roster of World's Largest Competitive Software Development Community <small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_113009">[November 30th]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- TopCoder Board of Directors  end --%>
+                
                 <%-- TopCoder Awards begin --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
