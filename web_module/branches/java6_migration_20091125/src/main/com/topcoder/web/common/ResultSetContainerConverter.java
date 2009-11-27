@@ -115,7 +115,9 @@ public class ResultSetContainerConverter {
 
     public static void writeJSONhidingPayments(ResultSetContainer rsc, String name,
                                                String paymentCol, String keyColName,
-                                               List<Long> hideKeyList, OutputStream os) throws IOException {
+                                               List<Long> hideKeyList, OutputStream os,
+                                               String callback) throws IOException {
+    	
         JSONObject ret = new JSONObject();
         JSONArray jsonArray = new JSONArray();
         ret.setArray("data", jsonArray);
@@ -162,7 +164,7 @@ public class ResultSetContainerConverter {
                 }
             }
         }
-        String res = new StandardJSONEncoder().encode(ret);
+        String res = jsonpWrapIfCallbackDefined(new StandardJSONEncoder().encode(ret), callback);
         DataOutputStream dos = new DataOutputStream(os);
         dos.writeBytes(res);
 
@@ -170,7 +172,9 @@ public class ResultSetContainerConverter {
     }
 
     
-    public static void writeJSON(ResultSetContainer rsc, String name, OutputStream os) throws IOException {
+    public static void writeJSON(ResultSetContainer rsc, String name, OutputStream os, String callback)
+    		throws IOException {
+    	
         long start = System.currentTimeMillis();
         JSONObject ret = new JSONObject();
         JSONArray jsonArray = new JSONArray();
@@ -204,7 +208,7 @@ public class ResultSetContainerConverter {
             }
         }
 
-        String res = new StandardJSONEncoder().encode(ret);
+        String res = jsonpWrapIfCallbackDefined(new StandardJSONEncoder().encode(ret), callback);
         DataOutputStream dos = new DataOutputStream(os);
         dos.writeBytes(res);
         if (log.isDebugEnabled()) {
@@ -213,7 +217,20 @@ public class ResultSetContainerConverter {
 
     }
 
-    /**
+    private static String jsonpWrapIfCallbackDefined(String jsonData, String callback) {
+    	if (callback != null) {
+			StringBuffer sb = new StringBuffer(jsonData.length() + callback.length() + 3);
+			sb.append(callback);
+			sb.append("(");
+			sb.append(jsonData);
+			sb.append(")");
+			return sb.toString();
+		} else {
+			return jsonData;
+		}
+	}
+
+	/**
      * Adds an element to the xml. If the value starts with CDATA_HEADER, it's considered CDATA.
      * 
      * @param hd the TransformerHandler

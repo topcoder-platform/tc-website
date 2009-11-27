@@ -567,6 +567,7 @@ public class Constants implements WebConstants {
 
     public static final String DATASOURCE_ID = "dsid";
     public static final String DATA_RETURN_TYPE = "drt";
+    public static final String CALLBACK = "callback";
 
     public static String CAPTCHA_PATH;
     public static final String CAPTCHA_FILE_NAME = "capfname";
