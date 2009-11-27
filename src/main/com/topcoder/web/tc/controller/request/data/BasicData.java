@@ -95,14 +95,16 @@ public class BasicData extends Base {
             } else {
                 getResponse().setContentType("text/xml");
             }
-
+            
+            // JSONP support.
+            String callback = getRequest().getParameter(Constants.CALLBACK);
 
             if (it.hasNext()) {
                 key = (String) it.next();
                 rsc = m.get(key);
                 if (key.equals("dd_round_results")) {
                     if ("json".equalsIgnoreCase(type)) {
-                        ResultSetContainerConverter.writeJSONhidingPayments(rsc, r.getContentHandle(), "paid", "coder_id", getHideUsersList(), getResponse().getOutputStream());
+                        ResultSetContainerConverter.writeJSONhidingPayments(rsc, r.getContentHandle(), "paid", "coder_id", getHideUsersList(), getResponse().getOutputStream(), callback);
                     } else {
                         ResultSetContainerConverter.writeXMLhidingPayments(rsc, r.getContentHandle(), "paid", "coder_id", getHideUsersList(), getResponse().getOutputStream());
                     }
@@ -110,13 +112,13 @@ public class BasicData extends Base {
                         key.equals("dd_development_rating_history") ||
                         key.equals("dd_track_rating_history")) {
                     if ("json".equalsIgnoreCase(type)) {
-                        ResultSetContainerConverter.writeJSONhidingPayments(rsc, r.getContentHandle(), "payment", "coder_id", getHideUsersList(), getResponse().getOutputStream());
+                        ResultSetContainerConverter.writeJSONhidingPayments(rsc, r.getContentHandle(), "payment", "coder_id", getHideUsersList(), getResponse().getOutputStream(), callback);
                     } else {
                         ResultSetContainerConverter.writeXMLhidingPayments(rsc, r.getContentHandle(), "payment", "coder_id", getHideUsersList(), getResponse().getOutputStream());
                     }
                 } else {
                     if ("json".equalsIgnoreCase(type)) {
-                        ResultSetContainerConverter.writeJSON(rsc, r.getContentHandle(), getResponse().getOutputStream());
+                        ResultSetContainerConverter.writeJSON(rsc, r.getContentHandle(), getResponse().getOutputStream(), callback);
                     } else {
                         ResultSetContainerConverter.writeXML(rsc, r.getContentHandle(), getResponse().getOutputStream());
                     }
