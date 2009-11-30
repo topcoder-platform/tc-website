@@ -87,8 +87,7 @@
 			<p>Be part of a team like no other <a href="<tc-webtag:linkTracking link='http://www.NSA.gov/Careers' refer='tc-sponsor' />">www.NSA.gov/Careers</a></p>
 			<p>U.S. citizenship is required. NSA is an Equal Opportunity Employer. </p>
 
-            <p>By clicking on the link below, you will be releasing your TopCoder contact and statistical information to NSA and you will be giving NSA permission to contact you about their current job opportunities.</p>
-            <p><a href="http://www.topcoder.com/tc?module=JobHit&jid=488&jt=1">Submit your information to NSA</a>.</p><br /><br />
+            <p> <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=NSAOverview-confirm"><img src="/i/sponsor/apply_now_btn.png" border="0px" alt="Apply to NSA now!" /></a></p><br /><br />
 
           </div>
         </td>
