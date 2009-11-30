@@ -59,7 +59,8 @@
             <a href="/longcontest/?module=ViewActiveContests">Active Contests</a>
 		</p>
         
-        <span class="bigTitle">Overview</span>
+        <span class="bigTitle">The National Security Agency</span><br />
+        <p><span class="bodySubtitle">Where Intelligence Goes to Work</span><br />
 
         <p>
 <object width="560" height="340"><param name="movie" value="http://www.youtube.com/v/Ini5TKBFL9U&hl=en_US&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/Ini5TKBFL9U&hl=en_US&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="560" height="340"></embed></object>         </p>
@@ -67,7 +68,7 @@
 		<p>If you want to work on interesting projects that challenge your mind and really make a difference, a career at the National Security Agency (NSA) is for you. At NSA, you can use your intelligence to gather and analyze foreign signals, protect U.S. information systems, or solve a number of other challenges not found anywhere else. We offer a wide variety of career opportunities for entry-level graduates and professionals, as well as internships and scholarships. But no matter which career path you choose at NSA, you can help to protect our country and its citizens.</p>
         <p>NSA is the world leader in the protection and exploitation of intelligence. We gather and analyze foreign signals intelligence to produce vital information for U.S. policymakers and warfighters. And we protect American intelligence from the ever-listening ears of our adversaries, giving our Nation a decisive edge.</p>
         <p>NSA conducts one of the U.S. Government's leading research and development programs. We are also the largest employer of Mathematicians in the country, as well as one of the most important centers of foreign language analysis and research.</p>
-        <p>NSA and see how you can put your intelligence to work for the world's technology leader and top cryptologic organization.</p>
+        <p>Explore NSA and see how you can put your intelligence to work for the world's technology leader and top cryptologic organization. </p>
 
         <p><span class="bodySubtitle">Career Opportunities</span><br />
 		NSA has exciting career opportunities available in the following fields:</p>

@@ -99,9 +99,9 @@
                 </tr>
                 <tr class="light">
                     <td class="value">Competition 1</td>
-                    <td class="value C">November 30, 2009<br />
+                    <td class="value C">December 2, 2009<br />
                     13:00 GMC/UTC -5</td>
-                    <td class="value R"><span class="value C">December 14, 2009<br />
+                    <td class="value R"><span class="value C">December 16, 2009<br />
 					13:00 GMC/UTC -5</span></td>
               </tr>
                <tr class="dark">
