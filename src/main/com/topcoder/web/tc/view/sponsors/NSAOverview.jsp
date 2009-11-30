@@ -84,7 +84,7 @@
         	<li>And Others</li>
           </ul>
 			<p>You'll enjoy an incredible benefits package, flexible schedules, and the satisfaction of making the world a safer place.</p>
-			<p>Be part of a team like no other <a href="<tc-webtag:linkTracking link='http://www.NSA.gov/Careers' refer='tc-sponsor' />">www.NSA.gov/Careers</a></p>
+			<p>Be part of a team like no other. Visit <a href="<tc-webtag:linkTracking link='http://www.NSA.gov/Careers' refer='tc-sponsor' />">www.NSA.gov/Careers</a>.</p>
 			<p>U.S. citizenship is required. NSA is an Equal Opportunity Employer. </p>
 
             <p> <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=NSAOverview-confirm"><img src="/i/sponsor/apply_now_btn.png" border="0px" alt="Apply to NSA now!" /></a></p><br /><br />
