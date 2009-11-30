@@ -84,11 +84,13 @@
         	<li>And Others</li>
           </ul>
 			<p>You'll enjoy an incredible benefits package, flexible schedules, and the satisfaction of making the world a safer place.</p>
-			<p>Be part of a team like no other. Apply to NSA at www.NSA.gov/Careers.</p>
+			<p>Be part of a team like no other <a href="<tc-webtag:linkTracking link='http://www.NSA.gov/Careers' refer='tc-sponsor' />">www.NSA.gov/Careers</a></p>
 			<p>U.S. citizenship is required. NSA is an Equal Opportunity Employer. </p>
 
+            <p>By clicking on the link below, you will be releasing your TopCoder contact and statistical information to NSA and you will be giving NSA permission to contact you about their current job opportunities.</p>
+            <p><a href="http://www.topcoder.com/tc?module=JobHit&jid=488&jt=1">Submit your information to NSA</a>.</p><br /><br />
 
-            </div>
+          </div>
         </td>
 <%-- Center Column Ends --%>
        
