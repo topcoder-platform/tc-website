@@ -217,6 +217,14 @@ public class ResultSetContainerConverter {
 
     }
 
+    /**
+     * Wraps the provided encoded JSON string with a callback function, to support JSONP.  If the callback
+     * is null, the JSON string is returned unmodified.
+     * 
+     * @param jsonData an encoded JSON string.
+     * @param callback the name of the callback function, or <code>null</code> if no wrapping is desired.
+     * @return the provided JSON string, wrapped in the callback function if one is provided.
+     */
     private static String jsonpWrapIfCallbackDefined(String jsonData, String callback) {
     	if (callback != null) {
 			StringBuffer sb = new StringBuffer(jsonData.length() + callback.length() + 3);
