@@ -39,7 +39,7 @@
 
     <%-- jobs_header begin --%>
     <div id="jobs_header">
-        <h1><a onfocus="this.blur();" href="/tc?module=Static&amp;d1=about&amp;d2=jobs" name="jobs_top">Press Room</a></h1>
+        <h1><a onFocus="this.blur();" href="/tc?module=Static&amp;d1=about&amp;d2=jobs" name="jobs_top">Press Room</a></h1>
     </div>
     <%-- jobs_header end --%>
     
@@ -98,6 +98,19 @@
                Software Application Architect end --%>
                 
                 <%-- Salesperson begin --%>
+                <div class="jobs_newsitem">
+                    <div class="jobs_img">
+                        &nbsp;
+                    </div>
+                    <div class="jobs_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=about&amp;d2=platform_manager">Platform Manager</a></h3>
+                        <p>We are now looking for indivduals that will work closely with our enterprise customers to explore and indetify business needs... <small><a href="/tc?module=Static&amp;d1=about&amp;d2=platform_manager">[read full description]</a></small></p>
+                    </div>
+                    <div class="jobs_imgR">
+                        <a href="/tc?module=Static&amp;d1=about&amp;d2=platform_manager"><img src="/i/about/jobs/arrow.png" alt="arrow" border="0" /></a>
+                    </div>
+                    <div class="jobs_clear"></div>
+                </div>
                 <div class="jobs_newsitem">
                     <div class="jobs_img">
                         &nbsp;
