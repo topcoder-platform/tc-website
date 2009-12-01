@@ -104,7 +104,7 @@
                     </div>
                     <div class="jobs_headlines">
                         <h3><a href="/tc?module=Static&amp;d1=about&amp;d2=platform_manager">Platform Manager</a></h3>
-                        <p>We are now looking for indivduals that will work closely with our enterprise customers to explore and indetify business needs... <small><a href="/tc?module=Static&amp;d1=about&amp;d2=platform_manager">[read full description]</a></small></p>
+                        <p>We are now looking for individuals that will work closely with our enterprise customers to explore and indentify business needs... <small><a href="/tc?module=Static&amp;d1=about&amp;d2=platform_manager">[read full description]</a></small></p>
                     </div>
                     <div class="jobs_imgR">
                         <a href="/tc?module=Static&amp;d1=about&amp;d2=platform_manager"><img src="/i/about/jobs/arrow.png" alt="arrow" border="0" /></a>
