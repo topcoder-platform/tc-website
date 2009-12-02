@@ -121,7 +121,7 @@
                         </ul>
 
                         
-                        <p>TopCoder is passionate about innovation and building long lasting relationships with companies interested in finding 'a better way' to do things.  To start or continue a management career in a forward-thinking environment that offers a lucrative compensation structure focused on performance including a corporate benefits package, <a href="mailto:kstanulis@topcoder.com, gtsipolitis@topcoder.com?subject=Platform Manager">apply for this job<a/>.</p>
+                        <p>TopCoder is passionate about innovation and building long lasting relationships with companies interested in finding 'a better way' to do things.  To start or continue a management career in a forward-thinking environment that offers a lucrative compensation structure focused on performance including a corporate benefits package,  <a href="mailto:jobs@topcoder.com?subject=Platform Manager">apply for this job<a/>.</p>
                         <%--
                         <strong>Salary: </strong>
                         <ul>
