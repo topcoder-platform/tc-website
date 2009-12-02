@@ -94,7 +94,7 @@
                                     <c:choose>
                                         <c:when test="${mmRoundType==contest.roundTypeId}">
                                             <a href="/tc?module=MatchDetails&amp;<%=Constants.ROUND_ID%>=${contest.roundID}" >
-                                                <mm:contest roundTypeId="${contest.roundTypeId}" contestName="${contest.contestName}" roundName="${contest.roundName}" />
+                                                <mm:contest roundTypeId="${contest.roundTypeId}" contestName="${contest.contestName} - ${contest.roundName}" roundName="${contest.roundName}" />
                                             </a>
                                         </c:when>
                                         <c:otherwise>
