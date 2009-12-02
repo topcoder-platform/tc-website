@@ -44,7 +44,7 @@
             <a href="/tc?module=Static&amp;d1=sponsors&amp;d2=NSARules">Rules</a>&#160;&#160;|&#160;&#160;
             <a href="/longcontest/?module=ViewActiveContests">Active Contests</a>
         </p>
-        
+        <br /><br />
         <p><span class="bigTitle">How To Compete</span></p>
         
         <p><span class="bodySubtitle">Registration</span><br />

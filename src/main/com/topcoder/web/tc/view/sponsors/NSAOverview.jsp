@@ -57,7 +57,7 @@
 			<a href="/tc?module=Static&amp;d1=sponsors&amp;d2=NSARules">Rules</a>&#160;&#160;|&#160;&#160;
             <a href="/longcontest/?module=ViewActiveContests">Active Contests</a>
 		</p>
-        
+        <br /><br />
         <span class="bigTitle">The National Security Agency</span><br />
         <p><span class="bodySubtitle">Where Intelligence Goes to Work</span><br />
 

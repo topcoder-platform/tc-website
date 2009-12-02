@@ -43,7 +43,7 @@
             Rules&#160;&#160;|&#160;&#160;
             <a href="/longcontest/?module=ViewActiveContests">Active Contests</a>
         </p>
-        
+        <br /><br />
         <p><span class="bigTitle">Official Rules &amp; Regulations</span></p>
         
         <p>No purchase necessary to enter or win. Void where prohibited.</p>
