@@ -30,7 +30,9 @@
 
 <%-- REMIX --%>
 <br />
-<a href="<tc-webtag:linkTracking link='http://www.topcoder.com/remix' refer='/tc' />"><img src="/images/remix/remix-510.jpg" alt="REMIX Challenge" /></a><br /><br />
+<a href="<tc-webtag:linkTracking link='http://www.topcoder.com/tc?module=Static&d1=sponsors&d2=NSAOverview' refer='/tc' />"><img src="/i/sponsor/nsa/NSA-long.png" alt="NSA Mission Impact Marathon Match 1 " /></a>
+<%--<a href="<tc-webtag:linkTracking link='http://www.topcoder.com/remix' refer='/tc' />"><img src="/images/remix/remix-510.jpg" alt="REMIX Challenge" /></a> --%>
+<br /><br />
 <object id="NASA-Frontier" width="510" height="155" align="middle" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0">
 	<param name="allowScriptAccess" value="sameDomain" />
 	<param name="movie" value="/i/sponsor/nasa/NASA-Frontier.swf" />
