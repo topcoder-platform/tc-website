@@ -38,29 +38,93 @@
         <jsp:param name="title" value="Powered by TopCoder"/>
     </jsp:include>
 
-<%-- Current Tournaments begins
+<%-- Current Tournaments begins  --%>
 
          <div class="sectionHeader">Current Tournaments</div>
            <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274" rowspan="2"><A href="<tc-webtag:linkTracking link='/tco09' refer='pbtc page' />" target="_blank"><img src="/i/tournament/tco09/tco09logo.png" alt="2009 TopCoder Open" border="0" hspace="30" /></A></td>
+                    <td width="274" rowspan="2"><A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=sponsors&d2=NVIDIAOverview' refer='pbtc page' />" target="_blank"><img src="/i/events/nvidia_logo-sm.jpg" alt="NVIDIA CUDA Superhero Challenge" border="0" hspace="30" /></A></td>
                     <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
-                    <td width="99%" class="bodyText"><font size="3"><strong>2009 TopCoder Open</strong></font></td>
+                    <td width="99%" class="bodyText"><font size="3"><strong>NVIDIA CUDA Superhero Challenge</strong></font></td>
+                </tr>
+                <tr valign="top">
+                    <td class="bodyText">
+                        September - December 2009 <br />
+                        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=sponsors&d2=NVIDIAOverview' refer='pbtc page' />" target="_blank">Summary</A>
+                    </td>
+                </tr>
+            </table>
+            
+           <hr width="100%" size="1" noshade="noshade" />
+
+           <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274" rowspan="2"><A href="<tc-webtag:linkTracking link='http://topcoder.com/home/remixchallenge/' refer='pbtc page' />" target="_blank"><img src="/i/events/bby-remix-logo.png" alt="Best Buy REMIX Challenge" border="0" hspace="30" /></A></td>
+                    <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText"><font size="3"><strong>Best Buy REMIX Challenge </strong></font></td>
                 </tr>
                 <tr valign="top">
                     <td class="bodyText">
                         2009<br />
-                        <A href="<tc-webtag:linkTracking link='/tco09' refer='pbtc page' />" target="_blank">Summary</A>
+                        <A href="<tc-webtag:linkTracking link='http://topcoder.com/home/remixchallenge/' refer='pbtc page' />" target="_blank">Summary</A>
                     </td>
                 </tr>
             </table>
-           <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/> --%>
+           <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
 
 <%-- Past Tournaments begins --%>
 
          <div class="sectionHeader" width="100%">Past Tournaments</div>
          
+           <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274" rowspan="2"><A href="<tc-webtag:linkTracking link='http://killerappchallenge.ribbit.com/' refer='pbtc page' />" target="_blank"><img src="/i/events/ribbit-killer-app-logo.png" alt="Ribbit Killer App Challenge" border="0" /></A></td>
+                    <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText"><font size="3"><strong>Ribbit Killer App Challenge </strong></font></td>
+             </tr>
+                <tr valign="top">
+                    <td class="bodyText">
+                        11/17/2008 - 3/12/2009 <br />
+                        <A href="<tc-webtag:linkTracking link='http://killerappchallenge.ribbit.com/' refer='pbtc page' />" target="_blank">Summary</A>
+                    </td>
+                </tr>
+            </table>
+           
+           <hr width="100%" size="1" noshade="noshade" />
+           
+           <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274" rowspan="2"><A href="<tc-webtag:linkTracking link='http://sensations.aol.com/' refer='pbtc page' />" target="_blank"><img src="/i/events/aol-sensations-logo.png" alt="AOL/TopCoder Sensations Developer Challenge" border="0" /></A></td>
+                    <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText"><font size="3"><strong>AOL/TopCoder Sensations Developer Challenge </strong></font></td>
+             </tr>
+                <tr valign="top">
+                    <td class="bodyText">
+                        January 2009 - June 2009 <br />
+                        <A href="<tc-webtag:linkTracking link='http://sensations.aol.com/' refer='pbtc page' />" target="_blank">Summary</A>
+                    </td>
+                </tr>
+            </table>
+           
+           <hr width="100%" size="1" noshade="noshade" />
+           
+           <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274" rowspan="2"><A href="<tc-webtag:linkTracking link='http://winningformula.espn.com/?module=ViewStandings' refer='pbtc page' />" target="_blank"><img src="/i/events/espn-winning-formula-logo.png" alt="ESPN Winning Formula Challenge" border="0" /></A></td>
+                    <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText"><font size="3"><strong>ESPN Winning Formula Challenge</strong></font></td>
+             </tr>
+                <tr valign="top">
+                    <td class="bodyText">
+                        July - December 2008 <br />
+                        <A href="<tc-webtag:linkTracking link='http://winningformula.espn.com/?module=ViewStandings' refer='pbtc page' />" target="_blank">Summary</A>
+                    </td>
+                </tr>
+            </table>
+           
+           <hr width="100%" size="1" noshade="noshade" />
+           
            <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274" rowspan="2"><A href="<tc-webtag:linkTracking link='/threadfest' refer='pbtc page' />" target="_blank"><img src="/i/events/amdMCT_logo.png" alt="AMD Multicore Threadfest" border="0" /></A></td>
@@ -95,7 +159,7 @@
                 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                <tr valign="top">
-                   <td width="274" rowspan="2"><A href="<tc-webtag:linkTracking link='/openaim/' refer='pbtc page' />" target="_blank"><img src="/i/events/openaim_logo.png" alt="Open Aim Developer Challenge" border="0" /></A></td>
+                   <td width="274" rowspan="2"><A href="<tc-webtag:linkTracking link='/openaim/' refer='pbtc page' />" target="_blank"><img src="/i/events/openaim.jpg" alt="Open Aim Developer Challenge" border="0" /></A></td>
                    <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                    <td width="99%" class="bodyText"><font size="3"><strong>Open AIM Developer Challenge</strong></font></td>
                </tr>
