@@ -15,7 +15,13 @@
 	
 	long[] eligibilityRounds = {13754, 13772, 13793, 13796, 13797, 13798, 13799, 13800, 13801, 13934, 13953, 13992};
 	Arrays.sort(eligibilityRounds);
-
+	
+	long[] nsaRounds = {14176};
+	Arrays.sort(nsaRounds);
+	
+	long[] assignRounds = {13953,13934,13754,13772,13569,13570,13679,13680,13681};
+	Arrays.sort(assignRounds);
+	
 %>
 <c:set var="row" value="<%=rsr%>" />
 
@@ -399,7 +405,7 @@
             rank and overall score will not be updated.
         </p>
 
-        <%if(rsr.getIntItem("round_id") == 10834) {%>
+    <%if(rsr.getIntItem("round_id") == 10834) {%>
         <div class="sectionHeader">Prizes</div>
         <p align="justify">
         There will be $5000 in total prize money. The first and second highest 
@@ -413,67 +419,95 @@
         the Quebec province of Canada, or anywhere else where this contest is 
         prohibited by applicable law.
         </p>
-        <%}%>        
+    <%}%>
+	
     <%if(rsr.getIntItem("round_id") == 13953 || rsr.getIntItem("round_id") == 13934 || rsr.getIntItem("round_id") == 13754  || rsr.getIntItem("round_id") == 13569 || 
 	  rsr.getIntItem("round_id") == 13570 || rsr.getIntItem("round_id") == 13679 ||  rsr.getIntItem("round_id") == 13680 || rsr.getIntItem("round_id") == 13681 ) {%>
-    <div class="sectionHeader">Prizes</div>
-    <p align="justify">There will be $5000 in total prize money.  The 5 highest scorers in the round will receive prizes as follows:</p>
+		<div class="sectionHeader">Prizes</div>
+		<p align="justify">There will be up to $5000 in total prize money awarded to the five(5) highest scoring participating members. </p>
 
-    <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
-    <tr>
-        <td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right">$2500</td>
-    </tr>
-    <tr>
-        <td class="bodyText" nowrap="nowrap">2nd</td><td class="bodyText" align="right">$1000</td>
-    </tr>
-    <tr>
-        <td class="bodyText" nowrap="nowrap">3rd</td><td class="bodyText" align="right">$750</td>
-    </tr>
-    <tr>
-        <td class="bodyText" nowrap="nowrap">4th</td><td class="bodyText" align="right">$500</td>
-    </tr>
-    <tr>
-        <td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$250</td>
-    </tr>
-    </table>
+		<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
+		<tr>
+			<td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right">$2500</td>
+		</tr>
+		<tr>
+			<td class="bodyText" nowrap="nowrap">2nd</td><td class="bodyText" align="right">$1000</td>
+		</tr>
+		<tr>
+			<td class="bodyText" nowrap="nowrap">3rd</td><td class="bodyText" align="right">$750</td>
+		</tr>
+		<tr>
+			<td class="bodyText" nowrap="nowrap">4th</td><td class="bodyText" align="right">$500</td>
+		</tr>
+		<tr>
+			<td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$250</td>
+		</tr>
+		</table>
     <%}%>
 
     <%if(rsr.getIntItem("round_id") == 13772 ) {%>
-    <div class="sectionHeader">Prizes</div>
-    <p align="justify">There will be $10,000 in total prize money.  The 5 highest scorers in the round will receive prizes as follows:</p>
+		<div class="sectionHeader">Prizes</div>
+		<p align="justify">There will be $10,000 in total prize money.  The 5 highest scorers in the round will receive prizes as follows:</p>
 
-    <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
-    <tr>
-        <td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right">$5,000</td>
-    </tr>
-    <tr>
-        <td class="bodyText" nowrap="nowrap">2nd</td><td class="bodyText" align="right">$2,000</td>
-    </tr>
-    <tr>
-        <td class="bodyText" nowrap="nowrap">3rd</td><td class="bodyText" align="right">$1,500</td>
-    </tr>
-    <tr>
-        <td class="bodyText" nowrap="nowrap">4th</td><td class="bodyText" align="right">$1,000</td>
-    </tr>
-    <tr>
-        <td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$500</td>
-    </tr>
-    </table>
+		<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
+		<tr>
+			<td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right">$5,000</td>
+		</tr>
+		<tr>
+			<td class="bodyText" nowrap="nowrap">2nd</td><td class="bodyText" align="right">$2,000</td>
+		</tr>
+		<tr>
+			<td class="bodyText" nowrap="nowrap">3rd</td><td class="bodyText" align="right">$1,500</td>
+		</tr>
+		<tr>
+			<td class="bodyText" nowrap="nowrap">4th</td><td class="bodyText" align="right">$1,000</td>
+		</tr>
+		<tr>
+			<td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$500</td>
+		</tr>
+		</table>
     <%}%>
+	
+	<% if (Arrays.binarySearch(nsaRounds, round_id)>=0) { %>
+	
+		<div class="sectionHeader">Prizes</div>
+		<p align="justify">
+			There will be up to $3000 in total prize money awarded to the five (5) highest scoring members who
+			are citizens of the United States.
+		</p>
+
+		<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
+		<tr>
+			<td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right">$1500</td>
+		</tr>
+		<tr>
+			<td class="bodyText" nowrap="nowrap">2nd</td><td class="bodyText" align="right">$750</td>
+		</tr>
+		<tr>
+			<td class="bodyText" nowrap="nowrap">3rd</td><td class="bodyText" align="right">$400</td>
+		</tr>
+		<tr>
+			<td class="bodyText" nowrap="nowrap">4th</td><td class="bodyText" align="right">$250</td>
+		</tr>
+		<tr>
+			<td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$100</td>
+		</tr>
+		</table>
+	
+	<% } %>
 
     <p align="justify">
        
     </p>
 
-        <div class="sectionHeader">Conditions of Participation</div>
+    <div class="sectionHeader">Conditions of Participation</div>
 
-        <p align="justify">
+    <p align="justify">
         By participating in the competition round, you agree to be bound by these rules and to all decisions
-        of TopCoder,
-        which are final, binding and conclusive in all matters.
-        </p>
+        of TopCoder, which are final, binding and conclusive in all matters.
+    </p>
 
-        <%if(rsr.getIntItem("round_id") == 10834) {%>
+    <%if(rsr.getIntItem("round_id") == 10834) {%>
         <p align="justify">
             By participating in this Competition, you agree to license any code you 
             submit in this Competition under the GNU General Public License as 
@@ -482,113 +516,154 @@
             of the license may be found at 
             <a href="http://www.opensource.org/licenses/gpl-license.php">http://www.opensource.org/licenses/gpl-license.php</a>.
         </p>
-        <%}%>
+    <%}%>
     
     <%if(rsr.getIntItem("round_id") == 13772 || rsr.getIntItem("round_id") == 13754  || rsr.getIntItem("round_id") == 13569 || rsr.getIntItem("round_id") == 13570 || 
 	     rsr.getIntItem("round_id") == 13679 ||  rsr.getIntItem("round_id") == 13680 || rsr.getIntItem("round_id") == 13681 || rsr.getIntItem("round_id") == 13934 ||
-		 rsr.getIntItem("round_id") == 13953) {%>
-    <p align="justify">
-    Competitors must not cheat; all ideas for any code submitted must be the contestants alone. Competitors must use their own independently developed code, and shall not copy or include code from any other party, including publicly available "open source" code that is or may be subject to licensing restrictions.
-    </p>
+		 rsr.getIntItem("round_id") == 13953 || rsr.getIntItem("round_id") == 14000) {%>
+		<p align="justify">
+			Competitors must not cheat; all ideas for any code submitted must be the contestants alone. Competitors must use their own 
+			independently developed code, and shall not copy or include code from any other party, including publicly available "open source" 
+			code that is or may be subject to licensing restrictions.
+		</p>
     <%} else { %>
         <p align="justify">
-        Contestants must not cheat; all ideas for any code submitted must be the contestants alone.
+			Contestants must not cheat; all ideas for any code submitted must be the contestants alone.
         </p>
     <% } %>
 
-        <p align="justify">
-        The winner in each Marathon Match will be the competitor that scores the most points across all 
-        competitors who participate in that match. All decisions relating to the viability of submissions, 
-        the ranking of submissions and all other matters pertaining to the competition shall be within 
-        the sole discretion of TopCoder or its designee and shall be final and binding in all respects.
-        </p>
+     <p align="justify">		
+		The winner of the competition will be the competitor that scores the most points across all competitors 
+		who participate. All decisions relating to the viability of submissions, the ranking of submissions and 
+		all other matters pertaining to the competition shall be within the sole discretion of TopCoder or its 
+		designee and shall be final and binding in all respects.
+     </p>
 
-        <p align="justify">
+     <p align="justify">
         By participating in a Marathon Match, a winner releases and agrees to hold harmless TopCoder, 
         its affiliates, subsidiaries, sponsors, advertising and promotion agencies, and prize suppliers, 
         and all of their respective directors, officers, employees, representatives and agents, from and 
         against any and all liability for any loss, property damage or damage to person, including without 
         limitation, death and injury, due in whole or in part, directly or indirectly, from or arising out 
-        of participation in this Marathon Match, or participation in any competition-related activity, or 
+        of participation in this competition, or participation in any competition-related activity, or 
         the receipt, use or misuse of a prize.
-        </p>
+     </p>
 
-        <p align="justify">
+     <p align="justify">
         TopCoder, in its sole discretion, reserves the right to disqualify any person tampering with 
         the entry process, the operation of the Web site, the competition process, or is otherwise 
         in violation of the rules. TopCoder reserves the right to cancel, terminate or modify the 
         competition if it is not capable of completion as planned for any reason, including infection 
         by computer virus, bugs, tampering, unauthorized intervention or technical failures of any sort.
-        </p>
+     </p>
         
-        <p align="justify">
-          <%if(rsr.getIntItem("round_id") == 13754 || rsr.getIntItem("round_id") == 13772 || rsr.getIntItem("round_id") == 13934 || rsr.getIntItem("round_id") == 13953) {%>
-
+     <p align="justify">
+	 
+		<% if (Arrays.binarySearch(assignRounds, round_id)>=0) { %>
+		
 			As a condition of winning and redeeming a cash prize, Competitors will be required to submit, 
 			among other things, a completed TopCoder Competition Assignment Agreement, 
 			if one is not already on file with TopCoder and a one-page description explaining how the algorithm for the winning submission works.
 
-			<%} else { %>
+		<%} else { %>
 
-            TopCoder does not require assignment of winning submissions in this competition.
+			TopCoder does not require assignment of winning submissions in this competition.
 
-			<%}%>
+		<%}%>
 
-        </p>
+     </p>
 
-        <div class="sectionHeader">Eligibility</div>
+    <div class="sectionHeader">Eligibility</div>
 
     <%if(rsr.getIntItem("round_id") == 13754  || rsr.getIntItem("round_id") == 13934 || rsr.getIntItem("round_id") == 13772 || rsr.getIntItem("round_id") == 13569 || rsr.getIntItem("round_id") == 13570 || rsr.getIntItem("round_id") == 13679 ||  rsr.getIntItem("round_id") == 13680 || rsr.getIntItem("round_id") == 13681) {%>
-    <p align="justify">
-    The competition is open to all members who are at least 18 years of age. Competitors must be either (i) a U.S. citizen, (ii) a lawful permanent resident of the U.S., (iii) a temporary resident, asylee, refugee of the U.S., or have a lawfully issued work authorization card permitting unrestricted employment in the U.S., or (iv) a non-U.S. resident authorized to perform services as an independent contractor.
-    </p>
-    <p align="justify">
-    To be eligible for this competition, you must not be a resident of the Quebec province of Canada, Iran, Cuba, North Korea, Sudan or Syria. In addition, you are not eligible for this Competition if you are on the Specially Designated National list promulgated and amended, from time to time, by the United States Department of the Treasury.
-    </p>
+
+		<p align="justify">
+			The competition is open to all members who are at least 18 years of age. Competitors must be either (i) a U.S. citizen, (ii) a lawful permanent 
+			resident of the U.S., (iii) a temporary resident, asylee, refugee of the U.S., or have a lawfully issued work authorization card permitting 
+			unrestricted employment in the U.S., or (iv) a non-U.S. resident authorized to perform services as an independent contractor.
+		</p>
+		<p align="justify">
+			To be eligible for this competition, you must not be a resident of the Quebec province of Canada, Iran, Cuba, North Korea, Sudan or Syria. In addition, you are not eligible for this Competition if you are on the Specially Designated National list promulgated and amended, from time to time, by the United States Department of the Treasury.
+		</p>
+		
+	<%} else if (Arrays.binarySearch(nsaRounds, round_id)>=0) { %>
+	
+		<p align="justify">
+			The competition is open to all members who are at least 18 years of age who are U.S. citizens.
+		</p>
+		<p align="justify">
+			You are not eligible for this Competition if you are on the Specially Designated National list promulgated and 
+			amended, from time to time, by the United States Department of the Treasury. 
+		</p>
+		
     <%} else { %>
+	
         <p align="justify">
-        The competition is open to all members who are at least 13 years of age.
+			The competition is open to all members who are at least 13 years of age.
         </p>
+		
     <%}%>
-        <p align="justify">
-        All competitors must be registered members of TopCoder, and must have agreed to the rules on this
-        page prior to
-        participating in this competition between the
-        <rsc:item name="coding_start_time" row="<%=rsr%>" format="MM.dd.yyyy hh:mm a z"/>
-        to
-        <rsc:item name="coding_end_time" row="<%=rsr%>" format="MM.dd.yyyy hh:mm a z"/>
-        competition submission deadline.
-        </p>
-
-    <%if(rsr.getIntItem("round_id") == 13754  || rsr.getIntItem("round_id") == 13772 || rsr.getIntItem("round_id") == 13569 || rsr.getIntItem("round_id") == 13570 || rsr.getIntItem("round_id") == 13679 ||  rsr.getIntItem("round_id") == 13680 || rsr.getIntItem("round_id") == 13681) {%>
+	
     <p align="justify">
-    Competitors must abide by the Terms of Use of TopCoders website at www.topcoder.com.
+        All competitors must be registered members of TopCoder, and must have agreed to the rules on this page prior to
+        participating in this competition.
     </p>
-    <%}%>
 
-        <p align="justify">
+    <p align="justify">
         Employees of TopCoder and those involved in the development, production (including 
-        prize suppliers and sponsors), implementation and distribution of this tournament 
+        prize suppliers and sponsors), implementation and distribution of this competition 
         and their advertising or promotion agencies, parent companies, service providers, 
         agents, officers, subsidiaries or affiliates, or any other persons or entities 
         directly associated with the competition and members of the immediate families 
         and/or persons living in the same household as such persons, are ineligible to 
         enter the competition. 
-        </p>
+    </p>
 
-    <%if(rsr.getIntItem("round_id") == 13953 || rsr.getIntItem("round_id") == 13934 || rsr.getIntItem("round_id") == 13754  || rsr.getIntItem("round_id") == 13772 || rsr.getIntItem("round_id") == 13569 || 
-	  rsr.getIntItem("round_id") == 13570 || rsr.getIntItem("round_id") == 13679 ||  rsr.getIntItem("round_id") == 13680 || 
-	  rsr.getIntItem("round_id") == 13681) {%>
-	  
+
     <div class="sectionHeader">Ownership and Rights</div>
+    
+	<% if (Arrays.binarySearch(assignRounds, round_id)>=0) { %>
+		
+		<p align="justify">
+			You hereby acknowledge and agree that TopCoder owns, solely and exclusively, all right, title and interest, including all intellectual property 
+			rights, in and to the information posted on TopCoders website(s). If TopCoder compensates you for your submission, then you agree to irrevocably 
+			and unconditionally transfer and assign to TopCoder all right, title and interest you have, may have or acquire in, such submission, and you agree 
+			to execute and deliver such documents, certificates, assignments and other writings, and take such other actions as may be necessary or desirable to 
+			vest in TopCoder the ownership rights granted to TopCoder hereunder. If TopCoder does not compensate you for your submission, then you retain any and 
+			all rights to ownership of such material submitted to TopCoder. TopCoder will not gain ownership of this material. However, by submitting any submission 
+			or any other material to TopCoder, you hereby grant a perpetual, royalty-free, irrevocable, non-exclusive right and license to TopCoder to use, reproduce 
+			and publish such documents, materials or source code for commercial and/or non-commercial use. 
+		</p>
+		<p align="justify">
+			You further agree that any and all works of authorship created, authored or developed by you hereunder which TopCoder compensates you for shall be deemed 
+			to be "works made for hire" within the meaning of the United States Copyright Law and, as such, all rights therein including copyright shall belong solely 
+			and exclusively to TopCoder from the time of their creation. To the extent any such work of authorship may not be deemed to be a work made for hire, you 
+			agree to, and do hereby, irrevocably and unconditionally transfer and assign to TopCoder all right, title and interest including copyright in and to such work. 
+		</p>
+
+	<%} else { %>
+
+		<p align="justify">
+			You retain any and all rights to ownership of your submissions submitted to TopCoder. 
+			TopCoder will not gain ownership of this material. However, by submitting any submission 
+			or any other material to TopCoder, you hereby grant a perpetual, royalty-free, irrevocable, non-exclusive right and license to TopCoder to use, reproduce 
+			and publish such documents, materials or source code for commercial and/or non-commercial use. 
+		</p>
+		
+	<%}%>
+	
     <p align="justify">
-    You hereby acknowledge and agree that TopCoder owns, solely and exclusively, all right, title and interest, including all intellectual property rights, in and to the information posted on TopCoders website(s). If TopCoder compensates you for your submission, then you agree to irrevocably and unconditionally transfer and assign to TopCoder all right, title and interest you have, may have or acquire in, such submission, and you agree to execute and deliver such documents, certificates, assignments and other writings, and take such other actions as may be necessary or desirable to vest in TopCoder the ownership rights granted to TopCoder hereunder. If TopCoder does not compensate you for your submission, then you retain any and all rights to ownership of such material submitted to TopCoder. TopCoder will not gain ownership of this material. However, by submitting any submission or any other material to TopCoder, you hereby grant a perpetual, royalty-free, irrevocable, non-exclusive right and license to TopCoder to use, reproduce and publish such documents, materials or source code for commercial and/or non-commercial use. 
+		You agree that if TopCoder is unable because of your unavailability, or for any other reason, to secure your signature to apply for or to pursue 
+		any application for any United States or foreign patents, mask work, copyright or trademark registrations covering the assignments to TopCoder 
+		above, then you hereby irrevocably designate and appoint TopCoder and its duly authorized officers and agents as your agent and attorney in fact, 
+		to act for and in your behalf and stead to execute and file any such applications and to do all other lawfully permitted acts to further the 
+		prosecution and issuance of patents, copyright, mask work and trademark registrations thereon with the same legal force and effect as if executed 
+		by your authorized agent. 
     </p>
-    <p align="justify">You further agree that any and all works of authorship created, authored or developed by you hereunder which TopCoder compensates you for shall be deemed to be "works made for hire" within the meaning of the United States Copyright Law and, as such, all rights therein including copyright shall belong solely and exclusively to TopCoder from the time of their creation. To the extent any such work of authorship may not be deemed to be a work made for hire, you agree to, and do hereby, irrevocably and unconditionally transfer and assign to TopCoder all right, title and interest including copyright in and to such work. 
-    </p>
-    <p align="justify">You agree that if TopCoder is unable because of your unavailability, or for any other reason, to secure your signature to apply for or to pursue any application for any United States or foreign patents, mask work, copyright or trademark registrations covering the assignments to TopCoder above, then you hereby irrevocably designate and appoint TopCoder and its duly authorized officers and agents as your agent and attorney in fact, to act for and in your behalf and stead to execute and file any such applications and to do all other lawfully permitted acts to further the prosecution and issuance of patents, copyright, mask work and trademark registrations thereon with the same legal force and effect as if executed by your authorized agent. 
-    </p>
-    <p align="justify">Nothing in these rules and regulations shall be construed as granting you any right or license under any intellectual property right of TopCoder (including any rights TopCoder may have in any patents, copyrights, trademarks, service marks or any trade secrets), by implication, estoppel or otherwise, except as expressly set forth herein. 
+    <p align="justify">
+		Nothing in these rules and regulations shall be construed as granting you any right or license under any intellectual property right of TopCoder 
+		(including any rights TopCoder may have in any patents, copyrights, trademarks, service marks or any trade secrets), by implication, estoppel 
+		or otherwise, except as expressly set forth herein. 
     </p>
 
     <div class="sectionHeader">Confidential Information</div>
@@ -615,51 +690,68 @@
 
     <div class="sectionHeader">Choice of Law and Forum</div>
 
-    <p align="justify">These Terms are governed by the laws of the Commonwealth of Massachusetts. You hereby agree to submit to the exclusive jurisdiction of the courts of the Commonwealth of Massachusetts. To the extent that applicable laws have mandatory application to these Terms or give you the right to bring action in any other courts, the above limitations may not apply to you. Use of TopCoders website(s) and participation in projects posted on TopCoders website(s) are unauthorized in any jurisdiction that does not give full effect to all provisions of these Terms. 
+    <p align="justify">
+		These Terms are governed by the laws of the State of Connecticut. You hereby agree to submit to the exclusive jurisdiction 
+		of the courts of the State of Connecticut. To the extent that applicable laws have mandatory application to these Terms or 
+		give you the right to bring action in any other courts, the above limitations may not apply to you. Use of TopCoders website(s) and 
+		participation in projects posted on TopCoders website(s) are unauthorized in any jurisdiction that does not give full effect to all 
+		provisions of these Terms. 
     </p>
 
     <div class="sectionHeader">Severability and Enforceability</div>
 
-    <p align="justify">If any provision or portion of these rules and regulations are held illegal, invalid, or unenforceable, in whole or in part, it shall be modified to the minimum extent necessary to correct any deficiencies or replaced with a provision which is as close as is legally permissible to the provision found invalid or unenforceable and shall not affect the legality, validity or enforceability of any other provisions or portions of these Terms. 
+    <p align="justify">
+		If any provision or portion of these rules and regulations are held illegal, invalid, or unenforceable, in whole or in part, 
+		it shall be modified to the minimum extent necessary to correct any deficiencies or replaced with a provision which is as close as 
+		is legally permissible to the provision found invalid or unenforceable and shall not affect the legality, validity or enforceability 
+		of any other provisions or portions of these Terms. 
     </p>
 
     <div class="sectionHeader">Termination/Exclusion</div>
 
-    <p align="justify">TopCoder reserves the right, in its sole discretion, to revoke any and all privileges associated with accessing and/or participating in the projects posted on its website(s), and to take any other action it deems appropriate including but not limited to terminating or suspending your use of www.topcoder.com and/or www.topcodersoftware.com for no reason or any reason whatsoever, including improper use of its website(s) or failure to comply with these Terms or the Terms of Use of TopCoders websites, which are incorporated herein by reference. 
+    <p align="justify">
+		TopCoder reserves the right, in its sole discretion, to revoke any and all privileges associated with accessing and/or 
+		participating in the projects posted on its website(s), and to take any other action it deems appropriate including but not 
+		limited to terminating or suspending your use of www.topcoder.com and/or www.topcodersoftware.com for no reason or any reason 
+		whatsoever, including improper use of its website(s) or failure to comply with these Terms or the Terms of Use of TopCoders websites, 
+		which are incorporated herein by reference. 
     </p>
-    <%}%>
+    
 
-        <div class="sectionHeader">Other</div>
+    <div class="sectionHeader">Other</div>
         
-        <p align="justify">
+    <p align="justify">
         The competition is void in whole or in part where prohibited by law. 
-        </p>
+    </p>
         
-        <p align="justify">
+    <p align="justify">
         A winners list of coder handles for all competitions will be available on the web site at http://www.topcoder.com
         displayed for at least 3 months after the end of the competition.
-        </p>
+    </p>
 
     <%if(rsr.getIntItem("round_id") == 13953 || rsr.getIntItem("round_id") == 13934 || rsr.getIntItem("round_id") == 13754  || rsr.getIntItem("round_id") == 13772 || rsr.getIntItem("round_id") == 13569 || rsr.getIntItem("round_id") == 13570 || rsr.getIntItem("round_id") == 13679 ||  
 	  rsr.getIntItem("round_id") == 13680 || rsr.getIntItem("round_id") == 13681) {%>
-    <p align="justify">TopCoder may assign, novate or subcontract any or all of its rights and obligations under these rules and regulations at any time.
-    </p>
+
+		<p align="justify">
+			TopCoder may assign, novate or subcontract any or all of its rights and obligations under these rules and regulations at any time.
+		</p>
+
     <%}%>
         
-        <p align="justify">
-        This tournament is brought to you by TopCoder, Inc., 95 Glastonbury Blvd, Glastonbury, CT 06033.
-        </p>
+    <p align="justify">
+        This competition is brought to you by TopCoder, Inc., 95 Glastonbury Blvd, Glastonbury, CT 06033.
+    </p>
 
     <p align="justify">
     If you have any questions regarding these Terms, contact us at <a href="mailto:service@topcoder.com">service@topcoder.com</a>
     </p>
 
-        <h2 align="center">
-            <a href="?<%=Constants.MODULE_KEY%>=MatchDetails&amp;<%=Constants.ROUND_ID%>=${row.map['round_id']}" class="bcLink">Back to Contest Details</a>
-        </h2>
+    <h2 align="center">
+        <a href="?<%=Constants.MODULE_KEY%>=MatchDetails&amp;<%=Constants.ROUND_ID%>=${row.map['round_id']}" class="bcLink">Back to Contest Details</a>
+    </h2>
 
-            </div>
-        </td>
+    </div>
+    </td>
 		
 		
 <%-- END OF THE EXPERIMENTAL RULES IF BLOCK --%>
