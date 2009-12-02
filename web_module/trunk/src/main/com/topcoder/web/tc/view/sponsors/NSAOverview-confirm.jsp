@@ -58,7 +58,7 @@
 			<a href="/tc?module=Static&amp;d1=sponsors&amp;d2=NSARules">Rules</a>&#160;&#160;|&#160;&#160;
             <a href="/longcontest/?module=ViewActiveContests">Active Contests</a>
 		</p>
-        
+        <br /><br />
         <span class="bigTitle">Working with NSA</span>
         <p>By clicking on the link below, you will be releasing your TopCoder contact and statistical information to NSA and you will be giving NSA permission to contact you about their current job opportunities.</p>
             <p><a href="http://www.topcoder.com/tc?module=JobHit&jid=488&jt=1">Submit your information to NSA</a>.</p><br /><br />

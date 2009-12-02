@@ -58,7 +58,7 @@
 			<a href="/tc?module=Static&amp;d1=sponsors&amp;d2=NSARules">Rules</a>&#160;&#160;|&#160;&#160;
             <a href="/longcontest/?module=ViewActiveContests">Active Contests</a>
 		</p>
-        
+        <br /><br />
         <span class="bigTitle">Working with NSA</span>
         <p>Your information has been received.</p>
             <p>You will be contacted by a recruiter if you meet NSA's requirements. Thank you.</p><br /><br />
