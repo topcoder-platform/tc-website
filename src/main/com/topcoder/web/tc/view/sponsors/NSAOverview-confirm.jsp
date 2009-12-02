@@ -36,9 +36,9 @@
         <td width="100%" align="center" class="bodyColumn">
             <div class="fixedWidthBody">
            
-        <div align="center"><img src="/i/sponsor/nsa/nsa_logo.jpg" border="0px" alt="NSA Logo" /></div>
-		
-        <br /><br />
+        <div align="center"><img src="/i/sponsor/nsa/nsa_logo.jpg" border="0px" alt="NSA Logo" /><br /><br />
+        	<h1>NSA Marathon Match Event</h1></div>
+
         
         
 		
