@@ -21,6 +21,9 @@
 	long[] eligibilityRounds = {13754, 13772, 13793, 13796, 13797, 13798, 13799, 13800, 13801, 13934, 13953, 13992};
 	Arrays.sort(eligibilityRounds);
 	
+	long[] nsaRounds = {14176};
+	Arrays.sort(nsaRounds);
+	
 
 %>
 <c:set var="row" value="<%=rsr%>" />
@@ -76,7 +79,20 @@
 	<div align="center">
 	<img src="http://www.topcoder.com/i/srm/srm_banner/nasa_banner.jpg" alt="Sponsor" border="0">
 	</div>
+	
+<%} else if (Arrays.binarySearch(nsaRounds, roundId)>=0) { %>
 
+	<%-- BRANDING --%>
+	<div align="center">
+	<h2>The NSA Marathon Match Event Series</h2>
+	</div>
+
+	<%-- BRANDING --%>
+	<div align="center">
+	<a href="http://www.topcoder.com/tc?module=LinkTracking&amp;link=http://www.topcoder.com/tc?module=Static%26d1=sponsors%26d2=NSAOverview&amp;refer=details">
+		<img src="http://www.topcoder.com/i/sponsor/nsa/mm-banner-NSA.png" alt="NSA Marathon Match Events" border="0">
+	</a>
+	</div>
 	
 <%} else { %>
 	<%-- BRANDING --%>
@@ -302,18 +318,20 @@ Please check out the rules link below for more detail.
 
 <%if(roundId == 13772 ) {%>
 <p align="justify">
-    Unlike traditional algorithm competitions, the system is not necessarily testing for correctness. 
-    In Marathon Matches, the scoring mechanism may be different for each problem. 
-    A description of the scoring mechanism will be provided in the problem statement. 
+    In TopCoder Marathon Match events, the system will be testing submissions for optimization according to the scoring criteria 
+    outlined in the problem statement that is associated with this event.	
+    Each event may have a different scoring mechanism. 
     Competitors will have to understand the scoring mechanism in order to effectively compete.  
+    <br>
     <b>Participants may submit code written in the following language: C++ </b>
 </p>
 <%} else { %>
 <p align="justify">
-    Unlike traditional algorithm competitions, the system is not necessarily testing for correctness. 
-    In Marathon Matches, the scoring mechanism may be different for each problem. 
-    A description of the scoring mechanism will be provided in the problem statement. 
-    Competitors will have to understand the scoring mechanism in order to effectively compete.  
+    In TopCoder Marathon Match events, the system will be testing submissions for optimization according to the scoring criteria 
+    outlined in the problem statement that is associated with this event.	
+    Each event may have a different scoring mechanism. 
+    Competitors will have to understand the scoring mechanism in order to effectively compete.   
+	<br>
     Participants may submit code written in one of the following languages: Java, C++, C#.NET, VB.NET, or Python. 
 </p>
 <% } %>
@@ -321,15 +339,18 @@ Please check out the rules link below for more detail.
 
 <p align="justify">
 <%if(roundId == 13953 ) {%>
-    Once the submission phase of a Marathon Match has ended, 
-    the final results will become available by clicking the Results link. 
-    Competitors will be able to see the test cases, other competitors' submissions, and results.
+    Once the submission phase of a Marathon Match has ended, final testing will run 
+	and may take several days to complete.  Upon completion of final testing, 
+    the final results will become available in the Marathon Match Archive on the web site. 
+    Competitors will be able to see the test case details, other competitors' submissions, and all final results.
+	<br>
     <b>Ratings will NOT be adjusted as a result of participation in this competition.</b>
 <%} else { %>
-    Once the submission phase of a Marathon Match has ended, 
-    the final results will become available by clicking the Results link. 
-    Competitors will be able to see the test cases, other competitors' submissions, and results.
-    Once the results are final, ratings will be adjusted.
+    Once the submission phase of a Marathon Match has ended, final testing will run 
+	and may take several days to complete.  Upon completion of final testing, 
+    the final results will become available in the Marathon Match Archive on the web site. 
+    Competitors will be able to see the test case details, other competitors' submissions, and all final results.
+    For rated events, the ratings will be adjusted once results are final.
 <%} %>
 </p>
 <p align="justify">
@@ -404,6 +425,37 @@ submission, within one week of the announcment of the winners in order to receiv
 </p>
 <%}%>
 
+<% if (Arrays.binarySearch(nsaRounds, roundId)>=0) { %>
+	<div class="sectionHeader">Prizes</div>
+    <p align="justify">There will be up to $3000 in total prize money awarded to the five (5) highest scoring members 
+	  who are citizens of the United States.</p>
+
+	<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
+		<tr>
+			<td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right">$1500</td>
+		</tr>
+		<tr>
+			<td class="bodyText" nowrap="nowrap">2nd</td><td class="bodyText" align="right">$750</td>
+		</tr>
+		<tr>
+			<td class="bodyText" nowrap="nowrap">3rd</td><td class="bodyText" align="right">$400</td>
+		</tr>
+		<tr>
+			<td class="bodyText" nowrap="nowrap">4th</td><td class="bodyText" align="right">$250</td>
+		</tr>
+		<tr>
+			<td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$100</td>
+		</tr>
+	</table>
+
+	<br>
+    
+<p align="justify">
+    
+</p>
+<%}%>
+
+
 <%if(roundId == 13772) {%>
 <div class="sectionHeader">Prizes</div>
     <p align="justify">There will be $10,000 in total prize money.  The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
@@ -436,28 +488,36 @@ submission, within one week of the announcment of the winners in order to receiv
 <%}%>
 
 <% if (Arrays.binarySearch(eligibilityRounds, roundId)>=0) { %>
+	<div class="sectionHeader">Eligibility</div>
+	<p align="justify">
+		You must be a TopCoder member, at least 18 years of age, meeting all of the membership requirements. In addition,
+		you must fit into one of the following categories.
+		<br><br>
+		If you reside in the United States, you must be either:
+		<ul>
 
-<div class="sectionHeader">Eligibility</div>
-  <p align="justify">
-    You must be a TopCoder member, at least 18 years of age, meeting all of the membership requirements. In addition,
-    you must fit into one of the following categories.
-    <br><br>
-    If you reside in the United States, you must be either:
-    <ul>
-
-        <li>A US Citizen</li>
-        <li>A Lawful Permanent Resident of the US</li>
-        <li>A temporary resident, asylee, refugee of the U.S., or have a lawfully issued work authorization card
-            permitting unrestricted employment in the U.S.</li>
-    </ul>
-    If you do not reside in the United States:
-    <ul>
-        <li>You must be authorized to perform services in the country from which you are located while participating 
+			<li>A US Citizen</li>
+			<li>A Lawful Permanent Resident of the US</li>
+			<li>A temporary resident, asylee, refugee of the U.S., or have a lawfully issued work authorization card
+              permitting unrestricted employment in the U.S.</li>
+		</ul>
+		If you do not reside in the United States:
+		<ul>
+			<li>You must be authorized to perform services in the country from which you are located while participating 
 			in the competition as an independent contractor. (Note: In most cases you will not
             need to do anything to become authorized)</li>
 
-    </ul>
-  </p>
+		</ul>
+	</p>
+<%} else if (Arrays.binarySearch(nsaRounds, roundId)>=0) { %>
+	<div class="sectionHeader">Eligibility</div>
+	<p align="justify">
+		The competition is open to all members who are at least 18 years of age who are U.S. citizens. 
+		<br><br>
+		You are not eligible for this Competition if you are on the Specially Designated National list 
+		promulgated and amended, from time to time, by the United States Department of the Treasury. 
+		<br>
+	</p>
 <%}%>
 
 <% if (Arrays.binarySearch(experimentalRounds, roundId)>=0) { %>
