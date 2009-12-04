@@ -175,7 +175,7 @@
 								</c:choose>
                                 
                                 <%-- Technologies --%>
-                                <p class="noSpListTitle">
+                                <p class="bodySubtitle">
                                     <strong>
                                         Technologies
                                     </strong>
@@ -190,9 +190,9 @@
                                 
                                 <%-- Documentation --%>
                                 <p>
-                                    <strong>
+                                    <span class="bodySubtitle"><strong>
                                         Documentation
-                                    </strong><br>
+                                    </strong></span><br>
                                     Documentation available in the
                                 
                                     <c:choose>
@@ -206,7 +206,7 @@
                                     after you successfully register for this competition.
                                 </p>
                                 
-                                <p><strong>Scorecards</strong><br/>
+                                <p><span class="bodySubtitle"><strong>Scorecards</strong></span><br/>
                                     View the <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review/actions/ViewScorecard.do?method=viewScorecard&scid=${projectDetailRow.map['screening_scorecard_id']}">screening</a> and <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review/actions/ViewScorecard.do?method=viewScorecard&scid=${projectDetailRow.map['review_scorecard_id']}">review</a> scorecards for this project.
                                 </p>
                                 
