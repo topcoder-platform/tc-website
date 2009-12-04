@@ -157,7 +157,7 @@
 </c:choose>
 
 <%-- Technologies --%>
-<p class="noSpListTitle"><strong>Technologies</strong></p>
+<p class="bodySubtitle"><strong>Technologies</strong></p>
 <ul class="noSpList">
     <rsc:iterator list="<%=technologies%>" id="item">
         <li><rsc:item row="<%=item%>" name="technology_name"/></li>
@@ -165,16 +165,16 @@
 </ul>
 
 <%-- Documentation --%>
-<p><strong>Documentation</strong><br />
+<p><span class="bodySubtitle"><strong>Documentation</strong></span><br />
     Documentation / Specification available in the <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<rsc:item set="<%=projectDetail%>" name="jive_category_id"/>">forums</a>.
 </p>
 
 <%-- Requirement Spec --%>
-<p><strong>Requirement Specification</strong><br />
+<p><span class="bodySubtitle"><strong>Requirement Specification</strong></span><br />
     View the <a target="_blank" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/document?id=<rsc:item set="<%=projectDetail%>" name="document_id"/>">Requirement Specification</a> for this project.
 </p>
 
-<p><strong>Scorecards</strong><br/>
+<p><span class="bodySubtitle"><strong>Scorecards</strong></span><br/>
     View the <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review/actions/ViewScorecard.do?method=viewScorecard&scid=<rsc:item set="<%=projectDetail%>" name="screening_scorecard_id"/>">screening</a> and <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review/actions/ViewScorecard.do?method=viewScorecard&scid=<rsc:item set="<%=projectDetail%>" name="review_scorecard_id"/>">review</a> scorecards for this project.
 </p>
 

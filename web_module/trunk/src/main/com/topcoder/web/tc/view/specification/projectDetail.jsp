@@ -141,7 +141,7 @@
 </c:choose>
 
 <%-- Technologies --%>
-<p class="noSpListTitle"><strong>Technologies</strong></p>
+<p class="bodySubtitle"><strong>Technologies</strong></p>
 <ul class="noSpList">
     <rsc:iterator list="<%=technologies%>" id="item">
         <li><rsc:item row="<%=item%>" name="technology_name"/></li>
@@ -149,7 +149,7 @@
 </ul>
 
 <%-- Documentation --%>
-<p><strong>Documentation</strong><br>
+<p><span class="bodySubtitle"><strong>Documentation</strong></span><br>
     Documentation available in the
 
     <% if (projectDetail.getItem(0, "jive_category_id").getResultData() == null) { %>
@@ -160,7 +160,7 @@
     after you successfully register for this competition.
 </p>
 
-<p><strong>Scorecards</strong><br/>
+<p><span class="bodySubtitle"><strong>Scorecards</strong></span><br/>
     View the <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review/actions/ViewScorecard.do?method=viewScorecard&scid=<rsc:item set="<%=projectDetail%>" name="screening_scorecard_id"/>">screening</a> and <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review/actions/ViewScorecard.do?method=viewScorecard&scid=<rsc:item set="<%=projectDetail%>" name="review_scorecard_id"/>">review</a> scorecards for this project.
 </p>
 
