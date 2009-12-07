@@ -65,4 +65,6 @@ public interface Forums extends EJBObject {
     
     public void createForumWatch(long userID, long forumID) throws Exception, EJBException, RemoteException;
 
+    public void updateComponentName(long categoryID, String name) throws EJBException, RemoteException, Exception;
+
 }
