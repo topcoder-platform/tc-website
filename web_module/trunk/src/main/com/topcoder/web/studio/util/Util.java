@@ -17,11 +17,27 @@ import java.util.Iterator;
 /**
  * <p>A helper class providing various utility methods to be utilized throughout the application.</p>
  *
- * @author isv
- * @version 1.0
+ * <p>
+ *   Version 1.1 (BUGR-2890) Change notes:
+ *   <ol>
+ *     <li>
+ *         Added a method to check cockpit permissions.
+ *     </li>
+ *   </ol>
+ * </p>
+ *
+ * @author isv, pulky
+ * @version 1.1
  * @since TopCoder Studio Modifications Assembly v2
  */
 public class Util {
+
+    /**
+     * A <code>String</code> constant that stores the query name for the has_cockpit_permissions query
+     *
+     * @since 1.1
+     */
+    private static final String HAS_COCKPIT_PERMISSIONS_QUERY_NAME = "has_cockpit_permissions";
 
     /**
      * <p>Checks if the submission referenced by the specified ID has been already purchased.</p>
@@ -45,6 +61,30 @@ public class Util {
                     return true;
                 }
             }
+        }
+        return false;
+    }
+
+
+    /**
+     * <p>Checks if the user has cockpit permissions over the specified contest.</p>
+     *
+     * @param userId the user id to query
+     * @param contestId the user id to query
+     * @return <code>true</code> if  the user has cockpit permissions over the specified contest, false otherwise
+     * @throws Exception if an unexpected error occurs.
+     * 
+     * @since 1.1
+     */
+    public static boolean hasCockpitPermissions(long userId, long contestId) throws Exception {
+        DataAccess da = new DataAccess(DBMS.STUDIO_DATASOURCE_NAME);
+        Request r = new Request();
+        r.setContentHandle(HAS_COCKPIT_PERMISSIONS_QUERY_NAME);
+        r.setProperty(Constants.USER_ID, String.valueOf(userId));
+        r.setProperty(Constants.CONTEST_ID, String.valueOf(contestId));
+        ResultSetContainer result = da.getData(r).get(HAS_COCKPIT_PERMISSIONS_QUERY_NAME);
+        if (!result.isEmpty()) {
+            return true;
         }
         return false;
     }

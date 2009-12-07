@@ -14,6 +14,7 @@ import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestStatus;
 import com.topcoder.web.studio.model.Document;
+import com.topcoder.web.studio.util.Util;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
@@ -51,6 +52,7 @@ public class DownloadDocument extends ShortHibernateProcessor {
 
             Set contests = d.getContests();
             boolean isRegistered = false;
+            boolean hasPermission = false;
 
             for (Iterator it = contests.iterator(); it.hasNext() && !isRegistered;) {
                 Contest c = (Contest) it.next();
@@ -59,10 +61,16 @@ public class DownloadDocument extends ShortHibernateProcessor {
                         || new Date().after(c.getEndTime())) {
                     isRegistered = true;
                 }
+                else if (Util.hasCockpitPermissions(getUser().getId(), c.getId())) {
+                    hasPermission = true;
+                    log.debug("allow download, they have cockpit permissions");
+                }
             }
 
-            if (!isRegistered) {
-                throw new NavigationException("User needs to be registered to the project in order to download documents.");
+
+
+            if (!isRegistered && !hasPermission) {
+                    throw new NavigationException("User needs to be registered or has permission to the project in order to download documents.");
             }
         }
 
