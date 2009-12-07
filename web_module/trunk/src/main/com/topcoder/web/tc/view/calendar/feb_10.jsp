@@ -90,12 +90,12 @@
       <td class="value">11
       </td>
       <td class="value">12
+      </td>
+      <td class="value">13
       	<div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14181">Member SRM 461</A></strong><br />
          12:00 NOON
          </div>   
-      </td>
-      <td class="value">13
       </td>
    </tr>
    
