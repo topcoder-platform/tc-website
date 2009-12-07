@@ -1,6 +1,6 @@
 <%--
   - Author: pulky
-  - Version: 1.1
+  - Version: 1.2
   - Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page presents specific contest details
@@ -10,6 +10,8 @@
   -       including total prize purse, round 1 and round 2 information.
   -     - If the contest is a multi-round contest display "Milestone date" between the Start Date and End Date.
   -     - If the contest is a multi-round contest display the milestone prize amount below the standard prize list.
+  - Version 1.2 (BUGR-2890) changes:
+  -     - If the user has cockpit permissions, show downloads section.
 --%>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.studio.model.PrizeType" %>
@@ -188,12 +190,12 @@
         <c:when test="${fn:length(contest.documents)>0}">
             <c:choose>
 
-                <c:when test="${currentTime>contest.endTime}">
+                <c:when test="${currentTime>contest.endTime }">
                         <p>
                             <strong>Since this contest has ended all attached files are no longer available for viewing</strong>
                         </p>
                 </c:when>
-                <c:when test="${registered}">
+                <c:when test="${registered || (not empty has_cockpit_permissions && has_cockpit_permissions)}">
                   <c:forEach items="${contest.documents}" var="document">
                         <p>
                             <strong><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">${document.originalFileName}</a></strong>

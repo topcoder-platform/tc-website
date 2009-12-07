@@ -36,10 +36,17 @@ import com.topcoder.web.studio.util.Util;
  *         review is complete. (Review Status Type is PASSED)
  *     </li>
  *   </ol>
+ *   
+ *   Version 1.2 (BUGR-2890) Change notes:
+ *   <ol>
+ *     <li>
+ *         Added a flag so that the JSP can show downloads if the user has corresponding cockpit permissions.
+ *     </li>
+ *   </ol>
  * </p>
  *
- * @author dok, TCSDEVELOPER
- * @version 1.1
+ * @author dok, pulky
+ * @version 1.2
  */
 public class ViewContestDetails extends ShortHibernateProcessor {
 
@@ -105,7 +112,8 @@ public class ViewContestDetails extends ShortHibernateProcessor {
             }
 
             getRequest().setAttribute("currentTime", new Date());
-
+            getRequest().setAttribute("has_cockpit_permissions", Util.hasCockpitPermissions(userId, cid));
+            
             setNextPage("/contestDetails.jsp");
             setIsNextPageInContext(true);
         }
@@ -166,5 +174,5 @@ public class ViewContestDetails extends ShortHibernateProcessor {
             log.debug("userId: " + userId + " cannot preview details for contest id: " + contestId);
         }
         return false;
-    }
+    }    
 }

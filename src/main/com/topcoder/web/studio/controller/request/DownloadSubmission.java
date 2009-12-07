@@ -1,11 +1,20 @@
 package com.topcoder.web.studio.controller.request;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.text.MessageFormat;
+import java.util.Date;
+import java.util.Set;
+
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.model.Image;
 import com.topcoder.web.studio.Constants;
-import com.topcoder.web.studio.controller.StudioServlet;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestChannel;
@@ -17,18 +26,20 @@ import com.topcoder.web.studio.util.SubmissionPresentationFilter;
 import com.topcoder.web.studio.util.Util;
 import com.topcoder.web.studio.validation.UnifiedSubmissionValidator;
 
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletResponse;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.text.MessageFormat;
-import java.util.Date;
-import java.util.Set;
-
 /**
- * @author dok, isv
- * @version $Revision$ Date: 2005/01/01 00:00:00 Create Date: Aug 29, 2006
+ * <p>This class will process a submission download request.</p>
+ *
+ * <p>
+ *   Version 1.1 (BUGR-2890) Change notes:
+ *   <ol>
+ *     <li>
+ *         Users with cockpit permissions can download.
+ *     </li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, isv, pulky
+ * @version 1.1
  */
 public class DownloadSubmission extends BaseSubmissionDataProcessor {
 	private static final Logger log = Logger.getLogger(DownloadSubmission.class);
@@ -108,6 +119,9 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
         if (Util.isAdmin(getUser().getId())) {
             log.debug("allow download, they're an admin");
             //admins can download anything
+            canDownload = true;
+        } else if (Util.hasCockpitPermissions(getUser().getId(), contest.getId())) {
+            log.debug("allow download, they have cockpit permissions");
             canDownload = true;
         } else if (isOwner) {
             log.debug("allow download, they're the submitter");
