@@ -9,7 +9,7 @@
     <firstWarningInterval>7</firstWarningInterval>
     <secondWarningInterval>2</secondWarningInterval>
     <daysBeforeWarning>30</daysBeforeWarning>    
-    <adminEmail>jivern@topcoder.com</adminEmail>
+    <adminEmail>ivern@topcoder.com</adminEmail>
     <systemEmail>service@topcodersoftware.com</systemEmail>    
 
     <daysShortPeriod>90</daysShortPeriod>
@@ -46,7 +46,7 @@
     
     <!-- Assembly -->
     <t-14-alternateRuleLastNProjects>160</t-14-alternateRuleLastNProjects>
-    <t-14-submissionThresholdLong>4</t-14-submissionThresholdLong>    
+    <t-14-submissionThresholdLong>5</t-14-submissionThresholdLong>    
     
     <!-- UI Prototype Competition -->    
     <t-19-submissionThresholdLong>3</t-19-submissionThresholdLong>    
