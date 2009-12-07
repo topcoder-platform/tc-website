@@ -239,6 +239,9 @@ public class ForumsBean extends BaseEJB {
         }
     }
 
+
+
+
     public void deleteCategoryWatch(long userID, long categoryID) throws ForumCategoryNotFoundException, UnauthorizedException, UserNotFoundException {
         WatchManager watchManager = forumFactory.getWatchManager();
         User user = forumFactory.getUserManager().getUser(userID);
@@ -733,6 +736,18 @@ public class ForumsBean extends BaseEJB {
             forumCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_TEXT, String.valueOf(versionText));
         } catch (Exception e) {
             logException(e, "error in updating component version");
+            throw e;
+        }
+    }
+
+
+    public void updateComponentName(long categoryID, String name) throws Exception {
+        try {
+            ForumCategory forumCategory = forumFactory.getForumCategory(categoryID);
+            String oldVersionText = forumCategory.getProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_TEXT);
+            forumCategory.setName(ForumsUtil.getComponentCategoryName(name, oldVersionText));
+        } catch (Exception e) {
+            logException(e, "error in updating component name");
             throw e;
         }
     }

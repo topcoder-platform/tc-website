@@ -95,4 +95,6 @@ public interface ForumsLocal extends EJBLocalObject {
     
     public void createForumWatch(long userID, long forumID) throws EJBException, Exception;
 
+    public void updateComponentName(long categoryID, String name) throws EJBException, Exception;
+
 }
