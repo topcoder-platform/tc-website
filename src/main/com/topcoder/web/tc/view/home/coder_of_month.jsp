@@ -20,32 +20,32 @@
       <td height="76" valign="top" style="border-top: 1px solid #CCCCCC; padding: 5px 0;" ><img src="/i/m/nophoto.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;" width="100%">
          <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_ALGO_COM%>" class="gMetal">Algorithm</a></strong><br />
-         <tc-webtag:handle coderId="22777893" context="<%=HandleTag.ALGORITHM%>" darkBG="true" />
+         <tc-webtag:handle coderId="22762254" context="<%=HandleTag.ALGORITHM%>" darkBG="true" />
          <br />
          <br />
       </td>
    </tr>
    <tr>
-      <td style="border-top: 1px solid #CCCCCC; padding: 5px 0;" valign="top"><img src="/i/m/zsudraco_big2.jpg" alt="" width="55" height="61"/></td>
+      <td style="border-top: 1px solid #CCCCCC; padding: 5px 0;" valign="top"><img src="/i/m/Luca_big.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
          <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DESIGN_COM%>" class="gMetal">Design</a></strong><br />
-         <tc-webtag:handle coderId="14820574" context="<%=HandleTag.DESIGN%>" darkBG="true" /><br />
-         with 3 wins<br />
+         <tc-webtag:handle coderId="10348862" context="<%=HandleTag.DESIGN%>" darkBG="true" /><br />
+         with 7 wins<br />
          <br />
       </td>
    </tr>
    <tr>
-      <td style="border-top: 1px solid #CCCCCC; padding: 5px 0;" valign="top"><img src="/i/m/yext_big.jpg" alt="" width="55" height="61"/></td>
+      <td style="border-top: 1px solid #CCCCCC; padding: 5px 0;" valign="top"><img src="/i/m/nophoto.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
-         <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DEV_COM%>" class="gMetal">Development</a></strong><br />
+         <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DEV_COM%>" class="gMetal">22767514</a></strong><br />
          <tc-webtag:handle coderId="15076432" context="<%=HandleTag.DEVELOPMENT%>" darkBG="true" /><br />
          with 4 wins<br />
       </td>
    </tr>
    </table>
     
- 
-<div><a class="cotmFeature" href="http://www.topcoder.com/news/2009/11/20/meet-the-october-coders-and-designers-of-the-month/">Read Their Interviews</a></div>
+ <!--
+<div><a class="cotmFeature" href="http://www.topcoder.com/news/2009/11/20/meet-the-october-coders-and-designers-of-the-month/">Read Their Interviews</a></div>-->
    
    </div>
 </div>
