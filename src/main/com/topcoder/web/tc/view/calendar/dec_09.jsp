@@ -145,6 +145,11 @@
       <td class="value">27
       </td>
       <td class="value">28
+         <div class="long">
+         <strong><a href="/tc?module=Static&d1=sponsors&d2=NSAOverview">NSA Marathon Match 2 </a></strong><br />
+         1:00 PM<br />
+         $3,000 in prizes for US citizens <br />
+         2 weeks</div>      
       </td>
       <td class="value">29
       </td>
