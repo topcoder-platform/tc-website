@@ -43,14 +43,14 @@
          <div class="sectionHeader">Current Tournaments</div>
            <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274" rowspan="2"><A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=sponsors&d2=NVIDIAOverview' refer='pbtc page' />" target="_blank"><img src="/i/events/nvidia_logo-sm.jpg" alt="NVIDIA CUDA Superhero Challenge" border="0" hspace="30" /></A></td>
+                    <td width="274" rowspan="2"><A href="<tc-webtag:linkTracking link='tc?module=Static&d1=sponsors&d2=NSAOverview' refer='pbtc page' />" target="_blank"><img src="/i/sponsor/nsa/nsa-mm-banner-small.png" alt="NSA Marathon Match Event" border="0" /></A></td>
                     <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
-                    <td width="99%" class="bodyText"><font size="3"><strong>NVIDIA CUDA Superhero Challenge</strong></font></td>
+                    <td width="99%" class="bodyText"><font size="3"><strong>NSA Marathon Match Event </strong></font></td>
                 </tr>
                 <tr valign="top">
                     <td class="bodyText">
                         September - December 2009 <br />
-                        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=sponsors&d2=NVIDIAOverview' refer='pbtc page' />" target="_blank">Summary</A>
+                        <A href="<tc-webtag:linkTracking link='tc?module=Static&d1=sponsors&d2=NSAOverview' refer='pbtc page' />" target="_blank">Summary</A>
                     </td>
                 </tr>
             </table>
@@ -59,8 +59,8 @@
 
            <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274" rowspan="2"><A href="<tc-webtag:linkTracking link='http://topcoder.com/home/remixchallenge/' refer='pbtc page' />" target="_blank"><img src="/i/events/bby-remix-logo.png" alt="Best Buy REMIX Challenge" border="0" hspace="30" /></A></td>
-                    <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="274" rowspan="2"><A href="<tc-webtag:linkTracking link='http://topcoder.com/home/remixchallenge/' refer='pbtc page' />" target="_blank"><img src="/i/events/bby-remix-logo.png" alt="Best Buy REMIX Challenge" border="0" /></A></td>
+                  <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText"><font size="3"><strong>Best Buy REMIX Challenge </strong></font></td>
                 </tr>
                 <tr valign="top">
@@ -76,6 +76,22 @@
 <%-- Past Tournaments begins --%>
 
          <div class="sectionHeader" width="100%">Past Tournaments</div>
+           <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274" rowspan="2"><A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=sponsors&d2=NVIDIAOverview' refer='pbtc page' />" target="_blank"><img src="/i/events/nvidia_logo-sm.jpg" alt="NVIDIA CUDA Superhero Challenge" border="0" /></A></td>
+                    <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText"><font size="3"><strong>NVIDIA CUDA Superhero Challenge</strong></font></td>
+                </tr>
+                <tr valign="top">
+                    <td class="bodyText">
+                        September - December 2009 <br />
+                        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=sponsors&d2=NVIDIAOverview' refer='pbtc page' />" target="_blank">Summary</A>
+                    </td>
+                </tr>
+            </table>
+            
+           <hr width="100%" size="1" noshade="noshade" />
+
          
            <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
