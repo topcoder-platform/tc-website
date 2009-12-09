@@ -1,12 +1,16 @@
 <%--
   - Author: pulky
-  - Version: 1.1
+  - Version: 1.2
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page shows project details for Test Suites projects.
   -
   - Version 1.1 (Testing Competition Split Release Assembly 1.0) changes:
   -    * Updated Application Testing to Test Suites.
+  - Version 1.2 (BUGR-2979) changes:
+  -    * Removed Requirements Specification section if existed.
+  -    * Renamed the existing "Documentation" section to "Forum". Changed attached wording.
+  -    * Added support for multiple documentation downloads.
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
@@ -165,14 +169,14 @@
 </ul>
 
 <%-- Documentation --%>
-<p><span class="bodySubtitle"><strong>Documentation</strong></span><br />
-    Documentation / Specification available in the <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<rsc:item set="<%=projectDetail%>" name="jive_category_id"/>">forums</a>.
+<jsp:include page="../contest/supportingDocumentation.jsp"/>
+                    
+<%-- Forum --%>
+<p><span class="bodySubtitle"><strong>Forum</strong></span><br />
+    Please use the contest <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<rsc:item set="<%=projectDetail%>" name="jive_category_id"/>">forum</a>
+    to view additional information and communicate with the contest owners.
 </p>
 
-<%-- Requirement Spec --%>
-<p><span class="bodySubtitle"><strong>Requirement Specification</strong></span><br />
-    View the <a target="_blank" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/document?id=<rsc:item set="<%=projectDetail%>" name="document_id"/>">Requirement Specification</a> for this project.
-</p>
 
 <p><span class="bodySubtitle"><strong>Scorecards</strong></span><br/>
     View the <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review/actions/ViewScorecard.do?method=viewScorecard&scid=<rsc:item set="<%=projectDetail%>" name="screening_scorecard_id"/>">screening</a> and <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review/actions/ViewScorecard.do?method=viewScorecard&scid=<rsc:item set="<%=projectDetail%>" name="review_scorecard_id"/>">review</a> scorecards for this project.

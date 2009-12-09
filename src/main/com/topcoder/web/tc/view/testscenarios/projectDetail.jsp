@@ -1,9 +1,14 @@
 <%--
   - Author: pulky
-  - Version: 1.0
+  - Version: 1.1
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page shows project details for Test Scenarios projects.
+  -
+  - Version 1.1 (BUGR-2979) changes:
+  -    * Removed Requirements Specification section if existed.
+  -    * Renamed the existing "Documentation" section to "Forum". Changed attached wording.
+  -    * Added support for multiple documentation downloads.
   -
   - Since: Testing Competition Split Release Assembly 1.0
 --%>
@@ -164,13 +169,12 @@
 </ul>
 
 <%-- Documentation --%>
-<p><span class="bodySubtitle"><strong>Documentation</strong></span><br />
-    Documentation / Specification available in the <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<rsc:item set="<%=projectDetail%>" name="jive_category_id"/>">forums</a>.
-</p>
-
-<%-- Requirement Spec --%>
-<p><span class="bodySubtitle"><strong>Requirement Specification</strong></span><br />
-    View the <a target="_blank" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/document?id=<rsc:item set="<%=projectDetail%>" name="document_id"/>">Requirement Specification</a> for this project.
+<jsp:include page="../contest/supportingDocumentation.jsp"/>
+                    
+<%-- Forum --%>
+<p><span class="bodySubtitle"><strong>Forum</strong></span><br />
+    Please use the contest <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<rsc:item set="<%=projectDetail%>" name="jive_category_id"/>">forum</a>
+    to view additional information and communicate with the contest owners.
 </p>
 
 <p><span class="bodySubtitle"><strong>Scorecards</strong></span><br/>

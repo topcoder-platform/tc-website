@@ -1,3 +1,15 @@
+<%--
+  - Author: pulky
+  - Version: 1.1
+  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page shows project details for assembly competitions.
+  - 
+  - Version 1.1 (BUGR-2979) changes:
+  -    * Removed Requirements Specification section if existed.
+  -    * Renamed the existing "Documentation" section to "Forum". Changed attached wording.
+  -    * Added support for multiple documentation downloads.
+--%>
 <%@ page language="java" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -143,7 +155,7 @@
 
 
 <%-- Technologies --%>
-<p class="noSpListTitle"><strong>Technologies</strong></p>
+<p class="noSpListTitle"><span class="bodySubtitle"><strong>Technologies</strong></span></p>
 <ul class="noSpList">
     <rsc:iterator list="<%=technologies%>" id="item">
         <li><rsc:item row="<%=item%>" name="technology_name"/></li>
@@ -151,15 +163,17 @@
 </ul>
 
 <%-- Documentation --%>
-<p><strong>Documentation</strong><br>
-    Documentation available in the
-
+<jsp:include page="../../contest/supportingDocumentation.jsp"/>
+                    
+<%-- Forum --%>
+<p><span class="bodySubtitle"><strong>Forum</strong></span><br>
+    Please use the contest
     <% if (projectDetail.getItem(0, "jive_category_id").getResultData() == null) { %>
-    discussion forums
+    forum
     <% } else { %>
-    <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<rsc:item set="<%=projectDetail%>" name="jive_category_id"/>">forums</a>
+    <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<rsc:item set="<%=projectDetail%>" name="jive_category_id"/>">forum</a>.
     <% } %>
-    after you successfully register for this competition.
+    to view additional information and communicate with the contest owners.
 </p>
 
 <p><strong>Scorecards</strong><br/>

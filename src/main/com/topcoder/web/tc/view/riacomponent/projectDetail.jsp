@@ -1,13 +1,15 @@
 <%--
   - Author: pulky
-  - Version: 1.0
+  - Version: 1.1
   - Since: Studio Coding In Online Review
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page shows project details for RIA Component competitions.
   - 
-  - Note: existing project details page was used to create this new page. The code was cleaned and refactored.
-  -       All scriptlets were removed.
+  - Version 1.1 (BUGR-2979) changes:
+  -    * Removed Requirements Specification section if existed.
+  -    * Renamed the existing "Documentation" section to "Forum". Changed attached wording.
+  -    * Added support for multiple documentation downloads.
 --%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ page language="java" %>
@@ -189,21 +191,24 @@
                                 </ul>
                                 
                                 <%-- Documentation --%>
+                                <jsp:include page="../contest/supportingDocumentation.jsp"/>
+                                                    
+                                <%-- Forum --%>
                                 <p>
                                     <span class="bodySubtitle"><strong>
-                                        Documentation
+                                        Forum
                                     </strong></span><br>
-                                    Documentation available in the
+                                    Please use the contest
                                 
                                     <c:choose>
                                         <c:when test="${empty projectDetailRow.map['jive_category_id']}">
-                                            discussion forums
+                                            forum
                                         </c:when>
                                         <c:otherwise>
-                                            <a href="${FORUMS_URL}=${projectDetailRow.map['jive_category_id']}">component forums</a>
+                                            <a href="${FORUMS_URL}=${projectDetailRow.map['jive_category_id']}">forum</a>
                                         </c:otherwise>
                                     </c:choose>
-                                    after you successfully register for this competition.
+                                    to view additional information and communicate with the contest owners.
                                 </p>
                                 
                                 <p><span class="bodySubtitle"><strong>Scorecards</strong></span><br/>
