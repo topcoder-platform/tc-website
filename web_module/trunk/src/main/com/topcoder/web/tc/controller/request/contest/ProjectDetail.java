@@ -33,8 +33,15 @@ import com.topcoder.web.tc.controller.request.util.ReliabilityBonusCalculator;
  *   </ol>
  * </p>
  *
+ * <p>
+ *   Version 1.3 (BUGR-2979) Change notes:
+ *   <ol>
+ *     <li>Added supporting doc query to request.</li>
+ *   </ol>
+ * </p>
+ *
  * @author dok, pulky
- * @version 1.2
+ * @version 1.3
  */
 public class ProjectDetail extends Base {
 
@@ -74,7 +81,8 @@ public class ProjectDetail extends Base {
             ResultSetContainer details = (ResultSetContainer) resultMap.get("project_detail");
             getRequest().setAttribute("projectDetail", details);
             getRequest().setAttribute("technologies", resultMap.get("project_technologies"));
-			getRequest().setAttribute("requirements", resultMap.get("project_requirements"));
+            getRequest().setAttribute("requirements", resultMap.get("project_requirements"));
+            getRequest().setAttribute("supportingDocs", resultMap.get("project_docs"));
 
             boolean full = false;  //projects are never full in our current rules
             getRequest().setAttribute("projectFull", String.valueOf(full));
