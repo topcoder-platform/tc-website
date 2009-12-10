@@ -13,12 +13,12 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <c:set var="SOFTWARE_SERVER_NAME" value="<%=ApplicationServer.SOFTWARE_SERVER_NAME%>" scope="request"/>
 
-<c:if test="${fn:length(requirements) > 0}">
+<c:if test="${fn:length(supportingDocs) > 0}">
     <p><span class="bodySubtitle"><strong>Supporting Documentation</strong></span><br/>
         <c:forEach items="${supportingDocs}" var="resultRow">
             <p>
                 <c:choose>
-                    <c:when test="${resultRow.map['document_type_id'] == 1}">
+                    <c:when test="${resultRow.map['document_type_id'] == 0}">
                         &nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="http://${SOFTWARE_SERVER_NAME}/catalog/document?id=${resultRow.map['document_id']}">Requirements Specification</a>
                     </c:when>
                     <c:otherwise>
