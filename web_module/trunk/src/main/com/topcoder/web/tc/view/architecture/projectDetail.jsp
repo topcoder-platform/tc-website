@@ -169,7 +169,7 @@
 <% if (projectDetail.getItem(0, "jive_category_id").getResultData() == null) { %>
     forum
     <% } else { %>
-    <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<rsc:item set="<%=projectDetail%>" name="jive_category_id"/>">forum</a>.
+    <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<rsc:item set="<%=projectDetail%>" name="jive_category_id"/>">forum</a>
     <% } %>
     to view additional information and communicate with the contest owners.
 </p>
