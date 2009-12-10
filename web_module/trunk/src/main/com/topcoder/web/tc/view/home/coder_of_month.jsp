@@ -37,8 +37,8 @@
    <tr>
       <td style="border-top: 1px solid #CCCCCC; padding: 5px 0;" valign="top"><img src="/i/m/nophoto.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
-         <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DEV_COM%>" class="gMetal">22767514</a></strong><br />
-         <tc-webtag:handle coderId="15076432" context="<%=HandleTag.DEVELOPMENT%>" darkBG="true" /><br />
+         <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DEV_COM%>" class="gMetal">Development</a></strong><br />
+         <tc-webtag:handle coderId="22767514" context="<%=HandleTag.DEVELOPMENT%>" darkBG="true" /><br />
          with 4 wins<br />
       </td>
    </tr>
