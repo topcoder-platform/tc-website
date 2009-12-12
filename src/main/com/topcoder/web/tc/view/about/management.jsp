@@ -233,19 +233,6 @@ TopCoder's accomplished management team includes some of the most successful pro
 </div>
 
 <div class="bioOdd">
-    <div class="photo"><img src="/i/about/management/dmessinger.jpg" alt="" /></div>
-    <h2>Dave Messinger</h2>
-    <h3><i>Chief Architect</i></h3>
-    
-    <p>
-    David Messinger is responsible for managing TopCoder's best-in-class component development. He joined the company in January, 2003 after working as a consultant for seven years.  Since then he has been instrumental in developing TopCoder's software development culture and offerings. At TopCoder, Messinger has been involved from the ground floor, serving throughout the organization at one time or another as a Project Manager, Architect, and Component Manager.  Currently, Messinger serves as Chief Architect focused on developing TopCoder's industry leading best practices for component-based architecture and development.
-    </p>
-    <p>
-    Previously he served in various capacities at Tallan and Amentra, both custom software development and consulting companies.  At both of these companies, Messinger served as a project manager and architect for companies such as Priceline.com, Kinkos.com, Merck Pharmaceuticals and Pinnacle West.  While working as a consultant, Messinger had the opportunity to move across the technology and enterprise spaces of these organizations, gathering a deep insight into enterprise technology including .NET and Java handheld, web and thick client applications.
-    </p>
-</div>
-
-<div class="bioEven">
     <div class="photo"><img src="/i/about/management/tjefts.jpg" alt="" /></div>
     <h2>Tony Jefts</h2>
     <h3><i>Director of Software Operations</i></h3>
