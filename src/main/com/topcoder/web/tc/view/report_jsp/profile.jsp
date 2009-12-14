@@ -68,6 +68,9 @@
         tr.shaded {
           background-color: #ECE5B6; color: black;
         }
+        tr.shaded2 {
+          background-color: #EEEEEE; color: black;
+        }
 
 
     </style>
@@ -180,6 +183,10 @@
 </tr>
 
 <tr>
+    <td><br/></td>
+</tr>
+
+<tr>
     <td>
       <A HREF="/tc?module=MemberProfile&cr=<rsc:item name="user_id" row="<%=p%>"/>" CLASS="">Public Profile</A>
     </td>
@@ -198,10 +205,6 @@
     <td><br/></td>
 </tr>
 
-<tr>
-    <td>Last Rated Event</td>
-    <td><rsc:item name="last_rated_event" row="<%=p%>" ifNull="Never Competed" format="MM/dd/yyyy hh:mm a"/></td>
-</tr>
 <tr>
     <td>Member Since</td>
     <td><rsc:item name="member_since" row="<%=p%>" format="MM/dd/yyyy hh:mm a" /></td>
@@ -269,7 +272,7 @@
 
 <br/><br/>
 <table class="entry" cellspacing="2" cellpadding="2">
-    <tr><td colspan="3"><b>TopCoder Ratings</b></td></tr>
+    <tr class="shaded2"><td colspan="3"><b>TopCoder Ratings</b></td></tr>
 
     <tr><td><b>Category</b></td>
         <td><b>Rating</b></td>
@@ -292,7 +295,12 @@
 <br/><br/>
 <table class="entry" cellspacing="0">
 
-    <tr><td colspan="2"><b>Demographic Information</b></td></tr>
+    <tr class="shaded2"><td colspan="3"><b>Demographic Information</b></td></tr>
+
+    <tr><td><b>Question</b></td>
+        <td>&#160;</b></td>
+        <td><b>Response</b></td>
+    </tr>
 
     <rsc:iterator list="<%=demographicList%>" id="resultRow">
         <tr>
@@ -315,7 +323,7 @@
 %>
 <br/><br/>
 <table class="entry" cellspacing="0">
-    <tr><td><b>Notifications</b></td></tr>
+    <tr class="shaded2"><td><b>Notifications</b></td></tr>
 
     <rsc:iterator list="<%=notifyList%>" id="resultRow">
         <tr>
@@ -339,7 +347,7 @@
 %>
 <br/><br/>
 <table class="entry" cellspacing="2" cellpadding="2">
-    <tr><td colspan="3"><b>Handle History</b></td></tr>
+    <tr class="shaded2"><td colspan="3"><b>Handle History</b></td></tr>
     <tr>
         <td><b>old handle</b></td>
         <td><b>new handle</b></td>
@@ -362,12 +370,12 @@
 %>
 <br/><br/>
 <table class="entry" cellspacing="2" cellpadding="2">
-    <tr><td colspan="3"><b>Address History</b></td></tr>
+    <tr class="shaded2"><td colspan="4"><b>Address History</b></td></tr>
 
-    <tr><td><b>field</b></td>
-        <td><b>old address</b></td>
-        <td><b>new address</b></td>
-        <td><b>date of change</b></td>
+    <tr><td><b>Field</b></td>
+        <td><b>Old Address</b></td>
+        <td><b>New Address</b></td>
+        <td><b>Timestamp</b></td>
     </tr>
     <rsc:iterator list="<%=addressList%>" id="resultRow">
         <tr><td><rsc:item name="field" row="<%=resultRow%>"/></td>
@@ -410,11 +418,11 @@
 %>
 <br/><br/>
 <table class="entry" cellspacing="2" cellpadding="2">
-    <tr><td colspan="3"><b>Status History</b></td></tr>
+    <tr class="shaded2"><td colspan="3"><b>Status History</b></td></tr>
     <tr>
-        <td><b>old value</b></td>
-        <td><b>new value</b></td>
-        <td><b>date of change</b></td>
+        <td><b>Old</b></td>
+        <td><b>New</b></td>
+        <td><b>Timestamp</b></td>
     </tr>
 
     <rsc:iterator list="<%=statusList%>" id="resultRow">
@@ -433,15 +441,17 @@
 
 <% if (!termsList.isEmpty()) { %>
 <br/><br/>
-<table cellpadding="5" cellspacing="0">
-    <tr><td colspan="2"><b>Terms Of Use</b></td></tr>
+<table class="entry" cellpadding="2" cellspacing="2">
+    <tr class="shaded2"><td colspan="3"><b>Terms Of Use</b></td></tr>
     <tr>
         <td><b>Date</b></td>
+        <td>&#160;&#160;&#160;</td>
         <td><b>Terms</b></td>
     </tr>
     <rsc:iterator list="<%= termsList %>" id="resultRow">
         <tr>
             <td><rsc:item name="date" row="<%= resultRow %>" format="MM/dd/yyyy"/></td>
+            <td>&#160;&#160;&#160;</td>
             <td><rsc:item name="terms" row="<%= resultRow %>"/></td>
         </tr>
     </rsc:iterator>
@@ -455,7 +465,7 @@
 %>
 <br/><br/>
 <table class="entry" cellspacing="2" cellpadding="2">
-    <tr><td><b>Registration Types</b></td></tr>
+    <tr class="shaded2"><td><b>Registration Types</b></td></tr>
     <tr>
         <td><b>Type</b></td>
     </tr>
@@ -482,7 +492,7 @@
 %>
 <br/><br/>
 <table class="entry" cellspacing="2" cellpadding="2">
-    <tr><td colspan="3"><b>Job Hits</b></td></tr>
+    <tr class="shaded2"><td colspan="3"><b>Job Hits</b></td></tr>
     <tr>
         <td><b>Company</b></td>
         <td><b>Campaign</b></td>
