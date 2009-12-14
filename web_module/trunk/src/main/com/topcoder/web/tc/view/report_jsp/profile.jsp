@@ -153,41 +153,35 @@
 
 <hr size="3"/>
 
-<table class="entry" cellspacing="0">
+
+
+<table class="entry" cellspacing="1" cellpadding="1">
 <tr class="shaded">
     <td colspan="3" align="center"><font size="+2"><b><rsc:item name="handle" row="<%=p%>"/></b></font></td>
 </tr>
 
 <tr>
-    <td colspan="3"><rsc:item name="first_name" row="<%=p%>"/> <rsc:item name="last_name" row="<%=p%>"/></td>
-</tr>
-
-<tr>
-    <td colspan="3">User ID:   <rsc:item name="user_id" row="<%=p%>"/> </td>
-</tr>
-
-<tr>
-    <td colspan="3">Email: <rsc:item name="email" row="<%=p%>"/>  ( <a href="mailto:<rsc:item name="email" row="<%=p%>"/>" class="">
-        Send Now</a> ) </td>
-</tr>
-
-<tr>
-    <td colspan="3">Phone:  <rsc:item name="home_phone" row="<%=p%>"/></a></td>
-</tr>
-
-<tr>
-    <td colspan="3">Account Status:  <rsc:item name="user_status_desc" row="<%=p%>"/></a></td>
-</tr>
-
-<tr>
-    <td colspan="3"><br/></td>
-</tr>
-
-<tr>
+  <% if (p.getItem("image_path").toString().length() > 0 ) { %> 
     <td>
-      <A HREF="/tc?module=MemberProfile&cr=<rsc:item name="user_id" row="<%=p%>"/>" CLASS="">View Member Profile</A>
+      <img src="<rsc:item name="image_path" row="<%=p%>"/>" />
     </td>
+  <% } %>
+  <td valign="top">
+    <br>
+    <rsc:item name="first_name" row="<%=p%>"/> <rsc:item name="last_name" row="<%=p%>"/> <br>
+    User ID:   <rsc:item name="user_id" row="<%=p%>"/>  <br>
+    Email: <rsc:item name="email" row="<%=p%>"/>  ( <a href="mailto:<rsc:item name="email" row="<%=p%>"/>" class="">
+        Send Now</a> )  <br>
+    Account Status:  <rsc:item name="user_status_desc" row="<%=p%>"/></a> <br>
+    Phone:  <rsc:item name="home_phone" row="<%=p%>"/></a> <br>
+    Account Status:  <rsc:item name="user_status_desc" row="<%=p%>"/></a> <br>
+
+  </td>
+</tr>
+
+<tr>
     <td>
+      <A HREF="/tc?module=MemberProfile&cr=<rsc:item name="user_id" row="<%=p%>"/>" CLASS="">Public Profile</A>
     </td>
     <td>
       <% if (p.getStringItem("has_notes").equals("1")) { %>
@@ -195,6 +189,8 @@
       <% } else { %>
         <A HREF="/tc?module=EditNote&uid=<rsc:item name="user_id" row="<%=p%>"/>">Add Note</A>
       <% } %>
+    </td>
+    <td>
     </td>
 </tr>
 
@@ -204,27 +200,22 @@
 
 <tr>
     <td>Last Rated Event</td>
-    <td>&#160;&#160;&#160;</td>
     <td><rsc:item name="last_rated_event" row="<%=p%>" ifNull="Never Competed" format="MM/dd/yyyy hh:mm a"/></td>
 </tr>
 <tr>
     <td>Member Since</td>
-    <td>&#160;&#160;&#160;</td>
-    <td><rsc:item name="member_since" row="<%=p%>"/></td>
+    <td><rsc:item name="member_since" row="<%=p%>" format="MM/dd/yyyy hh:mm a" /></td>
 </tr>
 <tr>
     <td>Referral Type</td>
-    <td>&#160;&#160;&#160;</td>
     <td><rsc:item name="referral_desc" row="<%=p%>"/>&#160; - <rsc:item name="referral_info" row="<%=p%>"/></td>
 </tr>
 <tr>
     <td>Status</td>
-    <td>&#160;&#160;&#160;</td>
     <td><rsc:item name="user_status_desc" row="<%=p%>"/></td>
 </tr>
 <tr>
     <td>Placement</td>
-    <td>&#160;&#160;&#160;</td>
     <td>
         <% if (p.getStringItem("registered_for_placement").equals("1")) { %>
         <A HREF="/tc?module=PlacementInfoDetail&uid=<rsc:item name="user_id" row="<%=p%>"/>">View Placement
@@ -234,23 +225,10 @@
         <% } %>
     </td>
 </tr>
-<tr><td><br/></td></tr>
-<tr>
-    <td>Rating</td>
-    <td>&#160;&#160;&#160;</td>
-    <td><rsc:item name="rating" row="<%=p%>"/></td>
-</tr>
-<tr>
-    <td>Events</td>
-    <td>&#160;&#160;&#160;</td>
-    <td><rsc:item name="num_ratings" row="<%=p%>"/></td>
-</tr>
-
 
 <tr><td><br/></td></tr>
 <tr>
     <td valign="top">Street Address</td>
-    <td>&#160;&#160;&#160;</td>
     <td>
         <rsc:item name="address1" row="<%=p%>"/><br/>
         <% if (p.getItem("address2").toString().length() > 0 ) { %>
@@ -264,27 +242,23 @@
 
 <tr>
     <td>Coder Type</td>
-    <td>&#160;&#160;&#160;</td>
     <td><rsc:item name="coder_type_desc" row="<%=p%>"/></td>
 </tr>
 <% if (p.getItem("school_name") != null) { %>
 <tr>
     <td>School</td>
-    <td>&#160;&#160;&#160;</td>
     <td><rsc:item name="school_name" row="<%=p%>"/></td>
 </tr>
 <% } %>
 <% if (p.getItem("company") != null) { %>
 <tr>
     <td>Company</td>
-    <td>&#160;&#160;&#160;</td>
     <td><rsc:item name="company" row="<%=p%>"/></td>
 </tr>
 <% } %>
 <% if (p.getItem("title") != null) { %>
 <tr>
     <td>Title</td>
-    <td>&#160;&#160;&#160;</td>
     <td><rsc:item name="title" row="<%=p%>"/></td>
 </tr>
 <% } %>
