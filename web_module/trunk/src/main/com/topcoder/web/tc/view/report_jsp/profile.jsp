@@ -15,7 +15,6 @@
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 
-
 <%
     ResultSetContainer profiles = null;
     ResultSetContainer demographicList = null;
@@ -27,6 +26,7 @@
     ResultSetContainer statusList = null;
     ResultSetContainer jobList = null;
     ResultSetContainer regTypeList = null;
+    ResultSetContainer termsList = null;
     ResultSetContainer.ResultSetRow p = null;
     ArrayList detailList = null;
     Boolean processed = (Boolean) request.getAttribute(Constants.PROCESSED_KEY);
@@ -147,7 +147,7 @@
             statusList = (ResultSetContainer) ((Map) detailList.get(k)).get("status_changed");
             jobList = (ResultSetContainer) ((Map) detailList.get(k)).get("job_list");
             regTypeList = (ResultSetContainer) ((Map) detailList.get(k)).get("registration_types");
-
+            termsList = (ResultSetContainer) ((Map) detailList.get(k)).get("user_terms_of_use");
 
 %>
 
@@ -457,6 +457,22 @@
 
 %>
 
+<% if (!termsList.isEmpty()) { %>
+<br/><br/>
+<table cellpadding="5" cellspacing="0">
+    <tr><td colspan="2"><b>Terms Of Use</b></td></tr>
+    <tr>
+        <td><b>Date</b></td>
+        <td><b>Terms</b></td>
+    </tr>
+    <rsc:iterator list="<%= termsList %>" id="resultRow">
+        <tr>
+            <td><rsc:item name="date" row="<%= resultRow %>" format="MM/dd/yyyy"/></td>
+            <td><rsc:item name="terms" row="<%= resultRow %>"/></td>
+        </tr>
+    </rsc:iterator>
+</table>
+<% } %>
 
 <%
 
