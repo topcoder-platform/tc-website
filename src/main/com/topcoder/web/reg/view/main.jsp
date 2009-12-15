@@ -741,10 +741,10 @@
 
 
 								<label for="<%=Constants.SECURITY_KEY%>" style="padding-top: 0px;" >                            
-									Security Key:
+									SSH Security Key:
 								</label>
 																
-								<a href="javascript:showhide('securityKeyDiv');">Click here to store your public key</a>
+								<a href="javascript:showhide('securityKeyDiv');">Click here to store your SSH public key</a>
 								<br>
 								<div id="securityKeyDiv">
 									<tc-webtag:textArea name="<%=Constants.SECURITY_KEY%>" rows="18" cols="60" />
