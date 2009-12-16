@@ -521,7 +521,7 @@ public abstract class Base extends ShortHibernateProcessor {
 
         // if the user is logged in, check eligibility
         try {
-            if (userIdentified()) {
+            if (userLoggedIn()) {
                 if (!ContestEligibilityServiceLocator.getServices().isEligible(getLoggedInUser().getId(), pid, false)) {
                     return false;
                 }
