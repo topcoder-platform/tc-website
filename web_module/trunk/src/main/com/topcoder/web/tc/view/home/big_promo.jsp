@@ -33,25 +33,3 @@
 <a href="<tc-webtag:linkTracking link='http://www.topcoder.com/tc?module=Static&d1=sponsors&d2=NSAOverview' refer='/tc' />"><img src="/i/sponsor/nsa/NSA-long.png" alt="NSA Mission Impact Marathon Match 1 " /></a>
 <%--<a href="<tc-webtag:linkTracking link='http://www.topcoder.com/remix' refer='/tc' />"><img src="/images/remix/remix-510.jpg" alt="REMIX Challenge" /></a> --%>
 <br /><br />
-<object id="NASA-Frontier" width="510" height="155" align="middle" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0">
-	<param name="allowScriptAccess" value="sameDomain" />
-	<param name="movie" value="/i/sponsor/nasa/NASA-Frontier.swf" />
-	<param name="quality" value="high" />
-	<param name="bgcolor" value="#000000" />
-	<param name="FlashVars" value="MainURL=http://www.topcoder.com/tc?module=MatchDetails&rd=13992">
-	<embed src="/i/sponsor/nasa/NASA-Frontier.swf"
-			FlashVars="MainURL=http://www.topcoder.com/tc?module=MatchDetails&rd=13992"
-			width="510"
-			height="155"
-			name="NASA-Frontier"
-			quality="high"
-			bgcolor="#000000"
-			align="middle"
-			allowScriptAccess="sameDomain"
-			type="application/x-shockwave-flash"
-			pluginspage="http://www.macromedia.com/go/getflashplayer" />
-	</object>
-<br />
-<br />
-<a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=sponsors&d2=NVIDIAOverview' refer='/tc' />"><img src="/i/sponsor/banner-nvidia-cuda-510x54.png" alt="NVIDIA CUDA Superhero Challenge" /></a><br />
-<br />
