@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common;
 
@@ -41,8 +41,15 @@ package com.topcoder.web.common;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, snow01
- * @version 1.5
+ * <p>
+ *   Version 1.6 (Project View) Change notes:
+ *   <ol>
+ *     <li>Added constants for the Project View report.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky, snow01, TCSDEVELOPER
+ * @version 1.6
  */
 public interface WebConstants {
     public static final String HANDLE = "ha";
@@ -300,7 +307,7 @@ public interface WebConstants {
      * @since 1.1
      */
     public static final int RIA_COMPONENT_PROJECT_TYPE = 25;
-    
+
     /**
      * <p>An <code>long</code> representing design specification project category id.</p>
      *
@@ -475,7 +482,7 @@ public interface WebConstants {
      */
     public static final long PHASE_TEST_SUITES_SPECIFICATION =
         PHASE_TEST_SUITES + SPECIFICATION_COMPETITION_OFFSET;
-        
+
     /**
      * <p>An <code>long</code> representing test scenarios competition specification phase id.</p>
      *
@@ -508,4 +515,24 @@ public interface WebConstants {
     public static final long PHASE_RIA_COMPONENT_SPECIFICATION =
         PHASE_RIA_COMPONENT + SPECIFICATION_COMPETITION_OFFSET;
 
+    /**
+     * <p>A <code>String</code> representing clients attribute key.</p>
+     *
+     * @since 1.6
+     */
+    public static final String CLIENTS = "clients";
+
+    /**
+     * <p>A <code>String</code> representing start date attribute key.</p>
+     *
+     * @since 1.6
+     */
+    public static final String START_DATE = "sdate";
+
+    /**
+     * <p>A <code>String</code> representing end date attribute key.</p>
+     *
+     * @since 1.6
+     */
+    public static final String END_DATE = "edate";
 }
