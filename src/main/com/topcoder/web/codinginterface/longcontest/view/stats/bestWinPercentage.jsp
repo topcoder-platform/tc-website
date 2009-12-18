@@ -17,7 +17,7 @@
 
 <br><br>
 <strong>Record:</strong> Highest percentage of wins per match where the competitor has made a submission (either test or full).  
-Only rated matches are included.
+Only rated matches are included.  A competitor must have competed in at least 5 rated events to be included on this list.
 </span>
 <br><br>
 <table class="stat" cellpadding="0" cellspacing="0" style="float: left; width: 510px; margin-right: 15px; margin-bottom: 15px;">
