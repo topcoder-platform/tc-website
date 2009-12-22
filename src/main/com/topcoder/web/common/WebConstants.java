@@ -304,7 +304,7 @@ public interface WebConstants {
     /**
      * <p>An <code>int</code> representing specification review project type id.</p>
      */
-    public static final int SPECIFICATION_REVIEW_PROJECT_TYPE = 25;
+    public static final int SPECIFICATION_REVIEW_PROJECT_TYPE = 27;
     
     /**
      * <p>An <code>long</code> representing design specification project category id.</p>
