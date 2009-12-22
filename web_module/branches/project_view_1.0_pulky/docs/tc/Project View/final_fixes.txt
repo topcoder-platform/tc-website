@@ -1,0 +1,39 @@
+The following final fixes were performed:
+
+isv:
+2.1.2:
+    #2: Fixed.
+2.2.7:
+    #2: This is no longer required since validation errors are now showed instead of using default values.
+4.1.1:
+    #2: Fixed.
+
+
+xor_freecity:
+2.1.1:
+    #1: Fixed.
+2.2.1: 
+    #1: Not required. Confirmed by PM.
+
+
+BeBetter:
+1.1.1:
+    #1: Not required. Confirmed by PM.
+    #2.1: Added.
+    #2.2: Added.
+    #2.3: Added hint. Validation still happens in back end. (Confirmed by PM)
+    #3: This is not needed. If default need to change, an entry will be added.
+2.1.1: 
+    #1: Not required. Confirmed by PM.
+2.2.1: 
+    #1: Refactored. 
+4.1.1:
+    #2: Added.
+
+
+Other work performed:
+1) TCSDEVELOPER was updated in all deliverables
+2) Deployment document was updated with the new constant
+3) Documentation was added to SVN
+
+Thanks.
