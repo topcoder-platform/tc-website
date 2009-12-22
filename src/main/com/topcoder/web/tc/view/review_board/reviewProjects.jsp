@@ -232,6 +232,10 @@
                         <br/>
                     </c:if>
 
+    	<!-- Temporary - hiding the spec review opps -->
+		<c:choose>
+			<c:when test="${projectType == 19 || projectType == 24">
+    	<!-- END - Temporary - hiding the spec review opps -->
 
                     <c:if test="${fn:length(specificationReviewList) > 0}">
 						<div align="right" style="padding-top: 10px">
@@ -312,11 +316,19 @@
                         <br/>
                     </c:if>
 
-                    <c:if test="${fn:length(projectList) + fn:length(specificationReviewList) == 0}">
+    	<!-- Temporary - hiding the spec review opps -->
+			</c:when>
+		</c:choose>
+    	<!-- END - Temporary - hiding the spec review opps -->
+					
+					<c:if test="${fn:length(projectList) + fn:length(specificationReviewList) == 0}">
                         <br/>
                         <p align="center">Sorry, there are currently no review positions available.</p>
                         <br/>
                     </c:if>
+
+
+
 
                 </td>
                 <!-- Center Column Ends -->
