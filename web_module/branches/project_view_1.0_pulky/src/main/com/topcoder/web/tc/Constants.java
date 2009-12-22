@@ -49,7 +49,7 @@ import java.util.MissingResourceException;
  *   </ol>
  * </p>
  *
- * @author pulky, TCSDEVELOPER
+ * @author pulky
  * @version 1.5
  */
 public class Constants implements WebConstants {
@@ -765,21 +765,28 @@ public class Constants implements WebConstants {
      *
      * @since 1.5
      */
-    public static final String PROJECT_VIEW_PAGE = "/projectview/projectView.jsp";
+    public static String PROJECT_VIEW_PAGE = "/projectview/projectView.jsp";
 
     /**
      * <p>An <code>int</code> representing the default number of weeks for the date filter interval.</p>
      *
      * @since 1.5
      */
-    public static final int PROJECT_VIEW_DEFAULT_WEEKS_INTERVAL = 4;
+    public static int PROJECT_VIEW_DEFAULT_WEEKS_INTERVAL = 4;
 
     /**
      * <p>A <code>String</code> providing date format used in the Project View report page.</p>
      *
      * @since 1.5
      */
-    public static final String PROJECT_VIEW_DATE_FORMAT = "yyyy.MM.dd HH:mm";
+    public static String PROJECT_VIEW_DATE_FORMAT = "yyyy.MM.dd HH:mm";
+
+    /**
+     * <p>A <code>String</code> providing alternate date format used in the Project View report page.</p>
+     *
+     * @since 1.5
+     */
+    public static String ALTERNATE_PROJECT_VIEW_DATE_FORMAT = "yyyy.MM.dd";
 
     static {
         initialize();

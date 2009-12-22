@@ -1,5 +1,5 @@
 <%--
-  - Author: TCSDEVELOPER
+  - Author: pulky
   - Version: 1.0
   - Since: Project View
   - Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
@@ -17,6 +17,8 @@
 <c:set value="<%=Constants.MODULE_KEY%>" var="MODULE_KEY"/>
 <c:set value="<%=Constants.START_DATE%>" var="START_DATE"/>
 <c:set value="<%=Constants.END_DATE%>" var="END_DATE"/>
+<c:set value="<%=Constants.PROJECT_VIEW_DATE_FORMAT%>" var="PROJECT_VIEW_DATE_FORMAT"/>
+<c:set value="<%=Constants.ALTERNATE_PROJECT_VIEW_DATE_FORMAT%>" var="ALTERNATE_PROJECT_VIEW_DATE_FORMAT"/>
 
 <html>
     <head>
@@ -87,42 +89,61 @@
                                 <jsp:param name="title" value="&nbsp;"/>
                             </jsp:include>
                             <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%; margin-bottom: 15px;">
-                                <tbody>
+                                <thead>
                                     <tr>
                                         <td class="header">
                                             Report's filter:
                                         </td>
                                     </tr>
+                                    <tr>
                                         <td>
                                             <form action="${sessionInfo.servletPath}" method="POST" name="projectViewForm">
                                                 <input type="hidden" name="${MODULE_KEY}" value="ProjectView"/>
                                                 <table>
-                                                    <tr>
-                                                        <td align="left">
-                                                            Start Date:
-                                                        </td>
-                                                        <td align="left">
-                                                            <tc-webtag:textInput name="${START_DATE}" size="20" maxlength="20"/>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="left">
-                                                            End Date:
-                                                        </td>
-                                                        <td align="left">
-                                                            <tc-webtag:textInput name="${END_DATE}" size="20" maxlength="20"/>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td align="left">
-                                                            <input type="submit" name="submit" value="Filter"/>
-                                                        </td>
-                                                    </tr>
+                                                    <thead>
+                                                        <tr>
+                                                            <td align="left">
+                                                                Start Date:
+                                                            </td>
+                                                            <td align="left">
+                                                                <tc-webtag:textInput name="${START_DATE}" size="20" maxlength="20"/>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="errorText" colspan="2">
+                                                                <tc-webtag:errorIterator id="err" name="${START_DATE}">${err}</tc-webtag:errorIterator>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="left">
+                                                                End Date: 
+                                                            </td>
+                                                            <td align="left">
+                                                                <tc-webtag:textInput name="${END_DATE}" size="20" maxlength="20"/>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="errorText" colspan="2">
+                                                                <tc-webtag:errorIterator id="err" name="${END_DATE}">${err}</tc-webtag:errorIterator>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="left" colspan="2">
+                                                                * You may use <strong>${PROJECT_VIEW_DATE_FORMAT}</strong> 
+                                                                or <strong>${ALTERNATE_PROJECT_VIEW_DATE_FORMAT}</strong> as date formats.
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="left">
+                                                                <input type="submit" name="submit" value="Filter"/>
+                                                            </td>
+                                                        </tr>
+                                                    </thead>
                                                 </table>
                                             </form>
                                         </td>
                                     </tr>
-                                </tbody>
+                                </thead>
                             </table>
                         </div>
                         <div class="maxWidthBody" align="left">

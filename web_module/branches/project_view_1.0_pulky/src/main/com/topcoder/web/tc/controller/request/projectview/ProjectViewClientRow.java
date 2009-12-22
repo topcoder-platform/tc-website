@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * <p>Simple bean that stores an aggregated Client row for the Project View report.</p>
  *
- * @author TCSDEVELOPER
+ * @author pulky
  * @version 1.0
  * @since Project View
  */

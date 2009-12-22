@@ -8,7 +8,7 @@ import java.io.Serializable;
 /**
  * <p>Simple bean that stores a contest row for the Project View report.</p>
  *
- * @author TCSDEVELOPER
+ * @author pulky
  * @version 1.0
  * @since Project View
  */

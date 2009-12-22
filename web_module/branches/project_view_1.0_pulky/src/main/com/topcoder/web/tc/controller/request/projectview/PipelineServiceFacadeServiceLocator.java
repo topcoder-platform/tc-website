@@ -17,7 +17,7 @@ import com.topcoder.shared.util.logging.Logger;
 /**
  * <p>A simple locator for the Pipeline Service Facade Service EJB</p>
  *
- * @author TCSDEVELOPER
+ * @author pulky
  * @version 1.0
  * @since Project View
  */

@@ -26,12 +26,12 @@ import com.topcoder.web.tc.Constants;
  *     to aggregate contest fees and group contests by projects and clients.
  * </p>
  *
- * @author TCSDEVELOPER
+ * @author pulky
  * @version 1.0
  * @since Project View
  */
 public class ProjectView extends BaseProcessor {
-
+    
     /**
      * This method executes the actual business logic for this processor.
      *
@@ -39,53 +39,101 @@ public class ProjectView extends BaseProcessor {
      * @see com.topcoder.web.common.BaseProcessor#businessProcessing()
      */
     protected void businessProcessing() throws Exception {
-        // get start and end dates from request, if empty start will be current and end will be current +
-        // DEFAULT_DATE_INTERVAL
-
+        // prepare principal and alternate date formats
         SimpleDateFormat sdf = new SimpleDateFormat(Constants.PROJECT_VIEW_DATE_FORMAT);
+        SimpleDateFormat alternateSdf = new SimpleDateFormat(Constants.ALTERNATE_PROJECT_VIEW_DATE_FORMAT);
 
+        // retrieve start date from request and apply logic
+        Date startDate = processStartDate(sdf, alternateSdf);
+
+        // retrieve end date from request and apply logic
+        Date endDate = processEndDate(sdf, alternateSdf, startDate);
+
+        // get data from pipeline service facade
+        if (!hasErrors()) {
+            List<CommonPipelineData> commonPipelineData =
+                PipelineServiceFacadeServiceLocator.getServices().getCommonPipelineData(startDate, endDate, true);
+
+            if (commonPipelineData.size() > 0) {
+                // process aggregations
+                List<ProjectViewClientRow> clients = processPipelineData(commonPipelineData);
+    
+                getRequest().setAttribute(Constants.CLIENTS, clients);
+            }
+        }
+
+        setNextPage(Constants.PROJECT_VIEW_PAGE);
+        setIsNextPageInContext(true);
+    }
+
+    /**
+     * This method processes end date.
+     *
+     * - If the request parameter is empty it will calculate end date based on the configured interval.
+     *   (unless start date is wrong)
+     * - Then both formats will be applied. If both are wrong, an error message is added
+     * - Finally, precedence is verified    
+     * 
+     * @param sdf the main date format
+     * @param alternateSdf the alternate date format
+     * @param startDate the processed start date
+     * 
+     * @return the processed end date
+     */
+    private Date processEndDate(SimpleDateFormat sdf, SimpleDateFormat alternateSdf, Date startDate) {
+        String endDateStr = StringUtils.checkNull(getRequest().getParameter(Constants.END_DATE));
+        Date endDate = null;
+        if (endDateStr.trim().length() == 0) {
+            if (startDate != null) {
+                endDate = calculateEndDate(startDate);
+            }
+        } else {
+            try {
+                endDate = sdf.parse(endDateStr);
+            } catch (ParseException pe) {
+                try {
+                    endDate = alternateSdf.parse(endDateStr);
+                } catch (ParseException pe2) {
+                    addError(Constants.END_DATE, "Please enter a valid end date");
+                }
+            }
+            if (!hasErrors() && endDate.before(startDate)) {
+                addError(Constants.END_DATE, "End date must be after start date");
+            }
+        }
+        setDefault(Constants.END_DATE, endDate != null ? sdf.format(endDate) : endDateStr);
+        return endDate;
+    }
+
+    /**
+     * This method processes start date.
+     *
+     * - If the request parameter is empty the start date is set to current
+     * - Then both formats will be applied. If both are wrong, an error message is added
+     * 
+     * @param sdf the main date format
+     * @param alternateSdf the alternate date format
+     * 
+     * @return the processed start date
+     */
+    private Date processStartDate(SimpleDateFormat sdf, SimpleDateFormat alternateSdf) {
         String startDateStr = StringUtils.checkNull(getRequest().getParameter(Constants.START_DATE));
-        Date startDate;
-        if ("".equals(startDateStr)) {
+        Date startDate = null;
+        if (startDateStr.trim().length() == 0) {
             startDate = new Date();
         } else {
             try {
                 startDate = sdf.parse(startDateStr);
             } catch (ParseException pe) {
-                startDate = new Date();
-            }
-        }
-        setDefault(Constants.START_DATE, sdf.format(startDate));
-
-        String endDateStr = StringUtils.checkNull(getRequest().getParameter(Constants.END_DATE));
-        Date endDate;
-        if ("".equals(startDateStr)) {
-            endDate = calculateEndDate(startDate);
-        } else {
-            try {
-                endDate = sdf.parse(endDateStr);
-                if (endDate.before(startDate)) {
-                    endDate = calculateEndDate(startDate);
+                try {
+                    startDate = alternateSdf.parse(startDateStr);
+                } catch (ParseException pe2) {
+                    addError(Constants.START_DATE, "Please enter a valid start date");
                 }
-            } catch (ParseException pe) {
-                endDate = calculateEndDate(startDate);
             }
         }
-        setDefault(Constants.END_DATE, sdf.format(endDate));
-
-        // get data from pipeline service facade
-        List<CommonPipelineData> commonPipelineData =
-            PipelineServiceFacadeServiceLocator.getServices().getCommonPipelineData(startDate, endDate, true);
-
-        if (commonPipelineData.size() > 0) {
-            // process aggregations
-            List<ProjectViewClientRow> clients = processPipelineData(commonPipelineData);
-
-            getRequest().setAttribute(Constants.CLIENTS, clients);
-        }
-
-        setNextPage(Constants.PROJECT_VIEW_PAGE);
-        setIsNextPageInContext(true);
+        setDefault(Constants.START_DATE, startDate != null ? sdf.format(startDate) : startDateStr);
+        return startDate;
     }
 
     /**
