@@ -35,7 +35,8 @@
             <div class="fixedWidthBody">
            
         <div align="center"><img src="/i/sponsor/nsa/nsa_logo.jpg" border="0px" alt="NSA Logo" /><br /><br />
-        	<h1>NSA Marathon Match Event</h1></div>
+        	<h1>NSA Marathon Match Event</h1>
+        	<h3 style="border-bottom: 1px dashed #999999; padding-bottom: 15px; margin-bottom: 15px;">Next competition starts December 28, 2009&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www.topcoder.com/longcontest/?module=ViewPractice" style="text-decoration: underline;">Practice Now</a></h3></div>
 
 
         <p align="center">
