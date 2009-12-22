@@ -1041,10 +1041,10 @@ public class RBoardApplicationBean extends BaseEJB {
                 throw new RBoardRegistrationException("Sorry, you are not authorized to perform reviews at this time.");
             }
 
-            if (!reviewRespMap.containsKey(new Integer(reviewTypeId)) ||
-                !reviewRespMap.get(new Integer(reviewTypeId)).equals(new Integer(phaseId))) {
-                throw new RBoardRegistrationException("Invalid request, incorrect review position specified.");
-            }
+//            if (!reviewRespMap.containsKey(new Integer(reviewTypeId)) ||
+//                !reviewRespMap.get(new Integer(reviewTypeId)).equals(new Integer(phaseId))) {
+//                throw new RBoardRegistrationException("Invalid request, incorrect review position specified.");
+//            }
         } catch (SQLException sqle) {
             throw (new EJBException(sqle));
         } finally {
@@ -1134,10 +1134,10 @@ public class RBoardApplicationBean extends BaseEJB {
                 throw new RBoardRegistrationException("Sorry, you are not authorized to perform reviews at this time.");
             }
 
-            if (!reviewRespMap.containsKey(new Integer(reviewTypeId))
-                || !reviewRespMap.get(reviewTypeId).equals(projectTypeId + 111)) {
-                throw new RBoardRegistrationException("Invalid request, incorrect review position specified.");
-            }
+//            if (!reviewRespMap.containsKey(new Integer(reviewTypeId))
+//                || !reviewRespMap.get(reviewTypeId).equals(projectTypeId + 111)) {
+//                throw new RBoardRegistrationException("Invalid request, incorrect review position specified.");
+//            }
         } catch (SQLException sqle) {
             sqle.printStackTrace();
             throw (new EJBException(sqle));
