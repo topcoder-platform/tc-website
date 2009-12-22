@@ -91,6 +91,7 @@ public interface RBoardApplication extends EJBObject {
 	 *
 	 * @since 1.0.4
      */
+    @Deprecated
     public void createSpecReviewRBoardApplication(String dataSource, long userId,
                                         long projectId, int reviewRespId, int phaseId, Timestamp opensOn,
                                         int reviewTypeId, boolean primary) throws RBoardRegistrationException, RemoteException;
