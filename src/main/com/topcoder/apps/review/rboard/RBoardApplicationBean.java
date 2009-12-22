@@ -662,6 +662,7 @@ public class RBoardApplicationBean extends BaseEJB {
      * @since 1.0.11
      */
     @SuppressWarnings("unchecked")
+    @Deprecated
     public void createSpecReviewRBoardApplication(String dataSource, long userId,
                                         long projectId, int reviewRespId, int phaseId, Timestamp opensOn,
                                         int reviewTypeId, boolean primary) throws RBoardRegistrationException {

@@ -83,6 +83,11 @@ public interface SoftwareComponent extends Cloneable, Serializable {
      * @since 1.1
      */
     public final static int RIA_COMPONENT_PHASE = (int) WebConstants.PHASE_RIA_COMPONENT;
+    
+    /**
+     * <p>An <code>int</code> representing specification review phase id.</p>
+     */
+    public final static int SPECIFICATION_REVIEW_PHASE = (int) WebConstants.PHASE_SPECIFICATION_REVIEW;
 	
 	/**
      * <p>An <code>int</code> representing design specification phase id.</p>

@@ -15,6 +15,7 @@ import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.tc.Constants;
 
 /**
@@ -156,15 +157,16 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
                 " primary " + primary + " type " + reviewTypeId + " project " + projectId);
 
         if (this.phaseId > Constants.SPECIFICATION_COMPETITION_OFFSET) {
-            rBoardApplication.createSpecReviewRBoardApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId,
-                    reviewTypeId, phaseId, opensOn, reviewTypeId, new Boolean(primary).booleanValue());
+            rBoardApplication.createRBoardApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId,
+                    reviewTypeId, (int) WebConstants.PHASE_SPECIFICATION_REVIEW, opensOn, reviewTypeId,
+                    new Boolean(primary).booleanValue());
         } else {
             rBoardApplication.createRBoardApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId,
                     reviewTypeId, phaseId, opensOn, reviewTypeId, new Boolean(primary).booleanValue());
         }
 
 
-         ResultSetContainer detail = null;
+        ResultSetContainer detail = null;
         Map results = null;
 
         // send email
