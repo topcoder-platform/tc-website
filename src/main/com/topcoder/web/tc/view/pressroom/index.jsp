@@ -97,6 +97,19 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- Secret Code Machine --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_122209"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_122209">TopCoder Cryptographers Test World War II Secret Code Machine</a></h3>
+                        <p>Virtual Recreation of Enigma Machine is Beaten 40% of the Time by TopCoder Marathon Match Winning Algorithm<small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_122209">[November 25th]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Secret Code Machine end --%>
+                
                 <%-- TopCoder Board of Directors --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
