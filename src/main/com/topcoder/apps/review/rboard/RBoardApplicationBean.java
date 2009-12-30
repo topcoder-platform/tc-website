@@ -598,17 +598,23 @@ public class RBoardApplicationBean extends BaseEJB {
                 // Prepare for primary screener
                 roleId = PRIMARY_SCREEN_ROLE;
                 pid = (String) phaseInfos.get(String.valueOf(SCREEN_PHASE));
-                insertUserRole(conn, nextId(RESOURCE_ID_SEQ), roleId, projectId, pid, userId);
+                if (pid != null && !pid.equals("")) {
+                	insertUserRole(conn, nextId(RESOURCE_ID_SEQ), roleId, projectId, pid, userId);
+                }
 
                 // Prepare for aggregator
                 roleId = AGGREGATOR_REVIEWER_ROLE;
                 pid = (String) phaseInfos.get(String.valueOf(AGGREGATION_PHASE));
-                insertUserRole(conn, nextId(RESOURCE_ID_SEQ), roleId, projectId, pid, userId);
-
+                if (pid != null && !pid.equals("")) {
+                	insertUserRole(conn, nextId(RESOURCE_ID_SEQ), roleId, projectId, pid, userId);
+                }
+                
                 // Prepare for final review
                 roleId = FINAL_REVIEWER_ROLE;
                 pid = (String) phaseInfos.get(String.valueOf(FINAL_REVIEW_PHASE));
-                insertUserRole(conn, nextId(RESOURCE_ID_SEQ), roleId, projectId, pid, userId);
+                if (pid != null && !pid.equals("")) {
+                	insertUserRole(conn, nextId(RESOURCE_ID_SEQ), roleId, projectId, pid, userId);
+                }
             }
 
             // Create forum permission
