@@ -591,7 +591,7 @@ public class RBoardApplicationBean extends BaseEJB {
             }
             Map phaseInfos = getPhaseInfo(projectId, conn);
             String pid = (String) phaseInfos.get(String.valueOf(REVIEW_PHASE));
-            // Prepre resource for review phase
+            // Prepare resource for review phase
             insertUserRole(conn, nextId(RESOURCE_ID_SEQ), roleId, projectId, pid, userId);
 
             if (primary) {
