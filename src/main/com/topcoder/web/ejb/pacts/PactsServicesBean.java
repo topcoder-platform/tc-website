@@ -115,6 +115,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @since 1.1
      */
     private static final int TEST_SCENARIOS_PROJECT_TYPE = 26;
+    
+    /**
+     * <p>A <code>int</code> representing the specification review project category id.</p>
+     */
+    private static final int SPECIFICATION_REVIEW_PROJECT_TYPE = 27;
 
     private static final int ASSEMBLY_PROJECT_TYPE = 14;
 
@@ -5182,7 +5187,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 projectType == SPECIFICATION_PROJECT_TYPE || projectType == TEST_SUITES_PROJECT_TYPE ||
                 projectType == ASSEMBLY_PROJECT_TYPE || projectType == UI_PROTOTYPE_PROJECT_TYPE ||
                 projectType == RIA_BUILD_PROJECT_TYPE || projectType == RIA_COMPONENT_PROJECT_TYPE ||
-                projectType == TEST_SCENARIOS_PROJECT_TYPE) {
+                projectType == TEST_SCENARIOS_PROJECT_TYPE || projectType == SPECIFICATION_REVIEW_PROJECT_TYPE) {
                 p = new ReviewBoardPayment(coderId, amount, client, projectId);
             }
 
