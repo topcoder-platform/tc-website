@@ -20,6 +20,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.common.eligibility.ContestEligibilityServiceLocator;
 
 import java.util.Map;
 
@@ -111,6 +112,7 @@ public class ScorecardDetails extends Base {
     
     private boolean isAuthorized(String projId, String coderId, String reviewerId) throws Exception {
         long userId = getUser().getId();
+        long pid = new Long(projId);
         
         // you can always view your own scorecard
         if (coderId.equals("" + userId)) {
@@ -141,6 +143,12 @@ public class ScorecardDetails extends Base {
         		&& projectInfo.getIntItem(0, "category_id") != WebConstants.JAVA_CATALOG
         		&& projectInfo.getIntItem(0, "category_id") != WebConstants.NET_CATALOG
         		&& projectInfo.getIntItem(0, "category_id") != WebConstants.FLASH_CATALOG) {
+            return false;
+        }
+
+        // if has eligibility and user is not eligible
+        if ((ContestEligibilityServiceLocator.getServices().hasEligibility(pid, false))
+              && !ContestEligibilityServiceLocator.getServices().isEligible(userId, pid, false)) {
             return false;
         }
         
