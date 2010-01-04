@@ -42,7 +42,7 @@ New Software Reports
     <% String baseTCSUrl = Constants.SERVLET_ADDR + "&" + Constants.TASK_NAME_KEY + "=" + Constants.NEW_REPORT_KEY + "&" + Constants.DB_KEY + "=" + DBMS.TCS_OLTP_DATASOURCE_NAME + "&" + DataAccessConstants.COMMAND + "=";%>
 
     <LI><A HREF="<%=baseTCSUrl+"application_report"%>">Application Report</a></LI>
-    <LI><A HREF="<%=baseTCSUrl+"predictor"%>">Component Submission Predictor</a></LI>
+    <LI><A HREF="<%=baseTCSUrl+"project_risk"%>">Project Risk</a></LI>
     <LI><A HREF="<%=baseTCSUrl+"software_forums"%>">Software Forums</a></LI>
     <LI><A HREF="<%=baseTCSUrl+"project_timeline_report"%>">Project Timelines</a></LI>
     <LI><A HREF="<%=baseTCSUrl+"catalog_backlog_report"%>">Catalog Backlog</a></LI>
