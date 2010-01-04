@@ -139,10 +139,10 @@ public class ScorecardDetails extends Base {
         
         // Require a login to view custom project scorecards.
         // TODO: Include new generic catalogs.
-        if (projectInfo.getIntItem(0, "category_id") != WebConstants.JAVA_CATALOG
+        if (getUser().isAnonymous()
+        		&& projectInfo.getIntItem(0, "category_id") != WebConstants.JAVA_CATALOG
         		&& projectInfo.getIntItem(0, "category_id") != WebConstants.NET_CATALOG
-        		&& projectInfo.getIntItem(0, "category_id") != WebConstants.FLASH_CATALOG
-        		&& getUser().isAnonymous()) {
+        		&& projectInfo.getIntItem(0, "category_id") != WebConstants.FLASH_CATALOG) {
             return false;
         }
         
