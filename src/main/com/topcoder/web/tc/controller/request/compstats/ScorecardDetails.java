@@ -75,11 +75,9 @@ public class ScorecardDetails extends Base {
 
             }
 
-            if (projectInfo.getIntItem(0, "status_id") != 7) {
-                if (!(((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin()
-                		|| isAuthorized(projectId, userId,  getRequest().getParameter("rid")))) {
-                    throw new TCWebException("You don't have permission to view the scorecard.");                        
-                }
+            if ((projectInfo.getIntItem(0, "status_id") != 7 && !((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin())
+            		|| !isAuthorized(projectId, userId, getRequest().getParameter("rid"))) {
+                throw new TCWebException("You don't have permission to view the scorecard.");                        
             }
             
 
@@ -113,11 +111,6 @@ public class ScorecardDetails extends Base {
     
     
     private boolean isAuthorized(String projId, String coderId, String reviewerId) throws Exception {
-        // Require a login to view project scorecards.
-        if (getUser().isAnonymous()) {
-            return false;
-        }
-        
         long userId = getUser().getId();
         
         // you can always view your own scorecard
@@ -142,6 +135,15 @@ public class ScorecardDetails extends Base {
         ResultSetContainer dates = findProjects(projectInfo.getStringItem(0, "component_id"),
                                                 projectInfo.getStringItem(0, "version_id"),
                                                 projectInfo.getStringItem(0, "phase_id"));
+        
+        // Require a login to view custom project scorecards.
+        // TODO: Include new generic catalogs.
+        if (getUser().isAnonymous()
+        		&& projectInfo.getIntItem(0, "category_id") != WebConstants.JAVA_CATALOG
+        		&& projectInfo.getIntItem(0, "category_id") != WebConstants.NET_CATALOG
+        		&& projectInfo.getIntItem(0, "category_id") != WebConstants.FLASH_CATALOG) {
+            return false;
+        }
         
         // check if there is a completed or suspended version of the component
         for (int i=0; i < dates.size(); i++) {
