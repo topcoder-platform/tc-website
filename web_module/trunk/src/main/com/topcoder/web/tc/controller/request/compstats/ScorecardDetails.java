@@ -75,8 +75,7 @@ public class ScorecardDetails extends Base {
 
             }
 
-            if ((projectInfo.getIntItem(0, "status_id") != 7 && !((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin())
-            		|| !isAuthorized(projectId, userId, getRequest().getParameter("rid"))) {
+            if (!isAuthorized(projectId, userId, getRequest().getParameter("rid"))) {
                 throw new TCWebException("You don't have permission to view the scorecard.");                        
             }
             
@@ -145,9 +144,15 @@ public class ScorecardDetails extends Base {
             return false;
         }
         
+        // If the project isn't finished, only administrators can view the scorecard.
+        if (projectInfo.getIntItem(0, "status_id") != 7
+        		&& !((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin()) {
+        	return false;
+        }
+        
         // check if there is a completed or suspended version of the component
         for (int i=0; i < dates.size(); i++) {
-            if (dates.getIntItem(i,"status_id") == 7 || dates.getIntItem(i,"suspended_ind") == 1) {
+            if (dates.getIntItem(i, "status_id") == 7 || dates.getIntItem(i, "suspended_ind") == 1) {
                 return true;
             }
         }
