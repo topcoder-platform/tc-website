@@ -234,7 +234,7 @@
 
     	<!-- Temporary - hiding the spec review opps -->
 		<c:choose>
-			<c:when test="${projectType == 19 || projectType == 24">
+			<c:when test="${projectType == 19 || projectType == 24}">
     	<!-- END - Temporary - hiding the spec review opps -->
 
                     <c:if test="${fn:length(specificationReviewList) > 0}">
