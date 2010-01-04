@@ -76,7 +76,8 @@ public class ScorecardDetails extends Base {
             }
 
             if (projectInfo.getIntItem(0, "status_id") != 7) {
-                if (!(((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin() || isAuthorized(projectId, userId,  getRequest().getParameter("rid")))) {
+                if (!(((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin()
+                		|| isAuthorized(projectId, userId,  getRequest().getParameter("rid")))) {
                     throw new TCWebException("You don't have permission to view the scorecard.");                        
                 }
             }
