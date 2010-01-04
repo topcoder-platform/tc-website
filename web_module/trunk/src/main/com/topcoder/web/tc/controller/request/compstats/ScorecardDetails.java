@@ -18,6 +18,7 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.tc.Constants;
 
 import java.util.Map;
@@ -135,6 +136,15 @@ public class ScorecardDetails extends Base {
         ResultSetContainer dates = findProjects(projectInfo.getStringItem(0, "component_id"),
                                                 projectInfo.getStringItem(0, "version_id"),
                                                 projectInfo.getStringItem(0, "phase_id"));
+        
+        // Require a login to view custom project scorecards.
+        // TODO: Include new generic catalogs.
+        if (projectInfo.getIntItem(0, "category_id") != WebConstants.JAVA_CATALOG
+        		&& projectInfo.getIntItem(0, "category_id") != WebConstants.NET_CATALOG
+        		&& projectInfo.getIntItem(0, "category_id") != WebConstants.FLASH_CATALOG
+        		&& getUser().isAnonymous()) {
+            return false;
+        }
         
         // check if there is a completed or suspended version of the component
         for (int i=0; i < dates.size(); i++) {
