@@ -11,6 +11,11 @@ package com.topcoder.web.common.model;
  */
 public class SpecificationReviewerPaymentCalculator implements ReviewerPaymentCalculator {
 
+	/**
+     * <p>An <code>float</code> representing specification review price.</p>
+     */
+    private static final float STANDARD_SPECIFICATION_REVIEW_PRICE = 50f;
+	
     /**
      * <p>An <code>float</code> representing design specification review price.</p>
      */
@@ -98,7 +103,8 @@ public class SpecificationReviewerPaymentCalculator implements ReviewerPaymentCa
      */
     public void setPhaseId(int phaseId) {
 
-        if (phaseId != SoftwareComponent.DESIGN_SPECIFICATION_PHASE
+        if (phaseId != SoftwareComponent.SPECIFICATION_REVIEW_PHASE
+        		&& phaseId != SoftwareComponent.DESIGN_SPECIFICATION_PHASE
                 && phaseId != SoftwareComponent.DEVELOPMENT_SPECIFICATION_PHASE
                 && phaseId != SoftwareComponent.CONCEPTUALIZATION_SPECIFICATION_PHASE
                 && phaseId != SoftwareComponent.SPECIFICATION_SPECIFICATION_PHASE
@@ -123,6 +129,8 @@ public class SpecificationReviewerPaymentCalculator implements ReviewerPaymentCa
      */
     public float getReviewCost() {
         switch (phaseId) {
+        	case SoftwareComponent.SPECIFICATION_REVIEW_PHASE:
+        		return STANDARD_SPECIFICATION_REVIEW_PRICE;
             case SoftwareComponent.DESIGN_SPECIFICATION_PHASE:
                 return STANDARD_DESIGN_SPECIFICATION_REVIEW_PRICE;
             case SoftwareComponent.DEVELOPMENT_SPECIFICATION_PHASE:

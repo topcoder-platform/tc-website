@@ -195,7 +195,8 @@ public class DefaultPriceComponent implements SoftwareComponent {
         } else if (phaseId == UI_PROTOTYPE_PHASE || phaseId == RIA_BUILD_PHASE ||
                 phaseId == RIA_COMPONENT_PHASE) {
             return new StudioReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
-        } else if (phaseId == DESIGN_SPECIFICATION_PHASE || phaseId == DEVELOPMENT_SPECIFICATION_PHASE ||
+        } else if (phaseId == SPECIFICATION_REVIEW_PHASE ||
+        		phaseId == DESIGN_SPECIFICATION_PHASE || phaseId == DEVELOPMENT_SPECIFICATION_PHASE ||
                 phaseId == CONCEPTUALIZATION_SPECIFICATION_PHASE || phaseId == SPECIFICATION_SPECIFICATION_PHASE ||
                 phaseId == ARCHITECTURE_SPECIFICATION_PHASE || phaseId == ASSEMBLY_SPECIFICATION_PHASE ||
                 phaseId == TEST_SUITES_SPECIFICATION_PHASE || phaseId == TEST_SCENARIOS_SPECIFICATION_PHASE ||
@@ -300,27 +301,28 @@ public class DefaultPriceComponent implements SoftwareComponent {
         if (args.length != 4) {
             System.out.println("usage: java " + SoftwareComponent.class.toString() + " " +
                     "<numSubmissions> <numSubmissionPassScreening> <phaseId> <prize>");
-            System.out.println("Component Design phaseId      : " + DEV_PHASE);
-            System.out.println("Component Development phaseId : " + DESIGN_PHASE);
-            System.out.println("Conceptualization phaseId     : " + CONCEPTUALIZATION_PHASE);
-            System.out.println("Specification phaseId         : " + SPECIFICATION_PHASE);
-            System.out.println("Architecture phaseId          : " + ARCHITECTURE_PHASE);
-            System.out.println("Assembly phaseId              : " + ASSEMBLY_PHASE);
-            System.out.println("Test Suites phaseId           : " + TEST_SUITES_PHASE);
-            System.out.println("Test Scenarios phaseId        : " + TEST_SCENARIOS_PHASE);
-            System.out.println("UI Prototype phaseId          : " + UI_PROTOTYPE_PHASE);
-            System.out.println("RIA Build phaseId             : " + RIA_BUILD_PHASE);
-            System.out.println("RIA Component phaseId         : " + RIA_COMPONENT_PHASE);
-			System.out.println("Design Specification phaseId              : " + DESIGN_SPECIFICATION_PHASE);
-            System.out.println("Development Specification phaseId         : " + DEVELOPMENT_SPECIFICATION_PHASE);
-            System.out.println("Conceptualization Specification phaseId   : " + CONCEPTUALIZATION_SPECIFICATION_PHASE);
-            System.out.println("Specification Specification phaseId       : " + SPECIFICATION_SPECIFICATION_PHASE);
-            System.out.println("Architecture Specification phaseId        : " + ARCHITECTURE_SPECIFICATION_PHASE);
-			System.out.println("Test Suites Specification phaseId           : " + TEST_SUITES_SPECIFICATION_PHASE);
-            System.out.println("Test Scenarios Specification phaseId        : " + TEST_SCENARIOS_SPECIFICATION_PHASE);
-            System.out.println("UI Prototype Specification phaseId        : " + UI_PROTOTYPE_SPECIFICATION_PHASE);
-            System.out.println("RIA Build Specification phaseId        : " + RIA_BUILD_SPECIFICATION_PHASE);
-            System.out.println("RIA Component Specification phaseId        : " + RIA_COMPONENT_SPECIFICATION_PHASE);
+            System.out.println("Component Design phaseId                : " + DEV_PHASE);
+            System.out.println("Component Development phaseId           : " + DESIGN_PHASE);
+            System.out.println("Conceptualization phaseId               : " + CONCEPTUALIZATION_PHASE);
+            System.out.println("Specification phaseId                   : " + SPECIFICATION_PHASE);
+            System.out.println("Architecture phaseId                    : " + ARCHITECTURE_PHASE);
+            System.out.println("Assembly phaseId                        : " + ASSEMBLY_PHASE);
+            System.out.println("Test Suites phaseId                     : " + TEST_SUITES_PHASE);
+            System.out.println("Test Scenarios phaseId                  : " + TEST_SCENARIOS_PHASE);
+            System.out.println("UI Prototype phaseId                    : " + UI_PROTOTYPE_PHASE);
+            System.out.println("RIA Build phaseId                       : " + RIA_BUILD_PHASE);
+            System.out.println("RIA Component phaseId                   : " + RIA_COMPONENT_PHASE);
+            System.out.println("Specification Review phaseId            : " + SPECIFICATION_REVIEW_PHASE);
+			System.out.println("Design Specification phaseId            : " + DESIGN_SPECIFICATION_PHASE);
+            System.out.println("Development Specification phaseId       : " + DEVELOPMENT_SPECIFICATION_PHASE);
+            System.out.println("Conceptualization Specification phaseId : " + CONCEPTUALIZATION_SPECIFICATION_PHASE);
+            System.out.println("Specification Specification phaseId     : " + SPECIFICATION_SPECIFICATION_PHASE);
+            System.out.println("Architecture Specification phaseId      : " + ARCHITECTURE_SPECIFICATION_PHASE);
+			System.out.println("Test Suites Specification phaseId       : " + TEST_SUITES_SPECIFICATION_PHASE);
+            System.out.println("Test Scenarios Specification phaseId    : " + TEST_SCENARIOS_SPECIFICATION_PHASE);
+            System.out.println("UI Prototype Specification phaseId      : " + UI_PROTOTYPE_SPECIFICATION_PHASE);
+            System.out.println("RIA Build Specification phaseId         : " + RIA_BUILD_SPECIFICATION_PHASE);
+            System.out.println("RIA Component Specification phaseId     : " + RIA_COMPONENT_SPECIFICATION_PHASE);
         } else {
             DefaultPriceComponent sc = new DefaultPriceComponent(1, Integer.parseInt(args[0]),
                                                                  Integer.parseInt(args[1]), Integer.parseInt(args[2]),

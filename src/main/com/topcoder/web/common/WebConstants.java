@@ -302,6 +302,11 @@ public interface WebConstants {
     public static final int RIA_COMPONENT_PROJECT_TYPE = 25;
     
     /**
+     * <p>An <code>int</code> representing specification review project type id.</p>
+     */
+    public static final int SPECIFICATION_REVIEW_PROJECT_TYPE = 27;
+    
+    /**
      * <p>An <code>long</code> representing design specification project category id.</p>
      *
      * @since 1.3
@@ -409,6 +414,11 @@ public interface WebConstants {
      * @since 1.1
      */
     public static final long PHASE_RIA_COMPONENT = RIA_COMPONENT_PROJECT_TYPE + GENERAL_PHASE_OFFSET;
+    
+    /**
+     * <p>A <code>long</code> representing specification review phase id.</p>
+     */
+    public static final long PHASE_SPECIFICATION_REVIEW = SPECIFICATION_REVIEW_PROJECT_TYPE + GENERAL_PHASE_OFFSET;
 
     /**
      * <p>A <code>long</code> representing test suites phase id.</p>
