@@ -1,8 +1,11 @@
 <%--
   - Author: pulky, snow01
-  - Version: 1.0
+  - Version: 1.1
   - Since: Specification Review Integration 1.0
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Version 1.1 (BUGR-3065) changes: added constants for UI prototype, RIA build and RIA component specification
+  - reviews
   -
   - Description: This is a simple include page that that helps avoiding duplicated code in review board pages.
   - It will define several variables used in those pages.
@@ -38,6 +41,12 @@
     value="<%=Constants.DESIGN_SPECIFICATION_PROJECT_TYPE%>" scope="request"/>
 <c:set var="DEVELOPMENT_SPECIFICATION_PROJECT_TYPE"
     value="<%=Constants.DEVELOPMENT_SPECIFICATION_PROJECT_TYPE%>" scope="request"/>
+<c:set var="UI_PROTOTYPE_SPECIFICATION_PROJECT_TYPE"
+    value="<%=Constants.UI_PROTOTYPE_SPECIFICATION_PROJECT_TYPE%>" scope="request"/>
+<c:set var="RIA_BUILD_SPECIFICATION_PROJECT_TYPE"
+    value="<%=Constants.RIA_BUILD_SPECIFICATION_PROJECT_TYPE%>" scope="request"/>
+<c:set var="RIA_COMPONENT_SPECIFICATION_PROJECT_TYPE"
+    value="<%=Constants.RIA_COMPONENT_SPECIFICATION_PROJECT_TYPE%>" scope="request"/>
 
 <c:choose>
     <c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
