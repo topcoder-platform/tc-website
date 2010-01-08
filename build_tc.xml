@@ -167,7 +167,6 @@
             <exclude name="com/topcoder/web/winformula/**"/>
             <exclude name="com/topcoder/web/forums/**"/>
             <exclude name="com/topcoder/web/onsite/**"/>
-            <exclude name="com/topcoder/web/oracle/**"/>
             <exclude name="com/topcoder/web/ejb/security/**"/>
         </javac>
         <property name="compile_set" value="true"/>
@@ -899,8 +898,6 @@
         <war warfile="${war.dir}/reg.war" webxml="${resources}/reg/web.xml">
             <classes dir="${classes}">
                 <include name="com/topcoder/web/reg/**/*.class"/>
-                <!--todo remove this once we deploy the oracle -->
-                <include name="com/topcoder/web/oracle/model/**/*.class"/>
             </classes>
             <webinf dir="${resources}/taglib">
                 <include name="tc.tld"/>
@@ -927,7 +924,6 @@
             </classes>
             <classes dir="${resources}/hibernate">
                 <include name="com/topcoder/web/common/**/*.xml"/>
-                <include name="com/topcoder/web/oracle/model/**/*.xml"/>
                 <include name="com/topcoder/web/tc/model/**/*.xml"/>
                 <include name="com/topcoder/web/ep/model/**/*.xml"/>
             </classes>
@@ -1018,7 +1014,6 @@
             <exclude name="com/topcoder/web/openaim/**"/>
             <exclude name="com/topcoder/web/forums/**"/>
             <exclude name="com/topcoder/web/onsite/**"/>
-            <exclude name="com/topcoder/web/oracle/**"/>
         </javac>
     </target>
 
