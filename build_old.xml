@@ -177,7 +177,6 @@
             <exclude name="com/topcoder/web/openaim/**"/>
             <exclude name="com/topcoder/web/forums/**"/>
             <exclude name="com/topcoder/web/onsite/**"/>
-            <exclude name="com/topcoder/web/oracle/**"/>
             <exclude name="com/topcoder/web/ejb/security/**"/>
             
         </javac>
