@@ -519,7 +519,6 @@
         <antcall target="deploy-query"/>
         <antcall target="deploy-email"/>
         <antcall target="deploy-corp"/>
-        <antcall target="deploy-privatelabel"/>
         <antcall target="deploy-reg"/>
         <antcall target="deploy-ep"/>
 
@@ -551,7 +550,6 @@
         <antcall target="expand-query"/>
         <antcall target="expand-email"/>
         <antcall target="expand-corp"/>
-        <antcall target="expand-privatelabel"/>
         <antcall target="expand-reg"/>
         <antcall target="expand-ep"/>
 
@@ -572,7 +570,6 @@
                 <include name="ApplicationServer.properties"/>
                 <include name="DBMS.properties"/>
                 <include name="DataAccess.properties"/>
-                <include name="PrivateLabel*.properties"/>
                 <include name="problem.xsd"/>
                 <include name="ProblemParser.properties"/>
                 <include name="Resume.properties"/>
@@ -797,15 +794,6 @@
                 <include name="com/topcoder/web/corp/**"/>
                 <include name="com/topcoder/web/ejb/**"/>
                 <include name="com/topcoder/security/**/*.class"/>
-                <include name="com/topcoder/web/privatelabel/model/Base.class"/>
-                <include name="com/topcoder/web/privatelabel/model/DemographicAnswer.class"/>
-                <include name="com/topcoder/web/privatelabel/model/DemographicQuestion.class"/>
-                <include name="com/topcoder/web/privatelabel/model/DemographicResponse.class"/>
-                <include name="com/topcoder/web/privatelabel/view/tag/DemographicQuestionIteratorTagInfo.class"/>
-                <include name="com/topcoder/web/privatelabel/view/tag/DemographicAnswerIteratorTagInfo.class"/>
-                <include name="com/topcoder/web/privatelabel/view/tag/DemographicResponseIteratorTagInfo.class"/>
-                <include name="com/topcoder/web/privatelabel/view/tag/DemographicInput.class"/>
-                <include name="com/topcoder/web/privatelabel/Constants.class"/>
                 <include name="com/fx4m/**/*.class"/>
                 <exclude name="**/*Bean.class"/>
                 <exclude name="**/*Impl.class"/>
@@ -1168,86 +1156,6 @@
     <target name="build-security">
         <ant antfile="build_security.xml" target="build-security"/>
     </target>
-
-
-
-    <target name="deploy-privatelabel" depends="compile">
-        <antcall target="package-EJB-AddressBean"/>
-        <antcall target="package-EJB-CoderBean"/>
-        <antcall target="package-EJB-CompanyBean"/>
-        <antcall target="package-EJB-DemographicBean"/>
-        <antcall target="package-EJB-EmailBean"/>
-        <antcall target="package-EJB-JobPostingServicesBean"/>
-        <antcall target="package-EJB-RatingBean"/>
-        <antcall target="package-EJB-SchoolBean"/>
-        <antcall target="package-EJB-UserBean"/>
-
-        <antcall target="war-privatelabel"/>
-        <antcall target="expand-privatelabel"/>
-    </target>
-
-    <target name="expand-privatelabel">
-        <copy todir="${jboss_deploy}">
-            <fileset dir="${ejb_jars}">
-                <include name="Address.jar"/>
-                <include name="Coder.jar"/>
-                <include name="Company.jar"/>
-                <include name="Demographic.jar"/>
-                <include name="Email.jar"/>
-                <include name="JobPostingService.jar"/>
-                <include name="Rating.jar"/>
-                <include name="School.jar"/>
-                <include name="User.jar"/>
-            </fileset>
-        </copy>
-        <unwar src="${war.dir}/privatelabel.war" dest="${jboss_deploy}/privatelabel.war/" overwrite="yes"/>
-        <delete dir="${jboss_deploy}/privatelabel.war/META-INF"/>
-    </target>
-
-    <target name="war-privatelabel" depends="compile">
-        <war warfile="${war.dir}/privatelabel.war" webxml="${resources}/privatelabel/web.xml">
-            <fileset dir="${java}/com/topcoder/web/privatelabel/view">
-                <include name="**/*.jsp"/>
-            </fileset>
-            <fileset dir="${java}/com/topcoder/web/jsp">
-                <include name="errorPage.jsp"/>
-                <include name="foot.jsp"/>
-                <include name="script.jsp"/>
-                <include name="body_top.jsp"/>
-                <include name="page_title.jsp"/>
-                <include name="date_time.jsp"/>
-                <include name="style.jsp"/>
-                <include name="menu.jsp"/>
-                <include name="nocache.jsp"/>
-                <include name="top.jsp"/>
-                <include name="includes/global_left.jsp"/>
-                <include name="includes/modules/simpleSearch.jsp"/>
-                <include name="calendar.jsp"/>
-                <include name="public_right.jsp"/>
-            </fileset>
-            <classes dir="${classes}">
-                <include name="com/topcoder/web/privatelabel/"/>
-                <include name="com/topcoder/web/tc/Constants.class"/>
-            </classes>
-            <webinf dir="${resources}/privatelabel">
-                <include name="jboss-web.xml"/>
-            </webinf>
-            <webinf dir="${resources}/taglib">
-                <include name="tc-webtags.tld"/>
-                <include name="privatelabel.tld"/>
-                <include name="nav.tld"/>
-                <include name="rsc-taglib.tld"/>
-            </webinf>
-            <lib dir="${jars.dir}">
-                <include name="jstl.jar"/>
-                <include name="standard.jar"/>
-            </lib>
-
-        </war>
-        <unwar src="${war.dir}/privatelabel.war" dest="${jboss_deploy}/privatelabel.war/" overwrite="yes"/>
-        <delete dir="${jboss_deploy}/privatelabel.war/META-INF"/>
-    </target>
-
 
     <target name="war-tc" depends="compile,build-sars">
         <war warfile="${war.dir}/tc.war" webxml="${resources}/tc/web.xml">
