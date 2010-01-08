@@ -159,38 +159,6 @@
         </javac>
     </target>
 
-    <!--remove with new OR
- <target name="war-or" depends="compile">
-        <war warfile="${war.dir}/review.war" webxml="${resources.dir}/or/web.xml">
-            <fileset dir="${web.dir}/online_review" excludes="${web.dir}/online_review/images"/>
-            <classes dir="${classes.dir}">
-                <include name="com/topcoder/apps/review/cacherefresher/**/*"/>
-                <include name="com/topcoder/apps/review/autopilottimer/**/*"/>
-                <include name="com/topcoder/apps/review/security/**/*"/>
-                <include name="com/topcoder/apps/review/*"/>
-                <include name="com/topcoder/project/phases/TCPhase.class"/>
-                <include name="com/topcoder/dde/util/ApplicationServer.class"/>
-                <include name="com/topcoder/dde/util/Cookies.class"/>
-                <include name="com/topcoder/web/common/**/*.class"/>
-            </classes>
-
-            <webinf dir="${struts.lib.dir}">
-                <include name="struts.tld"/>
-                <include name="struts-bean.tld"/>
-                <include name="struts-html.tld"/>
-                <include name="struts-logic.tld"/>
-                <include name="struts-template.tld"/>
-            </webinf>
-            <webinf dir="${resources.dir}/or">
-                <include name="struts-config.xml"/>
-                <include name="jboss-web.xml"/>
-            </webinf>
-            <webinf dir="${resources.dir}/taglib">
-                <include name="review.tld"/>
-            </webinf>
-        </war>
-    </target>-->
-
     <target name="war-dde" depends="compile">
         <war warfile="${war.dir}/dde.war" webxml="${resources.dir}/dde/web.xml">
             <fileset dir="${web.dir}/dde" excludes="${web.dir}/dde/images"/>
@@ -306,29 +274,6 @@
             <metainf dir="${java.dir}/com/topcoder/apps/review/rboard" includes="*.xml"/>
         </jar>
     </target>
-
-    <!--remove with new OR
-        <target name="build-sars" depends="compile">
-            <jar jarfile="${sar.dir}/cache_refresher.sar" basedir="${classes.dir}"
-                 includes="com/topcoder/apps/review/cacherefresher/**">
-                <metainf dir="${java.dir}/com/topcoder/apps/review/cacherefresher" includes="*.xml"/>
-            </jar>
-
-            <jar jarfile="${sar.dir}/auto_pilot_timer.sar" basedir="${classes.dir}" includes="com/topcoder/apps/review/autopilottimer/**,
-                            com/topcoder/apps/review/document/**,
-                            com/topcoder/apps/review/*,
-                            com/topcoder/apps/review/projecttracker/**">
-                <metainf dir="${java.dir}/com/topcoder/apps/review/autopilottimer" includes="*.xml"/>
-            </jar>
-
-        </target>
-    -->
-
-    <!--remove with new OR
-        <target name="build-screening" depends="compile">
-            <jar jarfile="${bin.dir}/screening.jar" basedir="${classes.dir}" includes="com/topcoder/apps/screening/**"/>
-        </target>
-    -->
 
     <target name="copy-conf">
         <copy todir="${jboss.conf.dir}">
