@@ -48,9 +48,7 @@
                 <include name="resources/stat/**"/>
                 <include name="resources/corp/**"/>
                 <include name="resources/email/**"/>
-                <include name="resources/privatelabel/**"/>
                 <include name="resources/TC.properties"/>
-                <include name="resources/PrivateLabel*.properties"/>
                 <include name="resources/PactsInternalServlet.properties"/>
                 <include name="resources/Registration.properties"/>
                 <include name="resources/CorpConstants.properties"/>
