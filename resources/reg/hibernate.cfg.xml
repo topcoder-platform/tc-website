@@ -161,30 +161,6 @@
         <mapping resource="com/topcoder/web/ep/model/StudentClassroom.hbm.xml"/>
         -->
 
-        <!-- this is really just here so that we can run the oracle on the tc site -->
-        <!--
-                <mapping resource="com/topcoder/web/oracle/model/Candidate.hbm.xml"/>
-                <mapping resource="com/topcoder/web/oracle/model/CandidateInfo.hbm.xml"/>
-                <mapping resource="com/topcoder/web/oracle/model/CandidateProperty.hbm.xml"/>
-                <mapping resource="com/topcoder/web/oracle/model/CandidateRoomResult.hbm.xml"/>
-                <mapping resource="com/topcoder/web/oracle/model/Contest.hbm.xml"/>
-                <mapping resource="com/topcoder/web/oracle/model/ContestStatus.hbm.xml"/>
-                <mapping resource="com/topcoder/web/oracle/model/ContestType.hbm.xml"/>
-                <mapping resource="com/topcoder/web/oracle/model/Prediction.hbm.xml"/>
-                <mapping resource="com/topcoder/web/oracle/model/Phase.hbm.xml"/>
-                <mapping resource="com/topcoder/web/oracle/model/Prize.hbm.xml"/>
-                <mapping resource="com/topcoder/web/oracle/model/PrizeType.hbm.xml"/>
-                <mapping resource="com/topcoder/web/oracle/model/Room.hbm.xml"/>
-                <mapping resource="com/topcoder/web/oracle/model/RoomResult.hbm.xml"/>
-                <mapping resource="com/topcoder/web/oracle/model/Round.hbm.xml"/>
-                <mapping resource="com/topcoder/web/oracle/model/RoundConfig.hbm.xml"/>
-                <mapping resource="com/topcoder/web/oracle/model/RoundProperty.hbm.xml"/>
-                <mapping resource="com/topcoder/web/oracle/model/RoundPhase.hbm.xml"/>
-                <mapping resource="com/topcoder/web/oracle/model/RoundStatus.hbm.xml"/>
-                <mapping resource="com/topcoder/web/oracle/model/RoundRegistration.hbm.xml"/>
-        -->
-
-
     </session-factory>
 
 </hibernate-configuration>

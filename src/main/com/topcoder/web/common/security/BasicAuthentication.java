@@ -64,7 +64,6 @@ public class BasicAuthentication implements WebAuthentication {
     */
     //public static final Resource PACTS_INTERNAL_SITE = new SimpleResource("pacts");
     public static final Resource CSF_SITE = new SimpleResource("csf");
-    public static final Resource ORACLE_SITE = new SimpleResource("oracle");
     //we'll use this key to provide a way to keep someone logged in accross sessions.
     //sessions only live within a web app, but we really want to be able to keep
     //them logged in across web apps.
