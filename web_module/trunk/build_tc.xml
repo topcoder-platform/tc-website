@@ -65,6 +65,8 @@
         <pathelement location="${jars.dir}/jboss/mail.jar"/>
         <pathelement location="${jars.dir}/jboss/jboss-system.jar"/>
         <pathelement location="${jars.dir}/jboss/jboss-cache.jar"/>
+        <pathelement location="${jars.dir}/jboss/jboss-jaxws.jar"/>
+        <pathelement location="${jars.dir}/jboss/jboss-ejb3x.jar"/>
         <pathelement location="${jars.dir}/jboss/jgroups.jar"/>
 
         <pathelement location="${jive.dir}/jivebase.jar"/>
@@ -82,6 +84,9 @@
         <pathelement location="${jars.dir}/tcs/json_object/1.0/json_object.jar"/>
         <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
         <pathelement location="${jars.dir}/tcs/contest_eligibility_validation_client/1.0.0/contest_eligibility_validation_client.jar"/>
+        <pathelement location="${jars.dir}/tcs/pipeline_service_persistence/1.0.0/pipeline_service_persistence.jar"/>
+        <pathelement location="${jars.dir}/tcs/pipeline_service/1.0.0/pipeline_service.jar"/>
+        <pathelement location="${jars.dir}/tcs/pipeline_service_facade/1.0.0/pipeline_service_facade.jar"/>
 
         <!--required for aol alerts only -->
         <pathelement location="${jars.dir}/tcs/alerts_wrapper/1.0/java_alerts_wrapper.jar"/>
@@ -689,6 +694,10 @@
         <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-commons-annotations.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-annotations.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-annotations-3.3.0.GA/ejb3-persistence.jar"/>
+
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/pipeline_service_persistence/1.0.0/pipeline_service_persistence.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/pipeline_service/1.0.0/pipeline_service.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/pipeline_service_facade/1.0.0/pipeline_service_facade.jar"/>
 
         <copy todir="${jboss_lib}">
             <fileset dir="${jars.dir}/tcs">
