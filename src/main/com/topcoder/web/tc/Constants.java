@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc;
 
@@ -42,8 +42,15 @@ import java.util.MissingResourceException;
  *   </ol>
  * </p>
  *
- * @author TCSDEVELOPER, pulky
- * @version 1.4
+ * <p>
+ *   Version 1.5 (Project View) Change notes:
+ *   <ol>
+ *     <li>Added constants for the Project View report.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author pulky
+ * @version 1.5
  */
 public class Constants implements WebConstants {
 
@@ -752,6 +759,34 @@ public class Constants implements WebConstants {
      */
     public static String TCO09_STUDIO_LEADERBOARD_DETAILS_PAGE =
         "/tournaments/tco09/studio/advancers/leaderboardDetails.jsp";
+
+    /**
+     * <p>A <code>String</code> providing the path to the Project View report page.</p>
+     *
+     * @since 1.5
+     */
+    public static String PROJECT_VIEW_PAGE = "/projectview/projectView.jsp";
+
+    /**
+     * <p>An <code>int</code> representing the default number of weeks for the date filter interval.</p>
+     *
+     * @since 1.5
+     */
+    public static int PROJECT_VIEW_DEFAULT_WEEKS_INTERVAL = 4;
+
+    /**
+     * <p>A <code>String</code> providing date format used in the Project View report page.</p>
+     *
+     * @since 1.5
+     */
+    public static String PROJECT_VIEW_DATE_FORMAT = "yyyy.MM.dd HH:mm";
+
+    /**
+     * <p>A <code>String</code> providing alternate date format used in the Project View report page.</p>
+     *
+     * @since 1.5
+     */
+    public static String ALTERNATE_PROJECT_VIEW_DATE_FORMAT = "yyyy.MM.dd";
 
     static {
         initialize();
