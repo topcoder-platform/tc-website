@@ -174,5 +174,8 @@
 	<classpathentry kind="lib" path="lib/jars/tcs/studio_service.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/shared"/>
 	<classpathentry kind="lib" path="lib/jars/tcs/contest_eligibility_validation_client/1.0.0/contest_eligibility_validation_client.jar"/>
+	<classpathentry kind="lib" path="lib/jars/tcs/pipeline_service/1.0.0/pipeline_service.jar"/>
+	<classpathentry kind="lib" path="lib/jars/tcs/pipeline_service_facade/1.0.0/pipeline_service_facade.jar"/>
+	<classpathentry kind="lib" path="lib/jars/tcs/pipeline_service_persistence/1.0.0/pipeline_service_persistence.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
