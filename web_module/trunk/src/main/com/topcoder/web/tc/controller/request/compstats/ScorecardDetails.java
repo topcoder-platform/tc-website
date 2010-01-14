@@ -22,6 +22,7 @@ import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.WebConstants;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.eligibility.ContestEligibilityServiceLocator;
 import com.topcoder.web.ejb.project.ProjectRoleTermsOfUse;
 import com.topcoder.web.ejb.project.ProjectRoleTermsOfUseLocator;
@@ -97,7 +98,7 @@ public class ScorecardDetails extends Base {
             }
 
             if (!isAuthorized(projectId, userId, getRequest().getParameter("rid"))) {
-                throw new TCWebException("You don't have permission to view the scorecard.");                        
+                throw new NavigationException("You don't have permission to view the scorecard.");                        
             }
             
 
@@ -144,10 +145,7 @@ public class ScorecardDetails extends Base {
             return true;
         }
 
-        // check if the user has necessary terms agreed
-        if (!hasRequiredTerms(pid, userId)) {
-            return false;
-        }
+        
 
         Request r = new Request();
         r.setContentHandle("comp_contest_details");
@@ -168,6 +166,11 @@ public class ScorecardDetails extends Base {
         		&& projectInfo.getIntItem(0, "category_id") != WebConstants.JAVA_CATALOG
         		&& projectInfo.getIntItem(0, "category_id") != WebConstants.NET_CATALOG
         		&& projectInfo.getIntItem(0, "category_id") != WebConstants.FLASH_CATALOG) {
+            return false;
+        }
+
+        // check if the user has necessary terms agreed
+        if (!hasRequiredTerms(pid, userId)) {
             return false;
         }
 
