@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model.algo">
+
+    <class name="Submission" table="submission" mutable="false">
+        <composite-id name="id" class="Submission$Identifier">
+            <key-many-to-one name="componentState" class="ComponentState" column="component_state_id"/>
+            <key-property name="submissionNumber" column="submission_number" access="field"/>
+        </composite-id>
+
+        <property name="submissionText" column="submission_text" access="field"/>
+        <property name="openTime" column="open_time" access="field"/>
+        <property name="submitTime" column="submit_time" access="field"/>
+    </class>
+</hibernate-mapping>
