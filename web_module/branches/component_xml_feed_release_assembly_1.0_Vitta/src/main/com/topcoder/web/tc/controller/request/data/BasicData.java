@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006-2009 TopCoder, Inc. All rights reserved.
+ * Copyright (c) 2006-2010 TopCoder, Inc. All rights reserved.
  */
 package com.topcoder.web.tc.controller.request.data;
 
@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.io.DataOutputStream;
 
 /**
  * <p>
@@ -41,9 +42,16 @@ import java.util.Map;
  *     </li>
  *   </ol>
  * </p>
- * 
- * @author dok, elkhawajah
- * @version 1.1
+ * <p>
+ *   Version 1.2 (Component XML Feed Release Assembly) Change notes:
+ *   <ol>
+ *     <li>
+ *     Added support for JSONP.
+ *     </li>
+ *   </ol>
+ * </p>
+ * @author dok, elkhawajah, Vitta
+ * @version 1.2
  * @deprecated this class has been moved to its own module and will be removed in the future
  */
 public class BasicData extends Base {
@@ -95,6 +103,12 @@ public class BasicData extends Base {
             } else {
                 getResponse().setContentType("text/xml");
             }
+			
+			String callbackFunctionName = getRequest().getParameter("callback");
+			if (callbackFunctionName != null && "json".equalsIgnoreCase(type)) {
+                DataOutputStream dos = new DataOutputStream(getResponse().getOutputStream());
+				dos.writeBytes(callbackFunctionName + "(");
+            }
 
 
             if (it.hasNext()) {
@@ -123,6 +137,11 @@ public class BasicData extends Base {
                 }
             }
 
+			if (callbackFunctionName != null && "json".equalsIgnoreCase(type)) {
+				DataOutputStream dos = new DataOutputStream(getResponse().getOutputStream());
+				dos.writeBytes(")");
+            }
+			
             getResponse().flushBuffer();
         } else {
             throw new PermissionException(getUser(), resource);
