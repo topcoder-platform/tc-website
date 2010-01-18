@@ -124,6 +124,11 @@
          </div>
       </td>
       <td class="value">20
+         <div class="long">
+         <strong><a href="http://www.topcoder.com/tc?module=MatchDetails&rd=14207">NSA Marathon Match 3</a></strong><br />
+         1:00 PM<br />
+         $3,000 in prizes for US citizens <br />
+         2 weeks</div>      
       </td>
       <td class="value">21
       </td>
