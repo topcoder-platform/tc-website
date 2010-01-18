@@ -110,21 +110,21 @@
                     <td class="value">Competition 2</td>
                     <td class="value C">December 28, 2009<br />
                     13:00 GMC/UTC -5</td>
-    <td class="value R">January, 11, 2010<br />
+    <td class="value R">January 11, 2010<br />
                     <span class="value C">13:00 GMC/UTC -5</span></td>
                 </tr>
                 <tr class="light">
                     <td class="value">Competition 3</td>
-                    <td class="value C">TBD<br />
-13:00 GMC/UTC -5</td>
-                <td class="value R"><span class="value C">TBD<br />
-13:00 GMC/UTC -5</span></td>
+                    <td class="value C">January 30, 2010<br />
+					13:00 GMC/UTC -5</td>
+              <td class="value R"><span class="value C">February 2, 2010<br />
+                    13:00 GMC/UTC -5</span></td>
               </tr>
                <tr class="dark">
                     <td class="value">Competition 4</td>
-                    <td class="value C">TBD<br />
+                    <td class="value C">February 17, 2010<br />
                     13:00 GMC/UTC -5</td>
-                    <td class="value R">TBD<br />
+              <td class="value R">March 3, 2010<br />
                     <span class="value C">13:00 GMC/UTC -5</span></td>
                 </tr>
             </tbody>
