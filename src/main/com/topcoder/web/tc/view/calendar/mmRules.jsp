@@ -16,7 +16,7 @@
 	long[] eligibilityRounds = {13754, 13772, 13793, 13796, 13797, 13798, 13799, 13800, 13801, 13934, 13953, 13992};
 	Arrays.sort(eligibilityRounds);
 	
-	long[] nsaRounds = {14176, 14196};
+	long[] nsaRounds = {14176, 14196, 14207, 14208};
 	Arrays.sort(nsaRounds);
 	
 	long[] assignRounds = {13953,13934,13754,13772,13569,13570,13679,13680,13681};
