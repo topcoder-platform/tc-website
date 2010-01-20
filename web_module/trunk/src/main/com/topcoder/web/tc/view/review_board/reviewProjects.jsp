@@ -232,10 +232,6 @@
                         <br/>
                     </c:if>
 
-    	<!-- Temporary - hiding the spec review opps -->
-		<c:choose>
-			<c:when test="${projectType == 19 || projectType == 24}">
-    	<!-- END - Temporary - hiding the spec review opps -->
 
                     <c:if test="${fn:length(specificationReviewList) > 0}">
 						<div align="right" style="padding-top: 10px">
@@ -315,11 +311,6 @@
 							For more information please see the <a href="/wiki/display/docs/Specification+Review+Guide">full instructions</a>.</p>
                         <br/>
                     </c:if>
-
-    	<!-- Temporary - hiding the spec review opps -->
-			</c:when>
-		</c:choose>
-    	<!-- END - Temporary - hiding the spec review opps -->
 					
 					<c:if test="${fn:length(projectList) + fn:length(specificationReviewList) == 0}">
                         <br/>
