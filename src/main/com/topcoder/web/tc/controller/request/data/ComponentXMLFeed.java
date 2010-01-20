@@ -3,10 +3,10 @@
  */
 package com.topcoder.web.tc.controller.request.data;
 
-import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
@@ -16,23 +16,19 @@ import com.topcoder.web.common.security.DataResource;
 import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
-import com.topcoder.shared.dataAccess.resultSet.TCResultItem;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.AttributesImpl;
 
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.sax.SAXTransformerFactory;
 import javax.xml.transform.sax.TransformerHandler;
 import javax.xml.transform.stream.StreamResult;
 import java.io.ByteArrayOutputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
 import java.io.OutputStream;
-import java.util.Map;
 import java.security.MessageDigest;
+import java.util.Map;
 
 /**
  * <p>
