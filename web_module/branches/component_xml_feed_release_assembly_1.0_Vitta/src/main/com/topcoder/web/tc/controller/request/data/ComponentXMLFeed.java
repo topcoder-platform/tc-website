@@ -271,15 +271,6 @@ public class ComponentXMLFeed extends Base {
     private static String hexChr(int b) {
             return Integer.toHexString(b & 0xF);
     }
-
-    /**
-     * Convert a 32 bit int to a hex string.
-     * @param b the int
-     * @return the hex string
-     */
-    private static String toHex(int b) {
-            return hexChr((b & 0xF0) >> 4) + hexChr(b & 0x0F);
-    }
     
     /**
      * Calculate the SHA1 sum of the string.
@@ -287,17 +278,22 @@ public class ComponentXMLFeed extends Base {
      * @return the SHA1 sum.
      */    
     public static String SHA1Sum(String str) {
-        StringBuffer sha1sum = new StringBuffer(40);
+        String sha1sum = "";
+        
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA1");
             byte[] bytes = str.getBytes() ;
             digest.update(bytes, 0, bytes.length);
+            StringBuffer buf = new StringBuffer(bytes.length * 2);
             for(byte b : digest.digest()) {
-                sha1sum.append(toHex(b));
+                buf.append(hexChr((b & 0xF0) >> 4)); // High order nibble.
+                buf.append(hexChr(b & 0x0F));        // Low order nibble.
             }
+            sha1sum = buf.toString();
         } catch (Exception e) {
             //ignore the exception.
         }
-        return sha1sum.toString();
+
+        return sha1sum;
     }    
 }
