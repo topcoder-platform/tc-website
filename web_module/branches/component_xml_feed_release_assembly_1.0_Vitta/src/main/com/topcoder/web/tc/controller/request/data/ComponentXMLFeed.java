@@ -282,22 +282,22 @@ public class ComponentXMLFeed extends Base {
     }
     
     /**
-     * Calcuate the sha1 sum of the string.
+     * Calculate the SHA1 sum of the string.
      * @param str the input string
-     * @return the sha1 sum.
+     * @return the SHA1 sum.
      */    
     public static String SHA1Sum(String str) {
-        String sha1sum = "";
+        StringBuffer sha1sum = new StringBuffer(40);
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA1");
             byte[] bytes = str.getBytes() ;
             digest.update(bytes, 0, bytes.length);
             for(byte b : digest.digest()) {
-                sha1sum += toHex(b);
+                sha1sum.append(toHex(b));
             }
         } catch (Exception e) {
             //ignore the exception.
         }
-        return sha1sum;
+        return sha1sum.toString();
     }    
 }
