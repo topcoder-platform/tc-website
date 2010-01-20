@@ -285,7 +285,7 @@ public class ComponentXMLFeed extends Base {
             byte[] bytes = str.getBytes() ;
             digest.update(bytes, 0, bytes.length);
             StringBuffer buf = new StringBuffer(bytes.length * 2);
-            for(byte b : digest.digest()) {
+            for (byte b : digest.digest()) {
                 buf.append(hexChr((b & 0xF0) >> 4)); // High order nibble.
                 buf.append(hexChr(b & 0x0F));        // Low order nibble.
             }
