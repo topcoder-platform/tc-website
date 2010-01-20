@@ -36,7 +36,7 @@ import java.security.MessageDigest;
 
 /**
  * <p>
- * Get informations for all public catalog components, and publish
+ * Get information for all public catalog components, and publish
  * them as xml based feeds.
  * </p>
  * 
@@ -98,7 +98,8 @@ public class ComponentXMLFeed extends Base {
             //Set the prefix.
             AttributesImpl prefixAttr = new AttributesImpl();
             prefixAttr.addAttribute("", "", "xmlns:xsi", "", "http://www.w3.org/2001/XMLSchema-instance");
-            prefixAttr.addAttribute("", "", "xsi:schemaLocation", "", "http://www.w3.org/1999/02/22-rdf-syntax-ns# ../xsd/bds-rdf-doap-docschema.xsd");
+            prefixAttr.addAttribute("", "", "xsi:schemaLocation", "",
+                    "http://www.w3.org/1999/02/22-rdf-syntax-ns# ../xsd/bds-rdf-doap-docschema.xsd");
             prefixAttr.addAttribute("", "", "xmlns:bds", "", "http://www.bluediamondstone.com/doapext#");
             prefixAttr.addAttribute("", "", "xmlns:dc", "", "http://purl.org/dc/elements/1.1/");
             prefixAttr.addAttribute("", "", "xmlns:foaf", "", "http://xmlns.com/foaf/0.1/");
@@ -108,7 +109,7 @@ public class ComponentXMLFeed extends Base {
             hd.startElement("", "", "rdf:RDF", prefixAttr);
 
             AttributesImpl emptyAtts = new AttributesImpl();
-            //Get informations from bundle.
+            //Get information from bundle.
             String SVNHOST = componentXMLFeedBundle.getProperty("SVNHOST");
             String LICENSE_INFORMATION = componentXMLFeedBundle.getProperty("LICENSE_INFORMATION");
             String MAINTAINER_INFORMATION = componentXMLFeedBundle.getProperty("MAINTAINER_INFORMATION");
@@ -136,14 +137,17 @@ public class ComponentXMLFeed extends Base {
                 String browse = row.getStringItem("browse");
                 //Build the browse string.
                 if (isEmpty(browse)) {
-                    browse = "https://" + SVNHOST + "/tcs/internal/tcs/trunk/" + (isJava ? "lib" : "bin")  + "/tcs/" + component_name_lower + "/" + component_version + "/";
+                    browse = "https://" + SVNHOST + "/tcs/internal/tcs/trunk/" + (isJava ? "lib" : "bin")  + "/tcs/"
+                            + component_name_lower + "/" + component_version + "/";
                 }
                 rdfResourceAttr.setValue(0, browse);
                 addElement(hd, "browse", "", rdfResourceAttr);
                 String location = row.getStringItem("location");
                 //Build the location string.
                 if (isEmpty(location)) {
-                    location = "https://" + SVNHOST + "/tcs/internal/tcs/trunk/" + (isJava ? "lib" : "bin")  + "/tcs/" + component_name_lower + "/" + component_version + "/dist/" + component_name_lower + "-" + component_version + (isJava ? ".jar" : ".zip");
+                    location = "https://" + SVNHOST + "/tcs/internal/tcs/trunk/" + (isJava ? "lib" : "bin")  + "/tcs/"
+                            + component_name_lower + "/" + component_version + "/dist/" + component_name_lower + "-"
+                            + component_version + (isJava ? ".jar" : ".zip");
                 }
                 rdfResourceAttr.setValue(0, location);                   
                 addElement(hd, "location", "", rdfResourceAttr);
@@ -157,12 +161,13 @@ public class ComponentXMLFeed extends Base {
                 //Process the develop section
                 for (String developer : row.getStringItem("developer").split(",")) {
                     hd.startElement("", "", "developer", emptyAtts);
-                    String[] informations = developer.split("\\|");
+                    String[] information = developer.split("\\|");
                     hd.startElement("", "", "foaf:Person", emptyAtts);
-                    addElement(hd, "foaf:name", informations[0].trim(), emptyAtts);
-                    rdfResourceAttr.setValue(0, "http://www.topcoder.com/tc?module=MemberProfile&amp;cr=" + informations[1].trim() + "&amp;tab=dev");    
+                    addElement(hd, "foaf:name", information[0].trim(), emptyAtts);
+                    rdfResourceAttr.setValue(0, "http://www.topcoder.com/tc?module=MemberProfile&amp;cr="
+                            + information[1].trim() + "&amp;tab=dev");    
                     addElement(hd, "foaf:homepage", "", rdfResourceAttr);
-                    addElement(hd, "foaf:mbox_sha1sum", SHA1Sum(informations[2].trim()), emptyAtts);
+                    addElement(hd, "foaf:mbox_sha1sum", SHA1Sum(information[2].trim()), emptyAtts);
                     hd.endElement("", "", "foaf:Person");
                     hd.endElement("", "", "developer");
                 }
@@ -170,22 +175,23 @@ public class ComponentXMLFeed extends Base {
                 //Process the version section
                 for (String release : row.getStringItem("versions").split(",")) {
                     hd.startElement("", "", "release", emptyAtts);
-                    String[] informations = release.split("\\|");
-                    addElement(hd, "name", informations[0].trim(), emptyAtts);
-                    addElement(hd, "created", informations[1].trim(), emptyAtts);
-                    addElement(hd, "revision", informations[2].trim(), emptyAtts);
+                    String[] information = release.split("\\|");
+                    addElement(hd, "name", information[0].trim(), emptyAtts);
+                    addElement(hd, "created", information[1].trim(), emptyAtts);
+                    addElement(hd, "revision", information[2].trim(), emptyAtts);
                     rdfResourceAttr.setValue(0, location);
                     addElement(hd, "file-release", "", rdfResourceAttr);
-                    addElement(hd, "bds:siteLocalPermId", informations[2].trim(), emptyAtts);
+                    addElement(hd, "bds:siteLocalPermId", information[2].trim(), emptyAtts);
                     hd.endElement("", "", "release");
                 }
                 
                 //Process the category list section
                 rdfResourceAttr.addAttribute("", "", "bds:name", "", " ");
                 for (String category : row.getStringItem("category_list").split(",")) {
-                    String[] informations = category.split("\\|");
-                    rdfResourceAttr.setValue(0, "http://software.topcoder.com/catalog/c_showroom.jsp?cat=" + informations[1].trim());
-                    rdfResourceAttr.setValue(1, informations[0].trim());
+                    String[] information = category.split("\\|");
+                    rdfResourceAttr.setValue(0, "http://software.topcoder.com/catalog/c_showroom.jsp?cat="
+                            + information[1].trim());
+                    rdfResourceAttr.setValue(1, information[0].trim());
                     addElement(hd, "category", "", rdfResourceAttr);
                 }
                 rdfResourceAttr.removeAttribute(1);
@@ -246,8 +252,8 @@ public class ComponentXMLFeed extends Base {
     /**
      * Get the data source from the id.
      * @param id the datasource's id
-     * @return the data source name.
-     * @throws any exception on request.
+     * @return the data source name
+     * @throws Exception if an error occurs
      */      
     private static String getDataSource(int id) throws Exception {
         Request r = new Request();
