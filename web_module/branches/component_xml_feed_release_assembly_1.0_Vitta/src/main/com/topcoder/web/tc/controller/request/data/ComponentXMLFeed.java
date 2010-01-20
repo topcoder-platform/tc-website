@@ -100,7 +100,7 @@ public class ComponentXMLFeed extends Base {
             prefixAttr.addAttribute("", "", "xmlns:xsi", "", "http://www.w3.org/2001/XMLSchema-instance");
             prefixAttr.addAttribute("", "", "xsi:schemaLocation", "",
                     "http://www.w3.org/1999/02/22-rdf-syntax-ns# ../xsd/bds-rdf-doap-docschema.xsd");
-            prefixAttr.addAttribute("", "", "xmlns:bds", "", "http://www.bluediamondstone.com/doapext#");
+            prefixAttr.addAttribute("", "", "xmlns:bds", "", "http://www.blackducksoftware.com/doapext#");
             prefixAttr.addAttribute("", "", "xmlns:dc", "", "http://purl.org/dc/elements/1.1/");
             prefixAttr.addAttribute("", "", "xmlns:foaf", "", "http://xmlns.com/foaf/0.1/");
             prefixAttr.addAttribute("", "", "xmlns:rdf", "", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
@@ -149,7 +149,7 @@ public class ComponentXMLFeed extends Base {
                             + component_name_lower + "/" + component_version + "/dist/" + component_name_lower + "-"
                             + component_version + (isJava ? ".jar" : ".zip");
                 }
-                rdfResourceAttr.setValue(0, location);                   
+                rdfResourceAttr.setValue(0, location);
                 addElement(hd, "location", "", rdfResourceAttr);
                 addElement(hd, "module", row.getStringItem("revision"), emptyAtts);
                 hd.endElement("", "", "ArchRepository");
