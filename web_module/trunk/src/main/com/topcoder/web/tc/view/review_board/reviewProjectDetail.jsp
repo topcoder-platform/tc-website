@@ -291,16 +291,6 @@
                                 </tr>
                             </c:if>
                         </c:if>
-						<c:if test="${isSpecificationReview}">
-                            <tr>
-                                <td class="bodyText">
-									<p align="left">Specification Reviews are performed in <a href="/direct">Cockpit</a>.  Please 
-										login to <a href="/direct">Cockpit</a> and click the blue '+' icon under "My Projects" to perform the review.  
-										For more information please see the <a href="/wiki/display/docs/Specification+Review+Guide">full instructions</a>.</br></br>
-								    </p>
-                                </td>
-                            </tr>
-                        </c:if>
 
                         <tr>
                             <td class="bodyText">
