@@ -306,10 +306,6 @@
                             </tr>
                         </table>
                         <br/>
-                        <p align="left">Specification Reviews are performed in <a href="/direct">Cockpit</a>.  Please 
-							login to <a href="/direct">Cockpit</a> and click the blue '+' icon under "My Projects" to perform the review.  
-							For more information please see the <a href="/wiki/display/docs/Specification+Review+Guide">full instructions</a>.</p>
-                        <br/>
                     </c:if>
 					
 					<c:if test="${fn:length(projectList) + fn:length(specificationReviewList) == 0}">
