@@ -265,8 +265,10 @@
                                                 <td class="statDk" align="center">Specification Review</td>
                                                 <td class="statDk" align="center">${projectTypeDesc}</td>
                                                 <td class="statDk" align="center" >
-                                                    ${resultRow.map["component_name"]}
-                                                    ${resultRow.map["version"]}
+                                                    <a href="${sessionInfo.servletPath}?${MODULE_KEY}=ProjectDetail&${PROJECT_ID}=${resultRow.map['ref_project_id']}">
+		                                                        ${resultRow.map["component_name"]}
+		                                                        ${resultRow.map["version"]}
+		                                             </a>
                                                 </td>
                                                 <td class="statDk" align="right">
                                                     $ <fmt:formatNumber
