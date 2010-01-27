@@ -15,10 +15,10 @@
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <% ResultSetContainer projectDetail = (ResultSetContainer) request.getAttribute("projectDetail"); %>
 <% List reviewerList = (List) request.getAttribute("reviewerList"); %>
-<% boolean isWaiting = ((Boolean) request.getAttribute("waitingToReview")).booleanValue();%>
+<% boolean isWaiting = (Boolean) request.getAttribute("waitingToReview"); %>
 <% Timestamp waitingUntil = (Timestamp) request.getAttribute("waitingUntil"); %>
-<% int applicationDelayHours = ((Integer) request.getAttribute("applicationDelayHours")).intValue(); %>
-<% int applicationDelayMinutes = ((Integer) request.getAttribute("applicationDelayMinutes")).intValue(); %>
+<% int applicationDelayHours = (Integer) request.getAttribute("applicationDelayHours"); %>
+<% int applicationDelayMinutes = (Integer) request.getAttribute("applicationDelayMinutes"); %>
 <% boolean hasSubmission = (Boolean) request.getAttribute("hasSubmission"); %>
 <% boolean hasScreening = (Boolean) request.getAttribute("hasScreening"); %>
 <% boolean hasReview = (Boolean) request.getAttribute("hasReview"); %>
