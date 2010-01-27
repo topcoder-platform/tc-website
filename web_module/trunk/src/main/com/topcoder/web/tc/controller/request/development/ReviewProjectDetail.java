@@ -264,7 +264,6 @@ public class ReviewProjectDetail extends Base {
      * 
      * @param projectId project id to look for.
      * @param phaseId phase id of the project
-     * @param projectTypeId identifier of the type of project
      * @throws TCWebException if an unexpected error occurs
      * 
      * @since 1.0.6
@@ -502,7 +501,8 @@ public class ReviewProjectDetail extends Base {
      * @param levelId a <code>int</code> referencing the project difficulty level.
      * @param projectId a <code>long</code> providing the ID of a project.
      * @param prize a <code>float</code> providing the prize amount for contest.
-     * @param reviewTypeId the id of the reviewer type.
+     * @param reviewerTypeId the id of the reviewer type.
+     * @param reviewerType the name of the reviewer type.
      * @return a <code>ReviewBoardApplication</code> providing the reviewer payments for the specified project.
      * @throws Exception if an unexpected error occurs.
      * 
