@@ -284,6 +284,17 @@ public class ReviewProjectDetail extends Base {
 
             getRequest().setAttribute("projectDetail", detail);
 
+            // Setting any of these to FALSE will now prevent the phase in question from showing in the view.  The
+            // easiest way to achieve this is to modify the query to return NULL for the phase's submission start.
+            getRequest().setAttribute("hasSubmission", checkPhaseStart(detail, "submission_start"));
+            getRequest().setAttribute("hasScreening", checkPhaseStart(detail, "screening_start"));
+            getRequest().setAttribute("hasReview", checkPhaseStart(detail, "review_start"));
+            getRequest().setAttribute("hasAppeals", checkPhaseStart(detail, "appeals_start"));
+            getRequest().setAttribute("hasAggregation", checkPhaseStart(detail, "aggregation_start"));
+            getRequest().setAttribute("hasAggregationReview", checkPhaseStart(detail, "agg_review_start"));
+            getRequest().setAttribute("hasFinalFixes", checkPhaseStart(detail, "final_fix_start"));
+            getRequest().setAttribute("hasFinalReview", checkPhaseStart(detail, "final_review_start"));
+
             ArrayList reviewerList = new ArrayList(1);
 
             ReviewBoardApplication app = makeSpecReviewApp(detail.getIntItem(0, "phase_id"), detail.getIntItem(0,
@@ -309,6 +320,15 @@ public class ReviewProjectDetail extends Base {
             throw e;
         } catch (Exception e) {
             throw new TCWebException(e);
+        }
+    }
+
+    private Boolean checkPhaseStart(ResultSetContainer rsc, String columnName) {
+        String columnValue = rsc.getStringItem(0, columnName);
+        if (columnValue == null || columnValue.trim().equals("")) {
+            return Boolean.FALSE;
+        } else {
+            return Boolean.TRUE;
         }
     }
 
