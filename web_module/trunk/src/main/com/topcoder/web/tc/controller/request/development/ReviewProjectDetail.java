@@ -151,6 +151,9 @@ public class ReviewProjectDetail extends Base {
             ResultSetContainer detail = (ResultSetContainer) results.get("review_project_detail");
             getRequest().setAttribute("projectDetail", detail);
 
+            // Check if each relevant phase exists, and insert that information into the request.
+            checkAllPhaseExistence(detail);
+
             ArrayList reviewerList = new ArrayList(3);
 
             if (detail.isEmpty()) {
@@ -284,16 +287,8 @@ public class ReviewProjectDetail extends Base {
 
             getRequest().setAttribute("projectDetail", detail);
 
-            // Setting any of these to FALSE will now prevent the phase in question from showing in the view.  The
-            // easiest way to achieve this is to modify the query to return NULL for the phase's submission start.
-            getRequest().setAttribute("hasSubmission", checkPhaseStart(detail, "submission_start"));
-            getRequest().setAttribute("hasScreening", checkPhaseStart(detail, "screening_start"));
-            getRequest().setAttribute("hasReview", checkPhaseStart(detail, "review_start"));
-            getRequest().setAttribute("hasAppeals", checkPhaseStart(detail, "appeals_start"));
-            getRequest().setAttribute("hasAggregation", checkPhaseStart(detail, "aggregation_start"));
-            getRequest().setAttribute("hasAggregationReview", checkPhaseStart(detail, "agg_review_start"));
-            getRequest().setAttribute("hasFinalFixes", checkPhaseStart(detail, "final_fix_start"));
-            getRequest().setAttribute("hasFinalReview", checkPhaseStart(detail, "final_review_start"));
+            // Check if each relevant phase exists, and insert that information into the request.
+            checkAllPhaseExistence(detail);
 
             ArrayList reviewerList = new ArrayList(1);
 
@@ -323,7 +318,20 @@ public class ReviewProjectDetail extends Base {
         }
     }
 
-    private Boolean checkPhaseStart(ResultSetContainer rsc, String columnName) {
+    private void checkAllPhaseExistence(ResultSetContainer detail) {
+        // Setting any of these to FALSE will now prevent the phase in question from showing in the view.  The
+        // easiest way to achieve this is to modify the query to return NULL for the phase's submission start.
+        getRequest().setAttribute("hasSubmission", checkPhaseExistence(detail, "submission_start"));
+        getRequest().setAttribute("hasScreening", checkPhaseExistence(detail, "screening_start"));
+        getRequest().setAttribute("hasReview", checkPhaseExistence(detail, "review_start"));
+        getRequest().setAttribute("hasAppeals", checkPhaseExistence(detail, "appeals_start"));
+        getRequest().setAttribute("hasAggregation", checkPhaseExistence(detail, "aggregation_start"));
+        getRequest().setAttribute("hasAggregationReview", checkPhaseExistence(detail, "agg_review_start"));
+        getRequest().setAttribute("hasFinalFixes", checkPhaseExistence(detail, "final_fix_start"));
+        getRequest().setAttribute("hasFinalReview", checkPhaseExistence(detail, "final_review_start"));
+    }
+
+    private Boolean checkPhaseExistence(ResultSetContainer rsc, String columnName) {
         String columnValue = rsc.getStringItem(0, columnName);
         if (columnValue == null || columnValue.trim().equals("")) {
             return Boolean.FALSE;
