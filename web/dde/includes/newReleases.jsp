@@ -1,3 +1,4 @@
+<%--
 <%@ page import="com.topcoder.shared.dataAccess.Request,
                  com.topcoder.shared.dataAccess.DataAccessInt,
                  com.topcoder.web.common.CachedDataAccess,
@@ -35,3 +36,4 @@
     <tr><td colspan="2"><img src="/images/right_nav_btm.gif" border="0" alt=""></td></tr>
 </table>
 <div align="right" class="small">*most recent 15 components</div>
+--%>
