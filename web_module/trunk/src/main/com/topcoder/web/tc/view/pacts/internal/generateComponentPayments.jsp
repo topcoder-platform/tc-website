@@ -1,3 +1,14 @@
+<%--
+  - Author: isv
+  - Version: 1.1
+  - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page provides the web form for generating the payments for completed component projects.
+  -
+  - Version 1.1 (Miscellaneous TC Improvements Release Assembly) changes: added callback and added AJAX request
+  - processor for project_id input field to cause the client input field to be pre-populated based on provided
+  - project ID.
+--%>
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants,
   				com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.GenerateComponentPayments,
 				 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
@@ -18,12 +29,50 @@
     <head>
         <title>PACTS</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+        <script type="text/javascript" src="/js/taconite-client.js"></script>
+        <script type="text/javascript" src="/js/taconite-parser.js"></script>
+        <script type="text/javascript">
+            var currentProjectId = '';
+            function setClient(client) {
+                document.paymentForm.<%=PactsConstants.PROJECT_CLIENT%>.value = client;
+                if (client == '') {
+                    showAjaxStatusMessage('There were no client found for specified project ID');
+                } else {
+                    showAjaxStatusMessage('');
+                }
+            }
+            function resolveClient(input) {
+                var newId = input.value;
+                if (newId != currentProjectId) {
+                    currentProjectId = newId;
+                    showAjaxStatusMessage("Resolving client for specified project ID...");
+                    var ajaxRequest
+                        = new AjaxRequest('/PactsInternalServlet?module=GetClientByProject&project_id=' + input.value);
+                    ajaxRequest.sendRequest();
+                }
+            }
+            function clearNode(node) {
+                while (node.firstChild) {
+                    node.removeChild(node.firstChild);
+                }
+            }
+            function showAjaxStatusMessage(message) {
+                var ajaxCallStatusTD = document.getElementById("ajaxCallStatus");
+                clearNode(ajaxCallStatusTD);
+                if (message == '') {
+                    ajaxCallStatusTD.style.display = 'none';
+                } else {
+                    ajaxCallStatusTD.appendChild(document.createTextNode(message));
+                    ajaxCallStatusTD.style.display = 'block';
+                }
+            }
+        </script>
     </head>
     <body>
         <h1>PACTS</h1>
         <h2 align="center">Generate Software Contest Payments</h2>
         <center>
-            <form name="paymentForm" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
+            <form name="paymentForm" id="paymentForm" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
                 <input type="hidden" name="<%=PactsConstants.MODULE_KEY%>" value="GenerateComponentPayments"/>
                 <table border="1" cellpadding="5" cellspacing="0">
                     <tr>
@@ -55,8 +104,12 @@
                     	</td>
                     </tr>
                     <tr>
+                        <td id="ajaxCallStatus" style="display:none;" colspan="3"></td>
+                    </tr>
+                    <tr>
                         <td align="center">
-                            Project Id: <input type="text" name="<%=PactsConstants.PROJECT_ID%>" maxlength="10" size="10" value="<%=projID%>"/>
+                            Project Id: <input type="text" name="<%=PactsConstants.PROJECT_ID%>" maxlength="10"
+                                               size="10" value="<%=projID%>" onblur="resolveClient(this);"/>
                         </td>
                         <td align="center">
                             Status: <tc-webtag:rscSelect name="<%=PactsConstants.PROJECT_TERMINATION_STATUS%>" list='<%=statusList%>' fieldText="name" fieldValue="project_status_id" selectedValue="<%=projTermStatus%>"/>
@@ -123,6 +176,7 @@
                         </td>
                     </tr>
                 </table>
+                <div id='runJS'></div>
             </form>
         </center>
         <jsp:include page="InternalFooter.jsp" flush="true" />

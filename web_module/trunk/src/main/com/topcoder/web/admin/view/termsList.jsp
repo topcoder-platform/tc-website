@@ -1,13 +1,14 @@
 <%--
-  - Author: pulky
-  - Version: 1.2
-  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  - Author: pulky, isv
+  - Version: 1.3
+  - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page lists terms of use.
   -
   - Version 1.1 (Configurable Contest Terms Release Assembly v1.0) changes: replaced terms_text by title.
   - Version 1.2 (Configurable Contest Terms Release Assembly v2.0) changes: added a new column that links to a new
-  - page showing the users that agreed to that particular terms of use.
+  - Version 1.3 (Miscellaneous TC Improvements Assembly v1.0) changes: added a new column that links to a new
+  - page showing the form for adding new user agreements to that particular terms of use.
 --%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.web.admin.Constants" %>
@@ -39,6 +40,7 @@
                     <td class="header">Create Date</td>
                     <td class="header">Modify Date</td>
                     <td class="header">&nbsp;</td>
+                    <td class="header">&nbsp;</td>
                 </tr>
                 <% boolean even = false; %>
                 <rsc:iterator list="<%=termsList%>" id="terms">
@@ -55,6 +57,9 @@
                                                                      format="MM.dd.yyyy HH:mm:ss"/></td>
                         <td class="<%=even?"even":"odd"%>">
                             <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewEditTermsUsers&<%=Constants.TERMS_OF_USE_ID%>=<rsc:item row="<%=terms%>" name="terms_of_use_id"/>">view users</a>
+                        </td>
+                        <td class="<%=even?"even":"odd"%>">
+                            <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewAddTermsUsers&<%=Constants.TERMS_OF_USE_ID%>=<rsc:item row="<%=terms%>" name="terms_of_use_id"/>">add user</a>
                         </td>
                     </tr>
                     <% even = !even;%>
