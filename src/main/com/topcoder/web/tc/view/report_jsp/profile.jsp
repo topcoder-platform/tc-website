@@ -27,6 +27,7 @@
     ResultSetContainer jobList = null;
     ResultSetContainer regTypeList = null;
     ResultSetContainer termsList = null;
+    ResultSetContainer specReviewInfoList = null;
     ResultSetContainer.ResultSetRow p = null;
     ArrayList detailList = null;
     Boolean processed = (Boolean) request.getAttribute(Constants.PROCESSED_KEY);
@@ -150,7 +151,7 @@
             jobList = (ResultSetContainer) ((Map) detailList.get(k)).get("job_list");
             regTypeList = (ResultSetContainer) ((Map) detailList.get(k)).get("registration_types");
             termsList = (ResultSetContainer) ((Map) detailList.get(k)).get("user_terms_of_use");
-
+            specReviewInfoList = (ResultSetContainer) ((Map) detailList.get(k)).get("spec_review_stats");
 %>
 
 <hr size="3"/>
@@ -452,6 +453,32 @@
             <td><rsc:item name="date" row="<%= resultRow %>" format="MM/dd/yyyy"/></td>
             <td>&#160;&#160;&#160;</td>
             <td><rsc:item name="terms" row="<%= resultRow %>"/></td>
+        </tr>
+    </rsc:iterator>
+</table>
+<% } %>
+
+<% if (!specReviewInfoList.isEmpty()) { %>
+<br/>
+<br/>
+<table class="entry" cellpadding="2" cellspacing="2">
+    <tr class="shaded2">
+        <td colspan="5"><b>Specification Reviews</b></td>
+    </tr>
+    <tr>
+        <td><b>Track</b></td>
+        <td>&#160;&#160;&#160;</td>
+        <td><b>Reviews</b></td>
+        <td><b>Successful</b></td>
+        <td><b>Success Rate</b></td>
+    </tr>
+    <rsc:iterator id="resultRow" list="<%= specReviewInfoList %>">
+        <tr>
+            <td><rsc:item name="track" row="<%= resultRow %>"/></td>
+            <td>&#160;&#160;&#160;</td>
+            <td align="right"><rsc:item name="reviews" row="<%= resultRow %>"/></td>
+            <td align="right"><rsc:item name="successful" row="<%= resultRow %>"/></td>
+            <td align="right"><rsc:item name="success_rate" row="<%= resultRow %>"/>%</td>
         </tr>
     </rsc:iterator>
 </table>
