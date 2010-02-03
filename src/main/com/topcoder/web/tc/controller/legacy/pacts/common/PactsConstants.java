@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.legacy.pacts.common;
 
@@ -31,8 +31,15 @@ import com.topcoder.web.ejb.pacts.Constants;
  *   </ol>
  * </p>
  *
- * @author Dave Pecora, pulky
- * @version 1.3
+ * <p>
+ *   Version 1.4 (Miscellaneous TC Improvements Assembly) Change notes:
+ *   <ol>
+ *     <li><code>INTERNAL_AJAX_CLIENT_BY_PROJECT</code> added.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author Dave Pecora, pulky, isv
+ * @version 1.4
  */
 public interface PactsConstants extends Constants {
     // Object types
@@ -491,6 +498,13 @@ public interface PactsConstants extends Constants {
     public static final String INTERNAL_VIEW_GENERATE_INTRO_EVENT_COMPONENT_PAYMENTS = INTERNAL_JSP_DIR + "/viewGenerateIntroEventCompPayments.jsp";
     public static final String INTERNAL_VIEW_GENERATE_DR_PAYMENTS = INTERNAL_JSP_DIR + "/viewGenerateDRPayments.jsp";
     public static final String INTERNAL_LIST_DR_PAYMENTS = INTERNAL_JSP_DIR + "/listDRPayments.jsp";
+
+    /**
+     * <p>A <code>String</code> providing the path to view for client details.</p>
+     *
+     * @since 1.4
+     */
+    public static final String INTERNAL_AJAX_CLIENT_BY_PROJECT = INTERNAL_AJAX_JSP_DIR + "/clientByProject.jsp";
 
     /*
       veredox - Don't get your panties in a knot.

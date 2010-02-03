@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.ejb.pacts;
 
@@ -75,10 +75,18 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
  *   </ol>
  * </p>
  *
+  * <p>
+  *   Version 1.2 (Miscellaneous TC Improvements Release Assembly 1.0) Change notes:
+  *   <ol>
+  *     <li>Updated {@link #generateComponentPayments(long, long, String, boolean, long, long, boolean, boolean)} method
+ *      to handle the case when there is no design project associated with project to generate payments for.</li>
+  *   </ol>
+  * </p>
+  *
  * <p>VERY IMPORTANT: remember to update serialVersionUID if needed.</p>
  *
- * @author Dave Pecora, pulky
- * @version 1.1
+ * @author Dave Pecora, pulky, isv
+ * @version 1.2
  * @see PactsConstants
  */
 public class PactsServicesBean extends BaseEJB implements PactsConstants {
@@ -89,7 +97,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      *
      * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
-    private static final long serialVersionUID = 6L;
+    private static final long serialVersionUID = 7L;
 
 
     private static final Logger log = Logger.getLogger(PactsServicesBean.class);
@@ -5098,9 +5106,18 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      *                                has already been generated for this round.
      * @throws SQLException           If there was some error updating the data.
      */
-    private List generateComponentPayments(long projectId, long status, String client, boolean payDevSupport, long devSupportCoderId, long devSupportProjectId, boolean applyReviewerWithholding, boolean payRboardBonus)
+    private List generateComponentPayments(long projectId, long status, String client, boolean payDevSupport,
+                                           long devSupportCoderId, long devSupportProjectId,
+                                           boolean applyReviewerWithholding, boolean payRboardBonus)
             throws IllegalUpdateException, SQLException, EventFailureException {
         log.debug("generateComponentPayments called...");
+
+        // TCWEB-697
+        if (devSupportProjectId == 0) {
+            devSupportCoderId = 0;
+            payDevSupport = false;
+        }
+
         List payments = new ArrayList();
 
         // Make sure we haven't done this before for this project.
