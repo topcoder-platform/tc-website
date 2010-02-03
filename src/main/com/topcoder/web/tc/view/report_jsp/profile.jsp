@@ -42,7 +42,6 @@
 %>
 
 <html>
-`
 <head>
     <font face="arial">
     <title>TopCoder Reporting</title>
