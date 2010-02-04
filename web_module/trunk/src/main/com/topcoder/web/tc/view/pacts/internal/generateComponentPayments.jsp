@@ -57,9 +57,20 @@
                 }
             }
             function showAjaxStatusMessage(message) {
+                var messageBox = document.getElementById('messageBox');
                 var ajaxCallStatusTD = document.getElementById("ajaxCallStatus");
-                clearNode(ajaxCallStatusTD);
+                if (ajaxCallStatusTD == null) {
+                    ajaxCallStatusTD = document.createElement("span");
+                    ajaxCallStatusTD.setAttribute("id", "ajaxCallStatus");
+                    messageBox.appendChild(ajaxCallStatusTD);
+                } else {
+                    clearNode(ajaxCallStatusTD);
+                }
                 if (message != '') {
+                    var messages = messageBox.getElementsByTagName("font");
+                    if (messages && messages.length > 0) {
+                        ajaxCallStatusTD.appendChild(document.createElement('br'));
+                    }
                     ajaxCallStatusTD.appendChild(document.createTextNode(message));
                 }
             }
@@ -73,7 +84,7 @@
                 <input type="hidden" name="<%=PactsConstants.MODULE_KEY%>" value="GenerateComponentPayments"/>
                 <table border="1" cellpadding="5" cellspacing="0">
                     <tr>
-                    	<td colspan="3" align="left" id="ajaxCallStatus">
+                    	<td colspan="3" align="left" id="messageBox">
                     		<%	int errCount = 0; %>
                     		<tc-webtag:errorIterator id="err" name="<%=PactsConstants.PROJECT_ID%>">
                     			<%	String errStr = (String)err; %>
