@@ -36,7 +36,7 @@
             function setClient(client) {
                 document.paymentForm.<%=PactsConstants.PROJECT_CLIENT%>.value = client;
                 if (client == '') {
-                    showAjaxStatusMessage('There were no client found for specified project ID');
+                    showAjaxStatusMessage('No client was found for the specified project ID');
                 } else {
                     showAjaxStatusMessage('');
                 }
@@ -45,7 +45,7 @@
                 var newId = input.value;
                 if (newId != currentProjectId) {
                     currentProjectId = newId;
-                    showAjaxStatusMessage("Resolving client for specified project ID...");
+                    showAjaxStatusMessage("Resolving client for the specified project ID...");
                     var ajaxRequest
                         = new AjaxRequest('/PactsInternalServlet?module=GetClientByProject&project_id=' + input.value);
                     ajaxRequest.sendRequest();
@@ -108,7 +108,8 @@
                     </tr>
                     <tr>
                         <td align="center">
-                            Project Id: <input type="text" name="<%=PactsConstants.PROJECT_ID%>" maxlength="10"
+                            Project Id: <input id="projectIdInput"
+                                               type="text" name="<%=PactsConstants.PROJECT_ID%>" maxlength="10"
                                                size="10" value="<%=projID%>" onblur="resolveClient(this);"/>
                         </td>
                         <td align="center">
@@ -162,11 +163,11 @@
                                 <tr align="left"><td>
                                     <tc-webtag:chkBox name="<%=GenerateComponentPayments.APPLY_REVIEWER_WITHHOLDING_ID %>"/>Apply Reviewer Withholding                                 
                                 </td></tr>
-				<!--
+				<%--
                                 <tr align="left"><td>
                                     <tc-webtag:chkBox name="<%=GenerateComponentPayments.PAY_RBOARD_BONUS_ID %>"/>Pay Review Board Bonus
                                 </td></tr>
-				-->
+				--%>
                             </table>                                 
                         </td>
                     </tr>
@@ -180,5 +181,8 @@
             </form>
         </center>
         <jsp:include page="InternalFooter.jsp" flush="true" />
+        <script type="text/javascript">                         
+            resolveClient(document.getElementById("projectIdInput"));
+        </script>
     </body>
 </html>
