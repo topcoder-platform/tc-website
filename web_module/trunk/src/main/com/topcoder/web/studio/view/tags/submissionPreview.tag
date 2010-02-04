@@ -73,7 +73,6 @@
     </c:when>
     <c:otherwise>
         <%-- TC Direct and Studio Admin V2 contests --%>
-        <c:set var="multi" value="${row.map['gallery_image_count'] > 1}"/>
 
         <c:if test="${not multi}">
             <c:set var="previewImageSrc"
