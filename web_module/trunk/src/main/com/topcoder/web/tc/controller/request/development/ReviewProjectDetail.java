@@ -320,7 +320,8 @@ public class ReviewProjectDetail extends Base {
 
     private void checkAllPhaseExistence(ResultSetContainer detail) {
         // Setting any of these to FALSE will now prevent the phase in question from showing in the view.  The
-        // easiest way to achieve this is to modify the query to return NULL for the phase's submission start.
+        // easiest way to achieve this is to modify the query to return an empty string for the phase's submission
+        // start.
         getRequest().setAttribute("hasSubmission", checkPhaseExistence(detail, "submission_start"));
         getRequest().setAttribute("hasScreening", checkPhaseExistence(detail, "screening_start"));
         getRequest().setAttribute("hasReview", checkPhaseExistence(detail, "review_start"));
