@@ -43,9 +43,9 @@
       </td>
    </tr>
    </table>
-<!--
 
-<div><a class="cotmFeature" href="http://www.topcoder.com/news/2010/01/12/meet-the-december-coders-and-designers-of-the-month/">Read Their Interviews</a></div>-->
+
+<div><a class="cotmFeature" href="http://www.topcoder.com/news/2010/02/05/meet-the-january-coders-and-designers-of-the-month/">Read Their Interviews</a></div>
    
    </div>
 </div>
