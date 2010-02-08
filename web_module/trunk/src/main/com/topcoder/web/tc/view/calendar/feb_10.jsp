@@ -139,6 +139,11 @@
       <td class="value">26
       </td>
       <td class="value">27
+         <div class="tchs10">
+         <div class="emblem"><img src="/i/tournament/tchs10/emblem.png" alt="TCHS10" /></div>
+         <strong><A href="/tc?module=Static&d1=hs&d2=TCHSSchedule">Online Elimination Round 1</A></strong><br />
+         12:00 NOON
+         </div>
       </td>
    </tr>
    

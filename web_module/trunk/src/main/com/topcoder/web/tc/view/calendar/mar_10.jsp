@@ -75,6 +75,11 @@
       <td class="value">5
       </td>
       <td class="value">6
+         <div class="tchs10">
+         <div class="emblem"><img src="/i/tournament/tchs10/emblem.png" alt="TCHS10" /></div>
+         <strong><A href="/tc?module=Static&d1=hs&d2=TCHSSchedule">Online Elimination Round 2</A></strong><br />
+         12:00 NOON
+         </div>
       </td>
    </tr>
    
@@ -92,6 +97,11 @@
       <td class="value">12
       </td>
       <td class="value">13
+         <div class="tchs10">
+         <div class="emblem"><img src="/i/tournament/tchs10/emblem.png" alt="TCHS10" /></div>
+         <strong><A href="/tc?module=Static&d1=hs&d2=TCHSSchedule">Online Elimination Round 3</A></strong><br />
+         12:00 NOON
+         </div>
       </td>
    </tr>
    
@@ -113,6 +123,11 @@
       <td class="value">19
       </td>
       <td class="value">20
+         <div class="tchs10">
+         <div class="emblem"><img src="/i/tournament/tchs10/emblem.png" alt="TCHS10" /></div>
+         <strong><A href="/tc?module=Static&d1=hs&d2=TCHSSchedule">Online Championship Round </A></strong><br />
+         12:00 NOON
+         </div>
       </td>
    </tr>
    
