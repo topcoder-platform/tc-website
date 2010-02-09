@@ -415,14 +415,6 @@
          </td>
       </tr>
    </table>
-
-   <hr width="100%" size="1" noshade="noshade" />
-   <div align="center">
-      Also for Software Designers and Developers...<br />
-      <a href="/tc?module=Static&amp;d1=dev&amp;d2=usdc_overview">Ultimate Software Development Contest</a><br />
-      <a href="/tc?module=Static&amp;d1=dev&amp;d2=bonusContest1">Design Bonus Contest 1</a><br />
-      <a href="/tc?module=Static&amp;d1=dev&amp;d2=bonusContest2">Design Bonus Contest 2</a>
-   </div>
    <hr width="100%" size="1" noshade="noshade" />
    <div align="center"><a href="mailto:sponsorships@topcoder.com">Sponsor a TopCoder&#174; tournament</a></div>
 
@@ -431,7 +423,7 @@
 </div>
 </td>
 <!-- Center Column Ends -->
-
+   
 <!-- Right Column Begins -->
          <td width="170">
             <jsp:include page="/public_right.jsp">
