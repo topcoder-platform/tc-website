@@ -130,9 +130,9 @@
                                   <td class="value R">&nbsp;</td>
                           </tr>
                            <tr class="dark">
-                             <td colspan="4" class="value"><p>*All times are listed as Eastern Standard Time and noted as UTC -5<br>
+                             <td colspan="4" class="value"><p>*All times are listed as Eastern Standard Time and noted as UTC -5 or UTC -4<br>
                                <a href="http://timeanddate.com/worldclock/" target="_blank">Find times in your time zone.</a></p>
-                                <p><strong>In the event that a round must be cancelled for any reason, the round will take place the following day at the same time.</strong></p></td>
+                             <p><strong>In the event that a round must be cancelled for any reason, the round will take place the following day at the same time.</strong></p></td>
                            </tr>
                         </tbody>
               </table>
