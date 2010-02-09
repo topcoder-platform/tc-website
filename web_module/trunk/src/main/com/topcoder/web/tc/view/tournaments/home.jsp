@@ -62,7 +62,7 @@
 
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
       <tr valign="top">
-         <td style="padding-right: 8px;"><a href=/tc?module=Static&d1=hs&d2=home"><img src="/i/tournament/tchs10/tchs10_tourn_logo.png" alt="TopCoder High School" border="0"></a><br /></td>
+         <td style="padding-right: 8px;"><a href="/tc?module=Static&d1=hs&d2=home"><img src="/i/tournament/tchs10/tchs10_tourn_logo.png" alt="TopCoder High School" border="0"></a><br /></td>
          <td width="100%">
          <span class="bodySubtitle">2010 TopCoder&#174; High School</span>
          <br />
