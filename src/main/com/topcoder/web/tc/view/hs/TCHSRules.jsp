@@ -124,8 +124,8 @@
                            <tr class="dark">
                                 <td class="value">Online Championship Round</td>
                                 <td class="value C">Saturday, March 20, 2010<br />
-                                    Register: 09:00-11:55 UTC -5<br>
-                                    START: 12:00 UTC -5</td>
+                                    Register: 09:00-11:55 UTC -4<br>
+                                    START: 12:00 UTC -4</td>
                                   <td class="value R">Up to 100</td>
                                   <td class="value R">&nbsp;</td>
                           </tr>
