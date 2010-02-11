@@ -1,0 +1,1 @@
+nohup java -cp "../lib/jars/log4j-1.2.7.jar:../resources:../lib/bin/classes.jar:../lib/bin/shared.jar:../lib/jars/mail.jar:../lib/jars/activation.jar" com.topcoder.utilities.ServerMonitorBot >> monitor.log 2>&1 &
