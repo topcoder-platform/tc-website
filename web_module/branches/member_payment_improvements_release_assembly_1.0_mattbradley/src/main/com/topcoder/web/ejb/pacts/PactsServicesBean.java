@@ -892,7 +892,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     // Helper function to get the user profile header given a connection and user Id.
     private Map getUserProfileHeader(Connection c, long userId) throws SQLException {
         StringBuffer selectHeader = new StringBuffer(300);
-        selectHeader.append("SELECT u.user_id, u.handle, u.first_name, u.middle_name, u.last_name, s.user_status_desc ");
+        selectHeader.append("SELECT u.user_id, u.handle, u.first_name, u.middle_name, u.last_name, s.user_status_desc, ");
         selectHeader.append("nvl(ua.accrual_amount, 0) as accrual_amount FROM user u, outer(user_accrual ua) ");
         selectHeader.append(" WHERE u.user_id = " + userId);
         selectHeader.append(" AND u.user_id = ua.user_id ");
