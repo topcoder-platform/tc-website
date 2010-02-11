@@ -67,6 +67,7 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
         handle = "Default TC Member";
         groupId = new long[0];
         accrualAmount = 0;
+        status = "";
     }
 
 /* This constructor makes the object out of raw data.

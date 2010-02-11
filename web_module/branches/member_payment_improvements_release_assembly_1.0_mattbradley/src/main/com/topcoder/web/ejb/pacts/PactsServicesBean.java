@@ -896,7 +896,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectHeader.append("nvl(ua.accrual_amount, 0) as accrual_amount FROM user u, outer(user_accrual ua) ");
         selectHeader.append(" WHERE u.user_id = " + userId);
         selectHeader.append(" AND u.user_id = ua.user_id ");
-        selectHeader.append("AND u.status = s.user_status_id ");
+        selectHeader.append(" AND u.status = s.user_status_id ");
 
         StringBuffer selectGroups = new StringBuffer(300);
         selectGroups.append("SELECT group_id FROM group_user ");
@@ -3226,7 +3226,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public Map findUsers(Map searchCriteria) throws SQLException {
         StringBuffer selectHeader = new StringBuffer(300);
-        selectHeader.append("SELECT u.user_id, u.handle, UPPER(u.handle) AS uchandle, u.first_name, u.middle_name, u.last_name, nvl(ua.accrual_amount, 0) as accrual_amount ");
+        selectHeader.append("SELECT u.user_id, u.handle, UPPER(u.handle) AS uchandle, u.first_name, u.middle_name, u.last_name, s.user_status_desc, nvl(ua.accrual_amount, 0) as accrual_amount ");
 
         StringBuffer from = new StringBuffer(300);
         from.append("FROM user u, outer(user_accrual ua) ");
@@ -3236,6 +3236,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         ArrayList objects = new ArrayList();
 
         whereClauses.add("u.user_id = ua.user_id");
+        whereClauses.add("u.status = s.user_status_id");
 
         Iterator i = searchCriteria.keySet().iterator();
         try {
