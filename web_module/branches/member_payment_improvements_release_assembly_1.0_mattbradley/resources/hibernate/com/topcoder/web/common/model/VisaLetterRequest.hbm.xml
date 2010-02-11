@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+    <class name="VisaLetterRequest" table="visa_letter_request" >
+        <id name="id" column="visa_letter_request_id">
+            <generator class="com.topcoder.web.common.model.IdGenerator">
+                <param name="sequence_name">VISA_LETTER_REQUEST_SEQ</param>
+            </generator>
+        </id>
+        
+        <many-to-one name="user" column="user_id" access="field"/>
+        <many-to-one name="event" column="visa_letter_event_id" access="field"/>
+        <property name="fullName" column="full_name" access="field"/>
+
+        <many-to-one name="address" column="address_id" class="Address" cascade="save-update" access="field" fetch="join" unique="true"/>
+        <many-to-one name="shippingAddress" column="shipping_address_id" class="Address" cascade="save-update" access="field" fetch="join" unique="true"/>
+
+        
+        <property name="phoneNumber" column="phone_number" access="field"/>
+        <property name="requestDate" type="date" column="request_date" access="field"/>
+        <property name="sentDate" type="date" column="sent_date" access="field"/>
+        <property name="denied" type="boolean" column="denied_ind" access="field"/>
+        
+    </class>
+</hibernate-mapping>
