@@ -896,7 +896,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectHeader.append("nvl(ua.accrual_amount, 0) as accrual_amount FROM user u, outer(user_accrual ua) ");
         selectHeader.append(" WHERE u.user_id = " + userId);
         selectHeader.append(" AND u.user_id = ua.user_id ");
-        selectDetails.append("AND u.status = s.user_status_id ");
+        selectHeader.append("AND u.status = s.user_status_id ");
 
         StringBuffer selectGroups = new StringBuffer(300);
         selectGroups.append("SELECT group_id FROM group_user ");
