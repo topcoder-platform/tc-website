@@ -893,7 +893,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     private Map getUserProfileHeader(Connection c, long userId) throws SQLException {
         StringBuffer selectHeader = new StringBuffer(300);
         selectHeader.append("SELECT u.user_id, u.handle, u.first_name, u.middle_name, u.last_name, s.user_status_desc, ");
-        selectHeader.append("nvl(ua.accrual_amount, 0) as accrual_amount FROM user u, outer(user_accrual ua) ");
+        selectHeader.append("nvl(ua.accrual_amount, 0) as accrual_amount ");
+        selectHeader.append("FROM user u, outer(user_accrual ua), user_status_lu s ");
         selectHeader.append(" WHERE u.user_id = " + userId);
         selectHeader.append(" AND u.user_id = ua.user_id ");
         selectHeader.append(" AND u.status = s.user_status_id ");
@@ -3229,7 +3230,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectHeader.append("SELECT u.user_id, u.handle, UPPER(u.handle) AS uchandle, u.first_name, u.middle_name, u.last_name, s.user_status_desc, nvl(ua.accrual_amount, 0) as accrual_amount ");
 
         StringBuffer from = new StringBuffer(300);
-        from.append("FROM user u, outer(user_accrual ua) ");
+        from.append("FROM user u, outer(user_accrual ua), user_status_lu s ");
 
         ArrayList whereClauses = new ArrayList();
         ArrayList orClauses = new ArrayList();
