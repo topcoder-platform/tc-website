@@ -32,7 +32,7 @@
 %>
         <table border="0" cellpadding="5" cellspacing="5">
         <tr>
-        <td><b>User</b></td><td><b>Last Name</b></td><td><b>First Name</b></td><td><b>Middle Name</b></td><td><b>Accrual Amount</b></td>
+        <td><b>User</b></td><td><b>Last Name</b></td><td><b>First Name</b></td><td><b>Middle Name</b></td><td><b>Accrual Amount</b></td><td><b>Status</b></td>
         </tr>
 <%
         DecimalFormat df = new DecimalFormat(PactsConstants.DECIMAL_FORMAT_STRING);
@@ -52,6 +52,7 @@
             out.print("<td>" + userList[n].getFirst() + "</td>");
             out.print("<td>" + userList[n].getMiddle() + "</td>");
             out.print("<td>" + df.format(userList[n].getAccrualAmount()) + "</td>");
+            out.print("<td>" + userList[n].getStatus() + "</td>");
             out.print("</tr>\n");
         }
     }
