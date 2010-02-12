@@ -312,7 +312,8 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
     }
 
     public String getLast() {
-        return last;
+        //return last;
+        return "test";
     }
 
     public void setLast(String last) {
