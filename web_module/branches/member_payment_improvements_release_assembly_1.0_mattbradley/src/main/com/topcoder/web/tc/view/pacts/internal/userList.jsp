@@ -52,7 +52,7 @@
             out.print("<td>" + userList[n].getFirst() + "</td>");
             out.print("<td>" + userList[n].getMiddle() + "</td>");
             out.print("<td>" + df.format(userList[n].getAccrualAmount()) + "</td>");
-            out.print("<td>" + userList[n].getLast() + "</td>");
+            out.print("<td>" + userList[n].getStatus() + "</td>");
             out.print("</tr>\n");
         }
     }
