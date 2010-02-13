@@ -194,7 +194,7 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
         middle = TCData.getTCString(rsr, "middle_name", "", false);
         first = TCData.getTCString(rsr, "first_name", "", false);
         accrualAmount = TCData.getTCDouble(rsr, "accrual_amount", 0, false);
-        status = TCData.getTCString(rsr, "user_status_desc");
+        status = TCData.getTCString(rsr, "status");
 
         groupId = new long[0];
     }
