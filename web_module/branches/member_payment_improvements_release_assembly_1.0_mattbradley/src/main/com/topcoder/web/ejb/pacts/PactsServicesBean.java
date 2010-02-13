@@ -3227,7 +3227,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public Map findUsers(Map searchCriteria) throws SQLException {
         StringBuffer selectHeader = new StringBuffer(300);
-        selectHeader.append("SELECT u.user_id, u.handle, UPPER(u.handle) AS uchandle, u.first_name, u.middle_name, u.last_name, s.user_status_desc, nvl(ua.accrual_amount, 0) as accrual_amount ");
+        selectHeader.append("SELECT u.user_id, u.handle, UPPER(u.handle) AS uchandle, u.first_name, u.middle_name, u.last_name, nvl(ua.accrual_amount, 0) as accrual_amount, u.status ");
 
         StringBuffer from = new StringBuffer(300);
         from.append("FROM user u, outer(user_accrual ua), user_status_lu s ");
@@ -3237,7 +3237,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         ArrayList objects = new ArrayList();
 
         whereClauses.add("u.user_id = ua.user_id");
-        whereClauses.add("u.status = s.user_status_id");
+        //whereClauses.add("u.status = s.user_status_id");
 
         Iterator i = searchCriteria.keySet().iterator();
         try {
