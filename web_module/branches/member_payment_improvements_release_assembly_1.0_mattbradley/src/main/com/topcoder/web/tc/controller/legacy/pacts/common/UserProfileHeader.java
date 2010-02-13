@@ -336,6 +336,6 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
     }
 
     public String getStatus() {
-        return "def";
+        return status;
     }
 }
