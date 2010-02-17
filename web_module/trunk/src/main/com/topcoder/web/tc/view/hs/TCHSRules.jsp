@@ -68,9 +68,10 @@
               <p><span class="bodySubtitle">Eligibility</span><br />
                    <strong>TopCoder members meeting the following criteria are eligible to compete in TCHS10:</strong>
                	  <ul>
+                    	<li>Must be a registered for TopCoder High School Competitions at TopCoder; AND</li>
                     	<li>Must be at least 13 years of age; AND</li>
                     	<li>Must be no older than 20 years of age as of March 20, 2010; AND</li>
-                    	<li>Must be pursuing a secondary (non university) education at some point during the season</li>
+                    	<li>Must be pursuing a secondary (non university) education at some point during the current tournament</li>
               </ul>
                     TopCoder members who are at least 13 years of age, but not yet 20 years of age by March 20, 2010 are eligible to win scholarships and prizes, unless otherwise prohibited. TCHS10 is void in the Quebec province of Canada, and elsewhere where prohibited by applicable law. Residents of Cuba, Iran, North Korea, Sudan, or Syria are ineligible to receive cash or prizes. In addition, a TopCoder member is not eligible for the Tournament if the member is on the Specially Designated National list promulgated and amended, from time to time, by the United States Department of the Treasury. 
 					<br><br>
