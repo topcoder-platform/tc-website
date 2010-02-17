@@ -208,7 +208,7 @@
 
                 </div> <!-- box -->
 
-
+<!--
               <c:if test="${profile ne null}">
                 <!-- stats -->
                 <div class="box">
@@ -289,6 +289,7 @@
                     
                 </div> <!-- box -->
               </c:if>
+-->              
                 </div><!-- container -->
                 </div><!-- content middle -->
                 
