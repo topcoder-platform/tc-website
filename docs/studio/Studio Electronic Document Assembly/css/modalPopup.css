@@ -1,0 +1,267 @@
+
+
+body
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+/**
+ * New button on contest details page
+ **/
+#button-register-contest
+{
+	display: inline-block;
+	width: 162px;
+	height: 55px;
+	margin-top: 5px;
+	margin-right: 15px;
+	background: transparent url(/i/popup/btn_register_contest.png) no-repeat left top;
+}
+#button-register-contest.disabled
+{
+	background-position : left -55px;
+}
+#button-submit-entries
+{
+	display: inline-block;
+	width: 162px;
+	height: 55px;
+	margin-top: 5px;
+	margin-right: 15px;
+	background: transparent url(/i/popup/btn_submit_entries.png) no-repeat left top;
+}
+#button-submit-entries.disabled
+{
+	background-position : left -55px;
+}
+
+
+/**
+ * popup structure
+ **/
+#popup
+{
+	width: 537px;
+	color: #333333;
+	font-size: 12px;
+	font-family: Arial;
+	padding-left: 15px;
+}
+.popup-content
+{
+	width: 427px;
+	padding: 20px 40px;
+	background-color: White;
+}
+.popup-border-top,
+.popup-border-bot
+{
+	width: 507px;
+	height: 15px;
+	background: transparent url(/i/popup/bg_popup_border.png) repeat-x left top;	
+}
+.border-top .popup-corner-left
+{
+	position: absolute;
+	margin-left: -15px;
+	width: 15px;
+	height: 15px;
+	background: transparent url(/i/popup/bg_popup_corner.png) no-repeat left top;	
+}
+.border-top .popup-corner-right
+{
+	position: absolute;
+	margin-left: 507px;
+	width: 15px;
+	height: 15px;
+	background: transparent url(/i/popup/bg_popup_corner.png) no-repeat right top;	
+}
+.border-bot .popup-corner-left
+{
+	position: absolute;
+	margin-left: -15px;
+	width: 15px;
+	height: 15px;
+	background: transparent url(/i/popup/bg_popup_corner.png) no-repeat left bottom;	
+}
+.border-bot .popup-corner-right
+{
+	position: absolute;
+	margin-left: 507px;
+	width: 15px;
+	height: 15px;
+	background: transparent url(/i/popup/bg_popup_corner.png) no-repeat right bottom;	
+}
+.popup-border-left,
+.popup-border-right
+{
+	width: 15px;
+	background: transparent url(/i/popup/bg_popup_border.png) repeat-y left top;	
+}
+.popup-border-left
+{
+	position: absolute;
+	margin-left: -15px;
+}
+.popup-border-right
+{
+	position: absolute;
+	margin-left: 507px;
+}
+
+#popup h1
+{
+	color: #003567;
+	font-size: 24px;
+	font-weight: bold;
+	background: transparent url(/i/popup/line_dots.png) repeat-x left bottom;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	margin-top: 0px;
+	margin-bottom: 25px;
+	font-family: verdana, arial, helvetica, sans-serif;
+}
+
+#popup #button-close
+{
+	float: right;
+	display: inline-block;
+	height: 17px;
+	padding-right: 22px;
+	background: transparent url(/i/popup/icon_close.png) no-repeat right 1px;
+}
+
+#popup p
+{
+	text-align: justify;
+	line-height: 18px;
+	padding: 7px 0px;
+}
+
+#popup p a
+{
+	color: #0b9dd5;
+	font-weight: bold;
+}
+#popup iframe
+{
+	margin-top: 15px;
+	border: solid 1px #a0a0a0;
+}
+
+#popup #info-message
+{
+	display: none;
+	color: #333333;
+	font-weight: bold;
+	padding: 10px 20px;
+	margin-top: 10px;
+	border: solid 1px #ffde49;
+	background-color: #fff7d3;
+}
+#popup #error-message
+{
+	display: none;
+	color: #b20000;
+	font-weight: bold;
+	padding: 10px 20px;
+	margin-top: 10px;
+	border: solid 1px #ff0000;
+	background-color: #ffc5c5;
+}
+#popup .error-arrow
+{
+	float: left;
+	position: absolute;
+	display: none;
+	width: 15px;
+	height: 15px;
+	margin-top: 0px;
+	margin-left: -20px;
+	background: transparent url(/i/popup/icon_arrow.png) no-repeat left top;
+}
+
+#popup #checkbox-affirm
+{
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 50px;
+}
+
+#popup button
+{
+	display: inline-block;
+	width: 122px;
+	height: 35px;
+	border: 0px;
+	margin-top: 15px;
+	cursor: pointer;
+}
+#popup .button-continue
+{
+	background: transparent url(/i/popup/btn_continue.png) no-repeat left top;
+}
+#popup .button-submit
+{
+	background: transparent url(/i/popup/btn_submit.png) no-repeat left top;
+}
+#popup .button-upload
+{
+	background: transparent url(/i/popup/btn_upload.png) no-repeat left top;
+}
+
+
+/**
+ * assignment-document
+ **/
+#assignment-document
+{
+	padding: 10px 20px;
+	background: transparent url(/i/popup/bg_assignment_document.png) repeat-x left top;
+}
+	#assignment-document h1
+	{
+		color: #000000;
+		font-size: 14px;
+		font-weight: bold;
+		font-family: arial;
+		padding-top: 5px;
+		padding-bottom: 0px;
+		margin-top: 0px;
+		margin-bottom: 0px;
+	}
+	#assignment-document p
+	{
+		color: #333333;
+		font-size: 12px;
+		font-family: arial;
+		text-align: justify;
+		line-height: 18px;
+		padding: 0px;
+	}
+
+
+/**
+ * Modal Window structure
+ **/
+#modal-background, #modal-wrapper {
+	background: #000000;
+	height: 100%;
+	left: 0;
+	position: fixed !important;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 900;
+}
+#modal-wrapper {
+	background: none;
+	z-index: 1000;
+}
+	#modal {			
+		margin: 0 auto;
+		overflow: hidden;
+		position: relative;
+		width: 537px;
+	}

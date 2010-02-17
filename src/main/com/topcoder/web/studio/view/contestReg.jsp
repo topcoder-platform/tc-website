@@ -7,6 +7,8 @@
   -
   - Version 1.1 (Configurable Contest Terms-Studio Release Assembly v1.0) changes: Added new functionality that asks for
   - several terms of use and show those the user already agreed to.
+  - Version 1.2 (Studio Electronic Assignment Document Assembly version 1.0) changes:
+  -     - Change the registration process.    
 --%>
 <%@ page import="com.topcoder.web.studio.Constants"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag"%>
@@ -134,16 +136,6 @@
                                             <!-- resulting page from click has value at the end of the URL, which is pointless. Feel free to use any html/js element/method but i want the nice looking button -->
 
                                             <div align="center">
-                                                <c:if test="${not empty has_global_ad and not has_global_ad}">
-                                                    <div class="bigRed" style="text-align: left; width: 590px">
-                                                        You have not yet signed the Assignment Document that is required
-                                                        in order to submit for this contest. Please go
-                                                        <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">here</a>
-                                                        to read more about Assignment Documents and what you need to do.
-                                                        You will not be able to submit for this contest without first
-                                                        sending in the signed Assignment Document.<br /><br />
-                                                    </div>
-                                                </c:if>
                                                 <c:choose>
                                                     <c:when test="${not empty terms}">
                                                         <c:choose>

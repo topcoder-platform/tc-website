@@ -1,0 +1,501 @@
+* {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 85%; BACKGROUND: #000000; PADDING-BOTTOM: 0px; MARGIN: 0px auto; COLOR: #333333; PADDING-TOP: 0px; FONT-FAMILY: Arial, Verdana, Helvetica, sans-serif
+}
+IMG {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+A:active {
+	outline: none
+}
+A:focus {
+	-moz-outline-style: none
+}
+.small {
+	FONT-SIZE: 11px
+}
+FORM {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+A {
+	Z-INDEX: 10; COLOR: #333333; TEXT-DECORATION: underline
+}
+A:link {
+	COLOR: #333333; TEXT-DECORATION: underline
+}
+A:visited {
+	COLOR: #333333; TEXT-DECORATION: underline
+}
+A:hover {
+	Z-INDEX: 100; COLOR: #f90; POSITION: relative; TEXT-DECORATION: underline
+}
+A:active {
+	Z-INDEX: 100; COLOR: #f90; POSITION: relative; TEXT-DECORATION: underline
+}
+#page-wrap {
+	MIN-HEIGHT: 640px; BACKGROUND: #ffffff; MARGIN: 0px auto
+}
+#wrapper DIV {
+	FONT-SIZE: 12px; LINE-HEIGHT: 15px
+}
+TD {
+	FONT-SIZE: 12px; LINE-HEIGHT: 15px
+}
+#wrapper P {
+	MARGIN: 10px 0px
+}
+#wrapper {
+	PADDING-RIGHT: 24px; MARGIN: 0px auto; WIDTH: 900px; TEXT-ALIGN: left
+}
+#wrapper H1 {
+	MARGIN-TOP: 0px; FONT-WEIGHT: bold; FONT-SIZE: 24px; BACKGROUND: url(../i/line_dots.png) repeat-x left bottom; PADDING-BOTTOM: 15px; COLOR: #036; PADDING-TOP: 5px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+#wrapper H2 {
+	PADDING-BOTTOM: 5px; PADDING-TOP: 10px
+}
+#wrapper H3 {
+	PADDING-BOTTOM: 5px; PADDING-TOP: 10px
+}
+#wrapper H4 {
+	PADDING-BOTTOM: 5px; PADDING-TOP: 10px
+}
+#wrapper OL {
+	PADDING-BOTTOM: 15px; PADDING-TOP: 15px
+}
+#wrapper LI {
+	MARGIN-LEFT: 45px
+}
+DIV.calendar {
+	Z-INDEX: 4
+}
+DIV.header {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 150%; BACKGROUND: none transparent scroll repeat 0% 0%; PADDING-BOTTOM: 0px; MARGIN: 30px 0px 5px; COLOR: #2a81b3; PADDING-TOP: 0px
+}
+DIV.header SPAN {
+	FONT-SIZE: 16px
+}
+A SPAN {
+	DISPLAY: none; TEXT-DECORATION: none
+}
+A:hover SPAN {
+	BORDER-RIGHT: #444 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #444 1px solid; DISPLAY: block; PADDING-LEFT: 5px; Z-INDEX: 10; BACKGROUND: #fffcd1; LEFT: 100%; PADDING-BOTTOM: 1px; BORDER-LEFT: #444 1px solid; COLOR: #444; PADDING-TOP: 1px; BORDER-BOTTOM: #444 1px solid; WHITE-SPACE: nowrap; POSITION: absolute; TOP: -2.2em; TEXT-DECORATION: none
+}
+A.noLink {
+	CURSOR: default; TEXT-DECORATION: none
+}
+.bigRed {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #ff0000; TEXT-DECORATION: none
+}
+A.bigRed {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #ff0000; TEXT-DECORATION: none
+}
+A.bigRed:link {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+A.bigRed:visited {
+	COLOR: #ff0000; TEXT-DECORATION: none
+}
+A.bigRed:hover {
+	COLOR: #990000; TEXT-DECORATION: underline
+}
+A.bigRed:active {
+	COLOR: #990000; TEXT-DECORATION: underline
+}
+.bigGreen {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #009900; TEXT-DECORATION: none
+}
+A.bigGreen:link {
+	COLOR: #009900; TEXT-DECORATION: underline
+}
+A.bigGreen:visited {
+	COLOR: #009900; TEXT-DECORATION: underline
+}
+A.bigGreen:hover {
+	COLOR: #000000; TEXT-DECORATION: underline
+}
+A.bigGreen:active {
+	COLOR: #000000; TEXT-DECORATION: underline
+}
+.grayedOut {
+	COLOR: #999999
+}
+A.grayedOut {
+	COLOR: #999999
+}
+A.grayedOut:link {
+	COLOR: #999999; TEXT-DECORATION: underline
+}
+A.grayedOut:visited {
+	COLOR: #999999; TEXT-DECORATION: underline
+}
+A.grayedOut:hover {
+	COLOR: #990000; TEXT-DECORATION: underline
+}
+A.grayedOut:active {
+	COLOR: #990000; TEXT-DECORATION: underline
+}
+DIV.popUp {
+	DISPLAY: none; Z-INDEX: 100; LEFT: 0px; POSITION: absolute; TOP: 0px
+}
+DIV.popUp DIV {
+	BORDER-RIGHT: #999999 1px solid; PADDING-RIGHT: 6px; BORDER-TOP: #999999 1px solid; PADDING-LEFT: 6px; FONT-WEIGHT: normal; FONT-SIZE: 11px; BACKGROUND: #ffffcc; FLOAT: left; PADDING-BOTTOM: 4px; BORDER-LEFT: #999999 1px solid; LINE-HEIGHT: normal; PADDING-TOP: 4px; BORDER-BOTTOM: #999999 1px solid; WHITE-SPACE: nowrap
+}
+DIV.linkBox {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 8px; FONT-SIZE: 11px; FLOAT: right; PADDING-BOTTOM: 3px; MARGIN: 0px 0px 0px 6px; BORDER-LEFT: #2a81b3 6px solid; PADDING-TOP: 0px; BORDER-BOTTOM: #2a81b3 1px solid; LETTER-SPACING: 4px
+}
+DIV.pagingBox {
+	CLEAR: both; PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-SIZE: 11px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px; TEXT-ALIGN: center
+}
+DIV.conDetRightBox {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FLOAT: right; PADDING-BOTTOM: 0px; MARGIN: 0px 0px 20px 20px; WIDTH: 270px; PADDING-TOP: 0px
+}
+DIV.conDetRightBox DIV.section {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FONT-WEIGHT: bold; FONT-SIZE: 125%; BACKGROUND: #359cd3; PADDING-BOTTOM: 7px; COLOR: #ffffff; PADDING-TOP: 7px
+}
+DIV.conDetRightBox DIV.padder {
+	BORDER-RIGHT: #49adfb 1px solid; PADDING-RIGHT: 10px; PADDING-LEFT: 10px; BACKGROUND: #f6f6f6; PADDING-BOTTOM: 4px; OVERFLOW: hidden; BORDER-LEFT: #49adfb 1px solid; PADDING-TOP: 4px; BORDER-BOTTOM: #49adfb 1px solid
+}
+TABLE.conDetDates {
+	BORDER-RIGHT: #eff8fd 0px solid; BORDER-TOP: #eff8fd 0px solid; BORDER-LEFT: #eff8fd 0px solid; BORDER-BOTTOM: #eff8fd 0px solid; BORDER-COLLAPSE: collapse
+}
+TABLE.conDetDates TD {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 2px; PADDING-TOP: 2px; BORDER-COLLAPSE: collapse
+}
+TABLE.conDetDates TD.field {
+	PADDING-RIGHT: 1px; FONT-WEIGHT: bold; PADDING-BOTTOM: 5px; VERTICAL-ALIGN: top; PADDING-TOP: 5px; BORDER-BOTTOM: #49adfb 0px solid; WHITE-SPACE: nowrap
+}
+TABLE.conDetDates TD.value {
+	PADDING-LEFT: 1px; PADDING-BOTTOM: 5px; VERTICAL-ALIGN: top; WIDTH: 100%; PADDING-TOP: 5px; BORDER-BOTTOM: #49adfb 0px solid; WHITE-SPACE: nowrap; TEXT-ALIGN: center
+}
+.contentDetails {
+	WIDTH: 550px
+}
+.subSection {
+	FONT-WEIGHT: bold; COLOR: #336699
+}
+.subSectionTitle {
+	FONT-WEIGHT: bold
+}
+TABLE.conDetIntro {
+	BACKGROUND: url(../i/line_dots.png) repeat-x left bottom; MARGIN: 0px
+}
+TABLE.conDetIntro TD.field {
+	PADDING-RIGHT: 15px; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 110%; PADDING-BOTTOM: 5px; VERTICAL-ALIGN: top; COLOR: #cf8508; PADDING-TOP: 5px
+}
+TABLE.conDetIntro TD.value {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 110%; PADDING-BOTTOM: 5px; VERTICAL-ALIGN: top; COLOR: #000000; PADDING-TOP: 5px
+}
+#content {
+	PADDING-BOTTOM: 20px
+}
+#content .contentTop {
+	PADDING-TOP: 20px
+}
+#content .contentMiddle {
+	BACKGROUND: #ffffff; PADDING-BOTTOM: 40px; TEXT-ALIGN: left
+}
+#content .forums {
+	WIDTH: 900px; PADDING-TOP: 15px
+}
+#content .contentBottom {
+	HEIGHT: 21px
+}
+#tableContent {
+	PADDING-BOTTOM: 20px; PADDING-TOP: 0px
+}
+#tableContent .tableTop {
+	MIN-HEIGHT: 9px; BACKGROUND: url(/i/v2/bg_table_top.png) no-repeat left top; PADDING-TOP: 9px
+}
+#tableContent .tableMiddle {
+	PADDING-RIGHT: 8px; PADDING-LEFT: 8px; BACKGROUND: url(/i/v2/bg_table_middle.png) repeat-y left top
+}
+#tableContent .tableBottom {
+	BACKGROUND: url(/i/v2/bg_table_bottom.png) no-repeat left bottom; HEIGHT: 9px
+}
+DIV.statHolder {
+	BORDER-RIGHT: #dcdcdc 1px solid; PADDING-RIGHT: 10px; BORDER-TOP: #dcdcdc 1px solid; PADDING-LEFT: 10px; BACKGROUND: url(../i/stat_tableBG.png) #ffffff no-repeat left top; PADDING-BOTTOM: 0px; BORDER-LEFT: #dcdcdc 1px solid; PADDING-TOP: 0px; BORDER-BOTTOM: #dcdcdc 1px solid; TEXT-ALIGN: left
+}
+DIV.statHolder DIV.NE {
+	FLOAT: right
+}
+DIV.statHolder DIV.SE {
+	FLOAT: right
+}
+DIV.statHolder DIV.NW IMG {
+	LEFT: -11px; POSITION: relative; TOP: -1px
+}
+DIV.statHolder DIV.SW IMG {
+	LEFT: -11px; BOTTOM: -1px; POSITION: relative
+}
+DIV.statHolder DIV.NE IMG {
+	RIGHT: -11px; POSITION: relative; TOP: -1px
+}
+DIV.statHolder DIV.SE IMG {
+	RIGHT: -11px; BOTTOM: -1px; POSITION: relative
+}
+DIV.statHolder DIV.container {
+	WIDTH: 100%; POSITION: relative
+}
+SELECT.contest-filter {
+	PADDING-RIGHT: 1px; PADDING-LEFT: 2px; FONT-SIZE: 11px; PADDING-BOTTOM: 1px; WIDTH: 110px; LINE-HEIGHT: 18px; MARGIN-RIGHT: 4px; PADDING-TOP: 1px
+}
+TABLE.stat {
+	MARGIN: 0px
+}
+TABLE.stat TD {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-WEIGHT: normal; FONT-SIZE: 11px; PADDING-BOTTOM: 5px; VERTICAL-ALIGN: middle; COLOR: #333333; PADDING-TOP: 5px; TEXT-ALIGN: left
+}
+TABLE.stat TD.title {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #333333; PADDING-TOP: 0px; TEXT-ALIGN: left
+}
+TABLE.stat TD.header {
+	FONT-WEIGHT: bold; BACKGROUND: url(/i/v2/bg_header_middle.png) #2788bc repeat-y left top; COLOR: #fff; TEXT-ALIGN: left
+}
+TABLE.stat TD.headerR {
+	FONT-WEIGHT: bold; BACKGROUND: url(/i/v2/bg_header_middle.png) #2788bc repeat-y left top; COLOR: #fff; TEXT-ALIGN: right
+}
+TABLE.stat TD.headerC {
+	FONT-WEIGHT: bold; BACKGROUND: url(/i/v2/bg_header_middle.png) #2788bc repeat-y left top; COLOR: #fff; TEXT-ALIGN: center
+}
+TABLE.stat TD.headerW {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND: url(/i/v2/bg_headerSW.png) no-repeat left bottom; PADDING-BOTTOM: 7px; VERTICAL-ALIGN: top; WIDTH: 7px; COLOR: #fff; PADDING-TOP: 0px
+}
+TABLE.stat TD.headerW DIV {
+	BACKGROUND: url(/i/v2/bg_headerNW.png) no-repeat left top; WIDTH: 7px
+}
+TABLE.stat TD.headerE {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND: url(/i/v2/bg_headerSE.png) no-repeat right bottom; PADDING-BOTTOM: 7px; VERTICAL-ALIGN: top; WIDTH: 7px; COLOR: #fff; PADDING-TOP: 0px; TEXT-ALIGN: right
+}
+TABLE.stat TD.headerE DIV {
+	BACKGROUND: url(/i/v2/bg_headerNE.png) no-repeat right top; WIDTH: 7px
+}
+TABLE.stat TD.value {
+	TEXT-ALIGN: left
+}
+TABLE.stat TD.valueR {
+	TEXT-ALIGN: right
+}
+TABLE.stat TD.valueC {
+	TEXT-ALIGN: center
+}
+TABLE.stat TD.header A {
+	COLOR: #fff; TEXT-DECORATION: underline
+}
+TABLE.stat TD.headerC A {
+	COLOR: #fff; TEXT-DECORATION: underline
+}
+TABLE.stat TD.headerW A {
+	COLOR: #fff; TEXT-DECORATION: underline
+}
+TABLE.stat TD.headerR A {
+	COLOR: #fff; TEXT-DECORATION: underline
+}
+TABLE.stat TD.header A:hover {
+	TEXT-DECORATION: none
+}
+TABLE.stat TD.headerC A:hover {
+	TEXT-DECORATION: none
+}
+TABLE.stat TD.headerW A:hover {
+	TEXT-DECORATION: none
+}
+TABLE.stat TD.headerR A:hover {
+	TEXT-DECORATION: none
+}
+TABLE.stat TD.space {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 8px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px
+}
+TABLE.stat TD.btnRight {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 10px; TEXT-ALIGN: right
+}
+TABLE.stat TD.valueC DIV.countdown {
+	COLOR: #2788bc
+}
+TABLE.stat TD.valueC DIV.strongRed {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-WEIGHT: normal; FONT-SIZE: 11px; PADDING-BOTTOM: 5px; VERTICAL-ALIGN: middle; COLOR: #b10000; PADDING-TOP: 5px; WHITE-SPACE: nowrap; TEXT-ALIGN: center
+}
+TABLE.stat TD.valueC DIV.softRed {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-WEIGHT: normal; PADDING-BOTTOM: 5px; VERTICAL-ALIGN: middle; COLOR: #e74c37; PADDING-TOP: 5px; WHITE-SPACE: nowrap; TEXT-ALIGN: center
+}
+TABLE.stat TR.light TD {
+	BORDER-TOP: #a1a1a1 1px solid; BACKGROUND: #eeeeee; BORDER-BOTTOM: #a1a1a1 1px solid
+}
+TABLE.stat TR.dark TD {
+	BORDER-TOP: #a1a1a1 1px solid; BACKGROUND: #dddddd; BORDER-BOTTOM: #a1a1a1 1px solid
+}
+TABLE.stat TR.light TD.valueE {
+	BORDER-LEFT: #a1a1a1 1px solid
+}
+TABLE.stat TR.light TD.valueW {
+	BORDER-RIGHT: #a1a1a1 1px solid; TEXT-ALIGN: center
+}
+TABLE.stat TR.dark TD.valueE {
+	BORDER-LEFT: #a1a1a1 1px solid
+}
+TABLE.stat TR.dark TD.valueW {
+	BORDER-RIGHT: #a1a1a1 1px solid; TEXT-ALIGN: center
+}
+TABLE.stat SPAN.big {
+	FONT-WEIGHT: bold; FONT-SIZE: 2em
+}
+TABLE.input TD.field {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; FONT-STYLE: normal
+}
+TABLE.input TD.value {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; FONT-STYLE: normal
+}
+TABLE.input TD.field {
+	PADDING-RIGHT: 4px; BORDER-TOP: #ffffff 1px solid; PADDING-LEFT: 4px; PADDING-BOTTOM: 4px; VERTICAL-ALIGN: top; PADDING-TOP: 4px; BACKGROUND-COLOR: #eeeeee; TEXT-ALIGN: left
+}
+TABLE.input TD.field DIV {
+	WIDTH: 200px
+}
+TABLE.input TD.value {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 4px; PADDING-BOTTOM: 4px; PADDING-TOP: 4px
+}
+FORM FIELDSET {
+	MARGIN: 20px 0px
+}
+FORM LEGEND {
+	FONT-WEIGHT: bold
+}
+DIV.tableTabOn {
+	BORDER-RIGHT: #dcdcdc 1px solid; PADDING-RIGHT: 10px; BORDER-TOP: #dcdcdc 1px solid; PADDING-LEFT: 10px; FONT-WEIGHT: bold; FONT-SIZE: 12px; BACKGROUND: #cccccc; FLOAT: left; PADDING-BOTTOM: 4px; BORDER-LEFT: #dcdcdc 1px solid; MARGIN-RIGHT: 4px; PADDING-TOP: 4px; POSITION: relative; TOP: 0px
+}
+DIV.tableTabOff {
+	BORDER-RIGHT: #dcdcdc 1px solid; PADDING-RIGHT: 10px; BORDER-TOP: #dcdcdc 1px solid; PADDING-LEFT: 10px; FONT-WEIGHT: bold; FONT-SIZE: 12px; BACKGROUND: #cccccc; FLOAT: left; PADDING-BOTTOM: 4px; BORDER-LEFT: #dcdcdc 1px solid; MARGIN-RIGHT: 4px; PADDING-TOP: 4px; POSITION: relative; TOP: 0px
+}
+DIV.tableTabOn {
+	BACKGROUND: #dcdcdc
+}
+DIV.tableTabOff {
+	BACKGROUND: #eeeeee
+}
+DIV.tableTabOff A:link {
+	COLOR: #999999
+}
+DIV.tableTabOff A:visited {
+	COLOR: #999999
+}
+DIV.tableTabOff A:hover {
+	COLOR: #f93
+}
+DIV.tableTabOff A:active {
+	COLOR: #f93
+}
+#content .coderText {
+	FONT-WEIGHT: bold
+}
+#content A.coderText {
+	TEXT-DECORATION: none
+}
+#content A.coderText:hover {
+	TEXT-DECORATION: underline
+}
+#content A.coderTextOrange {
+	FONT-WEIGHT: bold; COLOR: #f90; TEXT-DECORATION: none
+}
+#content A.coderTextOrange:hover {
+	TEXT-DECORATION: underline
+}
+#conDetInstructionsBox {
+	BACKGROUND: none transparent scroll repeat 0% 0%; MARGIN: 24px 0px; WIDTH: 430px; TEXT-ALIGN: left
+}
+#conDetInstructionsBox UL {
+	PADDING-RIGHT: 0px; DISPLAY: block; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 6px 0px; PADDING-TOP: 0px
+}
+#conDetInstructionsBox UL LI {
+	PADDING-RIGHT: 0px; DISPLAY: block; PADDING-LEFT: 34px; BACKGROUND: none transparent scroll repeat 0% 0%; PADDING-BOTTOM: 0px; MARGIN: 6px 0px; PADDING-TOP: 0px; LIST-STYLE-TYPE: none; POSITION: relative; HEIGHT: 28px
+}
+#conDetInstructionsBox UL LI DIV {
+	PADDING-TOP: 4px
+}
+#conDetInstructionsBox UL LI A.icon {
+	LEFT: 0px; POSITION: absolute; TOP: 0px
+}
+IMG.inlineEmblem {
+	VERTICAL-ALIGN: middle
+}
+.hide {
+	DISPLAY: none
+}
+.showBlock {
+	DISPLAY: block
+}
+.showInline {
+	DISPLAY: inline
+}
+DIV.editConDoc {
+	MARGIN: 10px 0px
+}
+DIV.editConDoc DIV.editConDocIndent {
+	PADDING-LEFT: 60px; MARGIN: 0px
+}
+DIV.editConDoc DIV {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 4px 0px; PADDING-TOP: 0px
+}
+DIV.contestEmblem {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 0px; FLOAT: left; PADDING-BOTTOM: 0px; VERTICAL-ALIGN: middle; PADDING-TOP: 0px; HEIGHT: 3em
+}
+DIV.contestTitle {
+	DISPLAY: inline; FONT-WEIGHT: bold
+}
+DIV.contestLinks {
+	CLEAR: both; PADDING-RIGHT: 10px; PADDING-LEFT: 10px; FLOAT: left; PADDING-BOTTOM: 8px; PADDING-TOP: 8px; WHITE-SPACE: nowrap
+}
+#fullSizeView {
+	MARGIN: 20px; COLOR: #ffffff
+}
+#fullSizeView DIV.logo {
+	PADDING-RIGHT: 20px; PADDING-LEFT: 0px; FLOAT: left; PADDING-BOTTOM: 20px; PADDING-TOP: 0px
+}
+#fullSizeView A {
+	COLOR: #ffffff; TEXT-DECORATION: underline
+}
+#fullSizeView A:link {
+	COLOR: #ffffff; TEXT-DECORATION: underline
+}
+#fullSizeView A:visited {
+	COLOR: #ffffff; TEXT-DECORATION: underline
+}
+#fullSizeView A:hover {
+	COLOR: #f90; TEXT-DECORATION: underline
+}
+#fullSizeView A:active {
+	COLOR: #f90; TEXT-DECORATION: underline
+}
+#contact ADDRESS {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; FONT-STYLE: normal
+}
+#contact TD {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-SIZE: 12px; PADDING-BOTTOM: 5px; LINE-HEIGHT: 18px; PADDING-TOP: 5px
+}
+INPUT.textfield {
+	BORDER-RIGHT: #ccc 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #ccc 1px solid; DISPLAY: block; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; MARGIN: 0px 0px 5px; BORDER-LEFT: #ccc 1px solid; COLOR: #000; PADDING-TOP: 5px; BORDER-BOTTOM: #ccc 1px solid; BACKGROUND-COLOR: #fff! important; TEXT-ALIGN: left
+}
+HTML * INPUT.textfield:focus {
+	BORDER-RIGHT: #39f 1px solid; BORDER-TOP: #39f 1px solid; BORDER-LEFT: #39f 1px solid; COLOR: #000! important; BORDER-BOTTOM: #39f 1px solid
+}
+#tc-login {
+	FONT-SIZE: 93%; WIDTH: 500px
+}
+#tc-login P {
+	PADDING-BOTTOM: 10px
+}
+#tc-login TABLE {
+	WIDTH: 240px; PADDING-TOP: 5px
+}
+#tc-login TD {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; PADDING-TOP: 5px
+}
+#tc-login SPAN.tc-alert {
+	FONT-SIZE: 14px; COLOR: #f00
+}
+#tc-login TD.tc-login {
+	TEXT-ALIGN: center
+}
+#tc-login TD.name {
+	VERTICAL-ALIGN: middle; TEXT-ALIGN: left
+}

@@ -1,0 +1,216 @@
+.button-container {
+	FLOAT: right; WIDTH: 100%; PADDING-TOP: 15px
+}
+.button {
+	DISPLAY: block; PADDING-LEFT: 15px; FONT-WEIGHT: bold; FONT-SIZE: 13px; FLOAT: right; TEXT-TRANSFORM: uppercase; WIDTH: 132px; COLOR: #616161; PADDING-TOP: 7px; FONT-FAMILY: Arial; HEIGHT: 28px; TEXT-ALIGN: left; TEXT-DECORATION: none
+}
+.button {
+	BACKGROUND: url(../i/buttonbg.png) no-repeat; MARGIN-LEFT: auto; MARGIN-RIGHT: auto
+}
+.button:hover {
+	BACKGROUND: url(../i/buttonOverbg.png) no-repeat; TEXT-DECORATION: none
+}
+.small-button {
+	PADDING-RIGHT: 30px; DISPLAY: block; FONT-SIZE: 11px; FLOAT: left; MARGIN: 10px 6px 0px; TEXT-TRANSFORM: uppercase; COLOR: #616161; FONT-FAMILY: Arial; HEIGHT: 24px; TEXT-ALIGN: left; TEXT-DECORATION: none
+}
+.small-button {
+	BACKGROUND: url(../i/buttonbg-sm.png) no-repeat right top
+}
+.small-button SPAN {
+	DISPLAY: block; PADDING-LEFT: 9px; BACKGROUND: url(../i/buttonbg-cap-sm.png) no-repeat left top; FLOAT: left; CURSOR: pointer; PADDING-TOP: 5px; HEIGHT: 24px
+}
+.small-button:hover {
+	BACKGROUND: url(../i/buttonOverbg-sm.png) no-repeat right top; TEXT-DECORATION: none
+}
+.small-button:hover SPAN {
+	BACKGROUND: url(../i/buttonOverbg-cap-sm.png) no-repeat left top; CURSOR: pointer; TEXT-DECORATION: none
+}
+#wrapper2 {
+	MARGIN: 0px auto; WIDTH: 930px; TEXT-ALIGN: left
+}
+.wrapper2 {
+	MARGIN: 0px auto; WIDTH: 930px; TEXT-ALIGN: left
+}
+#header2 {
+	Z-INDEX: 100; BACKGROUND: url(../i/bg_header.png) repeat-x; HEIGHT: 185px
+}
+#header2 .wrapper2 {
+	Z-INDEX: 100; POSITION: relative
+}
+#header2 H1 {
+	HEIGHT: 133px
+}
+#header2 H1 A {
+	MARGIN-TOP: 5px; DISPLAY: block; BACKGROUND: url(../i/topcoder_studio.png) no-repeat; WIDTH: 262px; POSITION: absolute; TOP: 38px; HEIGHT: 83px
+}
+#header2 H1 A SPAN {
+	DISPLAY: none
+}
+#header2 H1 SMALL {
+	DISPLAY: none
+}
+#ready_engage {
+	RIGHT: 0px; BACKGROUND: url(../i/ready_engage_blue.png) no-repeat; WIDTH: 436px; POSITION: absolute; TOP: 76px; HEIGHT: 26px
+}
+#ready_engage SPAN {
+	DISPLAY: none
+}
+#nav_support {
+	RIGHT: 0px; POSITION: absolute; TOP: 5px
+}
+#nav_support UL {
+	LIST-STYLE-TYPE: none
+}
+#nav_support UL LI {
+	PADDING-RIGHT: 8px; PADDING-LEFT: 8px; BACKGROUND: url(../i/ico_sprites.png) no-repeat 0px -21px; FLOAT: left; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; LIST-STYLE-TYPE: none
+}
+#nav_support UL LI.left {
+	PADDING-LEFT: 0px; BACKGROUND: none transparent scroll repeat 0% 0%
+}
+#nav_support UL LI.right {
+	PADDING-RIGHT: 0px
+}
+#nav_support A {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 7px; FONT-WEIGHT: bold; FONT-SIZE: 80%; BACKGROUND: url(../i/blue_small_arrow.png) no-repeat 0px 3px; PADDING-BOTTOM: 0px; COLOR: #888; PADDING-TOP: 0px; TEXT-DECORATION: none
+}
+#nav_support A:hover {
+	COLOR: #359cd3; TEXT-DECORATION: underline
+}
+#nav_support .on A {
+	COLOR: #359cd3
+}
+#nav_support UL LI.login A.gMetal {
+	COLOR: #359cd3
+}
+#nav_support UL LI.logged-in SPAN.welcome {
+	FONT-WEIGHT: bold; FONT-SIZE: 80%; COLOR: #359cd3
+}
+#nav_support UL LI.logged-in A.coderText {
+	BACKGROUND-IMAGE: url(none); COLOR: #359cd3
+}
+#nav_support UL LI.logged-in A.coderTextOrange {
+	BACKGROUND-IMAGE: url(none); COLOR: #f93
+}
+#links {
+	BACKGROUND: url(../i/bg_content_links.png) #eaeaea repeat-x; FLOAT: left; WIDTH: 100%; PADDING-TOP: 20px; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+#links A {
+	COLOR: #555; TEXT-DECORATION: none
+}
+#links A:hover {
+	COLOR: #359cd3; TEXT-DECORATION: underline
+}
+#links UL {
+	FONT-SIZE: 82%; PADDING-BOTTOM: 10px; LIST-STYLE-TYPE: none
+}
+#links LI {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 3px; PADDING-TOP: 3px
+}
+#links .col {
+	FLOAT: left; MARGIN-RIGHT: 30px
+}
+#links H4 {
+	FONT-WEIGHT: bold; FONT-SIZE: 90%; MARGIN-BOTTOM: 5px; COLOR: #000
+}
+#footer {
+	CLEAR: both; BACKGROUND: #000; PADDING-BOTTOM: 20px; PADDING-TOP: 10px
+}
+#footer P {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 82%; PADDING-BOTTOM: 5px; WIDTH: 420px; COLOR: #cccccc; LINE-HEIGHT: 16px; PADDING-TOP: 5px
+}
+#footer_1800 {
+	PADDING-BOTTOM: 10px; COLOR: #359cd3
+}
+#footer_1800 STRONG {
+	FONT-WEIGHT: bold; FONT-SIZE: 150%; COLOR: #359cd3
+}
+#loginform {
+	MARGIN-TOP: -106px; FONT-WEIGHT: bold; FONT-SIZE: 90%; BACKGROUND-IMAGE: url(../i/bg_login2.png); MARGIN-LEFT: 403px; WIDTH: 519px; BACKGROUND-REPEAT: repeat-x; POSITION: absolute; HEIGHT: 0px
+}
+#loginform #login_left {
+	FLOAT: left; BACKGROUND-IMAGE: url(../i/login_left2.png); WIDTH: 5px; HEIGHT: 100%
+}
+#loginform #login_right {
+	FLOAT: right; BACKGROUND-IMAGE: url(../i/login_right2.png); WIDTH: 5px; HEIGHT: 100%
+}
+* HTML #loginform #login_left {
+	FLOAT: left; BACKGROUND-IMAGE: url(..../i/login_left2.png); WIDTH: 5px; HEIGHT: 90px
+}
+* HTML #loginform #login_right {
+	FLOAT: right; BACKGROUND-IMAGE: url(..../i/login_right2.png); WIDTH: 5px; HEIGHT: 90px
+}
+#loginform #left {
+	FLOAT: left; MARGIN-RIGHT: 20px; POSITION: relative
+}
+#loginform #right {
+	FLOAT: right; WIDTH: 106px; HEIGHT: 300px
+}
+* HTML #loginform #right {
+	FLOAT: right; WIDTH: 116px; HEIGHT: 300px
+}
+#loginform #username {
+	PADDING-LEFT: 25px; PADDING-TOP: 7px
+}
+#loginform #password {
+	PADDING-LEFT: 25px; PADDING-TOP: 7px
+}
+#loginform #username INPUT {
+	MARGIN-LEFT: 5px; WIDTH: 236px
+}
+#loginform #password INPUT {
+	MARGIN-LEFT: 5px; WIDTH: 166px
+}
+#loginform #password A {
+	MARGIN-LEFT: 5px
+}
+#loginform #rememberme {
+	MARGIN-TOP: 5px; MARGIN-LEFT: 93px
+}
+* HTML #loginform #rememberme {
+	MARGIN-TOP: 3px; MARGIN-LEFT: 90px
+}
+* + HTML #loginform #rememberme {
+	MARGIN-TOP: 3px; MARGIN-LEFT: 90px
+}
+#loginform .register {
+	MARGIN-TOP: 60px; FONT-SIZE: 14px; MARGIN-LEFT: -12px
+}
+#loginform #register {
+	MARGIN-TOP: 60px; FONT-SIZE: 14px; MARGIN-LEFT: -12px
+}
+#loginform FORM {
+	MARGIN-TOP: 5px; DISPLAY: none; MARGIN-LEFT: 15px
+}
+#loginform TD {
+	PADDING-RIGHT: 20px
+}
+#loginform TR {
+	TEXT-ALIGN: left
+}
+#loginform INPUT[type=text] {
+	MARGIN-BOTTOM: 3px; WIDTH: 180px
+}
+#loginform #right .button {
+	MARGIN-TOP: 20px; FONT-WEIGHT: bold; FONT-SIZE: 13px; COLOR: #616161; FONT-FAMILY: Arial
+}
+#loginform .button {
+	BACKGROUND: url(../i/bluebuttonbg.png) no-repeat; WIDTH: 106px
+}
+* HTML #loginform .button {
+	BACKGROUND: url(..../i/bluebuttonbg.png) no-repeat; WIDTH: 116px
+}
+#loginform .button:hover {
+	BACKGROUND: url(../i/bluebuttonoverbg.png) no-repeat; TEXT-DECORATION: none
+}
+#loginform A {
+	FONT-WEIGHT: bold; FONT-SIZE: 90%; COLOR: #359cd3; TEXT-DECORATION: none
+}
+#loginform A:hover {
+	TEXT-DECORATION: underline
+}
+#accessibility {
+	DISPLAY: none
+}
+.hide {
+	DISPLAY: none
+}

@@ -74,11 +74,16 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
  *     <li>Added support for new Test Scenarios competitions.</li>
  *   </ol>
  * </p>
- *
+ * <p>
+ *   Version 1.2 (Studio Electronic Assignment Document Assembly version 1.0) Change notes:
+ *   <ol>
+ *     <li>Change the process of add payment</li>
+ *   </ol>
+ * </p> 
  * <p>VERY IMPORTANT: remember to update serialVersionUID if needed.</p>
  *
- * @author Dave Pecora, pulky
- * @version 1.1
+ * @author Dave Pecora, pulky, Vitta
+ * @version 1.2
  * @see PactsConstants
  */
 public class PactsServicesBean extends BaseEJB implements PactsConstants {
@@ -115,6 +120,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @since 1.1
      */
     private static final int TEST_SCENARIOS_PROJECT_TYPE = 26;
+
     
     /**
      * <p>A <code>int</code> representing the specification review project category id.</p>
@@ -3788,13 +3794,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             // Add the payment record
             StringBuffer insertPayment = new StringBuffer(300);
             insertPayment.append("INSERT INTO payment ");
-            insertPayment.append(" (payment_id, user_id, most_recent_detail_id,  ");
+            insertPayment.append(" (payment_id, user_id, most_recent_detail_id, has_global_ad, ");
             insertPayment.append("  referral_payment_id) ");
-            insertPayment.append(" VALUES(?,?,?," + referralStr + ")");
+            insertPayment.append(" VALUES(?,?,?,?," + referralStr + ")");
             ps = c.prepareStatement(insertPayment.toString());
             ps.setLong(1, paymentId);
             ps.setLong(2, p.getHeader().getUser().getId());
             ps.setLong(3, paymentDetailId);
+            ps.setBoolean(4, p.getHasGlobalAD());
             ps.executeUpdate();
             ps.close();
             ps = null;
