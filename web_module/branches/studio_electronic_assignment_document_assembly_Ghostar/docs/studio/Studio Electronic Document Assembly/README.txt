@@ -8,3 +8,5 @@ cp /tmp/*.js /mnt/apache/studiodocs/js/
 mkdir /mnt/apache/studiodocs/css/popup/
 cp /tmp/css/*.* /mnt/apache/studiodocs/css/popup/
 cp /tmp/popup /mnt/apache/studiodocs/i -rf
+
+reference folder contains some files for reference purpose only.

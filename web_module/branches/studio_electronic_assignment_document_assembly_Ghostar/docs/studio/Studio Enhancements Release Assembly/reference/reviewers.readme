@@ -1,0 +1,57 @@
+Hello,
+
+The Deployment Guide document provides the deployment steps for Production
+environment. But this file provides the deployment steps for testing/reviewing
+this submission in VM environment.
+
+Below are the steps to prepare the VM for testing (these steps assume 
+a fresh working VM):
+
+1) Extract submission content to some directory on your local machine and copy
+   extracted content to /tmp directory on your VM instance.
+   Please, check that studio user has write access to
+   /mnt/shared/dist/artifacts/shared-SNAPSHOT.jar and
+   /mnt/shared/web/build/ejb_jars/PactsClientServices.jar files
+   on your VM (this may differ on reviewer VMs). If not set the permission
+   with:
+   chmod 666 /mnt/shared/web/build/ejb_jars/PactsClientServices.jar
+   chmod 666 /mnt/shared/dist/artifacts/shared-SNAPSHOT.jar
+
+2) Login to VM as tc
+
+3) Setup access permissions for files copied to /tmp directory:
+
+   cd /tmp
+   chmod 777 ./setup-tc.sh
+   chmod 777 ./setup-studio.sh
+   chmod 777 ./kill.sh
+   chmod 755 ./home
+   chmod 755 ./src
+   chmod 755 ./studiodocs
+
+4) Run submission setup script for TC:
+
+   cd /tmp
+   ./setup-tc.sh
+
+5) Check that TC JBoss server started:
+
+   jbb
+   tn
+
+6) Login as studio
+
+   su studio -l
+
+7) Run submission setup script for Studio:
+
+   cd /tmp
+   ./setup-studio.sh
+
+8) Check that Studio JBoss server started:
+
+   jbb
+   tn
+   
+9) Once all instances are running, you are all set for testing. Don't forget to clear
+   browser's cache.
