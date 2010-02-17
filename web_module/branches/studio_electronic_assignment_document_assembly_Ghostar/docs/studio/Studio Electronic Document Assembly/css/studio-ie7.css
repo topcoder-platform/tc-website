@@ -1,0 +1,15 @@
+#studio_menu UL LI {
+	PADDING-LEFT: 1px; WIDTH: 106px
+}
+#studio_menu UL LI.right {
+	BACKGROUND-POSITION: -8px 0px; BACKGROUND-IMAGE: url(../i/right_studio_menu.png); WIDTH: 130px; BACKGROUND-REPEAT: no-repeat
+}
+#loginform #middle {
+	MARGIN-LEFT: 10px
+}
+#loginform .register {
+	MARGIN-TOP: 60px; FONT-SIZE: 14px; MARGIN-LEFT: 0px
+}
+#loginform #right {
+	MARGIN-RIGHT: 10px
+}

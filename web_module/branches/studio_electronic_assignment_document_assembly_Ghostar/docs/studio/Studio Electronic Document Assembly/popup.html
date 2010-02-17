@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Modal Popup</title>
+</head>
+
+<body>
+
+
+    <div id="popup">
+        <div class="border-top">
+	        <div class="popup-corner-right"></div>
+	        <div class="popup-corner-left"></div>
+	        <div class="popup-border-top"></div>
+	    </div>
+	    <div class="popup-content-area">
+	        <div class="popup-border-right"></div>
+	        <div class="popup-border-left"></div>
+	        <div class="popup-content">
+	            <a id="button-close" class="close-modal" href="javascript:;" title="">Close</a>
+	            <div id="assignment-step-1" class="assignment-step">
+	                <h1>Unsigned Assignment Document Notification</h1>
+	                <p>You have not yet returned the printed and signed Assignment Document that is required in order to receive payment should you win a placement here at Studio.</p>	                <p>Please <a href="javascript:;">go here</a> to read more about Assignment Documents and what you need to do.</p>                    <p>You can submit to this contest and affirm an electronic copy of your Assignment Document, but you must return your printed and signed Assignment Document to receive any payments.</p>
+                    <p><button id="button-continue" class="button-continue"></button></p>
+                </div>
+	            <div id="assignment-step-2" class="assignment-step">
+	                <h1>Electronic Assignment Document Affirmation</h1>	                
+	                <p><span class="error-arrow"></span><input id="checkbox-affirm" type="checkbox" /> <em>By clicking this box, you are also affirming that you have the right to submit this material, that it does not infringe upon anyone's copyright and you have created everything yourself unless the contest explicitly allows for Third Party Content.</em></p>                    <iframe width="100%" height="155" src="/i/assignment_document.html" frameborder="0"></iframe>
+                    <div id="error-message">
+                        <p>You must check the box affirming your Assignment Document. You cannot submit without affirming this electronic version of your Assignment Document.</p>
+                    </div>
+                    <p><button id="button-submit" class="button-submit"></button></p>
+                </div>
+	            <div id="assignment-step-3" class="assignment-step">
+	                <h1>Electronic Assignment Document Affirmation</h1>
+	                <p>Thank you for affirming your Assignment Document.</p>	                <p>Your submission upload will start once you click the button below. Afterwards, you may rank your submissions.</p>                    <div id="info-message">
+                        <p>Our records indicate you still need to send your paper Assignment Document to us. You cannot receive winning payments until this document has been received. Click <a href="javascript:;">here</a> for more information.</p>
+                    </div>
+                    <p><button id="button-upload" class="button-upload"></button></p>
+                </div>
+	        </div>
+	    </div>
+        <div class="border-bot">
+            <div class="popup-corner-right"></div>
+            <div class="popup-corner-left"></div>
+            <div class="popup-border-bot"></div>
+	    </div>
+	</div>
+	
+	
+</body>
+</html>

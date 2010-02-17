@@ -1,0 +1,99 @@
+#nav UL {
+	FLOAT: left; WIDTH: 100%; LIST-STYLE-TYPE: none
+}
+#nav UL LI {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND: url(../i/nav_sprites.png) no-repeat 0px -64px; FLOAT: left; PADDING-BOTTOM: 0px; WIDTH: 180px; PADDING-TOP: 0px; LIST-STYLE-TYPE: none; POSITION: relative; HEIGHT: 32px
+}
+#nav UL LI.left {
+	BACKGROUND-POSITION: 0px -128px; PADDING-LEFT: 2px
+}
+#nav UL LI A {
+	PADDING-RIGHT: 0px; DISPLAY: block; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 90%; BACKGROUND: url(../i/nav_sprites.png) no-repeat right -96px; PADDING-BOTTOM: 0px; WIDTH: 180px; COLOR: #313131; LINE-HEIGHT: 12px; PADDING-TOP: 9px; HEIGHT: 32px; TEXT-ALIGN: center; TEXT-DECORATION: none
+}
+#nav UL LI.on {
+	BACKGROUND-POSITION: 0px 0px
+}
+#nav UL LI.on A {
+	BACKGROUND-POSITION: right -32px; LINE-HEIGHT: 28px; PADDING-TOP: 0px
+}
+#nav UL LI.on UL A {
+	PADDING-RIGHT: 0px; BACKGROUND-POSITION: 50% top; PADDING-LEFT: 12px; PADDING-BOTTOM: 8px; LINE-HEIGHT: 16px; PADDING-TOP: 13px
+}
+#nav UL LI A:hover {
+	BACKGROUND-POSITION: right -192px
+}
+#nav #studio A:hover {
+	BACKGROUND: url(../i/studiobgover.png) no-repeat
+}
+#nav LI.on#studio A {
+	BACKGROUND: url(../i/studiobgover.png) no-repeat
+}
+.active-item {
+	BACKGROUND: url(../i/nav_sprites.png) no-repeat right -192px
+}
+#nav UL UL {
+	PADDING-RIGHT: 0px; DISPLAY: none; PADDING-LEFT: 0px; Z-INDEX: 100; BACKGROUND: url(../i/dropdown_nav_background.png) no-repeat 50% bottom; LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; WIDTH: 180px; PADDING-TOP: 0px; LIST-STYLE-TYPE: none; POSITION: absolute; TOP: 32px
+}
+#nav UL UL LI {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND-IMAGE: none; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; LIST-STYLE-TYPE: none; HEIGHT: auto
+}
+#nav UL UL LI A {
+	PADDING-RIGHT: 0px; DISPLAY: block; PADDING-LEFT: 12px; BACKGROUND: url(../i/dropdown_nav_divider.png) no-repeat; PADDING-BOTTOM: 8px; VERTICAL-ALIGN: middle; WIDTH: 168px; COLOR: #e9e9e9; LINE-HEIGHT: 16px; PADDING-TOP: 13px; HEIGHT: 20px; TEXT-ALIGN: left
+}
+#nav UL UL LI A:hover {
+	PADDING-LEFT: 11px; MARGIN: 1px 1px 0px; WIDTH: 167px; COLOR: #000; PADDING-TOP: 12px; HEIGHT: 20px; BACKGROUND-COLOR: #eeeeee
+}
+#nav UL UL LI.last-li A:hover {
+	PADDING-RIGHT: 0px! important; PADDING-LEFT: 12px! important; BACKGROUND: url(../i/li-bottom-background.png) no-repeat 50% bottom; PADDING-BOTTOM: 8px! important; MARGIN: 0px; WIDTH: 168px; COLOR: #000; PADDING-TOP: 13px! important
+}
+#studio_menu {
+	MARGIN-TOP: 33px; WIDTH: 980px; POSITION: absolute
+}
+#studio_menu UL {
+	FONT-WEIGHT: bold; FONT-SIZE: 85%; WIDTH: 1000px; LIST-STYLE-TYPE: none
+}
+#studio_menu UL LI {
+	PADDING-LEFT: 0px; BACKGROUND: url(../i/studio_submenu_blue_bg.png) repeat-x 0px 0px; FLOAT: left; WIDTH: 107px; LIST-STYLE-TYPE: none; POSITION: relative; HEIGHT: 36px
+}
+#studio_menu UL LI.left {
+	BACKGROUND-POSITION: 0px 0px; BACKGROUND-IMAGE: url(../i/left_studio_menu.png); WIDTH: 50px; BACKGROUND-REPEAT: no-repeat
+}
+#studio_menu UL LI.left A {
+	PADDING-LEFT: 20px; BACKGROUND-IMAGE: none; TEXT-ALIGN: left
+}
+#studio_menu UL LI.left A:hover {
+	BACKGROUND: url(../i/left_studio_menu_on.png) no-repeat
+}
+#studio_menu UL LI.left A.active {
+	BACKGROUND: url(../i/left_studio_menu_on.png) no-repeat
+}
+#studio_menu UL LI.right {
+	BACKGROUND-POSITION: -9px 0px; BACKGROUND-IMAGE: url(../i/right_studio_menu.png); WIDTH: 130px; BACKGROUND-REPEAT: no-repeat
+}
+#studio_menu UL LI.right A:hover {
+	BACKGROUND: url(../i/right_studio_menu_on.png) no-repeat
+}
+#studio_menu UL LI.right A.active {
+	BACKGROUND: url(../i/right_studio_menu_on.png) no-repeat
+}
+#studio_menu UL LI A {
+	PADDING-RIGHT: 3px; DISPLAY: block; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 93%; BACKGROUND: url(../i/blue_separator.png) no-repeat; PADDING-BOTTOM: 0px; WIDTH: 107px; COLOR: white; LINE-HEIGHT: 12px; PADDING-TOP: 12px; HEIGHT: 32px; TEXT-ALIGN: center; TEXT-DECORATION: none
+}
+#studio_menu UL LI.on {
+	BACKGROUND-POSITION: 0px 0px
+}
+#studio_menu UL LI.on A {
+	BACKGROUND-POSITION: 0px 0px; LINE-HEIGHT: 28px; PADDING-TOP: 0px
+}
+#studio_menu UL LI A:hover {
+	BACKGROUND: url(../i/sec_nav_on.png) no-repeat; COLOR: #fff
+}
+#studio_menu UL LI A.active {
+	BACKGROUND: url(../i/sec_nav_on.png) no-repeat; COLOR: #fff
+}
+#studio_menu UL LI.on {
+	PADDING-RIGHT: 0px; BACKGROUND-POSITION: 50% top; PADDING-LEFT: 12px; PADDING-BOTTOM: 8px; LINE-HEIGHT: 16px; PADDING-TOP: 13px
+}
+#studio_menu UL LI A:hover {
+	
+}
