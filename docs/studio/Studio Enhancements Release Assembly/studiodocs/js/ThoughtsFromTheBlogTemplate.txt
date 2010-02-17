@@ -1,0 +1,11 @@
+[% foreach item limit 1 %]
+    <h1><a href='[%= link %]'>[%= title %]</a></h1>
+    <div id="basic_info">
+        Posted by <a href='/?module=ViewMemberProfile&ha=[%= dc:creator %]'>[%= dc:creator %]</a>
+        on [%= pubDate format:MM D, Y%]
+    </div>
+    <div id="detail_info">
+        [%= description %]
+    </div>
+    <p><a href="[%= link %]">Read the full story</a></p>
+[% /foreach %]

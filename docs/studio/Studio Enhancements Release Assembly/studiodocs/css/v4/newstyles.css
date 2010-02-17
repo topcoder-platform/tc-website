@@ -1,0 +1,532 @@
+/* NEW STUDIO Style */
+.button-container
+{
+	padding-top: 15px;
+	float: right;
+	width: 100%;
+}
+
+.button
+{
+	text-align: left;
+	color: #616161;
+	font-family: Arial;
+	font-size: 13px;
+	font-weight: bold;
+	text-decoration: none;
+	padding-left: 15px;
+	width: 132px;
+	height: 28px;
+	padding-top: 7px;
+	display: block;
+	text-transform: uppercase;
+	float: right;
+}
+
+.button
+{
+	margin-left: auto;
+	margin-right: auto;
+	background: url( "/i/v4/buttonbg.png" ) no-repeat;
+}
+
+.button:hover
+{
+	text-decoration: none;
+	background: url( "/i/v4/buttonOverbg.png" ) no-repeat;
+}
+
+.small-button
+{
+	text-align: left;
+	color: #616161;
+	font-family: Arial;
+	font-size: 11px;
+	text-decoration: none;
+	/*padding-left: 9px;*/
+	padding-right: 30px;
+	/*width: 100px;*/
+	height: 24px;
+	/*padding-top: 5px;*/
+	display: block;
+	text-transform: uppercase;
+	float: left;
+	margin: 10px 6px 0px;
+}
+
+.small-button
+{
+	background: url( "/i/v4/buttonbg-sm.png" ) no-repeat;
+	background-position: right top;
+}
+
+.small-button span
+{
+	background: url( "/i/v4/buttonbg-cap-sm.png" ) no-repeat;
+	background-position: left top;
+	padding-left: 9px;
+	padding-top: 5px;
+	height: 24px;
+	display: block;
+	float: left;
+	cursor: pointer;
+}
+
+.small-button:hover
+{
+	text-decoration: none;
+	background: url( "/i/v4/buttonOverbg-sm.png" ) no-repeat;
+	background-position: right top;
+}
+
+.small-button:hover span
+{
+	text-decoration: none;
+	background: url( "/i/v4/buttonOverbg-cap-sm.png" ) no-repeat;
+	background-position: left top;
+	cursor: pointer;
+}
+
+/* ------------------------------------
+LAYOUT
+------------------------------------ */
+
+#wrapper2, .wrapper2
+{
+	width: 930px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+/* ------------------------------------
+HEADER
+------------------------------------ */
+
+#header2
+{
+	height: 185px;
+	background: url(/i/v4/bg_header.png) repeat-x;
+	z-index: 100;
+}
+
+#header2 .wrapper2
+{
+	position: relative;
+	z-index: 100;
+}
+
+/* TC Direct Logo */
+#header2 H1 { height: 133px; }
+
+#header2 H1 A
+{
+	display: block;
+	margin-top: 5px;
+	position: absolute;
+	width: 262px;
+	height: 83px;
+	top: 38px;
+	background: url(/i/v4/topcoder_studio.png) no-repeat;
+	/*   changed  */
+}
+
+#header2 H1 A SPAN { display: none; }
+#header2 H1 SMALL { display: none; }
+
+/* Ready, Engage TAGLINE */
+/* MODIFIED TO MATCH THE NEW IMAGE */
+#ready_engage
+{
+	position: absolute;
+	width: 436px;
+	height: 26px;
+	right: 0;
+	top: 76px;
+	background: url(/i/v4/ready_engage_blue.png) no-repeat;
+}
+
+#ready_engage SPAN { display: none; }
+
+/* SUB NAVIGATION */
+#nav_support
+{
+	position: absolute;
+	right: 0;
+	top: 5px;
+}
+
+/* #nav_support .logout { display: none; } */
+#nav_support UL { list-style-type: none; }
+
+#nav_support UL LI
+{
+	float: left;
+	background: url(/i/v4/ico_sprites.png) no-repeat;
+	background-position: 0 -21px;
+	padding: 0 8px 0 8px;
+	list-style: none;
+}
+
+#nav_support UL LI.left
+{
+	background: none;
+	padding-left: 0;
+}
+
+#nav_support UL LI.right { padding-right: 0; }
+
+#nav_support A
+{
+	font-size: 80%;
+	font-weight: bold;
+	text-decoration: none;
+	color: #888;
+	/* CHANGED TO MATCH THE NEW BLUE SMALL ARROW */
+	background: url(/i/v4/blue_small_arrow.png) no-repeat;
+	background-position: 0px 3px;
+	padding: 0 0 0 7px;
+}
+
+#nav_support A:hover
+{
+	text-decoration: underline;
+	color: #359CD3;
+}
+
+#nav_support .on A { color: #359CD3; }
+
+#nav_support ul li.login a.gMetal { color: #359CD3; }
+
+#nav_support ul li.logged-in span.welcome
+{
+	color: #359CD3;
+	font-size: 80%;
+	font-weight: bold;
+}
+
+#nav_support ul li.logged-in a.coderText
+{
+	color: #359CD3;
+	background-image: url(none);
+}
+
+#nav_support ul li.logged-in a.coderTextOrange
+{
+	color: #F93;
+	background-image: url(none);
+}
+/* ------------------------------------
+LINKS
+------------------------------------ */
+
+#links
+{
+	font-family: Arial, Helvetica, sans-serif;
+	float: left;
+	width: 100%;
+	padding-top: 20px;
+	background: #eaeaea url(/i/v4/bg_content_links.png) repeat-x;
+}
+
+#links A
+{
+	text-decoration: none;
+	color: #555;
+}
+
+#links A:hover
+{
+	text-decoration: underline;
+	color: #359cd3;
+}
+
+#links UL
+{
+	list-style-type: none;
+	font-size: 82%;
+	padding-bottom: 10px;
+}
+
+#links LI { padding: 3px 0 3px 0; }
+
+#links .col
+{
+	float: left;
+	margin-right: 30px;
+}
+
+#links H4
+{
+	color: #000;
+	font-weight: bold;
+	font-size: 90%;
+	margin-bottom: 5px;
+}
+
+/* ------------------------------------
+FOOTER
+------------------------------------ */
+
+#footer
+{
+	clear: both;
+	padding-top: 10px;
+	background: #000;
+	padding-bottom: 10px;
+}
+
+#footer p
+{
+/*
+        width: 420px;
+*/
+        line-height: 16px;
+        padding: 5px 0 5px 0;
+        font-size: 82%;
+        color: #cccccc;
+}
+
+#footer a
+{
+	line-height: 16px;
+	padding: 5px 0 5px 0;
+	color: #cccccc;
+}
+
+#footer_1800
+{
+        color: #359cd3;
+        padding-bottom: 10px;
+}
+
+#footer_1800 STRONG
+{
+        font-weight: bold;
+        color: #359cd3;
+        font-size: 150%;
+}
+
+/*-------------------------------------------------------------------------------------------------ADDED
+LOGIN FORM
+-----------------------------------------*/
+
+#loginform
+{
+        position: absolute;
+        margin-left: 403px;
+        margin-top: -106px;
+        width: 519px;
+        height: 0px;
+        background-image: url(/i/v4/bg_login2.png);
+        background-repeat: repeat-x;
+        font-size: 90%;
+        font-weight: bold;
+}
+
+#loginform #login_left
+{
+        float: left;
+        height: 100%;
+        width: 5px;
+        background-image: url(/i/v4/login_left2.png);
+}
+
+#loginform #login_right
+{
+        float: right;
+        height: 100%;
+        width: 5px;
+        background-image: url(/i/v4/login_right2.png);
+}
+
+/* #loginform #login_left in IE6 */
+* html #loginform #login_left
+{
+        background-image: url(../i/v4/login_left2.png);
+        float: left;
+        height: 90px;
+        width: 5px;
+}
+/* #loginform #login_right in IE6 */
+* html #loginform #login_right
+{
+        background-image: url(../i/v4/login_right2.png);
+        float: right;
+        height: 90px;
+        width: 5px;
+}
+
+
+#loginform #left
+{
+        position: relative;
+        float: left;
+        margin-right: 20px;
+}
+
+#loginform #right
+{
+        float: right;
+        width: 106px;
+        height: 300px;
+}
+
+/*
+#loginform #middle
+{
+        position: absolute;
+        width: 160px;
+        margin-left: 205px;
+}
+
+*/
+/* #loginform #right in IE6 */
+* html #loginform #right
+{
+        float: right;
+        height: 300px;
+        width: 116px;
+}
+#loginform #username, #loginform #password
+{
+        padding-top:7px;
+        padding-left:25px;
+}
+#loginform #username input
+{
+        width:236px;
+        margin-left:5px;
+}
+#loginform #password input
+{
+        width:166px;
+        margin-left:5px;
+}
+#loginform #password a
+{
+        margin-left:5px;
+}
+/* #loginform #rememberme in Firefox */
+#loginform #rememberme
+{
+        margin-left:93px;
+        margin-top:5px;
+}
+/* #loginform #rememberme in IE6 */
+* html #loginform #rememberme
+{
+        margin-left:90px;
+        margin-top:3px;
+}
+/* #loginform #rememberme in IE7 */
+*+html #loginform #rememberme
+{
+        margin-left:90px;
+        margin-top:3px;
+}
+
+#loginform .register
+{
+	margin-top: 60px;
+	margin-left: -12px;
+	font-size: 14px;
+}
+
+#loginform #register
+{
+	margin-top: 60px;
+	margin-left: -12px;
+	font-size: 14px;
+}
+
+#loginform form
+{
+	margin-top: 5px;
+	margin-left: 15px;
+	display: none;
+}
+
+#loginform td { padding-right: 20px; }
+#loginform tr { text-align: left; }
+
+#loginform input[type=text]
+{
+        margin-bottom: 3px;
+        width: 180px;
+}
+
+#loginform #right .button
+{
+        margin-top: 20px;
+        color: #616161;
+        font-family: Arial;
+        font-size: 13px;
+        font-weight: bold;
+}
+
+#loginform .button
+{
+        width: 106px;
+        background: url(/i/v4/bluebuttonbg.png) no-repeat;
+}
+
+/* #loginform .button in IE6 */
+* html #loginform .button
+{
+        background: url(../i/v4/bluebuttonbg.png) no-repeat;
+        width: 116px;
+}
+
+
+#loginform .button:hover
+{
+        text-decoration: none;
+        background: url(/i/v4/bluebuttonoverbg.png) no-repeat;
+}
+
+#loginform A
+{
+        font-size: 90%;
+        font-weight: bold;
+        color: #359cd3;
+        text-decoration: none;
+}
+
+#loginform A:hover { text-decoration: underline; }
+
+/* MISC */
+#accessibility, .hide { display: none; }
+
+.leftDiv {
+    float:left;
+    width:50%;
+}
+
+.rightDiv {
+    float:right;
+    width:50%;
+}
+
+#contact .leftDiv
+{
+	margin-right: 20px;
+    width:45%;
+}
+
+#contact .rightDiv
+{
+	margin-left: 25px;
+    width:45%;
+}
+
+#myStudio .rightDiv {
+    width: 45%;
+    background-color: #EAEAEA;
+    padding-left:20px;
+    padding-right:20px;
+    padding-bottom:15px;
+}
+
+#myStudio .myStudioLinks {
+    margin-left: 15px;
+}
