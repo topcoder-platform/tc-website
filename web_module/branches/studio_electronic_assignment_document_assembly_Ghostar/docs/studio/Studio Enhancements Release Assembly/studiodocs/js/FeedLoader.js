@@ -35,10 +35,6 @@ function loadFeed(rss, template, element, errorMessage) {
  * @throws Exception if any error occurs
  */
 function loadHomePageFeeds() {
-
-    // NOTE: The following block is commented out for testing/review purposes only. It should be
-    // uncommented when deploying to Production environment
-/*
     loadFeed("http://topcoder.com/home/studio/?cat=11&feed=rss2", "js/DesignShowcaseTemplate.txt", "showcase_content",
         "Error reading Design Showcase feed.");
  
@@ -47,16 +43,4 @@ function loadHomePageFeeds() {
  
     loadFeed("js/mockContestChatterFeed.xml", "js/ContestChatterTemplate.txt", "bottom_part_r", 
          "Error reading Contest Chatter feed.");
-*/
-
-    // NOTE: The following block is provided for testing/review purposes only. It should be
-    // removed when deploying to Production environment 
-    loadFeed("js/mockDesignShowcase.xml", "js/DesignShowcaseTemplate.txt", "showcase_content",
-            "Error reading Design Showcase feed.");
-
-        loadFeed("js/mockThoughtsFromTheBlogFeed.xml", "js/ThoughtsFromTheBlogTemplate.txt", "post_content",
-            "Error reading Thoughts From The Blog feed.");
-
-        loadFeed("js/mockContestChatterFeed.xml", "js/ContestChatterTemplate.txt", "bottom_part_r",
-             "Error reading Contest Chatter feed.");
 }
