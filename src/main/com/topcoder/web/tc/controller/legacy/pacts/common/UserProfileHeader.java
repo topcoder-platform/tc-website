@@ -39,7 +39,7 @@ import java.util.Map;
  *
  * <p>VERY IMPORTANT: remember to update serialVersionUID if needed.</p>
  *
- * @author veredox, TCSDEVELOPER
+ * @author veredox, isv
  * @version 1.1
  */
 public class UserProfileHeader implements PactsConstants, java.io.Serializable {

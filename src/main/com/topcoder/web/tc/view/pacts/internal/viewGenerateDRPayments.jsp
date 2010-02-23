@@ -1,5 +1,5 @@
 <%--
-  - Author: TCSDEVELOPER
+  - Author: isv
   - Version: 1.1 (Member Payment Improvements Release assembly v1.0)
   - Copyright (C) 2002-2010 TopCoder Inc., All Rights Reserved.
   -

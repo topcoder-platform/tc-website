@@ -8,16 +8,13 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -32,10 +29,22 @@ import java.util.List;
  * the contest. It checks if the user was already paid for it, and if not, it shows a check box so that it can be paid.
  * </p>
  *
- * @author Cucu, TCSDEVELOPER
+ * @author Cucu, isv
  * @version 2.0
  */
 public class ListDRPayments extends BaseProcessor implements PactsConstants {
+
+    /**
+     * <p>A <code>String</code> providing the name for the query to be used for getting the list of payments for
+     * selected <code>Digital Run</code> track contest.</p>
+     */
+    private static final String DR_TRACK_CONTEST_PAYMENTS_QUERY = "dr_track_contest_payments";
+
+    /**
+     * <p>A <code>String</code> providing the name for the query to be used for getting the list of contests for
+     * selected <code>Digital Run</code> track.</p>
+     */
+    private static final String DR_TRACK_CONTESTS_QUERY = "dr_contests_for_track";
 
     /**
      * <p>Constructs new <code>ListDRPayments</code> instance. This implementation does nothing.</p>
@@ -122,11 +131,11 @@ public class ListDRPayments extends BaseProcessor implements PactsConstants {
      */
     private void loadResults(Contest contest) throws Exception {
         Request r = new Request();
-        r.setContentHandle("dr_track_contest_payments");
+        r.setContentHandle(DR_TRACK_CONTEST_PAYMENTS_QUERY);
         r.setProperty(Constants.CONTEST_ID, String.valueOf(contest.getId()));
         
         ResultSetContainer rsc
-            = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME).getData(r).get("dr_track_contest_payments");
+            = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME).getData(r).get(DR_TRACK_CONTEST_PAYMENTS_QUERY);
         for (ResultSetContainer.ResultSetRow row : rsc) {
             // round the amount to 2 decimals
             double prize = Math.round(row.getDoubleItem("prize") * 100) / 100.0;
@@ -146,10 +155,10 @@ public class ListDRPayments extends BaseProcessor implements PactsConstants {
      */
     private List<Contest> getTrackContests(long trackId) throws Exception {
         Request r = new Request();
-        r.setContentHandle("dr_contests_for_track");
+        r.setContentHandle(DR_TRACK_CONTESTS_QUERY);
         r.setProperty(Constants.TRACK_ID, String.valueOf(trackId));
 
-        ResultSetContainer rsc = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME).getData(r).get("dr_contests_for_track");
+        ResultSetContainer rsc = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME).getData(r).get(DR_TRACK_CONTESTS_QUERY);
 
         List<Contest> contests = new ArrayList<Contest>();
         for (ResultSetContainer.ResultSetRow row : rsc) {

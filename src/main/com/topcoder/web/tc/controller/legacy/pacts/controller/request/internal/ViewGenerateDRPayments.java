@@ -21,10 +21,16 @@ import java.util.Map;
  * <p>As of version 2.0 the controller has been totally re-written to switch to latest <code>Digital Run</code> schema.
  * </p>
  *
- * @author cucu, TCSDEVELOPER
+ * @author cucu, isv
  * @version 2.0
  */
 public class ViewGenerateDRPayments extends BaseProcessor implements PactsConstants {
+
+    /**
+     * <p>A <code>String</code> providing the name for the query to be used for getting the list of all finished
+     * <code>Digital Run</code> tracks.</p>
+     */
+    private static final String DR_FINISHED_TRACKS_QUERY = "dr_all_finished_tracks_list";
 
     /**
      * <p>Constructs new <code>ViewGenerateDRPayments</code> instance. This implementation does nothing.</p>
@@ -61,13 +67,13 @@ public class ViewGenerateDRPayments extends BaseProcessor implements PactsConsta
      */
     protected ResultSetContainer getAllTracks() throws Exception {
         Request r = new Request();
-        r.setContentHandle("dr_all_finished_tracks_list");
+        r.setContentHandle(DR_FINISHED_TRACKS_QUERY);
         DataAccessInt dai = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
         try {
             Map m = dai.getData(r);
-            return (ResultSetContainer) m.get("dr_all_finished_tracks_list");
+            return (ResultSetContainer) m.get(DR_FINISHED_TRACKS_QUERY);
         } catch (Exception e) {
-            throw new TCWebException("Command dr_all_finished_tracks_list failed.");
+            throw new TCWebException("Command " + DR_FINISHED_TRACKS_QUERY + " failed.");
         }
     }
 }

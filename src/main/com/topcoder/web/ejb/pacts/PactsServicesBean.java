@@ -93,7 +93,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
   *
  * <p>VERY IMPORTANT: remember to update serialVersionUID if needed.</p>
  *
- * @author Dave Pecora, pulky, isv, TCSDEVELOPER
+ * @author Dave Pecora, pulky, isv
  * @version 1.3
  * @see PactsConstants
  */

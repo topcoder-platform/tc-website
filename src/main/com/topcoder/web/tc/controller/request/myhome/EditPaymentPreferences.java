@@ -21,7 +21,7 @@ import static com.topcoder.web.tc.Constants.MINIMUM_PAYMENT_ACCRUAL_AMOUNT;
  *
  * <p>As of current version only submitting the new payment accrual amount for current user is supported.</p>
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 1.0 (Member Payment Improvements Release Assembly v1.0)
  */
 public class EditPaymentPreferences extends ShortHibernateProcessor {
