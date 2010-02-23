@@ -1,5 +1,5 @@
 <%--
-  - Author: TCSDEVELOPER
+  - Author: isv
   - Version: 1.0 (Member Payment Improvements Release assembly v1.0)
   - Copyright (C) 2010 TopCoder Inc., All Rights Reserved.
   -
@@ -15,6 +15,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <c:set var="MODULE" value="<%=Constants.MODULE_KEY%>"/>
+<c:set var="MINIMUM_PAYMENT_ACCRUAL_AMOUNT" value="<%=Constants.MINIMUM_PAYMENT_ACCRUAL_AMOUNT%>"/>
 <c:set var="ACCRUAL_AMOUNT" value="<%=EditPaymentPreferences.ACCRUAL_AMOUNT_PARAM%>"/>
 <html>
 
@@ -76,7 +77,8 @@
                         </tc-webtag:errorIterator>
                         <tr class="light">
                             <td class="value" style="border: none;">
-                                Payment accrual amount: <tc-webtag:textInput name="${ACCRUAL_AMOUNT}"/>
+                                Payment accrual amount (minimum $${MINIMUM_PAYMENT_ACCRUAL_AMOUNT}):
+                                <tc-webtag:textInput name="${ACCRUAL_AMOUNT}"/>
                             </td>
                         </tr>
                         </tbody>

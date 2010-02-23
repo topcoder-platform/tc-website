@@ -57,7 +57,7 @@ import java.util.MissingResourceException;
  *   </ol>
  * </p>
  *
- * @author pulky, TCSDEVELOPER
+ * @author pulky, isv
  * @version 1.6
  */
 public class Constants implements WebConstants {

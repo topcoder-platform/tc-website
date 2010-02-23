@@ -30,7 +30,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
  * <p>As of version 2.0 the controller has been totally re-written to switch to latest <code>Digital Run</code> schema.
  * </p>
  *
- * @author cucu, TCSDEVELOPER
+ * @author cucu, isv
  * @version 2.0
  */
 public class GenerateDRPayments extends ShortHibernateProcessor implements PactsConstants {
