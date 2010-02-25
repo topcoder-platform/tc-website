@@ -1,4 +1,17 @@
-<%@ page contentType="text/html;charset=utf-8" %> 
+<%--
+  - Author: isv
+  - Version: 1.1 (Member Payment Improvements Release assembly v1.0)
+  - Copyright (C) 2010 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page renders the Home page displayed to TopCoder member. It renders the details on user
+  - account (name, address, phone, etc) as well as navigation links to various areas providing other user account
+  - details and web forms for setting the user preferences.
+  -
+  - Member Payment Improvements Release assembly v1.0 changes:
+  - Added "Payment Preferences" link pointing to Edit Payment Preferences screen
+--%>
+
+<%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
@@ -190,6 +203,7 @@
                             <p><a href="/tc?module=EditPreferences&amp;group=10">Privacy</a></p>
                             <p><a href="/tc?module=EditNotifications">Email notification</a></p>
                             <p><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Settings">Forums preferences</a></p>
+                            <p><a href="/tc?module=EditPaymentPreferences">Payment preferences</a></p>
                         </td>
                         <td class="value">
                             <p><a href="/PactsMemberServlet?module=AffidavitHistory">Affidavits</a></p>

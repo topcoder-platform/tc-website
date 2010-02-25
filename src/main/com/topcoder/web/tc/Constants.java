@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc;
 
@@ -49,8 +49,16 @@ import java.util.MissingResourceException;
  *   </ol>
  * </p>
  *
- * @author pulky
- * @version 1.5
+ * <p>
+ *   Version 1.6 (Member Payment Improvements Release Assembly v1.0) Change notes:
+ *   <ol>
+ *     <li>Added constant for the minimum allowed payment accrual amount.</li>
+ *     <li>Added constant for <code>Digital Run</code> track contest types for current DR schema.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author pulky, isv
+ * @version 1.6
  */
 public class Constants implements WebConstants {
 
@@ -787,6 +795,29 @@ public class Constants implements WebConstants {
      * @since 1.5
      */
     public static String ALTERNATE_PROJECT_VIEW_DATE_FORMAT = "yyyy.MM.dd";
+
+    /**
+     * <p>An <code>int</code> representing the default number of weeks for the date filter interval.</p>
+     *
+     * @since 1.6
+     */
+    public static int MINIMUM_PAYMENT_ACCRUAL_AMOUNT = 25;
+
+    /**
+     * <p>An <code>int</code> referencing the <code>Digital Run</code> track contest type of <code>Top N Prize</code>.
+     * </p>
+     *
+     * @since 1.6
+     */
+    public static final int CONTEST_TYPE_DR_V2_PRIZE = 1;
+
+    /**
+     * <p>An <code>int</code> referencing the <code>Digital Run</code> track contest type of
+     * <code>Top Performers Prize</code>.</p>
+     *
+     * @since 1.6
+     */
+    public static final int CONTEST_TYPE_DR_V2_TOP_PERFORMERS = 2;
 
     static {
         initialize();
