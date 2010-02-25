@@ -8,7 +8,7 @@
  *
  * DBP 3/26 - Implement serializable
  *
- * Copyright 2002, TopCoder, Inc
+ * Copyright (C) 2002-2010 TopCoder Inc., All Rights Reserved.
  * All rights are reserved. Reproduction in whole or part is prohibited
  * without the written consent of the copyright owner.
  *
@@ -24,7 +24,23 @@ import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import java.util.Map;
 
 /**
- * VERY IMPORTANT: remember to update serialVersionUID if needed
+ * <p>A simple <code>DTO</code> providing the basic details for user profile. As of current version such details include
+ * ID, handle, first, last and middle names, payment accrual amount, list of group IDs and current user profile status.
+ * </p>
+ *
+ * <p>
+ *   Version 1.1 (Member Payment Improvements Release Assembly v1.0) Change notes:
+ *   <ol>
+ *     <li>Added new private field <code>status</code> with respective accessor and mutator methods.</li>
+ *     <li>Updated constructors to initialize newly added <code>status</code> private field.</li>
+ *     <li>Updated <code>serialVersionUID</code> static field.</p> 
+ *   </ol>
+ * </p>
+ *
+ * <p>VERY IMPORTANT: remember to update serialVersionUID if needed.</p>
+ *
+ * @author veredox, isv
+ * @version 1.1
  */
 public class UserProfileHeader implements PactsConstants, java.io.Serializable {
 
@@ -33,7 +49,7 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
      * serialization for this object, i.e. when data members are changed.
      * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 2L;
 
     private static Logger log = Logger.getLogger(UserProfileHeader.class);
 
@@ -51,6 +67,13 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
     private String first;
     private double accrualAmount;
 
+    /**
+     * <p>A <code>String</code> providing the name for the current user profile status.</p>
+     *
+     * @since 1.1
+     */
+    private String status;
+
     /**************\
      *              *
      * Constructors *
@@ -66,6 +89,7 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
         handle = "Default TC Member";
         groupId = new long[0];
         accrualAmount = 0;
+        status = "";
     }
 
 /* This constructor makes the object out of raw data.
@@ -83,6 +107,7 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
         first = "";
         groupId = new long[0];
         accrualAmount = 0;
+        status = "";
     }
 
     /* This constructor makes the object out of raw data.
@@ -102,6 +127,7 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
         this.last = last;
         groupId = new long[0];
         accrualAmount = 0;
+        status = "";
     }
 
 
@@ -128,6 +154,7 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
                 first = "";
                 groupId = new long[0];
                 accrualAmount = 0;
+                status = "";
                 return;
             }
             ResultSetContainer.ResultSetRow row = rsc.getRow(0);
@@ -137,6 +164,9 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
             middle = TCData.getTCString(row, "middle_name", "", false);
             first = TCData.getTCString(row, "first_name", "", false);
             accrualAmount = TCData.getTCDouble(row, "accrual_amount", 0, false);
+            if (row.isValidColumn("user_status_desc")) {
+                status = TCData.getTCString(row, "user_status_desc");
+            }
             rsc = (ResultSetContainer) (results.get(USER_GROUP_LIST));
             rowCount = rsc.getRowCount();
             groupId = new long[rowCount];
@@ -152,6 +182,7 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
             middle = "";
             first = "";
             accrualAmount = 0;
+            status = "";
             groupId = new long[0];
         }
 
@@ -176,6 +207,7 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
             first = "";
             groupId = new long[0];
             accrualAmount = 0;
+            status = "";
             return;
         }
         ResultSetContainer.ResultSetRow rsr = rsc.getRow(row);
@@ -185,6 +217,9 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
         middle = TCData.getTCString(rsr, "middle_name", "", false);
         first = TCData.getTCString(rsr, "first_name", "", false);
         accrualAmount = TCData.getTCDouble(rsr, "accrual_amount", 0, false);
+        if (rsr.isValidColumn("user_status_desc")) {
+            status = TCData.getTCString(rsr, "user_status_desc");
+        }
 
         groupId = new long[0];
     }
@@ -207,6 +242,7 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
             middle = "";
             first = "";
             accrualAmount = 0;
+            status = "";
             groupId = new long[0];
             return;
         }
@@ -218,6 +254,7 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
         middle = TCData.getTCString(rsr, "middle_name", "", false);
         first = TCData.getTCString(rsr, "first_name", "", false);
         accrualAmount = TCData.getTCDouble(rsr, "accrual_amount", 0, false);
+        status = "";
         groupId = new long[0];
 
         ResultSetContainer.ResultSetRow row;
@@ -323,5 +360,23 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
         this.first = first;
     }
 
+    /**
+     * <p>Gets the current user profile status.</p>
+     *
+     * @return a <code>String</code> providing the name for current user profile status.
+     * @since 1.1
+     */
+    public String getStatus() {
+        return this.status;
+    }
 
+    /**
+     * <p>Sets the current user profile status.</p>
+     *
+     * @param status a <code>String</code> providing the name for current user profile status.
+     * @since 1.1
+     */
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

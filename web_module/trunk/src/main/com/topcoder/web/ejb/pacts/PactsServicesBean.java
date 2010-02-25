@@ -82,11 +82,19 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
  *      to handle the case when there is no design project associated with project to generate payments for.</li>
   *   </ol>
   * </p>
+ *
+ * <p>
+ *   Version 1.3 (Member Payment Improvements Release Assembly v1.0) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #findUsers(java.util.Map)} method to retrieve user profile statuses from data store.</li>
+ *     <li>Updated <code>serialVersionUID</code> static field.</p>
+ *   </ol>
+ * </p>
   *
  * <p>VERY IMPORTANT: remember to update serialVersionUID if needed.</p>
  *
  * @author Dave Pecora, pulky, isv
- * @version 1.2
+ * @version 1.3
  * @see PactsConstants
  */
 public class PactsServicesBean extends BaseEJB implements PactsConstants {
@@ -97,7 +105,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      *
      * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
-    private static final long serialVersionUID = 7L;
+    private static final long serialVersionUID = 8L;
 
 
     private static final Logger log = Logger.getLogger(PactsServicesBean.class);
@@ -3225,16 +3233,17 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public Map findUsers(Map searchCriteria) throws SQLException {
         StringBuffer selectHeader = new StringBuffer(300);
-        selectHeader.append("SELECT u.user_id, u.handle, UPPER(u.handle) AS uchandle, u.first_name, u.middle_name, u.last_name, nvl(ua.accrual_amount, 0) as accrual_amount ");
-
+        selectHeader.append("SELECT u.user_id, u.handle, UPPER(u.handle) AS uchandle, u.first_name, u.middle_name, " +
+                            "u.last_name, nvl(ua.accrual_amount, 0) as accrual_amount, s.user_status_desc ");
         StringBuffer from = new StringBuffer(300);
-        from.append("FROM user u, outer(user_accrual ua) ");
+        from.append("FROM user u, outer(user_accrual ua), user_status_lu s ");
 
         ArrayList whereClauses = new ArrayList();
         ArrayList orClauses = new ArrayList();
         ArrayList objects = new ArrayList();
 
         whereClauses.add("u.user_id = ua.user_id");
+        whereClauses.add("u.status = s.user_status_id ");
 
         Iterator i = searchCriteria.keySet().iterator();
         try {

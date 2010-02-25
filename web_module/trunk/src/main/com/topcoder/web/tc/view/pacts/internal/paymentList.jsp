@@ -1,3 +1,16 @@
+<%--
+  - Author: isv
+  - Version: 1.1 (Member Payment Improvements Release assembly v1.0)
+  - Copyright (C) 2010 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page renders the web form listing the payments matching the selected criteria. Each payment
+  - record is accompanied with a checkbox used for selecting/de-selecting payment. Also a drop-down listing the
+  - possible actions to be performed on selected payments is rendered.
+  -
+  - Member Payment Improvements Release assembly v1.0 changes:
+  - Added client-side logic for calculating and displaying the total net amount for currently selected payments.
+--%>
+
 <%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants,
                  com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants" %>
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.PaymentList" %>
@@ -16,30 +29,91 @@
 <c:set var="groupReliability" value="<%= request.getAttribute(PaymentList.GROUP_RELIABILITY) %>" />
 <c:set var="toggleGroupReliability" value="<%= request.getAttribute(PaymentList.TOGGLE_GROUP_RELIABILITY) %>" />
 
-
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>PACTS - Payment List</title>
+    <script type="text/javascript" src="/js/jquery-1.2.6.pack.js"></script>
+    <script type="text/javascript" src="/js/jqueryFloatObject-1.2.js"></script>
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
+    <script type="text/javascript">
+        var NET_TOTAL = 0.00;
+        $(document).ready(function(){
+            $(".paymentCheckBox").click(function() {
+                var checked = $(this).attr("checked");
+                var payment = getNetPayment($(this).attr("id"));
+                if (checked) {
+                    NET_TOTAL += payment;
+                } else {
+                    NET_TOTAL -= payment;
+                }
+                displayNetTotal();
+            });
+
+            var elements = document.f.elements;
+            for (i = 0; i < elements.length; i++) {
+                if (elements[i].type == "checkbox") {
+                    if (elements[i].checked) {
+                        NET_TOTAL += getNetPayment(elements[i].getAttribute("id"));
+                    }
+                }
+            }
+            displayNetTotal();
+
+            $("#NetTotalDiv").makeFloat({x:"current",y:"current", alwaysVisible: true, speed: "fast"});
+        });
+
+        function getNetPayment(jboxID) {
+            var netAmountCellId = "#pna" + parseInt(jboxID.substr(3));
+            var netAnountHtml = $(netAmountCellId).html();
+            netAnountHtml = $.trim(netAnountHtml);
+            if (netAnountHtml.charAt(0) == '$') {
+                netAnountHtml = netAnountHtml.substr(1);
+            }
+            var netAmount = parseFloat(netAnountHtml);
+            return netAmount;
+        }
+
+        function displayNetTotal() {
+            $("#NetTotalSpan").html("$" + NET_TOTAL.toFixed(2));
+        }
+        
+        function checkAll(check) {
+            NET_TOTAL = 0;
+            var elements = document.f.elements;
+            for (i = 0; i < elements.length; i++) {
+                if (elements[i].type == "checkbox") {
+                    elements[i].checked = (check == true);
+                    if (check) {
+                        NET_TOTAL += getNetPayment(elements[i].getAttribute("id"));
+                    }
+                }
+            }
+            displayNetTotal();
+        }
+    </script>
+    <style type="text/css">
+        #NetTotalDiv {
+            position: absolute;
+            top: 10;
+            right: 30;
+            z-index: 10;
+            background: #ffc;
+            padding: 5px;
+            border: 1px solid #CCCCCC;
+            text-align: center;
+            font-weight: bold;
+            width: 120px;
+        }
+    </style>
 </head>
 <body>
-<script type="text/javascript">
-<!--
-  function checkAll(check) {
-    var elements = document.f.elements;
-    for (i=0; i<document.f.elements.length; i++) {
-      if (document.f.elements[i].type=="checkbox") {
-        document.f.elements[i].checked = (check==true);
-      }
-    }
-  }
--->
-</script>
+<div id="NetTotalDiv">
+    Net Total: <span id="NetTotalSpan">$100.00</span>
+</div>
 <table id="marginTable" border="0" cellpadding="0" cellspacing="10"  class="stat" width="100%">
 <tr><td>
 <h1>PACTS</h1>
@@ -108,7 +182,7 @@ ${fn:length(paymentList)} records. <br />
         <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.MODIFIED_COL%>" includeParams="true"/>" >Modified</a></td>
     </tr>
     <% boolean even = true;%>
-    <c:forEach var="payment" items="${paymentList}">
+    <c:forEach var="payment" items="${paymentList}" varStatus="index">
             <c:set var="composed" value="false" />    
             <c:set var="mark" value="" />
             <c:if test="${not empty reliabilityMap[payment.id]}">     
@@ -128,7 +202,9 @@ ${fn:length(paymentList)} records. <br />
             </c:choose>
             <c:choose>
                 <c:when test="${empty checked_payments || cf:contains(checked_payments, row_key)}">
-                   <input type="checkbox" name="checked_payment_id" value="${row_key}" checked></c:when>
+                   <input type="checkbox" name="checked_payment_id" value="${row_key}" checked
+                          class="paymentCheckBox" id="pcb${index.index}">
+                </c:when>
                 <c:otherwise>
                    <input type="checkbox" name="checked_payment_id" value="${row_key}"></c:otherwise>
             </c:choose>
@@ -144,7 +220,7 @@ ${fn:length(paymentList)} records. <br />
         </td>
         <td class="valueR" nowrap>$<fmt:formatNumber value="${payment.recentGrossAmount}" pattern="###,##0.00" /><c:out value="${mark}" /></td>
         <td class="valueR" nowrap>$<fmt:formatNumber value="${payment.recentGrossAmount - payment.recentNetAmount}" pattern="###,##0.00" /><c:out value="${mark}" /></td>
-        <td class="valueR" nowrap>$<fmt:formatNumber value="${payment.recentNetAmount}" pattern="###,##0.00" /><c:out value="${mark}" /></td>
+        <td class="valueR" nowrap  id="pna${index.index}">$<fmt:formatNumber value="${payment.recentNetAmount}" pattern="###,##0.00" /><c:out value="${mark}" /></td>
         <td class="value"><c:out value="${payment.type}" /></td>
         <td class="value"><c:out value="${payment.method}" /></td>
 
@@ -205,5 +281,12 @@ ${fn:length(paymentList)} records. <br />
 </td></tr>
 </table>
 
+<%--
+<script type="text/javascript">
+    <!--
+    NET_TOTAL = <fmt:formatNumber value="${totalNet}" pattern="###,###.00"/>;
+    -->
+</script>
+--%>
 </body>
 </html>

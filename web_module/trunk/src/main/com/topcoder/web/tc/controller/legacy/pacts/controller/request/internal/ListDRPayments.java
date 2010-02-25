@@ -1,10 +1,13 @@
+/*
+ * Copyright (C) 2002-2010 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
+import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.tc.Constants;
@@ -15,198 +18,104 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * It takes either a stage or season as a parameter, finds the contests for it, and displays
- * a list of the people that won money for the contest.  It checks if the user was already 
- * paid for it, and if not, it shows a check box so that it can be paid.
- * If projects are still active for the contest, it will display a message and it won't 
- * be possible to pay it.
- * 
- * @author Cucu
+ * <p>A controller for handling the requests for viewing the list of available payments for selected
+ * <code>Digital Run</code> track which can be presented to <code>PACTS Administrators</code> for generating the
+ * payments.</p>
+ *
+ * <p>As of version 2.0 the controller has been totally re-written to switch to latest <code>Digital Run</code> schema.
+ * </p>
+ *
+ * <p>It takes track ID as a parameter, finds the contests for it, and displays a list of the people that won money for
+ * the contest. It checks if the user was already paid for it, and if not, it shows a check box so that it can be paid.
+ * </p>
+ *
+ * @author Cucu, isv
+ * @version 2.0
  */
 public class ListDRPayments extends BaseProcessor implements PactsConstants {
 
+    /**
+     * <p>A <code>String</code> providing the name for the query to be used for getting the list of payments for
+     * selected <code>Digital Run</code> track contest.</p>
+     */
+    private static final String DR_TRACK_CONTEST_PAYMENTS_QUERY = "dr_track_contest_payments";
+
+    /**
+     * <p>A <code>String</code> providing the name for the query to be used for getting the list of contests for
+     * selected <code>Digital Run</code> track.</p>
+     */
+    private static final String DR_TRACK_CONTESTS_QUERY = "dr_contests_for_track";
+
+    /**
+     * <p>Constructs new <code>ListDRPayments</code> instance. This implementation does nothing.</p>
+     *
+     * @since 2.0
+     */
+    public ListDRPayments() {
+    }
+
+    /**
+     * <p>Implements the business logic for processing incoming request which is asking to display the available
+     * payments for requested DR track.</p>
+     *
+     * @throws TCWebException if an unexpected error occurs.
+     */
     protected void businessProcessing() throws TCWebException {        
         try {
-            int periodId = 0;
-            int desActiveCount = 0;
-            int devActiveCount = 0;
-            int asmActiveCount = 0;
-            List<Contest> contests = new ArrayList<Contest>();
-            
-            if (getRequest().getParameter(Constants.STAGE_ID) != null) {
-                 periodId = Integer.parseInt(getRequest().getParameter(Constants.STAGE_ID));
-                 desActiveCount = getStageActiveProjects(periodId, 1);
-                 if (desActiveCount == 0) {
-                     contests.addAll(getStageContests(periodId, 1));
-                 }
-                 
-                 devActiveCount = getStageActiveProjects(periodId, 2);
-                 if (devActiveCount == 0) {
-                     contests.addAll(getStageContests(periodId, 2));
-                 }
-                 
-                 asmActiveCount = getStageActiveProjects(periodId, 14);
-                 if (asmActiveCount == 0) {
-                     contests.addAll(getStageContests(periodId, 14));
-                 }
-                 
-                 getRequest().setAttribute(Constants.STAGE_ID, getRequest().getParameter(Constants.STAGE_ID));
-                 
-            } else if (getRequest().getParameter(Constants.SEASON_ID) != null) {
-                periodId = Integer.parseInt(getRequest().getParameter(Constants.SEASON_ID));
-                desActiveCount = getSeasonActiveProjects(periodId, 112);
-                if (desActiveCount == 0) {
-                    contests.addAll(getSeasonContests(periodId, 112));
-                }
-                
-                devActiveCount = getSeasonActiveProjects(periodId, 113);
-                if (devActiveCount == 0) {
-                    contests.addAll(getSeasonContests(periodId, 113));
-                }
+            String trackIdValue = getRequest().getParameter(Constants.TRACK_ID);
+            setDefault(Constants.TRACK_ID, trackIdValue);
 
-                getRequest().setAttribute(Constants.SEASON_ID, getRequest().getParameter(Constants.SEASON_ID));
-
+            if (isEmpty(trackIdValue)) {
+                addError(Constants.TRACK_ID, "Please, select Digital Run track");
             } else {
-                throw new TCWebException("Either " + Constants.STAGE_ID + " or " + Constants.SEASON_ID + " expected.");
+                try {
+                    long trackId = Long.parseLong(trackIdValue);
+                    List<Contest> contests = getTrackContests(trackId);
+                    for (Contest c : contests) {
+                        loadResults(c);
+                        fillPaid(c, trackId);
+                    }
+                    getRequest().setAttribute("contests", contests);
+                } catch (NumberFormatException e) {
+                    addError(Constants.TRACK_ID, "Invalid Digital Run track ID: " + trackIdValue);
+                }
             }
-            
-            for (Contest c : contests) {
-                loadResults(c);
-                fillPaid(c, periodId);
+            if (hasErrors()) {
+                setNextPage(INTERNAL_VIEW_GENERATE_DR_PAYMENTS);
+                setIsNextPageInContext(true);
+            } else {
+                setNextPage(INTERNAL_LIST_DR_PAYMENTS);
+                setIsNextPageInContext(true);
             }
-            
-            getRequest().setAttribute("contests", contests);
-            getRequest().setAttribute("desActiveCount", desActiveCount);
-            getRequest().setAttribute("devActiveCount", devActiveCount);
-            getRequest().setAttribute("asmActiveCount", asmActiveCount);
-            
-            setNextPage(INTERNAL_LIST_DR_PAYMENTS);
-            setIsNextPageInContext(true);
         } catch (Exception e) {
-            throw new TCWebException(e);
+            throw new TCWebException("Failed to get the list of Digital Run payments", e);
         }
     }
-    
-    /**
-     * Get the number of active projects for a stage and a phase
-     * 
-     * @param stageId
-     * @param projectCategoryId
-     * @return
-     * @throws Exception
-     */
-    private int getStageActiveProjects(int stageId, int projectCategoryId) throws Exception {
-        Request r = new Request();
-        r.setContentHandle("dr_stage_active_projects");
-        r.setProperty(Constants.PROJECT_TYPE_ID, projectCategoryId + "");
-        r.setProperty(Constants.STAGE_ID, stageId + "");
-        
-        ResultSetContainer rsc = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("dr_stage_active_projects"); 
-
-        return rsc.getIntItem(0, 0);        
-    }
 
     /**
-     * Get the number of active projects for a season and a phase
+     * <p>In the contest results list of the contest, fills the payment id's of the prizes that are already paid.</p>
      * 
-     * @param seasonId
-     * @param phaseId
-     * @return
-     * @throws Exception
-     */
-    private int getSeasonActiveProjects(int seasonId, int phaseId) throws Exception {
-        Request r = new Request();
-        r.setContentHandle("dr_season_active_projects");
-        r.setProperty(Constants.PHASE_ID, phaseId + "");
-        r.setProperty(Constants.SEASON_ID, seasonId + "");
-        
-        ResultSetContainer rsc = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("dr_season_active_projects"); 
-
-        return rsc.getIntItem(0, 0);        
-    }
-    
-    
-    /**
-     * Get the contests for the specified stage.
-     * 
-     * @param stageId
-     * @param projectCategoryId
-     * @return
-     * @throws Exception
-     */
-    private List<Contest> getStageContests(int stageId, int projectCategoryId) throws Exception {
-        Request r = new Request();
-        r.setContentHandle("dr_contests_for_stage");
-        r.setProperty(Constants.PROJECT_TYPE_ID, projectCategoryId + "");
-        r.setProperty(Constants.STAGE_ID, stageId + "");
-        
-        ResultSetContainer rsc = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("dr_contests_for_stage");
-
-        List<Contest> contests = new ArrayList<Contest>();
-        
-        for (ResultSetContainer.ResultSetRow row : rsc) {
-            contests.add(new Contest(row.getIntItem("contest_id"), row.getIntItem("contest_type_id"), row.getStringItem("contest_name")));
-        }
-        
-        return contests;
-        
-    }
-
-    /**
-     * Get the contests for the specified season.
-     * 
-     * @param seasonId
-     * @param phaseId
-     * @return
-     * @throws Exception
-     */
-    private List<Contest> getSeasonContests(int seasonId, int phaseId) throws Exception {
-        Request r = new Request();
-        r.setContentHandle("dr_contests_for_season");
-        r.setProperty(Constants.PHASE_ID, phaseId + "");
-        r.setProperty(Constants.SEASON_ID, seasonId + "");
-        
-        ResultSetContainer rsc = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("dr_contests_for_season");
-
-        List<Contest> contests = new ArrayList<Contest>();
-        
-        for (ResultSetContainer.ResultSetRow row : rsc) {
-            contests.add(new Contest(row.getIntItem("contest_id"), row.getIntItem("contest_type_id"), row.getStringItem("contest_name")));
-        }
-        
-        return contests;
-        
-    }
-
-    /**
-     * In the contest results list of the contest, fills the payment id's of the prizes that are already paid.
-     * 
-     * @param contest
-     * @param periodId
-     * @throws Exception
+     * @param contest a <code>Contest</code> providing the details for the contest to load existing payments for.
+     * @param trackId a <code>long</code> providing the ID for the <code>Digital Run</code> track which the specified
+     *        contest belongs to. 
+     * @throws Exception if an unexpected error occurs.
      */
     @SuppressWarnings("unchecked")
-    private void fillPaid(Contest contest, int periodId) throws Exception {
+    private void fillPaid(Contest contest, long trackId) throws Exception {
         DataInterfaceBean dib = new DataInterfaceBean();
         
         int paymentType;
-        if (contest.getTypeId() == Constants.CONTEST_TYPE_DR_STAGE) {
-            paymentType = DIGITAL_RUN_PRIZE_PAYMENT;
-            
-        } else  if (contest.getTypeId() == Constants.CONTEST_TYPE_DR_TOP_PERFORMERS) {
-            paymentType = DIGITAL_RUN_TOP_THIRD_PAYMENT;
-            
-        } else  if (contest.getTypeId() == Constants.CONTEST_TYPE_DR_ROOKIE) {
-            paymentType = DIGITAL_RUN_ROCKIE_PRIZE_PAYMENT;
-            
+        if (contest.getTypeId() == Constants.CONTEST_TYPE_DR_V2_PRIZE) {
+            paymentType = DIGITAL_RUN_V2_PRIZE_PAYMENT;
+        } else  if (contest.getTypeId() == Constants.CONTEST_TYPE_DR_V2_TOP_PERFORMERS) {
+            paymentType = DIGITAL_RUN_V2_TOP_PERFORMERS_PAYMENT;
         } else {
-            throw new Exception("Invalid contest type: " + contest.getTypeId());
+            throw new Exception("Invalid DR contest type: " + contest.getTypeId());
         }
             
-        List<BasePayment> l = dib.findPayments(paymentType, periodId);
-
-        for (ContestResult cr :contest.getResults()) {
-            for (BasePayment payment : l) {                
+        List<BasePayment> payments = dib.findPayments(paymentType, trackId);
+        for (ContestResult cr : contest.getResults()) {
+            for (BasePayment payment : payments) {
                 if (cr.getCoderId() == payment.getCoderId()) {
                     cr.setPaymentId(payment.getId());
                 }
@@ -214,47 +123,93 @@ public class ListDRPayments extends BaseProcessor implements PactsConstants {
         }
     }
     
-
     /**
-     * Loads the results of a contest in the contest object.
+     * <p>Loads the results for the specified contest and saves them to specified <code>Context</code> object.</p>
      * 
-     * @param contest
-     * @throws Exception
+     * @param contest a <code>Contest</code> providing the details for the contest to load results for.
+     * @throws Exception if an unexpected error occurs.
      */
     private void loadResults(Contest contest) throws Exception {
         Request r = new Request();
-        r.setContentHandle("dr_contest_payments");
-        r.setProperty(Constants.CONTEST_ID, contest.getId() + "");
+        r.setContentHandle(DR_TRACK_CONTEST_PAYMENTS_QUERY);
+        r.setProperty(Constants.CONTEST_ID, String.valueOf(contest.getId()));
         
-        ResultSetContainer rsc = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME).getData(r).get("dr_contest_payments");
-        
+        ResultSetContainer rsc
+            = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME).getData(r).get(DR_TRACK_CONTEST_PAYMENTS_QUERY);
         for (ResultSetContainer.ResultSetRow row : rsc) {
             // round the amount to 2 decimals
             double prize = Math.round(row.getDoubleItem("prize") * 100) / 100.0;
             ContestResult cr = new ContestResult(row.getIntItem("place"), row.getLongItem("coder_id"), prize);
-            
             contest.addResult(cr);
         }
-        
     }
-    
+
     /**
-     * Class to hold data of a contest and its results.
-     * 
-     * @author Cucu
+     * <p>Gets the list of contests associated with the specified <code>Digital Run</code> track.</p>
      *
+     * @param trackId a <code>long</code> providing the ID of <code>Digital Run</code> track to get the list of contests
+     *        for.
+     * @return a <code>List</code> providing the details for contests associated with the specified
+     *         <code>Digital Run</code> track.  
+     * @throws Exception if an unexpected error occurs.
      */
-    public static class Contest {
-        private int id;
-        private int typeId;
-        private String name;
-        private List<ContestResult> results;
-        private double totalPrizes = 0.0;
-        
-        public double getTotalPrizes() {
-            return totalPrizes;
+    private List<Contest> getTrackContests(long trackId) throws Exception {
+        Request r = new Request();
+        r.setContentHandle(DR_TRACK_CONTESTS_QUERY);
+        r.setProperty(Constants.TRACK_ID, String.valueOf(trackId));
+
+        ResultSetContainer rsc = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME).getData(r).get(DR_TRACK_CONTESTS_QUERY);
+
+        List<Contest> contests = new ArrayList<Contest>();
+        for (ResultSetContainer.ResultSetRow row : rsc) {
+            contests.add(new Contest(row.getIntItem("track_contest_id"),
+                                     row.getIntItem("track_contest_type_id"),
+                                     row.getStringItem("track_contest_desc")));
         }
 
+        return contests;
+    }
+
+    /**
+     * <p>Class to hold data of a contest and its results.</p>
+     * 
+     * @author cucu, TCSDEVELOPER
+     * @version 1.0
+     */
+    public static class Contest {
+
+        /**
+         * <p>An <code>int</code> providing the ID for the track contest.</p>
+         */
+        private int id;
+
+        /**
+         * <p>An <code>int</code> referencing the track contest type.</p>
+         */
+        private int typeId;
+
+        /**
+         * <p>A <code>String</code> providing the textual description of this track contest.</p>
+         */
+        private String name;
+
+        /**
+         * <p>A <code>List</code> providing the results for this track contest.</p>
+         */
+        private List<ContestResult> results;
+
+        /**
+         * <p>A <code>double</code> providing the total amount of prizes for this track contest.</p>
+         */
+        private double totalPrizes = 0.0;
+
+        /**
+         * <p>Constructs new <code>ListDRPayments$Contest</code> instance with specified parameters.</p>
+         *
+         * @param id an <code>int</code> providing the ID for the track contest.
+         * @param typeId a <code>int</code> referencing the track contest type.
+         * @param name a <code>String</code> providing the textual description of this tracl contest.
+         */
         public Contest(int id, int typeId, String name) {
             this.id = id;
             this.typeId = typeId;
@@ -262,65 +217,151 @@ public class ListDRPayments extends BaseProcessor implements PactsConstants {
             results = new ArrayList<ContestResult>();
         }
 
+        /**
+         * <p>Gets the ID for this track contest.</p>
+         *
+         * @return an <code>int</code> providing the ID for the track contest.
+         */
         public int getId() {
             return id;
         }
 
+        /**
+         * <p>Gets the track contest type.</p>
+         *
+         * @return an <code>int</code> referencing the track contest type.
+         */
         public int getTypeId() {
             return typeId;
         }
 
+        /**
+         * <p>Gets the description for this track contest.</p>
+         *
+         * @return a <code>String</code> providing the textual description of this track contest.
+         */
         public String getName() {
             return name;
         }
 
+        /**
+         * <p>Gets the results for this track contest.</p>
+         *
+         * @return a <code>List</code> providing the results for this track contest.
+         */
         public List<ContestResult> getResults() {
             return results;
         }
-        
+
+        /**
+         * <p>Adds specified result to this contest.</p>
+         *
+         * @param result a <code>ContestResult</code> to be added to this contest.
+         */
         public void addResult(ContestResult result) {
             results.add(result);
             totalPrizes += result.getPrize();
         }
-        
+
+        /**
+         * <p>Gets the total amount of prizes for this track contest.</p>
+         *
+         * @return a <code>double</code> providing the total amount of prizes for this track contest.
+         */
+        public double getTotalPrizes() {
+            return totalPrizes;
+        }
     }
     
     /**
-     * Class to hold a result for a contest.
+     * <p>Class to hold a result for a contest.</p>
      * 
-     * @author Cucu
+     * @author cucu, TCSDEVELOPER
+     * @since 1.0
      */
     public static class ContestResult {
+
+        /**
+         * <p>An <code>int</code> providing the placement taken by the coder.</p>
+         */
         int place;
+
+        /**
+         * <p>A <code>long</code> providing the coder ID.</p>
+         */
         long coderId;
+
+        /**
+         * <p>A <code>double</code> providing the prize awared to coder.</p>
+         */
         double prize;
+
+        /**
+         * <p>A <code>Long</code> providing the ID of generated payment. <code>null</code> means that the payment hasn't
+         * been generated yet.</p>
+         */
         Long paymentId;
-        
-        
+
+        /**
+         * <p>Constructs new <code>ListDRPayments$ContestResult</code> instance with specified parameters.</p>
+         *
+         * @param place an <code>int</code> providing the placement taken by the coder.
+         * @param coderId a <code>long</code> providing the coder ID.
+         * @param prize a <code>double</code> providing the prize awared to coder.
+         */
         public ContestResult(int place, long coderId, double prize) {
             super();
             this.place = place;
             this.coderId = coderId;
             this.prize = prize;
         }
-        
+
+        /**
+         * <p>Gets ID for generated payment.</p>
+         *
+         * @return a <code>Long</code> providing the ID of generated payment. <code>null</code> means that the payment
+         *         hasn't been generated yet.
+         */
         public Long getPaymentId() {
             return paymentId;
         }
+
+        /**
+         * <p>Sets ID for generated payment.</p>
+         *
+         * @param paymentId a <code>Long</code> providing the ID of generated payment. <code>null</code> means that the
+         *        payment hasn't been generated yet.
+         */
         public void setPaymentId(Long paymentId) {
             this.paymentId = paymentId;
         }
+
+        /**
+         * <p>Gets the placement taken by the coder.</p>
+         *
+         * @return an <code>int</code> providing the placement taken by the coder.
+         */
         public int getPlace() {
             return place;
         }
+
+        /**
+         * <p>Gets the prize awared to coder.</p>
+         *
+         * @return a <code>double</code> providing the prize awared to coder.
+         */
         public double getPrize() {
             return prize;
         }
+
+        /**
+         * <p>Gets the coder ID.</p>
+         *
+         * @return a <code>long</code> providing the coder ID.
+         */
         public long getCoderId() {
             return coderId;
         }
-        
     }
-    
 }
 
