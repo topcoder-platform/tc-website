@@ -69,6 +69,9 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
             // GET request is treated as request for displaying the Payment Preferences form
             DataInterfaceBean dataBean = new DataInterfaceBean();
             int currentPaymentAccrualAmount = (int) dataBean.getUserAccrualThreshold(getUser().getId());
+            if (currentPaymentAccrualAmount == 0) {
+                currentPaymentAccrualAmount = MINIMUM_PAYMENT_ACCRUAL_AMOUNT;
+            }
             forwardToEditPaymentPreferencesView(String.valueOf(currentPaymentAccrualAmount));
         }
     }
