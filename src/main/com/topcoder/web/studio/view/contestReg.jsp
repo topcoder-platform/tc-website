@@ -27,12 +27,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
         <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico" />
+		<link href="/css/popup/modalPopup.css" type="text/css"  rel="stylesheet" />		
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>TopCoder Studio : Contest Registration</title>
         <jsp:include page="style.jsp">
             <jsp:param name="key" value="tc_studio" />
         </jsp:include>
-
         <script src="/js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"/>
         <script src="/js/NewStyleHeaderFooter/preloadCssImages.jQuery_v5.js" language="javascript"/>
         <script type="text/javascript">
@@ -58,6 +58,7 @@
                 });
             });
         </script>
+		<script src="/js/modalPopup.js" type="text/javascript"></script>
     </head>
 
     <body>
@@ -176,7 +177,16 @@
                                                         </c:choose>
                                                     </c:when>
                                                     <c:otherwise>
-                                                        <input type="image" src="/i/v2/interface/btnRegister.png" />
+														<c:choose>
+															<c:when test="${not empty has_global_ad and has_global_ad}">
+																<%-- HAVE AD --%>
+																<input type="image" src="/i/v2/interface/btnRegister.png" />
+															</c:when>
+															<c:otherwise>
+															<%-- NO AD --%>
+																<input type="image" src="/i/v2/interface/btnRegister.png" class="show-modal-register"/>
+															</c:otherwise>
+														</c:choose>
                                                         <br /><br />
                                                     </c:otherwise>
                                                 </c:choose>

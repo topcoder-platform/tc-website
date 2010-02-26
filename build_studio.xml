@@ -27,7 +27,7 @@
     <property name="common.jar" value="${bin}/tcwebcommon.jar"/>
     <property name="build.javadocs" value="${build}/javadocs"/>
 
-    <property name="deprecation" value="true"/>
+    <property name="deprecation" value="false"/>
     <property name="debug" value="true"/>
     <property name="junitsummary" value="on"/>
 
