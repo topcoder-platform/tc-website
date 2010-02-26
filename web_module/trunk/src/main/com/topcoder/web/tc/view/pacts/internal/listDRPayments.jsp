@@ -47,7 +47,7 @@
 
 <h2 align="center">Generate Digital Run Payments</h2>
 
-<div style="align: center;text-align:center;">
+<center>
     <br/>
     <br/>
 
@@ -96,7 +96,7 @@
         <input type="submit" value="Generate Payments">
         <br/>
     </form>
-</div>
+</center>
 <jsp:include page="InternalFooter.jsp" flush="true"/>
 </body>
 </html>
