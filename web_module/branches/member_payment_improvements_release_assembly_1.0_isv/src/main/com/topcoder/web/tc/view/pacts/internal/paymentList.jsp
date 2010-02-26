@@ -73,7 +73,15 @@
             if (netAnountHtml.charAt(0) == '$') {
                 netAnountHtml = netAnountHtml.substr(1);
             }
-            var netAmount = parseFloat(netAnountHtml);
+            var netAmountText = '';
+            for (var i = 0; i < netAnountHtml.length; i++ ) {
+                var c = netAnountHtml.charAt(i);
+                if (c >= '0' && c <= '9') {
+                    netAmountText += c;
+                }
+            }
+
+            var netAmount = parseFloat(netAmountText) / 100;
             return netAmount;
         }
 
