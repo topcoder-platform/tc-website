@@ -31,17 +31,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico" />
+	<link href="/css/popup/modalPopup.css" type="text/css"  rel="stylesheet" />		
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>TopCoder Studio : Contest Details</title>
         <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
-	<link href="/css/popup/modalPopup.css" type="text/css"  rel="stylesheet" />
 
     <script src="/js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"></script>
     <script src="/js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
     <script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
-	<script src="/js/modalPopup.js" type="text/javascript"></script>
 
     <script type="text/javascript" language="javascript">
 
@@ -369,16 +368,7 @@
 		</c:when>
 		<c:otherwise>
 			<%-- UNREGISTERED --%>
-				<c:choose>
-					<c:when test="${not empty has_global_ad and has_global_ad}">
-					<%-- HAVE AD --%>
-						<a id="button-register-contest" href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}" title="Register for this contest"></a>
-					</c:when>
-					<c:otherwise>
-					<%-- NO AD --%>
-						<a id="button-register-contest" href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="show-modal-register" title="Register for this contest"></a>
-					</c:otherwise>
-				</c:choose>
+				<a id="button-register-contest" href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}" title="Register for this contest"></a>
 				<a id="button-submit-entries" class="disabled" href="javascript:;" title="Submit your entries"></a>
 		</c:otherwise>
 	</c:choose>
