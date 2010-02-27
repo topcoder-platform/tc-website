@@ -73,14 +73,22 @@
             if (netAnountHtml.charAt(0) == '$') {
                 netAnountHtml = netAnountHtml.substr(1);
             }
-            var netAmount = parseFloat(netAnountHtml);
+            var netAmountText = '';
+            for (var i = 0; i < netAnountHtml.length; i++ ) {
+                var c = netAnountHtml.charAt(i);
+                if (c >= '0' && c <= '9') {
+                    netAmountText += c;
+                }
+            }
+
+            var netAmount = parseFloat(netAmountText) / 100;
             return netAmount;
         }
 
         function displayNetTotal() {
             $("#NetTotalSpan").html("$" + NET_TOTAL.toFixed(2));
         }
-        
+
         function checkAll(check) {
             NET_TOTAL = 0;
             var elements = document.f.elements;
@@ -183,15 +191,15 @@ ${fn:length(paymentList)} records. <br />
     </tr>
     <% boolean even = true;%>
     <c:forEach var="payment" items="${paymentList}" varStatus="index">
-            <c:set var="composed" value="false" />    
+            <c:set var="composed" value="false" />
             <c:set var="mark" value="" />
-            <c:if test="${not empty reliabilityMap[payment.id]}">     
+            <c:if test="${not empty reliabilityMap[payment.id]}">
                 <c:set var="composed" value="true" />
                 <c:set var="mark" value="*" />
             </c:if>
         <c:set var="totalNet" value="${totalNet + payment.recentNetAmount}" />
         <tr class="<%=even?"light":"dark"%>">
-        <td> 
+        <td>
             <c:choose>
                 <c:when test="${composed}">
                     <c:set var="row_key" value="${payment.id},${reliabilityMap[payment.id]}"/>
@@ -208,13 +216,13 @@ ${fn:length(paymentList)} records. <br />
                 <c:otherwise>
                    <input type="checkbox" name="checked_payment_id" value="${row_key}"></c:otherwise>
             </c:choose>
-        
+
         </td>
         <td class="value" nowrap="nowrap"><c:out value="${payment.user.first}" /></td>
         <td class="value" nowrap="nowrap"><c:out value="${payment.user.last}" /></td>
         <td class="value"><a href="${pacts:viewUser(payment.user.id)}"><c:out value="${payment.user.handle}" /></td>
         <td class="value"><a href="${pacts:viewPayment(payment.id)}"><c:out value="${payment.description}" /></a>
-            <c:if test="${composed}"> + 
+            <c:if test="${composed}"> +
                  <a href="${pacts:viewPayment(reliabilityMap[payment.id])}">Reliability</a>
             </c:if>
         </td>
@@ -224,8 +232,8 @@ ${fn:length(paymentList)} records. <br />
         <td class="value"><c:out value="${payment.type}" /></td>
         <td class="value"><c:out value="${payment.method}" /></td>
 
-        <td class="value"><strong>${payment.currentStatus.desc}</strong> 
-            <c:forEach items="${payment.currentStatus.reasons}" var="reason">    
+        <td class="value"><strong>${payment.currentStatus.desc}</strong>
+            <c:forEach items="${payment.currentStatus.reasons}" var="reason">
             <br>- ${reason.desc}
             </c:forEach>
         </td>
@@ -253,7 +261,7 @@ ${fn:length(paymentList)} records. <br />
         <td class="headerR" nowrap="nowrap">$<fmt:formatNumber value="${totalNet}" pattern="###,###.00" /></td>
         <td class="header" colspan="7">&nbsp;</td>
     </tr>
-    
+
     </table>
 <br/>
 <a href="Javascript:checkAll(true)">check all</a> -
@@ -271,7 +279,7 @@ ${fn:length(paymentList)} records. <br />
             Delete
         </OPTION>
 </SELECT>
-                
+
 
 <input type="submit" value="Apply Event">
 
