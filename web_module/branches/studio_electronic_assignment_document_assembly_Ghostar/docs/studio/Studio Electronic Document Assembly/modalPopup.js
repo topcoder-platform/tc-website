@@ -38,7 +38,7 @@ $(function() {
 
     }
 
-    loadModal = function(url, buttonUrl) {
+    loadModal = function(url) {
         $("body").append('<div id="modal-background"></div>');
         $("body").append('<div id="modal-wrapper"></div>');
         $("#modal-background").css("opacity", 0).fadeTo('slow', 0.5);
@@ -88,8 +88,8 @@ $(function() {
 
                 $("#popup button").click(function() {
                     if (this.id == "button-continue") {
-						window.location.href = buttonUrl;
-						return false;
+						document.terms.submit();
+						closeModal();
                     }
                     else if (this.id == "button-submit") {
                         if ($('#checkbox-affirm').is(':checked')) {
@@ -135,11 +135,8 @@ $(function() {
     }
 
     $(".show-modal-register").click(function() {
-        var url = $(this).attr("href");
-        if (url.match('#')) {
-            url = '#' + url.split('#')[1];
-        }
-        loadModal("/i/popup.html?view=assignment-step-1", url);
+        var url = "/i/popup.html?view=assignment-step-1";
+        loadModal(url);
         return false;
     });
 
