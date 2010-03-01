@@ -61,7 +61,13 @@
                     <jsp:param name="title" value="Payment Preferences"/>
                 </jsp:include>
 
-                <p align="center">Please set up the payment preferences</p>
+                <p align="center">
+                    This is where you can set your payment threshold amount to any amount above $25 so that once you
+                    prize winnings reach this limit your prize money will be paid out to you in the next scheduled
+                    payment.  Your prize winnings will not go into "owed status" until they have reached your set
+                    payment threshold amount.  You can only set a dollar amount threshold here; you cannot specify a
+                    future payment date to release your prize winnings on.
+                </p>
 
                 <form name="f" action="${sessionInfo.servletPath}" method="post">
                     <tc-webtag:hiddenInput name="${MODULE}" value="EditPaymentPreferences"/>
