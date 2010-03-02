@@ -37,7 +37,7 @@ import java.util.Set;
  *   </ul>
  * </p>
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 2.0
  */
 public class PrincipalMgrBean extends BaseEJB {

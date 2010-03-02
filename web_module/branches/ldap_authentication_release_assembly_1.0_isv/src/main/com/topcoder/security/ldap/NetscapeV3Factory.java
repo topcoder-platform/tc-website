@@ -10,7 +10,7 @@ import com.topcoder.util.net.ldap.sdkinterface.LDAPSDKConnection;
  * <p>A custom implementation of {@link LDAPSDKFactory} interface to be used for obtaining {@link LDAPSDKConnection}
  * objects for establishing connections to <code>LDAP</code> server using <code>LDAPv3</code> protocol.</p>
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 1.0  (LDAP Authentication Release Assembly v1.0)
  * @see NetscapeV3Connection
  */

@@ -30,7 +30,7 @@ import java.util.Set;
  *   </ul>
  * </p>
  *
- * @author Heather Van Aelst, TCSDEVELOPER
+ * @author Heather Van Aelst, isv
  * @version 2.0
  */
 public class LoginBean extends BaseEJB {

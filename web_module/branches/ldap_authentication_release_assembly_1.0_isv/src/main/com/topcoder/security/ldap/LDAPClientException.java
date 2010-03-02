@@ -9,7 +9,7 @@ import com.topcoder.util.errorhandling.BaseException;
  * <p>A checked exception to be thrown by <code>LDAPClient</code> to indicate on errors encountered while communicating,
  * authenticating to <code>LDAP</code> server or managing <code>LDAP</code> entries.</p>
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 1.0 (LDAP Authentication Release Assembly v1.0)
  */
 public class LDAPClientException extends BaseException {

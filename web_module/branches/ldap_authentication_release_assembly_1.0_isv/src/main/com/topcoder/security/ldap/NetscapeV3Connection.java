@@ -31,7 +31,7 @@ import java.util.Enumeration;
  * <p>A custom implementation of {@link LDAPSDKConnection} interface built on top of <code>Netscape LDAP SDK</code>.
  * This implementation binds/authenticates to <code>LDAP</code> server using <code>LDAPv3</code> protocol.</p>
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 1.0 (LDAP Authentication Release Assembly v1.0)
  */
 class NetscapeV3Connection implements LDAPSDKConnection {

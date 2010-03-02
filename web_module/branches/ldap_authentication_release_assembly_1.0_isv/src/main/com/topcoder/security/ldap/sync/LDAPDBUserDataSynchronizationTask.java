@@ -28,7 +28,7 @@ import javax.sql.DataSource;
  * <p>This tasks monitors the <code>common_oltp:audit_user</code> table and processes all records related to changed
  * <code>HANDLE</code> and <code>STATUS</code> column values.</p> 
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 1.0 (LDAP Authentication Release Assembly v1.0)
  */
 public class LDAPDBUserDataSynchronizationTask implements Schedulable {
@@ -70,7 +70,7 @@ public class LDAPDBUserDataSynchronizationTask implements Schedulable {
      * <p>A <code>String</code> providing the JNDI name for the data source to be used for obtaining connections to
      * target database.</p>
      */
-    private String dataSourceJNDIName;
+    private final String dataSourceJNDIName;
 
     /**
      * <p>Constructs new <code>LDAPDBUserDataSynchronizationTask</code> instance.</p>
@@ -112,8 +112,6 @@ public class LDAPDBUserDataSynchronizationTask implements Schedulable {
         String timestamp = null;
         long userId = 0;
         try {
-            ldapClient.connect();
-
             // Connect to DB and get the list of records from audit_user table which have not been processed yet
             // and are to be reflected in LDAP directory
             DataSource db = getDataSource();
@@ -126,24 +124,28 @@ public class LDAPDBUserDataSynchronizationTask implements Schedulable {
                            "AND NOT reflected_to_ldap ORDER BY rowid";
             statement = connection.prepareStatement(query, ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_UPDATABLE);
             result = statement.executeQuery();
-            while (result.next()) {
-                updatedColumnName = result.getString("column_name");
-                oldValue = result.getString("old_value");
-                newValue = result.getString("new_value");
-                timestamp = result.getString("timestamp");
-                userId = result.getLong("user_id");
 
-                if (UPDATED_COLUMN_HANDLE.equalsIgnoreCase(updatedColumnName)) {
-                    ldapClient.setTopCoderMemberProfileHandle(userId, newValue);
-                    log.info(MessageFormat.format(RESULT_MESSAGE_TEMPLATE, userId, "handle", oldValue, newValue,
-                                                  timestamp));
-                } else if (UPDATED_COLUMN_STATUS.equalsIgnoreCase(updatedColumnName)) {
-                    ldapClient.setTopCoderMemberProfileStatus(userId, newValue);
-                    log.info(MessageFormat.format(RESULT_MESSAGE_TEMPLATE, userId, "status", oldValue, newValue, 
-                                                  timestamp));
-                }
-                result.updateBoolean("reflected_to_ldap", true);
-                result.updateRow();
+            if (result.next()) {
+                ldapClient.connect();
+                do {
+                    updatedColumnName = result.getString("column_name");
+                    oldValue = result.getString("old_value");
+                    newValue = result.getString("new_value");
+                    timestamp = result.getString("timestamp");
+                    userId = result.getLong("user_id");
+
+                    if (UPDATED_COLUMN_HANDLE.equalsIgnoreCase(updatedColumnName)) {
+                        ldapClient.setTopCoderMemberProfileHandle(userId, newValue);
+                        log.info(MessageFormat.format(RESULT_MESSAGE_TEMPLATE, userId, "handle", oldValue, newValue,
+                                                      timestamp));
+                    } else if (UPDATED_COLUMN_STATUS.equalsIgnoreCase(updatedColumnName)) {
+                        ldapClient.setTopCoderMemberProfileStatus(userId, newValue);
+                        log.info(MessageFormat.format(RESULT_MESSAGE_TEMPLATE, userId, "status", oldValue, newValue,
+                                                      timestamp));
+                    }
+                    result.updateBoolean("reflected_to_ldap", true);
+                    result.updateRow();
+                } while (result.next());
             }
         } catch (NamingException e) {
             log.info(MessageFormat.format(ERROR_MESSAGE_TEMPLATE, userId, "handle", oldValue, newValue,
@@ -227,7 +229,7 @@ public class LDAPDBUserDataSynchronizationTask implements Schedulable {
      * @return a <code>DataSource </code> to be used for establishing connections to <code>OLTP</code> database.
      * @throws NamingException if an unexpected error occurs while accessing JNDI context.
      */
-    public DataSource getDataSource() throws NamingException {
+    private DataSource getDataSource() throws NamingException {
         Context ctx = new InitialContext();
         return (DataSource) ctx.lookup(this.dataSourceJNDIName);
     }
