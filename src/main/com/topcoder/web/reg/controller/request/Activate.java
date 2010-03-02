@@ -25,7 +25,7 @@ import java.util.Arrays;
  *   </ul>
  * </p>
  *
- * @author dok, TCSDEVELOPER
+ * @author dok, isv
  * @version 2.0
  */
 public class Activate extends Base {
@@ -91,9 +91,14 @@ public class Activate extends Base {
         LDAPClient ldapClient = new LDAPClient();
         try {
             ldapClient.connect();
-            ldapClient.setTopCoderMemberProfileStatus(userId, String.valueOf(Constants.ACTIVE_STATI[1]));
+            ldapClient.activateTopCoderMemberProfile(userId);
         } finally {
-            ldapClient.disconnect();
+            try {
+                ldapClient.disconnect();
+            } catch (LDAPClientException e) {
+                log.error("Failed to disconnect from LDAP server while activating user account. "
+                          + "The process is not interrupted.", e);
+            }
         }
    }
 }

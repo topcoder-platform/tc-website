@@ -14,7 +14,7 @@ import java.util.MissingResourceException;
  * <p>A collection of constants for managing the process of communication to <code>LDAP</code> server and managing
  * <code>LDAP</code> entries.</p>
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 1.0 (LDAP Authentication Release Assembly v1.0)
  */
 public class LDAPConstants {
@@ -85,6 +85,12 @@ public class LDAPConstants {
      * data for <code>TopCoder</code> member profiles.</p>
      */
     public static String TOPCODER_MEMBER_BASE_DN;
+
+    /**
+     * <p>A <code>String</code> providing the value for <code>status</code> attribute for <code>LDAP</code> entries for
+     * active <code>TopCoder</code> member profiles.</p>
+     */
+    public static String TOPCODER_MEMBER_STATUS_ACTIVE;
 
     /**
      * <p>Initializes non-final static fields for this class with values for the same-named properties from the resource

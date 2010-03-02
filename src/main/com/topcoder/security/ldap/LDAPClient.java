@@ -29,6 +29,7 @@ import static com.topcoder.security.ldap.LDAPConstants.PORT;
 import static com.topcoder.security.ldap.LDAPConstants.BIND_DN;
 import static com.topcoder.security.ldap.LDAPConstants.BIND_PASSWORD;
 import static com.topcoder.security.ldap.LDAPConstants.CONNECTION_FACTORY;
+import static com.topcoder.security.ldap.LDAPConstants.TOPCODER_MEMBER_STATUS_ACTIVE;
 import static com.topcoder.util.net.ldap.sdkinterface.LDAPSDKConnection.SCOPE_ONE;
 
 /**
@@ -47,7 +48,7 @@ import static com.topcoder.util.net.ldap.sdkinterface.LDAPSDKConnection.SCOPE_ON
  *
  * <p><b>Thread safety:</b> This class is not thread-safe. Each thread must use separate instance of this class.</p>
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 1.0 (LDAP Authentication Release Assembly v1.0)
  */
 public class LDAPClient {
@@ -310,9 +311,31 @@ public class LDAPClient {
             log.info("Renamed LDAP entry " + userLDAPEntry.getDn() + " to "
                     + MessageFormat.format(TOPCODER_MEMBER_ENTRIES_DN_TEMPLATE, newHandle) + " in response to "
                     + "changing handle for user account " + userId + " from " + getHandle(userLDAPEntry)
-                    + "to " + newHandle);
+                    + " to " + newHandle);
         } catch (LDAPSDKException e) {
             log.error("Failed to rename LDAP entry " + userLDAPEntry.getDn() + " due to unexpected error");
+            throw LDAPClientException.createUnexpectedErrorException(e);
+        }
+    }
+
+    /**
+     * <p>Sets the value of <code>status</code> attribute for <code>LDAP</code> entry matching the specified
+     * <code>TopCoder</code> member profile ID with value corresponding to <code>Active</code> profile status.</p>
+     *
+     * @param userId a <code>long</code> providing the ID of a user to change the <code>status</code> attribute for.
+     * @throws LDAPClientException if an unexpected error occurs.
+     */
+    public void activateTopCoderMemberProfile(long userId) throws LDAPClientException {
+        checkConnection();
+        Entry userLDAPEntry = findTopCoderMemberEntryByUserId(userId);
+        Update update = new Update();
+        update.replace(MEMBER_PROFILE_PROPERTY_STATUS, new Values(TOPCODER_MEMBER_STATUS_ACTIVE));
+        try {
+            this.ldapConnection.updateEntry(userLDAPEntry.getDn(), update);
+            log.info("Successfully changed status for LDAP entry " + userLDAPEntry.getDn()
+                     + " to " + TOPCODER_MEMBER_STATUS_ACTIVE);
+        } catch (LDAPSDKException e) {
+            log.error("Failed to change status for LDAP entry " + userLDAPEntry.getDn() + " due to unexpected error");
             throw LDAPClientException.createUnexpectedErrorException(e);
         }
     }

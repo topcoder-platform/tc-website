@@ -66,7 +66,7 @@ import java.util.Map;
  * &lt;/userDataLDAPMigrationTool&gt;
  * </pre>
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 1.0 (LDAP Authentication Assembly v1.0)
  */
 public class UserDataLDAPMigrationTool extends DBUtility {
@@ -85,6 +85,12 @@ public class UserDataLDAPMigrationTool extends DBUtility {
     private static final String MEMBER_DATA_SOURCE = "MemberData";
 
     /**
+     * <p>An <code>int</code> providing the number of rows with <code>TopCoder</code> member profile data that should be
+     * fetched from the database when more rows are needed.</p>
+     */
+    private static final int MEMBER_DATA_FETCH_SIZE = 100;
+
+    /**
      * <p>Constructs new <code>UserDataLDAPMigrationTool</code> instance. This implementation does nothing.</p>
      */
     public UserDataLDAPMigrationTool() {
@@ -96,6 +102,8 @@ public class UserDataLDAPMigrationTool extends DBUtility {
      * <p>Reads the data for <code>TopCoder</code> member accounts from joined <code>security_user</code> and
      * <code>user</code> database tables and creates respective entry in <code>LDAP</code> directory for each migrated
      * user account. The details for each processed user account are logged.</p>
+     *
+     * @throws Exception if an unexpected error occurs.
      */
     @Override
     protected void runUtility() throws Exception {
@@ -111,6 +119,7 @@ public class UserDataLDAPMigrationTool extends DBUtility {
         PreparedStatement statement = null;
         try {
             statement = prepareStatement(MEMBER_DATA_SOURCE, MEMBER_DATA_SQL);
+            statement.setFetchSize(MEMBER_DATA_FETCH_SIZE);
             result = statement.executeQuery();
             log.debug("Retrieved TopCoder member profile records from database");
             while (result.next()) {
@@ -133,6 +142,7 @@ public class UserDataLDAPMigrationTool extends DBUtility {
                     ldapClient.addTopCoderMemberProfile(profile);
                     logMigrationResult(userId, handle, status);
                 } catch (Exception e) {
+                    logMigrationErrorResult(userId, handle, status, e.getMessage());
                     log.error("Failed to migrate TopCoder member profile " + handle, e);
                 }
             }
@@ -179,6 +189,28 @@ public class UserDataLDAPMigrationTool extends DBUtility {
             b.append("handle = ").append(handle).append(", ");
             b.append("status = ").append(status);
             b.append(" to LDAP directory");
+            log.debug(b.toString());
+        }
+    }
+
+    /**
+     * <p>Logs the details on user profile which had failed to be migrated to <code>LDAP</code> directory due to some
+     * error. The details are logged at <code>DEBUG</code> level.</p>
+     *
+     * @param userId a <code>long</code> providing the user ID.
+     * @param handle a <code>String</code> providing the user handle.
+     * @param status a <code>String</code> providing the user status.
+     * @param errorMessage a <code>String</code> providing the description of the error which prevented the profile from
+     *        successful migration to <code>LDAP</code> directory. 
+     */
+    private void logMigrationErrorResult(long userId, String handle, String status, String errorMessage) {
+        if (log.isDebugEnabled()) {
+            StringBuilder b = new StringBuilder();
+            b.append("Failed to migrate TopCoder member account account: ");
+            b.append("ID = ").append(userId).append(", ");
+            b.append("handle = ").append(handle).append(", ");
+            b.append("status = ").append(status);
+            b.append(" to LDAP directory due to error: ").append(errorMessage);
             log.debug(b.toString());
         }
     }
