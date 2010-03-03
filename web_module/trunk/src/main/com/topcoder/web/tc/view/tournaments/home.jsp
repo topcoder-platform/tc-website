@@ -62,7 +62,7 @@
 
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
       <tr valign="top">
-         <td style="padding-right: 8px;"><a href="/tc?module=Static&d1=hs&d2=home"><img src="/i/pressroom/tco09_logo.png" alt="" border="0" /></a><br /></td>
+         <td style="padding-right: 8px;"><a href="/tc?module=Static&d1=hs&d2=home"><img src="/i/tournament/tchs10/tchs10_tourn_logo.png" alt="TopCoder High School" border="0"></a><br /></td>
          <td width="100%">
          <span class="bodySubtitle">2010 TopCoder&#174; High School</span>
          <br />
@@ -97,12 +97,11 @@
    
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
       <tr valign="top">
-         <td style="padding-right: 8px;"><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=overview"><img src="/i/tournament/tco09/photo_tco09_winners.png" alt="2009 TopCoder Open" border="0"/></a><br /></td>
+         <td style="padding-right: 8px;"><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=overview"><img src="/i/pressroom/tchs09.png" alt="" border="0" hspace="58" /></a><br /></td>
          <td width="100%">
          <span class="bodySubtitle">2009 TopCoder&#174; High School</span>
          <br />
          <br />
-         <div style="float: right;"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco09&amp;d3=about"><img src="/i/pressroom/tchs09.png" alt="" border="0" /></a></div>
          January 3 - 24, 2009<br />
          Online<br />
          <a href="/tc?module=Static&d1=tchs09&d2=index">Details</a>
