@@ -38,7 +38,6 @@
            
         <div align="center"><img src="/i/sponsor/nsa/nsa_logo.jpg" border="0px" alt="NSA Logo" /><br /><br />
         	<h1>NSA Marathon Match Event</h1>
-        	<h3 style="border-bottom: 1px dashed #999999; padding-bottom: 15px; margin-bottom: 15px;">Competition 4 is now underway!&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www.topcoder.com/longcontest/?module=ViewPractice" style="text-decoration: underline;">Practice Now</a></h3>
         </div>
 
         
