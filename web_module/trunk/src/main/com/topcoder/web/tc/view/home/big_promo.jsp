@@ -30,6 +30,5 @@
 
 <%-- REMIX --%>
 <br />
-<a href="<tc-webtag:linkTracking link='http://www.topcoder.com/tc?module=Static&d1=sponsors&d2=NSAOverview' refer='/tc' />"><img src="/i/sponsor/nsa/NSA-long.png" alt="NSA Mission Impact Marathon Match 1 " /></a>
 <%--<a href="<tc-webtag:linkTracking link='http://www.topcoder.com/remix' refer='/tc' />"><img src="/images/remix/remix-510.jpg" alt="REMIX Challenge" /></a> --%>
 <br /><br />
