@@ -41,6 +41,15 @@
 <%-- Current Tournaments begins  --%>
 
          <div class="sectionHeader">Current Tournaments</div>
+         
+           <hr width="100%" size="1" noshade="noshade" />
+         
+           <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+
+
+<%-- Past Tournaments begins --%>
+
+         <div class="sectionHeader" width="100%">Past Tournaments</div>
            <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274" rowspan="2"><A href="<tc-webtag:linkTracking link='tc?module=Static&d1=sponsors&d2=NSAOverview' refer='pbtc page' />" target="_blank"><img src="/i/sponsor/nsa/nsa-mm-banner-small.png" alt="NSA Marathon Match Event" border="0" /></A></td>
@@ -70,12 +79,9 @@
                     </td>
                 </tr>
             </table>
-           <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+            
+           <hr width="100%" size="1" noshade="noshade" />
 
-
-<%-- Past Tournaments begins --%>
-
-         <div class="sectionHeader" width="100%">Past Tournaments</div>
            <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274" rowspan="2"><A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=sponsors&d2=NVIDIAOverview' refer='pbtc page' />" target="_blank"><img src="/i/events/nvidia_logo-sm.jpg" alt="NVIDIA CUDA Superhero Challenge" border="0" /></A></td>
