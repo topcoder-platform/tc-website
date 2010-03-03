@@ -38,14 +38,14 @@
         <jsp:param name="title" value="Powered by TopCoder"/>
     </jsp:include>
 
-<%-- Current Tournaments begins  --%>
+<%-- Current Tournaments begins 
 
          <div class="sectionHeader">Current Tournaments</div>
          
            <hr width="100%" size="1" noshade="noshade" />
          
            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
-
+ --%>
 
 <%-- Past Tournaments begins --%>
 
