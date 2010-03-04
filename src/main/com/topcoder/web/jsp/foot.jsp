@@ -15,7 +15,8 @@
             <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc" class="footerLinks">Competitions</a>&#160;&#160;|&#160;&#160;
             <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/" class="footerLinks">Software</a>        </td>
     </tr>
-    <tr><td width="100%" class="copyright">Copyright &#169; 2001-2008, TopCoder, Inc. All rights reserved.</td></tr>
+    <tr>
+      <td width="100%" class="copyright">Copyright &#169; 2001-2010, TopCoder, Inc. All rights reserved.</td></tr>
 </tbody>
 </table>
 
