@@ -150,7 +150,16 @@
                                                                 </div>
                                                                 <INPUT TYPE="checkbox" NAME="${TERMS_AGREE}" />
                                                                 I agree <br /> <br />
-                                                                <input type="image" src="/i/v2/interface/btnContinue.png" />
+																	<c:choose>
+																		<c:when test="${not empty has_global_ad and has_global_ad}">
+																			<%-- HAVE AD --%>
+																			<input type="image" src="/i/v2/interface/btnContinue.png" />
+																		</c:when>
+																		<c:otherwise>
+																		<%-- NO AD --%>
+																			<input type="image" src="/i/v2/interface/btnContinue.png" class="show-modal-register"/>
+																		</c:otherwise>
+																	</c:choose>
                                                                 <br /><br />
                                                             </c:when>
                                                             <c:otherwise>
