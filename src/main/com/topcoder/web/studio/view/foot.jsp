@@ -84,7 +84,7 @@
         <div class="wrapper2">
             <p id="footer_1800"><strong>1-866-TOPCODER or Service@TopCoder.com</strong></p> <%--chjanged from id--%>
             <p>TopCoder is the world's largest competitive software development community with over 185,000 developers representing over 200 countries.</p>
-            <p>Copyright &copy;2001-2008, TopCoder, Inc. All rights reserved.</p>
+            <p>Copyright &copy;2001-2010, TopCoder, Inc. All rights reserved.</p>
         </div><%-- .wrapper ends --%>
     </div><%-- #footer ends --%>
 
