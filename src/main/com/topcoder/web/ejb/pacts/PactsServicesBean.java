@@ -3593,11 +3593,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         int usePercent = 0;
         boolean dataFound = false;
 
-        if (p.getHeader().getTypeId() == ALGORITHM_CONTEST_PAYMENT ||
-                p.getHeader().getTypeId() == MARATHON_MATCH_PAYMENT ||
-                p.getHeader().getTypeId() == ALGORITHM_TOURNAMENT_PRIZE_PAYMENT ||
-                p.getHeader().getTypeId() == HIGH_SCHOOL_TOURNAMENT_PRIZE_PAYMENT ||
-                p.getHeader().getTypeId() == MARATHON_MATCH_TOURNAMENT_PRIZE_PAYMENT) {
+        if (p.getHeader().getTypeId() == ALGORITHM_CONTEST_PAYMENT
+                || p.getHeader().getTypeId() == MARATHON_MATCH_PAYMENT
+                || p.getHeader().getTypeId() == ALGORITHM_TOURNAMENT_PRIZE_PAYMENT
+                || p.getHeader().getTypeId() == HIGH_SCHOOL_TOURNAMENT_PRIZE_PAYMENT
+                || p.getHeader().getTypeId() == MARATHON_MATCH_TOURNAMENT_PRIZE_PAYMENT
+                || p.getHeader().getTypeId() == ROYALTY_PAYMENT
+                || p.getHeader().getTypeId() == DIGITAL_RUN_V2_PRIZE_PAYMENT
+                || p.getHeader().getTypeId() == DIGITAL_RUN_V2_TOP_PERFORMERS_PAYMENT
+                || p.getHeader().getTypeId() == CODER_REFERRAL_PAYMENT) {
+            
             StringBuffer getUserWithholding = new StringBuffer(300);
             getUserWithholding.append("SELECT withholding_amount, withholding_percentage, use_percentage,date_filed ");
             getUserWithholding.append("FROM user_tax_form_xref ");
