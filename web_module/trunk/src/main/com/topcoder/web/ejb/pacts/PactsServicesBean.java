@@ -2011,8 +2011,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Returns an assignment document template
      *
-     * @param conn                     the Connection to use
-     * @param assignmentDocumentTypeId the Assignment Document's type id
+     * @param conn the Connection to use
      * @return The required assignment document template
      * @throws SQLException If there is some problem retrieving the data
      */
@@ -3605,9 +3604,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             
             StringBuffer getUserWithholding = new StringBuffer(300);
             getUserWithholding.append("SELECT withholding_amount, withholding_percentage, use_percentage,date_filed ");
-            getUserWithholding.append("FROM user_tax_form_xref ");
-            getUserWithholding.append("WHERE user_id =  " + p.getHeader().getUser().getId());
-            getUserWithholding.append("ORDER  by date_filed DESC ");
+            getUserWithholding.append(" FROM user_tax_form_xref ");
+            getUserWithholding.append(" WHERE user_id = " + p.getHeader().getUser().getId());
+            getUserWithholding.append(" AND status_id = 60");
+            getUserWithholding.append(" ORDER by date_filed DESC ");
 
             ResultSetContainer rsc = runSelectQuery(c, getUserWithholding.toString());
             if (rsc.getRowCount() > 0) {
