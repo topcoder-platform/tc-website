@@ -53,8 +53,8 @@
                   <a href="/tc?module=Static&amp;d1=hs&amp;d2=TCHSResults">Results</a>
                 </p>
                 <br />
-                <span class="title">TopCoder High School</span>
-                    Schedule
+                <span class="title">TopCoder High School Schedule</span>
+                    
                     <p>Registration is not required for the 2010 TopCoder High School Tournament.  All eligible competitors must be registered TopCoder members prior to the start of the first round.</p>
               <p><span class="bodySubtitle">Competition  Schedule</span><br />
 
