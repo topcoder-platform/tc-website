@@ -7,6 +7,8 @@
   -
   - Version 1.1 (Configurable Contest Terms-Studio Release Assembly v1.0) changes: Added new functionality that asks for
   - several terms of use and show those the user already agreed to.
+  - Version 1.2 (Studio Electronic Assignment Document Assembly version 1.0) changes:
+  -     - Change the registration process.    
 --%>
 <%@ page import="com.topcoder.web.studio.Constants"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag"%>
@@ -25,12 +27,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
         <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico" />
+		<link href="/css/popup/modalPopup.css" type="text/css"  rel="stylesheet" />		
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>TopCoder Studio : Contest Registration</title>
         <jsp:include page="style.jsp">
             <jsp:param name="key" value="tc_studio" />
         </jsp:include>
-
         <script src="/js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"/>
         <script src="/js/NewStyleHeaderFooter/preloadCssImages.jQuery_v5.js" language="javascript"/>
         <script type="text/javascript">
@@ -56,6 +58,7 @@
                 });
             });
         </script>
+		<script src="/js/modalPopup.js" type="text/javascript"></script>
     </head>
 
     <body>
@@ -134,16 +137,6 @@
                                             <!-- resulting page from click has value at the end of the URL, which is pointless. Feel free to use any html/js element/method but i want the nice looking button -->
 
                                             <div align="center">
-                                                <c:if test="${not empty has_global_ad and not has_global_ad}">
-                                                    <div class="bigRed" style="text-align: left; width: 590px">
-                                                        You have not yet signed the Assignment Document that is required
-                                                        in order to submit for this contest. Please go
-                                                        <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">here</a>
-                                                        to read more about Assignment Documents and what you need to do.
-                                                        You will not be able to submit for this contest without first
-                                                        sending in the signed Assignment Document.<br /><br />
-                                                    </div>
-                                                </c:if>
                                                 <c:choose>
                                                     <c:when test="${not empty terms}">
                                                         <c:choose>
@@ -157,7 +150,16 @@
                                                                 </div>
                                                                 <INPUT TYPE="checkbox" NAME="${TERMS_AGREE}" />
                                                                 I agree <br /> <br />
-                                                                <input type="image" src="/i/v2/interface/btnContinue.png" />
+																	<c:choose>
+																		<c:when test="${not empty has_global_ad and has_global_ad}">
+																			<%-- HAVE AD --%>
+																			<input type="image" src="/i/v2/interface/btnContinue.png" />
+																		</c:when>
+																		<c:otherwise>
+																		<%-- NO AD --%>
+																			<input type="image" src="/i/v2/interface/btnContinue.png" class="show-modal-register"/>
+																		</c:otherwise>
+																	</c:choose>
                                                                 <br /><br />
                                                             </c:when>
                                                             <c:otherwise>
@@ -184,7 +186,16 @@
                                                         </c:choose>
                                                     </c:when>
                                                     <c:otherwise>
-                                                        <input type="image" src="/i/v2/interface/btnRegister.png" />
+														<c:choose>
+															<c:when test="${not empty has_global_ad and has_global_ad}">
+																<%-- HAVE AD --%>
+																<input type="image" src="/i/v2/interface/btnRegister.png" />
+															</c:when>
+															<c:otherwise>
+															<%-- NO AD --%>
+																<input type="image" src="/i/v2/interface/btnRegister.png" class="show-modal-register"/>
+															</c:otherwise>
+														</c:choose>
                                                         <br /><br />
                                                     </c:otherwise>
                                                 </c:choose>
