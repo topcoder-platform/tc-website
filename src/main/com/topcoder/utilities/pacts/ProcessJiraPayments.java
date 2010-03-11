@@ -245,7 +245,8 @@ public class ProcessJiraPayments extends DBUtility {
                 payment = new SpecificationReviewPayment(userId, amount, client, referenceId);
             } else if ("Copilot".equals(paymentType)) {
                 payment = new CopilotPayment(userId, amount, client, referenceId);
-            } else if ("Build".equals(paymentType) || "Re-Build".equals(paymentType) || "Build QC".equals(paymentType)) {
+            } else if ("Build".equals(paymentType) || "Re-Build".equals(paymentType) || "Build QC".equals(paymentType)
+                    || "COO".equals(paymentType)) {
                 payment = new ComponentBuildPayment(userId, amount, client, referenceId);
                 description += " (" + paymentType + ")";
             } else if ("Deployment".equals(paymentType) || "Environment Setup".equals(paymentType)) {
