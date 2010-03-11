@@ -1,3 +1,14 @@
+<%--
+  - Author: TCSDEVELOPER, isv
+  - Version: 1.1
+  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page renders studio site top section.
+  -
+  - Version 1.1 (Studio Enhancements Release Assembly 1) Change notes:
+  - * Re-arranged content and updated URLs for relevant links.
+--%>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -54,47 +65,25 @@
             <div id="content">
                 <div class="contentTop">
                     <div class="contentMiddle">
+                        <h2 class="how-it-works-title">Clients have multiple designs to choose from. Designers have multiple ways to win.</h2>
 
-                        
-                        <div style="padding: 10px 0;">
-					      <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=getStarted">Overview</a>
-					    | <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=whyJoin">Why Join</a>
-					    | <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=memberRefferalProgram">Member Referral Program</a>
-						| <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=newMemberFaqs">New Member FAQs</a>
-						| <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=startingACompetition">Starting a Competition</a>
-					    </div>
-        
-                        <h1>Overview</h1>
-                        
-                        <h3>The TopCoder Studio Methodology</h3>
-						<p>
-						Studio challenges top creative talent from around the world to present their best concepts to clients searching for new design solutions.
-						</p>
-						<p>
-						<strong>Clients have multiple designs to choose from. Designers have multiple ways to win.</strong>
-						</p>
-						<p>
-						Our clients hold competitions where designers compete for cash prizes, along with placement points that accumulate for the opportunity to win larger cash awards in our monthly and annual tournaments. 
-						</p>
-						<p>
-						By tapping into a pool of creative people with multiple specialties, our clients benefit from new approaches and innovative concepts from a global community. Our competitors are here not just to win prizes, but to learn new skills, consult with peers, and earn the chance to be called one of the best designers in the world.
-                        </p>
-                        
-                        <h3>The Process</h3>
-                        <p>
-                        Studio helps clients specify the goals, requirements and scope of the design project. The competition is posted and Studio members submit their designs. The client then evaluates the submissions and chooses a winner (or multiple winners). The design is transferred to the client and the winners receive prizes and placement points for ongoing tournaments.
-						</p>
-						
-						<h3>The Designs</h3>
-                        <p>
-                        Clients engage the Studio community for design work ranging from icon creation to full application user interface design. In addition to logos, banners, print, apparel and other more traditional design work, members compete in Flash, widget design, Flex 3, HTML/CSS, Javascript and other development competitions. This allows Studio to take your project from the drawing board to production.
-                        </p>
-                        
-						<h3>The Approach</h3>
-                        <p>
-                        The Studio model allows work to be completed quickly and efficiently in many different ways. A large project can be completed by running several design competitions in parallel with each other. Mini-tournaments give clients the chance to hold "rounds" with a small group of finalists to produce a refined design. "Rapid Design Contests" and "Bug Races" can get small projects done with lightning speed.
-						</p>
-                        
+                        <p>At TopCoder Studio our clients hold competitions where designers compete for cash prizes,
+                            along with placement points that accumulate for the opportunity to win larger cash awards
+                            in our monthly and annual tournaments.</p>
+
+                        <p>By tapping into a pool of creative people with multiple specialties, our clients benefit from
+                            new approaches and innovative concepts from a global community. Our competitors are here not
+                            just to win prizes, but to learn new skills, consult with peers, and earn the chance to be
+                            called one of the best designers in the world.</p>
+
+                        <div class="leftDiv">
+                            <a href="http://<%=ApplicationServer.SERVER_NAME%>/home/studio/what-is-studio/">
+                                <img src="/i/v4/member_resources.jpg" alt="Member Resources" width="466" height="153"/></a>
+                        </div>
+                        <div class="rightDiv">
+                            <a href="http://<%=ApplicationServer.SERVER_NAME%>/home/direct">
+                                <img src="/i/v4/tc_direct.jpg" alt="TC Direct" width="466" height="153"/></a>
+                        </div>
                         <br clear="all"/>
                     </div>                
                     <div class="contentBottom"></div>

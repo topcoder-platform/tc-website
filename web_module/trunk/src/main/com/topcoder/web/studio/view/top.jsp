@@ -1,12 +1,16 @@
 <%--
-  - Author: TCSDEVELOPER
-  - Version: 1.1
+  - Author: TCSDEVELOPER, isv
+  - Version: 1.2
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page renders studio site top section.
   -
   - Version 1.1 (Studio Release Assembly 1) Change notes:
   - * Login box layout was modified.
+  -
+  - Version 1.2 (Studio Enhancements Release Assembly 1) Change notes:
+  - * Renamed FAQ link to Help link.
+  - * Updated URLs for Help and News links.
 --%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
@@ -67,7 +71,7 @@ String section = request.getParameter("section") == null ? "" : request.getParam
                 <li><a href="/?module=Static&amp;d1=support&amp;d2=getStarted" <% if (section.equals("howitworks")) {%> class="active"<% } %>>How It Works</a></li>
                 <li><a href="/?module=Static&d1=digitalrun&d2=2008v2&d3=home" <% if (section.equals("cup")) {%> class="active"<% } %>>Studio Cup</a></li>
                 <li><a href="/?module=MyStudioHome" <% if (section.equals("my_studio")) {%> class="active"<% } %>>My Studio</a></li>
-                <li><a href="http://studio.topcoder.com/blog/" <% if (section.equals("blog")) {%> class="active"<% } %>>Blog</a></li>
+                <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/home/studio/" <% if (section.equals("blog")) {%> class="active"<% } %>>Blog</a></li>
                 <li><a href="/?module=Static&amp;d1=portfolio&amp;d2=portfolio" <% if (section.equals("portfolio")) {%> class="active"<% } %>>Portfolio</a></li>
                 <li class="right"><a href="/?module=Static&amp;d1=contactUs" <% if (section.equals("contact")) {%> class="active"<% } %>>Contact Us</a></li>
             </ul>
@@ -102,7 +106,7 @@ String section = request.getParameter("section") == null ? "" : request.getParam
                         <li class="last-li"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">Studio Competitions</a></li>
                     </ul>
                 </li>
-                <li   id="studio" class="on" ><a href="http://studio.topcoder.com/">Studio</a>
+                <li   id="studio" class="on" ><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/">Studio</a>
                     <%--<ul>
                     <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">Active Contests</a></li>
                     <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/">Launch a Contest</a></li>
@@ -127,8 +131,8 @@ String section = request.getParameter("section") == null ? "" : request.getParam
         <div id="nav_support">
             <h3 class="hide">SUB Navigation</h3>
             <ul>
-                <li class="left"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&d1=support&d2=getStarted">FAQ</a></li>
-                <li><a href="http://www.topcoder.com/tc">News</a></li>
+                <li class="left"><a href="http://<%=ApplicationServer.SERVER_NAME%>/home/studio/the-process/">Help</a></li>
+                <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/home/studio/">News</a></li>
                 <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&amp;d1=contactUs">Contact Us</a></li>
 
                 <c:choose>
