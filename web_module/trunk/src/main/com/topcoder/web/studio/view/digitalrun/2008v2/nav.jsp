@@ -1,14 +1,3 @@
-<%--
-  - Author: TCSDEVELOPER, isv
-  - Version: 1.1
-  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
-  -
-  - Description: This page renders studio site top section.
-  -
-  - Version 1.1 (Studio Enhancements Release Assembly 1) Change notes:
-  - * Removed tid parameter from URL for ViewLeaderBoard action to cause
-  - * leaderboard for current month to be displayed by default.
---%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
 <%
@@ -50,7 +39,7 @@
     <% if (tabLev2.equals("leaderboard")) {%>
         | Leaderboard
     <% } else { %>
-         | <a class="bcLink" href="/dr?module=ViewLeaderBoard&sc=&sd=">Leaderboard</a>
+         | <a class="bcLink" href="/dr?module=ViewLeaderBoard&sc=&sd=&tid=2020">Leaderboard</a>
     <% } %>
 
 </p>
