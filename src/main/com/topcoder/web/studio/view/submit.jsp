@@ -2,7 +2,6 @@
 <%@ page import="java.util.Calendar" %>
 <%@ page import="java.util.GregorianCalendar" %>
 <%@ page import="java.sql.Timestamp" %>
-<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -18,39 +17,38 @@
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
-    <link href="/css/popup/modalPopup.css" type="text/css"  rel="stylesheet" />
+    
     <script src="/js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"></script>
     <script src="/js/NewStyleHeaderFooter/preloadCssImages.jQuery_v5.js" language="javascript"></script>
     <script type="text/javascript">
-            $(document).ready(function(){
-                //Run the script to preload images from CSS
-                $.preloadCssImages(); 
-            });
-    </script>
-    <script src="/js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
-    <script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
-    <script src="/js/modalPopup.js" type="text/javascript"></script>
-    <script type="text/javascript" language="javascript">
+			$(document).ready(function(){
+				//Run the script to preload images from CSS
+				$.preloadCssImages(); 
+			});
+	</script>
+	<script src="/js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
+	<script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
+	<script type="text/javascript" language="javascript">
 
-    $(document).ready(function(){
-    
-    
-        $("#nav ul li").hoverIntent(function(){
-            $(this).children("ul").slideDown("fast");
-        }, function() {
-            $(this).children("ul").slideUp("fast");
-        });
-        
-        $("#nav ul ul li").hover(function() {
-            $(this).parents("#nav ul li").children('a').addClass("active-item");
-        }, function() {
-            $(this).parents("#nav ul li").children('a').removeClass("active-item");
-        });
-    
-    
-    });
-    </script>
-    
+	$(document).ready(function(){
+	
+	
+		$("#nav ul li").hoverIntent(function(){
+			$(this).children("ul").slideDown("fast");
+		}, function() {
+			$(this).children("ul").slideUp("fast");
+		});
+		
+		$("#nav ul ul li").hover(function() {
+			$(this).parents("#nav ul li").children('a').addClass("active-item");
+		}, function() {
+			$(this).parents("#nav ul li").children('a').removeClass("active-item");
+		});
+	
+	
+	});
+	</script>
+	
     <script type="text/javascript" src="/js/taconite-client.js"></script>
     <script type="text/javascript" src="/js/taconite-parser.js"></script>
     <script type="text/javascript" src="/js/fat.js"></script>
@@ -101,13 +99,13 @@
 </head>
 
 <body>
-    <div id="page-wrap">
-        <div align="center">
-            <jsp:include page="top.jsp"/>
+	<div id="page-wrap">
+    	<div align="center">
+			<jsp:include page="top.jsp"/>
         <br />
         <!-- container -->
         <div id="container">
-            <div id="wrapper">
+        	<div id="wrapper">
     
             <!-- content -->
             <div id="content">
@@ -127,17 +125,20 @@
 <h1>Submit Your Design</h1>
         <p>Thank you for accepting the terms of the contest. Please use the form below to upload your submission.</p>
         <h2>Upload Submission</h2>
+        <p>Please follow the instructions on the Contest Details page regarding how to format your ZIP file.</p>
+        <p>The following file formats are acceptable in your source folder:</p>
 
-        <p>Please follow the instructions on the Contest Details page regarding what your submission, source and preview
-            files should contain.</p>                
-        <p><a href="http://<%=ApplicationServer.SERVER_NAME%>/home/studio/the-process/how-to-submit-to-a-contest/">Learn more about how to format your submission here</a>.</p>
-        <p>Please be sure to double-check that you have submitted the correct files and that your JPG files
-            (if applicable) are in RGB color mode. </p>
-                        
+        <ul class="submit_form_list">
+            <c:forEach items="${contest.fileTypes}" var="fileType">
+                <li>
+                        ${fileType.description}
+                </li>
+            </c:forEach>
+        </ul>
         <div class="statHolder">
-        <div class="NE"><img src="i/v2/stat_tableNE.png" alt="" /></div>
-        <div class="NW"><img src="i/v2/stat_tableNW.png" alt="" /></div>
-        <div class="container">
+    	<div class="NE"><img src="i/v2/stat_tableNE.png" alt="" /></div>
+    	<div class="NW"><img src="i/v2/stat_tableNW.png" alt="" /></div>
+    	<div class="container">
             <form action="${sessionInfo.servletPath}" method="POST" name="submitForm" enctype="multipart/form-data" onsubmit="showProcessing()">
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>
                 <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
@@ -168,18 +169,7 @@
                     <td class="label"><tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION_RANK%>"><span class="bigRed">${err}</span>
                         <br /></tc-webtag:errorIterator>
                     as rank:&nbsp;<tc-webtag:textInput name="<%=Constants.SUBMISSION_RANK%>" maxlength="3" size="2"/>                    </td>
-                    <td class="browse">
-                    <c:choose>
-                        <c:when test="${not empty has_global_ad and has_global_ad}">
-                        <%-- HAVE AD --%>
-                            <span id="submitButton">
-                        </c:when>
-                        <c:otherwise>
-                        <%-- NO AD --%>
-                            <span id="submitButton" class="no_global_ad">
-                        </c:otherwise>
-                    </c:choose>
-                    <input type="image" src="/i/v2/interface/btnSubmit.png" /></span></td>
+                    <td class="browse"><span id="submitButton"><input type="image" src="/i/v2/interface/btnSubmit.png" /></span></td>
                   </tr>
                 </table>
                 
@@ -187,7 +177,7 @@
             </form>
         </div>
         <div class="SE"><img src="i/v2/stat_tableSE.png" alt="" /></div>
-        <div class="SW"><img src="i/v2/stat_tableSW.png" alt="" /></div>
+    	<div class="SW"><img src="i/v2/stat_tableSW.png" alt="" /></div>
         </div>
 
 
@@ -198,7 +188,7 @@
 
 
 <div>
-    <p>&nbsp;</p>
+	<p>&nbsp;</p>
     <h2>Rank Your Submissions</h2>
     <form name="submissionForm" action="#">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="BatchUpdateRank"/>
