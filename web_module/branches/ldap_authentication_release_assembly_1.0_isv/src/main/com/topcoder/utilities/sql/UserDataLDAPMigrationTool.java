@@ -5,14 +5,11 @@ package com.topcoder.utilities.sql;
 
 import com.topcoder.security.ldap.LDAPClient;
 import com.topcoder.security.ldap.LDAPClientException;
-import com.topcoder.security.ldap.LDAPConstants;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.sql.DBUtility;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * <p>A DB utility which is intended to migrate basic data for <code>TopCoder</code> member accounts from database to
@@ -131,15 +128,8 @@ public class UserDataLDAPMigrationTool extends DBUtility {
 
                 // Migrate single member profile. If an error occurs then log it and continue migrating next profiles
                 try {
-                    // Create map with profile properties
-                    Map<String, Object> profile = new HashMap<String, Object>();
-                    profile.put(LDAPConstants.MEMBER_PROFILE_PROPERTY_HANDLE, handle);
-                    profile.put(LDAPConstants.MEMBER_PROFILE_PROPERTY_PASSWORD, new String(password));
-                    profile.put(LDAPConstants.MEMBER_PROFILE_PROPERTY_STATUS, status);
-                    profile.put(LDAPConstants.MEMBER_PROFILE_PROPERTY_USERID, userId);
-                    
                     // Add entry to LDAP directory and log the result
-                    ldapClient.addTopCoderMemberProfile(profile);
+                    ldapClient.addTopCoderMemberProfile(userId, handle, new String(password), status);
                     logMigrationResult(userId, handle, status);
                 } catch (Exception e) {
                     logMigrationErrorResult(userId, handle, status, e.getMessage());

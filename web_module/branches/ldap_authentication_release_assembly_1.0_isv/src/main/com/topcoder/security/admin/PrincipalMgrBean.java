@@ -6,7 +6,6 @@ package com.topcoder.security.admin;
 import com.topcoder.security.*;
 import com.topcoder.security.ldap.LDAPClient;
 import com.topcoder.security.ldap.LDAPClientException;
-import com.topcoder.security.ldap.LDAPConstants;
 import com.topcoder.util.idgenerator.IDGenerationException;
 import com.topcoder.util.idgenerator.IDGenerator;
 import com.topcoder.util.idgenerator.IDGeneratorFactory;
@@ -19,9 +18,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 /**
@@ -292,7 +289,7 @@ public class PrincipalMgrBean extends BaseEJB {
             ps.setEscapeProcessing(true);
             ps.setLong(1, userId);
             ps.setString(2, username);
-            ps.setString(3, "");
+            ps.setString(3, encPassword);
             ps.executeUpdate();
             UserPrincipal up = new UserPrincipal(username, userId);
             addTopCoderMemberLDAPEntry(userId, username, encPassword, "U");
@@ -350,7 +347,7 @@ public class PrincipalMgrBean extends BaseEJB {
             ps.setEscapeProcessing(true);
             ps.setLong(1, userId);
             ps.setString(2, username);
-            ps.setString(3, "");
+            ps.setString(3, encPassword);
             ps.executeUpdate();
             UserPrincipal up = new UserPrincipal(username, userId);
             addTopCoderMemberLDAPEntry(userId, username, encPassword, "U");
@@ -441,10 +438,24 @@ public class PrincipalMgrBean extends BaseEJB {
         logger.debug("UserPrincipal.editPassword");
         String encPassword = Util.encodePassword(password, "users");
         long userId = user.getId();
+        String query = "UPDATE security_user SET password = ? WHERE login_id = ?";
+        InitialContext ctx = null;
+        PreparedStatement ps = null;
+        Connection conn = null;
         try {
+            ctx = new InitialContext();
+            conn = Util.getConnection(ctx, dataSource);
+            ps = conn.prepareStatement(query);
+            ps.setString(1, encPassword);
+            ps.setLong(2, userId);
+            ps.executeUpdate();
             changeTopCoderMemberLDAPPassword(userId, encPassword);
         } catch (Exception e) {
             throw new GeneralSecurityException(e);
+        } finally {
+            close(ps);
+            close(conn);
+            close(ctx);
         }
         return user;
     }
@@ -968,18 +979,11 @@ public class PrincipalMgrBean extends BaseEJB {
     private void addTopCoderMemberLDAPEntry(long userId, String handle, String password, String status)
         throws LDAPClientException {
 
-        // Create map with profile properties
-        Map<String, Object> profile = new HashMap<String, Object>();
-        profile.put(LDAPConstants.MEMBER_PROFILE_PROPERTY_HANDLE, handle);
-        profile.put(LDAPConstants.MEMBER_PROFILE_PROPERTY_PASSWORD, password);
-        profile.put(LDAPConstants.MEMBER_PROFILE_PROPERTY_STATUS, status);
-        profile.put(LDAPConstants.MEMBER_PROFILE_PROPERTY_USERID, userId);
-
         // Add entry to LDAP directory
         LDAPClient ldapClient = new LDAPClient();
         try {
             ldapClient.connect();
-            ldapClient.addTopCoderMemberProfile(profile);
+            ldapClient.addTopCoderMemberProfile(userId, handle, password, status);
         } finally {
             try {
                 ldapClient.disconnect();

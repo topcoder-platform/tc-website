@@ -14,6 +14,7 @@ import com.topcoder.util.net.ldap.sdkinterface.Values;
 
 import java.text.MessageFormat;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
@@ -237,20 +238,25 @@ public class LDAPClient {
     /**
      * <p>Adds new <code>LDAP</code> entry for <code>TopCoder</code> member profile with specified properties.</p>
      *
-     * @param profile a <code>Map</code> mapping the profile attribute names to profile attribute values. 
+     * @param userId a <code>long</code> providing the unique ID for <code>TopCoder</code> member profile.
+     * @param handle a <code>String</code> providing the unique handle for <code>TopCoder</code> member profile.
+     * @param password a <code>String</code> providing the password for <code>TopCoder</code> member profile.
+     * @param status a <code>String</code> providing the status for <code>TopCoder</code> member profile. 
      * @throws LDAPClientException if an unexpected error occurs while adding new <code>LDAP</code> entry for specified
      *         member profile.
      * @throws IllegalStateException if this client is not connected to <code>LDAP</code> server yet.
      */
-    public void addTopCoderMemberProfile(Map<String, Object> profile) throws LDAPClientException {
-        checkConnection();
-        validateTopCoderMemberProfile(profile);
+    public void addTopCoderMemberProfile(long userId, String handle, String password, String status)
+        throws LDAPClientException {
 
-        // Get profile properties
-        String handle = (String) profile.get(MEMBER_PROFILE_PROPERTY_HANDLE);
-        String password = (String) profile.get(MEMBER_PROFILE_PROPERTY_PASSWORD);
-        String status = (String) profile.get(MEMBER_PROFILE_PROPERTY_STATUS);
-        Long userId = (Long) profile.get(MEMBER_PROFILE_PROPERTY_USERID);
+        checkConnection();
+
+        Map<String, Object> profile = new HashMap<String, Object>();
+        profile.put(MEMBER_PROFILE_PROPERTY_USERID, userId);
+        profile.put(MEMBER_PROFILE_PROPERTY_HANDLE, handle);
+        profile.put(MEMBER_PROFILE_PROPERTY_PASSWORD, password);
+        profile.put(MEMBER_PROFILE_PROPERTY_STATUS, status);
+        validateTopCoderMemberProfile(profile);
 
         // Create the LDAP entry matching the profile
         Entry ldapEntry = new Entry(MessageFormat.format(TOPCODER_MEMBER_ENTRIES_DN_TEMPLATE, handle));
