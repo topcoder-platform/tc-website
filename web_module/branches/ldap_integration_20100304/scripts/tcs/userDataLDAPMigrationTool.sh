@@ -18,7 +18,7 @@ CP=$CP:../../lib/jars/ifxjdbc.jar
 #CP=$CP:../../lib/jars/activation.jar
 
 CP=$CP:../../lib/jars/tcs/base_exception/2.0.0/base_exception.jar
-CP=$CP:../../lib/jars/tcs/ldap_sdk_interface.jar
+CP=$CP:../../lib/jars/tcs/ldap_sdk_interface/1.0.2/ldap_sdk_interface.jar
 CP=$CP:../../lib/jars/netscape_ldap_sdk.jar
 
 CP=$CP:../../../shared/build/artifacts/shared-SNAPSHOT.jar

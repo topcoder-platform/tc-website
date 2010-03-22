@@ -292,7 +292,7 @@ public class PrincipalMgrBean extends BaseEJB {
             ps.setString(3, encPassword);
             ps.executeUpdate();
             UserPrincipal up = new UserPrincipal(username, userId);
-            addTopCoderMemberLDAPEntry(userId, username, encPassword, "U");
+            addTopCoderMemberLDAPEntry(userId, username, password, "U");
             return up;
         } catch (SQLException e) {
             throw new GeneralSecurityException(e);
@@ -350,7 +350,7 @@ public class PrincipalMgrBean extends BaseEJB {
             ps.setString(3, encPassword);
             ps.executeUpdate();
             UserPrincipal up = new UserPrincipal(username, userId);
-            addTopCoderMemberLDAPEntry(userId, username, encPassword, "U");
+            addTopCoderMemberLDAPEntry(userId, username, password, "U");
             return up;
         } catch (SQLException e) {
             throw new GeneralSecurityException(e);
@@ -449,7 +449,7 @@ public class PrincipalMgrBean extends BaseEJB {
             ps.setString(1, encPassword);
             ps.setLong(2, userId);
             ps.executeUpdate();
-            changeTopCoderMemberLDAPPassword(userId, encPassword);
+            changeTopCoderMemberLDAPPassword(userId, password);
         } catch (Exception e) {
             throw new GeneralSecurityException(e);
         } finally {

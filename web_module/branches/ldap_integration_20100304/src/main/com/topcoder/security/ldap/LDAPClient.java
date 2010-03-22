@@ -148,7 +148,7 @@ public class LDAPClient {
         LDAPSDKConnection ldapConnection = null;
         try {
             LDAPSDK sdk = new LDAPSDK(CONNECTION_FACTORY);
-            ldapConnection = sdk.createConnection();
+            ldapConnection = sdk.createSSLConnection();
             ldapConnection.connect(HOST, PORT);
             ldapConnection.authenticate(userEntryDN, password);
             Entry entry = ldapConnection.readEntry(userEntryDN);
@@ -169,11 +169,11 @@ public class LDAPClient {
                 log.debug("User " + handle + " failed to pass authentication against LDAP server", e);
                 throw LDAPClientException.createInvalidCredentialsException(handle);
             } else {
-                log.error("Failed to authenticate user " + handle + " due to unexpected error");
+                log.error("Failed to authenticate user " + handle + " due to unexpected error", e);
                 throw LDAPClientException.createUnexpectedErrorException(e);
             }
         } catch (LDAPSDKException e) {
-            log.error("Failed to authenticate user " + handle + " due to unexpected error");
+            log.error("Failed to authenticate user " + handle + " due to unexpected error", e);
             throw LDAPClientException.createUnexpectedErrorException(e);
         } finally {
             if (ldapConnection != null) {
@@ -195,7 +195,7 @@ public class LDAPClient {
     public void connect() throws LDAPClientException {
         try {
             LDAPSDK sdk = new LDAPSDK(CONNECTION_FACTORY);
-            LDAPSDKConnection ldapConnection = sdk.createConnection();
+            LDAPSDKConnection ldapConnection = sdk.createSSLConnection();
             ldapConnection.connect(HOST, PORT);
             ldapConnection.authenticate(BIND_DN, BIND_PASSWORD);
             this.ldapConnection = ldapConnection;

@@ -15,7 +15,7 @@ import com.topcoder.web.reg.Constants;
 import java.util.Arrays;
 
 /**
- * <p>A controller for requests for activating newly created user accounts.</p>
+ * <p>A controller for requests for activating newlyc reated user accounts.</p>
  *
  *
  * <p>Version 2.0 (LDAP Authentication Release Assembly v1.0) change notes:

@@ -87,8 +87,7 @@ public class LoginBean extends BaseEJB {
         checkLength(password, SecurityDB.maxPasswordLength);
 
         // Authenticate user against LDAP server and map user to user ID
-        String encryptedPassword = Util.encodePassword(password, "users");
-        long userId = loginToLDAPDirectory(username, encryptedPassword);
+        long userId = loginToLDAPDirectory(username, password);
         logger.debug("Logging in login_id: " + userId);
 
         // Collect user's roles from database
