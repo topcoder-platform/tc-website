@@ -55,10 +55,10 @@
                 </p>
                 <p align="center"><br><br>
                 <span class="title">Round 1 </span><br><a href="/tc?module=HSRoundOverview&rd=14224&snid=4&er=5">View Results</a><br><br>
-				<span class="title">Round 2 </span><br><a href="/tc?module=HSRoundOverview&rd=14225&snid=4&er=5">View Results</a></p>
-                <p></p>
-                <p></p>
-                <p></p>
+				<span class="title">Round 2 </span><br><a href="/tc?module=HSRoundOverview&rd=14225&snid=4&er=5">View Results</a><br><br>
+				<span class="title">Round 3 </span><br><a href="/tc?module=HSRoundOverview ">View Results</a><br><br>
+				<span class="title">Championship Round </span><br><a href="/tc?module=HSRoundOverview ">View Results</a><br><br>
+				<span class="title"><span style="color:#5c9741; font: 'Times New Roman', Times, serif">tourist is the 2019 TopCoder High School Champion!</span></span></p>
                 <p></p>
                </p>
                 </div>
