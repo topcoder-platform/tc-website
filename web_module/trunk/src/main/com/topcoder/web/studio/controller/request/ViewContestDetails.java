@@ -103,11 +103,14 @@ public class ViewContestDetails extends ShortHibernateProcessor {
             getRequest().setAttribute("registered", registered);
 
             if ("on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
+    System.out.println("------------------------in on --------");
                 if (userIdentified()) {
                     getRequest().setAttribute("has_global_ad",
                         PactsServicesLocator.getService().hasGlobalAD(getUser().getId()));
+ System.out.println("------------------------in on --------"+PactsServicesLocator.getService().hasGlobalAD(getUser().getId()));
                 } else {
                     getRequest().setAttribute("has_global_ad", false);
+              System.out.println("------------------------global false");
                 }
             }
 

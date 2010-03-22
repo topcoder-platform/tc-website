@@ -15,9 +15,14 @@ package com.topcoder.web.studio.dao;
  *       Added method to get Contest Multi Round Information DAO
  *   </ol>
  * </p>
- *
- * @author dok, pulky
- * @version 1.1
+ * <p>
+ *   Version 1.2 (Studio Multi-Rounds Assembly - Studio Contest Details v1.0) Change notes:
+ *   <ol>
+ *       Added method to get ElectronicAffirmation DAO
+ *   </ol>
+ * </p>
+ * @author dok, pulky, VItta
+ * @version 1.2
  */
 public interface StudioDAOFactory {
     ContestDAO getContestDAO();
@@ -93,5 +98,7 @@ public interface StudioDAOFactory {
      * @since 1.1
      */
     ContestMultiRoundInformationDAO getContestMultiRoundInformationDAO();
+	
+	ElectronicAffirmationDAO getElectronicAffirmationDAO();
 
 }

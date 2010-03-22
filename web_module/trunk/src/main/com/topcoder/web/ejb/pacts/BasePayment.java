@@ -53,9 +53,15 @@ import java.util.Date;
  *     <li>Added support for new Test Scenarios competitions.</li>
  *   </ol>
  * </p>
+ * <p>
+ *   Version 1.5 (Studio Electronic Assignment Document Assembly version 1.0) Change notes:
+ *   <ol>
+ *     <li>Add a field hasGlobalAD to reflect the AD</li>
+ *   </ol>
+ * </p> 
  *
- * @author cucu, pulky
- * @version 1.4
+ * @author cucu, pulky, Vitta
+ * @version 1.5
  */
 public abstract class BasePayment implements Constants, java.io.Serializable {
     private static Logger log = Logger.getLogger(BasePayment.class);
@@ -90,6 +96,12 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
     private int modificationRationale = 0;
 
     private String client = null;
+	
+	/**
+	 * Indicate whether have the global AD.
+	 * @since 1.5
+	 */
+	private boolean hasGlobalAD; 
 
     /**
      * Create a base payment.
@@ -602,6 +614,23 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
 
     public void setContractId(long contractId) {
         this.contractId = contractId;
+    }
+    /**
+     * Return the global ad.
+     * @return hasGlobalAD the new global ad.
+	 * @since 1.5
+     */
+	public boolean getHasGlobalAD() {
+        return hasGlobalAD;
+    }
+	
+    /**
+     * Set the global ad.
+     * @param hasGlobalAD the new global ad.
+	 * @since 1.5
+     */
+    public void setHasGlobalAD(boolean hasGlobalAD) {
+        this.hasGlobalAD = hasGlobalAD;
     }
 
     /**

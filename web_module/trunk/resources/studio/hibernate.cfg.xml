@@ -151,6 +151,7 @@
         <mapping resource="com/topcoder/web/studio/model/SubmissionReview.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/SubmissionStatus.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/SubmissionType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/model/ElectronicAffirmation.hbm.xml"/>		
 
         <mapping resource="com/topcoder/web/common/voting/Candidate.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/voting/CandidateInfo.hbm.xml"/>
