@@ -39,7 +39,7 @@
 
                 <div align="center"><br><br>
                     <img src="/i/tournament/tchs10/tchs10-logo.png" alt="TopCoder High School" border="0"><br><br><br><br>
-				<span class="title"><span style="color:#5c9741; font: 'Times New Roman', Times, serif">tourist is the 2019 TopCoder High School Champion!</span></span><br>
+				<span class="title"><span style="color:#5c9741; font: 'Times New Roman', Times, serif"><a href="http://www.topcoder.com/tc?module=MemberProfile&cr=22263204" target="_blank" class="coderTextRed">tourist</a> is the 2010 TopCoder High School Champion!</span></span><br>
                 </div>
                 <br />
                 <div align="center">
