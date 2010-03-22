@@ -62,6 +62,23 @@
         
         <div id="pr_content" align="left">
         <div class="pr_subheader">
+                <h2><span>2010</span></h2>
+            </div>
+                
+            <%-- pr_border creation --%>
+            <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
+            
+                <div class="pr_newsarchive">
+                    <dl>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_032210">Student from Belarus is Champion in 2010 TopCoder High School Global Programming Tournament<br /><small style="margin-left:10px;">[March 22nd]</small></a></dd>
+                    </dl>
+                </div>
+            </div></div></div>
+            
+            
+        
+        <div id="pr_content" align="left">
+        <div class="pr_subheader">
                 <h2><span>2009</span></h2>
             </div>
         
