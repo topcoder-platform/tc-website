@@ -175,8 +175,8 @@ public class ScorecardDetails extends Base {
         }
 
         // if has eligibility and user is not eligible
-        if ((ContestEligibilityServiceLocator.getServices().hasEligibility(pid, false))
-              && !ContestEligibilityServiceLocator.getServices().isEligible(userId, pid, false)) {
+        if ((hasEligibility(pid))
+              && !isEligible(userId, pid)) {
             return false;
         }
         
@@ -293,5 +293,57 @@ public class ScorecardDetails extends Base {
             }
         }
         return true;
+    }
+
+
+    protected boolean hasEligibility(long pid) throws Exception
+    {
+        Request r = new Request();
+        ResultSetContainer detail=null;
+
+         r.setContentHandle("has_eligibility");
+         r.setProperty(Constants.PROJECT_ID, String.valueOf(pid));
+         Map results = getDataAccess().getData(r);
+
+         if (results == null || results.size() == 0)
+         {
+             return false;
+         }
+
+         detail = (ResultSetContainer) results.get("has_eligibility");
+
+         if (detail != null && !detail.isEmpty()
+              && detail.getStringItem(0, "has_eligibility") != null
+              && !detail.getStringItem(0, "has_eligibility").equals(""))
+         {
+             return true;
+         }
+         return false;
+    }
+
+    protected boolean isEligible(long userId, long pid) throws Exception
+    {
+        Request r = new Request();
+        ResultSetContainer detail=null;
+
+         r.setContentHandle("is_eligible");
+         r.setProperty(Constants.PROJECT_ID, String.valueOf(pid));
+         r.setProperty(Constants.USER_ID, String.valueOf(userId));
+         Map results = getDataAccess().getData(r);
+
+         if (results == null || results.size() == 0)
+         {
+             return false;
+         }
+
+         detail = (ResultSetContainer) results.get("is_eligible");
+
+         if (detail != null && !detail.isEmpty()
+              && detail.getStringItem(0, "is_eligible") != null
+              && !detail.getStringItem(0, "is_eligible").equals(""))
+         {
+             return true;
+         }
+         return false;
     }
 }
