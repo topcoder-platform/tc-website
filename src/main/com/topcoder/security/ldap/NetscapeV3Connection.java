@@ -16,10 +16,10 @@ import netscape.ldap.LDAPConnection;
 import netscape.ldap.LDAPEntry;
 import netscape.ldap.LDAPModificationSet;
 import netscape.ldap.LDAPSearchResults;
-import netscape.ldap.LDAPSSLSocketFactory;
 import netscape.ldap.LDAPAttributeSet;
 import netscape.ldap.LDAPAttribute;
 import netscape.ldap.LDAPModification;
+import netscape.ldap.factory.JSSESocketFactory;
 
 import java.util.Iterator;
 import java.util.Hashtable;
@@ -47,6 +47,11 @@ class NetscapeV3Connection implements LDAPSDKConnection {
      * actions on entries in <code>LDAP</code> directory.</p>
      */
     private LDAPConnection connection = null;
+
+    /**
+     * <p>A <code>boolean</code> flag indicating if this is a TLS/SSL connection.</p>
+     */
+    private boolean isSSL = false;
 
     /**
      * <p>Constructs new <code>NetscapeV3Connection</code> instance.</p>
@@ -94,6 +99,13 @@ class NetscapeV3Connection implements LDAPSDKConnection {
 
         try {
             connection.connect(host, port);
+            if (this.isSSL) {
+                connection.setSocketFactory(new JSSESocketFactory(new String[] {"TLS_RSA_WITH_AES_128_CBC_SHA",
+                                                                                "TLS_DHE_RSA_WITH_AES_128_CBC_SHA",
+                                                                                "TLS_DHE_DSS_WITH_AES_128_CBC_SHA"}));
+//                connection.setSocketFactory(new JSSESocketFactory(null));
+                connection.startTLS();
+            }
         } catch (LDAPException e) {
             rethrow(e);
         }
@@ -743,7 +755,8 @@ class NetscapeV3Connection implements LDAPSDKConnection {
      */
     private void createLDAPConnection(boolean isSSL) {
         if (isSSL) {
-            this.connection = new LDAPConnection(new LDAPSSLSocketFactory());
+            this.connection = new LDAPConnection();
+            this.isSSL = isSSL;
         } else {
             this.connection = new LDAPConnection();
         }
