@@ -90,11 +90,17 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
  *     <li>Updated <code>serialVersionUID</code> static field.</p>
  *   </ol>
  * </p>
+ * <p>
+ *   Version 1.4 (Studio Electronic Assignment Document Assembly version 1.0) Change notes:
+ *   <ol>
+ *     <li>Change the process of add payment</li>
+ *   </ol>
+ * </p> 
   *
  * <p>VERY IMPORTANT: remember to update serialVersionUID if needed.</p>
  *
- * @author Dave Pecora, pulky, isv
- * @version 1.3
+ * @author Dave Pecora, pulky, isv, Vitta
+ * @version 1.4
  * @see PactsConstants
  */
 public class PactsServicesBean extends BaseEJB implements PactsConstants {
@@ -2011,7 +2017,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Returns an assignment document template
      *
-     * @param conn the Connection to use
+     * @param conn                     the Connection to use
+     * @param assignmentDocumentTypeId the Assignment Document's type id
      * @return The required assignment document template
      * @throws SQLException If there is some problem retrieving the data
      */
@@ -3810,13 +3817,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             // Add the payment record
             StringBuffer insertPayment = new StringBuffer(300);
             insertPayment.append("INSERT INTO payment ");
-            insertPayment.append(" (payment_id, user_id, most_recent_detail_id,  ");
+            insertPayment.append(" (payment_id, user_id, most_recent_detail_id, has_global_ad, ");
             insertPayment.append("  referral_payment_id) ");
-            insertPayment.append(" VALUES(?,?,?," + referralStr + ")");
+            insertPayment.append(" VALUES(?,?,?,?," + referralStr + ")");
             ps = c.prepareStatement(insertPayment.toString());
             ps.setLong(1, paymentId);
             ps.setLong(2, p.getHeader().getUser().getId());
             ps.setLong(3, paymentDetailId);
+            ps.setBoolean(4, p.getHasGlobalAD());
             ps.executeUpdate();
             ps.close();
             ps = null;
@@ -4877,6 +4885,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
 
     public boolean hasGlobalAD(long userId) throws SQLException {
+
         if ("on".equalsIgnoreCase(com.topcoder.web.tc.Constants.GLOBAL_AD_FLAG)) {
             StringBuffer query = new StringBuffer(300);
             query.append("SELECT COUNT(*) FROM assignment_document WHERE user_id = " + userId);
@@ -4890,6 +4899,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 c = DBMS.getConnection(trxDataSource);
                 ResultSetContainer rsc = runSelectQuery(c, query.toString());
                 ret = Integer.parseInt(rsc.getItem(0, 0).toString()) > 0;
+        
             } finally {
                 close(c);
             }
