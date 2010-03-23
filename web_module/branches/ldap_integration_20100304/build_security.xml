@@ -61,6 +61,7 @@
         <pathelement location="${jars.dir}/jboss/jboss-system.jar"/>
         <pathelement location="${jars.dir}/jboss/jboss-cache.jar"/>
         <pathelement location="${jars.dir}/jboss/jgroups.jar"/>
+        <pathelement location="${jars.dir}/jboss/scheduler-plugin.jar"/>
 
         <!-- TCS Components -->
 
@@ -94,7 +95,6 @@
         <pathelement location="${external.jars.dir}/jboss-4.2.2-ejb3x.jar"/>
         <pathelement location="${external.jars.dir}/jboss-4.2.2-jaxws.jar"/>
         <pathelement location="${external.jars.dir}/jaxb-api-jboss-4.2.2.jar"/>
-        <pathelement location="${external.jars.dir}/scheduler-plugin.jar"/>
     </path>
     <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
     <property name="class.path" refid="class.path"/>
