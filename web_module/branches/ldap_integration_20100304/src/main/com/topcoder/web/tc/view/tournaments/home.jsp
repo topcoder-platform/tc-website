@@ -58,8 +58,12 @@
 --%>
 
  
-   <div class="sectionHeader">Current Tournaments</div>
+   <!--<div class="sectionHeader">Current Tournaments</div>-->
 
+   
+   <hr width="100%" size="1" noshade="noshade" />
+   
+   <div class="sectionHeader" width="100%">Past Tournaments</div>
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
       <tr valign="top">
          <td style="padding-right: 8px;"><a href="/tc?module=Static&d1=hs&d2=home"><img src="/i/tournament/tchs10/tchs10_tourn_logo.png" alt="TopCoder High School" border="0"></a><br /></td>
@@ -75,9 +79,7 @@
    </table>
    
    <hr width="100%" size="1" noshade="noshade" />
-   
-   <div class="sectionHeader" width="100%">Past Tournaments</div>
-   
+
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
       <tr valign="top">
          <td style="padding-right: 8px;"><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=overview"><img src="/i/tournament/tco09/photo_tco09_winners.png" alt="2009 TopCoder Open" border="0"/></a><br /></td>

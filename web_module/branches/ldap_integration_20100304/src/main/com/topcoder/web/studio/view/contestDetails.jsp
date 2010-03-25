@@ -12,6 +12,8 @@
   -     - If the contest is a multi-round contest display the milestone prize amount below the standard prize list.
   - Version 1.2 (BUGR-2890) changes:
   -     - If the user has cockpit permissions, show downloads section.
+  - Version 1.3 (Studio Electronic Assignment Document Assembly version 1.0) changes:
+  -     - Change the 3 steps to 2 steps.  
 --%>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.studio.model.PrizeType" %>
@@ -29,6 +31,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico" />
+	<link href="/css/popup/modalPopup.css" type="text/css"  rel="stylesheet" />		
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>TopCoder Studio : Contest Details</title>
         <jsp:include page="style.jsp">
@@ -38,6 +41,7 @@
     <script src="/js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"></script>
     <script src="/js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
     <script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
+
     <script type="text/javascript" language="javascript">
 
     $(document).ready(function(){
@@ -355,66 +359,19 @@
 </table>
 
 <c:if test="${currentTime<=contest.endTime && currentTime>=contest.startTime}">
-    <div id="conDetInstructionsBox">
-        <ul>
-            <c:choose>
-                <c:when test="${registered}">
-                    <%-- REGISTERED --%>
-                    <li>
-                        <div>
-                            <a href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="icon"><img src="/i/v2/interface/1NA.png" alt="1"/></a>
-                            <a href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="grayedOut">Register for this contest.</a>
-                        </div>
-                    </li>
-
-                </c:when>
-                <c:otherwise>
-                    <%-- UNREGISTERED --%>
-                    <li>
-                        <div>
-                            <a href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="icon"><img src="/i/v2/interface/1.png" alt="1"/></a>
-                            <a href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Register for this contest.</a>
-                        </div>
-                    </li>
-                </c:otherwise>
-            </c:choose>
-
-
-            <c:choose>
-                <c:when test="${not empty has_global_ad}">
-                    <li>
-                        <div>
-                            <c:choose>
-                                <c:when test="${has_global_ad}">
-                                    <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq" class="icon"><img src="/i/v2/interface/2NA.png" alt="2"/></a>
-                                    <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq" class="grayedOut">Sign &amp; submit an Assignment Document</a><span class="small grayedOut">(<a href="/?module=AssignmentDocumentHistory" class="grayedOut">Check the status of your AD before continuing</a>)</span>
-                                </c:when>
-                                <c:otherwise>
-                                    <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq" class="icon"><img src="/i/v2/interface/2.png" alt="2"/></a>
-                                    <a href="/?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">Sign & submit an Assignment Document</a><br /><span class="small grayedOut">(<a href="/?module=AssignmentDocumentHistory" class="grayedOut">Check the status of your AD before continuing</a>)</span>
-                                </c:otherwise>
-                            </c:choose>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="icon"><img src="/i/v2/interface/3.png" alt="3"/></a>
-                            <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Submit your entry.</a>
-                        </div>
-                    </li>
-                </c:when>
-                <c:otherwise>
-                    <li>
-                        <div>
-                            <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="icon"><img src="/i/v2/interface/2.png" alt="2"/></a>
-                            <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Submit your entry.</a>
-                        </div>
-                    </li>
-                </c:otherwise>
-            </c:choose>
-
-        </ul>
-    </div>
+	<div class=header><span>How to Compete</span></div>
+	<c:choose>
+		<c:when test="${registered}">
+			<%-- REGISTERED --%>
+				<a id="button-register-contest" href="javascript:;" class="disabled" title="Register for this contest"></a>
+				<a id="button-submit-entries" href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" title="Submit your entries"></a>
+		</c:when>
+		<c:otherwise>
+			<%-- UNREGISTERED --%>
+				<a id="button-register-contest" href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}" title="Register for this contest"></a>
+				<a id="button-submit-entries" class="disabled" href="javascript:;" title="Submit your entries"></a>
+		</c:otherwise>
+	</c:choose>
 </c:if>
 
  <%-- Contest Summary --%>
