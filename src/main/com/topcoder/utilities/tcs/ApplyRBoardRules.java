@@ -646,6 +646,7 @@ public class ApplyRBoardRules extends DBUtility {
         query.append("pi_rating_date.project_id = p.project_id and ");
         query.append("pi_comp_id.project_info_type_id = 2 and ");
         query.append("pi_comp_id.project_id = p.project_id and ");
+        query.append("p.project_id not in (select ce.contest_id from contest_eligibility ce where ce.is_studio = 0) and ");
         query.append("cc.component_id = pi_comp_id.value and p.project_id = pr.project_id and  ");
         query.append("mdy(substr(pi_rating_date.value,1,2), substr(pi_rating_date.value,4,2), substr(pi_rating_date.value,7,4)) >= DATE(current) - ? UNITS DAY and  ");
         query.append("cc.root_category_id = cac.category_id and pr.final_score >= ? and  ");
@@ -671,6 +672,7 @@ public class ApplyRBoardRules extends DBUtility {
         query.append("      pi_open.project_info_type_id = 12 and ");
         query.append("      pi_open.project_id = p.project_id and ");
         query.append("      pi_open.value = 'Yes' and ");
+        query.append("      p.project_id not in (select ce.contest_id from contest_eligibility ce where ce.is_studio = 0) and ");
         query.append("      p.project_status_id in (4,5,6,7,8) and ");  // completed or canceled
         query.append("      cc.component_id = pi_comp_id.value and  ");
         query.append("      cc.root_category_id = cac.category_id and  ");

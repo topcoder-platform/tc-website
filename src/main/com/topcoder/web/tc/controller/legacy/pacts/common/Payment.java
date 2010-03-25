@@ -81,6 +81,8 @@ public class Payment implements PactsConstants, java.io.Serializable {
     // When the event took place. Is not stored in the db, but is needed in order to know if referrals must be paid
     private Date eventDate;
 
+    private boolean hasGlobalAD;
+
     /**
      * this is used to set the payment when passed a result map
      * by a dipatch bean.  The dispatch bean would have gotten the
@@ -570,6 +572,14 @@ public class Payment implements PactsConstants, java.io.Serializable {
 
     public void setTotalAmount(double totalAmount) {
         this.totalAmount = totalAmount;
+    }
+
+    public boolean getHasGlobalAD() {
+        return hasGlobalAD;
+    }
+
+    public void setHasGlobalAD(boolean hasGlobalAD) {
+        this.hasGlobalAD = hasGlobalAD;
     }
 
 }

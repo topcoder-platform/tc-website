@@ -160,7 +160,7 @@
                         </c:choose>
                         on TopCoder Studio | <a href="javascript:void(0)" onmouseover="popUp(this,'popUp2');" onmouseout="popHide()">tell me more</a>
                     </li>
-                    <li class="form-row">
+                    <!--<li class="form-row">
                         <c:choose>
                             <c:when test="${requestScope[defaults]['rt3']==null}">
                                 <input name="rt3" style="margin-left: 10px; margin-top: 5px;" type="checkbox" />
@@ -171,7 +171,7 @@
                             </c:otherwise>
                         </c:choose>
                         High School (Secondary School) Registration | <a href="javascript:void(0)" onmouseover="popUp(this,'popUp3');" onmouseout="popHide()">tell me more</a>
-                    </li>
+                    </li>-->
 
 
                     <li class="form-bottom"><br />

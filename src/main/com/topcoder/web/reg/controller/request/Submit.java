@@ -298,7 +298,7 @@ public class Submit extends Base {
             msgText.append("TOPCODER DESIGN AND DEVELOPMENT COMPETITIONS\n\n");
             msgText.append("Participating in TopCoder rated component competitions (held weekly) will allow you to establish a TopCoder design or development rating.  Members earn monetary prizes and royalties by creating winning designs and implementations - competing in a single rated event is all it takes to become a rated member.  Gain valuable real world design and development experience, learn best practices, and improve your skills through feedback from the TopCoder Peer Review Boards.\n\n");
             msgText.append("You can get started in TopCoder component competitions here:\n");
-            msgText.append("http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=devGettingStarted\n\n");
+            msgText.append("http://www.topcoder.com/wiki/display/tc/Getting+Started+in+Component+Development+Competitions\n\n");
             msgText.append("Be sure to read the details of the Digital Run, where you can compete for large quarterly prizes and a chance to attend the next TopCoder Open.\n\n");
             msgText.append("http://www.topcoder.com/dr\n\n");
             msgText.append("TOPCODER MARATHON MATCH COMPETITIONS\n");

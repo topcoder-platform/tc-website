@@ -520,14 +520,16 @@ public abstract class Base extends ShortHibernateProcessor {
         }
 
         // if the user is logged in, check eligibility
+        // We have issue with tc calling cockpit ejb due to jboss version, use query tool for now
         try {
             if (userLoggedIn()) {
-                if (!ContestEligibilityServiceLocator.getServices().isEligible(getLoggedInUser().getId(), pid, false)) {
+                if (!isEligible(getLoggedInUser().getId(), pid)) {
                     return false;
                 }
             } else {
                 // otherwise, if this project has any eligibility constraint, ask for login
-                if (ContestEligibilityServiceLocator.getServices().hasEligibility(pid, false)) {
+                //if (ContestEligibilityServiceLocator.getServices().hasEligibility(pid, false)) {
+                if (hasEligibility(pid)) {
                     throw new PermissionException(getUser(), r);
                 }
             }
@@ -537,5 +539,51 @@ public abstract class Base extends ShortHibernateProcessor {
         } catch (Exception e) {
             throw new TCWebException("Failed to retrieve eligibility constraints information.", e);
         }
+    }
+
+    protected boolean hasEligibility(long pid) throws Exception
+    {
+        Request r = new Request();
+        ResultSetContainer detail=null;
+
+         r.setContentHandle("has_eligibility");
+         r.setProperty(Constants.PROJECT_ID, String.valueOf(pid));
+         Map results = getDataAccess().getData(r);
+         if (results == null || results.size() == 0)
+         {
+             return false;
+         }
+
+         detail = (ResultSetContainer) results.get("has_eligibility");
+
+         if (detail != null && !detail.isEmpty()
+              && detail.getStringItem(0, "has_eligibility") != null
+              && !detail.getStringItem(0, "has_eligibility").equals(""))
+         {
+             return true;
+         }
+         return false;
+    }
+
+    protected boolean isEligible(long userId, long pid) throws Exception
+    {
+        Request r = new Request();
+        ResultSetContainer detail=null;
+
+         r.setContentHandle("is_eligible");
+         r.setProperty(Constants.PROJECT_ID, String.valueOf(pid));
+         r.setProperty(Constants.USER_ID, String.valueOf(userId));
+         Map results = getDataAccess().getData(r);
+
+         detail = (ResultSetContainer) results.get("is_eligible");
+
+         if (detail != null && !detail.isEmpty() 
+              && detail.getStringItem(0, "is_eligible") != null
+              && !detail.getStringItem(0, "is_eligible").equals(""))
+         {
+             return true;
+         }
+
+         return false;
     }
 }

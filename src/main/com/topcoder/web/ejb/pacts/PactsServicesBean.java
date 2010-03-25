@@ -90,11 +90,17 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
  *     <li>Updated <code>serialVersionUID</code> static field.</p>
  *   </ol>
  * </p>
+ * <p>
+ *   Version 1.4 (Studio Electronic Assignment Document Assembly version 1.0) Change notes:
+ *   <ol>
+ *     <li>Change the process of add payment</li>
+ *   </ol>
+ * </p> 
   *
  * <p>VERY IMPORTANT: remember to update serialVersionUID if needed.</p>
  *
- * @author Dave Pecora, pulky, isv
- * @version 1.3
+ * @author Dave Pecora, pulky, isv, Vitta
+ * @version 1.4
  * @see PactsConstants
  */
 public class PactsServicesBean extends BaseEJB implements PactsConstants {
@@ -3593,16 +3599,22 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         int usePercent = 0;
         boolean dataFound = false;
 
-        if (p.getHeader().getTypeId() == ALGORITHM_CONTEST_PAYMENT ||
-                p.getHeader().getTypeId() == MARATHON_MATCH_PAYMENT ||
-                p.getHeader().getTypeId() == ALGORITHM_TOURNAMENT_PRIZE_PAYMENT ||
-                p.getHeader().getTypeId() == HIGH_SCHOOL_TOURNAMENT_PRIZE_PAYMENT ||
-                p.getHeader().getTypeId() == MARATHON_MATCH_TOURNAMENT_PRIZE_PAYMENT) {
+        if (p.getHeader().getTypeId() == ALGORITHM_CONTEST_PAYMENT
+                || p.getHeader().getTypeId() == MARATHON_MATCH_PAYMENT
+                || p.getHeader().getTypeId() == ALGORITHM_TOURNAMENT_PRIZE_PAYMENT
+                || p.getHeader().getTypeId() == HIGH_SCHOOL_TOURNAMENT_PRIZE_PAYMENT
+                || p.getHeader().getTypeId() == MARATHON_MATCH_TOURNAMENT_PRIZE_PAYMENT
+                || p.getHeader().getTypeId() == ROYALTY_PAYMENT
+                || p.getHeader().getTypeId() == DIGITAL_RUN_V2_PRIZE_PAYMENT
+                || p.getHeader().getTypeId() == DIGITAL_RUN_V2_TOP_PERFORMERS_PAYMENT
+                || p.getHeader().getTypeId() == CODER_REFERRAL_PAYMENT) {
+            
             StringBuffer getUserWithholding = new StringBuffer(300);
             getUserWithholding.append("SELECT withholding_amount, withholding_percentage, use_percentage,date_filed ");
-            getUserWithholding.append("FROM user_tax_form_xref ");
-            getUserWithholding.append("WHERE user_id =  " + p.getHeader().getUser().getId());
-            getUserWithholding.append("ORDER  by date_filed DESC ");
+            getUserWithholding.append(" FROM user_tax_form_xref ");
+            getUserWithholding.append(" WHERE user_id = " + p.getHeader().getUser().getId());
+            getUserWithholding.append(" AND status_id = 60");
+            getUserWithholding.append(" ORDER by date_filed DESC ");
 
             ResultSetContainer rsc = runSelectQuery(c, getUserWithholding.toString());
             if (rsc.getRowCount() > 0) {
@@ -3805,13 +3817,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             // Add the payment record
             StringBuffer insertPayment = new StringBuffer(300);
             insertPayment.append("INSERT INTO payment ");
-            insertPayment.append(" (payment_id, user_id, most_recent_detail_id,  ");
+            insertPayment.append(" (payment_id, user_id, most_recent_detail_id, has_global_ad, ");
             insertPayment.append("  referral_payment_id) ");
-            insertPayment.append(" VALUES(?,?,?," + referralStr + ")");
+            insertPayment.append(" VALUES(?,?,?,?," + referralStr + ")");
             ps = c.prepareStatement(insertPayment.toString());
             ps.setLong(1, paymentId);
             ps.setLong(2, p.getHeader().getUser().getId());
             ps.setLong(3, paymentDetailId);
+            ps.setBoolean(4, p.getHasGlobalAD());
             ps.executeUpdate();
             ps.close();
             ps = null;
@@ -4872,6 +4885,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
 
     public boolean hasGlobalAD(long userId) throws SQLException {
+
         if ("on".equalsIgnoreCase(com.topcoder.web.tc.Constants.GLOBAL_AD_FLAG)) {
             StringBuffer query = new StringBuffer(300);
             query.append("SELECT COUNT(*) FROM assignment_document WHERE user_id = " + userId);
@@ -4885,6 +4899,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 c = DBMS.getConnection(trxDataSource);
                 ResultSetContainer rsc = runSelectQuery(c, query.toString());
                 ret = Integer.parseInt(rsc.getItem(0, 0).toString()) > 0;
+        
             } finally {
                 close(c);
             }
