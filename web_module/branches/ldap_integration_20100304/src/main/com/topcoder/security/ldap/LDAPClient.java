@@ -270,6 +270,7 @@ public class LDAPClient {
         // Add entry to LDAP directory
         try {
             this.ldapConnection.addEntry(ldapEntry);
+            changeTopCoderMemberProfilePassword(userId, password);
             log.info("Created new LDAP entry: " + ldapEntry.getDn());
         } catch (LDAPSDKException e) {
             log.error("Failed to add LDAP entry for user " + handle + " due to unexpected error");
@@ -289,10 +290,9 @@ public class LDAPClient {
     public void changeTopCoderMemberProfilePassword(long userId, String newPassword) throws LDAPClientException {
         checkConnection();
         Entry userLDAPEntry = findTopCoderMemberEntryByUserId(userId);
-        Update update = new Update();
-        update.replace(MEMBER_PROFILE_PROPERTY_PASSWORD, new Values(newPassword));
         try {
-            this.ldapConnection.updateEntry(userLDAPEntry.getDn(), update);
+            JLDAPConnection jldapConnection = (JLDAPConnection) this.ldapConnection;
+            jldapConnection.changePassword(userLDAPEntry.getDn(), newPassword);
             log.info("Successfully changed password for LDAP entry " + userLDAPEntry.getDn());
         } catch (LDAPSDKException e) {
             log.error("Failed to change password for LDAP entry " + userLDAPEntry.getDn() + " due to unexpected error");
