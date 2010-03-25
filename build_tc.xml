@@ -101,6 +101,7 @@
         <!-- LDAP SDK -->
         <pathelement location="${jars.dir}/tcs/ldap_sdk_interface.jar"/>
         <pathelement location="${jars.dir}/netscape_ldap_sdk.jar"/>
+        <pathelement location="${jars.dir}/ldap.jar"/>
 
         <!-- file conversion component -->
         <pathelement location="${jars.dir}/fileconvert.jar"/>
@@ -684,6 +685,7 @@
             </fileset>
             <fileset dir="${jars.dir}">
                 <include name="netscape_ldap_sdk.jar"/>
+                <include name="ldap.jar"/>
             </fileset>
             <fileset dir="${external.jars.dir}">
                 <include name="random_string_image-1.0.jar"/>

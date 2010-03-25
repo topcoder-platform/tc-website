@@ -3,9 +3,8 @@
  */
 package com.topcoder.security.ldap;
 
-import com.topcoder.util.net.ldap.sdkinterface.LDAPSDKFactory;
 import com.topcoder.util.net.ldap.sdkinterface.LDAPSDKConnection;
-import netscape.ldap.LDAPException;
+import com.topcoder.util.net.ldap.sdkinterface.LDAPSDKFactory;
 
 /**
  * <p>A custom implementation of {@link LDAPSDKFactory} interface to be used for obtaining {@link LDAPSDKConnection}
@@ -13,14 +12,14 @@ import netscape.ldap.LDAPException;
  *
  * @author isv
  * @version 1.0  (LDAP Authentication Release Assembly v1.0)
- * @see NetscapeV3Connection
+ * @see JLDAPConnection
  */
-public class NetscapeV3Factory implements LDAPSDKFactory {
+public class JLDAPConnectionFactory implements LDAPSDKFactory {
 
     /**
-     * <p>Constructs new <code>NetscapeV3Factory</code> instance. This implementation does nothing.</p>
+     * <p>Constructs new <code>JLDAPConnectionFactory</code> instance. This implementation does nothing.</p>
      */
-    public NetscapeV3Factory() {
+    public JLDAPConnectionFactory() {
     }
 
     /**
@@ -30,7 +29,7 @@ public class NetscapeV3Factory implements LDAPSDKFactory {
      *         <code>LDAP</code> server.
      */
     public LDAPSDKConnection createConnection() {
-        return new NetscapeV3Connection(false);
+        return new JLDAPConnection(false);
     }
 
     /**
@@ -40,6 +39,6 @@ public class NetscapeV3Factory implements LDAPSDKFactory {
      *         server.
      */
     public LDAPSDKConnection createSSLConnection() {
-        return new NetscapeV3Connection(true);
+        return new JLDAPConnection(true);
     }
 }

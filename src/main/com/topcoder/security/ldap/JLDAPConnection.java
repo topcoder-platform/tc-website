@@ -3,6 +3,7 @@
  */
 package com.topcoder.security.ldap;
 
+import com.novell.ldap.LDAPJSSEStartTLSFactory;
 import com.topcoder.util.net.ldap.sdkinterface.LDAPSDKException;
 import com.topcoder.util.net.ldap.sdkinterface.Entry;
 import com.topcoder.util.net.ldap.sdkinterface.Update;
@@ -11,30 +12,28 @@ import com.topcoder.util.net.ldap.sdkinterface.LDAPSDKConnection;
 import com.topcoder.util.net.ldap.sdkinterface.LDAPSDKExceptionFactory;
 import com.topcoder.util.net.ldap.sdkinterface.Values;
 import com.topcoder.util.net.ldap.sdkinterface.Modification;
-import netscape.ldap.LDAPException;
-import netscape.ldap.LDAPConnection;
-import netscape.ldap.LDAPEntry;
-import netscape.ldap.LDAPModificationSet;
-import netscape.ldap.LDAPSearchResults;
-import netscape.ldap.LDAPAttributeSet;
-import netscape.ldap.LDAPAttribute;
-import netscape.ldap.LDAPModification;
-import netscape.ldap.factory.JSSESocketFactory;
+import com.novell.ldap.LDAPException;
+import com.novell.ldap.LDAPConnection;
+import com.novell.ldap.LDAPEntry;
+import com.novell.ldap.LDAPSearchResults;
+import com.novell.ldap.LDAPAttributeSet;
+import com.novell.ldap.LDAPAttribute;
+import com.novell.ldap.LDAPModification;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Hashtable;
 import java.util.Map;
 import java.util.List;
-import java.util.Enumeration;
 
 /**
- * <p>A custom implementation of {@link LDAPSDKConnection} interface built on top of <code>Netscape LDAP SDK</code>.
+ * <p>A custom implementation of {@link LDAPSDKConnection} interface built on top of <code>OpenLDAP JLDAP SDK</code>.
  * This implementation binds/authenticates to <code>LDAP</code> server using <code>LDAPv3</code> protocol.</p>
  *
  * @author isv
  * @version 1.0 (LDAP Authentication Release Assembly v1.0)
  */
-class NetscapeV3Connection implements LDAPSDKConnection {
+class JLDAPConnection implements LDAPSDKConnection {
 
     /**
      * <p>An <code>int</code> referencing the <code>LDAP</code> protocol version supported by this class.</p>
@@ -58,7 +57,7 @@ class NetscapeV3Connection implements LDAPSDKConnection {
      *
      * @param isSSL <code>true</code> if established connection must be SSL-protected; <code>false</code> otherwise.
      */
-    NetscapeV3Connection(boolean isSSL) {
+    JLDAPConnection(boolean isSSL) {
         createLDAPConnection(isSSL);
     }
 
@@ -100,10 +99,6 @@ class NetscapeV3Connection implements LDAPSDKConnection {
         try {
             connection.connect(host, port);
             if (this.isSSL) {
-                connection.setSocketFactory(new JSSESocketFactory(new String[] {"TLS_RSA_WITH_AES_128_CBC_SHA",
-                                                                                "TLS_DHE_RSA_WITH_AES_128_CBC_SHA",
-                                                                                "TLS_DHE_DSS_WITH_AES_128_CBC_SHA"}));
-//                connection.setSocketFactory(new JSSESocketFactory(null));
                 connection.startTLS();
             }
         } catch (LDAPException e) {
@@ -127,6 +122,9 @@ class NetscapeV3Connection implements LDAPSDKConnection {
      */
     public void disconnect() throws LDAPSDKException {
         try {
+//            if (this.isSSL) {
+//                connection.stopTLS();
+//            }
             connection.disconnect();
         } catch (LDAPException e) {
             rethrow(e);
@@ -276,7 +274,7 @@ class NetscapeV3Connection implements LDAPSDKConnection {
             throw new NullPointerException("Null updates are prohibited.");
         }
 
-        LDAPModificationSet mods = null;
+        LDAPModification[] mods = null;
         mods = buildLDAPModificationSet(update);
 
         try {
@@ -424,7 +422,6 @@ class NetscapeV3Connection implements LDAPSDKConnection {
      *         for specific subclasses of <code>LDAPSDKException</code> that may be thrown by this method.
      * @throws NullPointerException if <code>base</code> or <code>filter</code> is <code>null</code>
      * @throws IllegalArgumentException if any of specified strings is empty.
-     * @throws IllegalArgumentException if the scope is not one of the constants defined for this purpose.
      */
     public Iterator search(String base, int scope, String filter) throws LDAPSDKException {
         return search(base, scope, filter, new String[] {});
@@ -452,7 +449,6 @@ class NetscapeV3Connection implements LDAPSDKConnection {
      * @throws NullPointerException if <code>base</code> or <code>filter</code> or <code>attrs</code> is <code>null
      *         </code>.
      * @throws IllegalArgumentException if any of specified strings is empty.
-     * @throws IllegalArgumentException if the scope is not one of the constants defined for this purpose.
      */
     public Iterator search(String base, int scope, String filter, String[] attrs) throws LDAPSDKException {
         LDAPSearchResults results = null;
@@ -518,7 +514,7 @@ class NetscapeV3Connection implements LDAPSDKConnection {
         checkDn(dn);
         checkPassword(password);
         try {
-            connection.authenticate(LDAP_VERSION, dn, password);
+            connection.bind(LDAP_VERSION, dn, password.getBytes());
         } catch (LDAPException e) {
             rethrow(e);
         }
@@ -553,7 +549,7 @@ class NetscapeV3Connection implements LDAPSDKConnection {
         checkDn(dn);
         checkPassword(password);
         try {
-            connection.authenticate(version, dn, password);
+            connection.bind(version, dn, password.getBytes());
         } catch (LDAPException e) {
             rethrow(e);
         }
@@ -580,7 +576,7 @@ class NetscapeV3Connection implements LDAPSDKConnection {
      */
     public void authenticateAnonymous() throws LDAPSDKException {
         try {
-            connection.authenticate(LDAP_VERSION, null, null);
+            connection.bind(LDAP_VERSION, null, (byte[]) null);
         } catch (LDAPException e) {
             rethrow(e);
         }
@@ -608,7 +604,7 @@ class NetscapeV3Connection implements LDAPSDKConnection {
      */
     public void authenticateAnonymous(int version) throws LDAPSDKException {
         try {
-            connection.authenticate(version, null, null);
+            connection.bind(version, null, (byte[]) null);
         } catch (LDAPException e) {
             rethrow(e);
         }
@@ -645,12 +641,7 @@ class NetscapeV3Connection implements LDAPSDKConnection {
         if ((cbh == null) || (props == null) || (mechanisms == null)) {
             throw new NullPointerException("Null parameters are prohibited.");
         }
-
-        try {
-            connection.authenticate(dn, mechanisms, props, cbh);
-        } catch (LDAPException e) {
-            rethrow(e);
-        }
+        throw new UnsupportedOperationException("authenticateSASL is not supported");
     }
 
 
@@ -682,7 +673,7 @@ class NetscapeV3Connection implements LDAPSDKConnection {
         checkDn(dn);
         checkPassword(password);
         try {
-            connection.bind(LDAP_VERSION, dn, password);
+            connection.bind(LDAP_VERSION, dn, password.getBytes());
         } catch (LDAPException e) {
             rethrow(e);
         }
@@ -709,7 +700,7 @@ class NetscapeV3Connection implements LDAPSDKConnection {
      */
     public void bindAnonymous() throws LDAPSDKException {
         try {
-            connection.bind(LDAP_VERSION, null, null);
+            connection.bind(LDAP_VERSION, null, (byte[]) null);
         } catch (LDAPException e) {
             rethrow(e);
         }
@@ -755,7 +746,7 @@ class NetscapeV3Connection implements LDAPSDKConnection {
      */
     private void createLDAPConnection(boolean isSSL) {
         if (isSSL) {
-            this.connection = new LDAPConnection();
+            this.connection = new LDAPConnection(new LDAPJSSEStartTLSFactory());
             this.isSSL = isSSL;
         } else {
             this.connection = new LDAPConnection();
@@ -771,7 +762,7 @@ class NetscapeV3Connection implements LDAPSDKConnection {
      * @throws LDAPSDKException providing the wrapped exception.
      */
     private void rethrow(LDAPException e) throws LDAPSDKException {
-        throw LDAPSDKExceptionFactory.createException(e.getMessage(), e.getLDAPResultCode(), e);
+        throw LDAPSDKExceptionFactory.createException(e.getMessage(), e.getResultCode(), e);
     }
 
     /**
@@ -855,13 +846,13 @@ class NetscapeV3Connection implements LDAPSDKConnection {
         Entry entry = new Entry(netscapeEntry.getDN());
 
         LDAPAttributeSet netscapeAttributes = netscapeEntry.getAttributeSet();
-        Enumeration attributeEnum = netscapeAttributes.getAttributes();
+        Iterator attributeEnum = netscapeAttributes.iterator();
 
         String attributeName = null;
         Values values = null;
 
-        while (attributeEnum.hasMoreElements()) {
-            LDAPAttribute netscapeAttribute = (LDAPAttribute) attributeEnum.nextElement();
+        while (attributeEnum.hasNext()) {
+            LDAPAttribute netscapeAttribute = (LDAPAttribute) attributeEnum.next();
             attributeName = netscapeAttribute.getName();
             values = new Values();
             values.add(netscapeAttribute.getByteValueArray());
@@ -879,8 +870,8 @@ class NetscapeV3Connection implements LDAPSDKConnection {
      * @param  updates an original <code>Update</code> object.
      * @return a <code>LDAPModificationSet</code> created from data provided with original <code>Update</code> object.
      */
-    private LDAPModificationSet buildLDAPModificationSet(Update updates) {
-        LDAPModificationSet netscapeModifications = new LDAPModificationSet();
+    private LDAPModification[] buildLDAPModificationSet(Update updates) {
+        List<LDAPModification> netscapeModifications = new ArrayList<LDAPModification>();
         LDAPAttribute netscapeAttribute = null;
         Modification sdkModification = null;
 
@@ -894,10 +885,12 @@ class NetscapeV3Connection implements LDAPSDKConnection {
             attributeName = sdkModification.getAttributeName();
             values = sdkModification.getValues();
             netscapeAttribute = buildLDAPAttribute(attributeName, values);
-            netscapeModifications.add(getNetscapeModificationType(sdkModification.getType()), netscapeAttribute);
+            LDAPModification mod = new LDAPModification(getNetscapeModificationType(sdkModification.getType()),
+                                                        netscapeAttribute);
+            netscapeModifications.add(mod);
         }
 
-        return netscapeModifications;
+        return netscapeModifications.toArray(new LDAPModification[netscapeModifications.size()]);
     }
 
     /**
@@ -911,19 +904,16 @@ class NetscapeV3Connection implements LDAPSDKConnection {
      */
     private int getNetscapeModificationType(int type) {
         switch (type) {
-            case (Modification.ADD):
-                {
-                    return LDAPModification.ADD;
-                }
-            case (Modification.REPLACE):
-                {
-                    return LDAPModification.REPLACE;
-                }
+            case (Modification.ADD): {
+                return LDAPModification.ADD;
+            }
+            case (Modification.REPLACE): {
+                return LDAPModification.REPLACE;
+            }
             case (Modification.DELETE_ATTRIBUTE):
-            case (Modification.DELETE_VALUE):
-                {
-                    return LDAPModification.DELETE;
-                }
+            case (Modification.DELETE_VALUE): {
+                return LDAPModification.DELETE;
+            }
         }
         return -1;
     }
@@ -959,7 +949,7 @@ class NetscapeV3Connection implements LDAPSDKConnection {
          * @return true if the iterator has more elements.
          */
         public boolean hasNext() {
-            return results.hasMoreElements();
+            return results.hasMore();
         }
 
         /**
@@ -969,15 +959,19 @@ class NetscapeV3Connection implements LDAPSDKConnection {
          * @throws java.util.NoSuchElementException if iteration has no more elements.
          */
         public Object next() {
-            Object next = results.nextElement();
+            try {
+                Object next = results.next();
 
-            if (next instanceof LDAPEntry) {
-                Entry nextEntry = null;
-                nextEntry = buildEntry((LDAPEntry) next);
-                return nextEntry;
+                if (next instanceof LDAPEntry) {
+                    Entry nextEntry = null;
+                    nextEntry = buildEntry((LDAPEntry) next);
+                    return nextEntry;
+                }
+
+                return next;
+            } catch (LDAPException e) {
+                throw new IllegalStateException("Failed to retrieve LDAP entry from iterator", e);
             }
-
-            return next;
         }
 
         /**
