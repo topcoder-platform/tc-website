@@ -3,6 +3,8 @@
  */
 package com.topcoder.security.ldap;
 
+import com.novell.ldap.LDAPConstraints;
+import com.novell.ldap.LDAPExtendedResponse;
 import com.novell.ldap.LDAPJSSEStartTLSFactory;
 import com.topcoder.util.net.ldap.sdkinterface.LDAPSDKException;
 import com.topcoder.util.net.ldap.sdkinterface.Entry;
@@ -735,6 +737,28 @@ class JLDAPConnection implements LDAPSDKConnection {
      */
     public void bindSASL(String dn, String[] mechanisms, Hashtable props, Object cbh) throws LDAPSDKException {
         authenticateSASL(dn, mechanisms, props, cbh);
+    }
+
+    /**
+     * <p>Changes the password for specified DN.</p>
+     *
+     * @param dn a <code>String</code> providing the DN to change password for.
+     * @param newPassword a <code>String</code> providing new password to be set.
+     * @throws LDAPSDKException if an unexpected error occurs.
+     */
+    public void changePassword(String dn, String newPassword) throws LDAPSDKException {
+        try {
+            ChangePasswordOperation changePasswordOperation = new ChangePasswordOperation(dn , newPassword);
+            LDAPExtendedResponse response = this.connection.extendedOperation(changePasswordOperation,
+                                                                              new LDAPConstraints());
+            int resultCode = response.getResultCode();
+            if (resultCode != 0) {
+                String errorMessage = response.getErrorMessage();
+                throw LDAPSDKExceptionFactory.createException("Failed to set password: " + errorMessage, resultCode);
+            }
+        } catch (LDAPException e) {
+            rethrow(e);
+        }
     }
 
     /**
