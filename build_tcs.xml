@@ -112,6 +112,8 @@
         <pathelement location="${jars.dir}/tcs/ldap_sdk_interface/1.0.2/ldap_sdk_interface.jar"/>
         <pathelement location="${jars.dir}/netscape_ldap_sdk.jar"/>
         <pathelement location="${jars.dir}/ldap.jar"/>
+        
+        <pathelement location="${jars.dir}/jboss/scheduler-plugin.jar"/>
     </path>
 
     <target name="init">
