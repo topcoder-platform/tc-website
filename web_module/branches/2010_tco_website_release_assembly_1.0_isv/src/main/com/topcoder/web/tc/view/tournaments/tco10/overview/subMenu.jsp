@@ -45,7 +45,7 @@
             </tco10:overviewStaticPageLink>
         </li>
         <li class="${finalResultsClass}"><!-- four item -->
-            <tco10:overviewStaticPageLink styleClass="tertiaryNavBT SponsorsBT" page="sponsor1">
+            <tco10:overviewStaticPageLink styleClass="tertiaryNavBT SponsorsBT" page="sponsors">
                 <span class="left"></span>
                 <span class="text">Sponsors</span>
                 <span class="right"></span>

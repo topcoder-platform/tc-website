@@ -77,7 +77,8 @@
                             </tr>
                             <tr>
                                 <th class="first">
-                                    <a href="/tco10?module=Registrants<tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>
+                                    <a style="color:#FFFFFF;"
+                                       href="/tco10?module=Registrants<tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>
                                 </th>
                                 <th class="last">Search:
                                     <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="16"
