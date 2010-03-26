@@ -11,7 +11,7 @@
 
 <body>
 
-<div id="wrapper" class="homepage"><!-- the outest whole website wrapper -->
+<div id="wrapper" class="homepage singlePage"><!-- the outest whole website wrapper -->
 
     <jsp:include page="../includes/logo.jsp"/>
 

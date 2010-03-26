@@ -12,7 +12,7 @@
 
 <body>
 
-<div id="wrapper" class="homepage"><!-- the outest whole website wrapper -->
+<div id="wrapper" class="homepage singlePage"><!-- the outest whole website wrapper -->
 
     <jsp:include page="../includes/logo.jsp"/>
 
@@ -37,12 +37,13 @@
 
                         <h3 class="subTitle">Transportation</h3><!-- sub title-->
                         <p><span class="high">Air Travel</span><br/>
-                            Las Vegas is home to McCarran International Airport. There are many flights into and out of
-                            this airport.</p>
+                            Las Vegas is home to <a href="http://www.mccarran.com/">McCarran International Airport</a>.
+                            There are many flights into and out of this airport.</p>
 
                         <p><span class="high">Bus Travel</span><br/>
-                            You can get to Las Vegas by bus. There is a Greyhound Station in the city. <a href="#">See
-                                more information here</a>.
+                            You can get to Las Vegas by bus. There is a Greyhound Station in the city.
+                            <a href="http://www.greyhound.com/home/TicketCenter/en/terminal.asp?city=870177">
+                                See more information here.</a>
 
                         <h3 class="subTitle">Hotels</h3><!-- sub title-->
                         <p>There are a plethora of hotels in Las Vegas that you can choose from. Here are a few that are
@@ -52,8 +53,9 @@
                             800-374-9000 | Room rates: $105*<br/>
                             The event will take place at the Mirage* so it is the most convenient for attending the
                             event. Rooms at the Mirage can be reserved with a TopCoder group rate. In order to receive
-                            the TopCoder group rate, please mention TopCoder upon calling. Alternatively, you can <a
-                                    href="#">book online here</a>.</p>
+                            the TopCoder group rate, please mention TopCoder upon calling. Alternatively, you can
+                            <a href="https://reservations.mgmmirage.com/bookingengine.aspx?host=group&pid=160&code=topcoder">
+                                book online here</a>.</p>
 
                         <p class="imp-note">*All finalists' rooms will be booked by TopCoder. If you are attending as a
                             competitor, please do not book a room through this link.</p>
@@ -61,16 +63,17 @@
                         <p><span class="high">Treasure Island</span><br/>
                             800-288-7206 | Room rate: $123*<br/>
                             Treasure Island is next door to the Mirage. There is a tram connecting the two hotels. Book
-                            online here or call the number above.</p>
+                            online <a href="http://www.treasureisland.com/">here</a> or call the number above.</p>
 
                         <p><span class="high">Harrah's</span><br/>
                             800-HARRAHS (800-427-7247) | Room rate: $120*<br/>
-                            Harrah's is across the street from the Mirage and a quick walk. <a href="#">Book
-                                online here</a> or call the number above.</p>
+                            Harrah's is across the street from the Mirage and a quick walk.
+                            <a href="http://www.harrahslasvegas.com/casinos/harrahs-las-vegas/hotel-casino/property-home.shtml">
+                                Book online here</a> or call the number above.</p>
 
                         <h3 class="subTitle">Additional Resources</h3><!-- sub title-->
-                        <p>Take a look at this <a href="#">Las Vegas Strip map</a> for a more detailed list of hotels
-                            and proximity to the Mirage (number 16 on the map).
+                        <p>Take a look at this <a href="http://www.vegas.com/lounge/map.html">Las Vegas Strip map</a>
+                            for a more detailed list of hotels and proximity to the Mirage (number 16 on the map).
 
                         <p><span class="high">Some good resources for you to utilize when booking travel:</span><br/>
                             <a href="http://www.lasvegas.com/">www.lasvegas.com</a><br/>
