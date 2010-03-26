@@ -30,7 +30,10 @@
 
                 <div class="bigColumn">
                     <div class="text">
+<%--
                         <h2 class="pageTitle">Welcome to the TCO10 Design Competition!</h2><!-- page title -->
+--%>
+                        <%@ include file="../includes/comingSoon.jsp" %>
                    </div>
                 </div>
 

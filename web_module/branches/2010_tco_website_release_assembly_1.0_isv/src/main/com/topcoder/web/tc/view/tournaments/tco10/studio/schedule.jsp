@@ -29,9 +29,12 @@
                 <jsp:include page="subMenu.jsp"/>
 
                 <div class="bigColumn">
+<%--
                     <div class="text">
                         <h2 class="pageTitle">Studio Design Competition Schedule</h2><!-- page title -->
                      </div>
+--%>
+                    <%@ include file="../includes/comingSoon.jsp" %>
                 </div>
 
                 <jsp:include page="../includes/sponsors.jsp"/>

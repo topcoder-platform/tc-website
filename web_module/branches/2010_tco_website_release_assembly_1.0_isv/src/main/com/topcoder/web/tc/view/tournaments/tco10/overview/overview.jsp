@@ -36,7 +36,7 @@
             tournament that is open to all TopCoder members 18 and older, who are in good standing, and meet all other
             eligibility criteria. There are nine different tracks of competition as part of the TCO: Algorithm,
             Architecture, Assembly, Component Design &amp; Development, Marathon, Mod Dash, Specification, and Studio
-            Design. Taking part in the TCO09 gives you the opportunity to showcase your programming and/or design skills
+            Design. Taking part in the TCO10 gives you the opportunity to showcase your programming and/or design skills
             up against some of the best in the world. We're also dishing out cash and prizes! Becoming a TopCoder member
             is easy and free. <a href="http://${requestScope.SERVER_NAME}/reg">Register here</a>. Have a question? Just email <a
                     href="mailto:service@topcoder.com">service@topcoder.com</a>. Stay tuned for more details as we finalize the
@@ -57,6 +57,8 @@
 
     <div class="bigColumn">
         <div class="text">
+            <%@ include file="../includes/comingSoon.jsp" %>
+<%--
             <h2 class="pageTitle">Page Title</h2><!-- page title -->
             <p>Lorem ipsum dolor sit amet, <a href="javascript:;">consectetur</a> adipisicing elit, sed do eiusmod
                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
@@ -86,8 +88,10 @@
                 Suspendisse feugiat suscipit odio. Aliquam erat volutpat. Cum sociis natoque penatibus et magnis dis
                 parturient montes, nascetur ridiculus mus. Vivamus ut tellus quis ante cursus scelerisque. Integer
                 commodo justo eget mauris.</p>
+--%>
         </div>
         <!--End .text-->
+<%--
         <table cellpadding="0" cellspacing="0" class="leaderboard"><!-- Start table list -->
             <tr>
                 <th class="first"><span class="left"></span>Table Header</th>
@@ -114,6 +118,7 @@
                 <td colspan="2">Table Row</td>
             </tr>
         </table>
+--%>
     </div>
 
     <jsp:include page="../includes/sponsors.jsp"/>

@@ -30,7 +30,10 @@
 
                 <div class="bigColumn">
                     <div class="text">
+                        <%@ include file="../includes/comingSoon.jsp" %>
+<%--
                         <h2 class="pageTitle">Schedule of Onsite Events*</h2><!-- page title -->
+--%>
                     </div>
                 </div>
 

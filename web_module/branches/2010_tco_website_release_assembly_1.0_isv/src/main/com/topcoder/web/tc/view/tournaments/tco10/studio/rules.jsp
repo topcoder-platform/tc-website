@@ -30,7 +30,11 @@
 
                 <div class="bigColumn">
                     <div class="text">
-                        <h2 class="pageTitle">Studio Design Competition Official Rules and Regulations</h2><!-- page title -->
+<%--
+                        <h2 class="pageTitle">Studio Design Competition Official Rules and Regulations</h2>
+                        <!-- page title -->
+--%>
+                        <%@ include file="../includes/comingSoon.jsp" %>
                     </div>
                 </div>
 

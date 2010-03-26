@@ -30,8 +30,11 @@
 
                 <div class="bigColumn">
                     <div class="text">
+                        <%@ include file="../includes/comingSoon.jsp" %>
+<%--
                         <h2 class="pageTitle">Mod Dash&trade; Competition Official Rules and Regulations</h2><!-- page title -->
-                      </div>
+--%>
+                     </div>
                 </div>
 
                 <jsp:include page="../includes/sponsors.jsp"/>
