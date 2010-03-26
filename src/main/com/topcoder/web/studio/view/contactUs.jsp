@@ -1,14 +1,3 @@
-<%--
-  - Author: TCSDEVELOPER, isv
-  - Version: 1.1
-  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
-  -
-  - Description: This page renders studio site top section.
-  -
-  - Version 1.1 (Studio Enhancements Release Assembly 1) Change notes:
-  - * Re-arranged content and updated URLs for relevant links.
---%>
-<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -71,40 +60,37 @@
 							<div class="contentMiddle">
 			
 								<h1>Contact Us</h1>
-		                        <%--
-		                        --%>
+		
 								<div id="contact">
-                                    <div class="leftDiv">
-                                        <strong>Need Designs?</strong><br/>
-
-                                        <p>However big or small your company, from simple web banners, to logos,
-                                        to full web and application UI development, TopCoder Studio can help
-                                        you find the solution.</p>
-
-                                        <p>Every day we work with Fortune 500 companies, small businesses and
-                                        individuals alike, helping them tap into the resources of our Global
-                                        Community to tackle issues just like yours.</p>
-
-                                        <a href="http://<%=ApplicationServer.SERVER_NAME%>/home/">
-                                            Visit us here for more information on how to put TopCoder to work for you!
-                                        </a>
-                                    </div>
-                                    <div class="rightDiv">
-                                        <strong>Member Support</strong>
-                                        <p>Be sure to check out our
-                                            <a href="http://<%=ApplicationServer.SERVER_NAME%>/home/studio/new-member-guide/">Member Resources</a>
-                                            area for information about how to compete, how to get paid and many other
-                                            topics.</p>
-                                        <p>Email: <a href="mailto:studioadmin@topcoder.com?subject=TopCoder%20Studio%20General%20Questions">studioadmin@topcoder.com</a></p>
-                                        <p>
-                                            <strong>Corporate Address</strong><br/>
-                                            TopCoder, Inc.<br/>
-                                            <address>95 Glastonbury Blvd<br/>
-                                            Glastonbury, CT 06033 U.S.A.</address>
-                                            tel: 860.633.5540<br/>
-                                            fax: 860.657.4276
-                                        </p>
-                                    </div>
+									<table cellpadding="10" cellspacing="0">
+										<tbody>
+											<tr>
+												<td>
+													<strong>Corporate Address</strong><br />
+													TopCoder, Inc.<br />
+													
+													<address>95 Glastonbury Blvd<br />
+													Glastonbury, CT 06033 U.S.A.</address>
+													
+													tel: 860.633.5540<br />
+													fax: 860.657.4276
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<strong>Member Support </strong><br />
+													Email:
+													<a href="mailto:studioadmin@topcoder.com?subject=TopCoder%20Studio%20General%20Questions">studioadmin@topcoder.com</a>
+												</td>
+										   </tr>
+											<tr>
+												<td>
+													<strong>Sales</strong><br />
+													Email: <a href="mailto:studiosales@topcoder.com">studiosales@topcoder.com</a>
+												</td>
+											</tr>
+										</tbody>
+									</table>
 								</div>
 
                         <br clear="all"/>

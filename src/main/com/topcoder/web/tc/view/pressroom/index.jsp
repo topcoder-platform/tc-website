@@ -96,21 +96,8 @@
             
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
-                <%-- TCHS10 --%>
-                <div class="pr_newsitem">
-                    <div class="pr_img">
-                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_032210"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></a>
-                    </div>
-                    <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_032210">Student from Belarus is Champion in 2010 TopCoder High School Global Programming Tournament</a></h3>
-                        <p><small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_032210">[March 22nd]</a></small></p>
-                    </div>
-                    <div class="pr_clear"></div>
-                </div>
                 
-                <%-- TCHS10 end --%>
-                
-                <%-- Developer Contests --%>
+                <%-- Deloper Contests --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
                         <a href="http://www.computer.org/portal/web/buildyourcareer/et13/contests"><img src="/i/pressroom/ieee-computer-society-logo.jpg" alt="IEEE Computer Society" border="0" /></a>
@@ -121,7 +108,7 @@
                     </div>
                     <div class="pr_clear"></div>
                 </div>
-                <%-- Developer Contests  end --%>
+                <%-- Deloper Contests  end --%>
                 
                 <p class="pr_backtop"><a href="#pr_top">Back to Top</a></p>
                 <div class="pr_clear"></div>

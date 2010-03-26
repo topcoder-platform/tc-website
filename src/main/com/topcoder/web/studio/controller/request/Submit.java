@@ -51,12 +51,10 @@ import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOFactory;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.dao.SubmissionDAO;
-import com.topcoder.web.studio.dao.ElectronicAffirmationDAO;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestChannel;
 import com.topcoder.web.studio.model.ContestProperty;
 import com.topcoder.web.studio.model.ContestStatus;
-import com.topcoder.web.studio.model.ElectronicAffirmation;
 import com.topcoder.web.studio.model.FilePath;
 import com.topcoder.web.studio.model.MimeType;
 import com.topcoder.web.studio.model.ReviewStatus;
@@ -77,12 +75,7 @@ import com.topcoder.web.studio.validation.UnifiedSubmissionValidator;
  * submissions which come from <code>TopCoder Direct</code> contests</del> <ins>BUGR-633 Change</ins>.
  * </p>
  *
- * <p>
- * Change log for Studio Electronic Assignment Document Assembly 1.0
- * Modified dbProcessing meethod, to insert the electronic assignment record on success submission.
- * </p>
- *
- * @author dok, isv, Vitta
+ * @author dok, isv
  * @version $Revision$ Date: 2005/01/01 00:00:00 Create Date: Jul 20,
  *          2006
  */
@@ -132,286 +125,292 @@ public class Submit extends BaseSubmissionDataProcessor {
 				throw new NavigationException("Invalid contest specified.");
 			}
 
-			String rank = getRequest().getParameter(
-					Constants.SUBMISSION_RANK);
-
-			StudioDAOFactory cFactory = StudioDAOUtil.getFactory();
-			DAOFactory factory = DAOUtil.getFactory();
-			SubmissionDAO dao = cFactory.getSubmissionDAO();
-			UserDAO userDAO = factory.getUserDAO();
-			ElectronicAffirmationDAO affirmDAO = cFactory.getElectronicAffirmationDAO();
-
-			Contest c = cFactory.getContestDAO().find(contestId);
-			Date now = new Date();
-			if (now.before(c.getStartTime()) || now.after(c.getEndTime())
-					|| !ContestStatus.ACTIVE.equals(c.getStatus().getId())) {
-				throw new NavigationException("Inactive contest specified.");
+			boolean hasGlobalAd = true;
+			if ("on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
+				hasGlobalAd = PactsServicesLocator.getService().hasGlobalAD(
+						getUser().getId());
 			}
-			User u = userDAO.find(getUser().getId());
 
-			if (cFactory.getContestRegistrationDAO().find(c, u) == null) {
-				// not registered
-				StringBuffer buf = new StringBuffer(50);
-				buf.append(getSessionInfo().getServletPath());
-				buf.append("?" + Constants.MODULE_KEY
-						+ "=ViewRegistration&");
-				buf.append(Constants.CONTEST_ID + "=").append(contestId);
-				setNextPage(buf.toString());
-				setIsNextPageInContext(false);
+			if (!hasGlobalAd) {
+				// throw new NavigationException(
+				// "You cannot submit because you don't have a Global AD on file"
+				// );
+				setNextPage("/noGadErrorPage.jsp");
+				setIsNextPageInContext(true);
 			} else {
-				// registered
-				MultipartRequest r = (MultipartRequest) getRequest();
 
-				UploadedFile submissionFile = r
-						.getUploadedFile(Constants.SUBMISSION);
-				UploadedFile sourceFile = r
-						.getUploadedFile(Constants.SUBMISSION_SOURCE);
-				UploadedFile previewFile = r
-						.getUploadedFile(Constants.SUBMISSION_PREVIEW);
+				String rank = getRequest().getParameter(
+						Constants.SUBMISSION_RANK);
 
-				log.debug("submission: "
-						+ submissionFile.getRemoteFileName());
-				log.debug("submission content type: "
-						+ submissionFile.getContentType());
-				log.debug("submission file id: "
-						+ submissionFile.getFileId());
+				StudioDAOFactory cFactory = StudioDAOUtil.getFactory();
+				DAOFactory factory = DAOUtil.getFactory();
+				SubmissionDAO dao = cFactory.getSubmissionDAO();
+				UserDAO userDAO = factory.getUserDAO();
 
-				// Source submission is always requried
-				ValidationResult submissionValidationResult = new SourceSubmissionValidator()
-						.validate(new ObjectInput(sourceFile));
-				if (!submissionValidationResult.isValid()) {
-					addError(Constants.SUBMISSION_SOURCE,
-							submissionValidationResult.getMessage());
+				Contest c = cFactory.getContestDAO().find(contestId);
+				Date now = new Date();
+				if (now.before(c.getStartTime()) || now.after(c.getEndTime())
+						|| !ContestStatus.ACTIVE.equals(c.getStatus().getId())) {
+					throw new NavigationException("Inactive contest specified.");
 				}
+				User u = userDAO.find(getUser().getId());
 
-				// Submission preview bundled file is not always required
-				Map<Integer, String> contestConfig = c.getConfigMap();
-				boolean previewFileRequired = Boolean
-						.parseBoolean(contestConfig
-								.get(ContestProperty.REQUIRE_PREVIEW_FILE));
-				if (previewFileRequired) {
-					submissionValidationResult = new SourceSubmissionValidator()
-							.validate(new ObjectInput(submissionFile));
-					if (!submissionValidationResult.isValid()) {
-						addError(Constants.SUBMISSION,
-								submissionValidationResult.getMessage());
-					}
-				}
-
-				// Preview image is not always required
-				boolean previewImageRequired = Boolean
-						.parseBoolean(contestConfig
-								.get(ContestProperty.REQUIRE_PREVIEW_IMAGE));
-				if (previewImageRequired) {
-					submissionValidationResult = new ImageSubmissionValidator()
-							.validate(new ObjectInput(previewFile));
-					if (!submissionValidationResult.isValid()) {
-						addError(Constants.SUBMISSION_PREVIEW,
-								submissionValidationResult.getMessage());
-					}
-				}
-
-				StringInput rankInput = new StringInput(rank);
-				ValidationResult rankResult = new IntegerValidator(
-						"Please input a valid integer for rank.")
-						.validate(rankInput);
-				if (!rankResult.isValid()) {
-					addError(Constants.SUBMISSION_RANK, rankResult
-							.getMessage());
-				}
-
-				if (hasErrors()) {
-					setDefault(Constants.CONTEST_ID, contestId.toString());
-					setDefault(Constants.SUBMISSION_RANK, rank);
-					loadSubmissionData(u, c, dao,
-							SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE);
-					getRequest().setAttribute("contest", c);
-					setNextPage("/submit.jsp");
-					setIsNextPageInContext(true);
-				} else {
-				
-				
-
-					submissionFile = gnerateUnifiedSubmissionFile(
-							submissionFile, sourceFile, previewFile, u);
-
-					String remoteFileName = submissionFile.getRemoteFileName();
-
-					log.debug("unified submission: "
-							+ submissionFile.getRemoteFileName());
-
-					// do thorough validation
-					ValidationResult thoroughValidationResult = new UnifiedSubmissionValidator(
-							c).validate(new ObjectInput(submissionFile));
-					if (!thoroughValidationResult.isValid()) {
-						throw new TCException(submissionValidationResult.getMessage());
-					}
-
-					MimeType mt = UnifiedSubmissionValidator
-							.getMimeType(submissionFile);
-					Submission s = new Submission();
-					s.setContest(c);
-					s.setCreateDate(new Timestamp(now.getTime()));
-					s.setOriginalFileName(remoteFileName);
-					s.setSubmitter(u);
-					s.setMimeType(mt);
-					s.setStatus(cFactory.getSubmissionStatusDAO().find(
-							SubmissionStatus.ACTIVE));
-
-					StringBuffer buf = new StringBuffer(80);
-					buf.append(Constants.ROOT_STORAGE_PATH);
-					buf.append(System.getProperty("file.separator"));
-					buf.append(Constants.SUBMISSIONS_DIRECTORY_NAME);
-					buf.append(System.getProperty("file.separator"));
-					buf.append(c.getId());
-					buf.append(System.getProperty("file.separator"));
-					buf.append(u.getHandle().toLowerCase());
-					buf.append("_");
-					buf.append(u.getId());
-					buf.append(System.getProperty("file.separator"));
-
-					FilePath p = new FilePath();
-					p.setPath(buf.toString());
-
-					File directory = new File(buf.toString());
-					if (!directory.exists()) {
-						directory.mkdirs();
-					}
-
-					String ext = remoteFileName.substring(remoteFileName
-							.lastIndexOf('.'));
-
-					// root/submissions/contest_id/user_id/time.pdf
-					s.setPath(p);
-					s.setSystemFileName(System.currentTimeMillis() + ext);
-					s
-							.setType(cFactory
-									.getSubmissionTypeDAO()
-									.find(
-											SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE));
-
-					if (log.isDebugEnabled()) {
-						log.debug("creating file: " + p.getPath()
-								+ s.getSystemFileName());
-					}
-					f = new File(p.getPath() + s.getSystemFileName());
-
- 					FileOutputStream fos = new FileOutputStream(f);
-					byte[] fileBytes = new byte[512];
-					InputStream ios = submissionFile.getInputStream();
-					int read;
-					while ((read=ios.read(fileBytes))!=-1)
-					{
-						fos.write(fileBytes,0,read);
-					}
-					ios.close();
-					fos.close(); 
-
- 					if (mt.getFileType().isImageFile()) {
-						ImageInputStream iis = ImageIO
-								.createImageInputStream(new ByteArrayInputStream(
-										fileBytes));
-						BufferedImage image = ImageIO.read(iis);
-						s.setWidth(image.getWidth());
-						s.setHeight(image.getHeight());
-					} 
-
-					Integer maxRank = dao.getMaxRank(c, u);
-					Integer one = 1;
-					getRequest().setAttribute("maxRank", maxRank);
-
-					// BUGR-633 Change: remove the automatic screening of
-					// Submissions for TopCoder Cockpit contests
-					/*
-					// Since TopCoder Studio Modifications Assembly - if
-					// contest is from TopCoder Direct then create
-					// the passing review immediately. Req# 5.12
-					ContestChannel contestChannel = c.getChannel();
-					if (contestChannel != null) {
-						if (ContestChannel.TOPCODER_DIRECT
-								.equals(contestChannel.getId())) {
-							SubmissionReview review = new SubmissionReview();
-							review.setNew(true);
-							review.setReviewer(userDAO.find(c
-									.getCreateUserId()));
-							review.setStatus(cFactory.getReviewStatusDAO()
-									.find(ReviewStatus.PASSED));
-							review
-									.setText("TopCoder Direct, Automatic pass");
-							review.setSubmission(s);
-							cFactory.getSubmissionReviewDAO().saveOrUpdate(
-									review);
-
-							s.setReview(review);
-						}
-					}
-					*/
-
-					if (maxRank == null) {
-						s.setRank(one);
-						dao.saveOrUpdate(s);
-					} else {
-						Integer newRank = new Integer(rank);
-						if (newRank.compareTo(maxRank) > 0) {
-							s.setRank(maxRank + 1);
-							dao.saveOrUpdate(s);
-						} else if (newRank.compareTo(one) < 0) {
-							dao.changeRank(one, s);
-						} else {
-							dao.changeRank(newRank, s);
-						}
-					}
-					
-					//Insert the electronic affirmation records.
-					ElectronicAffirmation electronicAffirmation = new ElectronicAffirmation();
-					electronicAffirmation.setSubmissionId(Integer.valueOf(s.getId().toString()));
-					electronicAffirmation.setCreateTime(new Timestamp(new Date().getTime()));
-					affirmDAO.saveOrUpdate(electronicAffirmation);
-
-					closeConversation();
-					// have to wrap up the last stuff, and get into
-					// new stuff. we don't want
-					// sending email to be in the transaction
-					beginCommunication();
-
-					// Since TopCoder Studio Modifications Assembly -
-					// generate alternate representations for the
-					// submission. Req# 5.7
-					generateAlternateRepresentations(c, s, submissionFile,
-							u);
-
-					u = DAOUtil.getFactory().getUserDAO().find(
-							getUser().getId());
-
-					ContestChannel contestChannel = c.getChannel();
-					if (contestChannel != null
-							&& u.getPrimaryEmailAddress().getStatusId()
-									.equals(Email.STATUS_ID_ACTIVE)) {
-						if (ContestChannel.TOPCODER_DIRECT
-								.equals(contestChannel.getId())) {
-
-							// BUGR-633 Change: mail text has been changed
-							String response = "Your submission has been accepted and shown to the client. It still needs to be screened and you will receive another email alerting you to whether your submission has passed or failed screening.";
-
-
-							ReviewStatus rs = StudioDAOUtil.getFactory()
-									.getReviewStatusDAO().find(
-											ReviewStatus.PASSED);
-
-															// BUGR-628 Change: change the parameter for sendEmail() method
-							sendEmail(u, response, s.getId(),
-									rs, new Date(), c.getName());
-
-						}
-					}
-					StringBuffer nextPage = new StringBuffer(50);
-					nextPage.append(getSessionInfo().getServletPath());
-					nextPage.append("?" + Constants.MODULE_KEY
-							+ "=ViewSubmissionSuccess&");
-					nextPage.append(Constants.SUBMISSION_ID + "=").append(
-							s.getId());
-					setNextPage(nextPage.toString());
+				if (cFactory.getContestRegistrationDAO().find(c, u) == null) {
+					// not registered
+					StringBuffer buf = new StringBuffer(50);
+					buf.append(getSessionInfo().getServletPath());
+					buf.append("?" + Constants.MODULE_KEY
+							+ "=ViewRegistration&");
+					buf.append(Constants.CONTEST_ID + "=").append(contestId);
+					setNextPage(buf.toString());
 					setIsNextPageInContext(false);
+				} else {
+					// registered
+					MultipartRequest r = (MultipartRequest) getRequest();
+
+					UploadedFile submissionFile = r
+							.getUploadedFile(Constants.SUBMISSION);
+					UploadedFile sourceFile = r
+							.getUploadedFile(Constants.SUBMISSION_SOURCE);
+					UploadedFile previewFile = r
+							.getUploadedFile(Constants.SUBMISSION_PREVIEW);
+
+					log.debug("submission: "
+							+ submissionFile.getRemoteFileName());
+					log.debug("submission content type: "
+							+ submissionFile.getContentType());
+					log.debug("submission file id: "
+							+ submissionFile.getFileId());
+
+					// Source submission is always requried
+					ValidationResult submissionValidationResult = new SourceSubmissionValidator()
+							.validate(new ObjectInput(sourceFile));
+					if (!submissionValidationResult.isValid()) {
+						addError(Constants.SUBMISSION_SOURCE,
+								submissionValidationResult.getMessage());
+					}
+
+					// Submission preview bundled file is not always required
+					Map<Integer, String> contestConfig = c.getConfigMap();
+					boolean previewFileRequired = Boolean
+							.parseBoolean(contestConfig
+									.get(ContestProperty.REQUIRE_PREVIEW_FILE));
+					if (previewFileRequired) {
+						submissionValidationResult = new SourceSubmissionValidator()
+								.validate(new ObjectInput(submissionFile));
+						if (!submissionValidationResult.isValid()) {
+							addError(Constants.SUBMISSION,
+									submissionValidationResult.getMessage());
+						}
+					}
+
+					// Preview image is not always required
+					boolean previewImageRequired = Boolean
+							.parseBoolean(contestConfig
+									.get(ContestProperty.REQUIRE_PREVIEW_IMAGE));
+					if (previewImageRequired) {
+						submissionValidationResult = new ImageSubmissionValidator()
+								.validate(new ObjectInput(previewFile));
+						if (!submissionValidationResult.isValid()) {
+							addError(Constants.SUBMISSION_PREVIEW,
+									submissionValidationResult.getMessage());
+						}
+					}
+
+					StringInput rankInput = new StringInput(rank);
+					ValidationResult rankResult = new IntegerValidator(
+							"Please input a valid integer for rank.")
+							.validate(rankInput);
+					if (!rankResult.isValid()) {
+						addError(Constants.SUBMISSION_RANK, rankResult
+								.getMessage());
+					}
+
+					if (hasErrors()) {
+						setDefault(Constants.CONTEST_ID, contestId.toString());
+						setDefault(Constants.SUBMISSION_RANK, rank);
+						loadSubmissionData(u, c, dao,
+								SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE);
+						getRequest().setAttribute("contest", c);
+						setNextPage("/submit.jsp");
+						setIsNextPageInContext(true);
+					} else {
+
+						submissionFile = gnerateUnifiedSubmissionFile(
+								submissionFile, sourceFile, previewFile, u);
+
+						String remoteFileName = submissionFile.getRemoteFileName();
+
+						log.debug("unified submission: "
+								+ submissionFile.getRemoteFileName());
+
+						// do thorough validation
+						ValidationResult thoroughValidationResult = new UnifiedSubmissionValidator(
+								c).validate(new ObjectInput(submissionFile));
+						if (!thoroughValidationResult.isValid()) {
+							throw new TCException(submissionValidationResult.getMessage());
+						}
+
+						MimeType mt = UnifiedSubmissionValidator
+								.getMimeType(submissionFile);
+						Submission s = new Submission();
+						s.setContest(c);
+						s.setCreateDate(new Timestamp(now.getTime()));
+						s.setOriginalFileName(remoteFileName);
+						s.setSubmitter(u);
+						s.setMimeType(mt);
+						s.setStatus(cFactory.getSubmissionStatusDAO().find(
+								SubmissionStatus.ACTIVE));
+
+						StringBuffer buf = new StringBuffer(80);
+						buf.append(Constants.ROOT_STORAGE_PATH);
+						buf.append(System.getProperty("file.separator"));
+						buf.append(Constants.SUBMISSIONS_DIRECTORY_NAME);
+						buf.append(System.getProperty("file.separator"));
+						buf.append(c.getId());
+						buf.append(System.getProperty("file.separator"));
+						buf.append(u.getHandle().toLowerCase());
+						buf.append("_");
+						buf.append(u.getId());
+						buf.append(System.getProperty("file.separator"));
+
+						FilePath p = new FilePath();
+						p.setPath(buf.toString());
+
+						File directory = new File(buf.toString());
+						if (!directory.exists()) {
+							directory.mkdirs();
+						}
+
+						String ext = remoteFileName.substring(remoteFileName
+								.lastIndexOf('.'));
+
+						// root/submissions/contest_id/user_id/time.pdf
+						s.setPath(p);
+						s.setSystemFileName(System.currentTimeMillis() + ext);
+						s
+								.setType(cFactory
+										.getSubmissionTypeDAO()
+										.find(
+												SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE));
+
+						if (log.isDebugEnabled()) {
+							log.debug("creating file: " + p.getPath()
+									+ s.getSystemFileName());
+						}
+						f = new File(p.getPath() + s.getSystemFileName());
+
+						FileOutputStream fos = new FileOutputStream(f);
+						byte[] fileBytes = new byte[512];
+						InputStream ios = submissionFile.getInputStream();
+						int read;
+						while ((read=ios.read(fileBytes))!=-1)
+						{
+							fos.write(fileBytes,0,read);
+						}
+						ios.close();
+						fos.close();
+
+						if (mt.getFileType().isImageFile()) {
+							ImageInputStream iis = ImageIO
+									.createImageInputStream(new ByteArrayInputStream(
+											fileBytes));
+							BufferedImage image = ImageIO.read(iis);
+							s.setWidth(image.getWidth());
+							s.setHeight(image.getHeight());
+						}
+
+						Integer maxRank = dao.getMaxRank(c, u);
+						Integer one = 1;
+						getRequest().setAttribute("maxRank", maxRank);
+
+						// BUGR-633 Change: remove the automatic screening of
+						// Submissions for TopCoder Cockpit contests
+						/*
+						// Since TopCoder Studio Modifications Assembly - if
+						// contest is from TopCoder Direct then create
+						// the passing review immediately. Req# 5.12
+						ContestChannel contestChannel = c.getChannel();
+						if (contestChannel != null) {
+							if (ContestChannel.TOPCODER_DIRECT
+									.equals(contestChannel.getId())) {
+								SubmissionReview review = new SubmissionReview();
+								review.setNew(true);
+								review.setReviewer(userDAO.find(c
+										.getCreateUserId()));
+								review.setStatus(cFactory.getReviewStatusDAO()
+										.find(ReviewStatus.PASSED));
+								review
+										.setText("TopCoder Direct, Automatic pass");
+								review.setSubmission(s);
+								cFactory.getSubmissionReviewDAO().saveOrUpdate(
+										review);
+
+								s.setReview(review);
+							}
+						}
+						*/
+
+						if (maxRank == null) {
+							s.setRank(one);
+							dao.saveOrUpdate(s);
+						} else {
+							Integer newRank = new Integer(rank);
+							if (newRank.compareTo(maxRank) > 0) {
+								s.setRank(maxRank + 1);
+								dao.saveOrUpdate(s);
+							} else if (newRank.compareTo(one) < 0) {
+								dao.changeRank(one, s);
+							} else {
+								dao.changeRank(newRank, s);
+							}
+						}
+
+						closeConversation();
+						// have to wrap up the last stuff, and get into
+						// new stuff. we don't want
+						// sending email to be in the transaction
+						beginCommunication();
+
+						// Since TopCoder Studio Modifications Assembly -
+						// generate alternate representations for the
+						// submission. Req# 5.7
+						generateAlternateRepresentations(c, s, submissionFile,
+								u);
+
+						u = DAOUtil.getFactory().getUserDAO().find(
+								getUser().getId());
+
+						ContestChannel contestChannel = c.getChannel();
+						if (contestChannel != null
+								&& u.getPrimaryEmailAddress().getStatusId()
+										.equals(Email.STATUS_ID_ACTIVE)) {
+							if (ContestChannel.TOPCODER_DIRECT
+									.equals(contestChannel.getId())) {
+
+								// BUGR-633 Change: mail text has been changed
+								String response = "Your submission has been accepted and shown to the client. It still needs to be screened and you will receive another email alerting you to whether your submission has passed or failed screening.";
+
+
+								ReviewStatus rs = StudioDAOUtil.getFactory()
+										.getReviewStatusDAO().find(
+												ReviewStatus.PASSED);
+
+                                                                // BUGR-628 Change: change the parameter for sendEmail() method
+								sendEmail(u, response, s.getId(),
+										rs, new Date(), c.getName());
+
+							}
+						}
+						StringBuffer nextPage = new StringBuffer(50);
+						nextPage.append(getSessionInfo().getServletPath());
+						nextPage.append("?" + Constants.MODULE_KEY
+								+ "=ViewSubmissionSuccess&");
+						nextPage.append(Constants.SUBMISSION_ID + "=").append(
+								s.getId());
+						setNextPage(nextPage.toString());
+						setIsNextPageInContext(false);
+					}
 				}
 			}
 		} else {

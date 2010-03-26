@@ -23,7 +23,6 @@ import com.topcoder.web.studio.dao.SubmissionDAO;
 import com.topcoder.web.studio.dao.SubmissionReviewDAO;
 import com.topcoder.web.studio.dao.SubmissionStatusDAO;
 import com.topcoder.web.studio.dao.SubmissionTypeDAO;
-import com.topcoder.web.studio.dao.ElectronicAffirmationDAO;
 
 /**
  * <p>Hibernate implementation for the DAO Factory.</p>
@@ -37,14 +36,9 @@ import com.topcoder.web.studio.dao.ElectronicAffirmationDAO;
  *       Added method to get Contest Multi Round Information DAO
  *   </ol>
  * </p>
- * <p>
- *   Version 1.2 (Studio Multi-Rounds Assembly - Studio Contest Details v1.0) Change notes:
- *   <ol>
- *       Added method to get ElectronicAffirmation DAO
- *   </ol>
- * </p>
- * @author dok, pulky, Vitta
- * @version 1.2
+ *
+ * @author dok, isv, pulky
+ * @version 1.1
  */
 public class StudioDAOFactoryHibernate implements StudioDAOFactory {
     public ContestDAO getContestDAO() {
@@ -158,7 +152,5 @@ public class StudioDAOFactoryHibernate implements StudioDAOFactory {
         return new ContestMultiRoundInformationDAOHibernate();
     }
 
-    public ElectronicAffirmationDAO getElectronicAffirmationDAO() {
-        return new ElectronicAffirmationDAOHibernate();
-    }
+
 }
