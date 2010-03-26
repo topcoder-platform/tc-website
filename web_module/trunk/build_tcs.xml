@@ -107,6 +107,11 @@
 
         <!-- just to get ForumConversion to compile -->
         <pathelement location="${jars.dir}/activation.jar"/>
+        
+        <!-- LDAP SDK -->
+        <pathelement location="${jars.dir}/tcs/ldap_sdk_interface/1.0.2/ldap_sdk_interface.jar"/>
+        <pathelement location="${jars.dir}/netscape_ldap_sdk.jar"/>
+        <pathelement location="${jars.dir}/ldap.jar"/>
     </path>
 
     <target name="init">
