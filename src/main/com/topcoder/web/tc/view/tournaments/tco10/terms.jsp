@@ -12,7 +12,9 @@
                  com.topcoder.web.tc.Constants" %>
 <%@ include file="includes/taglibs.jsp" %>
 
-<% Event event = (Event) request.getAttribute("event"); %>
+<c:set var="event" value="${requestScope.event}"/>
+<c:set var="TERMS_AGREE" value="<%=Constants.TERMS_AGREE%>"/>
+<c:set var="TERMS_OF_USE_ID" value="<%=Constants.TERMS_OF_USE_ID%>"/>
 
 <tco10:pageSetup title="TCO 10 : Registration" area="overview"/>
 
@@ -40,29 +42,32 @@
                 <span class="rightBottom"></span><!-- main conent right bottom corner -->
 
                 <div class="bigColumn">
-                    <h2>Registration</h2>
+                    <div class="text">
+                        <h2 class="pageTitle">Registration</h2>
 
-                    <form name="terms" method="post" action="/tco10">
-                        <input name="module" value="SubmitUnifiedRegistration" type="hidden"/>
-                        <p align="center">To complete your registration for the <%=event.getDescription()%> you must
-                            <br/><strong>read and agree to</strong> the terms listed below.</p>
+                        <form name="terms" method="post" action="/tco10">
+                            <input name="module" value="SubmitUnifiedRegistration" type="hidden"/>
+                            <p align="center">To complete your registration for the
+                                <c:out value="${event.description}"/> you must
+                                <br/><strong>read and agree to</strong> the terms listed below.</p>
 
-                        <div align="center">
-                            <iframe width="600" height="300" marginwidth="5"
-                                    src="/tc?module=Static&amp;d1=tournaments&amp;d2=tco10&amp;d3=termsContent&<%=Constants.TERMS_OF_USE_ID%>=<%=event.getTerms().getId()%>"></iframe>
-                        </div>
-                        <div align="center">
-                            <tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>">
-                                <span class="bigRed">${err}</span>
-                                &nbsp;<br />
-                            </tc-webtag:errorIterator>
-                            <tc-webtag:chkBox name="<%=Constants.TERMS_AGREE%>"/>
-                            I agree
-                        </div>
-                        <div align="center">
-                            <button name="submit" value="submit" type="submit">Submit</button>
-                        </div>
-                    </form>
+                            <div align="center">
+                                <iframe width="600" height="300" marginwidth="5"
+                                        src="/tc?module=Static&amp;d1=tournaments&amp;d2=tco10&amp;d3=termsContent&${TERMS_OF_USE_ID}=${event.terms.id}"></iframe>
+                            </div>
+                            <div align="center">
+                                <tc-webtag:errorIterator id="err" name="${TERMS_AGREE}">
+                                    <span class="bigRed">${err}</span>
+                                    &nbsp;<br />
+                                </tc-webtag:errorIterator>
+                                <tc-webtag:chkBox name="${TERMS_AGREE}"/>
+                                I agree
+                            </div>
+                            <div align="center">
+                                <button name="submit" value="submit" type="submit">Submit</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
 
                 <jsp:include page="includes/sponsors.jsp"/>

@@ -29,7 +29,7 @@
                 <jsp:include page="subMenu.jsp"/>
 
                 <div class="bigColumn">
-                    &nbsp;
+                    <%@ include file="../includes/comingSoon.jsp" %>
                 </div>
 
                 <jsp:include page="../includes/sponsors.jsp"/>

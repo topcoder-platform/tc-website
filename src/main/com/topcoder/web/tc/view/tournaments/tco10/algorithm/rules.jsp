@@ -30,7 +30,10 @@
 
                 <div class="bigColumn">
                     <div class="text">
+<%--
                         <h2 class="pageTitle">Algorithm Competition Official Rules and Regulations</h2><!-- page title -->
+--%>
+                        <%@ include file="../includes/comingSoon.jsp" %>
                    </div>
                 </div>
 

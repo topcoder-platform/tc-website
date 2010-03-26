@@ -30,6 +30,8 @@
 
                 <div class="bigColumn">
                     <div class="text">
+                        <%@ include file="../includes/comingSoon.jsp" %>
+<%--
                         <h2 class="pageTitle">Leaderboard</h2>
                         <div class="legend">
                             <p> 
@@ -151,6 +153,7 @@
                             <a href="#" class="button2">Next &gt;&gt;</a>
                         </div>
 							
+--%>
                     </div>
 						
                     </div>
