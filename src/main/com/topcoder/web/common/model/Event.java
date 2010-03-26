@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2007-2010 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.common.model;
 
 import com.topcoder.web.common.model.comp.Contest;
@@ -8,15 +11,28 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * @author dok
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Jan 18, 2007
+ * <p>A class representing the single event hosted by <code>TopCoder</code>.</p>
+ *
+ * <p>
+ *   Version 1.1 (2010 TCO WebSite Release assembly v1.0) Change notes:
+ *   <ol>
+ *     <li>Added constant for ID for event of <code>2010 TCO</code>.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, TCSDEVELOPER
+ * @version 1.1
  */
 public class Event extends Base {
     public static final Long TCO07_COMPONENT_ID = new Long(7);
     public static final Long TCCC07_COMPONENT_ID = new Long(3002);
     public static final Long TCO08_COMPONENT_ID = new Long(3006);
     public static final Long TCO09_EVENT_ID = new Long(3009);
+
+    /**
+     * <p>A <code>long</code> providing the ID for event of <code>2010 TCO</code>.</p>
+     */
+    public static final Long TCO10_EVENT_ID = new Long(3432);
 
     private Long id;
     private EventType type;
