@@ -39,7 +39,7 @@
 
 <body>
 
-<div id="wrapper" class="homepage"><!-- the outest whole website wrapper -->
+<div id="wrapper" class="homepage singlePage"><!-- the outest whole website wrapper -->
 
     <jsp:include page="../includes/logo.jsp"/>
 
@@ -58,7 +58,8 @@
 
                 <div class="bigColumn">
                     <% ResultSetContainer rsc = (ResultSetContainer) (request.getAttribute("list"));%>
-                    <form name="registrantsForm" action='${sessionInfo.servletPath}' method="get">
+                    <c:set var="totalCount" value="${fn:length(requestScope.list)}"/>
+                    <form name="registrantsForm" action='${sessionInfo.servletPath}' method="get" id="registrantsForm">
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Registrants"/>
                         <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
                         <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
@@ -84,9 +85,11 @@
                                                          onClick="this.style.color='#333333';" maxlength="100"/>
                                 </th>
                             </tr>
+                            <c:set var="rcounter" value="${0}"/>
                             <rsc:iterator list='<%=rsc%>' id="resultRow">
-                                <tr>
-                                    <td colspan="2">
+                                <c:set var="rcounter" value="${rcounter + 1}"/>
+                                <tr <c:if test="${totalCount == rcounter}">class="last"</c:if>>
+                                    <td colspan="2" style="text-align: left;" <c:if test="${not ((rcounter % 2) == 0)}">class="even"</c:if>>
                                         <tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>'/>
                                     </td>
                                 </tr>
@@ -96,12 +99,22 @@
                         <br/>
                         <tco10:paginationLinks previousAvailable="<%=rsc.croppedDataBefore()%>"
                                                nextAvailable="<%=rsc.croppedDataAfter()%>"/>
-                        <br/><br/>
-                        View &#160;
-                        <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4"/>
-                        &#160;at a time starting with &#160;
-                        <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4"/>
-                        <button name="nameSubmit" value="submit" type="submit">Go</button>
+                        <br/><br/><br/>
+
+                        <div class="paging">
+                            <div class="show">
+                                <p>
+                                    View &#160;
+                                    <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4"/>
+                                    &#160;at a time starting with &#160;
+                                </p>
+                            </div>
+                            <div class="gopage" style="margin-left:0px;">
+                                <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4"/>
+                                &#160;<a href="javascript:document.registrantsForm.submit();" class="button small">GO</a>
+                                <button style="display:none;" name="nameSubmit" value="submit" type="submit"/>
+                            </div>
+                        </div>
                     </form>
                 </div>
 

@@ -26,7 +26,7 @@
 
 <body>
 
-<div id="wrapper" class="homepage"><!-- the outest whole website wrapper -->
+<div id="wrapper" class="homepage singlePage"><!-- the outest whole website wrapper -->
 
     <jsp:include page="includes/logo.jsp"/>
 
@@ -52,16 +52,20 @@
                                 <br/><strong>read and agree to</strong> the terms listed below.</p>
 
                             <div align="center">
+                                <p>
                                 <iframe width="600" height="300" marginwidth="5"
                                         src="/tc?module=Static&amp;d1=tournaments&amp;d2=tco10&amp;d3=termsContent&${TERMS_OF_USE_ID}=${event.terms.id}"></iframe>
+                                </p>
                             </div>
                             <div align="center">
-                                <tc-webtag:errorIterator id="err" name="${TERMS_AGREE}">
-                                    <span class="bigRed">${err}</span>
-                                    &nbsp;<br />
-                                </tc-webtag:errorIterator>
-                                <tc-webtag:chkBox name="${TERMS_AGREE}"/>
-                                I agree
+                                <p>
+                                    <tc-webtag:errorIterator id="err" name="${TERMS_AGREE}">
+                                        <span class="bigRed">${err}</span>
+                                        &nbsp;<br />
+                                    </tc-webtag:errorIterator>
+                                    <tc-webtag:chkBox name="${TERMS_AGREE}"/>
+                                    I agree
+                                </p>
                             </div>
                             <div align="center">
                                 <button name="submit" value="submit" type="submit">Submit</button>
