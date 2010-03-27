@@ -202,6 +202,13 @@
                 <include name="id_generator-3.0.0.jar"/>
                 <include name="base_exception-2.0.0.jar"/>
             </fileset>
+            <fileset dir="${jars.dir}">
+                <include name="netscape_ldap_sdk.jar"/>
+                <include name="ldap.jar"/>
+            </fileset>
+            <fileset dir="${jars.dir}/tcs/ldap_sdk_interface/1.0.2">
+                <include name="ldap_sdk_interface.jar"/>
+            </fileset>
         </copy>
 
     </target>
