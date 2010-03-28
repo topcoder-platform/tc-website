@@ -26,6 +26,7 @@ import com.topcoder.web.common.HttpObjectFactory;
 import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
+import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.Constants;
@@ -35,8 +36,11 @@ import com.topcoder.web.common.security.WebAuthentication;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.rmi.RemoteException;
 import java.security.Principal;
+import java.util.Arrays;
 import java.util.Iterator;
+import java.util.Map;
 
 /**
  * @author dok
@@ -70,8 +74,18 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
                 try {
                     TCSubject sub = authenticate(userName, password);
                     if (sub != null) {
-                        log.info("login(request, response, username, password, cookie) took " + (System.currentTimeMillis() - start) + " ms");
-                        return true;
+                        if (Arrays.binarySearch(WebConstants.ACTIVE_STATI, getStatus(sub.getUserId())) >= 0) {
+                            //confluence likes to work with lower case user names
+                            com.atlassian.user.User cUser = checkAndAddUser(userName);
+                            checkAndAddEmail(cUser, sub.getUserId());
+                            checkAndAddAdmin(userName, cUser);
+                            authentication.login(new SimpleUser(sub.getUserId(), userName, password), cookie);
+                            log.info("login(request, response, username, password, cookie) took " + (System.currentTimeMillis() - start) + " ms");
+                            return true;
+                        } else {
+                            log.info("login(request, response, username, password, cookie) took " + (System.currentTimeMillis() - start) + " ms");
+                            return false;
+                        }
                     } else {
                         log.info("login(request, response, username, password, cookie) took " + (System.currentTimeMillis() - start) + " ms");
                         return false;
@@ -93,6 +107,18 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
         } catch (Exception e) {
             throw new AuthenticatorException(e.getMessage());
         }
+
+    }
+
+
+    private char getStatus(final long userId) throws Exception {
+        DataAccess dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
+        Request dataRequest = new Request();
+        dataRequest.setProperty(DataAccessConstants.COMMAND, "userid_to_password");
+        dataRequest.setProperty("uid", Long.toString(userId));
+        Map dataMap = dai.getData(dataRequest);
+        ResultSetContainer rsc = (ResultSetContainer) dataMap.get("userid_to_password");
+        return rsc.getStringItem(0, "status").charAt(0);
 
     }
 
@@ -118,6 +144,8 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
             if (log.isDebugEnabled()) {
                 log.debug("correct user name and password");
             }
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
         } catch (GeneralSecurityException e) {
             return ret;
         } catch (Exception e) {
@@ -136,7 +164,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
         super.setUserAccessor(userAccessor);
     }
 
-    public UserAccessor getUserAccessor() {
+    protected UserAccessor getUserAccessor() {
         log.debug("XXX getUserAccessor called");
         return super.getUserAccessor();
     }
