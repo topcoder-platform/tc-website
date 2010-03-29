@@ -1290,7 +1290,7 @@
                 <include name="common-functions.tld"/>
             </webinf>
             <webinf dir="${java}/com/topcoder/web/tc/view/">
-                <include name="tags/*.tag"/>
+                <include name="tags/**/*.tag"/>
             </webinf>
             <webinf dir="${struts.dir}">
                 <include name="*.tld"/>
