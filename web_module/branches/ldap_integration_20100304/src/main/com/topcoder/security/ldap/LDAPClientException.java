@@ -38,6 +38,12 @@ public class LDAPClientException extends BaseException {
     private static final int UNKNOWN_USER_ID = 4;
 
     /**
+     * <p>An <code>int</code> providing the error code for the case when there is no <code>LDAP</code> entry found
+     * matching the specified user handle.</p>
+     */
+    private static final int UNKNOWN_USER_HANDLE = 5;
+
+    /**
      * <p>An <code>int</code> providing the error code referencing the concrete cause of failure.</p>
      */
     private int errorCode = 0;
@@ -115,6 +121,20 @@ public class LDAPClientException extends BaseException {
         LDAPClientException exception =
             new LDAPClientException("Could not find TopCoder member LDAP entry for user ID: " + userId,
                                     UNKNOWN_USER_ID);
+        return exception;
+    }
+
+    /**
+     * <p>A factory method to be used for creating exceptions indicating that there were no <code>LDAP</code> entry
+     * found corresponding to <code>TopCoder</code> member account with specified handle.</p>
+     *
+     * @param handle a <code>String</code> providing the user handle.
+     * @return a <code>LDAPClientException</code> to be thrown.
+     */
+    static LDAPClientException createUserHandleNotFoundException(String handle) {
+        LDAPClientException exception =
+            new LDAPClientException("Could not find TopCoder member LDAP entry for user handle: " + handle,
+                                    UNKNOWN_USER_HANDLE);
         return exception;
     }
 
