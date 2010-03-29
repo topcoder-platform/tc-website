@@ -23,24 +23,16 @@
 <div id="welcome">
 
     <div class="crossButton"><!-- right side button -->
-        <div class="blog"><a href="javascript:;"></a></div>
-        <div class="programe"><a href="javascript:;"></a></div>
-        <div class="movie"><a href="javascript:;"></a></div>
-        <div class="photo"><a href="javascript:;"></a></div>
+        <div class="blog"><a href="http://topcoder.com/home/tco10/"></a></div>
+        <div class="programe"><!--<a href="javascript:;"></a>--></div>
+        <div class="movie"><a href="http://topcoder.com/home/tco10/movies/"></a></div>
+        <div class="photo"><a href="http://topcoder.com/home/tco10/photos/"></a></div>
     </div><!--End .crossButton-->
 
     <div class="welcomeText"><!-- left side text -->
         <h1 class="welcomeTitle">WELCOME TO THE 2010 TOPCODER OPEN!</h1>
 
-        <p>The <span class="orange">2010 TopCoder Open</span> (TCO) is a world-wide programming and graphic design
-            tournament that is open to all TopCoder members 18 and older, who are in good standing, and meet all other
-            eligibility criteria. There are nine different tracks of competition as part of the TCO: Algorithm,
-            Architecture, Assembly, Component Design &amp; Development, Marathon, Mod Dash, Specification, and Studio
-            Design. Taking part in the TCO10 gives you the opportunity to showcase your programming and/or design skills
-            up against some of the best in the world. We're also dishing out cash and prizes! Becoming a TopCoder member
-            is easy and free. <a href="http://${requestScope.SERVER_NAME}/reg">Register here</a>. Have a question? Just email <a
-                    href="mailto:service@topcoder.com">service@topcoder.com</a>. Stay tuned for more details as we finalize the
-            preparations for this awesome event!</p>
+      <p>The <span class="blue">2010 TopCoder Open</span> (TCO) is a world-wide programming and graphic design tournament that is open to all TopCoder members 18 and older, who are in good standing, and meet all other eligibility criteria. There are six competition tracks as part of the TCO: Algorithm, Design, Development, Marathon, Mod Dash, and Studio Design. Take part in the TCO10 to enhance your skills, compete against the most elite minds around the world, and for a chance at some great prizes! Becoming a TopCoder member is easy and free.  <a href="http://www.topcoder.com/reg">Register here</a>. Have a question? Just email <a href="mailto:service@topcoder.com">service@topcoder.com</a>.</p>
     </div>
     <!--End .welcomeText-->
 
@@ -57,72 +49,55 @@
 
     <div class="bigColumn">
         <div class="text">
-            <%@ include file="../includes/comingSoon.jsp" %>
 <%--
-            <h2 class="pageTitle">Page Title</h2><!-- page title -->
-            <p>Lorem ipsum dolor sit amet, <a href="javascript:;">consectetur</a> adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-            <div class="subText">
-                <h3 class="subTitle">Subtitle</h3><!-- sub title-->
-                <p>Lorem ipsum dolor sit amet, <a href="javascript:;">consectetur</a> adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <span
-                            class="orange">FC7B6</span>, <span class="red">EE0000</span>, <span
-                            class="yellow">DDCC00</span>, <span class="purple">6666FF</span>, <span
-                            class="green">00A900</span>, <span class="gray">999999</span>, <span
-                            class="write">FFFFFF</span>. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-            <!--End .subText-->
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vivamus congue ante eu augue. Ut semper.
-                Maecenas id magna. Aliquam eu nisi. Vivamus ac quam vel orci faucibus auctor. Maecenas odio eros, dictum
-                a, varius vitae, placerat eget, mi. Ut sed eros ut urna tincidunt dictum. Quisque est enim, vestibulum
-                eu, feugiat non, bibendum nec, est. Sed molestie, purus sed consectetuer congue, pede velit pharetra
-                leo, nec accumsan mauris metus eget libero. Aliquam erat volutpat. Ut mattis, arcu sed gravida semper,
-                purus lorem luctus quam, vel scelerisque arcu ipsum eget nisi. Phasellus molestie mauris eget nisi.
-                Suspendisse feugiat suscipit odio. Aliquam erat volutpat. Cum sociis natoque penatibus et magnis dis
-                parturient montes, nascetur ridiculus mus. Vivamus ut tellus quis ante cursus scelerisque. Integer
-                commodo justo eget mauris.</p>
+           <h2 class="pageTitle">Latest Happenings</h2><!-- page title -->
+           
+           RSS Feed from the blog needs to go here.
 --%>
-        </div>
-        <!--End .text-->
-<%--
-        <table cellpadding="0" cellspacing="0" class="leaderboard"><!-- Start table list -->
-            <tr>
-                <th class="first"><span class="left"></span>Table Header</th>
-                <!-- table left top corner -->
-                <th class="last"><span class="right"></span>&nbsp;</th>
-                <!-- table right top corner -->
-            </tr>
-            <tr>
-                <td colspan="2">Table Row</td>
-            </tr>
-            <tr>
-                <td colspan="2">Table Row</td>
-            </tr>
-            <tr>
-                <td colspan="2">Table Row</td>
-            </tr>
-            <tr>
-                <td colspan="2">Table Row</td>
-            </tr>
-            <tr>
-                <td colspan="2">Table Row</td>
-            </tr>
-            <tr class="last">
-                <td colspan="2">Table Row</td>
-            </tr>
-        </table>
---%>
+       
+            <h2 class="pageTitle">TopCoder is proud to announce the 2010 TopCoder Open!</h2><!-- page title -->
+            	<p><strong>$150,000 in Prizes! Six Competition Tracks!</strong></p>
+            	<p><strong>100 Competitors WIN a Round-Trip All-Expenses Paid Trip to LAS VEGAS!</strong></p>
+            	<p>Each year TopCoder strives to out do the year before and this year we feel confident that you'll be wowed with the competitions, prizes, and excitement that is the TCO10!</p>
+            	<p>The TCO10 has now begun with <a href="http://www.topcoder.com/tco10?module=ViewUnifiedRegistration">registration open for all tracks of competition.</a> Be sure to visit each competition track details page and rules for all the information and registration deadlines.</p>
+           	<p>The TCO10 six competition tracks:</p>
+                	<ul class="textlist">
+                    	<li><tco10:algorithmStaticPageLink page="rules">Algorithm Competition</tco10:algorithmStaticPageLink></li>
+                    	<li><tco10:designStaticPageLink page="rules">Design Competition</tco10:designStaticPageLink></li>
+                    	<li><tco10:developmentStaticPageLink page="rules">Development Competition</tco10:developmentStaticPageLink></li>
+                    	<li><tco10:marathonStaticPageLink page="rules">Marathon Competition</tco10:marathonStaticPageLink></li>
+                    	<li><tco10:moddashStaticPageLink page="rules">Mod Dash Competition</tco10:moddashStaticPageLink></li>
+                    	<li><tco10:studioStaticPageLink page="rules">Studio Design Competition</tco10:studioStaticPageLink></li>
+                    </ul>
+                    <br />
+           	<p>The grand finale of the TCO10 will take place at The Mirage in Las Vegas, Nevada, USA October 11 - 14, 2010.</p>
+           	<p>A special thanks goes out to all the talented members who designed and help create the TCO10 website which we think is awesome!<br />
+                        Logo design:  rhorea and sigit.a<br />
+                        Icons design:  djnapier<br />
+                        Storyboard design:  leben<br />
+                        UI Prototype:  Jooc<br />
+                        Leaderboard coding and Navigation edits to the Prototype:  AjJi<br />
+                        Content coding:  invisiblepilot<br />
+                        Wordpress skin coding:  dweng<br />
+                        Assembly: isv<br /><br />
+                        
+                        Reviewers:<br />
+                        Logo contests:  rhorea<br />
+                        Icons contest:  rhorea<br />
+                        Storyboard:  greenspin<br />
+                        UI Prototype:  invisiblepilot, selvaa89, bohuss, YeGGo<br />
+            			Assembly: snow01, cyberjag, BeBetter</p>
+             		<p>We also want to thank our Event Patron NSA (linik to their landing page) and first-time sponsor Yandex (link to their landing page) for being part of the TCO10.</p>
+             		<p><a href="http://www.topcoder.com/tco10?module=ViewUnifiedRegistration">Register now</a> and best of luck to you!</p>
+       
+       </div>
+    
     </div>
 
-    <jsp:include page="../includes/sponsors.jsp"/>
-    
+n!
+
+
+
     <div class="clear"></div>
 </div>
 <!--End .mainbody-->

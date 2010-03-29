@@ -29,7 +29,10 @@
                 <jsp:include page="subMenu.jsp"/>
 
                 <div class="bigColumn">
-                    <%@ include file="../includes/comingSoon.jsp" %>
+                    <div class="text">
+                        <h2 class="pageTitle">TCO10 Sponsors</h2><!-- page title -->
+                             <p>Overview text about the sponsors here.</p>  
+                    </div>
                 </div>
 
                 <jsp:include page="../includes/sponsors.jsp"/>

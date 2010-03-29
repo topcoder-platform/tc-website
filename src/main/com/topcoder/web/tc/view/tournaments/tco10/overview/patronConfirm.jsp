@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="../includes/taglibs.jsp" %>
 
-<tco10:pageSetup title="TCO 10 : Sponsors" area="overview" menu="sponsors" subMenu="sponsor2"/>
+<tco10:pageSetup title="TCO 10 : Tournament Overview" area="overview" menu="patron"/>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -30,10 +30,10 @@
 
                 <div class="bigColumn">
 						<div class="text">
-							<h2 class="pageTitle">Facebook</h2><!-- page title -->
-                                <p>Text</p>
-                                <!--<p align="center"><a href="/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=sponsors&d5=sponsor2Confirm"><img src="i/tournament/tco10/applynow.png" alt="Apply Now for Yandex!" /></a></p>-->
-						</div>
+							<h2 class="pageTitle">NSA - Where Intelligence Goes to Work</h2>
+                            <p><strong>By applying, you will be releasing your TopCoder contact and statistical information to NSA and you will be giving NSA permission to contact you about their current job opportunities.</strong>                        
+                            <p align="center"><a href="/tc?module=JobHit&jid=493&jt=1"><img src="i/submitnow.png" alt="Submit Info to NSA!" /></a></p>
+					  	</div>
                 </div>
 
                 <jsp:include page="../includes/sponsors.jsp"/>

@@ -30,10 +30,24 @@
 
                 <div class="bigColumn">
                     <div class="text">
-<%--
-                        <h2 class="pageTitle">Welcome to the TCO10 Design Competition!</h2><!-- page title -->
---%>
-                        <%@ include file="../includes/comingSoon.jsp" %>
+			<h2 class="pageTitle">Welcome to the TCO10 Design Competition!</h2><!-- page title -->
+                            <p>The Design Competition includes the following tracks:  Architecture, Component Design, Conceptualization, Specification, and Testing Scenarios. Competitors will have from March 29 - July 30, 2010 to compete and accumulate points leading up to the Finals, being held at the Mirage Hotel in Las Vegas, Nevada, USA from October 11 - 14, 2010. The top fifteen scorers including the Champion will win this fabulous trip to Las Vegas!</p>
+
+                            <h3 class="subTitle">How Does it Work?</h3><!-- sub title-->
+                            <p>First you must be a registered TopCoder member.  <a href="http://www.topcoder.com/reg">Register for TopCoder here</a>.  Next you must register for the 2010 TopCoder Open <a href="http://www.topcoder.com/tco10?module=ViewUnifiedRegistration">here.</a>  You may register for the tournament up until July 30, 2010 at 9:00 UTC -4.</p>
+                            <p><a href="http://www.topcoder.com/wiki/display/tc/How+to+Compete+in+Architecture+Competitions">Learn how to compete in Architecture competitions here.</a></p>
+                            <p><a href="http://www.topcoder.com/wiki/display/tc/How+to+Compete+in+Component+Design+Competitions">Learn how to compete in Component Design competitions here.</a></p>
+                            <p><a href="http://www.topcoder.com/wiki/display/tc/How+to+Compete+in+Testing+Competitions">Learn how to compete in Testing Scenarios competitions here.</a></p>
+                            <p><a href="http://www.topcoder.com/wiki/display/tc/Software+Conceptualization+How-To">Learn how to compete in Conceptualization competitions here.</a></p> 
+                            <p><a href="http://www.topcoder.com/wiki/display/tc/Software+Specification+How+To">Learn how to compete in Specification competitions here.</a></p> 
+
+
+
+                            <h3 class="subTitle">The Competition Details</h3><!-- sub title-->
+                            <p>When is the competition? <tco10:designStaticPageLink page="schedule">See the schedule.</tco10:designStaticPageLink><br />
+                                It is important for you to read the <tco10:overviewStaticPageLink page="rules">official rules and regulations</tco10:overviewStaticPageLink> for important details. Also, you must read through the specific rules for the <tco10:designStaticPageLink page="rules">Design Competition.</tco10:designStaticPageLink><br />
+                                The competition is free and you must be a member who is 18 years or older, as well as meet all eligibility criteria, in order to participate.</p>
+
                    </div>
                 </div>
 
