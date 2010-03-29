@@ -102,7 +102,7 @@ public class LDAPClient {
      * <p>A <code>String</code> providing the template for <code>TopCoder</code> member profile entry DNs in
      * <code>LDAP</code> directory.</p>
      */
-    private static final String TOPCODER_MEMBER_ENTRIES_DN_TEMPLATE = "handle={0}," + TOPCODER_MEMBER_BASE_DN;
+    private static final String TOPCODER_MEMBER_ENTRIES_DN_TEMPLATE = "uid={0}," + TOPCODER_MEMBER_BASE_DN;
 
     /**
      * <p>A <code>String</code> referencing the <code>Active</code> status of <code>TopCoder</code> member account.</p>
@@ -144,18 +144,28 @@ public class LDAPClient {
      *         user account is authenticated successfully but account is not of <code>Active</code> status.
      */
     public static long authenticateTopCoderMember(String handle, String password) throws LDAPClientException {
-        String userEntryDN = MessageFormat.format(TOPCODER_MEMBER_ENTRIES_DN_TEMPLATE, handle);
+
         LDAPSDKConnection ldapConnection = null;
         try {
+            final LDAPClient client = new LDAPClient();
+            client.connect();
+            String userEntryDN;
+            Entry userEntry;
+            try {
+                userEntry = client.findTopCoderMemberEntryByUserHandle(handle);
+                userEntryDN = userEntry.getDn();
+            } finally {
+                client.disconnect();
+            }
+
             LDAPSDK sdk = new LDAPSDK(CONNECTION_FACTORY);
             ldapConnection = sdk.createSSLConnection();
             ldapConnection.connect(HOST, PORT);
             ldapConnection.authenticate(userEntryDN, password);
-            Entry entry = ldapConnection.readEntry(userEntryDN);
-            String userStatus = getStatus(entry);
+            String userStatus = getStatus(userEntry);
             if (USER_STATUS_ACTIVE.equals(userStatus)) {
                 log.info("Authenticated user " + handle + " against LDAP server successfully");
-                return getUserID(entry);
+                return getUserID(userEntry);
             } else {
                 log.debug("Rejected successful authentication against LDAP server for user " + handle
                           + " due to not Active user account status");
@@ -259,7 +269,7 @@ public class LDAPClient {
         validateTopCoderMemberProfile(profile);
 
         // Create the LDAP entry matching the profile
-        Entry ldapEntry = new Entry(MessageFormat.format(TOPCODER_MEMBER_ENTRIES_DN_TEMPLATE, handle));
+        Entry ldapEntry = new Entry(buildTopCoderMemberEntryDN(userId));
         ldapEntry.setAttribute("objectClass", new Values("top"));
         ldapEntry.setAttribute("objectClass", new Values("tc-member"));
         ldapEntry.setAttribute(MEMBER_PROFILE_PROPERTY_HANDLE, new Values(handle));
@@ -289,13 +299,13 @@ public class LDAPClient {
      */
     public void changeTopCoderMemberProfilePassword(long userId, String newPassword) throws LDAPClientException {
         checkConnection();
-        Entry userLDAPEntry = findTopCoderMemberEntryByUserId(userId);
+        String userLDAPEntryDN = buildTopCoderMemberEntryDN(userId);
         try {
             JLDAPConnection jldapConnection = (JLDAPConnection) this.ldapConnection;
-            jldapConnection.changePassword(userLDAPEntry.getDn(), newPassword);
-            log.info("Successfully changed password for LDAP entry " + userLDAPEntry.getDn());
+            jldapConnection.changePassword(userLDAPEntryDN, newPassword);
+            log.info("Successfully changed password for LDAP entry " + userLDAPEntryDN);
         } catch (LDAPSDKException e) {
-            log.error("Failed to change password for LDAP entry " + userLDAPEntry.getDn() + " due to unexpected error");
+            log.error("Failed to change password for LDAP entry " + userLDAPEntryDN + " due to unexpected error");
             throw LDAPClientException.createUnexpectedErrorException(e);
         }
     }
@@ -310,16 +320,14 @@ public class LDAPClient {
      */
     public void setTopCoderMemberProfileHandle(long userId, String newHandle) throws LDAPClientException {
         checkConnection();
-        Entry userLDAPEntry = findTopCoderMemberEntryByUserId(userId);
+        String userLDAPEntryDN = buildTopCoderMemberEntryDN(userId);
+        Update update = new Update();
+        update.replace(MEMBER_PROFILE_PROPERTY_HANDLE, new Values(newHandle));
         try {
-            String newEntryDN = MEMBER_PROFILE_PROPERTY_HANDLE + "=" + newHandle;
-            this.ldapConnection.renameEntry(userLDAPEntry.getDn(), newEntryDN, true);
-            log.info("Renamed LDAP entry " + userLDAPEntry.getDn() + " to "
-                    + MessageFormat.format(TOPCODER_MEMBER_ENTRIES_DN_TEMPLATE, newHandle) + " in response to "
-                    + "changing handle for user account " + userId + " from " + getHandle(userLDAPEntry)
-                    + " to " + newHandle);
+            this.ldapConnection.updateEntry(userLDAPEntryDN, update);
+            log.info("Successfully changed handle for LDAP entry " + userLDAPEntryDN + " to " + newHandle);
         } catch (LDAPSDKException e) {
-            log.error("Failed to rename LDAP entry " + userLDAPEntry.getDn() + " due to unexpected error");
+            log.error("Failed to change handle for LDAP entry " + userLDAPEntryDN + " due to unexpected error");
             throw LDAPClientException.createUnexpectedErrorException(e);
         }
     }
@@ -333,15 +341,15 @@ public class LDAPClient {
      */
     public void activateTopCoderMemberProfile(long userId) throws LDAPClientException {
         checkConnection();
-        Entry userLDAPEntry = findTopCoderMemberEntryByUserId(userId);
+        String userLDAPEntryDN = buildTopCoderMemberEntryDN(userId);
         Update update = new Update();
         update.replace(MEMBER_PROFILE_PROPERTY_STATUS, new Values(TOPCODER_MEMBER_STATUS_ACTIVE));
         try {
-            this.ldapConnection.updateEntry(userLDAPEntry.getDn(), update);
-            log.info("Successfully changed status for LDAP entry " + userLDAPEntry.getDn()
-                     + " to " + TOPCODER_MEMBER_STATUS_ACTIVE);
+            this.ldapConnection.updateEntry(userLDAPEntryDN, update);
+            log.info("Successfully changed status for LDAP entry " + userLDAPEntryDN + " to "
+                     + TOPCODER_MEMBER_STATUS_ACTIVE);
         } catch (LDAPSDKException e) {
-            log.error("Failed to change status for LDAP entry " + userLDAPEntry.getDn() + " due to unexpected error");
+            log.error("Failed to change status for LDAP entry " + userLDAPEntryDN + " due to unexpected error");
             throw LDAPClientException.createUnexpectedErrorException(e);
         }
     }
@@ -356,40 +364,42 @@ public class LDAPClient {
      */
     public void setTopCoderMemberProfileStatus(long userId, String newStatus) throws LDAPClientException {
         checkConnection();
-        Entry userLDAPEntry = findTopCoderMemberEntryByUserId(userId);
+        String userLDAPEntryDN = buildTopCoderMemberEntryDN(userId);
         Update update = new Update();
         update.replace(MEMBER_PROFILE_PROPERTY_STATUS, new Values(newStatus));
         try {
-            this.ldapConnection.updateEntry(userLDAPEntry.getDn(), update);
-            log.info("Successfully changed status for LDAP entry " + userLDAPEntry.getDn() + " to " + newStatus);
+            this.ldapConnection.updateEntry(userLDAPEntryDN, update);
+            log.info("Successfully changed status for LDAP entry " + userLDAPEntryDN + " to " + newStatus);
         } catch (LDAPSDKException e) {
-            log.error("Failed to change status for LDAP entry " + userLDAPEntry.getDn() + " due to unexpected error");
+            log.error("Failed to change status for LDAP entry " + userLDAPEntryDN + " due to unexpected error");
             throw LDAPClientException.createUnexpectedErrorException(e);
         }
     }
 
     /**
-     * <p>Finds the <code>LDAP</code> entry for <code>TopCoder</code> member profile matching the specified ID.</p>
+     * <p>Finds the <code>LDAP</code> entry for <code>TopCoder</code> member profile matching the specified handle.</p>
      *
-     * @param userId a <code>long</code> providing the ID for the <code>TopCoder</code> member account to find the
-     *        matching <code>lDAP</code> entry for.
+     * @param handle a <code>String</code> providing the handle for the <code>TopCoder</code> member account to find the
+     *        matching <code>LDAP</code> entry for.
      * @return an <code>Entry</code> providing the data for <code>LDAP</code> entry matching the specified
      *         <code>TopCoder</code> member profile ID.
      * @throws LDAPClientException if an unexpected error occurs or respective <code>LDAP</code> entry is not found.
      */
-    private Entry findTopCoderMemberEntryByUserId(long userId) throws LDAPClientException {
+    private Entry findTopCoderMemberEntryByUserHandle(String handle)
+        throws LDAPClientException {
+
         Iterator iterator = null;
         try {
             String[] returnAttributes
                 = EXPORTED_MEMBER_PROFILE_ATTRIBUTES.toArray(new String[EXPORTED_MEMBER_PROFILE_ATTRIBUTES.size()]);
 
             iterator = this.ldapConnection.search(TOPCODER_MEMBER_BASE_DN, SCOPE_ONE,
-                                                  MEMBER_PROFILE_PROPERTY_USERID + "=" + userId, returnAttributes);
+                                                  MEMBER_PROFILE_PROPERTY_HANDLE + "=" + handle, returnAttributes);
             if (iterator.hasNext()) {
                 Entry userEntry = (Entry) iterator.next();
                 return userEntry;
             } else {
-                throw LDAPClientException.createUserIDNotFoundException(userId);
+                throw LDAPClientException.createUserHandleNotFoundException(handle);
             }
         } catch (LDAPSDKException e) {
             throw LDAPClientException.createUnexpectedErrorException(e);
@@ -480,5 +490,15 @@ public class LDAPClient {
      */
     private static Long getUserID(Entry userLDAPEntry) {
         return new Long((String) userLDAPEntry.getValues(MEMBER_PROFILE_PROPERTY_USERID).getTextValues().get(0));
+    }
+
+    /**
+     * <p>Builds the DN for LDAP entry for the specified user.</p>
+     *
+     * @param userId a <code>long</code> providing the user ID.
+     * @return a <code>String</code> providing the DN for LDAP entry for specified user.
+     */
+    private String buildTopCoderMemberEntryDN(long userId) {
+        return MEMBER_PROFILE_PROPERTY_USERID + "=" + userId + "," + TOPCODER_MEMBER_BASE_DN;
     }
 }
