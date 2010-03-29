@@ -45,7 +45,7 @@
             </tco10:overviewStaticPageLink>
         </li>
         <li class="${finalResultsClass}"><!-- four item -->
-            <tco10:overviewStaticPageLink styleClass="tertiaryNavBT SponsorsBT" page="sponsors">
+            <tco10:overviewStaticPageLink styleClass="tertiaryNavBT SponsorsBT" page="sponsor1">
                 <span class="left"></span>
                 <span class="text">Sponsors</span>
                 <span class="right"></span>
@@ -90,14 +90,14 @@
                 <c:set var="sponsor3Class" value="${isSponsor3 ? 'actived' : ''}"/>
                 <ul class="competitionRules">
                     <li class="${sponsor1Class}">
-                        <tco10:overviewStaticPageLink page="sponsor1">Sponsor 1</tco10:overviewStaticPageLink>
+                        <tco10:overviewStaticPageLink page="sponsor1">Yandex</tco10:overviewStaticPageLink>
                     </li>
-                    <li class="${sponsor2Class}">
-                        <tco10:overviewStaticPageLink page="sponsor2">Sponsor 2</tco10:overviewStaticPageLink>
-                    </li>
-                    <li class="${sponsor3Class}">
+                    <!--<li class="${sponsor2Class}">
+                        <tco10:overviewStaticPageLink page="sponsor2">Facebook</tco10:overviewStaticPageLink>
+                    </li>-->
+                    <!--<li class="${sponsor3Class}">
                         <tco10:overviewStaticPageLink page="sponsor3">Sponsor 3</tco10:overviewStaticPageLink>
-                    </li>
+                    </li>-->
                 </ul>
             </c:when>
             <c:otherwise>
