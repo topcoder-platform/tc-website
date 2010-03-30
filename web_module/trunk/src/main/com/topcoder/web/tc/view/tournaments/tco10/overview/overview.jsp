@@ -92,22 +92,20 @@
        
        </div>
     
+                </div>
+
+                <jsp:include page="../includes/sponsors.jsp"/>
+
+                <div class="clear"></div>
+            </div>
+            <!--End .mainbody-->
+
+        </div>
+        <!--End .contentInner-->
     </div>
+    <!--End .content-->
 
-n!
-
-
-
-    <div class="clear"></div>
-</div>
-<!--End .mainbody-->
-
-</div>
-<!--End .contentInner-->
-</div>
-<!--End .content-->
-
-<jsp:include page="../includes/footer.jsp"/>
+    <jsp:include page="../includes/footer.jsp"/>
 
 </div>
 <!--End .wrapper-->
