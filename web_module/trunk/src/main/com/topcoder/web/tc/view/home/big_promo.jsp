@@ -19,7 +19,7 @@
 
 <%-- TCO10 --%>
 <br />
-<a href="<tc-webtag:linkTracking link='http://forums.topcoder.com/?module=ThreadList&forumID=531559' refer='/tc' />"><img src="/i/tournament/tco10/tco10-long.png" alt="2010 TopCoder Open" /></a>
+<a href="<tc-webtag:linkTracking link='http://www.topcoder.com/tco10' refer='/tc' />"><img src="/i/tournament/tco10/tco10-long.png" alt="2010 TopCoder Open" /></a>
 
 
 
