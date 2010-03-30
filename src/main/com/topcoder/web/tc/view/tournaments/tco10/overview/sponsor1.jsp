@@ -44,7 +44,7 @@
                                 <p>Have a look at <a href="http://www.topcoder.com/tc?module=LinkTracking&link=http://company.yandex.ru/job/vacancies/">who we are looking for</a> (this might be you). Or, at <a href="http://www.topcoder.com/tc?module=LinkTracking&link=http://company.yandex.ru/job/intern/">what you can be doing at Yandex</a> even if you are still at college or university. Or, talk to us on the forum (Link to Yandex forum).
         
                                 <p>Just let us know you exist.</p>
-							<p align="center"><a href="/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=sponsors&d5=sponsor1Confirm"><img src="i/tournament/tco10/applynow.png" alt="Apply Now for Yandex!" /></a></p>
+							<p align="center"><tco10:overviewStaticPageLink page="sponsor1Confirm"><img src="i/tournament/tco10/applynow.png" alt="Apply Now for Yandex!" /></tco10:overviewStaticPageLink></p>
 						</div>
                 </div>
 

@@ -87,7 +87,7 @@
                         Storyboard:  greenspin<br />
                         UI Prototype:  invisiblepilot, selvaa89, bohuss, YeGGo<br />
             			Assembly: snow01, cyberjag, BeBetter</p>
-             		<p>We also want to thank our Event Patron NSA (linik to their landing page) and first-time sponsor Yandex (link to their landing page) for being part of the TCO10.</p>
+             		<p>We also want to thank our <tco10:overviewStaticPageLink page="patron">Event Patron NSA</tco10:overviewStaticPageLink> and first-time sponsor <tco10:overviewStaticPageLink page="sponsor1">Yandex</tco10:overviewStaticPageLink> for being part of the TCO10.</p>
              		<p><a href="http://www.topcoder.com/tco10?module=ViewUnifiedRegistration">Register now</a> and best of luck to you!</p>
        
        </div>
