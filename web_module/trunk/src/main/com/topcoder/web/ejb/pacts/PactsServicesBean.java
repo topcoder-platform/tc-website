@@ -3605,8 +3605,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 || p.getHeader().getTypeId() == HIGH_SCHOOL_TOURNAMENT_PRIZE_PAYMENT
                 || p.getHeader().getTypeId() == MARATHON_MATCH_TOURNAMENT_PRIZE_PAYMENT
                 || p.getHeader().getTypeId() == ROYALTY_PAYMENT
-                || p.getHeader().getTypeId() == DIGITAL_RUN_V2_PRIZE_PAYMENT
-                || p.getHeader().getTypeId() == DIGITAL_RUN_V2_TOP_PERFORMERS_PAYMENT
                 || p.getHeader().getTypeId() == CODER_REFERRAL_PAYMENT) {
             
             StringBuffer getUserWithholding = new StringBuffer(300);
