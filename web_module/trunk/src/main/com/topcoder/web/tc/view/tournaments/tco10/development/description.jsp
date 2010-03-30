@@ -35,14 +35,14 @@
 
                             <h3 class="subTitle">How Does it Work?</h3><!-- sub title-->
                             <p>First you must be a registered TopCoder member.  <a href="http://www.topcoder.com/reg/">Register for TopCoder here</a>.  Next you must register for the 2010 TopCoder Open<a href="http://www.topcoder.com/tco10?module=ViewUnifiedRegistration"> here.</a>  You may register for the tournament up until July 30, 2010 at 9:00 UTC -4.</p>
-                            <p><a href="http://www.topcoder.com/wiki/display/tc/How+to+Compete+in+Assembly+Competitions"Learn how to compete in Assembly competitions here.></a></p>
+                            <p><a href="http://www.topcoder.com/wiki/display/tc/How+to+Compete+in+Assembly+Competitions">Learn how to compete in Assembly competitions here.</a></p>
                             <p><a href="http://www.topcoder.com/wiki/display/tc/How+to+Compete+in+Component+Development+Competitions">Learn how to compete in Component Development competitions here.</a></p>
                             <p><a href="http://www.topcoder.com/wiki/display/tc/Getting+Started+in+UI+Prototype+Competitions">Learn how to compete in Prototype competitions here.</a></p>
                             <p><a href="http://www.topcoder.com/wiki/display/tc/How+to+Compete+in+Testing+Competitions">Learn how to compete in Testing Suites competitions here.</a></p>
 
                             <h3 class="subTitle">The Competition Details</h3><!-- sub title-->
                             <p>When is the competition? <tco10:developmentStaticPageLink page="schedule">See the schedule.</tco10:developmentStaticPageLink><br />
-                            It is important for you to read the <tco10:developmentStaticPageLink page="rules">official rules and regulations</tco10:developmentStaticPageLink> for important details.<br />
+                            It is important for you to read the <tco10:overviewStaticPageLink page="rules">official rules and regulations</tco10:overviewStaticPageLink> for important details. Also, you must read through the specific rules for the <tco10:developmentStaticPageLink page="rules">Design Competition.</tco10:developmentStaticPageLink> <br />
                             The competition is free and you must be a member who is 18 years or older, as well as meet all eligibility criteria, in order to participate.</p>
                     </div>
                 </div>
