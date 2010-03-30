@@ -107,14 +107,14 @@
                             <p>Up to fifteen (15) Competitors with the highest cumulative placement score in the Design Competition in Tournament-eligible competitions will be invited to attend the onsite awards ceremony at the Tournament.</p>
                             <p>In the event of a tie, the tie will be resolved in the following manner: </p>
                             <ol class="textlist">
-                                <li>The tied competitor with the highest number of first place submissions will receive a higher placement in the Development Competition.</li>
-                                <li>If a tie still remains, then the remaining tied competitor with the highest number of second place submissions will receive a higher placement in the Development Competition.</li>
-                                <li>If a tie still remains, then the remaining tied competitor with the highest number of third place submissions will receive a higher placement in the Development Competition. </li>
-                                <li>If a tie still remains, then the remaining tied competitor with the highest number of fourth place submissions will receive a higher placement in the Development Competition. </li>
+                                <li>The tied competitor with the highest number of first place submissions will receive a higher placement in the Design Competition.</li>
+                                <li>If a tie still remains, then the remaining tied competitor with the highest number of second place submissions will receive a higher placement in the Design Competition.</li>
+                                <li>If a tie still remains, then the remaining tied competitor with the highest number of third place submissions will receive a higher placement in the Design Competition. </li>
+                                <li>If a tie still remains, then the remaining tied competitor with the highest number of fourth place submissions will receive a higher placement in the Design Competition. </li>
                                 <li>If a tie still remains, then all remaining tied competitors will receive the same placement.</li>
                             </ol>
 
-                            <h3 class="subTitle">About the Prizes</h3><!-- sub title-->
+                      <h3 class="subTitle">About the Prizes</h3><!-- sub title-->
                             <p>The Design Competition will award up to $30,250. Any and all applicable taxes on prizes are the sole responsibility of the prizewinner.</p>
                         </div>
 
