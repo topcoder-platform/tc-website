@@ -31,7 +31,7 @@
                 <div class="bigColumn">
                     <div class="text">
 			<h2 class="pageTitle">Welcome to the TCO10 Development Competition!</h2><!-- page title -->
-                            <p>The Design Competition includes the following tracks:  Assembly, Component Development, Prototypes, and Testing Suites. Competitors will have from March 29 - July 30, 2010 to compete and accumulate points leading up to the Finals, being held at the Mirage Hotel in Las Vegas, Nevada, USA from October 11 - 14, 2010. The top fifteen scorers including the Champion will win this fabulous trip to Las Vegas!</p>
+                            <p>The Development Competition includes the following tracks:  Assembly, Component Development, Prototypes, and Testing Suites. Competitors will have from March 29 - July 30, 2010 to compete and accumulate points leading up to the Finals, being held at the Mirage Hotel in Las Vegas, Nevada, USA from October 11 - 14, 2010. The top fifteen scorers including the Champion will win this fabulous trip to Las Vegas!</p>
 
                             <h3 class="subTitle">How Does it Work?</h3><!-- sub title-->
                             <p>First you must be a registered TopCoder member.  <a href="http://www.topcoder.com/reg/">Register for TopCoder here</a>.  Next you must register for the 2010 TopCoder Open<a href="http://www.topcoder.com/tco10?module=ViewUnifiedRegistration"> here.</a>  You may register for the tournament up until July 30, 2010 at 9:00 UTC -4.</p>
@@ -42,7 +42,7 @@
 
                             <h3 class="subTitle">The Competition Details</h3><!-- sub title-->
                             <p>When is the competition? <tco10:developmentStaticPageLink page="schedule">See the schedule.</tco10:developmentStaticPageLink><br />
-                            It is important for you to read the <tco10:overviewStaticPageLink page="rules">official rules and regulations</tco10:overviewStaticPageLink> for important details. Also, you must read through the specific rules for the <tco10:developmentStaticPageLink page="rules">Design Competition.</tco10:developmentStaticPageLink> <br />
+                            It is important for you to read the <tco10:overviewStaticPageLink page="rules">official rules and regulations</tco10:overviewStaticPageLink> for important details. Also, you must read through the specific rules for the <tco10:developmentStaticPageLink page="rules">Development Competition.</tco10:developmentStaticPageLink> <br />
                             The competition is free and you must be a member who is 18 years or older, as well as meet all eligibility criteria, in order to participate.</p>
                     </div>
                 </div>
