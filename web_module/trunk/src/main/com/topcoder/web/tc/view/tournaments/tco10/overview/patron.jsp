@@ -35,8 +35,8 @@
 							<p>At the Nation’s top cryptologic organization, you can work with the best and the brightest, using your intelligence to solve some of the Nation’s most difficult challenges. Your solutions can play a major role in shaping the course of world history. </p>
                             <p>NSA has exciting career opportunities available in Computer/Electrical Engineering, Computer Science, Information Assurance, Mathematics, Foreign Language, Intelligence Analysis, Cryptanalysis, Signals Analysis, Business, and more. You’ll enjoy an incredible benefits package, competitive pay, and the satisfaction of making the world a safer place.</p>
                             <p>For more information about the career opportunities available at NSA and to apply online, hit the "Apply Now" button. U.S. citizenship is required.</p>
-							<p align="center"><a href="/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=event-patron&d5=patronConfirm"><img src="i/tournament/tco10/applynow.png" alt="Apply Now for Yandex!" /></a></p>
-					  </div>
+							<p align="center"><tco10:overviewStaticPageLink page="patronConfirm"><img src="i/tournament/tco10/applynow.png" alt="Apply Now for NSA!" /></tco10:overviewStaticPageLink></p>
+                      </div>
                 </div>
 
                 <jsp:include page="../includes/sponsors.jsp"/>

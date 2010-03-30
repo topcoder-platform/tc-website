@@ -32,7 +32,7 @@
 						<div class="text">
 							<h2 class="pageTitle">NSA - Where Intelligence Goes to Work</h2>
                             <p><strong>By applying, you will be releasing your TopCoder contact and statistical information to NSA and you will be giving NSA permission to contact you about their current job opportunities.</strong>                        
-                            <p align="center"><a href="/tc?module=JobHit&jid=493&jt=1"><img src="i/submitnow.png" alt="Submit Info to NSA!" /></a></p>
+                            <p align="center"><a href="/tc?module=JobHit&jid=493&jt=1"><img src="i/tournament/tco10/submitnow.png" alt="Submit Info to NSA!" /></a></p>
 					  	</div>
                 </div>
 
