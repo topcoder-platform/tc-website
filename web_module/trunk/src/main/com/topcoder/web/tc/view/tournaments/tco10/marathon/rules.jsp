@@ -140,7 +140,7 @@
 							</tr>
                             <tr>
                                 <td>4th place finisher* in the Championship Round</td>
-                                <td colspan="2">$1600 each</td>
+                                <td colspan="2">$600 each</td>
 							</tr>
                             <tr>
                                 <td>5th place finisher* in the Championship Round</td>
