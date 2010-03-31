@@ -61,6 +61,7 @@
         <pathelement location="${jars.dir}/jboss/jboss-system.jar"/>
         <pathelement location="${jars.dir}/jboss/jboss-cache.jar"/>
         <pathelement location="${jars.dir}/jboss/jgroups.jar"/>
+        <pathelement location="${jars.dir}/jboss/scheduler-plugin.jar"/>
 
         <!-- TCS Components -->
 
@@ -72,11 +73,15 @@
         <pathelement location="${jars.dir}/tcs/json_object/1.0/json_object.jar"/>
         <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
 
-
         <!--required for aol alerts only -->
         <pathelement location="${jars.dir}/tcs/alerts_wrapper/1.0/java_alerts_wrapper.jar"/>
         <pathelement location="${jars.dir}/tcs/logging_wrapper.jar"/>
         <pathelement location="${jars.dir}/tcs/object_factory/2.0.1/object_factory.jar"/>
+
+        <!-- LDAP SDK -->
+        <pathelement location="${jars.dir}/tcs/ldap_sdk_interface/1.0.2/ldap_sdk_interface.jar"/>
+        <pathelement location="${jars.dir}/netscape_ldap_sdk.jar"/>
+        <pathelement location="${jars.dir}/ldap.jar"/>
 
         <!-- TCS Other -->
         <pathelement location="${jars.dir}/tcs/catalog.jar"/>
@@ -86,11 +91,10 @@
         <pathelement location="${jars.dir}/fileconvert.jar"/>
         <pathelement location="${jars.dir}/httpunit.jar"/>
         <pathelement location="${jars.dir}/itext-1.1.jar"/>
-
+        
         <pathelement location="${external.jars.dir}/jboss-4.2.2-ejb3x.jar"/>
         <pathelement location="${external.jars.dir}/jboss-4.2.2-jaxws.jar"/>
         <pathelement location="${external.jars.dir}/jaxb-api-jboss-4.2.2.jar"/>
-
     </path>
     <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
     <property name="class.path" refid="class.path"/>
@@ -160,6 +164,7 @@
                 <include name="ApplicationServer.properties"/>
                 <include name="DBMS.properties"/>
                 <include name="cache.properties"/>
+                <include name="LDAP.properties"/>
             </fileset>
         </copy>
         <mkdir dir="${jboss_conf}/com/topcoder/security"/>
@@ -196,6 +201,13 @@
                 <include name="configuration_manager-2.1.5.jar"/>
                 <include name="id_generator-3.0.0.jar"/>
                 <include name="base_exception-2.0.0.jar"/>
+            </fileset>
+            <fileset dir="${jars.dir}">
+                <include name="netscape_ldap_sdk.jar"/>
+                <include name="ldap.jar"/>
+            </fileset>
+            <fileset dir="${jars.dir}/tcs/ldap_sdk_interface/1.0.2">
+                <include name="ldap_sdk_interface.jar"/>
             </fileset>
         </copy>
 

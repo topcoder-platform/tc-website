@@ -1,6 +1,11 @@
+/*
+ * Copyright (C) 2002-2010 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.security.admin;
 
 import com.topcoder.security.*;
+import com.topcoder.security.ldap.LDAPClient;
+import com.topcoder.security.ldap.LDAPClientException;
 import com.topcoder.util.idgenerator.IDGenerationException;
 import com.topcoder.util.idgenerator.IDGenerator;
 import com.topcoder.util.idgenerator.IDGeneratorFactory;
@@ -16,10 +21,34 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * <p>A stateless EJB to be used for managing the user accounts.</p>
+ *
+ * <p>Version 2.0 (LDAP Authentication Release Assembly v1.0) change notes:
+ *   <ul>
+ *     <li>Updated {@link #createUser(long, String, String, TCSubject, String)}
+ *     and {@link #createUser(String, String, TCSubject, String)} methods to create entry for new user account in
+ *     <code>LDAP</code> directory.</li>
+ *     <li>Updated {@link #editPassword(UserPrincipal, String, TCSubject, String)} method to update password for
+ *     respective entry in <code>LDAP</code> directory.</li>
+ *   </ul>
+ * </p>
+ *
+ * @author isv
+ * @version 2.0
+ */
 public class PrincipalMgrBean extends BaseEJB {
 
     private static final Logger logger = Logger.getLogger(com.topcoder.security.admin.PrincipalMgrBean.class);
     private static final String DATA_SOURCE = "java:comp/env/jdbc/DefaultDS";
+
+    /**
+     * <p>Constructs new <code>PrincipalMgrBean</code> instance. This implementation does nothing.</p>
+     *
+     * @since 2.0
+     */
+    public PrincipalMgrBean() {
+    }
 
     public Collection getUsers(TCSubject requestor)
             throws GeneralSecurityException {
@@ -224,16 +253,31 @@ public class PrincipalMgrBean extends BaseEJB {
         return getPassword(id, DATA_SOURCE);
     }
 
-
-    public UserPrincipal createUser(long userId, String username, String password, TCSubject requestor, String dataSource)
-            throws GeneralSecurityException {
+    /**
+     * <p>Records the details on specified new user account in database and <code>LDAP</code> directory.</p>
+     *
+     * @param userId a <code>long</code> providing the user ID.
+     * @param username a <code>String</code> providing the username to be used for authenticating the user to
+     *        application.
+     * @param password a <code>String</code> providing the password to be used for authenticating the user to
+     *        application.
+     * @param requestor a <code>TCSubject</code> representing the requestor who is attempting to create new user
+     *        account.
+     * @param dataSource a <code>String</code> providing the JNDI name for the data source to be used for obtaining
+     *        connections to target database.
+     * @return a <code>UserPrincipal</code> representing the new user account.
+     * @throws GeneralSecurityException if an unexpected error occurs while creeating new user account.
+     */
+    public UserPrincipal createUser(long userId, String username, String password, TCSubject requestor,
+                                    String dataSource) throws GeneralSecurityException {
+        
         logger.debug(requestor + " is creating user " + username);
         checkLength(username, 50);
         checkLength(password, 31);
         String encPassword = Util.encodePassword(password, "users");
         logger.debug("*********password into db: " + encPassword);
+
         InitialContext ctx = null;
-        ResultSet rs = null;
         PreparedStatement ps = null;
         Connection conn = null;
         try {
@@ -248,13 +292,15 @@ public class PrincipalMgrBean extends BaseEJB {
             ps.setString(3, encPassword);
             ps.executeUpdate();
             UserPrincipal up = new UserPrincipal(username, userId);
+            addTopCoderMemberLDAPEntry(userId, username, password, "U");
             return up;
         } catch (SQLException e) {
             throw new GeneralSecurityException(e);
         } catch (NamingException e) {
             throw new GeneralSecurityException(e);
+        } catch (LDAPClientException e) {
+            throw new GeneralSecurityException("Failed to create user entry in LDAP directory", e);
         } finally {
-            close(rs);
             close(ps);
             close(conn);
             close(ctx);
@@ -266,6 +312,20 @@ public class PrincipalMgrBean extends BaseEJB {
         return createUser(userId, username, password, requestor, DATA_SOURCE);
     }
 
+    /**
+     * <p>Records the details on specified new user account in database and <code>LDAP</code> directory.</p>
+     *
+     * @param username a <code>String</code> providing the username to be used for authenticating the user to
+     *        application.
+     * @param password a <code>String</code> providing the password to be used for authenticating the user to
+     *        application.
+     * @param requestor a <code>TCSubject</code> representing the requestor who is attempting to create new user
+     *        account.
+     * @param dataSource a <code>String</code> providing the JNDI name for the data source to be used for obtaining
+     *        connections to target database.
+     * @return a <code>UserPrincipal</code> representing the new user account.
+     * @throws GeneralSecurityException if an unexpected error occurs while creeating new user account.
+     */
     public UserPrincipal createUser(String username, String password, TCSubject requestor, String dataSource)
             throws GeneralSecurityException {
         logger.debug(requestor + " is creating user " + username);
@@ -274,7 +334,6 @@ public class PrincipalMgrBean extends BaseEJB {
         String encPassword = Util.encodePassword(password, "users");
         logger.debug("*********password into db: " + encPassword);
         InitialContext ctx = null;
-        ResultSet rs = null;
         PreparedStatement ps = null;
         Connection conn = null;
         try {
@@ -291,6 +350,7 @@ public class PrincipalMgrBean extends BaseEJB {
             ps.setString(3, encPassword);
             ps.executeUpdate();
             UserPrincipal up = new UserPrincipal(username, userId);
+            addTopCoderMemberLDAPEntry(userId, username, password, "U");
             return up;
         } catch (SQLException e) {
             throw new GeneralSecurityException(e);
@@ -298,8 +358,9 @@ public class PrincipalMgrBean extends BaseEJB {
             throw new GeneralSecurityException(e);
         } catch (NamingException e) {
             throw new GeneralSecurityException(e);
+        } catch (LDAPClientException e) {
+            throw new GeneralSecurityException("Failed to create user entry in LDAP directory", e);
         } finally {
-            close(rs);
             close(ps);
             close(conn);
             close(ctx);
@@ -358,7 +419,19 @@ public class PrincipalMgrBean extends BaseEJB {
         return editPassword(user, password, requestor, DATA_SOURCE);
     }
 
-
+    /**
+     * <p>Updates the password for specified user in database and <code>LDAP</code> directory.</p>
+     *
+     * @param user a <code>UserPrincipal</code> representing the user to change the password for.
+     * @param password a <code>String</code> providing the password to be used for authenticating the user to
+     *        application.
+     * @param requestor a <code>TCSubject</code> representing the requestor who is attempting to create new user
+     *        account.
+     * @param dataSource a <code>String</code> providing the JNDI name for the data source to be used for obtaining
+     *        connections to target database.
+     * @return a <code>UserPrincipal</code> representing the user account with updated password.
+     * @throws GeneralSecurityException if an unexpected error occurs while creeating new user account.
+     */
     public UserPrincipal editPassword(UserPrincipal user, String password, TCSubject requestor, String dataSource)
             throws GeneralSecurityException {
         checkLength(password, 31);
@@ -376,6 +449,7 @@ public class PrincipalMgrBean extends BaseEJB {
             ps.setString(1, encPassword);
             ps.setLong(2, userId);
             ps.executeUpdate();
+            changeTopCoderMemberLDAPPassword(userId, password);
         } catch (Exception e) {
             throw new GeneralSecurityException(e);
         } finally {
@@ -892,4 +966,53 @@ public class PrincipalMgrBean extends BaseEJB {
         }
     }
 
+    /**
+     * <p>Adds new entry into <code>LDAP</code> directory for new <code>TopCoder</code> member account.</p>
+     *
+     * @param userId a <code>long</code> providing the ID for the new <code>TopCoder</code> member account. 
+     * @param handle a <code>String</code> providing the handle for new <code>TopCoder</code> member account.
+     * @param password a <code>String</code> providing encrypted password for member account.
+     * @param status a <code>String</code> providing the current status for member account.
+     * @throws LDAPClientException if an unexpected error occurs while disconnecting from server.
+     * @since 2.0
+     */
+    private void addTopCoderMemberLDAPEntry(long userId, String handle, String password, String status)
+        throws LDAPClientException {
+
+        // Add entry to LDAP directory
+        LDAPClient ldapClient = new LDAPClient();
+        try {
+            ldapClient.connect();
+            ldapClient.addTopCoderMemberProfile(userId, handle, password, status);
+        } finally {
+            try {
+                ldapClient.disconnect();
+            } catch (LDAPClientException cantDisconnect) {
+                logger.warn("Failed to disconnect from LDAP server successfully", cantDisconnect);
+            }
+        }
+    }
+
+    /**
+     * <p>Changes the password for specified member account in <code>LDAP</code> directory.</p>
+     *
+     * @param userId a <code>long</code> providing the ID of a user to change the <code>password</code> attribute for.
+     * @param newPassword a <code>String</code> providing new encrypted password for member account.
+     * @throws LDAPClientException if an unexpected error occurs while disconnecting from server.
+     * @since 2.0
+     */
+    private void changeTopCoderMemberLDAPPassword(long userId, String newPassword) throws LDAPClientException {
+        // Change password for respective entry in LDAP directory
+        LDAPClient ldapClient = new LDAPClient();
+        try {
+            ldapClient.connect();
+            ldapClient.changeTopCoderMemberProfilePassword(userId, newPassword);
+        } finally {
+            try {
+                ldapClient.disconnect();
+            } catch (LDAPClientException cantDisconnect) {
+                logger.warn("Failed to disconnect from LDAP server successfully", cantDisconnect);
+            }
+        }
+    }
 }
