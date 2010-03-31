@@ -79,7 +79,7 @@
       <td class="value">6
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14156">SRM 475</A></strong><br />
-         7:00 AM
+         7:00
          </div>
       </td>
       <td class="value">7
@@ -89,6 +89,11 @@
       <td class="value">9
       </td>
       <td class="value">10
+         <div class="tco10">
+         <div class="emblem"><img src="/i/tournament/tco10/emblem.png" alt="TCO10" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco10&d3=algorithm&d4=schedule">Algorithm Round 3</A></strong><br />
+         12:00
+         </div>
       </td>
    </tr>
    
@@ -108,7 +113,7 @@
       <td class="value">17
       	<div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14186">Member SRM 476</A></strong><br />
-         12:00 NOON
+         12:00
          </div>  
       </td>
    </tr>
@@ -121,12 +126,23 @@
       <td class="value">20
       </td>
       <td class="value">21
+         <div class="tco10">
+         <div class="emblem"><img src="/i/tournament/tco10/emblem.png" alt="TCO10" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco10&d3=marathon&d4=schedule">Marathon Round 3</A></strong><br />
+         13:00<br />
+         2 weeks
+         </div>
       </td>
       <td class="value">22
       </td>
       <td class="value">23
       </td>
       <td class="value">24
+         <div class="tco10">
+         <div class="emblem"><img src="/i/tournament/tco10/emblem.png" alt="TCO10" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco10&d3=algorithm&d4=schedule">Algorithm Round 4</A></strong><br />
+         12:00
+         </div>
       </td>
    </tr>
    
@@ -140,12 +156,22 @@
       <td class="value">28
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14157">SRM 477</A></strong><br />
-         11:00 AM
+         11:00
          </div>
       </td>
       <td class="value">29
       </td>
       <td class="value">30
+         <div class="tco10">
+         <div class="emblem"><img src="/i/tournament/tco10/emblem.png" alt="TCO10" /></div>
+         <strong><A href="/tco10">TCO10 Registration Ends</A></strong><br />
+         9:00
+         </div>
+         <div class="tco10">
+         <div class="emblem"><img src="/i/tournament/tco10/emblem.png" alt="TCO10" /></div>
+         <strong><A href="/tco10">Last Day to Request a Visa Letter</A></strong><br />
+         17:00
+         </div>
       </td>
       <td class="value">31
       </td>

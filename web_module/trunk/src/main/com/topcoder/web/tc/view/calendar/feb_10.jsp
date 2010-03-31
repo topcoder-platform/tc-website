@@ -73,7 +73,7 @@
       <td class="value">6
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14146">SRM 460</A></strong><br />
-         12:00 NOON
+         12:00
          </div>
       </td>
    </tr>
@@ -94,7 +94,7 @@
       <td class="value">13
       	<div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14181">Member SRM 461</A></strong><br />
-         12:00 NOON
+         12:00
          </div>   
       </td>
    </tr>
@@ -109,11 +109,11 @@
       <td class="value">17
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14147">SRM 462</A></strong><br />
-         9:00 PM
+         21:00
          </div>
          <div class="long">
          <strong><a href="http://www.topcoder.com/tc?module=MatchDetails&rd=14208">NSA Marathon Match 4</a></strong><br />
-         1:00 PM<br />
+         13:00<br />
          $3,000 in prizes for US citizens <br />
          2 weeks</div>      
       </td>
@@ -142,7 +142,7 @@
          <div class="tchs10">
          <div class="emblem"><img src="/i/tournament/tchs10/emblem.png" alt="TCHS10" /></div>
          <strong><A href="/tc?module=Static&d1=hs&d2=TCHSSchedule">Online Elimination Round 1</A></strong><br />
-         12:00 NOON
+         12:00
          </div>
       </td>
    </tr>

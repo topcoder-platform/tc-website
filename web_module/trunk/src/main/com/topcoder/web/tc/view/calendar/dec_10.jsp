@@ -82,7 +82,7 @@
       <td class="value">8
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14243">SRM 490</A></strong><br />
-         11:00 AM
+         11:00
          </div>       
       </td>
       <td class="value">9
@@ -109,7 +109,7 @@
       <td class="value">18
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14244">Member SRM 491</A></strong><br />
-         12:00 NOON
+         12:00
          </div>       
       </td>
    </tr>
@@ -139,7 +139,7 @@
       <td class="value">28
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14245">SRM 492</A></strong><br />
-         9:00 PM
+         21:00
          </div>       
       </td>
       <td class="value">29

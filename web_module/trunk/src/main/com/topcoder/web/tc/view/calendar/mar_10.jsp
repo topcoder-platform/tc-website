@@ -65,7 +65,7 @@
       <td class="value">2
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14148">SRM 463</A></strong><br />
-         7:00 AM
+         7:00
          </div>
       </td>
       <td class="value">3
@@ -78,7 +78,7 @@
          <div class="tchs10">
          <div class="emblem"><img src="/i/tournament/tchs10/emblem.png" alt="TCHS10" /></div>
          <strong><A href="/tc?module=Static&d1=hs&d2=TCHSSchedule">Online Elimination Round 2</A></strong><br />
-         12:00 NOON
+         12:00
          </div>
       </td>
    </tr>
@@ -100,7 +100,7 @@
          <div class="tchs10">
          <div class="emblem"><img src="/i/tournament/tchs10/emblem.png" alt="TCHS10" /></div>
          <strong><A href="/tc?module=Static&d1=hs&d2=TCHSSchedule">Online Elimination Round 3</A></strong><br />
-         12:00 NOON
+         12:00
          </div>
       </td>
    </tr>
@@ -113,7 +113,7 @@
       <td class="value">16
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14149">SRM 464</A></strong><br />
-         11:00 AM
+         11:00
          </div>
       </td>
       <td class="value">17
@@ -126,7 +126,7 @@
          <div class="tchs10">
          <div class="emblem"><img src="/i/tournament/tchs10/emblem.png" alt="TCHS10" /></div>
          <strong><A href="/tc?module=Static&d1=hs&d2=TCHSSchedule">Online Championship Round </A></strong><br />
-         12:00 NOON
+         12:00
          </div>
       </td>
    </tr>
@@ -141,13 +141,13 @@
       <td class="value">24
          <div class="long">
          <strong><a href="/tc?module=MatchDetails&rd=14226">Marathon Match 58</a></strong><br />
-         1:00 PM<br />
+         13:00<br />
          2 weeks</div>      
       </td>
       <td class="value">25
       	<div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14182">Member SRM 465</A></strong><br />
-         9:00 PM
+         21:00
          </div>   
       </td>
       <td class="value">26
@@ -160,6 +160,11 @@
       <td class="value">28
       </td>      
       <td class="value">29
+         <div class="tco10">
+         <div class="emblem"><img src="/i/tournament/tco10/emblem.png" alt="TCO10" /></div>
+         <strong><A href="/tco10">TCO10 Registration Starts</A></strong><br />
+         9:00
+         </div>
       </td>
       <td class="value">30
       </td>

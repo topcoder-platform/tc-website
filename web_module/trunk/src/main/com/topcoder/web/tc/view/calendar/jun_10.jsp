@@ -72,7 +72,7 @@
       <td class="value">5
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14154">SRM 472</A></strong><br />
-         12:00 NOON
+         12:00
          </div>
       </td>
    </tr>
@@ -106,12 +106,17 @@
       <td class="value">17
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14155">SRM 473</A></strong><br />
-         9:00 PM
+         21:00
          </div>
       </td>
       <td class="value">18
       </td>
       <td class="value">19
+         <div class="tco10">
+         <div class="emblem"><img src="/i/tournament/tco10/emblem.png" alt="TCO10" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco10&d3=algorithm&d4=schedule">Algorithm Round 1</A></strong><br />
+         12:00
+         </div>
       </td>
    </tr>
    
@@ -123,12 +128,23 @@
       <td class="value">22
       </td>
       <td class="value">23
+         <div class="tco10">
+         <div class="emblem"><img src="/i/tournament/tco10/emblem.png" alt="TCO10" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco10&d3=marathon&d4=schedule">Marathon Round 2</A></strong><br />
+         13:00<br />
+         2 weeks
+         </div>
       </td>
       <td class="value">24
       </td>
       <td class="value">25
       </td>
       <td class="value">26
+         <div class="tco10">
+         <div class="emblem"><img src="/i/tournament/tco10/emblem.png" alt="TCO10" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco10&d3=algorithm&d4=schedule">Algorithm Round 2</A></strong><br />
+         12:00
+         </div>
       </td>
    </tr>
    
@@ -142,7 +158,7 @@
       <td class="value">30
       	<div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14185">Member SRM 474</A></strong><br />
-         9:00 PM
+         21:00
          </div>  
       </td>
       <td class="empty">&#160;<br /><br /><br /><br /><br /></td>

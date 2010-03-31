@@ -78,7 +78,8 @@
       <td class="value">5
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14237">SRM 484</A></strong><br />
-         9:00 PM
+         brought to you by <A href="/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=patron">NSA</A><br />
+         21:00
          </div>       
       </td>
       <td class="value">6
@@ -97,10 +98,65 @@
       <td class="value">11
       </td>
       <td class="value">12
+         <div class="tco10">
+         <div class="emblem"><img src="/i/tournament/tco10/emblem.png" alt="TCO10" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco10&d3=marathon&d4=schedule">24 Hour Onsite Final Marathon Round</A></strong><br />
+         8:30 UTC -7
+         </div>
+         <div class="tco10">
+         <div class="emblem"><img src="/i/tournament/tco10/emblem.png" alt="TCO10" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco10&d3=studio&d4=schedule">Studio Semifinal Round 1</A></strong><br />
+         8:30 UTC -7
+         </div>
+         <div class="tco10">
+         <div class="emblem"><img src="/i/tournament/tco10/emblem.png" alt="TCO10" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco10&d3=moddash&d4=schedule">Mod Dash Championship Round 1</A></strong><br />
+         12:30 UTC -7
+         </div>
+         <div class="tco10">
+         <div class="emblem"><img src="/i/tournament/tco10/emblem.png" alt="TCO10" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco10&d3=studio&d4=schedule">Studio Semifinal Round 2</A></strong><br />
+         14:30 UTC -7
+         </div>
       </td>
       <td class="value">13
+         <div class="tco10">
+         <div class="emblem"><img src="/i/tournament/tco10/emblem.png" alt="TCO10" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco10&d3=studio&d4=schedule">Studio Championship Round</A></strong><br />
+         8:30 UTC -7
+         </div>
+         <div class="tco10">
+         <div class="emblem"><img src="/i/tournament/tco10/emblem.png" alt="TCO10" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco10&d3=algorithm&d4=schedule">Algorithm Semifinal 1</A></strong><br />
+         9:00 UTC -7
+         </div>
+         <div class="tco10">
+         <div class="emblem"><img src="/i/tournament/tco10/emblem.png" alt="TCO10" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco10&d3=moddash&d4=schedule">Mod Dash Championship Round 2</A></strong><br />
+         9:30 UTC -7
+         </div>
+         <div class="tco10">
+         <div class="emblem"><img src="/i/tournament/tco10/emblem.png" alt="TCO10" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco10&d3=algorithm&d4=schedule">Algorithm Semifinal 2</A></strong><br />
+         12:30 UTC -7
+         </div>
+         <div class="tco10">
+         <div class="emblem"><img src="/i/tournament/tco10/emblem.png" alt="TCO10" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco10&d3=algorithm&d4=schedule">Algorithm Wildcard Round</A></strong><br />
+         17:30 UTC -7
+         </div>
       </td>
       <td class="value">14
+         <div class="tco10">
+         <div class="emblem"><img src="/i/tournament/tco10/emblem.png" alt="TCO10" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco10&d3=moddash&d4=schedule">Mod Dash Championship Round 3</A></strong><br />
+         9:30 UTC -7
+         </div>
+         <div class="tco10">
+         <div class="emblem"><img src="/i/tournament/tco10/emblem.png" alt="TCO10" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco10&d3=algorithm&d4=schedule">Algorithm Championship Round</A></strong><br />
+         13:00 UTC -7
+         </div>
       </td>
       <td class="value">15
       </td>
@@ -120,7 +176,7 @@
       <td class="value">21
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14238">Member SRM 485</A></strong><br />
-         7:00 AM
+         7:00
          </div>       
       </td>
       <td class="value">22
@@ -137,7 +193,7 @@
       <td class="value">26
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14239">SRM 486</A></strong><br />
-         11:00 AM
+         11:00
          </div>       
       </td>
       <td class="value">27
