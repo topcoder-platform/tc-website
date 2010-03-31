@@ -76,7 +76,7 @@
       <td class="value">4
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14144">SRM 457</A></strong><br />
-         7:00 AM
+         7:00
          </div>
       </td>
       <td class="value">5
@@ -103,7 +103,7 @@
       <td class="value">14
       	 <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14180">Member SRM 458</A></strong><br />
-         11:00 AM
+         11:00
          </div> 
       </td>
       <td class="value">15
@@ -120,13 +120,13 @@
       <td class="value">19
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14145">SRM 459</A></strong><br />
-         11:00 AM
+         11:00
          </div>
       </td>
       <td class="value">20
          <div class="long">
          <strong><a href="http://www.topcoder.com/tc?module=MatchDetails&rd=14207">NSA Marathon Match 3</a></strong><br />
-         1:00 PM<br />
+         13:00<br />
          $3,000 in prizes for US citizens <br />
          2 weeks</div>      
       </td>

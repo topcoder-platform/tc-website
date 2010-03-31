@@ -68,7 +68,7 @@
       <td class="value">4
       	<div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14187">Member SRM 478</A></strong><br />
-         7:00 AM
+         7:00
          </div>  
       </td>
       <td class="value">5
@@ -76,6 +76,11 @@
       <td class="value">6
       </td>
       <td class="value">7
+         <div class="tco10">
+         <div class="emblem"><img src="/i/tournament/tco10/emblem.png" alt="TCO10" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco10&d3=algorithm&d4=schedule">Algorithm Round 5</A></strong><br />
+         12:00
+         </div>
       </td>
    </tr>
    
@@ -95,7 +100,7 @@
       <td class="value">14
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14158">SRM 479</A></strong><br />
-         12:00 NOON
+         12:00
          </div>
       </td>
    </tr>
@@ -121,6 +126,11 @@
       <td class="value">22
       </td>
       <td class="value">23
+         <div class="tco10">
+         <div class="emblem"><img src="/i/tournament/tco10/emblem.png" alt="TCO10" /></div>
+         <strong><A href="/tco10">Finalists Documents Due</A></strong><br />
+         17:00
+         </div>
       </td>
       <td class="value">24
       </td>
@@ -129,7 +139,8 @@
       <td class="value">26
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14159">SRM 480</A></strong><br />
-         9:00 PM
+         brought to you by <A href="/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=patron">NSA</A><br />
+         21:00
          </div>
       </td>
       <td class="value">27

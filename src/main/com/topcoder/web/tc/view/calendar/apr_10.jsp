@@ -70,7 +70,7 @@
       <td class="value">3
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14150">SRM 466</A></strong><br />
-         12:00 NOON
+         12:00
          </div>
       </td>
    </tr>
@@ -102,13 +102,14 @@
       <td class="value">14
          <div class="long">
          <strong><a href="/tc?module=MatchDetails&rd=14227">Marathon Match 59</a></strong><br />
-         1:00 PM<br />
-         2 weeks</div>      
+         13:00<br />
+         2 weeks
+         </div>  
       </td>
       <td class="value">15
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14151">SRM 467</A></strong><br />
-         9:00 PM
+         21:00
          </div>
       </td>
       <td class="value">16
@@ -125,8 +126,8 @@
       <td class="value">20
       	<div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14183">Member SRM 468</A></strong><br />
-         7:00 AM
-         </div>  
+         7:00
+         </div> 
       </td>
       <td class="value">21
       </td>

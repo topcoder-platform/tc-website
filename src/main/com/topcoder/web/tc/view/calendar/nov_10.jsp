@@ -90,7 +90,7 @@
       <td class="value">13
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14240">SRM 487</A></strong><br />
-         12:00 NOON
+         12:00
          </div>       
       </td>
    </tr>
@@ -107,7 +107,8 @@
       <td class="value">18
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14241">SRM 488</A></strong><br />
-         9:00 PM
+         brought to you by <A href="/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=patron">NSA</A><br />
+         21:00
          </div>       
       </td>
       <td class="value">19
@@ -141,7 +142,7 @@
       <td class="value">30
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14242">Member SRM 489</A></strong><br />
-         7:00 AM
+         7:00
          </div>       
       </td>
       <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
