@@ -141,7 +141,7 @@
             <td class="value">
                 <% if (resultRow.getIntItem("tourny_project") > 0) { %>
                 <div align="center">
-                    <a href='/tc?module=Static&amp;d1=tco09&amp;d2=teaser'><img class="emblem" src="/i/tournament/tco09/emblem.png" alt="" border="0" onmouseover="postPopUpText('globalPopupText','Eligible for the 2009 TopCoder Open'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
+                    <a href='/tc?module=Static&amp;d1=tco09&amp;d2=teaser'><img class="emblem" src="/i/tournament/tco09/emblem.png" alt="" border="0" onmouseover="postPopUpText('globalPopupText','Eligible for the TopCoder Open'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
                 </div>
                 <% } else { %>
                 &nbsp;
@@ -283,7 +283,7 @@
             <td class="value">
                 <% if (resultRow.getIntItem("tourny_project") > 0) { %>
                 <div align="center">
-                    <a href='/tc?module=Static&amp;d1=tco09&amp;d2=teaser'><img class="emblem" src="/i/tournament/tco09/emblem.png" alt="" border="0" onmouseover="postPopUpText('globalPopupText','Eligible for the 2009 TopCoder Open'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
+                    <a href='/tc?module=Static&amp;d1=tco09&amp;d2=teaser'><img class="emblem" src="/i/tournament/tco09/emblem.png" alt="" border="0" onmouseover="postPopUpText('globalPopupText','Eligible for the TopCoder Open'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
                 </div>
                 <% } %>
             </td>
