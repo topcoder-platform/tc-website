@@ -339,7 +339,7 @@
             <td class="value">
           <% if (resultRow.getIntItem("tourny_project") > 0) { %>
                 <div align="center">
-                  <a href='/tc?module=Static&amp;d1=tco09&amp;d2=teaser'><img class="emblem" src="/i/tournament/tco09/emblem.png" alt="" border="0" onMouseOver="postPopUpText('globalPopupText','Eligible for the TopCoder Open'); popUp(this,'globalPopup');" onMouseOut="popHide()" /></a>
+                  <a href='/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=overview'><img class="emblem" src="/i/tournament/tco09/emblem.png" alt="" border="0" onMouseOver="postPopUpText('globalPopupText','Eligible for the TopCoder Open'); popUp(this,'globalPopup');" onMouseOut="popHide()" /></a>
                 </div>
               <% } else { %>
                 &nbsp;
