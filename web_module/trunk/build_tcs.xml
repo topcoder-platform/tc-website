@@ -52,6 +52,7 @@
         <pathelement location="${jars.dir}/jboss/jboss-system.jar"/>
         <pathelement location="${jars.dir}/jboss/jboss-cache.jar"/>
         <pathelement location="${jars.dir}/jboss/jgroups.jar"/>
+        <pathelement location="${jars.dir}/jboss/scheduler-plugin.jar"/>
         <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
         <pathelement location="${jars.dir}/ifxjdbc.jar"/>
         <pathelement location="${struts.lib.dir}/struts.jar"/>
@@ -107,6 +108,11 @@
 
         <!-- just to get ForumConversion to compile -->
         <pathelement location="${jars.dir}/activation.jar"/>
+        
+        <!-- LDAP SDK -->
+        <pathelement location="${jars.dir}/tcs/ldap_sdk_interface/1.0.2/ldap_sdk_interface.jar"/>
+        <pathelement location="${jars.dir}/netscape_ldap_sdk.jar"/>
+        <pathelement location="${jars.dir}/ldap.jar"/>
     </path>
 
     <target name="init">
