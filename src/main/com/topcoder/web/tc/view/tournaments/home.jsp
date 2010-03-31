@@ -58,8 +58,20 @@
 --%>
 
  
-   <!--<div class="sectionHeader">Current Tournaments</div>-->
-
+   <div class="sectionHeader">Current Tournaments</div>
+   <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
+      <tr valign="top">
+         <td style="padding-right: 8px;"><a href="/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=overview"><img src="/i/tournament/tco10/tco10_tourn_logo.png" alt="2010 TopCoder Open" border="0" /></a><br /></td>
+         <td width="100%">
+         <span class="bodySubtitle">2010 TopCoder&#174; Open</span>
+         <br /><br />
+         October 11 - 14, 2010<br />
+         The Mirage <br />
+         Las Vegas, NV, USA<br />
+         <a href="/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=overview">Details</a>
+         </td>
+      </tr>
+   </table>
    
    <hr width="100%" size="1" noshade="noshade" />
    
