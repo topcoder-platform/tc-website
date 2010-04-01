@@ -331,7 +331,7 @@
                         </c:when>
                         <c:otherwise>
                             <tr>
-                                <td class="field">Prize ${prize.place}:</td>
+                                <td class="field">${prize.place} Place:</td>
                                 <td class="value"><fmt:formatNumber value="${prize.amount}" pattern="$###,###.00"/></td>
                             </tr>
                         </c:otherwise>
@@ -342,9 +342,9 @@
         <c:if test="${isMultiRound and not empty contest.milestonePrize
             and not empty contest.milestonePrize.numberOfSubmissions and not empty contest.milestonePrize.amount}">
             <tr>
-                <td class="field">Milestone Prizes:</td>
+                <td class="field">Milestone:</td>
                 <td class="value">
-                    ${contest.milestonePrize.numberOfSubmissions} milestone prizes worth
+                    ${contest.milestonePrize.numberOfSubmissions} milestone bonuses worth
                     <fmt:formatNumber value="${contest.milestonePrize.amount}" pattern="$###,###.00"/> each.
                 </td>
             </tr>
@@ -481,7 +481,7 @@
     <studio:formatField text="${contest.winnerSelection.value}"/>
 </c:if>
 
-<div class="header"><span>Prize Payment</span></div>
+<div class="header"><span>Payment</span></div>
 ${contest.prizeDescription.value}
 
 <div class="header"><span>Eligibility</span></div>
