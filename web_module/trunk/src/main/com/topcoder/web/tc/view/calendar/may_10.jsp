@@ -140,6 +140,7 @@
       <td class="value">20
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14153">SRM 470</A></strong><br />
+         brought to you by <A href="/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=sponsor1">Yandex</A><br />
          11:00
          </div>
       </td>
