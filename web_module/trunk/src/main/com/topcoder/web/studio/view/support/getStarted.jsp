@@ -67,14 +67,12 @@
                     <div class="contentMiddle">
                         <h2 class="how-it-works-title">Clients have multiple designs to choose from. Designers have multiple ways to win.</h2>
 
-                        <p>At TopCoder Studio our clients hold competitions where designers compete for cash prizes,
-                            along with placement points that accumulate for the opportunity to win larger cash awards
-                            in our monthly and annual tournaments.</p>
+                        <p>At TopCoder Studio our community of global designers compete in individual competitions held by contest holders, along with larger monthly and annual tournaments held by TopCoder.</p>
 
                         <p>By tapping into a pool of creative people with multiple specialties, our clients benefit from
                             new approaches and innovative concepts from a global community. Our competitors are here not
-                            just to win prizes, but to learn new skills, consult with peers, and earn the chance to be
-                            called one of the best designers in the world.</p>
+                            just to win, but to learn new skills, consult with peers, and earn the chance to be
+                        called one of the best designers in the world.</p>
 
                         <div class="leftDiv">
                             <a href="http://<%=ApplicationServer.SERVER_NAME%>/home/studio/what-is-studio/">
