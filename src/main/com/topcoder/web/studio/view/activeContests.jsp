@@ -150,21 +150,20 @@
                                         <tr><td class="space" colspan="11">&nbsp;</td></tr>
                                         <tr class="<%=even?"light":"dark"%>">
                                             <td class="valueE">
+                                                <%-- todo no scriptlet code!, fix this--%>
+                                                <% if ("3432".equals(resultRow.getStringItem("event_id"))) { %>
+                                                <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tournaments&d2=tco10&d3=studio&d4=description"><img src="/i/tournament/tco10/tco10-icon.png" alt="Eligible for the TCO10" /><span>Eligible for the TCO10</span></a>
+                                                <% } else { %>
+                                                &nbsp;
+                                                <% } %>
+                                            </td>
+                                            <td class="value">
                                                 <%-- Since TopCoder Studio Modifications assembly Req# 5.2 --%>
-                                                <div class="contestEmblem"><img src="/i/v4/iconStudio.png" alt="" /></div>
                                                 <div class="contestTitle">
                                                     <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
                                                         <rsc:item name="name" row="<%=resultRow%>"/>
                                                     </a>
                                                 </div>
-                                            </td>
-                                            <td class="value">
-                                                <%-- todo no scriptlet code!, fix this--%>
-                                                <% if ("3432".equals(resultRow.getStringItem("event_id"))) { %>
-                                                <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tournaments&d2=tco10&d3=studio&d4=description"><img src="/i/tournament/tco09/09emblem.png" alt="Eligible for the TCO10" /><span>Eligible for the TCO10</span></a>
-                                                <% } else { %>
-                                                &nbsp;
-                                                <% } %>
                                             </td>
                                             <td class="valueC">
                                                 <rsc:item name="start_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
