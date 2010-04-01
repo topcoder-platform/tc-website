@@ -119,8 +119,8 @@
                                     <td class="headerC" nowrap="nowrap">
                                         Time Left</td>
                                     <td class="headerR" nowrap="nowrap">
-                                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("prize_total")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Prize Purse</a>
-                                    </td>
+                                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("prize_total")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Purse</a>
+                                  </td>
                                     <td class="headerR" nowrap="nowrap">
                                         <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("dr_points")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Points</a>
                                     </td>
