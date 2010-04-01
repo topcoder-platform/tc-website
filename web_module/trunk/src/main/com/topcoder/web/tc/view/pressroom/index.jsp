@@ -96,6 +96,7 @@
             
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
+                
                 <%-- TCHS10 --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
@@ -109,6 +110,20 @@
                 </div>
                 
                 <%-- TCHS10 end --%>
+                
+                <%-- SC Mag --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="http://www.scmagazineus.com/global-village/article/164049/"><img src="/i/pressroom/sc-mag.png" alt="TopCoder" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="http://www.scmagazineus.com/global-village/article/164049/">Testing competitions can improve code, but crowdsourcing brings new concerns to security governance.</a></h3>
+                        <p><small><a href="http://www.scmagazineus.com/global-village/article/164049/">[March 1st]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                
+                <%-- SC Mag end --%>
                 
                 <%-- Developer Contests --%>
                 <div class="pr_newsitem">
