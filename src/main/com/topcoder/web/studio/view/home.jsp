@@ -162,7 +162,7 @@
                             <div id="active_contest">
                                 <div id="active_contest_head">
                                     <span class="active_contests_head">ACTIVE CONTESTS</span>
-                                    <span class="prize_purse_head">PRIZE PURSE</span>
+                                    <span class="prize_purse_head">PURSE</span>
                                     <span class="time_left_head">TIME LEFT</span>
                                 </div>
                                 <div id="active_contest_content">
