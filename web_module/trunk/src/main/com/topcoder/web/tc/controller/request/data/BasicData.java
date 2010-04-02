@@ -75,6 +75,9 @@ public class BasicData extends Base {
             if (ds == 33 && r.getContentHandle().equals("dd_active_contests")) {
             	maxAge = MaxAge.FIVE_MINUTES;
             }
+            else if (ds == 28 && r.getContentHandle().equals("dd_ibm_pipeline_feed")) {
+            	maxAge = MaxAge.FIVE_MINUTES;
+            }
 
         	Map<String, ResultSetContainer> m = new CachedDataAccess(maxAge, getDataSource(ds)).getData(r);
 
