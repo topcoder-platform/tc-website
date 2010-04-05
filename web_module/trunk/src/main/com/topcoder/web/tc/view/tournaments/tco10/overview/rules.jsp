@@ -157,12 +157,12 @@
                             <p>CAUTION: ANY ATTEMPT TO DELIBERATELY DAMAGE ANY WEBSITE OR UNDERMINE THE LEGITIMATE OPERATION OF THE TOURNAMENT OR A COMPETITION IS A VIOLATION OF CRIMINAL AND CIVIL LAWS AND SHOULD SUCH AN ATTEMPT BE MADE, TOPCODER RESERVES THE RIGHT TO SEEK DAMAGES TO THE FULLEST EXTENT PERMITTED BY LAW.</p>
 
                             <h3 class="subTitle">Competition Specific Rules </h3><!-- sub title-->
-                            <p>For rules specific to the Algorithm Competition, please refer <a href="AlgorithmSection-rules.html">here</a>.</p>
-                            <p>For rules specific to the Design Competition, please refer <a href="DesignSection-rules.html">here</a>.</p>
-                            <p>For rules specific to the Development Competition, please refer <a href="DevelopmentSection-rules.html">here</a>.</p>
-                            <p>For rules specific to the Marathon Competition, please refer <a href="MarathonSection-rules.html">here</a>.</p>
-                            <p>For rules specific to the Mod Dash Competition, please refer <a href="ModDashSection-rules.html">here</a>.</p>
-                            <p>For rules specific to the Studio Design Competition, please refer <a href="StudioSection-rules.html">here</a>.</p>
+                            <p>For rules specific to the Algorithm Competition, please refer <tco10:algorithmStaticPageLink page="rules">here.</tco10:algorithmStaticPageLink></p>
+                            <p>For rules specific to the Design Competition, please refer <tco10:designStaticPageLink page="rules">here.</tco10:designStaticPageLink></p>
+                            <p>For rules specific to the Development Competition, please refer <tco10:developmentStaticPageLink page="rules">here.</tco10:developmentStaticPageLink></p>
+                            <p>For rules specific to the Marathon Competition, please refer <tco10:marathonStaticPageLink page="rules">here.</tco10:marathonStaticPageLink></p>
+                            <p>For rules specific to the Mod Dash Competition, please refer <tco10:moddashStaticPageLink page="rules">here.</tco10:moddashStaticPageLink></p>
+                            <p>For rules specific to the Studio Design Competition, please refer <tco10:studioStaticPageLink page="rules">here.</tco10:studioStaticPageLink></p>
 
                             <h3 class="subTitle">Other</h3><!-- sub title-->
                             <p>The Tournament and each Competition is void in whole or in part where prohibited by law. A list of winners by handles for the Tournament and each Competition will be available on the web site at <a href="http://www.topcoder.com/">http://www.topcoder.com/</a> displayed for at least 3 months after the end of the Tournament and each Competition.</p>
