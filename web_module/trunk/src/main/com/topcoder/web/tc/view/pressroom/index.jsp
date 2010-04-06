@@ -97,6 +97,20 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- TC010 --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_040610"><img src="/i/pressroom/tco10_logo.png" alt="TopCoder" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_040610">U.S. National Security Agency and Leading Russian Search Engine Yandex to Support 2010 TopCoder Open</a></h3>
+                        <p><small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_040610">[April 6th]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                
+                <%-- TC010 end --%>
+                
                 <%-- TCHS10 --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
