@@ -70,6 +70,11 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
                 try {
                     TCSubject sub = authenticate(userName, password);
                     if (sub != null) {
+                        //confluence likes to work with lower case user names
+                        com.atlassian.user.User cUser = checkAndAddUser(userName);
+                        checkAndAddEmail(cUser, sub.getUserId());
+                        checkAndAddAdmin(userName, cUser);
+                        authentication.login(new SimpleUser(sub.getUserId(), userName, password), cookie);
                         log.info("login(request, response, username, password, cookie) took " + (System.currentTimeMillis() - start) + " ms");
                         return true;
                     } else {
