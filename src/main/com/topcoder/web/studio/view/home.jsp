@@ -122,6 +122,9 @@
                                 <li>
                                     <a href="http://www.topcoder.com/tco10"><img width="909" height="203" src="i/v4/8.png" alt="2010 TopCoder Open!" /></a>
                                 </li>
+                                <li>
+                                    <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=patron"><img width="909" height="203" src="i/v4/tco10-nsa-studio.png" alt="NSA - Event Patron - 2010 TopCoder Open" /></a>
+                                </li>
                                 <li style="display:none" class="loadWorkaround">
                                    <a href="http://www.topcoder.com/news/2010/03/09/meet-the-february-coders-and-designers-of-the-month-2/"><img width="909" height="203" src="i/v4/2.png" alt="" /></a>
                                 </li>
@@ -130,9 +133,6 @@
                                 </li>
                                 <li style="display:none" class="loadWorkaround">
                                     <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&d1=support&d2=startingACompetition"><img width="909" height="203" src="i/v4/7.png" alt="" /></a>
-                                </li>
-                                <li>
-                                    <a href="http://www.topcoder.com/tco10"><img width="909" height="203" src="i/v4/8.png" alt="2010 TopCoder Open!" /></a>
                                 </li>
                                 <li style="display:none" class="loadWorkaround">
                                     <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&d1=support&d2=memberRefferalProgram"><img width="909" height="203" src="i/v4/3.png" alt="" /></a>
