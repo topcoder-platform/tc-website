@@ -72,6 +72,7 @@
         </td>
         <td align="right">
             <a href="/wiki/display/tc/Getting+Started+in+Component+Design+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
+          		<a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=patron"><img src="/i/tournament/tco10/banners/tco10-nsa-510x100.png" alt="NSA - TCO10 Event Patron" /></a><br /><br />
         </td>
     </tr>
 </table>
@@ -141,7 +142,11 @@
             <td class="value">
                 <% if (resultRow.getIntItem("tourny_project") > 0) { %>
                 <div align="center">
+<<<<<<< .mine
+                    <a href='/tc?module=Static&amp;d1=tco09&amp;d2=teaser'><img class="emblem" src="/i/tournament/tco10/emblem.png" alt="" border="0" onmouseover="postPopUpText('globalPopupText','Eligible for the TopCoder Open'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
+=======
                     <a href='/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=overview'><img class="emblem" src="/i/tournament/tco10/emblem.png" alt="" border="0" onmouseover="postPopUpText('globalPopupText','Eligible for the TopCoder Open'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
+>>>>>>> .r77333
                 </div>
                 <% } else { %>
                 &nbsp;
@@ -208,6 +213,7 @@
         </td>
         <td align="right">
             <a href="/wiki/display/tc/Getting+Started+in+Component+Development+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
+          		<a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=patron"><img src="/i/tournament/tco10/banners/tco10-nsa-510x100.png" alt="NSA - TCO10 Event Patron" /></a><br /><br />
         </td>
     </tr>
 </table>
