@@ -170,7 +170,10 @@
 					<table class="stat" cellpadding="0" cellspacing="0" width="100%">
 						<tbody>
 							<tr>
-								<td class="header" width="100%" colspan="2">
+								<td class="header">
+									&nbsp;
+								</td>
+								<td class="header" width="100%">
 									<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewPastContests<tc-webtag:sort column="<%=contests.getColumnIndex("name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Project</a>
 								</td>
 								<td class="headerC" nowrap="nowrap">
@@ -212,7 +215,7 @@
 										<div class="contestTitle"><a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
 											<rsc:item name="name" row="<%=resultRow%>"/>
 										</a></div>
-					
+										<br>
 										<div class="contestLinks">
 											<a href="${sessionInfo.servletPath}?module=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">submissions</a>
 											<% if (resultRow.getBooleanItem("results_available")) { %>
@@ -222,13 +225,13 @@
 											<c:if test="${resultRow.map['forum_id']!=null}">| <studio:forumLink forumID="${resultRow.map['forum_id']}" message="discuss"/></c:if>
 										</div>
 									</td>
-									<td class="valueC">
+									<td class="value">
 										<rsc:item name="start_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
 									</td>
-                                    <td class="valueC">
+                                    <td class="value">
                                         <rsc:item name="milestone_date" row="<%=resultRow%>" ifNull="-" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
                                     </td>
-                                    <td class="valueC">
+                                    <td class="value">
                                         <rsc:item name="end_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
                                     </td>
 									<td class="valueR">

@@ -107,7 +107,10 @@
                             <table class="stat" cellpadding="0" cellspacing="0" width="100%">
                             <tbody>
                                 <tr>
-                                    <td class="header" colspan="2" width="100%">
+                                    <td class="header">
+                                    &nbsp;
+                                    </td>
+                                    <td class="header" width="100%">
                                         <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Project</a>
                                     </td>
                                     <td class="headerC">
