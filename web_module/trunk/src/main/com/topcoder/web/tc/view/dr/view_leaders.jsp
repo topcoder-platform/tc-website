@@ -195,13 +195,13 @@ Please select a <strong>season</strong> and <strong>stage</strong><br />
         </td>
         <td class="headerR" nowrap="nowrap" width="16%">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Top
-                Five<br />Prize</a>*</td>
+                Five<br />Bonus</a>*</td>
         <td class="headerR" nowrap="nowrap" width="16%">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Top
                 Performer<br />Prize</a>*</td>
         <td class="headerR B" width="16%">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Total<br />
-                Prizes</a>*</td>
+                Bonuses</a>*</td>
         <td class="headerR" width="16%">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Potential<br />
                 Points</a>**
@@ -225,13 +225,13 @@ Please select a <strong>season</strong> and <strong>stage</strong><br />
         </td>
         <td class="valueC">
             <c:if test="${boardRow.placementPrize>0}">
-                <div id="pop${status.index }b" class="popUp"><div>Cash prize for placing in the <strong>Top Five</strong></div></div>
+                <div id="pop${status.index }b" class="popUp"><div>Cash bonus for placing in the <strong>Top Five</strong></div></div>
                 <div align="center"><img src="/i/interface/emblem/prize.gif" alt="" border="0" onmouseover="popUp(this,'pop${status.index }b')" onmouseout="popHide()" /></div>
             </c:if>
         </td>
         <td class="valueC">
             <c:if test="${boardRow.topPerformer}">
-                <div id="pop${status.index }c" class="popUp"><div>Cash prize for placing in the <strong>Top Performers</strong></div></div>
+                <div id="pop${status.index }c" class="popUp"><div>Cash bonus for placing in the <strong>Top Performers</strong></div></div>
                 <div align="center"><img src="/i/interface/emblem/prize.gif" alt="" border="0" onmouseover="popUp(this,'pop${status.index }c')" onmouseout="popHide()" /></div>
             </c:if>
         </td>
@@ -288,7 +288,7 @@ Please select a <strong>season</strong> and <strong>stage</strong><br />
     </c:choose>
 </div>
 <p class="small" align="left">
-    * Prizes are based on current earned points and the dollar per point value for completed projects. Current and
+    * Bonuses are based on current earned points and the dollar per point value for completed projects. Current and
     future projects may affect the final results.<br />
     ** Assuming first place finish with all current contests with all competitors passing review
 </p>

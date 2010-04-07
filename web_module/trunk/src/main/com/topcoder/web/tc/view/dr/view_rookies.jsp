@@ -175,7 +175,7 @@ Please select a <strong>season</strong><br>
         </td>
         <td class="headerR B" width="25%">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Top 10<br>
-                Prize</a>*
+                Bonus</a>*
         </td>
         <td class="headerR" width="25%" nowrap="nowrap">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Potential<br>
@@ -201,7 +201,7 @@ Please select a <strong>season</strong><br>
         </td>
         <td class="valueC">
             <c:if test="${boardRow.placementPrize>0}">
-                <div id="pop${status.index }b" class="popUp"><div>Cash prize for placing in the <strong>Top Ten</strong></div></div>
+                <div id="pop${status.index }b" class="popUp"><div>Cash bonus for placing in the <strong>Top Ten</strong></div></div>
                 <div align="center"><img src="/i/interface/emblem/prize.gif" alt="" border="0" onMouseOver="popUp(this,'pop${status.index }b')" onMouseOut="popHide()" /></div>
             </c:if>
         </td>
@@ -250,7 +250,7 @@ Please select a <strong>season</strong><br>
 </div>
 
 <p class="small" align="left">
-    * Prizes are based on current earned points and the dollar per point value for completed projects. Current and
+    * Bonuses are based on current earned points and the dollar per point value for completed projects. Current and
     future projects may affect the final results.<br>
     ** Assuming first place finish with all current contests with all competitors passing review<br>
     *** Has not yet passed review enough times this season to qualify as a rookie
