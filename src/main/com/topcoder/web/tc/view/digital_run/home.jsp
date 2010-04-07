@@ -54,7 +54,7 @@ function menu_goto( menuform )
 
         <div id="eventDescBox">
             <div class="spacer">
-                <div>Now is your chance to be the driving force in the growth of TopCoder and reap the benefits in the form of monthly cash prizes in the Digital Run. The DR is now tied directly to TopCoder's revenue, so the more you compete, the more contests we run, the more cash we pay out at the end of each month.</div>
+                <div>Now is your chance to be the driving force in the growth of TopCoder and reap the benefits in the form of monthly cash bonuses in the Digital Run. The DR is now tied directly to TopCoder's revenue, so the more you compete, the more contests we run, the more cash we pay out at the end of each month.</div>
                 <div>>> <a href="http://forums.topcoder.com/?module=Thread&amp;threadID=617309">how it works...</a></div>
             </div>
         </div>
@@ -96,11 +96,11 @@ function menu_goto( menuform )
                     <span class="money">
                         <fmt:formatNumber value="${designPrize.total}" type="currency" currencySymbol="$"/>
                     </span> 
-                    <span class="month">prize pool in ${monthName}</span>
+                    <span class="month">bonus pool in ${monthName}</span>
                     <span class="month">(+<fmt:formatNumber value="${designPrize.today}" type="currency" currencySymbol="$"/> in the past ${pastNDays} days)</span>
                 </div>
                 <div class="prizeGuarantee">
-                    <span class="money">$10,000</span> <span class="month">Guaranteed Monthly Prize</span>
+                    <span class="money">$10,000</span> <span class="month">Guaranteed Monthly Bonus</span>
                 </div>
             </div>
 
@@ -121,11 +121,11 @@ function menu_goto( menuform )
                     <span class="money">
                         <fmt:formatNumber value="${developmentPrize.total}" type="currency" currencySymbol="$"/>
                     </span>
-                    <span class="month">prize pool in ${monthName}</span>
+                    <span class="month">bonus pool in ${monthName}</span>
                     <span class="month">(+<fmt:formatNumber value="${developmentPrize.today}" type="currency" currencySymbol="$"/> in the past ${pastNDays} days)</span>
                 </div>
                 <div class="prizeGuarantee">
-                    <span class="money">$10,000</span> <span class="month">Guaranteed Monthly Prize</span>
+                    <span class="money">$10,000</span> <span class="month">Guaranteed Monthly Bonus</span>
                 </div>
             </div>
 
@@ -146,11 +146,11 @@ function menu_goto( menuform )
                     <span class="money">
                         <fmt:formatNumber value="${studioPrize.total}" type="currency" currencySymbol="$"/>
                     </span>
-                    <span class="month">prize pool in ${monthName}</span>
+                    <span class="month">bonus pool in ${monthName}</span>
                     <span class="month">(+<fmt:formatNumber value="${studioPrize.today}" type="currency" currencySymbol="$"/> in the past ${pastNDays} days)</span>
                 </div>
                 <div class="prizeGuarantee">
-                    <span class="money">$5,000</span> <span class="month">Guaranteed Monthly Prize</span>
+                    <span class="money">$5,000</span> <span class="month">Guaranteed Monthly Bonus</span>
                 </div>
             </div>
 
