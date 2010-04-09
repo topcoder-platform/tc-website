@@ -163,6 +163,13 @@
     	<pathelement location="${jboss_lib}/jbossretro-rt.jar"/>
 		<pathelement location="${jboss_lib}/jboss-srp.jar"/>
 		<pathelement location="${jboss_lib}/jboss.jar"/>
+        <pathelement location="${jars.dir}/jboss/scheduler-plugin.jar"/>
+
+            <!-- LDAP SDK -->
+        <pathelement location="${jars.dir}/tcs/ldap_sdk_interface/1.0.2/ldap_sdk_interface.jar"/>
+        <pathelement location="${jars.dir}/netscape_ldap_sdk.jar"/>
+        <pathelement location="${jars.dir}/ldap.jar"/>
+
     	
     </path>
     <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
