@@ -3,10 +3,10 @@
   - Version: 1.0
   - Copyright (C) 2010 TopCoder Inc., All Rights Reserved.
   -
-  - Description: This page displays the leaderboard for Mod-Dash track.
+  - Description: This page displays the leaderboard details for single competitor for Mod-Dash track.
 --%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
-<%@ page import="com.topcoder.web.tc.controller.request.tournament.ModDashLeaderboardBase" %>
+<%@ page import="com.topcoder.web.tc.controller.request.tournament.ModDashLeaderboardDetailsBase" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="../includes/taglibs.jsp" %>
 
@@ -19,9 +19,11 @@
 <c:set var="croppedDataBefore" value="${requestScope.croppedDataBefore}"/>
 <c:set var="croppedDataAfter" value="${requestScope.croppedDataAfter}"/>
 <c:set var="results" value="${requestScope.results}"/>
+<c:set var="userHandle" value="${param[HANDLE]}"/>
 
-<c:set var="HANDLE_COL" value="<%=ModDashLeaderboardBase.HANDLE_COL%>" />
-<c:set var="POINTS_COL" value="<%=ModDashLeaderboardBase.POINTS_COL%>" />
+<c:set var="ISSUE_KEY_COL" value="<%=ModDashLeaderboardDetailsBase.ISSUE_KEY_COL%>" />
+<c:set var="POINTS_COL" value="<%=ModDashLeaderboardDetailsBase.POINTS_COL%>" />
+<c:set var="CREATED_COL" value="<%=ModDashLeaderboardDetailsBase.CREATED_COL%>" />
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -70,18 +72,20 @@
                     <div class="text">
                         <h2 class="pageTitle">Leaderboard</h2>
                         <form name="mainForm" id="advancersForm" action='${sessionInfo.servletPath}' method="get">
-                            <tc-webtag:hiddenInput name="${MODULE_KEY}" value="ModDashLeaders"/>
+                            <tc-webtag:hiddenInput name="${MODULE_KEY}" value="ModDashLeadersDetails"/>
                             <tc-webtag:hiddenInput name="${SORT_COLUMN}"/>
                             <tc-webtag:hiddenInput name="${SORT_DIRECTION}"/>
                             <tc-webtag:hiddenInput name="${FULL_LIST}"/>
+                            <tc-webtag:hiddenInput name="${HANDLE}" value="${userHandle}"/>
 
+                            <br />
                             <div class="buttons_bar">
                                 <div class="left">
-                                    <a href="${sessionInfo.servletPath}?module=ModDashLeaders"
+                                    <a href="${sessionInfo.servletPath}?module=ModDashLeadersDetails"
                                        class="button">Reset Sorting</a>
-                                    <a href="${sessionInfo.servletPath}?module=ModDashLeaders&amp;full=false"
+                                    <a href="${sessionInfo.servletPath}?module=ModDashLeadersDetails&amp;full=false"
                                        class="button ${requestScope.full ? 'off' : ''}">Page View</a>
-                                    <a href="${sessionInfo.servletPath}?module=ModDashLeaders&amp;full=true"
+                                    <a href="${sessionInfo.servletPath}?module=ModDashLeadersDetails&amp;full=true"
                                        class="button ${requestScope.full ? '' : 'off'}">Full View</a>
 
                                 </div>
@@ -93,24 +97,31 @@
 
                         <div>
                             <table class="data" width="100%" cellpadding="0" cellspacing="0">
+                                    <tr><th colspan="5">Leaderboard Details - ${userHandle}</th></tr>
                                     <tr>
                                         <th class="first">&nbsp;</th>
                                         <th>
-                                            <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${HANDLE_COL}'/>">Handle</a>
+                                            <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${ISSUE_KEY_COL}'/>">Issue Key</a>
                                         </th>
                                         <th>
-                                            <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${POINTS_COL}'/>">Total Points</a>
+                                            <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${POINTS_COL}'/>">Points</a>
+                                        </th>
+                                        <th>
+                                            <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${CREATED_COL}'/>">Created</a>
                                         </th>
                                         <th class="last">&nbsp;</th>
                                     </tr>
                                     <c:forEach items="${results}" var="result">
                                         <tr>
                                             <td class="first">&nbsp;</td>
-                                            <td class="first last alignText">${result.handle}</td>
                                             <td class="first last alignText">
-                                                <a href="${sessionInfo.servletPath}?module=ModDashLeadersDetails&amp;${HANDLE}=${result.handle}">
-                                                    ${result.points}
+                                                <a href="/bugs/browse/${result.issueKey}">
+                                                    ${result.issueKey}
                                                  </a>
+                                            </td>
+                                            <td class="first last alignText">${result.points}</td>
+                                            <td class="first last alignText">
+                                                <fmt:formatDate value="${result.created}" pattern="MM.dd.yyyy HH:mm z"/>
                                             </td>
                                             <td class="last">&nbsp;</td>
                                         </tr>
@@ -134,9 +145,9 @@
                                                            nextAvailable="${croppedDataAfter}"/>
                                 </div>
                             </div>
-                            
                             </div>
                         </form>
+
                     </div>
                 </div>
 

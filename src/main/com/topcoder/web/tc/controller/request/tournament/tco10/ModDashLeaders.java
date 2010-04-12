@@ -10,7 +10,7 @@ import com.topcoder.web.tc.controller.request.tournament.ModDashLeaderboardBase;
  * <p>This class provides specific implementation for TCO10 Mod Dash leaderboard.</p>
  * <p>This processor will present the consolidated leaderboard.</p>
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 1.0 (2010 TCO WebSite Release assembly v1.0)
  */
 public class ModDashLeaders extends ModDashLeaderboardBase {
