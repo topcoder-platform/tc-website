@@ -1,5 +1,5 @@
 <%--
-  - Author: TCSDEVELOPER
+  - Author: isv
   - Version: 1.0
   - Copyright (C) 2010 TopCoder Inc., All Rights Reserved.
   -
@@ -13,16 +13,20 @@
 <%@ attribute name="page" required="true" type="java.lang.String" %>
 <%@ attribute name="styleClass" required="false" type="java.lang.String" %>
 
+<c:set var="url"
+       value="/tc?${requestScope.MODULE_KEY}=Static&amp;d1=tournaments&amp;d2=tco10&amp;d3=studio&amp;d4=${page}"/>
+
+<c:choose>
+    <c:when test="${page eq 'leaderboard'}">
+        <c:set var="url" value="/tco10?${requestScope.MODULE_KEY}=StudioLeaders&amp;eid=3432"/>
+    </c:when>
+</c:choose>
+
 <c:choose>
     <c:when test="${empty styleClass}">
-        <a href="/tc?${requestScope.MODULE_KEY}=Static&amp;d1=tournaments&amp;d2=tco10&amp;d3=studio&amp;d4=${page}">
-            <jsp:doBody/>
-        </a>
+        <a href="${url}"><jsp:doBody/></a>
     </c:when>
     <c:otherwise>
-        <a class="${styleClass}"
-           href="/tc?${requestScope.MODULE_KEY}=Static&amp;d1=tournaments&amp;d2=tco10&amp;d3=studio&amp;d4=${page}">
-            <jsp:doBody/>
-        </a>
+        <a class="${styleClass}" href="${url}"><jsp:doBody/></a>
     </c:otherwise>
 </c:choose>

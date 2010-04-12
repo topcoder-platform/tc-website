@@ -29,4 +29,8 @@
 <c:set var="HANDLE" value="<%=Constants.HANDLE%>"/>
 <c:set var="NUMBER_PAGE" value="<%=DataAccessConstants.NUMBER_PAGE%>" />
 <c:set var="FULL_LIST" value="<%=AdvancersBase.FULL_LIST%>" />
+<c:set var="EVENT_ID" value="<%=Constants.EVENT_ID%>" />
+<c:set var="COMPLETE_KEY" value="<%=Constants.COMPLETE_KEY%>" />
+<c:set var="USER_ID" value="<%=Constants.USER_ID%>" />
+<c:set var="CONTEST_ID_KEY" value="<%=Constants.CONTEST_ID%>" />
 <c:set var="sessionInfo" value="${requestScope.sessionInfo}" />

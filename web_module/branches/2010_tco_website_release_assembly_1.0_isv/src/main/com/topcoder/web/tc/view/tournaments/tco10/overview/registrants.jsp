@@ -71,7 +71,7 @@
                             <tr>
                                 <th class="first"><span class="left"></span>Registrants: ${requestScope.numRegistrants}</th>
                                 <!-- table left top corner -->
-                                <th class="last"><span class="right"></span></th>
+                                <th class="last"><span class="right"></span>&nbsp;</th>
                                 <!-- table right top corner -->
                             </tr>
                             <tr>

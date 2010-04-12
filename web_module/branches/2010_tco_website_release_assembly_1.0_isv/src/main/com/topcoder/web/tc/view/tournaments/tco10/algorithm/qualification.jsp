@@ -104,6 +104,7 @@
                                    id="qualificationLeaderboard"><!-- Start table list -->
                                 <tr>
                                     <th class="first handle">
+                                        <span class="left"></span>
                                         <tco10:sortColumnLink text="Handle" columnIndex="${handleSortColumnIndex}"/>
                                         <tc-webtag:textInput name="${HANDLE}" size="12"
                                                              style="border: 1px solid #999999; color: #999999;"
