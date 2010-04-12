@@ -42,8 +42,8 @@ public class UserNameValidator implements Validator {
                 }
                 if (hret == null || hret.isValid()) {
                     if (!StringUtils.containsOnly(handle, Constants.HANDLE_ALPHABET, false)) {
-                        ret = new BasicResult(false, "Your user name may contain only letters, numbers and " + Constants.PUNCTUATION);
-                    } else if (StringUtils.containsOnly(handle, Constants.PUNCTUATION, false)) {
+                        ret = new BasicResult(false, "Your user name may contain only letters, numbers and " + Constants.HANDLE_PUNCTUATION);
+                    } else if (StringUtils.containsOnly(handle, Constants.HANDLE_PUNCTUATION, false)) {
                         ret = new BasicResult(false, "Your user name may not contain only punctuation.");
                     } else if (handle.toLowerCase().trim().startsWith("admin")) {
                         ret = new BasicResult(false, "Please choose answer user name.");
