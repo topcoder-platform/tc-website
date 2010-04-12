@@ -1,5 +1,5 @@
 <%--
-  - Author: TCSDEVELOPER
+  - Author: isv
   - Version: 1.0
   - Copyright (C) 2010 TopCoder Inc., All Rights Reserved.
   -
@@ -17,10 +17,12 @@
 <%@ attribute name="index" required="true" type="java.lang.Integer" %>
 
 <c:choose>
-    <c:when test="${empty roundId}">-</c:when>
-    <c:when test="${prevRoundResult ne null and (prevRoundResult eq 'Eliminated')}">-</c:when>
+    <c:when test="${empty roundId}">&nbsp;</c:when>
     <c:when test="${not empty roundResult}">
         <c:choose>
+            <c:when test="${fn:trim(roundResult) eq 'Champion'}">
+                <img src="/i/tournament/tco10/prize.gif"/>
+            </c:when>
             <c:when test="${index mod 2 == 0}">
                 <img src="/i/tournament/tco10/${fn:trim(fn:toLowerCase(roundResult))}_odd_ico.png" alt="${roundResult}"/>
             </c:when>
@@ -29,5 +31,8 @@
             </c:otherwise>
         </c:choose>
     </c:when>
-    <c:otherwise>-</c:otherwise>
+    <c:when test="${empty prevRoundResult or (prevRoundResult eq 'Eliminated')}">&nbsp;</c:when>
+    <c:otherwise>
+        <img src="/i/tournament/tco10/not_compete_ico.png" alt="Did not compete"/>
+    </c:otherwise>
 </c:choose>

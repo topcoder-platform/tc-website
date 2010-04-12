@@ -12,7 +12,7 @@ import com.topcoder.web.tc.controller.request.tournament.AdvancersBase;
 /**
  * <p>This class provides specific implementation for TCO10 Marathon Advancers leaderboard.</p>
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 1.0 (2010 TCO WebSite Release assembly v1.0)
  */
 public class MarathonAdvancers extends AdvancersBase {
@@ -62,7 +62,7 @@ public class MarathonAdvancers extends AdvancersBase {
      */
     @Override
     protected String getPageName() {
-        return "/tournaments/" + getContestPrefix() + "/marathon/advancers/leaderboard.jsp";
+        return "/tournaments/" + getContestPrefix() + "/marathon/leaderboard.jsp";
     }
     
     /**

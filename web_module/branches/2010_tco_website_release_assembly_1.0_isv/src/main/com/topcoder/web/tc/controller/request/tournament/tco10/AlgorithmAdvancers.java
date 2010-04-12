@@ -12,7 +12,7 @@ import com.topcoder.web.tc.controller.request.tournament.AdvancersBase;
 /**
  * <p>This class provides specific implementation for TCO10 Algorithm Advancers leaderboard.</p>
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 1.0
  * @since 2010 TopCoder Open Site Integration 1.1
  */
@@ -83,7 +83,9 @@ public class AlgorithmAdvancers extends AdvancersBase {
         s.addDefault(rsc.getColumnIndex("round2_sort"), "asc");
         s.addDefault(rsc.getColumnIndex("round3_sort"), "asc");
         s.addDefault(rsc.getColumnIndex("round4_sort"), "asc");
-        s.addDefault(rsc.getColumnIndex("semi_sort"), "asc");
+        s.addDefault(rsc.getColumnIndex("round5_sort"), "asc");
+        s.addDefault(rsc.getColumnIndex("semi1_sort"), "asc");
+        s.addDefault(rsc.getColumnIndex("semi2_sort"), "asc");
         s.addDefault(rsc.getColumnIndex("wildcard_sort"), "asc");
         s.addDefault(rsc.getColumnIndex("finals_sort"), "asc");
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
