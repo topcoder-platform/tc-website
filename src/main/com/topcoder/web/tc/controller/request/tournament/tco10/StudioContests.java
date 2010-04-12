@@ -14,7 +14,7 @@ import com.topcoder.web.tc.controller.request.tournament.StudioUserContestsBase;
  * <p>Note: this class was changed to delegate to a simple helper class <code>StudioAdvancersHelper</code> in order to
  * avoid duplicating code in <code>StudioLeaders</code> class.</p>
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 1.0 (2010 TCO WebSite Release assembly v1.0)
  */
 public class StudioContests extends StudioUserContestsBase {
