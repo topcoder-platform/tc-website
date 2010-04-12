@@ -74,8 +74,9 @@ public class Constants implements WebConstants {
     public static final String NEW_REG_FLAG = "isNewReg";
 
     public final static String PUNCTUATION = "-_.{}[]()";
+	public final static String HANDLE_PUNCTUATION = "-_.{}[]";
     public final static String HANDLE_ALPHABET = StringUtils.ALPHABET_ALPHA_EN +
-            StringUtils.ALPHABET_DIGITS_EN + PUNCTUATION;
+            StringUtils.ALPHABET_DIGITS_EN + HANDLE_PUNCTUATION;
     public final static String PASSWORD_ALPHABET = StringUtils.ALPHABET_ALPHA_EN +
             StringUtils.ALPHABET_DIGITS_EN + PUNCTUATION;
 
