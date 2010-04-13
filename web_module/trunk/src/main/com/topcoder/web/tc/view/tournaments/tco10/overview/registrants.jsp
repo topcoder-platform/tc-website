@@ -3,7 +3,7 @@
  *
  * This JSP renders the list of users already registered to 2010 TCO event.
  *
- * Author TCSDEVELOPER
+ * Author isv
  * Version 1.0 (2010 TCO WebSite Release assembly v1.0)
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -19,22 +19,21 @@
 <head>
     <jsp:include page="../includes/htmlhead.jsp"/>
     <script type="text/javascript">
-       function next() {
-         var myForm = document.registrantsForm;
-         myForm.<%=DataAccessConstants.START_RANK%>.value= parseInt(myForm.<%=DataAccessConstants.START_RANK%>.value) + parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
-         myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
-         myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
-         myForm.submit();
-       }
-       function previous() {
-         var myForm = document.registrantsForm;
-         myForm.<%=DataAccessConstants.START_RANK%>.value-=parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
-         myForm.<%=DataAccessConstants.SORT_COLUMN%>.value='<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
-         myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value='<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
-
-         myForm.submit();
-       }
-     </script>
+        function next() {
+            var myForm = document.registrantsForm;
+            myForm.${START_RANK}.value = parseInt(myForm.${START_RANK}.value) + parseInt(myForm.${NUMBER_RECORDS}.value);
+            myForm.${SORT_COLUMN}.value = '${param[SORT_COLUMN]}';
+            myForm.${SORT_DIRECTION}.value = '${param[SORT_DIRECTION]}';
+            myForm.submit();
+        }
+        function previous() {
+            var myForm = document.registrantsForm;
+            myForm.${START_RANK}.value -= parseInt(myForm.${NUMBER_RECORDS}.value);
+            myForm.${SORT_COLUMN}.value = '${param[SORT_COLUMN]}';
+            myForm.${SORT_DIRECTION}.value = '${param[SORT_DIRECTION]}';
+            myForm.submit();
+        }
+    </script>
 </head>
 
 <body>
@@ -60,9 +59,9 @@
                     <% ResultSetContainer rsc = (ResultSetContainer) (request.getAttribute("list"));%>
                     <c:set var="totalCount" value="${fn:length(requestScope.list)}"/>
                     <form name="registrantsForm" action='${sessionInfo.servletPath}' method="get" id="registrantsForm">
-                    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Registrants"/>
-                        <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
-                        <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
+                    <tc-webtag:hiddenInput name="${MODULE_KEY}" value="Registrants"/>
+                        <tc-webtag:hiddenInput name="${SORT_COLUMN}"/>
+                        <tc-webtag:hiddenInput name="${SORT_DIRECTION}"/>
 
                         <tco10:paginationLinks previousAvailable="<%=rsc.croppedDataBefore()%>"
                                                nextAvailable="<%=rsc.croppedDataAfter()%>"/>
@@ -72,7 +71,7 @@
                             <tr>
                                 <th class="first"><span class="left"></span>Registrants: ${requestScope.numRegistrants}</th>
                                 <!-- table left top corner -->
-                                <th class="last"><span class="right"></span></th>
+                                <th class="last"><span class="right"></span>&nbsp;</th>
                                 <!-- table right top corner -->
                             </tr>
                             <tr>
@@ -81,7 +80,7 @@
                                        href="/tco10?module=Registrants<tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>
                                 </th>
                                 <th class="last">Search:
-                                    <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="16"
+                                    <tc-webtag:textInput name="${HANDLE}" size="16"
                                                          style="border: 1px solid #999999; color: #999999;"
                                                          onClick="this.style.color='#333333';" maxlength="100"/>
                                 </th>
@@ -106,12 +105,12 @@
                             <div class="show">
                                 <p>
                                     View &#160;
-                                    <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4"/>
+                                    <tc-webtag:textInput name="${NUMBER_RECORDS}" size="4" maxlength="4"/>
                                     &#160;at a time starting with &#160;
                                 </p>
                             </div>
                             <div class="gopage" style="margin-left:0px;">
-                                <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4"/>
+                                <tc-webtag:textInput name="${START_RANK}" size="4" maxlength="4"/>
                                 &#160;<a href="javascript:document.registrantsForm.submit();" class="button small">GO</a>
                                 <button style="display:none;" name="nameSubmit" value="submit" type="submit"/>
                             </div>

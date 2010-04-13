@@ -1,3 +1,10 @@
+<%--
+  - Author: isv
+  - Version: 1.0
+  - Copyright (C) 2010 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page displays the qualification for Algorithm track.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="../includes/taglibs.jsp" %>
 
@@ -10,14 +17,6 @@
                  com.topcoder.web.tc.controller.request.tournament.AdvancersBase" %>
 
 <%-- Setting up constants to use JSTL --%>
-<c:set var="START_RANK" value="<%=DataAccessConstants.START_RANK%>" />
-<c:set var="NUMBER_RECORDS" value="<%=DataAccessConstants.NUMBER_RECORDS%>" />
-<c:set var="NUMBER_PAGE" value="<%=DataAccessConstants.NUMBER_PAGE%>" />
-<c:set var="SORT_DIRECTION" value="<%=DataAccessConstants.SORT_DIRECTION%>" />
-<c:set var="SORT_COLUMN" value="<%=DataAccessConstants.SORT_COLUMN%>" />
-<c:set var="FULL_LIST" value="<%=AdvancersBase.FULL_LIST%>" />
-<c:set var="MODULE_KEY" value="<%=Constants.MODULE_KEY%>" />
-<c:set var="HANDLE" value="<%=Constants.HANDLE%>" />
 <c:set var="sortColumn" value="${param[SORT_COLUMN]}"/>
 <c:set var="sortDirection" value="${param[SORT_DIRECTION]}"/>
 
@@ -37,7 +36,7 @@
     <jsp:include page="../includes/htmlhead.jsp"/>
     <script type="text/javascript">
         function next() {
-            var myForm = document.advancersForm;
+            var myForm = document.mainForm;
             myForm.${START_RANK}.value= parseInt(myForm.${START_RANK}.value) +
                 parseInt(myForm.${NUMBER_RECORDS}.value);
             myForm.${SORT_COLUMN}.value='${empty sortColumn ? "" : sortColumn}';
@@ -46,7 +45,7 @@
         }
 
         function previous() {
-            var myForm = document.advancersForm;
+            var myForm = document.mainForm;
             myForm.${START_RANK}.value-=parseInt(myForm.${NUMBER_RECORDS}.value);
             myForm.${SORT_COLUMN}.value='${empty sortColumn ? "" : sortColumn}';
             myForm.${SORT_DIRECTION}.value='${empty sortDirection ? "" : sortDirection}';
@@ -75,8 +74,96 @@
                 <jsp:include page="subMenu.jsp"/>
 
                 <div class="bigColumn">
-                    <%@ include file="../includes/comingSoon.jsp" %>
-                </div>
+                    <div class="text">
+                        <h2 class="pageTitle">Algorithm Competition Qualification</h2>
+
+                        <form name="mainForm" action='${sessionInfo.servletPath}' method="get" id="advancersForm">
+                            <tc-webtag:hiddenInput name="${MODULE_KEY}" value="AlgorithmQualification"/>
+                            <tc-webtag:hiddenInput name="${SORT_COLUMN}"/>
+                            <tc-webtag:hiddenInput name="${SORT_DIRECTION}"/>
+                            <tc-webtag:hiddenInput name="${FULL_LIST}"/>
+
+                            <div class="buttons_bar">
+                                <div class="left">
+                                    <a href="${sessionInfo.servletPath}?module=AlgorithmQualification"
+                                       class="button">Reset Sorting</a>
+                                    <a href="${sessionInfo.servletPath}?module=AlgorithmQualification&amp;full=false"
+                                       class="button ${requestScope.full ? 'off' : ''}">Page View</a>
+                                    <a href="${sessionInfo.servletPath}?module=AlgorithmQualification&amp;full=true"
+                                       class="button ${requestScope.full ? '' : 'off'}">Full View</a>
+
+                                </div>
+                                <div class="right">
+                                    <tco10:paginationLinks previousAvailable="${croppedDataBefore}"
+                                                           nextAvailable="${croppedDataAfter}"/>
+                                </div>
+                            </div>
+
+                            <!-- Leader board -->
+                            <table cellpadding="0" cellspacing="0" class="leaderboard"
+                                   id="qualificationLeaderboard"><!-- Start table list -->
+                                <tr>
+                                    <th class="first handle">
+                                        <span class="left"></span>
+                                        <tco10:sortColumnLink text="Handle" columnIndex="${handleSortColumnIndex}"/>
+                                        <tc-webtag:textInput name="${HANDLE}" size="12"
+                                                             style="border: 1px solid #999999; color: #999999;"
+                                                             onClick="this.style.color='#333333';"
+                                                             maxlength="100"/>
+                                    </th>
+                                    <th class="rating">
+                                        <tco10:sortColumnLink text="Round" columnIndex="${roundNameColumnIndex}"/>
+                                    </th>
+                                    <th class="rating">
+                                        <tco10:sortColumnLink text="Rating" columnIndex="${ratingColumnIndex}"/>
+                                    </th>
+                                    <th class="last"><span class="right"></span>
+                                        <tco10:sortColumnLink text="Points" columnIndex="${pointsColumnIndex}"/>
+                                    </th>
+                                </tr>
+
+                                <c:forEach items="${rsc}" var="resultRow" varStatus="index">
+                                    <tr>
+                                        <td class="handle">
+                                            <p>
+                                                <span class="high"><tc-webtag:handle coderId="${resultRow.map['coder_id']}"
+                                                                  context="algorithm"/></span>
+                                            </p>
+                                        </td>
+                                        <td><c:out value="${resultRow.map['round_name']}" default="Bye"/></td>
+                                        <td>${resultRow.map["rating"]}</td>
+                                        <td>
+                                            <c:choose>
+                                                <c:when test="${resultRow.map['points']==null}">Bye</c:when>
+                                                <c:otherwise>
+                                                    <fmt:formatNumber value="${resultRow.map['points']}" pattern="#.00"/>
+                                                </c:otherwise>
+                                            </c:choose></td>
+                                    </tr>
+                                </c:forEach>
+                            </table>
+
+                            <div class="paging">
+                                <div class="show">
+                                    <p>
+                                        View &#160;
+                                        <tc-webtag:textInput name="${NUMBER_RECORDS}" size="4" maxlength="4"/>
+                                        &#160;at a time starting with &#160;
+                                    </p>
+                                </div>
+                                <div class="gopage" style="margin-left:0px;">
+                                    <tc-webtag:textInput name="${START_RANK}" size="4" maxlength="4"/>
+                                    &#160;<a href="javascript:document.mainForm.submit();" class="button small">GO</a>
+                                    <button style="display:none;" name="nameSubmit" value="submit" type="submit"/>
+                                </div>
+                                <div class="nextprev">
+                                    <tco10:paginationLinks previousAvailable="${croppedDataBefore}"
+                                                           nextAvailable="${croppedDataAfter}"/>
+                                </div>
+                            </div>
+                            
+                        </form>
+                    </div>
                 </div>
 
                 <jsp:include page="../includes/sponsors.jsp"/>
