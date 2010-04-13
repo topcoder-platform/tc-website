@@ -1,0 +1,43 @@
+<!ELEMENT web-site-flow-test (parameters, pages, paths)>
+
+<!ELEMENT parameters (common-url-base?, logging-mode?)>
+<!ELEMENT common-url-base (#PCDATA)>
+<!ELEMENT logging-mode (#PCDATA)>
+
+<!ELEMENT pages (page+)>
+<!ELEMENT page (httpurl, identification, links?, forms?)>
+<!ATTLIST page name NMTOKEN #REQUIRED>
+<!ELEMENT httpurl (#PCDATA)>
+
+<!ELEMENT identification (text-pattern*, re-pattern*)>
+<!ELEMENT text-pattern (#PCDATA)>
+<!ELEMENT re-pattern (#PCDATA)>
+
+<!ELEMENT links (link*)>
+<!ELEMENT link (with-text, url?, target-name)>
+<!ELEMENT with-text (#PCDATA)>
+<!ELEMENT url (#PCDATA)>
+<!ELEMENT target-name (#PCDATA)>
+
+<!ELEMENT forms (form+)>
+<!ELEMENT form (index?, parameter*, submit-button-name?, target-name)>
+<!ELEMENT index (#PCDATA)>
+<!ELEMENT submit-button-name (#PCDATA)>
+<!ELEMENT parameter (name, value)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT value (#PCDATA)>
+
+<!ELEMENT paths (path+)>
+<!ELEMENT path (step+)>
+<!ATTLIST path name NMTOKEN #REQUIRED>
+<!ELEMENT step (#PCDATA | form | link)*>
+<!ATTLIST step type (start | link | form | finish) #REQUIRED>
+
+
+
+
+
+
+
+
+
