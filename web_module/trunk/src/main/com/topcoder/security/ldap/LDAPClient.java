@@ -213,7 +213,7 @@ public class LDAPClient {
             log.error("Failed to instantiate the LDAPSDKFactory instance", e);
             throw LDAPClientException.createUnexpectedErrorException(e);
         } catch (LDAPSDKException e) {
-            log.error("Failed to connect to LDAP server due to unexpected error");
+            log.error("Failed to connect to LDAP server due to unexpected error : "+ e);
             throw LDAPClientException.createUnexpectedErrorException(e);
         }
     }
