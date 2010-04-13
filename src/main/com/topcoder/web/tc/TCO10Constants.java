@@ -102,7 +102,7 @@ public class TCO10Constants implements WebConstants {
      *
      * @since 1.2
      */
-    public static int TCO10_STUDIO_TOP_ONSITE_RANK = 10;
+    public static int TCO10_STUDIO_TOP_ONSITE_RANK = 2; // 14
 
     /**
      * <p>
@@ -115,7 +115,7 @@ public class TCO10Constants implements WebConstants {
      *
      * @since 1.2
      */
-    public static int TCO10_STUDIO_PLACE_SCORE_1 = 17;
+    public static int TCO10_STUDIO_PLACE_SCORE_1 = 11;
 
     /**
      * <p>
@@ -128,7 +128,7 @@ public class TCO10Constants implements WebConstants {
      *
      * @since 1.2
      */
-    public static int TCO10_STUDIO_PLACE_SCORE_2 = 15;
+    public static int TCO10_STUDIO_PLACE_SCORE_2 = 9;
 
     /**
      * <p>
@@ -141,7 +141,7 @@ public class TCO10Constants implements WebConstants {
      *
      * @since 1.2
      */
-    public static int TCO10_STUDIO_PLACE_SCORE_3 = 13;
+    public static int TCO10_STUDIO_PLACE_SCORE_3 = 7;
 
     /**
      * <p>
@@ -154,7 +154,7 @@ public class TCO10Constants implements WebConstants {
      *
      * @since 1.2
      */
-    public static int TCO10_STUDIO_PLACE_SCORE_4 = 10;
+    public static int TCO10_STUDIO_PLACE_SCORE_4 = 4;
 
     /**
      * <p>
@@ -167,7 +167,7 @@ public class TCO10Constants implements WebConstants {
      *
      * @since 1.2
      */
-    public static int TCO10_STUDIO_PLACE_SCORE_5 = 7;
+    public static int TCO10_STUDIO_PLACE_SCORE_5 = 1;
 
     /**
      * <p>

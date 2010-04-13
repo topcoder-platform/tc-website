@@ -5,7 +5,6 @@ package com.topcoder.web.tc.controller.request.tournament.tco10;
 
 import java.util.Comparator;
 
-import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.TCO10Constants;
 import com.topcoder.web.tc.controller.request.tournament.StudioLeaderBoardRow;
 import com.topcoder.web.tc.controller.request.tournament.StudioLeaderboardBase;
@@ -17,7 +16,7 @@ import com.topcoder.web.tc.controller.request.tournament.StudioLeaderboardBase;
  * <p>Note: this class was changed to delegate to a simple helper class <code>StudioAdvancersHelper</code> in order to
  * avoid duplicating code in <code>StudioContests</code> class.</p>
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 1.0 (2010 TCO WebSite Release assembly v1.0)
  */
 public class StudioLeaders extends StudioLeaderboardBase {
