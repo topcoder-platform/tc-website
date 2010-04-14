@@ -26,4 +26,13 @@ public class ModDashLeaders extends ModDashLeaderboardBase {
     protected String getContestPrefix() {
         return TCO10Constants.TCO10_SHORT_DESC;
     }
+
+    /**
+     * Gets the page that will show the leaderboard
+     *
+     * @return the page
+     */
+    protected String getPageName() {
+        return "/tournaments/" + getContestPrefix() + "/moddash/leaderboard.jsp";
+    }
 }
