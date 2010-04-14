@@ -18,7 +18,7 @@
 
 <c:choose>
     <c:when test="${page eq 'leaderboard'}">
-        <c:set var="url" value="/tco10?${requestScope.MODULE_KEY}=ModDashLeaders"/>
+        <c:set var="url" value="/tco10?${requestScope.MODULE_KEY}=ModDashLeaders&amp;eid=3432"/>
     </c:when>
 </c:choose>
 

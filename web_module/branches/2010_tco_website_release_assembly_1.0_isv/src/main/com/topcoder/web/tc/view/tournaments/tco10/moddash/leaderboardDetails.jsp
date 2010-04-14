@@ -95,9 +95,11 @@
                                 </div>
                             </div>
 
-                        <div>
                             <table class="data" width="100%" cellpadding="0" cellspacing="0">
-                                    <tr><th colspan="5">Leaderboard Details - ${userHandle}</th></tr>
+                                    <tr>
+                                        <th colspan="4" class="first"><span class="left"></span>Leaderboard Details - ${userHandle}</th>
+                                        <th class="last"><span class="right"></span></th>
+                                    </tr>
                                     <tr>
                                         <th class="first">&nbsp;</th>
                                         <th>
@@ -126,26 +128,26 @@
                                             <td class="last">&nbsp;</td>
                                         </tr>
                                     </c:forEach>
-                            </table>
-                            <div class="paging">
-                                <div class="show">
-                                    <p>
-                                        View &#160;
-                                        <tc-webtag:textInput name="${NUMBER_RECORDS}" size="4" maxlength="4"/>
-                                        &#160;at a time starting with &#160;
-                                    </p>
-                                </div>
-                                <div class="gopage" style="margin-left:0px;">
-                                    <tc-webtag:textInput name="${START_RANK}" size="4" maxlength="4"/>
-                                    &#160;<a href="javascript:document.mainForm.submit();" class="button small">GO</a>
-                                    <button style="display:none;" name="nameSubmit" value="submit" type="submit"/>
-                                </div>
-                                <div class="nextprev">
-                                    <tco10:paginationLinks previousAvailable="${croppedDataBefore}"
-                                                           nextAvailable="${croppedDataAfter}"/>
-                                </div>
-                            </div>
-                            </div>
+                                </table>
+                               <div class="paging">
+                                   <div class="show">
+                                       <p>
+                                           View &#160;
+                                           <tc-webtag:textInput name="${NUMBER_RECORDS}" size="4" maxlength="4"/>
+                                           &#160;at a time starting with &#160;
+                                       </p>
+                                   </div>
+                                   <div class="gopage" style="margin-left:0px;">
+                                       <tc-webtag:textInput name="${START_RANK}" size="4" maxlength="4"/>
+                                       &#160;<a href="javascript:document.mainForm.submit();"
+                                                class="button small">GO</a>
+                                       <button style="display:none;" name="nameSubmit" value="submit" type="submit"/>
+                                   </div>
+                                   <div class="nextprev">
+                                       <tco10:paginationLinks previousAvailable="${croppedDataBefore}"
+                                                              nextAvailable="${croppedDataAfter}"/>
+                                   </div>
+                               </div>
                         </form>
 
                     </div>
