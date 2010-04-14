@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2007-2010 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.tc.controller.request.tournament;
 
 import java.text.DecimalFormat;
@@ -17,7 +20,7 @@ import com.topcoder.web.tc.controller.request.development.StatBase;
 import com.topcoder.web.tc.model.UserContestDetail;
 
 /**
- * @author dok, pulky
+ * @author dok, pulky, isv
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Mar 1, 2007
  */
@@ -47,6 +50,40 @@ public abstract class ContestDetailsBase extends StatBase {
      * @return the maximum amount of projects taken into consideration
      */
     protected abstract int getMax();
+
+    /**
+     * <p>Checks if the <code>Digital Run</code> points are used for calculating the placement points for target event.
+     *  </p>
+     *
+     * @return <code>true</code> if event is using DR placement points; <code>false</code> otherwise.
+     */
+    protected boolean isUsingDRPlacementPoints() {
+        return false;
+    }
+
+    /**
+     * <p>Gets the placement points to be awarded to competitor who took specified place among specified total number of
+     * submissions based on specified pool of <code>Digital Run</code> points for project.</p>
+     *
+     * @param place an <code>int</code> providing the placement for competitor's submission (0-based).
+     * @param projectDRPool an <code>int</code> providing the total pool of <code>Digital Run</code> points set for the
+     *        target project.
+     * @param submissionsCount an <code>int</code> providing the total number of submissions for project.
+     * @return an <code>int</code> providing the placement points to be awarded to submitter.
+     * @throws UnsupportedOperationException always.
+     */
+    protected int getDRPlacementPoints(int place, int projectDRPool, int submissionsCount) {
+        throw new UnsupportedOperationException("getDRPlacementPoints must be overridden");
+    }
+
+    /**
+     * <p>Gets the comparator for the results.</p>
+     *
+     * @return a <code>Comparator</code> to be used for sorting the results and resolving ties.
+     */
+    protected Comparator getComparator() {
+        return new myComparator();
+    }
     
     /* (non-Javadoc)
      * @see com.topcoder.web.tc.controller.request.development.StatBase#getCommandName()
@@ -99,6 +136,11 @@ public abstract class ContestDetailsBase extends StatBase {
 
         log.debug("rscDetails.size(): (1) " + rsc.size());
         for (int i = 0; i < rsc.size(); i++) {
+            int drPoints = 0;
+            if (isUsingDRPlacementPoints()) {
+                 drPoints = rsc.getIntItem(i, "dr_points");
+            }
+
             //for each contest, get details and build array
             Request dataRequest = new Request();
             Map result;
@@ -125,17 +167,21 @@ public abstract class ContestDetailsBase extends StatBase {
             log.debug("rscDetails.size(): " + rscDetails.size());
             for (int j = 0; j < rscDetails.size(); j++) {
                 int pts = 0;
-
-                if (rscDetails.getItem(j, "final_score").getResultData() != null) {
-                    if (rscDetails.getDoubleItem(j, "final_score") >= 75) {
-                        if (j < placementPoints.length) {
-                            pts = placementPoints[j];
+                if (isUsingDRPlacementPoints()) {
+                    int submittersCount = rscDetails.getIntItem(j, "passing_submitters_count");
+                    pts = getDRPlacementPoints(j, drPoints, submittersCount);
+                } else {
+                    if (rscDetails.getItem(j, "final_score").getResultData() != null) {
+                        if (rscDetails.getDoubleItem(j, "final_score") >= 75) {
+                            if (j < placementPoints.length) {
+                                pts = placementPoints[j];
+                            }
                         }
                     }
                 }
 
                 addPoints(rscDetails.getStringItem(j, "handle"), rscDetails.getIntItem(j, "user_id"), pts,
-                        isComplete, rscDetails.getIntItem(j, "submit_ind") == 1);
+                          isComplete, rscDetails.getIntItem(j, "submit_ind") == 1, j + 1);
             }
         }
 
@@ -159,7 +205,7 @@ public abstract class ContestDetailsBase extends StatBase {
             addPrize(rscPrizes.getIntItem(i, "user_id"), dfmt.format(rscPrizes.getDoubleItem(i, "prize_payment")));
         }
 
-        Collections.sort(arr, new myComparator());
+        Collections.sort(arr, getComparator());
 
         getRequest().setAttribute("results", arr);
 
@@ -184,7 +230,7 @@ public abstract class ContestDetailsBase extends StatBase {
         }
     }
 
-    public void addPoints(String handle, int userId, int pts, boolean completed, boolean isSubmitted) {
+    public void addPoints(String handle, int userId, int pts, boolean completed, boolean isSubmitted, int place) {
         log.debug("addPoints called : " + handle + " - " + userId + " - " + pts + " - " + completed + " - " + isSubmitted);
         UserContestDetail user = null;
         for (int i = 0; i < arr.size(); i++) {
@@ -200,6 +246,7 @@ public abstract class ContestDetailsBase extends StatBase {
             arr.add(user);
         }
 
+        user.getPlacements().add(place); // TODO :
         user.addPoints(pts, getMax());
         if (completed) {
             user.setComplete(user.getComplete() + 1);
