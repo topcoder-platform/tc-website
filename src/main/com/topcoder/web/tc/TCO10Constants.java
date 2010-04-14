@@ -14,7 +14,7 @@ import java.util.MissingResourceException;
 /**
  * <p>This class stores a variety of constants used for purposes of <code>2010 TCO Website</code> application.</p>
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 1.0 (2010 TCO WebSite Release assembly v1.0)
  */
 public class TCO10Constants implements WebConstants {
@@ -33,8 +33,6 @@ public class TCO10Constants implements WebConstants {
      * <p>
      * A <code>String</code> referencing TCO10 short description
      * </p>
-     *
-     * @since 2010 TopCoder Open Site Integration
      */
     public static String TCO10_SHORT_DESC = "tco10";
 
@@ -42,8 +40,6 @@ public class TCO10Constants implements WebConstants {
      * <p>
      * A <code>String</code> referencing TCO10 terms success page.
      * </p>
-     *
-     * @since 2010 TopCoder Open Site Integration
      */
     public static String TCO10_TERMS_SUCCESS_PAGE = "/tournaments/tco10/termsSuccess.jsp";
 
@@ -51,142 +47,83 @@ public class TCO10Constants implements WebConstants {
      * <p>
      * A <code>String</code> referencing TCO10 terms page.
      * </p>
-     *
-     * @since 2010 TopCoder Open Site Integration
      */
     public static String TCO10_TERMS_PAGE = "/tournaments/tco10/terms.jsp";
 
     /**
-     * <p>
-     * A <code>String</code> referencing TCO10 view registration request.
-     * </p>
-     *
-     * @since 2010 TopCoder Open Site Integration
+     * <p>A <code>String</code> referencing TCO10 view registration request.</p>
      */
     public static String TCO10_VIEW_REGISTRATION_REQUEST = "/tco10?module=ViewUnifiedRegistration";
 
     /**
-     * <p>
-     * A <code>String</code> referencing TCO10 registrants command.
-     * </p>
-     *
-     * @since 2010 TopCoder Open Site Integration
+     * <p>A <code>String</code> referencing TCO10 registrants command.</p>
      */
     public static String TCO10_REGISTRANTS_COMMAND = "tco10_registrants";
 
     /**
-     * <p>
-     * A <code>String</code> referencing TCO10 overview page.
-     * </p>
-     *
-     * @since 2010 TopCoder Open Site Integration
+     * <p>A <code>String</code> referencing TCO10 overview page.</p>
      */
     public static String TCO10_OVERVIEW_PAGE = "/tournaments/tco10/overview/overview.jsp";
 
     /**
-     * <p>
-     * A <code>String</code> referencing TCO10 registrants page.
-     * </p>
-     *
-     * @since 2010 TopCoder Open Site Integration
+     * <p>A <code>String</code> referencing TCO10 registrants page.</p>
      */
     public static String TCO10_REGISTRANTS_PAGE = "/tournaments/tco10/overview/registrants.jsp";
 
     /**
-     * <p>
-     * An <code>int</code> referencing the maximum competitor rank that goes onsite for TCO10 Studio track.
-     * </p>
-     * <p>
-     * Note: default set to 10.
-     * </p>
-     *
-     * @since 1.2
+     * <p>An <code>int</code> referencing the maximum competitor rank that goes onsite for TCO10 Studio track.</p>
      */
-    public static int TCO10_STUDIO_TOP_ONSITE_RANK = 2; // 14
+    public static int TCO10_STUDIO_TOP_ONSITE_RANK = 14;
 
     /**
-     * <p>
-     * An <code>int</code> referencing the amount of placement points for first placed submission
-     * in the TCO10 Studio track.
-     * </p>
-     * <p>
-     * Note: default set to 17.
-     * </p>
-     *
-     * @since 1.2
+     * <p>An <code>int</code> referencing the amount of placement points for first placed submission
+     * in the TCO10 Studio track.</p>
      */
     public static int TCO10_STUDIO_PLACE_SCORE_1 = 11;
 
     /**
-     * <p>
-     * An <code>int</code> referencing the amount of placement points for second placed submission
-     * in the TCO10 Studio track.
-     * </p>
-     * <p>
-     * Note: default set to 15.
-     * </p>
-     *
-     * @since 1.2
+     * <p>An <code>int</code> referencing the amount of placement points for second placed submission
+     * in the TCO10 Studio track.</p>
      */
     public static int TCO10_STUDIO_PLACE_SCORE_2 = 9;
 
     /**
-     * <p>
-     * An <code>int</code> referencing the amount of placement points for third placed submission
-     * in the TCO10 Studio track.
-     * </p>
-     * <p>
-     * Note: default set to 13.
-     * </p>
-     *
-     * @since 1.2
+     * <p>An <code>int</code> referencing the amount of placement points for third placed submission
+     * in the TCO10 Studio track.</p>
      */
     public static int TCO10_STUDIO_PLACE_SCORE_3 = 7;
 
     /**
-     * <p>
-     * An <code>int</code> referencing the amount of placement points for fourth placed submission
-     * in the TCO10 Studio track.
-     * </p>
-     * <p>
-     * Note: default set to 10.
-     * </p>
-     *
-     * @since 1.2
+     * <p>An <code>int</code> referencing the amount of placement points for fourth placed submission
+     * in the TCO10 Studio track.</p>
      */
     public static int TCO10_STUDIO_PLACE_SCORE_4 = 4;
 
     /**
-     * <p>
-     * An <code>int</code> referencing the amount of placement points for fifth placed submission
-     * in the TCO10 Studio track.
-     * </p>
-     * <p>
-     * Note: default set to 7.
-     * </p>
-     *
-     * @since 1.2
+     * <p>An <code>int</code> referencing the amount of placement points for fifth placed submission
+     * in the TCO10 Studio track.</p>
      */
     public static int TCO10_STUDIO_PLACE_SCORE_5 = 1;
 
     /**
-     * <p>
-     * A <code>String</code> referencing TCO10 Studio track leaderboard page.
-     * </p>
-     *
-     * @since 1.2
+     * <p>A <code>String</code> referencing TCO10 Studio track leaderboard page.</p>
      */
     public static String TCO10_STUDIO_LEADERBOARD_PAGE = "/tournaments/tco10/studio/leaderboard.jsp";
 
     /**
-     * <p>
-     * A <code>String</code> referencing TCO10 Studio track leaderboard details page.
-     * </p>
-     *
-     * @since 1.2
+     * <p>A <code>String</code> referencing TCO10 Studio track leaderboard details page.</p>
      */
-    public static String TCO10_STUDIO_LEADERBOARD_DETAILS_PAGE =
-        "/tournaments/tco10/studio/leaderboardDetails.jsp";
+    public static String TCO10_STUDIO_LEADERBOARD_DETAILS_PAGE = "/tournaments/tco10/studio/leaderboardDetails.jsp";
+
+    /**
+     * <p>An <code>int</code> providing the ID for contest for <code>Design</code> track.</p>
+     */
+    public static int TCO10_DESIGN_TRACK_ID = 476;
+
+    /**
+     * <p>An <code>int</code> providing the ID for contest for <code>Development</code> track.</p>
+     */
+    public static int TCO10_DEVELOPMENT_TRACK_ID = 477;
 
     /**
      * <p>Initializes non-final static fields for this class with values for the same-named properties from the resource

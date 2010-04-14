@@ -91,17 +91,16 @@
                                 </div>
                             </div>
 
-                        <div>
                             <table class="data" width="100%" cellpadding="0" cellspacing="0">
                                     <tr>
-                                        <th class="first">&nbsp;</th>
+                                        <th class="first"><span class="left"></span>&nbsp;</th>
                                         <th>
                                             <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${HANDLE_COL}'/>">Handle</a>
                                         </th>
                                         <th>
                                             <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${POINTS_COL}'/>">Total Points</a>
                                         </th>
-                                        <th class="last">&nbsp;</th>
+                                        <th class="last"><span class="right"></span></th>
                                     </tr>
                                     <c:forEach items="${results}" var="result">
                                         <tr>
@@ -133,8 +132,6 @@
                                     <tco10:paginationLinks previousAvailable="${croppedDataBefore}"
                                                            nextAvailable="${croppedDataAfter}"/>
                                 </div>
-                            </div>
-                            
                             </div>
                         </form>
                     </div>
