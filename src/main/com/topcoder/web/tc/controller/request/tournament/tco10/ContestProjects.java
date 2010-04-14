@@ -3,6 +3,7 @@
  */
 package com.topcoder.web.tc.controller.request.tournament.tco10;
 
+import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.TCO10Constants;
 import com.topcoder.web.tc.controller.request.tournament.ContestProjectsBase;
 
@@ -10,7 +11,7 @@ import com.topcoder.web.tc.controller.request.tournament.ContestProjectsBase;
  * <p>This class provides specific implementation for TCO10 project-based tracks leaderboards.</p>
  * <p>This processor will present a list of projects included in the tournament track.</p>
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 1.0 (2010 TCO WebSite Release assembly v1.0)
  */
 public class ContestProjects extends ContestProjectsBase {
@@ -36,6 +37,11 @@ public class ContestProjects extends ContestProjectsBase {
      */
     @Override
     protected String getPageName() {
-        return "/tournaments/" + getContestPrefix() + "/online/contestProjects.jsp";
+        String ct = getRequest().getParameter(Constants.CONTEST_ID);
+        if (String.valueOf(TCO10Constants.TCO10_DESIGN_TRACK_ID).equals(ct)) {
+            return "/tournaments/" + getContestPrefix() + "/design/contestProjects.jsp";
+        } else {
+            return "/tournaments/" + getContestPrefix() + "/development/contestProjects.jsp";
+        }
     }
 }

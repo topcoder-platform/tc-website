@@ -3,6 +3,7 @@
  */
 package com.topcoder.web.tc.controller.request.tournament.tco10;
 
+import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.TCO10Constants;
 import com.topcoder.web.tc.controller.request.tournament.ProjectDetailsBase;
 
@@ -12,7 +13,7 @@ import com.topcoder.web.tc.controller.request.tournament.ProjectDetailsBase;
  * <p>This processor will present the details of a particular tournament project including calculated placement points.
  * </p>
  *
- * @author TCSDEVELOPER
+ * @author isv
  * @version 1.0 (2010 TCO WebSite Release assembly v1.0)
  */
 public class ProjectDetails extends ProjectDetailsBase {
@@ -56,6 +57,38 @@ public class ProjectDetails extends ProjectDetailsBase {
      */
     @Override
     protected String getPageName() {
-        return "/tournaments/" + getContestPrefix() + "/online/projectDetails.jsp";
+        String ct = getRequest().getParameter(Constants.CONTEST_ID);
+        if (String.valueOf(TCO10Constants.TCO10_DESIGN_TRACK_ID).equals(ct)) {
+            return "/tournaments/" + getContestPrefix() + "/design/projectDetails.jsp";
+        } else {
+            return "/tournaments/" + getContestPrefix() + "/development/projectDetails.jsp";
+        }
+    }
+
+    /**
+     * <p>Checks if the <code>Digital Run</code> points are used for calculating the placement points for target event.
+     *  </p>
+     *
+     * @return <code>true</code> if event is using DR placement points; <code>false</code> otherwise.
+     */
+    @Override
+    protected boolean isUsingDRPlacementPoints() {
+        return true;
+    }
+
+    /**
+     * <p>Gets the placement points to be awarded to competitor who took specified place among specified total number of
+     * submissions based on specified pool of <code>Digital Run</code> points for project.</p>
+     *
+     * @param place an <code>int</code> providing the placement for competitor's submission.
+     * @param projectDRPool an <code>int</code> providing the total pool of <code>Digital Run</code> points set for the
+     *        target project.
+     * @param submissionsCount an <code>int</code> providing the total number of submissions for project.
+     * @return an <code>int</code> providing the placement points to be awarded to submitter.
+     * @throws UnsupportedOperationException always.
+     */
+    @Override
+    protected int getDRPlacementPoints(int place, int projectDRPool, int submissionsCount) {
+        return DRPlacementPointsCalculator.getDRPlacementPoints(place, projectDRPool, submissionsCount);
     }
 }

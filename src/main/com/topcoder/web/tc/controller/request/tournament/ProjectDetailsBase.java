@@ -1,5 +1,11 @@
+/*
+ * Copyright (C) 2007-2010 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.tc.controller.request.tournament;
 
+import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.StringUtils;
@@ -9,13 +15,10 @@ import com.topcoder.web.tc.controller.request.development.StatBase;
 import com.topcoder.web.tc.model.ProjectDetail;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Map;
+import java.util.*;
 
 /**
- * @author dok, pulky
+ * @author dok, pulky, isv
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Mar 1, 2007
  */
@@ -42,7 +45,31 @@ public abstract class ProjectDetailsBase extends StatBase {
      */
     protected abstract int[] getPlacementPoints();
 
-    
+    /**
+     * <p>Checks if the <code>Digital Run</code> points are used for calculating the placement points for target event.
+     *  </p>
+     *
+     * @return <code>true</code> if event is using DR placement points; <code>false</code> otherwise.
+     */
+    protected boolean isUsingDRPlacementPoints() {
+        return false;
+    }
+
+    /**
+     * <p>Gets the placement points to be awarded to competitor who took specified place among specified total number of
+     * submissions based on specified pool of <code>Digital Run</code> points for project.</p>
+     *
+     * @param place an <code>int</code> providing the placement for competitor's submission (0-based).
+     * @param projectDRPool an <code>int</code> providing the total pool of <code>Digital Run</code> points set for the
+     *        target project.
+     * @param submissionsCount an <code>int</code> providing the total number of submissions for project.
+     * @return an <code>int</code> providing the placement points to be awarded to submitter.
+     * @throws UnsupportedOperationException always.
+     */
+    protected int getDRPlacementPoints(int place, int projectDRPool, int submissionsCount) {
+        throw new UnsupportedOperationException("getDRPlacementPoints must be overridden");
+    }
+
     /* (non-Javadoc)
      * @see com.topcoder.web.tc.controller.request.development.StatBase#getCommandName()
      */
@@ -93,19 +120,34 @@ public abstract class ProjectDetailsBase extends StatBase {
         DecimalFormat scfmt = new DecimalFormat("0.00");
 
         int[] placementPoints = getPlacementPoints();
+        Map<Long, Integer> drPoints = null;
+        if (isUsingDRPlacementPoints()) {
+            drPoints = getDRPoints();
+        }
 
         for (int i = 0; i < rsc.size(); i++) {
+            long projectId = rsc.getLongItem(i, "project_id");
+
             int pts = 0;
             String place = "-";
             String score = "";
-            if (rsc.getItem(i, "final_score").getResultData() != null) {
-                if (rsc.getDoubleItem(i, "final_score") >= 75) {
-                    if (i < placementPoints.length) {
-                        pts = placementPoints[i];
-                        place = String.valueOf(i + 1);
-                    }
+            if (isUsingDRPlacementPoints()) {
+                if (rsc.getItem(i, "final_score").getResultData() != null) {
+                    int submittersCount = rsc.getIntItem(i, "passing_submitters_count");
+                    pts = getDRPlacementPoints(i, drPoints.get(projectId), submittersCount);
+                    place = String.valueOf(i + 1);
+                    score = scfmt.format(rsc.getDoubleItem(i, "final_score"));
                 }
-                score = scfmt.format(rsc.getDoubleItem(i, "final_score"));
+            } else {
+                if (rsc.getItem(i, "final_score").getResultData() != null) {
+                    if (rsc.getDoubleItem(i, "final_score") >= 75) {
+                        if (i < placementPoints.length) {
+                            pts = placementPoints[i];
+                            place = String.valueOf(i + 1);
+                        }
+                    }
+                    score = scfmt.format(rsc.getDoubleItem(i, "final_score"));
+                }
             }
 
             String prz = "";
@@ -124,6 +166,47 @@ public abstract class ProjectDetailsBase extends StatBase {
         Collections.sort(arr, new myComparator());
 
         getRequest().setAttribute("results", arr);
+    }
+
+    /**
+     * <p>Gets the mapping from project IDs to DR points.</p>
+     *
+     * @return a <code>Map</code> mapping the project IDs to DR points.
+     * @throws TCWebException if an unexpected error occurs.
+     */
+    private Map<Long, Integer> getDRPoints() throws TCWebException {
+        try {
+            Map map = getRequest().getParameterMap();
+            HashMap filteredMap = new HashMap();
+            Map.Entry me = null;
+            for (Iterator it = map.entrySet().iterator(); it.hasNext();) {
+                me = (Map.Entry) it.next();
+                if (!me.getKey().equals(Constants.MODULE_KEY) &&
+                        !me.getKey().equals(DataAccessConstants.SORT_COLUMN) &&
+                        !me.getKey().equals(DataAccessConstants.SORT_DIRECTION)) {
+                    filteredMap.put(me.getKey(), me.getValue());
+                }
+            }
+
+            //for each contest, get details and build array
+            Request dataRequest = new Request();
+            dataRequest.setProperties(filteredMap);
+            dataRequest.setContentHandle("contest_projects");
+
+            DataAccessInt dai = getDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME, true);
+            Map result = dai.getData(dataRequest);
+            ResultSetContainer rsc = (ResultSetContainer) result.get("contest_projects");
+            Map<Long, Integer> points = new HashMap<Long, Integer>();
+            for (int i = 0; i < rsc.size(); i++) {
+                int drPoints = rsc.getIntItem(i, "dr_points");
+                long projectId = rsc.getIntItem(i, "project_id");
+                points.put(projectId, drPoints);
+            }
+
+            return points;
+        } catch (Exception e) {
+            throw new TCWebException(e);
+        }
     }
 
     public class myComparator implements Comparator {

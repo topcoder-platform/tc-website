@@ -19,6 +19,7 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 
+<c:set var="SOFTWARE_SERVER_NAME" value="<%=ApplicationServer.SOFTWARE_SERVER_NAME%>" scope="request"/>
 <c:set var="SERVER_NAME" value="<%=ApplicationServer.SERVER_NAME%>" scope="request"/>
 <c:set var="STUDIO_SERVER_NAME" value="<%=ApplicationServer.STUDIO_SERVER_NAME%>" scope="request"/>
 <c:set var="MODULE_KEY" value="<%=Constants.MODULE_KEY%>" scope="request"/>

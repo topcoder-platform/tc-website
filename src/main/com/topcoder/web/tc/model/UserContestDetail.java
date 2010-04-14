@@ -1,18 +1,16 @@
 /*
- * UserContestDetail.java
- *
- * Created on January 6, 2005, 10:05 AM
+ * Copyright (C) 2005-2010 TopCoder Inc., All Rights Reserved.
  */
-
 package com.topcoder.web.tc.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 /**
  *
- * @author rfairfax
+ * @author rfairfax, isv
  */
 public class UserContestDetail implements Serializable {
 
@@ -23,6 +21,11 @@ public class UserContestDetail implements Serializable {
     private int submissionCount;
     private int userID;
     private String payment;
+
+    /**
+     * <p>A <code>List</code> listing the placements taken by the user for contest projects.</p>
+     */
+    private List<Integer> placements = new ArrayList<Integer>();
 
     /** Creates a new instance of TC04OverallResult */
     public UserContestDetail() {
@@ -121,4 +124,21 @@ public class UserContestDetail implements Serializable {
         this.submissionCount = submissionCount;
     }
 
+    /**
+     * <p>Gets the placements taken by user for contest projects.</p>
+     *
+     * @return a <code>List</code> listing the placements taken by the user for contest projects.
+     */
+    public List<Integer> getPlacements() {
+        return placements;
+    }
+
+    /**
+     * <p>Sets the placements taken by user for contest projects.</p>
+     *
+     * @param placements a <code>List</code> listing the placements taken by the user for contest projects.
+     */
+    public void setPlacements(List<Integer> placements) {
+        this.placements = placements;
+    }
 }
