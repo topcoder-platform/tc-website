@@ -253,6 +253,9 @@
             nav.search("m_bugraces_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Bug+Races+Reviews", "Review Opportunities", "bugraces_review"));
             nav.search("m_bugraces_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_bugraces_support')", "Support / FAQs", "m_bugraces_support"));
             nav.search("m_bugraces_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/How+to+Compete+in+Bug+Races", "How to Compete", "bugraces_how_to_compete"));
+            nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_copilot_opportunities')", "Copilot Opportunities", "m_copilot_opportunities"));
+            nav.search("m_copilot_opportunities").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Copilot+Overview", "Overview", "copilots_overview"));
+            nav.search("m_copilot_opportunities").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Active+Copilot+Opportunities", "Active Contests", "copilots_compete"));
       nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_hs_competitions')", "High School", "m_hs_competitions"));
          nav.search("m_hs_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=hs&amp;d2=home", "Overview", "hs_overview"));
          nav.search("m_hs_competitions").addChild(new NavNode("javascript:arena();", "Launch Arena", "hs_compete"));
