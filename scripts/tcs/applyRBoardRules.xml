@@ -9,7 +9,7 @@
     <firstWarningInterval>7</firstWarningInterval>
     <secondWarningInterval>2</secondWarningInterval>
     <daysBeforeWarning>30</daysBeforeWarning>    
-    <adminEmail>ivern@topcoder.com</adminEmail>
+    <adminEmail>VKachurovskyi@topcoder.com</adminEmail>
     <systemEmail>service@topcodersoftware.com</systemEmail>    
 
     <daysShortPeriod>90</daysShortPeriod>
