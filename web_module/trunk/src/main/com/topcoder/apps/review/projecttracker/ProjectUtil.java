@@ -757,6 +757,9 @@ public class ProjectUtil {
         // Contest Indicator
         createProjectInfo(ps, projectId, 29, "On", modUserId);
 
+        // Approval Required
+        createProjectInfo(ps, projectId, 41, "true", modUserId);
+
         close(ps);
     }
 
