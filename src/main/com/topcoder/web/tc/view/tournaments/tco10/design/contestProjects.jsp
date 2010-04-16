@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=utf-8" language="java" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="../includes/taglibs.jsp" %>
 
@@ -93,7 +93,7 @@
                         </table>
                         <br /><br />
                         <c:if test="${incompleteProjects}">
-                            * This project is still in progress, results subject to change
+                            <span class="asterisk">* This project is still in progress, results subject to change</span>
                             <br /><br />
                         </c:if>
 

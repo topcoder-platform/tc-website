@@ -1,7 +1,7 @@
 <%--
  * Copyright (C) 2010 TopCoder Inc., All Rights Reserved.
  *
- * This JSP renders the list of users already registered to 2010 TCO event.
+  JSP renders the list of users already registered to 2010 TCO event.
  *
  * Author isv
  * Version 1.0 (2010 TCO WebSite Release assembly v1.0)
