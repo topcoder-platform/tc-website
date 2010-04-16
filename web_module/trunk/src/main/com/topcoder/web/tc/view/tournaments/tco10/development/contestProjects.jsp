@@ -93,7 +93,7 @@
                         </table>
                         <br /><br />
                         <c:if test="${incompleteProjects}">
-                            * This project is still in progress, results subject to change
+                            <span class="asterisk">* This project is still in progress, results subject to change</span>
                             <br /><br />
                         </c:if>
 

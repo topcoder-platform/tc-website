@@ -1,7 +1,7 @@
 <%--
  * Copyright (C) 2010 TopCoder Inc., All Rights Reserved.
  *
- * This JSP renders the form for registration to 2010 TCO event and terms of use to be accepted by
+  JSP renders the form for registration to 2010 TCO event and terms of use to be accepted by
  * registrants.
  *
  * Author TCSDEVELOPER

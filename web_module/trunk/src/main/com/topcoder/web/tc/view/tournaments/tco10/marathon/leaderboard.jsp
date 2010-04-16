@@ -86,7 +86,7 @@
                             <p>
                                 Advanced <img src="/i/tournament/tco10/advanced_ico.png" /> <br />
                                 Eliminated <img src="/i/tournament/tco10/eliminated_ico.png" /> <br />
-                                Did not compete<img src="/i/tournament/tco10/not_compete_ico.png" />
+                                Did not compete <img src="/i/tournament/tco10/not_compete_ico.png" />  
                             </p>
                         </div>
 

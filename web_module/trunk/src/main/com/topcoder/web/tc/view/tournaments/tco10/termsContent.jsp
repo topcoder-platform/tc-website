@@ -1,7 +1,7 @@
 <%--
  * Copyright (C) 2010 TopCoder Inc., All Rights Reserved.
  *
- * This JSP imports term of use content to be shown in the tournament registration.
+  JSP imports term of use content to be shown in the tournament registration.
  *
  * Author TCSDEVELOPER
  * Version 1.0 (2010 TCO WebSite Release assembly v1.0)

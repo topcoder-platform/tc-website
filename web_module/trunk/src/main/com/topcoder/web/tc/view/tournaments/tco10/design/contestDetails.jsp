@@ -76,7 +76,7 @@
                             </table>
                             <br/><br/>
                             <c:if test="${incompleteProjects}">
-                                * Contains results from projects still in progress, results subject to change
+                                <span class="asterisk">* Contains results from projects still in progress, results subject to change</span>
                                 <br/><br/>
                             </c:if>
                         </div>

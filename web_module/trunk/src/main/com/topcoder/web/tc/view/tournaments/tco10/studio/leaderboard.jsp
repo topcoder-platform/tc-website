@@ -72,8 +72,8 @@
                                         <a href="${sessionInfo.servletPath}?<tc-webtag:sort includeParams='true' column='${HANDLE_COL}'/>">
                                             Handle</a>
                                     </th>
-                                    <th colspan="2">Completed</th>
-                                    <th colspan="1">In Progress</th>
+                                    <th colspan="2" class="top">Completed</th>
+                                    <th colspan="1" class="top">In Progress</th>
                                     <th rowspan="2" class="last"><span class="right"></span></th>
                                 </tr>
                                 <tr>

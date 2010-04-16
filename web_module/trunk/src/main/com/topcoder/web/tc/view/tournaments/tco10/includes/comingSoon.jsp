@@ -1,9 +1,9 @@
 <%--
  * Copyright (C) 2010 TopCoder Inc., All Rights Reserved.
  *
- * This JSP shows coming soon message for pages that are not yet finished.
+  JSP shows coming soon message for pages that are not yet finished.
  *
- * This JSP is included by all those pages in the minisite that are WIP.
+  JSP is included by all those pages in the minisite that are WIP.
  *
  * Author isv
  * Version 1.0
