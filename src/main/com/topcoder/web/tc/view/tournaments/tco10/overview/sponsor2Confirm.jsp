@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="../includes/taglibs.jsp" %>
 
-<tco10:pageSetup title="TCO 10 : Sponsors" area="overview" menu="sponsors" subMenu="sponsor1"/>
+<tco10:pageSetup title="TCO 10 : Sponsors" area="overview" menu="sponsors" subMenu="sponsor2"/>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -25,11 +25,9 @@
                 <span class="rightTop"></span><!-- main content right top corner -->
                 <span class="leftBottom"></span><!-- main content left bottom corner -->
                 <span class="rightBottom"></span><!-- main conent right bottom corner -->
-
-                <jsp:include page="subMenu.jsp"/>
-
+                <jsp:include page="subMenu.jsp"/>                
                 <div class="bigColumn">
-						<div class="text">
+				  <div class="text">
                             <h2 class="pageTitle">Facebook</h2><!-- page title -->
                             <p><strong>By applying, you will be releasing your TopCoder contact and statistical information to Facebook and you will be giving Facebook permission to contact you about their current job opportunities.</strong>                        
                             <p align="center"><a href="/tc?module=JobHit&jid=495&jt=1"><img src="i/tournament/tco10/submitnow.png" alt="Submit Info to Facebook!" /></a></p>
