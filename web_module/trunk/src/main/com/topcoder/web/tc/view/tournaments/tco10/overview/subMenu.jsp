@@ -92,9 +92,9 @@
                     <li class="${sponsor1Class}">
                         <tco10:overviewStaticPageLink page="sponsor1">Yandex</tco10:overviewStaticPageLink>
                     </li>
-                    <!--<li class="${sponsor2Class}">
+                    <li class="${sponsor2Class}">
                         <tco10:overviewStaticPageLink page="sponsor2">Facebook</tco10:overviewStaticPageLink>
-                    </li>-->
+                    </li>
                     <!--<li class="${sponsor3Class}">
                         <tco10:overviewStaticPageLink page="sponsor3">Sponsor 3</tco10:overviewStaticPageLink>
                     </li>-->
