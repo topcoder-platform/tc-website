@@ -81,6 +81,6 @@
 			
 			<p>TopCoder is the world's largest competitive software development community with more than 167,000 developers representing over 200 countries.</p>
 			
-			<p>Copyright &copy;2001-2008, TopCoder, Inc. All rights reserved.</p>
+			<p>Copyright &copy;2001-2010, TopCoder, Inc. All rights reserved.</p>
 		</div><!-- .wrapper ends -->
 	</div><!-- #footer ends -->
