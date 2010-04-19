@@ -19,9 +19,9 @@
         </div>
         <br/>
 
-        <!--<div class="logo small"><tco10:overviewStaticPageLink page="sponsor2">
+        <div class="logo small"><tco10:overviewStaticPageLink page="sponsor2">
         	<img src="i/tournament/tco10/facebook-logo.png" alt="TCO10 Sponsor - Facebook" /></tco10:overviewStaticPageLink>
-        </div>-->
+        </div>
         <br/>
 
         <!--End .photo-->
