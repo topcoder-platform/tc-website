@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<meta http-equiv="Content-Type" content="text/html;charset=windows-1251"/>
+<meta http-equiv="Content-Type" content="text/html;charset=Windows-1251"/>
 <title><c:out value="${requestScope.PAGE_TITLE}"/></title>
 <link href="/css/tournaments/tco10/reset.css" rel="stylesheet" type="text/css"/>
 <link href="/css/tournaments/tco10/style.css" rel="stylesheet" type="text/css"/>

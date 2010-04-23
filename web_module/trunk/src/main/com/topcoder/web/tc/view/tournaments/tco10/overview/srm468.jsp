@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=windows-1251" language="java" %>
+<%@ page contentType="text/html;charset=Windows-1251" language="java" %>
 <%@ include file="../includes/taglibs.jsp" %>
 
 <tco10:pageSetup title="TCO 10 : Sponsors" area="overview" menu="sponsors" subMenu="sponsor1"/>
@@ -30,7 +30,7 @@
                 <div class="bigColumn">
 				  <div class="text">
 							<h2 class="pageTitle">Yandex</h2><!-- page title -->
-                    <h3 class="subTitle">SRM 468 Chat Session Transtript</h3><!-- sub title-->
+                    <h3 class="subTitle">SRM 468 Chat Session Transcript</h3><!-- sub title-->
                       <table width="100%" cellpadding="0" cellspacing="0" class="stat"> 
                           <tr class="light"><td class="value"><strong>vaibhavtopcoder</strong></td><td class="value">i want to know what are the opportunites with Yandex</td></tr>
                           <tr class="dark"><td class="value"><strong>vaibhavtopcoder</strong></td><td class="value">Yandex_Natalia: i want to know what are the opportunites with Yandex</td></tr>
@@ -44,7 +44,7 @@
                           <tr class="dark"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">"vaibhavtopcoder: As a reference point for algorithms and programming, it's better to be at least yellow to come to the interview. You may be blue and still fit in, if you don't participate in competitions professionally."</span></td></tr>
                           <tr class="light"><td class="value"><span class="bigRed">Yandex_Sergei</span></td><td class="value"><span class="bigRed">"vaibhavtopcoder: Unfortunately, no."</span></td></tr>
                           <tr class="dark"><td class="value"><strong>pt1989</strong></td><td class="value">Michael_Levin: do you take in international people?</td></tr>
-                          <tr class="light"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">vaibhavtopcoder: you can send your resume to tco@yandex-team.ru</span></td></tr>
+                          <tr class="light"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">vaibhavtopcoder: you can send your resume to <a href="mailto: tco@yandex-team.ru">tco@yandex-team.ru</a></span></td></tr>
                           <tr class="dark"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">"pt1989: we can take international people, but the most standard way is still to relocate to one of our offices"</span></td></tr>
                           <tr class="light"><td class="value"><strong>pt1989</strong></td><td class="value">Michael_Levin: meaning?</td></tr>
                           <tr class="dark"><td class="value"><strong>pt1989</strong></td><td class="value">Michael_Levin: you have to shift base to Moscow?</td></tr>
@@ -68,16 +68,16 @@
                           <tr class="dark"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">"Gluk: Hey, we don't have developers in Kiev. Only Simferopol."</span></td></tr>
                           <tr class="light"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">Minny: I'm a Yandex employee. I'm the lead of Yandex Traffic Jams Infrastructure. I also participate in TopCoder since like 2004.</span></td></tr>
                           <tr class="dark"><td class="value"><strong>ayesha_shhn</strong></td><td class="value">Y</td></tr>
-                          <tr class="light"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">"AntChe: Remote work is theoretically possible, but we consider such cases individually. Please send us your information to tco@yandex-team.ru."</span></td></tr>
+                          <tr class="light"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">"AntChe: Remote work is theoretically possible, but we consider such cases individually. Please send us your information to <a href="mailto: tco@yandex-team.ru">tco@yandex-team.ru</a>."</span></td></tr>
                           <tr class="dark"><td class="value"><strong>chetan1507</strong></td><td class="value">Michael_Levin: any internship opportunities available for the summers</td></tr>
                           <tr class="light"><td class="value"><span class="bigRed">Yandex_Sergei</span></td><td class="value"><span class="bigRed">"vaibhavtopcoder: Yes, conditions for internship program are the same"</span></td></tr>
                           <tr class="dark"><td class="value"><strong>ktuan</strong></td><td class="value">Michael_Levin: can non-Russian speakers work there ?</td></tr>
-                          <tr class="light"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">"chetan1507: We plan summer internship, but it is very limited to the top candidates. You can also send your resume to tco@yandex-team.ru. You will need to pass some testing to be able to come to the summer internship, as there is a competition for that."</span></td></tr>
+                          <tr class="light"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">"chetan1507: We plan summer internship, but it is very limited to the top candidates. You can also send your resume to <a href="mailto: tco@yandex-team.ru">tco@yandex-team.ru.</a> You will need to pass some testing to be able to come to the summer internship, as there is a competition for that."</span></td></tr>
                           <tr class="dark"><td class="value"><strong>hamdanil</strong></td><td class="value">whare are your offices</td></tr>
                           <tr class="light"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">"ktuan: Non-Russian speaking programmers can work only at Yandex Labs in California. It is not very big, so it is hard to come there, but it is possible."</span></td></tr>
                           <tr class="dark"><td class="value"><strong>chetan1507</strong></td><td class="value">Michael_Levin: any minimum criteria to appear for it</td></tr>
                           <tr class="light"><td class="value"><span class="bigRed">Yandex_Natalia</span></td><td class="value"><span class="bigRed">"hamdanil: Moscow, Saint-Petersburg, Ekaterinburg, Yandex Labs in California, Simferopol - development offices "</span></td></tr>
-                          <tr class="dark"><td class="value"><span class="bigRed">Yandex_Sergei</span></td><td class="value"><span class="bigRed">vaibhavtopcoder: Your also can see http://company.yandex.ru/job/intern/ (only in Russian)</span></td></tr>
+                          <tr class="dark"><td class="value"><span class="bigRed">Yandex_Sergei</span></td><td class="value"><span class="bigRed">vaibhavtopcoder: Your also can see <a href="http://company.yandex.ru/job/intern/" target="_blank">http://company.yandex.ru/job/intern/</a> (only in Russian)</span></td></tr>
                           <tr class="light"><td class="value"><strong>Minny</strong></td><td class="value">"Michael_Levin: is there any interested in non-russian speaking, non-russian residence in Europe?"</td></tr>
                           <tr class="dark"><td class="value"><strong>udpn</strong></td><td class="value">Michael_Levin: there's gonna be somewhat like sorting a 1g array of ints in 5 sec e.g?</td></tr>
                           <tr class="light"><td class="value"><strong>pt1989</strong></td><td class="value">Yandex_Sergei: are there plans to make an english version of Yandex ?</td></tr>
@@ -90,8 +90,8 @@
                           <tr class="dark"><td class="value"><strong>Minny</strong></td><td class="value">"Michael_Levin: thanks you, michael"</td></tr>
                           <tr class="light"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">"TimComp: It depends a lot on your actual level. Doesn't depend much on experience in C++, although it will probably be helpful."</span></td></tr>
                           <tr class="dark"><td class="value"><strong>udpn</strong></td><td class="value">"TimComp: this is not the thing they like to talk about, you won't get an exact answer =)"</td></tr>
-                          <tr class="light"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">"TimComp: You can send us your resume at tco@yandex-team.ru, we can consider question of salary individually"</span></td></tr>
-                          <tr class="dark"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">TimComp: The e-mail tco@yandex-team.ru is obvisously especially for the TopCoders</span></td></tr>
+                          <tr class="light"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">"TimComp: You can send us your resume at <a href="mailto: tco@yandex-team.ru">tco@yandex-team.ru</a>, we can consider question of salary individually"</span></td></tr>
+                          <tr class="dark"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">TimComp: The e-mail <a href="mailto: tco@yandex-team.ru">tco@yandex-team.ru</a> is obvisously especially for the TopCoders</span></td></tr>
                           <tr class="light"><td class="value"><strong>Egoryan</strong></td><td class="value">whats the point of this lobby? yandex hiring some topcoders or what?</td></tr>
                           <tr class="dark"><td class="value"><strong>forest</strong></td><td class="value">is there age cutoff ?</td></tr>
                           <tr class="light"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">"forest: you must have work permission, other than that - no"</span></td></tr>
@@ -148,17 +148,17 @@
                           <tr class="dark"><td class="value"><strong>AjJi</strong></td><td class="value">ah ok</td></tr>
                           <tr class="light"><td class="value"><strong>AjJi</strong></td><td class="value">so you have products ?</td></tr>
                           <tr class="dark"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">"AjJi: Yeah, we have some :)"</span></td></tr>
-                          <tr class="light"><td class="value"><strong>udpn</strong></td><td class="value">AjJi: http://ya.ru</td></tr>
+                          <tr class="light"><td class="value"><strong>udpn</strong></td><td class="value">AjJi: <a href="http://ya.ru" target="_blank">http://ya.ru</a></td></tr>
                           <tr class="dark"><td class="value"><strong>AjJi</strong></td><td class="value">thx </td></tr>
                           <tr class="light"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">"AjJi: Yandex search, context and search ads, Maps, Traffic Jams, Yandex Mail and a lot of others"</span></td></tr>
-                          <tr class="dark"><td class="value"><span class="bigRed">Yandex_Sergei</span></td><td class="value"><span class="bigRed">SharpC: http://www.yandex.com/</span></td></tr>
-                          <tr class="light"><td class="value"><span class="bigRed">Yandex_Sergei</span></td><td class="value"><span class="bigRed">AjJi: http://www.yandex.com/</span></td></tr>
+                          <tr class="dark"><td class="value"><span class="bigRed">Yandex_Sergei</span></td><td class="value"><span class="bigRed">SharpC: <a href="http://www.yandex.com/" target="_blank">http://www.yandex.com/</a></span></td></tr>
+                          <tr class="light"><td class="value"><span class="bigRed">Yandex_Sergei</span></td><td class="value"><span class="bigRed">AjJi: <a href="http://www.yandex.com/" target="_blank">http://www.yandex.com/</a></span></td></tr>
                           <tr class="dark"><td class="value"><strong>Butch123</strong></td><td class="value">I checked out your web page through the link on topcoder ... trying to see the job descriptions ... but all russian ... are you only searching for people who speak russian? </td></tr>
                           <tr class="light"><td class="value"><strong>Egoryan</strong></td><td class="value">"Michael_Levin: can you recommend some useful resources matching the area of this research group? Articles, publications, etc"</td></tr>
                           <tr class="dark"><td class="value"><strong>udpn</strong></td><td class="value">Butch123: you can always check out google translate</td></tr>
                           <tr class="light"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">"Butch123: Mostly russian-speaking, yes"</span></td></tr>
                           <tr class="dark"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">"Butch123: We can also take a few people to the Yandex Labs, they don't need to speak Russian, just English."</span></td></tr>
-                          <tr class="light"><td class="value"><span class="bigRed">Yandex_Sergei</span></td><td class="value"><span class="bigRed">Egoryan: You can find some materials he: http://company.yandex.ru/public/articles/</span></td></tr>
+                          <tr class="light"><td class="value"><span class="bigRed">Yandex_Sergei</span></td><td class="value"><span class="bigRed">Egoryan: You can find some materials he: <a href="http://company.yandex.ru/public/articles/" target="_blank">http://company.yandex.ru/public/articles/</a></span></td></tr>
                           <tr class="dark"><td class="value"><strong>AjJi</strong></td><td class="value">SharpC: ex-communist doesn't necessarily means non-english-speakers :)</td></tr>
                           <tr class="light"><td class="value"><strong>Egoryan</strong></td><td class="value">Yandex_Sergei: thx. appreciate it</td></tr>
                           <tr class="dark"><td class="value"><strong>udpn</strong></td><td class="value">Michael_Levin: you can always hire somebody like Petr</td></tr>
@@ -170,7 +170,7 @@
                           <tr class="dark"><td class="value"><strong>Inf_Zero</strong></td><td class="value">hoe to apply..............</td></tr>
                           <tr class="light"><td class="value"><strong>Inf_Zero</strong></td><td class="value">ok..........</td></tr>
                           <tr class="dark"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">Inf_Zero: how to apply?</span></td></tr>
-                          <tr class="light"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">Inf_Zero: send your resume to tco@yandex-team.ru</span></td></tr>
+                          <tr class="light"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">Inf_Zero: send your resume to <a href="mailto: tco@yandex-team.ru">tco@yandex-team.ru</a></span></td></tr>
                           <tr class="dark"><td class="value"><span class="bigRed">Yandex_Sergei</span></td><td class="value"><span class="bigRed">udpn: yandex.com =)</span></td></tr>
                           <tr class="light"><td class="value"><strong>Inf_Zero</strong></td><td class="value">ok</td></tr>
                           <tr class="dark"><td class="value"><strong>SharpC</strong></td><td class="value">Michael_Levin: Insert Yandex search field in sponsor page seems like a good idea :)</td></tr>
@@ -182,13 +182,13 @@
                           <tr class="dark"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">"jimmybupt: No, but mostly Russian-speaking people"</span></td></tr>
                           <tr class="light"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">"jimmybupt: You can join us  in California or Ukraine, or relocate to Russia"</span></td></tr>
                           <tr class="dark"><td class="value"><strong>ahmed.helal</strong></td><td class="value">Michael_Levin: how can we apply anyway ?</td></tr>
-                          <tr class="light"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">ahmed.helal: Send your resume to tco@yandex-team.ru</span></td></tr>
+                          <tr class="light"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">ahmed.helal: Send your resume to <a href="mailto: tco@yandex-team.ru">tco@yandex-team.ru</a></span></td></tr>
                           <tr class="dark"><td class="value"><strong>deepfritz01</strong></td><td class="value">Michael_Levin: Whats the total dev head count of the company presently?</td></tr>
                           <tr class="light"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">deepfritz01: 600-700</span></td></tr>
                           <tr class="dark"><td class="value"><strong>beginner1010</strong></td><td class="value">life is meaningless as well as TopCoder</td></tr>
                           <tr class="light"><td class="value"><strong>jimmybupt</strong></td><td class="value">Michael_Levin: :( wish there would be a Chinese group someday</td></tr>
                           <tr class="dark"><td class="value"><strong>beginner1010</strong></td><td class="value">mystic_tc: arena is too slow for me </td></tr>
-                          <tr class="light"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">You can send all your personal questions to tco@yandex-team.ru - this is a special e-mail for TopCoder participants</span></td></tr>
+                          <tr class="light"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">You can send all your personal questions to <a href="mailto: tco@yandex-team.ru">tco@yandex-team.ru</a> - this is a special e-mail for TopCoder participants</span></td></tr>
                           <tr class="dark"><td class="value"><strong>atulbansal</strong></td><td class="value">any yandex person here.........</td></tr>
                           <tr class="light"><td class="value"><strong>AjJi</strong></td><td class="value">"Michael_Levin: So, it is mandatory to be in one of your offices ?"</td></tr>
                           <tr class="dark"><td class="value"><span class="bigRed">Yandex_Sergei</span></td><td class="value"><span class="bigRed">beginner1010: YES! =)</span></td></tr>
@@ -302,7 +302,7 @@
                           <tr class="light"><td class="value"><strong>Blue.Mary</strong></td><td class="value">Net is very slow...</td></tr>
                           <tr class="dark"><td class="value"><strong>urock</strong></td><td class="value">pankaj4u4m: den?</td></tr>
                           <tr class="light"><td class="value"><strong>pankaj4u4m</strong></td><td class="value">urock: no</td></tr>
-                          <tr class="dark"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">You can send your personal questions to tco@yandex-team.ru - it is a special e-mail for TopCoders.</span></td></tr>
+                          <tr class="dark"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">You can send your personal questions to <a href="mailto: tco@yandex-team.ru">tco@yandex-team.ru</a> - it is a special e-mail for TopCoders.</span></td></tr>
                           <tr class="light"><td class="value"><strong>RustemKamun</strong></td><td class="value">SharpC: But without UI u achive the worst result</td></tr>
                           <tr class="dark"><td class="value"><strong>pankaj4u4m</strong></td><td class="value">urock: From sastra . Tumne nahi suna hoga yaar</td></tr>
                           <tr class="light"><td class="value"><strong>lexdene</strong></td><td class="value">I am from Dalian Chian .</td></tr>
@@ -356,12 +356,12 @@
                           <tr class="light"><td class="value"><strong>Rockletim</strong></td><td class="value">h</td></tr>
                           <tr class="dark"><td class="value"><strong>muslim</strong></td><td class="value">ahmadfarid: law 7atro7 2olly</td></tr>
                           <tr class="light"><td class="value"><strong>ahmadfarid</strong></td><td class="value">muslim: ok</td></tr>
-                          <tr class="dark"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">simac: http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=sponsor1</span></td></tr>
+                          <tr class="dark"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">simac: <a href="http://www.topcoder.com/tc?module=Static&amp;d1=tournaments&amp;d2=tco10&amp;d3=overview&amp;d4=sponsor1" target="_blank">http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=sponsor1</a></span></td></tr>
                           <tr class="light"><td class="value"><strong>muslim</strong></td><td class="value">ahmadfarid: bas bos</td></tr>
                           <tr class="dark"><td class="value"><strong>ahmadfarid</strong></td><td class="value">muslim: brb boling</td></tr>
                           <tr class="light"><td class="value"><strong>muslim</strong></td><td class="value">ahmadfarid: ba3d 2el match 7anel7a2?</td></tr>
                           <tr class="dark"><td class="value"><strong>muslim</strong></td><td class="value">ahmadfarid: tyb ya m3afen :D</td></tr>
-                          <tr class="light"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">tco@yandex-team.ru - all your questions</span></td></tr>
+                          <tr class="light"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed"><a href="mailto: tco@yandex-team.ru">tco@yandex-team.ru</a> - all your questions</span></td></tr>
                           <tr class="dark"><td class="value"><strong>muslim</strong></td><td class="value">ahmadfarid: tyt</td></tr>
                           <tr class="light"><td class="value"><strong>texto</strong></td><td class="value">muslim: wala ya feras </td></tr>
                           <tr class="dark"><td class="value"><strong>sesong</strong></td><td class="value">are you sure</td></tr>
@@ -376,7 +376,7 @@
                           <tr class="light"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">Jedi_Knight: Уже давно. Свалился в желтые, а потом некогда было участвовать.</span></td></tr>
                           <tr class="dark"><td class="value"><strong>udpn</strong></td><td class="value">Jedi_Knight: великий Джедай!</td></tr>
                           <tr class="light"><td class="value"><strong>texto</strong></td><td class="value">muslim: enta eh elle da55alak yabny</td></tr>
-                          <tr class="dark"><td class="value"><strong>Ychn</strong></td><td class="value">Jedi_Knight: великий Джедай!</td></tr>
+                          <tr class="dark"><td class="value"><strong>Ychn</strong></td><td class="value">Jedi_Knight: aaeeeee Aaeaaae!</td></tr>
                           <tr class="light"><td class="value"><strong>zoom.ansu</strong></td><td class="value">6 minutes left</td></tr>
                           <tr class="dark"><td class="value"><strong>SharpC</strong></td><td class="value">Jedi_Knight: тоже офигел :)</td></tr>
                           <tr class="light"><td class="value"><strong>muslim</strong></td><td class="value">texto: ;) modmen TC 2el geded</td></tr>
@@ -394,7 +394,7 @@
                           <tr class="light"><td class="value"><strong>simac</strong></td><td class="value">thats cool how can we join them</td></tr>
                           <tr class="dark"><td class="value"><strong>texto</strong></td><td class="value">muslim: eshta 3alek</td></tr>
                           <tr class="light"><td class="value"><span class="bigRed">Michael_Levin</span></td><td class="value"><span class="bigRed">admins: Will there be a chat transcript?</span></td></tr>
-                          <tr class="dark"><td class="value"><strong>Jedi_Knight</strong></td><td class="value">Michael_Levin: а то скучно школьников учить да по удалёнкам работать?</td></tr>
+                          <tr class="dark"><td class="value"><strong>Jedi_Knight</strong></td><td class="value">Michael_Levin: а то скучно школьников учить да по удалёнкам работать</td></tr>
                           <tr class="light"><td class="value"><strong>SharpC</strong></td><td class="value">Jedi_Knight: что за демотиватор?</td></tr>
                           <tr class="dark"><td class="value"><strong>udpn</strong></td><td class="value">Jedi_Knight: как скучно учить?</td></tr>
                           <tr class="light"><td class="value"><strong>Jedi_Knight</strong></td><td class="value">SharpC: я тебе кину линк :)</td></tr>
