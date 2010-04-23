@@ -21,7 +21,7 @@
 <br />
 <a href="<tc-webtag:linkTracking link='http://www.topcoder.com/tco10' refer='/tc' />"><img src="/i/tournament/tco10/tco10-long.png" alt="2010 TopCoder Open" /></a><br /><br />
 <!--<a href="<tc-webtag:linkTracking link='http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=patron' refer='/tc' />"><img src="/i/tournament/tco10/banners/tco10-nsa-510x100.png" alt="NSA - Event Patron - 2010 TopCoder Open" /></a>-->
-<a href="<tc-webtag:linkTracking link='http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=sponsor1' refer='/tc' />"><img src="/i/tournament/tco10/banners/tco10-yandex-510x100.png" alt="Tandex - Event Sponsor - 2010 TopCoder Open" /></a>
+<!--<a href="<tc-webtag:linkTracking link='http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=sponsor1' refer='/tc' />"><img src="/i/tournament/tco10/banners/tco10-yandex-510x100.png" alt="Tandex - Event Sponsor - 2010 TopCoder Open" /></a>-->
 
 
 
