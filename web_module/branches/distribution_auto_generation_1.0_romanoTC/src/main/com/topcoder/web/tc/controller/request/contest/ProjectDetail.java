@@ -156,7 +156,7 @@ public class ProjectDetail extends Base {
         int pos = 0;
         for (ResultSetContainer.ResultSetRow row : docs) {
             
-            String key = categoryId + "." + row.getMap().get("document_id").toString();
+            String key = categoryId + "." + row.getMap().get("document_type_id").toString();
 
             String link = null;
             try {
