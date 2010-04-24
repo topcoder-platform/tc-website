@@ -169,7 +169,6 @@ public class ProjectDetail extends Base {
                 
             } catch (UnknownNamespaceException ex) {
                 // ignores
-                ex.printStackTrace();
             }
             
             links[pos++] = link;
