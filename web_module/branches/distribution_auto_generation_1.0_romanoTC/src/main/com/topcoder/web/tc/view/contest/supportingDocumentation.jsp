@@ -27,8 +27,8 @@
                     </c:otherwise>
                 </c:choose>
                 <%-- Wiki instructions link --%>
-                <c:if test="${instructionsLink[status.index] != null}">
-                &nbsp;(<a href='${instructionsLink[status.index]}'>instructions</a>)
+                <c:if test="${instructionsLinks[status.index] != null}">
+                &nbsp;(<a href='${instructionsLinks[status.index]}'>instructions</a>)
                 </c:if>
         	<br></p>
         </c:forEach>
