@@ -15,8 +15,9 @@
 
 <c:if test="${fn:length(supportingDocs) > 0}">
     <p><span class="bodySubtitle"><strong>Supporting Documentation</strong></span><br/>
-        <c:forEach items="${supportingDocs}" var="resultRow">
+        <c:forEach items="${supportingDocs}" var="resultRow" varStatus="status">
             <p>
+            
                 <c:choose>
                     <c:when test="${resultRow.map['document_type_id'] == 0}">
                         &nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="http://${SOFTWARE_SERVER_NAME}/catalog/document?id=${resultRow.map['document_id']}">Requirements Specification</a>
@@ -24,6 +25,10 @@
                     <c:otherwise>
                         &nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="http://${SOFTWARE_SERVER_NAME}/catalog/document?id=${resultRow.map['document_id']}">${resultRow.map['document_name']}</a>
                     </c:otherwise>
+                    <%-- Wiki instructions link --%>
+                    <c:if test="${instructionsLink[status.index] != null}">
+                    &nbsp;(<a href='${instructionsLink[status.index]}'>instructions</a>)
+                    </c:if>
                 </c:choose>
         	<br></p>
         </c:forEach>
