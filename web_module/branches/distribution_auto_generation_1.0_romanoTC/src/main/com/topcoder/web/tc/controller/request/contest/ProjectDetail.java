@@ -150,11 +150,13 @@ public class ProjectDetail extends Base {
         
         String[] links = new String[docs.size()];
         if (!configManager.existsNamespace(DEFAULT_NAMESPACE)) {
+            System.out.println("SOFFFFFFFFFFFFFFFRRRRRRRRRRRIIDDDDDDDDDO");
             return links;
         }
         
         int pos = 0;
         for (ResultSetContainer.ResultSetRow row : docs) {
+            System.out.println("SOFFFFFFFFFFFFFFFRRRRRRRRRRRIIDDDDDDDDDO " + pos);
             
             String key = categoryId + "." + row.getMap().get("document_type_id").toString();
 
@@ -168,8 +170,11 @@ public class ProjectDetail extends Base {
                     link = (String) configManager.getProperty(DEFAULT_NAMESPACE, key);
                 }
                 
+                System.out.println("SOFFFFFFFFFFFFFFFRRRRRRRRRRRIIDDDDDDDDDO " + pos + ": [" + key + "]" + link);
+
             } catch (UnknownNamespaceException ex) {
                 // ignores
+                ex.printStackTrace();
             }
             
             links[pos++] = link;
