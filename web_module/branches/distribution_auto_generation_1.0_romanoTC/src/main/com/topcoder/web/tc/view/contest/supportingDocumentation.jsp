@@ -25,11 +25,11 @@
                     <c:otherwise>
                         &nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="http://${SOFTWARE_SERVER_NAME}/catalog/document?id=${resultRow.map['document_id']}">${resultRow.map['document_name']}</a>
                     </c:otherwise>
-                    <%-- Wiki instructions link --%>
-                    <c:if test="${instructionsLink[status.index] != null}">
-                    &nbsp;(<a href='${instructionsLink[status.index]}'>instructions</a>)
-                    </c:if>
                 </c:choose>
+                <%-- Wiki instructions link --%>
+                <c:if test="${instructionsLink[status.index] != null}">
+                &nbsp;(<a href='${instructionsLink[status.index]}'>instructions</a>)
+                </c:if>
         	<br></p>
         </c:forEach>
     </p>
