@@ -94,27 +94,27 @@ public class ProjectDetail extends Base {
 
             ResultSetContainer details = resultMap.get("project_detail");
             ResultSetContainer docs = resultMap.get("project_docs");
-            
+
             getRequest().setAttribute("projectDetail", details);
             getRequest().setAttribute("technologies", resultMap.get("project_technologies"));
             getRequest().setAttribute("requirements", resultMap.get("project_requirements"));
             getRequest().setAttribute("supportingDocs", docs);
-            
+
             Long categoryId = details.getLongItem(0, "project_category_id");
             Long rootCategoryId = details.getLongItem(0, "root_category_id");
-            
+
             getRequest().setAttribute("instructionsLinks", getInstructionLinks(docs, categoryId, rootCategoryId));
 
             boolean full = false;  //projects are never full in our current rules
             getRequest().setAttribute("projectFull", String.valueOf(full));
             getRequest().setAttribute("projectId", projectId);
-            
+
             if (details.isEmpty()) {
                 throw new NavigationException("Could not find project information.");
             }
 
             getRequest().setAttribute("paysRoyalties", !details.getBooleanItem(0, "is_custom") );
-            
+
             ReliabilityBonusCalculator reliabilityBonus = ReliabilityBonusCalculator.getInstance();
             Double firstPlacePrize = details.getDoubleItem(0, "total_payment");
             Date postingDate = details.getTimestampItem(0, "posting_date");
@@ -135,10 +135,12 @@ public class ProjectDetail extends Base {
             throw new TCWebException(e);
         }
     }
-    
+
     /**
+     * <p>
      * Creates an array with instructions links for document types.
-     * 
+     * </p>
+     *
      * @param docs the project documents list.
      * @param categoryId the category of the project (Design, Development, etc.)
      * @param rootCategoryId the root category (Java, .NET, etc).
@@ -146,13 +148,18 @@ public class ProjectDetail extends Base {
      * @since 1.4
      */
     private String[] getInstructionLinks(ResultSetContainer docs, Long categoryId, Long rootCategoryId) {
+
+        if ((docs == null) || (docs.size() == 0)) {
+            return new String[0];
+        }
+
         ConfigManager configManager = ConfigManager.getInstance();
-        
+
         String[] links = new String[docs.size()];
         if (!configManager.existsNamespace(DEFAULT_NAMESPACE)) {
             return links;
         }
-        
+
         int pos = 0;
         for (ResultSetContainer.ResultSetRow row : docs) {
             String key = categoryId + "." + row.getMap().get("document_type_id").toString();
@@ -161,19 +168,19 @@ public class ProjectDetail extends Base {
             try {
                 // Tries to find for a specific root category
                 link = (String) configManager.getProperty(DEFAULT_NAMESPACE, key + "." + rootCategoryId);
-                
+
                 if (link == null) {
                     // Tries the more specific
                     link = (String) configManager.getProperty(DEFAULT_NAMESPACE, key);
                 }
-                
+
             } catch (UnknownNamespaceException ex) {
                 // ignores
             }
-            
+
             links[pos++] = link;
         }
-        
+
         return links;
     }
 }
