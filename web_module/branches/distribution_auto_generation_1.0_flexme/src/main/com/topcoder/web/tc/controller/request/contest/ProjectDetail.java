@@ -40,8 +40,15 @@ import com.topcoder.web.tc.controller.request.util.ReliabilityBonusCalculator;
  *   </ol>
  * </p>
  *
- * @author dok, pulky
- * @version 1.3
+ * <p>
+ *   Version 1.4 (Distribution Auto Generation Assembly v1.0) Change notes:
+ *   <ol>
+ *     <li>Added supporting for design and development distribution documentations.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky, TCSDEVELOPER
+ * @version 1.4
  */
 public class ProjectDetail extends Base {
 
@@ -83,6 +90,7 @@ public class ProjectDetail extends Base {
             getRequest().setAttribute("technologies", resultMap.get("project_technologies"));
             getRequest().setAttribute("requirements", resultMap.get("project_requirements"));
             getRequest().setAttribute("supportingDocs", resultMap.get("project_docs"));
+            getRequest().setAttribute("distInstructions", resultMap.get("dist_instructions"));
 
             boolean full = false;  //projects are never full in our current rules
             getRequest().setAttribute("projectFull", String.valueOf(full));

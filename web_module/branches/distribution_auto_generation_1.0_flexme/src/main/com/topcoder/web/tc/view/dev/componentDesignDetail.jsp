@@ -1,6 +1,6 @@
 <%--
-  - Author: pulky
-  - Version: 1.1
+  - Author: pulky, TCSDEVELOPER
+  - Version: 1.2
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page shows project details for component design competitions.
@@ -9,6 +9,10 @@
   -    * Removed Requirements Specification section if existed.
   -    * Renamed the existing "Documentation" section to "Forum". Changed attached wording.
   -    * Added support for multiple documentation downloads.
+  -
+  - Version 1.2 (Distribution Auto Generation Assembly 1.0) Change notes:
+  -    * Add support for design distribution documentation downloads.
+  -
 --%>
 <%@ page language="java" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -24,6 +28,8 @@
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <% ResultSetContainer projectDetail = (ResultSetContainer) request.getAttribute("projectDetail");%>
 <% ResultSetContainer technologies = (ResultSetContainer) request.getAttribute("technologies");%>
+<% request.setAttribute("show_distribution", true); %>
+<% request.setAttribute("project_type", "design"); %>
 <head>
     <title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
 

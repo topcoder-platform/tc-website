@@ -57,8 +57,15 @@ import java.util.MissingResourceException;
  *   </ol>
  * </p>
  *
- * @author pulky, isv
- * @version 1.6
+ * <p>
+ *   Version 1.7 (Distribution Auto Generation Assembly v1.0) Change notes:
+ *   <ol>
+ *     <li>Added two constans <code>DEFAULT_DEVELOPMENT_DISTRIBUTION_SPEC</code> and <code>DEFAULT_DESIGN_DISTRIBUTION_SPEC</code>.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author pulky, isv, TCSDEVELOPER
+ * @version 1.7
  */
 public class Constants implements WebConstants {
 
@@ -86,6 +93,9 @@ public class Constants implements WebConstants {
     public static String CURRENT_PERIOD_QUERY;
     public static String DR_STAGE_COMMAND;
     public static String DR_STAGE_QUERY;
+
+    public static String DEFAULT_DEVELOPMENT_DISTRIBUTION_SPEC;
+    public static String DEFAULT_DESIGN_DISTRIBUTION_SPEC;
 
     public static int MAX_LEADERS;
     public static int DEFAULT_LEADERS;
