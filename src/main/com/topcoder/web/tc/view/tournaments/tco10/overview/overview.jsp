@@ -6,9 +6,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <script src="/js/tournament/tco10/jquery-1.3.2.js" type="text/javascript"></script>
-    <script type="text/javascript" src="/js/tournament/tco10/overview.js"></script>  
     <jsp:include page="../includes/htmlhead.jsp"/>             
+    <script type="text/javascript" src="/js/tournament/tco10/overview.js"></script>  
 </head>
 
 <body>
@@ -57,7 +56,7 @@
            RSS Feed from the blog needs to go here.
 --%>
        
-	     <span id="feeds_element" /> 
+	     <span id="feeds_element"></span> 
        
        </div>
     
@@ -81,3 +80,4 @@
 
 </body>
 </html>
+
