@@ -104,6 +104,7 @@ public class ApplyRBoardRules extends DBUtility {
      */
     private static final String ALTERNATE_RULE_LAST_N_PROJECTS_KEY = "alternateRuleLastNProjects";
 
+    private static final String TOP_N_SUBMISSIONS_KEY = "topNSubmissions";
     /**
      * This variable tells if only an analysis is wanted.
      */
@@ -189,13 +190,15 @@ public class ApplyRBoardRules extends DBUtility {
                 int alternateRuleMinimumScore = getParam(ALTERNATE_RULE_MINIMUM_SCORE_KEY, projectTypeId, catalogId);
                 int alternateRuleMinimumSubmissions = getParam(ALTERNATE_RULE_MINIMUM_SUBMISSIONS_KEY, projectTypeId, catalogId);
                 int alternateRuleLastNProjects = getParam(ALTERNATE_RULE_LAST_N_PROJECTS_KEY, projectTypeId, catalogId);
+                int topNSubmissions = getParam(TOP_N_SUBMISSIONS_KEY, projectTypeId, catalogId);
 
                 psSelDetails.clearParameters();
                 psSelDetails.setInt(1, daysShortPeriod);  // Days to analyze
                 psSelDetails.setInt(2, scoreThresholdShort);  // score threshold
-                psSelDetails.setInt(3, rsUsers.getInt("project_type_id"));  // project_type
-                psSelDetails.setLong(4, rsUsers.getLong("user_id"));  // user_id
-                psSelDetails.setLong(5, rsUsers.getLong("catalog_id"));  // catalog_id
+                psSelDetails.setInt(3, topNSubmissions);  // top N submissions counted
+                psSelDetails.setInt(4, rsUsers.getInt("project_type_id"));  // project_type
+                psSelDetails.setLong(5, rsUsers.getLong("user_id"));  // user_id
+                psSelDetails.setLong(6, rsUsers.getLong("catalog_id"));  // catalog_id
 
 
 //                String possibleDisqualificationReason = " (no " + submissionThresholdShort + " submissions in the last " + daysShortPeriod + " days.";
@@ -220,14 +223,16 @@ public class ApplyRBoardRules extends DBUtility {
                 psSelAlternate.clearParameters();
                 psSelAlternate.setInt(1, alternateRuleLastNProjects);  // Number of project to take into consideration
                 psSelAlternate.setLong(2, rsUsers.getLong("user_id"));  // user_id
-                psSelAlternate.setInt(3, rsUsers.getInt("project_type_id"));  // project_type
-                psSelAlternate.setLong(4, rsUsers.getLong("catalog_id"));  // catalog
+                psSelAlternate.setLong(3, rsUsers.getLong("user_id"));  // user_id
+                psSelAlternate.setInt(4, rsUsers.getInt("project_type_id"));  // project_type
+                psSelAlternate.setLong(5, rsUsers.getLong("catalog_id"));  // catalog
                 rsAlternate = psSelAlternate.executeQuery();
 
                 // counts submissions
                 int countSub = 0;
                 for (; countSub < alternateRuleMinimumSubmissions && rsAlternate.next(); ) {
                     if (rsAlternate.getObject("user_score") != null && rsAlternate.getInt("user_score") >= alternateRuleMinimumScore) {
+                        if (rsAlternate.getObject("placed") != null && rsAlternate.getInt("placed") >= 1 && rsAlternate.getInt("placed") <= topNSubmissions)
                         countSub++;
                     }
                 }
@@ -647,9 +652,10 @@ public class ApplyRBoardRules extends DBUtility {
         query.append("pi_comp_id.project_info_type_id = 2 and ");
         query.append("pi_comp_id.project_id = p.project_id and ");
         query.append("p.project_id not in (select ce.contest_id from contest_eligibility ce where ce.is_studio = 0) and ");
+        query.append("p.project_status_id in (4,5,6,7,8) and ");  // completed or canceled
         query.append("cc.component_id = pi_comp_id.value and p.project_id = pr.project_id and  ");
         query.append("mdy(substr(pi_rating_date.value,1,2), substr(pi_rating_date.value,4,2), substr(pi_rating_date.value,7,4)) >= DATE(current) - ? UNITS DAY and  ");
-        query.append("cc.root_category_id = cac.category_id and pr.final_score >= ? and  ");
+        query.append("cc.root_category_id = cac.category_id and pr.final_score >= ? and pr.placed >= 1 and pr.placed <= ? and ");
         query.append("p.project_category_id = ? and pr.user_id = ? and cac.catalog_id = ?  ");
         query.append("order by mdy(substr(pi_rating_date.value,1,2), substr(pi_rating_date.value,4,2), substr(pi_rating_date.value,7,4)) desc  ");
         PreparedStatement ps = prepareStatement("tcs_catalog", query.toString());
@@ -664,7 +670,8 @@ public class ApplyRBoardRules extends DBUtility {
     private PreparedStatement prepareAlternateRuleStatement() throws SQLException {
         StringBuffer query = new StringBuffer(200);
         query.append("select first ? p.project_id, ");
-        query.append("(select pr.final_score from project_result pr where pr.project_id = p.project_id and pr.user_id = ?) as user_score ");
+        query.append("(select pr.final_score from project_result pr where pr.project_id = p.project_id and pr.user_id = ?) as user_score, ");
+        query.append("(select pr.placed from project_result pr where pr.project_id = p.project_id and pr.user_id = ?) as placed ");
         query.append("from project p, project_info pi_rating_date, project_info pi_comp_id, comp_catalog cc, category_catalog cac, project_info pi_open ");
         query.append("where pi_rating_date.project_info_type_id = 22 and pi_rating_date.project_id = p.project_id and  ");
         query.append("      pi_comp_id.project_info_type_id = 2 and ");
