@@ -10,7 +10,6 @@ import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.dataAccess.resultSet.TCResultItem;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
@@ -160,12 +159,9 @@ public abstract class MemberResultsBase extends StatBase {
 
                     if (isUsingDRPlacementPoints()) {
                         if (rscDetails.getItem(j, "final_score").getResultData() != null) {
-                            TCResultItem passedReviewIndItem = rscDetails.getItem(j, "passed_review_ind");
-                            if ((passedReviewIndItem != null) && (passedReviewIndItem.toString().equals("1"))) {
-                                int submittersCount = rscDetails.getIntItem(j, "passing_submitters_count");
-                                pts = getDRPlacementPoints(j, drPoints.get(projectId), submittersCount);
-                                place = String.valueOf(j + 1);
-                            }
+                            int submittersCount = rscDetails.getIntItem(j, "passing_submitters_count");
+                            pts = getDRPlacementPoints(j, drPoints.get(projectId), submittersCount);
+                            place = String.valueOf(j + 1);
                             score = scfmt.format(rscDetails.getDoubleItem(j, "final_score"));
                         }
                     } else {
