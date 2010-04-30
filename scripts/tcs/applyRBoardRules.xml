@@ -24,6 +24,8 @@
     <alternateRuleMinimumSubmissions>1</alternateRuleMinimumSubmissions>        
     <submissionThresholdLong>10</submissionThresholdLong>
 
+    <topNSubmissions>3</topNSubmissions>
+
     <!-- Design -->
     <t-1-c-1-alternateRuleLastNProjects>60</t-1-c-1-alternateRuleLastNProjects>
     <t-1-c-2-alternateRuleLastNProjects>30</t-1-c-2-alternateRuleLastNProjects>
