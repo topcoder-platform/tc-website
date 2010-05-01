@@ -293,7 +293,7 @@ public class ApplyRBoardRules extends DBUtility {
                         sendActivationMail(rsUsers.getString("handle"), rsUsers.getString("email_address"),
                                 rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"),
                                 submissionThresholdLong, submissionThresholdShort, daysShortPeriod, scoreThresholdShort, scoreThresholdLong,
-                                alternateRuleMinimumScore, alternateRuleMinimumSubmissions, alternateRuleLastNProjects);
+                                alternateRuleMinimumScore, alternateRuleMinimumSubmissions, alternateRuleLastNProjects, topNSubmissions);
                     }
                 } else {
                     activeReviewersCount++;
@@ -310,7 +310,7 @@ public class ApplyRBoardRules extends DBUtility {
                         sendDisqualificationMail(rsUsers.getString("handle"), rsUsers.getString("email_address"),
                                 rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"),
                                 submissionThresholdLong, submissionThresholdShort, daysShortPeriod, scoreThresholdShort, scoreThresholdLong,
-                                alternateRuleMinimumScore, alternateRuleMinimumSubmissions, alternateRuleLastNProjects);
+                                alternateRuleMinimumScore, alternateRuleMinimumSubmissions, alternateRuleLastNProjects, topNSubmissions);
                     } else {
                         // reviewer shouldn't be disqualified, but maybe a warning mail is appropriate if he is
                         // near to be disqualified.
@@ -326,7 +326,7 @@ public class ApplyRBoardRules extends DBUtility {
                                         rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"),
                                         daysToBeDisqualified, submissionThresholdLong, submissionThresholdShort,
                                         daysShortPeriod, scoreThresholdShort, scoreThresholdLong, alternateRuleMinimumScore,
-                                        alternateRuleMinimumSubmissions, alternateRuleLastNProjects);
+                                        alternateRuleMinimumSubmissions, alternateRuleLastNProjects, topNSubmissions);
                             }
                         } else {
                             log.debug("OK" + logMsg);
@@ -392,7 +392,7 @@ public class ApplyRBoardRules extends DBUtility {
      */
     private void sendActivationMail(String handle, String userEmail, String projectTypeName, String catalogName,
             int submissionThresholdLong, int submissionThresholdShort, int daysShortPeriod, int scoreThresholdShort, int scoreThresholdLong,
-            int alternateRuleMinimumScore, int alternateRuleMinimumSubmissions, int alternateRuleLastNProjects) throws Exception {
+            int alternateRuleMinimumScore, int alternateRuleMinimumSubmissions, int alternateRuleLastNProjects, int topNSubmissions) throws Exception {
 
         StringBuffer mail = new StringBuffer();
         mail.append("Hello " + handle + ",\n\n");
@@ -405,7 +405,9 @@ public class ApplyRBoardRules extends DBUtility {
         mail.append("You also have to complete at least " + submissionThresholdShort + " project" + (submissionThresholdShort > 1 ? "s" : ""));
         mail.append(" with a score equal or higher than " + scoreThresholdShort + " in the last " + daysShortPeriod + " days");
         mail.append(" or at least " + alternateRuleMinimumSubmissions + " project" + (alternateRuleMinimumSubmissions > 1 ? "s" : "") + " with a score equal or higher than ");
-        mail.append(alternateRuleMinimumScore + " in the last " + alternateRuleLastNProjects + " project" + (alternateRuleLastNProjects > 1 ? "s" : "") + ".\n\n");
+        mail.append(alternateRuleMinimumScore + " in the last " + alternateRuleLastNProjects + " project" + (alternateRuleLastNProjects > 1 ? "s" : "") + ".\n");
+
+        mail.append("Only the submissions resulted in the Top" + topNSubmissions + " for each project are counted towards the reviewer statistics.\n\n");
 
         mail.append("If you have any questions, please contact us at service@topcodersoftware.com.\n\n");
         mail.append("Thank you, \nTopCoder Software.\n");
@@ -438,7 +440,7 @@ public class ApplyRBoardRules extends DBUtility {
      */
     private void sendDisqualificationMail(String handle, String userEmail, String projectTypeName, String catalogName,
             int submissionThresholdLong, int submissionThresholdShort, int daysShortPeriod, int scoreThresholdShort, int scoreThresholdLong,
-            int alternateRuleMinimumScore, int alternateRuleMinimumSubmissions, int alternateRuleLastNProjects) throws Exception {
+            int alternateRuleMinimumScore, int alternateRuleMinimumSubmissions, int alternateRuleLastNProjects, int topNSubmissions) throws Exception {
 
         StringBuffer mail = new StringBuffer();
         mail.append("Hello " + handle + ",\n\n");
@@ -455,7 +457,9 @@ public class ApplyRBoardRules extends DBUtility {
         mail.append("You also have to complete at least " + submissionThresholdShort + " project" + (submissionThresholdShort > 1 ? "s" : ""));
         mail.append(" with a score equal or higher than " + scoreThresholdShort + " in the last " + daysShortPeriod + " days");
         mail.append(" or at least " + alternateRuleMinimumSubmissions + " project" + (alternateRuleMinimumSubmissions > 1 ? "s" : "") + " with a score equal or higher than ");
-        mail.append(alternateRuleMinimumScore + " in the last " + alternateRuleLastNProjects + " project" + (alternateRuleLastNProjects > 1 ? "s" : "") + ".\n\n");
+        mail.append(alternateRuleMinimumScore + " in the last " + alternateRuleLastNProjects + " project" + (alternateRuleLastNProjects > 1 ? "s" : "") + ".\n");
+
+        mail.append("Only the submissions resulted in the Top" + topNSubmissions + " for each project are counted towards the reviewer statistics.\n\n");
 
         mail.append("If you have any questions, please contact us at service@topcodersoftware.com.\n\n");
         mail.append("Thank you, \nTopCoder Software.\n");
@@ -489,7 +493,7 @@ public class ApplyRBoardRules extends DBUtility {
      */
     private void sendWarningMail(String handle, String userEmail, String projectTypeName, String catalogName, long daysToBeDisqualified,
             int submissionThresholdLong, int submissionThresholdShort, int daysShortPeriod, int scoreThresholdShort, int scoreThresholdLong,
-            int alternateRuleMinimumScore, int alternateRuleMinimumSubmissions, int alternateRuleLastNProjects) throws Exception {
+            int alternateRuleMinimumScore, int alternateRuleMinimumSubmissions, int alternateRuleLastNProjects, int topNSubmissions) throws Exception {
 
         StringBuffer mail = new StringBuffer();
         mail.append("Hello " + handle + ",\n\n");
@@ -503,7 +507,9 @@ public class ApplyRBoardRules extends DBUtility {
         mail.append("You also have to complete at least " + submissionThresholdShort + " project" + (submissionThresholdShort > 1 ? "s" : ""));
         mail.append(" with a score equal or higher than " + scoreThresholdShort + " in the last " + daysShortPeriod + " days");
         mail.append(" or at least " + alternateRuleMinimumSubmissions + " project" + (alternateRuleMinimumSubmissions > 1 ? "s" : "") + " with a score equal or higher than ");
-        mail.append(alternateRuleMinimumScore + " in the last " + alternateRuleLastNProjects + " project" + (alternateRuleLastNProjects > 1 ? "s" : "") + ".\n\n");
+        mail.append(alternateRuleMinimumScore + " in the last " + alternateRuleLastNProjects + " project" + (alternateRuleLastNProjects > 1 ? "s" : "") + ".\n");
+
+        mail.append("Only the submissions resulted in the Top" + topNSubmissions + " for each project are counted towards the reviewer statistics.\n\n");
 
         mail.append("If you have any questions, please contact us at service@topcodersoftware.com.\n\n");
         mail.append("Thank you, \nTopCoder Software.\n");
