@@ -60,8 +60,14 @@ import java.util.Date;
  *   </ol>
  * </p> 
  *
- * @author cucu, pulky, Vitta
- * @version 1.5
+ * <p>
+ *   Version 1.6 (Gameplan Contest Type Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for new Gameplan competitions.</li>
+ *   </ol>
+ * </p>*
+ * @author cucu, pulky, Vitta, TCSASSEMBLIER
+ * @version 1.6
  */
 public abstract class BasePayment implements Constants, java.io.Serializable {
     private static Logger log = Logger.getLogger(BasePayment.class);
@@ -202,6 +208,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case TEST_SCENARIOS_PAYMENT:
         case COPILOT_PAYMENT:
         case DEPLOYMENT_TASK_PAYMENT:
+		case GAMEPLAN_PAYMENT:
             return REFERENCE_COMPONENT_PROJECT_ID;
 
         case PROBLEM_WRITING_PAYMENT:
@@ -296,6 +303,8 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case CONCEPTUALIZATION_CONTEST_PAYMENT: return new ConceptualizationContestPayment(coderId, grossAmount, referenceId, placed);
         case TEST_SUITES_PAYMENT: return new TestSuitesCompetitionPayment(coderId, grossAmount, referenceId, placed);
         case TEST_SCENARIOS_PAYMENT: return new TestScenariosCompetitionPayment(coderId, grossAmount, referenceId, placed);
+		case GAMEPLAN_PAYMENT: return new GameplanCompetitionPayment(coderId, grossAmount, referenceId, placed);
+
         case COPILOT_PAYMENT: return new CopilotPayment(coderId, grossAmount, referenceId, placed);
         case STUDIO_BUG_FIXES_PAYMENT: return new StudioBugFixesPayment(coderId, grossAmount, referenceId, placed);
         case STUDIO_ENHANCEMENTS_PAYMENT:
@@ -430,6 +439,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             case CONCEPTUALIZATION_CONTEST_PAYMENT: return "Conceptualization Contest Payment";
             case TEST_SUITES_PAYMENT: return "Test Suites Payment";
             case TEST_SCENARIOS_PAYMENT: return "Test Scenarios Payment";
+			case GAMEPLAN_PAYMENT: return "Gameplan Payment";
             case COPILOT_PAYMENT: return "Copilot Payment";
             case STUDIO_BUG_FIXES_PAYMENT: return "TopCoder Studio bug fixes Payment";
             case STUDIO_ENHANCEMENTS_PAYMENT: return "TopCoder Studio enhancements Payment";

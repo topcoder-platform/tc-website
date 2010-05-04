@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.ajax;
 
@@ -22,9 +22,14 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
  *     <li>Added support for new Test Scenarios competitions</li>
  *   </ol>
  * </p>
- *
- * @author cucu, pulky
- * @version 1.1
+ * <p>
+ *   Version 1.2 (Gameplan Contest Type Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for new Gameplan competitions.</li>
+ *   </ol>
+ * </p>
+ * @author cucu, pulky, TCSASSEMBLIER
+ * @version 1.2
  */
 public class SelectPaymentTypeReference extends BaseProcessor implements PactsConstants {
 
@@ -89,6 +94,8 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
                             map = dib.findProjects("%" + search + "%", RIA_BUILD_COMPETITION_PROJECT_CATEGORY_LU);
                         } else if (type == RIA_COMPONENT_COMPETITION_PAYMENT) {
                             map = dib.findProjects("%" + search + "%", RIA_COMPONENT_COMPETITION_PROJECT_CATEGORY_LU);
+                        } else if (type == GAMEPLAN_PAYMENT) {
+                            map = dib.findProjects("%" + search + "%", GAMEPLAN_PROJECT_CATEGORY_LU);
                         } else {
                             map = dib.findProjects("%" + search + "%");
                         }

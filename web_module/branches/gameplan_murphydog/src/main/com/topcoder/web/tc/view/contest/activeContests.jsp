@@ -1,7 +1,7 @@
 <%--
-  - Author: pulky
-  - Version: 1.3
-  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  - Author: pulky, TCSASSEMBLIER
+  - Version: 1.4
+  - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page lists all active contests for a specific project type.
   -
@@ -12,6 +12,8 @@
   - and added support for new Test Scenarios competitions.
   -
   - Version 1.3 (BUGR-2749) changes: Added reliability bonus column.
+  -
+  - Version 1.4 (Gameplan Contest Type Assembly 1.0) changes: Added support for new Gameplan competitions.  
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
@@ -33,7 +35,7 @@
 <c:set value="<%=Constants.UI_PROTOTYPE_PROJECT_TYPE%>" var="UI_PROTOTYPE_TYPE_ID"/>
 <c:set value="<%=Constants.RIA_BUILD_PROJECT_TYPE%>" var="RIA_BUILD_TYPE_ID"/>
 <c:set value="<%=Constants.RIA_COMPONENT_PROJECT_TYPE%>" var="RIA_COMPONENT_TYPE_ID"/>
-
+<c:set value="<%=Constants.GAMEPLAN_PROJECT_TYPE%>" var="GAMEPLAN_TYPE_ID"/>
 
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -108,6 +110,11 @@
                     <jsp:param name="node" value="ria_component_compete"/>
                 </jsp:include>
             </c:when>
+            <c:when test="${pt == GAMEPLAN_TYPE_ID}">
+                <jsp:include page="/includes/global_left.jsp">
+                    <jsp:param name="node" value="gameplan_compete"/>
+                </jsp:include>
+            </c:when>			
           </c:choose>
         </td>
 <%-- Left Column Ends --%>
@@ -170,6 +177,12 @@
                 <jsp:param name="title" value="Active Contests"/>
             </jsp:include>
         </c:when>
+        <c:when test="${pt == GAMEPLAN_TYPE_ID}">
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="gameplan"/>
+                <jsp:param name="title" value="Active Contests"/>
+            </jsp:include>
+        </c:when>		
       </c:choose>
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:10px;">
@@ -222,7 +235,7 @@
             <c:when test="${pt == RIA_COMPONENT_TYPE_ID}">
                 <a href="/wiki/display/tc/How+to+Compete+in+Studio+Component+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
           		<a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=patron"><img src="/i/tournament/tco10/banners/tco10-nsa-510x100.png" alt="NSA - TCO10 Event Patron" /></a><br /><br />
-            </c:when>
+            </c:when>		
           </c:choose>
         </td>
     </tr>
@@ -265,6 +278,11 @@
             <a href="/tc?module=BasicRSS&amp;c=rss_RIA_Component_Registration_Open&amp;dsid=28">Subscribe Now</a>
             <a href="/tc?module=BasicRSS&amp;c=rss_RIA_Component_Registration_Open&amp;dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
         </c:when>
+        <c:when test="${pt == GAMEPLAN_TYPE_ID}">
+            Competition opportunities via RSS -
+            <a href="/tc?module=BasicRSS&amp;c=rss_RIA_Component_Registration_Open&amp;dsid=29">Subscribe Now</a>
+            <a href="/tc?module=BasicRSS&amp;c=rss_RIA_Component_Registration_Open&amp;dsid=29"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
+        </c:when>		
       </c:choose>
     <br /><br />
 </div>
@@ -307,6 +325,9 @@
             </c:when>
             <c:when test="${pt == RIA_COMPONENT_TYPE_ID}">
                 Active RIA Component Contests</td>
+            </c:when>
+		    <c:when test="${pt == GAMEPLAN_TYPE_ID}">
+                Active Gameplan Contests</td>
             </c:when>
           </c:choose>
     </tr>

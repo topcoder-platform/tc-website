@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.ejb.pacts;
 
@@ -37,8 +37,15 @@ package com.topcoder.web.ejb.pacts;
  *   </ol>
  * </p>
  *
- * @author TCSDEVELOPER, pulky
- * @version 1.4
+ * <p>
+ *   Version 1.5 (Gameplan Contest Type Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for new Gameplan competitions.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author TCSDEVELOPER, pulky, TCSASSEMBLIER
+ * @version 1.5
  */
 public interface Constants {
 
@@ -227,5 +234,18 @@ public interface Constants {
     public static final int UI_PROTOTYPE_COMPETITION_PROJECT_CATEGORY_LU = 19;
     public static final int RIA_BUILD_COMPETITION_PROJECT_CATEGORY_LU = 24;
     public static final int RIA_COMPONENT_COMPETITION_PROJECT_CATEGORY_LU = 25;
+    /**
+     * <p>A <code>int</code> representing the gameplan category id.</p>
+     *
+     * @since 1.5
+     */	
+	public static final int GAMEPLAN_PROJECT_CATEGORY_LU = 29;
+	
+    /**
+     * <p>A <code>int</code> representing the gameplan payment id.</p>
+     *
+     * @since 1.5
+     */	
+	public static final int GAMEPLAN_PAYMENT = 60;
 
 }

@@ -1,9 +1,11 @@
 <%--
-  - Author: pulky, snow01
-  - Version: 1.0
+  - Author: pulky, snow01, TCSASSEMBLIER
+  - Version: 1.1
   - Since: Specification Review Integration 1.0
-  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
   -
+  - Version 1.1 (Gameplan Contest Type Assembly 1.0) changes: Added support for new Gameplan competitions.  
+
   - Description: This is a simple include page that that helps avoiding duplicated code in review board pages.
   - It will resolve included top according to the project type.
 --%>
@@ -77,4 +79,10 @@
             <jsp:param name="level1" value="development"/>
         </jsp:include>
     </c:when>
+    <c:when test="${projectType == GAMEPLAN_PROJECT_TYPE ||
+    	projectType == GAMEPLAN_SPECIFICATION_PROJECT_TYPE}">
+        <jsp:include page="/top.jsp">
+            <jsp:param name="level1" value="gameplan"/>
+        </jsp:include>
+    </c:when>	
 </c:choose>

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common.model;
 
@@ -35,10 +35,14 @@ import com.topcoder.web.common.WebConstants;
  *     <li>Added constants for Specification Review projects.</li>
  *   </ol>
  * </p>
-
+ *
+ *   Version 1.3.1 (Gameplan Contest Type Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added constants for new Gameplan competitions.</li>
+ *   </ol>
  *
  * @author dok, pulky, snow01
- * @version 1.3
+ * @version 1.3.1
  */
 public interface SoftwareComponent extends Cloneable, Serializable {
 
@@ -171,6 +175,21 @@ public interface SoftwareComponent extends Cloneable, Serializable {
      */
     public final static int RIA_COMPONENT_SPECIFICATION_PHASE =
             (int) WebConstants.PHASE_RIA_COMPONENT_SPECIFICATION;
+
+    /**
+     * <p>An <code>int</code> representing gameplan competition specification phase id.</p>
+     *
+     * @since 1.3.1
+     */
+    public final static int GAMEPLAN_SPECIFICATION_PHASE =
+            (int) WebConstants.PHASE_GAMEPLAN_SPECIFICATION;	
+			
+    /**
+     * <p>An <code>int</code> representing gameplan competition phase id.</p>
+     *
+     * @since 1.3.1
+     */
+    public final static int GAMEPLAN_PHASE =(int) WebConstants.PHASE_GAMEPLAN;	
 
     public final static int LEVEL1 = 100;
     public final static int LEVEL2 = 200;

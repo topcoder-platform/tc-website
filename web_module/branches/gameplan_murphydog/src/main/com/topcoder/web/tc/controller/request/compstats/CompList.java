@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.compstats;
 
@@ -32,9 +32,14 @@ import com.topcoder.web.tc.Constants;
  *     <li>Added support for new Test Scenarios competitions</li>
  *   </ol>
  * </p>
- *
- * @author cucu, pulky
- * @version 1.2
+ * <p>
+ *   Version 1.3 (Gameplan Contest Type Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for new Gameplan competitions.</li>
+ *   </ol>
+ * </p>
+ * @author cucu, pulky, TCSASSEMBLIER
+ * @version 1.3
  */
 public class CompList extends Base {
 
@@ -67,7 +72,8 @@ public class CompList extends Base {
                   || Constants.TEST_SCENARIOS_PROJECT_TYPE == projectTypeId
                   || Constants.UI_PROTOTYPE_PROJECT_TYPE == projectTypeId
                   || Constants.RIA_BUILD_PROJECT_TYPE == projectTypeId
-                  || Constants.RIA_COMPONENT_PROJECT_TYPE == projectTypeId)) {
+                  || Constants.RIA_COMPONENT_PROJECT_TYPE == projectTypeId
+				  || Constants.GAMEPLAN_PROJECT_TYPE == projectTypeId)) {
                 throw new TCWebException("Invalid project_type_id (" + projectTypeId + ") parameter");
             }
 

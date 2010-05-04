@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common;
 
@@ -48,8 +48,15 @@ package com.topcoder.web.common;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, snow01
- * @version 1.6
+ * <p>
+ *   Version 1.6.1 (Gameplan Contest Type Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added constants for the Gameplan.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky, snow01, TCSASSEMBLIER
+ * @version 1.6.1
  */
 public interface WebConstants {
     public static final String HANDLE = "ha";
@@ -312,7 +319,7 @@ public interface WebConstants {
      * <p>An <code>int</code> representing specification review project type id.</p>
      */
     public static final int SPECIFICATION_REVIEW_PROJECT_TYPE = 27;
-    
+
     /**
      * <p>An <code>long</code> representing design specification project category id.</p>
      *
@@ -545,4 +552,30 @@ public interface WebConstants {
      * @since 1.6
      */
     public static final String END_DATE = "edate";
+
+    /**
+     * <p>An <code>int</code> representing gameplan project type id.</p>
+	 * @since 1.6.1
+     */
+    public static final int GAMEPLAN_PROJECT_TYPE = 29;
+
+    /**
+     * <p>An <code>long</code> representing gameplan specification project category id.</p>
+	 * @since 1.6.1
+     */
+    public static final long GAMEPLAN_SPECIFICATION_PROJECT_TYPE =
+	    GAMEPLAN_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;
+
+    /**
+     * <p>An <code>long</code> representing gameplan phase id.</p>
+	 * @since 1.6.1
+     */
+    public static final long PHASE_GAMEPLAN = GAMEPLAN_PROJECT_TYPE + GENERAL_PHASE_OFFSET;
+
+    /**
+     * <p>An <code>long</code> representing gameplan specification phase id.</p>
+	 * @since 1.6.1
+     */
+    public static final long PHASE_GAMEPLAN_SPECIFICATION =
+	    PHASE_GAMEPLAN + SPECIFICATION_COMPETITION_OFFSET;		
 }

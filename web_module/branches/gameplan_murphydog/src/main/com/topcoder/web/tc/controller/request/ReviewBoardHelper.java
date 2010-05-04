@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request;
 
@@ -45,6 +45,14 @@ import com.topcoder.web.common.WebConstants;
  *           </ul>
  *         </td>
  *     </tr>
+ *     <tr>
+ *         <td>Version 1.4 (Gameplan Contest Type Assembly 1.0)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Added support for new Gameplan competitions.</li>
+ *           </ul>
+ *         </td>
+ *     </tr> 
  *   </table>
  * </p>
  *
@@ -92,7 +100,8 @@ public final class ReviewBoardHelper {
             || reviewBoardType.equals(String.valueOf(WebConstants.TEST_SCENARIOS_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.UI_PROTOTYPE_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.RIA_BUILD_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.RIA_COMPONENT_PROJECT_TYPE));
+            || reviewBoardType.equals(String.valueOf(WebConstants.RIA_COMPONENT_PROJECT_TYPE))
+			|| reviewBoardType.equals(String.valueOf(WebConstants.GAMEPLAN_PROJECT_TYPE));
 			
 		if (!supported && includeSpecificationReviews) {
             supported = reviewBoardType.equals(String.valueOf(WebConstants.DESIGN_SPECIFICATION_PROJECT_TYPE))
@@ -105,7 +114,8 @@ public final class ReviewBoardHelper {
 			|| reviewBoardType.equals(String.valueOf(WebConstants.TEST_SCENARIOS_SPECIFICATION_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.UI_PROTOTYPE_SPECIFICATION_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.RIA_BUILD_SPECIFICATION_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.RIA_COMPONENT_SPECIFICATION_PROJECT_TYPE));
+            || reviewBoardType.equals(String.valueOf(WebConstants.RIA_COMPONENT_SPECIFICATION_PROJECT_TYPE))
+			|| reviewBoardType.equals(String.valueOf(WebConstants.GAMEPLAN_SPECIFICATION_PROJECT_TYPE));
         }
 
         return supported;			

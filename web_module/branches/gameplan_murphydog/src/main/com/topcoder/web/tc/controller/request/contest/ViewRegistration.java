@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.contest;
 
@@ -64,9 +64,14 @@ import com.topcoder.web.tc.controller.request.development.Base;
  *     <li>Added eligibility constraints check.</li>
  *   </ol>
  * </p>
- *
- * @author dok, pulky
- * @version 1.4
+ * <p>
+ *   Version 1.5 (Gameplan Contest Type Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for new Gameplan competitions.</li>
+ *   </ol>
+ * </p>
+ * @author dok, pulky, TCSASSEMBLIER
+ * @version 1.5
  */
 public class ViewRegistration extends Base {
 
@@ -166,7 +171,8 @@ public class ViewRegistration extends Base {
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.TEST_SCENARIOS_PROJECT_TYPE)) &&
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.UI_PROTOTYPE_PROJECT_TYPE)) &&
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.RIA_BUILD_PROJECT_TYPE)) &&
-                !String.valueOf(projectTypeId).equals(String.valueOf(Constants.RIA_COMPONENT_PROJECT_TYPE))) {
+                !String.valueOf(projectTypeId).equals(String.valueOf(Constants.RIA_COMPONENT_PROJECT_TYPE)) &&
+				!String.valueOf(projectTypeId).equals(String.valueOf(Constants.GAMEPLAN_PROJECT_TYPE))) {
             throw new NavigationException("Invalid project specified (wrong category)");
         }
 

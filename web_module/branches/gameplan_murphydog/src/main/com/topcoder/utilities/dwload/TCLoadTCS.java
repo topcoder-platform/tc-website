@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.utilities.dwload;
 
@@ -73,9 +73,12 @@ import com.topcoder.utilities.dwload.contestresult.drv2.ContestResultCalculatorV
  *     <li>Broke up project loading in chunks to get past an Informix statement size limitation.</li>
  *   </ol>
  * </p>
- *
- * @author rfairfax, pulky, ivern
- * @version 1.1.6
+ *   Version 1.1.7 (Gameplan Contest Type Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for new Gameplan competitions.</li>
+ *   </ol>
+ * @author rfairfax, pulky, ivern, TCSASSEMBLIER
+ * @version 1.1.7
  */
 public class TCLoadTCS extends TCLoad {
 
@@ -83,7 +86,7 @@ public class TCLoadTCS extends TCLoad {
      * <p>A <code>String</code> representing all those project categories than should be loaded to the
      * data warehouse.</p>
      */
-    private static final String LOAD_CATEGORIES = "(1, 2, 5, 6, 7, 13, 14, 23, 19, 24, 25, 26)";
+    private static final String LOAD_CATEGORIES = "(1, 2, 5, 6, 7, 13, 14, 23, 19, 24, 25, 26, 29)";
 
     /**
      * <p>An <code>int</code> array representing all project categories that are currently being rated.

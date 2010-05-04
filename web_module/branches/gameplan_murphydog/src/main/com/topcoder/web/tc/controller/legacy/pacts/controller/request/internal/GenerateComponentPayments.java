@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
@@ -31,9 +31,14 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeaderList;
  *     <li>Added support for new Test Scenarios competitions.</li>
  *   </ol>
  * </p>
- *
- * @author mktong, pulky
- * @version 1.1
+ * <p>
+ *   Version 1.2 (Gameplan Contest Type Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for new Gameplan competitions.</li>
+ *   </ol>
+ * </p>
+ * @author mktong, pulky, TCSASSEMBLIER
+ * @version 1.2
  */
 public class GenerateComponentPayments extends BaseProcessor implements PactsConstants {
     public final static String IS_DEV_SUPPORT_BY_DESIGNER = "dsd";
@@ -97,8 +102,8 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                 DataInterfaceBean bean = new DataInterfaceBean();
                 // [BUGR-1452] - add support for paying other project types
                 // [BUGR-1842] - add support for UI/RIA project types
-                int[] counts = new int[13];
-                for (int i = 0; i < 13; i++) {
+                int[] counts = new int[14];
+                for (int i = 0; i < 14; i++) {
                     counts[i] =0;
                 }
                 log.debug("status type " + getRequest().getParameter(PROJECT_TERMINATION_STATUS));
@@ -147,6 +152,7 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                     if (p.getPaymentType() == PactsConstants.RIA_COMPONENT_COMPETITION_PAYMENT) counts[11]++;
 
                     if (p.getPaymentType() == PactsConstants.TEST_SCENARIOS_PAYMENT) counts[12]++;
+					if (p.getPaymentType() == PactsConstants.GAMEPLAN_PAYMENT) counts[13]++;
 
                     ids.add(p.getId() + "");
 
@@ -194,11 +200,11 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
     private String generateSuccessMessage(int[] counts) {
         // TODO: find a better way to avoid duplicating these magic numbers, to ensure they're always in sync
         // [BUGR-1842] - add support for UI/RIA project types
-        final int[] countIndex = new int[] { 0, 4, 5, 6, 8, 7, 1, 3, 2, 9, 10, 11, 12 };
+        final int[] countIndex = new int[] { 0, 4, 5, 6, 8, 7, 1, 3, 2, 9, 10, 11, 12, 13};
         final String[] countType = new String[] {
                 " design/development", " conceptualization", " specification", " architecture",
                 " assembly", "  test suites", " review board", " review board bonus", " referral",
-                " UI prototype", " RIA Build", " RIA Component", " test scenarios"
+                " UI prototype", " RIA Build", " RIA Component", " test scenarios", "gameplan"
         };
 
         StringBuffer sb = new StringBuffer();

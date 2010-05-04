@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.development;
 
@@ -101,9 +101,14 @@ import com.topcoder.web.tc.Constants;
  *     <li>Added eligibility constraints check.</li>
  *   </ol>
  * </p>
- *
- * @author dok, isv, pulky, snow01
- * @version 1.0.11
+ * <p>
+ *   Version 1.0.12 (Gameplan Contest Type Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for new Gameplan competitions.</li>
+ *   </ol>
+ * </p>
+ * @author dok, isv, pulky, snow01, TCSASSEMBLIER
+ * @version 1.0.12
  */
 public class ProjectReviewApply extends Base {
     protected long projectId = 0;
@@ -336,6 +341,7 @@ public class ProjectReviewApply extends Base {
             projectTypeId != WebConstants.UI_PROTOTYPE_PROJECT_TYPE &&
             projectTypeId != WebConstants.RIA_BUILD_PROJECT_TYPE &&
             projectTypeId != WebConstants.RIA_COMPONENT_PROJECT_TYPE &&
+			projectTypeId != WebConstants.GAMEPLAN_PROJECT_TYPE &&
             projectTypeId != WebConstants.ASSEMBLY_SPECIFICATION_PROJECT_TYPE &&
             projectTypeId != WebConstants.ARCHITECTURE_SPECIFICATION_PROJECT_TYPE &&
             projectTypeId != WebConstants.CONCEPTUALIZATION_SPECIFICATION_PROJECT_TYPE &&
@@ -344,6 +350,7 @@ public class ProjectReviewApply extends Base {
             projectTypeId != WebConstants.TEST_SCENARIOS_SPECIFICATION_PROJECT_TYPE &&
             projectTypeId != WebConstants.UI_PROTOTYPE_SPECIFICATION_PROJECT_TYPE &&
             projectTypeId != WebConstants.RIA_BUILD_SPECIFICATION_PROJECT_TYPE &&
-            projectTypeId != WebConstants.RIA_COMPONENT_SPECIFICATION_PROJECT_TYPE;
+            projectTypeId != WebConstants.RIA_COMPONENT_SPECIFICATION_PROJECT_TYPE &&
+			projectTypeId != WebConstants.GAMEPLAN_SPECIFICATION_PROJECT_TYPE;
     }
 }
