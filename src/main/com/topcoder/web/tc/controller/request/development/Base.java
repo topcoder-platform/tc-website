@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.development;
 
@@ -105,7 +105,7 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *           </ul>
  *         </td>
  *     </tr>
-         <tr>
+ *       <tr>
  *         <td>Version 1.7 (Competition Registration Eligibility v1.0)</td>
  *         <td>
  *           <ul>
@@ -113,11 +113,19 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *           </ul>
  *         </td>
  *     </tr>
+         <tr>
+ *         <td>Version 1.8 (Gameplan Contest Type Assembly 1.0)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Added support for new Gameplan competitions.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
  *   </table>
  * </p>
  *
- * @author dok, isv, pulky
- * @version 1.7
+ * @author dok, isv, pulky, TCSASSEMBLIER
+ * @version 1.8
  */
 public abstract class Base extends ShortHibernateProcessor {
 
@@ -185,7 +193,9 @@ public abstract class Base extends ShortHibernateProcessor {
             return "/riabuild/projectDetail.jsp";
         } else if (projectTypeId==Constants.RIA_COMPONENT_PROJECT_TYPE) {
             return "/riacomponent/projectDetail.jsp";
-        } else {
+        } else if (projectTypeId==Constants.GAMEPLAN_PROJECT_TYPE) {
+            return "/gameplan/projectDetail.jsp";
+        }else {
             return "";
         }
     }
@@ -208,7 +218,8 @@ public abstract class Base extends ShortHibernateProcessor {
             || projectTypeId == Constants.TEST_SCENARIOS_PROJECT_TYPE
             || projectTypeId == Constants.UI_PROTOTYPE_PROJECT_TYPE
             || projectTypeId == Constants.RIA_BUILD_PROJECT_TYPE
-            || projectTypeId == Constants.RIA_COMPONENT_PROJECT_TYPE) {
+            || projectTypeId == Constants.RIA_COMPONENT_PROJECT_TYPE
+			|| projectTypeId == Constants.GAMEPLAN_PROJECT_TYPE) {
             return "registrants";
         } else {
             return "contest_registrants";
@@ -302,6 +313,8 @@ public abstract class Base extends ShortHibernateProcessor {
                 projectTypeId = Constants.RIA_BUILD_PROJECT_TYPE;
             } else if (String.valueOf(SoftwareComponent.RIA_COMPONENT_PHASE).equals(phaseId)) {
                 projectTypeId = Constants.RIA_COMPONENT_PROJECT_TYPE;
+            } else if (String.valueOf(SoftwareComponent.GAMEPLAN_PHASE).equals(phaseId)) {
+                projectTypeId = Constants.GAMEPLAN_PROJECT_TYPE;
             }
         }
         return projectTypeId;

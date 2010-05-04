@@ -1,12 +1,14 @@
 <%--
-  - Author: pulky, snow01
-  - Version: 1.1
+  - Author: pulky, snow01, TCSASSEMBLIER
+  - Version: 1.2
   - Since: Specification Review Integration 1.0
-  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
   -
   - Version 1.1 (BUGR-3065) changes: added constants for UI prototype, RIA build and RIA component specification
   - reviews
   -
+  - Version 1.2 (Gameplan Contest Type Assembly 1.0) changes: Added support for new Gameplan competitions.  
+
   - Description: This is a simple include page that that helps avoiding duplicated code in review board pages.
   - It will define several variables used in those pages.
 --%>
@@ -25,6 +27,7 @@
 <c:set var="DEVELOPMENT_PROJECT_TYPE" value="<%=Constants.DEVELOPMENT_PROJECT_TYPE%>" scope="request"/>
 <c:set var="ARCHITECTURE_PROJECT_TYPE" value="<%=Constants.ARCHITECTURE_PROJECT_TYPE%>" scope="request"/>
 <c:set var="ASSEMBLY_PROJECT_TYPE" value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>" scope="request"/>
+<c:set var="GAMEPLAN_PROJECT_TYPE" value="<%=Constants.GAMEPLAN_PROJECT_TYPE%>" scope="request"/>
 <c:set var="CONCEPTUALIZATION_SPECIFICATION_PROJECT_TYPE"
     value="<%=Constants.CONCEPTUALIZATION_SPECIFICATION_PROJECT_TYPE%>" scope="request"/>
 <c:set var="SPECIFICATION_SPECIFICATION_PROJECT_TYPE" value="<%=Constants.SPECIFICATION_SPECIFICATION_PROJECT_TYPE%>"
@@ -47,7 +50,8 @@
     value="<%=Constants.RIA_BUILD_SPECIFICATION_PROJECT_TYPE%>" scope="request"/>
 <c:set var="RIA_COMPONENT_SPECIFICATION_PROJECT_TYPE"
     value="<%=Constants.RIA_COMPONENT_SPECIFICATION_PROJECT_TYPE%>" scope="request"/>
-
+<c:set var="GAMEPLAN_SPECIFICATION_PROJECT_TYPE"
+    value="<%=Constants.GAMEPLAN_SPECIFICATION_PROJECT_TYPE%>" scope="request"/>
 <c:choose>
     <c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Conceptualization" scope="request"/>
@@ -157,6 +161,12 @@
         <c:set var="eligibleReviewBoardName" value="the TopCoder Architecture or Development Review Boards" scope="request"/>
         <c:set var="handleContext" value="development" scope="request"/>
     </c:when>
+    <c:when test="${projectType == GAMEPLAN_SPECIFICATION_PROJECT_TYPE}">
+        <c:set var="projectTypeDesc" value="Specification Review" scope="request"/>
+        <c:set var="projectTypeTitle" value="Specification Review" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="the TopCoder Gameplan Review Board" scope="request"/>
+        <c:set var="handleContext" value="gameplan" scope="request"/>
+    </c:when>	
     <c:when test="${projectType == ARCHITECTURE_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Architecture" scope="request"/>
         <c:set var="projectTypeTitle" value="Architecture" scope="request"/>
@@ -181,6 +191,12 @@
         <c:set var="eligibleReviewBoardName" value="the TopCoder Architecture or Development Review Boards" scope="request"/>
         <c:set var="handleContext" value="development" scope="request"/>
     </c:when>
+    <c:when test="${projectType == GAMEPLAN_PROJECT_TYPE}">
+        <c:set var="projectTypeDesc" value="Gameplan" scope="request"/>
+        <c:set var="projectTypeTitle" value="Gameplan" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="the TopCoder Gameplan Review Boards" scope="request"/>
+        <c:set var="handleContext" value="gameplan" scope="request"/>
+    </c:when>	
 </c:choose>
 
 <c:set var="PROJECT_ID" value="<%=Constants.PROJECT_ID%>" scope="request"/>

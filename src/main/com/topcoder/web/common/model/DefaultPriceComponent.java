@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common.model;
 
@@ -66,10 +66,15 @@ import com.topcoder.shared.util.logging.Logger;
  *   <ol>
  *     <li>Added support for Specification Review projects.</li>
  *   </ol>
+ *
+ *   Version 1.1.4 (Gameplan Contest Type Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for Gameplan projects.</li>
+ *   </ol> 
  * </p>
  *
- * @author dok, ivern, isv, pulky, snow01
- * @version 1.1.3
+ * @author dok, ivern, isv, pulky, snow01, TCSASSEMBLIER
+ * @version 1.1.4
  */
 
 public class DefaultPriceComponent implements SoftwareComponent {
@@ -190,7 +195,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
         } else if (phaseId == ARCHITECTURE_PHASE) {
             return new ArchitectureReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
         } else if (phaseId == CONCEPTUALIZATION_PHASE || phaseId == SPECIFICATION_PHASE
-                   || phaseId == TEST_SUITES_PHASE || phaseId == TEST_SCENARIOS_PHASE) {
+                   || phaseId == TEST_SUITES_PHASE || phaseId == TEST_SCENARIOS_PHASE || phaseId == GAMEPLAN_PHASE) {
             return new ApplicationReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
         } else if (phaseId == UI_PROTOTYPE_PHASE || phaseId == RIA_BUILD_PHASE ||
                 phaseId == RIA_COMPONENT_PHASE) {
@@ -201,7 +206,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
                 phaseId == ARCHITECTURE_SPECIFICATION_PHASE || phaseId == ASSEMBLY_SPECIFICATION_PHASE ||
                 phaseId == TEST_SUITES_SPECIFICATION_PHASE || phaseId == TEST_SCENARIOS_SPECIFICATION_PHASE ||
                 phaseId == UI_PROTOTYPE_SPECIFICATION_PHASE || phaseId == RIA_BUILD_SPECIFICATION_PHASE ||
-                phaseId == RIA_COMPONENT_SPECIFICATION_PHASE) {
+                phaseId == RIA_COMPONENT_SPECIFICATION_PHASE || phaseId == GAMEPLAN_SPECIFICATION_PHASE) {
             return new SpecificationReviewerPaymentCalculator(phaseId);
         } else {
             throw new IllegalArgumentException("Invalid phaseId (" + phaseId + ")");
@@ -312,6 +317,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
             System.out.println("UI Prototype phaseId                    : " + UI_PROTOTYPE_PHASE);
             System.out.println("RIA Build phaseId                       : " + RIA_BUILD_PHASE);
             System.out.println("RIA Component phaseId                   : " + RIA_COMPONENT_PHASE);
+            System.out.println("Gameplan phaseId                        : " + GAMEPLAN_PHASE);
             System.out.println("Specification Review phaseId            : " + SPECIFICATION_REVIEW_PHASE);
 			System.out.println("Design Specification phaseId            : " + DESIGN_SPECIFICATION_PHASE);
             System.out.println("Development Specification phaseId       : " + DEVELOPMENT_SPECIFICATION_PHASE);
@@ -323,6 +329,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
             System.out.println("UI Prototype Specification phaseId      : " + UI_PROTOTYPE_SPECIFICATION_PHASE);
             System.out.println("RIA Build Specification phaseId         : " + RIA_BUILD_SPECIFICATION_PHASE);
             System.out.println("RIA Component Specification phaseId     : " + RIA_COMPONENT_SPECIFICATION_PHASE);
+            System.out.println("Gameplan Specification phaseId          : " + GAMEPLAN_SPECIFICATION_PHASE);
         } else {
             DefaultPriceComponent sc = new DefaultPriceComponent(1, Integer.parseInt(args[0]),
                                                                  Integer.parseInt(args[1]), Integer.parseInt(args[2]),

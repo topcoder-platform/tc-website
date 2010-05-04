@@ -1,5 +1,5 @@
 <%--
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
  *
  * This JSP renders TopCoder web site's left navigation bar.
  *
@@ -14,8 +14,10 @@
  * - Version 1.3 (Testing Competition Split Release Assembly 1.0) : Updated Application Testing to Test Suites and
  *   added Test Scenarios navigation entries.
  *
- * Author pulky
- * Version 1.3
+ * - Version 1.4 (Gameplan Contest Type Assembly 1.0) : Added support for new Gameplan competitions.
+ *
+ * Author pulky, TCSASSEMBLIER
+ * Version 1.4
 --%>
 <%@ page language="java"%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
@@ -69,6 +71,18 @@
             nav.search("m_algo_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Algorithm+Competition+FAQs", "FAQs", "algo_faqs"));
             nav.search("m_algo_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Algorithm+Competition+Rating+System", "Rating System", "algo_rating_system"));
             nav.search("m_algo_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Write+Problems+for+TopCoder", "Write Problems", "algo_write"));
+      /* Since 1.4: Added "Gameplan" navigation links */
+      nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_gameplan_competitions')", "Gameplan", "m_gameplan_competitions"));
+       nav.search("m_gameplan_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ActiveContests&amp;pt=29", "Active Contests", "gameplan_compete"));
+       nav.search("m_gameplan_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ContestStatus&amp;pt=29", "Contest Status", "gameplan_contest_status"));
+       nav.search("m_gameplan_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewReviewProjects&amp;pt=29", "Review Opportunities", "gameplan_review"));
+         nav.search("m_gameplan_competitions").addChild(new NavNode("http://"+ApplicationServer.SOFTWARE_SERVER_NAME+"/review", "Submit &amp; Review", "gameplan_submit"));
+         nav.search("m_gameplan_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/TopCoder+UML+Tool", "UML Tool", "dev_uml_tool"));
+         nav.search("m_gameplan_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ReviewBoard&amp;pt=29", "Meet the Review Board", "gameplan_review_board"));
+         nav.search("m_gameplan_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_gameplan_stats')", "Statistics", "m_gameplan_stats"));
+            nav.search("m_gameplan_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;ph=140", "Past Contests", "gameplan_stats"));
+         nav.search("m_gameplan_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_gameplan_support')", "Support / FAQs", "m_gameplan_support"));
+            nav.search("m_gameplan_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Gameplan ", "How to Compete", "gameplan_howto"));
       nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_conceptualization_competitions')", "Software Conceptualization", "m_conceptualization_competitions"));
          nav.search("m_conceptualization_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/TopCoder+Conceptualization+Contests", "Overview", "conceptualization_overview"));
          nav.search("m_conceptualization_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ActiveContests&pt=23", "Active Contests", "conceptualization_compete"));
