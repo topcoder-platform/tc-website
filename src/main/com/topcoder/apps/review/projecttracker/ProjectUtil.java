@@ -760,6 +760,9 @@ public class ProjectUtil {
         // Approval Required
         createProjectInfo(ps, projectId, 41, "true", modUserId);
 
+        // Send Winner Emails
+        createProjectInfo(ps, projectId, 43, "true", modUserId);
+
         close(ps);
     }
 
