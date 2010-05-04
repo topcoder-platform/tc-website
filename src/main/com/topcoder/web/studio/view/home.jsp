@@ -37,7 +37,7 @@
 <% ResultSetContainer totalPrizePaidRS = (ResultSetContainer) ((Map) request.getAttribute("studio_home_data")).get("total_prize_paid");%>
 <% NumberFormat formatter = NumberFormat.getInstance();
    formatter.setParseIntegerOnly(true);
-   String totalPrizePaid = "0"; //formatter.format(totalPrizePaidRS.getFloatItem(0,0)+134598);%>
+   String totalPrizePaid = formatter.format(totalPrizePaidRS.getFloatItem(0,0)+134598);%>
 
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
