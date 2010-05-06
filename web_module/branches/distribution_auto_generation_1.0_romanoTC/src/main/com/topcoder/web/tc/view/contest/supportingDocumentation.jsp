@@ -1,7 +1,9 @@
 <%--
-  - Author: pulky
+  - Author: pulky, romanoTC
   - Version: 1.0
-  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  - Version: 1.1 (Distribution Auto Generation Assembly v1.0) Change notes: Added support for showing instruction
+    links next to document (@see ProjectDetail.properties)
+  - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
   -
   - Description: This is a simple include page that renders available documentation and helps avoiding duplicated 
   - code in project details pages.

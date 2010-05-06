@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.contest;
 
@@ -49,7 +49,7 @@ import com.topcoder.web.tc.controller.request.util.ReliabilityBonusCalculator;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, TCSASSEMBLER
+ * @author dok, pulky, romanoTC
  * @version 1.4
  */
 public class ProjectDetail extends Base {
