@@ -72,7 +72,8 @@
         </td>
         <td align="right">
             <a href="/wiki/display/tc/Getting+Started+in+Component+Design+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
-          		<a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=patron"><img src="/i/tournament/tco10/banners/tco10-nsa-510x100.png" alt="NSA - TCO10 Event Patron" /></a><br /><br />
+          		<!--<a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=patron"><img src="/i/tournament/tco10/banners/tco10-nsa-510x100.png" alt="NSA - TCO10 Event Patron" /></a><br /><br />-->
+                <a href="<tc-webtag:linkTracking link='http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=sponsor1' refer='active contest' />"><img src="/i/tournament/tco10/banners/tco10-yandex-510x100.png" alt="Yandex - Event Sponsor - 2010 TopCoder Open" /></a><br /><br />            
         </td>
     </tr>
 </table>
@@ -210,7 +211,8 @@
         </td>
         <td align="right">
             <a href="/wiki/display/tc/Getting+Started+in+Component+Development+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
-          		<a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=patron"><img src="/i/tournament/tco10/banners/tco10-nsa-510x100.png" alt="NSA - TCO10 Event Patron" /></a><br /><br />
+          		<!--<a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=patron"><img src="/i/tournament/tco10/banners/tco10-nsa-510x100.png" alt="NSA - TCO10 Event Patron" /></a><br /><br />-->
+                <a href="<tc-webtag:linkTracking link='http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=sponsor1' refer='active contest' />"><img src="/i/tournament/tco10/banners/tco10-yandex-510x100.png" alt="Yandex - Event Sponsor - 2010 TopCoder Open" /></a><br /><br />            
         </td>
     </tr>
 </table>
