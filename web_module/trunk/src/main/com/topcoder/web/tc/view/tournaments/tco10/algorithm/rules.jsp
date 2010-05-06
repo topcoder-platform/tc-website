@@ -44,7 +44,7 @@
                             <p>The System Testing Phase applies to all submissions that have not already been successfully challenged. If the TopCoder System Test finds a flawed submission, the Competitor who submitted that submission will lose all of the points that were originally awarded for that submission. The System Testing Phase consists of applying a set of inputs to a submission. If the output from a Competitor's submission is not correct, the submission is considered flawed and loses all points awarded. All successful challenges from the Challenge Phase will be added to the sets of inputs for the System Testing Phase.</p>
 
                             <h3 class="subTitle">Qualification Rounds</h3><!-- sub title-->
-                            <p><span class="high">Automatic Berths -</span> The 200 members who register for the Tournament by April 30, 2010 at 12:00 UTC -4 who have the highest algorithm competition rating as of Friday, April 30, 2010 and who meet all of the following criteria will receive an automatic berth into Online Round 1:</p>
+                            <p><span class="high">Automatic Berths -</span> The 200 members who register for the Tournament by April 30, 2010 at 12:00 UTC -4 who have the highest algorithm competition rating as of Friday, April 30, 2010 and who meet all of the following criteria will receive an automatic berth into Online Round 1:</p>
                             <ul class="textlist">
                                 <li>Competed in a TopCoder algorithm competition between January 1, 2010 and April 30, 2010</li>
                                 <li>Competed in a total of at least three (3) TopCoder rated events as a member at any time</li>
@@ -65,20 +65,21 @@
 							</tr>
 							<tr>
                                 <td class="round">Round 1</td>
-                                <td class="time">Saturday, May 1,2010<br /><span class="high">Register:</span> 9:00 - 11:55 UTC -4<br /><span class="high">Start:</span> 12:UTC -4</td>
-                                <td>All members who have not previously qualififed - limited to the first 2,000 Competitors who register in the Arena</td>
+                                <td class="time">Saturday, May 1,2010<br /><span class="high">Register:</span> 9:00 - 11:55 UTC -4<br />
+                                <span class="high">Start:</span> 12:00 UTC -4</td>
+                                <td>All members who have not previously qualififed - limited to the first 2,000 Competitors who register in the Arena</td>
                                 <td colspan="2" class="number">600</td>
 							</tr>
                             <tr>
                                 <td>Round 2</td>
-                                <td>Wednesday, May 12, 2010<br /><span class="high">Register:</span> 4:00 - 6:55 UTC -4<br /><span class="high">Start:</span> 7:00 UTC -4</td>
-                                <td>All members who have not previously qualififed - limited to the first 2,000 Competitors who register in the Arena</td>
+                                <td>Wednesday, May 12, 2010<br /><span class="high">Register:</span> 4:00 - 6:55 UTC -4<br /><span class="high">Start:</span> 7:00 UTC -4</td>
+                                <td>All members who have not previously qualififed - limited to the first 2,000 Competitors who register in the Arena</td>
                                 <td colspan="2">600</td>
 							</tr>
                             <tr class="last">
                                 <td>Round 3</td>
-                                <td>Monday, May 24, 2010<br /><span class="high">Register:</span> 18:00 - 20:55  UTC -4<br /><span class="high">Start:</span> 21:00 UTC -4</td>
-                                <td>All members who have not previously qualified - limited to the first 2,000 Competitors who register in the Arena</td>
+                                <td>Monday, May 24, 2010<br /><span class="high">Register:</span> 18:00 - 20:55  UTC -4<br /><span class="high">Start:</span> 21:00 UTC -4</td>
+                                <td>All members who have not previously qualified - limited to the first 2,000 Competitors who register in the Arena</td>
                                 <td colspan="2">600</td>
 							</tr>
                         </table>
@@ -106,31 +107,31 @@
 							</tr>
 							<tr>
                                 <td class="round">Round 1</td>
-                                <td class="time">Saturday, June 19, 2010<br /><span class="high">Register:</span> 9:00 - 11:55 UTC -4<br /><span class="high">Start:</span> 12:00 UTC -4</td
+                                <td class="time">Saturday, June 19, 2010<br /><span class="high">Register:</span> 9:00 - 11:55 UTC -4<br /><span class="high">Start:</span> 12:00 UTC -4</td
                                 ><td>Up to 2,000</td>
                                 <td colspan="2" class="number">850</td>
 							</tr>
                             <tr>
                                 <td>Round 2</td>
-                                <td>Saturday, June 26, 2010<br /><span class="high">Register:</span> 9:00 - 11:55 UTC -4<br /><span class="high">Start:</span> 12:00 UTC -4</td>
+                                <td>Saturday, June 26, 2010<br /><span class="high">Register:</span> 9:00 - 11:55 UTC -4<br /><span class="high">Start:</span> 12:00 UTC -4</td>
                                 <td>850</td>
                                 <td colspan="2">350</td>
 							</tr>
                             <tr>
                                 <td>Round 3</td>
-                                <td>Saturday, July 10, 2010<br /><span class="high">Register:</span> 9:00 - 11:55 UTC -4<br /><span class="high">Start:</span> 12:00 UTC -4</td>
+                                <td>Saturday, July 10, 2010<br /><span class="high">Register:</span> 9:00 - 11:55 UTC -4<br /><span class="high">Start:</span> 12:00 UTC -4</td>
                                 <td>350</td>
                                 <td colspan="2">150</td>
                             </tr>
                             <tr>
                                 <td>Round 4</td>
-                                <td>Saturday, July 24, 2010<br /><span class="high">Register:</span> 9:00 - 11:55 UTC -4<br /><span class="high">Start:</span> 12:00 UTC -4</td>
+                                <td>Saturday, July 24, 2010<br /><span class="high">Register:</span> 9:00 - 11:55 UTC -4<br /><span class="high">Start:</span> 12:00 UTC -4</td>
                                 <td>150</td>
                                 <td colspan="2">60</td>
                             </tr>
                             <tr class="last">
                                 <td>Round 5</td>
-                                <td>Saturday, August 7, 2010<br /><span class="high">Register:</span> 9:00 - 11:55 UTC -4<br /><span class="high">Start:</span> 12:00 UTC -4</td>
+                                <td>Saturday, August 7, 2010<br /><span class="high">Register:</span> 9:00 - 11:55 UTC -4<br /><span class="high">Start:</span> 12:00 UTC -4</td>
                                 <td>60</td>
                                 <td colspan="2">24</td>
                             </tr>
