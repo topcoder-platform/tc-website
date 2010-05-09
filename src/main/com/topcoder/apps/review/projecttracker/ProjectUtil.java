@@ -81,6 +81,7 @@ public class ProjectUtil {
     private static final int PHASE_TYPE_SCREEN = 3;
     private static final int PHASE_TYPE_REVIEW = 4;
     private static final int PHASE_TYPE_APPEAL = 5;
+    private static final int PHASE_TYPE_APPROVAL = 11;
     private static final DateFormat DATE_FORMAT = new SimpleDateFormat("MM.dd.yyyy hh:mm a", Locale.US);
 
     public static final int COMPONENT_TESTING_PROJECT_TYPE = 5;
@@ -454,6 +455,7 @@ public class ProjectUtil {
         // insert default scorecards
         long screenTemplateId = getScorecardId(conn, projectTypeId, 1);
         long reviewTemplateId = getScorecardId(conn, projectTypeId, 2);
+        long approvalTemplateId = getScorecardId(conn, projectTypeId, 3);
 
         for (int i = 0; i < phases.length; i++) {
             long projectPhaseId = nextId(PROJECT_PHASE_ID_SEQ);
@@ -487,6 +489,11 @@ public class ProjectUtil {
             if (phases[i].getPhaseType().getId() == PHASE_TYPE_APPEAL) {
                 // View Response During Appeal
                 createPhaseCriteria(conn, projectPhaseId, 4, "No", modUserId);
+            }
+
+            if (phases[i].getPhaseType().getId() == PHASE_TYPE_APPROVAL) {
+                createPhaseCriteria(conn, projectPhaseId, 1, String.valueOf(approvalTemplateId), modUserId);
+                createPhaseCriteria(conn, projectPhaseId, 6, "1", modUserId);
             }
 
             phaseIds.put(phases[i], String.valueOf(projectPhaseId));
