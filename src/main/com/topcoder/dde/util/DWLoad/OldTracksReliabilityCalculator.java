@@ -32,8 +32,15 @@ import javax.naming.Context;
  *   </ol>
  * </p>
  *
- * @author pulky
- * @version 1.1
+ * <p>
+ *   Version 1.2 Change notes:
+ *   <ol>
+ *     <li>Added constraints check for rated projects.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author pulky, VolodymyrK
+ * @version 1.2
  */
 public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
     protected static final Logger log = Logger.getLogger(ReliabilityRating.class);
@@ -75,6 +82,33 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
     protected static final String ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT_NO_PREFIX =
         " and " + ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT_BASE;
 
+    /**
+     * Base SQL fragment to be added to a where clause to select only rated projects
+     * 
+     * @since 1.2
+     */
+    private static final String RATED_CONSTRAINTS_SQL_FRAGMENT_BASE =
+        "project_id in (select pi.project_id from project_info pi where pi.project_info_type_id=13 " +
+        "and (pi.value='Yes' or pi.value='yes')) ";
+
+    /**
+     * SQL fragment to be added to a where clause to select only rated projects
+     * 
+     * @since 1.2
+     */
+    protected static final String RATED_CONSTRAINTS_SQL_FRAGMENT =
+        " and p." + RATED_CONSTRAINTS_SQL_FRAGMENT_BASE;
+
+    /**
+     * SQL fragment to be added to a where clause to select only rated projects
+     * Removed project (p) prefix
+     * 
+     * @since 1.2
+     */
+
+    protected static final String RATED_CONSTRAINTS_SQL_FRAGMENT_NO_PREFIX =
+        " and " + RATED_CONSTRAINTS_SQL_FRAGMENT_BASE;
+
     private static final String updateProjectResult =
         "UPDATE project_result SET old_reliability = ?, new_reliability = ?, current_reliability_ind = ? " +
         " WHERE project_id = ? and user_id = ? ";
@@ -93,7 +127,8 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
      */
     private static final String clearCurrentReliability = "update project_result set current_reliability_ind = 0 where project_id in " +
         "(select project_id from project where project_category_id+111 = ?) " +
-        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT_NO_PREFIX;
+        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT_NO_PREFIX +
+        RATED_CONSTRAINTS_SQL_FRAGMENT_NO_PREFIX;
 
     /**
      * SQL query that marks records that should be included in the process
@@ -104,7 +139,8 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         "where reliability_ind is null " +
         "and final_score >= ? "+
         " and project_id in (select project_id from project where project_category_id = ?) " +
-        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT_NO_PREFIX;
+        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT_NO_PREFIX + 
+        RATED_CONSTRAINTS_SQL_FRAGMENT_NO_PREFIX;
 
     /**
      * SQL query that retrieves unmarked records
@@ -123,6 +159,7 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         "and ci.user_id = pr.user_id " +
         " and p.project_category_id = ? " +
         ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
+        RATED_CONSTRAINTS_SQL_FRAGMENT +
         " order by ci.create_time";
 
     private final static String setReliability =
@@ -150,6 +187,7 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         "from component_inquiry " +
         "where user_id = ci.user_id " +
         ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
+        RATED_CONSTRAINTS_SQL_FRAGMENT +
         "and project_id = ?)";
 
     public void calculateReliability(Connection conn, int historyLength, int competitionTypeId, Date startDate, Date pivotDate) throws SQLException {
@@ -290,6 +328,7 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         " and pr.project_id = p.project_id" +
         " and p.project_category_id+111=?" +
         ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
+        RATED_CONSTRAINTS_SQL_FRAGMENT +
         " union" +
         " select distinct pr.user_id" +
         " from project_result pr" +
@@ -302,7 +341,8 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         " and pr.final_score >= ?" +
         " and pr.project_id = p.project_id" +
         " and p.project_category_id+111=?" +
-        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT;
+        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
+        RATED_CONSTRAINTS_SQL_FRAGMENT;
 
     protected Set<Long> getIncludedUsers(Connection conn, int competitionTypeId, Date startDate, Date pivotDate) throws SQLException {
         PreparedStatement ps = null;
@@ -346,7 +386,8 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         " and pi.scheduled_start_time >= ?" +
         " and pr.reliability_ind = 1" +
         " and pr.reliable_submission_ind is null" +
-        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT;
+        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
+        RATED_CONSTRAINTS_SQL_FRAGMENT;
 
     private static final String updateReliableSubmission =
         "update project_result set reliable_submission_ind = ?" +
@@ -421,7 +462,8 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         " and p.project_category_id = ? "+
         " and pr.reliability_ind = 1" +
         " and pr.reliable_submission_ind is null" +
-        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT;
+        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
+        RATED_CONSTRAINTS_SQL_FRAGMENT;
 
     /**
      * mark all the project result records before the change date
@@ -484,6 +526,7 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         " and pr.reliable_submission_ind is not null" +
         " and p.project_category_id = ? " +
         ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
+        RATED_CONSTRAINTS_SQL_FRAGMENT +
         " order by ci.create_time asc";
 
     /**
@@ -503,6 +546,7 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         " and pr.reliable_submission_ind is not null" +
         " and p.project_category_id = ? " +
         ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
+        RATED_CONSTRAINTS_SQL_FRAGMENT +
         " and pr.reliability_ind = 1";
 
     protected int updateOldProjectResult(Connection conn, int competitionTypeId, Date startDate, Date pivotDate) throws SQLException {
@@ -694,6 +738,7 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         " and pr.reliable_submission_ind is not null" +
         " and pi.scheduled_start_time <= ?" + // BUGR-852 modification: scheduled_start_time should be not greater than pivot date
         ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
+        RATED_CONSTRAINTS_SQL_FRAGMENT +
         " order by ci.create_time asc";
 
     /**
@@ -725,6 +770,7 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         " and pr.reliable_submission_ind is not null" +
         " and pi.scheduled_start_time > ?" + // BUGR-852 modification: scheduled_start_time should be greater than pivot date
         ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
+        RATED_CONSTRAINTS_SQL_FRAGMENT +
         " order by complete_date asc";
 
     protected List<ReliabilityInstance> retrieveReliabilityHistory(Connection conn, long userId, int historyLength, int competitionTypeId, Date startDate, Date pivotDate) throws SQLException {

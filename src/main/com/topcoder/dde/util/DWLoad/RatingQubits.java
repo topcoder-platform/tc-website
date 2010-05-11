@@ -35,8 +35,15 @@ import com.topcoder.util.config.UnknownNamespaceException;
  *   </ol>
  * </p>
  *
- * @author pulky
- * @version 1.1
+ * <p>
+ *   Version 1.2 Change notes:
+ *   <ol>
+ *     <li>Added constraints check for rated projects.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author pulky, VolodymyrK
+ * @version 1.2
  */
 public class RatingQubits {
     private static final Logger log = Logger.getLogger(RatingQubits.class);
@@ -67,6 +74,15 @@ public class RatingQubits {
     private static final String ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT =
             " and p.project_id not in (select ce.contest_id from contest_eligibility ce " +
             " where ce.is_studio = 0) ";
+
+    /**
+     * SQL fragment to be added to a where clause to select only rated projects
+     * 
+     * @since 1.2
+     */
+    private static final String RATED_CONSTRAINTS_SQL_FRAGMENT =
+            " and p.project_id in (select pi.project_id from project_info pi where pi.project_info_type_id=13 " +
+             "and (pi.value='Yes' or pi.value='yes')) ";
 
     public static void main(String[] args) {
         RatingQubits tmp = new RatingQubits();
@@ -193,6 +209,7 @@ public class RatingQubits {
                     "and pr.rating_ind = 1 " +
                     "and pr.final_score is not null " +
                     ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
+                    RATED_CONSTRAINTS_SQL_FRAGMENT +
                     "and pi_rd.project_id = p.project_id and pi_rd.project_info_type_id = 22 ";
             if (cutoff != null) {
             	sqlStr += "and pp.project_id = p.project_id and pp.phase_type_id = 1 " +
@@ -562,6 +579,7 @@ public class RatingQubits {
             "and p.project_category_id = ? " +
             "and pr.rating_ind =1 " +
             ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
+            RATED_CONSTRAINTS_SQL_FRAGMENT +
             "and pr.final_score is not null ";
 
     /**
@@ -599,6 +617,7 @@ public class RatingQubits {
             "and p.project_category_id = ? " +
             "and pr.rating_ind =1 " +
             ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
+            RATED_CONSTRAINTS_SQL_FRAGMENT +
             "and pr.final_score is not null ";
 
     /**
