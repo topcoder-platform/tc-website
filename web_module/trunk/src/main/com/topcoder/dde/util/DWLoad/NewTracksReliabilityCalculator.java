@@ -22,8 +22,15 @@ import java.util.List;
  *   </ol>
  * </p>
  *
- * @author pulky
- * @version 1.1
+ * <p>
+ *   Version 1.2 Change notes:
+ *   <ol>
+ *     <li>Added constraints check for rated projects.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author pulky, VolodymyrK
+ * @version 1.2
  */
 public class NewTracksReliabilityCalculator extends OldTracksReliabilityCalculator  {
 
@@ -55,6 +62,7 @@ public class NewTracksReliabilityCalculator extends OldTracksReliabilityCalculat
                 " and pr.reliability_ind = 1" +
                 " and pr.reliable_submission_ind is not null" +
                 ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
+                RATED_CONSTRAINTS_SQL_FRAGMENT +
                 " order by complete_date asc";
 
     @Override
@@ -92,6 +100,7 @@ public class NewTracksReliabilityCalculator extends OldTracksReliabilityCalculat
         "set reliability_ind = 1 " +
         "where reliability_ind is null " +
         ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT_NO_PREFIX +
+        RATED_CONSTRAINTS_SQL_FRAGMENT_NO_PREFIX +
         "and final_score >= ? " +
         " and project_id in (select project_id from project " +
         "           where project_category_id = ?) " +
@@ -105,6 +114,7 @@ public class NewTracksReliabilityCalculator extends OldTracksReliabilityCalculat
         "set reliability_ind = 0 " +
         "where reliability_ind is null " +
         ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT_NO_PREFIX +
+        RATED_CONSTRAINTS_SQL_FRAGMENT_NO_PREFIX +
         " and project_id in (select project_id from project " +
         "           where project_category_id = ?) " +
         " and project_id in (select project_id from project_phase group by project_id having min(actual_start_time) <= ?) ";
