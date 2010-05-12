@@ -45,23 +45,25 @@
 							</tr>
 							<tr>
                                 <td class="round">Round 1</td>
-                                <td class="time">Saturday, <br />May 1,2010<br /><span class="high">Register:</span> <br />9:00 - 11:55 UTC -4<br /><span class="high">Start:</span> <br />
+                                <td class="time">Saturday, <br />May 1,2010<br /><span class="high">Register:</span> <br />9:00 - 11:55 UTC -4<br /><span class="high">Start:</span> <br />
                                 <a href="http://timeanddate.com/worldclock/fixedtime.html?month=5&amp;day=1&amp;year=2010&amp;hour=12&amp;min=0&amp;sec=0&amp;p1=98" target="_blank">12:00 UTC -4</a></td>
-                                <td>All members who have not previously qualififed - limited to the first 2,000 Competitors who register in the Arena</td>
+                                <td>All members who have not previously qualififed - limited to the first 2,000 Competitors who register in the Arena</td>
                                 <td colspan="2" class="number">600</td>
 							</tr>
                             <tr>
                                 <td>Round 2</td>
-                                <td>Wednesday, <br />May 12, 2010<br /><span class="high">Register:</span> <br />4:00 - 6:55 UTC -4<br /><span class="high">Start:</span> <br />
+                                <td>Wednesday, <br />May 12, 2010<br /><span class="high">Register:</span> <br />4:00 - 6:55 UTC -4<br /><span class="high">Start:</span> <br />
                                 <a href="http://timeanddate.com/worldclock/fixedtime.html?month=5&amp;day=12&amp;year=2010&amp;hour=7&amp;min=0&amp;sec=0&amp;p1=98" target="_blank">7:00 UTC -4</a></td>
-                                <td>All members who have not previously qualififed - limited to the first 2,000 Competitors who register in the Arena</td>
+                                <td>All members who have not previously qualififed - limited to the first 2,000 Competitors who register in the Arena</td>
                                 <td colspan="2">600</td>
 							</tr>
                             <tr class="last">
                                 <td>Round 3</td>
-                                <td>Monday, <br />May 24, 2010<br /><span class="high">Register:</span> <br />18:00 - 20:55  UTC -4<br /><span class="high">Start:</span> <br />
+                                <td>Monday, <br />May 24, 2010<br /><span class="high">Register:</span> <br />18:00 - 20:55  UTC -4<br /><span class="high">Start:</span> <br />
                                 <a href="http://timeanddate.com/worldclock/fixedtime.html?month=5&amp;day=24&amp;year=2010&amp;hour=21&amp;min=0&amp;sec=0&amp;p1=98" target="_blank">21:00 UTC -4</a></td>
-                                <td>All members who have not previously qualififed - limited to the first 2,000 Competitors who register in the Arena</td>
+                                <td>All members who have not previously qualififed - limited to the first 2,000 Competitors who register in the Arena<br />
+                              <br />
+                              <strong><em>Please note that in order to register for this qualification round you will need to have <a href="http://www.topcoder.com/tco10?module=ViewUnifiedRegistration" target="_blank">registered for the TCO</a> at least 24 hours prior to the start of this round.</em></strong></td>
                                 <td colspan="2">600</td>
 							</tr>
                         </table>
@@ -75,28 +77,28 @@
 							</tr>
 							<tr>
                                 <td class="round">Round 1</td>
-                                <td class="time">Saturday, <br />June 19, 2010<br /><span class="high">Register:</span> <br />9:00 - 11:55 UTC -4<br /><span class="high">Start:</span> <br />
+                                <td class="time">Saturday, <br />June 19, 2010<br /><span class="high">Register:</span> <br />9:00 - 11:55 UTC -4<br /><span class="high">Start:</span> <br />
                                 <a href="http://timeanddate.com/worldclock/fixedtime.html?month=6&amp;day=19&amp;year=2010&amp;hour=12&amp;min=0&amp;sec=0&amp;p1=98" target="_blank">12:00 UTC -4</a></td>
                                 <td>Up to 2,000</td>
                                 <td colspan="2" class="number">850</td>
 							</tr>
                             <tr>
                                 <td>Round 2</td>
-                                <td>Saturday, <br />June 26, 2010<br /><span class="high">Register:</span> <br />9:00 - 11:55 UTC -4<br /><span class="high">Start:</span> <br />
+                                <td>Saturday, <br />June 26, 2010<br /><span class="high">Register:</span> <br />9:00 - 11:55 UTC -4<br /><span class="high">Start:</span> <br />
                                 <a href="http://timeanddate.com/worldclock/fixedtime.html?month=6&amp;day=26&amp;year=2010&amp;hour=12&amp;min=0&amp;sec=0&amp;p1=98" target="_blank">12:00 UTC -4</a></td>
                                 <td>850</td>
                                 <td colspan="2">350</td>
 							</tr>
                             <tr>
                                 <td>Round 3</td>
-                                <td>Saturday, <br />July 10, 2010<br /><span class="high">Register:</span> <br />9:00 - 11:55 UTC -4<br /><span class="high">Start:</span><br />
+                                <td>Saturday, <br />July 10, 2010<br /><span class="high">Register:</span> <br />9:00 - 11:55 UTC -4<br /><span class="high">Start:</span><br />
                                 <a href="http://timeanddate.com/worldclock/fixedtime.html?month=7&amp;day=10&amp;year=2010&amp;hour=12&amp;min=0&amp;sec=0&amp;p1=98" target="_blank">12:00 UTC -4</a></td>
                                 <td>350</td>
                                 <td colspan="2">150</td>
                             </tr>
                             <tr>
                                 <td>Round 4</td>
-                                <td>Saturday, <br />July 24, 2010<br /><span class="high">Register:</span><br />9:00 - 11:55 UTC -4<br /><span class="high">Start:</span> <br />
+                                <td>Saturday, <br />July 24, 2010<br /><span class="high">Register:</span><br />9:00 - 11:55 UTC -4<br /><span class="high">Start:</span> <br />
                                 <a href="http://timeanddate.com/worldclock/fixedtime.html?month=7&amp;day=24&amp;year=2010&amp;hour=12&amp;min=0&amp;sec=0&amp;p1=98" target="_blank">12:00 UTC -4</a></td>
                                 <td>150</td>
                                 <td colspan="2">60</td>
