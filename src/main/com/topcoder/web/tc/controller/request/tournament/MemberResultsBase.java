@@ -163,8 +163,9 @@ public abstract class MemberResultsBase extends StatBase {
                             TCResultItem passedReviewIndItem = rscDetails.getItem(j, "passed_review_ind");
                             if ((passedReviewIndItem != null) && (passedReviewIndItem.toString().equals("1"))) {
                                 int submittersCount = rscDetails.getIntItem(j, "passing_submitters_count");
-                                pts = getDRPlacementPoints(j, drPoints.get(projectId), submittersCount);
-                                place = String.valueOf(j + 1);
+                                int placeInt = rscDetails.getIntItem(j, "placed");
+                                pts = getDRPlacementPoints(placeInt, drPoints.get(projectId), submittersCount);
+                                place = String.valueOf(placeInt);
                             }
                             score = scfmt.format(rscDetails.getDoubleItem(j, "final_score"));
                         }

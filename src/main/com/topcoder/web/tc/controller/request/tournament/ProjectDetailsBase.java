@@ -137,8 +137,9 @@ public abstract class ProjectDetailsBase extends StatBase {
                     TCResultItem passedReviewIndItem = rsc.getItem(i, "passed_review_ind");
                     if ((passedReviewIndItem != null) && (passedReviewIndItem.toString().equals("1"))) {
                         int submittersCount = rsc.getIntItem(i, "passing_submitters_count");
-                        pts = getDRPlacementPoints(i, drPoints.get(projectId), submittersCount);
-                        place = String.valueOf(i + 1);
+                        int placeInt = rsc.getIntItem(i, "placed");
+                        pts = getDRPlacementPoints(placeInt, drPoints.get(projectId), submittersCount);
+                        place = String.valueOf(placeInt);
                     }
                     score = scfmt.format(rsc.getDoubleItem(i, "final_score"));
                 }
