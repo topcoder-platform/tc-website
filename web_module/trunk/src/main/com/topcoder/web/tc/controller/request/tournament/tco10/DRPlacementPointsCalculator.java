@@ -33,7 +33,7 @@ class DRPlacementPointsCalculator {
      * <p>Gets the placement points to be awarded to competitor who took specified place among specified total number of
      * submissions based on specified pool of <code>Digital Run</code> points for project.</p>
      *
-     * @param place an <code>int</code> providing the placement for competitor's submission (0-based).
+     * @param place an <code>int</code> providing the placement for competitor's submission (1-based).
      * @param projectDRPool an <code>int</code> providing the total pool of <code>Digital Run</code> points set for the
      *        target project.
      * @param submissionsCount an <code>int</code> providing the total number of submissions for project.
@@ -43,6 +43,10 @@ class DRPlacementPointsCalculator {
     static int getDRPlacementPoints(int place, int projectDRPool, int submissionsCount) {
         submissionsCount = Math.min(submissionsCount, 5);
         if (submissionsCount <= 0) {
+            return 0;
+        }
+        place--;
+        if (place < 0) {
             return 0;
         }
         int[] points = digitalRunPointsMatrix[submissionsCount - 1];

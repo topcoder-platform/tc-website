@@ -173,7 +173,8 @@ public abstract class ContestDetailsBase extends StatBase {
                         TCResultItem passedReviewIndItem = rscDetails.getItem(j, "passed_review_ind");
                         if ((passedReviewIndItem != null) && (passedReviewIndItem.toString().equals("1"))) {
                             int submittersCount = rscDetails.getIntItem(j, "passing_submitters_count");
-                            pts = getDRPlacementPoints(j, drPoints, submittersCount);
+                            int place = rscDetails.getIntItem(j, "placed");
+                            pts = getDRPlacementPoints(place, drPoints, submittersCount);
                         }
                     }
                 } else {
