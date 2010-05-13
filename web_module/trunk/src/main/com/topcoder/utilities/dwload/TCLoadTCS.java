@@ -1910,7 +1910,7 @@ public class TCLoadTCS extends TCLoad {
                 "update submission_review set review_resp_id = ? where project_id = ? and user_id = ? and reviewer_id = ?";
 
         final String MAX_REVIEW_RESP_ID_SELECT =
-                "select max(review_resp_id) from submission_review where project_id = ? and user_id = ?";
+                "select max(review_resp_id) from submission_review where project_id = ?";
 
         try {
             long start = System.currentTimeMillis();
@@ -2012,7 +2012,6 @@ public class TCLoadTCS extends TCLoad {
                                 // the count of review_resp_id is 4 is large than 1
                                 maxReviewRespSelect.clearParameters();
                                 maxReviewRespSelect.setLong(1, projectId);
-                                maxReviewRespSelect.setLong(2, userId);
                                 rs = maxReviewRespSelect.executeQuery();
                                 rs.next();
                                 int maxRespId = rs.getInt(1);
