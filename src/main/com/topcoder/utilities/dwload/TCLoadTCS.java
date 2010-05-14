@@ -1277,28 +1277,28 @@ public class TCLoadTCS extends TCLoad {
         final String RESULT_SELECT =
                 " select distinct pr.project_id " +
                         "    ,pr.user_id " +
-                        "    ,case when exists(select '1' from submission s,upload u,resource r, resource_info ri  " +
-                        "           where r.resource_id = ri.resource_id and ri.resource_info_type_id = 1 and u.resource_id = r.resource_id " +
-                        "           and u.upload_id = s.upload_id and u.project_id = pr.project_id and ri.value = pr.user_id and s.submission_status_id in (1,2,3,4))  " +
+                        "    ,case when exists(select '1' from submission s,upload u  " +
+                        "           where u.resource_id = r.resource_id " +
+                        "           and u.upload_id = s.upload_id and u.project_id = pr.project_id and s.submission_status_id in (1,2,3,4))  " +
                         "    then 1 else 0 end as submit_ind " +
-                        "    ,case when exists(select '1' from submission s,upload u,resource r, resource_info ri " +
-                        "           where r.resource_id = ri.resource_id and ri.resource_info_type_id = 1 and u.resource_id = r.resource_id " +
-                        "           and u.upload_id = s.upload_id and u.project_id = pr.project_id and ri.value = pr.user_id and submission_status_id in (1,2,3,4)) then pr.valid_submission_ind  " +
+                        "    ,case when exists(select '1' from submission s,upload u " +
+                        "           where u.resource_id = r.resource_id  " +
+                        "           and u.upload_id = s.upload_id and u.project_id = pr.project_id and submission_status_id in (1,2,3,4)) then pr.valid_submission_ind  " +
                         "    else 0 end as valid_submission_ind " +
                         "    ,pr.raw_score " +
                         "    ,pr.final_score " +
                         "    ,(select max(create_time) from component_inquiry where project_id = p.project_id and user_id = pr.user_id)  as inquire_timestamp " +
                         "    ,r2.value registrationd_date" +
                         //todo improve this data in transactional.  many records are 11/2/2006 which isn't correct.
-                        "    ,(select max(u.create_date) from submission s,upload u,resource r,resource_info ri " +
-                        "           where ri.resource_id = r.resource_id and ri.resource_info_type_id = 1 and r.resource_id = u.resource_id " +
-                        "           and u.upload_id = s.upload_id and u.project_id = pr.project_id and ri.value = pr.user_id and submission_status_id <> 5) as submit_timestamp  " +
+                        "    ,(select max(u.create_date) from submission s,upload u " +
+                        "           where r.resource_id = u.resource_id " +
+                        "           and u.upload_id = s.upload_id and u.project_id = pr.project_id and submission_status_id <> 5) as submit_timestamp " +
                         //todo this is no good, modify date shouldn't be used in this way.  it could be updated for any reason, so it's misleading.  perhaps we should
                         //todo use the actual review phase end (or the most recent one) instead
-                        "    ,(select max(r.modify_date) from review r,scorecard s,submission sub, upload u,resource res,resource_info ri  " +
-                        "           where ri.resource_id = res.resource_id and ri.resource_info_type_id = 1 and res.resource_id = u.resource_id " +
-                        "           and u.upload_id = sub.upload_id and sub.submission_id = r.submission_id and r.scorecard_id = s.scorecard_id " +
-                        "           and s.scorecard_type_id = 2 and r.committed = 1 and u.project_id = pr.project_id and ri.value = pr.user_id and sub.submission_status_id <> 5) as review_completed_timestamp " +
+                        "    ,(select max(rev.modify_date) from review rev,scorecard s,submission sub, upload u  " +
+                        "           where r.resource_id = u.resource_id  " +
+                        "           and u.upload_id = sub.upload_id and sub.submission_id = rev.submission_id and rev.scorecard_id = s.scorecard_id  " +
+                        "           and s.scorecard_type_id = 2 and rev.committed = 1 and u.project_id = pr.project_id and sub.submission_status_id <> 5) as review_completed_timestamp " +
 //                        "    ,(select count(*) from project_result pr where project_id = p.project_id and pr.passed_review_ind = 1) as num_submissions_passed_review " +
                         "       ,(select count(*) from submission s, upload u  " +
                         "         where u.upload_id = s.upload_id and project_id = p.project_id  " +
