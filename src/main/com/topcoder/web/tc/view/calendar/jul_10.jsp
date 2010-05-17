@@ -112,7 +112,8 @@
       </td>
       <td class="value">17
       	<div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=14186">Member SRM 476</A></strong><br />
+         <strong><A href="/tc?module=MatchDetails&rd=14186">SRM 476</A></strong><br />
+         brought to you by <A href="/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=sponsor2">Facebook</A><br />
          12:00
          </div>  
       </td>

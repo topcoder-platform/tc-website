@@ -72,7 +72,6 @@
       <td class="value">5
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14154">SRM 472</A></strong><br />
-         brought to you by <A href="/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=sponsor2">Facebook</A><br />
          12:00
          </div>
       </td>
