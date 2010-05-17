@@ -1893,7 +1893,6 @@ public class TCLoadTCS extends TCLoad {
                                 " OR res.modify_user <> 'Converter' " +
                                 ")"
                                 : ")");
-        ;
 
         final String SUBMISSION_UPDATE =
                 "update submission_review set raw_score = ?, final_score = ?, num_appeals = ?, num_successful_appeals = ?, review_resp_id = ?,  scorecard_id = ?, scorecard_template_id = ? " +
@@ -1903,14 +1902,8 @@ public class TCLoadTCS extends TCLoad {
                 "insert into submission_review (project_id, user_id, reviewer_id, raw_score, final_score, num_appeals, " +
                         "num_successful_appeals, review_resp_id, scorecard_id, scorecard_template_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-        final String REVIEW_RESP_4_COUNT =
-                "select count(*) from submission_review where project_id = ? and user_id = ? and review_resp_id = 4";
-
         final String REVIEW_RESP_UPDATE =
-                "update submission_review set review_resp_id = ? where project_id = ? and user_id = ? and reviewer_id = ?";
-
-        final String MAX_REVIEW_RESP_ID_SELECT =
-                "select max(review_resp_id) from submission_review where project_id = ?";
+                "update submission_review set review_resp_id = ? where project_id = ? and reviewer_id = ?";
 
         try {
             long start = System.currentTimeMillis();
@@ -1918,8 +1911,6 @@ public class TCLoadTCS extends TCLoad {
             submissionSelect = prepareStatement(SUBMISSION_SELECT, SOURCE_DB);
             submissionUpdate = prepareStatement(SUBMISSION_UPDATE, TARGET_DB);
             submissionInsert = prepareStatement(SUBMISSION_INSERT, TARGET_DB);
-            reviewRespSelect = prepareStatement(REVIEW_RESP_4_COUNT, TARGET_DB);
-            maxReviewRespSelect = prepareStatement(MAX_REVIEW_RESP_ID_SELECT, TARGET_DB);
             reviewRespUpdate = prepareStatement(REVIEW_RESP_UPDATE, TARGET_DB);
             projectSelect = prepareStatement(PROJECT_SELECT, SOURCE_DB);
 
@@ -1928,10 +1919,12 @@ public class TCLoadTCS extends TCLoad {
 
             projects = projectSelect.executeQuery();
 
-            Map<String, Integer> reviewerResps = new HashMap<String, Integer>();
             while (projects.next()) {
+                Map<Long, Integer> reviewerResps = new HashMap<Long, Integer>();
+                long projectId = projects.getLong("project_id");
+
                 submissionSelect.clearParameters();
-                submissionSelect.setLong(1, projects.getLong("project_id"));
+                submissionSelect.setLong(1, projectId);
                 submissionSelect.setTimestamp(2, fLastLogTime);
                 submissionSelect.setTimestamp(3, fLastLogTime);
                 submissionSelect.setTimestamp(4, fLastLogTime);
@@ -1943,6 +1936,7 @@ public class TCLoadTCS extends TCLoad {
                 submissionInfo = submissionSelect.executeQuery();
                 //log.debug("after submission select");
 
+                int nextFreeReviewRespId = 4;
                 while (submissionInfo.next()) {
 
                     submissionUpdate.clearParameters();
@@ -1992,51 +1986,25 @@ public class TCLoadTCS extends TCLoad {
                         //log.debug("after submission insert");
                     }
 
-                    if (reviewRespId == 4) {
-                        // need rearrange review_resp_id
-                        long projectId = submissionInfo.getLong("project_id");
-                        long userId = submissionInfo.getLong("user_id");
-                        long reviewerId = submissionInfo.getLong("reviewer_id");
-                        String key = String.valueOf(projectId) + "-" + String.valueOf(reviewerId);
-                        Integer value = (Integer) reviewerResps.get(key);
-                        if (value == null) {
-                            // check current count which review_resp_id is 4 with project_id, user_id
-                            reviewRespSelect.clearParameters();
-                            reviewRespSelect.setLong(1, projectId);
-                            reviewRespSelect.setLong(2, userId);
-                            ResultSet rs = reviewRespSelect.executeQuery();
-                            rs.next();
-
-                            int countResp = rs.getInt(1);
-                            if (countResp > 1) {
-                                // the count of review_resp_id is 4 is large than 1
-                                maxReviewRespSelect.clearParameters();
-                                maxReviewRespSelect.setLong(1, projectId);
-                                rs = maxReviewRespSelect.executeQuery();
-                                rs.next();
-                                int maxRespId = rs.getInt(1);
-                                maxRespId++;
-                                if (maxRespId > 6) {
-                                    maxRespId = 5;
-                                }
-                                reviewRespId = maxRespId;
-                            }
-                        } else {
-                            reviewRespId = value.intValue();
+                    long reviewerId = submissionInfo.getLong("reviewer_id");
+                    if (reviewerResps.containsKey(reviewerId) == false) {
+                        if (reviewRespId == 4) {
+                            reviewRespId = nextFreeReviewRespId;
+                            nextFreeReviewRespId++;
                         }
-
-                        if (reviewRespId != 4) {
-                            reviewRespUpdate.clearParameters();
-                            reviewRespUpdate.setLong(1, reviewRespId);
-                            reviewRespUpdate.setLong(2, projectId);
-                            reviewRespUpdate.setLong(3, userId);
-                            reviewRespUpdate.setLong(4, reviewerId);
-                            reviewRespUpdate.executeUpdate();
-                        }
-                        reviewerResps.put(key, reviewRespId);
+                        reviewerResps.put(reviewerId, reviewRespId);
                     }
+
                     count++;
                     printLoadProgress(count, "submission review");
+                }
+
+                for (Long reviewerId : reviewerResps.keySet()) {
+                    reviewRespUpdate.clearParameters();
+                    reviewRespUpdate.setLong(1, reviewerResps.get(reviewerId));
+                    reviewRespUpdate.setLong(2, projectId);
+                    reviewRespUpdate.setLong(3, reviewerId);
+                    reviewRespUpdate.executeUpdate();
                 }
             }
 
