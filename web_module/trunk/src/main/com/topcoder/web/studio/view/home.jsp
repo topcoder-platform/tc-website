@@ -127,7 +127,7 @@
                                     <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=sponsor1"><img width="909" height="203" src="i/v4/tco10-yandex-studio.png" alt="Yandex - Event Sponsor - 2010 TopCoder Open" /></a>
                                 </li>
                                 <li style="display:none" class="loadWorkaround">
-                                   <!--<a href="http://www.topcoder.com/news/2010/04/12/meet-the-march-coders-and-designers-of-the-month-2/">--><img width="909" height="203" src="i/v4/2.png" alt="" />
+                                   <a href="http://www.topcoder.com/news/2010/05/12/meet-the-april-coders-and-designers-of-the-month-2/"><img width="909" height="203" src="i/v4/2.png" alt="" /></a>
                                 </li>
                                 <li>
                                     <a href="http://www.topcoder.com/reg/"><img width="909" height="203" src="i/v4/6.png" alt="" /></a>
