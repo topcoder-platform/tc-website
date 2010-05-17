@@ -604,6 +604,7 @@
         <mkdir dir="${jboss_conf}/com/topcoder/security"/>
         <mkdir dir="${jboss_conf}/com/topcoder/util/config"/>
         <mkdir dir="${jboss_conf}/com/topcoder/servlet/request"/>
+        <mkdir dir="${jboss_conf}/com/topcoder/web/tc/controller/request/contest"/>
         <copy todir="${jboss_conf}/com/topcoder/security">
             <fileset dir="${resources}/com/topcoder/security">
                 <include name="Util.properties"/>
@@ -622,6 +623,11 @@
         <copy todir="${jboss_conf}/com/topcoder/db/connectionfactory">
             <fileset dir="${resources}/com/topcoder/db/connectionfactory">
                 <include name="DBConnectionFactoryImpl.xml"/>
+            </fileset>
+        </copy>
+        <copy todir="${jboss_conf}/com/topcoder/web/tc/controller/request/contest">
+            <fileset dir="${resources}/com/topcoder/web/tc/controller/request/contest">
+                <include name="ProjectDetail.properties"/>
             </fileset>
         </copy>
 <!--
