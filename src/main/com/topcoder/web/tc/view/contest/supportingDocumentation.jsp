@@ -1,7 +1,9 @@
 <%--
-  - Author: pulky
+  - Author: pulky, romanoTC
   - Version: 1.0
-  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  - Version: 1.1 (Distribution Auto Generation Assembly v1.0) Change notes: Added support for showing instruction
+    links next to document (@see ProjectDetail.properties)
+  - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
   -
   - Description: This is a simple include page that renders available documentation and helps avoiding duplicated 
   - code in project details pages.
@@ -15,8 +17,9 @@
 
 <c:if test="${fn:length(supportingDocs) > 0}">
     <p><span class="bodySubtitle"><strong>Supporting Documentation</strong></span><br/>
-        <c:forEach items="${supportingDocs}" var="resultRow">
+        <c:forEach items="${supportingDocs}" var="resultRow" varStatus="status">
             <p>
+            
                 <c:choose>
                     <c:when test="${resultRow.map['document_type_id'] == 0}">
                         &nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="http://${SOFTWARE_SERVER_NAME}/catalog/document?id=${resultRow.map['document_id']}">Requirements Specification</a>
@@ -25,6 +28,10 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="http://${SOFTWARE_SERVER_NAME}/catalog/document?id=${resultRow.map['document_id']}">${resultRow.map['document_name']}</a>
                     </c:otherwise>
                 </c:choose>
+                <%-- Wiki instructions link --%>
+                <c:if test="${instructionsLinks[status.index] != null}">
+                &nbsp;(<a href='${instructionsLinks[status.index]}'>instructions</a>)
+                </c:if>
         	<br></p>
         </c:forEach>
     </p>
