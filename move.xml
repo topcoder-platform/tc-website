@@ -45,6 +45,7 @@
                 <include name="resources/taglib/**"/>
                 <include name="resources/tc/**"/>
                 <include name="resources/com/topcoder/randomstringimg/**"/>
+                <include name="resources/com/topcoder/web/tc/controller/request/contest/**"/>
                 <include name="resources/stat/**"/>
                 <include name="resources/corp/**"/>
                 <include name="resources/email/**"/>
