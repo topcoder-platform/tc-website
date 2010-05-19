@@ -4249,7 +4249,7 @@ public class TCLoadTCS extends TCLoad {
                         "   and ri2.resource_id = r.resource_id " +
                         "   and ri2.resource_info_type_id = 1 " +
                         ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
-                        "   and u.project_id = ? " +
+                        "   and u.project_id in (select distinct project_id from project_result) " +
                         "   and (ric.modify_date > ? " +
                         "   OR ri.modify_date > ? " +
                         "   OR r.modify_date > ?" +
@@ -4288,112 +4288,103 @@ public class TCLoadTCS extends TCLoad {
             select = prepareStatement(SELECT, SOURCE_DB);
             update = prepareStatement(UPDATE, TARGET_DB);
             insert = prepareStatement(INSERT, TARGET_DB);
-            projectSelect = prepareStatement(PROJECT_SELECT, SOURCE_DB);
+
+            select.clearParameters();
+            select.setTimestamp(1, fLastLogTime);
+            select.setTimestamp(2, fLastLogTime);
+            select.setTimestamp(3, fLastLogTime);
+            select.setTimestamp(4, fLastLogTime);
+            select.setTimestamp(5, fLastLogTime);
+            select.setTimestamp(6, fLastLogTime);
+            select.setTimestamp(7, fLastLogTime);
+            select.setTimestamp(8, fLastLogTime);
+            select.setTimestamp(9, fLastLogTime);
+            select.setTimestamp(10, fLastLogTime);
+
+            rs = select.executeQuery();
 
             int count = 0;
+            while (rs.next()) {
+                update.clearParameters();
 
-            projects = projectSelect.executeQuery();
+                update.setLong(1, rs.getLong("scorecard_question_id"));
+                update.setLong(2, rs.getLong("scorecard_id"));
+                update.setObject(3, rs.getObject("user_id"));
+                update.setObject(4, rs.getObject("reviewer_id"));
+                update.setObject(5, rs.getObject("project_id"));
 
-            while (projects.next()) {
-                select.clearParameters();
-                select.setLong(1, projects.getLong("project_id"));
-                select.setTimestamp(2, fLastLogTime);
-                select.setTimestamp(3, fLastLogTime);
-                select.setTimestamp(4, fLastLogTime);
-                select.setTimestamp(5, fLastLogTime);
-                select.setTimestamp(6, fLastLogTime);
-                select.setTimestamp(7, fLastLogTime);
-                select.setTimestamp(8, fLastLogTime);
-                select.setTimestamp(9, fLastLogTime);
-                select.setTimestamp(10, fLastLogTime);
-                select.setTimestamp(11, fLastLogTime);
+                String answer = rs.getString("raw_answer");
+                String[] tests = answer == null ? new String[0] : answer.split("/");
+                String rawNumTests = "1";
+                String rawNumPassed = "1";
+                if (tests.length >= 2) {
+                    rawNumPassed = tests[0];
+                    rawNumTests = tests[1];
+                }
 
-                rs = select.executeQuery();
+                update.setObject(6, rawNumPassed);
+                update.setObject(7, rawNumTests);
 
-                while (rs.next()) {
+                answer = rs.getString("answer");
+                tests = answer == null ? new String[0] : answer.split("/");
+                String finalNumTests = "1";
+                String finalNumPassed = "1";
+                if (tests.length >= 2) {
+                    finalNumPassed = tests[0];
+                    finalNumTests = tests[1];
+                }
 
-                    update.clearParameters();
-
-                    update.setLong(1, rs.getLong("scorecard_question_id"));
-                    update.setLong(2, rs.getLong("scorecard_id"));
-                    update.setObject(3, rs.getObject("user_id"));
-                    update.setObject(4, rs.getObject("reviewer_id"));
-                    update.setObject(5, rs.getObject("project_id"));
-
-                    String answer = rs.getString("raw_answer");
-                    String[] tests = answer == null ? new String[0] : answer.split("/");
-                    String rawNumTests = "1";
-                    String rawNumPassed = "1";
-                    if (tests.length >= 2) {
-                        rawNumPassed = tests[0];
-                        rawNumTests = tests[1];
+                update.setObject(8, finalNumPassed);
+                update.setObject(9, finalNumTests);
+                update.setObject(10, rs.getObject("appeal_text"));
+                update.setObject(11, rs.getObject("appeal_response"));
+                String successfulInd = rs.getString("successful_ind");
+                if (successfulInd == null) {
+                    update.setNull(12, Types.INTEGER);
+                } else {
+                    if ("Succeeded".equals(successfulInd)) {
+                        update.setInt(12, 1);
+                    } else {
+                        update.setInt(12, 0);
                     }
+                }
 
-                    update.setObject(6, rawNumPassed);
-                    update.setObject(7, rawNumTests);
+                update.setLong(13, rs.getLong("appeal_id"));
 
-                    answer = rs.getString("answer");
-                    tests = answer == null ? new String[0] : answer.split("/");
-                    String finalNumTests = "1";
-                    String finalNumPassed = "1";
-                    if (tests.length >= 2) {
-                        finalNumPassed = tests[0];
-                        finalNumTests = tests[1];
-                    }
+                int retVal = update.executeUpdate();
 
-                    update.setObject(8, finalNumPassed);
-                    update.setObject(9, finalNumTests);
-                    update.setObject(10, rs.getObject("appeal_text"));
-                    update.setObject(11, rs.getObject("appeal_response"));
-                    String successfulInd = rs.getString("successful_ind");
+                if (retVal == 0) {
+                    insert.clearParameters();
+
+                    insert.setLong(1, rs.getLong("scorecard_question_id"));
+                    insert.setLong(2, rs.getLong("scorecard_id"));
+                    insert.setObject(3, rs.getObject("user_id"));
+                    insert.setObject(4, rs.getObject("reviewer_id"));
+                    insert.setObject(5, rs.getObject("project_id"));
+                    insert.setObject(6, rawNumPassed);
+                    insert.setObject(7, rawNumTests);
+                    insert.setObject(8, finalNumPassed);
+                    insert.setObject(9, finalNumTests);
+                    insert.setObject(10, rs.getObject("appeal_text"));
+                    insert.setObject(11, rs.getObject("appeal_response"));
+                    insert.setLong(12, rs.getLong("appeal_id"));
                     if (successfulInd == null) {
-                        update.setNull(12, Types.INTEGER);
+                        insert.setNull(13, Types.INTEGER);
                     } else {
                         if ("Succeeded".equals(successfulInd)) {
-                            update.setInt(12, 1);
+                            insert.setInt(13, 1);
                         } else {
-                            update.setInt(12, 0);
+                            insert.setInt(13, 0);
                         }
                     }
 
-                    update.setLong(13, rs.getLong("appeal_id"));
-
-                    int retVal = update.executeUpdate();
-
-                    if (retVal == 0) {
-                        insert.clearParameters();
-
-                        insert.setLong(1, rs.getLong("scorecard_question_id"));
-                        insert.setLong(2, rs.getLong("scorecard_id"));
-                        insert.setObject(3, rs.getObject("user_id"));
-                        insert.setObject(4, rs.getObject("reviewer_id"));
-                        insert.setObject(5, rs.getObject("project_id"));
-                        insert.setObject(6, rawNumPassed);
-                        insert.setObject(7, rawNumTests);
-                        insert.setObject(8, finalNumPassed);
-                        insert.setObject(9, finalNumTests);
-                        insert.setObject(10, rs.getObject("appeal_text"));
-                        insert.setObject(11, rs.getObject("appeal_response"));
-                        insert.setLong(12, rs.getLong("appeal_id"));
-                        if (successfulInd == null) {
-                            insert.setNull(13, Types.INTEGER);
-                        } else {
-                            if ("Succeeded".equals(successfulInd)) {
-                                insert.setInt(13, 1);
-                            } else {
-                                insert.setInt(13, 0);
-                            }
-                        }
-
-                        insert.executeUpdate();
-                    }
-                    count++;
-
+                    insert.executeUpdate();
                 }
+
+                count++;
             }
 
-            log.info("loaded " + count + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
-
+        log.info("loaded " + count + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
 
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
