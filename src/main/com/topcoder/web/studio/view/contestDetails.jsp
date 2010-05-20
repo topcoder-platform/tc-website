@@ -376,6 +376,8 @@
 	</c:choose>
 </c:if>
 
+<font color="#ff7600"><b>Have questions about how to compete? <a href="http://topcoder.com/home/studio/the-process/">Learn more here!</a></b></font>
+
  <%-- Contest Summary --%>
 <div class="header"><span>Contest Summary</span></div>
 <studio:formatField text="${contest.overview.value}"/>
@@ -468,7 +470,7 @@
         </li>
         <li>Upload your submission in three parts (<A href="http://studio.topcoder.com/?module=Static&d1=support&d2=newMemberFaqs#QA_5-9">see this FAQs for more information</a>). Your design should be finalized and should contain only a single design concept (do not include multiple designs in a single submission).
         </li>
-        <li>If your submission wins, your source files must be correct and "Final Fixes" (if applicable) must be completed before payment can be released.
+        <li>If your submission wins, your source files must be correct and "<a href="http://topcoder.com/home/studio/the-process/final-fixes/ ">Final Fixes</a>" (if applicable) must be completed before payment can be released.
         </li>
         <li>You may submit as many times as you'd like during the submission phase, but only the number of files listed above in the Submission Limit that you rank the highest will be considered. You can change the order of your submissions at any time during the submission phase. If you make revisions to your design, please delete submissions you are replacing.</li>
 
