@@ -371,6 +371,7 @@
 			<%-- UNREGISTERED --%>
 				<a id="button-register-contest" href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}" title="Register for this contest"></a>
 				<a id="button-submit-entries" class="disabled" href="javascript:;" title="Submit your entries"></a>
+				<a id="button-view-submissions" class="disabled" href="javascript:;" title="View your submissions"></a>
 		</c:otherwise>
 	</c:choose>
 </c:if>
