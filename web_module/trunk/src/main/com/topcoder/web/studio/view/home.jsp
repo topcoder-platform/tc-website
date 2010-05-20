@@ -247,7 +247,7 @@
                                     <a href="/blog/">more<img src="i/v4/arrow_r.png" /></a>
                                 </div>
                             </div>
-                            <div id="bottom_part_r">
+                            <!-- <div id="bottom_part_r"> -->
                             </div>
                         </div>
                         <br class="clear"/>
