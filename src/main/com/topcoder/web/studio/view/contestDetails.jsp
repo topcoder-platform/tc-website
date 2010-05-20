@@ -376,6 +376,7 @@
 	</c:choose>
 </c:if>
 
+<br/><br/>
 <font color="#ff7600"><b>Have questions about how to compete? <a href="http://topcoder.com/home/studio/the-process/">Learn more here!</a></b></font>
 
  <%-- Contest Summary --%>
