@@ -257,31 +257,9 @@
 
         </div><%-- #page-wrap ends --%>
 
-<<<<<<< .mine
-        <%-- FOOTER BLOCK --%>
-        <div id="footer">
-            <div class="wrapper2">
-                <p id="footer_1800"><strong>1-866-TOPCODER or Service@TopCoder.com</strong></p> <%--chjanged from id--%>
-                <p>TopCoder is the world's largest competitive software development community with over 185,000 developers representing over 200 countries.</p>
-                <p>Copyright &copy;2001-2010, TopCoder, Inc. All rights reserved.</p>
-            </div><%-- .wrapper ends --%>
-        </div><%-- #footer ends --%>
-
-        <%--  Analytics --%>
-        <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-        </script>
-        <script type="text/javascript">
-            try {
-                var pageTracker = _gat._getTracker("UA-6340959-3");
-                pageTracker._trackPageview();
-            } catch(err) {}
-        </script>
-=======
         <jsp:include page="foot.jsp">
             <jsp:param name="section" value="home"/>
         </jsp:include>
->>>>>>> .r77242
+
     </body>
 </html>
