@@ -77,7 +77,7 @@
                     If you are interested in gaining full trial access to download components or you wish to purchase access to the components for commercial purposes, please send an email to <a href="mailto:service@topcoder.com">service@topcoder.com</a> and explain the situation.
                 </p>
                 <p>
-                    If you need access to this component for TopCoder competition purposes or you have already purchased access, please send an email to <a href="mailto:service@topcoder.com">service@topcoder.com</a> and explain the situation.
+                    If you need access to this component for TopCoder competition purposes, please post in the forum for the competition to request access.
                 </p>
             </div>
         </td>
