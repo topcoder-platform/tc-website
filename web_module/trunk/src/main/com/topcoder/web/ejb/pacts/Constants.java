@@ -129,6 +129,13 @@ public interface Constants {
     public static final int STUDIO_SPECIFICATION_REVIEW_PAYMENT = 48;
 
     /**
+     * <p>A <code>int</code> representing the payment type for Studio submission screening payments.</p>
+     *
+     * @since 1.1
+     */
+    public static final int STUDIO_SUBMISSION_SCREENING_PAYMENT = 56;
+
+    /**
      * <p>A <code>int</code> representing the payment type for UI prototype payments.</p>
      *
      * @since 1.2

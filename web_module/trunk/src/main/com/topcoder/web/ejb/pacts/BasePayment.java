@@ -212,6 +212,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case STUDIO_BUG_FIXES_PAYMENT:
         case STUDIO_ENHANCEMENTS_PAYMENT:
         case STUDIO_SPECIFICATION_REVIEW_PAYMENT:
+        case STUDIO_SUBMISSION_SCREENING_PAYMENT:
             return REFERENCE_STUDIO_CONTEST_ID;
 
         case COMPONENT_TOURNAMENT_BONUS_PAYMENT:
