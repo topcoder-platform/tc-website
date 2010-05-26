@@ -44,6 +44,7 @@ import com.topcoder.web.ejb.pacts.SpecificationReviewPayment;
 import com.topcoder.web.ejb.pacts.StudioBugFixesPayment;
 import com.topcoder.web.ejb.pacts.StudioEnhancementsPayment;
 import com.topcoder.web.ejb.pacts.StudioSpecificationReviewPayment;
+import com.topcoder.web.ejb.pacts.StudioSubmissionScreeningPayment;
 import com.topcoder.www.bugs.rpc.soap.jirasoapservice_v2.JiraSoapService;
 import com.topcoder.www.bugs.rpc.soap.jirasoapservice_v2.JiraSoapServiceServiceLocator;
 
@@ -265,6 +266,8 @@ public class ProcessJiraPayments extends DBUtility {
                 payment = new StudioEnhancementsPayment(userId, amount, client, referenceId);
             } else if ("Specification Review".equals(paymentType)) {
                 payment = new StudioSpecificationReviewPayment(userId, amount, client, referenceId);
+            } else if ("Studio Submission Screening".equals(paymentType)) {
+                payment = new StudioSubmissionScreeningPayment(userId, amount, client, referenceId);
             } else {
                 throw new IllegalArgumentException("Unknown Studio payment type: " + paymentType);
             }
