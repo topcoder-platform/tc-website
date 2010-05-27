@@ -82,7 +82,7 @@
 								</div><!-- End .leftArea -->
 								<div class="description">
 									
-									<h2>We've been "crowdsourcing"<br />since before there was a name for it.</h2>
+									<h2>250,000 members! Thanks to each and every one of our members for making TopCoder what it is.</h2>
 									<p>Find out what customers ranging from small businesses to Fortune 500's have known since 2001. TopCoder's global community and unique model of competition-based development delivers higher quality results, faster and less expensively than has ever been previously possible.</p>
 									
 									
@@ -112,12 +112,10 @@
 							
 							
 							<div id="footer"> 
-                           			<p>TopCoder is the world's largest competitive software development community with <tc-webtag:format object="${sessionInfo.memberCount}" format="#,##0"/> developers representing over 200 countries.<br /> 
-									Copyright ©2001-2010, TopCoder, Inc. All rights reserved</p> 
- 
-                                    <p><a href="http://topcoder.com/home/contact-us/">Contact Us</a> | <a href="http://topcoder.com/home/what-is-topcoder/">About TopCoder</a> | <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/">Register</a></p> 
- 
-                            </div><!-- End #footer -->
+								<p>TopCoder is the world's largest competitive software development community with <tc-webtag:format object="${sessionInfo.memberCount}" format="#,##0"/> developers representing over 200 countries.<br /> 
+									Copyright &copy;2001-2010, TopCoder, Inc. All rights reserved</p> 
+									<p><a href="http://topcoder.com/home/contact-us/">Contact Us</a> | <a href="http://topcoder.com/home/what-is-topcoder/">About TopCoder</a> | <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/">Register</a></p> 
+							</div><!-- End #footer -->
 							
 						</div><!-- End #mainContent -->
 					
