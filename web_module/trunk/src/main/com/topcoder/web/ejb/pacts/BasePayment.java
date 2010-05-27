@@ -303,6 +303,8 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             return new StudioEnhancementsPayment(coderId, grossAmount, referenceId, placed);
         case STUDIO_SPECIFICATION_REVIEW_PAYMENT:
             return new StudioSpecificationReviewPayment(coderId, grossAmount, referenceId, placed);
+        case STUDIO_SUBMISSION_SCREENING_PAYMENT:
+            return new StudioSubmissionScreeningPayment(coderId, grossAmount, referenceId, placed);
         case UI_PROTOTYPE_COMPETITION_PAYMENT:
             return new UIPrototypeCompetitionPayment(coderId, grossAmount, referenceId, placed);
         case RIA_BUILD_COMPETITION_PAYMENT:
@@ -435,6 +437,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             case STUDIO_BUG_FIXES_PAYMENT: return "TopCoder Studio bug fixes Payment";
             case STUDIO_ENHANCEMENTS_PAYMENT: return "TopCoder Studio enhancements Payment";
             case STUDIO_SPECIFICATION_REVIEW_PAYMENT: return "TopCoder Studio specification review Payment";
+            case STUDIO_SUBMISSION_SCREENING_PAYMENT: return "TopCoder Studio Submission Screening Payment";
             case UI_PROTOTYPE_COMPETITION_PAYMENT: return "UI Prototype Competition Payment";
             case RIA_BUILD_COMPETITION_PAYMENT: return "RIA Build Competition Payment";
             case RIA_COMPONENT_COMPETITION_PAYMENT: return "RIA Component Competition Payment";
