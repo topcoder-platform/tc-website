@@ -54,6 +54,7 @@ public class RatingQubits {
 
     private static final String NEW_PHASES_CUT_OFF = "03/23/2009 00:00:00";
     private static final String UI_PROTOTYPE_CUT_OFF = "08/01/2009 00:00:00";
+    private static final String RIA_BUILD_CUT_OFF = "06/01/2010 00:00:00";
 
     private static final int DESIGN_PHASE_ID = 112;
     private static final int DEV_PHASE_ID = 113;
@@ -64,6 +65,7 @@ public class RatingQubits {
     private static final int TESTING_PHASE_ID = 124;
     private static final int TEST_SCENARIOS_PHASE_ID = 137;
     private static final int UI_PROTOTYPES_PHASE_ID = 130;
+    private static final int RIA_BUILDS_PHASE_ID = 135;
     private final static String NEW_RATING_CATEGORIES = "(4, 7, 8)";
 
     /**
@@ -165,6 +167,14 @@ public class RatingQubits {
             return;
         }
 
+        Date riaBuildCutoff = null;
+        try {
+            riaBuildCutoff = new Date(sdf.parse(RIA_BUILD_CUT_OFF).getTime());
+        } catch (ParseException e1) {
+            System.err.println("Invalid value for constant RIA_BUILD_CUT_OFF, please check it");
+            return;
+        }
+
         runScore(conn, historyLength, DESIGN_PHASE_ID);
         runScore(conn, historyLength, DEV_PHASE_ID);
         runScore(conn, historyLength, ASSEMBLY_PHASE_ID, newPhasesCutoff);
@@ -174,6 +184,7 @@ public class RatingQubits {
         runScore(conn, historyLength, TESTING_PHASE_ID, newPhasesCutoff);
         runScore(conn, historyLength, TEST_SCENARIOS_PHASE_ID, newPhasesCutoff);
         runScore(conn, historyLength, UI_PROTOTYPES_PHASE_ID, uiPrototypeCutoff);
+        runScore(conn, historyLength, RIA_BUILDS_PHASE_ID, riaBuildCutoff);
     }
 
     // Run a score without a specific cut off time
