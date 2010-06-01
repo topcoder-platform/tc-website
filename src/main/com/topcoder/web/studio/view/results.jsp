@@ -1,7 +1,7 @@
 <%--
-  - Author: pulky
-  - Version: 1.3
-  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  - Author: pulky, isv
+  - Version: 1.4
+  - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page lists all winners for a given contest.
   -
@@ -14,6 +14,8 @@
   - * The page was modified to include all submissions as well as the winners list. (matching the original prototype)
   - Version 1.3 (BUGR-2434) Change notes:
   - * Present a message and winning submissions when submissions are not viewable.
+  - Version 1.4 ((Studio Homepage Enhancements Release Assembly) - TCCC-1669) Change notes:
+  - * The handles for all submitters (not just the winners) are displayed .
 --%>
 
 <%@ page import="com.topcoder.web.studio.Constants" %>
@@ -57,21 +59,7 @@
         </script>
         <script src="./js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
         <script src="./js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $("#nav ul li").hoverIntent(function(){
-                    $(this).children("ul").slideDown("fast");
-                }, function() {
-                    $(this).children("ul").slideUp("fast");
-                });
-
-                $("#nav ul ul li").hover(function() {
-                    $(this).parents("#nav ul li").children('a').addClass("active-item");
-                }, function() {
-                    $(this).parents("#nav ul li").children('a').removeClass("active-item");
-                });
-            });
-        </script>
+        <script type="text/javascript" language="javascript" src="/js/navigation.js"></script>
 
         <script src="./js/RSSProcessor.js" type="text/JavaScript"> </script>
         <script src="./js/AJAXProcessor.js" type="text/JavaScript"> </script>
@@ -198,7 +186,8 @@
                                                             <td>
                                                                 <studio_tags:submissionPreview
                                                                     row="${resultRow}" showPlacement="false"
-                                                                    viewSubmitters="${viewSubmitters}"/>
+                                                                    viewSubmitters="true"
+                                                                    viewSubmissions="${viewableSubmissions}"/>
                                                             </td>
                                                             <c:if test="${i % 4 == 0}">
                                                                 </tr><tr>
