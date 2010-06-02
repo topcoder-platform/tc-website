@@ -100,7 +100,21 @@
                 <%-- TC010 --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_040610"><img src="/i/pressroom/tco10_logo.png" alt="TopCoder" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_060110"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_060110">TopCoder Community Celebrates 250,000 Member Milestone</a></h3>
+                        <p><small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_060110">[June 1st]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                
+                <%-- TC010 end --%>
+                
+                <%-- TC010 --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_040610"><img src="/i/pressroom/tco10_logo.png" alt="TCO10" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
                         <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_040610">U.S. National Security Agency and Leading Russian Search Engine Yandex to Support 2010 TopCoder Open</a></h3>
