@@ -89,7 +89,7 @@
                                 <strong>RSS Feeds</strong><br/>
                                 <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicRSS&c=rss_active_contests&dsid=33">Studio Active Contests</a><br/>
                                 <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicRSS&c=rss_review_opportunities&dsid=33">Upcoming Contests in Spec Review</a><br/>
-                                <a href="https://<%=ApplicationServer.SERVER_NAME%>/bugs/sr/jira.issueviews:searchrequest-rss/temp/SearchRequest.xml?&customfield_10073=Studio+Bug&type=-2&pid=10021&status=1&status=3&status=4&sorter/field=issuekey&sorter/order=DESC&tempMax=1000">Studio Bug Races</a><br/>
+                                <a href="https://<%=ApplicationServer.SERVER_NAME%>/bugs/sr/jira.issueviews:searchrequest-rss/temp/SearchRequest.xml?&customfield_10073=Studio+Bug&type=-2&pid=10021&status=1&status=3&status=4&sorter/field=issuekey&sorter/order=DESC&tempMax=1000">Studio Bug Race Competitions</a><br/>
                                 <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=RSS&categoryID=1">Studio Forums</a><br/>
                                 <a href="http://<%=ApplicationServer.SERVER_NAME%>/home/studio/feed/">Studio Blog</a>
                             </p>
