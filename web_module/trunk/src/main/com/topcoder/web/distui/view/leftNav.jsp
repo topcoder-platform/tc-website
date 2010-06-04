@@ -201,8 +201,8 @@
 					nav.search("m_bugraces_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Active+Bug+Race+Competitions", "Active Contests", "bugraces_compete"));
 					nav.search("m_bugraces_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Bug+Races+Reviews", "Review Opportunities", "bugraces_review"));
 
-			nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_long_contests')", "Marathon Matches", "m_long_contests"));
-					nav.search("m_long_contests").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Marathon+Matches+Overview", "Overview", "long_overview"));
+			nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_long_contests')", "Marathon Match", "m_long_contests"));
+					nav.search("m_long_contests").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Marathon+Match+Overview", "Overview", "long_overview"));
 					nav.search("m_long_contests").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_long_support')", "Track Information", "m_long_support"));
 							nav.search("m_long_support").addChild(new NavNode("http://www.topcoder.com/wiki/display/tc/How+to+Compete+in+Marathon+Match+Events", "How to Compete", "long_how_to_compete"));
 							nav.search("m_long_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/longcontest/?module=Static&amp;d1=support&amp;d2=ratings", "Rating System", "long_rating_system"));
