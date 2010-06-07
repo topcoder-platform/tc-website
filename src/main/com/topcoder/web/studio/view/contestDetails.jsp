@@ -240,7 +240,19 @@
 <c:if test="${not empty contest.submissionFileFormat.value}">
     <div class="section">How to Format Your Submission:</div>
     <div class="padder">
-        <studio:formatField text="${contest.submissionFileFormat.value}"/>
+        1. Look for instructions in this contest regarding what files to provide. Questions? Ask in the forum for this contest.<br/>
+        2. Place your submission files into a "Submission.zip" file.<br/>
+        3. Place all of your source files into a "Source.zip" file.<br/>
+        4. Create a JPG preview file.<br/>
+        5. Click "Submit" and upload your files.<br/>
+        <br/>
+        Trouble formatting your submission or want to learn more? <a
+            href="http://studio.topcoder.com/?module=Static&amp;d1=support&amp;d2=newMemberFaqs#QA_5-1">Read this
+        FAQs</a><br/>
+        <br/>
+        <b>Note:</b> All non-standard Windows fonts must be listed in a text file within your submission folder. Include
+        the name of the font and a link to where it can be downloaded/purchased. DO NOT include any font files in your
+        submission or source files.
     </div>
 </c:if>
 <c:if test="${not empty contest.otherFileTypes.value}">
