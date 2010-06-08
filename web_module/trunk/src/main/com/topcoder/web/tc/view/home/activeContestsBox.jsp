@@ -87,7 +87,7 @@
                         <tr>
                             <td class="value">
                                 <div class="prizes"><fmt:formatNumber value="${activeContestsSummary[bugs].prizeTotal}" pattern="$###,###"/></div>
-                                <a href="http://<%=ApplicationServer.WIKI_SERVER_NAME%>/display/tc/Active+Bug+Races" class="gMetal">Bug Races</a>
+                                <a href="http://<%=ApplicationServer.WIKI_SERVER_NAME%>/display/tc/Active+Bug+Race+Competitions" class="gMetal">Bug Races</a>
                                 (${activeContestsSummary[bugs].contestCount})
                             </td>
                         </tr>
