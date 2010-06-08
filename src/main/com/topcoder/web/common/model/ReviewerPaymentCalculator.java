@@ -26,6 +26,12 @@ public interface ReviewerPaymentCalculator {
      * @return
      */
     public float getAggregationCost();
+
+    /**
+     * Returns the payment for the Post-Mortem reviewer.
+     * @return
+     */
+    public float getPostMortemCost();
     
     /**
      * Returns the payment for the Final Reviewer.

@@ -8,6 +8,8 @@ public abstract class BaseReviewerPaymentCalculator implements ReviewerPaymentCa
     private int submissionCount;
     private int passedScreeningCount;
 
+    private static final float POST_MORTEM_REVIEW_COST = 10f;
+
     // TODO: Documentation.
     public BaseReviewerPaymentCalculator(float firstPlacePrize, int submissionCount, int passedScreeningCount) {
         if (firstPlacePrize < 0f) {
@@ -43,4 +45,9 @@ public abstract class BaseReviewerPaymentCalculator implements ReviewerPaymentCa
                 + "] -> (S:" + getScreeningCost() + " R:" + getReviewCost() + " A:" + getAggregationCost()
                 + " FR:" + getFinalReviewCost() + ")");
     }
+
+    public float getPostMortemCost() {
+        return POST_MORTEM_REVIEW_COST;
+    }
+
 }

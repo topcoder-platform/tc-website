@@ -5183,11 +5183,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         // Get review board members to be paid
         StringBuffer getReviewers = new StringBuffer(300);
-        getReviewers.append("select ri_u.value as user_id, sum(round(ri_p.value)) as paid, max(pcl.name) as project_type_name ");
+        getReviewers.append("select ri_u.value as user_id, r.resource_role_id as resource_role_id, sum(round(ri_p.value)) as paid, max(pcl.name) as project_type_name ");
         getReviewers.append("from tcs_catalog:project p ");
         getReviewers.append("inner join tcs_catalog:resource r ");
         getReviewers.append("on p.project_id = r.project_id ");
-        getReviewers.append("and (r.resource_role_id >= 2 and r.resource_role_id <= 9) ");
+        getReviewers.append("and (r.resource_role_id in (2,3,4,5,6,7,8,9,16)) ");
         getReviewers.append("inner join tcs_catalog:resource_info ri_u ");
         getReviewers.append("on r.resource_id = ri_u.resource_id ");
         getReviewers.append("and ri_u.resource_info_type_id = 1 ");
@@ -5202,11 +5202,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         getReviewers.append("inner join tcs_catalog:project_category_lu pcl ");
         getReviewers.append("on pcl.project_category_id = p.project_category_id ");
         getReviewers.append("where p.project_id = " + projectId + " ");
-        getReviewers.append("group by ri_u.value");
+        getReviewers.append("group by ri_u.value, resource_role_id");
         rsc = runSelectQuery(getReviewers.toString());
 
         for (int i = 0; i < rsc.size(); i++) {
             long coderId = Long.parseLong(rsc.getStringItem(i, "user_id"));
+            long resourceRoleId = Long.parseLong(rsc.getStringItem(i, "resource_role_id"));
             double amount = rsc.getDoubleItem(i, "paid");
 
             ReviewBoardPayment p = null;
@@ -5214,7 +5215,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             if (projectType == DESIGN_PROJECT) {
                 p = new ReviewBoardPayment(coderId, amount, client, projectId);
-                if (applyReviewerWithholding) {
+                // Post-mortem review payments is not to be withheld
+                if (applyReviewerWithholding && resourceRoleId!=16) {
                     p.setGrossAmount(amount * DESIGN_REVIEWERS_FIRST_INSTALLMENT_PERCENT);
                 } else {
                     p.setGrossAmount(amount);
