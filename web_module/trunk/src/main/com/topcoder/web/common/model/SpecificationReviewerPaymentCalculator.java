@@ -181,6 +181,17 @@ public class SpecificationReviewerPaymentCalculator implements ReviewerPaymentCa
     }
 
     /**
+     * Gets the post-mortem review cost
+     *
+     * Note: there is no post-mortem cost for specification review projects.
+     *
+     * @return the aggrpost-mortem cost
+     */
+    public float getPostMortemCost() {
+        return 0;
+    }
+
+    /**
      * Gets the final review cost
      *
      * Note: there is no final review cost for specification review projects.

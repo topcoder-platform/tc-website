@@ -96,6 +96,18 @@ public class FixedPriceComponent extends DefaultPriceComponent {
     }
 
     /**
+     * Gets Post-Mortem Review Cost
+     * <p/>
+     * Delegates to super. The value is not multiplied because the post-mortem review payment is always a fixed amount.
+     *
+     * @return Post-Mortem cost.
+     * @see DefaultPriceComponent
+     */
+    public float getPostMortemCost() {
+        return Math.round(super.getPostMortemCost());
+    }
+
+    /**
      * Gets Screening Cost
      * <p/>
      * Delegates to super and adjusts with the primary adjustment factor calculated using the fixed amounts.

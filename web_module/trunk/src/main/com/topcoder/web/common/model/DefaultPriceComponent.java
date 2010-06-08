@@ -62,14 +62,19 @@ import com.topcoder.shared.util.logging.Logger;
  *     <li>Added support for new Test Scenarios competitions.</li>
  *   </ol>
  *
- *	 Version 1.1.3 (Specification Review Integration 1.0) Change notes:
+ *   Version 1.1.3 (Specification Review Integration 1.0) Change notes:
  *   <ol>
  *     <li>Added support for Specification Review projects.</li>
  *   </ol>
+ *
+ *   Version 1.1.4 Change notes:
+ *   <ol>
+ *     <li>Added support for Post-Mortem review payment.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, ivern, isv, pulky, snow01
- * @version 1.1.3
+ * @author dok, ivern, isv, pulky, snow01, VolodymyrK
+ * @version 1.1.4
  */
 
 public class DefaultPriceComponent implements SoftwareComponent {
@@ -256,6 +261,16 @@ public class DefaultPriceComponent implements SoftwareComponent {
      */
     public float getAggregationCost() {
         return Math.round(this.calculator.getAggregationCost());
+    }
+
+    /**
+     * <p>Gets the cost for post-mortem review.</p>
+     *
+     * @return a <code>float</code> providing the cost for post-mortem review.
+     * @since 1.1.4
+     */
+    public float getPostMortemCost() {
+        return Math.round(this.calculator.getPostMortemCost());
     }
 
     /**

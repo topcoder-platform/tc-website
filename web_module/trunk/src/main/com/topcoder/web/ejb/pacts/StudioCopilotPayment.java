@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.Date;
 
 /**
- * Payment class for Studio submission screening reviews.
+ * Payment class for Studio Copilot.
  *
  * This class will store payment information and will provide a custom processor class
  * to allow specific functionality for this payment type.
@@ -17,7 +17,7 @@ import java.util.Date;
  * @author VolodumyrK
  * @version 1.0
  */
-public class StudioSubmissionScreeningPayment extends StudioContestReferencePayment {
+public class StudioCopilotPayment extends StudioContestReferencePayment {
 
     /**
      * <p>A <code>long</code> containing the serial Version UID of this class
@@ -30,7 +30,7 @@ public class StudioSubmissionScreeningPayment extends StudioContestReferencePaym
     private static final long serialVersionUID = 1L;
 
     /**
-     * Creates a Studio submission screening payment using the specified parameters.
+     * Creates a Studio copilot payment using the specified parameters.
      *
      * @param coderId coder to be paid.
      * @param grossAmount amount to be paid.
@@ -38,12 +38,12 @@ public class StudioSubmissionScreeningPayment extends StudioContestReferencePaym
      * @param contestId project that is being paid.
      * @param placed the place of the coder in the contest.
      */
-    public StudioSubmissionScreeningPayment(long coderId, double grossAmount, String client, long contestId, int placed) {
-        super(STUDIO_SUBMISSION_SCREENING_PAYMENT, coderId, grossAmount, client, contestId, placed);
+    public StudioCopilotPayment(long coderId, double grossAmount, String client, long contestId, int placed) {
+        super(STUDIO_COPILOT_PAYMENT, coderId, grossAmount, client, contestId, placed);
     }
 
     /**
-     * Creates a Studio submission screening payment using the specified parameters.
+     * Creates a Studio copilot payment using the specified parameters.
      *
      * Note: this constructor will default placed to 0.
      *
@@ -52,24 +52,24 @@ public class StudioSubmissionScreeningPayment extends StudioContestReferencePaym
      * @param client the client of the contest.
      * @param contestId project that is being paid.
      */
-    public StudioSubmissionScreeningPayment(long coderId, double grossAmount, String client, long contestId) {
+    public StudioCopilotPayment(long coderId, double grossAmount, String client, long contestId) {
         this(coderId, grossAmount, client, contestId, 0);
     }
     
     /**
-     * Creates a Studio submission screening payment using the specified parameters.
+     * Creates a Studio copilot payment using the specified parameters.
      *
      * @param coderId coder to be paid.
      * @param grossAmount amount to be paid.
      * @param contestId project that is being paid.
      * @param placed the place of the coder in the contest.
      */
-    public StudioSubmissionScreeningPayment(long coderId, double grossAmount, long contestId, int placed) {
+    public StudioCopilotPayment(long coderId, double grossAmount, long contestId, int placed) {
         this(coderId, grossAmount, null, contestId, placed);
     }
 
     /**
-     * Creates a Studio submission screening payment using the specified parameters.
+     * Creates a Studio copilot payment using the specified parameters.
      *
      * Note: this constructor will default placed to 0.
      *
@@ -77,7 +77,7 @@ public class StudioSubmissionScreeningPayment extends StudioContestReferencePaym
      * @param grossAmount amount to be paid.
      * @param contestId project that is being paid.
      */
-    public StudioSubmissionScreeningPayment(long coderId, double grossAmount, long contestId) {
+    public StudioCopilotPayment(long coderId, double grossAmount, long contestId) {
         this(coderId, grossAmount, null, contestId, 0);
     }
 
@@ -92,10 +92,10 @@ public class StudioSubmissionScreeningPayment extends StudioContestReferencePaym
     }
 
     /**
-     * Processor for Studio submission screening payments.
+     * Processor for Studio copilot payments.
      *
      * This class will implement <code>lookupDescription</code> to allow custom description
-     * generation for the Studio submission screening payment and <code>lookupEventDate</code> to retrieve
+     * generation for the Studio copilot payment and <code>lookupEventDate</code> to retrieve
      * event's date.
      */
     protected static class Processor extends StudioContestReferencePayment.Processor {
@@ -103,7 +103,7 @@ public class StudioSubmissionScreeningPayment extends StudioContestReferencePaym
         /**
          * <p>A <code>String</code> containing the payment description suffix.
          */
-        private static final String PAYMENT_DESCRIPTION_SUFFIX = " - Submission Screening";
+        private static final String PAYMENT_DESCRIPTION_SUFFIX = " - Copilot";
 
         /**
          * Get the description for the payment.

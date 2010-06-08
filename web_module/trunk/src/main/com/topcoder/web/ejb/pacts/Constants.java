@@ -37,8 +37,16 @@ package com.topcoder.web.ejb.pacts;
  *   </ol>
  * </p>
  *
- * @author TCSDEVELOPER, pulky
- * @version 1.4
+ * <p>
+ *   Version 1.5 Change notes:
+ *   <ol>
+ *     <li>STUDIO_SUBMISSION_SCREENING_PAYMENT type added</li>
+ *     <li>STUDIO_COPILOT_PAYMENT type added</li>
+ *   </ol>
+ * </p>
+ *
+ * @author TCSDEVELOPER, pulky, VolodymyrK
+ * @version 1.5
  */
 public interface Constants {
 
@@ -131,9 +139,16 @@ public interface Constants {
     /**
      * <p>A <code>int</code> representing the payment type for Studio submission screening payments.</p>
      *
-     * @since 1.1
+     * @since 1.5
      */
     public static final int STUDIO_SUBMISSION_SCREENING_PAYMENT = 56;
+
+    /**
+     * <p>A <code>int</code> representing the payment type for Studio copilot payments.</p>
+     *
+     * @since 1.5
+     */
+    public static final int STUDIO_COPILOT_PAYMENT = 57;
 
     /**
      * <p>A <code>int</code> representing the payment type for UI prototype payments.</p>
