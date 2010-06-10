@@ -252,6 +252,40 @@ public class ForumsBean extends BaseEJB {
         }
     }
 
+
+    public void deleteCategoryWatches(long userID, long[] categoryIDs) throws ForumCategoryNotFoundException, UnauthorizedException, UserNotFoundException {
+        WatchManager watchManager = forumFactory.getWatchManager();
+        User user = forumFactory.getUserManager().getUser(userID);
+        for (int i = 0; i < categoryIDs.length; i++) {
+            ForumCategory category = forumFactory.getForumCategory(categoryIDs[i]);
+            Watch watch = watchManager.getWatch(user, category);
+            if (watch != null) {
+                watchManager.deleteWatch(watch);
+            }
+        }
+    }
+
+    public long[] areCategoriesWatched(long userID, long[] categoryIDs) throws ForumCategoryNotFoundException, UnauthorizedException, UserNotFoundException {
+        WatchManager watchManager = forumFactory.getWatchManager();
+        User user = forumFactory.getUserManager().getUser(userID);
+        ArrayList<Long> watched = new ArrayList<Long>();
+        for (int i = 0; i < categoryIDs.length; i++) {
+            ForumCategory category = forumFactory.getForumCategory(new Long(categoryIDs[i]));
+            Watch watch = watchManager.getWatch(user, category);
+            if (watch != null) {
+                watched.add(categoryIDs[i]);
+            }
+        }
+
+        long[] watches = new long[watched.size()];
+        for (int i = 0; i < watched.size() ; i++ )
+        {
+            watches[i] = ((Long)watched.get(i)).longValue();
+        }
+
+        return watches;
+    }
+
     /*********************************************/
     /* Software Forums                           */
     /**
