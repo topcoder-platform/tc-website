@@ -67,8 +67,4 @@ public interface Forums extends EJBObject {
 
     public void updateComponentName(long categoryID, String name) throws EJBException, RemoteException, Exception;
 
-    public void deleteCategoryWatches(long userID, long[] categoryIDs) throws EJBException, RemoteException, ForumCategoryNotFoundException, UnauthorizedException, UserNotFoundException;
-
-    public long[] areCategoriesWatched(long userID, long[] categoryIDs) throws EJBException, RemoteException, ForumCategoryNotFoundException, UnauthorizedException, UserNotFoundException;
-
 }

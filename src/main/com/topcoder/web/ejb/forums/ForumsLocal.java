@@ -97,8 +97,4 @@ public interface ForumsLocal extends EJBLocalObject {
 
     public void updateComponentName(long categoryID, String name) throws EJBException, Exception;
 
-     public void deleteCategoryWatches(long userID, long[] categoryIDs) throws EJBException, Exception;
-
-    public long[] areCategoriesWatched(long userID, long[] categoryIDs) throws EJBException, Exception;
-
 }
