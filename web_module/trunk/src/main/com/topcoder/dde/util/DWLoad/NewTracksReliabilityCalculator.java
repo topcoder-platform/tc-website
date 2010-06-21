@@ -66,7 +66,7 @@ public class NewTracksReliabilityCalculator extends OldTracksReliabilityCalculat
                 " order by complete_date asc";
 
     @Override
-    protected List<ReliabilityInstance> retrieveReliabilityHistory(Connection conn, long userId, int historyLength, int competitionTypeId, Date startDate, Date pivotDate) throws SQLException {
+    protected List<ReliabilityInstance> retrieveReliabilityHistory(Connection conn, long userId, int competitionTypeId, Date startDate, Date pivotDate) throws SQLException {
         PreparedStatement ps = null;
         ResultSet rs = null;
         List<ReliabilityInstance> history = new ArrayList<ReliabilityInstance>(10000);
