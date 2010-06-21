@@ -646,7 +646,13 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
 
             for (long userId : users) {
                 try {
-                    List<ReliabilityInstance> history = retrieveReliabilityHistory(conn, userId, historyLength, competitionTypeId, startDate, pivotDate);
+                    List<ReliabilityInstance> history = retrieveReliabilityHistory(conn, userId, competitionTypeId, startDate, pivotDate);
+
+                    // Ideally, we don't need to call this method because the project_result should have already been marked correctly.
+                    // But thanks to the one who run BUGR-852 we have inconsistency in some cases, so we call this method
+                    // to remove leading unreliable entries from the history.
+                    history = excludeLeadingUnreliableHistory(conn, history);
+
                     history = computeReliabilityHistory(history, historyLength);
 
                     ReliabilityInstance instance = null;
@@ -773,7 +779,7 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
         RATED_CONSTRAINTS_SQL_FRAGMENT +
         " order by complete_date asc";
 
-    protected List<ReliabilityInstance> retrieveReliabilityHistory(Connection conn, long userId, int historyLength, int competitionTypeId, Date startDate, Date pivotDate) throws SQLException {
+    protected List<ReliabilityInstance> retrieveReliabilityHistory(Connection conn, long userId, int competitionTypeId, Date startDate, Date pivotDate) throws SQLException {
         PreparedStatement psBeforePivot = null;
         PreparedStatement psAfterPivot = null;
         ResultSet rsBeforePivot = null;
@@ -811,6 +817,44 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
             close(psBeforePivot);
             close(rsAfterPivot);
             close(psAfterPivot);
+        }
+
+        return history;
+    }
+
+    /**
+     * Thanks to the one who run BUGR-852 we now have a bug in our reliability computation logic.
+     * The problem is that the new contests (after the so-called "pivot date") are ordered by the date of completion
+     * but when marking project_result for inclusion/exclusion based on previous projects the projects are still ordered by
+     * the date of registration. In some cases this inconsistency results in an unreliable projects being listed first
+     * in a member's history.
+     * This method simply removes all leading unreliable projects from the specified history and set the reliability_ind
+     * and reliable_submission_ind back to 0 and NULL respectively.
+     */
+    protected List<ReliabilityInstance> excludeLeadingUnreliableHistory(Connection conn, List<ReliabilityInstance> history) throws SQLException {
+        PreparedStatement ps1 = null;
+        PreparedStatement ps2 = null;
+        ps1 = conn.prepareStatement(setReliability);
+        ps2 = conn.prepareStatement(updateReliableSubmission);
+        try {
+            while(!history.isEmpty() && !history.get(0).isReliable()) {
+                ps1.clearParameters();
+                ps1.setInt(1, 0);
+                ps1.setLong(2, history.get(0).getProjectId());
+                ps1.setLong(3, history.get(0).getUserId());
+                ps1.executeUpdate();
+
+                ps2.clearParameters();
+                ps2.setNull(1,Types.INTEGER);
+                ps2.setLong(2, history.get(0).getUserId());
+                ps2.setLong(3, history.get(0).getProjectId());
+                ps2.executeUpdate();
+
+                history.remove(0);
+            }
+        } finally {
+            close(ps1);
+            close(ps2);
         }
 
         return history;
