@@ -587,7 +587,7 @@ public class ProfileSearch extends Base {
             query.append("  and ur_dev.phase_id = 113 \n");
             query.append("  and pi_rd_dev.project_info_type_id= 22 \n");
             query.append("  and pi_rd_dev.project_id = p_dev.project_id \n");
-            query.append(" AND date(pi_rd_dev.value, \"%m/%d/%Y %H:%M\") > (current - " + maxDaysDev + " units day) \n");
+            query.append(" AND to_date(pi_rd_dev.value, \"%m/%d/%Y %H:%M\") > (current - " + maxDaysDev + " units day) \n");
 
         }
 
