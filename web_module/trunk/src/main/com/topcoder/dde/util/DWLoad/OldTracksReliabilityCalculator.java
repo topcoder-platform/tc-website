@@ -126,9 +126,7 @@ public class OldTracksReliabilityCalculator implements ReliabilityCalculator {
      * SQL query that clears current reliability
      */
     private static final String clearCurrentReliability = "update project_result set current_reliability_ind = 0 where project_id in " +
-        "(select project_id from project where project_category_id+111 = ?) " +
-        ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT_NO_PREFIX +
-        RATED_CONSTRAINTS_SQL_FRAGMENT_NO_PREFIX;
+        "(select project_id from project where project_category_id+111 = ?) ";
 
     /**
      * SQL query that marks records that should be included in the process
