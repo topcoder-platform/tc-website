@@ -770,6 +770,9 @@ public class ProjectUtil {
         // Send Winner Emails
         createProjectInfo(ps, projectId, 43, "true", modUserId);
 
+        // Post-Mortem Required
+        createProjectInfo(ps, projectId, 44, "true", modUserId);
+
         close(ps);
     }
 
