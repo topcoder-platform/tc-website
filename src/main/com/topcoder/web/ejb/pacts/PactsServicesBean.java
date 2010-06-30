@@ -5187,7 +5187,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         getReviewers.append("from tcs_catalog:project p ");
         getReviewers.append("inner join tcs_catalog:resource r ");
         getReviewers.append("on p.project_id = r.project_id ");
-        getReviewers.append("and (r.resource_role_id in (2,3,4,5,6,7,8,9,16)) ");
+        getReviewers.append("and (r.resource_role_id in (2,3,4,5,6,7,8,9,14,16)) ");
         getReviewers.append("inner join tcs_catalog:resource_info ri_u ");
         getReviewers.append("on r.resource_id = ri_u.resource_id ");
         getReviewers.append("and ri_u.resource_info_type_id = 1 ");
@@ -5210,13 +5210,17 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             long resourceRoleId = Long.parseLong(rsc.getStringItem(i, "resource_role_id"));
             double amount = rsc.getDoubleItem(i, "paid");
 
-            ReviewBoardPayment p = null;
+            ComponentProjectReferencePayment p = null;
             int projectType = getProjectType(projectId);
 
-            if (projectType == DESIGN_PROJECT) {
+            if (resourceRoleId == 14) {
+               // Pay Copilot role			
+                p = new CopilotPayment(coderId, amount, client, projectId);
+                }
+            else if (projectType == DESIGN_PROJECT) {
                 p = new ReviewBoardPayment(coderId, amount, client, projectId);
                 // Post-mortem review payments is not to be withheld
-                if (applyReviewerWithholding && resourceRoleId!=16) {
+                if (applyReviewerWithholding && resourceRoleId != 16) {
                     p.setGrossAmount(amount * DESIGN_REVIEWERS_FIRST_INSTALLMENT_PERCENT);
                 } else {
                     p.setGrossAmount(amount);
