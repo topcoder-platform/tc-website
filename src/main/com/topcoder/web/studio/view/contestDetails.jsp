@@ -240,7 +240,19 @@
 <c:if test="${not empty contest.submissionFileFormat.value}">
     <div class="section">How to Format Your Submission:</div>
     <div class="padder">
-        <studio:formatField text="${contest.submissionFileFormat.value}"/>
+        1. Look for instructions in this contest regarding what files to provide. Questions? Ask in the forum for this contest.<br/>
+        2. Place your submission files into a "Submission.zip" file.<br/>
+        3. Place all of your source files into a "Source.zip" file.<br/>
+        4. Create a JPG preview file.<br/>
+        5. Click "Submit" and upload your files.<br/>
+        <br/>
+        Trouble formatting your submission or want to learn more? <a
+            href="http://studio.topcoder.com/?module=Static&amp;d1=support&amp;d2=newMemberFaqs#QA_5-1">Read this
+        FAQs</a><br/>
+        <br/>
+        <b>Note:</b> All non-standard Windows fonts must be listed in a text file within your submission folder. Include
+        the name of the font and a link to where it can be downloaded/purchased. DO NOT include any font files in your
+        submission or source files.
     </div>
 </c:if>
 <c:if test="${not empty contest.otherFileTypes.value}">
@@ -478,21 +490,34 @@
     </ul>
 </div>
 
+<%-- Winner Selection (BUGR-3818) --%>
+<div class="header"><span>Winner Selection</span></div>
+<div id="winner-selection">
+Submissions are viewable to the client as they are entered into the contest. Winners are selected by the client and are chosen solely at the Client's discretion.
+</div>
 
-
-
-<c:if test="${not empty contest.winnerSelection.value}">
-    <div class="header"><span>Winner Selection</span></div>
-    <studio:formatField text="${contest.winnerSelection.value}"/>
-</c:if>
-
+<%-- Winner Prize (BUGR-3818) --%>
 <div class="header"><span>Payment</span></div>
-${contest.prizeDescription.value}
+<div id="payment">
+The payment will be distributed in one full installment once the final version of the winning submission has been downloaded by the client. Any and all applicable taxes on prizes are the sole responsibility of the prizewinner(s).
+</div>
 
+<%-- Eligibility (BUGR-3818) --%>
 <div class="header"><span>Eligibility</span></div>
 <div id="eligibility">
-    <studio:formatField text="${contest.eligibility.value}"/>
+You must be a TopCoder Studio member, at least 18 years of age, meeting all of the membership requirements. In addition, you must fit into one of the following categories. If you reside in the United States, you must be either:
+	<ul>
+		<li>A US Citizen</li>
+		<li>A Lawful Permanent Resident of the US</li>
+		<li>A temporary resident, asylee, refugee of the U.S., or have a lawfully issued work authorization card permitting unrestricted employment in the U.S.</li>
+	</ul>
+<br>
+If you do not reside in the United States:
+	<ul>
+		<li>You must be authorized to perform services as an independent contractor. (Note: In most cases you will not need to do anything to become authorized)</li>
+	</ul>
 </div>
+
 <%--
 <c:choose>
 <c:when test="${contest.id==2048}"></c:when>

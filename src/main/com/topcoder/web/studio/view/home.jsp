@@ -1,7 +1,7 @@
 <%--
   - Author: pulky, isv
-  - Version: 1.4
-  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  - Version: 1.5
+  - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page renders studio home page.
   -
@@ -24,6 +24,13 @@
   - Version 1.4 (Studio Enhancements Release Assembly 1) Change Notes:
   -    * Thoughts From The Blog entry now shows an excerpt from the blog entry
   -    * instead of entire entry.
+  -
+  - Version 1.5 (Studio Homepage Enhancements Release Assembly - TCCC1819) Change Notes:
+  -    * Thoughts From The Blog entry now shows an excerpt from the blog entry
+  -    * instead of entire entry. Carousel is removed and replaced with TCO10 logo
+  -    * and Compete and Post buttons. Active Contests area shows icon for contests
+  -    * eligible for TCO10. Contest Chatter area is replaced with Member Of The Month
+  -    * info
 --%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
@@ -35,9 +42,14 @@
 
 <% ResultSetContainer activeContests = (ResultSetContainer) ((Map) request.getAttribute("studio_home_data")).get("active_contests");%>
 <% ResultSetContainer totalPrizePaidRS = (ResultSetContainer) ((Map) request.getAttribute("studio_home_data")).get("total_prize_paid");%>
-<% NumberFormat formatter = NumberFormat.getInstance();
-   formatter.setParseIntegerOnly(true);
-   String totalPrizePaid = formatter.format(totalPrizePaidRS.getFloatItem(0,0)+134598);%>
+<%
+    String totalPrizePaid = "0";
+    if (totalPrizePaidRS.getItem(0, 0).getResultData() != null) {
+        NumberFormat formatter = NumberFormat.getInstance();
+        formatter.setParseIntegerOnly(true);
+        totalPrizePaid = formatter.format(totalPrizePaidRS.getFloatItem(0, 0) + 134598);
+    }
+%>
 
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
@@ -73,27 +85,11 @@
         </script>
         <script src="/js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
         <script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
-        <script type="text/javascript" language="javascript">
-            $(document).ready(function(){
-                $("#nav ul li").hoverIntent(function(){
-                    $(this).children("ul").slideDown("fast");
-                }, function() {
-                    $(this).children("ul").slideUp("fast");
-                });
-
-                $("#nav ul ul li").hover(function() {
-                    $(this).parents("#nav ul li").children('a').addClass("active-item");
-                }, function() {
-                    $(this).parents("#nav ul li").children('a').removeClass("active-item");
-                });
-            });
-        </script>
+        <script type="text/javascript" language="javascript" src="/js/navigation.js"></script>
 
         <script type="text/JavaScript" src="/js/FeedLoader.js"> </script>
         <script type="text/JavaScript" src="/js/RSSProcessor.js"> </script>
         <script type="text/JavaScript" src="/js/AJAXProcessor.js"> </script>
-        <script type="text/javascript" src="/js/NewStyleHeaderFooter/carousel/jquery.jcarousel.js"></script>
-        <script type="text/javascript" src="/js/NewStyleHeaderFooter/carousel/scripts.js"></script>
         <script type="text/javascript" src="/js/jquery.timers.js"> </script> <%-- BUGR-2268: Timers library added --%>
     </head>
 
@@ -114,55 +110,25 @@
                 <div class="home_content">
                     <div id="top_part">
                         <div id="mycarousel" class="jcarousel-skin-tango">
-                            <div class="jcarousel-control loadWorkaround" 	style="position:relative;">
-                                <a href="http://<%=ApplicationServer.SERVER_NAME%>/home/studio/new-member-guide/" class="bt6_compete" id="tab6_compete">6_compete</a>
-                                <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&d1=support&d2=getStarted" class="bt7_post_project" id="tab7_post_project">7_post_project</a>
-                             </div>
-                            <ul>
-                                <li>
-                                    <a href="http://www.topcoder.com/tco10"><img width="909" height="203" src="i/v4/8.png" alt="2010 TopCoder Open!" /></a>
-                                </li>
-                                    <!--<a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=patron"><img width="909" height="203" src="i/v4/tco10-nsa-studio.png" alt="NSA - Event Patron - 2010 TopCoder Open" /></a>-->
-                                    <!--<a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=sponsor1"><img width="909" height="203" src="i/v4/tco10-yandex-studio.png" alt="Yandex - Event Sponsor - 2010 TopCoder Open" /></a>-->
-                                <li style="display:none" class="loadWorkaround">
-                                   <a href="http://www.topcoder.com/news/2010/06/10/meet-the-may-coders-and-designers-of-the-month-2/">--><img width="909" height="203" src="i/v4/2.png" alt="" /></a>
-                                </li>
-                                <li>
-                                    <a href="http://www.topcoder.com/reg/"><img width="909" height="203" src="i/v4/6.png" alt="" /></a>
-                                </li>
-                                <li style="display:none" class="loadWorkaround">
-                                    <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&d1=support&d2=startingACompetition"><img width="909" height="203" src="i/v4/7.png" alt="" /></a>
-                                </li>
-                                <li>
-                                    <a href="http://www.topcoder.com/tco10"><img width="909" height="203" src="i/v4/8.png" alt="2010 TopCoder Open!" /></a>
-                                </li>
-                                <li style="display:none" class="loadWorkaround">
-                                    <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&d1=support&d2=memberRefferalProgram"><img width="909" height="203" src="i/v4/3.png" alt="" /></a>
-                                </li>
-                                <li style="display:none" class="loadWorkaround">
-                                    <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewPastContests"><img width="909" height="203" src="i/v4/1.png" alt="" /></a>
-                                </li>
-                            </ul>
-                            <div class="jcarousel-control loadWorkaround" style="position:absolute; top:225px; left:160px;">
-                                <a href="#" class="bt1_5 bt1" id="tab1"><span>1</span></a>
-                                <a href="#" class="bt1_5 bt2" id="tab2"><span>2</span></a>
-                                <a href="#" class="bt1_5 bt3" id="tab3"><span>3</span></a>
-                                <a href="#" class="bt1_5 bt4" id="tab4"><span>4</span></a>
-                                <a href="#" class="bt1_5 bt5" id="tab5"><span>5</span></a>
-                                <a href="#" class="bt1_5 bt6" id="tab6"><span>6</span></a>
-                                <a href="#" class="bt1_5 bt7" id="tab7"><span>7</span></a>
-                             </div>
-                            <div class="jcarousel-scroll loadWorkaround" style="position:absolute; top:215px; left:160px;">
-                                <form action="">
-                                    <a href="#" id="mycarousel-prev"></a><a href="#" id="mycarousel-next"></a>
-                                </form>
+                            <div id="compete_post_buttons">
+                                <a href="http://topcoder.com/home/studio/new-member-guide"
+                                   class="compete"></a>
+                                <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=getStarted"
+                                   class="post_project"></a>
                             </div>
-                        </div><%-- End of #mycarousel --%>
+                            <div id="homePageBanner">
+                                <a href="http://www.topcoder.com/tco10">
+                                    <img src="/i/tournament/tco10/banner.jpg" alt="TCO 2010"/></a>
+                                <br/>
+                                <br/>
+                            </div>
+                        </div>
                     </div><%-- End of #top_part --%>
                     <div id="center_content">
                         <c:if test="${not empty contests}">
                             <div id="active_contest">
                                 <div id="active_contest_head">
+                                    <span class="active_contests_head">&nbsp;</span>
                                     <span class="active_contests_head">ACTIVE CONTESTS</span>
                                     <span class="prize_purse_head">PURSE</span>
                                     <span class="time_left_head">TIME LEFT</span>
@@ -171,6 +137,7 @@
                                     <table>
                                         <thead>
                                             <tr>
+                                                <th class="event"></th>
                                                 <th class="first"></th>
                                                 <th class="second"></th>
                                                 <th class="last"></th>
@@ -179,6 +146,13 @@
                                         <tbody>
                                             <rsc:iterator list="<%=activeContests%>" id="resultRow" end="6">
                                                 <tr>
+                                                    <td class="event">
+                                                        <% if ("3432".equals(resultRow.getStringItem("event_id"))) { %>
+                                                        <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco10&d3=studio&d4=description">
+                                                            <img src="/i/tournament/tco10/tco-icon.png"
+                                                                 alt="Eligible for the TCO10" /></a>
+                                                        <%} else {%>&nbsp;<%}%>
+                                                    </td>
                                                     <td class="first">
                                                         <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${resultRow.map['contest_id']}">
                                                              <rsc:item name="name" row="<%=resultRow%>"/>
@@ -241,11 +215,33 @@
                                 </div>
                                 <div id="post_content">
                                 </div>
-                                <div id="left_more">
-                                    <a href="/blog/">more<img src="i/v4/arrow_r.png" /></a>
+                            </div>
+                            <div id="bottom_part_r">
+                                <div class="box_content_container">
+                                	  <!-- PLEASE ADJUST MEMBER OF THE MONTH PARAMETERS HERE -->
+                                    <div id="member_of_the_month">
+				                                <img style="margin-bottom:12px;"
+                                            src="/i/v5/Member_of_the_month_header.jpg" >
+                                    </div>
+                                    <div class="member_image" style="float:left;">
+                                        <img width="126" height="140" alt=""
+                                             src="/i/v5/photo_placeholder.jpg">
+                                    </div>
+                                    <div class="member_content">
+                                        <div id="member_month">
+                                            MAY<br/><br/>
+                                        </div>
+                                        <div id="member_greeting">
+                                            <span class="member_content special handle">Congratulations selvia_ettine!</span><br/><br/>
+                                        </div>
+                                        <div id="member_stats">
+                                            <span class="member_content special">Earned $5250 in 9 competitions during the month of May</span><br/><br/>
+                                        </div>
+                                    </div>
+                                    <!-- member_content -->
+                                    <div class="clear"></div>
                                 </div>
                             </div>
-                            <!-- <div id="bottom_part_r"> -->
                             </div>
                         </div>
                         <br class="clear"/>
