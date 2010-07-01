@@ -100,7 +100,7 @@ We respect the intellectual property of others, and we ask you to do the same.  
 If you believe that your work has been copied and is accessible at our Web site in a way that constitutes copyright infringement, or that our Web site contains links or other references to another online location that contains material or activity that infringes your copyright rights, you may notify us by providing our copyright agent the information required by the U.S. Online Copyright Infringement Liability Limitation Act of the U.S. Digital Millennium Copyright Act, 17 U.S.C. §512.  Our agent for notice of claims of copyright infringement on or regarding this Web site can be reached as follows:
 <br><br>
 <table cellspacing="0" cellpadding="3" border="0" class="bodyText">
-   <tr valign="top"><td nowrap="nowrap">BY E-MAIL:</td><td width="100%"><A href="mailto:service@topcoder.com">service@topcoder.com</A></td></tr>
+   <tr valign="top"><td nowrap="nowrap">BY E-MAIL:</td><td width="100%"><A href="mailto:support@topcoder.com">support@topcoder.com</A></td></tr>
    <tr valign="top"><td nowrap="nowrap">BY MAIL:</td><td>John Hughes c/o Tanya Horgan<br>
       TopCoder, Inc.<br>
       95 Glastonbury Blvd,<br>
@@ -163,7 +163,7 @@ Our Web site is not intended for use by children under the age of 13, and childr
 <br><br>
 We may assign, novate or subcontract any or all of our rights and obligations under these Terms of Use at any time.
 <br><br>
-If you have any questions regarding these Terms of Use, contact us at <A href="mailto:service@topcoder.com">service@topcoder.com</A>.
+If you have any questions regarding these Terms of Use, contact us at <A href="mailto:support@topcoder.com">support@topcoder.com</A>.
             <p><br></p>
         </td>
 <!-- Center Column Ends -->
