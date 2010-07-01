@@ -66,7 +66,7 @@
                 <h4>Copyright Complaints</h4>
                 <p>We respect the intellectual property of others, and we ask you to do the same. We may, in appropriate circumstances and at our sole discretion, terminate the access of users who infringe the copyright rights of others. </p>
                 <p>If you believe that your work has been copied and is accessible at our Web site in a way that constitutes copyright infringement, or that our Web site contains links or other references to another online location that contains material or activity that infringes your copyright rights, you may notify us by providing our copyright agent the information required by the U.S. Online Copyright Infringement Liability Limitation Act of the U.S. Digital Millennium Copyright Act, 17 U.S.C. ?512. Our agent for notice of claims of copyright infringement on or regarding this Web site can be reached as follows: </p>
-                <p>BY E-MAIL:    service@topcoder.com<br />
+                <p>BY E-MAIL:    support@topcoder.com<br />
                 BY MAIL:    John Hughes c/o Tanya Horgan<br />
                 TopCoder, Inc.<br />
                 703 Hebron Avenue,<br />
@@ -106,7 +106,7 @@
                 <h4>General</h4>
                 <p>Our Web site is not intended for use by children under the age of 13, and children under the age of 13 are not eligible to participate in any Competitions. </p>
                 <p>We may assign, novate or subcontract any or all of our rights and obligations under these Terms of Use at any time. </p>
-                <p>If you have any questions regarding these Terms of Use, contact us at service@topcoder.com.</p>
+                <p>If you have any questions regarding these Terms of Use, contact us at support@topcoder.com.</p>
                 <div class="center">
                     <button type="button" id="close-button" onclick="self.close();">Close Window</button>
                 </div>
