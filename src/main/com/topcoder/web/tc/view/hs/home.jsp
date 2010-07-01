@@ -81,7 +81,7 @@
                 			First, you must be a registered TopCoder member.&nbsp; If you are not, you may register <a href="http://www.topcoder.com/reg/">here</a>. Be sure when you register as a TopCoder member be sure to choose high school competitions.It is also important to make sure your date of birth is entered correctly. Once you are registered, it is a good idea to read up about TopCoder Single Round Matches (SRM) <a href="http://www.topcoder.com/wiki/display/tc/How+To+Compete+in+Algorithm+Competitions">here</a> and compete in a few SRMs to get used to them.<br />
                		  </li>
                         <li><b>Who can I contact if I am having difficulty registering as a high school member?</b><br />
-                			If you have problems registering as a high school student on TopCoder or entered your date of birth incorrectly, please email <a href="mailto:service@topcoder.com">service@topcoder.com</a> with your handle and your date of birth.&nbsp; TopCoder will help you fix your registration problem.<br /></li>
+                			If you have problems registering as a high school student on TopCoder or entered your date of birth incorrectly, please email <a href="mailto:support@topcoder.com">support@topcoder.com</a> with your handle and your date of birth.&nbsp; TopCoder will help you fix your registration problem.<br /></li>
                         <li><b>What are the eligibility criteria for high school students to be able to compete in the tournament?</b><br />
                 			Please read the <a href="/tc?module=Static&d1=hs&d2=TCHSRules">rules and regulations</a> of the TCHS10 tournament for eligibility criteria.</li>
                         <li><b>How can I participate in TopCoder Single Round Matches (SRM)?</b><br />
