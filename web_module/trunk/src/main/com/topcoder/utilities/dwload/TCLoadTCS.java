@@ -1249,6 +1249,7 @@ public class TCLoadTCS extends TCLoad {
             new SimpleDateFormat("MM/dd/yyyy hh:mm", Locale.US),
             new SimpleDateFormat("MM.dd.yyyy hh:mm a", Locale.US),
             new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy", Locale.US),
+            new SimpleDateFormat("MM.dd.yyyy HH:mm z", Locale.US),
     };
 
     private static Timestamp convertToDate(String str) {
