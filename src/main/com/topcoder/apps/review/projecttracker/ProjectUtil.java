@@ -773,6 +773,12 @@ public class ProjectUtil {
         // Post-Mortem Required
         createProjectInfo(ps, projectId, 44, "true", modUserId);
 
+        // Reliability Bonus Eligible
+        createProjectInfo(ps, projectId, 45, "true", modUserId);
+
+        // Member Payments Eligible
+        createProjectInfo(ps, projectId, 46, "true", modUserId);
+
         close(ps);
     }
 
