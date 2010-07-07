@@ -247,7 +247,7 @@
         5. Click "Submit" and upload your files.<br/>
         <br/>
         Trouble formatting your submission or want to learn more? <a
-            href="http://studio.topcoder.com/?module=Static&amp;d1=support&amp;d2=newMemberFaqs#QA_5-1">Read this
+            href="http://topcoder.com/home/studio/the-process/how-to-submit-to-a-contest/">Read this
         FAQs</a><br/>
         <br/>
         <b>Note:</b> All non-standard Windows fonts must be listed in a text file within your submission folder. Include
@@ -479,9 +479,9 @@
 <div class="header"><span>How to Submit</span></div>
 <div id="how-to">
     <ul>
-        <li>New to Studio? <A href="http://studio.topcoder.com/?module=Static&d1=support&d2=newMemberFaqs">Learn how to compete here</a>.
+        <li>New to Studio? <A href="http://topcoder.com/home/studio/new-member-guide/">Learn how to compete here</a>.
         </li>
-        <li>Upload your submission in three parts (<A href="http://studio.topcoder.com/?module=Static&d1=support&d2=newMemberFaqs#QA_5-9">see this FAQs for more information</a>). Your design should be finalized and should contain only a single design concept (do not include multiple designs in a single submission).
+        <li>Upload your submission in three parts (<A href="http://topcoder.com/home/studio/the-process/how-to-submit-to-a-contest/">see this FAQs for more information</a>). Your design should be finalized and should contain only a single design concept (do not include multiple designs in a single submission).
         </li>
         <li>If your submission wins, your source files must be correct and "<a href="http://topcoder.com/home/studio/the-process/final-fixes/ ">Final Fixes</a>" (if applicable) must be completed before payment can be released.
         </li>
