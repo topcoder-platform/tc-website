@@ -227,15 +227,16 @@
                                         <img width="126" height="140" alt=""
                                              src="/i/v5/photo_placeholder.jpg">
                                     </div>
-                                    <div class="member_content">
+                                    <div id="member_content">
                                         <div id="member_month">
-                                            MAY<br/><br/>
+                                            June<br />
                                         </div>
                                         <div id="member_greeting">
-                                            <span class="member_content special handle">Congratulations selvia_ettine!</span><br/><br/>
+                                            <span class="member_content special handle">Congratulations <span class="handle-color">gh3ablo!</span></span><br/><br/>
                                         </div>
                                         <div id="member_stats">
-                                            <span class="member_content special">Earned $5250 in 9 competitions during the month of May</span><br/><br/>
+                                            <span class="member_content special">Earned $1550 in 4 competitions during the month of June.</span><br/><br/>
+                                            <span class="member_content special"><a href="http://www.topcoder.com/news/2010/07/12/meet-the-june-coders-and-designers-of-the-month-2/">Read the interview.</a></span><br/><br/>
                                         </div>
                                     </div>
                                     <!-- member_content -->
