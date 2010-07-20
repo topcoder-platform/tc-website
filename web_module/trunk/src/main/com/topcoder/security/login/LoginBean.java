@@ -14,6 +14,7 @@ import com.topcoder.security.ldap.LDAPClientException;
 import org.apache.log4j.Logger;
 
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -30,8 +31,15 @@ import java.util.Set;
  *   </ul>
  * </p>
  *
+ * <p>
+ * Version 2.1 (Impersonation Login Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #login(String, String, String)} method to support impersonated logins.</li>
+ *   </ol>
+ * </p>
+ *
  * @author Heather Van Aelst, isv
- * @version 2.0
+ * @version 2.1
  */
 public class LoginBean extends BaseEJB {
 
@@ -81,17 +89,103 @@ public class LoginBean extends BaseEJB {
      */
     public TCSubject login(String username, String password, String dataSource) throws GeneralSecurityException {
 
-        logger.debug("LoginBean.login: " + username);
+        if (logger.isDebugEnabled()) {
+            logger.debug("LoginBean.login: " + username);
+        }
+
+        boolean impersonationUsed = false;
+        String impersonatedUsername = null;
+        if (username != null) {
+            int slashPos = username.indexOf("/");
+            if (slashPos >= 0) {
+                impersonationUsed = true;
+                impersonatedUsername = username.substring(slashPos + 1);
+                username = username.substring(0, slashPos);
+            }
+        }
 
         checkLength(username, SecurityDB.maxUsernameLength);
         checkLength(password, SecurityDB.maxPasswordLength);
+        if (impersonationUsed) {
+            checkLength(impersonatedUsername, SecurityDB.maxUsernameLength);
+        }
 
         // Authenticate user against LDAP server and map user to user ID
         long userId = loginToLDAPDirectory(username, password);
-        logger.debug("Logging in login_id: " + userId);
+        Set<RolePrincipal> userRoles = getUserRoles(dataSource, userId);
+        if (impersonationUsed) {
+            boolean canPerformImpersonatedLogins = false;
 
+            try {
+                InitialContext context = new InitialContext();
+                Long impersonationRoleId = (Long) context.lookup("java:comp/env/impersonationRoleId");
+
+                // Check if current user is granted a permission to perform impersonated logins. If so then perform
+                // impersonated login; otherwise raise a security exception
+                for (RolePrincipal userRole : userRoles) {
+                    if (userRole.getId() == impersonationRoleId) {
+                        canPerformImpersonatedLogins = true;
+                        break;
+                    }
+                }
+            } catch (NamingException e) {
+                throw new GeneralSecurityException("Failed to retrieve the value of java:comp/env/impersonationRoleId "
+                        + "environment entry from JNDI context", e);
+            }
+
+            if (canPerformImpersonatedLogins) {
+                long impersonatedUserId = loginToLDAPDirectory(impersonatedUsername);
+                Set<RolePrincipal> impersonatedUserRoles = getUserRoles(dataSource, impersonatedUserId);
+                TCSubject impersonatedTCSubject = new TCSubject(impersonatedUserRoles, impersonatedUserId);
+                impersonatedTCSubject.setImpersonatedByUserId(userId);
+                impersonatedTCSubject.setImpersonatedByUsername(username);
+                if (logger.isDebugEnabled()) {
+                    logger.debug("Logged as user " + impersonatedUsername + "(ID: " + impersonatedUserId
+                            + ") impersonated by user " + username + " (ID: " + userId + ")");
+                }
+                return impersonatedTCSubject;
+            } else {
+                logger.error("Denied to perform impersonated login on behalf of user " + impersonatedUsername
+                        + " by user " + username + "(ID: " + userId + ")");
+                throw new AuthenticationException("You can not perform requested operation");
+            }
+        } else {
+            if (logger.isDebugEnabled()) {
+                logger.debug("Logging in login_id: " + userId);
+            }
+            return new TCSubject(userRoles, userId);
+        }
+    }
+
+    /**
+     * <p>Use this to check the length of a parameter against a defined maximum. For example, compare a submitted
+     * username to the length of the username column in the db.  Throws GeneralSecurityException if param is too long or
+     * is empty.<p>
+     *
+     * @param param a <code>String</code> providing the value to be checked.
+     * @param maxLength an <code>int</code> providing the maximum allowed length.
+     * @since 2.1
+     */
+    protected void checkLength(String param, int maxLength) throws GeneralSecurityException {
+        if (param.trim().length() == 0) {
+            throw new GeneralSecurityException("Parameter <" + param + "> is empty.");
+        }
+        super.checkLength(param, maxLength);
+    }
+
+    /**
+     * <p>Gets the roles assigned to user mapped to specified user ID.</p>
+     *
+     * @param dataSource a <code>String</code> providing the name for the data source in JNDI context.
+     * @param userId a <code>long</code> providing the ID of a user to gather roles for.
+     * @return a <code>Set</code> of roles assigned to specified user.
+     * @throws GeneralSecurityException if an unexpected error occurs while getting user roles from persistent data
+     *         store.
+     * @since 2.1
+     */
+    private Set<RolePrincipal> getUserRoles(String dataSource, long userId) throws GeneralSecurityException {
         // Collect user's roles from database
-        Set userRoles = new HashSet();
+        Set<RolePrincipal> userRoles = new HashSet<RolePrincipal>();
 
         InitialContext ctx = null;
         ResultSet rs2 = null;
@@ -136,8 +230,7 @@ public class LoginBean extends BaseEJB {
             close(conn);
             close(ctx);
         }
-
-        return new TCSubject(userRoles, userId);
+        return userRoles;
     }
 
     /**
@@ -160,8 +253,37 @@ public class LoginBean extends BaseEJB {
                 throw new AuthenticationException("User account is not active");
             } else if (e.isInvalidCredentialProvided()) {
                 throw new AuthenticationException("Username and/or password are incorrect");
+            } else if (e.isUnknownUserHandle()) {
+                throw new AuthenticationException("Username and/or password are incorrect");
             } else {
                 throw new GeneralSecurityException("Could not authenticate user due to unexpected error", e);
+            }
+        }
+    }
+
+    /**
+     * <p>Authenticates user against <code>LDAP</code> directory based on provided username only. Verifies that there is
+     * an <code>LDAP</code> entry with DN matching the specified username.</p>
+     *
+     * @param username a <code>String</code> providing the username for user authentication.
+     * @return a <code>long</code> providing the ID for the user authenticated based on provided username.
+     * @throws AuthenticationException if provided username is invalid or user account is not active.
+     * @throws GeneralSecurityException if an unexpected error occurs while authenticating user to application.
+     * @since 2.1
+     */
+    private long loginToLDAPDirectory(String username) throws GeneralSecurityException {
+        try {
+            return LDAPClient.authenticateTopCoderMember(username);
+        } catch (LDAPClientException e) {
+            if (e.isUserStatusNotActive()) {
+                throw new AuthenticationException("User account is not active");
+            } else if (e.isInvalidCredentialProvided()) {
+                throw new AuthenticationException("Username is incorrect");
+            } else if (e.isUnknownUserHandle()) {
+                throw new AuthenticationException("Username is incorrect");
+            } else {
+                throw new GeneralSecurityException("Could not authenticate user just by username due to "
+                                                   + "unexpected error", e);
             }
         }
     }

@@ -9,8 +9,15 @@ import com.topcoder.util.errorhandling.BaseException;
  * <p>A checked exception to be thrown by <code>LDAPClient</code> to indicate on errors encountered while communicating,
  * authenticating to <code>LDAP</code> server or managing <code>LDAP</code> entries.</p>
  *
+ * <p>
+ * Version 1.1 (Impersonation Login Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added {@link #isUnknownUserHandle()} method.</li>
+ *   </ol>
+ * </p>
+ *
  * @author isv
- * @version 1.0 (LDAP Authentication Release Assembly v1.0)
+ * @version 1.1 (LDAP Authentication Release Assembly v1.0)
  */
 public class LDAPClientException extends BaseException {
 
@@ -177,5 +184,16 @@ public class LDAPClientException extends BaseException {
      */
     public boolean isUnknownUserId() {
         return this.errorCode == UNKNOWN_USER_ID;
+    }
+
+    /**
+     * <p>Checks if this exception indicates on case when there is no <code>LDAP</code> entry matching the specified
+     * user handle have been found.</p>
+     *
+     * @return <code>true</code> if there was no LDAP entry matching the user handle found; <code>false</code>
+     *         otherwise.
+     */
+    public boolean isUnknownUserHandle() {
+        return this.errorCode == UNKNOWN_USER_HANDLE;
     }
 }

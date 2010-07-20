@@ -49,8 +49,16 @@ import static com.topcoder.util.net.ldap.sdkinterface.LDAPSDKConnection.SCOPE_ON
  *
  * <p><b>Thread safety:</b> This class is not thread-safe. Each thread must use separate instance of this class.</p>
  *
+ *
+ * <p>
+ * Version 1.1 (Impersonation Login Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added {@link #authenticateTopCoderMember(String)} method.</li>
+ *   </ol>
+ * </p>
+ *
  * @author isv
- * @version 1.0 (LDAP Authentication Release Assembly v1.0)
+ * @version 1.1 (LDAP Authentication Release Assembly v1.0)
  */
 public class LDAPClient {
 
@@ -185,6 +193,50 @@ public class LDAPClient {
         } catch (LDAPSDKException e) {
             log.error("Failed to authenticate user " + handle + " due to unexpected error", e);
             throw LDAPClientException.createUnexpectedErrorException(e);
+        } finally {
+            if (ldapConnection != null) {
+                try {
+                    ldapConnection.disconnect();
+                } catch (LDAPSDKException e) {
+                    log.warn("Failed to disconnect from LDAP server successfully", e);
+                }
+            }
+        }
+    }
+
+    /**
+     * <p>Authenticates <code>TopCoder</code> member to <code>LDAP</code> server using the specified username only. If
+     * authentication is successful then member profile ID is returned otherwise an exception is raised.</p>
+     *
+     * @param handle a <code>String</code> providing the <code>TopCoder</code> member handle to be used for
+     *        authentication.
+     * @return a <code>long</code> providing the ID for authenticated <code>TopCoder</code> member profile.
+     * @throws LDAPClientException if an error occurs while establishing connection to target <code>LDAP</code> server
+     *         or authenticating to <code>LDAP</code> server or if provided credentials are invalid or if specified
+     *         user account is authenticated successfully but account is not of <code>Active</code> status.
+     * @since 1.1
+     */
+    public static long authenticateTopCoderMember(String handle) throws LDAPClientException {
+        LDAPSDKConnection ldapConnection = null;
+        try {
+            final LDAPClient client = new LDAPClient();
+            client.connect();
+            Entry userEntry;
+            try {
+                userEntry = client.findTopCoderMemberEntryByUserHandle(handle);
+            } finally {
+                client.disconnect();
+            }
+
+            String userStatus = getStatus(userEntry);
+            if (USER_STATUS_ACTIVE.equals(userStatus)) {
+                log.info("Authenticated user " + handle + " based on just a username against LDAP server successfully");
+                return getUserID(userEntry);
+            } else {
+                log.debug("Rejected successful authentication just by username against LDAP server for user " + handle
+                          + " due to not Active user account status");
+                throw LDAPClientException.createUserNotActiveException(handle);
+            }
         } finally {
             if (ldapConnection != null) {
                 try {
