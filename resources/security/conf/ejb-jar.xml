@@ -62,6 +62,11 @@
                 <res-type>javax.sql.DataSource</res-type>
                 <res-auth>Container</res-auth>
             </resource-ref>
+            <env-entry>
+                <env-entry-name>impersonationRoleId</env-entry-name>
+                <env-entry-type>java.lang.Long</env-entry-type>
+                <env-entry-value>28</env-entry-value>
+            </env-entry>
         </session>
     </enterprise-beans>
 </ejb-jar>

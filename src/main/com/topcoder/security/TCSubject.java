@@ -13,13 +13,37 @@ import java.util.Set;
  * include role assignments to the user and to any user groups that the user is a
  * member.
  *
- * @author Heather Van Aelst
- * @version 0.1
+ * <p>
+ * Version 0.2 (Impersonation Login Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added {@link #impersonatedByUserId} and {@link #impersonatedByUsername} instance fields with respective
+ *     accessor/mutator methods.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author Heather Van Aelst, isv
+ * @version 0.2
  */
 public class TCSubject implements Serializable {
 
     private Set principals;
     private long userid;
+
+    /**
+     * <p>A <code>long</code> providing the ID of actual user who have logged on behalf of user mapped to this
+     * TCSubject.</p>
+     *
+     * @since 0.2
+     */
+    private long impersonatedByUserId;
+
+    /**
+     * <p>A <code>String</code> providing the username of actual user who have logged on behalf of user mapped to this
+     * TCSubject.</p>
+     *
+     * @since 0.2
+     */
+    private String impersonatedByUsername;
 
     /**
      * Construct a TCSubject.  This represents a user's set of roles.
@@ -142,5 +166,49 @@ public class TCSubject implements Serializable {
         } else {
             return false;
         }
+    }
+
+    /**
+     * <p>Gets the username of actual user who have logged on behalf of user mapped to this TCSubject.</p>
+     *
+     * @return a <code>String</code> providing the username of actual user who have logged on behalf of user mapped to
+     *         this TCSubject.
+     * @since 0.2
+     */
+    public String getImpersonatedByUsername() {
+        return this.impersonatedByUsername;
+    }
+
+    /**
+     * <p>Sets the username of actual user who have logged on behalf of user mapped to this TCSubject.</p>
+     *
+     * @param impersonatedByUsername a <code>String</code> providing the username of actual user who have logged on
+     *        behalf of user mapped to this TCSubject.
+     * @since 0.2
+     */
+    public void setImpersonatedByUsername(String impersonatedByUsername) {
+        this.impersonatedByUsername = impersonatedByUsername;
+    }
+
+    /**
+     * <p>Gets the ID of actual user who have logged on behalf of user mapped to this TCSubject.</p>
+     *
+     * @return a <code>long</code> providing the ID of actual user who have logged on behalf of user mapped to this
+     *         TCSubject.
+     * @since 0.2
+     */
+    public long getImpersonatedByUserId() {
+        return this.impersonatedByUserId;
+    }
+
+    /**
+     * <p>Sets the ID of actual user who have logged on behalf of user mapped to this TCSubject.</p>
+     *
+     * @param impersonatedByUserId a <code>long</code> providing the ID of actual user who have logged on behalf of user
+     *        mapped to this TCSubject.
+     * @since 0.2
+     */
+    public void setImpersonatedByUserId(long impersonatedByUserId) {
+        this.impersonatedByUserId = impersonatedByUserId;
     }
 }
