@@ -95,7 +95,7 @@
                                             <a href="http://<%=ApplicationServer.SERVER_NAME%>/home/studio/new-member-guide/">Member Resources</a>
                                             area for information about how to compete, how to get paid and many other
                                             topics.</p>
-                                        <p>Email: <a href="mailto:studioadmin@topcoder.com?subject=TopCoder%20Studio%20General%20Questions">studioadmin@topcoder.com</a></p>
+                                        <p>Email: <a href="mailto:support@topcoder.com?subject=TopCoder%20Studio%20General%20Questions">support@topcoder.com</a></p>
                                         <p>
                                             <strong>Corporate Address</strong><br/>
                                             TopCoder, Inc.<br/>
