@@ -100,7 +100,7 @@
                 <%-- nasa --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
-                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_072710"><img src="/i/pressroom/nasa-patch-09.png" alt="NASA" border="0" /></a>
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_102109"><img src="/i/pressroom/nasa-patch-09.png" alt="NASA" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
                         <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_072710">TopCoder Community Refines Medical Kits for Future NASA Space Missions</a></h3>
