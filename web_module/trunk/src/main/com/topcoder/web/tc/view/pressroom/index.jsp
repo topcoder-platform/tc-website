@@ -97,7 +97,21 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
-                <%-- TC010 --%>
+                <%-- nasa --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_072710"><img src="/i/pressroom/nasa-patch-09.png" alt="NASA" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_072710">TopCoder Community Refines Medical Kits for Future NASA Space Missions</a></h3>
+                        <p><small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_072710">[July 27th]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                
+                <%-- nasa end --%>
+                
+                <%-- member --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
                         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_060110"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></a>
@@ -109,7 +123,7 @@
                     <div class="pr_clear"></div>
                 </div>
                 
-                <%-- TC010 end --%>
+                <%-- member end --%>
                 
                 <%-- TC010 --%>
                 <div class="pr_newsitem">
