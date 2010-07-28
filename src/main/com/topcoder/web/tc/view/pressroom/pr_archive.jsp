@@ -70,6 +70,7 @@
             
                 <div class="pr_newsarchive">
                     <dl>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_072710">TopCoder Community Refines Medical Kits for Future NASA Space Missions<br /><small style="margin-left:10px;">[July 27th]</small></a></dd>
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_060110">TopCoder Community Celebrates 250,000 Member Milestone<br /><small style="margin-left:10px;">[June 1st]</small></a></dd>
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_040610">U.S. National Security Agency and Leading Russian Search Engine Yandex to Support 2010 TopCoder Open<br /><small style="margin-left:10px;">[April 6th]</small></a></dd>
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_032210">Student from Belarus is Champion in 2010 TopCoder High School Global Programming Tournament<br /><small style="margin-left:10px;">[March 22nd]</small></a></dd>
