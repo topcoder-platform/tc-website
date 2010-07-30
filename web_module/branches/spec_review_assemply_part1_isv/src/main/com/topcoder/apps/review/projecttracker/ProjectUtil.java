@@ -57,8 +57,16 @@ import com.topcoder.util.idgenerator.IDGeneratorFactory;
  *   </ol>
  * </p>
  *
- * @author brain_cn, pulky
- * @version 1.3
+ * <p>
+ * Version 1.4 (Specification Review Part 1 Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #createProject(Connection, String, long, long, long, long, double)} method to set phase fixed
+ *     start date only if phase has no dependencies.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author brain_cn, pulky, TCSDEVELOPER
+ * @version 1.4
  */
 public class ProjectUtil {
 
@@ -82,6 +90,7 @@ public class ProjectUtil {
     private static final int PHASE_TYPE_REVIEW = 4;
     private static final int PHASE_TYPE_APPEAL = 5;
     private static final int PHASE_TYPE_APPROVAL = 11;
+    private static final int PHASE_TYPE_SPECIFICATION_REVIEW = 14;
     private static final DateFormat DATE_FORMAT = new SimpleDateFormat("MM.dd.yyyy hh:mm a", Locale.US);
 
     public static final int COMPONENT_TESTING_PROJECT_TYPE = 5;
@@ -341,7 +350,8 @@ public class ProjectUtil {
      * @throws SQLException if any error occurs in the underlying layer.
      * @throws BaseException if any business error occurs
      */
-    static long createProject(Connection conn, String projectVersion, long compVersId, long projectTypeId, long modUserId, long forumCategoryId, double price) throws SQLException, BaseException {
+    static long createProject(Connection conn, String projectVersion, long compVersId, long projectTypeId,
+                              long modUserId, long forumCategoryId, double price) throws SQLException, BaseException {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
@@ -444,7 +454,10 @@ public class ProjectUtil {
         }
         com.topcoder.project.phases.Phase[] phases = project.getAllPhases();
         for (int i = 0; i < phases.length; i++) {
-            phases[i].setFixedStartDate(phases[i].calcStartDate());
+            Dependency[] dependencies = phases[i].getAllDependencies();
+            if ((dependencies == null) || (dependencies.length == 0)) {
+                phases[i].setFixedStartDate(phases[i].calcStartDate());
+            }
             phases[i].setScheduledStartDate(phases[i].calcStartDate());
             phases[i].setScheduledEndDate(phases[i].calcEndDate());
             phases[i].setPhaseStatus(PhaseStatus.SCHEDULED);
@@ -456,6 +469,7 @@ public class ProjectUtil {
         long screenTemplateId = getScorecardId(conn, projectTypeId, 1);
         long reviewTemplateId = getScorecardId(conn, projectTypeId, 2);
         long approvalTemplateId = getScorecardId(conn, projectTypeId, 3);
+        long specReviewTemplateId = getScorecardId(conn, projectTypeId, 5);
 
         for (int i = 0; i < phases.length; i++) {
             long projectPhaseId = nextId(PROJECT_PHASE_ID_SEQ);
@@ -493,6 +507,11 @@ public class ProjectUtil {
 
             if (phases[i].getPhaseType().getId() == PHASE_TYPE_APPROVAL) {
                 createPhaseCriteria(conn, projectPhaseId, 1, String.valueOf(approvalTemplateId), modUserId);
+                createPhaseCriteria(conn, projectPhaseId, 6, "1", modUserId);
+            }
+
+            if (phases[i].getPhaseType().getId() == PHASE_TYPE_SPECIFICATION_REVIEW) {
+                createPhaseCriteria(conn, projectPhaseId, 1, String.valueOf(specReviewTemplateId), modUserId);
                 createPhaseCriteria(conn, projectPhaseId, 6, "1", modUserId);
             }
 
