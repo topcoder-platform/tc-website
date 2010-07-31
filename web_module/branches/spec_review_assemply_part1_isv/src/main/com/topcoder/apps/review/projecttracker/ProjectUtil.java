@@ -90,6 +90,12 @@ public class ProjectUtil {
     private static final int PHASE_TYPE_REVIEW = 4;
     private static final int PHASE_TYPE_APPEAL = 5;
     private static final int PHASE_TYPE_APPROVAL = 11;
+
+    /**
+     * <p>An <code>int</code> providing the ID for <code>Specification Review</code> phase.</p>
+     *
+     * @since 1.4
+     */
     private static final int PHASE_TYPE_SPECIFICATION_REVIEW = 14;
     private static final DateFormat DATE_FORMAT = new SimpleDateFormat("MM.dd.yyyy hh:mm a", Locale.US);
 
