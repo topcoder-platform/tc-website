@@ -104,7 +104,12 @@
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14235">Member SRM 482</A></strong><br />
          11:00
-         </div>       
+         </div>  
+         <div class="long">
+         <strong><a href="/tc?module=MatchDetails&rd=14355">Marathon Match 65</a></strong><br />
+         13:00<br />
+         2 weeks
+         </div>  
       </td>
       <td class="value">16
       </td>
