@@ -177,7 +177,8 @@
         <tr class="<%=even?"dark":"light"%>">
             <td class="valueC">
             <% if(phaseId == SoftwareComponent.DESIGN_PHASE || phaseId == SoftwareComponent.DEV_PHASE ) { %>
-                <tc_tags:languageIcon catalogName = "<%=resultRow.getStringItem("catalog_name")%>" aolBrand="<%=(resultRow.getItem("aol_brand").getResultData() != null)%>"/>
+                <tc_tags:languageIcon catalogName = "<%=resultRow.getStringItem("catalog_name")%>" aolBrand="<%=(resultRow.getItem("aol_brand").getResultData() != null)%>"
+                                      paypalBrand="<%=(resultRow.getItem("paypal_brand") != null && resultRow.getItem("paypal_brand").getResultData() != null)%>"/>
             <% } else { %>
                 Application
             <% } %>
