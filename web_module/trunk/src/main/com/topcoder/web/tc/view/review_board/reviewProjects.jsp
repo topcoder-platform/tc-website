@@ -105,6 +105,7 @@
                                             </c:choose>
                                             <td class="tableHeader" align="center">Catalog</td>
                                             <td class="tableHeader" width="100%">${projectTypeDesc}</td>
+                                            <td class="tableHeader" align="center"></td>
                                             <td class="tableHeader" align="right" nowrap="nowrap">
                                                 Primary Reviewer<br>Payment
                                             </td>
@@ -147,7 +148,8 @@
 		                                                	projectType == DESIGN_PROJECT_TYPE ||
 		                                                	projectType == DESIGN_SPECIFICATION_PROJECT_TYPE ||
 		                                                	projectType == DEVELOPMENT_SPECIFICATION_PROJECT_TYPE}">
-		                                                	<tc_tags:languageIcon catalogName = "${resultRow.map['catalog']}" aolBrand="${resultRow.map['aol_brand'] != null}"/> 
+		                                                	<tc_tags:languageIcon catalogName = "${resultRow.map['catalog']}" aolBrand="${resultRow.map['aol_brand'] != null}"
+                                                                                  paypalBrand="${resultRow.map['paypal_brand'] != null}"/> 
 		                                                </c:when>
 		                                                <c:otherwise>
 		                                                	${projectTypeDesc}
@@ -166,6 +168,17 @@
 		                                                    </a>
 			                                            </c:otherwise>
 		                                            </c:choose>
+                                                </td>
+                                                <td class="statDk" align="center">
+                                                    <c:choose>
+                                                                <c:when test="${projectType != DEVELOPMENT_PROJECT_TYPE &&
+                                                                    projectType != DESIGN_PROJECT_TYPE &&
+                                                                    projectType != DESIGN_SPECIFICATION_PROJECT_TYPE &&
+                                                                    projectType != DEVELOPMENT_SPECIFICATION_PROJECT_TYPE &&
+                                                                    resultRow.map['paypal_brand'] != null}">
+                                                                      <img src="/i/development/smPayPalX.gif" alt="PayPal X" border="0" />
+                                                                 </c:when>
+                                                             </c:choose>
                                                 </td>
                                                 <td class="statDk" align="right">
                                                     $ <fmt:formatNumber value="${prices[i].primaryReviewPrice}"

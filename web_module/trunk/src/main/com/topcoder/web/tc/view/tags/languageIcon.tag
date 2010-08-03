@@ -2,9 +2,11 @@
 <%@ tag description="This tag translates a catalog name to an icon representation" %>
 <%@ attribute name="catalogName" required="true" type="java.lang.String"%>
 <%@ attribute name="aolBrand" type="java.lang.Boolean" %>
+<%@ attribute name="paypalBrand" type="java.lang.Boolean" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <c:choose>
+    <c:when test="${paypalBrand}"><img src="/i/development/smPayPalX.gif" alt="PayPal X" /></c:when>
     <c:when test="${aolBrand}"><img src="/i/development/smAOL.gif" alt="AOL" /></c:when>
     <c:when test="${catalogName == 'Java'}"><img src="/i/development/smJava.gif" alt="${catalogName}" /></c:when>
     <c:when test="${catalogName == 'Java Custom'}"><img src="/i/development/smJavaCustom.gif" alt="${catalogName}" /></c:when>

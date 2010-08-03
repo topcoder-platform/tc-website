@@ -131,7 +131,8 @@
     <rsc:iterator list="<%=designContests%>" id="resultRow">
         <tr class="<%=even?"dark":"light"%>">
             <td class="valueC">
-                <tc_tags:languageIcon catalogName = "<%=resultRow.getStringItem("catalog_name")%>" aolBrand="<%=(resultRow.getItem("aol_brand").getResultData() != null)%>"/> 
+                <tc_tags:languageIcon catalogName = "<%=resultRow.getStringItem("catalog_name")%>" aolBrand="<%=(resultRow.getItem("aol_brand").getResultData() != null)%>"
+                                      paypalBrand="<%=(resultRow.getItem("paypal_brand").getResultData() != null)%>"/> 
             </td>
             <td class="value">
                 <a href="/tc?module=ProjectDetail&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">
@@ -276,7 +277,8 @@
                 <rsc:item name="type" row="<%=resultRow%>"/>
             </td>
             <td class="valueC">
-                <tc_tags:languageIcon catalogName = "<%=resultRow.getStringItem("catalog_name")%>" aolBrand="<%=(resultRow.getItem("aol_brand").getResultData() != null)%>"/> 
+                <tc_tags:languageIcon catalogName = "<%=resultRow.getStringItem("catalog_name")%>" aolBrand="<%=(resultRow.getItem("aol_brand").getResultData() != null)%>" 
+                                      paypalBrand="<%=(resultRow.getItem("paypal_brand").getResultData() != null)%>"/> 
             </td>
             <td class="value">
                 <a href="/tc?module=ProjectDetail&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">

@@ -108,7 +108,8 @@
  <% if (resultRow.getIntItem("phase_id")==SoftwareComponent.DESIGN_PHASE) { %>
    <tr>
       <td class="statDk" align="center">
-         <tc_tags:languageIcon catalogName = "<%=resultRow.getStringItem("catalog")%>" aolBrand="<%=(resultRow.getItem("aol_brand").getResultData() != null)%>"/> 
+         <tc_tags:languageIcon catalogName = "<%=resultRow.getStringItem("catalog")%>" aolBrand="<%=(resultRow.getItem("aol_brand").getResultData() != null)%>"
+                               paypalBrand="<%=(resultRow.getItem("paypal_brand").getResultData() != null)%>"/> 
       </td>
       <% if ((resultRow.getLongItem("category_id"))==Constants.APPLICATIONS_CATALOG_ID) { %>
       <td class="statDk"><rsc:item row="<%=resultRow%>" name="component_name"/> <rsc:item row="<%=resultRow%>" name="version"/></td>
@@ -190,7 +191,8 @@
       <% } %>
       </td>
       <td class="statDk" align="center">
-         <tc_tags:languageIcon catalogName = "<%=resultRow.getStringItem("catalog")%>" aolBrand="<%=(resultRow.getItem("aol_brand").getResultData() != null)%>"/> 
+       <tc_tags:languageIcon catalogName = "<%=resultRow.getStringItem("catalog")%>" aolBrand="<%=(resultRow.getItem("aol_brand").getResultData() != null)%>"
+                               paypalBrand="<%=(resultRow.getItem("paypal_brand").getResultData() != null)%>"/> 
       </td>
       <% if ((resultRow.getLongItem("category_id"))==Constants.APPLICATIONS_CATALOG_ID) { %>
       <td class="statDk"><rsc:item row="<%=resultRow%>" name="component_name"/> <rsc:item row="<%=resultRow%>" name="version"/></td>

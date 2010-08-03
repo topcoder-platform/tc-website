@@ -262,7 +262,8 @@
                 pt != TEST_SCENARIOS_TYPE_ID && pt != UI_PROTOTYPE_TYPE_ID && pt != RIA_BUILD_TYPE_ID &&
                 pt != RIA_COMPONENT_TYPE_ID}">
             <td class="valueC">
-                <tc_tags:languageIcon catalogName = "<%=resultRow.getStringItem("catalog_name")%>" aolBrand="<%=(resultRow.getItem("aol_brand").getResultData() != null)%>"/>
+                <tc_tags:languageIcon catalogName = "<%=resultRow.getStringItem("catalog_name")%>" aolBrand="<%=(resultRow.getItem("aol_brand").getResultData() != null)%>"
+                                      paypalBrand="<%=(resultRow.getItem("paypal_brand") != null && resultRow.getItem("paypal_brand").getResultData() != null)%>"/>
             </td>
             </c:if>
             <td class="value">

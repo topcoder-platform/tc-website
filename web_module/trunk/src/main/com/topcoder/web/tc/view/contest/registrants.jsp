@@ -272,7 +272,8 @@
         <tr>
             <td class="cat" nowrap="nowrap" style="padding-top: 3px">Catalog:</td>
             <td class="stat" align="right" nowrap="nowrap" style="padding-top: 3px">
-                <tc_tags:languageIcon catalogName = "<%=registrants.getStringItem(0, "catalog_name")%>" aolBrand="<%=(registrants.getItem(0, "aol_brand").getResultData() != null)%>"/>
+                <tc_tags:languageIcon catalogName = "<%=registrants.getStringItem(0, "catalog_name")%>" aolBrand="<%=(registrants.getItem(0, "aol_brand").getResultData() != null)%>"
+                                      paypalBrand="<%=(registrants.getItem(0, "paypal_brand") != null && registrants.getItem(0, "paypal_brand").getResultData() != null)%>"/>
             </td>
         </tr>
     </table>
