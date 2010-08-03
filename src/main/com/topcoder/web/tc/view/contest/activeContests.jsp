@@ -276,13 +276,13 @@
         </c:when>
         <c:when test="${pt == TEST_SUITES_TYPE_ID}">
             Competition opportunities via RSS -
-            <a href="/tc?module=BasicRSS&amp;c=rss_RIA_Component_Registration_Open&amp;dsid=28">Subscribe Now</a>
-            <a href="/tc?module=BasicRSS&amp;c=rss_RIA_Component_Registration_Open&amp;dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
+            <a href="/tc?module=BasicRSS&amp;c=rss_Registration_Open&dsid=28&pt=13>">Subscribe Now</a>
+            <a href="/tc?module=BasicRSS&amp;c=rss_Registration_Open&dsid=28&pt=13"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
         </c:when>
         <c:when test="${pt == TEST_SCENARIOS_TYPE_ID}">
             Competition opportunities via RSS -
-            <a href="/tc?module=BasicRSS&amp;c=rss_RIA_Component_Registration_Open&amp;dsid=28">Subscribe Now</a>
-            <a href="/tc?module=BasicRSS&amp;c=rss_RIA_Component_Registration_Open&amp;dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
+            <a href="/tc?module=BasicRSS&amp;c=rss_Registration_Open&dsid=28&pt=26">Subscribe Now</a>
+            <a href="/tc?module=BasicRSS&amp;c=rss_Registration_Open&dsid=28&pt=26"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
         </c:when>
       </c:choose>
     <br /><br />
