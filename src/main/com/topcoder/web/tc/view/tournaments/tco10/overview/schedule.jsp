@@ -73,7 +73,11 @@
 								<td colspan="2">Studio Design Competition Semifinal 2</td>
 							</tr>
                             <tr>
-                                <td>5:30 p.m. - 7:00 p.m.</td>
+                                <td>6:00 p.m. - 6:45 p.m.</td>
+								<td colspan="2">Facebook Tech Talk</td>
+							</tr>
+                            <tr>
+                                <td>6:00 p.m. - 7:00 p.m.</td>
 								<td colspan="2">Dinner</td>
 							</tr>
                             <tr>
@@ -102,15 +106,19 @@
 								<td colspan="2">Algorithm Semifinal 2</td>
 							</tr>
                             <tr>
-                                <td>2:30 p.m. - 6:00 p.m.</td>
+                                <td>1:30 p.m. - 5:00 p.m.</td>
 								<td colspan="2">Studio Design Competition Final</td>
 							</tr>
                             <tr>
-                                <td>5:00 p.m. - 7:00 p.m.</td>
+                                <td>5:00 p.m. - 5:45 p.m.</td>
+								<td colspan="2">Experimental Innovation with NASA with Dr. Karim Lakhani, Harvard Business School&nbsp;</td>
+							</tr>
+                            <tr>
+                                <td>5:00 p.m. - 6:00 p.m.</td>
 								<td colspan="2">Dinner</td>
 							</tr>
                            <tr>
-                                <td>5:30 p.m. - 8:00 p.m.</td>
+                                <td>6:00 p.m. - 8:30 p.m.</td>
 								<td colspan="2">Algorithm Wild Card Round</td>
 							</tr>
                             <tr>
@@ -135,7 +143,7 @@
 								<td colspan="2">Algorithm Finals</td>
 							</tr>
                             <tr>
-                                <td>4:00 p.m. - 5:00 p.m.</td>
+                                <td>3:30 p.m. - 4:00 p.m.</td>
 								<td colspan="2">Winner Announcements and Awards Ceremony</td>
 							</tr>
                             <tr class="last">
