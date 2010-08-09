@@ -75,9 +75,6 @@ public class ProcessJiraPayments extends DBUtility {
     /** Jira filter that returns the issues to be considered for payment. */
     private String jiraPaymentsFilterId = null;
 
-    /** A translation mapping of client Greek nicknames to their real names. */
-    private Map<String, String> clientNicknameTranslation = null;
-
     /** A translation mapping of Jira issue type ids to PACTS payment types. */
     private Map<String, String> issueTypeTranslation = null;
 
@@ -353,31 +350,6 @@ public class ProcessJiraPayments extends DBUtility {
     }
 
     /**
-     * Retrieves a client's real name by their Greek nickname. The comparison is
-     * not case sensitive. If the search fails, an attempt is made to get a
-     * match with the real name just in case that is what was entered.
-     * 
-     * @param nickname
-     *            the client's Greek nickname.
-     * @return the client's real name.
-     */
-    private String getClientName(String nickname) {
-        String canonicalNickname = canonicalize(nickname);
-
-        if (clientNicknameTranslation.containsKey(canonicalNickname)) {
-            return clientNicknameTranslation.get(canonicalNickname);
-        }
-
-        for (String name : clientNicknameTranslation.values()) {
-            if (canonicalNickname.equals(canonicalize(name))) {
-                return name;
-            }
-        }
-
-        return null;
-    }
-
-    /**
      * Returns a canonical representation of a string (trimmed, and lower case).
      * 
      * @param s
@@ -438,7 +410,6 @@ public class ProcessJiraPayments extends DBUtility {
         }
         params.remove("jiraPaymentsFilterId");
 
-        clientNicknameTranslation = initializeTranslationFromConfiguration("clientNamingFilename");
         issueTypeTranslation = initializeTranslationFromConfiguration("issueTypesFilename");
     }
 
@@ -526,7 +497,6 @@ public class ProcessJiraPayments extends DBUtility {
         sErrorMsg.append("   -jiraPaymentsUser     : the Jira user name for the payments application.\n");
         sErrorMsg.append("   -jiraPaymentsPassword : the Jira password for the payments application.\n");
         sErrorMsg.append("   -jiraPaymentsFilterId : the id of a Jira filter that returns the issues to be paid.\n");
-        sErrorMsg.append("   -clientNamingFilename : client Greek to real name mapping file.\n");
         sErrorMsg.append("   -issueTypesFilename   : Jira issue to PACTS payment type mapping file.\n");
         fatal_error();
     }
@@ -607,8 +577,7 @@ public class ProcessJiraPayments extends DBUtility {
             errors = new ArrayList<String>();
 
             populatePaymentType(remoteIssue);
-            populateReferenceData(remoteIssue);
-            populateClient(remoteIssue);
+            populateReferenceDataAndClientName(remoteIssue);
             populatePayeeUserId(remoteIssue);
             populatePaymentAmount(remoteIssue);
             populateDescription(remoteIssue);
@@ -641,26 +610,6 @@ public class ProcessJiraPayments extends DBUtility {
         }
 
         /**
-         * Populates the client field from the provided RemoteIssue.
-         * 
-         * @param remoteIssue
-         *            the RemoteIssue to obtain data from.
-         */
-        private void populateClient(RemoteIssue remoteIssue) {
-            String clientNickname = getCustomFieldValueById(remoteIssue, JIRA_CLIENT_NICKNAME_FIELD_ID);
-            if (clientNickname != null) {
-                client = getClientName(clientNickname);
-                if (client == null) {
-                    client = clientNickname;
-                    rejectIssue("Unknown client " + clientNickname + ".");
-                }
-            } else {
-                client = "N/A";
-                rejectIssue("The Client Nickname field must not be null.");
-            }
-        }
-
-        /**
          * Populates the payee user id field from the provided RemoteIssue.
          * 
          * @param remoteIssue
@@ -681,7 +630,7 @@ public class ProcessJiraPayments extends DBUtility {
          * @param remoteIssue
          *            the RemoteIssue to obtain data from.
          */
-        private void populateReferenceData(RemoteIssue remoteIssue) {
+        private void populateReferenceDataAndClientName(RemoteIssue remoteIssue) {
             String projectId = getCustomFieldValueById(remoteIssue, JIRA_PROJECT_ID_FIELD_ID);
             String studioId = getCustomFieldValueById(remoteIssue, JIRA_STUDIO_ID_FIELD_ID);
 
@@ -698,6 +647,12 @@ public class ProcessJiraPayments extends DBUtility {
                     referenceInfo = getTopCoderProjectInfoById(referenceId);
                     if (referenceInfo == null) {
                         rejectIssue("Could not find TopCoder project with id " + referenceId);
+                    } else {
+                        client = getClientBySoftwareProjectId(referenceId);
+                        if (client == null || client.equals("")) {
+                            client = "N/A";
+                            rejectIssue("Could not retrieve client info from the project with id " + referenceId);
+                        }
                     }
                 } catch (NumberFormatException e) {
                     rejectIssue("ProjectID (" + projectId + ") is not a valid Long number.");
@@ -709,6 +664,12 @@ public class ProcessJiraPayments extends DBUtility {
                     referenceInfo = getStudioContestInfoById(referenceId);
                     if (referenceInfo == null) {
                         rejectIssue("Could not find Studio project with id " + referenceId);
+                    } else {
+                        client = getClientByStudioProjectId(referenceId);
+                        if (client == null || client.equals("")) {
+                            client = "N/A";
+                            rejectIssue("Could not retrieve client info from the project with id " + referenceId);
+                        }
                     }
                 } catch (NumberFormatException e) {
                     rejectIssue("StudioID (" + studioId + ") is not a valid Long number.");
@@ -849,6 +810,32 @@ public class ProcessJiraPayments extends DBUtility {
     private static final String QUERY_STUDIO_CONTEST_INFO_BY_ID =
             "SELECT name AS info FROM studio_oltp:contest WHERE contest_id = ?";
 
+    /** A query that finds client name by software project id. */
+    private static final String QUERY_CLIENT_BY_SOFTWARE_ID =
+              "select ttc.name as client_name "
+            + "from tcs_catalog:project_info pi3, "
+            + "     time_oltp:project ttp, "
+            + "     time_oltp:client_project ttcp, "
+            + "     time_oltp:client ttc "
+            + "where pi3.project_info_type_id = 32 "
+            + "  and pi3.value = ttp.project_id "
+            + "  and ttp.project_id = ttcp.project_id "
+            + "  and ttcp.client_id = ttc.client_id "
+            + "  and pi3.project_id = ? ";
+
+    /** A query that finds client name by studio project id. */
+    private static final String QUERY_CLIENT_BY_STUDIO_ID =
+              "select ttc.name as client_name "
+            + "from studio_oltp:contest_config cc1, "
+            + "     time_oltp:project ttp, "
+            + "     time_oltp:client_project ttcp, "
+            + "     time_oltp:client ttc "
+            + "where cc1.property_id = 28 "
+            + "  and cc1.property_value = ttp.project_id "
+            + "  and ttp.project_id = ttcp.project_id "
+            + "  and ttcp.client_id = ttc.client_id "
+            + "  and cc1.contest_id = ? ";
+
     /**
      * A prepared statement that finds a member by handle and returns their user
      * id.
@@ -868,6 +855,16 @@ public class ProcessJiraPayments extends DBUtility {
     private PreparedStatement queryStudioContestInfoById = null;
 
     /**
+     * A prepared statement that finds client name by software project id.
+     */
+    private PreparedStatement queryClientBySoftwareId = null;
+
+    /**
+     * A prepared statement that finds client name by studio project id.
+     */
+    private PreparedStatement queryClientByStudioId = null;
+
+    /**
      * Initializes all of the prepared statements used by the application.
      * 
      * @throws SQLException
@@ -875,8 +872,12 @@ public class ProcessJiraPayments extends DBUtility {
      */
     private void initializeDatabase() throws SQLException {
         queryUserIdByHandle = prepareStatement("informixoltp", QUERY_USER_ID_BY_HANDLE);
+
         queryTopCoderProjectInfoById = prepareStatement("informixoltp", QUERY_TOPCODER_PROJECT_INFO_BY_ID);
         queryStudioContestInfoById = prepareStatement("informixoltp", QUERY_STUDIO_CONTEST_INFO_BY_ID);
+
+        queryClientBySoftwareId = prepareStatement("informixoltp", QUERY_CLIENT_BY_SOFTWARE_ID);
+        queryClientByStudioId = prepareStatement("informixoltp", QUERY_CLIENT_BY_STUDIO_ID);
     }
 
     /**
@@ -918,7 +919,7 @@ public class ProcessJiraPayments extends DBUtility {
      *         project, or <code>null</code> if it doesn't exist.
      */
     private String getTopCoderProjectInfoById(long projectId) {
-        return getReferenceInfoById(queryTopCoderProjectInfoById, projectId);
+        return getInfoByProjectId(queryTopCoderProjectInfoById, projectId, "info");
     }
 
     /**
@@ -930,19 +931,41 @@ public class ProcessJiraPayments extends DBUtility {
      *         <code>null</code> if it doesn't exist.
      */
     private String getStudioContestInfoById(long contestId) {
-        return getReferenceInfoById(queryStudioContestInfoById, contestId);
+        return getInfoByProjectId(queryStudioContestInfoById, contestId, "info");
     }
 
     /**
-     * Looks up a contest or project by id and returns the reference
-     * information.
+     * Looks up a client name by software project id.
+     * 
+     * @param projectId
+     *            the id of the project to look up.
+     * @return a <code>String</code> containing the client name or <code>null</code> if it doesn't exist.
+     */
+    private String getClientBySoftwareProjectId(long projectId) {
+        return getInfoByProjectId(queryClientBySoftwareId, projectId, "client_name");
+    }
+
+    /**
+     * Looks up a client name by studio project id.
+     * 
+     * @param projectId
+     *            the id of the project to look up.
+     * @return a <code>String</code> containing the client name or <code>null</code> if it doesn't exist.
+     */
+    private String getClientByStudioProjectId(long projectId) {
+        return getInfoByProjectId(queryClientByStudioId, projectId, "client_name");
+    }
+
+    /**
+     * Looks up column with the specified query, project id and column name.
      * 
      * @param referenceId
      *            the id of the project or contest to look up.
-     * @return the reference information (project name and version, or contest
-     *         name).
+     * @param columnName
+     *            the name of the column in the query to retrieve data from.
+     * @return the column data
      */
-    private String getReferenceInfoById(PreparedStatement query, long referenceId) {
+    private String getInfoByProjectId(PreparedStatement query, long referenceId, String columnName) {
         ResultSet rs = null;
         String info = null;
 
@@ -951,7 +974,7 @@ public class ProcessJiraPayments extends DBUtility {
             rs = query.executeQuery();
 
             if (rs.next()) {
-                info = rs.getString("info");
+                info = rs.getString(columnName);
             }
         } catch (SQLException e) {
             log.error("*******************************************");
