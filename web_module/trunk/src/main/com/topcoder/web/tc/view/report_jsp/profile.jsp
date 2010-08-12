@@ -175,9 +175,10 @@
     User ID:   <rsc:item name="user_id" row="<%=p%>"/>  <br>
     Email: <rsc:item name="email" row="<%=p%>"/>  ( <a href="mailto:<rsc:item name="email" row="<%=p%>"/>" class="">
         Send Now</a> )  <br>
-    Account Status:  <rsc:item name="user_status_desc" row="<%=p%>"/></a> <br>
-    Phone:  <rsc:item name="home_phone" row="<%=p%>"/></a> <br>
-    Account Status:  <rsc:item name="user_status_desc" row="<%=p%>"/></a> <br>
+    Account Status:  <rsc:item name="user_status_desc" row="<%=p%>"/> <br>
+    Phone:  <rsc:item name="home_phone" row="<%=p%>"/> <br>
+    Account Status:  <rsc:item name="user_status_desc" row="<%=p%>"/> <br>
+    Activation Link: <rsc:item name="activation_link" row="<%=p%>"/> <br>
 
   </td>
 </tr>
