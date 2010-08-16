@@ -68,7 +68,9 @@ public class AgreeToTermsServlet extends HttpServlet {
             } else {
 
                 long userId = tcSubject.getUserId();
-                long termsId = Long.parseLong(terms);
+                //long termsId = Long.parseLong(terms);
+                //For now, we hardcode the terms id.
+                long termsId = 20873;
 
                 UserTermsOfUse userTermsOfUse = UserTermsOfUseLocator.getService();
                 if (userTermsOfUse.hasTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
