@@ -44,6 +44,11 @@
     </servlet>
 
     <servlet>
+        <servlet-name>communities</servlet-name>
+        <servlet-class>com.topcoder.web.tc.controller.AgreeToTermsServlet</servlet-class>
+    </servlet>
+
+    <servlet>
         <servlet-name>tchs08</servlet-name>
         <servlet-class>com.topcoder.web.tc.controller.MainServlet</servlet-class>
 
@@ -454,6 +459,11 @@
     <servlet-mapping>
         <servlet-name>tc</servlet-name>
         <url-pattern>/tc</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>communities</servlet-name>
+        <url-pattern>/communities</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
