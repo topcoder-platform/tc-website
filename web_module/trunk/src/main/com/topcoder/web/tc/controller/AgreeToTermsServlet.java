@@ -60,11 +60,12 @@ public class AgreeToTermsServlet extends HttpServlet {
             String handle = request.getParameter("handle");
             String password = request.getParameter("password");
             String terms = request.getParameter("terms");
+            String cb = request.getParameter("cb");
 
             TCSubject tcSubject = authenticate(handle, password);
 
             if (tcSubject == null) {
-                response.getOutputStream().println("cb({\"response\":\"bad login\"})");
+                response.getOutputStream().println(cb == null ? "<response>bad login</response>" : cb + "({\"response\":\"bad login\"})");
             } else {
 
                 long userId = tcSubject.getUserId();
@@ -75,14 +76,14 @@ public class AgreeToTermsServlet extends HttpServlet {
                 UserTermsOfUse userTermsOfUse = UserTermsOfUseLocator.getService();
                 if (userTermsOfUse.hasTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
                     // already joined
-                    response.getOutputStream().println("cb({\"response\":\"already agreed\"})");
+                    response.getOutputStream().println(cb == null ? "<response>already agreed</response>" : cb + "({\"response\":\"already agreed\"})");
                 } else {
                     try {
                         userTermsOfUse.createUserTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
                         // success
-                        response.getOutputStream().println("cb({\"response\":\"success\"})");
+                        response.getOutputStream().println(cb == null ? "<response>success</response>" : cb + "({\"response\":\"success\"})");
                     } catch (Exception e) {
-                        response.getOutputStream().println("cb({\"response\":\"bad terms\"})");
+                        response.getOutputStream().println(cb == null ? "<response>bad terms</response>" : cb + "({\"response\":\"bad terms\"})");
                     }
                 }
             }
