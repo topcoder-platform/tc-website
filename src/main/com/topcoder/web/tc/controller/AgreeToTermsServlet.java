@@ -64,7 +64,7 @@ public class AgreeToTermsServlet extends HttpServlet {
             TCSubject tcSubject = authenticate(handle, password);
 
             if (tcSubject == null) {
-                response.getOutputStream().println("<response>bad login</response>");
+                response.getOutputStream().println("cb({\"response\":\"bad login\"})");
             } else {
 
                 long userId = tcSubject.getUserId();
@@ -75,14 +75,14 @@ public class AgreeToTermsServlet extends HttpServlet {
                 UserTermsOfUse userTermsOfUse = UserTermsOfUseLocator.getService();
                 if (userTermsOfUse.hasTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
                     // already joined
-                    response.getOutputStream().println("<response>already agreed</response>");
+                    response.getOutputStream().println("cb({\"response\":\"already agreed\"})");
                 } else {
                     try {
                         userTermsOfUse.createUserTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
                         // success
-                        response.getOutputStream().println("<response>success</response>");
+                        response.getOutputStream().println("cb({\"response\":\"success\"})");
                     } catch (Exception e) {
-                        response.getOutputStream().println("<response>bad terms</response>");
+                        response.getOutputStream().println("cb({\"response\":\"bad terms\"})");
                     }
                 }
             }
