@@ -192,9 +192,7 @@
 								<div id="wrap">
 									<div id="slide">
 										<div id="p1">
-											<a href="javascript:;">
 											<img src="./i/home/client_logo_paypal.gif" width="371" height="107" alt="" />
-											</a>
 											<dl>
 												<dt>Platforms:</dt>
 												<dd>Virtual Software Factory / Directed Innovation</dd>
@@ -204,9 +202,7 @@
 											</p>
 										</div>
 										<div id="p2">
-											<a href="javascript:;">
 											<img src="./i/home/client_logo_alcatel.gif" width="371" height="107" alt="" />
-											</a>
 											<dl>
 												<dt>Platforms:</dt>
 												<dd>Virtual Software Factory / Directed Innovation</dd>
@@ -216,9 +212,7 @@
          									</p>
 										</div>
 										<div id="p3">
-											<a href="javascript:;">
 											<img src="./i/home/client_logo_bestbuy.gif" width="371" height="107" alt="" />
-											</a>
 											<dl>
 												<dt>Platforms:</dt>
 												<dd>Directed Innovation</dd>
@@ -228,9 +222,7 @@
 											</p>
 										</div>
 										<div id="p4">
-											<a href="javascript:;">
 											<img src="./i/home/client_logo_lendingtree.gif" width="371" height="107" alt="" />
-											</a>
 											<dl>
 												<dt>Platforms:</dt>
 												<dd>Virtual Software Factory</dd>
@@ -240,9 +232,7 @@
 											</p>
 										</div>
 										<div id="p5">
-											<a href="javascript:;">
 											<img src="./i/home/client_logo_facebook.gif" width="371" height="107" alt="" />
-											</a>
 											<dl>
 												<dt>Platforms:</dt>
 												<dd>Sponsorship</dd>
@@ -252,9 +242,7 @@
 											</p>
 										</div>
 										<div id="p6">
-											<a href="javascript:;">
 											<img src="./i/home/client_logo_verisign.gif" width="371" height="107" alt="" />
-											</a>
 											<dl>
 												<dt>Platforms:</dt>
 												<dd>Virtual Software Factory / Sponsorship</dd>
@@ -264,9 +252,7 @@
 											</p>
 										</div>
 										<div id="p7">
-											<a href="javascript:;">
 											<img src="./i/home/client_logo_espn.gif" width="371" height="107" alt="" />
-											</a>
 											<dl>
 												<dt>Platforms:</dt>
 												<dd>Virtual Software Factory / Sponsorship</dd>
@@ -276,9 +262,7 @@
 											</p>
 										</div>
 										<div id="p8">
-											<a href="javascript:;">
 											<img src="./i/home/client_logo_disney.gif" width="371" height="107" alt="" />
-											</a>
 											<dl>
 												<dt>Platforms:</dt>
 												<dd>Virtual Software Factory</dd>
@@ -288,9 +272,7 @@
 											</p>
 										</div>
 										<div id="p9">
-											<a href="javascript:;">
 											<img src="./i/home/client_logo_yandex.gif" width="371" height="107" alt="" />
-											</a>
 											<dl>
 												<dt>Platforms:</dt>
 												<dd>Sponsorship</dd>
@@ -300,9 +282,7 @@
 											</p>
 										</div>
 										<div id="p10">
-											<a href="javascript:;">
 											<img src="./i/home/client_logo_nsa.gif" width="371" height="107" alt="" />
-											</a>
 											<dl>
 												<dt>Platforms:</dt>
 												<dd>Tournament-Patron</dd>
@@ -312,9 +292,7 @@
 											</p>
 										</div>
 										<div id="p11">
-											<a href="javascript:;">
 											<img src="./i/home/client_logo_youdao.gif" width="371" height="107" alt="" />
-											</a>
 											<dl>
 												<dt>Platforms:</dt>
 												<dd>Private Label Sponsor</dd>
@@ -324,9 +302,7 @@
 											</p>
 										</div>
 										<div id="p12">
-											<a href="javascript:;">
 											<img src="./i/home/client_logo_britishtel.gif" width="371" height="107" alt="" />
-											</a>
 											<dl>
 												<dt>Platforms:</dt>
 												<dd>Directed Innovation / Sponsorship</dd>
@@ -336,9 +312,7 @@
 											</p>
 										</div>
 										<div id="p13">
-											<a href="javascript:;">
 											<img src="./i/home/client_logo_ubs.gif" width="371" height="107" alt="" />
-											</a>
 											<dl>
 												<dt>Platforms:</dt>
 												<dd>Virtual Software Factory / Sponsorship</dd>
@@ -348,9 +322,7 @@
 											</p>
 										</div>
 										<div id="p14">
-											<a href="javascript:;">
 											<img src="./i/home/client_logo_ieee.gif" width="371" height="107" alt="" />
-											</a>
 											<dl>
 												<dt>Platforms:</dt>
 												<dd>Sponsorship</dd>
@@ -360,9 +332,7 @@
 											</p>
 										</div>
 										<div id="p15">
-											<a href="javascript:;">
 											<img src="./i/home/client_logo_salkins.gif" width="371" height="107" alt="" />
-											</a>
 											<dl>
 												<dt>Platforms:</dt>
 												<dd>Virtual Software Factory</dd>
