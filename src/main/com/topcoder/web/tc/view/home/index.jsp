@@ -26,8 +26,7 @@
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<title>
-	</title>
+    <title>TopCoder,Inc.</title> 
 	<!-- Meta Tags -->
 	<meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
 	
@@ -108,12 +107,23 @@
 				<div class="tip hide">
 					<div class="tipContent">
 						<p>
-							Drop us a line, we'd love to hear from you!
+							Drop us a line!
 						</p>
 					</div>
 					<span class="tipArrow"></span>
 				</div>
 				<a href="http://topcoder.com/home/lets-talk/">Contact Us</a>
+				</li>
+				<li id="register">
+				<div class="tip hide">
+					<div class="tipContent">
+						<p>
+							Register with TopCoder
+						</p>
+					</div>
+					<span class="tipArrow"></span>
+				</div>
+				<div style="margin-top:-42px; padding-right:0"><a href="http://www.topcoder.com/reg"><img src="./i/home/register.png" alt="Register with TopCoder" /></a></div>
 				</li>
 			</ul>
 			<!-- end mainNav -->
@@ -127,7 +137,7 @@
 						<!-- title text -->
 						<div class="titleText">
 							<p class="info">
-								The world's largest competitive software development community.
+								The world's largest competitive software development community
 							</p>
 							<h1 class="community">
 								The Top<span class="red">Coder</span> Community is 
@@ -156,12 +166,12 @@
 										<!-- NOTE: Option values must be on one line to render properly -->
 										<select name="c_select" class="dropdownList">
 											<option value="1">What can we help you do today? </option>
-											<option value="<tc-webtag:linkTracking link='http://topcoder.com/home/community' refer='/' />">Learn about TopCoder </option>
-											<option value="<tc-webtag:linkTracking link='http://topcoder.com/home/community' refer='/' />">Build my own community </option>
-											<option value="<tc-webtag:linkTracking link='http://topcoder.com/home/community' refer='/' />">Extend my internal resources with TopCoder </option>
-											<option value="<tc-webtag:linkTracking link='http://topcoder.com/home/community' refer='/' />">Build a website, phone app, web presence </option>
-											<option value="<tc-webtag:linkTracking link='http://topcoder.com/home/community' refer='/' />">Analyze my data to see what it's telling me </option>
-											<option value="<tc-webtag:linkTracking link='http://topcoder.com/home/community' refer='/' />">See what else TopCoder has to offer me </option>
+											<option value="<tc-webtag:linkTracking link='http://topcoder.com/home/community' refer='About' />">Learn about TopCoder </option>
+											<option value="<tc-webtag:linkTracking link='http://topcoder.com/home/community' refer='Community' />">Build my own community </option>
+											<option value="<tc-webtag:linkTracking link='http://topcoder.com/home/community' refer='Resources' />">Extend my internal resources with TopCoder </option>
+											<option value="<tc-webtag:linkTracking link='http://topcoder.com/home/community' refer='Apps' />">Build a website, phone app, web presence </option>
+											<option value="<tc-webtag:linkTracking link='http://topcoder.com/home/community' refer='Data' />">Analyze my data to see what it's telling me </option>
+											<option value="<tc-webtag:linkTracking link='http://topcoder.com/home/community' refer='Offer' />">See what else TopCoder has to offer </option>
 										</select>
 									</div>
 									<!-- get start -->
@@ -183,6 +193,30 @@
 									<div id="slide">
 										<div id="p1">
 											<a href="javascript:;">
+											<img src="./i/home/client_logo_paypal.gif" width="371" height="107" alt="" />
+											</a>
+											<dl>
+												<dt>Platforms:</dt>
+												<dd>Virtual Software Factory / Directed Innovation</dd>
+											</dl>
+											<p>
+												PayPal X Contests powered by TopCoder is a community focused on competing with PayPal X technologies for all sorts of cool projects - from building new apps, to working on SDKS, even working on mobile libraries and products!  
+											</p>
+										</div>
+										<div id="p2">
+											<a href="javascript:;">
+											<img src="./i/home/client_logo_alcatel.gif" width="371" height="107" alt="" />
+											</a>
+											<dl>
+												<dt>Platforms:</dt>
+												<dd>Virtual Software Factory / Directed Innovation</dd>
+											</dl>
+											<p>
+                                                Assist internal engineering teams to build various APIs to expose capabilities within PayPalX's core products.  Provide open innovation contests to use and display the capabilities of those APIs.
+         									</p>
+										</div>
+										<div id="p3">
+											<a href="javascript:;">
 											<img src="./i/home/client_logo_bestbuy.gif" width="371" height="107" alt="" />
 											</a>
 											<dl>
@@ -193,19 +227,19 @@
 												Not all of the good ideas are found internally &bull; BestBuy leveraged the innovation of the community to 'Remix' portions of their site. 
 											</p>
 										</div>
-										<div id="p2">
+										<div id="p4">
 											<a href="javascript:;">
 											<img src="./i/home/client_logo_lendingtree.gif" width="371" height="107" alt="" />
 											</a>
 											<dl>
 												<dt>Platforms:</dt>
-												<dd>Virtual Factory</dd>
+												<dd>Virtual Software Factory</dd>
 											</dl>
 											<p>
 												Access to thousands of members at the ready &bull; Website design, development, support and ongoing enhancements of key products.
 											</p>
 										</div>
-										<div id="p3">
+										<div id="p5">
 											<a href="javascript:;">
 											<img src="./i/home/client_logo_facebook.gif" width="371" height="107" alt="" />
 											</a>
@@ -217,43 +251,43 @@
 												Growth, branding, on-site participation at the TopCoder Open in Las Vegas, and access to the TopCoder community.
 											</p>
 										</div>
-										<div id="p4">
+										<div id="p6">
 											<a href="javascript:;">
 											<img src="./i/home/client_logo_verisign.gif" width="371" height="107" alt="" />
 											</a>
 											<dl>
 												<dt>Platforms:</dt>
-												<dd>Virtual Factory, Sponsorship</dd>
+												<dd>Virtual Software Factory / Sponsorship</dd>
 											</dl>
 											<p>
 												Extension to internal team capability to handle increased development bandwidth.  Multi-year sponsor of TopCoder Open.	
 											</p>
 										</div>
-										<div id="p5">
+										<div id="p7">
 											<a href="javascript:;">
 											<img src="./i/home/client_logo_espn.gif" width="371" height="107" alt="" />
 											</a>
 											<dl>
 												<dt>Platforms:</dt>
-												<dd>Virtual Factory and Directed Innovation</dd>
+												<dd>Virtual Software Factory / Sponsorship</dd>
 											</dl>
 											<p>
 												 Website Development &bull; Game Development &bull;  ERP Development &bull;  Winning Formula Challenge to create predictive sports.
 											</p>
 										</div>
-										<div id="p6">
+										<div id="p8">
 											<a href="javascript:;">
 											<img src="./i/home/client_logo_disney.gif" width="371" height="107" alt="" />
 											</a>
 											<dl>
 												<dt>Platforms:</dt>
-												<dd>Virtual Factory</dd>
+												<dd>Virtual Software Factory</dd>
 											</dl>
 											<p>
 												 Game Development &bull;  Your Take! Graphics Design Competitions to find and identify the next generation of graphics artists.	
 											</p>
 										</div>
-										<div id="p7">
+										<div id="p9">
 											<a href="javascript:;">
 											<img src="./i/home/client_logo_yandex.gif" width="371" height="107" alt="" />
 											</a>
@@ -265,7 +299,7 @@
 												Global branding as a 2010 TopCoder Open Sponsor.
 											</p>
 										</div>
-										<div id="p8">
+										<div id="p10">
 											<a href="javascript:;">
 											<img src="./i/home/client_logo_nsa.gif" width="371" height="107" alt="" />
 											</a>
@@ -277,7 +311,7 @@
 												Original Patron of the TopCoder Open and avid Patron of TopCoder Marathon Matches.	
 											</p>
 										</div>
-										<div id="p9">
+										<div id="p11">
 											<a href="javascript:;">
 											<img src="./i/home/client_logo_youdao.gif" width="371" height="107" alt="" />
 											</a>
@@ -289,7 +323,7 @@
 												Identification of talent in over 17,000 registrants from China based software tournament.
 											</p>
 										</div>
-										<div id="p10">
+										<div id="p12">
 											<a href="javascript:;">
 											<img src="./i/home/client_logo_britishtel.gif" width="371" height="107" alt="" />
 											</a>
@@ -301,7 +335,7 @@
 												Directed innovation challenges for their Connected Services Sandbox and Ribbit &bull;  Sponsor of TopCoder Open in Las Vegas.
 											</p>
 										</div>
-										<div id="p11">
+										<div id="p13">
 											<a href="javascript:;">
 											<img src="./i/home/client_logo_ubs.gif" width="371" height="107" alt="" />
 											</a>
@@ -313,7 +347,7 @@
 												Leverage the global talent base for complex data mining and reporting &bull; Sponsorship of TopCoder Open in Las Vegas.
 											</p>
 										</div>
-										<div id="p12">
+										<div id="p14">
 											<a href="javascript:;">
 											<img src="./i/home/client_logo_ieee.gif" width="371" height="107" alt="" />
 											</a>
@@ -325,7 +359,7 @@
 												 Brand awareness and education for the TopCoder Community.
 											</p>
 										</div>
-										<div id="p13">
+										<div id="p15">
 											<a href="javascript:;">
 											<img src="./i/home/client_logo_salkins.gif" width="371" height="107" alt="" />
 											</a>
@@ -383,6 +417,12 @@
 										<a id="b13" href="javascript:;" name="b13">
 										<span class="hide">13</span>
 										</a>
+										<a id="b14" href="javascript:;" name="b14">
+										<span class="hide">14</span>
+										</a>
+										<a id="b15" href="javascript:;" name="b14">
+										<span class="hide">15</span>
+										</a>
 									</div>
 								</div>
 							</div>
@@ -402,7 +442,7 @@
 				<p>
 					TopCoder is the world's largest competitive software development community with
 					<tc-webtag:format object="${sessionInfo.memberCount}" format="#,##0"/>
-					developers representing over 200 countries.
+					developers representing more than 200 countries.
 				</p>
 				<p>
 					<strong>Copyright &copy;2001-2010, TopCoder, Inc. All rights reserved</strong>
