@@ -45,7 +45,7 @@
    </table>
 
 
-<!--<div><a class="cotmFeature" href="http://www.topcoder.com/news/2010/07/12/meet-the-june-coders-and-designers-of-the-month-2/">Read Their Interviews</a></div>-->
+<div><a class="cotmFeature" href="http://www.topcoder.com/news/2010/08/16/meet-the-july-coders-and-designers-of-the-month-2/">Read Their Interviews</a></div>
    
    </div>
 </div>
