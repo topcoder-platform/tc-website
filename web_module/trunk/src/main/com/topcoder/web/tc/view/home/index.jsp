@@ -224,7 +224,7 @@
 												<dd>Virtual Software Factory / Directed Innovation</dd>
 											</dl>
 											<p>
-                                                Assist internal engineering teams to build various APIs to expose capabilities within PayPalX's core products.  Provide open innovation contests to use and display the capabilities of those APIs.
+                                                Assist internal engineering teams to build various APIs to expose capabilities within Alcatel-Lucent's core products.  Provide open innovation contests to use and display the capabilities of those APIs.
          									</p>
 										</div>
 										<div id="p3">
