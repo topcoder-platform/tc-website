@@ -176,7 +176,7 @@
 											<br />
 											 TopCoder is Innovation.<br />
 											<br />
-											 TopCoder is revolutionizing the way companies get work done.<br />
+											 TopCoder is revolutionizing the way companies<br /> get work done.<br />
 											<br />
 										</p>
 										<!-- NOTE: Option values must be on one line to render properly -->
