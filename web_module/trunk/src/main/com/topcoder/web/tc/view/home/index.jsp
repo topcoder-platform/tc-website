@@ -68,7 +68,7 @@
 					</div>
 					<span class="tipArrow"></span>
 				</div>
-				<a href="http://www.studio.topocder.com/">Design</a>
+				<a href="http://studio.topcoder.com/">Design</a>
 				</li>
 				<li id="competeStudio">
 				<div class="tip hide">
