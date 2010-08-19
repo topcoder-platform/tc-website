@@ -43,6 +43,22 @@
 	</script>
 	<script type="text/javascript" src="./js/home/initSlider.js">
 	</script>
+    
+<script type="text/javascript">
+
+ var _gaq = _gaq || [];
+ _gaq.push(['_setAccount', 'UA-6340959-1']);
+ _gaq.push(['_setDomainName', '.topcoder.com']);
+ _gaq.push(['_trackPageview']);
+
+ (function() {
+   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
+
+</script>
+
 </head>
 <body>
 <!-- out Lay -->
@@ -160,7 +176,7 @@
 											<br />
 											 TopCoder is Innovation.<br />
 											<br />
-											 TopCoder is revolutionizing the software design and development process by tapping in to our unlimited global workforce to work for you.<br />
+											 TopCoder is revolutionizing the way companies get work done.<br />
 											<br />
 										</p>
 										<!-- NOTE: Option values must be on one line to render properly -->
