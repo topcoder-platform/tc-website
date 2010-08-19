@@ -463,6 +463,8 @@ public class ProjectUtil {
             Dependency[] dependencies = phases[i].getAllDependencies();
             if ((dependencies == null) || (dependencies.length == 0)) {
                 phases[i].setFixedStartDate(phases[i].calcStartDate());
+            } else {
+                phases[i].setFixedStartDate(null);
             }
             phases[i].setScheduledStartDate(phases[i].calcStartDate());
             phases[i].setScheduledEndDate(phases[i].calcEndDate());
