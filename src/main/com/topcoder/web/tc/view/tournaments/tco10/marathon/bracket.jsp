@@ -37,7 +37,7 @@
 
                 <div class="bigColumn">
                     <div class="text">
-                    <h2 class="pageTitle">Marathon Semifinalists</h2><!-- page title -->
+                    <h2 class="pageTitle">Congratulations Marathon Semifinalists!</h2><!-- page title -->
                            <table cellpadding="0" cellspacing="0"><!-- Start table list -->
                                 <tr>
                                     <th class="first" ><span class="left"></span>&nbsp;</th><!-- table left top corner -->
