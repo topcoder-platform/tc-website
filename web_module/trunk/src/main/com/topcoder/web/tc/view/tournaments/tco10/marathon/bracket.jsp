@@ -1,6 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="../includes/taglibs.jsp" %>
 
+<%@ page import="com.topcoder.web.common.SessionInfo" %>
+<%@ page language="java" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<% SessionInfo sessionInfo = (SessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY); %>
+<%@ page import="com.topcoder.web.common.BaseServlet" %>
+<%@ page import="com.topcoder.web.common.tag.HandleTag" %>
+
 <tco10:pageSetup title="TCO 10 : Marathon Competition Bracket" area="marathon" menu="advancers" subMenu="bracket"/>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -29,8 +36,51 @@
                 <jsp:include page="subMenu.jsp"/>
 
                 <div class="bigColumn">
-                    <%@ include file="../includes/comingSoon.jsp" %>
-                </div>
+                    <div class="text">
+                    <h2 class="pageTitle">Marathon Semifinalists</h2><!-- page title -->
+                           <table cellpadding="0" cellspacing="0"><!-- Start table list -->
+                                <tr>
+                                    <th class="first" ><span class="left"></span>&nbsp;</th><!-- table left top corner -->
+                                    <th class="last"><span class="right">&nbsp;</span></th><!-- table right top corner -->
+                            </tr>
+                            <tr class="last">
+                                  <td colspan="2"><tc-webtag:handle coderId="19849563" context="<%=HandleTag.MARATHON_MATCH%>" darkBG="true" /></td>
+                              </tr>
+                            <tr class="last">
+                                  <td colspan="2"><tc-webtag:handle coderId="22653720" context="<%=HandleTag.MARATHON_MATCH%>" darkBG="true" /></td>
+                              </tr>
+                            <tr class="last">
+                                  <td colspan="2"><tc-webtag:handle coderId="22682274" context="<%=HandleTag.MARATHON_MATCH%>" darkBG="true" /></td>
+                              </tr>
+                            <tr class="last">
+                                  <td colspan="2"><tc-webtag:handle coderId="9987185" context="<%=HandleTag.MARATHON_MATCH%>" darkBG="true" /></td>
+                              </tr>
+                            <tr class="last">
+                                  <td colspan="2"><tc-webtag:handle coderId="22269126" context="<%=HandleTag.MARATHON_MATCH%>" darkBG="true" /></td>
+                              </tr>
+                            <tr class="last">
+                                  <td colspan="2"><tc-webtag:handle coderId="7459326" context="<%=HandleTag.MARATHON_MATCH%>" darkBG="true" /></td>
+                              </tr>
+                            <tr class="last">
+                                  <td colspan="2"><tc-webtag:handle coderId="11789293" context="<%=HandleTag.MARATHON_MATCH%>" darkBG="true" /></td>
+                              </tr>
+                            <tr class="last">
+                                  <td colspan="2"><tc-webtag:handle coderId="274498" context="<%=HandleTag.MARATHON_MATCH%>" darkBG="true" /></td>
+                              </tr>
+                            <tr class="last">
+                                  <td colspan="2"><tc-webtag:handle coderId="7462740" context="<%=HandleTag.MARATHON_MATCH%>" darkBG="true" /></td>
+                              </tr>
+                            <tr class="last">
+                                  <td colspan="2"><tc-webtag:handle coderId="10597114" context="<%=HandleTag.MARATHON_MATCH%>" darkBG="true" /></td>
+                              </tr>
+                            <tr class="last">
+                                  <td colspan="2"><tc-webtag:handle coderId="22689499" context="<%=HandleTag.MARATHON_MATCH%>" darkBG="true" /></td>
+                              </tr>
+                            <tr class="last">
+                                  <td colspan="2"><tc-webtag:handle coderId="22689544" context="<%=HandleTag.MARATHON_MATCH%>" darkBG="true" /></td>
+                              </tr>
+                          </table>
+                </div></div>
 
                 <jsp:include page="../includes/sponsors.jsp"/>
 
