@@ -76,7 +76,13 @@ public class ProjectDetail extends Base {
             }
 
             // check eligibility constraints
-            if (!checkEligibilityConstraints(projectId, new ClassResource(this.getClass()))) {
+            int eligibility = checkEligibilityConstraints(projectId, new ClassResource(this.getClass()));
+            if (eligibility != 0) {
+                //TODO: hard code for now
+                if (eligibility == 217)
+                {
+                    throw new NavigationException("In order for your account to get the correct permission to compete in Liquid Community events, you must validate your handle via the Liquid Portal.\nIf you are unsure how to do this, please contact the Liquid PMO liquid@us.ibm.com for support. Since Liquid Portal is hosted on W3, TopCoder cannot provide support for this issue.");
+                }
                 throw new NavigationException("Could not find project information.");
             }
 
