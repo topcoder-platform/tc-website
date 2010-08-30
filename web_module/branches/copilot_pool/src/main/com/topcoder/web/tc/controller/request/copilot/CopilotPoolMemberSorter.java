@@ -68,7 +68,7 @@ class CopilotPoolMemberSorter {
         // when sortRequest is 0 we use the default order
         // thus we don't sort the list
         if(sortRequest >0 && (sortRequest % 10) < sortRequestMapping.length) {
-            toSort = sort(toSort, sortRequestMapping[sortRequest], isDescending);
+            sort(toSort, sortRequestMapping[sortRequest], isDescending);
         }
         
         return toSort;
@@ -84,14 +84,13 @@ class CopilotPoolMemberSorter {
      */
     public static List<CopilotPoolMember> sort(List<CopilotPoolMember> toSort, String propertyName,
                                                boolean isDescending) {
-        ArrayList<CopilotPoolMember> result = new ArrayList<CopilotPoolMember>(toSort);
-        
+      
         BeanComparator beanComparator
                 = getComparator(propertyName, isDescending);
 
-        Collections.sort(result, beanComparator);
+        Collections.sort(toSort, beanComparator);
 
-        return result;
+        return toSort;
     }
 
     /**
