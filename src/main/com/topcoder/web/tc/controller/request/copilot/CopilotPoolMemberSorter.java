@@ -81,6 +81,8 @@ class CopilotPoolMemberSorter {
      */
     public static List<CopilotPoolMember> sort(List<CopilotPoolMember> toSort, String propertyName,
                                                boolean isDescending) {
+        toSort = new ArrayList<CopilotPoolMember>(toSort);
+        
         BeanComparator beanComparator
                 = getComparator(propertyName, isDescending);
 
