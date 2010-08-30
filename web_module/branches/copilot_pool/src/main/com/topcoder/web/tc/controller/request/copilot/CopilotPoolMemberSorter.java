@@ -64,12 +64,14 @@ class CopilotPoolMemberSorter {
      * @return  the sorted list of CopilotPoolMembers.
      */
     public static List<CopilotPoolMember> sort(List<CopilotPoolMember> toSort, int sortRequest, boolean isDescending) {
+        List<CopilotPoolMember> result;
+        
         // when sortRequest is 0 we use the default order
         // thus we don't sort the list
         if(sortRequest >0 && (sortRequest % 10) < sortRequestMapping.length) {
-            toSort = sort(toSort, sortRequestMapping[sortRequest], isDescending);
+            result = sort(toSort, sortRequestMapping[sortRequest], isDescending);
         }
-        return toSort;
+        return result;
     }
 
     /**
@@ -82,14 +84,14 @@ class CopilotPoolMemberSorter {
      */
     public static List<CopilotPoolMember> sort(List<CopilotPoolMember> toSort, String propertyName,
                                                boolean isDescending) {
-        toSort = new ArrayList<CopilotPoolMember>(toSort);
+        ArrayList<CopilotPoolMember> result = new ArrayList<CopilotPoolMember>(toSort);
         
         BeanComparator beanComparator
                 = getComparator(propertyName, isDescending);
 
-        Collections.sort(toSort, beanComparator);
+        Collections.sort(result, beanComparator);
 
-        return toSort;
+        return result;
     }
 
     /**
