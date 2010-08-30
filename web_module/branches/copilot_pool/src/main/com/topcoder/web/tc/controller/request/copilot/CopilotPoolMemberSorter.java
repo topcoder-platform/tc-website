@@ -8,7 +8,6 @@ import org.apache.commons.beanutils.BeanComparator;
 import org.apache.commons.collections.comparators.ComparableComparator;
 import org.apache.commons.collections.comparators.ReverseComparator;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -64,13 +63,11 @@ class CopilotPoolMemberSorter {
      * @return  the sorted list of CopilotPoolMembers.
      */
     public static List<CopilotPoolMember> sort(List<CopilotPoolMember> toSort, int sortRequest, boolean isDescending) {
-  
         // when sortRequest is 0 we use the default order
         // thus we don't sort the list
         if(sortRequest >0 && (sortRequest % 10) < sortRequestMapping.length) {
             sort(toSort, sortRequestMapping[sortRequest], isDescending);
         }
-        
         return toSort;
     }
 
@@ -84,7 +81,6 @@ class CopilotPoolMemberSorter {
      */
     public static List<CopilotPoolMember> sort(List<CopilotPoolMember> toSort, String propertyName,
                                                boolean isDescending) {
-      
         BeanComparator beanComparator
                 = getComparator(propertyName, isDescending);
 
