@@ -35,7 +35,7 @@ public class ViewRegistrants extends Base {
             }
 
             // check eligibility constraints
-            if (!checkEligibilityConstraints(projectId, new ClassResource(this.getClass()))) {
+            if (checkEligibilityConstraints(projectId, new ClassResource(this.getClass())) != 0) {
                 throw new NavigationException("Could not find project information.");
             }
 

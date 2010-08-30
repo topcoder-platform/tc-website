@@ -101,7 +101,7 @@
         <pathelement location="${jars.dir}/tcs/object_factory/2.0/object_factory.jar"/>
         <pathelement location="${jars.dir}/tcs/phase_management/1.0/phase_management.jar"/>
         <pathelement location="${jars.dir}/tcs/project_management/1.0/project_management.jar"/>
-        <pathelement location="${jars.dir}/tcs/project_phase_template/1.0/project_phase_template.jar"/>
+        <pathelement location="${jars.dir}/tcs/project_phase_template/1.2.0/project_phase_template.jar"/>
 
         <!-- can't figure out how to not compile the dependencie, so i'm putting this in the classpath-->
         <pathelement location="${jars.dir}/hibernate-3.1/hibernate3.jar"/>
@@ -385,7 +385,7 @@
             </fileset>
         </copy>
         <copy todir="${jboss.lib.dir}">
-            <fileset dir="${jars.dir}/tcs/project_phase_template/1.0">
+            <fileset dir="${jars.dir}/tcs/project_phase_template/1.2.0">
                 <include name="project_phase_template.jar"/>
             </fileset>
         </copy>

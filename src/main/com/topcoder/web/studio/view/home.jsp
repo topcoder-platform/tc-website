@@ -235,7 +235,7 @@
                                         </div>
                                         <div id="member_stats">
                                             <span class="member_content special">Earned $4050 in 6 competitions during the month of July.</span><br/><br/>
-                                            <!--<span class="member_content special"><a href="http://www.topcoder.com/news/2010/07/12/meet-the-june-coders-and-designers-of-the-month-2/">Read the interview.</a></span><br/><br/>-->
+                                            <span class="member_content special"><a href="http://www.topcoder.com/news/2010/08/16/meet-the-july-coders-and-designers-of-the-month-2/">Read the interview.</a></span><br/><br/>
                                         </div>
                                     </div>
                                     <!-- member_content -->

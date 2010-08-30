@@ -484,7 +484,7 @@ public abstract class Base extends ShortHibernateProcessor {
      *
      * @since 1.7
      */
-    protected boolean checkEligibilityConstraints(String projectId, Resource r) throws TCWebException, PermissionException {
+    protected int checkEligibilityConstraints(String projectId, Resource r) throws TCWebException, PermissionException {
         if (projectId == null) {
             throw new TCWebException("parameter " + Constants.PROJECT_ID + " invalid.");
         }
@@ -507,14 +507,14 @@ public abstract class Base extends ShortHibernateProcessor {
      * @param pid the project id to check for
      * @param r the resource that is asking for login
      *
-     * @return true if the user can see this project, false otherwise
+     * @return 0 if eligible, otherwise return the group id (we only have group eligibility now) which the user is not in
      *
      * @throws TCWebException if any error occurs during service call or if parameters are invalid
      * @throws PermissionException if the user is not logged in and the project has eligibility constraints
      *
      * @since 1.7
      */
-    protected boolean checkEligibilityConstraints(long pid, Resource r) throws TCWebException, PermissionException {
+    protected int checkEligibilityConstraints(long pid, Resource r) throws TCWebException, PermissionException {
         if (r == null) {
             throw new TCWebException("Invalid resource checking eligibility.");
         }
@@ -523,9 +523,7 @@ public abstract class Base extends ShortHibernateProcessor {
         // We have issue with tc calling cockpit ejb due to jboss version, use query tool for now
         try {
             if (userLoggedIn()) {
-                if (!isEligible(getLoggedInUser().getId(), pid)) {
-                    return false;
-                }
+                return isEligible(getLoggedInUser().getId(), pid);
             } else {
                 // otherwise, if this project has any eligibility constraint, ask for login
                 //if (ContestEligibilityServiceLocator.getServices().hasEligibility(pid, false)) {
@@ -533,7 +531,7 @@ public abstract class Base extends ShortHibernateProcessor {
                     throw new PermissionException(getUser(), r);
                 }
             }
-            return true;
+            return 0;
         } catch (PermissionException pe) {
             throw pe;
         } catch (Exception e) {
@@ -565,7 +563,20 @@ public abstract class Base extends ShortHibernateProcessor {
          return false;
     }
 
-    protected boolean isEligible(long userId, long pid) throws Exception
+    /**
+     * This method will check if user is eligible for a contest
+     *
+     * @param pid the project id to check for
+     * @param r the resource that is asking for login
+     *
+     * @return 0 if eligible, otherwise return the group id (we only have group eligibility now) which the user is not in
+     *
+     * @throws TCWebException if any error occurs during service call or if parameters are invalid
+     * @throws PermissionException if the user is not logged in and the project has eligibility constraints
+     *
+     * @since 1.7
+     */
+    protected int isEligible(long userId, long pid) throws Exception
     {
         Request r = new Request();
         ResultSetContainer detail=null;
@@ -577,13 +588,29 @@ public abstract class Base extends ShortHibernateProcessor {
 
          detail = (ResultSetContainer) results.get("is_eligible");
 
-         if (detail != null && !detail.isEmpty() 
-              && detail.getStringItem(0, "is_eligible") != null
-              && !detail.getStringItem(0, "is_eligible").equals(""))
+        detail = (ResultSetContainer) results.get("is_eligible");
+
+         // only happen if pid does not exist
+         if (detail == null || detail.isEmpty())
          {
-             return true;
+             return -1;
          }
 
-         return false;
+         // if contest has not eligibility, return 0
+         if (detail.getStringItem(0, "contest_eligibility_id") == null 
+                || detail.getStringItem(0, "contest_eligibility_id").equals(""))
+         {
+             return 0;
+         }
+
+         // if user in the group, return 0
+         if (detail.getStringItem(0, "login_id") != null 
+                && !detail.getStringItem(0, "login_id").equals(""))
+         {
+             return 0;
+         }
+
+
+         return detail.getIntItem(0, "group_id");
     }
 }
