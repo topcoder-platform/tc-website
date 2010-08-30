@@ -251,7 +251,7 @@ public class ViewCopilotPool extends ShortHibernateProcessor {
                 currentPage = page.intValue();
             }
             
-            List<CopilotPoolMember> sortedCopilots;
+            List<CopilotPoolMember> sortedCopilots = copilots;
 
             if (sort) {
                 // sort the members with sorting order specified by sortingMethodIndex
