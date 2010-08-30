@@ -250,13 +250,15 @@ public class ViewCopilotPool extends ShortHibernateProcessor {
             if (page != null && page.intValue() <= allowedPages && page.intValue() >= DEFAULT_START_PAGE) {
                 currentPage = page.intValue();
             }
+            
+            List<CopilotPoolMember> sortedCopilots;
 
             if (sort) {
                 // sort the members with sorting order specified by sortingMethodIndex
-                copilots = CopilotPoolMemberSorter.sort(copilots, sortingMethodIndex, sortOrder == DESCENDING_ORDER);
+                sortedCopilots = CopilotPoolMemberSorter.sort(copilots, sortingMethodIndex, sortOrder == DESCENDING_ORDER);
             }
 
-            List<CopilotPoolMember> result = generateResultList(currentPage, maxPerPage, copilots);
+            List<CopilotPoolMember> result = generateResultList(currentPage, maxPerPage, sortedCopilots);
 
             for(CopilotPoolMember cpm : result) {
                Map<String, Integer> stats = getCopilotsStatistics(cpm.getCopilotProfile().getUserId());
