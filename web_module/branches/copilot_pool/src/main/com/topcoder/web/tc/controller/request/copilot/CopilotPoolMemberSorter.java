@@ -64,14 +64,14 @@ class CopilotPoolMemberSorter {
      * @return  the sorted list of CopilotPoolMembers.
      */
     public static List<CopilotPoolMember> sort(List<CopilotPoolMember> toSort, int sortRequest, boolean isDescending) {
-        List<CopilotPoolMember> result;
-        
+  
         // when sortRequest is 0 we use the default order
         // thus we don't sort the list
         if(sortRequest >0 && (sortRequest % 10) < sortRequestMapping.length) {
-            result = sort(toSort, sortRequestMapping[sortRequest], isDescending);
+            toSort = sort(toSort, sortRequestMapping[sortRequest], isDescending);
         }
-        return result;
+        
+        return toSort;
     }
 
     /**
