@@ -403,6 +403,7 @@ public class PrincipalMgrBean extends BaseEJB {
             ps3.executeUpdate();
             ps2.executeUpdate();
             ps1.executeUpdate();
+            deleteTopCoderMemberLDAPEntry(userId);
         } catch (Exception e) {
             throw new GeneralSecurityException(e);
         } finally {
@@ -1007,6 +1008,27 @@ public class PrincipalMgrBean extends BaseEJB {
         try {
             ldapClient.connect();
             ldapClient.changeTopCoderMemberProfilePassword(userId, newPassword);
+        } finally {
+            try {
+                ldapClient.disconnect();
+            } catch (LDAPClientException cantDisconnect) {
+                logger.warn("Failed to disconnect from LDAP server successfully", cantDisconnect);
+            }
+        }
+    }
+
+    /**
+     * <p>Removes entry from <code>LDAP</code> directory for specified <code>TopCoder</code> member account.</p>
+     *
+     * @param userId a <code>long</code> providing the ID for the <code>TopCoder</code> member account to delete.
+     * @throws LDAPClientException if an unexpected error occurs while disconnecting from server.
+     * @since 2.0
+     */
+    private void deleteTopCoderMemberLDAPEntry(long userId) throws LDAPClientException {
+        LDAPClient ldapClient = new LDAPClient();
+        try {
+            ldapClient.connect();
+            ldapClient.deleteTopCoderMemberProfile(userId);
         } finally {
             try {
                 ldapClient.disconnect();

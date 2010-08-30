@@ -12,7 +12,6 @@ import com.topcoder.util.net.ldap.sdkinterface.LDAPSDKException;
 import com.topcoder.util.net.ldap.sdkinterface.Update;
 import com.topcoder.util.net.ldap.sdkinterface.Values;
 
-import java.text.MessageFormat;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -105,12 +104,6 @@ public class LDAPClient {
     private static final Set<String> LONG_MEMBER_PROFILE_ATTRIBUTES = new HashSet<String>(
             Arrays.asList(MEMBER_PROFILE_PROPERTY_USERID)
     );
-
-    /**
-     * <p>A <code>String</code> providing the template for <code>TopCoder</code> member profile entry DNs in
-     * <code>LDAP</code> directory.</p>
-     */
-    private static final String TOPCODER_MEMBER_ENTRIES_DN_TEMPLATE = "uid={0}," + TOPCODER_MEMBER_BASE_DN;
 
     /**
      * <p>A <code>String</code> referencing the <code>Active</code> status of <code>TopCoder</code> member account.</p>
@@ -341,6 +334,27 @@ public class LDAPClient {
     }
 
     /**
+     * <p>Deletes existing <code>LDAP</code> entry for <code>TopCoder</code> member profile from LDAP directory.</p>
+     *
+     * @param userId a <code>long</code> providing the unique ID for <code>TopCoder</code> member profile to be deleted
+     *        from LDAP directory.
+     * @throws LDAPClientException if an unexpected error occurs while deleting <code>LDAP</code> entry for specified
+     *         member profile.
+     * @throws IllegalStateException if this client is not connected to <code>LDAP</code> server yet.
+     */
+    public void deleteTopCoderMemberProfile(long userId) throws LDAPClientException {
+        checkConnection();
+        try {
+            String entryDN = buildTopCoderMemberEntryDN(userId);
+            this.ldapConnection.deleteEntry(entryDN);
+            log.info("Deleted LDAP entry: " + entryDN);
+        } catch (LDAPSDKException e) {
+            log.error("Failed to delete LDAP entry for user " + userId + " due to unexpected error");
+            throw LDAPClientException.createUnexpectedErrorException(e);
+        }
+    }
+
+    /**
      * <p>Changes the password for specified <code>TopCoder</code> member account.</p>
      *
      * @param userId a <code>long</code> providing the ID of a user to change the <code>password</code> attribute for.
@@ -446,7 +460,8 @@ public class LDAPClient {
                 = EXPORTED_MEMBER_PROFILE_ATTRIBUTES.toArray(new String[EXPORTED_MEMBER_PROFILE_ATTRIBUTES.size()]);
 
             iterator = this.ldapConnection.search(TOPCODER_MEMBER_BASE_DN, SCOPE_ONE,
-                                                  MEMBER_PROFILE_PROPERTY_HANDLE + "=" + handle, returnAttributes);
+                                                  MEMBER_PROFILE_PROPERTY_HANDLE + "=" + escapeLDAPSearchFilter(handle),
+                                                  returnAttributes);
             if (iterator.hasNext()) {
                 Entry userEntry = (Entry) iterator.next();
                 return userEntry;
@@ -552,5 +567,38 @@ public class LDAPClient {
      */
     private String buildTopCoderMemberEntryDN(long userId) {
         return MEMBER_PROFILE_PROPERTY_USERID + "=" + userId + "," + TOPCODER_MEMBER_BASE_DN;
+    }
+
+    /**
+     * <p>Escapes the specified value of LDAP search filter.</p>
+     *
+     * @param value a <code>String</code> providing the value of LDAP search filter to be escaped.
+     * @return a <code>String</code> providing the escaped value.
+     */
+    private static String escapeLDAPSearchFilter(String value) {
+        StringBuilder b = new StringBuilder();
+        for (int i = 0; i < value.length(); i++) {
+            char ch = value.charAt(i);
+            switch (ch) {
+                case '\\':
+                    b.append("\\5c");
+                    break;
+                case '*':
+                    b.append("\\2a");
+                    break;
+                case '(':
+                    b.append("\\28");
+                    break;
+                case ')':
+                    b.append("\\29");
+                    break;
+                case '\u0000':
+                    b.append("\\00");
+                    break;
+                default:
+                    b.append(ch);
+            }
+        }
+        return b.toString();
     }
 }
