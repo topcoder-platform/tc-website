@@ -253,7 +253,7 @@ public class ViewCopilotPool extends ShortHibernateProcessor {
 
             if (sort) {
                 // sort the members with sorting order specified by sortingMethodIndex
-                CopilotPoolMemberSorter.sort(copilots, sortingMethodIndex, sortOrder == DESCENDING_ORDER);
+                copilots = CopilotPoolMemberSorter.sort(copilots, sortingMethodIndex, sortOrder == DESCENDING_ORDER);
             }
 
             List<CopilotPoolMember> result = generateResultList(currentPage, maxPerPage, copilots);
