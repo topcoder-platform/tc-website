@@ -24,7 +24,7 @@ import java.util.MissingResourceException;
  * <p>
  *   Version 1.2 (2009 TopCoder Open Site Integration 1.1.1) Change notes:
  *   <ol>
- *     <li>Added several constants to support TCO09 Studio track leaderboard pages.</li>
+ *     <li>Added several constants to support TCO09 Studio track leader board pages.</li>
  *   </ol>
  * </p>
  *
@@ -55,6 +55,13 @@ import java.util.MissingResourceException;
  *     <li>Added constant for the minimum allowed payment accrual amount.</li>
  *     <li>Added constant for <code>Digital Run</code> track contest types for current DR schema.</li>
  *   </ol>
+ * </p>
+ *
+ * <p>
+ *   Version 1.7 (TopCoder Copilot Pool Front End Assembly v 1.0) Change notes:
+ * <ol>
+ *  <li>Added contest for copilot pool jsp page COPILOT_POOL.
+ * </ol>
  * </p>
  *
  * @author pulky, isv
@@ -239,6 +246,11 @@ public class Constants implements WebConstants {
 
     public static String DOWNLOAD_SUBMISSION;
     public static String DOWNLOAD_SUBMISSION_TERMS;
+
+    /**
+     * Represents the jsp page for request processor view copilot pool. 
+     */
+    public static String COPILOT_POOL;
 
     //dev pages
     public static String REVIEW_PROJECT_DETAIL;
