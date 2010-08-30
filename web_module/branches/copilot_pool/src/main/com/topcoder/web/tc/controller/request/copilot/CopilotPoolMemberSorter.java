@@ -67,7 +67,7 @@ class CopilotPoolMemberSorter {
         // when sortRequest is 0 we use the default order
         // thus we don't sort the list
         if(sortRequest >0 && (sortRequest % 10) < sortRequestMapping.length) {
-            sort(toSort, sortRequestMapping[sortRequest], isDescending);
+            toSort = sort(toSort, sortRequestMapping[sortRequest], isDescending);
         }
         return toSort;
     }
