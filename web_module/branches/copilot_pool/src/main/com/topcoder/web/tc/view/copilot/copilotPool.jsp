@@ -47,7 +47,7 @@
 <!-- the copilot pool grid content -->
 <div class="copilot-pool" id="copilot-pool-grid">
 <div class="header-title">
-    <div class="left-title"><img src="/images/copilots/copilot_pool.png" alt=""/></div>
+    <div class="left-title"><img src="/i/copilots/copilot_pool.png" alt=""/></div>
     <div class="right-title">Meet the Copilots</div>
     <div class="clear-float"></div>
 </div>
@@ -92,14 +92,14 @@ The road you take will be defined by you and your copilot. Want to learn more? F
 
         <% if (viewType != 1) { %>
         <!-- view type is not list, use grid view by default -->
-        View : &nbsp;&nbsp;&nbsp;<img src="/images/copilots/grid_active.png" alt=""/> <span class="grid">Grid</span>
-        &nbsp;&nbsp;&nbsp;<img src="/images/copilots/list.png" alt=""/> <a class="list"
+        View : &nbsp;&nbsp;&nbsp;<img src="/i/copilots/grid_active.png" alt=""/> <span class="grid">Grid</span>
+        &nbsp;&nbsp;&nbsp;<img src="/i/copilots/list.png" alt=""/> <a class="list"
                                                                  href="javascript:void(0);" id="listViewID">List</a>
         <% } else { %>
         <!-- view type is list, use list view -->
-        View : &nbsp;&nbsp;&nbsp;<img src="/images/copilots/grid.png" alt=""/>
+        View : &nbsp;&nbsp;&nbsp;<img src="/i/copilots/grid.png" alt=""/>
         <a class="list" href="javascript:void(0);" id="gridViewID">Grid</a> &nbsp;&nbsp;&nbsp;<img
-            src="/images/copilots/list_active.png" alt=""/> <span class="grid">List</span>
+            src="/i/copilots/list_active.png" alt=""/> <span class="grid">List</span>
 
         <% } %>
     </div>
@@ -167,7 +167,7 @@ The road you take will be defined by you and your copilot. Want to learn more? F
 
                 CopilotPoolMember m = list.get(i++);
                 String mPath = ims.get(Long.valueOf(m.getCopilotProfile().getUserId()));
-                mPath = (mPath == null ? "/images/copilots/person-01.png" : mPath);
+                mPath = (mPath == null ? "/i/copilots/person-01.png" : mPath);
         %>
 
         <div class="copilot">
@@ -229,7 +229,7 @@ The road you take will be defined by you and your copilot. Want to learn more? F
                     </tbody>
                 </table>
                 <div class="profile-link">
-                    <img src="/images/copilots/view.png" alt=""/> <a href="javascript:void(0);">View Copilot Profile</a>
+                    <img src="/i/copilots/view.png" alt=""/> <a href="javascript:void(0);">View Copilot Profile</a>
                 </div>
             </div>
         </div>
@@ -281,7 +281,7 @@ The road you take will be defined by you and your copilot. Want to learn more? F
 
             CopilotPoolMember m = list.get(i++);
             String mPath = ims.get(m.getCopilotProfile().getUserId());
-            mPath = (mPath == null ? "/images/copilots/person-02.png" : mPath);
+            mPath = (mPath == null ? "/i/copilots/person-02.png" : mPath);
             
     %>
 
@@ -308,7 +308,7 @@ The road you take will be defined by you and your copilot. Want to learn more? F
         </td>
         <td class="border-b border-l current"><%=m.getCurrentContests()  == CopilotPoolMember.UNDEFINED_STAT ? na : m.getCurrentContests()%>
         </td>
-        <td class="border-b border-l"><img src="/images/copilots/view.png" alt=""/>&nbsp;<a href="javascript:void(0);">View</a>
+        <td class="border-b border-l"><img src="/i/copilots/view.png" alt=""/>&nbsp;<a href="javascript:void(0);">View</a>
         </td>
     </tr>
 
