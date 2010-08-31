@@ -234,7 +234,8 @@
 			nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_copilot_opportunities')", "Copilot Opportunities", "m_copilot_opportunities"));
 					nav.search("m_copilot_opportunities").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Copilot+Overview", "Overview", "copilots_overview"));
 					nav.search("m_copilot_opportunities").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Active+Copilot+Opportunities", "Active Contests", "copilots_compete"));
-                    nav.search("m_copilot_opportunities").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewCopilotPool", "Copilot Pool", "copilots_pool"));
+                    //TEMP OUT FOR NOW
+                    //nav.search("m_copilot_opportunities").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewCopilotPool", "Copilot Pool", "copilots_pool"));
 
 			nav.search("m_competitions").addChild(new NavNode("javascript:void(0)",  "Javascript:toggleMenu(this.parentNode,'m_tournaments')", "Tournaments", "m_tournaments"));
 					nav.search("m_tournaments").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=tournaments&amp;d2=home", "TopCoder", "topcoder_tournaments"));
