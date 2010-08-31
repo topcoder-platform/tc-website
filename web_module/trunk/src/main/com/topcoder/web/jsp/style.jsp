@@ -39,6 +39,12 @@
 <link type="text/css" rel="stylesheet" href="/css/tcStyles20080219.css" />
 <link type="text/css" rel="stylesheet" href="/css/tcReg.css" />
 --%>
+<% } else if (key.equals("tc_copilot")) { %>
+<link type="text/css" rel="stylesheet" href="/css/style.css" />
+<link type="text/css" rel="stylesheet" href="/css/coders.css" />
+<link type="text/css" rel="stylesheet" href="/css/copilot-pool.css" />
+<link type="text/css" rel="stylesheet" href="/css/copilot-pool_ie6.css" />
+<link type="text/css" rel="stylesheet" href="/css/tcStyles20080219.css" />
 <% } else if (key.equals("tc_stats")) { %>
 <link type="text/css" rel="stylesheet" href="/css/style.css" />
 <link type="text/css" rel="stylesheet" href="/css/coders.css" />
