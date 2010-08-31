@@ -69,9 +69,12 @@ public class AgreeToTermsServlet extends HttpServlet {
             } else {
 
                 long userId = tcSubject.getUserId();
-                //long termsId = Long.parseLong(terms);
-                //For now, we hardcode the terms id.
-                long termsId = 20873;
+                long termsId = Long.parseLong(terms);
+
+                //For now, we force the terms id.
+                //20873 PayPal
+                //20883 Alcatel-Lucent
+                if ((termsId != 20873) && (termsId != 20883)) throw new RuntimeException("bad terms");
 
                 UserTermsOfUse userTermsOfUse = UserTermsOfUseLocator.getService();
                 if (userTermsOfUse.hasTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
