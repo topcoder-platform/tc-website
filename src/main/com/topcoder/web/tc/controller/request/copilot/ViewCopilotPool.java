@@ -250,20 +250,23 @@ public class ViewCopilotPool extends ShortHibernateProcessor {
             if (page != null && page.intValue() <= allowedPages && page.intValue() >= DEFAULT_START_PAGE) {
                 currentPage = page.intValue();
             }
-
-            if (sort) {
-                // sort the members with sorting order specified by sortingMethodIndex
-                CopilotPoolMemberSorter.sort(copilots, sortingMethodIndex, sortOrder == DESCENDING_ORDER);
-            }
-
-            List<CopilotPoolMember> result = generateResultList(currentPage, maxPerPage, copilots);
-
-            for(CopilotPoolMember cpm : result) {
+            
+             for(CopilotPoolMember cpm : copilots) {
                Map<String, Integer> stats = getCopilotsStatistics(cpm.getCopilotProfile().getUserId());
 
                 cpm.setCurrentContests(stats.get("current_contests_number"));
                 cpm.setCurrentProjects(stats.get("current_projects_number"));
             }
+            
+            List<CopilotPoolMember> sortedCopoilots = new ArrayList<CopilotPoolMember>(copilots);
+
+            if (sort) {
+                // sort the members with sorting order specified by sortingMethodIndex
+                CopilotPoolMemberSorter.sort(sortedCopoilots, sortingMethodIndex, sortOrder == DESCENDING_ORDER);
+            }
+
+            List<CopilotPoolMember> result = generateResultList(currentPage, maxPerPage, sortedCopoilots);
+        
 
             // set attributes back into the request, preparing forward to view jsp page
             request.setAttribute(CURRENT_PAGE, currentPage);
