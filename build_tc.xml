@@ -75,6 +75,11 @@
         <pathelement location="${jive.dir}/xwork.jar"/>
         <pathelement location="${jive.dir}/htmlparser.jar"/>
 
+		<pathelement location="${jars.dir}/spring.jar"/>
+
+		<pathelement location="${struts.dir}/commons-beanutils.jar"/>
+		<pathelement location="${struts.dir}/commons-collections.jar"/>
+
         <!-- TCS Components -->
 
         <pathelement location="${jars.dir}/tcs/configuration_manager/2.1.5/configuration_manager.jar"/>
@@ -88,6 +93,10 @@
         <pathelement location="${jars.dir}/tcs/pipeline_service_persistence/1.0.0/pipeline_service_persistence.jar"/>
         <pathelement location="${jars.dir}/tcs/pipeline_service/1.0.0/pipeline_service.jar"/>
         <pathelement location="${jars.dir}/tcs/pipeline_service_facade/1.0.0/pipeline_service_facade.jar"/>
+		<pathelement location="${jars.dir}/tcs/copilot_pool_and_profiles_common.jar"/>
+		<pathelement location="${jars.dir}/tcs/copilot_pool_and_profiles_services.jar"/>
+		<pathelement location="${jars.dir}/tcs/pipeline_service_facade/1.0.0/pipeline_service_facade.jar"/>
+
 
         <!--required for aol alerts only -->
         <pathelement location="${jars.dir}/tcs/alerts_wrapper/1.0/java_alerts_wrapper.jar"/>
@@ -630,20 +639,20 @@
                 <include name="ProjectDetail.properties"/>
             </fileset>
         </copy>
-<!--
+		<!--
         <copy todir="${jboss_conf}/com/topcoder/randomstringimg">
             <fileset dir="${resources}/com/topcoder/randomstringimg">
                 <include name="*.xml"/>
             </fileset>
         </copy>
--->
-<!--
+		-->
+		<!--
     	<copy todir="${jboss_conf}">
     	    <fileset dir="scripts/pacts">
     	        <include name="paymentRanges.xml"/>
     	    </fileset>
     	</copy>
--->
+		-->
     </target>
     <target name="move-libs">
         <copy todir="${jboss_lib}">
@@ -662,7 +671,7 @@
                 <include name="fileconvert.jar"/>
                 <include name="httpunit.jar"/>
                 <include name="itext-1.1.jar"/>
-<!-- don't deploy this on the main site anymore
+				<!-- don't deploy this on the main site anymore
                 <include name="tc.jar"/>
                 <include name="TestServices.jar"/>
                 <include name="asyncservices.jar"/>
@@ -1320,6 +1329,9 @@
             <webinf dir="${resources}/tc">
                 <include name="jboss-web.xml"/>
             </webinf>
+			<webinf dir="${resources}/tc">
+				<include name="applicationContext.xml"/>
+			</webinf>
             <lib dir="${struts.dir}">
                 <include name="*.jar"/>
             </lib>
@@ -1327,7 +1339,15 @@
                 <include name="jstl.jar"/>
                 <include name="standard.jar"/>
                 <include name="taconite.jar"/>
+				<include name="spring.jar"/>
             </lib>
+			<lib dir="${jars.dir}/tcs">
+				<include name="copilot_pool_and_profiles_common.jar"/>
+				<include name="copilot_pool_and_profiles_services.jar"/>
+			</lib>
+			<lib dir="${external.jars.dir}">
+				<include name="base_exception-2.0.0.jar"/>
+			</lib>
             <!-- Added libs to support ejb3 calls -->
             <lib dir="${jars.dir}/jboss-add/">
                 <include name="jboss-saaj.jar"/>
