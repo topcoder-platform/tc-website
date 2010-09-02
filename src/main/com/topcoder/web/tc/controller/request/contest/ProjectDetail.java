@@ -60,6 +60,11 @@ public class ProjectDetail extends Base {
      */
     private static final String DEFAULT_NAMESPACE = "com.topcoder.web.tc.controller.request.contest.ProjectDetail";
 
+    private static final String LIQUID_MESSAGE = "In order for your account to get the correct permission to compete in Liquid Community events, "
+                         + "you must register/validate your Handle via the Liquid Portal: http://liquidportal.boulder.ibm.com/liquidportal/ (then click on \"Register now\"). "
+                         + "If you are unsure how to do this, please contact the Liquid PMO liquid@us.ibm.com for assistance and include your TopCoder handle. "
+                         + "Since Liquid Portal is hosted on W3, TopCoder cannot provide support for this issue. ";
+
     /**
      * This method executes the actual logic for this processor.
      *
@@ -81,7 +86,7 @@ public class ProjectDetail extends Base {
                 //TODO: hard code for now
                 if (eligibility == 217)
                 {
-                    throw new NavigationException("In order for your account to get the correct permission to compete in Liquid Community events, you must validate your handle via the Liquid Portal.\nIf you are unsure how to do this, please contact the Liquid PMO liquid@us.ibm.com for support. Since Liquid Portal is hosted on W3, TopCoder cannot provide support for this issue.");
+                    throw new NavigationException(LIQUID_MESSAGE);
                 }
                 throw new NavigationException("Could not find project information.");
             }
