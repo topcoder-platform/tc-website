@@ -59,7 +59,7 @@ public class SecurityHelper {
                     ret = (TCSubject) (cc.get(address));
                 }
             } catch (Exception e) {
-                log.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e.getMessage());
+                log.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e);
                 hasCacheConnection = false;
             }
             if (ret == null) {
