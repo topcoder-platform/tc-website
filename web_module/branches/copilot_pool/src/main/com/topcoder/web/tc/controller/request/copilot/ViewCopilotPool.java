@@ -251,11 +251,14 @@ public class ViewCopilotPool extends ShortHibernateProcessor {
                 currentPage = page.intValue();
             }
             
-             for(CopilotPoolMember cpm : copilots) {
-               Map<String, Integer> stats = getCopilotsStatistics(cpm.getCopilotProfile().getUserId());
+            Map<String, Map<Long, Integer>> stats = getCopilotsStatistics();
+            Map<Long, Integer> currentContests = stats.get("currentContests");
+            Map<Long, Integer> currentProjects = stats.get("currentProjects");
+            
+            for (CopilotPoolMember cpm : copilots) {
 
-                cpm.setCurrentContests(stats.get("current_contests_number"));
-                cpm.setCurrentProjects(stats.get("current_projects_number"));
+                cpm.setCurrentContests(currentContests.get(cpm.getCopilotProfile().getUserId()));
+                cpm.setCurrentProjects(currentProjects.get(cpm.getCopilotProfile().getUserId()));
             }
             
             List<CopilotPoolMember> sortedCopoilots = new ArrayList<CopilotPoolMember>(copilots);
@@ -378,34 +381,36 @@ public class ViewCopilotPool extends ShortHibernateProcessor {
      * statistic by invoking queries.
      *
      * @return the map stores copilot statistics.
-     *
      * @throws Exception if any error occurs.
      */
-    private Map<String, Integer> getCopilotsStatistics(long userId) throws Exception {
+    private Map<String, Map<Long, Integer>> getCopilotsStatistics() throws Exception {
         Request r = new Request();
         // command - copilot_statistics
-        r.setContentHandle("copilot_statistics");
-        r.setProperty("uid", String.valueOf(userId));
+        r.setContentHandle("copilot_pool_members");
 
         // query  current_contests_number first
-        ResultSetContainer result = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("current_contests_number");
+        ResultSetContainer currentProjects = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("copilot_pool_current_projects");
+        ResultSetContainer currentContests = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("copilot_pool_current_contests");
 
-        Iterator<ResultSetContainer.ResultSetRow> iterator = result.iterator();
-        Map<String, Integer> statsMap = new HashMap<String, Integer>();
+        Iterator<ResultSetContainer.ResultSetRow> pi = currentProjects.iterator();
+        Iterator<ResultSetContainer.ResultSetRow> ci = currentContests.iterator();
+        Map<String, Map<Long, Integer>> statsMap = new HashMap<String, Map<Long, Integer>>();
+        Map<Long, Integer> projectsStats = new HashMap<Long, Integer>();
+        Map<Long, Integer> contestsStats = new HashMap<Long, Integer>();
 
-        // Build the result map
-        if (result.size() != 0) {
-            int currentContestsNumber = result.getIntItem(0, "current_contests_number");
-            statsMap.put("current_contests_number", currentContestsNumber);
+        while (pi.hasNext()) {
+            ResultSetContainer.ResultSetRow row = pi.next();
+
+            projectsStats.put(row.getLongItem("user_id"), row.getIntItem("current_projects_number"));
         }
 
-        // query current_projects_number
-        result = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("current_projects_number");
+        while (ci.hasNext()) {
+            ResultSetContainer.ResultSetRow row = ci.next();
 
-        if (result.size() != 0) {
-            int currentProjectsNumber = result.getIntItem(0, "current_projects_number");
-            statsMap.put("current_projects_number", currentProjectsNumber);
+            contestsStats.put(row.getLongItem("user_id"), row.getIntItem("current_contests_number"));
         }
+        statsMap.put("currentProjects", projectsStats);
+        statsMap.put("currentContests", contestsStats);
 
         return statsMap;
     }

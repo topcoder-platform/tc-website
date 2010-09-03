@@ -13,9 +13,9 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
     <title>TopCoder :: Copilot Pool</title>
@@ -324,7 +324,7 @@ The road you take will be defined by you and your copilot. Want to learn more? F
         <% if (currentPage == 1) { %>
         <span class="prev">Prev</span>
         <% } else { %>
-        <a href="/tc?module=ViewCopilotPool&amp;size=<%=pageSize%>&amp;page=<%=currentPage-1%>&amp;view=<%=viewType%>">
+        <a href="/tc?module=ViewCopilotPool&amp;size=<%=pageSize%>&amp;page=<%=currentPage-1%>&amp;view=<%=viewType%>&amp;sort=<%=sorting%>">
             Prev
         </a>
         <% } %>
@@ -336,7 +336,7 @@ The road you take will be defined by you and your copilot. Want to learn more? F
         %>
         <span class="curpage b"><%=i%></span>
         <% } else { %>
-        <a href="/tc?module=ViewCopilotPool&amp;size=<%=pageSize%>&amp;page=<%=i%>&amp;view=<%=viewType%>"><%=i%>
+        <a href="/tc?module=ViewCopilotPool&amp;size=<%=pageSize%>&amp;page=<%=i%>&amp;view=<%=viewType%>&amp;sort=<%=sorting%>"><%=i%>
         </a>
         <% } %>
         <%
@@ -347,9 +347,10 @@ The road you take will be defined by you and your copilot. Want to learn more? F
         <% if (currentPage == allowedPages) { %>
         <span class="next">Next</span>
         <% } else { %>
-        <a href="/tc?module=ViewCopilotPool&amp;size=<%=pageSize%>&amp;page=<%=currentPage+1%>&amp;view=<%=viewType%>">Next
+        <a href="/tc?module=ViewCopilotPool&amp;size=<%=pageSize%>&amp;page=<%=currentPage+1%>&amp;view=<%=viewType%>&amp;sort=<%=sorting%>">Next
         </a>
         <% } %>
+
 
     </div>
 </div>
