@@ -29,8 +29,54 @@
                 <jsp:include page="subMenu.jsp"/>
 
                 <div class="bigColumn">
-                    <%@ include file="../includes/comingSoon.jsp" %>
-                </div>
+                    <div class="text">
+                    <h2 class="pageTitle">Congratulations Studio Semiinalists!</h2><!-- page title -->
+                           <table cellpadding="0" cellspacing="0"><!-- Start table list -->
+                                <tr>
+                                    <th class="first" ><span class="left"></span>Semifinalists - Round 1 </th>
+                                    <!-- table left top corner -->
+                                    <th class="last"><span class="right">&nbsp;</span></th><!-- table right top corner -->
+                            	</tr>
+                            	<tr class="last">
+                                      <td colspan="2"><a href="http://studio.topcoder.com/?module=ViewMemberProfile&ha=oninkxronda" target="_blank">oninkxronda</a></td>
+                                 </tr>
+                                <tr class="last">
+                                      <td colspan="2"><a href="http://studio.topcoder.com/?module=ViewMemberProfile&ha=djackmania" target="_blank">djackmania</a></td>
+                                 </tr>
+                                <tr class="last">
+                                      <td colspan="2"><a href="http://studio.topcoder.com/?module=ViewMemberProfile&ha=mahestro" target="_blank">mahestro</a></td>
+                                  </tr>
+                                  <tr class="last">
+                                      <td colspan="2"><a href="http://studio.topcoder.com/?module=ViewMemberProfile&ha=daddum" target="_blank">daddum</a></td>
+                                  </tr>
+                                  <tr class="last">
+                                      <td colspan="2"><a href="http://studio.topcoder.com/?module=ViewMemberProfile&ha=idblack" target="_blank">idblack</a></td>
+                                  </tr>
+                          </table>
+                          <br />
+                           <table cellpadding="0" cellspacing="0"><!-- Start table list -->
+                                <tr>
+                                    <th class="first" ><span class="left"></span>Semifinalists- Round 2 </th>
+                                    <!-- table left top corner -->
+                                    <th class="last"><span class="right">&nbsp;</span></th><!-- table right top corner -->
+                            	</tr>
+                            	<tr class="last">
+                                      <td colspan="2"><a href="http://studio.topcoder.com/?module=ViewMemberProfile&ha=djnapier" target="_blank">djnapier</a></td>
+                                 </tr>
+                                <tr class="last">
+                                      <td colspan="2"><a href="http://studio.topcoder.com/?module=ViewMemberProfile&ha=abedavera" target="_blank">abedavera</a></td>
+                                 </tr>
+                                <tr class="last">
+                                      <td colspan="2"><a href="http://studio.topcoder.com/?module=ViewMemberProfile&ha=puchki" target="_blank">puchki</a></td>
+                                  </tr>
+                                  <tr class="last">
+                                      <td colspan="2"><a href="http://studio.topcoder.com/?module=ViewMemberProfile&ha=CMYK" target="_blank">CMYK</a></td>
+                                  </tr>
+                                  <tr class="last">
+                                      <td colspan="2"><a href="http://studio.topcoder.com/?module=ViewMemberProfile&ha=kathymak" target="_blank">kathymak</a></td>
+                                  </tr>
+                          </table>
+                </div></div>
 
                 <jsp:include page="../includes/sponsors.jsp"/>
 
