@@ -73,7 +73,7 @@ String section = request.getParameter("section") == null ? "" : request.getParam
                 <li><a href="/?module=MyStudioHome" <% if (section.equals("my_studio")) {%> class="active"<% } %>>My Studio</a></li>
                 <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/home/studio/" <% if (section.equals("blog")) {%> class="active"<% } %>>Blog</a></li>
                 <li><a href="/?module=Static&amp;d1=portfolio&amp;d2=portfolio" <% if (section.equals("portfolio")) {%> class="active"<% } %>>Portfolio</a></li>
-                <li class="right"><a href="/?module=Static&amp;d1=contactUs" <% if (section.equals("contact")) {%> class="active"<% } %>>Contact Us</a></li>
+                <li class="right"><a href="/?module=Static&amp;d1=contactUs" <% if (section.equals("contact")) {%> class="active"<% } %>>Contact Studio</a></li>
             </ul>
         </div>
 
@@ -124,7 +124,7 @@ String section = request.getParameter("section") == null ? "" : request.getParam
                         <li class="last-li"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums">Studio Forums</a></li>
                     </ul>
                 </li>
-                <li class="left"><a href="http://topcoder.com/home/lets-talk/">Contact Us</a></li>
+                <li class="left"><a href="http://topcoder.com/home/lets-talk/">Contact TopCoder</a></li>
             </ul>
         </div><%-- #navigation ends --%>
 
