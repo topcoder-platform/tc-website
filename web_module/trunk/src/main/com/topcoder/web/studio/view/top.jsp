@@ -93,7 +93,17 @@ String section = request.getParameter("section") == null ? "" : request.getParam
                         <li class="last-li"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/contact.jsp">Contact Us</a></li>
                     </ul>
                 </li>-->
-                <li><a href="http://www.topcoder.com/tc">Compete</a>
+                <li   id="studio" class="on" ><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/">Design</a>
+                    <%--<ul>
+                    <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">Active Contests</a></li>
+                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/">Launch a Contest</a></li>
+                    <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums">Studio Forums</a></li>
+                    <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/blog/">Studio Blog</a></li>
+                    <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=MyStudioHome">My Studio</a></li>
+                    <li class="last-li"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&amp;d1=contactUs">Contact Studio</a></li>
+                    </ul>--%>
+                </li>
+                <li><a href="http://www.topcoder.com/tc">Develop</a>
                     <ul>
                         <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&amp;pt=23">Conceptualization</a></li>
                         <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&amp;pt=6">Specification</a></li>
@@ -106,16 +116,6 @@ String section = request.getParameter("section") == null ? "" : request.getParam
                         <li class="last-li"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">Studio Competitions</a></li>
                     </ul>
                 </li>
-                <li   id="studio" class="on" ><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/">Studio</a>
-                    <%--<ul>
-                    <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">Active Contests</a></li>
-                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/">Launch a Contest</a></li>
-                    <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums">Studio Forums</a></li>
-                    <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/blog/">Studio Blog</a></li>
-                    <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=MyStudioHome">My Studio</a></li>
-                    <li class="last-li"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&amp;d1=contactUs">Contact Studio</a></li>
-                    </ul>--%>
-                </li>
                 <li><a href="http://www.topcoder.com/tc">Community</a>
                     <ul>
                         <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/">Join TopCoder</a></li>
@@ -124,6 +124,7 @@ String section = request.getParameter("section") == null ? "" : request.getParam
                         <li class="last-li"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums">Studio Forums</a></li>
                     </ul>
                 </li>
+                <li class="left"><a href="http://topcoder.com/home/lets-talk/">Contact Us</a></li>
             </ul>
         </div><%-- #navigation ends --%>
 
@@ -131,9 +132,7 @@ String section = request.getParameter("section") == null ? "" : request.getParam
         <div id="nav_support">
             <h3 class="hide">SUB Navigation</h3>
             <ul>
-                <li class="left"><a href="http://<%=ApplicationServer.SERVER_NAME%>/home/studio/the-process/">Help</a></li>
-                <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/home/studio/">News</a></li>
-                <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&amp;d1=contactUs">Contact Us</a></li>
+                <li class="left"><a href="http://<%=ApplicationServer.SERVER_NAME%>/home/studio/the-process/">Studio Help</a></li>
 
                 <c:choose>
                     <c:when test="${sessionInfo.anonymous}">
