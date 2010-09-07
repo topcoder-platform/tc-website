@@ -82,7 +82,7 @@ String section = request.getParameter("section") == null ? "" : request.getParam
             <h3 class="hide">Main Navigation</h3>
             <ul>
                 <li class="left"><a href="http://www.topcoder.com/">TopCoder Home</a></li>
-                <li><a href="http://software.topcoder.com/">Engage</a>
+                <!--<li><a href="http://software.topcoder.com/">Engage</a>
                     <ul>
                         <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/cockpit/cockpit.jsp">TopCoder Direct</a></li>
                         <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/">Components</a></li>
@@ -92,7 +92,7 @@ String section = request.getParameter("section") == null ? "" : request.getParam
                         <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/support.jsp">Support &amp; Maintenance</a></li>
                         <li class="last-li"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/contact.jsp">Contact Us</a></li>
                     </ul>
-                </li>
+                </li>-->
                 <li><a href="http://www.topcoder.com/tc">Compete</a>
                     <ul>
                         <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&amp;pt=23">Conceptualization</a></li>
