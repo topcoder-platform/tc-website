@@ -1,6 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="../includes/taglibs.jsp" %>
 
+<%@ page import="com.topcoder.web.common.SessionInfo" %>
+<%@ page language="java" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<% SessionInfo sessionInfo = (SessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY); %>
+<%@ page import="com.topcoder.web.common.BaseServlet" %>
+<%@ page import="com.topcoder.web.common.tag.HandleTag" %>
+
 <tco10:pageSetup title="TCO 10 : Development Competition Final Results" area="development" menu="finalResults"/>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -29,7 +36,17 @@
                 <jsp:include page="subMenu.jsp"/>
 
                 <div class="bigColumn">
-                    <%@ include file="../includes/comingSoon.jsp" %>
+                    <div class="text">
+                    <h2 class="pageTitle">Development Competition Final Results</h2>
+                    <!-- page title -->
+                            <p>The 2010 TopCoder Open Development Competition brought together competitors from our development contests: Assembly, Component Development, Prototypes, and Testing Suites. &nbsp;Developers were required to implement designs in each of these tracks, over a broad variety of technology platforms including cutting-edge web and mobile offerings. &nbsp;Our most prolific developers submitted on a huge number of projects - akinwale turned in 40 submissions, while iversonLv turned in a whopping 54!&nbsp; Bringing prototypes into this year&rsquo;s TCO also allowed our Studio web developers a foothold - quesks made the top 10 exclusively submitting prototypes, and iversonLv heavily favored HTML and JavaScript projects. &nbsp;Still, our hardcore coders put in a great showing with both Java and .NET developers making the top slots &ndash; Yeung favoring almost entirely .NET and BeBetter preferring Java.&nbsp; In the end, Yeung managed to secure the win by netting over 14,000 points!</p>
+<h2 class="pageTitle">Congratulations to Yeung, our 2010 TopCoder Open Development  Competition Champion!</h2>
+                            
+                      <div style="float: left"><br /><img src="http://www.topcoder.com/i/m/Yeung_big.jpg" alt="Yeung" style="margin: 0 10px 3px 0" /></div>
+                        <h3 class="subTitle">Yang Lee<br />
+                      <em>China</em></h3>
+                        <p>TopCoder is my full time job now. I live in Zhongshan, a small city in China. I like to sleep, watch movies, and travel.&nbsp; I made it to the TCO thanks to Ilium. This was a huge project and it was a little complicated. So not many people were competing. Ilium is my lucky charm in TCO 2010.<br /><br /><br /><br /><br /><br /></p>
+</div>
                 </div>
 
                 <jsp:include page="../includes/sponsors.jsp"/>
