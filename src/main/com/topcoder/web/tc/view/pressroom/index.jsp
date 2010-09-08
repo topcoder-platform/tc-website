@@ -97,6 +97,20 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- tco10 finalists --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_090810"><img src="/i/pressroom/tco10_logo.png" alt="TCO10" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_090810">Onsite Finalists Announced for 2010 TopCoder Open Programming Tournament</a></h3>
+                        <p><small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_090810">[September 8th]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                
+                <%-- tco10 finalists end --%>
+                
                 <%-- nasa --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
