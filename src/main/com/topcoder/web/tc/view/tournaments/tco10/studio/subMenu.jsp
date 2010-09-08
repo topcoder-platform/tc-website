@@ -66,6 +66,9 @@
                     <li class="${bracketClass}">
                         <tco10:studioStaticPageLink page="bracket">Bracket</tco10:studioStaticPageLink>
                     </li>
+                    <li class="${judgesClass}">
+                        <tco10:studioStaticPageLink page="judges">Guest Judges</tco10:studioStaticPageLink>
+                    </li>
                 </ul>
             </c:when>
             <c:otherwise>
