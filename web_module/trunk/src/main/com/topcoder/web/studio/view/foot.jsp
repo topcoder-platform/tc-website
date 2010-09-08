@@ -21,7 +21,7 @@
     <div id="footer">
         <div class="wrapper2">
             <p>TopCoder Studio is the creative arm of TopCoder, the world's largest competitive software development
-               community with 230,426 developers representing over 200 countries.<br/>
+              community with developers representing over 200 countries.<br/>
                Copyright &copy;2001-2010, TopCoder, Inc. All rights reserved</p>
 
             <p>
