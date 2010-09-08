@@ -38,9 +38,9 @@
          | <a class="bcLink" href="/?module=Static&amp;d1=digitalrun&amp;d2=2008v2&amp;d3=schedule">Schedule</a>
     <% } %>
     <% if (tabLev2.equals("prizes")) {%>
-        | Prizes
+        | Awards
     <% } else { %>
-         | <a class="bcLink" href="/?module=Static&amp;d1=digitalrun&amp;d2=2008v2&amp;d3=prizes">Prizes</a>
+         | <a class="bcLink" href="/?module=Static&amp;d1=digitalrun&amp;d2=2008v2&amp;d3=prizes">Awards</a>
     <% } %>
     <% if (tabLev2.equals("rules")) {%>
         | Rules

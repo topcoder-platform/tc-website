@@ -69,7 +69,7 @@
     <strong>Schedule</strong>
 </p>
 
-Points and prize pool money are available for each month of 2009. The monthly schedule shown below includes competitions posted within the following date range:
+Points and payment pool money are available for each month of the year. The monthly schedule shown below includes competitions posted within the following date range:
 <br /><br />
 
 January 1 - January 31
@@ -86,7 +86,7 @@ January 1 - January 31
 <br />December 1 - December 31
 <br /><br />
 
-The TCO trip prize is available to the monthly winner of the Studio Cup during the following months of 2009:
+<!--The TCO trip prize is available to the monthly winner of the Studio Cup during the following months of 2009:
 <br /><br />
 
 January 
@@ -97,7 +97,7 @@ January
 <br />June 
 <br />July 
 <br />August 
-<br /><br />
+<br /><br />-->
 
 
                         <br clear="all"/>
