@@ -540,6 +540,7 @@ public class TCLoadTCS extends TCLoad {
                             "   ,resource r" +
                             "   ,resource_info ri " +
                             "where s.upload_id = u.upload_id " +
+                            "   and s.submission_type_id = 1 " +
                             "   and u.project_id = p.project_id " +
                             "   and p.project_status_id <> 3 " +
                             "   and p.project_category_id in " + LOAD_CATEGORIES +
@@ -854,11 +855,11 @@ public class TCLoadTCS extends TCLoad {
                             "   ,cc.component_id " +
                             "   ,cc.component_name " +
                             "   ,(select count(*) from resource where project_id = p.project_id and resource_role_id = 1) as num_registrations " +
-                            "   ,(select count(*) from submission sub, upload where sub.upload_id = upload.upload_id and project_id = p.project_id and submission_status_id <> 5) as num_submissions " +
+                            "   ,(select count(*) from submission sub, upload where sub.submission_type_id = 1 and sub.upload_id = upload.upload_id and project_id = p.project_id and submission_status_id <> 5) as num_submissions " +
                             //todo this should probably use the flag on project result in the dw, not got back to the submission table in transactional
-                            "   ,(select count(*) from submission s, upload where upload.upload_id = s.upload_id and project_id = p.project_id and submission_status_id in (1, 3, 4)) as num_valid_submissions " +
+                            "   ,(select count(*) from submission s, upload where s.submission_type_id = 1 and upload.upload_id = s.upload_id and project_id = p.project_id and submission_status_id in (1, 3, 4)) as num_valid_submissions " +
                             //todo this should use the flag on project result, not go back to transactional
-                            "   ,(select count(*) from submission s, upload u where u.upload_id = s.upload_id and project_id = p.project_id and submission_status_id in (1, 4)) as num_submissions_passed_review " +
+                            "   ,(select count(*) from submission s, upload u where s.submission_type_id = 1 and u.upload_id = s.upload_id and project_id = p.project_id and submission_status_id in (1, 4)) as num_submissions_passed_review " +
                             //todo again...none of this aggregate data should come from transactional
                             "   ,(select avg(case when raw_score is null then 0 else raw_score end) from project_result where project_id = p.project_id and raw_score is not null) as avg_raw_score " +
                             "   ,(select avg(case when final_score is null then 0 else final_score end) from project_result where project_id = p.project_id and final_score is not null) as avg_final_score " +
@@ -932,7 +933,7 @@ public class TCLoadTCS extends TCLoad {
                             // add projects who have modified resources
                             "   or p.project_id in (select distinct r.project_id from resource r where (r.create_date > ? or r.modify_date > ?)) " +
                             // add projects who have modified upload and submissions
-                            "   or p.project_id in (select distinct u.project_id from upload u, submission s where u.upload_id = s.upload_id and " +
+                            "   or p.project_id in (select distinct u.project_id from upload u, submission s where s.submission_type_id = 1 and u.upload_id = s.upload_id and " +
                             "   (u.create_date > ? or u.modify_date > ? or s.create_date > ? or s.modify_date > ?)) " +
                             // add projects who have modified results
                             "   or p.project_id in (select distinct pr.project_id from project_result pr where (pr.create_date > ? or pr.modify_date > ?)) " +
@@ -1357,11 +1358,11 @@ public class TCLoadTCS extends TCLoad {
                 " select distinct pr.project_id " +
                         "    ,pr.user_id " +
                         "    ,case when exists(select '1' from submission s,upload u  " +
-                        "           where u.resource_id = r.resource_id " +
+                        "           where s.submission_type_id = 1 and u.resource_id = r.resource_id " +
                         "           and u.upload_id = s.upload_id and u.project_id = pr.project_id and s.submission_status_id in (1,2,3,4))  " +
                         "    then 1 else 0 end as submit_ind " +
                         "    ,case when exists(select '1' from submission s,upload u " +
-                        "           where u.resource_id = r.resource_id  " +
+                        "           where s.submission_type_id = 1 and u.resource_id = r.resource_id  " +
                         "           and u.upload_id = s.upload_id and u.project_id = pr.project_id and submission_status_id in (1,2,3,4)) then pr.valid_submission_ind  " +
                         "    else 0 end as valid_submission_ind " +
                         "    ,pr.raw_score " +
@@ -1370,17 +1371,17 @@ public class TCLoadTCS extends TCLoad {
                         "    ,r2.value registrationd_date" +
                         //todo improve this data in transactional.  many records are 11/2/2006 which isn't correct.
                         "    ,(select max(u.create_date) from submission s,upload u " +
-                        "           where r.resource_id = u.resource_id " +
+                        "           where s.submission_type_id = 1 and r.resource_id = u.resource_id " +
                         "           and u.upload_id = s.upload_id and u.project_id = pr.project_id and submission_status_id <> 5) as submit_timestamp " +
                         //todo this is no good, modify date shouldn't be used in this way.  it could be updated for any reason, so it's misleading.  perhaps we should
                         //todo use the actual review phase end (or the most recent one) instead
                         "    ,(select max(rev.modify_date) from review rev,scorecard s,submission sub, upload u  " +
-                        "           where r.resource_id = u.resource_id  " +
+                        "           where sub.submission_type_id = 1 and r.resource_id = u.resource_id  " +
                         "           and u.upload_id = sub.upload_id and sub.submission_id = rev.submission_id and rev.scorecard_id = s.scorecard_id  " +
                         "           and s.scorecard_type_id = 2 and rev.committed = 1 and u.project_id = pr.project_id and sub.submission_status_id <> 5) as review_completed_timestamp " +
 //                        "    ,(select count(*) from project_result pr where project_id = p.project_id and pr.passed_review_ind = 1) as num_submissions_passed_review " +
                         "       ,(select count(*) from submission s, upload u  " +
-                        "         where u.upload_id = s.upload_id and project_id = p.project_id  " +
+                        "         where s.submission_type_id = 1 and u.upload_id = s.upload_id and project_id = p.project_id  " +
                         "         and submission_status_id in (1, 4) " +
                         "        ) as num_submissions_passed_review  " +
                         "    , pr.payment " +
@@ -1408,7 +1409,7 @@ public class TCLoadTCS extends TCLoad {
                         "     ,case when ppd.actual_start_time is not null then ppd.actual_start_time else psd.actual_start_time end as posting_date " +
                         "     ,(cc.component_name || ' - ' || cv.version_text) as project_desc" +
                         "     ,nvl(pwa.actual_end_time, pwa.scheduled_end_time) as winner_announced" +
-                        "     ,(select max(s.create_date) as submission_date from submission s, upload u where s.upload_id = u.upload_id" +
+                        "     ,(select max(s.create_date) as submission_date from submission s, upload u where s.submission_type_id = 1 and s.upload_id = u.upload_id" +
                         "             and u.project_id = p.project_id" +
                         "             and u.resource_id = r.resource_id" +
                         "             and u.upload_status_id = 1" +
@@ -1943,6 +1944,7 @@ public class TCLoadTCS extends TCLoad {
                         "  ,resource_info ri2" +
                         "   ,resource res " +
                         "where r.submission_id = s.submission_id " +
+                        "   and s.submission_type_id = 1 " +
                         "   and u.upload_id = s.upload_id " +
                         "   and u.project_id = p.project_id " +
                         "   and p.project_status_id <> 3 " +
@@ -2136,6 +2138,7 @@ public class TCLoadTCS extends TCLoad {
                         "   resource_info ri2," +
                         "   resource res " +
                         "where r.submission_id = s.submission_id " +
+                        "   and s.submission_type_id = 1 " +
                         "   and u.upload_id = s.upload_id " +
                         "   and u.project_id = p.project_id " +
                         "   and p.project_status_id <> 3 " +
@@ -3609,6 +3612,7 @@ public class TCLoadTCS extends TCLoad {
                         "       project p, " +
                         "       scorecard_question sq" +
                         "    where  ri.scorecard_question_id = sq.scorecard_question_id " +
+                        "   and s.submission_type_id = 1 " +
                         "   and ri.review_id = r.review_id " +
                         "   and r.resource_id = res.resource_id " +
                         "   and res.resource_role_id in (2,3,4,5,6,7) " +
@@ -3762,6 +3766,7 @@ public class TCLoadTCS extends TCLoad {
                         "    resource_info ri2," +
                         "    scorecard_question sq " +
                         "  where ri.review_id = r.review_id " +
+                        "   and s.submission_type_id = 1 " +
                         "   and r.resource_id = res.resource_id " +
                         "   and res.resource_role_id in (4,5,6,7) " +
                         "   and r.submission_id = s.submission_id " +
@@ -3917,6 +3922,7 @@ public class TCLoadTCS extends TCLoad {
                         "       resource_info ri2," +
                         "       resource res " +
                         "    where  ric.comment_type_id = ctl.comment_type_id " +
+                        "   and s.submission_type_id = 1 " +
                         "   and ric.review_item_id = ri.review_item_id " +
                         "   and ri.review_id = r.review_id " +
                         "   and r.submission_id = s.submission_id " +
@@ -4080,6 +4086,7 @@ public class TCLoadTCS extends TCLoad {
                         "       outer review_item_comment ric_resp," +
                         "       scorecard_question sq" +
                         "    where ric.review_item_id = ri.review_item_id and " +
+                        "   s.submission_type_id = 1 and " +
                         "   ri.review_id = r.review_id and " +
                         "   ri.scorecard_question_id = sq.scorecard_question_id and " +
                         "   r.submission_id = s.submission_id and " +
@@ -4310,6 +4317,7 @@ public class TCLoadTCS extends TCLoad {
                         "   scorecard_question sq, " +
                         "   review_item_comment ric_resp " +
                         "where ric.review_item_id = ri.review_item_id " +
+                        "   and s.submission_type_id = 1 " +
                         "   and ri.review_id = r.review_id " +
                         "   and r.submission_id = s.submission_id " +
                         "   and u.upload_id = s.upload_id " +
@@ -5251,11 +5259,11 @@ public class TCLoadTCS extends TCLoad {
                         "       , NVL((select value from project_info pi_dr where pi_dr.project_info_type_id = 30 and pi_dr.project_id = p.project_id), " +
                         "          (select value from project_info pi_am where pi_am.project_info_type_id = 16 and pi_am.project_id = p.project_id)) as amount " +
                         "       ,(select count(*) from submission s, upload u  " +
-                        "         where u.upload_id = s.upload_id and project_id = p.project_id  " +
+                        "         where s.submission_type_id = 1 and u.upload_id = s.upload_id and project_id = p.project_id  " +
                         "         and submission_status_id in (1, 4) " +
                         "        ) as num_submissions_passed_review  " +
                         "    ,case when exists(select '1' from submission s,upload u,resource r, resource_info ri " +
-                        "           where r.resource_id = ri.resource_id and ri.resource_info_type_id = 1 and u.resource_id = r.resource_id " +
+                        "           where s.submission_type_id = 1 and r.resource_id = ri.resource_id and ri.resource_info_type_id = 1 and u.resource_id = r.resource_id " +
                         "           and u.upload_id = s.upload_id and u.project_id = pr.project_id and ri.value = pr.user_id and submission_status_id in (1,2,3,4)) then pr.valid_submission_ind  " +
                         "    else 0 end as valid_submission_ind " +
                         " from project p " +

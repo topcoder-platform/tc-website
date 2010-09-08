@@ -63,6 +63,7 @@ public class PaymentFixUtility extends DBUtility{
             query.append("distinct p.project_type_id, c.component_name, s.project_id, pi.end_date, ");
             query.append("(select count(*) from submission s2  ");
             query.append("where s2.advanced_to_review = 1 ");
+            query.append("and s2.submission_type_id = 1 ");
             query.append("and s2.project_id = s.project_id ");
             query.append("and s2.cur_version = 1) as advanced, ");
             query.append("(select count(*) from scorecard sc2  ");
@@ -70,6 +71,7 @@ public class PaymentFixUtility extends DBUtility{
             query.append("and sc2.project_id = s.project_id) as passed ");
             query.append("from submission s, project p, comp_versions cv, comp_catalog c, scorecard sc, phase_instance pi ");
             query.append("where c.component_id = cv.component_id and cv.comp_vers_id = p.comp_vers_id ");
+            query.append("and s.submission_type_id = 1 ");
             query.append("and s.project_id = p.project_id and s.advanced_to_review = 1 ");
             query.append("and s.submission_id = sc.submission_id and sc.score > 0 and sc.score < 75 ");
             query.append("and sc.cur_version = 1 and sc.scorecard_type = 1 ");
