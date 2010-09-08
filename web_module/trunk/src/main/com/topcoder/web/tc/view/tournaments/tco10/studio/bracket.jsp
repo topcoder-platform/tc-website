@@ -30,7 +30,7 @@
 
                 <div class="bigColumn">
                     <div class="text">
-                    <h2 class="pageTitle">Congratulations Studio Semiinalists!</h2><!-- page title -->
+                    <h2 class="pageTitle">Congratulations Studio Semifinalists!</h2><!-- page title -->
                            <table cellpadding="0" cellspacing="0"><!-- Start table list -->
                                 <tr>
                                     <th class="first" ><span class="left"></span>Semifinalists - Round 1 </th>
@@ -56,7 +56,7 @@
                           <br />
                            <table cellpadding="0" cellspacing="0"><!-- Start table list -->
                                 <tr>
-                                    <th class="first" ><span class="left"></span>Semifinalists- Round 2 </th>
+                                    <th class="first" ><span class="left"></span>Semifinalists - Round 2 </th>
                                     <!-- table left top corner -->
                                     <th class="last"><span class="right">&nbsp;</span></th><!-- table right top corner -->
                             	</tr>
