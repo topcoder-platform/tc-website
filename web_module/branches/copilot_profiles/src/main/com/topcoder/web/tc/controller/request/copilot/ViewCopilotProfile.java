@@ -102,7 +102,7 @@ public class ViewCopilotProfile extends ShortHibernateProcessor {
             Long profileId = CopilotRequestProcessorUtil.getLongRequestValue(request, PROFILE_ID_PARAM_KEY);
 
             if (profileId == null) {
-                throw new TCWebException("The copilot profile id is not specified");
+                throw new TCWebException("The copilot profile user id is not specified");
             }
 
             CopilotProfileDTO profileDTO;
@@ -113,6 +113,7 @@ public class ViewCopilotProfile extends ShortHibernateProcessor {
                 CopilotProfileService service = (CopilotProfileService) applicationContext.getBean(
                         PROFILE_SERVICE_BEAN_NAME);
 
+                // note that the profile service get profile by copilot topcoder User id
                 profileDTO = service.getCopilotProfileDTO(profileId.longValue());
 
                 if (profileDTO == null) {
@@ -158,7 +159,7 @@ public class ViewCopilotProfile extends ShortHibernateProcessor {
             request.setAttribute(BAR_CHART_RESULT_KEY,
                     CopilotRequestProcessorUtil.encodeJsonData(barChartProperties, barValues));
             request.setAttribute(COPILOT_INFO_RESULT_KEY,
-                    CopilotRequestProcessorUtil.getCopilotInfo(profileDTO.getCopilotProfile().getId()));
+                    CopilotRequestProcessorUtil.getCopilotInfo(profileDTO.getCopilotProfile().getUserId()));
             request.setAttribute(PROFILE_RESULT_KEY, profileDTO);
 
             // set the jsp page to forward
