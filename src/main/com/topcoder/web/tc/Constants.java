@@ -58,14 +58,21 @@ import java.util.MissingResourceException;
  * </p>
  *
  * <p>
- *   Version 1.7 (TopCoder Copilot Pool Front End Assembly v 1.0) Change notes:
+ *   Version 1.7
+ *  (TopCoder Copilot Pool Front End Assembly v 1.0) Change notes:
  * <ol>
- *  <li>Added contest for copilot pool jsp page COPILOT_POOL.
+ *  <li>Added constant for copilot pool jsp page COPILOT_POOL.
+ * </ol>
+ *  (TopCoder Copilot Profiles Front End Assembly v 1.0) Change notes:
+ * <ol>
+ *  <li>Added constant for copilot profile jsp page COPILOT_PROFILE.
+ *  <li>Added constant for copilot project history jsp page COPILOT_PROJECT_HISTORY.
+ *  <li>Added constant for copilot project jsp page COPILOT_PROJECT.
  * </ol>
  * </p>
  *
- * @author pulky, isv
- * @version 1.6
+ * @author pulky, isv, TCSASSEMBLER
+ * @version 1.7
  */
 public class Constants implements WebConstants {
 
@@ -251,6 +258,21 @@ public class Constants implements WebConstants {
      * Represents the jsp page for request processor view copilot pool. 
      */
     public static String COPILOT_POOL;
+
+    /**
+     * Represents the jsp page for request processor view copilot profile.
+     */
+    public static String COPILOT_PROFILE;
+
+    /**
+     * Represents the jsp page for request processor view copilot project history.
+     */
+    public static String COPILOT_PROJECT_HISTORY;
+
+    /**
+     * Represents the jsp page for request processor view copilot project.
+     */
+    public static String COPILOT_PROJECT;
 
     //dev pages
     public static String REVIEW_PROJECT_DETAIL;
