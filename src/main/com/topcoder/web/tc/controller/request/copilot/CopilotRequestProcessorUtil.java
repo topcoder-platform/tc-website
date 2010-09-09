@@ -80,12 +80,49 @@ class CopilotRequestProcessorUtil {
      * @return a map with copilot's information.
      * @throws Exception if any error occurs.
      */
-    public static Map<String, String> getCopilotInfo(long copilotProfileId) throws Exception {
+    public static Map<String, String> getCopilotProfileInfo(long copilotProfileId) throws Exception {
 
         Request r = new Request();
         // command - copilot_profile
         r.setContentHandle("copilot_profile");
         r.setProperty("uid", String.valueOf(copilotProfileId));
+
+        // query copilot_user_info with the specified user id
+        ResultSetContainer result = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("copilot_profile_info");
+        Map<String, String> info = new HashMap<String, String>();
+
+        // Build the result map
+        if (result.size() != 0) {
+            if (result.getItem(0, "handle").getResultData() != null) {
+                info.put("handle", result.getStringItem(0, "handle"));
+            }
+
+            if (result.getItem(0, "user_id").getResultData() != null) {
+                info.put("userId", result.getStringItem(0, "user_id"));
+            }
+
+            if (result.getItem(0, "image_path").getResultData() != null) {
+                info.put("imagePath", result.getStringItem(0, "image_path"));
+            }
+        }
+
+        return info;
+    }
+    
+    /**
+     * Gets a map which stores the copilot's TopCoder handle, user id and TopCoder head image path by the given
+     * copilot user id.
+     *
+     * @param userId the copilot profile id.
+     * @return a map with copilot's information.
+     * @throws Exception if any error occurs.
+     */
+    public static Map<String, String> getCopilotInfo(long userId) throws Exception {
+
+        Request r = new Request();
+        // command - copilot_profile
+        r.setContentHandle("copilot_profile");
+        r.setProperty("uid", String.valueOf(userId));
 
         // query copilot_user_info with the specified user id
         ResultSetContainer result = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("copilot_user_info");

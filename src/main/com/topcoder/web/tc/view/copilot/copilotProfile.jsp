@@ -148,7 +148,7 @@
                             <tr>
                                 <td class="border-l border-b">
                                     <%-- total proejcts links to the view copilot project history page --%>
-                                    <a href="/tc?module=ViewCopilotProjectHistory&amp;pid=${copilotProfile.copilotProfile.id}">
+                                    <a href="/tc?module=ViewCopilotProjectHistory&amp;pid=${copilotProfile.copilotProfile.userId}">
                                         ${copilotProfile.totalProjects}
                                     </a>
                                 </td>

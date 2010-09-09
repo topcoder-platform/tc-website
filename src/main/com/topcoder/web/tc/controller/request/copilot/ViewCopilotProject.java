@@ -148,7 +148,7 @@ public class ViewCopilotProject extends ShortHibernateProcessor {
             request.setAttribute(BAR_CHART3, generateThirdBarChartJSON(projectDTO));
             request.setAttribute(COPILOT_PROJECT, projectDTO);
             request.setAttribute(COPILOT_INFO,
-                    CopilotRequestProcessorUtil.getCopilotInfo(projectDTO.getCopilotProject().getCopilotProfileId()));
+                    CopilotRequestProcessorUtil.getCopilotProfileInfo(projectDTO.getCopilotProject().getCopilotProfileId()));
 
             // set the jsp page to forward
             setNextPage(Constants.COPILOT_PROJECT);
