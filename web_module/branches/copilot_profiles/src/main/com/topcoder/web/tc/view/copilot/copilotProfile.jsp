@@ -84,7 +84,7 @@
                         Copilot Profile
                         &nbsp;|&nbsp;
                         <%-- link to copilot project history --%>
-                        <a href="/tc?module=ViewCopilotProjectHistory&amp;pid=${copilotProfile.copilotProfile.id}">Project
+                        <a href="/tc?module=ViewCopilotProjectHistory&amp;pid=${copilotProfile.copilotProfile.userId}">Project
                         History</a>
                         <%-- link to copilot pool page --%>
                         &nbsp;|&nbsp;<a href="/tc?module=ViewCopilotPool">Copilot Pool</a>
