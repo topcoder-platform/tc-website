@@ -4,6 +4,10 @@
 package com.topcoder.web.studio.controller.request;
 
 import java.util.Date;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
 
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
@@ -114,6 +118,47 @@ public class ViewContestDetails extends ShortHibernateProcessor {
             getRequest().setAttribute("currentTime", new Date());
             getRequest().setAttribute("has_cockpit_permissions", Util.hasCockpitPermissions(userId, cid));
             
+			
+			
+			
+			
+            if (contest != null && 
+                contest.getMultiRoundInformation() != null && 
+                contest.getMultiRoundInformation().getMilestoneDate() != null &&
+                contest.getMultiRoundInformation().getMilestoneDate().before(new Date())) {
+                getRequest().setAttribute("canViewMilestone", true);
+                DataAccess da = new DataAccess(DBMS.STUDIO_DATASOURCE_NAME);
+                Request r = new Request();
+                r.setContentHandle("submissions");
+                r.setProperty(Constants.CONTEST_ID, contestId);
+                r.setProperty(Constants.SUBMISSION_RANK, contest.getMilestonePrize().getNumberOfSubmissions().toString());
+                
+                ResultSetContainer submissions = (ResultSetContainer) da.getData(r).get("submissions");
+                boolean milestonePrizeAvaliable = false;
+                int recordNum = submissions.size();
+                List<Integer> milestoneSubmissionId = new ArrayList<Integer>();
+                Map<Integer, String> milestoneSubmissionFeedback = new HashMap<Integer, String>();
+                for (int i = 0; i < recordNum; i++) {
+                    Object resultData = submissions.getItem(i, "award_milestone_prize").getResultData();                    
+                    Boolean awardMilestonePrize  = (resultData != null) && ((Boolean)resultData).booleanValue();
+                    if (awardMilestonePrize) {
+                        String feedbackText  = submissions.getStringItem(i, "feedback_text");
+                        Integer submissionId = submissions.getIntItem(i, "submission_id");
+                        milestoneSubmissionId.add(submissionId);
+                        milestoneSubmissionFeedback.put(submissionId, feedbackText);
+                    }
+                    milestonePrizeAvaliable |= awardMilestonePrize;
+                }
+                
+                getRequest().setAttribute("milestonePrizeAvaliable", milestonePrizeAvaliable);
+                if (milestonePrizeAvaliable) {
+                    getRequest().setAttribute("milestoneSubmissionId", milestoneSubmissionId);
+                    getRequest().setAttribute("milestoneSubmissionFeedback", milestoneSubmissionFeedback);
+                }
+            } else {
+                getRequest().setAttribute("canViewMilestone", false);
+            }
+
             setNextPage("/contestDetails.jsp");
             setIsNextPageInContext(true);
         }

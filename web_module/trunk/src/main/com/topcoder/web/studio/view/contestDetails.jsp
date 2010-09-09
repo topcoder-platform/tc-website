@@ -32,13 +32,15 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico" />
 	<link href="/css/popup/modalPopup.css" type="text/css"  rel="stylesheet" />		
+	<link href="/css/style.css" type="text/css"  rel="stylesheet" />		
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>TopCoder Studio : Contest Details</title>
         <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
-
-    <script src="/js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"></script>
+	
+	<script src="/js/jquery-1.4.2.min.js" type="text/javascript"></script>
+	<script src="/js/jquery.tools.min.js" type="text/javascript"></script>
     <script src="/js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
     <script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
 
@@ -58,9 +60,19 @@
         }, function() {
             $(this).parents("#nav ul li").children('a').removeClass("active-item");
         });
-
-
+		$("#milestoneBtn").overlay({
+				closeOnClick:false,
+				mask: {
+					color: '#FFFFFF',
+					loadSpeed: 200,
+					opacity: 0.7
+				},
+				close :".closePopup",
+				fixed : false,
+				target : $("#milestonePopup")
+		  });
     });
+	
     </script>
 </head>
 
@@ -102,17 +114,15 @@
 <div class="conDetRightBox">
 <br />
 
-<div style="float: right; width: 135px;">
-    <%-- ADDTHIS BUTTON BEGIN --%>
-    <script type="text/javascript">
-    addthis_pub = 'topcoderstudio';
-    addthis_brand = 'TopCoder Studio';
-    addthis_options = 'facebook, twitter, google, del.icio.us, stumbleupon, reddit, myspace, favorites, email';
-    </script>
-    <a href="http://www.addthis.com/bookmark.php" onMouseOver="return addthis_open(this, '', '[URL]', '[TITLE]')" onMouseOut="addthis_close()" onClick="return addthis_sendto()">
-    <img src="/i/v2/interface/btnShare.png" width="122" height="35" border="0" alt="Share" /></a>
-    <script type="text/javascript" src="http://s7.addthis.com/js/152/addthis_widget.js"></script>
-    <%-- ADDTHIS BUTTON END --%>
+<div style="float: right; width: 135px; height: 50px">
+	<c:choose>
+		<c:when test="${canViewMilestone}">
+			<a href="javascript:void(0)" id="milestoneBtn"></a>
+		</c:when>
+		<c:otherwise>
+			<img src='/i/milestone_btn_deactive.png' alt ="View Milestone"></a>
+		</c:otherwise>
+	</c:choose>
 </div>
 
     <%-- Visit Contest Forum Button --%>
@@ -542,6 +552,39 @@ If you do not reside in the United States:
 </div>
 
 <jsp:include page="foot.jsp"/>
+
+<div id="milestonePopup">
+    <div class="popupMask">
+        <div class="popupContent">
+             <h1>Milestone Feedback</h1>
+             <div class="toForum">Have a question about your individual feedback? Post in the contest <studio:forumLink forumID="${contest.forumId}" message="forum" />! You may also find general feedback from the contest holder for all competitors in the <studio:forumLink forumID="${contest.forumId}" message="forum" />, so be sure to follow it closely.</div>
+             <dl class="winners">
+                 <dt>Milestone Winners</dt>
+                 <dd>
+					<c:forEach items="${milestoneSubmissionId}" var="prize">
+						<div>${prize}</div>
+					</c:forEach>
+                 </dd>
+             </dl>
+             <dl class="overall">
+                 <dt>Overall Milestone Round Feedback</dt>
+                 <dd>
+                    Please see general feeback in the <studio:forumLink forumID="${contest.forumId}" message="forum" />.         
+                 </dd>
+              </dl>
+              <dl class="review">
+			    <c:forEach var="item" items="${milestoneSubmissionFeedback}">
+					<dt>Design Review - Submission ${item.key}</dt>
+					<dd>
+					${item.value}
+					</dd>
+				</c:forEach>
+
+              </dl>
+            <a class="closePopup" href="javascript:void(0)">Close</a> 
+        </div>
+    </div>
+</div>
 
 
 </body>
