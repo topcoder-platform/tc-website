@@ -145,7 +145,7 @@ public class ViewContestDetails extends ShortHibernateProcessor {
                         String feedbackText  = submissions.getStringItem(i, "feedback_text");
                         Integer submissionId = submissions.getIntItem(i, "submission_id");
                         milestoneSubmissionId.add(submissionId);
-                        milestoneSubmissionFeedback.put(submissionId, feedbackText);
+                        milestoneSubmissionFeedback.put(submissionId, feedbackText.replaceAll("\n", "<br />"));
                     }
                     milestonePrizeAvaliable |= awardMilestonePrize;
                 }
