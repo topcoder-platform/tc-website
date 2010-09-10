@@ -4,8 +4,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="profileService" class="com.topcoder.direct.services.copilot.SqlCopilotProfileService">
-           
     </bean>    
 
+    <bean id="projectService" class="com.topcoder.direct.services.copilot.MockCopilotProjectService">
+    </bean> 
 
 </beans>

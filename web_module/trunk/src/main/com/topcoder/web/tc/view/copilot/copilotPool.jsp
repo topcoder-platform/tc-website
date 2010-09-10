@@ -229,7 +229,7 @@ The road you take will be defined by you and your copilot. Want to learn more? F
                     </tbody>
                 </table>
                 <div class="profile-link">
-                    <img src="/i/copilots/view.png" alt=""/> <a href="javascript:void(0);">View Copilot Profile</a>
+                    <img src="/i/copilots/view.png" alt=""/> <a href="/tc?module=ViewCopilotProfile&amp;pid=<%=m.getCopilotProfile().getUserId()%>">View Copilot Profile</a>
                 </div>
             </div>
         </div>
@@ -308,7 +308,7 @@ The road you take will be defined by you and your copilot. Want to learn more? F
         </td>
         <td class="border-b border-l current"><%=m.getCurrentContests()  == CopilotPoolMember.UNDEFINED_STAT ? na : m.getCurrentContests()%>
         </td>
-        <td class="border-b border-l"><img src="/i/copilots/view.png" alt=""/>&nbsp;<a href="javascript:void(0);">View</a>
+        <td class="border-b border-l"><img src="/i/copilots/view.png" alt=""/>&nbsp;<a href="/tc?module=ViewCopilotProfile&amp;pid=<%=m.getCopilotProfile().getUserId()%>">View</a>
         </td>
     </tr>
 
