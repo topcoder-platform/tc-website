@@ -57,15 +57,15 @@
                     <div class="header-title">
                         <div class="left-title"><img src="/i/copilots/project-details.png" alt="" /></div>
                         <div class="right-title b">
-                            <a href="/tc?module=ViewCopilotProfile&amp;pid=${copilotProject.copilotProject.copilotProfileId}">Copilot Profile</a>
-                            &nbsp;|&nbsp;<a href="/tc?module=ViewCopilotProjectHistory&amp;pid=${copilotProject.copilotProject.copilotProfileId}">Project History</a>
+                            <a href="/tc?module=ViewCopilotProfile&amp;pid=${copilotInfo.userId}">Copilot Profile</a>
+                            &nbsp;|&nbsp;<a href="/tc?module=ViewCopilotProjectHistory&amp;pid=${copilotInfo.userId}">Project History</a>
                             &nbsp;|&nbsp;<a href="/tc?module=ViewCopilotPool">Copilot Pool</a>
                         </div>
                         <div class="clear-float"></div>
                     </div>
                     <div class="history-header">
                         <div class="handle">Handle : <tc-webtag:handle coderId='${copilotInfo.userId}'/></div>
-                        <a href="/tc?module=ViewCopilotProjectHistory&amp;pid=${copilotProject.copilotProject.copilotProfileId}" class="button1 backto-profile">
+                        <a href="/tc?module=ViewCopilotProjectHistory&amp;pid=${copilotInfo.userId}" class="button1 backto-profile">
                             <span class="left"><span class="right">BACK TO PROJECT HISTORY</span></span></a>
                          <div class="clear-float"></div>
                         <div class="handle">Project : ${copilotProject.copilotProject.name}</div>
