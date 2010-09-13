@@ -37,7 +37,7 @@ import com.topcoder.web.common.WebConstants;
  * </p>
 
  *
- * @author dok, pulky, snow01
+ * @author dok, pulky, snow01, VolodymyrK
  * @version 1.3
  */
 public interface SoftwareComponent extends Cloneable, Serializable {
@@ -177,28 +177,50 @@ public interface SoftwareComponent extends Cloneable, Serializable {
 
 
     /**
-     * Return the price that the designer/developer
-     * would be paid for this component.
+     * Return the price that the designer/developer would be paid for this component.
      *
      * @return
      */
     float getPrice();
 
     /**
-     * Return the price that the primary reviewer
-     * would be paid for reviewing this component.
+     * Return the price that the primary reviewer would be paid for reviewing this component.
      *
      * @return
      */
-    float getPrimaryReviewPrice();
+    float getPrimaryReviewCost();
 
     /**
-     * Return the price non-primary reviewers
-     * will be paid for reviewing this component.
+     * Return the price non-primary reviewers will be paid for reviewing this component.
      *
      * @return
      */
-    float getReviewPrice();
+    float getReviewCost();
+
+    /**
+     * <p>Gets the cost for screening.</p>
+     */
+    float getScreeningCost();
+
+    /**
+     * <p>Gets the cost for aggregation.</p>
+     */
+    float getAggregationCost();
+
+    /**
+     * <p>Gets the cost for final review.</p>
+     */
+    float getFinalReviewCost();
+
+    /**
+     * <p>Gets the cost for post-mortem review.</p>
+     */
+    float getPostMortemCost();
+
+    /**
+     * <p>Gets the cost for specification review.</p>
+     */
+    float getSpecReviewCost();
 
     Object clone() throws OutOfMemoryError;
 

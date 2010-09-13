@@ -194,7 +194,7 @@
                             <% } %>
                         </td>
                         <td class="projectCells" align="right">
-                            $<tc:beanWrite name="reviewer" property="reviewPrice" format="#,###.00"/>*
+                            $<tc:beanWrite name="reviewer" property="reviewCost" format="#,###.00"/>*
                         </td>
                     </tr>
                 </tc:listIterator>

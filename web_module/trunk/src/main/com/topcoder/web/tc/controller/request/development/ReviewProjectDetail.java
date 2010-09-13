@@ -473,7 +473,7 @@ public class ReviewProjectDetail extends Base {
             ret = new ReviewBoardApplication(phaseId, levelId, numSubmissions, numSubmissionsPassed);
         } else {
             ret = new ReviewBoardApplication(phaseId, detail.getFloatItem(0, "primary_amount"),
-                                             detail.getFloatItem(0, "amount"));
+                                             detail.getFloatItem(0, "amount"), 0);
         }
 
         ret.setProjectId(projectId);
@@ -513,7 +513,7 @@ public class ReviewProjectDetail extends Base {
             ret = new ReviewBoardApplication(phaseId, levelId, numSubmissions, numSubmissionsPassed, prize, drPoints);
         } else {
             ret = new ReviewBoardApplication(phaseId, detail.getFloatItem(0, "primary_amount"),
-                                             detail.getFloatItem(0, "amount"));
+                                             detail.getFloatItem(0, "amount"), 0);
         }
 
         ret.setProjectId(projectId);
@@ -556,12 +556,13 @@ public class ReviewProjectDetail extends Base {
             ret = new ReviewBoardApplication(phaseId, levelId, 1, 1, prize, 0);
         } else {
             // creates custom price component.
-            ret = new ReviewBoardApplication(phaseId, detail.getFloatItem(0, "amount"), 0);
+            ret = new ReviewBoardApplication(phaseId, 0, 0, detail.getFloatItem(0, "amount"));
         }
 
         ret.setProjectId(projectId);
         ret.setReviewerType(reviewerType);
         ret.setReviewerTypeId(reviewerTypeId);
+        ret.setSpecificationReviewer(true);
 
         return ret;
     }

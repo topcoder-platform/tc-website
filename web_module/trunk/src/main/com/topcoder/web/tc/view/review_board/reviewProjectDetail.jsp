@@ -89,7 +89,7 @@
                                         projectType == DESIGN_PROJECT_TYPE ||
                                         projectType == DEVELOPMENT_SPECIFICATION_PROJECT_TYPE ||
                                         projectType == DESIGN_SPECIFICATION_PROJECT_TYPE}">
-                                        	${projectDetailRow.map['catalog']}
+                                            ${projectDetailRow.map['catalog']}
                                     </c:when>
                                     <c:otherwise>
                                         ${projectTypeDesc}
@@ -247,7 +247,7 @@
                                     </c:choose>
                                 </td>
                                 <td class="projectCells" align="right">
-                                    $<fmt:formatNumber value="${reviewer.reviewPrice}" pattern="#,###.00"/>
+                                    $<fmt:formatNumber value="${reviewer.reviewCost}" pattern="#,###.00"/>
                                     <c:if test="${!isSpecificationReview}">
                                         *
                                     </c:if>

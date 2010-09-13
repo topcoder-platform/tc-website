@@ -114,10 +114,10 @@
                             <rsc:item row="<%=resultRow%>" name="version"/>
                         </a></td>
                         <td class="statDk" align="right">$
-                            <tc:beanWrite name="price" property="primaryReviewPrice" format="#,###.00"/>
+                            <tc:beanWrite name="price" property="primaryReviewCost" format="#,###.00"/>
                         </td>
                         <td class="statDk" align="right">$
-                            <tc:beanWrite name="price" property="reviewPrice" format="#,###.00"/>
+                            <tc:beanWrite name="price" property="reviewCost" format="#,###.00"/>
                         </td>
                         <td class="statDk" align="center">
                             <rsc:item row="<%=resultRow%>" name="submission_count"/>

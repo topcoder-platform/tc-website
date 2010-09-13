@@ -116,8 +116,8 @@
       <% } else { %>
       <td class="statDk"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ProjectDetail&<%=Constants.PROJECT_ID%>=<rsc:item row="<%=resultRow%>" name="project_id"/>"><rsc:item row="<%=resultRow%>" name="component_name"/> <rsc:item row="<%=resultRow%>" name="version"/></a></td>
       <% } %>
-      <td class="statDk" align="right">$<tc:beanWrite name="price" property="PrimaryReviewPrice" format="#,###.00"/></td>
-      <td class="statDk" align="right">$<tc:beanWrite name="price" property="ReviewPrice" format="#,###.00"/></td>
+      <td class="statDk" align="right">$<tc:beanWrite name="price" property="PrimaryReviewCost" format="#,###.00"/></td>
+      <td class="statDk" align="right">$<tc:beanWrite name="price" property="ReviewCost" format="#,###.00"/></td>
       <td class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="submission_passed_screening_count"/></td>
       <% if (waitingToReview.get(i).booleanValue()) { %>
       <td class="statDk" align="center" nowrap="nowrap">
@@ -199,8 +199,8 @@
       <% } else { %>
       <td class="statDk"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ProjectDetail&<%=Constants.PROJECT_ID%>=<rsc:item row="<%=resultRow%>" name="project_id"/>"><rsc:item row="<%=resultRow%>" name="component_name"/> <rsc:item row="<%=resultRow%>" name="version"/></a></td>
       <% } %>
-      <td class="statDk" align="right">$<tc:beanWrite name="price" property="primaryReviewPrice" format="#,###.00"/></td>
-      <td class="statDk" align="right">$<tc:beanWrite name="price" property="reviewPrice" format="#,###.00"/></td>
+      <td class="statDk" align="right">$<tc:beanWrite name="price" property="primaryReviewCost" format="#,###.00"/></td>
+      <td class="statDk" align="right">$<tc:beanWrite name="price" property="reviewCost" format="#,###.00"/></td>
       <td class="statDk" align="center"><rsc:item row="<%=resultRow%>" name="submission_count"/></td>
       <% if (waitingToReview.get(j).booleanValue()) { %>
       <td class="statDk" align="center" nowrap="nowrap">
