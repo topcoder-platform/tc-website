@@ -164,7 +164,7 @@ public class PaymentFixUtility extends DBUtility{
                                 amountToPay = defaultPriceComponent.getCoreReviewCost();
                             } else {
                                 message = "Reviewer " + rs2.getString(2) + " got $" + rs2.getFloat(3);
-                                amountToPay = defaultPriceComponent.getReviewPrice();
+                                amountToPay = defaultPriceComponent.getReviewCost();
                             }
                             if (amountToPay == rs2.getFloat(3)) {
                                 message += "...... Ok.";

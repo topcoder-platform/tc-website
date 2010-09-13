@@ -71,13 +71,21 @@ import com.topcoder.shared.util.logging.Logger;
  *   <ol>
  *     <li>Added support for Post-Mortem review payment.</li>
  *   </ol>
+ *
+ *   Version 1.1.5 Change notes:
+ *   <ol>
+ *     <li>Added support for specification review payment.</li>
+ *   </ol>
  * </p>
  *
  * @author dok, ivern, isv, pulky, snow01, VolodymyrK
- * @version 1.1.4
+ * @version 1.1.5
  */
 
 public class DefaultPriceComponent implements SoftwareComponent {
+
+    private static final float REGULAR_POST_MORTEM_REVIEW_COST = 10f;
+
     /**
      * <p>A <code>Log</code> to be used for logging the events encountered while calculating the prices.</p>
      */
@@ -175,9 +183,9 @@ public class DefaultPriceComponent implements SoftwareComponent {
 
     /**
      * <p>Factory method that returns the correct instance of ReviewerPaymentCalculator for a given phase.</p>
-	 *
-	 * Updated for Specification Review Integration 1.0
-	 *		- Added specification review calculator.
+     *
+     * Updated for Specification Review Integration 1.0
+     *		- Added specification review calculator.
      *
      * @param prize first place prize for the competition.
      * @param submissionCount number of submissions.
@@ -201,7 +209,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
                 phaseId == RIA_COMPONENT_PHASE) {
             return new StudioReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
         } else if (phaseId == SPECIFICATION_REVIEW_PHASE ||
-        		phaseId == DESIGN_SPECIFICATION_PHASE || phaseId == DEVELOPMENT_SPECIFICATION_PHASE ||
+                phaseId == DESIGN_SPECIFICATION_PHASE || phaseId == DEVELOPMENT_SPECIFICATION_PHASE ||
                 phaseId == CONCEPTUALIZATION_SPECIFICATION_PHASE || phaseId == SPECIFICATION_SPECIFICATION_PHASE ||
                 phaseId == ARCHITECTURE_SPECIFICATION_PHASE || phaseId == ASSEMBLY_SPECIFICATION_PHASE ||
                 phaseId == TEST_SUITES_SPECIFICATION_PHASE || phaseId == TEST_SCENARIOS_SPECIFICATION_PHASE ||
@@ -228,7 +236,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
      * @return a <code>float</code> providing the cost for primary review.
      * @since 1.0.1
      */
-    public float getPrimaryReviewPrice() {
+    public float getPrimaryReviewCost() {
         return Math.round(this.calculator.getScreeningCost() + this.calculator.getReviewCost()
                           + this.calculator.getAggregationCost() + this.calculator.getFinalReviewCost());
     }
@@ -239,7 +247,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
      * @return a <code>float</code> providing the cost for review.
      * @since 1.0.1
      */
-    public float getReviewPrice() {
+    public float getReviewCost() {
         return Math.round(this.calculator.getReviewCost());
     }
 
@@ -261,16 +269,6 @@ public class DefaultPriceComponent implements SoftwareComponent {
      */
     public float getAggregationCost() {
         return Math.round(this.calculator.getAggregationCost());
-    }
-
-    /**
-     * <p>Gets the cost for post-mortem review.</p>
-     *
-     * @return a <code>float</code> providing the cost for post-mortem review.
-     * @since 1.1.4
-     */
-    public float getPostMortemCost() {
-        return Math.round(this.calculator.getPostMortemCost());
     }
 
     /**
@@ -296,6 +294,39 @@ public class DefaultPriceComponent implements SoftwareComponent {
     }
 
     /**
+     * <p>Gets the cost for post-mortem review.</p>
+     *
+     * @return a <code>float</code> providing the cost for post-mortem review.
+     * @since 1.1.4
+     */
+    public float getPostMortemCost() {
+        return REGULAR_POST_MORTEM_REVIEW_COST;
+    }
+
+    /**
+     * <p>Gets the cost for specification review.</p>
+     *
+     * @return a <code>float</code> providing the cost for specification review.
+     * @since 1.1.5
+     */
+    public float getSpecReviewCost() {
+        switch (phaseId) {
+            case DESIGN_PHASE: return 30;
+            case DEV_PHASE: return 30;
+            case ARCHITECTURE_PHASE: return 50;
+            case ASSEMBLY_PHASE: return 50;
+            case CONCEPTUALIZATION_PHASE: return 30;
+            case SPECIFICATION_PHASE: return 40;
+            case TEST_SUITES_PHASE: return 50;
+            case TEST_SCENARIOS_PHASE: return 50;
+            case UI_PROTOTYPE_PHASE: return 50;
+            case RIA_BUILD_PHASE: return 50;
+            case RIA_COMPONENT_PHASE: return 50;
+            default: return 50;
+        }
+    }
+
+    /**
      * <p>Gets the project phase.</p>
      *
      * @return an <code>int</code> referencing the current project phase.
@@ -307,8 +338,8 @@ public class DefaultPriceComponent implements SoftwareComponent {
     /**
      * <p>A command line interface to be used for calculating the prices for the projects with parameters passed as
      * command line arguments.</p>
-	 *
-	 * Updated for Specification Review Integration 1.0
+     *
+     * Updated for Specification Review Integration 1.0
      *
      * @param args a <code>String</code> array providing the command line arguments.
      */
@@ -328,12 +359,12 @@ public class DefaultPriceComponent implements SoftwareComponent {
             System.out.println("RIA Build phaseId                       : " + RIA_BUILD_PHASE);
             System.out.println("RIA Component phaseId                   : " + RIA_COMPONENT_PHASE);
             System.out.println("Specification Review phaseId            : " + SPECIFICATION_REVIEW_PHASE);
-			System.out.println("Design Specification phaseId            : " + DESIGN_SPECIFICATION_PHASE);
+            System.out.println("Design Specification phaseId            : " + DESIGN_SPECIFICATION_PHASE);
             System.out.println("Development Specification phaseId       : " + DEVELOPMENT_SPECIFICATION_PHASE);
             System.out.println("Conceptualization Specification phaseId : " + CONCEPTUALIZATION_SPECIFICATION_PHASE);
             System.out.println("Specification Specification phaseId     : " + SPECIFICATION_SPECIFICATION_PHASE);
             System.out.println("Architecture Specification phaseId      : " + ARCHITECTURE_SPECIFICATION_PHASE);
-			System.out.println("Test Suites Specification phaseId       : " + TEST_SUITES_SPECIFICATION_PHASE);
+            System.out.println("Test Suites Specification phaseId       : " + TEST_SUITES_SPECIFICATION_PHASE);
             System.out.println("Test Scenarios Specification phaseId    : " + TEST_SCENARIOS_SPECIFICATION_PHASE);
             System.out.println("UI Prototype Specification phaseId      : " + UI_PROTOTYPE_SPECIFICATION_PHASE);
             System.out.println("RIA Build Specification phaseId         : " + RIA_BUILD_SPECIFICATION_PHASE);
@@ -346,9 +377,9 @@ public class DefaultPriceComponent implements SoftwareComponent {
             System.out.println("---------------------------------------------------------");
             System.out.println("         Prize           |      " + sc.getPrice());
             System.out.println("-------------------------+-------------------------------");
-            System.out.println("      Review Cost        |      " + sc.getReviewPrice());
+            System.out.println("      Review Cost        |      " + sc.getReviewCost());
             System.out.println("-------------------------+-------------------------------");
-            System.out.println("   Primary Review Cost   |      " + sc.getPrimaryReviewPrice());
+            System.out.println("   Primary Review Cost   |      " + sc.getPrimaryReviewCost());
             System.out.println("-------------------------+-------------------------------");
             System.out.println("   Primary Screen Cost   |      " + sc.getScreeningCost());
             System.out.println("-------------------------+-------------------------------");

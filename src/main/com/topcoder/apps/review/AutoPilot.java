@@ -607,7 +607,7 @@ public class AutoPilot {
             FixedPriceComponent fpc = new FixedPriceComponent(
                     levelId, count, passedCount,
                     (int) (project.getProjectType().getId() + 111),
-                    primaryFixedPayment, secondaryFixedPayment);
+                    primaryFixedPayment, secondaryFixedPayment, 0);
 
             // check project for reviewers
             UserRole[] participants = project.getParticipants();
@@ -641,7 +641,7 @@ public class AutoPilot {
                     amountToPay = fpc.getFinalReviewCost();
                 else if (roleId == Role.ID_REVIEWER)
                     amountToPay = (participants[i].getUser().getId() == primaryScreenerId) ?
-                            fpc.getCoreReviewCost() : fpc.getReviewPrice();
+                            fpc.getCoreReviewCost() : fpc.getReviewCost();
 
                 // update payment info.
                 if (amountToPay > 0) {

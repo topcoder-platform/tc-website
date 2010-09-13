@@ -13,6 +13,7 @@ public class ReviewBoardApplication {
     private long userId = 0;
     private String handle = "";
     private boolean primary = false;
+    private boolean specReviewer = false;
 
     private long projectId = 0;
     private String reviewerType = "";
@@ -36,8 +37,8 @@ public class ReviewBoardApplication {
         this.phaseId = phaseId;
     }
 
-    public ReviewBoardApplication(int phaseId, float primaryReviewerPrice, float reviewerPrice) {
-        this.component = new CustomPriceComponent(primaryReviewerPrice, reviewerPrice, phaseId);
+    public ReviewBoardApplication(int phaseId, float primaryReviewerPrice, float reviewerPrice, float specReviewerPrice) {
+        this.component = new CustomPriceComponent(primaryReviewerPrice, reviewerPrice, specReviewerPrice, phaseId);
         this.phaseId = phaseId;
     }
 
@@ -64,6 +65,14 @@ public class ReviewBoardApplication {
 
     public void setPrimary(boolean primary) {
         this.primary = primary;
+    }
+
+    public boolean isSpecificationReviewer() {
+        return specReviewer;
+    }
+
+    public void setSpecificationReviewer(boolean specReviewer) {
+        this.specReviewer = specReviewer;
     }
 
     public long getProjectId() {
@@ -99,11 +108,13 @@ public class ReviewBoardApplication {
         return userId != 0;
     }
 
-    public float getReviewPrice() {
-        if (primary) {
-            return component.getPrimaryReviewPrice();
+    public float getReviewCost() {
+        if (specReviewer) {
+            return component.getSpecReviewCost();
+        } else if (primary) {
+            return component.getPrimaryReviewCost();
         } else {
-            return component.getReviewPrice();
+            return component.getReviewCost();
         }
     }
 

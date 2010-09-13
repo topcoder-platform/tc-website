@@ -52,7 +52,7 @@
 
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <tr valign="top">
-	    	<!-- Left Column Begins-->
+            <!-- Left Column Begins-->
                 <jsp:include page="reviewGlobalLeft.jsp"/>
                 <!-- Left Column Ends -->
 
@@ -80,11 +80,11 @@
                     position that you would like to commit to.</p>
                 <br/>
                     <c:if test="${fn:length(projectList) > 0}">
-					    <div align="right" style="padding-top: 10px">
-						    <b>Review opportunities via RSS -</b>
-							<a href="/tc?module=BasicRSS&c=rss_Open_Review_Positions&dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
-						    <br />
-						</div>
+                        <div align="right" style="padding-top: 10px">
+                            <b>Review opportunities via RSS -</b>
+                            <a href="/tc?module=BasicRSS&c=rss_Open_Review_Positions&dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
+                            <br />
+                        </div>
                         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
                             <tr>
                                 <td>
@@ -95,13 +95,13 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                        	<c:choose>
-	                                            <c:when test="${projectType == DESIGN_PROJECT_TYPE ||
-	                                            	projectType == DESIGN_SPECIFICATION_PROJECT_TYPE}">
-	                                            </c:when>
-	                                            <c:otherwise>
-	                                            	<td class="tableHeader" align="center">Type</td>
-	                                            </c:otherwise>
+                                            <c:choose>
+                                                <c:when test="${projectType == DESIGN_PROJECT_TYPE ||
+                                                    projectType == DESIGN_SPECIFICATION_PROJECT_TYPE}">
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <td class="tableHeader" align="center">Type</td>
+                                                </c:otherwise>
                                             </c:choose>
                                             <td class="tableHeader" align="center">Catalog</td>
                                             <td class="tableHeader" width="100%">${projectTypeDesc}</td>
@@ -121,53 +121,53 @@
                                         <c:set var="i" value="0"/>
                                         <c:forEach items="${projectList}" var="resultRow">
                                             <tr>
-                                            	<c:choose>
-	                                                <c:when test="${projectType == DESIGN_PROJECT_TYPE ||
-	                                                	projectType == DESIGN_SPECIFICATION_PROJECT_TYPE}">
-	                                                </c:when>
-	                                                <c:when test="${projectType == DEVELOPMENT_PROJECT_TYPE ||
-	                                                	projectType == DEVELOPMENT_SPECIFICATION_PROJECT_TYPE}">
-	                                                	<td class="statDk" align="center">
-	                                                		<c:choose>
-					                                            <c:when test="${resultRow.map['phase_id'] == DEV_PHASE}">
-					                                            	Development
-					                                            </c:when>
-					                                            <c:otherwise>
-					                                            	Testing
-					                                            </c:otherwise>
-				                                            </c:choose>
-	                                                	</td> 
-	                                                </c:when>
-	                                                <c:otherwise>
-	                                                	<td class="statDk" align="center">${projectTypeDesc}</td>
-	                                                </c:otherwise>
+                                                <c:choose>
+                                                    <c:when test="${projectType == DESIGN_PROJECT_TYPE ||
+                                                        projectType == DESIGN_SPECIFICATION_PROJECT_TYPE}">
+                                                    </c:when>
+                                                    <c:when test="${projectType == DEVELOPMENT_PROJECT_TYPE ||
+                                                        projectType == DEVELOPMENT_SPECIFICATION_PROJECT_TYPE}">
+                                                        <td class="statDk" align="center">
+                                                            <c:choose>
+                                                                <c:when test="${resultRow.map['phase_id'] == DEV_PHASE}">
+                                                                    Development
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    Testing
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </td> 
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <td class="statDk" align="center">${projectTypeDesc}</td>
+                                                    </c:otherwise>
                                                 </c:choose>
                                                 <td class="statDk" align="center">
-	                                                <c:choose>
-		                                                <c:when test="${projectType == DEVELOPMENT_PROJECT_TYPE ||
-		                                                	projectType == DESIGN_PROJECT_TYPE ||
-		                                                	projectType == DESIGN_SPECIFICATION_PROJECT_TYPE ||
-		                                                	projectType == DEVELOPMENT_SPECIFICATION_PROJECT_TYPE}">
-		                                                	<tc_tags:languageIcon catalogName = "${resultRow.map['catalog']}" aolBrand="${resultRow.map['aol_brand'] != null}"
+                                                    <c:choose>
+                                                        <c:when test="${projectType == DEVELOPMENT_PROJECT_TYPE ||
+                                                            projectType == DESIGN_PROJECT_TYPE ||
+                                                            projectType == DESIGN_SPECIFICATION_PROJECT_TYPE ||
+                                                            projectType == DEVELOPMENT_SPECIFICATION_PROJECT_TYPE}">
+                                                            <tc_tags:languageIcon catalogName = "${resultRow.map['catalog']}" aolBrand="${resultRow.map['aol_brand'] != null}"
                                                                                   paypalBrand="${resultRow.map['paypal_brand'] != null}"/> 
-		                                                </c:when>
-		                                                <c:otherwise>
-		                                                	${projectTypeDesc}
-		                                                </c:otherwise>
-	                                                </c:choose>
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            ${projectTypeDesc}
+                                                        </c:otherwise>
+                                                    </c:choose>
                                                 </td>
                                                 <td class="statDk">
-                                                	<c:choose>
-			                                            <c:when test="${resultRow.map['category_id'] == APPLICATIONS_CATALOG_ID}">
-			                                            	${resultRow.map["component_name"]} ${resultRow.map["version"]}
-			                                            </c:when>
-			                                            <c:otherwise>
-			                                            	<a href="${sessionInfo.servletPath}?${MODULE_KEY}=ProjectDetail&${PROJECT_ID}=${resultRow.map['project_id']}">
-		                                                        ${resultRow.map["component_name"]}
-		                                                        ${resultRow.map["version"]}
-		                                                    </a>
-			                                            </c:otherwise>
-		                                            </c:choose>
+                                                    <c:choose>
+                                                        <c:when test="${resultRow.map['category_id'] == APPLICATIONS_CATALOG_ID}">
+                                                            ${resultRow.map["component_name"]} ${resultRow.map["version"]}
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <a href="${sessionInfo.servletPath}?${MODULE_KEY}=ProjectDetail&${PROJECT_ID}=${resultRow.map['project_id']}">
+                                                                ${resultRow.map["component_name"]}
+                                                                ${resultRow.map["version"]}
+                                                            </a>
+                                                        </c:otherwise>
+                                                    </c:choose>
                                                 </td>
                                                 <td class="statDk" align="center">
                                                     <c:choose>
@@ -181,11 +181,11 @@
                                                              </c:choose>
                                                 </td>
                                                 <td class="statDk" align="right">
-                                                    $ <fmt:formatNumber value="${prices[i].primaryReviewPrice}"
+                                                    $ <fmt:formatNumber value="${prices[i].primaryReviewCost}"
                                                         pattern="#,###.00"/>
                                                 </td>
                                                 <td class="statDk" align="right">
-                                                    $ <fmt:formatNumber value="${prices[i].reviewPrice}"
+                                                    $ <fmt:formatNumber value="${prices[i].reviewCost}"
                                                         pattern="#,###.00"/>
                                                 </td>
                                                 <td class="statDk" align="center">
@@ -247,11 +247,11 @@
 
 
                     <c:if test="${fn:length(specificationReviewList) > 0}">
-						<div align="right" style="padding-top: 10px">
-						    <b>Spec Review opportunities via RSS -</b>
-							<a href="/tc?module=BasicRSS&c=rss_spec_review_opportunities&dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
-						    <br />
-						</div>
+                        <div align="right" style="padding-top: 10px">
+                            <b>Spec Review opportunities via RSS -</b>
+                            <a href="/tc?module=BasicRSS&c=rss_spec_review_opportunities&dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
+                            <br />
+                        </div>
                         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
                             <tr>
                                 <td>
@@ -279,13 +279,13 @@
                                                 <td class="statDk" align="center">${projectTypeDesc}</td>
                                                 <td class="statDk" align="center" >
                                                     <a href="${sessionInfo.servletPath}?${MODULE_KEY}=ProjectDetail&${PROJECT_ID}=${resultRow.map['ref_project_id']}">
-		                                                        ${resultRow.map["component_name"]}
-		                                                        ${resultRow.map["version"]}
-		                                             </a>
+                                                                ${resultRow.map["component_name"]}
+                                                                ${resultRow.map["version"]}
+                                                     </a>
                                                 </td>
                                                 <td class="statDk" align="right">
                                                     $ <fmt:formatNumber
-                                                        value="${specificationReviewPrices[i].primaryReviewPrice}"
+                                                        value="${specificationReviewPrices[i].specReviewCost}"
                                                         pattern="#,###.00"/>
                                                 </td>
                                                 <td class="statDk" align="center">
@@ -322,8 +322,8 @@
                         </table>
                         <br/>
                     </c:if>
-					
-					<c:if test="${fn:length(projectList) + fn:length(specificationReviewList) == 0}">
+                    
+                    <c:if test="${fn:length(projectList) + fn:length(specificationReviewList) == 0}">
                         <br/>
                         <p align="center">Sorry, there are currently no review positions available.</p>
                         <br/>

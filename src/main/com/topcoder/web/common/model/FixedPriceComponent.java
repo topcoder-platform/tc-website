@@ -30,6 +30,11 @@ public class FixedPriceComponent extends DefaultPriceComponent {
     private float secondaryFixedPayment = 0;
 
     /**
+     * Stores the fixed payment for specification review;
+     */
+    private float specFixedPayment = 0;
+
+    /**
      * Stores the adjustment factor for primary payments.
      */
     private float primaryAdjustmentFactor = 1;
@@ -45,42 +50,47 @@ public class FixedPriceComponent extends DefaultPriceComponent {
      */
     @Deprecated
     public FixedPriceComponent(int levelId, int submissionCount, int submissionsPassedScreening, int phaseId,
-                               float primaryFixedPayment, float secondaryFixedPayment) {
+                               float primaryFixedPayment, float secondaryFixedPayment, float specFixedPayment) {
         super(levelId, submissionCount, submissionsPassedScreening, phaseId);
 
         setPrimaryFixedPayment(primaryFixedPayment);
         setSecondaryFixedPayment(secondaryFixedPayment);
+        setSpecFixedPayment(specFixedPayment);
 
         log.debug("level: " + levelId + " submissionCount: " + submissionCount + " submissionPassedScreening: "
                   + submissionsPassedScreening + " phaseId: " + phaseId + " primaryFixedPayment: "
-                  + primaryFixedPayment + " secondaryFixedPayment: " + secondaryFixedPayment);
+                  + primaryFixedPayment + " secondaryFixedPayment: " + secondaryFixedPayment
+                  + " specFixedPayment: " + specFixedPayment);
     }
 
     /**
      * Constructor compatible with DefaultPriceComponent
      */
     public FixedPriceComponent(int levelId, int submissionCount, int submissionsPassedScreening, int phaseId,
-                               float primaryFixedPayment, float secondaryFixedPayment, float prize, float drPoints) {
+                               float primaryFixedPayment, float secondaryFixedPayment, float specFixedPayment,
+                               float prize, float drPoints) {
         super(levelId, submissionCount, submissionsPassedScreening, phaseId, prize, drPoints);
 
         setPrimaryFixedPayment(primaryFixedPayment);
         setSecondaryFixedPayment(secondaryFixedPayment);
+        setSpecFixedPayment(specFixedPayment);
 
         log.debug("level: " + levelId + " submissionCount: " + submissionCount
                   + " submissionPassedScreening: " + submissionsPassedScreening
                   + " phaseId: " + phaseId + " primaryFixedPayment: " + primaryFixedPayment
                   + " secondaryFixedPayment: " + secondaryFixedPayment
+                  + " specFixedPayment: " + specFixedPayment
                   + " prize: " + prize + " drPoints: " + drPoints);
     }
 
     /**
-     * Gets Review Price
+     * Gets Review Cost
      *
      * @return The fixed value if exists or delegates to super.
      * @see DefaultPriceComponent
      */
-    public float getReviewPrice() {
-        return Math.round(secondaryFixedPayment > 0 ? secondaryFixedPayment : super.getReviewPrice());
+    public float getReviewCost() {
+        return Math.round(secondaryFixedPayment > 0 ? secondaryFixedPayment : super.getReviewCost());
     }
 
     /**
@@ -93,18 +103,6 @@ public class FixedPriceComponent extends DefaultPriceComponent {
      */
     public float getAggregationCost() {
         return Math.round(super.getAggregationCost() * primaryAdjustmentFactor);
-    }
-
-    /**
-     * Gets Post-Mortem Review Cost
-     * <p/>
-     * Delegates to super. The value is not multiplied because the post-mortem review payment is always a fixed amount.
-     *
-     * @return Post-Mortem cost.
-     * @see DefaultPriceComponent
-     */
-    public float getPostMortemCost() {
-        return Math.round(super.getPostMortemCost());
     }
 
     /**
@@ -151,8 +149,17 @@ public class FixedPriceComponent extends DefaultPriceComponent {
      * @return resized Primary Review cost.
      * @see DefaultPriceComponent
      */
-    public float getPrimaryReviewPrice() {
-        return Math.round(primaryFixedPayment > 0 ? primaryFixedPayment : super.getPrimaryReviewPrice());
+    public float getPrimaryReviewCost() {
+        return Math.round(primaryFixedPayment > 0 ? primaryFixedPayment : super.getPrimaryReviewCost());
+    }
+
+    /**
+     * <p>Gets the cost for specification review.</p>
+     *
+     * @return a <code>float</code> providing the cost for specification review.
+     */
+    public float getSpecReviewCost() {
+        return Math.round(specFixedPayment > 0 ? specFixedPayment : super.getSpecReviewCost());
     }
 
     /**
@@ -183,6 +190,15 @@ public class FixedPriceComponent extends DefaultPriceComponent {
     }
 
     /**
+     * Setter for fixed specification review payment amount
+     *
+     * @param amount The fixed specification review payment amount
+     */
+    private void setSpecFixedPayment(float amount) {
+        this.specFixedPayment = amount;
+    }
+
+    /**
      * Command line utility
      */
     private static void showPayments(int submissionCount, int submissionsPassedScreening, int phaseId,
@@ -190,7 +206,7 @@ public class FixedPriceComponent extends DefaultPriceComponent {
                                      float prize, float drPoints) {
 
         FixedPriceComponent fpc = new FixedPriceComponent(LEVEL1, submissionCount, submissionsPassedScreening,
-                                                          phaseId, primaryFixedPayment, secondaryFixedPayment,
+                                                          phaseId, primaryFixedPayment, secondaryFixedPayment, 0,
                                                           prize, drPoints);
 
         DefaultPriceComponent dpc = new DefaultPriceComponent(LEVEL1, submissionCount, submissionsPassedScreening,
@@ -209,7 +225,7 @@ public class FixedPriceComponent extends DefaultPriceComponent {
         System.out.println("Screening ; " + dpc.getScreeningCost() + " ; " + fpc.getScreeningCost());
         System.out.println("Final review ; " + dpc.getFinalReviewCost() + " ; " + fpc.getFinalReviewCost());
         System.out.println("review primary ; " + dpc.getCoreReviewCost() + " ; " + fpc.getCoreReviewCost());
-        System.out.println("review secondary ; " + dpc.getReviewPrice() + " ; " + fpc.getReviewPrice());
+        System.out.println("review secondary ; " + dpc.getReviewCost() + " ; " + fpc.getReviewCost());
 
         System.out.println("------------------------------------------------------------");
     }
