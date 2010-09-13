@@ -99,7 +99,7 @@
 
 <h1>Assignment Document</h1>
     <div align="right">
-        <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=assignmentDocFaq">What is an Assignment Document?</a><br /><br />
+        <a href="http://<%=ApplicationServer.SERVER_NAME%>/home/studio/the-process/assignment-document-and-terms/">What is an Assignment Document?</a><br /><br />
     </div>
     
     <c:if test="${not empty has_global_ad}">
