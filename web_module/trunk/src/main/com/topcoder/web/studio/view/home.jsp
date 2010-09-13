@@ -224,18 +224,18 @@
                                             src="/i/v5/Member_of_the_month_header.jpg" >
                                     </div>
                                     <div class="member_image" style="float:left;">
-                                        <img width="126" height="140" alt="" src="http://www.topcoder.com//i/m/oninkxronda_big2.jpg">
+                                        <img width="126" height="140" alt="Member of the Month" src="http://www.topcoder.com/i/m/iamtong_big.jpg">
                                     </div>
                                     <div id="member_content">
                                         <div id="member_month">
-                                            July<br />
+                                            August<br />
                                         </div>
                                         <div id="member_greeting">
-                                            <span class="member_content special handle">Congratulations <span class="handle-color">oninkxronda!</span></span><br/><br/>
+                                            <span class="member_content special handle">Congratulations <span class="handle-color">iamtong!</span></span><br/><br/>
                                         </div>
                                         <div id="member_stats">
-                                            <span class="member_content special">Earned $4050 in 6 competitions during the month of July.</span><br/><br/>
-                                            <span class="member_content special"><a href="http://www.topcoder.com/news/2010/08/16/meet-the-july-coders-and-designers-of-the-month-2/">Read the interview.</a></span><br/><br/>
+                                            <span class="member_content special">Earned $9,500 in 14 competitions during the month of August.</span><br/><br/>
+                                            <!--<span class="member_content special"><a href="http://www.topcoder.com/news/2010/08/16/meet-the-july-coders-and-designers-of-the-month-2/">Read the interview.</a></span><br/><br/>-->
                                         </div>
                                     </div>
                                     <!-- member_content -->
