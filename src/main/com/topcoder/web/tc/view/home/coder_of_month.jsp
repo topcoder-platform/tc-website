@@ -14,23 +14,23 @@
 <div class="leftColContent">
    <div style="padding-left:3px;">
    <div style="padding-bottom:10px;"><img src="/i/home/com_title.gif" alt="Coder of the Month" /><br />
-   - July 2010</div>
+   - August 2010</div>
    <table cellpadding="0" cellspacing="0" border="0" width="165">
    <tr>
       <td height="76" valign="top" style="border-top: 1px solid #CCCCCC; padding: 5px 0;" ><img src="/i/m/nophoto.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;" width="100%">
          <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_ALGO_COM%>" class="gMetal">Algorithm</a></strong><br />
-         <tc-webtag:handle coderId="22648083" context="<%=HandleTag.ALGORITHM%>" darkBG="true" />
+         <tc-webtag:handle coderId="22751095" context="<%=HandleTag.ALGORITHM%>" darkBG="true" />
          <br />
          <br />
       </td>
    </tr>
    <tr>
-      <td style="border-top: 1px solid #CCCCCC; padding: 5px 0;" valign="top"><img src="/i/m/nophoto.jpg" alt="" width="55" height="61"/></td>
+      <td style="border-top: 1px solid #CCCCCC; padding: 5px 0;" valign="top"><img src="/i/m/caru_big.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
          <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DESIGN_COM%>" class="gMetal">Design</a></strong><br />
-         <tc-webtag:handle coderId="22846687" context="<%=HandleTag.DESIGN%>" darkBG="true" /><br />
-        	5 wins, 5 second places<br />
+         <tc-webtag:handle coderId="10437190" context="<%=HandleTag.DESIGN%>" darkBG="true" /><br />
+        	5 wins, 6 second places<br />
          <br />
       </td>
    </tr>
@@ -38,14 +38,14 @@
       <td style="border-top: 1px solid #CCCCCC; padding: 5px 0;" valign="top"><img src="/i/m/nophoto.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
          <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DEV_COM%>" class="gMetal">Development</a></strong><br />
-         <tc-webtag:handle coderId="22630348" context="<%=HandleTag.DEVELOPMENT%>" darkBG="true" /><br />
-         8 wins<br />
+         <tc-webtag:handle coderId="22795218" context="<%=HandleTag.DEVELOPMENT%>" darkBG="true" /><br />
+         5 wins<br />
       </td>
    </tr>
    </table>
 
 
-<div><a class="cotmFeature" href="http://www.topcoder.com/news/2010/08/16/meet-the-july-coders-and-designers-of-the-month-2/">Read Their Interviews</a></div>
+<!--<div><a class="cotmFeature" href="http://www.topcoder.com/news/2010/08/16/meet-the-july-coders-and-designers-of-the-month-2/">Read Their Interviews</a></div>-->
    
    </div>
 </div>
