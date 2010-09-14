@@ -50,8 +50,6 @@ Top Ranked Designers<br>
 <A href="/tc?module=RookieBoard&ph=113" class="bcLink">Development Cup Series ROTY Leaderboard</a>
 
 <br><br>
-The <strong>top rated software designers</strong> that have competed in the last 180 days:
-<br><br>
 
    <div align="center">
 
