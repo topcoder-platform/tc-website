@@ -69,7 +69,7 @@
                               October 12, 2010<br />18:00 UTC -7</td>
 							</tr>
                             <tr class="last">
-                                <td>Championship Round</td>
+                                <td nowrap="nowrap">Championship Round</td>
                                 <td>Wednesday, <br />October 13, 2010 <br />
                                 1:30 UTC -7</td>
                                 <td colspan="2">Wednesday, <br />October 13, 2010 <br />
