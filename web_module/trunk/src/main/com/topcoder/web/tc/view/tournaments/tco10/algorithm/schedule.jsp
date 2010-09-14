@@ -128,7 +128,7 @@
 							</tr>
                             <tr>
                                 <td>Wildcard Round</td>
-                                <td colspan="2"><a href="http://timeanddate.com/worldclock/fixedtime.html?month=10&amp;day=13&amp;year=2010&amp;hour=17&amp;min=30&amp;sec=0&amp;p1=127" target="_blank">Wednesday, October 13 at 17:30 UTC -7</a></td>
+                                <td colspan="2"><a href="http://timeanddate.com/worldclock/fixedtime.html?month=10&amp;day=13&amp;year=2010&amp;hour=17&amp;min=30&amp;sec=0&amp;p1=127" target="_blank">Wednesday, October 13 at 18:00 UTC -7</a></td>
 							</tr>
                             <tr class="last">
                                 <td>Championship</td>
