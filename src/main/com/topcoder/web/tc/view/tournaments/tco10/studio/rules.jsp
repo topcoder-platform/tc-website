@@ -71,8 +71,8 @@
 							</tr>
                             <tr class="last">
                                 <td>Championship Round</td>
-                                <td>Wednesday, October 13, 2010 8:30 UTC -7</td>
-                                <td colspan="2">Wednesday, October 13, 2010 12:00 UTC -7</td>
+                                <td>Wednesday, October 13, 2010 1:30 UTC -7</td>
+                                <td colspan="2">Wednesday, October 13, 2010 17:00 UTC -7</td>
 							</tr>
                         </table>
                         <div class="text">
@@ -118,7 +118,7 @@
                             <p>Onsite Studio Competitors must use the workstation provided by TopCoder. This workstation will include a PC and the following:</p>
                             <ul class="textlist">
                                 <li>Windows XP</li>
-                                <li>Adobe® Creative Suite® 3 Design Premium</li>
+                                <li>Adobe&reg; Creative Suite&reg; 3 Design Premium</li>
                                 <li>The open-source graphic programs GIMP and InkScape</li>
                                 <li>7-Zip</li>
                                 <li>A sketchpad, pencils and pencil sharpener</li>

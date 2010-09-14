@@ -175,7 +175,7 @@
 							</tr>
                             <tr>
                                 <td>Wildcard Round</td>
-                                <td colspan="2">Wednesday, October 13 at 17:30 UTC -7</td>
+                                <td colspan="2">Wednesday, October 13 at 18:00 UTC -7</td>
 							</tr>
                             <tr class="last">
                                 <td>Championship</td>

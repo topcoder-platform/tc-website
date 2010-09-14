@@ -70,8 +70,10 @@
 							</tr>
                             <tr class="last">
                                 <td>Championship Round</td>
-                                <td>Wednesday, <br />October 13, 2010 <br />8:30 UTC -7</td>
-                                <td colspan="2">Wednesday, <br />October 13, 2010 <br />12:00 UTC -7</td>
+                                <td>Wednesday, <br />October 13, 2010 <br />
+                                1:30 UTC -7</td>
+                                <td colspan="2">Wednesday, <br />October 13, 2010 <br />
+                                17:00 UTC -7</td>
 							</tr>
                         </table>
                         
