@@ -57,8 +57,10 @@
             <c:when test="${isAdvancers}">
                 <c:set var="isLeaderboard" value="${requestScope.SUB_MENU eq 'leaderboard'}"/>
                 <c:set var="isBracket" value="${requestScope.SUB_MENU eq 'bracket'}"/>
+                <c:set var="isJudges" value="${requestScope.SUB_MENU eq 'judges'}"/>
                 <c:set var="leaderboardClass" value="${isLeaderboard ? 'actived' : ''}"/>
                 <c:set var="bracketClass" value="${isBracket ? 'actived' : ''}"/>
+                <c:set var="judgesClass" value="${isJudges ? 'actived' : ''}"/>
                 <ul class="advancers">
                     <li class="${leaderboardClass}">
                         <tco10:studioStaticPageLink page="leaderboard">Leaderboard</tco10:studioStaticPageLink>
