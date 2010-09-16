@@ -281,7 +281,7 @@ public class ForumsUtil {
             try {
                 componentIDs[n] = Long.parseLong(c.getProperty(ForumConstants.PROPERTY_COMPONENT_ID));
             } catch (NumberFormatException nfe) {
-                log.info("*** Category " + c.getID() + " has no PROPERTY_COMPONENT_ID: add ID or remove category");
+                //log.info("*** Category " + c.getID() + " has no PROPERTY_COMPONENT_ID: add ID or remove category");
                 continue;
             }
 
