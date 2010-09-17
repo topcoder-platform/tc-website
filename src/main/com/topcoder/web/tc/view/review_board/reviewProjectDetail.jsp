@@ -37,6 +37,16 @@
 <c:set var="isSpecificationReview" value="${projectType > SPECIFICATION_COMPETITION_OFFSET}" scope="request"/>
 
 <jsp:include page="reviewCommonVariables.jsp"/>
+<% boolean hasSpecificationSubmission = (Boolean) request.getAttribute("hasSpecificationSubmission"); %>
+<% boolean hasSpecificationReview = (Boolean) request.getAttribute("hasSpecificationReview"); %>
+<% boolean hasSubmission = (Boolean) request.getAttribute("hasSubmission"); %>
+<% boolean hasScreening = (Boolean) request.getAttribute("hasScreening"); %>
+<% boolean hasReview = (Boolean) request.getAttribute("hasReview"); %>
+<% boolean hasAppeals = (Boolean) request.getAttribute("hasAppeals"); %>
+<% boolean hasAggregation = (Boolean) request.getAttribute("hasAggregation"); %>
+<% boolean hasAggregationReview = (Boolean) request.getAttribute("hasAggregationReview"); %>
+<% boolean hasFinalFixes = (Boolean) request.getAttribute("hasFinalFixes"); %>
+<% boolean hasFinalReview = (Boolean) request.getAttribute("hasFinalReview"); %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -111,96 +121,138 @@
                             <td class="projectHeaders" width="50%">Phase</td>
                             <td class="projectHeaders" width="" align="center">Start</td>
                             <td class="projectHeaders" width="50%" align="right">End</td>
-                        <tr>
-                            <td class="projectCells">Submission</td>
+                        </tr>
+                        <c:if test="${hasSpecificationSubmission}">
+                            <tr>
+                                <td class="projectCells">Specification Submission</td>
+                                <td class="projectCells" align="center">
+                                    <fmt:formatDate value="${projectDetailRow.map['specification_submission_start']}"
+                                        pattern="MM.dd.yyyy"/>
+                                </td>
+                                <td class="projectCells" align="right">
+                                    <fmt:formatDate value="${projectDetailRow.map['specification_submission_end']}"
+                                        pattern="MM.dd.yyyy"/>
+                                </td>
+                            </tr>
+                        </c:if>
+                        <c:if test="${hasSpecificationReview}">
+                            <tr>
+                                <td class="projectCells">Specification Review</td>
+                                <td class="projectCells" align="center">
+                                    <fmt:formatDate value="${projectDetailRow.map['specification_review_start']}"
+                                        pattern="MM.dd.yyyy"/>
+                                </td>
+                                <td class="projectCells" align="right">
+                                    <fmt:formatDate value="${projectDetailRow.map['specification_review_end']}"
+                                        pattern="MM.dd.yyyy"/>
+                                </td>
+                            </tr>
+                        </c:if>
 
-
-                            <td class="projectCells" align="center">
-                                <fmt:formatDate value="${projectDetailRow.map['submission_start']}"
-                                    pattern="MM.dd.yyyy"/>
-                            </td>
-                            <td class="projectCells" align="right">
-                                <fmt:formatDate value="${projectDetailRow.map['submission_end']}"
-                                    pattern="MM.dd.yyyy"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="projectCells">Screening</td>
-                            <td class="projectCells" align="center">
-                                <fmt:formatDate value="${projectDetailRow.map['screening_start']}"
-                                    pattern="MM.dd.yyyy"/>
-                            </td>
-                            <td class="projectCells" align="right">
-                                <fmt:formatDate value="${projectDetailRow.map['screening_end']}"
-                                    pattern="MM.dd.yyyy"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="projectCells">Review</td>
-                            <td class="projectCells" align="center">
-                                <fmt:formatDate value="${projectDetailRow.map['review_start']}"
-                                    pattern="MM.dd.yyyy"/>
-                            </td>
-                            <td class="projectCells" align="right">
-                                <fmt:formatDate value="${projectDetailRow.map['review_end']}"
-                                    pattern="MM.dd.yyyy"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="projectCells">Appeals</td>
-                            <td class="projectCells" align="center">
-                                <fmt:formatDate value="${projectDetailRow.map['appeals_start']}"
-                                    pattern="MM.dd.yyyy"/>
-                            </td>
-                            <td class="projectCells" align="right">
-                                <fmt:formatDate value="${projectDetailRow.map['appeals_end']}"
-                                    pattern="MM.dd.yyyy"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="projectCells">Aggregation</td>
-                            <td class="projectCells" align="center">
-                                <fmt:formatDate value="${projectDetailRow.map['aggregation_start']}"
-                                    pattern="MM.dd.yyyy"/>
-                            </td>
-                            <td class="projectCells" align="right">
-                                <fmt:formatDate value="${projectDetailRow.map['aggregation_end']}"
-                                    pattern="MM.dd.yyyy"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="projectCells">Aggregation Review</td>
-                            <td class="projectCells" align="center">
-                                <fmt:formatDate value="${projectDetailRow.map['agg_review_start']}"
-                                    pattern="MM.dd.yyyy"/>
-                            </td>
-                            <td class="projectCells" align="right">
-                                <fmt:formatDate value="${projectDetailRow.map['agg_review_end']}"
-                                    pattern="MM.dd.yyyy"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="projectCells">Final Fixes</td>
-                            <td class="projectCells" align="center">
-                                <fmt:formatDate value="${projectDetailRow.map['final_fix_start']}"
-                                    pattern="MM.dd.yyyy"/>
-                            </td>
-                            <td class="projectCells" align="right">
-                                <fmt:formatDate value="${projectDetailRow.map['final_fix_end']}"
-                                    pattern="MM.dd.yyyy"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="projectCells">Final Review</td>
-                            <td class="projectCells" align="center">
-                                <fmt:formatDate value="${projectDetailRow.map['final_review_start']}"
-                                    pattern="MM.dd.yyyy"/>
-                            </td>
-                            <td class="projectCells" align="right">
-                                <fmt:formatDate value="${projectDetailRow.map['final_review_end']}"
-                                    pattern="MM.dd.yyyy"/>
-                            </td>
-                        </tr>
+                        <c:if test="${hasSubmission}">
+                            <tr>
+                                <td class="projectCells">Submission</td>
+                                <td class="projectCells" align="center">
+                                    <fmt:formatDate value="${projectDetailRow.map['submission_start']}"
+                                        pattern="MM.dd.yyyy"/>
+                                </td>
+                                <td class="projectCells" align="right">
+                                    <fmt:formatDate value="${projectDetailRow.map['submission_end']}"
+                                        pattern="MM.dd.yyyy"/>
+                                </td>
+                            </tr>
+                        </c:if>
+                        <c:if test="${hasScreening}">
+                            <tr>
+                                <td class="projectCells">Screening</td>
+                                <td class="projectCells" align="center">
+                                    <fmt:formatDate value="${projectDetailRow.map['screening_start']}"
+                                        pattern="MM.dd.yyyy"/>
+                                </td>
+                                <td class="projectCells" align="right">
+                                    <fmt:formatDate value="${projectDetailRow.map['screening_end']}"
+                                        pattern="MM.dd.yyyy"/>
+                                </td>
+                            </tr>
+                        </c:if>
+                        <c:if test="${hasReview}">
+                            <tr>
+                                <td class="projectCells">Review</td>
+                                <td class="projectCells" align="center">
+                                    <fmt:formatDate value="${projectDetailRow.map['review_start']}"
+                                        pattern="MM.dd.yyyy"/>
+                                </td>
+                                <td class="projectCells" align="right">
+                                    <fmt:formatDate value="${projectDetailRow.map['review_end']}"
+                                        pattern="MM.dd.yyyy"/>
+                                </td>
+                            </tr>
+                        </c:if>
+                        <c:if test="${hasAppeals}">
+                            <tr>
+                                <td class="projectCells">Appeals</td>
+                                <td class="projectCells" align="center">
+                                    <fmt:formatDate value="${projectDetailRow.map['appeals_start']}"
+                                        pattern="MM.dd.yyyy"/>
+                                </td>
+                                <td class="projectCells" align="right">
+                                    <fmt:formatDate value="${projectDetailRow.map['appeals_end']}"
+                                        pattern="MM.dd.yyyy"/>
+                                </td>
+                            </tr>
+                        </c:if>
+                        <c:if test="${hasAggregation}">
+                            <tr>
+                                <td class="projectCells">Aggregation</td>
+                                <td class="projectCells" align="center">
+                                    <fmt:formatDate value="${projectDetailRow.map['aggregation_start']}"
+                                        pattern="MM.dd.yyyy"/>
+                                </td>
+                                <td class="projectCells" align="right">
+                                    <fmt:formatDate value="${projectDetailRow.map['aggregation_end']}"
+                                        pattern="MM.dd.yyyy"/>
+                                </td>
+                            </tr>
+                        </c:if>
+                        <c:if test="${hasAggregationReview}">
+                            <tr>
+                                <td class="projectCells">Aggregation Review</td>
+                                <td class="projectCells" align="center">
+                                    <fmt:formatDate value="${projectDetailRow.map['agg_review_start']}"
+                                        pattern="MM.dd.yyyy"/>
+                                </td>
+                                <td class="projectCells" align="right">
+                                    <fmt:formatDate value="${projectDetailRow.map['agg_review_end']}"
+                                        pattern="MM.dd.yyyy"/>
+                                </td>
+                            </tr>
+                        </c:if>
+                        <c:if test="${hasFinalFixes}">
+                            <tr>
+                                <td class="projectCells">Final Fixes</td>
+                                <td class="projectCells" align="center">
+                                    <fmt:formatDate value="${projectDetailRow.map['final_fix_start']}"
+                                        pattern="MM.dd.yyyy"/>
+                                </td>
+                                <td class="projectCells" align="right">
+                                    <fmt:formatDate value="${projectDetailRow.map['final_fix_end']}"
+                                        pattern="MM.dd.yyyy"/>
+                                </td>
+                            </tr>
+                        </c:if>
+                        <c:if test="${hasFinalReview}">
+                            <tr>
+                                <td class="projectCells">Final Review</td>
+                                <td class="projectCells" align="center">
+                                    <fmt:formatDate value="${projectDetailRow.map['final_review_start']}"
+                                        pattern="MM.dd.yyyy"/>
+                                </td>
+                                <td class="projectCells" align="right">
+                                    <fmt:formatDate value="${projectDetailRow.map['final_review_end']}"
+                                        pattern="MM.dd.yyyy"/>
+                                </td>
+                            </tr>
+                        </c:if>
                     </table>
 
                     <br/>

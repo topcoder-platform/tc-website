@@ -113,11 +113,19 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *           </ul>
  *         </td>
  *     </tr>
+          <tr>
+ *         <td>Version 1.8 </td>
+ *         <td>
+ *           <ul>
+ *             <li>Phase ID -> Resource Role ID mapping is now done via a query instead of hardcoding the values.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
  *   </table>
  * </p>
  *
- * @author dok, isv, pulky
- * @version 1.7
+ * @author dok, isv, pulky, VolodymyrK
+ * @version 1.8
  */
 public abstract class Base extends ShortHibernateProcessor {
 
@@ -419,36 +427,48 @@ public abstract class Base extends ShortHibernateProcessor {
     }
 
     /**
-     * This helper method will get resource role ids based on the review type id and primary flag
+     * This helper method will get resource role id based on the review type id.
+     *
+     * @param reviewTypeId the review type id
+     * @return <code>int</code> with the role ids
+     */
+    protected int getResourceRoleId(int reviewRespId) throws TCWebException, Exception {
+		
+        Request r = new Request();
+        ResultSetContainer detail=null;
+
+        r.setContentHandle("resource_role_by_review_resp");
+        r.setProperty(Constants.REVIEW_RESP_ID, String.valueOf(reviewRespId));
+        Map results = getDataAccess().getData(r);
+        if (results == null || results.size() == 0) {
+            throw new TCWebException("Invalid review response ID.");
+        }
+
+        detail = (ResultSetContainer) results.get("resource_role_by_review_resp");
+
+        if (detail != null && !detail.isEmpty()) {
+            return detail.getIntItem(0, "resource_role_id");
+        }
+        throw new TCWebException("Invalid review response ID.");
+    }
+
+    /**
+     * This helper method will get resource role ids based on the review type id and primary flag.
      *
      * @param reviewTypeId the review type id
      * @param primary if the position is a primary review position
      * @return <code>int[]</code> with the role ids
      */
-    protected int[] getResourceRoleIds(int reviewTypeId, boolean primary) {
+    protected int[] getResourceRoleIds(int reviewTypeId, boolean primary) throws TCWebException, Exception {
         int[] roleIds;
-        int roleId = 0;
 
         if (primary) {
             roleIds = Base.PRIMARY_ROLE_IDS;
         } else {
             roleIds = new int[1];
         }
-        switch (reviewTypeId) {
-            case 1:
-                roleId = 7;
-                break;
-            case 2:
-                roleId = 6;
-                break;
-            case 3:
-                roleId = 5;
-                break;
-            default:
-                roleId = 4;
-        }
 
-        roleIds[0] = roleId;
+        roleIds[0] = getResourceRoleId(reviewTypeId);
         return roleIds;
     }
 

@@ -100,10 +100,17 @@ import com.topcoder.web.tc.Constants;
  *   <ol>
  *     <li>Added eligibility constraints check.</li>
  *   </ol>
+ *
+ *   Version 1.0.12 Change notes:
+ *   <ol>
+ *     <li>No longer change phase ID and Project Type ID for spec reviews in nonTransactionalValidation method.
+ *     This is responsibility of the RBoardApplication bean.
+ *     </li>
+ *   </ol>
  * </p>
  *
- * @author dok, isv, pulky, snow01
- * @version 1.0.11
+ * @author dok, isv, pulky, snow01, VolodymyrK
+ * @version 1.0.12
  */
 public class ProjectReviewApply extends Base {
     protected long projectId = 0;
@@ -254,16 +261,7 @@ public class ProjectReviewApply extends Base {
      */
     protected void nonTransactionalValidation(int catalog, int reviewTypeId) throws Exception {
         int type = Integer.parseInt(this.projectTypeId);
-
-        // for specification review we validate for the parent project type only.
-        if (type > Constants.SPECIFICATION_COMPETITION_OFFSET) {
-            type = type - Constants.SPECIFICATION_COMPETITION_OFFSET;
-        }
-
         int pid = this.phaseId;
-        if (pid > Constants.SPECIFICATION_COMPETITION_OFFSET) {
-            pid = pid - Constants.SPECIFICATION_COMPETITION_OFFSET;
-        }
 
         // Assembly, Architecture, Conceptualization, Specification, Test Suites, Test Scenarios and
         // Studio related competition reviews do not take into consideration the catalogs as for now
