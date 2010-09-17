@@ -34,10 +34,17 @@ import java.sql.Timestamp;
  *   <ol>
  *     <li>Added new method createSpecReviewRBoardApplication to apply for spec reviews.</li>
  *   </ol>
+ *
+ *   Version 1.0.5 Change notes:
+ *   <ol>
+ *     <li>createSpecReviewRBoardApplication method rewritten to work with the new Spec Reviewer process.
+ *     It now adds "Specification Reviewer" role to the parent cotnest in OR instead of a separate project in OR.
+ *     </li>
+ *   </ol> 
  * </p> 
  *
- * @author dok, pulky, ivern, isv, snow01
- * @version 1.0.4
+ * @author dok, pulky, ivern, isv, snow01, VolodymyrK
+ * @version 1.0.5
  */
 public interface RBoardApplication extends EJBObject {
 
@@ -71,11 +78,8 @@ public interface RBoardApplication extends EJBObject {
         throws RBoardRegistrationException, RemoteException;
     
     /**
-     * Creates the spec review rboard_application. 
+     * Creates the spec review rboard_application and "Specification Reviewer" resource for the contest in OR. 
      * 
-     * Unlike normal rboard_application, 
-     *  - it inserts a new entry in spec_review_reviewer_xref
-     *  - update the status in spec_review table to REVIEWER_ASSIGNED (i.e id 5)
      *
      * @param dataSource the datasource being used
      * @param userId the user id to insert
@@ -84,15 +88,13 @@ public interface RBoardApplication extends EJBObject {
      * @param phaseId the phase id
      * @param opensOn timestamp when the positions opens on
      * @param reviewTypeId the type of the review
-     * @param primary true if the reviewer is signing up for primary reviewer position
 	 * @throws RBoardRegistrationException if an unexpected error occurs.
      * @throws RemoteException if an error occurs while calling EJB method remotely.
      * @throws EJBException if an error occurs doing persistence operations
 	 *
 	 * @since 1.0.4
      */
-    @Deprecated
     public void createSpecReviewRBoardApplication(String dataSource, long userId,
                                         long projectId, int reviewRespId, int phaseId, Timestamp opensOn,
-                                        int reviewTypeId, boolean primary) throws RBoardRegistrationException, RemoteException;
+                                        int reviewTypeId) throws RBoardRegistrationException, RemoteException;
 }

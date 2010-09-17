@@ -160,6 +160,7 @@ public class Constants implements WebConstants {
     public static String PROJECT_TYPES_ID;
     public static String PHASE_ID;
     public static String SEASON_ID;
+    public static String REVIEW_RESP_ID;
 
     public static String STAGE_ID;
     public static String PRIMARY_FLAG;
