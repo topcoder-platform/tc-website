@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="../includes/taglibs.jsp" %>
 
-<tco10:pageSetup title="TCO 10 : Studio Competition Bracket" area="studio" menu="advancers" subMenu="bracket"/>
+<tco10:pageSetup title="TCO 10 : Studio Competition Guest Judges" area="studio" menu="advancers" subMenu="judges"/>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
