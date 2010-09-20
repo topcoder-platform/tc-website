@@ -19,10 +19,14 @@ import com.topcoder.security.login.LoginLocal;
 import com.topcoder.security.TCSubject;
 import com.topcoder.web.common.security.Constants;
 import com.topcoder.security.login.AuthenticationException;
-
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCResponse;
+import com.topcoder.web.common.HttpObjectFactory;
 /**
  */
-public class AgreeToTermsServlet extends HttpServlet {
+public class AgreeToTermsServlet extends BaseServlet {
 
     /**
      * <p>
@@ -61,9 +65,18 @@ public class AgreeToTermsServlet extends HttpServlet {
             String password = request.getParameter("password");
             String terms = request.getParameter("terms");
             String cb = request.getParameter("cb");
+            //BUGR-4218: new param
+            boolean agree = Boolean.parseBoolean(request.getParameter("agree"));
 
-            TCSubject tcSubject = authenticate(handle, password);
-
+            //BUGR-4218: check logged in user
+            TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+            TCResponse tcResponse = HttpObjectFactory.createResponse(response);
+            //set up security objects and session info
+            WebAuthentication authentication = createAuthentication(tcRequest, tcResponse);
+            TCSubject tcSubject = getUser(authentication.getActiveUser().getId());
+            if(authentication.getActiveUser().isAnonymous()){
+                tcSubject = authenticate(handle, password);
+            }
             if (tcSubject == null) {
                 response.getOutputStream().println(cb == null ? "<response>bad login</response>" : cb + "({\"response\":\"bad login\"})");
             } else {
@@ -80,7 +93,7 @@ public class AgreeToTermsServlet extends HttpServlet {
                 if (userTermsOfUse.hasTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
                     // already joined
                     response.getOutputStream().println(cb == null ? "<response>already agreed</response>" : cb + "({\"response\":\"already agreed\"})");
-                } else {
+                } else if(agree){ //BUGR-4218: only attempt to agree to the terms if agree=true
                     try {
                         userTermsOfUse.createUserTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
                         // success
@@ -88,6 +101,8 @@ public class AgreeToTermsServlet extends HttpServlet {
                     } catch (Exception e) {
                         response.getOutputStream().println(cb == null ? "<response>bad terms</response>" : cb + "({\"response\":\"bad terms\"})");
                     }
+                }else{//BUGR-4218
+                    response.getOutputStream().println(cb == null ? "<response>hasn't agreed</response>" : cb + "({\"response\":\"hasn't agreed\"})");
                 }
             }
         } catch (Exception e) {
