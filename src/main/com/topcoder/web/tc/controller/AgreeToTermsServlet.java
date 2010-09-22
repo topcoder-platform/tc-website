@@ -74,8 +74,20 @@ public class AgreeToTermsServlet extends BaseServlet {
             //set up security objects and session info
             WebAuthentication authentication = createAuthentication(tcRequest, tcResponse);
             TCSubject tcSubject = getUser(authentication.getActiveUser().getId());
+
+            // if user not logged in
             if(authentication.getActiveUser().isAnonymous()){
-                tcSubject = authenticate(handle, password);
+                if (handle != null && !handle.equals("")
+                     && password != null && !password.equals(""))
+                {
+                    tcSubject = authenticate(handle, password);
+                }
+                else
+                {
+                    response.getOutputStream().println(cb == null ? "<response>not logged in</response>" : cb + "({\"response\":\"not logged in\"})");
+                    return;
+                }
+                
             }
             if (tcSubject == null) {
                 response.getOutputStream().println(cb == null ? "<response>bad login</response>" : cb + "({\"response\":\"bad login\"})");
