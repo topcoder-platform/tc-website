@@ -24,8 +24,10 @@
 <div id="welcome">
 
     <div class="crossButton"><!-- right side button -->
+        <div class="comics"><a href=""></a></div>
         <div class="blog"><a href="http://topcoder.com/home/tco10/"></a></div>
         <div class="programe"><!--<a href="javascript:;"></a>--></div>
+        <div class="tweet"><a href="http://topcoder.com/home/tco10/twitter/"></a></div>
         <div class="movie"><a href="http://topcoder.com/home/tco10/movies/"></a></div>
         <div class="photo"><a href="http://topcoder.com/home/tco10/photos/"></a></div>
     </div><!--End .crossButton-->
