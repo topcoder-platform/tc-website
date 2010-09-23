@@ -21,8 +21,16 @@ import com.topcoder.web.common.WebConstants;
  * database by calling the <code>updateVersionInfo</code> method of
  * <code>ComponentManager</code>.
  *
- * @version 26 August 2002, 1.0
- * @author  Albert Mao
+ * <p>
+ * Version 1.0.1 (TopCoder Online Review Switch To Local Calls Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Changed access modifier for constructor to public so this class could be instantiated by <code>Online Review
+ *     </code> application.</li>
+ *   </ol>
+ * </p>
+ *
+ * @version 24 August 2010, 1.0.1
+ * @author  Albert Mao, isv
  * @see     ComponentManager
  */
 public class ComponentVersionInfo implements java.io.Serializable {
@@ -54,7 +62,7 @@ public class ComponentVersionInfo implements java.io.Serializable {
         
     }
 
-    ComponentVersionInfo(long versionId, long version, String versionLabel,
+    public ComponentVersionInfo(long versionId, long version, String versionLabel,
                          String comments, long phase, Date phaseDate, double price, boolean suspended) {
         this.versionId = versionId;
         this.version = version;

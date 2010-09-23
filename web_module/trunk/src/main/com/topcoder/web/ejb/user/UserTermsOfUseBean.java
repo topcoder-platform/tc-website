@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2004-2010 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.ejb.user;
 
 import java.sql.Connection;
@@ -6,17 +9,38 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.ejb.EJBException;
-import javax.naming.InitialContext;
 
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.BaseEJB;
 
+/**
+ * <p>An implementation of <code>User Terms Of Use EJB</code>.</p>
+ *
+ * <p>
+ * Version 1.1 (TopCoder Online Review Switch To Local Calls Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Removed unused references and import for <code>InitialContext</code> class as such context was not used in
+ *     methods and could provide undesired impact when doing local library calls to methods of this class.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author isv
+ * @version 1.1
+ */
 public class UserTermsOfUseBean extends BaseEJB {
 
     private static Logger log = Logger.getLogger(UserTermsOfUseBean.class);
 
-
+    /**
+     * <p>Records the fact of acceptance of specified terms of use by specified user.</p>
+     *
+     * @param userId a <code>long</code> providing the user ID.
+     * @param _terms_of_use_id a <code>long</code> providing the terms of use ID.
+     * @param dataSource a <code>String</code> referencing the datasource to be used for establishing connection to
+     *        target database.
+     * @throws EJBException if an unexpected error occurs.
+     */
     public void createUserTermsOfUse(long userId, long _terms_of_use_id, String dataSource)
             throws EJBException {
 
@@ -25,7 +49,6 @@ public class UserTermsOfUseBean extends BaseEJB {
         Connection conn = null;
         PreparedStatement ps = null;
 
-        InitialContext ctx = null;
         try {
 
             StringBuffer query = new StringBuffer(1024);
@@ -53,17 +76,24 @@ public class UserTermsOfUseBean extends BaseEJB {
         } finally {
             close(ps);
             close(conn);
-            close(ctx);
         }
     }
 
+    /**
+     * <p>Removes the record on the fact of acceptance of specified terms of use by specified user.</p>
+     *
+     * @param userId a <code>long</code> providing the user ID.
+     * @param _terms_of_use_id a <code>long</code> providing the terms of use ID.
+     * @param dataSource a <code>String</code> referencing the datasource to be used for establishing connection to
+     *        target database.
+     * @throws EJBException if an unexpected error occurs.
+     */
     public void removeUserTermsOfUse(long userId, long _terms_of_use_id, String dataSource)
             throws EJBException {
 
         Connection conn = null;
         PreparedStatement ps = null;
 
-        InitialContext ctx = null;
         try {
 
             StringBuffer query = new StringBuffer(1024);
@@ -88,11 +118,19 @@ public class UserTermsOfUseBean extends BaseEJB {
         } finally {
             close(ps);
             close(conn);
-            close(ctx);
         }
     }
 
-
+    /**
+     * <p>Checks if there is a record on the fact of acceptance of specified terms of use by specified user.</p>
+     *
+     * @param userId a <code>long</code> providing the user ID.
+     * @param termsOfUseId a <code>long</code> providing the terms of use ID.
+     * @param dataSource a <code>String</code> referencing the datasource to be used for establishing connection to
+     *        target database.
+     * @return <code>true</code> if specified user accepted the specified terms of use; <code>false</code> otherwise.
+     * @throws EJBException if an unexpected error occurs.
+     */
     public boolean hasTermsOfUse(long userId, long termsOfUseId, String dataSource)
             throws EJBException {
 
@@ -100,7 +138,6 @@ public class UserTermsOfUseBean extends BaseEJB {
         PreparedStatement ps = null;
         ResultSet rs = null;
         boolean ret = false;
-        InitialContext ctx = null;
         try {
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT '1' ");
@@ -121,11 +158,8 @@ public class UserTermsOfUseBean extends BaseEJB {
             close(rs);
             close(ps);
             close(conn);
-            close(ctx);
         }
         return ret;
     }
-
-
 }
 

@@ -21,7 +21,15 @@ import java.io.Serializable;
  * primary key in the database. In the latter case, the instance will have a
  * dummy id of -1.
  *
- * @version 1.0, 26 August 2002
+ * <p>
+ * Version 1.0.1 (TopCoder Online Review Switch To Local Calls Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Changed access modifier for constructor to public so this class could be instantiated by <code>Online Review
+ *     </code> application.</li>
+ *   </ol>
+ * </p>
+ *
+ * @version 1.0.1 24 August 2010
  * @author  Albert Mao
  * @see     ComponentManager
  */
@@ -69,7 +77,7 @@ public class Document implements Serializable {
     private long type;
 
 
-    Document(long id, String name, String url, long type) {
+    public Document(long id, String name, String url, long type) {
         this(name, url, type);
         this.id = id;
     }

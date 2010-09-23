@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.ejb.termsofuse;
 
@@ -9,7 +9,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.ejb.EJBException;
-import javax.naming.InitialContext;
 
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.util.idgenerator.IDGenerationException;
@@ -28,8 +27,16 @@ import com.topcoder.web.ejb.BaseEJB;
  *   </ol>
  * </p>
  *
- * @author pulky
- * @version 1.1
+ * <p>
+ * Version 1.2 (TopCoder Online Review Switch To Local Calls Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Removed unused references and import for <code>InitialContext</code> class as such context was not used in
+ *     methods and could provide undesired impact when doing local library calls to methods of this class.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author pulky, isv
+ * @version 1.2
  */
 public class TermsOfUseBean extends BaseEJB {
 
@@ -40,20 +47,18 @@ public class TermsOfUseBean extends BaseEJB {
      * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      * @since 1.1
      */
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 2L;
 
     /**
-     * This method will create/update terms of use entity.
+     * <p>Creates/updates terms of use entity.</p>
      *
-     * If the object contains an id, the method will attempt an update, otherwise it will calculate an id and attempt
-     * an insertion.
+     * <p>If the object contains an id, the method will attempt an update, otherwise it will calculate an id and attempt
+     * an insertion.</p>
      *
      * @param terms a <code>TermsOfUseEntity</code> containing required information for creation/update.
      * @param dataSource a <code>String</code> containing the datasource.
-     *
      * @return a <code>TermsOfUseEntity</code> with updated id attribute.
-     * @throws EJBException
-     *
+     * @throws EJBException if an unexpected error occurs.
      * @since 1.1
      */
     public TermsOfUseEntity updateTermsOfUse(TermsOfUseEntity terms, String dataSource) throws EJBException {
@@ -121,14 +126,12 @@ public class TermsOfUseBean extends BaseEJB {
     }
 
     /**
-     * This method will retrieve a terms of use entity from the database.
+     * <p>Retrieves a terms of use entity from the database.</p>
      *
      * @param termsOfUseId a <code>long</code> containing the terms of use id to retrieve.
      * @param dataSource a <code>String</code> containing the datasource.
-     *
      * @return a <code>TermsOfUseEntity</code> with the requested terms of use or null if not found.
      * @throws EJBException if any error occurs.
-     *
      * @since 1.1
      */
     public TermsOfUseEntity getEntity(long termsOfUseId, String dataSource) throws EJBException {
@@ -170,10 +173,16 @@ public class TermsOfUseBean extends BaseEJB {
 
 
     /**
-     * @deprecated since 1.1
+     * <p>Gets the ID of type for specified terms of use.</p>
+     *
+     * @param termsOfUseId a <code>long</code> providing the terms of use id to retrieve.
+     * @param dataSource a <code>String</code> referencing the datasource to be used for establishing connection to
+     *        target database.
+     * @return a <code>long</code> providing the ID for type of requested terms of use.
+     * @throws EJBException if an unexpected error occurs.
+     * @deprecated since 1.1 Use {@link #getEntity(long, String)} method instead.
      */
-    public long getTermsOfUseTypeId(long termsOfUseId, String dataSource)
-            throws EJBException {
+    public long getTermsOfUseTypeId(long termsOfUseId, String dataSource) throws EJBException {
 
         long termsOfuseTypeId = 0;
 
@@ -181,11 +190,7 @@ public class TermsOfUseBean extends BaseEJB {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        InitialContext ctx = null;
-
         try {
-
-
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT terms_of_use_type_id ");
             query.append("FROM terms_of_use ");
@@ -199,9 +204,8 @@ public class TermsOfUseBean extends BaseEJB {
             if (rs.next()) {
                 termsOfuseTypeId = rs.getLong(1);
             } else {
-                throw(new EJBException("No rows found when selecting from " +
-                        "'terms_of_use' with terms_of_use_id=" +
-                        termsOfUseId + "."));
+                throw(new EJBException("No rows found when selecting from 'terms_of_use' with terms_of_use_id="
+                                       + termsOfUseId + "."));
             }
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
@@ -210,21 +214,24 @@ public class TermsOfUseBean extends BaseEJB {
             close(rs);
             close(ps);
             close(conn);
-            close(ctx);
         }
         return (termsOfuseTypeId);
     }
 
     /**
-     * @deprecated since 1.1
+     * <p>Sets the ID of type for specified terms of use.</p>
+     *
+     * @param termsOfUseId a <code>long</code> providing the terms of use id to retrieve.
+     * @param termsOfUseTypeId a <code>long</code> providing the ID for type.
+     * @param dataSource a <code>String</code> referencing the datasource to be used for establishing connection to
+     *        target database.
+     * @throws EJBException if an unexpected error occurs.
+     * @deprecated since 1.1 Use {@link #updateTermsOfUse(TermsOfUseEntity, String)} method instead.
      */
-    public void setTermsOfUseTypeId(long termsOfUseId,
-                                    long termsOfUseTypeId, String dataSource)
-            throws EJBException {
+    public void setTermsOfUseTypeId(long termsOfUseId, long termsOfUseTypeId, String dataSource) throws EJBException {
 
         Connection conn = null;
         PreparedStatement ps = null;
-        InitialContext ctx = null;
 
         try {
 
@@ -240,9 +247,8 @@ public class TermsOfUseBean extends BaseEJB {
 
             int rc = ps.executeUpdate();
             if (rc != 1) {
-                throw(new EJBException("Wrong number of rows updated in " +
-                        "'terms_of_use'. Updated " + rc + ", should " +
-                        "have updated 1."));
+                throw(new EJBException("Wrong number of rows updated in 'terms_of_use'. Updated " + rc + ", should "
+                                       + "have updated 1."));
             }
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
@@ -250,22 +256,26 @@ public class TermsOfUseBean extends BaseEJB {
         } finally {
             close(ps);
             close(conn);
-            close(ctx);
         }
     }
 
     /**
-     * @deprecated since 1.1
+     * <p>Gets the text for specified terms of use.</p>
+     *
+     * @param termsOfUseId a <code>long</code> providing the terms of use id to retrieve.
+     * @param dataSource a <code>String</code> referencing the datasource to be used for establishing connection to
+     *        target database.
+     * @return a <code>String</code> providing the text of requested terms of use.
+     * @throws EJBException if an unexpected error occurs.
+     * @deprecated since 1.1 Use {@link #getEntity(long, String)} method instead.
      */
-    public String getText(long termsOfUseId, String dataSource)
-            throws EJBException {
+    public String getText(long termsOfUseId, String dataSource) throws EJBException {
 
         String text = null;
 
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        InitialContext ctx = null;
 
         try {
 
@@ -282,9 +292,8 @@ public class TermsOfUseBean extends BaseEJB {
             if (rs.next()) {
                 text = DBMS.getTextString(rs, 1);
             } else {
-                throw(new EJBException("No rows found when selecting from " +
-                        "'terms_of_use' with terms_of_use_id=" +
-                        termsOfUseId + "."));
+                throw(new EJBException("No rows found when selecting from 'terms_of_use' with terms_of_use_id="
+                                       + termsOfUseId + "."));
             }
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
@@ -296,21 +305,23 @@ public class TermsOfUseBean extends BaseEJB {
             close(rs);
             close(ps);
             close(conn);
-            close(ctx);
         }
         return (text);
     }
 
     /**
-     * @deprecated since 1.1
+     * <p>Sets the text for specified terms of use.</p>
+     *
+     * @param termsOfUseId a <code>long</code> providing the terms of use id to retrieve.
+     * @param text a a <code>String</code> providing the text of requested terms of use.
+     * @param dataSource a <code>String</code> referencing the datasource to be used for establishing connection to
+     *        target database.
+     * @throws EJBException if an unexpected error occurs.
+     * @deprecated since 1.1 Use {@link #updateTermsOfUse(TermsOfUseEntity, String)} method instead.
      */
-    public void setText(long termsOfUseId, String _text, String dataSource)
-            throws EJBException {
-
+    public void setText(long termsOfUseId, String text, String dataSource) throws EJBException {
         Connection conn = null;
         PreparedStatement ps = null;
-
-        InitialContext ctx = null;
 
         try {
 
@@ -321,14 +332,13 @@ public class TermsOfUseBean extends BaseEJB {
 
             conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
-            ps.setBytes(1, DBMS.serializeTextString(_text));
+            ps.setBytes(1, DBMS.serializeTextString(text));
             ps.setLong(2, termsOfUseId);
 
             int rc = ps.executeUpdate();
             if (rc != 1) {
-                throw(new EJBException("Wrong number of rows updated in " +
-                        "'terms_of_use'. Updated " + rc + ", should " +
-                        "have updated 1."));
+                throw(new EJBException("Wrong number of rows updated in 'terms_of_use'. Updated " + rc + ", should "
+                                       + "have updated 1."));
             }
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
@@ -339,7 +349,6 @@ public class TermsOfUseBean extends BaseEJB {
         } finally {
             close(ps);
             close(conn);
-            close(ctx);
         }
     }
 
