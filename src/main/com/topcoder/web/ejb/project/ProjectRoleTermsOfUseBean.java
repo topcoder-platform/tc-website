@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.EJBException;
-import javax.naming.InitialContext;
 
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.ejb.BaseEJB;
@@ -26,9 +25,17 @@ import com.topcoder.web.ejb.BaseEJB;
  *     <li>Added sort order to terms list retrieval.</li>
  *   </ol>
  * </p>
- * 
- * @author pulky
- * @version 1.1
+ *
+ * <p>
+ * Version 1.2 (TopCoder Online Review Switch To Local Calls Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Removed unused references and import for <code>InitialContext</code> class as such context was not used in
+ *     methods and could provide undesired impact when doing local library calls to methods of this class.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author pulky, isv
+ * @version 1.2
  * @since Configurable Contest Terms Release Assembly v1.0
  */
 public class ProjectRoleTermsOfUseBean extends BaseEJB {
@@ -39,7 +46,7 @@ public class ProjectRoleTermsOfUseBean extends BaseEJB {
      *
      * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
-    private static final long serialVersionUID = 2L;
+    private static final long serialVersionUID = 3L;
 
     /**
      * This method will create a project role terms of use association.
@@ -58,12 +65,12 @@ public class ProjectRoleTermsOfUseBean extends BaseEJB {
         Connection conn = null;
         PreparedStatement ps = null;
 
-        InitialContext ctx = null;
         try {
 
             StringBuffer query = new StringBuffer(1024);
             query.append("INSERT ");
-            query.append("INTO project_role_terms_of_use_xref (project_id, resource_role_id, terms_of_use_id, sort_order) ");
+            query.append("INTO project_role_terms_of_use_xref ").
+                  append("(project_id, resource_role_id, terms_of_use_id, sort_order) ");
             query.append("VALUES (?, ?, ?, ?)");
 
             conn = DBMS.getConnection(dataSource);
@@ -75,9 +82,8 @@ public class ProjectRoleTermsOfUseBean extends BaseEJB {
 
             int rc = ps.executeUpdate();
             if (rc != 1) {
-                throw(new EJBException("Wrong number of rows inserted into " +
-                        "'project_role_terms_of_use_xref'. Inserted " + rc + ", " +
-                        "should have inserted 1."));
+                throw(new EJBException("Wrong number of rows inserted into 'project_role_terms_of_use_xref'. Inserted "
+                                       + rc + ", should have inserted 1."));
             }
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
@@ -85,7 +91,6 @@ public class ProjectRoleTermsOfUseBean extends BaseEJB {
         } finally {
             close(ps);
             close(conn);
-            close(ctx);
         }
     }
 
@@ -105,7 +110,6 @@ public class ProjectRoleTermsOfUseBean extends BaseEJB {
         Connection conn = null;
         PreparedStatement ps = null;
 
-        InitialContext ctx = null;
         try {
 
             StringBuffer query = new StringBuffer(1024);
@@ -131,7 +135,6 @@ public class ProjectRoleTermsOfUseBean extends BaseEJB {
         } finally {
             close(ps);
             close(conn);
-            close(ctx);
         }
     }
 
@@ -153,7 +156,6 @@ public class ProjectRoleTermsOfUseBean extends BaseEJB {
         PreparedStatement ps = null;
         ResultSet rs = null;
         boolean ret = false;
-        InitialContext ctx = null;
         try {
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT '1' ");
@@ -175,7 +177,6 @@ public class ProjectRoleTermsOfUseBean extends BaseEJB {
             close(rs);
             close(ps);
             close(conn);
-            close(ctx);
         }
         return ret;
     }
@@ -204,7 +205,6 @@ public class ProjectRoleTermsOfUseBean extends BaseEJB {
         ResultSet rs = null;
 
         List<Long>[] ret = (List<Long>[]) new ArrayList[10];        
-        InitialContext ctx = null;
         try {
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT DISTINCT terms_of_use_id, sort_order ");
@@ -241,7 +241,6 @@ public class ProjectRoleTermsOfUseBean extends BaseEJB {
             close(rs);
             close(ps);
             close(conn);
-            close(ctx);
         }
         return ret;
     }
@@ -260,7 +259,6 @@ public class ProjectRoleTermsOfUseBean extends BaseEJB {
         Connection conn = null;
         PreparedStatement ps = null;
 
-        InitialContext ctx = null;
         try {
 
             StringBuffer query = new StringBuffer(1024);
@@ -279,9 +277,7 @@ public class ProjectRoleTermsOfUseBean extends BaseEJB {
         } finally {
             close(ps);
             close(conn);
-            close(ctx);
         }
     }
-
 }
 
