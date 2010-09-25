@@ -159,17 +159,12 @@
     <% } else { %>
     <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<rsc:item set="<%=projectDetail%>" name="jive_category_id"/>">forum</a>
     <% } %>
-    to view additional information and communicate with the contest owners.
+    to view additional information and communicate with the copilot posting owners.
 </p>
 
 <p><span class="bodySubtitle"><strong>Scorecards</strong></span><br/>
     View the <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review/actions/ViewScorecard.do?method=viewScorecard&scid=<rsc:item set="<%=projectDetail%>" name="screening_scorecard_id"/>">screening</a> and <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review/actions/ViewScorecard.do?method=viewScorecard&scid=<rsc:item set="<%=projectDetail%>" name="review_scorecard_id"/>">review</a> scorecards for this project.
 </p>
-
-<p>
-<div align="right"><a href="/wiki/display/tc/Software+Conceptualization+How-To"><img src="/i/interface/getStarted.png" alt="Need help? Learn how to get started" /></a></div>
-</p>
-
 
 <%-- Timeline --%>
 <table cellspacing="0" class="formFrame" align="center" width="530">
@@ -200,27 +195,6 @@
     </tr>
 </table>
 </p>
-
-<%-- Payment --%>
-<table cellspacing="0" class="formFrame" align="center" width="530">
-    <tr>
-        <td class="projectHeaders" align="left">Payment</td>
-    </tr>
-</table>
-<p>
-TopCoder will compensate competitors with first and second place submissions.
-Initial payment for the winning submission will be distributed in two installments.
-First Milestone: When the winning solution is submitted and review board suggestions are integrated.
-Second Milestone: Marked by the completion of the Deployment phase of the project.</p>
-
-<p><strong>Winning submission</strong><br>
-    Total Payment - $<rsc:item set="<%=projectDetail%>" name="total_payment" format="0.00"/><br>
-</p>
-
-<p><strong>Second Place submission</strong><br>
-    Total Payment - $<rsc:item set="<%=projectDetail%>" name="second_place_payment" format="0.00"/><br>
-</p>
-
 
 <%-- Eligibility Requirements --%>
 <table cellspacing="0" class="formFrame" align="center" width="530">
