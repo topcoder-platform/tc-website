@@ -3,10 +3,18 @@
  */
 package com.topcoder.web.tc.controller.request.contest;
 
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.util.config.ConfigManager;
 import com.topcoder.util.config.UnknownNamespaceException;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 /**
  * <p><strong>Purpose</strong>: This processor handle requests to preview active contests for a specific
@@ -52,6 +60,24 @@ public class ActiveContests extends ActiveContestsBase {
             throw new TCWebException("Invalid project type specified " + projectTypeId);
         }
 
+        if (projectTypeId == Constants.COPILOT_POSTING_PROJECT_TYPE) {
+            try {
+                // get permission map and set into request for copilot postings
+                Map<Long, Boolean> copilotPostingViewPermissions = populateCopilotPostingPermissions();
+
+                if (this.getSessionInfo().isAdmin()) {
+                    System.out.println("this.getSessionInfo().isAdmin():" + this.getSessionInfo().isAdmin());
+
+                    // set all the copilot permissions to true
+                    for (Long key : copilotPostingViewPermissions.keySet()) {
+                        copilotPostingViewPermissions.put(key, true);
+                    }
+                }
+                getRequest().setAttribute("permissions", copilotPostingViewPermissions);
+            } catch (Exception ex) {
+                throw new TCWebException("Error occurs while getting copilot posting permissions", ex);
+            }
+        }
         super.developmentProcessing();
     }
 
@@ -107,5 +133,31 @@ public class ActiveContests extends ActiveContestsBase {
         }
 
         return false;
+    }
+
+    private Map<Long, Boolean> populateCopilotPostingPermissions() throws Exception {
+        Request r = new Request();
+        // command - copilot_posting
+        r.setContentHandle("copilot_posting");
+
+        // query copilot_postings_permission
+        ResultSetContainer result = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("copilot_postings_permission");
+
+        Iterator<ResultSetContainer.ResultSetRow> iterator = result.iterator();
+        Map<Long, Boolean> permissions = new HashMap<Long, Boolean>();
+
+        // Build the result map
+        while (iterator.hasNext()) {
+            ResultSetContainer.ResultSetRow row = iterator.next();
+            int postingResources = row.getIntItem("copilot_posting_resources");
+            int inCopilotPool = row.getIntItem("in_copilot_pool");
+            int hasDirectProjectPermission = row.getIntItem("has_direct_project_permission");
+
+            boolean hasPermission =  postingResources > 0 ||  inCopilotPool > 0 || hasDirectProjectPermission > 0;
+
+            permissions.put(row.getLongItem("project_id"), hasPermission);
+        }
+
+        return permissions;
     }
 }
