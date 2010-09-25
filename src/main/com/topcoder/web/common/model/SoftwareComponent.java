@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common.model;
 
@@ -34,11 +34,22 @@ import com.topcoder.web.common.WebConstants;
  *   <ol>
  *     <li>Added constants for Specification Review projects.</li>
  *   </ol>
+ *
+ *   Version 1.4 (Specification Review Integration,
+ *					copied from Specification Review Signup Pages 1.0) Change notes:
+ *   <ol>
+ *     <li>Added constants for Specification Review projects.</li>
+ *   </ol>
+ * 
+ *   Version 1.5 (Copilot Selection Contest Online Review and TC Site Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added constants for Copilot Posting projects.</li>
+ *   </ol>
  * </p>
 
  *
- * @author dok, pulky, snow01, VolodymyrK
- * @version 1.3
+ * @author dok, pulky, snow01, VolodymyrK, TCSASSEMBLER
+ * @version 1.5
  */
 public interface SoftwareComponent extends Cloneable, Serializable {
 
@@ -171,6 +182,22 @@ public interface SoftwareComponent extends Cloneable, Serializable {
      */
     public final static int RIA_COMPONENT_SPECIFICATION_PHASE =
             (int) WebConstants.PHASE_RIA_COMPONENT_SPECIFICATION;
+
+    /**
+     * <p>An <code>int</code> representing copilot posting specification phase id.</p>
+     *
+     * @since 1.5
+     */
+    public final static int COPILOT_POSTING_SPECIFICATION_PHASE =
+            (int) WebConstants.PHASE_COPILOT_POSTING_SPECIFICATION;
+
+    /**
+     * <p>An <code>int</code> representing copilot posting phase id.</p>
+     *
+     * @since 1.5
+     */
+    public final static int COPILOT_POSTING_PHASE =(int) WebConstants.PHASE_COPILOT_POSTING;
+    
 
     public final static int LEVEL1 = 100;
     public final static int LEVEL2 = 200;

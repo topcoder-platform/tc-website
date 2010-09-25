@@ -65,6 +65,15 @@ public class ActiveContests extends ActiveContestsBase {
     }
 
     @Override
+    protected String getActiveContestsPage() {
+        if (getProjectType()==Constants.COPILOT_POSTING_PROJECT_TYPE) {
+            return "/copilotposting/activeContests.jsp";
+        } else {
+            return "/contest/activeContests.jsp";
+        }
+    }
+
+    @Override
     protected Boolean hasDR() {
         return Boolean.TRUE;
     }
