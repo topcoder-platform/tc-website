@@ -1,6 +1,6 @@
 <%--
-  - Author: pulky
-  - Version: 1.2
+  - Author: pulky, TCSASSEMBLER
+  - Version: 1.3
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page lists all registrants to a specific project.
