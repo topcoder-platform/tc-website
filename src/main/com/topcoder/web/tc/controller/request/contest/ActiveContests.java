@@ -139,6 +139,7 @@ public class ActiveContests extends ActiveContestsBase {
         Request r = new Request();
         // command - copilot_posting
         r.setContentHandle("copilot_posting");
+        r.setProperty("uid", String.valueOf(getUser().getId()));
 
         // query copilot_postings_permission
         ResultSetContainer result = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("copilot_postings_permission");
