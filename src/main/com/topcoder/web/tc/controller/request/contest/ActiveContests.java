@@ -38,7 +38,7 @@ public class ActiveContests extends ActiveContestsBase {
         Constants.ARCHITECTURE_PROJECT_TYPE, Constants.TEST_SUITES_PROJECT_TYPE, Constants.TEST_SCENARIOS_PROJECT_TYPE,
         Constants.SPECIFICATION_PROJECT_TYPE, Constants.CONCEPTUALIZATION_PROJECT_TYPE,
         Constants.UI_PROTOTYPE_PROJECT_TYPE, Constants.RIA_BUILD_PROJECT_TYPE,
-        Constants.RIA_COMPONENT_PROJECT_TYPE};
+        Constants.RIA_COMPONENT_PROJECT_TYPE, Constants.COPILOT_POSTING_PROJECT_TYPE};
 
     public static final String DEFAULT_NAMESPACE = "com.topcoder.web.tc.controller.request.contest.ActiveContests";
 
