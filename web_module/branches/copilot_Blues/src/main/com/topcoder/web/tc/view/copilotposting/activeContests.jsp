@@ -65,7 +65,7 @@
         <c:when test="${pt == COPILOT_POSTING_TYPE_ID}">
             <!-- TODO: use RIA for now -->
             <jsp:include page="/page_title.jsp">
-                <jsp:param name="image" value="architecture"/>
+                <jsp:param name="image" value="copilot_posting"/>
                 <jsp:param name="title" value="Active Copilot Postings"/>
             </jsp:include>
         </c:when>
@@ -190,11 +190,11 @@
             </c:if>
             --%>
             <td class="valueC">
-         <% if (resultRow.getIntItem("total_inquiries") > 0) { %>
+         <% if (resultRow.getIntItem("total_inquiries") > 0 && permissions.get(projectId).booleanValue()) { %>
          <a href="/tc?module=ViewRegistrants&amp;<%=Constants.PROJECT_ID%>=<rsc:item name="project_id" row="<%=resultRow%>"/>">
          <% } %>
            <rsc:item name="total_unrated_inquiries" row="<%=resultRow%>"/>
-         <% if (resultRow.getIntItem("total_inquiries") > 0) { %>
+         <% if (resultRow.getIntItem("total_inquiries") > 0 && permissions.get(projectId).booleanValue()) { %>
          </a>
          <% } %>
             </td>

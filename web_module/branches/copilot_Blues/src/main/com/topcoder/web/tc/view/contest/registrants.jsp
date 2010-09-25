@@ -210,7 +210,7 @@
                         <jsp:param name="title" value="Active Contests"/>
                     </jsp:include>
                 </c:when>
-                <c:when test="${pt == Copilot_POSTING_PROJECT_TYPE}">
+                <c:when test="${pt == COPILOT_POSTING_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="copilot_posting"/>
                         <jsp:param name="title" value="Active Copilot Postings"/>
