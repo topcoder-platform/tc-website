@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.utilities.dwload;
 
@@ -72,10 +72,17 @@ import com.topcoder.utilities.dwload.contestresult.drv2.ContestResultCalculatorV
  *   <ol>
  *     <li>Broke up project loading in chunks to get past an Informix statement size limitation.</li>
  *   </ol>
+ *
+ *  Version 1.1.7 (Copilot Selection Contest Online Review and TC Site Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>
+ *        Added support for new Copilot Posting contest type : add copilot posting category into LOAD_CATEGORIES.
+ *     </li>
+ *   </ol>
  * </p>
  *
- * @author rfairfax, pulky, ivern, VolodymyrK
- * @version 1.1.6
+ * @author rfairfax, pulky, ivern, VolodymyrK, TCSASSEMBLER
+ * @version 1.1.7
  */
 public class TCLoadTCS extends TCLoad {
 
@@ -83,7 +90,7 @@ public class TCLoadTCS extends TCLoad {
      * <p>A <code>String</code> representing all those project categories than should be loaded to the
      * data warehouse.</p>
      */
-    private static final String LOAD_CATEGORIES = "(1, 2, 5, 6, 7, 13, 14, 23, 19, 24, 25, 26)";
+    private static final String LOAD_CATEGORIES = "(1, 2, 5, 6, 7, 13, 14, 23, 19, 24, 25, 26, 29)";
 
     /**
      * <p>An <code>int</code> array representing all project categories that are currently being rated.
