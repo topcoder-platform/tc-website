@@ -65,12 +65,12 @@ import com.topcoder.web.tc.controller.request.development.Base;
  *   </ol>
  * </p>
  * <p>
- *   Version 1.5 (Gameplan Contest Type Assembly 1.0) Change notes:
+ *   Version 1.5 (Copilot Selection Contest Online Review and TC Site Integration Assembly 1.0) Change notes:
  *   <ol>
- *     <li>Added support for new Gameplan competitions.</li>
+ *     <li>Added support for new Copilot Posting competitions.</li>
  *   </ol>
  * </p>
- * @author dok, pulky, murphydog
+ * @author dok, pulky, TCSASSEMBLER
  * @version 1.5
  */
 public class ViewRegistration extends Base {
@@ -185,6 +185,13 @@ public class ViewRegistration extends Base {
         } else if (getRegEJB().isUserRegistered(projectId, getUser().getId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
             getRequest().setAttribute(Constants.MESSAGE, "You have already registered for this contest.");
         }
+
+        if (projectTypeId == Constants.COPILOT_POSTING_PROJECT_TYPE) {
+            // check whether the registrants is in copilot for copilot posting registration
+            if (!isInCopilotPool(getUser().getId())) {
+               getRequest().setAttribute(Constants.MESSAGE, "Only copilots in copilot pool can register copilot posting."); 
+            }
+        }
     }
 
     protected ComponentRegistrationServicesLocal getRegEJB() throws Exception {
@@ -201,6 +208,24 @@ public class ViewRegistration extends Base {
         r.setContentHandle("component_suspension");
         r.setProperty("uid", String.valueOf(userId));
         ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("component_suspension");
+        return !rsc.isEmpty();
+    }
+
+    /**
+     * Checks whether the user is in the copilot pool.
+     *
+     * @param userId the id of the user
+     * @return true if in copilot pool, false otherwise
+     * @throws Exception if there is any error.
+     *
+     * @since 1.5
+     */
+    private static boolean isInCopilotPool(long userId) throws Exception {
+        DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
+        Request r = new Request();
+        r.setContentHandle("copilot_posting");
+        r.setProperty("uid", String.valueOf(userId));
+        ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("is_in_copilot_pool");
         return !rsc.isEmpty();
     }
 }
