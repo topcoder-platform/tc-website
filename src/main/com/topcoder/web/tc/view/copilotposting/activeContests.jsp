@@ -112,27 +112,40 @@
       <td class="header" width="30%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Copilot Posting</a></td>
       <td class="header" width="10%">&#160;</td>
       <td class="header" width="10%">&#160;</td>
-      <td class="headerC" width="10%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Register by</a></td>
-      <td class="headerC" width="10%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Submit by</a></td>
+      <td class="headerC" width="15%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Register by</a></td>
+      <td class="headerC" width="15%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Submit by</a></td>
       <!-- hide payent column for now -->  
       <%-- td class="headerC" width="10%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true"/>">Payment</a></td --%>
-      <td class="headerC" width="10%">
-      <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>">Registrants</a><br />
+      <td class="headerC" width="15%">
+      <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>">Registered Copilots</a><br />
           <%-- hide ratings for now
       <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Rated</a>/
       <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Unrated</a>
           --%>
       </td>
-      <td class="headerC" width="10%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">Submissions</a></td>
+      <td class="headerC" width="15%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">Submissions</a></td>
    </tr>
 
-    <% boolean even = false; %>
+
+    <%
+        boolean even = false;
+        Map<Long, Boolean> permissions =  (Map<Long, Boolean>) request.getAttribute("permissions");
+    %>
     <rsc:iterator list="<%=contests %>" id="resultRow">
         <tr class="<%=even?"dark":"light"%>">
             <td class="value">
+                   <%
+                       long projectId = resultRow.getLongItem("project_id");
+                       if (permissions.get(projectId).booleanValue()) {
+                   %>
                 <a href="/tc?module=ProjectDetail&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">
+                    <% } %>
                     <rsc:item name="contest_name" row="<%=resultRow%>"/>
+                    <%
+                       if (permissions.get(projectId).booleanValue()) {
+                   %>
                 </a>
+                <% } %>
             </td>
             <td class="value">
           <% if (resultRow.getIntItem("tourny_project") > 0) { %>
