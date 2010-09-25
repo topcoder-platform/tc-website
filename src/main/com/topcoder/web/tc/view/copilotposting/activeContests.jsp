@@ -65,8 +65,8 @@
         <c:when test="${pt == COPILOT_POSTING_TYPE_ID}">
             <!-- TODO: use RIA for now -->
             <jsp:include page="/page_title.jsp">
-                <jsp:param name="image" value="ria_component"/>
-                <jsp:param name="title" value="Active Contests"/>
+                <jsp:param name="image" value="architecture"/>
+                <jsp:param name="title" value="Active Copilot Postings"/>
             </jsp:include>
         </c:when>
       </c:choose>

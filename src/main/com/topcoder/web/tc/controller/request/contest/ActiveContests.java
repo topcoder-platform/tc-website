@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.contest;
 
@@ -31,10 +31,15 @@ import java.util.Map;
  *     <li>Updated Application Testing to Test Suites</li>
  *     <li>Added support for new Test Scenarios competitions</li>
  *   </ol>
+ *
+ *  Version 1.3 (Copilot Selection Contest Online Review and TC Site Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Add copilot posting support including permissions checking for copilot postings</li>
+ *   </ol>
  * </p>
  *
- * @author dok, pulky
- * @version 1.2
+ * @author dok, pulky, TCSASSEMBLER
+ * @version 1.3
  */
 public class ActiveContests extends ActiveContestsBase {
 
@@ -135,30 +140,38 @@ public class ActiveContests extends ActiveContestsBase {
         return false;
     }
 
+    /**
+     * Gets the copilot posting permission map. The key is the project id, the value is a boolean represents
+     * whether the user can view the project details.
+     *
+     * @return the permission map
+     * @throws Exception if there is any error.
+     *
+     * @since 1.3
+     */
     private Map<Long, Boolean> populateCopilotPostingPermissions() throws Exception {
+        // construct a request
         Request r = new Request();
-        // command - copilot_posting
         r.setContentHandle("copilot_posting");
         r.setProperty("uid", String.valueOf(getUser().getId()));
 
-        // query copilot_postings_permission
+        // run the query
         ResultSetContainer result = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("copilot_postings_permission");
 
         Iterator<ResultSetContainer.ResultSetRow> iterator = result.iterator();
         Map<Long, Boolean> permissions = new HashMap<Long, Boolean>();
 
-        // Build the result map
+        // check the results
         while (iterator.hasNext()) {
             ResultSetContainer.ResultSetRow row = iterator.next();
             int postingResources = row.getIntItem("copilot_posting_resources");
             int inCopilotPool = row.getIntItem("in_copilot_pool");
             int hasDirectProjectPermission = row.getIntItem("has_direct_project_permission");
 
-            boolean hasPermission =  postingResources > 0 ||  inCopilotPool > 0 || hasDirectProjectPermission > 0;
+            boolean hasPermission =  (postingResources > 0 ||  inCopilotPool > 0 || hasDirectProjectPermission > 0);
 
             permissions.put(row.getLongItem("project_id"), hasPermission);
         }
-
         return permissions;
     }
 }
