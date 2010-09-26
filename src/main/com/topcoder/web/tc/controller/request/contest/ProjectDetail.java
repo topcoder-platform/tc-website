@@ -252,7 +252,7 @@ public class ProjectDetail extends Base {
         // query
         DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
         Request r = new Request();
-        r.setContentHandle("copilot_posting");
+        r.setContentHandle("copilot_posting_permission");
         r.setProperty("uid", String.valueOf(getUser().getId()));
         r.setProperty("pj", projectId);
         
@@ -290,7 +290,7 @@ public class ProjectDetail extends Base {
          // query
         DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
         Request r = new Request();
-        r.setContentHandle("copilot_posting");
+        r.setContentHandle("is_copilot_posting_registered");
         r.setProperty("uid", String.valueOf(getUser().getId()));
         r.setProperty("pj", projectId);
 
