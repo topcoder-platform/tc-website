@@ -189,7 +189,7 @@ public class ViewRegistration extends Base {
         if (projectTypeId == Constants.COPILOT_POSTING_PROJECT_TYPE) {
             // check whether the registrants is in copilot for copilot posting registration
             if (!isInCopilotPool(getUser().getId())) {
-               getRequest().setAttribute(Constants.MESSAGE, "Only copilots in copilot pool can register copilot posting."); 
+               getRequest().setAttribute(Constants.MESSAGE, "Only active copilot in copilot pool can register copilot posting."); 
             }
         }
     }
