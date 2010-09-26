@@ -76,7 +76,8 @@ import com.topcoder.utilities.dwload.contestresult.drv2.ContestResultCalculatorV
  *  Version 1.1.7 (Copilot Selection Contest Online Review and TC Site Integration Assembly 1.0) Change notes:
  *   <ol>
  *     <li>
- *        Added support for new Copilot Posting contest type : add copilot posting category into LOAD_CATEGORIES.
+ *        Added support for new Copilot Posting contest type : 
+ *        add copilot posting category into LOAD_CATEGORIES.
  *     </li>
  *   </ol>
  * </p>

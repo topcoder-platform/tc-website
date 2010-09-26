@@ -55,7 +55,7 @@ package com.topcoder.web.common;
  * </p>
  * </p>
  *
- * @author dok, pulky, snow01, TCSAASEMBLER
+ * @author dok, pulky, snow01, TCSASSEMBLER
  * @version 1.6.1
  */
 public interface WebConstants {

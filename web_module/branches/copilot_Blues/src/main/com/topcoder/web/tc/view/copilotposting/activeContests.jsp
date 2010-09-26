@@ -4,8 +4,8 @@
   - Copyright (C) 2010 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page lists all the copilot postings. This page is modified based on active contests page for
-  the other project types and is customized specically for copilot posting. It will not display DR, 
-
+  - the other project types and is customized specically for copilot posting. It will not display DR, reliability
+  - bonus and rated and unrated number.
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
@@ -63,7 +63,6 @@
 
       <c:choose>
         <c:when test="${pt == COPILOT_POSTING_TYPE_ID}">
-            <!-- TODO: use RIA for now -->
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="copilot_posting"/>
                 <jsp:param name="title" value="Active Copilot Postings"/>

@@ -364,7 +364,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
             System.out.println("UI Prototype phaseId                    : " + UI_PROTOTYPE_PHASE);
             System.out.println("RIA Build phaseId                       : " + RIA_BUILD_PHASE);
             System.out.println("RIA Component phaseId                   : " + RIA_COMPONENT_PHASE);
-             System.out.println("Copilot Posting phaseId                : " + COPILOT_POSTING_PHASE);
+            System.out.println("Copilot Posting phaseId                 : " + COPILOT_POSTING_PHASE);
             System.out.println("Specification Review phaseId            : " + SPECIFICATION_REVIEW_PHASE);
             System.out.println("Design Specification phaseId            : " + DESIGN_SPECIFICATION_PHASE);
             System.out.println("Development Specification phaseId       : " + DEVELOPMENT_SPECIFICATION_PHASE);
