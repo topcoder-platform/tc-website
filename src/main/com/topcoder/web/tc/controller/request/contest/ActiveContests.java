@@ -71,7 +71,6 @@ public class ActiveContests extends ActiveContestsBase {
                 Map<Long, Boolean> copilotPostingViewPermissions = populateCopilotPostingPermissions();
 
                 if (this.getSessionInfo().isAdmin()) {
-                    System.out.println("this.getSessionInfo().isAdmin():" + this.getSessionInfo().isAdmin());
 
                     // set all the copilot permissions to true
                     for (Long key : copilotPostingViewPermissions.keySet()) {
