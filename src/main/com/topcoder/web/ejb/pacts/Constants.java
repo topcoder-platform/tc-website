@@ -55,7 +55,7 @@ package com.topcoder.web.ejb.pacts;
  * </p>
  *
  * @author TCSDEVELOPER, pulky, VolodymyrK, TCSASSEMBLER
- * @version 1.5
+ * @version 1.6
  */
 public interface Constants {
 

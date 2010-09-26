@@ -84,8 +84,6 @@ public class CopilotPostingPayment extends ComponentProjectReferencePayment {
     /**
      * Processor for specification payments.
      * It just provides a method for generating a description for the Copilot Posting competition.
-     *
-     * @author pulky
      */
     protected static class Processor extends ComponentProjectReferencePayment.Processor {
 

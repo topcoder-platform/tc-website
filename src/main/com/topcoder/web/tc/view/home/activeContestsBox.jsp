@@ -9,7 +9,7 @@
   - and added support for new Test Scenarios competitions.
   -
   - Version 1.2 (Copilot Selection Contest Online Review and TC Site Integration Assembly 1.0) changes:
-  - Added support for new Copilot Posting.
+  - Added support for new Copilot Posting to display copilot posting number (no prize).
 --%>
 <%@ page import="com.topcoder.web.tc.controller.request.Home" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>

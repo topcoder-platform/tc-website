@@ -4,7 +4,9 @@
   - Copyright (C) 2010 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page shows project details for Copilot Posting.
-
+  - It contains a private description that only admin, copilot registred the copilot posting and
+  - user has permission on the direct project, or online review resources of the copilot posting
+  - can view it.
 --%>
 <%@ page language="java" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
