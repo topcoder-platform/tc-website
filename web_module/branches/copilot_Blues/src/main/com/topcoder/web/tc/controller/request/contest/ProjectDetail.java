@@ -115,14 +115,14 @@ public class ProjectDetail extends Base {
                     boolean[] permissions = getPermissionsToViewCopilotPosting(projectId);
 
                     // if none of the permissions is true, throw exception
-                    if (!permissions[0] && !permissions[1] && !permissions[2]) {
+                    if (!permissions[0] && !permissions[1] && !permissions[2] && !(getSessionInfo().isAdmin())) {
                         throw new NavigationException("User does not has permission to view copilot posting details");
                     }
 
                     // check permission to view private description
                     boolean registered = isUserCopilotPostingRegistered(projectId);
 
-                    boolean hasPrivateDescriptionPermission = registered || permissions[0] || permissions[2];
+                    boolean hasPrivateDescriptionPermission = registered || permissions[0] || permissions[2] || getSessionInfo().isAdmin();
 
                     getRequest().setAttribute("privateDescriptionPermission", hasPrivateDescriptionPermission);
 
