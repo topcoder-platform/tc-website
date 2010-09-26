@@ -165,7 +165,7 @@ public class HomeHelper {
             ret.put(Home.RIA_COMPONENT, summary);
         }
 
-        ResultSetContainer copilotposting = dataMap.get("copilotposting_active_contests_summary");
+        ResultSetContainer copilotposting = dataMap.get("copilot_posting_active_contests_summary");
         if (!copilotposting.isEmpty()) {
             ResultSetContainer.ResultSetRow row = copilotposting.get(0);
             summary = new ActiveContestsSummary();
