@@ -119,9 +119,12 @@
         	<p><span class="bodySubtitle">Public Description</span><br></p>
         	${resultRow.map["detailed_requirements"]}
 
+            <%-- need permission to view private description --%>
+            <c:if test="${privateDescriptionPermission}">
             <p><span class="bodySubtitle">Private Description</span><br></p>
         	${resultRow.map["private_description"]}
-
+            </c:if>
+            
         	<p><span class="bodySubtitle">Submission Deliverables</span><br></p>
         	${resultRow.map["submission_deliverables"]}
 
