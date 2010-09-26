@@ -49,7 +49,7 @@
 <td width="100%" align="left" class="bodyColumn">
 
 <jsp:include page="/page_title.jsp">
-<jsp:param name="image" value="conceptualization"/>
+<jsp:param name="image" value="copilot_posting"/>
 <jsp:param name="title" value="Active Copilot Posting"/>
 </jsp:include>
 
