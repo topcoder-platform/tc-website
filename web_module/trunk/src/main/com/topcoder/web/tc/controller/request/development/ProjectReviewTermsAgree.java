@@ -5,6 +5,7 @@ package com.topcoder.web.tc.controller.request.development;
 
 import java.sql.Timestamp;
 import java.util.Map;
+import java.util.Iterator;
 
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -53,10 +54,16 @@ import com.topcoder.web.tc.Constants;
  *     <li>Fixed processor to redirect to the corresponding page based on project type.</li>
  *     <li>Added sort order to displayed terms of use.</li>
  *   </ol>
+  *
+ *   Version 1.0.6 Change notes:
+ *   <ol>
+ *     <li>createSpecReviewRBoardApplication method is now called for the new Spec Review process.</li>
+ *     <li>Review application notification mails is now sent to all managers for the contest.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, pulky, isv, snow01
- * @version 1.0.5
+ * @author dok, pulky, isv, snow01, VolodymyrK
+ * @version 1.0.6
  */
 public class ProjectReviewTermsAgree extends ProjectReviewApply {
 
@@ -157,9 +164,15 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
                 " primary " + primary + " type " + reviewTypeId + " project " + projectId);
 
         if (this.phaseId > Constants.SPECIFICATION_COMPETITION_OFFSET) {
-            rBoardApplication.createRBoardApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId,
-                    reviewTypeId, (int) WebConstants.PHASE_SPECIFICATION_REVIEW, opensOn, reviewTypeId,
-                    new Boolean(primary).booleanValue());
+		    // "Old style" Spec Review projects have reviewTypeId equal to 37 and are processed as separate projects in OR.
+            if (reviewTypeId == 37) {
+                rBoardApplication.createRBoardApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId,
+                        reviewTypeId, (int) WebConstants.PHASE_SPECIFICATION_REVIEW, opensOn, reviewTypeId,
+                        new Boolean(primary).booleanValue());
+            } else {
+                rBoardApplication.createSpecReviewRBoardApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId,
+                        reviewTypeId, phaseId, opensOn, reviewTypeId);
+            }
         } else {
             rBoardApplication.createRBoardApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId,
                     reviewTypeId, phaseId, opensOn, reviewTypeId, new Boolean(primary).booleanValue());
@@ -203,16 +216,11 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
         results = getDataAccess().getData(r);
         detail = (ResultSetContainer) results.get("pm_details");
 
-        String address = detail.getStringItem(0, "address");
-        if (log.isDebugEnabled()) {
-            log.debug("ORIGINAL ADDRESS IS: " + address);
-        }
-
         TCSEmailMessage mail = new TCSEmailMessage();
         mail.setSubject("New Review Application");
         StringBuffer sb = new StringBuffer();
         sb.append(handle + " has applied to review:\n\n");
-        sb.append("Component: " + component_name + "\n");
+        sb.append("Contest: " + component_name + "\n");
         sb.append("Version: " + version + "\n");
         sb.append("Language: " + lang + "\n");
         sb.append("Phase: " + phase + "\n");
@@ -230,9 +238,19 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
 
         mail.setBody(sb.toString());
         mail.setFromAddress("review@topcoder.com");
-        //mail.setToAddress("rfairfax@topcoder.com", TCSEmailMessage.TO);
-        mail.setToAddress(address, TCSEmailMessage.TO);
 
-        EmailEngine.send(mail);
+        ResultSetContainer.ResultSetRow row = null;
+        for (Iterator it = detail.iterator(); it.hasNext();) {
+            row = (ResultSetContainer.ResultSetRow) it.next();
+            String address = row.getStringItem("address");
+            if (log.isDebugEnabled()) {
+                log.debug("ORIGINAL ADDRESS IS: " + address);
+            }
+            mail.addToAddress(address, TCSEmailMessage.TO);			
+        }
+
+        if (mail.getToAddress(TCSEmailMessage.TO).length >= 1) {
+            EmailEngine.send(mail);			
+        }
     }
 }

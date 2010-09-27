@@ -19,6 +19,8 @@
 <% Timestamp waitingUntil = (Timestamp) request.getAttribute("waitingUntil"); %>
 <% int applicationDelayHours = (Integer) request.getAttribute("applicationDelayHours"); %>
 <% int applicationDelayMinutes = (Integer) request.getAttribute("applicationDelayMinutes"); %>
+<% boolean hasSpecificationSubmission = (Boolean) request.getAttribute("hasSpecificationSubmission"); %>
+<% boolean hasSpecificationReview = (Boolean) request.getAttribute("hasSpecificationReview"); %>
 <% boolean hasSubmission = (Boolean) request.getAttribute("hasSubmission"); %>
 <% boolean hasScreening = (Boolean) request.getAttribute("hasScreening"); %>
 <% boolean hasReview = (Boolean) request.getAttribute("hasReview"); %>
@@ -100,6 +102,21 @@
                     <td class="projectHeaders" width="" align="center">Start</td>
                     <td class="projectHeaders" width="50%" align="right">End</td>
                 </tr>
+                <c:if test="${hasSpecificationSubmission}">
+                    <tr>
+                        <td class="projectCells">Specification Submission</td>
+                        <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="specification_submission_start" format="MM.dd.yyyy"/></td>
+                        <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="specification_submission_end" format="MM.dd.yyyy"/></td>
+                    </tr>
+                </c:if>
+                <c:if test="${hasSpecificationReview}">
+                    <tr>
+                        <td class="projectCells">Specification Review</td>
+                        <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="specification_review_start" format="MM.dd.yyyy"/></td>
+                        <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="specification_review_end" format="MM.dd.yyyy"/></td>
+                    </tr>
+                </c:if>
+
                 <c:if test="${hasSubmission}">
                     <tr>
                         <td class="projectCells">Submission</td>
