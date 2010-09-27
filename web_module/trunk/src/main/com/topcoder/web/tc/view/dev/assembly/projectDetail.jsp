@@ -24,6 +24,11 @@
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <% ResultSetContainer projectDetail = (ResultSetContainer) request.getAttribute("projectDetail");%>
 <% ResultSetContainer technologies = (ResultSetContainer) request.getAttribute("technologies");%>
+<% String projectId = (String) request.getAttribute("projectId");
+   // whether to hide certain sections based on project id
+   boolean hide = projectId.equals("30014419") || projectId.equals("30014961");
+
+%>
 <head>
 <title>TopCoder Assembly Competitions</title>
 
@@ -88,6 +93,7 @@
    <% } else { %>
    <tr>
       <td width="35%">
+      <% if (!hide) {  %>
       <div class="bigRed" style="border-top: 1px solid #999999; border-bottom: 1px solid #999999;">
          <div style="float:right; text-align:right;">
          $<rsc:item set="<%=projectDetail%>" name="total_payment" format="0.00"/><br>
@@ -104,6 +110,11 @@
       </c:if>
       Due Date:</strong>
       </div>
+      <% } else { %>
+      <div>
+        <img src="http://topcoder.com/home/alcatel/files/2010/08/alu-logo.jpg" alt="" border="0" />
+      </div>
+      <% } %>
       </td>
       <td width="40%" align="right" style="padding: 0px 5px 10px 0px;">
          <A class="bigButton" style="width: 100px;" href="/tc?module=ViewRegistration&<%=Constants.PROJECT_ID%>=<%= request.getAttribute("projectId") %>">1: Register</A>
@@ -116,7 +127,9 @@
    <tr>
       <td colspan="3" align="center" style="padding-top:10px;">
          Register to get info necessary to submit a solution<br />
+         <% if (!hide) {  %>
          <span class="bigRed">Registering will affect your Reliability Rating</span>
+          <% } %>
       </td>
    </tr>
    <% } %>
@@ -159,12 +172,14 @@
 
 
 <%-- Technologies --%>
+<% if (!hide) {  %>
 <p class="noSpListTitle"><span class="bodySubtitle"><strong>Technologies</strong></span></p>
 <ul class="noSpList">
     <rsc:iterator list="<%=technologies%>" id="item">
         <li><rsc:item row="<%=item%>" name="technology_name"/></li>
     </rsc:iterator>
 </ul>
+<% } %>
 
 <%-- Documentation --%>
 <jsp:include page="../../contest/supportingDocumentation.jsp"/>
@@ -180,9 +195,11 @@
     to view additional information and communicate with the contest owners.
 </p>
 
+<% if (!hide) {  %>
 <p><strong>Scorecards</strong><br/>
     View the <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review/actions/ViewScorecard.do?method=viewScorecard&scid=<rsc:item set="<%=projectDetail%>" name="screening_scorecard_id"/>">screening</a> and <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review/actions/ViewScorecard.do?method=viewScorecard&scid=<rsc:item set="<%=projectDetail%>" name="review_scorecard_id"/>">review</a> scorecards for this project.
 </p>
+<% } %>
 
 <br>
 <span class="bigRed">NOTE: Please see the eligibility requirements below.</span>
@@ -193,6 +210,7 @@
 
 
 <%-- Timeline --%>
+<% if (!hide) {  %>
 <table cellspacing="0" class="formFrame" align="center" width="530">
     <tr>
         <td class="projectHeaders" align="left">Timeline</td>
@@ -220,7 +238,7 @@
         <rsc:item set="<%=projectDetail%>" name="final_submission_date" format="MM.dd.yyyy hh:mm a z"/></td>
     </tr>
 </table>
-</p>
+</p> 
 
 <%-- Payment --%>
 <table cellspacing="0" class="formFrame" align="center" width="530">
@@ -245,6 +263,7 @@ Second Milestone: Marked by the completion of the Deployment phase of the projec
 <p>
 Final payment is conditional on acceptance of the fully functional assembly by the Assembly Review Board
 </p>
+<% } %>
 
 <%-- Eligibility Requirements --%>
 <table cellspacing="0" class="formFrame" align="center" width="530">
