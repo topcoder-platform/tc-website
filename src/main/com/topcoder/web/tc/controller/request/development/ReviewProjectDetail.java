@@ -74,10 +74,15 @@ import com.topcoder.web.tc.model.ReviewBoardApplication;
  *   <ol>
  *     <li>Added eligibility constraints check.</li>
  *   </ol>
+  *
+ *   Version 1.0.8 Change notes:
+ *   <ol>
+ *     <li>Added support for Specification Submission and Specificatino Review project phases.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, isv, pulky, snow01
- * @version 1.0.7
+ * @author dok, isv, pulky, snow01, VolodymyrK
+ * @version 1.0.8
  * @since 1.0
  */
 public class ReviewProjectDetail extends Base {
@@ -306,7 +311,10 @@ public class ReviewProjectDetail extends Base {
                 app.setUserId(reviewUserId);
             }
             
-            app.setPrimary(true);
+            // Temporary fix to support the "old style" Spec Review projects until we get rid of them.
+            if (detail.getIntItem(0, "reviewer_type_id") == 37) {
+                app.setPrimary(true);
+            }
             reviewerList.add(app);
 
             getRequest().setAttribute("reviewerList", reviewerList);
@@ -322,6 +330,8 @@ public class ReviewProjectDetail extends Base {
         // Setting any of these to FALSE will now prevent the phase in question from showing in the view.  The
         // easiest way to achieve this is to modify the query to return an empty string for the phase's submission
         // start.
+        getRequest().setAttribute("hasSpecificationSubmission", checkPhaseExistence(detail, "specification_submission_start"));
+        getRequest().setAttribute("hasSpecificationReview", checkPhaseExistence(detail, "specification_review_start"));
         getRequest().setAttribute("hasSubmission", checkPhaseExistence(detail, "submission_start"));
         getRequest().setAttribute("hasScreening", checkPhaseExistence(detail, "screening_start"));
         getRequest().setAttribute("hasReview", checkPhaseExistence(detail, "review_start"));
@@ -333,6 +343,10 @@ public class ReviewProjectDetail extends Base {
     }
 
     private Boolean checkPhaseExistence(ResultSetContainer rsc, String columnName) {
+	    if (rsc.isValidColumn(columnName) == false) {
+            return Boolean.FALSE;		
+		}
+		
         String columnValue = rsc.getStringItem(0, columnName);
         if (columnValue == null || columnValue.trim().equals("")) {
             return Boolean.FALSE;
@@ -457,12 +471,9 @@ public class ReviewProjectDetail extends Base {
         //figure out if we have default money values for the reviewers
         Request r = new Request();
         r.setContentHandle("review_board_payments");
-        /*
-          r.setProperty(Constants.PROJECT_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
-          r.setProperty(Constants.PHASE_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PHASE_ID)));
-        */
+
         r.setProperty(Constants.PROJECT_ID, String.valueOf(projectId));
-        //        r.setProperty(Constants.PHASE_ID, String.valueOf(phaseId));
+        r.setProperty(Constants.PHASE_ID, String.valueOf(phaseId));
 
         Map results = getDataAccess().getData(r);
         ResultSetContainer detail = (ResultSetContainer) results.get("review_board_payments");
@@ -504,6 +515,7 @@ public class ReviewProjectDetail extends Base {
 
         r.setContentHandle("review_board_payments");
         r.setProperty(Constants.PROJECT_ID, String.valueOf(projectId));
+        r.setProperty(Constants.PHASE_ID, String.valueOf(phaseId));		
 
         Map results = getDataAccess().getData(r);
         ResultSetContainer detail = (ResultSetContainer) results.get("review_board_payments");
@@ -553,10 +565,10 @@ public class ReviewProjectDetail extends Base {
             // creates default price component
             // we default num submissions and num passed submissions to 1
             // dr points is also default to 0
-            ret = new ReviewBoardApplication(phaseId, levelId, 1, 1, prize, 0);
+            ret = new ReviewBoardApplication(phaseId-Constants.SPECIFICATION_COMPETITION_OFFSET, levelId, 1, 1, prize, 0);
         } else {
             // creates custom price component.
-            ret = new ReviewBoardApplication(phaseId, 0, 0, detail.getFloatItem(0, "amount"));
+            ret = new ReviewBoardApplication(phaseId-Constants.SPECIFICATION_COMPETITION_OFFSET, 0, 0, detail.getFloatItem(0, "amount"));
         }
 
         ret.setProjectId(projectId);
