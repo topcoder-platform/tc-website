@@ -133,11 +133,15 @@
         	<p><span class="bodySubtitle">Detailed Requirements</span><br></p>
         	${resultRow.map["detailed_requirements"]}
         
-        	<p><span class="bodySubtitle">Submission Deliverables</span><br></p>
-        	${resultRow.map["submission_deliverables"]}
-        
-        	<p><span class="bodySubtitle">Environment Setup Instructions</span><br></p> 
-        	${resultRow.map["environment_setup_instruction"]}
+			<c:if test="${fn:length(submission_deliverables) > 0}">        	
+        		<p><span class="bodySubtitle">Submission Deliverables</span><br></p>
+        		${resultRow.map["submission_deliverables"]}
+			</c:if>        
+
+			<c:if test="${fn:length(environment_setup_instruction) > 0}">        	
+	        	<p><span class="bodySubtitle">Environment Setup Instructions</span><br></p> 
+	        	${resultRow.map["environment_setup_instruction"]}
+			</c:if>        
         
         	<p><span class="bodySubtitle">Final Submission Guidelines</span><br></p> 
         	${resultRow.map["final_submission_guidelines"]}
