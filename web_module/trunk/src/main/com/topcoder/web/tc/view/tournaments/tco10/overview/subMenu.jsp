@@ -95,9 +95,9 @@
                     <li class="${sponsor2Class}">
                         <tco10:overviewStaticPageLink page="sponsor2">Facebook</tco10:overviewStaticPageLink>
                     </li>
-                    <!--<li class="${sponsor3Class}">
-                        <tco10:overviewStaticPageLink page="sponsor3">Sponsor 3</tco10:overviewStaticPageLink>
-                    </li>-->
+                    <li class="${sponsor3Class}">
+                        <tco10:overviewStaticPageLink page="sponsor3">PayPal X</tco10:overviewStaticPageLink>
+                    </li>
                 </ul>
             </c:when>
             <c:otherwise>
