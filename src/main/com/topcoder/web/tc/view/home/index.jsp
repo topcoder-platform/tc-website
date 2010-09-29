@@ -190,7 +190,7 @@
 						<!-- end .map -->
 						<!-- RSS Feed -->
 						<div id="rss">
-							<div class="topNews">Top News:</div>	
+							<!--<div class="topNews">Top News:</div>	-->
 							<div id="loading"><img src="./i/home/loading.gif" alt="Loading RSS Feed..." /></div>
 							<div class="scrollWrap">
 								<ul id="rssContent" style="width: 700px;">
