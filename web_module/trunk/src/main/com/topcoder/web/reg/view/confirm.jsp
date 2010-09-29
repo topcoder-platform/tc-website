@@ -112,7 +112,7 @@
 <c:if test="${cf:contains(fields, address1)}">
     <tr>
         <td class="field-name">
-            Address1:
+            Current Address1:
         </td>
         <td class="field-value">
                 ${regUser.homeAddress.address1}
@@ -124,7 +124,7 @@
 <c:if test="${cf:contains(fields, address2)}">
     <tr>
         <td class="field-name">
-            Address2:
+            Current Address2:
         </td>
         <td class="field-value">
                 ${regUser.homeAddress.address2}
@@ -136,7 +136,7 @@
 <c:if test="${cf:contains(fields, address3)}">
     <tr>
         <td class="field-name">
-            Address3:
+            Current Address3:
         </td>
         <td class="field-value">
                 ${regUser.homeAddress.address3}
