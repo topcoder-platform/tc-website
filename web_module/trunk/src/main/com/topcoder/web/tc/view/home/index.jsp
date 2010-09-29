@@ -41,28 +41,10 @@
 	</script>
 	<script type="text/javascript" src="./js/home/jquery.selectbox-0.5.js">
 	</script>
+	<script type="text/javascript" src="./js/home/jquery.jfeed.pack.js">
+	</script>
 	<script type="text/javascript" src="./js/home/initSlider.js">
 	</script>
-    
-<script type="text/javascript">
-
- var _gaq = _gaq || [];
- _gaq.push(['_setAccount', 'UA-6340959-1']);
- _gaq.push(['_setDomainName', '.topcoder.com']);
- _gaq.push(['_trackPageview']);
-
- (function() {
-   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
- })();
-
-</script>
-
-
-
-
-
 </head>
 <body>
 <!-- out Lay -->
@@ -88,7 +70,7 @@
 					</div>
 					<span class="tipArrow"></span>
 				</div>
-				<a href="http://studio.topcoder.com/">Design</a>
+				<a href="http://www.studio.topocder.com/">Design</a>
 				</li>
 				<li id="competeStudio">
 				<div class="tip hide">
@@ -101,11 +83,11 @@
 				</div>
 				<a href="http://www.topcoder.com/tc">Develop</a>
 				</li>
-				<li id="build">
+				<li id="tcblog">
 				<div class="tip hide">
 					<div class="tipContent">
 						<p>
-							Top<strong>Coder</strong> in the news
+							Top<strong>Coder</strong> Blog, News, and Updates
 						</p>
 					</div>
 					<span class="tipArrow"></span>
@@ -180,7 +162,7 @@
 											<br />
 											 TopCoder is Innovation.<br />
 											<br />
-											 TopCoder is revolutionizing the way companies<br /> get work done.<br />
+											 TopCoder is revolutionizing the software design and development process by tapping in to our unlimited global workforce to work for you.<br />
 											<br />
 										</p>
 										<!-- NOTE: Option values must be on one line to render properly -->
@@ -206,8 +188,26 @@
 							</div>
 						</div>
 						<!-- end .map -->
+						<!-- RSS Feed -->
+						<div id="rss">
+							<div class="topNews">Top News:</div>	
+							<div id="loading"><img src="./i/home/loading.gif" alt="Loading RSS Feed..." /></div>
+							<div class="scrollWrap">
+								<ul id="rssContent" style="width: 700px;">
+								</ul>
+							</div>
+							<div class="scrollNav">
+								<a class="movePrev" href="javascript:;"><span class="hide">Previous</span></a>
+								<a class="moveNext" href="javascript:;"><span class="hide">Next</span></a>
+							</div>
+
+							<div class="icon">
+								<a href="http://topcoder.com/home/blog/category/index_scroll/feed/"><span class="hide">RSS Feed</span></a>
+							</div>
+						</div>
+						<!-- end rss feed -->
 						<!-- the bottom scroll -->
-						<div class="bottomScrollDiv">
+						<div class="bottomScrollDiv" style="clear: both;">
 							<div class="bottomScroll_inner">
 								<div id="wrap">
 									<div id="slide">
@@ -228,7 +228,7 @@
 												<dd>Virtual Software Factory / Directed Innovation</dd>
 											</dl>
 											<p>
-                                                Assist internal engineering teams to build various APIs to expose capabilities within Alcatel-Lucent's core products.  Provide open innovation contests to use and display the capabilities of those APIs.
+                                                Assist internal engineering teams to build various APIs to expose capabilities within PayPalX's core products.  Provide open innovation contests to use and display the capabilities of those APIs.
          									</p>
 										</div>
 										<div id="p3">
