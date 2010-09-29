@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="../includes/taglibs.jsp" %>
 
-<tco10:pageSetup title="TCO 10 : Sponsors" area="overview" menu="sponsors" subMenu="sponsor2"/>
+<tco10:pageSetup title="TCO 10 : Sponsors" area="overview" menu="sponsors" subMenu="sponsor3"/>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -30,12 +30,12 @@
 
                 <div class="bigColumn">
 						<div class="text">
-							<h2 class="pageTitle">PayPal</h2><!-- page title -->
+							<h2 class="pageTitle">PayPal X</h2><!-- page title -->
                             <p align="center"><img src="i/tournament/tco10/paypal-logo-white.png" alt="PayPal X Developer Network" /></p>
                           <p>TopCoder is proud to announce PayPal as a sponsor for 2010 TopCoder Open! PayPal has partnered with TopCoder to leverage the power of our community and competition platform to promote and develop their own developer network, <a href="<tc-webtag:linkTracking link='http://www.x.com/' refer='tco10' />">PayPal X.</a> In fact, PayPal is giving away an iPad to the TopCoder member who earns the most DR points on PayPal-related contests by TCO!&nbsp;<br />
                             <br />
                             Interested in learning even more? Check out Innovate 2010 - the <a href="<tc-webtag:linkTracking link='http://www.paypal-xinnovate.com/' refer='tco10' />">PayPal X Developer Conference.</a> Taking place October 26-27, Innovate 2010 will have over:&nbsp;<br />
-                            <ul>
+                            <ul class="textlist">
                             <li>50+ technical sessions</li>
                             <li>30+ demos with code samples (some provided by TopCoder members!)</li>
                             <li>2000 of your peers&nbsp;</li>
