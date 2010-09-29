@@ -214,7 +214,7 @@
                             
                             <label for="<%=Constants.ADDRESS1%>">
                             <c:if test="${cf:contains(reqFields, address1)}"><span class="required">*</span></c:if>
-                            Address 1:
+                            Current Address 1:
                             </label>
                             <tc-webtag:textInput name="<%=Constants.ADDRESS1%>" id="<%=Constants.ADDRESS1%>" size="40" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/>
                             
@@ -233,7 +233,7 @@
                             
                             <label for="<%=Constants.ADDRESS2%>">
                             <c:if test="${cf:contains(reqFields, address2)}"><span class="required">*</span></c:if>
-                            Address 2:
+                            Current Address 2:
                             </label>
                             <tc-webtag:textInput name="<%=Constants.ADDRESS2%>" id="<%=Constants.ADDRESS2%>" size="40" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/>
                             
@@ -252,7 +252,7 @@
                             
                             <label for="<%=Constants.ADDRESS3%>">
                             <c:if test="${cf:contains(reqFields, address3)}"><span class="required">*</span></c:if>
-                            Address 3:
+                            Current Address 3:
                             </label>
                             <tc-webtag:textInput name="<%=Constants.ADDRESS3%>" id="<%=Constants.ADDRESS3%>" size="40" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/>
                             
