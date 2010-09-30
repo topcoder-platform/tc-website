@@ -14,10 +14,6 @@
     <span class="innerRightBottom"></span><!-- gray frame right bottom corner image -->
 </div><!-- End .innerBottom-->
 
-<div class="register"><!-- End .register button image ,as fixed ie 6.0-->
-    <tco10:overviewStaticPageLink page="registration">register</tco10:overviewStaticPageLink><!--End .register button-->
-</div><!--End .register-->
-
 <div id="menu">
     <div class="backgroundTop"><!-- gray frame top shadow -->
         <span class="leftCorner"></span><!-- gray frame left top corner image-->
