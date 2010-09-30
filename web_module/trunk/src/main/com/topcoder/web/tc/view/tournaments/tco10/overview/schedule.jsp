@@ -90,12 +90,12 @@
 								<td colspan="2">Breakfast</td>
 							</tr>
                            <tr>
-                                <td>8:30 a.m. - 10:00 a.m.</td>
+                              <td>9:00 a.m. - 11:30 a.m.</td>
+                              <td colspan="2">Algorithm Semifinal 1</td>
+                          </tr>
+                           <tr>
+                                <td>9:30 a.m. - 11:00 a.m.</td>
 								<td colspan="2">Mod Dash Competition Final 2</td>
-							</tr>
-                            <tr>
-                                <td>9:00 a.m. - 11:30 a.m.</td>
-								<td colspan="2">Algorithm Semifinal 1</td>
 							</tr>
                             <tr>
                                 <td>12:00 p.m. - 1:30 p.m.</td>
@@ -153,7 +153,7 @@
 						</table>
                         
                         <div class="text">
-							<p>Please note all competition rounds here include 30 minute set up time.</p>   
+			        <p>Please note all competition rounds here include 30 minute set up time.</p>   
 							<p class="imp-note">All times are listed in Pacific Daylight Time or PDT UTC -7.</p>
                             <p class="imp-note">*Schedule subject to change with or without notice.</p>                
                         </div>
