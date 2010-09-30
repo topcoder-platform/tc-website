@@ -5228,12 +5228,15 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                // Pay Copilot role          
                 p = new CopilotPayment(coderId, amount, client, projectId);
                 }
+            else if (paymentType.startsWith("Spec Review Payment")) {
+               // Pay Specification Reviewer role          
+                p = new SpecificationReviewPayment(coderId, amount, client, projectId);
+                }
             else if (projectType == DESIGN_PROJECT) {
                 p = new ReviewBoardPayment(coderId, amount, client, projectId);
                 // Post-mortem review payments is not to be withheld
                 if (applyReviewerWithholding &&
-                    !paymentType.startsWith("Post-Mortem Payment") && 
-                    !paymentType.startsWith("Spec Review Payment") ) {
+                    !paymentType.startsWith("Post-Mortem Payment")) {
                     p.setGrossAmount(amount * DESIGN_REVIEWERS_FIRST_INSTALLMENT_PERCENT);
                 } else {
                     p.setGrossAmount(amount);
