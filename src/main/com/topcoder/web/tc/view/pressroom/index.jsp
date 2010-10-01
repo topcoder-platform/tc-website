@@ -97,6 +97,20 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
                 
+                <%-- FB & PP sponsors --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_093010"><img src="/i/pressroom/tco10_logo.png" alt="TCO10" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_093010">TopCoder Announces PayPal &amp; Facebook as Sponsors of 2010TopCoder Open</a></h3>
+                        <p><small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_093010">[September 30th]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                
+                <%-- FB & PP sponsors end --%>
+                
                 <%-- tco10 finalists --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
