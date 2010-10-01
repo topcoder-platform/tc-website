@@ -101,7 +101,7 @@
                                 <table cellpadding="2" cellspacing="0" border="0">
                                     <tr>
                                         <td class="name" align="right">Handle:</td>
-                                        <td class="value"><input type="text" name="<%=Login.USER_NAME%>" value="" maxlength="15" size="30" onkeypress="submitEnter(event)" class="textfield"></td>
+                                        <td class="value"><input type="text" name="<%=Login.USER_NAME%>" value="" maxlength="30" size="30" onkeypress="submitEnter(event)" class="textfield"></td>
                                     </tr>
                                     <tr>
                                         <td class="name" align="right">Password:</td>
