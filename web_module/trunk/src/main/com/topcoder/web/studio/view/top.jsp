@@ -39,7 +39,7 @@ String section = request.getParameter("section") == null ? "" : request.getParam
                         <div id="left">
                             <div id="username">
                                 <span>Username:</span>
-                                <input type="text" name="<%=Login.USER_NAME%>" maxlength="15" type="text" tabindex="1" />
+                                <input type="text" name="<%=Login.USER_NAME%>" maxlength="30" type="text" tabindex="1" />
                             </div>
                             <div id="password"><span>Password:</span>
                                 <input type="password" name="<%=Login.PASSWORD%>" maxlength="30" tabindex="2" />
