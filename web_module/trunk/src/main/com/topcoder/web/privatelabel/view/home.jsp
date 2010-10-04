@@ -39,7 +39,7 @@
 
 <%-- Current Tournaments begins --%>
 
-         <div class="sectionHeader">Current Events</div>
+         <div class="sectionHeader">Current</div>
          
            <hr width="100%" size="1" noshade="noshade" />
          
@@ -47,9 +47,25 @@
 
            <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
+                    <td width="274" rowspan="2"><A href="<tc-webtag:linkTracking link='http://topcoder.com/home/alcatel/web-mashup-challenge/' refer='pbtc page' />" target="_blank"><img src="/i/events/alcatel-web-mashup.png" alt="Alcatel-Lucent WEb Mashup Challenge" border="0" /></A></td>
+                    <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText"><font size="3"><strong>Alcatel-Lucent Web Mashup Challenge</strong></font></td>
+                </tr>
+                <tr valign="top">
+                    <td class="bodyText">
+                        September 24 - October 12, 2010 <br />
+                        <A href="<tc-webtag:linkTracking link='http://topcoder.com/home/alcatel/web-mashup-challenge/' refer='pbtc page' />" target="_blank">Summary</A>
+                    </td>
+                </tr>
+            </table>
+            
+           <hr width="100%" size="1" noshade="noshade" />
+
+           <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
                     <td width="274" rowspan="2"><A href="<tc-webtag:linkTracking link='http://topcoder.com/home/alcatel/100-apps-in-100-days/' refer='pbtc page' />" target="_blank"><img src="/i/events/alcatel-100-apps.png" alt="Alcatel-Lucent 100 Apps in 100 Days" border="0" /></A></td>
                     <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
-                    <td width="99%" class="bodyText"><font size="3"><strong>Alcatel-Lucent 100 Apps in 100 Days Event </strong></font></td>
+                    <td width="99%" class="bodyText"><font size="3"><strong>Alcatel-Lucent 100 Apps in 100 Days </strong></font></td>
                 </tr>
                 <tr valign="top">
                     <td class="bodyText">
@@ -65,7 +81,7 @@
                 <tr valign="top">
                     <td width="274" rowspan="2"><A href="<tc-webtag:linkTracking link='http://topcoder.com/home/x/' refer='pbtc page' />" target="_blank"><img src="/i/events/paypal-x.png" alt="PayPal X Powered by topCoder" border="0" /></A></td>
                     <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
-                    <td width="99%" class="bodyText"><font size="3"><strong>PayPal X Powered by TopCoder Event</strong></font></td>
+                    <td width="99%" class="bodyText"><font size="3"><strong>PayPal X Powered by TopCoder</strong></font></td>
                 </tr>
                 <tr valign="top">
                     <td class="bodyText">
@@ -78,7 +94,7 @@
 
 <%-- Past Tournaments begins --%>
 
-         <div class="sectionHeader" width="100%">Past Events</div>
+         <div class="sectionHeader" width="100%">Past</div>
            <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274" rowspan="2"><A href="<tc-webtag:linkTracking link='tc?module=Static&d1=sponsors&d2=NSAOverview' refer='pbtc page' />" target="_blank"><img src="/i/sponsor/nsa/nsa-mm-banner-small.png" alt="NSA Marathon Match Event" border="0" /></A></td>
