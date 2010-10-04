@@ -5,25 +5,29 @@ package com.topcoder.web.tc.controller;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.topcoder.web.ejb.termsofuse.TermsOfUse;
-import com.topcoder.web.ejb.termsofuse.TermsOfUseEntity;
-import com.topcoder.web.ejb.termsofuse.TermsOfUseLocator;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.ejb.user.UserTermsOfUseLocator;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.security.login.LoginLocal;
-import com.topcoder.security.TCSubject;
-import com.topcoder.web.common.security.Constants;
-import com.topcoder.security.login.AuthenticationException;
+import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.shared.security.LoginException;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.common.RequestProcessor;
+import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.HttpObjectFactory;
+
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.model.Notification;
+
+import java.util.List;
+import java.util.Set;
+
 /**
  */
 public class AgreeToTermsServlet extends BaseServlet {
@@ -67,20 +71,30 @@ public class AgreeToTermsServlet extends BaseServlet {
             String cb = request.getParameter("cb");
             //BUGR-4218: new param
             boolean agree = Boolean.parseBoolean(request.getParameter("agree"));
+            //BUGR-4262: new param
+            boolean notify = true;
+            String notifyStr=request.getParameter("notify");
+            if(notifyStr!=null) 
+	    { 
+		notify=Boolean.parseBoolean(notifyStr);
+	    }
 
             //BUGR-4218: check logged in user
             TCRequest tcRequest = HttpObjectFactory.createRequest(request);
             TCResponse tcResponse = HttpObjectFactory.createResponse(response);
-            //set up security objects and session info
             WebAuthentication authentication = createAuthentication(tcRequest, tcResponse);
-            TCSubject tcSubject = getUser(authentication.getActiveUser().getId());
 
             // if user not logged in
             if(authentication.getActiveUser().isAnonymous()){
                 if (handle != null && !handle.equals("")
                      && password != null && !password.equals(""))
                 {
-                    tcSubject = authenticate(handle, password);
+                    try {
+                        //BUGR-4262
+                        authentication.login(new SimpleUser(0, handle, password),false);
+                    } catch (LoginException e) {
+                        response.getOutputStream().println(cb == null ? "<response>bad login</response>" : cb + "({\"response\":\"bad login\"})");
+                    }
                 }
                 else
                 {
@@ -89,11 +103,9 @@ public class AgreeToTermsServlet extends BaseServlet {
                 }
                 
             }
-            if (tcSubject == null) {
-                response.getOutputStream().println(cb == null ? "<response>bad login</response>" : cb + "({\"response\":\"bad login\"})");
-            } else {
+            if (!authentication.getActiveUser().isAnonymous()){
 
-                long userId = tcSubject.getUserId();
+                long userId = authentication.getActiveUser().getId();
                 long termsId = Long.parseLong(terms);
 
                 //For now, we force the terms id.
@@ -104,11 +116,15 @@ public class AgreeToTermsServlet extends BaseServlet {
                 UserTermsOfUse userTermsOfUse = UserTermsOfUseLocator.getService();
                 if (userTermsOfUse.hasTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
                     // already joined
+                    //BUGR-4262
+                    if(termsId==20873) notifyPayPal(tcRequest,tcResponse,authentication,notify);
                     response.getOutputStream().println(cb == null ? "<response>already agreed</response>" : cb + "({\"response\":\"already agreed\"})");
                 } else if(agree){ //BUGR-4218: only attempt to agree to the terms if agree=true
                     try {
                         userTermsOfUse.createUserTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
                         // success
+                        //BUGR-4262
+                        if(termsId==20873) notifyPayPal(tcRequest,tcResponse,authentication,notify);
                         response.getOutputStream().println(cb == null ? "<response>success</response>" : cb + "({\"response\":\"success\"})");
                     } catch (Exception e) {
                         response.getOutputStream().println(cb == null ? "<response>bad terms</response>" : cb + "({\"response\":\"bad terms\"})");
@@ -126,17 +142,28 @@ public class AgreeToTermsServlet extends BaseServlet {
         doPost(request, response);
     }
 
-    private TCSubject authenticate(final String userName, final String password) {
-        TCSubject ret = null;
-        try {
-            LoginLocal login = (LoginLocal) Constants.createLocalEJB(LoginLocal.class);
-            ret = login.login(userName, password);
-        } catch (AuthenticationException e){
-            return null;
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        return ret;
+    //BUGR-4262
+    private void notifyPayPal(TCRequest tcRequest, TCResponse tcResponse, WebAuthentication authentication, final boolean notify) throws Exception {
+        RequestProcessor rp = new ShortHibernateProcessor() {
+            protected void dbProcessing() throws Exception {
+                User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
+                List<Notification> notifications = (List<Notification>) DAOUtil.getFactory().getNotificationDAO().getNotifications(u.getRegistrationTypes());
+                Set<Notification> userNotifications = (Set<Notification>) u.getNotifications();
+                for (Notification n : notifications) {
+                    if (n.getId() == 15) {
+                        if (!userNotifications.contains(n) && notify) {
+                            u.addNotification(n);
+                        }
+                        break;
+                    }
+                }
+                DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);
+            }
+        };
+        rp.setRequest(tcRequest);
+        rp.setResponse(tcResponse);
+        rp.setAuthentication(authentication);
+        rp.process();
+        rp.postProcessing();
     }
 }
-
