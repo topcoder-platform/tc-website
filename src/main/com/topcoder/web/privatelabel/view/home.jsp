@@ -34,22 +34,51 @@
    <div style="width: 550px; text-align: left; margin: 0px 15px 0px 15px;">
 
     <jsp:include page="/page_title.jsp">
-        <jsp:param name="image" value="tc_tournaments"/>
-        <jsp:param name="title" value="Powered by TopCoder"/>
+        <jsp:param name="image" value="tc_pbtc"/>
     </jsp:include>
 
-<%-- Current Tournaments begins 
+<%-- Current Tournaments begins --%>
 
-         <div class="sectionHeader">Current Tournaments</div>
+         <div class="sectionHeader">Current Events</div>
          
            <hr width="100%" size="1" noshade="noshade" />
          
            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
- --%>
+
+           <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274" rowspan="2"><A href="<tc-webtag:linkTracking link='http://topcoder.com/home/alcatel/100-apps-in-100-days/' refer='pbtc page' />" target="_blank"><img src="/i/events/alcatel-100-apps.png" alt="Alcatel-Lucent 100 Apps in 100 Days" border="0" /></A></td>
+                    <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText"><font size="3"><strong>Alcatel-Lucent 100 Apps in 100 Days Event </strong></font></td>
+                </tr>
+                <tr valign="top">
+                    <td class="bodyText">
+                        September - December 2010 <br />
+                        <A href="<tc-webtag:linkTracking link='http://topcoder.com/home/alcatel/100-apps-in-100-days/' refer='pbtc page' />" target="_blank">Summary</A>
+                    </td>
+                </tr>
+            </table>
+            
+           <hr width="100%" size="1" noshade="noshade" />
+
+           <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274" rowspan="2"><A href="<tc-webtag:linkTracking link='http://topcoder.com/home/x/' refer='pbtc page' />" target="_blank"><img src="/i/events/paypal-x.png" alt="PayPal X Powered by topCoder" border="0" /></A></td>
+                    <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText"><font size="3"><strong>PayPal X Powered by TopCoder Event</strong></font></td>
+                </tr>
+                <tr valign="top">
+                    <td class="bodyText">
+                        Started August 2010 <br />
+                        <A href="<tc-webtag:linkTracking link='http://topcoder.com/home/x/' refer='pbtc page' />" target="_blank">Summary</A>
+                    </td>
+                </tr>
+            </table>
+            <br><br>
 
 <%-- Past Tournaments begins --%>
 
-         <div class="sectionHeader" width="100%">Past Tournaments</div>
+         <div class="sectionHeader" width="100%">Past Events</div>
            <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274" rowspan="2"><A href="<tc-webtag:linkTracking link='tc?module=Static&d1=sponsors&d2=NSAOverview' refer='pbtc page' />" target="_blank"><img src="/i/sponsor/nsa/nsa-mm-banner-small.png" alt="NSA Marathon Match Event" border="0" /></A></td>
