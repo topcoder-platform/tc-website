@@ -118,8 +118,8 @@
 <c:choose>
     <c:when test="${fn:length(requirements) > 0}">
         <c:forEach items="${requirements}" var="resultRow">
-        	<p><span class="bodySubtitle">Public Description</span><br></p>
-        	${resultRow.map["detailed_requirements"]}
+          <p><span class="bodySubtitle">Public Description</span><br></p>
+          ${resultRow.map["detailed_requirements"]}
 
             <%-- need permission to view private description --%>
             <c:if test="${privateDescriptionPermission}">
@@ -127,11 +127,11 @@
                 ${resultRow.map["private_description"]}
             </c:if>
             
-        	<p><span class="bodySubtitle">Submission Deliverables</span><br></p>
-        	${resultRow.map["submission_deliverables"]}
+          <p><span class="bodySubtitle">Submission Deliverables</span><br></p>
+          ${resultRow.map["submission_deliverables"]}
 
-        	<p><span class="bodySubtitle">Final Submission Guidelines</span><br></p>
-        	${resultRow.map["final_submission_guidelines"]}
+          <p><span class="bodySubtitle">Final Submission Guidelines</span><br></p>
+          ${resultRow.map["final_submission_guidelines"]}
 
         </c:forEach>
     </c:when>

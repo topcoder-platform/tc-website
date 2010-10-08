@@ -78,7 +78,7 @@
         <td align="right">
           <c:choose>
             <c:when test="${pt == COPILOT_POSTING_TYPE_ID}">
-                <a href="/wiki/display/tc/How+to+Compete+in+Studio+Component+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
+                <a href="/wiki/display/tc/How+to+Compete+in+Copilot+Postings"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
             </c:when>
           </c:choose>
         </td>
@@ -89,8 +89,8 @@
       <c:choose>
         <c:when test="${pt == COPILOT_POSTING_TYPE_ID}">
             Copilot opportunities via RSS -
-            <a href="/tc?module=BasicRSS&amp;c=rss_Architecture_Registration_Open&amp;dsid=28">Subscribe Now</a>
-            <a href="/tc?module=BasicRSS&amp;c=rss_Architecture_Registration_Open&amp;dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
+            <a href="/tc?module=BasicRSS&c=rss_Registration_Open&dsid=28&pt=29">Subscribe Now</a>
+            <a href="/tc?module=BasicRSS&c=rss_Registration_Open&dsid=28&pt=29"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
         </c:when>
       </c:choose>
     <br /><br />
