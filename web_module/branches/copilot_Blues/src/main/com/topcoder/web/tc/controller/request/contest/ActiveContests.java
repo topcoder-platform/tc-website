@@ -70,11 +70,10 @@ public class ActiveContests extends ActiveContestsBase {
                 // get permission map and set into request for copilot postings
                 Map<Long, Boolean> copilotPostingViewPermissions = populateCopilotPostingPermissions();
 
-                if (this.getSessionInfo().isAdmin()) {
-
-                    // set all the copilot permissions to true
+                if (this.getSessionInfo().isAnonymous()) {
+                    // if user is not logged, he can only view copilot posting text name
                     for (Long key : copilotPostingViewPermissions.keySet()) {
-                        copilotPostingViewPermissions.put(key, true);
+                        copilotPostingViewPermissions.put(key, false);
                     }
                 }
                 getRequest().setAttribute("permissions", copilotPostingViewPermissions);
@@ -169,7 +168,8 @@ public class ActiveContests extends ActiveContestsBase {
 
             boolean hasPermission =  (postingResources > 0 ||  inCopilotPool > 0 || hasDirectProjectPermission > 0);
 
-            permissions.put(row.getLongItem("project_id"), hasPermission);
+            // always set to true now
+            permissions.put(row.getLongItem("project_id"), true);
         }
         return permissions;
     }

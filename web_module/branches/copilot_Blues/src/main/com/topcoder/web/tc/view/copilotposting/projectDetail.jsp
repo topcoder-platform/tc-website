@@ -68,6 +68,9 @@
     </tr>
 </table>
 <table cellspacing="0" cellpadding="0" width="530" class="bodyText" style="margin-top: 20px; margin-bottom: 20px;">
+  <c:choose>
+   <c:when test="${registerButton}">
+
    <% if (projectDetail.getStringItem(0, "project_status").equals("closed")) { %>
    <tr>
       <td width="50%" valign="top">
@@ -108,6 +111,14 @@
       </td>
    </tr>
    <% } %>
+       </c:when>
+      <c:otherwise>
+          <tr>
+          <p align='center'>Want to participate as a copilot? Click <a href="/wiki/display/tc/Copilot+Overview ">here</a> to find out more.</p>
+           </tr>
+      </c:otherwise>
+     </c:choose>
+
 </table>
 <table cellspacing="0" class="formFrame" align="center" width="530">
     <tr>
@@ -153,8 +164,9 @@
 </ul>
 
 <%-- Documentation --%>
-
-<jsp:include page="../contest/supportingDocumentation.jsp"/>
+<c:if test="${privateDescriptionPermission}">
+    <jsp:include page="../contest/supportingDocumentation.jsp"/>
+</c:if>
 
 <%-- Forum --%>
 <p><span class="bodySubtitle"><strong>Forum</strong></span><br>
