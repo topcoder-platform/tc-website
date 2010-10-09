@@ -50,8 +50,8 @@
             </strong>
         </div>
         <br /><br />
-        --%>Copy Copy Copy<span class="bigTitle"></span><br />
-        <p><span class="bodySubtitle">Copy goes here.</span><br />
+        --%><br />
+        <p><span class="bodySubtitle">Details Coming Soon!</span><br />
 
         <p>&nbsp;</p>
 
