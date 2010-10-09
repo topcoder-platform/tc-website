@@ -51,9 +51,9 @@
         </div>
         <br /><br />
         --%><br />
-        <p><span class="bodySubtitle">Details Coming Soon!</span><br />
+        <div align="center"><p><span class="bodySubtitle">Details Coming Soon!</span><br />
 
-        <p>&nbsp;</p>
+        </p></div>
 
         </td>
 <%-- Center Column Ends --%>
