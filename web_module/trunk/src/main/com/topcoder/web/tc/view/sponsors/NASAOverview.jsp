@@ -37,7 +37,7 @@
             <div class="fixedWidthBody">
            
         <div align="center"><img src="/i/sponsor/nasa/nasa_patch.jpg" border="0px" alt="NASA Patch" /><br /><br />
-        	<h1>NSA Tournament Labs</h1>
+        	<!--<h1>NSA Tournament Labs</h1>-->
         </div>
         
         
@@ -51,7 +51,8 @@
         </div>
         <br /><br />
         --%><br />
-        <div align="center"><p><span class="bodySubtitle">Details Coming Soon!</span><br />
+        <div align="center"><p><span class="bodySubtitle">
+        &nbsp;</span><br />
 
         </p></div>
 
