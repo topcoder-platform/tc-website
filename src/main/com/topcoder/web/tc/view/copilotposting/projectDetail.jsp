@@ -114,7 +114,7 @@
        </c:when>
       <c:otherwise>
           <tr>
-          <p align='center'>Want to participate as a copilot? Click <a href="/wiki/display/tc/Copilot+Overview ">here</a> to find out more.</p>
+          <div align='center'>Want to participate as a copilot? Click <a href="/wiki/display/tc/Copilot+Overview ">here</a> to find out more.</div>
            </tr>
       </c:otherwise>
      </c:choose>
