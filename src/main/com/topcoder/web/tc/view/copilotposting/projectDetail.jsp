@@ -113,8 +113,8 @@
    <% } %>
        </c:when>
       <c:otherwise>
-          
-          <div align='center'>Want to participate as a copilot? Click <a href="/wiki/display/tc/Copilot+Overview ">here</a> to find out more.</div>
+          <tr> <td align='center'>Want to participate as a copilot? Click <a href="/wiki/display/tc/Copilot+Overview ">here</a> to find out more.</td></tr>
+
 
       </c:otherwise>
      </c:choose>
