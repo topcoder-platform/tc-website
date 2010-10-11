@@ -36,23 +36,16 @@
         <td width="100%" align="center" class="bodyColumn">
             <div class="fixedWidthBody">
            
+        <div align="center"><p><span class="bodySubtitle"><br />First, there was the NASA-TopCoder Challenge...
+        </span>
+        
         <div align="center"><img src="/i/sponsor/nasa/nasa_patch.jpg" border="0px" alt="NASA Patch" /><br /><br />
         	<!--<h1>NSA Tournament Labs</h1>-->
         </div>
         
-        
-		
-		<%-- 
-        <div style="float: right;">
-        <h3 style="border-bottom: 1px solid #999999;">Chat Session Transcripts</h3>
-            <strong>
-                <a style="text-decoration:none;" href=""></a>
-            </strong>
-        </div>
-        <br /><br />
-        --%><br />
+        <br />
         <div align="center"><p><span class="bodySubtitle">
-        &nbsp;</span><br />
+        And Coming Soon, the NASA Tournament Lab!</span></p> Check back soon for more information.</span><br /></div>
 
         </p></div>
 
