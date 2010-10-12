@@ -58,7 +58,7 @@ public class ViewPastContests extends BaseProcessor {
         year = (year == null || year.trim().length() == 0) ? null : year;
 
         if( month == null && year == null ) {//If both are null, assume last 30 days.
-            DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
             Calendar now = Calendar.getInstance();
             Calendar thirtyDaysBefore = Calendar.getInstance();
@@ -93,7 +93,7 @@ public class ViewPastContests extends BaseProcessor {
                 .valueOf(Calendar.getInstance().get(Calendar.MONTH) + 1)) && year.equals(String
                 .valueOf(Calendar.getInstance().get(Calendar.YEAR)))) {
             // query past 30 days contents
-            DateFormat df = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
             Calendar now = Calendar.getInstance();
             Calendar thirtyDaysBefore = Calendar.getInstance();
