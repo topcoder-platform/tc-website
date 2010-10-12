@@ -32,28 +32,24 @@ public class UserServicesBean extends BaseEJB {
             "select c.coder_id " +
             "     , u.handle " +
             "     , NVL(r.rating,0) as algorithm_rating " +
-            "     , NVL(dsr.rating,0) as design_rating " +
-            "     , NVL(dvr.rating,0) as development_rating " +
             "     , NVL(ar.rating,0) as hs_algorithm_rating " +
             "     , NVL(armm.rating,0) as marathon_match_rating " +
+            "     , max(NVL(sr.rating,0)) as max_software_rating " +
             "  from OUTER coder c " +
             "     , user u " +
             "     , OUTER(rating r) " +
             "     , OUTER(algo_rating ar) " +
             "     , OUTER(algo_rating armm) " +
-            "     , OUTER(tcs_catalog:user_rating dsr) " +
-            "     , OUTER(tcs_catalog:user_rating dvr) " +
+            "     , OUTER(tcs_catalog:user_rating sr) " +
             " where u.user_id = ? " +
             "   and u.user_id = c.coder_id " +
             "   and r.coder_id = u.user_id " +
-            "   and dsr.user_id = u.user_id " +
-            "   and dsr.phase_id = 112 " +
-            "   and dvr.user_id = u.user_id " +
-            "   and dvr.phase_id = 113 " +
+            "   and sr.user_id = u.user_id " +
             "   and ar.coder_id = u.user_id " +
             "   and ar.algo_rating_type_id = 2 " +
             "   and armm.coder_id = u.user_id " +
-            "   and armm.algo_rating_type_id = 3";
+            "   and armm.algo_rating_type_id = 3 " +
+            " group by 1,2,3,4,5";
 
     private static final String GET_RATED_STUDIO_QUERY =
         "select count(*) as num_passed from submission s, submission_review sr " +
@@ -99,8 +95,7 @@ public class UserServicesBean extends BaseEJB {
             rsOLTP = psOLTP.executeQuery();
             if (rsOLTP.next() &&
                 (rsOLTP.getInt("algorithm_rating") +
-                rsOLTP.getInt("design_rating") +
-                rsOLTP.getInt("development_rating") +
+                rsOLTP.getInt("max_software_rating") +
                 rsOLTP.getInt("hs_algorithm_rating") +
                 rsOLTP.getInt("marathon_match_rating")) > 0) {
                 rated = true;
