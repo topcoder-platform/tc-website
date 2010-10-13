@@ -28,7 +28,10 @@
         	<img src="i/tournament/tco10/paypal_logo.png" alt="TCO10 Sponsor - PayPal X Developer Network" /></tco10:overviewStaticPageLink>
         </div>
         <br/>
-
+		<br />
+        <div class="logo small">
+        
+		</div>
         <br/>
 
         <!--End .photo-->
