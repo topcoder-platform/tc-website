@@ -96,6 +96,18 @@
             
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
+            
+            	 <%-- DARPA --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_101410"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_101410">DARPA and TopCoder Seek to Change How Students Spend Time Online</a></h3>
+                        <p><small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_101410">[October 14th]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
                 
                 <%-- FB & PP sponsors --%>
                 <div class="pr_newsitem">
@@ -103,7 +115,7 @@
                         <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_093010"><img src="/i/pressroom/tco10_logo.png" alt="TCO10" border="0" /></a>
                     </div>
                     <div class="pr_headlines">
-                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_093010">TopCoder Announces PayPal &amp; Facebook as Sponsors of 2010TopCoder Open</a></h3>
+                        <h3><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_093010">TopCoder Announces PayPal &amp; Facebook as Sponsors of 2010 TopCoder Open</a></h3>
                         <p><small><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_093010">[September 30th]</a></small></p>
                     </div>
                     <div class="pr_clear"></div>

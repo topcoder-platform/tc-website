@@ -72,7 +72,8 @@
             
                 <div class="pr_newsarchive">
                     <dl>
-                    <dd><a href="http://www.scmagazineus.com/global-village/article/164049/">Testing competitions can improve code, but crowdsourcing brings new concerns to security governance.<br /><small style="margin-left:10px;">[March 1 - SC Magazine]</small></a></dd>
+                    <dd><a href="http://gcn.com/articles/2010/10/12/darpa-launches-computer-science-education-program.aspx">DARPA seeks to shape young minds<br /><small style="margin-left:10px;">[October 12 - GCN Government Computer News]</small></a></dd>
+                     <dd><a href="http://www.scmagazineus.com/global-village/article/164049/">Testing competitions can improve code, but crowdsourcing brings new concerns to security governance.<br /><small style="margin-left:10px;">[March 1 - SC Magazine]</small></a></dd>
                     <dd><a href="http://www.computer.org/portal/web/buildyourcareer/et13/contests">Developer Contests Abound<br /><small style="margin-left:10px;">[January 8th - IEEE Computer Society]</small></a></dd>
                     </dl>
                 </div>
