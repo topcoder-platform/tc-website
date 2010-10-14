@@ -216,7 +216,7 @@ t<c:set var="round5SortColumnIndex" value="<%=rsc.getColumnIndex("round5_sort")%
                                         <td>
                                             <tco10:roundResultStatus roundId="${finals_id}"
                                                                      roundResult="${resultRow.map['final']}"
-                                                                     prevRoundResult="${resultRow.map['semi_total']}"
+                                                                     prevRoundResult="${null}"
                                                                      index="${index.index}"/>
                                         </td>
                                     </tr>
