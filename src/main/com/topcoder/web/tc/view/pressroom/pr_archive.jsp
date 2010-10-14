@@ -70,7 +70,8 @@
             
                 <div class="pr_newsarchive">
                     <dl>
-                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_093010">TopCoder Announces PayPal &amp; Facebook as Sponsors of 2010TopCoder Open<br /><small style="margin-left:10px;">[September 30th]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_101410">DARPA and TopCoder Seek to Change How Students Spend Time Online<br /><small style="margin-left:10px;">[October 14th]</small></a></dd>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_093010">TopCoder Announces PayPal &amp; Facebook as Sponsors of 2010 TopCoder Open<br /><small style="margin-left:10px;">[September 30th]</small></a></dd>
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_090810">Onsite Finalists Announced for 2010 TopCoder Open Programming Tournament<br /><small style="margin-left:10px;">[September 8th]</small></a></dd>
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_072710">TopCoder Community Refines Medical Kits for Future NASA Space Missions<br /><small style="margin-left:10px;">[July 27th]</small></a></dd>
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_060110">TopCoder Community Celebrates 250,000 Member Milestone<br /><small style="margin-left:10px;">[June 1st]</small></a></dd>
