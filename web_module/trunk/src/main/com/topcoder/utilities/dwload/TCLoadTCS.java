@@ -1,8 +1,9 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.utilities.dwload;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -73,9 +74,17 @@ import com.topcoder.utilities.dwload.contestresult.drv2.ContestResultCalculatorV
  *     <li>Broke up project loading in chunks to get past an Informix statement size limitation.</li>
  *   </ol>
  * </p>
+ * <p>
+ *   Version 1.1.7 (Direct Data Load Tool assembly) Change notes:
+ *   <ol>
+ *     <li>Added {@link #doLoadDirectProjectStats()} method.</li>
+ *     <li>Updated {@link #doLoadProjects()} method to copy newly added columns for admin fee, contest cost total
+ *     and TC Direc project ID added to tcs_dw.project table.</li>
+ *   </ol>
+ * </p>
  *
- * @author rfairfax, pulky, ivern, VolodymyrK
- * @version 1.1.6
+ * @author rfairfax, pulky, ivern, VolodymyrK, TCSDEVELOPER
+ * @version 1.1.7
  */
 public class TCLoadTCS extends TCLoad {
 
@@ -272,6 +281,8 @@ public class TCLoadTCS extends TCLoad {
             doLoadDRTrackPoints();
 
             doLoadDRTrackResults();
+
+            doLoadDirectProjectStats();
 
             doClearCache();
 
@@ -884,6 +895,18 @@ public class TCLoadTCS extends TCLoad {
                             "   ,cv.suspended_ind " +
                             "   ,p.project_category_id " +
                             "   ,pcl.name " +
+                            "   ,p.tc_direct_project_id " +
+                            "   ,piaf.value::DECIMAL(10,2) AS admin_fee " +
+//                            "   ,(SELECT SUM(value::decimal(10,2)) " +
+//                            "     FROM project_info costs " +
+//                            "     WHERE costs.project_id = p.project_id " +
+//                            "     AND costs.project_info_type_id IN (30, 33, 35, 36, 37, 38, 39)) " +
+//                            "     AS contest_prizes_total " +
+                            "   ,(SELECT SUM(gross_amount) " +
+                            "     FROM informixoltp:payment pm INNER JOIN informixoltp:payment_detail pmd ON pm.most_recent_detail_id = pmd.payment_detail_id " +
+                            "     WHERE pmd.component_project_id::int = p.project_id " +
+                            "     AND NOT pmd.payment_status_id IN (65, 69)) " +
+                            "     AS contest_prizes_total " +
                             "   from project p , " +
                             "   project_info pir, " +
                             "   project_info pivers, " +
@@ -892,6 +915,7 @@ public class TCLoadTCS extends TCLoad {
                             "   outer project_info pict," +
                             "   outer project_info pi1," +
                             "   outer project_info pi2," +
+                            "   outer project_info piaf," +
                             "   categories cat, " +
                             "   comp_catalog cc, " +
                             "   comp_versions cv, " +
@@ -914,6 +938,8 @@ public class TCLoadTCS extends TCLoad {
                             "   and pi1.project_info_type_id = 21 " +
                             "   and pi2.project_id = p.project_id " +
                             "   and pi2.project_info_type_id = 3 " +
+                            "   and piaf.project_id = p.project_id " +
+                            "   and piaf.project_info_type_id = 31 " +
                             ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
                             "   and cc.component_id = pir.value " +
                             "   and cc.root_category_id = cat.category_id " +
@@ -937,30 +963,32 @@ public class TCLoadTCS extends TCLoad {
                             "   (u.create_date > ? or u.modify_date > ? or s.create_date > ? or s.modify_date > ?)) " +
                             // add projects who have modified results
                             "   or p.project_id in (select distinct pr.project_id from project_result pr where (pr.create_date > ? or pr.modify_date > ?)) " +
-                            "   OR pir.modify_date > ? " +
-                            (needLoadMovedProject() ? " OR p.modify_user <> 'Converter' " +
-                                    " OR pir.modify_user <> 'Converter' " +
-                                    ")"
-                                    : ")");
+                            "   or p.project_id in (select distinct pmd.component_project_id::int " +
+                            "      FROM informixoltp:payment pm INNER JOIN informixoltp:payment_detail pmd ON pm.most_recent_detail_id = pmd.payment_detail_id " +
+                            "      WHERE NOT pmd.payment_status_id IN (65, 69) AND (pmd.create_date > ? or pmd.date_modified > ? or pm.create_date > ? or pm.modify_date > ?)) " +
+                            "   OR pir.modify_date > ? " + (needLoadMovedProject() ? " OR p.modify_user <> 'Converter'  OR pir.modify_user <> 'Converter' )" : ")");
 
             final String UPDATE = "update project set component_name = ?,  num_registrations = ?, " +
                     "num_submissions = ?, num_valid_submissions = ?, avg_raw_score = ?, avg_final_score = ?, " +
                     "phase_id = ?, phase_desc = ?, category_id = ?, category_desc = ?, posting_date = ?, submitby_date " +
                     "= ?, complete_date = ?, component_id = ?, review_phase_id = ?, review_phase_name = ?, " +
                     "status_id = ?, status_desc = ?, level_id = ?, viewable_category_ind = ?, version_id = ?, version_text = ?, " +
-                    "rating_date = ?, num_submissions_passed_review=?, winner_id=?, stage_id = ?, digital_run_ind = ?, suspended_ind = ?, project_category_id = ?, project_category_name = ? where project_id = ? ";
+                    "rating_date = ?, num_submissions_passed_review=?, winner_id=?, stage_id = ?, digital_run_ind = ?, " +
+                    "suspended_ind = ?, project_category_id = ?, project_category_name = ?, " +
+                    "tc_direct_project_id = ?, admin_fee = ?, contest_prizes_total = ? where project_id = ? ";
 
             final String INSERT = "insert into project (project_id, component_name, num_registrations, num_submissions, " +
                     "num_valid_submissions, avg_raw_score, avg_final_score, phase_id, phase_desc, " +
                     "category_id, category_desc, posting_date, submitby_date, complete_date, component_id, " +
                     "review_phase_id, review_phase_name, status_id, status_desc, level_id, viewable_category_ind, version_id, " +
-                    "version_text, rating_date, num_submissions_passed_review, winner_id, stage_id, digital_run_ind, suspended_ind, project_category_id, project_category_name) " +
+                    "version_text, rating_date, num_submissions_passed_review, winner_id, stage_id, digital_run_ind, suspended_ind, project_category_id, project_category_name, " +
+                    "tc_direct_project_id, admin_fee, contest_prizes_total) " +
                     "values (?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
-                    "?, ?, ?, ?, ?, ?) ";
+                    "?, ?, ?, ?, ?, ?, ?, ?, ?) ";
 
             select = prepareStatement(SELECT, SOURCE_DB);
             select.setTimestamp(1, fLastLogTime);
@@ -974,6 +1002,10 @@ public class TCLoadTCS extends TCLoad {
             select.setTimestamp(9, fLastLogTime);
             select.setTimestamp(10, fLastLogTime);
             select.setTimestamp(11, fLastLogTime);
+            select.setTimestamp(12, fLastLogTime);
+            select.setTimestamp(13, fLastLogTime);
+            select.setTimestamp(14, fLastLogTime);
+            select.setTimestamp(15, fLastLogTime);
             update = prepareStatement(UPDATE, TARGET_DB);
             insert = prepareStatement(INSERT, TARGET_DB);
             rs = select.executeQuery();
@@ -1044,8 +1076,11 @@ public class TCLoadTCS extends TCLoad {
 
                     update.setInt(29, rs.getInt("project_category_id"));
                     update.setString(30, rs.getString("name"));
+                    update.setLong(31, rs.getLong("tc_direct_project_id"));
+                    update.setDouble(32, rs.getDouble("admin_fee"));
+                    update.setDouble(33, rs.getDouble("contest_prizes_total"));
 
-                    update.setLong(31, rs.getLong("project_id"));
+                    update.setLong(34, rs.getLong("project_id"));
                     int retVal = update.executeUpdate();
 
                     if (retVal == 0) {
@@ -1104,6 +1139,9 @@ public class TCLoadTCS extends TCLoad {
                         insert.setInt(29, rs.getInt("suspended_ind"));
                         insert.setInt(30, rs.getInt("project_category_id"));
                         insert.setString(31, rs.getString("name"));
+                        insert.setLong(32, rs.getLong("tc_direct_project_id"));
+                        insert.setDouble(33, rs.getDouble("admin_fee"));
+                        insert.setDouble(34, rs.getDouble("contest_prizes_total"));
 
                         insert.executeUpdate();
                     }
@@ -5229,6 +5267,61 @@ public class TCLoadTCS extends TCLoad {
             close(rsStages);
         }
 
+    }
+
+    /**
+     * <p>Loads the statistics for completed projects grouped by their respective <code>TC Direct Projects</code>,
+     * project categories and dates of completion.</p>
+     *
+     * @throws Exception if an unexpected error occurs.
+     * @since 1.1.7
+     */
+    public void doLoadDirectProjectStats() throws Exception {
+        log.debug("load TC Direct project statistics");
+
+        // Statement for inserting the records from tcs_dw.project table into tcs_dw.tcd_project_stat table
+        final String INSERT
+            = "INSERT INTO tcd_project_stat " +
+              "SELECT tc_direct_project_id, project_category_id, DATE(p.complete_date), " +
+              "       SUM(p.admin_fee + p.contest_prizes_total), " +
+              "       SUM((p.complete_date - p.posting_date)::interval minute(9) to minute::char(20)::decimal(10,2)), " +
+              "       SUM(CASE WHEN num_submissions_passed_review > 0 THEN 1 ELSE 0 END), " +
+              "       COUNT(p.project_id), " +
+              "       'TCLoadTCS', CURRENT, 'TCLoadTCS', CURRENT " +
+              "FROM project p " +
+              "WHERE NOT p.complete_date IS NULL " +
+              "GROUP BY 1, 2, 3";
+
+        // Statement for inserting new records into tcs_dw.tcd_project_stat table
+        final String TRUNCATE_STAT_TABLE = "TRUNCATE TABLE tcd_project_stat";
+
+        PreparedStatement insert = null;
+        PreparedStatement truncate = null;
+        ResultSet rs = null;
+
+        try {
+            long start = System.currentTimeMillis();
+
+            // Truncate stats table
+            truncate = prepareStatement(TRUNCATE_STAT_TABLE, TARGET_DB);
+            truncate.executeUpdate();
+            truncate.close();
+
+            // Insert most recent stats for TC Direct projects
+            insert = prepareStatement(INSERT, TARGET_DB);
+            insert.executeUpdate();
+            int count = insert.getUpdateCount();
+            insert.close();
+
+            log.info("loaded " + count + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw new Exception("Load of TC Direct project statistics failed.\n" + sqle.getMessage());
+        } finally {
+            close(rs);
+            close(truncate);
+            close(insert);
+        }
     }
 
     /**
