@@ -38,10 +38,7 @@
       <p>The <span class="blue">2010 TopCoder Open</span> (TCO) is a world-wide programming and graphic design tournament that is open to all TopCoder members 18 and older, who are in good standing, and meet all other eligibility criteria. There are six competition tracks as part of the TCO: Algorithm, Design, Development, Marathon, Mod Dash, and Studio Design. Take part in the TCO10 to enhance your skills, compete against the most elite minds around the world, and for a chance at some great prizes! Becoming a TopCoder member is easy and free.  <a href="http://www.topcoder.com/reg">Register here</a>. Have a question? Just email <a href="mailto:support@topcoder.com">support@topcoder.com</a></p>
       
       <p style="font-size: 18px;"><strong>Watch the video <a href="http://topcoder.com/home/tco10/movies/moviespage3/">live from the Arena!</a></strong></p>
-
-    </div>
-    <!--End .welcomeText-->
-
+<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FTopCoder-Open%2F153496624686456&amp;layout=button_count&amp;show_faces=true&amp;width=450&amp;action=like&amp;colorscheme=dark&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>
 </div>
 <!--End .welcome-->
 
