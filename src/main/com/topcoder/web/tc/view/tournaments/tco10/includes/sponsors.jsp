@@ -30,8 +30,8 @@
         <br/>
 		<br />
         <div class="logo small">
-        
-		</div>
+            <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FTopCoder-Open%2F153496624686456&amp;width=170&amp;colorscheme=dark&amp;connections=10&amp;stream=true&amp;header=true&amp;height=400" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:170px; height:587px;" allowTransparency="true"></iframe>
+       	</div>
         <br/>
 
         <!--End .photo-->
