@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2005-2010 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.studio.model;
 
 import com.topcoder.web.common.model.Base;
@@ -12,6 +15,15 @@ import java.util.Map;
 import java.util.Collections;
 
 /**
+ * <p>An entity representing a single Studio contest submission.</p>
+ *
+ * <p>
+ *   Version 1.1 (Studio Contest Detail Pages assembly) Change notes:
+ *   <ol>
+ *     <li>Added {@link #feedbackText} property with respective accessor/mutator methods.</li>
+ *   </ol>
+ * </p>
+ *
  * @author dok, isv
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jun 27, 2006
@@ -34,6 +46,13 @@ public class Submission extends Base {
     private SubmissionStatus status;
     private com.topcoder.web.common.model.comp.Submission ORSubmission;
     private Set<Prize> prizes = new TreeSet<Prize>();
+
+    /**
+     * <p>A <code>String</code> providing the feedback text for submission.</p>
+     *
+     * @since 1.1
+     */
+    private String feedbackText;
 
     /**
      * <p>A <code>Set</code> containing the images associated with this submission.</p>
@@ -304,5 +323,25 @@ public class Submission extends Base {
      */
     private static boolean equal(Object o1, Object o2) {
         return ((o1 == null) && (o2 == null)) || ((o1 != null) && (o2 != null) && (o1.equals(o2)));
+    }
+
+    /**
+     * <p>Gets the feedback text for submission.</p>
+     *
+     * @return a <code>String</code> providing the feedback text for submission.
+     * @since 1.1
+     */
+    public String getFeedbackText() {
+        return this.feedbackText;
+    }
+
+    /**
+     * <p>Sets the feedback text for submission.</p>
+     *
+     * @param feedbackText a <code>String</code> providing the feedback text for submission.
+     * @since 1.1
+     */
+    public void setFeedbackText(String feedbackText) {
+        this.feedbackText = feedbackText;
     }
 }

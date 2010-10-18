@@ -1,7 +1,7 @@
 <%--
   - Author: TCSDEVELOPER
-  - Version: 1.1
-  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  - Version: 1.2
+  - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page helps include custom CSS according to the caller
   -
@@ -9,6 +9,8 @@
   -
   - Version 1.1 (Studio Release Assembly 1) Change notes:
   - * New styles selected for studio home page.
+  - Version 1.2 (Studio Contest Detail Pages Assembly version 1.0) changes:
+  -     - Added import CSS for tc_studio_details pages  
 --%>
 <%@ page contentType="text/html" %>
 
@@ -69,6 +71,18 @@
 <link type="text/css" rel="stylesheet" href="/css/v4/newstyles.css" />
 <!--[if IE 7]>
 	<link rel="stylesheet" type="text/css" href="/css/v4/studio-ie7.css" />
+<![endif]-->
+<!--[if IE 6]>
+	<link rel="stylesheet" type="text/css" href="/css/v4/studio-ie6.css" />
+<![endif]-->
+<% } else if (key.equals("tc_studio_contest_details")) { %>
+<link type="text/css" rel="stylesheet" href="/css/v4/home.css" />
+<link type="text/css" rel="stylesheet" href="/css/v4/studio-navigation.css" />
+<link type="text/css" rel="stylesheet" href="/css/v4/newstyles.css" />
+<link type="text/css" rel="stylesheet" href="/css/screen.css"/>
+<!--[if IE 7]>
+	<link rel="stylesheet" type="text/css" href="/css/v4/studio-ie7.css" />
+    <link rel="stylesheet" type="text/css" href="/css/newStyle-ie7.css"/>
 <![endif]-->
 <!--[if IE 6]>
 	<link rel="stylesheet" type="text/css" href="/css/v4/studio-ie6.css" />

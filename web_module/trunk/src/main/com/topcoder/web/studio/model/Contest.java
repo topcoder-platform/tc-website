@@ -9,8 +9,10 @@ import com.topcoder.web.common.model.comp.Project;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
@@ -27,8 +29,17 @@ import java.util.TreeSet;
  *   </ol>
  * </p>
  *
- * @author dok, isv, pulky
- * @version 1.1
+ * <p>
+ *   Version 1.1 (Studio Contest Detail Pages assembly) Change notes:
+ *   <ol>
+ *     <li>Updated Serial version UID.</li>
+ *     <li>Added {@link #isMilestoneFeedbackAvailable()} method.</li>
+ *     <li>Added {@link #getMilestonePrizedSubmissions()} method.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, isv, pulky, TCSDEVELOPER
+ * @version 1.1.1
  */
 public class Contest extends Base {
 
@@ -40,7 +51,7 @@ public class Contest extends Base {
      * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      * @since 1.1
      */
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 2L;
 
     private Long id;
     private String name;
@@ -694,5 +705,51 @@ public class Contest extends Base {
      */
     public void setMilestonePrize(ContestMilestonePrize milestonePrize) {
         this.milestonePrize = milestonePrize;
+    }
+
+    /**
+     * <p>Checks if this contest has at least one of submissions provided with feedback from the client or entire
+     * multi-round provided with general feedback.</p>
+     *
+     * @return <code>true</code> if contest has milestone feedbacks available; <code>false</code> otherwise.
+     * @since 1.1.1
+     */
+    public boolean isMilestoneFeedbackAvailable() {
+        Set<Submission> submissions = getSubmissions();
+        if (submissions != null) {
+            for (Submission submission : submissions) {
+                if (submission.getFeedbackText() != null) {
+                    return true;
+                }
+            }
+        }
+        ContestMultiRoundInformation information = getMultiRoundInformation();
+        return (information != null) && (information.getGeneralFeedbackText() != null);
+
+    }
+
+    /**
+     * <p>Gets the list of submissions of this contest which have been awarded milestone prize.</p>
+     *
+     * @return a <code>List</code> listing the milestone prized submissions for this contest. 
+     * @since 1.1.1
+     */
+    public List<Submission> getMilestonePrizedSubmissions() {
+        List<Submission> prizedSubmissions = new ArrayList<Submission>();
+        Set<Submission> submissions = getSubmissions();
+        if (submissions != null) {
+            for (Submission submission : submissions) {
+                Set<Prize> prizes = submission.getPrizes();
+                if (prizes != null) {
+                    for (Prize prize : prizes) {
+                        if (prize.getType().getId().equals(PrizeType.MILESTONE)) {
+                            prizedSubmissions.add(submission);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        return prizedSubmissions;
     }
 }

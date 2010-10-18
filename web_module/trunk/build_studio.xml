@@ -259,7 +259,9 @@
 
 
     <target name="war-studio" depends="compile">
+<!--
         <ant antfile="build_tc.xml" target="package-EJB-PactsClientServicesBean"/>
+-->
         <war warfile="${war.dir}/studio.war" webxml="${resources}/studio/web.xml">
             <classes dir="${classes}">
                 <include name="com/topcoder/web/studio/**/*.class"/>

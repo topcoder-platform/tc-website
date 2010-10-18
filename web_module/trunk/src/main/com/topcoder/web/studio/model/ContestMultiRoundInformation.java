@@ -17,8 +17,13 @@ import com.topcoder.web.common.model.Base;
  *   </ol>
  * </p>
  *
- * @author pulky
- * @version 1.0
+ * <p>
+ *   Version 1.1 (Studio Contest Detail Pages assembly v1.0) Change notes:
+ *   <ol>Added {@link #generalFeedbackText} property with respective accessor/mutator methods.</ol>
+ * </p>
+ *
+ * @author pulky, TCSDEVELOPER
+ * @version 1.1
  * @since Studio Multi-Rounds Assembly - Studio Contest Details v1.0
  */
 public class ContestMultiRoundInformation extends Base {
@@ -30,7 +35,7 @@ public class ContestMultiRoundInformation extends Base {
      * serialization for this object, i.e. when data members are changed.
      * @see http://java.sun.com/j2se/1.3/docs/guide/serialization/spec/version.doc7.html
      */
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 2L;
 
     /**
      * The Contest Multi Round Information id.
@@ -56,6 +61,13 @@ public class ContestMultiRoundInformation extends Base {
      * The Contest's round two information
      */
     private String roundTwoIntroduction;
+
+    /**
+     * <p>A <code>String</code> providing the text for general feedback for milestone round.</p>
+     *
+     * @since 1.1
+     */
+    private String generalFeedbackText;
 
     /**
      * Gets the identifier
@@ -183,5 +195,25 @@ public class ContestMultiRoundInformation extends Base {
      */
     public int hashCode() {
         return (id != null ? id.hashCode() : 0);
+    }
+
+    /**
+     * <p>Gets the text for general feedback for milestone round.</p>
+     *
+     * @return a <code>String</code> providing the text for general feedback for milestone round.
+     * @since 1.1
+     */
+    public String getGeneralFeedbackText() {
+        return this.generalFeedbackText;
+    }
+
+    /**
+     * <p>Sets the text for general feedback for milestone round.</p>
+     *
+     * @param generalFeedbackText a <code>String</code> providing the text for general feedback for milestone round.
+     * @since 1.1
+     */
+    public void setGeneralFeedbackText(String generalFeedbackText) {
+        this.generalFeedbackText = generalFeedbackText;
     }
 }
