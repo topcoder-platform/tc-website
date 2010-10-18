@@ -1,7 +1,7 @@
 <%--
-  - Author: pulky
-  - Version: 1.1
-  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  - Author: pulky, TCSDEVELOPER
+  - Version: 1.2
+  - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page lists all submissions for a given contest.
   -
@@ -11,6 +11,8 @@
   -    * Multiple image preview.
   -    * View full page preview in the same page.
   -    * Pagination and thumbnails controls added.
+  - Version 1.2 (Studio Contest Detail Pages Assembly version 1.0) changes:
+  -     - Applied new L&F
 --%>
 
 <%@ page import="com.topcoder.web.studio.Constants" %>
@@ -18,12 +20,15 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="studio" uri="studio.tld" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="studio_tags" tagdir="/WEB-INF/tags" %>
 
+<fmt:setLocale value="en_US"/>
 <c:set var="modKey" value="<%=Constants.MODULE_KEY%>"/>
 <c:set var="subId" value="<%=Constants.SUBMISSION_ID%>"/>
 <c:set var="contestId" value="<%=Constants.CONTEST_ID%>"/>
 <c:set var="viewSubmitters" value="<%=ContestProperty.VIEWABLE_SUBMITTERS%>"/>
+<c:set var="servletPath" value="${sessionInfo.servletPath}"/>
 
 <c:set var="viewSubmitters" value="${contest.configMap[viewSubmitters]}"/>
 
@@ -40,8 +45,10 @@
         <link type="text/css" rel="stylesheet" href="./css/v4/home.css" />
         <link type="text/css" rel="stylesheet" href="./css/v4/studio-navigation.css" />
         <link type="text/css" rel="stylesheet" href="./css/v4/newstyles.css" />
+        <link type="text/css" rel="stylesheet" href="./css/screen.css"/>
         <!--[if IE 7]>
         <link rel="stylesheet" type="text/css" href="./css/v4/studio-ie7.css" />
+        <link rel="stylesheet" type="text/css" href="./css/newStyle-ie7.css"/>
         <![endif]-->
         <!--[if IE 6]>
         <link rel="stylesheet" type="text/css" href="./css/v4/studio-ie6.css" />
@@ -79,6 +86,8 @@
 
         <!-- External JavaScripts For CAROUSEL -->
         <script type="text/javascript" src="./js/lib/jquery.jcarousel.pack.js"></script>
+        <script type="text/javascript" src="/js/studioContestDetails.js">
+        </script>
     </head>
 
     <body>
@@ -89,24 +98,13 @@
 
                 <div id="wrapper_submission">
                     <!-- CONTENT BLOCK -->
-                    <div id="content_submission">
-                        <div class="linkBox">
-                            <studio:forumLink forumID="${contest.forumId}"/>
-                        </div>
-                        <div class="breadcrumb">
-                            <c:choose>
-                                <c:when test="${isOver}">
-                                    <a href="${sessionInfo.servletPath}?module=ViewPastContests">Past Contests</a>
-                                    &gt;
-                                </c:when>
-                                <c:otherwise>
-                                    <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a>
-                                    &gt;
-                                </c:otherwise>
-                            </c:choose>
-                            ${contest.name}
-                        </div>
-                        <br />
+                    <div id="warpperNew">
+                        <jsp:include page="stepBox.jsp"/>
+                        
+                        <jsp:include page="tabs.jsp">
+                            <jsp:param name="currentTab" value="s"/>
+                        </jsp:include>
+
                         <c:choose>
                             <c:when test="${contest.status.id==11}">
                                 <div id="content"> 
@@ -151,9 +149,6 @@
                             <c:otherwise>
 
                                 <div id="contentSubmissions">
-                                    <h1 class="middle">
-                                        All Submissions
-                                    </h1>
                                     <div id="submissions">
                                         <studio_tags:pagination
                                             baseUrl="/?${modKey}=ViewSubmissions&amp;${contestId}=${contest.id}"

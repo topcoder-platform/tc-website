@@ -1,24 +1,22 @@
 package com.topcoder.web.studio.controller.request;
 
 import com.topcoder.shared.dataAccess.DataAccess;
-import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.Equals;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
+import com.topcoder.web.studio.model.ContestResult;
 import com.topcoder.web.studio.model.ContestStatus;
 import com.topcoder.web.studio.util.Util;
 
 import java.util.Date;
+import java.util.Set;
 
 /**
  * <p>This class implements the request processor for the contest results (winners) page.</p>
@@ -51,8 +49,15 @@ import java.util.Date;
  *   </ol>
  * </p>
  *
- * @author dok, pulky
- * @version 1.4
+ * <p>
+ *   Version 1.4.1 (Studio Contest Detail Pages assembly) Change notes:
+ *   <ol>
+ *     <li>Added validation logic for contests with no results available.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky, isv
+ * @version 1.4.1
  */
 public class ViewContestResults extends ShortHibernateProcessor {
     protected void dbProcessing() throws Exception {
@@ -76,8 +81,13 @@ public class ViewContestResults extends ShortHibernateProcessor {
                 if (ContestStatus.ACTIVE.equals(contest.getStatus().getId())) {
                     Date now = new Date();
                     if (contest.getEndTime().before(now)) {
-                        getRequest().setAttribute("contest", contest);
-                        loadData(cid);
+                        Set<ContestResult> results = contest.getResults();
+                        if (results != null && !results.isEmpty()) {
+                            getRequest().setAttribute("contest", contest);
+                            loadData(cid);
+                        } else {
+                            throw new NavigationException("No contest results available.");
+                        }
                     } else {
                         throw new NavigationException("Inactive contest specified.");
                     }

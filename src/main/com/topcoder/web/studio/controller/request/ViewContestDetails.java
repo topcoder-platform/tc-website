@@ -47,10 +47,14 @@ import com.topcoder.web.studio.util.Util;
  *         Added a flag so that the JSP can show downloads if the user has corresponding cockpit permissions.
  *     </li>
  *   </ol>
+ *   Version 1.2.1 (Studio Contest Detail Pages assembly) Change notes:
+ *   <ol>
+ *     <li>Added utility {@link #getTextualDiff(Date)} method.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, pulky
- * @version 1.2
+ * @author dok, pulky, TCSDEVELOPER
+ * @version 1.2.1
  */
 public class ViewContestDetails extends ShortHibernateProcessor {
 
@@ -219,5 +223,85 @@ public class ViewContestDetails extends ShortHibernateProcessor {
             log.debug("userId: " + userId + " cannot preview details for contest id: " + contestId);
         }
         return false;
-    }    
+    }
+
+    /**
+     * <p>Gets the textual description of the period in which the specified date (contest completion) will be reached.
+     * </p>
+     *
+     * @param date a <code>Date</code> providing the date of contest completion.
+     * @return a <code>String</code> providing the textual description of the period in which the specified date will
+     *         be reached.
+     * @since 1.2.1
+     */
+    public static String getTextualDiff(Date date) {
+        if (date == null) {
+            return "";
+        } else {
+            long diff;
+            Date now = new Date();
+            if (now.after(date)) {
+                diff = (now.getTime() - date.getTime()) / 1000L;
+            } else {
+                diff = (date.getTime() - now.getTime()) / 1000L;
+            }
+
+            long yearDuration = 365 * 24 * 3600L;
+            long monthDuration = 31 * 24 * 3600L;
+            long weekDuration = 7 * 24 * 3600L;
+            long dayDuration = 24 * 3600L;
+            long hourDuration = 3600L;
+            long minuteDuration = 60L;
+
+            long years = diff / yearDuration;
+            diff %= yearDuration;
+            long months = diff / monthDuration;
+            diff %= monthDuration;
+            long weeks = diff / weekDuration;
+            diff %= weekDuration;
+            long days = diff / dayDuration;
+            diff %= dayDuration;
+            long hours = diff / hourDuration;
+            diff %= hourDuration;
+            long minutes = diff / minuteDuration;
+
+            StringBuilder b = new StringBuilder();
+            addText(years, "year", b);
+            addText(months, "month", b);
+            addText(weeks, "week", b);
+            addText(days, "day", b);
+            addText(hours, "hour", b);
+            addText(minutes, "min", b);
+
+            if (now.after(date)) {
+                b.append(" ago");
+            } else {
+                b.append(" left");
+            }
+
+            return b.toString();
+        }
+    }
+
+    /**
+     * <p>Adds textual presentation of specified numeric value to text output.</p>
+     *
+     * @param value a <code>long</code> providing the value.
+     * @param title a <code>String</code> providing the title for value.
+     * @param b a <code>StringBuilder</code> collecting the output.
+     * @since 1.2.1
+     */
+    private static void addText(long value, String title, StringBuilder b) {
+        if (value > 0) {
+            if (b.length() > 0) {
+                b.append(" ");
+            }
+            b.append(value).append(" ");
+            if (value % 10 == 1 && value % 100 != 11) {
+                b.append(title);
+            } else {
+                b.append(title).append("s");
+            }
+        }
+    }
 }

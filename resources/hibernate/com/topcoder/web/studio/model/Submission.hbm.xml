@@ -1,4 +1,12 @@
 <?xml version="1.0"?>
+<!--
+  - Author: TCSDEVELOPER
+  - Version: 1.1
+  - Copyright (C) 2001 - 2010 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: Hibernate mapping file for submission table
+  - Version 1.1 change: added mapping for feedback_text column
+-->
 <!DOCTYPE hibernate-mapping PUBLIC
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
@@ -15,6 +23,7 @@
         <many-to-one name="contest" column="contest_id" class="Contest"/>
         <property name="originalFileName" column="original_file_name"/>
         <property name="systemFileName" column="system_file_name"/>
+        <property name="feedbackText" column="feedback_text"/>
         <!--
                 <property name="submissionDate" column="submission_date" />
         -->
