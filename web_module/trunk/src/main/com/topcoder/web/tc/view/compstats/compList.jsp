@@ -1,7 +1,7 @@
 <%--
-  - Author: pulky
-  - Version: 1.2
-  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  - Author: pulky, TCSASSEMBLER
+  - Version: 1.3
+  - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page lists all past projects for a specific project type.
   -
@@ -10,6 +10,9 @@
   -
   - Version 1.2 (Testing Competition Split Release Assembly 1.0) changes: Updated Application Testing to Test Suites.
   - and added support for new Test Scenarios competitions.
+  -
+  - Version 1.3 (Copilot Selection Contest Online Review and TC Site Integration Assembly  1.0) changes:
+  - Added support for new Copilot Posting.
 --%>
 <%@  page language="java"
     import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*, com.topcoder.web.tc.Constants,
@@ -36,6 +39,7 @@
 <c:set value="<%=Constants.UI_PROTOTYPE_PROJECT_TYPE%>" var="UI_PROTOTYPE_TYPE_ID"/>
 <c:set value="<%=Constants.RIA_BUILD_PROJECT_TYPE%>" var="RIA_BUILD_TYPE_ID"/>
 <c:set value="<%=Constants.RIA_COMPONENT_PROJECT_TYPE%>" var="RIA_COMPONENT_TYPE_ID"/>
+<c:set value="<%=Constants.COPILOT_POSTING_PROJECT_TYPE%>" var="COPILOT_POSTING_TYPE_ID"/>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
@@ -139,6 +143,11 @@
                     <jsp:param name="node" value="ria_component_stats"/>
                 </jsp:include>
             </c:when>
+            <c:when test="${pt == COPILOT_POSTING_TYPE_ID}">
+                <jsp:include page="/includes/global_left.jsp">
+                    <jsp:param name="node" value="copilot_posting_stats"/>
+                </jsp:include>
+            </c:when>			
         </c:choose>
         </td>
 <!-- Left Column Ends -->
@@ -224,6 +233,13 @@
         </jsp:include>
         <span class="bodySubtitle">Studio Statistics &gt; RIA Component Contests</span><br>
     </c:when>
+    <c:when test="${pt == COPILOT_POSTING_TYPE_ID}">
+        <jsp:include page="../page_title.jsp" >
+            <jsp:param name="image" value="statistics_w"/>
+            <jsp:param name="title" value="Copilot Postings List"/>
+        </jsp:include>
+        <span class="bodySubtitle">Copilot Postings</span><br>
+    </c:when>	
 </c:choose>
 
 <form name="compListForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
@@ -288,6 +304,10 @@
                     <td class="tableTitle" colspan="9">
                     RIA Component
                 </c:when>
+                <c:when test="${pt == COPILOT_POSTING_TYPE_ID}">
+                    <td class="tableTitle" colspan="9">
+                    Copilot Posting
+                </c:when>				
             </c:choose>
             Contest Details
 

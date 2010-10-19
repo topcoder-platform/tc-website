@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2001-2009 TopCoder Inc.  All Rights Reserved.
+ * Copyright (c) 2001-2010 TopCoder Inc.  All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request;
 
@@ -17,11 +17,16 @@ import com.topcoder.web.tc.model.ActiveContestsSummary;
 
 /**
  * <p>
- * This Helper class is used to retreive active contest information.
+ * This Helper class is used to retrieve active contest information.
  * </p>
  *
- * @author pulky
- * @version 1.0
+ * <p>
+ * (Copilot Selection Contest Online Review and TC Site Integration Assembly)
+ * Version 1.1 changes: Add active contest summary for copilot postings
+ * </p>
+ *
+ * @author pulky, Blues
+ * @version 1.1
  */
 public class HomeHelper {
 
@@ -158,6 +163,18 @@ public class HomeHelper {
                 summary.setPrizeTotal(row.getFloatItem("total_prizes"));
             }
             ret.put(Home.RIA_COMPONENT, summary);
+        }
+
+        ResultSetContainer copilotposting = dataMap.get("copilot_posting_active_contests_summary");
+        if (!copilotposting.isEmpty()) {
+            ResultSetContainer.ResultSetRow row = copilotposting.get(0);
+            summary = new ActiveContestsSummary();
+            summary.setContestCount(row.getIntItem("total_contests"));
+            summary.setName(row.getStringItem("category_name"));
+            if (row.getItem("total_prizes").getResultData()!=null) {
+                summary.setPrizeTotal(row.getFloatItem("total_prizes"));
+            }
+            ret.put(Home.COPILOT_POSTING, summary);
         }
 
         for (ResultSetContainer.ResultSetRow row : dataMap.get("homepage_active_contest_summary")) {

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.ejb.pacts;
 
@@ -45,8 +45,17 @@ package com.topcoder.web.ejb.pacts;
  *   </ol>
  * </p>
  *
- * @author TCSDEVELOPER, pulky, VolodymyrK
- * @version 1.5
+ * <p>
+ *   Version 1.6 (Copilot Selection Contest Online Review and TC Site Integration Assembly version 1.0) Change notes:
+ *   Add Support for copilot posting
+ *   <ol>
+ *     <li>COPILOT_POSTING_PROJECT_CATEGORY_LU added</li>
+ *     <li>COPILOT_POSTING_PAYMENT added</li>
+ *   </ol>
+ * </p>
+ *
+ * @author TCSDEVELOPER, pulky, VolodymyrK, TCSASSEMBLER
+ * @version 1.6
  */
 public interface Constants {
 
@@ -250,4 +259,17 @@ public interface Constants {
     public static final int RIA_BUILD_COMPETITION_PROJECT_CATEGORY_LU = 24;
     public static final int RIA_COMPONENT_COMPETITION_PROJECT_CATEGORY_LU = 25;
 
+     /**
+     * <p>A <code>int</code> representing the copilot posting category id.</p>
+     *
+     * @since 1.6
+     */
+	public static final int COPILOT_POSTING_PROJECT_CATEGORY_LU = 29;
+
+    /**
+     * <p>A <code>int</code> representing the copilot posting payment id.</p>
+     *
+     * @since 1.6
+     */
+	public static final int COPILOT_POSTING_PAYMENT = 60;
 }

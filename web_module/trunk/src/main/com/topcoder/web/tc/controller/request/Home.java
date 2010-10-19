@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request;
 
@@ -34,9 +34,14 @@ import com.topcoder.web.tc.controller.request.util.TCCC06ComponentTerms;
  *     <li>Moved active contests code to a Helper class to be reused by TC hompage.</li>
  *   </ol>
  * </p>
- *
- * @author dok, pulky
- * @version 1.2
+ * <p>
+ *   Version 1.3 (Copilot Selection Contest Online Review and TC Site Integration Assembly  1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for new Copilot Posting.</li>
+ *   </ol>
+ * </p>
+ * @author dok, pulky, Blues
+ * @version 1.3
  */
 public class Home extends Base {
     public static final String DESIGN = "design";
@@ -64,6 +69,14 @@ public class Home extends Base {
     public static final String UI_PROTOTYPE = "uiprototype";
     public static final String RIA_BUILD = "riabuild";
     public static final String RIA_COMPONENT = "riacomponent";
+
+    /**
+     * <p>A <code>String</code> representing copilot posting key.</p>
+     *
+     * @since 1.3
+     */	
+    public static final String COPILOT_POSTING = "copilotposting";
+
     public static final String BUGS = "bugs";
     public static final String DR = "dr";
     public static final String MM = "mm";

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.contest;
 
@@ -64,9 +64,14 @@ import com.topcoder.web.tc.controller.request.development.Base;
  *     <li>Added eligibility constraints check.</li>
  *   </ol>
  * </p>
- *
- * @author dok, pulky
- * @version 1.4
+ * <p>
+ *   Version 1.5 (Copilot Selection Contest Online Review and TC Site Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for new Copilot Posting competitions.</li>
+ *   </ol>
+ * </p>
+ * @author dok, pulky, Blues
+ * @version 1.5
  */
 public class ViewRegistration extends Base {
 
@@ -166,7 +171,8 @@ public class ViewRegistration extends Base {
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.TEST_SCENARIOS_PROJECT_TYPE)) &&
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.UI_PROTOTYPE_PROJECT_TYPE)) &&
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.RIA_BUILD_PROJECT_TYPE)) &&
-                !String.valueOf(projectTypeId).equals(String.valueOf(Constants.RIA_COMPONENT_PROJECT_TYPE))) {
+                !String.valueOf(projectTypeId).equals(String.valueOf(Constants.RIA_COMPONENT_PROJECT_TYPE)) &&
+		!String.valueOf(projectTypeId).equals(String.valueOf(Constants.COPILOT_POSTING_PROJECT_TYPE))) {
             throw new NavigationException("Invalid project specified (wrong category)");
         }
 
@@ -178,6 +184,13 @@ public class ViewRegistration extends Base {
             getRequest().setAttribute(Constants.MESSAGE, "Sorry, registration is not currently open.");
         } else if (getRegEJB().isUserRegistered(projectId, getUser().getId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
             getRequest().setAttribute(Constants.MESSAGE, "You have already registered for this contest.");
+        }
+
+        if (projectTypeId == Constants.COPILOT_POSTING_PROJECT_TYPE) {
+            // check whether the registrants is in copilot for copilot posting registration
+            if (!isInCopilotPool(getUser().getId())) {
+               getRequest().setAttribute(Constants.MESSAGE, "Only active copilot in copilot pool can register copilot posting."); 
+            }
         }
     }
 
@@ -195,6 +208,24 @@ public class ViewRegistration extends Base {
         r.setContentHandle("component_suspension");
         r.setProperty("uid", String.valueOf(userId));
         ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("component_suspension");
+        return !rsc.isEmpty();
+    }
+
+    /**
+     * Checks whether the user is in the copilot pool.
+     *
+     * @param userId the id of the user
+     * @return true if in copilot pool, false otherwise
+     * @throws Exception if there is any error.
+     *
+     * @since 1.5
+     */
+    private static boolean isInCopilotPool(long userId) throws Exception {
+        DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
+        Request r = new Request();
+        r.setContentHandle("copilot_posting");
+        r.setProperty("uid", String.valueOf(userId));
+        ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("is_in_copilot_pool");
         return !rsc.isEmpty();
     }
 }

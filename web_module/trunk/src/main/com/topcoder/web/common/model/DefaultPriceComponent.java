@@ -76,10 +76,15 @@ import com.topcoder.shared.util.logging.Logger;
  *   <ol>
  *     <li>Added support for specification review payment.</li>
  *   </ol>
+ *
+ *   Version 1.1.6 (Copilot Selection Contest Online Review and TC Site Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for Copilot Posting.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, ivern, isv, pulky, snow01, VolodymyrK
- * @version 1.1.5
+ * @author dok, ivern, isv, pulky, snow01, VolodymyrK, TCSASSEMBLER
+ * @version 1.1.6
  */
 
 public class DefaultPriceComponent implements SoftwareComponent {
@@ -214,7 +219,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
                 phaseId == ARCHITECTURE_SPECIFICATION_PHASE || phaseId == ASSEMBLY_SPECIFICATION_PHASE ||
                 phaseId == TEST_SUITES_SPECIFICATION_PHASE || phaseId == TEST_SCENARIOS_SPECIFICATION_PHASE ||
                 phaseId == UI_PROTOTYPE_SPECIFICATION_PHASE || phaseId == RIA_BUILD_SPECIFICATION_PHASE ||
-                phaseId == RIA_COMPONENT_SPECIFICATION_PHASE) {
+                phaseId == RIA_COMPONENT_SPECIFICATION_PHASE || phaseId == COPILOT_POSTING_SPECIFICATION_PHASE) {
             return new SpecificationReviewerPaymentCalculator(phaseId);
         } else {
             throw new IllegalArgumentException("Invalid phaseId (" + phaseId + ")");
@@ -322,6 +327,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
             case UI_PROTOTYPE_PHASE: return 50;
             case RIA_BUILD_PHASE: return 50;
             case RIA_COMPONENT_PHASE: return 50;
+            case COPILOT_POSTING_PHASE: return 50;
             default: return 50;
         }
     }
@@ -358,6 +364,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
             System.out.println("UI Prototype phaseId                    : " + UI_PROTOTYPE_PHASE);
             System.out.println("RIA Build phaseId                       : " + RIA_BUILD_PHASE);
             System.out.println("RIA Component phaseId                   : " + RIA_COMPONENT_PHASE);
+            System.out.println("Copilot Posting phaseId                 : " + COPILOT_POSTING_PHASE);
             System.out.println("Specification Review phaseId            : " + SPECIFICATION_REVIEW_PHASE);
             System.out.println("Design Specification phaseId            : " + DESIGN_SPECIFICATION_PHASE);
             System.out.println("Development Specification phaseId       : " + DEVELOPMENT_SPECIFICATION_PHASE);
@@ -369,6 +376,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
             System.out.println("UI Prototype Specification phaseId      : " + UI_PROTOTYPE_SPECIFICATION_PHASE);
             System.out.println("RIA Build Specification phaseId         : " + RIA_BUILD_SPECIFICATION_PHASE);
             System.out.println("RIA Component Specification phaseId     : " + RIA_COMPONENT_SPECIFICATION_PHASE);
+            System.out.println("Copilot Posting Specification phaseId   : " + COPILOT_POSTING_SPECIFICATION_PHASE);
         } else {
             DefaultPriceComponent sc = new DefaultPriceComponent(1, Integer.parseInt(args[0]),
                                                                  Integer.parseInt(args[1]), Integer.parseInt(args[2]),

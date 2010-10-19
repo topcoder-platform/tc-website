@@ -1,12 +1,15 @@
 <%--
-  - Author: TCSDEVELOPER, pulky
-  - Version: 1.1
-  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  - Author: TCSDEVELOPER, pulky, TCSASSEMBLER
+  - Version: 1.2
+  - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page displays the home page's active contest box.
   -
   - Version 1.1 (Testing Competition Split Release Assembly 1.0) changes: Updated Application Testing to Test Suites
   - and added support for new Test Scenarios competitions.
+  -
+  - Version 1.2 (Copilot Selection Contest Online Review and TC Site Integration Assembly 1.0) changes:
+  - Added support for new Copilot Posting to display copilot posting number (no prize).
 --%>
 <%@ page import="com.topcoder.web.tc.controller.request.Home" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
@@ -31,6 +34,7 @@
 <c:set var="uiprototype" value="<%=Home.UI_PROTOTYPE%>"/>
 <c:set var="riabuild" value="<%=Home.RIA_BUILD%>"/>
 <c:set var="riacomponent" value="<%=Home.RIA_COMPONENT%>"/>
+<c:set var="copilotposting" value="<%=Home.COPILOT_POSTING%>"/>
 
 <div>
     <img src="/i/interface/rightNavTop.png" alt="" style="display: block;"/>
@@ -183,6 +187,18 @@
                             </td>
                         </tr>
                     </c:if>
+
+                     <c:if test="${activeContestsSummary[copilotposting].contestCount>0}">
+
+                        <tr>
+                            <td class="value">
+                                <div class="prizes"><%-- don't have payment for copilot posting for now <fmt:formatNumber value="${activeContestsSummary[gameplan].prizeTotal}" pattern="$###,###"/>--%></div>
+                                <a href="/tc?module=ActiveContests&pt=29" class="gMetal">Copilot Posting</a>
+                                (${activeContestsSummary[copilotposting].contestCount})
+                            </td>
+                        </tr>
+                    </c:if>
+
                     <c:if test="${activeContestsSummary[mm].contestCount>0}">
 
                         <tr>

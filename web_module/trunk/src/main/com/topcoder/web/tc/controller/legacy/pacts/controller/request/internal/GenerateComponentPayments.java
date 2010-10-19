@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
@@ -32,8 +32,15 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeaderList;
  *   </ol>
  * </p>
  *
- * @author mktong, pulky
- * @version 1.1
+ * <p>
+ *   Version 1.2 (Copilot Selection Contest Online Review and TC Site Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for new Copilot Posting competitions.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author mktong, pulky, Blues
+ * @version 1.2
  */
 public class GenerateComponentPayments extends BaseProcessor implements PactsConstants {
     public final static String IS_DEV_SUPPORT_BY_DESIGNER = "dsd";
@@ -97,8 +104,8 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                 DataInterfaceBean bean = new DataInterfaceBean();
                 // [BUGR-1452] - add support for paying other project types
                 // [BUGR-1842] - add support for UI/RIA project types
-                int[] counts = new int[15];
-                for (int i = 0; i < 15; i++) {
+                int[] counts = new int[16];
+                for (int i = 0; i < 16; i++) {
                     counts[i] =0;
                 }
                 log.debug("status type " + getRequest().getParameter(PROJECT_TERMINATION_STATUS));
@@ -152,6 +159,8 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
 
                     if (p.getPaymentType() == PactsConstants.SPECIFICATION_REVIEW_PAYMENT) counts[14]++;
 
+		     if (p.getPaymentType() == PactsConstants.COPILOT_POSTING_PAYMENT) counts[15]++;
+
                     ids.add(p.getId() + "");
 
                     List refer = bean.findPayments(CODER_REFERRAL_PAYMENT, p.getId());
@@ -198,11 +207,11 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
     private String generateSuccessMessage(int[] counts) {
         // TODO: find a better way to avoid duplicating these magic numbers, to ensure they're always in sync
         // [BUGR-1842] - add support for UI/RIA project types
-        final int[] countIndex = new int[] { 0, 4, 5, 6, 8, 7, 1, 3, 2, 9, 10, 11, 12, 13, 14 };
+        final int[] countIndex = new int[] { 0, 4, 5, 6, 8, 7, 1, 3, 2, 9, 10, 11, 12, 13, 14, 15};
         final String[] countType = new String[] {
                 " design/development", " conceptualization", " specification", " architecture",
                 " assembly", "  test suites", " review board", " review board bonus", " referral",
-                " UI prototype", " RIA Build", " RIA Component", " test scenarios", " copilot", " specification review"
+                " UI prototype", " RIA Build", " RIA Component", " test scenarios", " copilot", " specification review", "copilot posting"
         };
 
         StringBuffer sb = new StringBuffer();

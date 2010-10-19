@@ -95,12 +95,18 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
  *   <ol>
  *     <li>Change the process of add payment</li>
  *   </ol>
- * </p> 
-  *
+ * </p>
+ * <p>
+ *   Version 1.5 (Copilot Selection Contest Online Review and TC Site Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for new Copilot Posting competitions.</li>
+ *   </ol>
+ * </p>
+ *
  * <p>VERY IMPORTANT: remember to update serialVersionUID if needed.</p>
  *
- * @author Dave Pecora, pulky, isv, Vitta
- * @version 1.4
+ * @author Dave Pecora, pulky, isv, Vitta, Blues
+ * @version 1.5
  * @see PactsConstants
  */
 public class PactsServicesBean extends BaseEJB implements PactsConstants {
@@ -137,6 +143,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @since 1.1
      */
     private static final int TEST_SCENARIOS_PROJECT_TYPE = 26;
+    
+    /**
+     * <p>A <code>int</code> representing the copilot posting project id.</p>
+     *
+     * @since 1.5
+     */
+	private static final int COPILOT_POSTING_PROJECT_TYPE = 29;
     
     /**
      * <p>A <code>int</code> representing the specification review project category id.</p>
@@ -6372,6 +6385,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             if (placed == 1) {
                 p.setGrossAmount(grossAmount * RIA_COMPONENT_PROJECT_FIRST_INSTALLMENT_PERCENT);
             }
+            l.add(p);
+        } else if (projectType == COPILOT_POSTING_PROJECT_TYPE) {
+            BasePayment p = new CopilotPostingPayment(coderId, grossAmount, client, projectId, placed);
             l.add(p);
         } else throw new IllegalArgumentException("Project " + projectId + " not found or is not a dev/des component");
 
