@@ -201,6 +201,8 @@ public class TCLoadTCS extends TCLoad {
     public void performLoad() throws Exception {
         try {
 
+            log.info("[TCS LOAD] TCS load running");
+
             PreparedStatement ps = null;
             try {
                 ps = prepareStatement("set lock mode to wait 5", SOURCE_DB);
@@ -296,7 +298,7 @@ public class TCLoadTCS extends TCLoad {
 
             setLastUpdateTime();
 
-            log.info("SUCCESS: TCS load ran successfully.");
+            log.info("[TCS LOAD] SUCCESS: TCS load ran successfully.");
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
             setReasonFailed(("Load failed.\n" +
