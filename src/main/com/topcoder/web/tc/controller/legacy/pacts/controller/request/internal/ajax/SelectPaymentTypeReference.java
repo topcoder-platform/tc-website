@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.ajax;
 
@@ -23,8 +23,15 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
  *   </ol>
  * </p>
  *
- * @author cucu, pulky
- * @version 1.1
+ * <p>
+ *   Version 1.2 (Copilot Selection Contest Online Review and TC Site Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for new Copilot Posting competitions.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author cucu, pulky, Blues
+ * @version 1.2
  */
 public class SelectPaymentTypeReference extends BaseProcessor implements PactsConstants {
 
@@ -89,6 +96,8 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
                             map = dib.findProjects("%" + search + "%", RIA_BUILD_COMPETITION_PROJECT_CATEGORY_LU);
                         } else if (type == RIA_COMPONENT_COMPETITION_PAYMENT) {
                             map = dib.findProjects("%" + search + "%", RIA_COMPONENT_COMPETITION_PROJECT_CATEGORY_LU);
+                        } else if (type == COPILOT_POSTING_PAYMENT) {
+                            map = dib.findProjects("%" + search + "%", COPILOT_POSTING_PROJECT_CATEGORY_LU);
                         } else {
                             map = dib.findProjects("%" + search + "%");
                         }

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common;
 
@@ -46,10 +46,17 @@ package com.topcoder.web.common;
  *   <ol>
  *     <li>Added constants for the Project View report.</li>
  *   </ol>
+ *
+ * <p>
+ *   Version 1.6.1 (Copilot Selection Contest Online Review and TC Site Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added constants for the Copilot Posting.</li>
+ *   </ol>
+ * </p>
  * </p>
  *
- * @author dok, pulky, snow01
- * @version 1.6
+ * @author dok, pulky, snow01, TCSASSEMBLER
+ * @version 1.6.1
  */
 public interface WebConstants {
     public static final String HANDLE = "ha";
@@ -524,6 +531,32 @@ public interface WebConstants {
      */
     public static final long PHASE_RIA_COMPONENT_SPECIFICATION =
         PHASE_RIA_COMPONENT + SPECIFICATION_COMPETITION_OFFSET;
+
+      /**
+     * <p>An <code>int</code> representing copilot posting project type id.</p>
+	 * @since 1.6.1
+     */
+    public static final int COPILOT_POSTING_PROJECT_TYPE = 29;
+
+    /**
+     * <p>An <code>long</code> representing copilot posting specification project category id.</p>
+	 * @since 1.6.1
+     */
+    public static final long COPILOT_POSTING_SPECIFICATION_PROJECT_TYPE =
+	    COPILOT_POSTING_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;
+
+    /**
+     * <p>An <code>long</code> representing copilot posting phase id.</p>
+	 * @since 1.6.1
+     */
+    public static final long PHASE_COPILOT_POSTING = COPILOT_POSTING_PROJECT_TYPE + GENERAL_PHASE_OFFSET;
+
+    /**
+     * <p>An <code>long</code> representing copilot posting specification phase id.</p>
+	 * @since 1.6.1
+     */
+    public static final long PHASE_COPILOT_POSTING_SPECIFICATION =
+	    PHASE_COPILOT_POSTING + SPECIFICATION_COMPETITION_OFFSET;
 
     /**
      * <p>A <code>String</code> representing clients attribute key.</p>

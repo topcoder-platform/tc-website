@@ -4,11 +4,16 @@
 package com.topcoder.web.tc.controller.request.contest;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.util.config.ConfigManager;
 import com.topcoder.util.config.UnknownNamespaceException;
 import com.topcoder.web.common.NavigationException;
@@ -49,8 +54,15 @@ import com.topcoder.web.tc.controller.request.util.ReliabilityBonusCalculator;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, romanoTC
- * @version 1.4
+ * <p>
+ *   Version 1.5 (Copilot Selection Contest Online Review and TC Site Integration Assembly  v1.0) Change notes:
+ *   <ol>
+ *     <li>Add permission checking for viewing copilot posting project details.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky, romanoTC, Blues
+ * @version 1.5
  */
 public class ProjectDetail extends Base {
 
@@ -95,6 +107,33 @@ public class ProjectDetail extends Base {
 
             if (projectTypeId == -1) {
                 throw new TCWebException("Could not find project information.");
+            }
+
+            if (projectTypeId == Constants.COPILOT_POSTING_PROJECT_TYPE) {
+                try {
+                    // check the permission to view project details for copilot posting
+                    boolean[] permissions = getPermissionsToViewCopilotPosting(projectId);
+
+                    // if user is anonymous, throw exception
+                    if (getSessionInfo().isAnonymous()) {
+                        throw new NavigationException("Anonymous User does not has permission to view copilot posting details");
+                    }
+
+                    // check permission to view private description
+                    boolean registered = isUserCopilotPostingRegistered(projectId);
+
+                    boolean hasPrivateDescriptionPermission = registered || permissions[0] || permissions[2] || getSessionInfo().isAdmin();
+
+                    boolean noRegisterButton =  !hasPrivateDescriptionPermission  && !permissions[1];
+
+                    getRequest().setAttribute("privateDescriptionPermission", hasPrivateDescriptionPermission);
+                    getRequest().setAttribute("registerButton", !noRegisterButton);
+
+                } catch (NavigationException navigationEx) {
+                    throw navigationEx;
+                } catch (Exception ex) {
+                    throw new TCWebException("Exception raised when getting copilot posting permissions", ex);
+                }
             }
 
             Request r = new Request();
@@ -193,5 +232,73 @@ public class ProjectDetail extends Base {
         }
 
         return links;
+    }
+
+    /**
+     * Gets the permissions array to view the copilot project details page.
+     *
+     * @param projectId the id of the project.
+     * @return the boolean array which contains 3 elements, the first one represents whether the user is resources of
+     * copilot posting in online review, the second represents whether the user is in copilot pool, and the third one
+     * represents whether the user has permission in direct project.
+     * @throws Exception if there is any error
+     *
+     * @since 1.5
+     */
+    private boolean[] getPermissionsToViewCopilotPosting(String projectId) throws Exception {
+        // initialize default result, all to false
+        boolean[] result = new boolean[3];
+        for (int i = 0; i < result.length; ++i) {
+            result[i] = false;
+        }
+
+        // query
+        DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
+        Request r = new Request();
+        r.setContentHandle("copilot_posting_permission");
+        r.setProperty("uid", String.valueOf(getUser().getId()));
+        r.setProperty("pj", projectId);
+        
+        ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("copilot_posting_permission");
+
+         Iterator<ResultSetContainer.ResultSetRow> iterator = rsc.iterator();
+
+        // check the result
+        if (iterator.hasNext()) {
+            ResultSetContainer.ResultSetRow row = iterator.next();
+            int postingResources = row.getIntItem("copilot_posting_resources");
+            int inCopilotPool = row.getIntItem("in_copilot_pool");
+            int hasDirectProjectPermission = row.getIntItem("has_direct_project_permission");
+            result[0] = postingResources > 0;
+            result[1] = inCopilotPool > 0;
+            result[2] = hasDirectProjectPermission > 0;
+
+            return result;
+        } else {
+            // no records found, return all false
+            return result;
+        }
+    }
+
+    /**
+     * Checks whether the user has registered the copilot posting.
+     *
+     * @param projectId the project id
+     * @return true if user has registered, false otherwise
+     * @throws Exception if there is any error
+     *
+     * @since version 1.5
+     */
+    private boolean isUserCopilotPostingRegistered(String projectId) throws Exception {
+         // query
+        DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
+        Request r = new Request();
+        r.setContentHandle("is_copilot_posting_registered");
+        r.setProperty("uid", String.valueOf(getUser().getId()));
+        r.setProperty("pj", projectId);
+
+        ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("is_copilot_posting_registered");
+
+        return !rsc.isEmpty();
     }
 }

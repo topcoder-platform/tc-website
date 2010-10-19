@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.ejb.pacts;
 
@@ -60,8 +60,15 @@ import java.util.Date;
  *   </ol>
  * </p> 
  *
- * @author cucu, pulky, Vitta
- * @version 1.5
+ * <p>
+ *   Version 1.6 (Copilot Selection Contest Online Review and TC Site Integration Assembly version 1.0) Change notes:
+ *   <ol>
+ *     <li>Add support for copilot posting competition</li>
+ *   </ol>
+ * </p>
+ *
+ * @author cucu, pulky, Vitta, TCSASSEMBLER
+ * @version 1.6
  */
 public abstract class BasePayment implements Constants, java.io.Serializable {
     private static Logger log = Logger.getLogger(BasePayment.class);
@@ -202,6 +209,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case TEST_SCENARIOS_PAYMENT:
         case COPILOT_PAYMENT:
         case DEPLOYMENT_TASK_PAYMENT:
+        case COPILOT_POSTING_PAYMENT:
             return REFERENCE_COMPONENT_PROJECT_ID;
 
         case PROBLEM_WRITING_PAYMENT:
@@ -298,6 +306,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case CONCEPTUALIZATION_CONTEST_PAYMENT: return new ConceptualizationContestPayment(coderId, grossAmount, referenceId, placed);
         case TEST_SUITES_PAYMENT: return new TestSuitesCompetitionPayment(coderId, grossAmount, referenceId, placed);
         case TEST_SCENARIOS_PAYMENT: return new TestScenariosCompetitionPayment(coderId, grossAmount, referenceId, placed);
+        case COPILOT_POSTING_PAYMENT: return new CopilotPostingPayment(coderId, grossAmount, referenceId, placed);
         case COPILOT_PAYMENT: return new CopilotPayment(coderId, grossAmount, referenceId, placed);
         case STUDIO_BUG_FIXES_PAYMENT: return new StudioBugFixesPayment(coderId, grossAmount, referenceId, placed);
         case STUDIO_ENHANCEMENTS_PAYMENT:
@@ -436,6 +445,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             case CONCEPTUALIZATION_CONTEST_PAYMENT: return "Conceptualization Contest Payment";
             case TEST_SUITES_PAYMENT: return "Test Suites Payment";
             case TEST_SCENARIOS_PAYMENT: return "Test Scenarios Payment";
+            case COPILOT_POSTING_PAYMENT: return "Copilot Posting Payment";
             case COPILOT_PAYMENT: return "Copilot Payment";
             case STUDIO_BUG_FIXES_PAYMENT: return "TopCoder Studio bug fixes Payment";
             case STUDIO_ENHANCEMENTS_PAYMENT: return "TopCoder Studio enhancements Payment";

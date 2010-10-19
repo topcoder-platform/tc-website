@@ -1,6 +1,6 @@
 <%--
-  - Author: pulky
-  - Version: 1.2
+  - Author: pulky, TCSASSEMBLER
+  - Version: 1.3
   - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page lists all registrants to a specific project.
@@ -10,6 +10,9 @@
   -
   - Version 1.2 (Testing Competition Split Release Assembly 1.0) changes: Updated Application Testing to Test Suites
   - and added support for new Test Scenarios competitions.
+  -
+  - Version 1.3 (Copilot Selection Contest Online Review and TC Site Integration Assembly 1.0) changes:
+  - Added support for new Copilot Posting.
 --%>
 <%@ page language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -54,6 +57,7 @@
 <c:set value="<%=Constants.UI_PROTOTYPE_PROJECT_TYPE%>" var="UI_PROTOTYPE_PROJECT_TYPE"/>
 <c:set value="<%=Constants.RIA_BUILD_PROJECT_TYPE%>" var="RIA_BUILD_PROJECT_TYPE"/>
 <c:set value="<%=Constants.RIA_COMPONENT_PROJECT_TYPE%>" var="RIA_COMPONENT_PROJECT_TYPE"/>
+<c:set value="<%=Constants.COPILOT_POSTING_PROJECT_TYPE%>" var="COPILOT_POSTING_PROJECT_TYPE"/>
 
 <body>
 
@@ -122,6 +126,11 @@
                         <jsp:param name="node" value="ria_component_compete"/>
                     </jsp:include>
                 </c:when>
+                <c:when test="${pt == COPILOT_POSTING_PROJECT_TYPE}">
+                    <jsp:include page="/includes/global_left.jsp">
+                        <jsp:param name="node" value="copilots_compete"/>
+                    </jsp:include>
+                </c:when>				
             </c:choose>
         </td>
 <%-- Left Column Ends --%>
@@ -201,6 +210,12 @@
                         <jsp:param name="title" value="Active Contests"/>
                     </jsp:include>
                 </c:when>
+                <c:when test="${pt == COPILOT_POSTING_PROJECT_TYPE}">
+                    <jsp:include page="/page_title.jsp">
+                        <jsp:param name="image" value="copilot_posting"/>
+                        <jsp:param name="title" value="Active Copilot Postings"/>
+                    </jsp:include>
+                </c:when>				
             </c:choose>
 
 
@@ -246,6 +261,9 @@
                 <c:when test="${pt == RIA_COMPONENT_PROJECT_TYPE}">
                       RIA Component
                 </c:when>
+                <c:when test="${pt == COPILOT_POSTING_PROJECT_TYPE}">
+                      Copilot Posting
+                </c:when>				
             </c:choose>
                  Contest Details</td></tr>
         <tr>

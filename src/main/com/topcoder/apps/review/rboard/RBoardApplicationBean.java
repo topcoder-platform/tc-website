@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.apps.review.rboard;
 
@@ -123,10 +123,14 @@ import com.topcoder.web.ejb.forums.ForumsHome;
  *     It now adds "Specification Reviewer" role to the parent cotnest in OR instead of a separate project in OR.
  *     </li>
  *   </ol>
+ *   Version 1.0.15 (Copilot Selection Contest Online Review and TC Site Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for Copilot Posting.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, ivern, isv, pulky, snow01, VolodymyrK
- * @version 1.0.14
+ * @author dok, ivern, isv, pulky, snow01, VolodymyrK, Blues
+ * @version 1.0.15
  */
 public class RBoardApplicationBean extends BaseEJB {
     private static final int INTERNAL_ADMIN_USER = 100129;
@@ -238,7 +242,15 @@ public class RBoardApplicationBean extends BaseEJB {
      *
      * @since 1.0.14
      */
-    private static final int SPECIFICATION_REVIEW_PRIMARY_REVIEW_ID = 37;	
+    private static final int SPECIFICATION_REVIEW_PRIMARY_REVIEW_ID = 37;
+
+  /**
+     * <p>An <code>int</code> representing the primary review id for Copilot Posting.</p>
+     *
+     * @since 1.0.15
+     */
+    private static final int COPILOT_POSTING_PRIMARY_REVIEW_ID = 38;
+	
 
     /**
      * <p>A <code>String</code> containing the error message for inconsistent reviewers for most project types.</p>
@@ -1183,6 +1195,9 @@ public class RBoardApplicationBean extends BaseEJB {
         } else if (phaseId == (WebConstants.SPECIFICATION_REVIEW_PROJECT_TYPE + 111)) {
             validateReviewPositions(reviewTypeId, primary, reviewers, SPECIFICATION_REVIEW_PRIMARY_REVIEW_ID,
                 INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
+        } else if (phaseId == (WebConstants.COPILOT_POSTING_PROJECT_TYPE + 111)) {
+            validateReviewPositions(reviewTypeId, primary, reviewers, COPILOT_POSTING_PRIMARY_REVIEW_ID,
+                INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         }
 
         // If somebody came in by constructing the URL, make sure that there is at least one
@@ -1271,11 +1286,11 @@ public class RBoardApplicationBean extends BaseEJB {
         // review_resp table is removed
         Map returnMap = new HashMap();
         int[] respIds = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-                22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42,
+                22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 60, 61, 62, 41, 42,
 				43, 44, 45, 46, 47, 48, 49};
         int[] phaseIds = {113, 113, 113, 112, 112, 112, 125, 125, 125, 118, 118, 118, 134, 134, 134,
                 117, 117, 117, 124, 124, 124, 130, 130, 130, 135, 135, 135, 136, 136, 136, 137, 137, 137,
-                114, 114, 114, 138, 1113, 1112, 1125, 1118, 1134, 1117, 1124, 1130, 1135, 1136, 1137, 1114};
+                114, 114, 114, 138, 140, 140, 140, 1113, 1112, 1125, 1118, 1134, 1117, 1124, 1130, 1135, 1136, 1137, 1114};
 
         for (int i = 0; i < respIds.length; i++) {
             returnMap.put(new Integer(respIds[i]), new Integer(phaseIds[i]));

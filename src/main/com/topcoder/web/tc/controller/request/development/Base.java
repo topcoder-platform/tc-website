@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.development;
 
@@ -121,11 +121,19 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *           </ul>
  *         </td>
  *     </tr>
+ *      <tr>
+ *         <td>Version 1.9 (Copilot Selection Contest Online Review and TC Site Integration Assembly v1.0)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Added support for copilot posting.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
  *   </table>
  * </p>
  *
- * @author dok, isv, pulky, VolodymyrK
- * @version 1.8
+ * @author dok, isv, pulky, VolodymyrK, Blues
+ * @version 1.9
  */
 public abstract class Base extends ShortHibernateProcessor {
 
@@ -193,6 +201,8 @@ public abstract class Base extends ShortHibernateProcessor {
             return "/riabuild/projectDetail.jsp";
         } else if (projectTypeId==Constants.RIA_COMPONENT_PROJECT_TYPE) {
             return "/riacomponent/projectDetail.jsp";
+        } else if (projectTypeId==Constants.COPILOT_POSTING_PROJECT_TYPE) {
+            return "/copilotposting/projectDetail.jsp";
         } else {
             return "";
         }
@@ -216,7 +226,8 @@ public abstract class Base extends ShortHibernateProcessor {
             || projectTypeId == Constants.TEST_SCENARIOS_PROJECT_TYPE
             || projectTypeId == Constants.UI_PROTOTYPE_PROJECT_TYPE
             || projectTypeId == Constants.RIA_BUILD_PROJECT_TYPE
-            || projectTypeId == Constants.RIA_COMPONENT_PROJECT_TYPE) {
+            || projectTypeId == Constants.RIA_COMPONENT_PROJECT_TYPE
+            || projectTypeId == Constants.COPILOT_POSTING_PROJECT_TYPE) {
             return "registrants";
         } else {
             return "contest_registrants";
@@ -310,6 +321,8 @@ public abstract class Base extends ShortHibernateProcessor {
                 projectTypeId = Constants.RIA_BUILD_PROJECT_TYPE;
             } else if (String.valueOf(SoftwareComponent.RIA_COMPONENT_PHASE).equals(phaseId)) {
                 projectTypeId = Constants.RIA_COMPONENT_PROJECT_TYPE;
+            } else if (String.valueOf(SoftwareComponent.COPILOT_POSTING_PHASE).equals(phaseId)) {
+                projectTypeId = Constants.COPILOT_POSTING_PROJECT_TYPE;
             }
         }
         return projectTypeId;
