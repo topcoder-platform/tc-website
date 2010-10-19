@@ -48,9 +48,9 @@
         <ul>
         <li><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index" title="Current News"><span>Current News</span></a></li>
         <li><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_archive" title="Press Release Archive"><span>Press Release Archive</span></a></li>
+        <li id="pr_menuactive"><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_archive" title="Articles Archive"><span>Articles Archive</span></a></li>
         <li><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=mediaResources" title="Media Resources"><span>Media</span></a></li>
         <li><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=mediaRequestForm" title="Media Request Form"><span>Media Request Form</span></a></li>
-        <li id="pr_menuactive"><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_archive" title="Articles Archive"><span>Articles Archive</span></a></li>
         </ul>
     </div>
     <%-- pr_menu end --%>
@@ -72,8 +72,11 @@
             
                 <div class="pr_newsarchive">
                     <dl>
+                    <dd><a href="http://www.investors.com/NewsAndAnalysis/Article/550124/201010121650/Win-With-Customer-Input.aspx">Win With Customer Input<br /><small style="margin-left:10px;">[October 19 - Investors.com]</small></a></dd>
+                    <dd><a href="http://www.informationweek.com/news/software/showArticle.jhtml?articleID=227800070">NASA To Crowdsource Software Development<br /><small style="margin-left:10px;">[October 19 - InformationWeek]</small></a></dd>
+                    <dd><a href="http://www.prnewswire.com/news-releases/nasa-establishes-tournament-lab-for-software-developers-104894204.html">NASA Establishes Tournament Lab for Software Developers<br /><small style="margin-left:10px;">[October 19 - PR Newswire]</small></a></dd>
                     <dd><a href="http://gcn.com/articles/2010/10/12/darpa-launches-computer-science-education-program.aspx">DARPA seeks to shape young minds<br /><small style="margin-left:10px;">[October 12 - GCN Government Computer News]</small></a></dd>
-                     <dd><a href="http://www.scmagazineus.com/global-village/article/164049/">Testing competitions can improve code, but crowdsourcing brings new concerns to security governance.<br /><small style="margin-left:10px;">[March 1 - SC Magazine]</small></a></dd>
+                    <dd><a href="http://www.scmagazineus.com/global-village/article/164049/">Testing competitions can improve code, but crowdsourcing brings new concerns to security governance.<br /><small style="margin-left:10px;">[March 1 - SC Magazine]</small></a></dd>
                     <dd><a href="http://www.computer.org/portal/web/buildyourcareer/et13/contests">Developer Contests Abound<br /><small style="margin-left:10px;">[January 8th - IEEE Computer Society]</small></a></dd>
                     </dl>
                 </div>

@@ -48,9 +48,9 @@
         <ul>
         <li><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index" title="Current News"><span>Current News</span></a></li>
         <li id="pr_menuactive"><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_archive" title="Press Release Archive"><span>Press Release Archive</span></a></li>
+        <li><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_archive" title="Articles Archive"><span>Articles Archive</span></a></li>
         <li><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=mediaResources" title="Media Resources"><span>Media</span></a></li>
         <li><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=mediaRequestForm" title="Media Request Form"><span>Media Request Form</span></a></li>
-        <li><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_archive" title="Articles Archive"><span>Articles Archive</span></a></li>
         </ul>
     </div>
     <%-- pr_menu end --%>
@@ -70,6 +70,8 @@
             
                 <div class="pr_newsarchive">
                     <dl>
+                    <dd><a href="http://www.informationweek.com/news/software/showArticle.jhtml?articleID=227800070">NASA To Crowdsource Software Development<br /><small style="margin-left:10px;">[October 19th]</small></a></dd>
+                    <dd><a href="http://www.prnewswire.com/news-releases/nasa-establishes-tournament-lab-for-software-developers-104894204.html">NASA Establishes Tournament Lab for Software Developers<br /><small style="margin-left:10px;">[October 19th]</small></a></dd>
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_101410">DARPA and TopCoder Seek to Change How Students Spend Time Online<br /><small style="margin-left:10px;">[October 14th]</small></a></dd>
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_093010">TopCoder Announces PayPal &amp; Facebook as Sponsors of 2010 TopCoder Open<br /><small style="margin-left:10px;">[September 30th]</small></a></dd>
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_090810">Onsite Finalists Announced for 2010 TopCoder Open Programming Tournament<br /><small style="margin-left:10px;">[September 8th]</small></a></dd>

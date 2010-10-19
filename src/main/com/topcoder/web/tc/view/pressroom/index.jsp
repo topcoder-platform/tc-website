@@ -48,9 +48,9 @@
         <ul>
             <li id="pr_menuactive"><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index" title="Current News"><span>Current News</span></a></li>
             <li><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_archive" title="Press Release Archive"><span>Press Release Archive</span></a></li>
+            <li><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_archive" title="Articles Archive"><span>Articles Archive</span></a></li>
             <li><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=mediaResources" title="Media Resources"><span>Media</span></a></li>
             <li><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=mediaRequestForm" title="Media Request Form"><span>Media Request Form</span></a></li>
-            <li><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=art_archive" title="Articles Archive"><span>Articles Archive</span></a></li>
         </ul>
     </div>
     <%-- pr_menu end --%>
@@ -96,6 +96,45 @@
             
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
+
+            	<%-- Win With Customer Input  --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="http://www.investors.com/NewsAndAnalysis/Article/550124/201010121650/Win-With-Customer-Input.aspx"><img src="/i/pressroom/investorsBusinessDaily_logo.png" alt="Investor's.com logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="http://www.investors.com/NewsAndAnalysis/Article/550124/201010121650/Win-With-Customer-Input.aspx">Win With Customer Input</a></h3>
+                        <p>Software development firm TopCoder uses a social network of programmers and wins big-time, says Paul Gillin, author of "Secrets of Social Media Marketing."  <small><a href="http://www.investors.com/NewsAndAnalysis/Article/550124/201010121650/Win-With-Customer-Input.aspx">[October 19th]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Win With Customer Input end --%>
+
+				<%-- NASA To Crowdsource Software Development  --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="http://www.informationweek.com/news/software/showArticle.jhtml?articleID=227800070"><img src="/i/pressroom/info_week_logo.gif" alt="Information Week logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="http://www.informationweek.com/news/software/showArticle.jhtml?articleID=227800070">NASA To Crowdsource Software Development</a></h3>
+                        <p>The agency has created an online lab that allows developers to compete to create solutions for problems submitted by NASA researchers. <small><a href="http://www.informationweek.com/news/software/showArticle.jhtml?articleID=227800070">[October 19th]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- NASA To Crowdsource Software Development end --%>
+
+                <%-- NASA Establishes  --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="http://www.prnewswire.com/news-releases/nasa-establishes-tournament-lab-for-software-developers-104894204.html"><img src="/i/pressroom/nasa_logo_01.gif" alt="NASA logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="http://www.prnewswire.com/news-releases/nasa-establishes-tournament-lab-for-software-developers-104894204.html">NASA Establishes Tournament Lab for Software Developers</a></h3>
+                        <p>NASA and Harvard University have established the NASA Tournament Lab (NTL), which will enable software developers to compete with each other to create the best computer code for NASA systems.<small><a target="_blank" href="http://www.prnewswire.com/news-releases/nasa-establishes-tournament-lab-for-software-developers-104894204.html">[October 19]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- NASA Establishes end --%>
             
             	 <%-- DARPA --%>
                 <div class="pr_newsitem">
