@@ -5291,7 +5291,7 @@ public class TCLoadTCS extends TCLoad {
 
         // Statement for inserting the records from tcs_dw.project table into tcs_dw.tcd_project_stat table
         final String INSERT
-            = "INSERT INTO tcd_project_stat " +
+            = "INSERT INTO tcd_project_stat (tcd_project_id, project_category_id, stat_date, cost, duration, fulfillment, total_project, create_user, create_date, modify_user, modify_date) " +
               "SELECT tc_direct_project_id, project_category_id, DATE(p.complete_date), " +
               "       SUM(p.admin_fee + p.contest_prizes_total), " +
               "       SUM((p.complete_date - p.posting_date)::interval minute(9) to minute::char(20)::decimal(10,2)), " +
