@@ -718,7 +718,8 @@ public class Contest extends Base {
         Set<Submission> submissions = getSubmissions();
         if (submissions != null) {
             for (Submission submission : submissions) {
-                if (submission.getFeedbackText() != null) {
+                Boolean milestonePrizeAwarded = submission.getMilestonePrizeAwarded();
+                if ((milestonePrizeAwarded != null) && (milestonePrizeAwarded)) {
                     return true;
                 }
             }
