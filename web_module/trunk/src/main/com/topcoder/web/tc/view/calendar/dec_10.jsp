@@ -82,6 +82,7 @@
       <td class="value">8
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14243">SRM 490</A></strong><br />
+    	 brought to you by <A href="/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=sponsor3">PayPal X Developer Network</A><br />
          11:00
          </div>       
       </td>
