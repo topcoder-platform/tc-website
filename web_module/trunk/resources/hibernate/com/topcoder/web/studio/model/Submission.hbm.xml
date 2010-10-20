@@ -28,6 +28,7 @@
                 <property name="submissionDate" column="submission_date" />
         -->
         <property name="createDate" column="create_date" insert="false" update="false"/>
+        <property name="milestonePrizeAwarded" column="award_milestone_prize" />
         <property name="rank"/>
         <property name="height"/>
         <property name="width"/>

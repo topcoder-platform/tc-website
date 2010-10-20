@@ -21,6 +21,7 @@ import java.util.Collections;
  *   Version 1.1 (Studio Contest Detail Pages assembly) Change notes:
  *   <ol>
  *     <li>Added {@link #feedbackText} property with respective accessor/mutator methods.</li>
+ *     <li>Added {@link #milestonePrizeAwarded} property with respective accessor/mutator methods.</li>
  *   </ol>
  * </p>
  *
@@ -46,6 +47,15 @@ public class Submission extends Base {
     private SubmissionStatus status;
     private com.topcoder.web.common.model.comp.Submission ORSubmission;
     private Set<Prize> prizes = new TreeSet<Prize>();
+
+
+    /**
+     * <p>A <code>Boolean</code> providing the flag indicating whether the milestone prize was awarded to this
+     * submission or not.</p>
+     *
+     * @since 1.1
+     */
+    private Boolean milestonePrizeAwarded;
 
     /**
      * <p>A <code>String</code> providing the feedback text for submission.</p>
@@ -343,5 +353,27 @@ public class Submission extends Base {
      */
     public void setFeedbackText(String feedbackText) {
         this.feedbackText = feedbackText;
+    }
+
+    /**
+     * <p>Gets the flag indicating whether the milestone prize was awarded to this submission or not.</p>
+     *
+     * @return a <code>Boolean</code> providing the flag indicating whether the milestone prize was awarded to this
+     *         submission or not.
+     * @since 1.1
+     */
+    public Boolean getMilestonePrizeAwarded() {
+        return this.milestonePrizeAwarded;
+    }
+
+    /**
+     * <p>Sets the flag indicating whether the milestone prize was awarded to this submission or not.</p>
+     *
+     * @param milestonePrizeAwarded a <code>Boolean</code> providing the flag indicating whether the milestone prize was
+     *                              awarded to this submission or not.
+     * @since 1.1
+     */
+    public void setMilestonePrizeAwarded(Boolean milestonePrizeAwarded) {
+        this.milestonePrizeAwarded = milestonePrizeAwarded;
     }
 }
