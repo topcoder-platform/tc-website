@@ -234,7 +234,7 @@
                                             <span class="member_content special handle">Congratulations <span class="handle-color">djackmania!</span></span><br/><br/>
                                         </div>
                                         <div id="member_stats">
-                                            <span class="member_content special">Earned $5,3500 in 9 competitions during the month of September.</span><br/><br/>
+                                            <span class="member_content special">Earned $5,350 in 9 competitions during the month of September.</span><br/><br/>
                                             <!--<span class="member_content special"><a href="http://www.topcoder.com/news/2010/09/15/congratulations-to-the-august-coders-and-designers-of-the-month/">Read the interviews here.</a></span><br/><br/>-->
                                         </div>
                                     </div>
