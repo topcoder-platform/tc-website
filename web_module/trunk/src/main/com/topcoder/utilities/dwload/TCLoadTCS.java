@@ -5299,7 +5299,7 @@ public class TCLoadTCS extends TCLoad {
               "       COUNT(p.project_id), " +
               "       'TCLoadTCS', CURRENT, 'TCLoadTCS', CURRENT " +
               "FROM project p " +
-              "WHERE NOT p.complete_date IS NULL " +
+              "WHERE p.complete_date IS NOT NULL and p.tc_direct_project_id > 0 and p.posting_date IS NOT NULL  " +
               "GROUP BY 1, 2, 3";
 
         // Statement for inserting new records into tcs_dw.tcd_project_stat table
