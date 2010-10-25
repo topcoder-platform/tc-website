@@ -11,6 +11,9 @@
   -     - Removed unsed section variable and 3 closing DIV elements without opening elements.  
 --%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+ 			</div>
+ 		</div>
+	</div><%-- #page-wrap ends --%>
 <%-- FOOTER BLOCK --%>
 <div id="footer">
     <div class="wrapper2">
