@@ -63,7 +63,7 @@ public class PayWithholdings extends DBUtility {
         query.append("         where pp.project_id = pd.component_project_id ");
         query.append("         and pp.phase_status_id = 3) as project_completion_date "); 
         query.append(" , sum(gross_amount) as amount_paid ");
-        query.append(" , max(total_amount) as total_amount ");
+        query.append(" , sum(case when installment_number = 1 then total_amount else 0.0 end) as total_amount ");
         query.append(" , max(installment_number) as installment_number ");
         query.append(" FROM payment p, payment_detail pd ");
         query.append(" WHERE p.most_recent_detail_id = pd.payment_detail_id ");
@@ -85,7 +85,7 @@ public class PayWithholdings extends DBUtility {
         query.append("         where pp.project_id = pd.component_project_id ");
         query.append("         and pp.phase_status_id = 3) >= " + START_DATE);
         query.append(" GROUP BY 1, 2, 3, 4, 5, 6 ");
-        query.append(" HAVING sum(gross_amount) < max(total_amount) ");
+        query.append(" HAVING sum(gross_amount) < sum(case when installment_number = 1 then total_amount else 0.0 end) ");
 
         PreparedStatement psSelProjects = prepareStatement("informixoltp", query.toString());
 
