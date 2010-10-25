@@ -23,11 +23,15 @@
     <c:when test="${catalogName == 'PHP Custom'}"><img src="/i/development/phpCustomSm.gif" alt="${catalogName}" /></c:when>
     <c:when test="${catalogName == 'Ruby'}"><img src="/i/development/rubySm.gif" alt="${catalogName}" /></c:when>
     <c:when test="${catalogName == 'Ruby Custom'}"><img src="/i/development/rubyCustomSm.gif" alt="${catalogName}" /></c:when>
-    <c:when test="${catalogName == 'ObjectiveC'}"><img src="/i/development/objectivecSm.gif" alt="${catalogName}" /></c:when>
-    <c:when test="${catalogName == 'ObjectiveC Custom'}"><img src="/i/development/objectivecCustomSm.gif" alt="${catalogName}" /></c:when>
+    <c:when test="${catalogName == 'Objective C'}"><img src="/i/development/objectivecSm.gif" alt="${catalogName}" /></c:when>
+    <c:when test="${catalogName == 'Objective C Custom'}"><img src="/i/development/objectivecCustomSm.gif" alt="${catalogName}" /></c:when>
     <c:when test="${catalogName == 'Flex'}"><img src="/i/development/flexSm.gif" alt="${catalogName}" /></c:when>
     <c:when test="${catalogName == 'Flex Custom'}"><img src="/i/development/flexCustomSm.gif" alt="${catalogName}" /></c:when>
     <c:when test="${catalogName == 'Javascript'}"><img src="/i/development/javascriptSm.gif" alt="${catalogName}" /></c:when>
     <c:when test="${catalogName == 'Javascript Custom'}"><img src="/i/development/javascriptCustomSm.gif" alt="${catalogName}" /></c:when>
+    <c:when test="${catalogName == 'Python'}"><img src="/i/development/pythonSm.gif" alt="${catalogName}" /></c:when>
+    <c:when test="${catalogName == 'Python Custom'}"><img src="/i/development/pythonCustomSm.gif" alt="${catalogName}" /></c:when>
+    <c:when test="${catalogName == 'Other'}"><img src="/i/development/otherSm.gif" alt="${catalogName}" /></c:when>
+    <c:when test="${catalogName == 'Other Custom'}"><img src="/i/development/otherCustomSm.gif" alt="${catalogName}" /></c:when>
     <c:otherwise>${catalogName}</c:otherwise>
 </c:choose>
