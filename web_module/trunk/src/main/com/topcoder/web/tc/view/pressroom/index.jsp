@@ -97,6 +97,19 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
 
+				<%-- For The Next Generation Of Tech Innovators  --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="http://www.ibtimes.com/articles/75118/20101023/science-high-school-stem-interest-learning-poptech-topcoder-time-warner-project-lead-the-way-educati.htm"><img src="/i/pressroom/internationalBusinessTimes_logo.gif" alt="International Business Times logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="http://www.ibtimes.com/articles/75118/20101023/science-high-school-stem-interest-learning-poptech-topcoder-time-warner-project-lead-the-way-educati.htm">Win With Customer Input</a></h3>
+                        <p>Rob Hughes, president of TopCoder, is one of those who wants to encourage more kids to study the sciences. TopCoder is a networking site for independent software developers to showcase their work and compete in various contests to design the best software applications.<small><a href="http://www.ibtimes.com/articles/75118/20101023/science-high-school-stem-interest-learning-poptech-topcoder-time-warner-project-lead-the-way-educati.htm">[October 25th]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- For The Next Generation Of Tech Innovators end --%>
+
             	<%-- Win With Customer Input  --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">

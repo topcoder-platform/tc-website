@@ -72,6 +72,7 @@
             
                 <div class="pr_newsarchive">
                     <dl>
+                    <dd><a href="http://www.ibtimes.com/articles/75118/20101023/science-high-school-stem-interest-learning-poptech-topcoder-time-warner-project-lead-the-way-educati.htm">For The Next Generation Of Tech Innovators<br /><small style="margin-left:10px;">[October 25 - International Business Times]</small></a></dd>
                     <dd><a href="http://www.investors.com/NewsAndAnalysis/Article/550124/201010121650/Win-With-Customer-Input.aspx">Win With Customer Input<br /><small style="margin-left:10px;">[October 19 - Investors.com]</small></a></dd>
                     <dd><a href="http://www.informationweek.com/news/software/showArticle.jhtml?articleID=227800070">NASA To Crowdsource Software Development<br /><small style="margin-left:10px;">[October 19 - InformationWeek]</small></a></dd>
                     <dd><a href="http://www.prnewswire.com/news-releases/nasa-establishes-tournament-lab-for-software-developers-104894204.html">NASA Establishes Tournament Lab for Software Developers<br /><small style="margin-left:10px;">[October 19 - PR Newswire]</small></a></dd>
