@@ -37,6 +37,7 @@ import com.topcoder.web.common.dao.PreferenceDAO;
 import com.topcoder.web.common.dao.PreferenceGroupDAO;
 import com.topcoder.web.common.dao.PreferenceValueDAO;
 import com.topcoder.web.common.dao.ProblemSetDAO;
+import com.topcoder.web.common.dao.PaymentDAO;
 import com.topcoder.web.common.dao.ProfessorDAO;
 import com.topcoder.web.common.dao.ProfessorStatusDAO;
 import com.topcoder.web.common.dao.ProjectDAO;
@@ -283,6 +284,10 @@ public class DAOFactoryHibernate implements DAOFactory {
 
     public ProfessorDAO getProfessorDAO() {
         return new ProfessorDAOHibernate();
+    }
+
+    public PaymentDAO getPaymentDAO() {
+        return new PaymentDAOHibernate();
     }
 
     public ClassroomDAO getClassroomDAO() {

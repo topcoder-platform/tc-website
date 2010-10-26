@@ -223,6 +223,10 @@ public class DAOFactoryQueryTool implements DAOFactory {
         throw new RuntimeException("Not supported");
     }
 
+    public PaymentDAO getPaymentDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
     public ClassroomDAO getClassroomDAO() {
         throw new RuntimeException("Not supported");
     }

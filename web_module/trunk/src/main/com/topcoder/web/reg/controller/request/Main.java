@@ -4,6 +4,7 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.dao.PaymentDAO;
 import com.topcoder.web.common.dao.RegistrationTypeDAO;
 import com.topcoder.web.common.dao.hibernate.UserDAOHibernate;
 import com.topcoder.web.common.model.Coder;
@@ -158,6 +159,8 @@ public class Main extends Base {
                 setRegUser(u);
 
                 setMainDefaults(u);
+
+                getRequest().setAttribute("hasPayments", getFactory().getPaymentDAO().hasPayments(u.getId()));
 
                 List nots = getFactory().getNotificationDAO().getNotifications(getRequestedTypes());
                 if (nots != null) {
