@@ -1953,14 +1953,12 @@ public class TCLoadTCS extends TCLoad {
     public void doLoadSubmissionReview() throws Exception {
         log.info("load submission review");
         ResultSet submissionInfo = null;
-        ResultSet projects = null;
         PreparedStatement submissionSelect = null;
         PreparedStatement submissionUpdate = null;
         PreparedStatement submissionInsert = null;
         PreparedStatement reviewRespSelect = null;
         PreparedStatement maxReviewRespSelect = null;
         PreparedStatement reviewRespUpdate = null;
-        PreparedStatement projectSelect = null;
 
         final String SUBMISSION_SELECT =
                 "select u.project_id " +
@@ -2004,7 +2002,6 @@ public class TCLoadTCS extends TCLoad {
                         "   and ri2.resource_id = r.resource_id " +
                         "   and ri2.resource_info_type_id = 1 " +
                         ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
-                        "   and u.project_id = ?" +
                         "   and (r.modify_date > ? " +
                         "   or s.modify_date > ? " +
                         "   or u.modify_date > ?" +
@@ -2021,7 +2018,8 @@ public class TCLoadTCS extends TCLoad {
                                 " OR ri2.modify_user <> 'Converter' " +
                                 " OR res.modify_user <> 'Converter' " +
                                 ")"
-                                : ")");
+                                : ")") +
+                        " order by u.project_id";
 
         final String SUBMISSION_UPDATE =
                 "update submission_review set raw_score = ?, final_score = ?, num_appeals = ?, num_successful_appeals = ?, review_resp_id = ?,  scorecard_id = ?, scorecard_template_id = ? " +
@@ -2041,111 +2039,109 @@ public class TCLoadTCS extends TCLoad {
             submissionUpdate = prepareStatement(SUBMISSION_UPDATE, TARGET_DB);
             submissionInsert = prepareStatement(SUBMISSION_INSERT, TARGET_DB);
             reviewRespUpdate = prepareStatement(REVIEW_RESP_UPDATE, TARGET_DB);
-            projectSelect = prepareStatement(PROJECT_SELECT, SOURCE_DB);
 
             int count = 0;
-            //log.debug("PROCESSING PROJECT RESULTS " + project_id);
+            submissionSelect.clearParameters();
+            submissionSelect.setTimestamp(1, fLastLogTime);
+            submissionSelect.setTimestamp(2, fLastLogTime);
+            submissionSelect.setTimestamp(3, fLastLogTime);
+            submissionSelect.setTimestamp(4, fLastLogTime);
+            submissionSelect.setTimestamp(5, fLastLogTime);
+            submissionSelect.setTimestamp(6, fLastLogTime);
+            submissionSelect.setTimestamp(7, fLastLogTime);
+            //log.debug("before submission select");
+            submissionInfo = submissionSelect.executeQuery();
+            //log.debug("after submission select");
 
-            projects = projectSelect.executeQuery();
+            int nextFreeReviewRespId = 4;
+            Map<Long, Integer> reviewerResps = new HashMap<Long, Integer>();
 
-            while (projects.next()) {
-                Map<Long, Integer> reviewerResps = new HashMap<Long, Integer>();
-                long projectId = projects.getLong("project_id");
+            boolean nextResultExists = submissionInfo.next();
+            while (nextResultExists) {
+                long projectId = submissionInfo.getLong("project_id");
+                count++;
 
-                submissionSelect.clearParameters();
-                submissionSelect.setLong(1, projectId);
-                submissionSelect.setTimestamp(2, fLastLogTime);
-                submissionSelect.setTimestamp(3, fLastLogTime);
-                submissionSelect.setTimestamp(4, fLastLogTime);
-                submissionSelect.setTimestamp(5, fLastLogTime);
-                submissionSelect.setTimestamp(6, fLastLogTime);
-                submissionSelect.setTimestamp(7, fLastLogTime);
-                submissionSelect.setTimestamp(8, fLastLogTime);
-                //log.debug("before submission select");
-                submissionInfo = submissionSelect.executeQuery();
-                //log.debug("after submission select");
+                submissionUpdate.clearParameters();
 
-                int nextFreeReviewRespId = 4;
-                while (submissionInfo.next()) {
+                int reviewRespId = submissionInfo.getInt("review_resp_id");
 
-                    submissionUpdate.clearParameters();
+                submissionUpdate.setObject(1, submissionInfo.getObject("raw_score"));
+                submissionUpdate.setObject(2, submissionInfo.getObject("final_score"));
+                submissionUpdate.setObject(3, submissionInfo.getObject("num_appeals"));
+                if (submissionInfo.getInt("non_null_successful_appeals") == 0) {
+                    submissionUpdate.setNull(4, Types.DECIMAL);
+                } else {
+                    submissionUpdate.setInt(4, submissionInfo.getInt("num_successful_appeals"));
+                }
+                submissionUpdate.setInt(5, reviewRespId);
+                submissionUpdate.setObject(6, submissionInfo.getObject("scorecard_id"));
+                submissionUpdate.setObject(7, submissionInfo.getObject("scorecard_template_id"));
+                submissionUpdate.setLong(8, submissionInfo.getLong("project_id"));
+                submissionUpdate.setLong(9, submissionInfo.getLong("user_id"));
+                submissionUpdate.setLong(10, submissionInfo.getLong("reviewer_id"));
 
-                    int reviewRespId = submissionInfo.getInt("review_resp_id");
+                //log.debug("before submission update");
+                int retVal = submissionUpdate.executeUpdate();
+                //log.debug("after submission update");
 
-                    submissionUpdate.setObject(1, submissionInfo.getObject("raw_score"));
-                    submissionUpdate.setObject(2, submissionInfo.getObject("final_score"));
-                    submissionUpdate.setObject(3, submissionInfo.getObject("num_appeals"));
+                if (retVal == 0) {
+                    submissionInsert.clearParameters();
+
+                    submissionInsert.setLong(1, submissionInfo.getLong("project_id"));
+                    submissionInsert.setLong(2, submissionInfo.getLong("user_id"));
+                    submissionInsert.setLong(3, submissionInfo.getLong("reviewer_id"));
+                    submissionInsert.setObject(4, submissionInfo.getObject("raw_score"));
+                    submissionInsert.setObject(5, submissionInfo.getObject("final_score"));
+                    submissionInsert.setObject(6, submissionInfo.getObject("num_appeals"));
                     if (submissionInfo.getInt("non_null_successful_appeals") == 0) {
-                        submissionUpdate.setNull(4, Types.DECIMAL);
+                        submissionInsert.setNull(7, Types.DECIMAL);
                     } else {
-                        submissionUpdate.setInt(4, submissionInfo.getInt("num_successful_appeals"));
-                    }
-                    submissionUpdate.setInt(5, reviewRespId);
-                    submissionUpdate.setObject(6, submissionInfo.getObject("scorecard_id"));
-                    submissionUpdate.setObject(7, submissionInfo.getObject("scorecard_template_id"));
-                    submissionUpdate.setLong(8, submissionInfo.getLong("project_id"));
-                    submissionUpdate.setLong(9, submissionInfo.getLong("user_id"));
-                    submissionUpdate.setLong(10, submissionInfo.getLong("reviewer_id"));
-
-                    //log.debug("before submission update");
-                    int retVal = submissionUpdate.executeUpdate();
-                    //log.debug("after submission update");
-
-                    if (retVal == 0) {
-                        submissionInsert.clearParameters();
-
-                        submissionInsert.setLong(1, submissionInfo.getLong("project_id"));
-                        submissionInsert.setLong(2, submissionInfo.getLong("user_id"));
-                        submissionInsert.setLong(3, submissionInfo.getLong("reviewer_id"));
-                        submissionInsert.setObject(4, submissionInfo.getObject("raw_score"));
-                        submissionInsert.setObject(5, submissionInfo.getObject("final_score"));
-                        submissionInsert.setObject(6, submissionInfo.getObject("num_appeals"));
-                        if (submissionInfo.getInt("non_null_successful_appeals") == 0) {
-                            submissionInsert.setNull(7, Types.DECIMAL);
-                        } else {
-                            submissionInsert.setObject(7, submissionInfo.getObject("num_successful_appeals"));
-                        }
-
-                        submissionInsert.setInt(8, reviewRespId);
-                        submissionInsert.setObject(9, submissionInfo.getObject("scorecard_id"));
-                        submissionInsert.setObject(10, submissionInfo.getObject("scorecard_template_id"));
-
-                        //log.debug("before submission insert");
-                        submissionInsert.executeUpdate();
-                        //log.debug("after submission insert");
+                        submissionInsert.setObject(7, submissionInfo.getObject("num_successful_appeals"));
                     }
 
-                    long reviewerId = submissionInfo.getLong("reviewer_id");
-                    if (reviewerResps.containsKey(reviewerId) == false) {
-                        if (reviewRespId == 4) {
-                            reviewRespId = nextFreeReviewRespId;
-                            nextFreeReviewRespId++;
-                        }
-                        reviewerResps.put(reviewerId, reviewRespId);
-                    }
+                    submissionInsert.setInt(8, reviewRespId);
+                    submissionInsert.setObject(9, submissionInfo.getObject("scorecard_id"));
+                    submissionInsert.setObject(10, submissionInfo.getObject("scorecard_template_id"));
 
-                    count++;
-                    printLoadProgress(count, "submission review");
+                    //log.debug("before submission insert");
+                    submissionInsert.executeUpdate();
+                    //log.debug("after submission insert");
                 }
 
-                for (Long reviewerId : reviewerResps.keySet()) {
-                    reviewRespUpdate.clearParameters();
-                    reviewRespUpdate.setLong(1, reviewerResps.get(reviewerId));
-                    reviewRespUpdate.setLong(2, projectId);
-                    reviewRespUpdate.setLong(3, reviewerId);
-                    reviewRespUpdate.executeUpdate();
+                long reviewerId = submissionInfo.getLong("reviewer_id");
+                if (reviewerResps.containsKey(reviewerId) == false) {
+                    if (reviewRespId == 4) {
+                        reviewRespId = nextFreeReviewRespId;
+                        nextFreeReviewRespId++;
+                    }
+                    reviewerResps.put(reviewerId, reviewRespId);
                 }
+
+
+                nextResultExists = submissionInfo.next();
+
+                if (!nextResultExists || submissionInfo.getLong("project_id") != projectId) {
+                    for (Long reviewerId2 : reviewerResps.keySet()) {
+                        reviewRespUpdate.clearParameters();
+                        reviewRespUpdate.setLong(1, reviewerResps.get(reviewerId2));
+                        reviewRespUpdate.setLong(2, projectId);
+                        reviewRespUpdate.setLong(3, reviewerId2);
+                        reviewRespUpdate.executeUpdate();
+                    }
+
+                    nextFreeReviewRespId = 4;
+                    reviewerResps.clear();
+                }
+
             }
 
             log.info("loaded " + count + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
-
 
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
             throw new Exception("Load of 'submission review' table failed.\n" +
                     sqle.getMessage());
         } finally {
-            close(projects);
             close(submissionInfo);
             close(submissionSelect);
             close(submissionUpdate);
@@ -2153,7 +2149,6 @@ public class TCLoadTCS extends TCLoad {
             close(reviewRespSelect);
             close(maxReviewRespSelect);
             close(reviewRespUpdate);
-            close(projectSelect);
         }
     }
 
