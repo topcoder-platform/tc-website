@@ -16,7 +16,7 @@ package com.topcoder.web.common.dao;
  *   </ol>
  * </p>
  *
- * @author dok, TCSDEVELOPER
+ * @author dok, TCSDEVELOPER, VolodymyrK
  * @version 1.1
  */
 public interface DAOFactory {
@@ -119,6 +119,8 @@ public interface DAOFactory {
     VisaLetterRequestDAO getVisaLetterRequestDAO();
 
     ProfessorDAO getProfessorDAO();
+
+    PaymentDAO getPaymentDAO();
 
     ClassroomDAO getClassroomDAO();
 

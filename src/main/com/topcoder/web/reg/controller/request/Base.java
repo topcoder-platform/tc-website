@@ -10,6 +10,7 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.dao.PaymentDAO;
 import com.topcoder.web.common.dao.hibernate.UserDAOHibernate;
 import com.topcoder.web.common.model.*;
 import com.topcoder.web.common.validation.ListInput;
@@ -286,8 +287,6 @@ public abstract class Base extends LongHibernateProcessor {
         simpleValidation(Address3Validator.class, fields, params, Constants.ADDRESS3);
         simpleValidation(CityValidator.class, fields, params, Constants.CITY);
         simpleValidation(EmailValidator.class, fields, params, Constants.EMAIL);
-        simpleValidation(GivenNameValidator.class, fields, params, Constants.GIVEN_NAME);
-        simpleValidation(MiddleNameValidator.class, fields, params, Constants.MIDDLE_NAME);
         simpleValidation(PasswordValidator.class, fields, params, Constants.PASSWORD);
         simpleValidation(SecretQuestionValidator.class, fields, params, Constants.SECRET_QUESTION);
         simpleValidation(SecretQuestionResponseValidator.class, fields, params, Constants.SECRET_QUESTION_RESPONSE);
@@ -295,7 +294,6 @@ public abstract class Base extends LongHibernateProcessor {
         simpleValidation(PostalCodeValidator.class, fields, params, Constants.POSTAL_CODE);
         simpleValidation(ProvinceValidator.class, fields, params, Constants.PROVINCE);
         simpleValidation(QuoteValidator.class, fields, params, Constants.QUOTE);
-        simpleValidation(SurnameValidator.class, fields, params, Constants.SURNAME);
         simpleValidation(TitleValidator.class, fields, params, Constants.TITLE);
         simpleValidation(CompanyNameValidator.class, fields, params, Constants.COMPANY_NAME);
         simpleValidation(CountryValidator.class, fields, params, Constants.COUNTRY_CODE);
@@ -303,6 +301,11 @@ public abstract class Base extends LongHibernateProcessor {
         simpleValidation(CoderTypeValidator.class, fields, params, Constants.CODER_TYPE);
         simpleValidation(TimeZoneValidator.class, fields, params, Constants.TIMEZONE);
 
+        if (isNewRegistration() || !getFactory().getPaymentDAO().hasPayments(getRegUser().getId())) {
+            simpleValidation(GivenNameValidator.class, fields, params, Constants.GIVEN_NAME);
+            simpleValidation(MiddleNameValidator.class, fields, params, Constants.MIDDLE_NAME);
+            simpleValidation(SurnameValidator.class, fields, params, Constants.SURNAME);
+        }
 
         ValidationResult termsResults = new TermsOfUseValidator(getRegUser()).validate(
                 new StringInput((String) params.get(Constants.TERMS_OF_USE_ID)));
@@ -799,9 +802,19 @@ public abstract class Base extends LongHibernateProcessor {
 
         setDefault(Constants.SHOW_EARNINGS, String.valueOf(params.get(Constants.SHOW_EARNINGS)));
 
+        if (!isNewRegistration() && getFactory().getPaymentDAO().hasPayments(getRegUser().getId())) {
+            setDefault(Constants.MIDDLE_NAME, u.getMiddleName());
+            setDefault(Constants.SURNAME, u.getLastName());
+            setDefault(Constants.GIVEN_NAME, u.getFirstName());
+        }
+
+
         if (!isNewRegistration()) {
             setDefault(Constants.HANDLE, u.getHandle());
         }
+
+        getRequest().setAttribute("hasPayments", getFactory().getPaymentDAO().hasPayments(u.getId()));
+
         List nots = getFactory().getNotificationDAO().getNotifications(getRequestedTypes());
         if (nots != null) {
             getRequest().setAttribute("notifications", nots);

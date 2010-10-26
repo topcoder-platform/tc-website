@@ -184,15 +184,18 @@ public class Secondary extends Base {
             }
         }
 
-        if (fields.contains(Constants.GIVEN_NAME)) {
-            u.setFirstName((String) params.get(Constants.GIVEN_NAME));
+        if (isNewRegistration() || !getFactory().getPaymentDAO().hasPayments(getRegUser().getId())) {
+            if (fields.contains(Constants.GIVEN_NAME)) {
+                u.setFirstName((String) params.get(Constants.GIVEN_NAME));
+            }
+            if (fields.contains(Constants.SURNAME)) {
+                u.setLastName((String) params.get(Constants.SURNAME));
+            }
+            if (fields.contains(Constants.MIDDLE_NAME)) {
+                u.setMiddleName((String) params.get(Constants.MIDDLE_NAME));
+            }
         }
-        if (fields.contains(Constants.SURNAME)) {
-            u.setLastName((String) params.get(Constants.SURNAME));
-        }
-        if (fields.contains(Constants.MIDDLE_NAME)) {
-            u.setMiddleName((String) params.get(Constants.MIDDLE_NAME));
-        }
+
         if (fields.contains(Constants.PASSWORD)) {
             u.setPassword((String) params.get(Constants.PASSWORD));
         }

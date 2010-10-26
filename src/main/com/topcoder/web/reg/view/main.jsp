@@ -140,7 +140,7 @@
                             <c:if test="${cf:contains(reqFields, givenName)}"><span class="required">*</span></c:if>
                             First Name:
                             </label>
-                            <tc-webtag:textInput name="<%=Constants.GIVEN_NAME%>" id="<%=Constants.GIVEN_NAME%>" size="40" maxlength="<%=Constants.MAX_GIVEN_NAME_LENGTH%>" editable="true"/>
+                            <tc-webtag:textInput name="<%=Constants.GIVEN_NAME%>" id="<%=Constants.GIVEN_NAME%>" size="40" maxlength="<%=Constants.MAX_GIVEN_NAME_LENGTH%>" editable="${not hasPayments}"/>
                             
                             <span style="visibility: hidden" id="<%=Constants.GIVEN_NAME%>_status">
                             <tc-webtag:errorIterator id="err" name="<%=Constants.GIVEN_NAME%>"><%=err%></tc-webtag:errorIterator>
@@ -159,7 +159,7 @@
                             <c:if test="${cf:contains(reqFields, surname)}"><span class="required">*</span></c:if>
                             Last Name:
                             </label>
-                            <tc-webtag:textInput name="<%=Constants.SURNAME%>" id="<%=Constants.SURNAME%>" size="40" maxlength="<%=Constants.MAX_SURNAME_LENGTH%>" editable="true"/>
+                            <tc-webtag:textInput name="<%=Constants.SURNAME%>" id="<%=Constants.SURNAME%>" size="40" maxlength="<%=Constants.MAX_SURNAME_LENGTH%>" editable="${not hasPayments}"/>
                             
                             <span style="visibility: hidden" id="<%=Constants.SURNAME%>_status">
                             <tc-webtag:errorIterator id="err" name="<%=Constants.SURNAME%>"><%=err%></tc-webtag:errorIterator>
