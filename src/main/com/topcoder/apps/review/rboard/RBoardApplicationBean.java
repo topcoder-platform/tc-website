@@ -867,6 +867,7 @@ public class RBoardApplicationBean extends BaseEJB {
                 "                where u.project_id = p.project_id " +
                 "                  and u.upload_type_id = 1 " +
                 "                  and u.upload_id = s.upload_id " +
+                "                  and s.submission_type_id = 1 " +
                 "                  and s.submission_status_id = 1)) " +
                 "        or (p.project_category_id = 2 " +
                 "            and not exists (select * " +
@@ -879,7 +880,8 @@ public class RBoardApplicationBean extends BaseEJB {
                 "             where u.project_id = p.project_id     " +
                 "             and u.upload_type_id = 1              " +
                 "             and u.upload_id = s.upload_id         " +
-                "             and s.submission_status_id = 1)    " +
+                "             and s.submission_type_id = 1          " +
+                "             and s.submission_status_id = 1)       " +
                 "         or exists(                               " +  // or the submission phase is scheduled or open
                 "            select 1 from project_phase pp_subm where pp_subm.phase_type_id = 2 " +
                 "            and pp_subm.phase_status_id in (1,2) " +
