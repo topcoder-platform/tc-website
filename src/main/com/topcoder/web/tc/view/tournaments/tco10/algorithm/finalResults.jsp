@@ -51,6 +51,8 @@
                             <a class="red" href="http://www.topcoder.com/tc?module=MemberProfile&cr=22692969">rng_58</a> who had all three problems correct. ACRush took second place and the crown of
                             vice-champion, and <a class="red" href="http://www.topcoder.com/tc?module=MemberProfile&cr=7428266">Klinck</a> won third place.</p>
 
+						<p>Final Round Results:</p>
+
                         <p>
                             1. <a class="red" href="http://www.topcoder.com/tc?module=MemberProfile&cr=22692969">rng_58</a><br/>
                             2. <a class="red" href="http://www.topcoder.com/tc?module=MemberProfile&cr=19849563">ACRush</a><br/>
