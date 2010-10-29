@@ -122,27 +122,31 @@
 </table>
 <table cellspacing="0" class="formFrame" align="center" width="530">
     <tr>
-        <td class="projectHeaders" align="left">Overview</td>
+        <td class="projectHeaders" align="left">Description</td>
     </tr>
 </table>
 
 <c:choose>
     <c:when test="${fn:length(requirements) > 0}">
         <c:forEach items="${requirements}" var="resultRow">
-          <p><span class="bodySubtitle">Public Description</span><br></p>
+          <p><span class="bodySubtitle">Overview</span><br></p>
           ${resultRow.map["detailed_requirements"]}
 
             <%-- need permission to view private description --%>
             <c:if test="${privateDescriptionPermission}">
-                <p><span class="bodySubtitle">Private Description</span><br></p>
+                <p><span class="bodySubtitle">Details</span><br></p>
                 ${resultRow.map["private_description"]}
             </c:if>
             
           <p><span class="bodySubtitle">Submission Deliverables</span><br></p>
-          ${resultRow.map["submission_deliverables"]}
+To be considered for review, you must submit 2 documents in a single zip file.<br><Br>
 
+1.	Game Plan - This is a roadmap of the contests that you plan to run to complete the project.  This should be your best estimate based on the information provided to you.  Communicate in the forums to make sure expectations are clear.  (<a href=http://www.topcoder.com/wiki/download/attachments/35131974/GamePlan_Template.xls>Download the Template</a>)<br><br>
+2.	Strategy Document - This is a 1 page text document that describes your general approach and strategy to executing and completing the project.  You should include explanations of release points, dependencies, assumptions and risks.  (<a href=http://www.topcoder.com/wiki/download/attachments/35131974/Strategy_Document_Sample.doc>Download a Sample</a>)<br>
+
+          
           <p><span class="bodySubtitle">Final Submission Guidelines</span><br></p>
-          ${resultRow.map["final_submission_guidelines"]}
+If you win, you may be asked to make minor adjustments to your submission.  If so, update your submitted documents based on the scorecard review and any conversations in the forum.  Resubmit a new zip file with both documents.  This will be reviewed as your final submission.
 
         </c:forEach>
     </c:when>
@@ -155,13 +159,6 @@
     </c:otherwise>
 </c:choose>
 
-<%-- Technologies --%>
-<p class="bodySubtitle"><strong>Technologies</strong></p>
-<ul class="noSpList">
-    <rsc:iterator list="<%=technologies%>" id="item">
-        <li><rsc:item row="<%=item%>" name="technology_name"/></li>
-    </rsc:iterator>
-</ul>
 
 <%-- Documentation --%>
 <c:if test="${privateDescriptionPermission}">
@@ -176,7 +173,7 @@
     <% } else { %>
     <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<rsc:item set="<%=projectDetail%>" name="jive_category_id"/>">forum</a>
     <% } %>
-    to view additional information and communicate with the copilot posting owners.
+    to view additional information and communicate with the project sponsor.
 </p>
 
 <p><span class="bodySubtitle"><strong>Scorecards</strong></span><br/>
