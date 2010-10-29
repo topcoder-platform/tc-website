@@ -118,7 +118,7 @@
                             </div>
                             <div id="homePageBanner">
                                 <a href="http://www.topcoder.com/tco10">
-                                    <img src="/i/tournament/tco10/banner.jpg" alt="TCO 2010"/></a>
+                                    <img src="/i/tournament/tco10/banner-after.png" alt="TCO 2010"/></a>
                                 <br/>
                                 <br/>
                             </div>
