@@ -78,7 +78,7 @@
         <td align="right">
           <c:choose>
             <c:when test="${pt == COPILOT_POSTING_TYPE_ID}">
-                <a href="/wiki/display/tc/How+to+Compete+in+Copilot+Postings"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
+                <a href="/wiki/display/tc/How+to+Compete+in+Copilot+Opportunities"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
             </c:when>
           </c:choose>
         </td>
