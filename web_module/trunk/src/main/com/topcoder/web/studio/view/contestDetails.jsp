@@ -115,11 +115,11 @@
                 <p class="paragraph">This Studio competition will be run as a two-round tournament with a total prize purse of
                 <fmt:formatNumber value="${contest.totalPrizePurse}" pattern="$###,###.00"/>.</p>
 
-                <span class="subTitle">Round One (1)</span><br/>
+                <span class="subTitle">Round One (1)</span>
                 <p class="paragraph">
                     <studio:formatField text="${contest.multiRoundInformation.roundOneIntroduction}"/>
                 </p>
-                <span class="subTitle">Round Two (2)</span><br/>
+                <span class="subTitle">Round Two (2)</span>
                 <p class="paragraph">
                     <studio:formatField text="${contest.multiRoundInformation.roundTwoIntroduction}"/>
                 </p>
