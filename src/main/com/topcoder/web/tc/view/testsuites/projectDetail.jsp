@@ -123,7 +123,9 @@
    <tr>
       <td colspan="3" align="center" style="padding-top:10px;">
          Register to get info necessary to submit a solution<br />
+         <% if (projectDetail.getStringItem(0, "rated").equalsIgnoreCase("yes")) { %>
          <span class="bigRed">Registering will affect your Reliability Rating</span>
+         <% } %>
       </td>
    </tr>
    <% } %>
