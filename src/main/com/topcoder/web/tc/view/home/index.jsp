@@ -202,7 +202,7 @@
 							</div>
 
 							<div class="icon">
-								<a href="http://topcoder.com/home/blog/category/index_scroll/feed/"><span class="hide">RSS Feed</span></a>
+								<a href="http://topcoder.com/home/blog/category/top-news/feed/"><span class="hide">RSS Feed</span></a>
 							</div>
 						</div>
 						<!-- end rss feed -->
