@@ -184,7 +184,8 @@ public class ProjectReviewApply extends Base {
                 rBoardApplication = createRBoardApplication();
                 nonTransactionalValidation(catalog, reviewTypeId);
 
-                applicationProcessing((Timestamp) detail.getItem(0, "opens_on").getResultData(), reviewTypeId);
+                Boolean open = (Boolean) detail.getItem(0, "open").getResultData();
+                applicationProcessing(open, (Timestamp) detail.getItem(0, "opens_on").getResultData(), reviewTypeId);
 
             } else {
                 throw new PermissionException(getUser(), new ClassResource(this.getClass()));
@@ -231,10 +232,10 @@ public class ProjectReviewApply extends Base {
      * @param reviewTypeId the review type id
      * @throws Exception if any error occurs
      */
-    protected void applicationProcessing(Timestamp opensOn, int reviewTypeId) throws Exception {
+    protected void applicationProcessing(Boolean open, Timestamp opensOn, int reviewTypeId) throws Exception {
         boolean primary = new Boolean(StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_FLAG))).booleanValue();
         rBoardApplication.validateUserTrans(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, projectId, phaseId, getUser().getId(),
-                                            opensOn, reviewTypeId, primary);
+                                            open, opensOn, reviewTypeId, primary);
 
         String termsOfUseId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_ID));
         int[] roleIds = getResourceRoleIds(reviewTypeId, primary);

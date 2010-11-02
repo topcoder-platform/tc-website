@@ -277,8 +277,11 @@
                                 </td>
                                 <td class="projectCells" align="center" nowrap>
                                     <c:choose>
-                                        <c:when test="${!isSpecificationReview && now < projectDetailRow.map['opens_on']}">
-                                            <i>Not open yet ***</i>
+                                        <c:when test="${now < projectDetailRow.map['opens_on'] || !projectDetailRow.map['open']}">
+                                            <i>Not open yet </i>
+                                            <c:if test="${!isSpecificationReview}">
+                                                ***
+                                            </c:if>
                                         </c:when>
                                         <c:when test="${reviewer.spotFilled}">
                                             <tc-webtag:handle coderId="${reviewer.userId}"

@@ -82,7 +82,7 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
      * @param reviewTypeId the review type id
      * @throws Exception if any error occurs
      */
-    protected void applicationProcessing(Timestamp opensOn, int reviewTypeId) throws Exception {
+    protected void applicationProcessing(Boolean open, Timestamp opensOn, int reviewTypeId) throws Exception {
         String termsOfUseId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_ID));
         boolean primary = new Boolean(StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_FLAG))).booleanValue();
         setDefault(Constants.PRIMARY_FLAG, primary);
@@ -121,7 +121,7 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
                     setNextPage(getReviewTermsView(projectTypeId));
                     setIsNextPageInContext(true);
                 } else {
-                    apply(opensOn, reviewTypeId);
+                    apply(open, opensOn, reviewTypeId);
                     setNextPage("/tc?" + Constants.MODULE_KEY + "=ReviewProjectDetail&" + Constants.PROJECT_ID + "="
                                 + projectId + "&" + Constants.PROJECT_TYPE_ID + "=" + this.projectTypeId);
                     setIsNextPageInContext(false);
@@ -157,7 +157,7 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
      * @param reviewTypeId the type of reviewer
      * @throws Exception if any error occurs during apply.
      */
-    private void apply(Timestamp opensOn, int reviewTypeId) throws Exception {
+    private void apply(Boolean open, Timestamp opensOn, int reviewTypeId) throws Exception {
         String primary = StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_FLAG));
 
         log.info("processing application for " + getUser().getUserName() + " phase " + phaseId +
@@ -167,15 +167,15 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
 		    // "Old style" Spec Review projects have reviewTypeId equal to 37 and are processed as separate projects in OR.
             if (reviewTypeId == 37) {
                 rBoardApplication.createRBoardApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId,
-                        reviewTypeId, (int) WebConstants.PHASE_SPECIFICATION_REVIEW, opensOn, reviewTypeId,
+                        reviewTypeId, (int) WebConstants.PHASE_SPECIFICATION_REVIEW, open, opensOn, reviewTypeId,
                         new Boolean(primary).booleanValue());
             } else {
                 rBoardApplication.createSpecReviewRBoardApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId,
-                        reviewTypeId, phaseId, opensOn, reviewTypeId);
+                        reviewTypeId, phaseId, open, opensOn, reviewTypeId);
             }
         } else {
             rBoardApplication.createRBoardApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId,
-                    reviewTypeId, phaseId, opensOn, reviewTypeId, new Boolean(primary).booleanValue());
+                    reviewTypeId, phaseId, open, opensOn, reviewTypeId, new Boolean(primary).booleanValue());
         }
 
 
