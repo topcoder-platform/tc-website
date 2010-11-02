@@ -49,7 +49,7 @@ import java.sql.Timestamp;
 public interface RBoardApplication extends EJBObject {
 
     void createRBoardApplication(String dataSource, long userId, long projectId, int reviewRespId, int phaseId,
-                                 Timestamp opensOn, int reviewTypeId, boolean primary)
+                                 Boolean open, Timestamp opensOn, int reviewTypeId, boolean primary)
         throws RBoardRegistrationException, RemoteException;
 
     long getApplicationDelay(String dataSource, long userId) throws RemoteException;
@@ -57,8 +57,8 @@ public interface RBoardApplication extends EJBObject {
     void validateUser(String dataSource, int catalog, int reviewTypeId, long userId, int phaseId)
         throws RBoardRegistrationException, RemoteException;
 
-    public void validateUserTrans(String dataSource, long projectId, int phaseId, long userId, Timestamp opensOn,
-                                  int reviewTypeId, boolean primary)
+    public void validateUserTrans(String dataSource, long projectId, int phaseId, long userId, Boolean open,
+                                  Timestamp opensOn, int reviewTypeId, boolean primary)
         throws RBoardRegistrationException, RemoteException;
 
     /**
@@ -95,6 +95,6 @@ public interface RBoardApplication extends EJBObject {
 	 * @since 1.0.4
      */
     public void createSpecReviewRBoardApplication(String dataSource, long userId,
-                                        long projectId, int reviewRespId, int phaseId, Timestamp opensOn,
+                                        long projectId, int reviewRespId, int phaseId, Boolean open, Timestamp opensOn,
                                         int reviewTypeId) throws RBoardRegistrationException, RemoteException;
 }

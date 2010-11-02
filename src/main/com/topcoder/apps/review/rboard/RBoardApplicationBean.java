@@ -596,12 +596,13 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param projectId the project id to insert
      * @param reviewRespId the review responsibility id to insert
      * @param phaseId the phase id
+     * @param open Whether the registration is actually open
      * @param opensOn timestamp when the positions opens on
      * @param reviewTypeId the type of the review
      * @param primary true if the reviewer is signing up for primary reviewer position
      */
     public void createRBoardApplication(String dataSource, long userId,
-                                        long projectId, int reviewRespId, int phaseId, Timestamp opensOn,
+                                        long projectId, int reviewRespId, int phaseId, Boolean open, Timestamp opensOn,
                                         int reviewTypeId, boolean primary) throws RBoardRegistrationException {
 
         log.debug("createRBoardApplications called...");
@@ -630,7 +631,7 @@ public class RBoardApplicationBean extends BaseEJB {
             updateForLock(conn, projectId);
 
             long start = System.currentTimeMillis();
-            validateRegularUserTrans(conn, projectId, phaseId, userId, opensOn, reviewTypeId, primary);
+            validateRegularUserTrans(conn, projectId, phaseId, userId, open, opensOn, reviewTypeId, primary);
 
             insert(conn, "rboard_application",
                    new String[]{"user_id", "project_id", "phase_id", "review_resp_id", "primary_ind"},
@@ -709,6 +710,7 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param projectId the project id to insert
      * @param reviewRespId the review responsibility id to insert
      * @param phaseId the phase id
+     * @param open Whether the registration is actually open
      * @param opensOn timestamp when the positions opens on
      * @param reviewTypeId the type of the review
      * @throws RBoardRegistrationException if an unexpected error occurs.
@@ -717,7 +719,7 @@ public class RBoardApplicationBean extends BaseEJB {
      * @since 1.0.14
      */
     public void createSpecReviewRBoardApplication(String dataSource, long userId,
-                                        long projectId, int reviewRespId, int phaseId, Timestamp opensOn,
+                                        long projectId, int reviewRespId, int phaseId, Boolean open, Timestamp opensOn,
                                         int reviewTypeId) throws RBoardRegistrationException {
 
         log.debug("createSpecReviewRBoardApplication called...");
@@ -752,7 +754,7 @@ public class RBoardApplicationBean extends BaseEJB {
             updateForLock(conn, projectId);
 
             long start = System.currentTimeMillis();
-            validateSpecReviewUserTrans(conn, projectId, phaseId, userId, opensOn, reviewTypeId);
+            validateSpecReviewUserTrans(conn, projectId, phaseId, userId, open, opensOn, reviewTypeId);
 
             Map phaseInfos = getPhaseInfo(projectId, conn);
             String pid = (String) phaseInfos.get(String.valueOf(SPECIFICATION_REVIEW_PHASE));
@@ -1012,12 +1014,13 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param projectId the project id to validate
      * @param phaseId the project type
      * @param userId the user id to validate
+     * @param open Whether the registration is actually open	 
      * @param opensOn the timestamp when the position opnens
      * @param reviewTypeId the review type
      * @param primary true if the position if for primary reviewer
      */
-    public void validateUserTrans(String dataSource, long projectId, int phaseId, long userId, Timestamp opensOn,
-                                  int reviewTypeId, boolean primary)
+    public void validateUserTrans(String dataSource, long projectId, int phaseId, long userId, Boolean open,
+                                  Timestamp opensOn, int reviewTypeId, boolean primary)
             throws RBoardRegistrationException {
 
         log.debug("validateUserTrans called...");
@@ -1027,9 +1030,9 @@ public class RBoardApplicationBean extends BaseEJB {
             conn = DBMS.getConnection(dataSource);
             conn.setAutoCommit(false);
 			if (phaseId > WebConstants.SPECIFICATION_COMPETITION_OFFSET) {
-			    validateSpecReviewUserTrans(conn, projectId, phaseId, userId, opensOn, reviewTypeId);
+			    validateSpecReviewUserTrans(conn, projectId, phaseId, userId, open, opensOn, reviewTypeId);
             } else {
-                validateRegularUserTrans(conn, projectId, phaseId, userId, opensOn, reviewTypeId, primary);				
+                validateRegularUserTrans(conn, projectId, phaseId, userId, open, opensOn, reviewTypeId, primary);				
 			}
             conn.commit();
         } catch (SQLException sqle) {
@@ -1117,14 +1120,15 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param projectId the project id to validate
      * @param phaseId the project type
      * @param userId the user id to validate
+     * @param open Whether the registration is actually open
      * @param opensOn the timestamp when the position opens
      * @param reviewTypeId the review type
      * @param primary true if the position if for primary reviewer
      *
      * @throws RBoardRegistrationException if there are validation errors
      */
-    private void validateRegularUserTrans(Connection conn, long projectId, int phaseId, long userId, Timestamp opensOn,
-                                   int reviewTypeId, boolean primary)
+    private void validateRegularUserTrans(Connection conn, long projectId, int phaseId, long userId, Boolean open,
+                                   Timestamp opensOn, int reviewTypeId, boolean primary)
             throws RBoardRegistrationException {
         log.debug("validateRegularUserTrans called...");
 		
@@ -1136,6 +1140,10 @@ public class RBoardApplicationBean extends BaseEJB {
             throw new RBoardRegistrationException("Sorry, this project is not open for review yet.  "
                                                   + "You will need to wait until "
                                                   + timeStampToString(opensOn));
+        }
+
+        if (!open) {
+            throw new RBoardRegistrationException("Sorry, this project is not open for review yet.");
         }
 
         long applicationDelay = getApplicationDelay(conn, userId);
@@ -1225,13 +1233,14 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param projectId the project id to validate
      * @param phaseId the project type
      * @param userId the user id to validate
+     * @param open Whether the registration is actually open	 
      * @param opensOn the timestamp when the position opens
      * @param reviewTypeId the review type
      *
      * @throws RBoardRegistrationException if there are validation errors
      */
-    private void validateSpecReviewUserTrans(Connection conn, long projectId, int phaseId, long userId, Timestamp opensOn,
-                                   int reviewTypeId)
+    private void validateSpecReviewUserTrans(Connection conn, long projectId, int phaseId, long userId, Boolean open,
+                                   Timestamp opensOn, int reviewTypeId)
             throws RBoardRegistrationException {
         log.debug("validateSpecReviewUserTrans called...");
 		
@@ -1243,6 +1252,10 @@ public class RBoardApplicationBean extends BaseEJB {
             throw new RBoardRegistrationException("Sorry, this project is not open for review yet.  "
                                                   + "You will need to wait until "
                                                   + timeStampToString(opensOn));
+        }
+
+        if (!open) {
+            throw new RBoardRegistrationException("Sorry, this project is not open for review yet.");
         }
 
         ResultSetContainer reviewers = getReviewers(conn, projectId, phaseId);
