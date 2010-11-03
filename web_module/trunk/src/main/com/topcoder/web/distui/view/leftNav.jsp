@@ -278,7 +278,7 @@
    nav.addRoot(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=MyHome", "My TopCoder", "my_topcoder"));
 
    nav.addRoot(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_about_tc')", "About TopCoder", "m_about_tc"));
-      nav.search("m_about_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=about&amp;d2=index", "Overview", "tc_overview"));
+      nav.search("m_about_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/home", "Overview", "tc_overview"));
       nav.search("m_about_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=about&amp;d2=whyjoin", "Why Join TopCoder?", "join_tc"));
       nav.search("m_about_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=about&amp;d2=jobs", "Working at TopCoder", "working_tc"));
       nav.search("m_about_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=about&amp;d2=management", "Management Team", "management_team"));
@@ -315,18 +315,18 @@ function flipMenu(myMenuName){
 <div id="navbar">
     <nav:navBuilder navTree="tree" openClass="OPEN" selectedLeafClass="highlight" selectedParentClass="exp_ed" unSelectedParentClass="exp" selectedNode="<%=request.getParameter("node")%>"/>
     <div style="float: left; padding: 10px 0px 0px 17px;">
-        <%-- UML Tool
+        <%-- UML Tool --%>
         <a href="<tc-webtag:linkTracking link='/wiki/display/tc/TopCoder+UML+Tool' refer='leftnav' />"><img src="/i/leftnav/umlTool.png" alt="UML Tool" /></a>
-        --%>
+       
         <%-- TopCoder Distance
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=tournaments&d2=tco08&d3=distance' refer='leftnav' />"><img src="/i/leftnav/tcDistance.png" alt="TopCoder Distance" /></a>
         --%>
         <%-- TopCoder is Hiring
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=about&d2=jobs' refer='leftnav' />"><img src="/i/leftnav/banner_hiring_tc.png" alt="TopCoder is Hiring" /></a>
         --%>
-        <%-- TopCoder Direct --%>
+        <%-- TopCoder Direct
         <a href="<tc-webtag:linkTracking link='http://software.topcoder.com/' refer='leftnav' />"><img src="/i/leftnav/tc_direct.png" alt="TopCoder Direct" /></a>
-
+        --%>
         <%-- TC Channel
         <a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel' refer='leftnav' />"><img src="/i/tcchannel/leftnavLogo.png" alt="TC Channel" /></a>
         --%>
