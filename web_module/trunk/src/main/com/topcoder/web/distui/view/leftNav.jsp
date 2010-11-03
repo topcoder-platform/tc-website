@@ -66,8 +66,8 @@
 					nav.search("m_copilot_opportunities").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Copilot+Overview", "Overview", "copilots_overview"));
         			nav.search("m_copilot_opportunities").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_copilot_support')", "Track Information", "m_copilot_support"));
 							nav.search("m_copilot_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/How+to+Compete+in+Copilot+Opportunities", "How to Compete", "copilot_how_to_compete"));
-							nav.search("m_copilot_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Copilot+Documentation", "Documentation", "copilot_documentation"));
-							nav.search("m_copilot_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Copilot+Submission+Instructions", "Tutorial", "copilot_tutorial"));
+							nav.search("m_copilot_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/How+to+Compete+in+Copilot+Opportunities", "Documentation", "copilot_documentation"));
+							nav.search("m_copilot_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/How+to+Compete+in+Copilot+Opportunities", "Tutorial", "copilot_tutorial"));
 							//nav.search("m_copilot_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Copilot+Reliability+Bonus", "Reliability Ratings", "copilot_reliability_ratings"));
 					nav.search("m_copilot_opportunities").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ActiveContests&amp;pt=" + WebConstants.COPILOT_POSTING_PROJECT_TYPE, "Active Contests", "copilots_compete"));
          			//nav.search("m_copilot_opportunities").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ContestStatus&amp;pt=29", "Contest Status", "copilot_opportunity_status"));
