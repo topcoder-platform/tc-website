@@ -178,6 +178,10 @@ is over 2500 is decreased 20%.
 If |NewRating - Rating| &#62; Cap the NewRating is adjusted so it is at most Cap different than Rating.
 <br>
 <br>
+<<i>In some cases, the algorithms above would lead to a decline in rating, even though a competitor has placed (or tied) for the first place position.  In this event, the ratings will be run as normally, and subsequently, any competitors tied for first place will then have their ratings adjusted so that: newRating = oldRating + 1 in the event that newRating <= oldRating .  
+This will not effect the new volatility of the competitors, which will still be calculated as above.</i>
+<br>
+<br>
 </TD>
 <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 </TR>
