@@ -97,6 +97,19 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
 
+				<%-- DARPA-funded project to spark computer science education  --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="http://www.eschoolnews.com/2010/11/04/darpa-funded-project-to-spark-computer-science-education/"><img src="/i/pressroom/eschool_logo.gif" alt="eschoolnews.com logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="http://www.eschoolnews.com/2010/11/04/darpa-funded-project-to-spark-computer-science-education/">DARPA-funded project to spark computer science education</a></h3>
+                        <p>TopCoder will construct a virtual community built around computer science activities, including logic puzzles and games. The company plans to engage community members by proposing problems that affect students' lives and asking members to use computer science skills to solve the problems.<small><a href="http://www.eschoolnews.com/2010/11/04/darpa-funded-project-to-spark-computer-science-education/">[November 5th]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- DARPA-funded project to spark computer science education end --%>
+            
 				<%-- For The Next Generation Of Tech Innovators  --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
