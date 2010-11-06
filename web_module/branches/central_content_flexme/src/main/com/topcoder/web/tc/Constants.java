@@ -71,8 +71,21 @@ import java.util.MissingResourceException;
  * </ol>
  * </p>
  *
+ * <p>
+ *   Version 1.8
+ *  (Central content management generating JSP pages automatically Assembly) Change notes:
+ * <ol>
+ *  <li>Added constant for press room current news jsp page CURRENT_NEWS_RSS.</li>
+ *  <li>Added constant for press room current news jsp page CURRENT_NEWS_CATEGORY.</li>
+ *  <li>Added constant for press room release archive jsp page RELEASE_ARCHIVE_RSS.</li>
+ *  <li>Added constant for press room release archive jsp page RELEASE_ARCHIVE_CATEGORY.</li>
+ *  <li>Added constant for press room articles archive jsp page ARTICLES_ARCHIVE_RSS.</li>
+ *  <li>Added constant for press room articles archive jsp page ARTICLES_ARCHIVE_CATEGORY.</li>
+ * </ol>
+ * </p>
+ *
  * @author pulky, isv, TCSASSEMBLER
- * @version 1.7
+ * @version 1.8
  */
 public class Constants implements WebConstants {
 
@@ -854,6 +867,48 @@ public class Constants implements WebConstants {
      */
     public static final int CONTEST_TYPE_DR_V2_TOP_PERFORMERS = 2;
 
+    /**
+     * <p>A <code>String</code> providing the RSS address of the current news in press room page.</p>
+     *
+     * @since 1.8
+     */
+    public static String CURRENT_NEWS_RSS;
+
+    /**
+     * <p>A <code>String</code> providing the allowed categories of the current news in press room page.</p>
+     *
+     * @since 1.8
+     */
+    public static String CURRENT_NEWS_CATEGORY;
+
+    /**
+     * <p>A <code>String</code> providing the RSS address of the release archive in press room page.</p>
+     *
+     * @since 1.8
+     */
+    public static String RELEASE_ARCHIVE_RSS;
+
+    /**
+     * <p>A <code>String</code> providing the allowed categories of the release archive in press room page.</p>
+     *
+     * @since 1.8
+     */
+    public static String RELEASE_ARCHIVE_CATEGORY;
+
+    /**
+     * <p>A <code>String</code> providing the RSS address of the articles archive in press room page.</p>
+     *
+     * @since 1.8
+     */
+    public static String ARTICLES_ARCHIVE_RSS;
+
+    /**
+     * <p>A <code>String</code> providing the allowed categories of the articles archive in press room page.</p>
+     *
+     * @since 1.8
+     */
+    public static String ARTICLES_ARCHIVE_CATEGORY;
+        
     static {
         initialize();
     }
@@ -897,3 +952,4 @@ public class Constants implements WebConstants {
     }
 
 }
+
