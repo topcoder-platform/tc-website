@@ -70,6 +70,7 @@
             
                 <div class="pr_newsarchive">
                     <dl>
+                    <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_111010">New York Hall of Science Honors TopCoder Founder Jack Hughes with Inaugural &quot;Vision &amp; Venture&quot; Award<br /><small style="margin-left:10px;">[November 10th]</small></a></dd>
                     <dd><a href="http://www.informationweek.com/news/software/showArticle.jhtml?articleID=227800070">NASA To Crowdsource Software Development<br /><small style="margin-left:10px;">[October 19th]</small></a></dd>
                     <dd><a href="http://www.prnewswire.com/news-releases/nasa-establishes-tournament-lab-for-software-developers-104894204.html">NASA Establishes Tournament Lab for Software Developers<br /><small style="margin-left:10px;">[October 19th]</small></a></dd>
                     <dd><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=pr_101410">DARPA and TopCoder Seek to Change How Students Spend Time Online<br /><small style="margin-left:10px;">[October 14th]</small></a></dd>
