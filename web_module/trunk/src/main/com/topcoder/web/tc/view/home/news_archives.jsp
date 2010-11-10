@@ -6,7 +6,7 @@
         <td>
             <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0"/></a>
         </td>
-        <td width="50%"><a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc">General TopCoder News</a></td>
+        <td width="50%"><a href="/home/blog">General TopCoder News</a></td>
         <td>
             <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0"/></a>
         </td>
