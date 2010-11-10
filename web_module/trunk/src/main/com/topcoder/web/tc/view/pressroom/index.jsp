@@ -97,6 +97,19 @@
             <%-- pr_border creation --%>
             <div class="pr_box"><div class="pr_box2"><div class="pr_boxcontent">
 
+            	<%-- Can Crowd-Sourcing Spur Aerospace Ideas?  --%>
+                <div class="pr_newsitem">
+                    <div class="pr_img">
+                        <a target="_blank" href="http://www.aviationweek.com/aw/generic/story.jsp?id=news/awst/2010/11/01/AW_11_01_2010_p75-264503.xml&headline=Can%20Crowd-Sourcing%20Spur%20Aerospace%20Ideas?&channel=awst"><img src="/i/pressroom/aviationweek_logo.png" alt="Aviation Week logo" border="0" /></a>
+                    </div>
+                    <div class="pr_headlines">
+                        <h3><a target="_blank" href="http://www.aviationweek.com/aw/generic/story.jsp?id=news/awst/2010/11/01/AW_11_01_2010_p75-264503.xml&headline=Can%20Crowd-Sourcing%20Spur%20Aerospace%20Ideas?&channel=awst">Can Crowd-Sourcing Spur Aerospace Ideas?</a></h3>
+                        <p>Could an office worker in India have the best navigation algorithm for an unmanned aircraft, or a chemical engineer in China the solution to an aerodynamic problem on a commercial transport? Could Facebook be the key to creating future engineers?<small><a href="http://www.aviationweek.com/aw/generic/story.jsp?id=news/awst/2010/11/01/AW_11_01_2010_p75-264503.xml&headline=Can%20Crowd-Sourcing%20Spur%20Aerospace%20Ideas?&channel=awst">[November 10th]</a></small></p>
+                    </div>
+                    <div class="pr_clear"></div>
+                </div>
+                <%-- Can Crowd-Sourcing Spur Aerospace Ideas? end --%>
+
 				<%-- DARPA-funded project to spark computer science education  --%>
                 <div class="pr_newsitem">
                     <div class="pr_img">
