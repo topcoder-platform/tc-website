@@ -33,7 +33,7 @@
 
 <jsp:include page="../page_title.jsp" >
 <jsp:param name="image" value="calendar"/>
-<jsp:param name="title" value="December 2010"/>
+<jsp:param name="title" value="June 2011"/>
 </jsp:include>
 
 <div style="float:right;white-space:nowrap;" align="right">
@@ -42,9 +42,9 @@
     <a href="/tc?module=BasicRSS&amp;c=rss_Upcoming_Contests&amp;dsid=29"><img src="/wiki/images/icons/rss.gif" alt="RSS" align="absmiddle" /></a>
 </div>
 
-<strong><a href="/tc?module=Static&amp;d1=calendar&amp;d2=nov_10" class="prevNext">&lt; prev</a> | <a href="/tc?module=Static&amp;d1=calendar&amp;d2=jan_11" class="prevNext">next &gt;</a></strong>
+<strong><a href="/tc?module=Static&amp;d1=calendar&amp;d2=may_11" class="prevNext">&lt; prev</a> <%--<a href="/tc?module=Static&amp;d1=calendar&amp;d2=jul_10" class="prevNext">next &gt;</a>--%></strong>
 <jsp:include page="dropdown.jsp" >
-<jsp:param name="currMonth" value="dec_10"/>
+<jsp:param name="currMonth" value="jun_11"/>
 </jsp:include>
 
 <table cellspacing="0" cellpadding="0" class="calendar" width="100%">
@@ -65,6 +65,10 @@
       <td class="value">1
       </td>
       <td class="value">2
+      	<div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=14437">SRM 508</A></strong><br />
+         11:00
+        </div>
       </td>
       <td class="value">3
       </td>
@@ -80,11 +84,10 @@
       <td class="value">7
       </td>
       <td class="value">8
-         <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=14243">SRM 490</A></strong><br />
-    	 brought to you by <A href="/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=sponsor3">PayPal X Developer Network</A><br />
-         11:00
-         </div>       
+      	<div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=14438">Member SRM 509</A></strong><br />
+         7:00
+        </div>
       </td>
       <td class="value">9
       </td>
@@ -108,19 +111,19 @@
       <td class="value">17
       </td>
       <td class="value">18
-         <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=14244">Member SRM 491</A></strong><br />
-         12:00
-         </div>       
       </td>
    </tr>
    
    <tr>
       <td class="value">19
-      </td>   
+      </td>
       <td class="value">20
       </td>
       <td class="value">21
+      	<div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=14439">SRM 510</A></strong><br />
+         21:00
+        </div>
       </td>
       <td class="value">22
       </td>
@@ -134,21 +137,16 @@
    
    <tr>
       <td class="value">26
-      </td>      
+      </td>
       <td class="value">27
       </td>
       <td class="value">28
-         <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=14245">SRM 492</A></strong><br />
-         21:00
-         </div>       
       </td>
       <td class="value">29
       </td>
       <td class="value">30
       </td>
-      <td class="value">31
-      </td>
+      <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
       <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
    </tr>
 

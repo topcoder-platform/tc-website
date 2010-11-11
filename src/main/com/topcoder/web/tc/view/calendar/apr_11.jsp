@@ -33,7 +33,7 @@
 
 <jsp:include page="../page_title.jsp" >
 <jsp:param name="image" value="calendar"/>
-<jsp:param name="title" value="December 2010"/>
+<jsp:param name="title" value="April 2011"/>
 </jsp:include>
 
 <div style="float:right;white-space:nowrap;" align="right">
@@ -42,9 +42,9 @@
     <a href="/tc?module=BasicRSS&amp;c=rss_Upcoming_Contests&amp;dsid=29"><img src="/wiki/images/icons/rss.gif" alt="RSS" align="absmiddle" /></a>
 </div>
 
-<strong><a href="/tc?module=Static&amp;d1=calendar&amp;d2=nov_10" class="prevNext">&lt; prev</a> | <a href="/tc?module=Static&amp;d1=calendar&amp;d2=jan_11" class="prevNext">next &gt;</a></strong>
+<strong><a href="/tc?module=Static&amp;d1=calendar&amp;d2=mar_11" class="prevNext">&lt; prev</a> <a href="/tc?module=Static&amp;d1=calendar&amp;d2=may_11" class="prevNext">next &gt;</a></strong>
 <jsp:include page="dropdown.jsp" >
-<jsp:param name="currMonth" value="dec_10"/>
+<jsp:param name="currMonth" value="apr_11"/>
 </jsp:include>
 
 <table cellspacing="0" cellpadding="0" class="calendar" width="100%">
@@ -62,39 +62,40 @@
       <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
       <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
       <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
+      <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
+      <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
       <td class="value">1
       </td>
       <td class="value">2
       </td>
+   </tr>
+   
+   <tr>
       <td class="value">3
       </td>
       <td class="value">4
       </td>
-   </tr>
-   
-   <tr>
       <td class="value">5
       </td>
       <td class="value">6
       </td>
       <td class="value">7
+      	<div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=14431">SRM 502</A></strong><br />
+         21:00
+        </div>
       </td>
       <td class="value">8
-         <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=14243">SRM 490</A></strong><br />
-    	 brought to you by <A href="/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=sponsor3">PayPal X Developer Network</A><br />
-         11:00
-         </div>       
       </td>
       <td class="value">9
-      </td>
-      <td class="value">10
-      </td>
-      <td class="value">11
       </td>
    </tr>
    
    <tr>
+      <td class="value">10
+      </td>
+      <td class="value">11
+      </td>
       <td class="value">12
       </td>
       <td class="value">13
@@ -104,20 +105,20 @@
       <td class="value">15
       </td>
       <td class="value">16
-      </td>
-      <td class="value">17
-      </td>
-      <td class="value">18
-         <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=14244">Member SRM 491</A></strong><br />
+      	<div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=14432">Member SRM 503</A></strong><br />
          12:00
-         </div>       
+        </div>
       </td>
    </tr>
    
    <tr>
+      <td class="value">17
+      </td>
+      <td class="value">18
+      </td>
       <td class="value">19
-      </td>   
+      </td>
       <td class="value">20
       </td>
       <td class="value">21
@@ -126,30 +127,27 @@
       </td>
       <td class="value">23
       </td>
+   </tr>
+   
+   <tr>
       <td class="value">24
       </td>
       <td class="value">25
       </td>
-   </tr>
-   
-   <tr>
       <td class="value">26
-      </td>      
+      	<div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=14433">SRM 504</A></strong><br />
+         11:00
+        </div>
+      </td>
       <td class="value">27
       </td>
       <td class="value">28
-         <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=14245">SRM 492</A></strong><br />
-         21:00
-         </div>       
       </td>
       <td class="value">29
       </td>
       <td class="value">30
       </td>
-      <td class="value">31
-      </td>
-      <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
    </tr>
 
 </table>
