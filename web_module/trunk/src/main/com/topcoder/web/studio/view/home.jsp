@@ -224,17 +224,17 @@
                                             src="/i/v5/Member_of_the_month_header.jpg" >
                                     </div>
                                     <div class="member_image" style="float:left;">
-                                        <img width="126" height="140" alt="Member of the Month" src="http://www.topcoder.com/i/m/djackmania_big.jpg">
+                                        <img width="126" height="140" alt="Member of the Month" src="http://www.topcoder.com/i/m/vcsenge_big.jpg">
                                     </div>
                                     <div id="member_content">
                                         <div id="member_month">
-                                            September<br />
+                                            October<br />
                                         </div>
                                         <div id="member_greeting">
-                                            <span class="member_content special handle">Congratulations <span class="handle-color">djackmania!</span></span><br/><br/>
+                                            <span class="member_content special handle">Congratulations <span class="handle-color">vcsenge!</span></span><br/><br/>
                                         </div>
                                         <div id="member_stats">
-                                            <span class="member_content special">Earned $5,350 in 9 competitions during the month of September.</span><br/><br/>
+                                            <span class="member_content special">Earned $2,050 in competitions during the month of October.</span><br/><br/>
                                             <!--<span class="member_content special"><a href="http://www.topcoder.com/news/2010/09/15/congratulations-to-the-august-coders-and-designers-of-the-month/">Read the interviews here.</a></span><br/><br/>-->
                                         </div>
                                     </div>
