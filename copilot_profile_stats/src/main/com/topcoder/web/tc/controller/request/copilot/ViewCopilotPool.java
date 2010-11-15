@@ -251,15 +251,28 @@ public class ViewCopilotPool extends ShortHibernateProcessor {
                 currentPage = page.intValue();
             }
             
+            // ************************************
+            // start: set statistics with query result
+            
             Map<String, Map<Long, Integer>> stats = getCopilotsStatistics();
             Map<Long, Integer> currentContests = stats.get("currentContests");
             Map<Long, Integer> currentProjects = stats.get("currentProjects");
+            Map<Long, Integer> totalProjects = stats.get("totalProjects");
+            Map<Long, Integer> totalContests = stats.get("totalContests");
+            Map<Long, Integer> failedContests = stats.get("failedContests");
+            Map<Long, Integer> repostedContests = stats.get("repostedContests");
             
             for (CopilotPoolMember cpm : copilots) {
 
                 cpm.setCurrentContests(currentContests.get(cpm.getCopilotProfile().getUserId()));
                 cpm.setCurrentProjects(currentProjects.get(cpm.getCopilotProfile().getUserId()));
+                cpm.setTotalProjects(totalProjects.get(cpm.getCopilotProfile().getUserId()));
+                cpm.setTotalContests(totalContests.get(cpm.getCopilotProfile().getUserId()));
+                cpm.setTotalRepostedContests(repostedContests.get(cpm.getCopilotProfile().getUserId()));
+                cpm.setTotalFailedContests(failedContests.get(cpm.getCopilotProfile().getUserId()));
             }
+            
+            //***************************************
             
             List<CopilotPoolMember> sortedCopoilots = new ArrayList<CopilotPoolMember>(copilots);
 
@@ -377,8 +390,13 @@ public class ViewCopilotPool extends ShortHibernateProcessor {
     }
 
     /**
-     * Gets the copilot statistics for the copilot pool page. For now, we only get 'current contests' and 'current projects'
-     * statistic by invoking queries.
+     * Gets the copilot statistics for the copilot pool page. It runs a query to get the following statistics
+     * - current projects
+     * - current contests
+     * - total projects
+     * - total contests
+     * - failed contests
+     * - failed projects
      *
      * @return the map stores copilot statistics.
      * @throws Exception if any error occurs.
@@ -388,29 +406,35 @@ public class ViewCopilotPool extends ShortHibernateProcessor {
         // command - copilot_statistics
         r.setContentHandle("copilot_pool_members");
 
-        // query  current_contests_number first
-        ResultSetContainer currentProjects = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("copilot_pool_current_projects");
-        ResultSetContainer currentContests = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("copilot_pool_current_contests");
+        ResultSetContainer statisticResults = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("copilot_pool_statistics");
 
-        Iterator<ResultSetContainer.ResultSetRow> pi = currentProjects.iterator();
-        Iterator<ResultSetContainer.ResultSetRow> ci = currentContests.iterator();
+        Iterator<ResultSetContainer.ResultSetRow> itr = statisticResults.iterator();
+        
         Map<String, Map<Long, Integer>> statsMap = new HashMap<String, Map<Long, Integer>>();
         Map<Long, Integer> projectsStats = new HashMap<Long, Integer>();
         Map<Long, Integer> contestsStats = new HashMap<Long, Integer>();
+        Map<Long, Integer> totalProjectsStats = new HashMap<Long, Integer>();
+        Map<Long, Integer> totalContestsStats = new HashMap<Long, Integer>();
+        Map<Long, Integer> failedContestsStats = new HashMap<Long, Integer>();
+        Map<Long, Integer> repostedContestsStats = new HashMap<Long, Integer>();
 
-        while (pi.hasNext()) {
-            ResultSetContainer.ResultSetRow row = pi.next();
+        while (itr.hasNext()) {
+            ResultSetContainer.ResultSetRow row = itr.next();
 
             projectsStats.put(row.getLongItem("user_id"), row.getIntItem("current_projects_number"));
-        }
-
-        while (ci.hasNext()) {
-            ResultSetContainer.ResultSetRow row = ci.next();
-
             contestsStats.put(row.getLongItem("user_id"), row.getIntItem("current_contests_number"));
+            totalProjectsStats.put(row.getLongItem("user_id"), row.getIntItem("total_projects_number"));
+            totalContestsStats.put(row.getLongItem("user_id"), row.getIntItem("total_contests_number"));
+            failedContestsStats.put(row.getLongItem("user_id"), row.getIntItem("failed_contests_number"));
+            repostedContestsStats.put(row.getLongItem("user_id"), row.getIntItem("reposted_contests_number"));
         }
+        
         statsMap.put("currentProjects", projectsStats);
         statsMap.put("currentContests", contestsStats);
+        statsMap.put("totalProjects", totalProjectsStats);
+        statsMap.put("totalContests", totalContestsStats);
+        statsMap.put("failedContests", failedContestsStats);
+        statsMap.put("repostedContests", repostedContestsStats);
 
         return statsMap;
     }

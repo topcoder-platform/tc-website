@@ -6,6 +6,12 @@ package com.topcoder.web.tc.controller.request.copilot;
 import com.topcoder.direct.services.copilot.CopilotProfileService;
 import com.topcoder.direct.services.copilot.dto.ContestTypeStat;
 import com.topcoder.direct.services.copilot.dto.CopilotProfileDTO;
+import com.topcoder.direct.services.copilot.model.CopilotProfile;
+import com.topcoder.direct.services.copilot.model.CopilotProfileStatus;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
@@ -14,9 +20,7 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import javax.servlet.ServletContext;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * <p> This request processor handles the request of view copilot profile. It will use the spring to load an instance of
@@ -126,10 +130,15 @@ public class ViewCopilotProfile extends ShortHibernateProcessor {
 
                 profileDTO = (CopilotProfileDTO) cachedValue;
             }
+            
+            // ****** Set the statistics in profile with query result
+            populateCopilotProfile(profileDTO);
+            
 
             // build pie chart data
             String[] pieChartProperties = PIE_CHART_PROPERTIES;
             Map<String, ContestTypeStat> contestStats = profileDTO.getContestTypeStats();
+      
             List<List<String>> pieValues = new ArrayList<List<String>>();
 
             for (String type : contestStats.keySet()) {
@@ -147,19 +156,36 @@ public class ViewCopilotProfile extends ShortHibernateProcessor {
                 ContestTypeStat stat = contestStats.get(type);
                 List<String> row = new ArrayList<String>();
                 row.add("\"" + type + "\"");
-                row.add(String.valueOf(stat.getPlannedContests()));
+                // if planned contests is not available, set to zero
+                row.add(String.valueOf(stat.getPlannedContests() == -1 ? 0 : stat.getPlannedContests()));
                 row.add(String.valueOf(stat.getRealContests()));
                 row.add(String.valueOf(stat.getRepostedContests()));
                 row.add(String.valueOf(stat.getFailedContests()));
                 barValues.add(row);
             }
 
+            // flag indicates whether there is contest data to render the charts
+            request.setAttribute("hasContestData",
+                    (contestStats.size() != 0));
+					
+            // encode JSON data for the pie chart and set to request
             request.setAttribute(PIE_CHART_RESULT_KEY,
                     CopilotRequestProcessorUtil.encodeJsonData(pieChartProperties, pieValues));
+            
+            // encode JSON data for the bar chart and set to request        
             request.setAttribute(BAR_CHART_RESULT_KEY,
                     CopilotRequestProcessorUtil.encodeJsonData(barChartProperties, barValues));
-            request.setAttribute(COPILOT_INFO_RESULT_KEY,
-                    CopilotRequestProcessorUtil.getCopilotInfo(profileDTO.getCopilotProfile().getUserId()));
+            
+            // get copilot info (handle, userid, image) and set to request
+            Map<String, String> info =  CopilotRequestProcessorUtil.getCopilotInfo(profileDTO.getCopilotProfile().getUserId());
+            
+            if(info.size() == 0) {
+                 throw new TCWebException("No such copilot exists in copilot pool");  
+            }
+                  
+            request.setAttribute(COPILOT_INFO_RESULT_KEY, info);
+            
+            // set the CopilotProfileDTO to request        
             request.setAttribute(PROFILE_RESULT_KEY, profileDTO);
 
             // set the jsp page to forward
@@ -181,6 +207,94 @@ public class ViewCopilotProfile extends ShortHibernateProcessor {
         } finally {
             log.debug("Exit the request processor ViewCopilotProfile");
         }
+    }
+    
+    /**
+     * This method calls queries to get copilot profile result and populate the passed in CopilotProfileDTO instance.
+     *
+     * @param CopilotProfileDTO instance to populate
+     *
+     * @throws Exception if any error happens.
+     */
+    private void populateCopilotProfile(CopilotProfileDTO dto) throws Exception {
+        
+    	Request r = new Request();
+        // command - copilot_statistics
+        r.setContentHandle("copilot_profile");
+        r.setProperty("uid", String.valueOf(dto.getCopilotProfile().getUserId()));
+
+        ResultSetContainer statisticResults = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("copilot_profile_statistics");
+
+        Iterator<ResultSetContainer.ResultSetRow> itr = statisticResults.iterator();
+        
+        if(itr.hasNext()) {
+        	ResultSetContainer.ResultSetRow row = itr.next();
+        	
+        	dto.setTotalProjects(row.getIntItem("total_projects_number"));
+        	dto.setTotalContests(row.getIntItem("total_contests_number"));
+        	dto.setTotalFailedContests(row.getIntItem("failed_contests_number"));
+        	dto.setTotalRepostedContests(row.getIntItem("reposted_contests_number"));
+        	dto.setCurrentProjects(row.getIntItem("current_projects_number"));
+        	dto.setCurrentContests(row.getIntItem("current_contests_number"));
+        	dto.getCopilotProfile().setSuspensionCount(row.getIntItem("suspension_count"));
+        	dto.getCopilotProfile().setReliability(row.getFloatItem("reliability"));
+        	dto.getCopilotProfile().getStatus().setId(row.getLongItem("status_id"));
+        	dto.getCopilotProfile().getStatus().setName(row.getStringItem("status_name"));
+        }
+
+        // command - copilot contests
+        ResultSetContainer contestsResults = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("copilot_all_contests");
+
+        itr = contestsResults.iterator();
+
+        // result map
+        Map<String, ContestTypeStat> contestStats = new HashMap<String, ContestTypeStat>();
+
+        while (itr.hasNext()) {
+            ResultSetContainer.ResultSetRow row = itr.next();
+
+            String categoryName = row.getStringItem("category_name");
+            ContestTypeStat stat;
+
+            if (!contestStats.containsKey(categoryName)) {
+                // if this contest category not exist, create a new one
+                stat = new ContestTypeStat();
+
+                long categoryId = row.getLongItem("project_category_id");
+
+                // set the category name and category id
+                stat.setProjectCategoryName(categoryName);
+                stat.setProjectCategoryId(categoryId);
+                stat.setPlannedContests(-1);
+
+                // add CategoryTypeStat into the map
+                contestStats.put(categoryName, stat);
+
+            } else {
+
+                stat = contestStats.get(categoryName);
+
+            }
+
+            long project_status_id = row.getLongItem("project_status_id");
+
+            if (project_status_id == 4 || project_status_id == 5 || project_status_id == 6
+                    || project_status_id == 10 || project_status_id == 11) {
+                stat.setFailedContests(stat.getFailedContests() + 1);
+            }
+
+            int repostedFlag = row.getIntItem("reposted");
+
+            if (repostedFlag == 1) {
+                stat.setRepostedContests(stat.getRepostedContests() + 1);
+            }
+
+            stat.setRealContests(stat.getRealContests() + 1);
+
+        }
+
+        dto.setContestTypeStats(contestStats);
+        
     }
 
 
