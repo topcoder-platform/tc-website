@@ -28,7 +28,9 @@
     <!-- Google visualization charts -->
     <script type="text/javascript" src="http://www.google.com/jsapi"></script>
     <!-- should be put after Google visualization API -->
-    <script type="text/javascript" src="/js/copilot-profile.js"></script>
+    <c:if test="${hasContestData}">
+        <script type="text/javascript" src="/js/copilot-profile.js"></script>
+    </c:if>
     <!-- put the generated chart json data in the header -->
     <script language="JavaScript" type="text/javascript">
 
@@ -70,7 +72,7 @@
             String reliability = "n/a";
 
             if (profile.getCopilotProfile().getReliability() >= 0) {
-                 reliability = new DecimalFormat("##.##").format(profile.getCopilotProfile().getReliability()) + "%";
+                // reliability = new DecimalFormat("##.##").format(profile.getCopilotProfile().getReliability()) + "%";
             }
 
         %>
@@ -82,10 +84,14 @@
                     <div class="left-title"><img src="/i/copilots/copilot-statistics.png" alt=""/></div>
                     <div class="right-title b">
                         Copilot Profile
+                        
+                        <!--
                         &nbsp;|&nbsp;
-                        <%-- link to copilot project history --%>
+                
                         <a href="/tc?module=ViewCopilotProjectHistory&amp;pid=${copilotProfile.copilotProfile.userId}">Project
                         History</a>
+                        -->
+                        
                         <%-- link to copilot pool page --%>
                         &nbsp;|&nbsp;<a href="/tc?module=ViewCopilotPool">Copilot Pool</a>
                     </div>
@@ -112,7 +118,9 @@
 
                             <%-- only show the copilot earnings if the showCopilotEarnings flag is true --%>
                             <c:if test="${copilotProfile.copilotProfile.showCopilotEarnings}">
+                                <%--
                                 Earnings: <span class="b"><%=earnings%></span>&nbsp;&nbsp;|&nbsp;&nbsp;
+                                --%>
                             </c:if>
 
                             Suspension: <span class="b font-color04">${copilotProfile.copilotProfile.suspensionCount}</span>&nbsp;&nbsp;|&nbsp;&nbsp;
@@ -147,10 +155,14 @@
                             <tbody>
                             <tr>
                                 <td class="border-l border-b">
-                                    <%-- total proejcts links to the view copilot project history page --%>
+                                    <%-- total proejcts links to the view copilot project history page 
                                     <a href="/tc?module=ViewCopilotProjectHistory&amp;pid=${copilotProfile.copilotProfile.userId}">
                                         ${copilotProfile.totalProjects}
                                     </a>
+                                    --%>
+                                    
+                                    ${copilotProfile.totalProjects}
+                                    
                                 </td>
                                 <td class="border-l border-b">
                                     ${copilotProfile.totalContests}
@@ -162,7 +174,7 @@
                                     ${copilotProfile.totalFailedContests}
                                 </td>
                                 <td class="border-l border-b border-r">
-                                    ${copilotProfile.totalBugRaces}
+                                    <!-- ${copilotProfile.totalBugRaces} --> n/a
                                 </td>
                             </tr>
                             <tr>
@@ -184,7 +196,11 @@
                                                 title="The statistics on different TopCoder contest types"/>
                     </div>
                 </div>
-                <div class="charts">
+
+                <c:choose>
+                    <c:when test="${hasContestData}">
+
+                        <div class="charts">
                     <table class="chart-container">
                         <tbody>
                         <tr>
@@ -202,7 +218,7 @@
                                         <c:forEach items="${copilotProfile.contestTypeStats}" var="entry">
 
                                             <div class="controller" id="ctype${entry.value.projectCategoryId}">
-                                                <span>${entry.value.projectCategoryName}</span>
+                                                <div class="controllerWrapper"><span>${entry.value.projectCategoryName}</span></div>
                                             </div>
 
                                         </c:forEach>
@@ -215,7 +231,7 @@
                                             <table class="ctype${entry.value.projectCategoryId}">
                                                 <tr>
                                                     <td>Planned No. of Contests:</td>
-                                                    <td class="number b">${entry.value.plannedContests}</td>
+                                                    <td class="number b">${entry.value.plannedContests == -1 ? 'n/a' : entry.value.plannedContests}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Real No. of Contests:</td>
@@ -245,6 +261,16 @@
                         <div class="failures-legend"><span class="icon"></span>Failures</div>
                     </div>
                 </div>
+
+                    </c:when>
+                    <c:otherwise>
+                        <div class="noChartData">
+                            The copilot does not have any contest data available
+                        </div>
+                    </c:otherwise>
+                </c:choose>
+
+                
 
             </div>
             <!-- end of the copilot profile content -->
