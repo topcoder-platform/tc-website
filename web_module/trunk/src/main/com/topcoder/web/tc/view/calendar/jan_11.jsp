@@ -112,7 +112,7 @@
       </td>
       <td class="value">17
       </td>
-      <td class="value">28
+      <td class="value">18
       </td>
       <td class="value">19  
       </td>
