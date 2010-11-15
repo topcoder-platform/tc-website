@@ -143,9 +143,9 @@
          11:00
         </div>
       </td>
-      <td class="value">38
+      <td class="value">28
       </td>
-      <td class="value">39
+      <td class="value">29
       </td>
    </tr>
    
