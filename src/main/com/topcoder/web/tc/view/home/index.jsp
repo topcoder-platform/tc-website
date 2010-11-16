@@ -162,7 +162,7 @@
 											<br />
 											 TopCoder is Innovation.<br />
 											<br />
-											 TopCoder is revolutionizing the software design and development process by tapping in to our unlimited global workforce to work for you.<br />
+											 TopCoder is revolutionizing the software design and development process by tapping in to our unlimited global community to work for you.<br />
 											<br />
 										</p>
 										<!-- NOTE: Option values must be on one line to render properly -->
