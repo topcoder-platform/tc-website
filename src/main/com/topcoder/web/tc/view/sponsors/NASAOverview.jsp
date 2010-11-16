@@ -49,7 +49,7 @@
 
         </p></div>
 
-		<div align="center"><img src="/i/sponsor/nasa/ntl_patch.jpg" border="0px" alt="NTL Patch" /><br /><br />
+		<div align="center"><img src="/i/sponsor/nasa/ntl_patch.png" border="0px" alt="NTL Patch" /><br /><br />
         	<!--<h1>NSA Tournament Labs</h1>-->
         </div>
 
