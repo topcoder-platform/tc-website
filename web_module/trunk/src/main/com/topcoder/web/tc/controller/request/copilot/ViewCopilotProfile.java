@@ -12,6 +12,7 @@ import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
@@ -223,7 +224,7 @@ public class ViewCopilotProfile extends ShortHibernateProcessor {
         r.setContentHandle("copilot_profile");
         r.setProperty("uid", String.valueOf(dto.getCopilotProfile().getUserId()));
 
-        ResultSetContainer statisticResults = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("copilot_profile_statistics");
+        ResultSetContainer statisticResults = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("copilot_profile_statistics");
 
         Iterator<ResultSetContainer.ResultSetRow> itr = statisticResults.iterator();
         
@@ -243,7 +244,7 @@ public class ViewCopilotProfile extends ShortHibernateProcessor {
         }
 
         // command - copilot contests
-        ResultSetContainer contestsResults = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("copilot_all_contests");
+        ResultSetContainer contestsResults = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("copilot_all_contests");
 
         itr = contestsResults.iterator();
 
@@ -296,6 +297,4 @@ public class ViewCopilotProfile extends ShortHibernateProcessor {
         dto.setContestTypeStats(contestStats);
         
     }
-
-
 }

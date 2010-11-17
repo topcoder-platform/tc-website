@@ -213,16 +213,16 @@
                             <td class="palisade">
                                 <div class="palisade-control">
                                     <div class="left-control">
-
-                                        <%-- iterate the map to populate the left panel control --%>
-                                        <c:forEach items="${copilotProfile.contestTypeStats}" var="entry">
-
-                                            <div class="controller" id="ctype${entry.value.projectCategoryId}">
-                                                <div class="controllerWrapper"><span>${entry.value.projectCategoryName}</span></div>
-                                            </div>
-
-                                        </c:forEach>
-
+										<div class="leftControlMask">
+	                                        <%-- iterate the map to populate the left panel control --%>
+	                                        <c:forEach items="${copilotProfile.contestTypeStats}" var="entry">
+	
+	                                            <div class="controller" id="ctype${entry.value.projectCategoryId}">
+	                                                <div class="controllerWrapper"><span>${entry.value.projectCategoryName}</span></div>
+	                                            </div>
+	
+	                                        </c:forEach>
+										</div>
                                     </div>
                                     <div class="right-area">
 
