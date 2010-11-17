@@ -10,6 +10,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.tc.Constants;
@@ -374,7 +375,7 @@ public class ViewCopilotPool extends ShortHibernateProcessor {
         r.setContentHandle("copilot_pool_members");
 
         // query  copilot_pooL_images
-        ResultSetContainer result = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("copilot_pool_images");
+        ResultSetContainer result = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("copilot_pool_images");
 
         Iterator<ResultSetContainer.ResultSetRow> iterator = result.iterator();
         Map<Long, String> images = new HashMap<Long, String>();
@@ -406,7 +407,7 @@ public class ViewCopilotPool extends ShortHibernateProcessor {
         // command - copilot_statistics
         r.setContentHandle("copilot_pool_members");
 
-        ResultSetContainer statisticResults = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("copilot_pool_statistics");
+        ResultSetContainer statisticResults = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("copilot_pool_statistics");
 
         Iterator<ResultSetContainer.ResultSetRow> itr = statisticResults.iterator();
         
