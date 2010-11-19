@@ -16,6 +16,7 @@ import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.tc.Constants;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
@@ -131,10 +132,16 @@ public class ViewCopilotProfile extends ShortHibernateProcessor {
 
                 profileDTO = (CopilotProfileDTO) cachedValue;
             }
+
+             // get copilot info (handle, userid, image) and set to request
+            Map<String, String> info =  CopilotRequestProcessorUtil.getCopilotInfo(profileDTO.getCopilotProfile().getUserId());
+
+             if(info.size() == 0) {
+                 throw new TCWebException("No such copilot exists in copilot pool");
+            }
             
             // ****** Set the statistics in profile with query result
-            populateCopilotProfile(profileDTO);
-            
+            populateCopilotProfile(profileDTO, info.get("handle"));
 
             // build pie chart data
             String[] pieChartProperties = PIE_CHART_PROPERTIES;
@@ -176,13 +183,6 @@ public class ViewCopilotProfile extends ShortHibernateProcessor {
             // encode JSON data for the bar chart and set to request        
             request.setAttribute(BAR_CHART_RESULT_KEY,
                     CopilotRequestProcessorUtil.encodeJsonData(barChartProperties, barValues));
-            
-            // get copilot info (handle, userid, image) and set to request
-            Map<String, String> info =  CopilotRequestProcessorUtil.getCopilotInfo(profileDTO.getCopilotProfile().getUserId());
-            
-            if(info.size() == 0) {
-                 throw new TCWebException("No such copilot exists in copilot pool");  
-            }
                   
             request.setAttribute(COPILOT_INFO_RESULT_KEY, info);
             
@@ -213,16 +213,18 @@ public class ViewCopilotProfile extends ShortHibernateProcessor {
     /**
      * This method calls queries to get copilot profile result and populate the passed in CopilotProfileDTO instance.
      *
-     * @param CopilotProfileDTO instance to populate
+     * @param dto CopilotProfileDTO instance to populate
+     * @param handle the handle of the copilot
      *
      * @throws Exception if any error happens.
      */
-    private void populateCopilotProfile(CopilotProfileDTO dto) throws Exception {
+    private void populateCopilotProfile(CopilotProfileDTO dto, String handle) throws Exception {
         
     	Request r = new Request();
         // command - copilot_statistics
         r.setContentHandle("copilot_profile");
         r.setProperty("uid", String.valueOf(dto.getCopilotProfile().getUserId()));
+
 
         ResultSetContainer statisticResults = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("copilot_profile_statistics");
 
@@ -295,6 +297,24 @@ public class ViewCopilotProfile extends ShortHibernateProcessor {
         }
 
         dto.setContestTypeStats(contestStats);
-        
+
+        // command - reporter_total  query - reporter_total
+        CachedDataAccess dai = new CachedDataAccess(DBMS.JIRA_DATASOURCE_NAME);
+        r = new Request();
+
+        r.setContentHandle("reporter_total");
+        r.setProperty("ha", handle);
+
+        ResultSetContainer bugResult = dai.getData(r).get("reporter_total");
+        itr = bugResult.iterator();
+
+        int bugCount = -1;
+
+        if (itr.hasNext()) {
+             ResultSetContainer.ResultSetRow row = itr.next();
+             bugCount = row.getIntItem("total");
+        }
+
+        dto.setTotalBugRaces(bugCount);
     }
 }

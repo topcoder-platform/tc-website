@@ -75,6 +75,14 @@
                 // reliability = new DecimalFormat("##.##").format(profile.getCopilotProfile().getReliability()) + "%";
             }
 
+            // Prepare copilot fulfillment
+            String fulfillment = "n/a";
+
+            if (profile.getTotalContests() != 0) {
+                float value = (profile.getTotalContests() - profile.getTotalFailedContests()) * 1.0f / profile.getTotalContests();
+                fulfillment =  new DecimalFormat("##.##").format(value * 100) + "%";
+            }
+
         %>
 
         <td width="100%" align="left" class="bodyColumn">
@@ -124,7 +132,8 @@
                             </c:if>
 
                             Suspension: <span class="b font-color04">${copilotProfile.copilotProfile.suspensionCount}</span>&nbsp;&nbsp;|&nbsp;&nbsp;
-                            Reliability: <span class="b"><%=reliability%></span>
+                            Reliability: <span class="b"><%=reliability%></span>&nbsp;&nbsp;|&nbsp;&nbsp;
+                            Fulfillment: <span class="b"><%=fulfillment%></span>
                         </div>
                         <table class="table-details" cellpadding="0" cellspacing="0">
                             <thead>
@@ -174,7 +183,7 @@
                                     ${copilotProfile.totalFailedContests}
                                 </td>
                                 <td class="border-l border-b border-r">
-                                    <!-- ${copilotProfile.totalBugRaces} --> n/a
+                                    ${copilotProfile.totalBugRaces == -1 ? 'n/a' : copilotProfile.totalBugRaces}
                                 </td>
                             </tr>
                             <tr>
