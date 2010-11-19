@@ -7,6 +7,7 @@ import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.CachedDataAccess;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -125,7 +126,7 @@ class CopilotRequestProcessorUtil {
         r.setProperty("uid", String.valueOf(userId));
 
         // query copilot_user_info with the specified user id
-        ResultSetContainer result = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("copilot_user_info");
+        ResultSetContainer result = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("copilot_user_info");
         Map<String, String> info = new HashMap<String, String>();
 
         // Build the result map
