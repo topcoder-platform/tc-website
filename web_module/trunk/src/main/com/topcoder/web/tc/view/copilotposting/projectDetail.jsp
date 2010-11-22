@@ -22,7 +22,7 @@
 <% ResultSetContainer projectDetail = (ResultSetContainer) request.getAttribute("projectDetail");%>
 <% ResultSetContainer technologies = (ResultSetContainer) request.getAttribute("technologies");%>
 <head>
-<title>TopCoder Copilot Postings</title>
+<title>TopCoder Copilot Postings</title> 
 
     <jsp:include page="/script.jsp"/>
     <jsp:include page="/style.jsp">
@@ -90,9 +90,13 @@
       <td width="35%">
       <div class="bigRed" style="border-top: 1px solid #999999; border-bottom: 1px solid #999999;">
          <div style="float:right; text-align:right;">
+         $<rsc:item set="<%=projectDetail%>" name="total_payment" format="0.00"/><br>
+         $<rsc:item set="<%=projectDetail%>" name="second_place_payment" format="0.00"/><br>
          <rsc:item set="<%=projectDetail%>" name="initial_submission_date" format="MM.dd.yyyy"/>
          </div>
-      <strong>
+
+         <strong>First place:<br>
+      Second place:<br>
       Due Date:</strong>
       </div>
       </td>

@@ -114,7 +114,7 @@
       <td class="headerC" width="15%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Register by</a></td>
       <td class="headerC" width="15%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="0" includeParams="true"/>">Submit by</a></td>
       <!-- hide payent column for now -->  
-      <%-- td class="headerC" width="10%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true"/>">Payment</a></td --%>
+      <td class="headerC" width="10%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true"/>">Payment</a></td>
       <td class="headerC" width="15%">
       <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>">Registered Copilots</a><br />
           <%-- hide ratings for now
@@ -177,9 +177,11 @@
             </td>
             <td class="valueC" nowrap="nowrap">
                 <rsc:item name="initial_submission_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/></td>
-            <%--
+            
             <td class="valueC">
-                <rsc:item name="price" row="<%=resultRow%>" format="$###,###.00"/></td>
+                <rsc:item name="price" row="<%=resultRow%>" format="$###,###.00"/>
+            </td>
+            <%--
             <td class="valueC">
                 <rsc:item name="reliability_bonus" row="<%=resultRow%>" format="$###,###.00"/></td>
             <c:if test="${hasDR}">
