@@ -61,80 +61,32 @@
 
                        <h3>TopCoder Platform Manager</h3>
 
-
-                       <strong>Job Description </strong>
+						<ul>
+						    <li>TopCoder is based on innovation. We have created the first ever competitive software development methodology. 
+						    We need your help to manage and evolve our process of competitive innovation and software development.</li>
+							<li>We are looking for smart, passionate people that are quick learners and can successfully onboard the 
+							TopCoder process at enterprise customers.</li>
+						</ul>
 
                         <p><strong>Responsibilities:</strong></p>
 
              			<ul>
-							<li>Work closely with enterprise customers to explore and identify business needs. </li>
-							<li>Guide customers through all phases of the TopCoder Software Application Development Methodology to deliver high quality software applications that add significant value to their business:</li>
-                            	<ul>
-                                	<li>Conceptualization</li>
-                                	<li>Specification</li>
-                                	<li>Architecture</li>
-                                	<li>Design</li>
-                                	<li>Component Design and Development</li>
-                                	<li>Assembly</li>
-                                	<li>Certification/Testing</li>
-                                	<li>Deployment</li>
-                                	<li>Support/Enhancements</li>
-                                </ul>
-							<li>Function as subject matter expert in utilization of component library.</li>
-							<li>Function as a resource for the client in areas such as managing project timelines and budgets.</li>
-							<li>Manage relationship with customer and identify additional business challenges that can be successfully met through utilization of the platform.</li>
-							<li>Work with the TopCoder Production team to help improve the various process and procedures with regards to engaging the TopCoder community.</li>
-                        </ul>
-
-                        <p><strong>Additional Responsibilities:</strong></p>
-
-             			<ul>
-							<li>May work with multiple customers simultaneously. </li>
-							<li>Must be willing to travel Monday-Friday within the continental United States. </li>
-                        </ul>
-
-                        <strong>Job Requirements</strong>
-                        
-                        <p><strong>Technical Skills:</strong></p>
-
-             			<ul>
-							<li>Experience managing software development projects in a customer facing capacity.</li>
-							<li>Working knowledge of Object Oriented design principles and component based software development.</li>
-							<li>Demonstrated experience in UML modeling, project scope development, and requirements gathering techniques. </li>
-							<li>Experience with social networks and latest social media technologies</li>
-                        </ul>
-
-                        <p><strong>Professional Skills:</strong></p>
-
-             			<ul>
-							<li>Excellent analytical and problem solving skills as well as strong verbal and communication skills. </li>
-							<li>Ability to demonstrate leadership skills by being committed to excellence, demonstrating company values and policies, initiating action, accepting responsibility for results, and making quality decisions.</li>
-							<li>Effective team player.</li>
-							<li>Ability to lead software development projects to successful completion on time and on budget.</li>
+							<li>Work closely with customers to explore and identify business and software needs - educate customers on using tactical and strategic innovation within their organization. </li>
+							<li>Guide customers in the use of an innovative, distributed software development methodology in order to add significant value to their business.</li>
+							<li>Manage project timelines, budget, and distributed process controls.</li>
+							<li>Help to improve TopCoder's innovative, competitive software development methodology and associated processes.</li>
                         </ul>
 
                         <p><strong>Other Requirements:</strong></p>
 
              			<ul>
 							<li>Bachelor degree.</li>
-							<li>Candidates must be US Citizens, have a valid Green Card, or be eligible for a TN visa.</li>
+							<li>Must be willing to travel Monday-Friday within the continental United States.</li>
+							<li>Candidates must be US Citizens, have a valid Green Card, or be eligible for a TN visa. </li>
                         </ul>
 
                         
-                        <p>TopCoder is passionate about innovation and building long lasting relationships with companies interested in finding 'a better way' to do things.  To start or continue a management career in a forward-thinking environment that offers a lucrative compensation structure focused on performance including a corporate benefits package,  <a href="mailto:jobs@topcoder.com?subject=Platform Manager">apply for this job<a/>.</p>
-                        <%--
-                        <strong>Salary: </strong>
-                        <ul>
-                            <li>Base Salary</li>
-                            <li>Personal Goals bonus plan</li>
-                            <li>Company Goals bonus plan</li>
-                        </ul>
-
-                        <p>
-                        <a href="mailto:jobs@topcoder.com?subject=Salesperson">Apply for this job.<a/>
-                        </p>
-                        <p><br /></p>
-                        --%>
+                        <p>TopCoder is passionate about innovation and building long lasting relationships with companies interested in finding 'a better way' to do things.  To start or continue a management career in a forward-thinking environment that offers a lucrative compensation structure focused on performance,  <a href="mailto:jobs@topcoder.com?subject=Platform Manager">apply for this job<a/>.</p>
                     </td>
                 </tr>
             </table>
