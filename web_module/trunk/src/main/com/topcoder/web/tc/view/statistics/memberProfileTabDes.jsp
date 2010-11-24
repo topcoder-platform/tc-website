@@ -317,12 +317,12 @@
                     'id="ratingHistory" ' +
                     'align="middle"> ' +
                     '<param name="allowScriptAccess" value="sameDomain" /> ' +
-                    '<param name="movie" value="/flash/graphLoader20090420.swf?competitionType=des&coderID=<%=request.getParameter("cr")%>&myRating=<%=rscDesData.getIntItem(0, "rating")%>" />' +
+                    '<param name="movie" value="/flash/graphLoader.swf?competitionType=des&coderID=<%=request.getParameter("cr")%>&myRating=<%=rscDesData.getIntItem(0, "rating")%>" />' +
                     '<param name="menu" value="true" /> ' +
                     '<param name="quality" value="high" /> ' +
                     '<param name="bgcolor" value="#EEEEEE" /> ' +
                     '<embed ' +
-                    'src="/flash/graphLoader20090420.swf?competitionType=des&coderID=<%=request.getParameter("cr")%>&myRating=<%=rscDesData.getIntItem(0, "rating")%>" ' +
+                    'src="/flash/graphLoader.swf?competitionType=des&coderID=<%=request.getParameter("cr")%>&myRating=<%=rscDesData.getIntItem(0, "rating")%>" ' +
                     'menu="true" ' +
                     'quality="high" ' +
                     'bgcolor="#EEEEEE" ' +
