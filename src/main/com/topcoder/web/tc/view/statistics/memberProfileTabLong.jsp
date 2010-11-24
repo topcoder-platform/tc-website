@@ -38,11 +38,11 @@ var s='<object ' +
 'id="graphLoader" ' +
 'align="middle"> ' +
 '<param name="allowScriptAccess" value="sameDomain" /> ' +
-'<param name="movie" value="/flash/graphLoader20090420.swf?competitionType=long&coderID=<rsc:item set="<%=rsc%>" name="coder_id"/>&myRating=<%=rsc.getIntItem(0, "rating")%>" /> ' +
+'<param name="movie" value="/flash/graphLoader.swf?competitionType=long&coderID=<rsc:item set="<%=rsc%>" name="coder_id"/>&myRating=<%=rsc.getIntItem(0, "rating")%>" /> ' +
 '<param name="menu" value="true" /> ' +
 '<param name="quality" value="high" /> ' +
 '<param name="bgcolor" value="#eeeeee" /> ' +
-'<embed src="/flash/graphLoader20090420.swf?competitionType=long&coderID=<rsc:item set="<%=rsc%>" name="coder_id"/>&myRating=<%=rsc.getIntItem(0, "rating")%>" ' +
+'<embed src="/flash/graphLoader.swf?competitionType=long&coderID=<rsc:item set="<%=rsc%>" name="coder_id"/>&myRating=<%=rsc.getIntItem(0, "rating")%>" ' +
 'menu="true"  ' +
 'quality="high" ' +
 'bgcolor="#eeeeee" ' +

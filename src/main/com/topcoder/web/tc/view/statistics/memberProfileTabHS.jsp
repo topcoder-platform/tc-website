@@ -113,12 +113,12 @@ var s='<object ' +
 'id="graphLoader" ' + 
 'align="middle"> ' + 
 '<param name="allowScriptAccess" value="sameDomain" /> ' + 
-'<param name="movie" value="/flash/graphLoader20090420.swf?competitionType=hs&coderID=<%=request.getParameter("cr")%>&myRating=<%=rscAlgData.getIntItem(0, "rating")%>" />' + 
+'<param name="movie" value="/flash/graphLoader.swf?competitionType=hs&coderID=<%=request.getParameter("cr")%>&myRating=<%=rscAlgData.getIntItem(0, "rating")%>" />' + 
 '<param name="menu" value="true" /> ' + 
 '<param name="quality" value="high" /> ' + 
 '<param name="bgcolor" value="#EEEEEE" /> ' + 
 '<embed ' + 
-'src="/flash/graphLoader20090420.swf?competitionType=hs&coderID=<%=request.getParameter("cr")%>&myRating=<%=rscAlgData.getIntItem(0, "rating")%>" ' + 
+'src="/flash/graphLoader.swf?competitionType=hs&coderID=<%=request.getParameter("cr")%>&myRating=<%=rscAlgData.getIntItem(0, "rating")%>" ' + 
 'menu="true" ' + 
 'quality="high" ' + 
 'bgcolor="#EEEEEE" ' + 
