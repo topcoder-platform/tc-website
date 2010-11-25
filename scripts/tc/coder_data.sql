@@ -60,6 +60,24 @@ SELECT c.handle
         WHERE c.coder_id = @cr@
           AND c.coder_id = r.user_id
           AND r.phase_id = 124) AS test_rating
+    , (SELECT r.rating
+         FROM coder c
+            , OUTER tcs_dw:user_rating r
+        WHERE c.coder_id = @cr@
+          AND c.coder_id = r.user_id
+          AND r.phase_id = 137) AS test_scenarios_rating
+    , (SELECT r.rating
+         FROM coder c
+            , OUTER tcs_dw:user_rating r
+        WHERE c.coder_id = @cr@
+          AND c.coder_id = r.user_id
+          AND r.phase_id = 130) AS ui_prototype_rating
+    , (SELECT r.rating
+         FROM coder c
+            , OUTER tcs_dw:user_rating r
+        WHERE c.coder_id = @cr@
+          AND c.coder_id = r.user_id
+          AND r.phase_id = 135) AS ria_build_rating
     , 0 AS development_earnings
      , cr.rank
      , cr.percentile
