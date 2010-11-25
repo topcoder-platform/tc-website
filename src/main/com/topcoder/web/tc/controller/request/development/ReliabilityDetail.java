@@ -28,10 +28,15 @@ import com.topcoder.web.tc.Constants;
  *   <ol>
  *     <li>Updated Application Testing to Test Suites</li>
  *   </ol>
+ *
+ *   Version 1.3 Change notes:
+ *   <ol>
+ *     <li>Added support for the Test Scenarios, UI Prototype and RIA Build tracks.</li>
+ *   </ol> 
  * </p>
  *
- * @author dok, pulky
- * @version 1.2
+ * @author dok, pulky, VolodymyrK
+ * @version 1.3
  */
 public class ReliabilityDetail extends Base {
 
@@ -54,7 +59,10 @@ public class ReliabilityDetail extends Base {
                 || String.valueOf(SoftwareComponent.SPECIFICATION_PHASE).equals(phaseId)
                 || String.valueOf(SoftwareComponent.ARCHITECTURE_PHASE).equals(phaseId)
                 || String.valueOf(SoftwareComponent.ASSEMBLY_PHASE).equals(phaseId)
-                || String.valueOf(SoftwareComponent.TEST_SUITES_PHASE).equals(phaseId))
+                || String.valueOf(SoftwareComponent.TEST_SUITES_PHASE).equals(phaseId)
+                || String.valueOf(SoftwareComponent.TEST_SCENARIOS_PHASE).equals(phaseId)
+                || String.valueOf(SoftwareComponent.UI_PROTOTYPE_PHASE).equals(phaseId)
+                || String.valueOf(SoftwareComponent.RIA_BUILD_PHASE).equals(phaseId))												
             {
                 Request r = new Request();
                 r.setContentHandle("reliability_detail");
@@ -88,6 +96,15 @@ public class ReliabilityDetail extends Base {
                     case Constants.TEST_SUITES_PROJECT_TYPE:
                         handleType = HandleTag.TEST_SUITES;
                         break;
+                    case Constants.TEST_SCENARIOS_PROJECT_TYPE:
+                        handleType = HandleTag.TEST_SCENARIOS;
+                        break;
+                    case Constants.UI_PROTOTYPE_PROJECT_TYPE:
+                        handleType = HandleTag.UI_PROTOTYPE;
+                        break;
+                    case Constants.RIA_BUILD_PROJECT_TYPE:
+                        handleType = HandleTag.RIA_BUILD;
+                        break;																		
                 }
 
                 getRequest().setAttribute(Constants.TYPE_KEY, handleType);

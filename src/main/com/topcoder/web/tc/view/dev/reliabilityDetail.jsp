@@ -70,6 +70,18 @@
             <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="m_test_suites_competitions"/>
             </jsp:include>
+    <% } else if(phaseId == SoftwareComponent.TEST_SCENARIOS_PHASE) { %>
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="m_test_scenarios_competitions"/>
+            </jsp:include>
+    <% } else if(phaseId == SoftwareComponent.UI_PROTOTYPE_PHASE) { %>
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="m_ui_prototype_competitions"/>
+            </jsp:include>
+    <% } else if(phaseId == SoftwareComponent.RIA_BUILD_PHASE) { %>
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="m_ria_build_competitions"/>
+            </jsp:include>
     <% } %>
     <!-- Left nav ends -->
 </td>
@@ -112,6 +124,21 @@
                 <jsp:param name="image" value="test_suites"/>
                 <jsp:param name="title" value="Reliability Detail"/>
             </jsp:include>
+    <% } else if(phaseId == SoftwareComponent.TEST_SCENARIOS_PHASE) { %>
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="test_scenarios"/>
+                <jsp:param name="title" value="Reliability Detail"/>
+            </jsp:include>
+    <% } else if(phaseId == SoftwareComponent.UI_PROTOTYPE_PHASE) { %>
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="ui_prototype"/>
+                <jsp:param name="title" value="Reliability Detail"/>
+            </jsp:include>
+    <% } else if(phaseId == SoftwareComponent.RIA_BUILD_PHASE) { %>
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="ria_build"/>
+                <jsp:param name="title" value="Reliability Detail"/>
+            </jsp:include>
     <% } %>
 
 <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=coderId%>' context='<%=type%>'/></span>
@@ -130,6 +157,12 @@
             <span class="bodySubtitle">Architecture Statistics&#160;>&#160;</span><br>
     <% } else if(phaseId == SoftwareComponent.TEST_SUITES_PHASE) { %>
             <span class="bodySubtitle">Test Suites Statistics&#160;>&#160;</span><br>
+    <% } else if(phaseId == SoftwareComponent.TEST_SCENARIOS_PHASE) { %>
+            <span class="bodySubtitle">Test Scenarios Statistics&#160;>&#160;</span><br>
+    <% } else if(phaseId == SoftwareComponent.UI_PROTOTYPE_PHASE) { %>
+            <span class="bodySubtitle">UI Prototype Statistics&#160;>&#160;</span><br>
+    <% } else if(phaseId == SoftwareComponent.RIA_BUILD_PHASE) { %>
+            <span class="bodySubtitle">RIA Build Statistics&#160;>&#160;</span><br>
     <% } %>
                 <span class="bc">
                 <A HREF="/tc?module=MemberProfile&cr=<%=coderId%>" class="bcLink">Member Profile</A>
@@ -218,7 +251,7 @@
     <A href="/wiki/display/tc/Component+Development+Reliability+Ratings">reliability ratings</A>?</div>
             <% } else { %>
             <div class="bodySubtitle" align="center">Have a question about
-    <A href="/wiki/display/tc/Component+Application+Reliability+Ratings">reliability ratings</A>?</div>
+    <A href="/wiki/display/tc/Application+Reliability+Ratings">reliability ratings</A>?</div>
             <% } %>
 <p><br/></p>
 

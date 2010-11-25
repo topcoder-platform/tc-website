@@ -20,8 +20,12 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
  *   </ol>
  * </p>
  *
- * @author TCSDEVELOPER
- * @version 1.1
+ *   Version 1.2 Change notes:
+ *   <ol>
+ *     <li>Added support for the Test Scenarios, UI Prototype and RIA Build tracks.</li>
+ *   </ol>
+ * @author TCSDEVELOPER, VolodymyrK
+ * @version 1.2
  */
 public class MemberSearch {
 
@@ -161,7 +165,7 @@ public class MemberSearch {
 
     /**
      * <p>
-     * Application Testing minimum rating.
+     * Test Suites minimum rating.
      * </p>
      *
      * @since Member Profile Enhancement
@@ -170,12 +174,66 @@ public class MemberSearch {
 
     /**
      * <p>
-     * Application Testing maximum rating.
+     * Test Suites maximum rating.
      * </p>
      *
      * @since Member Profile Enhancement
      */
     private Integer maxTestRating = null;
+	
+    /**
+     * <p>
+     * Test Scenarios minimum rating.
+     * </p>
+     *
+     * @since 1.2
+     */
+    private Integer minTestScenariosRating = null;
+
+    /**
+     * <p>
+     * Test Scenarios maximum rating.
+     * </p>
+     *
+     * @since 1.2
+     */
+    private Integer maxTestScenariosRating = null;	
+
+    /**
+     * <p>
+     * TUI Prototype minimum rating.
+     * </p>
+     *
+     * @since 1.2
+     */
+    private Integer minUIPrototypeRating = null;
+
+    /**
+     * <p>
+     * UI Prototype maximum rating.
+     * </p>
+     *
+     * @since 1.2
+     */
+    private Integer maxUIPrototypeRating = null;	
+	
+    /**
+     * <p>
+     * RIA Build minimum rating.
+     * </p>
+     *
+     * @since 1.2
+     */
+    private Integer minRIABuildRating = null;
+
+    /**
+     * <p>
+     * RIA Build maximum rating.
+     * </p>
+     *
+     * @since 1.2
+     */
+    private Integer maxRIABuildRating = null;		
 
     public Integer getMaxDaysSinceLastHSComp() {
         return maxDaysSinceLastHSComp;
@@ -611,10 +669,10 @@ public class MemberSearch {
 
     /**
      * <p>
-     * Get application testing minimum rating.
+     * Get Test Suites minimum rating.
      * </p>
      *
-     * @return application testing minimum rating.
+     * @return Test Suites minimum rating.
      */
     public Integer getMinTestRating() {
         return minTestRating;
@@ -622,11 +680,11 @@ public class MemberSearch {
 
     /**
      * <p>
-     * Set application testing minimum rating.
+     * Set Test Suites minimum rating.
      * </p>
      *
      * @param minTestRating
-     *            application testing minimum rating.
+     *            Test Suites minimum rating.
      */
     public void setMinTestRating(Integer minTestRating) {
         this.minTestRating = minTestRating;
@@ -634,10 +692,10 @@ public class MemberSearch {
 
     /**
      * <p>
-     * Get application testing maximum rating.
+     * Get Test Suites maximum rating.
      * </p>
      *
-     * @return application testing maximum rating.
+     * @return Test Suites maximum rating.
      */
     public Integer getMaxTestRating() {
         return maxTestRating;
@@ -645,13 +703,151 @@ public class MemberSearch {
 
     /**
      * <p>
-     * Set application testing maximum rating.
+     * Set Test Suites maximum rating.
      * </p>
      *
      * @param maxTestRating
-     *            application testing maximum rating.
+     *            Test Suites maximum rating.
      */
     public void setMaxTestRating(Integer maxTestRating) {
         this.maxTestRating = maxTestRating;
     }
+	
+    /**
+     * <p>
+     * Get Test Scenarios minimum rating.
+     * </p>
+     *
+     * @return Test Scenarios minimum rating.
+     */
+    public Integer getMinTestScenariosRating() {
+        return minTestScenariosRating;
+    }
+
+    /**
+     * <p>
+     * Set Test Scenarios minimum rating.
+     * </p>
+     *
+     * @param minTestScenariosRating
+     *            Test Scenarios minimum rating.
+     */
+    public void setMinTestScenariosRating(Integer minTestScenariosRating) {
+        this.minTestScenariosRating = minTestScenariosRating;
+    }
+
+    /**
+     * <p>
+     * Get Test Scenarios maximum rating.
+     * </p>
+     *
+     * @return Test Scenarios maximum rating.
+     */
+    public Integer getMaxTestScenariosRating() {
+        return maxTestScenariosRating;
+    }
+
+    /**
+     * <p>
+     * Set Test Scenarios maximum rating.
+     * </p>
+     *
+     * @param maxTestScenariosRating
+     *            Test Scenarios maximum rating.
+     */
+    public void setMaxTestScenariosRating(Integer maxTestScenariosRating) {
+        this.maxTestScenariosRating = maxTestScenariosRating;
+    }
+	
+    /**
+     * <p>
+     * Get UI Prototype minimum rating.
+     * </p>
+     *
+     * @return UI Prototype minimum rating.
+     */
+    public Integer getMinUIPrototypeRating() {
+        return minUIPrototypeRating;
+    }
+
+    /**
+     * <p>
+     * Set UI Prototype minimum rating.
+     * </p>
+     *
+     * @param minUIPrototypeRating
+     *            UI Prototype minimum rating.
+     */
+    public void setMinUIPrototypeRating(Integer minUIPrototypeRating) {
+        this.minUIPrototypeRating = minUIPrototypeRating;
+    }
+
+    /**
+     * <p>
+     * Get UI Prototype maximum rating.
+     * </p>
+     *
+     * @return UI Prototype maximum rating.
+     */
+    public Integer getMaxUIPrototypeRating() {
+        return maxUIPrototypeRating;
+    }
+
+    /**
+     * <p>
+     * Set UI Prototype maximum rating.
+     * </p>
+     *
+     * @param maxUIPrototypeRating
+     *            UI Prototype maximum rating.
+     */
+    public void setMaxUIPrototypeRating(Integer maxUIPrototypeRating) {
+        this.maxUIPrototypeRating = maxUIPrototypeRating;
+    }
+	
+    /**
+     * <p>
+     * Get RIA Build minimum rating.
+     * </p>
+     *
+     * @return RIA Build minimum rating.
+     */
+    public Integer getMinRIABuildRating() {
+        return minRIABuildRating;
+    }
+
+    /**
+     * <p>
+     * Set RIA Build minimum rating.
+     * </p>
+     *
+     * @param minRIABuildRating
+     *            RIA Build minimum rating.
+     */
+    public void setMinRIABuildRating(Integer minRIABuildRating) {
+        this.minRIABuildRating = minRIABuildRating;
+    }
+
+    /**
+     * <p>
+     * Get RIA Build maximum rating.
+     * </p>
+     *
+     * @return RIA Build maximum rating.
+     */
+    public Integer getMaxRIABuildRating() {
+        return maxRIABuildRating;
+    }
+
+    /**
+     * <p>
+     * Set RIA Build maximum rating.
+     * </p>
+     *
+     * @param maxRIABuildRating
+     *            RIA Build maximum rating.
+     */
+    public void setMaxRIABuildRating(Integer maxRIABuildRating) {
+        this.maxRIABuildRating = maxRIABuildRating;
+    }	
 }

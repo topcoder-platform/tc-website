@@ -25,8 +25,15 @@ import com.topcoder.web.tc.model.MemberSearch;
  *   </ol>
  * </p>
  * 
- * @author elkhawajah, TCSDEVELOPER
- * @version 1.1
+ * <p>
+ *   Version 1.2 Change notes:
+ *   <ol>
+ *     <li>Added support for the Test Scenarios, UI Prototype and RIA Build tracks.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author elkhawajah, TCSDEVELOPER, VolodymyrK
+ * @version 1.2
  */
 public class AdvancedSearch extends SimpleSearch {
 
@@ -95,6 +102,12 @@ public class AdvancedSearch extends SimpleSearch {
         setDefault(Constants.MAX_ASS_RATING, m.getMaxAssRating() == null ? "" : m.getMaxAssRating().toString());
         setDefault(Constants.MIN_TEST_RATING, m.getMinTestRating() == null ? "" : m.getMinTestRating().toString());
         setDefault(Constants.MAX_TEST_RATING, m.getMaxTestRating() == null ? "" : m.getMaxTestRating().toString());
+        setDefault(Constants.MIN_TEST_SCENARIOS_RATING, m.getMinTestScenariosRating() == null ? "" : m.getMinTestScenariosRating().toString());
+        setDefault(Constants.MAX_TEST_SCENARIOS_RATING, m.getMaxTestScenariosRating() == null ? "" : m.getMaxTestScenariosRating().toString());
+        setDefault(Constants.MIN_UI_PROTOTYPE_RATING, m.getMinUIPrototypeRating() == null ? "" : m.getMinUIPrototypeRating().toString());
+        setDefault(Constants.MAX_UI_PROTOTYPE_RATING, m.getMaxUIPrototypeRating() == null ? "" : m.getMaxUIPrototypeRating().toString());
+        setDefault(Constants.MIN_RIA_BUILD_RATING, m.getMinRIABuildRating() == null ? "" : m.getMinRIABuildRating().toString());
+        setDefault(Constants.MAX_RIA_BUILD_RATING, m.getMaxRIABuildRating() == null ? "" : m.getMaxRIABuildRating().toString());						
         setDefault(Constants.MIN_NUM_RATINGS, m.getMinNumRatings() == null ? "" : m.getMinNumRatings().toString());
         setDefault(Constants.MAX_NUM_RATINGS, m.getMaxNumRatings() == null ? "" : m.getMaxNumRatings().toString());
         setDefault(Constants.MAX_DAYS_SINCE_LAST_COMP, m.getMaxDaysSinceLastComp() == null ? "" : m.getMaxDaysSinceLastComp().toString());
@@ -196,7 +209,7 @@ public class AdvancedSearch extends SimpleSearch {
         if (!maxAssRating.equals(""))
             ret.setMaxAssRating(new Integer(maxAssRating));
 
-        // Application Testing
+        // Test Suites
         String minTestRating = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_TEST_RATING));
         if (!minTestRating.equals(""))
             ret.setMinTestRating(new Integer(minTestRating));
@@ -204,6 +217,33 @@ public class AdvancedSearch extends SimpleSearch {
         String maxTestRating = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_TEST_RATING));
         if (!maxTestRating.equals(""))
             ret.setMaxTestRating(new Integer(maxTestRating));
+			
+        // Test Scenarios
+        String minTestScenariosRating = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_TEST_SCENARIOS_RATING));
+        if (!minTestScenariosRating.equals(""))
+            ret.setMinTestScenariosRating(new Integer(minTestScenariosRating));
+
+        String maxTestScenariosRating = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_TEST_SCENARIOS_RATING));
+        if (!maxTestScenariosRating.equals(""))
+            ret.setMaxTestScenariosRating(new Integer(maxTestScenariosRating));
+			
+        // UI Prototype
+        String minUIPrototypeRating = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_UI_PROTOTYPE_RATING));
+        if (!minUIPrototypeRating.equals(""))
+            ret.setMinUIPrototypeRating(new Integer(minUIPrototypeRating));
+
+        String maxUIPrototypeRating = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_UI_PROTOTYPE_RATING));
+        if (!maxUIPrototypeRating.equals(""))
+            ret.setMaxUIPrototypeRating(new Integer(maxUIPrototypeRating));
+			
+        // RIA Build
+        String minRIABuildRating = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_RIA_BUILD_RATING));
+        if (!minRIABuildRating.equals(""))
+            ret.setMinRIABuildRating(new Integer(minRIABuildRating));
+
+        String maxRIABuildRating = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_RIA_BUILD_RATING));
+        if (!maxRIABuildRating.equals(""))
+            ret.setMaxRIABuildRating(new Integer(maxRIABuildRating));									
 
         String minNumRatings = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_NUM_RATINGS));
         if (!minNumRatings.equals(""))

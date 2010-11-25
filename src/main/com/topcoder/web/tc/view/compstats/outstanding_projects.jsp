@@ -39,6 +39,8 @@
 <c:set value="<%=Constants.ARCHITECTURE_PROJECT_TYPE%>" var="ARCHITECTURE_PROJECT_TYPE"/>
 <c:set value="<%=Constants.TEST_SUITES_PROJECT_TYPE%>" var="TEST_SUITES_PROJECT_TYPE"/>
 <c:set value="<%=Constants.TEST_SCENARIOS_PROJECT_TYPE%>" var="TEST_SCENARIOS_PROJECT_TYPE"/>
+<c:set value="<%=Constants.UI_PROTOTYPE_PROJECT_TYPE%>" var="UI_PROTOTYPE_PROJECT_TYPE"/>
+<c:set value="<%=Constants.RIA_BUILD_PROJECT_TYPE%>" var="RIA_BUILD_PROJECT_TYPE"/>
 
 <BODY>
 <jsp:include page="../top.jsp"/>
@@ -92,6 +94,16 @@
                 <jsp:param name="node" value="m_test_scenarios_competitions"/>
             </jsp:include>
         </c:when>
+        <c:when test="${pt == UI_PROTOTYPE_PROJECT_TYPE}">
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="m_ui_prototype_competitions"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${pt == RIA_BUILD_PROJECT_TYPE}">
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="m_ria_build_competitions"/>
+            </jsp:include>
+        </c:when>		
     </c:choose>
     <!-- Left nav ends -->
 </TD>
@@ -104,51 +116,63 @@
         <c:when test="${pt == DESIGN_PROJECT_TYPE}">
             <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="comp_design"/>
-                <jsp:param name="title" value="Component Design Competition History"/>
+                <jsp:param name="title" value="Component Design Current Contests"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE}">
             <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="comp_development"/>
-                <jsp:param name="title" value="Component Development Competition History"/>
+                <jsp:param name="title" value="Component Development Current Contests"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
             <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="assembly"/>
-                <jsp:param name="title" value="Assembly Competition History"/>
+                <jsp:param name="title" value="Assembly Current Contests"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == CONCEPTUALIZATION_PROJECT_TYPE}">
             <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="conceptualization"/>
-                <jsp:param name="title" value="Conceptualization Competition History"/>
+                <jsp:param name="title" value="Conceptualization Current Contests"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == SPECIFICATION_PROJECT_TYPE}">
             <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="specification"/>
-                <jsp:param name="title" value="Specification Competition History"/>
+                <jsp:param name="title" value="Specification Current Contests"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
             <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="architecture"/>
-                <jsp:param name="title" value="Architecture Competition History"/>
+                <jsp:param name="title" value="Architecture Current Contests"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == TEST_SUITES_PROJECT_TYPE}">
             <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="test_suites"/>
-                <jsp:param name="title" value="Test Suites Competition History"/>
+                <jsp:param name="title" value="Test Suites Current Contests"/>
             </jsp:include>
         </c:when>
         <c:when test="${pt == TEST_SCENARIOS_PROJECT_TYPE}">
             <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="test_scenarios"/>
-                <jsp:param name="title" value="Test Scenarios Competition History"/>
+                <jsp:param name="title" value="Test Scenarios Current Contests"/>
             </jsp:include>
         </c:when>
+        <c:when test="${pt == UI_PROTOTYPE_PROJECT_TYPE}">
+            <jsp:include page="../page_title.jsp">
+                <jsp:param name="image" value="ui_prototype"/>
+                <jsp:param name="title" value="UI Prototype Current Contests"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${pt == RIA_BUILD_PROJECT_TYPE}">
+            <jsp:include page="../page_title.jsp">
+                <jsp:param name="image" value="ria_build"/>
+                <jsp:param name="title" value="RIA Build Current Contests"/>
+            </jsp:include>
+        </c:when>		
     </c:choose>
 
     <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='${cr}' context='${type}'/></span>
@@ -178,6 +202,12 @@
         <c:when test="${pt == TEST_SCENARIOS_PROJECT_TYPE}">
             <span class="bodySubtitle">Test Scenarios Statistics&#160;>&#160;</span><br>
         </c:when>
+        <c:when test="${pt == UI_PROTOTYPE_PROJECT_TYPE}">
+            <span class="bodySubtitle">UI Prototype Statistics&#160;>&#160;</span><br>
+        </c:when>
+        <c:when test="${pt == RIA_BUILD_PROJECT_TYPE}">
+            <span class="bodySubtitle">RIA Build Statistics&#160;>&#160;</span><br>
+        </c:when>		
     </c:choose>
     <span class="bc">
     <A HREF="/tc?module=MemberProfile&cr=${cr}" class="bcLink">Member Profile</A>
@@ -204,6 +234,15 @@
         </c:when>
         <c:when test="${pt == TEST_SUITES_PROJECT_TYPE}">
             | <A HREF="/tc?module=ReliabilityDetail&ph=124&uid=${cr}" class="bcLink">Reliability Detail</A>
+        </c:when>
+        <c:when test="${pt == TEST_SCENARIOS_PROJECT_TYPE}">
+            | <A HREF="/tc?module=ReliabilityDetail&ph=137&uid=${cr}" class="bcLink">Reliability Detail</A>
+        </c:when>
+        <c:when test="${pt == UI_PROTOTYPE_PROJECT_TYPE}">
+            | <A HREF="/tc?module=ReliabilityDetail&ph=130&uid=${cr}" class="bcLink">Reliability Detail</A>
+        </c:when>
+        <c:when test="${pt == RIA_BUILD_PROJECT_TYPE}">
+            | <A HREF="/tc?module=ReliabilityDetail&ph=135&uid=${cr}" class="bcLink">Reliability Detail</A>
         </c:when>
     </c:choose>
    </span>
@@ -236,6 +275,12 @@
                 </c:when>
                 <c:when test="${pt == TEST_SCENARIOS_PROJECT_TYPE}">
                     <td class="title" colspan="10">Current Test Scenarios
+                </c:when>
+                <c:when test="${pt == UI_PROTOTYPE_PROJECT_TYPE}">
+                    <td class="title" colspan="10">Current UI Prototype
+                </c:when>
+                <c:when test="${pt == RIA_BUILD_PROJECT_TYPE}">
+                    <td class="title" colspan="10">Current RIA Build
                 </c:when>
             </c:choose>
             Contests

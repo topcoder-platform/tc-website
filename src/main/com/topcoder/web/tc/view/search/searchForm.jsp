@@ -262,6 +262,57 @@ selections will be returned. Click on a Handle to view information about the Cod
    </tr>
    <tr>
       <td class="valueR" style="border: 0px;">
+         <strong>Test Scenarios</strong> rating:
+      </td>
+      <td class="valueR" style="border: 0px;">
+         Min:
+      </td>
+      <td class="value" style="border: 0px;">
+         <tc-webtag:textInput name="<%=Constants.MIN_TEST_SCENARIOS_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+      </td>
+      <td class="valueR" style="border: 0px;">
+         Max:
+      </td>
+      <td class="value" style="border: 0px;">
+         <tc-webtag:textInput name="<%=Constants.MAX_TEST_SCENARIOS_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+      </td>
+   </tr>
+   <tr>
+      <td class="valueR" style="border: 0px;">
+         <strong>UI Prototype</strong> rating:
+      </td>
+      <td class="valueR" style="border: 0px;">
+         Min:
+      </td>
+      <td class="value" style="border: 0px;">
+         <tc-webtag:textInput name="<%=Constants.MIN_UI_PROTOTYPE_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+      </td>
+      <td class="valueR" style="border: 0px;">
+         Max:
+      </td>
+      <td class="value" style="border: 0px;">
+         <tc-webtag:textInput name="<%=Constants.MAX_UI_PROTOTYPE_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+      </td>
+   </tr>
+   <tr>
+      <td class="valueR" style="border: 0px;">
+         <strong>RIA Build</strong> rating:
+      </td>
+      <td class="valueR" style="border: 0px;">
+         Min:
+      </td>
+      <td class="value" style="border: 0px;">
+         <tc-webtag:textInput name="<%=Constants.MIN_RIA_BUILD_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+      </td>
+      <td class="valueR" style="border: 0px;">
+         Max:
+      </td>
+      <td class="value" style="border: 0px;">
+         <tc-webtag:textInput name="<%=Constants.MAX_RIA_BUILD_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+      </td>
+   </tr>         
+   <tr>
+      <td class="valueR" style="border: 0px;">
          <strong>High School</strong> rating:
       </td>
       <td class="valueR" style="border: 0px;">

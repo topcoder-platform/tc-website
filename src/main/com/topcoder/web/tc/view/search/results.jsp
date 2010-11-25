@@ -47,7 +47,7 @@
     <table cellspacing="0" cellpadding="0" class="stat" width="100%">
     <tbody>
         <tr>
-            <td class="title" colspan="31">Member Search Results</td>
+            <td class="title" colspan="40">Member Search Results</td>
         </tr>
         <tr>
             <td class="headerC B">&nbsp;</td>
@@ -59,6 +59,9 @@
             <td class="headerC B NW" colspan="3">Development<br />Rated Events</td>
             <td class="headerC B NW" colspan="3">Assembly<br />Rated Events</td>
             <td class="headerC B NW" colspan="3">Test Suites<br />Rated Events</td>
+            <td class="headerC B NW" colspan="3">Test Scenarios<br />Rated Events</td>
+            <td class="headerC B NW" colspan="3">UI Prototype<br />Rated Events</td>
+            <td class="headerC B NW" colspan="3">RIA Build<br />Rated Events</td>
             <td class="headerC B NW" colspan="3">TCHS<br />Rated Events</td>
             <td class="headerC NW" colspan="3">Marathon Match<br />Rated Events</td>
         </tr>
@@ -104,6 +107,21 @@
             <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("test_rating") %>" includeParams="true" excludeParams="sr" />#jump">Rating</a></td>
             <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("num_test_ratings") %>" includeParams="true" excludeParams="sr" />#jump">#</a></td>
             <td class="headerC B"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("last_test_competed") %>" includeParams="true" excludeParams="sr" />#jump">Last</a></td>
+
+            <%-- Test Scenarios --%>
+            <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("test_scenarios_rating") %>" includeParams="true" excludeParams="sr" />#jump">Rating</a></td>
+            <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("num_test_scenarios_ratings") %>" includeParams="true" excludeParams="sr" />#jump">#</a></td>
+            <td class="headerC B"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("last_test_scenarios_competed") %>" includeParams="true" excludeParams="sr" />#jump">Last</a></td>
+
+            <%-- UI Prototype --%>
+            <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("ui_prototype_rating") %>" includeParams="true" excludeParams="sr" />#jump">Rating</a></td>
+            <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("num_ui_prototype_ratings") %>" includeParams="true" excludeParams="sr" />#jump">#</a></td>
+            <td class="headerC B"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("last_ui_prototype_competed") %>" includeParams="true" excludeParams="sr" />#jump">Last</a></td>
+
+            <%-- RIA Build --%>
+            <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("ria_build_rating") %>" includeParams="true" excludeParams="sr" />#jump">Rating</a></td>
+            <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("num_ria_build_ratings") %>" includeParams="true" excludeParams="sr" />#jump">#</a></td>
+            <td class="headerC B"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("last_ria_build_competed") %>" includeParams="true" excludeParams="sr" />#jump">Last</a></td>
 
             <%-- TCHS --%>
             <td class="headerC"><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<tc-webtag:sort column="<%= results.getColumnIndex("hs_rating") %>" includeParams="true" excludeParams="sr" />#jump">Rating</a></td>
@@ -236,6 +254,48 @@
                 <td class="valueC"><rsc:item row="<%=resultRow%>" name="test_rating" format="#" ifNull="unrated"/></td>
                 <td class="valueC"><rsc:item row="<%=resultRow%>" name="num_test_ratings"/></td>
                 <td class="valueC B"><rsc:item row="<%=resultRow%>" name="last_test_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
+            </c:when>
+            <c:otherwise>
+                <td class="valueC B" colspan="3">
+                    <span class="grayedOut">unrated</span>
+                </td>
+            </c:otherwise>
+            </c:choose>
+	    
+            <%-- Test Scenarios --%>
+            <c:choose>
+            <c:when test="${not empty rr.map['test_scenarios_rating'] and (rr.map['test_scenarios_rating']  > 0)}">
+                <td class="valueC"><rsc:item row="<%=resultRow%>" name="test_scenarios_rating" format="#" ifNull="unrated"/></td>
+                <td class="valueC"><rsc:item row="<%=resultRow%>" name="num_test_scenarios_ratings"/></td>
+                <td class="valueC B"><rsc:item row="<%=resultRow%>" name="last_test_scenarios_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
+            </c:when>
+            <c:otherwise>
+                <td class="valueC B" colspan="3">
+                    <span class="grayedOut">unrated</span>
+                </td>
+            </c:otherwise>
+            </c:choose>
+	    
+            <%-- UI Prototype --%>
+            <c:choose>
+            <c:when test="${not empty rr.map['ui_prototype_rating'] and (rr.map['ui_prototype_rating']  > 0)}">
+                <td class="valueC"><rsc:item row="<%=resultRow%>" name="ui_prototype_rating" format="#" ifNull="unrated"/></td>
+                <td class="valueC"><rsc:item row="<%=resultRow%>" name="num_ui_prototype_ratings"/></td>
+                <td class="valueC B"><rsc:item row="<%=resultRow%>" name="last_ui_prototype_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
+            </c:when>
+            <c:otherwise>
+                <td class="valueC B" colspan="3">
+                    <span class="grayedOut">unrated</span>
+                </td>
+            </c:otherwise>
+            </c:choose>
+	    
+            <%-- RIA Build --%>
+            <c:choose>
+            <c:when test="${not empty rr.map['ria_build_rating'] and (rr.map['ria_build_rating']  > 0)}">
+                <td class="valueC"><rsc:item row="<%=resultRow%>" name="ria_build_rating" format="#" ifNull="unrated"/></td>
+                <td class="valueC"><rsc:item row="<%=resultRow%>" name="num_ria_build_ratings"/></td>
+                <td class="valueC B"><rsc:item row="<%=resultRow%>" name="last_ria_build_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
             </c:when>
             <c:otherwise>
                 <td class="valueC B" colspan="3">

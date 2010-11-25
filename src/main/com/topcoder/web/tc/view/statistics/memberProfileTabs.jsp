@@ -19,23 +19,29 @@
    boolean isRatedArch = ((Boolean)request.getAttribute("hasArch")).booleanValue();
    boolean isRatedAssembly = ((Boolean)request.getAttribute("hasAssembly")).booleanValue();
    boolean isRatedTest = ((Boolean)request.getAttribute("hasTest")).booleanValue();
+   boolean isRatedTestScenarios = ((Boolean)request.getAttribute("hasTestScenarios")).booleanValue();
+   boolean isRatedUIPrototype = ((Boolean)request.getAttribute("hasUIPrototype")).booleanValue();
+   boolean isRatedRIABuild = ((Boolean)request.getAttribute("hasRIABuild")).booleanValue();
    String selectedTab = (String) request.getAttribute("tab");
    String coderId = request.getParameter("cr");
 %>
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="tabTable">
-   <col width="10%"/>
+   <col width="7%"/>
    <% if (isRegHS) {%>
-   <col width="10%"/>
+   <col width="7%"/>
    <% } %>
-   <col width="10%"/>
-   <col width="10%"/>
-   <col width="10%"/>
-   <col width="10%"/>
-   <col width="10%"/>
-   <col width="10%"/>
-   <col width="10%"/>
-   <col width="10%"/>
+   <col width="7%"/>
+   <col width="7%"/>
+   <col width="8%"/>
+   <col width="8%"/>
+   <col width="8%"/>
+   <col width="8%"/>
+   <col width="8%"/>
+   <col width="8%"/>
+   <col width="8%"/>
+   <col width="8%"/>
+   <col width="8%"/>
    <tr>
       <td>
       <% if (isRatedAlg) {%>
@@ -148,6 +154,42 @@
          <% } %>
       <% } else { %>
       <div class="tabLinkNA">Test Suites</div>
+      <% } %>
+      </td>
+
+      <td>
+      <% if (isRatedTestScenarios) {%>
+         <% if (selectedTab.equals("test_scenarios")) {%>
+         <A class="tabLinkOn" href="/tc?module=MemberProfile&tab=test_scenarios&cr=<%=coderId%>"><div>Test Scenarios</div></A>
+         <% } else { %>
+         <A class="tabLinkOff" href="/tc?module=MemberProfile&tab=test_scenarios&cr=<%=coderId%>"><div>Test Scenarios</div></A>
+         <% } %>
+      <% } else { %>
+      <div class="tabLinkNA">Test Scenarios</div>
+      <% } %>
+      </td>
+      
+      <td>
+      <% if (isRatedUIPrototype) {%>
+         <% if (selectedTab.equals("ui_prototype")) {%>
+         <A class="tabLinkOn" href="/tc?module=MemberProfile&tab=ui_prototype&cr=<%=coderId%>"><div>UI Prototype</div></A>
+         <% } else { %>
+         <A class="tabLinkOff" href="/tc?module=MemberProfile&tab=ui_prototype&cr=<%=coderId%>"><div>UI Prototype</div></A>
+         <% } %>
+      <% } else { %>
+      <div class="tabLinkNA">UI Prototype</div>
+      <% } %>
+      </td>
+      
+      <td>
+      <% if (isRatedRIABuild) {%>
+         <% if (selectedTab.equals("ria_build")) {%>
+         <A class="tabLinkOn" href="/tc?module=MemberProfile&tab=ria_build&cr=<%=coderId%>"><div>RIA Build</div></A>
+         <% } else { %>
+         <A class="tabLinkOff" href="/tc?module=MemberProfile&tab=ria_build&cr=<%=coderId%>"><div>RIA Build</div></A>
+         <% } %>
+      <% } else { %>
+      <div class="tabLinkNA">RIA Build</div>
       <% } %>
       </td>
 
