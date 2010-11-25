@@ -34,10 +34,15 @@ import java.util.Map;
  *   <ol>
  *     <li>Updated Application Testing to Test Suites</li>
  *   </ol>
+ *
+ *   Version 1.3 Change notes:
+ *   <ol>
+ *     <li>Added support for the Test Scenarios, UI Prototype and RIA Build tracks.</li>
+ *   </ol>
  * </p>
  *
- * @author pulky, elkhawajah
- * @version 1.2
+ * @author pulky, elkhawajah, VolodymyrK
+ * @version 1.3
  */
 public class OutstandingProjects extends BaseProcessor {
     /**
@@ -70,7 +75,13 @@ public class OutstandingProjects extends BaseProcessor {
             && !getRequest().getParameter(Constants.PHASE_ID)
                 .equals(String.valueOf(SoftwareComponent.ASSEMBLY_PHASE))
             && !getRequest().getParameter(Constants.PHASE_ID).equals(
-                String.valueOf(SoftwareComponent.TEST_SUITES_PHASE))) {
+                String.valueOf(SoftwareComponent.TEST_SUITES_PHASE))
+            && !getRequest().getParameter(Constants.PHASE_ID).equals(
+                String.valueOf(SoftwareComponent.TEST_SCENARIOS_PHASE))
+            && !getRequest().getParameter(Constants.PHASE_ID).equals(
+                String.valueOf(SoftwareComponent.UI_PROTOTYPE_PHASE))
+            && !getRequest().getParameter(Constants.PHASE_ID).equals(
+                String.valueOf(SoftwareComponent.RIA_BUILD_PHASE))) {												
             throw new TCWebException("invalid " + Constants.PHASE_ID + " parameter.");
         }
 
@@ -88,7 +99,13 @@ public class OutstandingProjects extends BaseProcessor {
                 && !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(
                     String.valueOf(Constants.ARCHITECTURE_PROJECT_TYPE))
                 && !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(
-                    String.valueOf(Constants.TEST_SUITES_PROJECT_TYPE))) {
+                    String.valueOf(Constants.TEST_SUITES_PROJECT_TYPE))
+                && !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(
+                    String.valueOf(Constants.TEST_SCENARIOS_PROJECT_TYPE))
+                && !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(
+                    String.valueOf(Constants.UI_PROTOTYPE_PROJECT_TYPE))
+                && !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(
+                    String.valueOf(Constants.RIA_BUILD_PROJECT_TYPE))) {															
                 throw new TCWebException("invalid " + Constants.PROJECT_TYPE_ID + " parameter.");
             }
 
@@ -171,6 +188,15 @@ public class OutstandingProjects extends BaseProcessor {
             case Constants.TEST_SUITES_PROJECT_TYPE:
                 handleType = HandleTag.TEST_SUITES;
                 break;
+            case Constants.TEST_SCENARIOS_PROJECT_TYPE:
+                handleType = HandleTag.TEST_SCENARIOS;
+                break;
+            case Constants.UI_PROTOTYPE_PROJECT_TYPE:
+                handleType = HandleTag.UI_PROTOTYPE;
+                break;
+            case Constants.RIA_BUILD_PROJECT_TYPE:
+                handleType = HandleTag.RIA_BUILD;
+                break;												
         }
         getRequest().setAttribute(Constants.TYPE_KEY, handleType);
         getRequest().setAttribute(Constants.CODER_ID, getRequest().getParameter(Constants.CODER_ID));

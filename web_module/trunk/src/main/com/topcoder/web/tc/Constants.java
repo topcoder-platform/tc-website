@@ -84,8 +84,15 @@ import java.util.MissingResourceException;
  * </ol>
  * </p>
  *
- * @author pulky, isv, TCSASSEMBLER
- * @version 1.8
+ * <p>
+ *   Version 1.9 Change notes:
+ *   <ol>
+ *     <li>Added serveral constants to support Test Scenarios, UI Prototype and RIA Build tracks.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author pulky, isv, VolodymyrK, TCSASSEMBLER
+ * @version 1.9
  */
 public class Constants implements WebConstants {
 
@@ -462,6 +469,60 @@ public class Constants implements WebConstants {
      * @since Member Profile Enhancment assembly
      */
     public static String MAX_TEST_RATING;
+
+    /**
+     * <p>
+     * Minimum test scenarios rating parameter name.
+     * </p>
+     *
+     * @since 1.9
+     */
+    public static String MIN_TEST_SCENARIOS_RATING;
+
+    /**
+     * <p>
+     * Maximum test scenarios rating parameter name.
+     * </p>
+     *
+     * @since 1.9
+     */
+    public static String MAX_TEST_SCENARIOS_RATING;
+
+    /**
+     * <p>
+     * Minimum ui prototype rating parameter name.
+     * </p>
+     *
+     * @since 1.9
+     */
+    public static String MIN_UI_PROTOTYPE_RATING;
+
+    /**
+     * <p>
+     * Maximum ui prototype rating parameter name.
+     * </p>
+     *
+     * @since 1.9
+     */
+    public static String MAX_UI_PROTOTYPE_RATING;
+
+    /**
+     * <p>
+     * Minimum ria build rating parameter name.
+     * </p>
+     *
+     * @since 1.9
+     */
+    public static String MIN_RIA_BUILD_RATING;
+	
+    /**
+     * <p>
+     * Maximum ria build rating parameter name.
+     * </p>
+     *
+     * @since 1.9
+     */
+    public static String MAX_RIA_BUILD_RATING;	
 
     /* misc constants */
     public static int SRM_SURVEY_QUESTION;

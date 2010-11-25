@@ -150,6 +150,30 @@ This member has not yet been rated in a competition.
                 not rated
             <%}%>
             </td></tr>
+            <tr><td class="cat" nowrap="nowrap">Test Scenarios Rating:</td><td class="stat" align="right">
+            <%if(rscCoderData.getStringItem(0, "test_scenarios_rating") != null) {%>
+                <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "test_scenarios_rating")%>'>
+                <rsc:item name="test_scenarios_rating" set="<%=rscCoderData%>" format="####"/></tc-webtags:ratingColor>
+            <%} else {%>
+                not rated
+            <%}%>
+            </td></tr>
+            <tr><td class="cat" nowrap="nowrap">UI Prototype Rating:</td><td class="stat" align="right">
+            <%if(rscCoderData.getStringItem(0, "ui_prototype_rating") != null) {%>
+                <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "ui_prototype_rating")%>'>
+                <rsc:item name="ui_prototype_rating" set="<%=rscCoderData%>" format="####"/></tc-webtags:ratingColor>
+            <%} else {%>
+                not rated
+            <%}%>
+            </td></tr>
+            <tr><td class="cat" nowrap="nowrap">RIA Build Rating:</td><td class="stat" align="right">
+            <%if(rscCoderData.getStringItem(0, "ria_build_rating") != null) {%>
+                <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "ria_build_rating")%>'>
+                <rsc:item name="ria_build_rating" set="<%=rscCoderData%>" format="####"/></tc-webtags:ratingColor>
+            <%} else {%>
+                not rated
+            <%}%>
+            </td></tr>	    	    	    
             <tr><td class="cat" nowrap="nowrap">Marathon Matches Rating:</td><td class="stat" align="right">
             <%if(rscCoderData.getStringItem(0, "mm_rating") != null) {%>
                 <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "mm_rating")%>'>
@@ -256,6 +280,27 @@ This member has not yet been rated in a competition.
    <jsp:param name="track" value="Test Suites"/>
    <jsp:param name="competition_type" value="test"/>
    <jsp:param name="phase_id" value="<%= WebConstants.PHASE_TEST_SUITES %>"/>
+</jsp:include>
+<% } else if(tab.equals("test_scenarios")) { %>
+<jsp:include page="memberProfileTabs.jsp" />
+<jsp:include page="memberProfileTabTrack.jsp">
+   <jsp:param name="track" value="Test Scenarios"/>
+   <jsp:param name="competition_type" value="test_scenarios"/>
+   <jsp:param name="phase_id" value="<%= WebConstants.PHASE_TEST_SCENARIOS %>"/>
+</jsp:include>
+<% } else if(tab.equals("ui_prototype")) { %>
+<jsp:include page="memberProfileTabs.jsp" />
+<jsp:include page="memberProfileTabTrack.jsp">
+   <jsp:param name="track" value="UI Prototype"/>
+   <jsp:param name="competition_type" value="ui_prototype"/>
+   <jsp:param name="phase_id" value="<%= WebConstants.PHASE_UI_PROTOTYPE %>"/>
+</jsp:include>
+<% } else if(tab.equals("ria_build")) { %>
+<jsp:include page="memberProfileTabs.jsp" />
+<jsp:include page="memberProfileTabTrack.jsp">
+   <jsp:param name="track" value="RIA Builds"/>
+   <jsp:param name="competition_type" value="ria_build"/>
+   <jsp:param name="phase_id" value="<%= WebConstants.PHASE_RIA_BUILD %>"/>
 </jsp:include>
 <% } else if(tab.equals("long")) { %>
 <jsp:include page="memberProfileTabs.jsp" />

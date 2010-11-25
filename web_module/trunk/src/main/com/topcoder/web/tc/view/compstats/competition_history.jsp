@@ -74,6 +74,8 @@
 <c:set value="<%=Constants.ARCHITECTURE_PROJECT_TYPE%>" var="ARCHITECTURE_PROJECT_TYPE"/>
 <c:set value="<%=Constants.TEST_SUITES_PROJECT_TYPE%>" var="TEST_SUITES_PROJECT_TYPE"/>
 <c:set value="<%=Constants.TEST_SCENARIOS_PROJECT_TYPE%>" var="TEST_SCENARIOS_PROJECT_TYPE"/>
+<c:set value="<%=Constants.UI_PROTOTYPE_PROJECT_TYPE%>" var="UI_PROTOTYPE_PROJECT_TYPE"/>
+<c:set value="<%=Constants.RIA_BUILD_PROJECT_TYPE%>" var="RIA_BUILD_PROJECT_TYPE"/>
 
 <TD WIDTH="180">
     <!-- Left nav begins -->
@@ -118,6 +120,16 @@
                 <jsp:param name="node" value="m_test_scenarios_competitions"/>
             </jsp:include>
         </c:when>
+        <c:when test="${pt == UI_PROTOTYPE_PROJECT_TYPE}">
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="m_ui_prototype_competitions"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${pt == RIA_BUILD_PROJECT_TYPE}">
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="m_ria_build_competitions"/>
+            </jsp:include>
+        </c:when>		
     </c:choose>
     <!-- Left nav ends -->
 </TD>
@@ -174,6 +186,18 @@
                 <jsp:param name="title" value="Test Scenarios Competition History"/>
             </jsp:include>
         </c:when>
+        <c:when test="${pt == UI_PROTOTYPE_PROJECT_TYPE}">
+            <jsp:include page="../page_title.jsp">
+                <jsp:param name="image" value="ui_prototype"/>
+                <jsp:param name="title" value="UI Prototype Competition History"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${pt == RIA_BUILD_PROJECT_TYPE}">
+            <jsp:include page="../page_title.jsp">
+                <jsp:param name="image" value="ria_build"/>
+                <jsp:param name="title" value="RIA Build Competition History"/>
+            </jsp:include>
+        </c:when>		
     </c:choose>
 
 <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='${cr}' context='${type}'/></span>
@@ -203,6 +227,12 @@
         <c:when test="${pt == TEST_SCENARIOS_PROJECT_TYPE}">
             <span class="bodySubtitle">Test Scenarios Statistics&#160;>&#160;</span><br>
         </c:when>
+        <c:when test="${pt == UI_PROTOTYPE_PROJECT_TYPE}">
+            <span class="bodySubtitle">UI Prototype Statistics&#160;>&#160;</span><br>
+        </c:when>
+        <c:when test="${pt == RIA_BUILD_PROJECT_TYPE}">
+            <span class="bodySubtitle">RIA Build Statistics&#160;>&#160;</span><br>
+        </c:when>		
     </c:choose>
 
     <span class="bc">
@@ -231,6 +261,15 @@
         <c:when test="${pt == TEST_SUITES_PROJECT_TYPE}">
             | <A HREF="/tc?module=ReliabilityDetail&ph=124&uid=${cr}" class="bcLink">Reliability Detail</A>
         </c:when>
+        <c:when test="${pt == TEST_SCENARIOS_PROJECT_TYPE}">
+            | <A HREF="/tc?module=ReliabilityDetail&ph=137&uid=${cr}" class="bcLink">Reliability Detail</A>
+        </c:when>
+        <c:when test="${pt == UI_PROTOTYPE_PROJECT_TYPE}">
+            | <A HREF="/tc?module=ReliabilityDetail&ph=130&uid=${cr}" class="bcLink">Reliability Detail</A>
+        </c:when>
+        <c:when test="${pt == RIA_BUILD_PROJECT_TYPE}">
+            | <A HREF="/tc?module=ReliabilityDetail&ph=135&uid=${cr}" class="bcLink">Reliability Detail</A>
+        </c:when>			
     </c:choose>
 </span>
 
@@ -277,8 +316,14 @@
                     <td class="title" colspan="10">Test Suites
                 </c:when>
                 <c:when test="${pt == TEST_SCENARIOS_PROJECT_TYPE}">
-                    <td class="title" colspan="10">Current Test Scenarios
+                    <td class="title" colspan="10">Test Scenarios
                 </c:when>
+                <c:when test="${pt == UI_PROTOTYPE_PROJECT_TYPE}">
+                    <td class="title" colspan="10">UI Prototype
+                </c:when>
+                <c:when test="${pt == RIA_BUILD_PROJECT_TYPE}">
+                    <td class="title" colspan="10">RIA Build
+                </c:when>				
             </c:choose>
             Competition History
         </td></tr>

@@ -39,6 +39,9 @@ public class HandleTag extends TagSupport {
     public final static String ARCHITECTURE = "architecture";
     public final static String ASSEMBLY = "assembly";
     public final static String TEST_SUITES = "test_suites";
+    public final static String TEST_SCENARIOS = "test_scenarios";
+    public final static String UI_PROTOTYPE = "ui_prototype";
+    public final static String RIA_BUILD = "ria_build";
     public final static String COMPONENT = "component";
     public final static String HS_OR_ALGORITHM = "hs_or_algorithm";
     public final static String MARATHON_MATCH = "marathon_match";
@@ -167,6 +170,12 @@ public class HandleTag extends TagSupport {
                     output.append("&amp;tab=assembly");
                 } else if (context.trim().equalsIgnoreCase(TEST_SUITES) && rsc.getIntItem(0, "test_suites_rating") > 0) {
                     output.append("&amp;tab=test");
+                } else if (context.trim().equalsIgnoreCase(TEST_SCENARIOS) && rsc.getIntItem(0, "test_scenarios_rating") > 0) {
+                    output.append("&amp;tab=test_scenarios");
+                } else if (context.trim().equalsIgnoreCase(UI_PROTOTYPE) && rsc.getIntItem(0, "ui_prototype_rating") > 0) {
+                    output.append("&amp;tab=ui_prototype");
+                } else if (context.trim().equalsIgnoreCase(RIA_BUILD) && rsc.getIntItem(0, "ria_build_rating") > 0) {
+                    output.append("&amp;tab=ria_build");
                 } else if (context.trim().equalsIgnoreCase(COMPONENT)) {
                     if (rsc.getIntItem(0, "design_rating") >= rsc.getIntItem(0, "development_rating")) {
                         if (rsc.getIntItem(0, "design_rating") > 0) {
@@ -209,7 +218,10 @@ public class HandleTag extends TagSupport {
                                 rsc.getIntItem(0, "specification_rating"),
                                 rsc.getIntItem(0, "architecture_rating"),
                                 rsc.getIntItem(0, "assembly_rating"),
-                                rsc.getIntItem(0, "test_suites_rating"));
+                                rsc.getIntItem(0, "test_suites_rating"),
+                                rsc.getIntItem(0, "test_scenarios_rating"),
+                                rsc.getIntItem(0, "ui_prototype_rating"),
+                                rsc.getIntItem(0, "ria_build_rating"));
                     } else if (context.trim().equalsIgnoreCase(ALGORITHM)) {
                         rating = rsc.getIntItem(0, "algorithm_rating");
                     } else if (context.trim().equalsIgnoreCase(HS_ALGORITHM)) {
@@ -230,6 +242,12 @@ public class HandleTag extends TagSupport {
                         rating = rsc.getIntItem(0, "assembly_rating");
                     } else if (context.trim().equalsIgnoreCase(TEST_SUITES)) {
                         rating = rsc.getIntItem(0, "test_suites_rating");
+                    } else if (context.trim().equalsIgnoreCase(TEST_SCENARIOS)) {
+                        rating = rsc.getIntItem(0, "test_scenarios_rating");
+                    } else if (context.trim().equalsIgnoreCase(UI_PROTOTYPE)) {
+                        rating = rsc.getIntItem(0, "ui_prototype_rating");
+                    } else if (context.trim().equalsIgnoreCase(RIA_BUILD)) {
+                        rating = rsc.getIntItem(0, "ria_build_rating");
                     } else if (context.trim().equalsIgnoreCase(COMPONENT)) {
                         rating = max(rsc.getIntItem(0, "design_rating"),
                                 rsc.getIntItem(0, "development_rating"));
@@ -246,7 +264,10 @@ public class HandleTag extends TagSupport {
                                 rsc.getIntItem(0, "specification_rating"),
                                 rsc.getIntItem(0, "architecture_rating"),
                                 rsc.getIntItem(0, "assembly_rating"),
-                                rsc.getIntItem(0, "test_suites_rating"));
+                                rsc.getIntItem(0, "test_suites_rating"),
+                                rsc.getIntItem(0, "test_scenarios_rating"),
+                                rsc.getIntItem(0, "ui_prototype_rating"),
+                                rsc.getIntItem(0, "ria_build_rating"));
                     }
                 }
 
@@ -281,8 +302,8 @@ public class HandleTag extends TagSupport {
     }
 
 
-    private static int max(int a, int b, int c, int d, int e, int i, int j, int k, int l, int m) {
-        return max(max(max(max(max(max(max(max(max(a, b), c), d), e), i), j), k), l), m);
+    private static int max(int a, int b, int c, int d, int e, int i, int j, int k, int l, int m, int n, int o, int p) {
+        return max(max(max(max(max(max(max(max(max(max(max(max(a, b), c), d), e), i), j), k), l), m), n), o), p);
     }
 
     private static int max(int a, int b) {

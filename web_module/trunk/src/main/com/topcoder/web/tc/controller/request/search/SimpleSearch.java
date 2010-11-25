@@ -34,9 +34,16 @@ import java.util.Map;
  *     </li>
  *   </ol>
  * </p>
+ *
+ * <p>
+ *   Version 1.2 Change notes:
+ *   <ol>
+ *     <li>Assed support for the Test Scenarios, UI Prototype and RIA Build tracks.</li>
+ *   </ol>
+ * </p>
  * 
- * @author elkhawajah, TCSDEVELOPER
- * @version 1.1
+ * @author elkhawajah, TCSDEVELOPER, VolodymyrK
+ * @version 1.2
  */
 public class SimpleSearch extends Base {
     protected void businessProcessing() throws TCWebException {
@@ -250,6 +257,21 @@ public class SimpleSearch extends Base {
         } else {
             queryBottom.append(", tcs_dw:user_rating testr");
         }
+        if (m.getMinTestScenariosRating() == null && m.getMaxTestScenariosRating() == null) {
+            queryBottom.append(", outer (tcs_dw:user_rating test_scenarios_r)");
+        } else {
+            queryBottom.append(", tcs_dw:user_rating test_scenarios_r");
+        }
+        if (m.getMinUIPrototypeRating() == null && m.getMaxUIPrototypeRating() == null) {
+            queryBottom.append(", outer (tcs_dw:user_rating ui_prototype_r)");
+        } else {
+            queryBottom.append(", tcs_dw:user_rating ui_prototype_r");
+        }
+        if (m.getMinRIABuildRating() == null && m.getMaxRIABuildRating() == null) {
+            queryBottom.append(", outer (tcs_dw:user_rating ria_build_r)");
+        } else {
+            queryBottom.append(", tcs_dw:user_rating ria_build_r");
+        }						
         queryBottom.append(" WHERE c.coder_id = r.coder_id");
         queryBottom.append(" AND c.coder_id = hsr.coder_id");
         queryBottom.append(" AND c.coder_id = mmr.coder_id");
@@ -271,6 +293,9 @@ public class SimpleSearch extends Base {
         queryBottom.append(betweenFilter("devr.rating", m.getMinDevRating(), m.getMaxDevRating()));
         queryBottom.append(betweenFilter("assr.rating", m.getMinAssRating(), m.getMaxAssRating()));
         queryBottom.append(betweenFilter("testr.rating", m.getMinTestRating(), m.getMaxTestRating()));
+        queryBottom.append(betweenFilter("test_scenarios_r.rating", m.getMinTestScenariosRating(), m.getMaxTestScenariosRating()));
+        queryBottom.append(betweenFilter("ui_prototype_r.rating", m.getMinUIPrototypeRating(), m.getMaxUIPrototypeRating()));
+        queryBottom.append(betweenFilter("ria_build_r.rating", m.getMinRIABuildRating(), m.getMaxRIABuildRating()));						
         queryBottom.append(betweenFilter("r.num_ratings", m.getMinNumRatings(), m.getMaxNumRatings()));
         queryBottom.append(betweenFilter("hsr.num_ratings", m.getMinNumHSRatings(), m.getMaxNumHSRatings()));
         queryBottom.append(betweenFilter("mmr.num_ratings", m.getMinNumMarRatings(), m.getMaxNumMarRatings()));
@@ -310,6 +335,12 @@ public class SimpleSearch extends Base {
         queryBottom.append(" AND assr.phase_id = 125");
         queryBottom.append(" AND c.coder_id = testr.user_id");
         queryBottom.append(" AND testr.phase_id = 124");
+        queryBottom.append(" AND c.coder_id = test_scenarios_r.user_id");
+        queryBottom.append(" AND test_scenarios_r.phase_id = 137");
+        queryBottom.append(" AND c.coder_id = ui_prototype_r.user_id");
+        queryBottom.append(" AND ui_prototype_r.phase_id = 130");
+        queryBottom.append(" AND c.coder_id = ria_build_r.user_id");
+        queryBottom.append(" AND ria_build_r.phase_id = 135");						
         queryBottom.append(" AND r.algo_rating_type_id=1");
         queryBottom.append(" AND hsr.algo_rating_type_id=2");
         queryBottom.append(" AND mmr.algo_rating_type_id=3");
@@ -332,6 +363,9 @@ public class SimpleSearch extends Base {
         searchQuery.append(" , devr.rating as dev_rating ");
         searchQuery.append(" , assr.rating as ass_rating");
         searchQuery.append(" , testr.rating as test_rating");
+        searchQuery.append(" , test_scenarios_r.rating as test_scenarios_rating");
+        searchQuery.append(" , ui_prototype_r.rating as ui_prototype_rating");
+        searchQuery.append(" , ria_build_r.rating as ria_build_rating");						
         searchQuery.append(" , hsr.rating as hs_rating");
         searchQuery.append(" , hsr.num_ratings as num_hs_ratings");
         searchQuery.append(" , (SELECT date FROM calendar cal WHERE cal.calendar_id = hsro.calendar_id) AS last_hs_competed");
@@ -401,6 +435,33 @@ public class SimpleSearch extends Base {
         searchQuery.append("     and phase_id = 124");
         searchQuery.append("     and rating_ind = 1 ");
         searchQuery.append("     and user_id = c.coder_id) as last_test_competed ");
+        searchQuery.append(" , (select max(num_ratings)  from tcs_dw:project_result pr, tcs_dw:project p ");
+        searchQuery.append("     where p.project_id = pr.project_id ");
+        searchQuery.append("     and phase_id = 137");
+        searchQuery.append("     and user_id = c.coder_id) as num_test_scenarios_ratings ");
+        searchQuery.append(" , (select max(rating_date)  from tcs_dw:project_result pr, tcs_dw:project p ");
+        searchQuery.append("     where p.project_id = pr.project_id ");
+        searchQuery.append("     and phase_id = 137");
+        searchQuery.append("     and rating_ind = 1 ");
+        searchQuery.append("     and user_id = c.coder_id) as last_test_scenarios_competed ");
+        searchQuery.append(" , (select max(num_ratings)  from tcs_dw:project_result pr, tcs_dw:project p ");
+        searchQuery.append("     where p.project_id = pr.project_id ");
+        searchQuery.append("     and phase_id = 130");
+        searchQuery.append("     and user_id = c.coder_id) as num_ui_prototype_ratings ");
+        searchQuery.append(" , (select max(rating_date)  from tcs_dw:project_result pr, tcs_dw:project p ");
+        searchQuery.append("     where p.project_id = pr.project_id ");
+        searchQuery.append("     and phase_id = 130");
+        searchQuery.append("     and rating_ind = 1 ");
+        searchQuery.append("     and user_id = c.coder_id) as last_ui_prototype_competed ");
+        searchQuery.append(" , (select max(num_ratings)  from tcs_dw:project_result pr, tcs_dw:project p ");
+        searchQuery.append("     where p.project_id = pr.project_id ");
+        searchQuery.append("     and phase_id = 135");
+        searchQuery.append("     and user_id = c.coder_id) as num_ria_build_ratings ");
+        searchQuery.append(" , (select max(rating_date)  from tcs_dw:project_result pr, tcs_dw:project p ");
+        searchQuery.append("     where p.project_id = pr.project_id ");
+        searchQuery.append("     and phase_id = 135");
+        searchQuery.append("     and rating_ind = 1 ");
+        searchQuery.append("     and user_id = c.coder_id) as last_ria_build_competed ");		
 
         searchQuery.append(queryBottom.toString());
         if (m.getSortCol() == null) {
@@ -516,6 +577,24 @@ public class SimpleSearch extends Base {
             filter.append(" AND testr.phase_id = 124");
         }
 
+        if (!(m.getMinTestScenariosRating() == null && m.getMaxTestScenariosRating() == null)) {
+            countQuery.append(", tcs_dw:user_rating test_scenarios_r");
+            filter.append(" AND c.coder_id = test_scenarios_r.user_id");
+            filter.append(" AND test_scenarios_r.phase_id = 137");
+        }
+		
+        if (!(m.getMinUIPrototypeRating() == null && m.getMaxUIPrototypeRating() == null)) {
+            countQuery.append(", tcs_dw:user_rating ui_prototype_r");
+            filter.append(" AND c.coder_id = ui_prototype_r.user_id");
+            filter.append(" AND ui_prototype_r.phase_id = 130");
+        }
+		
+        if (!(m.getMinRIABuildRating() == null && m.getMaxRIABuildRating() == null)) {
+            countQuery.append(", tcs_dw:user_rating ria_build_r");
+            filter.append(" AND c.coder_id = ria_build_r.user_id");
+            filter.append(" AND ria_build_r.phase_id = 135");
+        }				
+
         if (m.getStateCode() != null)
             filter.append(" AND c.state_code like '").append(StringUtils.replace(m.getStateCode(), "'", "''")).append("'");
 
@@ -533,6 +612,9 @@ public class SimpleSearch extends Base {
         filter.append(betweenFilter("devr.rating", m.getMinDevRating(), m.getMaxDevRating()));
         filter.append(betweenFilter("assr.rating", m.getMinAssRating(), m.getMaxAssRating()));
         filter.append(betweenFilter("testr.rating", m.getMinTestRating(), m.getMaxTestRating()));
+        filter.append(betweenFilter("test_scenarios_r.rating", m.getMinTestScenariosRating(), m.getMaxTestScenariosRating()));
+        filter.append(betweenFilter("ui_prototype_r.rating", m.getMinUIPrototypeRating(), m.getMaxUIPrototypeRating()));
+        filter.append(betweenFilter("ria_build_r.rating", m.getMinRIABuildRating(), m.getMaxRIABuildRating()));						
         filter.append(betweenFilter("r.num_ratings", m.getMinNumRatings(), m.getMaxNumRatings()));
         filter.append(betweenFilter("hsr.num_ratings", m.getMinNumHSRatings(), m.getMaxNumHSRatings()));
         filter.append(betweenFilter("mmr.num_ratings", m.getMinNumMarRatings(), m.getMaxNumMarRatings()));
@@ -590,6 +672,15 @@ public class SimpleSearch extends Base {
         s.addDefault(rsc.getColumnIndex("test_rating"), "desc");
         s.addDefault(rsc.getColumnIndex("num_test_ratings"), "desc");
         s.addDefault(rsc.getColumnIndex("last_test_competed"), "desc");
+        s.addDefault(rsc.getColumnIndex("test_scenarios_rating"), "desc");
+        s.addDefault(rsc.getColumnIndex("num_test_scenarios_ratings"), "desc");
+        s.addDefault(rsc.getColumnIndex("last_test_scenarios_competed"), "desc");
+        s.addDefault(rsc.getColumnIndex("ui_prototype_rating"), "desc");
+        s.addDefault(rsc.getColumnIndex("num_ui_prototype_ratings"), "desc");
+        s.addDefault(rsc.getColumnIndex("last_ui_prototype_competed"), "desc");
+        s.addDefault(rsc.getColumnIndex("ria_build_rating"), "desc");
+        s.addDefault(rsc.getColumnIndex("num_ria_build_ratings"), "desc");
+        s.addDefault(rsc.getColumnIndex("last_ria_build_competed"), "desc");
         s.addDefault(rsc.getColumnIndex("hs_rating"), "desc");
         s.addDefault(rsc.getColumnIndex("num_hs_ratings"), "desc");
         s.addDefault(rsc.getColumnIndex("last_hs_competed"), "desc");

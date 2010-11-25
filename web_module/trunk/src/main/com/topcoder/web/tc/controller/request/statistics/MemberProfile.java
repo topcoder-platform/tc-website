@@ -35,10 +35,15 @@ import com.topcoder.web.common.WebConstants;
  *     and application testing).
  *     </li>
  *   </ol>
+ *
+ *   Version 1.2 Change notes:
+ *   <ol>
+ *     <li>Added support for the Test Scenarios, UI Prototype and RIA Build tracks.</li>
+ *   </ol>
  * </p>
  * 
- * @author rfairfax, elkhawajah
- * @version 1.1
+ * @author rfairfax, elkhawajah, VolodymyrK
+ * @version 1.2
  */
 public class MemberProfile extends Base {
 
@@ -82,6 +87,9 @@ public class MemberProfile extends Base {
             boolean hasArch = false;
             boolean hasAssembly = false;
             boolean hasTest = false;
+            boolean hasTestScenarios = false;
+            boolean hasUIPrototype = false;
+            boolean hasRIABuild = false;									
 
             int algRating = 0;
             int hsRating = 0;
@@ -93,6 +101,9 @@ public class MemberProfile extends Base {
             int archRating = 0;
             int assemblyRating = 0;
             int testRating = 0;
+            int testScenariosRating = 0;
+            int uiPrototypeRating = 0;
+            int riaBuildRating = 0;
 
             String tab = StringUtils.checkNull(getRequest().getParameter("tab"));
 
@@ -205,6 +216,39 @@ public class MemberProfile extends Base {
                         defaultTab = "test";
                     }
                 }
+				
+                if ((rsc.getItem(0, "test_scenarios_rating").getResultData() != null)
+                    && (rsc.getIntItem(0, "test_scenarios_rating") != 0)) {
+                    hasTestScenarios = true;
+                    testScenariosRating = rsc.getIntItem(0, "test_scenarios_rating");
+
+                    if(testScenariosRating > maxRating) {
+                        maxRating = testScenariosRating;
+                        defaultTab = "test_scenarios";
+                    }
+                }
+				
+                if ((rsc.getItem(0, "ui_prototype_rating").getResultData() != null)
+                    && (rsc.getIntItem(0, "ui_prototype_rating") != 0)) {
+                    hasUIPrototype = true;
+                    uiPrototypeRating = rsc.getIntItem(0, "ui_prototype_rating");
+
+                    if(uiPrototypeRating > maxRating) {
+                        maxRating = uiPrototypeRating;
+                        defaultTab = "ui_prototype";
+                    }
+                }
+				
+                if ((rsc.getItem(0, "ria_build_rating").getResultData() != null)
+                    && (rsc.getIntItem(0, "ria_build_rating") != 0)) {
+                    hasRIABuild = true;
+                    riaBuildRating = rsc.getIntItem(0, "ria_build_rating");
+
+                    if(riaBuildRating > maxRating) {
+                        maxRating = riaBuildRating;
+                        defaultTab = "ria_build";
+                    }
+                }												
 
                 if (log.isDebugEnabled()) {
                     log.debug("has long comp is " + rsc.getStringItem(0, "has_long_comp"));
@@ -216,7 +260,7 @@ public class MemberProfile extends Base {
                 // get the selected tab
                 if (tab.equals("")) {
                     if (!hasAlg && !hasHS && !hasDes && !hasDev && !hasLong && !hasConcept && !hasSpec && !hasArch
-                        && !hasAssembly && !hasTest) {
+                        && !hasAssembly && !hasTest && !hasTestScenarios && !hasUIPrototype && !hasRIABuild) {
                         tab = "";
                     } else{
                         tab = defaultTab;
@@ -294,7 +338,8 @@ public class MemberProfile extends Base {
                         result.put(key, longData.get(key));
                     }
                 } else if (tab.equals("concept") || tab.equals("spec") || tab.equals("arch")
-                    || tab.equals("assembly") || tab.equals("test")) {
+                    || tab.equals("assembly") || tab.equals("test") || tab.equals("test_scenarios")
+					|| tab.equals("ui_prototype") || tab.equals("ria_build")) {
                     r = new Request();
                     r.setContentHandle("Coder_Track_Data");
                     r.setProperty("cr", coderId);
@@ -309,6 +354,12 @@ public class MemberProfile extends Base {
                         r.setProperty(Constants.PHASE_ID, "125");
                     } else if (tab.equals("test")) {
                         r.setProperty(Constants.PHASE_ID, "124");
+                    } else if (tab.equals("test_scenarios")) {
+                        r.setProperty(Constants.PHASE_ID, "137");
+                    } else if (tab.equals("ui_prototype")) {
+                        r.setProperty(Constants.PHASE_ID, "130");
+                    } else if (tab.equals("ria_build")) {
+                        r.setProperty(Constants.PHASE_ID, "135");
                     }
 
                     dai = getDataAccess(true);
@@ -356,6 +407,9 @@ public class MemberProfile extends Base {
             getRequest().setAttribute("hasArch", new Boolean(hasArch));
             getRequest().setAttribute("hasAssembly", new Boolean(hasAssembly));
             getRequest().setAttribute("hasTest", new Boolean(hasTest));
+            getRequest().setAttribute("hasTestScenarios", new Boolean(hasTestScenarios));
+            getRequest().setAttribute("hasUIPrototype", new Boolean(hasUIPrototype));
+            getRequest().setAttribute("hasRIABuild", new Boolean(hasRIABuild));
             getRequest().setAttribute("memberContactEnabled", new Boolean(memberContactEnabled));
             getRequest().setAttribute("hidePayments", new Boolean(hidePayments));
             getRequest().setAttribute("tab", tab);
