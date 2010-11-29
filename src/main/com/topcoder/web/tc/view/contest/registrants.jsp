@@ -334,6 +334,12 @@
                 <c:when test="${pt == TEST_SCENARIOS_PROJECT_TYPE}">
                     <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='Test_Scenarios'/>
                 </c:when>
+                <c:when test="${pt == UI_PROTOTYPE_PROJECT_TYPE}">
+                    <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='UI_Prototype'/>
+                </c:when>
+                <c:when test="${pt == RIA_BUILD_PROJECT_TYPE}">
+                    <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='RIA_Build'/>
+                </c:when>				
                 <c:otherwise>
                     <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' />
                 </c:otherwise>
