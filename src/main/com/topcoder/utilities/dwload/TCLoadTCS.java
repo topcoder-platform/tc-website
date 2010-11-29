@@ -5288,7 +5288,7 @@ public class TCLoadTCS extends TCLoad {
         final String INSERT
             = "INSERT INTO tcd_project_stat (tcd_project_id, project_category_id, stat_date, cost, duration, fulfillment, total_project, create_user, create_date, modify_user, modify_date) " +
               "SELECT tc_direct_project_id, project_category_id, DATE(p.complete_date), " +
-              "       SUM(p.admin_fee + p.contest_prizes_total), " +
+              "       SUM(p.contest_prizes_total), " +
               "       SUM((p.complete_date - p.posting_date)::interval minute(9) to minute::char(20)::decimal(10,2)), " +
               "       SUM(CASE WHEN num_submissions_passed_review > 0 THEN 1 ELSE 0 END), " +
               "       COUNT(p.project_id), " +
