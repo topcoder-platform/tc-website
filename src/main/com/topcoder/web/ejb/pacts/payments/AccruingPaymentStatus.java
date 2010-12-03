@@ -75,7 +75,7 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
 
             // charity payments don't need checks
             if (!payment.isCharity() && payment.getPaymentType() != BasePayment.CHARITY_PAYMENT) {
-                dib.getUserAccrualThreshold(payment.getCoderId());
+                accrualThreshold = dib.getUserAccrualThreshold(payment.getCoderId());
                 log.debug("accrualThreshold: " + accrualThreshold);
             }
 
