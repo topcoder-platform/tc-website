@@ -203,7 +203,7 @@
                             <p><a href="/tc?module=EditPreferences&amp;group=10">Privacy</a></p>
                             <p><a href="/tc?module=EditNotifications">Email notification</a></p>
                             <p><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Settings">Forums preferences</a></p>
-                            <!--<p><a href="/tc?module=EditPaymentPreferences">Payment preferences</a></p>-->
+                            <p><a href="/tc?module=EditPaymentPreferences">Payment preferences</a></p>
                         </td>
                         <td class="value">
                             <p><a href="/PactsMemberServlet?module=AffidavitHistory">Affidavits</a></p>
