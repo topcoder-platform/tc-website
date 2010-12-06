@@ -44,9 +44,12 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
     public static final int TYPE_COL = 8;
     public static final int METHOD_COL = 9;
     public static final int STATUS_COL = 10;
-    public static final int CLIENT_COL = 11;
+    public static final int CONTEST_OWNER_COL = 11;
     public static final int CREATED_COL = 12;
     public static final int MODIFIED_COL = 13;
+    public static final int CLIENT_COL = 14;
+    public static final int ID_COL = 15;
+    public static final int REFERENCE_ID_COL = 16;
     
     
     protected void businessProcessing() throws TCWebException {
@@ -254,6 +257,13 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         }
 
         switch (sortCol) {
+        case ID_COL:
+            Collections.sort(result, new Comparator<PaymentHeader>() {
+                public int compare(PaymentHeader arg0, PaymentHeader arg1) {
+                    return new Long(arg0.getId()).compareTo(arg1.getId());
+                }
+            });
+            break;
         case FIRST_COL:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
@@ -358,6 +368,23 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 }
             });
             break;
+        case CONTEST_OWNER_COL:
+            Collections.sort(result, new Comparator<PaymentHeader>() {
+                public int compare(PaymentHeader arg0, PaymentHeader arg1) {
+                    if (arg0.getContestOwner() == null) {
+                        return 1;
+                    }
+                    return arg0.getContestOwner().toUpperCase().compareTo(arg1.getContestOwner().toUpperCase());
+                }
+            });
+            break;
+        case REFERENCE_ID_COL:
+            Collections.sort(result, new Comparator<PaymentHeader>() {
+                public int compare(PaymentHeader arg0, PaymentHeader arg1) {
+                    return new Long(arg0.getReferenceId()).compareTo(arg1.getReferenceId());
+                }
+            });
+            break;
         case CREATED_COL:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
@@ -396,6 +423,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         }
         
         SortInfo s = new SortInfo();
+        s.addDefault(ID_COL, "asc");
         s.addDefault(FIRST_COL, "asc");
         s.addDefault(LAST_COL, "asc");
         s.addDefault(USER_COL, "asc");
@@ -407,6 +435,8 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         s.addDefault(METHOD_COL, "asc");
         s.addDefault(STATUS_COL, "asc");
         s.addDefault(CLIENT_COL, "asc");
+        s.addDefault(CONTEST_OWNER_COL, "asc");
+        s.addDefault(REFERENCE_ID_COL, "asc");
         s.addDefault(CREATED_COL, "desc");
         s.addDefault(MODIFIED_COL, "desc");
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);

@@ -65,6 +65,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
     private int typeId;
     private int methodId;
     private String client;
+    private String contestOwner;
     private BasePaymentStatus currentStatus;
 
     private long algorithmRoundId;
@@ -176,7 +177,8 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
                     TCData.getTCString(rsr, "handle", "default handle", true));
         }
 
-        client = TCData.getTCString(rsr, "client", "", false);
+        client = TCData.getTCString(rsr, "client_name", "", false);
+        contestOwner = TCData.getTCString(rsr, "client", "", false);
 
         algorithmRoundId = TCData.getTCLong(rsr, "algorithm_round_id", 0, false);
         componentProjectId = TCData.getTCLong(rsr, "component_project_id", 0, false);
@@ -302,6 +304,14 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
 
     public void setClient(String client) {
         this.client = client;
+    }
+
+    public String getContestOwner() {
+        return contestOwner;
+    }
+
+    public void setContestOwner(String contestOwner) {
+        this.contestOwner = contestOwner;
     }
 
     public long getAlgorithmProblemId() {
