@@ -4658,11 +4658,16 @@ public class TCLoadTCS extends TCLoad {
            " and t.track_type_id = ttl.track_type_id " +
            " and t.create_date > ?";
 
+       final String UPDATE =
+           "update track set track_type_id = ?, track_type_desc = ?, track_status_id = ?, track_status_desc = ?, track_desc = ?, track_start_date = ?, track_end_date = ? " +
+                   " where track_id = ?";
+
        final String INSERT =
            "insert into track (track_id, track_type_id, track_type_desc, track_status_id, track_status_desc, track_desc, track_start_date, track_end_date) " +
                    " values (?,?,?,?,?,?,?,?)";
 
        PreparedStatement selectTracks = prepareStatement(SELECT_TRACKS, SOURCE_DB);
+       PreparedStatement update = prepareStatement(UPDATE, TARGET_DB);
        PreparedStatement insert = prepareStatement(INSERT, TARGET_DB);
        ResultSet rsTracks = null;
 
@@ -4675,17 +4680,32 @@ public class TCLoadTCS extends TCLoad {
 
            rsTracks = selectTracks.executeQuery();
            while (rsTracks.next()) {
-               int i = 1;
-               insert.setInt(i++, rsTracks.getInt("track_id"));
-               insert.setInt(i++, rsTracks.getInt("track_type_id"));
-               insert.setString(i++, rsTracks.getString("track_type_desc"));
-               insert.setInt(i++, rsTracks.getInt("track_status_id"));
-               insert.setString(i++, rsTracks.getString("track_status_desc"));
-               insert.setString(i++, rsTracks.getString("track_desc"));
-               insert.setDate(i++, rsTracks.getDate("track_start_date"));
-               insert.setDate(i++, rsTracks.getDate("track_end_date"));
 
-               insert.executeUpdate();
+               update.clearParameters();
+               update.setInt(1, rsTracks.getInt("track_type_id"));
+               update.setString(2, rsTracks.getString("track_type_desc"));
+               update.setInt(3, rsTracks.getInt("track_status_id"));
+               update.setString(4, rsTracks.getString("track_status_desc"));
+               update.setString(5, rsTracks.getString("track_desc"));
+               update.setDate(6, rsTracks.getDate("track_start_date"));
+               update.setDate(7, rsTracks.getDate("track_end_date"));
+               update.setInt(8, rsTracks.getInt("track_id"));
+
+                int retVal = update.executeUpdate();
+                if (retVal == 0) {
+                    insert.clearParameters();
+                    insert.setInt(1, rsTracks.getInt("track_id"));
+                    insert.setInt(2, rsTracks.getInt("track_type_id"));
+                    insert.setString(3, rsTracks.getString("track_type_desc"));
+                    insert.setInt(4, rsTracks.getInt("track_status_id"));
+                    insert.setString(5, rsTracks.getString("track_status_desc"));
+                    insert.setString(6, rsTracks.getString("track_desc"));
+                    insert.setDate(7, rsTracks.getDate("track_start_date"));
+                    insert.setDate(8, rsTracks.getDate("track_end_date"));
+
+                    insert.executeUpdate();
+                }
+
                count++;
            }
            log.info("loaded " + count + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
@@ -4697,6 +4717,7 @@ public class TCLoadTCS extends TCLoad {
        } finally {
            close(rsTracks);
            close(insert);
+           close(update);
            close(selectTracks);
        }
 
