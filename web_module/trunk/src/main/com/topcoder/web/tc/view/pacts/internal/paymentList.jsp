@@ -175,6 +175,7 @@ ${fn:length(paymentList)} records. <br />
 <table id="datatable" border="1" cellpadding="0" cellspacing="0"  class="stat" width="100%">
     <tr>
         <td class="header"></td>
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.ID_COL%>" includeParams="true"/>" >Payment ID</a></td>	
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.FIRST_COL%>" includeParams="true"/>" >First</a></td>
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.LAST_COL%>" includeParams="true"/>" >Last</a></td>
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.USER_COL%>" includeParams="true"/>" >User</a></td>
@@ -186,6 +187,8 @@ ${fn:length(paymentList)} records. <br />
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.METHOD_COL%>" includeParams="true"/>" >Method</a></td>
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.STATUS_COL%>" includeParams="true"/>" >Status</a></td>
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.CLIENT_COL%>" includeParams="true"/>" >Client</a></td>
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.CONTEST_OWNER_COL%>" includeParams="true"/>" >Contest Owner</a></td>
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.REFERENCE_ID_COL%>" includeParams="true"/>" >Reference ID</a></td>	
         <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.CREATED_COL%>" includeParams="true"/>" >Created</a></td>
         <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.MODIFIED_COL%>" includeParams="true"/>" >Modified</a></td>
     </tr>
@@ -218,6 +221,7 @@ ${fn:length(paymentList)} records. <br />
             </c:choose>
 
         </td>
+        <td class="value"><c:out value="${payment.id}" /></td>	
         <td class="value" nowrap="nowrap"><c:out value="${payment.user.first}" /></td>
         <td class="value" nowrap="nowrap"><c:out value="${payment.user.last}" /></td>
         <td class="value"><a href="${pacts:viewUser(payment.user.id)}"><c:out value="${payment.user.handle}" /></td>
@@ -239,14 +243,16 @@ ${fn:length(paymentList)} records. <br />
         </td>
 
         <td class="value"><c:out value="${payment.client}" /></td>
+        <td class="value"><c:out value="${payment.contestOwner}" /></td>
+        <td class="value"><c:out value="${payment.referenceId}" /></td>	
         <td class="valueC"><c:out value="${payment.createDate}" /> </td>
         <td class="valueC"><c:out value="${payment.modifyDate}" /> </td>
         </tr>
         <tc-webtag:errorIterator id="err" name="err_${payment.id}">
         <tr>
-        <td colspan="3">
+        <td colspan="4">
         </td>
-        <td colspan="11">
+        <td colspan="13">
             <span class="bigRed">
                     <%=err%><br/>
             </span>
@@ -256,10 +262,10 @@ ${fn:length(paymentList)} records. <br />
          <% even = !even;%>
     </c:forEach>
     <tr>
-        <td class="header" colspan="7"><b>Total Net Amount:</b>
+        <td class="header" colspan="8"><b>Total Net Amount:</b>
         </td>
         <td class="headerR" nowrap="nowrap">$<fmt:formatNumber value="${totalNet}" pattern="###,###.00" /></td>
-        <td class="header" colspan="7">&nbsp;</td>
+        <td class="header" colspan="8">&nbsp;</td>
     </tr>
 
     </table>

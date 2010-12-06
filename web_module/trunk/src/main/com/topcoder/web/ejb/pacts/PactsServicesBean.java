@@ -3050,7 +3050,31 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectHeaders.append("pd.date_modified, pd.gross_amount, pd.client, nvl(pdsrx.payment_status_reason_id, 0) as payment_status_reason_id, ");
         selectHeaders.append("pd.algorithm_round_id, pd.component_project_id, pd.algorithm_problem_id, ");
         selectHeaders.append("pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, ");
-        selectHeaders.append("pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.digital_run_track_id ");
+        selectHeaders.append("pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.digital_run_track_id, ");
+
+        // One large SELECT block to retrieve the client name
+        selectHeaders.append(" (select CASE WHEN r.payment_reference_id in (2,5) THEN ");
+        selectHeaders.append("           (select ttc.name  ");
+        selectHeaders.append("             from tcs_catalog:project_info pi, time_oltp:project ttp, time_oltp:client_project ttcp, time_oltp:client ttc ");
+        selectHeaders.append("            where pd.component_project_id = pi.project_id ");
+        selectHeaders.append("              and pi.project_info_type_id = 32 ");
+        selectHeaders.append("              and pi.value = ttp.project_id ");
+        selectHeaders.append("              and ttp.project_id = ttcp.project_id ");
+        selectHeaders.append("              and ttcp.client_id = ttc.client_id) ");
+        selectHeaders.append("        WHEN r.payment_reference_id = 4 THEN ");
+        selectHeaders.append("           (select ttc.name  ");
+        selectHeaders.append("             from studio_oltp:contest_config cc1, time_oltp:project ttp, time_oltp:client_project ttcp, time_oltp:client ttc ");
+        selectHeaders.append("            where pd.studio_contest_id = cc1.contest_id ");
+        selectHeaders.append("              and cc1.property_id = 28 ");
+        selectHeaders.append("              and cc1.property_value = ttp.project_id  ");
+        selectHeaders.append("              and ttp.project_id = ttcp.project_id ");
+        selectHeaders.append("              and ttcp.client_id = ttc.client_id) ");
+        selectHeaders.append("        ELSE ");
+        selectHeaders.append("            null ");
+        selectHeaders.append("        END as client_name ");
+        selectHeaders.append(" from informixoltp:payment_reference_lu r ");
+        selectHeaders.append(" where pt.payment_reference_id = r.payment_reference_id) as client_name ");
+        // End of the "client name" SELECT block
 
         StringBuffer from = new StringBuffer(300);
         from.append("FROM payment p, payment_type_lu pt, payment_method_lu pm, payment_detail pd, ");
