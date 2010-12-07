@@ -213,7 +213,7 @@ public class TCLoadTCS extends TCLoad {
 
             fStartTime = new java.sql.Timestamp(System.currentTimeMillis());
             getLastUpdateTime();
-
+                        
             doLoadReviewResp();
 
             doLoadEvent();
@@ -4738,11 +4738,16 @@ public class TCLoadTCS extends TCLoad {
           " where tc.track_contest_type_id = tctl.track_contest_type_id " +
           " and tc.create_date > ?";
 
+      final String UPDATE =
+          "update track_contest set track_id = ?, track_contest_desc = ?, track_contest_type_id = ?, track_contest_type_desc = ? " +
+                  " where track_contest_id = ?";
+
       final String INSERT =
           "insert into track_contest (track_contest_id, track_id, track_contest_desc, track_contest_type_id, track_contest_type_desc) " +
                   " values (?,?,?,?,?)";
 
       PreparedStatement selectContests = prepareStatement(SELECT_CONTESTS, SOURCE_DB);
+      PreparedStatement update = prepareStatement(UPDATE, TARGET_DB);
       PreparedStatement insert = prepareStatement(INSERT, TARGET_DB);
       ResultSet rsContests = null;
 
@@ -4755,13 +4760,25 @@ public class TCLoadTCS extends TCLoad {
 
           rsContests = selectContests.executeQuery();
           while (rsContests.next()) {
-              insert.setInt(1, rsContests.getInt("track_contest_id"));
-              insert.setInt(2, rsContests.getInt("track_id"));
-              insert.setString(3, rsContests.getString("track_contest_desc"));
-              insert.setInt(4, rsContests.getInt("track_contest_type_id"));
-              insert.setString(5, rsContests.getString("track_contest_type_desc"));
+              update.clearParameters();
+              update.setInt(1, rsContests.getInt("track_id"));
+              update.setString(2, rsContests.getString("track_contest_desc"));
+              update.setInt(3, rsContests.getInt("track_contest_type_id"));
+              update.setString(4, rsContests.getString("track_contest_type_desc"));
+              update.setInt(5, rsContests.getInt("track_contest_id"));
 
-              insert.executeUpdate();
+              int retVal = update.executeUpdate();
+              if (retVal == 0) {
+                  insert.clearParameters();
+                  insert.setInt(1, rsContests.getInt("track_contest_id"));
+                  insert.setInt(2, rsContests.getInt("track_id"));
+                  insert.setString(3, rsContests.getString("track_contest_desc"));
+                  insert.setInt(4, rsContests.getInt("track_contest_type_id"));
+                  insert.setString(5, rsContests.getString("track_contest_type_desc"));
+
+                  insert.executeUpdate();
+              }
+
               count++;
           }
           log.info("loaded " + count + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
@@ -4772,6 +4789,7 @@ public class TCLoadTCS extends TCLoad {
                   sqle.getMessage());
       } finally {
           close(rsContests);
+          close(update);
           close(insert);
           close(selectContests);
       }
