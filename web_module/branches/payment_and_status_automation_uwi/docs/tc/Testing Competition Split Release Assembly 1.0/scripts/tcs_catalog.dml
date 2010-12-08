@@ -1,0 +1,16 @@
+database tcs_catalog;
+
+-- rename "Application Testing" track to "Test Suites"
+update project_category_lu set name = "Test Suites", description = "Test Suites" where project_category_id = 13;
+update review_resp set review_resp_name = "Test Suites Reviewer 1" where review_resp_id = 19;
+update review_resp set review_resp_name = "Test Suites Reviewer 2" where review_resp_id = 20;
+update review_resp set review_resp_name = "Test Suites Reviewer 3" where review_resp_id = 21;
+
+
+-- add new Online Review project type for "Test Scenarios".
+insert into project_category_lu (project_category_id, project_type_id, name, description, create_user, create_date, modify_user, modify_date) values (26, 2, "Test Scenarios", "Test Scenarios", "System", current, "System", current); 
+insert into review_resp (review_resp_id, review_resp_name, phase_id) values (31, 'Test Scenarios Reviewer 1', 137);
+insert into review_resp (review_resp_id, review_resp_name, phase_id) values (32, 'Test Scenarios Reviewer 2', 137);
+insert into review_resp (review_resp_id, review_resp_name, phase_id) values (33, 'Test Scenarios Reviewer 3', 137);
+
+
