@@ -75,10 +75,11 @@
         <pathelement location="${jive.dir}/xwork.jar"/>
         <pathelement location="${jive.dir}/htmlparser.jar"/>
 
-		<pathelement location="${jars.dir}/spring.jar"/>
+        <pathelement location="${jars.dir}/spring.jar"/>
 
-		<pathelement location="${struts.dir}/commons-beanutils.jar"/>
-		<pathelement location="${struts.dir}/commons-collections.jar"/>
+        <pathelement location="${struts.dir}/commons-beanutils.jar"/>
+        <pathelement location="${struts.dir}/commons-collections.jar"/>
+        <pathelement location="${struts.dir}/struts.jar"/>
 
         <!-- TCS Components -->
 
@@ -89,13 +90,25 @@
         <pathelement location="${jars.dir}/tcs/file_upload/2.0.2.0/file_upload.jar"/>
         <pathelement location="${jars.dir}/tcs/json_object/1.0/json_object.jar"/>
         <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
+        <pathelement location="${jars.dir}/tcs/email_engine.jar"/>
+        <pathelement location="${jars.dir}/tcs/workdays/1.0/workdays.jar"/>
+        <pathelement location="${jars.dir}/tcs/document_generation.jar"/>
+        <pathelement location="${jars.dir}/tcs/refreshable_cache.jar"/>
+        <pathelement location="${jars.dir}/tcs/project_phases/2.0/project_phases.jar"/>
+        <pathelement location="${jars.dir}/tcs/job_scheduling.jar"/>
+        <pathelement location="${jars.dir}/tcs/math_matrix.jar"/>
+        <pathelement location="${jars.dir}/tcs/project_phase_template/1.2.0/project_phase_template.jar"/>
+        <pathelement location="${jars.dir}/tcs/file_class/1.0/file_class.jar"/>
+        <pathelement location="${jars.dir}/tcs/typesafe_enum/1.0/typesafe_enum.jar"/>
+        <pathelement location="${jars.dir}/tcs/simple_cache.jar"/>
+        <pathelement location="${jars.dir}/tcs/workdays/1.0/workdays.jar"/>
         <pathelement location="${jars.dir}/tcs/contest_eligibility_validation_client/1.0.0/contest_eligibility_validation_client.jar"/>
         <pathelement location="${jars.dir}/tcs/pipeline_service_persistence/1.0.0/pipeline_service_persistence.jar"/>
         <pathelement location="${jars.dir}/tcs/pipeline_service/1.0.0/pipeline_service.jar"/>
         <pathelement location="${jars.dir}/tcs/pipeline_service_facade/1.0.0/pipeline_service_facade.jar"/>
-		<pathelement location="${jars.dir}/tcs/copilot_pool_and_profiles_common.jar"/>
-		<pathelement location="${jars.dir}/tcs/copilot_pool_and_profiles_services.jar"/>
-		<pathelement location="${jars.dir}/tcs/pipeline_service_facade/1.0.0/pipeline_service_facade.jar"/>
+        <pathelement location="${jars.dir}/tcs/copilot_pool_and_profiles_common.jar"/>
+        <pathelement location="${jars.dir}/tcs/copilot_pool_and_profiles_services.jar"/>
+        <pathelement location="${jars.dir}/tcs/pipeline_service_facade/1.0.0/pipeline_service_facade.jar"/>
 
 
         <!--required for aol alerts only -->
@@ -178,6 +191,9 @@
             <include name="com/topcoder/web/**"/>
             <include name="com/topcoder/www/**"/>
             <include name="com/atlassian/**"/>
+            <include name="com/topcoder/apps/review/**"/>
+            <include name="com/topcoder/util/idgenerator/bean/**"/>
+
             <exclude name="com/topcoder/web/csf/**"/>
             <exclude name="com/topcoder/web/wiki/**"/>
             <exclude name="com/topcoder/web/studio/**"/>
@@ -519,6 +535,17 @@
         </jar>
     </target>
 
+    <target name="package-EJB-RBoard" depends="compile">
+        <jar jarfile="${ejb_jars}/RBoard.jar">
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/apps/review/persistence/Common.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/bean/IdGen.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/bean/IdGenHome.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/apps/review/rboard/*.class"/>
+            <metainf dir="${java}/com/topcoder/apps/review/rboard" includes="*.xml"/>
+        </jar>
+    </target>
+
     <target name="build-sars" depends="compile">
         <jar jarfile="${sar.dir}/expireOldAffidavitsAndPayments.sar" basedir="${classes}"
              includes="com/topcoder/utilities/pacts/ExpireOldAffidavitsAndPayments*,
@@ -550,7 +577,7 @@
     </target>
 
     <!-- TCS Release 2.2.0 - Copy the Review Board Application EJB -->
-    <target name="deploy-rboard">
+    <target name="deploy-rboard" depends="package-EJB-RBoard">
         <echo message="Copying RBoard Application EJB..."/>
         <copy todir="${jboss_deploy}">
             <fileset dir="${ejb_jars}">
