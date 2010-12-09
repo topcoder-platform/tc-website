@@ -4902,7 +4902,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         // Change to also check for tax forms on file
         StringBuffer query = new StringBuffer(300);
-        query.append("SELECT COUNT(*) FROM user_tax_form_xref WHERE user_id = " + userId);
+        query.append("SELECT COUNT(*) FROM user_tax_form_xref WHERE status_id=60 and user_id = " + userId);
 
         boolean ret = false;
 
