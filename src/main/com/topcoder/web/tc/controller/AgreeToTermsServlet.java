@@ -111,20 +111,34 @@ public class AgreeToTermsServlet extends BaseServlet {
                 //For now, we force the terms id.
                 //20873 PayPal
                 //20883 Alcatel-Lucent
-                if ((termsId != 20873) && (termsId != 20883)) throw new RuntimeException("bad terms");
+                if ((termsId != 20873) && (termsId != 20883) && (termsId != 20903)) throw new RuntimeException("bad terms");
 
                 UserTermsOfUse userTermsOfUse = UserTermsOfUseLocator.getService();
                 if (userTermsOfUse.hasTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
                     // already joined
                     //BUGR-4262
-                    if(termsId==20873) notifyPayPal(tcRequest,tcResponse,authentication,notify);
+                    if ((termsId==20873))
+                    {
+                        notify(tcRequest,tcResponse,authentication,notify, 15);
+                    } 
+                    else if(termsId==20903)
+                    {
+                         notify(tcRequest,tcResponse,authentication,notify, 16);
+                    }
                     response.getOutputStream().println(cb == null ? "<response>already agreed</response>" : cb + "({\"response\":\"already agreed\"})");
                 } else if(agree){ //BUGR-4218: only attempt to agree to the terms if agree=true
                     try {
                         userTermsOfUse.createUserTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
                         // success
                         //BUGR-4262
-                        if(termsId==20873) notifyPayPal(tcRequest,tcResponse,authentication,notify);
+                        if ((termsId==20873))
+                        {
+                            notify(tcRequest,tcResponse,authentication,notify, 15);
+                        } 
+                        else if(termsId==20903)
+                        {
+                             notify(tcRequest,tcResponse,authentication,notify, 16);
+                        }
                         response.getOutputStream().println(cb == null ? "<response>success</response>" : cb + "({\"response\":\"success\"})");
                     } catch (Exception e) {
                         response.getOutputStream().println(cb == null ? "<response>bad terms</response>" : cb + "({\"response\":\"bad terms\"})");
@@ -142,15 +156,16 @@ public class AgreeToTermsServlet extends BaseServlet {
         doPost(request, response);
     }
 
+
     //BUGR-4262
-    private void notifyPayPal(TCRequest tcRequest, TCResponse tcResponse, WebAuthentication authentication, final boolean notify) throws Exception {
+    private void notify(TCRequest tcRequest, TCResponse tcResponse, WebAuthentication authentication, final boolean notify, final long notificationId) throws Exception {
         RequestProcessor rp = new ShortHibernateProcessor() {
             protected void dbProcessing() throws Exception {
                 User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
                 List<Notification> notifications = (List<Notification>) DAOUtil.getFactory().getNotificationDAO().getNotifications(u.getRegistrationTypes());
                 Set<Notification> userNotifications = (Set<Notification>) u.getNotifications();
                 for (Notification n : notifications) {
-                    if (n.getId() == 15) {
+                    if (n.getId() == notificationId) {
                         if (!userNotifications.contains(n) && notify) {
                             u.addNotification(n);
                         }
