@@ -205,10 +205,12 @@ public class DefaultPriceComponent implements SoftwareComponent {
             return new ComponentReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
         } else if (phaseId == ASSEMBLY_PHASE) {
             return new AssemblyReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
+        } else if (phaseId == CONCEPTUALIZATION_PHASE) {
+            return new ConceptualizationReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
         } else if (phaseId == ARCHITECTURE_PHASE) {
             return new ArchitectureReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
-        } else if (phaseId == CONCEPTUALIZATION_PHASE || phaseId == SPECIFICATION_PHASE
-                   || phaseId == TEST_SUITES_PHASE || phaseId == TEST_SCENARIOS_PHASE || phaseId == COPILOT_POSTING_PHASE) {
+        } else if (phaseId == SPECIFICATION_PHASE || phaseId == TEST_SUITES_PHASE ||
+                   phaseId == TEST_SCENARIOS_PHASE || phaseId == COPILOT_POSTING_PHASE) {
             return new ApplicationReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
         } else if (phaseId == UI_PROTOTYPE_PHASE || phaseId == RIA_BUILD_PHASE ||
                 phaseId == RIA_COMPONENT_PHASE) {
