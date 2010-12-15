@@ -70,14 +70,20 @@ public class AgreeToTermsServlet extends BaseServlet {
             String terms = request.getParameter("terms");
             String cb = request.getParameter("cb");
             //BUGR-4218: new param
-            boolean agree = Boolean.parseBoolean(request.getParameter("agree"));
+            boolean agree = false;
+            String agreeStr=request.getParameter("agree");
+            if (agreeStr != null)
+            {
+                agree = Boolean.parseBoolean(agreeStr);
+            }
+            
             //BUGR-4262: new param
             boolean notify = true;
             String notifyStr=request.getParameter("notify");
-            if(notifyStr!=null) 
-	    { 
-		notify=Boolean.parseBoolean(notifyStr);
-	    }
+            if(notifyStr != null) 
+            { 
+                notify = Boolean.parseBoolean(notifyStr);
+            }
 
             //BUGR-4218: check logged in user
             TCRequest tcRequest = HttpObjectFactory.createRequest(request);
