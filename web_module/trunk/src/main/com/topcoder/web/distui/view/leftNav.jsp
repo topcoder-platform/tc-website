@@ -281,7 +281,7 @@
       nav.search("m_about_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/home", "Overview", "tc_overview"));
       nav.search("m_about_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=about&amp;d2=whyjoin", "Why Join TopCoder?", "join_tc"));
       nav.search("m_about_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=about&amp;d2=jobs", "Working at TopCoder", "working_tc"));
-      nav.search("m_about_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=about&amp;d2=management", "Management Team", "management_team"));
+      nav.search("m_about_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=about&amp;d2=management", "Leadership", "management_team"));
 
     request.setAttribute("tree", nav);
 
