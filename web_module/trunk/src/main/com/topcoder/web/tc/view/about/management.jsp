@@ -75,7 +75,7 @@ margin-top: 10px;
             <div class="fixedWidthBody">
             
         <jsp:include page="../page_title.jsp" >
-            <jsp:param name="image" value="boardofdirectors"/>
+            <jsp:param name="image" value="board_of_directors"/>
             <jsp:param name="title" value=""/>
         </jsp:include>
 
