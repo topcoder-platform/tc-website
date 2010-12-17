@@ -32,7 +32,7 @@ public class drv2 extends DBUtility {
 
         StringBuffer delete = new StringBuffer(200);
         delete.append("delete from dr_points where track_id in (" + 
-                " select track_id from track t where t.track_status_id = 1" +
+                " select track_id from track t where t.track_status_id = 1  and t.track_id >= 2086" +
                 " and t.track_type_id = 3)");
 
         StringBuffer query = new StringBuffer(200);
@@ -41,10 +41,9 @@ public class drv2 extends DBUtility {
         query.append("  s.submitter_id, c.start_time, c.winner_announcement_time, c.contest_id,");
         query.append("  (not exists (select 'has results' from studio_oltp:contest_result cr2 where cr2.contest_id = c.contest_id) or c.winner_announcement_time > current) as potential,");
         query.append("  cr.placed,");
-        query.append("        (select count(*) from studio_oltp:submission s2, studio_oltp:submission_review sr2");
+        query.append("        (select count(*) from studio_oltp:submission s2, studio_oltp:submission_prize_xref sr2");
         query.append("              where c.contest_id = s2.contest_id");
         query.append("              and s2.submission_id = sr2.submission_id");
-        query.append("              and sr2.review_status_id = 1 ");
         query.append("              and s2.submission_status_id = 1 ");
         query.append("         ) as count_of_passing_subs,");
         query.append(" cc.property_value as dr_points,");
@@ -67,7 +66,7 @@ public class drv2 extends DBUtility {
         query.append("   and s.submission_status_id = 1 ");
         query.append("   and c.contest_id = cr.contest_id");
         query.append("   and cr.submission_id = s.submission_id");
-        query.append("   and t.track_type_id = 3");
+        query.append("   and t.track_type_id = 3 and t.track_id >= 2086");
         query.append("   and t.track_status_id = 1");
         query.append("   and u.user_id = s.submitter_id");
         query.append("   and c.contest_id not in (2281, 2303, 2326, 2336)");
