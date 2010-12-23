@@ -3,6 +3,7 @@
  */
 package com.topcoder.web.ejb.pacts;
 
+import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -102,11 +103,20 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
  *     <li>Added support for new Copilot Posting competitions.</li>
  *   </ol>
  * </p>
+ * <p>
+ *   Version 1.6 (Online Review Payments and Status Automation Assembly 1.0) Changes Notes:
+ * <ol>
+ * <li>a new parameter is added for the three generateComponentPayments methods to populate the related resource
+ *     ids for generated component payments.</li>
+ * <li>a new method {@link #addOnlineReviewPayments(List, List)} is added for adding payments in persistence and
+ *     populating the payment statuses for the given resource ids.</li>
+ * </ol>
+ * </p>
  *
  * <p>VERY IMPORTANT: remember to update serialVersionUID if needed.</p>
  *
- * @author Dave Pecora, pulky, isv, Vitta, Blues
- * @version 1.5
+ * @author Dave Pecora, pulky, isv, Vitta, Blues, FireIce
+ * @version 1.6
  * @see PactsConstants
  */
 public class PactsServicesBean extends BaseEJB implements PactsConstants {
@@ -143,14 +153,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @since 1.1
      */
     private static final int TEST_SCENARIOS_PROJECT_TYPE = 26;
-    
+
     /**
      * <p>A <code>int</code> representing the copilot posting project id.</p>
      *
      * @since 1.5
      */
 	private static final int COPILOT_POSTING_PROJECT_TYPE = 29;
-    
+
     /**
      * <p>A <code>int</code> representing the specification review project category id.</p>
      */
@@ -3643,7 +3653,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 || p.getHeader().getTypeId() == MARATHON_MATCH_TOURNAMENT_PRIZE_PAYMENT
                 || p.getHeader().getTypeId() == ROYALTY_PAYMENT
                 || p.getHeader().getTypeId() == CODER_REFERRAL_PAYMENT) {
-            
+
             StringBuffer getUserWithholding = new StringBuffer(300);
             getUserWithholding.append("SELECT withholding_amount, withholding_percentage, use_percentage,date_filed ");
             getUserWithholding.append(" FROM user_tax_form_xref ");
@@ -4934,7 +4944,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 c = DBMS.getConnection(trxDataSource);
                 ResultSetContainer rsc = runSelectQuery(c, query.toString());
                 ret = Integer.parseInt(rsc.getItem(0, 0).toString()) > 0;
-        
+
             } finally {
                 close(c);
             }
@@ -5127,33 +5137,60 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     /**
      * Generate  payments for components, excluding development support payments.
+     *
+     * <p>
+     * Version 1.6 (Online Review Payments and Status Automation Assembly 1.0) Changes Notes:
+     * <ol>
+     * <li>a new parameter is added to populate the related resource ids for generated component payments.</li>
+     * </ol>
+     * </p>
      */
-    public List generateComponentPayments(long projectId, long status, String client, boolean applyReviewerWithholding, boolean payRboardBonus)
+    public List generateComponentPayments(long projectId, long status, String client, boolean applyReviewerWithholding, boolean payRboardBonus, List resourceIds)
             throws IllegalUpdateException, SQLException, EventFailureException {
-        return generateComponentPayments(projectId, status, client, false, 0, 0, applyReviewerWithholding, payRboardBonus);
+        return generateComponentPayments(projectId, status, client, false, 0, 0, applyReviewerWithholding, payRboardBonus, resourceIds);
     }
 
 
     /**
      * Generate payments for components, including development support if needed.
+     * <p>
+     * Version 1.6 (Online Review Payments and Status Automation Assembly 1.0) Changes Notes:
+     * <ol>
+     * <li>a new parameter is added to populate the related resource ids for generated component payments.</li>
+     * </ol>
+     * </p>
      */
-    public List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId, long devSupportProjectId, boolean applyReviewerWithholding, boolean payRboardBonus)
+    public List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId, long devSupportProjectId, boolean applyReviewerWithholding, boolean payRboardBonus, List resourceIds)
             throws IllegalUpdateException, SQLException, EventFailureException {
-        return generateComponentPayments(projectId, status, client, true, devSupportCoderId, devSupportProjectId, applyReviewerWithholding, payRboardBonus);
+        return generateComponentPayments(projectId, status, client, true, devSupportCoderId, devSupportProjectId, applyReviewerWithholding, payRboardBonus, resourceIds);
     }
 
     /**
+     * <p>
+     * Version 1.6 (Online Review Payments and Status Automation Assembly 1.0) Changes Notes:
+     * <ol>
+     * <li>a new parameter is added to populate the related resource ids for generated component payments.</li>
+     * </ol>
+     * </p>
+     *
      * @deprecated
      */
-    public List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId)
+    public List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId, List resourceIds)
             throws IllegalUpdateException, SQLException, EventFailureException {
-        return generateComponentPayments(projectId, status, client, true, devSupportCoderId, 0, false, false);
+        return generateComponentPayments(projectId, status, client, true, devSupportCoderId, 0, false, false, resourceIds);
     }
 
     /**
      * Generates all the payments for the people who won money for the given project (designers, developers,
      * and review board members). If it is a development project, it may pay the missing 25% to the designer.
      * It doesn't insert the payments in the DB, just generates and return them.
+     * <p>
+     * Version 1.6 (Online Review Payments and Status Automation Assembly 1.0) Changes Notes:
+     * <ul>
+     * <li>Component Payments can only be paid once check is removed.</li>
+     * <li>a new parameter is added to populate the related resource ids for generated component payments.</li>
+     * </ul>
+     * </p>
      *
      * @param projectId         The ID of the project
      * @param status            The project's status (see /topcoder/apps/review/projecttracker/ProjectStatus.java)
@@ -5167,7 +5204,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     private List generateComponentPayments(long projectId, long status, String client, boolean payDevSupport,
                                            long devSupportCoderId, long devSupportProjectId,
-                                           boolean applyReviewerWithholding, boolean payRboardBonus)
+                                           boolean applyReviewerWithholding, boolean payRboardBonus, List resourceIds)
             throws IllegalUpdateException, SQLException, EventFailureException {
         log.debug("generateComponentPayments called...");
 
@@ -5179,44 +5216,55 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         List payments = new ArrayList();
 
-        // Make sure we haven't done this before for this project.
-        StringBuffer checkNew = new StringBuffer(300);
-        // BUGR-1453 - Make the payment page stop blocking on payments that have been deleted in PACTs.
-        checkNew.append("SELECT COUNT(*) FROM payment p, payment_detail pd, payment_type_lu pt WHERE pd.component_project_id = " + projectId)
-            .append(" AND pd.payment_type_id = pt.payment_type_id ")
-            .append(" AND pd.payment_status_id != " + PaymentStatus.DELETED_PAYMENT_STATUS.getId())
-            .append(" AND p.most_recent_detail_id = pd.payment_detail_id")
-            .append(" AND pt.payment_type_id IN (" + COMPONENT_PAYMENT + "," + REVIEW_BOARD_PAYMENT + ")");
-        ResultSetContainer rsc = runSelectQuery(checkNew.toString());
-        int existingAffidavits = Integer.parseInt(rsc.getItem(0, 0).toString());
-        if (existingAffidavits > 0) {
-            throw new IllegalUpdateException("Data already generated for project " + projectId + "!");
+        ResultSetContainer rsc = null;
+
+        // Get winning designers/developers to be paid
+        log.info("Generating payments for winners");
+
+        StringBuffer getWinners = new StringBuffer(300);
+        getWinners.append(" select pr.placed, pr.user_id, payment as paid, pcl.name, r.resource_id ");
+        getWinners.append(" from tcs_catalog:project_result pr, tcs_catalog:project p, tcs_catalog:project_category_lu pcl ");
+        getWinners.append(" , tcs_catalog:resource r, tcs_catalog:resource_info ri ");
+        getWinners.append(" where pr.project_id = " + projectId + " ");
+        getWinners.append(" and pr.project_id = p.project_id ");
+        getWinners.append(" and p.project_category_id = pcl.project_category_id ");
+        getWinners.append(" and r.project_id = pr.project_id "); //join the resource and project_result tables by the project ID
+        getWinners.append(" and r.resource_role_id = 1 "); //filter by Submitter resource
+        getWinners.append(" and r.resource_id = ri.resource_id "); //join the resource and resource_info tables
+        getWinners.append(" and ri.resource_info_type_id = 1 "); //1 is for user ID
+        getWinners.append(" and ri.value = pr.user_id "); //join the resource and project_result tables by the user ID
+        getWinners.append(" and r.resource_id not in (select ri8.resource_id from tcs_catalog:resource_info ri8 where ri8.resource_info_type_id=8 and ri8.value='Yes') "); //make sure this resource has not been paid yet
+        // [BUGR-1452] - all placements with payment > 0 should be paid
+        getWinners.append(" and pr.placed is not null ");
+        getWinners.append(" and pr.payment > 0 ");
+        getWinners.append(" order by pr.placed");
+
+        rsc = runSelectQuery(getWinners.toString());
+        for (int i = 0; i < rsc.size(); i++) {
+            long coderId = Long.parseLong(rsc.getItem(i, "user_id").toString());
+            double amount = rsc.getDoubleItem(i, "paid");
+            int placed = rsc.getIntItem(i, "placed");
+            long resourceId = rsc.getLongItem(i, "resource_id");
+            log.info("coder: " + coderId + " placed: " + placed + " amount: " + amount + " resourceId: " + resourceId);
+            resourceIds.add(new Long(resourceId));
+            payments.addAll(generateComponentUserPayments(coderId, amount, client, projectId, placed, devSupportCoderId, payDevSupport, devSupportProjectId, payRboardBonus));
         }
 
-        // Get winning designers/developers to be paid for completed projects
-        if (status == 7) {
-            log.info("Project complete, generating payments for winners");
-
-            StringBuffer getWinners = new StringBuffer(300);
-            getWinners.append("select pr.placed, pr.user_id, payment as paid, pcl.name ");
-            getWinners.append("from tcs_catalog:project_result pr, tcs_catalog:project p, tcs_catalog:project_category_lu pcl ");
-            getWinners.append("where pr.project_id = " + projectId + " ");
-            getWinners.append("and pr.project_id = p.project_id ");
-            getWinners.append("and p.project_category_id = pcl.project_category_id ");
-            // [BUGR-1452] - all placements with payment > 0 should be paid
-            // getWinners.append("and pr.placed IN (1,2) ");
-            getWinners.append("and pr.payment > 0 ");
-            getWinners.append("order by pr.placed");
-
-            rsc = runSelectQuery(getWinners.toString());
-            for (int i = 0; i < rsc.size(); i++) {
-                long coderId = Long.parseLong(rsc.getItem(i, "user_id").toString());
-                double amount = rsc.getDoubleItem(i, "paid");
-                int placed = rsc.getIntItem(i, "placed");
-                log.info("coder: " + coderId + " placed: " + placed + " amount: " + amount);
-                payments.addAll(generateComponentUserPayments(coderId, amount, client, projectId, placed, devSupportCoderId, payDevSupport, devSupportProjectId, payRboardBonus));
-            }
-        }
+        StringBuffer commonQuery = new StringBuffer(300);
+        commonQuery.append("from tcs_catalog:project p ");
+        commonQuery.append("inner join tcs_catalog:resource r ");
+        commonQuery.append("on p.project_id = r.project_id ");
+        commonQuery.append("and (r.resource_role_id in (2,3,4,5,6,7,8,9,14,16,18)) ");
+        commonQuery.append("inner join tcs_catalog:resource_info ri_u ");
+        commonQuery.append("on r.resource_id = ri_u.resource_id ");
+        commonQuery.append("and ri_u.resource_info_type_id = 1 ");
+        commonQuery.append("and ri_u.value <> '0' ");
+        commonQuery.append("inner join tcs_catalog:resource_info ri_p ");
+        commonQuery.append("on r.resource_id = ri_p.resource_id ");
+        commonQuery.append("and ri_p.resource_info_type_id = 7 ");
+        commonQuery.append("and round(ri_p.value) > 0 ");
+        commonQuery.append("and r.resource_id not in (select ri8.resource_id from tcs_catalog:resource_info ri8 where ri8.resource_info_type_id=8 and ri8.value='Yes') "); //make sure this resource has not been paid yet
+        commonQuery.append("where p.project_id = " + projectId);
 
         // Get review board members to be paid
         StringBuffer getReviewers = new StringBuffer(300);
@@ -5229,28 +5277,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         getReviewers.append("    WHEN r.resource_role_id = 18 THEN 'Spec Review Payment' ");
         getReviewers.append("    ELSE 'Unknown' ");
         getReviewers.append("END as payment_type, ");
-        getReviewers.append("sum(round(ri_p.value)) as paid, ");
-        getReviewers.append("max(pcl.name) as project_type_name ");
-        getReviewers.append("from tcs_catalog:project p ");
-        getReviewers.append("inner join tcs_catalog:resource r ");
-        getReviewers.append("on p.project_id = r.project_id ");
-        getReviewers.append("and (r.resource_role_id in (2,3,4,5,6,7,8,9,14,16,18)) ");
-        getReviewers.append("inner join tcs_catalog:resource_info ri_u ");
-        getReviewers.append("on r.resource_id = ri_u.resource_id ");
-        getReviewers.append("and ri_u.resource_info_type_id = 1 ");
-        getReviewers.append("and ri_u.value <> '0' ");
-        getReviewers.append("inner join tcs_catalog:resource_info ri_p ");
-        getReviewers.append("on r.resource_id = ri_p.resource_id ");
-        getReviewers.append("and ri_p.resource_info_type_id = 7 ");
-        getReviewers.append("inner join tcs_catalog: resource_info ri_ps "); // this is to filter by the payments that were marked as paid.
-        getReviewers.append("on r.resource_id = ri_ps.resource_id ");
-        getReviewers.append("and ri_ps.resource_info_type_id = 8 ");
-        getReviewers.append("and ri_ps.value = 'Yes' ");
-        getReviewers.append("inner join tcs_catalog:project_category_lu pcl ");
-        getReviewers.append("on pcl.project_category_id = p.project_category_id ");
-        getReviewers.append("where p.project_id = " + projectId + " ");
-        getReviewers.append("group by 1, 2 ");
+        getReviewers.append("sum(round(ri_p.value)) as paid ");
+        getReviewers.append(commonQuery);
+        getReviewers.append(" group by 1, 2 ");
 
+        log.info("get review payments - " + getReviewers.toString());
         rsc = runSelectQuery(getReviewers.toString());
 
         for (int i = 0; i < rsc.size(); i++) {
@@ -5262,11 +5293,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             int projectType = getProjectType(projectId);
 
             if (paymentType.startsWith("Copilot Payment")) {
-               // Pay Copilot role          
+               // Pay Copilot role
                 p = new CopilotPayment(coderId, amount, client, projectId);
                 }
             else if (paymentType.startsWith("Spec Review Payment")) {
-               // Pay Specification Reviewer role          
+               // Pay Specification Reviewer role
                 p = new SpecificationReviewPayment(coderId, amount, client, projectId);
                 }
             else if (projectType == DESIGN_PROJECT) {
@@ -5292,9 +5323,72 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             payments.add(p);
         }
 
+        // get the related resource ids.
+        StringBuffer getResourceIds = new StringBuffer(300);
+        getResourceIds.append("select r.resource_id ");
+        getResourceIds.append(commonQuery);
+
+        log.info("get resource ids:" + getResourceIds.toString());
+        rsc = runSelectQuery(getResourceIds.toString());
+
+        for (int i = 0; i < rsc.size(); i++) {
+            resourceIds.add(new Long(rsc.getLongItem(i, "resource_id")));
+        }
+
         return payments;
     }
 
+    /**
+     * Adds online review payments in persistence and updates payment status to "Paid"
+	 * for the corresponding resources in the Online Review.
+     *
+     * @param payments the review payments
+     * @param resourceIds the resource ids to update the payment status.
+     * @return the online review payments.
+     * @throws RemoteException if any error occurs.
+     * @throws SQLException if any sql error occurs.
+     * @since Online Review Payments and Status Automation Assembly 1.0
+     */
+    public List addOnlineReviewPayments(List payments, List resourceIds) throws SQLException {
+        log.info("addOnlineReviewPayments ..");
+
+        if (!resourceIds.isEmpty()) {
+            //we will first do update, if no record to update, then do insertion
+            for (Iterator iter = resourceIds.iterator(); iter.hasNext();) {
+                String resourceId = (String)iter.next().toString();
+
+                StringBuffer updatePaymentStatus = new StringBuffer(300);
+                updatePaymentStatus.append("UPDATE tcs_catalog:resource_info SET value='Yes' ");
+                updatePaymentStatus.append("WHERE resource_info_type_id=8 ");
+                updatePaymentStatus.append("AND resource_id=");
+                updatePaymentStatus.append(resourceId);
+
+                String updateQuery = updatePaymentStatus.toString();
+                log.info("Update payment status for processed payment: " + updateQuery);
+
+                int count = runUpdateQuery(updateQuery);
+
+                if (count == 0) {
+                    // no record found to update
+                    String insertPaymentStatus = "INSERT INTO tcs_catalog:resource_info(resource_id,"
+                            + " resource_info_type_id, value, create_user, create_date, modify_user, modify_date) VALUES (";
+                    insertPaymentStatus += resourceId;
+                    insertPaymentStatus += ", 8, 'Yes', 'System', CURRENT, 'System', CURRENT)";
+
+                    log.info("Updating payment status failed, trying to insert payment status: " + insertPaymentStatus);
+
+                    // insert new record
+                    count = runUpdateQuery(insertPaymentStatus);
+
+                    if (count == 0) {
+                        throw new SQLException("record can not be inserted with sql - " + insertPaymentStatus);
+                    }
+                }
+            }
+        }
+
+        return addPayments(payments);
+    }
 
     /**
      * Sets the status on all contest payments with Pending or On Hld status older than a specified time

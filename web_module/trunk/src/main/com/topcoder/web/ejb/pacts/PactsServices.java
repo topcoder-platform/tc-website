@@ -23,8 +23,18 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm;
  * The remote interface for the PACTS EJB.  See the <tt>PactsServicesBean</tt>
  * or <tt>DataInterfaceBean</tt> classes for API details.
  *
- * @author Dave Pecora
- * @version 1.00, 03/06/2002
+ * <p>
+ * Version 1.1 (Online Review Payments and Status Automation Assembly 1.0) Changes Notes:
+ * <ol>
+ * <li>a new parameter is added for the three generateComponentPayments methods to populate the related resource
+ *     ids for generated component payments.</li>
+ * <li>a new method {@link #addOnlineReviewPayments(List, List)} is added for adding payments in persistence and
+ *     populating the payment statuses for the given resource ids.</li>
+ * </ol>
+ * </p>
+ *
+ * @author Dave Pecora, FireIce
+ * @version 1.1
  * @see PactsServicesBean
  * @see com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean
  */
@@ -164,16 +174,82 @@ public interface PactsServices extends EJBObject {
             throws IllegalUpdateException, RemoteException, SQLException;
 
     /**
+     * Generates the component payments.
+     *
+     * <p>
+     * Version 1.1 (Online Review Payments and Status Automation Assembly 1.0) Changes Notes:
+     * <ol>
+     * <li>a new parameter is added to populate the related resource ids for generated component payments.</li>
+     * </ol>
+     * </p>
      * @deprecated
-     */    
-    List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId)
+     */
+    List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId, List resourceIds)
     	throws IllegalUpdateException, RemoteException, SQLException, EventFailureException;
 
-    List generateComponentPayments(long projectId, long status, String client, boolean applyReviewerWithholding, boolean payRboardBonus)
+    /**
+     * Generates the component payments.
+     *
+     * <p>
+     * Version 1.1 (Online Review Payments and Status Automation Assembly 1.0) Changes Notes:
+     * <ol>
+     * <li>a new parameter is added to populate the related resource ids for generated component payments.</li>
+     * </ol>
+     * </p>
+     *
+     * @param projectId the project id
+     * @param status the project status code
+     * @param client the client name
+     * @param applyReviewerWithholding whether to apply reviewer with holding.
+     * @param payRboardBonus the bonus for paying review board.
+     * @param resourceIds the resource ids list to populate
+     * @return the list of component payments.
+     * @throws IllegalUpdateException if it is illegal to update.
+     * @throws RemoteException if any error occurs.
+     * @throws SQLException if any sql error occurs.
+     * @throws EventFailureException if any error occurs.
+     */
+    List generateComponentPayments(long projectId, long status, String client, boolean applyReviewerWithholding, boolean payRboardBonus, List resourceIds)
         throws IllegalUpdateException, RemoteException, SQLException, EventFailureException;
 
-    List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId, long devSupportProjectId, boolean applyReviewerWithholding, boolean payRboardBonus)
+    /**
+     * Generates the component payments.
+     *
+     * <p>
+     * Version 1.1 (Online Review Payments and Status Automation Assembly 1.0) Changes Notes:
+     * <ol>
+     * <li>a new parameter is added to populate the related resource ids for generated component payments.</li>
+     * </ol>
+     * </p>
+     *
+     * @param projectId the project id
+     * @param status the project status code
+     * @param client the client name
+     * @param devSupportCoderId the coder id of designer for dev support.
+     * @param devSupportProjectId the project id of the dev support
+     * @param applyReviewerWithholding whether to apply reviewer with holding.
+     * @param payRboardBonus the bonus for paying review board.
+     * @param resourceIds the resource ids list to populate
+     * @return the list of component payments.
+     * @throws IllegalUpdateException if it is illegal to update.
+     * @throws RemoteException if any error occurs.
+     * @throws SQLException if any sql error occurs.
+     * @throws EventFailureException if any error occurs.
+     */
+    List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId, long devSupportProjectId, boolean applyReviewerWithholding, boolean payRboardBonus, List resourceIds)
     throws IllegalUpdateException, RemoteException, SQLException, EventFailureException;
+
+    /**
+     * Adds online review payments in persistence.
+     *
+     * @param payments the review payments
+     * @param resourceIds the resource ids to update the payment status.
+     * @return the online review payments.
+     * @throws RemoteException if any error occurs.
+     * @throws SQLException if any sql error occurs.
+     * @since Online Review Payments and Status Automation Assembly 1.0
+     */
+    List addOnlineReviewPayments(List payments, List resourceIds) throws RemoteException, SQLException;
 
     List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed) throws SQLException, RemoteException, EventFailureException;
 
@@ -218,8 +294,8 @@ public interface PactsServices extends EJBObject {
     Map findStudioContests(String search) throws RemoteException, SQLException;
 
     ResultSetContainer getAffidavitHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws RemoteException,  SQLException;
-    
-    // ================== Methods from the Client Service ================== 
+
+    // ================== Methods from the Client Service ==================
 
     BasePayment addPayment(BasePayment payment) throws RemoteException, SQLException;
 
