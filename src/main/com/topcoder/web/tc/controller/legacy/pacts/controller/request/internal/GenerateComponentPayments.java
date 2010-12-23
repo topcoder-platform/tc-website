@@ -39,8 +39,15 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeaderList;
  *   </ol>
  * </p>
  *
- * @author mktong, pulky, Blues
- * @version 1.2
+ * <p>
+ *   Version 1.3 (Online Review Payments and Status Automation Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Update {@link #businessProcessing()} method to support payment releases if any available.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author mktong, pulky, Blues, FireIce
+ * @version 1.3
  */
 public class GenerateComponentPayments extends BaseProcessor implements PactsConstants {
     public final static String IS_DEV_SUPPORT_BY_DESIGNER = "dsd";
@@ -110,11 +117,12 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                 }
                 log.debug("status type " + getRequest().getParameter(PROJECT_TERMINATION_STATUS));
 
+                List resourceIds = new ArrayList();
                 List lst;
                 if ("none".equals(devSupportProject)) {
                     log.debug("Development support will not be paid");
 
-                    lst = bean.generateComponentPayments(Long.parseLong(projectID), Integer.parseInt(projectTermStatus), client, applyReviewerWithholding, payRboardBonus);
+                    lst = bean.generateComponentPayments(Long.parseLong(projectID), Integer.parseInt(projectTermStatus), client, applyReviewerWithholding, payRboardBonus, resourceIds);
                 } else {
                     long pid = 0;
                     if ("other".equals(devSupportProject)) {
@@ -127,11 +135,11 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                         return;
                     }
 
-                    lst = bean.generateComponentPayments(Long.parseLong(projectID), Integer.parseInt(projectTermStatus), client, devSupportId, pid, applyReviewerWithholding, payRboardBonus);
+                    lst = bean.generateComponentPayments(Long.parseLong(projectID), Integer.parseInt(projectTermStatus), client, devSupportId, pid, applyReviewerWithholding, payRboardBonus, resourceIds);
 
                 }
 
-                lst = bean.addPayments(lst);
+                lst = bean.addOnlineReviewPayments(lst, resourceIds);
 
                 List<String> ids = new ArrayList<String>();
 
