@@ -806,6 +806,9 @@ public class ProjectUtil {
         // Member Payments Eligible
         createProjectInfo(ps, projectId, 46, "true", modUserId);
 
+        // Track Late Deliverables
+        createProjectInfo(ps, projectId, 48, "true", modUserId);
+
         close(ps);
     }
 
