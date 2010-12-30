@@ -38,7 +38,7 @@ public class PayReliabilityBonus extends DBUtility {
         // Find all the project result that have a payment but not a reliability bonus payment
         // If a reliability bonus is deleted (status 69) it will be found anyways, so that if 
         // someone deletes a reliability bonus, it is not created again.
-        query.append("SELECT pr.user_id, pr.project_id, pr.old_reliability, pd.total_amount, pd.client, p.payment_id,  pro.project_category_id , ");
+        query.append("SELECT pr.user_id, pr.project_id, pr.reliability_on_registration, pd.total_amount, pd.client, p.payment_id,  pro.project_category_id , ");
         query.append("       (select NVL(ppd.actual_start_time, psd.actual_start_time)   ");
         query.append("          from tcs_catalog:project proj  ");
         query.append("               , OUTER tcs_catalog:project_phase psd  ");
@@ -48,19 +48,22 @@ public class PayReliabilityBonus extends DBUtility {
         query.append("          and ppd.project_id = proj.project_id   ");
         query.append("          and proj.project_id = pr.project_id   ");
         query.append("          and ppd.phase_type_id = 1) as posting_date ");
-        query.append("FROM tcs_catalog:project pro, tcs_catalog:project_result pr, ");
+        query.append("FROM tcs_catalog:project pro, tcs_catalog:project_reliability pr, ");
         query.append("payment p, ");
         query.append("payment_detail pd ");
         query.append("WHERE p.user_id = pr.user_id ");
         query.append("AND component_project_id = pr.project_id ");
         query.append("AND p.most_recent_detail_id = pd.payment_detail_id ");      
-        query.append("AND pr.reliability_ind = 1 ");
+        query.append("AND pr.reliable_ind = 1 ");
         query.append("AND pd.installment_number = 1 ");
         query.append("AND pr.project_id = pro.project_id ");
         query.append("AND pro.project_status_id = 7 ");
-        query.append("AND old_reliability >= 0.8 ");
+        query.append("AND reliability_on_registration >= 0.8 ");
         query.append("AND pd.payment_type_id in (6, 29, 10, 11, 42, 43, 44, 49, 55) ");
         query.append("AND pro.project_id not in (select project_id from tcs_catalog:project_info where project_info_type_id=45 and (value='false' or value='False')) ");
+
+        // The following line is not to pay the old projects posted before we did the change to the reliability calculation logic on Dec 2010
+        query.append("AND p.create_date >= to_date('12/01/2010', '%m/%d/%Y') ");
         query.append("AND not exists ");
         query.append("   (SELECT 1 FROM payment_detail pd2 ");
         query.append("     WHERE pd2.parent_payment_id=p.payment_id ");
@@ -68,7 +71,7 @@ public class PayReliabilityBonus extends DBUtility {
         
         PreparedStatement psSelProjects = prepareStatement("informixoltp", query.toString());
 
-        log.info("user_id, project_id, posting date, bonus amount, old reliability, total amount, parent payment id");
+        log.info("user_id, project_id, posting date, bonus amount, reliability, total amount, parent payment id");
         
         ReliabilityBonusCalculator reliabilityBonus = ReliabilityBonusCalculator.getInstance();
         
@@ -77,7 +80,7 @@ public class PayReliabilityBonus extends DBUtility {
         while (rs.next()) {
             long userId = rs.getLong("user_id");
             long projectId = rs.getLong("project_id");
-            double reliability = rs.getDouble("old_reliability");
+            double reliability = rs.getDouble("reliability_on_registration");
             double amount = rs.getDouble("total_amount");
             long paymentId = rs.getLong("payment_id");
             Date postingDate = rs.getDate("posting_Date");
