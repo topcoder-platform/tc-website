@@ -4,6 +4,7 @@
 package com.topcoder.utilities.dwload;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -82,6 +83,7 @@ import com.topcoder.utilities.dwload.contestresult.drv2.ContestResultCalculatorV
  *     and TC Direc project ID added to tcs_dw.project table.</li>
  *   </ol>
  * </p>
+ * <p>
  *  Version 1.1.8 (Copilot Selection Contest Online Review and TC Site Integration Assembly 1.0) Change notes:
  *   <ol>
  *     <li>
@@ -90,9 +92,19 @@ import com.topcoder.utilities.dwload.contestresult.drv2.ContestResultCalculatorV
  *     </li>
  *   </ol>
  * </p>
+ * <p>
+ *   Version 1.1.9 (TopCoder Data Load Tool Assembly) Change notes:
+ *   <ol>
+ *     <li>Added {@link #doLoadClientProjectDim()} method to load data to tcs_dw.client_project_dim table.</li>
+ *     <li>Updated {@link #doLoadProjects()} method to copy new added colums for client_project_id, start_date_calendar_id,
+ *     duration and fulfillment added to tcs_dw.projcet table.</li>
+ *     <li>UPdated {@link #performLoad()} method to call {@link #doLoadClientProjectDim()} methods
+ *     before calling {@link #doLoadProjects()} method.</li>
+ *   </ol>
+ * </p>
  *
- * @author rfairfax, pulky, ivern, VolodymyrK, TCSDEVELOPER
- * @version 1.1.8
+ * @author rfairfax, pulky, ivern, VolodymyrK, moonli, TCSDEVELOPER
+ * @version 1.1.9
  */
 public class TCLoadTCS extends TCLoad {
 
@@ -224,6 +236,8 @@ public class TCLoadTCS extends TCLoad {
             doLoadContestPrize();
 
             doLoadUserContestPrize();
+
+            doLoadClientProjectDim();
 
             doLoadProjects();
 
@@ -864,6 +878,7 @@ public class TCLoadTCS extends TCLoad {
         PreparedStatement select = null;
         PreparedStatement update = null;
         PreparedStatement insert = null;
+        PreparedStatement updateAgain = null;
         ResultSet rs = null;
 
         try {
@@ -917,6 +932,7 @@ public class TCLoadTCS extends TCLoad {
                             "     WHERE pmd.component_project_id::int = p.project_id " +
                             "     AND NOT pmd.payment_status_id IN (65, 69)) " +
                             "     AS contest_prizes_total " +
+                            "   , pib.value AS billing_project_id " +
                             "   from project p , " +
                             "   project_info pir, " +
                             "   project_info pivers, " +
@@ -926,6 +942,7 @@ public class TCLoadTCS extends TCLoad {
                             "   outer project_info pi1," +
                             "   outer project_info pi2," +
                             "   outer project_info piaf," +
+                            "   outer project_info pib," +
                             "   categories cat, " +
                             "   comp_catalog cc, " +
                             "   comp_versions cv, " +
@@ -950,6 +967,8 @@ public class TCLoadTCS extends TCLoad {
                             "   and pi2.project_info_type_id = 3 " +
                             "   and piaf.project_id = p.project_id " +
                             "   and piaf.project_info_type_id = 31 " +
+                            "   and pib.project_id = p.project_id " +
+                            "   and pib.project_info_type_id = 32 " +
                             ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
                             "   and cc.component_id = pir.value " +
                             "   and cc.root_category_id = cat.category_id " +
@@ -985,20 +1004,31 @@ public class TCLoadTCS extends TCLoad {
                     "status_id = ?, status_desc = ?, level_id = ?, viewable_category_ind = ?, version_id = ?, version_text = ?, " +
                     "rating_date = ?, num_submissions_passed_review=?, winner_id=?, stage_id = ?, digital_run_ind = ?, " +
                     "suspended_ind = ?, project_category_id = ?, project_category_name = ?, " +
-                    "tc_direct_project_id = ?, admin_fee = ?, contest_prizes_total = ? where project_id = ? ";
+                    "tc_direct_project_id = ?, admin_fee = ?, contest_prizes_total = ?, " +
+                    "client_project_id = (select client_project_id from client_project_dim where billing_project_id = ?) " +
+                    "where project_id = ? ";
 
             final String INSERT = "insert into project (project_id, component_name, num_registrations, num_submissions, " +
                     "num_valid_submissions, avg_raw_score, avg_final_score, phase_id, phase_desc, " +
                     "category_id, category_desc, posting_date, submitby_date, complete_date, component_id, " +
                     "review_phase_id, review_phase_name, status_id, status_desc, level_id, viewable_category_ind, version_id, " +
                     "version_text, rating_date, num_submissions_passed_review, winner_id, stage_id, digital_run_ind, suspended_ind, project_category_id, project_category_name, " +
-                    "tc_direct_project_id, admin_fee, contest_prizes_total) " +
+                    "tc_direct_project_id, admin_fee, contest_prizes_total, client_project_id) " +
                     "values (?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
-                    "?, ?, ?, ?, ?, ?, ?, ?, ?) ";
+                    "?, ?, ?, ?, ?, ?, ?, ?, ?, " +
+                    "(select client_project_id from client_project_dim where billing_project_id = ?)) ";
+
+            // Statements for updating the duration, fulfillment, start_date_calendar_id fields
+            final String UPDATE_AGAIN = "UPDATE project SET duration = (complete_date - posting_date)::interval minute(9) to minute::char(20)::decimal(10,2), " +
+                                           "fulfillment = (CASE WHEN num_submissions_passed_review > 0 THEN 1 ELSE 0 END), " +
+                                           "start_date_calendar_id = (SELECT calendar_id FROM calendar c WHERE YEAR(project.posting_date) = c.year " +
+                                           "                          AND MONTH(project.posting_date) = c.month_numeric " +
+                                           "                          AND DAY(project.posting_date) = c.day_of_month) " +
+                                           "WHERE complete_date IS NOT NULL AND tc_direct_project_id > 0 AND posting_date IS NOT NULL";
 
             select = prepareStatement(SELECT, SOURCE_DB);
             select.setTimestamp(1, fLastLogTime);
@@ -1018,6 +1048,7 @@ public class TCLoadTCS extends TCLoad {
             select.setTimestamp(15, fLastLogTime);
             update = prepareStatement(UPDATE, TARGET_DB);
             insert = prepareStatement(INSERT, TARGET_DB);
+            updateAgain = prepareStatement(UPDATE_AGAIN, TARGET_DB);
             rs = select.executeQuery();
             int count = 0;
             while (rs.next()) {
@@ -1029,6 +1060,7 @@ public class TCLoadTCS extends TCLoad {
                         // throw new Exception("component " + rs.getString("component_name") + " has a version > 999");
                     }
 
+                    Date postingDate = rs.getDate("posting_date");
                     //update record, if 0 rows affected, insert record
                     update.setString(1, rs.getString("component_name"));
                     update.setObject(2, rs.getObject("num_registrations"));
@@ -1040,7 +1072,7 @@ public class TCLoadTCS extends TCLoad {
                     update.setString(8, rs.getString("phase_desc"));
                     update.setInt(9, rs.getInt("category_id"));
                     update.setString(10, rs.getString("category_desc"));
-                    update.setDate(11, rs.getDate("posting_date"));
+                    update.setDate(11, postingDate);
                     update.setDate(12, rs.getDate("submitby_date"));
                     Timestamp completeDate = convertToDate(rs.getString("complete_date"));
                     if (completeDate != null) {
@@ -1071,11 +1103,11 @@ public class TCLoadTCS extends TCLoad {
                     }
 
 
-                    if (rs.getDate("posting_date") == null) {
+                    if (postingDate == null) {
                         update.setNull(26, Types.DATE);
                     } else {
                         try {
-                            update.setLong(26, calculateStage(rs.getDate("posting_date")));
+                            update.setLong(26, calculateStage(postingDate));
                         } catch (Exception e) {
                             update.setNull(26, Types.DATE);
                         }
@@ -1089,8 +1121,10 @@ public class TCLoadTCS extends TCLoad {
                     update.setLong(31, rs.getLong("tc_direct_project_id"));
                     update.setDouble(32, rs.getDouble("admin_fee"));
                     update.setDouble(33, rs.getDouble("contest_prizes_total"));
+                    update.setObject(34, rs.getObject("billing_project_id"));
 
-                    update.setLong(34, rs.getLong("project_id"));
+                    update.setLong(35, rs.getLong("project_id"));
+
                     int retVal = update.executeUpdate();
 
                     if (retVal == 0) {
@@ -1106,7 +1140,7 @@ public class TCLoadTCS extends TCLoad {
                         insert.setString(9, rs.getString("phase_desc"));
                         insert.setInt(10, rs.getInt("category_id"));
                         insert.setString(11, rs.getString("category_desc"));
-                        insert.setDate(12, rs.getDate("posting_date"));
+                        insert.setDate(12, postingDate);
                         insert.setDate(13, rs.getDate("submitby_date"));
                         completeDate = convertToDate(rs.getString("complete_date"));
                         if (completeDate != null) {
@@ -1135,11 +1169,11 @@ public class TCLoadTCS extends TCLoad {
                         } else {
                             insert.setLong(26, rs.getLong("winner_id"));
                         }
-                        if (rs.getDate("posting_date") == null) {
+                        if (postingDate == null) {
                             insert.setNull(27, Types.DATE);
                         } else {
                             try {
-                                insert.setLong(27, calculateStage(rs.getDate("posting_date")));
+                                insert.setLong(27, calculateStage(postingDate));
                             } catch (Exception e) {
                                 insert.setNull(27, Types.DATE);
                             }
@@ -1152,6 +1186,7 @@ public class TCLoadTCS extends TCLoad {
                         insert.setLong(32, rs.getLong("tc_direct_project_id"));
                         insert.setDouble(33, rs.getDouble("admin_fee"));
                         insert.setDouble(34, rs.getDouble("contest_prizes_total"));
+                        insert.setObject(35, rs.getObject("billing_project_id"));
 
                         insert.executeUpdate();
                     }
@@ -1162,12 +1197,15 @@ public class TCLoadTCS extends TCLoad {
                 }
                 count++;
             }
+            
+            // update the start_date_calendar_id, duration, fulfillment fields
+            updateAgain.executeUpdate();
             log.info("loaded " + count + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
-
 
         } catch (SQLException sqle) {
             sqle.printStackTrace();
             DBMS.printSqlException(true, sqle);
+            log.error("Load of 'project_result / project' table failed.", sqle);
             throw new Exception("Load of 'project_result / project' table failed.\n" +
                     sqle.getMessage());
         } finally {
@@ -1175,6 +1213,7 @@ public class TCLoadTCS extends TCLoad {
             close(select);
             close(insert);
             close(update);
+            close(updateAgain);
         }
     }
 
@@ -5314,6 +5353,116 @@ public class TCLoadTCS extends TCLoad {
     }
 
     /**
+     * <p>Load the client project dimension data to DW.</p>
+     * 
+     * @throws Exception if an unexpected error occurs.
+     * @since 1.1.9
+     */
+    public void doLoadClientProjectDim() throws Exception {
+        log.info("Load client project dimension data");
+
+        long start = System.currentTimeMillis();
+
+        // Statement for selecting the records from time_oltp table in source database
+        final String SELECT
+            = "SELECT a.client_id, a.name as client_name, a.creation_date as client_create_date, a.modification_date as client_modification_date, " +
+              " b.project_id as billing_project_id, b.name as project_name, b.creation_date as project_create_date, b.modification_date as project_modification_date, " +
+              " b.po_box_number as billing_account_code " +
+              " FROM time_oltp:client a, time_oltp:project b, time_oltp:client_project c" +
+              " WHERE c.client_id = a.client_id AND c.project_id = b.project_id" +
+              "  AND (a.modification_date > ? OR b.modification_date > ? OR c.modification_date > ?)";
+        
+        // Statement for updating the records in tcs_dw.client_project_dim table
+        final String UPDATE = "UPDATE client_project_dim SET client_name = ?, client_create_date = ?, client_modification_date = ?, " +
+                        "project_name = ?, project_create_date = ?, project_modification_date = ?, billing_account_code = ? " +
+                        "WHERE client_id = ? AND billing_project_id = ?";
+
+        // Statement for inserting the records to tcs_dw.client_project_dim table in target database
+        final String INSERT
+            = "INSERT INTO client_project_dim (client_id, client_name, client_create_date, client_modification_date," +
+              "                                billing_project_id, project_name, project_create_date, project_modification_date, billing_account_code)" +
+              "VALUES (?,?,?,?,?,?,?,?,?)";
+        
+        PreparedStatement select = null;
+        PreparedStatement insert = null;
+        PreparedStatement update = null;
+        ResultSet rs = null;
+        int count = 0;
+
+        try {
+            select = prepareStatement(SELECT, SOURCE_DB);
+            if (fLastLogTime == null) {
+                fLastLogTime = new Timestamp(0);
+            }
+            select.setTimestamp(1, fLastLogTime);
+            select.setTimestamp(2, fLastLogTime);
+            select.setTimestamp(3, fLastLogTime);
+            insert = prepareStatement(INSERT, TARGET_DB);
+            update = prepareStatement(UPDATE, TARGET_DB);
+            rs = select.executeQuery();
+
+            while (rs.next()) {
+                update.clearParameters();
+                // client_name
+                update.setString(1, rs.getString("client_name"));
+                // client creation date
+                update.setDate(2, rs.getDate("client_create_date"));
+                // client modification date
+                update.setDate(3, rs.getDate("client_modification_date"));
+                // project name
+                update.setString(4, rs.getString("project_name"));
+                // project creation date
+                update.setDate(5, rs.getDate("project_create_date"));
+                // project modification date
+                update.setDate(6, rs.getDate("project_modification_date"));
+                // billing account code
+                update.setString(7, rs.getString("billing_account_code"));
+                // client id
+                update.setLong(8, rs.getLong("client_id"));
+                // billing project id
+                update.setLong(9, rs.getLong("billing_project_id"));
+                int retVal = update.executeUpdate();
+                
+                if (retVal == 0) {
+                    // need to insert
+                    insert.clearParameters();
+                    // client id
+                    insert.setLong(1, rs.getLong("client_id"));
+                    // client name
+                    insert.setString(2, rs.getString("client_name"));
+                    // client creation date
+                    insert.setDate(3, rs.getDate("client_create_date"));
+                    // client modification date
+                    insert.setDate(4, rs.getDate("client_modification_date"));
+                    // billing project id
+                    insert.setLong(5, rs.getLong("billing_project_id"));
+                    // project name
+                    insert.setString(6, rs.getString("project_name"));
+                    // project creation date
+                    insert.setDate(7, rs.getDate("project_create_date"));
+                    // project modification date
+                    insert.setDate(8, rs.getDate("project_modification_date"));
+                    // billing account code
+                    insert.setString(9, rs.getString("billing_account_code"));
+                    insert.executeUpdate();
+                }
+                count++;
+            }
+
+            log.info("loaded " + count + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
+        } catch (SQLException sqle) {
+            log.error("Load of Client Project Dimension data failed.", sqle);
+            DBMS.printSqlException(true, sqle);
+            throw new Exception("Load of Client Project Dimension data failed.\n" + sqle.getMessage());
+        } finally {
+            close(rs);
+            close(select);
+            close(insert);
+            close(update);
+        }
+    }
+
+    /**
      * <p>Loads the statistics for completed projects grouped by their respective <code>TC Direct Projects</code>,
      * project categories and dates of completion.</p>
      *
@@ -5327,7 +5476,7 @@ public class TCLoadTCS extends TCLoad {
         final String INSERT
             = "INSERT INTO tcd_project_stat (tcd_project_id, project_category_id, stat_date, cost, duration, fulfillment, total_project, create_user, create_date, modify_user, modify_date) " +
               "SELECT tc_direct_project_id, project_category_id, DATE(p.complete_date), " +
-              "       SUM(p.contest_prizes_total), " +
+              "       SUM(p.admin_fee + p.contest_prizes_total), " +
               "       SUM((p.complete_date - p.posting_date)::interval minute(9) to minute::char(20)::decimal(10,2)), " +
               "       SUM(CASE WHEN num_submissions_passed_review > 0 THEN 1 ELSE 0 END), " +
               "       COUNT(p.project_id), " +
