@@ -1475,16 +1475,14 @@ public class TCLoadTCS extends TCLoad {
                         "    , pr.payment " +
                         "    , pr.old_rating " +
                         "    , pr.new_rating " +
-                        "    , pr.old_reliability " +
-                        "    , pr.new_reliability " +
+                        "    , pre.reliability_before_resolution " +
+                        "    , pre.reliability_after_resolution " +
                         "    , pr.placed " +
                         "    , pr.rating_ind " +
-                        "    , pr.reliability_ind " +
                         "    , pr.passed_review_ind " +
                         "    , p.project_status_id as project_stat_id " +
                         "    , pr.point_adjustment" +
-                        "    , pr.current_reliability_ind " +
-                        "    , pr.reliable_submission_ind " +
+                        "    , pre.reliable_ind " +
                         "    , pr.rating_order " +
                         // first we try get the awarded points from project_info (DR points type)
                         // then, we try to get it from comp_version_dates
@@ -1514,6 +1512,7 @@ public class TCLoadTCS extends TCLoad {
                         "       ,outer project_phase psd " +
                         "       ,outer project_phase ppd " +
                         "       ,outer project_phase pwa " +
+                        "		,outer project_reliability pre " +
                         "    where p.project_id = pr.project_id " +
                         "   and p.project_id = pi.project_id " +
                         "   and pi.project_info_type_id = 2 " +
@@ -1533,14 +1532,16 @@ public class TCLoadTCS extends TCLoad {
                         "   and psd.project_id = p.project_id " +
                         "   and psd.phase_type_id = 2 " +
                         "   and ppd.project_id = p.project_id " +
-                        "   and ppd.phase_type_id = 1 ";
+                        "   and ppd.phase_type_id = 1 " +
+                        "	and pre.project_id = pr.project_id" +
+                        "	and pre.user_id	= pr.user_id";
 
         final String RESULT_INSERT =
                 "insert into project_result (project_id, user_id, submit_ind, valid_submission_ind, raw_score, final_score, inquire_timestamp," +
                         " submit_timestamp, review_complete_timestamp, payment, old_rating, new_rating, old_reliability, new_reliability, placed, rating_ind, " +
-                        "reliability_ind, passed_review_ind, points_awarded, final_points,current_reliability_ind, reliable_submission_ind, old_rating_id, " +
+                        " passed_review_ind, points_awarded, final_points, reliable_submission_ind, old_rating_id, " +
                         "new_rating_id, num_ratings, rating_order, potential_points) " +
-                        "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                        "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         final String DR_POINTS_INSERT =
             "insert into dr_points (dr_points_id, dr_points_status_id, track_id, dr_points_reference_type_id, "+
@@ -1801,37 +1802,35 @@ public class TCLoadTCS extends TCLoad {
 		                    resultInsert.setObject(10, projectResults.getObject("payment"));
 		                    resultInsert.setObject(11, projectResults.getObject("old_rating"));
 		                    resultInsert.setObject(12, projectResults.getObject("new_rating"));
-		                    resultInsert.setObject(13, projectResults.getObject("old_reliability"));
-		                    resultInsert.setObject(14, projectResults.getObject("new_reliability"));
+		                    resultInsert.setObject(13, projectResults.getObject("reliability_before_resolution"));
+		                    resultInsert.setObject(14, projectResults.getObject("reliability_after_resolution"));
 		                    resultInsert.setObject(15, projectResults.getObject("placed"));
 		                    resultInsert.setObject(16, projectResults.getObject("rating_ind"));
-		                    resultInsert.setObject(17, projectResults.getObject("reliability_ind"));
-		                    resultInsert.setObject(18, projectResults.getObject("passed_review_ind"));
+		                    resultInsert.setObject(17, projectResults.getObject("passed_review_ind"));
 		
 		                    if (hasDR) {
-		                        resultInsert.setDouble(19, pointsAwarded);
-		                        resultInsert.setDouble(20, pointsAwarded + projectResults.getInt("point_adjustment"));
+		                        resultInsert.setDouble(18, pointsAwarded);
+		                        resultInsert.setDouble(19, pointsAwarded + projectResults.getInt("point_adjustment"));
 		                    } else {
+		                        resultInsert.setNull(18, Types.DECIMAL);
 		                        resultInsert.setNull(19, Types.DECIMAL);
-		                        resultInsert.setNull(20, Types.DECIMAL);
 		                    }
-		                    resultInsert.setInt(21, projectResults.getInt("current_reliability_ind"));
-		                    resultInsert.setInt(22, projectResults.getInt("reliable_submission_ind"));
+		                    resultInsert.setInt(20, projectResults.getInt("reliable_ind"));
 		
-		                    resultInsert.setInt(23, projectResults.getString("old_rating") == null ? -2 : projectResults.getInt("old_rating"));
-		                    resultInsert.setInt(24, projectResults.getString("new_rating") == null ? -2 : projectResults.getInt("new_rating"));
+		                    resultInsert.setInt(21, projectResults.getString("old_rating") == null ? -2 : projectResults.getInt("old_rating"));
+		                    resultInsert.setInt(22, projectResults.getString("new_rating") == null ? -2 : projectResults.getInt("new_rating"));
 		                    Long tempUserId = new Long(projectResults.getLong("user_id"));
 		                    int currNumRatings = 0;
 		                    if (ratingsMap.containsKey(tempUserId)) {
 		                        currNumRatings = ratingsMap.get(tempUserId);
 		                    }
-		                    resultInsert.setInt(25, projectResults.getInt("rating_ind") == 1 ? currNumRatings + 1 : currNumRatings);
-		                    resultInsert.setObject(26, projectResults.getObject("rating_order"));
+		                    resultInsert.setInt(23, projectResults.getInt("rating_ind") == 1 ? currNumRatings + 1 : currNumRatings);
+		                    resultInsert.setObject(24, projectResults.getObject("rating_order"));
 		
 		                    if (hasDR) {
-		                        resultInsert.setDouble(27, potentialPoints);
+		                        resultInsert.setDouble(25, potentialPoints);
 		                    } else {
-		                        resultInsert.setNull(27, Types.DECIMAL);
+		                        resultInsert.setNull(25, Types.DECIMAL);
 		                    }
 		
 		                    //log.debug("before result insert");
