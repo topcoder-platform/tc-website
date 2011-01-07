@@ -105,7 +105,7 @@ public class AggregationDataLoader extends TCLoad {
                                 "    CASE WHEN a.avg_contest_fees is NULL THEN 0 ELSE a.avg_contest_fees END as avg_contest_fees, " +
                                 "    CASE WHEN a.avg_member_fees is NULL THEN 0 ELSE a.avg_member_fees END as avg_member_fees, " +
                                 "    CASE WHEN a.avg_duration is NULL THEN 0 ELSE a.avg_duration END as avg_duration, " +
-                                "    CASE WHEN a.avg_fulfillment is NULL THEN 0 ELSE a.avg_fulfillment END as avg_fulfillment, " +
+                                "    CASE WHEN a.succ_cnt is NULL THEN 0 WHEN b.fail_cnt is NULL THEN 1 ELSE a.succ_cnt / (a.succ_cnt + b.fail_cnt) END as avg_fulfillment, " +
                                 "    CASE WHEN a.succ_cnt is NULL THEN 0 ELSE a.succ_cnt END as succ_cnt, " +
                                 "    CASE WHEN b.fail_cnt is NULL THEN 0 ELSE b.fail_cnt END as fail_cnt " +
                                 "FROM tmp_project_aggr_1 a full outer join tmp_project_aggr_2 b ON a.client_project_id=b.client_project_id AND a.tc_direct_project_id=b.tc_direct_project_id " +
