@@ -306,7 +306,7 @@ public class TCLoadTCS extends TCLoad {
 
             doLoadDRTrackResults();
 
-            doLoadDirectProjectStats();
+            //doLoadDirectProjectStats();
 
             doClearCache();
 
@@ -1005,7 +1005,7 @@ public class TCLoadTCS extends TCLoad {
                     "rating_date = ?, num_submissions_passed_review=?, winner_id=?, stage_id = ?, digital_run_ind = ?, " +
                     "suspended_ind = ?, project_category_id = ?, project_category_name = ?, " +
                     "tc_direct_project_id = ?, admin_fee = ?, contest_prizes_total = ?, " +
-                    "client_project_id = (select client_project_id from client_project_dim where billing_project_id = ?) " +
+                    "client_project_id = ? " +
                     "where project_id = ? ";
 
             final String INSERT = "insert into project (project_id, component_name, num_registrations, num_submissions, " +
@@ -1020,7 +1020,7 @@ public class TCLoadTCS extends TCLoad {
                     "?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, ?, ?, ?, ?, " +
-                    "(select client_project_id from client_project_dim where billing_project_id = ?)) ";
+                    "?) ";
 
             // Statements for updating the duration, fulfillment, start_date_calendar_id fields
             final String UPDATE_AGAIN = "UPDATE project SET duration = (complete_date - posting_date)::interval minute(9) to minute::char(20)::decimal(10,2), " +
@@ -1122,7 +1122,7 @@ public class TCLoadTCS extends TCLoad {
                     update.setLong(31, rs.getLong("tc_direct_project_id"));
                     update.setDouble(32, rs.getDouble("admin_fee"));
                     update.setDouble(33, rs.getDouble("contest_prizes_total"));
-                    update.setObject(34, rs.getObject("billing_project_id"));
+                    update.setLong(34, rs.getLong("billing_project_id"));
 
                     update.setLong(35, rs.getLong("project_id"));
 
@@ -1187,7 +1187,7 @@ public class TCLoadTCS extends TCLoad {
                         insert.setLong(32, rs.getLong("tc_direct_project_id"));
                         insert.setDouble(33, rs.getDouble("admin_fee"));
                         insert.setDouble(34, rs.getDouble("contest_prizes_total"));
-                        insert.setObject(35, rs.getObject("billing_project_id"));
+                        insert.setLong(35, rs.getLong("billing_project_id"));
 
                         insert.executeUpdate();
                     }
