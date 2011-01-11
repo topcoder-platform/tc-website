@@ -318,10 +318,8 @@
                 <p>Trouble formatting your submission or want to learn more?
                     <a href="http://topcoder.com/home/studio/the-process/how-to-submit-to-a-contest/">Read this FAQs</a>.</p>
 
-                <p><strong>Note:</strong> All non-standard Windows fonts must be listed in a text file within your
-                    submission folder. Include the name of the font and a link to where it can be downloaded/purchased.
-                    DO
-                    NOT include any font files in your submission or source files.
+                <p><strong>Note:</strong> All <a href="http://topcoder.com/home/studio/the-process/font-policy/">non-standard fonts</a> must be listed in a text file within your submission folder. Include the name of the font and a link to where it can be downloaded/purchased (commercial fonts only). DO NOT include any font files in your submission or source files. 
+
                 </p>
             </div>
             <!--End grayBox2-->
