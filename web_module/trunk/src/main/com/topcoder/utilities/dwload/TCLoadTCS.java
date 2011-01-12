@@ -239,6 +239,8 @@ public class TCLoadTCS extends TCLoad {
 
             doLoadClientProjectDim();
 
+            doLoadDirectProjectDim();
+
             doLoadProjects();
 
             doLoadSpecReviews();
@@ -968,7 +970,7 @@ public class TCLoadTCS extends TCLoad {
                             "   and piaf.project_id = p.project_id " +
                             "   and piaf.project_info_type_id = 31 " +
                             "   and pib.project_id = p.project_id " +
-                            "   and pib.project_info_type_id = 32 " +
+                            "   and pib.project_info_type_id = 32 and pib.value > 0 " +
                             ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
                             "   and cc.component_id = pir.value " +
                             "   and cc.root_category_id = cat.category_id " +
@@ -995,7 +997,7 @@ public class TCLoadTCS extends TCLoad {
                             "   or p.project_id in (select distinct pmd.component_project_id::int " +
                             "      FROM informixoltp:payment pm INNER JOIN informixoltp:payment_detail pmd ON pm.most_recent_detail_id = pmd.payment_detail_id " +
                             "      WHERE NOT pmd.payment_status_id IN (65, 69) AND (pmd.create_date > ? or pmd.date_modified > ? or pm.create_date > ? or pm.modify_date > ?)) " +
-                            "   OR pir.modify_date > ? OR pib.modify_date > ? " + (needLoadMovedProject() ? " OR p.modify_user <> 'Converter'  OR pir.modify_user <> 'Converter' )" : ")");
+                            "   OR pir.modify_date > ? " + (needLoadMovedProject() ? " OR p.modify_user <> 'Converter'  OR pir.modify_user <> 'Converter' )" : ")");
 
             final String UPDATE = "update project set component_name = ?,  num_registrations = ?, " +
                     "num_submissions = ?, num_valid_submissions = ?, avg_raw_score = ?, avg_final_score = ?, " +
@@ -1046,7 +1048,6 @@ public class TCLoadTCS extends TCLoad {
             select.setTimestamp(13, fLastLogTime);
             select.setTimestamp(14, fLastLogTime);
             select.setTimestamp(15, fLastLogTime);
-            select.setTimestamp(16, fLastLogTime);
             update = prepareStatement(UPDATE, TARGET_DB);
             insert = prepareStatement(INSERT, TARGET_DB);
             updateAgain = prepareStatement(UPDATE_AGAIN, TARGET_DB);
@@ -1122,8 +1123,16 @@ public class TCLoadTCS extends TCLoad {
                     update.setLong(31, rs.getLong("tc_direct_project_id"));
                     update.setDouble(32, rs.getDouble("admin_fee"));
                     update.setDouble(33, rs.getDouble("contest_prizes_total"));
-                    update.setLong(34, rs.getLong("billing_project_id"));
-
+                    if (rs.getString("billing_project_id") != null 
+                        && !rs.getString("billing_project_id").equals("0"))
+                    {
+                        update.setLong(34, rs.getLong("billing_project_id"));
+                    }
+                    else 
+                    {
+                        update.setNull(34, Types.DECIMAL);
+                    }
+                    
                     update.setLong(35, rs.getLong("project_id"));
 
                     int retVal = update.executeUpdate();
@@ -1187,8 +1196,16 @@ public class TCLoadTCS extends TCLoad {
                         insert.setLong(32, rs.getLong("tc_direct_project_id"));
                         insert.setDouble(33, rs.getDouble("admin_fee"));
                         insert.setDouble(34, rs.getDouble("contest_prizes_total"));
-                        insert.setLong(35, rs.getLong("billing_project_id"));
-
+                        if (rs.getString("billing_project_id") != null 
+                                && !rs.getString("billing_project_id").equals("0"))
+                        {
+                            insert.setLong(35, rs.getLong("billing_project_id"));
+                        }
+                        else 
+                        {
+                            insert.setNull(35, Types.DECIMAL);
+                        }
+                        
                         insert.executeUpdate();
                     }
                 } else {
@@ -5456,6 +5473,100 @@ public class TCLoadTCS extends TCLoad {
             log.error("Load of Client Project Dimension data failed.", sqle);
             DBMS.printSqlException(true, sqle);
             throw new Exception("Load of Client Project Dimension data failed.\n" + sqle.getMessage());
+        } finally {
+            close(rs);
+            close(select);
+            close(insert);
+            close(update);
+        }
+    }
+
+
+    /**
+     * <p>Load the direct project dimension data to DW.</p>
+     * 
+     * @throws Exception if an unexpected error occurs.
+     * @since 1.1.9
+     */
+    public void doLoadDirectProjectDim() throws Exception {
+        log.info("Load direct project dimension data");
+
+        long start = System.currentTimeMillis();
+
+        // Statement for selecting the records from time_oltp table in source database
+        final String SELECT
+            = "SELECT project_id, name, description, project_status_id, create_date, modify_date "  +
+              " FROM tc_direct_project " +
+              " WHERE modify_date > ? ";
+        
+        // Statement for updating the records in tcs_dw.client_project_dim table
+        final String UPDATE = "UPDATE direct_project_dim SET name = ?, description = ?, project_status_id = ?, " +
+                        " project_create_date = ?, project_modification_date = ? " +
+                        " WHERE direct_project_id = ?";
+
+        // Statement for inserting the records to tcs_dw.client_project_dim table in target database
+        final String INSERT
+            = "INSERT INTO direct_project_dim (direct_project_id, name, description, project_status_id," +
+              "                                project_create_date, project_modification_date)" +
+              "VALUES (?,?,?,?,?,?)";
+        
+        PreparedStatement select = null;
+        PreparedStatement insert = null;
+        PreparedStatement update = null;
+        ResultSet rs = null;
+        int count = 0;
+
+        try {
+            select = prepareStatement(SELECT, SOURCE_DB);
+            if (fLastLogTime == null) {
+                fLastLogTime = new Timestamp(0);
+            }
+            select.setTimestamp(1, fLastLogTime);
+            insert = prepareStatement(INSERT, TARGET_DB);
+            update = prepareStatement(UPDATE, TARGET_DB);
+            rs = select.executeQuery();
+
+            while (rs.next()) {
+                update.clearParameters();
+                // name
+                update.setString(1, rs.getString("name"));
+                // description
+                update.setString(2, rs.getString("description"));
+                // project_status_id
+                update.setLong(3, rs.getLong("project_status_id"));
+                // project_create_date
+                update.setDate(4, rs.getDate("create_date"));
+                // project_modification_date
+                update.setDate(5, rs.getDate("modify_date"));
+                // direct project id 
+                update.setLong(6, rs.getLong("project_id"));
+                int retVal = update.executeUpdate();
+                
+                if (retVal == 0) {
+                    // need to insert
+                    insert.clearParameters();
+                    // direct project id
+                    insert.setLong(1, rs.getLong("project_id"));
+                    // name
+                    insert.setString(2, rs.getString("name"));
+                    // description
+                    insert.setString(3, rs.getString("description"));
+                    // project_status_id
+                    insert.setLong(4, rs.getLong("project_status_id"));
+                    // project_create_date
+                    insert.setDate(5, rs.getDate("create_date"));
+                    // project_modification_date
+                    insert.setDate(6, rs.getDate("modify_date"));
+                    insert.executeUpdate();
+                }
+                count++;
+            }
+
+            log.info("loaded " + count + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
+        } catch (SQLException sqle) {
+            log.error("Load of Direct Project Dimension data failed.", sqle);
+            DBMS.printSqlException(true, sqle);
+            throw new Exception("Load of Direct Project Dimension data failed.\n" + sqle.getMessage());
         } finally {
             close(rs);
             close(select);
