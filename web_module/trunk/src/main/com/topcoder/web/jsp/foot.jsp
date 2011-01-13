@@ -16,7 +16,7 @@
             <a href="http://<%=ApplicationServer.SERVER_NAME%>/cockpit" class="footerLinks">Cockpit</a>        </td>
     </tr>
     <tr>
-      <td width="100%" class="copyright">Copyright &#169; 2001-2010, TopCoder, Inc. All rights reserved.</td></tr>
+      <td width="100%" class="copyright">Copyright &#169; 2001-2011, TopCoder, Inc. All rights reserved.</td></tr>
 </tbody>
 </table>
 
@@ -29,3 +29,19 @@ document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.
 var pageTracker = _gat._getTracker("UA-6340959-1");
 pageTracker._trackPageview();
 </script>
+
+
+<!-- Performable Analytics -->
+<script type="text/javascript">
+{% if user.is_logged_in %}
+
+var _paq = _paq || [];
+
+_paq.push(["identify", {
+handle: "{{ user.handle }}"
+}]);
+{% end %}
+
+</script>
+
+<script src="//d1nu2rn22elx8m.cloudfront.net/performable/pax/4wrbNk.js" type="text/javascript"></script>
