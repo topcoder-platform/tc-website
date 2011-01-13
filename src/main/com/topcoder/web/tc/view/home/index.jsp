@@ -435,7 +435,7 @@
 					developers representing more than 200 countries.
 				</p>
 				<p>
-					<strong>Copyright &copy;2001-2010, TopCoder, Inc. All rights reserved</strong>
+					<strong>Copyright &copy;2001-2011, TopCoder, Inc. All rights reserved</strong>
 				</p>
 			</div>
 		</div>
@@ -444,5 +444,21 @@
 	<!-- end #mainContent -->
 </div>
 <!-- end #outlay -->
+
+<!-- Performable Analytics -->
+<script type="text/javascript">
+{% if user.is_logged_in %}
+
+var _paq = _paq || [];
+
+_paq.push(["identify", {
+handle: "{{ user.handle }}"
+}]);
+{% end %}
+
+</script>
+
+<script src="//d1nu2rn22elx8m.cloudfront.net/performable/pax/4wrbNk.js" type="text/javascript"></script>
+
 </body>
 </html>
