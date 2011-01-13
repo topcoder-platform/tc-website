@@ -19,7 +19,7 @@
     <div class="wrapper2">
         <p>TopCoder Studio is the creative arm of TopCoder, the world's largest competitive software development
             community with developers representing over 200 countries.<br/>
-            Copyright &copy;2001-2010, TopCoder, Inc. All rights reserved</p>
+            Copyright &copy;2001-2011, TopCoder, Inc. All rights reserved</p>
 
         <p>
             <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&amp;d1=contactUs">Contact Us</a> |
@@ -50,3 +50,20 @@
         pageTracker._trackPageview();
     } catch(err) {
     }</script>
+    
+
+<!-- Performable Analytics -->
+<script type="text/javascript">
+{% if user.is_logged_in %}
+
+var _paq = _paq || [];
+
+_paq.push(["identify", {
+handle: "{{ user.handle }}"
+}]);
+{% end %}
+
+</script>
+
+<script src="//d1nu2rn22elx8m.cloudfront.net/performable/pax/4wrbNk.js" type="text/javascript"></script>
+    
