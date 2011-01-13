@@ -929,7 +929,7 @@ public class TCLoadTCS extends TCLoad {
 //                            "     WHERE costs.project_id = p.project_id " +
 //                            "     AND costs.project_info_type_id IN (30, 33, 35, 36, 37, 38, 39)) " +
 //                            "     AS contest_prizes_total " +
-                            "   ,(SELECT SUM(gross_amount) " +
+                            "   ,(SELECT SUM(total_amount) " +
                             "     FROM informixoltp:payment pm INNER JOIN informixoltp:payment_detail pmd ON pm.most_recent_detail_id = pmd.payment_detail_id " +
                             "     WHERE pmd.component_project_id::int = p.project_id " +
                             "     AND NOT pmd.payment_status_id IN (65, 69)) " +
