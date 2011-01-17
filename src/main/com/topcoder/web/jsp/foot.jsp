@@ -1,4 +1,16 @@
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
+<%@ page import="com.topcoder.shared.util.ApplicationServer,
+                 com.topcoder.web.common.BaseServlet, com.topcoder.web.common.SessionInfo" %>
+
+<%
+    SessionInfo sessionInfo = (SessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);
+    String level1 = request.getParameter("level1")==null?"competition":request.getParameter("level1");
+    String handle = null;
+    if (sessionInfo != null)
+    {
+        handle = sessionInfo.getHandle();
+    }
+
+%>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
 <tbody>
@@ -30,18 +42,20 @@ var pageTracker = _gat._getTracker("UA-6340959-1");
 pageTracker._trackPageview();
 </script>
 
-
 <!-- Performable Analytics -->
+<%
+ if (handle != null && !handle.equals("") && !handle.equals("anonymous")) {
+%>
 <script type="text/javascript">
-{% if user.is_logged_in %}
 
-var _paq = _paq || [];
-
-_paq.push(["identify", {
-handle: "{{ user.handle }}"
-}]);
-{% end %}
-
+    var _paq = _paq || [];
+ 
+    _paq.push(["identify", {
+    id: "<%=handle %>"
+    }]);
 </script>
 
+<%}%>
+
 <script src="//d1nu2rn22elx8m.cloudfront.net/performable/pax/4wrbNk.js" type="text/javascript"></script>
+
