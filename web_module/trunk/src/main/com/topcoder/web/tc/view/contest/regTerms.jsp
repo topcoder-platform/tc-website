@@ -1,6 +1,6 @@
 <%--
-  - Author: pulky, TCSASSEMBLER
-  - Version: 1.5
+  - Author: pulky, FireIce
+  - Version: 1.6
   - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page shows the registration terms for a specific project.
@@ -18,7 +18,10 @@
   - terms of use and also added pending terms of use list so that each terms of use can be accepted separatedly.
   -
   - Version 1.5 (Copilot Selection Contest Online Review and TC Site Integration Assembly  1.0) changes:
-  - Added support for new Copilot Postings.  
+  - Added support for new Copilot Postings.
+  -
+  - Version 1.6 (Content Creation Contest Online Review and TC Site Integration Assembly  1.0) changes:
+  - Added support for new Content Creations.
 --%>
 <%@ page language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -56,6 +59,7 @@
 <c:set value="<%=Constants.RIA_BUILD_PROJECT_TYPE%>" var="RIA_BUILD_PROJECT_TYPE"/>
 <c:set value="<%=Constants.RIA_COMPONENT_PROJECT_TYPE%>" var="RIA_COMPONENT_PROJECT_TYPE"/>
 <c:set value="<%=Constants.COPILOT_POSTING_PROJECT_TYPE%>" var="COPILOT_POSTING_PROJECT_TYPE"/>
+<c:set value="<%=Constants.CONTENT_CREATION_PROJECT_TYPE%>" var="CONTENT_CREATION_PROJECT_TYPE"/>
 <c:set value="<%=Constants.TERMS_OF_USE_ID%>" var="TERMS_OF_USE_ID"/>
 <c:set value="<%=BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
 <c:set value="<%=Constants.PROJECT_ID%>" var="PROJECT_ID"/>
@@ -132,7 +136,12 @@
                     <jsp:include page="/includes/global_left.jsp">
                         <jsp:param name="node" value="copilots_compete"/>
                     </jsp:include>
-                </c:when>				
+                </c:when>
+                <c:when test="${pt == CONTENT_CREATION_PROJECT_TYPE}">
+                    <jsp:include page="/includes/global_left.jsp">
+                        <jsp:param name="node" value="content_creation_compete"/>
+                    </jsp:include>
+                </c:when>
             </c:choose>
         </td>
 <%-- Left Column Ends --%>
@@ -206,7 +215,13 @@
                         <jsp:param name="image" value="copilot_posting"/>
                         <jsp:param name="title" value="Active Copilot Postings"/>
                     </jsp:include>
-                </c:when>				
+                </c:when>
+                <c:when test="${pt == CONTENT_CREATION_PROJECT_TYPE}">
+                    <jsp:include page="/page_title.jsp">
+                        <jsp:param name="image" value="content_creation"/>
+                        <jsp:param name="title" value="Active Contests"/>
+                    </jsp:include>
+                </c:when>
             </c:choose>
 
             <form action="${sessionInfo.servletPath}" method="POST" name="regForm">
@@ -287,7 +302,7 @@
                                                         <br /><br />
                                                         <hr width="100%" size="1" noshade/>
                                                     </td>
-            
+
                                                 </tr>
                                                 <tr>
                                                     <td colspan="2" class="errorText">

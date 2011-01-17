@@ -30,8 +30,15 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
  *   </ol>
  * </p>
  *
- * @author cucu, pulky, Blues
- * @version 1.2
+ * <p>
+ *   Version 1.3 (Content Creation Contest Online Review and TC Site Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #businessProcessing()} method.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author cucu, pulky, Blues, FireIce
+ * @version 1.3
  */
 public class SelectPaymentTypeReference extends BaseProcessor implements PactsConstants {
 
@@ -98,6 +105,8 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
                             map = dib.findProjects("%" + search + "%", RIA_COMPONENT_COMPETITION_PROJECT_CATEGORY_LU);
                         } else if (type == COPILOT_POSTING_PAYMENT) {
                             map = dib.findProjects("%" + search + "%", COPILOT_POSTING_PROJECT_CATEGORY_LU);
+                        } else if (type == CONTENT_CREATION_PAYMENT) {
+                            map = dib.findProjects("%" + search + "%", CONTENT_CREATION_PROJECT_CATEGORY_LU);
                         } else {
                             map = dib.findProjects("%" + search + "%");
                         }

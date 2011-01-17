@@ -1,3 +1,11 @@
+<%--
+ * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
+ *
+ * This JSP renders TopCoder web site's shortcut bar.
+ *
+ * Changes in Content Creation Contest Online Review and TC Site Integration Assembly 1.0:
+ * Add content creation shortcut icon.
+--%>
 <%@  page
   language="java"
   import="com.topcoder.shared.util.ApplicationServer,
@@ -24,6 +32,7 @@
 <%--    <div class="icon"><a href="http://<%=ApplicationServer.SERVER_NAME%>/registration/actions/Registration.do?method=openRegistrations"><img src="/i/interface/scAssembly.png" alt="" onmouseover="postPopUpText('globalPopupText','Software Assembly Competitions'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a></div>--%>
     <div class="icon"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewAssemblyActiveContests"><img src="/i/interface/scAssembly.png" alt="" onmouseover="postPopUpText('globalPopupText','Software Assembly Competitions'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a></div>
     <div class="icon"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&pt=13"><img src="/i/interface/scTesting.png" alt="" onmouseover="postPopUpText('globalPopupText','Testing Competitions'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a></div>
+    <div class="icon"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&pt=35"><img src="/i/interface/scContentCreation.gif" alt="" onmouseover="postPopUpText('globalPopupText','Content Creation Competitions'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a></div>
     <div class="icon"><a href="javascript:arena();"><img src="/i/interface/scTCHS.png" alt="" onmouseover="postPopUpText('globalPopupText','High School Competitions'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a></div>
     <div class="icon"><a href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=ViewActiveContests"><img src="/i/interface/scMarathon.png" alt="" onmouseover="postPopUpText('globalPopupText','Marathon Matches'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a></div>
     <div class="icon"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests"><img src="/i/interface/scStudio.png" alt="" onmouseover="postPopUpText('globalPopupText','TopCoder Studio Competitions'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a></div>

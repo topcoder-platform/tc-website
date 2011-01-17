@@ -112,11 +112,21 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
  *     populating the payment statuses for the given resource ids.</li>
  * </ol>
  * </p>
+ * <p>
+ *   Version 1.7 (Content Creation Contest Online Review and TC Site Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added {@link #CONTENT_CREATION_PROJECT_TYPE} constant.</li>
+ *     <li>Updated {@link #generateComponentPayments(long, long, String, boolean, long, long, boolean, boolean)} method.
+ *     </li>
+ *     <li>Updated {@link #generateComponentUserPayments(long, double, String, long, int, long, boolean, long, boolean)}
+ *     method.</li>
+ *   </ol>
+ * </p>
  *
  * <p>VERY IMPORTANT: remember to update serialVersionUID if needed.</p>
  *
  * @author Dave Pecora, pulky, isv, Vitta, Blues, FireIce
- * @version 1.6
+ * @version 1.7
  * @see PactsConstants
  */
 public class PactsServicesBean extends BaseEJB implements PactsConstants {
@@ -139,6 +149,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     private static final int ARCHITECTURE_PROJECT_TYPE = 7;
     private static final int CONCEPTUALIZATION_PROJECT_TYPE = 23;
     private static final int SPECIFICATION_PROJECT_TYPE = 6;
+
+    /**
+     * <p>A <code>int</code> representing the content creation project id.</p>
+     *
+     * @since 1.7
+     */
+    private static final int CONTENT_CREATION_PROJECT_TYPE = 35;
 
     /**
      * <p>A <code>int</code> representing the test suites project id.</p>
@@ -5316,7 +5333,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 projectType == SPECIFICATION_PROJECT_TYPE || projectType == TEST_SUITES_PROJECT_TYPE ||
                 projectType == ASSEMBLY_PROJECT_TYPE || projectType == UI_PROTOTYPE_PROJECT_TYPE ||
                 projectType == RIA_BUILD_PROJECT_TYPE || projectType == RIA_COMPONENT_PROJECT_TYPE ||
-                projectType == TEST_SCENARIOS_PROJECT_TYPE || projectType == SPECIFICATION_REVIEW_PROJECT_TYPE) {
+                projectType == TEST_SCENARIOS_PROJECT_TYPE || projectType == SPECIFICATION_REVIEW_PROJECT_TYPE ||
+                projectType == CONTENT_CREATION_PROJECT_TYPE) {
                 p = new ReviewBoardPayment(coderId, amount, client, projectId);
             }
 
@@ -6464,6 +6482,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         } else if (projectType == CONCEPTUALIZATION_PROJECT_TYPE) {
             ConceptualizationContestPayment ccp = new ConceptualizationContestPayment(coderId, grossAmount, client, projectId, placed);
             l.add(ccp);
+        } else if (projectType == CONTENT_CREATION_PROJECT_TYPE) {
+            ContentCreationContestPayment cccp = new ContentCreationContestPayment(coderId, grossAmount, client, projectId, placed);
+            l.add(cccp);
         } else if (projectType == SPECIFICATION_PROJECT_TYPE) {
             SpecificationContestPayment scp = new SpecificationContestPayment(coderId, grossAmount, client, projectId, placed);
             l.add(scp);

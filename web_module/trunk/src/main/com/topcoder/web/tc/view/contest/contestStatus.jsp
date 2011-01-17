@@ -1,7 +1,7 @@
 <%--
-  - Author: pulky
-  - Version: 1.2
-  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  - Author: pulky, FireIce
+  - Version: 1.3
+  - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page lists all active contests for a specific project type to show their status.
   -
@@ -10,6 +10,9 @@
   -
   - Version 1.2 (Testing Competition Split Release Assembly 1.0) changes: Updated Application Testing to Test Suites
   - and added support for new Test Scenarios competitions.
+  -
+  - Version 1.3 (Content Creation Contest Online Review and TC Site Integration Assembly version 1.0) changes:
+  - Added support for new Content Creation competitions.
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
@@ -50,6 +53,7 @@
 <c:set value="<%=Constants.UI_PROTOTYPE_PROJECT_TYPE%>" var="UI_PROTOTYPE_TYPE_ID"/>
 <c:set value="<%=Constants.RIA_BUILD_PROJECT_TYPE%>" var="RIA_BUILD_TYPE_ID"/>
 <c:set value="<%=Constants.RIA_COMPONENT_PROJECT_TYPE%>" var="RIA_COMPONENT_TYPE_ID"/>
+<c:set value="<%=Constants.CONTENT_CREATION_PROJECT_TYPE%>" var="CONTENT_CREATION_TYPE_ID"/>
 
 
 <jsp:include page="../top.jsp">
@@ -114,6 +118,11 @@
             <c:when test="${pt == RIA_COMPONENT_TYPE_ID}">
                 <jsp:include page="/includes/global_left.jsp">
                     <jsp:param name="node" value="ria_component_status"/>
+                </jsp:include>
+            </c:when>
+            <c:when test="${pt == CONTENT_CREATION_TYPE_ID}">
+                <jsp:include page="/includes/global_left.jsp">
+                    <jsp:param name="node" value="content_creation_status"/>
                 </jsp:include>
             </c:when>
       </c:choose>
@@ -195,6 +204,12 @@
                 <jsp:param name="title" value="Contest Status"/>
             </jsp:include>
         </c:when>
+        <c:when test="${pt == CONTENT_CREATION_TYPE_ID}">
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="content_creation"/>
+                <jsp:param name="title" value="Contest Status"/>
+            </jsp:include>
+        </c:when>
       </c:choose>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
@@ -202,7 +217,7 @@
         <c:choose>
         <c:when test="${pt == ARCHITECTURE_TYPE_ID || pt == ASSEMBLY_TYPE_ID || pt == TEST_SUITES_TYPE_ID ||
             pt == TEST_SCENARIOS_TYPE_ID || pt == UI_PROTOTYPE_TYPE_ID || pt == RIA_BUILD_TYPE_ID ||
-            pt == RIA_COMPONENT_TYPE_ID}">
+            pt == RIA_COMPONENT_TYPE_ID || pt == CONTENT_CREATION_TYPE_ID}">
             <td class="title" colspan="8">Contest Status</td>
         </c:when>
         <c:when test="${pt == DEVELOPMENT_TYPE_ID}">
@@ -221,7 +236,7 @@
         </c:if>
         <c:if test="${pt != ARCHITECTURE_TYPE_ID && pt != ASSEMBLY_TYPE_ID && pt != TEST_SUITES_TYPE_ID &&
             pt != TEST_SCENARIOS_TYPE_ID && pt != UI_PROTOTYPE_TYPE_ID && pt != RIA_BUILD_TYPE_ID &&
-            pt != RIA_COMPONENT_TYPE_ID}">
+            pt != RIA_COMPONENT_TYPE_ID && pt != CONTENT_CREATION_TYPE_ID}">
             <td class="headerC">
                 <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("catalog_name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Catalog</a>
             </td>
@@ -260,7 +275,7 @@
             </c:if>
             <c:if test="${pt != ARCHITECTURE_TYPE_ID && pt != ASSEMBLY_TYPE_ID && pt != TEST_SUITES_TYPE_ID &&
                 pt != TEST_SCENARIOS_TYPE_ID && pt != UI_PROTOTYPE_TYPE_ID && pt != RIA_BUILD_TYPE_ID &&
-                pt != RIA_COMPONENT_TYPE_ID}">
+                pt != RIA_COMPONENT_TYPE_ID && pt != CONTENT_CREATION_TYPE_ID}">
             <td class="valueC">
                 <tc_tags:languageIcon catalogName = "<%=resultRow.getStringItem("catalog_name")%>" aolBrand="<%=(resultRow.getItem("aol_brand").getResultData() != null)%>"
                                       paypalBrand="<%=(resultRow.getItem("paypal_brand") != null && resultRow.getItem("paypal_brand").getResultData() != null)%>"/>

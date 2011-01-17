@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common.model;
 
@@ -81,10 +81,19 @@ import com.topcoder.shared.util.logging.Logger;
  *   <ol>
  *     <li>Added support for Copilot Posting.</li>
  *   </ol>
+ *
+ *   Version 1.1.7 (Content Creation Contest Online Review and TC Site Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #getReviewerPaymentCalculator(float, int, int)} method for supporting spec review payment of
+ *     content creation contests.</li>
+ *     <li>Updated {@link #getSpecReviewCost()} method for setting spec review payment for content creation contests.
+ *     </li>
+ *     <li>Updated {@link #main(String[])} method for printing help message for content creation contests.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, ivern, isv, pulky, snow01, VolodymyrK, TCSASSEMBLER
- * @version 1.1.6
+ * @author dok, ivern, isv, pulky, snow01, VolodymyrK, FireIce
+ * @version 1.1.7
  */
 
 public class DefaultPriceComponent implements SoftwareComponent {
@@ -210,7 +219,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
         } else if (phaseId == ARCHITECTURE_PHASE) {
             return new ArchitectureReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
         } else if (phaseId == SPECIFICATION_PHASE || phaseId == TEST_SUITES_PHASE ||
-                   phaseId == TEST_SCENARIOS_PHASE || phaseId == COPILOT_POSTING_PHASE) {
+                   phaseId == TEST_SCENARIOS_PHASE || phaseId == COPILOT_POSTING_PHASE || phaseId == CONTENT_CREATION_PHASE) {
             return new ApplicationReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
         } else if (phaseId == UI_PROTOTYPE_PHASE || phaseId == RIA_BUILD_PHASE ||
                 phaseId == RIA_COMPONENT_PHASE) {
@@ -221,7 +230,8 @@ public class DefaultPriceComponent implements SoftwareComponent {
                 phaseId == ARCHITECTURE_SPECIFICATION_PHASE || phaseId == ASSEMBLY_SPECIFICATION_PHASE ||
                 phaseId == TEST_SUITES_SPECIFICATION_PHASE || phaseId == TEST_SCENARIOS_SPECIFICATION_PHASE ||
                 phaseId == UI_PROTOTYPE_SPECIFICATION_PHASE || phaseId == RIA_BUILD_SPECIFICATION_PHASE ||
-                phaseId == RIA_COMPONENT_SPECIFICATION_PHASE || phaseId == COPILOT_POSTING_SPECIFICATION_PHASE) {
+                phaseId == RIA_COMPONENT_SPECIFICATION_PHASE || phaseId == COPILOT_POSTING_SPECIFICATION_PHASE ||
+                phaseId == CONTENT_CREATION_SPECIFICATION_PHASE) {
             return new SpecificationReviewerPaymentCalculator(phaseId);
         } else {
             throw new IllegalArgumentException("Invalid phaseId (" + phaseId + ")");
@@ -330,6 +340,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
             case RIA_BUILD_PHASE: return 50;
             case RIA_COMPONENT_PHASE: return 50;
             case COPILOT_POSTING_PHASE: return 50;
+            case CONTENT_CREATION_PHASE: return 50;
             default: return 50;
         }
     }
@@ -367,6 +378,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
             System.out.println("RIA Build phaseId                       : " + RIA_BUILD_PHASE);
             System.out.println("RIA Component phaseId                   : " + RIA_COMPONENT_PHASE);
             System.out.println("Copilot Posting phaseId                 : " + COPILOT_POSTING_PHASE);
+            System.out.println("Content Creation phaseId                : " + CONTENT_CREATION_PHASE);
             System.out.println("Specification Review phaseId            : " + SPECIFICATION_REVIEW_PHASE);
             System.out.println("Design Specification phaseId            : " + DESIGN_SPECIFICATION_PHASE);
             System.out.println("Development Specification phaseId       : " + DEVELOPMENT_SPECIFICATION_PHASE);
@@ -379,6 +391,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
             System.out.println("RIA Build Specification phaseId         : " + RIA_BUILD_SPECIFICATION_PHASE);
             System.out.println("RIA Component Specification phaseId     : " + RIA_COMPONENT_SPECIFICATION_PHASE);
             System.out.println("Copilot Posting Specification phaseId   : " + COPILOT_POSTING_SPECIFICATION_PHASE);
+            System.out.println("Content Creation Specification phaseId   : " + CONTENT_CREATION_SPECIFICATION_PHASE);
         } else {
             DefaultPriceComponent sc = new DefaultPriceComponent(1, Integer.parseInt(args[0]),
                                                                  Integer.parseInt(args[1]), Integer.parseInt(args[2]),

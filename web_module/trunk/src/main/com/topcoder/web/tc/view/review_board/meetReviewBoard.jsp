@@ -1,8 +1,8 @@
 <%--
-  - Author: pulky, snow01
-  - Version: 1.3
+  - Author: pulky, snow01, FireIce
+  - Version: 1.4
   - Since: TCS Release 2.2.2
-  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page lists the members of the review board corresponding to the specified project type.
   - It displays the list of reviewers along with their handles and photos. The page also contains the links for
@@ -18,6 +18,9 @@
   -
   - Version 1.3 (Specification Review Integration 1.0) Change Notes:
   - added support for handling new contest types.
+  -
+  - Version 1.4 (Content Creation Contest Online Review and TC Site Integration Assembly version 1.0) Change Notes:
+  - added support for handling new content creation competitions.
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
@@ -34,6 +37,7 @@
 <c:set var="UI_PROTOTYPE_PROJECT_TYPE" value="<%=Constants.UI_PROTOTYPE_PROJECT_TYPE%>" />
 <c:set var="RIA_BUILD_PROJECT_TYPE" value="<%=Constants.RIA_BUILD_PROJECT_TYPE%>" />
 <c:set var="RIA_COMPONENT_PROJECT_TYPE" value="<%=Constants.RIA_COMPONENT_PROJECT_TYPE%>" />
+<c:set var="CONTENT_CREATION_PROJECT_TYPE" value="<%=Constants.CONTENT_CREATION_PROJECT_TYPE%>" />
 
 <c:set var="projectType" value="${param[PROJECT_TYPE_ID]}"/>
 
@@ -58,6 +62,9 @@
     </c:when>
     <c:when test="${projectType == RIA_COMPONENT_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="RIA Component"/>
+    </c:when>
+    <c:when test="${projectType == CONTENT_CREATION_PROJECT_TYPE}">
+        <c:set var="projectTypeDesc" value="Content Creation"/>
     </c:when>
 </c:choose>
 
@@ -107,6 +114,11 @@
                     <jsp:param name="level1" value="ria_component"/>
                 </jsp:include>
             </c:when>
+            <c:when test="${projectType == CONTENT_CREATION_PROJECT_TYPE}">
+                <jsp:include page="/top.jsp" >
+                    <jsp:param name="level1" value="content_creation"/>
+                </jsp:include>
+            </c:when>
         </c:choose>
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <tr valign="top">
@@ -146,6 +158,11 @@
                         <c:when test="${projectType == RIA_COMPONENT_PROJECT_TYPE}">
                             <jsp:include page="/includes/global_left.jsp">
                                 <jsp:param name="node" value="ria_component_review_board"/>
+                            </jsp:include>
+                        </c:when>
+                        <c:when test="${projectType == CONTENT_CREATION_PROJECT_TYPE}">
+                            <jsp:include page="/includes/global_left.jsp">
+                                <jsp:param name="node" value="content_creation_review_board"/>
                             </jsp:include>
                         </c:when>
                     </c:choose>
@@ -199,6 +216,12 @@
                             <jsp:include page="/page_title.jsp">
                                 <jsp:param name="image" value="ria_component"/>
                                 <jsp:param name="title" value="Meet the RIA Component Review Board"/>
+                            </jsp:include>
+                        </c:when>
+                        <c:when test="${projectType == CONTENT_CREATION_PROJECT_TYPE}">
+                            <jsp:include page="/page_title.jsp">
+                                <jsp:param name="image" value="content_creation"/>
+                                <jsp:param name="title" value="Meet the Content Creation Review Board"/>
                             </jsp:include>
                         </c:when>
                     </c:choose>
@@ -342,6 +365,12 @@
                             <jsp:include page="/public_right.jsp">
                                 <jsp:param name="level1" value="review_board"/>
                                 <jsp:param name="level2" value="ria_component"/>
+                            </jsp:include>
+                        </c:when>
+                        <c:when test="${projectType == CONTENT_CREATION_PROJECT_TYPE}">
+                            <jsp:include page="/public_right.jsp">
+                                <jsp:param name="level1" value="review_board"/>
+                                <jsp:param name="level2" value="content_creation"/>
                             </jsp:include>
                         </c:when>
                     </c:choose>

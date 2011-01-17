@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.contest;
 
@@ -36,10 +36,15 @@ import java.util.Map;
  *   <ol>
  *     <li>Add copilot posting support including permissions checking for copilot postings</li>
  *   </ol>
+ *
+ *  Version 1.4 (Content Creation Contest Online Review and TC Site Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #DEFAULT_PROJECT_TYPES} constant.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, pulky, Blues
- * @version 1.3
+ * @author dok, pulky, Blues, FireIce
+ * @version 1.4
  */
 public class ActiveContests extends ActiveContestsBase {
 
@@ -51,7 +56,8 @@ public class ActiveContests extends ActiveContestsBase {
         Constants.ARCHITECTURE_PROJECT_TYPE, Constants.TEST_SUITES_PROJECT_TYPE, Constants.TEST_SCENARIOS_PROJECT_TYPE,
         Constants.SPECIFICATION_PROJECT_TYPE, Constants.CONCEPTUALIZATION_PROJECT_TYPE,
         Constants.UI_PROTOTYPE_PROJECT_TYPE, Constants.RIA_BUILD_PROJECT_TYPE,
-        Constants.RIA_COMPONENT_PROJECT_TYPE, Constants.COPILOT_POSTING_PROJECT_TYPE};
+        Constants.RIA_COMPONENT_PROJECT_TYPE, Constants.COPILOT_POSTING_PROJECT_TYPE,
+        Constants.CONTENT_CREATION_PROJECT_TYPE};
 
     public static final String DEFAULT_NAMESPACE = "com.topcoder.web.tc.controller.request.contest.ActiveContests";
 

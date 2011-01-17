@@ -54,8 +54,17 @@ package com.topcoder.web.ejb.pacts;
  *   </ol>
  * </p>
  *
+ * <p>
+ *   Version 1.7 (Content Creation Contest Online Review and TC Site Integration Assembly version 1.0) Change notes:
+ *   Add Support for content creation.
+ *   <ol>
+ *     <li>CONTENT_CREATION_PROJECT_CATEGORY_LU added</li>
+ *     <li>CONTENT_CREATION_PAYMENT added</li>
+ *   </ol>
+ * </p>
+ *
  * @author TCSDEVELOPER, pulky, VolodymyrK, TCSASSEMBLER
- * @version 1.6
+ * @version 1.7
  */
 public interface Constants {
 
@@ -272,4 +281,19 @@ public interface Constants {
      * @since 1.6
      */
 	public static final int COPILOT_POSTING_PAYMENT = 60;
+
+
+    /**
+     * <p>A <code>int</code> representing the content creation category id.</p>
+     *
+     * @since 1.7
+     */
+	public static final int CONTENT_CREATION_PROJECT_CATEGORY_LU = 35;
+
+    /**
+     * <p>A <code>int</code> representing the content creation payment id.</p>
+     *
+     * @since 1.7
+     */
+	public static final int CONTENT_CREATION_PAYMENT = 61;
 }

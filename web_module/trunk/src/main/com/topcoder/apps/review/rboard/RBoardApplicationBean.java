@@ -120,17 +120,24 @@ import com.topcoder.web.ejb.forums.ForumsHome;
  *   Version 1.0.14 Change notes:
  *   <ol>
  *     <li>createSpecReviewRBoardApplication method rewritten to work with the new Spec Reviewer process.
- *     It now adds "Specification Reviewer" role to the parent cotnest in OR instead of a separate project in OR.
+ *     It now adds "Specification Reviewer" role to the parent contest in OR instead of a separate project in OR.
  *     </li>
  *   </ol>
  *   Version 1.0.15 (Copilot Selection Contest Online Review and TC Site Integration Assembly 1.0) Change notes:
  *   <ol>
  *     <li>Added support for Copilot Posting.</li>
  *   </ol>
+ *   Version 1.0.16 (Content Creation Contest Online Review and TC Site Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added {@link #CONTENT_CREATION_PRIMARY_REVIEW_ID} constant.</li>
+ *     <li>Updated {@link #validateRegularUserTrans(java.sql.Connection, long, int, long, Boolean, java.sql.Timestamp,
+ *     int, boolean)} method to support validating review positions for content creation projects.</li>
+ *     <li>Updated {@link #getReviewRespInfo()} method for support content creation contest.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, ivern, isv, pulky, snow01, VolodymyrK, Blues
- * @version 1.0.15
+ * @author dok, ivern, isv, pulky, snow01, VolodymyrK, Blues, FireIce
+ * @version 1.0.16
  */
 public class RBoardApplicationBean extends BaseEJB {
     private static final int INTERNAL_ADMIN_USER = 100129;
@@ -147,7 +154,7 @@ public class RBoardApplicationBean extends BaseEJB {
     private static final int PRIMARY_SCREEN_ROLE = 2;
     private static final int AGGREGATOR_REVIEWER_ROLE = 8;
     private static final int FINAL_REVIEWER_ROLE = 9;
-    private static final int SPECIFICATION_REVIEWER_ROLE = 18;	
+    private static final int SPECIFICATION_REVIEWER_ROLE = 18;
 
     private static final int RESOURCE_INFO_TYPE_EXTERNAL_ID = 1;
     private static final int RESOURCE_INFO_TYPE_REGISTRATION_DATE = 6;
@@ -236,7 +243,7 @@ public class RBoardApplicationBean extends BaseEJB {
      * @since 1.0.9
      */
     private static final int RIA_COMPONENT_PRIMARY_REVIEW_ID = 28;
-	
+
     /**
      * <p>An <code>int</code> representing the primary review id for Specification Review projects.</p>
      *
@@ -244,13 +251,20 @@ public class RBoardApplicationBean extends BaseEJB {
      */
     private static final int SPECIFICATION_REVIEW_PRIMARY_REVIEW_ID = 37;
 
-  /**
+    /**
      * <p>An <code>int</code> representing the primary review id for Copilot Posting.</p>
      *
      * @since 1.0.15
      */
     private static final int COPILOT_POSTING_PRIMARY_REVIEW_ID = 38;
-	
+
+    /**
+     * <p>An <code>int</code> representing the primary review id for Content Creation.</p>
+     *
+     * @since 1.0.16
+     */
+    private static final int CONTENT_CREATION_PRIMARY_REVIEW_ID = 63;
+
 
     /**
      * <p>A <code>String</code> containing the error message for inconsistent reviewers for most project types.</p>
@@ -437,7 +451,7 @@ public class RBoardApplicationBean extends BaseEJB {
      */
     private int getResourceRoleIdByReviewRespId(int reviewRespId, Connection conn)
             throws SQLException {
-			
+
 		log.debug("getResourceRoleIdByReviewRespId called: reviewRespId = " + reviewRespId);
 
         PreparedStatement ps = null;
@@ -480,7 +494,7 @@ public class RBoardApplicationBean extends BaseEJB {
      */
     private void insertUserRole(Connection conn, long resourceId, long resourceRoleId,
                                 long projectId, String phaseId, long userId) {
-								
+
 		log.debug("insertUserRole called: projectId = " + projectId + ", resourceRoleId = " + resourceRoleId +", phaseId = " + phaseId + ", userId = " + userId);
         PreparedStatement ps = null;
         try {
@@ -575,7 +589,7 @@ public class RBoardApplicationBean extends BaseEJB {
             rs.close();
             pstmt.close();
         }
-		
+
 		return ret;
     }
 
@@ -661,7 +675,7 @@ public class RBoardApplicationBean extends BaseEJB {
                 if (pid != null && !pid.equals("")) {
                 	insertUserRole(conn, nextId(RESOURCE_ID_SEQ), roleId, projectId, pid, userId);
                 }
-                
+
                 // Prepare for final review
                 roleId = FINAL_REVIEWER_ROLE;
                 pid = (String) phaseInfos.get(String.valueOf(FINAL_REVIEW_PHASE));
@@ -696,7 +710,7 @@ public class RBoardApplicationBean extends BaseEJB {
     }
 
     /**
-     * Creates the spec review rboard_application and "Specification Reviewer" resource for the contest in OR. 
+     * Creates the spec review rboard_application and "Specification Reviewer" resource for the contest in OR.
      *
      * Updated for Version 1.0.12
      *      - Now the write permissions for the contest are assigned to the spec reviewer.
@@ -736,10 +750,10 @@ public class RBoardApplicationBean extends BaseEJB {
         try {
             conn = DBMS.getConnection(dataSource);
 
-            // Check that the position applied is one of the spec review ones.		
+            // Check that the position applied is one of the spec review ones.
             int roleId = getResourceRoleIdByReviewRespId(reviewRespId, conn);
             if (roleId != SPECIFICATION_REVIEWER_ROLE) {
-                throw new RBoardRegistrationException("Invalid request, incorrect review position specified.");
+                throw new RBoardRegistrationException("Invalid request, incorrect review position specified. Not Specification Reviewer Role.");
             }
 
             // gets project info.
@@ -767,7 +781,7 @@ public class RBoardApplicationBean extends BaseEJB {
                    new String[]{String.valueOf(userId), String.valueOf(projectId),
                                 String.valueOf(phaseId), String.valueOf(reviewRespId),
                                 String.valueOf(0)});
-			
+
             // Prepare resource for review phase
             insertUserRole(conn, nextId(RESOURCE_ID_SEQ), SPECIFICATION_REVIEWER_ROLE, projectId, pid, userId);
 
@@ -973,7 +987,7 @@ public class RBoardApplicationBean extends BaseEJB {
             long status = 0;
             try {
 	            if (phaseId > WebConstants.SPECIFICATION_COMPETITION_OFFSET) {
-                    status = getStatus(conn, userId, phaseId - 111 - WebConstants.SPECIFICATION_COMPETITION_OFFSET, catalogId);				
+                    status = getStatus(conn, userId, phaseId - 111 - WebConstants.SPECIFICATION_COMPETITION_OFFSET, catalogId);
 				} else {
                     status = getStatus(conn, userId, phaseId - 111, catalogId);
 				}
@@ -1014,7 +1028,7 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param projectId the project id to validate
      * @param phaseId the project type
      * @param userId the user id to validate
-     * @param open Whether the registration is actually open	 
+     * @param open Whether the registration is actually open
      * @param opensOn the timestamp when the position opnens
      * @param reviewTypeId the review type
      * @param primary true if the position if for primary reviewer
@@ -1032,7 +1046,7 @@ public class RBoardApplicationBean extends BaseEJB {
 			if (phaseId > WebConstants.SPECIFICATION_COMPETITION_OFFSET) {
 			    validateSpecReviewUserTrans(conn, projectId, phaseId, userId, open, opensOn, reviewTypeId);
             } else {
-                validateRegularUserTrans(conn, projectId, phaseId, userId, open, opensOn, reviewTypeId, primary);				
+                validateRegularUserTrans(conn, projectId, phaseId, userId, open, opensOn, reviewTypeId, primary);
 			}
             conn.commit();
         } catch (SQLException sqle) {
@@ -1076,10 +1090,10 @@ public class RBoardApplicationBean extends BaseEJB {
             long status = 0;
             try {
 	            if (projectTypeId > WebConstants.SPECIFICATION_COMPETITION_OFFSET) {
-                    status = getStatus(conn, userId, projectTypeId - WebConstants.SPECIFICATION_COMPETITION_OFFSET);			
+                    status = getStatus(conn, userId, projectTypeId - WebConstants.SPECIFICATION_COMPETITION_OFFSET);
 				} else {
                     status = getStatus(conn, userId, projectTypeId);
-				}				
+				}
             } catch (RowNotFoundException rnfe) {
                 rnfe.printStackTrace();
                 try {
@@ -1131,7 +1145,7 @@ public class RBoardApplicationBean extends BaseEJB {
                                    Timestamp opensOn, int reviewTypeId, boolean primary)
             throws RBoardRegistrationException {
         log.debug("validateRegularUserTrans called...");
-		
+
         if (exists(conn, userId, projectId, phaseId)) {
             throw new RBoardRegistrationException("You have already applied to review this project.");
         }
@@ -1208,6 +1222,9 @@ public class RBoardApplicationBean extends BaseEJB {
         } else if (phaseId == (WebConstants.COPILOT_POSTING_PROJECT_TYPE + 111)) {
             validateReviewPositions(reviewTypeId, primary, reviewers, COPILOT_POSTING_PRIMARY_REVIEW_ID,
                 INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
+        } else if (phaseId == (WebConstants.CONTENT_CREATION_PROJECT_TYPE + 111)) {
+            validateReviewPositions(reviewTypeId, primary, reviewers, CONTENT_CREATION_PRIMARY_REVIEW_ID,
+                INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         }
 
         // If somebody came in by constructing the URL, make sure that there is at least one
@@ -1233,7 +1250,7 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param projectId the project id to validate
      * @param phaseId the project type
      * @param userId the user id to validate
-     * @param open Whether the registration is actually open	 
+     * @param open Whether the registration is actually open
      * @param opensOn the timestamp when the position opens
      * @param reviewTypeId the review type
      *
@@ -1243,7 +1260,7 @@ public class RBoardApplicationBean extends BaseEJB {
                                    Timestamp opensOn, int reviewTypeId)
             throws RBoardRegistrationException {
         log.debug("validateSpecReviewUserTrans called...");
-		
+
         if (exists(conn, userId, projectId, phaseId)) {
             throw new RBoardRegistrationException("You have already applied to review this project.");
         }
@@ -1302,10 +1319,10 @@ public class RBoardApplicationBean extends BaseEJB {
         Map returnMap = new HashMap();
         int[] respIds = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
                 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42,
-				43, 44, 45, 46, 47, 48, 49, 60, 61, 62};
+				43, 44, 45, 46, 47, 48, 49, 50, 60, 61, 62, 63, 64, 65};
         int[] phaseIds = {113, 113, 113, 112, 112, 112, 125, 125, 125, 118, 118, 118, 134, 134, 134,
                 117, 117, 117, 124, 124, 124, 130, 130, 130, 135, 135, 135, 136, 136, 136, 137, 137, 137,
-                114, 114, 114, 138, 1113, 1112, 1125, 1118, 1134, 1117, 1124, 1130, 1135, 1136, 1137, 1114, 140, 140, 140};
+                114, 114, 114, 138, 1113, 1112, 1125, 1118, 1134, 1117, 1124, 1130, 1135, 1136, 1137, 1114, 1146, 140, 140, 140, 146, 146, 146};
 
         for (int i = 0; i < respIds.length; i++) {
             returnMap.put(new Integer(respIds[i]), new Integer(phaseIds[i]));
