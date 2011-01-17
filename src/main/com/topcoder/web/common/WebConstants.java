@@ -53,10 +53,19 @@ package com.topcoder.web.common;
  *     <li>Added constants for the Copilot Posting.</li>
  *   </ol>
  * </p>
+ *
+ * <p>
+ *   Version 1.6.2 (Content Creation Contest Online Review and TC Site Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added {@link #CONTENT_CREATION_PROJECT_TYPE}, {@link #CONTENT_CREATION_SPECIFICATION_PROJECT_TYPE},
+ *     {@link #PHASE_CONTENT_CREATION} and {@link #PHASE_CONTENT_CREATION_SPECIFICATION} constants for the Content
+ *     Creation.</li>
+ *   </ol>
+ * </p>
  * </p>
  *
- * @author dok, pulky, snow01, TCSASSEMBLER
- * @version 1.6.1
+ * @author dok, pulky, snow01, FireIce
+ * @version 1.6.2
  */
 public interface WebConstants {
     public static final String HANDLE = "ha";
@@ -314,12 +323,12 @@ public interface WebConstants {
      * @since 1.1
      */
     public static final int RIA_COMPONENT_PROJECT_TYPE = 25;
-    
+
     /**
      * <p>An <code>int</code> representing specification review project type id.</p>
      */
     public static final int SPECIFICATION_REVIEW_PROJECT_TYPE = 27;
-    
+
     /**
      * <p>An <code>long</code> representing design specification project category id.</p>
      *
@@ -428,7 +437,7 @@ public interface WebConstants {
      * @since 1.1
      */
     public static final long PHASE_RIA_COMPONENT = RIA_COMPONENT_PROJECT_TYPE + GENERAL_PHASE_OFFSET;
-    
+
     /**
      * <p>A <code>long</code> representing specification review phase id.</p>
      */
@@ -499,7 +508,7 @@ public interface WebConstants {
      */
     public static final long PHASE_TEST_SUITES_SPECIFICATION =
         PHASE_TEST_SUITES + SPECIFICATION_COMPETITION_OFFSET;
-        
+
     /**
      * <p>An <code>long</code> representing test scenarios competition specification phase id.</p>
      *
@@ -557,6 +566,32 @@ public interface WebConstants {
      */
     public static final long PHASE_COPILOT_POSTING_SPECIFICATION =
 	    PHASE_COPILOT_POSTING + SPECIFICATION_COMPETITION_OFFSET;
+
+    /**
+     * <p>An <code>int</code> representing content creation project type id.</p>
+	 * @since 1.6.2
+     */
+    public static final int CONTENT_CREATION_PROJECT_TYPE = 35;
+
+    /**
+     * <p>An <code>long</code> representing content creation specification project category id.</p>
+	 * @since 1.6.2
+     */
+    public static final long CONTENT_CREATION_SPECIFICATION_PROJECT_TYPE =
+	    CONTENT_CREATION_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;
+
+    /**
+     * <p>An <code>long</code> representing content creation phase id.</p>
+	 * @since 1.6.2
+     */
+    public static final long PHASE_CONTENT_CREATION = CONTENT_CREATION_PROJECT_TYPE + GENERAL_PHASE_OFFSET;
+
+    /**
+     * <p>An <code>long</code> representing copilot posting specification phase id.</p>
+	 * @since 1.6.2
+     */
+    public static final long PHASE_CONTENT_CREATION_SPECIFICATION =
+	    PHASE_CONTENT_CREATION + SPECIFICATION_COMPETITION_OFFSET;
 
     /**
      * <p>A <code>String</code> representing clients attribute key.</p>

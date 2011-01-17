@@ -58,7 +58,7 @@ import java.util.Date;
  *   <ol>
  *     <li>Add a field hasGlobalAD to reflect the AD</li>
  *   </ol>
- * </p> 
+ * </p>
  *
  * <p>
  *   Version 1.6 (Copilot Selection Contest Online Review and TC Site Integration Assembly version 1.0) Change notes:
@@ -67,8 +67,17 @@ import java.util.Date;
  *   </ol>
  * </p>
  *
- * @author cucu, pulky, Vitta, TCSASSEMBLER
- * @version 1.6
+ * <p>
+ *   Version 1.7 (Content Creation Contest Online Review and TC Site Integration Assembly version 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #getReferenceTypeId(int)} method.</li>
+ *     <li>Updated {@link #createPayment(int, long, double, long, int)} method.</li>
+ *     <li>Updated {@link #getPaymentTypeDesc()} method.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author cucu, pulky, Vitta, FireIce
+ * @version 1.7
  */
 public abstract class BasePayment implements Constants, java.io.Serializable {
     private static Logger log = Logger.getLogger(BasePayment.class);
@@ -103,12 +112,12 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
     private int modificationRationale = 0;
 
     private String client = null;
-	
+
 	/**
 	 * Indicate whether have the global AD.
 	 * @since 1.5
 	 */
-	private boolean hasGlobalAD; 
+	private boolean hasGlobalAD;
 
     /**
      * Create a base payment.
@@ -210,6 +219,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case COPILOT_PAYMENT:
         case DEPLOYMENT_TASK_PAYMENT:
         case COPILOT_POSTING_PAYMENT:
+        case CONTENT_CREATION_PAYMENT:
             return REFERENCE_COMPONENT_PROJECT_ID;
 
         case PROBLEM_WRITING_PAYMENT:
@@ -303,6 +313,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case DIGITAL_RUN_V2_PRIZE_PAYMENT: return new DigitalRunV2PrizePayment(coderId, grossAmount, referenceId, placed);
         case DIGITAL_RUN_V2_TOP_PERFORMERS_PAYMENT: return new DigitalRunV2TopPerformersPayment(coderId, grossAmount, referenceId, placed);
         case SPECIFICATION_CONTEST_PAYMENT: return new SpecificationContestPayment(coderId, grossAmount, referenceId, placed);
+        case CONTENT_CREATION_PAYMENT: return new ContentCreationContestPayment(coderId, grossAmount, referenceId, placed);
         case CONCEPTUALIZATION_CONTEST_PAYMENT: return new ConceptualizationContestPayment(coderId, grossAmount, referenceId, placed);
         case TEST_SUITES_PAYMENT: return new TestSuitesCompetitionPayment(coderId, grossAmount, referenceId, placed);
         case TEST_SCENARIOS_PAYMENT: return new TestScenariosCompetitionPayment(coderId, grossAmount, referenceId, placed);
@@ -457,6 +468,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             case RIA_COMPONENT_COMPETITION_PAYMENT: return "RIA Component Competition Payment";
             case SPECIFICATION_WRITING_PAYMENT: return "Specification Writing Payment";
             case STUDIO_SPECIFICATION_WRITING_PAYMENT: return "Studio Specification Writing Payment";
+            case CONTENT_CREATION_PAYMENT: return "Content Creation Payment";
 
             default: return "Other Payment";
         }
@@ -641,7 +653,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
 	public boolean getHasGlobalAD() {
         return hasGlobalAD;
     }
-	
+
     /**
      * Set the global ad.
      * @param hasGlobalAD the new global ad.

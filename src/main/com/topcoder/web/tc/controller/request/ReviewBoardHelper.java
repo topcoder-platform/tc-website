@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request;
 
@@ -45,11 +45,19 @@ import com.topcoder.web.common.WebConstants;
  *           </ul>
  *         </td>
  *     </tr>
+ *     <tr>
+ *         <td>Version 1.4 (Content Creation Contest Online Review and TC Site Integration Assembly version 1.0)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Updated {@link #isReviewBoardTypeSupported(String, boolean)} method.</li> 
+ *           </ul>
+ *         </td>
+ *     </tr>
  *   </table>
  * </p>
  *
- * @author pulky, snow01
- * @version 1.3
+ * @author pulky, snow01, FireIce
+ * @version 1.4
  */
 public final class ReviewBoardHelper {
 
@@ -72,7 +80,7 @@ public final class ReviewBoardHelper {
      * <p>Checks whether the specified review board type requested by client is currently supported by this controller
      * or not. As of current version only Design, Development, Assembly, Architecture, Conceptualization, Specification,
      * Test Suites and Test Scenarios review boards and their specification reviews are supported.</p>
-     * 
+     *
      * Updated for Specification Review Integration 1.0
      *      - Added check for spec review project types.
      *
@@ -92,8 +100,9 @@ public final class ReviewBoardHelper {
             || reviewBoardType.equals(String.valueOf(WebConstants.TEST_SCENARIOS_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.UI_PROTOTYPE_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.RIA_BUILD_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.RIA_COMPONENT_PROJECT_TYPE));
-			
+            || reviewBoardType.equals(String.valueOf(WebConstants.RIA_COMPONENT_PROJECT_TYPE))
+            || reviewBoardType.equals(String.valueOf(WebConstants.CONTENT_CREATION_PROJECT_TYPE));
+
 		if (!supported && includeSpecificationReviews) {
             supported = reviewBoardType.equals(String.valueOf(WebConstants.DESIGN_SPECIFICATION_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.DEVELOPMENT_SPECIFICATION_PROJECT_TYPE))
@@ -105,9 +114,10 @@ public final class ReviewBoardHelper {
 			|| reviewBoardType.equals(String.valueOf(WebConstants.TEST_SCENARIOS_SPECIFICATION_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.UI_PROTOTYPE_SPECIFICATION_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.RIA_BUILD_SPECIFICATION_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.RIA_COMPONENT_SPECIFICATION_PROJECT_TYPE));
+            || reviewBoardType.equals(String.valueOf(WebConstants.RIA_COMPONENT_SPECIFICATION_PROJECT_TYPE))
+            || reviewBoardType.equals(String.valueOf(WebConstants.CONTENT_CREATION_SPECIFICATION_PROJECT_TYPE));
         }
 
-        return supported;			
+        return supported;
     }
 }

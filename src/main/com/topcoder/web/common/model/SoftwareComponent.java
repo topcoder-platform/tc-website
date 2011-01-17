@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common.model;
 
@@ -35,16 +35,23 @@ import com.topcoder.web.common.WebConstants;
  *     <li>Added constants for Specification Review projects.</li>
  *   </ol>
  *
- * 
+ *
  *   Version 1.4 (Copilot Selection Contest Online Review and TC Site Integration Assembly 1.0) Change notes:
  *   <ol>
  *     <li>Added constants for Copilot Posting projects.</li>
  *   </ol>
  * </p>
-
  *
- * @author dok, pulky, snow01, VolodymyrK, TCSASSEMBLER
- * @version 1.4
+ *  <p>
+ *   Version 1.5 (Content Creation Contest Online Review and TC Site Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added {@link #CONTENT_CREATION_PHASE} and {@link #CONTENT_CREATION_SPECIFICATION_PHASE} constants for
+ *     Content Creation projects.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky, snow01, VolodymyrK, FireIce
+ * @version 1.5
  */
 public interface SoftwareComponent extends Cloneable, Serializable {
 
@@ -89,12 +96,12 @@ public interface SoftwareComponent extends Cloneable, Serializable {
      * @since 1.1
      */
     public final static int RIA_COMPONENT_PHASE = (int) WebConstants.PHASE_RIA_COMPONENT;
-    
+
     /**
      * <p>An <code>int</code> representing specification review phase id.</p>
      */
     public final static int SPECIFICATION_REVIEW_PHASE = (int) WebConstants.PHASE_SPECIFICATION_REVIEW;
-	
+
 	/**
      * <p>An <code>int</code> representing design specification phase id.</p>
      *
@@ -145,7 +152,7 @@ public interface SoftwareComponent extends Cloneable, Serializable {
      */
     public final static int TEST_SUITES_SPECIFICATION_PHASE =
             (int) WebConstants.PHASE_TEST_SUITES_SPECIFICATION;
-			
+
 	/**
      * <p>An <code>int</code> representing test scenarios competition specification phase id.</p>
      *
@@ -153,7 +160,7 @@ public interface SoftwareComponent extends Cloneable, Serializable {
      */
     public final static int TEST_SCENARIOS_SPECIFICATION_PHASE =
             (int) WebConstants.PHASE_TEST_SCENARIOS_SPECIFICATION;
-            
+
     /**
      * <p>An <code>int</code> representing ui prototype competition specification phase id.</p>
      *
@@ -161,7 +168,7 @@ public interface SoftwareComponent extends Cloneable, Serializable {
      */
     public final static int UI_PROTOTYPE_SPECIFICATION_PHASE =
             (int) WebConstants.PHASE_UI_PROTOTYPE_SPECIFICATION;
-            
+
     /**
      * <p>An <code>int</code> representing ria build competition specification phase id.</p>
      *
@@ -169,7 +176,7 @@ public interface SoftwareComponent extends Cloneable, Serializable {
      */
     public final static int RIA_BUILD_SPECIFICATION_PHASE =
             (int) WebConstants.PHASE_RIA_BUILD_SPECIFICATION;
-            
+
     /**
      * <p>An <code>int</code> representing ria component competition specification phase id.</p>
      *
@@ -192,7 +199,21 @@ public interface SoftwareComponent extends Cloneable, Serializable {
      * @since 1.4
      */
     public final static int COPILOT_POSTING_PHASE =(int) WebConstants.PHASE_COPILOT_POSTING;
-    
+
+    /**
+     * <p>An <code>int</code> representing content creation specification phase id.</p>
+     *
+     * @since 1.5
+     */
+    public final static int CONTENT_CREATION_SPECIFICATION_PHASE =
+            (int) WebConstants.PHASE_CONTENT_CREATION_SPECIFICATION;
+
+    /**
+     * <p>An <code>int</code> representing content creation phase id.</p>
+     *
+     * @since 1.5
+     */
+    public final static int CONTENT_CREATION_PHASE =(int) WebConstants.PHASE_CONTENT_CREATION;
 
     public final static int LEVEL1 = 100;
     public final static int LEVEL2 = 200;

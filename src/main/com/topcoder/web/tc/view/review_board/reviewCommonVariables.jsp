@@ -1,14 +1,17 @@
 <%--
-  - Author: pulky, snow01
-  - Version: 1.1
+  - Author: pulky, snow01, FireIce
+  - Version: 1.2
   - Since: Specification Review Integration 1.0
-  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
   -
   - Version 1.1 (BUGR-3065) changes: added constants for UI prototype, RIA build and RIA component specification
   - reviews
   -
   - Description: This is a simple include page that that helps avoiding duplicated code in review board pages.
   - It will define several variables used in those pages.
+  -
+  - Version 1.2 (Content Creation Contest Online Review and TC Site Integration Assembly version 1.0) changes:
+  - Added constants for new content creation competitions.
 --%>
 
 <%@ page import="com.topcoder.web.tc.Constants" %>
@@ -25,6 +28,7 @@
 <c:set var="DEVELOPMENT_PROJECT_TYPE" value="<%=Constants.DEVELOPMENT_PROJECT_TYPE%>" scope="request"/>
 <c:set var="ARCHITECTURE_PROJECT_TYPE" value="<%=Constants.ARCHITECTURE_PROJECT_TYPE%>" scope="request"/>
 <c:set var="ASSEMBLY_PROJECT_TYPE" value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>" scope="request"/>
+<c:set var="CONTENT_CREATION_PROJECT_TYPE" value="<%=Constants.CONTENT_CREATION_PROJECT_TYPE%>" scope="request"/>
 <c:set var="CONCEPTUALIZATION_SPECIFICATION_PROJECT_TYPE"
     value="<%=Constants.CONCEPTUALIZATION_SPECIFICATION_PROJECT_TYPE%>" scope="request"/>
 <c:set var="SPECIFICATION_SPECIFICATION_PROJECT_TYPE" value="<%=Constants.SPECIFICATION_SPECIFICATION_PROJECT_TYPE%>"
@@ -32,7 +36,7 @@
 <c:set var="TEST_SUITES_SPECIFICATION_PROJECT_TYPE"
     value="<%=Constants.TEST_SUITES_SPECIFICATION_PROJECT_TYPE%>" scope="request"/>
 <c:set var="TEST_SCENARIOS_SPECIFICATION_PROJECT_TYPE"
-    value="<%=Constants.TEST_SCENARIOS_SPECIFICATION_PROJECT_TYPE%>" scope="request"/>    
+    value="<%=Constants.TEST_SCENARIOS_SPECIFICATION_PROJECT_TYPE%>" scope="request"/>
 <c:set var="ARCHITECTURE_SPECIFICATION_PROJECT_TYPE" value="<%=Constants.ARCHITECTURE_SPECIFICATION_PROJECT_TYPE%>"
     scope="request"/>
 <c:set var="ASSEMBLY_SPECIFICATION_PROJECT_TYPE" value="<%=Constants.ASSEMBLY_SPECIFICATION_PROJECT_TYPE%>"
@@ -47,6 +51,8 @@
     value="<%=Constants.RIA_BUILD_SPECIFICATION_PROJECT_TYPE%>" scope="request"/>
 <c:set var="RIA_COMPONENT_SPECIFICATION_PROJECT_TYPE"
     value="<%=Constants.RIA_COMPONENT_SPECIFICATION_PROJECT_TYPE%>" scope="request"/>
+<c:set var="CONTENT_CREATION_SPECIFICATION_PROJECT_TYPE"
+    value="<%=Constants.CONTENT_CREATION_SPECIFICATION_PROJECT_TYPE%>" scope="request"/>
 
 <c:choose>
     <c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
@@ -145,6 +151,12 @@
         <c:set var="eligibleReviewBoardName" value="the TopCoder Assembly Review Board" scope="request"/>
         <c:set var="handleContext" value="assembly" scope="request"/>
     </c:when>
+    <c:when test="${projectType == CONTENT_CREATION_SPECIFICATION_PROJECT_TYPE}">
+        <c:set var="projectTypeDesc" value="Specification Review" scope="request"/>
+        <c:set var="projectTypeTitle" value="Specification Review" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="the TopCoder Content Creation Review Board" scope="request"/>
+        <c:set var="handleContext" value="conent_creation" scope="request"/>
+    </c:when>
     <c:when test="${projectType == DESIGN_SPECIFICATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Specification Review" scope="request"/>
         <c:set var="projectTypeTitle" value="Specification Review" scope="request"/>
@@ -168,6 +180,12 @@
         <c:set var="projectTypeTitle" value="Assembly" scope="request"/>
         <c:set var="eligibleReviewBoardName" value="the TopCoder Assembly Review Board" scope="request"/>
         <c:set var="handleContext" value="assembly" scope="request"/>
+    </c:when>
+    <c:when test="${projectType == CONTENT_CREATION_PROJECT_TYPE}">
+        <c:set var="projectTypeDesc" value="Content Creation" scope="request"/>
+        <c:set var="projectTypeTitle" value="Content Creation" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="the TopCoder Content Creation Review Board" scope="request"/>
+        <c:set var="handleContext" value="content_creation" scope="request"/>
     </c:when>
     <c:when test="${projectType == DESIGN_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Component" scope="request"/>

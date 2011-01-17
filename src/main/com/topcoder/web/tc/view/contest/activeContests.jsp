@@ -1,7 +1,7 @@
 <%--
-  - Author: pulky
-  - Version: 1.3
-  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  - Author: pulky, FireIce
+  - Version: 1.4
+  - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page lists all active contests for a specific project type.
   -
@@ -12,6 +12,9 @@
   - and added support for new Test Scenarios competitions.
   -
   - Version 1.3 (BUGR-2749) changes: Added reliability bonus column.
+  -
+  - Version 1.4 (Content Creation Contest Online Review and TC Site Integration Assembly version 1.0) changes:
+  - Added support for content creation.
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
@@ -33,6 +36,7 @@
 <c:set value="<%=Constants.UI_PROTOTYPE_PROJECT_TYPE%>" var="UI_PROTOTYPE_TYPE_ID"/>
 <c:set value="<%=Constants.RIA_BUILD_PROJECT_TYPE%>" var="RIA_BUILD_TYPE_ID"/>
 <c:set value="<%=Constants.RIA_COMPONENT_PROJECT_TYPE%>" var="RIA_COMPONENT_TYPE_ID"/>
+<c:set value="<%=Constants.CONTENT_CREATION_PROJECT_TYPE%>" var="CONTENT_CREATION_TYPE_ID"/>
 
 
 <%@ page contentType="text/html;charset=utf-8" %>
@@ -108,6 +112,11 @@
                     <jsp:param name="node" value="ria_component_compete"/>
                 </jsp:include>
             </c:when>
+            <c:when test="${pt == CONTENT_CREATION_TYPE_ID}">
+                <jsp:include page="/includes/global_left.jsp">
+                    <jsp:param name="node" value="content_creation_compete"/>
+                </jsp:include>
+            </c:when>
           </c:choose>
         </td>
 <%-- Left Column Ends --%>
@@ -170,6 +179,12 @@
                 <jsp:param name="title" value="Active Contests"/>
             </jsp:include>
         </c:when>
+        <c:when test="${pt == CONTENT_CREATION_TYPE_ID}">
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="content_creation"/>
+                <jsp:param name="title" value="Active Contests"/>
+            </jsp:include>
+        </c:when>
       </c:choose>
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:10px;">
@@ -213,6 +228,9 @@
             </c:when>
             <c:when test="${pt == RIA_COMPONENT_TYPE_ID}">
                 <a href="/wiki/display/tc/How+to+Compete+in+Studio+Component+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
+            </c:when>
+            <c:when test="${pt == CONTENT_CREATION_TYPE_ID}">
+                <a href="/wiki/display/tc/How+to+Compete+in+Content+Creation+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
             </c:when>
           </c:choose>
         </td>
@@ -266,6 +284,11 @@
             <a href="/tc?module=BasicRSS&amp;c=rss_Registration_Open&dsid=28&pt=26">Subscribe Now</a>
             <a href="/tc?module=BasicRSS&amp;c=rss_Registration_Open&dsid=28&pt=26"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
         </c:when>
+        <c:when test="${pt == CONTENT_CREATION_TYPE_ID}">
+            Competition opportunities via RSS -
+            <a href="/tc?module=BasicRSS&amp;c=rss_Registration_Open&dsid=28&pt=35">Subscribe Now</a>
+            <a href="/tc?module=BasicRSS&amp;c=rss_Registration_Open&dsid=28&pt=35"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
+        </c:when>
       </c:choose>
     <br /><br />
 </div>
@@ -308,6 +331,9 @@
             </c:when>
             <c:when test="${pt == RIA_COMPONENT_TYPE_ID}">
                 Active RIA Component Contests</td>
+            </c:when>
+            <c:when test="${pt == CONTENT_CREATION_TYPE_ID}">
+                Active Content Creation Contests</td>
             </c:when>
           </c:choose>
     </tr>
