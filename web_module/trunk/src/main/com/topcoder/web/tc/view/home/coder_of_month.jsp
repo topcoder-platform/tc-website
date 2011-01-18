@@ -46,8 +46,8 @@
 
 <!--
 <div><a class="cotmFeature" href="http://www.topcoder.com/news/2010/11/15/meet-the-october-coders-and-designers-of-the-month-2/">Read Their Interviews</a></div>
-   
-   </div>-->
+   -->
+   </div>
 </div>
 
 <div style="float: left; clear:both; padding: 0px 0px 23px 0px;"><img src="/i/interface/leftnav_bottom.gif" alt="" /></div>
