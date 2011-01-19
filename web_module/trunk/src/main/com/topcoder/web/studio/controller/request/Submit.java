@@ -244,7 +244,7 @@ public class Submit extends BaseSubmissionDataProcessor {
 					ValidationResult thoroughValidationResult = new UnifiedSubmissionValidator(
 							c).validate(new ObjectInput(submissionFile));
 					if (!thoroughValidationResult.isValid()) {
-						throw new TCException(submissionValidationResult.getMessage());
+						throw new TCException(thoroughValidationResult.getMessage());
 					}
 
 					MimeType mt = UnifiedSubmissionValidator
