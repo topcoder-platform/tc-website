@@ -117,14 +117,14 @@
       <td class="value">19  
       </td>
       <td class="value">20
-      	<div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=14423">Member SRM 494</A></strong><br />
-         11:00
-        </div>
       </td>
       <td class="value">21
       </td>
       <td class="value">22
+      	<div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=14423">Member SRM 494</A></strong><br />
+         12:00
+        </div>
       </td>
    </tr>
    
