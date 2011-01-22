@@ -13,6 +13,7 @@ public class ContestResult {
     private long coderId;
     private double initialPoints = 0.0;
     private double finalPoints = 0.0;
+    private double taxableFinalPoints = 0.0;
     private double potentialPoints = 0.0;
     private int place = 0;
     private Double prize = null;
@@ -39,13 +40,20 @@ public class ContestResult {
         return coderId;
     }
 
- 
     public double getFinalPoints() {
         return finalPoints;
     }
 
     public void setFinalPoints(double finalPoints) {
         this.finalPoints = finalPoints;
+    }
+
+    public void setTaxableFinalPoints(double taxableFinalPoints) {
+        this.taxableFinalPoints = taxableFinalPoints;
+    }
+
+    public double getTaxableFinalPoints() {
+        return taxableFinalPoints;
     }
 
     public double getInitialPoints() {
@@ -56,9 +64,13 @@ public class ContestResult {
         this.initialPoints = initialPoints;
     }
 
-    public void addPoints(double points) {
+    public void addPoints(double points, boolean isTaxable) {
         this.initialPoints += points;
         this.finalPoints += points;
+        
+        if (isTaxable) {
+            this.taxableFinalPoints += points;
+        }
     }
     
     public void discountPoints(double points) {
