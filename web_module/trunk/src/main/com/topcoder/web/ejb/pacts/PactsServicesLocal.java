@@ -335,6 +335,8 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     BasePayment fillPaymentData(BasePayment payment) throws SQLException;
 
+    double computePaymentNetAmount(int paymentTypeId, double grossAmount, long coderId) throws SQLException;
+
     AssignmentDocument getAssignmentDocument(long assignmentDocumentId);
 
     List getAssignmentDocumentByProjectId(long projectId);
