@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.ejb.pacts;
 
@@ -76,8 +76,15 @@ import java.util.Date;
  *   </ol>
  * </p>
  *
- * @author cucu, pulky, Vitta, FireIce
- * @version 1.7
+ * <p>
+ *   Version 1.8 Change notes:
+ *   <ol>
+ *     <li>Added taxable DR payment types.</li>
+ *   </ol>
+ * </p> 
+ *
+ * @author cucu, pulky, Vitta, FireIce, VolodymyrK
+ * @version 1.8
  */
 public abstract class BasePayment implements Constants, java.io.Serializable {
     private static Logger log = Logger.getLogger(BasePayment.class);
@@ -244,6 +251,8 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
 
         case DIGITAL_RUN_V2_PRIZE_PAYMENT:
         case DIGITAL_RUN_V2_TOP_PERFORMERS_PAYMENT:
+        case DIGITAL_RUN_V2_TAXABLE_PRIZE_PAYMENT:
+        case DIGITAL_RUN_V2_TAXABLE_TOP_PERFORMERS_PAYMENT:		
             return REFERENCE_DIGITAL_RUN_TRACK_ID;
 
         case DIGITAL_RUN_ROCKIE_PRIZE_PAYMENT:
@@ -312,6 +321,8 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case ARCHITECTURE_PAYMENT: return new ArchitecturePayment(coderId, grossAmount, referenceId, placed);
         case DIGITAL_RUN_V2_PRIZE_PAYMENT: return new DigitalRunV2PrizePayment(coderId, grossAmount, referenceId, placed);
         case DIGITAL_RUN_V2_TOP_PERFORMERS_PAYMENT: return new DigitalRunV2TopPerformersPayment(coderId, grossAmount, referenceId, placed);
+        case DIGITAL_RUN_V2_TAXABLE_PRIZE_PAYMENT: return new DigitalRunV2TaxablePrizePayment(coderId, grossAmount, referenceId, placed);
+        case DIGITAL_RUN_V2_TAXABLE_TOP_PERFORMERS_PAYMENT: return new DigitalRunV2TaxableTopPerformersPayment(coderId, grossAmount, referenceId, placed);		
         case SPECIFICATION_CONTEST_PAYMENT: return new SpecificationContestPayment(coderId, grossAmount, referenceId, placed);
         case CONTENT_CREATION_PAYMENT: return new ContentCreationContestPayment(coderId, grossAmount, referenceId, placed);
         case CONCEPTUALIZATION_CONTEST_PAYMENT: return new ConceptualizationContestPayment(coderId, grossAmount, referenceId, placed);
@@ -452,6 +463,8 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             case COMPONENT_BUILD_PAYMENT: return "Component Build Payment";
             case DIGITAL_RUN_V2_PRIZE_PAYMENT: return "Digital Run v2 Payment";
             case DIGITAL_RUN_V2_TOP_PERFORMERS_PAYMENT: return "Digital Run v2 Top Performers Payment";
+            case DIGITAL_RUN_V2_TAXABLE_PRIZE_PAYMENT: return "Digital Run v2 Payment (taxable)";
+            case DIGITAL_RUN_V2_TAXABLE_TOP_PERFORMERS_PAYMENT: return "Digital Run v2 Top Performers Payment (taxable)";			
             case SPECIFICATION_CONTEST_PAYMENT: return "Specification Contest Payment";
             case CONCEPTUALIZATION_CONTEST_PAYMENT: return "Conceptualization Contest Payment";
             case TEST_SUITES_PAYMENT: return "Test Suites Payment";

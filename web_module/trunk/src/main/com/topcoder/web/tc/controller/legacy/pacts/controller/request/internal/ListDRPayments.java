@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2002-2010 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2002-2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
@@ -29,8 +29,10 @@ import java.util.List;
  * the contest. It checks if the user was already paid for it, and if not, it shows a check box so that it can be paid.
  * </p>
  *
- * @author Cucu, isv
- * @version 2.0
+ * <p>In version 2.1 the DR payments have been split in taxable and non-taxable parts.</p>
+ *
+ * @author Cucu, isv, VolodymyrK
+ * @version 2.1
  */
 public class ListDRPayments extends BaseProcessor implements PactsConstants {
 
@@ -104,6 +106,7 @@ public class ListDRPayments extends BaseProcessor implements PactsConstants {
     private void fillPaid(Contest contest, long trackId) throws Exception {
         DataInterfaceBean dib = new DataInterfaceBean();
         
+        // Fill the non-taxable payments.
         int paymentType;
         if (contest.getTypeId() == Constants.CONTEST_TYPE_DR_V2_PRIZE) {
             paymentType = DIGITAL_RUN_V2_PRIZE_PAYMENT;
@@ -117,7 +120,25 @@ public class ListDRPayments extends BaseProcessor implements PactsConstants {
         for (ContestResult cr : contest.getResults()) {
             for (BasePayment payment : payments) {
                 if (cr.getCoderId() == payment.getCoderId()) {
-                    cr.setPaymentId(payment.getId());
+                    cr.setNonTaxablePaymentId(payment.getId());
+                }
+            }
+        }
+
+        // Now fill the taxable payments.
+        if (contest.getTypeId() == Constants.CONTEST_TYPE_DR_V2_PRIZE) {
+            paymentType = DIGITAL_RUN_V2_TAXABLE_PRIZE_PAYMENT;
+        } else  if (contest.getTypeId() == Constants.CONTEST_TYPE_DR_V2_TOP_PERFORMERS) {
+            paymentType = DIGITAL_RUN_V2_TAXABLE_TOP_PERFORMERS_PAYMENT;
+        } else {
+            throw new Exception("Invalid DR contest type: " + contest.getTypeId());
+        }
+            
+        payments = dib.findPayments(paymentType, trackId);
+        for (ContestResult cr : contest.getResults()) {
+            for (BasePayment payment : payments) {
+                if (cr.getCoderId() == payment.getCoderId()) {
+                    cr.setTaxablePaymentId(payment.getId());
                 }
             }
         }
@@ -138,8 +159,9 @@ public class ListDRPayments extends BaseProcessor implements PactsConstants {
             = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME).getData(r).get(DR_TRACK_CONTEST_PAYMENTS_QUERY);
         for (ResultSetContainer.ResultSetRow row : rsc) {
             // round the amount to 2 decimals
-            double prize = Math.round(row.getDoubleItem("prize") * 100) / 100.0;
-            ContestResult cr = new ContestResult(row.getIntItem("place"), row.getLongItem("coder_id"), prize);
+            double totalPrize = Math.round(row.getDoubleItem("prize") * 100) / 100.0;
+            double taxablePrize = Math.round(row.getDoubleItem("taxable_prize") * 100) / 100.0;
+            ContestResult cr = new ContestResult(row.getIntItem("place"), row.getLongItem("coder_id"), totalPrize-taxablePrize, taxablePrize);
             contest.addResult(cr);
         }
     }
@@ -173,8 +195,8 @@ public class ListDRPayments extends BaseProcessor implements PactsConstants {
     /**
      * <p>Class to hold data of a contest and its results.</p>
      * 
-     * @author cucu, TCSDEVELOPER
-     * @version 1.0
+     * @author cucu, VolodymyrK
+     * @version 1.1
      */
     public static class Contest {
 
@@ -199,9 +221,14 @@ public class ListDRPayments extends BaseProcessor implements PactsConstants {
         private List<ContestResult> results;
 
         /**
-         * <p>A <code>double</code> providing the total amount of prizes for this track contest.</p>
+         * <p>A <code>double</code> providing the total non-taxable amount of prizes for this track contest.</p>
          */
-        private double totalPrizes = 0.0;
+        private double totalNonTaxablePrizes = 0.0;
+
+        /**
+         * <p>A <code>double</code> providing the total taxable amount of prizes for this track contest.</p>
+         */
+        private double totalTaxablePrizes = 0.0;
 
         /**
          * <p>Constructs new <code>ListDRPayments$Contest</code> instance with specified parameters.</p>
@@ -260,24 +287,35 @@ public class ListDRPayments extends BaseProcessor implements PactsConstants {
          */
         public void addResult(ContestResult result) {
             results.add(result);
-            totalPrizes += result.getPrize();
+            totalNonTaxablePrizes += result.getNonTaxablePrize();
+            totalTaxablePrizes += result.getTaxablePrize();
         }
 
         /**
-         * <p>Gets the total amount of prizes for this track contest.</p>
+         * <p>Gets the total taxable amount of prizes for this track contest.</p>
          *
-         * @return a <code>double</code> providing the total amount of prizes for this track contest.
+         * @return a <code>double</code> providing the total amount of taxable prizes for this track contest.
          */
-        public double getTotalPrizes() {
-            return totalPrizes;
+        public double getTotalTaxablePrizes() {
+            return totalTaxablePrizes;
         }
+
+        /**
+         * <p>Gets the total non-taxable amount of prizes for this track contest.</p>
+         *
+         * @return a <code>double</code> providing the total amount of non-taxable prizes for this track contest.
+         */
+        public double getTotalNonTaxablePrizes() {
+            return totalNonTaxablePrizes;
+        }
+
     }
     
     /**
      * <p>Class to hold a result for a contest.</p>
      * 
-     * @author cucu, TCSDEVELOPER
-     * @since 1.0
+     * @author cucu, VolodymyrK
+     * @since 1.1
      */
     public static class ContestResult {
 
@@ -292,48 +330,81 @@ public class ListDRPayments extends BaseProcessor implements PactsConstants {
         long coderId;
 
         /**
-         * <p>A <code>double</code> providing the prize awared to coder.</p>
+         * <p>A <code>double</code> providing the non-taxable prize amount awared to coder.
          */
-        double prize;
+        double nonTaxablePrize;
 
         /**
-         * <p>A <code>Long</code> providing the ID of generated payment. <code>null</code> means that the payment hasn't
+         * <p>A <code>double</code> providing the gross taxable prize amount awared to coder.</p>
+         */
+        double taxablePrize;
+
+        /**
+         * <p>A <code>Long</code> providing the ID of generated non-taxable payment. <code>null</code> means that the payment hasn't
          * been generated yet.</p>
          */
-        Long paymentId;
+        Long nonTaxablePaymentId;
+
+        /**
+         * <p>A <code>Long</code> providing the ID of generated taxable payment. <code>null</code> means that the payment hasn't
+         * been generated yet.</p>
+         */
+        Long taxablePaymentId;
 
         /**
          * <p>Constructs new <code>ListDRPayments$ContestResult</code> instance with specified parameters.</p>
          *
          * @param place an <code>int</code> providing the placement taken by the coder.
          * @param coderId a <code>long</code> providing the coder ID.
-         * @param prize a <code>double</code> providing the prize awared to coder.
+         * @param nonTaxablePrize a <code>double</code> providing the non-taxable prize awared to coder.
+         * @param taxablePrize a <code>double</code> providing the taxable part of the prize awared to coder.
          */
-        public ContestResult(int place, long coderId, double prize) {
+        public ContestResult(int place, long coderId, double nonTaxablePrize, double taxablePrize) {
             super();
             this.place = place;
             this.coderId = coderId;
-            this.prize = prize;
+            this.nonTaxablePrize = nonTaxablePrize;
+            this.taxablePrize = taxablePrize;
         }
 
         /**
-         * <p>Gets ID for generated payment.</p>
+         * <p>Gets ID for generated non-taxable payment.</p>
          *
-         * @return a <code>Long</code> providing the ID of generated payment. <code>null</code> means that the payment
+         * @return a <code>Long</code> providing the ID of generated non-taxable payment. <code>null</code> means that the payment
          *         hasn't been generated yet.
          */
-        public Long getPaymentId() {
-            return paymentId;
+        public Long getNonTaxablePaymentId() {
+            return nonTaxablePaymentId;
         }
 
         /**
-         * <p>Sets ID for generated payment.</p>
+         * <p>Sets ID for generated non-taxable payment.</p>
          *
-         * @param paymentId a <code>Long</code> providing the ID of generated payment. <code>null</code> means that the
+         * @param paymentId a <code>Long</code> providing the ID of generated non-taxable payment. <code>null</code> means that the
          *        payment hasn't been generated yet.
          */
-        public void setPaymentId(Long paymentId) {
-            this.paymentId = paymentId;
+        public void setNonTaxablePaymentId(Long nonTaxablePaymentId) {
+            this.nonTaxablePaymentId = nonTaxablePaymentId;
+        }
+
+        /**
+         * <p>Gets ID for generated taxable payment.</p>
+         *
+         * @return a <code>Long</code> providing the ID of generated taxable payment. <code>null</code> means that the payment
+         *         hasn't been generated yet.
+         */
+        public Long getTaxablePaymentId() {
+            return taxablePaymentId;
+        }
+
+        /**
+         * <p>Sets ID for generated taxable payment.</p>
+         *
+         * @param paymentId a <code>Long</code> providing the ID of generated taxable payment. <code>null</code> means that the
+         *        payment hasn't been generated yet.
+         */
+        public void setTaxablePaymentId(Long taxablePaymentId) {
+            this.taxablePaymentId = taxablePaymentId;
         }
 
         /**
@@ -346,12 +417,21 @@ public class ListDRPayments extends BaseProcessor implements PactsConstants {
         }
 
         /**
-         * <p>Gets the prize awared to coder.</p>
+         * <p>Gets the non-taxable prize awared to coder.</p>
          *
-         * @return a <code>double</code> providing the prize awared to coder.
+         * @return a <code>double</code> providing the non-taxable prize amount awared to coder.
          */
-        public double getPrize() {
-            return prize;
+        public double getNonTaxablePrize() {
+            return nonTaxablePrize;
+        }
+
+        /**
+         * <p>Gets the taxable prize awared to coder.</p>
+         *
+         * @return a <code>double</code> providing the taxable prize amount awared to coder.
+         */
+        public double getTaxablePrize() {
+            return taxablePrize;
         }
 
         /**

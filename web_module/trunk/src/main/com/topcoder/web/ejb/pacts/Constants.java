@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.ejb.pacts;
 
@@ -63,8 +63,15 @@ package com.topcoder.web.ejb.pacts;
  *   </ol>
  * </p>
  *
- * @author TCSDEVELOPER, pulky, VolodymyrK, TCSASSEMBLER
- * @version 1.7
+ * <p>
+ *   Version 1.8 Change notes:
+ *   <ol>
+ *     <li>Added taxable DR payment types.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author TCSDEVELOPER, pulky, VolodymyrK
+ * @version 1.8
  */
 public interface Constants {
 
@@ -109,6 +116,8 @@ public interface Constants {
     public static final int COMPONENT_BUILD_PAYMENT = 39;
     public static final int DIGITAL_RUN_V2_PRIZE_PAYMENT = 40;
     public static final int DIGITAL_RUN_V2_TOP_PERFORMERS_PAYMENT = 41;
+    public static final int DIGITAL_RUN_V2_TAXABLE_PRIZE_PAYMENT = 62;
+    public static final int DIGITAL_RUN_V2_TAXABLE_TOP_PERFORMERS_PAYMENT = 63;
     public static final int SPECIFICATION_CONTEST_PAYMENT = 42;
     public static final int CONCEPTUALIZATION_CONTEST_PAYMENT = 43;
 
