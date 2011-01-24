@@ -67,14 +67,15 @@ public class GenerateDRPayments extends ShortHibernateProcessor implements Pacts
                 Integer contestTypeId = new Integer(values[0]);
                 Integer place = new Integer(values[1]);
                 Long coderId = new Long(values[2]);
-                Double amount = new Double(values[3]);
+                Double nonTaxableAmount = new Double(values[3]);
+                Double taxableAmount = new Double(values[4]);
 
-                // Create the payment in PACTS
+                // Create the payment in PACTS. Pay both taxable and non-taxable parts as non-taxable one for now.
                 BasePayment payment;
                 if (contestTypeId.equals(Constants.CONTEST_TYPE_DR_V2_PRIZE)) {
-                    payment = new DigitalRunV2PrizePayment(coderId, amount, trackId, place);
+                    payment = new DigitalRunV2PrizePayment(coderId, nonTaxableAmount + taxableAmount, trackId, place);
                 } else if (contestTypeId.equals(Constants.CONTEST_TYPE_DR_V2_TOP_PERFORMERS)) {
-                    payment = new DigitalRunV2TopPerformersPayment(coderId, amount, trackId, place);
+                    payment = new DigitalRunV2TopPerformersPayment(coderId, nonTaxableAmount + taxableAmount, trackId, place);
                 } else {
                     throw new Exception("Invalid contest type: " + contestTypeId);
                 }

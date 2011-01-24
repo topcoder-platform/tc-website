@@ -1,7 +1,7 @@
 <%--
-  - Author: isv
-  - Version: 1.1 (Member Payment Improvements Release assembly v1.0)
-  - Copyright (C) 2010 TopCoder Inc., All Rights Reserved.
+  - Author: isv, VolodymyrK
+  - Version: 1.2 (Member Payment Improvements Release assembly v1.0)
+  - Copyright (C) 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page renders the web form listing the payments available for generation for
   - selected Digital Run track. The form allows to select the payments for generation and start the
@@ -9,6 +9,8 @@
   -
   - Member Payment Improvements Release assembly v1.0 changes:
   - Updated the form parameters to follow current Digital Run schema.
+  -
+  - Version 1.2 changes: added support for taxable and non-taxable DR payments
 --%>
 
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants" %>
@@ -61,21 +63,42 @@
                 <tr>
                     <td><b>Place</b></td>
                     <td><b>Coder</b></td>
-                    <td><b>Amount</b></td>
+                    <td><b>Non-taxable Amount</b></td>
+                    <td><b>Taxable Amount</b></td>
+                    <td><b>Total Amount</b></td>
                     <td><b>Status</b></td>
                 </tr>
                 <c:forEach items="${c.results }" var="r">
                     <tr>
                         <td align="right">${r.place }</td>
                         <td><tc-webtag:handle coderId="${r.coderId}" context='component'/></td>
-                        <td align="right"><fmt:formatNumber value="${r.prize}" type="currency" currencySymbol="$"/></td>
+                        <td align="center">
+                            <c:choose>
+                                <c:when test="${not empty r.nonTaxablePaymentId}"><a href="${pacts:viewPayment(r.nonTaxablePaymentId)}">
+                                    <fmt:formatNumber value="${r.nonTaxablePrize}" type="currency" currencySymbol="$"/></a></c:when>
+                                <c:otherwise>
+                                    <fmt:formatNumber value="${r.nonTaxablePrize}" type="currency" currencySymbol="$"/>
+                                </c:otherwise>
+                            </c:choose>
+                        </td>
+                        <td align="center">
+                            <c:choose>
+                                <c:when test="${not empty r.taxablePaymentId}"><a href="${pacts:viewPayment(r.taxablePaymentId)}">
+                                    <fmt:formatNumber value="${r.taxablePrize}" type="currency" currencySymbol="$"/></a></c:when>
+                                <c:otherwise>
+                                    <fmt:formatNumber value="${r.taxablePrize}" type="currency" currencySymbol="$"/>
+                                </c:otherwise>
+                            </c:choose>
+                        </td>
+                        <td align="center">
+                            <fmt:formatNumber value="${r.nonTaxablePrize + r.taxablePrize}" type="currency" currencySymbol="$"/>
+                        </td>
                         <td>
                             <c:choose>
-                                <c:when test="${not empty r.paymentId}"><font color="#00A000">Paid </font><a
-                                        href="${pacts:viewPayment(r.paymentId)}">(view)</a></c:when>
+                                <c:when test="${(not empty r.nonTaxablePaymentId) or (not empty r.taxablePaymentId)}"><font color="#00A000">Paid</font></c:when>
                                 <c:otherwise>
                                     <input type="checkbox" name="pay"
-                                           value="${c.typeId}:${r.place}:${r.coderId}:${r.prize}"> Pay
+                                           value="${c.typeId}:${r.place}:${r.coderId}:${r.nonTaxablePrize}:${r.taxablePrize}"> Pay
                                 </c:otherwise>
                             </c:choose>
                         </td>
@@ -83,8 +106,14 @@
                 </c:forEach>
                 <tr>
                     <td colspan="2" align="right">Total:</td>
-                    <td align="right">
-                        <b><fmt:formatNumber value="${c.totalPrizes}" type="currency" currencySymbol="$"/></b>
+                    <td align="center">
+                        <b><fmt:formatNumber value="${c.totalNonTaxablePrizes}" type="currency" currencySymbol="$"/></b>
+                    </td>
+                    <td align="center">
+                        <b><fmt:formatNumber value="${c.totalTaxablePrizes}" type="currency" currencySymbol="$"/></b>
+                    </td>
+                    <td align="center">
+                        <b><fmt:formatNumber value="${c.totalNonTaxablePrizes+c.totalTaxablePrizes}" type="currency" currencySymbol="$"/></b>
                     </td>
                     <td></td>
                 </tr>
