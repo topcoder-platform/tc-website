@@ -3672,6 +3672,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     || paymentTypeId == MARATHON_MATCH_TOURNAMENT_PRIZE_PAYMENT
                     || paymentTypeId == ROYALTY_PAYMENT
                     || paymentTypeId == CODER_REFERRAL_PAYMENT
+                    || paymentTypeId == ONE_OFF_PAYMENT
                     || paymentTypeId == DIGITAL_RUN_V2_TAXABLE_PRIZE_PAYMENT
                     || paymentTypeId == DIGITAL_RUN_V2_TAXABLE_TOP_PERFORMERS_PAYMENT) {					
 
