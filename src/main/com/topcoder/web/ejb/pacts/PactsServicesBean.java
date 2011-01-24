@@ -3646,8 +3646,78 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
+    // Calculates the payment net amount from the payment gross amount
+    public double computePaymentNetAmount(int paymentTypeId, double grossAmount, long coderId) throws SQLException {
+        // Computes the appropriate net amount based on the
+        // withholdings specified in the user_tax_form_xref for the payee.
+        // If that isn't available, we just set net amount = gross amount.
+
+        log.debug("In computePaymentNetAmount");
+		Connection c = null;
+		
+		try {
+            c = DBMS.getConnection(trxDataSource);
+
+            double withholdAmount = 0.0;
+            float withholdPercent = 0.0F;
+            int usePercent = 0;
+            boolean dataFound = false;
+
+            double netAmount = grossAmount;
+
+            if (paymentTypeId == ALGORITHM_CONTEST_PAYMENT
+                    || paymentTypeId == MARATHON_MATCH_PAYMENT
+                    || paymentTypeId == ALGORITHM_TOURNAMENT_PRIZE_PAYMENT
+                    || paymentTypeId == HIGH_SCHOOL_TOURNAMENT_PRIZE_PAYMENT
+                    || paymentTypeId == MARATHON_MATCH_TOURNAMENT_PRIZE_PAYMENT
+                    || paymentTypeId == ROYALTY_PAYMENT
+                    || paymentTypeId == CODER_REFERRAL_PAYMENT
+                    || paymentTypeId == DIGITAL_RUN_V2_TAXABLE_PRIZE_PAYMENT
+                    || paymentTypeId == DIGITAL_RUN_V2_TAXABLE_TOP_PERFORMERS_PAYMENT) {					
+
+                StringBuffer getUserWithholding = new StringBuffer(300);
+                getUserWithholding.append("SELECT withholding_amount, withholding_percentage, use_percentage,date_filed ");
+                getUserWithholding.append(" FROM user_tax_form_xref ");
+                getUserWithholding.append(" WHERE user_id = " + coderId);
+                getUserWithholding.append(" AND status_id = 60");
+                getUserWithholding.append(" ORDER by date_filed DESC ");
+
+                ResultSetContainer rsc = runSelectQuery(c, getUserWithholding.toString());
+                if (rsc.getRowCount() > 0) {
+                    withholdAmount = TCData.getTCDouble(rsc.getRow(0), "withholding_amount");
+                    withholdPercent = TCData.getTCFloat(rsc.getRow(0), "withholding_percentage");
+                    usePercent = TCData.getTCInt(rsc.getRow(0), "use_percentage");
+                    dataFound = true;
+                    log.debug("Got user withholding");
+                }
+            }
+
+            // Calculate the amount
+            if (dataFound) {
+                if (usePercent == 1) {
+                    netAmount = netAmount * (1 - withholdPercent);
+                } else {
+                    netAmount = netAmount - withholdAmount;
+                }
+
+                // Net amount can't be negative
+                if (netAmount < 0) {
+                    netAmount = 0;
+                }
+            }
+			
+            // Round to nearest penny
+            DecimalFormat df = new DecimalFormat("0.00");
+            String netAmountStr = df.format(netAmount);
+            return new Double(netAmountStr).doubleValue();
+        } finally {
+            close(c);
+        }
+    }
+
+
     // Helper function that calculates the payment net amount if necessary
-    private void fillPaymentNetAmount(Connection c, Payment p) throws SQLException {
+    private void fillPaymentNetAmount(Payment p) throws SQLException {
         // If the net amount is zero, fill in the appropriate net amount based on the
         // withholdings specified in the user_tax_form_xref for the payee.  If that isn't available,
         // we use the withholdings specified in the default tax form for the payee's country.
@@ -3658,55 +3728,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         log.debug("In fillPaymentNetAmount");
 
-        double withholdAmount = 0.0;
-        float withholdPercent = 0.0F;
-        int usePercent = 0;
-        boolean dataFound = false;
-
-        if (p.getHeader().getTypeId() == ALGORITHM_CONTEST_PAYMENT
-                || p.getHeader().getTypeId() == MARATHON_MATCH_PAYMENT
-                || p.getHeader().getTypeId() == ALGORITHM_TOURNAMENT_PRIZE_PAYMENT
-                || p.getHeader().getTypeId() == HIGH_SCHOOL_TOURNAMENT_PRIZE_PAYMENT
-                || p.getHeader().getTypeId() == MARATHON_MATCH_TOURNAMENT_PRIZE_PAYMENT
-                || p.getHeader().getTypeId() == ROYALTY_PAYMENT
-                || p.getHeader().getTypeId() == CODER_REFERRAL_PAYMENT) {
-
-            StringBuffer getUserWithholding = new StringBuffer(300);
-            getUserWithholding.append("SELECT withholding_amount, withholding_percentage, use_percentage,date_filed ");
-            getUserWithholding.append(" FROM user_tax_form_xref ");
-            getUserWithholding.append(" WHERE user_id = " + p.getHeader().getUser().getId());
-            getUserWithholding.append(" AND status_id = 60");
-            getUserWithholding.append(" ORDER by date_filed DESC ");
-
-            ResultSetContainer rsc = runSelectQuery(c, getUserWithholding.toString());
-            if (rsc.getRowCount() > 0) {
-                withholdAmount = TCData.getTCDouble(rsc.getRow(0), "withholding_amount");
-                withholdPercent = TCData.getTCFloat(rsc.getRow(0), "withholding_percentage");
-                usePercent = TCData.getTCInt(rsc.getRow(0), "use_percentage");
-                dataFound = true;
-                log.debug("Got user withholding");
-            }
-        }
-
-        // Calculate the amount
-        p.setNetAmount(p.getGrossAmount());
-        if (dataFound) {
-            if (usePercent == 1) {
-                p.setNetAmount(p.getNetAmount() * (1 - withholdPercent));
-            } else {
-                p.setNetAmount(p.getNetAmount() - withholdAmount);
-            }
-
-            // Net amount can't be negative
-            if (p.getNetAmount() < 0) {
-                p.setNetAmount(0);
-            }
-
-            // Round to nearest penny
-            DecimalFormat df = new DecimalFormat("0.00");
-            String netAmount = df.format(p.getNetAmount());
-            p.setNetAmount(new Double(netAmount).doubleValue());
-        }
+        double netAmount = computePaymentNetAmount(p.getHeader().getTypeId(), p.getGrossAmount(), p.getHeader().getUser().getId());
+        p.setNetAmount(netAmount);
     }
 
     // Helper function getting the referring user
@@ -3869,7 +3892,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         checkPayment(c, p, true);
 
         try {
-            fillPaymentNetAmount(c, p);
+            fillPaymentNetAmount(p);
 
             String referralStr = "null";
 
@@ -4527,7 +4550,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 checkPayment(c, p, false);
             }
 
-            fillPaymentNetAmount(c, p);
+            fillPaymentNetAmount(p);
 
             long paymentDetailId = insertPaymentDetail(c, p);
 
@@ -6255,7 +6278,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             // this need to be done in order to calculate the net amount before calling the status manager
             Payment tmp = createPayment(payment);
-            fillPaymentNetAmount(c, tmp);
+            fillPaymentNetAmount(tmp);
             payment.setNetAmount(tmp.getNetAmount());
 
             // delegate status to the manager

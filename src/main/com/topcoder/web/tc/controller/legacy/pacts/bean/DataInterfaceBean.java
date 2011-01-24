@@ -1679,6 +1679,11 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.fillPaymentData(payment);
     }
 
+    public double computePaymentNetAmount(int paymentTypeId, double grossAmount, long coderId) throws RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.computePaymentNetAmount(paymentTypeId, grossAmount, coderId);
+    }	
+
     public BasePayment addPayment(BasePayment payment) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
         return ps.addPayment(payment);
