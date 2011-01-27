@@ -312,7 +312,7 @@
                             <c:set var="i" value="${i + 1}"/>
                         </c:forEach>
                     </table>
-                    <p align="middle"><a href="mailto:service@topcodersoftware.com" class="bodyText">Have a question
+                    <p align="middle"><a href="mailto:support@topcoder.com" class="bodyText">Have a question
                         about the TopCoder ${projectTypeDesc} Review Board?</a></p>
                     <p><br/></p>
                 </td>
