@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.studio.controller.request;
 
@@ -13,8 +13,15 @@ import com.topcoder.web.common.BaseProcessor;
  *
  * <p>This processor will use Query Tool to retrieve from the database Studio contests specification reviews.</p>
  *
- * @author TCSDEVELOPER
- * @version 1.0
+ * <p>
+ * Version 1.0.1 (Replatforming Studii Release 1 Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated the {@link #businessProcessing()} to use TCS_CATALOG datasource.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author TCSDEVELOPER, isv
+ * @version 1.0.1
  * @since Studio Release Assembly - Spec Review Sign up page v1.0
  */
 public class ViewReviewOpportunities extends BaseProcessor {
@@ -27,7 +34,7 @@ public class ViewReviewOpportunities extends BaseProcessor {
     /**
      * A <code>String</code> constant that stores the query name for the review_opportunities query
      */
-    private static final String REVIEW_OPPORTUNITIES_QUERY_NAME = "review_opportunities";
+    private static final String REVIEW_OPPORTUNITIES_QUERY_NAME = "studio_review_opportunities";
 
     /**
      * A <code>String</code> constant that stores the review opportunities module name
@@ -41,7 +48,7 @@ public class ViewReviewOpportunities extends BaseProcessor {
      * @see com.topcoder.web.common.BaseProcessor#businessProcessing()
      */
     protected void businessProcessing() throws Exception {
-        DataAccess da = new DataAccess(DBMS.STUDIO_DATASOURCE_NAME);
+        DataAccess da = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
         Request r = new Request();
         r.setContentHandle(REVIEW_OPPORTUNITIES_QUERY_NAME);
 

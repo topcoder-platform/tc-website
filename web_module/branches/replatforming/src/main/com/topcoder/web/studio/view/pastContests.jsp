@@ -1,12 +1,14 @@
 <%--
-  - Author: pulky
-  - Version: 1.2
+  - Author: pulky, isv
+  - Version: 1.3
   - Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page presents past contests
   -
   - Version 1.1 (Studio Release Assembly - Spec Review Sign up page v1.0) changes: Added "Review Opportunities" tab.
   - Version 1.2 (BUGR-2786) changes: Added "Round 1 End" column.
+  - Version 1.3 (Replatforming Studio Release 1 Assembly) change notes: the contests are filtered based on eligibility
+  - constraints.
 --%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
@@ -131,7 +133,6 @@
 										String val = request.getAttribute("filterMonth") == null ? null : request.getAttribute("filterMonth").toString();
 										%>
 										<select name="filterMonth" class="contest-filter">
-											<option value=" " <%= val.equals(" ") ? "selected" : "" %>>Select Month</option>
 											<option value="1" <%= val.equals("1") ? "selected" : "" %>>January</option>
 											<option value="2" <%= val.equals("2") ? "selected" : "" %>>February </option>
 											<option value="3" <%= val.equals("3") ? "selected" : "" %>>March</option>
@@ -152,7 +153,7 @@
 										val = request.getAttribute("filterYear") == null ? null : request.getAttribute("filterYear").toString();
 										%>
 										<select class="contest-filter" name="filterYear" onChange="filterYearChange(submissionsForm.filterYear.options[submissionsForm.filterYear.selectedIndex].value,submissionsForm.filterMonth)">
-											<option value=" " <%= val.equals(" ") ? "selected" : "" %>>Select Year</option>
+											<option value="2011" <%= val.equals("2011") ? "selected" : "" %>>2011</option>
 											<option value="2010" <%= val.equals("2010") ? "selected" : "" %>>2010</option>
 											<option value="2009" <%= val.equals("2009") ? "selected" : "" %>>2009</option>
 											<option value="2008" <%= val.equals("2008") ? "selected" : "" %>>2008</option>
@@ -201,6 +202,8 @@
 							<% boolean even = true;
 								int i = 0; %>
 							<rsc:iterator list="<%=contests%>" id="resultRow">
+                                <c:set var="contestId" value="<%=new Long(resultRow.getLongItem("contest_id"))%>"/>
+                                <c:if test="${requestScope.eligibility[contestId]}">
 								<tr><td class="space" colspan="9">&nbsp;</td></tr>
 								<tr class="<%=even?"light":"dark"%>">
 									<td class="valueE">
@@ -273,6 +276,7 @@
 									
 								</tr>
 								<% even = !even; i++; %>
+                                </c:if>
 							</rsc:iterator>
 						</tbody>
 					</table>

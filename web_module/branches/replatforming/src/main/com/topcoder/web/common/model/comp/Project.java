@@ -28,7 +28,18 @@ public class Project extends Base {
     protected Integer categoryId = null;
     protected Map<Integer, ProjectInfo> info = new HashMap<Integer, ProjectInfo>();
     protected Map<Integer, ProjectPhase> phases = new HashMap<Integer, ProjectPhase>();
+
+    /**
+     * <p>A <code>Set</code> of resources associated with project.</p>
+     */
+    protected Set<Resource> resources = new HashSet<Resource>();
+    
     protected Set<Contest> contests = new HashSet<Contest>();
+
+    /**
+     * <p>A <code>Long</code> providing the ID for TC Direct project associated with this project.</p>
+     */
+    private Long tcDirectProjectId;
 
     public Integer getCategoryId() {
         return categoryId;
@@ -114,4 +125,40 @@ public class Project extends Base {
         return getPhase(ProjectPhase.REGISTRATION);
     }
 
+    /**
+     * <p>Gets the resources associated with project.</p>
+     * 
+     * @return <code>Set</code> of resources associated with project.
+     */
+    public Set<Resource> getResources() {
+        return resources;
+    }
+
+    /**
+     * <p>Sets the resources associated with project.</p>
+     * 
+     * @param resources <code>Set</code> of resources associated with project.
+     */
+    public void setResources(Set<Resource> resources) {
+        this.resources = resources;
+    }
+
+    /**
+     * <p>Gets the ID for TC Direct project associated with this project.</p>
+     *
+     * @return a <code>Long</code> providing the ID for TC Direct project associated with this project.
+     */
+    public Long getTcDirectProjectId() {
+        return this.tcDirectProjectId;
+    }
+
+    /**
+     * <p>Sets the ID for TC Direct project associated with this project.</p>
+     *
+     * @param tcDirectProjectId a <code>Long</code> providing the ID for TC Direct project associated with this
+     *                          project.
+     */
+    public void setTcDirectProjectId(Long tcDirectProjectId) {
+        this.tcDirectProjectId = tcDirectProjectId;
+    }
 }

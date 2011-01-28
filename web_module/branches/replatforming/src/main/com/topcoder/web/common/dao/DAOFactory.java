@@ -16,8 +16,8 @@ package com.topcoder.web.common.dao;
  *   </ol>
  * </p>
  *
- * @author dok, TCSDEVELOPER, VolodymyrK
- * @version 1.1
+ * @author dok, TCSDEVELOPER, VolodymyrK, isv
+ * @version 1.2
  */
 public interface DAOFactory {
     AlgoRatingTypeDAO getAlgoRatingTypeDAO();
@@ -160,4 +160,11 @@ public interface DAOFactory {
      */
     UserPermissionGrantDAO getUserPermissionGrantDAO();
 
+    /**
+     * <p>Gets the resource DAO.</p>
+     * 
+     * @return a <code>ResourceDAO</code> instance.
+     * @since 1.2 
+     */
+    ResourceDAO getResourceDAO();
 }

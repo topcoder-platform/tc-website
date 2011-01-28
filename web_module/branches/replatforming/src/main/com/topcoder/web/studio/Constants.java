@@ -470,6 +470,13 @@ public class Constants implements WebConstants {
     public static double SPEC_REVIEW_PAYMENT_AMOUNT;
 
     /**
+     * <p>A <code>double</code> providing the payment amount for screening reviews.</p>
+     *
+     * @since 1.2
+     */
+    public static double SCREENING_REVIEW_PAYMENT_AMOUNT;
+
+    /**
      * <p>A <code>String</code> providing the name of default request attribute which refers to
      * specification review id.</p>
      *
