@@ -177,7 +177,7 @@
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-        <td class="title" colspan="8">Reliability Detail</td>
+        <td class="title" colspan="7">Reliability Detail</td>
     </tr>
     <tr>
         <td class="headerC" width="5%">
@@ -190,24 +190,21 @@
                     Application
             <% } %>
         </td>
-        <td class="headerC" width="10%">
-            Reliability Before
-        </td>
-        <td class="headerC" width="10%">
-            Reliability After
-        </td>
         <td class="headerC" width="5%">
             Reliable
-        </td>	
-        <td class="headerC" nowrap="nowrap" width="15%">
-            Resolution Date
         </td>
-        <td class="headerC" nowrap="nowrap" width="15%">
+        <td class="headerC" nowrap="nowrap" width="20%">
+            Resolution Date
+        </td>	
+        <td class="headerC" width="10%">
+            Reliability After Resolution
+        </td>
+        <td class="headerC" nowrap="nowrap" width="20%">
             Registration Date
         </td>
         <td class="headerC" width="10%">
             Reliability on Registration
-        </td>	
+        </td>
 
     </tr>
 
@@ -233,16 +230,13 @@
                 <% } %>
             </td>
             <td class="valueC">
-                <rsc:item name="old_reliability" row="<%=resultRow%>" format="0.00%" ifNull="&#160;"/>
-            </td>
-            <td class="valueC">
-                <rsc:item name="new_reliability" row="<%=resultRow%>" format="0.00%" ifNull="&#160;"/>
-            </td>
-            <td class="valueC">
                 <rsc:item name="reliable" row="<%=resultRow%>"/>
-            </td>	    
+            </td>
             <td class="valueC" nowrap="nowrap">
                 <rsc:item name="resolution_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/>
+            </td>	    
+            <td class="valueC">
+                <rsc:item name="new_reliability" row="<%=resultRow%>" format="0.00%" ifNull="&#160;"/>
             </td>
             <td class="valueC" nowrap="nowrap">
                 <rsc:item name="create_time" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/>
