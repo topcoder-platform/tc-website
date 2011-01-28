@@ -124,6 +124,8 @@
         <mapping resource="com/topcoder/web/common/model/comp/ProjectInfo.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/ProjectPhase.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/ResourceRole.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/comp/Resource.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/comp/ResourceInfo.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/Submission.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/UserContestPrize.hbm.xml"/>
 

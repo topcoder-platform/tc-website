@@ -45,6 +45,7 @@ import com.topcoder.web.common.dao.QuestionStyleDAO;
 import com.topcoder.web.common.dao.QuestionTypeDAO;
 import com.topcoder.web.common.dao.ReferralDAO;
 import com.topcoder.web.common.dao.RegistrationTypeDAO;
+import com.topcoder.web.common.dao.ResourceDAO;
 import com.topcoder.web.common.dao.RoomResultDAO;
 import com.topcoder.web.common.dao.RoundDAO;
 import com.topcoder.web.common.dao.RoundTypeDAO;
@@ -82,8 +83,8 @@ import com.topcoder.web.common.dao.VisaLetterRequestDAO;
  *   </ol>
  * </p>
  *
- * @author dok, TCSDEVELOPER
- * @version 1.1
+ * @author dok, TCSDEVELOPER, isv
+ * @version 1.2
  */
 public class DAOFactoryHibernate implements DAOFactory {
     public AlgoRatingTypeDAO getAlgoRatingTypeDAO() {
@@ -354,4 +355,13 @@ public class DAOFactoryHibernate implements DAOFactory {
         return new UserPermissionGrantDAOHibernate();
     }
 
+    /**
+     * <p>Gets the resource DAO.</p>
+     * 
+     * @return a <code>ResourceDAO</code> instance.
+     * @since 1.2 
+     */
+    public ResourceDAO getResourceDAO() {
+        return new ResourceDAOHibernate();
+    }
 }

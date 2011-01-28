@@ -1,13 +1,15 @@
 <%--
-  - Author: pulky
-  - Version: 1.2
-  - Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+  - Author: pulky, isv
+  - Version: 1.3
+  - Copyright (C) 2001 - 2010 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page presents active contests
   -
   - Version 1.1 (Studio Release Assembly - Spec Review Sign up page v1.0) changes: Added "Review Opportunities" tab.
   - Version 1.2 (BUGR-2786) changes: Added "Round 1 End" column. Fixed "time left" column to count towards milestone
   - date if it has not been reached yet. (Only for multi round contests)
+  - Version 1.3 (Replatforming Studio Release 1 Assembly) change notes: active contests are filtered based on 
+  - eligibility constraints.
 --%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow" %>
@@ -150,6 +152,9 @@
 
                                     <% boolean even = true;%>
                                     <rsc:iterator list="${contests}" id="resultRow">
+                                        <c:set var="contestId" value="<%=new Long(resultRow.getLongItem("contest_id"))%>"/>
+                                        <c:if test="${requestScope.eligibility[contestId]}">
+                                        
                                         <tr><td class="space" colspan="11">&nbsp;</td></tr>
                                         <tr class="<%=even?"light":"dark"%>">
                                             <td class="valueE">
@@ -210,6 +215,7 @@
                                             </td>
                                         </tr>
                                         <% even = !even;%>
+                                        </c:if>
                                     </rsc:iterator>
                                 </c:otherwise>
                             </c:choose>

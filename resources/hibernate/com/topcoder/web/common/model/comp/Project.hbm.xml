@@ -11,6 +11,7 @@
    
         <property name="statusId" column="project_status_id" access="field"/>
         <property name="categoryId" column="project_category_id" access="field"/>
+        <property name="tcDirectProjectId" column="tc_direct_project_id" access="field"/>
         
         <map name="info" inverse="true" fetch="subselect">
             <key column="project_id" not-null="true" />
@@ -23,6 +24,11 @@
             <map-key column="phase_type_id" type="integer"/>
             <one-to-many class="ProjectPhase"/>
         </map>
+        
+        <set name="resources" table="tcs_catalog:resource" access="field" inverse="true">
+            <key column="project_id" not-null="true"/>
+            <one-to-many class="Resource"/>
+        </set>
         
         <set name="contests" table="tcs_catalog:contest_project_xref"  access="field">
             <key column="project_id" not-null="true"/>

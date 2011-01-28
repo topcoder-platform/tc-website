@@ -1,9 +1,12 @@
 <%--
-  - Author: TCSDEVELOPER
-  - Version: 1.0 (Studio Release Assembly - Spec Review Sign up page v1.0)
-  - Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+  - Author: isv
+  - Version: 1.1 (Replatforming Studio Release 1 Assembly)
+  - Copyright (C) 2001 - 2010 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page presents specification review opportunities
+  -
+  - Version 1.1 change notes: updated the logic for displaying the opportunities to display the milestome screening
+  - and screening phase dates and link Review Signup link to OR.
 --%>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ taglib prefix="studio" uri="studio.tld" %>
@@ -19,7 +22,7 @@
 <c:set value="${sessionInfo.servletPath}?${MODULE_KEY}" var="BASE_URL"/>
 <c:set value="${BASE_URL}=Static&amp;d1=support&amp;d2=getStarted" var="GET_STARTED_LINK"/>
 <c:set value="${BASE_URL}=ViewContestDetails&amp;${CONTEST_ID}" var="VIEW_CONTEST_DETAILS_LINK"/>
-<c:set value="${BASE_URL}=ReviewRegistration&amp;${SPEC_REVIEW_ID}" var="REVIEW_REGISTRATION_LINK"/>
+<c:set value="${BASE_URL}=ReviewRegistration&amp;${CONTEST_ID}" var="REVIEW_REGISTRATION_LINK"/>
 
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -125,21 +128,49 @@
                                       <c:forEach items="${reviews}" var="resultRow" varStatus="status">
                                         <tr><td class="space" colspan="5">&nbsp;</td></tr>
                                         <tr class="${status.index % 2 == 1? 'dark' : 'light' }">
-                                            <td class="valueE">
-                                                ${resultRow.map['contest_type_desc']}
-                                            </td>
+                                            <td class="valueE">Screening</td>
                                             <td class="value">
                                                 <a href="${VIEW_CONTEST_DETAILS_LINK}=${resultRow.map['contest_id']}">
                                                     ${resultRow.map['name']}
                                                 </a>
                                             </td>
                                             <td class="valueC">
-                                                <fmt:formatDate value="${resultRow.map['start_time']}" pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                                                <c:choose>
+                                                    <c:when test="${resultRow.map['milestone_screening_start_time'] ne null}">
+                                                        Round 1 -
+                                                        <fmt:formatDate value="${resultRow.map['milestone_screening_start_time']}" 
+                                                                        pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" 
+                                                                        timeZone="${sessionInfo.timezone}"/>
+                                                        <br/>
+                                                        Round 2 -
+                                                        <fmt:formatDate value="${resultRow.map['screening_start_time']}" 
+                                                                        pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" 
+                                                                        timeZone="${sessionInfo.timezone}"/>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        Round 1 -
+                                                        <fmt:formatDate value="${resultRow.map['screening_start_time']}" 
+                                                                        pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" 
+                                                                        timeZone="${sessionInfo.timezone}"/>
+                                                    </c:otherwise>
+                                                </c:choose>
                                             </td>
                                             <td class="valueC">
                                                 <fmt:formatNumber value="${SPEC_REVIEW_PAYMENT_AMOUNT}" pattern="$###,###.00"/>
                                             </td>
                                             <td class="valueW">
+                                                <a href="${REVIEW_REGISTRATION_LINK}=${resultRow.map['contest_id']}">
+                                                    <c:choose>
+                                                        <c:when test="${userLoggedIn}">
+                                                                Apply Now
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                                Open
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                </a>
+                                                
+<%--
                                                 <c:choose>
                                                     <c:when test="${not empty resultRow.map['review_user_id']}">
                                                         <studio:handle coderId="${resultRow.map['review_user_id']}"/>
@@ -157,6 +188,7 @@
                                                         </a>
                                                     </c:otherwise>
                                                 </c:choose>
+--%>
                                             </td>
                                         </tr>
                                     </c:forEach>

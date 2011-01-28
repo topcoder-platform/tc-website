@@ -18,8 +18,8 @@ import com.topcoder.web.common.dao.*;
  *   </ol>
  * </p>
  *
- * @author pulky, TCSDEVELOPER
- * @version 1.1
+ * @author pulky, TCSDEVELOPER, isv
+ * @version 1.2
  */
 public class DAOFactoryQueryTool implements DAOFactory {
 
@@ -298,6 +298,17 @@ public class DAOFactoryQueryTool implements DAOFactory {
      * @since 1.1
      */
     public UserPermissionGrantDAO getUserPermissionGrantDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    /**
+     * <p>Gets the resource DAO.</p>
+     * 
+     * @return a <code>ResourceDAO</code> instance. 
+     * @throws RuntimeException always since this DAO is not currently supported
+     * @since 1.2
+     */
+    public ResourceDAO getResourceDAO() {
         throw new RuntimeException("Not supported");
     }
 }

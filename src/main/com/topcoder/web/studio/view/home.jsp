@@ -1,6 +1,6 @@
 <%--
   - Author: pulky, isv
-  - Version: 1.5
+  - Version: 1.6
   - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page renders studio home page.
@@ -31,6 +31,8 @@
   -    * and Compete and Post buttons. Active Contests area shows icon for contests
   -    * eligible for TCO10. Contest Chatter area is replaced with Member Of The Month
   -    * info
+  - Version 1.5 (Replatforming Studio Release 1 Assembly) change notes: active contests are filtered based on 
+  - eligibility constraints.
 --%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
@@ -40,16 +42,8 @@
 <%@ page import="java.util.Date" %>
 <%@ page import="java.util.Map" %>
 
-<% ResultSetContainer activeContests = (ResultSetContainer) ((Map) request.getAttribute("studio_home_data")).get("active_contests");%>
-<% ResultSetContainer totalPrizePaidRS = (ResultSetContainer) ((Map) request.getAttribute("studio_home_data")).get("total_prize_paid");%>
-<%
-    String totalPrizePaid = "0";
-    if (totalPrizePaidRS.getItem(0, 0).getResultData() != null) {
-        NumberFormat formatter = NumberFormat.getInstance();
-        formatter.setParseIntegerOnly(true);
-        totalPrizePaid = formatter.format(totalPrizePaidRS.getFloatItem(0, 0) + 134598);
-    }
-%>
+<% ResultSetContainer activeContests 
+        = (ResultSetContainer) ((Map) request.getAttribute("studio_home_data")).get("studio_active_contests");%>
 
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
@@ -145,6 +139,9 @@
                                         </thead>
                                         <tbody>
                                             <rsc:iterator list="<%=activeContests%>" id="resultRow" end="6">
+                                                <c:set var="contestId" value="<%=new Long(resultRow.getLongItem("contest_id"))%>"/>
+                                                <c:if test="${requestScope.eligibility[contestId]}">
+                                                
                                                 <tr>
                                                     <td class="event">
                                                         <% if ("3432".equals(resultRow.getStringItem("event_id"))) { %>
@@ -187,6 +184,8 @@
                                                         %>
                                                     </td>
                                                 </tr>
+                                                
+                                                </c:if>
                                             </rsc:iterator>
                                         </tbody>
                                     </table>
