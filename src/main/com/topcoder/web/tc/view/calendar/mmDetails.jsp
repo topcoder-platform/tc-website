@@ -24,6 +24,9 @@
 	long[] nsaRounds = {14176, 14196, 14207, 14208};
 	Arrays.sort(nsaRounds);
 	
+	long[] ntlRounds = {14481};
+	Arrays.sort(nsaRounds);
+	
 
 %>
 <c:set var="row" value="<%=rsr%>" />
@@ -91,6 +94,20 @@
 	<div align="center">
 	<a href="http://www.topcoder.com/tc?module=LinkTracking&amp;link=http://www.topcoder.com/tc?module=Static%26d1=sponsors%26d2=NSAOverview&amp;refer=details">
 		<img src="http://www.topcoder.com/i/sponsor/nsa/mm-banner-NSA.png" alt="NSA Marathon Match Events" border="0">
+	</a>
+	</div>
+	
+<%} else if (Arrays.binarySearch(ntlRounds, roundId)>=0) { %>
+
+	<%-- BRANDING --%>
+	<div align="center">
+	<h2>The NASA Tournament Lab Marathon Match Event Series</h2>
+	</div>
+
+	<%-- BRANDING --%>
+	<div align="center">
+	<a href="http://www.topcoder.com/tc?module=LinkTracking&amp;link=http://www.topcoder.com/home/ntl&amp;refer=details">
+		<img src="http://www.topcoder.com/i/sponsor/nasa/ntl_patch.png" alt="NASA Tournament Lab" border="0">
 	</a>
 	</div>
 	
@@ -363,9 +380,37 @@ Please check out the rules link below for more detail.
     submissions in each of the five languages supported will receive $750 and $250,
     respectively.
 <p align="justify">
+</p>
+<%}%>
+
+<%-- NASA NTL SERIES --%>
+<% if (Arrays.binarySearch(ntlRounds, roundId)>=0) { %>
+<div class="sectionHeader">Prizes</div>
+    <p align="justify">There will be $10,000 in total prize money.  The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
+
+<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
+    <tr>
+        <td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right">$5,000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">2nd</td><td class="bodyText" align="right">$2,000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">3rd</td><td class="bodyText" align="right">$1,500</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">4th</td><td class="bodyText" align="right">$1,000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$500</td>
+    </tr>
+</table>
+    
+<p align="justify">
     
 </p>
 <%}%>
+
 <%if(roundId == 10930) {%>
 <div class="sectionHeader">Prizes</div>
     <p align="justify">There will be $15000 in total prize money.  The 10 highest scorers in the round will receive prizes as follows:</p>
