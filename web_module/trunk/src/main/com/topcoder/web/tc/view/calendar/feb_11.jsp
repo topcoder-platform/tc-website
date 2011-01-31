@@ -130,7 +130,7 @@
       </td>
       <td class="value">26
       	<div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=14427">Member SRM 498</A></strong><br />
+         <strong><A href="/tc?module=MatchDetails&rd=14427">SRM 498</A></strong><br />
 		brought to you by <A href="/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=patron">NSA</A><br />
          12:00
         </div>
