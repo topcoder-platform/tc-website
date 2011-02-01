@@ -74,15 +74,21 @@ import com.topcoder.web.tc.model.ReviewBoardApplication;
  *   <ol>
  *     <li>Added eligibility constraints check.</li>
  *   </ol>
-  *
+ *
  *   Version 1.0.8 Change notes:
  *   <ol>
  *     <li>Added support for Specification Submission and Specificatino Review project phases.</li>
  *   </ol>
+ *
+ *   Version 1.0.9 Change notes:
+ *   <ol>
+ *     <li>Updated the review registration phase not to list more review opportunities than specified
+ *         in the Review phase properties in the Online Review.</li>
+ *   </ol>
  * </p>
  *
  * @author dok, isv, pulky, snow01, VolodymyrK
- * @version 1.0.8
+ * @version 1.0.9
  * @since 1.0
  */
 public class ReviewProjectDetail extends Base {
@@ -141,7 +147,7 @@ public class ReviewProjectDetail extends Base {
      * @param phaseId phase id of the project
      * @param projectTypeId identifier of the type of project
      * @throws TCWebException if an unexpected error occurs
-     * @since 1.0.6
+     * @since 1.0.9
      */
     private void retrieveReviewProjectDetail(String projectId, int phaseId, String projectTypeId) throws TCWebException {
         try {
@@ -172,6 +178,8 @@ public class ReviewProjectDetail extends Base {
                     numSubmissionsPassed = 1;
                 }
 
+                int reviewers_required = detail.getIntItem(0, "reviewers_required");
+                int reviewers_registered = 0;
 
                 ResultSetContainer reviewers = (ResultSetContainer) results.get("reviewers");
                 ResultSetContainer.ResultSetRow row = null;
@@ -190,6 +198,8 @@ public class ReviewProjectDetail extends Base {
                                                  detail.getFloatItem(0, "prize"),
                                                  detail.getFloatItem(0, "dr_points")));
                     } else {
+                        reviewers_registered++;
+
                         //this one has been assigned
                         reviewerList.add(makeApp(row.getStringItem("reviewer_type"),
                                                  numSubmissions,
@@ -206,9 +216,21 @@ public class ReviewProjectDetail extends Base {
                     }
                 }
 
+                //Remove excessive review opportunities.
+                ReviewBoardApplication app = null;
+                for (Iterator it = reviewerList.iterator(); it.hasNext();) {
+                    app = (ReviewBoardApplication) it.next();
+                    if (!app.isSpotFilled()) {
+                        if (reviewers_registered >= reviewers_required) {
+                            it.remove();
+                        } else {
+                            reviewers_registered++;
+                        }
+                    }
+                }
+
                 //if there is no primary spot in the list, put one in there
                 //and make sure it's the Failure reviewer
-                ReviewBoardApplication app = null;
                 boolean hasPrimary = false;
                 for (Iterator it = reviewerList.iterator(); it.hasNext();) {
                     app = (ReviewBoardApplication) it.next();
