@@ -7,16 +7,23 @@ import com.jivesoftware.base.PermissionType;
 import com.jivesoftware.base.PermissionsManager;
 import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.base.User;
+import com.jivesoftware.base.UserManager;
+import com.jivesoftware.base.UserManagerFactory;
 import com.jivesoftware.base.UserNotFoundException;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.ForumCategoryNotFoundException;
+import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumNotFoundException;
 import com.jivesoftware.forum.ForumFactory;
 import com.jivesoftware.forum.ForumPermissions;
+import com.jivesoftware.forum.ForumThread;
 import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.Watch;
 import com.jivesoftware.forum.WatchManager;
+import com.topcoder.service.review.comment.specification.SpecReviewComment;
+import com.topcoder.service.review.comment.specification.SpecReviewCommentServiceException;
+import com.topcoder.service.review.comment.specification.UserComment;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.RowNotFoundException;
@@ -28,16 +35,21 @@ import com.topcoder.web.forums.controller.ForumsUtil;
 import com.topcoder.web.forums.model.TCAuthToken;
 
 import javax.ejb.EJBException;
+
+import java.util.List;
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Iterator;
+import java.util.LinkedList;
 
 /**
  * This class handles interaction with the Jive database.
@@ -938,14 +950,623 @@ public class ForumsBean extends BaseEJB {
         
     }
 
+	/**
+	 * <p>
+	 * Adds the given <code>comment</code> to the specification review forum at
+	 * the given category.
+	 * </p>
+	 * 
+	 * @param categoryId
+	 *            The ID of the category at which specification review forum the
+	 *            comment should be added.
+	 * @param userId
+	 *            The ID of the user which calls this method (retrieved from
+	 *            <code>TCSubject</code>).
+	 * @param questionId
+	 *            The ID of the question to which the comment refers to.
+	 * @param comment
+	 *            The <code>UserComment</code> object which should be added to
+	 *            the specification review forum of given category.
+	 * @return The ID of the added comment.
+	 * 
+	 * @throws SpecReviewCommentServiceException
+	 *             If any error occurs while adding the given
+	 *             <code>comment</code> to the specification review forum of the
+	 *             given category. Also thrown if a comment with the given
+	 *             comment ID already exists.
+	 */
+	public long addSpecReviewComment(long categoryId, long userId, long questionId, UserComment comment)
+			throws SpecReviewCommentServiceException {
 
-    private void logException(Exception e, String msg) {
-        log.info("*** " + msg + ": " + e);
-        StackTraceElement[] ste = e.getStackTrace();
-        for (int i = 0; i < ste.length; i++) {
-            log.info(ste[i]);
-        }
-    }
+		log.debug("Entering addSpecReviewComment...");
+
+		Connection forumsConn = null;
+		PreparedStatement forumsCommentMsg = null;
+		PreparedStatement forumsInsertPS = null;
+		PreparedStatement forumsPS = null;
+		ResultSet rs = null;
+		ResultSet rsCommentMsg = null;
+		ResultSet keys = null;
+		try {
+
+			// retrieving spec review forum for given category
+			Forum forum = getSpecReviewForum(categoryId);
+
+			forumsConn = DBMS.getConnection(DBMS.FORUMS_DATASOURCE_NAME);
+
+			log.debug("DBMS.FORUMS_DATASOURCE_NAME: " + DBMS.FORUMS_DATASOURCE_NAME);
+			if (forumsConn == null) {
+				log.debug("forumsConn is NULL");
+			}
+System.out.println("----------------------------categoryId--------------------"+categoryId);
+System.out.println("----------------------------userId--------------------"+userId);
+System.out.println("----------------------------questionId--------------------"+questionId);
+
+			// check if commentId already exists in table 'comment_message_xref'
+			// long commentId = comment.getCommentId();
+			// forumsCommentMsg = forumsConn.prepareStatement("select message_id from comment_message_xref c "
+				//	+ "where c.comment_id = " + commentId);
+			// rsCommentMsg = forumsCommentMsg.executeQuery();
+
+			// long messageId = -1;
+			// while (rsCommentMsg.next()) {
+
+				// messageId = rsCommentMsg.getLong("message_id");
+			// }
+
+			// if (messageId != -1) { // message for 'commentId' already exists
+
+				// SpecReviewCommentServiceException srce = new SpecReviewCommentServiceException("Comment with id "
+					//	+ commentId + " already exists!");
+				// logException(srce, "Comment with id " + commentId + " already exists!");
+				// throw srce;
+			// }
+
+			// get corrresponding thread ID for given 'questionId'
+			forumsPS = forumsConn.prepareStatement("select thread_id from question_thread_xref q "
+					+ "where q.question_id = " + questionId);
+
+			log.debug("Searching thread for question id " + questionId);
+			rs = forumsPS.executeQuery();
+
+			long threadId = -1;
+			while (rs.next()) {
+
+				threadId = rs.getLong("thread_id");
+			}
+
+			UserManager userManager = UserManagerFactory.getInstance();
+
+			// XXX: Retrieving user from name or tcSubject user ID
+			// Use the following line if you want to retrieve user from ID:
+			// User user = userManager.getUser(userId);
+			long commentUserId = userManager.getUserID(comment.getCommentBy());
+			log.debug("Retrieved user id " + commentUserId + " for user with name from comment "
+					+ comment.getCommentBy() + " from UserManager!");
+
+			User user = userManager.getUser(commentUserId);
+			user.setName(comment.getCommentBy());
+
+			if (user != null) {
+
+				log.debug("Retrieved user with id " + user.getID() + " and name " + user.getName()
+						+ " from UserManager!");
+			}
+
+			// create Message with user
+			ForumMessage forumMessage = forum.createMessage(user);
+			String body = comment.getComment();
+			forumMessage.setBody(body);
+			forumMessage.setCreationDate(comment.getCommentDate());
+			forumMessage.setModificationDate(comment.getCommentDate());
+			log.debug("Created ForumMessage with id " + forumMessage.getID() + " with user with id " + userId
+					+ " and comment (message body): " + body);
+
+			String subject = "";
+			if (threadId == -1) { // no thread exists for given questionId so we
+				// need to create one
+
+				log.debug("No thread found for question id " + questionId + "!");
+				// set subject for forum message
+				subject = comment.getCommentQuestionName();
+				forumMessage.setSubject(subject);
+
+				// create thread with forumMessage as root message
+				ForumThread thread = forum.createThread(forumMessage);
+				log.debug("Created new thread with id " + thread.getID() + " and root message with id "
+						+ forumMessage.getID() + "!");
+
+				// set creation and modification date of the thread to the date
+				// of the UserComment
+				thread.setCreationDate(comment.getCommentDate());
+				thread.setModificationDate(comment.getCommentDate());
+				forum.addThread(thread);
+				log.debug("Added thread with id " + thread.getID() + " and root message with id "
+						+ forumMessage.getID() + " to forum with id " + forum.getID() + "!");
+
+				// store the mapping 'questionId <-> threadId' in DB in table
+				// 'question_thread_xref'
+				forumsInsertPS = forumsConn
+						.prepareStatement("insert into question_thread_xref(question_id, thread_id, forum_id) values (?, ?, ?)");
+				forumsInsertPS.setLong(1, questionId);
+				forumsInsertPS.setLong(2, thread.getID());
+				forumsInsertPS.setLong(3, forum.getID());
+				forumsInsertPS.executeUpdate(); // execute insert statement
+
+			} else { // a thread already exists for given questionId so we just
+				// need to add a message
+
+				log.debug("Found thread with id " + threadId + " for question id " + questionId);
+				// build subject for forum message
+				subject = "Re: " + comment.getCommentQuestionName();
+				forumMessage.setSubject(subject);
+				ForumThread thread = forum.getThread(threadId);
+
+				// throw exception if threadId was not found
+				if (thread == null) {
+
+					SpecReviewCommentServiceException srce = new SpecReviewCommentServiceException(
+							"Could not find thread with id " + threadId + " in forum with id " + forum.getID() + "!");
+					logException(srce, "Thread with id " + threadId + " was NOT found in forum with id "
+							+ forum.getID() + "!");
+					throw srce;
+				}
+
+				// set modification date of the thread to the date of the
+				// UserComment
+				thread.setModificationDate(comment.getCommentDate());
+				// add the forum message to the thread with the root message as
+				// parent message
+				ForumMessage rootMessage = thread.getRootMessage();
+				thread.addMessage(rootMessage, forumMessage);
+				forum.addThread(thread);
+				log.debug("Added forum message with id " + forumMessage.getID() + " to thread with id "
+						+ thread.getID() + " and root message with id " + rootMessage.getID() + " as parent message!");
+			}
+
+			// store the mapping 'commentId <-> messageId' in DB in table
+			// 'comment_message_xref'
+			forumsInsertPS = forumsConn.prepareStatement("insert into comment_message_xref(message_id) values (?)",
+					Statement.RETURN_GENERATED_KEYS);
+			// .prepareStatement("insert into comment_message_xref(comment_id, message_id) values (?)");
+			// forumsInsertPS.setLong(1, commentId);
+			// forumsInsertPS.setLong(2, forumMessage.getID());
+
+			forumsInsertPS.setLong(1, forumMessage.getID());
+			forumsInsertPS.executeUpdate(); // execute insert statement
+
+			keys = forumsInsertPS.getGeneratedKeys();
+
+			keys.next();
+
+			BigDecimal key = keys.getBigDecimal(1);
+			log.debug("Auto generated comment ID is " + key.longValue() + "!");
+
+			return key.longValue();
+		} catch (Exception e) {
+
+			SpecReviewCommentServiceException srce = new SpecReviewCommentServiceException(
+					"An error occured while adding spec review comment for category ID " + categoryId
+							+ ", question ID " + questionId + " and comment ID " + comment.getCommentId() + "!", e);
+			logException(srce, "An error occured while adding spec review comment for category ID "
+					+ categoryId + ", question ID " + questionId + " and comment ID " + comment.getCommentId() + "!");
+			throw srce;
+		} finally {
+
+			try {
+
+				if (rs != null) {
+					rs.close();
+				}
+				if (rsCommentMsg != null) {
+					rsCommentMsg.close();
+				}
+				if (keys != null) {
+					keys.close();
+				}
+				if (forumsCommentMsg != null) {
+					forumsCommentMsg.close();
+				}
+				if (forumsPS != null) {
+					forumsPS.close();
+				}
+				if (forumsInsertPS != null) {
+					forumsInsertPS.close();
+				}
+				if (forumsConn != null) {
+					forumsConn.close();
+				}
+			} catch (SQLException sqle) {
+
+				SpecReviewCommentServiceException srce = new SpecReviewCommentServiceException(
+						"An error occured while closing resources!");
+				logException(srce, "An error occured while closing resources!");
+				throw srce;
+			}
+		}
+	}
+
+	/**
+	 * <p>
+	 * Retrieves all specification review comments for the given
+	 * <code>categoryId</code>.
+	 * </p>
+	 * 
+	 * @param categoryId
+	 *            The ID of the category from which all specification review
+	 *            comments should be retrieved from.
+	 * @return a List of all specification review comments at the specification
+	 *         review forum. An empty List is returned in case no thread and so
+	 *         no message was found.
+	 * 
+	 * @throws SpecReviewCommentServiceException
+	 *             If any error occurs while retrieving the specification review
+	 *             comments.
+	 */
+	public List<SpecReviewComment> getSpecReviewComments(long categoryId) throws SpecReviewCommentServiceException {
+
+		log.debug("Entering getSpecReviewComments...");
+
+		Connection forumsConn = null;
+		PreparedStatement forumsPS = null;
+		PreparedStatement forumsCommentMsg = null;
+		ResultSet rsCommentMsg = null;
+		ResultSet rs = null;
+		try {
+			// retrieving spec review forum for given category
+			Forum forum = getSpecReviewForum(categoryId);
+			long forumId = forum.getID();
+
+			List<SpecReviewComment> specReviewComments = new LinkedList<SpecReviewComment>();
+
+			forumsConn = DBMS.getConnection(DBMS.FORUMS_DATASOURCE_NAME);
+
+			log.debug("DBMS.FORUMS_DATASOURCE_NAME: " + DBMS.FORUMS_DATASOURCE_NAME);
+			if (forumsConn == null) {
+				log.debug("forumsConn is NULL");
+			}
+
+			forumsPS = forumsConn.prepareStatement("select question_id, thread_id from question_thread_xref q "
+					+ "where q.forum_id = " + forumId);
+
+			log.debug("Searching for all threads in forum with id " + forumId + "!");
+			rs = forumsPS.executeQuery();
+
+			long questionId = -1;
+			long threadId = -1;
+
+			// iterate over all threads in forum with 'forumId'
+			while (rs.next()) {
+
+				questionId = rs.getLong("question_id");
+				threadId = rs.getInt("thread_id");
+
+				// create 'SpecReviewComment' object and set 'questionId' to it
+				SpecReviewComment specReviewComment = new SpecReviewComment();
+				specReviewComment.setQuestionId(questionId);
+
+				// create List for all comments (messages) in thread with given
+				// 'threadId'
+				List<UserComment> comments = new LinkedList<UserComment>();
+
+				ForumThread thread = forum.getThread(threadId);
+				// throw exception if threadId was not found
+				if (thread == null) {
+
+					SpecReviewCommentServiceException srce = new SpecReviewCommentServiceException(
+							"Could not find thread with id " + threadId + " in forum with id " + forum.getID() + "!");
+					logException(srce, "Thread with id " + threadId + " was NOT found in forum with id "
+							+ forum.getID() + "!");
+					throw srce;
+				}
+
+				// iterate over all messages in thread with given 'threadId'
+				for (Iterator iter = thread.getMessages(); iter.hasNext();) {
+
+					UserComment userComment = new UserComment();
+
+					ForumMessage message = (ForumMessage) iter.next();
+					long messageId = message.getID();
+
+					// retrieve comment ID for given 'messageId'
+					forumsCommentMsg = forumsConn.prepareStatement("select comment_id from comment_message_xref c "
+							+ "where c.message_id = " + messageId);
+					rsCommentMsg = forumsCommentMsg.executeQuery();
+
+					boolean commentIdFound = false;
+
+					while (rsCommentMsg.next()) {
+
+						commentIdFound = true;
+						userComment.setCommentId(rsCommentMsg.getLong("comment_id"));
+					}
+
+					if (!commentIdFound) {
+
+						SpecReviewCommentServiceException srce = new SpecReviewCommentServiceException(
+								"Could not find the comment id for message with id " + messageId + "!");
+						logException(srce, "Comment id for message with id " + messageId
+								+ " was NOT found in forum with id " + forum.getID() + "!");
+						throw srce;
+					}
+
+					userComment.setCommentDate(message.getModificationDate());
+					userComment.setCommentBy(message.getUser().getName());
+
+					// determine question name from message subject (removing
+					// 'Re: ' prefix)
+					String subject = message.getSubject();
+					if (subject.startsWith("Re: ")) {
+
+						subject = subject.substring(4);
+					}
+
+					userComment.setCommentQuestionName(subject);
+					userComment.setComment(message.getBody());
+
+					// add 'userComment' to 'comments' List
+					comments.add(userComment);
+				}
+
+				specReviewComment.setComments(comments);
+				// add 'specReviewComment' 'specReviewComments' List
+				specReviewComments.add(specReviewComment);
+			}
+
+			// return empty list if no thread was found
+			if (threadId == -1) {
+
+				return new LinkedList();
+			}
+
+			return specReviewComments;
+		} catch (Exception e) {
+
+			SpecReviewCommentServiceException srce = new SpecReviewCommentServiceException(
+					"An error occured while retrieving spec review comments for category ID " + categoryId + "!", e);
+			logException(srce, "An error occured while retrieving spec review comments for category ID "
+					+ categoryId + "!");
+			throw srce;
+		} finally {
+
+			try {
+
+				if (rs != null) {
+					rs.close();
+				}
+				if (rsCommentMsg != null) {
+					rsCommentMsg.close();
+				}
+				if (forumsPS != null) {
+					forumsPS.close();
+				}
+				if (forumsCommentMsg != null) {
+					forumsCommentMsg.close();
+				}
+				if (forumsConn != null) {
+					forumsConn.close();
+				}
+			} catch (SQLException sqle) {
+
+				SpecReviewCommentServiceException srce = new SpecReviewCommentServiceException(
+						"An error occured while closing resources!", sqle);
+				logException(srce, "An error occured while closing resources!");
+				throw srce;
+			}
+		}
+	}
+
+	/**
+	 * <p>
+	 * Updates the given specification review comment.
+	 * </p>
+	 * 
+	 * @param categoryId
+	 *            The ID of the category at which specification review forum the
+	 *            comment should be updated.
+	 * @param userId
+	 *            The ID of the user which calls this method (retrieved from
+	 *            <code>TCSubject</code>).
+	 * @param questionId
+	 *            The ID of the question to which the comment refers to.
+	 * @param comment
+	 *            The <code>UserComment</code> object which should be updated to
+	 *            the specification review forum of given category.
+	 * 
+	 * @throws SpecReviewCommentServiceException
+	 *             If any error occurs while updating the given
+	 *             <code>comment</code> to the specification review forum of the
+	 *             given category.
+	 */
+	public void updateSpecReviewComment(long categoryId, long userId, long questionId, UserComment comment)
+			throws SpecReviewCommentServiceException {
+
+		log.debug("Entering updateSpecReviewComment...");
+
+		Connection forumsConn = null;
+		PreparedStatement forumsPS = null;
+		PreparedStatement forumsCommentMsg = null;
+		ResultSet rsCommentMsg = null;
+		ResultSet rs = null;
+		try {
+
+			// retrieving spec review forum for given category
+			Forum forum = getSpecReviewForum(categoryId);
+
+			forumsConn = DBMS.getConnection(DBMS.FORUMS_DATASOURCE_NAME);
+
+			log.debug("DBMS.FORUMS_DATASOURCE_NAME: " + DBMS.FORUMS_DATASOURCE_NAME);
+			if (forumsConn == null) {
+				log.debug("forumsConn is NULL");
+			}
+
+			forumsPS = forumsConn.prepareStatement("select thread_id from question_thread_xref q "
+					+ "where q.question_id = " + questionId);
+
+			log.debug("Searching thread for question id " + questionId);
+			rs = forumsPS.executeQuery();
+
+			long threadId = -1;
+			while (rs.next()) {
+
+				threadId = rs.getLong("thread_id");
+			}
+
+			if (threadId == -1) { // no thread exists for given questionId
+
+				SpecReviewCommentServiceException srce = new SpecReviewCommentServiceException(
+						"Could not find a thread_id for question with id " + questionId + "!");
+				logException(srce, "Thread id for question with id " + questionId
+						+ " was NOT found in forum with id " + forum.getID() + "!");
+				throw srce;
+			}
+
+			log.debug("Retrieved user with id " + userId + " from UserManager!");
+
+			long commentId = comment.getCommentId();
+			// retrieve message ID for given 'commentId'
+			forumsCommentMsg = forumsConn.prepareStatement("select message_id from comment_message_xref c "
+					+ "where c.comment_id = " + commentId);
+			rsCommentMsg = forumsCommentMsg.executeQuery();
+
+			long messageId = -1;
+			while (rsCommentMsg.next()) {
+
+				messageId = rsCommentMsg.getLong("message_id");
+			}
+
+			if (messageId == -1) { // no message found for given comment ID
+
+				SpecReviewCommentServiceException srce = new SpecReviewCommentServiceException(
+						"Could not find a message_id for comment with id " + commentId + "!");
+				logException(srce, "Message id for comment with id " + commentId
+						+ " was NOT found in thread with id " + threadId + "!");
+				throw srce;
+			}
+
+			ForumThread thread = forum.getThread(threadId);
+			if (thread == null) {
+
+				SpecReviewCommentServiceException srce = new SpecReviewCommentServiceException("Thread with id "
+						+ threadId + " was not found at forum with id " + forum.getID() + "!");
+				logException(srce, "Thread with id " + threadId + " was not found at forum with id "
+						+ forum.getID() + "!");
+				throw srce;
+			}
+
+			ForumMessage oldMessage = thread.getMessage(messageId);
+
+			oldMessage.setBody(comment.getComment());
+			oldMessage.setSubject(comment.getCommentQuestionName());
+			oldMessage.setModificationDate(comment.getCommentDate());
+		} catch (Exception e) {
+
+			SpecReviewCommentServiceException srce = new SpecReviewCommentServiceException(
+					"An error occured while updating spec review comment for category ID " + categoryId
+							+ ", question ID " + questionId + " and comment ID " + comment.getCommentId() + "!", e);
+			logException(srce, "An error occured while updating spec review comment for category ID "
+					+ categoryId + ", question ID " + questionId + " and comment ID " + comment.getCommentId() + "!");
+			throw srce;
+		} finally {
+
+			try {
+
+				if (rs != null) {
+					rs.close();
+				}
+				if (rsCommentMsg != null) {
+					rsCommentMsg.close();
+				}
+				if (forumsPS != null) {
+					forumsPS.close();
+				}
+				if (forumsCommentMsg != null) {
+					forumsCommentMsg.close();
+				}
+				if (forumsConn != null) {
+					forumsConn.close();
+				}
+			} catch (SQLException sqle) {
+
+				SpecReviewCommentServiceException srce = new SpecReviewCommentServiceException(
+						"An error occured while closing resources!");
+				logException(srce, "An error occured while closing resources!");
+				throw srce;
+			}
+		}
+	}
+
+	/**
+	 * <p>
+	 * Retrieves the specification review forum from the given
+	 * <code>categoryId</code>.
+	 * </p>
+	 * 
+	 * @param categoryId
+	 *            The category ID to retrieve the specification review forum
+	 *            from.
+	 * @return The specification review forum.
+	 * 
+	 * @throws SpecReviewCommentServiceException
+	 *             If no specification review forum was found in the given
+	 *             category.
+	 */
+	private Forum getSpecReviewForum(long categoryId) throws SpecReviewCommentServiceException {
+
+		// retrieve spec review forum from given category
+		log.debug("Searching spec review forum for forum category with id: " + categoryId);
+
+		ForumCategory forumCategory = null;
+		try {
+			forumCategory = forumFactory.getForumCategory(categoryId);
+			Forum forum = null;
+			for (Iterator iter = forumCategory.getForums(); iter.hasNext();) {
+
+				forum = (Forum) iter.next();
+				String name = forum.getName();
+				if (name.endsWith(ForumConstants.SPEC_REVIEW_FORUM_SUFFIX)) {
+
+					log.debug("Found spec review forum for category id " + categoryId + ": " + forum.getID());
+					return forum;
+				}
+			}
+		} catch (Exception e) {
+
+			SpecReviewCommentServiceException srce = new SpecReviewCommentServiceException(
+					"An error occured while retrieving spec review forum!", e);
+			logException(srce, "An error occured while retrieving spec review forum!");
+			throw srce;
+		}
+
+		SpecReviewCommentServiceException srce = new SpecReviewCommentServiceException(
+				"Could not find spec review forum in forum category: " + forumCategory.getName());
+		logException(srce, "Forum with category id " + categoryId + " does not contain a spec review forum!");
+		throw srce;
+	}
+
+	/**
+	 * <p>
+	 * Logs the given exception <code>e</code> and message <code>msg</code>.
+	 * </p>
+	 * 
+	 * <p>
+	 * 10th January 2011: Changed method to log at <code>ERROR</code> level
+	 * instead of <code>INFO</code> level.
+	 * </p>
+	 * 
+	 * @param e
+	 *            The <code>Exception</code> to log.
+	 * @param msg
+	 *            The message to log.
+	 */
+	private void logException(Exception e, String msg) {
+
+		log.error("*** " + msg + ": " + e);
+		StackTraceElement[] ste = e.getStackTrace();
+		for (int i = 0; i < ste.length; i++) {
+			log.error(ste[i]);
+		}
+	}
 }
 
 class JiveForumCategoryComparator implements Comparator {

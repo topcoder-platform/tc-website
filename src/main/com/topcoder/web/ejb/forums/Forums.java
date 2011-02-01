@@ -3,6 +3,7 @@ package com.topcoder.web.ejb.forums;
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.ejb.EJBException;
 
@@ -10,6 +11,10 @@ import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.base.UserNotFoundException;
 import com.jivesoftware.forum.ForumCategoryNotFoundException;
 import com.jivesoftware.forum.ForumNotFoundException;
+
+import com.topcoder.service.review.comment.specification.UserComment;
+import com.topcoder.service.review.comment.specification.SpecReviewCommentServiceException;
+import com.topcoder.service.review.comment.specification.SpecReviewComment;
 
 public interface Forums extends EJBObject {
     
@@ -71,4 +76,9 @@ public interface Forums extends EJBObject {
 
     public long[] areCategoriesWatched(long userID, long[] categoryIDs) throws EJBException, RemoteException, ForumCategoryNotFoundException, UnauthorizedException, UserNotFoundException;
 
+    public long addSpecReviewComment(long categoryId, long userId, long questionId, UserComment comment) throws EJBException, RemoteException, SpecReviewCommentServiceException;
+
+    public List<SpecReviewComment> getSpecReviewComments(long categoryId) throws EJBException, RemoteException, SpecReviewCommentServiceException;
+
+    public void updateSpecReviewComment(long categoryId, long userId, long questionId, UserComment comment) throws EJBException, RemoteException, SpecReviewCommentServiceException;
 }
