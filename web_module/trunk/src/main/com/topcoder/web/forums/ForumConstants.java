@@ -57,6 +57,7 @@ public interface ForumConstants {
 
     public final static String EMAIL_ACTIVATE = "/authentication/emailActivate.jsp";
 
+    public final static String SPEC_REVIEW_FORUM_SUFFIX = "Spec Review";
 
     // Groups
     public final static String GROUP_SOFTWARE_MODERATORS_PREFIX = "Software_Moderators_";
