@@ -37,25 +37,21 @@
     </jsp:include>
 
 
-<%--
    <div class="sectionHeader">Upcoming Tournaments</div>
 
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
       <tr valign="top">
-         <td style="padding-right: 8px;"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=preview"><img src="/i/tournament/tco08current.png" alt="2008 TopCoder Open" border="0" /></a><br /></td>
+         <td style="padding-right: 8px;"><a href="http://www.topcoder.com/news/2011/01/26/save-the-date-for-the-2011-topcoder-open/"><img src="/i/tournament/tco11/TCO11_In_White.png" alt="2011 TopCoder Open" border="0" /></a><br /></td>
          <td width="100%">
-         <span class="bodySubtitle">2008 TopCoder&#174; Open</span>
+         <span class="bodySubtitle">2011 TopCoder&#174; Open</span>
          <br /><br />
-         May 11 - 15, 2008<br />
-         The Mirage <br />
-         Las Vegas, NV, USA<br />
-         <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco08&amp;d3=preview">Details</a>
-         <br />
-         <a href="http://studio.topcoder.com/?module=ViewContestResults&amp;ct=2127">Logo Contest</a>
+         September 25 - 28, 2011<br />
+         Westin Diplomat Resort &amp; Spa <br />
+         Hollywood, Florida, USA<br />
+         <a href="http://www.topcoder.com/news/2011/01/26/save-the-date-for-the-2011-topcoder-open/">Details</a>
          </td>
       </tr>
    </table>
---%>
 
  <%--
    <div class="sectionHeader">Current Tournaments</div>
