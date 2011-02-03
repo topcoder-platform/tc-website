@@ -998,9 +998,7 @@ public class ForumsBean extends BaseEJB {
 			if (forumsConn == null) {
 				log.debug("forumsConn is NULL");
 			}
-System.out.println("----------------------------categoryId--------------------"+categoryId);
-System.out.println("----------------------------userId--------------------"+userId);
-System.out.println("----------------------------questionId--------------------"+questionId);
+
 
 			// check if commentId already exists in table 'comment_message_xref'
 			// long commentId = comment.getCommentId();
