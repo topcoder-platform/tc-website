@@ -19,6 +19,6 @@
 
     <tr><td height="4" class="footerStripe"><img src="/i/corp/clear.gif" width="10" height="4" border="0"/></td></tr>
 
-    <tr><td width="100%" class="copyright">Copyright &#169; 2001-2007, TopCoder, Inc. All rights reserved.</td></tr>
+    <tr><td width="100%" class="copyright">Copyright TopCoder, Inc. 2001-<script type="text/javascript">d=new Date();document.write(d.getFullYear());</script></td></tr>
 </table>
 <!-- Footer Include Ends -->

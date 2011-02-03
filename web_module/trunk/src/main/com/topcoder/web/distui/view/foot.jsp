@@ -16,7 +16,7 @@
             <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/cockpit" class="footerLinks">Cockpit</a>        </td>
     </tr>
     <tr>
-      <td width="100%" class="copyright">Copyright &#169; 2001-2010, TopCoder, Inc. All rights reserved.</td></tr>
+      <td width="100%" class="copyright">Copyright TopCoder, Inc. 2001-<script type="text/javascript">d=new Date();document.write(d.getFullYear());</script></td></tr>
 </tbody>
 </table>
 

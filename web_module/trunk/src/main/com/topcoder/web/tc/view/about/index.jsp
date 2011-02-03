@@ -438,7 +438,7 @@ $(document).ready(function(){
         <div class="wrapper">
             <p id="footer_1800"><strong>Support@TopCoder.com</strong></p>
             <p>TopCoder is the world's largest competitive software development community with <tc-webtag:format object="${sessionInfo.memberCount}" format="#,##0"/> developers representing over 200 countries.</p>
-            <p>Copyright &copy;2001-2010, TopCoder, Inc. All rights reserved.</p>
+            <p>Copyright TopCoder, Inc. 2001-<script type="text/javascript">d=new Date();document.write(d.getFullYear());</script></p>
         </div><%-- .wrapper ends --%>
     </div><%-- #footer ends --%>
 

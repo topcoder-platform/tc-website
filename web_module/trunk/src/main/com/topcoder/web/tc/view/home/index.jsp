@@ -440,7 +440,7 @@
 					developers representing more than 200 countries.
 				</p>
 				<p>
-					<strong>Copyright &copy;2001-2011, TopCoder, Inc. All rights reserved</strong>
+					<strong>Copyright TopCoder, Inc. 2001-<script type="text/javascript">d=new Date();document.write(d.getFullYear());</script></strong>
 				</p>
 			</div>
 		</div>
