@@ -372,7 +372,7 @@ $(document).ready(function(){
         <div class="wrapper">
             <p id="footer_1800"><strong>1-866-TOPCODER or Service@TopCoder.com</strong></p>
             <p>TopCoder is the world's largest competitive software development community with over 190,000 developers representing over 200 countries.</p>
-            <p>Copyright &copy;2001-2009, TopCoder, Inc. All rights reserved.</p>
+            <p>Copyright TopCoder, Inc. 2001-<script type="text/javascript">d=new Date();document.write(d.getFullYear());</script></p>
         </div><%-- .wrapper ends --%>
     </div><%-- #footer ends --%>
 

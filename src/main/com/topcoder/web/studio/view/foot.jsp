@@ -30,7 +30,7 @@
     <div class="wrapper2">
         <p>TopCoder Studio is the creative arm of TopCoder, the world's largest competitive software development
             community with developers representing over 200 countries.<br/>
-            Copyright &copy;2001-2011, TopCoder, Inc. All rights reserved</p>
+            Copyright TopCoder, Inc. 2001-<script type="text/javascript">d=new Date();document.write(d.getFullYear());</script></p>
 
         <p>
             <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&amp;d1=contactUs">Contact Us</a> |
