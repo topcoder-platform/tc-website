@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.development;
 
@@ -163,18 +163,12 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
         log.info("processing application for " + getUser().getUserName() + " phase " + phaseId +
                 " primary " + primary + " type " + reviewTypeId + " project " + projectId);
 
+        boolean phaseExtended = false;
         if (this.phaseId > Constants.SPECIFICATION_COMPETITION_OFFSET) {
-		    // "Old style" Spec Review projects have reviewTypeId equal to 37 and are processed as separate projects in OR.
-            if (reviewTypeId == 37) {
-                rBoardApplication.createRBoardApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId,
-                        reviewTypeId, (int) WebConstants.PHASE_SPECIFICATION_REVIEW, open, opensOn, reviewTypeId,
-                        new Boolean(primary).booleanValue());
-            } else {
-                rBoardApplication.createSpecReviewRBoardApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId,
-                        reviewTypeId, phaseId, open, opensOn, reviewTypeId);
-            }
+            phaseExtended = rBoardApplication.createSpecReviewRBoardApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId,
+                    reviewTypeId, phaseId, open, opensOn, reviewTypeId);
         } else {
-            rBoardApplication.createRBoardApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId,
+            phaseExtended = rBoardApplication.createRBoardApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId,
                     reviewTypeId, phaseId, open, opensOn, reviewTypeId, new Boolean(primary).booleanValue());
         }
 
@@ -236,8 +230,14 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
         sb.append(this.projectTypeId);
         sb.append("\n");
 
+        if (phaseExtended) {
+            sb.append("\n");
+            sb.append("The project timeline was extended to give the reviewer enough time for the review!");
+            sb.append("\n");
+        }
+
         mail.setBody(sb.toString());
-        mail.setFromAddress("review@topcoder.com");
+        mail.setFromAddress("do_not_reply@topcoder.com");
 
         ResultSetContainer.ResultSetRow row = null;
         for (Iterator it = detail.iterator(); it.hasNext();) {

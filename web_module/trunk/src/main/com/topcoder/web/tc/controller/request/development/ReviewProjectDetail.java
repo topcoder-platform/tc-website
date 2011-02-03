@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.development;
 
@@ -162,6 +162,10 @@ public class ReviewProjectDetail extends Base {
             ResultSetContainer detail = (ResultSetContainer) results.get("review_project_detail");
             getRequest().setAttribute("projectDetail", detail);
 
+            getRequest().setAttribute("specReviewExtensionNeeded", (Boolean) false);
+            getRequest().setAttribute("screeningExtensionNeeded", (Boolean) detail.getBooleanItem(0, "screening_extension_needed"));
+            getRequest().setAttribute("reviewExtensionNeeded", (Boolean) detail.getBooleanItem(0, "review_extension_needed"));
+
             // Check if each relevant phase exists, and insert that information into the request.
             checkAllPhaseExistence(detail);
 
@@ -314,6 +318,10 @@ public class ReviewProjectDetail extends Base {
 
             getRequest().setAttribute("projectDetail", detail);
 
+            getRequest().setAttribute("specReviewExtensionNeeded", (Boolean) detail.getBooleanItem(0, "spec_review_extension_needed"));
+            getRequest().setAttribute("screeningExtensionNeeded", (Boolean) false);
+            getRequest().setAttribute("reviewExtensionNeeded", (Boolean) false);
+
             // Check if each relevant phase exists, and insert that information into the request.
             checkAllPhaseExistence(detail);
 
@@ -333,10 +341,6 @@ public class ReviewProjectDetail extends Base {
                 app.setUserId(reviewUserId);
             }
             
-            // Temporary fix to support the "old style" Spec Review projects until we get rid of them.
-            if (detail.getIntItem(0, "reviewer_type_id") == 37) {
-                app.setPrimary(true);
-            }
             reviewerList.add(app);
 
             getRequest().setAttribute("reviewerList", reviewerList);
