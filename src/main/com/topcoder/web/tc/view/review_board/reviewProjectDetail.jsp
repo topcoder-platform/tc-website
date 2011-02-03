@@ -2,7 +2,7 @@
   - Author: pulky, snow01
   - Version: 1.3
   - Since: TCS Release 2.2.2
-  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  - Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page displays the review details corresponding to the specified project.
   - It displays the list of projects phases along with the list of taken and available review positions.
@@ -48,6 +48,10 @@
 <% boolean hasFinalFixes = (Boolean) request.getAttribute("hasFinalFixes"); %>
 <% boolean hasFinalReview = (Boolean) request.getAttribute("hasFinalReview"); %>
 
+<% boolean specReviewExtensionNeeded = (Boolean) request.getAttribute("specReviewExtensionNeeded"); %>
+<% boolean screeningExtensionNeeded = (Boolean) request.getAttribute("screeningExtensionNeeded"); %>
+<% boolean reviewExtensionNeeded = (Boolean) request.getAttribute("reviewExtensionNeeded"); %>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
     <head>
@@ -78,14 +82,14 @@
                     <table cellspacing="0" cellpadding="0" width="530">
                         <tr>
                             <td class="bodyText" align="left">
-                            <h2>Component Name: ${projectDetailRow.map["component_name"]}</h2>
+                            <h2>Contest Name: ${projectDetailRow.map["component_name"]}</h2>
                             </td>
                         </tr>
                     </table>
 
                     <table cellspacing="0" width="530" class="formFrame">
                         <tr>
-                            <td class="projectTitles" colspan="3">Component Details</td>
+                            <td class="projectTitles" colspan="3">Contest Details</td>
                         </tr>
                         <tr>
                             <td class="projectHeaders" align="left" width="50%">Catalog</td>
@@ -137,7 +141,8 @@
                         </c:if>
                         <c:if test="${hasSpecificationReview}">
                             <tr>
-                                <td class="projectCells">Specification Review</td>
+                                <td class="projectCells">Specification Review <c:if test="${specReviewExtensionNeeded}">*</c:if>
+                                </td>
                                 <td class="projectCells" align="center">
                                     <fmt:formatDate value="${projectDetailRow.map['specification_review_start']}"
                                         pattern="MM.dd.yyyy"/>
@@ -164,7 +169,8 @@
                         </c:if>
                         <c:if test="${hasScreening}">
                             <tr>
-                                <td class="projectCells">Screening</td>
+                                <td class="projectCells">Screening <c:if test="${screeningExtensionNeeded}">*</c:if>
+                                </td>
                                 <td class="projectCells" align="center">
                                     <fmt:formatDate value="${projectDetailRow.map['screening_start']}"
                                         pattern="MM.dd.yyyy"/>
@@ -177,7 +183,8 @@
                         </c:if>
                         <c:if test="${hasReview}">
                             <tr>
-                                <td class="projectCells">Review</td>
+                                <td class="projectCells">Review <c:if test="${reviewExtensionNeeded}">*</c:if>
+                                </td>
                                 <td class="projectCells" align="center">
                                     <fmt:formatDate value="${projectDetailRow.map['review_start']}"
                                         pattern="MM.dd.yyyy"/>
@@ -256,6 +263,33 @@
                     </table>
 
                     <br/>
+
+                    <c:if test="${specReviewExtensionNeeded || screeningExtensionNeeded || reviewExtensionNeeded}">
+                        <table cellspacing="0" cellpadding="0" width="530" class="bodyText">
+                            <c:if test="${specReviewExtensionNeeded}">
+                                <tr><td class="bodyText">
+                                    <p align="left">* The Specification Review phase has already started.
+                                    If you register it will be automatically extended to give you at least 2 hours for the review.</p>
+                                </td></tr>
+                            </c:if>
+
+                            <c:if test="${screeningExtensionNeeded}">
+                                <tr><td class="bodyText">
+                                    <p align="left">* The Screening phase has already started.
+                                    If you register the primary position it will be automatically extended to give you at least 6 hours for the screening.</p>
+                                </td></tr>
+                            </c:if>
+
+                            <c:if test="${reviewExtensionNeeded}">
+                                <tr><td class="bodyText">
+                                    <p align="left">* The Review phase has already started.
+                                    If you register it will be automatically extended to give you at least 48 hours for the review.</p>
+                                </td></tr>
+                            </c:if>
+                        </table>
+
+                        <br/>
+                    </c:if>
 
                     <table cellspacing="0" width="530" class="formFrame">
                         <tr>

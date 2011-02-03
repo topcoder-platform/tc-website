@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.apps.review.rboard;
 
@@ -136,8 +136,16 @@ import com.topcoder.web.ejb.forums.ForumsHome;
  *   </ol>
  * </p>
  *
+ *   Version 1.0.17 Change notes:
+ *   <ol>
+ *     <li>createRBoardApplication and createSpecReviewRBoardApplication methods return boolean value
+ *     indicating whether the timeline has been extended.
+ *     </li>
+ *     <li>Old-style Spec Review projects are not supported anymore.</li>
+ *   </ol>
+ *
  * @author dok, ivern, isv, pulky, snow01, VolodymyrK, Blues, FireIce
- * @version 1.0.16
+ * @version 1.0.17
  */
 public class RBoardApplicationBean extends BaseEJB {
     private static final int INTERNAL_ADMIN_USER = 100129;
@@ -614,8 +622,9 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param opensOn timestamp when the positions opens on
      * @param reviewTypeId the type of the review
      * @param primary true if the reviewer is signing up for primary reviewer position
+     * @return true if the timeline was extended
      */
-    public void createRBoardApplication(String dataSource, long userId,
+    public boolean createRBoardApplication(String dataSource, long userId,
                                         long projectId, int reviewRespId, int phaseId, Boolean open, Timestamp opensOn,
                                         int reviewTypeId, boolean primary) throws RBoardRegistrationException {
 
@@ -684,6 +693,13 @@ public class RBoardApplicationBean extends BaseEJB {
                 }
             }
 
+            boolean extended = false;
+            if (primary) {
+                extended = extendOpenPhase(conn, projectId, SCREEN_PHASE, 6) || extended;
+            }
+
+            extended = extendOpenPhase(conn, projectId, REVIEW_PHASE, 48) || extended;
+
             // Create forum permission
             Forums forumsBean = null;
             Context context = TCContext.getInitial(ApplicationServer.FORUMS_HOST_URL);
@@ -694,6 +710,8 @@ public class RBoardApplicationBean extends BaseEJB {
             conn.commit();
             log.debug("Registration for project " + projectId + " completed in " + (System.currentTimeMillis() - start)
                       + " milliseconds");
+
+            return extended;
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
             rollback(conn);
@@ -727,12 +745,13 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param open Whether the registration is actually open
      * @param opensOn timestamp when the positions opens on
      * @param reviewTypeId the type of the review
+     * @return true if the timeline was extended	 
      * @throws RBoardRegistrationException if an unexpected error occurs.
      * @throws RemoteException if an error occurs while calling EJB method remotely.
      * @throws EJBException if an error occurs doing persistence operations
      * @since 1.0.14
      */
-    public void createSpecReviewRBoardApplication(String dataSource, long userId,
+    public boolean createSpecReviewRBoardApplication(String dataSource, long userId,
                                         long projectId, int reviewRespId, int phaseId, Boolean open, Timestamp opensOn,
                                         int reviewTypeId) throws RBoardRegistrationException {
 
@@ -785,6 +804,8 @@ public class RBoardApplicationBean extends BaseEJB {
             // Prepare resource for review phase
             insertUserRole(conn, nextId(RESOURCE_ID_SEQ), SPECIFICATION_REVIEWER_ROLE, projectId, pid, userId);
 
+            boolean extended = extendOpenPhase(conn, projectId, SPECIFICATION_REVIEW_PHASE, 2);
+
             // Create forum permission
             Forums forumsBean = null;
             Context context = TCContext.getInitial(ApplicationServer.FORUMS_HOST_URL);
@@ -795,6 +816,8 @@ public class RBoardApplicationBean extends BaseEJB {
             conn.commit();
             log.debug("Registration for spec review for project " + projectId + " completed in "
                       + (System.currentTimeMillis() - start) + " milliseconds");
+
+            return extended;
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
             rollback(conn);
@@ -807,6 +830,49 @@ public class RBoardApplicationBean extends BaseEJB {
             throw new EJBException(e);
         } finally {
             close(conn);
+        }
+    }
+
+    /**
+     * Extend the deadline of the phase of the specified type to be at least specified number of hours from now.
+	 * The phase is only extended if open.
+     *
+     * @param conn the connection being used
+     * @param projectId the project id to inspect
+     * @param phaseTypeId the type of the phase to extend
+	 * @param hours the minimum number of fours from now the new deadline should be
+     * @return true if extended
+     */
+    private boolean extendOpenPhase(Connection conn, long projectId, int phaseTypeId, int hours) throws SQLException {
+
+        log.debug("extendOpenPhase called: projectId = " + projectId + ", phaseTypeId = " + phaseTypeId);
+		
+        PreparedStatement ps = null;
+        try {
+            ps = conn.prepareStatement("update project_phase set " +
+                    " duration = ((current + ? units hour) - actual_start_time)::interval second(9) to second::char(16)::decimal(16,0)*1000, " +
+                    " scheduled_end_time = (current + ? units hour) " +
+                    " where " +
+                    " project_id=? and phase_type_id=? and " +
+                    " actual_start_time is not null and " +
+                    " phase_status_id=2 and (current + ? units hour) > scheduled_end_time");
+
+            ps.setInt(1, hours);
+            ps.setInt(2, hours);
+            ps.setLong(3, projectId);
+            ps.setInt(4, phaseTypeId);
+            ps.setInt(5, hours);
+
+            int updated = ps.executeUpdate();
+			
+            log.debug("Number of extended phases: " + updated);
+			
+            return updated > 0;
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw (new EJBException("Extending phase failed.", sqle));
+        } finally {
+            close(ps);
         }
     }
 
@@ -969,6 +1035,11 @@ public class RBoardApplicationBean extends BaseEJB {
 
         log.debug("validateUser called...");
 
+		// Check for the "old-style" Spec Review projects which are not supported anymore.
+		if (reviewTypeId == 37) {
+            throw new RBoardRegistrationException("Old-style Spec Review projects are not supported anymore.");
+		}
+
         Connection conn = null;
 
         try {
@@ -1009,10 +1080,7 @@ public class RBoardApplicationBean extends BaseEJB {
 
             if (!reviewRespMap.containsKey(new Integer(reviewTypeId)) ||
                 !reviewRespMap.get(new Integer(reviewTypeId)).equals(new Integer(phaseId))) {
-				// ignore the validation for the "old-style" Spec Review projects because the mapping is incorrect for them
-				if (reviewTypeId != 37) {
-                    throw new RBoardRegistrationException("Invalid request, incorrect review position specified.");
-				}
+                throw new RBoardRegistrationException("Invalid request, incorrect review position specified.");
             }
         } catch (SQLException sqle) {
             throw (new EJBException(sqle));
@@ -1079,6 +1147,12 @@ public class RBoardApplicationBean extends BaseEJB {
     public void validateUserWithoutCatalog(String dataSource, int reviewTypeId, long userId, int projectTypeId)
             throws RBoardRegistrationException, RemoteException {
         log.debug("validateUserWithoutCatalog called...");
+		
+		// Check for the "old-style" Spec Review projects which are not supported anymore.
+		if (reviewTypeId == 37) {
+            throw new RBoardRegistrationException("Old-style Spec Review projects are not supported anymore.");
+		}		
+		
         Connection conn = null;
 
         try {
@@ -1114,10 +1188,7 @@ public class RBoardApplicationBean extends BaseEJB {
 
             if (!reviewRespMap.containsKey(new Integer(reviewTypeId))
                 || !reviewRespMap.get(reviewTypeId).equals(projectTypeId + 111)) {
-				// ignore the validation for the "old-style" Spec Review projects because the mapping is incorrect for them
-				if (reviewTypeId != 37) {
-                    throw new RBoardRegistrationException("Invalid request, incorrect review position specified.");
-				}
+                throw new RBoardRegistrationException("Invalid request, incorrect review position specified.");
             }
         } catch (SQLException sqle) {
             sqle.printStackTrace();
