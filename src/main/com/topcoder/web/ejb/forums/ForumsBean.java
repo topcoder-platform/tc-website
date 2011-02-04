@@ -1536,10 +1536,8 @@ public class ForumsBean extends BaseEJB {
 			throw srce;
 		}
 
-		SpecReviewCommentServiceException srce = new SpecReviewCommentServiceException(
-				"Could not find spec review forum in forum category: " + forumCategory.getName());
-		logException(srce, "Forum with category id " + categoryId + " does not contain a spec review forum!");
-		throw srce;
+		log.warn("Forum with category id " + categoryId + " does not contain a spec review forum!");
+		return null;
 	}
 
 	/**
