@@ -26,7 +26,7 @@
 		
 	    nav.addRoot(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_competitions')", "Competitions", "m_competitions"));
 			//nav.search("m_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc", "Home", "competition_home"));
-			nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_competition_overview')", "Overview", "m_competition_overview"));
+			nav.search("m_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/x/DIKMAg", "Overview", "m_competition_overview"));
 			nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_copilot_opportunities')", "Copilot Opportunities", "m_copilot_opportunities"));
 					nav.search("m_copilot_opportunities").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Copilot+Overview", "Overview", "copilots_overview"));
         			nav.search("m_copilot_opportunities").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_copilot_support')", "Track Information", "m_copilot_support"));
