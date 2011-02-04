@@ -450,22 +450,15 @@
 </div>
 <!-- end #outlay -->
 
-<!-- Performable Analytics -->
-<%
- if (handle != null && !handle.equals("") && !handle.equals("anonymous")) {
-%>
-<script type="text/javascript">
-
-    var _paq = _paq || [];
- 
-    _paq.push(["identify", {
-    id: "<%=handle %>"
-    }]);
+<!-- Start of HubSpot Logging Code  -->
+<script type="text/javascript" language="javascript">
+var hs_portalid=17680; 
+var hs_salog_version = "2.00";
+var hs_ppa = "topcoder.app101.hubspot.com";
+document.write(unescape("%3Cscript src='" + document.location.protocol + "//" + hs_ppa + "/salog.js.aspx' type='text/javascript'%3E%3C/script%3E"));
 </script>
+<!-- End of HubSpot Logging Code -->
 
-<%}%>
-
-<script src="//d1nu2rn22elx8m.cloudfront.net/performable/pax/4wrbNk.js" type="text/javascript"></script>
 
 </body>
 </html>
