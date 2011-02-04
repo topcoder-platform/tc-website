@@ -1033,7 +1033,7 @@ public class ForumsBean extends BaseEJB {
 				threadId = rs.getLong("thread_id");
 			}
 
-			UserManager userManager = UserManagerFactory.getInstance();
+			UserManager userManager = forumFactory.getUserManager();
 
 			// XXX: Retrieving user from name or tcSubject user ID
 			// Use the following line if you want to retrieve user from ID:
@@ -1043,7 +1043,7 @@ public class ForumsBean extends BaseEJB {
 					+ comment.getCommentBy() + " from UserManager!");
 
 			User user = userManager.getUser(commentUserId);
-			user.setName(comment.getCommentBy());
+			//user.setName(comment.getCommentBy());
 
 			if (user != null) {
 
@@ -1147,7 +1147,7 @@ public class ForumsBean extends BaseEJB {
 					"An error occured while adding spec review comment for category ID " + categoryId
 							+ ", question ID " + questionId + " and comment ID " + comment.getCommentId() + "!", e);
 			logException(srce, "An error occured while adding spec review comment for category ID "
-					+ categoryId + ", question ID " + questionId + " and comment ID " + comment.getCommentId() + "!");
+					+ categoryId + ", question ID " + questionId + " and comment ID " + comment.getCommentId() + "!" + "\n" + e);
 			throw srce;
 		} finally {
 
@@ -1536,8 +1536,10 @@ public class ForumsBean extends BaseEJB {
 			throw srce;
 		}
 
-		log.warn("Forum with category id " + categoryId + " does not contain a spec review forum!");
-		return null;
+		SpecReviewCommentServiceException srce = new SpecReviewCommentServiceException(
+				"Could not find spec review forum in forum category: " + forumCategory.getName());
+		logException(srce, "Forum with category id " + categoryId + " does not contain a spec review forum!");
+		throw srce;
 	}
 
 	/**
