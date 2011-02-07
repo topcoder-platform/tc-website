@@ -357,9 +357,11 @@
                             </tr>
                             <tr>
                                 <td class="bodyText">
-                                <p align="left">** By applying to review the component you are committing to the
-                                    presented timeline.  Failure to meet the provided timeline may result in a
-                                    suspension from the TopCoder Review Board.</p>
+                                <p align="left">** By applying to review the contest you are committing to the presented timeline.
+                                    You also agree that the timeline may change later since phases rarely end exactly as per the original schedule.
+                                    The reviewers must be available throughout the entire contest and adjust to the changes in the timeline.
+                                    Failure to meet the timeline may result in a suspension from the TopCoder Review Board.
+                                    More details can be found <a href="http://www.topcoder.com/wiki/display/tc/Late+Deliverables+Tracking">here</a>.</p>
                                 </td>
                             </tr>
                             <tr>
