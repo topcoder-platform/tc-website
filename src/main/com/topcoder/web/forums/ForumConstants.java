@@ -57,7 +57,20 @@ public interface ForumConstants {
 
     public final static String EMAIL_ACTIVATE = "/authentication/emailActivate.jsp";
 
+     /**
+     * <p>
+     * Represents the suffix for all the specification review comment forums.
+     * </p>
+     */
     public final static String SPEC_REVIEW_FORUM_SUFFIX = "Spec Review";
+    
+    /**
+     * <p>
+     * Represents the maximum no of characters the subject/title of a message
+     * in the specification review comment forum may have.
+     * </p>
+     */
+    public final static int SPEC_REVIEW_FORUM_MAX_CHAR_SUBJECT = 100;
 
     // Groups
     public final static String GROUP_SOFTWARE_MODERATORS_PREFIX = "Software_Moderators_";
