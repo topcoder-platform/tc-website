@@ -6,10 +6,6 @@ import com.jivesoftware.forum.ForumCategoryNotFoundException;
 import com.jivesoftware.forum.ForumNotFoundException;
 import com.topcoder.web.common.RowNotFoundException;
 
-import com.topcoder.service.review.comment.specification.UserComment;
-import com.topcoder.service.review.comment.specification.SpecReviewCommentServiceException;
-import com.topcoder.service.review.comment.specification.SpecReviewComment;
-
 import javax.ejb.EJBException;
 import javax.ejb.EJBLocalObject;
 
@@ -106,9 +102,9 @@ public interface ForumsLocal extends EJBLocalObject {
 
     public long[] areCategoriesWatched(long userID, long[] categoryIDs) throws EJBException, Exception;
 
-    public long addSpecReviewComment(long categoryId, long userId, long questionId, UserComment comment) throws EJBException, SpecReviewCommentServiceException;
+    public long addSpecReviewComment(long categoryId, long userId, long questionId, ForumsUserComment comment) throws EJBException, ForumsException;
 
-    public List<SpecReviewComment> getSpecReviewComments(long categoryId) throws EJBException, SpecReviewCommentServiceException;
+    public List<ForumsSpecReviewComment> getSpecReviewComments(long categoryId) throws EJBException, ForumsException;
 
-    public void updateSpecReviewComment(long categoryId, long userId, long questionId, UserComment comment) throws EJBException, SpecReviewCommentServiceException;
+    public void updateSpecReviewComment(long categoryId, long userId, long questionId, ForumsUserComment comment) throws EJBException, ForumsException;
 }
