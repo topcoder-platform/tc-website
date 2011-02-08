@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2002-2010 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2002-2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
@@ -18,6 +18,8 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.DigitalRunV2PrizePayment;
 import com.topcoder.web.ejb.pacts.DigitalRunV2TopPerformersPayment;
+import com.topcoder.web.ejb.pacts.DigitalRunV2TaxablePrizePayment;
+import com.topcoder.web.ejb.pacts.DigitalRunV2TaxableTopPerformersPayment;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Links;
@@ -30,8 +32,11 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
  * <p>As of version 2.0 the controller has been totally re-written to switch to latest <code>Digital Run</code> schema.
  * </p>
  *
- * @author cucu, isv
- * @version 2.0
+ * <p>Since version 2.1 the tax withholdings are applied to the DR winnings.
+ * </p>
+ *
+ * @author cucu, isv, VolodymyrK
+ * @version 2.1
  */
 public class GenerateDRPayments extends ShortHibernateProcessor implements PactsConstants {
 
@@ -70,18 +75,35 @@ public class GenerateDRPayments extends ShortHibernateProcessor implements Pacts
                 Double nonTaxableAmount = new Double(values[3]);
                 Double taxableAmount = new Double(values[4]);
 
-                // Create the payment in PACTS. Pay both taxable and non-taxable parts as non-taxable one for now.
-                BasePayment payment;
+                // Create the non-taxable payment in PACTS.
+                BasePayment nonTaxablePayment = null;
                 if (contestTypeId.equals(Constants.CONTEST_TYPE_DR_V2_PRIZE)) {
-                    payment = new DigitalRunV2PrizePayment(coderId, nonTaxableAmount + taxableAmount, trackId, place);
+                    nonTaxablePayment = new DigitalRunV2PrizePayment(coderId, nonTaxableAmount, trackId, place);
                 } else if (contestTypeId.equals(Constants.CONTEST_TYPE_DR_V2_TOP_PERFORMERS)) {
-                    payment = new DigitalRunV2TopPerformersPayment(coderId, nonTaxableAmount + taxableAmount, trackId, place);
+                    nonTaxablePayment = new DigitalRunV2TopPerformersPayment(coderId, nonTaxableAmount, trackId, place);
                 } else {
                     throw new Exception("Invalid contest type: " + contestTypeId);
                 }
-                payment = bean.addPayment(payment);
-                ids.add(payment.getId());
+                nonTaxablePayment = bean.addPayment(nonTaxablePayment);
+                ids.add(nonTaxablePayment.getId());
+
+                // Create the taxable payment in PACTS.
+                if (taxableAmount > 0) {
+                    BasePayment taxablePayment = null;
+                    if (contestTypeId.equals(Constants.CONTEST_TYPE_DR_V2_PRIZE)) {
+                        taxablePayment = new DigitalRunV2TaxablePrizePayment(coderId, taxableAmount, trackId, place);
+                    } else if (contestTypeId.equals(Constants.CONTEST_TYPE_DR_V2_TOP_PERFORMERS)) {
+                        taxablePayment = new DigitalRunV2TaxableTopPerformersPayment(coderId, taxableAmount, trackId, place);
+                    } else {
+                        throw new Exception("Invalid contest type: " + contestTypeId);
+                    }
+                    double netAmount = bean.computePaymentNetAmount(taxablePayment.getPaymentType(), taxablePayment.getGrossAmount(), taxablePayment.getCoderId());
+                    taxablePayment.setNetAmount(netAmount);
+                    taxablePayment = bean.addPayment(taxablePayment);
+                    ids.add(taxablePayment.getId());
+                }
             }
+
             setNextPage(Links.viewPayments(ids));
             setIsNextPageInContext(false);
         } catch (Exception e) {

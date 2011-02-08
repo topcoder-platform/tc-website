@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.ejb.pacts;
 
@@ -3710,7 +3710,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             // Round to nearest penny
             DecimalFormat df = new DecimalFormat("0.00");
             String netAmountStr = df.format(netAmount);
-            return new Double(netAmountStr).doubleValue();
+            double roundedNetAmount = new Double(netAmountStr).doubleValue();
+
+            // Make sure we don't exceed the gross amount by rounding.
+            return roundedNetAmount < grossAmount ? roundedNetAmount : grossAmount;
         } finally {
             close(c);
         }
