@@ -88,40 +88,6 @@
 					nav.search("m_des_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ReviewBoard&amp;pt=1", "Meet the Review Board", "des_review_board"));
 					
 			
-			nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'competition_ui_dev')", "UI Development", "competition_ui_dev"));
-  			    nav.search("competition_ui_dev").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_ui_prototype_competitions')", "UI Prototype", "m_ui_prototype_competitions"));
-					nav.search("m_ui_prototype_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/UI+Prototype+Competitions", "Overview", "ui_prototype_overview"));
-					nav.search("m_ui_prototype_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_ui_prototype_support')", "Track Information", "m_ui_prototype_support"));
-							nav.search("m_ui_prototype_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/How+to+Compete+in+UI+Prototype+Competitions", "How to Compete", "ui_prototype_how_to_compete"));
-					nav.search("m_ui_prototype_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ActiveContests&amp;pt=" + WebConstants.UI_PROTOTYPE_PROJECT_TYPE, "Active Contests", "ui_prototype_compete"));
-					nav.search("m_ui_prototype_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ContestStatus&amp;pt=" + WebConstants.UI_PROTOTYPE_PROJECT_TYPE, "Contest Status", "ui_prototype_status"));
-					nav.search("m_ui_prototype_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;pt=" + WebConstants.UI_PROTOTYPE_PROJECT_TYPE, "Past Contests", "ui_prototype_past"));
-					nav.search("m_ui_prototype_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ViewReviewProjects&amp;pt=" + WebConstants.UI_PROTOTYPE_PROJECT_TYPE, "Review Opportunities", "ui_prototype_review"));
-					nav.search("m_ui_prototype_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ReviewBoard&amp;pt=" + WebConstants.UI_PROTOTYPE_PROJECT_TYPE, "Meet the Review Board", "ui_prototype_review_board"));
-
-			    nav.search("competition_ui_dev").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_ria_build_competitions')", "RIA Build", "m_ria_build_competitions"));
-					nav.search("m_ria_build_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/RIA+Build+Competitions", "Overview", "ria_build_overview"));
-					nav.search("m_ria_build_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_ria_build_support')", "Track Information", "m_ria_build_support"));
-							nav.search("m_ria_build_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/How+to+Compete+in+RIA+Builds", "How to Compete", "ria_build_how_to_compete"));
-					nav.search("m_ria_build_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ActiveContests&amp;pt=" + WebConstants.RIA_BUILD_PROJECT_TYPE, "Active Contests", "ria_build_compete"));
-					nav.search("m_ria_build_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ContestStatus&amp;pt=" + WebConstants.RIA_BUILD_PROJECT_TYPE, "Contest Status", "ria_build_status"));
-					nav.search("m_ria_build_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;pt=" + WebConstants.RIA_BUILD_PROJECT_TYPE, "Past Contests", "ria_build_past"));
-					nav.search("m_ria_build_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ViewReviewProjects&amp;pt=" + WebConstants.RIA_BUILD_PROJECT_TYPE, "Review Opportunities", "ria_build_review"));
-					nav.search("m_ria_build_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ReviewBoard&amp;pt=" + WebConstants.RIA_BUILD_PROJECT_TYPE, "Meet the Review Board", "ria_build_review_board"));
-
-            nav.search("competition_ui_dev").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_content_creation_competitions')", "Content Creation", "m_content_creation_competitions"));
-                    nav.search("m_content_creation_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Content+Contests+Overview", "Overview", "content_creation_overview"));
-                    nav.search("m_content_creation_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_content_creation_support')", "Track Information", "m_content_creation_support"));
-                                            nav.search("m_content_creation_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/How+to+Compete+in+Content+Creation+Competitions", "How to Compete", "content_creation_how_to_compete"));
-                                            //nav.search("m_content_creation_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Content+Creation+Documentation", "Documentation", "content_creation_documentation"));
-                                            //nav.search("m_content_creation_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Content+Creation+Submission+Instructions", "Tutorial", "content_creation_tutorial"));
-                    nav.search("m_content_creation_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ActiveContests&pt=" + 35, "Active Contests", "content_creation_compete"));
-                    nav.search("m_content_creation_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ContestStatus&amp;pt=" + 35, "Contest Status", "content_creation_status"));
-                    nav.search("m_content_creation_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;ph=" + 35, "Past Contests", "content_creation_past"));
-                    nav.search("m_content_creation_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ViewReviewProjects&amp;pt=" + 35, "Review Opportunities", "content_creation_review"));
-                    nav.search("m_content_creation_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ReviewBoard&amp;pt=" + 35, "Meet the Review Board", "content_creation_review_board"));
-
-
 		
 			nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'competition_dev')", "Development", "competition_dev"));
 				nav.search("competition_dev").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_dev_competitions')", "Component Development", "m_dev_competitions"));
@@ -158,6 +124,41 @@
 					nav.search("m_test_suites_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;pt=" + WebConstants.TEST_SUITES_PROJECT_TYPE, "Past Contests", "test_suites_past"));
 					nav.search("m_test_suites_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ViewReviewProjects&amp;pt=" + WebConstants.TEST_SUITES_PROJECT_TYPE, "Review Opportunities", "test_suites_review"));
 					nav.search("m_test_suites_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ReviewBoard&amp;pt=" + WebConstants.TEST_SUITES_PROJECT_TYPE, "Meet the Review Board", "test_suites_review_board"));
+
+			nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'competition_ui_dev')", "UI Development", "competition_ui_dev"));
+  			    nav.search("competition_ui_dev").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_ui_prototype_competitions')", "UI Prototype", "m_ui_prototype_competitions"));
+					nav.search("m_ui_prototype_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/UI+Prototype+Competitions", "Overview", "ui_prototype_overview"));
+					nav.search("m_ui_prototype_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_ui_prototype_support')", "Track Information", "m_ui_prototype_support"));
+							nav.search("m_ui_prototype_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/How+to+Compete+in+UI+Prototype+Competitions", "How to Compete", "ui_prototype_how_to_compete"));
+					nav.search("m_ui_prototype_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ActiveContests&amp;pt=" + WebConstants.UI_PROTOTYPE_PROJECT_TYPE, "Active Contests", "ui_prototype_compete"));
+					nav.search("m_ui_prototype_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ContestStatus&amp;pt=" + WebConstants.UI_PROTOTYPE_PROJECT_TYPE, "Contest Status", "ui_prototype_status"));
+					nav.search("m_ui_prototype_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;pt=" + WebConstants.UI_PROTOTYPE_PROJECT_TYPE, "Past Contests", "ui_prototype_past"));
+					nav.search("m_ui_prototype_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ViewReviewProjects&amp;pt=" + WebConstants.UI_PROTOTYPE_PROJECT_TYPE, "Review Opportunities", "ui_prototype_review"));
+					nav.search("m_ui_prototype_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ReviewBoard&amp;pt=" + WebConstants.UI_PROTOTYPE_PROJECT_TYPE, "Meet the Review Board", "ui_prototype_review_board"));
+
+			    nav.search("competition_ui_dev").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_ria_build_competitions')", "RIA Build", "m_ria_build_competitions"));
+					nav.search("m_ria_build_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/RIA+Build+Competitions", "Overview", "ria_build_overview"));
+					nav.search("m_ria_build_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_ria_build_support')", "Track Information", "m_ria_build_support"));
+							nav.search("m_ria_build_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/How+to+Compete+in+RIA+Builds", "How to Compete", "ria_build_how_to_compete"));
+					nav.search("m_ria_build_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ActiveContests&amp;pt=" + WebConstants.RIA_BUILD_PROJECT_TYPE, "Active Contests", "ria_build_compete"));
+					nav.search("m_ria_build_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ContestStatus&amp;pt=" + WebConstants.RIA_BUILD_PROJECT_TYPE, "Contest Status", "ria_build_status"));
+					nav.search("m_ria_build_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;pt=" + WebConstants.RIA_BUILD_PROJECT_TYPE, "Past Contests", "ria_build_past"));
+					nav.search("m_ria_build_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ViewReviewProjects&amp;pt=" + WebConstants.RIA_BUILD_PROJECT_TYPE, "Review Opportunities", "ria_build_review"));
+					nav.search("m_ria_build_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ReviewBoard&amp;pt=" + WebConstants.RIA_BUILD_PROJECT_TYPE, "Meet the Review Board", "ria_build_review_board"));
+
+            	nav.search("competition_ui_dev").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_content_creation_competitions')", "Content Creation", "m_content_creation_competitions"));
+                    nav.search("m_content_creation_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Content+Contests+Overview", "Overview", "content_creation_overview"));
+                    nav.search("m_content_creation_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_content_creation_support')", "Track Information", "m_content_creation_support"));
+                                            nav.search("m_content_creation_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/How+to+Compete+in+Content+Creation+Competitions", "How to Compete", "content_creation_how_to_compete"));
+                                            //nav.search("m_content_creation_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Content+Creation+Documentation", "Documentation", "content_creation_documentation"));
+                                            //nav.search("m_content_creation_support").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Content+Creation+Submission+Instructions", "Tutorial", "content_creation_tutorial"));
+                    nav.search("m_content_creation_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ActiveContests&pt=" + 35, "Active Contests", "content_creation_compete"));
+                    nav.search("m_content_creation_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ContestStatus&amp;pt=" + 35, "Contest Status", "content_creation_status"));
+                    nav.search("m_content_creation_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;ph=" + 35, "Past Contests", "content_creation_past"));
+                    nav.search("m_content_creation_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ViewReviewProjects&amp;pt=" + 35, "Review Opportunities", "content_creation_review"));
+                    nav.search("m_content_creation_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ReviewBoard&amp;pt=" + 35, "Meet the Review Board", "content_creation_review_board"));
+
+
 
 			
 			nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'competition_qa')", "QA and Maintenance", "competition_qa"));
@@ -225,9 +226,21 @@
 					nav.search("m_hs_competitions").addChild(new NavNode("javascript:arena();", "Launch Arena", "hs_compete"));
 			nav.search("m_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/dr", "The Digital Run", "digital_run"));
 			nav.search("m_competitions").addChild(new NavNode("http://"+ApplicationServer.SOFTWARE_SERVER_NAME+"/review", "Submit &amp; Review", "online_review"));
+			
+	   nav.addRoot(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_topcoder_networks')", "TopCoder Networks", "m_topcoder_networks"));
+			   nav.search("m_topcoder_networks").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/home/alcatel/", "Alcatel Lucent", "alu"));
+			   nav.search("m_topcoder_networks").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/home/x/", "PayPalX", "ppx"));
+			
+
+		nav.addRoot(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_events')", "Events", "m_events"));
+				nav.search("m_events").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=calendar&amp;d2=thisMonth", "Event Calendar", "competition_calendar"));
+				nav.search("m_events").addChild(new NavNode("javascript:void(0)",  "Javascript:toggleMenu(this.parentNode,'m_tournaments')", "Tournaments", "m_tournaments"));
+						nav.search("m_tournaments").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=tournaments&amp;d2=home", "TopCoder", "topcoder_tournaments"));
+						nav.search("m_tournaments").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/pl/", "Powered by TopCoder", "pbtc_tournaments"));
+						nav.search("m_tournaments").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CRPFStatic&amp;d1=crpf&amp;d2=crpf_overview", "Charity", "charity_tournaments"));
 					
 
-		nav.addRoot(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_stats')", "Stats", "m_stats"));
+		nav.addRoot(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_stats')", "Statistics", "m_stats"));
 				nav.search("m_stats").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_competitor_stats')",  "The Tops", "m_competitor_stats"));
 					nav.search("m_competitor_stats").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_top_rated_competitors')",  "Top Ranked", "m_top_rated_competitors"));
 							nav.search("m_top_rated_competitors").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=AlgoRank", "Algorithm", "top_rated_algo"));
@@ -258,14 +271,7 @@
 	   nav.search("m_edu_content").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/How+to+Get+Paid+for+Competing", "How to Get Paid", "how_to_get_paid"));
 	   nav.search("m_edu_content").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/dashboard.action", "Wiki", "wiki"));
 
-   	nav.addRoot(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_events')", "Events", "m_events"));
-		nav.search("m_events").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=calendar&amp;d2=thisMonth", "Event Calendar", "competition_calendar"));
-		nav.search("m_events").addChild(new NavNode("javascript:void(0)",  "Javascript:toggleMenu(this.parentNode,'m_tournaments')", "Tournaments", "m_tournaments"));
-				nav.search("m_tournaments").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=tournaments&amp;d2=home", "TopCoder", "topcoder_tournaments"));
-				nav.search("m_tournaments").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/pl/", "Powered by TopCoder", "pbtc_tournaments"));
-				nav.search("m_tournaments").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CRPFStatic&amp;d1=crpf&amp;d2=crpf_overview", "Charity", "charity_tournaments"));
-
-				   
+			   
    
 //   nav.addRoot(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/x/L4TD", "UML Tool", "uml_tool"));
 
