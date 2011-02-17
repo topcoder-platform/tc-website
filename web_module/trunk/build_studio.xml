@@ -114,6 +114,7 @@
         <!--
                 <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
         -->
+        <pathelement location="${jars.dir}/tcs/document_generator/3.1.0/document_generator.jar"/>
         <pathelement location="${external.jars.dir}/base_exception-2.0.0.jar"/>
         <pathelement location="${external.jars.dir}/configuration_api-2.0.0.jar"/>
         <pathelement location="${external.jars.dir}/image_overlay-1.0.0.jar"/>
@@ -292,6 +293,9 @@
             <classes dir="${resources}/studio">
                 <include name="hibernate.cfg.xml"/>
             </classes>
+            <classes dir="conf">
+                <include name="template/submission_declaration.txt"/>
+            </classes>
             <classes dir="${resources}/hibernate">
                 <include name="com/topcoder/web/common/model/**/*.xml"/>
                 <include name="com/topcoder/web/studio/model/**/*.xml"/>
@@ -306,6 +310,9 @@
             </lib>
             <lib dir="${jars.dir}/tcs/file_upload/2.0.2.0/">
                 <include name="file_upload.jar"/>
+            </lib>
+            <lib dir="${jars.dir}/tcs/document_generator/3.1.0/">
+                <include name="document_generator.jar"/>
             </lib>
             <lib dir="${jars.dir}/tcs/">
                 <include name="studio_service.jar"/>
