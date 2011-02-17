@@ -30,12 +30,12 @@
     <link type="text/css" rel="stylesheet" href="/css/v4/home.css"/>
     <link type="text/css" rel="stylesheet" href="/css/v4/studio-navigation.css"/>
     <link type="text/css" rel="stylesheet" href="/css/v4/newstyles.css"/>
-    <link rel="stylesheet" type="text/css" href="/css/studio/submit.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/submit.css"/>
     <!--[if IE 8]>
-    <link rel="stylesheet" type="text/css" href="/css/studio/submit-ie8.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/submit-ie8.css"/>
     <![endif]-->
     <!--[if IE 7]>
-    <link rel="stylesheet" type="text/css" href="/css/studio/submit-ie7.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/submit-ie7.css"/>
     <![endif]-->
 
 
@@ -49,10 +49,10 @@
     <script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
     <script src="/js/navigation.js" type="text/javascript" language="javascript"></script>
     <script src="/js/RSSProcessor.js" type="text/JavaScript"></script>
-    <script src="/js/studio/jquery.jcarousel.min.js" type="text/javascript"></script>
+    <script src="/js/jquery.jcarousel.min.js" type="text/javascript"></script>
 
-    <script src="/js/studio/jquery.ui.core.js" type="text/javascript"></script>
-    <script src="/js/studio/submit.js" type="text/javascript"></script>
+    <script src="/js/jquery.ui.core.js" type="text/javascript"></script>
+    <script src="/js/submit.js" type="text/javascript"></script>
     <script src="/js/modalPopup.js" type="text/javascript"></script>
 </head>
 
