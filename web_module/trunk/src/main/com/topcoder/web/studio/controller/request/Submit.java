@@ -261,6 +261,10 @@ public class Submit extends BaseSubmissionDataProcessor {
                             addError(Constants.SUBMISSION_SOURCE + '.' + i, error);
                         }
 
+			   if (!url.startsWith("http://")) {
+                        	url = "http://" + url;
+                        }
+
                         // create ExternalContent object
                         ExternalContent font = new ExternalContent();
                         font.setContentType(fontType);
@@ -310,6 +314,11 @@ public class Submit extends BaseSubmissionDataProcessor {
                             error.append(".");
                             addError(Constants.SUBMISSION_SOURCE + '.' + i, error.toString());
                         }
+
+			   if (!url.startsWith("http://")) {
+                        	url = "http://" + url;
+                        }
+
                         stockArtData.add(new String[] {name, url, fileNumber, error.toString()});
 
                         // create ExternalContent object
