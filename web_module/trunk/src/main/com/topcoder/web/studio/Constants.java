@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.studio;
 
@@ -38,8 +38,12 @@ import java.util.MissingResourceException;
  *   </ol>
  * </p>
  *
+ * <p> Version 1.4 (Studio Declaration Module Assembly) change:
+ * Added contstants for submission declaration parameters.
+ * </p>
+ *
  * @author dok, isv, pulky, TCSDEVELOPER
- * @version 1.3
+ * @version 1.4
  */
 public class Constants implements WebConstants {
     private static final TCResourceBundle bundle = new TCResourceBundle("Studio");
@@ -76,6 +80,55 @@ public class Constants implements WebConstants {
 
     public static final String WIDTH = "width";
     public static final String HEIGHT = "height";
+
+    /**
+     * Submission comment.
+     *
+     * @since 1.4
+     */
+    public static final String SUBMISSION_COMMENT = "submission_comment";
+
+    /**
+     * Contains licenced elements.
+     *
+     * @since 1.4
+     */
+    public static final String CONTAINS_LICENSED_ELEMENTS = "cle";
+
+    /**
+     * Font name.
+     *
+     * @since 1.4
+     */
+    public static final String FONT_NAME = "font_name";
+
+    /**
+     * Font url.
+     *
+     * @since 1.4
+     */
+    public static final String FONT_URL = "font_url";
+
+    /**
+     * Stock art name.
+     *
+     * @since 1.4
+     */
+    public static final String STOCK_ART_NAME = "sa_name";
+
+    /**
+     * Stock art url.
+     *
+     * @since 1.4
+     */
+    public static final String STOCK_ART_URL = "sa_url";
+
+    /**
+     * Stock art file number.
+     *
+     * @since 1.4
+     */
+    public static final String STOCK_ART_FILE_NUMBER = "sa_file";
 
     public static int MAX_CONTEST_NAME_LENGTH;
     public static String JS_DATE_FORMAT;

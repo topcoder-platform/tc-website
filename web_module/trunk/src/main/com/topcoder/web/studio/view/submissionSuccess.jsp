@@ -18,8 +18,17 @@
      <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
-    
-    <script src="/js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/studio/submit.css"/>
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/studio/submit-ie8.css"/>
+    <![endif]-->
+    <!--[if IE 7]>
+    <link rel="stylesheet" type="text/css" href="/css/studio/submit-ie7.css"/>
+    <![endif]-->
+
+    <script src="/js/jquery-1.4.2.min.js" type="text/javascript"></script>
+    <%--<script src="/js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"></script>--%>
     <script src="/js/NewStyleHeaderFooter/preloadCssImages.jQuery_v5.js" language="javascript"></script>
     <script type="text/javascript">
 			$(document).ready(function(){
@@ -29,6 +38,8 @@
 	</script>
 	<script src="/js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
 	<script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
+    <script src="/js/studio/jquery.ui.core.js" type="text/javascript"></script>
+	<script src="/js/studio/submit.js" type="text/javascript"></script>
 	<script type="text/javascript" language="javascript">
 
 	$(document).ready(function(){
@@ -57,7 +68,7 @@
     <script type="text/javascript" src="/js/thickbox-3.1/thickbox-compressed-3.1.js"></script>
     <link rel="stylesheet" href="/js/thickbox-3.1/thickbox-3.1.css" type="text/css" media="screen" />
 
-	<script language="javascript" type="text/javascript">
+<%--	<script language="javascript" type="text/javascript">
         <!--
         function changeRank(newRank, submissionId) {
             var ajaxRequest = new AjaxRequest('${sessionInfo.servletPath}?module=UpdateSubmissionRank&<%=Constants.SUBMISSION_RANK%>=' + newRank + '&<%=Constants.SUBMISSION_ID%>=' + submissionId);
@@ -92,10 +103,10 @@
         }
 
         // -->
-    </script>
+    </script>--%>
 </head>
 
-<body>
+<body data-web-root="${sessionInfo.servletPath}">
 	<div id="page-wrap">
     	<div align="center">
 			<jsp:include page="top.jsp"/>
@@ -198,7 +209,8 @@
                  </c:choose>
 
                 <br /><br />
-                <div class="statHolder">
+
+                <%--<div class="statHolder">
                     <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
                     <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
                     <div class="container">
@@ -239,13 +251,58 @@
                                 </tr>
                             </thead>
                             <tbody id="submissions">
-                                <jsp:include page="submitTableBody.jsp"/>
+                                <div class="submission-data">
+                                    <jsp:include page="submitTableBody.jsp"/>
+                                </div>
                             </tbody>
                         </table>
                     </div>
                     <div class="SE"><img src="/i/v2/stat_tableSE.png" alt="" /></div>
                     <div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
+                </div>--%>
+
+
+                <div id="wrapper_submission">
+                <div class="rank-submission-wrapper">
+                <div class="submission-list-wrapper">
+                    <div class="submission-list_top">
+                        <div class="submission-list_top_right">
+                            <div class="submission-list_top_middle"></div>
+                        </div>
+                        <!--End .submission-list_top_right-->
+                    </div>
+                    <!--End .submission-list_top-->
+                    <div class="submission-list_main">
+                        <ul class="submission-list-header">
+                            <li class="rank">Rank</li>
+                            <li class="thumbnails">Thumbnails</li>
+                            <li class="submission-id">Submission ID</li>
+                            <li class="date">Date Submitted</li>
+                            <li class="screening">Screening</li>
+                            <li class="move">Move Up/Down</li>
+                            <li class="download">Download</li>
+                            <li class="remove">Remove</li>
+                        </ul>
+                        <div class="clear"></div>
+
+                        <div class="submission-data">
+                            <jsp:include page="submitTableBody.jsp"/>
+                        </div>
+                    </div>
+                    <!--End .submission-list_main-->
+                    <div class="submission-list_bottom">
+                        <div class="submission-list_bottom_right">
+                            <div class="submission-list_bottom_middle"></div>
+                        </div>
+                        <!--End .submission-list_bottom_right-->
+                    </div>
+                    <!--End .submission-list_bottom-->
                 </div>
+                <!--End .submission-list-wrapper-->
+                </div>
+                </div>
+
+
             </form>
             <br /><br />
             <strong>NOTE:</strong> <nobr>this icon <img src="/i/v2/selection.png" alt="Selection" /></nobr> indicates submissions that you have selected to be considered for this contest

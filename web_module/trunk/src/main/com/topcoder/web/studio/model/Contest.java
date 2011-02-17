@@ -38,8 +38,12 @@ import java.util.TreeSet;
  *   </ol>
  * </p>
  *
- * @author dok, isv, pulky, TCSDEVELOPER
- * @version 1.1.1
+ * <p> Version 1.2 (Studio Declaration Module Assembly) change:
+ * Added allowStockArt field.
+ * </p>
+ *
+ * @author dok, isv, pulky, orange_cloud
+ * @version 1.2
  */
 public class Contest extends Base {
 
@@ -67,6 +71,12 @@ public class Contest extends Base {
     private Set<ContestResult> results = new TreeSet<ContestResult>();
     private Event event;
     private Project project;
+
+    /**
+     * Is stock art allowed.
+     */
+    private boolean allowStockArt;
+
 
     /**
      * <p>A <code>ContestChannel</code> representing the contest channel which this contest originated from.</p>
@@ -747,5 +757,23 @@ public class Contest extends Base {
             }
         }
         return prizedSubmissions;
+    }
+
+    /**
+     * Getter for allowStockArt property.
+     *
+     * @return whether stock art is allowed
+     */
+    public boolean getAllowStockArt() {
+        return allowStockArt;
+    }
+
+    /**
+     * Setter for allowStockArt property.
+     *
+     * @param allowStockArt whether stock art is allowed
+     */
+    public void setAllowStockArt(boolean allowStockArt) {
+        this.allowStockArt = allowStockArt;
     }
 }

@@ -1,304 +1,556 @@
-<%@ page import="com.topcoder.web.studio.Constants, com.topcoder.web.studio.model.SubmissionType" %>
-<%@ page import="java.util.Calendar" %>
-<%@ page import="java.util.GregorianCalendar" %>
-<%@ page import="java.sql.Timestamp" %>
-<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.web.studio.Constants" %>
+<%@ page import="java.util.Arrays" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%--@elvariable id="contest" type="com.topcoder.web.studio.model.Contest"--%>
+<%--@elvariable id="fonts_data" type="List<String[]>"--%>
+<%--@elvariable id="stock_art_data" type="List<String[]>"--%>
+<%--@elvariable id="has_licensed_content" type="boolean"--%>
+
+<c:if test="${fn:length(fonts_data) == 0}">
+    <% request.setAttribute("fonts_data", Arrays.asList(new String[][] {new String[] {"", "", null}})); %>
+</c:if>
+<c:if test="${fn:length(stock_art_data) == 0}">
+    <% request.setAttribute("stock_art_data", Arrays.asList(new String[][] {new String[] {"", "", "", null}, new String[] {"", "", "", null}})); %>
+</c:if>
+
 
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>TopCoder Studio</title>
-    <jsp:include page="style.jsp">
-        <jsp:param name="key" value="tc_studio"/>
-    </jsp:include>
-    <link href="/css/popup/modalPopup.css" type="text/css"  rel="stylesheet" />
-    <script src="/js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"></script>
-    <script src="/js/NewStyleHeaderFooter/preloadCssImages.jQuery_v5.js" language="javascript"></script>
-    <script type="text/javascript">
-            $(document).ready(function(){
-                //Run the script to preload images from CSS
-                $.preloadCssImages(); 
-            });
-    </script>
+
+
+    <link type="text/css" rel="stylesheet" href="/css/v4/home.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/v4/studio-navigation.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/v4/newstyles.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/studio/submit.css"/>
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/studio/submit-ie8.css"/>
+    <![endif]-->
+    <!--[if IE 7]>
+    <link rel="stylesheet" type="text/css" href="/css/studio/submit-ie7.css"/>
+    <![endif]-->
+
+
+    <link href="/css/popup/modalPopup.css" type="text/css" rel="stylesheet"/>
+
+
+    <script src="/js/jquery-1.4.2.min.js" type="text/javascript"></script>
+
+    <script src="/js/NewStyleHeaderFooter/preloadCssImages.jQuery_v5.js" type="text/javascript"></script>
     <script src="/js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
     <script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
+    <script src="/js/navigation.js" type="text/javascript" language="javascript"></script>
+    <script src="/js/RSSProcessor.js" type="text/JavaScript"></script>
+    <script src="/js/studio/jquery.jcarousel.min.js" type="text/javascript"></script>
+
+    <script src="/js/studio/jquery.ui.core.js" type="text/javascript"></script>
+    <script src="/js/studio/submit.js" type="text/javascript"></script>
     <script src="/js/modalPopup.js" type="text/javascript"></script>
-    <script type="text/javascript" language="javascript">
-
-    $(document).ready(function(){
-    
-    
-        $("#nav ul li").hoverIntent(function(){
-            $(this).children("ul").slideDown("fast");
-        }, function() {
-            $(this).children("ul").slideUp("fast");
-        });
-        
-        $("#nav ul ul li").hover(function() {
-            $(this).parents("#nav ul li").children('a').addClass("active-item");
-        }, function() {
-            $(this).parents("#nav ul li").children('a').removeClass("active-item");
-        });
-    
-    
-    });
-    </script>
-    
-    <script type="text/javascript" src="/js/taconite-client.js"></script>
-    <script type="text/javascript" src="/js/taconite-parser.js"></script>
-    <script type="text/javascript" src="/js/fat.js"></script>
-    <script type="text/javascript" src="/js/thickbox-3.1/thickbox-compressed-3.1.js"></script>
-    <link rel="stylesheet" href="/js/thickbox-3.1/thickbox-3.1.css" type="text/css" media="screen" />
-
-    <script type="text/javascript" src="/js/v2/popup.js"></script>
-    <script language="javascript" type="text/javascript">
-        <!--
-        function changeRank(newRank, submissionId) {
-            var ajaxRequest = new AjaxRequest('${sessionInfo.servletPath}?module=UpdateSubmissionRank&<%=Constants.SUBMISSION_RANK%>=' + newRank + '&<%=Constants.SUBMISSION_ID%>=' + submissionId);
-            ajaxRequest.setPostRequest(fader);
-            ajaxRequest.sendRequest();
-        }
-        function remove(submissionId) {
-            var confirmed = confirm("Are you sure you want to delete this submission?");
-            if (confirmed) {
-                var ajaxRequest = new AjaxRequest('${sessionInfo.servletPath}?module=DeleteSubmission&<%=Constants.SUBMISSION_ID%>=' + submissionId);
-                ajaxRequest.sendRequest();
-            }
-        }
-        function fader() {
-            Fat.fade_element('fade0');
-            Fat.fade_element('fade1');
-            Fat.fade_element('fade2');
-            Fat.fade_element('fade3');
-            Fat.fade_element('fade4');
-            Fat.fade_element('fade5');
-            Fat.fade_element('fade6');
-            Fat.fade_element('fade7');
-            Fat.fade_element('fade8');
-            Fat.fade_element('fade9');
-        }
-        function batchUpdate() {
-            var ajaxRequest = new AjaxRequest('${sessionInfo.servletPath}?module=BatchUpdateRank&<%=Constants.CONTEST_ID%>=${contest.id}&<%=Constants.SUBMISSION_TYPE_ID%>=<%=SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE%>');
-        <c:forEach items="${submissions}" var="submission">
-            ajaxRequest.addNamedFormElements("<%=Constants.SUBMISSION_ID%>${submission.id}");
-        </c:forEach>
-            ajaxRequest.sendRequest();
-        }
-        new Image().src = "/i/layout/processing.gif";
-        function showProcessing() {
-            document.getElementById("submitButton").innerHTML = '<img src="/i/layout/processing.gif" alt=""/>';
-        }
-
-        // -->
-    </script>
 </head>
 
-<body>
-    <div id="page-wrap">
-        <div align="center">
-            <jsp:include page="top.jsp"/>
-        <br />
-        <!-- container -->
-        <div id="container">
-            <div id="wrapper">
-    
-            <!-- content -->
-            <div id="content">
-                <div class="contentTop">
-                    <div class="contentMiddle">
-
-
-<div class="linkBox">
-    <studio:forumLink forumID="${contest.forumId}"/>
-</div>
-
-<div class="breadcrumb">
-    <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a> &gt;
-    ${contest.name}
-</div>
-
-<h1>Submit Your Design</h1>
-        <p>Thank you for accepting the terms of the contest. Please use the form below to upload your submission.</p>
-        <h2>Upload Submission</h2>
-
-        <p>Please follow the instructions on the Contest Details page regarding what your submission, source and preview
-            files should contain.</p>                
-        <p><a href="http://<%=ApplicationServer.SERVER_NAME%>/home/studio/the-process/how-to-submit-to-a-contest/">Learn more about how to format your submission here</a>.</p>
-        <p>Please be sure to double-check that you have submitted the correct files and that your JPG files
-            (if applicable) are in RGB color mode. </p>
-                        
-        <div class="statHolder">
-        <div class="NE"><img src="i/v2/stat_tableNE.png" alt="" /></div>
-        <div class="NW"><img src="i/v2/stat_tableNW.png" alt="" /></div>
-        <div class="container">
-            <form action="${sessionInfo.servletPath}" method="POST" name="submitForm" enctype="multipart/form-data" onsubmit="showProcessing()">
-                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>
-                <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
-                
-                <table class="submission_form">
-                  <tr>
-                    <th colspan="2" class="label">My Design</th>
-                  </tr>
-                  <tr>
-                    <td class="label"><tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION%>"><span class="bigRed">${err}</span>
-                        <br /></tc-webtag:errorIterator>
-                    Submission zip file:</td>
-                    <td class="browse"><input type="file" name="<%=Constants.SUBMISSION%>"/></td>
-                  </tr>
-                  <tr>
-                    <td class="label"><tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION_SOURCE%>"><span class="bigRed">${err}</span>
-                        <br /></tc-webtag:errorIterator>
-                    Submission source zip file:</td>
-                    <td class="browse"><input type="file" name="<%=Constants.SUBMISSION_SOURCE%>"/></td>
-                  </tr>
-                  <tr>
-                    <td class="label"><tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION_PREVIEW%>"><span class="bigRed">${err}</span>
-                        <br /></tc-webtag:errorIterator>
-                    Submission preview image:</td>
-                    <td class="browse"><input type="file" name="<%=Constants.SUBMISSION_PREVIEW%>"/></td>
-                  </tr>
-                  <tr>
-                    <td class="label"><tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION_RANK%>"><span class="bigRed">${err}</span>
-                        <br /></tc-webtag:errorIterator>
-                    as rank:&nbsp;<tc-webtag:textInput name="<%=Constants.SUBMISSION_RANK%>" maxlength="3" size="2"/>                    </td>
-                    <td class="browse">
-                    <c:choose>
-                        <c:when test="${not empty has_global_ad and has_global_ad}">
-                        <%-- HAVE AD --%>
-                            <span id="submitButton">
-                        </c:when>
-                        <c:otherwise>
-                        <%-- NO AD --%>
-                            <span id="submitButton" class="no_global_ad">
-                        </c:otherwise>
-                    </c:choose>
-                    <input type="image" src="/i/v2/interface/btnSubmit.png" /></span></td>
-                  </tr>
-                </table>
-                
-                
-            </form>
-        </div>
-        <div class="SE"><img src="i/v2/stat_tableSE.png" alt="" /></div>
-        <div class="SW"><img src="i/v2/stat_tableSW.png" alt="" /></div>
-        </div>
-
-
-<%
-    GregorianCalendar gc = new GregorianCalendar(2007, Calendar.JULY, 23);
-%>
-<c:set value="<%=new Timestamp(gc.getTime().getTime())%>" var="bigStart"/>
-
-
+<body id="submit-page" data-web-root="${sessionInfo.servletPath}">
+<div id="page-wrap">
 <div>
-    <p>&nbsp;</p>
-    <h2>Rank Your Submissions</h2>
-    <form name="submissionForm" action="#">
-        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="BatchUpdateRank"/>
-        <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>" value="${contest.id}"/>
-        <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_TYPE_ID%>" value="<%=SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE.toString()%>"/>
+<jsp:include page="top.jsp"/>
+<br/>
 
+<div id="wrapper_submission">
 
-        <c:choose>
-            <c:when test="${contest.startTime > bigStart}">
-                <div>
-                    <p><strong>In the table below</strong> you can rank your submissions.</p>
+<div class="breadcrumb" style="margin-bottom: 10px;">
+            <a href="/?module=ViewActiveContests">Active Contests</a>
+            &gt; ${contest.name}
+</div>
 
-                             <c:choose>
-                                 <c:when test="${not empty contest.maxSubmissions.value}">
-                                     <p>Up to ${contest.maxSubmissions.value} submission<c:if test="${contest.maxSubmissions.value>1}">s</c:if>
-                                     will count for this contest.  They will be indicated by
-                                    <nobr>this icon <img src="/i/v2/selection.png" alt="Selection" /></nobr>.  Those submissions that do not have the icon will <strong>NOT</strong> count and
-                                     they will neither be screened nor reviewed.
-                                     If you make more than ${contest.maxSubmissions.value} submission<c:if test="${contest.maxSubmissions.value>1}">s</c:if>
-                                     for this contest, you can rearrange the order of your submissions until the end of the Submission Phase.</p>
-                                 </c:when>
-                             <c:otherwise>
-                                 <nobr>This icon <img src="/i/v2/selection.png" alt="Selection" /></nobr> indicates preferred submissions that will count for
-                             this contest.
-                             </c:otherwise>
-                             </c:choose>
-                    </div>
-            </c:when>
-            <c:otherwise>
-                <div>
-                    <p><strong>In the table below</strong> you can rank your submissions.</p>
-                    <p><nobr>This icon <img src="/i/v2/selection.png" alt="Selection" /></nobr> indicates preferred submissions that will count for
-                    this contest. Submissions that have <span class="bigRed">Failed</span> can not be ranked, and are automatically moved
-                    to the bottom of the page. If one of your preferred submissions fails after the submission phase, the next passing submission will
-                    take its place.</p>
-                </div>
-            </c:otherwise>
-        </c:choose>
+<div class="upload_wrapper_submission">
+<form action="${sessionInfo.servletPath}" method="POST" name="submitForm" enctype="multipart/form-data">
+<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>
+<tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
-<div class="statHolder">
-    <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
-    <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
-    <div class="container">
-        <table class="stat" cellpadding="0" cellspacing="0">
-            <thead>
-                <tr><td class="title" colspan="10">My Favorites</td></tr>
-                <tr>
-                    <td class="headerW">
-                        <div>&nbsp;</div>
-                    </td>
-                    <td class="headerC">
-                        Ranking
-                        <div>
-                            <a href="#" onclick="batchUpdate();return false;"><img src="/i/v2/interface/btnUpdateRanking.png" alt="Update ranking" /></a>
-                        </div>
-                    </td>
-                    <td class="header" colspan="2" width="33%">
-                        Submission
-                    </td>
-                    <td class="headerC" width="33%">
-                        Date Submitted
-                    </td>
-                    <td class="headerC" width="33%">
-                        Passed / Failed
-                    </td>
-                    <td class="headerC" nowrap>
-                        Move Up /<br />Move Down
-                    </td>
-                    <td class="headerC" nowrap>
-                        Move to<br />Top
-                    </td>
-                    <td class="headerC">
-                        Remove
-                    </td>
-                    <td class="headerE">
-                        <div>&nbsp;</div>
-                    </td>
-                </tr>
-            </thead>
-            <tbody id="submissions">
-                <jsp:include page="submitTableBody.jsp"/>
-            </tbody>
-        </table>
+<ul class="upload_submission_tab">
+    <li class="tab-1 active">
+        <a class="upload-tab" href="javascript:;"><span class="rightSide">
+                <span class="text" style="text-shadow: 1px 1px 1px rgb(240, 240, 240);">
+                    <span class="icon"></span>Browse Your File
+                </span>
+            </span></a>
+    </li>
+    <li class="tab-2">
+        <a class="submission_tab" href="javascript:;"><span class="rightSide">
+                <span class="text" style="text-shadow: 1px 1px 1px rgb(240, 240, 240);">
+                    <span class="icon"></span>Declare Submission
+                </span>
+            </span></a>
+    </li>
+</ul>
+<!--End .pload_submission_tab-->
+<div class="upload_submission_content">
+<div class="upload_frame_top">
+    <div class="upload_frame_top_right">
+        <div class="upload_frame_top_middle"></div>
     </div>
-    <div class="SE"><img src="/i/v2/stat_tableSE.png" alt="" /></div>
-    <div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
+    <!--End .upload_frame_top_right-->
+</div>
+<!--End .upload_frame_top-->
+<div class="upload_frame_main">
+<div class="upload_frame_main_right">
+<div class="upload_frame_main_middle">
+
+<div class="upload-content upload-pane-1">
+    <div class="top-info">
+        <a class="btn-help" target="_blank" href="http://topcoder.com/home/studio/the-process/"></a>
+    </div>
+    <div class="upload-content-description">
+        <p>Please follow the instructions on the Contest Details page regarding what your
+            submission, source and preview files should contain. <br>
+            Please be sure to double-check that you have submitted the correct files and that your
+            JPG files (if applicable) are in RGB color mode. </p>
+
+        <p><a href="http://topcoder.com/home/studio/the-process/how-to-submit-to-a-contest/" target="_blank">
+            Learn more about formatting your submission file
+        </a></p>
+    </div>
+    <!--End .upload-content-description-->
+    <div class="browser-content-upload">
+        <div class="fill-item">
+            <label>Submission Zip</label>
+
+            <div class="fill-part upload-file-item">
+                <input type="file" class="upload-file fileField" name="<%=Constants.SUBMISSION%>">
+                <span class="fill-note">All submission files (visible to contest holder)</span>
+            </div>
+            <!--End .fill-part-->
+
+            <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION%>">
+                <div class="fill-error">
+                    <span class="rightSide"><span class="text">
+                        <span class="icon"></span>
+                        ${err}
+                    </span></span>
+                </div>
+            </tc-webtag:errorIterator>
+
+            <!--End .fill-error-->
+            <div class="clear"></div>
+        </div>
+        <!--End .fill-item-->
+        <div class="fill-item">
+            <label>Source Zip</label>
+
+            <div class="fill-part upload-file-item">
+                <input type="file" class="upload-file fileField" name="<%=Constants.SUBMISSION_SOURCE%>">
+                <span class="fill-note">All source files (not visible to contest holder)</span>
+            </div>
+            <!--End .fill-part-->
+
+            <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION_SOURCE%>">
+                <div class="fill-error">
+                    <span class="rightSide"><span class="text">
+                        <span class="icon"></span>
+                        ${err}
+                    </span></span>
+                </div>
+            </tc-webtag:errorIterator>
+
+            <div class="clear"></div>
+        </div>
+        <!--End .fill-item-->
+        <div class="fill-item">
+            <label>Preview JPG/PNG</label>
+
+            <div class="fill-part upload-file-item">
+                <input type="file" class="upload-file fileField" name="<%=Constants.SUBMISSION_PREVIEW%>">
+                <span class="fill-note">Single preview image (representing your submission)</span>
+            </div>
+            <!--End .fill-part-->
+            <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION_PREVIEW%>">
+                <div class="fill-error">
+                    <span class="rightSide"><span class="text">
+                        <span class="icon"></span>
+                        ${err} <br/>
+                    </span></span>
+                </div>
+            </tc-webtag:errorIterator>
+            <!--End .fill-error-->
+            <div class="clear"></div>
+        </div>
+
+        <!--End .fill-item-->
+        <div class="clear"></div>
+
+        <div class="fill-item fill-item-rank">
+            <label>Rank</label>
+
+            <div class="fill-part">
+                <div class="text-input2">
+                    <div class="right-side">
+                        <input type="text" name="<%=Constants.SUBMISSION_RANK%>" value="<c:out value="${submission_rank}" escapeXml="true"/>">
+                    </div>
+                </div>
+                <span class="fill-note">Rank of this submission</span>
+            </div>
+
+            <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION_RANK%>">
+                <div class="fill-error">
+                    <span class="rightSide"><span class="text">
+                        <span class="icon"></span>
+                        ${err}<br/>
+                    </span></span>
+                </div>
+            </tc-webtag:errorIterator>
+
+            <!--End .fill-part-->
+            <div class="clear"></div>
+        </div>
+        <!--End .fill-item-->
+
+
+        <div class="button-line">
+            <a class="btn-blue btn-next" href="javascript:">
+                <span class="right-side">
+                    <span class="text">
+                        Next<span class="icon"></span>
+                    </span>
+                </span>
+            </a>
+        </div>
+
+        <!--End .button-line-->
+    </div>
+    <!--End .browser-content-upload-->
 </div>
 
-    </form>
-</div>
 
-                        <br clear="all"/>
-                    </div>                
-                    <div class="contentBottom"></div>
+<%-- second pane --%>
+<div class="upload-content upload-pane-2" style="display:none;">
+
+    <div class="top-info">
+        <a class="btn-help" target="_blank" href="http://topcoder.com/home/studio/the-process/"></a>
+    </div>
+
+    <div class="upload-content-description">
+        <div class="comments-column">
+            <h6>Comment / Notes</h6>
+
+            <div class="textarea-container">
+                <div class="textarea-top">
+                    <div class="textarea-right">
+                        <div class="textarea-middle"></div>
+                    </div>
+                </div>
+                <div class="textarea-main">
+                    <div class="textarea-right">
+                        <textarea cols="" rows="" class="textarea" name="<%=Constants.SUBMISSION_COMMENT%>"
+                                  title="Comments"><c:out value="${submission_comment}" escapeXml="true"/></textarea>
+                    </div>
+                </div>
+                <div class="textarea-bottom">
+                    <div class="textarea-right">
+                        <div class="textarea-middle"></div>
+                    </div>
                 </div>
             </div>
+            <!--End .textarea-container-->
         </div>
+        <!--End .comments-column-->
+        <div class="comments-note-column">
+            <p>Type a short note about your design here.<br>Explain revisions or other design
+                elements <br>that may not be clear.</p>
 
-        <jsp:include page="foot.jsp"/>
+            <p><a class="link" target="_blank" id="seeExample" href="javascript:;">
+                See example
+            </a></p>
+        </div>
+        <!--End .comments-note-column-->
+        <div class="clear"></div>
+    </div>
+    <!--End .browser-content-description-->
 
+    <div id="contain-design-elements-question" class="declare-selection-wrapper">
+
+        <div class="question-item">
+            <p>Does this entry contain design elements that are not your own?</p>
+
+            <div class="radioContainer">
+                <input type="radio" checked="checked" id="yes-question"
+                       name="<%= Constants.CONTAINS_LICENSED_ELEMENTS %>" value="true" class="radio">
+                <label>Yes</label>
+            </div>
+            <div class="radioContainer">
+                <input type="radio" id="no-question"
+                       name="<%= Constants.CONTAINS_LICENSED_ELEMENTS %>" value="false" class="radio">
+                <label>No</label>
+            </div>
+            <c:if test="${not empty external_content_error}">
+                <div class="tip-error" style="width: 340px; float: right;">
+                    <span class="rightSide"><span class="text">
+                        <span class="icon"></span>
+                        ${external_content_error}
+                    </span></span>
+                </div>
+            </c:if>
+
+            <div class="clear"></div>
+        </div>
+        <!--End .question-item-->
+
+        <div class="select-list-wrapper select-font-wrapper">
+            <div class="select-list-left-top">
+                <div class="select-list-right-top">
+                    <div class="select-list-right-bottom">
+                        <%--id="lala" --%>
+                        <div class="select-list-left-bottom">
+                            <div class="select-list-catpion">
+                                <span class="select-list-title">Font</span>
+                            </div>
+                            <br/>
+                            <!--End .caption-->
+
+                            <c:forEach items="${fonts_data}" var="font" varStatus="i">
+                                <div class="add-font-item external-content-item">
+                                    <div class="text-input">
+                                        <div class="right-side">
+                                            <input type="text" name="<%= Constants.FONT_NAME %>" title="Font's Name"
+                                                   value="<c:out value="${font[0]}" escapeXml="true"/>">
+                                        </div>
+                                    </div>
+                                    <div class="text-input">
+                                        <div class="right-side">
+                                            <input type="text" name="<%= Constants.FONT_URL %>"
+                                                   title="Font's URL Source"
+                                                   value="<c:out value="${font[1]}" escapeXml="true"/>">
+                                        </div>
+                                    </div>
+                                    <c:if test="${i.index == fn:length(fonts_data) - 1}">
+                                        <a class="btn-add" href="javascript:;"></a>
+                                    </c:if>
+
+                                    <div class="policy">
+                                        <p>Only list commercial fonts. They can be free or avaliable for purchase.
+                                            <a href="http://topcoder.com/home/studio/the-process/font-policy/">
+                                                Read Studio's Fonts Policy.
+                                            </a>
+                                        </p>
+                                    </div>
+
+                                    <c:if test="${not empty font[2]}">
+                                        <div class="tip-error">
+                                            <span class="rightSide"><span class="text">
+                                                <span class="icon"></span>
+                                                ${font[2]}
+                                            </span></span>
+                                        </div>
+                                    </c:if>
+
+                                </div>
+                            </c:forEach>
+
+                            <!--End .add-font-item-->
+                        </div>
+                        <!--End .select-list-left-bottom-->
+                    </div>
+                    <!--End .select-list-right-bottom-->
+                </div>
+                <!--End .select-list-right-top-->
+            </div>
+            <!--End .select-list-left-top-->
+        </div>
+        <!--End .select-list-wrapper-->
+
+
+        <div
+            class="select-list-wrapper select-stock-art-wrapper ${!contest.allowStockArt ? 'disable-perm disabled' : ''}">
+            <div class="select-list-left-top">
+                <div class="select-list-right-top">
+                    <div class="select-list-right-bottom">
+                        <div class="select-list-left-bottom">
+                            <div class="select-list-catpion">
+                                <span class="select-list-title">Stock Art</span>
+
+                                <c:if test="${!contest.allowStockArt}">
+                                    <div class="tip-error" style="width:300px;">
+                                        <span class="rightSide"><span class="text"><span class="icon"></span>Stock art is not allowed in this contest.</span></span>
+                                    </div>
+                                    <%--<span style="float:right;">
+                                        Stock art is not allowed in this contest.
+                                    </span>--%>
+                                </c:if>
+
+                            </div>
+                            <br/>
+                            <!--End .caption-->
+                            <c:forEach items="${stock_art_data}" var="sa" varStatus="i">
+                                <div class="stock-art-item external-content-item">
+                                    <div class="text-input">
+                                        <div class="right-side">
+                                            <input type="text" name="<%= Constants.STOCK_ART_NAME %>"
+                                                   value="<c:out value="${sa[0]}" escapeXml="true"/>"
+                                                   title="Description of photo">
+                                        </div>
+                                    </div>
+                                    <div class="text-input">
+                                        <div class="right-side">
+                                            <input type="text" name="<%= Constants.STOCK_ART_URL %>"
+                                                   value="<c:out value="${sa[1]}" escapeXml="true"/>"
+                                                   title="Stock's Art URL Source">
+                                        </div>
+                                    </div>
+                                    <div class="text-input file-number-input">
+                                        <div class="right-side">
+                                            <input type="text" style="cursor: default;"
+                                                   name="<%= Constants.STOCK_ART_FILE_NUMBER %>"
+                                                   value="<c:out value="${sa[2]}" escapeXml="true"/>"
+                                                   title="File Number">
+                                        </div>
+                                    </div>
+                                    <c:if test="${i.index == fn:length(stock_art_data) - 1}">
+                                        <a class="btn-add" href="javascript:;"></a>
+                                    </c:if>
+
+                                    <c:if test="${not empty sa[3]}">
+                                        <div class="tip-error">
+                                            <span class="rightSide"><span class="text">
+                                                <span class="icon"></span>
+                                                ${sa[3]}
+                                            </span></span>
+                                        </div>
+                                    </c:if>
+
+
+                                    <div class="clear"></div>
+                                </div>
+                            </c:forEach>
+
+                            <!--End .stock-art-item-->
+                        </div>
+                        <!--End .select-list-left-bottom-->
+                    </div>
+                    <!--End .select-list-right-bottom-->
+                </div>
+                <!--End .select-list-right-top-->
+            </div>
+            <!--End .select-list-left-top-->
+        </div>
+        <!--End .select-list-wrapper-->
+
+        <div class="button-line">
+            <a class="btn-blue btn-next" id="upload-browser-submit" href="javascript:;">
+                <span class="right-side"><span class="text">Submit</span></span>
+            </a>
+        </div>
+        <!--End .button-line-->
+
+    </div>
+    <!--End .declare-selection-wrapper-->
+
+</div>
+
+<!--End .upload-content-->
+</div>
+<!--End .upload_frame_main_middle-->
+</div>
+<!--End .upload_frame_main_right-->
+</div>
+<!--End .upload_frame_main-->
+<div class="upload_frame_bottom">
+    <div class="upload_frame_bottom_right">
+        <div class="upload_frame_bottom_middle"></div>
+    </div>
+    <!--End .upload_frame_bottom_right-->
+</div>
+<!--End .upload_frame_bottom-->
+</div>
+<!--End .upload_submission_content-->
+</form>
+</div>
+
+
+<div class="rank-submission-wrapper">
+    <div class="rank-submission-note">
+        <h4>Rank Your Submissions</h4>
+
+        <p>In the table below you can rank your submissions.</p>
+
+        <c:choose>
+            <c:when test="${not empty contest.maxSubmissions.value}">
+                <p>Up to ${contest.maxSubmissions.value} submission<c:if
+                    test="${contest.maxSubmissions.value>1}">s</c:if>
+                    will count for this contest. They will be indicated by
+                    <nobr>this icon <img src="/images/v6/start-icon.png" alt="Selection"/></nobr>
+                    .
+                    Those submissions that do not have the icon will <strong>NOT</strong> count and
+                    they will neither be screened nor reviewed.
+                    If you make more than ${contest.maxSubmissions.value} submission<c:if
+                        test="${contest.maxSubmissions.value>1}">s</c:if>
+                    for this contest, you can rearrange the order of your submissions until the end of the Submission
+                    Phase.
+                </p>
+            </c:when>
+            <c:otherwise>
+                <nobr>This icon <img src="/images/v6/start-icon.png" alt="Selection"/></nobr>
+                indicates preferred submissions
+                that will count for this contest.
+            </c:otherwise>
+        </c:choose>
+    </div>
+    <!--End .rank-submission-note-->
+
+
+    <div class="submission-list-wrapper">
+        <div class="submission-list_top">
+            <div class="submission-list_top_right">
+                <div class="submission-list_top_middle"></div>
+            </div>
+            <!--End .submission-list_top_right-->
+        </div>
+        <!--End .submission-list_top-->
+        <div class="submission-list_main">
+            <ul class="submission-list-header">
+                <li class="rank">Rank</li>
+                <li class="thumbnails">Thumbnails</li>
+                <li class="submission-id">Submission ID</li>
+                <li class="date">Date Submitted</li>
+                <li class="screening">Screening</li>
+                <li class="move">Move Up/Down</li>
+                <li class="download">Download</li>
+                <li class="remove">Remove</li>
+            </ul>
+            <div class="clear"></div>
+
+            <div class="submission-data">
+                <jsp:include page="submitTableBody.jsp"/>
+            </div>
+        </div>
+        <!--End .submission-list_main-->
+        <div class="submission-list_bottom">
+            <div class="submission-list_bottom_right">
+                <div class="submission-list_bottom_middle"></div>
+            </div>
+            <!--End .submission-list_bottom_right-->
+        </div>
+        <!--End .submission-list_bottom-->
+    </div>
+    <!--End .submission-list-wrapper-->
+
+</div>
+<!--End .rank-submission-wrapper-->
+
+<!-- #content block ends -->
+<br class="clear"/></div>
+
+</div>
+</div>
+
+
+<jsp:include page="foot.jsp"/>
+</div>
 
 </body>
 </html>
