@@ -10,148 +10,80 @@
 <c:set var="subFileIdx" value="<%=Constants.SUBMISSION_FILE_INDEX%>"/>
 <c:set var="modKey" value="<%=Constants.MODULE_KEY%>"/>
 
-<%--
-**************************************************
-crappy looking to save space on the transmission
-**************************************************
---%>
-
-<c:if test="${param.ts!=null}">
-    <taconite-root xml:space="preserve">
-    <taconite-replace-children contextNodeID="submissions" parseInBrowser="true">
-</c:if>
-<% boolean even = true;%>
 <c:set value="<%=ReviewStatus.FAILED%>" var="failed"/>
 <c:set value="<%=ReviewStatus.PASSED%>" var="passed"/>
 <c:set value="<%=Constants.SUBMISSION_ID%>" var="submissionId"/>
 
 <c:forEach items="${submissions}" var="submission">
-<% int col = 0;%>
-<tc-webtag:errorIterator id="err" name="${submissionId}${submission.id}"><tr class="${cssClass}"><td class="value" colspan="9"><span class="bigRed">${err}</span></td></tr></tc-webtag:errorIterator>
-<tr class="<%=even?"light":"dark"%>">
-<td class="valueW"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
-<div>&#160;</div>
-</td>
-<td class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
-<c:choose>
-<c:when test="${submission.review.status.id==failed}">
-<%-- doesn't matter what goes in here, we're not populating it because it failed--%>
-<input type="text" maxlength="3" size="2" disabled="disabled"/>
-</c:when>
-<c:otherwise>
-<tc-webtag:textInput name="${submissionId}${submission.id}" maxlength="3" size="2"/>
-</c:otherwise>
-</c:choose>
-</td>
-<td class="value"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
-<c:choose>
-<c:when test="${submission.rank == null || submission.rank>contest.maxSubmissions.value}">
-${submission.originalFileName}
-</c:when>
-<c:otherwise>
-<nobr><img src="/i/v2/selection.png" alt="Selection" /> <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}&amp;<%=Constants.SUBMISSION_ALT_TYPE%>=original">${submission.originalFileName}</a></nobr>
-</c:otherwise>
-</c:choose>
-</td>
-<td class="value"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
-    <c:set var="contestId" value="${submission.contest.id}"/>
-    <c:set var="galleryImageCount" value="${submission.mediumWatermarkedGalleryImagesCount}"/>
-    <studio_tags:viewSubmissionLink submissionId="${submission.id}"
-                                    contestId="${contestId}" galleryImageCount="${galleryImageCount}"
-                                    targetPresentationType="medium" previewPresentationType="tiny"/>
-</td>
-<td class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
-<tc-webtag:format object="${submission.createDate}" format="EEEE, MMMM d, yyyy '<br />' HH:mm z" timeZone="${sessionInfo.timezone}"/>
-</td>
-<td class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
-<c:choose>
-<c:when test="${submission.review.status==null}">
-Pending
-</c:when>
-<c:otherwise>
-<c:if test="${submission.review.status.id==failed}">
-<span class="bigRed">${submission.review.status.description}</span>
-</c:if>
-<c:if test="${submission.review.status.id==passed}">
-<span class="bigGreen">${submission.review.status.description}</span>
-</c:if>
-</c:otherwise>
-</c:choose>
-</td>
-<c:choose>
-<c:when test="${submission.review.status.id==failed}">
-<td class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
-<div align="center" style="margin: 2px;">
-<img src="/i/v2/interface/btnMoveUpNA.png" alt="Move up"/>
-</div>
-<div align="center" style="margin: 2px;">
-<img src="/i/v2/interface/btnMoveDownNA.png" alt="Move down"/>
-</div>
-</td>
-<td colspan="2" class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
-<div align="center">
-<img src="/i/v2/interface/btnMoveToTopNA.png" alt="Move to top"/>
-</div>
-</td>
-</c:when>
-<c:otherwise>
-<td class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
-<div align="center" style="margin: 2px;">
-<c:choose>
-<c:when test="${submission.rank==1}">
-<img src="/i/v2/interface/btnMoveUpNA.png" alt="Move up"/>
-</c:when>
-<c:otherwise>
-<a href="#" onclick="changeRank(${submission.rank-1}, ${submission.id});return false;" onfocus="this.blur();" style="display: block;">
-<img src="/i/v2/interface/btnMoveUp.png" alt="Move up" />
-</a>
-</c:otherwise>
-</c:choose>
-</div>
-<div align="center" style="margin: 2px;">
-<c:choose>
-<c:when test="${submission.rank==maxRank}">
-<img src="/i/v2/interface/btnMoveDownNA.png" alt="Move down"/>
-</c:when>
-<c:otherwise>
-<a href="#" onclick="changeRank(${submission.rank+1}, ${submission.id});return false;" onfocus="this.blur();" style="display: block;">
-<img src="/i/v2/interface/btnMoveDown.png" alt="Move down" />
-</a>
-</c:otherwise>
-</c:choose>
-</div>
-</td>
-<td class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
-<div align="center">
-<c:choose>
-<c:when test="${submission.rank==1}">
-<img src="/i/v2/interface/btnMoveToTopNA.png" alt="Move to top"/>
-</c:when>
-<c:otherwise>
-<a href="#" onclick="changeRank(1, ${submission.id});return false;" onfocus="this.blur();" style="display: block;">
-<img src="/i/v2/interface/btnMoveToTop.png" alt="Move to top" />
-</a>
-</c:otherwise>
-</c:choose>
-</div>
-</td>
-<td class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
-<div align="center">
-<a href="#" onclick="remove(${submission.id});return false;" onfocus="this.blur();" style="display: block;">
-<img src="/i/v2/interface/btnRemove.png" alt="Remove" />
-</a>
-</div>
-</td>
-</c:otherwise>
-</c:choose>
-<td class="valueE"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
-<div>&#160;</div>
-</td>
-</tr>
-<% even = !even;%>
-</c:forEach>
+    <div class="submission-list-item" data-id="${submission.id}" data-rank="${submission.rank}"
+         data-max-rank="${maxRank}">
+        <div class="submission-list-item-top-left">
+            <div class="submission-list-item-top-right">
+                <div class="submission-list-item-bottom-right">
+                    <div class="submission-list-item-bottom-left">
+                        <ul>
+                            <li class="rank">
+                                <span>${submission.rank}</span>
+                            </li>
 
-<c:if test="${param.ts!=null}">
-    </taconite-replace-children>
-    </taconite-root>
-</c:if>
+                            <li class="thumbnails">
+                                <div class="thumbnails-wrapper">
+                                    <img src="${sessionInfo.servletPath}?${modKey}=DownloadSubmission&amp;${subId}=${submission.id}&amp;${subAltType}=tiny" alt=""/>
+                                    <div class="img-frame"></div>
+                                </div>
+                            </li>
+                            <li class="submission-id">
+                                <span>
+                                    <c:if
+                                        test="${submission.rank != null && submission.rank <= contest.maxSubmissions.value}">
+                                        <img src="/images/v6/start-icon.png" alt="icon"/>
+                                    </c:if>
+                                    #${submission.id}
+                                </span>
+                            </li>
+                            <li class="date">
+                                <span>
+                                    <tc-webtag:format object="${submission.createDate}" format="MMMM d, yyyy"
+                                                      timeZone="${sessionInfo.timezone}"/>
+                                </span>
+                            </li>
+                            <li class="screening passed">
+                                <span>
+                                    <c:choose>
+                                        <c:when test="${submission.review.status==null}">
+                                            Pending
+                                        </c:when>
+                                        <c:otherwise>
+                                            <c:if test="${submission.review.status.id==failed}">
+                                                <span class="bigRed">${submission.review.status.description}</span>
+                                            </c:if>
+                                            <c:if test="${submission.review.status.id==passed}">
+                                                <span class="bigGreen">${submission.review.status.description}</span>
+                                            </c:if>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </span>
+                            </li>
+                            <li class="move">
+                                <a href="javascript:;" class="btn-move-down"></a>
+                                <a href="javascript:;" class="btn-move-up"></a>
+                            </li>
+                            <li class="download">
+                                <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}&amp;<%=Constants.SUBMISSION_ALT_TYPE%>=original" class="btn-download"></a>
+                            </li>
+                            <li class="remove">
+                                <a href="javascript:;" class="btn-remove"></a>
+                            </li>
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+                    <!--End .submission-list-item-bottom-left-->
+                </div>
+                <!--End .submission-list-item-bottom-right-->
+            </div>
+            <!--End .submission-list-item-top-right-->
+        </div>
+        <!--End .submission-list-item-top-left-->
+    </div>
+    <!--End .submission-list-item-->
+</c:forEach>
