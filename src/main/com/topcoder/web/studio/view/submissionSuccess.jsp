@@ -120,10 +120,11 @@
                 <div class="contentTop">
                     <div class="contentMiddle">
 
-
+<!--
         <div class="linkBox">
             <studio:forumLink forumID="${contest.forumId}"/>
         </div>
+-->
 
         <div class="breadcrumb">
             <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a>
