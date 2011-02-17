@@ -72,11 +72,11 @@ public class TaxForm implements PactsConstants, java.io.Serializable {
         withholdingPercentage = 0;
         withholdingAmount = 0;
         defaultWithholdingAmount = 0;
-        defaultWithholdingPercentage = 0;
+        defaultWithholdingPercentage = 0.3f;
         genericFormStatus = "default status";
         genericFormStatusID = 0;
-        usePercentage = false;
-        defaultUsePercentage = false;
+        usePercentage = true;
+        defaultUsePercentage = true;
     }
 
 
@@ -109,7 +109,7 @@ public class TaxForm implements PactsConstants, java.io.Serializable {
         header.setStatusId(status);
         header.setId(id);
         withholdingAmount = 0;
-        withholdingPercentage = 0;
+        withholdingPercentage = 0.3f;
         header.setDateFiled(dateFiled);
     }
 
@@ -165,11 +165,11 @@ public class TaxForm implements PactsConstants, java.io.Serializable {
                 withholdingPercentage = 0;
                 withholdingAmount = 0;
                 defaultWithholdingAmount = 0;
-                defaultWithholdingPercentage = 0;
+                defaultWithholdingPercentage = 0.3f;
                 genericFormStatus = "default status";
                 genericFormStatusID = 0;
-                usePercentage = false;
-                defaultUsePercentage = false;
+                usePercentage = true;
+                defaultUsePercentage = true;
                 return;
             }
             int rowCount = rsc.getRowCount();
@@ -180,11 +180,11 @@ public class TaxForm implements PactsConstants, java.io.Serializable {
                 withholdingPercentage = 0;
                 withholdingAmount = 0;
                 defaultWithholdingAmount = 0;
-                defaultWithholdingPercentage = 0;
+                defaultWithholdingPercentage = 0.3f;
                 genericFormStatus = "default status";
                 genericFormStatusID = 0;
-                usePercentage = false;
-                defaultUsePercentage = false;
+                usePercentage = true;
+                defaultUsePercentage = true;
                 return;
             }
             ResultSetContainer.ResultSetRow rsr = rsc.getRow(0);
@@ -193,10 +193,10 @@ public class TaxForm implements PactsConstants, java.io.Serializable {
             header.setId(TCData.getTCLong(rsr, "tax_form_id", 0, true));
             description = TCData.getTCString(rsr, "tax_form_desc", "default tax form desc", true);
             defaultWithholdingAmount = TCData.getTCDouble(rsr, "default_withholding_amount", 0, true);
-            defaultWithholdingPercentage = TCData.getTCFloat(rsr, "default_withholding_percentage", 0, true);
+            defaultWithholdingPercentage = TCData.getTCFloat(rsr, "default_withholding_percentage", 0.3f, true);
             genericFormStatus = TCData.getTCString(rsr, "status_desc", "default status", true);
             genericFormStatusID = TCData.getTCInt(rsr, "status_id", 0, true);
-            defaultUsePercentage = (TCData.getTCInt(rsr, "default_use_percentage", 0, true) == 1);
+            defaultUsePercentage = (TCData.getTCInt(rsr, "default_use_percentage", 1, true) == 1);
             return;
         }
 
@@ -208,11 +208,11 @@ public class TaxForm implements PactsConstants, java.io.Serializable {
             withholdingPercentage = 0;
             withholdingAmount = 0;
             defaultWithholdingAmount = 0;
-            defaultWithholdingPercentage = 0;
+            defaultWithholdingPercentage = 0.3f;
             genericFormStatus = "default status";
             genericFormStatusID = 0;
-            usePercentage = false;
-            defaultUsePercentage = false;
+            usePercentage = true;
+            defaultUsePercentage = true;
             return;
         }
 
@@ -223,11 +223,11 @@ public class TaxForm implements PactsConstants, java.io.Serializable {
         withholdingPercentage = TCData.getTCFloat(rsr, "withholding_percentage", 0, true);
         withholdingAmount = TCData.getTCDouble(rsr, "withholding_amount", 0, true);
         defaultWithholdingAmount = TCData.getTCDouble(rsr, "default_withholding_amount", 0, true);
-        defaultWithholdingPercentage = TCData.getTCFloat(rsr, "default_withholding_percentage", 0, true);
+        defaultWithholdingPercentage = TCData.getTCFloat(rsr, "default_withholding_percentage", 0.3f, true);
         genericFormStatus = TCData.getTCString(rsr, "status_desc", "default status", true);
         genericFormStatusID = TCData.getTCInt(rsr, "status_id", 0, true);
-        usePercentage = (TCData.getTCInt(rsr, "use_percentage", 0, true) == 1);
-        defaultUsePercentage = (TCData.getTCInt(rsr, "default_use_percentage", 0, true) == 1);
+        usePercentage = (TCData.getTCInt(rsr, "use_percentage", 1, true) == 1);
+        defaultUsePercentage = (TCData.getTCInt(rsr, "default_use_percentage", 1, true) == 1);
     }
 
 

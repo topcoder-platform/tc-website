@@ -102,12 +102,14 @@
 <%            out.print(taxForm.getDescription());
 %>
         </td></tr>
+<!--
         <tr>
         <td><b>Withholding Amount <% if (!taxForm.isUsePercentage()) out.print("(Used)"); %>:</b></td><td>
 <%            out.print(df.format(taxForm.getWithholdingAmount())+"</td><td>(Default: ");
             out.print(df.format(taxForm.getDefaultWithholdingAmount())+")");
 %>
         </td></tr>
+-->
         <tr>
         <td><b>Withholding Percentage <% if (taxForm.isUsePercentage()) out.print("(Used)"); %>:</b></td>
 <%            out.print("<td>"+taxForm.getWithholdingPercentage()+"</td><td>(Default: ");

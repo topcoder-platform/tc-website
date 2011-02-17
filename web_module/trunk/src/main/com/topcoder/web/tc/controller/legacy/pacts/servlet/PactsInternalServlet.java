@@ -973,12 +973,12 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                             message += " date in the format " + DATE_FORMAT_STRING;
                             message += ".<br>\n";
                         }
-                        if (!checkParam(DOUBLE_TYPE, request.getParameter("withholding_amount"), true))
-                            message += "Withholding Amount was invalid.<br>\n";
+                        //if (!checkParam(DOUBLE_TYPE, request.getParameter("withholding_amount"), true))
+                        //    message += "Withholding Amount was invalid.<br>\n";
                         if (!checkParam(FLOAT_TYPE, request.getParameter("withholding_percentage"), true))
                             message += "Withholding Percentage was invalid.<br>\n";
-                        if (!checkParam(BOOL_TYPE, request.getParameter("use_percentage"), true))
-                            message += "Parameter \"use_percentage\" was invalid.<br>\n";
+                        //if (!checkParam(BOOL_TYPE, request.getParameter("use_percentage"), true))
+                        //    message += "Parameter \"use_percentage\" was invalid.<br>\n";
                         if (message.length() == 0)
                             doUpdateUserTaxFormPost(request, response);
                         else {
@@ -2252,10 +2252,17 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         TaxForm userTaxForm = bean.get();
 
         userTaxForm.setWithholdingPercentage(Float.parseFloat(request.getParameter("withholding_percentage")));
-        userTaxForm.setWithholdingAmount(Double.parseDouble(request.getParameter("withholding_amount")));
+
+        // Update 02/17/2011. Don't use the withholding amount, only the percentage.
+        userTaxForm.setWithholdingAmount(0.0);
+        //userTaxForm.setWithholdingAmount(Double.parseDouble(request.getParameter("withholding_amount")));
+
         userTaxForm.getHeader().setStatusId(Integer.parseInt(request.getParameter("status_id")));
         userTaxForm.getHeader().setDateFiled(TCData.dateForm(request.getParameter("date_filed")));
-        userTaxForm.setUsePercentage(makeBoolean(request.getParameter("use_percentage")));
+
+        // Update 02/17/2011. Always use percentage value from now on.
+        userTaxForm.setUsePercentage(true);
+        //userTaxForm.setUsePercentage(makeBoolean(request.getParameter("use_percentage")));
 
         DataInterfaceBean dib = new DataInterfaceBean();
         dib.updateUserTaxForm(userTaxForm);
