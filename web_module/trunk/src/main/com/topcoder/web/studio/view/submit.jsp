@@ -69,6 +69,7 @@
             &gt; ${contest.name}
 </div>
 
+
 <div class="upload_wrapper_submission">
 <form action="${sessionInfo.servletPath}" method="POST" name="submitForm" enctype="multipart/form-data">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>
@@ -375,7 +376,7 @@
                                 <span class="select-list-title">Stock Art</span>
 
                                 <c:if test="${!contest.allowStockArt}">
-                                    <div class="tip-error" style="width:300px;">
+                                    <div class="satip-error" style="width:300px;">
                                         <span class="rightSide"><span class="text"><span class="icon"></span>Stock art is not allowed in this contest.</span></span>
                                     </div>
                                     <%--<span style="float:right;">

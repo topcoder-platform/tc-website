@@ -181,20 +181,38 @@
             </c:if>
         </c:if>
 
+	 <h5 class="contentTitle">Stock Photography</h5>
+	 <c:if test="${contest.allowStockArt}">
+	 	<p class="paragraph">
+			Watermarked comp photography from istockphoto.com is allowed in this contest. You must follow these instructions or your submission will fail screening:
+		<br><br>
+			1) You must declare your stock photos when submitting. <a href="http://topcoder.com/home/studio/the-process/how-to-submit-to-a-contest/" target="_blank">See how here.</a><br>
+			2) Only use photos, and only use them from iStockPhoto.com. Other iStockPhoto artwork (illustrations, icons, etc.) are not allowed.<br>
+			3) Be sure to keep the watermark intact. If the photo is cropped in such a way that the watermark is not visible, please be sure to include the entire watermarked image in your source files so screeners can see that it is a comp image from iStockphoto.com.
+	 	</p>
+        </c:if>
+
+	 <c:if test="${!contest.allowStockArt}">
+	 	<p class="paragraph">
+			Stock photography is not allowed in this contest. All submitted elements must be designed solely by you.<br>
+			<a href="http://topcoder.com/home/studio/the-process/copyright-questions/">See this page for more details.</a>
+	 	</p>
+        </c:if>
+
         <%-- How to Submit --%>
         <h5 class="contentTitle">How to Submit</h5>
         <p class="paragraph">
             <ul>
-                <li>New to Studio? <a href="http://topcoder.com/home/studio/new-member-guide/">Learn how to compete
+                <li>New to Studio? <a href="http://topcoder.com/home/studio/new-member-guide/" target="_blank">Learn how to compete
                     here</a>.
                 </li>
                 <li>Upload your submission in three parts (<a
-                        href="http://topcoder.com/home/studio/the-process/how-to-submit-to-a-contest/">see this FAQs for
+                        href="http://topcoder.com/home/studio/the-process/how-to-submit-to-a-contest/" target="_blank">see this FAQs for
                     more information</a>). Your design should be finalized and should contain only a single design
                     concept (do not include multiple designs in a single submission).
                 </li>
                 <li>If your submission wins, your source files must be correct and
-                    "<a href="http://topcoder.com/home/studio/the-process/final-fixes/ ">Final Fixes</a>" (if
+                    "<a href="http://topcoder.com/home/studio/the-process/final-fixes/" target="_blank">Final Fixes</a>" (if
                     applicable) must be completed before payment can be released.
                 </li>
                 <li>You may submit as many times as you'd like during the submission phase, but only the number of files
@@ -318,7 +336,7 @@
                 <p>Trouble formatting your submission or want to learn more?
                     <a href="http://topcoder.com/home/studio/the-process/how-to-submit-to-a-contest/">Read this FAQs</a>.</p>
 
-                <p><strong>Note:</strong> All <a href="http://topcoder.com/home/studio/the-process/font-policy/">non-standard fonts</a> must be listed in a text file within your submission folder. Include the name of the font and a link to where it can be downloaded/purchased (commercial fonts only). DO NOT include any font files in your submission or source files. 
+                <p><strong>Note:</strong> All <a href="http://topcoder.com/home/studio/the-process/font-policy/">non-standard fonts</a> must be declared when you submit. Include the name of the font and a link to where it can be downloaded/purchased (commercial fonts only). DO NOT include any font files in your submission or source files. 
 
                 </p>
             </div>
