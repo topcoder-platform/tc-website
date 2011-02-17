@@ -336,7 +336,7 @@
                                     <div class="policy">
                                         <p>Only list commercial fonts. They can be free or avaliable for purchase.
                                             <a href="http://topcoder.com/home/studio/the-process/font-policy/">
-                                                Read Studio's Fonts Policy.
+                                                Read Studio's Font Policy.
                                             </a>
                                         </p>
                                     </div>
