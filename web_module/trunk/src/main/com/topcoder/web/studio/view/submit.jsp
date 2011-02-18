@@ -484,7 +484,7 @@
                 <p>Up to ${contest.maxSubmissions.value} submission<c:if
                     test="${contest.maxSubmissions.value>1}">s</c:if>
                     will count for this contest. They will be indicated by
-                    <nobr>this icon <img src="/images/v6/start-icon.png" alt="Selection"/></nobr>
+                    <nobr>this icon <img src="/i/v6/start-icon.png" alt="Selection"/></nobr>
                     .
                     Those submissions that do not have the icon will <strong>NOT</strong> count and
                     they will neither be screened nor reviewed.
@@ -495,7 +495,7 @@
                 </p>
             </c:when>
             <c:otherwise>
-                <nobr>This icon <img src="/images/v6/start-icon.png" alt="Selection"/></nobr>
+                <nobr>This icon <img src="/i/v6/start-icon.png" alt="Selection"/></nobr>
                 indicates preferred submissions
                 that will count for this contest.
             </c:otherwise>

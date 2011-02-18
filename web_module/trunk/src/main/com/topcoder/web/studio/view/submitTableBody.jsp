@@ -36,7 +36,7 @@
                                 <span>
                                     <c:if
                                         test="${submission.rank != null && submission.rank <= contest.maxSubmissions.value}">
-                                        <img src="/images/v6/start-icon.png" alt="icon"/>
+                                        <img src="/i/v6/start-icon.png" alt="icon"/>
                                     </c:if>
                                     #${submission.id}
                                 </span>
