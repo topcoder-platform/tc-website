@@ -1156,11 +1156,18 @@ public class ForumsBean extends BaseEJB {
 
 		Connection forumsConn = null;
 		try {
+
+            List<ForumsSpecReviewComment> specReviewComments = new LinkedList<ForumsSpecReviewComment>();
+
 			// retrieving spec review forum for given category
 			Forum forum = getSpecReviewForum(categoryId);
-			long forumId = forum.getID();
 
-			List<ForumsSpecReviewComment> specReviewComments = new LinkedList<ForumsSpecReviewComment>();
+            if (forum == null)
+            {
+                return specReviewComments;
+            }
+
+			long forumId = forum.getID();
 
 			forumsConn = DBMS.getConnection(DBMS.FORUMS_DATASOURCE_NAME);
 
