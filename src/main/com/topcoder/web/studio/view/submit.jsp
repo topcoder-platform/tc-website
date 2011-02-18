@@ -30,12 +30,12 @@
     <link type="text/css" rel="stylesheet" href="/css/v4/home.css"/>
     <link type="text/css" rel="stylesheet" href="/css/v4/studio-navigation.css"/>
     <link type="text/css" rel="stylesheet" href="/css/v4/newstyles.css"/>
-    <link rel="stylesheet" type="text/css" href="/css/submit.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/submit.css"/>
     <!--[if IE 8]>
-    <link rel="stylesheet" type="text/css" href="/css/submit-ie8.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/submit-ie8.css"/>
     <![endif]-->
     <!--[if IE 7]>
-    <link rel="stylesheet" type="text/css" href="/css/submit-ie7.css"/>
+    <link type="text/css" rel="stylesheet"  href="/css/submit-ie7.css"/>
     <![endif]-->
 
 
@@ -335,7 +335,7 @@
 
                                     <div class="policy">
                                         <p>Only list commercial fonts. They can be free or avaliable for purchase.
-                                            <a href="http://topcoder.com/home/studio/the-process/font-policy/">
+                                            <a href="http://topcoder.com/home/studio/the-process/font-policy/" target="_blank">
                                                 Read Studio's Font Policy.
                                             </a>
                                         </p>
