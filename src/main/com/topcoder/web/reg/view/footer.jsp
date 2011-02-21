@@ -17,19 +17,21 @@
 </div>
 
 
-<!-- Performable Analytics -->
-<%
- if (handle != null && !handle.equals("") && !handle.equals("anonymous")) {
-%>
+<%-- Analytics --%>
 <script type="text/javascript">
-
-    var _paq = _paq || [];
- 
-    _paq.push(["identify", {
-    id: "<%=handle %>"
-    }]);
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-6340959-1");
+pageTracker._trackPageview();
 </script>
 
-<%}%>
-
-<script src="//d1nu2rn22elx8m.cloudfront.net/performable/pax/4wrbNk.js" type="text/javascript"></script>
+<!-- Start of HubSpot Logging Code  -->
+<script type="text/javascript" language="javascript">
+var hs_portalid=17680; 
+var hs_salog_version = "2.00";
+var hs_ppa = "topcoder.app101.hubspot.com";
+document.write(unescape("%3Cscript src='" + document.location.protocol + "//" + hs_ppa + "/salog.js.aspx' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<!-- End of HubSpot Logging Code -->
