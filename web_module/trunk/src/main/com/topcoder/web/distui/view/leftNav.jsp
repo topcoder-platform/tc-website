@@ -30,6 +30,9 @@
 					nav.search("m_competitions_overview").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/x/DIKMAg", "General Info", "m_overview_general_info"));
 					nav.search("m_competitions_overview").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/x/MQD9Ag", "Reliability", "m_overview_reliability"));
 					nav.search("m_competitions_overview").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/x/lYE_/", "Ratings", "m_overview_rating"));
+					nav.search("m_competitions_overview").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/x/aoE_/", "How to Get Paid", "m_how_to_get_paid"));
+					nav.search("m_competitions_overview").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/x/2gRmAw", "Administrative Overview ", "m_administrative_overview"));
+
 			nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_copilot_opportunities')", "Copilot Opportunities", "m_copilot_opportunities"));
 					nav.search("m_copilot_opportunities").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/Copilot+Overview", "Overview", "copilots_overview"));
         			nav.search("m_copilot_opportunities").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_copilot_support')", "Track Information", "m_copilot_support"));
@@ -263,12 +266,11 @@
 							nav.search("m_com").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=COMHistory&amp;achtid=7", "Development", "dev_com"));
 	  		
 
-   nav.addRoot(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_edu_content')", "Educational Content", "m_edu_content"));
+   nav.addRoot(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_edu_content')", "Tutorials", "m_edu_content"));
 	   nav.search("m_edu_content").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=education&amp;d2=overview", "Overview", "edu_overview"));
 	   nav.search("m_edu_content").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=tutorials&amp;d2=alg_index", "Algorithm Tutorials", "algo_tutorials"));
 	   nav.search("m_edu_content").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=tutorials&amp;d2=comp_index", "Component Tutorials", "comp_tutorials"));
 	   nav.search("m_edu_content").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=tutorials&amp;d2=mm_index", "Marathon Tutorials", "mm_tutorials"));
-	   nav.search("m_edu_content").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/display/tc/How+to+Get+Paid+for+Competing", "How to Get Paid", "how_to_get_paid"));
 	   nav.search("m_edu_content").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/wiki/dashboard.action", "Wiki", "wiki"));
 
 			   
