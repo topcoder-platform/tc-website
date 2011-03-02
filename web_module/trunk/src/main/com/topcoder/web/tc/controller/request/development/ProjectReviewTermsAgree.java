@@ -250,7 +250,7 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
         }
 
         if (mail.getToAddress(TCSEmailMessage.TO).length >= 1) {
-            EmailEngine.send(mail);			
+           // EmailEngine.send(mail);			
         }
     }
 }
