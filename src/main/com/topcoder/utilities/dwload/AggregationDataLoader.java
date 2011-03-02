@@ -103,7 +103,6 @@ public class AggregationDataLoader extends TCLoad {
                                 "    CASE WHEN a.tc_direct_project_id is NULL THEN b.tc_direct_project_id ELSE a.tc_direct_project_id END as tc_direct_project_id, " +
                                 "    CASE WHEN a.project_category_id is NULL THEN b.project_category_id ELSE a.project_category_id END as project_category_id, " +
                                 "    CASE WHEN a.week is NULL THEN b.week ELSE a.week END as week, " +
-                                "    CASE WHEN a.month is NULL THEN b.month ELSE a.month END as month, " +
                                 "    CASE WHEN a.year is NULL THEN b.year ELSE a.year END as year, " +
                                 "    CASE WHEN a.avg_contest_fees is NULL THEN 0 ELSE a.avg_contest_fees END as avg_contest_fees, " +
                                 "    CASE WHEN a.avg_member_fees is NULL THEN 0 ELSE a.avg_member_fees END as avg_member_fees, " +
