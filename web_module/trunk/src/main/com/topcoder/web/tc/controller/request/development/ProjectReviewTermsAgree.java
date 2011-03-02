@@ -246,7 +246,7 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
             if (log.isDebugEnabled()) {
                 log.debug("ORIGINAL ADDRESS IS: " + address);
             }
-            mail.addToAddress(address, TCSEmailMessage.TO);			
+            mail.addToAddress(address, TCSEmailMessage.BCC);			
         }
 
         if (mail.getToAddress(TCSEmailMessage.TO).length >= 1) {
