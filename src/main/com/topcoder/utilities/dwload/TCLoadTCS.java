@@ -929,10 +929,24 @@ public class TCLoadTCS extends TCLoad {
 //                            "     WHERE costs.project_id = p.project_id " +
 //                            "     AND costs.project_info_type_id IN (30, 33, 35, 36, 37, 38, 39)) " +
 //                            "     AS contest_prizes_total " +
-                            "   ,(SELECT SUM(total_amount) " +
+            /*                "   ,(SELECT SUM(total_amount) " +
                             "     FROM informixoltp:payment pm INNER JOIN informixoltp:payment_detail pmd ON pm.most_recent_detail_id = pmd.payment_detail_id " +
                             "     WHERE pmd.component_project_id::int = p.project_id " +
-                            "     AND NOT pmd.payment_status_id IN (65, 69)) " +
+                            "     AND NOT pmd.payment_status_id IN (65, 69)) " + */
+                           "   , NVL((SELECT sum(total_amount) " +
+                           "       FROM  informixoltp:payment_detail pmd, informixoltp:payment pm " +
+                           "        WHERE pmd.component_project_id = p.project_id and pmd.installment_number = 1 " +
+                           "        and pm.most_recent_detail_id = pmd.payment_detail_id  " +
+                           "        AND NOT pmd.payment_status_id IN (65, 68, 69)), 0) " +
+                           "    + " +
+                           "    NVL((SELECT sum(pmd2.total_amount)  " +
+                           "           FROM  informixoltp:payment_detail pmd,   " +
+                           "                 informixoltp:payment pm LEFT OUTER JOIN informixoltp:payment_detail pmd2 on pm.payment_id = pmd2.parent_payment_id,  " +
+                           "                 informixoltp:payment pm2  " +
+                           "            WHERE pmd.component_project_id = p.project_id and pmd2.installment_number = 1  " +
+                           "            and pm.most_recent_detail_id = pmd.payment_detail_id   " +
+                           "            and pm2.most_recent_detail_id = pmd2.payment_detail_id  " +
+                           "            AND NOT pmd2.payment_status_id IN (65, 68, 69)), 0) " +
                             "     AS contest_prizes_total " +
                             "   , pib.value AS billing_project_id " +
                             "   from project p , " +
