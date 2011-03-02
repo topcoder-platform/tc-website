@@ -81,7 +81,7 @@ public class AggregationDataLoader extends TCLoad {
         long start = System.currentTimeMillis();
         
         // Statement to select aggregation data with successful contests cnt
-        final String AGGRE_SUCC = "SELECT a.client_project_id, a.tc_direct_project_id, a.project_category_id, b.week_of_year week, b.month_numeric month, b.year, " +
+        final String AGGRE_SUCC = "SELECT a.client_project_id, a.tc_direct_project_id, a.project_category_id, b.week_of_year week, b.year, " +
                                 "SUM(a.admin_fee)/COUNT(a.project_id) avg_contest_fees, " +
                                 "SUM(a.contest_prizes_total)/COUNT(a.project_id) avg_member_fees," +
                                 "SUM(a.duration)/COUNT(a.project_id) avg_duration, " +
@@ -89,14 +89,14 @@ public class AggregationDataLoader extends TCLoad {
                                 "FROM project a, calendar b WHERE a.status_id=7 and a.client_project_id IS NOT NULL " +
                                 "AND DAY(a.complete_date)=b.day_of_month AND MONTH(a.complete_date)=b.month_numeric AND YEAR(a.complete_date)=b.year " +
                                 "AND a.complete_date is not null AND a.posting_date is not null " +
-                                "GROUP BY a.client_project_id, a.tc_direct_project_id, a.project_category_id, b.week_of_year, b.month_numeric, b.year INTO TEMP tmp_project_aggr_1";
+                                "GROUP BY a.client_project_id, a.tc_direct_project_id, a.project_category_id, b.week_of_year, b.year INTO TEMP tmp_project_aggr_1";
         
         // Statement to select aggregation data with failed contests cnt
-        final String AGGRE_FAIL = "SELECT a.client_project_id, a.tc_direct_project_id, a.project_category_id, b.week_of_year week, b.month_numeric month, b.year, COUNT(a.status_id) fail_cnt " +
+        final String AGGRE_FAIL = "SELECT a.client_project_id, a.tc_direct_project_id, a.project_category_id, b.week_of_year week, b.year, COUNT(a.status_id) fail_cnt " +
                                 "FROM project a, calendar b WHERE a.status_id IN (4,5,6,8,9,10,11) and a.client_project_id IS NOT NULL " +
                                 "AND DAY(a.complete_date)=b.day_of_month AND MONTH(a.complete_date)=b.month_numeric AND YEAR(a.complete_date)=b.year " +
                                 "AND a.complete_date is not null AND a.posting_date is not null " +
-                                " GROUP BY a.client_project_id, a.tc_direct_project_id, a.project_category_id, b.week_of_year, b.month_numeric, b.year INTO TEMP tmp_project_aggr_2";
+                                " GROUP BY a.client_project_id, a.tc_direct_project_id, a.project_category_id, b.week_of_year, b.year INTO TEMP tmp_project_aggr_2";
         
         // Statement to merge two parts of aggregation data above
         final String MERGE_SUCC_FAIL = "SELECT CASE WHEN a.client_project_id is NULL THEN b.client_project_id ELSE a.client_project_id END as client_project_id, " +
@@ -112,7 +112,7 @@ public class AggregationDataLoader extends TCLoad {
                                 "    CASE WHEN a.succ_cnt is NULL THEN 0 ELSE a.succ_cnt END as succ_cnt, " +
                                 "    CASE WHEN b.fail_cnt is NULL THEN 0 ELSE b.fail_cnt END as fail_cnt " +
                                 "FROM tmp_project_aggr_1 a full outer join tmp_project_aggr_2 b ON a.client_project_id=b.client_project_id AND a.tc_direct_project_id=b.tc_direct_project_id " +
-                                "    AND a.project_category_id=b.project_category_id AND a.week=b.week AND a.month=b.month AND a.year=b.year INTO TEMP tmp_project_aggr_3";
+                                "    AND a.project_category_id=b.project_category_id AND a.week=b.week AND a.year=b.year INTO TEMP tmp_project_aggr_3";
         
         // update tcs_dw:weekly_contest_stats table
         final String UPDATE = "UPDATE weekly_contest_stats SET (avg_contest_fees, avg_member_fees, avg_duration, avg_fulfillment, total_completed_contests, total_failed_contests) = " +
@@ -120,16 +120,16 @@ public class AggregationDataLoader extends TCLoad {
                             "  FROM tmp_project_aggr_3 a " +
                             "  WHERE a.client_project_id=weekly_contest_stats.client_project_id AND a.tc_direct_project_id=weekly_contest_stats.tc_direct_project_id " +
                             "     AND a.project_category_id=weekly_contest_stats.project_category_id AND a.week=weekly_contest_stats.week " +
-                            "     AND a.month=weekly_contest_stats.month AND a.year=weekly_contest_stats.year))";
+                            "     AND a.year=weekly_contest_stats.year))";
         
         // insert new records to tcs_dw:weekly_contest_stats table
         final String INSERT = "INSERT INTO weekly_contest_stats (client_project_id, tc_direct_project_id, project_category_id, week, month, year, " +
                             "    avg_contest_fees, avg_member_fees, avg_duration, avg_fulfillment, total_completed_contests, total_failed_contests) " +
-                            "SELECT a.client_project_id, a.tc_direct_project_id, a.project_category_id, a.week, a.month, a.year, " +
+                            "SELECT a.client_project_id, a.tc_direct_project_id, a.project_category_id, a.week, 0, a.year, " +
                             "    a.avg_contest_fees, a.avg_member_fees, a.avg_duration, a.avg_fulfillment, a.succ_cnt, a.fail_cnt " +
                             "FROM tmp_project_aggr_3 a WHERE NOT EXISTS ( " +
                             "    SELECT * FROM weekly_contest_stats c WHERE c.client_project_id=a.client_project_id AND c.tc_direct_project_id=a.tc_direct_project_id " +
-                            "        AND c.project_category_id=a.project_category_id AND c.week=a.week AND c.month=a.month AND c.year=a.year)";
+                            "        AND c.project_category_id=a.project_category_id AND c.week=a.week AND c.year=a.year)";
         
         // Statements to drop temp tables
         String[] DROP_TABLES = new String[] {"DROP TABLE tmp_project_aggr_1", "DROP TABLE tmp_project_aggr_2", "DROP TABLE tmp_project_aggr_3"};
