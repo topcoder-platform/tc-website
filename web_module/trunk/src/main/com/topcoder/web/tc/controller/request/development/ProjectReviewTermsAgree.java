@@ -249,8 +249,8 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
             mail.addToAddress(address, TCSEmailMessage.BCC);			
         }
 
-        if (mail.getToAddress(TCSEmailMessage.TO).length >= 1) {
-           // EmailEngine.send(mail);			
+        if (mail.getToAddress(TCSEmailMessage.BCC).length >= 1) {
+            EmailEngine.send(mail);			
         }
     }
 }
