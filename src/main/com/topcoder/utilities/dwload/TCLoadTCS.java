@@ -1040,7 +1040,7 @@ public class TCLoadTCS extends TCLoad {
 
             // Statements for updating the duration, fulfillment, start_date_calendar_id fields
             final String UPDATE_AGAIN = "UPDATE project SET duration = (complete_date - posting_date)::interval minute(9) to minute::char(20)::decimal(10,2), " +
-                                           "fulfillment = (CASE WHEN num_submissions_passed_review > 0 THEN 1 ELSE 0 END), " +
+                                           "fulfillment = (CASE WHEN status_id = 7 THEN 1 ELSE 0 END), " +
                                            "start_date_calendar_id = (SELECT calendar_id FROM calendar c WHERE YEAR(project.posting_date) = c.year " +
                                            "                          AND MONTH(project.posting_date) = c.month_numeric " +
                                            "                          AND DAY(project.posting_date) = c.day_of_month) " +
@@ -5609,7 +5609,7 @@ public class TCLoadTCS extends TCLoad {
               "SELECT tc_direct_project_id, project_category_id, DATE(p.complete_date), " +
               "       SUM(p.admin_fee + p.contest_prizes_total), " +
               "       SUM((p.complete_date - p.posting_date)::interval minute(9) to minute::char(20)::decimal(10,2)), " +
-              "       SUM(CASE WHEN num_submissions_passed_review > 0 THEN 1 ELSE 0 END), " +
+              "       SUM(CASE WHEN status_id = 7 THEN 1 ELSE 0 END), " +
               "       COUNT(p.project_id), " +
               "       'TCLoadTCS', CURRENT, 'TCLoadTCS', CURRENT " +
               "FROM project p " +
