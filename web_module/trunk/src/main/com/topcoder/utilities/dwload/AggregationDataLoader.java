@@ -88,12 +88,14 @@ public class AggregationDataLoader extends TCLoad {
                                 "SUM(a.fulfillment)/COUNT(a.project_id) avg_fulfillment, COUNT(a.status_id) succ_cnt " +
                                 "FROM project a, calendar b WHERE a.status_id=7 and a.client_project_id IS NOT NULL " +
                                 "AND DAY(a.complete_date)=b.day_of_month AND MONTH(a.complete_date)=b.month_numeric AND YEAR(a.complete_date)=b.year " +
+                                "AND a.complete_date is not null AND a.posting_date is not null " +
                                 "GROUP BY a.client_project_id, a.tc_direct_project_id, a.project_category_id, b.week_of_year, b.month_numeric, b.year INTO TEMP tmp_project_aggr_1";
         
         // Statement to select aggregation data with failed contests cnt
         final String AGGRE_FAIL = "SELECT a.client_project_id, a.tc_direct_project_id, a.project_category_id, b.week_of_year week, b.month_numeric month, b.year, COUNT(a.status_id) fail_cnt " +
                                 "FROM project a, calendar b WHERE a.status_id IN (4,5,6,8,9,10,11) and a.client_project_id IS NOT NULL " +
                                 "AND DAY(a.complete_date)=b.day_of_month AND MONTH(a.complete_date)=b.month_numeric AND YEAR(a.complete_date)=b.year " +
+                                "AND a.complete_date is not null AND a.posting_date is not null " +
                                 " GROUP BY a.client_project_id, a.tc_direct_project_id, a.project_category_id, b.week_of_year, b.month_numeric, b.year INTO TEMP tmp_project_aggr_2";
         
         // Statement to merge two parts of aggregation data above
@@ -196,12 +198,14 @@ public class AggregationDataLoader extends TCLoad {
                                 "SUM(a.fulfillment)/COUNT(a.project_id) avg_fulfillment, COUNT(a.status_id) succ_cnt " +
                                 "FROM project a, calendar b WHERE a.status_id=7 and a.client_project_id IS NOT NULL " +
                                 "AND DAY(a.complete_date)=b.day_of_month AND MONTH(a.complete_date)=b.month_numeric AND YEAR(a.complete_date)=b.year " +
+                                "AND a.complete_date is not null AND a.posting_date is not null " +
                                 "GROUP BY a.client_project_id, a.tc_direct_project_id, a.project_category_id, b.month_numeric, b.year INTO TEMP tmp_project_aggr_1";
         
         // Statement to select aggregation data with failed contests cnt
         final String AGGRE_FAIL = "SELECT a.client_project_id, a.tc_direct_project_id, a.project_category_id, b.month_numeric month, b.year, COUNT(a.status_id) fail_cnt " +
                                 "FROM project a, calendar b WHERE a.status_id IN (4,5,6,8,9,10,11) and a.client_project_id IS NOT NULL " +
                                 "AND DAY(a.complete_date)=b.day_of_month AND MONTH(a.complete_date)=b.month_numeric AND YEAR(a.complete_date)=b.year " +
+                                "AND a.complete_date is not null AND a.posting_date is not null " +
                                 " GROUP BY a.client_project_id, a.tc_direct_project_id, a.project_category_id, b.month_numeric, b.year INTO TEMP tmp_project_aggr_2";
         
         // Statement to merge two parts of aggregation data above
