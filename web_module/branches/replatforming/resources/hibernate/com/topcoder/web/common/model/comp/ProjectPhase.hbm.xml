@@ -16,5 +16,6 @@
         <property name="actualStartTime" column="actual_start_time" />
         <property name="actualEndTime" column="actual_end_time" />
         <property name="duration" column="duration" />
+        <property name="statusId" column="phase_status_id" />
     </class>
 </hibernate-mapping>

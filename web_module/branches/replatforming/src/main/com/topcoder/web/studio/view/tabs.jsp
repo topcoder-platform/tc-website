@@ -1,5 +1,5 @@
 <%--
-  - Author: TCSDEVELOPER
+  - Author: isv
   - Version: 1.0 (Studio Contest Detail Pages assembly)
   - Copyright (C) 2010 TopCoder Inc., All Rights Reserved.
   -
@@ -15,8 +15,11 @@
 <c:set var="servletPath" value="${sessionInfo.servletPath}"/>
 <c:set var="CONTEST_ID" value="<%=Constants.CONTEST_ID%>"/>
 <c:set var="currentTab" value="${param.currentTab}"/>
+<%--
 <c:set var="winnersAvailable" value="${not empty contest.results}"/>
-<c:set var="isMultiRound" value="${not empty contest.multiRound and contest.multiRound}"/>
+--%>
+<c:set var="winnersAvailable" value="${false}"/>
+<c:set var="isMultiRound" value="${not empty contest.milestoneDate}"/>
 <c:set var="canViewMilestone" value="${requestScope.canViewMilestone}"/>
 <c:set var="milestoneFeedbackAvailable"
        value="${isMultiRound and canViewMilestone and contest.milestoneFeedbackAvailable}"/>

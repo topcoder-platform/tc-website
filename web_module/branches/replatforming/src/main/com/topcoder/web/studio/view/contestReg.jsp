@@ -1,14 +1,15 @@
 <%--
   - Author: pulky
-  - Version: 1.1
-  - Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+  - Version: 1.3
+  - Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page present registration page for a specific contest.
   -
   - Version 1.1 (Configurable Contest Terms-Studio Release Assembly v1.0) changes: Added new functionality that asks for
   - several terms of use and show those the user already agreed to.
   - Version 1.2 (Studio Electronic Assignment Document Assembly version 1.0) changes:
-  -     - Change the registration process.    
+  -     - Change the registration process.
+  - Version 1.3 (Re-platforming Studio Release 2 assembly) change notes: updated to use different model for contest.
 --%>
 <%@ page import="com.topcoder.web.studio.Constants"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag"%>
@@ -20,6 +21,7 @@
 <c:set value="<%=Constants.CONTEST_ID%>" var="CONTEST_ID"/>
 <c:set value="<%=Constants.TERMS_OF_USE_ID%>" var="TERMS_OF_USE_ID"/>
 <c:set value="<%=Constants.TERMS_AGREE%>" var="TERMS_AGREE"/>
+<c:set var="contest" value="${requestScope.contest}"/>
 
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -74,10 +76,11 @@
                             <div class="contentTop">
                                 <div class="contentMiddle">
                                     <div class="linkBox">
-                                        <studio:forumLink forumID="${contest.forumId}" />
+                                        <studio:forumLink forumID="${contest.info[4].value}" />
                                     </div>
                                     <div class="breadcrumb">
-                                        <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a> &gt; ${contest.name}
+                                        <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a> 
+                                        &gt; ${contest.projectName}
                                     </div>
                                     <br />
                                     <h1>Contest Registration</h1>
