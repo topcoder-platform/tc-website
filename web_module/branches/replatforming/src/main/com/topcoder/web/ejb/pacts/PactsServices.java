@@ -317,6 +317,8 @@ public interface PactsServices extends EJBObject {
 
     BasePayment fillPaymentData(BasePayment payment) throws RemoteException, SQLException;
 
+    double computePaymentNetAmount(int paymentTypeId, double grossAmount, long coderId) throws RemoteException, SQLException;
+
     void deleteAssignmentDocument(AssignmentDocument ad) throws RemoteException, DeleteAffirmedAssignmentDocumentException;
 
     AssignmentDocument addAssignmentDocument(AssignmentDocument ad) throws RemoteException, DeleteAffirmedAssignmentDocumentException;

@@ -1,8 +1,8 @@
 <%--
-  - Author: pulky, snow01
-  - Version: 1.3
+  - Author: pulky, snow01, FireIce
+  - Version: 1.4
   - Since: TCS Release 2.2.2
-  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page lists the active review projects corresponding to the specified project type.
   - It displays the list of review projects along with other project details and links for registering.
@@ -18,13 +18,16 @@
   - Version 1.3 (Specification Review Integration 1.0) changes:
   -      * support for specification reviews was added.
   -      * code was refactored to avoid duplication.
+
+  - Version 1.4 (Content Creation Contest Online Review and TC Site Integration Assembly 1.0) changes:
+  - Fix Review Opportunities table header colspan problem.
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page import="com.topcoder.web.common.model.SoftwareComponent" %>
 
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
-<%@ taglib uri="tc.tld" prefix="tc" %>  
+<%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib prefix="tc_tags" tagdir="/WEB-INF/tags" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -90,7 +93,14 @@
                                 <td>
                                     <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
                                         <tr>
-                                            <td class="tableTitle" colspan="11">
+                                        <c:choose>
+                                            <c:when test="${projectType == DESIGN_PROJECT_TYPE || projectType == DESIGN_SPECIFICATION_PROJECT_TYPE}">
+                                                <td class="tableTitle" colspan="11">
+                                            </c:when>
+                                            <c:otherwise>
+                                                <td class="tableTitle" colspan="12">
+                                            </c:otherwise>
+                                        </c:choose>
                                                 ${projectTypeTitle} Review Opportunities
                                             </td>
                                         </tr>
@@ -136,7 +146,7 @@
                                                                     Testing
                                                                 </c:otherwise>
                                                             </c:choose>
-                                                        </td> 
+                                                        </td>
                                                     </c:when>
                                                     <c:otherwise>
                                                         <td class="statDk" align="center">${projectTypeDesc}</td>
@@ -149,7 +159,7 @@
                                                             projectType == DESIGN_SPECIFICATION_PROJECT_TYPE ||
                                                             projectType == DEVELOPMENT_SPECIFICATION_PROJECT_TYPE}">
                                                             <tc_tags:languageIcon catalogName = "${resultRow.map['catalog']}" aolBrand="${resultRow.map['aol_brand'] != null}"
-                                                                                  paypalBrand="${resultRow.map['paypal_brand'] != null}"/> 
+                                                                                  paypalBrand="${resultRow.map['paypal_brand'] != null}"/>
                                                         </c:when>
                                                         <c:otherwise>
                                                             ${projectTypeDesc}
@@ -322,7 +332,7 @@
                         </table>
                         <br/>
                     </c:if>
-                    
+
                     <c:if test="${fn:length(projectList) + fn:length(specificationReviewList) == 0}">
                         <br/>
                         <p align="center">Sorry, there are currently no review positions available.</p>

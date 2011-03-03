@@ -105,7 +105,7 @@
                     <c:set var="i" value="${i + 1}"/>
                 </rsc:iterator>
             </table>
-            <p align="middle"><a href="mailto:service@topcodersoftware.com" class="bodyText">Have a question about the
+            <p align="middle"><a href="mailto:support@topcoder.com" class="bodyText">Have a question about the
                 TopCoder Assembly Review Board?</a></p>
             <p><br/></p>
         </td>

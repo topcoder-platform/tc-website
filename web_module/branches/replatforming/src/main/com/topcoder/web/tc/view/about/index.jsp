@@ -16,6 +16,11 @@
 <%
     SessionInfo sessionInfo = (SessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);
     String level1 = request.getParameter("level1")==null?"competition":request.getParameter("level1");
+     String handle = null;
+    if (sessionInfo != null)
+    {
+        handle = sessionInfo.getHandle();
+    }
 
 %>
 
@@ -433,7 +438,7 @@ $(document).ready(function(){
         <div class="wrapper">
             <p id="footer_1800"><strong>Support@TopCoder.com</strong></p>
             <p>TopCoder is the world's largest competitive software development community with <tc-webtag:format object="${sessionInfo.memberCount}" format="#,##0"/> developers representing over 200 countries.</p>
-            <p>Copyright &copy;2001-2010, TopCoder, Inc. All rights reserved.</p>
+            <p>Copyright TopCoder, Inc. 2001-<script type="text/javascript">d=new Date();document.write(d.getFullYear());</script></p>
         </div><%-- .wrapper ends --%>
     </div><%-- #footer ends --%>
 
@@ -446,6 +451,25 @@ document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.
 var pageTracker = _gat._getTracker("UA-6340959-1");
 pageTracker._trackPageview();
 </script>
+
+
+<!-- Performable Analytics -->
+<%
+    if (handle != null && !handle.equals("") && !handle.equals("anonymous")) {
+%>
+<script type="text/javascript">
+
+    var _paq = _paq || [];
+ 
+    _paq.push(["identify", {
+    id: "<%=handle %>"
+    }]);
+</script>
+
+<%}%>
+
+<script src="//d1nu2rn22elx8m.cloudfront.net/performable/pax/4wrbNk.js" type="text/javascript"></script>
+
 
 </body>
 </html>

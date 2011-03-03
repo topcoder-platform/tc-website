@@ -124,7 +124,7 @@ a:hover, a:active {
             <a href="/tc" class="footerLinks">Developer Center</a>&#160;&#160;|&#160;&#160;
             <a href="/corp/?module=Static&amp;d1=corp&amp;d2=index" class="footerLinks">Corporate Services</a>
         </p>
-        <p id="copyright">Copyright &#169; 2001-2008, TopCoder, Inc. All rights reserved.</p>
+        <p id="copyright">Copyright TopCoder, Inc. 2001-<script type="text/javascript">d=new Date();document.write(d.getFullYear());</script></p>
     </div><%-- #footercontent --%>
 
 </div><%-- #footer --%>

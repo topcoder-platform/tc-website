@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.development;
 
@@ -107,10 +107,15 @@ import com.topcoder.web.tc.Constants;
  *     This is responsibility of the RBoardApplication bean.
  *     </li>
  *   </ol>
+ *
+ *   Version 1.0.13 (Content Creation Contest Online Review and TC Site Integration Assembly version 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #validateWithCatalog(int)} method.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, isv, pulky, snow01, VolodymyrK
- * @version 1.0.12
+ * @author dok, isv, pulky, snow01, VolodymyrK, FireIce
+ * @version 1.0.13
  */
 public class ProjectReviewApply extends Base {
     protected long projectId = 0;
@@ -320,6 +325,9 @@ public class ProjectReviewApply extends Base {
      * Updated for Specification Review Integration 1.0
      *      - specification project type ids are included in validation.
      *
+     * Updated for Content Creation Integration 1.0
+     *      - conent creation project type ids are included in validation.
+     *
      * @param projectTypeId the project type id
      * @return true if the project type should be validated with the catalog
      *
@@ -343,6 +351,7 @@ public class ProjectReviewApply extends Base {
             projectTypeId != WebConstants.TEST_SCENARIOS_SPECIFICATION_PROJECT_TYPE &&
             projectTypeId != WebConstants.UI_PROTOTYPE_SPECIFICATION_PROJECT_TYPE &&
             projectTypeId != WebConstants.RIA_BUILD_SPECIFICATION_PROJECT_TYPE &&
-            projectTypeId != WebConstants.RIA_COMPONENT_SPECIFICATION_PROJECT_TYPE;
+            projectTypeId != WebConstants.RIA_COMPONENT_SPECIFICATION_PROJECT_TYPE &&
+            projectTypeId != WebConstants.CONTENT_CREATION_PROJECT_TYPE;
     }
 }

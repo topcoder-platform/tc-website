@@ -145,6 +145,16 @@ public interface PactsClientServices extends EJBObject {
     BasePayment fillPaymentData(BasePayment payment) throws RemoteException, SQLException;
 
     /**
+     * Computes payment net amount based on the payment gross amount, payment type and user's tax form.
+     *
+     * @param paymentTypeId The payment type id.
+     * @param grossAmount Gross payment amount.
+     * @param coderId User ID.
+     * @return The net amount.
+     */
+    double computePaymentNetAmount(int paymentTypeId, double grossAmount, long coderId) throws RemoteException, SQLException;
+
+    /**
      * Marks an assignment document as deleted
      *
      * @param ad the Assignment Document to store

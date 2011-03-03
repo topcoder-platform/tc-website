@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006-2009 TopCoder, Inc. All rights reserved.
+ * Copyright (c) 2006-2011 TopCoder, Inc. All rights reserved.
  */
 
 package com.topcoder.apps.review.rboard;
@@ -41,14 +41,21 @@ import java.sql.Timestamp;
  *     It now adds "Specification Reviewer" role to the parent cotnest in OR instead of a separate project in OR.
  *     </li>
  *   </ol> 
+ *
+ *   Version 1.0.6 Change notes:
+ *   <ol>
+ *     <li>createRBoardApplication and createSpecReviewRBoardApplication methods return boolean value
+ *     indicating whether the timeline has been extended.
+ *     </li>
+ *   </ol> 
  * </p> 
  *
  * @author dok, pulky, ivern, isv, snow01, VolodymyrK
- * @version 1.0.5
+ * @version 1.0.6
  */
 public interface RBoardApplication extends EJBObject {
 
-    void createRBoardApplication(String dataSource, long userId, long projectId, int reviewRespId, int phaseId,
+    boolean createRBoardApplication(String dataSource, long userId, long projectId, int reviewRespId, int phaseId,
                                  Boolean open, Timestamp opensOn, int reviewTypeId, boolean primary)
         throws RBoardRegistrationException, RemoteException;
 
@@ -88,13 +95,14 @@ public interface RBoardApplication extends EJBObject {
      * @param phaseId the phase id
      * @param opensOn timestamp when the positions opens on
      * @param reviewTypeId the type of the review
+	 * @return true if the timeline was extended
 	 * @throws RBoardRegistrationException if an unexpected error occurs.
      * @throws RemoteException if an error occurs while calling EJB method remotely.
      * @throws EJBException if an error occurs doing persistence operations
 	 *
 	 * @since 1.0.4
      */
-    public void createSpecReviewRBoardApplication(String dataSource, long userId,
+    public boolean createSpecReviewRBoardApplication(String dataSource, long userId,
                                         long projectId, int reviewRespId, int phaseId, Boolean open, Timestamp opensOn,
                                         int reviewTypeId) throws RBoardRegistrationException, RemoteException;
 }

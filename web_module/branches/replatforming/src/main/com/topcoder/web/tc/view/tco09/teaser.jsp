@@ -157,7 +157,7 @@
 				<a href="https://software.topcoder.com/">Corporate Services</a> 
 			</p>
 			<p>
-				Copyright &copy; 2001-2008, TopCoder, Inc. All rights reserved.
+				Copyright TopCoder, Inc. 2001-<script type="text/javascript">d=new Date();document.write(d.getFullYear());</script>
 			</p>
 		</div>
 	</div><!-- End #footer -->

@@ -11,6 +11,7 @@ import javax.ejb.EJBLocalObject;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.HashSet;
 import java.util.Hashtable;
 
@@ -101,4 +102,9 @@ public interface ForumsLocal extends EJBLocalObject {
 
     public long[] areCategoriesWatched(long userID, long[] categoryIDs) throws EJBException, Exception;
 
+    public long addSpecReviewComment(long categoryId, long userId, long questionId, ForumsUserComment comment) throws EJBException, ForumsException;
+
+    public List<ForumsSpecReviewComment> getSpecReviewComments(long categoryId) throws EJBException, ForumsException;
+
+    public void updateSpecReviewComment(long categoryId, long userId, long questionId, ForumsUserComment comment) throws EJBException, ForumsException;
 }

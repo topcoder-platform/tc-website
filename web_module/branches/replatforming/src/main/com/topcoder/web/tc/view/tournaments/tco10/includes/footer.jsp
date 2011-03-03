@@ -10,7 +10,7 @@
     </ul>
 
     <div class="clear"></div>
-    <p>Copyright &copy; 2001-2010, TopCoder, Inc. All rights reserved.</p>
+    <p>Copyright TopCoder, Inc. 2001-<script type="text/javascript">d=new Date();document.write(d.getFullYear());</script></p>
 </div><!--End #footer-->
 
 <%-- Analytics --%>

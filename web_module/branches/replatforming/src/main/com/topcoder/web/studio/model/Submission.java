@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2005-2010 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2005-2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.studio.model;
 
@@ -25,9 +25,12 @@ import java.util.Collections;
  *   </ol>
  * </p>
  *
- * @author dok, isv
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Jun 27, 2006
+ * <p> Version 1.2 (Studio Declaration Module Assembly) change:
+ * Added fileSize, viewCount and declaration fields.
+ * </p>
+ *
+ * @author dok, isv, orange_cloud
+ * @version 1.2
  */
 public class Submission extends Base {
     private Long id;
@@ -47,6 +50,21 @@ public class Submission extends Base {
     private SubmissionStatus status;
     private com.topcoder.web.common.model.comp.Submission ORSubmission;
     private Set<Prize> prizes = new TreeSet<Prize>();
+
+    /**
+     * Declaration.
+     */
+    private SubmissionDeclaration declaration;
+
+    /**
+     * File size.
+     */
+    private long fileSize;
+
+    /**
+     * View count.
+     */
+    private long viewCount;
 
 
     /**
@@ -375,5 +393,59 @@ public class Submission extends Base {
      */
     public void setMilestonePrizeAwarded(Boolean milestonePrizeAwarded) {
         this.milestonePrizeAwarded = milestonePrizeAwarded;
+    }
+
+    /**
+     * Getter for submission declaration.
+     *
+     * @return submission declaration
+     */
+    public SubmissionDeclaration getDeclaration() {
+        return declaration;
+    }
+
+    /**
+     * Setter for submission declaration.
+     *
+     * @param declaration submission declaration to set
+     */
+    public void setDeclaration(SubmissionDeclaration declaration) {
+        this.declaration = declaration;
+    }
+
+    /**
+     * Getter for file size
+     *
+     * @return file size
+     */
+    public long getFileSize() {
+        return fileSize;
+    }
+
+    /**
+     * Setter for file size.
+     *
+     * @param fileSize file size
+     */
+    public void setFileSize(long fileSize) {
+        this.fileSize = fileSize;
+    }
+
+    /**
+     * Getter for view count.
+     *
+     * @return view count
+     */
+    public long getViewCount() {
+        return viewCount;
+    }
+
+    /**
+     * Setter for view count.
+     *
+     * @param viewCount view count
+     */
+    public void setViewCount(long viewCount) {
+        this.viewCount = viewCount;
     }
 }

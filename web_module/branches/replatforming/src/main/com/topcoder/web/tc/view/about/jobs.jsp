@@ -97,7 +97,7 @@
                 </div>
                Software Application Architect end --%>
                 
-                <%-- Salesperson begin --%>
+                <%-- PM begin --%>
                 <div class="jobs_newsitem">
                     <div class="jobs_img">
                         &nbsp;
@@ -111,6 +111,24 @@
                     </div>
                     <div class="jobs_clear"></div>
                 </div>
+
+                <%-- Algo PM begin --%>
+                <div class="jobs_newsitem">
+                    <div class="jobs_img">
+                        &nbsp;
+                    </div>
+                    <div class="jobs_headlines">
+                        <h3><a href="/tc?module=Static&amp;d1=about&amp;d2=algorithm_projects_platform_manager">Algorithm Projects Platform Manager</a></h3>
+                        <p>TopCoder is seeking a quick learner with a passion for algorithms and a strong technical understanding of software to help meet the increasing needs of our customers to incorporate algorithm competitions into their innovation strategies...  <small><a href="/tc?module=Static&amp;d1=about&amp;d2=algorithm_projects_platform_manager">[read full description]</a></small></p>
+                    </div>
+                    <div class="jobs_imgR">
+                        <a href="/tc?module=Static&amp;d1=about&amp;d2=algorithm_projects_platform_manager"><img src="/i/about/jobs/arrow.png" alt="arrow" border="0" /></a>
+                    </div>
+                    <div class="jobs_clear"></div>
+                </div>
+                <%-- Algo PM end --%>
+                                
+                <%-- Salesperson begin --%>
                 <div class="jobs_newsitem">
                     <div class="jobs_img">
                         &nbsp;
