@@ -88,16 +88,19 @@
                             <p>
                                 <strong>RSS Feeds</strong><br/>
                                 <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicRSS&c=rss_active_contests&dsid=33">Studio Active Contests</a><br/>
+                                <!--
                                 <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicRSS&c=rss_review_opportunities&dsid=33">Upcoming Contests in Spec Review</a><br/>
+                                -->
                                 <a href="https://<%=ApplicationServer.SERVER_NAME%>/bugs/sr/jira.issueviews:searchrequest-rss/temp/SearchRequest.xml?&customfield_10073=Studio+Bug&type=-2&pid=10021&status=1&status=3&status=4&sorter/field=issuekey&sorter/order=DESC&tempMax=1000">Studio Bug Race Competitions</a><br/>
                                 <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=RSS&categoryID=1">Studio Forums</a><br/>
-                                <a href="http://<%=ApplicationServer.SERVER_NAME%>/home/studio/feed/">Studio Blog</a>
+                                <a href="http://community.topcoder.com/studio/feed/">Studio Blog</a>
                             </p>
                             <p>
                                 <strong>Leaderboards</strong><br/>
                                 <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/dr?module=ViewLeaderBoard&sc=&sd=">Studio Cup</a><br/>
-                                TCO Studio Competition
+                                TCO11 Studio Track (coming soon)
                             </p>
+
                         </div>
                         
                         <div class="rightDiv">
@@ -115,6 +118,7 @@
                                 <a href="http://<%=ApplicationServer.SERVER_NAME%>/home/studio/the-process/copyright-questions/">Copyright Questions</a><br/>
                                 <a href="http://<%=ApplicationServer.SERVER_NAME%>/home/studio/types-of-competitions/">Types of Competitions</a><br/>
                                 <a href="http://<%=ApplicationServer.SERVER_NAME%>/home/studio/the-process/how-to-submit-to-a-contest/">Formatting Your Submission</a><br/>
+								<a href="http://community.topcoder.com/studio/the-process/font-policy/">Font Policy</a><br/>
                                 <a href="http://<%=ApplicationServer.SERVER_NAME%>/home/studio/the-process/submission-limits-and-ranking/">Submission Limits and Ranking</a><br/>
                                 <a href="http://<%=ApplicationServer.SERVER_NAME%>/home/studio/the-process/screening/">Screening</a><br/>
                                 <a href="http://<%=ApplicationServer.SERVER_NAME%>/home/studio/the-process/winner-selection/">Winner Selection</a><br/>
