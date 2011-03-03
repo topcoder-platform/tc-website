@@ -45,9 +45,16 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeaderList;
  *     <li>Update {@link #businessProcessing()} method to support payment releases if any available.</li>
  *   </ol>
  * </p>
+ * <p>
+ *   Version 1.4 (Content Creation Contest Online Review and TC Site Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #businessProcessing()} method.</li>
+ *     <li>Updated {@link #generateSuccessMessage(int[])}  method.</li>
+ *   </ol>
+ * </p>
  *
  * @author mktong, pulky, Blues, FireIce
- * @version 1.3
+ * @version 1.4
  */
 public class GenerateComponentPayments extends BaseProcessor implements PactsConstants {
     public final static String IS_DEV_SUPPORT_BY_DESIGNER = "dsd";
@@ -111,10 +118,7 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                 DataInterfaceBean bean = new DataInterfaceBean();
                 // [BUGR-1452] - add support for paying other project types
                 // [BUGR-1842] - add support for UI/RIA project types
-                int[] counts = new int[16];
-                for (int i = 0; i < 16; i++) {
-                    counts[i] =0;
-                }
+                int[] counts = new int[17];
                 log.debug("status type " + getRequest().getParameter(PROJECT_TERMINATION_STATUS));
 
                 List resourceIds = new ArrayList();
@@ -167,7 +171,9 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
 
                     if (p.getPaymentType() == PactsConstants.SPECIFICATION_REVIEW_PAYMENT) counts[14]++;
 
-		     if (p.getPaymentType() == PactsConstants.COPILOT_POSTING_PAYMENT) counts[15]++;
+		            if (p.getPaymentType() == PactsConstants.COPILOT_POSTING_PAYMENT) counts[15]++;
+
+                    if (p.getPaymentType() == PactsConstants.CONTENT_CREATION_PAYMENT) counts[16]++;
 
                     ids.add(p.getId() + "");
 
@@ -215,11 +221,12 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
     private String generateSuccessMessage(int[] counts) {
         // TODO: find a better way to avoid duplicating these magic numbers, to ensure they're always in sync
         // [BUGR-1842] - add support for UI/RIA project types
-        final int[] countIndex = new int[] { 0, 4, 5, 6, 8, 7, 1, 3, 2, 9, 10, 11, 12, 13, 14, 15};
+        final int[] countIndex = new int[] { 0, 4, 5, 6, 8, 7, 1, 3, 2, 9, 10, 11, 12, 13, 14, 15, 16};
         final String[] countType = new String[] {
                 " design/development", " conceptualization", " specification", " architecture",
                 " assembly", "  test suites", " review board", " review board bonus", " referral",
-                " UI prototype", " RIA Build", " RIA Component", " test scenarios", " copilot", " specification review", "copilot posting"
+                " UI prototype", " RIA Build", " RIA Component", " test scenarios", " copilot", " specification review", "copilot posting",
+                " content creation"
         };
 
         StringBuffer sb = new StringBuffer();

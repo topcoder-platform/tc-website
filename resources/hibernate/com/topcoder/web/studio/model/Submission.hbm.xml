@@ -6,6 +6,7 @@
   -
   - Description: Hibernate mapping file for submission table
   - Version 1.1 change: added mapping for feedback_text column
+  - Studio Declaration Module Assembly change: added mapping for declaration, fileSize and viewCount properties
 -->
 <!DOCTYPE hibernate-mapping PUBLIC
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
@@ -48,5 +49,9 @@
             <key column="submission_id" not-null="true"/>
             <one-to-many class="SubmissionImage"/>
         </set>
+
+        <one-to-one name="declaration" class="SubmissionDeclaration" cascade="all" property-ref="submission"/>
+        <property name="fileSize" column="file_size"/>
+        <property name="viewCount" column="view_count"/>
     </class>
 </hibernate-mapping>

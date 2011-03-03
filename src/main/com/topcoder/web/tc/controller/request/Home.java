@@ -31,17 +31,23 @@ import com.topcoder.web.tc.controller.request.util.TCCC06ComponentTerms;
  * <p>
  *   Version 1.2 (BUGR-2331) Change notes:
  *   <ol>
- *     <li>Moved active contests code to a Helper class to be reused by TC hompage.</li>
+ *     <li>Moved active contests code to a Helper class to be reused by TC homepage.</li>
  *   </ol>
  * </p>
  * <p>
- *   Version 1.3 (Copilot Selection Contest Online Review and TC Site Integration Assembly  1.0) Change notes:
+ *   Version 1.3 (Copilot Selection Contest Online Review and TC Site Integration Assembly 1.0) Change notes:
  *   <ol>
  *     <li>Added support for new Copilot Posting.</li>
  *   </ol>
  * </p>
- * @author dok, pulky, Blues
- * @version 1.3
+ * <p>
+ *   Version 1.4 (Content Creation Contest Online Review and TC Site Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added {@link #CONTENT_CREATION} constant.</li>
+ *   </ol>
+ * </p>
+ * @author dok, pulky, Blues, FireIce
+ * @version 1.4
  */
 public class Home extends Base {
     public static final String DESIGN = "design";
@@ -74,8 +80,15 @@ public class Home extends Base {
      * <p>A <code>String</code> representing copilot posting key.</p>
      *
      * @since 1.3
-     */	
+     */
     public static final String COPILOT_POSTING = "copilotposting";
+
+    /**
+     * <p>A <code>String</code> representing content creation key.</p>
+     *
+     * @since 1.4
+     */
+    public static final String CONTENT_CREATION = "contentcreation";
 
     public static final String BUGS = "bugs";
     public static final String DR = "dr";

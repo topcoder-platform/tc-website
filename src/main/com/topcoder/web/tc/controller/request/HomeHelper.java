@@ -25,8 +25,14 @@ import com.topcoder.web.tc.model.ActiveContestsSummary;
  * Version 1.1 changes: Add active contest summary for copilot postings
  * </p>
  *
- * @author pulky, Blues
- * @version 1.1
+ * <p>
+ * (Content Creation Contest Online Review and TC Site Integration Assembly)
+ * Version 1.2 changes: Updated {@link #getOnlineReviewSummary()} method to add active contest summary for
+ * content creations.
+ * </p>
+ *
+ * @author pulky, Blues, FireIce
+ * @version 1.2
  */
 public class HomeHelper {
 
@@ -38,7 +44,7 @@ public class HomeHelper {
         ret.put(Home.STUDIO, getStudioSummary());
         ret.put(Home.BUGS, getBugRaceSummary());
         ret.put(Home.MM, getMMSummary());
-                
+
         return ret;
     }
 
@@ -175,6 +181,18 @@ public class HomeHelper {
                 summary.setPrizeTotal(row.getFloatItem("total_prizes"));
             }
             ret.put(Home.COPILOT_POSTING, summary);
+        }
+
+        ResultSetContainer contentcreation = dataMap.get("content_creation_active_contests_summary");
+        if (!contentcreation.isEmpty()) {
+            ResultSetContainer.ResultSetRow row = contentcreation.get(0);
+            summary = new ActiveContestsSummary();
+            summary.setContestCount(row.getIntItem("total_contests"));
+            summary.setName(row.getStringItem("category_name"));
+            if (row.getItem("total_prizes").getResultData()!=null) {
+                summary.setPrizeTotal(row.getFloatItem("total_prizes"));
+            }
+            ret.put(Home.CONTENT_CREATION, summary);
         }
 
         for (ResultSetContainer.ResultSetRow row : dataMap.get("homepage_active_contest_summary")) {

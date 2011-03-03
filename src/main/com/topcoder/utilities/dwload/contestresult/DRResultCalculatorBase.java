@@ -59,7 +59,7 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
             if (p.getStatusId() == STATUS_COMPLETE) {
                 // Completed project:
                 // add the points for placement
-                cr.addPoints(calculatePointsAwarded(p));
+                cr.addPoints(calculatePointsAwarded(p), false);
 
                 // remove penalty points if needed.
                 if (Math.abs(p.getPointAdjustment()) > 0.01) {

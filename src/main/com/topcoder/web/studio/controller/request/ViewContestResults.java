@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2004-2011 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.studio.controller.request;
 
 import com.topcoder.shared.dataAccess.DataAccess;
@@ -10,9 +13,11 @@ import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
+import com.topcoder.web.studio.dao.SubmissionDAO;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestResult;
 import com.topcoder.web.studio.model.ContestStatus;
+import com.topcoder.web.studio.model.Submission;
 import com.topcoder.web.studio.util.Util;
 
 import java.util.Date;
@@ -56,8 +61,12 @@ import java.util.Set;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, isv
- * @version 1.4.1
+ * <p> Version 1.5 (Studio Declaration Module Assembly) change:
+ * Current submission object is now retrieved, to get submission declaration data.
+ * </p>
+ *
+ * @author dok, pulky, isv, Orange_Cloud
+ * @version 1.5
  */
 public class ViewContestResults extends ShortHibernateProcessor {
     protected void dbProcessing() throws Exception {
@@ -122,6 +131,14 @@ public class ViewContestResults extends ShortHibernateProcessor {
 
             if (submissionId > 0) {
                 getRequest().setAttribute(Constants.SUBMISSION_ID, submissionId);
+
+                // fetch submission and submission declaration data
+                SubmissionDAO submissionDAO = StudioDAOUtil.getFactory().getSubmissionDAO();
+                Submission submission = submissionDAO.find(submissionId);
+                submission.setViewCount(submission.getViewCount() + 1);
+                submissionDAO.saveOrUpdate(submission);
+                getRequest().setAttribute("submission", submission);
+
                 setNextPage("/fullSizeSubmission.jsp");
             } else {
                 setNextPage("/results.jsp");

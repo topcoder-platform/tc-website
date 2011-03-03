@@ -22,7 +22,7 @@
             <a href="/corp/?module=Static&d1=corp&d2=index">Corporate Services</a> 
         </p>
         <p>
-            Copyright &copy; 2001-2009, TopCoder, Inc. All rights reserved.
+            Copyright TopCoder, Inc. 2001-<script type="text/javascript">d=new Date();document.write(d.getFullYear());</script>
         </p>
     </div>
 </div><!-- End #footer --> 

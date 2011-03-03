@@ -56,7 +56,7 @@
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-        <td class="title" colspan="5">
+        <td class="title" colspan="6">
             <a href="<%=sessionInfo.getServletPath()%>?module=ViewLeaderBoard&amp;tid=${tid}">${trackInfo.trackDesc}</a> Leaderboard Details - <tc-webtag:handle coderId='${cr}' context='${context}'/>
         </td>
     </tr>
@@ -65,6 +65,7 @@
         <td class="header">Awarded</td>
         <td class="header">Posted</td>
         <td class="headerC">Amount</td>
+        <td class="headerC">Taxable</td>
         <td class="headerC">Reference</td>
     </tr>
 
@@ -74,6 +75,12 @@
         <td class="value"><rsc:item name="award_date" row="<%=resultRow%>" format="MM.dd.yy"/></td>
         <td class="value"><rsc:item name="application_date" row="<%=resultRow%>" format="MM.dd.yy"/></td>
         <td class="valueC">${resultRow.map["amount"]}</td>
+        <td class="valueC">
+            <c:choose>
+                <c:when test="${resultRow.map['taxable'] == 't'}">Yes</c:when>
+                <c:otherwise>No</c:otherwise>
+            </c:choose>
+        </td>
         <td class="valueC">
             <c:choose>
                 <c:when test="${resultRow.map['dr_points_reference_type_id'] == 1}">

@@ -31,13 +31,15 @@
 		try { taxForm.getHeader().setStatusId(Integer.parseInt(param)); } catch (Exception e) {}
 		param = request.getParameter("date_filed");
 		taxForm.getHeader().setDateFiled(param);
-		param = request.getParameter("withholding_amount");
-		try { taxForm.setWithholdingAmount(Double.parseDouble(param)); } catch (Exception e) {}
+		//param = request.getParameter("withholding_amount");
+		//try { taxForm.setWithholdingAmount(Double.parseDouble(param)); } catch (Exception e) {}
 		param = request.getParameter("withholding_percentage");
 		try { taxForm.setWithholdingPercentage(Float.parseFloat(param)); } catch (Exception e) {}
-		param = request.getParameter("use_percentage");
-		if (param != null && param.equals("true")) taxForm.setUsePercentage(true);
-		if (param != null && param.equals("false")) taxForm.setUsePercentage(false);
+
+		taxForm.setUsePercentage(true);
+		//param = request.getParameter("use_percentage");
+		//if (param != null && param.equals("true")) taxForm.setUsePercentage(true);
+		//if (param != null && param.equals("false")) taxForm.setUsePercentage(false);
 	}
 	if (taxForm == null) {
 		out.print("No User Tax Form!!!<br>");
@@ -103,22 +105,26 @@
 <% out.print("value=\""+("Not filled".equals(taxForm.getHeader().getDateFiled()) ? "" : taxForm.getHeader().getDateFiled())+"\">"); %>
 		</td>
 		</tr>
+<!--
 		<tr>
 		<td><b>Withholding Amount:</b></td>
 		<td><input type="text" name="withholding_amount"
 <% out.print("value=\""+taxForm.getWithholdingAmount()+"\"></td><td>(Default: "+taxForm.getDefaultWithholdingAmount()+")"); %>
 		</td>
 		</tr>
+-->
 		<tr>
 		<td><b>Withholding Percentage:</b></td>
 		<td><input type="text" name="withholding_percentage"
 <% out.print("value=\""+taxForm.getWithholdingPercentage()+"\"></td><td>(Default: "+taxForm.getDefaultWithholdingPercentage()+")"); %>
 		</td>
 		</tr>
+<!--
 		<tr><td><b>Withholding Used:</b></td><td>
 		<input type=radio name="use_percentage" value="false"<% if (!taxForm.isUsePercentage()) out.print( "checked"); %>>Amount <% if (!taxForm.isDefaultUsePercentage()) out.print( "(default)"); %><br>
 		<input type=radio name="use_percentage" value="true"<% if (taxForm.isUsePercentage()) out.print( "checked"); %>>Percentage <% if (taxForm.isDefaultUsePercentage()) out.print( "(default)"); %>
 		</td></tr>
+-->
 	</table>
 
 <input type=submit>

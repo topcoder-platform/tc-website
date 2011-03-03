@@ -8,6 +8,7 @@
   -
   - Version 1.1 (Studio Multi-Rounds Assembly - Studio Contest Details v1.0) changes: Added multiRound,
   - multiRoundInformation and milestonePrize properties.
+  - Studio Declaration Module Assembly change: added mapping for allowStockArt property
 -->
 <!DOCTYPE hibernate-mapping PUBLIC
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
@@ -67,5 +68,6 @@
             class="ContestMultiRoundInformation"/>
         <many-to-one name="milestonePrize" column="contest_milestone_prize_id" class="ContestMilestonePrize"/>
 
+        <property name="allowStockArt" column="allow_stock_art"/>
     </class>
 </hibernate-mapping>

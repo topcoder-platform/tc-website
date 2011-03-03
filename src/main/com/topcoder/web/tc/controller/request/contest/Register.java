@@ -78,8 +78,15 @@ import com.topcoder.web.tc.controller.request.development.Base;
  *   </ol>
  * </p>
  *
- * @author dok, pulky
- * @version 1.4
+ * <p>
+ *   Version 1.5 (Content Creation Contest Online Review and TC Site Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #register()} method.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky, FireIce
+ * @version 1.5
  */
 public class Register extends ViewRegistration {
 
@@ -224,6 +231,8 @@ public class Register extends ViewRegistration {
                 project += " RIA Build Project";
             } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.RIA_COMPONENT_PROJECT_TYPE))) {
                 project += " RIA Component Project";
+            } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.CONTENT_CREATION_PROJECT_TYPE))) {
+                project += " Content Creation Project";
             }
 
             long activeForumCategoryId = componentManager.getActiveForumCategory().getId();

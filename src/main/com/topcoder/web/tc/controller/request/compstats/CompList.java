@@ -32,14 +32,20 @@ import com.topcoder.web.tc.Constants;
  *     <li>Added support for new Test Scenarios competitions</li>
  *   </ol>
  * </p>
- *  <p>
- *   Version 1.3 (Copilot Selection Contest Online Review and TC Site Integration Assembly1.0) Change notes:
+ * <p>
+ *   Version 1.3 (Copilot Selection Contest Online Review and TC Site Integration Assembly 1.0) Change notes:
  *   <ol>
  *     <li>Added support for new Copilot Posting.</li>
  *   </ol>
  * </p>
- * @author cucu, pulky, Blues
- * @version 1.3
+ * <p>
+ *   Version 1.4 (Content Creation Contest Online Review and TC Site Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #businessProcessing()} method.</li>
+ *   </ol>
+ * </p>
+ * @author cucu, pulky, Blues, FireIce
+ * @version 1.4
  */
 public class CompList extends Base {
 
@@ -73,7 +79,8 @@ public class CompList extends Base {
                   || Constants.UI_PROTOTYPE_PROJECT_TYPE == projectTypeId
                   || Constants.RIA_BUILD_PROJECT_TYPE == projectTypeId
                   || Constants.RIA_COMPONENT_PROJECT_TYPE == projectTypeId
-                  || Constants.COPILOT_POSTING_PROJECT_TYPE == projectTypeId)) {
+                  || Constants.COPILOT_POSTING_PROJECT_TYPE == projectTypeId
+                  || Constants.CONTENT_CREATION_PROJECT_TYPE == projectTypeId)) {
                 throw new TCWebException("Invalid project_type_id (" + projectTypeId + ") parameter");
             }
 

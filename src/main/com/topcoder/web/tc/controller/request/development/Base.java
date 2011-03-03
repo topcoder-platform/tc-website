@@ -129,11 +129,21 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *           </ul>
  *         </td>
  *     </tr>
+ *      <tr>
+ *         <td>Version 1.10 (Content Creation Contest Online Review and TC Site Integration Assembly 1.0)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Updated {@link #getProjectDetailPage(int)} method.</li>
+ *             <li>Updated {@link #getRegistrantsCommandName(int)} method.</li>
+ *             <li>Updated {@link #getProjectTypeId(com.topcoder.web.common.TCRequest)} method.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
  *   </table>
  * </p>
  *
- * @author dok, isv, pulky, VolodymyrK, Blues
- * @version 1.9
+ * @author dok, isv, pulky, VolodymyrK, Blues, FireIce
+ * @version 1.10
  */
 public abstract class Base extends ShortHibernateProcessor {
 
@@ -143,7 +153,7 @@ public abstract class Base extends ShortHibernateProcessor {
      * @since 1.6
      */
     protected static final String RELIABILITY_BONUS_COLUMN_INDEX = "99";
-    
+
     /**
      * Constant containing submitter role id
      *
@@ -203,6 +213,8 @@ public abstract class Base extends ShortHibernateProcessor {
             return "/riacomponent/projectDetail.jsp";
         } else if (projectTypeId==Constants.COPILOT_POSTING_PROJECT_TYPE) {
             return "/copilotposting/projectDetail.jsp";
+        } else if (projectTypeId ==Constants.CONTENT_CREATION_PROJECT_TYPE) {
+            return "/contentcreation/projectDetail.jsp";
         } else {
             return "";
         }
@@ -227,7 +239,8 @@ public abstract class Base extends ShortHibernateProcessor {
             || projectTypeId == Constants.UI_PROTOTYPE_PROJECT_TYPE
             || projectTypeId == Constants.RIA_BUILD_PROJECT_TYPE
             || projectTypeId == Constants.RIA_COMPONENT_PROJECT_TYPE
-            || projectTypeId == Constants.COPILOT_POSTING_PROJECT_TYPE) {
+            || projectTypeId == Constants.COPILOT_POSTING_PROJECT_TYPE
+            || projectTypeId == Constants.CONTENT_CREATION_PROJECT_TYPE) {
             return "registrants";
         } else {
             return "contest_registrants";
@@ -323,6 +336,8 @@ public abstract class Base extends ShortHibernateProcessor {
                 projectTypeId = Constants.RIA_COMPONENT_PROJECT_TYPE;
             } else if (String.valueOf(SoftwareComponent.COPILOT_POSTING_PHASE).equals(phaseId)) {
                 projectTypeId = Constants.COPILOT_POSTING_PROJECT_TYPE;
+            } else if (String.valueOf(SoftwareComponent.CONTENT_CREATION_PHASE).equals(phaseId)) {
+                projectTypeId = Constants.CONTENT_CREATION_PROJECT_TYPE;
             }
         }
         return projectTypeId;
@@ -398,17 +413,17 @@ public abstract class Base extends ShortHibernateProcessor {
         List<TermsOfUseEntity> termsAgreedGlobal = new ArrayList<TermsOfUseEntity>();
         List<TermsOfUseEntity> termsPending = new ArrayList<TermsOfUseEntity>();
 
-        
+
         TermsOfUseEntity currentTerms = null;
         boolean exit = false;
         for (int i = 0; i < necessaryTerms.length && !exit; i++) {
             if (necessaryTerms[i] != null) {
                 for (int j = 0; j < necessaryTerms[i].size(); j++) {
                     Long termsId = necessaryTerms[i].get(j);
-        
+
                     // get terms of use
                     TermsOfUseEntity terms =  termsOfUse.getEntity(termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-        
+
                     // check if the user has this terms
                     if (!userTermsOfUse.hasTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
                         termsPending.add(terms);
@@ -419,7 +434,7 @@ public abstract class Base extends ShortHibernateProcessor {
                         termsAgreed.add(terms);
                         termsAgreedGlobal.add(terms);
                     }
-                    
+
                 }
                 if (currentTerms != null) {
                     getRequest().setAttribute(Constants.TERMS, currentTerms);
@@ -432,10 +447,10 @@ public abstract class Base extends ShortHibernateProcessor {
             }
         }
 
-        // if everything is ok, show summary with captcha 
+        // if everything is ok, show summary with captcha
         getRequest().setAttribute(Constants.TERMS_AGREED, termsAgreedGlobal);
         getRequest().setAttribute(Constants.TERMS_PENDING, new ArrayList<TermsOfUseEntity>());
-        
+
         return false;
     }
 
@@ -446,7 +461,7 @@ public abstract class Base extends ShortHibernateProcessor {
      * @return <code>int</code> with the role ids
      */
     protected int getResourceRoleId(int reviewRespId) throws TCWebException, Exception {
-		
+
         Request r = new Request();
         ResultSetContainer detail=null;
 
@@ -630,14 +645,14 @@ public abstract class Base extends ShortHibernateProcessor {
          }
 
          // if contest has not eligibility, return 0
-         if (detail.getStringItem(0, "contest_eligibility_id") == null 
+         if (detail.getStringItem(0, "contest_eligibility_id") == null
                 || detail.getStringItem(0, "contest_eligibility_id").equals(""))
          {
              return 0;
          }
 
          // if user in the group, return 0
-         if (detail.getStringItem(0, "login_id") != null 
+         if (detail.getStringItem(0, "login_id") != null
                 && !detail.getStringItem(0, "login_id").equals(""))
          {
              return 0;

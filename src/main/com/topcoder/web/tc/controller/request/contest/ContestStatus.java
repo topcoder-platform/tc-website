@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.contest;
 
@@ -27,10 +27,15 @@ import com.topcoder.web.tc.controller.request.development.Base;
  *     <li>Updated Application Testing to Test Suites</li>
  *     <li>Added support for new Test Scenarios competitions</li>
  *   </ol>
+ *
+ *   Version 1.3 (Content Creation Contest Online Review and TC Site Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #DEFAULT_PROJECT_TYPES} constant.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, pulky
- * @version 1.2
+ * @author dok, pulky, FireIce
+ * @version 1.3
  */
 public class ContestStatus extends Base {
 
@@ -43,7 +48,7 @@ public class ContestStatus extends Base {
         Constants.ASSEMBLY_PROJECT_TYPE, Constants.ARCHITECTURE_PROJECT_TYPE,
         Constants.TEST_SUITES_PROJECT_TYPE, Constants.TEST_SCENARIOS_PROJECT_TYPE, Constants.SPECIFICATION_PROJECT_TYPE,
         Constants.CONCEPTUALIZATION_PROJECT_TYPE, Constants.UI_PROTOTYPE_PROJECT_TYPE,
-        Constants.RIA_BUILD_PROJECT_TYPE, Constants.RIA_COMPONENT_PROJECT_TYPE};
+        Constants.RIA_BUILD_PROJECT_TYPE, Constants.RIA_COMPONENT_PROJECT_TYPE, Constants.CONTENT_CREATION_PROJECT_TYPE};
 
     public static final String DEFAULT_NAMESPACE = "com.topcoder.web.tc.controller.request.contest.ContestStatus";
 

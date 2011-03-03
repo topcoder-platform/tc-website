@@ -1,6 +1,6 @@
 <%--
-  - Author: TCSDEVELOPER, pulky, TCSASSEMBLER
-  - Version: 1.2
+  - Author: TCSDEVELOPER, pulky, FireIce
+  - Version: 1.3
   - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page displays the home page's active contest box.
@@ -10,6 +10,9 @@
   -
   - Version 1.2 (Copilot Selection Contest Online Review and TC Site Integration Assembly 1.0) changes:
   - Added support for new Copilot Posting to display copilot posting number (no prize).
+  -
+  - Version 1.3 (Content Creation Contest Online Review and TC Site Integration Assembly 1.0) changes:
+  - Added support for new Content Creation.
 --%>
 <%@ page import="com.topcoder.web.tc.controller.request.Home" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
@@ -35,6 +38,7 @@
 <c:set var="riabuild" value="<%=Home.RIA_BUILD%>"/>
 <c:set var="riacomponent" value="<%=Home.RIA_COMPONENT%>"/>
 <c:set var="copilotposting" value="<%=Home.COPILOT_POSTING%>"/>
+<c:set var="contentcreation" value="<%=Home.CONTENT_CREATION%>"/>
 
 <div>
     <img src="/i/interface/rightNavTop.png" alt="" style="display: block;"/>
@@ -126,6 +130,18 @@
                             </td>
                         </tr>
                     </c:if>
+
+                    <c:if test="${activeContestsSummary[contentcreation].contestCount>0}">
+
+                        <tr>
+                            <td class="value">
+                                <div class="prizes"><fmt:formatNumber value="${activeContestsSummary[contentcreation].prizeTotal}" pattern="$###,###"/></div>
+                                <a href="/tc?module=ActiveContests&pt=35" class="gMetal">Content Creation</a>
+                                (${activeContestsSummary[contentcreation].contestCount})
+                            </td>
+                        </tr>
+                    </c:if>
+
                     <c:if test="${activeContestsSummary[testScenarios].contestCount>0}">
 
                         <tr>
@@ -188,7 +204,7 @@
                         </tr>
                     </c:if>
 
-                     <c:if test="${activeContestsSummary[copilotposting].contestCount>0}">
+                    <c:if test="${activeContestsSummary[copilotposting].contestCount>0}">
 
                         <tr>
                             <td class="value">

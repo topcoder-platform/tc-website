@@ -98,7 +98,7 @@
             </table>
 
 
-            <p align="middle" ><A href="mailto:service@topcodersoftware.com" class="bodyText">Have a question about the TopCoder Development Review Board?</strong></a></p>
+            <p align="middle" ><A href="mailto:support@topcoder.com" class="bodyText">Have a question about the TopCoder Development Review Board?</strong></a></p>
 
             <p><br></p>
          </td>

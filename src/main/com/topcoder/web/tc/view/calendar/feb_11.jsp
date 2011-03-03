@@ -39,7 +39,7 @@
 <div style="float:right;white-space:nowrap;" align="right">
     All times are <a target="_blank" href="http://www.timeanddate.com/worldclock/city.html?n=98">Eastern Time</a> unless stated otherwise.<br />
     Stay informed with our <a href="/wiki/display/tc/Upcoming+Contests">Upcoming Contests page</a> or subscribe to the RSS feed
-    <a href="/tc?module=BasicRSS&amp;c=rss_Upcoming_Contests&amp;dsid=29"><img src="/wiki/images/icons/rss.gif" alt="RSS" align="absmiddle" /></a>
+    <a href="/tc?module=BasicRSS&amp;c=rss_Pipeline&amp;dsid=28"><img src="/wiki/images/icons/rss.gif" alt="RSS" align="absmiddle" /></a>
 </div>
 
 <strong><a href="/tc?module=Static&amp;d1=calendar&amp;d2=jan_11" class="prevNext">&lt; prev</a> <a href="/tc?module=Static&amp;d1=calendar&amp;d2=mar_11" class="prevNext">next &gt;</a></strong>
@@ -130,7 +130,8 @@
       </td>
       <td class="value">26
       	<div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=14427">Member SRM 498</A></strong><br />
+         <strong><A href="/tc?module=MatchDetails&rd=14427">SRM 498</A></strong><br />
+		brought to you by <A href="/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=patron">NSA</A><br />
          12:00
         </div>
       </td>

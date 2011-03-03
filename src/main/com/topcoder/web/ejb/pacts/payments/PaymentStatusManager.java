@@ -118,6 +118,8 @@ public class PaymentStatusManager {
             // notify the status manager and update each payment
             for (BasePayment payment : payments) {
                 payment.getCurrentStatus().newTaxForm(payment);
+                double netAmount = dib.computePaymentNetAmount(payment.getPaymentType(), payment.getGrossAmount(), payment.getCoderId());
+                payment.setNetAmount(netAmount);
                 dib.updatePayment(payment);
                 
                 // if the payment changed its status, notify the possible childrens

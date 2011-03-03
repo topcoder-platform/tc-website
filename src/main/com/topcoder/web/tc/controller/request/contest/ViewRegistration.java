@@ -70,8 +70,14 @@ import com.topcoder.web.tc.controller.request.development.Base;
  *     <li>Added support for new Copilot Posting competitions.</li>
  *   </ol>
  * </p>
- * @author dok, pulky, Blues
- * @version 1.5
+ * <p>
+ *   Version 1.6 (Content Creation Contest Online Review and TC Site Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #validation()} method.</li>
+ *   </ol>
+ * </p>
+ * @author dok, pulky, Blues, FireIce
+ * @version 1.6
  */
 public class ViewRegistration extends Base {
 
@@ -172,7 +178,8 @@ public class ViewRegistration extends Base {
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.UI_PROTOTYPE_PROJECT_TYPE)) &&
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.RIA_BUILD_PROJECT_TYPE)) &&
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.RIA_COMPONENT_PROJECT_TYPE)) &&
-		!String.valueOf(projectTypeId).equals(String.valueOf(Constants.COPILOT_POSTING_PROJECT_TYPE))) {
+		        !String.valueOf(projectTypeId).equals(String.valueOf(Constants.COPILOT_POSTING_PROJECT_TYPE)) &&
+                !String.valueOf(projectTypeId).equals(String.valueOf(Constants.CONTENT_CREATION_PROJECT_TYPE))) {
             throw new NavigationException("Invalid project specified (wrong category)");
         }
 
@@ -189,7 +196,7 @@ public class ViewRegistration extends Base {
         if (projectTypeId == Constants.COPILOT_POSTING_PROJECT_TYPE) {
             // check whether the registrants is in copilot for copilot posting registration
             if (!isInCopilotPool(getUser().getId())) {
-               getRequest().setAttribute(Constants.MESSAGE, "Only active copilot in copilot pool can register copilot posting."); 
+               getRequest().setAttribute(Constants.MESSAGE, "Only active copilot in copilot pool can register copilot posting.");
             }
         }
     }

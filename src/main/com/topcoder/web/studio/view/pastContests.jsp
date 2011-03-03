@@ -154,6 +154,7 @@
 										%>
 										<select class="contest-filter" name="filterYear" onChange="filterYearChange(submissionsForm.filterYear.options[submissionsForm.filterYear.selectedIndex].value,submissionsForm.filterMonth)">
 											<option value="2011" <%= val.equals("2011") ? "selected" : "" %>>2011</option>
+											<option value="2011" <%= val.equals("2011") ? "selected" : "" %>>2011</option>
 											<option value="2010" <%= val.equals("2010") ? "selected" : "" %>>2010</option>
 											<option value="2009" <%= val.equals("2009") ? "selected" : "" %>>2009</option>
 											<option value="2008" <%= val.equals("2008") ? "selected" : "" %>>2008</option>
