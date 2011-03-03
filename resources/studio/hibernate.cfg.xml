@@ -45,10 +45,8 @@
 
 
         <!-- Echo all executed SQL to stdout -->
-        <!--
-                <property name="show_sql">true</property>
-                <property name="format_sql">true</property>
-        -->
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
         <property name="hibernate.query.substitutions">true 1, false 0</property>
 
         <mapping resource="com/topcoder/web/common/model/Address.hbm.xml"/>
@@ -119,13 +117,20 @@
 
         <mapping resource="com/topcoder/web/common/model/comp/Contest.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/ContestPrize.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/comp/Document.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/comp/DocumentType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/comp/FileType.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/PhaseType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/comp/Prize.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/comp/PrizeType.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/Project.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/comp/ProjectCategory.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/ProjectInfo.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/ProjectPhase.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/ResourceRole.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/Resource.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/ResourceInfo.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/comp/StudioProjectSpecification.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/Submission.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/UserContestPrize.hbm.xml"/>
 

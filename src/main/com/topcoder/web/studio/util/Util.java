@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2008 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2008-2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.studio.util;
 
@@ -26,8 +26,16 @@ import java.util.Iterator;
  *   </ol>
  * </p>
  *
- * @author isv, pulky
- * @version 1.1
+ * <p>
+ * Version 1.2 (Re-platforming Studio Release 2 Assembly) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #hasCockpitPermissions(long, long)} method to run the query against <code>tcs_catalog</code>
+ *     database instead of <code>studio_oltp</code> database.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author isv, pulky, isv
+ * @version 1.2
  * @since TopCoder Studio Modifications Assembly v2
  */
 public class Util {
@@ -73,15 +81,14 @@ public class Util {
      * @param contestId the user id to query
      * @return <code>true</code> if  the user has cockpit permissions over the specified contest, false otherwise
      * @throws Exception if an unexpected error occurs.
-     * 
      * @since 1.1
      */
     public static boolean hasCockpitPermissions(long userId, long contestId) throws Exception {
-        DataAccess da = new DataAccess(DBMS.STUDIO_DATASOURCE_NAME);
+        DataAccess da = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
         Request r = new Request();
         r.setContentHandle(HAS_COCKPIT_PERMISSIONS_QUERY_NAME);
         r.setProperty(Constants.USER_ID, String.valueOf(userId));
-        r.setProperty(Constants.CONTEST_ID, String.valueOf(contestId));
+        r.setProperty(Constants.PROJECT_ID_KEY, String.valueOf(contestId));
         ResultSetContainer result = da.getData(r).get(HAS_COCKPIT_PERMISSIONS_QUERY_NAME);
         if (!result.isEmpty()) {
             return true;

@@ -1,7 +1,7 @@
 <%--
-  - Author: pulky, TCSDEVELOPER
-  - Version: 1.4
-  - Copyright (C) 2001 - 2010 TopCoder Inc., All Rights Reserved.
+  - Author: pulky, isv
+  - Version: 1.5
+  - Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page presents specific contest details
   -
@@ -16,11 +16,12 @@
   -     - Change the 3 steps to 2 steps.  
   - Version 1.4 (Studio Contest Detail Pages Assembly version 1.0) changes:
   -     - Applied new L&F
+  - Version 1.5 (Re-platforming Studio Release 2 Assembly) changes:
+  -     - Updated the logic to use projects from tcs_catalog database.
 --%>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.studio.model.PrizeType" %>
-<%@ page import="com.topcoder.web.studio.controller.request.ViewContestDetails" %>
-<%@ page import="java.util.Date" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -29,14 +30,15 @@
 <fmt:setLocale value="en_US"/>
 <c:set var="clientPrize" value="<%=PrizeType.BONUS%>"/>
 <c:set var="contest" value="${requestScope.contest}"/>
-<c:set var="isMultiRound" value="${not empty contest.multiRound and contest.multiRound}"/>
-<c:set var="milestoneDate" value="${contest.multiRoundInformation.milestoneDate}"/>
+<c:set var="isMultiRound" value="${not empty contest.milestoneDate}"/>
+<c:set var="milestoneDate" value="${contest.milestoneDate}"/>
 <c:set var="currentTime" value="${requestScope.currentTime}"/>
 <c:set var="registered" value="${requestScope.registered}"/>
 <c:set var="CONTEST_ID" value="<%=Constants.CONTEST_ID%>"/>
 <c:set var="servletPath" value="${sessionInfo.servletPath}"/>
+
 <c:set var="prizesCount" value="${fn:length(contest.prizes)}"/>
-<c:set var="drPointsAvailable" value="${fn:length(contest.digitalRunPoints.value) > 0 and contest.digitalRunPoints.value != '0'}"/>
+<c:set var="drPointsAvailable" value="${contest.digitalRunPoints ne null and contest.digitalRunPoints > 0}"/>
 <c:set var="hasMilestoneRoundPrize" value="${isMultiRound and not empty contest.milestonePrize and not empty contest.milestonePrize.numberOfSubmissions and not empty contest.milestonePrize.amount}"/>
 <c:set var="placeSuffixes"
        value="<%=new String[] {"st", "nd", "rd", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th"}%>"/>
@@ -45,6 +47,7 @@
 <c:set var="isRunning" value="${isStarted and not isFinished}"/>
 <c:set var="isMilestoneRoundPassed" value="${isRunning and isMultiRound and currentTime >= milestoneDate}"/>
 <c:set var="hasCockpitPermissions" value="${requestScope.has_cockpit_permissions}"/>
+<c:set var="spec" value="${contest.studioProjectSpecification}"/>
 
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -101,15 +104,14 @@
         <%-- CONTEST SUMMARY --%>
         <h5 class="contentTitle">Contest Summary</h5>
 
-        <p class="paragraph"><studio:formatField text="${contest.overview.value}"/></p>
+        <p class="paragraph"><studio:formatField text="${spec.contestIntroduction}"/></p>
 
 
-        <c:if test="${not empty contest.fullDescription.value or isMultiRound}">
+        <c:if test="${not empty spec.contestDescription or isMultiRound}">
             <h5 class="contentTitle">Full Description &amp; Project Guide</h5>
-            <c:if test="${isMultiRound and not empty contest.multiRoundInformation
-                and not empty contest.milestonePrize and not empty contest.multiRoundInformation.roundOneIntroduction
-                and not empty contest.multiRoundInformation.roundTwoIntroduction}">
-
+            <c:if test="${isMultiRound and not empty contest.milestonePrize 
+                          and not empty spec.round1Introduction and not empty spec.round2Introduction}">
+                
                 <h6 class="smallTitle">Studio Tournament Format</h6><br/>
 
                 <p class="paragraph">This Studio competition will be run as a two-round tournament with a total prize purse of
@@ -117,11 +119,11 @@
 
                 <span class="subTitle">Round One (1)</span>
                 <p class="paragraph">
-                    <studio:formatField text="${contest.multiRoundInformation.roundOneIntroduction}"/>
+                    <studio:formatField text="${spec.round1Introduction}"/>
                 </p>
                 <span class="subTitle">Round Two (2)</span>
                 <p class="paragraph">
-                    <studio:formatField text="${contest.multiRoundInformation.roundTwoIntroduction}"/>
+                    <studio:formatField text="${spec.round2Introduction}"/>
                 </p>
 
                 <p class="paragraph">Please read the contest specification carefully and watch the forums for any
@@ -140,44 +142,43 @@
                 <p class="paragraph2">You must submit to Round 1 to be eligible to compete in Round 2. If your
                     submission fails screening for a small mistake in Round 1, you may still submit to Round 2.</p>
             </c:if>
-            <c:if test="${not empty contest.fullDescription.value}">
+            <c:if test="${not empty spec.contestDescription}">
                 <p class="paragraph">
-                    <studio:formatField text="${contest.fullDescription.value}"/>
+                    <studio:formatField text="${spec.contestDescription}"/>
                 </p>
             </c:if>
         </c:if>
 
         <%-- SPECIFIC CONTEST DETAILS --%>
-        <c:if test="${not empty contest.sizeRequirements.value or not empty contest.fontRequirements.value
-                     or not empty contest.colorRequirements.value or not empty contest.contentRequirements.value
-                     or not empty contest.otherRequirements.value}">
+        <c:if test="${not empty spec.layoutAndSize or not empty spec.fonts or not empty spec.colors 
+                      or not empty spec.contentRequirements or not empty spec.otherInstructions}">
 
             <h5 class="contentTitle">Details</h5>
 
-            <c:if test="${not empty contest.sizeRequirements.value}">
+            <c:if test="${not empty spec.layoutAndSize}">
                 <span class="subTitle">Size:</span>
 
-                <p class="paragraph"><studio:formatField text="${contest.sizeRequirements.value}"/></p>
+                <p class="paragraph"><studio:formatField text="${spec.layoutAndSize}"/></p>
             </c:if>
-            <c:if test="${not empty contest.fontRequirements.value}">
+            <c:if test="${not empty spec.fonts}">
                 <span class="subTitle">Font:</span>
 
-                <p class="paragraph"><studio:formatField text="${contest.fontRequirements.value}"/></p>
+                <p class="paragraph"><studio:formatField text="${spec.fonts}"/></p>
             </c:if>
-            <c:if test="${not empty contest.colorRequirements.value}">
+            <c:if test="${not empty spec.colors}">
                 <span class="subTitle">Color:</span>
 
-                <p class="paragraph"><studio:formatField text="${contest.colorRequirements.value}"/></p>
+                <p class="paragraph"><studio:formatField text="${spec.colors}"/></p>
             </c:if>
-            <c:if test="${not empty contest.contentRequirements.value}">
+            <c:if test="${not empty spec.contentRequirements}">
                 <span class="subTitle">Content:</span>
 
-                <p class="paragraph"><studio:formatField text="${contest.contentRequirements.value}"/></p>
+                <p class="paragraph"><studio:formatField text="${spec.contentRequirements}"/></p>
             </c:if>
-            <c:if test="${not empty contest.otherRequirements.value}">
+            <c:if test="${not empty spec.otherInstructions}">
                 <span class="subTitle">Other:</span>
 
-                <p class="paragraph"><studio:formatField text="${contest.otherRequirements.value}"/></p>
+                <p class="paragraph"><studio:formatField text="${spec.otherInstructions}"/></p>
             </c:if>
         </c:if>
 
@@ -261,7 +262,7 @@
             <span class="grayRCRB"></span>
 
             <c:choose>
-                <c:when test="${fn:length(contest.documents) > 0}">
+                <c:when test="${not empty contest.documents}">
                     <c:choose>
                         <c:when test="${currentTime > contest.endTime }">
                                 <p>
@@ -272,10 +273,10 @@
                         <c:when test="${registered || (not empty hasCockpitPermissions && hasCockpitPermissions)}">
                           <c:forEach items="${contest.documents}" var="document">
                               <p>
-                                  <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}"
-                                     class="downFile" target="_blank"><c:out value="${document.originalFileName}"/></a><br/>
+                                  <a href="${servletPath}?module=DownloadCatalogDocument&amp;ct=${contest.id}&amp;docid=${document.id}"
+                                     class="downFile" target="_blank"><c:out value="${document.shortName}"/></a><br/>
                                   <em class="placeHolder"><c:out value="${document.type.description}"/></em>
-                                  <c:out value="${document.description}"/>
+                                  <c:out value="${document.name}"/>
                               </p>
                              </c:forEach>
                        </c:when>
@@ -297,7 +298,6 @@
         </div>
         <!--End grayBox2-->
 
-        <c:if test="${not empty contest.submissionFileFormat.value}">
             <h5 class="contentTitleNoB">How to Format Your Submission:</h5>
 
             <div class="grayBox2 howFYS">
@@ -325,7 +325,6 @@
                 </p>
             </div>
             <!--End grayBox2-->
-        </c:if>
 
         <%-- SOURCE FILES --%>
         <c:if test="${fn:length(contest.fileTypes)>0}">
@@ -359,14 +358,14 @@
 
             <p>
                 <c:choose>
-                    <c:when test="${empty contest.maxSubmissions.value}">
+                    <c:when test="${empty contest.maxSubmissions}">
                         <strong>Unlimited</strong>
                     </c:when>
-                    <c:when test="${contest.maxSubmissions.value eq 1}">
+                    <c:when test="${contest.maxSubmissions eq 1}">
                         <strong>1</strong> submission per competitor
                     </c:when>
                     <c:otherwise>
-                        <strong>${contest.maxSubmissions.value}</strong> submissions per competitor
+                        <strong>${contest.maxSubmissions}</strong> submissions per competitor
                     </c:otherwise>
                 </c:choose>
             </p>
@@ -389,3 +388,4 @@
 
 </body>
 </html>
+

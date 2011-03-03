@@ -1,5 +1,5 @@
 <%--
-  - Author: TCSDEVELOPER
+  - Author: isv
   - Version: 1.0 (Studio Contest Detail Pages assembly)
   - Copyright (C) 2010 TopCoder Inc., All Rights Reserved.
   -
@@ -21,25 +21,27 @@
 <c:set var="registered" value="${requestScope.registered}"/>
 <c:set var="prizesCount" value="${fn:length(contest.prizes)}"/>
 <c:set var="clientPrize" value="<%=PrizeType.BONUS%>"/>
-<c:set var="isMultiRound" value="${not empty contest.multiRound and contest.multiRound}"/>
-<c:set var="milestoneDate" value="${contest.multiRoundInformation.milestoneDate}"/>
+<c:set var="isMultiRound" value="${not empty contest.milestoneDate}"/>
+<c:set var="milestoneDate" value="${contest.milestoneDate}"/>
 <c:set var="placeSuffixes"
        value="<%=new String[] {"st", "nd", "rd", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th"}%>"/>
-<c:set var="drPointsAvailable" value="${fn:length(contest.digitalRunPoints.value) > 0 and contest.digitalRunPoints.value != '0'}"/>
+<c:set var="drPointsAvailable" value="${contest.digitalRunPoints ne null and contest.digitalRunPoints > 0}"/>
 <c:set var="hasMilestoneRoundPrize" value="${isMultiRound and not empty contest.milestonePrize and not empty contest.milestonePrize.numberOfSubmissions and not empty contest.milestonePrize.amount}"/>
 <c:set var="isFinished" value="${currentTime >= contest.endTime}"/>
 <c:set var="isStarted" value="${currentTime >= contest.startTime}"/>
 <c:set var="isRunning" value="${isStarted and not isFinished}"/>
 <c:set var="isMilestoneRoundPassed" value="${isRunning and isMultiRound and currentTime >= milestoneDate}"/>
 <c:set var="hasCockpitPermissions" value="${requestScope.has_cockpit_permissions}"/>
+<fmt:setLocale value="en_US"/>
 
 <h2 id="bigTitle">
-    <c:out value="${contest.name}"/>
+    <c:out value="${contest.projectName}"/>
 </h2>
 <ul class="linkNavi2">
-    <li class="first"><label>CLIENT:</label><c:out value="${contest.clientName.value}"/></li>
-    <li><label>CONTEST TYPE:</label><a href="javascript:" class="studioContestType${contest.type.id}">
-        <c:out value="${contest.type.description}"/></a></li>
+    <li class="first"><label>CLIENT:</label><c:out value="${contest.clientName}"/></li>
+    <li><label>CONTEST TYPE:</label><a href="javascript:" class="studioContestType${contest.category.id}">
+        <c:out value="${contest.category.name}"/></a>
+    </li>
 </ul>
 
 <div class="clear"></div>
@@ -173,7 +175,7 @@
             <p>
                 <c:choose>
                     <c:when test="${drPointsAvailable}">
-                        <span class="points">${contest.digitalRunPoints.value}</span> STUDIO CUP POINTS
+                        <span class="points">${contest.digitalRunPoints}</span> STUDIO CUP POINTS
                     </c:when>
                     <c:otherwise>
                         <span class="points"></span>NO STUDIO CUP POINTS
@@ -189,7 +191,7 @@
             <p>
                 <c:choose>
                     <c:when test="${drPointsAvailable}">
-                        <span class="points">${contest.digitalRunPoints.value}</span> STUDIO CUP POINTS
+                        <span class="points">${contest.digitalRunPoints}</span> STUDIO CUP POINTS
                     </c:when>
                     <c:otherwise>
                         <span class="points"></span>NO STUDIO CUP POINTS
