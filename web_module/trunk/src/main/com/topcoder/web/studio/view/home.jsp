@@ -117,8 +117,8 @@
                                    class="post_project"></a>
                             </div>
                             <div id="homePageBanner">
-                                <a href="http://www.topcoder.com/tco10">
-                                    <img src="/i/tournament/tco10/banner-after.png" alt="TCO 2010"/></a>
+                                <a href="http://www.topcoder.com/news/2011/01/26/save-the-date-for-the-2011-topcoder-open/">
+                                    <img src="/i/tournament/tco11/tco11-banner-studio-before.png" alt="TCO 2011"/></a>
                                 <br/>
                                 <br/>
                             </div>
