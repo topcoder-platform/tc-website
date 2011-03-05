@@ -199,11 +199,17 @@
         <td class="headerC" width="10%">
             Reliability After Resolution
         </td>
-        <td class="headerC" nowrap="nowrap" width="20%">
+        <td class="headerC" nowrap="nowrap">
+            Resolution Date
+        </td>
+        <td class="headerC" nowrap="nowrap">
             Registration Date
         </td>
-        <td class="headerC" width="10%">
-            Reliability on Registration
+        <td class="headerC" width="20%">
+            Reliable
+        </td>
+        <td class="headerC" width="20%">
+            Reliability Bonus
         </td>
 
     </tr>
@@ -229,17 +235,17 @@
                 <rsc:item name="version_text" row="<%=resultRow%>"/>
                 <% } %>
             </td>
-            <td class="valueC">
-                <rsc:item name="reliable" row="<%=resultRow%>"/>
+            <td class="valueC" nowrap="nowrap">
+                <rsc:item name="create_time" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/>
             </td>
             <td class="valueC" nowrap="nowrap">
                 <rsc:item name="resolution_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/>
-            </td>	    
-            <td class="valueC">
-                <rsc:item name="new_reliability" row="<%=resultRow%>" format="0.00%" ifNull="&#160;"/>
             </td>
-            <td class="valueC" nowrap="nowrap">
-                <rsc:item name="create_time" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/>
+            <td class="valueC">
+                <rsc:item name="reliable" row="<%=resultRow%>"/>
+            </td>
+            <td class="valueC">
+                <rsc:item name="reliable" row="<%=resultRow%>"/>
             </td>
             <td class="valueC">
                 <rsc:item name="reliability_on_registration" row="<%=resultRow%>" format="0.00%" ifNull="N/A"/>

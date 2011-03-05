@@ -48,7 +48,7 @@
             </tr>
             <tr valign="top"><td class="bodyText">
                <tc-webtag:handle coderId="251989" context="development"/>
-               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=dev&d2=support&d3=devTutorial"><strong>Development Tutorial</strong></a><br>
+               </td><td class="bodyText" nowrap=nowrap><a href="/wiki/display/tc/Component+Development+Tutorial"><strong>Development Tutorial</strong></a><br>
                Check out the Development Tutorial Movie (Flash required):<br>
                [Audio version] <a href="#" onClick="window.open('/flash/demos/devdemo1.html','screen','height=490,width=640'); return false;">23.6 MB</a> &#160;&#160;[Text version] <a href="#" onClick="window.open('/flash/demos/devdemo2.html','screen','height=520,width=640'); return false;">7.6 MB</a>
                </td>
@@ -56,7 +56,7 @@
             </tr>
             <tr valign="top"><td class="bodyText">
                <tc-webtag:handle coderId="152342" context="design"/>
-               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=dev&d2=support&d3=desTutorial"><strong>Design Tutorial</strong></a><br>
+               </td><td class="bodyText" nowrap=nowrap><a href="/wiki/display/tc/Component+Design+Tutorial"><strong>Design Tutorial</strong></a><br>
                Check out the Design Tutorial Movie (Flash required):<br>
                [Audio version] <a href="#" onClick="window.open('/flash/demos/designdemo1.html','screen','height=490,width=640'); return false;">13.9 MB</a> &#160;&#160;[Text version] <a href="#" onClick="window.open('/flash/demos/designdemo2.html','screen','height=520,width=640'); return false;">7.5 MB</a>
                </td>
