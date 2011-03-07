@@ -50,33 +50,3 @@
 </div>
 <%-- #footer ends --%>
 
-<script type="text/javascript">
-    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-    document.write(unescape("%3Cscript src='" + gaJsHost +
-                            "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-    try {
-        var pageTracker = _gat._getTracker("UA-6340959-3");
-        pageTracker._trackPageview();
-    } catch(err) {
-    }</script>
-    
-
-<!-- Performable Analytics -->
-<%
- if (handle != null && !handle.equals("") && !handle.equals("anonymous")) {
-%>
-<script type="text/javascript">
-
-    var _paq = _paq || [];
- 
-    _paq.push(["identify", {
-    id: "<%=handle %>"
-    }]);
-</script>
-
-<%}%>
-
-<script src="//d1nu2rn22elx8m.cloudfront.net/performable/pax/4wrbNk.js" type="text/javascript"></script>
-    
