@@ -40,8 +40,8 @@
 							nav.search("m_copilot_support").addChild(new NavNode("/wiki/display/tc/How+to+Compete+in+Copilot+Opportunities", "Documentation", "copilot_documentation"));
 							nav.search("m_copilot_support").addChild(new NavNode("/wiki/display/tc/How+to+Compete+in+Copilot+Opportunities", "Tutorial", "copilot_tutorial"));
 					nav.search("m_copilot_opportunities").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ActiveContests&amp;pt=" + WebConstants.COPILOT_POSTING_PROJECT_TYPE, "Active Contests", "copilots_compete"));
-         			//nav.search("m_copilot_opportunities").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ContestStatus&amp;pt=29", "Contest Status", "copilot_opportunity_status"));
-					//nav.search("m_copilot_opportunities").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;ph=134", "Past Contests", "copilot_past"));
+         			//nav.search("m_copilot_opportunities").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ContestStatus&amp;pt=" + WebConstants.COPILOT_POSTING_PROJECT_TYPE, "Contest Status", "copilot_opportunity_status"));
+					nav.search("m_copilot_opportunities").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;ph=140", "Past Contests", "copilot_past"));
          			//nav.search("m_copilot_opportunities").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ViewReviewProjects&amp;pt=" + WebConstants.COPILOT_PROJECT_TYPE, "Review Opportunities", "copilot_review"));
          			//nav.search("m_copilot_opportunities").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ReviewBoard&amp;pt=" + WebConstants.COPILOT_PROJECT_TYPE, "Meet the Review Board", "copilot_review_board"));
                     nav.search("m_copilot_opportunities").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewCopilotPool", "Copilot Pool", "copilots_pool"));
