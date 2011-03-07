@@ -231,8 +231,9 @@
 			nav.search("m_competitions").addChild(new NavNode("http://"+ApplicationServer.SOFTWARE_SERVER_NAME+"/review", "Submit &amp; Review", "online_review"));
 			
 	   nav.addRoot(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_topcoder_networks')", "TopCoder Networks", "m_topcoder_networks"));
-			   nav.search("m_topcoder_networks").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/home/alcatel/", "Alcatel Lucent", "alu"));
-			   nav.search("m_topcoder_networks").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/home/x/", "PayPalX", "ppx"));
+			   nav.search("m_topcoder_networks").addChild(new NavNode("http://community.topcoder.com/alcatel/", "Alcatel Lucent", "alu"));
+			   nav.search("m_topcoder_networks").addChild(new NavNode("http://community.topcoder.com/darpacs/", "DARPA CS-STEM", "darpacs"));
+			   nav.search("m_topcoder_networks").addChild(new NavNode("http://community.topcoder.com/x/", "PayPalX", "ppx"));
 			
 
 		nav.addRoot(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_events')", "Events", "m_events"));
