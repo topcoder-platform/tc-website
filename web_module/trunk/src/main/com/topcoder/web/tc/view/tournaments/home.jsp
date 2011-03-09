@@ -111,7 +111,7 @@
          <td width="100%">
          <span class="bodySubtitle">2009 TopCoder&#174; Open</span>
          <br /><br />
-         <div style="float: right;"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco09&amp;d3=about"><img src="/i/pressroom/tco09_logo.png" alt="" border="0" /></a></div>
+         <div style="float: right;"><a href="/tc?module=Static&d1=tournaments&d2=tco09&d3=overview&d4=overview"><img src="/i/pressroom/tco09_logo.png" alt="" border="0" /></a></div>
          June 1 - 4, 2009<br />
          The Mirage <br />
          Las Vegas, NV, USA<br />
