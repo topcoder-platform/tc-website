@@ -210,47 +210,44 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
         results = getDataAccess().getData(r);
         detail = (ResultSetContainer) results.get("pm_details");
 
-        TCSEmailMessage mail = new TCSEmailMessage();
-        mail.setSubject("New Review Application");
-        StringBuffer sb = new StringBuffer();
-        sb.append(handle + " has applied to review:\n\n");
-        sb.append("Contest: " + component_name + "\n");
-        sb.append("Version: " + version + "\n");
-        sb.append("Language: " + lang + "\n");
-        sb.append("Phase: " + phase + "\n");
-        sb.append("http://");
-        sb.append(ApplicationServer.SERVER_NAME);
-        sb.append("/tc?module=ReviewProjectDetail&");
-        sb.append(Constants.PROJECT_ID);
-        sb.append("=");
-        sb.append(projectId);
-        sb.append("&");
-        sb.append(Constants.PROJECT_TYPE_ID);
-        sb.append("=");
-        sb.append(this.projectTypeId);
-        sb.append("\n");
-
-        if (phaseExtended) {
-            sb.append("\n");
-            sb.append("The project timeline was extended to give the reviewer enough time for the review!");
-            sb.append("\n");
-        }
-
-        mail.setBody(sb.toString());
-        mail.setFromAddress("do_not_reply@topcoder.com");
-
         ResultSetContainer.ResultSetRow row = null;
         for (Iterator it = detail.iterator(); it.hasNext();) {
             row = (ResultSetContainer.ResultSetRow) it.next();
+            TCSEmailMessage mail = new TCSEmailMessage();
+            mail.setSubject("New Review Application");
+            StringBuffer sb = new StringBuffer();
+            sb.append(handle + " has applied to review:\n\n");
+            sb.append("Contest: " + component_name + "\n");
+            sb.append("Version: " + version + "\n");
+            sb.append("Language: " + lang + "\n");
+            sb.append("Phase: " + phase + "\n");
+            sb.append("http://");
+            sb.append(ApplicationServer.SERVER_NAME);
+            sb.append("/tc?module=ReviewProjectDetail&");
+            sb.append(Constants.PROJECT_ID);
+            sb.append("=");
+            sb.append(projectId);
+            sb.append("&");
+            sb.append(Constants.PROJECT_TYPE_ID);
+            sb.append("=");
+            sb.append(this.projectTypeId);
+            sb.append("\n");
+    
+            if (phaseExtended) {
+                sb.append("\n");
+                sb.append("The project timeline was extended to give the reviewer enough time for the review!");
+                sb.append("\n");
+            }
+    
+            mail.setBody(sb.toString());
+            mail.setFromAddress("do_not_reply@topcoder.com");
+
             String address = row.getStringItem("address");
             if (log.isDebugEnabled()) {
                 log.debug("ORIGINAL ADDRESS IS: " + address);
             }
-            mail.addToAddress(address, TCSEmailMessage.BCC);			
-        }
-
-        if (mail.getToAddress(TCSEmailMessage.BCC).length >= 1) {
-            EmailEngine.send(mail);			
-        }
+            mail.addToAddress(address, TCSEmailMessage.TO);			
+            EmailEngine.send(mail); 
+       }
     }
 }
