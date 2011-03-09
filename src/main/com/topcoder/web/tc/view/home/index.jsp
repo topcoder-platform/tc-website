@@ -121,6 +121,17 @@
 				</div>
 				<a href="http://topcoder.com/home/lets-talk/">Contact Us</a>
 				</li>
+                <li id="blog">
+                <div class="tip hide">
+                        <div class="tipContent">
+                                <p>
+                                        Read about virtualization!
+                                </p>
+                        </div>
+                        <span class="tipArrow"></span>
+                </div>
+                <a href="http://info.topcoder.com/blog">Blog</a>
+                </li>
 				<li id="register">
 				<div class="tip hide">
 					<div class="tipContent">
