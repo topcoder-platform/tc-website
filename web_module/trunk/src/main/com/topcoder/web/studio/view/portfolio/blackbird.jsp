@@ -68,7 +68,7 @@
                     
 					<h1>Blackbird</h1>
 						
-						<p>4 Contests beginning in July 2007 and ending in March 2008</p>
+						<p>4 Contests Highlighted</p>
 						<p>1 Logo Contest, 1 Flash Contest, 1 Storyboard Contest, 1 Print Advertising Contest</p>
 						<div class="clear"></div>
 						

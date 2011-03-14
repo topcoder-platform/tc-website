@@ -68,7 +68,7 @@
                     
 					<h1>RadioTagr iPhone Application</h1>
 						
-						<p>1 Contest in July 2008</p>
+						<p>1 Contest Highlighted</p>
 						<p>2 Future Contests Planned</p>
 						<div class="clear"></div>
 						

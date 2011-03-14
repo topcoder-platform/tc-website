@@ -68,7 +68,7 @@
                     
 					<h1>Tongal</h1>
 						
-						<p>9 Contests beginning in May 2008 and ending in August 2008</p>
+						<p>9 Contests Highlighted</p>
 						<p>2 Logo Contests, 4 Storyboard Contest, 2 Prototype Contests, 1 Icon Contest</p>
 						<div class="clear"></div>
 						

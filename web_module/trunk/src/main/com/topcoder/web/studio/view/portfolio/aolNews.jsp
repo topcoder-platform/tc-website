@@ -67,7 +67,7 @@
                     
 					<h1>AOL News: Predict The President</h1>
 						
-						<p>2 Contests beginning in June 2008 and ending in July 2008</p>
+						<p>2 Contests Highlighted</p>
 						<p>1 Flash Contest, 1 yourminis Widget Build</p>
 						
 						<p>You control the electoral map for the 2008 elections. Click on a state to make your prediction or start with from one of the many views.</p>
