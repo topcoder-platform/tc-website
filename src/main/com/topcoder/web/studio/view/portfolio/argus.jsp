@@ -67,7 +67,7 @@
                     
 					<h1>Argus</h1>
 						
-						<p>7 Contests beginning in March 2008 and ending in April 2008</p>
+						<p>7 Contests Highlighted</p>
 						<p>1 Storyboard Contest, 4 Flash Animation Contests, 2 Prototype Contests</p>
 						<div class="clear"></div>
 						
