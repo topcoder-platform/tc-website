@@ -21,10 +21,7 @@ import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * <p>
@@ -105,17 +102,17 @@ public class BasicData extends Base {
                 rsc = m.get(key);
                 if (key.equals("dd_round_results")) {
                     if ("json".equalsIgnoreCase(type)) {
-                        ResultSetContainerConverter.writeJSONhidingPayments(rsc, r.getContentHandle(), "paid", "coder_id", getHideUsersList(), getResponse().getOutputStream());
+                        ResultSetContainerConverter.writeJSONhidingPayments(rsc, r.getContentHandle(), "paid", "coder_id", getHideUsersList(rsc), getResponse().getOutputStream());
                     } else {
-                        ResultSetContainerConverter.writeXMLhidingPayments(rsc, r.getContentHandle(), "paid", "coder_id", getHideUsersList(), getResponse().getOutputStream());
+                        ResultSetContainerConverter.writeXMLhidingPayments(rsc, r.getContentHandle(), "paid", "coder_id", getHideUsersList(rsc), getResponse().getOutputStream());
                     }
                 } else if (key.equals("dd_design_rating_history") ||
                         key.equals("dd_development_rating_history") ||
                         key.equals("dd_track_rating_history")) {
                     if ("json".equalsIgnoreCase(type)) {
-                        ResultSetContainerConverter.writeJSONhidingPayments(rsc, r.getContentHandle(), "payment", "coder_id", getHideUsersList(), getResponse().getOutputStream());
+                        ResultSetContainerConverter.writeJSONhidingPayments(rsc, r.getContentHandle(), "payment", "coder_id", getHideUsersList(rsc), getResponse().getOutputStream());
                     } else {
-                        ResultSetContainerConverter.writeXMLhidingPayments(rsc, r.getContentHandle(), "payment", "coder_id", getHideUsersList(), getResponse().getOutputStream());
+                        ResultSetContainerConverter.writeXMLhidingPayments(rsc, r.getContentHandle(), "payment", "coder_id", getHideUsersList(rsc), getResponse().getOutputStream());
                     }
                 } else {
                     if ("json".equalsIgnoreCase(type)) {
@@ -132,11 +129,17 @@ public class BasicData extends Base {
         }
     }
 
-    private List<Long> getHideUsersList() {
+    private List<Long> getHideUsersList(ResultSetContainer rsc) {
+        Set<Long> userIdSet = new HashSet<Long>();
+        for (ResultSetContainer.ResultSetRow row : rsc) {
+            userIdSet.add(row.getLongItem("coder_id"));
+        }
+        List<Long> userIdList = new ArrayList<Long>(userIdSet);
+
         if (!DAOUtil.useQueryToolFactory) {
             HibernateUtils.getSession().beginTransaction();
         }
-        List<UserPreference> upList = DAOUtil.getQueryToolFactory().getUserPreferenceDAO().find(Preference.SHOW_EARNINGS_PREFERENCE_ID);
+        List<UserPreference> upList = DAOUtil.getQueryToolFactory().getUserPreferenceDAO().find(userIdList, Preference.SHOW_EARNINGS_PREFERENCE_ID);
         List<Long> hideList = new ArrayList<Long>();
         for (UserPreference up : upList) {
             if ("hide".equals(up.getValue())) {
