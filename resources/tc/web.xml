@@ -59,6 +59,11 @@
     </servlet>
 
     <servlet>
+        <servlet-name>eventreg</servlet-name>
+        <servlet-class>com.topcoder.web.tc.controller.EventRegServlet</servlet-class>
+    </servlet>
+
+    <servlet>
         <servlet-name>tchs08</servlet-name>
         <servlet-class>com.topcoder.web.tc.controller.MainServlet</servlet-class>
 
@@ -508,6 +513,11 @@
     <servlet-mapping>
         <servlet-name>communities</servlet-name>
         <url-pattern>/communities</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>eventreg</servlet-name>
+        <url-pattern>/eventreg</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
