@@ -153,9 +153,9 @@
                                         <tr><td class="space" colspan="11">&nbsp;</td></tr>
                                         <tr class="<%=even?"light":"dark"%>">
                                             <td class="valueE">
-                                                <%-- todo no scriptlet code!, fix this--%>
-                                                <% if ("3432".equals(resultRow.getStringItem("event_id"))) { %>
-                                                <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tournaments&d2=tco10&d3=studio&d4=description"><img src="/i/tournament/tco10/tco10-icon.png" alt="Eligible for the TCO10" /><span>Eligible for the TCO10</span></a>
+                                                <%-- if tco show icon --%>
+                                                <% if ("3433".equals(resultRow.getStringItem("event_id"))) { %>
+                                                <a href="http://community.topcoder.com/tco11"><img src="/i/tournament/tco11/tco11-icon.png" alt="Eligible for the TCO11" /><span>Eligible for the TCO11</span></a>
                                                 <% } else { %>
                                                 &nbsp;
                                                 <% } %>

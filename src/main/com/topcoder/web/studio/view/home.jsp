@@ -147,10 +147,10 @@
                                             <rsc:iterator list="<%=activeContests%>" id="resultRow" end="6">
                                                 <tr>
                                                     <td class="event">
-                                                        <% if ("3432".equals(resultRow.getStringItem("event_id"))) { %>
-                                                        <a href="http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco10&d3=studio&d4=description">
-                                                            <img src="/i/tournament/tco10/tco-icon.png"
-                                                                 alt="Eligible for the TCO10" /></a>
+                                                        <% if ("3433".equals(resultRow.getStringItem("event_id"))) { %>
+                                                        <a href="http://community.topcoder.com/tco11/studio">
+                                                            <img src="/i/tournament/tco11/tco11-iconsmall.png"
+                                                                 alt="Eligible for the TCO11" /></a>
                                                         <%} else {%>&nbsp;<%}%>
                                                     </td>
                                                     <td class="first">
