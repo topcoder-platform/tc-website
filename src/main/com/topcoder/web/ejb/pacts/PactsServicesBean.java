@@ -1595,7 +1595,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             sb.append(" p.most_recent_detail_id = pd.payment_detail_id ");
             sb.append(" and p.user_id = " + userId);
             sb.append(" and (pd.payment_status_id = " + PaymentStatus.ACCRUING_PAYMENT_STATUS.getId());
-            sb.append(" or pd.payment_status_id = " + PaymentStatus.OWED_PAYMENT_STATUS.getId() + ")");
+            sb.append(" or (pd.payment_status_id = " + PaymentStatus.OWED_PAYMENT_STATUS.getId());
+            sb.append(" and year(pd.date_modified) = year(current) and month(pd.date_modified) = month(current)))");
 
             ResultSetContainer rsc = runSelectQuery(conn, sb.toString());
 
