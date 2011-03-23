@@ -86,18 +86,14 @@ January 1 - January 31
 <br />December 1 - December 31
 <br /><br />
 
-<!--The TCO trip prize is available to the monthly winner of the Studio Cup during the following months of 2009:
+In addition, a special 3-month Wireframe tournament is happening in 2011.
+<br /><br />
+April 1 - June 30, 2011
+<br /><br />
+During each of these months, a single winner will be chosen based on how many points they accumulated during wireframe contests. One winner from each month will win an all-expenses paid trip to TCO11! See <a href="http://community.topcoder.com/tco11">here</a> for more details. 
 <br /><br />
 
-January 
-<br />February 
-<br />March 
-<br />April 
-<br />May 
-<br />June 
-<br />July 
-<br />August 
-<br /><br />-->
+
 
 
                         <br clear="all"/>

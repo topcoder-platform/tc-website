@@ -134,6 +134,8 @@ Each contest posted in TopCoder Studio will carry a total point value. Placement
    </tr>
 </tbody>
 </table>
+<!--<img src="i/digital_run/wireframe_sc_banner.png" />-->
+
 </div>
 <br /><br />
 If more than five (5) submissions are ranked, the competitors who place in 6th position or below will not receive any placement points. 
@@ -142,7 +144,7 @@ Up to 100% of placement points may be deducted for bugs or late final fixes. 20%
 <br /><br />
 
                         <br clear="all"/>
-                    </div>                
+                    </div>
                     <div class="contentBottom"></div>
                 </div>
             </div>
