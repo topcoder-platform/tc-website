@@ -1522,6 +1522,28 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 throw (new EJBException("Wrong number of rows updated in 'saveUserAccrualThreshold'. " +
                         "Updated " + rc + ", should have updated 1."));
             }
+
+            // check total amount for currently accruing payments for this user
+            double totalAmount = getUserAccruingPaymentsTotal(userId);
+            log.debug("totalAmount: " + totalAmount);
+
+            if (totalAmount >= newAccrualAmount) {
+                // we have reached the amount, notify all accrual payments
+                log.debug("need to notify all accruing payments");
+                Map criteria = new HashMap();
+                criteria.put(PactsConstants.USER_ID, String.valueOf(userId));
+                criteria.put(PactsConstants.PAYMENT_STATUS_ID, String.valueOf(PaymentStatus.ACCRUING_PAYMENT_STATUS.getId()));
+
+                List<BasePayment> payments = findCoderPayments(criteria);
+                log.debug("need to notify " + payments.size() + " payments");
+
+                // update each payment
+                for (BasePayment notifyPayment : payments) {
+                    notifyPayment.getCurrentStatus().accrualThresholdReached(notifyPayment);
+                    updatePayment(notifyPayment);
+                }
+            }
+
         } catch (SQLException e) {
             ejbContext.setRollbackOnly();
             DBMS.printSqlException(true, e);
