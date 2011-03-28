@@ -85,27 +85,27 @@ public class ViewPastContests extends BaseProcessor {
             Calendar beginningOfTheMonth = Calendar.getInstance();
             beginningOfTheMonth.set(Calendar.DAY_OF_MONTH, 1);
 
-            r.setProperty("startdate" , df.format(beginningOfTheMonth.getTime()));
-            r.setProperty("enddate" , df.format(now.getTime()));
+            r.setProperty("sdt" , df.format(beginningOfTheMonth.getTime()));
+            r.setProperty("edt" , df.format(now.getTime()));
             //Finally, set month and year to be " " so that jsp does not choke.
             month = String.valueOf(now.get(Calendar.MONTH) + 1);
             year = String.valueOf(now.get(Calendar.YEAR));
     } else if (!month.equals("All")) {
-            r.setProperty("startdate" ,year + "-" + month + "-01 00:00:00");
+            r.setProperty("sdt" ,year + "-" + month + "-01 00:00:00");
             int endMonth = (Integer.parseInt(month) %12) + 1;
             String endYear=new String(year);
             if (endMonth==1) { // The period's end is next year.
                 endYear=String.valueOf(Integer.parseInt(year)+1);
             }
-            r.setProperty("enddate" ,endYear + "-" + endMonth + "-01 00:00:00");
+            r.setProperty("edt" ,endYear + "-" + endMonth + "-01 00:00:00");
     } else {
             if (!year.equals("All") ) {
-                r.setProperty("startdate" ,year + "-01-01 00:00:00");
+                r.setProperty("sdt" ,year + "-01-01 00:00:00");
             int endYear = Integer.parseInt(year) + 1;
-                r.setProperty("enddate" ,endYear + "-01-01 00:00:00");
+                r.setProperty("edt" ,endYear + "-01-01 00:00:00");
         } else {
-                r.setProperty("startdate" , "1990-01-01 00:00:00");
-                r.setProperty("enddate" , "2099-01-01 00:00:00");
+                r.setProperty("sdt" , "1990-01-01 00:00:00");
+                r.setProperty("edt" , "2099-01-01 00:00:00");
         }
     }
 
@@ -121,8 +121,8 @@ public class ViewPastContests extends BaseProcessor {
             Calendar thirtyDaysBefore = Calendar.getInstance();
             thirtyDaysBefore.add(Calendar.DAY_OF_MONTH, -30);
 
-            r.setProperty("startdate" , df.format(thirtyDaysBefore.getTime()));
-            r.setProperty("enddate" , df.format(now.getTime()));
+            r.setProperty("sdt" , df.format(thirtyDaysBefore.getTime()));
+            r.setProperty("edt" , df.format(now.getTime()));
 
             rsc = da.getData(r).get("studio_past_contests");
         }
