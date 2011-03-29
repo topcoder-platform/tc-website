@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2009 - 2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common.model;
 
@@ -44,5 +44,12 @@ public abstract class BaseReviewerPaymentCalculator implements ReviewerPaymentCa
                 + " FR:" + getFinalReviewCost() + ")");
     }
 
-
+    /**
+     * Calculate the payment cost for milestone screener.
+     * 
+     * @return the payment cost for milestone screener.
+     */
+    public float getMilestoneScreeningCost() {
+        return getScreeningCost();
+    }
 }
