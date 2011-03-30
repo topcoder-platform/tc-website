@@ -119,7 +119,11 @@
         <mapping resource="com/topcoder/web/common/model/comp/ContestPrize.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/Document.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/DocumentType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/comp/ExternalContent.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/comp/ExternalContentProperty.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/comp/ExternalContentType.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/FileType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/comp/MimeType.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/PhaseType.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/Prize.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/PrizeType.hbm.xml"/>
@@ -130,8 +134,12 @@
         <mapping resource="com/topcoder/web/common/model/comp/ResourceRole.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/Resource.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/ResourceInfo.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/comp/ResourceSubmission.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/StudioProjectSpecification.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/Submission.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/comp/SubmissionDeclaration.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/comp/SubmissionImage.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/comp/Upload.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/UserContestPrize.hbm.xml"/>
 
         <mapping resource="com/topcoder/web/studio/model/Contest.hbm.xml"/>
@@ -153,7 +161,6 @@
         <mapping resource="com/topcoder/web/studio/model/Prize.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/PrizeType.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ReviewStatus.hbm.xml"/>
-        <mapping resource="com/topcoder/web/studio/model/StudioFileType.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/Submission.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/SubmissionImage.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/SubmissionReview.hbm.xml"/>
@@ -164,6 +171,8 @@
         <mapping resource="com/topcoder/web/studio/model/ExternalContentType.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ExternalContent.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/ExternalContentProperty.hbm.xml"/>
+
+        <mapping resource="com/topcoder/web/studio/model/StudioFileType.hbm.xml"/>
 
         <mapping resource="com/topcoder/web/common/voting/Candidate.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/voting/CandidateInfo.hbm.xml"/>

@@ -1,8 +1,8 @@
 <%--
-  - Author: pulky
-  - Version: 1.3
+  - Author: pulky, TCSASSEMBLER
+  - Version: 1.4
   - Since: Studio Submission Viewer Upgrade Integration v1.0
-  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  - Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: This is a custom tag to handle submission preview for the view submissions
   - and view contest results pages.
@@ -10,12 +10,11 @@
   - Version 1.1 (BUGR-1755/1756): removed full preview javascript.
   - Version 1.2 (BUGR-1914): Added prize information.
   - Version 1.3 (BUGR-2434): Added parameter to hide preview and download link.
+  - Version 1.4 (Re-platforming Studio Release 3 Assembly) : Updated the logic to use contests hosted in tcs_catalog database
   -
   - Required attributes:
   -     * row: the submission information
   -     * showPlacement: whether to show placements or not.
-  -     * viewSubmitters: whether to show submitters or not.
-  -     * viewSubmissions: whether to show preview image and download links.
 --%>
 
 <%@ tag import="com.topcoder.web.studio.Constants" %>
@@ -59,27 +58,9 @@
     value="studio.jpg?${modKey}=DownloadSubmission&amp;${subId}=${row.map['submission_id']}&amp;${subAltType}=full&amp;it=28"/>
 
 <%-- Decide image to shown according to the contest configuration --%>
-<c:choose>
-    <c:when test="${row.map['contest_channel_id'] eq adminV1}">
-        <%-- Old Studio Admin contests --%>
-        <c:choose>
-            <c:when test="${row.map['is_image']}">
-                <c:set var="previewImageSrc" value="?${modKey}=${processor}&amp;${subId}=${submissionId}"/>
-            </c:when>
-            <c:otherwise>
-                <c:set var="previewImageSrc" value="/i/v2/interface/magnify.png"/>
-            </c:otherwise>
-        </c:choose>
-    </c:when>
-    <c:otherwise>
-        <%-- TC Direct and Studio Admin V2 contests --%>
-
-        <c:if test="${not multi}">
-            <c:set var="previewImageSrc"
-                value="${downloadSubmissionBaseUrl}"/>
-        </c:if>
-    </c:otherwise>
-</c:choose>
+<c:if test="${not multi}">
+	<c:set var="previewImageSrc" value="${downloadSubmissionBaseUrl}"/>
+</c:if>
 
 <%-- Render the preview box --%>
 <div id="sub${row.map["submission_id"]}" class="submission">

@@ -42,8 +42,15 @@ import java.util.MissingResourceException;
  * Added contstants for submission declaration parameters.
  * </p>
  *
- * @author dok, isv, pulky, TCSDEVELOPER
- * @version 1.4
+ * <p>
+ *   Version 1.5 (Re-platforming Studio Release 3 Assembly) Change notes:
+ *   <ol>
+ *     <li>Added Constants to support ids for gallery {@link #GALLERY_IDS}.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author dok, isv, pulky, TCSDEVELOPER, pvmagacho
+ * @version 1.5
  */
 public class Constants implements WebConstants {
     private static final TCResourceBundle bundle = new TCResourceBundle("Studio");
@@ -499,6 +506,13 @@ public class Constants implements WebConstants {
     // Flag to turn on/off the global AD feature
     public static String GLOBAL_AD_FLAG;
 
+    /**
+     * <p>A <code>String</code> providing an arrays of gallery ids. Should be separated by commas.</p>
+     *
+     * @since 1.5
+     */
+    public static String GALLERY_IDS;
+    
     /**
      * <p>A <code>String</code> providing the name of default request attribute which refers to
      * the page number required for pagination.</p>

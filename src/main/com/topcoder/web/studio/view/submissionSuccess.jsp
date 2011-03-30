@@ -128,7 +128,7 @@
 
         <div class="breadcrumb">
             <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a>
-            &gt; ${contest.name}
+            &gt; ${contest.projectName}
         </div>
 
         <h1>Submission Successfully Uploaded</h1>
@@ -142,25 +142,17 @@
             <div align="left" style="width:500px; margin-top: 20px;">
                 Your Submission Has Been Uploaded
                 <br /><br />
-                        <c:choose>
+          <c:choose>
             <c:when test="${contest.startTime > bigStart}">
-				<c:choose>
-					<c:when test="${contest.channel.id eq TOPCODER_DIRECT_ID}">
-					Your submission has been accepted and shown to the client. It still needs to be screened and you will receive another email alerting you to whether your submission has passed or failed screening.	
-	                </c:when>
-	                <c:otherwise>
 					Your submission will be screened after the Submission Phase has ended. If your submission does not pass
 	                screening, you will receive an email with a list of any requirements that it failed to meet. 
-	                </c:otherwise>
-                </c:choose>
-	            </c:when>
-                <c:otherwise>
+	        </c:when>
+            <c:otherwise>
                     Please allow at least 24 hours for processing. If your submission does not pass screening, you
                     will receive an
                     email with a list of any requirements that it failed to meet.
-
-                </c:otherwise>
-                </c:choose>
+            </c:otherwise>
+          </c:choose>
                 <br /><br />
                 Thank you.
                 <br /><br />
@@ -180,12 +172,12 @@
                              <strong>In the table below</strong> you can rank your submissions. <br />
 
                              <c:choose>
-                                 <c:when test="${not empty contest.maxSubmissions.value}">
-                                     Up to ${contest.maxSubmissions.value} submission<c:if test="${contest.maxSubmissions.value>1}">s</c:if>
+                                 <c:when test="${not empty contest.maxSubmissions}">
+                                     Up to ${contest.maxSubmissions} submission<c:if test="${contest.maxSubmissions>1}">s</c:if>
                                      will count for this contest.  They will be indicated by
                                      <nobr>this icon <img src="/i/v2/selection.png" alt="Selection" /></nobr>.  Those submissions that do not have the icon will <b>NOT</b> count and
                                      they will neither be screened nor reviewed.
-                                     If you make more than ${contest.maxSubmissions.value} submission<c:if test="${contest.maxSubmissions.value>1}">s</c:if>
+                                     If you make more than ${contest.maxSubmissions} submission<c:if test="${contest.maxSubmissions>1}">s</c:if>
                                      for this contest, you can rearrange the order of your submissions until the end of the Submission Phase.
                                  </c:when>
                              <c:otherwise>
@@ -276,10 +268,9 @@
                     <div class="submission-list_main">
                         <ul class="submission-list-header">
                             <li class="rank">Rank</li>
-                            <li class="thumbnails">Thumbnails</li>
+                            <li colspan="2" class="thumbnails">Thumbnails</li>
                             <li class="submission-id">Submission ID</li>
                             <li class="date">Date Submitted</li>
-                            <li class="screening">Screening</li>
                             <li class="move">Move Up/Down</li>
                             <li class="download">Download</li>
                             <li class="remove">Remove</li>

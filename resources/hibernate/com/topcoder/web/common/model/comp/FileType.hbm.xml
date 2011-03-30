@@ -16,5 +16,9 @@
             <key column="file_type_id"/>
             <many-to-many column="project_id" class="Project"/>
         </set>
+        <set name="mimeTypes" cascade="none" inverse="true">
+            <key column="file_type_id" not-null="true"/>
+            <one-to-many class="MimeType"/>
+        </set>
     </class>
 </hibernate-mapping>

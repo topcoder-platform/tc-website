@@ -3,7 +3,7 @@
  */
 package com.topcoder.web.studio.util;
 
-import com.topcoder.web.studio.model.StudioFileType;
+import com.topcoder.web.common.model.comp.Project;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,8 +14,16 @@ import java.util.Map;
 /**
  * <p>An analyzer for <code>Java</code> archives. Maps to {@link StudioFileType#JAR_ARCHIVE_TYPE_ID} file type.</p>
  *
- * @author isv
- * @version 1.0
+ * <p>
+ *   Version 1.1 (Re-platforming Studio Release 3 Assembly) Change notes:
+ *   <ol>
+ *     <li>Updated the logic to use contests hosted in <code>tcs_catalog</code> database instead of
+ *     <code>studio_oltp</code> database.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author isv, pvmagacho
+ * @version 1.1
  * @since TopCoder Studio Modifications Assembly (Req# 5.6, 5.7)
  */
 public class JarFileAnalyzer extends ZipFileAnalyzer {
@@ -24,7 +32,8 @@ public class JarFileAnalyzer extends ZipFileAnalyzer {
      * <p>Constructs new <code>SubmissionValidator$JarFileAnalyzer</code> instance. This implementation does
      * nothing.</p>
      */
-    public JarFileAnalyzer() {
+    public JarFileAnalyzer(Project project) {
+    	super(project);
     }
 
     /**

@@ -1,28 +1,55 @@
+/*
+ * Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.studio.controller.request;
 
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.dao.SubmissionDAO;
+import com.topcoder.web.common.model.comp.Resource;
+import com.topcoder.web.common.model.comp.Submission;
 import com.topcoder.web.studio.Constants;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.dao.SubmissionDAO;
-import com.topcoder.web.studio.model.Submission;
 
 /**
- * @author dok
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Nov 28, 2006
+ * <p>This class will process a request to view contest submissions after a successful submission.</p> 
+ * 
+ * <p>
+ *   Version 1.1 (Re-platforming Studio Release 3 Assembly) Change notes:
+ *   <ol>
+ *     <li>Updated the logic to use contests hosted in <code>tcs_catalog</code> database instead of
+ *     <code>studio_oltp</code> database.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author dok, pvmagacho
+ * @version 1.1
  */
 public class ViewSubmissionSuccess extends BaseSubmissionDataProcessor {
+    /**
+     * <p>Constructs new <code>ViewSubmissionSuccess</code> instance. This implementation does nothing.</p>
+     * 
+     * @since 1.1
+     */
+    public ViewSubmissionSuccess() {
+    }
+
+    /**
+     * This method executes the actual business logic for this processor.
+     *
+     * @throws Exception if any error occurs
+     * @see com.topcoder.web.common.LongHibernateProcessor#dbProcessing()
+     */
     protected void dbProcessing() throws Exception {
-
         if (userLoggedIn()) {
-
             String submissionId = getRequest().getParameter(Constants.SUBMISSION_ID);
-            SubmissionDAO dao = StudioDAOUtil.getFactory().getSubmissionDAO();
-            Submission s = dao.find(new Long(submissionId));
-            if (s.getSubmitter().getId().equals(getUser().getId())) {
-                loadSubmissionData(s.getSubmitter(), s.getContest(), dao, s.getType().getId());
+            SubmissionDAO dao = DAOUtil.getFactory().getSubmissionDAO();
+            Submission s = dao.find(new Integer(submissionId));
+            Resource resource = RegistrationHelper.getSubmitterResource(s.getContest(), getUser().getId());
+            if (resource != null) {
+                loadSubmissionData(resource, s.getContest(), dao, DAOUtil.getFactory().getUploadDAO(), 
+                		s.getTypeId());
                 setIsNextPageInContext(true);
                 setNextPage("submissionSuccess.jsp");
             } else {

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common.dao.hibernate;
 
@@ -67,6 +67,7 @@ import com.topcoder.web.common.dao.UserDAO;
 import com.topcoder.web.common.dao.UserPermissionGrantDAO;
 import com.topcoder.web.common.dao.UserPreferenceDAO;
 import com.topcoder.web.common.dao.UserSchoolDAO;
+import com.topcoder.web.common.dao.UploadDAO;
 import com.topcoder.web.common.dao.VisaLetterEventDAO;
 import com.topcoder.web.common.dao.VisaLetterRequestDAO;
 
@@ -83,8 +84,13 @@ import com.topcoder.web.common.dao.VisaLetterRequestDAO;
  *   </ol>
  * </p>
  *
- * @author dok, TCSDEVELOPER, isv
- * @version 1.2
+ * <p>
+ *   Version 1.3 (Studio Replatforming Release 3 Assembly) Change notes:
+ *   <ol>Added method to get Upload DAO hibernate implementation.</ol>
+ * </p>
+ * 
+ * @author dok, TCSDEVELOPER, isv, pvmagacho
+ * @version 1.3
  */
 public class DAOFactoryHibernate implements DAOFactory {
     public AlgoRatingTypeDAO getAlgoRatingTypeDAO() {
@@ -363,5 +369,15 @@ public class DAOFactoryHibernate implements DAOFactory {
      */
     public ResourceDAO getResourceDAO() {
         return new ResourceDAOHibernate();
+    }
+
+    /**
+     * <p>Gets the upload DAO.</p>
+     * 
+     * @return a <code>UploadDAO</code> instance.
+     * @since 1.3
+     */
+    public UploadDAO getUploadDAO() {
+        return new UploadDAOHibernate();
     }
 }

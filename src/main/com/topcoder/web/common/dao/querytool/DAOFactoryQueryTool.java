@@ -18,8 +18,13 @@ import com.topcoder.web.common.dao.*;
  *   </ol>
  * </p>
  *
- * @author pulky, TCSDEVELOPER, isv
- * @version 1.2
+ * <p>
+ *   Version 1.3 (Studio Replatforming Release 3 Assembly) Change notes:
+ *   <ol>Added method to get Upload DAO</ol>
+ * </p>
+ *
+ * @author pulky, TCSDEVELOPER, isv, pvmagacho
+ * @version 1.3
  */
 public class DAOFactoryQueryTool implements DAOFactory {
 
@@ -310,5 +315,16 @@ public class DAOFactoryQueryTool implements DAOFactory {
      */
     public ResourceDAO getResourceDAO() {
         throw new RuntimeException("Not supported");
+    }
+
+    /**
+     * <p>Gets the upload DAO.</p>
+     * 
+     * @return a <code>UploadDAO</code> instance.
+     * @throws RuntimeException always since this DAO is not currently supported
+     * @since 1.3
+     */
+    public UploadDAO getUploadDAO() {
+    	 throw new RuntimeException("Not supported");
     }
 }

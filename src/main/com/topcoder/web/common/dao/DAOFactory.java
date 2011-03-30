@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common.dao;
 
@@ -16,8 +16,15 @@ package com.topcoder.web.common.dao;
  *   </ol>
  * </p>
  *
- * @author dok, TCSDEVELOPER, VolodymyrK, isv
- * @version 1.2
+ * <p>
+ *   Version 1.3 (Re-platforming Studio Release 3 Assembly) Change notes:
+ *   <ol>
+ *     <li>Added the method to get the <code>Upload</code> DAO.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, TCSDEVELOPER, VolodymyrK, isv, pvmagacho
+ * @version 1.3
  */
 public interface DAOFactory {
     AlgoRatingTypeDAO getAlgoRatingTypeDAO();
@@ -167,4 +174,12 @@ public interface DAOFactory {
      * @since 1.2 
      */
     ResourceDAO getResourceDAO();
+
+    /**
+     * <p>Gets the upload DAO.</p>
+     * 
+     * @return a <code>UploadDAO</code> instance.
+     * @since 1.3
+     */
+    public UploadDAO getUploadDAO();
 }

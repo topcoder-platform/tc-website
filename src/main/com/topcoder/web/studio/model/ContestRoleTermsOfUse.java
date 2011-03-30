@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.studio.model;
 
@@ -7,6 +7,7 @@ import java.io.Serializable;
 
 import com.topcoder.web.common.model.Base;
 import com.topcoder.web.common.model.TermsOfUse;
+import com.topcoder.web.common.model.comp.Project;
 import com.topcoder.web.common.model.comp.ResourceRole;
 
 /**
@@ -19,8 +20,16 @@ import com.topcoder.web.common.model.comp.ResourceRole;
  *   </p>
  * </p>
  *
- * @author pulky
- * @version 1.0
+ * <p>
+ *   Version 1.1 (Re-platforming Studio Release 3 Assembly) Change notes:
+ *   <ol>
+ *     <li>Updated the logic to use contests hosted in <code>tcs_catalog</code> database instead of
+ *     <code>studio_oltp</code> database.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author pulky, pvmagacho
+ * @version 1.1
  * @since Configurable Contest Terms-Studio Release Assembly v1.0
  */
 public class ContestRoleTermsOfUse extends Base {
@@ -115,9 +124,9 @@ public class ContestRoleTermsOfUse extends Base {
         private static final long serialVersionUID = 1L;
 
         /**
-         * The <code>Contest</code> of this relationship identifier
+         * The <code>Project</code> of this relationship identifier
          */
-        private Contest contest;
+        private Project project;
 
         /**
          * The <code>ResourceRole</code> of this relationship identifier
@@ -138,12 +147,12 @@ public class ContestRoleTermsOfUse extends Base {
         /**
          * Full constructor using parameters.
          *
-         * @param contest the <code>Contest</code> to set
+         * @param contest the <code>Project</code> to set
          * @param resourceRole the resource role to set
          * @param terms the <code>TermsOfUse</code> to set
          */
-        public Identifier(Contest contest, ResourceRole resourceRole, TermsOfUse terms) {
-            this.contest = contest;
+        public Identifier(Project contest, ResourceRole resourceRole, TermsOfUse terms) {
+            this.project = contest;
             this.resourceRole = resourceRole;
             this.terms = terms;
         }
@@ -171,8 +180,8 @@ public class ContestRoleTermsOfUse extends Base {
          *
          * @return the contest
          */
-        public Contest getContest() {
-            return contest;
+        public Project getContest() {
+            return project;
         }
 
         /**
@@ -180,8 +189,8 @@ public class ContestRoleTermsOfUse extends Base {
          *
          * @param contest the contest to set
          */
-        public void setContest(Contest contest) {
-            this.contest = contest;
+        public void setContest(Project contest) {
+            this.project = contest;
         }
 
         /**
@@ -217,7 +226,7 @@ public class ContestRoleTermsOfUse extends Base {
             } else {
                 try {
                     ContestRoleTermsOfUse.Identifier oa = (ContestRoleTermsOfUse.Identifier) o;
-                    return (oa.contest.getId().equals(contest.getId()) &&
+                    return (oa.project.getId().equals(project.getId()) &&
                             oa.resourceRole.getId().equals(resourceRole.getId()) &&
                             oa.terms.getId().equals(terms.getId()));
                 } catch (ClassCastException e) {
@@ -236,7 +245,7 @@ public class ContestRoleTermsOfUse extends Base {
          */
         public int hashCode() {
             StringBuffer buf = new StringBuffer(100);
-            buf.append(contest.getId());
+            buf.append(project.getId());
             buf.append(" ");
             buf.append(resourceRole.getId());
             buf.append(" ");
