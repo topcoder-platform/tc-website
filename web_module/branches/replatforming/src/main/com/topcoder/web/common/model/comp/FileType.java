@@ -10,10 +10,31 @@ import java.util.Set;
 /**
  * <p>An entity class mapped to <code>tcs_catalog.file_type_lu</code> table.</p>
  * 
- * @author isv
- * @version 1.0 (Re-Platforming Studio Release 2 assembly)
+ * <p>
+ *   Version 1.2 (Re-platforming Studio Release 3 Assembly) Change notes:
+ *   <ol>
+ *     <li>Added <code>MimeType</code> relationship.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author isv, pvmagacho
+ * @version 1.1 
+ * @since (Re-Platforming Studio Release 2 assembly)
  */
 public class FileType extends Base {
+    /**
+     * <p>An <code>Integer</code> referencing the file type corresponding to <code>Zip</code> archives.</p>
+     * 
+     * @since 1.1
+     */
+    public static final Long ZIP_ARCHIVE_TYPE_ID = 14l;
+
+    /**
+     * <p>An <code>Integer</code> referencing the file type corresponding to <code>Java</code> archives.</p>
+     * 
+     * @since 1.1
+     */
+    public static final Long JAR_ARCHIVE_TYPE_ID = 16l;
 
     /**
      * <p>A <code>Long</code> providing the ID of this file type.</p>
@@ -50,6 +71,11 @@ public class FileType extends Base {
      * <p>A <code>Set</code> providing the list of projects assigned to this file type.</p>
      */
     private Set<Project> projects;
+
+    /**
+     * <p>A <code>Set</code> providing the list of mime types assigned to this file type.</p>
+     */
+    private Set<MimeType> mimeTypes;
 
     /**
      * <p>Constructs new <code>FileType</code> instance. This implementation does nothing.</p>
@@ -185,4 +211,22 @@ public class FileType extends Base {
     public void setProjects(Set<Project> projects) {
         this.projects = projects;
     }
+    /**
+     * <p>Gets the list of mime types assigned to this file type.</p>
+     *
+     * @return a <code>Set</code> providing the list of  mime types assigned to this file type.
+     */
+    public Set<MimeType> getMimeTypes() {
+        return this.mimeTypes;
+    }
+
+    /**
+     * <p>Sets the list of  mime types assigned to this file type.</p>
+     *
+     * @param projects a <code>Set</code> providing the list of  mime types assigned to this file type.
+     */
+    public void setMimeTypes(Set<MimeType> mimeTypes) {
+        this.mimeTypes = mimeTypes;
+    }
+
 }

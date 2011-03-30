@@ -66,7 +66,7 @@
 
 <div class="breadcrumb" style="margin-bottom: 10px;">
             <a href="/?module=ViewActiveContests">Active Contests</a>
-            &gt; ${contest.name}
+            &gt; ${contest.projectName}
 </div>
 
 
@@ -442,7 +442,7 @@
         <!--End .select-list-wrapper-->
 
         <div class="button-line">
-            <a class="btn-blue btn-next" id="upload-browser-submit" href="javascript:;">
+            <a class="btn-blue btn-next" onclick="javascript:document.submitForm.submit();">
                 <span class="right-side"><span class="text">Submit</span></span>
             </a>
         </div>
@@ -480,16 +480,16 @@
         <p>In the table below you can rank your submissions.</p>
 
         <c:choose>
-            <c:when test="${not empty contest.maxSubmissions.value}">
-                <p>Up to ${contest.maxSubmissions.value} submission<c:if
-                    test="${contest.maxSubmissions.value>1}">s</c:if>
+            <c:when test="${not empty contest.maxSubmissions}">
+                <p>Up to ${contest.maxSubmissions} submission<c:if
+                    test="${contest.maxSubmissions>1}">s</c:if>
                     will count for this contest. They will be indicated by
                     <nobr>this icon <img src="/i/v6/start-icon.png" alt="Selection"/></nobr>
                     .
                     Those submissions that do not have the icon will <strong>NOT</strong> count and
                     they will neither be screened nor reviewed.
-                    If you make more than ${contest.maxSubmissions.value} submission<c:if
-                        test="${contest.maxSubmissions.value>1}">s</c:if>
+                    If you make more than ${contest.maxSubmissions} submission<c:if
+                        test="${contest.maxSubmissions>1}">s</c:if>
                     for this contest, you can rearrange the order of your submissions until the end of the Submission
                     Phase.
                 </p>
@@ -515,10 +515,9 @@
         <div class="submission-list_main">
             <ul class="submission-list-header">
                 <li class="rank">Rank</li>
-                <li class="thumbnails">Thumbnails</li>
+                <li colspan="2" class="thumbnails">Thumbnails</li>
                 <li class="submission-id">Submission ID</li>
                 <li class="date">Date Submitted</li>
-                <li class="screening">Screening</li>
                 <li class="move">Move Up/Down</li>
                 <li class="download">Download</li>
                 <li class="remove">Remove</li>

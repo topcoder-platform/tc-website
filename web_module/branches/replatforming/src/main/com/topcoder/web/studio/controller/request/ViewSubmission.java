@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.studio.controller.request;
 
 import com.topcoder.shared.security.ClassResource;
@@ -6,26 +9,43 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.model.comp.Project;
+import com.topcoder.web.common.model.comp.Resource;
 import com.topcoder.web.studio.Constants;
-import com.topcoder.web.studio.dao.StudioDAOFactory;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.model.Contest;
-import com.topcoder.web.studio.model.ContestStatus;
-import com.topcoder.web.studio.model.SubmissionType;
 
 import java.util.Date;
-import java.util.List;
 
 /**
- * @author dok
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Jul 20, 2006
+ * <p>This class will process a request to view contest submissions.</p> 
+ * 
+ * <p>
+ *   Version 1.1 (Re-platforming Studio Release 3 Assembly) Change notes:
+ *   <ol>
+ *     <li>Updated the logic to use contests hosted in <code>tcs_catalog</code> database instead of
+ *     <code>studio_oltp</code> database.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author dok, pvmagacho
+ * @version 1.1
  */
 public class ViewSubmission extends BaseSubmissionDataProcessor {
+    /**
+     * <p>Constructs new <code>ViewSubmission</code> instance. This implementation does nothing.</p>
+     * 
+     * @since 1.1
+     */
+    public ViewSubmission() {
+    }
 
+    /**
+     * This method executes the actual business logic for this processor.
+     *
+     * @throws Exception if any error occurs
+     * @see com.topcoder.web.common.LongHibernateProcessor#dbProcessing()
+     */
     protected void dbProcessing() throws Exception {
         if (userLoggedIn()) {
-            StudioDAOFactory cFactory = StudioDAOUtil.getFactory();
             DAOFactory factory = DAOUtil.getFactory();
             Long contestId;
             try {
@@ -34,30 +54,30 @@ public class ViewSubmission extends BaseSubmissionDataProcessor {
                 throw new NavigationException("Invalid Contest Specified");
             }
 
-            Contest c = cFactory.getContestDAO().find(contestId);
+            Project contest = factory.getProjectDAO().find(contestId.intValue());
             Date now = new Date();
-            if (now.before(c.getStartTime()) ||
-                    now.after(c.getEndTime()) ||
-                    !ContestStatus.ACTIVE.equals(c.getStatus().getId())) {
+            if (now.before(contest.getStartTime()) ||
+                    now.after(contest.getEndTime()) ||
+                    !Project.STATUS_ACTIVE.equals(contest.getStatusId())) {
                 throw new NavigationException("Inactive contest specified.");
             }
 
-            User u = factory.getUserDAO().find(getUser().getId());
+            User user = factory.getUserDAO().find(getUser().getId());
 
-            if (cFactory.getContestRegistrationDAO().find(c, u) == null) {
+            Resource resource = RegistrationHelper.getSubmitterResource(contest, user.getId());
+            if (resource == null) {
                 throw new NavigationException("User not registered for the contest");
             }
 
-            boolean hasGlobalAd = true;
             if ("on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
 				getRequest().setAttribute("has_global_ad", PactsServicesLocator.getService().
 					hasGlobalAD(getUser().getId()));
             }
 
-
 			setDefault(Constants.CONTEST_ID, contestId.toString());
 			setDefault(Constants.SUBMISSION_RANK, "1");
-			loadSubmissionData(u, c, cFactory.getSubmissionDAO(), SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE);
+			
+			loadSubmissionData(resource, contest, factory.getSubmissionDAO(), factory.getUploadDAO());
 			setNextPage("/submit.jsp");
 			setIsNextPageInContext(true);
         } else {

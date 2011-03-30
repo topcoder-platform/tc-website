@@ -47,8 +47,18 @@ import java.util.TreeSet;
  *   </ol>
  * </p>
  * 
- * @author isv
- * @version 1.1
+ * <p>
+ * Version 1.2 (Re-platforming Studio Release 3 Assembly) Change notes:
+ *   <ol>
+ *     <li>Added {@link #INFO_ALLOW_STOCK_ART} constant.</li>
+ *     <li>Added {@link #INFO_VIEWABLE_SUBMISSION_FLAG} constant.</li>
+ *     <li>Added {@link #INFO_VIEWABLE_SUBMITTERS} constant.</li>
+ *     <li>Added {@link #getReviewClosed()} method.</li>
+ *   <ol>
+ * </p>    
+ * 
+ * @author isv, pvmagacho
+ * @version 1.2
  */
 public class Project extends Base {
 
@@ -86,6 +96,27 @@ public class Project extends Base {
      */
     public static final Integer INFO_TYPE_MAX_SUBMISSIONS = 51;
 
+    /**
+     * <p>An <code>Integer</code> providing the ID for <code>Allow Stock Arts</code> project info type.</p>
+     * 
+     * @since 1.2
+     */
+    public static final Integer INFO_ALLOW_STOCK_ART = 52;
+
+    /**
+     * <p>An <code>Integer</code> providing the ID for <code>Viewable Submission Flag</code> project info type.</p>
+     * 
+     * @since 1.2
+     */
+    public static final Integer INFO_VIEWABLE_SUBMISSION_FLAG = 53;
+
+    /**
+     * <p>An <code>Integer</code> providing the ID for <code>Viewable Submitters</code> project info type.</p>
+     * 
+     * @since 1.2
+     */
+    public static final Integer INFO_VIEWABLE_SUBMITTERS = 54;
+    
     /**
      * <p>An <code>Integer</code> providing the ID for <code>DR Points</code> project info type.</p>
      * 
@@ -154,7 +185,7 @@ public class Project extends Base {
      * 
      * @since 1.1
      */
-    private Set fileTypes;
+    private Set<FileType> fileTypes;
 
     /**
      * <p>A <code>ProjectCategory</code> providing the category of this project.</p>
@@ -448,6 +479,21 @@ public class Project extends Base {
     }
 
     /**
+     * <p>Indicates whether the Review phase is closed.</p>
+     *
+     * @return true if Review phase is closed, false otherwise
+     * @since 1.2
+     */
+    public Boolean getReviewClosed() {
+    	ProjectPhase reviewPhase = getPhase(ProjectPhase.REVIEW);
+        if (reviewPhase != null) {
+        	log.debug("Return review close " + (reviewPhase.getStatusId() == ProjectPhase.STATUS_CLOSED));
+        	return (reviewPhase.getStatusId() == ProjectPhase.STATUS_CLOSED);
+        }
+        return false;
+    }
+    
+    /**
      * <p>Gets the maximum number of submissions allowed to be submitted for this project by single submitter.</p>
      * 
      * @return an <code>Integer</code> providing the max number of submissions allowed for this project or
@@ -460,6 +506,59 @@ public class Project extends Base {
         } else {
             return null;
         }
+    }
+
+    /**
+     * <p>Gets the allow stock art flag.</p>
+     * 
+     * @return an <code>Integer</code> providing the allow stock art flag. If not set, false is returned.
+     * @since 1.2  
+     */
+    public Boolean getAllowStockArt() {
+    	return parseBooleanInfoType(INFO_ALLOW_STOCK_ART);
+    }
+    
+    /**
+     * <p>Gets the viewable submission flag.</p>
+     * 
+     * @return an <code>Integer</code> providing the viewable submission flag. If not set, false is returned.
+     * @since 1.2  
+     */
+    public Boolean getViewableSubmissions() {
+    	return parseBooleanInfoType(INFO_VIEWABLE_SUBMISSION_FLAG);
+    }
+    
+    /**
+     * <p>Gets the viewable submitter review flag.</p>
+     * 
+     * @return an <code>Integer</code> providing the viewable submitter review flag. If not set, false is returned.
+     * @since 1.2  
+     */
+    public Boolean getViewableSubmitters() {
+    	return parseBooleanInfoType(INFO_VIEWABLE_SUBMITTERS);
+    }
+    
+    /**
+     * <p>Convert the value of the project info type to a boolean value.</p>
+     * 
+     * @param infoType the info type id
+     * @return the boolean value corresponding to the info type. If not set, false is returned.
+     * @since 1.2
+     */
+    private Boolean parseBooleanInfoType(Integer infoType) {
+    	String flag = getInfo(infoType);
+    	if (log.isDebugEnabled()) {
+    			log.debug("Project#parseBooleanInfoType : boolean parse for " + infoType + " = " + flag);
+    	}
+        if ((flag != null) && (flag.trim().length() > 0)) {
+        	try {
+        		return Boolean.parseBoolean(flag);
+        	} catch (NumberFormatException e) {
+        		// ignore
+        	}
+        }
+        
+        return false;
     }
 
     /**
@@ -612,7 +711,7 @@ public class Project extends Base {
      * @return a <code>Set</code> providing the list of file types allowed for submission for this project.
      * @since 1.1
      */
-    public Set getFileTypes() {
+    public Set<FileType> getFileTypes() {
         return this.fileTypes;
     }
 
@@ -685,4 +784,5 @@ public class Project extends Base {
     public void setEventId(Long eventId) {
         this.eventId = eventId;
     }
+
 }

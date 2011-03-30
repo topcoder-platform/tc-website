@@ -1,8 +1,7 @@
-
-
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.studio.model.ContestChannel" %>
 <%@ page import="com.topcoder.web.studio.model.ContestProperty" %>
+<%@ page import="java.util.Date" %>
 <%@ page import="java.util.TreeMap" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="studio" uri="studio.tld" %>
@@ -12,16 +11,14 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<%--@elvariable id="submission" type="com.topcoder.web.studio.model.Submission"--%>
-
 <c:set var="modKey" value="<%=Constants.MODULE_KEY%>"/>
 <c:set var="subId" value="<%=Constants.SUBMISSION_ID%>"/>
 <c:set var="contestId" value="<%=Constants.CONTEST_ID%>"/>
 <c:set var="viewSubmitters" value="<%=ContestProperty.VIEWABLE_SUBMITTERS%>"/>
 <c:set var="subFileIdx" value="<%=Constants.SUBMISSION_FILE_INDEX%>"/>
 
-
-<c:set var="viewSubmitters" value="${contest.configMap[viewSubmitters]}"/>
+<c:set var="currentTime" value="<%=new Date()%>"/>
+<c:set var="viewSubmitters" value="${contest.viewableSubmitters}"/>
 <c:set var="module" value="${param[modKey]}"/>
 
 <c:set var="rows" value="${submissions}"/>
@@ -94,7 +91,7 @@
             &gt;
         </c:otherwise>
     </c:choose>
-    ${contest.name}
+    ${contest.projectName}
 </div>
 
 
@@ -140,7 +137,7 @@
                         <div class="submission-action-left-bottom">
                             <h3 class="submission-caption">Submission #${sbmid} from
                                 <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${contest.id}">
-                                        ${contest.name}
+                                        ${contest.projectName}
                                 </a>
                             </h3>
 
@@ -153,7 +150,7 @@
                                 <studio:forumLink forumID="${contest.forumId}" styleClass="btn-orange"
                                                   message="<span class=\"right-side\"><span class=\"text\">Forum</span></span>"/>
 
-                                <c:set var="winnersAvailable" value="${not empty contest.results}"/>
+								<c:set var="winnersAvailable" value="${contest.reviewClosed}"/>
                                 <c:set var="winnersPath"
                                        value="${sessionInfo.servletPath}?module=ViewContestResults&amp;${contestId}=${contest.id}"/>
                                 <a href="${winnersAvailable ? winnersPath : 'javascript:'}"
@@ -271,8 +268,8 @@
     <!--End .button-line-->
     <div class="submission-file-info">
         <h4 class="submission-number">Submission #${sbmid}</h4>
-		<c:if test="${winnersAvailable}">
-        <span class="author">by <studio:handle coderId="${submission.submitter.id}"/></span>
+		<c:if test="${viewSubmitters}">
+        	<span class="author">by <studio:handle coderId="${submission.submitterId}"/></span>
         </c:if>
 
         <div class="list-wrapper">

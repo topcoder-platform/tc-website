@@ -1,9 +1,10 @@
 /*
- * Copyright (C) 2008 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2008 - 2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.studio.util;
 
-import com.topcoder.web.studio.model.StudioFileType;
+import com.topcoder.web.common.model.comp.FileType;
+import com.topcoder.web.common.model.comp.Project;
 import com.topcoder.web.studio.validation.UnifiedSubmissionValidator;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.shared.util.logging.Logger;
@@ -21,16 +22,25 @@ import java.util.HashMap;
 
 /**
  * <p>
- * An analyzer for <code>ZIP</code> archives. Maps to
- * {@link StudioFileType#ZIP_ARCHIVE_TYPE_ID} file type.
+ * An analyzer for <code>ZIP</code> archives. Maps to {@link StudioFileType#ZIP_ARCHIVE_TYPE_ID} file type.
  * </p>
  * 
- * @author isv
- * @version 1.0
+ * <p>
+ *   Version 1.1 (Re-platforming Studio Release 3 Assembly) Change notes:
+ *   <ol>
+ *     <li>Updated the logic to use contests hosted in <code>tcs_catalog</code> database instead of
+ *     <code>studio_oltp</code> database.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author isv, pvmagacho
+ * @version 1.1
  * @since TopCoder Studio Modifications Assembly (Req# 5.7)
  */
 public class ZipFileAnalyzer implements BundledFileAnalyzer {
-
+	/**
+	 * <p>Log instance used for logging messages.</p>
+	 */
 	private static final Logger log = Logger.getLogger(ZipFileAnalyzer.class);
 
 	/**
@@ -135,15 +145,22 @@ public class ZipFileAnalyzer implements BundledFileAnalyzer {
 	 * image in analyzed file.
 	 * </p>
 	 */
-	protected StudioFileType previewImageFileType = null;
+	protected FileType previewImageFileType = null;
 
+	
+	/**
+	 * <p>Represents the <code>Project</code> the file is associated to.</p>
+	 */
+	protected Project project;
+	
 	/**
 	 * <p>
 	 * Constructs new <code>SubmissionValidator$ZipFileAnalyzer</code> instance.
 	 * This implementation does nothing.
 	 * </p>
 	 */
-	public ZipFileAnalyzer() {
+	public ZipFileAnalyzer(Project project) {
+		this.project = project;
 	}
 
 	/**
@@ -284,12 +301,12 @@ public class ZipFileAnalyzer implements BundledFileAnalyzer {
 	 * Gets the file type for preview image if available from the analyzed file.
 	 * </p>
 	 * 
-	 * @return a <code>StudioFileType</code> representing the filee type for
+	 * @return a <code>StudioFileType</code> representing the file type for
 	 *         preview image in the bundled submission.
 	 * @throws IllegalStateException
 	 *             if the bundled submission is not available in analyzed file.
 	 */
-	public StudioFileType getPreviewImageFileType() {
+	public FileType getPreviewImageFileType() {
 		if (!this.previewImageProvided) {
 			throw new IllegalStateException(
 					"There is no preview image available from the submission");
@@ -411,11 +428,19 @@ public class ZipFileAnalyzer implements BundledFileAnalyzer {
 						}
 					} else if (entryName.startsWith(SUBMISSION_PATH_SLASHED
 							.toUpperCase())) {
-						StudioFileType fileType = UnifiedSubmissionValidator
-								.getFileType(entry.getName());
+						FileType fileType = UnifiedSubmissionValidator.getFileType(entry.getName(), this.project);
 						if (fileType != null) {
+							if (log.isDebugEnabled()) {
+								StringBuilder b = new StringBuilder(100);
+								b.append(entry.getName()).append(" ");
+								b.append(this.previewImageProvided).append(" ");
+								b.append(this.previewFileProvided).append(" ");
+								b.append(fileType.getImageFile()).append(" ");
+								log.debug(b);
+							}
+
 							if (!this.previewImageProvided
-									&& fileType.isImageFile()) {
+									&& fileType.getImageFile()) {
 								this.previewImageProvided = true;
 								this.previewImagePath = entry.getName();
 								this.previewImageFileType = fileType;
@@ -423,7 +448,7 @@ public class ZipFileAnalyzer implements BundledFileAnalyzer {
 									this.previewImageContent = retrieveFileContent(content);
 								}
 							} else if (!this.previewFileProvided
-									&& fileType.isBundledFile()) {
+									&& fileType.getBundled()) {	
 								this.previewFileProvided = true;
 								this.previewFilePath = entry.getName();
 								if (retrieveFiles) {

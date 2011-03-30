@@ -10,7 +10,10 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.SecurityHelper;
+import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.model.comp.Project;
 import com.topcoder.web.studio.Constants;
+import com.topcoder.web.studio.model.FilePath;
 
 import java.util.Iterator;
 
@@ -33,9 +36,17 @@ import java.util.Iterator;
  *     database instead of <code>studio_oltp</code> database.</li>
  *   </ol>
  * </p>
- *
- * @author isv, pulky, isv
- * @version 1.2
+ * 
+ * <p>
+ * Version 1.3 (Re-platforming Studio Release 2 Assembly) Change notes:
+ *   <ol>
+ *     <li>Added {@link #createSubmissionFilePath(Project, User)} method. This method will return the file path to save submission
+ *     files.</li>
+ *   </ol>
+ * </p>
+
+ * @author isv, pulky, isv, pvmagacho
+ * @version 1.3
  * @since TopCoder Studio Modifications Assembly v2
  */
 public class Util {
@@ -103,5 +114,30 @@ public class Util {
             found = ((TCPrincipal) it.next()).getId() == Constants.CONTEST_ADMIN_ROLE_ID;
         }
         return found;
+    }
+    
+    
+    /**
+     * <p>Create the file path to store the submission files.</p>
+     * 
+     * @param c the submission contest 
+     * @param u the owner of the submission
+     * @return the submission path
+     * @since 1.3
+     */
+    public static String createSubmissionPath(Project c, User u) {
+		StringBuffer buf = new StringBuffer(80);
+		buf.append(Constants.ROOT_STORAGE_PATH);
+		buf.append(System.getProperty("file.separator"));
+		buf.append(Constants.SUBMISSIONS_DIRECTORY_NAME);
+		buf.append(System.getProperty("file.separator"));
+		buf.append(c.getId());
+		buf.append(System.getProperty("file.separator"));
+		buf.append(u.getHandle().toLowerCase());
+		buf.append("_");
+		buf.append(u.getId());
+		buf.append(System.getProperty("file.separator"));
+
+		return buf.toString();
     }
 }

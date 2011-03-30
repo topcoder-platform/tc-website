@@ -49,7 +49,7 @@ public class MultipartRequest extends SimpleRequest {
         }
 
         if (log.isDebugEnabled()) {
-            log.debug("created file upload object");
+            log.debug("created file upload object with dir " + dir);
         }
     }
 

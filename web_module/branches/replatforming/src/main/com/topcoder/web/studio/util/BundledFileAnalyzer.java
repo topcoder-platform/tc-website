@@ -3,7 +3,7 @@
  */
 package com.topcoder.web.studio.util;
 
-import com.topcoder.web.studio.model.StudioFileType;
+import com.topcoder.web.common.model.comp.FileType;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,8 +14,16 @@ import java.util.Map;
  * application. Such analyzers are provided with a content of the bundled file and are responsible for parsing that
  * content in accordance with file type specific format and retrieving any necessary details.</p>
  *
- * @author isv
- * @version 1.0
+ * <p>
+ *   Version 1.1 (Re-platforming Studio Release 3 Assembly) Change notes:
+ *   <ol>
+ *     <li>Updated the logic to use contests hosted in <code>tcs_catalog</code> database instead of
+ *     <code>studio_oltp</code> database.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author isv, pvmagacho
+ * @version 1.1
  * @since TopCoder Studio Modifications Assembly (Req# 5.6, 5.7)
  */
 public interface BundledFileAnalyzer {
@@ -92,7 +100,7 @@ public interface BundledFileAnalyzer {
      * @return a <code>StudioFileType</code> representing the filee type for preview image in the bundled submission.
      * @throws IllegalStateException if the bundled submission is not available in analyzed file.
      */
-    StudioFileType getPreviewImageFileType();
+    FileType getPreviewImageFileType();
 
     /**
      * <p>Gets the details for the files bundled within the specified content of the bundled file.</p>

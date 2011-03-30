@@ -1,7 +1,7 @@
 <%--
-  - Author: pulky, TCSDEVELOPER
-  - Version: 1.2
-  - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
+  - Author: pulky, TCSDEVELOPER, pvmagacho
+  - Version: 1.3
+  - Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page lists all submissions for a given contest.
   -
@@ -13,6 +13,8 @@
   -    * Pagination and thumbnails controls added.
   - Version 1.2 (Studio Contest Detail Pages Assembly version 1.0) changes:
   -     - Applied new L&F
+  - Version 1.3 (Re-platforming Studio Release 3 Assembly) changes:
+  -	- Updated the logic to use contests hosted in tcs_catalog
 --%>
 
 <%@ page import="com.topcoder.web.studio.Constants" %>
@@ -27,10 +29,8 @@
 <c:set var="modKey" value="<%=Constants.MODULE_KEY%>"/>
 <c:set var="subId" value="<%=Constants.SUBMISSION_ID%>"/>
 <c:set var="contestId" value="<%=Constants.CONTEST_ID%>"/>
-<c:set var="viewSubmitters" value="<%=ContestProperty.VIEWABLE_SUBMITTERS%>"/>
 <c:set var="servletPath" value="${sessionInfo.servletPath}"/>
-
-<c:set var="viewSubmitters" value="${contest.configMap[viewSubmitters]}"/>
+<c:set var="viewSubmitters" value="${contest.viewableSubmitters}"/>
 
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -106,7 +106,7 @@
                         </jsp:include>
 
                         <c:choose>
-                            <c:when test="${contest.status.id==11}">
+                            <c:when test="${contest.statusId==3}">
                                 <div id="content"> 
                                   <div class="contentTop"> 
                                     <div class="contentMiddle"> 
@@ -127,7 +127,7 @@
                                   </div>
                                 </div>                                                                
                             </c:when>
-                            <c:when test="${contest.status.id==10}">
+                            <c:when test="${contest.statusId==3}">
                                 <div id="content"> 
                                   <div class="contentTop"> 
                                     <div class="contentMiddle"> 
@@ -163,7 +163,7 @@
                                                         <td>
                                                             <studio_tags:submissionPreview
                                                                 row="${resultRow}" showPlacement="false"
-                                                                viewSubmitters="${viewSubmitters}"/>
+                                                                viewSubmitters="${contest.viewableSubmitters}"/>
                                                         </td>
                                                         <c:if test="${i % 4 == 0}">
                                                             </tr><tr>
