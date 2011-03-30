@@ -117,7 +117,9 @@ public class AgreeToTermsServlet extends BaseServlet {
                 //For now, we force the terms id.
                 //20873 PayPal
                 //20883 Alcatel-Lucent
-                if ((termsId != 20873) && (termsId != 20883) && (termsId != 20903)) throw new RuntimeException("bad terms");
+                // 20903 DARPA
+                // 20923 BBM
+                if ((termsId != 20873) && (termsId != 20883) && (termsId != 20903) && (termsId != 20923)) throw new RuntimeException("bad terms");
 
                 UserTermsOfUse userTermsOfUse = UserTermsOfUseLocator.getService();
                 if (userTermsOfUse.hasTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
@@ -130,6 +132,10 @@ public class AgreeToTermsServlet extends BaseServlet {
                     else if(termsId==20903)
                     {
                          notify(tcRequest,tcResponse,authentication,notify, 16);
+                    }
+                    else if(termsId==20923)
+                    {
+                         notify(tcRequest,tcResponse,authentication,notify, 17);
                     }
                     response.getOutputStream().println(cb == null ? "<response>already agreed</response>" : cb + "({\"response\":\"already agreed\"})");
                 } else if(agree){ //BUGR-4218: only attempt to agree to the terms if agree=true
@@ -144,6 +150,10 @@ public class AgreeToTermsServlet extends BaseServlet {
                         else if(termsId==20903)
                         {
                              notify(tcRequest,tcResponse,authentication,notify, 16);
+                        }
+                        else if(termsId==20923)
+                        {
+                             notify(tcRequest,tcResponse,authentication,notify, 17);
                         }
                         response.getOutputStream().println(cb == null ? "<response>success</response>" : cb + "({\"response\":\"success\"})");
                     } catch (Exception e) {

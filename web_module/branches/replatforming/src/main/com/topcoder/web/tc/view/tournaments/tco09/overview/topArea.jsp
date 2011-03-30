@@ -15,9 +15,9 @@
             <div class="spotLightBottom"><div class="spotLightTop">
                 <div id="spotLightContentInner">
                     <a href="/i/tournament/tco09/TCO09-Program.pdf" id="programButton" class="spotlightButton" title="Program"><span>Program</span></a><br />
-                    <a href="http://www.topcoder.com/tco09/blog/" id="blogButton" class="spotlightButton" title="Blog"><span>Blog</span></a><br />
-                    <a href="http://www.topcoder.com/tco09/blog/photos/" id="photosButton" class="spotlightButton" title="Photos"><span>Photos</span></a><br />
-                    <a href="http://www.topcoder.com/tco09/blog/movies/" id="moviesButton" class="spotlightButton" title="Movie"><span>Movie</span></a>
+                    <a href="http://topcoder.com/home/tco09/" id="blogButton" class="spotlightButton" title="Blog"><span>Blog</span></a><br />
+                    <a href="http://topcoder.com/home/tco09/photos/" id="photosButton" class="spotlightButton" title="Photos"><span>Photos</span></a><br />
+                    <a href="http://topcoder.com/home/tco09/movies/" id="moviesButton" class="spotlightButton" title="Movie"><span>Movie</span></a>
                 </div><!-- End #spotLightContentInner -->
             
             </div></div>

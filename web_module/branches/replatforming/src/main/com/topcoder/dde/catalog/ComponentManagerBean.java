@@ -1186,7 +1186,7 @@ public class ComponentManagerBean
                             new Timestamp(versionDateInfo.getFinalSubmissionDate().getTime()),
                             new Timestamp(versionDateInfo.getWinnerAnnouncedDate().getTime()),
                             estimatedDevDate,
-                            null, versionDateInfo.getStatusId(), versionDateInfo.getLevelId(),
+                            0.0, versionDateInfo.getStatusId(), versionDateInfo.getLevelId(),
 //                            versionDateInfo.getPrice(), versionDateInfo.getStatusId(), versionDateInfo.getLevelId(),
                             screeningDate, phaseCompleteDate, aggregationCompleteDate, reviewCompleteDate,
                             versionDateInfo.getPhaseCompleteDateComment(),
@@ -1205,7 +1205,7 @@ public class ComponentManagerBean
                             new Timestamp(versionDateInfo.getFinalSubmissionDate().getTime()),
                             new Timestamp(versionDateInfo.getWinnerAnnouncedDate().getTime()),
                             estimatedDevDate,
-                            null, versionDateInfo.getStatusId(), versionDateInfo.getLevelId(),
+                            0.0, versionDateInfo.getStatusId(), versionDateInfo.getLevelId(),
 //                            versionDateInfo.getPrice(), versionDateInfo.getStatusId(), versionDateInfo.getLevelId(),
                             screeningDate, phaseCompleteDate, aggregationCompleteDate, reviewCompleteDate,
                             versionDateInfo.getPhaseCompleteDateComment(),
@@ -1233,7 +1233,7 @@ public class ComponentManagerBean
                             new Timestamp(versionDateInfo.getWinnerAnnouncedDate().getTime()),
                             estimatedDevDate,
 //                            versionDateInfo.getPrice(), versionDateInfo.getStatusId(), versionDateInfo.getLevelId(),
-                            null, versionDateInfo.getStatusId(), versionDateInfo.getLevelId(),
+                            0.0, versionDateInfo.getStatusId(), versionDateInfo.getLevelId(),
                             screeningDate, phaseCompleteDate, aggregationCompleteDate, reviewCompleteDate,
                             versionDateInfo.getPhaseCompleteDateComment(),
                             versionDateInfo.getAggregationCompleteDateComment(),
@@ -1251,7 +1251,7 @@ public class ComponentManagerBean
                             new Timestamp(versionDateInfo.getFinalSubmissionDate().getTime()),
                             new Timestamp(versionDateInfo.getWinnerAnnouncedDate().getTime()),
                             estimatedDevDate,
-                            null, versionDateInfo.getStatusId(), versionDateInfo.getLevelId(),
+                            0.0, versionDateInfo.getStatusId(), versionDateInfo.getLevelId(),
 //                            versionDateInfo.getPrice(), versionDateInfo.getStatusId(), versionDateInfo.getLevelId(),
                             screeningDate, phaseCompleteDate, aggregationCompleteDate, reviewCompleteDate,
                             versionDateInfo.getPhaseCompleteDateComment(),
@@ -1279,7 +1279,7 @@ public class ComponentManagerBean
                 versionDatesBean.setWinnerAnnouncedDate(
                         new Timestamp(versionDateInfo.getWinnerAnnouncedDate().getTime()));
                 versionDatesBean.setEstimatedDevDate(estimatedDevDate);
-                versionDatesBean.setPrice(null);
+                versionDatesBean.setPrice(0.0);
 //                versionDatesBean.setPrice(versionDateInfo.getPrice());
                 versionDatesBean.setStatusId(versionDateInfo.getStatusId());
                 log.debug("level id" + versionDateInfo.getLevelId());
@@ -1311,7 +1311,7 @@ public class ComponentManagerBean
                             new Timestamp(versionDateInfo.getFinalSubmissionDate().getTime()),
                             new Timestamp(versionDateInfo.getWinnerAnnouncedDate().getTime()),
                             estimatedDevDate,
-                            null, versionDateInfo.getStatusId(), versionDateInfo.getLevelId(),
+                            0.0, versionDateInfo.getStatusId(), versionDateInfo.getLevelId(),
 //                            versionDateInfo.getPrice(), versionDateInfo.getStatusId(), versionDateInfo.getLevelId(),
                             screeningDate, phaseCompleteDate, aggregationCompleteDate, reviewCompleteDate,
                             versionDateInfo.getPhaseCompleteDateComment(),

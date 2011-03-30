@@ -71,7 +71,7 @@ String section = request.getParameter("section") == null ? "" : request.getParam
                 <li><a href="/?module=Static&amp;d1=support&amp;d2=getStarted" <% if (section.equals("howitworks")) {%> class="active"<% } %>>How It Works</a></li>
                 <li><a href="/?module=Static&d1=digitalrun&d2=2008v2&d3=home" <% if (section.equals("cup")) {%> class="active"<% } %>>Studio Cup</a></li>
                 <li><a href="/?module=MyStudioHome" <% if (section.equals("my_studio")) {%> class="active"<% } %>>My Studio</a></li>
-                <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/home/studio/" <% if (section.equals("blog")) {%> class="active"<% } %>>Blog</a></li>
+                <li><a href="http://community.topcoder.com/studio/" <% if (section.equals("blog")) {%> class="active"<% } %>>Blog</a></li>
                 <li><a href="/?module=Static&amp;d1=portfolio&amp;d2=portfolio" <% if (section.equals("portfolio")) {%> class="active"<% } %>>Portfolio</a></li>
                 <li class="right"><a href="/?module=Static&amp;d1=contactUs" <% if (section.equals("contact")) {%> class="active"<% } %>>Contact Studio</a></li>
             </ul>

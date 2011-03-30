@@ -121,6 +121,17 @@
 				</div>
 				<a href="http://topcoder.com/home/lets-talk/">Contact Us</a>
 				</li>
+                <li id="blog">
+                <div class="tip hide">
+                        <div class="tipContent">
+                                <p>
+                                        Read about virtualization!
+                                </p>
+                        </div>
+                        <span class="tipArrow"></span>
+                </div>
+                <a href="http://info.topcoder.com/blog">Blog</a>
+                </li>
 				<li id="register">
 				<div class="tip hide">
 					<div class="tipContent">
@@ -449,6 +460,21 @@
 	<!-- end #mainContent -->
 </div>
 <!-- end #outlay -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-6340959-1']);
+  _gaq.push(['_setDomainName', '.topcoder.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 
 <!-- Start of HubSpot Logging Code  -->
 <script type="text/javascript" language="javascript">

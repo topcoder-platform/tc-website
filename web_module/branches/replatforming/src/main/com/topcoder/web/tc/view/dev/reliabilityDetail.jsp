@@ -195,7 +195,7 @@
         </td>
         <td class="headerC" nowrap="nowrap" width="20%">
             Resolution Date
-        </td>	
+        </td>   
         <td class="headerC" width="10%">
             Reliability After Resolution
         </td>
@@ -234,7 +234,7 @@
             </td>
             <td class="valueC" nowrap="nowrap">
                 <rsc:item name="resolution_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z"/>
-            </td>	    
+            </td>       
             <td class="valueC">
                 <rsc:item name="new_reliability" row="<%=resultRow%>" format="0.00%" ifNull="&#160;"/>
             </td>
@@ -243,9 +243,9 @@
             </td>
             <td class="valueC">
                 <rsc:item name="reliability_on_registration" row="<%=resultRow%>" format="0.00%" ifNull="N/A"/>
-            </td>	    
+            </td>       
 
-	</tr>
+    </tr>
         <% even = !even;%>
     </rsc:iterator>
 </table>

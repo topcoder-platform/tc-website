@@ -442,34 +442,21 @@ $(document).ready(function(){
         </div><%-- .wrapper ends --%>
     </div><%-- #footer ends --%>
 
-<%-- Google Analytics --%>
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-var pageTracker = _gat._getTracker("UA-6340959-1");
-pageTracker._trackPageview();
-</script>
 
-
-<!-- Performable Analytics -->
-<%
-    if (handle != null && !handle.equals("") && !handle.equals("anonymous")) {
-%>
 <script type="text/javascript">
 
-    var _paq = _paq || [];
- 
-    _paq.push(["identify", {
-    id: "<%=handle %>"
-    }]);
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-6340959-1']);
+  _gaq.push(['_setDomainName', '.topcoder.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
 </script>
-
-<%}%>
-
-<script src="//d1nu2rn22elx8m.cloudfront.net/performable/pax/4wrbNk.js" type="text/javascript"></script>
-
 
 </body>
 </html>

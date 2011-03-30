@@ -66,8 +66,8 @@
                     
                     <!-- Begin Main Content -->
                     
-					<h1>GEICO Landing Page</h1>
-						<p>1 Contest July 2008</p>
+					<h1>GEICO</h1>
+						<p>1 Contest Highlighted</p>
 						<p>1 Storyboard/Landing Page Contest</p>
 						<div class="clear"></div>
 						

@@ -69,7 +69,7 @@
                     
 					<h1>LendingTree: Banner Ad Contest</h1>
 						
-						<p>2 Contests in May 2008</p>
+						<p>2 Contests Highlighted</p>
 						<p>2 Banner Ad Contests</p>
 						<div class="clear"></div>
 						
