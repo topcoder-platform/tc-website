@@ -133,7 +133,7 @@
       <td class="value">23
 	     <div class="tco11">
          <div class="emblem"><img src="/i/tournament/tco11/emblem.png" alt="TCO10" /></div>
-         <strong><A href="http://community.topcoder.com/tco11/algorithm/algorithm-schedule/">Algorithm Registration Ends</A></strong><br />
+         <strong><A href="http://community.topcoder.com/tco11/algorithm/">Algorithm Registration Ends</A></strong><br />
          09:00
          </div>
 	     <div class="tco11">
