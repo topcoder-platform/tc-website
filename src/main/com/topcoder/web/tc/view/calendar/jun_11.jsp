@@ -111,6 +111,11 @@
       <td class="value">17
       </td>
       <td class="value">18
+	  	<div class="tco11">
+         <div class="emblem"><img src="/i/tournament/tco11/emblem.png" alt="TCO10" /></div>
+         <strong><A href="http://community.topcoder.com/tco11/algorithm/algorithm-schedule/">Algorithm Round 1</A></strong><br />
+         12:00
+         </div>
       </td>
    </tr>
    
@@ -132,6 +137,11 @@
       <td class="value">24
       </td>
       <td class="value">25
+	  	  	<div class="tco11">
+         <div class="emblem"><img src="/i/tournament/tco11/emblem.png" alt="TCO10" /></div>
+         <strong><A href="http://community.topcoder.com/tco11/algorithm/algorithm-schedule/">Algorithm Round 2</A></strong><br />
+         12:00
+         </div>
       </td>
    </tr>
    
