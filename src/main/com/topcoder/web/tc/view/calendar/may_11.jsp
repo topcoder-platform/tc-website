@@ -97,6 +97,11 @@
       <td class="value">13
       </td>
       <td class="value">14
+	     <div class="tco11">
+         <div class="emblem"><img src="/i/tournament/tco11/emblem.png" alt="TCO11" /></div>
+         <strong><A href="http://community.topcoder.com/tco11/algorithm/algorithm-schedule/">Algorithm Qualification Round 1</A></strong><br />
+         12:00
+         </div>
       </td>
    </tr>
    
@@ -110,6 +115,11 @@
       <td class="value">18
       </td>
       <td class="value">19
+	     <div class="tco11">
+         <div class="emblem"><img src="/i/tournament/tco11/emblem.png" alt="TCO11" /></div>
+         <strong><A href="http://community.topcoder.com/tco11/algorithm/algorithm-schedule/">Algorithm Qualification Round 2</A></strong><br />
+         07:00
+         </div>
       </td>
       <td class="value">20
       </td>
@@ -121,10 +131,26 @@
       <td class="value">22
       </td>
       <td class="value">23
+	     <div class="tco11">
+         <div class="emblem"><img src="/i/tournament/tco11/emblem.png" alt="TCO10" /></div>
+         <strong><A href="http://community.topcoder.com/tco11/algorithm/algorithm-schedule/">Algorithm Registration Ends</A></strong><br />
+         09:00
+         </div>
+	     <div class="tco11">
+         <div class="emblem"><img src="/i/tournament/tco11/emblem.png" alt="TCO11" /></div>
+         <strong><A href="http://community.topcoder.com/tco11/algorithm/algorithm-schedule/">Algorithm Qualification Round 3</A></strong><br />
+         21:00
+         </div>
       </td>
       <td class="value">24
       </td>
       <td class="value">25
+	  	<div class="tco11">
+        <div class="emblem"><img src="/i/tournament/tco11/emblem.png" alt="TCO11" /></div>
+        <strong><A href="http://community.topcoder.com/tco11/marathon/marathon-schedule/">Marathon Round 2</A></strong><br />
+        13:00<br />
+        2 weeks
+         </div>
       </td>
       <td class="value">26
       </td>
