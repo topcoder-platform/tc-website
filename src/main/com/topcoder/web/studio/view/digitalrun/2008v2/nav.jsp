@@ -32,6 +32,11 @@
     <% } else { %>
         | <a class="bcLink" href="/?module=Static&amp;d1=digitalrun&amp;d2=2008v2&amp;d3=overview">Overview</a>
     <% } %>
+    <% if (tabLev2.equals("2011_tournament")) {%>
+        | 2011 Tournament
+    <% } else { %>
+        | <a class="bcLink" href="/?module=Static&amp;d1=digitalrun&amp;d2=2008v2&amp;d3=2011_tournament">2011 Tournament</a>
+    <% } %>
     <% if (tabLev2.equals("schedule")) {%>
         | Schedule
     <% } else { %>

@@ -197,7 +197,7 @@ TopCoder's accomplished management team includes some of the most successful pro
     George Tsipolitis manages TopCoder's Software Development and Events divisions which use competition to build software applications for clients.
     </p>
     <p>
-   	Tsipolitis joined TopCoder in September 2001 as Vice President of Development t where he architected and managed the development of TopCoder's patented algorithm competition software. He also managed the distributed process of software development projects through the use of the TopCoder member base.  Prior to joining TopCoder, Tsipolitis was Senior Project Manager with Tallán. Tsipolitis holds a business degree from the University of Connecticut where his focus was on Information Systems.
+   	Tsipolitis joined TopCoder in September 2001 as Vice President of Development where he architected and managed the development of TopCoder's patented algorithm competition software. He also managed the distributed process of software development projects through the use of the TopCoder member base.  Prior to joining TopCoder, Tsipolitis was Senior Project Manager with Tallán. Tsipolitis holds a business degree from the University of Connecticut where his focus was on Information Systems.
     </p>
     
 </div>

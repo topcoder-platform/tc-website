@@ -1211,6 +1211,32 @@ public class ForumsBean extends BaseEJB {
 					throw srce;
 				}
 
+                PreparedStatement forumsCommentMsg = forumsConn
+					.prepareStatement("select comment_id from jivemessage jm, comment_message_xref x "
+                     + "  where threadid = " + threadId + "  and jm.messageid = x.message_id and jm.parentmessageid is null ");
+
+                ResultSet rsCommentMsg = forumsCommentMsg.executeQuery();
+                long commentId = 0;
+                boolean commentIdFound = false;
+
+                if (rsCommentMsg.next()) {
+
+                    commentIdFound = true;
+                    commentId = rsCommentMsg.getLong("comment_id");
+			    }
+
+                if (!commentIdFound) {
+
+						ForumsException srce = new ForumsException("Could not find the comment id for thread/message with id "
+								+ threadId + "!");
+						logException(srce, "Comment id for thread/message with id " + threadId
+								+ " was NOT found in forum with id " + forum.getID() + "!");
+						throw srce;
+				}
+
+                rsCommentMsg.close();
+                forumsCommentMsg.close();
+
 				// iterate over all messages in thread with given 'threadId'
 				for (Iterator iter = thread.getMessages(); iter.hasNext();) {
 
@@ -1220,30 +1246,16 @@ public class ForumsBean extends BaseEJB {
 					long messageId = message.getID();
 
 					// retrieve comment ID for given 'messageId'
-					PreparedStatement forumsCommentMsg = forumsConn
+					/*PreparedStatement forumsCommentMsg = forumsConn
 							.prepareStatement("select comment_id from comment_message_xref c "
 									+ "where c.message_id = " + messageId);
-					ResultSet rsCommentMsg = forumsCommentMsg.executeQuery();
-
+					
 					boolean commentIdFound = false;
-
-					while (rsCommentMsg.next()) {
-
-						commentIdFound = true;
-						userComment.setCommentId(rsCommentMsg.getLong("comment_id"));
-					}
 					rsCommentMsg.close();
-					forumsCommentMsg.close();
+					forumsCommentMsg.close();*/
 
-					if (!commentIdFound) {
-
-						ForumsException srce = new ForumsException("Could not find the comment id for message with id "
-								+ messageId + "!");
-						logException(srce, "Comment id for message with id " + messageId
-								+ " was NOT found in forum with id " + forum.getID() + "!");
-						throw srce;
-					}
-
+					
+                    userComment.setCommentId(commentId);
 					userComment.setCommentDate(message.getModificationDate());
 					userComment.setCommentBy(message.getUser().getName());
 

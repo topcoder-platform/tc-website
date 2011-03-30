@@ -68,7 +68,7 @@
                     
 					<h1>ESPN Winning Formula Challenge</h1>
 						
-						<p>4 Contests beginning in July 2008 and ending in August 2008</p>
+						<p>4 Contests Highlighted</p>
 						<p>2 Storyboard Contests, 2 Banner Ad Contests</p>
 						<div class="clear"></div>
 						
