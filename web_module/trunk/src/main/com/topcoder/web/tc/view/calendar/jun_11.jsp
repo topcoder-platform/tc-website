@@ -42,7 +42,7 @@
     <a href="/tc?module=BasicRSS&amp;c=rss_Pipeline&amp;dsid=28"><img src="/wiki/images/icons/rss.gif" alt="RSS" align="absmiddle" /></a>
 </div>
 
-<strong><a href="/tc?module=Static&amp;d1=calendar&amp;d2=may_11" class="prevNext">&lt; prev</a> <%--<a href="/tc?module=Static&amp;d1=calendar&amp;d2=jul_10" class="prevNext">next &gt;</a>--%></strong>
+<strong><a href="/tc?module=Static&amp;d1=calendar&amp;d2=may_11" class="prevNext">&lt; prev</a> <a href="/tc?module=Static&amp;d1=calendar&amp;d2=jul_11" class="prevNext">next &gt;</a></strong>
 <jsp:include page="dropdown.jsp" >
 <jsp:param name="currMonth" value="jun_11"/>
 </jsp:include>
@@ -112,7 +112,7 @@
       </td>
       <td class="value">18
 	  	<div class="tco11">
-         <div class="emblem"><img src="/i/tournament/tco11/emblem.png" alt="TCO10" /></div>
+         <div class="emblem"><img src="/i/tournament/tco11/emblem.png" alt="TCO11" /></div>
          <strong><A href="http://community.topcoder.com/tco11/algorithm/algorithm-schedule/">Algorithm Round 1</A></strong><br />
          12:00
          </div>
@@ -138,7 +138,7 @@
       </td>
       <td class="value">25
 	  	  	<div class="tco11">
-         <div class="emblem"><img src="/i/tournament/tco11/emblem.png" alt="TCO10" /></div>
+         <div class="emblem"><img src="/i/tournament/tco11/emblem.png" alt="TCO11" /></div>
          <strong><A href="http://community.topcoder.com/tco11/algorithm/algorithm-schedule/">Algorithm Round 2</A></strong><br />
          12:00
          </div>
