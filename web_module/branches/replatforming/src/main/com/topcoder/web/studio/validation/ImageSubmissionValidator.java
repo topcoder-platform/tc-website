@@ -74,7 +74,7 @@ public class ImageSubmissionValidator implements Validator {
         try {
             arr = new byte[(int) submission.getSize()];
             ret = submission.getInputStream().read(arr);
-            ft = UnifiedSubmissionValidator.getFileType(submission.getRemoteFileName(), this.project);
+            ft = UnifiedSubmissionValidator.getFileType(submission.getRemoteFileName());
         } catch (FileDoesNotExistException e) {
             log.warn("Communication error when receiving submission.", e);
             return new BasicResult(false, "Communication error when receiving submission.");

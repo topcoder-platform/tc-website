@@ -1,9 +1,7 @@
 /*
- * Copyright (C) 2008 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2008 - 2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.studio.util;
-
-import com.topcoder.web.common.model.comp.Project;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,8 +30,8 @@ public class JarFileAnalyzer extends ZipFileAnalyzer {
      * <p>Constructs new <code>SubmissionValidator$JarFileAnalyzer</code> instance. This implementation does
      * nothing.</p>
      */
-    public JarFileAnalyzer(Project project) {
-    	super(project);
+    public JarFileAnalyzer() {
+    	super();
     }
 
     /**

@@ -7,6 +7,7 @@ import com.topcoder.servlet.request.FileDoesNotExistException;
 import com.topcoder.servlet.request.PersistenceException;
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.comp.FileType;
 import com.topcoder.web.common.model.comp.Project;
@@ -24,7 +25,7 @@ import com.topcoder.web.studio.util.ZipFileAnalyzer;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.text.MessageFormat;
-import java.util.Set;
+import java.util.List;
 
 /**
  * <p>A validator for the submission files submitted by the users to server in context of specific contest. Implements
@@ -107,7 +108,7 @@ public class UnifiedSubmissionValidator implements Validator {
             // files. Req# 5.6
             BundledFileAnalyzer fileParser;
 			try {
-				fileParser = getBundledFileParser(submission.getRemoteFileName(), this.project);
+				fileParser = getBundledFileParser(submission.getRemoteFileName());
 			} catch (PersistenceException e) {
 	            log.warn("Error getting bundled file parser.", e);
 	            return new BasicResult(false, "Error getting bundled file parser.");
@@ -174,8 +175,8 @@ public class UnifiedSubmissionValidator implements Validator {
      *         <code>null</code> if the type of the entry is not recognized.
      * @since TopCoder Studio Modifications Assembly (Req# 5.7, 5.11)
      */
-    public static FileType getFileType(String fileName, Project project) {
-        Set<FileType> fileTypes = project.getFileTypes();
+    public static FileType getFileType(String fileName) {
+        List<FileType> fileTypes = DAOUtil.getFactory().getFileTypeCatalogDAO().getFileTypes();
         int pos = fileName.lastIndexOf('.');
         String extension = fileName.substring(pos + 1);
         for (FileType fileType : fileTypes) {
@@ -212,16 +213,16 @@ public class UnifiedSubmissionValidator implements Validator {
      *         parser mapped to specified mime type.
      * @since Studio Submission Slideshow
      */
-    public static BundledFileAnalyzer getBundledFileParser(String filePath, Project project) {
-        FileType fileType = getFileType(filePath, project);
+    public static BundledFileAnalyzer getBundledFileParser(String filePath) {
+        FileType fileType = getFileType(filePath);
         Long fileTypeId = fileType.getId();
         if (!fileType.getBundled()) {
             throw new IllegalArgumentException(MessageFormat.format(Constants.ERROR_MSG_NOT_BUNDLED_FILE, fileTypeId));
         }
         if (FileType.ZIP_ARCHIVE_TYPE_ID.equals(fileTypeId)) {
-            return new ZipFileAnalyzer(project);
+            return new ZipFileAnalyzer();
         } else if (FileType.JAR_ARCHIVE_TYPE_ID.equals(fileTypeId)) {
-            return new JarFileAnalyzer(project);
+            return new JarFileAnalyzer();
         } else {
             throw new IllegalArgumentException(MessageFormat.format(Constants.ERROR_MSG_NO_BUNDLED_FILE_PARSER,
                                                                     fileTypeId));

@@ -11,6 +11,8 @@ import com.topcoder.imaging.overlay.ImagePersistenceHandler;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.MissingResourceException;
 
 /**
@@ -511,7 +513,7 @@ public class Constants implements WebConstants {
      *
      * @since 1.5
      */
-    public static String GALLERY_IDS;
+    public static List<Integer> GALLERY_IDS;
     
     /**
      * <p>A <code>String</code> providing the name of default request attribute which refers to
@@ -610,7 +612,7 @@ public class Constants implements WebConstants {
         Field[] f = Constants.class.getFields();
         //log.debug(f.length + " fields found");
         for (int i = 0; i < f.length; i++) {
-            //log.debug(f[i].getName());
+            //log.debug("Constants " + f[i].getName());
             try {
                 if (!Modifier.isFinal(f[i].getModifiers())) {
                     if (f[i].getType().getName().equals("int")) {
@@ -630,6 +632,14 @@ public class Constants implements WebConstants {
                             f[i].setDouble(null, bundle.getDoubleProperty(f[i].getName().toLowerCase()));
                         } catch (MissingResourceException ignore) {
                         }
+                    } else if (f[i].getType().getName().equals("java.util.List")) {
+                    	List<Integer> idsList = new ArrayList<Integer>();
+                    	String [] ids = bundle.getProperty(f[i].getName().toLowerCase()).split(",");
+                    	for (String id : ids) {
+                            log.debug("Constants#GALLERY_IDS " + id.trim());
+                    		idsList.add(new Integer(id.trim()));
+                    	}
+                    	f[i].set(null, idsList);
                     } else {
                         throw new Exception("Unrecognized type: " + f[i].getType().getName());
                     }

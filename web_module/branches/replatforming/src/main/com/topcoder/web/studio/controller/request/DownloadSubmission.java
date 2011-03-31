@@ -251,7 +251,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
                 // tiny, small, medium and full
                 targetFileName = filePath + fileNames[0];
                 destFileName = fileNames[0];
-                FileType fileType = UnifiedSubmissionValidator.getFileType(destFileName, contest);
+                FileType fileType = UnifiedSubmissionValidator.getFileType(destFileName);
                 if (fileType!=null) {
                     Set<MimeType> mimeTypes = fileType.getMimeTypes();
                     if (!mimeTypes.isEmpty()) {
