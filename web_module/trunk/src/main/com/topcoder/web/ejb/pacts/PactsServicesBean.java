@@ -5282,8 +5282,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
 
         List payments = new ArrayList();
-
         ResultSetContainer rsc = null;
+        List<Long> pendingUserIds = getPendingUserIds(projectId);		
+		Map<Long,Double> penalties = getPaymentPenalties(projectId);
 
         // Get winning designers/developers to be paid
         log.info("Generating payments for winners");
@@ -5309,12 +5310,19 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         rsc = runSelectQuery(getWinners.toString());
         for (int i = 0; i < rsc.size(); i++) {
             long coderId = Long.parseLong(rsc.getItem(i, "user_id").toString());
-            double amount = rsc.getDoubleItem(i, "paid");
-            int placed = rsc.getIntItem(i, "placed");
-            long resourceId = rsc.getLongItem(i, "resource_id");
-            log.info("coder: " + coderId + " placed: " + placed + " amount: " + amount + " resourceId: " + resourceId);
-            resourceIds.add(new Long(resourceId));
-            payments.addAll(generateComponentUserPayments(coderId, amount, client, projectId, placed, devSupportCoderId, payDevSupport, devSupportProjectId, payRboardBonus));
+			if (!pendingUserIds.contains(coderId)) {			
+                int placed = rsc.getIntItem(i, "placed");
+                long resourceId = rsc.getLongItem(i, "resource_id");			
+				
+                double penalty = penalties.get(coderId) == null ? 0.0 : penalties.get(coderId);
+                double amount = rsc.getDoubleItem(i, "paid")*(1.0-penalty);
+				
+                log.info("Generating payment. Coder: " + coderId + " placed: " + placed + " amount: " + amount + " penalty: " + penalty + " resourceId: " + resourceId);
+                resourceIds.add(new Long(resourceId));
+                payments.addAll(generateComponentUserPayments(coderId, amount, client, projectId, placed, devSupportCoderId, payDevSupport, devSupportProjectId, payRboardBonus));
+			} else {
+                log.info("Payments for the coder " + coderId + " are skipped because he/she still has pending late deliverables.");
+			}
         }
 
         StringBuffer commonQuery = new StringBuffer(300);
@@ -5353,8 +5361,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         for (int i = 0; i < rsc.size(); i++) {
             long coderId = Long.parseLong(rsc.getStringItem(i, "user_id"));
-            String paymentType = rsc.getStringItem(i, "payment_type");
-            double amount = rsc.getDoubleItem(i, "paid");
+			if (pendingUserIds.contains(coderId)) {
+			    log.info("Payments for the coder " + coderId + " are skipped because he/she still has pending late deliverables.");
+			    continue;
+			}
+			
+            String paymentType = rsc.getStringItem(i, "payment_type");					
+            double penalty = penalties.get(coderId) == null ? 0.0 : penalties.get(coderId);
+            double amount = rsc.getDoubleItem(i, "paid")*(1.0-penalty);			
+
+            log.info("Generating payment. Coder: " + coderId + " amount: " + amount + " penalty: " + penalty);
 
             ComponentProjectReferencePayment p = null;
             int projectType = getProjectType(projectId);
@@ -5393,18 +5409,82 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         // get the related resource ids.
         StringBuffer getResourceIds = new StringBuffer(300);
-        getResourceIds.append("select r.resource_id ");
+        getResourceIds.append("select r.resource_id as resource_id, ri_u.value as user_id ");
         getResourceIds.append(commonQuery);
 
         log.info("get resource ids:" + getResourceIds.toString());
         rsc = runSelectQuery(getResourceIds.toString());
 
         for (int i = 0; i < rsc.size(); i++) {
-            resourceIds.add(new Long(rsc.getLongItem(i, "resource_id")));
+            long coderId = Long.parseLong(rsc.getStringItem(i, "user_id"));
+			if (!pendingUserIds.contains(coderId)) {
+                resourceIds.add(new Long(rsc.getLongItem(i, "resource_id")));			
+			}
         }
 
         return payments;
     }
+
+    /**
+     * Returns list of user IDs who have pending late deliverables for the specific project in the Online Review.
+	 * A late deliverable is pending if it has been explained by the late member but is not yet responded or if it
+	 * is still in the 24 hours window since the moment of creation (which means the late member can still explain it).
+     *
+     * @param projectId         The ID of the project
+     * @return List of user IDs who have pending late deliverables for this project.	 
+     * @throws SQLException     If there was some error retrieving the data.
+     */
+	private List<Long> getPendingUserIds(long projectId) throws SQLException {
+        StringBuffer query = new StringBuffer(300);
+        query.append(" select distinct ri.value::int as user_id from ");
+        query.append(" tcs_catalog:late_deliverable ld, tcs_catalog:resource r, tcs_catalog:resource_info ri where ");
+        query.append(" ld.resource_id = r.resource_id and r.project_id = " + projectId + " and ");
+        query.append(" r.resource_id = ri.resource_id and ri.resource_info_type_id = 1 and ");
+        query.append(" ld.forgive_ind=0 and ");
+        query.append(" ((ld.explanation is not null and ld.response is null) "); // if the explained record is waiting for the response		
+        query.append(" or (ld.explanation is null and ld.create_date>current-24 units hour)) "); // or if the late member still has time to explain (24 hours)
+		
+		List<Long> userIds = new ArrayList<Long>();
+        ResultSetContainer rsc = runSelectQuery(query.toString());
+        for (int i = 0; i < rsc.size(); i++) {
+            long userId = rsc.getLongItem(i, "user_id");
+            userIds.add(new Long(userId));
+        }
+		return userIds;
+	}
+
+    /**
+     * Returns mapping from user ID to payment penalties due to the late deliverables for the specific project.
+	 * The values of the map are real values in [0;0.5] interval, 0 means no penalty, 0.5 means the
+	 * member payment is reduced by 50%.
+     *
+     * @param projectId         The ID of the project
+     * @return Map from user IDs to payment penalties.
+     * @throws SQLException     If there was some error retrieving the data.
+     */
+	private Map<Long,Double> getPaymentPenalties(long projectId) throws SQLException {
+        StringBuffer query = new StringBuffer(300);
+        query.append(" select ri.value::int as user_id, sum(ld.delay) as total_delay from ");
+        query.append(" tcs_catalog:resource r, tcs_catalog:resource_info ri, tcs_catalog:late_deliverable ld where ");
+        query.append(" r.project_id=" + projectId + " and r.resource_id=ld.resource_id and r.resource_id=ri.resource_id and ");
+        query.append(" ri.resource_info_type_id=1 and ld.forgive_ind=0 ");
+        query.append(" group by 1 ");
+		
+		Map<Long,Double> penalties = new HashMap<Long,Double>();
+        ResultSetContainer rsc = runSelectQuery(query.toString());
+        for (int i = 0; i < rsc.size(); i++) {
+            long userId = rsc.getLongItem(i, "user_id");
+            long delay = rsc.getLongItem(i, "total_delay");
+			
+			long paymentPenaltyPercentage = (delay>0 ? 5 : 0) + (delay/3600);
+			if (paymentPenaltyPercentage > 50) {
+			    paymentPenaltyPercentage = 50;
+			}
+			
+			penalties.put(userId, (double)paymentPenaltyPercentage/100.0);
+        }
+		return penalties;
+	}
 
     /**
      * Adds online review payments in persistence and updates payment status to "Paid"
