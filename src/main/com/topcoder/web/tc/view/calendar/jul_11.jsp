@@ -42,7 +42,7 @@
     <a href="/tc?module=BasicRSS&amp;c=rss_Upcoming_Contests&amp;dsid=29"><img src="/wiki/images/icons/rss.gif" alt="RSS" align="absmiddle" /></a>
 </div>
 
-<strong><%-- <a href="/tc?module=Static&amp;d1=calendar&amp;d2=jun_11" class="prevNext">&lt; prev</a> --%> <a href="/tc?module=Static&amp;d1=calendar&amp;d2=aug_11" class="prevNext">next &gt;</a></strong>
+<strong><a href="/tc?module=Static&amp;d1=calendar&amp;d2=jun_11" class="prevNext">&lt; prev</a> <a href="/tc?module=Static&amp;d1=calendar&amp;d2=aug_11" class="prevNext">next &gt;</a></strong>
 <jsp:include page="dropdown.jsp" >
 <jsp:param name="currMonth" value="jul_11"/>
 </jsp:include>
@@ -85,8 +85,8 @@
       </td>
       <td class="value">9
 	  	<div class="tco11">
-         <div class="emblem"><img src="/i/tournament/tco11/emblem.png" alt="TCO10" /></div>
-         <strong><A href="http://community.topcoder.com/tco11/algorithm/algorithm-schedule/">Algorithm Round 2</A></strong><br />
+         <div class="emblem"><img src="/i/tournament/tco11/emblem.png" alt="TCO11" /></div>
+         <strong><A href="http://community.topcoder.com/tco11/algorithm/algorithm-schedule/">Algorithm Round 3</A></strong><br />
          12:00
          </div>
       </td>
@@ -105,7 +105,7 @@
       </td>
       <td class="value">15
 	  	<div class="tco11">
-         <div class="emblem"><img src="/i/tournament/tco11/emblem.png" alt="TCO10" /></div>
+         <div class="emblem"><img src="/i/tournament/tco11/emblem.png" alt="TCO11" /></div>
          <strong><A href="http://community.topcoder.com/tco11/">TCO11 Registration Ends</A></strong><br />
          09:00
          </div>
@@ -129,8 +129,8 @@
       </td>
       <td class="value">23
 	  	<div class="tco11">
-         <div class="emblem"><img src="/i/tournament/tco11/emblem.png" alt="TCO10" /></div>
-         <strong><A href="http://community.topcoder.com/tco11/algorithm/algorithm-schedule/">Algorithm Round 3</A></strong><br />
+         <div class="emblem"><img src="/i/tournament/tco11/emblem.png" alt="TCO11" /></div>
+         <strong><A href="http://community.topcoder.com/tco11/algorithm/algorithm-schedule/">Algorithm Round 4</A></strong><br />
          12:00
          </div>
       </td>
