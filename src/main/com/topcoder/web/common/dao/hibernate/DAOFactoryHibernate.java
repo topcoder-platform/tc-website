@@ -23,6 +23,7 @@ import com.topcoder.web.common.dao.DemographicQuestionDAO;
 import com.topcoder.web.common.dao.EventDAO;
 import com.topcoder.web.common.dao.EventRegistrationDAO;
 import com.topcoder.web.common.dao.EventTypeDAO;
+import com.topcoder.web.common.dao.FileTypeCatalogDAO;
 import com.topcoder.web.common.dao.FileTypeDAO;
 import com.topcoder.web.common.dao.ImageDAO;
 import com.topcoder.web.common.dao.IntroEventDAO;
@@ -379,5 +380,15 @@ public class DAOFactoryHibernate implements DAOFactory {
      */
     public UploadDAO getUploadDAO() {
         return new UploadDAOHibernate();
+    }
+
+    /**
+     * <p>Gets the file type DAO (tcs_catalog database).</p>
+     * 
+     * @return a <code>FileTypeCatalogDAO</code> instance.
+     * @since 1.3
+     */
+    public FileTypeCatalogDAO getFileTypeCatalogDAO() {
+    	return new FileTypeCatalogDAOHibernate();
     }
 }

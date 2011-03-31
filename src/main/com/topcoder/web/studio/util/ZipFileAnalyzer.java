@@ -4,7 +4,6 @@
 package com.topcoder.web.studio.util;
 
 import com.topcoder.web.common.model.comp.FileType;
-import com.topcoder.web.common.model.comp.Project;
 import com.topcoder.web.studio.validation.UnifiedSubmissionValidator;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.shared.util.logging.Logger;
@@ -147,20 +146,13 @@ public class ZipFileAnalyzer implements BundledFileAnalyzer {
 	 */
 	protected FileType previewImageFileType = null;
 
-	
-	/**
-	 * <p>Represents the <code>Project</code> the file is associated to.</p>
-	 */
-	protected Project project;
-	
 	/**
 	 * <p>
 	 * Constructs new <code>SubmissionValidator$ZipFileAnalyzer</code> instance.
 	 * This implementation does nothing.
 	 * </p>
 	 */
-	public ZipFileAnalyzer(Project project) {
-		this.project = project;
+	public ZipFileAnalyzer() {
 	}
 
 	/**
@@ -428,17 +420,8 @@ public class ZipFileAnalyzer implements BundledFileAnalyzer {
 						}
 					} else if (entryName.startsWith(SUBMISSION_PATH_SLASHED
 							.toUpperCase())) {
-						FileType fileType = UnifiedSubmissionValidator.getFileType(entry.getName(), this.project);
+						FileType fileType = UnifiedSubmissionValidator.getFileType(entry.getName());
 						if (fileType != null) {
-							if (log.isDebugEnabled()) {
-								StringBuilder b = new StringBuilder(100);
-								b.append(entry.getName()).append(" ");
-								b.append(this.previewImageProvided).append(" ");
-								b.append(this.previewFileProvided).append(" ");
-								b.append(fileType.getImageFile()).append(" ");
-								log.debug(b);
-							}
-
 							if (!this.previewImageProvided
 									&& fileType.getImageFile()) {
 								this.previewImageProvided = true;

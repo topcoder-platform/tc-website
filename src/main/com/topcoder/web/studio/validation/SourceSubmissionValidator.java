@@ -71,11 +71,11 @@ public class SourceSubmissionValidator implements Validator {
         }
 
         int ret = 0;
-        FileType mt = null;
+        FileType ft = null;
         try {
             arr = new byte[(int) submission.getSize()];
             ret = submission.getInputStream().read(arr);
-            mt = UnifiedSubmissionValidator.getFileType(submission.getRemoteFileName(), this.project);
+            ft = UnifiedSubmissionValidator.getFileType(submission.getRemoteFileName());
         } catch (FileDoesNotExistException e) {
             log.warn("Communication error when receiving submission.", e);
             return new BasicResult(false, "Communication error when receiving submission.");
@@ -88,9 +88,9 @@ public class SourceSubmissionValidator implements Validator {
 
         if (ret == 0) {
             return new BasicResult(false, "Submission was empty");
-        } else if (mt == null) {
+        } else if (ft == null) {
             return new BasicResult(false, "Unknown file type submitted: " + submission.getContentType());
-        } else if (!mt.getBundled()) {
+        } else if (!ft.getBundled()) {
             return new BasicResult(false, "Invalid file type submitted: " + submission.getContentType());
         }
 

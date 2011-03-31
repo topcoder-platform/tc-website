@@ -181,5 +181,13 @@ public interface DAOFactory {
      * @return a <code>UploadDAO</code> instance.
      * @since 1.3
      */
-    public UploadDAO getUploadDAO();
+    UploadDAO getUploadDAO();
+    
+    /**
+     * <p>Gets the file type DAO (tcs_catalog database).</p>
+     * 
+     * @return a <code>FileTypeCatalogDAO</code> instance.
+     * @since 1.3
+     */
+    FileTypeCatalogDAO getFileTypeCatalogDAO();
 }

@@ -327,4 +327,14 @@ public class DAOFactoryQueryTool implements DAOFactory {
     public UploadDAO getUploadDAO() {
     	 throw new RuntimeException("Not supported");
     }
+
+    /**
+     * <p>Gets the file type DAO (tcs_catalog database).</p>
+     * 
+     * @return a <code>FileTypeCatalogDAO</code> instance.
+     * @since 1.3
+     */
+    public FileTypeCatalogDAO getFileTypeCatalogDAO() {
+    	throw new RuntimeException("Not supported");
+    }
 }

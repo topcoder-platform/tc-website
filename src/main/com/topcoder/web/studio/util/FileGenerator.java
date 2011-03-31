@@ -38,8 +38,6 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -61,11 +59,6 @@ import java.util.Map;
  */
 public class FileGenerator implements Runnable {
     private static final Logger log = Logger.getLogger(FileGenerator.class);
-
-    /**
-     * <p>Represents the project's categories that includes galleries.
-     */
-    private static final List<Integer> GALLERY_IDS_MAP = new ArrayList<Integer>();
     
     /**
      * <p>An <code>int</code> providing the maximum size (in pixels) for the <code>tiny</code> presentations of the
@@ -201,7 +194,7 @@ public class FileGenerator implements Runnable {
             SubmissionDAO submissionDAO = DAOUtil.getFactory().getSubmissionDAO();
 
             String fileName = this.submission.getUpload().getParameter();
-            BundledFileAnalyzer analyzer = UnifiedSubmissionValidator.getBundledFileParser(fileName, this.project);
+            BundledFileAnalyzer analyzer = UnifiedSubmissionValidator.getBundledFileParser(fileName);
             analyzer.analyze(this.submissionFile.getInputStream(), true);
 
             // Holds a flag indicating whether the submission has been updated and needs the changes to be saved
@@ -240,15 +233,9 @@ public class FileGenerator implements Runnable {
                 // Since Studio Submission Slideshow - generate gallery images if necessary
                 // reload the contest type from the db since this object was created in another session.
                 // there may be reason to reload all of the objects given to this inner class, but we'll start here.
-                String[] galleryIds = Constants.GALLERY_IDS.split(",");
-                log.debug("gallery " + Constants.GALLERY_IDS);
-                for (String id : galleryIds) {
-                	log.debug("adding gallery id " + id.trim());
-                	GALLERY_IDS_MAP.add(new Integer(id.trim()));
-                }
-                if (GALLERY_IDS_MAP.contains(this.project.getCategoryId())) {
+                if (Constants.GALLERY_IDS.contains(this.project.getCategoryId())) {
                     BundledFileAnalyzer previewFileAnalyzer
-                            = UnifiedSubmissionValidator.getBundledFileParser(analyzer.getPreviewFilePath(), this.project);
+                            = UnifiedSubmissionValidator.getBundledFileParser(analyzer.getPreviewFilePath());
                     Map<String, byte[]> files = previewFileAnalyzer.getFiles(previewFileContent);
                     for (Map.Entry<String, byte[]> file : files.entrySet()) {
                         fileName = null;
@@ -258,7 +245,7 @@ public class FileGenerator implements Runnable {
                                 log.debug("generating for " + fileName);
                             }
                             byte[] fileContent = file.getValue();
-                            FileType fileType = UnifiedSubmissionValidator.getFileType(fileName, this.project);
+                            FileType fileType = UnifiedSubmissionValidator.getFileType(fileName);
                             if ((fileType != null) && fileType.getImageFile()) {
                                 generateImages(fileName, fileContent, fileType,
                                         GALLERY_PLAIN_IMAGE_TYPE_IDS, GALLERY_PLAIN_IMAGE_SIZES, false,
