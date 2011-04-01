@@ -145,12 +145,10 @@ public class ReviewRegistration extends ShortHibernateProcessor {
             boolean isSpecReview = getRequest().getParameter(Constants.MODULE_KEY).equals("SpecReviewRegistration");
             if (isSpecReview) {
                 registerReviewer(new int[] {SPECIFICATION_REVIEWER_ROLE_ID}, 
-                                 new int[] {SPECIFICATION_REVIEW_PHASE_TYPE_ID}, "Specification", 
-                                 Constants.SPEC_REVIEW_PAYMENT_AMOUNT);
+                                 new int[] {SPECIFICATION_REVIEW_PHASE_TYPE_ID}, "Specification", 0.0);
             } else {
                 registerReviewer(new int[] {SCREENER_ROLE_ID, MILESTONE_SCREENER_ROLE_ID}, 
-                                 new int[] {SCREENING_PHASE_TYPE_ID, MILESTONE_SCREENING_PHASE_TYPE_ID}, "Screening", 
-                                 Constants.SCREENING_REVIEW_PAYMENT_AMOUNT);
+                                 new int[] {SCREENING_PHASE_TYPE_ID, MILESTONE_SCREENING_PHASE_TYPE_ID}, "Screening", 0.0);
             }
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
