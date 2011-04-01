@@ -89,7 +89,7 @@ public class ViewSubmissions extends ShortHibernateProcessor {
         getRequest().setAttribute("contest", c);
         setDefault(Constants.CONTEST_ID, c.getId());
 
-        boolean isOver = new Date().after(c.getEndTime());
+        boolean isOver = new Date().after(c.getWinnerAnnouncementTime());
         if (!isOver) {
             throw new NavigationException("Submissions are not available until the contest is over.");
         }
