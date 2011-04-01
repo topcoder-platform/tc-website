@@ -16,6 +16,9 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.shared.util.ApplicationServer,
                  com.topcoder.web.tc.Constants" %>
+
+<%@ page import="java.util.Arrays" %>
+				 
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
@@ -23,6 +26,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <% ResultSetContainer projectDetail = (ResultSetContainer) request.getAttribute("projectDetail");%>
 <% ResultSetContainer technologies = (ResultSetContainer) request.getAttribute("technologies");%>
+
+<%
+    long projectId = Long.parseLong((String) request.getAttribute("projectId"));
+
+	long[] ideaProjects = {30016974};
+	Arrays.sort(ideaProjects);
+%>
+	
 <head>
 <title>TopCoder Conceptualization Competitions</title>
 
@@ -65,8 +76,13 @@
 
 <table cellspacing="0" class="formFrame" align="center" width="530">
     <tr>
+	<% if (Arrays.binarySearch(ideaProjects, projectId)>=0) { %>
+        <td class="projectTitles" nowrap="nowrap">Ideation Project -
+            <rsc:item set="<%=projectDetail%>" name="component_name"/></td>
+	<% } else { %>
         <td class="projectTitles" nowrap="nowrap">Conceptualization Project -
             <rsc:item set="<%=projectDetail%>" name="component_name"/></td>
+	<% } %>
     </tr>
 </table>
 <table cellspacing="0" cellpadding="0" width="530" class="bodyText" style="margin-top: 20px; margin-bottom: 20px;">
@@ -128,6 +144,7 @@
     </tr>
 </table>
 
+
 <c:choose>
     <c:when test="${fn:length(requirements) > 0}">
         <c:forEach items="${requirements}" var="resultRow">
@@ -158,6 +175,8 @@
         </p>
     </c:otherwise>
 </c:choose>
+
+<% if (Arrays.binarySearch(ideaProjects, projectId)<0) { %>
 
 <%-- Technologies --%>
 <p class="bodySubtitle"><strong>Technologies</strong></p>
@@ -240,6 +259,8 @@ Second Milestone: Marked by the completion of the Deployment phase of the projec
 <p><strong>Second Place submission</strong><br>
     Total Payment - $<rsc:item set="<%=projectDetail%>" name="second_place_payment" format="0.00"/><br>
 </p>
+
+<%}%>
 
 
 <%-- Eligibility Requirements --%>
