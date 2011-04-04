@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.contest;
 
@@ -21,6 +21,8 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.Event;
 import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServices;
 import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServicesLocal;
 import com.topcoder.web.tc.Constants;
@@ -199,6 +201,26 @@ public class ViewRegistration extends Base {
                getRequest().setAttribute(Constants.MESSAGE, "Only active copilot in copilot pool can register copilot posting.");
             }
         }
+
+        if (isTournamentProject(projectId) && !isRegisteredForTournament()) {
+            getRequest().setAttribute("notRegistered", "true");
+        }
+    }
+
+    private boolean isTournamentProject(long projectId) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("tournament_project");
+        r.setProperty(Constants.PROJECT_ID, String.valueOf(projectId));
+        boolean ret = !((ResultSetContainer) getDataAccess().getData(r).get("tournament_project")).isEmpty();
+        if (log.isDebugEnabled()) {
+            log.debug("this is " + (ret ? "" : "not") + " a tourny project");
+        }
+        return ret;
+    }
+
+    private boolean isRegisteredForTournament() throws Exception {
+        return DAOUtil.getFactory().getEventRegistrationDAO().find(new Long(getUser().getId()),
+                Event.TCO11_EVENT_ID) != null;
     }
 
     protected ComponentRegistrationServicesLocal getRegEJB() throws Exception {
