@@ -103,6 +103,7 @@
    <% } else { %>
    <tr>
       <td width="35%">
+	  <% if (Arrays.binarySearch(ideaProjects, projectId)<0) { %>
       <div class="bigRed" style="border-top: 1px solid #999999; border-bottom: 1px solid #999999;">
          <div style="float:right; text-align:right;">
          $<rsc:item set="<%=projectDetail%>" name="total_payment" format="0.00"/><br>
@@ -119,6 +120,12 @@
       </c:if>
       Due Date:</strong>
       </div>
+	  <% } else { %>
+	  <div>
+        
+      </div>
+	  <% } %>
+	 
       </td>
       <td width="40%" align="right" style="padding: 0px 5px 10px 0px;">
          <A class="bigButton" style="width: 100px;" href="/tc?module=ViewRegistration&<%=Constants.PROJECT_ID%>=<%= request.getAttribute("projectId") %>">1: Register</A>
