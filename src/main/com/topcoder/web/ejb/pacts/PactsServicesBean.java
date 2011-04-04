@@ -5368,29 +5368,31 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 			
             String paymentType = rsc.getStringItem(i, "payment_type");					
             double penalty = penalties.get(coderId) == null ? 0.0 : penalties.get(coderId);
-            double amount = rsc.getDoubleItem(i, "paid")*(1.0-penalty);			
+            double amount = rsc.getDoubleItem(i, "paid");
+            double penalizedAmount = amount*(1.0-penalty);
 
-            log.info("Generating payment. Coder: " + coderId + " amount: " + amount + " penalty: " + penalty);
+            log.info("Generating payment. Coder: " + coderId + " amount: " + amount +
+                     " penalized amount: " + penalizedAmount + " penalty: " + penalty);
 
             ComponentProjectReferencePayment p = null;
             int projectType = getProjectType(projectId);
-
+ 
             if (paymentType.startsWith("Copilot Payment")) {
-               // Pay Copilot role
+               // Pay Copilot role, the penalties are not applied to the copilot payments
                 p = new CopilotPayment(coderId, amount, client, projectId);
                 }
             else if (paymentType.startsWith("Spec Review Payment")) {
                // Pay Specification Reviewer role
-                p = new SpecificationReviewPayment(coderId, amount, client, projectId);
+                p = new SpecificationReviewPayment(coderId, penalizedAmount, client, projectId);
                 }
             else if (projectType == DESIGN_PROJECT) {
-                p = new ReviewBoardPayment(coderId, amount, client, projectId);
+                p = new ReviewBoardPayment(coderId, penalizedAmount, client, projectId);
                 // Post-mortem review payments is not to be withheld
                 if (applyReviewerWithholding &&
                     !paymentType.startsWith("Post-Mortem Payment")) {
-                    p.setGrossAmount(amount * DESIGN_REVIEWERS_FIRST_INSTALLMENT_PERCENT);
+                    p.setGrossAmount(penalizedAmount * DESIGN_REVIEWERS_FIRST_INSTALLMENT_PERCENT);
                 } else {
-                    p.setGrossAmount(amount);
+                    p.setGrossAmount(penalizedAmount);
                 }
             } else if (projectType == DEVELOPMENT_PROJECT || projectType == COMPONENT_TESTING_PROJECT ||
                 // [BUGR-1452] - add support for paying other project types
@@ -5401,7 +5403,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 projectType == RIA_BUILD_PROJECT_TYPE || projectType == RIA_COMPONENT_PROJECT_TYPE ||
                 projectType == TEST_SCENARIOS_PROJECT_TYPE || projectType == SPECIFICATION_REVIEW_PROJECT_TYPE ||
                 projectType == CONTENT_CREATION_PROJECT_TYPE) {
-                p = new ReviewBoardPayment(coderId, amount, client, projectId);
+                p = new ReviewBoardPayment(coderId, penalizedAmount, client, projectId);
             }
 
             payments.add(p);
