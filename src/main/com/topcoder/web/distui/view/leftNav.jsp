@@ -286,6 +286,8 @@
 
    nav.addRoot(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=MyHome", "My TopCoder", "my_topcoder"));
 
+   nav.addRoot(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/home/help", "Help Center", "help_center"));
+
    nav.addRoot(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_about_tc')", "About TopCoder", "m_about_tc"));
       nav.search("m_about_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/home", "Overview", "tc_overview"));
       nav.search("m_about_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=about&amp;d2=whyjoin", "Why Join TopCoder?", "join_tc"));
