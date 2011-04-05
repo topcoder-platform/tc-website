@@ -14,6 +14,6 @@
         ForumCategory category = (ForumCategory)itCategories.next();
         String leftNavName = StringUtils.checkNull(category.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME)); 
         if (!leftNavName.equals("") && category.isAuthorized(ForumPermissions.READ_FORUM)) { %>
-            <A class="<%=(unreadCategories.indexOf(leftNavName)<0)?"rtLinkOld":"rtLinkBold"%>" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=category.getID()%>"><%=category.getName()%></A><br>
+            <A class="<%=(unreadCategories.indexOf(leftNavName)<0)?"rtLinkOld":"rtLinkBold"%>" href="?module=Category&categoryID=<%=category.getID()%>"><%=category.getName()%></A><br>
         <%    } %>
 <%    } %>
