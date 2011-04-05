@@ -405,7 +405,10 @@
             <td class="valueC">
                 <rsc:item name="price" row="<%=resultRow%>" format="$###,###.00"/></td>
             <td class="valueC">
-                <rsc:item name="reliability_bonus" row="<%=resultRow%>" format="$###,###.00"/></td>
+                <% if (resultRow.getBooleanItem("reliability_bonus_eligible")) { %>
+                    <rsc:item name="reliability_bonus" row="<%=resultRow%>" format="$###,###.00"/>
+                <% } %>
+            </td>
             <c:if test="${hasDR}">
                 <td class="valueC">
                     <rsc:item name="dr_points" row="<%=resultRow%>" format="######"/>
