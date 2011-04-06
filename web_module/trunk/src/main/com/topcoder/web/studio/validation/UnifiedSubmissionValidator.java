@@ -152,6 +152,13 @@ public class UnifiedSubmissionValidator implements Validator {
      */
     public static MimeType getMimeType(UploadedFile submission) throws FileDoesNotExistException, PersistenceException {
         MimeType mt = StudioDAOUtil.getFactory().getMimeTypeDAO().find(submission.getContentType());
+
+        // BUGR-4567
+        if(submission.getContentType().equals("application/octet-stream")){
+             String ext = submission.getRemoteFileName().substring(submission.getRemoteFileName().lastIndexOf('.') + 1);
+             if(ext.equals("zip")) mt = StudioDAOUtil.getFactory().getMimeTypeDAO().find("application/zip");
+        }
+                
         if (mt == null) {
             log.info("didn't find mime type " + submission.getContentType());
             String ext = submission.getRemoteFileName().substring(submission.getRemoteFileName().lastIndexOf('.') + 1);
