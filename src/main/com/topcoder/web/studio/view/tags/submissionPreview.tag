@@ -56,7 +56,7 @@
 <c:set var="multi" value="false"/>
 
 <c:set var="downloadSubmissionBaseUrl"
-    value="studio.jpg?${modKey}=DownloadSubmission&amp;${subId}=${row.map['submission_id']}&amp;${subAltType}=full&amp;it=28"/>
+    value="studio.jpg?${modKey}=DownloadSubmission&amp;${subId}=${row.map['submission_id']}&amp;${subAltType}=full"/>
 
 <%-- Decide image to shown according to the contest configuration --%>
 <c:choose>
@@ -73,10 +73,10 @@
     </c:when>
     <c:otherwise>
         <%-- TC Direct and Studio Admin V2 contests --%>
-
+        <%-- BUGR-4567 --%>
         <c:if test="${not multi}">
             <c:set var="previewImageSrc"
-                value="${downloadSubmissionBaseUrl}"/>
+                value="${downloadSubmissionBaseUrl}&amp;it=26"/>
         </c:if>
     </c:otherwise>
 </c:choose>

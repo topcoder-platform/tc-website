@@ -56,8 +56,12 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
      *
      * <p>BUGR-1694 Added Image.GALLERY_FULL_TYPE_ID as a valid image type so unwatermarked images can be previewed. </p>
      * @since Studio Download Submission Refactor (Req# 2.1.2)
+     * 
+     * <p>BUGR-4567 Added Image.GALLERY_SMALL_TYPE_ID as a valid image type for faster submission preview</p>
+     *
      */
     private static final int[] ALTERNATE_SUBMISSION_IMAGE_TYPES = {Image.GALLERY_THUMBNAIL_TYPE_ID,
+                                                                   Image.GALLERY_SMALL_TYPE_ID,
                                                                    Image.GALLERY_SMALL_WATERMARKED_TYPE_ID,
                                                                    Image.GALLERY_MEDIUM_WATERMARKED_TYPE_ID,
                                                                    Image.GALLERY_FULL_WATERMARKED_TYPE_ID,
