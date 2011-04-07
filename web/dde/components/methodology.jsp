@@ -141,6 +141,8 @@
             </td>
         </tr>
     </table>
+    
+    <div align="center"><img src="http://topcoder.com/home/wp-content/themes/V5-Client-Theme/images/tcs_white_logo.png" alt="TopCoder Software" /></div>
 
     <table cellspacing="0" cellpadding="0" border="0" width="95%">
         <tr>
