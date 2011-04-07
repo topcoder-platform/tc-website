@@ -3097,38 +3097,31 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, pd.payment_method_id, p.create_date, pd.create_date as modify_date,  ");
         selectHeaders.append("pt.payment_type_desc, pm.payment_method_desc, pd.net_amount, pd.payment_status_id, s.payment_status_desc, ");
         selectHeaders.append("p.user_id, u.handle, u.first_name, u.middle_name, u.last_name, ");
-        selectHeaders.append("pd.date_modified, pd.gross_amount, pd.client, nvl(pdsrx.payment_status_reason_id, 0) as payment_status_reason_id, ");
+        selectHeaders.append("pd.date_modified, pd.gross_amount, nvl(pdsrx.payment_status_reason_id, 0) as payment_status_reason_id, ");
         selectHeaders.append("pd.algorithm_round_id, pd.component_project_id, pd.algorithm_problem_id, ");
         selectHeaders.append("pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, ");
         selectHeaders.append("pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.digital_run_track_id, ");
 
-        // One large SELECT block to retrieve the client name
-        selectHeaders.append(" (select CASE WHEN r.payment_reference_id in (2,5) THEN ");
-        selectHeaders.append("           (select ttc.name  ");
-        selectHeaders.append("             from tcs_catalog:project_info pi, time_oltp:project ttp, time_oltp:client_project ttcp, time_oltp:client ttc ");
-        selectHeaders.append("            where pd.component_project_id = pi.project_id ");
-        selectHeaders.append("              and pi.project_info_type_id = 32 ");
-        selectHeaders.append("              and pi.value = ttp.project_id ");
-        selectHeaders.append("              and ttp.project_id = ttcp.project_id ");
-        selectHeaders.append("              and ttcp.client_id = ttc.client_id) ");
-        selectHeaders.append("        WHEN r.payment_reference_id = 4 THEN ");
-        selectHeaders.append("           (select ttc.name  ");
-        selectHeaders.append("             from studio_oltp:contest_config cc1, time_oltp:project ttp, time_oltp:client_project ttcp, time_oltp:client ttc ");
-        selectHeaders.append("            where pd.studio_contest_id = cc1.contest_id ");
-        selectHeaders.append("              and cc1.property_id = 28 ");
-        selectHeaders.append("              and cc1.property_value = ttp.project_id  ");
-        selectHeaders.append("              and ttp.project_id = ttcp.project_id ");
-        selectHeaders.append("              and ttcp.client_id = ttc.client_id) ");
-        selectHeaders.append("        ELSE ");
-        selectHeaders.append("            null ");
-        selectHeaders.append("        END as client_name ");
-        selectHeaders.append(" from informixoltp:payment_reference_lu r ");
-        selectHeaders.append(" where pt.payment_reference_id = r.payment_reference_id) as client_name ");
-        // End of the "client name" SELECT block
+        // client_name
+        selectHeaders.append(" nvl(nvl((select ttc.name from tcs_catalog:project_info pi, time_oltp:project ttp, time_oltp:client_project ttcp, time_oltp:client ttc where proj.project_id = pi.project_id and pi.project_info_type_id = 32 and pi.value = ttp.project_id and ttp.project_id = ttcp.project_id and ttcp.client_id = ttc.client_id), ");
+        selectHeaders.append("         (select ttc.name from studio_oltp:contest_config cc1, time_oltp:project ttp, time_oltp:client_project ttcp, time_oltp:client ttc where cont.contest_id = cc1.contest_id and cc1.property_id = 28 and cc1.property_value = ttp.project_id and ttp.project_id = ttcp.project_id and ttcp.client_id = ttc.client_id)), pd.client) as client_name, ");
+		
+        // billing_account_name
+        selectHeaders.append(" nvl((select ttp.name from tcs_catalog:project_info pi, time_oltp:project ttp where proj.project_id = pi.project_id and pi.project_info_type_id = 32 and pi.value = ttp.project_id), ");
+        selectHeaders.append("     (select ttp.name from studio_oltp:contest_config cc1, time_oltp:project ttp where cont.contest_id = cc1.contest_id and cc1.property_id = 28 and cc1.property_value = ttp.project_id)) as billing_account_name, ");
+
+        // po_number
+        selectHeaders.append(" nvl((select ttp.po_box_number from tcs_catalog:project_info pi, time_oltp:project ttp where proj.project_id = pi.project_id and pi.project_info_type_id = 32 and pi.value = ttp.project_id ), ");
+        selectHeaders.append("     (select ttp.po_box_number from tcs_catalog:project_info pi, time_oltp:project ttp where cont.project_id = pi.project_id and pi.project_info_type_id = 32 and pi.value = ttp.project_id )) as po_number, ");
+
+        // cockpit_project_id and cockpit_project_name
+        selectHeaders.append(" (select tdp.project_id from tcs_catalog:tc_direct_project tdp where tdp.project_id = nvl(proj.tc_direct_project_id,cont.tc_direct_project_id)) as cockpit_project_id, ");
+        selectHeaders.append(" (select tdp.name from tcs_catalog:tc_direct_project tdp where tdp.project_id = nvl(proj.tc_direct_project_id,cont.tc_direct_project_id)) as cockpit_project_name ");
 
         StringBuffer from = new StringBuffer(300);
         from.append("FROM payment p, payment_type_lu pt, payment_method_lu pm, payment_detail pd, ");
-        from.append("payment_status_lu s, user u, coder c, OUTER payment_detail_status_reason_xref pdsrx ");
+        from.append("payment_status_lu s, user u, coder c, OUTER payment_detail_status_reason_xref pdsrx, ");
+        from.append("OUTER tcs_catalog:project proj, OUTER studio_oltp:contest cont ");
 
         StringBuffer whereClauses = new StringBuffer(300);
         whereClauses.append(" WHERE p.most_recent_detail_id = pd.payment_detail_id ");
@@ -3138,6 +3131,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         whereClauses.append(" AND p.user_id = u.user_id ");
         whereClauses.append(" AND u.user_id = c.coder_id ");
         whereClauses.append(" AND pdsrx.payment_detail_id = pd.payment_detail_id ");
+        whereClauses.append(" AND proj.project_id = pd.component_project_id ");
+        whereClauses.append(" AND cont.contest_id = pd.studio_contest_id ");
 
         ArrayList objects = new ArrayList();
         Iterator i = searchCriteria.keySet().iterator();
