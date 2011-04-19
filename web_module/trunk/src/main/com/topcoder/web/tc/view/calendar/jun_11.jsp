@@ -63,6 +63,12 @@
       <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
       <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
       <td class="value">1
+	  	<div class="tco11">
+        <div class="emblem"><img src="/i/tournament/tco11/emblem.png" alt="TCO11" /></div>
+        <strong><A href="http://community.topcoder.com/tco11/marathon/marathon-schedule/">Marathon Round 2</A></strong><br />
+        13:00<br />
+        2 weeks
+         </div>
       </td>
       <td class="value">2
       	<div class="srm">
@@ -153,6 +159,12 @@
       <td class="value">28
       </td>
       <td class="value">29
+	  	<div class="tco11">
+        <div class="emblem"><img src="/i/tournament/tco11/emblem.png" alt="TCO11" /></div>
+        <strong><A href="http://community.topcoder.com/tco11/marathon/marathon-schedule/">Marathon Round 3</A></strong><br />
+        13:00<br />
+        2 weeks
+         </div>
       </td>
       <td class="value">30
       </td>
