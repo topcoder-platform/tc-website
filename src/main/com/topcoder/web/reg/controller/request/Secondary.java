@@ -78,6 +78,8 @@ public class Secondary extends Base {
                         }
 
                         loadFieldsIntoUserObject(fields, params);
+                        getRequest().getSession().setAttribute("password", (String) params.get(Constants.PASSWORD));
+
                         Set secondaryFields = RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), u);
                         log.debug("we have " + secondaryFields.size() + " secondary fields");
                         if (secondaryFields.isEmpty()) {
@@ -194,10 +196,6 @@ public class Secondary extends Base {
             if (fields.contains(Constants.MIDDLE_NAME)) {
                 u.setMiddleName((String) params.get(Constants.MIDDLE_NAME));
             }
-        }
-
-        if (fields.contains(Constants.PASSWORD)) {
-            u.setPassword((String) params.get(Constants.PASSWORD));
         }
 
         if (fields.contains(Constants.SECRET_QUESTION) || fields.contains(Constants.SECRET_QUESTION_RESPONSE)) {

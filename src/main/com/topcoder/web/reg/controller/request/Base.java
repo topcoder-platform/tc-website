@@ -400,8 +400,6 @@ public abstract class Base extends LongHibernateProcessor {
         setDefault(Constants.MIDDLE_NAME, u.getMiddleName());
         setDefault(Constants.SURNAME, u.getLastName());
         setDefault(Constants.GIVEN_NAME, u.getFirstName());
-        setDefault(Constants.PASSWORD, u.getPassword());
-        setDefault(Constants.PASSWORD_CONFIRM, u.getPassword());
 
         if (u.getSecretQuestion() != null) {
             setDefault(Constants.SECRET_QUESTION, u.getSecretQuestion().getQuestion());
