@@ -50,6 +50,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
     public static final int REFERENCE_ID_COL = 14;
     public static final int COCKPIT_PROJECT_NAME_COL = 15;
     public static final int BILLING_ACCOUNT_NAME_COL = 16;
+    public static final int INVOICE_NUMBER_COL = 17;	
     
     protected void businessProcessing() throws TCWebException {
         try {
@@ -173,8 +174,6 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         if (!statusValuesStr.equals("")) query.put(STATUS_CODE, statusValuesStr);
     	String typeValuesStr = createValuesStr(request.getParameterValues(TYPE_CODE));
         if (!typeValuesStr.equals("")) query.put(TYPE_CODE, typeValuesStr);
-    	String methodValuesStr = createValuesStr(request.getParameterValues(METHOD_CODE));
-        if (!methodValuesStr.equals("")) query.put(METHOD_CODE, methodValuesStr);
         param = request.getParameter(EARLIEST_DUE_DATE);
         if (param != null && !param.equals("")) query.put(EARLIEST_DUE_DATE, TCData.dateForm(param));
         param = request.getParameter(LATEST_DUE_DATE);
@@ -202,8 +201,10 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         param = request.getParameter(HANDLE);
         if (param != null && !param.equals("")) query.put(HANDLE, param);
         param = request.getParameter(PROJECT_ID);
-        if (param != null && !param.equals("")) query.put(PROJECT_ID, param);
-        
+        if (param != null && !param.equals("")) query.put(PROJECT_ID, param);      
+        param = request.getParameter(INVOICE_NUMBER);
+        if (param != null && !param.equals("")) query.put(INVOICE_NUMBER, param);
+
         return query;
     }
     
@@ -391,23 +392,30 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         case COCKPIT_PROJECT_NAME_COL:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
-                    if (arg0.getCockpitProjectName() == null) {
-                        return 1;
-                    }
-                    return arg0.getCockpitProjectName().toUpperCase().compareTo(arg1.getCockpitProjectName().toUpperCase());
+                    String cockpitProjectName0 = arg0.getCockpitProjectName() == null ? "" : arg0.getCockpitProjectName();
+                    String cockpitProjectName1 = arg1.getCockpitProjectName() == null ? "" : arg1.getCockpitProjectName();		
+                    return cockpitProjectName0.toUpperCase().compareTo(cockpitProjectName1.toUpperCase());						
                 }
             });
             break;
         case BILLING_ACCOUNT_NAME_COL:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
-                    if (arg0.getBillingAccountName() == null) {
-                        return 1;
-                    }
-                    return arg0.getBillingAccountName().toUpperCase().compareTo(arg1.getBillingAccountName().toUpperCase());
+                    String billingAccountName0 = arg0.getBillingAccountName() == null ? "" : arg0.getBillingAccountName();
+                    String billingAccountName1 = arg1.getBillingAccountName() == null ? "" : arg1.getBillingAccountName();		
+                    return billingAccountName0.toUpperCase().compareTo(billingAccountName1.toUpperCase());					
                 }
             });
-            break;						
+            break;
+        case INVOICE_NUMBER_COL:
+            Collections.sort(result, new Comparator<PaymentHeader>() {
+                public int compare(PaymentHeader arg0, PaymentHeader arg1) {
+                    String invoiveNumber0 = arg0.getInvoiceNumber() == null ? "" : arg0.getInvoiceNumber();
+                    String invoiveNumber1 = arg1.getInvoiceNumber() == null ? "" : arg1.getInvoiceNumber();		
+                    return invoiveNumber0.toUpperCase().compareTo(invoiveNumber1.toUpperCase());
+                }
+            });
+            break;
         default:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
@@ -438,6 +446,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         s.addDefault(MODIFIED_COL, "desc");
         s.addDefault(COCKPIT_PROJECT_NAME_COL, "asc");
         s.addDefault(BILLING_ACCOUNT_NAME_COL, "asc");		
+        s.addDefault(INVOICE_NUMBER_COL, "asc");		
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
     }
 

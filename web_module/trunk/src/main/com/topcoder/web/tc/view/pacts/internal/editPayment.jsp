@@ -355,7 +355,7 @@ function searchKeyPress(e)
     <tr>
         <td><b>Description:</b></td>
         <td>
-            <tc-webtag:textInput name="payment_desc" size="60" editable="true" />
+            <tc-webtag:textInput name="payment_desc" size="60" maxlength="255" editable="true" />
         </td>
         <tr id="trAmount1">
         <td><b>Total Gross Amount:</b></td>
@@ -387,6 +387,12 @@ function searchKeyPress(e)
         <tc-webtag:textInput name="due_date" id="due_date" size="12" editable="true" /> 
             <button id="trigger_due_date">Set</button>       
         </td>            
+    </tr>
+    <tr>
+        <td><b>Invoice:</b></td>
+        <td>
+            <tc-webtag:textInput name="invoice_number" size="11" maxlength="11" editable="true" />
+        </td>
     </tr>
 <c:if test="${updating}">    
     <tr>

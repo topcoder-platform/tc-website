@@ -23,19 +23,12 @@
 
 
 <% int paymentTypeRowCount = 0;
-   int paymentMethodRowCount = 0;
    ResultSetContainer paymentType = (ResultSetContainer) request.getAttribute(PactsConstants.PAYMENT_TYPE_LIST);
    if (paymentType == null) {
       out.println("No Payment Type List!");
       //paymentType = new ResultSetContainer();
    }
    else paymentTypeRowCount = paymentType.getRowCount();
-   ResultSetContainer paymentMethod = (ResultSetContainer) request.getAttribute(PactsConstants.PAYMENT_METHOD_LIST);
-   if (paymentMethod == null) {
-      out.println("No Payment Method List!");
-      //paymentMethod = new ResultSetContainer();
-   }
-   else paymentMethodRowCount = paymentMethod.getRowCount();
    ResultSetContainer.ResultSetRow rsr;
 %>
 
@@ -59,6 +52,10 @@
           <tr>
             <td>Handle:</td>
 <% out.println("            <td><input type=\"text\" name=\""+PactsConstants.HANDLE+"\" size=\"20\"></td>"); %>
+          </tr>
+          <tr>
+            <td>Invoice Number:</td>
+<% out.println("            <td><input type=\"text\" name=\""+PactsConstants.INVOICE_NUMBER+"\" size=\"11\" maxlength=\"11\"></td>"); %>
           </tr>
           <tr>
             <td>Creation Date:</td>
@@ -113,16 +110,6 @@
    for (int n = 0; n < paymentTypeRowCount; n++) {
       rsr = paymentType.getRow(n);
       out.println("              <option value=\""+TCData.getTCInt(rsr,"payment_type_id",0,true)+"\">"+TCData.getTCString(rsr,"payment_type_desc","type",true)+"</option>");
-   } %>
-              </select></td>
-          </tr>
-          <tr>
-            <td>Method:</td>
-<% out.println("            <td><select name=\""+PactsConstants.METHOD_CODE+"\" multiple size=4>");
-   out.println("              <option value=\"\" selected>Any</option>");
-   for (int n = 0; n < paymentMethodRowCount; n++) {
-      rsr = paymentMethod.getRow(n);
-      out.println("              <option value=\""+TCData.getTCInt(rsr,"payment_method_id",0,true)+"\">"+TCData.getTCString(rsr,"payment_method_desc","method",true)+"</option>");
    } %>
               </select></td>
           </tr>
