@@ -189,6 +189,7 @@ ${fn:length(paymentList)} records. <br />
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.COCKPIT_PROJECT_NAME_COL%>" includeParams="true"/>" >Project</a></td>
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.BILLING_ACCOUNT_NAME_COL%>" includeParams="true"/>" >Billing Acct</a></td>		
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.REFERENCE_ID_COL%>" includeParams="true"/>" >Reference ID</a></td>	
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.INVOICE_NUMBER_COL%>" includeParams="true"/>" >Invoice</a></td>		
         <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.CREATED_COL%>" includeParams="true"/>" >Created</a></td>
         <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.MODIFIED_COL%>" includeParams="true"/>" >Modified</a></td>
     </tr>
@@ -245,6 +246,7 @@ ${fn:length(paymentList)} records. <br />
         <td class="value"><c:out value="${payment.cockpitProjectName}" /></td>
         <td class="value"><c:out value="${payment.billingAccountName}" /></td>		
         <td class="value"><c:out value="${payment.referenceId}" /></td>	
+        <td class="value"><c:out value="${payment.invoiceNumber}" /></td>	
         <td class="valueC"><c:out value="${payment.createDate}" /> </td>
         <td class="valueC"><c:out value="${payment.modifyDate}" /> </td>
         </tr>
@@ -265,7 +267,7 @@ ${fn:length(paymentList)} records. <br />
         <td class="header" colspan="8"><b>Total Net Amount:</b>
         </td>
         <td class="headerR" nowrap="nowrap">$<fmt:formatNumber value="${totalNet}" pattern="###,###.00" /></td>
-        <td class="header" colspan="8">&nbsp;</td>
+        <td class="header" colspan="9">&nbsp;</td>
     </tr>
 
     </table>

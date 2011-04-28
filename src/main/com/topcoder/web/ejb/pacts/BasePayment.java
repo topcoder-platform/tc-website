@@ -120,6 +120,8 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
 
     private String client = null;
 
+    private String invoiceNumber = null;
+
 	/**
 	 * Indicate whether have the global AD.
 	 * @since 1.5
@@ -674,6 +676,14 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
      */
     public void setHasGlobalAD(boolean hasGlobalAD) {
         this.hasGlobalAD = hasGlobalAD;
+    }
+
+    public String getInvoiceNumber() {
+        return invoiceNumber;
+    }
+
+    public void setInvoiceNumber(String invoiceNumber) {
+        this.invoiceNumber = invoiceNumber;
     }
 
     /**

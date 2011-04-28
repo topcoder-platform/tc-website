@@ -902,6 +902,7 @@ public class DataInterfaceBean implements PactsConstants {
             else if (key.equals(STATUS_CODE) ||
                     key.equals(TYPE_CODE) ||
                     key.equals(METHOD_CODE) ||
+                    key.equals(INVOICE_NUMBER) ||
                     key.equals(HANDLE))
                 inputOk = validateInput(value, STRING);
             else if (key.equals(PAYMENT_ID)) {
