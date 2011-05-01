@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
+ * Copyright (c) 2006 - 2011 TopCoder, Inc. All rights reserved.
  */
 
 package com.topcoder.apps.review.rboard;
@@ -19,8 +19,15 @@ import java.sql.*;
 /**
  * Base class for Beans with common DB operations.
  *
+ * <p>
+ * Version 1.0.1 (Online Review Update Review Management Topcoder web site assembly) Change notes:
+ * <ol>
+ * <li>Change close methods to static methods.</li>
+ * </ol>
+ * </p>
+ *
  * @author TCSDEVELOPER, pulky
- * @version 1.0.0
+ * @version 1.0.1
  */
 public abstract class BaseEJB implements SessionBean {
     private static Logger log = Logger.getLogger(BaseEJB.class);
@@ -231,7 +238,7 @@ public abstract class BaseEJB implements SessionBean {
         }
     }
 
-    protected void close(ResultSet rs) {
+    protected static void close(ResultSet rs) {
         if (rs != null) {
             try {
                 rs.close();
@@ -242,7 +249,7 @@ public abstract class BaseEJB implements SessionBean {
         }
     }
 
-    protected void close(Connection conn) {
+    protected static void close(Connection conn) {
         if (conn != null) {
             try {
                 conn.close();
@@ -254,7 +261,7 @@ public abstract class BaseEJB implements SessionBean {
 
     }
 
-    protected void close(Context ctx) {
+    protected static void close(Context ctx) {
         if (ctx != null) {
             try {
                 ctx.close();
@@ -266,7 +273,7 @@ public abstract class BaseEJB implements SessionBean {
 
     }
 
-    protected void close(PreparedStatement ps) {
+    protected static void close(PreparedStatement ps) {
         if (ps != null) {
             try {
                 ps.close();
@@ -278,7 +285,7 @@ public abstract class BaseEJB implements SessionBean {
 
     }
 
-    protected void rollback(Connection conn) {
+    protected static void rollback(Connection conn) {
         if (conn != null) {
             try {
                 conn.rollback();

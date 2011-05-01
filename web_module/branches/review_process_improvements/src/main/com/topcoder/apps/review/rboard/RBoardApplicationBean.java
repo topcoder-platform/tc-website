@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.apps.review.rboard;
 
@@ -24,7 +24,6 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 
-import com.topcoder.apps.review.persistence.Common;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -127,10 +126,16 @@ import com.topcoder.web.ejb.forums.ForumsHome;
  *   <ol>
  *     <li>Added support for Copilot Posting.</li>
  *   </ol>
+ *   
+ *   Version 1.0.16 (Online Review Update Review Management Topcoder web site assembly) Change notes:
+ *   <ol>
+ *     <li>Change Common.close() statement to close().</li>
+ *     <li>Add support for the New Review Phases System.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, ivern, isv, pulky, snow01, VolodymyrK, Blues
- * @version 1.0.15
+ * @author dok, ivern, isv, pulky, snow01, VolodymyrK, Blues, TCSASSEMBER
+ * @version 1.0.16
  */
 public class RBoardApplicationBean extends BaseEJB {
     private static final int INTERNAL_ADMIN_USER = 100129;
@@ -139,7 +144,6 @@ public class RBoardApplicationBean extends BaseEJB {
     private static final String LONG_DATE_FORMAT = "MM/dd/yyyy hh:mm:ss aaa";
 
     private static final int SCREEN_PHASE = 3;
-    private static final int REVIEW_PHASE = 4;
     private static final int AGGREGATION_PHASE = 7;
     private static final int FINAL_REVIEW_PHASE = 10;
     private static final int SPECIFICATION_REVIEW_PHASE = 14;
@@ -157,6 +161,14 @@ public class RBoardApplicationBean extends BaseEJB {
      * this value in milliseconds.
      */
     private static final int APPLICATION_DELAY_PER_ACTIVE_PROJECT = 6 * 60 * 60 * 1000;
+    
+    /**
+     * For every active project a Primary Review Evaluator has, they get a compounded delay to sign up to new projects that is equal to
+     * this value in milliseconds.
+     * 
+     * @since 1.0.16
+     */
+    private static final int APPLICATION_DEPLOY_PRIMARY_EVALUATOR_PER_ACTIVE_PROJECT = 12 * 60 * 60 * 1000;
 
     private static final String RESOURCE_ID_SEQ = "resource_id_seq";
 
@@ -168,12 +180,26 @@ public class RBoardApplicationBean extends BaseEJB {
     private static final int DEVELOPMENT_PRIMARY_REVIEW_ID = 2;
 
     /**
+     * <p>A <code>int</code> representing the Primary Review Evaluator id for development projects.</p>
+     *
+     * @since 1.0.16
+     */
+    private static final int DEVELOPMENT_NEW_PRIMARY_REVIEW_ID = 105;
+    
+    /**
      * <p>A <code>int</code> representing the primary review id for design projects.</p>
      *
      * @since 1.0.8
      */
     private static final int DESIGN_PRIMARY_REVIEW_ID = 4;
 
+    /**
+     * <p>A <code>int</code> representing the Primary Review Evaluator id for design projects.</p>
+     *
+     * @since 1.0.16
+     */
+    private static final int DESIGN_NEW_PRIMARY_REVIEW_ID = 96;
+    
     /**
      * <p>A <code>int</code> representing the primary review id for assembly projects.</p>
      *
@@ -182,12 +208,26 @@ public class RBoardApplicationBean extends BaseEJB {
     private static final int ASSEMBLY_PRIMARY_REVIEW_ID = 7;
 
     /**
+     * <p>A <code>int</code> representing the Primary Review Evaluator id for assembly projects.</p>
+     *
+     * @since 1.0.16
+     */
+    private static final int ASSEMBLY_NEW_PRIMARY_REVIEW_ID = 90;
+    
+    /**
      * <p>A <code>int</code> representing the primary review id for architecture projects.</p>
      *
      * @since 1.0.8
      */
     private static final int ARCHITECTURE_PRIMARY_REVIEW_ID = 10;
 
+    /**
+     * <p>A <code>int</code> representing the Primary Review Evaluator id for architecture projects.</p>
+     *
+     * @since 1.0.16
+     */
+    private static final int ARCHITECTURE_NEW_PRIMARY_REVIEW_ID = 69;
+    
     /**
      * <p>A <code>int</code> representing the primary review id for conceptualization projects.</p>
      *
@@ -196,11 +236,25 @@ public class RBoardApplicationBean extends BaseEJB {
     private static final int CONCEPTUALIZATION_PRIMARY_REVIEW_ID = 13;
 
     /**
+     * <p>A <code>int</code> representing the Primary Review Evaluator id for conceptualization projects.</p>
+     *
+     * @since 1.0.16
+     */
+    private static final int CONCEPTUALIZATION_NEW_PRIMARY_REVIEW_ID = 93;
+    
+    /**
      * <p>A <code>int</code> representing the primary review id for specification projects.</p>
      *
      * @since 1.0.8
      */
     private static final int SPECIFICATION_PRIMARY_REVIEW_ID = 16;
+    
+    /**
+     * <p>A <code>int</code> representing the Primary Review Evaluator id for specification projects.</p>
+     *
+     * @since 1.0.16
+     */
+    private static final int SPECIFICATION_NEW_PRIMARY_REVIEW_ID = 66;
 
     /**
      * <p>A <code>int</code> representing the primary review id for test suites projects.</p>
@@ -210,12 +264,26 @@ public class RBoardApplicationBean extends BaseEJB {
     private static final int TEST_SUITES_PRIMARY_REVIEW_ID = 19;
 
     /**
+     * <p>A <code>int</code> representing the Primary Review Evaluator id for test suites projects.</p>
+     *
+     * @since 1.0.16
+     */
+    private static final int TEST_SUITES_NEW_PRIMARY_REVIEW_ID = 81;
+    
+    /**
      * <p>A <code>int</code> representing the primary review id for test scenarios projects.</p>
      *
      * @since 1.0.10
      */
     private static final int TEST_SCENARIOS_PRIMARY_REVIEW_ID = 31;
 
+    /**
+     * <p>A <code>int</code> representing the Primary Review Evaluator id for test scenarios projects.</p>
+     *
+     * @since 1.0.16
+     */
+    private static final int TEST_SCENARIOS_NEW_PRIMARY_REVIEW_ID = 72;
+    
     /**
      * <p>An <code>int</code> representing the primary review id for ui prototype projects.</p>
      *
@@ -224,6 +292,13 @@ public class RBoardApplicationBean extends BaseEJB {
     private static final int UI_PROTOTYPE_PRIMARY_REVIEW_ID = 22;
 
     /**
+     * <p>An <code>int</code> representing the Primary Review Evaluator id for ui prototype projects.</p>
+     *
+     * @since 1.0.16
+     */
+    private static final int UI_PROTOTYPE_NEW_PRIMARY_REVIEW_ID = 102;
+    
+    /**
      * <p>An <code>int</code> representing the primary review id for ria build projects.</p>
      *
      * @since 1.0.9
@@ -231,12 +306,26 @@ public class RBoardApplicationBean extends BaseEJB {
     private static final int RIA_BUILD_PRIMARY_REVIEW_ID = 25;
 
     /**
+     * <p>An <code>int</code> representing the Primary Review Evaluator id for ria build projects.</p>
+     *
+     * @since 1.0.16
+     */
+    private static final int RIA_BUILD_NEW_PRIMARY_REVIEW_ID = 84;
+    
+    /**
      * <p>An <code>int</code> representing the primary review id for ria component projects.</p>
      *
      * @since 1.0.9
      */
     private static final int RIA_COMPONENT_PRIMARY_REVIEW_ID = 28;
 	
+    /**
+     * <p>An <code>int</code> representing the Primary Review Evaluator id for ria component projects.</p>
+     *
+     * @since 1.0.16
+     */
+    private static final int RIA_COMPONENT_NEW_PRIMARY_REVIEW_ID = 78;
+    
     /**
      * <p>An <code>int</code> representing the primary review id for Specification Review projects.</p>
      *
@@ -251,6 +340,12 @@ public class RBoardApplicationBean extends BaseEJB {
      */
     private static final int COPILOT_POSTING_PRIMARY_REVIEW_ID = 38;
 	
+    /**
+     * <p>An <code>int</code> representing the Primary Review Evaluator id for Copilot Posting.</p>
+     *
+     * @since 1.0.16
+     */
+    private static final int COPILOT_POSTING_NEW_PRIMARY_REVIEW_ID = 75;
 
     /**
      * <p>A <code>String</code> containing the error message for inconsistent reviewers for most project types.</p>
@@ -498,7 +593,8 @@ public class RBoardApplicationBean extends BaseEJB {
             ps.setString(index++, String.valueOf(INTERNAL_ADMIN_USER));
             ps.setString(index++, String.valueOf(INTERNAL_ADMIN_USER));
             ps.executeUpdate();
-            Common.close(ps);
+            close(ps);
+            ps = null;
 
             // Audit resource addition
             auditResourceAddition(conn, userId, projectId, resourceRoleId);
@@ -549,11 +645,12 @@ public class RBoardApplicationBean extends BaseEJB {
             ps.setString(index++, String.valueOf(INTERNAL_ADMIN_USER));
             ps.setString(index++, String.valueOf(INTERNAL_ADMIN_USER));
             ps.executeUpdate();
-            Common.close(ps);
+            close(ps);
+            ps = null;
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            Common.close(ps);
+            close(ps);
         }
     }
 
@@ -643,7 +740,7 @@ public class RBoardApplicationBean extends BaseEJB {
             int roleId = getResourceRoleIdByReviewRespId(reviewRespId, conn);
 
             Map phaseInfos = getPhaseInfo(projectId, conn);
-            String pid = (String) phaseInfos.get(String.valueOf(REVIEW_PHASE));
+            String pid = (String) phaseInfos.get(String.valueOf(getPhaseTypeIdByResourceRole(conn, roleId)));
             // Prepare resource for review phase
             insertUserRole(conn, nextId(RESOURCE_ID_SEQ), roleId, projectId, pid, userId);
 
@@ -856,7 +953,7 @@ public class RBoardApplicationBean extends BaseEJB {
                 "     , resource_info ri_userid " +
                 " where p.project_status_id = 1 " +
                 "   and p.project_id = pp_review.project_id " +
-                "   and pp_review.phase_type_id = 4 " +
+                "   and pp_review.phase_type_id in (4, 15) " +
                 "   and pp_review.phase_status_id != 3 " +
                 "   and (pp_review.scheduled_end_time >= current " +
                 "        or ((select count(*) " +
@@ -889,14 +986,44 @@ public class RBoardApplicationBean extends BaseEJB {
                 "            and pp_subm.phase_status_id in (1,2) " +
                 "            and pp_subm.project_id = p.project_id)) " +
                 "   and p.project_id = r.project_id " +
-                "   and r.resource_role_id in (4, 5, 6, 7) " +
+                "   and r.resource_role_id in (4, 5, 6, 7, 19) " +
                 "   and r.resource_id = ri_userid.resource_id " +
                 "   and ri_userid.resource_info_type_id = 1 " +
                 "   and ri_userid.value = ? ";
+        
+        // query the application deploy for Primary Review Evaluator
+        final String query2 =
+            "select count(*) as active_projects " +
+            "  from project p " +
+            "     , project_phase pp_review " +
+            "     , resource r " +
+            "     , resource_info ri_userid " +
+            " where p.project_status_id = 1 " +
+            "   and p.project_id = pp_review.project_id " +
+            "   and pp_review.phase_type_id = 16 " +
+            "   and pp_review.phase_status_id != 3 " +
+            " and ( exists (select 1  " +                              // There's at least one active submission...
+            "            from submission s " +
+            "             , upload u " +
+            "             where u.project_id = p.project_id     " +
+            "             and u.upload_type_id = 1              " +
+            "             and u.upload_id = s.upload_id         " +
+            "             and s.submission_type_id = 1          " +
+            "             and s.submission_status_id = 1)       " +
+            "         or exists(                               " +  // or the submission phase is scheduled or open
+            "            select 1 from project_phase pp_subm where pp_subm.phase_type_id = 2 " +
+            "            and pp_subm.phase_status_id in (1,2) " +
+            "            and pp_subm.project_id = p.project_id)) " +
+            "   and p.project_id = r.project_id " +
+            "   and r.resource_role_id = 20 " +
+            "   and r.resource_id = ri_userid.resource_id " +
+            "   and ri_userid.resource_info_type_id = 1 " +
+            "   and ri_userid.value = ? ";
 
         PreparedStatement ps = null;
         ResultSet rs = null;
         int activeProjects = 0;
+        int activeProjects2 = 0;
         try {
             ps = conn.prepareStatement(query);
             ps.setLong(1, userId);
@@ -911,8 +1038,25 @@ public class RBoardApplicationBean extends BaseEJB {
         } finally {
             close(rs);
             close(ps);
+            rs = null;
+            ps = null;
         }
-        return activeProjects * APPLICATION_DELAY_PER_ACTIVE_PROJECT;
+        try {
+            ps = conn.prepareStatement(query2);
+            ps.setLong(1, userId);
+
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                activeProjects2 = rs.getInt("active_projects");
+            }
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw new EJBException(e);
+        } finally {
+            close(rs);
+            close(ps);
+        }
+        return activeProjects * APPLICATION_DELAY_PER_ACTIVE_PROJECT + activeProjects2 * APPLICATION_DEPLOY_PRIMARY_EVALUATOR_PER_ACTIVE_PROJECT;
     }
 
     /**
@@ -1129,7 +1273,7 @@ public class RBoardApplicationBean extends BaseEJB {
      */
     private void validateRegularUserTrans(Connection conn, long projectId, int phaseId, long userId, Boolean open,
                                    Timestamp opensOn, int reviewTypeId, boolean primary)
-            throws RBoardRegistrationException {
+            throws RBoardRegistrationException, SQLException {
         log.debug("validateRegularUserTrans called...");
 		
         if (exists(conn, userId, projectId, phaseId)) {
@@ -1169,44 +1313,45 @@ public class RBoardApplicationBean extends BaseEJB {
             }
         }
 
+        boolean newReviewSystem = isNewReviewSystem(conn, projectId);
         if (phaseId == SoftwareComponent.DEV_PHASE) {
-            validateReviewPositions(reviewTypeId, primary, reviewers, DEVELOPMENT_PRIMARY_REVIEW_ID,
+            validateReviewPositions(newReviewSystem, reviewTypeId, primary, reviewers, DEVELOPMENT_PRIMARY_REVIEW_ID, DEVELOPMENT_NEW_PRIMARY_REVIEW_ID,
                     INCONSISTENT_REVIEWERS_ERROR_MESSAGE_DEVELOPMENT);
         } else if (phaseId == SoftwareComponent.DESIGN_PHASE) {
-            validateReviewPositions(reviewTypeId, primary, reviewers, DESIGN_PRIMARY_REVIEW_ID,
+            validateReviewPositions(newReviewSystem, reviewTypeId, primary, reviewers, DESIGN_PRIMARY_REVIEW_ID, DESIGN_NEW_PRIMARY_REVIEW_ID,
                     INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         } else if (phaseId == (WebConstants.ASSEMBLY_PROJECT_TYPE + 111)) {
-            validateReviewPositions(reviewTypeId, primary, reviewers, ASSEMBLY_PRIMARY_REVIEW_ID,
+            validateReviewPositions(newReviewSystem, reviewTypeId, primary, reviewers, ASSEMBLY_PRIMARY_REVIEW_ID, ASSEMBLY_NEW_PRIMARY_REVIEW_ID,
                     INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         } else if (phaseId == (WebConstants.ARCHITECTURE_PROJECT_TYPE + 111)) {
-            validateReviewPositions(reviewTypeId, primary, reviewers, ARCHITECTURE_PRIMARY_REVIEW_ID,
+            validateReviewPositions(newReviewSystem, reviewTypeId, primary, reviewers, ARCHITECTURE_PRIMARY_REVIEW_ID, ARCHITECTURE_NEW_PRIMARY_REVIEW_ID,
                     INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         } else if (phaseId == (WebConstants.CONCEPTUALIZATION_PROJECT_TYPE + 111)) {
-            validateReviewPositions(reviewTypeId, primary, reviewers, CONCEPTUALIZATION_PRIMARY_REVIEW_ID,
+            validateReviewPositions(newReviewSystem, reviewTypeId, primary, reviewers, CONCEPTUALIZATION_PRIMARY_REVIEW_ID, CONCEPTUALIZATION_NEW_PRIMARY_REVIEW_ID,
                     INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         } else if (phaseId == (WebConstants.SPECIFICATION_PROJECT_TYPE + 111)) {
-            validateReviewPositions(reviewTypeId, primary, reviewers, SPECIFICATION_PRIMARY_REVIEW_ID,
+            validateReviewPositions(newReviewSystem, reviewTypeId, primary, reviewers, SPECIFICATION_PRIMARY_REVIEW_ID, SPECIFICATION_NEW_PRIMARY_REVIEW_ID,
                     INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         } else if (phaseId == (WebConstants.TEST_SUITES_PROJECT_TYPE + 111)) {
-            validateReviewPositions(reviewTypeId, primary, reviewers, TEST_SUITES_PRIMARY_REVIEW_ID,
+            validateReviewPositions(newReviewSystem, reviewTypeId, primary, reviewers, TEST_SUITES_PRIMARY_REVIEW_ID, TEST_SUITES_NEW_PRIMARY_REVIEW_ID,
                     INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         } else if (phaseId == (WebConstants.TEST_SCENARIOS_PROJECT_TYPE + 111)) {
-            validateReviewPositions(reviewTypeId, primary, reviewers, TEST_SCENARIOS_PRIMARY_REVIEW_ID,
+            validateReviewPositions(newReviewSystem, reviewTypeId, primary, reviewers, TEST_SCENARIOS_PRIMARY_REVIEW_ID, TEST_SCENARIOS_NEW_PRIMARY_REVIEW_ID,
                     INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         } else if (phaseId == (WebConstants.UI_PROTOTYPE_PROJECT_TYPE + 111)) {
-            validateReviewPositions(reviewTypeId, primary, reviewers, UI_PROTOTYPE_PRIMARY_REVIEW_ID,
+            validateReviewPositions(newReviewSystem, reviewTypeId, primary, reviewers, UI_PROTOTYPE_PRIMARY_REVIEW_ID, UI_PROTOTYPE_NEW_PRIMARY_REVIEW_ID,
                 INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         } else if (phaseId == (WebConstants.RIA_BUILD_PROJECT_TYPE + 111)) {
-            validateReviewPositions(reviewTypeId, primary, reviewers, RIA_BUILD_PRIMARY_REVIEW_ID,
+            validateReviewPositions(newReviewSystem, reviewTypeId, primary, reviewers, RIA_BUILD_PRIMARY_REVIEW_ID, RIA_BUILD_NEW_PRIMARY_REVIEW_ID,
                 INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         } else if (phaseId == (WebConstants.RIA_COMPONENT_PROJECT_TYPE + 111)) {
-            validateReviewPositions(reviewTypeId, primary, reviewers, RIA_COMPONENT_PRIMARY_REVIEW_ID,
+            validateReviewPositions(newReviewSystem, reviewTypeId, primary, reviewers, RIA_COMPONENT_PRIMARY_REVIEW_ID, RIA_COMPONENT_NEW_PRIMARY_REVIEW_ID,
                 INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         } else if (phaseId == (WebConstants.SPECIFICATION_REVIEW_PROJECT_TYPE + 111)) {
-            validateReviewPositions(reviewTypeId, primary, reviewers, SPECIFICATION_REVIEW_PRIMARY_REVIEW_ID,
+            validateReviewPositions(newReviewSystem, reviewTypeId, primary, reviewers, SPECIFICATION_REVIEW_PRIMARY_REVIEW_ID, SPECIFICATION_REVIEW_PRIMARY_REVIEW_ID,
                 INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         } else if (phaseId == (WebConstants.COPILOT_POSTING_PROJECT_TYPE + 111)) {
-            validateReviewPositions(reviewTypeId, primary, reviewers, COPILOT_POSTING_PRIMARY_REVIEW_ID,
+            validateReviewPositions(newReviewSystem, reviewTypeId, primary, reviewers, COPILOT_POSTING_PRIMARY_REVIEW_ID, COPILOT_POSTING_NEW_PRIMARY_REVIEW_ID,
                 INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         }
 
@@ -1276,8 +1421,8 @@ public class RBoardApplicationBean extends BaseEJB {
      * @throws RBoardRegistrationException if the review position is taken of the url is not consistent
      * @since 1.0.8
      */
-    private void validateReviewPositions(int reviewTypeId, boolean primary,
-            ResultSetContainer reviewers, int primaryReviewId, String inconsistencyErrorMessage)
+    private void validateReviewPositions(boolean isNewReviewSystem, int reviewTypeId, boolean primary,
+            ResultSetContainer reviewers, int primaryReviewId, Integer newPrimaryReviewId, String inconsistencyErrorMessage)
             throws RBoardRegistrationException {
 
         for (Object reviewer : reviewers) {
@@ -1287,7 +1432,7 @@ public class RBoardApplicationBean extends BaseEJB {
             }
         }
         // If somebody came in by constructing the URL, make sure this is consistent too.
-        if (primary != (reviewTypeId == primaryReviewId)) {
+        if (primary != (reviewTypeId == (isNewReviewSystem ? newPrimaryReviewId : primaryReviewId))) {
             throw new RBoardRegistrationException(inconsistencyErrorMessage);
         }
     }
@@ -1302,10 +1447,16 @@ public class RBoardApplicationBean extends BaseEJB {
         Map returnMap = new HashMap();
         int[] respIds = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
                 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42,
-				43, 44, 45, 46, 47, 48, 49, 60, 61, 62};
+				43, 44, 45, 46, 47, 48, 49, 60, 61, 62,
+				66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89,
+				90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107
+			    };
         int[] phaseIds = {113, 113, 113, 112, 112, 112, 125, 125, 125, 118, 118, 118, 134, 134, 134,
                 117, 117, 117, 124, 124, 124, 130, 130, 130, 135, 135, 135, 136, 136, 136, 137, 137, 137,
-                114, 114, 114, 138, 1113, 1112, 1125, 1118, 1134, 1117, 1124, 1130, 1135, 1136, 1137, 1114, 140, 140, 140};
+                114, 114, 114, 138, 1113, 1112, 1125, 1118, 1134, 1117, 1124, 1130, 1135, 1136, 1137, 1114, 140, 140, 140,
+                117, 117, 117, 118, 118, 118, 137, 137, 137, 140, 140, 140, 136, 136, 136, 124, 124, 124, 135, 135, 135,
+                146, 146, 146, 125, 125, 125, 134, 134, 134, 112, 112, 112, 114, 114, 114, 130, 130, 130, 113, 113, 113
+        };
 
         for (int i = 0; i < respIds.length; i++) {
             returnMap.put(new Integer(respIds[i]), new Integer(phaseIds[i]));
@@ -1425,7 +1576,7 @@ public class RBoardApplicationBean extends BaseEJB {
 
             ps.executeUpdate();
         } finally  {
-            Common.close(ps);
+            close(ps);
         }
     }
 
@@ -1461,5 +1612,46 @@ public class RBoardApplicationBean extends BaseEJB {
         } finally {
             close(ps);
         }
+    }
+    
+    /**
+     * Checks whether a project is using new review system or not.
+     *
+     * @param conn the connection to database
+     * @param projectId the id of the project
+     * @return true if the project is using new review system, false otherwise.
+     * @throws SQLException if any error occurs when accessing the database
+     * @since 1.0.16
+     */
+    private boolean isNewReviewSystem(Connection conn, long projectId) throws SQLException {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        String query = "select count(*) as tot from project_phase " +
+                            " where project_id = ? and phase_type_id = 15";
+        try {
+            ps = conn.prepareStatement(query);
+            ps.setLong(1, projectId);
+            rs = ps.executeQuery();
+            rs.next();
+            return rs.getInt("tot") > 0;
+        } finally {
+            close(rs);
+            close(ps);
+        }
+    }
+    
+    /**
+     * Gets the phase type id associated with the specified resource role.
+     *
+     * @param conn the connection to database
+     * @param resourceRoleId the id of the specified resource role
+     * @return the phase type id associated with the specified resource role.
+     * @throws RowNotFoundException if no record found
+     * @since 1.0.16
+     */
+    private int getPhaseTypeIdByResourceRole(Connection conn, int resourceRoleId) throws RowNotFoundException {
+        return selectLong(conn, "resource_role_lu", "phase_type_id", new String[]{"resource_role_id"},
+                new String[] {String.valueOf(resourceRoleId)}).intValue();
     }
 }
