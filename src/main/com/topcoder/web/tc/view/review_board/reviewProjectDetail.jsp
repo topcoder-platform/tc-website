@@ -1,8 +1,8 @@
 <%--
-  - Author: pulky, snow01
+  - Author: pulky, snow01, TCSASSEMBER
   - Version: 1.3
   - Since: TCS Release 2.2.2
-  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  - Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page displays the review details corresponding to the specified project.
   - It displays the list of projects phases along with the list of taken and available review positions.
@@ -18,6 +18,9 @@
   - Version 1.3 (Specification Review Integration 1.0) changes:
   -      * support for specification reviews was added.
   -      * code was refactored to avoid duplication.  
+  -
+  - Version 1.4 (Online Review Update Review Management Topcoder web site assembly) changes:
+  -      * support for New Review System Phases added. 
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.TCTimestampResult,
@@ -35,6 +38,7 @@
 <c:set var="REVIEWER_TYPE_ID" value="<%=Constants.REVIEWER_TYPE_ID%>" scope="request"/>
 <c:set var="SPECIFICATION_COMPETITION_OFFSET" value="<%=Constants.SPECIFICATION_COMPETITION_OFFSET%>" scope="request"/>
 <c:set var="isSpecificationReview" value="${projectType > SPECIFICATION_COMPETITION_OFFSET}" scope="request"/>
+<c:set var="isNewReviewSystem" value="${projectDetailRow.map['is_new_review_system'] == 1}"/>
 
 <jsp:include page="reviewCommonVariables.jsp"/>
 <% boolean hasSpecificationSubmission = (Boolean) request.getAttribute("hasSpecificationSubmission"); %>
@@ -42,6 +46,7 @@
 <% boolean hasSubmission = (Boolean) request.getAttribute("hasSubmission"); %>
 <% boolean hasScreening = (Boolean) request.getAttribute("hasScreening"); %>
 <% boolean hasReview = (Boolean) request.getAttribute("hasReview"); %>
+<% boolean hasPrimaryReviewEvaluation = (Boolean) request.getAttribute("hasPrimaryReviewEvaluation"); %>
 <% boolean hasAppeals = (Boolean) request.getAttribute("hasAppeals"); %>
 <% boolean hasAggregation = (Boolean) request.getAttribute("hasAggregation"); %>
 <% boolean hasAggregationReview = (Boolean) request.getAttribute("hasAggregationReview"); %>
@@ -177,7 +182,7 @@
                         </c:if>
                         <c:if test="${hasReview}">
                             <tr>
-                                <td class="projectCells">Review</td>
+                                <td class="projectCells"><c:if test="${!isNewReviewSystem}">Review</c:if><c:if test="${isNewReviewSystem}">Secondary Reviewer Review</c:if></td>
                                 <td class="projectCells" align="center">
                                     <fmt:formatDate value="${projectDetailRow.map['review_start']}"
                                         pattern="MM.dd.yyyy"/>
@@ -188,9 +193,22 @@
                                 </td>
                             </tr>
                         </c:if>
+                        <c:if test="${hasPrimaryReviewEvaluation}">
+                            <tr>
+                                <td class="projectCells">Primary Review Evaluation</td>
+                                <td class="projectCells" align="center">
+                                    <fmt:formatDate value="${projectDetailRow.map['primary_review_evaluation_start']}"
+                                        pattern="MM.dd.yyyy"/>
+                                </td>
+                                <td class="projectCells" align="right">
+                                    <fmt:formatDate value="${projectDetailRow.map['primary_review_evaluation_end']}"
+                                        pattern="MM.dd.yyyy"/>
+                                </td>
+                            </tr>
+                        </c:if>
                         <c:if test="${hasAppeals}">
                             <tr>
-                                <td class="projectCells">Appeals</td>
+                                <td class="projectCells"><c:if test="${!isNewReviewSystem}">Appeals</c:if><c:if test="${isNewReviewSystem}">New Appeals</c:if></td>
                                 <td class="projectCells" align="center">
                                     <fmt:formatDate value="${projectDetailRow.map['appeals_start']}"
                                         pattern="MM.dd.yyyy"/>
@@ -270,7 +288,7 @@
                         <c:forEach items="${reviewerList}" var="reviewer">
                             <tr>
                                 <td class="projectCells">
-                                    <c:if test="${reviewer.primary}">
+                                    <c:if test="${reviewer.primary and !isNewReviewSystem}">
                                         Primary
                                     </c:if>
                                     ${reviewer.reviewerType}
@@ -318,7 +336,10 @@
                             <tr>
                                 <td class="bodyText">
                                 <p align="left">* This number assumes that all submissions pass screening, the actual
-                                    payment may differ.</p>
+                                    payment may differ. 
+                                    <c:if test="${isNewReviewSystem}">
+                                    Payment may be lower if the review commitments will not be honored on time or if the review is not comprehensive.
+                                    </c:if></p>
                                 </td>
                             </tr>
                             <tr>
