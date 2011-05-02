@@ -3093,7 +3093,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException If there is some problem retrieving the data
      */
     public Map findPayments(Map searchCriteria) throws SQLException {
-        StringBuffer selectHeaders = new StringBuffer(300);
+        StringBuffer selectHeaders = new StringBuffer(3000);
         selectHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, pd.payment_method_id, p.create_date, pd.create_date as modify_date,  ");
         selectHeaders.append("pt.payment_type_desc, pm.payment_method_desc, pd.net_amount, pd.payment_status_id, s.payment_status_desc, ");
         selectHeaders.append("p.user_id, u.handle, u.first_name, u.middle_name, u.last_name, ");
@@ -3101,39 +3101,29 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectHeaders.append("pd.algorithm_round_id, pd.component_project_id, pd.algorithm_problem_id, ");
         selectHeaders.append("pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, ");
         selectHeaders.append("pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.digital_run_track_id, pd.invoice_number, ");
+        selectHeaders.append(" ttp.name as billing_account_name, ttp.po_box_number as po_number, tdp.project_id as cockpit_project_id, tdp.name as cockpit_project_name, ");
 
         // client_name
-        selectHeaders.append(" nvl(nvl((select ttc.name from tcs_catalog:project_info pi, time_oltp:project ttp, time_oltp:client_project ttcp, time_oltp:client ttc where proj.project_id = pi.project_id and pi.project_info_type_id = 32 and pi.value = ttp.project_id and ttp.project_id = ttcp.project_id and ttcp.client_id = ttc.client_id), ");
-        selectHeaders.append("         (select ttc.name from studio_oltp:contest_config cc1, time_oltp:project ttp, time_oltp:client_project ttcp, time_oltp:client ttc where cont.contest_id = cc1.contest_id and cc1.property_id = 28 and cc1.property_value = ttp.project_id and ttp.project_id = ttcp.project_id and ttcp.client_id = ttc.client_id)), pd.client) as client_name, ");
-		
-        // billing_account_name
-        selectHeaders.append(" nvl((select ttp.name from tcs_catalog:project_info pi, time_oltp:project ttp where proj.project_id = pi.project_id and pi.project_info_type_id = 32 and pi.value = ttp.project_id), ");
-        selectHeaders.append("     (select ttp.name from studio_oltp:contest_config cc1, time_oltp:project ttp where cont.contest_id = cc1.contest_id and cc1.property_id = 28 and cc1.property_value = ttp.project_id)) as billing_account_name, ");
+        selectHeaders.append(" nvl((select ttc.name from time_oltp:client_project ttcp, time_oltp:client ttc where ttp.project_id = ttcp.project_id and ttcp.client_id = ttc.client_id), pd.client) as client_name ");
 
-        // po_number
-        selectHeaders.append(" nvl((select ttp.po_box_number from tcs_catalog:project_info pi, time_oltp:project ttp where proj.project_id = pi.project_id and pi.project_info_type_id = 32 and pi.value = ttp.project_id ), ");
-        selectHeaders.append("     (select ttp.po_box_number from tcs_catalog:project_info pi, time_oltp:project ttp where cont.project_id = pi.project_id and pi.project_info_type_id = 32 and pi.value = ttp.project_id )) as po_number, ");
-
-        // cockpit_project_id and cockpit_project_name
-        selectHeaders.append(" (select tdp.project_id from tcs_catalog:tc_direct_project tdp where tdp.project_id = nvl(proj.tc_direct_project_id,cont.tc_direct_project_id)) as cockpit_project_id, ");
-        selectHeaders.append(" (select tdp.name from tcs_catalog:tc_direct_project tdp where tdp.project_id = nvl(proj.tc_direct_project_id,cont.tc_direct_project_id)) as cockpit_project_name ");
-
-        StringBuffer from = new StringBuffer(300);
-        from.append("FROM payment p, payment_type_lu pt, payment_method_lu pm, payment_detail pd, ");
-        from.append("payment_status_lu s, user u, coder c, OUTER payment_detail_status_reason_xref pdsrx, ");
-        from.append("OUTER tcs_catalog:project proj, OUTER studio_oltp:contest cont ");
+        StringBuffer from = new StringBuffer(1500);
+        from.append(" FROM payment p ");
+        from.append(" INNER JOIN payment_detail pd ON pd.payment_detail_id = p.most_recent_detail_id ");
+        from.append(" INNER JOIN payment_type_lu pt ON pt.payment_type_id = pd.payment_type_id ");
+        from.append(" INNER JOIN payment_method_lu pm ON pm.payment_method_id = pd.payment_method_id ");
+        from.append(" INNER JOIN payment_status_lu s ON s.payment_status_id = pd.payment_status_id ");
+        from.append(" INNER JOIN user u ON u.user_id = p.user_id ");
+        from.append(" LEFT OUTER JOIN payment_detail_status_reason_xref pdsrx ON pdsrx.payment_detail_id = pd.payment_detail_id ");
+        from.append(" LEFT OUTER JOIN tcs_catalog:project proj ON proj.project_id = pd.component_project_id ");
+        from.append(" LEFT OUTER JOIN studio_oltp:contest cont ON cont.contest_id = pd.studio_contest_id ");
+        from.append(" LEFT OUTER JOIN tcs_catalog:project_info pi ON pi.project_id = pd.component_project_id and pi.project_info_type_id = 32 ");
+        from.append(" LEFT OUTER JOIN studio_oltp:contest_config cc1 ON cc1.contest_id = pd.studio_contest_id and cc1.property_id = 28 ");
+        from.append(" LEFT OUTER JOIN tcs_catalog:tc_direct_project tdp ON tdp.project_id = nvl(proj.tc_direct_project_id::int,cont.tc_direct_project_id::int) ");
+        from.append(" LEFT OUTER JOIN time_oltp:project ttp ON ttp.project_id = nvl(pi.value::int,cc1.property_value::int) ");
 
         StringBuffer whereClauses = new StringBuffer(300);
-        whereClauses.append(" WHERE p.most_recent_detail_id = pd.payment_detail_id ");
-        whereClauses.append(" AND pt.payment_type_id = pd.payment_type_id ");
-        whereClauses.append(" AND pm.payment_method_id = pd.payment_method_id ");
-        whereClauses.append(" AND s.payment_status_id = pd.payment_status_id ");
-        whereClauses.append(" AND p.user_id = u.user_id ");
-        whereClauses.append(" AND u.user_id = c.coder_id ");
-        whereClauses.append(" AND pdsrx.payment_detail_id = pd.payment_detail_id ");
-        whereClauses.append(" AND proj.project_id = pd.component_project_id ");
-        whereClauses.append(" AND cont.contest_id = pd.studio_contest_id ");
-
+        whereClauses.append(" WHERE 1=1 ");
+		
         ArrayList objects = new ArrayList();
         Iterator i = searchCriteria.keySet().iterator();
         try {
@@ -3165,13 +3155,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     whereClauses.append(" AND pd.date_due <= ?");
                     objects.add(makeTimestamp(value, false, true));
                 } else if (key.equals(CONTRACT_ID)) {
-                    from.append(", contract_payment_xref cpx");
-                    whereClauses.append(" AND cpx.payment_id = p.payment_id");
-                    whereClauses.append(" AND cpx.contract_id = " + value);
+                    from.append(" INNER JOIN contract_payment_xref cpx ON cpx.payment_id = p.payment_id and cpx.contract_id = " + value);
                 } else if (key.equals(AFFIDAVIT_ID)) {
-                    from.append(", affidavit a");
-                    whereClauses.append(" AND a.payment_id = p.payment_id");
-                    whereClauses.append(" AND a.affidavit_id = " + value);
+                    from.append(" INNER JOIN affidavit a ON a.payment_id = p.payment_id and a.affidavit_id = " + value);
                 } else if (key.equals(USER_ID)) {
                     whereClauses.append(" AND p.user_id = " + value);
                 } else if (key.equals(PAYMENT_ID)) {
@@ -3181,6 +3167,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     objects.add(value);
                 } else if (key.equals(INVOICE_NUMBER)) {
                     whereClauses.append(" AND UPPER(pd.invoice_number) = ?");
+                    objects.add(value);
+                } else if (key.equals(COCKPIT_PROJECT)) {
+                    whereClauses.append(" AND UPPER(tdp.name) LIKE ?");
+                    objects.add(value);
+                } else if (key.equals(BILLING_ACCOUNT)) {
+                    whereClauses.append(" AND UPPER(ttp.name) LIKE ?");
                     objects.add(value);
                 } else if (key.equals(STATUS_CODE)) {
                     whereClauses.append(" AND pd.payment_status_id IN (" + value + ")");
@@ -4419,14 +4411,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
 
-    public Map<Long, String> newPaymentEvent(String[] values, int event) {
+    public Map<Long, String> newPaymentEvent(String[] paymentIDs, int event, String value) {
         Map<Long, String> errors = new HashMap<Long, String>();
         List<BasePayment> updatePayments = new ArrayList<BasePayment>();
 
         boolean rollback = true;
 
         Map criteria = new HashMap();
-        for (String paymentId : values) {
+        for (String paymentId : paymentIDs) {
             criteria.clear();
             criteria.put(PAYMENT_ID, paymentId);
             log.debug("looking for paymentId : " + paymentId);
@@ -4449,6 +4441,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                                 break;
                             case 3:
                                 psm.newUserEvent(payment, UserEvents.DELETE_EVENT);
+                                break;
+                            case 4:
+                                payment.setInvoiceNumber(value);
                                 break;
                         }
                     } catch (EventFailureException efe) {
