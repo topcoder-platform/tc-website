@@ -903,6 +903,8 @@ public class DataInterfaceBean implements PactsConstants {
                     key.equals(TYPE_CODE) ||
                     key.equals(METHOD_CODE) ||
                     key.equals(INVOICE_NUMBER) ||
+                    key.equals(COCKPIT_PROJECT) ||
+                    key.equals(BILLING_ACCOUNT) ||
                     key.equals(HANDLE))
                 inputOk = validateInput(value, STRING);
             else if (key.equals(PAYMENT_ID)) {
@@ -1797,9 +1799,9 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.getPaymentStatusMap();
     }
 
-    public Map<Long, String> newPaymentEvent(String[] values, int event) throws RemoteException {
+    public Map<Long, String> newPaymentEvent(String[] paymentIDs, int event, String value) throws RemoteException {
         PactsServicesLocal ps = getEjbHandle();
-        return ps.newPaymentEvent(values, event);
+        return ps.newPaymentEvent(paymentIDs, event, value);
     }
 }
 

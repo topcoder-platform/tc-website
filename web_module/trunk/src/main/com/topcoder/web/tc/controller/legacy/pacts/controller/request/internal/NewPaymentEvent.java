@@ -14,15 +14,16 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 public class NewPaymentEvent extends PaymentList implements PactsConstants {
 
     protected void businessProcessing() throws TCWebException {
-        String[] values = getRequest().getParameterValues(CHECKED_PAYMENT_ID);
+        String[] paymentIDs = getRequest().getParameterValues(CHECKED_PAYMENT_ID);
         DataInterfaceBean dib = new DataInterfaceBean();
         int wrongPayments = 0;
         int event = Integer.parseInt(getRequest().getParameter("status_id"));
+        String invoiceNumber = getRequest().getParameter("new_invoice_number");
         
-        List<String> checkedIds = new ArrayList<String>(values.length);
+        List<String> checkedIds = new ArrayList<String>(paymentIDs.length);
         Map<Long, String> errors = null;
         try {
-            errors = dib.newPaymentEvent(values, event);
+            errors = dib.newPaymentEvent(paymentIDs, event, invoiceNumber);
         } catch (Exception e) {
             throw new TCWebException(e);
         }
@@ -33,10 +34,10 @@ public class NewPaymentEvent extends PaymentList implements PactsConstants {
         }
 
         if (!hasErrors()) {            
-            getRequest().setAttribute("message_result", values.length + " payments successfully updated");
+            getRequest().setAttribute("message_result", paymentIDs.length + " payments successfully updated");
         } else {
-            for (String value : values) {
-                checkedIds.add(value);
+            for (String paymentID : paymentIDs) {
+                checkedIds.add(paymentID);
             }
             getRequest().setAttribute("checked_payments", checkedIds);
             

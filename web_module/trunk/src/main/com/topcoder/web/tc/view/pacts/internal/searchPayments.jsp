@@ -58,6 +58,14 @@
 <% out.println("            <td><input type=\"text\" name=\""+PactsConstants.INVOICE_NUMBER+"\" size=\"11\" maxlength=\"11\"></td>"); %>
           </tr>
           <tr>
+            <td>Cockpit Project:</td>
+<% out.println("            <td><input type=\"text\" name=\""+PactsConstants.COCKPIT_PROJECT+"\" size=\"20\"></td>"); %>
+          </tr>
+          <tr>
+            <td>Billing Account:</td>
+<% out.println("            <td><input type=\"text\" name=\""+PactsConstants.BILLING_ACCOUNT+"\" size=\"20\"></td>"); %>
+          </tr>
+          <tr>
             <td>Creation Date:</td>
 			<td>Between <input type="text" name="<%= PactsConstants.EARLIEST_CREATION_DATE %>" id="<%= PactsConstants.EARLIEST_CREATION_DATE %>" size="10">
 				<button id="trigger_<%= PactsConstants.EARLIEST_CREATION_DATE %>">Set</button>			

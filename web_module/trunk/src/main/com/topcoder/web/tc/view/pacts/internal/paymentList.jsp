@@ -102,6 +102,19 @@
             }
             displayNetTotal();
         }
+
+        function eventChanged()
+        {
+            var e = document.getElementsByName("status_id")[0];
+            var selectedValue = e.options[e.selectedIndex].value;
+
+            if (selectedValue == '4') {
+                document.getElementsByName("invoice_number_section")[0].style.visibility = 'visible';
+            } else {
+                document.getElementsByName("invoice_number_section")[0].style.visibility = 'hidden';
+            }
+        }
+
     </script>
     <style type="text/css">
         #NetTotalDiv {
@@ -276,7 +289,7 @@ ${fn:length(paymentList)} records. <br />
  <a href="Javascript:checkAll(false)">uncheck all</a> <br>
 <br>
 
-<SELECT CLASS="dropdown" NAME="status_id">
+<SELECT CLASS="dropdown" NAME="status_id" onChange="eventChanged()" >
         <OPTION value='1' selected>
             Enter into payment system
         </OPTION>
@@ -286,11 +299,14 @@ ${fn:length(paymentList)} records. <br />
         <OPTION value='3'>
             Delete
         </OPTION>
+        <OPTION value='4'>
+            Set Invoice Number
+        </OPTION>
 </SELECT>
-
-
 <input type="submit" value="Apply Event">
-
+<div name="invoice_number_section" style="visibility:hidden;">
+    Invoice Number: <input type="text" name="new_invoice_number" size="11" maxlength="11"/>
+</div>
 
 </form>
 <jsp:include page="InternalFooter.jsp" flush="true"/>
