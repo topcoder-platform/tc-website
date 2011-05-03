@@ -136,13 +136,13 @@
          <strong><A href="http://community.topcoder.com/tco11/algorithm/">Algorithm Registration Ends</A></strong><br />
          09:00
          </div>
-	     <div class="tco11">
+      </td>
+      <td class="value">24
+	  	 <div class="tco11">
          <div class="emblem"><img src="/i/tournament/tco11/emblem.png" alt="TCO11" /></div>
          <strong><A href="http://community.topcoder.com/tco11/algorithm/algorithm-schedule/">Algorithm Qualification Round 3</A></strong><br />
          21:00
          </div>
-      </td>
-      <td class="value">24
       </td>
       <td class="value">25
       </td>
