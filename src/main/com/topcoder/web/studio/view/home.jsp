@@ -112,8 +112,8 @@
                                    class="post_project"></a>
                             </div>
                             <div id="homePageBanner">
-                                <a href="http://www.topcoder.com/news/2011/01/26/save-the-date-for-the-2011-topcoder-open/">
-                                    <img src="/i/tournament/tco11/tco11-banner-studio-before.png" alt="TCO 2011"/></a>
+                                <a href="http://community.topcoder.com/tco11/studio/">
+                                    <img src="/i/tournament/tco11/2011-tco-banner-studio.png" alt="TCO 2011"/></a>
                                 <br/>
                                 <br/>
                             </div>
@@ -237,10 +237,10 @@
                                             January<br />
                                         </div>
                                         <div id="member_greeting">
-                                            <span class="member_content special handle">Congratulations <span class="handle-color">systic</span></span><br/><br/>
+                                            <span class="member_content special handle">Congratulations <span class="handle-color">ngraphics</span></span><br/><br/>
                                         </div>
                                         <div id="member_stats">
-                                            <span class="member_content special">Won $2500 in 7 contests.</span><br/><br/>
+                                            <span class="member_content special"></span><br/><br/>
                                             <span class="member_content special"><!--<a href="http://www.topcoder.com/news/2010/11/15/meet-the-october-coders-and-designers-of-the-month-2/">Read the interviews here.</a>--></span><br/><br/>
                                         </div>
                                     </div>

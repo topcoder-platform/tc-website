@@ -55,13 +55,13 @@
 <c:set var="multi" value="false"/>
 
 <c:set var="downloadSubmissionBaseUrl"
-    value="studio.jpg?${modKey}=DownloadSubmission&amp;${subId}=${row.map['submission_id']}&amp;${subAltType}=full&amp;it=28"/>
+    value="studio.jpg?${modKey}=DownloadSubmission&amp;${subId}=${row.map['submission_id']}&amp;${subAltType}=full"/>
 
 <%-- Decide image to shown according to the contest configuration --%>
 <c:if test="${not multi}">
 	<c:set var="previewImageSrc" value="${downloadSubmissionBaseUrl}"/>
 </c:if>
-
+        <%-- BUGR-4567 --%>
 <%-- Render the preview box --%>
 <div id="sub${row.map["submission_id"]}" class="submission">
     <c:if test="${empty viewSubmissions || viewSubmissions}">

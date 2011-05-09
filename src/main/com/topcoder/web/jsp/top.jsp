@@ -66,7 +66,7 @@ Member Count: <%=new DecimalFormat("#,##0").format(sessionInfo.getMemberCount())
             <% if (level1.equals("long")) { %>
                 | <a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Logout">Logout</a>
             <% } else if (level1.equals("forums")) { %>
-                | <a class="gMetal" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Logout">Logout</a>
+                | <a class="gMetal" href="?module=Logout">Logout</a>
             <% } else { %>
                 | <a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Logout">Logout</a>
             <% } %>
@@ -74,7 +74,7 @@ Member Count: <%=new DecimalFormat("#,##0").format(sessionInfo.getMemberCount())
             if (level1.equals("long")) {%>
                 <a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Login">Login</a>
             <% } else if (level1.equals("forums")) { %>
-                <a class="gMetal" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Login">Login</a>
+                <a class="gMetal" href="?module=Login">Login</a>
             <% } else { %>
                 <a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?&amp;module=Login">Login</a>
             <% } %>

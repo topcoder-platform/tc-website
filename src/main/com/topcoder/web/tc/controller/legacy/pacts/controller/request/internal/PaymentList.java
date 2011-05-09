@@ -42,15 +42,15 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
     public static final int TAX_COL = 6;
     public static final int NET_COL = 7;
     public static final int TYPE_COL = 8;
-    public static final int METHOD_COL = 9;
-    public static final int STATUS_COL = 10;
-    public static final int CONTEST_OWNER_COL = 11;
-    public static final int CREATED_COL = 12;
-    public static final int MODIFIED_COL = 13;
-    public static final int CLIENT_COL = 14;
-    public static final int ID_COL = 15;
-    public static final int REFERENCE_ID_COL = 16;
-    
+    public static final int STATUS_COL = 9;
+    public static final int CREATED_COL = 10;
+    public static final int MODIFIED_COL = 11;
+    public static final int CLIENT_COL = 12;
+    public static final int ID_COL = 13;
+    public static final int REFERENCE_ID_COL = 14;
+    public static final int COCKPIT_PROJECT_NAME_COL = 15;
+    public static final int BILLING_ACCOUNT_NAME_COL = 16;
+    public static final int INVOICE_NUMBER_COL = 17;	
     
     protected void businessProcessing() throws TCWebException {
         try {
@@ -174,8 +174,6 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         if (!statusValuesStr.equals("")) query.put(STATUS_CODE, statusValuesStr);
     	String typeValuesStr = createValuesStr(request.getParameterValues(TYPE_CODE));
         if (!typeValuesStr.equals("")) query.put(TYPE_CODE, typeValuesStr);
-    	String methodValuesStr = createValuesStr(request.getParameterValues(METHOD_CODE));
-        if (!methodValuesStr.equals("")) query.put(METHOD_CODE, methodValuesStr);
         param = request.getParameter(EARLIEST_DUE_DATE);
         if (param != null && !param.equals("")) query.put(EARLIEST_DUE_DATE, TCData.dateForm(param));
         param = request.getParameter(LATEST_DUE_DATE);
@@ -203,8 +201,14 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         param = request.getParameter(HANDLE);
         if (param != null && !param.equals("")) query.put(HANDLE, param);
         param = request.getParameter(PROJECT_ID);
-        if (param != null && !param.equals("")) query.put(PROJECT_ID, param);
-        
+        if (param != null && !param.equals("")) query.put(PROJECT_ID, param);      
+        param = request.getParameter(INVOICE_NUMBER);
+        if (param != null && !param.equals("")) query.put(INVOICE_NUMBER, param);
+        param = request.getParameter(COCKPIT_PROJECT);
+        if (param != null && !param.equals("")) query.put(COCKPIT_PROJECT, param);
+        param = request.getParameter(BILLING_ACCOUNT);
+        if (param != null && !param.equals("")) query.put(BILLING_ACCOUNT, param);
+
         return query;
     }
     
@@ -338,16 +342,6 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 }
             });
             break;
-        case METHOD_COL:
-            Collections.sort(result, new Comparator<PaymentHeader>() {
-                public int compare(PaymentHeader arg0, PaymentHeader arg1) {
-                    if (arg0.getMethod() == null) {
-                        return 1;
-                    }
-                    return arg0.getMethod().toUpperCase().compareTo(arg1.getMethod().toUpperCase());
-                }
-            });
-            break;
             case STATUS_COL:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
@@ -365,16 +359,6 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                         return 1;
                     }
                     return arg0.getClient().toUpperCase().compareTo(arg1.getClient().toUpperCase());
-                }
-            });
-            break;
-        case CONTEST_OWNER_COL:
-            Collections.sort(result, new Comparator<PaymentHeader>() {
-                public int compare(PaymentHeader arg0, PaymentHeader arg1) {
-                    if (arg0.getContestOwner() == null) {
-                        return 1;
-                    }
-                    return arg0.getContestOwner().toUpperCase().compareTo(arg1.getContestOwner().toUpperCase());
                 }
             });
             break;
@@ -409,6 +393,33 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 }
             });
             break;
+        case COCKPIT_PROJECT_NAME_COL:
+            Collections.sort(result, new Comparator<PaymentHeader>() {
+                public int compare(PaymentHeader arg0, PaymentHeader arg1) {
+                    String cockpitProjectName0 = arg0.getCockpitProjectName() == null ? "" : arg0.getCockpitProjectName();
+                    String cockpitProjectName1 = arg1.getCockpitProjectName() == null ? "" : arg1.getCockpitProjectName();		
+                    return cockpitProjectName0.toUpperCase().compareTo(cockpitProjectName1.toUpperCase());						
+                }
+            });
+            break;
+        case BILLING_ACCOUNT_NAME_COL:
+            Collections.sort(result, new Comparator<PaymentHeader>() {
+                public int compare(PaymentHeader arg0, PaymentHeader arg1) {
+                    String billingAccountName0 = arg0.getBillingAccountName() == null ? "" : arg0.getBillingAccountName();
+                    String billingAccountName1 = arg1.getBillingAccountName() == null ? "" : arg1.getBillingAccountName();		
+                    return billingAccountName0.toUpperCase().compareTo(billingAccountName1.toUpperCase());					
+                }
+            });
+            break;
+        case INVOICE_NUMBER_COL:
+            Collections.sort(result, new Comparator<PaymentHeader>() {
+                public int compare(PaymentHeader arg0, PaymentHeader arg1) {
+                    String invoiveNumber0 = arg0.getInvoiceNumber() == null ? "" : arg0.getInvoiceNumber();
+                    String invoiveNumber1 = arg1.getInvoiceNumber() == null ? "" : arg1.getInvoiceNumber();		
+                    return invoiveNumber0.toUpperCase().compareTo(invoiveNumber1.toUpperCase());
+                }
+            });
+            break;
         default:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
@@ -432,13 +443,14 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         s.addDefault(TAX_COL, "desc");
         s.addDefault(NET_COL, "desc");
         s.addDefault(TYPE_COL, "asc");
-        s.addDefault(METHOD_COL, "asc");
         s.addDefault(STATUS_COL, "asc");
         s.addDefault(CLIENT_COL, "asc");
-        s.addDefault(CONTEST_OWNER_COL, "asc");
         s.addDefault(REFERENCE_ID_COL, "asc");
         s.addDefault(CREATED_COL, "desc");
         s.addDefault(MODIFIED_COL, "desc");
+        s.addDefault(COCKPIT_PROJECT_NAME_COL, "asc");
+        s.addDefault(BILLING_ACCOUNT_NAME_COL, "asc");		
+        s.addDefault(INVOICE_NUMBER_COL, "asc");		
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
     }
 

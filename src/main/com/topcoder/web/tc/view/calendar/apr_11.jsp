@@ -99,6 +99,17 @@
       <td class="value">12
       </td>
       <td class="value">13
+	  	 <div class="tco11">
+         <div class="emblem"><img src="/i/tournament/tco11/emblem.png" alt="TCO11" /></div>
+         <strong><A href="http://community.topcoder.com/tco11/marathon/">Marathon Registration Ends</A></strong><br />
+         09:00
+         </div>
+	  	<div class="tco11">
+         <div class="emblem"><img src="/i/tournament/tco11/emblem.png" alt="TCO11" /></div>
+         <strong><A href="http://community.topcoder.com/tco11/marathon/marathon-schedule/">Marathon Round 1</A></strong><br />
+         13:00<br />
+         4 weeks
+         </div>
       </td>
       <td class="value">14
       </td>

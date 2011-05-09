@@ -102,6 +102,19 @@
             }
             displayNetTotal();
         }
+
+        function eventChanged()
+        {
+            var e = document.getElementsByName("status_id")[0];
+            var selectedValue = e.options[e.selectedIndex].value;
+
+            if (selectedValue == '4') {
+                document.getElementsByName("invoice_number_section")[0].style.visibility = 'visible';
+            } else {
+                document.getElementsByName("invoice_number_section")[0].style.visibility = 'hidden';
+            }
+        }
+
     </script>
     <style type="text/css">
         #NetTotalDiv {
@@ -184,11 +197,12 @@ ${fn:length(paymentList)} records. <br />
         <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.TAX_COL%>" includeParams="true"/>" >Tax</a></td>
         <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.NET_COL%>" includeParams="true"/>" >Net</a></td>
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.TYPE_COL%>" includeParams="true"/>" >Type</a></td>
-        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.METHOD_COL%>" includeParams="true"/>" >Method</a></td>
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.STATUS_COL%>" includeParams="true"/>" >Status</a></td>
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.CLIENT_COL%>" includeParams="true"/>" >Client</a></td>
-        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.CONTEST_OWNER_COL%>" includeParams="true"/>" >Contest Owner</a></td>
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.COCKPIT_PROJECT_NAME_COL%>" includeParams="true"/>" >Project</a></td>
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.BILLING_ACCOUNT_NAME_COL%>" includeParams="true"/>" >Billing Acct</a></td>		
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.REFERENCE_ID_COL%>" includeParams="true"/>" >Reference ID</a></td>	
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.INVOICE_NUMBER_COL%>" includeParams="true"/>" >Invoice</a></td>		
         <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.CREATED_COL%>" includeParams="true"/>" >Created</a></td>
         <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.MODIFIED_COL%>" includeParams="true"/>" >Modified</a></td>
     </tr>
@@ -234,7 +248,6 @@ ${fn:length(paymentList)} records. <br />
         <td class="valueR" nowrap>$<fmt:formatNumber value="${payment.recentGrossAmount - payment.recentNetAmount}" pattern="###,##0.00" /><c:out value="${mark}" /></td>
         <td class="valueR" nowrap  id="pna${index.index}">$<fmt:formatNumber value="${payment.recentNetAmount}" pattern="###,##0.00" /><c:out value="${mark}" /></td>
         <td class="value"><c:out value="${payment.type}" /></td>
-        <td class="value"><c:out value="${payment.method}" /></td>
 
         <td class="value"><strong>${payment.currentStatus.desc}</strong>
             <c:forEach items="${payment.currentStatus.reasons}" var="reason">
@@ -243,8 +256,10 @@ ${fn:length(paymentList)} records. <br />
         </td>
 
         <td class="value"><c:out value="${payment.client}" /></td>
-        <td class="value"><c:out value="${payment.contestOwner}" /></td>
+        <td class="value"><c:out value="${payment.cockpitProjectName}" /></td>
+        <td class="value"><c:out value="${payment.billingAccountName}" /></td>		
         <td class="value"><c:out value="${payment.referenceId}" /></td>	
+        <td class="value"><c:out value="${payment.invoiceNumber}" /></td>	
         <td class="valueC"><c:out value="${payment.createDate}" /> </td>
         <td class="valueC"><c:out value="${payment.modifyDate}" /> </td>
         </tr>
@@ -265,7 +280,7 @@ ${fn:length(paymentList)} records. <br />
         <td class="header" colspan="8"><b>Total Net Amount:</b>
         </td>
         <td class="headerR" nowrap="nowrap">$<fmt:formatNumber value="${totalNet}" pattern="###,###.00" /></td>
-        <td class="header" colspan="8">&nbsp;</td>
+        <td class="header" colspan="9">&nbsp;</td>
     </tr>
 
     </table>
@@ -274,7 +289,7 @@ ${fn:length(paymentList)} records. <br />
  <a href="Javascript:checkAll(false)">uncheck all</a> <br>
 <br>
 
-<SELECT CLASS="dropdown" NAME="status_id">
+<SELECT CLASS="dropdown" NAME="status_id" onChange="eventChanged()" >
         <OPTION value='1' selected>
             Enter into payment system
         </OPTION>
@@ -284,11 +299,14 @@ ${fn:length(paymentList)} records. <br />
         <OPTION value='3'>
             Delete
         </OPTION>
+        <OPTION value='4'>
+            Set Invoice Number
+        </OPTION>
 </SELECT>
-
-
 <input type="submit" value="Apply Event">
-
+<div name="invoice_number_section" style="visibility:hidden;">
+    Invoice Number: <input type="text" name="new_invoice_number" size="11" maxlength="11"/>
+</div>
 
 </form>
 <jsp:include page="InternalFooter.jsp" flush="true"/>

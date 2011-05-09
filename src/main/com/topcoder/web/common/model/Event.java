@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2007-2010 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2007-2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common.model;
 
@@ -33,6 +33,11 @@ public class Event extends Base {
      * <p>A <code>long</code> providing the ID for event of <code>2010 TCO</code>.</p>
      */
     public static final Long TCO10_EVENT_ID = new Long(3432);
+
+    /**
+     * <p>A <code>long</code> providing the ID for event of <code>2011 TCO</code>.</p>
+     */
+    public static final Long TCO11_EVENT_ID = new Long(3433);
 
     private Long id;
     private EventType type;

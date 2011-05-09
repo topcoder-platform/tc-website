@@ -108,7 +108,7 @@
 					</div>
 					<span class="tipArrow"></span>
 				</div>
-				<a href="http://topcoder.com/home/help-form/">Help</a>
+				<a href="http://topcoder.com/home/help">Help</a>
 				</li>
 				<li id="aboutUs">
 				<div class="tip hide">

@@ -328,7 +328,7 @@
                                         </td>
                                     </tr>
                                     </c:if>
-                                    <c:if test="${(pt == DESIGN_PROJECT_TYPE || pt == DEVELOPMENT_PROJECT_TYPE) and not empty notRegistered}">
+                                    <c:if test="${not empty notRegistered}">
                                         <span class="errorText">
                                          Please be aware that you are NOT REGISTERED for the tournament, and registering for this contest will not register you for the tournament.  If you don't register for the tournament prior to registering for this contest, it will not count in the tournament standings even if you sign up at a later date.
                                          </span><br /><br />
