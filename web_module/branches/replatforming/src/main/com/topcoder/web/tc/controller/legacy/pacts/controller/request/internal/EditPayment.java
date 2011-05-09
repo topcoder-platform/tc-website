@@ -108,6 +108,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
             int installmentNumber = 1;
             String dueDate = "";
             String client = "";
+            String invoiceNumber = "";
 
             if (getRequest().getParameter("payment_desc") != null) {
             	// The user is trying to save the payment, so check that the parameters are ok
@@ -116,6 +117,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                 typeId = getIntParameter("payment_type_id");
                 client = (String) getRequest().getParameter("client");
                 totalAmount = checkNonNegativeDouble("total_amount", "Please enter a valid total amount");
+                invoiceNumber = getStringParameter("invoice_number");
 
                 if (getRequest().getParameter("gross_amount") != null && getRequest().getParameter("gross_amount").trim().length() > 0) {
                 	grossAmount = checkNonNegativeDouble("gross_amount", "Please enter a valid gross amount");
@@ -173,6 +175,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                         payment.setModificationRationale(modificationRationaleId);
                         payment.setCharity(charity);
                         payment.setInstallmentNumber(installmentNumber);
+                        payment.setInvoiceNumber(invoiceNumber);
                    
                         if (adding) {
                         	List payments = new ArrayList();
@@ -244,7 +247,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     setDefault("gross_amount", getRequest().getParameter("gross_amount"));
                     setDefault("net_amount", getRequest().getParameter("net_amount"));
                     setDefault("installment_number", getRequest().getParameter("installment_number"));
-                	setDefault(GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER, "other".equals(devSupportDes)? "other" : "designer");
+                    setDefault(GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER, "other".equals(devSupportDes)? "other" : "designer");
                     
                     if (((String) getRequest().getParameter("reference_description")).length() > 0) {
                         getRequest().setAttribute("reference_description", getRequest().getParameter("reference_description"));
@@ -265,6 +268,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     desc = payment.getDescription();
                     typeId = payment.getPaymentType();
                     methodId = payment.getMethodId();
+                    invoiceNumber = payment.getInvoiceNumber();
 
 //                    if (payment instanceof ComponentProjectReferencePayment) {
 //                    	client = ((ComponentProjectReferencePayment) payment).getClient();
@@ -308,6 +312,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
             setDefault("due_date", dueDate);
             setDefault("modification_rationale_id", modificationRationaleId + "");
             setDefault("charity_ind", Boolean.valueOf(charity));
+            setDefault("invoice_number", invoiceNumber);
             
             if (contract != null) {
                 getRequest().setAttribute(CONTRACT, contract);

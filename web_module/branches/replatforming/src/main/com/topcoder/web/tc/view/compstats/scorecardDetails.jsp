@@ -245,14 +245,22 @@ function hideAll(){
             </tr>
             <tr>
                <td class="appealCells">&#160;</td>
-               <td class="appealCells"><b>Appeal Text:</b> <rsc:item name="appeal_text" row="<%=resultRow%>" escapeHtml="true" ifNull=""/>
-                                 <rsc:item name="testcase_appeal_text" row="<%=resultRow%>" escapeHtml="true" ifNull=""/>
+               <td class="appealCells"><b>Appeal Text:</b>
+               <% if (resultRow.getStringItem("testcase_appeal_text") != null) { %>
+               <rsc:item name="testcase_appeal_text" row="<%=resultRow%>" escapeHtml="true" ifNull=""/>
+               <% } else { %>
+               <rsc:item name="appeal_text" row="<%=resultRow%>" escapeHtml="true" ifNull=""/>
+               <% } %>
                </td>
             </tr>
             <tr>
                <td class="appealCells">&#160;</td>
-               <td class="appealCells"><b>Appeal Response:</b> <rsc:item name="appeal_response" row="<%=resultRow%>" escapeHtml="true" ifNull=""/>
-                                 <rsc:item name="testcase_appeal_response" row="<%=resultRow%>" escapeHtml="true" ifNull=""/>
+               <td class="appealCells"><b>Appeal Response:</b>
+               <% if (resultRow.getStringItem("testcase_appeal_response") != null) { %>
+               <rsc:item name="testcase_appeal_response" row="<%=resultRow%>" escapeHtml="true" ifNull=""/>               
+               <% } else { %>
+               <rsc:item name="appeal_response" row="<%=resultRow%>" escapeHtml="true" ifNull=""/>
+               <% } %>
                </td>
             </tr>
             <%  } %>

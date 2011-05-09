@@ -106,13 +106,12 @@ public class ResetPassword extends ShortHibernateProcessor {
             Context ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
 
             User u = passwordRecovery.getUser();
-            u.setPassword(password);
 
             TCSubject tcs = new TCSubject(132456);
             PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
             PrincipalMgrRemote pmr = pmrh.create();
             UserPrincipal myPrincipal = new UserPrincipal("", u.getId());
-            pmr.editPassword(myPrincipal, u.getPassword(), tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
+            pmr.editPassword(myPrincipal, password, tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
 
             // if the user has changed email address, set it as his new primary address
             if (!u.getPrimaryEmailAddress().equals(passwordRecovery.getRecoveryAddress())) {

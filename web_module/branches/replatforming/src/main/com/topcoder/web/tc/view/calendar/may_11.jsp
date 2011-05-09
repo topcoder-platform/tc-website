@@ -97,6 +97,11 @@
       <td class="value">13
       </td>
       <td class="value">14
+	     <div class="tco11">
+         <div class="emblem"><img src="/i/tournament/tco11/emblem.png" alt="TCO11" /></div>
+         <strong><A href="http://community.topcoder.com/tco11/algorithm/algorithm-schedule/">Algorithm Qualification Round 1</A></strong><br />
+         12:00
+         </div>
       </td>
    </tr>
    
@@ -106,10 +111,19 @@
       <td class="value">16
       </td>
       <td class="value">17
+	     <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=14514">SRM 504.5</A></strong><br />
+         11:00
+        </div>
       </td>
       <td class="value">18
       </td>
       <td class="value">19
+	     <div class="tco11">
+         <div class="emblem"><img src="/i/tournament/tco11/emblem.png" alt="TCO11" /></div>
+         <strong><A href="http://community.topcoder.com/tco11/algorithm/algorithm-schedule/">Algorithm Qualification Round 2</A></strong><br />
+         07:00
+         </div>
       </td>
       <td class="value">20
       </td>
@@ -121,8 +135,18 @@
       <td class="value">22
       </td>
       <td class="value">23
+	     <div class="tco11">
+         <div class="emblem"><img src="/i/tournament/tco11/emblem.png" alt="TCO10" /></div>
+         <strong><A href="http://community.topcoder.com/tco11/algorithm/">Algorithm Registration Ends</A></strong><br />
+         09:00
+         </div>
       </td>
       <td class="value">24
+	  	 <div class="tco11">
+         <div class="emblem"><img src="/i/tournament/tco11/emblem.png" alt="TCO11" /></div>
+         <strong><A href="http://community.topcoder.com/tco11/algorithm/algorithm-schedule/">Algorithm Qualification Round 3</A></strong><br />
+         21:00
+         </div>
       </td>
       <td class="value">25
       </td>

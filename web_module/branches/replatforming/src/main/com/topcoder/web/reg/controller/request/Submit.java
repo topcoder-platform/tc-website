@@ -190,12 +190,14 @@ public class Submit extends Base {
             UserPrincipal myPrincipal;
             PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
             PrincipalMgrRemote pmr = pmrh.create();
+
+            String password = (String) getRequest().getSession().getAttribute("password");
             if (newUser) {
                 //create the security user entry
-                myPrincipal = pmr.createUser(u.getId(), u.getHandle(), u.getPassword(), tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
+                myPrincipal = pmr.createUser(u.getId(), u.getHandle(), password, tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
             } else {
                 myPrincipal = new UserPrincipal("", u.getId());
-                pmr.editPassword(myPrincipal, u.getPassword(), tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
+                pmr.editPassword(myPrincipal, password, tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
             }
 
             List<SecurityGroup> types = getFactory().getSecurityGroupDAO().getSecurityGroups(getRequestedTypes());

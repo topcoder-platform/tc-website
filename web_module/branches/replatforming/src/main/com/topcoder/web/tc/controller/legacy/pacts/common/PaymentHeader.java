@@ -65,7 +65,8 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
     private int typeId;
     private int methodId;
     private String client;
-    private String contestOwner;
+    private String cockpitProjectName;
+    private String billingAccountName;
     private BasePaymentStatus currentStatus;
 
     private long algorithmRoundId;
@@ -80,6 +81,8 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
 
     private String modifyDate;
     private String createDate;
+
+    private String invoiceNumber;
 
     /**************\
      *              *
@@ -178,7 +181,9 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         }
 
         client = TCData.getTCString(rsr, "client_name", "", false);
-        contestOwner = TCData.getTCString(rsr, "client", "", false);
+        cockpitProjectName = TCData.getTCString(rsr, "cockpit_project_name", "", false);
+        billingAccountName = TCData.getTCString(rsr, "billing_account_name", "", false);
+        invoiceNumber = TCData.getTCString(rsr, "invoice_number", "", false);
 
         algorithmRoundId = TCData.getTCLong(rsr, "algorithm_round_id", 0, false);
         componentProjectId = TCData.getTCLong(rsr, "component_project_id", 0, false);
@@ -306,12 +311,20 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         this.client = client;
     }
 
-    public String getContestOwner() {
-        return contestOwner;
+    public String getCockpitProjectName() {
+        return cockpitProjectName;
     }
 
-    public void setContestOwner(String contestOwner) {
-        this.contestOwner = contestOwner;
+    public void setCockpitProjectName(String cockpitProjectName) {
+        this.cockpitProjectName = cockpitProjectName;
+    }
+
+    public String getBillingAccountName() {
+        return billingAccountName;
+    }
+
+    public void setBillingAccountName(String billingAccountName) {
+        this.billingAccountName = billingAccountName;
     }
 
     public long getAlgorithmProblemId() {
@@ -416,5 +429,12 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         this.modifyDate = modifyDate;
     }
 
+    public String getInvoiceNumber() {
+        return invoiceNumber;
+    }
+
+    public void setInvoiceNumber(String invoiceNumber) {
+        this.invoiceNumber = invoiceNumber;
+    }
 
 }

@@ -3,6 +3,7 @@ package com.topcoder.web.common.model;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
+import java.util.Random;
 
 /**
  * Class holding data for each password recovery event.
@@ -16,12 +17,16 @@ public class PasswordRecovery extends Base {
     private String recoveryAddress = null;
     private Date expireDate = null;
     private boolean used = false;
+    private Long randomKey = null;
+
+    private static Random random = new Random();
 
     public Date getExpireDate() {
         return expireDate;
     }
 
     public PasswordRecovery() {
+        randomKey = random.nextLong();
     }
 
     public void setExpireDate(Date expireDate) {
@@ -60,6 +65,15 @@ public class PasswordRecovery extends Base {
         this.user = user;
     }
 
+    public Long getRandomKey() {
+        return randomKey;
+    }
+
+    public void setRandomKey(Long randomKey) {
+        this.randomKey = randomKey;
+    }
+
+
     /**
      * Return a md5 hashcode for the password_recovery row.
      *
@@ -68,7 +82,7 @@ public class PasswordRecovery extends Base {
     public String hash() {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
-            byte[] plain = (getId().toString() + getUser().getHandle() + getExpireDate().getTime()).getBytes();
+            byte[] plain = (getId().toString() + randomKey.toString() + getExpireDate().getTime()).getBytes();
             byte[] raw = md.digest(plain);
             StringBuffer hex = new StringBuffer();
             for (int i = 0; i < raw.length; i++)

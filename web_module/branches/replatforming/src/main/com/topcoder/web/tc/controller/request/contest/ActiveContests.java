@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.contest;
 
@@ -88,15 +88,6 @@ public class ActiveContests extends ActiveContestsBase {
             }
         }
         super.developmentProcessing();
-    }
-
-    @Override
-    protected String getCommandName() {
-        if (getProjectType()==Constants.ARCHITECTURE_PROJECT_TYPE) {
-            return "active_architecture_contests";
-        } else {
-            return super.getCommandName();
-        }
     }
 
     @Override

@@ -88,7 +88,7 @@
 				</div>
 				<div align="center" style="font-size:14px;">
                         <br /><br />
-                        <a href="http://<%=ApplicationServer.SERVER_NAME%>/tco11?module=ViewUnifiedRegistration" target="_blank">Take me to register for the TCO11</a><br />
+                        <a href="http://community.topcoder.com/tco11" target="_blank">Take me to register for the TCO11</a><br />
                         <br />
                         <a href="#" onclick="document.terms.submit()">I don't want to register for TCO11. Just register for this contest.</a>
 

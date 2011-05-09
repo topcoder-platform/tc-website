@@ -27,7 +27,6 @@ public class User extends Base {
     private String lastName;
     private String handle;
     private Character status;
-    private String password;
     private String activationCode;
     private TimeZone timeZone;
     private Set<Address> addresses;
@@ -130,14 +129,6 @@ public class User extends Base {
 
     public void setStatus(Character status) {
         this.status = status;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getActivationCode() {

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.development;
 
@@ -286,7 +286,7 @@ protected void loadCaptcha() throws IOException, InvalidConfigException, Obfusca
 
     protected boolean isRegisteredForTournament() throws Exception {
         return DAOUtil.getFactory().getEventRegistrationDAO().find(new Long(getUser().getId()),
-                Event.TCO10_EVENT_ID) != null;
+                Event.TCO11_EVENT_ID) != null;
     }
 
     protected ComponentRegistrationServicesLocal getRegEJB() throws Exception {
