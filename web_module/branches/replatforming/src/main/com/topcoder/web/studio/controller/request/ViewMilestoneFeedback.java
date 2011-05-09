@@ -58,7 +58,7 @@ public class ViewMilestoneFeedback extends ViewContestDetails {
             DataAccess da = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
             Request r = new Request();
             r.setContentHandle("studio_milestone_prize_awarded_submissions_feedback");
-            r.setProperty(Constants.CONTEST_ID, String.valueOf(contest.getId()));
+            r.setProperty("pj", String.valueOf(contest.getId()));
 
             ResultSetContainer submissionsResult 
                 = (ResultSetContainer) da.getData(r).get("studio_milestone_prize_awarded_submissions_feedback");
