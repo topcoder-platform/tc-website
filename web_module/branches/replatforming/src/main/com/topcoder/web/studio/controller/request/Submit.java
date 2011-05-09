@@ -3,8 +3,6 @@
  */
 package com.topcoder.web.studio.controller.request;
 
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -13,36 +11,24 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
-import java.util.TimeZone;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
-import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageInputStream;
 
 import com.topcoder.common.web.error.TCException;
-import com.topcoder.servlet.request.ConfigurationException;
-import com.topcoder.servlet.request.DisallowedDirectoryException;
 import com.topcoder.servlet.request.FileDoesNotExistException;
-import com.topcoder.servlet.request.LocalFileUpload;
 import com.topcoder.servlet.request.MockUploadedFile;
 import com.topcoder.servlet.request.PersistenceException;
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.EmailEngine;
-import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.errorhandling.BaseException;
 import com.topcoder.util.file.DocumentGenerator;
 import com.topcoder.util.file.Template;
-import com.topcoder.util.format.ObjectFormatter;
-import com.topcoder.util.format.ObjectFormatterFactory;
-import com.topcoder.web.common.DateUtils;
 import com.topcoder.web.common.MultipartRequest;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
@@ -51,7 +37,6 @@ import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.SubmissionDAO;
 import com.topcoder.web.common.dao.UserDAO;
 import com.topcoder.web.common.dao.UploadDAO;
-import com.topcoder.web.common.model.Email;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.comp.ExternalContent;
 import com.topcoder.web.common.model.comp.ExternalContentProperty;
@@ -62,13 +47,11 @@ import com.topcoder.web.common.model.comp.ResourceSubmission;
 import com.topcoder.web.common.model.comp.Submission;
 import com.topcoder.web.common.model.comp.SubmissionDeclaration;
 import com.topcoder.web.common.model.comp.Upload;
-import com.topcoder.web.common.tag.CalendarDateFormatMethod;
 import com.topcoder.web.common.validation.IntegerValidator;
 import com.topcoder.web.common.validation.ObjectInput;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.studio.Constants;
-import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.util.FileGenerator;
 import com.topcoder.web.studio.util.Util;
 import com.topcoder.web.studio.validation.ImageSubmissionValidator;
@@ -102,8 +85,15 @@ import com.topcoder.web.studio.validation.UnifiedSubmissionValidator;
  *   </ol>
  * </p>
  *
+ * <p>
+ * Version 1.2.1 (Re-platforming Studio Release 4 Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Removed unused code.</li>
+ *   </ol>
+ * </p>
+ *
  * @author dok, isv, Vitta, orange_cloud, pvmagacho
- * @version 1.2
+ * @version 1.2.1
  */
 public class Submit extends BaseSubmissionDataProcessor {	
 	private static final Logger log = Logger.getLogger(Submit.class);

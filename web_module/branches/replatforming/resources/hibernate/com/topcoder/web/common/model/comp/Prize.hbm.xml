@@ -3,15 +3,15 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping package="com.topcoder.web.common.model.comp" auto-import="false">
+<hibernate-mapping package="com.topcoder.web.common.model.comp" >
 
-    <class name="Prize" table="tcs_catalog:prize" mutable="false">
+    <class name="Prize" table="prize" mutable="false">
         <id name="id" column="prize_id"/>
         <property name="place" column="place" access="field"/>
         <property name="amount" column="prize_amount" access="field"/>
         <property name="numberOfSubmissions" column="number_of_submissions" access="field"/>
         <many-to-one name="type" column="prize_type_id" class="PrizeType"/>
-        <set name="projects" table="tcs_catalog:project_prize_xref" inverse="true">
+        <set name="projects" table="project_prize_xref" inverse="true">
             <key column="prize_id"/>
             <many-to-many column="project_id" class="Project"/>
         </set>

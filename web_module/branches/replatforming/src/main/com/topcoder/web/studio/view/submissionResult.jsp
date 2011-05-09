@@ -2,9 +2,9 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="java.util.Map" %>
-<%@ page import="com.topcoder.web.studio.model.ContestChannel" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
 <%@ taglib prefix="studio_tags" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="tc-webtag" uri="tc-webtags.tld" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -87,7 +87,7 @@
                 <h1>Scores</h1>
 
 				<div align="center" style="font-size: 32px; font-weight: bold;">
-					<studio:handle coderId="${submission.submitter.id}"/>
+					<tcs-webtag:handle coderId="${submission.submitter.id}" context="component" />
 				</div>
 				
 				<div align="center" style="margin-bottom: 10px; font-weight: bold;">

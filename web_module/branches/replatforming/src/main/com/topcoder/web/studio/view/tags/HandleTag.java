@@ -1,10 +1,11 @@
 /*
- * Copyright (C) 2008 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2008-2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.studio.view.tags;
 
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.CachedDataAccess;
@@ -15,10 +16,17 @@ import java.util.Map;
 import java.net.URLEncoder;
 
 /**
- * <p>A custom tag to be used for rendeting the handles for the coders identified by the IDs passed to this tag.</p>
+ * <p>A custom tag to be used for rendering the handles for the coders identified by the IDs passed to this tag.</p>
+ *
+ * <p>
+ * Version 1.2 (Re-platforming Studio Release 4 Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>The generated link points to MemberProfile controller in TC appliaction.</li>
+ *   </ol>
+ * </p>
  *
  * @author dok, TCSDEVELOPER
- * @version 1.1
+ * @version 1.2
  * @since TopCoder Studio Website 1.0
  */
 public class HandleTag extends TagSupport {
@@ -93,8 +101,9 @@ public class HandleTag extends TagSupport {
                 } else {
                     output.append(this.cssclass);
                 }
-                output.append("\" href=\"/?module=ViewMemberProfile&ha=");
-                output.append(URLEncoder.encode(handle, "UTF-8"));
+                output.append("\" href=\"http://").append(ApplicationServer.SERVER_NAME);
+                output.append("/tc?module=MemberProfile&cr=");
+                output.append(this.coderId);
                 output.append("\">");
                 output.append(handle);
                 output.append("</a>");

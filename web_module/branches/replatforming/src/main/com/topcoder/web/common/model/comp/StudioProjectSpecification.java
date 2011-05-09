@@ -7,9 +7,16 @@ import com.topcoder.web.common.model.Base;
 
 /**
  * <p>An entity class mapped to <code>tcs_catalog.project_studio_specification</code> table.</p>
+ *
+ * <p>
+ * Version 1.1 (Re-platforming Studio Release 4 Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added {@link #generalFeedback} property.</li>
+ *   </ol>
+ * </p>
  * 
  * @author isv
- * @version 1.0 (Re-platforming Studio Release 2 assembly)
+ * @version 1.1 (Re-platforming Studio Release 2 assembly)
  */
 public class StudioProjectSpecification extends Base {
 
@@ -93,6 +100,13 @@ public class StudioProjectSpecification extends Base {
      * not.</p>
      */
     private Boolean submittersLockedBetweenRounds;
+
+    /**
+     * <p>A <code>String</code> providing the general feedback for project submissions.</p>
+     * 
+     * @since 1.1
+     */
+    private String generalFeedback;
 
     /**
      * <p>Constructs new <code>StudioProjectSpecification</code> instance. This implementation does nothing.</p>
@@ -388,5 +402,25 @@ public class StudioProjectSpecification extends Base {
      */
     public void setContentRequirements(String contentRequirements) {
         this.contentRequirements = contentRequirements;
+    }
+
+    /**
+     * <p>Gets the general feedback for project submissions.</p>
+     *
+     * @return a <code>String</code> providing the general feedback for project submissions.
+     * @since 1.1
+     */
+    public String getGeneralFeedback() {
+        return this.generalFeedback;
+    }
+
+    /**
+     * <p>Sets the general feedback for project submissions.</p>
+     *
+     * @param generalFeedback a <code>String</code> providing the general feedback for project submissions.
+     * @since 1.1
+     */
+    public void setGeneralFeedback(String generalFeedback) {
+        this.generalFeedback = generalFeedback;
     }
 }

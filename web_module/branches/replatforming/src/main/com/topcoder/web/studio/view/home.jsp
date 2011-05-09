@@ -1,6 +1,6 @@
 <%--
-  - Author: pulky, isv
-  - Version: 1.6
+ - Author: pulky, isv, pvmagacho
+  - Version: 1.7
   - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page renders studio home page.
@@ -31,8 +31,9 @@
   -    * and Compete and Post buttons. Active Contests area shows icon for contests
   -    * eligible for TCO10. Contest Chatter area is replaced with Member Of The Month
   -    * info
-  - Version 1.5 (Replatforming Studio Release 1 Assembly) change notes: active contests are filtered based on 
-  - eligibility constraints.
+  - Version 1.6 (Replatforming Studio Release 1 Assembly) change notes: active contests are filtered based on 
+  -    * eligibility constraints.
+  - Version 1.7 (Replatforming Studio Release 4 Assembly) change notes: empty active contests control must be shown.  
 --%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
@@ -119,14 +120,20 @@
                         </div>
                     </div><%-- End of #top_part --%>
                     <div id="center_content">
-                        <c:if test="${not empty contests}">
-                            <div id="active_contest">
+		        <div id="active_contest">
                                 <div id="active_contest_head">
                                     <span class="active_contests_head">&nbsp;</span>
                                     <span class="active_contests_head">ACTIVE CONTESTS</span>
                                     <span class="prize_purse_head">PURSE</span>
                                     <span class="time_left_head">TIME LEFT</span>
                                 </div>
+                        <c:if test="${empty contests}">                        	
+                                <div id="active_contest_content">
+				</div>
+			</div>
+                        </c:if>
+                        <c:if test="${not empty contests}">
+                            <div id="active_contest">
                                 <div id="active_contest_content">
                                     <table>
                                         <thead>

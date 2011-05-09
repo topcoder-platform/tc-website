@@ -3,8 +3,8 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping package="com.topcoder.web.common.model.comp" auto-import="false">
-    <class name="MimeType" table="tcs_catalog:mime_type_lu" mutable="false">
+<hibernate-mapping package="com.topcoder.web.common.model.comp" >
+    <class name="MimeType" table="mime_type_lu" mutable="false">
         <id name="id" column="mime_type_id"/>
         <property name="description" column="mime_type_desc" access="field"/>
         <many-to-one name="fileType" column="file_type_id"  class="FileType"/>

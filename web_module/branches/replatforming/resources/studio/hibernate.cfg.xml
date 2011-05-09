@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!--
-  - Author: pulky
-  - Version: 1.1
-  - Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+  - Author: pulky, pvmagacho
+  - Version: 1.4
+  - Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: Studio Hibernate configuration file
   -
@@ -12,6 +12,7 @@
   - SpecReviewReviewer, SpecReviewStatus and UserPermissionGrant mappings.
   - Version 1.3 (Studio Multi-Rounds Assembly - Studio Contest Details v1.0) changes: Added ContestMilestonePrize and
   - ContestMultiRoundInformation mappings.
+  - Version 1.4 (Re-platforming Studio Release 4 Assembly) changes: Remove studio_oltp database reference. Moved to tcs_catalog database.
 -->
 <!DOCTYPE hibernate-configuration PUBLIC
         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
@@ -31,7 +32,7 @@
    <!-- Uncomment this block when executing ant deploy task -->
     <session-factory name="java:comp/env/hibernate/SessionFactory">
 
-        <property name="connection.datasource">java:/JTS_STUDIO_OLTP</property>
+        <property name="connection.datasource">java:/TCS_CATALOG</property>
 
         <!-- SQL dialect -->
         <property name="dialect">org.hibernate.dialect.InformixDialect</property>
@@ -141,38 +142,6 @@
         <mapping resource="com/topcoder/web/common/model/comp/SubmissionImage.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/Upload.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/UserContestPrize.hbm.xml"/>
-
-        <mapping resource="com/topcoder/web/studio/model/Contest.hbm.xml"/>
-        <mapping resource="com/topcoder/web/studio/model/ContestChannel.hbm.xml"/>
-        <mapping resource="com/topcoder/web/studio/model/ContestConfig.hbm.xml"/>
-        <mapping resource="com/topcoder/web/studio/model/ContestMilestonePrize.hbm.xml"/>
-        <mapping resource="com/topcoder/web/studio/model/ContestMultiRoundInformation.hbm.xml"/>
-        <mapping resource="com/topcoder/web/studio/model/ContestProperty.hbm.xml"/>
-        <mapping resource="com/topcoder/web/studio/model/ContestRegistration.hbm.xml"/>
-        <mapping resource="com/topcoder/web/studio/model/ContestResult.hbm.xml"/>
-        <mapping resource="com/topcoder/web/studio/model/ContestRoleTermsOfUse.hbm.xml"/>
-        <mapping resource="com/topcoder/web/studio/model/ContestStatus.hbm.xml"/>
-        <mapping resource="com/topcoder/web/studio/model/ContestType.hbm.xml"/>
-        <mapping resource="com/topcoder/web/studio/model/Document.hbm.xml"/>
-        <mapping resource="com/topcoder/web/studio/model/DocumentType.hbm.xml"/>
-        <mapping resource="com/topcoder/web/studio/model/FilePath.hbm.xml"/>
-        <mapping resource="com/topcoder/web/studio/model/MimeType.hbm.xml"/>
-        <mapping resource="com/topcoder/web/studio/model/Medium.hbm.xml"/>
-        <mapping resource="com/topcoder/web/studio/model/Prize.hbm.xml"/>
-        <mapping resource="com/topcoder/web/studio/model/PrizeType.hbm.xml"/>
-        <mapping resource="com/topcoder/web/studio/model/ReviewStatus.hbm.xml"/>
-        <mapping resource="com/topcoder/web/studio/model/Submission.hbm.xml"/>
-        <mapping resource="com/topcoder/web/studio/model/SubmissionImage.hbm.xml"/>
-        <mapping resource="com/topcoder/web/studio/model/SubmissionReview.hbm.xml"/>
-        <mapping resource="com/topcoder/web/studio/model/SubmissionStatus.hbm.xml"/>
-        <mapping resource="com/topcoder/web/studio/model/SubmissionType.hbm.xml"/>
-        <mapping resource="com/topcoder/web/studio/model/ElectronicAffirmation.hbm.xml"/>		
-        <mapping resource="com/topcoder/web/studio/model/SubmissionDeclaration.hbm.xml"/>
-        <mapping resource="com/topcoder/web/studio/model/ExternalContentType.hbm.xml"/>
-        <mapping resource="com/topcoder/web/studio/model/ExternalContent.hbm.xml"/>
-        <mapping resource="com/topcoder/web/studio/model/ExternalContentProperty.hbm.xml"/>
-
-        <mapping resource="com/topcoder/web/studio/model/StudioFileType.hbm.xml"/>
 
         <mapping resource="com/topcoder/web/common/voting/Candidate.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/voting/CandidateInfo.hbm.xml"/>

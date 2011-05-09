@@ -3,8 +3,8 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping package="com.topcoder.web.common.model.comp" auto-import="false">
-    <class name="Resource" table="tcs_catalog:resource" mutable="false">
+<hibernate-mapping package="com.topcoder.web.common.model.comp">
+    <class name="Resource" table="resource" mutable="false">
         <id name="id" column="resource_id">
             <generator class="com.topcoder.web.common.model.IdGenerator">
                 <param name="sequence_name">resource_id_seq</param>
@@ -17,7 +17,7 @@
         <property name="modifyUser" column="modify_user"/>
         <property name="createDate" column="create_date"/>
         <property name="modifyDate" column="modify_date"/>
-        <set name="info" table="tcs_catalog:resource_info" access="field" cascade="all" inverse="true">
+        <set name="info" table="resource_info" access="field" cascade="all" inverse="true">
             <key column="resource_id" not-null="true"/>
             <one-to-many class="ResourceInfo"/>
         </set>

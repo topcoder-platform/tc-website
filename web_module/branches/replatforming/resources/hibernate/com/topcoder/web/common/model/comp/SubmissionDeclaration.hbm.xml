@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <!--
-  - Author: TCSDEVELOPER
+  - Author: pvmagacho
   - Version: 1.0
   - Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
   -
@@ -13,7 +13,7 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="com.topcoder.web.common.model.comp" auto-import="false">
-    <class name="SubmissionDeclaration" table="tcs_catalog:submission_declaration">
+    <class name="SubmissionDeclaration" table="submission_declaration">
 		<id name="id" column="submission_declaration_id">
             <generator class="com.topcoder.web.common.model.IdGenerator">
                 <param name="sequence_name">STUDIO_PRIZE_SEQ</param>

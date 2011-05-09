@@ -1,6 +1,6 @@
 <%--
-  - Author: pulky, isv
-  - Version: 1.5
+  - Author: pulky, isv, pvmagacho
+  - Version: 1.6
   - Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page presents specific contest details
@@ -18,9 +18,10 @@
   -     - Applied new L&F
   - Version 1.5 (Re-platforming Studio Release 2 Assembly) changes:
   -     - Updated the logic to use projects from tcs_catalog database.
+  - Version 1.6 (Re-platforming Studio Release 4 Assembly) changes:
+  -     - Clean up old studio model files
 --%>
 <%@ page import="com.topcoder.web.studio.Constants" %>
-<%@ page import="com.topcoder.web.studio.model.PrizeType" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -28,7 +29,6 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
 <fmt:setLocale value="en_US"/>
-<c:set var="clientPrize" value="<%=PrizeType.BONUS%>"/>
 <c:set var="contest" value="${requestScope.contest}"/>
 <c:set var="isMultiRound" value="${not empty contest.milestoneDate}"/>
 <c:set var="milestoneDate" value="${contest.milestoneDate}"/>

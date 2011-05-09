@@ -1,6 +1,6 @@
 <%--
   - Author: pulky, TCSDEVELOPER, pvmagacho
-  - Version: 1.3
+  - Version: 1.4
   - Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page lists all submissions for a given contest.
@@ -15,10 +15,11 @@
   -     - Applied new L&F
   - Version 1.3 (Re-platforming Studio Release 3 Assembly) changes:
   -	- Updated the logic to use contests hosted in tcs_catalog
+  - Version 1.4 (Re-platforming Studio Release 4 Assembly) changes:
+  -	- Clean up old studio model files
 --%>
 
 <%@ page import="com.topcoder.web.studio.Constants" %>
-<%@ page import="com.topcoder.web.studio.model.ContestProperty" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="studio" uri="studio.tld" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>

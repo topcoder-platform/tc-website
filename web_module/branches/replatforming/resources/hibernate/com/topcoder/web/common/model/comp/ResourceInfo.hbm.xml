@@ -3,9 +3,9 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping package="com.topcoder.web.common.model.comp" auto-import="false">
+<hibernate-mapping package="com.topcoder.web.common.model.comp">
 
-    <class name="ResourceInfo" table="tcs_catalog:resource_info" mutable="false">
+    <class name="ResourceInfo" table="resource_info" mutable="false">
         <composite-id name="id" class="ResourceInfo$Identifier">
             <key-many-to-one name="resource" class="Resource" column="resource_id"/>
             <key-property name="typeId" column="resource_info_type_id" access="field"/>

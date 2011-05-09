@@ -7,7 +7,6 @@ import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -31,13 +30,7 @@ import com.topcoder.web.common.model.comp.Project;
 import com.topcoder.web.common.model.comp.ProjectPhase;
 import com.topcoder.web.common.model.comp.Resource;
 import com.topcoder.web.common.model.comp.ResourceInfo;
-import com.topcoder.web.ejb.project.ProjectRoleTermsOfUse;
-import com.topcoder.web.ejb.project.ProjectRoleTermsOfUseLocator;
-import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.web.ejb.termsofuse.TermsOfUseEntity;
-import com.topcoder.web.ejb.termsofuse.TermsOfUseLocator;
-import com.topcoder.web.ejb.user.UserTermsOfUse;
-import com.topcoder.web.ejb.user.UserTermsOfUseLocator;
 import com.topcoder.web.studio.Constants;
 
 /**
@@ -88,8 +81,15 @@ import com.topcoder.web.studio.Constants;
  *   </ol>
  * </p>
  *
- * @author isv, isv, isv
- * @version 1.1
+ * <p>
+ * Version 1.2 (Re-platforming Studio Release 4 Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Re-factored the logic for terms processing.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author isv, TCSDEVELOPER
+ * @version 1.2
  * @since Studio Release Assembly - Spec Review Sign up page v1.0
  */
 public class ReviewRegistration extends ShortHibernateProcessor {
@@ -307,28 +307,10 @@ public class ReviewRegistration extends ShortHibernateProcessor {
         
         // Get current user ID
         long userId = getLoggedInUser().getId();
-        
-        // Check user's terms of use acceptance
-        ProjectRoleTermsOfUse projectRoleTermsOfUse = ProjectRoleTermsOfUseLocator.getService();
-        UserTermsOfUse userTermsOfUse = UserTermsOfUseLocator.getService();
-        TermsOfUse termsOfUse = TermsOfUseLocator.getService();
-        
-        List<Long>[] necessaryTerms = projectRoleTermsOfUse.getTermsOfUse(project.getId(), reviewerRoleIds,
-                                                                          DBMS.COMMON_OLTP_DATASOURCE_NAME);
-        List<TermsOfUseEntity> termsPending = new ArrayList<TermsOfUseEntity>();
-        
-        for (int i = 0; i < necessaryTerms.length; i++) {
-            if (necessaryTerms[i] != null) {
-                for (int j = 0; j < necessaryTerms[i].size(); j++) {
-                    Long termsId = necessaryTerms[i].get(j);
-                    TermsOfUseEntity terms =  termsOfUse.getEntity(termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                    if (!userTermsOfUse.hasTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
-                        termsPending.add(terms);
-                    }
-                }
-            }
-        }
-        
+
+        List<TermsOfUseEntity> termsPending 
+            = RegistrationHelper.getPendingTermsOfUse(reviewerRoleIds, project.getId(), userId);
+
         // If there are terms of use which are not accepted by user yet then raise an error
         if (!termsPending.isEmpty()) {
             StringBuilder b = new StringBuilder();
@@ -348,7 +330,7 @@ public class ReviewRegistration extends ShortHibernateProcessor {
                 }
             }
         }
-
+        
         // check if the user is part of the review board
         if (userInORReviewBoard(getUser().getId(), project.getCategoryId())) {
             for (int i = 0; i < reviewerRoleIds.length; i++) {

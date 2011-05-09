@@ -1,20 +1,17 @@
 <%@ page import="com.topcoder.web.studio.Constants" %>
-<%@ page import="com.topcoder.web.studio.model.ContestChannel" %>
-<%@ page import="com.topcoder.web.studio.model.ContestProperty" %>
 <%@ page import="java.util.Date" %>
 <%@ page import="java.util.TreeMap" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="studio" uri="studio.tld" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="studio_tags" tagdir="/WEB-INF/tags" %>
-<%@ taglib prefix="tc-webtag" uri="tc-webtags.tld" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <c:set var="modKey" value="<%=Constants.MODULE_KEY%>"/>
 <c:set var="subId" value="<%=Constants.SUBMISSION_ID%>"/>
 <c:set var="contestId" value="<%=Constants.CONTEST_ID%>"/>
-<c:set var="viewSubmitters" value="<%=ContestProperty.VIEWABLE_SUBMITTERS%>"/>
 <c:set var="subFileIdx" value="<%=Constants.SUBMISSION_FILE_INDEX%>"/>
 
 <c:set var="currentTime" value="<%=new Date()%>"/>
@@ -121,7 +118,6 @@
 
 <c:set var="subAltType" value="<%=Constants.SUBMISSION_ALT_TYPE%>"/>
 <c:set var="downloadSubmissionBaseUrl" value="studio.jpg?${modKey}=DownloadSubmission&amp;${subId}=${subRow.map['submission_id']}&amp;${subAltType}=full&amp;it=28"/>
-<c:set var="adminV1" value="<%=ContestChannel.STUDIO_ADMINISTRATOR_V1%>"/>
 <c:set var="processor" value="DownloadSubmission"/>
 
 <div class="view-wrapper"><!-- right top corner-->
@@ -269,7 +265,7 @@
     <div class="submission-file-info">
         <h4 class="submission-number">Submission #${sbmid}</h4>
 		<c:if test="${viewSubmitters}">
-        	<span class="author">by <studio:handle coderId="${submission.submitterId}"/></span>
+        	<span class="author">by <tc-webtag:handle coderId="${submission.submitterId}" context="component" /></span>
         </c:if>
 
         <div class="list-wrapper">

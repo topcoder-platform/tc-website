@@ -1,7 +1,7 @@
 <%--
-  - Author: pulky, isv
-  - Version: 1.3
-  - Copyright (C) 2001 - 2010 TopCoder Inc., All Rights Reserved.
+  - Author: pulky, isv, pvmagacho
+  - Version: 1.4
+  - Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page presents active contests
   -
@@ -10,12 +10,12 @@
   - date if it has not been reached yet. (Only for multi round contests)
   - Version 1.3 (Replatforming Studio Release 1 Assembly) change notes: active contests are filtered based on 
   - eligibility constraints.
+  - Version 1.4 (Replatforming Studio Release 4 Assembly) change notes: clean up old model classes.
 --%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
-<%@ page import="com.topcoder.web.studio.model.ContestChannel" %>
 <%@ page import="java.util.Date" %>
 <%@ page import="java.sql.Timestamp" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>

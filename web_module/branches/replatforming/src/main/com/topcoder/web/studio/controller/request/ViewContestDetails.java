@@ -55,8 +55,15 @@ import com.topcoder.web.studio.util.Util;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, isv
- * @version 1.2.2
+ * <p>
+ * Version 1.2.2 (Re-platforming Studio Release 4 Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Removed unused code.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky, isv, TCSDEVELOPER
+ * @version 1.2.3
  */
 public class ViewContestDetails extends ShortHibernateProcessor {
 
@@ -134,36 +141,6 @@ public class ViewContestDetails extends ShortHibernateProcessor {
             Date milestoneDate = contest.getMilestoneDate();
             if (milestoneDate != null && milestoneDate.before(new Date())) {
                 getRequest().setAttribute("canViewMilestone", true);
-//                
-//                DataAccess da = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
-//                Request r = new Request();
-//                r.setContentHandle("submissions");
-//                r.setProperty(Constants.CONTEST_ID, contestId);
-//                r.setProperty(Constants.SUBMISSION_RANK, 
-//                              contest.getMilestonePrize().getNumberOfSubmissions().toString());
-//                
-//                ResultSetContainer submissions = (ResultSetContainer) da.getData(r).get("submissions");
-//                boolean milestonePrizeAvailable = false;
-//                int recordNum = submissions.size();
-//                List<Integer> milestoneSubmissionId = new ArrayList<Integer>();
-//                Map<Integer, String> milestoneSubmissionFeedback = new HashMap<Integer, String>();
-//                for (int i = 0; i < recordNum; i++) {
-//                    Object resultData = submissions.getItem(i, "award_milestone_prize").getResultData();                    
-//                    Boolean awardMilestonePrize  = (resultData != null) && ((Boolean)resultData).booleanValue();
-//                    if (awardMilestonePrize) {
-//                        String feedbackText  = submissions.getStringItem(i, "feedback_text");
-//                        Integer submissionId = submissions.getIntItem(i, "submission_id");
-//                        milestoneSubmissionId.add(submissionId);
-//                        milestoneSubmissionFeedback.put(submissionId, feedbackText.replaceAll("\n", "<br />"));
-//                    }
-//                    milestonePrizeAvailable |= awardMilestonePrize;
-//                }
-//                
-//                getRequest().setAttribute("milestonePrizeAvailable", milestonePrizeAvailable);
-//                if (milestonePrizeAvailable) {
-//                    getRequest().setAttribute("milestoneSubmissionId", milestoneSubmissionId);
-//                    getRequest().setAttribute("milestoneSubmissionFeedback", milestoneSubmissionFeedback);
-//                }
             } else {
                 getRequest().setAttribute("canViewMilestone", false);
             }

@@ -1,12 +1,14 @@
 <%--
-  - Author: isv
-  - Version: 1.0 (Studio Contest Detail Pages assembly)
+  - Author: isv, pvmagacho
+  - Version: 1.1 (Studio Contest Detail Pages assembly)
   - Copyright (C) 2010 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page renders the common header for Studio Contest Detail pages.
+  -
+  - Version 1.1 (Re-platforming Studio Release 4 Assembly) : Clean up old studio model files. Added mark for purchase flag
 --%>
 <%@ page import="com.topcoder.web.studio.Constants" %>
-<%@ page import="com.topcoder.web.studio.model.PrizeType" %>
+<%@ page import="com.topcoder.web.common.model.comp.Prize" %>
 <%@ page import="com.topcoder.web.studio.controller.request.ViewContestDetails" %>
 <%@ page import="java.util.Date" %>
 
@@ -20,7 +22,7 @@
 <c:set var="servletPath" value="${sessionInfo.servletPath}"/>
 <c:set var="registered" value="${requestScope.registered}"/>
 <c:set var="prizesCount" value="${fn:length(contest.prizes)}"/>
-<c:set var="clientPrize" value="<%=PrizeType.BONUS%>"/>
+<c:set var="clientPrize" value="<%=Prize.MILESTONE_PRIZE_TYPE_ID%>"/>
 <c:set var="isMultiRound" value="${not empty contest.milestoneDate}"/>
 <c:set var="milestoneDate" value="${contest.milestoneDate}"/>
 <c:set var="placeSuffixes"

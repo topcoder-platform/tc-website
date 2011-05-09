@@ -3,9 +3,9 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping package="com.topcoder.web.common.model.comp" auto-import="false">
+<hibernate-mapping package="com.topcoder.web.common.model.comp">
 
-    <class name="ProjectCategory" table="tcs_catalog:project_category_lu" mutable="false">
+    <class name="ProjectCategory" table="project_category_lu" mutable="false">
         <id name="id" column="project_category_id"/>
         <property name="name" column="name" access="field"/>
     </class>

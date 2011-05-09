@@ -43,8 +43,16 @@ import java.util.List;
  *   </ol>
  * </p>
  *
+ * <p>
+ *   Version 1.3 (Re-platforming Studio Release 4 Assembly) Change notes:
+ *   <ol>
+ *     <li>Fixed {@link #getFileType(String) and {@link #getBundledFileParser(String)} javadocs, removing old studio model
+ *         references.</li>
+ *   </ol>
+ * </p>
+ * 
  * @author dok, isv, pvmagacho
- * @version 1.2
+ * @version 1.3
  */
 public class UnifiedSubmissionValidator implements Validator {
 
@@ -60,10 +68,10 @@ public class UnifiedSubmissionValidator implements Validator {
     private Project project;
 
     /**
-     * <p>Constructs new <code>SubmissionValidator</code> instance to be used for validating the submissions in context
+     * <p>Constructs new <code>UnifiedSubmissionValidator</code> instance to be used for validating the submissions in context
      * of specified contest.</p>
      *
-     * @param contest a <code>Contest</code> which the submissions to be validated by this validator belong to. 
+     * @param contest a <code>Project</code> which the submissions to be validated by this validator belong to. 
      */
     public UnifiedSubmissionValidator(Project project) {
         this.project = project;
@@ -168,10 +176,10 @@ public class UnifiedSubmissionValidator implements Validator {
     }
 
     /**
-     * <p>Determines the type of the file matching the specified name.</p>
+     * <p>Determines the file type of the file matching the specified name.</p>
      *
      * @param fileName a <code>String</code> providing the name of the file.
-     * @return a <code>StudioFileType</code> representing the file type corresponding to specified entry or
+     * @return a <code>FileType</code> representing the file type corresponding to specified entry or
      *         <code>null</code> if the type of the entry is not recognized.
      * @since TopCoder Studio Modifications Assembly (Req# 5.7, 5.11)
      */
@@ -207,10 +215,10 @@ public class UnifiedSubmissionValidator implements Validator {
     /**
      * <p>Gets the parser for the bundled file corresponding to specified file path.</p>
      *
-     * @param filePath a <code>MimeType</code> providing the path to file.
+     * @param filePath a <code>String</code> providing the path to file.
      * @return a <code>BundledFileAnalyzer</code> which could be used for parsing the provided bundled file.
-     * @throws IllegalArgumentException if specified mime type does not correspond to bundled files or there is no
-     *         parser mapped to specified mime type.
+     * @throws IllegalArgumentException if specified file type does not correspond to bundled files or there is no
+     *         parser mapped to specified type type.
      * @since Studio Submission Slideshow
      */
     public static BundledFileAnalyzer getBundledFileParser(String filePath) {
@@ -229,5 +237,6 @@ public class UnifiedSubmissionValidator implements Validator {
         }
     }
 }
+
 
 

@@ -1,5 +1,4 @@
 <%@ page import="com.topcoder.web.studio.Constants" %>
-<%@ page import="com.topcoder.web.studio.model.ReviewStatus" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page contentType="text/xml" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -10,8 +9,6 @@
 <c:set var="subFileIdx" value="<%=Constants.SUBMISSION_FILE_INDEX%>"/>
 <c:set var="modKey" value="<%=Constants.MODULE_KEY%>"/>
 
-<c:set value="<%=ReviewStatus.FAILED%>" var="failed"/>
-<c:set value="<%=ReviewStatus.PASSED%>" var="passed"/>
 <c:set value="<%=Constants.SUBMISSION_ID%>" var="submissionId"/>
 
 <c:forEach items="${submissions}" var="submission">

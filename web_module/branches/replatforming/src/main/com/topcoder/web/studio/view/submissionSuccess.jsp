@@ -1,5 +1,4 @@
 <%@ page import="com.topcoder.web.studio.Constants" %>
-<%@ page import="com.topcoder.web.studio.model.ContestChannel" %>
 <%@ page import="java.util.Calendar" %>
 <%@ page import="java.util.GregorianCalendar" %>
 <%@ page import="java.sql.Timestamp" %>
@@ -136,8 +135,6 @@
     GregorianCalendar gc = new GregorianCalendar(2007, Calendar.JULY, 23);
 %>
 <c:set value="<%=new Timestamp(gc.getTime().getTime())%>" var="bigStart"/>
-<c:set value="<%=ContestChannel.TOPCODER_DIRECT%>" var="TOPCODER_DIRECT_ID"/>
-
         <div align="center">
             <div align="left" style="width:500px; margin-top: 20px;">
                 Your Submission Has Been Uploaded

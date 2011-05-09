@@ -56,9 +56,17 @@ import java.util.TreeSet;
  *     <li>Added {@link #getReviewClosed()} method.</li>
  *   <ol>
  * </p>    
+ *
+ * <p>
+ * Version 1.3 (Re-platforming Studio Release 4 Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added {@link #getMilestoneReviewClosed()} method.</li>
+ *     <li>Implemeted {@link #getMilestoneFeedbackAvailable()} method.</li>
+ *   </ol>
+ * </p>
  * 
  * @author isv, pvmagacho
- * @version 1.2
+ * @version 1.3
  */
 public class Project extends Base {
 
@@ -479,6 +487,21 @@ public class Project extends Base {
     }
 
     /**
+     * <p>Indicates whether the Milestone Review phase is closed.</p>
+     *
+     * @return true if Milestone Review phase is closed, false otherwise
+     * @since 1.3
+     */
+    public Boolean getMilestoneReviewClosed() {
+        ProjectPhase milestoneReviewPhase = getPhase(ProjectPhase.MILESTONE_REVIEW);
+        if (milestoneReviewPhase != null) {
+            log.debug("Return milestone review closed: " + (milestoneReviewPhase.getStatusId() == ProjectPhase.STATUS_CLOSED));
+            return (milestoneReviewPhase.getStatusId() == ProjectPhase.STATUS_CLOSED);
+        }
+        return false;
+    }
+    
+    /**
      * <p>Indicates whether the Review phase is closed.</p>
      *
      * @return true if Review phase is closed, false otherwise
@@ -487,7 +510,7 @@ public class Project extends Base {
     public Boolean getReviewClosed() {
     	ProjectPhase reviewPhase = getPhase(ProjectPhase.REVIEW);
         if (reviewPhase != null) {
-        	log.debug("Return review close " + (reviewPhase.getStatusId() == ProjectPhase.STATUS_CLOSED));
+        	log.debug("Return review closed " + (reviewPhase.getStatusId() == ProjectPhase.STATUS_CLOSED));
         	return (reviewPhase.getStatusId() == ProjectPhase.STATUS_CLOSED);
         }
         return false;
@@ -700,9 +723,8 @@ public class Project extends Base {
      * @since 1.1
      */
     public boolean getMilestoneFeedbackAvailable() {
-        // TODO : Sub-sequent assembly implementing Milestone tab support should update this method to return 
-        // appropriate value
-        return false;
+        ProjectPhase milestoneReviewPhase = getPhase(ProjectPhase.MILESTONE_REVIEW);
+        return (milestoneReviewPhase != null) && (milestoneReviewPhase.getStatusId() == ProjectPhase.STATUS_CLOSED);
     }
     
     /**
