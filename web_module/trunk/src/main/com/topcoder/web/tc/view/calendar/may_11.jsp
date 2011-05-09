@@ -112,7 +112,7 @@
       </td>
       <td class="value">17
 	     <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=14514">Member SRM 504.5</A></strong><br />
+         <strong><A href="/tc?module=MatchDetails&rd=14514">SRM 504.5</A></strong><br />
          11:00
         </div>
       </td>
