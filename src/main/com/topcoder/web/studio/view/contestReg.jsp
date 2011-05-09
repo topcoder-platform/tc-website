@@ -1,6 +1,6 @@
 <%--
-  - Author: pulky
-  - Version: 1.3
+  - Author: pulky, pvmagacho 
+  - Version: 1.4
   - Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page present registration page for a specific contest.
@@ -10,6 +10,7 @@
   - Version 1.2 (Studio Electronic Assignment Document Assembly version 1.0) changes:
   -     - Change the registration process.
   - Version 1.3 (Re-platforming Studio Release 2 assembly) change notes: updated to use different model for contest.
+  - Version 1.4 (Re-platforming Studio Release 4 assembly) change notes: clean up old studio model files.
 --%>
 <%@ page import="com.topcoder.web.studio.Constants"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag"%>
@@ -90,7 +91,7 @@
                                             <tc-webtag:hiddenInput name="${MODULE_KEY}" value="Register" />
                                             <tc-webtag:hiddenInput name="${CONTEST_ID}" />
                                             <c:if test="${not empty terms}">
-                                                <tc-webtag:hiddenInput name="${TERMS_OF_USE_ID}" value="${terms.id}" />
+                                                <tc-webtag:hiddenInput name="${TERMS_OF_USE_ID}" value="${terms.termsOfUseId}" />
                                             </c:if>
                                             <c:choose>
                                                 <c:when test="${not empty terms}">
@@ -104,7 +105,7 @@
                                                         ${terms.title}
                                                     </div><br />
                                                     <iframe width="590" height="300" marginWidth="5"
-                                                        src="${sessionInfo.servletPath}?module=Terms&amp;${TERMS_OF_USE_ID}=${terms.id}">
+                                                        src="${sessionInfo.servletPath}?module=Terms&amp;${TERMS_OF_USE_ID}=${terms.termsOfUseId}">
                                                     </iframe>
                                                 </c:when>
                                                 <c:otherwise>
@@ -123,7 +124,7 @@
                                                                                     <a href="${terms_agreed_item.url}" target="_blank">(View)</a>
                                                                                 </c:when>
                                                                                 <c:otherwise>
-                                                                                    <a href="${sessionInfo.servletPath}?module=Terms&amp;${TERMS_OF_USE_ID}=${terms_agreed_item.id}"
+                                                                                    <a href="${sessionInfo.servletPath}?module=Terms&amp;${TERMS_OF_USE_ID}=${terms_agreed_item.termsOfUseId}"
                                                                                         target="_blank">(View)</a>
                                                                                 </c:otherwise>
                                                                             </c:choose>

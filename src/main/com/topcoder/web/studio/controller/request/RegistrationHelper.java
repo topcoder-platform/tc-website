@@ -3,17 +3,31 @@
  */
 package com.topcoder.web.studio.controller.request;
 
+import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.common.model.TermsOfUse;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.comp.Project;
 import com.topcoder.web.common.model.comp.Resource;
 import com.topcoder.web.common.model.comp.ResourceInfo;
 import com.topcoder.web.common.model.comp.ResourceRole;
+import com.topcoder.web.ejb.project.ProjectRoleTermsOfUse;
+import com.topcoder.web.ejb.project.ProjectRoleTermsOfUseLocator;
+import com.topcoder.web.ejb.termsofuse.TermsOfUse;
+import com.topcoder.web.ejb.termsofuse.TermsOfUseEntity;
+import com.topcoder.web.ejb.termsofuse.TermsOfUseLocator;
+import com.topcoder.web.ejb.user.UserTermsOfUse;
+import com.topcoder.web.ejb.user.UserTermsOfUseLocator;
 import com.topcoder.web.studio.Constants;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
+
+import javax.ejb.CreateException;
+import javax.naming.NamingException;
 
 /**
  * <p>This helper class provides common functionality among registration processors.</p>
@@ -33,8 +47,15 @@ import com.topcoder.web.studio.dao.StudioDAOUtil;
  *   </ol>
  * </p>
  *
- * @author pulky, isv
- * @version 1.1
+ * <p>
+ * Version 1.2 (Re-platforming Studio Release 4 Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Re-factored the logic for terms processing.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author pulky, isv, TCSDEVELOPER
+ * @version 1.2
  * @since Configurable Contest Terms-Studio Release Assembly v1.0
  */
 public class RegistrationHelper {
@@ -63,8 +84,12 @@ public class RegistrationHelper {
      * @param roleIds an array of role ids corresponding to the user
      * @throws IllegalArgumentException if any of the arguments is null (including contest.id) or roleIds is empty
      * @return true if there are pending terms of use to agree to.
+     * @throws CreateException if an unexpected error occurs.
+     * @throws NamingException if an unexpected error occurs.
+     * @throws RemoteException if an unexpected error occurs.
      */
-    protected static boolean processTermsOfUse(TCRequest request, Long contestId, User user, Integer[] roleIds) {
+    protected static boolean processTermsOfUse(TCRequest request, Long contestId, User user, Integer[] roleIds)
+        throws CreateException, NamingException, RemoteException {
         if (request == null) {
             throw new IllegalArgumentException("request cannot be null");
         }
@@ -81,20 +106,22 @@ public class RegistrationHelper {
             throw new IllegalArgumentException("roleIds cannot be null or empty");
         }
 
-        Set<TermsOfUse> necessaryTerms 
-            = StudioDAOUtil.getFactory().getContestDAO().findNecessaryTerms(contestId, roleIds);
-        Set<TermsOfUse> termsAgreed = user.getTerms();
+        int[] roleIdsInt = new int[roleIds.length];
+        for (int i = 0; i < roleIdsInt.length; i++) {
+            roleIdsInt[i] = roleIds[i];
+        }
 
         // validate the user has agreed to the necessary terms of use
-        for (TermsOfUse tou : necessaryTerms) {
-            if (!termsAgreed.contains(tou)) {
-                request.setAttribute(Constants.TERMS, tou);
-                return true;
-            }
+        List<TermsOfUseEntity> pendingTermsOfUse = getPendingTermsOfUse(roleIdsInt, contestId.intValue(),
+                                                                        user.getId());
+        if (!pendingTermsOfUse.isEmpty()) {
+            request.setAttribute(Constants.TERMS, pendingTermsOfUse.get(0));
+            return true;
         }
 
         // the user agreed to all necessary terms
-        request.setAttribute(Constants.TERMS_AGREED, necessaryTerms);
+        request.setAttribute(Constants.TERMS_AGREED, getNecessaryTermsOfUseEntities(roleIdsInt,
+                                                                                    contestId.intValue()));
         return false;
     }
 
@@ -123,5 +150,92 @@ public class RegistrationHelper {
             }
         }
         return null;
+    }
+
+    /**
+     * <p>Gets the terms of use which are to be accepted by the specified user for accessing the specified project with
+     * specified roles.</p>
+     * 
+     * @param roleIds an <code>int</code> array listing the IDs of roles.
+     * @param projectId an <code>int</code> providing the project ID. 
+     * @param userId a <code>long</code> providing the user ID.
+     * @return a <code>List</code> listing the pending terms of use. 
+     * @throws CreateException if an unexpected error occurs.
+     * @throws NamingException if an unexpected error occurs.
+     * @throws RemoteException if an unexpected error occurs.
+     */
+    protected static List<TermsOfUseEntity> getPendingTermsOfUse(int[] roleIds, int projectId, long userId)
+        throws CreateException, NamingException, RemoteException {
+        UserTermsOfUse userTermsOfUse = UserTermsOfUseLocator.getService();
+        TermsOfUse termsOfUse = TermsOfUseLocator.getService();
+        System.out.println("ISV : projectId = " + projectId);
+        System.out.println("ISV : roleIds = " + Arrays.toString(roleIds));
+        List<Long>[] necessaryTerms = getNecessaryTermsOfUse(roleIds, projectId);
+        System.out.println("ISV : necessaryTerms = " + Arrays.toString(necessaryTerms));
+        List<TermsOfUseEntity> termsPending = new ArrayList<TermsOfUseEntity>();
+        
+        for (int i = 0; i < necessaryTerms.length; i++) {
+            if (necessaryTerms[i] != null) {
+                for (int j = 0; j < necessaryTerms[i].size(); j++) {
+                    Long termsId = necessaryTerms[i].get(j);
+                    System.out.println("ISV : terms of use : " + termsId);
+                    if (!userTermsOfUse.hasTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
+                        TermsOfUseEntity terms =  termsOfUse.getEntity(termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                        termsPending.add(terms);
+                    }
+                }
+            }
+        }
+        
+        return termsPending;
+    }
+
+    /**
+     * <p>Gets the list of necessary terms of use for specified roles to access the specified project.</p>
+     *  
+     * @param roleIds an <code>int</code> array listing the IDs of roles.
+     * @param projectId an <code>int</code> providing the project ID. 
+     * @return a <code>List</code> of IDs of terms of use grouped by roles. 
+     * @throws NamingException if an unexpected error occurs.
+     * @throws RemoteException if an unexpected error occurs.
+     * @throws CreateException if an unexpected error occurs.
+     * @since 1.2
+     */
+    private static List<Long>[] getNecessaryTermsOfUse(int[] roleIds, int projectId)
+        throws NamingException, RemoteException, CreateException {
+        ProjectRoleTermsOfUse projectRoleTermsOfUse = ProjectRoleTermsOfUseLocator.getService();
+        return projectRoleTermsOfUse.getTermsOfUse(projectId, roleIds, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+    }
+
+    /**
+     * <p>Gets the list of necessary terms of use entities for specified roles to access the specified project.</p>
+     *  
+     * @param roleIds an <code>int</code> array listing the IDs of roles.
+     * @param projectId an <code>int</code> providing the project ID. 
+     * @return a <code>List</code> of IDs of terms of use grouped by roles. 
+     * @throws NamingException if an unexpected error occurs.
+     * @throws RemoteException if an unexpected error occurs.
+     * @throws CreateException if an unexpected error occurs.
+     * @since 1.2
+     */
+    private static List<TermsOfUseEntity> getNecessaryTermsOfUseEntities(int[] roleIds, int projectId)
+        throws NamingException, RemoteException, CreateException {
+        Set<Long> collectedTermsOfUseIds = new HashSet<Long>();
+        List<Long>[] termsIds = getNecessaryTermsOfUse(roleIds, projectId);
+        TermsOfUse termsOfUseService = TermsOfUseLocator.getService();
+        List<TermsOfUseEntity> terms = new ArrayList<TermsOfUseEntity>();
+        if (termsIds != null) {
+            for (List<Long> termsOdUseIds : termsIds) {
+                if (termsOdUseIds != null) {
+                    for (Long termId : termsOdUseIds) {
+                        if (!collectedTermsOfUseIds.contains(termId)) {
+                            terms.add(termsOfUseService.getEntity(termId, DBMS.COMMON_OLTP_DATASOURCE_NAME));
+                            collectedTermsOfUseIds.add(termId);
+                        }
+                    }
+                }
+            }
+        }
+        return terms;
     }
 }

@@ -6,7 +6,6 @@ package com.topcoder.web.studio;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.WebConstants;
-import com.topcoder.web.studio.model.ContestProperty;
 import com.topcoder.imaging.overlay.ImagePersistenceHandler;
 
 import java.lang.reflect.Field;
@@ -51,8 +50,15 @@ import java.util.MissingResourceException;
  *   </ol>
  * </p>
  * 
+ * <p>
+ * Version 1.6 (Re-platforming Studio Release 4 Assembly) Change notes:
+ *   <ol>
+ *     <li>Removed old studio model files that were linked with <code>studio_oltp</code> database.</li>
+ *   </ol>
+ * </p>
+ * 
  * @author dok, isv, pulky, TCSDEVELOPER, pvmagacho
- * @version 1.5
+ * @version 1.6
  */
 public class Constants implements WebConstants {
     private static final TCResourceBundle bundle = new TCResourceBundle("Studio");

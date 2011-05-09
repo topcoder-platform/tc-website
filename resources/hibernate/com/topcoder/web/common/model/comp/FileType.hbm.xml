@@ -5,14 +5,14 @@
 
 <hibernate-mapping package="com.topcoder.web.common.model.comp" auto-import="false">
 
-    <class name="FileType" table="tcs_catalog:file_type_lu" mutable="false">
+    <class name="FileType" table="file_type_lu" mutable="false">
         <id name="id" column="file_type_id"/>
         <property name="description" column="description" access="field"/>
         <property name="sort" column="sort" access="field"/>
         <property name="imageFile" column="image_file" access="field"/>
         <property name="bundled" column="bundled_file" access="field"/>
         <property name="extension" column="extension" access="field"/>
-        <set name="projects" table="tcs_catalog:project_file_type_xref" inverse="true">
+        <set name="projects" table="project_file_type_xref" inverse="true">
             <key column="file_type_id"/>
             <many-to-many column="project_id" class="Project"/>
         </set>

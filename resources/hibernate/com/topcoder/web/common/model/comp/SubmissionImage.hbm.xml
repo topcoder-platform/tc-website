@@ -3,7 +3,7 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="com.topcoder.web.common.model.comp" auto-import="false">
-    <class name="SubmissionImage" table="tcs_catalog:submission_image">
+    <class name="SubmissionImage" table="submission_image">
         <composite-id name="id" class="SubmissionImage$Identifier">
             <key-many-to-one name="submission" class="Submission" column="submission_id"/>
             <key-many-to-one name="image" class="com.topcoder.web.common.model.Image" column="image_id"/>

@@ -2,8 +2,8 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping package="com.topcoder.web.common.model.comp" auto-import="false">
-    <class name="ResourceSubmission" table="tcs_catalog:resource_submission">
+<hibernate-mapping package="com.topcoder.web.common.model.comp">
+    <class name="ResourceSubmission" table="resource_submission">
         <composite-id name="id" class="ResourceSubmission$Identifier">
             <key-many-to-one name="submission" column="submission_id" class="Submission" />
             <key-many-to-one name="resource" column="resource_id" class="Resource" />

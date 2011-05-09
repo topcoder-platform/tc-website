@@ -1,6 +1,6 @@
 <%--
-  - Author: pulky, TCSASSEMBLER
-  - Version: 1.4
+  - Author: pulky, pvmagacho
+  - Version: 1.5
   - Since: Studio Submission Viewer Upgrade Integration v1.0
   - Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
   -
@@ -11,6 +11,7 @@
   - Version 1.2 (BUGR-1914): Added prize information.
   - Version 1.3 (BUGR-2434): Added parameter to hide preview and download link.
   - Version 1.4 (Re-platforming Studio Release 3 Assembly) : Updated the logic to use contests hosted in tcs_catalog database
+  - Version 1.5 (Re-platforming Studio Release 4 Assembly) : Clean up old studio model files. Added mark for purchase flag
   -
   - Required attributes:
   -     * row: the submission information
@@ -18,8 +19,7 @@
 --%>
 
 <%@ tag import="com.topcoder.web.studio.Constants" %>
-<%@ tag import="com.topcoder.web.studio.model.ContestChannel" %>
-<%@ tag import="com.topcoder.web.studio.model.PrizeType" %>
+<%@ tag import="com.topcoder.web.common.model.comp.Prize" %>
 <%@ tag body-content="empty" %>
 
 <%@ attribute name="row" required="true" type="java.lang.Object" %>
@@ -30,6 +30,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="studio" uri="studio.tld" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <%-- Prepare some variables for further use --%>
 <c:set var="subAltType" value="<%=Constants.SUBMISSION_ALT_TYPE%>"/>
@@ -50,8 +51,7 @@
     <c:set var="createDate" value="${row.map['submit_date']}"/>
 </c:if>
 
-<c:set var="bonusPrize" value="<%=PrizeType.BONUS%>"/>
-<c:set var="adminV1" value="<%=ContestChannel.STUDIO_ADMINISTRATOR_V1%>"/>
+<c:set var="bonusPrize" value="<%=Prize.MILESTONE_PRIZE_TYPE_ID%>"/>
 <c:set var="multi" value="false"/>
 
 <c:set var="downloadSubmissionBaseUrl"
@@ -115,7 +115,7 @@
             <span class="info">
                 <strong>
                     <c:choose>
-                        <c:when test="${bonusPrize==row.map['prize_type_id']}">
+                        <c:when test="${bonusPrize==row.map['prize_type_id'] && row.map['mark_for_purchase']}">
                             Client Selection
                         </c:when>
                         <c:otherwise>
@@ -155,7 +155,7 @@
             <span>
                 <strong>
                     Handle:
-                    <studio:handle coderId="${userId}"/>
+                    <tc-webtag:handle coderId="${userId}" context="component" />
                 </strong>
             </span>
             <br />

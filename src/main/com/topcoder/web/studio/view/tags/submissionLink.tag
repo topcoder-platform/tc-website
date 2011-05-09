@@ -1,5 +1,4 @@
 <%@ tag import="com.topcoder.web.studio.Constants" %>
-<%@ tag import="com.topcoder.web.studio.model.ContestChannel" %>
 <%@ tag body-content="empty" %>
 
 <%@ attribute name="row" required="true" type="java.lang.Object" %>
@@ -22,32 +21,6 @@
 
 <%-- Since TopCoder Modifications Assembly Req# 5.9, 5.10 --%>
 
-<c:set var="adminV1" value="<%=ContestChannel.STUDIO_ADMINISTRATOR_V1%>"/>
-<c:choose>
-    <c:when test="${row.map['contest_channel_id'] eq adminV1}">
-        <%-- Old Studio Admin contests --%>
-        <c:choose>
-            <c:when test="${row.map['is_image']}">
-                <div align="center">
-                    <strong>ID:</strong> ${submissionId}
-                    <div style="overflow: hidden; width: 300px;">
-                        <studio_tags:submissionDisplay submissionId="${submissionId}" width="${row.map['width']}" height="${row.map['height']}"/>
-                    </div>
-                </div>
-            </c:when>
-            <c:otherwise>
-                <div align="center">
-                    <strong>ID:</strong> ${submissionId}
-                    <br />
-                    <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;${subId}=${submissionId}">
-                        <img src="/i/v2/interface/magnify.png" alt="" />
-                        <span>Download submission</span>
-                    </a>
-                </div>
-            </c:otherwise>
-        </c:choose>
-    </c:when>
-    <c:otherwise>
         <%-- TC Direct and Studion Admin V2 contests --%>
         <div align="center">
             <strong>ID:</strong>
@@ -58,5 +31,3 @@
                                            previewPresentationType="small" showFullVersionLink="true" showDownloadPreviewLink="${row.map['require_preview_file']}"
                                            contestId="${contestId}"/>
         </div>
-    </c:otherwise>
-</c:choose>

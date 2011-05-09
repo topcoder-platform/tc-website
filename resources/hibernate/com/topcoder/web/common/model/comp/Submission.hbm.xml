@@ -3,9 +3,9 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping package="com.topcoder.web.common.model.comp" auto-import="false">
+<hibernate-mapping package="com.topcoder.web.common.model.comp">
 
-    <class name="Submission" table="tcs_catalog:submission" >
+    <class name="Submission" table="submission" >
         <id name="id" column="submission_id">
             <generator class="com.topcoder.web.common.model.IdGenerator">
                 <param name="sequence_name">submission_id_seq</param>

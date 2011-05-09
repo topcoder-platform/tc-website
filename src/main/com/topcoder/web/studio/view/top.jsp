@@ -16,6 +16,7 @@
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.studio.controller.request.Login" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
 
 <%
@@ -139,7 +140,7 @@ String section = request.getParameter("section") == null ? "" : request.getParam
                         <li class="login"><a class="gMetal" id="login_link" href="#">Login</a></li>
                     </c:when>
                     <c:otherwise>
-                        <li class="logged-in"><span class="welcome">Hello,&nbsp;</span><studio:handle coderId="${sessionInfo.userId}"/></li>
+                        <li class="logged-in"><span class="welcome">Hello,&nbsp;</span><tc-webtag:handle coderId="${sessionInfo.userId}" context="component" /></li>
                         <li class="logout gMetal"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=Logout" id="logout_link">Logout</a></li>
                     </c:otherwise>
                 </c:choose>

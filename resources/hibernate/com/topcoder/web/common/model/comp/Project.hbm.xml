@@ -3,19 +3,19 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping package="com.topcoder.web.common.model.comp" auto-import="false">
+<hibernate-mapping package="com.topcoder.web.common.model.comp">
 
-    <class name="Project" table="tcs_catalog:project" mutable="false">
+    <class name="Project" table="project" mutable="false">
         <id name="id" column="project_id" />
 
         <property name="componentVersionId" 
-                  formula="(SELECT pi.value FROM tcs_catalog:project_info pi WHERE pi.project_info_type_id = 1 AND pi.project_id = project_id)"/>
+                  formula="(SELECT pi.value FROM project_info pi WHERE pi.project_info_type_id = 1 AND pi.project_id = project_id)"/>
    
         <property name="clientName" 
-                  formula="(SELECT u.handle FROM tcs_catalog:user u WHERE u.user_id::VARCHAR(64) = create_user)"/>
+                  formula="(SELECT u.handle FROM user u WHERE u.user_id::VARCHAR(64) = create_user)"/>
         
         <property name="eventId" 
-                  formula="(SELECT c.contest_id FROM tcs_catalog:contest_project_xref c WHERE c.project_id = project_id)"/>
+                  formula="(SELECT c.event_id FROM contest_project_xref cpx, contest c WHERE cpx.project_id = project_id and cpx.contest_id = c.contest_id)"/>
         
         <property name="statusId" column="project_status_id" access="field"/>
         <many-to-one name="category" column="project_category_id" class="ProjectCategory"/>
@@ -37,22 +37,22 @@
             <one-to-many class="ProjectPhase"/>
         </map>
         
-        <set name="resources" table="tcs_catalog:resource" access="field" inverse="true">
+        <set name="resources" table="resource" access="field" inverse="true">
             <key column="project_id" not-null="true"/>
             <one-to-many class="Resource"/>
         </set>
         
-        <set name="contests" table="tcs_catalog:contest_project_xref"  access="field">
+        <set name="contests" table="contest_project_xref"  access="field">
             <key column="project_id" not-null="true"/>
             <many-to-many column="contest_id" class="Contest"/>
         </set>
         
-        <set name="allPrizes" table="tcs_catalog:project_prize_xref" cascade="all" access="property" sort="natural">
+        <set name="allPrizes" table="project_prize_xref" cascade="all" access="property" sort="natural">
             <key column="project_id" not-null="true"/>
             <many-to-many column="prize_id" class="Prize"/>
         </set>
         
-        <set name="fileTypes" table="tcs_catalog:project_file_type_xref" cascade="none">
+        <set name="fileTypes" table="project_file_type_xref" cascade="none">
             <key column="project_id" not-null="true"/>
             <many-to-many column="file_type_id" class="FileType"/>
         </set>

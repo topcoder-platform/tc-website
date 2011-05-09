@@ -20,9 +20,16 @@ import com.topcoder.web.common.model.Base;
  *     <li>Added {@link #STATUS_CLOSED} constant.</li>
  *   </ol>
  * </p>
+ *
+ * <p>
+ * Version 1.1 (Re-platforming Studio Release 4 Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added {@link #MILESTONE_REVIEW} constant.</li>
+ *   </ol>
+ * </p>
  * 
- * @author cucu, isv
- * @version 1.1
+ * @author cucu, isv, pvmagacho
+ * @version 1.2
  */
 public class ProjectPhase extends Base {
 
@@ -44,6 +51,13 @@ public class ProjectPhase extends Base {
      * @since 1.1
      */
     public static final Integer MILESTONE_SUBMISSION = 15;
+
+    /**
+     * <p>An <code>Integer</code> providing the ID for <code>Milestone Review</code> phase type.</p>
+     * 
+     * @since 1.1
+     */
+    public static final Integer MILESTONE_REVIEW = 17;
 
     /**
      * <p>A <code>long</code> providing the ID for <code>Scheduled</code> phase status.</p>

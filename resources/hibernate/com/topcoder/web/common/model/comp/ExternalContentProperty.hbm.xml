@@ -4,16 +4,16 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <!--
-  - Author: TCSDEVELOPER
-  - Version: 1.0
+  - Author: pvmagacho, TCSASSEMBLER
+  - Version: 1.1
   - Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: Hibernate mapping file for external_content_property table
 -->
 
-<hibernate-mapping package="com.topcoder.web.common.model.comp" auto-import="false">
+<hibernate-mapping package="com.topcoder.web.common.model.comp" >
 
-    <class name="ExternalContentProperty" table="tcs_catalog:external_content_property">
+    <class name="ExternalContentProperty" table="external_content_property">
         <id name="id" column="external_content_property_id">
             <generator class="com.topcoder.web.common.model.IdGenerator">
                 <param name="sequence_name">STUDIO_PRIZE_SEQ</param>

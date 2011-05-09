@@ -4,7 +4,7 @@
 <%@ taglib uri="studio.tld" prefix="studio" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%--@elvariable id="contest" type="com.topcoder.web.studio.model.Contest"--%>
+<%--@elvariable id="contest" type="com.topcoder.web.common.model.comp.Project"--%>
 <%--@elvariable id="fonts_data" type="List<String[]>"--%>
 <%--@elvariable id="stock_art_data" type="List<String[]>"--%>
 <%--@elvariable id="has_licensed_content" type="boolean"--%>
