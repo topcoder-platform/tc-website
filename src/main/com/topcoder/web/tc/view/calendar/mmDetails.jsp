@@ -501,7 +501,7 @@ submission, within one week of the announcment of the winners in order to receiv
 <%}%>
 
 
-<%if(roundId == 13772) {%>
+<%if(roundId == 13772 || roundId == 14525) {%>
 <div class="sectionHeader">Prizes</div>
     <p align="justify">There will be $10,000 in total prize money.  The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
 
@@ -522,6 +522,10 @@ submission, within one week of the announcment of the winners in order to receiv
         <td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$500</td>
     </tr>
 </table>
+    
+<p align="justify">
+    
+</p>
     
 <p align="justify">
     
