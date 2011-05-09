@@ -190,7 +190,7 @@
 		</table>
     <%}%>
 
-    <%if(rsr.getIntItem("round_id") == 13772 ) {%>
+    <%if(rsr.getIntItem("round_id") == 13772 || round_id == 14525) {%>
 		<div class="sectionHeader">Prizes</div>
 		<p align="justify">There will be $10,000 in total prize money.  The 5 highest scorers in the round will receive prizes as follows:</p>
 
@@ -334,7 +334,7 @@
 	
      <p align="justify">
 	 
-		<% if (Arrays.binarySearch(assignRounds, round_id)>=0) { %>
+		<% if (Arrays.binarySearch(assignRounds, round_id)>=0 || round_id==14481 || round_id==14525) { %>
 		
 			As a condition of winning and redeeming a cash prize, Competitors will be required to submit, 
 			among other things, a completed TopCoder Competition Assignment Agreement, 
@@ -350,16 +350,24 @@
 
     <div class="sectionHeader">Eligibility</div>
 
-    <%if(rsr.getIntItem("round_id") == 13754  || rsr.getIntItem("round_id") == 13934 || rsr.getIntItem("round_id") == 13772 || rsr.getIntItem("round_id") == 13569 || rsr.getIntItem("round_id") == 13570 || rsr.getIntItem("round_id") == 13679 ||  rsr.getIntItem("round_id") == 13680 || rsr.getIntItem("round_id") == 13681) {%>
+    <%if(rsr.getIntItem("round_id") == 13754  || rsr.getIntItem("round_id") == 13934 || rsr.getIntItem("round_id") == 13772 || 
+	     rsr.getIntItem("round_id") == 13569 || rsr.getIntItem("round_id") == 13570 || rsr.getIntItem("round_id") == 13679 ||  
+		 rsr.getIntItem("round_id") == 13680 || rsr.getIntItem("round_id") == 13681 || rsr.getIntItem("round_id") == 14525) {%>
 
 		<p align="justify">
-			The competition is open to all members who are at least 18 years of age. Competitors must be either (i) a U.S. citizen, (ii) a lawful permanent 
-			resident of the U.S., (iii) a temporary resident, asylee, refugee of the U.S., or have a lawfully issued work authorization card permitting 
-			unrestricted employment in the U.S., or (iv) a non-U.S. resident authorized to perform services as an independent contractor.
+			This Competition is open to all members of the TopCoder website, who have agreed to the terms thereof, and who are at least 
+			18 years of age. Competitors must be:<br>
+				<br>(i) a U.S. citizen, 
+				<br>(ii) a lawful permanent resident of the U.S., 
+				<br>(iii) a temporary resident, asylee, refugee of the U.S., or have a lawfully issued work authorization card permitting unrestricted employment in the U.S., or 
+				<br>(iv) a non-U.S. resident authorized in the country in which the member resides while participating in this Competition to perform services as an independent contractor. 
 		</p>
+				
 		<p align="justify">
-			To be eligible for this competition, you must not be a resident of the Quebec province of Canada, Iran, Cuba, North Korea, Sudan or Syria. In addition, you are not eligible for this Competition if you are on the Specially Designated National list promulgated and amended, from time to time, by the United States Department of the Treasury.
-		</p>
+			A Competitor is not eligible for this Competition if he/she is a resident of the Quebec province of Canada, Iran, Cuba, North Korea, 
+			Sudan or Syria. In addition a Competitor is not eligible for this Competition if the Competitor is on the Specially Designated 
+			National list promulgated and amended, from time to time, by the United States Department of the Treasury.
+		</p>		
 		
 	<%} else if (Arrays.binarySearch(nsaRounds, round_id)>=0) { %>
 	
@@ -416,7 +424,7 @@
 
     <div class="sectionHeader">Ownership and Rights</div>
     
-	<% if (Arrays.binarySearch(assignRounds, round_id)>=0) { %>
+	<% if (Arrays.binarySearch(assignRounds, round_id)>=0 || round_id==14525) { %>
 		
 		<p align="justify">
 			You hereby acknowledge and agree that TopCoder owns, solely and exclusively, all right, title and interest, including all intellectual property 
