@@ -111,6 +111,10 @@
       <td class="value">16
       </td>
       <td class="value">17
+	     <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=14514">Member SRM 504.5</A></strong><br />
+         11:00
+        </div>
       </td>
       <td class="value">18
       </td>
