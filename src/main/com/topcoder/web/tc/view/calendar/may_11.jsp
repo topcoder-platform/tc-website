@@ -85,6 +85,11 @@
       <td class="value">9
       </td>
       <td class="value">10
+	  	 <div class="long">
+         <strong><a href="/tc?module=MatchDetails&rd=14525">MM 70</a></strong><br />
+         13:00<br />
+         3 weeks
+         </div> 
       </td>
       <td class="value">11
       	<div class="srm">
