@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2001-2011 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.common;
 
 import java.io.IOException;
@@ -24,10 +27,18 @@ import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.common.throttle.Throttle;
 
 /**
- * A base implementation for TC servlets.  It should provide
- * all the basic functionality.
+ * <p>A base implementation for TC servlets.  It should provide all the basic functionality.</p>
  *
- * @author Greg Paul
+ * <p>
+ * Version 1.1 (Upload Progress Bar Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Re-factored the logic for creating the request wrapper into {@link #createRequest(HttpServletRequest)} method
+ *     so it could be overridden by subclasses if necessary.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author Greg Paul, isv
+ * @version 1.1
  */
 public abstract class BaseServlet extends HttpServlet {
     protected String ERROR_PAGE = null;
@@ -133,7 +144,7 @@ public abstract class BaseServlet extends HttpServlet {
 
                 request.setCharacterEncoding("utf-8");
 
-                TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+                TCRequest tcRequest = createRequest(request);
                 TCResponse tcResponse = HttpObjectFactory.createResponse(response);
 
                 if (throttleEnabled) {
@@ -244,6 +255,17 @@ public abstract class BaseServlet extends HttpServlet {
             out.println("</body></html>");
             out.flush();
         }
+    }
+
+    /**
+     * <p>Creates the wrapper around the specified incoming request from the client.</p>
+     * 
+     * @param request an <code>HttpServletRequest</code> representing incoming request. 
+     * @return a <code>TCRequest</code> wrapping the specified request.
+     * @since 1.1
+     */
+    protected TCRequest createRequest(HttpServletRequest request) {
+        return HttpObjectFactory.createRequest(request);
     }
 
     protected String getFullProcessorName(String cmd) {

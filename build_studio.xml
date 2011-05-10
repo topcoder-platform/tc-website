@@ -311,6 +311,9 @@
             <lib dir="${jars.dir}/tcs/file_upload/2.0.2.0/">
                 <include name="file_upload.jar"/>
             </lib>
+            <lib dir="${jars.dir}/tcs/json_object/1.0/">
+                <include name="json_object.jar"/>
+            </lib>
             <lib dir="${jars.dir}/tcs/document_generator/3.1.0/">
                 <include name="document_generator.jar"/>
             </lib>

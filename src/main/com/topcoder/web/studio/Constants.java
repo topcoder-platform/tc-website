@@ -42,8 +42,15 @@ import java.util.MissingResourceException;
  * Added contstants for submission declaration parameters.
  * </p>
  *
- * @author dok, isv, pulky, TCSDEVELOPER
- * @version 1.4
+ * <p>
+ * Version 1.5 (Upload Progress Bar Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added {@link #UPLOAD_ID} constant.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky, isv
+ * @version 1.5
  */
 public class Constants implements WebConstants {
     private static final TCResourceBundle bundle = new TCResourceBundle("Studio");
@@ -56,6 +63,15 @@ public class Constants implements WebConstants {
     public static final String SUBMISSION_PREVIEW = "sbm_prvw";
 
     public static final String SUBMISSION_ID = "sbmid";
+
+    /**
+     * <p>A <code>String</code> providing the name of parameter of request to hold the ID of an upload associated with
+     * submission.</p>
+     * 
+     * @since 1.5
+     */
+    public static final String UPLOAD_ID = "uploadId";
+    
     public static final String REVIEW_STATUS_ID = "rstid";
     public static final String SUBMISSION_STATUS_ID = "sbstid";
     public static final String SUBMISSION_REVIEW_TEXT = "sbmrtx";
