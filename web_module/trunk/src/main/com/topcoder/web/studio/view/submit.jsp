@@ -1,3 +1,13 @@
+<%--
+  - Author: isv
+  - Version: 1.1
+  - Copyright (C) 2006-2011 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page renders the page with form for submitting the Studio submission to server.
+  -
+  - Version 1.1 (Upload Progress Bar assembly) changes: added Upload Progress Bar area.
+--%>
+
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="java.util.Arrays" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -71,7 +81,7 @@
 
 
 <div class="upload_wrapper_submission">
-<form action="${sessionInfo.servletPath}" method="POST" name="submitForm" enctype="multipart/form-data">
+<form action="${sessionInfo.servletPath}" method="POST" name="submitForm" enctype="multipart/form-data" id="submitForm">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>
 <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
@@ -472,6 +482,44 @@
 </form>
 </div>
 
+<div class="progress-bar-wrapper hide">
+    <div class="progress-bar-completed-bg-wrapper hide"></div>
+    <div class="progress-bar-wrapper-left-top">
+        <div class="progress-bar-wrapper-right-top">
+            <div class="progress-bar-wrapper-right-bottom">
+                <div class="progress-bar-wrapper-left-bottom">
+                    <div class="upload-sign">
+                        <img alt="loading" src="i/loading-icon.gif" class="upload-image-sign">
+                        <img alt="loading" src="i/loading-icon-ima.gif" class="upload-image-sign uploading-now hide">
+                        <img alt="loading" src="i/loading-complete-icon.gif"
+                             class="upload-image-sign upload-completed hide">
+                        <span class="state">Uploading....</span>
+                        <span class="note">Please don’t close the browser until uploading file is finish</span>
+                    </div>
+                    <div class="progress-bar">
+                        <span class="left-corner"></span>
+                        <span class="right-corner"></span>
+
+                        <div class="progress-bar-inner"><span></span></div>
+                    </div>
+                    <!--End .progress-bar-->
+                    <div class="button-line">
+                        <a class="btn-write" id="abort-upload" href="javascript:;"><span class="right-side"><span
+                                class="text">Abort uploading</span></span></a>
+                        <span class="upload-info"></span>
+
+                        <div class="clear"></div>
+                    </div>
+                    <!--End .button-line-->
+                </div>
+                <!--End .progress-bar-wrapper-left-bottom-->
+            </div>
+            <!--End .progress-bar-wrapper-right-bottom-->
+        </div>
+        <!--End .progress-bar-wrapper-right-top-->
+    </div>
+    <!--End .progress-bar-wrapper-left-top-->
+</div>
 
 <div class="rank-submission-wrapper">
     <div class="rank-submission-note">
@@ -552,6 +600,5 @@
 
 <jsp:include page="foot.jsp"/>
 </div>
-
 </body>
 </html>

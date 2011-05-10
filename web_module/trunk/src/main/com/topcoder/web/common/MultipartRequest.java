@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2001-2011 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.common;
 
 import com.topcoder.servlet.request.ConfigurationException;
@@ -6,6 +9,7 @@ import com.topcoder.servlet.request.FileUpload;
 import com.topcoder.servlet.request.FileUploadResult;
 import com.topcoder.servlet.request.LocalFileUpload;
 import com.topcoder.servlet.request.PersistenceException;
+import com.topcoder.servlet.request.RequestParser;
 import com.topcoder.servlet.request.RequestParsingException;
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.util.logging.Logger;
@@ -20,7 +24,18 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- * @author rfairfax
+ * <p>A wrapper around requests of <code>multipart/form-data</code> type. Uses <code>TC File Upload</code> component for
+ * parsing the requests.</p>
+ *
+ * <p>
+ * Version 1.1 (Upload Progress Bar Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added {@link #MultipartRequest(HttpServletRequest, RequestParser)} constructor.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author rfairfax, isv
+ * @version 1.1
  */
 public class MultipartRequest extends SimpleRequest {
 
@@ -28,6 +43,12 @@ public class MultipartRequest extends SimpleRequest {
     private String dir = "";
     private static Logger log = Logger.getLogger(MultipartRequest.class);
 
+    /**
+     * <p>Constructs new <code>MultipartRequest</code> instance for parsing the specified request.</p>
+     * 
+     * @param request an <code>HttpServletRequest</code> representing incoming request from the client. 
+     * @throws IOException if an I/O error occurs while parsing the request.
+     */
     public MultipartRequest(HttpServletRequest request) throws IOException {
         super(request);
         if (log.isDebugEnabled()) {
@@ -37,6 +58,40 @@ public class MultipartRequest extends SimpleRequest {
         try {
             FileUpload fu = new LocalFileUpload("com.topcoder.servlet.request.FileUpload");
             file = fu.uploadFiles(request);
+            dir = ((LocalFileUpload) fu).getDir();
+        } catch (ConfigurationException e) {
+            throw new RuntimeException(e);
+        } catch (DisallowedDirectoryException e) {
+            throw new RuntimeException(e);
+        } catch (RequestParsingException e) {
+            throw new RuntimeException(e);
+        } catch (PersistenceException e) {
+            throw new RuntimeException(e);
+        }
+
+        if (log.isDebugEnabled()) {
+            log.debug("created file upload object");
+        }
+    }
+
+    /**
+     * <p>Constructs new <code>MultipartRequest</code> instance to use the specified <code>RequestParser</code> for
+     * parsing the specified request.</p>
+     * 
+     * @param request an <code>HttpServletRequest</code> representing incoming request from the client. 
+     * @param uploadRequestParser a <code></code> 
+     * @throws IOException if an I/O error occurs while parsing the request.
+     * @since 1.1
+     */
+    public MultipartRequest(HttpServletRequest request, RequestParser uploadRequestParser) throws IOException {
+        super(request);
+        if (log.isDebugEnabled()) {
+            log.debug("create file upload object");
+        }
+
+        try {
+            FileUpload fu = new LocalFileUpload("com.topcoder.servlet.request.FileUpload");
+            file = fu.uploadFiles(request, uploadRequestParser);
             dir = ((LocalFileUpload) fu).getDir();
         } catch (ConfigurationException e) {
             throw new RuntimeException(e);
