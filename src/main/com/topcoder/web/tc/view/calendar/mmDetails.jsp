@@ -307,6 +307,15 @@ Please check out the rules link below for more detail.
 </p>
 <%}%>
 
+<%if(roundId == 14525 ) {%>
+<p align="justify">
+    <b>Please note that this event is being run for a TopCoder customer.  By winning a prize in this event you agree to transfer ownership of
+    your submission to TopCoder.  Please make sure to read
+    the rules carefully before competing.  You must be eligible to compete in the match 
+    as defined in the rules.</b>
+</p>
+<%}%>
+
 <%if(roundId == 13569 ||  roundId == 13570 || roundId == 13679 || roundId == 13680 || roundId == 13681 ) {%>
 <p align="justify">
     This Marathon Match is an encryption match. Use a known encryption method like DES, Substitution cipher, or Cryptography, 
@@ -322,7 +331,7 @@ Please check out the rules link below for more detail.
 </p>
 <%}%>
 
-<%if(roundId == 13772 ) {%>
+<%if(roundId == 13772 || roundId == 14525 ) {%>
 <p align="justify">
     This Marathon Match is a money match that has a <b>$10,000 prize purse</b>! The top five highest scorers 
 	will receive prizes with the first place winner receiving $5,000!
