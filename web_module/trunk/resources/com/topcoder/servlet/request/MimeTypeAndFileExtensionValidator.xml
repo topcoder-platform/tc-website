@@ -1,0 +1,24 @@
+<CMConfig>
+	<Config name="Valid">
+		<Property name="validate_file_type">
+			<Value>false</Value>
+		</Property>
+		<Property name="validate_file_extension">
+			<Value>false</Value>
+		</Property>
+		<Property name="allowed_file_types">
+			<Value>txt</Value>
+			<Value>xml</Value>
+			<Value>jpg</Value>
+            <Value>gif</Value>
+		</Property>
+		<Property name="allowed_file_extensions">
+			<Value>txt</Value>
+			<Value>xml</Value>
+			<Value>doc</Value>
+			<Value>rtf</Value>
+			<Value>jpg</Value>
+            <Value>gif</Value>
+		</Property>
+	</Config>
+</CMConfig>
