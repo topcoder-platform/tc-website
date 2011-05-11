@@ -1,7 +1,7 @@
 <%--
-  - Author: isv
-  - Version: 1.1 (Member Payment Improvements Release assembly v1.0)
-  - Copyright (C) 2010 TopCoder Inc., All Rights Reserved.
+  - Author: isv, TCSASSEMBLER
+  - Version: 1.2 (Assembly - Upload Avatar to TC)
+  - Copyright (C) 2010 - 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page renders the Home page displayed to TopCoder member. It renders the details on user
   - account (name, address, phone, etc) as well as navigation links to various areas providing other user account
@@ -9,12 +9,16 @@
   -
   - Member Payment Improvements Release assembly v1.0 changes:
   - Added "Payment Preferences" link pointing to Edit Payment Preferences screen
+  -
+  - Member Payment Improvements Release assembly v1.0 changes:
+  - Added photo modal window and corresponding logic.
 --%>
 
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
+<%@ page import="javax.servlet.http.HttpServletRequest"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -29,6 +33,19 @@
     <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
+
+	<script type="text/javascript" src="/js/jquery-1.4.1.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.form.js"></script>
+    <script type="text/javascript" src="/js/jquery.Jcrop.js"></script>
+    <script type="text/javascript" src="/js/photo.js"></script> 
+    
+    <link type="text/css" href="/css/jquery.Jcrop.css" rel="stylesheet"/>
+    <link type="text/css" href="/css/photo.css" rel="stylesheet"/>
+    
+    <script type="text/javascript">
+        var previewPath = <%= request.getParameter("previewPath") == null ? null : "\'"  + request.getParameter("previewPath") + "\'" %>;
+        var originalFile = <%= request.getParameter("originalFileName") == null ? null : "\'"  + request.getParameter("originalFileName") + "\'" %>;
+    </script>
 </head>
 
 <body>
@@ -70,19 +87,19 @@
                     <tr class="light">
                         <td class="valueC B" rowspan="10" nowrap="nowrap" style="vertical-align: middle;">
                         <c:choose>
-                            <c:when test="${regUser.coder.memberPhoto!=null}">
-                                <div>
+                                <c:when test="${userImage!=null}">
+                                    <div>
+                                        <a href="/tc?module=MemberProfile&amp;cr=${regUser.id}">
+                                            <img src="${userImage.fileName}" name="image_path" alt="" class="memberPhoto" />
+                                        </a>
+                                    </div>
+                                </c:when>
+                                <c:otherwise>
                                     <a href="/tc?module=MemberProfile&amp;cr=${regUser.id}">
-                                        <img src="${regUser.coder.memberPhoto.path.path}${regUser.coder.memberPhoto.fileName}" name="image_path" alt="" class="memberPhoto" />
+                                        <img src="/i/m/nophoto_submit.gif" name="image_path" alt="" class="memberPhoto"/>
                                     </a>
-                                </div>
-                            </c:when>
-                            <c:otherwise>
-                                <a href="/tc?module=MemberProfile&amp;cr=${regUser.id}">
-                                    <img src="/i/m/nophoto_submit.gif" name="image_path" alt="" class="memberPhoto"/>
-                                </a>
-                            </c:otherwise>
-                        </c:choose>
+                                </c:otherwise>
+                            </c:choose>
                             <div>                        
                                 <tc-webtag:handle coderId='${regUser.id}' />
                                 <br /><strong>Member Since:</strong>
@@ -187,17 +204,8 @@
                                 <p><a href="/tc?module=HSViewUnregister">Unregister from TCHS</a></p>
                             </c:if>
                             <p><a href="/reg/?nrg=false">Update my profile</a></p>
-                            <p>
-                                <a href="/tc?module=UserStatic&amp;d1=my_home&amp;d2=submitPhoto">
-                                    <c:choose>
-                                        <c:when test="${regUser.coder.memberPhoto!=null}">
-                                            Submit a photo                                        
-                                        </c:when>
-                                        <c:otherwise>
-                                            Submit a different photo
-                                        </c:otherwise>
-                                    </c:choose></a>
-                            </p>
+                            <p class="<c:if test='${userImage!=null}'>hide</c:if>"><a href="javascript:;" id="submitPhotoLink" >Submit a photo</a></p>
+                            <p class="<c:if test='${userImage==null}'>hide</c:if>"><a href="javascript:;" id="removePhotoLink">Remove photo</a></p>
                         </td>
                         <td class="value">
                             <p><a href="/tc?module=EditPreferences&amp;group=10">Privacy</a></p>
@@ -238,6 +246,101 @@
 </table>
 
 <jsp:include page="../foot.jsp" />
+<div class="popup popupUploadPhoto transparent hide">
+    <div class="popupWindow">
+        <div class="title">UPLOAD YOUR PHOTO</div>
+        
+        <div class="content" id="uploadDiv">
+            <div id="photoUploadLeft">
+                <div class="locateInput">
+                    <div class="inner"></div>
+                </div>
+             
+                <form action="photo?module=upload&photoAction=preview" method="post" enctype="multipart/form-data" id="photoUploadForm">
+                    <a href="javascript:;" class="btn1 btnBrowse">
+                        <span class="rightSide">
+                            <span class="inner">
+                                Browse 
+                                <span class="file-wrapper">
+                                <input type="file" name="photoFile" id="inputFile" />
+                                </span>                     
+                            </span>                                           	 	
+                        </span>
+                    </a>
+                </form>
+                
+                <div id="uploadImage">
+                    <p>Uploaded Image</p>
+                </div>
+            </div>
+            <div id="photoUploadRight">
+                <div id="previewDiv">
+                    <img src="i/previewPhoto.jpg" alt="" />		
+                </div>
+            
+                <div class="alert">
+                    Browse Photo should be in *.JPG format file which is the width is 115 pixel and the height is 138 pixel.
+                </div>
+                <a href="javascript:;" class="btn1 btnCancel">
+                    <span class="rightSide">
+                        <span class="inner">
+                            Cancel                                               
+                        </span>                                           	 	
+                    </span>                                         
+                </a>				
+                <a href="javascript:;" class="btn1 red btnUpload">
+                    <span class="rightSide">
+                        <span class="inner">
+                            Upload                                               
+                        </span>                                           	 	
+                    </span>                                         
+                </a>
+                <form action="photo?module=upload&photoAction=commit" method="post" id="submitPhotoForum">
+                    <input type="hidden" name="previewPath"></input>
+                    <input type="hidden" name="lx"></input>
+                    <input type="hidden" name="ly"></input>
+                    <input type="hidden" name="rx"></input>
+                    <input type="hidden" name="ry"></input>
+                    <input type="hidden" name="picWidth"></input>
+                    <input type="hidden" name="picHeight"></input>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<c:if test="${userImage!=null}">
+    <div class="popup popupRemovePhoto transparent hide">
+        <div class="popupWindow">
+            <div class="title">REMOVE PHOTO</div>
+            
+            <div class="content">
+                <img src="${userImage.fileName}" alt="" />
+                
+                <div class="text">
+                    Are you sure to remove this photo?
+                </div>
+                
+                <a href="javascript:;" class="btn1 btnNo">
+                    <span class="rightSide">
+                    <span class="inner">
+                          No                                               
+                       </span>                                           	 	
+                   </span>                                         
+                </a>
+                
+                <a href="javascript:;" class="btn1 red btnYes">
+                    <span class="rightSide">
+                    <span class="inner">
+                          Yes                                               
+                       </span>                                           	 	
+                   </span>                                         
+                </a>
+                
+            </div>
+        </div>
+    </div>        
+</c:if>
 
 </body>
 
