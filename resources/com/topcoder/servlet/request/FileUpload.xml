@@ -15,5 +15,8 @@
         <Property name="max_total_file_size">
             <Value>2097152</Value>
         </Property>
+        <Property name="file_validator_config">
+            <Value>Valid</Value>	
+        </Property>          
     </Config>
 </CMConfig>
