@@ -87,7 +87,7 @@
                             <tr valign="middle">
                                 <td nowrap align="right">Username:</td>
                                 <td colspan="2" align="left">
-                                    <input type="text" name="<%=Login.USER_NAME%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
+                                    <input type="text" name="<%=Login.USER_NAME%>" value="" maxlength="30" size="12" onkeypress="submitEnter(event)">
                                 </td>
                             </tr>
 
