@@ -482,13 +482,6 @@ public class ProjectUtil {
                 createPhaseCriteria(conn, projectPhaseId, 2, "0", modUserId);
             }
 
-            if (phases[i].getPhaseType().getId() == PHASE_TYPE_SUBMISSION) {
-                // Submission Number
-                createPhaseCriteria(conn, projectPhaseId, 3, "0", modUserId);
-            }
-            // 5, 'Manual Screening'
-            createPhaseCriteria(conn, projectPhaseId, 5, "No", modUserId);
-
             if (phases[i].getPhaseType().getId() == PHASE_TYPE_SCREEN) {
                 // Create scorecard id
                 // 1, 'Scorecard ID'
