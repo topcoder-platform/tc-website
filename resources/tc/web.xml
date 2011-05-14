@@ -393,6 +393,21 @@
         <!-- end  parameters required by BaseServlet -->
 
     </servlet>
+    
+    <servlet>
+        <servlet-name>photoServletProxy</servlet-name>
+        <servlet-class>com.topcoder.web.tc.memberphoto.servlet.PhotoProxyServlet</servlet-class>
+
+        <init-param>
+            <param-name>module_key</param-name>
+            <param-value>module</param-value>
+        </init-param>
+        
+        <init-param>
+            <param-name>errorPage</param-name>
+            <param-value>/errorPage.jsp</param-value>
+        </init-param>        
+    </servlet>
 
     <!-- let the web server do it
         <filter>
@@ -521,6 +536,11 @@
         <url-pattern>/data</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>photoServletProxy</servlet-name>
+        <url-pattern>/photo</url-pattern>
+    </servlet-mapping>
+    
     <error-page>
         <error-code>404</error-code>
         <location>/errorPage.jsp</location>
