@@ -35,9 +35,6 @@
         <property name="emailSendFlag">
             <value>false</value>
         </property>
-        <property name="photoImageRemovedDirectory">
-            <value>/mnt/apache/tcdocs/i/photo/removed</value>
-        </property>
         <property name="apachePathPrefix">
             <value>/mnt/apache/tcdocs</value>
         </property>      
@@ -56,12 +53,6 @@
         </property>
         <property name="targetImageHeight">
             <value>138</value>
-        </property>
-        <property name="photoImageSubmittedDirectory">
-            <value>/mnt/apache/tcdocs/i/photo/submit</value>
-        </property>
-        <property name="photoImagePreviewDirectory">
-            <value>/mnt/apache/tcdocs/i/photo/preview</value>
         </property>
         <property name="previewPhotoImagePathName">
             <value>previewPath</value>
