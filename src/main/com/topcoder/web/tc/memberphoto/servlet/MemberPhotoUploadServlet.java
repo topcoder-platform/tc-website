@@ -36,6 +36,8 @@ import com.topcoder.util.log.Log;
 import com.topcoder.util.log.LogManager;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.model.Path;
+import com.topcoder.web.memberphoto.entities.Image;
 import com.topcoder.web.memberphoto.manager.MemberPhotoDAO;
 import com.topcoder.web.memberphoto.manager.MemberPhotoManagementException;
 import com.topcoder.web.memberphoto.manager.MemberPhotoManager;
@@ -134,16 +136,6 @@ import com.topcoder.web.memberphoto.manager.persistence.JPAMemberPhotoDAO;
  *                 80
  *             &lt;/value&gt;
  *         &lt;/property&gt;
- *         &lt;property name="photoImageSubmittedDirectory"&gt;
- *             &lt;value&gt;
- *                 test_files/submitted
- *             &lt;/value&gt;
- *         &lt;/property&gt;
- *         &lt;property name="photoImagePreviewDirectory"&gt;
- *             &lt;value&gt;
- *                 test_files/preview
- *             &lt;/value&gt;
- *         &lt;/property&gt;
  *         &lt;property name="previewPhotoImagePathName"&gt;
  *             &lt;value&gt;
  *                 /preview
@@ -221,7 +213,7 @@ import com.topcoder.web.memberphoto.manager.persistence.JPAMemberPhotoDAO;
  * <strong>Thread safety:</strong> The injected instance variables are immutable after injection. So this
  * class is thread-safe when serving user requests.
  * </p>
- * @author AleaActaEst, microsky, TCSASSEMBLER
+ * @author AleaActaEst, microsky, pvmagacho
  * @version 1.0
  */
 @SuppressWarnings("serial")
@@ -467,6 +459,13 @@ public class MemberPhotoUploadServlet extends HttpServlet {
      * The path of apache folder, used as prefix of photo stored folder. 
      */
     private String apachePathPrefix;
+
+    /**
+     * <p>
+     * The factory to create EntityManager objects.
+     * </p>
+     */
+    private final EntityManagerFactory emf;
     
     /**
      * The entity manager.
@@ -482,24 +481,23 @@ public class MemberPhotoUploadServlet extends HttpServlet {
         this.log = LogManager.getLog();
         
         // configure the EntityManager:
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("memberPhotoManager");
-        entityManager = emf.createEntityManager();
-        
-        MemberPhotoDAO memberPhotoDAO = new JPAMemberPhotoDAO(entityManager);
-        memberPhotoManager = new MemberPhotoManagerImpl(memberPhotoDAO);
+        emf = Persistence.createEntityManagerFactory("memberPhotoManager");
     }
 
     /**
      * <p>
-     * it allows web site members to upload their photos.
+     * It allows web site members to upload their photos.
      * </p>
+     *
      * <p>
      * Version 2.0 Changes<br>
      * 1. The GIF image format is now being handled in this version. This affects processing and validation<br>
      * 2. Size of the uploaded image is checked against a configured upper limit (in bytes)<br>
      * 3. There are three distinct actions now of "preview", "commit", and "crop"<br>
-     * 4. width and height parameter now come from external source through
+     * 4. width and height parameter now come from external source through<br>
+     * 5. Image is now saved with file's name only. Path is stored in path table, and referenced through path id
      * </p>
+     *
      * @param response the response.
      * @param request the request.
      * @throws IllegalArgumentException if any arg is null.
@@ -522,7 +520,13 @@ public class MemberPhotoUploadServlet extends HttpServlet {
             // 'response' should not be null
             Helper.checkNull(response, "response");
             try {
+                entityManager = emf.createEntityManager();
+
+                MemberPhotoDAO memberPhotoDAO = new JPAMemberPhotoDAO(entityManager);
+                memberPhotoManager = new MemberPhotoManagerImpl(memberPhotoDAO);
+
                 checkState();
+
                 // get submitted action from request
                 String submittedAction = request.getParameter(submittedActionParameterName);
                 
@@ -536,7 +540,6 @@ public class MemberPhotoUploadServlet extends HttpServlet {
                 long memberId = Helper.getUserId(request);
                 Helper.beginCommunication(request);
                 User user = DAOUtil.getFactory().getUserDAO().find(memberId);
-                Helper.endCommunication(request);
                 
                 // determine the action for image storing
                 if (submittedAction.equals("preview")) {
@@ -551,36 +554,42 @@ public class MemberPhotoUploadServlet extends HttpServlet {
                         throw new MemberPhotoUploadException("upload file is null.");
                     }
 
-                    // check image file type
+                    // check image file type - firefox and ie have different content types
                     String contentType = uploadedFile.getContentType();
-                    if (!"image/png".equals(contentType) && !"image/jpeg".equals(contentType)
-                        && !"image/gif".equals(contentType)) {
-                        throw new MemberPhotoUploadException("The image format is not supported.");
+                    if (!"image/png".equals(contentType) && !"image/x-png".equals(contentType) &&
+                        !"image/gif".equals(contentType) &&                    	
+                    	!"image/jpeg".equals(contentType) && !"image/pjpeg".equals(contentType)) {
+                        throw new MemberPhotoUploadException("The image format (" + contentType + ") is not supported.");
                     }
-                    if ("image/png".equals(contentType)) {
+                    if ("image/png".equals(contentType) || "image/x-png".equals(contentType)) {
                         imagepostfix = ".png";
-                    }
-                    if ("image/jpeg".equals(contentType)) {
-                        imagepostfix = ".jpeg";
                     }
                     if ("image/gif".equals(contentType)) {
                         imagepostfix = ".gif";
                     }
+                    if ("image/jpeg".equals(contentType) || "image/pjpeg".equals(contentType)) {
+                        imagepostfix = ".jpeg";
+                    }
                     
                     // check file size
                     if (uploadedFile.getSize() > maxFileSize) {
-                        throw new MemberPhotoUploadException("The uploaded file exceeds the allowable max size of " + maxFileSize + " (bytes)");
+                        throw new MemberPhotoUploadException("The uploaded file exceeds the allowable max size of "
+                        	+ maxFileSize + " (bytes)");
                     }
                     
-                    BufferedImage originalImage = ImageIO.read(uploadedFile.getInputStream());
-                    
-                    String path = photoImagePreviewDirectory + "/" + user.getHandle() + imagepostfix;
-                    upLoadPicture(user.getHandle(), originalImage, this.photoImagePreviewDirectory);
+                    BufferedImage originalImage = ImageIO.read(uploadedFile.getInputStream());                   
 
-                    response.sendRedirect(previewForwardUrl + "&"
-                            + previewPhotoImagePathName + "=" + path.substring(apachePathPrefix.length())
-                            + "&originalFileName=" + uploadedFile.getRemoteFileName());
+                    // get Path information
+                    Path imagePath = DAOUtil.getFactory().getPathDAO().find(Image.MEMBER_PHOTO_PREVIEW_PATH_ID);
+                    photoImagePreviewDirectory = imagePath.getPath();
+                    logMsg(MessageFormat.format("{0} : Saving to directory : {1}", new Date(),
+                    	photoImagePreviewDirectory));
+
+                    upLoadPicture(user.getHandle(), originalImage, apachePathPrefix + photoImagePreviewDirectory);                    
                     
+                    String path = photoImagePreviewDirectory + user.getHandle() + imagepostfix;
+                    response.sendRedirect(previewForwardUrl + "&" + previewPhotoImagePathName + "=" + path
+                    	+ "&originalFileName=" + uploadedFile.getRemoteFileName());
                 } else if (submittedAction.equals("commit")) {
                     // retrieve crop info
                     int targetImageLeftCornerX = -1;
@@ -647,16 +656,28 @@ public class MemberPhotoUploadServlet extends HttpServlet {
                             resizedImage = originalImage;
                         }
                     }
-                    
-                    upLoadPicture(user.getHandle(), resizedImage, this.photoImageSubmittedDirectory);
-                    
-                    String path = photoImageSubmittedDirectory + "/" + user.getHandle() + imagepostfix;
-                    path = path.substring(apachePathPrefix.length());
-                    
-                    entityManager.getTransaction().begin();
-                    memberPhotoManager.saveMemberPhoto(memberId, path,
-                            String.valueOf(memberId));
-                    entityManager.getTransaction().commit();
+                                  
+                    // get Path information
+                    Path imagePath = DAOUtil.getFactory().getPathDAO().find(Image.MEMBER_PHOTO_SUBMIT_PATH_ID);
+                    photoImageSubmittedDirectory = imagePath.getPath();
+                    logMsg(MessageFormat.format("{0} : Saving to directory : {1}", new Date(),
+                    	photoImageSubmittedDirectory));
+
+                    upLoadPicture(user.getHandle(), resizedImage, apachePathPrefix + photoImageSubmittedDirectory);
+
+                    try {
+                        // save image
+                        entityManager.getTransaction().begin();
+                        memberPhotoManager.saveMemberPhoto(memberId, user.getHandle() + imagepostfix,
+                        	String.valueOf(memberId));
+                        entityManager.getTransaction().commit();
+                    } catch (Exception eEmf){
+                        try {
+                            entityManager.getTransaction().rollback();
+                        } catch (Exception eTx) {}                 
+                    } finally {
+                        entityManager.close();
+                    }
                     
                     response.sendRedirect(submitForwardUrl);
                 }
@@ -679,8 +700,6 @@ public class MemberPhotoUploadServlet extends HttpServlet {
                 throw new MemberPhotoUploadException("Error occurs while parsing request.", e);
             } catch (InvalidFileException e) {
                 throw new MemberPhotoUploadException("Error occurs since file is invalid.", e);
-            } catch (MemberPhotoManagementException e) {
-                throw new MemberPhotoUploadException("Error occurs when manage photo.", e);
             }
         } catch (IllegalArgumentException e) {
             throw logMsg("any arg is null", e);
@@ -691,6 +710,7 @@ public class MemberPhotoUploadServlet extends HttpServlet {
         } catch (MemberPhotoUploadException e) {
             throw logMsg("unexpected error occurs. details:" + e.getMessage(), e);
         } finally {
+            Helper.endCommunication(request);
             logMsg(MessageFormat.format("{0} : Exiting " + "MemberPhotoManagerImpl#doPost"
                 + "(HttpServletRequest, HttpServletResponse)", new Date()));
         }
@@ -712,7 +732,7 @@ public class MemberPhotoUploadServlet extends HttpServlet {
             dir.mkdir();
         }
         // Store image
-        String path = directory + "/" + handle + imagepostfix;
+        String path = directory + handle + imagepostfix;
         synchronized (this) {
             ImageIO.write(resizedImage, imagepostfix.substring(1), new File(path));
         }
@@ -836,30 +856,6 @@ public class MemberPhotoUploadServlet extends HttpServlet {
      * <p>
      * Setter for the namesake instance variable.
      * </p>
-     * @param photoImageSubmittedDirectory photo image submitted directory.
-     * @throws IllegalArgumentException if the argument is null or empty string.
-     */
-    public void setPhotoImageSubmittedDirectory(String photoImageSubmittedDirectory) {
-        Helper.checkString(photoImageSubmittedDirectory, "photoImageSubmittedDirectory");
-        this.photoImageSubmittedDirectory = photoImageSubmittedDirectory;
-    }
-
-    /**
-     * <p>
-     * Setter for the namesake instance variable.
-     * </p>
-     * @param photoImagePreviewDirectory photo image preview directory.
-     * @throws IllegalArgumentException if the argument is null or empty string.
-     */
-    public void setPhotoImagePreviewDirectory(String photoImagePreviewDirectory) {
-        Helper.checkString(photoImagePreviewDirectory, "photoImagePreviewDirectory");
-        this.photoImagePreviewDirectory = photoImagePreviewDirectory;
-    }
-
-    /**
-     * <p>
-     * Setter for the namesake instance variable.
-     * </p>
      * @param previewPhotoImagePathName preview photo image path name.
      * @throws IllegalArgumentException if the argument is null or empty string.
      */
@@ -925,12 +921,6 @@ public class MemberPhotoUploadServlet extends HttpServlet {
 
         // check 'targetImageHeight' field state
         checkIntState(targetImageHeight, "targetImageHeight");
-
-        // check 'photoImageSubmittedDirectory' field state
-        Helper.checkState(photoImageSubmittedDirectory, "photoImageSubmittedDirectory");
-
-        // check 'photoImageSubmittedDirectory' field state
-        Helper.checkState(photoImagePreviewDirectory, "photoImagePreviewDirectory");
 
         // check 'previewPhotoImagePathName' field state
         Helper.checkState(previewPhotoImagePathName, "previewPhotoImagePathName");

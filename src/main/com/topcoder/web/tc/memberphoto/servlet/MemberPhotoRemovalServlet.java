@@ -43,7 +43,9 @@ import com.topcoder.util.log.Level;
 import com.topcoder.util.log.Log;
 import com.topcoder.util.log.LogManager;
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.model.Path;
 import com.topcoder.web.memberphoto.entities.Image;
 import com.topcoder.web.memberphoto.manager.MemberPhotoDAO;
 import com.topcoder.web.memberphoto.manager.MemberPhotoManagementException;
@@ -139,11 +141,6 @@ import com.topcoder.web.memberphoto.manager.persistence.JPAMemberPhotoDAO;
  *         &lt;property name="emailSendFlag"&gt;
  *             &lt;value&gt;
  *                 true
- *             &lt;/value&gt;
- *         &lt;/property&gt;
- *         &lt;property name="photoImageRemovedDirectory"&gt;
- *             &lt;value&gt;
- *                 removed
  *             &lt;/value&gt;
  *         &lt;/property&gt;
  *         &lt;property name="documentGenerator" ref="documentGenerator" /&gt;
@@ -351,19 +348,6 @@ public class MemberPhotoRemovalServlet extends HttpServlet {
      * </p>
      */
     private boolean emailSendFlag;
-
-    /**
-     * <p>
-     * Represent the directory to store the removed photo images.
-     * </p>
-     * <p>
-     * It's injected by the Spring.
-     * </p>
-     * <p>
-     * After injection, it must be non-null, non-empty string.
-     * </p>
-     */
-    private String photoImageRemovedDirectory;
     
     /**
      * The path of apache folder, used as prefix of photo stored folder. 
@@ -384,7 +368,7 @@ public class MemberPhotoRemovalServlet extends HttpServlet {
     
     /**
      * <p>
-     * Default constructor. Initiate memberPhotoManager & documentGenerator here.
+     * Default constructor. Initiate memberPhotoManagerFactory & documentGenerator here.
      * </p>
      */
     public MemberPhotoRemovalServlet() throws MemberPhotoRemovalException {
@@ -420,6 +404,12 @@ public class MemberPhotoRemovalServlet extends HttpServlet {
      * <p>
      * It allows web site administrators to remove particular member photos.
      * </p>
+     *
+     * <p>
+     * Version 2.0 Changes<br>
+     * 1. Image is now saved with file's name only. Path is stored in path table, and referenced through path id
+     * </p>
+     *
      * @param response the response.
      * @param request the request.
      * @throws IllegalArgumentException if any arg is null.
@@ -448,6 +438,7 @@ public class MemberPhotoRemovalServlet extends HttpServlet {
                 memberPhotoManager = new MemberPhotoManagerImpl(memberPhotoDAO);
         
                 checkState();
+
                 // get memberId from request
                 long memberId = Helper.getUserId(request);
 
@@ -477,7 +468,11 @@ public class MemberPhotoRemovalServlet extends HttpServlet {
                     } catch (Exception eTx) {}                 
                 } finally {
                     entityManager.close();
-                }
+                }                
+                    
+                // get path and member information
+                Helper.beginCommunication(request);
+                DAOFactory factory = DAOUtil.getFactory();
                 
                 synchronized (this) {
                     // the design wants to add but that should be a final fix.
@@ -486,14 +481,15 @@ public class MemberPhotoRemovalServlet extends HttpServlet {
                     // 2. copy the image from step 1 to
                     // photoImageRemovedDirectory
                     
-                    move(apachePathPrefix + image.getFileName(),
-                            photoImageRemovedDirectory + File.separator
-                                    + new File(image.getFileName()).getName());
+                    Path imageSubmitPath = factory.getPathDAO().find(Image.MEMBER_PHOTO_SUBMIT_PATH_ID);
+                    Path imageRemovedPath = factory.getPathDAO().find(Image.MEMBER_PHOTO_REMOVED_PATH_ID);                    
+                    logMsg(MessageFormat.format("{0} : Moving to directory : {1}", new Date(), imageRemovedPath.getPath()));
+                    
+                    move(apachePathPrefix + imageSubmitPath.getPath() + image.getFileName(),
+                            apachePathPrefix + imageRemovedPath.getPath() + image.getFileName());
                 }
 
-                // get member information
-                Helper.beginCommunication(request);
-                User user = DAOUtil.getFactory().getUserDAO().find(memberId);
+                User user = factory.getUserDAO().find(memberId);
                 
                 // constructor an xml string in the following format, and store
                 // the
@@ -695,18 +691,6 @@ public class MemberPhotoRemovalServlet extends HttpServlet {
 
     /**
      * <p>
-     * Setter for the namesake instance variable.
-     * </p>
-     * @param photoImageRemovedDirectory photo image removed directory.
-     * @throws IllegalArgumentException if the argument is null or empty string.
-     */
-    public void setPhotoImageRemovedDirectory(String photoImageRemovedDirectory) {
-        Helper.checkString(photoImageRemovedDirectory, "photoImageRemovedDirectory");
-        this.photoImageRemovedDirectory = photoImageRemovedDirectory;
-    }
-
-    /**
-     * <p>
      * Check the state.
      * </p>
      * @throws IllegalStateException if the instance variables are not injected
@@ -742,11 +726,7 @@ public class MemberPhotoRemovalServlet extends HttpServlet {
         Helper.checkState(emailSubject, "emailSubject");
 
         // check 'emailSendFlag' field state
-        checkObjectState(emailSendFlag, "emailSendFlag");
-
-        // check 'photoImageRemovedDirectory' field state
-        Helper.checkState(photoImageRemovedDirectory, "photoImageRemovedDirectory");
-        
+        checkObjectState(emailSendFlag, "emailSendFlag");   
     }
 
     /**
