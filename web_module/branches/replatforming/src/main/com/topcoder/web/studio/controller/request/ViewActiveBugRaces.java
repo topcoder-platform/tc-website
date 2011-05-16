@@ -10,12 +10,12 @@ import com.topcoder.web.common.BaseProcessor;
  * @author ShindouHikaru
  * 
  */
-public class ViewActiveBugRaces extends BaseProcessor {		
+public class ViewActiveBugRaces extends BaseProcessor {        
 
-	protected void businessProcessing() throws Exception {		
+    protected void businessProcessing() throws Exception {        
 
-		// everything is done in ajax, so there's no need for business processing		
-		setNextPage("/activeBugRaces.jsp");
-		setIsNextPageInContext(true);
-	}
+        // everything is done in ajax, so there's no need for business processing        
+        setNextPage("/activeBugRaces.jsp");
+        setIsNextPageInContext(true);
+    }
 }

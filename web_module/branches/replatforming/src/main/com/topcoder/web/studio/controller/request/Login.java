@@ -57,7 +57,7 @@ public class Login extends ShortHibernateProcessor {
                             sub = login.login(username, password, DBMS.JTS_OLTP_DATASOURCE_NAME);
                             log.debug("correct user name and password");
                         } catch (Exception e) {
-                        	log.debug(e,e);
+                            log.debug(e,e);
                             throw new LoginException("Handle or password incorrect.");
                         }
                         char status = getStatus(sub.getUserId());

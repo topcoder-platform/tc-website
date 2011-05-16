@@ -65,9 +65,9 @@
             <jsp:param name="key" value="tc_studio_home"/>
         </jsp:include>
 
-		<!--[if lt IE 7]>
-				<script type="text/javascript" src="js/pngfix/unitpngfix.js"></script>
-		<![endif]--> 		
+        <!--[if lt IE 7]>
+                <script type="text/javascript" src="js/pngfix/unitpngfix.js"></script>
+        <![endif]-->         
 
         <%-- Javascript code --%>
         <script src="/js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"></script>
@@ -120,17 +120,17 @@
                         </div>
                     </div><%-- End of #top_part --%>
                     <div id="center_content">
-		        <div id="active_contest">
+                <div id="active_contest">
                                 <div id="active_contest_head">
                                     <span class="active_contests_head">&nbsp;</span>
                                     <span class="active_contests_head">ACTIVE CONTESTS</span>
                                     <span class="prize_purse_head">PURSE</span>
                                     <span class="time_left_head">TIME LEFT</span>
                                 </div>
-                        <c:if test="${empty contests}">                        	
+                        <c:if test="${empty contests}">                            
                                 <div id="active_contest_content">
-				</div>
-			</div>
+                </div>
+            </div>
                         </c:if>
                         <c:if test="${not empty contests}">
                             <div id="active_contest">
@@ -224,9 +224,9 @@
                             </div>
                             <div id="bottom_part_r">
                                 <div class="box_content_container">
-                                	  <!-- PLEASE ADJUST MEMBER OF THE MONTH PARAMETERS HERE -->
+                                      <!-- PLEASE ADJUST MEMBER OF THE MONTH PARAMETERS HERE -->
                                     <div id="member_of_the_month">
-				                                <img style="margin-bottom:12px;"
+                                                <img style="margin-bottom:12px;"
                                             src="/i/v5/Member_of_the_month_header.jpg" >
                                     </div>
                                     <div class="member_image" style="float:left;">

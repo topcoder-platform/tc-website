@@ -31,7 +31,7 @@ public class JarFileAnalyzer extends ZipFileAnalyzer {
      * nothing.</p>
      */
     public JarFileAnalyzer() {
-    	super();
+        super();
     }
 
     /**

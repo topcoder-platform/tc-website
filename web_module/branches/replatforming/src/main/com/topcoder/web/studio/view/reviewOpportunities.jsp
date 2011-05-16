@@ -103,7 +103,7 @@
 
                     <a href="http://www.topcoder.com/tc?module=BasicRSS&c=rss_review_opportunities&dsid=33" rel="alternate" type="application/rss+xml"><img align="right" src="/i/v2/interface/btnRSS.png" alt="RSS" style="vertical-align:midium; margin-right: 5px; margin-top:5px "/></a>
                     
-					<br  clear="all"/>
+                    <br  clear="all"/>
 
                     <div class="statHolder">
                         <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
