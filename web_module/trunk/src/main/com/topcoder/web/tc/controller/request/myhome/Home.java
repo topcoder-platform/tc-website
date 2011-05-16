@@ -1,8 +1,6 @@
 /*
-* Home
-*
-* Created Jun 14, 2007 - 2011 TopCoder Inc., All Rights Reserved.
-*/
+ * Copyright (C) 2007 - 2011 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.tc.controller.request.myhome;
 
 import com.topcoder.shared.security.ClassResource;
@@ -11,6 +9,7 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.model.Path;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -37,19 +36,27 @@ import com.topcoder.web.memberphoto.entities.Image;
  *     <li>Add MemberPhotoManager field.</li>
  *     <li>Add constructor to initiate memberPhotoManager field.</li>
  *     <li>Update dbProcessing method to retrieve image info.</li>
+ *     <li>Update dbProcessing method to retrieve image path info.</li>
  *   </ol>
  * </p>
  * 
- * @author Pablo Wolfus (pulky), TCSASSEMBLER
+ * @author Pablo Wolfus (pulky), pvmagacho
  * @version 1.1
  */
 public class Home extends ShortHibernateProcessor {
-	/**
+    /**
      * A member photo manager instance.
      * 
      * @since 1.1
      */
     private MemberPhotoManager memberPhotoManager;
+
+    /**
+     * <p>
+     * The factory to create EntityManager objects.
+     * </p>
+     */
+    private final EntityManagerFactory emf;
 
     /**
      * The default ctor. Added to initiate memberPhotoManager field.
@@ -59,15 +66,10 @@ public class Home extends ShortHibernateProcessor {
     public Home() {
         super();
         
-        // configure the EntityManager:
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("memberPhotoManager");
-        EntityManager entityManager = emf.createEntityManager();
-        
-        MemberPhotoDAO memberPhotoDAO = new JPAMemberPhotoDAO(entityManager);
-        memberPhotoManager = new MemberPhotoManagerImpl(memberPhotoDAO);
+        emf = Persistence.createEntityManagerFactory("memberPhotoManager");
     }
 
-	 /**
+    /**
      * Handle http request.
      * 
      * @throws Exception if any exception occurs.
@@ -77,13 +79,35 @@ public class Home extends ShortHibernateProcessor {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 
-        User u = DAOUtil.getFactory().getUserDAO().find(getUser().getId());
-		Image image = memberPhotoManager.getMemberPhoto(getUser().getId());
+        // configure the EntityManager
+        EntityManager entityManager = emf.createEntityManager();        
+        MemberPhotoDAO memberPhotoDAO = new JPAMemberPhotoDAO(entityManager);
+        memberPhotoManager = new MemberPhotoManagerImpl(memberPhotoDAO);
 
+        User u = DAOUtil.getFactory().getUserDAO().find(getUser().getId());
+        Image image = null;
+        try {
+            // get image
+            entityManager.getTransaction().begin();
+            image = memberPhotoManager.getMemberPhoto(getUser().getId());
+            entityManager.getTransaction().commit();
+        } catch (Exception eEmf){
+            try {
+                entityManager.getTransaction().rollback();
+            } catch (Exception eTx) {}                 
+        } finally {
+            entityManager.close();
+        }
+        
         getRequest().setAttribute("isInHS",
                 DAOUtil.getFactory().getSecurityGroupDAO().hasGroup(u.getId(), HSRegistrationHelper.HS_GROUP_ID));
         getRequest().setAttribute("regUser", u);
-		getRequest().setAttribute("userImage", image);
+        getRequest().setAttribute("userImage", image);
+
+        if (image != null) {
+        	Path path = DAOUtil.getFactory().getPathDAO().find(image.getPathId());
+        	getRequest().setAttribute("pathImage", path.getPath() + image.getFileName());
+        }
 
         setNextPage("/my_home/index.jsp");
         setIsNextPageInContext(true);

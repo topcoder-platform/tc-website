@@ -1,5 +1,5 @@
 <%--
-  - Author: isv, TCSASSEMBLER
+  - Author: isv, pvmagacho
   - Version: 1.2 (Assembly - Upload Avatar to TC)
   - Copyright (C) 2010 - 2011 TopCoder Inc., All Rights Reserved.
   -
@@ -12,6 +12,10 @@
   -
   - Member Payment Improvements Release assembly v1.0 changes:
   - Added photo modal window and corresponding logic.
+  -
+  - Changes in 1.2 (Assembly - Upload Avatar to TC):
+  - - Removed old submit photo link.
+  - - Image file name is retrieved from request attribute with path + filename.
 --%>
 
 <%@ page contentType="text/html;charset=utf-8" %>
@@ -33,8 +37,8 @@
     <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
-
-	<script type="text/javascript" src="/js/jquery-1.4.1.min.js"></script>
+    
+    <script type="text/javascript" src="/js/jquery-1.4.1.min.js"></script>
     <script type="text/javascript" src="/js/jquery.form.js"></script>
     <script type="text/javascript" src="/js/jquery.Jcrop.js"></script>
     <script type="text/javascript" src="/js/photo.js"></script> 
@@ -46,6 +50,7 @@
         var previewPath = <%= request.getParameter("previewPath") == null ? null : "\'"  + request.getParameter("previewPath") + "\'" %>;
         var originalFile = <%= request.getParameter("originalFileName") == null ? null : "\'"  + request.getParameter("originalFileName") + "\'" %>;
     </script>
+    
 </head>
 
 <body>
@@ -86,11 +91,11 @@
                     </tr>
                     <tr class="light">
                         <td class="valueC B" rowspan="10" nowrap="nowrap" style="vertical-align: middle;">
-                        <c:choose>
+                            <c:choose>
                                 <c:when test="${userImage!=null}">
                                     <div>
                                         <a href="/tc?module=MemberProfile&amp;cr=${regUser.id}">
-                                            <img src="${userImage.fileName}" name="image_path" alt="" class="memberPhoto" />
+                                            <img src="${pathImage}" name="image_path" alt="" class="memberPhoto" />
                                         </a>
                                     </div>
                                 </c:when>
@@ -246,6 +251,7 @@
 </table>
 
 <jsp:include page="../foot.jsp" />
+
 <div class="popup popupUploadPhoto transparent hide">
     <div class="popupWindow">
         <div class="title">UPLOAD YOUR PHOTO</div>
@@ -315,7 +321,7 @@
             <div class="title">REMOVE PHOTO</div>
             
             <div class="content">
-                <img src="${userImage.fileName}" alt="" />
+                <img src="${pathImage}" alt="" />
                 
                 <div class="text">
                     Are you sure to remove this photo?
