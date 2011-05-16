@@ -53,8 +53,8 @@ import com.topcoder.web.studio.validation.UnifiedSubmissionValidator;
  * @version 1.3
  */
 public class DownloadSubmission extends BaseSubmissionDataProcessor {
-	private static final Logger log = Logger.getLogger(DownloadSubmission.class);
-	
+    private static final Logger log = Logger.getLogger(DownloadSubmission.class);
+    
     /**
      * <p>A <code>String</code> array listing the supported types of alternate presentations of submission.</p>
      *
@@ -186,7 +186,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
      */
     private void sendSubmission(Project contest, boolean originalSubmissionRequested, String submissionType,
                                 int requestedImageTypeId, Submission submission, boolean isOwner)
-            throws NavigationException, IOException {		
+            throws NavigationException, IOException {        
         // Since TopCoder Studio Modifications Assembly Req# 5.8
         String targetFileName;
         String destFileName;
@@ -200,7 +200,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
         
         // Suubmission file path
         String filePath = Util.createSubmissionPath(contest, 
-        		DAOUtil.getFactory().getUserDAO().find(submission.getSubmitterId()));
+                DAOUtil.getFactory().getUserDAO().find(submission.getSubmitterId()));
         
         String originalFileName = submission.getUpload().getParameter();
         // Determine the name of requested file and it's mime type
@@ -237,13 +237,13 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
             // found then attempt to download image of type 31; if that doesn't exist also then raise an error
             if ((fileNames == null) || (fileNames.length < 1)) {
                 if (previewFileRequested) {
-                	// For BUGR-1694 - Previews should now show the un-watermarked version, so 
-                	// changing this to return the FULL_TYPE_ID.
+                    // For BUGR-1694 - Previews should now show the un-watermarked version, so 
+                    // changing this to return the FULL_TYPE_ID.
                     /*SubmissionImage image = getSubmissionImage(submission, Image.GALLERY_FULL_WATERMARKED_TYPE_ID,
-                                                               Constants.DEFAULT_FILE_INDEX);*/                	
-                	SubmissionImage image = getSubmissionImage(submission, Image.GALLERY_FULL_TYPE_ID,
+                                                               Constants.DEFAULT_FILE_INDEX);*/                    
+                    SubmissionImage image = getSubmissionImage(submission, Image.GALLERY_FULL_TYPE_ID,
                             Constants.DEFAULT_FILE_INDEX);
-                	log.debug("image.getImage().getFileName(): " + image.getImage().getFileName());
+                    log.debug("image.getImage().getFileName(): " + image.getImage().getFileName());
                     fileNames = dir.list(new SubmissionPresentationFilter(image.getImage().getFileName()));
                 }
             }
@@ -260,7 +260,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
                     Set<MimeType> mimeTypes = fileType.getMimeTypes();
                     if (!mimeTypes.isEmpty()) {
                         contentType = mimeTypes.iterator().next().getDescription();
-                    }                	
+                    }                    
                 }
             }
         } else {
@@ -319,14 +319,14 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
         int currentIndex = 0;
         Set<SubmissionImage> images = submission.getImages();
         if (log.isDebugEnabled()) {
-        	log.debug("Found " + images.size() + " images");
+            log.debug("Found " + images.size() + " images");
         }
         for (SubmissionImage image : images) {
             if (image.getImage().getImageTypeId() == imageTypeId) {
                 currentIndex++;
                 if (currentIndex == fileIndex) {
                     if (log.isDebugEnabled()) {
-                    	log.debug("Returning image with filename " + image.getImage().getFileName());
+                        log.debug("Returning image with filename " + image.getImage().getFileName());
                     }
                     return image;
                 }

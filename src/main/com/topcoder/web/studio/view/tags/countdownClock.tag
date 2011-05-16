@@ -30,58 +30,58 @@
 
 <c:set var="minDesc" value="minute"/>
 <c:if test="${mode == 'short'}">
-	<c:set var="minDesc" value="min"/>
+    <c:set var="minDesc" value="min"/>
 </c:if>
 
 <c:set var="divClass" value="softRed"/>
 <c:if test="${days == 0 && hours < 12}">
-	<c:set var="divClass" value="strongRed"/>
+    <c:set var="divClass" value="strongRed"/>
 </c:if>
 
 
 <div class="${divClass}">
 <c:choose>
-	<c:when test="${days == 1}">
-		1 day
-	</c:when>
-	<c:when test="${days > 1}">
-		<fmt:formatNumber value="${days}" maxFractionDigits="0"/> days
-	</c:when>
-	<c:otherwise>
-		
-		<c:choose>
-			<c:when test="${hours > 0}">
-				<c:choose>
-					<c:when test="${hours == 1}">
-						1 hour
-					</c:when>
-					<c:otherwise>
-						<fmt:formatNumber value="${hours}" maxFractionDigits="0"/> hours 
-					</c:otherwise>
-				</c:choose>
-				<c:if test="${mode == 'short'}">
-					<br/>	
-				</c:if>
-				<c:choose>
-					<c:when test="${minutes == 1}">
-						1 ${minDesc}
-					</c:when>
-					<c:otherwise>
-						<fmt:formatNumber value="${minutes}" maxFractionDigits="0"/> ${minDesc}s
-					</c:otherwise>
-				</c:choose>
-			</c:when>
-			<c:otherwise>
-				<c:choose>
-					<c:when test="${minutes > 0}">
-						<fmt:formatNumber value="${minutes}" maxFractionDigits="0"/> ${minDesc}s
-					</c:when>
-					<c:otherwise>
-						< 5 ${minDesc}s
-					</c:otherwise>
-				</c:choose>
-			</c:otherwise>
-		</c:choose>
-	</c:otherwise>
+    <c:when test="${days == 1}">
+        1 day
+    </c:when>
+    <c:when test="${days > 1}">
+        <fmt:formatNumber value="${days}" maxFractionDigits="0"/> days
+    </c:when>
+    <c:otherwise>
+        
+        <c:choose>
+            <c:when test="${hours > 0}">
+                <c:choose>
+                    <c:when test="${hours == 1}">
+                        1 hour
+                    </c:when>
+                    <c:otherwise>
+                        <fmt:formatNumber value="${hours}" maxFractionDigits="0"/> hours 
+                    </c:otherwise>
+                </c:choose>
+                <c:if test="${mode == 'short'}">
+                    <br/>    
+                </c:if>
+                <c:choose>
+                    <c:when test="${minutes == 1}">
+                        1 ${minDesc}
+                    </c:when>
+                    <c:otherwise>
+                        <fmt:formatNumber value="${minutes}" maxFractionDigits="0"/> ${minDesc}s
+                    </c:otherwise>
+                </c:choose>
+            </c:when>
+            <c:otherwise>
+                <c:choose>
+                    <c:when test="${minutes > 0}">
+                        <fmt:formatNumber value="${minutes}" maxFractionDigits="0"/> ${minDesc}s
+                    </c:when>
+                    <c:otherwise>
+                        < 5 ${minDesc}s
+                    </c:otherwise>
+                </c:choose>
+            </c:otherwise>
+        </c:choose>
+    </c:otherwise>
 </c:choose>
 </div>

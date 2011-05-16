@@ -15,24 +15,24 @@
     <head>
         <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    	 <title>TopCoder Studio : Studio Profile</title>
+         <title>TopCoder Studio : Studio Profile</title>
         <jsp:include page="style.jsp">
             <jsp:param name="key" value="tc_studio_profile"/>
         </jsp:include>
         
         <script src="/js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"></script>
         <script src="/js/NewStyleHeaderFooter/preloadCssImages.jQuery_v5.js" language="javascript"></script>
-		<script type="text/javascript">
-				$(document).ready(function(){
-					//Run the script to preload images from CSS
-					$.preloadCssImages(); 
-				});
-		</script>
-		<script src="/js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
-		<script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
-		<script type="text/javascript" src="/js/jcarousel/jquery.jcarousel.pack.js"></script>
-		
-		<script type="text/javascript">
+        <script type="text/javascript">
+                $(document).ready(function(){
+                    //Run the script to preload images from CSS
+                    $.preloadCssImages(); 
+                });
+        </script>
+        <script src="/js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
+        <script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
+        <script type="text/javascript" src="/js/jcarousel/jquery.jcarousel.pack.js"></script>
+        
+        <script type="text/javascript">
             // carousel
             jQuery(document).ready(function() {
                     jQuery('#mycarousel').jcarousel({
@@ -116,32 +116,32 @@
                 }
             }
         </script>
-		
-		<script type="text/javascript" language="javascript">
-	
-		$(document).ready(function(){
-		
-		
-			$("#nav ul li").hoverIntent(function(){
-				$(this).children("ul").slideDown("fast");
-			}, function() {
-				$(this).children("ul").slideUp("fast");
-			});
-			
-			$("#nav ul ul li").hover(function() {
-				$(this).parents("#nav ul li").children('a').addClass("active-item");
-			}, function() {
-				$(this).parents("#nav ul li").children('a').removeClass("active-item");
-			});
-		
-		
-		});
-		</script>
+        
+        <script type="text/javascript" language="javascript">
+    
+        $(document).ready(function(){
+        
+        
+            $("#nav ul li").hoverIntent(function(){
+                $(this).children("ul").slideDown("fast");
+            }, function() {
+                $(this).children("ul").slideUp("fast");
+            });
+            
+            $("#nav ul ul li").hover(function() {
+                $(this).parents("#nav ul li").children('a').addClass("active-item");
+            }, function() {
+                $(this).parents("#nav ul li").children('a').removeClass("active-item");
+            });
+        
+        
+        });
+        </script>
    </head>
 <body onload="selectType(0)">
-	<div id="page-wrap">
-    	<div align="center">
-		<jsp:include page="top.jsp">
+    <div id="page-wrap">
+        <div align="center">
+        <jsp:include page="top.jsp">
             <jsp:param name="section" value="profile" />
         </jsp:include>
         <br />
@@ -153,7 +153,7 @@
                 <div class="box">
                     <div class="member_search">
                         <form action="/" method="get" name="SearchProfileForm" id="SearchProfileForm">
-						<input type="hidden" name="module" value="ViewMemberProfile"/>
+                        <input type="hidden" name="module" value="ViewMemberProfile"/>
                             <span>Member Handle:</span>
                             <input type="text" name="<%=Constants.HANDLE%>" value="Handle:" onblur="if(this.value=='')this.value='Handle:';" onfocus="if(this.value=='Handle:')this.value='';"/>
                             <a href="#" onclick="document.SearchProfileForm.submit();return false;"><img src="/i/profile/btnSearch.png" alt="Search" /></a>

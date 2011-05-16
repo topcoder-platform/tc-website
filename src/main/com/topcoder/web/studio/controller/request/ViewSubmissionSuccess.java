@@ -49,7 +49,7 @@ public class ViewSubmissionSuccess extends BaseSubmissionDataProcessor {
             Resource resource = RegistrationHelper.getSubmitterResource(s.getContest(), getUser().getId());
             if (resource != null) {
                 loadSubmissionData(resource, s.getContest(), dao, DAOUtil.getFactory().getUploadDAO(), 
-                		s.getTypeId());
+                        s.getTypeId());
                 setIsNextPageInContext(true);
                 setNextPage("submissionSuccess.jsp");
             } else {

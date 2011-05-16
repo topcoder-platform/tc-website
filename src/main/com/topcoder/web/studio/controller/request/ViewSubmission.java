@@ -70,16 +70,16 @@ public class ViewSubmission extends BaseSubmissionDataProcessor {
             }
 
             if ("on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
-				getRequest().setAttribute("has_global_ad", PactsServicesLocator.getService().
-					hasGlobalAD(getUser().getId()));
+                getRequest().setAttribute("has_global_ad", PactsServicesLocator.getService().
+                    hasGlobalAD(getUser().getId()));
             }
 
-			setDefault(Constants.CONTEST_ID, contestId.toString());
-			setDefault(Constants.SUBMISSION_RANK, "1");
-			
-			loadSubmissionData(resource, contest, factory.getSubmissionDAO(), factory.getUploadDAO());
-			setNextPage("/submit.jsp");
-			setIsNextPageInContext(true);
+            setDefault(Constants.CONTEST_ID, contestId.toString());
+            setDefault(Constants.SUBMISSION_RANK, "1");
+            
+            loadSubmissionData(resource, contest, factory.getSubmissionDAO(), factory.getUploadDAO());
+            setNextPage("/submit.jsp");
+            setIsNextPageInContext(true);
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }

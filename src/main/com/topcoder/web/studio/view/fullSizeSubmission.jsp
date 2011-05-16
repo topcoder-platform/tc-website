@@ -146,7 +146,7 @@
                                 <studio:forumLink forumID="${contest.forumId}" styleClass="btn-orange"
                                                   message="<span class=\"right-side\"><span class=\"text\">Forum</span></span>"/>
 
-								<c:set var="winnersAvailable" value="${contest.reviewClosed}"/>
+                                <c:set var="winnersAvailable" value="${contest.reviewClosed}"/>
                                 <c:set var="winnersPath"
                                        value="${sessionInfo.servletPath}?module=ViewContestResults&amp;${contestId}=${contest.id}"/>
                                 <a href="${winnersAvailable ? winnersPath : 'javascript:'}"
@@ -264,8 +264,8 @@
     <!--End .button-line-->
     <div class="submission-file-info">
         <h4 class="submission-number">Submission #${sbmid}</h4>
-		<c:if test="${viewSubmitters}">
-        	<span class="author">by <tc-webtag:handle coderId="${submission.submitterId}" context="component" /></span>
+        <c:if test="${viewSubmitters}">
+            <span class="author">by <tc-webtag:handle coderId="${submission.submitterId}" context="component" /></span>
         </c:if>
 
         <div class="list-wrapper">

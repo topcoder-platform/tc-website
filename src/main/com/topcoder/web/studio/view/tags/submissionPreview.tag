@@ -59,7 +59,7 @@
 
 <%-- Decide image to shown according to the contest configuration --%>
 <c:if test="${not multi}">
-	<c:set var="previewImageSrc" value="${downloadSubmissionBaseUrl}"/>
+    <c:set var="previewImageSrc" value="${downloadSubmissionBaseUrl}"/>
 </c:if>
         <%-- BUGR-4567 --%>
 <%-- Render the preview box --%>

@@ -72,7 +72,7 @@ public class BatchUpdateRank extends BaseSubmissionDataProcessor {
                         addError(paramName, "Sorry, you can not make a change to a submission for a contest that is not active.");
                     } else {
                         if (maxRank == null) {
-                        	maxRank = submissionDAO.getMaxRank(uploads);
+                            maxRank = submissionDAO.getMaxRank(uploads);
                         }
                         newRankInt = new Integer(newRank);
                         if (newRankInt < 1) {

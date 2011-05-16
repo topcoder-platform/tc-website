@@ -45,16 +45,16 @@ public class DeleteSubmission extends BaseSubmissionDataProcessor {
      * @throws Exception if any error occurs
      * @see com.topcoder.web.common.LongHibernateProcessor#dbProcessing()
      */
-    protected void dbProcessing() throws Exception {    	
+    protected void dbProcessing() throws Exception {        
         String submissionId = getRequest().getParameter(Constants.SUBMISSION_ID);
         
-    	DAOFactory factory = DAOUtil.getFactory();
+        DAOFactory factory = DAOUtil.getFactory();
         SubmissionDAO submissionDAO = factory.getSubmissionDAO();
         UploadDAO uploadDAO = factory.getUploadDAO();
         Submission s = submissionDAO.find(new Integer(submissionId));
         
         if (!s.getSubmitterId().equals(getUser().getId())) {
-        	throw new NavigationException("Illegal operation attempted, submission doesn't belong to current user.");
+            throw new NavigationException("Illegal operation attempted, submission doesn't belong to current user.");
         }
         List<Upload> uploads = uploadDAO.getUploads(s.getContest(), s.getResource(), Upload.STATUS_ACTIVE, Upload.SUBMISSION);
 

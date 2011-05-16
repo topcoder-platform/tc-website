@@ -182,22 +182,22 @@
             </c:if>
         </c:if>
 
-	 <h5 class="contentTitle">Stock Photography</h5>
-	 <c:if test="${contest.allowStockArt}">
-	 	<p class="paragraph">
-			Watermarked comp photography from istockphoto.com is allowed in this contest. You must follow these instructions or your submission will fail screening:
-		<br><br>
-			1) You must declare your stock photos when submitting. <a href="http://topcoder.com/home/studio/the-process/how-to-submit-to-a-contest/" target="_blank">See how here.</a><br>
-			2) Only use photos, and only use them from iStockPhoto.com. Other iStockPhoto artwork (illustrations, icons, etc.) are not allowed.<br>
-			3) Be sure to keep the watermark intact. If the photo is cropped in such a way that the watermark is not visible, please be sure to include the entire watermarked image in your source files so screeners can see that it is a comp image from iStockphoto.com.
-	 	</p>
+     <h5 class="contentTitle">Stock Photography</h5>
+     <c:if test="${contest.allowStockArt}">
+         <p class="paragraph">
+            Watermarked comp photography from istockphoto.com is allowed in this contest. You must follow these instructions or your submission will fail screening:
+        <br><br>
+            1) You must declare your stock photos when submitting. <a href="http://topcoder.com/home/studio/the-process/how-to-submit-to-a-contest/" target="_blank">See how here.</a><br>
+            2) Only use photos, and only use them from iStockPhoto.com. Other iStockPhoto artwork (illustrations, icons, etc.) are not allowed.<br>
+            3) Be sure to keep the watermark intact. If the photo is cropped in such a way that the watermark is not visible, please be sure to include the entire watermarked image in your source files so screeners can see that it is a comp image from iStockphoto.com.
+         </p>
         </c:if>
 
-	 <c:if test="${!contest.allowStockArt}">
-	 	<p class="paragraph">
-			Stock photography is not allowed in this contest. All submitted elements must be designed solely by you.<br>
-			<a href="http://topcoder.com/home/studio/the-process/copyright-questions/">See this page for more details.</a>
-	 	</p>
+     <c:if test="${!contest.allowStockArt}">
+         <p class="paragraph">
+            Stock photography is not allowed in this contest. All submitted elements must be designed solely by you.<br>
+            <a href="http://topcoder.com/home/studio/the-process/copyright-questions/">See this page for more details.</a>
+         </p>
         </c:if>
 
         <%-- How to Submit --%>

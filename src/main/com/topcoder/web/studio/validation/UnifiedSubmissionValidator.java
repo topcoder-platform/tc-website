@@ -115,15 +115,15 @@ public class UnifiedSubmissionValidator implements Validator {
             // Since TopCoder Studio Modifications Assembly - additional validation logic is applied for bundled
             // files. Req# 5.6
             BundledFileAnalyzer fileParser;
-			try {
-				fileParser = getBundledFileParser(submission.getRemoteFileName());
-			} catch (PersistenceException e) {
-	            log.warn("Error getting bundled file parser.", e);
-	            return new BasicResult(false, "Error getting bundled file parser.");
-	        } catch (FileDoesNotExistException e) {
-	            log.warn("Error getting bundled file parser.", e);
-	            return new BasicResult(false, "Error getting bundled file parser.");
-			}
+            try {
+                fileParser = getBundledFileParser(submission.getRemoteFileName());
+            } catch (PersistenceException e) {
+                log.warn("Error getting bundled file parser.", e);
+                return new BasicResult(false, "Error getting bundled file parser.");
+            } catch (FileDoesNotExistException e) {
+                log.warn("Error getting bundled file parser.", e);
+                return new BasicResult(false, "Error getting bundled file parser.");
+            }
             
             try {
                 fileParser.analyze(new ByteArrayInputStream(arr), false);
@@ -188,10 +188,10 @@ public class UnifiedSubmissionValidator implements Validator {
         int pos = fileName.lastIndexOf('.');
         String extension = fileName.substring(pos + 1);
         for (FileType fileType : fileTypes) {
-        	if (log.isDebugEnabled()) {
-        		log.debug("Comparing " + extension + " to " + fileType.getExtension() + " = " 
-        				+ extension.equalsIgnoreCase(fileType.getExtension()));
-        	}
+            if (log.isDebugEnabled()) {
+                log.debug("Comparing " + extension + " to " + fileType.getExtension() + " = " 
+                        + extension.equalsIgnoreCase(fileType.getExtension()));
+            }
             if (extension.equalsIgnoreCase(fileType.getExtension())) {
                 return fileType;
             }

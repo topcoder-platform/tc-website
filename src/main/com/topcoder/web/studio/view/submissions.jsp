@@ -14,9 +14,9 @@
   - Version 1.2 (Studio Contest Detail Pages Assembly version 1.0) changes:
   -     - Applied new L&F
   - Version 1.3 (Re-platforming Studio Release 3 Assembly) changes:
-  -	- Updated the logic to use contests hosted in tcs_catalog
+  -    - Updated the logic to use contests hosted in tcs_catalog
   - Version 1.4 (Re-platforming Studio Release 4 Assembly) changes:
-  -	- Clean up old studio model files
+  -    - Clean up old studio model files
 --%>
 
 <%@ page import="com.topcoder.web.studio.Constants" %>

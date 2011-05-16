@@ -74,19 +74,19 @@ import java.util.Date;
  * @version 1.6
  */
 public class ViewContestResults extends ShortHibernateProcessor {
-	/**
-	 * <p>
-	 * Implements the business logic for request processing.
-	 * </p>
-	 *
-	 * @throws Exception if an unexpected error occurs.
-	 */
+    /**
+     * <p>
+     * Implements the business logic for request processing.
+     * </p>
+     *
+     * @throws Exception if an unexpected error occurs.
+     */
     protected void dbProcessing() throws Exception {
         String contestId = getRequest().getParameter(Constants.CONTEST_ID);
         if ("".equals(StringUtils.checkNull(contestId))) {
             throw new NavigationException("No contest specified");
         } else {
-        	Integer cid;
+            Integer cid;
             try {
                 cid = new Integer(contestId);
             } catch (NumberFormatException e) {
@@ -101,13 +101,13 @@ public class ViewContestResults extends ShortHibernateProcessor {
             } else {
                 if (Project.STATUS_ACTIVE.equals(contest.getStatusId())) {
                     if (contest.getReviewClosed()) {
-                    	getRequest().setAttribute("contest", contest);
+                        getRequest().setAttribute("contest", contest);
                         loadData(cid);
                     } else {
-                    	throw new NavigationException("No contest results available.");
+                        throw new NavigationException("No contest results available.");
                     }
                 } else {
-                	throw new NavigationException("Inactive contest specified.");
+                    throw new NavigationException("Inactive contest specified.");
                 }
             }
 

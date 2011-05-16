@@ -48,13 +48,13 @@ public class UpdateSubmissionRank extends BaseSubmissionDataProcessor {
     protected void dbProcessing() throws Exception {
         String submissionId = getRequest().getParameter(Constants.SUBMISSION_ID);
         
-    	DAOFactory factory = DAOUtil.getFactory();
+        DAOFactory factory = DAOUtil.getFactory();
         SubmissionDAO submissionDAO = factory.getSubmissionDAO();
         UploadDAO uploadDAO = factory.getUploadDAO();
         Submission s = submissionDAO.find(new Integer(submissionId));
         
         if (!s.getSubmitterId().equals(getUser().getId())) {
-        	throw new NavigationException("Illegal operation attempted, submission doesn't belong to current user.");
+            throw new NavigationException("Illegal operation attempted, submission doesn't belong to current user.");
         }
         List<Upload> uploads = uploadDAO.getUploads(s.getContest(), s.getResource(), Upload.STATUS_ACTIVE, Upload.SUBMISSION);
 
@@ -65,11 +65,11 @@ public class UpdateSubmissionRank extends BaseSubmissionDataProcessor {
                     !Project.STATUS_ACTIVE.equals(s.getContest().getStatusId())) {
                 addError(Constants.SUBMISSION_ID + submissionId, "Sorry, you can not make a change to a submission for a contest that is not active.");
             } else {
-            	Integer maxRank = submissionDAO.getMaxRank(uploads);
+                Integer maxRank = submissionDAO.getMaxRank(uploads);
                 int newRank = Integer.parseInt(getRequest().getParameter(Constants.SUBMISSION_RANK));
                 getRequest().setAttribute("newRank", getRequest().getParameter(Constants.SUBMISSION_RANK));
                 if (newRank > 0 && newRank <= maxRank) {
-                	submissionDAO.changeRank(newRank, s, uploads);
+                    submissionDAO.changeRank(newRank, s, uploads);
                     closeConversation();
                     beginCommunication();
                 }
@@ -81,6 +81,6 @@ public class UpdateSubmissionRank extends BaseSubmissionDataProcessor {
         s = submissionDAO.find(new Integer(submissionId));
         loadSubmissionData(s.getResource(), s.getContest(), submissionDAO, factory.getUploadDAO(), s.getTypeId());
         setIsNextPageInContext(true);
-        setNextPage("submitTableBody.jsp");	
+        setNextPage("submitTableBody.jsp");    
     }    
 }
