@@ -756,7 +756,8 @@
                 <include name="configuration_api-2.0.0.jar"/>
             </fileset>
         </copy>
-        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/file_upload/2.0.2.0/file_upload.jar"/>
+        
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/file_upload/2.2.0/file_upload.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/configuration_manager/2.1.5/configuration_manager.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/data_validation/1.0/data_validation.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/file_system_server/1.0/file_system_server.jar"/>
@@ -765,6 +766,7 @@
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/ip_server/2.0.1/ip_server.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/typesafe_enum/1.0/typesafe_enum.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/contest_eligibility_validation_client/1.0.0/contest_eligibility_validation_client.jar"/>
+        
         <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-3.2/hibernate3.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-3.2/antlr-2.7.6.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-3.2/asm.jar"/>
