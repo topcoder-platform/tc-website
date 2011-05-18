@@ -179,6 +179,8 @@
     Phone:  <rsc:item name="home_phone" row="<%=p%>"/> <br>
     Account Status:  <rsc:item name="user_status_desc" row="<%=p%>"/> <br>
     Activation Link: <rsc:item name="activation_link" row="<%=p%>"/> <br>
+    <a href=/tc?module=DownloadVCard&<%=Constants.USER_ID%>=<rsc:item name="user_id" row="<%=p%>"/> >Download contact as vCard</a>
+
 
   </td>
 </tr>
