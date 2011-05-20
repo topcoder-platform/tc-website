@@ -136,6 +136,16 @@ import com.topcoder.web.memberphoto.manager.persistence.JPAMemberPhotoDAO;
  *                 80
  *             &lt;/value&gt;
  *         &lt;/property&gt;
+ *         &lt;property name="photoImageSubmittedDirectory"&gt;
+ *             &lt;value&gt;
+ *                 test_files/submitted
+ *             &lt;/value&gt;
+ *         &lt;/property&gt;
+ *         &lt;property name="photoImagePreviewDirectory"&gt;
+ *             &lt;value&gt;
+ *                 test_files/preview
+ *             &lt;/value&gt;
+ *         &lt;/property&gt;
  *         &lt;property name="previewPhotoImagePathName"&gt;
  *             &lt;value&gt;
  *                 /preview
@@ -214,7 +224,7 @@ import com.topcoder.web.memberphoto.manager.persistence.JPAMemberPhotoDAO;
  * class is thread-safe when serving user requests.
  * </p>
  * @author AleaActaEst, microsky, pvmagacho
- * @version 1.0
+ * @version 2.0
  */
 @SuppressWarnings("serial")
 @Transactional
@@ -340,6 +350,7 @@ public class MemberPhotoUploadServlet extends HttpServlet {
      * </p>
      */
     private String targetImageRightCornerYParameterName;
+
     /**
      * <p>
      * Represent the directory to store the submitted photo images.
@@ -352,6 +363,7 @@ public class MemberPhotoUploadServlet extends HttpServlet {
      * </p>
      */
     private String photoImageSubmittedDirectory;
+
     /**
      * <p>
      * Represent the directory to store the preview photo images.
@@ -456,14 +468,16 @@ public class MemberPhotoUploadServlet extends HttpServlet {
     private Log log;
     
     /**
-     * The path of apache folder, used as prefix of photo stored folder. 
+     * The path of server folder, used as prefix of photo stored folder. 
      */
-    private String apachePathPrefix;
+    private String serverPathPrefix = "";
 
     /**
      * <p>
      * The factory to create EntityManager objects.
      * </p>
+     * 
+     * @since 2.0
      */
     private final EntityManagerFactory emf;
     
@@ -495,7 +509,7 @@ public class MemberPhotoUploadServlet extends HttpServlet {
      * 2. Size of the uploaded image is checked against a configured upper limit (in bytes)<br>
      * 3. There are three distinct actions now of "preview", "commit", and "crop"<br>
      * 4. width and height parameter now come from external source through<br>
-     * 5. Image is now saved with file's name only. Path is stored in path table, and referenced through path id
+     * 5. Image is now saved with file's name only. Paths are injected using spring.
      * </p>
      *
      * @param response the response.
@@ -540,6 +554,7 @@ public class MemberPhotoUploadServlet extends HttpServlet {
                 long memberId = Helper.getUserId(request);
                 Helper.beginCommunication(request);
                 User user = DAOUtil.getFactory().getUserDAO().find(memberId);
+                String imageFileName = user.getHandle() + imagepostfix;
                 
                 // determine the action for image storing
                 if (submittedAction.equals("preview")) {
@@ -579,16 +594,13 @@ public class MemberPhotoUploadServlet extends HttpServlet {
                     
                     BufferedImage originalImage = ImageIO.read(uploadedFile.getInputStream());                   
 
+                    logMsg(MessageFormat.format("{0} : Saving to directory : {1}", new Date(), serverPathPrefix + photoImagePreviewDirectory));
+                    upLoadPicture(user.getHandle(), originalImage, serverPathPrefix + photoImagePreviewDirectory);                 
+
                     // get Path information
                     Path imagePath = DAOUtil.getFactory().getPathDAO().find(Image.MEMBER_PHOTO_PREVIEW_PATH_ID);
-                    photoImagePreviewDirectory = imagePath.getPath();
-                    logMsg(MessageFormat.format("{0} : Saving to directory : {1}", new Date(),
-                    	photoImagePreviewDirectory));
-
-                    upLoadPicture(user.getHandle(), originalImage, apachePathPrefix + photoImagePreviewDirectory);                    
-                    
-                    String path = photoImagePreviewDirectory + user.getHandle() + imagepostfix;
-                    response.sendRedirect(previewForwardUrl + "&" + previewPhotoImagePathName + "=" + path
+                    String file = imagePath.getPath() + user.getHandle() + imagepostfix;
+                    response.sendRedirect(previewForwardUrl + "&" + previewPhotoImagePathName + "=" + file
                     	+ "&originalFileName=" + uploadedFile.getRemoteFileName());
                 } else if (submittedAction.equals("commit")) {
                     // retrieve crop info
@@ -612,7 +624,8 @@ public class MemberPhotoUploadServlet extends HttpServlet {
                     }
                     
                     String previewFile = request.getParameter(previewPhotoImagePathName);
-                    BufferedImage originalImage = ImageIO.read(new BufferedInputStream(new FileInputStream(apachePathPrefix + previewFile)));
+                    String fullPathFile = serverPathPrefix + photoImagePreviewDirectory + previewFile.substring(previewFile.lastIndexOf("/") + 1);
+                    BufferedImage originalImage = ImageIO.read(new BufferedInputStream(new FileInputStream(fullPathFile)));
                     BufferedImage resizedImage;
                     
                     int imageWidth = originalImage.getWidth();
@@ -656,14 +669,9 @@ public class MemberPhotoUploadServlet extends HttpServlet {
                             resizedImage = originalImage;
                         }
                     }
-                                  
-                    // get Path information
-                    Path imagePath = DAOUtil.getFactory().getPathDAO().find(Image.MEMBER_PHOTO_SUBMIT_PATH_ID);
-                    photoImageSubmittedDirectory = imagePath.getPath();
-                    logMsg(MessageFormat.format("{0} : Saving to directory : {1}", new Date(),
-                    	photoImageSubmittedDirectory));
-
-                    upLoadPicture(user.getHandle(), resizedImage, apachePathPrefix + photoImageSubmittedDirectory);
+                    
+                    logMsg(MessageFormat.format("{0} : Saving to directory : {1}", new Date(), serverPathPrefix + photoImageSubmittedDirectory));
+                    upLoadPicture(user.getHandle(), resizedImage, serverPathPrefix + photoImageSubmittedDirectory);
 
                     try {
                         // save image
@@ -708,7 +716,7 @@ public class MemberPhotoUploadServlet extends HttpServlet {
         } catch (IOException e) {
             throw logMsg("i/o error occurs", e);
         } catch (MemberPhotoUploadException e) {
-            throw logMsg("unexpected error occurs. details:" + e.getMessage(), e);
+            throw logMsg("unexpected error occurs. details:" + e, e);
         } finally {
             Helper.endCommunication(request);
             logMsg(MessageFormat.format("{0} : Exiting " + "MemberPhotoManagerImpl#doPost"
@@ -856,6 +864,30 @@ public class MemberPhotoUploadServlet extends HttpServlet {
      * <p>
      * Setter for the namesake instance variable.
      * </p>
+     * @param photoImageSubmittedDirectory photo image submitted directory.
+     * @throws IllegalArgumentException if the argument is null or empty string.
+     */
+    public void setPhotoImageSubmittedDirectory(String photoImageSubmittedDirectory) {
+        Helper.checkString(photoImageSubmittedDirectory, "photoImageSubmittedDirectory");
+        this.photoImageSubmittedDirectory = photoImageSubmittedDirectory;
+    }
+
+    /**
+     * <p>
+     * Setter for the namesake instance variable.
+     * </p>
+     * @param photoImagePreviewDirectory photo image preview directory.
+     * @throws IllegalArgumentException if the argument is null or empty string.
+     */
+    public void setPhotoImagePreviewDirectory(String photoImagePreviewDirectory) {
+        Helper.checkString(photoImagePreviewDirectory, "photoImagePreviewDirectory");
+        this.photoImagePreviewDirectory = photoImagePreviewDirectory;
+    }
+
+    /**
+     * <p>
+     * Setter for the namesake instance variable.
+     * </p>
      * @param previewPhotoImagePathName preview photo image path name.
      * @throws IllegalArgumentException if the argument is null or empty string.
      */
@@ -921,6 +953,12 @@ public class MemberPhotoUploadServlet extends HttpServlet {
 
         // check 'targetImageHeight' field state
         checkIntState(targetImageHeight, "targetImageHeight");
+
+        // check 'photoImageSubmittedDirectory' field state
+        Helper.checkState(photoImageSubmittedDirectory, "photoImageSubmittedDirectory");
+
+        // check 'photoImageSubmittedDirectory' field state
+        Helper.checkState(photoImagePreviewDirectory, "photoImagePreviewDirectory");
 
         // check 'previewPhotoImagePathName' field state
         Helper.checkState(previewPhotoImagePathName, "previewPhotoImagePathName");
@@ -1052,12 +1090,12 @@ public class MemberPhotoUploadServlet extends HttpServlet {
     }
 
     /**
-     * Set the apachePathPrefix field.
+     * Set the serverPathPrefix field.
      *
-     * @param apachePathPrefix the apachePathPrefix to set
+     * @param serverPathPrefix the serverPathPrefix to set
      */
-    public void setApachePathPrefix(String apachePathPrefix) {
-        this.apachePathPrefix = apachePathPrefix;
+    public void setServerPathPrefix(String serverPathPrefix) {
+        this.serverPathPrefix = serverPathPrefix;
     }
 
     /**
