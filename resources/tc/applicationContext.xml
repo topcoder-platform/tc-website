@@ -35,8 +35,14 @@
         <property name="emailSendFlag">
             <value>false</value>
         </property>
-        <property name="apachePathPrefix">
-            <value>/mnt/apache/tcdocs</value>
+        <property name="photoImageSubmittedDirectory">
+            <value>/</value>
+        </property>
+        <property name="photoImageRemovedDirectory">
+            <value>/removed/</value>
+        </property>
+        <property name="serverPathPrefix">
+            <value>/mnt/apache/tcdocs/i/m</value>
         </property>      
     </bean>
 
@@ -53,6 +59,12 @@
         </property>
         <property name="targetImageHeight">
             <value>138</value>
+        </property>
+        <property name="photoImageSubmittedDirectory">
+            <value>/</value>
+        </property>
+        <property name="photoImagePreviewDirectory">
+            <value>/preview/</value>
         </property>
         <property name="previewPhotoImagePathName">
             <value>previewPath</value>
@@ -81,8 +93,8 @@
         <property name="submittedActionParameterName">
             <value>photoAction</value>
         </property>
-        <property name="apachePathPrefix">
-            <value>/mnt/apache/tcdocs</value>
+        <property name="serverPathPrefix">
+            <value>/mnt/apache/tcdocs/i/m</value>
         </property>        
     </bean>
 
