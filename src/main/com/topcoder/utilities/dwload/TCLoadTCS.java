@@ -1131,7 +1131,11 @@ public class TCLoadTCS extends TCLoad {
                     Timestamp completeDate = convertToDate(rs.getString("complete_date"));
                     if (completeDate != null) {
                         update.setTimestamp(13, completeDate);
-                        duration = completeDate.getTime() - postingDate.getTime() - approvalPhaseDurationInMilliseconds;
+                        if (postingDate != null)
+                        {
+                            duration = completeDate.getTime() - postingDate.getTime() - approvalPhaseDurationInMilliseconds;
+                        }
+                        
                     } else {
                         update.setNull(13, Types.TIMESTAMP);
                     }
