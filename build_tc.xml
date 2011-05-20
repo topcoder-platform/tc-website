@@ -142,10 +142,14 @@
         <pathelement location="${jars.dir}/hibernate-3.2/asm.jar"/>
         <pathelement location="${jars.dir}/hibernate-3.2/ant-antlr-1.6.5.jar"/>
         <pathelement location="${jars.dir}/hibernate-3.2/antlr-2.7.6.jar"/>
-        <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-commons-annotations.jar"/>
-        <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-annotations.jar"/>
-        <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/ejb3-persistence.jar"/>
 
+        <pathelement location="${jars.dir}/hibernate-3.0/hibernate-validator.jar"/>
+        
+        <pathelement location="${jars.dir}/hibernate-3.1/hibernate-commons-annotations.jar"/>
+
+        <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-annotations.jar"/>
+        <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-entitymanager.jar"/>
+        <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/ejb3-persistence.jar"/>
 
         <pathelement location="${external.jars.dir}/base_exception-2.0.0.jar"/>
         <pathelement location="${external.jars.dir}/configuration_api-2.0.0.jar"/>
@@ -771,14 +775,15 @@
         <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-3.2/antlr-2.7.6.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-3.2/asm.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-3.2/cglib-2.1.3.jar"/>
-        <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-3.2/hibernate-annotations.jar"/>
-        <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-3.2/hibernate-entitymanager.jar"/>
-        <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-3.2/hibernate-validator.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-3.2/slf4j-api-1.5.8.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-3.2/slf4j-log4j12-1.5.8.jar"/>
+
+        <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-3.0/hibernate-validator.jar"/>
         
-        <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-commons-annotations.jar"/>
-        <!--<copy todir="${jboss_lib}" file="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-annotations.jar"/>-->
+        <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-3.1/hibernate-commons-annotations.jar"/>
+
+        <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-annotations.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-entitymanager.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-annotations-3.3.0.GA/ejb3-persistence.jar"/>
 
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/pipeline_service_persistence/1.0.0/pipeline_service_persistence.jar"/>
