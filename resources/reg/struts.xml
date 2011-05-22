@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <constant name="struts.devMode" value="false" />
+    <constant name="struts.ui.theme" value="simple" />
+    <constant name="struts.objectFactory" value="spring" />
+
+    <package name="default" namespace="/" extends="struts-default">
+        <interceptors>
+
+            <interceptor name="regBasicInterceptor" class="regBasicInterceptor" />
+            <interceptor name="shortHibernateInterceptor" class="shortHibernateInterceptor" />
+            <interceptor name="authenticationInterceptor" class="authenticationInterceptor" />
+            <interceptor name="requestTypeCheckingInterceptor" class="requestTypeCheckingInterceptor" />
+            <!-- base stack -->
+            <interceptor-stack name="baseStack">
+                <interceptor-ref name="regBasicInterceptor" />
+                <interceptor-ref name="defaultStack" />
+                <interceptor-ref name="requestTypeCheckingInterceptor" />
+            </interceptor-stack>
+
+            <!-- short hibernate stack -->
+            <interceptor-stack name="shortHibernateStack">
+                <interceptor-ref name="shortHibernateInterceptor" />
+                <interceptor-ref name="baseStack" />
+            </interceptor-stack>
+
+            <!-- authentication stack -->
+            <interceptor-stack name="authenticationStack">
+                <interceptor-ref name="shortHibernateStack" />
+                <interceptor-ref name="authenticationInterceptor" />
+            </interceptor-stack>
+        </interceptors>
+
+        <default-interceptor-ref name="baseStack" />
+
+        <global-results>
+            <result name="error">/error.jsp</result>
+            <result name="firstStep">/first_step.jsp</result>
+            <result name="login">/login.jsp</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping result="error" exception="java.lang.Exception" />
+        </global-exception-mappings>
+
+        <action name="loginAction" class="loginAction">
+            <interceptor-ref name="shortHibernateStack" />
+            <result type="redirectAction">displayProfileAction</result>
+            <result name="loginError">/login.jsp</result>
+            <result name="input">/login.jsp</result>
+        </action>
+
+        <action name="firstStepAction" class="firstStepAction">
+            <interceptor-ref name="authenticationStack" />
+            <result>/profile_completeness.jsp</result>
+            <result name="input">/first_step.jsp</result>
+        </action>
+
+
+        <action name="profileUpdateAction" class="profileUpdateAction">
+            <interceptor-ref name="authenticationStack" />
+            <result type="redirectAction">displayProfileAction</result>
+        </action>
+
+        <action name="displayProfileAction" class="displayProfileAction">
+            <interceptor-ref name="authenticationStack" />
+            <result>/my_profile.jsp</result>
+        </action>
+
+        <action name="loadCaptchaAction" class="loadCaptchaAction">
+            <result>/captcha.jsp</result>
+        </action>
+
+        <action name="registerAction" class="registerAction">
+            <interceptor-ref name="shortHibernateStack" />
+            <result name="input">/register.jsp</result>
+            <result>/registered.jsp</result>
+        </action>
+
+        <action name="sendActivateEmail" class="sendActivateEmailAction">
+            <interceptor-ref name="shortHibernateStack" />
+            <result>/registered.jsp</result>
+        </action>
+
+        <action name="activate" class="activateAction">
+            <interceptor-ref name="shortHibernateStack" />
+            <result>/activated.jsp</result>
+        </action>
+
+        <action name="forgotPassword" class="forgotPasswordAction">
+            <interceptor-ref name="shortHibernateStack" />
+            <result name="input">/password_recover.jsp</result>
+            <result>/password_recover_success.jsp</result>
+        </action>
+
+        <action name="resetPassword" class="resetPasswordAction">
+            <interceptor-ref name="shortHibernateStack" />
+            <result name="input">/password_reset.jsp</result>
+            <result>/password_reset_success.jsp</result>
+        </action>
+
+
+    </package>
+</struts>

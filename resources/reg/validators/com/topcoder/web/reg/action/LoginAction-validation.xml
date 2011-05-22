@@ -1,0 +1,28 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+        "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+    <field name="username">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message>Please fill your user name</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="maxLength">15</param>
+            <param name="minLength">2</param>
+            <param name="trim">true</param>
+            <message>valid user name must be between ${minLength} and ${maxLength} characters long.</message>
+        </field-validator>
+    </field>
+    <field name="password">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message>Please fill your password</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="maxLength">30</param>
+            <param name="minLength">7</param>
+            <param name="trim">true</param>
+            <message>password must be between ${minLength} and ${maxLength} characters long.</message>
+        </field-validator>
+    </field>
+</validators>
