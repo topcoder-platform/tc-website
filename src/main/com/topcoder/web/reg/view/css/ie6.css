@@ -1,0 +1,24 @@
+/*******************
+ *  ie6 fixed      *
+ *******************/
+.clear{
+	clear:both !important;
+	height:0;
+	width:0;
+	overflow:hidden;
+}
+#sideBar .userOperation ul li ul li a{
+	min-height:12px;
+	height:auto !important;
+	height:12px;
+	overflow:visible;
+}
+.jqTransformSelectWrapper  a.jqTransformSelectOpen{
+	right:0;
+}
+
+#modalUploadPhoto .popUpUploadPhotoRight .fileUpload .fileTxt{
+	position:static;
+	float:left;
+	display:inline;
+}
