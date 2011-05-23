@@ -24,7 +24,7 @@
             <value>member_has_no_photo_error_name</value>
         </property>
         <property name="emailBodyTemplateFileName">
-            <value>/tmp/template/template.txt</value>
+            <value>/home/tc/jboss-4.0.4.GA/server/all/conf/template.txt</value>
         </property>
         <property name="fromEmailAddress">
             <value>test@topcoder.com</value>
