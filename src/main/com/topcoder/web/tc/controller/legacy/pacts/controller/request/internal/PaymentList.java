@@ -9,12 +9,16 @@ import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
+import java.io.PrintWriter;
+import java.io.IOException;
+import javax.servlet.http.HttpServletResponse;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SortInfo;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason.AvailableStatusReason;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
@@ -25,14 +29,16 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.TCData;
 /**
  * Display a Payment List
  *
- * @author  cucu, pulky
+ * @author  cucu, pulky, VolodymyrK
  */
 public class PaymentList extends PactsBaseProcessor implements PactsConstants {
    	
-	public static final String PAYMENTS = "payments";
-	public static final String RELIABILITY = "reliability";
-	public static final String GROUP_RELIABILITY = "gr";
-	public static final String TOGGLE_GROUP_RELIABILITY = "tgr";
+    public static final String PAYMENTS = "payments";
+    public static final String RELIABILITY = "reliability";
+    public static final String GROUP_RELIABILITY = "gr";
+    public static final String TOGGLE_GROUP_RELIABILITY = "tgr";
+    public static final String CSV_FORMAT = "csv";
+    public static final String CSV_LINK = "csv_link";
 
     public static final int FIRST_COL = 1;
     public static final int LAST_COL = 2;
@@ -63,7 +69,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
             }
 
             boolean groupRel = !"false".equals(getRequest().getParameter(GROUP_RELIABILITY));
-        	String requestQuery = INTERNAL_SERVLET_URL + "?" + getRequest().getQueryString();
+            String requestQuery = INTERNAL_SERVLET_URL + "?" + getRequest().getQueryString();
             getRequest().setAttribute("query", requestQuery);
             log.debug("QueryString: " + requestQuery);
                     
@@ -151,11 +157,18 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                     getRequest().setAttribute(CHECKED_PAYMENT_ID, "");                        
                 }                    
                 
-                String toggle = requestQuery.replaceAll(GROUP_RELIABILITY + "=" + groupRel, "") + "&" + GROUP_RELIABILITY + "=" + !groupRel;
-                getRequest().setAttribute(TOGGLE_GROUP_RELIABILITY, toggle);
-                
-                setNextPage(INTERNAL_PAYMENT_LIST_JSP);
-                setIsNextPageInContext(true);
+                if ("true".equals(getRequest().getParameter(CSV_FORMAT))) {
+                    produceCSV();
+                } else {                   
+                    String toggle = requestQuery.replaceAll(GROUP_RELIABILITY + "=" + groupRel, "") + "&" + GROUP_RELIABILITY + "=" + !groupRel;
+                    getRequest().setAttribute(TOGGLE_GROUP_RELIABILITY, toggle);
+
+                    String csv_link = requestQuery + "&" + CSV_FORMAT + "=true";
+                    getRequest().setAttribute(CSV_LINK, csv_link);
+
+                    setNextPage(INTERNAL_PAYMENT_LIST_JSP);
+                    setIsNextPageInContext(true);
+                }
             } else {
                 throw new TCWebException("You must specify a filter for the payment list");
             }
@@ -164,6 +177,68 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         } catch (Exception e) {
             throw new TCWebException(e);
         }
+    }
+
+    private void produceCSV() throws IOException {
+        getResponse().addHeader("content-disposition", "inline; filename=\"payment_list.csv\"");
+        getResponse().setContentType("application/csv");
+        PrintWriter writer = getResponse().getWriter();
+
+        writer.print("Payment ID,First,Last,User,Description,Gross,Tax,Net,Type,Status,Client,Project,Billing Acct,Reference ID,Invoice,Created,Modified");
+        writer.print("\n");
+        
+        List<PaymentHeader> payments = (List<PaymentHeader>) getRequest().getAttribute(PaymentList.PAYMENTS);
+        Map reliabilityMap = (Map) getRequest().getAttribute(PaymentList.RELIABILITY);
+        boolean groupReliability = (Boolean) getRequest().getAttribute(PaymentList.GROUP_RELIABILITY);
+
+        for (PaymentHeader payment : payments) {
+            String description = payment.getDescription();
+            if (reliabilityMap.containsKey(payment.getId())) {
+                description += " + Reliability";
+            }
+
+            String status = payment.getCurrentStatus().getDesc();
+            for (PaymentStatusReason reason : payment.getCurrentStatus().getReasons()) {
+                status += "\n- " + reason.getDesc();
+            }
+
+            String row = "";
+            row = addCSVValue(row, payment.getId());
+            row = addCSVValue(row, payment.getUser().getFirst());
+            row = addCSVValue(row, payment.getUser().getLast());
+            row = addCSVValue(row, payment.getUser().getHandle());
+            row = addCSVValue(row, description);
+            row = addCSVValue(row, payment.getRecentGrossAmount());
+            row = addCSVValue(row, payment.getRecentGrossAmount()-payment.getRecentNetAmount());
+            row = addCSVValue(row, payment.getRecentNetAmount());
+            row = addCSVValue(row, payment.getType());
+            row = addCSVValue(row, status);
+            row = addCSVValue(row, payment.getClient());
+            row = addCSVValue(row, payment.getCockpitProjectName());
+            row = addCSVValue(row, payment.getBillingAccountName());
+            row = addCSVValue(row, payment.getReferenceId());
+            row = addCSVValue(row, payment.getInvoiceNumber());
+            row = addCSVValue(row, payment.getCreateDate());
+            row = addCSVValue(row, payment.getModifyDate());
+
+            writer.print(row+"\n");
+        }
+
+        getResponse().setStatus(HttpServletResponse.SC_OK);
+        writer.flush();
+    }
+
+    String addCSVValue(String row, Object value) {
+      if (value != null) {
+          String item = value.toString();
+          if (item.contains(",") || item.contains("\n") || item.contains("\"")) {
+              row += "\"" + item.replaceAll("\"","\"\"") + "\"";
+          } else {
+              row += item;
+          }
+      }
+
+      return row+",";
     }
 
     private Map getQuery(TCRequest request) {
