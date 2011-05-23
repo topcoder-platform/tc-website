@@ -196,6 +196,10 @@ public class Secondary extends Base {
             if (fields.contains(Constants.MIDDLE_NAME)) {
                 u.setMiddleName((String) params.get(Constants.MIDDLE_NAME));
             }
+
+            if (fields.contains(Constants.NAME_IN_ANOTHER_LANGUAGE)) {
+                u.setNameInAnotherLanguage((String) params.get(Constants.NAME_IN_ANOTHER_LANGUAGE));
+            }
         }
 
         if (fields.contains(Constants.SECRET_QUESTION) || fields.contains(Constants.SECRET_QUESTION_RESPONSE)) {

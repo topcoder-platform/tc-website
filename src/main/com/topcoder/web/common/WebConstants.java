@@ -99,6 +99,7 @@ public interface WebConstants {
     public static final String TITLE = "ttl";
     public static final String GIVEN_NAME = "fn";
     public static final String MIDDLE_NAME = "mn";
+    public static final String NAME_IN_ANOTHER_LANGUAGE = "nial";
     public static final String SURNAME = "ln";
     public static final String ADDRESS1 = "a1";
     public static final String ADDRESS2 = "a2";
