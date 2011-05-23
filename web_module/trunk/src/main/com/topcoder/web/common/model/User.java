@@ -25,6 +25,7 @@ public class User extends Base {
     private String firstName;
     private String middleName;
     private String lastName;
+    private String nameInAnotherLanguage;
     private String handle;
     private Character status;
     private String activationCode;
@@ -113,6 +114,14 @@ public class User extends Base {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getNameInAnotherLanguage() {
+        return nameInAnotherLanguage;
+    }
+
+    public void setNameInAnotherLanguage(String nameInAnotherLanguage) {
+        this.nameInAnotherLanguage = nameInAnotherLanguage;
     }
 
     public String getHandle() {

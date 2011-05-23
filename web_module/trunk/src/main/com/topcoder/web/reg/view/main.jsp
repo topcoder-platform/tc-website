@@ -170,6 +170,26 @@
                         </li>
                         </c:if>
 
+                        <c:set value="<%=Constants.NAME_IN_ANOTHER_LANGUAGE%>" var="nameInAnotherLanguage"/>
+                        <c:if test="${cf:contains(fields, nameInAnotherLanguage)}">
+                        <li class="form-row" id="<%=Constants.NAME_IN_ANOTHER_LANGUAGE%>_row">
+
+                            <label for="<%=Constants.NAME_IN_ANOTHER_LANGUAGE%>">
+                            <c:if test="${cf:contains(reqFields, nameInAnotherLanguage)}"><span class="required">*</span></c:if>
+                            Non-English Name:
+                            </label>
+                            <tc-webtag:textInput name="<%=Constants.NAME_IN_ANOTHER_LANGUAGE%>" id="<%=Constants.NAME_IN_ANOTHER_LANGUAGE%>" size="40" maxlength="<%=Constants.MAX_NAME_IN_ANOTHER_LANGUAGE_LENGTH%>" editable="${isNewReg or isNameInAnotherLanguageEmpty}"/>
+
+                            <span style="visibility: hidden" id="<%=Constants.NAME_IN_ANOTHER_LANGUAGE%>_status">
+                            <tc-webtag:errorIterator id="err" name="<%=Constants.NAME_IN_ANOTHER_LANGUAGE%>"><%=err%></tc-webtag:errorIterator>
+                            </span>
+                            <tc-webtag:errorIterator id="err" name="<%=Constants.NAME_IN_ANOTHER_LANGUAGE%>"><script type="text/javascript">applyError('<%=Constants.NAME_IN_ANOTHER_LANGUAGE%>_row', '<%=Constants.NAME_IN_ANOTHER_LANGUAGE%>_status')</script></tc-webtag:errorIterator>
+                            <c:if test="${isNewReg or isNameInAnotherLanguageEmpty}">
+                            <p class="label-description">If applicable. Cannot be changed once saved.</p>
+                            </c:if>
+                        </li>
+                        </c:if>
+
                         <c:set value="<%=Constants.TITLE%>" var="title"/>
                         <c:if test="${cf:contains(fields, title)}">
                         <li class="form-row" id="<%=Constants.TITLE%>_row">

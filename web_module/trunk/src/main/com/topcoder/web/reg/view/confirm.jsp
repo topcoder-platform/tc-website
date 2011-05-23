@@ -80,6 +80,19 @@
     </tr>
 </c:if>
 
+
+<c:set value="<%=Constants.NAME_IN_ANOTHER_LANGUAGE%>" var="nameInAnotherLanguage"/>
+<c:if test="${cf:contains(fields, nameInAnotherLanguage)}">
+    <tr>
+        <td class="field-name">
+            Name in Another Language:
+        </td>
+        <td class="field-value">
+                ${regUser.nameInAnotherLanguage}
+        </td>
+    </tr>
+</c:if>
+
 <c:set value="<%=RegistrationType.COMPETITION_ID%>" var="competition"/>
 <c:set value="<%=Constants.REG_TYPES%>" var="regTypes"/>
 <c:if test="${!cf:contains(requestScope[regTypes], competition)}">

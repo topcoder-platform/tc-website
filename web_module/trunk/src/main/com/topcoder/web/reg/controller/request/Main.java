@@ -161,6 +161,7 @@ public class Main extends Base {
                 setMainDefaults(u);
 
                 getRequest().setAttribute("hasPayments", getFactory().getPaymentDAO().hasPayments(u.getId()));
+                getRequest().setAttribute("isNameInAnotherLanguageEmpty", u.getNameInAnotherLanguage() == null || u.getNameInAnotherLanguage().trim().length() == 0);
 
                 List nots = getFactory().getNotificationDAO().getNotifications(getRequestedTypes());
                 if (nots != null) {
