@@ -122,11 +122,11 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
 
     private String invoiceNumber = null;
 
-	/**
-	 * Indicate whether have the global AD.
-	 * @since 1.5
-	 */
-	private boolean hasGlobalAD;
+    /**
+    * Indicate whether have the global AD.
+    * @since 1.5
+    */
+    private boolean hasGlobalAD;
 
     /**
      * Create a base payment.
