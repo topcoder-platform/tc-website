@@ -14,6 +14,7 @@ import com.topcoder.shared.util.DBMS;
  */
 public abstract class StudioContestReferencePayment extends BasePayment {
     private long contestId;
+    private String jiraIssueName;
 
     /**
      * Create a new payment referencing a TC Studio Contest.
@@ -69,6 +70,7 @@ public abstract class StudioContestReferencePayment extends BasePayment {
     		long contestId, int placed) {
         super(paymentTypeId, coderId, client, grossAmount, placed);
         this.contestId = contestId;
+        this.jiraIssueName = null;
     }
 
     /**
@@ -90,6 +92,24 @@ public abstract class StudioContestReferencePayment extends BasePayment {
         this.contestId = contestId;
     }
 
+    /**
+     * Get the name of the associated JIRA issue.
+     *
+     * @return the name of the JIRA issue.
+     */
+    public String getJiraIssueName() {
+        return jiraIssueName;
+    }
+
+    /**
+     * Set the name of the associated JIRA issue.
+     *
+     * @param jiraIssueName the name of the JIRA issue.
+     */
+    public void setJiraIssueName(String jiraIssueName) {
+        fieldChanged(MODIFICATION_REFERENCE, jiraIssueName != this.jiraIssueName);
+        this.jiraIssueName = jiraIssueName;
+    }
 
     /**
      * Processor for payments that have a reference to studio contests.

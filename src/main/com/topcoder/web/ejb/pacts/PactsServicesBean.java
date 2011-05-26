@@ -3792,6 +3792,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
+    private void setNullableString(PreparedStatement ps, int n, String value) throws SQLException {
+        if (value != null) {
+            ps.setString(n, value);
+        } else {
+            ps.setNull(n, Types.VARCHAR);
+        }
+    }
+
     /**
      * Inserts a new row into payment_detail table.
      *
@@ -3811,8 +3819,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             insertPaymentDetail.append("  payment_desc, payment_type_id, payment_method_id, date_modified, date_due, client, ");
             insertPaymentDetail.append("  algorithm_round_id, component_project_id, algorithm_problem_id, studio_contest_id, ");
             insertPaymentDetail.append("  component_contest_id, digital_run_stage_id, digital_run_season_id, parent_payment_id, ");
-            insertPaymentDetail.append("  charity_ind, total_amount, installment_number, digital_run_track_id, invoice_number) ");
-            insertPaymentDetail.append(" VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            insertPaymentDetail.append("  charity_ind, total_amount, installment_number, digital_run_track_id, invoice_number, jira_issue_id ) ");
+            insertPaymentDetail.append(" VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
             ps = c.prepareStatement(insertPaymentDetail.toString());
             ps.setLong(1, paymentDetailId);
@@ -3837,18 +3845,21 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 ps.setNull(i, Types.DECIMAL);
             }
             ps.setNull(25, Types.DECIMAL);
+            ps.setNull(27, Types.VARCHAR);
             switch (BasePayment.getReferenceTypeId(p.getHeader().getTypeId())) {
                 case REFERENCE_ALGORITHM_ROUND_ID:
                     setNullableLong(ps, 14, p.getHeader().getAlgorithmRoundId());
                     break;
                 case REFERENCE_COMPONENT_PROJECT_ID:
                     setNullableLong(ps, 15, p.getHeader().getComponentProjectId());
+                    setNullableString(ps, 27, p.getHeader().getJiraIssueName());
                     break;
                 case REFERENCE_ALGORITHM_PROBLEM_ID:
                     setNullableLong(ps, 16, p.getHeader().getAlgorithmProblemId());
                     break;
                 case REFERENCE_STUDIO_CONTEST_ID:
                     setNullableLong(ps, 17, p.getHeader().getStudioContestId());
+                    setNullableString(ps, 27, p.getHeader().getJiraIssueName());
                     break;
                 case REFERENCE_COMPONENT_CONTEST_ID:
                     setNullableLong(ps, 18, p.getHeader().getComponentContestId());
@@ -6267,12 +6278,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 break;
             case REFERENCE_COMPONENT_PROJECT_ID:
                 p.getHeader().setComponentProjectId(((ComponentProjectReferencePayment) payment).getProjectId());
+                p.getHeader().setJiraIssueName(((ComponentProjectReferencePayment) payment).getJiraIssueName());
                 break;
             case REFERENCE_ALGORITHM_PROBLEM_ID:
                 p.getHeader().setAlgorithmProblemId(((AlgorithmProblemReferencePayment) payment).getProblemId());
                 break;
             case REFERENCE_STUDIO_CONTEST_ID:
                 p.getHeader().setStudioContestId(((StudioContestReferencePayment) payment).getContestId());
+                p.getHeader().setJiraIssueName(((StudioContestReferencePayment) payment).getJiraIssueName());
                 break;
             case REFERENCE_COMPONENT_CONTEST_ID:
                 p.getHeader().setComponentContestId(((ComponentContestReferencePayment) payment).getContestId());
