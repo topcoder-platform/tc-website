@@ -35,7 +35,7 @@
 
                       <h4 class="floated">Is this information correct?</h4>
                       <p class="bigRed">
-                          NOTE: You have not updated your information yet. You MUST click CONFIRM at the bottom of this page to complete registration.   
+                          NOTE: You have not updated your information yet. You MUST click SUBMIT at the bottom of this page to complete registration.   
                       </p>
 
                     </div>
