@@ -6,7 +6,15 @@ package com.topcoder.web.common.model;
 /**
  * Provides a common interface for the reviewer payment calculators.
  * 
- * @author ivern
+ * <p>
+ * Version 1.0.1 (Online Review Replatforming Release 2) Change notes:
+ *   <ol>
+ *     <li>Added {@link #getMilestoneScreeningCost()} to calculate payment for the milestone screener.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author ivern, flexme
+ * @version 1.0.1
  */
 public interface ReviewerPaymentCalculator {
 	/**
@@ -15,6 +23,14 @@ public interface ReviewerPaymentCalculator {
 	 */
     public float getScreeningCost();
     
+    /**
+     * Returns the payment for the Milestone Screener.
+     * 
+     * @return the payment for the Milestone Screener.
+     * @since 1.0.1
+     */
+    public float getMilestoneScreeningCost();
+
     /**
      * Returns the payment for each Reviewer. 
      * @return

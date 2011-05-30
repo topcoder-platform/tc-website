@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common.model;
 
@@ -49,9 +49,16 @@ import com.topcoder.web.common.WebConstants;
  *     Content Creation projects.</li>
  *   </ol>
  * </p>
+ * 
+ * <p>
+ *   Version 1.6 (Online Review Replatforming Release 2) Change noets:
+ *   <ol>
+ *     <li>Added constants for the the phases of Studio Contests.</li>
+ *   </ol>
+ * </p>
  *
- * @author dok, pulky, snow01, VolodymyrK, FireIce
- * @version 1.5
+ * @author dok, pulky, snow01, VolodymyrK, FireIce, flexme
+ * @version 1.6
  */
 public interface SoftwareComponent extends Cloneable, Serializable {
 
@@ -62,6 +69,66 @@ public interface SoftwareComponent extends Cloneable, Serializable {
     public final static int ARCHITECTURE_PHASE = (int) WebConstants.PHASE_ARCHITECTURE;
     public final static int ASSEMBLY_PHASE = (int) WebConstants.PHASE_ASSEMBLY;
 
+    /**
+     * The phase id of studio icon set track.
+     * @since 1.6
+     */
+    public final static int ICONSETS_PHASE = (int) WebConstants.PHASE_ICONSETS;
+    
+    /**
+     * The phase id of studio storyboards track.
+     * @since 1.6
+     */
+    public final static int STORYBOARDS_PHASE = (int) WebConstants.PHASE_STORYBOARDS;
+    
+    /**
+     * The phase id of studio wireframes track.
+     * @since 1.6
+     */
+    public final static int WIREFRAMES_PHASE = (int) WebConstants.PHASE_WIREFRAMES;
+    
+    /**
+     * The phase id of studio logos track.
+     * @since 1.6
+     */
+    public final static int LOGOS_PHASE = (int) WebConstants.PHASE_LOGOS;
+    
+    /**
+     * The phase id of studio print track.
+     * @since 1.6
+     */
+    public final static int PRINT_PHASE = (int) WebConstants.PHASE_PRINT;
+    
+    /**
+     * The phase id of studio specification track.
+     * @since 1.6
+     */
+    public final static int STUDIO_SPECIFICATION_PHASE = (int) WebConstants.PHASE_STUDIO_SPECIFICATION;
+    
+    /**
+     * The phase id of studio widget track.
+     * @since 1.6
+     */
+    public final static int WIDGET_PHASE = (int) WebConstants.PHASE_WIDGET;
+    
+    /**
+     * The phase id of studio front end flash track.
+     * @since 1.6
+     */
+    public final static int FRONTENDFLASH_PHASE = (int) WebConstants.PHASE_FRONTENDFLASH;
+    
+    /**
+     * The phase id of studio application front end track.
+     * @since 1.6
+     */
+    public final static int APPLICATIONFRONTEND_PHASE = (int) WebConstants.PHASE_APPLICATIONFRONTEND;
+    
+    /**
+     * The phase id of studio other track.
+     * @since 1.6
+     */
+    public final static int OTHER_PHASE = (int) WebConstants.PHASE_OTHER;
+    
     /**
      * <p>An <code>int</code> representing test suites phase id.</p>
      *
