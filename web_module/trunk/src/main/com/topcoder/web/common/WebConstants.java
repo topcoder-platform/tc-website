@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001 - 2010 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common;
 
@@ -62,10 +62,16 @@ package com.topcoder.web.common;
  *     Creation.</li>
  *   </ol>
  * </p>
+ *
+ * <p>
+ *   Version 1.6.3 (Online Review Replatforming Release 2) Change notes:
+ *   <ol>
+ *     <li>Added constants for the the phases of Studio Contests.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, pulky, snow01, FireIce
- * @version 1.6.2
+ * @author dok, pulky, snow01, FireIce, flexme
+ * @version 1.6.3
  */
 public interface WebConstants {
     public static final String HANDLE = "ha";
@@ -221,6 +227,56 @@ public interface WebConstants {
     public static final long PHASE_SPECIFICATION = 117;
     public static final long PHASE_ARCHITECTURE = 118;
     public static final long PHASE_ASSEMBLY = 125;
+
+    /**
+     * The phase id of studio icon set track.
+     */
+    public static final long PHASE_ICONSETS = 127;
+    
+    /**
+     * The phase id of studio storyboards track.
+     */
+    public static final long PHASE_STORYBOARDS = 128;
+    
+    /**
+     * The phase id of studio wireframes track.
+     */
+    public static final long PHASE_WIREFRAMES = 129;
+    
+    /**
+     * The phase id of studio logos track.
+     */
+    public static final long PHASE_LOGOS = 131;
+    
+    /**
+     * The phase id of studio print track.
+     */
+    public static final long PHASE_PRINT = 132;
+    
+    /**
+     * The phase id of studio specification track.
+     */
+    public static final long PHASE_STUDIO_SPECIFICATION = 133;
+    
+    /**
+     * The phase id of studio widget track.
+     */
+    public static final long PHASE_WIDGET = 141;
+    
+    /**
+     * The phase id of studio front end flash track.
+     */
+    public static final long PHASE_FRONTENDFLASH = 142;
+    
+    /**
+     * The phase id of studio application front end track.
+     */
+    public static final long PHASE_APPLICATIONFRONTEND = 143;
+    
+    /**
+     * The phase id of studio other track.
+     */
+    public static final long PHASE_OTHER = 144;
 
     /**
      * <p>A <code>long</code> representing phase offeset according to project id.</p>

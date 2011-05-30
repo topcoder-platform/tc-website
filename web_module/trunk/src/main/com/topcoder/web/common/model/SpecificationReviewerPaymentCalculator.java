@@ -1,13 +1,20 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common.model;
 
 /**
  * <p><strong>Purpose</strong>: This class is used to calculate review costs for specification review projects.</p>
  *
- * @author snow01
- * @version 1.0 (Specification Review Integration 1.0)
+ * <p>
+ *   Version 1.0.1 (Online Review Replatforming Release 2) Change notes:
+ *   <ol>
+ *     <li>Added {@link #getMilestoneScreeningCost()} to calculate payment for the milestone screener.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author snow01, flexme
+ * @version 1.0.1 (Specification Review Integration 1.0)
  */
 public class SpecificationReviewerPaymentCalculator implements ReviewerPaymentCalculator {
 
@@ -166,6 +173,18 @@ public class SpecificationReviewerPaymentCalculator implements ReviewerPaymentCa
      * @return the screening cost
      */
     public float getScreeningCost() {
+        return 0;
+    }
+
+    /**
+     * Gets the milestone screening cost
+     *
+     * Note: there is no milestone screening cost for specification review projects.
+     *
+     * @return the screening cost
+     * @since 1.0.1
+     */
+    public float getMilestoneScreeningCost() {
         return 0;
     }
 

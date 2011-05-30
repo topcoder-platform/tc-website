@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
+ * Copyright (c) 2006 - 2011 TopCoder, Inc. All rights reserved.
  */
 package com.topcoder.web.common.model;
 
@@ -10,8 +10,15 @@ import com.topcoder.shared.util.logging.Logger;
  * Calculates and resizes Reviewers tasks costs based on default values
  * adjusted with fixed values.
  *
- * @author pulky
- * @version 1.0.0
+ * <p>
+ * Version 1.0.1 (Online Review Replatforming Release 2) Change notes:
+ *   <ol>
+ *     <li>Added {@link #getMilestoneScreeningCost()} to calculate payment for the milestone screener.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author pulky, flexme
+ * @version 1.0.1
  */
 public class FixedPriceComponent extends DefaultPriceComponent {
     /**
@@ -115,6 +122,16 @@ public class FixedPriceComponent extends DefaultPriceComponent {
      */
     public float getScreeningCost() {
         return Math.round(super.getScreeningCost() * primaryAdjustmentFactor);
+    }
+
+    /**
+     * Calculate the payment cost for milestone screener.
+     * 
+     * @return the payment cost for milestone screener.
+     * @since 1.0.1
+     */
+    public float getMilestoneScreeningCost() {
+        return Math.round(super.getMilestoneScreeningCost() * primaryAdjustmentFactor);
     }
 
     /**

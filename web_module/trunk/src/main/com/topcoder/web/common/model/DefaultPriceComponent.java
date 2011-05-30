@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common.model;
 
@@ -90,10 +90,17 @@ import com.topcoder.shared.util.logging.Logger;
  *     </li>
  *     <li>Updated {@link #main(String[])} method for printing help message for content creation contests.</li>
  *   </ol>
+ *   
+ *   Version 1.1.8 (Online Review Replatforming Release 2) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #getReviewerPaymentCalculator(float, int, int)} method for supporting the studio contests.</li>
+ *     <li>Added {@link #getMilestoneScreeningCost()} to calculate payment for the milestone screener.</li>
+ *     <li>Updated {@link #getSpecReviewCost()} method for setting spec review payment for studio contests.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, ivern, isv, pulky, snow01, VolodymyrK, FireIce
- * @version 1.1.7
+ * @author dok, ivern, isv, pulky, snow01, VolodymyrK, FireIce, flexme
+ * @version 1.1.8
  */
 
 public class DefaultPriceComponent implements SoftwareComponent {
@@ -233,6 +240,11 @@ public class DefaultPriceComponent implements SoftwareComponent {
                 phaseId == RIA_COMPONENT_SPECIFICATION_PHASE || phaseId == COPILOT_POSTING_SPECIFICATION_PHASE ||
                 phaseId == CONTENT_CREATION_SPECIFICATION_PHASE) {
             return new SpecificationReviewerPaymentCalculator(phaseId);
+        } else if (phaseId == ICONSETS_PHASE || phaseId == STORYBOARDS_PHASE || phaseId == WIREFRAMES_PHASE ||
+                phaseId == LOGOS_PHASE || phaseId == PRINT_PHASE || phaseId == STUDIO_SPECIFICATION_PHASE ||
+                phaseId == WIDGET_PHASE || phaseId == FRONTENDFLASH_PHASE || phaseId == APPLICATIONFRONTEND_PHASE ||
+                phaseId == OTHER_PHASE){
+            return new StudioConstantReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
         } else {
             throw new IllegalArgumentException("Invalid phaseId (" + phaseId + ")");
         }
@@ -299,6 +311,16 @@ public class DefaultPriceComponent implements SoftwareComponent {
     }
 
     /**
+     * Calculate the payment cost for milestone screener.
+     * 
+     * @return the payment cost for milestone screener.
+     * @since 1.1.8
+     */
+    public float getMilestoneScreeningCost() {
+        return Math.round(this.calculator.getMilestoneScreeningCost());
+    }
+
+    /**
      * <p>Gets the cost for core review.  This is the review without a "ramp-up" cost, and used to represent
      * the payment the primary reviewer got for the Review phase.  Currently, this is unused.</p>
      *
@@ -341,6 +363,16 @@ public class DefaultPriceComponent implements SoftwareComponent {
             case RIA_COMPONENT_PHASE: return 50;
             case COPILOT_POSTING_PHASE: return 50;
             case CONTENT_CREATION_PHASE: return 50;
+            case ICONSETS_PHASE : return 50;
+            case STORYBOARDS_PHASE : return 50;
+            case WIREFRAMES_PHASE : return 50;
+            case LOGOS_PHASE : return 50;
+            case PRINT_PHASE : return 50;
+            case STUDIO_SPECIFICATION_PHASE : return 50;
+            case WIDGET_PHASE : return 50;
+            case FRONTENDFLASH_PHASE : return 50;
+            case APPLICATIONFRONTEND_PHASE : return 50;
+            case OTHER_PHASE : return 50;
             default: return 50;
         }
     }
