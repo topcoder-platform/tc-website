@@ -287,6 +287,9 @@
                 <div class="alert">
                     Browse Photo should be in *.JPG format file which is the width is 115 pixel and the height is 138 pixel.
                 </div>
+				<div>
+                    <a class="link" href="http://topcoder.com/home/help/?p=866">Photo Policy</a>
+                </div>
                 <a href="javascript:;" class="btn1 btnCancel">
                     <span class="rightSide">
                         <span class="inner">
