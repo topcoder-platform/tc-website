@@ -50,7 +50,7 @@ $(document).ready(function(){
 		if ($('#modalTermsConditions').length > 0) {
 			$('#modalTermsConditions .modalContainer').jscroll({
 				W: '19px',
-				BgUrl: 'url(./i/scroll.png)',
+				BgUrl: 'url(./i/reg/scroll.png)',
 				Bg: '-38px 0 repeat-y',
 				Bar:{
 					Pos: 'bottom',
