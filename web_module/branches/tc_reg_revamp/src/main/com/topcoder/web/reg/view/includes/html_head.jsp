@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/css/reg/jqtransform.css" media="all" type="text/css" />
 	
     <!-- external javascript -->
-    <script type="text/javascript" src="/js/reg/jquery-1.5.2.min.js'/>"></script>
+    <script type="text/javascript" src="/js/reg/jquery-1.5.2.min.js"></script>
 	
     <!-- modified form elements  -->
     <script type="text/javascript" src="/js/reg/jquery.jqtransform.js"></script>

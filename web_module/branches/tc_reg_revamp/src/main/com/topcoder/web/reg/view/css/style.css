@@ -110,7 +110,7 @@ select.selectShorter{
 	height:26px;
 	display:inline;
 	padding-left:5px;
-	background:url(../i/reg/button-gray.gif) left top no-repeat;
+	background:url(../../i/reg/button-gray.gif) left top no-repeat;
 	color:#333;
 	line-height:26px;
 	font-weight:bold;
@@ -123,7 +123,7 @@ select.selectShorter{
 		display:inline;
 		padding-right:5px;
 		cursor:pointer;
-		background:url(../i/reg/button-gray.gif) right -52px no-repeat;
+		background:url(../../i/reg/button-gray.gif) right -52px no-repeat;
 	}
 		.button span span{
 			float:left;
@@ -133,7 +133,7 @@ select.selectShorter{
 			padding:0 5px;
 			cursor:pointer;
 			text-align:center;
-			background:url(../i/reg/button-gray.gif) left -26px repeat-x;
+			background:url(../../i/reg/button-gray.gif) left -26px repeat-x;
 		}
 .button:hover{
 	color:#333;
@@ -148,13 +148,13 @@ select.selectShorter{
 		}
 .redBtn{
 	color:#fffffe;
-	background:url(../i/reg/button-red.gif) left top no-repeat;
+	background:url(../../i/reg/button-red.gif) left top no-repeat;
 }
 	.redBtn span{
-		background:url(../i/reg/button-red.gif) right -52px no-repeat;
+		background:url(../../i/reg/button-red.gif) right -52px no-repeat;
 	}
 		.redBtn span span{
-			background:url(../i/reg/button-red.gif) left -26px repeat-x;
+			background:url(../../i/reg/button-red.gif) left -26px repeat-x;
 		}
 .redBtn:hover{
 	color:#fffffe;
@@ -171,7 +171,7 @@ select.selectShorter{
 	height:50px;
 	display:inline;
 	padding-left:20px;
-	background:url(../i/reg/button-direct.gif) left  -300px no-repeat;
+	background:url(../../i/reg/button-direct.gif) left  -300px no-repeat;
 	font-size:11px;
 	color:#000001;
 }
@@ -181,7 +181,7 @@ select.selectShorter{
 		height:50px;
 		display:inline;
 		padding-right:20px;
-		background:url(../i/reg/button-direct.gif) right -250px no-repeat;
+		background:url(../../i/reg/button-direct.gif) right -250px no-repeat;
 	}
 		.btnDirect .btnRight .btnCenter{
 			float:left;
@@ -190,7 +190,7 @@ select.selectShorter{
 			padding-top:12px;
 			padding-left:8px;
 			display:inline;
-			background:url(../i/reg/button-direct.gif) left -350px repeat-x;
+			background:url(../../i/reg/button-direct.gif) left -350px repeat-x;
 		}
 .redDirect{
 	background-position:left -50px;
@@ -228,7 +228,7 @@ select.selectShorter{
  * .wrapper
  **/
 .wrapper {
-	background:#ccc url(../i/reg/bg-wrapper.png) left top repeat-x;
+	background:#ccc url(../../i/reg/bg-wrapper.png) left top repeat-x;
 }
 
 /**
@@ -236,7 +236,7 @@ select.selectShorter{
  **/
 #header {
 	height:99px;
-	background:url(../i/reg/bg-header.png) left top repeat-x;
+	background:url(../../i/reg/bg-header.png) left top repeat-x;
 	border-bottom:1px solid #cccccc;
 }
 	#header .inner{
@@ -253,7 +253,7 @@ select.selectShorter{
 				height:36px;
 				text-indent:-9999px;
 				overflow:hidden;
-				background:url(../i/reg/logo-topcoder.png) left top no-repeat;
+				background:url(../../i/reg/logo-topcoder.png) left top no-repeat;
 			}
 
 /**
@@ -274,18 +274,18 @@ select.selectShorter{
 #mainTitle{
 	height:45px;
 	padding-left:8px;
-	background:url(../i/reg/bg-title.gif) left top no-repeat;
+	background:url(../../i/reg/bg-title.gif) left top no-repeat;
 	overflow:hidden;
 }
 	#mainTitle .mainTitleRight{
 		height:45px;
 		padding-right:8px;
-		background:url(../i/reg/bg-title.gif) right -92px no-repeat;
+		background:url(../../i/reg/bg-title.gif) right -92px no-repeat;
 	}
 		#mainTitle .mainTitleRight .mainTitleCenter{
 			height:45px;
 			padding-left:4px;
-			background:url(../i/reg/bg-title.gif) left -46px repeat-x;
+			background:url(../../i/reg/bg-title.gif) left -46px repeat-x;
 		}
 			#mainTitle h2{
 				height:45px;
@@ -318,18 +318,18 @@ select.selectShorter{
 #mainFooter{
 	height:6px;
 	padding-left:6px;
-	background:url(../i/reg/bg-mainfooter.gif) left top no-repeat;
+	background:url(../../i/reg/bg-mainfooter.gif) left top no-repeat;
 	overflow:hidden;
 }
 	#mainFooter .mainFooterRight{
 		height:6px;
 		padding-right:6px;
-		background:url(../i/reg/bg-mainfooter.gif) right -12px no-repeat;
+		background:url(../../i/reg/bg-mainfooter.gif) right -12px no-repeat;
 		overflow:hidden;
 	}
 		#mainFooter .mainFooterRight .mainFooterCenter{
 			height:6px;
-			background:url(../i/reg/bg-mainfooter.gif) left -6px repeat-x;
+			background:url(../../i/reg/bg-mainfooter.gif) left -6px repeat-x;
 			overflow:hidden;
 		}
 
@@ -432,7 +432,7 @@ select.selectShorter{
 			width:72px;
 			height:7px;
 			overflow:hidden;
-			background:url(../i/reg/bg-bar-progress.gif) left -7px repeat-x;
+			background:url(../../i/reg/bg-bar-progress.gif) left -7px repeat-x;
 			position:relative;
 		}
 		.barBox .barProgress .barInner .barContainer{
@@ -441,14 +441,14 @@ select.selectShorter{
 			position:absolute;
 			left:0;
 			top:0;
-			background:url(../i/reg/bg-bar.gif) left top repeat-x;
+			background:url(../../i/reg/bg-bar.gif) left top repeat-x;
 			z-index:10;
 		}
 		.barBox .barProgress .barInner .barControl{
 			width:0%;
 			height:7px;
 			overflow:hidden;
-			background:url(../i/reg/bg-bar-progress.gif) left top repeat-x;
+			background:url(../../i/reg/bg-bar-progress.gif) left top repeat-x;
 		}
 
 .accoutSummery{
@@ -508,7 +508,7 @@ select.selectShorter{
 				margin-left:4px;
 				display:inline;
 				text-indent:-9999px;
-				background:url(../i/reg/icon-help.gif) left top no-repeat;
+				background:url(../../i/reg/icon-help.gif) left top no-repeat;
 			}
 
 	.userPreference .preferenceInformation{
@@ -563,7 +563,7 @@ select.selectShorter{
 				.profileBox .profileBoxInner .profileCompleteness .profileCompletenessBar{
 					height:17px;
 					width:50%;
-					background:#41b621 url(../i/reg/bg-completeness.gif) left top repeat-y;
+					background:#41b621 url(../../i/reg/bg-completeness.gif) left top repeat-y;
 				}
 				
 			.profileBox .profileBoxInner .completenessPercent{
@@ -689,7 +689,7 @@ select.selectShorter{
 				width:156px;
 				height:170px;
 				padding:10px 21px 0 23px;
-				background:url(../i/reg/bg-user-photo.png) left top no-repeat;
+				background:url(../../i/reg/bg-user-photo.png) left top no-repeat;
 				text-align:center;
 			}
 			#sideBar .userCommandBox{
@@ -722,10 +722,10 @@ select.selectShorter{
 						text-decoration:none;
 					}
 				#sideBar .userOperation ul li .topMenu{
-					background:#eeeeee url(../i/reg/arrow-right.gif) 95% 9px no-repeat;
+					background:#eeeeee url(../../i/reg/arrow-right.gif) 95% 9px no-repeat;
 				}
 				#sideBar .userOperation ul li.expand .topMenu{
-					background:#eeeeee url(../i/reg/arrow-down.gif) 95% 9px no-repeat;
+					background:#eeeeee url(../../i/reg/arrow-down.gif) 95% 9px no-repeat;
 				}
 					#sideBar .userOperation ul li ul{
 						display:none;
@@ -759,7 +759,7 @@ select.selectShorter{
 			.profileMainContent .profileContentTitle{
 				height:36px;
 				line-height:36px;
-				background:url(../i/reg/bg-title-user.png) left top repeat-x;
+				background:url(../../i/reg/bg-title-user.png) left top repeat-x;
 				font-family:"Myriad Pro", Arial, Helvetica, sans-serif;
 				font-size:14px;
 				font-weight:bold;
@@ -843,7 +843,7 @@ select.selectShorter{
 						padding:4px 0px 4px 11px;
 						border:1px solid #ff0000;
 						color:#cc0000;
-						background:#fffbd9 url(../i/reg/bg-edit-errorgif.gif) left top repeat-x;
+						background:#fffbd9 url(../../i/reg/bg-edit-errorgif.gif) left top repeat-x;
 						display:none;
 					}
 					.profileMainContent .userEditList .elemLine .userLabelDisable{
@@ -956,7 +956,7 @@ select.selectShorter{
 						padding-left:25px;
 						height:34px;
 						line-height:34px;
-						background:url(../i/reg/icon-list-style-big.gif) left center no-repeat;
+						background:url(../../i/reg/icon-list-style-big.gif) left center no-repeat;
 					}
 						.profileMainContent .privacyList .elemLine .addedMemberList ul li span{
 							float:left;
@@ -1074,7 +1074,7 @@ select.selectShorter{
 	display:none;
 	width:478px;
 	border:1px solid #cccccc;
-	background:#fff url(../i/reg/bg-modal-header.png) left top no-repeat;
+	background:#fff url(../../i/reg/bg-modal-header.png) left top no-repeat;
 	padding:4px 7px 4px 6px;
 	min-height:12px;
 	height:auto !important;
@@ -1229,7 +1229,7 @@ select.selectShorter{
 	.popUp .popUpInner .arrow{
 		width:21px;
 		height:11px;
-		background:url(../i/reg/arrow.gif) left top no-repeat;
+		background:url(../../i/reg/arrow.gif) left top no-repeat;
 		position:absolute;
 		left:0px;
 		top:-11px;
@@ -1244,7 +1244,7 @@ select.selectShorter{
 		height:auto !important;
 		height:12px;
 		overflow:visible;
-		background:url(../i/reg/icon-list-style.gif) left 4px no-repeat;
+		background:url(../../i/reg/icon-list-style.gif) left 4px no-repeat;
 	}
 
 
@@ -1285,16 +1285,16 @@ select.selectShorter{
 	}
 
 .registerPage #mainTitle h2{
-	background:url(../i/reg/icon-mainTitle-register.png) left 2px no-repeat;
+	background:url(../../i/reg/icon-mainTitle-register.png) left 2px no-repeat;
 }
 .activeAccountPage #mainTitle h2{
-	background:url(../i/reg/icon-mainTitle-active.png) left 2px no-repeat;
+	background:url(../../i/reg/icon-mainTitle-active.png) left 2px no-repeat;
 }
 .confirmAccountPage #mainTitle h2{
-	background:url(../i/reg/icon-mainTitle-confirm.png) left 2px no-repeat;
+	background:url(../../i/reg/icon-mainTitle-confirm.png) left 2px no-repeat;
 }
 .preferencePage #mainTitle h2{
-	background:url(../i/reg/icon-mainTitle-preference.png) left 2px no-repeat;
+	background:url(../../i/reg/icon-mainTitle-preference.png) left 2px no-repeat;
 }
 .uploadDocumentPage #mainTitle h2{
 	padding-left:6px;
@@ -1309,7 +1309,7 @@ select.selectShorter{
 	line-height:36px;
 	height:35px;
 	font-size:14px;
-	background:url(../i/reg/icon-mainTitle-myprofile.png) left 2px no-repeat;
+	background:url(../../i/reg/icon-mainTitle-myprofile.png) left 2px no-repeat;
 }
 .myProfilePage #mainTitle h2 .titleWrapper{
 	padding-top:4px;
@@ -1341,7 +1341,7 @@ select.selectShorter{
 }
 .myProfilePage .popUp .popUpInner dd.finish{
 	font-weight:normal;
-	background:url(../i/reg/icon-finish.gif) 18px 3px no-repeat;
+	background:url(../../i/reg/icon-finish.gif) 18px 3px no-repeat;
 }
 
 .invisible {
@@ -1349,7 +1349,7 @@ select.selectShorter{
 }
 
 /* page login.html, recoverPassword.html, confirimPassword.html */
-html,body { font-family:Arial, Helvetica, sans-serif; background:#cccccc url(../i/reg/background.png) repeat-x top left; }
+html,body { font-family:Arial, Helvetica, sans-serif; background:#cccccc url(../../i/reg/background.png) repeat-x top left; }
 
 /* header wrapper */
 #headerWrapper {
@@ -1383,16 +1383,16 @@ html,body { font-family:Arial, Helvetica, sans-serif; background:#cccccc url(../
 }
 .redRoundedBox .top {
 	height:44px;
-	background:url(../i/reg/redbox-top-side.png) no-repeat top left; 
+	background:url(../../i/reg/redbox-top-side.png) no-repeat top left; 
 }
 .redRoundedBox .leftTop {
 	height:44px;
-	background:url(../i/reg/redbox-top-side.png) no-repeat top right; 
+	background:url(../../i/reg/redbox-top-side.png) no-repeat top right; 
 	padding:0px 8px;
 }
 .redRoundedBox .topContent {
 	height:44px;
-	background:url(../i/reg/redbox-top-bg.png) repeat-x top left;
+	background:url(../../i/reg/redbox-top-bg.png) repeat-x top left;
 }
 .redRoundedBox .titleLogo {
 	float:left;	
@@ -1410,11 +1410,11 @@ html,body { font-family:Arial, Helvetica, sans-serif; background:#cccccc url(../
 }
 
 .redRoundedBox .contentLeft {
-	background:white url(../i/reg/redbox-content-bg-side.png) repeat-y top left;
+	background:white url(../../i/reg/redbox-content-bg-side.png) repeat-y top left;
 	float:left;
 }
 .redRoundedBox .contentRight {
-	background:url(../i/reg/redbox-content-bg-side.png) repeat-y top right;
+	background:url(../../i/reg/redbox-content-bg-side.png) repeat-y top right;
 	padding:0px 2px;
 	float:left;
 	width:100%;
@@ -1427,27 +1427,27 @@ html,body { font-family:Arial, Helvetica, sans-serif; background:#cccccc url(../
 .redRoundedBox .bottom {
 	float:left;
 	height:6px;
-	background:url(../i/reg/redbox-bottom-bg-side.png) no-repeat top left; 
+	background:url(../../i/reg/redbox-bottom-bg-side.png) no-repeat top left; 
 }
 .redRoundedBox .leftBottom {
 	float:left;
 	height:6px;
 	width:100%;
-	background:url(../i/reg/redbox-bottom-bg-side.png) no-repeat top right; 
+	background:url(../../i/reg/redbox-bottom-bg-side.png) no-repeat top right; 
 	padding:0px 8px;
 }	
 .redRoundedBox .bottomContent {
 	float:left;
 	width:100%;
-	background:url(../i/reg/redbox-bottom-bg.png) repeat-x top left; 
+	background:url(../../i/reg/redbox-bottom-bg.png) repeat-x top left; 
 	height:6px;
 }
 /* register box */
 #registerBox .contentLeft{ width:620px;}
 #registerBox .bottom { width:608px; }
 #recoverSuccessContentLeftBox { height:180px; }
-#registerLogo { background:url(../i/reg/register-logo.png) no-repeat 0px 7px; }
-#keyLogo { background:url(../i/reg/key-logo.png) no-repeat 0px 7px; }
+#registerLogo { background:url(../../i/reg/register-logo.png) no-repeat 0px 7px; }
+#keyLogo { background:url(../../i/reg/key-logo.png) no-repeat 0px 7px; }
 
 	/* two column form */
 	.twoColumnForm {
@@ -1522,7 +1522,7 @@ html,body { font-family:Arial, Helvetica, sans-serif; background:#cccccc url(../
 	position:relative;
 	display:inline-block;
 	height:26px;
-	background:url(../i/reg/gray-button.png) no-repeat top left; 
+	background:url(../../i/reg/gray-button.png) no-repeat top left; 
 	text-align:center;
 	line-height:26px;
 	font-size:12px;
@@ -1533,20 +1533,20 @@ html,body { font-family:Arial, Helvetica, sans-serif; background:#cccccc url(../
 	position:absolute;
 	width:6px;
 	height:26px;
-	background:url(../i/reg/gray-button-left.png) no-repeat top left;
+	background:url(../../i/reg/gray-button-left.png) no-repeat top left;
 	right:-1px;
 	top:0px;
 	cursor:pointer;
 }	
 /* gray button */
-.grayButton { background:url(../i/reg/gray-button.png) no-repeat top left;  cursor:pointer;}
-.grayButton:hover { background:url(../i/reg/gray-button.png) no-repeat bottom left; text-decoration:none;}
-.grayButton span{ background:url(../i/reg/gray-button-right.png) no-repeat top left; }
-.grayButton:hover span { background:url(../i/reg/gray-button-right.png) no-repeat bottom left; }
-.redButton { background:url(../i/reg/red-button.png) no-repeat top left; color:white; cursor:pointer;}
-.redButton span { background:url(../i/reg/red-button-right.png) no-repeat top left; }
-.redButton:hover { background:url(../i/reg/red-button.png) no-repeat bottom left; text-decoration:none;}
-.redButton:hover span{ background:url(../i/reg/red-button-right.png) no-repeat bottom left; }
+.grayButton { background:url(../../i/reg/gray-button.png) no-repeat top left;  cursor:pointer;}
+.grayButton:hover { background:url(../../i/reg/gray-button.png) no-repeat bottom left; text-decoration:none;}
+.grayButton span{ background:url(../../i/reg/gray-button-right.png) no-repeat top left; }
+.grayButton:hover span { background:url(../../i/reg/gray-button-right.png) no-repeat bottom left; }
+.redButton { background:url(../../i/reg/red-button.png) no-repeat top left; color:white; cursor:pointer;}
+.redButton span { background:url(../../i/reg/red-button-right.png) no-repeat top left; }
+.redButton:hover { background:url(../../i/reg/red-button.png) no-repeat bottom left; text-decoration:none;}
+.redButton:hover span{ background:url(../../i/reg/red-button-right.png) no-repeat bottom left; }
 .loginLabelColumn #login {  width:83px; margin-left:130px; }
 #registerSpacer { float:left; width:500px; height:25px;}
 #submitRecover { float:right; width:83px; text-decoration:none; }
