@@ -122,6 +122,7 @@ public final class RegHelper {
         String activationEmailBodyTemplateFile, String toAddress, String fromAddress) throws Exception {
         TCSEmailMessage mail = new TCSEmailMessage();
         mail.setSubject(subject);
+        //TODO: change back to /reg
         String url =
             ApplicationServer.SERVER_NAME + "/reg2/activate.action?" + WebConstants.ACTIVATION_CODE + "="
                 + activationCode;
