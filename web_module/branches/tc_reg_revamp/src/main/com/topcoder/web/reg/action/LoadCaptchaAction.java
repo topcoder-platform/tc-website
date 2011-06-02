@@ -46,7 +46,7 @@ public class LoadCaptchaAction extends BaseAction {
             captchaFile = "REG_" + System.currentTimeMillis() + ".png";
             String appRoot = ServletActionContext.getRequest().getSession().getServletContext().getRealPath("/");
             RandomStringImage rsi = new RandomStringImage(randomStringImageConfigFile);
-            FileOutputStream fos = new FileOutputStream(appRoot + "i/reg/captcha/" + captchaFile);
+            FileOutputStream fos = new FileOutputStream(appRoot + "i/captcha/" + captchaFile);
 
             try {
                 String word = rsi.generateRandomFromDictionaries(fos);
