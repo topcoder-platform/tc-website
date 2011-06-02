@@ -1,3 +1,2 @@
 <%@taglib prefix="s" uri="/struts-tags"%>
-<img src="/i/captcha/${captchaFile}" />
-
+<img src="<s:url value='/i/captcha/%{captchaFile}'/>" />
