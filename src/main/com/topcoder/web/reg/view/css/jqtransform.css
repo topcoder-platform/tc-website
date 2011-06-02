@@ -15,7 +15,7 @@
 	display:inline;
 }
 .jqTransformRadio {
-	background: transparent url(../i/reg/forms/radio.gif) no-repeat center top;
+	background: transparent url(../../i/reg/forms/radio.gif) no-repeat center top;
 	vertical-align: middle;
 	height: 17px;
 	width: 17px;
@@ -32,7 +32,7 @@ span.jqTransformCheckboxWrapper{
 	margin-top:1px;
 }
 a.jqTransformCheckbox {
-	background: transparent url(../i/reg/forms/checkbox.gif) no-repeat center top;
+	background: transparent url(../../i/reg/forms/checkbox.gif) no-repeat center top;
 	vertical-align: middle;
 	height: 16px;
 	width: 16px;
@@ -75,7 +75,7 @@ a.jqTransformChecked { background-position: left -18px;}
 	top:1px;
 	width: 19px;
 	height: 20px;
-	background: url(../i/reg/forms/select-right.gif) no-repeat left top;
+	background: url(../../i/reg/forms/select-right.gif) no-repeat left top;
 }
 .jqTransformSelectDisable .jqTransformSelectWrapper{
 	background-position:left -30px;
@@ -87,10 +87,10 @@ a.jqTransformChecked { background-position: left -18px;}
 	background-position:left -30px;
 	}
 .jqTransformNeed .jqTransformSelectWrapper{
-	background: url(../i/reg/forms/select-normal-left.png) no-repeat left top;
+	background: url(../../i/reg/forms/select-normal-left.png) no-repeat left top;
 	}
 .jqTransformNeed .jqTransformSelectWrapper  a.jqTransformSelectOpen {
-	background: url(../i/reg/forms/select-normal-right.png) no-repeat left top;
+	background: url(../../i/reg/forms/select-normal-right.png) no-repeat left top;
 }
 .jqTransformSelectWrapper ul {
 	position: absolute;
@@ -157,7 +157,7 @@ a.jqTransformChecked { background-position: left -18px;}
 	display:inline;
 	padding-right:4px;
 	height:31px;
-	background: transparent url(../i/reg/forms/input_text_right.gif) no-repeat right top;
+	background: transparent url(../../i/reg/forms/input_text_right.gif) no-repeat right top;
 	}
 .jqTransformFileTxtWrapper .jqTransformFileTxtInner{
 	float:left;
@@ -166,7 +166,7 @@ a.jqTransformChecked { background-position: left -18px;}
 	padding-left:4px;
 	height:31px;
 	line-height:30px;
-	background: transparent url(../i/reg/forms/input_text_left.gif) no-repeat left top;
+	background: transparent url(../../i/reg/forms/input_text_left.gif) no-repeat left top;
 	}
 .jqTransformFileTxt{
 	float:left;
@@ -178,7 +178,7 @@ a.jqTransformChecked { background-position: left -18px;}
 	font-size:14px;
 	font-family:Arial, Helvetica, sans-serif;
 	white-space: nowrap;
-	background:url(../i/reg/forms/file_notice.gif) right -9999px no-repeat;
+	background:url(../../i/reg/forms/file_notice.gif) right -9999px no-repeat;
 	overflow:hidden;
 	}
 
@@ -189,7 +189,7 @@ a.jqTransformChecked { background-position: left -18px;}
 	display:inline;
 	padding-right:4px;
 	height:33px;
-	background: transparent url(../i/reg/forms/btn_right.gif) no-repeat right top;
+	background: transparent url(../../i/reg/forms/btn_right.gif) no-repeat right top;
 	}
 .jqTransformFileBtnWrapper .jqTransformFileBtn{
 	float:left;
@@ -198,7 +198,7 @@ a.jqTransformChecked { background-position: left -18px;}
 	padding:0 8px 0 12px;
 	height:33px;
 	line-height:32px;
-	background: transparent url(../i/reg/forms/btn_left.gif) no-repeat left top;
+	background: transparent url(../../i/reg/forms/btn_left.gif) no-repeat left top;
 	cursor:pointer;
 	color:#333;
 	}
