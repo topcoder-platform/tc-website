@@ -123,7 +123,7 @@ public final class RegHelper {
         TCSEmailMessage mail = new TCSEmailMessage();
         mail.setSubject(subject);
         String url =
-            ApplicationServer.SERVER_NAME + "/reg/activate.action?" + WebConstants.ACTIVATION_CODE + "="
+            ApplicationServer.SERVER_NAME + "/reg2/activate.action?" + WebConstants.ACTIVATION_CODE + "="
                 + activationCode;
         String msg = RegHelper.readFileAsString(activationEmailBodyTemplateFile);
         msg = msg.replace("%ACTIVATION_CODE%", activationCode).replace("%ACTIVATION_URL%", url);
