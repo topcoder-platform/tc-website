@@ -127,7 +127,7 @@ public class ViewContestDetails extends ShortHibernateProcessor {
 			
 			
             if (contest != null && 
-                contest.getMultiRoundInformation() != null && 
+                contest.getMultiRoundInformation() != null && contest.isMultiRound() &&
                 contest.getMultiRoundInformation().getMilestoneDate() != null &&
                 contest.getMultiRoundInformation().getMilestoneDate().before(new Date())) {
                 getRequest().setAttribute("canViewMilestone", true);
