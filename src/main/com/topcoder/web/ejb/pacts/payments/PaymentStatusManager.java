@@ -117,13 +117,15 @@ public class PaymentStatusManager {
             
             // notify the status manager and update each payment
             for (BasePayment payment : payments) {
-                payment.getCurrentStatus().newTaxForm(payment);
+                BasePaymentStatus currentStatus = payment.getCurrentStatus();
+
+                currentStatus.newTaxForm(payment);
                 double netAmount = dib.computePaymentNetAmount(payment.getPaymentType(), payment.getGrossAmount(), payment.getCoderId());
                 payment.setNetAmount(netAmount);
                 dib.updatePayment(payment);
                 
                 // if the payment changed its status, notify the possible childrens
-                if (!payment.getCurrentStatus().equals(this)) {
+                if (!payment.getCurrentStatus().equals(currentStatus)) {
                     notifyChildPayments("new", payment);
                 }
             }            
@@ -153,11 +155,13 @@ public class PaymentStatusManager {
             
             // notify the status manager and update each payment
             for (BasePayment payment : payments) {
-                payment.getCurrentStatus().hardCopyIPTransfer(payment);
+                BasePaymentStatus currentStatus = payment.getCurrentStatus();
+
+                currentStatus.hardCopyIPTransfer(payment);
                 dib.updatePayment(payment);
 
                 // if the payment changed its status, notify the possible childrens
-                if (!payment.getCurrentStatus().equals(this)) {
+                if (!payment.getCurrentStatus().equals(currentStatus)) {
                     notifyChildPayments("new", payment);
                 }
             }            
@@ -185,11 +189,13 @@ public class PaymentStatusManager {
             
             // notify the status manager and update each payment
             for (BasePayment payment : payments) {
-                payment.getCurrentStatus().signedGlobalAD(payment);
+                BasePaymentStatus currentStatus = payment.getCurrentStatus();
+
+                currentStatus.signedGlobalAD(payment);
                 dib.updatePayment(payment);
 
                 // if the payment changed its status, notify the possible childrens
-                if (!payment.getCurrentStatus().equals(this)) {
+                if (!payment.getCurrentStatus().equals(currentStatus)) {
                     notifyChildPayments("new", payment);
                 }
             }            
@@ -219,11 +225,13 @@ public class PaymentStatusManager {
             
             // notify the status manager and update the payment
             BasePayment payment = payments.get(0);
-            payment.getCurrentStatus().affirmedAffidavit(payment);
+            BasePaymentStatus currentStatus = payment.getCurrentStatus();
+
+            currentStatus.affirmedAffidavit(payment);
             dib.updatePayment(payment);
 
             // if the payment changed its status, notify the possible childrens
-            if (!payment.getCurrentStatus().equals(this)) {
+            if (!payment.getCurrentStatus().equals(currentStatus)) {
                 notifyChildPayments("new", payment);
             }
         } catch (Exception e) {
@@ -255,11 +263,12 @@ public class PaymentStatusManager {
             // if no payments are found, do nothing.
             // notify the status manager and update the payment
             for (BasePayment payment : payments) {
-                payment.getCurrentStatus().affirmedIPTransfer(payment);
+                BasePaymentStatus currentStatus = payment.getCurrentStatus();
+                currentStatus.affirmedIPTransfer(payment);
                 dib.updatePayment(payment);
     
                 // if the payment changed its status, notify the possible childrens
-                if (!payment.getCurrentStatus().equals(this)) {
+                if (!payment.getCurrentStatus().equals(currentStatus)) {
                     notifyChildPayments("new", payment);
                 }
             }
@@ -456,7 +465,7 @@ public class PaymentStatusManager {
         try {
             List<BasePayment> childPayments = dib.findCoderPayments(criteria);
             for (BasePayment childPayment : childPayments) {
-                if (childPayment instanceof ReliabilityBonusPayment  || childPayment instanceof ReviewBoardBonusPayment) {
+                if (childPayment instanceof ReliabilityBonusPayment || childPayment instanceof ReviewBoardBonusPayment) {
                     log.debug("notifying children: " + childPayment.getId());
                     if ("new".equals(notifType)) {
                         newPayment(childPayment);
