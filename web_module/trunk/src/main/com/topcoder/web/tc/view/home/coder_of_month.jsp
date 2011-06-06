@@ -30,7 +30,7 @@
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
          <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DESIGN_COM%>" class="gMetal">Design</a></strong><br />
          <tc-webtag:handle coderId="287614" context="<%=HandleTag.DESIGN%>" darkBG="true" /><br />
-        	3 wins<br />
+        	9 wins, 5 second places<br />
          <br />
       </td>
    </tr>
@@ -39,7 +39,7 @@
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
          <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DEV_COM%>" class="gMetal">Development</a></strong><br />
          <tc-webtag:handle coderId="11790647" context="<%=HandleTag.DEVELOPMENT%>" darkBG="true" /><br />
-         4 wins<br />
+         6 wins, 2 second places<br />
       </td>
    </tr>
    </table>
