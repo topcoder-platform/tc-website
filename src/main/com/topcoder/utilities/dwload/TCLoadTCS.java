@@ -916,16 +916,7 @@ public class TCLoadTCS extends TCLoad {
                             "   ,case when ppd.actual_start_time is not null then ppd.actual_start_time else psd.actual_start_time end as posting_date " +
                             "   ,psd.actual_end_time as submitby_date " +
                             "   ,1 as level_id " +
-                            "   , (SELECT MAX(ppfr.actual_end_time) " +
-                            "      FROM project_phase ppfr " +
-                            "      WHERE ppfr.project_id = p.project_id " +
-                            "      AND ppfr.phase_type_id = 10 " +
-                            "      AND ppfr.phase_status_id = 3 " +
-                            "      AND ppfr.actual_end_time <= (SELECT MIN(NVL(actual_start_time, scheduled_start_time)) " +
-                            "                                   FROM project_phase ppappr " +
-                            "                                   WHERE ppappr.project_id = p.project_id " +
-                            "                                   AND ppappr.phase_type_id = 11)) " +
-                            "    as complete_date  " +
+                            "   ,pi1.value as complete_date  " +
                             "   ,(select phase_type_id from project_phase where project_phase_id = (select min(project_phase_id) from project_phase where project_id = p.project_id and phase_status_id = 2)) as review_phase_id " +
                             "   ,(select name from phase_type_lu where phase_type_id = (select phase_type_id from project_phase where project_phase_id = (select min(project_phase_id) from project_phase where project_id = p.project_id and phase_status_id = 2))) as review_phase_name " +
                             "   ,p.project_status_id as project_stat_id " +
@@ -986,20 +977,23 @@ public class TCLoadTCS extends TCLoad {
                           "             AND NOT pmd2.payment_status_id IN (65, 68, 69)), 0) " +
                           "   end AS contest_prizes_total " +
                             "   , pib.value AS billing_project_id " +
-                            "   , NVL((SELECT SUM(((actual_end_time - actual_start_time)::INTERVAL MINUTE(9) TO MINUTE::CHAR(20)::DECIMAL(10)) * 60 * 1000) " +
-                            "      FROM project_phase ppa " +
-                            "      WHERE ppa.project_id = p.project_id " +
-                            "      AND ppa.phase_type_id = 11 " +
-                            "      AND NOT (ppa.actual_start_time IS NULL " +
-                            "               OR ppa.actual_end_time IS NULL)), 0) " +
-                            "   AS approval_phase_duration " +
+                            "   , (SELECT MAX(ppfr.actual_end_time) " +
+                            "      FROM project_phase ppfr " +
+                            "      WHERE ppfr.project_id = p.project_id " +
+                            "      AND ppfr.phase_type_id = 10 " +
+                            "      AND ppfr.phase_status_id = 3 " +
+                            "      AND ppfr.actual_end_time <= (SELECT MIN(NVL(actual_start_time, scheduled_start_time)) " +
+                            "                                   FROM project_phase ppappr " +
+                            "                                   WHERE ppappr.project_id = p.project_id " +
+                            "                                   AND ppappr.phase_type_id = 11)) " +
+                            "    as actual_complete_date  " +
                             "   from project p , " +
                             "   project_info pir, " +
                             "   project_info pivers, " +
                             "   outer project_info pivi," +
                             "   outer project_info pivt," +
                             "   outer project_info pict," +
-//                            "   outer project_info pi1," +
+                            "   outer project_info pi1," +
                             "   outer project_info pi2," +
                             "   outer project_info piaf," +
                             "   outer project_info pib," +
@@ -1021,6 +1015,8 @@ public class TCLoadTCS extends TCLoad {
                             "   and pivt.project_info_type_id = 23 " +
                             "   and pict.project_id = p.project_id " +
                             "   and pict.project_info_type_id = 26 " +
+                            "   and pi1.project_id = p.project_id " +
+                            "   and pi1.project_info_type_id = 21 " +
                             "   and pi2.project_id = p.project_id " +
                             "   and pi2.project_info_type_id = 3 " +
                             "   and piaf.project_id = p.project_id " +
@@ -1139,14 +1135,17 @@ public class TCLoadTCS extends TCLoad {
                     }
                     update.setDate(12, rs.getDate("submitby_date"));
                     Timestamp completeDate = convertToDate(rs.getString("complete_date"));
+                    Timestamp actualCompleteDate = convertToDate(rs.getString("actual_complete_date"));
                     if (completeDate != null) {
                         update.setTimestamp(13, completeDate);
-                        if (postingDate != null) {
-                            duration = completeDate.getTime() - postingDate.getTime();
-                        }
                     } else {
                         update.setNull(13, Types.TIMESTAMP);
                     }
+                    
+                    if (actualCompleteDate != null && postingDate != null) {
+                            duration = actualCompleteDate.getTime() - postingDate.getTime();
+                    } 
+
                     update.setLong(14, rs.getLong("component_id"));
                     update.setLong(15, rs.getLong("review_phase_id"));
                     update.setString(16, rs.getString("review_phase_name"));
