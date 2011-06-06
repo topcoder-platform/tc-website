@@ -172,6 +172,11 @@
   <td valign="top">
     <br>
     <rsc:item name="first_name" row="<%=p%>"/> <rsc:item name="last_name" row="<%=p%>"/> <br>
+
+    <% if (p.getItem("name_in_another_language") != null && p.getItem("name_in_another_language").toString().length() > 0 ) { %> 
+    Name in another language: <rsc:item name="name_in_another_language" row="<%=p%>"/> <br>
+    <% } %>
+
     User ID:   <rsc:item name="user_id" row="<%=p%>"/>  <br>
     Email: <rsc:item name="email" row="<%=p%>"/>  ( <a href="mailto:<rsc:item name="email" row="<%=p%>"/>" class="">
         Send Now</a> )  <br>
