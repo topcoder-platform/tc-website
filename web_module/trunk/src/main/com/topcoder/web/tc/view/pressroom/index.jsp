@@ -27,7 +27,7 @@
     
     <script type="text/javascript">
     $(document).ready(function() {
-        getRssArticles('<%=Constants.CURRENT_NEWS_RSS%>', renderCurrentNews, '<%=Constants.CURRENT_NEWS_CATEGORY%>', 6);
+        getRssArticles('<%=Constants.CURRENT_NEWS_RSS%>', renderCurrentNews, '<%=Constants.CURRENT_NEWS_CATEGORY%>', 12);
     });
     </script>
 </head>
