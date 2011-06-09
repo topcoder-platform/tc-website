@@ -187,8 +187,8 @@
 				nav.search("competition_algo").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_algo_competitions')", "Single Round Matches (SRM)", "m_algo_competitions"));
 					nav.search("m_algo_competitions").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/Algorithm+Overview", "Overview", "algo_overview"));
          			nav.search("m_algo_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_algo_support')", "Track Information", "m_algo_support"));
-							nav.search("m_algo_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/How+to+Compete+in+Algorithm+Competitions", "How to Compete", "algo_how_to_compete"));
-							nav.search("m_algo_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/Algorithm+Competition+FAQs", "FAQs", "algo_faqs"));
+							nav.search("m_algo_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/How+to+Compete+in+SRM+Algorithm+Competitions", "How to Compete", "algo_how_to_compete"));
+							nav.search("m_algo_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/SRM+Algorithm+Competition+FAQs", "FAQs", "algo_faqs"));
 							nav.search("m_algo_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/Algorithm+Competition+Rating+System", "Rating System", "algo_rating_system"));
 							nav.search("m_algo_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/Write+Problems+for+TopCoder", "Write Problems", "algo_write"));
         			nav.search("m_algo_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_algo_stats')", "Statistics", "m_algo_stats"));
