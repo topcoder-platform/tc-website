@@ -3,13 +3,12 @@
  */
 package com.topcoder.utilities.studio;
 
-import com.topcoder.shared.util.dwload.TCLoad;
-import com.topcoder.shared.util.logging.Logger;
-
-import com.topcoder.util.idgenerator.IDGenerationException;
-import com.topcoder.util.idgenerator.IDGenerator;
-import com.topcoder.util.idgenerator.IDGeneratorFactory;
-
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,12 +18,21 @@ import java.sql.Types;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Stack;
+
+import com.topcoder.shared.util.dwload.TCLoad;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.util.idgenerator.IDGenerationException;
+import com.topcoder.util.idgenerator.IDGenerator;
+import com.topcoder.util.idgenerator.IDGeneratorFactory;
 
 /**
  * <p>An extension to <code>TCLoad</code> tool which migrates the data for <code>Studio</code> contests from
@@ -32,8 +40,13 @@ import java.util.Stack;
  * 
  * <p><b>Thread safety:</b> This class is NOT thread-safe and it is not intended to be called by multiple threads.</p>
  * 
- * @author isv
- * @version 1.0 (Re-platforming Data Migration Release 1 assembly)
+ * <p>
+ * Version 1.1 (Data Migration Replatforming Release 2 assembly) change notes:
+ * Add logic to load the other data related to the studio contest as described in the wiki page.
+ * </p>
+ * 
+ * @author isv, TCSASSEMBER
+ * @version 1.1 (Re-platforming Data Migration Release 1 assembly)
  */
 public class StudioContestMigrationTool extends TCLoad {
     
@@ -46,6 +59,13 @@ public class StudioContestMigrationTool extends TCLoad {
      * <p>A <code>DateFormat</code> to be used for parsing the dates from the textual values.</p>
      */
     private static final DateFormat DATE_FORMAT = new SimpleDateFormat("MM/dd/yyyy");
+    
+    /**
+     * <p>A <code>DateFormat</code> to be used for parsing the dates to resource registration format.</p>
+     * 
+     * @since 1.1
+     */
+    private static final DateFormat RESOURCE_DATE_FORMAT = new SimpleDateFormat("MM.dd.yyyy hh:mm a");
 
     /**
      * <p>A <code>String</code> providing the name of configuration parameter to be used to provide the start date for
@@ -90,6 +110,46 @@ public class StudioContestMigrationTool extends TCLoad {
     private static final String MILESTONE_REVIEW_SCORECARD_ID_PARAM_NAME = "milestone_review_scorecard_id";
 
     /**
+     * <p>A <code>String</code> providing the name of configuration parameter to be used to provide the ID of screening
+     * scorecard question.</p>
+     * 
+     * @since 1.1
+     */
+    private static final String SCREENING_SCORECARD_QUESTION_ID_PARAM_NAME = "screening_scorecard_question_id";
+    
+    /**
+     * <p>A <code>String</code> providing the name of configuration parameter to be used to provide the ID of review
+     * scorecard question.</p>
+     * 
+     * @since 1.1
+     */
+    private static final String REVIEW_SCORECARD_QUESTION_ID_PARAM_NAME = "review_scorecard_question_id";
+    
+    /**
+     * <p>A <code>String</code> providing the name of configuration parameter to be used to provide the ID of milestone
+     * screening scorecard question.</p>
+     * 
+     * @since 1.1
+     */
+    private static final String MILESTONE_SCREENING_SCORECARD_QUESTION_ID_PARAM_NAME = "milestone_screening_scorecard_question_id";
+    
+    /**
+     * <p>A <code>String</code> providing the name of configuration parameter to be used to provide the ID of milestone
+     * review scorecard question.</p>
+     * 
+     * @since 1.1
+     */
+    private static final String MILESTONE_REVIEW_SCORECARD_QUESTION_ID_PARAM_NAME = "milestone_review_scorecard_question_id";
+    
+    /**
+     * <p>A <code>String</code> providing the name of configuration parameter to be used to provide the location to save the
+     * documents for software contests.</p>
+     * 
+     * @since 1.1
+     */
+    private static final String SOFTWARE_DOCUMENTS_ROOT_PARAM_NAME = "software_documents_root";
+    
+    /**
      * <p>A <code>long</code> referencing the <code>Scheduled</code> phase status.</p>
      */
     private static final long SCHEDULED = 1;
@@ -99,6 +159,111 @@ public class StudioContestMigrationTool extends TCLoad {
      */
     private static final long CLOSED = 3;
 
+    /**
+     * <p>A <code>long</code> providing the size of buffer to be used when coping files.</p>
+     * 
+     * @since 1.1
+     */
+    private static final int BUFFER_SIZE = 8192;
+
+    /**
+     * <p>A <code>long</code> referencing the <code>Other</code> document type.</p>
+     * 
+     * @since 1.1
+     */
+    private static final long OTHER_DOCUMENT_TYPE_ID = 6L;
+    
+    /**
+     * <p>A <code>long</code> referencing the ID of <code>Milestone Prize</code>.</p>
+     * 
+     * @since 1.1
+     */
+    private static final long MILESTONE_PRIZE_TYPE_ID = 14L;
+    
+    /**
+     * <p>A <code>long</code> referencing the ID of <code>Contest Prize</code>.<p>
+     * 
+     * @since 1.1
+     */
+    private static final long CONTEST_PRIZE_TYPE_ID = 15L;
+    
+    /**
+     * <p>A <code>long</code> referencing the ID of <code>Submitter</code> role.</p>
+     * 
+     * @since 1.1
+     */
+    private static final long SUBMITTER_RESOURCE_ROLE_ID = 1L;
+    
+    /**
+     * <p>A <code>long</code> referencing the ID of <code>Primary Screener</code> role.</p>
+     * 
+     * @since 1.1
+     */
+    private static final long PRIMARY_SCREENER_RESOURCE_ROLE_ID = 2L;
+    
+    /**
+     * <p>A <code>long</code> referencing the ID of <code>Reviewer</code> role.</p>
+     * 
+     * @since 1.1
+     */
+    private static final long REVIEWER_RESOURCE_ROLE_ID = 4L;
+    
+    /**
+     * <p>A <code>long</code> referencing the ID of <code>Milestone Screener</code> role.</p>
+     * 
+     * @since 1.1
+     */
+    private static final long MILESTONE_SCREENER_RESOURCE_ROLE_ID = 19L;
+    
+    /**
+     * <p>A <code>long</code> referencing the ID of <code>Milestone Reviewer</code> role.</p>
+     * 
+     * @since 1.1
+     */
+    private static final long MILESTONE_REVIEWER_RESOURCE_ROLE_ID = 20L;
+    
+    /**
+     * <p>A <code>long</code> referencing the <code>Active</code> submission status.</p>
+     * 
+     * @since 1.1
+     */
+    private static final long ACTIVE_SUBMISSION_STATUS_ID = 1L;
+    
+    /**
+     * <p>A <code>long</code> referencing the <code>Contest Submission</code> type.</p>
+     * 
+     * @since 1.1
+     */
+    private static final long CONTEST_SUBMISSISON_TYPE_ID = 1L;
+    
+    /**
+     * <p>A <code>long</code> referencing the <code>Screening</code> phase type.</p>
+     * 
+     * @since 1.1
+     */
+    private static final long SCREENING_PHASE_TYPE_ID = 3L;
+    
+    /**
+     * <p>A <code>long</code> referencing the <code>Review</code> phase type.</p>
+     * 
+     * @since 1.1
+     */
+    private static final long REVIEW_PHASE_TYPE_ID = 4L;
+    
+    /**
+     * <p>A <code>long</code> referencing the <code>Milestone Screening</code> phase type.</p>
+     * 
+     * @since 1.1
+     */
+    private static final long MILESTONE_SCREENING_PHASE_TYPE_ID = 16L;
+    
+    /**
+     * <p>A <code>long</code> referencing the <code>Milestone Review</code> phase type.</p>
+     * 
+     * @since 1.1
+     */
+    private static final long MILESTONE_REVIEW_PHASE_TYPE_ID = 17L;
+    
     /**
      * <p>A <code>String</code> providing the SQL statement for inserting new records into 
      * <code>tcs_catalog.comp_catalog</code> table.</p>
@@ -116,7 +281,7 @@ public class StudioContestMigrationTool extends TCLoad {
     private static final String INSERT_COMPONENT_VERSION_SQL 
         = "INSERT INTO comp_versions (comp_vers_id, component_id, version, version_text, create_time, phase_id, " +
           "phase_time, price, comments, modify_date, suspended_ind, browse, location, issue_tracker_path, " +
-          "revision) VALUES (?, ?, 1, '1.0', ?, 112, ?, 0, NULL, ?, 0, NULL, NULL, NULL, NULL)";
+          "revision) VALUES (?, ?, 1, '1.0', ?, ?, ?, 0, NULL, ?, 0, NULL, NULL, NULL, NULL)";
         
     /**
      * <p>A <code>String</code> providing the SQL statement for inserting new records into 
@@ -132,7 +297,7 @@ public class StudioContestMigrationTool extends TCLoad {
     private static final String INSERT_PROJECT_SQL = "INSERT INTO project (project_id, project_status_id, " +
                                 "project_category_id, project_studio_spec_id, tc_direct_project_id, " +
                                 "create_user, create_date, modify_user, modify_date) " +
-                                "VALUES (?, ?, ?, NULL, ?, ?, ?, ?, ?)";
+                                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         
     /**
      * <p>A <code>String</code> providing the SQL statement for inserting new records into 
@@ -172,7 +337,309 @@ public class StudioContestMigrationTool extends TCLoad {
                                        "dependency_start, dependent_start, lag_time, " +
                                        "create_user, create_date, modify_user, modify_date) " +
                                        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        
+
+    /**
+     * <p>A <code>String</code> providing the SQL statement for selecting contest documentations
+     * from <code>studio_oltp</code> database for a specified contest.</p>
+     * 
+     * @since 1.1
+     */
+    private static final String SELECT_STUDIO_CONTEST_DOCUMENTS_SQL
+        = "SELECT dtl.document_type_desc, d.original_file_name, p.path, d.system_file_name " +
+            "FROM document_type_lu dtl, " +
+            "document d, " + 
+            "path p, " +
+            "contest_document_xref cdx " +
+            "WHERE dtl.document_type_id = d.document_type_id " +
+            "AND d.path_id = p.path_id " +
+            "AND cdx.document_id = d.document_id " +
+            "AND cdx.contest_id = ?";
+    
+    /**
+     * <p>A <code>String</code> providing the SQL statement for inserting new records into
+     * <code>tcs_catalog.comp_documentation</code> table.</p>
+     * 
+     * @since 1.1
+     */
+    private static final String INSERT_COMP_DOCUMENTATION_SQL
+        = "INSERT INTO comp_documentation (document_id, comp_vers_id, document_type_id, document_name, url) " +
+            "VALUES (?, ?, ?, ?, ?)";
+    
+    /**
+     * <p>A <code>String</code> providing the SQL statement for selecting project file types
+     * from <code>studio_oltp.contest_file_type_xref</code> table for a specified contest.</p>
+     * 
+     * @since 1.1
+     */
+    private static final String SELECT_CONTEST_FILE_TYPES_SQL
+        = "SELECT file_type_id FROM contest_file_type_xref WHERE contest_id = ?";
+    
+    /**
+     * <p>A <code>String</code> providing the SQL statement for inserting new records into
+     * <code>tcs_catalog.project_file_type_xref</code> table.</p>
+     * 
+     * @since 1.1
+     */
+    private static final String INSERT_PROJECT_FILE_TYPES_SQL
+        = "INSERT INTO project_file_type_xref (project_id, file_type_id) VALUES (?, ?)";
+    
+    /**
+     * <p>A <code>String</code> providing the SQL statement for inserting new records into
+     * <code>tcs_catalog.project_studio_specification</code> table.</p>
+     * 
+     * @since 1.1
+     */
+    private static final String INSERT_PROJECT_STUDIO_SPECIFICATION_SQL
+        = "INSERT INTO project_studio_specification (project_studio_spec_id, goals, target_audience, branding_guidelines, " +
+                                                    "disliked_design_websites, other_instructions, winning_criteria, " +
+                                                    "submitters_locked_between_rounds, round_one_introduction, round_two_introduction, " +
+                                                    "colors, fonts, layout_and_size, contest_introduction, contest_description, " +
+                                                    "content_requirements, general_feedback, " +
+                                                    "create_user, create_date, modify_user, modify_date) " +
+                                                    "VALUES (?, ?, ?, ?, ?, ?, ?, 'f', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+ 
+    /**
+     * <p>A <code>String</code> providing the SQL statement for selecting contest prizes from
+     * <code>studio_oltp</code> database for a specified contest. Only <code>Contest Prize</code> and
+     * <code>Milestone Prize</code> are retrieved.</p>
+     * 
+     * @since 1.1
+     */
+    private static final String SELECT_PRIZE_SQL
+        = "SELECT p.prize_id, p.place, p.amount AS prize_amount, 15 AS prize_type_id, 1 AS number_of_submissions, p.create_date " +
+            "FROM prize p, contest_prize_xref cpx " +
+            "WHERE p.prize_id = cpx.prize_id " +
+            "  AND cpx.contest_id = ? and p.amount > 0 and p.prize_type_id = 1 " +
+            "UNION " +
+            "SELECT mp.contest_milestone_prize_id as prize_id, 1 AS place, mp.amount AS prize_amount, " +
+            "14 AS prize_type_id, mp.number_of_submissions, mp.create_date " +
+            "FROM contest_milestone_prize mp, contest c " +
+            "WHERE mp.contest_milestone_prize_id = c.contest_milestone_prize_id " +
+            "AND c.contest_id = ? and mp.amount > 0";
+
+    /**
+     * <p>A <code>String</code> providing the SQL statement for inserting new records into
+     * <code>tcs_catalog.prize</code> table.</p>
+     * 
+     * @since 1.1
+     */
+    private static final String INSERT_PRIZE_SQL
+        = "INSERT INTO prize (prize_id, place, prize_amount, prize_type_id, number_of_submissions, " +
+            "create_user, create_date, modify_user, modify_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    
+    /**
+     * <p>A <code>String</code> providing the SQL statement for inserting new records into
+     * <code>tcs_catalog.project_prize_xref</code> table.</p>
+     * 
+     * @since 1.1
+     */
+    private static final String INSERT_PROJECT_PRIZE_XREF_SQL
+        = "INSERT INTO project_prize_xref (project_id, prize_id) values (?, ?)";
+    
+    /**
+     * <p>A <code>String</code> providing the SQL statement for selecting registrations from
+     * <code>studio_oltp</code> database for a specified contest.</p>
+     * 
+     * @since 1.1
+     */
+    private static final String SELECT_CONTEST_REGISTRATION_SQL
+        = "SELECT cr.user_id, u.handle, cr.create_date, " +
+            "     NVL((SELECT SUM(p.price) FROM submission_payment p, submission s " +
+            "          WHERE p.submission_id = s.submission_id AND p.payment_status_id = 1 " +
+            "            AND s.submitter_id = cr.user_id and s.contest_id = cr.contest_id), 0) AS prizes " +
+            "FROM contest_registration cr " +
+            "LEFT JOIN user u ON cr.user_id = u.user_id " +
+            "WHERE cr.contest_id = ?";
+    
+    /**
+     * <p>A <code>String</code> providing the SQL statement for inserting new records into
+     * <code>tcs_catalog.resource</code> table.</p>
+     * 
+     * @since 1.1
+     */
+    private static final String INSERT_RESOURCE_SQL
+        = "INSERT INTO resource (resource_id, resource_role_id, project_id, project_phase_id, " +
+            "                    create_user, create_date, modify_user, modify_date) " +
+            "VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+    
+    /**
+     * <p>A <code>String</code> providing the SQL statement for inserting new records into
+     * <code>tcs_catalog.resource_info</code> table.</p>
+     * 
+     * @since 1.1
+     */
+    private static final String INSERT_RESOURCE_INFO_SQL
+        = "INSERT INTO resource_info (resource_id, resource_info_type_id, value, create_user, create_date, modify_user, modify_date) " +
+            "VALUES(?, ?, ?, ?, ?, ?, ?)";
+    
+    /**
+     * <p>A <code>String</code> providing the SQL statement for selecting studio contest specification data from
+     * <code>studio_oltp</code> database for a specified contest.</p>
+     * 
+     * @since 1.1
+     */
+    private static final String SELECT_CONTEST_SPECIFICATION_SQL
+        = "SELECT gi.goals, gi.target_audience, gi.branding_guidelines, gi.disliked_designs_websites AS disliked_design_websites, " +
+            "gi.other_instructions, gi.winning_criteria, multiround.round_one_introduction, multiround.round_two_introduction, " + 
+            "multiround.general_feedback_text AS general_feedback_text, " + 
+            "colors_r.property_value::lvarchar(2000) AS colors, " +
+            "fonts_r.property_value::lvarchar(2000) AS fonts, " +
+            "layout_and_size_r.property_value::lvarchar(2000) AS layout_and_size, " +
+            "contest_introduction_r.property_value::lvarchar(2000) AS contest_introduction, " +
+            "contest_description_r.property_value::lvarchar(2000) AS contest_description, " +
+            "content_requirements_r.property_value::lvarchar(2000) AS content_requirements " +
+            "FROM contest c " +
+            "LEFT JOIN contest_config colors_r ON c.contest_id = colors_r.contest_id AND colors_r.property_id = 14 " +
+            "LEFT JOIN contest_config fonts_r ON c.contest_id = fonts_r.contest_id AND fonts_r.property_id = 15 " +
+            "LEFT JOIN contest_config layout_and_size_r ON c.contest_id = layout_and_size_r.contest_id " +
+            "      AND layout_and_size_r.property_id = 16 " +
+            "LEFT JOIN contest_config contest_introduction_r ON c.contest_id = contest_introduction_r.contest_id " +
+            "     AND contest_introduction_r.property_id = 1 " +
+            "LEFT JOIN contest_config contest_description_r ON c.contest_id = contest_description_r.contest_id " +
+            "     AND contest_description_r.property_id = 13 " +
+            "LEFT JOIN contest_config content_requirements_r ON c.contest_id = content_requirements_r.contest_id " +
+            "     AND content_requirements_r.property_id = 17 " +
+            "LEFT JOIN contest_multi_round_information multiround " +
+            "     ON c.contest_multi_round_information_id = multiround.contest_multi_round_information_id " +
+            "LEFT JOIN contest_general_info gi ON gi.contest_general_info_id = c.contest_general_info_id " +
+            "WHERE c.contest_id = ?";
+
+    /**
+     * <p>A <code>String</code> providing the SQL statement for selecting submissions from
+     * <code>studio_oltp</code> database for a specified contest.</p>
+     * 
+     * @since 1.1
+     */
+    private static final String SELECT_SUBMISSION_SQL
+        = "SELECT s.submission_id, s.submitter_id, s.submission_status_id, s.submission_type_id, " +
+            "     s.modify_date, s.user_rank, s.original_file_name, s.system_file_name, s.file_size, s.view_count, s.submission_date, s.create_date, " +
+            "     p.path, s.feedback_text, sr.text as review_text, sr.review_status_id, " +
+            "     (SELECT pr.prize_id FROM submission_prize_xref pz, prize pr " +
+            "       WHERE pz.prize_id = pr.prize_id AND pr.prize_type_id = 1 " +
+            "         AND pz.submission_id = s.submission_id) AS prize_id, " +
+            "     (SELECT contest_milestone_prize_id FROM submission_milestone_prize_xref where submission_id = s.submission_id) AS milestone_prize_id, " +
+            "     (SELECT pr.prize_id FROM submission_prize_xref pz, prize pr " +
+            "       WHERE pz.prize_id = pr.prize_id AND pr.prize_type_id = 2 " +
+            "         AND pz.submission_id = s.submission_id) AS client_selection_prize_id " +
+            "FROM submission s " +
+            "LEFT JOIN path p ON p.path_id = s.path_id " +
+            "LEFT JOIN submission_review sr on sr.submission_id = s.submission_id " +
+            "WHERE s.contest_id = ?";
+
+    /**
+     * <p>A <code>String</code> providing the SQL statement for inserting new records into
+     * <code>tcs_catalog.resource_submission</code> table.</p>
+     * 
+     * @since 1.1
+     */
+    private static final String INSERT_RESOURCE_SUBMISSION_SQL
+        = "INSERT INTO resource_submission (resource_id, submission_id, create_user, create_date, modify_user, modify_date) " +
+            "VALUES(?, ?, ?, ?, ?, ?)";
+    
+    /**
+     * <p>A <code>String</code> providing the SQL statement for inserting new records into
+     * <code>tcs_catalog.upload</code> table.</p>
+     * 
+     * @since 1.1
+     */
+    private static final String INSERT_UPLOAD_SQL
+        = "INSERT INTO upload (upload_id, project_id, resource_id, upload_type_id, upload_status_id, parameter, upload_desc, " +
+            "                  create_user, create_date, modify_user, modify_date) " +
+            "VALUES(?, ?, ?, 1, ?, ?, NULL, ?, ?, ?, ?)";
+    
+    /**
+     * <p>A <code>String</code> providing the SQL statement for inserting new records into
+     * <code>tcs_catalog.submission</code> table.</p>
+     * 
+     * @since 1.1
+     */
+    private static final String INSERT_SUBMISSION_SQL
+        = "INSERT INTO submission (submission_id, upload_id, submission_status_id, screening_score, initial_score, final_score, " +
+            "                      placement, submission_type_id, create_user, create_date, modify_user, modify_date, " +
+            "                      user_rank, mark_for_purchase, prize_id, file_size, view_count) " +
+            "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    
+    /**
+     * <p>A <code>String</code> providing the SQL statement for selecting submission declaration data from
+     * <code>studio_oltp</code> database for a specified submission.</p>
+     * 
+     * @since 1.1
+     */
+    private static final String SELECT_SUBMISSION_DECLARATION_SQL
+        = "SELECT sd.submission_declaration_id, sd.comment, sd.has_external_content, " +
+            "     sec.external_content_id, sec.external_content_type_id, sec.display_position, " +
+            "     ecp.external_content_property_id, ecp.name, ecp.value " +
+            "FROM submission_declaration sd " +
+            "LEFT JOIN submission_external_content sec " +
+            "       ON sec.submission_declaration_id = sd.submission_declaration_id " +
+            "LEFT JOIN external_content_property ecp " +
+            "       ON ecp.external_content_id = sec.external_content_id " +
+            "WHERE sd.submission_id = ? " +
+            "ORDER BY sd.submission_declaration_id, sec.external_content_id";
+    
+    /**
+     * <p>A <code>String</code> providing the SQL statement for inserting new records into
+     * <code>tcs_catalog.submission_declaration</code> table.</p>
+     * 
+     * @since 1.1
+     */
+    private static final String INSERT_SUBMISSION_DECLARATION_SQL
+        = "INSERT INTO submission_declaration (submission_declaration_id, submission_id, comment, has_external_content) " +
+            "VALUES (?, ?, ?, ?)";
+    
+    /**
+     * <p>A <code>String</code> providing the SQL statement for inserting new records into
+     * <code>tcs_catalog.submission_external_content</code> table.</p>
+     * 
+     * @since 1.1
+     */
+    private static final String INSERT_SUBMISSION_EXTERNAL_CONTENT_SQL
+        = "INSERT INTO submission_external_content (external_content_id, external_content_type_id, display_position, submission_declaration_id) " +
+            "VALUES (?, ?, ?, ?)";
+    
+    /**
+     * <p>A <code>String</code> providing the SQL statement for inserting new records into
+     * <code>tcs_catalog.external_content_property</code> table.</p>
+     * 
+     * @since 1.1
+     */
+    private static final String INSERT_EXTERNAL_CONTENT_PROPERTY_SQL
+        = "INSERT INTO external_content_property (external_content_property_id, external_content_id, name, value) " +
+            "VALUES (?, ?, ?, ?)";
+    
+    /**
+     * <p>A <code>String</code> providing the SQL statement for inserting new records into
+     * <code>tcs_catalog.review</code> table.</p>
+     * 
+     * @since 1.1
+     */
+    private static final String INSERT_REVIEW_SQL
+        = "INSERT INTO review (review_id, resource_id, submission_id, scorecard_id, committed, score, initial_score, " +
+            "                  create_user, create_date, modify_user, modify_date) " +
+            "VALUES (?, ?, ?, ?, 1, ?, ?, ?, ?, ?, ?)";
+    
+    /**
+     * <p>A <code>String</code> providing the SQL statement for inserting new records into
+     * <code>tcs_catalog.review_item</code> table.</p>
+     * 
+     * @since 1.1
+     */
+    private static final String INSERT_REVIEW_ITEM_SQL
+        = "INSERT INTO review_item (review_item_id, review_id, scorecard_question_id, upload_id, answer, sort, " +
+            "                  create_user, create_date, modify_user, modify_date) " +
+            "VALUES (?, ?, ?, NULL, ?, 0, ?, ?, ?, ?)";
+    
+    /**
+     * <p>A <code>String</code> providing the SQL statement for inserting new records into
+     * <code>tcs_catalog.review_item_comment</code> table.</p>
+     * 
+     * @since 1.1
+     */
+    private static final String INSERT_REVIEW_ITEM_COMMENT_SQL
+        = "INSERT INTO review_item_comment (review_item_comment_id, resource_id, review_item_id, comment_type_id, content, extra_info, " +
+            "                               sort, create_user, create_date, modify_user, modify_date) " +
+            "VALUES (?, ?, ?, 1, ?, NULL, 0, ?, ?, ?, ?)";
+    
     /**
      * <p>A <code>Map</code> mapping the IDs for contest statuses from <code>Studio</code> database to <code>Online
      * Review</code> database.</p>
@@ -185,6 +652,29 @@ public class StudioContestMigrationTool extends TCLoad {
      */
     private static final Map<Long, Long> PROJECT_CATEGORY_MAPPING = new HashMap<Long, Long>();
 
+    /**
+     * <p>A <code>Map</code> mapping the IDs from project category to phase.</p>
+     * 
+     * @since 1.1
+     */
+    private static final Map<Long, Long> PROJECT_CATEGORY_PHASE_MAPPING = new HashMap<Long, Long>();
+
+    /**
+     * <p>A <code>Map</code> mapping the IDs for submission status from <code>Studio</code> database to
+     * <code>Online Review</code> database.</p>
+     * 
+     * @since 1.1
+     */
+    private static final Map<Long, Long> SUBMISSION_STATUS_MAPPING = new HashMap<Long, Long>();
+    
+    /**
+     * <p>A <code>Map</code> mapping the IDs for submission types from <code>Studio</code> database to
+     * <code>Online Review</code> database.</p>
+     * 
+     * @since 1.1
+     */
+    private static final Map<Long, Long> SUBMISSION_TYPE_MAPPING = new HashMap<Long, Long>();
+    
     /**
      * <p>Initializes the mappings.</p>
      */
@@ -222,6 +712,37 @@ public class StudioContestMigrationTool extends TCLoad {
         PROJECT_CATEGORY_MAPPING.put(24L , 34L); // Bug Race
         PROJECT_CATEGORY_MAPPING.put(25L , 18L); // Wireframes
         PROJECT_CATEGORY_MAPPING.put(26L , 22L); // Idea Generation 
+        
+        // Banners/Icons
+        PROJECT_CATEGORY_PHASE_MAPPING.put(16L, 127L);
+        // Web Design
+        PROJECT_CATEGORY_PHASE_MAPPING.put(17L, 128L);
+        // Wireframes
+        PROJECT_CATEGORY_PHASE_MAPPING.put(18L, 129L);
+        // Logo Design
+        PROJECT_CATEGORY_PHASE_MAPPING.put(20L, 131L);
+        // Print/Presentation
+        PROJECT_CATEGORY_PHASE_MAPPING.put(21L, 132L);
+        // Idea Generation
+        PROJECT_CATEGORY_PHASE_MAPPING.put(22L, 133L);
+        // Widget or Mobile Screen Design
+        PROJECT_CATEGORY_PHASE_MAPPING.put(30L, 141L);
+        // Front-End Flash
+        PROJECT_CATEGORY_PHASE_MAPPING.put(31L, 142L);
+        // Application Front-End Design
+        PROJECT_CATEGORY_PHASE_MAPPING.put(32L, 143L);
+        // Other
+        PROJECT_CATEGORY_PHASE_MAPPING.put(34L, 145L);
+        
+        // Active
+        SUBMISSION_STATUS_MAPPING.put(1L, 1L);
+        // Deleted
+        SUBMISSION_STATUS_MAPPING.put(2L, 5L);
+        
+        // Contest Submission
+        SUBMISSION_TYPE_MAPPING.put(2L, 1L);
+        // Milestone Submission
+        SUBMISSION_TYPE_MAPPING.put(1L, 3L);
     }
     
     /**
@@ -278,6 +799,102 @@ public class StudioContestMigrationTool extends TCLoad {
     private IDGenerator phaseIdGenerator;
 
     /**
+     * <p>A <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     * <code>tcs_catalog.comp_documentation</code> table.</p>
+     * 
+     * @since 1.1
+     */
+    private IDGenerator documentIdGenerator;
+    
+    /**
+     * <p>A <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     * <code>tcs_catalog.project_studio_specification</code> table.</p>
+     * 
+     * @since 1.1
+     */
+    private IDGenerator projectStudioSpecIdGenerator;
+    
+    /**
+     * <p>A <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     * <code>tcs_catalog.prize</code> table.</p>
+     * 
+     * @since 1.1
+     */
+    private IDGenerator prizeIdGenerator;
+    
+    /**
+     * <p>A <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     * <code>tcs_catalog.resource</code> table.</p>
+     * 
+     * @since 1.1
+     */
+    private IDGenerator resourceIdGenerator;
+    
+    /**
+     * <p>A <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     * <code>tcs_catalog.upload</code> table.</p>
+     * 
+     * @since 1.1
+     */
+    private IDGenerator uploadIdGenerator;
+    
+    /**
+     * <p>A <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     * <code>tcs_catalog.submission</code> table.</p>
+     * 
+     * @since 1.1
+     */
+    private IDGenerator submissionIdGenerator;
+    
+    /**
+     * <p>A <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     * <code>tcs_catalog.submission_declaration</code> table.</p>
+     * 
+     * @since 1.1
+     */
+    private IDGenerator submissionDeclarationIdGenerator;
+    
+    /**
+     * <p>A <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     * <code>tcs_catalog.submission_external_content</code> table.</p>
+     * 
+     * @since 1.1
+     */
+    private IDGenerator externalContentIdGenerator;
+    
+    /**
+     * <p>A <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     * <code>tcs_catalog.external_content_property</code> table.</p>
+     * 
+     * @since 1.1
+     */
+    private IDGenerator externalContentPropertyIdGenerator;
+    
+    /**
+     * <p>A <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     * <code>tcs_catalog.review</code> table.</p>
+     * 
+     * @since 1.1
+     */
+    private IDGenerator reviewIdGenerator;
+    
+    /**
+     * <p>A <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     * <code>tcs_catalog.review_item</code> table.</p>
+     * 
+     * @since 1.1
+     */
+    private IDGenerator reviewItemIdGenerator;
+    
+    /**
+     * <p>A <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     * <code>tcs_catalog.review_item_comment</code> table.</p>
+     * 
+     * @since 1.1
+     */
+    private IDGenerator reviewItemCommentIdGenerator;
+    
+    /**
      * <p>A <code>long</code> providing the ID of a screening scorecard.</p>
      */
     private long screeningScorecardId;
@@ -297,6 +914,41 @@ public class StudioContestMigrationTool extends TCLoad {
      */
     private long milestoneReviewScorecardId;
 
+    /**
+     * <p>A <code>long</code> providing the ID of a screening scorecard question.</p>
+     * 
+     * @since 1.1
+     */
+    private long screeningScorecardQuestionId;
+    
+    /**
+     * <p>A <code>long</code> providing the ID of review scorecard question.</p>
+     * 
+     * @since 1.1
+     */
+    private long reviewScorecardQuestionId;
+    
+    /**
+     * <p>A <code>long</code> providing the ID of milestone screening scorecard question.</p>
+     * 
+     * @since 1.1
+     */
+    private long milestoneScreeningScorecardQuestionId;
+    
+    /**
+     * <p>A <code>long</code> providing the ID of milestone review scorecard question.</p>
+     * 
+     * @since 1.1
+     */
+    private long milestoneReviewScorecardQuestionId;
+    
+    /**
+     * <p>A <code>String</code> providing the location to save the documents for software contests in Online Review.</p>
+     * 
+     * @since 1.1
+     */
+    private String softwareDocumentsRoot;
+    
     /**
      * <p>Constructs new <code>StudioContestMigrationTool</code> instance. This implementation does nothing.</p>
      */
@@ -378,6 +1030,34 @@ public class StudioContestMigrationTool extends TCLoad {
             throw new IllegalArgumentException("The list of contest IDs is empty");
         }
         this.contestIds = contestIds;
+    }
+
+    
+    /**
+     * <p>Gets the root directory location to save documents for software contests in Online Review.</p>
+     * 
+     * @return a <code>String</code> providing the root directory location to save documents for software contests in Online Review.
+     * @since 1.1
+     */
+    public String getSoftwareDocumentsRoot() {
+        return softwareDocumentsRoot;
+    }
+
+    /**
+     * <p>Sets the root directory location to save documents for software contests in Online Review.</p>
+     * 
+     * @param softwareDocumentsRoot a <code>String</code> providing the root directory location to save documents for software contests in Online Review.
+     * @since 1.1
+     */
+    public void setSoftwareDocumentsRoot(String softwareDocumentsRoot) {
+        if (softwareDocumentsRoot == null || softwareDocumentsRoot.trim().length() == 0) {
+            throw new IllegalArgumentException("The software documents root can not be null or empty.");
+        }
+        File dir = new File(softwareDocumentsRoot);
+        if (dir.exists() && !dir.isDirectory()) {
+            throw new IllegalArgumentException("The software documents root must be a directory.");
+        }
+        this.softwareDocumentsRoot = softwareDocumentsRoot;
     }
 
     /**
@@ -481,6 +1161,270 @@ public class StudioContestMigrationTool extends TCLoad {
     }
 
     /**
+     * <p>Gets the generator for IDs for records inserted into <code>tcs_catalog.comp_documentation</code> table.</p>
+     * 
+     * @return a <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     *          <code>tcs_catalog.comp_documentation</code> table.
+     * @since 1.1
+     */
+    public IDGenerator getDocumentIdGenerator() {
+        return documentIdGenerator;
+    }
+
+    /**
+     * <p>Sets the generator for IDs for records inserted into <code>tcs_catalog.comp_documentation</code> table.</p>
+     * 
+     * @param documentIdGenerator a <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     *          <code>tcs_catalog.comp_documentation</code> table.
+     * @since 1.1
+     */
+    public void setDocumentIdGenerator(IDGenerator documentIdGenerator) {
+        this.documentIdGenerator = documentIdGenerator;
+    }
+
+    /**
+     * <p>Gets the generator for IDs for records inserted into <code>tcs_catalog.project_studio_specification</code> table.</p>
+     * 
+     * @return a <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     *          <code>tcs_catalog.project_studio_specification</code> table.
+     * @since 1.1
+     */
+    public IDGenerator getProjectStudioSpecIdGenerator() {
+        return projectStudioSpecIdGenerator;
+    }
+
+    /**
+     * <p>Sets the generator for IDs for records inserted into <code>tcs_catalog.project_studio_specification</code> table.</p>
+     * 
+     * @param projectStudioSpecIdGenerator a <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     *          <code>tcs_catalog.project_studio_specification</code> table.
+     * @since 1.1
+     */
+    public void setProjectStudioSpecIdGenerator(IDGenerator projectStudioSpecIdGenerator) {
+        this.projectStudioSpecIdGenerator = projectStudioSpecIdGenerator;
+    }
+
+    /**
+     * <p>Gets the generator for IDs for records inserted into <code>tcs_catalog.prize</code> table.</p>
+     * 
+     * @return a <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     *          <code>tcs_catalog.prize</code> table.
+     * @since 1.1
+     */
+    public IDGenerator getPrizeIdGenerator() {
+        return prizeIdGenerator;
+    }
+
+    /**
+     * <p>Sets the generator for IDs for records inserted into <code>tcs_catalog.prize</code> table.</p>
+     * 
+     * @param prizeIdGenerator a <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     *          <code>tcs_catalog.prize</code> table.
+     * @since 1.1
+     */
+    public void setPrizeIdGenerator(IDGenerator prizeIdGenerator) {
+        this.prizeIdGenerator = prizeIdGenerator;
+    }
+
+    /**
+     * <p>Gets the generator for IDs for records inserted into <code>tcs_catalog.resource</code> table.</p>
+     * 
+     * @return a <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     *          <code>tcs_catalog.resource</code> table.
+     * @since 1.1
+     */
+    public IDGenerator getResourceIdGenerator() {
+        return resourceIdGenerator;
+    }
+
+    /**
+     * <p>Sets the generator for IDs for records inserted into <code>tcs_catalog.resource</code> table.</p>
+     * 
+     * @param resourceIdGenerator a <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     *          <code>tcs_catalog.resource</code> table.
+     * @since 1.1
+     */
+    public void setResourceIdGenerator(IDGenerator resourceIdGenerator) {
+        this.resourceIdGenerator = resourceIdGenerator;
+    }
+
+    /**
+     * <p>Gets the generator for IDs for records inserted into <code>tcs_catalog.upload</code> table.</p>
+     * 
+     * @return a <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     *          <code>tcs_catalog.upload</code> table.
+     * @since 1.1
+     */
+    public IDGenerator getUploadIdGenerator() {
+        return uploadIdGenerator;
+    }
+
+    /**
+     * <p>Sets the generator for IDs for records inserted into <code>tcs_catalog.upload</code> table.</p>
+     * 
+     * @param uploadIdGenerator a <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     *          <code>tcs_catalog.upload</code> table.
+     * @since 1.1
+     */
+    public void setUploadIdGenerator(IDGenerator uploadIdGenerator) {
+        this.uploadIdGenerator = uploadIdGenerator;
+    }
+
+    /**
+     * <p>Gets the generator for IDs for records inserted into <code>tcs_catalog.submission</code> table.</p>
+     * 
+     * @return a <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     *          <code>tcs_catalog.submission</code> table.
+     * @since 1.1
+     */
+    public IDGenerator getSubmissionIdGenerator() {
+        return submissionIdGenerator;
+    }
+
+    /**
+     * <p>Sets the generator for IDs for records inserted into <code>tcs_catalog.submission</code> table.</p>
+     * 
+     * @param submissionIdGenerator a <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     *          <code>tcs_catalog.submission</code> table.
+     * @since 1.1
+     */
+    public void setSubmissionIdGenerator(IDGenerator submissionIdGenerator) {
+        this.submissionIdGenerator = submissionIdGenerator;
+    }
+
+    /**
+     * <p>Gets the generator for IDs for records inserted into <code>tcs_catalog.submission_declaration</code> table.</p>
+     * 
+     * @return a <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     *          <code>tcs_catalog.submission_declaration</code> table.
+     * @since 1.1
+     */
+    public IDGenerator getSubmissionDeclarationIdGenerator() {
+        return submissionDeclarationIdGenerator;
+    }
+
+    /**
+     * <p>Sets the generator for IDs for records inserted into <code>tcs_catalog.submission_declaration</code> table.</p>
+     * 
+     * @param submissionDeclarationIdGenerator a <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     *          <code>tcs_catalog.submission_declaration</code> table.
+     * @since 1.1
+     */
+    public void setSubmissionDeclarationIdGenerator(IDGenerator submissionDeclarationIdGenerator) {
+        this.submissionDeclarationIdGenerator = submissionDeclarationIdGenerator;
+    }
+
+    /**
+     * <p>Gets the generator for IDs for records inserted into <code>tcs_catalog.submission_external_content</code> table.</p>
+     * 
+     * @return a <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     *          <code>tcs_catalog.submission_external_content</code> table.
+     * @since 1.1
+     */
+    public IDGenerator getExternalContentIdGenerator() {
+        return externalContentIdGenerator;
+    }
+
+    /**
+     * <p>Sets the generator for IDs for records inserted into <code>tcs_catalog.submission_external_content</code> table.</p>
+     * 
+     * @param externalContentIdGenerator a <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     *          <code>tcs_catalog.submission_external_content</code> table.
+     * @since 1.1
+     */
+    public void setExternalContentIdGenerator(IDGenerator externalContentIdGenerator) {
+        this.externalContentIdGenerator = externalContentIdGenerator;
+    }
+
+    /**
+     * <p>Gets the generator for IDs for records inserted into <code>tcs_catalog.external_content_property</code> table.</p>
+     * 
+     * @return a <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     *          <code>tcs_catalog.external_content_property</code> table.
+     * @since 1.1
+     */
+    public IDGenerator getExternalContentPropertyIdGenerator() {
+        return externalContentPropertyIdGenerator;
+    }
+
+    /**
+     * <p>Sets the generator for IDs for records inserted into <code>tcs_catalog.external_content_property</code> table.</p>
+     * 
+     * @param externalContentPropertyIdGenerator a <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     *          <code>tcs_catalog.external_content_property</code> table.
+     * @since 1.1
+     */
+    public void setExternalContentPropertyIdGenerator(IDGenerator externalContentPropertyIdGenerator) {
+        this.externalContentPropertyIdGenerator = externalContentPropertyIdGenerator;
+    }
+
+    /**
+     * <p>Gets the generator for IDs for records inserted into <code>tcs_catalog.review</code> table.</p>
+     * 
+     * @return a <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     *          <code>tcs_catalog.review</code> table.
+     * @since 1.1
+     */
+    public IDGenerator getReviewIdGenerator() {
+        return reviewIdGenerator;
+    }
+
+    /**
+     * <p>Sets the generator for IDs for records inserted into <code>tcs_catalog.review</code> table.</p>
+     * 
+     * @param reviewIdGenerator a <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     *          <code>tcs_catalog.review</code> table.
+     * @since 1.1
+     */
+    public void setReviewIdGenerator(IDGenerator reviewIdGenerator) {
+        this.reviewIdGenerator = reviewIdGenerator;
+    }
+
+    /**
+     * <p>Gets the generator for IDs for records inserted into <code>tcs_catalog.review_item</code> table.</p>
+     * 
+     * @return a <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     *          <code>tcs_catalog.review_item</code> table.
+     * @since 1.1
+     */
+    public IDGenerator getReviewItemIdGenerator() {
+        return reviewItemIdGenerator;
+    }
+
+    /**
+     * <p>Sets the generator for IDs for records inserted into <code>tcs_catalog.review_item</code> table.</p>
+     * 
+     * @param reviewItemIdGenerator a <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     *          <code>tcs_catalog.review_item</code> table.
+     * @since 1.1
+     */
+    public void setReviewItemIdGenerator(IDGenerator reviewItemIdGenerator) {
+        this.reviewItemIdGenerator = reviewItemIdGenerator;
+    }
+
+    /**
+     * <p>Gets the generator for IDs for records inserted into <code>tcs_catalog.review_item_comment</code> table.</p>
+     * 
+     * @return a <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     *          <code>tcs_catalog.review_item_comment</code> table.
+     * @since 1.1
+     */
+    public IDGenerator getReviewItemCommentIdGenerator() {
+        return reviewItemCommentIdGenerator;
+    }
+
+    /**
+     * <p>Sets the generator for IDs for records inserted into <code>tcs_catalog.review_item_comment</code> table.</p>
+     * 
+     * @param reviewItemCommentIdGenerator a <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     *          <code>tcs_catalog.review_item_comment</code> table.
+     * @since 1.1
+     */
+    public void setReviewItemCommentIdGenerator(IDGenerator reviewItemCommentIdGenerator) {
+        this.reviewItemCommentIdGenerator = reviewItemCommentIdGenerator;
+    }
+
+    /**
      * <p>Gets the ID of a screening scorecard.</p>
      *
      * @return a <code>long</code> providing the ID of a screening scorecard.
@@ -551,7 +1495,87 @@ public class StudioContestMigrationTool extends TCLoad {
     public void setMilestoneReviewScorecardId(long milestoneReviewScorecardId) {
         this.milestoneReviewScorecardId = milestoneReviewScorecardId;
     }
-    
+
+    /**
+     * <p>Gets the ID of screening scorecard question.</p>
+     *
+     * @return a <code>long</code> providing the ID of screening scorecard question.
+     * @since 1.1
+     */
+    public long getScreeningScorecardQuestionId() {
+        return screeningScorecardQuestionId;
+    }
+
+    /**
+     * <p>Sets the ID of screening scorecard question.</p>
+     *
+     * @param screeningScorecardQuestionId a <code>long</code> providing the ID of screening scorecard question.
+     * @since 1.1
+     */
+    public void setScreeningScorecardQuestionId(long screeningScorecardQuestionId) {
+        this.screeningScorecardQuestionId = screeningScorecardQuestionId;
+    }
+
+    /**
+     * <p>Gets the ID of review scorecard question.</p>
+     *
+     * @return a <code>long</code> providing the ID of review scorecard question.
+     * @since 1.1
+     */
+    public long getReviewScorecardQuestionId() {
+        return reviewScorecardQuestionId;
+    }
+
+    /**
+     * <p>Sets the ID of review scorecard question.</p>
+     *
+     * @param reviewScorecardQuestionId a <code>long</code> providing the ID of review scorecard question.
+     * @since 1.1
+     */
+    public void setReviewScorecardQuestionId(long reviewScorecardQuestionId) {
+        this.reviewScorecardQuestionId = reviewScorecardQuestionId;
+    }
+
+    /**
+     * <p>Gets the ID of milestone screening scorecard question.</p>
+     *
+     * @return a <code>long</code> providing the ID of milestone screening scorecard question.
+     * @since 1.1
+     */
+    public long getMilestoneScreeningScorecardQuestionId() {
+        return milestoneScreeningScorecardQuestionId;
+    }
+
+    /**
+     * <p>Sets the ID of milestone screening scorecard question.</p>
+     *
+     * @param milestoneScreeningScorecardQuestionId a <code>long</code> providing the ID of milestone screening scorecard question.
+     * @since 1.1
+     */
+    public void setMilestoneScreeningScorecardQuestionId(long milestoneScreeningScorecardQuestionId) {
+        this.milestoneScreeningScorecardQuestionId = milestoneScreeningScorecardQuestionId;
+    }
+
+    /**
+     * <p>Gets the ID of milestone review scorecard question.</p>
+     *
+     * @return a <code>long</code> providing the ID of milestone review scorecard question.
+     * @since 1.1
+     */
+    public long getMilestoneReviewScorecardQuestionId() {
+        return milestoneReviewScorecardQuestionId;
+    }
+
+    /**
+     * <p>Sets the ID of milestone review scorecard question.</p>
+     *
+     * @param milestoneScreeningScorecardQuestionId a <code>long</code> providing the ID of milestone review scorecard question.
+     * @since 1.1
+     */
+    public void setMilestoneReviewScorecardQuestionId(long milestoneReviewScorecardQuestionId) {
+        this.milestoneReviewScorecardQuestionId = milestoneReviewScorecardQuestionId;
+    }
+
     /**
      * <p>Initializes this loader based on configuration parameters provided by the user.</p>
      * 
@@ -568,11 +1592,28 @@ public class StudioContestMigrationTool extends TCLoad {
             setReviewScorecardId(parseLongParameter(params, REVIEW_SCORECARD_ID_PARAM_NAME));
             setMilestoneScreeningScorecardId(parseLongParameter(params, MILESTONE_SCREENING_SCORECARD_ID_PARAM_NAME));
             setMilestoneReviewScorecardId(parseLongParameter(params, MILESTONE_REVIEW_SCORECARD_ID_PARAM_NAME));
+            setScreeningScorecardQuestionId(parseLongParameter(params, SCREENING_SCORECARD_QUESTION_ID_PARAM_NAME));
+            setReviewScorecardQuestionId(parseLongParameter(params, REVIEW_SCORECARD_QUESTION_ID_PARAM_NAME));
+            setMilestoneScreeningScorecardQuestionId(parseLongParameter(params, MILESTONE_SCREENING_SCORECARD_QUESTION_ID_PARAM_NAME));
+            setMilestoneReviewScorecardQuestionId(parseLongParameter(params, MILESTONE_REVIEW_SCORECARD_QUESTION_ID_PARAM_NAME));
+            setSoftwareDocumentsRoot((String) params.get(SOFTWARE_DOCUMENTS_ROOT_PARAM_NAME));
             setProjectIdGenerator(IDGeneratorFactory.getIDGenerator("project_id_seq"));
             setPhaseIdGenerator(IDGeneratorFactory.getIDGenerator("project_phase_id_seq"));
             setComponentIdGenerator(IDGeneratorFactory.getIDGenerator("COMPONENT_SEQ"));
             setComponentVersionIdGenerator(IDGeneratorFactory.getIDGenerator("COMPVERSION_SEQ"));
             setComponentCategoriesIdGenerator(IDGeneratorFactory.getIDGenerator("COMPCATEGORY_SEQ"));
+            setDocumentIdGenerator(IDGeneratorFactory.getIDGenerator("COMPDOCUMENT_SEQ"));
+            setProjectStudioSpecIdGenerator(IDGeneratorFactory.getIDGenerator("studio_spec_id_seq"));
+            setPrizeIdGenerator(IDGeneratorFactory.getIDGenerator("prize_id_seq"));
+            setResourceIdGenerator(IDGeneratorFactory.getIDGenerator("resource_id_seq"));
+            setUploadIdGenerator(IDGeneratorFactory.getIDGenerator("upload_id_seq"));
+            setSubmissionIdGenerator(IDGeneratorFactory.getIDGenerator("submission_id_seq"));
+            setSubmissionDeclarationIdGenerator(IDGeneratorFactory.getIDGenerator("submission_declaration_id_seq"));
+            setExternalContentIdGenerator(IDGeneratorFactory.getIDGenerator("external_content_id_seq"));
+            setExternalContentPropertyIdGenerator(IDGeneratorFactory.getIDGenerator("external_content_property_id_seq"));
+            setReviewIdGenerator(IDGeneratorFactory.getIDGenerator("review_id_seq"));
+            setReviewItemIdGenerator(IDGeneratorFactory.getIDGenerator("review_item_id_seq"));
+            setReviewItemCommentIdGenerator(IDGeneratorFactory.getIDGenerator("review_item_comment_id_seq"));
             return true;
         } catch(IllegalArgumentException e) {
             logError(e);
@@ -751,6 +1792,7 @@ public class StudioContestMigrationTool extends TCLoad {
         startActivityRecording("doLoadStudioContests");
         
         PreparedStatement selectContestsStmt = null;
+        PreparedStatement selectContestSpecStmt = null;
         PreparedStatement insertComponentStmt = null;
         PreparedStatement insertComponentVersionStmt = null;
         PreparedStatement insertComponentCategoriesStmt = null;
@@ -759,8 +1801,31 @@ public class StudioContestMigrationTool extends TCLoad {
         PreparedStatement insertPhaseStmt = null;
         PreparedStatement insertPhaseCriteriaStmt = null;
         PreparedStatement insertPhaseDependencyStmt = null;
+        PreparedStatement selectContestFileTypesStmt = null;
+        PreparedStatement insertProjectFileTypeStmt = null;
+        PreparedStatement selectContestDocumentsStmt = null;
+        PreparedStatement insertCompDocumentationStmt = null;
+        PreparedStatement insertProjectStudioSpecStmt = null;
+        PreparedStatement selectPrizesStmt = null;
+        PreparedStatement insertPrizeStmt = null;
+        PreparedStatement insertProjectPrizeXrefStmt = null;
+        PreparedStatement selectContestRegistrationsStmt = null;
+        PreparedStatement insertResourceStmt = null;
+        PreparedStatement insertResourceInfoStmt = null;
+        PreparedStatement selectSubmissionStmt = null;
+        PreparedStatement insertResourceSubmissionStmt = null;
+        PreparedStatement insertUploadStmt = null;
+        PreparedStatement insertSubmissionStmt = null;
+        PreparedStatement selectSubmissionDeclarationStmt = null;
+        PreparedStatement insertSubmissionDeclarationStmt = null;
+        PreparedStatement insertSubmissionExternalContentStmt = null;
+        PreparedStatement insertExternalContentPropertyStmt = null;
+        PreparedStatement insertReviewStmt = null;
+        PreparedStatement insertReviewItemStmt = null;
+        PreparedStatement insertReviewItemCommentStmt = null;
         ResultSet selectedContestsResult = null;
-        int insertCount;
+        Map<Long, Prize> contestPrizes = new HashMap<Long, Prize>();
+        Map<Long, Prize> milestonePrizes = new HashMap<Long, Prize>();
         
         try {
             // Prepare statements for querying contests for migration and inserting records into target database
@@ -772,6 +1837,29 @@ public class StudioContestMigrationTool extends TCLoad {
             insertPhaseStmt = prepareStatement(INSERT_PHASE_SQL, TARGET_DB);
             insertPhaseCriteriaStmt = prepareStatement(INSERT_PHASE_CRITERIA_SQL, TARGET_DB);
             insertPhaseDependencyStmt = prepareStatement(INSERT_PHASE_DEPENDENCY_SQL, TARGET_DB);
+            selectContestFileTypesStmt = prepareStatement(SELECT_CONTEST_FILE_TYPES_SQL, SOURCE_DB);
+            insertProjectFileTypeStmt = prepareStatement(INSERT_PROJECT_FILE_TYPES_SQL, TARGET_DB);
+            selectContestDocumentsStmt = prepareStatement(SELECT_STUDIO_CONTEST_DOCUMENTS_SQL, SOURCE_DB);
+            insertCompDocumentationStmt = prepareStatement(INSERT_COMP_DOCUMENTATION_SQL, TARGET_DB);
+            insertProjectStudioSpecStmt = prepareStatement(INSERT_PROJECT_STUDIO_SPECIFICATION_SQL, TARGET_DB);
+            selectPrizesStmt = prepareStatement(SELECT_PRIZE_SQL, SOURCE_DB);
+            insertPrizeStmt = prepareStatement(INSERT_PRIZE_SQL, TARGET_DB);
+            insertProjectPrizeXrefStmt = prepareStatement(INSERT_PROJECT_PRIZE_XREF_SQL, TARGET_DB);
+            selectContestRegistrationsStmt = prepareStatement(SELECT_CONTEST_REGISTRATION_SQL, SOURCE_DB);
+            insertResourceStmt = prepareStatement(INSERT_RESOURCE_SQL, TARGET_DB);
+            insertResourceInfoStmt = prepareStatement(INSERT_RESOURCE_INFO_SQL, TARGET_DB);
+            selectContestSpecStmt = prepareStatement(SELECT_CONTEST_SPECIFICATION_SQL, SOURCE_DB);
+            selectSubmissionStmt = prepareStatement(SELECT_SUBMISSION_SQL, SOURCE_DB);
+            insertResourceSubmissionStmt = prepareStatement(INSERT_RESOURCE_SUBMISSION_SQL, TARGET_DB);
+            insertUploadStmt = prepareStatement(INSERT_UPLOAD_SQL, TARGET_DB);
+            insertSubmissionStmt = prepareStatement(INSERT_SUBMISSION_SQL, TARGET_DB);
+            selectSubmissionDeclarationStmt = prepareStatement(SELECT_SUBMISSION_DECLARATION_SQL, SOURCE_DB);
+            insertSubmissionDeclarationStmt = prepareStatement(INSERT_SUBMISSION_DECLARATION_SQL, TARGET_DB);
+            insertSubmissionExternalContentStmt = prepareStatement(INSERT_SUBMISSION_EXTERNAL_CONTENT_SQL, TARGET_DB);
+            insertExternalContentPropertyStmt = prepareStatement(INSERT_EXTERNAL_CONTENT_PROPERTY_SQL, TARGET_DB);
+            insertReviewStmt = prepareStatement(INSERT_REVIEW_SQL, TARGET_DB);
+            insertReviewItemStmt = prepareStatement(INSERT_REVIEW_ITEM_SQL, TARGET_DB);
+            insertReviewItemCommentStmt = prepareStatement(INSERT_REVIEW_ITEM_COMMENT_SQL, TARGET_DB);
             selectContestsStmt = getSelectContestsStatement();
             
             // Get the contests for migration and migrate each contest in a single separate transaction
@@ -789,6 +1877,7 @@ public class StudioContestMigrationTool extends TCLoad {
                                                    + " to Online Review project ");
 
                             Long contestCreateUserId = getLong(selectedContestsResult, "create_user_id");
+                            String contestCreateUserHandle = selectedContestsResult.getString("create_user_handle");
                             Long tcDirectProjectId = getLong(selectedContestsResult, "tc_direct_project_id");
                             Long contestForumId = getLong(selectedContestsResult, "forum_id");
                             Timestamp contestStartTime = selectedContestsResult.getTimestamp("start_time");
@@ -817,11 +1906,10 @@ public class StudioContestMigrationTool extends TCLoad {
                             insertComponentStmt.setString(4, contestDescription);
                             insertComponentStmt.setTimestamp(5, contestStartTime);
                             insertComponentStmt.setTimestamp(6, contestStartTime);
-                            insertCount = insertComponentStmt.executeUpdate();
-                            if (insertCount != 1) {
-                                throw new StudioContestMigrationException("Wrong number of records inserted into " +
-                                                                          "comp_catalog table: " + insertCount);
-                            }
+                            insertRecord(insertComponentStmt, "comp_catalog");
+                            
+                            // project_category_id
+                            Long projectCategoryId = PROJECT_CATEGORY_MAPPING.get(contestTypeId);
                             
                             // Insert into tcs_catalog.comp_versions
                             long newComponentVersionId = getComponentVersionIdGenerator().getNextID();
@@ -829,23 +1917,53 @@ public class StudioContestMigrationTool extends TCLoad {
                             insertComponentVersionStmt.setLong(1, newComponentVersionId);
                             insertComponentVersionStmt.setLong(2, newComponentId);
                             insertComponentVersionStmt.setTimestamp(3, contestStartTime);
-                            insertComponentVersionStmt.setTimestamp(4, contestStartTime);
+                            // phase_id
+                            insertComponentVersionStmt.setLong(4, PROJECT_CATEGORY_PHASE_MAPPING.get(projectCategoryId));
                             insertComponentVersionStmt.setTimestamp(5, contestStartTime);
-                            insertCount = insertComponentVersionStmt.executeUpdate();
-                            if (insertCount != 1) {
-                                throw new StudioContestMigrationException("Wrong number of records inserted into " +
-                                                                          "comp_versions table: " + insertCount);
-                            }
+                            insertComponentVersionStmt.setTimestamp(6, contestStartTime);
+                            insertRecord(insertComponentVersionStmt, "comp_versions");
 
                             // Insert into tcs_catalog.comp_categories
                             long newComponentCategoriesId = getComponentCategoriesIdGenerator().getNextID();
                             insertComponentCategoriesStmt.clearParameters();
                             insertComponentCategoriesStmt.setLong(1, newComponentCategoriesId);
                             insertComponentCategoriesStmt.setLong(2, newComponentId);
-                            insertCount = insertComponentCategoriesStmt.executeUpdate();
-                            if (insertCount != 1) {
-                                throw new StudioContestMigrationException("Wrong number of records inserted into " +
-                                                                          "comp_categories table: " + insertCount);
+                            insertRecord(insertComponentCategoriesStmt, "comp_categories");
+                            
+                            // Insert into tcs_catalog.project_studio_specification
+                            selectContestSpecStmt.clearParameters();
+                            selectContestSpecStmt.setLong(1, contestId);
+                            ResultSet selectedContestSpecResult = selectContestSpecStmt.executeQuery();
+                            long newProjectStudioSpecId = 0;
+                            try {
+                                if (!selectedContestSpecResult.next()) {
+                                    throw new StudioContestMigrationException("Cannot find contest specification for contest: " + contestId);
+                                }
+                                newProjectStudioSpecId = getProjectStudioSpecIdGenerator().getNextID();
+                                insertProjectStudioSpecStmt.clearParameters();
+                                insertProjectStudioSpecStmt.setLong(1, newProjectStudioSpecId);
+                                insertProjectStudioSpecStmt.setString(2, selectedContestSpecResult.getString("goals"));
+                                insertProjectStudioSpecStmt.setString(3, selectedContestSpecResult.getString("target_audience"));
+                                insertProjectStudioSpecStmt.setString(4, selectedContestSpecResult.getString("branding_guidelines"));
+                                insertProjectStudioSpecStmt.setString(5, selectedContestSpecResult.getString("disliked_design_websites"));
+                                insertProjectStudioSpecStmt.setString(6, selectedContestSpecResult.getString("other_instructions"));
+                                insertProjectStudioSpecStmt.setString(7, selectedContestSpecResult.getString("winning_criteria"));
+                                insertProjectStudioSpecStmt.setString(8, selectedContestSpecResult.getString("round_one_introduction"));
+                                insertProjectStudioSpecStmt.setString(9, selectedContestSpecResult.getString("round_two_introduction"));
+                                insertProjectStudioSpecStmt.setString(10, selectedContestSpecResult.getString("colors"));
+                                insertProjectStudioSpecStmt.setString(11, selectedContestSpecResult.getString("fonts"));
+                                insertProjectStudioSpecStmt.setString(12, selectedContestSpecResult.getString("layout_and_size"));
+                                insertProjectStudioSpecStmt.setString(13, selectedContestSpecResult.getString("contest_introduction"));
+                                insertProjectStudioSpecStmt.setString(14, selectedContestSpecResult.getString("contest_description"));
+                                insertProjectStudioSpecStmt.setString(15, selectedContestSpecResult.getString("content_requirements"));
+                                insertProjectStudioSpecStmt.setString(16, selectedContestSpecResult.getString("general_feedback_text"));
+                                insertProjectStudioSpecStmt.setLong(17, contestCreateUserId);
+                                insertProjectStudioSpecStmt.setTimestamp(18, contestStartTime);
+                                insertProjectStudioSpecStmt.setLong(19, contestCreateUserId);
+                                insertProjectStudioSpecStmt.setTimestamp(20, contestStartTime);
+                                insertRecord(insertProjectStudioSpecStmt, "project_studio_specification");
+                            } finally {
+                                close(selectedContestSpecResult);
                             }
                             
                             // Insert into tcs_catalog.project
@@ -857,21 +1975,18 @@ public class StudioContestMigrationTool extends TCLoad {
                             } else {
                                 insertProjectStmt.setLong(2, STATUS_MAPPING.get(contestStatusId));
                             }
-                            insertProjectStmt.setLong(3, PROJECT_CATEGORY_MAPPING.get(contestTypeId));
+                            insertProjectStmt.setLong(3, projectCategoryId);
+                            insertProjectStmt.setLong(4, newProjectStudioSpecId);
                             if (tcDirectProjectId == null) {
-                                insertProjectStmt.setNull(4, Types.DECIMAL);
+                                insertProjectStmt.setNull(5, Types.DECIMAL);
                             } else {
-                                insertProjectStmt.setLong(4, tcDirectProjectId);
+                                insertProjectStmt.setLong(5, tcDirectProjectId);
                             }
-                            insertProjectStmt.setLong(5, contestCreateUserId);
-                            insertProjectStmt.setTimestamp(6, contestStartTime);
-                            insertProjectStmt.setLong(7, contestCreateUserId);
-                            insertProjectStmt.setTimestamp(8, contestStartTime);
-                            insertCount = insertProjectStmt.executeUpdate();
-                            if (insertCount != 1) {
-                                throw new StudioContestMigrationException("Wrong number of records inserted into " +
-                                                                          "project table: " + insertCount);
-                            }
+                            insertProjectStmt.setLong(6, contestCreateUserId);
+                            insertProjectStmt.setTimestamp(7, contestStartTime);
+                            insertProjectStmt.setLong(8, contestCreateUserId);
+                            insertProjectStmt.setTimestamp(9, contestStartTime);
+                            insertRecord(insertProjectStmt, "project");
                             
                             // Insert into tcs_catalog.project_info
                             insertSingleProjectInfo(insertProjectInfoStmt, newProjectId, 1, 
@@ -887,7 +2002,7 @@ public class StudioContestMigrationTool extends TCLoad {
                                                         String.valueOf(contestForumId), 
                                                         contestCreateUserId, contestStartTime); // Forum ID
                             }
-                            insertSingleProjectInfo(insertProjectInfoStmt, newProjectId, 5, "27202915", 
+                            insertSingleProjectInfo(insertProjectInfoStmt, newProjectId, 5, "26887152", 
                                                     contestCreateUserId, contestStartTime); // Root Catalog ID
                             insertSingleProjectInfo(insertProjectInfoStmt, newProjectId, 6, contestName, 
                                                     contestCreateUserId, contestStartTime); // Project name
@@ -911,6 +2026,21 @@ public class StudioContestMigrationTool extends TCLoad {
                                                     contestCreateUserId, contestStartTime); // Notes
                             insertSingleProjectInfo(insertProjectInfoStmt, newProjectId, 26, "Yes", 
                                                     contestCreateUserId, contestStartTime); // Digital Run flag
+                            // Old Studio Contest Id
+                            insertSingleProjectInfo(insertProjectInfoStmt, newProjectId, 50, String.valueOf(contestId), contestCreateUserId, contestStartTime);
+                            // Viewable Submissions Flag
+                            String viewableSubmissionsFlag = selectedContestsResult.getString("viewable_submissions_flag");
+                            if (viewableSubmissionsFlag != null) {
+                                insertSingleProjectInfo(insertProjectInfoStmt, newProjectId, 53, viewableSubmissionsFlag,
+                                        contestCreateUserId, contestStartTime);
+                            }
+                            // Viewable Submitters
+                            String viewableSubmitters = selectedContestsResult.getString("viewable_submitters");
+                            if (viewableSubmitters != null) {
+                                insertSingleProjectInfo(insertProjectInfoStmt, newProjectId, 54, viewableSubmitters,
+                                        contestCreateUserId, contestStartTime);
+                            }
+                            
                             if (adminFee != null) {
                                 insertSingleProjectInfo(insertProjectInfoStmt, newProjectId, 31, adminFee, 
                                                         contestCreateUserId, contestStartTime); // Admin Fee
@@ -925,7 +2055,9 @@ public class StudioContestMigrationTool extends TCLoad {
                                                     contestCreateUserId, contestStartTime); // Send Winner Emails
                             insertSingleProjectInfo(insertProjectInfoStmt, newProjectId, 44, "No", 
                                                     contestCreateUserId, contestStartTime); // Post-Mortem Required
-                            
+                            insertSingleProjectInfo(insertProjectInfoStmt, newProjectId, 46, "true", 
+                                                    contestCreateUserId, contestStartTime); // Member Payments Eligible
+
                             // Insert into tcs_catalog.project_phase
                             // Registration phase
                             long registrationPhaseStatusId 
@@ -996,13 +2128,19 @@ public class StudioContestMigrationTool extends TCLoad {
                                                   false, true, 0, contestCreateUserId, contestStartTime);
 
                             // Handle multi-round contest phases
+                            long milestoneReviewPhaseId = 0;
+                            long milestoneScreeningPhaseId = 0;
+                            long milestoneScreeningPhaseStatusId = 0;
+                            long milestoneReviewPhaseStatusId = 0;
+                            Timestamp contestMilestoneTimePlus1Minute  = null;
+                            Timestamp contestMilestoneTimePlus1Day = null;
                             if (isMultiRoundContest) {
                                 long oneDayDuration = 24 * 60 * 60 * 1000L;
                                 long contestMilestoneDuration 
                                     = contestMilestoneTime.getTime() - contestStartTime.getTime();
-                                Timestamp contestMilestoneTimePlus1Minute 
+                                contestMilestoneTimePlus1Minute 
                                     = new Timestamp(contestMilestoneTime.getTime() + oneMinuteDuration);
-                                Timestamp contestMilestoneTimePlus1Day 
+                                contestMilestoneTimePlus1Day 
                                     = new Timestamp(contestMilestoneTime.getTime() + oneDayDuration);
                                 
                                 // Milestone submission phase
@@ -1020,9 +2158,9 @@ public class StudioContestMigrationTool extends TCLoad {
                                                          contestStartTime);
                                 
                                 // Milestone screening phase
-                                long milestoneScreeningPhaseStatusId 
+                                milestoneScreeningPhaseStatusId 
                                     = selectedContestsResult.getLong("milestone_screening_phase_status");
-                                long milestoneScreeningPhaseId 
+                                milestoneScreeningPhaseId 
                                     = insertProjectPhase(insertPhaseStmt, newProjectId, 16, 
                                                          milestoneScreeningPhaseStatusId,
                                                          null, contestMilestoneTime, contestMilestoneTimePlus1Minute,
@@ -1035,9 +2173,9 @@ public class StudioContestMigrationTool extends TCLoad {
                                 // Milestone review phase
                                 long milestoneReviewPhaseDuration 
                                     = contestMilestoneTimePlus1Day.getTime() - contestMilestoneTimePlus1Minute.getTime();
-                                long milestoneReviewPhaseStatusId 
+                                milestoneReviewPhaseStatusId 
                                     = selectedContestsResult.getLong("milestone_review_phase_status");
-                                long milestoneReviewPhaseId 
+                                milestoneReviewPhaseId 
                                     = insertProjectPhase(insertPhaseStmt, newProjectId, 17, 
                                                          milestoneReviewPhaseStatusId,
                                                          null, contestMilestoneTimePlus1Minute, 
@@ -1071,6 +2209,130 @@ public class StudioContestMigrationTool extends TCLoad {
                                                       contestStartTime);
                             }
 
+                            // load Component Documentation
+                            loadCompDocumentations(selectContestDocumentsStmt, insertCompDocumentationStmt, contestId, newComponentVersionId);
+                            
+                            // load Project File Types
+                            selectContestFileTypesStmt.clearParameters();
+                            selectContestFileTypesStmt.setLong(1, contestId);
+                            ResultSet selectedContestFileTypesResult = selectContestFileTypesStmt.executeQuery();
+                            try {
+                                while (selectedContestFileTypesResult.next()) {
+                                    insertProjectFileTypeStmt.clearParameters();
+                                    insertProjectFileTypeStmt.setLong(1, newProjectId);
+                                    insertProjectFileTypeStmt.setLong(2, selectedContestFileTypesResult.getLong("file_type_id"));
+                                    insertRecord(insertProjectFileTypeStmt, "project_file_type_xref");
+                                }
+                            } finally {
+                                close(selectedContestFileTypesResult);
+                            }
+                            
+                            // Get prizes
+                            getPrizes(selectPrizesStmt, contestId, contestPrizes, milestonePrizes);
+                            
+                            // Load contest prizes to tcs_catalog.prize table
+                            for (Map.Entry<Long, Prize> entry : contestPrizes.entrySet()) {
+                                insertSinglePrize(insertPrizeStmt, insertProjectPrizeXrefStmt, newProjectId, contestCreateUserId, entry.getValue());
+                            }
+                            if (isMultiRoundContest) {
+                                // Load milestone prizes to tcs_catalog.prize table
+                                for (Map.Entry<Long, Prize> entry : milestonePrizes.entrySet()) {
+                                    insertSinglePrize(insertPrizeStmt, insertProjectPrizeXrefStmt, newProjectId, contestCreateUserId, entry.getValue());
+                                }
+                            }
+                            
+                            Map<Long, Long> submitterResources = new HashMap<Long, Long>();
+                            // Load submitters
+                            selectContestRegistrationsStmt.clearParameters();
+                            selectContestRegistrationsStmt.setLong(1, contestId);
+                            ResultSet selectedContestRegistrationsResult = selectContestRegistrationsStmt.executeQuery();
+                            try {
+                                while (selectedContestRegistrationsResult.next()) {
+                                    long userId = selectedContestRegistrationsResult.getLong("user_id");
+                                    submitterResources.put(userId, insertSingleResource(insertResourceStmt, insertResourceInfoStmt,
+                                            userId, selectedContestRegistrationsResult.getString("handle"),
+                                            SUBMITTER_RESOURCE_ROLE_ID, newProjectId, -1, contestCreateUserId,
+                                            selectedContestRegistrationsResult.getTimestamp("create_date"),
+                                            selectedContestRegistrationsResult.getDouble("prizes"), contestStartTime));
+                                }
+                            } finally {
+                                close(selectedContestRegistrationsResult);
+                            }
+                            
+                            // Load Reviewer resource
+                            long reviewerResource = insertSingleResource(insertResourceStmt, insertResourceInfoStmt, contestCreateUserId, contestCreateUserHandle,
+                                    REVIEWER_RESOURCE_ROLE_ID, newProjectId, reviewPhaseId, contestCreateUserId, null, 0, contestStartTime);
+                            Long screenerUserId = getLong(selectedContestsResult, "milestone_screener_id");
+                            String screenerUserHandler = selectedContestsResult.getString("milestone_screener_handle");
+                            if (screenerUserId == null) {
+                                screenerUserId = contestCreateUserId;
+                                screenerUserHandler = contestCreateUserHandle;
+                            }
+                            // Load Screener resource
+                            long screenerResource = 0;
+                            if (screenerUserId != null) {
+                                screenerResource = insertSingleResource(insertResourceStmt, insertResourceInfoStmt, screenerUserId, screenerUserHandler,
+                                        PRIMARY_SCREENER_RESOURCE_ROLE_ID, newProjectId, screeningPhaseId, contestCreateUserId, null, 0, contestStartTime);
+                            }
+                            // Load Milestone Screener resource
+                            long milestoneScreenerResource = 0;
+                            if (screenerUserId != null && isMultiRoundContest) {
+                                milestoneScreenerResource = insertSingleResource(insertResourceStmt, insertResourceInfoStmt, screenerUserId, screenerUserHandler,
+                                        MILESTONE_SCREENER_RESOURCE_ROLE_ID, newProjectId, milestoneScreeningPhaseId, contestCreateUserId, null, 0, contestStartTime);
+                            }
+                            long milestoneReviewerResource = 0;
+                            if (isMultiRoundContest) {
+                                // Load Milestone Reviewer Resource
+                                milestoneReviewerResource = insertSingleResource(insertResourceStmt, insertResourceInfoStmt, contestCreateUserId, contestCreateUserHandle,
+                                        MILESTONE_REVIEWER_RESOURCE_ROLE_ID, newProjectId, milestoneReviewPhaseId, contestCreateUserId, null, 0, contestStartTime);
+                            }
+                            
+                            // Load submissions
+                            List<Submission> submissions = getContestSubmissions(selectSubmissionStmt, contestId, contestMilestoneTime, contestPrizes, milestonePrizes);
+                            for (Submission sub : submissions) {
+                                // Load basic submission data
+                                insertSingleSubmission(insertUploadStmt, insertSubmissionStmt, insertResourceSubmissionStmt, sub, newProjectId,
+                                        submitterResources.get(sub.submitterId), contestPrizes, milestonePrizes);
+                                
+                                // Load submission declaration data
+                                insertSubmissionDeclaration(selectSubmissionDeclarationStmt, insertSubmissionDeclarationStmt,
+                                       insertSubmissionExternalContentStmt, insertExternalContentPropertyStmt, sub);
+                                
+                                // Create review for active submission
+                                if (ACTIVE_SUBMISSION_STATUS_ID == SUBMISSION_STATUS_MAPPING.get(sub.submissionStatusId)) {
+                                    // only create review for active submission
+                                    if (CONTEST_SUBMISSISON_TYPE_ID == SUBMISSION_TYPE_MAPPING.get(sub.submissionTypeId)) {
+                                        // contest submission
+                                        if (screeningPhaseStatusId == CLOSED) {
+                                            // create review for Screening phase
+                                            insertSubmissionReview(insertReviewStmt, insertReviewItemStmt, insertReviewItemCommentStmt, sub,
+                                                    screenerResource, screenerUserId, screeningScorecardId, screeningScorecardQuestionId,
+                                                    sub.passedScreening ? 100.0 : 0, contestEndTimePlus1Minute, SCREENING_PHASE_TYPE_ID);
+                                        }
+                                        if (reviewPhaseStatusId == CLOSED) {
+                                            // create review for Review phase
+                                            insertSubmissionReview(insertReviewStmt, insertReviewItemStmt, insertReviewItemCommentStmt, sub,
+                                                    reviewerResource, contestCreateUserId, reviewScorecardId, reviewScorecardQuestionId,
+                                                    sub.score, contestWinnerAnnouncementTime, REVIEW_PHASE_TYPE_ID);
+                                        }
+                                    } else if (isMultiRoundContest) {
+                                        // milestone submission
+                                        if (milestoneScreeningPhaseStatusId == CLOSED) {
+                                            // create review for Milestone Screening phase
+                                            insertSubmissionReview(insertReviewStmt, insertReviewItemStmt, insertReviewItemCommentStmt, sub,
+                                                    milestoneScreenerResource, screenerUserId, milestoneScreeningScorecardId, milestoneScreeningScorecardQuestionId,
+                                                    sub.passedScreening ? 100.0 : 0, contestMilestoneTimePlus1Minute, MILESTONE_SCREENING_PHASE_TYPE_ID);
+                                        }
+                                        if (milestoneReviewPhaseStatusId == CLOSED) {
+                                            // create review for Milestone Review phase
+                                            insertSubmissionReview(insertReviewStmt, insertReviewItemStmt, insertReviewItemCommentStmt, sub,
+                                                    milestoneReviewerResource, contestCreateUserId, milestoneReviewScorecardId, milestoneReviewScorecardQuestionId,
+                                                    sub.score, contestMilestoneTimePlus1Day, MILESTONE_REVIEW_PHASE_TYPE_ID);
+                                        }
+                                    }
+                                }
+                            }
+                            
                             // If everything went smoothly then append ID of converted project to log messages
                             Object[] currentActivity = this.activities.peek();
                             currentActivity[0] = (String) currentActivity[0] + newProjectId;
@@ -1103,6 +2365,29 @@ public class StudioContestMigrationTool extends TCLoad {
             close(insertComponentVersionStmt);
             close(insertComponentStmt);
             close(selectContestsStmt);
+            close(selectContestSpecStmt);
+            close(selectContestFileTypesStmt);
+            close(insertProjectFileTypeStmt);
+            close(insertCompDocumentationStmt);
+            close(selectContestDocumentsStmt);
+            close(insertProjectStudioSpecStmt);
+            close(selectPrizesStmt);
+            close(insertPrizeStmt);
+            close(insertProjectPrizeXrefStmt);
+            close(selectContestRegistrationsStmt);
+            close(insertResourceStmt);
+            close(insertResourceInfoStmt);
+            close(selectSubmissionStmt);
+            close(insertResourceSubmissionStmt);
+            close(insertUploadStmt);
+            close(insertSubmissionStmt);
+            close(selectSubmissionDeclarationStmt);
+            close(insertSubmissionDeclarationStmt);
+            close(insertSubmissionExternalContentStmt);
+            close(insertExternalContentPropertyStmt);
+            close(insertReviewStmt);
+            close(insertReviewItemStmt);
+            close(insertReviewItemCommentStmt);
             stopActivityRecording();
         }
     }
@@ -1150,11 +2435,7 @@ public class StudioContestMigrationTool extends TCLoad {
         insertPhaseStmt.setTimestamp(12, contestStartTime);
         insertPhaseStmt.setLong(13, contestCreateUserId);
         insertPhaseStmt.setTimestamp(14, contestStartTime);
-        int insertCount = insertPhaseStmt.executeUpdate();
-        if (insertCount != 1) {
-            throw new StudioContestMigrationException("Wrong number of records inserted into " +
-                                                      "project_phase table: " + insertCount);
-        }
+        insertRecord(insertPhaseStmt, "project_phase");
         
         return newPhaseId;
     }
@@ -1185,11 +2466,7 @@ public class StudioContestMigrationTool extends TCLoad {
         insertProjectInfoStmt.setTimestamp(5, contestStartTime);
         insertProjectInfoStmt.setLong(6, contestCreateUserId);
         insertProjectInfoStmt.setTimestamp(7, contestStartTime);
-        int insertCount = insertProjectInfoStmt.executeUpdate();
-        if (insertCount != 1) {
-            throw new StudioContestMigrationException("Wrong number of records inserted into " +
-                                                      "project_info table: " + insertCount);
-        }
+        insertRecord(insertProjectInfoStmt, "project_info");
     }
 
     /**
@@ -1217,11 +2494,7 @@ public class StudioContestMigrationTool extends TCLoad {
         insertPhaseCriteriaStmt.setTimestamp(5, contestStartTime);
         insertPhaseCriteriaStmt.setLong(6, contestCreateUserId);
         insertPhaseCriteriaStmt.setTimestamp(7, contestStartTime);
-        int insertCount = insertPhaseCriteriaStmt.executeUpdate();
-        if (insertCount != 1) {
-            throw new StudioContestMigrationException("Wrong number of records inserted into " +
-                                                      "phase_criteria table: " + insertCount);
-        }
+        insertRecord(insertPhaseCriteriaStmt, "phase_criteria");
     }
 
     /**
@@ -1254,11 +2527,7 @@ public class StudioContestMigrationTool extends TCLoad {
         insertPhaseDependencyStmt.setTimestamp(7, contestStartTime);
         insertPhaseDependencyStmt.setLong(8, contestCreateUserId);
         insertPhaseDependencyStmt.setTimestamp(9, contestStartTime);
-        int insertCount = insertPhaseDependencyStmt.executeUpdate();
-        if (insertCount != 1) {
-            throw new StudioContestMigrationException("Wrong number of records inserted into " +
-                                                      "phase_dependency table: " + insertCount);
-        }
+        insertRecord(insertPhaseDependencyStmt, "phase_dependency");
     }
 
     /**
@@ -1288,12 +2557,16 @@ public class StudioContestMigrationTool extends TCLoad {
     private PreparedStatement getSelectContestsStatement() throws SQLException {
         final String SELECT_CONTESTS_SQL = "SELECT c.contest_id, c.name, c.start_time, c.end_time, " +
                                            "c.contest_status_id, c.forum_id, c.contest_type_id, " +
-                                           "c.tc_direct_project_id, c.create_user_id, c.winner_announcement_time, " +
+                                           "c.tc_direct_project_id, c.create_user_id, u.handle as create_user_handle, c.winner_announcement_time, " +
                                            "c.is_multi_round, " +
-                                           "fee.property_value AS admin_fee, " +
-                                           "billing.property_value AS billing_project_id, " +
+                                           "fee.property_value::varchar(255) AS admin_fee, " +
+                                           "billing.property_value::varchar(255) AS billing_project_id, " +
                                            "descr.property_value AS description, " +
                                            "multiround.milestone_date, " +
+                                           "viewable_submissions_flag_r.property_value::varchar(255) AS viewable_submissions_flag, " +
+                                           "viewable_submitters_r.property_value::varchar(255) AS viewable_submitters, " +
+                                           "ms.reviewer_id AS milestone_screener_id," +
+                                           "ms.handle AS milestone_screener_handle," +
                                            "CASE " +
                                            "  WHEN CURRENT < c.start_time THEN 1 " +
                                            "  WHEN CURRENT BETWEEN c.start_time AND c.end_time THEN 2 " +
@@ -1335,10 +2608,21 @@ public class StudioContestMigrationTool extends TCLoad {
                                            "     AND billing.property_id = 28 " + 
                                            "LEFT JOIN contest_config descr ON c.contest_id = descr.contest_id " +
                                            "     AND descr.property_id = 1 " +  
+                                           "LEFT JOIN contest_config viewable_submissions_flag_r ON c.contest_id = viewable_submissions_flag_r.contest_id " +
+                                           "     AND viewable_submissions_flag_r.property_id = 3 " +
+                                           "LEFT JOIN contest_config viewable_submitters_r ON c.contest_id = viewable_submitters_r.contest_id " +
+                                           "     AND viewable_submitters_r.property_id = 9 " +
                                            "LEFT JOIN contest_multi_round_information multiround " +
                                            "     ON c.contest_multi_round_information_id " +
-                                           "     = multiround.contest_multi_round_information_id ";  
-        
+                                           "     = multiround.contest_multi_round_information_id " +
+                                           "LEFT JOIN user u " +
+                                           "     ON u.user_id = c.create_user_id " +
+                                           "LEFT JOIN (SELECT mcr.contest_id, mcr.reviewer_id, u.handle " +
+                                           "           FROM (SELECT s.contest_id, min(sr.reviewer_id) as reviewer_id " +
+                                           "                 FROM submission s, submission_review sr " +
+                                           "                 WHERE s.submission_id = sr.submission_id GROUP BY s.contest_id) mcr " +
+                                           "           LEFT JOIN user u ON mcr.reviewer_id = u.user_id ) ms " +
+                                           "     ON ms.contest_id = c.contest_id ";
         boolean startDateSet = getStartDate() != null;
         boolean endDateSet = getEndDate() != null;
         boolean contestIdsSet = getContestIds() != null;
@@ -1377,5 +2661,864 @@ public class StudioContestMigrationTool extends TCLoad {
         } else {
             return prepareStatement(SELECT_CONTESTS_SQL, SOURCE_DB);
         }
+    }
+    
+    /**
+     * <p>Loads the contest documents from <code>studio</code> database to <code>OnlineReview</code> database.
+     *
+     * @param selectContestDocumentsStmt the <code>PreparedStatement</code> to retrieve contest documents from
+     * <code>studio</code> database.
+     * @param insertCompDocumentationStmt the <code>PreparedStatement</code> to insert contest documents to
+     * <code>Online Review</code> database.
+     * @param contestId the contest id in <code>studio</code> database.
+     * @param compVersId the comp_version_id in <code>Online Review</code> database.
+     * @throws SQLException if an SQL error occurs.
+     * @throws IDGenerationException if an error occurs while attempting to generate ID for newly added record.
+     * @throws StudioContestMigrationException if wrong number of records has been inserted into target table.
+     * @since 1.1
+     */
+    private void loadCompDocumentations(PreparedStatement selectContestDocumentsStmt, PreparedStatement insertCompDocumentationStmt,
+            long contestId, long compVersId) throws SQLException, IDGenerationException, StudioContestMigrationException {
+        ResultSet resultSet = null;
+        
+        String compVersIdString = String.valueOf(compVersId);
+        File dir = new File(new File(softwareDocumentsRoot, compVersIdString), compVersIdString);
+        try {
+            dir.mkdirs();
+        } catch (SecurityException e) {
+            // ignore
+            LOGGER.error("Can't make diretory: " + dir.getAbsolutePath());
+        }
+        
+        try {
+            selectContestDocumentsStmt.clearParameters();
+            selectContestDocumentsStmt.setLong(1, contestId);
+            resultSet = selectContestDocumentsStmt.executeQuery();
+            while (resultSet.next()) {
+                String originalFileName = resultSet.getString("original_file_name");
+                File sourceFile = new File(resultSet.getString("path"), resultSet.getString("system_file_name"));
+                File destFile = new File(dir, originalFileName);
+                try {
+                    copyFile(sourceFile, destFile);
+                } catch (Exception e) {
+                    // ignore
+                    LOGGER.error("Can't copy file from " + sourceFile.getAbsolutePath() + " to " + destFile.getAbsolutePath());
+                }
+                
+                insertCompDocumentationStmt.clearParameters();
+                // document_id
+                insertCompDocumentationStmt.setLong(1, getDocumentIdGenerator().getNextID());
+                // comp_vers_id
+                insertCompDocumentationStmt.setLong(2, compVersId);
+                // document_type_id
+                insertCompDocumentationStmt.setLong(3, OTHER_DOCUMENT_TYPE_ID);
+                // document_name
+                insertCompDocumentationStmt.setString(4, resultSet.getString("document_type_desc"));
+                // url
+                insertCompDocumentationStmt.setString(5, compVersIdString + "/" + compVersIdString + "/" + originalFileName);
+                insertRecord(insertCompDocumentationStmt, "comp_documentation");
+            }
+        } finally {
+            close(resultSet);
+        }
+    }
+    
+    /**
+     * <p>Gets the <code>Contest Prize</code> and <code>Milestone Prize</code> for a specified contest
+     * from <code>studio</code> database.</p>
+     * 
+     * @param selectPrizesStmt the <code>PreparedStatement</code> to retrieve prizes from <code>studio</code> database.
+     * @param contestId the id of contest in <code>studio</code> database.
+     * @param contestPrizes a <code>Map</code> providing the <code>Contest Prize</code>s for the contest.
+     * @param milestonePrizes a <code>Map</code> providing the <code>Milestone Prize</code>s for the contest.
+     * @throws SQLException if an SQL error occurs.
+     * @since 1.1
+     */
+    private void getPrizes(PreparedStatement selectPrizesStmt, long contestId, Map<Long, Prize> contestPrizes, Map<Long, Prize> milestonePrizes)
+        throws SQLException {
+        contestPrizes.clear();
+        milestonePrizes.clear();
+        
+        ResultSet prizesResultSet = null;
+        
+        try {
+            selectPrizesStmt.clearParameters();
+            selectPrizesStmt.setLong(1, contestId);
+            selectPrizesStmt.setLong(2, contestId);
+            prizesResultSet = selectPrizesStmt.executeQuery();
+            while (prizesResultSet.next()) {
+                Prize prize = new Prize();
+                prize.originalPrizeId = getLong(prizesResultSet, "prize_id");
+                prize.place = getLong(prizesResultSet, "place");
+                prize.prizeAmount = prizesResultSet.getDouble("prize_amount");
+                prize.prizeTypeId = getLong(prizesResultSet, "prize_type_id");
+                prize.numberOfSubmissions = getLong(prizesResultSet, "number_of_submissions");
+                prize.createDate = prizesResultSet.getTimestamp("create_date");
+                if (prize.prizeTypeId == CONTEST_PRIZE_TYPE_ID) {
+                    contestPrizes.put(prize.originalPrizeId, prize);
+                }
+                if (prize.prizeTypeId == MILESTONE_PRIZE_TYPE_ID) {
+                    milestonePrizes.put(prize.originalPrizeId, prize);
+                }
+            }
+        } finally {
+            close(prizesResultSet);
+        }
+    }
+    
+    /**
+     * <p>Insert a prize record to <code>Online Review</code> database.</p>
+     * 
+     * @param insertPrizeStmt the <code>PreparedStatement</code> used to insert prize record
+     * to <code>Online Review</code> database.
+     * @param insertProjectPrizeXrefStmt the <code>PreparedStatement</code> used to insert project_prize_xref record
+     * to <code>Online Review</code> database.
+     * @param projectId the id of the new project in <code>Online Review</code> database.
+     * @param contestCreateUserId the user id who create the contest.
+     * @param prize a <code>Prize</code> providing the prize to be inserted to database.
+     * @throws SQLException if a SQL error occurs
+     * @throws IDGenerationException if an error occurs while attempting to generate ID for newly added record.
+     * @throws StudioContestMigrationException if wrong number of records has been inserted into target table.
+     * @since 1.1
+     */
+    private void insertSinglePrize(PreparedStatement insertPrizeStmt, PreparedStatement insertProjectPrizeXrefStmt, long projectId, long contestCreateUserId, Prize prize)
+        throws SQLException, IDGenerationException, StudioContestMigrationException {
+        // Insert into tcs_catalog.prize table
+        insertPrizeStmt.clearParameters();
+        prize.newPrizeId = getPrizeIdGenerator().getNextID();
+        insertPrizeStmt.setLong(1, prize.newPrizeId);
+        insertPrizeStmt.setLong(2, prize.place);
+        insertPrizeStmt.setDouble(3, prize.prizeAmount);
+        insertPrizeStmt.setLong(4, prize.prizeTypeId);
+        insertPrizeStmt.setLong(5, prize.numberOfSubmissions);
+        insertPrizeStmt.setLong(6, contestCreateUserId);
+        insertPrizeStmt.setTimestamp(7, prize.createDate);
+        insertPrizeStmt.setLong(8, contestCreateUserId);
+        insertPrizeStmt.setTimestamp(9, prize.createDate);
+        insertRecord(insertPrizeStmt, "prize");
+        
+        // Insert into tcs_catalog.project_prize_xref table
+        insertProjectPrizeXrefStmt.clearParameters();
+        insertProjectPrizeXrefStmt.setLong(1, projectId);
+        insertProjectPrizeXrefStmt.setLong(2, prize.newPrizeId);
+        insertRecord(insertProjectPrizeXrefStmt, "project_prize_xref");
+    }
+    
+    /**
+     * <p>Insert a resource to <code>Online Review</code> database.</p>
+     * 
+     * @param insertResourceStmt the <code>PreparedStatement</code> used to insert record to
+     * <code>tcs_catalog.resource</code> table.
+     * @param insertResourceInfoStmt the <code>PreparedStatement</code> used to insert record to
+     * <code>tcs_catalog.resource_info</code> table.
+     * @param userId the user id of the resource.
+     * @param userHandle the user handle of the resource.
+     * @param resourceRoleId the id of the resource role type .
+     * @param projectId the new project id which the resource belongs to.
+     * @param projectPhaseId the id of the project phase which the resource associated to.
+     * @param contestCreateUserId the user id who create the contest.
+     * @param submitterRegistrationTime the registration time of the submitter resource.
+     * @param prizes the total prizes of the resource.
+     * @param contestStartTime the start time of the contest.
+     * @return the id of the new created resource.
+     * @throws SQLException if a SQL error occurs
+     * @throws IDGenerationException if an error occurs while attempting to generate ID for newly added record.
+     * @throws StudioContestMigrationException if wrong number of records has been inserted into target table.
+     * @since 1.1
+     */
+    private long insertSingleResource(PreparedStatement insertResourceStmt, PreparedStatement insertResourceInfoStmt,
+            long userId, String userHandle, long resourceRoleId, long projectId, long projectPhaseId, long contestCreateUserId,
+            Timestamp submitterRegistrationTime, double prizes, Timestamp contestStartTime)
+        throws SQLException, IDGenerationException, StudioContestMigrationException {
+        // Insert into tcs_catalog.resource table
+        long newResourceId = getResourceIdGenerator().getNextID();
+        insertResourceStmt.clearParameters();
+        insertResourceStmt.setLong(1, newResourceId);
+        insertResourceStmt.setLong(2, resourceRoleId);
+        insertResourceStmt.setLong(3, projectId);
+        if (projectPhaseId == -1) {
+            // no project phase associated with this resource
+            insertResourceStmt.setNull(4, Types.DECIMAL);
+        } else {
+            insertResourceStmt.setLong(4, projectPhaseId);
+        }
+        insertResourceStmt.setLong(5, contestCreateUserId);
+        insertResourceStmt.setTimestamp(6, contestStartTime);
+        insertResourceStmt.setLong(7, contestCreateUserId);
+        insertResourceStmt.setTimestamp(8, contestStartTime);
+        insertRecord(insertResourceStmt, "resource");
+        
+        // Load resource info
+        boolean isSubmitter = resourceRoleId == SUBMITTER_RESOURCE_ROLE_ID;
+        Map<Long, String> values = new LinkedHashMap<Long, String>();
+        values.put(1L, String.valueOf(userId));
+        values.put(2L, userHandle == null ? "does_not_exist" : userHandle);
+        values.put(6L, isSubmitter ? RESOURCE_DATE_FORMAT.format((Date) submitterRegistrationTime)
+                : RESOURCE_DATE_FORMAT.format((Date) contestStartTime));
+        if (isSubmitter) {
+            if (prizes > 0) {
+                values.put(7L, String.valueOf(prizes));
+                values.put(8L, "Yes");
+            } else {
+                values.put(8L, "N/A");
+            }
+        } else {
+            values.put(8L, "N/A");
+        }
+        for (Map.Entry<Long, String> entry : values.entrySet()) {
+            String value = entry.getValue();
+            if (value != null) {
+                insertResourceInfoStmt.clearParameters();
+                insertResourceInfoStmt.setLong(1, newResourceId);
+                insertResourceInfoStmt.setLong(2, entry.getKey());
+                insertResourceInfoStmt.setString(3, entry.getValue());
+                insertResourceInfoStmt.setLong(4, contestCreateUserId);
+                insertResourceInfoStmt.setTimestamp(5, contestStartTime);
+                insertResourceInfoStmt.setLong(6, contestCreateUserId);
+                insertResourceInfoStmt.setTimestamp(7, contestStartTime);
+                insertRecord(insertResourceInfoStmt, "resource_info");
+            }
+        }
+        return newResourceId;
+    }
+    
+    /**
+     * <p>Gets contest submissions for a specified contest from <code>studio</code> database.</p>
+     * 
+     * @param selectSubmissionStmt the <code>PreparedStatement</code> used to retrieve submissions
+     * from <code>studio</code> database.
+     * @param contestId the id of contest in <code>studio</code> database.
+     * @param contestPrizes the <code>Contest Prize</code> of the contest.
+     * @param milestonePrizes the <code>Milestone Prize</code> of the contest.
+     * @return the retrieved <code>Submission</code>s.
+     * @throws SQLException if a SQL error occurs.
+     * @since 1.1
+     */
+    private List<Submission> getContestSubmissions(PreparedStatement selectSubmissionStmt, long contestId, Timestamp contestMilestoneDate,
+            Map<Long, Prize> contestPrizes, Map<Long, Prize> milestonePrizes) throws SQLException {
+        selectSubmissionStmt.clearParameters();
+        selectSubmissionStmt.setLong(1, contestId);
+        ResultSet selectedSubmissionsResult = selectSubmissionStmt.executeQuery();
+        List<Submission> submissions = new ArrayList<Submission>();
+        try {
+            // the number of contest submissions which have been paid
+            int paidSubmissionCount = 0;
+            // the number of milestone submissions which have been paid
+            int paidMilestoneSubmissionCount = 0;
+            while (selectedSubmissionsResult.next()) {
+                Submission sub = new Submission();
+                sub.originalSubmissionId = getLong(selectedSubmissionsResult, "submission_id");
+                sub.submitterId = getLong(selectedSubmissionsResult, "submitter_id");
+                sub.submissionStatusId = getLong(selectedSubmissionsResult, "submission_status_id");
+                Timestamp submissionDate = selectedSubmissionsResult.getTimestamp("submission_date");
+                if (submissionDate == null) {
+                    submissionDate = selectedSubmissionsResult.getTimestamp("create_date");
+                }
+                // sub.submissionTypeId = getLong(selectedSubmissionsResult, "submission_type_id");
+                if (contestMilestoneDate != null && submissionDate.before(contestMilestoneDate)) {
+                    // milestone submission
+                    sub.submissionTypeId = 1L;
+                } else {
+                    // contest submission
+                    sub.submissionTypeId = 2L;
+                }
+                sub.modifyDate = selectedSubmissionsResult.getTimestamp("modify_date");
+                sub.userRank = getLong(selectedSubmissionsResult, "user_rank");
+                sub.originalFileName = selectedSubmissionsResult.getString("original_file_name");
+                sub.systemFileName = selectedSubmissionsResult.getString("system_file_name");
+                sub.viewCount = getLong(selectedSubmissionsResult, "view_count");
+                sub.fileSize = getLong(selectedSubmissionsResult, "file_size");
+                sub.path = selectedSubmissionsResult.getString("path");
+                sub.feedbackText = selectedSubmissionsResult.getString("feedback_text");
+                sub.reviewText = selectedSubmissionsResult.getString("review_text");
+                sub.hasExtraPurcharse = (getLong(selectedSubmissionsResult, "client_selection_prize_id") != null);
+                Long reviewStatusId = getLong(selectedSubmissionsResult, "review_status_id");
+                sub.passedScreening = (reviewStatusId == null || reviewStatusId != 2);
+                if (CONTEST_SUBMISSISON_TYPE_ID == SUBMISSION_TYPE_MAPPING.get(sub.submissionTypeId)) {
+                    // contest submission
+                    sub.prizeId = getLong(selectedSubmissionsResult, "prize_id");
+                } else {
+                    // milestone submission
+                    sub.prizeId = getLong(selectedSubmissionsResult, "milestone_prize_id");
+                }
+                if (sub.prizeId != null) {
+                    if (CONTEST_SUBMISSISON_TYPE_ID == SUBMISSION_TYPE_MAPPING.get(sub.submissionTypeId)) {
+                        // contest submission
+                        Prize prize = contestPrizes.get(sub.prizeId);
+                        if (prize != null && prize.place != null) {
+                            sub.placement = prize.place;
+                            paidSubmissionCount++;
+                        } else {
+                            sub.prizeId = null;
+                        }
+                    } else {
+                        // milestone submission
+                        if (milestonePrizes.containsKey(sub.prizeId)) {
+                            paidMilestoneSubmissionCount++;
+                            sub.placement = (long) paidMilestoneSubmissionCount;
+                        }
+                    }
+                }
+                submissions.add(sub);
+            }
+            
+            // set placements
+            long currentContestPlacement = paidSubmissionCount;
+            long currentMilestonePlacement = paidMilestoneSubmissionCount;
+            for (Submission sub : submissions) {
+                if (ACTIVE_SUBMISSION_STATUS_ID == SUBMISSION_STATUS_MAPPING.get(sub.submissionStatusId)
+                        && sub.placement == null) {
+                    // Only set placement for active submission
+                    if (CONTEST_SUBMISSISON_TYPE_ID == SUBMISSION_TYPE_MAPPING.get(sub.submissionTypeId)) {
+                        sub.placement = ++currentContestPlacement;
+                    } else {
+                        sub.placement = ++currentMilestonePlacement;
+                    }
+                }
+            }
+            return submissions;
+        } finally {
+            close(selectedSubmissionsResult);
+        }
+    }
+    
+    /**
+     * <p>Insert a submission record to <code>Online Review</code> database.<p>
+     * 
+     * @param insertUploadStmt the <code>PreparedStatement</code> used to insert record to
+     * <code>tcs_catalog.upload</code> table.
+     * @param insertSubmissionStmt the <code>PreparedStatement</code> used to insert record to
+     * <code>tcs_catalog.submission</code> table.
+     * @param insertResourceSubmissionStmt the <code>PreparedStatement</code> used to insert record to
+     * <code>tcs_catalog.resource_submission</code> table.
+     * @param sub the <code>Submission</code> to insert into database.
+     * @param projectId the new project id in <code>Online Review</code> database.
+     * @param submitterResourceId the resource id of the submitter.
+     * @param contestPrizes the <code>Contest Prize</code> of the contest.
+     * @param milestonePrizes the <code>Milestone Prize</code> of the contest.
+     * @throws SQLException if a SQL error occurs
+     * @throws IDGenerationException if an error occurs while attempting to generate ID for newly added record.
+     * @throws StudioContestMigrationException if wrong number of records has been inserted into target table.
+     * @since 1.1
+     */
+    private void insertSingleSubmission(PreparedStatement insertUploadStmt, PreparedStatement insertSubmissionStmt, PreparedStatement insertResourceSubmissionStmt, 
+            Submission sub, long projectId, long submitterResourceId, Map<Long, Prize> contestPrizes, Map<Long, Prize> milestonePrizes)
+        throws SQLException, IDGenerationException, StudioContestMigrationException {
+        // Insert into tcs_catalog.upload table
+        long newUploadId = getUploadIdGenerator().getNextID();
+        String destFileName = sub.originalFileName;
+        if (!destFileName.endsWith("_unifiedSubmission.zip")) {
+            destFileName = sub.systemFileName;
+        }
+        insertUploadStmt.clearParameters();
+        // upload_id
+        insertUploadStmt.setLong(1, newUploadId);
+        // project_id
+        insertUploadStmt.setLong(2, projectId);
+        // resource_id
+        insertUploadStmt.setLong(3, submitterResourceId);
+        // upload_status_id
+        insertUploadStmt.setLong(4, sub.submissionStatusId);
+        // parameter
+        insertUploadStmt.setString(5, destFileName);
+        // create_user
+        insertUploadStmt.setLong(6, sub.submitterId);
+        // create_date
+        insertUploadStmt.setTimestamp(7, sub.modifyDate);
+        // modify_user
+        insertUploadStmt.setLong(8, sub.submitterId);
+        // modify-date
+        insertUploadStmt.setTimestamp(9, sub.modifyDate);
+        insertRecord(insertUploadStmt, "upload");
+        
+        // Insert into tcs_catalog.submission table
+        long newSubmissionId = getSubmissionIdGenerator().getNextID();
+        Long newSubmissionStatusId = SUBMISSION_STATUS_MAPPING.get(sub.submissionStatusId);
+        Long newSubmissionTypeId = SUBMISSION_TYPE_MAPPING.get(sub.submissionTypeId);
+        insertSubmissionStmt.clearParameters();
+        // submission_id
+        insertSubmissionStmt.setLong(1, newSubmissionId);
+        // upload_id
+        insertSubmissionStmt.setLong(2, newUploadId);
+        // submission_status_id
+        insertSubmissionStmt.setLong(3, newSubmissionStatusId);
+        if (newSubmissionStatusId == ACTIVE_SUBMISSION_STATUS_ID) {
+            // screening_score, 100 if submission passed review, 0 if submission not passed review
+            insertSubmissionStmt.setDouble(4, sub.passedScreening ? 100 : 0);
+            double initialScore = 0;
+            if (sub.prizeId != null) {
+                initialScore = Math.max(0, 110 - 10 * sub.placement);
+            }
+            sub.score = initialScore;
+            // initial_score
+            insertSubmissionStmt.setDouble(5, initialScore);
+            // final_score
+            insertSubmissionStmt.setDouble(6, initialScore);
+            // placement
+            insertSubmissionStmt.setLong(7, sub.placement);
+        } else {
+            // screening_score
+            insertSubmissionStmt.setNull(4, Types.DECIMAL);
+            // initial_score
+            insertSubmissionStmt.setNull(5, Types.DECIMAL);
+            // final_score
+            insertSubmissionStmt.setNull(6, Types.DECIMAL);
+            // placement
+            insertSubmissionStmt.setNull(7, Types.DECIMAL);
+        }
+        // submission_type_id
+        insertSubmissionStmt.setLong(8, newSubmissionTypeId);
+        // create_user
+        insertSubmissionStmt.setLong(9, sub.submitterId);
+        // create_date
+        insertSubmissionStmt.setTimestamp(10, sub.modifyDate);
+        // modify_user
+        insertSubmissionStmt.setLong(11, sub.submitterId);
+        // modify_date
+        insertSubmissionStmt.setTimestamp(12, sub.modifyDate);
+        // user_rank
+        if (sub.userRank == null) {
+            insertSubmissionStmt.setLong(13, 0);
+        } else {
+            insertSubmissionStmt.setLong(13, sub.userRank);
+        }
+        // mark_for_purchase
+        insertSubmissionStmt.setBoolean(14, sub.hasExtraPurcharse);
+        // prize_id
+        Prize p = null;
+        if (sub.prizeId != null) {
+            if (CONTEST_SUBMISSISON_TYPE_ID == newSubmissionTypeId) {
+                // contest submission
+                p = contestPrizes.get(sub.prizeId);
+            } else {
+                // milestone submission
+                p = milestonePrizes.get(sub.prizeId);
+            }
+        }
+        if (p == null) {
+            insertSubmissionStmt.setNull(15, Types.DECIMAL);
+        } else {
+            insertSubmissionStmt.setLong(15, p.newPrizeId);
+        }
+        
+        // file_size
+        if (sub.fileSize != null) {
+            insertSubmissionStmt.setLong(16, sub.fileSize);
+        } else {
+            insertSubmissionStmt.setNull(16, Types.DECIMAL);
+        }
+        // view_count
+        if (sub.viewCount != null) {
+            insertSubmissionStmt.setLong(17, sub.viewCount);
+        } else {
+            insertSubmissionStmt.setNull(17, Types.DECIMAL);
+        }
+        insertRecord(insertSubmissionStmt, "submission");
+        
+        sub.newSubmissionId = newSubmissionId;
+        
+        // Insert into tcs_catalog.resource_submission table
+        insertResourceSubmissionStmt.clearParameters();
+        // resource_id
+        insertResourceSubmissionStmt.setLong(1, submitterResourceId);
+        // submission_id
+        insertResourceSubmissionStmt.setLong(2, newSubmissionId);
+        // create_user
+        insertResourceSubmissionStmt.setLong(3, sub.submitterId);
+        // create_date
+        insertResourceSubmissionStmt.setTimestamp(4, sub.modifyDate);
+        // modify_user
+        insertResourceSubmissionStmt.setLong(5, sub.submitterId);
+        // modify_date
+        insertResourceSubmissionStmt.setTimestamp(6, sub.modifyDate);
+        insertRecord(insertResourceSubmissionStmt, "resource_submission");        
+    }
+    
+    /**
+     * <p>Load submission declaration data for a specified submission.</p>
+     * 
+     * @param selectSubmissionDeclarationStmt the <code>PreparedStatement</code> used to retrieve the
+     * submission declaration data from <code>studio</code> database.
+     * @param insertSubmissionDeclarationStmt the <code>PreparedStatement</code> used to insert record
+     * to <code>tcs_catalog.submission_declaration</code> table.
+     * @param insertExternalContentStmtthe <code>PreparedStatement</code> used to insert record
+     * to <code>tcs_catalog.submission_external_content</code> table.
+     * @param insertExternalPropertyStmt the <code>PreparedStatement</code> used to insert record
+     * to <code>tcs_catalog.external_content_property</code> table.
+     * @param sub the <code>Submission</code> to load submission declaration data.
+     * @throws SQLException if a SQL error occurs
+     * @throws IDGenerationException if an error occurs while attempting to generate ID for newly added record.
+     * @throws StudioContestMigrationException if wrong number of records has been inserted into target table.
+     * @since 1.1
+     */
+    private void insertSubmissionDeclaration(PreparedStatement selectSubmissionDeclarationStmt, PreparedStatement insertSubmissionDeclarationStmt,
+            PreparedStatement insertExternalContentStmt, PreparedStatement insertExternalPropertyStmt, Submission sub) 
+        throws SQLException, IDGenerationException, StudioContestMigrationException {
+        selectSubmissionDeclarationStmt.clearParameters();
+        selectSubmissionDeclarationStmt.setLong(1, sub.originalSubmissionId);
+        ResultSet selectedSubmissionDeclarationResult = selectSubmissionDeclarationStmt.executeQuery();
+        try {
+            long currentSubmissionDeclarationId = -1;
+            long currentExternalContentId = -1;
+            long currentNewSubmissionDeclarationId = -1;
+            long currentNewExternalContentId = -1;
+            while (selectedSubmissionDeclarationResult.next()) {
+                Long submissionDeclarationId = getLong(selectedSubmissionDeclarationResult, "submission_declaration_id");
+                if (submissionDeclarationId != currentSubmissionDeclarationId) {
+                    // insert into tcs_catalog.submission_declaration table
+                    currentSubmissionDeclarationId = submissionDeclarationId;
+                    currentNewSubmissionDeclarationId = getSubmissionDeclarationIdGenerator().getNextID();
+                    insertSubmissionDeclarationStmt.clearParameters();
+                    // submission_declaration_id
+                    insertSubmissionDeclarationStmt.setLong(1, currentNewSubmissionDeclarationId);
+                    // submission_id
+                    insertSubmissionDeclarationStmt.setLong(2, sub.newSubmissionId);
+                    // comment
+                    insertSubmissionDeclarationStmt.setString(3, selectedSubmissionDeclarationResult.getString("comment"));
+                    // has_external_content
+                    insertSubmissionDeclarationStmt.setBoolean(4, selectedSubmissionDeclarationResult.getBoolean("has_external_content"));
+                    insertRecord(insertSubmissionDeclarationStmt, "submission_declaration");
+                }
+                Long externalContentId = getLong(selectedSubmissionDeclarationResult, "external_content_id");
+                if (externalContentId != null && externalContentId != currentExternalContentId) {
+                    // insert into tcs_catalog.submission_external_content table
+                    currentExternalContentId = externalContentId;
+                    currentNewExternalContentId = getExternalContentIdGenerator().getNextID();
+                    insertExternalContentStmt.clearParameters();
+                    // external_content_id
+                    insertExternalContentStmt.setLong(1, currentNewExternalContentId);
+                    // external_content_type_id
+                    insertExternalContentStmt.setLong(2, getLong(selectedSubmissionDeclarationResult, "external_content_type_id"));
+                    // display_position
+                    insertExternalContentStmt.setLong(3, getLong(selectedSubmissionDeclarationResult, "display_position"));
+                    // submission_declaration_id
+                    insertExternalContentStmt.setLong(4, currentNewSubmissionDeclarationId);
+                    insertRecord(insertExternalContentStmt, "submission_external_content");
+                }
+                if (getLong(selectedSubmissionDeclarationResult, "external_content_property_id") != null) {
+                    // insert into tcs.external_content_property table
+                    insertExternalPropertyStmt.clearParameters();
+                    // external_content_property_id
+                    insertExternalPropertyStmt.setLong(1, getExternalContentPropertyIdGenerator().getNextID());
+                    // external_content_id
+                    insertExternalPropertyStmt.setLong(2, currentNewExternalContentId);
+                    // name
+                    insertExternalPropertyStmt.setString(3, selectedSubmissionDeclarationResult.getString("name"));
+                    // value
+                    insertExternalPropertyStmt.setString(4, selectedSubmissionDeclarationResult.getString("value"));
+                    insertRecord(insertExternalPropertyStmt, "external_content_property");
+                }
+            }
+        } finally {
+            close(selectedSubmissionDeclarationResult);
+        }
+    }
+    
+    /**
+     * <p>Create a review for a submission.</p>
+     * 
+     * @param insertReviewStmt the the <code>PreparedStatement</code> used to insert record
+     * to <code>tcs_catalog.review</code> table.
+     * @param insertReviewItemStmt the <code>PreparedStatement</code> used to insert record
+     * to <code>tcs_catalog.review_item</code> table.
+     * @param insertReviewItemCommentStmt the <code>PreparedStatement</code> used to insert record
+     * to <code>tcs_catalog.review_item_comment</code> table.
+     * @param sub the specified <code>Submission</code>.
+     * @param reviewerResourceId the id of the reviewer resource. 
+     * @param reviewerUserId the user id of the reviewer.
+     * @param scorecardId the id of the scorecard to be used.
+     * @param scorecardQuestionId the id of the scorecard question to be used.
+     * @param score the review score.
+     * @param phaseEndTime the end time of the phase associated with the review.
+     * @param phaseTypeId the id of the phase type associated with the review.
+     * @throws SQLException if a SQL error occurs
+     * @throws IDGenerationException if an error occurs while attempting to generate ID for newly added record.
+     * @throws StudioContestMigrationException if wrong number of records has been inserted into target table.
+     * @since 1.1
+     */
+    private void insertSubmissionReview(PreparedStatement insertReviewStmt, PreparedStatement insertReviewItemStmt, PreparedStatement insertReviewItemCommentStmt,
+            Submission sub, long reviewerResourceId, long reviewerUserId, long scorecardId, long scorecardQuestionId, double score, Timestamp phaseEndTime, long phaseTypeId)
+        throws SQLException, IDGenerationException, StudioContestMigrationException {
+        // Insert into tcs_catalog.review table
+        insertReviewStmt.clearParameters();
+        long newReviewId = getReviewIdGenerator().getNextID();
+        // review_id
+        insertReviewStmt.setLong(1, newReviewId);
+        // resource_id
+        insertReviewStmt.setLong(2, reviewerResourceId);
+        // submission_id
+        insertReviewStmt.setLong(3, sub.newSubmissionId);
+        // scorecard_id
+        insertReviewStmt.setLong(4, scorecardId);
+        // score
+        insertReviewStmt.setDouble(5, score);
+        // initial_score
+        insertReviewStmt.setDouble(6, score);
+        // create_user
+        insertReviewStmt.setLong(7, reviewerUserId);
+        // create_date
+        insertReviewStmt.setTimestamp(8, phaseEndTime);
+        // modify_user
+        insertReviewStmt.setLong(9, reviewerUserId);
+        // modify_date
+        insertReviewStmt.setTimestamp(10, phaseEndTime);
+        insertRecord(insertReviewStmt, "review");
+        
+        // Insert into tcs_catalog.review_item table
+        insertReviewItemStmt.clearParameters();
+        long newReviewItemId = getReviewItemIdGenerator().getNextID();
+        // review_item_id
+        insertReviewItemStmt.setLong(1, newReviewItemId);
+        // review_id
+        insertReviewItemStmt.setLong(2, newReviewId);
+        // scorecard_question_id
+        insertReviewItemStmt.setLong(3, scorecardQuestionId);
+        // answer
+        if (phaseTypeId == SCREENING_PHASE_TYPE_ID || phaseTypeId == MILESTONE_SCREENING_PHASE_TYPE_ID) {
+            insertReviewItemStmt.setString(4, sub.passedScreening ? "1" : "0");
+        } else {
+            insertReviewItemStmt.setString(4, (((int) score) / 10) + "/10");
+        }
+        // create_user
+        insertReviewItemStmt.setLong(5, reviewerUserId);
+        // create_date
+        insertReviewItemStmt.setTimestamp(6, phaseEndTime);
+        // modify_user
+        insertReviewItemStmt.setLong(7, reviewerUserId);
+        // modify_date
+        insertReviewItemStmt.setTimestamp(8, phaseEndTime);
+        insertRecord(insertReviewItemStmt, "review_item");
+        
+        // Insert into tcs_catalog.review_item_comment table
+        insertReviewItemCommentStmt.clearParameters();
+        // review_item_comment_id
+        insertReviewItemCommentStmt.setLong(1, getReviewItemCommentIdGenerator().getNextID());
+        // resource_id
+        insertReviewItemCommentStmt.setLong(2, reviewerResourceId);
+        // review_item_id
+        insertReviewItemCommentStmt.setLong(3, newReviewItemId);
+        // content
+        if (phaseTypeId == SCREENING_PHASE_TYPE_ID) {
+            insertReviewItemCommentStmt.setString(4, sub.reviewText == null ? "" : sub.reviewText);
+        } else if (phaseTypeId == MILESTONE_REVIEW_PHASE_TYPE_ID) {
+            insertReviewItemCommentStmt.setString(4, sub.feedbackText == null ? "" : sub.feedbackText);
+        } else {
+            insertReviewItemCommentStmt.setString(4, "");
+        }
+        // create_user
+        insertReviewItemCommentStmt.setLong(5, reviewerUserId);
+        // create_date
+        insertReviewItemCommentStmt.setTimestamp(6, phaseEndTime);
+        // modify_user
+        insertReviewItemCommentStmt.setLong(7, reviewerUserId);
+        // modify_date
+        insertReviewItemCommentStmt.setTimestamp(8, phaseEndTime);
+        insertRecord(insertReviewItemCommentStmt, "review_item_comment");
+    }
+    
+    /**
+     * <p>Copy a file from source location to destination location.</p>
+     * 
+     * @param sourceFile the location of the source file.
+     * @param destFile the location of the destination file.
+     * @throws IOException if IO error occurs when coping file.
+     * @since 1.1
+     */
+    private static void copyFile(File sourceFile, File destFile) throws IOException {
+        if (!sourceFile.exists()) {
+            return;
+        }
+        
+        BufferedInputStream inputStream = null;
+        BufferedOutputStream outputStream = null;
+        try {
+            byte[] buffer = new byte[BUFFER_SIZE];
+            inputStream = new BufferedInputStream(new FileInputStream(sourceFile));
+            outputStream = new BufferedOutputStream(new FileOutputStream(destFile));
+            int len;
+            while ((len = inputStream.read(buffer, 0, BUFFER_SIZE)) != -1) {
+                outputStream.write(buffer, 0, len);
+            }
+        } finally {
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (IOException e) {
+                    // ignore
+                }
+            }
+            if (outputStream != null) {
+                try {
+                    outputStream.close();
+                } catch (IOException e) {
+                    // ignore
+                }
+            }
+        }
+    }
+    
+    /**
+     * <p>Execute the SQL statement to insert a single record to database.</p>
+     * 
+     * @param insertStmt the SQL statement to be executed.
+     * @param table the table name.
+     * @throws StudioContestMigrationException if wrong number of records has been inserted into target table.
+     * @throws SQLException if a SQL error occurs.
+     * @since 1.1
+     */
+    private static void insertRecord(PreparedStatement insertStmt, String table) throws StudioContestMigrationException, SQLException {
+        int insertCount = insertStmt.executeUpdate();
+        if (insertCount != 1) {
+            throw new StudioContestMigrationException("Wrong number of records inserted into " + table +
+                                                      " table: " + insertCount);
+        }
+    }
+
+    /**
+     * <p>This class represents a prize associated with a contest.</p>
+     * 
+     * @author TCSASSEMBER
+     * @version 1.0
+     * @sicne 1.1
+     */
+    class Prize {
+        /**
+         * Represents the id of the original prize record in <code>studio</code> database.
+         */
+        Long originalPrizeId;
+        
+        /**
+         * Represents the id of the new prize record in <code>Online Review</code> database.
+         */
+        long newPrizeId;
+        
+        /**
+         * Represents the placement of the prize.
+         */
+        Long place;
+        
+        /**
+         * Represents the amount prize associated with this prize record.
+         */
+        Double prizeAmount;
+        
+        /**
+         * Represents the prize type id.
+         */
+        Long prizeTypeId;
+        
+        /**
+         * Represents the number of submissions.
+         */
+        Long numberOfSubmissions;
+        
+        /**
+         * Represents the create date of the record.
+         */
+        Timestamp createDate;
+    }
+    
+    /**
+     * <p>This class represents a submission associated with a contest.</p>
+     * 
+     * @author TCSASSEMBER
+     * @version 1.0
+     * @since 1.1
+     */
+    class Submission {
+        /**
+         * Represents the id of the original submission record in <code>studio</code> database.
+         */
+        Long originalSubmissionId;
+        
+        /**
+         * Represents the id of the new submission record in <code>Online Review</code> database.
+         */
+        Long newSubmissionId;
+        
+        /**
+         * Represents the author of the submission.
+         */
+        Long submitterId;
+        
+        /**
+         * Represents the id of the submission status.
+         */
+        Long submissionStatusId;
+        
+        /**
+         * Represents the id of the submission type.
+         */
+        Long submissionTypeId;
+        
+        /**
+         * Represents the modify date of this record.
+         */
+        Timestamp modifyDate;
+        
+        /**
+         * Represents the user rank of the submission.
+         */
+        Long userRank;
+        
+        /**
+         * Represents the original file name of the submission.
+         */
+        String originalFileName;
+        
+        /**
+         * Represents the system file name of the submission.
+         */
+        String systemFileName;
+        
+        /**
+         * Represents the location path of the submission.
+         */
+        String path;
+        
+        /**
+         * Represents the prize id of the submission.
+         */
+        Long prizeId;
+        
+        /**
+         * Represents the placement of the submission.
+         */
+        Long placement;
+        
+        /**
+         * Represents the score of the submission.
+         */
+        double score;
+
+        /**
+         * Represents the file size of the submission.
+         */
+        Long fileSize;
+        
+        /**
+         * Represents the view count of the submission.
+         */
+        Long viewCount;
+        
+        /**
+         * Represents the feedback of the submission.
+         */
+        String feedbackText;
+        
+        /**
+         * Represents the review text of the submission.
+         */
+        String reviewText;
+        
+        /**
+         * A flag represents whether the review has extra purchase.
+         */
+        boolean hasExtraPurcharse;
+        
+        /**
+         * A flag indicate whether the submission has passed screening.
+         */
+        private boolean passedScreening;
     }
 }
