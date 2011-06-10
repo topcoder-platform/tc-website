@@ -13,9 +13,9 @@
    <option value="jun_11"<% if (currMonth.equals("jun_11")) { %> selected<% } %>>June</option>
    <option value="jul_11"<% if (currMonth.equals("jul_11")) { %> selected<% } %>>July</option>
    <option value="aug_11"<% if (currMonth.equals("aug_11")) { %> selected<% } %>>August</option>
-   <option value="sep_10"<% if (currMonth.equals("sep_11")) { %> selected<% } %>>September</option>
-   <option value="oct_10"<% if (currMonth.equals("oct_11")) { %> selected<% } %>>October</option>
-   <option value="nov_10"<% if (currMonth.equals("nov_11")) { %> selected<% } %>>November</option>
-   <option value="dec_10"<% if (currMonth.equals("dec_11")) { %> selected<% } %>>December</option>
+   <option value="sep_11"<% if (currMonth.equals("sep_11")) { %> selected<% } %>>September</option>
+   <option value="oct_11"<% if (currMonth.equals("oct_11")) { %> selected<% } %>>October</option>
+   <option value="nov_11"<% if (currMonth.equals("nov_11")) { %> selected<% } %>>November</option>
+   <option value="dec_11"<% if (currMonth.equals("dec_11")) { %> selected<% } %>>December</option>
   
 </select></form>
