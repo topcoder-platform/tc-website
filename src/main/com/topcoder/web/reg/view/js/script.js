@@ -199,12 +199,12 @@ $(document).ready(function(){
 		if(!checkStauts){return false};
 		
 		if($(this).closest('form').hasClass('errorForm')){return false};
-		
-		document.forms["formRegister"].submit();
+
+		submitForm("formRegister");
 	});
 	
 	$('#firstStepButton').click(function(){
-		document.forms["formPreference"].submit();
+		submitForm("formPreference");
 	});
 	
 	$('.registerPage #confirmPassword').blur(function(){
@@ -579,7 +579,7 @@ function loginSubmit() {
 	}
 	
 	if (isValid) {
-		document.forms["loginForm"].submit();
+		submitForm("loginForm");
 	}
 }
 
@@ -617,12 +617,17 @@ function recoverSubmit() {
 	}
 	
 	if (isValid) {
-		document.forms["recoverPasswordForm"].submit();	
+		submitForm("recoverPasswordForm");
 	}
 }
 
-function validateEmail(email) 
-{ 
-	var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ 
-	return email.match(re) 
+function submitForm(formName)
+{
+	setTimeout(function(){ document.forms[formName].submit() }, 100);
+}
+
+function validateEmail(email)
+{
+	var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+	return email.match(re)
 }
