@@ -31,7 +31,7 @@
     boolean allCategories = request.getParameter("category_all") != null;
 
     // Get only visible categories.
-    Category[] baseCategories = catalog.getBaseCategories(true);
+    Category[] baseCategories = catalog.getBaseCategories(false);
     Category java = null;
     Category net = null;
     Category flash = null;
@@ -234,6 +234,7 @@
                 else if (flash.getId() == summary.getRootCategory()) refCatalog = 2;
                 else if (javaCustom.getId() == summary.getRootCategory()) refCatalog = 3;
                 else if (netCustom.getId() == summary.getRootCategory()) refCatalog = 4;
+                else refCatalog = 6;
             }
 %>
                 <tr valign="top">
@@ -256,6 +257,8 @@
                             %><img src="/images/dotnetCustomSm.gif" alt="" border="0" /><%
                         } else if (refCatalog == 5) {
                             %><img src="/images/aolSm.gif" alt="" border="0" /><%
+                        } else if (refCatalog == 6) {
+                            %><img src="/images/otherSm.gif" alt="" border="0" /><%
                         }
                             %></td>
                                 <td width="5" class="forumText"><img src="/images/clear.gif" alt="" width="5" height="5" border="0"/></td>
