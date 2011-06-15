@@ -22,7 +22,7 @@
 	long[] assignRounds = {13953,13934,13754,13772,13569,13570,13679,13680,13681};
 	Arrays.sort(assignRounds);
 	
-	long[] ntlRounds = {14481};
+	long[] ntlRounds = {14481, 14570};
 	Arrays.sort(nsaRounds);
 	
 %>
