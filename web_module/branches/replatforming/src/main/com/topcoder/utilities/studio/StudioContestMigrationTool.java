@@ -280,8 +280,7 @@ public class StudioContestMigrationTool extends TCLoad {
      */
     private static final String INSERT_COMPONENT_VERSION_SQL 
         = "INSERT INTO comp_versions (comp_vers_id, component_id, version, version_text, create_time, phase_id, " +
-          "phase_time, price, comments, modify_date, suspended_ind, browse, location, issue_tracker_path, " +
-          "revision) VALUES (?, ?, 1, '1.0', ?, ?, ?, 0, NULL, ?, 0, NULL, NULL, NULL, NULL)";
+          "phase_time, price, comments, modify_date, suspended_ind) VALUES (?, ?, 1, '1.0', ?, ?, ?, 0, NULL, ?, 0)";
         
     /**
      * <p>A <code>String</code> providing the SQL statement for inserting new records into 
@@ -2559,12 +2558,12 @@ public class StudioContestMigrationTool extends TCLoad {
                                            "c.contest_status_id, c.forum_id, c.contest_type_id, " +
                                            "c.tc_direct_project_id, c.create_user_id, u.handle as create_user_handle, c.winner_announcement_time, " +
                                            "c.is_multi_round, " +
-                                           "fee.property_value::varchar(255) AS admin_fee, " +
-                                           "billing.property_value::varchar(255) AS billing_project_id, " +
+                                           "(cast(nvl(fee.property_value, '0') as varchar(255))) admin_fee, " +
+                                           "(cast(nvl(billing.property_value, '0') as varchar(255))) billing_project_id, " +
                                            "descr.property_value AS description, " +
                                            "multiround.milestone_date, " +
-                                           "viewable_submissions_flag_r.property_value::varchar(255) AS viewable_submissions_flag, " +
-                                           "viewable_submitters_r.property_value::varchar(255) AS viewable_submitters, " +
+                                           "(cast(nvl(viewable_submissions_flag_r.property_value, '0') as varchar(255))) viewable_submissions_flag, " +
+                                           "(cast(nvl(viewable_submitters_r.property_value, '0') as varchar(255))) viewable_submitters, " +
                                            "ms.reviewer_id AS milestone_screener_id," +
                                            "ms.handle AS milestone_screener_handle," +
                                            "CASE " +
@@ -2617,11 +2616,11 @@ public class StudioContestMigrationTool extends TCLoad {
                                            "     = multiround.contest_multi_round_information_id " +
                                            "LEFT JOIN user u " +
                                            "     ON u.user_id = c.create_user_id " +
-                                           "LEFT JOIN (SELECT mcr.contest_id, mcr.reviewer_id, u.handle " +
-                                           "           FROM (SELECT s.contest_id, min(sr.reviewer_id) as reviewer_id " +
+                                           "LEFT JOIN table(multiset(SELECT mcr.contest_id, mcr.reviewer_id, u.handle " +
+                                           "           FROM table(multiset(SELECT s.contest_id, min(sr.reviewer_id) as reviewer_id " +
                                            "                 FROM submission s, submission_review sr " +
-                                           "                 WHERE s.submission_id = sr.submission_id GROUP BY s.contest_id) mcr " +
-                                           "           LEFT JOIN user u ON mcr.reviewer_id = u.user_id ) ms " +
+                                           "                 WHERE s.submission_id = sr.submission_id GROUP BY s.contest_id)) mcr " +
+                                           "           LEFT JOIN user u ON mcr.reviewer_id = u.user_id )) ms " +
                                            "     ON ms.contest_id = c.contest_id ";
         boolean startDateSet = getStartDate() != null;
         boolean endDateSet = getEndDate() != null;
