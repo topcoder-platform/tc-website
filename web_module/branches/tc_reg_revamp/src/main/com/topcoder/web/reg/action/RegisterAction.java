@@ -90,11 +90,11 @@ public class RegisterAction extends BaseAction implements PostAction {
             addActionError("The handle - " + handle + " is not available, please use another one.");
             return;
         }
-
-        if ((!RegHelper.isEmptyString(email)) && getUserDAO().find(null, null, null, email).size() > 0) {
-            addActionError("The email - " + email + " is not available, please use another one.");
-            return;
-        }
+	// TO REMOVE, comment out for testing
+        //if ((!RegHelper.isEmptyString(email)) && getUserDAO().find(null, null, null, email).size() > 0) {
+        //    addActionError("The email - " + email + " is not available, please use another one.");
+        //    return;
+        //}
     }
 
     /**
@@ -112,8 +112,10 @@ public class RegisterAction extends BaseAction implements PostAction {
             String activationCode = StringUtils.getActivationCode(user.getId().longValue());
             addSecurityStuff(user);
             // send activation mail
-            RegHelper.sendActivationEmail(activationEmailSubject, activationCode, activationEmailBodyTemplateFile,
-                email, activationEmailFromAddress);
+            if (email != null) {
+              RegHelper.sendActivationEmail(activationEmailSubject, activationCode, activationEmailBodyTemplateFile,
+                  email, activationEmailFromAddress);
+            }
             user.setActivationCode(activationCode);
             userDao.saveOrUpdate(user);
         } catch (Exception e) {
@@ -160,13 +162,15 @@ public class RegisterAction extends BaseAction implements PostAction {
         user.setFirstName(firstName);
         user.setLastName(lastName);
         user.setHandle(handle);
-        Email emailAdd = new Email();
-        emailAdd.setAddress(email);
-        emailAdd.setPrimary(Boolean.TRUE);
-        emailAdd.setEmailTypeId(Email.TYPE_ID_PRIMARY);
-        emailAdd.setStatusId(Email.STATUS_ID_UNACTIVE);
-        emailAdd.setUser(user);
-        user.addEmailAddress(emailAdd);
+        if (email != null) {
+          Email emailAdd = new Email();
+          emailAdd.setAddress(email);
+          emailAdd.setPrimary(Boolean.TRUE);
+          emailAdd.setEmailTypeId(Email.TYPE_ID_PRIMARY);
+          emailAdd.setStatusId(Email.STATUS_ID_UNACTIVE);
+          emailAdd.setUser(user);
+          user.addEmailAddress(emailAdd);
+        }
         user.setPassword(password);
         return user;
     }
