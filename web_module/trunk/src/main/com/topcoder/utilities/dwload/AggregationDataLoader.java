@@ -16,9 +16,17 @@ import com.topcoder.shared.util.logging.Logger;
  * This class is used to load TCS data to DW aggregation table. It extends from <code>TCLoader</code>. It's new added in
  * TopCoder Data Load Tool Assembly.
  * </p>
- * 
- * @author moonli, TCSASSEMBER
- * @version 1.0
+ *
+ * <p>
+ * Version 1.1 (BUGR-4729) change notes:
+ * <ol>
+ *   <li>Updated {@link #doLoadMonthlyContestStats()} and {@link #doLoadWeeklyContestStats()} methods to delete the rubbish
+ *   records firstly and then insert new records.</li>
+ * </ol>
+ * </p>
+ *
+ * @author moonli, flexme
+ * @version 1.1
  */
 public class AggregationDataLoader extends TCLoad {
     /**
@@ -134,6 +142,13 @@ public class AggregationDataLoader extends TCLoad {
                             "    SELECT * FROM weekly_contest_stats c WHERE c.client_project_id=a.client_project_id AND c.tc_direct_project_id=a.tc_direct_project_id " +
                             "        AND c.project_category_id=a.project_category_id AND c.week=a.week AND c.year=a.year)";
         
+        // delete all the rubbish records from tcs_dw:weekly_contest_stats table
+        final String DELETE = "DELETE FROM weekly_contest_stats WHERE NOT EXISTS (" +
+                            "    SELECT * from tmp_project_aggr_3 a where weekly_contest_stats.client_project_id=a.client_project_id " +
+                            "        AND weekly_contest_stats.tc_direct_project_id=a.tc_direct_project_id " +
+                            "        AND weekly_contest_stats.project_category_id=a.project_category_id " +
+                            "        AND weekly_contest_stats.week=a.week AND weekly_contest_stats.year=a.year)";
+
         // Statements to drop temp tables
         String[] DROP_TABLES = new String[] {"DROP TABLE tmp_project_aggr_1", "DROP TABLE tmp_project_aggr_2", "DROP TABLE tmp_project_aggr_3"};
         
@@ -155,9 +170,14 @@ public class AggregationDataLoader extends TCLoad {
             statement.executeUpdate();
             close(statement);
             
+            // delete rubbish records from tcs_dw:weekly_contest_stats table
+            statement = prepareStatement(DELETE, TARGET_DB);
+            long count = statement.executeUpdate();
+            close(statement);
+            
             // Update tcs_dw:weekly_contest_stats table
             statement = prepareStatement(UPDATE, TARGET_DB);
-            long count = statement.executeUpdate();
+            count += statement.executeUpdate();
             close(statement);
             
             // Insert new records to tcs_dw:weekly_contest_stats table
@@ -238,6 +258,13 @@ public class AggregationDataLoader extends TCLoad {
                             "     AND a.project_category_id=monthly_contest_stats.project_category_id " +
                             "     AND a.month=monthly_contest_stats.month AND a.year=monthly_contest_stats.year))";
         
+        // delete all rubbish records from tcs_dw:monthly_contest_stats table
+        final String DELETE = "DELETE FROM monthly_contest_stats WHERE NOT EXISTS ( " +
+                            "    SELECT * from tmp_project_aggr_3 a where monthly_contest_stats.client_project_id=a.client_project_id " +
+                            "        AND monthly_contest_stats.tc_direct_project_id=a.tc_direct_project_id " +
+                            "        AND monthly_contest_stats.project_category_id=a.project_category_id " +
+                            "        AND monthly_contest_stats.month=a.month AND monthly_contest_stats.year=a.year)";
+        
         // insert new records to tcs_dw:monthly_contest_stats table
         final String INSERT = "INSERT INTO monthly_contest_stats (client_project_id, tc_direct_project_id, project_category_id, month, year, " +
                             "    avg_contest_fees, avg_member_fees, avg_duration, avg_fulfillment, total_completed_contests, total_failed_contests) " +
@@ -268,9 +295,14 @@ public class AggregationDataLoader extends TCLoad {
             statement.executeUpdate();
             close(statement);
             
+            // delete all rubbish records from tcs_dw:monthly_contest_stats table
+            statement = prepareStatement(DELETE, TARGET_DB);
+            long count = statement.executeUpdate();
+            close(statement);
+            
             // Update tcs_dw:monthly_contest_stats table
             statement = prepareStatement(UPDATE, TARGET_DB);
-            long count = statement.executeUpdate();
+            count += statement.executeUpdate();
             close(statement);
             
             // Insert new records to tcs_dw:monthly_contest_stats table
