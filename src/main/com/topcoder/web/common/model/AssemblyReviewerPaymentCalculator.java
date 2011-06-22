@@ -4,12 +4,12 @@
 package com.topcoder.web.common.model;
 
 /**
- * This class simply pays out the standard application amounts plus 50%.
+ * This class simply pays out the standard application amounts plus 80%.
  *  
  * @author ivern
  */
 public class AssemblyReviewerPaymentCalculator extends ApplicationReviewerPaymentCalculator {
-    private static final float MULTIPLIER = 1.5f;
+    private static final float MULTIPLIER = 1.8f;
     
     public AssemblyReviewerPaymentCalculator(float firstPlacePrize, int submissionCount, int passedScreeningCount) {
         super(firstPlacePrize, submissionCount, passedScreeningCount);
