@@ -44,7 +44,7 @@
 					nav.search("m_copilot_opportunities").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;ph=140", "Past Contests", "copilot_past"));
          			//nav.search("m_copilot_opportunities").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ViewReviewProjects&amp;pt=" + WebConstants.COPILOT_PROJECT_TYPE, "Review Opportunities", "copilot_review"));
          			//nav.search("m_copilot_opportunities").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ReviewBoard&amp;pt=" + WebConstants.COPILOT_PROJECT_TYPE, "Meet the Review Board", "copilot_review_board"));
-                    nav.search("m_copilot_opportunities").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewCopilotPool", "Copilot Pool", "copilots_pool"));
+                    nav.search("m_copilot_opportunities").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewCopilotPool&size=20&view=0&sort=12", "Copilot Pool", "copilots_pool"));
 
 			nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'competition_design')", "Design", "competition_design"));
 				nav.search("competition_design").addChild(new NavNode("http://studio.topcoder.com", "Studio", "studio"));
