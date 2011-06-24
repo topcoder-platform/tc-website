@@ -13,7 +13,6 @@ import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.comp.Project;
 import com.topcoder.web.studio.Constants;
-import com.topcoder.web.studio.model.FilePath;
 
 import java.util.Iterator;
 
