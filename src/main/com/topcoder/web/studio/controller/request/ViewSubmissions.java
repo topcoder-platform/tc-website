@@ -109,10 +109,6 @@ public class ViewSubmissions extends ShortHibernateProcessor {
         r.setContentHandle("studio_submissions");
         r.setProperty(Constants.CONTEST_ID, contestId);
 
-        if (c.getMaxSubmissions() != null) {
-            r.setProperty(Constants.SUBMISSION_RANK, c.getMaxSubmissions().toString());
-        }
-
         getRequest().setAttribute("hasScores", c != null);
 
         String col = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
