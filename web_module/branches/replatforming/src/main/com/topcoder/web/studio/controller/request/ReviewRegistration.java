@@ -338,24 +338,6 @@ public class ReviewRegistration extends ShortHibernateProcessor {
                 ProjectPhase reviewPhase = project.getPhase(phaseTypeIds[i]);
                 createResource(factory, project, userId, reviewPhase, reviewerRoleId, payment);
             }
-
-            // insert to user_permission_grant
-            UserPermissionGrant permission = new UserPermissionGrant();
-            
-            // if there is an associated direct project id, add PROJECT_READ permission for that resource_id
-            if (project.getTcDirectProjectId() != null) {
-                permission.setPermissionType(new PermissionType(PermissionType.PROJECT_READ));
-                permission.setResourceId(new Long(project.getTcDirectProjectId()));
-            } else {
-                // otherwise, add CONTEST_READ permission for the contest_id
-                permission.setPermissionType(new PermissionType(PermissionType.CONTEST_READ));
-                permission.setResourceId(new Long(project.getId()));
-            }
-            
-            User u = factory.getUserDAO().find(getUser().getId());
-            permission.setUser(u);
-            permission.setIsStudio(UserPermissionGrant.TRUE);
-            factory.getUserPermissionGrantDAO().saveOrUpdate(permission);
         } else {
             throw new NavigationException("Sorry, you are not authorized to perform " + reviewType 
                                           + " reviews for contests of this type.");
