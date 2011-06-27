@@ -1561,3 +1561,46 @@ html,body { font-family:Arial, Helvetica, sans-serif; background:#cccccc url(../
 	font-size:12px;
 	color:#333333;
 }
+
+.termline{
+    height:20px;
+    margin:10px 0;
+    position:relative;
+    padding-left:20px;
+}
+.termline2{
+    height:20px;
+    margin:3px 0 10px 0;
+    position:relative;
+    padding-left:20px;
+}
+
+.termline .label{
+    height:20px !important;
+    line-height:20px !important;
+}
+#checkAgree{
+    position:absolute;
+    left:0;
+    top:3px;
+}
+.termline2 #checkAgree{
+    top:0;
+}
+#modalTermsConditions h4{
+    padding:14px 0;
+}
+#modalTermsConditions p{
+    margin-bottom:15px;
+}
+
+.redBtn.disabled{
+	color:#fffffe;
+	background:url(../../i/reg/button-red-disable.gif) left top no-repeat;
+}
+	.redBtn.disabled span{
+		background:url(../../i/reg/button-red-disable.gif) right -52px no-repeat;
+	}
+		.redBtn.disabled span span{
+			background:url(../../i/reg/button-red-disable.gif) left -26px repeat-x;
+		}

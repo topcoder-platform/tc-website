@@ -89,8 +89,12 @@ $(document).ready(function(){
 /* end Modal */
 
 	if($('.registerPage').length>0){
-		LoadModal("#modalTermsConditions");
+		//LoadModal("#modalTermsConditions");
 	}
+    $('.termline .terms').click(function(){
+        LoadModal("#modalTermsConditions");
+        return false;
+    });
 	
 	$('#modalTermsConditions .modalFooter .button').unbind().bind('click',function(){
 		closeModal();
@@ -163,9 +167,18 @@ $(document).ready(function(){
 			$('#TI_password').after("<span class=\"errorMessage2\">" + errors[i].innerHTML + "</span>");
 			$('#TI_password').addClass('errorInput').siblings('.errorMessage2').show();	
 		}
-	};		
+	};
+
+    $('#checkAgree').change(function(){
+        if($('#checkAgree:checked').length>0){
+            $('#registerSubmitButton').removeClass('disabled');
+        }else{
+            $('#registerSubmitButton').addClass('disabled');
+        }
+    });
 	
 	$('#registerSubmitButton').click(function(){
+        if($(this).hasClass('disabled')) return;
 		$('.tipError2,.tipError,.editErrorNotice').hide();
 		$(':text').removeClass('error');
 		var checkStauts = true;
@@ -195,7 +208,7 @@ $(document).ready(function(){
 			$('#confirmPassword').addClass('error').siblings('.tipError').show();
 			checkStauts = false;
 		}
-		
+
 		if(!checkStauts){return false};
 		
 		if($(this).closest('form').hasClass('errorForm')){return false};
