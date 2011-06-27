@@ -13,7 +13,6 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
-<%@ page import="com.topcoder.web.studio.model.ContestChannel" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
