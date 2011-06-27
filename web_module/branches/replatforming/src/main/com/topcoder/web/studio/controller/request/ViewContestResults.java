@@ -99,15 +99,11 @@ public class ViewContestResults extends ShortHibernateProcessor {
                 getRequest().setAttribute("contest", contest);
                 loadData(cid);
             } else {
-                if (Project.STATUS_ACTIVE.equals(contest.getStatusId())) {
-                    if (contest.getReviewClosed()) {
-                        getRequest().setAttribute("contest", contest);
-                        loadData(cid);
-                    } else {
-                        throw new NavigationException("No contest results available.");
-                    }
-                } else {
-                    throw new NavigationException("Inactive contest specified.");
+                if (contest.getReviewClosed()) {
+                    getRequest().setAttribute("contest", contest);
+                    loadData(cid);
+                 } else {
+                    throw new NavigationException("No contest results available.");
                 }
             }
 
