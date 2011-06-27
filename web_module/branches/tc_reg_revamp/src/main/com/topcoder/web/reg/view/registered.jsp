@@ -55,8 +55,15 @@
 	</div><!-- #container -->
 
 	<div id="footer">
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit.Nunc vitae magna augue. Cras luctus, enim eget egestas vulputate, est diam
-	</div><!-- #footer -->
+                <!--Update footer-->
+               
+                <div class="copyright">
+                    <span>Copyright TopCoder, Inc. 2001-2011</span>
+                    <a href="https://www.topcoder.com/tc?module=Static&d1=about&d2=terms" target="_blank" title="Terms of Use">Terms of Use</a>
+                    <a href="https://www.topcoder.com/tc?module=Static&d1=about&d2=privacy" target="_blank" title="Privacy Policy">Privacy Policy</a>
+                </div>
+                <!--End copyright-->
+      </div>
 
 	</div><!-- .wrapper -->
 
