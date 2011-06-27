@@ -23,6 +23,7 @@
 <c:set var="milestoneFeedbackAvailable"
        value="${isMultiRound and canViewMilestone and contest.milestoneFeedbackAvailable}"/>
 <c:set var="currentTime" value="<%=new Date()%>"/>
+<c:set var="isMilestoneReviewFinished" value="${contest.milestoneReviewClosed}"/>
 <c:set var="isFinished" value="${contest.reviewClosed}"/>
 
 <div id="thirdNavi">
@@ -36,7 +37,7 @@
         </li>
 
         <c:choose>
-            <c:when test="${milestoneFeedbackAvailable}">
+            <c:when test="${isMilestoneReviewFinished}">
                 <li><a ${currentTab eq 'm' ? 'class="current"' : ''}
                         href="${servletPath}?module=ViewMilestoneFeedback&amp;${CONTEST_ID}=${contest.id}">
                     <span class="right"><span class="middle">Milestones</span></span></a></li>
@@ -47,7 +48,7 @@
         </c:choose>
 
         <c:choose>
-            <c:when test="${isFinished and contest.viewableSubmissions}">
+            <c:when test="${isFinished}">
                 <li>
                      <a ${currentTab eq 's' ? 'class="current"' : ''}
                         href="${servletPath}?module=ViewSubmissions&amp;${CONTEST_ID}=${contest.id}">
