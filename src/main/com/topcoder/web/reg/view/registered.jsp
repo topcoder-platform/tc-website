@@ -20,7 +20,7 @@
 			<div id="mainTitle">
 				<div class="mainTitleRight">
 					<div class="mainTitleCenter">
-						<h2><span class="titleWrapper"><img src="i/font-mainTitle-active.png" alt="ACTIVATE YOUR ACCOUNT" /></span></h2>
+						<h2><span class="titleWrapper"><img src="/i/reg/font-mainTitle-active.png" alt="ACTIVATE YOUR ACCOUNT" /></span></h2>
 					</div>
 				</div>
 			</div>

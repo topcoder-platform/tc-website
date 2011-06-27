@@ -20,7 +20,7 @@
 					<div id="mainTitle">
 						<div class="mainTitleRight">
 							<div class="mainTitleCenter">
-								<h2><span class="titleWrapper"><img src="i/reg/font-mainTitle-register.png" alt="register" /></span></h2>
+								<h2><span class="titleWrapper"><img src="/i/reg/font-mainTitle-register.png" alt="register" /></span></h2>
 							</div>
 						</div>
 					</div>
@@ -104,9 +104,12 @@
 												<div class="tipError">Your verification code is not match</div>
 												<div class="clear"></div>
 											</div>
+                                            <div class="termline">
+                                                <input type="checkbox" name="checkAgree" id="checkAgree"><span class="label">I have read and accept the <a class="terms" href="https://www.topcoder.com/reg/privacy_policy.jsp">Privacy Policy</a></span>
+                                            </div>
 											<div class="formCommand">
 												<a href="javascript:;" class="button grayBtn resetButton"><span><span>Reset</span></span></a>
-												<a href="javascript:;" id="registerSubmitButton" class="button redBtn submitButton"><span><span>Submit</span></span></a>											
+												<a href="javascript:;" id="registerSubmitButton" class="button redBtn submitButton disabled"><span><span>Submit</span></span></a>
 											</div>
 										</div>
 										<div class="clearAll"></div>
@@ -130,16 +133,23 @@
 			</div><!-- #container -->
 			
 			<div id="footer">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit.Nunc vitae magna augue. Cras luctus, enim eget egestas vulputate, est diam
-			</div><!-- #footer -->
+                <!--Update footer-->
+               
+                <div class="copyright">
+                    <span>Copyright TopCoder, Inc. 2001-2011</span>
+                    <a href="https://www.topcoder.com/tc?module=Static&d1=about&d2=terms" target="_blank" title="Terms of Use">Terms of Use</a>
+                    <a href="https://www.topcoder.com/tc?module=Static&d1=about&d2=privacy" target="_blank" title="Privacy Policy">Privacy Policy</a>
+                </div>
+                <!--End copyright-->
+            </div>
 
 		</div><!-- .wrapper -->
 		<div id="modal">
 			<div id="modalTermsConditions" class="outLay">
-				<div class="modalHeader">TERMS &amp; CONDITIONS</div>
+				<div class="modalHeader">PRIVACY POLICY</div>
 				<div class="modalContainer">
 					<div class="modalContainerInner">
-                <p>Our privacy policy, updated as of February 23, 2006, describes the information we collect and how we use it. </p>
+                                <p>Our privacy policy, updated as of February 23, 2006, describes the information we collect and how we use it. </p>
                 <p>TopCoder values privacy as much as we value programmers, and therefore we are committed to protecting the privacy of our users. We want to provide a safe, secure user experience. We will use reasonable commercial efforts to ensure that the information you submit to us remains private. Your personal information is immediately transferred from our Web server to behind our firewall, where it remains isolated from a direct connection to the Internet. By using this Web site, and in doing so accepting the Terms and Conditions of Use under which you may use this Web site (see <a href="terms_of_use.jsp">Terms and Conditions of Use</a>), you consent to the use of your personal information as described in this privacy policy. </p>
                 <p>Our privacy policy and security measures are periodically reviewed and enhanced as necessary. You should understand, however, that &quot;perfect security&quot; does not exist on the Internet. The information that you submit to us is used only for the purposes as set forth herein, as required by law, or when we believe in good faith that disclosure is legally required to protect our rights. We will not use your personal information for any other purpose other than as set out here without first obtaining your permission. The following reflects our commitment to you. </p>
                 <h4>Your California Privacy Rights</h4>
@@ -176,8 +186,7 @@
 				</div>
 				<div class="modalFooter">
 					<div class="modalCommand">
-						<a href="javascript:;" class="button grayBtn"><span><span>Disagree</span></span></a>
-						<a href="javascript:;" class="button redBtn"><span><span>Agree</span></span></a>
+						<a href="javascript:;" class="button grayBtn"><span><span>Close</span></span></a>
 					</div>
 				</div>
 			</div>
