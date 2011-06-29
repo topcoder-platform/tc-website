@@ -2023,7 +2023,7 @@ public class StudioContestMigrationTool extends TCLoad {
                                                     contestCreateUserId, contestStartTime); // Eligibility
                             insertSingleProjectInfo(insertProjectInfoStmt, newProjectId, 17, "", 
                                                     contestCreateUserId, contestStartTime); // Notes
-                            insertSingleProjectInfo(insertProjectInfoStmt, newProjectId, 26, "Yes", 
+                            insertSingleProjectInfo(insertProjectInfoStmt, newProjectId, 26, "On", 
                                                     contestCreateUserId, contestStartTime); // Digital Run flag
                             // Old Studio Contest Id
                             insertSingleProjectInfo(insertProjectInfoStmt, newProjectId, 50, String.valueOf(contestId), contestCreateUserId, contestStartTime);
