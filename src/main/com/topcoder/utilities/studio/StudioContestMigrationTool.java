@@ -2903,10 +2903,8 @@ public class StudioContestMigrationTool extends TCLoad {
                 sub.originalSubmissionId = getLong(selectedSubmissionsResult, "submission_id");
                 sub.submitterId = getLong(selectedSubmissionsResult, "submitter_id");
                 sub.submissionStatusId = getLong(selectedSubmissionsResult, "submission_status_id");
-                Timestamp submissionDate = selectedSubmissionsResult.getTimestamp("submission_date");
-                if (submissionDate == null) {
-                    submissionDate = selectedSubmissionsResult.getTimestamp("create_date");
-                }
+                Timestamp submissionDate = selectedSubmissionsResult.getTimestamp("create_date");
+				
                 // sub.submissionTypeId = getLong(selectedSubmissionsResult, "submission_type_id");
                 if (contestMilestoneDate != null && submissionDate.before(contestMilestoneDate)) {
                     // milestone submission
@@ -2915,7 +2913,7 @@ public class StudioContestMigrationTool extends TCLoad {
                     // contest submission
                     sub.submissionTypeId = 2L;
                 }
-                sub.modifyDate = selectedSubmissionsResult.getTimestamp("modify_date");
+                sub.modifyDate = selectedSubmissionsResult.getTimestamp("create_date");
                 sub.userRank = getLong(selectedSubmissionsResult, "user_rank");
                 sub.originalFileName = selectedSubmissionsResult.getString("original_file_name");
                 sub.systemFileName = selectedSubmissionsResult.getString("system_file_name");
