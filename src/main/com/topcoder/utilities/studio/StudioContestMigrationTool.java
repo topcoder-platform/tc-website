@@ -2033,12 +2033,6 @@ public class StudioContestMigrationTool extends TCLoad {
                                 insertSingleProjectInfo(insertProjectInfoStmt, newProjectId, 53, viewableSubmissionsFlag,
                                         contestCreateUserId, contestStartTime);
                             }
-                            // Viewable Submitters
-                            String viewableSubmitters = selectedContestsResult.getString("viewable_submitters");
-                            if (viewableSubmitters != null) {
-                                insertSingleProjectInfo(insertProjectInfoStmt, newProjectId, 54, viewableSubmitters,
-                                        contestCreateUserId, contestStartTime);
-                            }
                             
                             if (adminFee != null) {
                                 insertSingleProjectInfo(insertProjectInfoStmt, newProjectId, 31, adminFee, 
