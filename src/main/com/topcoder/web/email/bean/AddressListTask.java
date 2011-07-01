@@ -67,6 +67,7 @@ public class AddressListTask
                 nextPage = bulkAdd(request, response);
             }
         } catch (Exception e) {
+		    e.printStackTrace ();
             throw new ServletException(e.toString());
         }
 
