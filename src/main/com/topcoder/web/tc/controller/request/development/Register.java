@@ -107,8 +107,13 @@ public class Register extends ViewRegistration {
                     if (log.isDebugEnabled()) {
                         log.debug("they agree to terms");
                     }
-                    // save user terms of use record
-                    saveUserTermsOfUse(userId, Long.parseLong(termsOfUseId));
+
+                    if (hasTermsOfUseBan(userId, Long.parseLong(termsOfUseId))) {
+                        addError(Constants.TERMS_AGREE, "Sorry, you can not agree to this terms of use.");
+                    } else {
+                        // save user terms of use record
+                        saveUserTermsOfUse(userId, Long.parseLong(termsOfUseId));
+                    }
 
                     // get survey
                     getRequest().setAttribute("questionInfo", getQuestions());
