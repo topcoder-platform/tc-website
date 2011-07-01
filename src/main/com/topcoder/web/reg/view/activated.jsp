@@ -19,7 +19,7 @@
 			<div id="mainTitle">
 				<div class="mainTitleRight">
 					<div class="mainTitleCenter">
-						<h2><span class="titleWrapper"><img src="/i/font-mainTitle-congrat.png" alt="CONGRATULATION" /></span></h2>
+						<h2><span class="titleWrapper"><img src="/i/reg/font-mainTitle-congrat.png" alt="CONGRATULATION" /></span></h2>
 					</div>
 				</div>
 			</div>
