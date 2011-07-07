@@ -1,12 +1,11 @@
 <%--
-  - Author: TCSDEVELOPER, pulky, pvmagacho
-  - Version: 1.2
+  - Author: TCSDEVELOPER, pulky
+  - Version: 1.1
   - Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page displays the member profile page.
   -
   - Version 1.1 (Testing Competition Split Release Assembly 1.0) changes: Updated Application Testing to Test Suites.
-  - Version 1.2 (BUG#TCCC-3216) changes: Member photo is now retrieved from informixoltp database.
 --%>
 <%@  page language="java"
     import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,com.topcoder.shared.util.ApplicationServer,
@@ -15,7 +14,6 @@
 <%@ page import="java.util.Map"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtags" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -67,16 +65,11 @@ This member has not yet been rated in a competition.
    <tr><td class="tableTitle" colspan="3">&#160;</td></tr>
    <tr>
       <td class="photoCell">
-      <c:choose>
-		  <c:when test="${userImage!=null}">
-			<img src="${pathImage}" name="image_path" alt="" class="memberPhoto" />
-		  </c:when>
-		  <c:otherwise>
-			<a id="submitPhotoLink" href="/tc?module=UserStatic&amp;d1=my_home&amp;d2=submitPhoto">
-				<img src="/i/m/nophoto_login.gif" name="image_path" alt="" class="memberPhoto"/>
-			</a>
-		  </c:otherwise>
-      </c:choose>
+   <%if (rscCoderData.getItem(0,"has_image").toString().equals("1")) { %>
+      <IMG SRC='<rsc:item name="image_path" set="<%=rscCoderData%>"/>' class="memberPhoto" />
+   <% } else { %>
+      <a href="/tc?module=UserStatic&amp;d1=my_home&amp;d2=submitPhoto"><img SRC="/i/m/nophoto_login.gif" class="memberPhoto"/></a>
+   <% } %>
       </td>
       <td valign="top">
          <table cellpadding="0" cellspacing="0" border="0" class="statTable">
@@ -336,4 +329,3 @@ This member has not yet been rated in a competition.
 </body>
 
 </html>
-

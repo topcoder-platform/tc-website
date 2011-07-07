@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2005-2011 TopCoder, Inc. All rights reserved.
+ * Copyright (c) 2005-2009 TopCoder, Inc. All rights reserved.
  */
 
 package com.topcoder.web.tc.controller.request.statistics;
@@ -16,21 +16,10 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Country;
-import com.topcoder.web.common.model.Path;
 import com.topcoder.web.common.model.Preference;
 import com.topcoder.web.common.model.UserPreference;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.common.WebConstants;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
-import com.topcoder.web.memberphoto.manager.MemberPhotoDAO;
-import com.topcoder.web.memberphoto.manager.persistence.JPAMemberPhotoDAO;
-import com.topcoder.web.memberphoto.manager.MemberPhotoManager;
-import com.topcoder.web.memberphoto.manager.MemberPhotoManagerImpl;
-import com.topcoder.web.memberphoto.entities.Image;
 
 /**
  * <p>
@@ -50,47 +39,14 @@ import com.topcoder.web.memberphoto.entities.Image;
  *   Version 1.2 Change notes:
  *   <ol>
  *     <li>Added support for the Test Scenarios, UI Prototype and RIA Build tracks.</li>
- *   </ol> 
- *
- *   Version 1.3 (BUG#TCCC-3216) Change notes:
- *   <ol>
- *     <li>Member photo is now retrieved from informixoltp database, using MemberPhotoManager.</li>
  *   </ol>
  * </p>
  * 
- * @author rfairfax, elkhawajah, VolodymyrK, pvmagacho
- * @version 1.3
+ * @author rfairfax, elkhawajah, VolodymyrK
+ * @version 1.2
  */
 public class MemberProfile extends Base {
-    /**
-     * <p>
-     * A member photo manager instance.
-     * </p>
-     * 
-     * @since 1.3
-     */
-    private MemberPhotoManager memberPhotoManager;
 
-    /**
-     * <p>
-     * The factory to create EntityManager objects.
-     * </p>
-     * 
-     * @since 1.3
-     */
-    private final EntityManagerFactory emf;
-
-    /**
-     * The default ctor. Added to initiate memberPhotoManager field.
-     * 
-     * @since 1.3
-     */
-    public MemberProfile() {
-        super();
-        
-        emf = Persistence.createEntityManagerFactory("memberPhotoManager");
-    }
-    
     /**
      * <p>
      * Process the request of displaying member profile page.
@@ -154,32 +110,6 @@ public class MemberProfile extends Base {
             String defaultTab = "";
             int maxRating = 0;
 
-            // Added - image from informixoltp - since 1.3
-            // configure the EntityManager
-            EntityManager entityManager = emf.createEntityManager();        
-            MemberPhotoDAO memberPhotoDAO = new JPAMemberPhotoDAO(entityManager);
-            memberPhotoManager = new MemberPhotoManagerImpl(memberPhotoDAO);
-            Image image = null;
-            try {
-            	// get image
-            	entityManager.getTransaction().begin();
-            	image = memberPhotoManager.getMemberPhoto(Integer.valueOf(coderId));
-            	entityManager.getTransaction().commit();
-            } catch (Exception eEmf){
-            	try {
-                    entityManager.getTransaction().rollback();
-            	} catch (Exception eTx) {}                 
-            } finally {
-            	entityManager.close();
-            }
-            getRequest().setAttribute("userImage", image);
-			
-            if (image != null) {
-            	HibernateUtils.getSession().beginTransaction();
-            	Path path = DAOUtil.getFactory().getPathDAO().find(image.getPathId());
-            	getRequest().setAttribute("pathImage", path.getPath() + image.getFileName());
-            }
-            
             if (rsc.size() != 0) {
 
                 if ((rsc.getItem(0, "rating").getResultData() != null)
@@ -459,7 +389,7 @@ public class MemberProfile extends Base {
             if (!DAOUtil.useQueryToolFactory) {
                 HibernateUtils.getSession().beginTransaction();
             }
-            
+
             UserPreference up = DAOUtil.getQueryToolFactory().getUserPreferenceDAO().find(Long.parseLong(coderId),
                 Preference.SHOW_EARNINGS_PREFERENCE_ID);
             boolean hidePayments = up != null && "hide".equals(up.getValue());
