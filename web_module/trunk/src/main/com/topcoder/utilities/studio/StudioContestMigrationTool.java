@@ -8,6 +8,8 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -27,6 +29,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Stack;
+
 
 import com.topcoder.shared.util.dwload.TCLoad;
 import com.topcoder.shared.util.logging.Logger;
@@ -149,6 +152,16 @@ public class StudioContestMigrationTool extends TCLoad {
      */
     private static final String SOFTWARE_DOCUMENTS_ROOT_PARAM_NAME = "software_documents_root";
     
+
+    /**
+     * <p>A <code>String</code> providing the name of configuration parameter to be used to provide the location to save the
+     * studio submissions.</p>
+     * 
+     * @since 1.1
+     */
+    private static final String STUDIO_SUBMISSIONS_ROOT_PARAM_NAME = "studio_submissions_root";
+
+
     /**
      * <p>A <code>long</code> referencing the <code>Scheduled</code> phase status.</p>
      */
@@ -524,6 +537,29 @@ public class StudioContestMigrationTool extends TCLoad {
             "LEFT JOIN path p ON p.path_id = s.path_id " +
             "LEFT JOIN submission_review sr on sr.submission_id = s.submission_id " +
             "WHERE s.contest_id = ?";
+
+    
+    /**
+     * <p>A <code>String</code> providing the SQL statement for selecting submission images from
+     * <code>studio_oltp</code> database for a specified submission id.</p>
+     * 
+     * @since 1.1
+     */
+    private static final String SELECT_SUBMISSION_IMAGE_SQL
+        = "SELECT si.submission_id, si.image_id, si.sort_order, " +
+            "     si.modify_date, si.create_date " +
+            "FROM submission_image si " +
+            "WHERE si.submission_id = ?";
+
+     /**
+     * <p>A <code>String</code> providing the SQL statement for insert submission images into
+     * <code>tcs_catalog.submission_image</code> database for a specified submission id.</p>
+     * 
+     * @since 1.1
+     */
+    private static final String INSERT_SUBMISSION_IMAGE_SQL
+        = "INSERT INTO submission_image (submission_id, image_id, sort_order, modify_date, create_date )" +
+           "VALUES(?, ?, ?, ?, ?)";
 
     /**
      * <p>A <code>String</code> providing the SQL statement for inserting new records into
@@ -947,6 +983,13 @@ public class StudioContestMigrationTool extends TCLoad {
      * @since 1.1
      */
     private String softwareDocumentsRoot;
+
+    /**
+     * <p>A <code>String</code> providing the location to studio submissions.</p>
+     * 
+     * @since 1.1
+     */
+    private String studioSubmissionsRoot;
     
     /**
      * <p>Constructs new <code>StudioContestMigrationTool</code> instance. This implementation does nothing.</p>
@@ -1057,6 +1100,33 @@ public class StudioContestMigrationTool extends TCLoad {
             throw new IllegalArgumentException("The software documents root must be a directory.");
         }
         this.softwareDocumentsRoot = softwareDocumentsRoot;
+    }
+
+    /**
+     * <p>Gets the root directory location to save documents for software contests in Online Review.</p>
+     * 
+     * @return a <code>String</code> providing the root directory location to save documents for software contests in Online Review.
+     * @since 1.1
+     */
+    public String getStudioSubmissionsRoot() {
+        return studioSubmissionsRoot;
+    }
+
+    /**
+     * <p>Sets the root directory location to save documents for software contests in Online Review.</p>
+     * 
+     * @param softwareDocumentsRoot a <code>String</code> providing the root directory location to save documents for software contests in Online Review.
+     * @since 1.1
+     */
+    public void setStudioSubmissionssRoot(String studioSubmissionsRoot) {
+        if (studioSubmissionsRoot == null || studioSubmissionsRoot.trim().length() == 0) {
+            throw new IllegalArgumentException("The studioSubmissionsRoot can not be null or empty.");
+        }
+        File dir = new File(studioSubmissionsRoot);
+        if (dir.exists() && !dir.isDirectory()) {
+            throw new IllegalArgumentException("The studioSubmissionsRoot must be a directory.");
+        }
+        this.studioSubmissionsRoot = studioSubmissionsRoot;
     }
 
     /**
@@ -1596,6 +1666,7 @@ public class StudioContestMigrationTool extends TCLoad {
             setMilestoneScreeningScorecardQuestionId(parseLongParameter(params, MILESTONE_SCREENING_SCORECARD_QUESTION_ID_PARAM_NAME));
             setMilestoneReviewScorecardQuestionId(parseLongParameter(params, MILESTONE_REVIEW_SCORECARD_QUESTION_ID_PARAM_NAME));
             setSoftwareDocumentsRoot((String) params.get(SOFTWARE_DOCUMENTS_ROOT_PARAM_NAME));
+            setStudioSubmissionssRoot((String) params.get(STUDIO_SUBMISSIONS_ROOT_PARAM_NAME));
             setProjectIdGenerator(IDGeneratorFactory.getIDGenerator("project_id_seq"));
             setPhaseIdGenerator(IDGeneratorFactory.getIDGenerator("project_phase_id_seq"));
             setComponentIdGenerator(IDGeneratorFactory.getIDGenerator("COMPONENT_SEQ"));
@@ -1817,6 +1888,8 @@ public class StudioContestMigrationTool extends TCLoad {
         PreparedStatement insertSubmissionStmt = null;
         PreparedStatement selectSubmissionDeclarationStmt = null;
         PreparedStatement insertSubmissionDeclarationStmt = null;
+        PreparedStatement selectSubmissionImageStmt = null;
+        PreparedStatement insertSubmissionImageStmt = null;
         PreparedStatement insertSubmissionExternalContentStmt = null;
         PreparedStatement insertExternalContentPropertyStmt = null;
         PreparedStatement insertReviewStmt = null;
@@ -1854,6 +1927,8 @@ public class StudioContestMigrationTool extends TCLoad {
             insertSubmissionStmt = prepareStatement(INSERT_SUBMISSION_SQL, TARGET_DB);
             selectSubmissionDeclarationStmt = prepareStatement(SELECT_SUBMISSION_DECLARATION_SQL, SOURCE_DB);
             insertSubmissionDeclarationStmt = prepareStatement(INSERT_SUBMISSION_DECLARATION_SQL, TARGET_DB);
+            selectSubmissionImageStmt = prepareStatement(SELECT_SUBMISSION_IMAGE_SQL, SOURCE_DB);
+            insertSubmissionImageStmt = prepareStatement(INSERT_SUBMISSION_IMAGE_SQL, TARGET_DB);
             insertSubmissionExternalContentStmt = prepareStatement(INSERT_SUBMISSION_EXTERNAL_CONTENT_SQL, TARGET_DB);
             insertExternalContentPropertyStmt = prepareStatement(INSERT_EXTERNAL_CONTENT_PROPERTY_SQL, TARGET_DB);
             insertReviewStmt = prepareStatement(INSERT_REVIEW_SQL, TARGET_DB);
@@ -2290,6 +2365,9 @@ public class StudioContestMigrationTool extends TCLoad {
                                 // Load submission declaration data
                                 insertSubmissionDeclaration(selectSubmissionDeclarationStmt, insertSubmissionDeclarationStmt,
                                        insertSubmissionExternalContentStmt, insertExternalContentPropertyStmt, sub);
+
+                                // Load submission image data
+                                insertSubmissionImage(selectSubmissionImageStmt, insertSubmissionImageStmt, sub);
                                 
                                 // Create review for active submission
                                 if (ACTIVE_SUBMISSION_STATUS_ID == SUBMISSION_STATUS_MAPPING.get(sub.submissionStatusId)) {
@@ -2324,6 +2402,18 @@ public class StudioContestMigrationTool extends TCLoad {
                                         }
                                     }
                                 }
+                            }
+
+
+                            String submissionSrc = getStudioSubmissionsRoot() + System.getProperty("file.separator") + contestId;
+                            String submissionDest = getStudioSubmissionsRoot() + System.getProperty("file.separator") + newProjectId;
+
+                            File srcFolder = new File (submissionSrc);
+                            File destFolder = new File (submissionDest);
+
+                            if (srcFolder.exists())
+                            {
+                                copyFolder(srcFolder,destFolder);                 
                             }
                             
                             // If everything went smoothly then append ID of converted project to log messages
@@ -2376,6 +2466,7 @@ public class StudioContestMigrationTool extends TCLoad {
             close(insertSubmissionStmt);
             close(selectSubmissionDeclarationStmt);
             close(insertSubmissionDeclarationStmt);
+            close(insertSubmissionImageStmt);
             close(insertSubmissionExternalContentStmt);
             close(insertExternalContentPropertyStmt);
             close(insertReviewStmt);
@@ -3206,6 +3297,51 @@ public class StudioContestMigrationTool extends TCLoad {
     }
     
     /**
+     * <p>Load submission image data for a specified submission.</p>
+     * 
+     * @param selectSubmissionImageStmt the <code>PreparedStatement</code> used to retrieve the
+     * submission image data from <code>studio</code> database.
+     * @param insertSubmissionDeclarationStmt the <code>PreparedStatement</code> used to insert record
+     * to <code>tcs_catalog.submission_image</code> table.
+     * @param sub the <code>Submission</code> to load submission declaration data.
+     * @throws SQLException if a SQL error occurs
+     * @throws IDGenerationException if an error occurs while attempting to generate ID for newly added record.
+     * @throws StudioContestMigrationException if wrong number of records has been inserted into target table.
+     * @since 1.1
+     */
+    private void insertSubmissionImage(PreparedStatement selectSubmissionImageStmt, PreparedStatement insertSubmissionImageStmt, Submission sub) 
+        throws SQLException, IDGenerationException, StudioContestMigrationException {
+        selectSubmissionImageStmt.clearParameters();
+        selectSubmissionImageStmt.setLong(1, sub.originalSubmissionId);
+        ResultSet selectedSubmissionImageResult = selectSubmissionImageStmt.executeQuery();
+        try {
+
+            while (selectedSubmissionImageResult.next()) {
+                Long imageId = getLong(selectedSubmissionImageResult, "image_id");
+                Long sortOrder = getLong(selectedSubmissionImageResult, "sort_order");
+                Timestamp modifyDate = selectedSubmissionImageResult.getTimestamp("modify_date");
+                Timestamp createDate = selectedSubmissionImageResult.getTimestamp("create_date");
+
+                insertSubmissionImageStmt.clearParameters();
+                // submission id
+                insertSubmissionImageStmt.setLong(1, sub.newSubmissionId);
+                // image Id
+                insertSubmissionImageStmt.setLong(2, imageId);
+                // sort order
+                insertSubmissionImageStmt.setLong(3, sortOrder);
+                // dates
+                insertSubmissionImageStmt.setTimestamp(4, modifyDate);
+                insertSubmissionImageStmt.setTimestamp(5, createDate);
+                insertRecord(insertSubmissionImageStmt, "submission_image");
+               
+            }
+        } finally {
+            close(selectedSubmissionImageResult);
+        }
+    }
+    
+
+    /**
      * <p>Create a review for a submission.</p>
      * 
      * @param insertReviewStmt the the <code>PreparedStatement</code> used to insert record
@@ -3512,4 +3648,50 @@ public class StudioContestMigrationTool extends TCLoad {
          */
         private boolean passedScreening;
     }
+
+
+    public static void copyFolder(File src, File dest)
+    	throws IOException{
+ 
+    	if(src.isDirectory()){
+ 
+    		//if directory not exists, create it
+    		if(!dest.exists()){
+    		   dest.mkdir();
+    		   System.out.println("Directory copied from " 
+                              + src + "  to " + dest);
+    		}
+ 
+    		//list all the directory contents
+    		String files[] = src.list();
+ 
+    		for (String file : files) {
+    		   //construct the src and dest file structure
+    		   File srcFile = new File(src, file);
+    		   File destFile = new File(dest, file);
+    		   //recursive copy
+    		   copyFolder(srcFile,destFile);
+    		}
+ 
+    	}else{
+    		//if file, then copy it
+    		//Use bytes stream to support all file types
+    		InputStream in = new FileInputStream(src);
+    	        OutputStream out = new FileOutputStream(dest); 
+ 
+    	        byte[] buffer = new byte[1024];
+ 
+    	        int length;
+    	        //copy the file content in bytes 
+    	        while ((length = in.read(buffer)) > 0){
+    	    	   out.write(buffer, 0, length);
+    	        }
+ 
+    	        in.close();
+    	        out.close();
+    	       // System.out.println("File copied from " + src + " to " + dest);
+    	}
+    }
+
+
 }
