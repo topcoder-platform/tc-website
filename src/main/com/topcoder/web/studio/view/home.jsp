@@ -224,17 +224,17 @@
                                             src="/i/v5/Member_of_the_month_header.jpg" >
                                     </div>
                                     <div class="member_image" style="float:left;">
-                                        <img width="126" height="140" alt="Member of the Month" src="http://www.topcoder.com/i/m/nophoto.jpg">
+                                        <img width="126" height="140" alt="Member of the Month" src="http://www.topcoder.com/i/m/diskoverx_big.jpg">
                                     </div>
                                     <div id="member_content">
                                         <div id="member_month">
-                                            May<br />
+                                            June<br />
                                         </div>
                                         <div id="member_greeting">
-                                            <span class="member_content special handle">Congratulations <span class="handle-color">thinkcreeper</span></span><br/><br/>
+                                            <span class="member_content special handle">Congratulations <span class="handle-color">diskoverx</span></span><br/><br/>
                                         </div>
                                         <div id="member_stats">
-                                            <span class="member_content special">won $4,950!</span><br/><br/>
+                                            <span class="member_content special"></span><br/><br/>
                                             <span class="member_content special"><!--<a href="http://www.topcoder.com/news/2010/11/15/meet-the-october-coders-and-designers-of-the-month-2/">Read the interviews here.</a>--></span><br/><br/>
                                         </div>
                                     </div>
