@@ -4,6 +4,7 @@
 package com.topcoder.web.common.model.comp;
 
 import com.topcoder.web.common.model.Base;
+import com.topcoder.web.studio.model.ContestRoleTermsOfUse;
 
 /**
  * <p>This class represents a Phase Type entity.</p>
@@ -15,15 +16,8 @@ import com.topcoder.web.common.model.Base;
  *   </ol>
  * </p>
  *
- * <p>
- *   Version 1.2 (Re-platforming Studio Release 4 Assembly) Change notes:
- *   <ol>
- *     <li>Cleaned old studio model files.</li>
- *   </ol>
- * </p>
- * 
- * @author pulky, pvmagacho
- * @version 1.1
+ * @author pulky
+ * @version 1.0
  * @since Configurable Contest Terms-Studio Release Assembly v1.0
  */
 public class PhaseType extends Base {
