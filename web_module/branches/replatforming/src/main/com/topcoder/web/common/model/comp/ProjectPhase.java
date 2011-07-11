@@ -1,6 +1,3 @@
-/*
- * Copyright (C) 2009-2011 TopCoder Inc., All Rights Reserved.
- */
 package com.topcoder.web.common.model.comp;
 
 import java.sql.Timestamp;
@@ -9,27 +6,7 @@ import com.topcoder.web.common.model.Base;
 
 
 /**
- *
- * <p>
- * Version 1.1 (Re-platforming Studio Release 2 Assembly) Change notes:
- *   <ol>
- *     <li>Added {@link #statusId} property with respective accessor/mutator methods.</li>
- *     <li>Added {@link #MILESTONE_SUBMISSION} constant.</li>
- *     <li>Added {@link #STATUS_SCHEDULED} constant.</li>
- *     <li>Added {@link #STATUS_OPEN} constant.</li>
- *     <li>Added {@link #STATUS_CLOSED} constant.</li>
- *   </ol>
- * </p>
- *
- * <p>
- * Version 1.1 (Re-platforming Studio Release 4 Assembly 1.0) Change notes:
- *   <ol>
- *     <li>Added {@link #MILESTONE_REVIEW} constant.</li>
- *   </ol>
- * </p>
- * 
- * @author cucu, isv, pvmagacho
- * @version 1.2
+ * @author cucu
  */
 public class ProjectPhase extends Base {
 
@@ -45,41 +22,6 @@ public class ProjectPhase extends Base {
     public static final Integer FINAL_REVIEW = 10;
     public static final Integer APPROVAL = 11;
 
-    /**
-     * <p>An <code>Integer</code> providing the ID for <code>Milestone Submission</code> phase type.</p>
-     * 
-     * @since 1.1
-     */
-    public static final Integer MILESTONE_SUBMISSION = 15;
-
-    /**
-     * <p>An <code>Integer</code> providing the ID for <code>Milestone Review</code> phase type.</p>
-     * 
-     * @since 1.1
-     */
-    public static final Integer MILESTONE_REVIEW = 17;
-
-    /**
-     * <p>A <code>long</code> providing the ID for <code>Scheduled</code> phase status.</p>
-     * 
-     * @since 1.1
-     */
-    public static final long STATUS_SCHEDULED = 1; 
-
-    /**
-     * <p>A <code>long</code> providing the ID for <code>Open</code> phase status.</p>
-     * 
-     * @since 1.1
-     */
-    public static final long STATUS_OPEN = 2; 
-
-    /**
-     * <p>A <code>long</code> providing the ID for <code>Closed</code> phase status.</p>
-     * 
-     * @since 1.1
-     */
-    public static final long STATUS_CLOSED = 3; 
-
     private Long id;
     private Project project;
     private Integer type;
@@ -90,20 +32,6 @@ public class ProjectPhase extends Base {
     private Timestamp actualEndTime;
     private Long duration;
 
-    /**
-     * <p>A <code>Long</code> providing the ID of the status of this phase.</p>
-     * 
-     * @since 1.1
-     */
-    private Long statusId;
-
-    /**
-     * <p>Constructs new <code>ProjectPhase</code> instance. This implementation does nothing.</p>
-     * 
-     * @since 1.1
-     */
-    public ProjectPhase() {
-    }
 
     public Timestamp getActualEndTime() {
         return actualEndTime;
@@ -160,23 +88,6 @@ public class ProjectPhase extends Base {
         this.type = type;
     }
 
-    /**
-     * <p>Gets the ID of the status of this phase.</p>
-     *
-     * @return a <code>Long</code> providing the ID of the status of this phase.
-     * @since 1.1
-     */
-    public Long getStatusId() {
-        return this.statusId;
-    }
 
-    /**
-     * <p>Sets the ID of the status of this phase.</p>
-     *
-     * @param statusId a <code>Long</code> providing the ID of the status of this phase.
-     * @since 1.1
-     */
-    public void setStatusId(Long statusId) {
-        this.statusId = statusId;
-    }
+
 }
