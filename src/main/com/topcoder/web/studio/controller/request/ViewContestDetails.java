@@ -12,10 +12,10 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.dao.DAOFactory;
-import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.model.comp.Project;
 import com.topcoder.web.studio.Constants;
+import com.topcoder.web.studio.dao.DAOFactory;
+import com.topcoder.web.studio.dao.DAOUtil;
+import com.topcoder.web.studio.dto.Project;
 import com.topcoder.web.studio.util.Util;
 
 /**
@@ -62,8 +62,15 @@ import com.topcoder.web.studio.util.Util;
  *   </ol>
  * </p>
  *
+ * <p>
+ * Version 1.2.24 (Replatforming Studio Release 5) change notes:
+ *   <ol>
+ *     <li>Using the dto classes in com.topcoder.web.studio.dto package instead of in com.topcoder.web.common.model.comp package.</li>
+ *   </ol>
+ * </p>
+ * 
  * @author dok, pulky, isv, TCSDEVELOPER
- * @version 1.2.3
+ * @version 1.2.4
  */
 public class ViewContestDetails extends ShortHibernateProcessor {
 

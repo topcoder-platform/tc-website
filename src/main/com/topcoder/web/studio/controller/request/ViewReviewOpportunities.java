@@ -3,10 +3,15 @@
  */
 package com.topcoder.web.studio.controller.request;
 
+import java.util.Iterator;
+
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.model.StudioConstantReviewerPaymentCalculator;
 
 /**
  * <p>This class will process a view review opportunities request.</p>
@@ -20,8 +25,16 @@ import com.topcoder.web.common.BaseProcessor;
  *   </ol>
  * </p>
  *
- * @author TCSDEVELOPER, isv
- * @version 1.0.1
+ * <p>
+ * Version 1.1 (Replatforming Studio Release 5) change notes:
+ *   <ol>
+ *     <li>Updated {@link #businessProcessing()} method to use <code>StudioConstantReviewerPaymentCalculator</code> to
+ *     calculate reviewer payment.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author TCSDEVELOPER, isv, TCSASSEMBER
+ * @version 1.1
  * @since Studio Release Assembly - Spec Review Sign up page v1.0
  */
 public class ViewReviewOpportunities extends BaseProcessor {
@@ -52,7 +65,30 @@ public class ViewReviewOpportunities extends BaseProcessor {
         Request r = new Request();
         r.setContentHandle(REVIEW_OPPORTUNITIES_QUERY_NAME);
 
-        getRequest().setAttribute("reviews", da.getData(r).get(REVIEW_OPPORTUNITIES_QUERY_NAME));
+        ResultSetContainer reviews = da.getData(r).get(REVIEW_OPPORTUNITIES_QUERY_NAME);
+        Iterator<ResultSetRow> iterator = reviews.iterator();
+        float[] payments = new float[reviews.size()];
+        int index = 0;
+        while (iterator.hasNext()) {
+            ResultSetRow row = iterator.next();
+            String reviewType = row.getStringItem("review_type").trim();
+            int projectCategory = row.getIntItem("project_category_id");
+            StudioConstantReviewerPaymentCalculator paymentCalculator = new StudioConstantReviewerPaymentCalculator(projectCategory);
+            float payment = 0.0f;
+            if ("Screening".equalsIgnoreCase(reviewType)) {
+                payment += paymentCalculator.getScreeningCost();
+                if (row.getTimestampItem("milestone_screening_start_time") != null) {
+                    // multi round
+                    payment += paymentCalculator.getMilestoneScreeningCost();
+                }
+            } else if ("Spec Review".equalsIgnoreCase(reviewType)) {
+                payment = paymentCalculator.getSpecReviewCost();
+            }
+            payments[index++] = payment;
+        }
+        
+        getRequest().setAttribute("reviews", reviews);
+        getRequest().setAttribute("payments", payments);
         getRequest().setAttribute("userLoggedIn", userLoggedIn());
 
         setNextPage(REVIEW_OPPORTUNITIES_JSP);

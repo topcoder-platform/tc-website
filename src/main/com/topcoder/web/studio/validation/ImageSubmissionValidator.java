@@ -9,12 +9,12 @@ import com.topcoder.servlet.request.FileDoesNotExistException;
 import com.topcoder.servlet.request.PersistenceException;
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.model.comp.FileType;
-import com.topcoder.web.common.model.comp.Project;
 import com.topcoder.web.common.validation.BasicResult;
 import com.topcoder.web.common.validation.ValidationInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.common.validation.Validator;
+import com.topcoder.web.studio.dto.FileType;
+import com.topcoder.web.studio.dto.Project;
 
 /**
  * <p>Class used to validate the image files from contest <code>Submission</code>.</p>
@@ -27,8 +27,15 @@ import com.topcoder.web.common.validation.Validator;
  *   </ol>
  * </p>
  * 
- * @author aisacovich, pvmagacho
- * @version 1.1
+ * <p>
+ * Version 1.2 (Replatforming Studio Release 5) change notes:
+ *   <ol>
+ *     <li>Using the dto classes in com.topcoder.web.studio.dto package instead of in com.topcoder.web.common.model.comp package.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author aisacovich, pvmagacho, TCSASSEMBER
+ * @version 1.2
  */
 public class ImageSubmissionValidator implements Validator {
     /**

@@ -1,6 +1,6 @@
 <%--
-  - Author: isv, isv
-  - Version: 1.2 (Replatforming Studio Release 2 Assembly)
+  - Author: isv, isv, TCSASSEMBER
+  - Version: 1.3 (Replatforming Studio Release 2 Assembly)
   - Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page presents specification review opportunities
@@ -10,6 +10,8 @@
   -
   - Version 1.2 change notes: updated the logic for displaying the opportunities to display the specification review
   - dates and link Review Signup link to OR.
+  -
+  - Version 1.3 change notes: udpated the logic for display reviewer payments.
 --%>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ taglib prefix="studio" uri="studio.tld" %>
@@ -18,8 +20,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%-- Set some constants to avoid use of scriptlets in the body --%>
-<c:set value="<%=new Double(Constants.SPEC_REVIEW_PAYMENT_AMOUNT)%>" var="SPEC_REVIEW_PAYMENT_AMOUNT"/>
-<c:set value="<%=new Double(Constants.SCREENING_REVIEW_PAYMENT_AMOUNT)%>" var="SCREENING_REVIEW_PAYMENT_AMOUNT"/>
 <c:set value="<%=Constants.MODULE_KEY%>" var="MODULE_KEY"/>
 <c:set value="<%=Constants.CONTEST_ID%>" var="CONTEST_ID"/>
 <c:set value="<%=Constants.SPEC_REVIEW_ID%>" var="SPEC_REVIEW_ID"/>
@@ -171,18 +171,7 @@
                                                     </c:otherwise>
                                                 </c:choose>
                                             </td>
-                                            <td class="valueC">
-                                                <c:choose>
-                                                    <c:when test="${isSpecReview}">
-                                                        <fmt:formatNumber value="${SPEC_REVIEW_PAYMENT_AMOUNT}" 
-                                                                          pattern="$###,###.00"/>
-                                                    </c:when>
-                                                    <c:otherwise>
-                                                        <fmt:formatNumber value="${SCREENING_REVIEW_PAYMENT_AMOUNT}" 
-                                                                          pattern="$###,###.00"/>
-                                                    </c:otherwise>
-                                                </c:choose>
-                                            </td>
+                                            <td class="valueC"><fmt:formatNumber value="${payments[status.index]}" pattern="$###,###.00"/></td>
                                             <td class="valueW">
                                                 <a href="${isSpecReview ? SPEC_REVIEW_REGISTRATION_LINK : SCREENING_REVIEW_REGISTRATION_LINK}=${resultRow.map['contest_id']}">
                                                     <c:choose>

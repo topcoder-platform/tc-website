@@ -17,14 +17,14 @@ import javax.servlet.http.HttpServletResponse;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.TCResponse;
-import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Image;
-import com.topcoder.web.common.model.comp.FileType;
-import com.topcoder.web.common.model.comp.MimeType;
-import com.topcoder.web.common.model.comp.Project;
-import com.topcoder.web.common.model.comp.Submission;
-import com.topcoder.web.common.model.comp.SubmissionImage;
 import com.topcoder.web.studio.Constants;
+import com.topcoder.web.studio.dao.DAOUtil;
+import com.topcoder.web.studio.dto.FileType;
+import com.topcoder.web.studio.dto.MimeType;
+import com.topcoder.web.studio.dto.Project;
+import com.topcoder.web.studio.dto.Submission;
+import com.topcoder.web.studio.dto.SubmissionImage;
 import com.topcoder.web.studio.util.SubmissionPresentationFilter;
 import com.topcoder.web.studio.util.Util;
 import com.topcoder.web.studio.validation.UnifiedSubmissionValidator;
@@ -49,8 +49,15 @@ import com.topcoder.web.studio.validation.UnifiedSubmissionValidator;
  *   </ol>
  * </p>
  *
- * @author dok, isv, pulky, pvmagacho
- * @version 1.3
+ * <p>
+ * Version 1.4 (Replatforming Studio Release 5) change notes:
+ *   <ol>
+ *     <li>Using the dto classes in com.topcoder.web.studio.dto package instead of in com.topcoder.web.common.model.comp package.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author dok, isv, pulky, pvmagacho, TCSASSEMBER
+ * @version 1.4
  */
 public class DownloadSubmission extends BaseSubmissionDataProcessor {
     private static final Logger log = Logger.getLogger(DownloadSubmission.class);

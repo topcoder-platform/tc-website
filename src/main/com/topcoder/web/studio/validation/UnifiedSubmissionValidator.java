@@ -3,29 +3,29 @@
  */
 package com.topcoder.web.studio.validation;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.text.MessageFormat;
+import java.util.List;
+
 import com.topcoder.servlet.request.FileDoesNotExistException;
 import com.topcoder.servlet.request.PersistenceException;
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
-import com.topcoder.web.common.model.comp.FileType;
-import com.topcoder.web.common.model.comp.Project;
-import com.topcoder.web.common.model.comp.Submission;
 import com.topcoder.web.common.validation.BasicResult;
 import com.topcoder.web.common.validation.ValidationInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.common.validation.Validator;
 import com.topcoder.web.studio.Constants;
+import com.topcoder.web.studio.dao.DAOUtil;
+import com.topcoder.web.studio.dto.FileType;
+import com.topcoder.web.studio.dto.Project;
+import com.topcoder.web.studio.dto.Submission;
 import com.topcoder.web.studio.util.BundledFileAnalyzer;
 import com.topcoder.web.studio.util.JarFileAnalyzer;
 import com.topcoder.web.studio.util.Util;
 import com.topcoder.web.studio.util.ZipFileAnalyzer;
-
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.text.MessageFormat;
-import java.util.List;
 
 /**
  * <p>A validator for the submission files submitted by the users to server in context of specific contest. Implements
@@ -51,8 +51,15 @@ import java.util.List;
  *   </ol>
  * </p>
  * 
- * @author dok, isv, pvmagacho
- * @version 1.3
+ * <p>
+ * Version 1.4 (Replatforming Studio Release 5) change notes:
+ *   <ol>
+ *     <li>Using the dto classes in com.topcoder.web.studio.dto package instead of in com.topcoder.web.common.model.comp package.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, isv, pvmagacho, TCSASSEMBER
+ * @version 1.4
  */
 public class UnifiedSubmissionValidator implements Validator {
 

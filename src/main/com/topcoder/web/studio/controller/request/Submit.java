@@ -18,7 +18,6 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
-
 import com.topcoder.common.web.error.TCException;
 import com.topcoder.servlet.request.FileDoesNotExistException;
 import com.topcoder.servlet.request.MockUploadedFile;
@@ -32,26 +31,26 @@ import com.topcoder.util.file.Template;
 import com.topcoder.web.common.MultipartRequest;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.dao.DAOFactory;
-import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.dao.SubmissionDAO;
 import com.topcoder.web.common.dao.UserDAO;
-import com.topcoder.web.common.dao.UploadDAO;
 import com.topcoder.web.common.model.User;
-import com.topcoder.web.common.model.comp.ExternalContent;
-import com.topcoder.web.common.model.comp.ExternalContentProperty;
-import com.topcoder.web.common.model.comp.ExternalContentType;
-import com.topcoder.web.common.model.comp.Project;
-import com.topcoder.web.common.model.comp.Resource;
-import com.topcoder.web.common.model.comp.ResourceSubmission;
-import com.topcoder.web.common.model.comp.Submission;
-import com.topcoder.web.common.model.comp.SubmissionDeclaration;
-import com.topcoder.web.common.model.comp.Upload;
 import com.topcoder.web.common.validation.IntegerValidator;
 import com.topcoder.web.common.validation.ObjectInput;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.studio.Constants;
+import com.topcoder.web.studio.dao.DAOFactory;
+import com.topcoder.web.studio.dao.DAOUtil;
+import com.topcoder.web.studio.dao.SubmissionDAO;
+import com.topcoder.web.studio.dao.UploadDAO;
+import com.topcoder.web.studio.dto.ExternalContent;
+import com.topcoder.web.studio.dto.ExternalContentProperty;
+import com.topcoder.web.studio.dto.ExternalContentType;
+import com.topcoder.web.studio.dto.Project;
+import com.topcoder.web.studio.dto.Resource;
+import com.topcoder.web.studio.dto.ResourceSubmission;
+import com.topcoder.web.studio.dto.Submission;
+import com.topcoder.web.studio.dto.SubmissionDeclaration;
+import com.topcoder.web.studio.dto.Upload;
 import com.topcoder.web.studio.util.FileGenerator;
 import com.topcoder.web.studio.util.Util;
 import com.topcoder.web.studio.validation.ImageSubmissionValidator;
@@ -92,8 +91,15 @@ import com.topcoder.web.studio.validation.UnifiedSubmissionValidator;
  *   </ol>
  * </p>
  *
- * @author dok, isv, Vitta, orange_cloud, pvmagacho
- * @version 1.2.1
+ * <p>
+ * Version 1.2.2 (Replatforming Studio Release 5) change notes:
+ *   <ol>
+ *     <li>Using the dto classes in com.topcoder.web.studio.dto package instead of in com.topcoder.web.common.model.comp package.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, isv, Vitta, orange_cloud, pvmagacho, TCSASSEMBER
+ * @version 1.2.2
  */
 public class Submit extends BaseSubmissionDataProcessor {	
 	private static final Logger log = Logger.getLogger(Submit.class);

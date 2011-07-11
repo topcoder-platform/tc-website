@@ -3,18 +3,18 @@
  */
 package com.topcoder.web.studio.controller.request;
 
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.dao.DAOFactory;
-import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.dao.SubmissionDAO;
-import com.topcoder.web.common.dao.UploadDAO;
-import com.topcoder.web.common.model.comp.Project;
-import com.topcoder.web.common.model.comp.Submission;
-import com.topcoder.web.common.model.comp.Upload;
-import com.topcoder.web.studio.Constants;
-
 import java.util.Date;
 import java.util.List;
+
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.studio.Constants;
+import com.topcoder.web.studio.dao.DAOFactory;
+import com.topcoder.web.studio.dao.DAOUtil;
+import com.topcoder.web.studio.dao.SubmissionDAO;
+import com.topcoder.web.studio.dao.UploadDAO;
+import com.topcoder.web.studio.dto.Project;
+import com.topcoder.web.studio.dto.Submission;
+import com.topcoder.web.studio.dto.Upload;
 
 /**
  * <p>This class will process a submission delete request.</p>
@@ -27,8 +27,15 @@ import java.util.List;
  *   </ol>
  * </p>
  *
- * @author dok, pvmagacho
- * @version 1.1
+ * <p>
+ * Version 1.2 (Replatforming Studio Release 5) change notes:
+ *   <ol>
+ *     <li>Using the dto classes in com.topcoder.web.studio.dto package instead of in com.topcoder.web.common.model.comp package.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author dok, pvmagacho, TCSASSEMBER
+ * @version 1.2
  */
 public class DeleteSubmission extends BaseSubmissionDataProcessor {
     /**

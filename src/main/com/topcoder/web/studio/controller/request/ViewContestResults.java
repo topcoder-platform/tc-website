@@ -3,6 +3,8 @@
  */
 package com.topcoder.web.studio.controller.request;
 
+import java.util.Date;
+
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -11,14 +13,12 @@ import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.dao.SubmissionDAO;
-import com.topcoder.web.common.model.comp.Project;
-import com.topcoder.web.common.model.comp.Submission;
 import com.topcoder.web.studio.Constants;
+import com.topcoder.web.studio.dao.DAOUtil;
+import com.topcoder.web.studio.dao.SubmissionDAO;
+import com.topcoder.web.studio.dto.Project;
+import com.topcoder.web.studio.dto.Submission;
 import com.topcoder.web.studio.util.Util;
-
-import java.util.Date;
 
 /**
  * <p>This class implements the request processor for the contest results (winners) page.</p>
@@ -70,8 +70,15 @@ import java.util.Date;
  *   </ol>
  * </p>
  * 
- * @author dok, pulky, isv, Orange_Cloud, pvmagacho
- * @version 1.6
+ * <p>
+ * Version 1.7 (Replatforming Studio Release 5) change notes:
+ *   <ol>
+ *     <li>Using the dto classes in com.topcoder.web.studio.dto package instead of in com.topcoder.web.common.model.comp package.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky, isv, Orange_Cloud, pvmagacho, TCSASSEMBER
+ * @version 1.7
  */
 public class ViewContestResults extends ShortHibernateProcessor {
     /**

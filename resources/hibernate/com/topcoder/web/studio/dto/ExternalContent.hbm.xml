@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<!--
+  - Author: pvmagacho, TCSASSEMBLER
+  - Version: 1.1
+  - Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: Hibernate mapping file for submission_external_content table
+-->
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.studio.dto">
+    <class name="ExternalContent" table="submission_external_content">
+        <id name="id" column="external_content_id">
+            <generator class="com.topcoder.web.common.model.IdGenerator">
+                <param name="sequence_name">STUDIO_PRIZE_SEQ</param>
+            </generator>
+        </id>
+        <set name="properties" inverse="true" cascade="all">
+            <key column="external_content_id"/>
+            <one-to-many class="ExternalContentProperty"/>
+        </set>
+        <many-to-one name="declaration" column="submission_declaration_id" class="SubmissionDeclaration"/>
+		<many-to-one name="contentType" column="external_content_type_id" class="ExternalContentType" cascade="none" />
+
+        <property name="displayPosition" column="display_position" unique="false"/>
+    </class>
+</hibernate-mapping>

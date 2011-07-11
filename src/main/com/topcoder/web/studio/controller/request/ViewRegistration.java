@@ -8,12 +8,12 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.dao.DAOFactory;
-import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
-import com.topcoder.web.common.model.comp.Project;
-import com.topcoder.web.common.model.comp.ProjectPhase;
 import com.topcoder.web.studio.Constants;
+import com.topcoder.web.studio.dao.DAOFactory;
+import com.topcoder.web.studio.dao.DAOUtil;
+import com.topcoder.web.studio.dto.Project;
+import com.topcoder.web.studio.dto.ProjectPhase;
 
 /**
  * <p>This class will process a contest registration application request.</p>
@@ -33,8 +33,15 @@ import com.topcoder.web.studio.Constants;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, isv
- * @version 1.2
+ * <p>
+ * Version 1.3 (Replatforming Studio Release 5) change notes:
+ *   <ol>
+ *     <li>Using the dto classes in com.topcoder.web.studio.dto package instead of in com.topcoder.web.common.model.comp package.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky, isv, TCSASSEMBER
+ * @version 1.3
  */
 public class ViewRegistration extends ShortHibernateProcessor {
     

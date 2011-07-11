@@ -3,28 +3,28 @@
  */
 package com.topcoder.web.studio.controller.request;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.common.dao.DAOFactory;
-import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.TermsOfUseDAO;
 import com.topcoder.web.common.model.TermsOfUse;
 import com.topcoder.web.common.model.User;
-import com.topcoder.web.common.model.comp.Project;
-import com.topcoder.web.common.model.comp.Resource;
-import com.topcoder.web.common.model.comp.ResourceInfo;
-import com.topcoder.web.common.model.comp.ResourceRole;
 import com.topcoder.web.studio.Constants;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import com.topcoder.web.studio.dao.DAOFactory;
+import com.topcoder.web.studio.dao.DAOUtil;
+import com.topcoder.web.studio.dto.Project;
+import com.topcoder.web.studio.dto.Resource;
+import com.topcoder.web.studio.dto.ResourceInfo;
+import com.topcoder.web.studio.dto.ResourceRole;
 
 /**
  * <p>This class will process a contest registration request.</p>
@@ -44,8 +44,15 @@ import java.util.Set;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, isv
- * @version 1.2
+ * <p>
+ * Version 1.3 (Replatforming Studio Release 5) change notes:
+ *   <ol>
+ *     <li>Using the dto classes in com.topcoder.web.studio.dto package instead of in com.topcoder.web.common.model.comp package.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author dok, pulky, isv, TCSASSEMBER
+ * @version 1.3
  */
 public class Register extends ShortHibernateProcessor {
 
@@ -191,7 +198,9 @@ public class Register extends ShortHibernateProcessor {
         Date now = new Date();
         Resource resource = new Resource();
         resource.setProjectId(project.getId().longValue());
-        resource.setRoleId(ResourceRole.SUBMITTER_RESOURCE_ROLE_ID.longValue());
+        ResourceRole role = new ResourceRole();
+        role.setId(ResourceRole.SUBMITTER_RESOURCE_ROLE_ID.intValue());
+        resource.setRole(role);
         resource.setCreateUser(String.valueOf(userId));
         resource.setCreateDate(now);
         resource.setModifyUser(String.valueOf(userId));

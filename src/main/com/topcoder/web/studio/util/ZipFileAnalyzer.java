@@ -3,21 +3,21 @@
  */
 package com.topcoder.web.studio.util;
 
-import com.topcoder.web.common.model.comp.FileType;
-import com.topcoder.web.studio.validation.UnifiedSubmissionValidator;
-import com.topcoder.web.studio.Constants;
-import com.topcoder.shared.util.logging.Logger;
-
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.ByteArrayInputStream;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-import java.util.Map;
-import java.util.HashMap;
+
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.studio.Constants;
+import com.topcoder.web.studio.dto.FileType;
+import com.topcoder.web.studio.validation.UnifiedSubmissionValidator;
 
 /**
  * <p>
@@ -32,8 +32,15 @@ import java.util.HashMap;
  *   </ol>
  * </p>
  *
- * @author isv, pvmagacho
- * @version 1.1
+ * <p>
+ * Version 1.2 (Replatforming Studio Release 5) change notes:
+ *   <ol>
+ *     <li>Using the dto classes in com.topcoder.web.studio.dto package instead of in com.topcoder.web.common.model.comp package.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author isv, pvmagacho, TCSASSEMBER
+ * @version 1.2
  * @since TopCoder Studio Modifications Assembly (Req# 5.7)
  */
 public class ZipFileAnalyzer implements BundledFileAnalyzer {

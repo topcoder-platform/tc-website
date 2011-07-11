@@ -3,6 +3,15 @@
  */
 package com.topcoder.web.studio.util;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Map;
+
 import com.topcoder.image.size.ImageException;
 import com.topcoder.image.size.ImageResizer;
 import com.topcoder.imaging.overlay.ImageOverlayManager;
@@ -18,27 +27,18 @@ import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.image.manipulation.Image;
 import com.topcoder.web.common.HibernateUtils;
-import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.ImageDAO;
-import com.topcoder.web.common.dao.SubmissionDAO;
-import static com.topcoder.web.common.model.Image.*;
 import com.topcoder.web.common.model.Path;
 import com.topcoder.web.common.model.User;
-import com.topcoder.web.common.model.comp.FileType;
-import com.topcoder.web.common.model.comp.Project;
-import com.topcoder.web.common.model.comp.Submission;
-import com.topcoder.web.common.model.comp.SubmissionImage;
 import com.topcoder.web.studio.Constants;
+import com.topcoder.web.studio.dao.DAOUtil;
+import com.topcoder.web.studio.dao.SubmissionDAO;
+import com.topcoder.web.studio.dto.FileType;
+import com.topcoder.web.studio.dto.Project;
+import com.topcoder.web.studio.dto.Submission;
+import com.topcoder.web.studio.dto.SubmissionImage;
 import com.topcoder.web.studio.validation.UnifiedSubmissionValidator;
-
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Map;
+import static com.topcoder.web.common.model.Image.*;
 
 /**
  * <p>A class implementing the thread job for generating the alternate representations for the submission submitted
@@ -52,8 +52,14 @@ import java.util.Map;
  *   </ol>
  * </p>
  * 
+ * <p>
+ * Version 1.3 (Replatforming Studio Release 5) change notes:
+ *   <ol>
+ *     <li>Using the dto classes in com.topcoder.web.studio.dto package instead of in com.topcoder.web.common.model.comp package.</li>
+ *   </ol>
+ * </p>
  *
- * @author isv, dok, pvmagacho
+ * @author isv, dok, pvmagacho, TCSASSEMBER
  * @version 1.2
  * @since TopCoder Studio Modifications Assembly (Req# 5.7)
  */
