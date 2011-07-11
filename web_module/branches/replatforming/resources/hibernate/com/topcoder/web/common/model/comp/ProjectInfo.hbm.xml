@@ -3,9 +3,9 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping package="com.topcoder.web.common.model.comp">
+<hibernate-mapping package="com.topcoder.web.common.model.comp" auto-import="false">
 
-    <class name="ProjectInfo" table="project_info" mutable="false" >
+    <class name="ProjectInfo" table="tcs_catalog:project_info" mutable="false" >
         
         <composite-id name="id" class="ProjectInfo$Identifier">
             <key-many-to-one name="project" class="Project" column="project_id"/>
