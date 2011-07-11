@@ -3,23 +3,23 @@
  */
 package com.topcoder.web.studio.controller.request;
 
-import com.topcoder.web.common.HibernateUtils;
-import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.dao.SubmissionDAO;
-import com.topcoder.web.common.dao.UploadDAO;
-import com.topcoder.web.common.model.comp.Project;
-import com.topcoder.web.common.model.comp.Resource;
-import com.topcoder.web.common.model.comp.Submission;
-import com.topcoder.web.common.model.comp.Upload;
-import com.topcoder.web.common.validation.IntegerValidator;
-import com.topcoder.web.common.validation.StringInput;
-import com.topcoder.web.common.validation.ValidationResult;
-import com.topcoder.web.studio.Constants;
-
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.TreeSet;
+
+import com.topcoder.web.common.HibernateUtils;
+import com.topcoder.web.common.validation.IntegerValidator;
+import com.topcoder.web.common.validation.StringInput;
+import com.topcoder.web.common.validation.ValidationResult;
+import com.topcoder.web.studio.Constants;
+import com.topcoder.web.studio.dao.DAOUtil;
+import com.topcoder.web.studio.dao.SubmissionDAO;
+import com.topcoder.web.studio.dao.UploadDAO;
+import com.topcoder.web.studio.dto.Project;
+import com.topcoder.web.studio.dto.Resource;
+import com.topcoder.web.studio.dto.Submission;
+import com.topcoder.web.studio.dto.Upload;
 
 /**
  * 
@@ -31,8 +31,15 @@ import java.util.TreeSet;
  *   </ol>
  * </p>
  * 
- * @author dok, pvmagacho
- * @version 1.1
+ * <p>
+ * Version 1.2 (Replatforming Studio Release 5) change notes:
+ *   <ol>
+ *     <li>Using the dto classes in com.topcoder.web.studio.dto package instead of in com.topcoder.web.common.model.comp package.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author dok, pvmagacho, TCSASSEMBER
+ * @version 1.2
  */
 public class BatchUpdateRank extends BaseSubmissionDataProcessor {
     protected void dbProcessing() throws Exception {

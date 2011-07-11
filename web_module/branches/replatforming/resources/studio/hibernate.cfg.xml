@@ -118,30 +118,38 @@
 
         <mapping resource="com/topcoder/web/common/model/comp/Contest.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/ContestPrize.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/comp/Document.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/comp/DocumentType.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/comp/ExternalContent.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/comp/ExternalContentProperty.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/comp/ExternalContentType.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/comp/FileType.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/comp/MimeType.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/PhaseType.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/comp/Prize.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/comp/PrizeType.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/Project.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/comp/ProjectCategory.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/ProjectInfo.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/ProjectPhase.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/ResourceRole.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/comp/Resource.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/comp/ResourceInfo.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/comp/ResourceSubmission.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/comp/StudioProjectSpecification.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/Submission.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/comp/SubmissionDeclaration.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/comp/SubmissionImage.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/comp/Upload.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/comp/UserContestPrize.hbm.xml"/>
+        
+        <mapping resource="com/topcoder/web/studio/dto/Contest.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/ContestPrize.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/Document.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/DocumentType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/ExternalContent.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/ExternalContentProperty.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/ExternalContentType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/FileType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/MimeType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/Prize.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/PrizeType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/Project.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/ProjectCategory.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/ProjectInfo.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/ProjectPhase.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/ResourceRole.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/Resource.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/ResourceInfo.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/ResourceSubmission.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/StudioProjectSpecification.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/Submission.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/SubmissionDeclaration.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/SubmissionImage.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/Upload.hbm.xml"/>
 
         <mapping resource="com/topcoder/web/common/voting/Candidate.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/voting/CandidateInfo.hbm.xml"/>
@@ -151,6 +159,17 @@
         <mapping resource="com/topcoder/web/common/voting/RankBallot.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/voting/Vote.hbm.xml"/>
 
+        <mapping resource="com/topcoder/web/studio/dto/CommentType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/ScorecardType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/ScorecardQuestion.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/ScorecardSection.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/ScorecardGroup.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/Scorecard.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/ReviewComment.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/ReviewItemComment.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/ReviewItem.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/Review.hbm.xml"/>
+        
         <mapping class="com.topcoder.web.common.model.educ.Professor"/>
         <mapping class="com.topcoder.web.common.model.educ.ProfessorStatus"/>
 

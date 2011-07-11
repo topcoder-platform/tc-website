@@ -3,6 +3,16 @@
  */
 package com.topcoder.web.studio.controller.request;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+
 import com.topcoder.security.TCPrincipal;
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.ClassResource;
@@ -10,25 +20,16 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.ShortHibernateProcessor;
-import com.topcoder.web.common.dao.DAOFactory;
-import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.dao.FileTypeCatalogDAO;
 import com.topcoder.web.common.model.User;
-import com.topcoder.web.common.model.comp.Document;
-import com.topcoder.web.common.model.comp.FileType;
-import com.topcoder.web.common.model.comp.MimeType;
-import com.topcoder.web.common.model.comp.Project;
 import com.topcoder.web.studio.Constants;
+import com.topcoder.web.studio.dao.DAOFactory;
+import com.topcoder.web.studio.dao.DAOUtil;
+import com.topcoder.web.studio.dao.FileTypeCatalogDAO;
+import com.topcoder.web.studio.dto.Document;
+import com.topcoder.web.studio.dto.FileType;
+import com.topcoder.web.studio.dto.MimeType;
+import com.topcoder.web.studio.dto.Project;
 import com.topcoder.web.studio.util.Util;
-
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletResponse;
-import java.io.File;
-import java.io.FileInputStream;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
 
 /**
  * <p>A controller to be used for handling the requests for downloading the documents for <code>Studio</code> contests
@@ -41,8 +42,15 @@ import java.util.Set;
  *   </ol>
  * </p>
  *  
- * @author isv, pvmagacho
- * @version 1.1
+ * <p>
+ * Version 1.2 (Replatforming Studio Release 5) change notes:
+ *   <ol>
+ *     <li>Using the dto classes in com.topcoder.web.studio.dto package instead of in com.topcoder.web.common.model.comp package.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author isv, pvmagacho, TCSASSEMBER
+ * @version 1.2
  */
 public class DownloadCatalogDocument extends ShortHibernateProcessor {
 

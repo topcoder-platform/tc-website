@@ -3,17 +3,17 @@
  */
 package com.topcoder.web.studio.controller.request;
 
+import java.util.Date;
+
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.dao.DAOFactory;
-import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
-import com.topcoder.web.common.model.comp.Project;
-import com.topcoder.web.common.model.comp.Resource;
 import com.topcoder.web.studio.Constants;
-
-import java.util.Date;
+import com.topcoder.web.studio.dao.DAOFactory;
+import com.topcoder.web.studio.dao.DAOUtil;
+import com.topcoder.web.studio.dto.Project;
+import com.topcoder.web.studio.dto.Resource;
 
 /**
  * <p>This class will process a request to view contest submissions.</p> 
@@ -26,8 +26,15 @@ import java.util.Date;
  *   </ol>
  * </p>
  * 
- * @author dok, pvmagacho
- * @version 1.1
+ * <p>
+ * Version 1.2 (Replatforming Studio Release 5) change notes:
+ *   <ol>
+ *     <li>Using the dto classes in com.topcoder.web.studio.dto package instead of in com.topcoder.web.common.model.comp package.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author dok, pvmagacho, TCSASSEMBER
+ * @version 1.2
  */
 public class ViewSubmission extends BaseSubmissionDataProcessor {
     /**

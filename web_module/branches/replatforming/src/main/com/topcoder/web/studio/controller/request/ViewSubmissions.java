@@ -3,6 +3,8 @@
  */
 package com.topcoder.web.studio.controller.request;
 
+import java.util.Date;
+
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
@@ -12,14 +14,12 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.dao.SubmissionDAO;
 import com.topcoder.web.common.model.SortInfo;
-import com.topcoder.web.common.model.comp.Project;
-import com.topcoder.web.common.model.comp.Submission;
 import com.topcoder.web.studio.Constants;
-
-import java.util.Date;
+import com.topcoder.web.studio.dao.DAOUtil;
+import com.topcoder.web.studio.dao.SubmissionDAO;
+import com.topcoder.web.studio.dto.Project;
+import com.topcoder.web.studio.dto.Submission;
 
 /**
  * <p>This class implements the request processor for the View Submissions page.</p>
@@ -57,8 +57,15 @@ import java.util.Date;
  *   </ol>
  * </p>
  *
- * @author dok, isv, pulky, Orange_Cloud, pvmagacho
- * @version 1.5
+ * <p>
+ * Version 1.3 (Replatforming Studio Release 5) change notes:
+ *   <ol>
+ *     <li>Using the dto classes in com.topcoder.web.studio.dto package instead of in com.topcoder.web.common.model.comp package.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, isv, pulky, Orange_Cloud, pvmagacho, TCSASSEMBER
+ * @version 1.6
  */
 public class ViewSubmissions extends ShortHibernateProcessor {
     /**

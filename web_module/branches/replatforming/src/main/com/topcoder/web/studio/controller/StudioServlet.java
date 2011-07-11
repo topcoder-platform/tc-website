@@ -1,19 +1,28 @@
 package com.topcoder.web.studio.controller;
 
+import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.security.WebAuthentication;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.MissingResourceException;
 
 /**
- * @author dok
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Jun 22, 2006
+ * <p>
+ * Version 1.1 (Replatforming Studio Release 5) change notes:
+ * <ol>
+ *   <li>Override {@link #hasPermission(WebAuthentication, Resource)} method in order to not checking resource permission
+ *   for studio site.</li>
+ * </ol>
+ * </p>
+ *
+ * @author dok, TCSASSEMBER
+ * @version 1.1
  */
 public class StudioServlet extends BaseServlet {
     private static final Logger log = Logger.getLogger(StudioServlet.class);
@@ -64,4 +73,14 @@ public class StudioServlet extends BaseServlet {
         fetchRegularPage(request, response, ERROR_PAGE, true);
     }
 
+    /**
+     * Checks whether the user has permission to access the resource.
+     * 
+     * @param auth the authentication object
+     * @param r the resource
+     * @return true always
+     */
+    protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
+        return true;
+    }
 }

@@ -10,13 +10,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.ejb.CreateException;
+import javax.naming.NamingException;
+
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.model.User;
-import com.topcoder.web.common.model.comp.Project;
-import com.topcoder.web.common.model.comp.Resource;
-import com.topcoder.web.common.model.comp.ResourceInfo;
-import com.topcoder.web.common.model.comp.ResourceRole;
 import com.topcoder.web.ejb.project.ProjectRoleTermsOfUse;
 import com.topcoder.web.ejb.project.ProjectRoleTermsOfUseLocator;
 import com.topcoder.web.ejb.termsofuse.TermsOfUse;
@@ -25,9 +24,10 @@ import com.topcoder.web.ejb.termsofuse.TermsOfUseLocator;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.ejb.user.UserTermsOfUseLocator;
 import com.topcoder.web.studio.Constants;
-
-import javax.ejb.CreateException;
-import javax.naming.NamingException;
+import com.topcoder.web.studio.dto.Project;
+import com.topcoder.web.studio.dto.Resource;
+import com.topcoder.web.studio.dto.ResourceInfo;
+import com.topcoder.web.studio.dto.ResourceRole;
 
 /**
  * <p>This helper class provides common functionality among registration processors.</p>
@@ -54,8 +54,15 @@ import javax.naming.NamingException;
  *   </ol>
  * </p>
  *
+ * <p>
+ * Version 1.3 (Replatforming Studio Release 5) change notes:
+ *   <ol>
+ *     <li>Using the dto classes in com.topcoder.web.studio.dto package instead of in com.topcoder.web.common.model.comp package.</li>
+ *   </ol>
+ * </p>
+ * 
  * @author pulky, isv, TCSDEVELOPER
- * @version 1.2
+ * @version 1.3
  * @since Configurable Contest Terms-Studio Release Assembly v1.0
  */
 public class RegistrationHelper {
@@ -138,7 +145,7 @@ public class RegistrationHelper {
     protected static Resource getSubmitterResource(Project project, long userId) {
         Set<Resource> resources = project.getResources();
         for (Resource resource : resources){
-            if (resource.getRoleId() == ResourceRole.SUBMITTER_RESOURCE_ROLE_ID.longValue()) {
+            if (resource.getRole().getId().intValue() == ResourceRole.SUBMITTER_RESOURCE_ROLE_ID.intValue()) {
                 Set<ResourceInfo> infos = resource.getInfo();
                 for (ResourceInfo info : infos) {
                     if (info.getId().getTypeId() == 1) {

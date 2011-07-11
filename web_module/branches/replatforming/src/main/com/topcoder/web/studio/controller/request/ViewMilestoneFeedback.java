@@ -3,16 +3,15 @@
  */
 package com.topcoder.web.studio.controller.request;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.model.comp.Project;
-import com.topcoder.web.studio.Constants;
-
-import java.util.LinkedHashMap;
-import java.util.Map;
+import com.topcoder.web.studio.dto.Project;
 
 /**
  * <p>This class will process a request to view milestone feedback texts for requested contest.</p>
@@ -21,6 +20,13 @@ import java.util.Map;
  * Version 1.1 (Re-platforming Studio Release 4 Assembly 1.0) Change notes:
  *   <ol>
  *     <li>Updated the logic to use contests hosted in <code>tcs_catalog</code> database.</li>
+ *   </ol>
+ * </p>
+ *
+ * <p>
+ * Version 1.2 (Replatforming Studio Release 5) change notes:
+ *   <ol>
+ *     <li>Using the dto classes in com.topcoder.web.studio.dto package instead of in com.topcoder.web.common.model.comp package.</li>
  *   </ol>
  * </p>
  *

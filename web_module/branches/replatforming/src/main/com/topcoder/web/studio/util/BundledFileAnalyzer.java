@@ -3,11 +3,11 @@
  */
 package com.topcoder.web.studio.util;
 
-import com.topcoder.web.common.model.comp.FileType;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
+
+import com.topcoder.web.studio.dto.FileType;
 
 /**
  * <p>An interface for the analyzers of the bundled files of types supported by <code>TopCoder Studio</code>
@@ -22,8 +22,15 @@ import java.util.Map;
  *   </ol>
  * </p>
  *
- * @author isv, pvmagacho
- * @version 1.1
+ * <p>
+ * Version 1.2 (Replatforming Studio Release 5) change notes:
+ *   <ol>
+ *     <li>Using the dto classes in com.topcoder.web.studio.dto package instead of in com.topcoder.web.common.model.comp package.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author isv, pvmagacho, TCSASSEMBER
+ * @version 1.2
  * @since TopCoder Studio Modifications Assembly (Req# 5.6, 5.7)
  */
 public interface BundledFileAnalyzer {

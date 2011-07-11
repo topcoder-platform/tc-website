@@ -1,14 +1,15 @@
 <%--
   - Author: isv, pvmagacho
-  - Version: 1.1 (Studio Contest Detail Pages assembly)
-  - Copyright (C) 2010 TopCoder Inc., All Rights Reserved.
+  - Version: 1.2 (Studio Contest Detail Pages assembly)
+  - Copyright (C) 2010 - 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page renders the common header for Studio Contest Detail pages.
   -
   - Version 1.1 (Re-platforming Studio Release 4 Assembly) : Clean up old studio model files. Added mark for purchase flag
+  - Version 1.2 (Re-platforming Studio Release 5 Assembly) : Use the model class in com.topcoder.web.studio.dto package
 --%>
 <%@ page import="com.topcoder.web.studio.Constants" %>
-<%@ page import="com.topcoder.web.common.model.comp.Prize" %>
+<%@ page import="com.topcoder.web.studio.dto.Prize" %>
 <%@ page import="com.topcoder.web.studio.controller.request.ViewContestDetails" %>
 <%@ page import="java.util.Date" %>
 
@@ -22,7 +23,10 @@
 <c:set var="servletPath" value="${sessionInfo.servletPath}"/>
 <c:set var="registered" value="${requestScope.registered}"/>
 <c:set var="prizesCount" value="${fn:length(contest.prizes)}"/>
-<c:set var="clientPrize" value="<%=Prize.MILESTONE_PRIZE_TYPE_ID%>"/>
+<%
+request.setAttribute("clientPrize", new Long(Prize.MILESTONE_PRIZE_TYPE_ID));
+%>
+<c:set var="clientPrize" value="${clientPrize}"/>
 <c:set var="isMultiRound" value="${not empty contest.milestoneDate}"/>
 <c:set var="milestoneDate" value="${contest.milestoneDate}"/>
 <c:set var="placeSuffixes"

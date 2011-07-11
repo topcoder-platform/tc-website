@@ -3,6 +3,8 @@
  */
 package com.topcoder.web.studio.util;
 
+import java.util.Iterator;
+
 import com.topcoder.security.TCPrincipal;
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.dataAccess.DataAccess;
@@ -11,10 +13,8 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.model.User;
-import com.topcoder.web.common.model.comp.Project;
 import com.topcoder.web.studio.Constants;
-
-import java.util.Iterator;
+import com.topcoder.web.studio.dto.Project;
 
 /**
  * <p>A helper class providing various utility methods to be utilized throughout the application.</p>
@@ -43,9 +43,16 @@ import java.util.Iterator;
  *     files.</li>
  *   </ol>
  * </p>
-
- * @author isv, pulky, isv, pvmagacho
- * @version 1.3
+ *
+ * <p>
+ * Version 1.4 (Replatforming Studio Release 5) change notes:
+ *   <ol>
+ *     <li>Using the dto classes in com.topcoder.web.studio.dto package instead of in com.topcoder.web.common.model.comp package.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author isv, pulky, isv, pvmagacho, TCSASSEMBER
+ * @version 1.4
  * @since TopCoder Studio Modifications Assembly v2
  */
 public class Util {
