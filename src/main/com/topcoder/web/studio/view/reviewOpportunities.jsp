@@ -174,11 +174,8 @@
                                             <td class="valueC"><fmt:formatNumber value="${payments[status.index]}" pattern="$###,###.00"/></td>
                                             <td class="valueW">
                                                 <a href="${isSpecReview ? SPEC_REVIEW_REGISTRATION_LINK : SCREENING_REVIEW_REGISTRATION_LINK}=${resultRow.map['contest_id']}">
-                                                    <c:choose>
-                                                        <c:when test="${userLoggedIn}">Apply Now</c:when>
-                                                        <c:otherwise>Apply Now</c:otherwise>
-                                                    </c:choose>
-                                                </a>
+												Apply Now
+												</a>
                                             </td>
                                         </tr>
                                     </c:forEach>
