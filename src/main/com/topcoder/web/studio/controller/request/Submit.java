@@ -249,16 +249,16 @@ public class Submit extends BaseSubmissionDataProcessor {
                     for (int i = 0; i < fontNames.length; ++i) {
                         String name = fontNames[i];
                         String url = fontUrls[i];
-                        if (blank(name) && blank(url)) {
+                        if (blank(name, "Font's Name") && blank(url, "Font's URL Source")) {
                             // if both name and url are missing, just skip it
                             continue;
                         }
 
                         // validate font data
                         String error = "";
-                        if (blank(name)) {
+                        if (blank(name, "Font's Name")) {
                             error = MISSING_NAME_DOT;
-                        } else if (blank(url)) {
+                        } else if (blank(url, "Font's URL Source")) {
                             error = MISSING_URL_DOT;
                         }
                         fontsData.add(new String[] {name, url, error});
@@ -289,17 +289,17 @@ public class Submit extends BaseSubmissionDataProcessor {
                         String url = saUrls[i];
                         String fileNumber = saFileNumbers[i];
 
-                        if (blank(name) && blank(url) && blank(fileNumber)) {
+                        if (blank(name, "Description of photo") && blank(url, "Stock's Art URL Source") && blank(fileNumber, "File Number")) {
                             // if both name url and file number are missing, just skip it
                             continue;
                         }
 
                         // validate stock art data
                         StringBuilder error = new StringBuilder();
-                        if (blank(name)) {
+                        if (blank(name, "Description of photo")) {
                             error.append(MISSING_NAME);
                         }
-                        if (blank(url)) {
+                        if (blank(url, "Stock's Art URL Source")) {
                             if (error.length() == 0) {
                                 error.append(MISSING);
                             } else {
@@ -307,7 +307,7 @@ public class Submit extends BaseSubmissionDataProcessor {
                             }
                             error.append(URL);
                         }
-                        if (blank(fileNumber)) {
+                        if (blank(fileNumber, "File Number")) {
                             if (error.length() == 0) {
                                 error.append(MISSING);
                             } else {
@@ -347,7 +347,7 @@ public class Submit extends BaseSubmissionDataProcessor {
                 submissionDeclaration.setExternalContents(externalContents);
                 submissionDeclaration.setHasExternalContent(hasLicensedContent);
                 String submissionComment = r.getParameter(Constants.SUBMISSION_COMMENT);
-                submissionDeclaration.setComment(submissionComment == null ? "" : submissionComment);
+                submissionDeclaration.setComment(submissionComment == null ? "" : (submissionComment.trim().equals("Comments") ? "" : submissionComment));
 
 				log.debug("submission: " + submissionFile.getRemoteFileName());
 				log.debug("submission content type: " + submissionFile.getContentType());
@@ -395,7 +395,7 @@ public class Submit extends BaseSubmissionDataProcessor {
                     // build data for document generator
                     StringBuilder declarationData = new StringBuilder();
                     declarationData.append("<DATA>");
-                    declarationData.append("<comment>").append(blank(submissionComment) ? "No declarations made" : escapeXML(submissionComment)).append("</comment>");
+                    declarationData.append("<comment>").append(blank(submissionComment, "Comments") ? "No declarations made" : escapeXML(submissionComment)).append("</comment>");
                     for (int i = 0; i < fontsData.size(); ++i) {
                         String[] font = fontsData.get(i);
                         declarationData.append("<font><index>").append(i + 1).append("</index><name>").
@@ -702,6 +702,17 @@ public class Submit extends BaseSubmissionDataProcessor {
     private static boolean blank(String s) {
         return s == null || s.trim().length() == 0;
     }
+
+	/**
+     * Checks whether string is null or empty (String is considered as empty string if it equlas to a provided string).
+     *
+     * @param s string to test
+	 * @param emptyStr the provided string
+     * @return whether string is null or empty (String is considered as empty string if it equlas to a provided string).
+     */
+    private static boolean blank(String s, String emptyStr) {
+		return blank(s) || s.trim().equals(emptyStr);
+	}
 
     /**
      * Adds property to ExternalContent instance.
