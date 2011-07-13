@@ -307,7 +307,7 @@ Please check out the rules link below for more detail.
 </p>
 <%}%>
 
-<%if(roundId == 14525 ) {%>
+<%if(roundId == 14525 || roundId == 14584 ) {%>
 <p align="justify">
     <b>Please note that this event is being run for a TopCoder customer.  By winning a prize in this event you agree to transfer ownership of
     your submission to TopCoder.  Please make sure to read
@@ -315,6 +315,7 @@ Please check out the rules link below for more detail.
     as defined in the rules.</b>
 </p>
 <%}%>
+
 
 <%if(roundId == 13569 ||  roundId == 13570 || roundId == 13679 || roundId == 13680 || roundId == 13681 ) {%>
 <p align="justify">
@@ -331,7 +332,7 @@ Please check out the rules link below for more detail.
 </p>
 <%}%>
 
-<%if(roundId == 13772 || roundId == 14525 ) {%>
+<%if(roundId == 13772 || roundId == 14525 || roundId == 14584 ) {%>
 <p align="justify">
     This Marathon Match is a money match that has a <b>$10,000 prize purse</b>! The top five highest scorers 
 	will receive prizes with the first place winner receiving $5,000!
@@ -510,7 +511,7 @@ submission, within one week of the announcment of the winners in order to receiv
 <%}%>
 
 
-<%if(roundId == 13772 || roundId == 14525) {%>
+<%if(roundId == 13772 || roundId == 14525 || roundId == 14584) {%>
 <div class="sectionHeader">Prizes</div>
     <p align="justify">There will be $10,000 in total prize money.  The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
 
@@ -540,6 +541,15 @@ submission, within one week of the announcment of the winners in order to receiv
     
 </p>
 <%}%>
+
+<%if(roundId == 14584 ) {%>
+<p align="justify">
+    <b>There will be an additional bonus prize purse of $5,000 for novel approaches to this particular problem.  All competitors who meet the eligibility critera of the 
+	Marathon Match and who submit a one to two-page description of their algorithm and how it meets the requirements of a novel approach will be 
+	eligible for an award of a portion of the bonus prize purse.  Please review the discussion forum for this marathon match for more information on the bonus prize requirements.</b>
+</p>
+<%}%>
+
 
 
 <%-- END IF FOR LIMIT ON EXPERIMENTAL SERIES --%>
