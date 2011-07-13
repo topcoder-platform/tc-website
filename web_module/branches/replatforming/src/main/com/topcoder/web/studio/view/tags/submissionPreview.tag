@@ -1,6 +1,6 @@
 <%--
-  - Author: pulky, pvmagacho, TCSASSEMBER
-  - Version: 1.6
+  - Author: pulky, pvmagacho
+  - Version: 1.5
   - Since: Studio Submission Viewer Upgrade Integration v1.0
   - Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
   -
@@ -12,7 +12,6 @@
   - Version 1.3 (BUGR-2434): Added parameter to hide preview and download link.
   - Version 1.4 (Re-platforming Studio Release 3 Assembly) : Updated the logic to use contests hosted in tcs_catalog database
   - Version 1.5 (Re-platforming Studio Release 4 Assembly) : Clean up old studio model files. Added mark for purchase flag
-  - Version 1.6 (Re-platforming Studio Release 5 Assembly) : Use the model class in com.topcoder.web.studio.dto package.
   -
   - Required attributes:
   -     * row: the submission information
@@ -20,12 +19,11 @@
 --%>
 
 <%@ tag import="com.topcoder.web.studio.Constants" %>
-<%@ tag import="com.topcoder.web.studio.dto.Prize" %>
+<%@ tag import="com.topcoder.web.common.model.comp.Prize" %>
 <%@ tag body-content="empty" %>
 
 <%@ attribute name="row" required="true" type="java.lang.Object" %>
 <%@ attribute name="showPlacement" required="true" type="java.lang.Boolean" %>
-<%@ attribute name="viewSubmitters" required="true" type="java.lang.Boolean" %>
 <%@ attribute name="viewSubmissions" required="false" type="java.lang.Boolean" %>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -152,15 +150,13 @@
             </strong>
         </span>
         <br />
-        <c:if test="${viewSubmitters}">
-            <span>
-                <strong>
-                    Handle:
-                    <tc-webtag:handle coderId="${userId}" context="component" />
-                </strong>
-            </span>
-            <br />
-        </c:if>
+        <span>
+            <strong>
+                Handle:
+                <tc-webtag:handle coderId="${userId}" context="component" />
+            </strong>
+        </span>
+        <br />
         <span>
             Submitted on
             <fmt:formatDate value="${createDate}" pattern="MM.dd.yyyy 'at' HH:mm z" timeZone="${sessionInfo.timezone}"/>
