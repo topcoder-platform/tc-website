@@ -10,9 +10,6 @@
 
         <property name="componentVersionId" 
                   formula="(SELECT pi.value FROM project_info pi WHERE pi.project_info_type_id = 1 AND pi.project_id = project_id)"/>
-   
-        <property name="clientName" 
-                  formula="(SELECT u.handle FROM user u WHERE u.user_id::VARCHAR(64) = create_user)"/>
         
         <property name="eventId" 
                   formula="(SELECT c.event_id FROM contest_project_xref cpx, contest c WHERE cpx.project_id = project_id and cpx.contest_id = c.contest_id)"/>

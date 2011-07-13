@@ -42,7 +42,6 @@ import java.util.TreeSet;
  *     <li>Added {@link #documents} property with respective accessor/mutator methods.</li>
  *     <li>Added {@link #fileTypes} property with respective accessor/mutator methods.</li>
  *     <li>Added {@link #category} property with respective accessor/mutator methods.</li>
- *     <li>Added {@link #clientName} property with respective accessor/mutator methods.</li>
  *     <li>Added {@link #eventId} property with respective accessor/mutator methods.</li>
  *   </ol>
  * </p>
@@ -52,7 +51,6 @@ import java.util.TreeSet;
  *   <ol>
  *     <li>Added {@link #INFO_ALLOW_STOCK_ART} constant.</li>
  *     <li>Added {@link #INFO_VIEWABLE_SUBMISSION_FLAG} constant.</li>
- *     <li>Added {@link #INFO_VIEWABLE_SUBMITTERS} constant.</li>
  *     <li>Added {@link #getReviewClosed()} method.</li>
  *   <ol>
  * </p>    
@@ -117,13 +115,6 @@ public class Project extends Base {
      * @since 1.2
      */
     public static final Integer INFO_VIEWABLE_SUBMISSION_FLAG = 53;
-
-    /**
-     * <p>An <code>Integer</code> providing the ID for <code>Viewable Submitters</code> project info type.</p>
-     * 
-     * @since 1.2
-     */
-    public static final Integer INFO_VIEWABLE_SUBMITTERS = 54;
     
     /**
      * <p>An <code>Integer</code> providing the ID for <code>DR Points</code> project info type.</p>
@@ -201,13 +192,6 @@ public class Project extends Base {
      * @since 1.1
      */
     private ProjectCategory category;
-
-    /**
-     * <p>A <code>String</code> providing the name of the client which this project belongs to.</p>
-     * 
-     * @since 1.1
-     */
-    private String clientName;
 
     /**
      * <p>A <code>Long</code> providing the ID of an event which this project may be associated with.</p>
@@ -550,17 +534,7 @@ public class Project extends Base {
     public Boolean getViewableSubmissions() {
     	return parseBooleanInfoType(INFO_VIEWABLE_SUBMISSION_FLAG);
     }
-    
-    /**
-     * <p>Gets the viewable submitter review flag.</p>
-     * 
-     * @return an <code>Integer</code> providing the viewable submitter review flag. If not set, false is returned.
-     * @since 1.2  
-     */
-    public Boolean getViewableSubmitters() {
-    	return parseBooleanInfoType(INFO_VIEWABLE_SUBMITTERS);
-    }
-    
+
     /**
      * <p>Convert the value of the project info type to a boolean value.</p>
      * 
@@ -765,26 +739,6 @@ public class Project extends Base {
      */
     public void setCategory(ProjectCategory category) {
         this.category = category;
-    }
-
-    /**
-     * <p>Gets the name of the client which this project belongs to.</p>
-     *
-     * @return a <code>String</code> providing the name of the client which this project belongs to.
-     * @since 1.1
-     */
-    public String getClientName() {
-        return this.clientName;
-    }
-
-    /**
-     * <p>Sets the name of the client which this project belongs to.</p>
-     *
-     * @param clientName a <code>String</code> providing the name of the client which this project belongs to.
-     * @since 1.1
-     */
-    public void setClientName(String clientName) {
-        this.clientName = clientName;
     }
 
     /**

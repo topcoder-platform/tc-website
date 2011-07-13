@@ -44,8 +44,7 @@ request.setAttribute("clientPrize", new Long(Prize.MILESTONE_PRIZE_TYPE_ID));
     <c:out value="${contest.projectName}"/>
 </h2>
 <ul class="linkNavi2">
-    <li class="first"><label>CLIENT:</label><c:out value="${contest.clientName}"/></li>
-    <li><label>CONTEST TYPE:</label><a href="javascript:" class="studioContestType${contest.category.id}">
+    <li class="first"><label>CONTEST TYPE:</label><a href="javascript:" class="studioContestType${contest.category.id}">
         <c:out value="${contest.category.name}"/></a>
     </li>
 </ul>

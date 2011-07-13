@@ -31,7 +31,6 @@
 <c:set var="subId" value="<%=Constants.SUBMISSION_ID%>"/>
 <c:set var="contestId" value="<%=Constants.CONTEST_ID%>"/>
 <c:set var="servletPath" value="${sessionInfo.servletPath}"/>
-<c:set var="viewSubmitters" value="${contest.viewableSubmitters}"/>
 
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -163,8 +162,7 @@
                                                     <c:forEach items="${submissions}" var="resultRow">
                                                         <td>
                                                             <studio_tags:submissionPreview
-                                                                row="${resultRow}" showPlacement="false"
-                                                                viewSubmitters="${contest.viewableSubmitters}"/>
+                                                                row="${resultRow}" showPlacement="false"/>
                                                         </td>
                                                         <c:if test="${i % 4 == 0}">
                                                             </tr><tr>
