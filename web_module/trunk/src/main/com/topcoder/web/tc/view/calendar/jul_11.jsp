@@ -108,6 +108,11 @@
          <strong><A href="/tc?module=MatchDetails&rd=14537">SRM 512</A></strong><br />
          11:00
         </div>
+		<div class="long">
+         <strong><a href="/tc?module=MatchDetails&rd=14584">MM 73</a></strong><br />
+         13:00<br />
+         2 weeks, $10,000 in prizes
+         </div>
       </td>
       <td class="value">14
       </td>
