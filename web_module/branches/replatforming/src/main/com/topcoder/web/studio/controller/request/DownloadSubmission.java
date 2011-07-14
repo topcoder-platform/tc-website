@@ -272,7 +272,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
             }
         } else {
             // The original submission is requested
-            targetFileName = filePath + createSystemFileName(submission);
+            targetFileName = filePath + getSystemFileName(submission);
             destFileName = submission.getId()
                 + originalFileName.substring(originalFileName.lastIndexOf('.'));
         }
