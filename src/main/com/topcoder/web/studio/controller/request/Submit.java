@@ -430,6 +430,8 @@ public class Submit extends BaseSubmissionDataProcessor {
 					if (!thoroughValidationResult.isValid()) {
 						throw new TCException(thoroughValidationResult.getMessage());
 					}
+
+                    String systemFileName = createSystemFileName(s, remoteFileName);
 					
 					Upload upload = new Upload();
 					upload.setCreateUser(u.getId().toString());
@@ -438,7 +440,7 @@ public class Submit extends BaseSubmissionDataProcessor {
 					upload.setModifyDate(new Timestamp(now.getTime()));
 					upload.setContest(c);
 					upload.setResource(resource);
-					upload.setParameter(remoteFileName);
+					upload.setParameter(systemFileName);
 					upload.setTypeId(Upload.SUBMISSION);
 					upload.setStatusId(Upload.STATUS_ACTIVE);					
 					
@@ -456,8 +458,7 @@ public class Submit extends BaseSubmissionDataProcessor {
 
                     s.setDeclaration(submissionDeclaration);
                     submissionDeclaration.setSubmission(s);
-                    
-					String systemFileName = createSystemFileName(s);
+                   
 					if (log.isDebugEnabled()) {
 						log.debug("creating file: " + path + System.getProperty("file.separator") + systemFileName);
 					}

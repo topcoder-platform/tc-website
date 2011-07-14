@@ -171,10 +171,22 @@ abstract class BaseSubmissionDataProcessor extends ShortHibernateProcessor {
      * <p>Create the system file name from unified submission file found in <code>Upload</p> instance.</p>
      *  
      * @param s the submission
+     * @param remoteFileName remote file name
      * @return the created system file name
      */
-    protected String createSystemFileName(Submission s) {
-    	String remoteFileName = s.getUpload().getParameter();
+    protected String createSystemFileName(Submission s, String remoteFileName) {
+		String ext = remoteFileName.substring(remoteFileName.lastIndexOf('.'));
+		return s.getModifyDate().getTime() + ext;
+    }
+
+
+     /**
+     * <p>get the system file name from submission.upload</p>
+     *  
+     * @param s the submission
+     * @return the created system file name
+     */
+    protected String getSystemFileName(Submission s) {
 		String ext = remoteFileName.substring(remoteFileName.lastIndexOf('.'));
 		return s.getModifyDate().getTime() + ext;
     }
