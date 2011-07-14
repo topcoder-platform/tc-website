@@ -431,6 +431,18 @@ public class Submit extends BaseSubmissionDataProcessor {
 						throw new TCException(thoroughValidationResult.getMessage());
 					}
 
+
+                    Submission s = new Submission();
+					s.setCreateUser(u.getId().toString());
+					s.setCreateDate(new Timestamp(now.getTime()));
+					s.setModifyUser(u.getId().toString());
+					s.setModifyDate(new Timestamp(now.getTime()));
+					s.setStatusId(Submission.STATUS_ACTIVE);
+					s.setTypeId(getSubmissionTypeId(c));
+					s.setFileSize(submissionFile.getSize());
+					s.setViewCount(0L);
+					
+
                     String systemFileName = createSystemFileName(s, remoteFileName);
 					
 					Upload upload = new Upload();
@@ -444,15 +456,6 @@ public class Submit extends BaseSubmissionDataProcessor {
 					upload.setTypeId(Upload.SUBMISSION);
 					upload.setStatusId(Upload.STATUS_ACTIVE);					
 					
-					Submission s = new Submission();
-					s.setCreateUser(u.getId().toString());
-					s.setCreateDate(new Timestamp(now.getTime()));
-					s.setModifyUser(u.getId().toString());
-					s.setModifyDate(new Timestamp(now.getTime()));
-					s.setStatusId(Submission.STATUS_ACTIVE);
-					s.setTypeId(getSubmissionTypeId(c));
-					s.setFileSize(submissionFile.getSize());
-					s.setViewCount(0L);
 					
 					s.setUpload(upload);
 
