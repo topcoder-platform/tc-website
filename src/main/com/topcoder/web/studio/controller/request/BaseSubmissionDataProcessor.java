@@ -187,8 +187,8 @@ abstract class BaseSubmissionDataProcessor extends ShortHibernateProcessor {
      * @return the created system file name
      */
     protected String getSystemFileName(Submission s) {
-		String ext = remoteFileName.substring(remoteFileName.lastIndexOf('.'));
-		return s.getModifyDate().getTime() + ext;
+
+		return s.getUpload().getParameter();
     }
 }
 
