@@ -594,6 +594,7 @@ public class MemberPhotoUploadServlet extends HttpServlet {
                     
                     BufferedImage originalImage = ImageIO.read(uploadedFile.getInputStream());                   
 
+                    // Save image to preview folder
                     logMsg(MessageFormat.format("{0} : Saving to directory : {1}", new Date(), serverPathPrefix + photoImagePreviewDirectory));
                     upLoadPicture(user.getHandle(), originalImage, serverPathPrefix + photoImagePreviewDirectory);                 
 
@@ -669,23 +670,29 @@ public class MemberPhotoUploadServlet extends HttpServlet {
                             resizedImage = originalImage;
                         }
                     }
-                    
-                    logMsg(MessageFormat.format("{0} : Saving to directory : {1}", new Date(), serverPathPrefix + photoImageSubmittedDirectory));
-                    upLoadPicture(user.getHandle(), resizedImage, serverPathPrefix + photoImageSubmittedDirectory);
 
                     try {
-                        // save image
+                        // save image in database
                         entityManager.getTransaction().begin();
-                        memberPhotoManager.saveMemberPhoto(memberId, user.getHandle() + imagepostfix,
-                        	String.valueOf(memberId));
+                        logMsg(MessageFormat.format("{0} : Uploading image for user with id {1}", new Date(), memberId));
+                        memberPhotoManager.saveMemberPhoto(memberId, user.getHandle() + imagepostfix, String.valueOf(memberId));                        
                         entityManager.getTransaction().commit();
                     } catch (Exception eEmf){
                         try {
                             entityManager.getTransaction().rollback();
-                        } catch (Exception eTx) {}                 
+                        } catch (Exception eTx) {
+                        	// ignore
+                        } finally {                       	
+                        	throw new MemberPhotoUploadException("Error occurs while uploading photo.", eEmf);
+                        }
                     } finally {
                         entityManager.close();
                     }
+                        
+                    // move image from preview to submitted directory
+                    logMsg(MessageFormat.format("{0} : Saving to directory : {1}", new Date(), serverPathPrefix +
+                    	photoImageSubmittedDirectory));
+                    upLoadPicture(user.getHandle(), resizedImage, serverPathPrefix + photoImageSubmittedDirectory);
                     
                     response.sendRedirect(submitForwardUrl);
                 }

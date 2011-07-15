@@ -490,37 +490,43 @@ public class MemberPhotoRemovalServlet extends HttpServlet {
 
                 // get member photo
                 Image image = memberPhotoManager.getMemberPhoto(memberId);
-
                 if (image == null) {
                     throw new MemberPhotoUploadException("The member has no photo to remove.");
                 }
 
                 try {
-                    // remove image
+                    // remove image from database
                     entityManager.getTransaction().begin();
-                    memberPhotoManager.removeMemberPhoto(memberId, String.valueOf(memberId));
+                    logMsg(MessageFormat.format("{0} : Removing image with id {1} for user with id {2}", new Date(), 
+                    	image.getId(), memberId));
+                    memberPhotoManager.removeMemberPhoto(memberId, String.valueOf(memberId));                    
                     entityManager.getTransaction().commit();
                 } catch (Exception eEmf){
                     try {
                         entityManager.getTransaction().rollback();
-                    } catch (Exception eTx) {}                 
+                    } catch (Exception eTx) {
+                    	// ignore
+                    } finally {                 	
+                    	throw new MemberPhotoRemovalException("Error occurs while removing photo.", eEmf);
+                    }                    
                 } finally {
                     entityManager.close();
-                }                
-                    
-                
-                synchronized (this) {
-                    // the design wants to add but that should be a final fix.
-                    // 1. get a copy of the image form the database
-                    // 2. remove the image from the database
-                    // 2. copy the image from step 1 to
-                    // photoImageRemovedDirectory                   
-                    logMsg(MessageFormat.format("{0} : Moving to directory : {1}", new Date(), serverPathPrefix + photoImageRemovedDirectory));
-                    
-                    move(serverPathPrefix + photoImageSubmittedDirectory + image.getFileName(),
-                            serverPathPrefix + photoImageRemovedDirectory + image.getFileName());
                 }
-
+                         
+				// move image from submitted folder to removed folder
+				synchronized (this) {
+					// the design wants to add but that should be a final fix.
+					// 1. get a copy of the image form the database
+					// 2. remove the image from the database
+					// 2. copy the image from step 1 to
+					// photoImageRemovedDirectory                   
+					logMsg(MessageFormat.format("{0} : Moving to directory : {1}", new Date(), serverPathPrefix +
+						photoImageRemovedDirectory));
+					
+					move(serverPathPrefix + photoImageSubmittedDirectory + image.getFileName(),
+							serverPathPrefix + photoImageRemovedDirectory + image.getFileName());
+				}
+					
                 // get member information
                 Helper.beginCommunication(request);
                 User user = DAOUtil.getFactory().getUserDAO().find(memberId);
