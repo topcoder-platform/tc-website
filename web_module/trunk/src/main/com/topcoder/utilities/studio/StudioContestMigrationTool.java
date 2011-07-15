@@ -2278,7 +2278,7 @@ public class StudioContestMigrationTool extends TCLoad {
                             }
 
                             // load Component Documentation
-                            loadCompDocumentations(selectContestDocumentsStmt, insertCompDocumentationStmt, contestId, newComponentVersionId);
+                            loadCompDocumentations(selectContestDocumentsStmt, insertCompDocumentationStmt, contestId, newComponentVersionId, newComponentId);
                             
                             // load Project File Types
                             selectContestFileTypesStmt.clearParameters();
@@ -2354,6 +2354,8 @@ public class StudioContestMigrationTool extends TCLoad {
                                 milestoneReviewerResource = insertSingleResource(insertResourceStmt, insertResourceInfoStmt, contestCreateUserId, contestCreateUserHandle,
                                         MILESTONE_REVIEWER_RESOURCE_ROLE_ID, newProjectId, milestoneReviewPhaseId, contestCreateUserId, null, 0, contestStartTime);
                             }
+
+                            Map<String, String> submissionMap = new HashMap<String, String>();
                             
                             // Load submissions
                             List<Submission> submissions = getContestSubmissions(selectSubmissionStmt, contestId, contestMilestoneTime, contestPrizes, milestonePrizes);
@@ -2402,6 +2404,8 @@ public class StudioContestMigrationTool extends TCLoad {
                                         }
                                     }
                                 }
+                                submissionMap.put(sub.originalSubmissionId.toString(), sub.newSubmissionId.toString());
+
                             }
 
 
@@ -2413,7 +2417,7 @@ public class StudioContestMigrationTool extends TCLoad {
 
                             if (srcFolder.exists())
                             {
-                                copyFolder(srcFolder,destFolder);                 
+                                copyFolder(srcFolder,destFolder, submissionMap);                 
                             }
                             
                             // If everything went smoothly then append ID of converted project to log messages
@@ -2762,11 +2766,13 @@ public class StudioContestMigrationTool extends TCLoad {
      * @since 1.1
      */
     private void loadCompDocumentations(PreparedStatement selectContestDocumentsStmt, PreparedStatement insertCompDocumentationStmt,
-            long contestId, long compVersId) throws SQLException, IDGenerationException, StudioContestMigrationException {
+            long contestId, long compVersId, long componentId) throws SQLException, IDGenerationException, StudioContestMigrationException {
         ResultSet resultSet = null;
         
         String compVersIdString = String.valueOf(compVersId);
-        File dir = new File(new File(softwareDocumentsRoot, compVersIdString), compVersIdString);
+        String componentIdString = String.valueOf(componentId);
+
+        File dir = new File(new File(softwareDocumentsRoot, componentIdString), compVersIdString);
         try {
             dir.mkdirs();
         } catch (SecurityException e) {
@@ -2799,7 +2805,7 @@ public class StudioContestMigrationTool extends TCLoad {
                 // document_name
                 insertCompDocumentationStmt.setString(4, resultSet.getString("document_type_desc"));
                 // url
-                insertCompDocumentationStmt.setString(5, compVersIdString + "/" + compVersIdString + "/" + originalFileName);
+                insertCompDocumentationStmt.setString(5, componentIdString + "/" + compVersIdString + "/" + originalFileName);
                 insertRecord(insertCompDocumentationStmt, "comp_documentation");
             }
         } finally {
@@ -3088,10 +3094,8 @@ public class StudioContestMigrationTool extends TCLoad {
         throws SQLException, IDGenerationException, StudioContestMigrationException {
         // Insert into tcs_catalog.upload table
         long newUploadId = getUploadIdGenerator().getNextID();
-        String destFileName = sub.originalFileName;
-        if (!destFileName.endsWith("_unifiedSubmission.zip")) {
-            destFileName = sub.systemFileName;
-        }
+        String destFileName = sub.systemFileName;
+     
         insertUploadStmt.clearParameters();
         // upload_id
         insertUploadStmt.setLong(1, newUploadId);
@@ -3650,8 +3654,8 @@ public class StudioContestMigrationTool extends TCLoad {
     }
 
 
-    public static void copyFolder(File src, File dest)
-    	throws IOException{
+    public static void copyFolder(File src, File dest, Map<String, String> submap)
+    	throws Exception{
  
     	if(src.isDirectory()){
  
@@ -3666,30 +3670,55 @@ public class StudioContestMigrationTool extends TCLoad {
     		String files[] = src.list();
  
     		for (String file : files) {
-    		   //construct the src and dest file structure
-    		   File srcFile = new File(src, file);
-    		   File destFile = new File(dest, file);
-    		   //recursive copy
-    		   copyFolder(srcFile,destFile);
-    		}
+    		   
+                   //construct the src and dest file structure
+                   File srcFile = new File(src, file);
+                   File destFile = new File(dest, file);
+                    //recursive copy
+                   copyFolder(srcFile,destFile, submap);
+               }
+    		  
  
     	}else{
-    		//if file, then copy it
-    		//Use bytes stream to support all file types
-    		InputStream in = new FileInputStream(src);
-    	        OutputStream out = new FileOutputStream(dest); 
- 
-    	        byte[] buffer = new byte[1024];
- 
-    	        int length;
-    	        //copy the file content in bytes 
-    	        while ((length = in.read(buffer)) > 0){
-    	    	   out.write(buffer, 0, length);
-    	        }
- 
-    	        in.close();
-    	        out.close();
-    	       // System.out.println("File copied from " + src + " to " + dest);
+    		
+                String srcFileName = src.getName();
+                // only copy zip files
+          //     if (srcFileName.endsWith(".zip"))
+               {
+                   String destFileName = srcFileName;
+
+                    // if submissionid-preview.zip, rename to newsubmissionid-preview.zip
+                   if (srcFileName.endsWith("_preview.zip"))
+                   {
+                        String oldsubid = srcFileName.substring(0,  srcFileName.lastIndexOf("_preview.zip"));
+                        if (submap.get(oldsubid) != null)
+                        {
+                            destFileName = (String)submap.get(oldsubid) + "-preview.zip";
+                        }
+
+                        dest = new File(dest.getParentFile(), destFileName);
+
+                        
+                   }
+
+                   InputStream in = new FileInputStream(src);
+                   OutputStream out = new FileOutputStream(dest); 
+             
+                   byte[] buffer = new byte[1024];
+         
+                   int length;
+                   //copy the file content in bytes 
+                   while ((length = in.read(buffer)) > 0){
+                       out.write(buffer, 0, length);
+                   }
+         
+                   in.close();
+                   out.close();
+
+                   System.out.println("File copied from " + src + " to " + dest);
+                }
+
+                
     	}
     }
 
