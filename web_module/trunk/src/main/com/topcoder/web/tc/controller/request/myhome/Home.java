@@ -3,23 +3,17 @@
  */
 package com.topcoder.web.tc.controller.request.myhome;
 
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.HSRegistrationHelper;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
-import com.topcoder.web.common.model.Path;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
-import com.topcoder.web.memberphoto.manager.MemberPhotoDAO;
-import com.topcoder.web.memberphoto.manager.persistence.JPAMemberPhotoDAO;
-import com.topcoder.web.memberphoto.manager.MemberPhotoManager;
-import com.topcoder.web.memberphoto.manager.MemberPhotoManagerImpl;
-import com.topcoder.web.memberphoto.entities.Image;
 
 /**
  * <p>
@@ -33,8 +27,6 @@ import com.topcoder.web.memberphoto.entities.Image;
  * <p>
  * Version 1.1 (Assembly - Upload Avatar to TC) Change notes:
  *   <ol>
- *     <li>Add MemberPhotoManager field.</li>
- *     <li>Add constructor to initiate memberPhotoManager field.</li>
  *     <li>Update dbProcessing method to retrieve image info.</li>
  *     <li>Update dbProcessing method to retrieve image path info.</li>
  *   </ol>
@@ -45,31 +37,6 @@ import com.topcoder.web.memberphoto.entities.Image;
  */
 public class Home extends ShortHibernateProcessor {
     /**
-     * A member photo manager instance.
-     * 
-     * @since 1.1
-     */
-    private MemberPhotoManager memberPhotoManager;
-
-    /**
-     * <p>
-     * The factory to create EntityManager objects.
-     * </p>
-     */
-    private final EntityManagerFactory emf;
-
-    /**
-     * The default ctor. Added to initiate memberPhotoManager field.
-     * 
-     * @since 1.1
-     */
-    public Home() {
-        super();
-        
-        emf = Persistence.createEntityManagerFactory("memberPhotoManager");
-    }
-
-    /**
      * Handle http request.
      * 
      * @throws Exception if any exception occurs.
@@ -79,35 +46,26 @@ public class Home extends ShortHibernateProcessor {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 
-        // configure the EntityManager
-        EntityManager entityManager = emf.createEntityManager();        
-        MemberPhotoDAO memberPhotoDAO = new JPAMemberPhotoDAO(entityManager);
-        memberPhotoManager = new MemberPhotoManagerImpl(memberPhotoDAO);
-
-        User u = DAOUtil.getFactory().getUserDAO().find(getUser().getId());
-        Image image = null;
-        try {
-            // get image
-            entityManager.getTransaction().begin();
-            image = memberPhotoManager.getMemberPhoto(getUser().getId());
-            entityManager.getTransaction().commit();
-        } catch (Exception eEmf){
-            try {
-                entityManager.getTransaction().rollback();
-            } catch (Exception eTx) {}                 
-        } finally {
-            entityManager.close();
-        }
-        
+        User u = DAOUtil.getFactory().getUserDAO().find(getUser().getId());        
         getRequest().setAttribute("isInHS",
                 DAOUtil.getFactory().getSecurityGroupDAO().hasGroup(u.getId(), HSRegistrationHelper.HS_GROUP_ID));
         getRequest().setAttribute("regUser", u);
-        getRequest().setAttribute("userImage", image);
 
-        if (image != null) {
-        	Path path = DAOUtil.getFactory().getPathDAO().find(image.getPathId());
-        	getRequest().setAttribute("pathImage", path.getPath() + image.getFileName());
+        // Added - image from informixoltp - since 1.1
+        Request r = new Request();
+        r.setContentHandle("member_image");
+        r.setProperty("cr", String.valueOf(getUser().getId()));
+        ResultSetContainer imageResult = new DataAccess(DBMS.OLTP_DATASOURCE_NAME).getData(r).get("coder_image_data");
+
+        Integer image = null;
+        if ((imageResult.size() > 0) && (imageResult.getItem(0, "image_id").getResultData() != null) && (imageResult.getIntItem(0, "image_id") != 0)) {
+            image = imageResult.getIntItem(0, "image_id");
+            String image_path = imageResult.getStringItem(0, "image_path");
+            String fileName = imageResult.getStringItem(0, "file_name");
+            getRequest().setAttribute("pathImage", image_path + fileName);
+            
         }
+        getRequest().setAttribute("userImage", image);
 
         setNextPage("/my_home/index.jsp");
         setIsNextPageInContext(true);
