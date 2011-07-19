@@ -237,7 +237,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
                 SubmissionImage image = getSubmissionImage(submission, targetImageTypeId, fileIndex);
 
                 File pathdir = dir;
-                if (image.getPath().getPath() != null && !image.getPath().getPath().equals(""))
+                if (image.getImage().getPath().getPath() != null && !image.getImage().getPath().getPath().equals(""))
                 {
                     pathdir = new File(image.getPath().getPath());
                 }
@@ -260,7 +260,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
                             Constants.DEFAULT_FILE_INDEX);
                     log.debug("image.getImage().getFileName(): " + image.getImage().getFileName());
                     File pathdir = dir;
-                    if (image.getPath().getPath() != null && !image.getPath().getPath().equals(""))
+                    if (image.getImage().getPath().getPath() != null && !image.getImage().getPath().getPath().equals(""))
                     {
                         pathdir = new File(image.getPath().getPath());
                     }
