@@ -233,8 +233,16 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
             String[] fileNames;
             if (targetImageTypeId > 0) {
                 int fileIndex = getRequestedFileIndex();
+
                 SubmissionImage image = getSubmissionImage(submission, targetImageTypeId, fileIndex);
-                fileNames = dir.list(new SubmissionPresentationFilter(image.getImage().getFileName()));
+
+                File pathdir = dir;
+                if (image.getPath().getPath() != null && !image.getPath().getPath().equals(""))
+                {
+                    pathdir = new File(image.getPath().getPath());
+                }
+
+                fileNames = pathdir.list(new SubmissionPresentationFilter(image.getImage().getFileName()));
             } else {
                 //this handles the case where the user id downloading the preview file, not an image
                 fileNames = dir.list(new SubmissionPresentationFilter(submissionType, submission.getId().longValue()));
@@ -251,7 +259,12 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
                     SubmissionImage image = getSubmissionImage(submission, Image.GALLERY_FULL_TYPE_ID,
                             Constants.DEFAULT_FILE_INDEX);
                     log.debug("image.getImage().getFileName(): " + image.getImage().getFileName());
-                    fileNames = dir.list(new SubmissionPresentationFilter(image.getImage().getFileName()));
+                    File pathdir = dir;
+                    if (image.getPath().getPath() != null && !image.getPath().getPath().equals(""))
+                    {
+                        pathdir = new File(image.getPath().getPath());
+                    }
+                    fileNames = pathdir.list(new SubmissionPresentationFilter(image.getImage().getFileName()));
                 }
             }
 
