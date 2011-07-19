@@ -3683,7 +3683,7 @@ public class StudioContestMigrationTool extends TCLoad {
     		
                 String srcFileName = src.getName();
                 // only copy zip files
-          //     if (srcFileName.endsWith(".zip"))
+               if (srcFileName.endsWith(".zip"))
                {
                    String destFileName = srcFileName;
 
