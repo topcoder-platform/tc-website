@@ -3693,7 +3693,7 @@ public class StudioContestMigrationTool extends TCLoad {
                         String oldsubid = srcFileName.substring(0,  srcFileName.lastIndexOf("_preview.zip"));
                         if (submap.get(oldsubid) != null)
                         {
-                            destFileName = (String)submap.get(oldsubid) + "-preview.zip";
+                            destFileName = (String)submap.get(oldsubid) + "_preview.zip";
                         }
 
                         dest = new File(dest.getParentFile(), destFileName);
