@@ -499,6 +499,36 @@ public class Project extends Base {
         }
         return false;
     }
+
+    /**
+     * <p>Indicates whether the Submission phase is open.</p>
+     *
+     * @return true if Submission phase is closed, false otherwise
+     * @since 1.3
+     */
+    public Boolean getSubmissionOpen() {
+        ProjectPhase submissionPhase = getPhase(ProjectPhase.SUBMISSION);
+        if (submissionPhase != null) {
+            log.debug("Return submission opened: " + (submissionPhase.getStatusId() == ProjectPhase.STATUS_OPEN));
+            return (submissionPhase.getStatusId() == ProjectPhase.STATUS_OPEN);
+        }
+        return false;
+    }
+
+    /**
+     * <p>Indicates whether the Milestone Submission phase is closed.</p>
+     *
+     * @return true if Review phase is closed, false otherwise
+     * @since 1.2
+     */
+    public Boolean getMilestoneSubmissionClosed() {
+    	ProjectPhase milestoneSubmissionPhase = getPhase(ProjectPhase.MILESTONE_SUBMISSION);
+        if (milestoneSubmissionPhase != null) {
+        	log.debug("Return review closed " + (milestoneSubmissionPhase.getStatusId() == ProjectPhase.STATUS_CLOSED));
+        	return (milestoneSubmissionPhase.getStatusId() == ProjectPhase.STATUS_CLOSED);
+        }
+        return false;
+    }
     
     /**
      * <p>Gets the maximum number of submissions allowed to be submitted for this project by single submitter.</p>

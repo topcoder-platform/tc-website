@@ -28,10 +28,10 @@
        value="${isMultiRound and not empty contest.milestonePrize and not empty contest.milestonePrize.numberOfSubmissions and not empty contest.milestonePrize.amount}"/>
 <c:set var="placeSuffixes"
        value="<%=new String[] {"st", "nd", "rd", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th"}%>"/>
-<c:set var="isFinished" value="${currentTime >= contest.endTime}"/>
-<c:set var="isStarted" value="${currentTime >= contest.startTime}"/>
+<c:set var="isFinished" value="${contest.reviewClosed}"/>
+<c:set var="isStarted" value="${contest.submissionOpen}"/>
 <c:set var="isRunning" value="${isStarted and not isFinished}"/>
-<c:set var="isMilestoneRoundPassed" value="${isRunning and isMultiRound and contest.milestoneReviewClosed}"/>
+<c:set var="isMilestoneRoundPassed" value="${isRunning and isMultiRound and contest.milestoneSubmissionClosed}"/>
 <c:set var="hasCockpitPermissions" value="${requestScope.has_cockpit_permissions}"/>
 <c:set var="milestonePrizedSubmissions" value="${requestScope.milestonePrizedSubmissions}"/>
 
