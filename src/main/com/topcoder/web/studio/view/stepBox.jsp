@@ -33,10 +33,10 @@ request.setAttribute("clientPrize", new Long(Prize.MILESTONE_PRIZE_TYPE_ID));
        value="<%=new String[] {"st", "nd", "rd", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th"}%>"/>
 <c:set var="drPointsAvailable" value="${contest.digitalRunPoints ne null and contest.digitalRunPoints > 0}"/>
 <c:set var="hasMilestoneRoundPrize" value="${isMultiRound and not empty contest.milestonePrize and not empty contest.milestonePrize.numberOfSubmissions and not empty contest.milestonePrize.amount}"/>
-<c:set var="isFinished" value="${currentTime >= contest.endTime}"/>
-<c:set var="isStarted" value="${currentTime >= contest.startTime}"/>
+<c:set var="isFinished" value="${contest.reviewClosed}"/>
+<c:set var="isStarted" value="${contest.submissionOpen}"/>
 <c:set var="isRunning" value="${isStarted and not isFinished}"/>
-<c:set var="isMilestoneRoundPassed" value="${isRunning and isMultiRound and currentTime >= milestoneDate}"/>
+<c:set var="isMilestoneRoundPassed" value="${isRunning and isMultiRound and contest.milestoneSubmissionClosed}"/>
 <c:set var="hasCockpitPermissions" value="${requestScope.has_cockpit_permissions}"/>
 <fmt:setLocale value="en_US"/>
 
