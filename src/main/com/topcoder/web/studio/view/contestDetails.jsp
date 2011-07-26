@@ -104,7 +104,7 @@
         <%-- CONTEST SUMMARY --%>
         <h5 class="contentTitle">Contest Summary</h5>
 
-        <p class="paragraph"><studio:formatField text="${spec.contestIntroduction}"/></p>
+        ${spec.contestIntroduction}
 
 
         <c:if test="${not empty spec.contestDescription or isMultiRound}">
@@ -118,13 +118,10 @@
                 <fmt:formatNumber value="${contest.totalPrizePurse}" pattern="$###,###.00"/>.</p>
 
                 <span class="subTitle">Round One (1)</span>
-                <p class="paragraph">
-                    <studio:formatField text="${spec.round1Introduction}"/>
-                </p>
+                ${spec.round1Introduction}
+                
                 <span class="subTitle">Round Two (2)</span>
-                <p class="paragraph">
-                    <studio:formatField text="${spec.round2Introduction}"/>
-                </p>
+                ${spec.round2Introduction}
 
                 <p class="paragraph">Please read the contest specification carefully and watch the forums for any
                     questions or feedback concerning this contest. It is important that you monitor any updates
@@ -143,9 +140,7 @@
                     submission fails screening for a small mistake in Round 1, you may still submit to Round 2.</p>
             </c:if>
             <c:if test="${not empty spec.contestDescription}">
-                <p class="paragraph">
-                    <studio:formatField text="${spec.contestDescription}"/>
-                </p>
+                ${spec.contestDescription}
             </c:if>
         </c:if>
 
@@ -157,28 +152,27 @@
 
             <c:if test="${not empty spec.layoutAndSize}">
                 <span class="subTitle">Size:</span>
-
-                <p class="paragraph"><studio:formatField text="${spec.layoutAndSize}"/></p>
+                ${spec.layoutAndSize}
             </c:if>
+
             <c:if test="${not empty spec.fonts}">
                 <span class="subTitle">Font:</span>
-
-                <p class="paragraph"><studio:formatField text="${spec.fonts}"/></p>
+                ${spec.fonts}
             </c:if>
+
             <c:if test="${not empty spec.colors}">
                 <span class="subTitle">Color:</span>
-
-                <p class="paragraph"><studio:formatField text="${spec.colors}"/></p>
+                ${spec.colors}
             </c:if>
+
             <c:if test="${not empty spec.contentRequirements}">
                 <span class="subTitle">Content:</span>
-
-                <p class="paragraph"><studio:formatField text="${spec.contentRequirements}"/></p>
+                ${spec.contentRequirements}
             </c:if>
+
             <c:if test="${not empty spec.otherInstructions}">
                 <span class="subTitle">Other:</span>
-
-                <p class="paragraph"><studio:formatField text="${spec.otherInstructions}"/></p>
+                ${spec.otherInstructions}
             </c:if>
         </c:if>
 
@@ -282,7 +276,7 @@
             <c:choose>
                 <c:when test="${not empty contest.documents}">
                     <c:choose>
-                        <c:when test="${currentTime > contest.endTime }">
+                        <c:when test="${not isRunning}">
                                 <p>
                                     <strong>Since this contest has ended all attached files are no longer available
                                         for viewing</strong>
