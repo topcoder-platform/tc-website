@@ -683,14 +683,14 @@ public class StudioContestMigrationTool extends TCLoad {
      */
     private static final String UPDATE_PAYMENT_INFO_SQL
         = "UPDATE informixoltp:payment_detail SET component_project_id = ?, studio_contest_id=null WHERE " +
-          "studio_contest_id = ?"
+          "studio_contest_id = ?";
     
     /**
     * <p> A <code>String</code> providing the SQL statement for updating dr poins in
     * <code>dr_points</code> table with new project ids.</p>
     */
     private static final String UPDATE_DR_POINTS_SQL
-        = "UPDATE dr_points SET reference_id = ? WHERE reference_id = ?"
+        = "UPDATE dr_points SET reference_id = ? WHERE reference_id = ?";
     
     /**
      * <p>A <code>Map</code> mapping the IDs for contest statuses from <code>Studio</code> database to <code>Online
