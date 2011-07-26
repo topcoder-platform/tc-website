@@ -674,6 +674,23 @@ public class StudioContestMigrationTool extends TCLoad {
         = "INSERT INTO review_item_comment (review_item_comment_id, resource_id, review_item_id, comment_type_id, content, extra_info, " +
             "                               sort, create_user, create_date, modify_user, modify_date) " +
             "VALUES (?, ?, ?, 1, ?, NULL, 0, ?, ?, ?, ?)";
+
+     /**
+     * <p> A <code>String</code> providing the SQL statement for updating payments info in
+     * <code>informixoltp:payment_detail</code> table with new project ids.</p>
+     *
+     * @since 1.2
+     */
+    private static final String UPDATE_PAYMENT_INFO_SQL
+        = "UPDATE informixoltp:payment_detail SET component_project_id = ?, studio_contest_id=null WHERE " +
+          "studio_contest_id = ?"
+    
+    /**
+    * <p> A <code>String</code> providing the SQL statement for updating dr poins in
+    * <code>dr_points</code> table with new project ids.</p>
+    */
+    private static final String UPDATE_DR_POINTS_SQL
+        = "UPDATE dr_points SET reference_id = ? WHERE reference_id = ?"
     
     /**
      * <p>A <code>Map</code> mapping the IDs for contest statuses from <code>Studio</code> database to <code>Online
@@ -1896,6 +1913,8 @@ public class StudioContestMigrationTool extends TCLoad {
         PreparedStatement insertReviewItemStmt = null;
         PreparedStatement insertReviewItemCommentStmt = null;
         ResultSet selectedContestsResult = null;
+        PreparedStatement updatePaymentDetailsStmt = null;
+        PreparedStatement updateDrPointsStmt = null;
         Map<Long, Prize> contestPrizes = new HashMap<Long, Prize>();
         Map<Long, Prize> milestonePrizes = new HashMap<Long, Prize>();
         
@@ -1935,6 +1954,8 @@ public class StudioContestMigrationTool extends TCLoad {
             insertReviewItemStmt = prepareStatement(INSERT_REVIEW_ITEM_SQL, TARGET_DB);
             insertReviewItemCommentStmt = prepareStatement(INSERT_REVIEW_ITEM_COMMENT_SQL, TARGET_DB);
             selectContestsStmt = getSelectContestsStatement();
+            updatePaymentDetailsStmt = prepareStatement(UPDATE_PAYMENT_INFO_SQL, TARGET_DB);
+            updateDrPointsStmt = prepareStatement(UPDATE_DR_POINTS_SQL, TARGET_DB);
             
             // Get the contests for migration and migrate each contest in a single separate transaction
             selectedContestsResult = selectContestsStmt.executeQuery();
@@ -2420,6 +2441,18 @@ public class StudioContestMigrationTool extends TCLoad {
                                 copyFolder(srcFolder,destFolder, submissionMap);                 
                             }
                             
+                            // update payment details
+                            updatePaymentDetailsStmt.clearParameters();
+                            updatePaymentDetailsStmt.setLong(1, newProjectId);
+                            updatePaymentDetailsStmt.setLong(2, contestId);
+                            updateRecord(updatePaymentDetailsStmt, "informixoltp:payment_detail");
+                            
+                            //update digital run points
+                            updateDrPointsStmt.clearParameters();
+                            updateDrPointsStmt.setLong(1, newProjectId);
+                            updateDrPointsStmt.setLong(2, contestId);
+                            updateRecord(updateDrPointsStmt, "dr_points");
+                            
                             // If everything went smoothly then append ID of converted project to log messages
                             Object[] currentActivity = this.activities.peek();
                             currentActivity[0] = (String) currentActivity[0] + newProjectId;
@@ -2476,6 +2509,8 @@ public class StudioContestMigrationTool extends TCLoad {
             close(insertReviewStmt);
             close(insertReviewItemStmt);
             close(insertReviewItemCommentStmt);
+            close(updatePaymentDetailsStmt);
+            close(updateDrPointsStmt);
             stopActivityRecording();
         }
     }
@@ -3001,7 +3036,7 @@ public class StudioContestMigrationTool extends TCLoad {
                 sub.submitterId = getLong(selectedSubmissionsResult, "submitter_id");
                 sub.submissionStatusId = getLong(selectedSubmissionsResult, "submission_status_id");
                 Timestamp submissionDate = selectedSubmissionsResult.getTimestamp("create_date");
-				
+                
                 // sub.submissionTypeId = getLong(selectedSubmissionsResult, "submission_type_id");
                 if (contestMilestoneDate != null && submissionDate.before(contestMilestoneDate)) {
                     // milestone submission
@@ -3504,6 +3539,19 @@ public class StudioContestMigrationTool extends TCLoad {
                                                       " table: " + insertCount);
         }
     }
+    
+    /**
+    * <p> Execute the SQL statement to update records in the database. </p>
+    *
+    * @param updStmt the SQL statement to be executed.
+    * @param table the table name.
+    * @throws SQLException if a SQL error occurs.
+    * @since 1.1
+    */ 
+    private static void updateRecord(PreparedStatement updStmt, String table) throws SQLException {
+        int updateCount = updStmt.executeUpdate();
+        LOGGER.debug(updateCount+" records updated in table: " + table);
+    }
 
     /**
      * <p>This class represents a prize associated with a contest.</p>
@@ -3655,32 +3703,32 @@ public class StudioContestMigrationTool extends TCLoad {
 
 
     public static void copyFolder(File src, File dest, Map<String, String> submap)
-    	throws Exception{
+        throws Exception{
  
-    	if(src.isDirectory()){
+        if(src.isDirectory()){
  
-    		//if directory not exists, create it
-    		if(!dest.exists()){
-    		   dest.mkdir();
-    		   System.out.println("Directory copied from " 
+            //if directory not exists, create it
+            if(!dest.exists()){
+               dest.mkdir();
+               System.out.println("Directory copied from " 
                               + src + "  to " + dest);
-    		}
+            }
  
-    		//list all the directory contents
-    		String files[] = src.list();
+            //list all the directory contents
+            String files[] = src.list();
  
-    		for (String file : files) {
-    		   
+            for (String file : files) {
+               
                    //construct the src and dest file structure
                    File srcFile = new File(src, file);
                    File destFile = new File(dest, file);
                     //recursive copy
                    copyFolder(srcFile,destFile, submap);
                }
-    		  
+              
  
-    	}else{
-    		
+        }else{
+            
                 String srcFileName = src.getName();
                 // only copy zip files
                if (srcFileName.endsWith(".zip"))
@@ -3719,7 +3767,7 @@ public class StudioContestMigrationTool extends TCLoad {
                 }
 
                 
-    	}
+        }
     }
 
 
