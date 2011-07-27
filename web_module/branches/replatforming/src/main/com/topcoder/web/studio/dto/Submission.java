@@ -580,6 +580,22 @@ public class Submission extends Base {
         return cnt;
     }
 
+     /**
+     * <p>Evaluates the number of images from the gallery of <code>Full</code> presentation type.</p>
+     *
+     * @return an <code>int</code> providing the number of <code>Full</code> watermarked images from the gallery.
+     * @since 1.1
+     */
+    public int getFullGalleryImagesCount() {
+        int cnt = 0;
+        for (SubmissionImage submissionImage : this.images) {
+            if (submissionImage.getImage().getImageTypeId() == Image.GALLERY_FULL_TYPE_ID.intValue()) {
+                cnt++;
+            }
+        }
+        return cnt;
+    }
+
     /**
      * <p>Holds the mapping between image type id's and the number of images of those type associated with 
      * this submission.</p>
@@ -612,6 +628,7 @@ public class Submission extends Base {
         return galMap;
     }
 
+	
     /**
      * <p>Determines whether the specified objects are equal.</p>
      *

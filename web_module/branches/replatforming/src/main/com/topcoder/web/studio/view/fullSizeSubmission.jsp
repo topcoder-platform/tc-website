@@ -170,7 +170,7 @@
                                          class="btn-download-view">Download</a></li>
             <li class="state-info">
                 <span class="state">Image <span class="current-order">1</span> of <span
-                    class="total-order">${subRow.map["gallery_image_count"]}</span></span>
+                    class="total-order">${submission.fullGalleryImagesCount}</span></span>
             </li>
             <li class="action-button">
                 <a href="${downloadSubmissionBaseUrl}&amp;${subFileIdx}=1" target="_blank" class="btn-full-size-view"
@@ -188,7 +188,7 @@
                         <div class="submission-action-left-bottom">
                             <ul id="submission-big-size-jcarousel" class="jcarousel-skin-tango big-size-carouse">
 
-                                <c:forEach begin="1" end="${subRow.map['gallery_image_count']}" step="1" varStatus="index">
+                                <c:forEach begin="1" end="${submission.fullGalleryImagesCount}" step="1" varStatus="index">
                                     <li class="${index.index == 1 ? 'jcarousel-item-horizontal-actived' : ''}">
                                         <div>
                                             <img src="${downloadSubmissionBaseUrl}&amp;${subFileIdx}=${index.index}" alt=""/>
@@ -213,7 +213,7 @@
                     <div class="submission-action-right-bottom">
                         <div class="submission-action-left-bottom">
                             <ul id="studio-declarations-jcarousel" class="jcarousel-skin-tango thumbnail-carouse">
-                                <c:forEach begin="1" end="${subRow.map['gallery_image_count']}" step="1" varStatus="index">
+                                <c:forEach begin="1" end="${submission.fullGalleryImagesCount}" step="1" varStatus="index">
                                     <li class="${index.index == 1 ? 'jcarousel-item-horizontal-actived' : ''}">
                                         <a href="javascript:;">
                                             <%--<div style="display:table-cell;">--%>
@@ -279,7 +279,7 @@
                                                       timeZone="${sessionInfo.timezone}"/>
                                     </span>
                                 </li>
-                                <li><label>Total Image </label><span>${subRow.map["gallery_image_count"]}</span></li>
+                                <li><label>Total Image </label><span>${submission.fullGalleryImagesCount}</span></li>
                                 <li><label>File Size</label><span>
                                     <c:choose>
                                         <c:when test="${submission.fileSize < 1024 * 1024}">
