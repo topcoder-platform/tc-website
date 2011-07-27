@@ -31,8 +31,6 @@
 <fmt:setLocale value="en_US"/>
 <c:set var="contest" value="${requestScope.contest}"/>
 <c:set var="isMultiRound" value="${not empty contest.milestoneDate}"/>
-<c:set var="milestoneDate" value="${contest.milestoneDate}"/>
-<c:set var="currentTime" value="${requestScope.currentTime}"/>
 <c:set var="registered" value="${requestScope.registered}"/>
 <c:set var="CONTEST_ID" value="<%=Constants.CONTEST_ID%>"/>
 <c:set var="servletPath" value="${sessionInfo.servletPath}"/>
@@ -45,7 +43,6 @@
 <c:set var="isFinished" value="${contest.reviewClosed}"/>
 <c:set var="isStarted" value="${contest.submissionOpen}"/>
 <c:set var="isRunning" value="${isStarted and not isFinished}"/>
-<c:set var="isMilestoneRoundPassed" value="${isRunning and isMultiRound and contest.milestoneSubmissionClosed}"/>
 <c:set var="hasCockpitPermissions" value="${requestScope.has_cockpit_permissions}"/>
 <c:set var="spec" value="${contest.studioProjectSpecification}"/>
 
