@@ -523,7 +523,7 @@ public class Project extends Base {
      */
     public Boolean getSubmissionClosed() {
         ProjectPhase submissionPhase = getPhase(ProjectPhase.SUBMISSION);
-        return submissionPhase.getStatusId() == ProjectPhase.STATUS_CLOSED);
+        return submissionPhase.getStatusId() == ProjectPhase.STATUS_CLOSED;
     }
 
     /**
