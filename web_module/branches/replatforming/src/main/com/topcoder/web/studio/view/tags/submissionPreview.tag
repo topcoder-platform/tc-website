@@ -115,7 +115,7 @@
             <span class="info">
                 <strong>
                     <c:choose>
-                        <c:when test="${bonusPrize==row.map['prize_type_id'] && row.map['mark_for_purchase']}">
+                        <c:when test="${row.map['mark_for_purchase']}">
                             Client Selection
                         </c:when>
                         <c:otherwise>
