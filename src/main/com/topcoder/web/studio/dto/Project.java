@@ -503,7 +503,7 @@ public class Project extends Base {
     /**
      * <p>Indicates whether the Submission phase is open.</p>
      *
-     * @return true if Submission phase is closed, false otherwise
+     * @return true if Submission phase is open, false otherwise
      * @since 1.3
      */
     public Boolean getSubmissionOpen() {
@@ -513,6 +513,17 @@ public class Project extends Base {
             return (submissionPhase.getStatusId() == ProjectPhase.STATUS_OPEN);
         }
         return false;
+    }
+	
+	/**
+     * <p>Indicates whether the Submission phase is closed.</p>
+     *
+     * @return true if Submission phase is closed, false otherwise
+     * @since 1.4
+     */
+    public Boolean getSubmissionClosed() {
+        ProjectPhase submissionPhase = getPhase(ProjectPhase.SUBMISSION);
+        return submissionPhase.getStatusId() == ProjectPhase.STATUS_CLOSED);
     }
 
     /**

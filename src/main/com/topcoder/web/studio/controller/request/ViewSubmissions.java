@@ -96,7 +96,7 @@ public class ViewSubmissions extends ShortHibernateProcessor {
         getRequest().setAttribute("contest", c);
         setDefault(Constants.CONTEST_ID, c.getId());
 
-        boolean isOver = c.getReviewClosed();
+        boolean isOver = c.getSubmissionClosed();
         if (!isOver) {
             throw new NavigationException("Submissions are not available until the contest is over.");
         }

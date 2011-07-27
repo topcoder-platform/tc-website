@@ -22,7 +22,6 @@
 <c:set var="canViewMilestone" value="${requestScope.canViewMilestone}"/>
 <c:set var="milestoneFeedbackAvailable"
        value="${isMultiRound and canViewMilestone and contest.milestoneFeedbackAvailable}"/>
-<c:set var="currentTime" value="<%=new Date()%>"/>
 <c:set var="isMilestoneReviewFinished" value="${contest.milestoneReviewClosed}"/>
 <c:set var="isFinished" value="${contest.reviewClosed}"/>
 
@@ -48,7 +47,7 @@
         </c:choose>
 
         <c:choose>
-            <c:when test="${isFinished}">
+            <c:when test="${contest.submissionClosed}">
                 <li>
                      <a ${currentTab eq 's' ? 'class="current"' : ''}
                         href="${servletPath}?module=ViewSubmissions&amp;${CONTEST_ID}=${contest.id}">
