@@ -227,7 +227,7 @@ import com.topcoder.web.memberphoto.manager.persistence.JPAMemberPhotoDAO;
  * @version 2.0
  */
 @SuppressWarnings("serial")
-@Transactional
+//@Transactional
 public class MemberPhotoUploadServlet extends HttpServlet {
     /**
      * <p>
@@ -552,8 +552,21 @@ public class MemberPhotoUploadServlet extends HttpServlet {
                 
                 // get memberId from session
                 long memberId = Helper.getUserId(request);
-                Helper.beginCommunication(request);
-                User user = DAOUtil.getFactory().getUserDAO().find(memberId);
+                User user = null;
+                try
+                {
+                    Helper.beginCommunication(request);
+                    user = DAOUtil.getFactory().getUserDAO().find(memberId);
+                }
+                catch (Exception ee)
+                {   
+                     throw new MemberPhotoRemovalException("Error occurs while removing photo." + ee, ee);
+                }
+                finally
+                {
+                    Helper.endCommunication(request);
+                }
+     
                 String imageFileName = user.getHandle() + imagepostfix;
                 
                 // determine the action for image storing
@@ -597,9 +610,23 @@ public class MemberPhotoUploadServlet extends HttpServlet {
                     // Save image to preview folder
                     logMsg(MessageFormat.format("{0} : Saving to directory : {1}", new Date(), serverPathPrefix + photoImagePreviewDirectory));
                     upLoadPicture(user.getHandle(), originalImage, serverPathPrefix + photoImagePreviewDirectory);                 
-
+ 
                     // get Path information
-                    Path imagePath = DAOUtil.getFactory().getPathDAO().find(Image.MEMBER_PHOTO_PREVIEW_PATH_ID);
+                    Path imagePath = null;
+                    try
+                    {
+                        Helper.beginCommunication(request);
+                        imagePath = DAOUtil.getFactory().getPathDAO().find(Image.MEMBER_PHOTO_PREVIEW_PATH_ID);
+                    }
+                    catch (Exception ee)
+                    {   
+                         throw new MemberPhotoRemovalException("Error occurs while removing photo." + ee, ee);
+                    }
+                    finally
+                    {
+                        Helper.endCommunication(request);
+                    }
+                    //Path imagePath = DAOUtil.getFactory().getPathDAO().find(Image.MEMBER_PHOTO_PREVIEW_PATH_ID);
                     String file = imagePath.getPath() + user.getHandle() + imagepostfix;
                     response.sendRedirect(previewForwardUrl + "&" + previewPhotoImagePathName + "=" + file
                     	+ "&originalFileName=" + uploadedFile.getRemoteFileName());
@@ -677,10 +704,10 @@ public class MemberPhotoUploadServlet extends HttpServlet {
                         logMsg(MessageFormat.format("{0} : Uploading image for user with id {1}", new Date(), memberId));
                         memberPhotoManager.saveMemberPhoto(memberId, user.getHandle() + imagepostfix, String.valueOf(memberId));                        
                         entityManager.getTransaction().commit();
-                    } catch (Exception eEmf){
+                    } catch (Exception eEmf){     
                         try {
                             entityManager.getTransaction().rollback();
-                        } catch (Exception eTx) {
+                        } catch (Exception eTx) { 
                         	// ignore
                         } finally {                       	
                         	throw new MemberPhotoUploadException("Error occurs while uploading photo.", eEmf);
@@ -715,17 +742,19 @@ public class MemberPhotoUploadServlet extends HttpServlet {
                 throw new MemberPhotoUploadException("Error occurs while parsing request.", e);
             } catch (InvalidFileException e) {
                 throw new MemberPhotoUploadException("Error occurs since file is invalid.", e);
+            } catch (IOException e) {
+                throw new MemberPhotoUploadException("Error occurs about IOException."  +e, e);
+            } catch (Exception e) {
+                throw new MemberPhotoUploadException("Error occurs Exception ."  +e, e);
             }
         } catch (IllegalArgumentException e) {
             throw logMsg("any arg is null", e);
         } catch (IllegalStateException e) {
             throw logMsg("the instance variables are not injected correctly", e);
-        } catch (IOException e) {
-            throw logMsg("i/o error occurs", e);
-        } catch (MemberPhotoUploadException e) {
+        }  catch (MemberPhotoUploadException e) {
             throw logMsg("unexpected error occurs. details:" + e, e);
         } finally {
-            Helper.endCommunication(request);
+            //Helper.endCommunication(request);
             logMsg(MessageFormat.format("{0} : Exiting " + "MemberPhotoManagerImpl#doPost"
                 + "(HttpServletRequest, HttpServletResponse)", new Date()));
         }
