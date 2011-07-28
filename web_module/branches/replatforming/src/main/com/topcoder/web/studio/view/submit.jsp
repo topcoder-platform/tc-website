@@ -280,12 +280,12 @@
             <p>Does this entry contain design elements that are not your own?</p>
 
             <div class="radioContainer">
-                <input type="radio" checked="checked" id="yes-question"
+                <input type="radio" id="yes-question"
                        name="<%= Constants.CONTAINS_LICENSED_ELEMENTS %>" value="true" class="radio">
                 <label>Yes</label>
             </div>
             <div class="radioContainer">
-                <input type="radio" id="no-question"
+                <input type="radio" checked="checked" id="no-question"
                        name="<%= Constants.CONTAINS_LICENSED_ELEMENTS %>" value="false" class="radio">
                 <label>No</label>
             </div>
