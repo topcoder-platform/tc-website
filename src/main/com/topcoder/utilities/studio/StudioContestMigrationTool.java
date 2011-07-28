@@ -494,11 +494,11 @@ public class StudioContestMigrationTool extends TCLoad {
         = "SELECT gi.goals, gi.target_audience, gi.branding_guidelines, gi.disliked_designs_websites AS disliked_design_websites, " +
             "gi.other_instructions, gi.winning_criteria, multiround.round_one_introduction, multiround.round_two_introduction, " + 
             "multiround.general_feedback_text AS general_feedback_text, " + 
-            "colors_r.property_value::lvarchar(2000) AS colors, " +
-            "fonts_r.property_value::lvarchar(2000) AS fonts, " +
-            "layout_and_size_r.property_value::lvarchar(2000) AS layout_and_size, " +
+            "colors_r.property_value::lvarchar(500) AS colors, " +
+            "fonts_r.property_value::lvarchar(500) AS fonts, " +
+            "layout_and_size_r.property_value::lvarchar(500) AS layout_and_size, " +
             "contest_introduction_r.property_value::lvarchar(2000) AS contest_introduction, " +
-            "contest_description_r.property_value::lvarchar(2000) AS contest_description, " +
+            "contest_description_r.property_value::lvarchar(10000) AS contest_description, " +
             "content_requirements_r.property_value::lvarchar(2000) AS content_requirements " +
             "FROM contest c " +
             "LEFT JOIN contest_config colors_r ON c.contest_id = colors_r.contest_id AND colors_r.property_id = 14 " +
