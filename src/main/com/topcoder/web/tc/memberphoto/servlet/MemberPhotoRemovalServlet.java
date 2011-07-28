@@ -528,8 +528,21 @@ public class MemberPhotoRemovalServlet extends HttpServlet {
 				}
 					
                 // get member information
-                Helper.beginCommunication(request);
-                User user = DAOUtil.getFactory().getUserDAO().find(memberId);
+                User user = null;
+                try
+                {
+                    Helper.beginCommunication(request);
+                    user = DAOUtil.getFactory().getUserDAO().find(memberId);
+                }
+                catch (Exception ee)
+                {
+                     throw new MemberPhotoRemovalException("Error occurs while finding user." + ee, ee);
+                }
+                finally
+                {
+                    Helper.endCommunication(request);
+                }
+                
                 
                 // constructor an xml string in the following format, and store
                 // the
@@ -604,17 +617,19 @@ public class MemberPhotoRemovalServlet extends HttpServlet {
                 throw new MemberPhotoRemovalException("Error occurs while sending email.", e);
             } catch (ConfigManagerException e) {
                 throw new MemberPhotoRemovalException("Error occurs about ConfigManagerException.", e);
+            } catch (IOException e) {
+                throw new MemberPhotoRemovalException("Error occurs about IOException."  +e, e);
+            } catch (Exception e) {
+                throw new MemberPhotoRemovalException("Error occurs about Exception."  +e, e);
             }
         } catch (IllegalArgumentException e) {
             throw logMsg("any arg is null", e);
         } catch (IllegalStateException e) {
             throw logMsg("the instance variables are not injected correctly", e);
-        } catch (IOException e) {
-            throw logMsg("i/o error occurs", e);
         } catch (MemberPhotoRemovalException e) {
             throw logMsg("unexpected error occurs. details:" + e, e);
         } finally {
-            Helper.endCommunication(request);
+            //Helper.endCommunication(request);
             logMsg(MessageFormat.format("{0} : Exiting " + "MemberPhotoRemovalServlet#doPost"
                 + "(HttpServletRequest, HttpServletResponse)", new Date()));
         }
