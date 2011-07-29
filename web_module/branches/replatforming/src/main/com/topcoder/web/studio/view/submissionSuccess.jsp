@@ -200,58 +200,6 @@
 
                 <br /><br />
 
-                <%--<div class="statHolder">
-                    <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
-                    <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
-                    <div class="container">
-                        <table class="stat" cellpadding="0" cellspacing="0">
-                            <thead>
-                                <tr><td class="title" colspan="10">My Favorites</td></tr>
-                                <tr>
-                                    <td class="headerW">
-                                        <div>&nbsp;</div>
-                                    </td>
-                                    <td class="headerC">
-                                        Ranking
-                                        <div>
-                                            <a href="#" onClick="batchUpdate();return false;"><img src="/i/v2/interface/btnUpdateRanking.png" alt="Update ranking" /></a>
-                                        </div>
-                                    </td>
-                                    <td class="header" colspan="2" width="33%">
-                                        Submission
-                                    </td>
-                                    <td class="headerC" width="33%">
-                                        Date Submitted
-                                    </td>
-                                    <td class="headerC" width="33%">
-                                        Passed / Failed
-                                    </td>
-                                    <td class="headerC" nowrap>
-                                        Move Up /<br />Move Down
-                                    </td>
-                                    <td class="headerC" nowrap>
-                                        Move to<br />Top
-                                    </td>
-                                    <td class="headerC">
-                                        Remove
-                                    </td>
-                                    <td class="headerE">
-                                        <div>&nbsp;</div>
-                                    </td>
-                                </tr>
-                            </thead>
-                            <tbody id="submissions">
-                                <div class="submission-data">
-                                    <jsp:include page="submitTableBody.jsp"/>
-                                </div>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="SE"><img src="/i/v2/stat_tableSE.png" alt="" /></div>
-                    <div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
-                </div>--%>
-
-
                 <div id="wrapper_submission">
                 <div class="rank-submission-wrapper">
                 <div class="submission-list-wrapper">

@@ -165,7 +165,7 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
                 "where s.upload in (:uploads) " +
                 "and s.typeId in (:typeId) " +
                 "and s.statusId in (:statusId) " +
-                "order by case when s.rank is null then 10000 else s.rank end asc");
+                "order by typeId, case when s.rank is null then 10000 else s.rank end asc");
         q.setParameterList("uploads", uploads);
         q.setParameterList("typeId", submissionTypeIds);
         q.setParameterList("statusId", submissionStatusIds);
