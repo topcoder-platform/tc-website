@@ -83,7 +83,7 @@ public class DeleteSubmission extends BaseSubmissionDataProcessor {
         }
         submissionDAO = factory.getSubmissionDAO();
         s = submissionDAO.find(new Integer(submissionId));
-        loadSubmissionData(s.getResource(), s.getContest(), submissionDAO, factory.getUploadDAO(), s.getTypeId());
+        loadSubmissionData(s.getResource(), s.getContest(), submissionDAO, factory.getUploadDAO());
         setIsNextPageInContext(true);
         setNextPage("submitTableBody.jsp");
 

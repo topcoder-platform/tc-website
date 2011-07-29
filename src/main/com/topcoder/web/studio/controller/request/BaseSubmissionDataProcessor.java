@@ -42,31 +42,6 @@ import com.topcoder.web.studio.dto.Upload;
  */
 abstract class BaseSubmissionDataProcessor extends ShortHibernateProcessor {
     /**
-     * <p>Gets the submission associated with the user and project.</p>
-     * 
-     * @param user the user used to retrieve the submission
-     * @param project the project associated with the submission
-     * @param submissionDAO the DAO to retrieve <code>Submission</code> information
-     * @param uploadDAO the DAO to retrieve <code>Upload</code> information
-     */
-    void loadSubmissionData(User user, Project project, SubmissionDAO submissionDAO, UploadDAO uploadDAO) {    
-        loadSubmissionData(user, project, submissionDAO, uploadDAO);
-    }
-
-    /**
-     * <p>Gets the submission associated with the resource and project.</p>
-     * 
-     * @param resource the resource used to retrieve the submission
-     * @param project the project associated with the submission
-     * @param submissionDAO the DAO to retrieve <code>Submission</code> information
-     * @param uploadDAO the DAO to retrieve <code>Upload</code> information
-     */
-    void loadSubmissionData(Resource resource, Project project, SubmissionDAO submissionDAO, UploadDAO uploadDAO) {    
-        loadSubmissionData(resource, project, submissionDAO, uploadDAO);
-    }
-    
-    
-    /**
      * Gets the submission associated with the user and project.
      * 
      * @param user the user used to retrieve the submission
@@ -119,6 +94,26 @@ abstract class BaseSubmissionDataProcessor extends ShortHibernateProcessor {
         getRequest().setAttribute("contest", project);
     }
     
+     /**
+     * <p>Gets the submission type based on the contest phase (Milestone or Contest submission).</p>
+     * 
+     * @param project the contest to search for submission type
+     * @return the submission type for current contest phase
+     */
+    protected Integer getSubmissionTypeId(Project project) {
+        Integer submissionTypeId = Submission.CONTEST_SUBMISSION;
+        // Check if there is milestone for contest and if still open
+        Date mileStoneDate = project.getMilestoneDate();
+        if (mileStoneDate != null) {
+            if (new Date().before(mileStoneDate)) {
+                log.debug("Get submission of type Milestone.");
+                submissionTypeId = Submission.MILESTONE_SUBMISSION;
+            }
+        }
+        
+        return submissionTypeId;
+    }
+
     /**
      * <p>Create the system file name from unified submission file found in <code>Upload</p> instance.</p>
      *  
