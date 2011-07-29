@@ -175,7 +175,8 @@
                                      <nobr>this icon <img src="/i/v2/selection.png" alt="Selection" /></nobr>.  Those submissions that do not have the icon will <b>NOT</b> count and
                                      they will neither be screened nor reviewed.
                                      If you make more than ${contest.maxSubmissions} submission<c:if test="${contest.maxSubmissions>1}">s</c:if>
-                                     for this contest, you can rearrange the order of your submissions until the end of the Submission Phase.
+                                     for this contest, you can rearrange the order of your submissions until the end of the Submission Phase. 
+                                     Note that milestone submissions can't be rearranged after milestone deadline.
                                  </c:when>
                              <c:otherwise>
                                  <nobr>This icon <img src="/i/v2/selection.png" alt="Selection" /></nobr> indicates preferred submissions that will count for
@@ -213,8 +214,9 @@
                     <div class="submission-list_main">
                         <ul class="submission-list-header">
                             <li class="rank">Rank</li>
-                            <li colspan="2" class="thumbnails">Thumbnails</li>
+                            <li class="thumbnails">Thumbnails</li>
                             <li class="submission-id">Submission ID</li>
+                            <li class="submission-id">Submission Type</li>
                             <li class="date">Date Submitted</li>
                             <li class="move">Move Up/Down</li>
                             <li class="download">Download</li>

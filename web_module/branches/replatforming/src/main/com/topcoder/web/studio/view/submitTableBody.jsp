@@ -32,7 +32,6 @@
                             <li class="rank">
                                 <span>${submission.rank}</span>
                             </li>
-
                             <li colspan="2" class="thumbnails">
                                 <div class="thumbnails-wrapper">
                                     <img src="${sessionInfo.servletPath}?${modKey}=DownloadSubmission&amp;${subId}=${submission.id}&amp;${subAltType}=tiny" alt=""/>
@@ -48,6 +47,17 @@
                                     #${submission.id}
                                 </span>
                             </li>
+                            <li class="submission-id">
+                                <span>
+                                    <c:when
+                                        test="${submission.typeId eq milestoneSubmissionType}">
+                                        Milestone
+                                    </c:when>
+                                    <c:otherwise>
+                                        Final
+                                    </c:otherwise>
+                                </span>
+                            </li>
                             <li class="date">
                                 <span>
                                     <tc-webtag:format object="${submission.createDate}" format="MMMM d, yyyy"
@@ -55,18 +65,18 @@
                                 </span>
                             </li>
                             <li class="move">
-                            <c:if test="${not (isMilestoneRoundPassed and submission.typeId eq milestoneSubmissionType)}"
+                            <c:if test="${not (isMilestoneRoundPassed and submission.typeId eq milestoneSubmissionType)}">
                                 <a href="javascript:;" class="btn-move-down"></a>
                                 <a href="javascript:;" class="btn-move-up"></a>
                             </c:if>
                             </li>
                             <li class="download">
-                            <c:if test="${not (isMilestoneRoundPassed and submission.typeId eq milestoneSubmissionType)}"
                                 <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}&amp;<%=Constants.SUBMISSION_ALT_TYPE%>=original" class="btn-download"></a>
-                            </c:if>
                             </li>
                             <li class="remove">
+                            <c:if test="${not (isMilestoneRoundPassed and submission.typeId eq milestoneSubmissionType)}">
                                 <a href="javascript:;" class="btn-remove"></a>
+                            </c:if>
                             </li>
                         </ul>
                         <div class="clear"></div>
