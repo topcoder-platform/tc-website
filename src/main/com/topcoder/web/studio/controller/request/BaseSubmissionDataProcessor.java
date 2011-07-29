@@ -40,111 +40,115 @@ import com.topcoder.web.studio.dto.Upload;
  * @version 1.2
  */
 abstract class BaseSubmissionDataProcessor extends ShortHibernateProcessor {
-	/**
-	 * <p>Check if user is placed.</p>
-	 * 
-	 * @param userId the id of the user used to retrieve the submission
-	 * @param project the project associated with the submission
-	 * @param submissionDAO the DAO to retrieve <code>Submission</code> information
-	 * @param uploadDAO the DAO to retrieve <code>Upload</code> information
-	 */
+    /**
+     * <p>Check if user is placed.</p>
+     * 
+     * @param userId the id of the user used to retrieve the submission
+     * @param project the project associated with the submission
+     * @param submissionDAO the DAO to retrieve <code>Submission</code> information
+     * @param uploadDAO the DAO to retrieve <code>Upload</code> information
+     */
     boolean userPlaced(Integer userId, Project project, SubmissionDAO submissionDAO, UploadDAO uploadDAO) {
-    	// Retrieve the resource associated with the project
-    	Resource resource = RegistrationHelper.getSubmitterResource(project, userId);
-    	if (resource == null) {
-    		return false;
-    	}
-    	
-    	// Get all uploads associated with the project and resource information
-    	List<Upload> uploads = uploadDAO.getUploads(project, resource, Upload.SUBMISSION, Upload.STATUS_ACTIVE);    	
+        // Retrieve the resource associated with the project
+        Resource resource = RegistrationHelper.getSubmitterResource(project, userId);
+        if (resource == null) {
+            return false;
+        }
+        
+        // Get all uploads associated with the project and resource information
+        List<Upload> uploads = uploadDAO.getUploads(project, resource, Upload.SUBMISSION, Upload.STATUS_ACTIVE);        
 
         boolean isWinner = false;
-    	if (uploads != null && uploads.size() > 0) {
-    		List<Submission> submissions = submissionDAO.getSubmissions(uploads, Submission.CONTEST_SUBMISSION, 
-    				Submission.STATUS_ACTIVE);
-    				
-    		for (Submission submission : submissions) {
-    			if (submission.getPrize() != null && submission.getPlacement() != null) {
-    				isWinner = true;
-    				break;
-    			}
-    		}
-    	}
-    	
+        if (uploads != null && uploads.size() > 0) {
+            List<Submission> submissions = submissionDAO.getSubmissions(uploads, Submission.CONTEST_SUBMISSION, 
+                    Submission.STATUS_ACTIVE);
+                    
+            for (Submission submission : submissions) {
+                if (submission.getPrize() != null && submission.getPlacement() != null) {
+                    isWinner = true;
+                    break;
+                }
+            }
+        }
+        
         return isWinner;
     }
 
-	/**
-	 * <p>Gets the submission associated with the user and project.</p>
-	 * 
-	 * @param user the user used to retrieve the submission
-	 * @param project the project associated with the submission
-	 * @param submissionDAO the DAO to retrieve <code>Submission</code> information
-	 * @param uploadDAO the DAO to retrieve <code>Upload</code> information
-	 */
-    void loadSubmissionData(User user, Project project, SubmissionDAO submissionDAO, UploadDAO uploadDAO) {	
-    	loadSubmissionData(user, project, submissionDAO, uploadDAO, getSubmissionTypeId(project));
+    /**
+     * <p>Gets the submission associated with the user and project.</p>
+     * 
+     * @param user the user used to retrieve the submission
+     * @param project the project associated with the submission
+     * @param submissionDAO the DAO to retrieve <code>Submission</code> information
+     * @param uploadDAO the DAO to retrieve <code>Upload</code> information
+     */
+    void loadSubmissionData(User user, Project project, SubmissionDAO submissionDAO, UploadDAO uploadDAO) {    
+        loadSubmissionData(user, project, submissionDAO, uploadDAO, getSubmissionTypeId(project));
     }
 
     /**
-	 * <p>Gets the submission associated with the resource and project.</p>
-	 * 
-	 * @param resource the resource used to retrieve the submission
-	 * @param project the project associated with the submission
-	 * @param submissionDAO the DAO to retrieve <code>Submission</code> information
-	 * @param uploadDAO the DAO to retrieve <code>Upload</code> information
-	 */
-    void loadSubmissionData(Resource resource, Project project, SubmissionDAO submissionDAO, UploadDAO uploadDAO) {	
-    	loadSubmissionData(resource, project, submissionDAO, uploadDAO, getSubmissionTypeId(project));
+     * <p>Gets the submission associated with the resource and project.</p>
+     * 
+     * @param resource the resource used to retrieve the submission
+     * @param project the project associated with the submission
+     * @param submissionDAO the DAO to retrieve <code>Submission</code> information
+     * @param uploadDAO the DAO to retrieve <code>Upload</code> information
+     */
+    void loadSubmissionData(Resource resource, Project project, SubmissionDAO submissionDAO, UploadDAO uploadDAO) {    
+        loadSubmissionData(resource, project, submissionDAO, uploadDAO, getSubmissionTypeId(project));
     }
-	
-	
-	/**
-	 * Gets the submission associated with the user and project.
-	 * 
-	 * @param user the user used to retrieve the submission
-	 * @param project the project associated with the submission
-	 * @param submissionDAO the DAO to retrieve <code>Submission</code> information
-	 * @param uploadDAO the DAO to retrieve <code>Upload</code> information
-	 * @param submissionTypeId the submission type id 
-	 */
+    
+    
+    /**
+     * Gets the submission associated with the user and project.
+     * 
+     * @param user the user used to retrieve the submission
+     * @param project the project associated with the submission
+     * @param submissionDAO the DAO to retrieve <code>Submission</code> information
+     * @param uploadDAO the DAO to retrieve <code>Upload</code> information
+     * @param submissionTypeId the submission type id 
+     */
     void loadSubmissionData(User user, Project project, SubmissionDAO submissionDAO, UploadDAO uploadDAO,
-    		Integer submissionTypeId) {
-    	// Retrieve the resource associated with the project
-    	Resource resource = RegistrationHelper.getSubmitterResource(project, user.getId());
-    	if (resource != null) {
-        	loadSubmissionData(resource, project, submissionDAO, uploadDAO, submissionTypeId);
-    	}
+            Integer submissionTypeId) {
+        // Retrieve the resource associated with the project
+        Resource resource = RegistrationHelper.getSubmitterResource(project, user.getId());
+        if (resource != null) {
+            loadSubmissionData(resource, project, submissionDAO, uploadDAO, submissionTypeId);
+        }
     }
 
-	/**
-	 * Gets the submission associated with the user and project.
-	 * 
-	 * @param user the user used to retrieve the submission
-	 * @param project the project associated with the submission
-	 * @param submissionDAO the DAO to retrieve <code>Submission</code> information
-	 * @param uploadDAO the DAO to retrieve <code>Upload</code> information
-	 * @param submissionTypeId the submission type id
-	 */
+    /**
+     * Gets the submission associated with the user and project.
+     * 
+     * @param user the user used to retrieve the submission
+     * @param project the project associated with the submission
+     * @param submissionDAO the DAO to retrieve <code>Submission</code> information
+     * @param uploadDAO the DAO to retrieve <code>Upload</code> information
+     * @param submissionTypeId the submission type id
+     */
     void loadSubmissionData(Resource resource, Project project, SubmissionDAO submissionDAO, UploadDAO uploadDAO,
-    		Integer submissionTypeId) {
-    	getRequest().setAttribute("contest", project);
-    	
-    	// Get all uploads associated with the contest and resource information
-    	List<Upload> uploads = uploadDAO.getUploads(project, resource, Upload.SUBMISSION, Upload.STATUS_ACTIVE);
-    	
-    	if (uploads != null && uploads.size() > 0) {
-    		Integer maxRank = submissionDAO.getMaxRank(uploads);
-    		getRequest().setAttribute("maxRank", maxRank);
+            Integer submissionTypeId) {
+        getRequest().setAttribute("contest", project);
+        
+        // Get all uploads associated with the contest and resource information
+        List<Upload> uploads = uploadDAO.getUploads(project, resource, Upload.SUBMISSION, Upload.STATUS_ACTIVE);
+        
+        List<Integer> subStatusIds = new ArrayList<Integer>();
+        subStatusIds.add(Submission.STATUS_ACTIVE);
+        subStatusIds.add(Submission.COMPLETED_WITHOUT_WIN);
+        
+        if (uploads != null && uploads.size() > 0) {
+            Integer maxRank = submissionDAO.getMaxRank(uploads);
+            getRequest().setAttribute("maxRank", maxRank);
 
-    		List<Submission> submissions = submissionDAO.getSubmissions(uploads, submissionTypeId, 
-    				Submission.STATUS_ACTIVE);
-    		for (Submission curr : submissions) {
-    			setDefault(Constants.SUBMISSION_ID + curr.getId(), curr.getRank());
-    		}
+            List<Submission> submissions = submissionDAO.getSubmissions(uploads, submissionTypeId, 
+                    subStatusIds);
+            for (Submission curr : submissions) {
+                setDefault(Constants.SUBMISSION_ID + curr.getId(), curr.getRank());
+            }
 
-    		getRequest().setAttribute("submissions", submissions);
-    	}
+            getRequest().setAttribute("submissions", submissions);
+        }
     }
     
     /**
@@ -154,17 +158,17 @@ abstract class BaseSubmissionDataProcessor extends ShortHibernateProcessor {
      * @return the submission type for current contest phase
      */
     protected Integer getSubmissionTypeId(Project project) {
-		Integer submissionTypeId = Submission.CONTEST_SUBMISSION;
-		// Check if there is milestone for contest and if still open
-		Date mileStoneDate = project.getMilestoneDate();
-		if (mileStoneDate != null) {
-			if (new Date().before(mileStoneDate)) {
-				log.debug("Get submission of type Milestone.");
-				submissionTypeId = Submission.MILESTONE_SUBMISSION;
-			}
-		}
-		
-		return submissionTypeId;
+        Integer submissionTypeId = Submission.CONTEST_SUBMISSION;
+        // Check if there is milestone for contest and if still open
+        Date mileStoneDate = project.getMilestoneDate();
+        if (mileStoneDate != null) {
+            if (new Date().before(mileStoneDate)) {
+                log.debug("Get submission of type Milestone.");
+                submissionTypeId = Submission.MILESTONE_SUBMISSION;
+            }
+        }
+        
+        return submissionTypeId;
     }
 
     /**
@@ -175,8 +179,8 @@ abstract class BaseSubmissionDataProcessor extends ShortHibernateProcessor {
      * @return the created system file name
      */
     protected String createSystemFileName(Submission s, String remoteFileName) {
-		String ext = remoteFileName.substring(remoteFileName.lastIndexOf('.'));
-		return s.getModifyDate().getTime() + ext;
+        String ext = remoteFileName.substring(remoteFileName.lastIndexOf('.'));
+        return s.getModifyDate().getTime() + ext;
     }
 
 
@@ -188,7 +192,7 @@ abstract class BaseSubmissionDataProcessor extends ShortHibernateProcessor {
      */
     protected String getSystemFileName(Submission s) {
 
-		return s.getUpload().getParameter();
+        return s.getUpload().getParameter();
     }
 }
 
