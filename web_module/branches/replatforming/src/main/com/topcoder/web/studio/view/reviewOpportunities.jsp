@@ -25,7 +25,7 @@
 <c:set value="<%=Constants.CONTEST_ID%>" var="CONTEST_ID"/>
 <c:set value="<%=Constants.SPEC_REVIEW_ID%>" var="SPEC_REVIEW_ID"/>
 <c:set value="${sessionInfo.servletPath}?${MODULE_KEY}" var="BASE_URL"/>
-<c:set value="${BASE_URL}=Static&amp;d1=support&amp;d2=getStarted" var="GET_STARTED_LINK"/>
+<c:set value="http://apps.topcoder.com/wiki/display/tcstudio/Studio+Member+Opportunities" var="BECOME_STUDIO_REVIEWER_LINK"/>
 <c:set value="${BASE_URL}=ViewContestDetails&amp;${CONTEST_ID}" var="VIEW_CONTEST_DETAILS_LINK"/>
 <c:set value="${BASE_URL}=ReviewRegistration&amp;${CONTEST_ID}" var="SCREENING_REVIEW_REGISTRATION_LINK"/>
 <c:set value="${BASE_URL}=SpecReviewRegistration&amp;${CONTEST_ID}" var="SPEC_REVIEW_REGISTRATION_LINK"/>
@@ -94,7 +94,7 @@
                     <h1>Review Opportunities</h1>
 
                     <div align="right"><strong>Need help? Learn how to
-                        <a href="${GET_STARTED_LINK}">get started</a></strong>.<br />
+                        <a href="${BECOME_STUDIO_REVIEWER_LINK}">become a studio reviewer</a></strong>.<br />
                     </div>
 
                     <div class="tableTabOff" style="margin-left: 20px;"><a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a></div>
