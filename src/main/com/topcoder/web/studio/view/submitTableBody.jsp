@@ -55,11 +55,15 @@
                                 </span>
                             </li>
                             <li class="move">
-                                <a href="javascript:;" class="btn-move-down" <c:if test=${submission.typeId == milestoneSubmissionType and isMilestoneRoundPassed}>disabled=true</c:if> ></a>
+                            <c:if test="${not (isMilestoneRoundPassed and submission.typeId eq milestoneSubmissionType)}"
+                                <a href="javascript:;" class="btn-move-down"></a>
                                 <a href="javascript:;" class="btn-move-up"></a>
+                            </c:if>
                             </li>
                             <li class="download">
+                            <c:if test="${not (isMilestoneRoundPassed and submission.typeId eq milestoneSubmissionType)}"
                                 <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}&amp;<%=Constants.SUBMISSION_ALT_TYPE%>=original" class="btn-download"></a>
+                            </c:if>
                             </li>
                             <li class="remove">
                                 <a href="javascript:;" class="btn-remove"></a>
