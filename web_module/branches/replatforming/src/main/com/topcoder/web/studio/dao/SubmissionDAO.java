@@ -77,10 +77,10 @@ public interface SubmissionDAO {
      * <p>Finds a list of <code>Submission</code> instances from persistence.</p>
      *
      * @param uploads the list of submission uploads used to find the submission
-     * @param submissionTypeId the submission type identifier
+     * @param submissionTypeIds the submission type ids
      * @param submissionStatusIds the submission status ids
      * @return a list with <code>Submission</code> instance or <code>null</code> if none is found.
      */
-    public List<Submission> getSubmissions(List<Upload> uploads, Integer submissionTypeId, List<Integer> submissionStatusIds);
+    public List<Submission> getSubmissions(List<Upload> uploads, List<Integer> submissionTypeIds, List<Integer> submissionStatusIds);
 }
 

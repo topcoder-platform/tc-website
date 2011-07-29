@@ -155,19 +155,19 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
      * <p>Finds a list of <code>Submission</code> instances from persistence.</p>
      *
      * @param uploads the list of submission uploads used to find the submission
-     * @param submissionTypeId the submission type identifier
+     * @param submissionTypeIds the  ids of submission type
      * @param submissionStatusIds the ids of submission status
      * @return a list with <code>Submission</code> instance or <code>null</code> if none is found.
      */
     @SuppressWarnings("unchecked")
-    public List<Submission> getSubmissions(List<Upload> uploads, Integer submissionTypeId, List<Integer> submissionStatusIds) {
+    public List<Submission> getSubmissions(List<Upload> uploads, List<Integer> submissionTypeIds, List<Integer> submissionStatusIds) {
         Query q = session.createQuery("from com.topcoder.web.studio.dto.Submission s " +
                 "where s.upload in (:uploads) " +
-                "and s.typeId = :typeId " +
+                "and s.typeId in (:typeId) " +
                 "and s.statusId in (:statusId) " +
                 "order by case when s.rank is null then 10000 else s.rank end asc");
         q.setParameterList("uploads", uploads);
-        q.setInteger("typeId", submissionTypeId);
+        q.setParameterList("typeId", submissionTypeId);
         q.setParameterList("statusId", submissionStatusIds);
         return q.list();
     }
@@ -185,6 +185,7 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
         List<Integer> statusIds = new ArrayList<Integer>();
         statusIds.add(submissionStatusId);
         
-        return getSubmissions(uploads, submissionTypeId, statusIds);
+        List<Interger> typeIds = new ArrayList<Integer>();
+        return getSubmissions(uploads, typeIds, statusIds);
     }
 }
