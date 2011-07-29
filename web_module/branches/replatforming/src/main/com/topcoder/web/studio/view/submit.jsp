@@ -515,7 +515,7 @@
         <div class="submission-list_main">
             <ul class="submission-list-header">
                 <li class="rank">Rank</li>
-                <li lass="thumbnails">Thumbnails</li>
+                <li class="thumbnails">Thumbnails</li>
                 <li class="submission-id">Submission ID</li>
                 <li class="submission-id">Submission Type</li>
                 <li class="date">Date Submitted</li>
