@@ -146,7 +146,7 @@ abstract class BaseSubmissionDataProcessor extends ShortHibernateProcessor {
             Integer maxRank = submissionDAO.getMaxRank(uploads);
             getRequest().setAttribute("maxRank", maxRank);
 
-            List<Submission> submissions = submissionDAO.getSubmissions(uploads, subTypeids, 
+            List<Submission> submissions = submissionDAO.getSubmissions(uploads, subTypeIds, 
                     subStatusIds);
             for (Submission curr : submissions) {
                 setDefault(Constants.SUBMISSION_ID + curr.getId(), curr.getRank());

@@ -167,7 +167,7 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
                 "and s.statusId in (:statusId) " +
                 "order by case when s.rank is null then 10000 else s.rank end asc");
         q.setParameterList("uploads", uploads);
-        q.setParameterList("typeId", submissionTypeId);
+        q.setParameterList("typeId", submissionTypeIds);
         q.setParameterList("statusId", submissionStatusIds);
         return q.list();
     }
@@ -185,7 +185,7 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
         List<Integer> statusIds = new ArrayList<Integer>();
         statusIds.add(submissionStatusId);
         
-        List<Interger> typeIds = new ArrayList<Integer>();
+        List<Integer> typeIds = new ArrayList<Integer>();
         return getSubmissions(uploads, typeIds, statusIds);
     }
 }
