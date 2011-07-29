@@ -49,6 +49,7 @@
                             </li>
                             <li class="submission-id">
                                 <span>
+                                <c:choose>
                                     <c:when
                                         test="${submission.typeId eq milestoneSubmissionType}">
                                         Milestone
@@ -56,6 +57,7 @@
                                     <c:otherwise>
                                         Final
                                     </c:otherwise>
+                                </c:choose>
                                 </span>
                             </li>
                             <li class="date">
