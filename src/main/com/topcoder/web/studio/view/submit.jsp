@@ -491,7 +491,7 @@
                     If you make more than ${contest.maxSubmissions} submission<c:if
                         test="${contest.maxSubmissions>1}">s</c:if>
                     for this contest, you can rearrange the order of your submissions until the end of the Submission
-                    Phase.
+                    Phase. Note that milestone submissions can't be rearranged after milestone deadline.
                 </p>
             </c:when>
             <c:otherwise>
@@ -515,8 +515,9 @@
         <div class="submission-list_main">
             <ul class="submission-list-header">
                 <li class="rank">Rank</li>
-                <li colspan="2" class="thumbnails">Thumbnails</li>
+                <li lass="thumbnails">Thumbnails</li>
                 <li class="submission-id">Submission ID</li>
+                <li class="submission-id">Submission Type</li>
                 <li class="date">Date Submitted</li>
                 <li class="move">Move Up/Down</li>
                 <li class="download">Download</li>
