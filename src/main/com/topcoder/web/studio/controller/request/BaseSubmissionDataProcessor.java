@@ -42,40 +42,6 @@ import com.topcoder.web.studio.dto.Upload;
  */
 abstract class BaseSubmissionDataProcessor extends ShortHibernateProcessor {
     /**
-     * <p>Check if user is placed.</p>
-     * 
-     * @param userId the id of the user used to retrieve the submission
-     * @param project the project associated with the submission
-     * @param submissionDAO the DAO to retrieve <code>Submission</code> information
-     * @param uploadDAO the DAO to retrieve <code>Upload</code> information
-     */
-    boolean userPlaced(Integer userId, Project project, SubmissionDAO submissionDAO, UploadDAO uploadDAO) {
-        // Retrieve the resource associated with the project
-        Resource resource = RegistrationHelper.getSubmitterResource(project, userId);
-        if (resource == null) {
-            return false;
-        }
-        
-        // Get all uploads associated with the project and resource information
-        List<Upload> uploads = uploadDAO.getUploads(project, resource, Upload.SUBMISSION, Upload.STATUS_ACTIVE);        
-
-        boolean isWinner = false;
-        if (uploads != null && uploads.size() > 0) {
-            List<Submission> submissions = submissionDAO.getSubmissions(uploads, Submission.CONTEST_SUBMISSION, 
-                    Submission.STATUS_ACTIVE);
-                    
-            for (Submission submission : submissions) {
-                if (submission.getPrize() != null && submission.getPlacement() != null) {
-                    isWinner = true;
-                    break;
-                }
-            }
-        }
-        
-        return isWinner;
-    }
-
-    /**
      * <p>Gets the submission associated with the user and project.</p>
      * 
      * @param user the user used to retrieve the submission
@@ -84,7 +50,7 @@ abstract class BaseSubmissionDataProcessor extends ShortHibernateProcessor {
      * @param uploadDAO the DAO to retrieve <code>Upload</code> information
      */
     void loadSubmissionData(User user, Project project, SubmissionDAO submissionDAO, UploadDAO uploadDAO) {    
-        loadSubmissionData(user, project, submissionDAO, uploadDAO, getSubmissionTypeId(project));
+        loadSubmissionData(user, project, submissionDAO, uploadDAO);
     }
 
     /**
@@ -96,7 +62,7 @@ abstract class BaseSubmissionDataProcessor extends ShortHibernateProcessor {
      * @param uploadDAO the DAO to retrieve <code>Upload</code> information
      */
     void loadSubmissionData(Resource resource, Project project, SubmissionDAO submissionDAO, UploadDAO uploadDAO) {    
-        loadSubmissionData(resource, project, submissionDAO, uploadDAO, getSubmissionTypeId(project));
+        loadSubmissionData(resource, project, submissionDAO, uploadDAO);
     }
     
     
@@ -107,14 +73,12 @@ abstract class BaseSubmissionDataProcessor extends ShortHibernateProcessor {
      * @param project the project associated with the submission
      * @param submissionDAO the DAO to retrieve <code>Submission</code> information
      * @param uploadDAO the DAO to retrieve <code>Upload</code> information
-     * @param submissionTypeId the submission type id 
      */
-    void loadSubmissionData(User user, Project project, SubmissionDAO submissionDAO, UploadDAO uploadDAO,
-            Integer submissionTypeId) {
+    void loadSubmissionData(User user, Project project, SubmissionDAO submissionDAO, UploadDAO uploadDAO) {
         // Retrieve the resource associated with the project
         Resource resource = RegistrationHelper.getSubmitterResource(project, user.getId());
         if (resource != null) {
-            loadSubmissionData(resource, project, submissionDAO, uploadDAO, submissionTypeId);
+            loadSubmissionData(resource, project, submissionDAO, uploadDAO);
         }
     }
 
@@ -125,10 +89,8 @@ abstract class BaseSubmissionDataProcessor extends ShortHibernateProcessor {
      * @param project the project associated with the submission
      * @param submissionDAO the DAO to retrieve <code>Submission</code> information
      * @param uploadDAO the DAO to retrieve <code>Upload</code> information
-     * @param submissionTypeId the submission type id
      */
-    void loadSubmissionData(Resource resource, Project project, SubmissionDAO submissionDAO, UploadDAO uploadDAO,
-            Integer submissionTypeId) {
+    void loadSubmissionData(Resource resource, Project project, SubmissionDAO submissionDAO, UploadDAO uploadDAO) {
         getRequest().setAttribute("contest", project);
         
         // Get all uploads associated with the contest and resource information
@@ -154,28 +116,9 @@ abstract class BaseSubmissionDataProcessor extends ShortHibernateProcessor {
 
             getRequest().setAttribute("submissions", submissions);
         }
+        getRequest().setAttribute("contest", project);
     }
     
-    /**
-     * <p>Gets the submission type based on the contest phase (Milestone or Contest submission).</p>
-     * 
-     * @param project the contest to search for submission type
-     * @return the submission type for current contest phase
-     */
-    protected Integer getSubmissionTypeId(Project project) {
-        Integer submissionTypeId = Submission.CONTEST_SUBMISSION;
-        // Check if there is milestone for contest and if still open
-        Date mileStoneDate = project.getMilestoneDate();
-        if (mileStoneDate != null) {
-            if (new Date().before(mileStoneDate)) {
-                log.debug("Get submission of type Milestone.");
-                submissionTypeId = Submission.MILESTONE_SUBMISSION;
-            }
-        }
-        
-        return submissionTypeId;
-    }
-
     /**
      * <p>Create the system file name from unified submission file found in <code>Upload</p> instance.</p>
      *  

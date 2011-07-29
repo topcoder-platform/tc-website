@@ -4,12 +4,22 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="studio_tags" tagdir="/WEB-INF/tags" %>
 
+
 <c:set var="subAltType" value="<%=Constants.SUBMISSION_ALT_TYPE%>"/>
 <c:set var="subId" value="<%=Constants.SUBMISSION_ID%>"/>
 <c:set var="subFileIdx" value="<%=Constants.SUBMISSION_FILE_INDEX%>"/>
 <c:set var="modKey" value="<%=Constants.MODULE_KEY%>"/>
 
 <c:set value="<%=Constants.SUBMISSION_ID%>" var="submissionId"/>
+
+<c:set var="contest" value="${requestScope.contest}"/>
+<c:set var="isFinished" value="${contest.reviewClosed}"/>
+<c:set var="isStarted" value="${contest.submissionOpen}"/>
+<c:set var="isRunning" value="${isStarted and not isFinished}"/>
+<c:set var="isMultiRound" value="${not empty contest.milestoneDate}"/>
+<c:set var="isMilestoneRoundPassed" value="${isRunning and isMultiRound and contest.milestoneSubmissionClosed}"/>
+
+<c:set var="milestoneSubmissionType" value="3" />
 
 <c:forEach items="${submissions}" var="submission">
     <div class="submission-list-item" data-id="${submission.id}" data-rank="${submission.rank}"
@@ -45,7 +55,7 @@
                                 </span>
                             </li>
                             <li class="move">
-                                <a href="javascript:;" class="btn-move-down"></a>
+                                <a href="javascript:;" class="btn-move-down" <c:if test=${submission.typeId == milestoneSubmissionType and isMilestoneRoundPassed}>disabled=true</c:if> ></a>
                                 <a href="javascript:;" class="btn-move-up"></a>
                             </li>
                             <li class="download">
