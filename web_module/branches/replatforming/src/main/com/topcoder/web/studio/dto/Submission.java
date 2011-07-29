@@ -28,27 +28,27 @@ import java.util.TreeSet;
  * @version 1.1
  */
 public class Submission extends Base {
-	/**
-	 * <p>Submission status (mapped to the submission_status_lu table).</p>
-	 */
-	public static final Integer STATUS_ACTIVE = 1;
-	public static final Integer FAILED_SCREENING = 2;
-	public static final Integer FAILED_REVIEW = 3;
-	public static final Integer COMPLETED_WITHOUT_WIN = 4;
-	public static final Integer STATUS_DELETED = 5;
-	public static final Integer FAILED_MILESTONE_SCREENING = 6;
-	public static final Integer FAILED_MILESTONE_REVIEW = 7;
+    /**
+     * <p>Submission status (mapped to the submission_status_lu table).</p>
+     */
+    public static final Integer STATUS_ACTIVE = 1;
+    public static final Integer FAILED_SCREENING = 2;
+    public static final Integer FAILED_REVIEW = 3;
+    public static final Integer COMPLETED_WITHOUT_WIN = 4;
+    public static final Integer STATUS_DELETED = 5;
+    public static final Integer FAILED_MILESTONE_SCREENING = 6;
+    public static final Integer FAILED_MILESTONE_REVIEW = 7;
 
-	/**
-	 * <p>Submission type (mapped to the submission_type_lu table).</p>
-	 */
-	public static final Integer CONTEST_SUBMISSION = 1;
-	public static final Integer SPECIFICATION_SUBMISSION = 2;
-	public static final Integer MILESTONE_SUBMISSION = 3;
-	
-	/**
-	 * <p>The unique submission identifier.</p>
-	 */
+    /**
+     * <p>Submission type (mapped to the submission_type_lu table).</p>
+     */
+    public static final Integer CONTEST_SUBMISSION = 1;
+    public static final Integer SPECIFICATION_SUBMISSION = 2;
+    public static final Integer MILESTONE_SUBMISSION = 3;
+    
+    /**
+     * <p>The unique submission identifier.</p>
+     */
     private Integer id;
     
     /**
@@ -184,186 +184,186 @@ public class Submission extends Base {
     }
     
     /**
-	 * <p>Gets the submission status identifier.</p>
-	 *
-	 * @return the submission status identifier
-	 * @since 1.1
-	 */
-	public Integer getStatusId() {
-		return statusId;
-	}
+     * <p>Gets the submission status identifier.</p>
+     *
+     * @return the submission status identifier
+     * @since 1.1
+     */
+    public Integer getStatusId() {
+        return statusId;
+    }
 
-	/**
-	 * <p>Sets the submission status identifier.</p>
-	 *
-	 * @param statusId the submission status identifier to set
-	 * @since 1.1
-	 */
-	public void setStatusId(Integer statusId) {
-		this.statusId = statusId;
-	}	
-	
-	/**
-	 * <p>Gets the submission type identifier.</p>
-	 *
-	 * @return the submission type identifier
-	 * @since 1.1
-	 */
-	public Integer getTypeId() {
-		return typeId;
-	}
+    /**
+     * <p>Sets the submission status identifier.</p>
+     *
+     * @param statusId the submission status identifier to set
+     * @since 1.1
+     */
+    public void setStatusId(Integer statusId) {
+        this.statusId = statusId;
+    }    
+    
+    /**
+     * <p>Gets the submission type identifier.</p>
+     *
+     * @return the submission type identifier
+     * @since 1.1
+     */
+    public Integer getTypeId() {
+        return typeId;
+    }
 
-	/**
-	 * <p>Sets the submission type identifier.</p>
-	 *
-	 * @param typeId the submission type identifier to set
-	 * @since 1.1
-	 */
-	public void setTypeId(Integer typeId) {
-		this.typeId = typeId;
-	}
-	
-	/**
-	 * <p>Gets the id of the user who created the submission.</p>
-	 *
-	 * @return the createUser the id of the user who created the submission
-	 * @since 1.1
-	 */
-	public String getCreateUser() {
-		return createUser;
-	}
+    /**
+     * <p>Sets the submission type identifier.</p>
+     *
+     * @param typeId the submission type identifier to set
+     * @since 1.1
+     */
+    public void setTypeId(Integer typeId) {
+        this.typeId = typeId;
+    }
+    
+    /**
+     * <p>Gets the id of the user who created the submission.</p>
+     *
+     * @return the createUser the id of the user who created the submission
+     * @since 1.1
+     */
+    public String getCreateUser() {
+        return createUser;
+    }
 
-	/**
-	 * <p>Sets the id of the user who created the submission.</p>
-	 *
-	 * @param createUser the id of the user who created the submission to set
-	 * @since 1.1
-	 */
-	public void setCreateUser(String createUser) {
-		this.createUser = createUser;
-	}
+    /**
+     * <p>Sets the id of the user who created the submission.</p>
+     *
+     * @param createUser the id of the user who created the submission to set
+     * @since 1.1
+     */
+    public void setCreateUser(String createUser) {
+        this.createUser = createUser;
+    }
 
-	/**
-	 * <p>Gets the date/time when the submission was created.</p>
-	 *
-	 * @return the date/time when the submission was created
-	 * @since 1.1
-	 */
-	public Timestamp getCreateDate() {
-		return createDate;
-	}
+    /**
+     * <p>Gets the date/time when the submission was created.</p>
+     *
+     * @return the date/time when the submission was created
+     * @since 1.1
+     */
+    public Timestamp getCreateDate() {
+        return createDate;
+    }
 
-	/**
-	 * <p>Sets the date/time when the submission was created.</p>
-	 *
-	 * @param createDate the date/time when the submission was created set
-	 * @since 1.1
-	 */
-	public void setCreateDate(Timestamp createDate) {
-		this.createDate = createDate;
-	}
+    /**
+     * <p>Sets the date/time when the submission was created.</p>
+     *
+     * @param createDate the date/time when the submission was created set
+     * @since 1.1
+     */
+    public void setCreateDate(Timestamp createDate) {
+        this.createDate = createDate;
+    }
 
-	/**
-	 * <p>Gets the ID of the user who last modified the submission.</p>
-	 *
-	 * @return the ID of the user who last modified the submission
-	 * @since 1.1
-	 */
-	public String getModifyUser() {
-		return modifyUser;
-	}
+    /**
+     * <p>Gets the ID of the user who last modified the submission.</p>
+     *
+     * @return the ID of the user who last modified the submission
+     * @since 1.1
+     */
+    public String getModifyUser() {
+        return modifyUser;
+    }
 
-	/**
-	 * <p>Sets the ID of the user who last modified the submission.</p>
-	 *
-	 * @param modifyUser the ID of the user who last modified the submission to set
-	 * @since 1.1
-	 */
-	public void setModifyUser(String modifyUser) {
-		this.modifyUser = modifyUser;
-	}
+    /**
+     * <p>Sets the ID of the user who last modified the submission.</p>
+     *
+     * @param modifyUser the ID of the user who last modified the submission to set
+     * @since 1.1
+     */
+    public void setModifyUser(String modifyUser) {
+        this.modifyUser = modifyUser;
+    }
 
-	/**
-	 * <p>Gets the date/time when the submission was last modified.</p>
-	 *
-	 * @return the date/time when the submission was last modified
-	 * @since 1.1
-	 */
-	public Timestamp getModifyDate() {
-		return modifyDate;
-	}
+    /**
+     * <p>Gets the date/time when the submission was last modified.</p>
+     *
+     * @return the date/time when the submission was last modified
+     * @since 1.1
+     */
+    public Timestamp getModifyDate() {
+        return modifyDate;
+    }
 
-	/**
-	 * <p>Sets the date/time when the submission was last modified.</p>
-	 *
-	 * @param modifyDate the date/time when the submission was last modified to set
-	 * @since 1.1
-	 */
-	public void setModifyDate(Timestamp modifyDate) {
-		this.modifyDate = modifyDate;
-	}
+    /**
+     * <p>Sets the date/time when the submission was last modified.</p>
+     *
+     * @param modifyDate the date/time when the submission was last modified to set
+     * @since 1.1
+     */
+    public void setModifyDate(Timestamp modifyDate) {
+        this.modifyDate = modifyDate;
+    }
 
-	/**
-	 * <p>Gets the rank of the submission given by the user.</p>
-	 *
-	 * @return the rank of the submission given by the user
-	 * @since 1.1
-	 */
-	public Integer getRank() {
-		return rank;
-	}
+    /**
+     * <p>Gets the rank of the submission given by the user.</p>
+     *
+     * @return the rank of the submission given by the user
+     * @since 1.1
+     */
+    public Integer getRank() {
+        return rank;
+    }
 
-	/**
-	 * <p>Sets the rank of the submission given by the user.</p>
-	 *
-	 * @param rank the rank of the submission given by the user set
-	 * @since 1.1
-	 */
-	public void setRank(Integer rank) {
-		this.rank = rank;
-	}
+    /**
+     * <p>Sets the rank of the submission given by the user.</p>
+     *
+     * @param rank the rank of the submission given by the user set
+     * @since 1.1
+     */
+    public void setRank(Integer rank) {
+        this.rank = rank;
+    }
 
-	/**
-	 * <p>Gets the <code>Upload</code> instance associated with the submission.</p>
-	 *
-	 * @return the <code>Upload</code> instance associated with the submission
-	 * @since 1.1
-	 */
-	public Upload getUpload() {
-		return upload;
-	}
+    /**
+     * <p>Gets the <code>Upload</code> instance associated with the submission.</p>
+     *
+     * @return the <code>Upload</code> instance associated with the submission
+     * @since 1.1
+     */
+    public Upload getUpload() {
+        return upload;
+    }
 
-	/**
-	 * <p>Sets the <code>Upload</code> instance associated with the submission.</p>
-	 *
-	 * @param upload the <code>Upload</code> instance associated with the submission to set
-	 * @since 1.1
-	 */
-	public void setUpload(Upload upload) {
-		this.upload = upload;
-	}
+    /**
+     * <p>Sets the <code>Upload</code> instance associated with the submission.</p>
+     *
+     * @param upload the <code>Upload</code> instance associated with the submission to set
+     * @since 1.1
+     */
+    public void setUpload(Upload upload) {
+        this.upload = upload;
+    }
 
-	/**
-	 * <p>Gets the <code>Prize</code> instance associated with the submission.</p>
-	 *
-	 * @return the <code>Prize</code> instance associated with the submission
-	 * @since 1.1
-	 */
-	public Prize getPrize() {
-		return prize;
-	}
+    /**
+     * <p>Gets the <code>Prize</code> instance associated with the submission.</p>
+     *
+     * @return the <code>Prize</code> instance associated with the submission
+     * @since 1.1
+     */
+    public Prize getPrize() {
+        return prize;
+    }
 
-	/**
-	 * <p>Sets the <code>Prize</code> instance associated with the submission.</p>
-	 *
-	 * @param prize the <code>Prize</code> instance associated with the submission to set
-	 * @since 1.1
-	 */
-	public void setPrize(Prize prize) {
-		this.prize = prize;
-	}
+    /**
+     * <p>Sets the <code>Prize</code> instance associated with the submission.</p>
+     *
+     * @param prize the <code>Prize</code> instance associated with the submission to set
+     * @since 1.1
+     */
+    public void setPrize(Prize prize) {
+        this.prize = prize;
+    }
 
-	/**
+    /**
      * <p>Gets the submission declaration.</p>
      *
      * @return the submission declaration
@@ -389,81 +389,81 @@ public class Submission extends Base {
      * @return the submission file size
      * @since 1.1
      */
-	public Long getFileSize() {
-		return fileSize;
-	}
+    public Long getFileSize() {
+        return fileSize;
+    }
 
-	/**
+    /**
      * <p>Sets the submission file size.</p>
      *
      * @param fileSize the submission file size information
      * @since 1.1
      */
-	public void setFileSize(Long fileSize) {
-		this.fileSize = fileSize;
-	}
+    public void setFileSize(Long fileSize) {
+        this.fileSize = fileSize;
+    }
 
-	/**
-	 * <p>Gets the submission view count.</p>
-	 *
-	 * @return the submission view count
-	 * @since 1.1
-	 */
-	public Long getViewCount() {
-		return viewCount;
-	}
+    /**
+     * <p>Gets the submission view count.</p>
+     *
+     * @return the submission view count
+     * @since 1.1
+     */
+    public Long getViewCount() {
+        return viewCount;
+    }
 
-	/**
-	 * <p>Sets the submission view count.</p>
-	 *
-	 * @param the submission view count to set
-	 * @since 1.1
-	 */
-	public void setViewCount(Long viewCount) {
-		this.viewCount = viewCount;
-	}
+    /**
+     * <p>Sets the submission view count.</p>
+     *
+     * @param the submission view count to set
+     * @since 1.1
+     */
+    public void setViewCount(Long viewCount) {
+        this.viewCount = viewCount;
+    }
 
-	/**
-	 * <p>Gets the final submission score.</p>
-	 * 
-	 * @return the final submission score
-	 * @since 1.1
-	 */
-	public Float getFinalScore() {
-		return finalScore;
-	}
+    /**
+     * <p>Gets the final submission score.</p>
+     * 
+     * @return the final submission score
+     * @since 1.1
+     */
+    public Float getFinalScore() {
+        return finalScore;
+    }
 
-	/**
-	 * <p>Sets the final submission score.</p>
-	 * 
-	 * @param finalScore the final submission score to set
-	 * @since 1.1
-	 */
-	public void setFinalScore(Float finalScore) {
-		this.finalScore = finalScore;
-	}
+    /**
+     * <p>Sets the final submission score.</p>
+     * 
+     * @param finalScore the final submission score to set
+     * @since 1.1
+     */
+    public void setFinalScore(Float finalScore) {
+        this.finalScore = finalScore;
+    }
 
-	/**
-	 * <p>Sets the final submission placement.</p>
-	 * 
-	 * @param placement the final submission placement to set
-	 * @since 1.1
-	 */
-	public void setPlacement(Integer placement) {
-		this.placement = placement;
-	}
+    /**
+     * <p>Sets the final submission placement.</p>
+     * 
+     * @param placement the final submission placement to set
+     * @since 1.1
+     */
+    public void setPlacement(Integer placement) {
+        this.placement = placement;
+    }
 
-	/**
-	 * <p>Gets the final submission placement.</p>
-	 *
-	 * @return the final submission placement
-	 * @since 1.1
-	 */
-	public Integer getPlacement() {
-		return placement;
-	}
+    /**
+     * <p>Gets the final submission placement.</p>
+     *
+     * @return the final submission placement
+     * @since 1.1
+     */
+    public Integer getPlacement() {
+        return placement;
+    }
 
-	/**
+    /**
      * <p>Gets the list of images associated with this submission.</p>
      *
      * @return a <code>Set</code> containing the submissions associated with this submission.
@@ -490,7 +490,7 @@ public class Submission extends Base {
      * @since 1.1
      */
     public Set<ResourceSubmission> getResourceSubmission() {
-    	return this.resourceSubmission;
+        return this.resourceSubmission;
     }
 
     /**
@@ -500,7 +500,7 @@ public class Submission extends Base {
      * @since 1.1
      */
     public void setResourceSubmission(Set<ResourceSubmission> resourceSubmission) {
-    	this.resourceSubmission = resourceSubmission;
+        this.resourceSubmission = resourceSubmission;
     }    
     
     /**
@@ -539,7 +539,7 @@ public class Submission extends Base {
         }
         Submission resourceSubmission = resource.getSubmission();
         if (resourceSubmission == null) {
-        	resource.setSubmission(this);
+            resource.setSubmission(this);
         } else if (!equal(this.id, resourceSubmission.getId())) {
             throw new IllegalArgumentException("The resource [" + resource.getResource().getId() + "] is associated with a "
                                                + "different submission [" + resourceSubmission.getId() + "]");
@@ -628,7 +628,7 @@ public class Submission extends Base {
         return galMap;
     }
 
-	
+    
     /**
      * <p>Determines whether the specified objects are equal.</p>
      *
@@ -648,8 +648,8 @@ public class Submission extends Base {
      * @return the project instance associated with the submission
      * @since 1.1
      */
-    public Project getContest() {    	
-    	return (this.upload != null) ? this.upload.getContest() : null;
+    public Project getContest() {        
+        return (this.upload != null) ? this.upload.getContest() : null;
     }
     
     /**
@@ -658,8 +658,8 @@ public class Submission extends Base {
      * @return the resource associated with the submission
      * @since 1.1
      */
-    public Resource getResource() {    	
-    	return (this.upload != null) ? this.upload.getResource() : null;
+    public Resource getResource() {        
+        return (this.upload != null) ? this.upload.getResource() : null;
     }
         
     /**
@@ -668,12 +668,12 @@ public class Submission extends Base {
      * @return the user id associated with the submission
      * @since 1.1
      */
-    public Long getSubmitterId() {    	
-    	Set<ResourceInfo> infos = getResource().getInfo();
+    public Long getSubmitterId() {        
+        Set<ResourceInfo> infos = getResource().getInfo();
         for (ResourceInfo info : infos) {
             if (info.getId().getTypeId() == 1) {
-            	log.debug("return " + info.getValue() + " submitter id ");
-            	return new Long(info.getValue());
+                log.debug("return " + info.getValue() + " submitter id ");
+                return new Long(info.getValue());
             }
         }
         

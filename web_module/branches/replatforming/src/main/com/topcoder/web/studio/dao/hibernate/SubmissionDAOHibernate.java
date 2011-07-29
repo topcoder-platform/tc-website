@@ -26,13 +26,13 @@ import com.topcoder.web.studio.dto.Upload;
  * @author dok, pvmagacho
  * @version 1.1
  */
-public class SubmissionDAOHibernate extends Base implements SubmissionDAO {	
+public class SubmissionDAOHibernate extends Base implements SubmissionDAO {    
     /**
      * <p>Find by ID the <code>Submission</code> instance from persistence.</p>
      *
      * @param id the unique identifier for the <code>Submission</code> instance
      * @return the found <code>Submission</code> instance. <code>null</code> if not found.
-     */	
+     */    
     public Submission find(Integer id) {
         return (Submission) super.find(Submission.class, id);
     }
@@ -45,9 +45,9 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
      * @param submission the <code>Submission</code> instance to be saved or updated
      * @since 1.1
      */    
-	public void saveOrUpdate(Submission submission) {
-		super.saveOrUpdate(submission);	
-	}
+    public void saveOrUpdate(Submission submission) {
+        super.saveOrUpdate(submission);    
+    }
 
     /**
      * <p>Gets the maximum user rank for all submission uploads.</p>
@@ -57,15 +57,15 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
      * @since 1.1
      */  
     public Integer getMaxRank(List<Upload> uploads) {
-    	if (uploads != null && uploads.size() > 0) {
-    		Query q = session.createQuery("select max(s.rank) from com.topcoder.web.studio.dto.Submission s " +
-    			"where s.upload in (:uploads)");
-    		q.setParameterList("uploads", uploads);
+        if (uploads != null && uploads.size() > 0) {
+            Query q = session.createQuery("select max(s.rank) from com.topcoder.web.studio.dto.Submission s " +
+                "where s.upload in (:uploads)");
+            q.setParameterList("uploads", uploads);
 
             return (Integer) q.uniqueResult();
-    	}
-    	
-    	return null;    	
+        }
+        
+        return null;        
     }
     
     /**
@@ -103,7 +103,7 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
         } else if (s.getRank() == null) {
             buf.append("rank+1 ");
             buf.append("where s.upload in (:uploads) and rank between :minrank and :maxrank and " 
-            		+ " s.typeId = :typeId");
+                    + " s.typeId = :typeId");
 
             Query q = session.createQuery(buf.toString());
             q.setParameterList("uploads", uploads);
@@ -119,7 +119,7 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
             //they's bumping it up, making it's rank better
             buf.append("rank+1 ");
             buf.append("where s.upload in (:uploads) and rank between :minrank and :maxrank and " 
-            		+ " s.typeId = :typeId");
+                    + " s.typeId = :typeId");
 
             Query q = session.createQuery(buf.toString());
             q.setParameterList("uploads", uploads);
@@ -135,7 +135,7 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
             //they're dropping it down, making it's rank worse
             buf.append("rank-1 ");
             buf.append("where s.upload in (:uploads) and rank between :minrank and :maxrank and " 
-            		+ " s.typeId = :typeId");
+                    + " s.typeId = :typeId");
             
             Query q = session.createQuery(buf.toString());
             q.setParameterList("uploads", uploads);
@@ -155,19 +155,35 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
      *
      * @param uploads the list of submission uploads used to find the submission
      * @param submissionTypeId the submission type identifier
-     * @param submissionStatusId the submission status identifier
+     * @param submissionStatusIds the ids of submission status
+     * @return a list with <code>Submission</code> instance or <code>null</code> if none is found.
+     */
+    @SuppressWarnings("unchecked")
+    public List<Submission> getSubmissions(List<Upload> uploads, Integer submissionTypeId, List<Integer> submissionStatusIds) {
+        Query q = session.createQuery("from com.topcoder.web.studio.dto.Submission s " +
+                "where s.upload in (:uploads) " +
+                "and s.typeId = :typeId " +
+                "and s.statusId in (:statusId) " +
+                "order by case when s.rank is null then 10000 else s.rank end asc");
+        q.setParameterList("uploads", uploads);
+        q.setInteger("typeId", submissionTypeId);
+        q.setInteger("statusId", submissionStatusIds);
+        return q.list();
+    }
+    
+    /**
+     * <p>Finds a list of <code>Submission</code> instances from persistence.</p>
+     *
+     * @param uploads the list of submission uploads used to find the submission
+     * @param submissionTypeId the submission type identifier
+     * @param submissionStatusId the ids of submission status
      * @return a list with <code>Submission</code> instance or <code>null</code> if none is found.
      */
     @SuppressWarnings("unchecked")
     public List<Submission> getSubmissions(List<Upload> uploads, Integer submissionTypeId, Integer submissionStatusId) {
-    	Query q = session.createQuery("from com.topcoder.web.studio.dto.Submission s " +
-                "where s.upload in (:uploads) " +
-                "and s.typeId = :typeId " +
-                "and s.statusId = :statusId " +
-                "order by case when s.rank is null then 10000 else s.rank end asc");
-    	q.setParameterList("uploads", uploads);
-        q.setInteger("typeId", submissionTypeId);
-        q.setInteger("statusId", submissionStatusId);
-        return q.list();
+        List<Integer> statusIds = new ArrayList<Integer>();
+        statusIds.add(submissionStatusId);
+        
+        return getSubmissions(uploads, submissionTypeId, statusIds);
     }
 }
