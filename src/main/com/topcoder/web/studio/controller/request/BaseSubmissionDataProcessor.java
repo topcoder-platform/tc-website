@@ -5,6 +5,7 @@ package com.topcoder.web.studio.controller.request;
 
 import java.util.Date;
 import java.util.List;
+import java.util.ArrayList;
 
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.model.User;

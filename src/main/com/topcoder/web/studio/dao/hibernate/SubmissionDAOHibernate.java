@@ -4,6 +4,7 @@
 package com.topcoder.web.studio.dao.hibernate;
 
 import java.util.List;
+import java.util.ArrayList;
 
 import org.hibernate.Query;
 
@@ -167,7 +168,7 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
                 "order by case when s.rank is null then 10000 else s.rank end asc");
         q.setParameterList("uploads", uploads);
         q.setInteger("typeId", submissionTypeId);
-        q.setInteger("statusId", submissionStatusIds);
+        q.setParameterList("statusId", submissionStatusIds);
         return q.list();
     }
     
