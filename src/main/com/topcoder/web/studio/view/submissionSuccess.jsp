@@ -219,8 +219,8 @@
                             <li class="submission-id">Submission Type</li>
                             <li class="date">Date Submitted</li>
                             <li class="move">Move Up/Down</li>
-                            <li class="download">Download</li>
                             <li class="remove">Remove</li>
+                            <li class="download">Download</li>
                         </ul>
                         <div class="clear"></div>
 
