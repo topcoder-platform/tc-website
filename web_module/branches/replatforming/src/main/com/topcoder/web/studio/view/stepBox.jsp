@@ -55,7 +55,7 @@ request.setAttribute("clientPrize", new Long(Prize.MILESTONE_PRIZE_TYPE_ID));
     <%-- BUTTONS FOR SUBMITTER --%>
     <div class="leftColumn">
         <c:choose>
-            <c:when test="${not isRunning}">
+            <c:when test="${not isStarted}">
                 <%-- REGISTRATION FOR CONTEST IS NOT OPEN --%>
                 <a href="javascript:" class="stepFirstDeac">REGISTER FOR<br/>THIS CONTEST</a>
                 <a href="javascript:" class="stepSecondDeac">SUBMIT YOUR<br/> ENTRIES</a>
