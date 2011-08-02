@@ -55,7 +55,7 @@ request.setAttribute("clientPrize", new Long(Prize.MILESTONE_PRIZE_TYPE_ID));
     <%-- BUTTONS FOR SUBMITTER --%>
     <div class="leftColumn">
         <c:choose>
-            <c:when test="${not (currentTime <= contest.endTime && currentTime >= contest.startTime)}">
+            <c:when test="${not isRunning}">
                 <%-- REGISTRATION FOR CONTEST IS NOT OPEN --%>
                 <a href="javascript:" class="stepFirstDeac">REGISTER FOR<br/>THIS CONTEST</a>
                 <a href="javascript:" class="stepSecondDeac">SUBMIT YOUR<br/> ENTRIES</a>
