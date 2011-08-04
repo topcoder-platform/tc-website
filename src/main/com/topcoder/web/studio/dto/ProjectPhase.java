@@ -58,6 +58,13 @@ public class ProjectPhase extends Base {
      * @since 1.1
      */
     public static final Integer MILESTONE_REVIEW = 17;
+    
+    /**
+     * <p>An <code>Integer</code> providing the ID for <code>Specification Submission</code> phase type.</p>
+     * 
+     * @since 1.1
+     */
+    public static final Integer SPECIFICATION_SUBMISSION = 13;
 
     /**
      * <p>A <code>long</code> providing the ID for <code>Scheduled</code> phase status.</p>

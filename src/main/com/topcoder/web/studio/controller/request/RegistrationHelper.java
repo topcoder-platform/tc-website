@@ -131,7 +131,7 @@ public class RegistrationHelper {
                                                                                     contestId.intValue()));
         return false;
     }
-
+    
     /**
      * <p>Looks up for the resource of <code>Submitter</code> role associated with specified user in context of
      * specified project.</p>
@@ -143,9 +143,38 @@ public class RegistrationHelper {
      * @since 1.1
      */
     protected static Resource getSubmitterResource(Project project, long userId) {
+        return getResource(project, userId, ResourceRole.SUBMITTER_RESOURCE_ROLE_ID);
+    }
+    
+    /**
+     * <p>Looks up for the resource of <code>Specification Reviewer</code> role associated with specified user in context of
+     * specified project.</p>
+     * 
+     * @param project a <code>Project</code> providing the details for project. 
+     * @param userId a <code>long</code> providing the ID of a user.
+     * @return a <code>Resource</code> of specification reviewer role within specified project for specified user or
+     *         <code>null</code> if specified user is not registered as specification reviewer for specified project.
+     * @since 1.1
+     */
+    protected static Resource getSpecReviewerResource(Project project, long userId) {
+        return getResource(project, userId, ResourceRole.SPEC_REVIEWER_RESOURCE_ROLE_ID);
+    }
+    
+     /**
+     * <p>Looks up for the resource of passed role associated with specified user in context of
+     * specified project.</p>
+     * 
+     * @param project a <code>Project</code> providing the details for project. 
+     * @param userId a <code>long</code> providing the ID of a user.
+     * @param roleId a <code>Integer</code> providing id of role to lookup
+     * @return a <code>Resource</code> with passed role id within specified project for specified user or
+     *         <code>null</code> if specified user is not registered as submitter for specified project.
+     * @since 1.1
+     */
+    private static Resource getResource(Project project, long userId, Integer roleId) {
         Set<Resource> resources = project.getResources();
         for (Resource resource : resources){
-            if (resource.getRole().getId().intValue() == ResourceRole.SUBMITTER_RESOURCE_ROLE_ID.intValue()) {
+            if (resource.getRole().getId().intValue() == roleId.intValue()) {
                 Set<ResourceInfo> infos = resource.getInfo();
                 for (ResourceInfo info : infos) {
                     if (info.getId().getTypeId() == 1) {
@@ -175,10 +204,7 @@ public class RegistrationHelper {
         throws CreateException, NamingException, RemoteException {
         UserTermsOfUse userTermsOfUse = UserTermsOfUseLocator.getService();
         TermsOfUse termsOfUse = TermsOfUseLocator.getService();
-        System.out.println("ISV : projectId = " + projectId);
-        System.out.println("ISV : roleIds = " + Arrays.toString(roleIds));
         List<Long>[] necessaryTerms = getNecessaryTermsOfUse(roleIds, projectId);
-        System.out.println("ISV : necessaryTerms = " + Arrays.toString(necessaryTerms));
         List<TermsOfUseEntity> termsPending = new ArrayList<TermsOfUseEntity>();
         
         for (int i = 0; i < necessaryTerms.length; i++) {

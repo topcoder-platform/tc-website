@@ -32,6 +32,7 @@
 <c:set var="contest" value="${requestScope.contest}"/>
 <c:set var="isMultiRound" value="${not empty contest.milestoneDate}"/>
 <c:set var="registered" value="${requestScope.registered}"/>
+<c:set var="specReviewer" value="${requestScope.isSpecReviewer}" />
 <c:set var="CONTEST_ID" value="<%=Constants.CONTEST_ID%>"/>
 <c:set var="servletPath" value="${sessionInfo.servletPath}"/>
 
@@ -42,7 +43,7 @@
        value="<%=new String[] {"st", "nd", "rd", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th"}%>"/>
 <c:set var="isFinished" value="${contest.reviewClosed}"/>
 <c:set var="isStarted" value="${contest.submissionOpen}"/>
-<c:set var="isRunning" value="${isStarted and not isFinished}"/>
+<c:set var="isClosed" value="${contest.submissionClosed}"/>
 <c:set var="hasCockpitPermissions" value="${requestScope.has_cockpit_permissions}"/>
 <c:set var="spec" value="${contest.studioProjectSpecification}"/>
 
@@ -273,13 +274,13 @@
             <c:choose>
                 <c:when test="${not empty contest.documents}">
                     <c:choose>
-                        <c:when test="${not isRunning}">
+                        <c:when test="${isClosed}">
                                 <p>
                                     <strong>Since this contest has ended all attached files are no longer available
                                         for viewing</strong>
                                 </p>
                         </c:when>
-                        <c:when test="${registered || (not empty hasCockpitPermissions && hasCockpitPermissions)}">
+                        <c:when test="${registered || (not empty hasCockpitPermissions && hasCockpitPermissions) || specReviewer}">
                           <c:forEach items="${contest.documents}" var="document">
                               <p>
                                   <a href="${servletPath}?module=DownloadCatalogDocument&amp;ct=${contest.id}&amp;docid=${document.id}"
@@ -289,15 +290,20 @@
                               </p>
                              </c:forEach>
                        </c:when>
-                        <c:otherwise>
-                            <p align="center" class="bigRed">
-                                You must register for the contest<br/>to download any attached files.<br/><br/>
-                                <a href="${servletPath}?module=ViewRegistration&amp;${CONTEST_ID}=${contest.id}"
-                                   onfocus="this.blur();">
-                                    <img src="/i/v2/interface/btnRegister.png" alt="Register"
-                                         style="margin: 6px 0px 6px 0px;"/></a>
+                       <c:when test="${(not contest.specSubmissionStarted) || (contest.specSubmissionStarted && not specReviewer)}">
+                                <p>
+                                    <strong>Files are not available until the contest launches</strong>
+                                </p>
+                        </c:when>
+                       <c:otherwise>
+                           <p align="center" class="bigRed">
+                               You must register for the contest<br/>to download any attached files.<br/><br/>
+                               <a href="${servletPath}?module=ViewRegistration&amp;${CONTEST_ID}=${contest.id}"
+                                  onfocus="this.blur();">
+                                   <img src="/i/v2/interface/btnRegister.png" alt="Register"
+                                        style="margin: 6px 0px 6px 0px;"/></a>
                             </p>
-                        </c:otherwise>
+                       </c:otherwise>
                     </c:choose>
                 </c:when>
                 <c:otherwise>

@@ -117,20 +117,22 @@ public class ViewContestDetails extends ShortHibernateProcessor {
                 getRequest().setAttribute("contest", contest);
             } else {
                 if (Project.STATUS_ACTIVE.equals(contest.getStatusId())) {
-                    Date now = new Date();
-                    if (contest.getStartTime().before(now)) {
+                    if (contest.getSpecSubmissionStarted()) {
                         getRequest().setAttribute("contest", contest);
                     } else {
                         throw new NavigationException("Inactive contest specified.");
                     }
                 } else {
-                    throw new NavigationException("Invalid contest specified.");
+                    throw new NavigationException("Inactive contest specified.");
                 }
             }
 
             boolean isUserIdentified = userIdentified();
             boolean registered = isUserIdentified && (RegistrationHelper.getSubmitterResource(contest, userId) != null);
             getRequest().setAttribute("registered", registered);
+            
+            boolean isSpecReviewer = RegistrationHelper.getSpecReviewerResource(contest, userId) != null;
+            getRequest().setAttribute("isSpecReviewer", isSpecReviewer);
 
             if ("on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
                 if (isUserIdentified) {
