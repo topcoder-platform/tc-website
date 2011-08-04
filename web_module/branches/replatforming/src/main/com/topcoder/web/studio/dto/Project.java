@@ -479,7 +479,6 @@ public class Project extends Base {
     public Boolean getMilestoneReviewClosed() {
         ProjectPhase milestoneReviewPhase = getPhase(ProjectPhase.MILESTONE_REVIEW);
         if (milestoneReviewPhase != null) {
-            log.debug("Return milestone review closed: " + (milestoneReviewPhase.getStatusId() == ProjectPhase.STATUS_CLOSED));
             return (milestoneReviewPhase.getStatusId() == ProjectPhase.STATUS_CLOSED);
         }
         return false;
@@ -492,10 +491,9 @@ public class Project extends Base {
      * @since 1.2
      */
     public Boolean getReviewClosed() {
-    	ProjectPhase reviewPhase = getPhase(ProjectPhase.REVIEW);
+        ProjectPhase reviewPhase = getPhase(ProjectPhase.REVIEW);
         if (reviewPhase != null) {
-        	log.debug("Return review closed " + (reviewPhase.getStatusId() == ProjectPhase.STATUS_CLOSED));
-        	return (reviewPhase.getStatusId() == ProjectPhase.STATUS_CLOSED);
+            return (reviewPhase.getStatusId() == ProjectPhase.STATUS_CLOSED);
         }
         return false;
     }
@@ -509,13 +507,12 @@ public class Project extends Base {
     public Boolean getSubmissionOpen() {
         ProjectPhase submissionPhase = getPhase(ProjectPhase.SUBMISSION);
         if (submissionPhase != null) {
-            log.debug("Return submission opened: " + (submissionPhase.getStatusId() == ProjectPhase.STATUS_OPEN));
             return (submissionPhase.getStatusId() == ProjectPhase.STATUS_OPEN);
         }
         return false;
     }
-	
-	/**
+    
+    /**
      * <p>Indicates whether the Submission phase is closed.</p>
      *
      * @return true if Submission phase is closed, false otherwise
@@ -533,10 +530,23 @@ public class Project extends Base {
      * @since 1.2
      */
     public Boolean getMilestoneSubmissionClosed() {
-    	ProjectPhase milestoneSubmissionPhase = getPhase(ProjectPhase.MILESTONE_SUBMISSION);
+        ProjectPhase milestoneSubmissionPhase = getPhase(ProjectPhase.MILESTONE_SUBMISSION);
         if (milestoneSubmissionPhase != null) {
-        	log.debug("Return review closed " + (milestoneSubmissionPhase.getStatusId() == ProjectPhase.STATUS_CLOSED));
-        	return (milestoneSubmissionPhase.getStatusId() == ProjectPhase.STATUS_CLOSED);
+            return (milestoneSubmissionPhase.getStatusId() == ProjectPhase.STATUS_CLOSED);
+        }
+        return false;
+    }
+
+    /**
+    * <p>Indicates whether the contest was started.</p>
+    *
+    * @return true if Specification Submission phase is started or closed
+    * @since 1.2
+    */
+    public Boolean getSpecSubmissionStarted() {
+        ProjectPhase specificationSubmissionPhase = getPhase(ProjectPhase.SPECIFICATION_SUBMISSION);
+        if (specificationSubmissionPhase != null) {
+            return (specificationSubmissionPhase.getStatusId() != ProjectPhase.STATUS_SCHEDULED);
         }
         return false;
     }
@@ -563,7 +573,7 @@ public class Project extends Base {
      * @since 1.2  
      */
     public Boolean getAllowStockArt() {
-    	return parseBooleanInfoType(INFO_ALLOW_STOCK_ART);
+        return parseBooleanInfoType(INFO_ALLOW_STOCK_ART);
     }
     
     /**
@@ -573,7 +583,7 @@ public class Project extends Base {
      * @since 1.2  
      */
     public Boolean getViewableSubmissions() {
-    	return parseBooleanInfoType(INFO_VIEWABLE_SUBMISSION_FLAG);
+        return parseBooleanInfoType(INFO_VIEWABLE_SUBMISSION_FLAG);
     }
 
     /**
@@ -584,16 +594,16 @@ public class Project extends Base {
      * @since 1.2
      */
     private Boolean parseBooleanInfoType(Integer infoType) {
-    	String flag = getInfo(infoType);
-    	if (log.isDebugEnabled()) {
-    			log.debug("Project#parseBooleanInfoType : boolean parse for " + infoType + " = " + flag);
-    	}
+        String flag = getInfo(infoType);
+        if (log.isDebugEnabled()) {
+                log.debug("Project#parseBooleanInfoType : boolean parse for " + infoType + " = " + flag);
+        }
         if ((flag != null) && (flag.trim().length() > 0)) {
-        	try {
-        		return Boolean.parseBoolean(flag);
-        	} catch (NumberFormatException e) {
-        		// ignore
-        	}
+            try {
+                return Boolean.parseBoolean(flag);
+            } catch (NumberFormatException e) {
+                // ignore
+            }
         }
         
         return false;

@@ -35,6 +35,11 @@ public class ResourceRole extends Base {
      * <p>An <code>Integer</code> referencing the resource role id corresponding to a submitter.</p>
      */
     public static final Integer SUBMITTER_RESOURCE_ROLE_ID = 1;
+    
+    /**
+     * <p>An <code>Integer</code> referencing the resource role id corresponding to a specification reviewer.</p>
+     */
+    public static final Integer SPEC_REVIEWER_RESOURCE_ROLE_ID = 18;
 
     /**
      * The resource role id.
