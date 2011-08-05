@@ -353,7 +353,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
             case DESIGN_PHASE: return 30;
             case DEV_PHASE: return 30;
             case ARCHITECTURE_PHASE: return 50;
-            case ASSEMBLY_PHASE: return 50;
+            case ASSEMBLY_PHASE: return 100;
             case CONCEPTUALIZATION_PHASE: return 30;
             case SPECIFICATION_PHASE: return 40;
             case TEST_SUITES_PHASE: return 50;
