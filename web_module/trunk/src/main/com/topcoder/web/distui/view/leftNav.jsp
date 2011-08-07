@@ -290,11 +290,11 @@
    nav.addRoot(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/help", "Help Center", "help_center"));
 
    nav.addRoot(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_about_tc')", "About TopCoder", "m_about_tc"));
-      nav.search("m_about_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/home", "Overview", "tc_overview"));
-      nav.search("m_about_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=about&amp;d2=whyjoin", "Why Join TopCoder?", "join_tc"));
-      nav.search("m_about_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=about&amp;d2=jobs", "Working at TopCoder", "working_tc"));
-      nav.search("m_about_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=about&amp;d2=management", "Leadership", "management_team"));
-      nav.search("m_about_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=pressroom&amp;d2=index", "Press Room", "press_room"));
+      nav.search("m_about_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/aboutus/", "Overview", "tc_overview"));
+      nav.search("m_about_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/aboutus/", "Why Join TopCoder?", "join_tc"));
+      nav.search("m_about_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/aboutus/careers/", "Working at TopCoder", "working_tc"));
+      nav.search("m_about_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/aboutus/management/", "Leadership", "management_team"));
+      nav.search("m_about_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/aboutus/news/", "Press Room", "press_room"));
 
 
     request.setAttribute("tree", nav);
