@@ -4,13 +4,13 @@
     </tr>
     <tr class="bodyText">
         <td>
-            <a href="/tc?module=Static&amp;d1=home&amp;d2=news_archive_tc"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0"/></a>
+            <a href="/aboutus/news/"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0"/></a>
         </td>
-        <td width="50%"><a href="/home/blog">General TopCoder News</a></td>
+        <td width="50%"><a href="/aboutus/news/">General TopCoder News</a></td>
         <td>
-            <a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0"/></a>
+            <a href="/aboutus/press-room/"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0"/></a>
         </td>
-        <td width="50%"><a href="/tc?module=Static&amp;d1=pressroom&amp;d2=index">Press Releases &amp; Articles</a></td>
+        <td width="50%"><a href="aboutus/press-room/">Press Releases &amp; Articles</a></td>
     </tr>
     <tr class="bodyText">
         <td>
@@ -26,9 +26,9 @@
         <td><a href="/tc?&module=SurveyList"><img src="/i/home/icons/v2/survey.png" alt="Surveys" border="0"/></a></td>
         <td><a href="/tc?&module=SurveyList">Surveys</a></td>
         <td>
-            <a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0"/></a>
+            <a href="http://apps.topcoder.com/wiki/display/tc/Algorithm+Problem+Set+Analysis"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0"/></a>
         </td>
-        <td><a href="/tc?module=Static&amp;d1=match_editorials&amp;d2=archive">Problem Sets &amp; Analyses</a></td>
+        <td><a href="http://apps.topcoder.com/wiki/display/tc/Algorithm+Problem+Set+Analysis">Problem Sets &amp; Analyses</a></td>
     </tr>
     <tr class="bodyText">
         <td>
