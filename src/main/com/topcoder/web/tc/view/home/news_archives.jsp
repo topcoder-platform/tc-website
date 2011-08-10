@@ -4,13 +4,13 @@
     </tr>
     <tr class="bodyText">
         <td>
-            <a href="/aboutus/news/"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0"/></a>
+            <a href="http://www.topcoder.com/aboutus/news/"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0"/></a>
         </td>
-        <td width="50%"><a href="/aboutus/news/">General TopCoder News</a></td>
+        <td width="50%"><a href="http://www.topcoder.com/aboutus/news/">General TopCoder News</a></td>
         <td>
-            <a href="/aboutus/press-room/"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0"/></a>
+            <a href="http://www.topcoder.com/aboutus/press-room/"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0"/></a>
         </td>
-        <td width="50%"><a href="aboutus/press-room/">Press Releases &amp; Articles</a></td>
+        <td width="50%"><a href="http://www.topcoder.com/aboutus/press-room/">Press Releases &amp; Articles</a></td>
     </tr>
     <tr class="bodyText">
         <td>
