@@ -86,7 +86,7 @@
                             Personal Information
                         </td>
                         <td class="headerR" colspan="2">
-                            <a href="/reg/?nrg=false">Update</a>
+                            <a href="https://www.topcoder.com/reg/?nrg=false">Update</a>
                         </td>
                     </tr>
                     <tr class="light">
@@ -204,11 +204,11 @@
                     </tr>
                     <tr class="light">
                         <td class="value">
-                            <p><a href="/reg/?nrg=false">Add registrations</a></p>
+                            <p><a href="https://www.topcoder.com/reg/?nrg=false">Add registrations</a></p>
                             <c:if test="${isInHS}">
                                 <p><a href="/tc?module=HSViewUnregister">Unregister from TCHS</a></p>
                             </c:if>
-                            <p><a href="/reg/?nrg=false">Update my profile</a></p>
+                            <p><a href="https://www.topcoder.com/reg/?nrg=false">Update my profile</a></p>
                             <p class="<c:if test='${userImage!=null}'>hide</c:if>"><a href="javascript:;" id="submitPhotoLink" >Submit a photo</a></p>
                             <p class="<c:if test='${userImage==null}'>hide</c:if>"><a href="javascript:;" id="removePhotoLink">Remove photo</a></p>
                         </td>
