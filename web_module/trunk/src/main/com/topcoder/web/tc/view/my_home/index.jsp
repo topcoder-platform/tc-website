@@ -1,6 +1,6 @@
 <%--
   - Author: isv, pvmagacho
-  - Version: 1.2 (Assembly - Upload Avatar to TC)
+  - Version: 1.3 (BUG#TCCC-3348)
   - Copyright (C) 2010 - 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page renders the Home page displayed to TopCoder member. It renders the details on user
@@ -16,16 +16,19 @@
   - Changes in 1.2 (Assembly - Upload Avatar to TC):
   - - Removed old submit photo link.
   - - Image file name is retrieved from request attribute with path + filename.
+  - 
+  - Changes in 1.3 (BUG#TCCC-3348):
+  - - Change image popup class for compatibily with Member Profile page.
 --%>
 
-<%@ page contentType="text/html;charset=utf-8" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ page import="javax.servlet.http.HttpServletRequest"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page contentType="text/html;charset=utf-8" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html>
 
@@ -252,7 +255,7 @@
 
 <jsp:include page="../foot.jsp" />
 
-<div class="popup popupUploadPhoto transparent hide">
+<div class="photoPopup popupUploadPhoto transparent hide">
     <div class="popupWindow">
         <div class="title">UPLOAD YOUR PHOTO</div>
         
@@ -319,7 +322,7 @@
 </div>
 
 <c:if test="${userImage!=null}">
-    <div class="popup popupRemovePhoto transparent hide">
+    <div class="photoPopup popupRemovePhoto transparent hide">
         <div class="popupWindow">
             <div class="title">REMOVE PHOTO</div>
             

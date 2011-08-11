@@ -1,31 +1,52 @@
 <%--
-  - Author: TCSDEVELOPER, pulky
-  - Version: 1.1
+  - Author: TCSDEVELOPER, pulky, pvmagacho
+  - Version: 1.3
   - Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page displays the member profile page.
   -
   - Version 1.1 (Testing Competition Split Release Assembly 1.0) changes: Updated Application Testing to Test Suites.
+  - Version 1.2 (BUG#TCCC-3216) changes: Member photo is now retrieved from informixoltp database.
+  - Version 1.3 (BUG#TCCC-3348) changes: Update link for no photo image. Pops up window to submit new photo.
 --%>
 <%@  page language="java"
     import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,com.topcoder.shared.util.ApplicationServer,
           com.topcoder.web.common.StringUtils, com.topcoder.web.common.WebConstants"%>
 
 <%@ page import="java.util.Map"%>
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
+<%@ page import="javax.servlet.http.HttpServletRequest"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtags" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder Member Profile</title>
+    <title>TopCoder Member Profile</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
 
-<jsp:include page="/script.jsp"/>
-<jsp:include page="/style.jsp">
-  <jsp:param name="key" value="tc_stats"/>
-</jsp:include>
+    <jsp:include page="/script.jsp"/>
+    <jsp:include page="/style.jsp">
+        <jsp:param name="key" value="tc_stats"/>
+    </jsp:include>
+
+    
+    <script type="text/javascript" src="/js/jquery-1.4.1.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.form.js"></script>
+    <script type="text/javascript" src="/js/jquery.Jcrop.js"></script>
+    <script type="text/javascript" src="/js/photo.js"></script> 
+    
+    <link type="text/css" href="/css/jquery.Jcrop.css" rel="stylesheet"/>
+    <link type="text/css" href="/css/photo.css" rel="stylesheet"/>
+    
+    <script type="text/javascript">
+        var previewPath = <%= request.getParameter("previewPath") == null ? null : "\'"  + request.getParameter("previewPath") + "\'" %>;
+        var originalFile = <%= request.getParameter("originalFileName") == null ? null : "\'"  + request.getParameter("originalFileName") + "\'" %>;
+    </script>
+
+
 </head>
 <body>
 
@@ -65,11 +86,16 @@ This member has not yet been rated in a competition.
    <tr><td class="tableTitle" colspan="3">&#160;</td></tr>
    <tr>
       <td class="photoCell">
-   <%if (rscCoderData.getItem(0,"has_image").toString().equals("1")) { %>
-      <IMG SRC='<rsc:item name="image_path" set="<%=rscCoderData%>"/>' class="memberPhoto" />
-   <% } else { %>
-      <a href="/tc?module=UserStatic&amp;d1=my_home&amp;d2=submitPhoto"><img SRC="/i/m/nophoto_login.gif" class="memberPhoto"/></a>
-   <% } %>
+      <c:choose>
+		  <c:when test="${userImage!=null}">
+			<img src="${pathImage}" name="image_path" alt="" class="memberPhoto" />
+		  </c:when>
+		  <c:otherwise>
+			<a href="javascript:;" id="submitPhotoLink">
+				<img src="/i/m/nophoto_login.gif" name="image_path" alt="" class="memberPhoto"/>
+			</a>
+		  </c:otherwise>
+      </c:choose>
       </td>
       <td valign="top">
          <table cellpadding="0" cellspacing="0" border="0" class="statTable">
@@ -325,6 +351,72 @@ This member has not yet been rated in a competition.
 </table>
 
 <jsp:include page="../foot.jsp" />
+
+<div class="photoPopup popupUploadPhoto transparent hide">
+    <div class="popupWindow">
+        <div class="title">UPLOAD YOUR PHOTO</div>
+        
+        <div class="content" id="uploadDiv">
+            <div id="photoUploadLeft">
+                <div class="locateInput">
+                    <div class="inner"></div>
+                </div>
+             
+                <form action="photo?module=upload&photoAction=preview" method="post" enctype="multipart/form-data" id="photoUploadForm">
+                    <a href="javascript:;" class="btn1 btnBrowse">
+                        <span class="rightSide">
+                            <span class="inner">
+                                Browse 
+                                <span class="file-wrapper">
+                                <input type="file" name="photoFile" id="inputFile" />
+                                </span>                     
+                            </span>                                           	 	
+                        </span>
+                    </a>
+                </form>
+                
+                <div id="uploadImage">
+                    <p>Uploaded Image</p>
+                </div>
+            </div>
+            <div id="photoUploadRight">
+                <div id="previewDiv">
+                    <img src="i/previewPhoto.jpg" alt="" />		
+                </div>
+            
+                <div class="alert">
+                    Browse Photo should be in *.JPG format file which is the width is 115 pixel and the height is 138 pixel.
+                </div>
+				<div>
+                    <a class="link" href="http://topcoder.com/home/help/?p=866">Photo Policy</a>
+                </div>
+                <a href="javascript:;" class="btn1 btnCancel">
+                    <span class="rightSide">
+                        <span class="inner">
+                            Cancel                                               
+                        </span>                                           	 	
+                    </span>                                         
+                </a>				
+                <a href="javascript:;" class="btn1 red btnUpload">
+                    <span class="rightSide">
+                        <span class="inner">
+                            Upload                                               
+                        </span>                                           	 	
+                    </span>                                         
+                </a>
+                <form action="photo?module=upload&photoAction=commit" method="post" id="submitPhotoForum">
+                    <input type="hidden" name="previewPath"></input>
+                    <input type="hidden" name="lx"></input>
+                    <input type="hidden" name="ly"></input>
+                    <input type="hidden" name="rx"></input>
+                    <input type="hidden" name="ry"></input>
+                    <input type="hidden" name="picWidth"></input>
+                    <input type="hidden" name="picHeight"></input>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 
