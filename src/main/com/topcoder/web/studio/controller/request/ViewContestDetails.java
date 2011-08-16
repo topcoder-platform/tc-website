@@ -12,6 +12,7 @@ import java.util.HashMap;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.ShortHibernateProcessor;
@@ -65,6 +66,8 @@ public class ViewContestDetails extends ShortHibernateProcessor {
      */
     private static final String CAN_VIEW_CONTEST_DETAILS_QUERY_NAME = "can_view_contest_details";
 
+    protected static final Logger log = Logger.getLogger(ViewContestDetails.class);
+
     /**
      * This method executes the actual business logic for this processor.
      *
@@ -72,99 +75,111 @@ public class ViewContestDetails extends ShortHibernateProcessor {
      * @see com.topcoder.web.common.LongHibernateProcessor#dbProcessing()
      */
     protected void dbProcessing() throws Exception {
-        String contestId = getRequest().getParameter(Constants.CONTEST_ID);
-        if ("".equals(StringUtils.checkNull(contestId))) {
-            throw new NavigationException("No contest specified");
-        } else {
-            Long cid;
-            try {
-                cid = new Long(contestId);
-            } catch (NumberFormatException e) {
-                throw new NavigationException("Invalid contest specified");
-            }
-            Contest contest = StudioDAOUtil.getFactory().getContestDAO().find(cid);
 
-            // Check if the user has permissions to see contest details even if it's still not active
-            long userId = getUser().getId();
-            if (Util.isAdmin(userId) || (userId == contest.getCreateUserId()) || hasPermissions(userId, cid)) {
-                getRequest().setAttribute("contest", contest);
-            } else {
-                if (ContestStatus.ACTIVE.equals(contest.getStatus().getId())) {
-                    Date now = new Date();
-                    if (contest.getStartTime().before(now)) {
-                        getRequest().setAttribute("contest", contest);
-                    } else {
-                        throw new NavigationException("Inactive contest specified.");
-                    }
-                } else {
-                    throw new NavigationException("Invalid contest specified.");
-                }
-            }
-            boolean registered = false;
-            if (userIdentified()) {
-                User u = DAOUtil.getFactory().getUserDAO().find(userId);
-                if (StudioDAOUtil.getFactory().getContestRegistrationDAO().find(contest, u) != null) {
-                    registered = true;
-                }
-            }
-
-            getRequest().setAttribute("registered", registered);
-
-            if ("on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
-                if (userIdentified()) {
-                    getRequest().setAttribute("has_global_ad",
-                        PactsServicesLocator.getService().hasGlobalAD(getUser().getId()));
-                } else {
-                    getRequest().setAttribute("has_global_ad", false);
-                }
-            }
-
-            getRequest().setAttribute("currentTime", new Date());
-            getRequest().setAttribute("has_cockpit_permissions", Util.hasCockpitPermissions(userId, cid));
+        try
+        {
             
-			
-			
-			
-			
-            if (contest != null && 
-                contest.getMultiRoundInformation() != null && contest.isMultiRound() &&
-                contest.getMultiRoundInformation().getMilestoneDate() != null &&
-                contest.getMultiRoundInformation().getMilestoneDate().before(new Date())) {
-                getRequest().setAttribute("canViewMilestone", true);
-                DataAccess da = new DataAccess(DBMS.STUDIO_DATASOURCE_NAME);
-                Request r = new Request();
-                r.setContentHandle("submissions");
-                r.setProperty(Constants.CONTEST_ID, contestId);
-                r.setProperty(Constants.SUBMISSION_RANK, contest.getMilestonePrize().getNumberOfSubmissions().toString());
-                
-                ResultSetContainer submissions = (ResultSetContainer) da.getData(r).get("submissions");
-                boolean milestonePrizeAvaliable = false;
-                int recordNum = submissions.size();
-                List<Integer> milestoneSubmissionId = new ArrayList<Integer>();
-                Map<Integer, String> milestoneSubmissionFeedback = new HashMap<Integer, String>();
-                for (int i = 0; i < recordNum; i++) {
-                    Object resultData = submissions.getItem(i, "award_milestone_prize").getResultData();                    
-                    Boolean awardMilestonePrize  = (resultData != null) && ((Boolean)resultData).booleanValue();
-                    if (awardMilestonePrize) {
-                        String feedbackText  = submissions.getStringItem(i, "feedback_text");
-                        Integer submissionId = submissions.getIntItem(i, "submission_id");
-                        milestoneSubmissionId.add(submissionId);
-                        milestoneSubmissionFeedback.put(submissionId, feedbackText.replaceAll("\n", "<br />"));
-                    }
-                    milestonePrizeAvaliable |= awardMilestonePrize;
-                }
-                
-                getRequest().setAttribute("milestonePrizeAvaliable", milestonePrizeAvaliable);
-                if (milestonePrizeAvaliable) {
-                    getRequest().setAttribute("milestoneSubmissionId", milestoneSubmissionId);
-                    getRequest().setAttribute("milestoneSubmissionFeedback", milestoneSubmissionFeedback);
-                }
+    
+            String contestId = getRequest().getParameter(Constants.CONTEST_ID);
+            if ("".equals(StringUtils.checkNull(contestId))) {
+                throw new NavigationException("No contest specified");
             } else {
-                getRequest().setAttribute("canViewMilestone", false);
+                Long cid;
+                try {
+                    cid = new Long(contestId);
+                } catch (NumberFormatException e) {
+                    throw new NavigationException("Invalid contest specified");
+                }
+                Contest contest = StudioDAOUtil.getFactory().getContestDAO().find(cid);
+
+                // Check if the user has permissions to see contest details even if it's still not active
+                long userId = getUser().getId();
+                if (Util.isAdmin(userId) || (userId == contest.getCreateUserId()) || hasPermissions(userId, cid)) {
+                    getRequest().setAttribute("contest", contest);
+                } else {
+                    if (ContestStatus.ACTIVE.equals(contest.getStatus().getId())) {
+                        Date now = new Date();
+                        if (contest.getStartTime().before(now)) {
+                            getRequest().setAttribute("contest", contest);
+                        } else {
+                            throw new NavigationException("Inactive contest specified.");
+                        }
+                    } else {
+                        throw new NavigationException("Invalid contest specified.");
+                    }
+                }
+                boolean registered = false;
+                if (userIdentified()) {
+                    User u = DAOUtil.getFactory().getUserDAO().find(userId);
+                    if (StudioDAOUtil.getFactory().getContestRegistrationDAO().find(contest, u) != null) {
+                        registered = true;
+                    }
+                }
+
+                getRequest().setAttribute("registered", registered);
+
+                if ("on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
+                    if (userIdentified()) {
+                        getRequest().setAttribute("has_global_ad",
+                            PactsServicesLocator.getService().hasGlobalAD(getUser().getId()));
+                    } else {
+                        getRequest().setAttribute("has_global_ad", false);
+                    }
+                }
+
+                getRequest().setAttribute("currentTime", new Date());
+                getRequest().setAttribute("has_cockpit_permissions", Util.hasCockpitPermissions(userId, cid));
+                
+                
+                
+                
+                
+                if (contest != null && 
+                    contest.getMultiRoundInformation() != null && contest.isMultiRound() &&
+                    contest.getMultiRoundInformation().getMilestoneDate() != null &&
+                    contest.getMultiRoundInformation().getMilestoneDate().before(new Date())) {
+                    getRequest().setAttribute("canViewMilestone", true);
+                    DataAccess da = new DataAccess(DBMS.STUDIO_DATASOURCE_NAME);
+                    Request r = new Request();
+                    r.setContentHandle("submissions");
+                    r.setProperty(Constants.CONTEST_ID, contestId);
+                    r.setProperty(Constants.SUBMISSION_RANK, contest.getMilestonePrize().getNumberOfSubmissions().toString());
+                    
+                    ResultSetContainer submissions = (ResultSetContainer) da.getData(r).get("submissions");
+                    boolean milestonePrizeAvaliable = false;
+                    int recordNum = submissions.size();
+                    List<Integer> milestoneSubmissionId = new ArrayList<Integer>();
+                    Map<Integer, String> milestoneSubmissionFeedback = new HashMap<Integer, String>();
+                    for (int i = 0; i < recordNum; i++) {
+                        Object resultData = submissions.getItem(i, "award_milestone_prize").getResultData();                    
+                        Boolean awardMilestonePrize  = (resultData != null) && ((Boolean)resultData).booleanValue();
+                        if (awardMilestonePrize) {
+                            String feedbackText  = submissions.getStringItem(i, "feedback_text");
+                            Integer submissionId = submissions.getIntItem(i, "submission_id");
+                            milestoneSubmissionId.add(submissionId);
+                            milestoneSubmissionFeedback.put(submissionId, feedbackText.replaceAll("\n", "<br />"));
+                        }
+                        milestonePrizeAvaliable |= awardMilestonePrize;
+                    }
+                    
+                    getRequest().setAttribute("milestonePrizeAvaliable", milestonePrizeAvaliable);
+                    if (milestonePrizeAvaliable) {
+                        getRequest().setAttribute("milestoneSubmissionId", milestoneSubmissionId);
+                        getRequest().setAttribute("milestoneSubmissionFeedback", milestoneSubmissionFeedback);
+                    }
+                } else {
+                    getRequest().setAttribute("canViewMilestone", false);
+                }
+
+                setNextPage("/contestDetails.jsp");
+                setIsNextPageInContext(true);
             }
 
-            setNextPage("/contestDetails.jsp");
-            setIsNextPageInContext(true);
+        }
+        catch (Exception e)
+        {
+            log.error("Exception in view contest detail : " +e);
+            throw e;
         }
 
     }
