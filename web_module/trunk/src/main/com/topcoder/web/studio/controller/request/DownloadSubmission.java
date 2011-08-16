@@ -10,7 +10,10 @@ import java.util.Set;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 
+import org.hibernate.Hibernate;
+
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.HibernateUtils;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.model.Image;
@@ -66,6 +69,8 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
                                                                    Image.GALLERY_MEDIUM_WATERMARKED_TYPE_ID,
                                                                    Image.GALLERY_FULL_WATERMARKED_TYPE_ID,
                                                                    Image.GALLERY_FULL_TYPE_ID};
+
+
     
 
     protected void dbProcessing() throws Exception {
@@ -78,6 +83,13 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
         }
 
         Submission s = StudioDAOUtil.getFactory().getSubmissionDAO().find(submissionId);
+        Hibernate.initialize(s.getPath());
+        Hibernate.initialize(s.getImages());
+        for (SubmissionImage image : s.getImages() )
+        {
+            Hibernate.initialize(image.getImage());
+        }
+        Hibernate.initialize(s.getMimeType());
 
         Contest contest = s.getContest();
         ContestChannel channel = contest.getChannel();
@@ -153,6 +165,10 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
             canDownload = false;
         }
 
+        
+        HibernateUtils.closeSession();
+        getRequest().removeAttribute(ACTIVE_CONVERSATION_FLAG);
+
         if (canDownload) {
             if (isStudioAdminV1) {
                 dbProcessingV1(s, isOwner);
@@ -179,18 +195,22 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
 
         log.debug("not done");
         String origFileName = s.getOriginalFileName();
+        String mimetype = s.getMimeType().getDescription();
+        long sid = s.getId();
+
+
         TCResponse response = getResponse();
         if (isOwner) {
             response.addHeader("content-disposition", "inline; filename=\"" + origFileName + "\"");
         } else {
-            response.addHeader("content-disposition", "inline; filename=\"" + s.getId()
+            response.addHeader("content-disposition", "inline; filename=\"" + sid
                     + origFileName.substring(origFileName.lastIndexOf('.'))
                     + "\"");
         }
         //resetting the cache-control header to empty.  IE freaks out and doesn't save when the
         //cache-control header is set the way we do for an uncached response.
         response.setHeader("Cache-Control", "");
-        response.setContentType(s.getMimeType().getDescription());
+        response.setContentType(mimetype);
 
         ServletOutputStream sos = response.getOutputStream();
         int size = copyFile(fis, sos);
@@ -265,13 +285,17 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
                 // tiny, small, medium and full
                 targetFileName = submission.getPath().getPath() + fileNames[0];
                 destFileName = fileNames[0];
+                beginCommunication();
                 StudioFileType fileType = UnifiedSubmissionValidator.getFileType(destFileName);
+                Hibernate.initialize(fileType.getMimeTypes());
+                
                 if (fileType!=null) {
                     Set<MimeType> mimeTypes = fileType.getMimeTypes();
                     if (!mimeTypes.isEmpty()) {
                         contentType = mimeTypes.iterator().next().getDescription();
                     }                	
                 }
+                closeConversation();
             }
         } else {
             // The original submission is requested
@@ -287,12 +311,14 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
 
         log.debug("not done");
 
+        String originalFileName = submission.getOriginalFileName();
+
         TCResponse response = getResponse();
         if (isOwner && originalSubmissionRequested) {
-            response.addHeader("content-disposition", "inline; filename=\"" + submission.getOriginalFileName()
+            response.addHeader("content-disposition", "inline; filename=\"" + originalFileName
                     + "\"");
             if (log.isDebugEnabled()) {
-                log.debug("content-disposition = inline; filename=\"" + submission.getOriginalFileName() + "\"");
+                log.debug("content-disposition = inline; filename=\"" + originalFileName + "\"");
             }
         } else {
             if (log.isDebugEnabled()) {
@@ -429,4 +455,18 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
             from.close();
         }
     }
+
+
+     /**
+     * End a conversation.  This will persist changes to the db, and wrap things up.
+     */
+    protected void closeConversation() {
+        log.debug("close conversation");
+     
+             HibernateUtils.closeSession();
+               log.info("close session");
+           
+        
+    }
+
 }
