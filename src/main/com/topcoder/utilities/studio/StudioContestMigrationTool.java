@@ -2040,6 +2040,7 @@ public class StudioContestMigrationTool extends TCLoad {
                                 = selectedContestsResult.getTimestamp("milestone_date");
                             String contestName = selectedContestsResult.getString("name");
                             String adminFee = selectedContestsResult.getString("admin_fee");
+                            String drpoints = selectedContestsResult.getString("dr_points");
                             String billingProjectId = selectedContestsResult.getString("billing_project_id");
                             String contestDescription = selectedContestsResult.getString("description");
                             boolean isMultiRoundContest = selectedContestsResult.getBoolean("is_multi_round");
@@ -2191,6 +2192,13 @@ public class StudioContestMigrationTool extends TCLoad {
                                 insertSingleProjectInfo(insertProjectInfoStmt, newProjectId, 32, billingProjectId, 
                                                         contestCreateUserId, contestStartTime); // Billing Project
                             }
+
+                            if (drpoints != null)
+                            {
+                                 insertSingleProjectInfo(insertProjectInfoStmt, newProjectId, 30, drpoints, 
+                                                        contestCreateUserId, contestStartTime); // DR points
+                            }
+
                             insertSingleProjectInfo(insertProjectInfoStmt, newProjectId, 41, "No", 
                                                     contestCreateUserId, contestStartTime); // Approval Required
                             insertSingleProjectInfo(insertProjectInfoStmt, newProjectId, 43, "Yes", 
@@ -2568,6 +2576,8 @@ public class StudioContestMigrationTool extends TCLoad {
             close(insertReviewItemCommentStmt);
             close(updatePaymentDetailsStmt);
             close(updateDrPointsStmt);
+            close(selectContestPaymentStmt);
+            close(insertContestSaleStmt);
             stopActivityRecording();
         }
     }
@@ -2780,10 +2790,13 @@ public class StudioContestMigrationTool extends TCLoad {
                                            "  WHEN CURRENT BETWEEN (multiround.milestone_date + 1 UNITS MINUTE) " +
                                            "       AND (multiround.milestone_date + 1 UNITS DAY) THEN 2 " +
                                            "  ELSE 3 " +
-                                           "END AS milestone_review_phase_status " +
+                                           "END AS milestone_review_phase_status, " +
+                                           "(cast(nvl(drpoints.property_value, '0') as varchar(255))) dr_points " + 
                                            "FROM contest c " +
                                            "LEFT JOIN contest_config fee ON c.contest_id = fee.contest_id " +
                                            "     AND fee.property_id = 25 " +
+                                           "LEFT JOIN contest_config drpoints ON c.contest_id = drpoints.contest_id " +
+                                           "     AND drpoints.property_id = 24 " +
                                            "LEFT JOIN contest_config billing ON c.contest_id = billing.contest_id " +
                                            "     AND billing.property_id = 28 " + 
                                            "LEFT JOIN contest_config descr ON c.contest_id = descr.contest_id " +
@@ -3565,6 +3578,8 @@ public class StudioContestMigrationTool extends TCLoad {
             saleTypeId = getLong(contestPaymentSet, "sale_type_id");
 
         }
+
+        contestPaymentSet.close();
       
         
         long newContestSaleId = getContestSaleIdGenerator().getNextID();
