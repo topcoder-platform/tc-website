@@ -496,10 +496,10 @@ public class StudioContestMigrationTool extends TCLoad {
             "multiround.general_feedback_text AS general_feedback_text, " + 
             "colors_r.property_value::lvarchar(500) AS colors, " +
             "fonts_r.property_value::lvarchar(500) AS fonts, " +
-            "layout_and_size_r.property_value::lvarchar(500) AS layout_and_size, " +
+            "layout_and_size_r.property_value::lvarchar(400) AS layout_and_size, " +
             "contest_introduction_r.property_value::lvarchar(2000) AS contest_introduction, " +
             "contest_description_r.property_value::lvarchar(10000) AS contest_description, " +
-            "content_requirements_r.property_value::lvarchar(2000) AS content_requirements " +
+            "content_requirements_r.property_value::lvarchar(1200) AS content_requirements " +
             "FROM contest c " +
             "LEFT JOIN contest_config colors_r ON c.contest_id = colors_r.contest_id AND colors_r.property_id = 14 " +
             "LEFT JOIN contest_config fonts_r ON c.contest_id = fonts_r.contest_id AND fonts_r.property_id = 15 " +
@@ -691,7 +691,22 @@ public class StudioContestMigrationTool extends TCLoad {
     */
     private static final String UPDATE_DR_POINTS_SQL
         = "UPDATE dr_points SET reference_id = ? WHERE reference_id = ?";
+
+
+   /**
+    * <p> A <code>String</code> providing the SQL statement for getting contest payment.</p>
+    */
+    private static final String SELECT_CONTEST_PAYMENT_SQL
+        = "select payment_status_id, price, paypal_order_id, create_date, sale_reference_id, sale_type_id  from contest_payment " +
+            " where contest_id = ?";
     
+    /**
+    * <p> A <code>String</code> providing the SQL statement for inserting contest_sale.</p>
+    */
+    private static final String INSERT_CONTEST_SALE_SQL
+        = "insert into contest_sale (contest_sale_id, contest_id,  sale_status_id, price, paypal_order_id, create_date, sale_reference_id, sale_type_id) " +
+            " values (?, ?, ?, ?, ?, ?, ?, ?)";
+
     /**
      * <p>A <code>Map</code> mapping the IDs for contest statuses from <code>Studio</code> database to <code>Online
      * Review</code> database.</p>
@@ -945,6 +960,14 @@ public class StudioContestMigrationTool extends TCLoad {
      * @since 1.1
      */
     private IDGenerator reviewItemCommentIdGenerator;
+
+     /**
+     * <p>A <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     * <code>tcs_catalog.contest_sale</code> table.</p>
+     * 
+     * @since 1.1
+     */
+    private IDGenerator contestSaleIdGenerator;
     
     /**
      * <p>A <code>long</code> providing the ID of a screening scorecard.</p>
@@ -1510,6 +1533,30 @@ public class StudioContestMigrationTool extends TCLoad {
         this.reviewItemCommentIdGenerator = reviewItemCommentIdGenerator;
     }
 
+     /**
+     * <p>Gets the generator for IDs for records inserted into <code>tcs_catalog.contest_sale</code> table.</p>
+     * 
+     * @return a <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     *          <code>tcs_catalog.contest_sale</code> table.
+     * @since 1.1
+     */
+    public IDGenerator getContestSaleIdGenerator() {
+        return contestSaleIdGenerator;
+    }
+
+    /**
+     * <p>Sets the generator for IDs for records inserted into <code>tcs_catalog.contest_sale</code> table.</p>
+     * 
+     * @param contestSaleIdGenerator a <code>IDGenerator</code> providing the generator for IDs for records inserted into
+     *          <code>tcs_catalog.contest_sale</code> table.
+     * @since 1.1
+     */
+    public void setContestSaleIdGenerator(IDGenerator contestSaleIdGenerator) {
+        this.contestSaleIdGenerator = contestSaleIdGenerator;
+    }
+
+    
+
     /**
      * <p>Gets the ID of a screening scorecard.</p>
      *
@@ -1701,6 +1748,8 @@ public class StudioContestMigrationTool extends TCLoad {
             setReviewIdGenerator(IDGeneratorFactory.getIDGenerator("review_id_seq"));
             setReviewItemIdGenerator(IDGeneratorFactory.getIDGenerator("review_item_id_seq"));
             setReviewItemCommentIdGenerator(IDGeneratorFactory.getIDGenerator("review_item_comment_id_seq"));
+            setContestSaleIdGenerator(IDGeneratorFactory.getIDGenerator("contest_sale_id_seq"));
+
             return true;
         } catch(IllegalArgumentException e) {
             logError(e);
@@ -1912,6 +1961,8 @@ public class StudioContestMigrationTool extends TCLoad {
         PreparedStatement insertReviewStmt = null;
         PreparedStatement insertReviewItemStmt = null;
         PreparedStatement insertReviewItemCommentStmt = null;
+        PreparedStatement selectContestPaymentStmt = null;
+        PreparedStatement insertContestSaleStmt = null;
         ResultSet selectedContestsResult = null;
         PreparedStatement updatePaymentDetailsStmt = null;
         PreparedStatement updateDrPointsStmt = null;
@@ -1956,6 +2007,8 @@ public class StudioContestMigrationTool extends TCLoad {
             selectContestsStmt = getSelectContestsStatement();
             updatePaymentDetailsStmt = prepareStatement(UPDATE_PAYMENT_INFO_SQL, TARGET_DB);
             updateDrPointsStmt = prepareStatement(UPDATE_DR_POINTS_SQL, TARGET_DB);
+            selectContestPaymentStmt = prepareStatement(SELECT_CONTEST_PAYMENT_SQL, SOURCE_DB);
+            insertContestSaleStmt = prepareStatement(INSERT_CONTEST_SALE_SQL, TARGET_DB);
             
             // Get the contests for migration and migrate each contest in a single separate transaction
             selectedContestsResult = selectContestsStmt.executeQuery();
@@ -2430,17 +2483,8 @@ public class StudioContestMigrationTool extends TCLoad {
                             }
 
 
-                            String submissionSrc = getStudioSubmissionsRoot() + System.getProperty("file.separator") + contestId;
-                            String submissionDest = getStudioSubmissionsRoot() + System.getProperty("file.separator") + newProjectId;
+                            copyContestPayment(selectContestPaymentStmt, insertContestSaleStmt, contestId, newProjectId);
 
-                            File srcFolder = new File (submissionSrc);
-                            File destFolder = new File (submissionDest);
-
-                            if (srcFolder.exists())
-                            {
-                                copyFolder(srcFolder,destFolder, submissionMap);                 
-                            }
-                            
                             // update payment details
                             updatePaymentDetailsStmt.clearParameters();
                             updatePaymentDetailsStmt.setLong(1, newProjectId);
@@ -2452,7 +2496,20 @@ public class StudioContestMigrationTool extends TCLoad {
                             updateDrPointsStmt.setLong(1, newProjectId);
                             updateDrPointsStmt.setLong(2, contestId);
                             updateRecord(updateDrPointsStmt, "dr_points");
+
+                            String submissionSrc = getStudioSubmissionsRoot() + System.getProperty("file.separator") + contestId;
+                            String submissionDest = getStudioSubmissionsRoot() + System.getProperty("file.separator") + newProjectId;
+
+                            File srcFolder = new File (submissionSrc);
+                            File destFolder = new File (submissionDest);
+
+                            if (srcFolder.exists())
+                            {
+                                copyFolder(srcFolder,destFolder, submissionMap);                 
+                            }
+
                             
+                                     
                             // If everything went smoothly then append ID of converted project to log messages
                             Object[] currentActivity = this.activities.peek();
                             currentActivity[0] = (String) currentActivity[0] + newProjectId;
@@ -3480,6 +3537,50 @@ public class StudioContestMigrationTool extends TCLoad {
         // modify_date
         insertReviewItemCommentStmt.setTimestamp(8, phaseEndTime);
         insertRecord(insertReviewItemCommentStmt, "review_item_comment");
+    }
+
+
+    private void copyContestPayment(PreparedStatement selectContestPaymentStmt, PreparedStatement insertContestSaleStmt, 
+                                    long contestId, long newProjectId)
+        throws IDGenerationException, SQLException, StudioContestMigrationException {
+
+        selectContestPaymentStmt.clearParameters();
+        selectContestPaymentStmt.setLong(1, contestId);
+
+        double price = 0.0d;
+        long paymentStatusId = 0;
+        String paypalOrderId = "";
+        Timestamp createDate = new Timestamp(new Date().getTime());
+        String saleRefId = "";
+        long saleTypeId = 0;
+
+        ResultSet contestPaymentSet = selectContestPaymentStmt.executeQuery();
+        while (contestPaymentSet.next()) {
+
+            paymentStatusId = getLong(contestPaymentSet, "payment_status_id");
+            price = price + contestPaymentSet.getDouble("price");
+            paypalOrderId = contestPaymentSet.getString("paypal_order_id");
+            createDate = contestPaymentSet.getTimestamp("create_date");
+            saleRefId = contestPaymentSet.getString("sale_reference_id");
+            saleTypeId = getLong(contestPaymentSet, "sale_type_id");
+
+        }
+      
+        
+        long newContestSaleId = getContestSaleIdGenerator().getNextID();
+        insertContestSaleStmt.clearParameters();
+        insertContestSaleStmt.setLong(1, newContestSaleId);
+        insertContestSaleStmt.setLong(2, newProjectId);
+        insertContestSaleStmt.setLong(3, paymentStatusId);
+        insertContestSaleStmt.setDouble(4, price);
+        insertContestSaleStmt.setString(5, paypalOrderId);
+        insertContestSaleStmt.setTimestamp(6, createDate);
+        insertContestSaleStmt.setString(7, saleRefId);
+        insertContestSaleStmt.setLong(8, saleTypeId);
+
+        insertRecord(insertContestSaleStmt, "contest_sale");
+
+
     }
     
     /**
