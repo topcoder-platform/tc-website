@@ -2382,7 +2382,23 @@ public class StudioContestMigrationTool extends TCLoad {
                             
                             // Load contest prizes to tcs_catalog.prize table
                             for (Map.Entry<Long, Prize> entry : contestPrizes.entrySet()) {
-                                insertSinglePrize(insertPrizeStmt, insertProjectPrizeXrefStmt, newProjectId, contestCreateUserId, entry.getValue());
+                                Prize prize = (Prize) entry.getValue();
+                                insertSinglePrize(insertPrizeStmt, insertProjectPrizeXrefStmt, newProjectId, contestCreateUserId, prize);
+
+                                if (prize.place == 1)
+                                {
+                                    insertSingleProjectInfo(insertProjectInfoStmt, newProjectId, 16, prize.prizeAmount.toString(), 
+                                                    contestCreateUserId, contestStartTime); 
+                                    
+                                    insertSingleProjectInfo(insertProjectInfoStmt, newProjectId, 36, prize.prizeAmount.toString(), 
+                                                    contestCreateUserId, contestStartTime); 
+                                }
+
+                                if (prize.place == 2)
+                                {
+                                    insertSingleProjectInfo(insertProjectInfoStmt, newProjectId, 37, prize.prizeAmount.toString(), 
+                                                    contestCreateUserId, contestStartTime); 
+                                }
                             }
                             if (isMultiRoundContest) {
                                 // Load milestone prizes to tcs_catalog.prize table
