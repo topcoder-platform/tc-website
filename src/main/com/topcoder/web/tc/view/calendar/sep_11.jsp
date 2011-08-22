@@ -119,6 +119,7 @@
       <td class="value">19
 	     <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14544">SRM 519</A></strong><br />
+		 brought to you by <A href="http://community.topcoder.com/tco11/overview-sponsors/">Intel</A><br />
          21:00
         </div>	  
       </td>

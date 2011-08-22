@@ -77,6 +77,7 @@
       <td class="value">4
 	  	 <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=14545">SRM 520</A></strong><br />
+		 brought to you by <A href="http://community.topcoder.com/tco11/overview-sponsors/">Intel</A><br />
          11:00
         </div>	  
       </td>
