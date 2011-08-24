@@ -530,7 +530,7 @@ public class StudioContestMigrationTool extends TCLoad {
      * @since 1.1
      */
     private static final String SELECT_SUBMISSION_SQL
-        = "SELECT s.submission_id, s.submitter_id, s.submission_status_id, s.submission_type_id, " +
+        = "SELECT s.submission_id, s.submitter_id, s.submission_status_id, s.submission_type_id, s.award_milestone_prize,  " +
             "     s.modify_date, s.user_rank, s.original_file_name, s.system_file_name, s.file_size, s.view_count, s.submission_date, s.create_date, " +
             "     p.path, s.feedback_text, sr.text as review_text, sr.review_status_id, " +
             "     (SELECT pr.prize_id FROM submission_prize_xref pz, prize pr " +
@@ -1974,7 +1974,7 @@ public class StudioContestMigrationTool extends TCLoad {
         PreparedStatement updatePaymentDetailsStmt = null;
         PreparedStatement updateDrPointsStmt = null;
         Map<Long, Prize> contestPrizes = new HashMap<Long, Prize>();
-        Map<Long, Prize> milestonePrizes = new HashMap<Long, Prize>();
+        List<Prize> milestonePrizes = new ArrayList<Prize>();
         
         try {
             // Prepare statements for querying contests for migration and inserting records into target database
@@ -2419,11 +2419,10 @@ public class StudioContestMigrationTool extends TCLoad {
                                                     contestCreateUserId, contestStartTime); 
                                 }
                             }
-                            if (isMultiRoundContest) {
-                                // Load milestone prizes to tcs_catalog.prize table
-                                for (Map.Entry<Long, Prize> entry : milestonePrizes.entrySet()) {
-                                    insertSinglePrize(insertPrizeStmt, insertProjectPrizeXrefStmt, newProjectId, contestCreateUserId, entry.getValue());
-                                }
+                            if (isMultiRoundContest) { 
+                        
+                                insertSinglePrize(insertPrizeStmt, insertProjectPrizeXrefStmt, newProjectId, contestCreateUserId, (Prize)milestonePrizes.get(0));
+                                
                             }
                             
                             Map<Long, Long> submitterResources = new HashMap<Long, Long>();
@@ -2960,14 +2959,14 @@ public class StudioContestMigrationTool extends TCLoad {
      * @param selectPrizesStmt the <code>PreparedStatement</code> to retrieve prizes from <code>studio</code> database.
      * @param contestId the id of contest in <code>studio</code> database.
      * @param contestPrizes a <code>Map</code> providing the <code>Contest Prize</code>s for the contest.
-     * @param milestonePrizes a <code>Map</code> providing the <code>Milestone Prize</code>s for the contest.
+     * @param milestonePrizes <code>Milestone Prize</code> for the contest.
      * @throws SQLException if an SQL error occurs.
      * @since 1.1
      */
-    private void getPrizes(PreparedStatement selectPrizesStmt, long contestId, Map<Long, Prize> contestPrizes, Map<Long, Prize> milestonePrizes)
+    private void getPrizes(PreparedStatement selectPrizesStmt, long contestId, Map<Long, Prize> contestPrizes, List<Prize> milestonePrizes)
         throws SQLException {
         contestPrizes.clear();
-        milestonePrizes.clear();
+        milestonePrizes.clear(); 
         
         ResultSet prizesResultSet = null;
         
@@ -2987,8 +2986,8 @@ public class StudioContestMigrationTool extends TCLoad {
                 if (prize.prizeTypeId == CONTEST_PRIZE_TYPE_ID) {
                     contestPrizes.put(prize.originalPrizeId, prize);
                 }
-                if (prize.prizeTypeId == MILESTONE_PRIZE_TYPE_ID) {
-                    milestonePrizes.put(prize.originalPrizeId, prize);
+                if (prize.prizeTypeId == MILESTONE_PRIZE_TYPE_ID) {   
+                    milestonePrizes.add(prize);
                 }
             }
         } finally {
@@ -3125,7 +3124,7 @@ public class StudioContestMigrationTool extends TCLoad {
      * @since 1.1
      */
     private List<Submission> getContestSubmissions(PreparedStatement selectSubmissionStmt, long contestId, Timestamp contestMilestoneDate,
-            Map<Long, Prize> contestPrizes, Map<Long, Prize> milestonePrizes) throws SQLException {
+            Map<Long, Prize> contestPrizes, List<Prize> milestonePrizes) throws SQLException {
         selectSubmissionStmt.clearParameters();
         selectSubmissionStmt.setLong(1, contestId);
         ResultSet selectedSubmissionsResult = selectSubmissionStmt.executeQuery();
@@ -3161,7 +3160,10 @@ public class StudioContestMigrationTool extends TCLoad {
                 sub.reviewText = selectedSubmissionsResult.getString("review_text");
                 sub.hasExtraPurcharse = (getLong(selectedSubmissionsResult, "client_selection_prize_id") != null);
                 Long reviewStatusId = getLong(selectedSubmissionsResult, "review_status_id");
+
+                sub.awardMilestone = selectedSubmissionsResult.getBoolean("award_milestone_prize");
                 sub.passedScreening = (reviewStatusId == null || reviewStatusId != 2);
+
                 if (CONTEST_SUBMISSISON_TYPE_ID == SUBMISSION_TYPE_MAPPING.get(sub.submissionTypeId)) {
                     // contest submission
                     sub.prizeId = getLong(selectedSubmissionsResult, "prize_id");
@@ -3179,13 +3181,7 @@ public class StudioContestMigrationTool extends TCLoad {
                         } else {
                             sub.prizeId = null;
                         }
-                    } else {
-                        // milestone submission
-                        if (milestonePrizes.containsKey(sub.prizeId)) {
-                            paidMilestoneSubmissionCount++;
-                            sub.placement = (long) paidMilestoneSubmissionCount;
-                        }
-                    }
+                    } 
                 }
                 submissions.add(sub);
             }
@@ -3230,7 +3226,7 @@ public class StudioContestMigrationTool extends TCLoad {
      * @since 1.1
      */
     private void insertSingleSubmission(PreparedStatement insertUploadStmt, PreparedStatement insertSubmissionStmt, PreparedStatement insertResourceSubmissionStmt, 
-            Submission sub, long projectId, long submitterResourceId, Map<Long, Prize> contestPrizes, Map<Long, Prize> milestonePrizes)
+            Submission sub, long projectId, long submitterResourceId, Map<Long, Prize> contestPrizes, List<Prize> milestonePrizes)
         throws SQLException, IDGenerationException, StudioContestMigrationException {
         // Insert into tcs_catalog.upload table
         long newUploadId = getUploadIdGenerator().getNextID();
@@ -3260,6 +3256,20 @@ public class StudioContestMigrationTool extends TCLoad {
         // Insert into tcs_catalog.submission table
         long newSubmissionId = getSubmissionIdGenerator().getNextID();
         Long newSubmissionStatusId = SUBMISSION_STATUS_MAPPING.get(sub.submissionStatusId);
+
+        if (!sub.passedScreening)
+        {
+            if (CONTEST_SUBMISSISON_TYPE_ID == SUBMISSION_TYPE_MAPPING.get(sub.submissionTypeId))
+            {
+                newSubmissionStatusId = 2L;  //faile screening
+            }
+            else 
+            {
+                 newSubmissionStatusId = 6L;  //faile milstone screening
+            }
+        }
+        
+
         Long newSubmissionTypeId = SUBMISSION_TYPE_MAPPING.get(sub.submissionTypeId);
         insertSubmissionStmt.clearParameters();
         // submission_id
@@ -3268,6 +3278,7 @@ public class StudioContestMigrationTool extends TCLoad {
         insertSubmissionStmt.setLong(2, newUploadId);
         // submission_status_id
         insertSubmissionStmt.setLong(3, newSubmissionStatusId);
+
         if (newSubmissionStatusId == ACTIVE_SUBMISSION_STATUS_ID) {
             // screening_score, 100 if submission passed review, 0 if submission not passed review
             insertSubmissionStmt.setDouble(4, sub.passedScreening ? 100 : 0);
@@ -3316,14 +3327,18 @@ public class StudioContestMigrationTool extends TCLoad {
             if (CONTEST_SUBMISSISON_TYPE_ID == newSubmissionTypeId) {
                 // contest submission
                 p = contestPrizes.get(sub.prizeId);
-            } else {
-                // milestone submission
-                p = milestonePrizes.get(sub.prizeId);
             }
         }
+        
+
+        if (sub.awardMilestone)
+        { 
+            p = (Prize)milestonePrizes.get(0); 
+        }
+
         if (p == null) {
             insertSubmissionStmt.setNull(15, Types.DECIMAL);
-        } else {
+        } else {  
             insertSubmissionStmt.setLong(15, p.newPrizeId);
         }
         
@@ -3850,6 +3865,9 @@ public class StudioContestMigrationTool extends TCLoad {
          * A flag indicate whether the submission has passed screening.
          */
         private boolean passedScreening;
+
+        // whether the submission is milestone winner
+        private boolean awardMilestone;
     }
 
 
