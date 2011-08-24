@@ -18,7 +18,8 @@ package com.topcoder.web.common.model;
  *   <li>Added {@link #getSpecReviewCost()} method to return the Specification Review Cost.</li>
  * </ol>
  * </p>
- * @author TCSASSEMBER
+ * 
+ * @author flexme
  * @version 1.1 (Online Review Replatforming Release 2)
  */
 public class StudioConstantReviewerPaymentCalculator extends BaseReviewerPaymentCalculator {

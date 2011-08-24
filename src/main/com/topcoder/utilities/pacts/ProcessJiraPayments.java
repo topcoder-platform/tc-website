@@ -32,6 +32,8 @@ import com.atlassian.jira.rpc.soap.beans.RemoteIssueType;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.sql.DBUtility;
 import com.topcoder.web.ejb.pacts.BasePayment;
+import com.topcoder.web.ejb.pacts.ComponentProjectReferencePayment;
+import com.topcoder.web.ejb.pacts.StudioContestReferencePayment;
 import com.topcoder.web.ejb.pacts.BugFixesPayment;
 import com.topcoder.web.ejb.pacts.ComponentBuildPayment;
 import com.topcoder.web.ejb.pacts.ComponentEnhancementsPayment;
@@ -144,7 +146,7 @@ public class ProcessJiraPayments extends DBUtility {
                     } else {
                         BasePayment payment = createPactsPayment(issue.getReferenceType(), issue.getPaymentType(),
                                 issue.getReferenceId(), issue.getClient(), issue.getPayeeUserId(),
-                                issue.getPaymentAmount(), issue.getDescription());
+                                issue.getPaymentAmount(), issue.getDescription(), issue.getKey());
 
                         payment = pactsService.addPayment(payment);
 
@@ -231,11 +233,11 @@ public class ProcessJiraPayments extends DBUtility {
      * @return the created payment instance.
      */
     private BasePayment createPactsPayment(String referenceType, String paymentType, long referenceId, String client,
-            long userId, double amount, String description) {
-
-        BasePayment payment = null;
+            long userId, double amount, String description, String jiraIssueKey) {
 
         if ("TopCoder".equals(referenceType)) {
+            ComponentProjectReferencePayment payment = null;
+
             if ("Bug Fix".equals(paymentType)) {
                 payment = new BugFixesPayment(userId, amount, client, referenceId);
             } else if ("Enhancement".equals(paymentType)) {
@@ -257,7 +259,14 @@ public class ProcessJiraPayments extends DBUtility {
             } else {
                 throw new IllegalArgumentException("Unknown TopCoder payment type: " + paymentType);
             }
+            payment.setNetAmount(amount);
+            payment.setDescription(description);
+            payment.setJiraIssueName(jiraIssueKey);
+
+            return payment;
         } else if ("Studio".equals(referenceType)) {
+            StudioContestReferencePayment payment = null;
+
             if ("Bug Fix".equals(paymentType)) {
                 payment = new StudioBugFixesPayment(userId, amount, client, referenceId);
             } else if ("Enhancement".equals(paymentType)) {
@@ -271,13 +280,14 @@ public class ProcessJiraPayments extends DBUtility {
             } else {
                 throw new IllegalArgumentException("Unknown Studio payment type: " + paymentType);
             }
+            payment.setNetAmount(amount);
+            payment.setDescription(description);
+            payment.setJiraIssueName(jiraIssueKey);
+
+            return payment;
         } else {
             throw new IllegalArgumentException("Unknown reference type: " + referenceType);
         }
-        payment.setNetAmount(amount);
-        payment.setDescription(description);
-
-        return payment;
     }
 
     /**
@@ -557,6 +567,11 @@ public class ProcessJiraPayments extends DBUtility {
          */
         private String description;
 
+        /**
+         * The issue key.
+         */
+        private String key;
+
         /** Whether this issue is being rejected for payment or not. */
         private boolean rejected;
 
@@ -581,6 +596,7 @@ public class ProcessJiraPayments extends DBUtility {
             populatePayeeUserId(remoteIssue);
             populatePaymentAmount(remoteIssue);
             populateDescription(remoteIssue);
+            populateKey(remoteIssue);
         }
 
         /**
@@ -591,6 +607,16 @@ public class ProcessJiraPayments extends DBUtility {
          */
         private void populateDescription(RemoteIssue remoteIssue) {
             description = "[" + remoteIssue.getKey() + "] - " + remoteIssue.getSummary();
+        }
+
+        /**
+         * Populates the key field from the provided RemoteIssue.
+         * 
+         * @param remoteIssue
+         *            the RemoteIssue to obtain data from.
+         */
+        private void populateKey(RemoteIssue remoteIssue) {
+            key = remoteIssue.getKey();
         }
 
         /**
@@ -788,6 +814,16 @@ public class ProcessJiraPayments extends DBUtility {
         public String getDescription() {
             return description;
         }
+
+        /**
+         * Returns the key of the JIRA issue.
+         * 
+         * @return the JIRA issue key.
+         */
+        public String getKey() {
+            return key;
+        }
+
     }
 
     /** A query that finds a member by handle and returns their user id. */

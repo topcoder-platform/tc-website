@@ -35,6 +35,7 @@ public abstract class SimpleRegBase extends RegistrationBase {
         setDefault(Constants.GIVEN_NAME, info.getFirstName());
         setDefault(Constants.MIDDLE_NAME, info.getMiddleName());
         setDefault(Constants.SURNAME, info.getLastName());
+        setDefault(Constants.NAME_IN_ANOTHER_LANGUAGE, info.getNameInAnotherLanguage());
         setDefault(Constants.ADDRESS1, info.getAddress1());
         setDefault(Constants.ADDRESS2, info.getAddress2());
         setDefault(Constants.ADDRESS3, info.getAddress3());
@@ -75,6 +76,8 @@ public abstract class SimpleRegBase extends RegistrationBase {
             info.setMiddleName(StringUtils.checkNull(getRequestParameter(Constants.MIDDLE_NAME)));
         if (hasRequestParameter(Constants.SURNAME))
             info.setLastName(StringUtils.checkNull(getRequestParameter(Constants.SURNAME)));
+        if (hasRequestParameter(Constants.NAME_IN_ANOTHER_LANGUAGE))
+            info.setLastName(StringUtils.checkNull(getRequestParameter(Constants.NAME_IN_ANOTHER_LANGUAGE)));
         if (hasRequestParameter(Constants.ADDRESS1))
             info.setAddress1(StringUtils.checkNull(getRequestParameter(Constants.ADDRESS1)));
         if (hasRequestParameter(Constants.ADDRESS2))
@@ -154,6 +157,8 @@ public abstract class SimpleRegBase extends RegistrationBase {
         if (info.getLastName().length() < 1) {
             addError(Constants.SURNAME, getBundle().getProperty("error_enter_last_name"));
         }
+
+        // nothing to check for name in another language
 
         //check address1
         if (info.getAddress1().length() < 1) {

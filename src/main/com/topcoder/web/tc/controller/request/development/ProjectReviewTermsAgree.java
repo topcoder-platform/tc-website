@@ -95,8 +95,12 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
                 if (!"on".equalsIgnoreCase(getRequest().getParameter(Constants.TERMS_AGREE))) {
                     addError(Constants.TERMS_AGREE, "You must agree to the terms in order to review a component.");
                 } else {
-                    // save user terms of use record
-                    saveUserTermsOfUse(userId, Long.parseLong(termsOfUseId));
+                    if (hasTermsOfUseBan(userId, Long.parseLong(termsOfUseId))) {
+                        addError(Constants.TERMS_AGREE, "Sorry, you can not agree to this terms of use.");
+                    } else {
+                        // save user terms of use record
+                        saveUserTermsOfUse(userId, Long.parseLong(termsOfUseId));
+                    }
                 }
                 
                 int[] roleIds = getResourceRoleIds(reviewTypeId, primary);

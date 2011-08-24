@@ -16,6 +16,7 @@ import com.topcoder.shared.util.DBMS;
  */
 public abstract class ComponentProjectReferencePayment extends BasePayment {
     private long projectId;
+    private String jiraIssueName;
 
     /**
      * Create a payment that references a component project.
@@ -72,8 +73,8 @@ public abstract class ComponentProjectReferencePayment extends BasePayment {
 
         super(paymentTypeId, coderId, client, grossAmount, placed);
         this.projectId = projectId;
+        this.jiraIssueName = null;
     }
-
 
     /**
      * Get the id of the project paid.
@@ -92,6 +93,25 @@ public abstract class ComponentProjectReferencePayment extends BasePayment {
     public void setProjectId(long projectId) {
         fieldChanged(MODIFICATION_REFERENCE, projectId != this.projectId);
         this.projectId = projectId;
+    }
+
+    /**
+     * Get the name of the associated JIRA issue.
+     *
+     * @return the name of the JIRA issue.
+     */
+    public String getJiraIssueName() {
+        return jiraIssueName;
+    }
+
+    /**
+     * Set the name of the associated JIRA issue.
+     *
+     * @param jiraIssueName the name of the JIRA issue.
+     */
+    public void setJiraIssueName(String jiraIssueName) {
+        fieldChanged(MODIFICATION_REFERENCE, jiraIssueName != this.jiraIssueName);
+        this.jiraIssueName = jiraIssueName;
     }
 
     /**

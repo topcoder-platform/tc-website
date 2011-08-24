@@ -127,10 +127,10 @@
                 <th id="projectNameHeaderID">Project Name</th>
                 <th class="display-none"></th>
                 <th class="border-l" colspan="2">
-                    <div class="numberof border-b" id="numberOfContestHeaderID"><span># of contests</span></div>
+                    <div class="numberof border-b" id="numberOfContestHeaderID"><span>Number of contests</span></div>
                     <div class="plan-real">
                         <div class="plan border-r" id="plannedContestHeaderID"><span>Planned</span></div>
-                        <div class="real" id="realContestHeaderID"><span>Real</span></div>
+                        <div class="real" id="realContestHeaderID"><span>Actual</span></div>
                     </div>
                 </th>
                 <th class="display-none"></th>
@@ -138,12 +138,12 @@
                     <div class="numberof border-b" id="durationHeaderID"><span>Duration</span></div>
                     <div class="plan-real">
                         <div class="plan border-r" id="plannedDurationHeaderID"><span>Planned</span></div>
-                        <div class="real" id="realDurationHeaderID"><span>Real</span></div>
+                        <div class="real" id="realDurationHeaderID"><span>Actual</span></div>
                     </div>
                 </th>
 
-                <th class="border-l" id="repostHeaderID"># of Reposts</th>
-                <th class="border-l" id="failureHeaderID"># of Failures</th>
+                <th class="border-l" id="repostHeaderID">Number of Reposts</th>
+                <th class="border-l" id="failureHeaderID">Number of Failures</th>
                 <th class="border-l" id="statusHeaderID">Status</th>
             </tr>
             </thead>

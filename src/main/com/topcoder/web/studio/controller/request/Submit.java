@@ -98,8 +98,17 @@ import com.topcoder.web.studio.validation.UnifiedSubmissionValidator;
  *   </ol>
  * </p>
  *
+ * <p>
+ * Version 1.3 (Upload Progress Base Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Replaced tab characters with 4 white-spaces sequences.</li>
+ *     <li>Updated {@link #dbProcessing()} method to append ID of upload associated with submission to URL of 
+ *     <code>ViewSubmissionSuccess</code> action.</li>
+ *   </ol>
+ * </p>
+ *
  * @author dok, isv, Vitta, orange_cloud, pvmagacho, TCSASSEMBER
- * @version 1.2.2
+ * @version 1.3
  */
 public class Submit extends BaseSubmissionDataProcessor {	
 	private static final Logger log = Logger.getLogger(Submit.class);
@@ -525,6 +534,8 @@ public class Submit extends BaseSubmissionDataProcessor {
 					nextPage.append(getSessionInfo().getServletPath());
 					nextPage.append("?" + Constants.MODULE_KEY + "=ViewSubmissionSuccess&");
 					nextPage.append(Constants.SUBMISSION_ID + "=").append(s.getId());
+                    nextPage.append("&").append(Constants.UPLOAD_ID + "=").append(
+                        getRequest().getParameter(Constants.UPLOAD_ID));
 					setNextPage(nextPage.toString());
 					setIsNextPageInContext(false);
 				}

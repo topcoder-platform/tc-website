@@ -35,7 +35,7 @@
 
                       <h4 class="floated">Is this information correct?</h4>
                       <p class="bigRed">
-                          NOTE: You have not updated your information yet. You MUST click CONFIRM at the bottom of this page to complete registration.   
+                          NOTE: You have not updated your information yet. You MUST click SUBMIT at the bottom of this page to complete registration.   
                       </p>
 
                     </div>
@@ -76,6 +76,19 @@
         </td>
         <td class="field-value">
                 ${regUser.lastName}
+        </td>
+    </tr>
+</c:if>
+
+
+<c:set value="<%=Constants.NAME_IN_ANOTHER_LANGUAGE%>" var="nameInAnotherLanguage"/>
+<c:if test="${cf:contains(fields, nameInAnotherLanguage)}">
+    <tr>
+        <td class="field-name">
+            Name in Another Language:
+        </td>
+        <td class="field-value">
+                ${regUser.nameInAnotherLanguage}
         </td>
     </tr>
 </c:if>

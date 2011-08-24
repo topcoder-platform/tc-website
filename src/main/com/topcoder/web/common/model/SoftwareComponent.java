@@ -57,7 +57,7 @@ import com.topcoder.web.common.WebConstants;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, snow01, VolodymyrK, FireIce, TCSASSEMBER
+ * @author dok, pulky, snow01, VolodymyrK, FireIce, flexme
  * @version 1.6
  */
 public interface SoftwareComponent extends Cloneable, Serializable {

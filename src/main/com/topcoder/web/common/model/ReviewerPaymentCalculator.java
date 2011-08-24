@@ -13,7 +13,7 @@ package com.topcoder.web.common.model;
  *   </ol>
  * </p>
  * 
- * @author ivern, TCSASSEMBER
+ * @author ivern, flexme
  * @version 1.0.1
  */
 public interface ReviewerPaymentCalculator {

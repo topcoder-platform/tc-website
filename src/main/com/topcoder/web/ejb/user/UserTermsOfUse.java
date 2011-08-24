@@ -14,6 +14,7 @@ public interface UserTermsOfUse extends EJBObject {
 
     public boolean hasTermsOfUse(long userId, long termsOfUseId, String dataSource)
             throws EJBException, RemoteException;
-}
 
-;
+    public boolean hasTermsOfUseBan(long userId, long termsOfUseId, String dataSource)
+            throws EJBException, RemoteException;
+};

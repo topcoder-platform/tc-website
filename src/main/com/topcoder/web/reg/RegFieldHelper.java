@@ -72,6 +72,7 @@ public class RegFieldHelper {
     static {
         mainCompFields.add(Constants.GIVEN_NAME);
         mainCompFields.add(Constants.SURNAME);
+        mainCompFields.add(Constants.NAME_IN_ANOTHER_LANGUAGE);
         mainCompFields.add(Constants.ADDRESS1);
         mainCompFields.add(Constants.ADDRESS2);
         mainCompFields.add(Constants.ADDRESS3);
@@ -157,6 +158,7 @@ public class RegFieldHelper {
     static {
         mainHSFields.add(Constants.GIVEN_NAME);
         mainHSFields.add(Constants.SURNAME);
+        mainHSFields.add(Constants.NAME_IN_ANOTHER_LANGUAGE);
         mainHSFields.add(Constants.CITY);
         mainHSFields.add(Constants.STATE_CODE);
         mainHSFields.add(Constants.COUNTRY_CODE);
@@ -208,6 +210,7 @@ public class RegFieldHelper {
     static {
         mainCorpFields.add(Constants.GIVEN_NAME);
         mainCorpFields.add(Constants.SURNAME);
+        mainCorpFields.add(Constants.NAME_IN_ANOTHER_LANGUAGE);
         mainCorpFields.add(Constants.ADDRESS1);
         mainCorpFields.add(Constants.ADDRESS2);
         mainCorpFields.add(Constants.ADDRESS3);
@@ -252,6 +255,7 @@ public class RegFieldHelper {
     static {
         mainSoftwareFields.add(Constants.GIVEN_NAME);
         mainSoftwareFields.add(Constants.SURNAME);
+        mainSoftwareFields.add(Constants.NAME_IN_ANOTHER_LANGUAGE);
         mainSoftwareFields.add(Constants.ADDRESS1);
         mainSoftwareFields.add(Constants.ADDRESS2);
         mainSoftwareFields.add(Constants.ADDRESS3);
@@ -312,6 +316,7 @@ public class RegFieldHelper {
     static {
         mainStudioFields.add(Constants.GIVEN_NAME);
         mainStudioFields.add(Constants.SURNAME);
+        mainStudioFields.add(Constants.NAME_IN_ANOTHER_LANGUAGE);
         mainStudioFields.add(Constants.ADDRESS1);
         mainStudioFields.add(Constants.ADDRESS2);
         mainStudioFields.add(Constants.ADDRESS3);

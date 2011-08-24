@@ -99,7 +99,7 @@ import com.topcoder.shared.util.logging.Logger;
  *   </ol>
  * </p>
  *
- * @author dok, ivern, isv, pulky, snow01, VolodymyrK, FireIce, TCSASSEMBER
+ * @author dok, ivern, isv, pulky, snow01, VolodymyrK, FireIce, flexme
  * @version 1.1.8
  */
 
@@ -287,7 +287,13 @@ public class DefaultPriceComponent implements SoftwareComponent {
      * @since 1.0.1
      */
     public float getFinalReviewCost() {
-        return Math.round(this.calculator.getFinalReviewCost());
+        float finalReviewCost = Math.round(this.calculator.getFinalReviewCost());
+
+        // Development final reviewers get paid the build payment upfront.
+        if (phaseId == DEV_PHASE) {
+            finalReviewCost += 15.0f;
+        }
+        return finalReviewCost;
     }
 
     /**
@@ -353,7 +359,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
             case DESIGN_PHASE: return 30;
             case DEV_PHASE: return 30;
             case ARCHITECTURE_PHASE: return 50;
-            case ASSEMBLY_PHASE: return 50;
+            case ASSEMBLY_PHASE: return 100;
             case CONCEPTUALIZATION_PHASE: return 30;
             case SPECIFICATION_PHASE: return 40;
             case TEST_SUITES_PHASE: return 50;

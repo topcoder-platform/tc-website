@@ -161,5 +161,46 @@ public class UserTermsOfUseBean extends BaseEJB {
         }
         return ret;
     }
+
+    /**
+     * <p>Checks if there is a record on the fact of banning the specified user from acceptinhg the specified terms of use.</p>
+     *
+     * @param userId a <code>long</code> providing the user ID.
+     * @param termsOfUseId a <code>long</code> providing the terms of use ID.
+     * @param dataSource a <code>String</code> referencing the datasource to be used for establishing connection to
+     *        target database.
+     * @return <code>true</code> if specified user has ban for the specified terms of use; <code>false</code> otherwise.
+     * @throws EJBException if an unexpected error occurs.
+     */
+    public boolean hasTermsOfUseBan(long userId, long termsOfUseId, String dataSource)
+            throws EJBException {
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        boolean ret = false;
+        try {
+            StringBuffer query = new StringBuffer(1024);
+            query.append("SELECT '1' ");
+            query.append("FROM user_terms_of_use_ban_xref ");
+            query.append("WHERE user_id=? AND terms_of_use_id=?");
+
+            conn = DBMS.getConnection(dataSource);
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, userId);
+            ps.setLong(2, termsOfUseId);
+
+            rs = ps.executeQuery();
+            ret = rs.next();
+        } catch (SQLException _sqle) {
+            DBMS.printSqlException(true, _sqle);
+            throw(new EJBException(_sqle.getMessage()));
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+        }
+        return ret;
+    }
 }
 

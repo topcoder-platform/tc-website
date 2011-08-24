@@ -51,7 +51,7 @@
     <c:set var="createDate" value="${row.map['submit_date']}"/>
 </c:if>
 
-<c:set var="bonusPrize" value="<%=Prize.MILESTONE_PRIZE_TYPE_ID%>"/>
+<c:set var="bonusPrize" value="<%=new Long(Prize.MILESTONE_PRIZE_TYPE_ID)%>"/>
 <c:set var="multi" value="false"/>
 
 <c:set var="downloadSubmissionBaseUrl"

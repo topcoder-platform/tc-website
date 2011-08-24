@@ -90,6 +90,7 @@ public class Constants implements WebConstants {
     public static int MAX_SECRET_QUESTION_RESPONSE_LENGTH;
     public static int MAX_GIVEN_NAME_LENGTH;
     public static int MAX_SURNAME_LENGTH;
+    public static int MAX_NAME_IN_ANOTHER_LANGUAGE_LENGTH;
     public static int MAX_MIDDLE_NAME_LENGTH;
     public static int MAX_ADDRESS_LENGTH;
     public static int MAX_CITY_LENGTH;

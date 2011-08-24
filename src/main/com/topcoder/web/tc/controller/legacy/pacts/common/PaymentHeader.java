@@ -83,6 +83,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
     private String createDate;
 
     private String invoiceNumber;
+    private String jiraIssueName;
 
     /**************\
      *              *
@@ -398,6 +399,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
     public void setParentPaymentId(long parentReferenceId) {
         this.parentPaymentId = parentReferenceId;
     }
+
     public long getReferenceId() {
         switch(BasePayment.getReferenceTypeId(typeId)) {
         case REFERENCE_ALGORITHM_ROUND_ID : return algorithmRoundId;
@@ -435,6 +437,14 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
 
     public void setInvoiceNumber(String invoiceNumber) {
         this.invoiceNumber = invoiceNumber;
+    }
+
+    public String getJiraIssueName() {
+        return jiraIssueName;
+    }
+
+    public void setJiraIssueName(String jiraIssueName) {
+        this.jiraIssueName = jiraIssueName;
     }
 
 }
