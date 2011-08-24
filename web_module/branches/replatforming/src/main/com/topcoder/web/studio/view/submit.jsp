@@ -494,7 +494,7 @@
                         <img alt="loading" src="i/loading-complete-icon.gif"
                              class="upload-image-sign upload-completed hide">
                         <span class="state">Uploading....</span>
-                        <span class="note">Please don’t close the browser until uploading file is finish</span>
+                        <span class="note">Please don’t close the browser until the file is uploaded</span>
                     </div>
                     <div class="progress-bar">
                         <span class="left-corner"></span>
