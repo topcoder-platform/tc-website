@@ -71,6 +71,13 @@ public class StudioContestMigrationTool extends TCLoad {
     private static final DateFormat RESOURCE_DATE_FORMAT = new SimpleDateFormat("MM.dd.yyyy hh:mm a");
 
     /**
+     * <p>A <code>DateFormat</code> to be used for parsing the dates to project_info 21 completion timestamp format.</p>
+     * 
+     * @since 1.1
+     */
+    private static final DateFormat PROJECT_INFO_COMPLETION_DATE_FORMAT = new SimpleDateFormat("MM.dd.yyyy HH:mm z");
+
+    /**
      * <p>A <code>String</code> providing the name of configuration parameter to be used to provide the start date for
      * period to select the contests for migration.</p>
      */
@@ -2015,6 +2022,7 @@ public class StudioContestMigrationTool extends TCLoad {
 
             while (selectedContestsResult.next()) {
                 Long contestStatusId = getLong(selectedContestsResult, "contest_status_id");
+                Long contestDetailedStatusId = getLong(selectedContestsResult, "contest_detailed_status_id");
                 Long contestTypeId = getLong(selectedContestsResult, "contest_type_id");
                 long contestId = selectedContestsResult.getLong("contest_id");
 
@@ -2119,7 +2127,7 @@ public class StudioContestMigrationTool extends TCLoad {
                             long newProjectId = getProjectIdGenerator().getNextID();
                             insertProjectStmt.clearParameters();
                             insertProjectStmt.setLong(1, newProjectId);
-                            if ((contestStatusId == 2) && (contestWinnerAnnouncementTime.before(new Date()))) {
+                            if ((contestStatusId == 2) && (contestDetailedStatusId == 8)) {
                                 insertProjectStmt.setLong(2, 7);
                             } else {
                                 insertProjectStmt.setLong(2, STATUS_MAPPING.get(contestStatusId));
@@ -2183,6 +2191,16 @@ public class StudioContestMigrationTool extends TCLoad {
                                 insertSingleProjectInfo(insertProjectInfoStmt, newProjectId, 53, viewableSubmissionsFlag,
                                         contestCreateUserId, contestStartTime);
                             }
+
+                             // complated, set completion timestamp to winner annoucement date
+                            if (contestDetailedStatusId == 8)
+                            {
+                                insertSingleProjectInfo(insertProjectInfoStmt, newProjectId, 21, PROJECT_INFO_COMPLETION_DATE_FORMAT.format(new Date(contestWinnerAnnouncementTime.getTime())), 
+                                                    contestCreateUserId, contestStartTime); // Completion Timestamp
+                            }
+
+                            insertSingleProjectInfo(insertProjectInfoStmt, newProjectId, 22, PROJECT_INFO_COMPLETION_DATE_FORMAT.format(new Date(contestEndTime.getTime())), 
+                                                    contestCreateUserId, contestStartTime); // Rating Timestamp
                             
                             if (adminFee != null) {
                                 insertSingleProjectInfo(insertProjectInfoStmt, newProjectId, 31, adminFee, 
@@ -2207,6 +2225,7 @@ public class StudioContestMigrationTool extends TCLoad {
                                                     contestCreateUserId, contestStartTime); // Post-Mortem Required
                             insertSingleProjectInfo(insertProjectInfoStmt, newProjectId, 46, "true", 
                                                     contestCreateUserId, contestStartTime); // Member Payments Eligible
+                           
 
                             // Insert into tcs_catalog.project_phase
                             // Registration phase
@@ -2762,7 +2781,7 @@ public class StudioContestMigrationTool extends TCLoad {
      */
     private PreparedStatement getSelectContestsStatement() throws SQLException {
         final String SELECT_CONTESTS_SQL = "SELECT c.contest_id, c.name, c.start_time, c.end_time, " +
-                                           "c.contest_status_id, c.forum_id, c.contest_type_id, " +
+                                           "c.contest_status_id, c.contest_detailed_status_id, c.forum_id, c.contest_type_id, " +
                                            "c.tc_direct_project_id, c.create_user_id, u.handle as create_user_handle, c.winner_announcement_time, " +
                                            "c.is_multi_round, " +
                                            "(cast(nvl(fee.property_value, '0') as varchar(255))) admin_fee, " +
