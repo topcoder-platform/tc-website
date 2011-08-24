@@ -117,6 +117,12 @@ public class CreateTermsOfUseAgreement extends Base {
             return false;
         }
 
+        // check if the the specified user is banned from accepting this terms of use
+        if (userTermsOfUse.hasTermsOfUseBan(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
+            addError(Constants.HANDLE, "The specified handle is banned from having this terms of use.");
+            return false;
+        }
+
         try {
             userTermsOfUse.createUserTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
             return true;

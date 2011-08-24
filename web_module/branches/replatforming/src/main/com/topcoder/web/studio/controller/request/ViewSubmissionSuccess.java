@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2006-2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.studio.controller.request;
 
@@ -13,7 +13,16 @@ import com.topcoder.web.studio.dto.Resource;
 import com.topcoder.web.studio.dto.Submission;
 
 /**
- * <p>This class will process a request to view contest submissions after a successful submission.</p> 
+ * <p>A controller for handling the requests for viewing the <code>Submission Uploading Success</code> page once the
+ * submission is uploaded to server successfully.</p>
+ *
+ * <p>
+ * Version 1.1 (Upload Progress Bar Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #dbProcessing()} method to remove the progress info for upload associated with submission from
+ *     current session.</li>
+ *   </ol>
+ * </p>
  * 
  * <p>
  *   Version 1.1 (Re-platforming Studio Release 3 Assembly) Change notes:
@@ -29,11 +38,12 @@ import com.topcoder.web.studio.dto.Submission;
  *     <li>Using the dto classes in com.topcoder.web.studio.dto package instead of in com.topcoder.web.common.model.comp package.</li>
  *   </ol>
  * </p>
- *
- * @author dok, pvmagacho, TCSASSEMBER
- * @version 1.2
+ * 
+ * @author dok, isv, pvmagacho, TCSASSEMBER
+ * @version 1.3
  */
 public class ViewSubmissionSuccess extends BaseSubmissionDataProcessor {
+
     /**
      * <p>Constructs new <code>ViewSubmissionSuccess</code> instance. This implementation does nothing.</p>
      * 
@@ -43,10 +53,10 @@ public class ViewSubmissionSuccess extends BaseSubmissionDataProcessor {
     }
 
     /**
-     * This method executes the actual business logic for this processor.
-     *
-     * @throws Exception if any error occurs
-     * @see com.topcoder.web.common.LongHibernateProcessor#dbProcessing()
+     * <p>Handles the incoming request. Loads submission data and binds it to request and forwards the request to
+     * <code>submissionSuccess.jsp</code>. Also removes the progress info for associated upload from session.</p>
+     * 
+     * @throws Exception if an unexpected error occurs.
      */
     protected void dbProcessing() throws Exception {
         if (userLoggedIn()) {
@@ -58,8 +68,13 @@ public class ViewSubmissionSuccess extends BaseSubmissionDataProcessor {
                 loadSubmissionData(resource, s.getContest(), dao, DAOUtil.getFactory().getUploadDAO());
                 setIsNextPageInContext(true);
                 setNextPage("submissionSuccess.jsp");
+                
+                // Clean-up the upload progress info from session
+                String uploadId = getRequest().getParameter(Constants.UPLOAD_ID);
+                UploadProgress.cleanup(getRequest(), uploadId);
             } else {
-                throw new NavigationException("Illegal operation attempted, submission doesn't belong to current user.");
+                throw new NavigationException("Illegal operation attempted, submission doesn't belong to current "
+                                              + "user.");
             }
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));

@@ -12,7 +12,7 @@
 <html>
 <head>
 <title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
-<link rel="stylesheet" href="/news/wp-content/themes/tc2/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="http://www.topcoder.com/news/wp-content/themes/tc2/style.css" type="text/css" media="screen" />
 <jsp:include page="../script.jsp" />
 <jsp:include page="../style.jsp">
   <jsp:param name="key" value="tc_home"/>

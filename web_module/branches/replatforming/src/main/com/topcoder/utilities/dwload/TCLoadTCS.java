@@ -103,8 +103,16 @@ import com.topcoder.utilities.dwload.contestresult.drv2.ContestResultCalculatorV
  *   </ol>
  * </p>
  *
- * @author rfairfax, pulky, ivern, VolodymyrK, moonli, TCSDEVELOPER
- * @version 1.1.9
+ * <p>
+ * Version 1.2.0 (TC Cockpit Contest Duration Calculation Updates Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #doLoadProjects()} method to exclude duration of <code>Approval</code> phases from contest 
+ *     duration.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author rfairfax, pulky, ivern, VolodymyrK, moonli, isv
+ * @version 1.2.0
  */
 public class TCLoadTCS extends TCLoad {
 
@@ -969,6 +977,16 @@ public class TCLoadTCS extends TCLoad {
                           "             AND NOT pmd2.payment_status_id IN (65, 68, 69)), 0) " +
                           "   end AS contest_prizes_total " +
                             "   , pib.value AS billing_project_id " +
+                            "   , (SELECT MAX(ppfr.actual_end_time) " +
+                            "      FROM project_phase ppfr " +
+                            "      WHERE ppfr.project_id = p.project_id " +
+                            "      AND ppfr.phase_type_id = 10 " +
+                            "      AND ppfr.phase_status_id = 3 " +
+                            "      AND ppfr.actual_end_time <= (SELECT MIN(NVL(actual_start_time, scheduled_start_time)) " +
+                            "                                   FROM project_phase ppappr " +
+                            "                                   WHERE ppappr.project_id = p.project_id " +
+                            "                                   AND ppappr.phase_type_id = 11)) " +
+                            "    as actual_complete_date  " +
                             "   from project p , " +
                             "   project_info pir, " +
                             "   project_info pivers, " +
@@ -1041,7 +1059,7 @@ public class TCLoadTCS extends TCLoad {
                     "rating_date = ?, num_submissions_passed_review=?, winner_id=?, stage_id = ?, digital_run_ind = ?, " +
                     "suspended_ind = ?, project_category_id = ?, project_category_name = ?, " +
                     "tc_direct_project_id = ?, admin_fee = ?, contest_prizes_total = ?, " +
-                    "client_project_id = ? " +
+                    "client_project_id = ?, duration = ? " +
                     "where project_id = ? ";
 
             final String INSERT = "insert into project (project_id, component_name, num_registrations, num_submissions, " +
@@ -1049,17 +1067,17 @@ public class TCLoadTCS extends TCLoad {
                     "category_id, category_desc, posting_date, submitby_date, complete_date, component_id, " +
                     "review_phase_id, review_phase_name, status_id, status_desc, level_id, viewable_category_ind, version_id, " +
                     "version_text, rating_date, num_submissions_passed_review, winner_id, stage_id, digital_run_ind, suspended_ind, project_category_id, project_category_name, " +
-                    "tc_direct_project_id, admin_fee, contest_prizes_total, client_project_id) " +
+                    "tc_direct_project_id, admin_fee, contest_prizes_total, client_project_id, duration) " +
                     "values (?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, " +
                     "?, ?, ?, ?, ?, ?, ?, ?, ?, " +
-                    "?) ";
+                    "?, ?) ";
 
             // Statements for updating the duration, fulfillment, start_date_calendar_id fields
-            final String UPDATE_AGAIN = "UPDATE project SET duration = (complete_date - posting_date)::interval minute(9) to minute::char(20)::decimal(10,2), " +
+            final String UPDATE_AGAIN = "UPDATE project SET " +
                                            "fulfillment = (CASE WHEN status_id = 7 THEN 1 ELSE 0 END), " +
                                            "start_date_calendar_id = (SELECT calendar_id FROM calendar c WHERE YEAR(project.posting_date) = c.year " +
                                            "                          AND MONTH(project.posting_date) = c.month_numeric " +
@@ -1095,8 +1113,10 @@ public class TCLoadTCS extends TCLoad {
                         continue;
                         // throw new Exception("component " + rs.getString("component_name") + " has a version > 999");
                     }
+                    
+                    long duration = -1;
 
-                    Date postingDate = rs.getDate("posting_date");
+                    Timestamp postingDate = rs.getTimestamp("posting_date");
                     //update record, if 0 rows affected, insert record
                     update.setString(1, rs.getString("component_name"));
                     update.setObject(2, rs.getObject("num_registrations"));
@@ -1108,14 +1128,24 @@ public class TCLoadTCS extends TCLoad {
                     update.setString(8, rs.getString("phase_desc"));
                     update.setInt(9, rs.getInt("category_id"));
                     update.setString(10, rs.getString("category_desc"));
-                    update.setDate(11, postingDate);
+                    if (postingDate != null) {
+                        update.setDate(11, new Date(postingDate.getTime()));
+                    } else {
+                        update.setNull(11, Types.DATE);
+                    }
                     update.setDate(12, rs.getDate("submitby_date"));
                     Timestamp completeDate = convertToDate(rs.getString("complete_date"));
+                    Timestamp actualCompleteDate = convertToDate(rs.getString("actual_complete_date"));
                     if (completeDate != null) {
                         update.setTimestamp(13, completeDate);
                     } else {
                         update.setNull(13, Types.TIMESTAMP);
                     }
+                    
+                    if (actualCompleteDate != null && postingDate != null) {
+                            duration = actualCompleteDate.getTime() - postingDate.getTime();
+                    } 
+
                     update.setLong(14, rs.getLong("component_id"));
                     update.setLong(15, rs.getLong("review_phase_id"));
                     update.setString(16, rs.getString("review_phase_name"));
@@ -1143,7 +1173,7 @@ public class TCLoadTCS extends TCLoad {
                         update.setNull(26, Types.DATE);
                     } else {
                         try {
-                            update.setLong(26, calculateStage(postingDate));
+                            update.setLong(26, calculateStage(new java.sql.Date(postingDate.getTime())));
                         } catch (Exception e) {
                             update.setNull(26, Types.DATE);
                         }
@@ -1167,7 +1197,13 @@ public class TCLoadTCS extends TCLoad {
                         update.setNull(34, Types.DECIMAL);
                     }
 
-                    update.setLong(35, rs.getLong("project_id"));
+                    if (duration >= 0) {
+                        update.setLong(35, duration / 1000 / 60);
+                    } else {
+                        update.setNull(35, Types.DECIMAL);
+                    }
+                    
+                    update.setLong(36, rs.getLong("project_id"));
 
                     int retVal = update.executeUpdate();
 
@@ -1184,7 +1220,11 @@ public class TCLoadTCS extends TCLoad {
                         insert.setString(9, rs.getString("phase_desc"));
                         insert.setInt(10, rs.getInt("category_id"));
                         insert.setString(11, rs.getString("category_desc"));
-                        insert.setDate(12, postingDate);
+                        if (postingDate != null) {
+                            insert.setDate(12, new Date(postingDate.getTime()));
+                        } else {
+                            insert.setNull(12, Types.DATE);
+                        }
                         insert.setDate(13, rs.getDate("submitby_date"));
                         completeDate = convertToDate(rs.getString("complete_date"));
                         if (completeDate != null) {
@@ -1217,7 +1257,7 @@ public class TCLoadTCS extends TCLoad {
                             insert.setNull(27, Types.DATE);
                         } else {
                             try {
-                                insert.setLong(27, calculateStage(postingDate));
+                                insert.setLong(27, calculateStage(new java.sql.Date(postingDate.getTime())));
                             } catch (Exception e) {
                                 insert.setNull(27, Types.DATE);
                             }
@@ -1238,6 +1278,11 @@ public class TCLoadTCS extends TCLoad {
                         else
                         {
                             insert.setNull(35, Types.DECIMAL);
+                        }
+                        if (duration >= 0) {
+                            insert.setLong(36, duration / 1000 / 60);
+                        } else {
+                            insert.setNull(36, Types.DECIMAL);
                         }
 
                         insert.executeUpdate();
@@ -1390,6 +1435,7 @@ public class TCLoadTCS extends TCLoad {
             new SimpleDateFormat("MM.dd.yyyy hh:mm a", Locale.US),
             new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy", Locale.US),
             new SimpleDateFormat("MM.dd.yyyy HH:mm z", Locale.US),
+            new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US)
     };
 
     private static Timestamp convertToDate(String str) {

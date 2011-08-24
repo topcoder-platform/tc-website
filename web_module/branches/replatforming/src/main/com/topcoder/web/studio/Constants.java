@@ -56,9 +56,16 @@ import java.util.MissingResourceException;
  *     <li>Removed old studio model files that were linked with <code>studio_oltp</code> database.</li>
  *   </ol>
  * </p>
- * 
- * @author dok, isv, pulky, TCSDEVELOPER, pvmagacho
- * @version 1.6
+ *
+ * <p>
+ * Version 1.7 (Upload Progress Bar Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added {@link #UPLOAD_ID} constant.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky, isv, pvmagacho
+ * @version 1.7
  */
 public class Constants implements WebConstants {
     private static final TCResourceBundle bundle = new TCResourceBundle("Studio");
@@ -71,6 +78,15 @@ public class Constants implements WebConstants {
     public static final String SUBMISSION_PREVIEW = "sbm_prvw";
 
     public static final String SUBMISSION_ID = "sbmid";
+
+    /**
+     * <p>A <code>String</code> providing the name of parameter of request to hold the ID of an upload associated with
+     * submission.</p>
+     * 
+     * @since 1.7
+     */
+    public static final String UPLOAD_ID = "uploadId";
+    
     public static final String REVIEW_STATUS_ID = "rstid";
     public static final String SUBMISSION_STATUS_ID = "sbstid";
     public static final String SUBMISSION_REVIEW_TEXT = "sbmrtx";

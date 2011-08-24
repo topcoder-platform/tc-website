@@ -13,7 +13,7 @@ package com.topcoder.web.common.model;
  *   </ol>
  * </p>
  * 
- * @author snow01, TCSASSEMBER
+ * @author snow01, flexme
  * @version 1.0.1 (Specification Review Integration 1.0)
  */
 public class SpecificationReviewerPaymentCalculator implements ReviewerPaymentCalculator {

@@ -198,6 +198,11 @@ public class Secondary extends Base {
             }
         }
 
+        if (fields.contains(Constants.NAME_IN_ANOTHER_LANGUAGE) && (u.getNameInAnotherLanguage() == null || u.getNameInAnotherLanguage().trim().length() == 0)) {
+            // only update when the name is not set.
+            u.setNameInAnotherLanguage((String) params.get(Constants.NAME_IN_ANOTHER_LANGUAGE));
+        }
+
         if (fields.contains(Constants.SECRET_QUESTION) || fields.contains(Constants.SECRET_QUESTION_RESPONSE)) {
             SecretQuestion sc = u.getSecretQuestion();
             if (sc == null) {

@@ -42,7 +42,7 @@
     <a href="/tc?module=BasicRSS&amp;c=rss_Upcoming_Contests&amp;dsid=29"><img src="/wiki/images/icons/rss.gif" alt="RSS" align="absmiddle" /></a>
 </div>
 
-<strong><a href="/tc?module=Static&amp;d1=calendar&amp;d2=jul_11" class="prevNext">&lt; prev</a> <%--<a href="/tc?module=Static&amp;d1=calendar&amp;d2=sep_11" class="prevNext">next &gt;</a>--%></strong>
+<strong><a href="/tc?module=Static&amp;d1=calendar&amp;d2=jul_11" class="prevNext">&lt; prev</a> <a href="/tc?module=Static&amp;d1=calendar&amp;d2=sep_11" class="prevNext">next &gt;</a></strong>
 <jsp:include page="dropdown.jsp" >
 <jsp:param name="currMonth" value="aug_11"/>
 </jsp:include>
@@ -90,6 +90,10 @@
       <td class="value">8
       </td>
       <td class="value">9
+	        	<div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=14539">SRM 514</A></strong><br />
+         21:00
+        </div>
       </td>
       <td class="value">10
       </td>
@@ -120,6 +124,10 @@
       <td class="value">19
       </td>
       <td class="value">20
+	        	<div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=14540">SRM 515</A></strong><br />
+         12:00
+        </div>
       </td>
    </tr>
    
@@ -146,6 +154,10 @@
       <td class="value">29
       </td>
       <td class="value">30
+	        	<div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=14541">SRM 516</A></strong><br />
+         11:00
+        </div>
       </td>
       <td class="value">31
       </td>      

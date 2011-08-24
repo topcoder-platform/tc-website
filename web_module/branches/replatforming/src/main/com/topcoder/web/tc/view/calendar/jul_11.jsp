@@ -67,6 +67,10 @@
       <td class="value">1
       </td>
       <td class="value">2
+	        	<div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=14536">SRM 511</A></strong><br />
+         12:00
+        </div>
       </td>
    </tr>
 
@@ -100,6 +104,15 @@
       <td class="value">12
       </td>
       <td class="value">13
+	        	<div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=14537">SRM 512</A></strong><br />
+         11:00
+        </div>
+		<div class="long">
+         <strong><a href="/tc?module=MatchDetails&rd=14584">MM 73</a></strong><br />
+         13:00<br />
+         2 weeks, $10,000 in prizes
+         </div>
       </td>
       <td class="value">14
       </td>
@@ -142,6 +155,10 @@
       <td class="value">25
       </td>
       <td class="value">26
+	        	<div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=14538">SRM 513</A></strong><br />
+         7:00
+        </div>
       </td>
       <td class="value">27
       </td>

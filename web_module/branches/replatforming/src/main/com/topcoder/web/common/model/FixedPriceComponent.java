@@ -17,7 +17,7 @@ import com.topcoder.shared.util.logging.Logger;
  *   </ol>
  * </p>
  * 
- * @author pulky, TCSASSEMBER
+ * @author pulky, flexme
  * @version 1.0.1
  */
 public class FixedPriceComponent extends DefaultPriceComponent {

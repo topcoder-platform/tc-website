@@ -91,7 +91,7 @@
       </td>
       <td class="value">8
       	<div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=14438">Member SRM 509</A></strong><br />
+         <strong><A href="/tc?module=MatchDetails&rd=14438">SRM 509</A></strong><br />
          7:00
         </div>
       </td>
@@ -111,6 +111,11 @@
       <td class="value">14
       </td>
       <td class="value">15
+	  	 <div class="long">
+         <strong><a href="/tc?module=MatchDetails&rd=14570">NASA Tournament Lab MM 2</a></strong><br />
+         13:00<br />
+         2 weeks, $10,000 in prizes
+         </div>
       </td>
       <td class="value">16
       </td>

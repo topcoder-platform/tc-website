@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2005-2009 TopCoder, Inc. All rights reserved.
+ * Copyright (c) 2005-2011 TopCoder, Inc. All rights reserved.
  */
 
 package com.topcoder.web.tc.controller.request.statistics;
@@ -8,6 +8,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
@@ -16,6 +17,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Country;
+import com.topcoder.web.common.model.Path;
 import com.topcoder.web.common.model.Preference;
 import com.topcoder.web.common.model.UserPreference;
 import com.topcoder.web.tc.Constants;
@@ -39,14 +41,19 @@ import com.topcoder.web.common.WebConstants;
  *   Version 1.2 Change notes:
  *   <ol>
  *     <li>Added support for the Test Scenarios, UI Prototype and RIA Build tracks.</li>
+ *   </ol> 
+ *
+ *   Version 1.3 (BUG#TCCC-3216 and TCC-3348) Change notes:
+ *   <ol>
+ *     <li>Member photo is now retrieved from informixoltp database, using query tool.</li>
  *   </ol>
  * </p>
  * 
- * @author rfairfax, elkhawajah, VolodymyrK
- * @version 1.2
+ * @author rfairfax, elkhawajah, VolodymyrK, pvmagacho
+ * @version 1.3
  */
 public class MemberProfile extends Base {
-
+    
     /**
      * <p>
      * Process the request of displaying member profile page.
@@ -110,6 +117,22 @@ public class MemberProfile extends Base {
             String defaultTab = "";
             int maxRating = 0;
 
+            // Added - image from informixoltp - since 1.3
+            r = new Request();
+            r.setContentHandle("member_image");
+            r.setProperty("cr", coderId);
+            ResultSetContainer imageResult = new DataAccess(DBMS.OLTP_DATASOURCE_NAME).getData(r).get("coder_image_data");
+
+            Integer image = null;
+            if ((imageResult.size() > 0) && (imageResult.getItem(0, "image_id").getResultData() != null) && (imageResult.getIntItem(0, "image_id") != 0)) {
+            	image = imageResult.getIntItem(0, "image_id");
+            	String image_path = imageResult.getStringItem(0, "image_path");
+            	String fileName = imageResult.getStringItem(0, "file_name");
+            	getRequest().setAttribute("pathImage", image_path + fileName);
+            
+            }
+            getRequest().setAttribute("userImage", image);
+            
             if (rsc.size() != 0) {
 
                 if ((rsc.getItem(0, "rating").getResultData() != null)
@@ -389,7 +412,7 @@ public class MemberProfile extends Base {
             if (!DAOUtil.useQueryToolFactory) {
                 HibernateUtils.getSession().beginTransaction();
             }
-
+            
             UserPreference up = DAOUtil.getQueryToolFactory().getUserPreferenceDAO().find(Long.parseLong(coderId),
                 Preference.SHOW_EARNINGS_PREFERENCE_ID);
             boolean hidePayments = up != null && "hide".equals(up.getValue());

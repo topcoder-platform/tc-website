@@ -17,6 +17,7 @@ public class SimpleRegInfo extends Base {
     private String firstName;
     private String middleName;
     private String lastName;
+    private String nameInAnotherLanguage;
     private String address1;
     private String address2;
     private String address3;
@@ -187,6 +188,14 @@ public class SimpleRegInfo extends Base {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getNameInAnotherLanguage() {
+        return nameInAnotherLanguage;
+    }
+
+    public void setNameInAnotherLanguage(String nameInAnotherLanguage) {
+        this.nameInAnotherLanguage = nameInAnotherLanguage;
     }
 
     public String getAddress1() {

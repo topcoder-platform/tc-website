@@ -14,7 +14,10 @@ import java.util.Set;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 
+import org.hibernate.Hibernate;
+
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.HibernateUtils;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.model.Image;
@@ -84,6 +87,8 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
                                                                    Image.GALLERY_MEDIUM_WATERMARKED_TYPE_ID,
                                                                    Image.GALLERY_FULL_WATERMARKED_TYPE_ID,
                                                                    Image.GALLERY_FULL_TYPE_ID};
+
+
     
     /**
      * This method executes the actual business logic for this processor.
@@ -101,6 +106,13 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
         }
 
         Submission s = DAOUtil.getFactory().getSubmissionDAO().find(submissionId);
+//        Hibernate.initialize(s.getPath());
+        Hibernate.initialize(s.getImages());
+        for (SubmissionImage image : s.getImages() )
+        {
+            Hibernate.initialize(image.getImage());
+        }
+//        Hibernate.initialize(s.getMimeType());
 
         Project contest = s.getContest();
         Long currentUserId = getUser().getId();
@@ -170,6 +182,10 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
             log.debug("not allowed");
             canDownload = false;
         }
+
+        
+        HibernateUtils.closeSession();
+        getRequest().removeAttribute(ACTIVE_CONVERSATION_FLAG);
 
         if (canDownload) {
             sendSubmission(contest, originalSubmissionRequested, submissionType, requestedImageTypeId, s, isOwner);
@@ -277,13 +293,17 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
                 // tiny, small, medium and full
                 targetFileName = filePath + fileNames[0];
                 destFileName = fileNames[0];
+                beginCommunication();
                 FileType fileType = UnifiedSubmissionValidator.getFileType(destFileName);
+                Hibernate.initialize(fileType.getMimeTypes());
+                
                 if (fileType!=null) {
                     Set<MimeType> mimeTypes = fileType.getMimeTypes();
                     if (!mimeTypes.isEmpty()) {
                         contentType = mimeTypes.iterator().next().getDescription();
                     }                    
                 }
+                closeConversation();
             }
         } else {
             // The original submission is requested
@@ -300,7 +320,8 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
 
         TCResponse response = getResponse();
         if (isOwner && originalSubmissionRequested) {
-            response.addHeader("content-disposition", "inline; filename=\"" + originalFileName + "\"");
+            response.addHeader("content-disposition", "inline; filename=\"" + originalFileName
+                    + "\"");
             if (log.isDebugEnabled()) {
                 log.debug("content-disposition = inline; filename=\"" + originalFileName + "\"");
             }
@@ -445,4 +466,18 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
             from.close();
         }
     }
+
+
+     /**
+     * End a conversation.  This will persist changes to the db, and wrap things up.
+     */
+    protected void closeConversation() {
+        log.debug("close conversation");
+     
+             HibernateUtils.closeSession();
+               log.info("close session");
+           
+        
+    }
+
 }

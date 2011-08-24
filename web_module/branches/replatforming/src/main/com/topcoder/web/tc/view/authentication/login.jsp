@@ -75,7 +75,7 @@
                         and we can help you restore your account.</p>
 
                     <p><b>New to TopCoder?</b><br/>
-                        <A class="bodyText" href="https://<jsp:getProperty name="sessionInfo" property="serverName"/>/reg/">Register
+                        <A class="bodyText" href="https://www.topcoder.com/reg/">Register
                             now.</A>
                         After you complete the registration process, we will send your account activation code via
                         email.</p>

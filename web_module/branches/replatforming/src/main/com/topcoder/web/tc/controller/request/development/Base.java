@@ -139,11 +139,19 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *           </ul>
  *         </td>
  *     </tr>
+ *      <tr>
+ *         <td>Version 1.11</td>
+ *         <td>
+ *           <ul>
+ *             <li>Added checks for users being banned from having certain terms of use.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
  *   </table>
  * </p>
  *
  * @author dok, isv, pulky, VolodymyrK, Blues, FireIce
- * @version 1.10
+ * @version 1.11
  */
 public abstract class Base extends ShortHibernateProcessor {
 
@@ -356,6 +364,25 @@ public abstract class Base extends ShortHibernateProcessor {
      */
     protected boolean isProjectTypeSupported(String projectType) {
         return ReviewBoardHelper.isReviewBoardTypeSupported(projectType);
+    }
+
+    /**
+     * This helper method returns if the specified user is banned from accepting the specified terms of use.
+     *
+     * @param userId the user id that is requesting the registration
+     * @param termsOfUseId the terms of use id the user agreed to
+     * @throws NamingException if any errors occur during EJB lookup
+     * @throws RemoteException if any errors occur during EJB remote invocation
+     * @throws CreateException if any errors occur during EJB creation
+     * @throws EJBException if any other errors occur while invoking EJB services
+     *
+     * @since 1.11
+     */
+    protected boolean hasTermsOfUseBan(long userId, long termsOfUseId)
+            throws NamingException, RemoteException, CreateException, EJBException {
+
+        UserTermsOfUse userTermsOfUse = UserTermsOfUseLocator.getService();
+        return userTermsOfUse.hasTermsOfUseBan(userId, termsOfUseId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
     }
 
     /**

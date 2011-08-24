@@ -239,19 +239,19 @@
                                         <c:forEach items="${requestScope.copilotProfile.contestTypeStats}" var="entry">
                                             <table class="ctype${entry.value.projectCategoryId}">
                                                 <tr>
-                                                    <td>Planned No. of Contests:</td>
+                                                    <td>Planned Number of Contests:</td>
                                                     <td class="number b">${entry.value.plannedContests == -1 ? 'n/a' : entry.value.plannedContests}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Real No. of Contests:</td>
+                                                    <td>Actual Number of Contests:</td>
                                                     <td class="number b">${entry.value.realContests}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>No. of Reposts:</td>
+                                                    <td>Number of Reposts:</td>
                                                     <td class="number b">${entry.value.repostedContests}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>No. of Failures:</td>
+                                                    <td>Number of Failures:</td>
                                                     <td class="number b">${entry.value.failedContests}</td>
                                                 </tr>
                                             </table>
@@ -265,7 +265,7 @@
                     <div class="column-chart"></div>
                     <div class="column-chart-legend">
                         <div class="planned-legend"><span class="icon"></span>Planned Contests</div>
-                        <div class="real-legend"><span class="icon"></span>Real Contests</div>
+                        <div class="real-legend"><span class="icon"></span>Actual Contests</div>
                         <div class="reposts-legend"><span class="icon"></span>Reposts</div>
                         <div class="failures-legend"><span class="icon"></span>Failures</div>
                     </div>

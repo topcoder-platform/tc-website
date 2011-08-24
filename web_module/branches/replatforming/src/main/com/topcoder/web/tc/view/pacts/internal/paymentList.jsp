@@ -28,6 +28,7 @@
 <c:set var="reliabilityMap" value="<%= request.getAttribute(PaymentList.RELIABILITY) %>" />
 <c:set var="groupReliability" value="<%= request.getAttribute(PaymentList.GROUP_RELIABILITY) %>" />
 <c:set var="toggleGroupReliability" value="<%= request.getAttribute(PaymentList.TOGGLE_GROUP_RELIABILITY) %>" />
+<c:set var="csvLink" value="<%= request.getAttribute(PaymentList.CSV_LINK) %>" />
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -173,6 +174,8 @@ ${fn:length(paymentList)} records. <br />
     <tc-webtag:hiddenInput name="<%=PactsConstants.USER_ID%>" value="<%=request.getAttribute(PactsConstants.USER_ID).toString()%>"/>
 
     <input type=hidden name="query" value="${query}">
+
+    <a href="${csvLink}">Download as CSV (Excel)</a><br/>
 
     <a href="${toggleGroupReliability}">
         <c:choose>
