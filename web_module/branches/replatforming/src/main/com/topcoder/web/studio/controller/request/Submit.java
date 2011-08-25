@@ -534,9 +534,11 @@ public class Submit extends BaseSubmissionDataProcessor {
 					nextPage.append(getSessionInfo().getServletPath());
 					nextPage.append("?" + Constants.MODULE_KEY + "=ViewSubmissionSuccess&");
 					nextPage.append(Constants.SUBMISSION_ID + "=").append(s.getId());
-                    nextPage.append("&").append(Constants.UPLOAD_ID + "=").append(
-                        getRequest().getParameter(Constants.UPLOAD_ID));
-					setNextPage(nextPage.toString());
+                    String queryString = getRequest().getQueryString();
+                    int pos = queryString.lastIndexOf(Constants.UPLOAD_ID + "=");
+                    String uploadId = queryString.substring(pos + (Constants.UPLOAD_ID + "=").length());
+                    nextPage.append("&").append(Constants.UPLOAD_ID + "=").append(uploadId);
+                    setNextPage(nextPage.toString());
 					setIsNextPageInContext(false);
 				}
 			}

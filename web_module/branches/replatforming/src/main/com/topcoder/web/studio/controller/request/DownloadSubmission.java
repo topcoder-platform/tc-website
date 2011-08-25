@@ -108,9 +108,9 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
         Submission s = DAOUtil.getFactory().getSubmissionDAO().find(submissionId);
 //        Hibernate.initialize(s.getPath());
         Hibernate.initialize(s.getImages());
-        for (SubmissionImage image : s.getImages() )
-        {
+        for (SubmissionImage image : s.getImages() ) {
             Hibernate.initialize(image.getImage());
+            Hibernate.initialize(image.getImage().getPath());
         }
 //        Hibernate.initialize(s.getMimeType());
 
@@ -183,12 +183,14 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
             canDownload = false;
         }
 
-        
+        String filePath = Util.createSubmissionPath(contest, 
+                                                    DAOUtil.getFactory().getUserDAO().find(s.getSubmitterId()));
         HibernateUtils.closeSession();
         getRequest().removeAttribute(ACTIVE_CONVERSATION_FLAG);
 
         if (canDownload) {
-            sendSubmission(contest, originalSubmissionRequested, submissionType, requestedImageTypeId, s, isOwner);
+            sendSubmission(contest, originalSubmissionRequested, submissionType, requestedImageTypeId, s, isOwner, 
+                           filePath);
         } else {
             throw new NavigationException("Sorry, you can not download submissions for this contest.");
         }
@@ -208,7 +210,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
      * @throws IOException if any error occurs during file operation
      */
     private void sendSubmission(Project contest, boolean originalSubmissionRequested, String submissionType,
-                                int requestedImageTypeId, Submission submission, boolean isOwner)
+                                int requestedImageTypeId, Submission submission, boolean isOwner, String filePath)
             throws NavigationException, IOException {        
         // Since TopCoder Studio Modifications Assembly Req# 5.8
         String targetFileName;
@@ -222,9 +224,6 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
         log.debug("previewFileRequested: " + previewFileRequested);
         
         // Suubmission file path
-        String filePath = Util.createSubmissionPath(contest, 
-                DAOUtil.getFactory().getUserDAO().find(submission.getSubmitterId()));
-        
         String originalFileName = submission.getUpload().getParameter();
         // Determine the name of requested file and it's mime type
         if (!originalSubmissionRequested) {
@@ -467,17 +466,14 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
         }
     }
 
-
      /**
      * End a conversation.  This will persist changes to the db, and wrap things up.
      */
     protected void closeConversation() {
         log.debug("close conversation");
-     
-             HibernateUtils.closeSession();
-               log.info("close session");
-           
-        
-    }
+        HibernateUtils.closeSession();
+        getRequest().removeAttribute(ACTIVE_CONVERSATION_FLAG);
+        log.info("close session");
+   }
 
 }
