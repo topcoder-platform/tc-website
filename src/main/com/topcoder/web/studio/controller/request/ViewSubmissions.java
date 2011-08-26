@@ -3,6 +3,8 @@
  */
 package com.topcoder.web.studio.controller.request;
 
+import java.util.Date;
+
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
@@ -14,12 +16,10 @@ import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.studio.Constants;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
+import com.topcoder.web.studio.dao.DAOUtil;
 import com.topcoder.web.studio.dao.SubmissionDAO;
-import com.topcoder.web.studio.model.Contest;
-import com.topcoder.web.studio.model.Submission;
-
-import java.util.Date;
+import com.topcoder.web.studio.dto.Project;
+import com.topcoder.web.studio.dto.Submission;
 
 /**
  * <p>This class implements the request processor for the View Submissions page.</p>
@@ -49,12 +49,25 @@ import java.util.Date;
  * Current submission object is now retrieved, to get submission declaration data.
  * </p>
  *
+ * <p>
+ *   Version 1.5 (Re-platforming Studio Release 3 Assembly) Change notes:
+ *   <ol>
+ *     <li>Updated the logic to use contests hosted in <code>tcs_catalog</code> database instead of
+ *     <code>studio_oltp</code> database.</li>
+ *   </ol>
+ * </p>
  *
- * @author dok, isv, pulky, Orange_Cloud
- * @version 1.4
+ * <p>
+ * Version 1.3 (Replatforming Studio Release 5) change notes:
+ *   <ol>
+ *     <li>Using the dto classes in com.topcoder.web.studio.dto package instead of in com.topcoder.web.common.model.comp package.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, isv, pulky, Orange_Cloud, pvmagacho, TCSASSEMBER
+ * @version 1.6
  */
 public class ViewSubmissions extends ShortHibernateProcessor {
-
     /**
      * <p>A <code>String</code> providing the page size representation for "all".
      *
@@ -76,19 +89,19 @@ public class ViewSubmissions extends ShortHibernateProcessor {
         if ("".equals(StringUtils.checkNull(contestId))) {
             throw new NavigationException("No contest specified");
         }
-        Contest c = StudioDAOUtil.getFactory().getContestDAO().find(new Long(contestId));
+        Project c = DAOUtil.getFactory().getProjectDAO().find(new Integer(contestId));
         if (c == null) {
             throw new NavigationException("Invalid contest specified.");
         }
         getRequest().setAttribute("contest", c);
         setDefault(Constants.CONTEST_ID, c.getId());
 
-        boolean isOver = new Date().after(c.getEndTime());
+        boolean isOver = c.getSubmissionClosed();
         if (!isOver) {
             throw new NavigationException("Submissions are not available until the contest is over.");
         }
 
-        if (!String.valueOf(true).equals(c.getViewableSubmissions().getValue())) {
+        if (!c.getViewableSubmissions()) {
             throw new NavigationException("Submissions are not available for this contest");
         }
 
@@ -98,25 +111,21 @@ public class ViewSubmissions extends ShortHibernateProcessor {
         //admins use the system so we know when to refresh the cache
         //DataAccess da = new CachedDataAccess(DBMS.STUDIO_DATASOURCE_NAME);
         //load up the submissions
-        DataAccess da = new DataAccess(DBMS.STUDIO_DATASOURCE_NAME);
+        DataAccess da = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
         Request r = new Request();
-        r.setContentHandle("submissions");
+        r.setContentHandle("studio_submissions");
         r.setProperty(Constants.CONTEST_ID, contestId);
 
-        if (c.getMaxSubmissions() != null && c.getMaxSubmissions().getValue() != null) {
-            r.setProperty(Constants.SUBMISSION_RANK, c.getMaxSubmissions().getValue());
-        }
-
-        getRequest().setAttribute("hasScores", c.getProject() != null);
+        getRequest().setAttribute("hasScores", c != null);
 
         String col = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
         String dir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
 
-        ResultSetContainer submissions = (ResultSetContainer) da.getData(r).get("submissions");
+        ResultSetContainer submissions = (ResultSetContainer) da.getData(r).get("studio_submissions");
 
         //only accept this criteria if the contest is over
         String handle = StringUtils.checkNull(getRequest().getParameter(Constants.HANDLE));
-        if (!"".equals(handle) && isOver) {
+        if (!"".equals(handle)) {
             submissions = new ResultSetContainer(submissions, new Equals(handle.toLowerCase(), "handle_lower"));
             setDefault(Constants.HANDLE, handle);
         }
@@ -156,7 +165,7 @@ public class ViewSubmissions extends ShortHibernateProcessor {
         }
 
         if (log.isDebugEnabled()) {
-            log.debug("[ViewSubmissions] pageNumberInt: " + pageNumberInt + " pageSizeInt: " + pageSizeInt);
+            log.debug("[ViewSubmissions] pageNumbesubmissionsrInt: " + pageNumberInt + " pageSizeInt: " + pageSizeInt);
         }
 
         // calculate start and end rank using pagination information
@@ -202,8 +211,8 @@ public class ViewSubmissions extends ShortHibernateProcessor {
             getRequest().setAttribute(Constants.SUBMISSION_ID, submissionId);
 
             // fetch submission and submission declaration data
-            SubmissionDAO submissionDAO = StudioDAOUtil.getFactory().getSubmissionDAO();
-            Submission submission = submissionDAO.find(submissionId);
+            SubmissionDAO submissionDAO = DAOUtil.getFactory().getSubmissionDAO();
+            Submission submission = submissionDAO.find(submissionId.intValue());
             submission.setViewCount(submission.getViewCount() + 1);
             submissionDAO.saveOrUpdate(submission);
             getRequest().setAttribute("submission", submission);

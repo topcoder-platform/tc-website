@@ -47,6 +47,7 @@ import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Date;
 
 /**
  * This class handles interaction with the Jive database. Please update the code
@@ -912,9 +913,52 @@ public class ForumsBean extends BaseEJB {
 		}
 	}
 
-	public long createStudioForum(String name) {
+	/**public long createStudioForum(String name) {
 		try {
 			long forumID = createForum(3, name);
+			return forumID;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return -1;
+		}
+	} */
+
+    // TODO add user id as input
+    public long createStudioForum(String name) {
+		try {
+
+            ForumCategory category = forumFactory.getForumCategory(3);
+
+			Forum forum = forumFactory.createForum(name, "", category);
+            
+            //TODO, user Applications for now
+            long userId = 22770213;
+            User user = forumFactory.getUserManager().getUser(userId);
+
+            ForumMessage forumMessage = forum.createMessage(user);
+            forumMessage.setBody("Spec Review Discussion");
+            forumMessage.setSubject("Spec Review Discussion");
+			forumMessage.setCreationDate(new Date());
+			forumMessage.setModificationDate(new Date());
+            log.debug("Created ForumMessage with id " + forumMessage.getID() + " with user with id " + userId
+					+ " and comment (message body): ");
+
+
+            // create thread with forumMessage as root message
+            ForumThread thread = forum.createThread(forumMessage);
+            log.debug("Created new thread with id " + thread.getID() + " and root message with id "
+                    + forumMessage.getID() + "!");
+
+            // set creation and modification date of the thread to the date
+            // of the UserComment
+            thread.setCreationDate(new Date());
+            thread.setModificationDate(new Date());
+            forum.addThread(thread);
+           log.debug("Added thread with id " + thread.getID() + " and root message with id "
+						+ forumMessage.getID() + " to forum with id " + forum.getID() + "!");
+
+			long forumID = forum.getID();
+
 			return forumID;
 		} catch (Exception e) {
 			e.printStackTrace();

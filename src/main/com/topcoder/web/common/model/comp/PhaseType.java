@@ -4,7 +4,6 @@
 package com.topcoder.web.common.model.comp;
 
 import com.topcoder.web.common.model.Base;
-import com.topcoder.web.studio.model.ContestRoleTermsOfUse;
 
 /**
  * <p>This class represents a Phase Type entity.</p>

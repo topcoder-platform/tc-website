@@ -1,28 +1,22 @@
 /*
- * Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.studio.controller.request;
 
 import java.util.Date;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.HashMap;
 
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.model.User;
 import com.topcoder.web.studio.Constants;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.model.Contest;
-import com.topcoder.web.studio.model.ContestStatus;
+import com.topcoder.web.studio.dao.DAOFactory;
+import com.topcoder.web.studio.dao.DAOUtil;
+import com.topcoder.web.studio.dto.Project;
 import com.topcoder.web.studio.util.Util;
 
 /**
@@ -54,8 +48,30 @@ import com.topcoder.web.studio.util.Util;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, TCSDEVELOPER
- * @version 1.2.1
+ * <p>
+ * Version 1.2.2 (Re-platforming Studio Release 2 Assembly) Change notes:
+ *   <ol>
+ *     <li>Updated the logic to use conetsts hosted in <code>tcs_catalog</code> database instead of
+ *     <code>studio_oltp</code> database.</li>
+ *   </ol>
+ * </p>
+ *
+ * <p>
+ * Version 1.2.2 (Re-platforming Studio Release 4 Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Removed unused code.</li>
+ *   </ol>
+ * </p>
+ *
+ * <p>
+ * Version 1.2.24 (Replatforming Studio Release 5) change notes:
+ *   <ol>
+ *     <li>Using the dto classes in com.topcoder.web.studio.dto package instead of in com.topcoder.web.common.model.comp package.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author dok, pulky, isv, TCSDEVELOPER
+ * @version 1.2.4
  */
 public class ViewContestDetails extends ShortHibernateProcessor {
 
@@ -64,9 +80,18 @@ public class ViewContestDetails extends ShortHibernateProcessor {
      *
      * @since 1.1
      */
-    private static final String CAN_VIEW_CONTEST_DETAILS_QUERY_NAME = "can_view_contest_details";
+    private static final String CAN_VIEW_CONTEST_DETAILS_QUERY_NAME = "studio_can_view_contest_details";
 
     protected static final Logger log = Logger.getLogger(ViewContestDetails.class);
+
+
+    /**
+     * <p>Constructs new <code>ViewContestDetails</code> instance. This implementation does nothing.</p>
+     * 
+     * @since 1.2.2
+     */
+    public ViewContestDetails() {
+    }
 
     /**
      * This method executes the actual business logic for this processor.
@@ -75,11 +100,7 @@ public class ViewContestDetails extends ShortHibernateProcessor {
      * @see com.topcoder.web.common.LongHibernateProcessor#dbProcessing()
      */
     protected void dbProcessing() throws Exception {
-
-        try
-        {
-            
-    
+        try {
             String contestId = getRequest().getParameter(Constants.CONTEST_ID);
             if ("".equals(StringUtils.checkNull(contestId))) {
                 throw new NavigationException("No contest specified");
@@ -90,38 +111,39 @@ public class ViewContestDetails extends ShortHibernateProcessor {
                 } catch (NumberFormatException e) {
                     throw new NavigationException("Invalid contest specified");
                 }
-                Contest contest = StudioDAOUtil.getFactory().getContestDAO().find(cid);
+
+                DAOFactory factory = DAOUtil.getFactory();
+                Project contest = factory.getProjectDAO().find(cid.intValue());
 
                 // Check if the user has permissions to see contest details even if it's still not active
                 long userId = getUser().getId();
-                if (Util.isAdmin(userId) || (userId == contest.getCreateUserId()) || hasPermissions(userId, cid)) {
+                if (Util.isAdmin(userId) || (String.valueOf(userId).equals(contest.getCreateUserId()))
+                    || hasPermissions(userId, cid)) {
                     getRequest().setAttribute("contest", contest);
                 } else {
-                    if (ContestStatus.ACTIVE.equals(contest.getStatus().getId())) {
-                        Date now = new Date();
-                        if (contest.getStartTime().before(now)) {
+                    if (Project.STATUS_ACTIVE.equals(contest.getStatusId())) {
+                        if (contest.getSpecSubmissionStarted()) {
                             getRequest().setAttribute("contest", contest);
                         } else {
                             throw new NavigationException("Inactive contest specified.");
                         }
                     } else {
-                        throw new NavigationException("Invalid contest specified.");
-                    }
-                }
-                boolean registered = false;
-                if (userIdentified()) {
-                    User u = DAOUtil.getFactory().getUserDAO().find(userId);
-                    if (StudioDAOUtil.getFactory().getContestRegistrationDAO().find(contest, u) != null) {
-                        registered = true;
+                        throw new NavigationException("Inactive contest specified.");
                     }
                 }
 
+                boolean isUserIdentified = userIdentified();
+                boolean registered =
+                    isUserIdentified && (RegistrationHelper.getSubmitterResource(contest, userId) != null);
                 getRequest().setAttribute("registered", registered);
 
+                boolean isSpecReviewer = RegistrationHelper.getSpecReviewerResource(contest, userId) != null;
+                getRequest().setAttribute("isSpecReviewer", isSpecReviewer);
+
                 if ("on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
-                    if (userIdentified()) {
+                    if (isUserIdentified) {
                         getRequest().setAttribute("has_global_ad",
-                            PactsServicesLocator.getService().hasGlobalAD(getUser().getId()));
+                                                  PactsServicesLocator.getService().hasGlobalAD(getUser().getId()));
                     } else {
                         getRequest().setAttribute("has_global_ad", false);
                     }
@@ -129,44 +151,11 @@ public class ViewContestDetails extends ShortHibernateProcessor {
 
                 getRequest().setAttribute("currentTime", new Date());
                 getRequest().setAttribute("has_cockpit_permissions", Util.hasCockpitPermissions(userId, cid));
-                
-                
-                
-                
-                
-                if (contest != null && 
-                    contest.getMultiRoundInformation() != null && contest.isMultiRound() &&
-                    contest.getMultiRoundInformation().getMilestoneDate() != null &&
-                    contest.getMultiRoundInformation().getMilestoneDate().before(new Date())) {
+
+                // Handle milestone
+                Date milestoneDate = contest.getMilestoneDate();
+                if (milestoneDate != null && milestoneDate.before(new Date())) {
                     getRequest().setAttribute("canViewMilestone", true);
-                    DataAccess da = new DataAccess(DBMS.STUDIO_DATASOURCE_NAME);
-                    Request r = new Request();
-                    r.setContentHandle("submissions");
-                    r.setProperty(Constants.CONTEST_ID, contestId);
-                    r.setProperty(Constants.SUBMISSION_RANK, contest.getMilestonePrize().getNumberOfSubmissions().toString());
-                    
-                    ResultSetContainer submissions = (ResultSetContainer) da.getData(r).get("submissions");
-                    boolean milestonePrizeAvaliable = false;
-                    int recordNum = submissions.size();
-                    List<Integer> milestoneSubmissionId = new ArrayList<Integer>();
-                    Map<Integer, String> milestoneSubmissionFeedback = new HashMap<Integer, String>();
-                    for (int i = 0; i < recordNum; i++) {
-                        Object resultData = submissions.getItem(i, "award_milestone_prize").getResultData();                    
-                        Boolean awardMilestonePrize  = (resultData != null) && ((Boolean)resultData).booleanValue();
-                        if (awardMilestonePrize) {
-                            String feedbackText  = submissions.getStringItem(i, "feedback_text");
-                            Integer submissionId = submissions.getIntItem(i, "submission_id");
-                            milestoneSubmissionId.add(submissionId);
-                            milestoneSubmissionFeedback.put(submissionId, feedbackText.replaceAll("\n", "<br />"));
-                        }
-                        milestonePrizeAvaliable |= awardMilestonePrize;
-                    }
-                    
-                    getRequest().setAttribute("milestonePrizeAvaliable", milestonePrizeAvaliable);
-                    if (milestonePrizeAvaliable) {
-                        getRequest().setAttribute("milestoneSubmissionId", milestoneSubmissionId);
-                        getRequest().setAttribute("milestoneSubmissionFeedback", milestoneSubmissionFeedback);
-                    }
                 } else {
                     getRequest().setAttribute("canViewMilestone", false);
                 }
@@ -174,12 +163,9 @@ public class ViewContestDetails extends ShortHibernateProcessor {
                 setNextPage("/contestDetails.jsp");
                 setIsNextPageInContext(true);
             }
-
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             log.error("Exception in view contest detail : " +e);
-            throw e;
+                throw e;
         }
 
     }
@@ -218,12 +204,12 @@ public class ViewContestDetails extends ShortHibernateProcessor {
                 log.debug("checking if userId " + userId + " can preview contest details for contest_id: " + contestId);
             }
 
-            DataAccess da = new DataAccess(DBMS.STUDIO_DATASOURCE_NAME);
+            DataAccess da = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
             Request r = new Request();
             r.setContentHandle(CAN_VIEW_CONTEST_DETAILS_QUERY_NAME);
 
             r.setProperty(Constants.USER_ID, String.valueOf(userId));
-            r.setProperty(Constants.CONTEST_ID, String.valueOf(contestId));
+            r.setProperty(Constants.PROJECT_ID_KEY, String.valueOf(contestId));
 
             ResultSetContainer rsc = da.getData(r).get(CAN_VIEW_CONTEST_DETAILS_QUERY_NAME);
 

@@ -1,4 +1,16 @@
+/*
+ * Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.studio.util;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Map;
 
 import com.topcoder.image.size.ImageException;
 import com.topcoder.image.size.ImageResizer;
@@ -11,44 +23,49 @@ import com.topcoder.imaging.overlay.OverlayType;
 import com.topcoder.imaging.overlay.TransparencySpecification;
 import com.topcoder.imaging.overlay.UnsupportedFormatException;
 import com.topcoder.imaging.overlay.Watermarker;
+import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.image.manipulation.Image;
 import com.topcoder.web.common.HibernateUtils;
-import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.ImageDAO;
-import static com.topcoder.web.common.model.Image.*;
 import com.topcoder.web.common.model.Path;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.studio.Constants;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
+import com.topcoder.web.studio.dao.DAOUtil;
 import com.topcoder.web.studio.dao.SubmissionDAO;
-import com.topcoder.web.studio.model.Contest;
-import com.topcoder.web.studio.model.ContestType;
-import com.topcoder.web.studio.model.StudioFileType;
-import com.topcoder.web.studio.model.Submission;
-import com.topcoder.web.studio.model.SubmissionImage;
+import com.topcoder.web.studio.dto.FileType;
+import com.topcoder.web.studio.dto.Project;
+import com.topcoder.web.studio.dto.Submission;
+import com.topcoder.web.studio.dto.SubmissionImage;
 import com.topcoder.web.studio.validation.UnifiedSubmissionValidator;
-
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Map;
+import static com.topcoder.web.common.model.Image.*;
 
 /**
  * <p>A class implementing the thread job for generating the alternate representations for the submission submitted
  * by user to server.</p>
  *
- * @author isv,dok
- * @version 1.0
+ * <p>
+ *   Version 1.2 (Re-platforming Studio Release 3 Assembly) Change notes:
+ *   <ol>
+ *     <li>Updated the logic to use contests hosted in <code>tcs_catalog</code> database instead of
+ *     <code>studio_oltp</code> database.</li>
+ *   </ol>
+ * </p>
+ * 
+ * <p>
+ * Version 1.3 (Replatforming Studio Release 5) change notes:
+ *   <ol>
+ *     <li>Using the dto classes in com.topcoder.web.studio.dto package instead of in com.topcoder.web.common.model.comp package.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author isv, dok, pvmagacho, TCSASSEMBER
+ * @version 1.2
  * @since TopCoder Studio Modifications Assembly (Req# 5.7)
  */
 public class FileGenerator implements Runnable {
     private static final Logger log = Logger.getLogger(FileGenerator.class);
-
+    
     /**
      * <p>An <code>int</code> providing the maximum size (in pixels) for the <code>tiny</code> presentations of the
      * preview images.</p>
@@ -127,9 +144,9 @@ public class FileGenerator implements Runnable {
             ImagePersistenceHandler.PNM_FORMAT, ImagePersistenceHandler.TIFF_FORMAT};
 
     /**
-     * <p>A <code>Contest</code> representing the contest which the submission belongs to.</p>
+     * <p>A <code>Project</code> representing the project which the submission belongs to.</p>
      */
-    private Contest contest;
+    private Project project;
 
     /**
      * <p>A <code>Submission</code> representing the submission submitted to server.</p>
@@ -139,7 +156,7 @@ public class FileGenerator implements Runnable {
     /**
      * <p>An <code>UploadedFile</code> providing the original content of submission.</p>
      */
-    private InputStream submissionFile;
+    private UploadedFile submissionFile;
 
     /**
      * <p>A <code>User</code> representing the user who have submitted the submission.</p>
@@ -150,13 +167,13 @@ public class FileGenerator implements Runnable {
      * <p>Constructs new <code>FileGenerator</code> instance to be used for generating the alternate representations
      * for specified submission.</p>
      *
-     * @param contest        a <code>Contest</code> representing the contest which the submission belongs to.
+     * @param project        a <code>Project</code> representing the project which the submission belongs to.
      * @param submission     a <code>Submission</code> representing the submission submitted to server.
      * @param submissionFile an <code>InputStream</code> providing the original content of submission.
      * @param submitter      a <code>User</code> representing the user who have submitted the submission.
      */
-    public FileGenerator(Contest contest, Submission submission, InputStream submissionFile, User submitter) {
-        this.contest = contest;
+    public FileGenerator(Project project, Submission submission, UploadedFile submissionFile, User submitter) {
+        this.project = project;
         this.submission = submission;
         this.submissionFile = submissionFile;
         this.submitter = submitter;
@@ -171,8 +188,8 @@ public class FileGenerator implements Runnable {
 
     /**
      * <p>Analyzes the submitted file and creates the files with alternate
-     * representations of the submission.   It is provided for convenience in the case that
-     * the caller does not want to process files asyncronously.</p>
+     * representations of the submission. It is provided for convenience in the case that
+     * the caller does not want to process files asynchronously.</p>
      */
     public void generateFiles() {
         long start = System.currentTimeMillis();
@@ -180,24 +197,25 @@ public class FileGenerator implements Runnable {
         HibernateUtils.begin();
         boolean success = false;
         try {
-            SubmissionDAO submissionDAO = StudioDAOUtil.getFactory().getSubmissionDAO();
+            SubmissionDAO submissionDAO = DAOUtil.getFactory().getSubmissionDAO();
 
-            BundledFileAnalyzer analyzer = UnifiedSubmissionValidator.getBundledFileParser(this.submission.getMimeType());
-            analyzer.analyze(this.submissionFile, true);
+            String fileName = this.submission.getUpload().getParameter();
+            BundledFileAnalyzer analyzer = UnifiedSubmissionValidator.getBundledFileParser(fileName);
+            analyzer.analyze(this.submissionFile.getInputStream(), true);
 
             // Holds a flag indicating whether the submission has been updated and needs the changes to be saved
             // to persistent data store
             boolean submissionUpdated = false;
 
             // If preview image is provided with the submission then treat it as a first image from the gallery (even
-            // though the contest may not require to include gallery)
+            // though the project may not require to include gallery)
             int fileIndex = 1;
             if (analyzer.isPreviewImageAvailable()) {
-                String fileName = null;
+                fileName = null;
                 try {
                     fileName = UnifiedSubmissionValidator.getFileName(analyzer.getPreviewImagePath());
                     byte[] fileContent = analyzer.getPreviewImageContent();
-                    StudioFileType fileType = analyzer.getPreviewImageFileType();
+                    FileType fileType = analyzer.getPreviewImageFileType();
                     generateImages(fileName, fileContent, fileType, GALLERY_PLAIN_IMAGE_TYPE_IDS, GALLERY_PLAIN_IMAGE_SIZES,
                                    false, fileIndex);
                     generateImages(fileName, fileContent, fileType, GALLERY_WATERMARKED_IMAGE_TYPE_IDS,
@@ -213,30 +231,28 @@ public class FileGenerator implements Runnable {
             // Generate "preview" representation and gallery images from preview file if it is provided
             if (analyzer.isPreviewFileAvailable()) {
                 byte[] previewFileContent = analyzer.getPreviewFileContent();
-                String fullName = UnifiedSubmissionValidator.calcAlternateFileName(this.contest, this.submitter,
+                String fullName = UnifiedSubmissionValidator.calcAlternateFileName(this.project, this.submitter,
                                                                             this.submission,
                                                                             analyzer.getPreviewFilePath(), "preview");
                 writeFile(fullName, previewFileContent);
 
                 // Since Studio Submission Slideshow - generate gallery images if necessary
-                ContestType contestType = this.contest.getType();
-                //reload the contest type from the db since this object was created in another session.
-                //there may be reason to reload all of the objects given to this inner class, but we'll start here.
-                HibernateUtils.getSession().refresh(contestType);
-                if (contestType.getIncludeGallery()) {
+                // reload the contest type from the db since this object was created in another session.
+                // there may be reason to reload all of the objects given to this inner class, but we'll start here.
+                if (Constants.GALLERY_IDS.contains(this.project.getCategoryId())) {
                     BundledFileAnalyzer previewFileAnalyzer
                             = UnifiedSubmissionValidator.getBundledFileParser(analyzer.getPreviewFilePath());
                     Map<String, byte[]> files = previewFileAnalyzer.getFiles(previewFileContent);
                     for (Map.Entry<String, byte[]> file : files.entrySet()) {
-                        String fileName = null;
+                        fileName = null;
                         try {
                             fileName = file.getKey();
                             if (log.isDebugEnabled()) {
                                 log.debug("generating for " + fileName);
                             }
                             byte[] fileContent = file.getValue();
-                            StudioFileType fileType = UnifiedSubmissionValidator.getFileType(fileName);
-                            if ((fileType != null) && fileType.isImageFile()) {
+                            FileType fileType = UnifiedSubmissionValidator.getFileType(fileName);
+                            if ((fileType != null) && fileType.getImageFile()) {
                                 generateImages(fileName, fileContent, fileType,
                                         GALLERY_PLAIN_IMAGE_TYPE_IDS, GALLERY_PLAIN_IMAGE_SIZES, false,
                                         fileIndex);
@@ -306,20 +322,20 @@ public class FileGenerator implements Runnable {
      * @throws ImageOverlayProcessingException
      *                                    if original image can not be resized to specified size.
      */
-    private void generatePreviewImagePresentations(byte[] imageContent, StudioFileType previewImageFileType,
+    private void generatePreviewImagePresentations(byte[] imageContent, FileType previewImageFileType,
                                                    String previewImagePath, boolean previewFileAvailable)
             throws IOException, ImageException, ImagePersistenceException, UnsupportedFormatException,
             ImageOverlayProcessingException {
-        String imageName = UnifiedSubmissionValidator.calcAlternateFileName(this.contest, this.submitter, this.submission,
+        String imageName = UnifiedSubmissionValidator.calcAlternateFileName(this.project, this.submitter, this.submission,
                                                                      previewImagePath, "image");
         String watermarkedImageName
-                = UnifiedSubmissionValidator.calcAlternateFileName(this.contest, this.submitter, this.submission,
+                = UnifiedSubmissionValidator.calcAlternateFileName(this.project, this.submitter, this.submission,
                                                             previewImagePath, "imagew");
         writeFile(imageName, imageContent);
         createPresentation(watermarkedImageName, true, ORIGINAL_IMAGE_SIZE, imageContent, previewImageFileType);
 
         if (!previewFileAvailable) {
-            String fullName = UnifiedSubmissionValidator.calcAlternateFileName(this.contest, this.submitter,
+            String fullName = UnifiedSubmissionValidator.calcAlternateFileName(this.project, this.submitter,
                     this.submission, previewImagePath,
                     "preview");
             createPresentation(fullName, true, ORIGINAL_IMAGE_SIZE, imageContent, previewImageFileType);
@@ -342,7 +358,7 @@ public class FileGenerator implements Runnable {
      * @throws ImageOverlayProcessingException
      *                                    if original image can not be resized to specified size.
      */
-    private void generateImages(String originalImagePath, byte[] imageContent, StudioFileType imageFileType,
+    private void generateImages(String originalImagePath, byte[] imageContent, FileType imageFileType,
                                 Integer[] imageTypeIds, int[] imageTypeSizes, boolean watermark, int fileIndex)
             throws IOException, ImageException, ImagePersistenceException, UnsupportedFormatException,
             ImageOverlayProcessingException {
@@ -351,7 +367,7 @@ public class FileGenerator implements Runnable {
             int imageTypeId = imageTypeIds[i];
             int imageSize = imageTypeSizes[i];
             String imageFileName
-                    = UnifiedSubmissionValidator.calcAlternateFileName(this.contest, this.submitter, this.submission,
+                    = UnifiedSubmissionValidator.calcAlternateFileName(this.project, this.submitter, this.submission,
                     originalImagePath,
                     String.valueOf(imageTypeId) + "_" + fileIndex);
             Image presentation = createPresentation(imageFileName, watermark, imageSize, imageContent,
@@ -359,7 +375,7 @@ public class FileGenerator implements Runnable {
 
             // Generate image and save it to persistent data store
             Path imagePath = new Path();
-            imagePath.setPath(this.submission.getPath().getPath());
+            imagePath.setPath(Util.createSubmissionPath(this.project, this.submitter));
             DAOUtil.getFactory().getPathDAO().saveOrUpdate(imagePath);
 
             com.topcoder.web.common.model.Image image = new com.topcoder.web.common.model.Image();
@@ -409,7 +425,7 @@ public class FileGenerator implements Runnable {
      *                                    if original image can not be resized to specified size.
      */
     private Image createPresentation(final String path, boolean watermark, int maxSize, final byte[] imageContent,
-                                     final StudioFileType imageFileType) throws IOException, ImageException,
+                                     final FileType imageFileType) throws IOException, ImageException,
             ImagePersistenceException,
             UnsupportedFormatException,
             ImageOverlayProcessingException {

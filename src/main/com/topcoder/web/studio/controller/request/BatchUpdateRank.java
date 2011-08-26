@@ -1,26 +1,45 @@
+/*
+ * Copyright (C) 2001-2011 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.studio.controller.request;
-
-import com.topcoder.web.common.HibernateUtils;
-import com.topcoder.web.common.validation.IntegerValidator;
-import com.topcoder.web.common.validation.StringInput;
-import com.topcoder.web.common.validation.ValidationResult;
-import com.topcoder.web.studio.Constants;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.dao.SubmissionDAO;
-import com.topcoder.web.studio.model.ContestStatus;
-import com.topcoder.web.studio.model.Submission;
-import com.topcoder.web.studio.model.SubmissionType;
 
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.List;
 import java.util.TreeSet;
 
+import com.topcoder.web.common.HibernateUtils;
+import com.topcoder.web.common.validation.IntegerValidator;
+import com.topcoder.web.common.validation.StringInput;
+import com.topcoder.web.common.validation.ValidationResult;
+import com.topcoder.web.studio.Constants;
+import com.topcoder.web.studio.dao.DAOUtil;
+import com.topcoder.web.studio.dao.SubmissionDAO;
+import com.topcoder.web.studio.dao.UploadDAO;
+import com.topcoder.web.studio.dto.Project;
+import com.topcoder.web.studio.dto.Resource;
+import com.topcoder.web.studio.dto.Submission;
+import com.topcoder.web.studio.dto.Upload;
 
 /**
- * @author dok
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Nov 20, 2006
+ * 
+ * <p>
+ *   Version 1.1 (Re-platforming Studio Release 3 Assembly) Change notes:
+ *   <ol>
+ *     <li>Updated the logic to use contests hosted in <code>tcs_catalog</code> database instead of
+ *     <code>studio_oltp</code> database.</li>
+ *   </ol>
+ * </p>
+ * 
+ * <p>
+ * Version 1.2 (Replatforming Studio Release 5) change notes:
+ *   <ol>
+ *     <li>Using the dto classes in com.topcoder.web.studio.dto package instead of in com.topcoder.web.common.model.comp package.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author dok, pvmagacho, TCSASSEMBER
+ * @version 1.2
  */
 public class BatchUpdateRank extends BaseSubmissionDataProcessor {
     protected void dbProcessing() throws Exception {
@@ -29,13 +48,19 @@ public class BatchUpdateRank extends BaseSubmissionDataProcessor {
 
         Integer submissionTypeId = new Integer(getRequest().getParameter(Constants.SUBMISSION_TYPE_ID));
 
-        SubmissionDAO dao = StudioDAOUtil.getFactory().getSubmissionDAO();
+        SubmissionDAO submissionDAO = DAOUtil.getFactory().getSubmissionDAO();
+        UploadDAO uploadDAO = DAOUtil.getFactory().getUploadDAO();
         String paramName;
         String newRank;
         Integer newRankInt;
         Submission currSubmission = null;
         Date now = new Date();
-        List userSubmissions = dao.getSubmissions(contestId, getUser().getId(), submissionTypeId);
+
+        Project project = DAOUtil.getFactory().getProjectDAO().find(contestId.intValue());
+        Resource resource = RegistrationHelper.getSubmitterResource(project, getUser().getId());
+        List<Upload> uploads = uploadDAO.getUploads(project, resource, Upload.SUBMISSION, Upload.STATUS_ACTIVE);
+        List<Submission> userSubmissions = submissionDAO.getSubmissions(uploads, submissionTypeId, Submission.STATUS_ACTIVE);
+        
         Integer maxRank = null;
         // BUGR-429 Change: replace two ArrayLists by one TreeSet
         TreeSet<ComparableRank> changedSubmissions = new TreeSet<ComparableRank>();
@@ -49,13 +74,12 @@ public class BatchUpdateRank extends BaseSubmissionDataProcessor {
                 } else {
                     currSubmission = findSubmission(userSubmissions,
                             new Long(paramName.substring(Constants.SUBMISSION_ID.length())));
-                    if (submissionTypeId.equals(SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE) && (now.before(currSubmission.getContest().getStartTime()) ||
-                            now.after(currSubmission.getContest().getEndTime()) ||
-                            !ContestStatus.ACTIVE.equals(currSubmission.getContest().getStatus().getId()))) {
+                    if (now.before(currSubmission.getContest().getStartTime()) || now.after(currSubmission.getContest().getEndTime()) ||
+                            !Project.STATUS_ACTIVE.equals(currSubmission.getContest().getStatusId())) {
                         addError(paramName, "Sorry, you can not make a change to a submission for a contest that is not active.");
                     } else {
                         if (maxRank == null) {
-                            maxRank = dao.getMaxRank(currSubmission.getContest(), currSubmission.getSubmitter());
+                            maxRank = submissionDAO.getMaxRank(uploads);
                         }
                         newRankInt = new Integer(newRank);
                         if (newRankInt < 1) {
@@ -83,7 +107,7 @@ public class BatchUpdateRank extends BaseSubmissionDataProcessor {
                 Submission submission = comparableRank.getSubmission();
                 if (++i != submission.getRank()) {
                     submission.setRank(i);
-                    dao.saveOrUpdate(submission);
+                    submissionDAO.saveOrUpdate(submission);
                 }
             }
 
@@ -92,10 +116,10 @@ public class BatchUpdateRank extends BaseSubmissionDataProcessor {
             beginCommunication();
 
             HibernateUtils.getSession().refresh(s);
-            dao = StudioDAOUtil.getFactory().getSubmissionDAO();
+            submissionDAO = DAOUtil.getFactory().getSubmissionDAO();
         }
 
-        loadSubmissionData(s.getSubmitter(), s.getContest(), dao, maxRank, s.getType().getId());
+        // loadSubmissionData(s.getSubmitter(), s.getContest(), dao, maxRank, s.getType().getId());
 
         if (hasErrors()) {
             //override so that the user gets their data back to them

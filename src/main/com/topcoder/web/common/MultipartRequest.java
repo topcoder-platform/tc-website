@@ -70,6 +70,40 @@ public class MultipartRequest extends SimpleRequest {
         }
 
         if (log.isDebugEnabled()) {
+            log.debug("created file upload object with dir " + dir);
+        }
+    }
+
+    /**
+     * <p>Constructs new <code>MultipartRequest</code> instance to use the specified <code>RequestParser</code> for
+     * parsing the specified request.</p>
+     * 
+     * @param request an <code>HttpServletRequest</code> representing incoming request from the client. 
+     * @param uploadRequestParser a <code></code> 
+     * @throws IOException if an I/O error occurs while parsing the request.
+     * @since 1.1
+     */
+    public MultipartRequest(HttpServletRequest request, RequestParser uploadRequestParser) throws IOException {
+        super(request);
+        if (log.isDebugEnabled()) {
+            log.debug("create file upload object");
+        }
+
+        try {
+            FileUpload fu = new LocalFileUpload("com.topcoder.servlet.request.FileUpload");
+            file = fu.uploadFiles(request, uploadRequestParser);
+            dir = ((LocalFileUpload) fu).getDir();
+        } catch (ConfigurationException e) {
+            throw new RuntimeException(e);
+        } catch (DisallowedDirectoryException e) {
+            throw new RuntimeException(e);
+        } catch (RequestParsingException e) {
+            throw new RuntimeException(e);
+        } catch (PersistenceException e) {
+            throw new RuntimeException(e);
+        }
+
+        if (log.isDebugEnabled()) {
             log.debug("created file upload object");
         }
     }

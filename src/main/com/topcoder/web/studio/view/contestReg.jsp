@@ -1,14 +1,16 @@
 <%--
-  - Author: pulky
-  - Version: 1.1
-  - Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+  - Author: pulky, pvmagacho 
+  - Version: 1.4
+  - Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page present registration page for a specific contest.
   -
   - Version 1.1 (Configurable Contest Terms-Studio Release Assembly v1.0) changes: Added new functionality that asks for
   - several terms of use and show those the user already agreed to.
   - Version 1.2 (Studio Electronic Assignment Document Assembly version 1.0) changes:
-  -     - Change the registration process.    
+  -     - Change the registration process.
+  - Version 1.3 (Re-platforming Studio Release 2 assembly) change notes: updated to use different model for contest.
+  - Version 1.4 (Re-platforming Studio Release 4 assembly) change notes: clean up old studio model files.
 --%>
 <%@ page import="com.topcoder.web.studio.Constants"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag"%>
@@ -20,6 +22,7 @@
 <c:set value="<%=Constants.CONTEST_ID%>" var="CONTEST_ID"/>
 <c:set value="<%=Constants.TERMS_OF_USE_ID%>" var="TERMS_OF_USE_ID"/>
 <c:set value="<%=Constants.TERMS_AGREE%>" var="TERMS_AGREE"/>
+<c:set var="contest" value="${requestScope.contest}"/>
 
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -27,7 +30,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
         <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico" />
-		<link href="/css/popup/modalPopup.css" type="text/css"  rel="stylesheet" />		
+        <link href="/css/popup/modalPopup.css" type="text/css"  rel="stylesheet" />        
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>TopCoder Studio : Contest Registration</title>
         <jsp:include page="style.jsp">
@@ -58,7 +61,7 @@
                 });
             });
         </script>
-		<script src="/js/modalPopup.js" type="text/javascript"></script>
+        <script src="/js/modalPopup.js" type="text/javascript"></script>
     </head>
 
     <body>
@@ -74,10 +77,11 @@
                             <div class="contentTop">
                                 <div class="contentMiddle">
                                     <div class="linkBox">
-                                        <studio:forumLink forumID="${contest.forumId}" />
+                                        <studio:forumLink forumID="${contest.info[4].value}" />
                                     </div>
                                     <div class="breadcrumb">
-                                        <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a> &gt; ${contest.name}
+                                        <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a> 
+                                        &gt; ${contest.projectName}
                                     </div>
                                     <br />
                                     <h1>Contest Registration</h1>
@@ -87,7 +91,7 @@
                                             <tc-webtag:hiddenInput name="${MODULE_KEY}" value="Register" />
                                             <tc-webtag:hiddenInput name="${CONTEST_ID}" />
                                             <c:if test="${not empty terms}">
-                                                <tc-webtag:hiddenInput name="${TERMS_OF_USE_ID}" value="${terms.id}" />
+                                                <tc-webtag:hiddenInput name="${TERMS_OF_USE_ID}" value="${terms.termsOfUseId}" />
                                             </c:if>
                                             <c:choose>
                                                 <c:when test="${not empty terms}">
@@ -101,7 +105,7 @@
                                                         ${terms.title}
                                                     </div><br />
                                                     <iframe width="590" height="300" marginWidth="5"
-                                                        src="${sessionInfo.servletPath}?module=Terms&amp;${TERMS_OF_USE_ID}=${terms.id}">
+                                                        src="${sessionInfo.servletPath}?module=Terms&amp;${TERMS_OF_USE_ID}=${terms.termsOfUseId}">
                                                     </iframe>
                                                 </c:when>
                                                 <c:otherwise>
@@ -120,7 +124,7 @@
                                                                                     <a href="${terms_agreed_item.url}" target="_blank">(View)</a>
                                                                                 </c:when>
                                                                                 <c:otherwise>
-                                                                                    <a href="${sessionInfo.servletPath}?module=Terms&amp;${TERMS_OF_USE_ID}=${terms_agreed_item.id}"
+                                                                                    <a href="${sessionInfo.servletPath}?module=Terms&amp;${TERMS_OF_USE_ID}=${terms_agreed_item.termsOfUseId}"
                                                                                         target="_blank">(View)</a>
                                                                                 </c:otherwise>
                                                                             </c:choose>
@@ -150,16 +154,16 @@
                                                                 </div>
                                                                 <INPUT TYPE="checkbox" NAME="${TERMS_AGREE}" />
                                                                 I agree <br /> <br />
-																	<c:choose>
-																		<c:when test="${not empty has_global_ad and has_global_ad}">
-																			<%-- HAVE AD --%>
-																			<input type="image" src="/i/v2/interface/btnContinue.png" />
-																		</c:when>
-																		<c:otherwise>
-																		<%-- NO AD --%>
-																			<input type="image" src="/i/v2/interface/btnContinue.png" class="show-modal-register"/>
-																		</c:otherwise>
-																	</c:choose>
+                                                                    <c:choose>
+                                                                        <c:when test="${not empty has_global_ad and has_global_ad}">
+                                                                            <%-- HAVE AD --%>
+                                                                            <input type="image" src="/i/v2/interface/btnContinue.png" />
+                                                                        </c:when>
+                                                                        <c:otherwise>
+                                                                        <%-- NO AD --%>
+                                                                            <input type="image" src="/i/v2/interface/btnContinue.png" class="show-modal-register"/>
+                                                                        </c:otherwise>
+                                                                    </c:choose>
                                                                 <br /><br />
                                                             </c:when>
                                                             <c:otherwise>
@@ -186,16 +190,16 @@
                                                         </c:choose>
                                                     </c:when>
                                                     <c:otherwise>
-														<c:choose>
-															<c:when test="${not empty has_global_ad and has_global_ad}">
-																<%-- HAVE AD --%>
-																<input type="image" src="/i/v2/interface/btnRegister.png" />
-															</c:when>
-															<c:otherwise>
-															<%-- NO AD --%>
-																<input type="image" src="/i/v2/interface/btnRegister.png" class="show-modal-register"/>
-															</c:otherwise>
-														</c:choose>
+                                                        <c:choose>
+                                                            <c:when test="${not empty has_global_ad and has_global_ad}">
+                                                                <%-- HAVE AD --%>
+                                                                <input type="image" src="/i/v2/interface/btnRegister.png" />
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                            <%-- NO AD --%>
+                                                                <input type="image" src="/i/v2/interface/btnRegister.png" class="show-modal-register"/>
+                                                            </c:otherwise>
+                                                        </c:choose>
                                                         <br /><br />
                                                     </c:otherwise>
                                                 </c:choose>

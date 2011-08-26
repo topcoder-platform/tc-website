@@ -45,9 +45,9 @@
             Sorry, you are ineligible for the <strong><%=rscTco08.getStringItem(0, "event_desc")%></strong>.
             <br />If this is a mistake, contact <a href="mailto:service@topcoder.com">service@topcoder.com</a>.
         <% } else if (rscTco08.getIntItem(0, "registered")== 1) { %>
-        	You are registered for the <strong><%=rscTco08.getStringItem(0, "event_desc")%></strong>.
+            You are registered for the <strong><%=rscTco08.getStringItem(0, "event_desc")%></strong>.
         <% } else { %>
-        	You are not registered for the <strong><%=rscTco08.getStringItem(0, "event_desc")%></strong>.
+            You are not registered for the <strong><%=rscTco08.getStringItem(0, "event_desc")%></strong>.
             <br />Would you like to <strong><a href="http://<%=ApplicationServer.SERVER_NAME%>/tco09" class="tco08MessageLink">register</a></strong>?
         <% } %>
 </div>

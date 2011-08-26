@@ -1,6 +1,6 @@
 <%--
-  - Author: pulky, isv
-  - Version: 1.5
+ - Author: pulky, isv, pvmagacho
+  - Version: 1.7
   - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page renders studio home page.
@@ -31,6 +31,9 @@
   -    * and Compete and Post buttons. Active Contests area shows icon for contests
   -    * eligible for TCO10. Contest Chatter area is replaced with Member Of The Month
   -    * info
+  - Version 1.6 (Replatforming Studio Release 1 Assembly) change notes: active contests are filtered based on 
+  -    * eligibility constraints.
+  - Version 1.7 (Replatforming Studio Release 4 Assembly) change notes: empty active contests control must be shown.  
 --%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
@@ -40,16 +43,8 @@
 <%@ page import="java.util.Date" %>
 <%@ page import="java.util.Map" %>
 
-<% ResultSetContainer activeContests = (ResultSetContainer) ((Map) request.getAttribute("studio_home_data")).get("active_contests");%>
-<% ResultSetContainer totalPrizePaidRS = (ResultSetContainer) ((Map) request.getAttribute("studio_home_data")).get("total_prize_paid");%>
-<%
-    String totalPrizePaid = "0";
-    if (totalPrizePaidRS.getItem(0, 0).getResultData() != null) {
-        NumberFormat formatter = NumberFormat.getInstance();
-        formatter.setParseIntegerOnly(true);
-        totalPrizePaid = formatter.format(totalPrizePaidRS.getFloatItem(0, 0) + 134598);
-    }
-%>
+<% ResultSetContainer activeContests 
+        = (ResultSetContainer) ((Map) request.getAttribute("studio_home_data")).get("studio_active_contests");%>
 
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
@@ -70,9 +65,9 @@
             <jsp:param name="key" value="tc_studio_home"/>
         </jsp:include>
 
-		<!--[if lt IE 7]>
-				<script type="text/javascript" src="js/pngfix/unitpngfix.js"></script>
-		<![endif]--> 		
+        <!--[if lt IE 7]>
+                <script type="text/javascript" src="js/pngfix/unitpngfix.js"></script>
+        <![endif]-->         
 
         <%-- Javascript code --%>
         <script src="/js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"></script>
@@ -125,14 +120,20 @@
                         </div>
                     </div><%-- End of #top_part --%>
                     <div id="center_content">
-                        <c:if test="${not empty contests}">
-                            <div id="active_contest">
+                <div id="active_contest">
                                 <div id="active_contest_head">
                                     <span class="active_contests_head">&nbsp;</span>
                                     <span class="active_contests_head">ACTIVE CONTESTS</span>
                                     <span class="prize_purse_head">PURSE</span>
                                     <span class="time_left_head">TIME LEFT</span>
                                 </div>
+                        <c:if test="${empty contests}">                            
+                                <div id="active_contest_content">
+                </div>
+            </div>
+                        </c:if>
+                        <c:if test="${not empty contests}">
+                            <div id="active_contest">
                                 <div id="active_contest_content">
                                     <table>
                                         <thead>
@@ -145,6 +146,9 @@
                                         </thead>
                                         <tbody>
                                             <rsc:iterator list="<%=activeContests%>" id="resultRow" end="6">
+                                                <c:set var="contestId" value="<%=new Long(resultRow.getLongItem("contest_id"))%>"/>
+                                                <c:if test="${requestScope.eligibility[contestId]}">
+                                                
                                                 <tr>
                                                     <td class="event">
                                                         <% if ("3433".equals(resultRow.getStringItem("event_id"))) { %>
@@ -187,6 +191,8 @@
                                                         %>
                                                     </td>
                                                 </tr>
+                                                
+                                                </c:if>
                                             </rsc:iterator>
                                         </tbody>
                                     </table>
@@ -218,9 +224,9 @@
                             </div>
                             <div id="bottom_part_r">
                                 <div class="box_content_container">
-                                	  <!-- PLEASE ADJUST MEMBER OF THE MONTH PARAMETERS HERE -->
+                                      <!-- PLEASE ADJUST MEMBER OF THE MONTH PARAMETERS HERE -->
                                     <div id="member_of_the_month">
-				                                <img style="margin-bottom:12px;"
+                                                <img style="margin-bottom:12px;"
                                             src="/i/v5/Member_of_the_month_header.jpg" >
                                     </div>
                                     <div class="member_image" style="float:left;">

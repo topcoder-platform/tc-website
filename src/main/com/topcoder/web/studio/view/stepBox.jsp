@@ -1,12 +1,15 @@
 <%--
-  - Author: TCSDEVELOPER
-  - Version: 1.0 (Studio Contest Detail Pages assembly)
-  - Copyright (C) 2010 TopCoder Inc., All Rights Reserved.
+  - Author: isv, pvmagacho
+  - Version: 1.2 (Studio Contest Detail Pages assembly)
+  - Copyright (C) 2010 - 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page renders the common header for Studio Contest Detail pages.
+  -
+  - Version 1.1 (Re-platforming Studio Release 4 Assembly) : Clean up old studio model files. Added mark for purchase flag
+  - Version 1.2 (Re-platforming Studio Release 5 Assembly) : Use the model class in com.topcoder.web.studio.dto package
 --%>
 <%@ page import="com.topcoder.web.studio.Constants" %>
-<%@ page import="com.topcoder.web.studio.model.PrizeType" %>
+<%@ page import="com.topcoder.web.studio.dto.Prize" %>
 <%@ page import="com.topcoder.web.studio.controller.request.ViewContestDetails" %>
 <%@ page import="java.util.Date" %>
 
@@ -20,26 +23,30 @@
 <c:set var="servletPath" value="${sessionInfo.servletPath}"/>
 <c:set var="registered" value="${requestScope.registered}"/>
 <c:set var="prizesCount" value="${fn:length(contest.prizes)}"/>
-<c:set var="clientPrize" value="<%=PrizeType.BONUS%>"/>
-<c:set var="isMultiRound" value="${not empty contest.multiRound and contest.multiRound}"/>
-<c:set var="milestoneDate" value="${contest.multiRoundInformation.milestoneDate}"/>
+<%
+request.setAttribute("clientPrize", new Long(Prize.MILESTONE_PRIZE_TYPE_ID));
+%>
+<c:set var="clientPrize" value="${clientPrize}"/>
+<c:set var="isMultiRound" value="${not empty contest.milestoneDate}"/>
+<c:set var="milestoneDate" value="${contest.milestoneDate}"/>
 <c:set var="placeSuffixes"
        value="<%=new String[] {"st", "nd", "rd", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th"}%>"/>
-<c:set var="drPointsAvailable" value="${fn:length(contest.digitalRunPoints.value) > 0 and contest.digitalRunPoints.value != '0'}"/>
+<c:set var="drPointsAvailable" value="${contest.digitalRunPoints ne null and contest.digitalRunPoints > 0}"/>
 <c:set var="hasMilestoneRoundPrize" value="${isMultiRound and not empty contest.milestonePrize and not empty contest.milestonePrize.numberOfSubmissions and not empty contest.milestonePrize.amount}"/>
-<c:set var="isFinished" value="${currentTime >= contest.endTime}"/>
-<c:set var="isStarted" value="${currentTime >= contest.startTime}"/>
+<c:set var="isFinished" value="${contest.reviewClosed}"/>
+<c:set var="isStarted" value="${contest.submissionOpen}"/>
 <c:set var="isRunning" value="${isStarted and not isFinished}"/>
-<c:set var="isMilestoneRoundPassed" value="${isRunning and isMultiRound and currentTime >= milestoneDate}"/>
+<c:set var="isMilestoneRoundPassed" value="${isRunning and isMultiRound and contest.milestoneSubmissionClosed}"/>
 <c:set var="hasCockpitPermissions" value="${requestScope.has_cockpit_permissions}"/>
+<fmt:setLocale value="en_US"/>
 
 <h2 id="bigTitle">
-    <c:out value="${contest.name}"/>
+    <c:out value="${contest.projectName}"/>
 </h2>
 <ul class="linkNavi2">
-    <li class="first"><label>CLIENT:</label><c:out value="${contest.clientName.value}"/></li>
-    <li><label>CONTEST TYPE:</label><a href="javascript:" class="studioContestType${contest.type.id}">
-        <c:out value="${contest.type.description}"/></a></li>
+    <li class="first"><label>CONTEST TYPE:</label><a href="javascript:" class="studioContestType${contest.category.id}">
+        <c:out value="${contest.category.name}"/></a>
+    </li>
 </ul>
 
 <div class="clear"></div>
@@ -48,7 +55,7 @@
     <%-- BUTTONS FOR SUBMITTER --%>
     <div class="leftColumn">
         <c:choose>
-            <c:when test="${not (currentTime <= contest.endTime && currentTime >= contest.startTime)}">
+            <c:when test="${not isStarted}">
                 <%-- REGISTRATION FOR CONTEST IS NOT OPEN --%>
                 <a href="javascript:" class="stepFirstDeac">REGISTER FOR<br/>THIS CONTEST</a>
                 <a href="javascript:" class="stepSecondDeac">SUBMIT YOUR<br/> ENTRIES</a>
@@ -173,7 +180,7 @@
             <p>
                 <c:choose>
                     <c:when test="${drPointsAvailable}">
-                        <span class="points">${contest.digitalRunPoints.value}</span> STUDIO CUP POINTS
+                        <span class="points">${contest.digitalRunPoints}</span> STUDIO CUP POINTS
                     </c:when>
                     <c:otherwise>
                         <span class="points"></span>NO STUDIO CUP POINTS
@@ -189,7 +196,7 @@
             <p>
                 <c:choose>
                     <c:when test="${drPointsAvailable}">
-                        <span class="points">${contest.digitalRunPoints.value}</span> STUDIO CUP POINTS
+                        <span class="points">${contest.digitalRunPoints}</span> STUDIO CUP POINTS
                     </c:when>
                     <c:otherwise>
                         <span class="points"></span>NO STUDIO CUP POINTS

@@ -1,19 +1,21 @@
 <%--
-  - Author: pulky
-  - Version: 1.2
-  - Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+  - Author: pulky, isv, pvmagacho
+  - Version: 1.4
+  - Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page presents active contests
   -
   - Version 1.1 (Studio Release Assembly - Spec Review Sign up page v1.0) changes: Added "Review Opportunities" tab.
   - Version 1.2 (BUGR-2786) changes: Added "Round 1 End" column. Fixed "time left" column to count towards milestone
   - date if it has not been reached yet. (Only for multi round contests)
+  - Version 1.3 (Replatforming Studio Release 1 Assembly) change notes: active contests are filtered based on 
+  - eligibility constraints.
+  - Version 1.4 (Replatforming Studio Release 4 Assembly) change notes: clean up old model classes.
 --%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
-<%@ page import="com.topcoder.web.studio.model.ContestChannel" %>
 <%@ page import="java.util.Date" %>
 <%@ page import="java.sql.Timestamp" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -41,58 +43,58 @@
     <script src="/js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"></script>
     <script src="/js/NewStyleHeaderFooter/preloadCssImages.jQuery_v5.js" language="javascript"></script>
     <script type="text/javascript">
-			$(document).ready(function(){
-				//Run the script to preload images from CSS
-				$.preloadCssImages(); 
-			});
-	</script>
-	<script src="/js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
-	<script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
-	<script type="text/javascript" language="javascript">
+            $(document).ready(function(){
+                //Run the script to preload images from CSS
+                $.preloadCssImages(); 
+            });
+    </script>
+    <script src="/js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
+    <script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
+    <script type="text/javascript" language="javascript">
 
-	$(document).ready(function(){
-	
-	
-		$("#nav ul li").hoverIntent(function(){
-			$(this).children("ul").slideDown("fast");
-		}, function() {
-			$(this).children("ul").slideUp("fast");
-		});
-		
-		$("#nav ul ul li").hover(function() {
-			$(this).parents("#nav ul li").children('a').addClass("active-item");
-		}, function() {
-			$(this).parents("#nav ul li").children('a').removeClass("active-item");
-		});
-	
-	
-	});
-	</script>
+    $(document).ready(function(){
+    
+    
+        $("#nav ul li").hoverIntent(function(){
+            $(this).children("ul").slideDown("fast");
+        }, function() {
+            $(this).children("ul").slideUp("fast");
+        });
+        
+        $("#nav ul ul li").hover(function() {
+            $(this).parents("#nav ul li").children('a').addClass("active-item");
+        }, function() {
+            $(this).parents("#nav ul li").children('a').removeClass("active-item");
+        });
+    
+    
+    });
+    </script>
 </head>
 
 <body>
-	<div id="page-wrap">
-    	<div align="center">
-		<jsp:include page="top.jsp">
+    <div id="page-wrap">
+        <div align="center">
+        <jsp:include page="top.jsp">
             <jsp:param name="section" value="contest" />
         </jsp:include>
         <br />
         <%-- container --%>
         <div id="container">    
-        	<div id="wrapper">
-			<%-- content --%>
+            <div id="wrapper">
+            <%-- content --%>
             <div id="content">
                 <div class="contentTop">
                     <div class="contentMiddle">
 
-					<h1>Active Contests</h1>
-					
-					<div align="right"><strong>Need help? Learn how to
-						<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=Static&amp;d1=support&amp;d2=getStarted">get started</a></strong>.<br />
-					</div>
-					
-					<div class="tableTabOn" style="margin-left: 20px;"><a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a></div>
-					<div class="tableTabOff"><a href="${sessionInfo.servletPath}?module=ViewPastContests">Past Contests</a></div>
+                    <h1>Active Contests</h1>
+                    
+                    <div align="right"><strong>Need help? Learn how to
+                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=Static&amp;d1=support&amp;d2=getStarted">get started</a></strong>.<br />
+                    </div>
+                    
+                    <div class="tableTabOn" style="margin-left: 20px;"><a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a></div>
+                    <div class="tableTabOff"><a href="${sessionInfo.servletPath}?module=ViewPastContests">Past Contests</a></div>
                               <%-- BUGR-1211 Added Active Bug Race Tab --%>
                     <div class="tableTabOff"><a href="${sessionInfo.servletPath}?module=ViewActiveBugRaces">Active Bug Race Competitions</a></div>
                     <div class="tableTabOff"><a href="${sessionInfo.servletPath}?module=ViewReviewOpportunities">Review Opportunities</a></div>
@@ -150,6 +152,9 @@
 
                                     <% boolean even = true;%>
                                     <rsc:iterator list="${contests}" id="resultRow">
+                                        <c:set var="contestId" value="<%=new Long(resultRow.getLongItem("contest_id"))%>"/>
+                                        <c:if test="${requestScope.eligibility[contestId]}">
+                                        
                                         <tr><td class="space" colspan="11">&nbsp;</td></tr>
                                         <tr class="<%=even?"light":"dark"%>">
                                             <td class="valueE">
@@ -210,6 +215,7 @@
                                             </td>
                                         </tr>
                                         <% even = !even;%>
+                                        </c:if>
                                     </rsc:iterator>
                                 </c:otherwise>
                             </c:choose>
@@ -228,6 +234,6 @@
 </div>
 
 <jsp:include page="foot.jsp"/>
-        	
+            
 </body>
 </html>

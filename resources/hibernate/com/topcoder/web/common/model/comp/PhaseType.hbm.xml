@@ -12,7 +12,7 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping package="com.topcoder.web.common.model.comp">
+<hibernate-mapping package="com.topcoder.web.common.model.comp" auto-import="false">
     <class name="PhaseType" table="phase_type_lu" mutable="false">
         <id name="id" column="phase_type_id" access="field"/>
         <property name="name" column="name" access="field"/>

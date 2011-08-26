@@ -22,9 +22,9 @@
     }
 
 %>
- 			</div>
- 		</div>
-	</div><%-- #page-wrap ends --%>
+             </div>
+         </div>
+    </div><%-- #page-wrap ends --%>
 <%-- FOOTER BLOCK --%>
 <div id="footer">
     <div class="wrapper2">

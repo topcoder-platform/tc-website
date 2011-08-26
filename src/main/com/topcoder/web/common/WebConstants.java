@@ -70,8 +70,15 @@ package com.topcoder.web.common;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, snow01, FireIce, flexme
- * @version 1.6.3
+ * <p>
+ *   Version 1.6.4 (Replatforming Studio Release 5) Change notes:
+ *   <ol>
+ *     <li>Added constants {@link #REVIEW_ID}.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky, snow01, FireIce, TCSASSEMBER
+ * @version 1.6.4
  */
 public interface WebConstants {
     public static final String HANDLE = "ha";
@@ -127,6 +134,13 @@ public interface WebConstants {
     public static final String EVENT_ID = "eid";
 
     public static final String TERMS = "terms";
+
+    /**
+     * Represents the review id attribute key.
+     * 
+     * @since 1.6.4
+     */
+    public static final String REVIEW_ID = "rid";
 
     /**
      * <p>A <code>String</code> representing terms agree attribute key.</p>

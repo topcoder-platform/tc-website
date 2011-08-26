@@ -1,39 +1,39 @@
 <%--
-  - Author: TCSDEVELOPER
-  - Version: 1.0 (Studio Contest Detail Pages assembly)
-  - Copyright (C) 2010 TopCoder Inc., All Rights Reserved.
+  - Author: isv, pvmagacho
+  - Version: 1.1 (Studio Contest Detail Pages assembly)
+  - Copyright (C) 2010-2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page renders the list of submissions received milestone prizes along with their and overall
   - milestone feedbacks.
+  - Version 1.1 (Re-platforming Studio Release 4 assembly) change notes: re-factored the logic for milestone feedbacks
+  - displaying.
 --%>
 <%@ page import="com.topcoder.web.studio.Constants" %>
-<%@ page import="com.topcoder.web.studio.model.PrizeType" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
 <fmt:setLocale value="en_US"/>
-<c:set var="clientPrize" value="<%=PrizeType.BONUS%>"/>
 <c:set var="contest" value="${requestScope.contest}"/>
-<c:set var="isMultiRound" value="${not empty contest.multiRound and contest.multiRound}"/>
-<c:set var="milestoneDate" value="${contest.multiRoundInformation.milestoneDate}"/>
+<c:set var="milestoneDate" value="${contest.milestoneDate}"/>
+<c:set var="isMultiRound" value="${not empty milestoneDate}"/>
 <c:set var="currentTime" value="${requestScope.currentTime}"/>
 <c:set var="registered" value="${requestScope.registered}"/>
 <c:set var="CONTEST_ID" value="<%=Constants.CONTEST_ID%>"/>
 <c:set var="servletPath" value="${sessionInfo.servletPath}"/>
 <c:set var="prizesCount" value="${fn:length(contest.prizes)}"/>
-<c:set var="drPointsAvailable"
-       value="${fn:length(contest.digitalRunPoints.value) > 0 and contest.digitalRunPoints.value != '0'}"/>
+<c:set var="drPointsAvailable" value="${contest.digitalRunPoints > 0}"/>
 <c:set var="hasMilestoneRoundPrize"
        value="${isMultiRound and not empty contest.milestonePrize and not empty contest.milestonePrize.numberOfSubmissions and not empty contest.milestonePrize.amount}"/>
 <c:set var="placeSuffixes"
        value="<%=new String[] {"st", "nd", "rd", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th"}%>"/>
-<c:set var="isFinished" value="${currentTime >= contest.endTime}"/>
-<c:set var="isStarted" value="${currentTime >= contest.startTime}"/>
+<c:set var="isFinished" value="${contest.reviewClosed}"/>
+<c:set var="isStarted" value="${contest.submissionOpen}"/>
 <c:set var="isRunning" value="${isStarted and not isFinished}"/>
-<c:set var="isMilestoneRoundPassed" value="${isRunning and isMultiRound and currentTime >= milestoneDate}"/>
+<c:set var="isMilestoneRoundPassed" value="${isRunning and isMultiRound and contest.milestoneSubmissionClosed}"/>
 <c:set var="hasCockpitPermissions" value="${requestScope.has_cockpit_permissions}"/>
+<c:set var="milestonePrizedSubmissions" value="${requestScope.milestonePrizedSubmissions}"/>
 
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -93,12 +93,12 @@
 
                             <p>The following submissions have received a milestone prize.</p>
                             <ul>
-                                <c:forEach items="${contest.milestonePrizedSubmissions}" var="submission">
+                                <c:forEach items="${milestonePrizedSubmissions}" var="submission">
                                     <li>
-                                        <a href="#feedBack${submission.id}" rel="${submission.id}"
-                                           class="feedBack-Show feedBack-Show-${submission.id}">#${submission.id}</a>
-                                        <a href="javascript:" rel="${submission.id}"
-                                           class="feedBack-Hide feedBack-Hide-${submission.id} hide">#${submission.id}</a>
+                                        <a href="#feedBack${submission.key}" rel="${submission.key}"
+                                           class="feedBack-Show feedBack-Show-${submission.key}">#${submission.key}</a>
+                                        <a href="javascript:" rel="${submission.key}"
+                                           class="feedBack-Hide feedBack-Hide-${submission.key} hide">#${submission.key}</a>
                                     </li>
                                 </c:forEach>
                             </ul>
@@ -110,27 +110,27 @@
                         <h5 class="contentTitle firstContentTitle">Overall Milestone Round Feedback</h5>
 
                         <p class="paragraph">
-                            <studio:formatField text="${contest.multiRoundInformation.generalFeedbackText}"/>
+                            <studio:formatField text="${contest.studioProjectSpecification.generalFeedback}"/>
                         </p>
 
                         <p class="addiInfo">
                             If your submission is listed on the left, your design review is posted below.
                         </p>
 
-                        <c:forEach items="${contest.milestonePrizedSubmissions}" var="submission">
-                            <!-- #${submission.id} -->
+                        <c:forEach items="${milestonePrizedSubmissions}" var="submission">
+                            <!-- #${submission.key} -->
                             <div>
-                                <h5 class="contentTitle feedBack${submission.id}" id="feedBack${submission.id}">
-                                    Design Review – Submission #${submission.id}
-                                    <a href="javascript:" rel="${submission.id}"
-                                       class="feedbackShowHide feedBack-Show feedBack-Show-${submission.id}">Show</a>
-                                    <a href="javascript:" rel="${submission.id}"
-                                       class="feedbackShowHide feedBack-Hide feedBack-Hide-${submission.id} hide">Hide</a>
+                                <h5 class="contentTitle feedBack${submission.key}" id="feedBack${submission.key}">
+                                    Design Review – Submission #${submission.key}
+                                    <a href="javascript:" rel="${submission.key}"
+                                       class="feedbackShowHide feedBack-Show feedBack-Show-${submission.key}">Show</a>
+                                    <a href="javascript:" rel="${submission.key}"
+                                       class="feedbackShowHide feedBack-Hide feedBack-Hide-${submission.key} hide">Hide</a>
                                 </h5>
 
-                                <div class="hide" id="submission-feeedback-${submission.id}">
+                                <div class="hide" id="submission-feeedback-${submission.key}">
                                     <p class="paragraph">
-                                        <studio:formatField text="${submission.feedbackText}"/>
+                                        <studio:formatField text="${submission.value}"/>
                                     </p>
                                 </div>
                             </div>

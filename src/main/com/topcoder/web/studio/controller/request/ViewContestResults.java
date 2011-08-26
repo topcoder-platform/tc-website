@@ -3,6 +3,8 @@
  */
 package com.topcoder.web.studio.controller.request;
 
+import java.util.Date;
+
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -12,16 +14,11 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.studio.Constants;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
+import com.topcoder.web.studio.dao.DAOUtil;
 import com.topcoder.web.studio.dao.SubmissionDAO;
-import com.topcoder.web.studio.model.Contest;
-import com.topcoder.web.studio.model.ContestResult;
-import com.topcoder.web.studio.model.ContestStatus;
-import com.topcoder.web.studio.model.Submission;
+import com.topcoder.web.studio.dto.Project;
+import com.topcoder.web.studio.dto.Submission;
 import com.topcoder.web.studio.util.Util;
-
-import java.util.Date;
-import java.util.Set;
 
 /**
  * <p>This class implements the request processor for the contest results (winners) page.</p>
@@ -65,65 +62,63 @@ import java.util.Set;
  * Current submission object is now retrieved, to get submission declaration data.
  * </p>
  *
- * @author dok, pulky, isv, Orange_Cloud
- * @version 1.5
+ * <p>
+ *   Version 1.6 (Re-platforming Studio Release 3 Assembly) Change notes:
+ *   <ol>
+ *     <li>Updated the logic to use contests hosted in <code>tcs_catalog</code> database instead of
+ *     <code>studio_oltp</code> database.</li>
+ *   </ol>
+ * </p>
+ * 
+ * <p>
+ * Version 1.7 (Replatforming Studio Release 5) change notes:
+ *   <ol>
+ *     <li>Using the dto classes in com.topcoder.web.studio.dto package instead of in com.topcoder.web.common.model.comp package.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky, isv, Orange_Cloud, pvmagacho, TCSASSEMBER
+ * @version 1.7
  */
 public class ViewContestResults extends ShortHibernateProcessor {
+    /**
+     * <p>
+     * Implements the business logic for request processing.
+     * </p>
+     *
+     * @throws Exception if an unexpected error occurs.
+     */
     protected void dbProcessing() throws Exception {
         String contestId = getRequest().getParameter(Constants.CONTEST_ID);
         if ("".equals(StringUtils.checkNull(contestId))) {
             throw new NavigationException("No contest specified");
         } else {
-            Long cid;
+            Integer cid;
             try {
-                cid = new Long(contestId);
+                cid = new Integer(contestId);
             } catch (NumberFormatException e) {
                 throw new NavigationException("Invalid contest specified");
             }
-            Contest contest = StudioDAOUtil.getFactory().getContestDAO().find(cid);
-            getRequest().setAttribute("hasScores", contest.getProject() != null);
+            Project contest = DAOUtil.getFactory().getProjectDAO().find(cid);
+            getRequest().setAttribute("hasScores", true);
 
             if (Util.isAdmin(getUser().getId())) {
                 getRequest().setAttribute("contest", contest);
                 loadData(cid);
             } else {
-                if (ContestStatus.ACTIVE.equals(contest.getStatus().getId())) {
-                    Date now = new Date();
-                    if (contest.getEndTime().before(now)) {
-                        Set<ContestResult> results = contest.getResults();
-                        if (results != null && !results.isEmpty()) {
-                            getRequest().setAttribute("contest", contest);
-                            loadData(cid);
-                        } else {
-                            throw new NavigationException("No contest results available.");
-                        }
-                    } else {
-                        throw new NavigationException("Inactive contest specified.");
-                    }
-                } else {
-                    throw new NavigationException("Invalid contest specified.");
+                if (contest.getReviewClosed()) {
+                    getRequest().setAttribute("contest", contest);
+                    loadData(cid);
+                 } else {
+                    throw new NavigationException("No contest results available.");
                 }
             }
 
-            Long submissionId = 0l;
+            Integer submissionId = 0;
             try {
-                submissionId = new Long(getRequest().getParameter(Constants.SUBMISSION_ID));
+                submissionId = new Integer(getRequest().getParameter(Constants.SUBMISSION_ID));
             } catch (NumberFormatException e) {
                 // if the submission id is invalid, just ignore it.
-            }
-
-            // added for BUGR-2096 - Fix the Winners Page on Studio when "show submissions" flag is set to "no"
-            if (!String.valueOf(true).equals(contest.getViewableSubmissions().getValue())) {
-                // BUGR-2434: avoid throwing for the full results page and set a flag in the request instead
-                if (submissionId > 0) {
-                    // the full size preview will still throw exception since this url is not accessible via 
-                    // the application. Users should fake the url to get here.
-                    throw new NavigationException("Submissions are not available for this contest");   
-                }
-
-                getRequest().setAttribute("viewableSubmissions", Boolean.FALSE);
-            } else {
-                getRequest().setAttribute("viewableSubmissions", Boolean.TRUE);                
             }
 
             // added after BUGR-1915: process all submissions information to show on the page
@@ -133,7 +128,7 @@ public class ViewContestResults extends ShortHibernateProcessor {
                 getRequest().setAttribute(Constants.SUBMISSION_ID, submissionId);
 
                 // fetch submission and submission declaration data
-                SubmissionDAO submissionDAO = StudioDAOUtil.getFactory().getSubmissionDAO();
+                SubmissionDAO submissionDAO = DAOUtil.getFactory().getSubmissionDAO();
                 Submission submission = submissionDAO.find(submissionId);
                 submission.setViewCount(submission.getViewCount() + 1);
                 submissionDAO.saveOrUpdate(submission);
@@ -154,27 +149,25 @@ public class ViewContestResults extends ShortHibernateProcessor {
      * @param c the contest being requested.
      * @throws Exception if any error occurs.
      */
-    private void processSubmissionsSection(Contest c) throws Exception {
+    private void processSubmissionsSection(Project c) throws Exception {
         boolean isOver = new Date().after(c.getEndTime());
         
         // in this case, no submission will be shown
-        if (!isOver || !String.valueOf(true).equals(c.getViewableSubmissions().getValue())) {
+        if (!isOver || !c.getViewableSubmissions()) {
             return;
         }
 
-        DataAccess da = new DataAccess(DBMS.STUDIO_DATASOURCE_NAME);
+        DataAccess da = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
         Request r = new Request();
-        r.setContentHandle("submissions");
+        r.setContentHandle("studio_submissions");
         r.setProperty(Constants.CONTEST_ID, String.valueOf(c.getId()));
 
-        if (c.getMaxSubmissions() != null && c.getMaxSubmissions().getValue() != null) {
-            r.setProperty(Constants.SUBMISSION_RANK, c.getMaxSubmissions().getValue());
+        if (c.getMaxSubmissions() != null) {
+            r.setProperty(Constants.SUBMISSION_RANK, c.getMaxSubmissions().toString());
         }
 
-        getRequest().setAttribute("hasScores", c.getProject() != null);
-
-        ResultSetContainer submissions = (ResultSetContainer) da.getData(r).get("submissions");
-
+        ResultSetContainer submissions = (ResultSetContainer) da.getData(r).get("studio_submissions");
+        
         // get pagination parameters from request
         String pageNumber = StringUtils.checkNull(getRequest().getParameter(Constants.PAGE_NUMBER_KEY));
         if (pageNumber.equals("")) {
@@ -227,12 +220,20 @@ public class ViewContestResults extends ShortHibernateProcessor {
         getRequest().setAttribute("submissions", submissions.subList(start, end));
     }
 
-    private void loadData(Long cid) throws Exception {
-        DataAccess da = new CachedDataAccess(DBMS.STUDIO_DATASOURCE_NAME);
+    /**
+     * <p>Load contest result data. This is only possible if user is administrator or review phase has ended.</p>
+     * 
+     * @param cid the project id
+     * @throws Exception if any error occurs during persistence access
+     */
+    private void loadData(Integer cid) throws Exception {
+        DataAccess da = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
         Request r = new Request();
-        r.setContentHandle("contest_results");
+        r.setContentHandle("studio_contest_results");
         r.setProperty(Constants.CONTEST_ID, cid.toString());
-        getRequest().setAttribute("results", da.getData(r).get("contest_results"));
+        
+        ResultSetContainer results = (ResultSetContainer) da.getData(r).get("studio_contest_results");        
+        getRequest().setAttribute("results", results);
     }
 
 }

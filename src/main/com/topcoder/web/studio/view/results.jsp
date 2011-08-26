@@ -1,7 +1,7 @@
 <%--
-  - Author: pulky, isv, TCSDEVELOPER
-  - Version: 1.5
-  - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
+  - Author: pulky, isv, TCSDEVELOPER, pvmagacho
+  - Version: 1.6
+  - Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page lists all winners for a given contest.
   -
@@ -18,6 +18,8 @@
   - * The handles for all submitters (not just the winners) are displayed .
   - Version 1.5 (Studio Contest Detail Pages Assembly version 1.0) changes:
   -     - Applied new L&F
+  - Version 1.6 (Re-platforming Studio Release 3 Assembly) changes:
+  -     - Updated the logic to use contests hosted in tcs_catalog database  
 --%>
 
 <%@ page import="com.topcoder.web.studio.Constants" %>
@@ -94,7 +96,7 @@
                         <div id="contentSubmissions">
                             <div id="winners">
                                 <div id="submissions" align="center">
-                                    <c:if test="${not viewableSubmissions}">
+                                    <c:if test="${not contest.viewableSubmissions}">
                                         <br/>
                                         <p align="center">
                                             <strong>Submissions are not viewable for this contest.</strong><br/>
@@ -117,8 +119,8 @@
                                                         </c:otherwise>
                                                     </c:choose>
                                                     <studio_tags:submissionPreview row="${resultRow}"
-                                                        showPlacement="true" viewSubmitters="true"
-                                                        viewSubmissions="${viewableSubmissions}"/>
+                                                        showPlacement="true" 
+                                                        viewSubmissions="${contest.viewableSubmissions}"/>
                                                     </td>
                                                     <c:if test="${(i - 1) % 4 == 0 || i == 1}">
                                                         </tr><tr align="center">

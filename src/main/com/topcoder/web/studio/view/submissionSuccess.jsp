@@ -1,5 +1,4 @@
 <%@ page import="com.topcoder.web.studio.Constants" %>
-<%@ page import="com.topcoder.web.studio.model.ContestChannel" %>
 <%@ page import="java.util.Calendar" %>
 <%@ page import="java.util.GregorianCalendar" %>
 <%@ page import="java.sql.Timestamp" %>
@@ -31,36 +30,36 @@
     <%--<script src="/js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"></script>--%>
     <script src="/js/NewStyleHeaderFooter/preloadCssImages.jQuery_v5.js" language="javascript"></script>
     <script type="text/javascript">
-			$(document).ready(function(){
-				//Run the script to preload images from CSS
-				$.preloadCssImages(); 
-			});
-	</script>
-	<script src="/js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
-	<script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
+            $(document).ready(function(){
+                //Run the script to preload images from CSS
+                $.preloadCssImages(); 
+            });
+    </script>
+    <script src="/js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
+    <script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
     <script src="/js/jquery.ui.core.js" type="text/javascript"></script>
-	<script src="/js/submit.js" type="text/javascript"></script>
-	<script type="text/javascript" language="javascript">
+    <script src="/js/submit.js" type="text/javascript"></script>
+    <script type="text/javascript" language="javascript">
 
-	$(document).ready(function(){
-	
-	
-		$("#nav ul li").hoverIntent(function(){
-			$(this).children("ul").slideDown("fast");
-		}, function() {
-			$(this).children("ul").slideUp("fast");
-		});
-		
-		$("#nav ul ul li").hover(function() {
-			$(this).parents("#nav ul li").children('a').addClass("active-item");
-		}, function() {
-			$(this).parents("#nav ul li").children('a').removeClass("active-item");
-		});
-	
-	
-	});
-	</script>
-	
+    $(document).ready(function(){
+    
+    
+        $("#nav ul li").hoverIntent(function(){
+            $(this).children("ul").slideDown("fast");
+        }, function() {
+            $(this).children("ul").slideUp("fast");
+        });
+        
+        $("#nav ul ul li").hover(function() {
+            $(this).parents("#nav ul li").children('a').addClass("active-item");
+        }, function() {
+            $(this).parents("#nav ul li").children('a').removeClass("active-item");
+        });
+    
+    
+    });
+    </script>
+    
     <script type="text/javascript" src="/js/taconite-client.js"></script>
     <script type="text/javascript" src="/js/taconite-parser.js"></script>
     <script type="text/javascript" src="/js/fat.js"></script>
@@ -68,7 +67,7 @@
     <script type="text/javascript" src="/js/thickbox-3.1/thickbox-compressed-3.1.js"></script>
     <link rel="stylesheet" href="/js/thickbox-3.1/thickbox-3.1.css" type="text/css" media="screen" />
 
-<%--	<script language="javascript" type="text/javascript">
+<%--    <script language="javascript" type="text/javascript">
         <!--
         function changeRank(newRank, submissionId) {
             var ajaxRequest = new AjaxRequest('${sessionInfo.servletPath}?module=UpdateSubmissionRank&<%=Constants.SUBMISSION_RANK%>=' + newRank + '&<%=Constants.SUBMISSION_ID%>=' + submissionId);
@@ -107,13 +106,13 @@
 </head>
 
 <body data-web-root="${sessionInfo.servletPath}">
-	<div id="page-wrap">
-    	<div align="center">
-			<jsp:include page="top.jsp"/>
+    <div id="page-wrap">
+        <div align="center">
+            <jsp:include page="top.jsp"/>
         <br />
         <!-- container -->
         <div id="container">
-        	    <div id="wrapper">
+                <div id="wrapper">
     
             <!-- content -->
             <div id="content">
@@ -128,7 +127,7 @@
 
         <div class="breadcrumb">
             <a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a>
-            &gt; ${contest.name}
+            &gt; ${contest.projectName}
         </div>
 
         <h1>Submission Successfully Uploaded</h1>
@@ -136,31 +135,21 @@
     GregorianCalendar gc = new GregorianCalendar(2007, Calendar.JULY, 23);
 %>
 <c:set value="<%=new Timestamp(gc.getTime().getTime())%>" var="bigStart"/>
-<c:set value="<%=ContestChannel.TOPCODER_DIRECT%>" var="TOPCODER_DIRECT_ID"/>
-
         <div align="center">
             <div align="left" style="width:500px; margin-top: 20px;">
                 Your Submission Has Been Uploaded
                 <br /><br />
-                        <c:choose>
+          <c:choose>
             <c:when test="${contest.startTime > bigStart}">
-				<c:choose>
-					<c:when test="${contest.channel.id eq TOPCODER_DIRECT_ID}">
-					Your submission has been accepted and shown to the client. It still needs to be screened and you will receive another email alerting you to whether your submission has passed or failed screening.	
-	                </c:when>
-	                <c:otherwise>
-					Your submission will be screened after the Submission Phase has ended. If your submission does not pass
-	                screening, you will receive an email with a list of any requirements that it failed to meet. 
-	                </c:otherwise>
-                </c:choose>
-	            </c:when>
-                <c:otherwise>
+                    Your submission will be screened after the Submission Phase has ended. If your submission does not pass
+                    screening, you will receive an email with a list of any requirements that it failed to meet. 
+            </c:when>
+            <c:otherwise>
                     Please allow at least 24 hours for processing. If your submission does not pass screening, you
                     will receive an
                     email with a list of any requirements that it failed to meet.
-
-                </c:otherwise>
-                </c:choose>
+            </c:otherwise>
+          </c:choose>
                 <br /><br />
                 Thank you.
                 <br /><br />
@@ -180,13 +169,14 @@
                              <strong>In the table below</strong> you can rank your submissions. <br />
 
                              <c:choose>
-                                 <c:when test="${not empty contest.maxSubmissions.value}">
-                                     Up to ${contest.maxSubmissions.value} submission<c:if test="${contest.maxSubmissions.value>1}">s</c:if>
+                                 <c:when test="${not empty contest.maxSubmissions}">
+                                     Up to ${contest.maxSubmissions} submission<c:if test="${contest.maxSubmissions>1}">s</c:if>
                                      will count for this contest.  They will be indicated by
                                      <nobr>this icon <img src="/i/v2/selection.png" alt="Selection" /></nobr>.  Those submissions that do not have the icon will <b>NOT</b> count and
                                      they will neither be screened nor reviewed.
-                                     If you make more than ${contest.maxSubmissions.value} submission<c:if test="${contest.maxSubmissions.value>1}">s</c:if>
-                                     for this contest, you can rearrange the order of your submissions until the end of the Submission Phase.
+                                     If you make more than ${contest.maxSubmissions} submission<c:if test="${contest.maxSubmissions>1}">s</c:if>
+                                     for this contest, you can rearrange the order of your submissions until the end of the Submission Phase. 
+                                     Note that milestone submissions can't be rearranged after milestone deadline.
                                  </c:when>
                              <c:otherwise>
                                  <nobr>This icon <img src="/i/v2/selection.png" alt="Selection" /></nobr> indicates preferred submissions that will count for
@@ -211,58 +201,6 @@
 
                 <br /><br />
 
-                <%--<div class="statHolder">
-                    <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
-                    <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
-                    <div class="container">
-                        <table class="stat" cellpadding="0" cellspacing="0">
-                            <thead>
-                                <tr><td class="title" colspan="10">My Favorites</td></tr>
-                                <tr>
-                                    <td class="headerW">
-                                        <div>&nbsp;</div>
-                                    </td>
-                                    <td class="headerC">
-                                        Ranking
-                                        <div>
-                                            <a href="#" onClick="batchUpdate();return false;"><img src="/i/v2/interface/btnUpdateRanking.png" alt="Update ranking" /></a>
-                                        </div>
-                                    </td>
-                                    <td class="header" colspan="2" width="33%">
-                                        Submission
-                                    </td>
-                                    <td class="headerC" width="33%">
-                                        Date Submitted
-                                    </td>
-                                    <td class="headerC" width="33%">
-                                        Passed / Failed
-                                    </td>
-                                    <td class="headerC" nowrap>
-                                        Move Up /<br />Move Down
-                                    </td>
-                                    <td class="headerC" nowrap>
-                                        Move to<br />Top
-                                    </td>
-                                    <td class="headerC">
-                                        Remove
-                                    </td>
-                                    <td class="headerE">
-                                        <div>&nbsp;</div>
-                                    </td>
-                                </tr>
-                            </thead>
-                            <tbody id="submissions">
-                                <div class="submission-data">
-                                    <jsp:include page="submitTableBody.jsp"/>
-                                </div>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="SE"><img src="/i/v2/stat_tableSE.png" alt="" /></div>
-                    <div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
-                </div>--%>
-
-
                 <div id="wrapper_submission">
                 <div class="rank-submission-wrapper">
                 <div class="submission-list-wrapper">
@@ -278,11 +216,11 @@
                             <li class="rank">Rank</li>
                             <li class="thumbnails">Thumbnails</li>
                             <li class="submission-id">Submission ID</li>
+                            <li class="submission-id">Submission Type</li>
                             <li class="date">Date Submitted</li>
-                            <li class="screening">Screening</li>
                             <li class="move">Move Up/Down</li>
-                            <li class="download">Download</li>
                             <li class="remove">Remove</li>
+                            <li class="download">Download</li>
                         </ul>
                         <div class="clear"></div>
 
