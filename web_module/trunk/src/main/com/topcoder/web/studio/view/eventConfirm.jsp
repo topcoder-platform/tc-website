@@ -23,47 +23,47 @@
     <script src="/js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"></script>
     <script src="/js/NewStyleHeaderFooter/preloadCssImages.jQuery_v5.js" language="javascript"></script>
     <script type="text/javascript">
-			$(document).ready(function(){
-				//Run the script to preload images from CSS
-				$.preloadCssImages(); 
-			});
-	</script>
-	<script src="/js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
-	<script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
-	<script type="text/javascript" src="/js/v2/popup.js"></script>
-	<script type="text/javascript" language="javascript">
+            $(document).ready(function(){
+                //Run the script to preload images from CSS
+                $.preloadCssImages(); 
+            });
+    </script>
+    <script src="/js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
+    <script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/v2/popup.js"></script>
+    <script type="text/javascript" language="javascript">
 
-	$(document).ready(function(){
-	
-	
-		$("#nav ul li").hoverIntent(function(){
-			$(this).children("ul").slideDown("fast");
-		}, function() {
-			$(this).children("ul").slideUp("fast");
-		});
-		
-		$("#nav ul ul li").hover(function() {
-			$(this).parents("#nav ul li").children('a').addClass("active-item");
-		}, function() {
-			$(this).parents("#nav ul li").children('a').removeClass("active-item");
-		});
-	
-	
-	});
-	</script>
+    $(document).ready(function(){
+    
+    
+        $("#nav ul li").hoverIntent(function(){
+            $(this).children("ul").slideDown("fast");
+        }, function() {
+            $(this).children("ul").slideUp("fast");
+        });
+        
+        $("#nav ul ul li").hover(function() {
+            $(this).parents("#nav ul li").children('a').addClass("active-item");
+        }, function() {
+            $(this).parents("#nav ul li").children('a').removeClass("active-item");
+        });
+    
+    
+    });
+    </script>
 </head>
 
 <body>
-	<div id="page-wrap">
-    	<div align="center">
-			<jsp:include page="top.jsp">
-            	<jsp:param name="section" value="contest" />
-        	</jsp:include>
+    <div id="page-wrap">
+        <div align="center">
+            <jsp:include page="top.jsp">
+                <jsp:param name="section" value="contest" />
+            </jsp:include>
         <br />
       
         <!-- container -->
         <div id="container">
-        	        <div id="wrapper">
+                    <div id="wrapper">
 
             <!-- content -->
             <div id="content">
@@ -73,9 +73,9 @@
                 <h1>Contest Registration</h1>
                 <br />
                 <div align="center">
-					<h2>Are you sure you want to register for this contest?</h2>
-				<div>
-				<div align="center" style="text-align:left; width:500px; font-size:12px; line-height: 18px;">
+                    <h2>Are you sure you want to register for this contest?</h2>
+                <div>
+                <div align="center" style="text-align:left; width:500px; font-size:12px; line-height: 18px;">
                     <br /><br />
                     Please be aware that you are <b>NOT REGISTERED for the TCO11 tournament</b> that this contest is part of. Registering for this contest will not register you for the TCO11 tournament. If you don't register for the tournament prior to registering for this contest, you will not receive points for this contest even if you sign up for TCO11 at a later date.
                     <br /><br />
@@ -85,8 +85,8 @@
                         <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
                         <tc-webtag:hiddenInput name="<%=Constants.REG_CONFIRM%>"/>
                         <tc-webtag:hiddenInput name="<%=Constants.TERMS_AGREE%>" value="on"/>
-				</div>
-				<div align="center" style="font-size:14px;">
+                </div>
+                <div align="center" style="font-size:14px;">
                         <br /><br />
                         <a href="http://community.topcoder.com/tco11" target="_blank">Take me to register for the TCO11</a><br />
                         <br />

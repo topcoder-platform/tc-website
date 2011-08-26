@@ -1,8 +1,8 @@
 <%--
-  - Author: pulky
-  - Version: 1.3
+  - Author: pulky, pvmagacho, TCSASSEMBER
+  - Version: 1.6
   - Since: Studio Submission Viewer Upgrade Integration v1.0
-  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  - Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: This is a custom tag to handle submission preview for the view submissions
   - and view contest results pages.
@@ -10,27 +10,27 @@
   - Version 1.1 (BUGR-1755/1756): removed full preview javascript.
   - Version 1.2 (BUGR-1914): Added prize information.
   - Version 1.3 (BUGR-2434): Added parameter to hide preview and download link.
+  - Version 1.4 (Re-platforming Studio Release 3 Assembly) : Updated the logic to use contests hosted in tcs_catalog database
+  - Version 1.5 (Re-platforming Studio Release 4 Assembly) : Clean up old studio model files. Added mark for purchase flag
+  - Version 1.6 (Re-platforming Studio Release 5 Assembly) : Use the model class in com.topcoder.web.studio.dto package.
   -
   - Required attributes:
   -     * row: the submission information
   -     * showPlacement: whether to show placements or not.
-  -     * viewSubmitters: whether to show submitters or not.
-  -     * viewSubmissions: whether to show preview image and download links.
 --%>
 
 <%@ tag import="com.topcoder.web.studio.Constants" %>
-<%@ tag import="com.topcoder.web.studio.model.ContestChannel" %>
-<%@ tag import="com.topcoder.web.studio.model.PrizeType" %>
+<%@ tag import="com.topcoder.web.studio.dto.Prize" %>
 <%@ tag body-content="empty" %>
 
 <%@ attribute name="row" required="true" type="java.lang.Object" %>
 <%@ attribute name="showPlacement" required="true" type="java.lang.Boolean" %>
-<%@ attribute name="viewSubmitters" required="true" type="java.lang.Boolean" %>
 <%@ attribute name="viewSubmissions" required="false" type="java.lang.Boolean" %>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="studio" uri="studio.tld" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <%-- Prepare some variables for further use --%>
 <c:set var="subAltType" value="<%=Constants.SUBMISSION_ALT_TYPE%>"/>
@@ -51,36 +51,17 @@
     <c:set var="createDate" value="${row.map['submit_date']}"/>
 </c:if>
 
-<c:set var="bonusPrize" value="<%=PrizeType.BONUS%>"/>
-<c:set var="adminV1" value="<%=ContestChannel.STUDIO_ADMINISTRATOR_V1%>"/>
+<c:set var="bonusPrize" value="<%=new Long(Prize.MILESTONE_PRIZE_TYPE_ID)%>"/>
 <c:set var="multi" value="false"/>
 
 <c:set var="downloadSubmissionBaseUrl"
     value="studio.jpg?${modKey}=DownloadSubmission&amp;${subId}=${row.map['submission_id']}&amp;${subAltType}=full"/>
 
 <%-- Decide image to shown according to the contest configuration --%>
-<c:choose>
-    <c:when test="${row.map['contest_channel_id'] eq adminV1}">
-        <%-- Old Studio Admin contests --%>
-        <c:choose>
-            <c:when test="${row.map['is_image']}">
-                <c:set var="previewImageSrc" value="?${modKey}=${processor}&amp;${subId}=${submissionId}"/>
-            </c:when>
-            <c:otherwise>
-                <c:set var="previewImageSrc" value="/i/v2/interface/magnify.png"/>
-            </c:otherwise>
-        </c:choose>
-    </c:when>
-    <c:otherwise>
-        <%-- TC Direct and Studio Admin V2 contests --%>
+<c:if test="${not multi}">
+    <c:set var="previewImageSrc" value="${downloadSubmissionBaseUrl}"/>
+</c:if>
         <%-- BUGR-4567 --%>
-        <c:if test="${not multi}">
-            <c:set var="previewImageSrc"
-                value="${downloadSubmissionBaseUrl}&amp;it=26"/>
-        </c:if>
-    </c:otherwise>
-</c:choose>
-
 <%-- Render the preview box --%>
 <div id="sub${row.map["submission_id"]}" class="submission">
     <c:if test="${empty viewSubmissions || viewSubmissions}">
@@ -134,7 +115,7 @@
             <span class="info">
                 <strong>
                     <c:choose>
-                        <c:when test="${bonusPrize==row.map['prize_type_id']}">
+                        <c:when test="${row.map['mark_for_purchase']}">
                             Client Selection
                         </c:when>
                         <c:otherwise>
@@ -170,15 +151,13 @@
             </strong>
         </span>
         <br />
-        <c:if test="${viewSubmitters}">
-            <span>
-                <strong>
-                    Handle:
-                    <studio:handle coderId="${userId}"/>
-                </strong>
-            </span>
-            <br />
-        </c:if>
+        <span>
+            <strong>
+                Handle:
+                <tc-webtag:handle coderId="${userId}" context="component" />
+            </strong>
+        </span>
+        <br />
         <span>
             Submitted on
             <fmt:formatDate value="${createDate}" pattern="MM.dd.yyyy 'at' HH:mm z" timeZone="${sessionInfo.timezone}"/>

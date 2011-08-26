@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.studio.dto" auto-import="false">
+
+    <class name="ProjectInfo" table="project_info" mutable="false" >
+        
+        <composite-id name="id" class="ProjectInfo$Identifier">
+            <key-many-to-one name="project" class="Project" column="project_id"/>
+            <key-property name="typeId" column="project_info_type_id" access="field"/>
+        </composite-id>
+   
+        <property name="value" column="value" access="field"/>
+
+    </class>
+</hibernate-mapping>

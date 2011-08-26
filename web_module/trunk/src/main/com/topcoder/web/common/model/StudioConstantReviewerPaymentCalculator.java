@@ -9,20 +9,52 @@ package com.topcoder.web.common.model;
  * all constants.
  * </p>
  * 
+ * <p>
+ * Version 1.1 (Replatforming Studio Release 5) change notes:
+ * <ol>
+ *   <li>Added {@link #projectCategory} field and getter/setter for it.</li>
+ *   <li>Updated {@link #getScreeningCost()} method to return the screening cost based on the project category.</li>
+ *   <li>Updated {@link #getMilestoneScreeningCost()} method to always return 0.</li>
+ *   <li>Added {@link #getSpecReviewCost()} method to return the Specification Review Cost.</li>
+ * </ol>
+ * </p>
+ * 
  * @author flexme
- * @version 1.0 (Online Review Replatforming Release 2)
+ * @version 1.1 (Online Review Replatforming Release 2)
  */
 public class StudioConstantReviewerPaymentCalculator extends BaseReviewerPaymentCalculator {
-    /**
-     * Represents the payments for the milestone screener.
-     */
-    private static final float MILESTONE_SCREENER_PAYMENT = 50.0f;
 
     /**
      * Represents the payment for the screener payment.
      */
-    private static final float SCREENER_PAYMENT = 50.0f;
+    private static final float SCREENER_PAYMENT = 100.0f;
+    
+    /**
+     * Represents the payment for screener of the Logo contest.
+     * 
+     * @since 1.1
+     */
+    private static final float LOGO_CONTEST_SCREENER_PAYMENT = 150.0f;
+    
+    /**
+     * Represents the payment for the specification review payment.
+     * 
+     * @since 1.1
+     */
+    private static final float SPEC_REVIEW_PAYMENT = 75.0f;
+    
+    /**
+     * Represents the project category id of Logo contest.
+     * 
+     * @since 1.1
+     */
+    private static final int LOGO_CONTEST_CATEGORY_ID = 20;
 
+    /**
+     * Represents the id of the project category.
+     */
+    private int projectCategory;
+    
     /**
      * Constructor using parameters
      * 
@@ -35,14 +67,29 @@ public class StudioConstantReviewerPaymentCalculator extends BaseReviewerPayment
      */
     public StudioConstantReviewerPaymentCalculator(float firstPlacePrize, int submissionCount, int passedScreeningCount) {
         super(firstPlacePrize, submissionCount, passedScreeningCount);
+        projectCategory = 0;
     }
 
+    /**
+     * Constructor using project category id.
+     * 
+     * @param projectCategory the id of the project category.
+     * @since 1.1
+     */
+    public StudioConstantReviewerPaymentCalculator(int projectCategory) {
+        super(0, 1, 1);
+        this.projectCategory = projectCategory;
+    }
+    
     /**
      * Gets the payment for the screener.
      * 
      * @return the payment for the screener.
      */
     public float getScreeningCost() {
+        if (projectCategory == LOGO_CONTEST_CATEGORY_ID) {
+            return LOGO_CONTEST_SCREENER_PAYMENT;
+        }
         return SCREENER_PAYMENT;
     }
 
@@ -52,7 +99,7 @@ public class StudioConstantReviewerPaymentCalculator extends BaseReviewerPayment
      * @return the payment for the milestone screener.
      */
     public float getMilestoneScreeningCost() {
-        return MILESTONE_SCREENER_PAYMENT;
+        return 0.0f;
     }
 
     /**
@@ -80,5 +127,15 @@ public class StudioConstantReviewerPaymentCalculator extends BaseReviewerPayment
      */
     public float getFinalReviewCost() {
         return 0;
+    }
+    
+    /**
+     * Gets the payment for the specification reviewer.
+     * 
+     * @return the payment for the specification reviewer.
+     * @since 1.1
+     */
+    public float getSpecReviewCost() {
+        return SPEC_REVIEW_PAYMENT;
     }
 }

@@ -14,7 +14,7 @@
 <%@ taglib uri="studio.tld" prefix="studio" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%--@elvariable id="contest" type="com.topcoder.web.studio.model.Contest"--%>
+<%--@elvariable id="contest" type="com.topcoder.web.studio.dto.Project"--%>
 <%--@elvariable id="fonts_data" type="List<String[]>"--%>
 <%--@elvariable id="stock_art_data" type="List<String[]>"--%>
 <%--@elvariable id="has_licensed_content" type="boolean"--%>
@@ -76,7 +76,7 @@
 
 <div class="breadcrumb" style="margin-bottom: 10px;">
             <a href="/?module=ViewActiveContests">Active Contests</a>
-            &gt; ${contest.name}
+            &gt; ${contest.projectName}
 </div>
 
 
@@ -290,12 +290,12 @@
             <p>Does this entry contain design elements that are not your own?</p>
 
             <div class="radioContainer">
-                <input type="radio" checked="checked" id="yes-question"
+                <input type="radio" id="yes-question"
                        name="<%= Constants.CONTAINS_LICENSED_ELEMENTS %>" value="true" class="radio">
                 <label>Yes</label>
             </div>
             <div class="radioContainer">
-                <input type="radio" id="no-question"
+                <input type="radio" checked="checked" id="no-question"
                        name="<%= Constants.CONTAINS_LICENSED_ELEMENTS %>" value="false" class="radio">
                 <label>No</label>
             </div>
@@ -494,7 +494,7 @@
                         <img alt="loading" src="i/loading-complete-icon.gif"
                              class="upload-image-sign upload-completed hide">
                         <span class="state">Uploading....</span>
-                        <span class="note">Please don’t close the browser until uploading file is finish</span>
+                        <span class="note">Please don’t close the browser until the file is uploaded</span>
                     </div>
                     <div class="progress-bar">
                         <span class="left-corner"></span>
@@ -528,18 +528,18 @@
         <p>In the table below you can rank your submissions.</p>
 
         <c:choose>
-            <c:when test="${not empty contest.maxSubmissions.value}">
-                <p>Up to ${contest.maxSubmissions.value} submission<c:if
-                    test="${contest.maxSubmissions.value>1}">s</c:if>
+            <c:when test="${not empty contest.maxSubmissions}">
+                <p>Up to ${contest.maxSubmissions} submission<c:if
+                    test="${contest.maxSubmissions>1}">s</c:if>
                     will count for this contest. They will be indicated by
                     <nobr>this icon <img src="/i/v6/start-icon.png" alt="Selection"/></nobr>
                     .
                     Those submissions that do not have the icon will <strong>NOT</strong> count and
                     they will neither be screened nor reviewed.
-                    If you make more than ${contest.maxSubmissions.value} submission<c:if
-                        test="${contest.maxSubmissions.value>1}">s</c:if>
+                    If you make more than ${contest.maxSubmissions} submission<c:if
+                        test="${contest.maxSubmissions>1}">s</c:if>
                     for this contest, you can rearrange the order of your submissions until the end of the Submission
-                    Phase.
+                    Phase. Note that milestone submissions can't be rearranged after milestone deadline.
                 </p>
             </c:when>
             <c:otherwise>
@@ -565,11 +565,11 @@
                 <li class="rank">Rank</li>
                 <li class="thumbnails">Thumbnails</li>
                 <li class="submission-id">Submission ID</li>
+                <li class="submission-id">Submission Type</li>
                 <li class="date">Date Submitted</li>
-                <li class="screening">Screening</li>
                 <li class="move">Move Up/Down</li>
-                <li class="download">Download</li>
                 <li class="remove">Remove</li>
+                <li class="download">Download</li>
             </ul>
             <div class="clear"></div>
 

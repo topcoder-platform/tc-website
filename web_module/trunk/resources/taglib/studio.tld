@@ -63,5 +63,21 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
+    
+    <tag>
+        <name>reviewItemAnswer</name>
+        <tag-class>com.topcoder.web.studio.view.tags.ReviewItemAnswerTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>questionType</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>answer</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
 
 </taglib>

@@ -1,18 +1,25 @@
 <%@ page import="com.topcoder.web.studio.Constants" %>
-<%@ page import="com.topcoder.web.studio.model.ReviewStatus" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page contentType="text/xml" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="studio_tags" tagdir="/WEB-INF/tags" %>
+
 
 <c:set var="subAltType" value="<%=Constants.SUBMISSION_ALT_TYPE%>"/>
 <c:set var="subId" value="<%=Constants.SUBMISSION_ID%>"/>
 <c:set var="subFileIdx" value="<%=Constants.SUBMISSION_FILE_INDEX%>"/>
 <c:set var="modKey" value="<%=Constants.MODULE_KEY%>"/>
 
-<c:set value="<%=ReviewStatus.FAILED%>" var="failed"/>
-<c:set value="<%=ReviewStatus.PASSED%>" var="passed"/>
 <c:set value="<%=Constants.SUBMISSION_ID%>" var="submissionId"/>
+
+<c:set var="contest" value="${requestScope.contest}"/>
+<c:set var="isFinished" value="${contest.reviewClosed}"/>
+<c:set var="isStarted" value="${contest.submissionOpen}"/>
+<c:set var="isRunning" value="${isStarted and not isFinished}"/>
+<c:set var="isMultiRound" value="${not empty contest.milestoneDate}"/>
+<c:set var="isMilestoneRoundPassed" value="${isRunning and isMultiRound and contest.milestoneSubmissionClosed}"/>
+
+<c:set var="milestoneSubmissionType" value="3" />
 
 <c:forEach items="${submissions}" var="submission">
     <div class="submission-list-item" data-id="${submission.id}" data-rank="${submission.rank}"
@@ -25,8 +32,7 @@
                             <li class="rank">
                                 <span>${submission.rank}</span>
                             </li>
-
-                            <li class="thumbnails">
+                            <li colspan="2" class="thumbnails">
                                 <div class="thumbnails-wrapper">
                                     <img src="${sessionInfo.servletPath}?${modKey}=DownloadSubmission&amp;${subId}=${submission.id}&amp;${subAltType}=tiny" alt=""/>
                                     <div class="img-frame"></div>
@@ -35,10 +41,23 @@
                             <li class="submission-id">
                                 <span>
                                     <c:if
-                                        test="${submission.rank != null && submission.rank <= contest.maxSubmissions.value}">
+                                        test="${submission.rank != null && submission.rank <= contest.maxSubmissions}">
                                         <img src="/i/v6/start-icon.png" alt="icon"/>
                                     </c:if>
                                     #${submission.id}
+                                </span>
+                            </li>
+                            <li class="submission-id">
+                                <span>
+                                <c:choose>
+                                    <c:when
+                                        test="${submission.typeId eq milestoneSubmissionType}">
+                                        Milestone
+                                    </c:when>
+                                    <c:otherwise>
+                                        Final
+                                    </c:otherwise>
+                                </c:choose>
                                 </span>
                             </li>
                             <li class="date">
@@ -47,32 +66,19 @@
                                                       timeZone="${sessionInfo.timezone}"/>
                                 </span>
                             </li>
-                            <li class="screening passed">
-                                <span>
-                                    <c:choose>
-                                        <c:when test="${submission.review.status==null}">
-                                            Pending
-                                        </c:when>
-                                        <c:otherwise>
-                                            <c:if test="${submission.review.status.id==failed}">
-                                                <span class="bigRed">${submission.review.status.description}</span>
-                                            </c:if>
-                                            <c:if test="${submission.review.status.id==passed}">
-                                                <span class="bigGreen">${submission.review.status.description}</span>
-                                            </c:if>
-                                        </c:otherwise>
-                                    </c:choose>
-                                </span>
-                            </li>
                             <li class="move">
+                            <c:if test="${not (isMilestoneRoundPassed and submission.typeId eq milestoneSubmissionType)}">
                                 <a href="javascript:;" class="btn-move-down"></a>
                                 <a href="javascript:;" class="btn-move-up"></a>
+                            </c:if>
+                            </li>
+                            <li class="remove">
+                            <c:if test="${not (isMilestoneRoundPassed and submission.typeId eq milestoneSubmissionType)}">
+                                <a href="javascript:;" class="btn-remove"></a>
+                            </c:if>
                             </li>
                             <li class="download">
                                 <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}&amp;<%=Constants.SUBMISSION_ALT_TYPE%>=original" class="btn-download"></a>
-                            </li>
-                            <li class="remove">
-                                <a href="javascript:;" class="btn-remove"></a>
                             </li>
                         </ul>
                         <div class="clear"></div>

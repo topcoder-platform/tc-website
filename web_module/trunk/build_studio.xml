@@ -110,6 +110,8 @@
         <pathelement location="${jars.dir}/tcs/guid_generator/1.0/guid_generator.jar"/>
         <pathelement location="${jars.dir}/tcs/typesafe_enum/1.0/typesafe_enum.jar"/>
         <pathelement location="${jars.dir}/tcs/search_builder/1.4.0/search_builder.jar"/>
+        <pathelement location="${jars.dir}/tcs/contest_eligibility_validation_client/1.0.0/contest_eligibility_validation_client.jar"/>
+        
         <!--        <pathelement location="${jars.dir}/tcsUtil.jar"/>-->
         <!--
                 <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
@@ -122,7 +124,6 @@
         <pathelement location="${external.jars.dir}/image_manipulation-1.0.1.jar"/>
         <pathelement location="${external.jars.dir}/jai_codec-1.1.3.jar"/>
         <pathelement location="${external.jars.dir}/jai_core-1.1.3.jar"/>
-
 
         <!-- hibernate files -->
         <pathelement location="${jars.dir}/hibernate-3.2/hibernate3.jar"/>
@@ -284,7 +285,7 @@
             <fileset dir="${java}/com/topcoder/web/forums/view/studio">
                 <include name="*.*"/>
             </fileset>
-            <fileset dir="${java}/com/topcoder/web/jsp">
+            <fileset dir="${java}/com/topcoder/web/studio/view">
                 <include name="style.jsp"/>
             </fileset>
             <webinf dir="${resources}/studio">
@@ -300,6 +301,7 @@
                 <include name="com/topcoder/web/common/model/**/*.xml"/>
                 <include name="com/topcoder/web/studio/model/**/*.xml"/>
                 <include name="com/topcoder/web/common/voting/**/*.xml"/>
+            	<include name="com/topcoder/web/studio/dto/**/*.xml"/>
             </classes>
             <lib dir="${jars.dir}">
                 <include name="jstl.jar"/>
@@ -320,6 +322,9 @@
             <lib dir="${jars.dir}/tcs/">
                 <include name="studio_service.jar"/>
             </lib>
+            <lib dir="${jars.dir}/tcs/contest_eligibility_validation_client/1.0.0">
+                <include name="contest_eligibility_validation_client.jar"/>
+            </lib>
             <lib dir="${jars.dir}/jboss-add/">
             	<include name="jboss-saaj.jar"/>
             	<include name="jboss-ejb3-client.jar"/>
@@ -337,6 +342,12 @@
         <delete file="${jboss_home}/server/default/deploy/studio.war"/>
         <unwar src="${war.dir}/studio.war" dest="${jboss_home}/server/default/deploy/studio.war/" overwrite="yes"/>
         <delete dir="${jboss_home}/server/default/deploy/studio.war/META-INF"/>
+        <copy todir="${jboss_lib}" file="${bin}/tcwebcommon.jar"/>
+        <copy todir="${jboss_deploy}" file="${ejb_jars}/Project.jar"/>
+        <copy todir="${jboss_deploy}" file="${ejb_jars}/User.jar"/>
+        <copy todir="${jboss_deploy}" file="${ejb_jars}/TermsOfUse.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/base_exception/2.0.0/base_exception.jar"/>
     </target>
 
     <target name="deploy" depends="war-studio">

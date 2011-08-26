@@ -1,27 +1,20 @@
-
-
 <%@ page import="com.topcoder.web.studio.Constants" %>
-<%@ page import="com.topcoder.web.studio.model.ContestChannel" %>
-<%@ page import="com.topcoder.web.studio.model.ContestProperty" %>
+<%@ page import="java.util.Date" %>
 <%@ page import="java.util.TreeMap" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="studio" uri="studio.tld" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="studio_tags" tagdir="/WEB-INF/tags" %>
-<%@ taglib prefix="tc-webtag" uri="tc-webtags.tld" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
-<%--@elvariable id="submission" type="com.topcoder.web.studio.model.Submission"--%>
 
 <c:set var="modKey" value="<%=Constants.MODULE_KEY%>"/>
 <c:set var="subId" value="<%=Constants.SUBMISSION_ID%>"/>
 <c:set var="contestId" value="<%=Constants.CONTEST_ID%>"/>
-<c:set var="viewSubmitters" value="<%=ContestProperty.VIEWABLE_SUBMITTERS%>"/>
 <c:set var="subFileIdx" value="<%=Constants.SUBMISSION_FILE_INDEX%>"/>
 
-
-<c:set var="viewSubmitters" value="${contest.configMap[viewSubmitters]}"/>
+<c:set var="currentTime" value="<%=new Date()%>"/>
 <c:set var="module" value="${param[modKey]}"/>
 
 <c:set var="rows" value="${submissions}"/>
@@ -94,7 +87,7 @@
             &gt;
         </c:otherwise>
     </c:choose>
-    ${contest.name}
+    ${contest.projectName}
 </div>
 
 
@@ -124,7 +117,6 @@
 
 <c:set var="subAltType" value="<%=Constants.SUBMISSION_ALT_TYPE%>"/>
 <c:set var="downloadSubmissionBaseUrl" value="studio.jpg?${modKey}=DownloadSubmission&amp;${subId}=${subRow.map['submission_id']}&amp;${subAltType}=full&amp;it=28"/>
-<c:set var="adminV1" value="<%=ContestChannel.STUDIO_ADMINISTRATOR_V1%>"/>
 <c:set var="processor" value="DownloadSubmission"/>
 
 <div class="view-wrapper"><!-- right top corner-->
@@ -140,7 +132,7 @@
                         <div class="submission-action-left-bottom">
                             <h3 class="submission-caption">Submission #${sbmid} from
                                 <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${contest.id}">
-                                        ${contest.name}
+                                        ${contest.projectName}
                                 </a>
                             </h3>
 
@@ -153,7 +145,7 @@
                                 <studio:forumLink forumID="${contest.forumId}" styleClass="btn-orange"
                                                   message="<span class=\"right-side\"><span class=\"text\">Forum</span></span>"/>
 
-                                <c:set var="winnersAvailable" value="${not empty contest.results}"/>
+                                <c:set var="winnersAvailable" value="${contest.reviewClosed}"/>
                                 <c:set var="winnersPath"
                                        value="${sessionInfo.servletPath}?module=ViewContestResults&amp;${contestId}=${contest.id}"/>
                                 <a href="${winnersAvailable ? winnersPath : 'javascript:'}"
@@ -178,7 +170,7 @@
                                          class="btn-download-view">Download</a></li>
             <li class="state-info">
                 <span class="state">Image <span class="current-order">1</span> of <span
-                    class="total-order">${subRow.map["gallery_image_count"]}</span></span>
+                    class="total-order">${submission.fullGalleryImagesCount}</span></span>
             </li>
             <li class="action-button">
                 <a href="${downloadSubmissionBaseUrl}&amp;${subFileIdx}=1" target="_blank" class="btn-full-size-view"
@@ -196,7 +188,7 @@
                         <div class="submission-action-left-bottom">
                             <ul id="submission-big-size-jcarousel" class="jcarousel-skin-tango big-size-carouse">
 
-                                <c:forEach begin="1" end="${subRow.map['gallery_image_count']}" step="1" varStatus="index">
+                                <c:forEach begin="1" end="${submission.fullGalleryImagesCount}" step="1" varStatus="index">
                                     <li class="${index.index == 1 ? 'jcarousel-item-horizontal-actived' : ''}">
                                         <div>
                                             <img src="${downloadSubmissionBaseUrl}&amp;${subFileIdx}=${index.index}" alt=""/>
@@ -221,7 +213,7 @@
                     <div class="submission-action-right-bottom">
                         <div class="submission-action-left-bottom">
                             <ul id="studio-declarations-jcarousel" class="jcarousel-skin-tango thumbnail-carouse">
-                                <c:forEach begin="1" end="${subRow.map['gallery_image_count']}" step="1" varStatus="index">
+                                <c:forEach begin="1" end="${submission.fullGalleryImagesCount}" step="1" varStatus="index">
                                     <li class="${index.index == 1 ? 'jcarousel-item-horizontal-actived' : ''}">
                                         <a href="javascript:;">
                                             <%--<div style="display:table-cell;">--%>
@@ -271,9 +263,7 @@
     <!--End .button-line-->
     <div class="submission-file-info">
         <h4 class="submission-number">Submission #${sbmid}</h4>
-		<c:if test="${winnersAvailable}">
-        <span class="author">by <studio:handle coderId="${submission.submitter.id}"/></span>
-        </c:if>
+        <span class="author">by <tc-webtag:handle coderId="${submission.submitterId}" context="component" /></span>
 
         <div class="list-wrapper">
             <div class="list-wrapper-left-top">
@@ -289,7 +279,7 @@
                                                       timeZone="${sessionInfo.timezone}"/>
                                     </span>
                                 </li>
-                                <li><label>Total Image </label><span>${subRow.map["gallery_image_count"]}</span></li>
+                                <li><label>Total Image </label><span>${submission.fullGalleryImagesCount}</span></li>
                                 <li><label>File Size</label><span>
                                     <c:choose>
                                         <c:when test="${submission.fileSize < 1024 * 1024}">

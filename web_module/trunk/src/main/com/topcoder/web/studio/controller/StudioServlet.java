@@ -3,6 +3,7 @@
  */
 package com.topcoder.web.studio.controller;
 
+import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseServlet;
@@ -12,6 +13,7 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.studio.util.SubmissionUploadProgressTracker;
 import com.topcoder.web.studio.util.SubmissionUploadRequestParser;
+import com.topcoder.web.common.security.WebAuthentication;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,16 +21,23 @@ import java.util.MissingResourceException;
 
 /**
  * <p>A main servlet for <code>Studio</code> web site.</p>
+ * <p>
+ * Version 1.1 (Replatforming Studio Release 5) change notes:
+ * <ol>
+ *   <li>Override {@link #hasPermission(WebAuthentication, Resource)} method in order to not checking resource permission
+ *   for studio site.</li>
+ * </ol>
+ * </p>
  *
  * <p>
- * Version 1.1 (Upload Progress Bar Assembly 1.0) Change notes:
+ * Version 1.2 (Upload Progress Bar Assembly 1.0) Change notes:
  *   <ol>
  *     <li>Overridden {@link #createRequest(HttpServletRequest)} method.</li>
  *   </ol>
  * </p>
  * 
  * @author dok, isv
- * @version 1.1
+ * @version 1.2
  */
 public class StudioServlet extends BaseServlet {
     private static final Logger log = Logger.getLogger(StudioServlet.class);
@@ -77,6 +86,17 @@ public class StudioServlet extends BaseServlet {
         }
         request.setAttribute("exception", e);
         fetchRegularPage(request, response, ERROR_PAGE, true);
+    }
+
+    /**
+     * Checks whether the user has permission to access the resource.
+     * 
+     * @param auth the authentication object
+     * @param r the resource
+     * @return true always
+     */
+    protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
+        return true;
     }
 
     /**

@@ -7,9 +7,10 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.studio.Constants;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
+import com.topcoder.web.studio.dao.DAOUtil;
 import com.topcoder.web.studio.dao.SubmissionDAO;
-import com.topcoder.web.studio.model.Submission;
+import com.topcoder.web.studio.dto.Resource;
+import com.topcoder.web.studio.dto.Submission;
 
 /**
  * <p>A controller for handling the requests for viewing the <code>Submission Uploading Success</code> page once the
@@ -23,8 +24,23 @@ import com.topcoder.web.studio.model.Submission;
  *   </ol>
  * </p>
  * 
- * @author dok, isv
- * @version 1.1
+ * <p>
+ *   Version 1.1 (Re-platforming Studio Release 3 Assembly) Change notes:
+ *   <ol>
+ *     <li>Updated the logic to use contests hosted in <code>tcs_catalog</code> database instead of
+ *     <code>studio_oltp</code> database.</li>
+ *   </ol>
+ * </p>
+ * 
+ * <p>
+ * Version 1.3 (Replatforming Studio Release 5) change notes:
+ *   <ol>
+ *     <li>Using the dto classes in com.topcoder.web.studio.dto package instead of in com.topcoder.web.common.model.comp package.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author dok, isv, pvmagacho, TCSASSEMBER
+ * @version 1.3
  */
 public class ViewSubmissionSuccess extends BaseSubmissionDataProcessor {
 
@@ -45,10 +61,11 @@ public class ViewSubmissionSuccess extends BaseSubmissionDataProcessor {
     protected void dbProcessing() throws Exception {
         if (userLoggedIn()) {
             String submissionId = getRequest().getParameter(Constants.SUBMISSION_ID);
-            SubmissionDAO dao = StudioDAOUtil.getFactory().getSubmissionDAO();
-            Submission s = dao.find(new Long(submissionId));
-            if (s.getSubmitter().getId().equals(getUser().getId())) {
-                loadSubmissionData(s.getSubmitter(), s.getContest(), dao, s.getType().getId());
+            SubmissionDAO dao = DAOUtil.getFactory().getSubmissionDAO();
+            Submission s = dao.find(new Integer(submissionId));
+            Resource resource = RegistrationHelper.getSubmitterResource(s.getContest(), getUser().getId());
+            if (resource != null) {
+                loadSubmissionData(resource, s.getContest(), dao, DAOUtil.getFactory().getUploadDAO());
                 setIsNextPageInContext(true);
                 setNextPage("submissionSuccess.jsp");
                 

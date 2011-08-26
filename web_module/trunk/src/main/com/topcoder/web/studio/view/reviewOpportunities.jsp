@@ -1,25 +1,34 @@
 <%--
-  - Author: TCSDEVELOPER
-  - Version: 1.0 (Studio Release Assembly - Spec Review Sign up page v1.0)
-  - Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+  - Author: isv, isv, TCSASSEMBER
+  - Version: 1.3 (Replatforming Studio Release 2 Assembly)
+  - Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page presents specification review opportunities
+  -
+  - Version 1.1 change notes: updated the logic for displaying the opportunities to display the milestome screening
+  - and screening phase dates and link Review Signup link to OR.
+  -
+  - Version 1.2 change notes: updated the logic for displaying the opportunities to display the specification review
+  - dates and link Review Signup link to OR.
+  -
+  - Version 1.3 change notes: udpated the logic for display reviewer payments.
 --%>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ taglib prefix="studio" uri="studio.tld" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%-- Set some constants to avoid use of scriptlets in the body --%>
-<c:set value="<%=new Double(Constants.SPEC_REVIEW_PAYMENT_AMOUNT)%>" var="SPEC_REVIEW_PAYMENT_AMOUNT"/>
 <c:set value="<%=Constants.MODULE_KEY%>" var="MODULE_KEY"/>
 <c:set value="<%=Constants.CONTEST_ID%>" var="CONTEST_ID"/>
 <c:set value="<%=Constants.SPEC_REVIEW_ID%>" var="SPEC_REVIEW_ID"/>
 <c:set value="${sessionInfo.servletPath}?${MODULE_KEY}" var="BASE_URL"/>
-<c:set value="${BASE_URL}=Static&amp;d1=support&amp;d2=getStarted" var="GET_STARTED_LINK"/>
+<c:set value="http://apps.topcoder.com/wiki/display/tcstudio/Studio+Member+Opportunities" var="BECOME_STUDIO_REVIEWER_LINK"/>
 <c:set value="${BASE_URL}=ViewContestDetails&amp;${CONTEST_ID}" var="VIEW_CONTEST_DETAILS_LINK"/>
-<c:set value="${BASE_URL}=ReviewRegistration&amp;${SPEC_REVIEW_ID}" var="REVIEW_REGISTRATION_LINK"/>
+<c:set value="${BASE_URL}=ReviewRegistration&amp;${CONTEST_ID}" var="SCREENING_REVIEW_REGISTRATION_LINK"/>
+<c:set value="${BASE_URL}=SpecReviewRegistration&amp;${CONTEST_ID}" var="SPEC_REVIEW_REGISTRATION_LINK"/>
 
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -85,7 +94,7 @@
                     <h1>Review Opportunities</h1>
 
                     <div align="right"><strong>Need help? Learn how to
-                        <a href="${GET_STARTED_LINK}">get started</a></strong>.<br />
+                        <a href="${BECOME_STUDIO_REVIEWER_LINK}">become a studio reviewer</a></strong>.<br />
                     </div>
 
                     <div class="tableTabOff" style="margin-left: 20px;"><a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a></div>
@@ -93,9 +102,9 @@
                     <div class="tableTabOff"><a href="${sessionInfo.servletPath}?module=ViewActiveBugRaces">Active Bug Race Competitions</a></div>
                     <div class="tableTabOn"><a href="${sessionInfo.servletPath}?module=ViewReviewOpportunities">Review Opportunities</a></div>
 
-                    <a href="http://www.topcoder.com/tc?module=BasicRSS&c=rss_review_opportunities&dsid=33" rel="alternate" type="application/rss+xml"><img align="right" src="/i/v2/interface/btnRSS.png" alt="RSS" style="vertical-align:midium; margin-right: 5px; margin-top:5px "/></a>
+                    <a href="http://www.topcoder.com/tc?module=BasicRSS&c=rss_studio_review_opportunities&dsid=28" rel="alternate" type="application/rss+xml"><img align="right" src="/i/v2/interface/btnRSS.png" alt="RSS" style="vertical-align:midium; margin-right: 5px; margin-top:5px "/></a>
                     
-					<br  clear="all"/>
+                    <br  clear="all"/>
 
                     <div class="statHolder">
                         <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
@@ -123,38 +132,56 @@
                                     </c:when>
                                     <c:otherwise>
                                       <c:forEach items="${reviews}" var="resultRow" varStatus="status">
+                                          <c:set var="isSpecReview" 
+                                                 value="${resultRow.map['review_type'] eq 'Spec Review'}"/>
                                         <tr><td class="space" colspan="5">&nbsp;</td></tr>
                                         <tr class="${status.index % 2 == 1? 'dark' : 'light' }">
-                                            <td class="valueE">
-                                                ${resultRow.map['contest_type_desc']}
-                                            </td>
+                                            <td class="valueE"><c:out value="${resultRow.map['review_type']}"/></td>
                                             <td class="value">
                                                 <a href="${VIEW_CONTEST_DETAILS_LINK}=${resultRow.map['contest_id']}">
                                                     ${resultRow.map['name']}
                                                 </a>
                                             </td>
                                             <td class="valueC">
-                                                <fmt:formatDate value="${resultRow.map['start_time']}" pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
-                                            </td>
-                                            <td class="valueC">
-                                                <fmt:formatNumber value="${SPEC_REVIEW_PAYMENT_AMOUNT}" pattern="$###,###.00"/>
-                                            </td>
-                                            <td class="valueW">
                                                 <c:choose>
-                                                    <c:when test="${not empty resultRow.map['review_user_id']}">
-                                                        <studio:handle coderId="${resultRow.map['review_user_id']}"/>
+                                                    <c:when test="${isSpecReview}">
+                                                        <fmt:formatDate value="${resultRow.map['screening_start_time']}" 
+                                                                        pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" 
+                                                                        timeZone="${sessionInfo.timezone}"/>
                                                     </c:when>
                                                     <c:otherwise>
-                                                        <a href="${REVIEW_REGISTRATION_LINK}=${resultRow.map['spec_review_id']}">
-                                                            <c:choose>
-                                                                <c:when test="${userLoggedIn}">
-                                                                        Apply Now
-                                                                </c:when>
-                                                                <c:otherwise>
-                                                                        Open
-                                                                </c:otherwise>
-                                                            </c:choose>
+                                                        <c:choose>
+                                                            <c:when test="${resultRow.map['milestone_screening_start_time'] ne null}">
+                                                                Round 1 -
+                                                                <fmt:formatDate value="${resultRow.map['milestone_screening_start_time']}" 
+                                                                                pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" 
+                                                                                timeZone="${sessionInfo.timezone}"/>
+                                                                <br/>
+                                                                Round 2 -
+                                                                <fmt:formatDate value="${resultRow.map['screening_start_time']}" 
+                                                                                pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" 
+                                                                                timeZone="${sessionInfo.timezone}"/>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                Round 1 -
+                                                                <fmt:formatDate value="${resultRow.map['screening_start_time']}" 
+                                                                                pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" 
+                                                                                timeZone="${sessionInfo.timezone}"/>
+                                                            </c:otherwise>
+                                                        </c:choose>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </td>
+                                            <td class="valueC"><fmt:formatNumber value="${payments[status.index]}" pattern="$###,###.00"/></td>
+                                            <td class="valueW">
+                                                <c:choose>
+                                                    <c:when test="${resultRow.map['reviewer_id'] eq 0}">
+                                                        <a href="${isSpecReview ? SPEC_REVIEW_REGISTRATION_LINK : SCREENING_REVIEW_REGISTRATION_LINK}=${resultRow.map['contest_id']}">
+                                                        Apply Now
                                                         </a>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <tc-webtag:handle coderId="${resultRow.map['reviewer_id']}" context="component" />
                                                     </c:otherwise>
                                                 </c:choose>
                                             </td>
