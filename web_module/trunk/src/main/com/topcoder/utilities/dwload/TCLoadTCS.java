@@ -120,7 +120,7 @@ public class TCLoadTCS extends TCLoad {
      * <p>A <code>String</code> representing all those project categories than should be loaded to the
      * data warehouse.</p>
      */
-    private static final String LOAD_CATEGORIES = "(1, 2, 5, 6, 7, 13, 14, 23, 19, 24, 25, 26, 29, 35)";
+    private static final String LOAD_CATEGORIES = "(1, 2, 5, 6, 7, 13, 14, 23, 19, 24, 25, 26, 29, 35, 16, 17, 18, 20, 21, 30, 31, 32, 34, 22 )";
 
     /**
      * <p>An <code>int</code> array representing all project categories that are currently being rated.
@@ -977,16 +977,19 @@ public class TCLoadTCS extends TCLoad {
                           "             AND NOT pmd2.payment_status_id IN (65, 68, 69)), 0) " +
                           "   end AS contest_prizes_total " +
                             "   , pib.value AS billing_project_id " +
-                            "   , (SELECT MAX(ppfr.actual_end_time) " +
-                            "      FROM project_phase ppfr " +
-                            "      WHERE ppfr.project_id = p.project_id " +
-                            "      AND ppfr.phase_type_id = 10 " +
-                            "      AND ppfr.phase_status_id = 3 " +
-                            "      AND ppfr.actual_end_time <= (SELECT MIN(NVL(actual_start_time, scheduled_start_time)) " +
+                            "   , case when pcl.project_type_id != 3 then  " +
+                            "         (SELECT MAX(ppfr.actual_end_time) " +
+                            "          FROM project_phase ppfr " +
+                            "           WHERE ppfr.project_id = p.project_id " +
+                            "           AND ppfr.phase_type_id = 10 " +
+                            "           AND ppfr.phase_status_id = 3 " +
+                            "           AND ppfr.actual_end_time <= (SELECT MIN(NVL(actual_start_time, scheduled_start_time)) " +
                             "                                   FROM project_phase ppappr " +
                             "                                   WHERE ppappr.project_id = p.project_id " +
                             "                                   AND ppappr.phase_type_id = 11)) " +
-                            "    as actual_complete_date  " +
+                            "     else (select actual_end_time from project_phase ph3 " +
+                            "           where ph3.project_id = p.project_id and ph3.phase_type_id = 3 and ph3.phase_status_id = 3) " +
+                            "     end as actual_complete_date  " +
                             "   from project p , " +
                             "   project_info pir, " +
                             "   project_info pivers, " +
