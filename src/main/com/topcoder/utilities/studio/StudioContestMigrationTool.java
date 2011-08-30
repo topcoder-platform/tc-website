@@ -292,7 +292,7 @@ public class StudioContestMigrationTool extends TCLoad {
         = "INSERT INTO comp_catalog (component_id, current_version, short_desc, " +
                                   "component_name, description, function_desc, status_id, root_category_id, " +
                                   "public_ind, create_time, modify_date) " +
-                                  "VALUES (?, 1, ?, ?, ?, NULL, 102, 27202915, 0, ?, ?)";
+                                  "VALUES (?, 1, ?, ?, ?, NULL, 102, 26887152, 0, ?, ?)";
         
     /**
      * <p>A <code>String</code> providing the SQL statement for inserting new records into 
@@ -307,7 +307,7 @@ public class StudioContestMigrationTool extends TCLoad {
      * <code>tcs_catalog.comp_categories</code> table.</p>
      */
     private static final String INSERT_COMPONENT_CATEGORIES_SQL 
-        = "INSERT INTO comp_categories (comp_categories_id, component_id, category_id) VALUES (?, ?, 27202915)";
+        = "INSERT INTO comp_categories (comp_categories_id, component_id, category_id) VALUES (?, ?, 26887152)";
         
     /**
      * <p>A <code>String</code> providing the SQL statement for inserting new records into 
@@ -720,6 +720,13 @@ public class StudioContestMigrationTool extends TCLoad {
      */
     private static final Map<Long, Long> STATUS_MAPPING = new HashMap<Long, Long>();
 
+
+      /**
+     * <p>A <code>Map</code> mapping the IDs for contest detailed statuses from <code>Studio</code> database to <code>Online
+     * Review</code> database.</p>
+     */
+    private static final Map<Long, Long> DETAILED_STATUS_MAPPING = new HashMap<Long, Long>();
+
     /**
      * <p>A <code>Map</code> mapping the IDs for project types/categories from <code>Studio</code> database to
      * <code>Online Review</code> database.</p>
@@ -759,6 +766,17 @@ public class StudioContestMigrationTool extends TCLoad {
         STATUS_MAPPING.put(4L, 6L);  // No submissions
         STATUS_MAPPING.put(10L, 4L); // No winners
         STATUS_MAPPING.put(11L, 9L); // Abandoned
+
+        DETAILED_STATUS_MAPPING.put(2L, 1L);
+        DETAILED_STATUS_MAPPING.put(5L, 1L);
+        DETAILED_STATUS_MAPPING.put(6L, 1L);
+        DETAILED_STATUS_MAPPING.put(7L, 9L);
+        DETAILED_STATUS_MAPPING.put(8L, 7L);
+        DETAILED_STATUS_MAPPING.put(10L, 1L);
+        DETAILED_STATUS_MAPPING.put(11L, 6L);
+        DETAILED_STATUS_MAPPING.put(12L, 1L);
+        DETAILED_STATUS_MAPPING.put(13L, 6L);
+        DETAILED_STATUS_MAPPING.put(14L, 9L);
         
         PROJECT_CATEGORY_MAPPING.put(1L , 17L); // Web Page Design
         PROJECT_CATEGORY_MAPPING.put(2L , 18L); // Prototype 
@@ -2127,8 +2145,8 @@ public class StudioContestMigrationTool extends TCLoad {
                             long newProjectId = getProjectIdGenerator().getNextID();
                             insertProjectStmt.clearParameters();
                             insertProjectStmt.setLong(1, newProjectId);
-                            if ((contestStatusId == 2) && (contestDetailedStatusId == 8)) {
-                                insertProjectStmt.setLong(2, 7);
+                            if (contestStatusId == 2) {
+                                insertProjectStmt.setLong(2, DETAILED_STATUS_MAPPING.get(contestDetailedStatusId));
                             } else {
                                 insertProjectStmt.setLong(2, STATUS_MAPPING.get(contestStatusId));
                             }
@@ -2258,6 +2276,10 @@ public class StudioContestMigrationTool extends TCLoad {
                                 = new Timestamp(contestEndTime.getTime() + oneMinuteDuration);
                             long screeningPhaseStatusId 
                                 = selectedContestsResult.getLong("screening_phase_status");
+                            if (contestDetailedStatusId == 11 || contestDetailedStatusId == 13)
+                            {
+                                screeningPhaseStatusId = SCHEDULED;
+                            }
                             long screeningPhaseId 
                                 = insertProjectPhase(insertPhaseStmt, newProjectId, 3, screeningPhaseStatusId,
                                                      null, contestEndTime, contestEndTimePlus1Minute,
@@ -2271,6 +2293,10 @@ public class StudioContestMigrationTool extends TCLoad {
                             // Review phase
                             long reviewPhaseStatusId 
                                 = selectedContestsResult.getLong("review_phase_status");
+                            if (contestDetailedStatusId == 11 || contestDetailedStatusId == 13)
+                            {
+                                reviewPhaseStatusId = SCHEDULED;
+                            }
                             long reviewPhaseDuration 
                                 = contestWinnerAnnouncementTime.getTime() - contestEndTimePlus1Minute.getTime();
                             long reviewPhaseId 
