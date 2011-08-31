@@ -5173,9 +5173,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         List payments = new ArrayList();
         ResultSetContainer rsc = null;
-        boolean isStudio = isStudioProject(projectId);
         List<Long> pendingUserIds = getPendingUserIds(projectId);
-        Map<Long,Double> penalties = isStudio ? new HashMap<Long,Double>() : getPaymentPenalties(projectId);
+        Map<Long,Double> penalties = getPaymentPenalties(projectId);
 
         // Get winning designers/developers to be paid
         log.info("Generating payments for winners");
