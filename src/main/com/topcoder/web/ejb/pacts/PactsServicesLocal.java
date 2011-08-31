@@ -178,21 +178,7 @@ public interface PactsServicesLocal extends EJBLocalObject {
             throws IllegalUpdateException, SQLException;
 
     /**
-     * Generates the component payments.
-     *
-     * <p>
-     * Version 1.1 (Online Review Payments and Status Automation Assembly 1.0) Changes Notes:
-     * <ol>
-     * <li>a new parameter is added to populate the related resource ids for generated component payments.</li>
-     * </ol>
-     * </p>
-     * @deprecated
-     */
-    List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId, List resourceIds)
-    		throws IllegalUpdateException,  SQLException, EventFailureException;
-
-    /**
-     * Generates the component payments.
+     * Generates the payments for Online Review projects.
      *
      * <p>
      * Version 1.1 (Online Review Payments and Status Automation Assembly 1.0) Changes Notes:
@@ -204,48 +190,17 @@ public interface PactsServicesLocal extends EJBLocalObject {
      * @param projectId the project id
      * @param status the project status code
      * @param client the client name
-     * @param applyReviewerWithholding whether to apply reviewer with holding.
-     * @param payRboardBonus the bonus for paying review board.
      * @param resourceIds the resource ids list to populate
      * @return the list of component payments.
      * @throws IllegalUpdateException if it is illegal to update.
-     * @throws RemoteException if any error occurs.
      * @throws SQLException if any sql error occurs.
      * @throws EventFailureException if any error occurs.
      */
-    List generateComponentPayments(long projectId, long status, String client, boolean applyReviewerWithholding, boolean payRboardBonus, List resourceIds)
-        throws IllegalUpdateException,  SQLException, EventFailureException;
+    List generateComponentPayments(long projectId, long status, String client, List resourceIds)
+        throws IllegalUpdateException, SQLException, EventFailureException;
 
-    /**
-     * Generates the component payments.
-     *
-     * <p>
-     * Version 1.1 (Online Review Payments and Status Automation Assembly 1.0) Changes Notes:
-     * <ol>
-     * <li>a new parameter is added to populate the related resource ids for generated component payments.</li>
-     * </ol>
-     * </p>
-     *
-     * @param projectId the project id
-     * @param status the project status code
-     * @param client the client name
-     * @param devSupportCoderId the coder id of designer for dev support.
-     * @param devSupportProjectId the project id of the dev support
-     * @param applyReviewerWithholding whether to apply reviewer with holding.
-     * @param payRboardBonus the bonus for paying review board.
-     * @param resourceIds the resource ids list to populate
-     * @return the list of component payments.
-     * @throws IllegalUpdateException if it is illegal to update.
-     * @throws RemoteException if any error occurs.
-     * @throws SQLException if any sql error occurs.
-     * @throws EventFailureException if any error occurs.
-     */
-    List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId, long devSupportProjectId, boolean applyReviewerWithholding, boolean payRboardBonus, List resourceIds)
-        throws IllegalUpdateException,  SQLException, EventFailureException;
-
-    List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed) throws SQLException, EventFailureException;
-
-    List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed, long devSupportCoderId) throws SQLException, EventFailureException;
+    List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed)
+        throws SQLException, EventFailureException;
 
     /**
      * Adds online review payments in persistence.
@@ -253,7 +208,6 @@ public interface PactsServicesLocal extends EJBLocalObject {
      * @param payments the review payments
      * @param resourceIds the resource ids to update the payment status.
      * @return the online review payments.
-     * @throws RemoteException if any error occurs.
      * @throws SQLException if any sql error occurs.
      * @since Online Review Payments and Status Automation Assembly 1.0
      */

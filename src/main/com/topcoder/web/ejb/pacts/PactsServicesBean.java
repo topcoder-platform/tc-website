@@ -141,67 +141,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
 
     private static final Logger log = Logger.getLogger(PactsServicesBean.class);
-    private static final int DESIGN_PROJECT = 1;
-    private static final int DEVELOPMENT_PROJECT = 2;
-    private static final int COMPONENT_TESTING_PROJECT = 5;
-
-    // [BUGR-1452] - add support for paying other project types
-    private static final int ARCHITECTURE_PROJECT_TYPE = 7;
-    private static final int CONCEPTUALIZATION_PROJECT_TYPE = 23;
-    private static final int SPECIFICATION_PROJECT_TYPE = 6;
-
-    /**
-     * <p>A <code>int</code> representing the content creation project id.</p>
-     *
-     * @since 1.7
-     */
-    private static final int CONTENT_CREATION_PROJECT_TYPE = 35;
-
-    /**
-     * <p>A <code>int</code> representing the test suites project id.</p>
-     *
-     * @since 1.1
-     */
-    private static final int TEST_SUITES_PROJECT_TYPE = 13;
-
-    /**
-     * <p>A <code>int</code> representing the test scenarios project id.</p>
-     *
-     * @since 1.1
-     */
-    private static final int TEST_SCENARIOS_PROJECT_TYPE = 26;
-
-    /**
-     * <p>A <code>int</code> representing the copilot posting project id.</p>
-     *
-     * @since 1.5
-     */
-	private static final int COPILOT_POSTING_PROJECT_TYPE = 29;
-
-    /**
-     * <p>A <code>int</code> representing the specification review project category id.</p>
-     */
-    private static final int SPECIFICATION_REVIEW_PROJECT_TYPE = 27;
-
-    private static final int ASSEMBLY_PROJECT_TYPE = 14;
-
-    // [BUGR-1842] - add support for UI/RIA project types
-    private static final int UI_PROTOTYPE_PROJECT_TYPE = 19;
-    private static final int RIA_BUILD_PROJECT_TYPE = 24;
-    private static final int RIA_COMPONENT_PROJECT_TYPE = 15;
-
-    private static final double DESIGN_PROJECT_FIRST_INSTALLMENT_PERCENT = 0.75;
-
-    // [BUGR-1452] - add support for paying other project types
-    private static final double ASSEMBLY_PROJECT_FIRST_INSTALLMENT_PERCENT = 0.75;
-    private static final double ARCHITECTURE_PROJECT_FIRST_INSTALLMENT_PERCENT = 0.75;
-    private static final double DESIGN_REVIEWERS_FIRST_INSTALLMENT_PERCENT = 0.75;
-    private static final double DESIGN_REVIEWERS_BONUS_PERCENT = 0.15;
-
-    // [BUGR-1842] - add support for UI/RIA project types
-    private static final double UI_PROTOTYPE_PROJECT_FIRST_INSTALLMENT_PERCENT = 0.75;
-    private static final double RIA_BUILD_PROJECT_FIRST_INSTALLMENT_PERCENT = 0.75;
-    private static final double RIA_COMPONENT_PROJECT_FIRST_INSTALLMENT_PERCENT = 0.75;
+    private static final double FIRST_INSTALLMENT_PERCENT = 0.75;
 
     public static final Long COLLEGE_MAJOR_DESC = 14l;
     public static final Long DEGREE_PROGRAM = 16l;
@@ -3123,7 +3063,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         StringBuffer whereClauses = new StringBuffer(300);
         whereClauses.append(" WHERE 1=1 ");
-		
+        
         ArrayList objects = new ArrayList();
         Iterator i = searchCriteria.keySet().iterator();
         try {
@@ -3666,9 +3606,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         // If that isn't available, we just set net amount = gross amount.
 
         log.debug("In computePaymentNetAmount");
-		Connection c = null;
-		
-		try {
+        Connection c = null;
+        
+        try {
             c = DBMS.getConnection(trxDataSource);
 
             double withholdAmount = 0.0;
@@ -3687,7 +3627,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     || paymentTypeId == CODER_REFERRAL_PAYMENT
                     || paymentTypeId == ONE_OFF_PAYMENT
                     || paymentTypeId == DIGITAL_RUN_V2_TAXABLE_PRIZE_PAYMENT
-                    || paymentTypeId == DIGITAL_RUN_V2_TAXABLE_TOP_PERFORMERS_PAYMENT) {					
+                    || paymentTypeId == DIGITAL_RUN_V2_TAXABLE_TOP_PERFORMERS_PAYMENT) {                    
 
                 StringBuffer getUserWithholding = new StringBuffer(300);
                 getUserWithholding.append("SELECT withholding_amount, withholding_percentage, use_percentage,date_filed ");
@@ -3719,7 +3659,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     netAmount = 0;
                 }
             }
-			
+            
             // Round to nearest penny
             DecimalFormat df = new DecimalFormat("0.00");
             String netAmountStr = df.format(netAmount);
@@ -3880,7 +3820,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setBoolean(22, p.isCharity());
             ps.setDouble(23, p.getTotalAmount() == 0 ? p.getGrossAmount() : p.getTotalAmount()); // default to gross amount if not filled.
             ps.setInt(24, p.getInstallmentNumber());
-            ps.setString(26, p.getInvoiceNumber());			
+            ps.setString(26, p.getInvoiceNumber());            
             ps.executeUpdate();
 
             // insert reasons:
@@ -5208,54 +5148,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     /**
-     * Generate  payments for components, excluding development support payments.
-     *
-     * <p>
-     * Version 1.6 (Online Review Payments and Status Automation Assembly 1.0) Changes Notes:
-     * <ol>
-     * <li>a new parameter is added to populate the related resource ids for generated component payments.</li>
-     * </ol>
-     * </p>
-     */
-    public List generateComponentPayments(long projectId, long status, String client, boolean applyReviewerWithholding, boolean payRboardBonus, List resourceIds)
-            throws IllegalUpdateException, SQLException, EventFailureException {
-        return generateComponentPayments(projectId, status, client, false, 0, 0, applyReviewerWithholding, payRboardBonus, resourceIds);
-    }
-
-
-    /**
-     * Generate payments for components, including development support if needed.
-     * <p>
-     * Version 1.6 (Online Review Payments and Status Automation Assembly 1.0) Changes Notes:
-     * <ol>
-     * <li>a new parameter is added to populate the related resource ids for generated component payments.</li>
-     * </ol>
-     * </p>
-     */
-    public List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId, long devSupportProjectId, boolean applyReviewerWithholding, boolean payRboardBonus, List resourceIds)
-            throws IllegalUpdateException, SQLException, EventFailureException {
-        return generateComponentPayments(projectId, status, client, true, devSupportCoderId, devSupportProjectId, applyReviewerWithholding, payRboardBonus, resourceIds);
-    }
-
-    /**
-     * <p>
-     * Version 1.6 (Online Review Payments and Status Automation Assembly 1.0) Changes Notes:
-     * <ol>
-     * <li>a new parameter is added to populate the related resource ids for generated component payments.</li>
-     * </ol>
-     * </p>
-     *
-     * @deprecated
-     */
-    public List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId, List resourceIds)
-            throws IllegalUpdateException, SQLException, EventFailureException {
-        return generateComponentPayments(projectId, status, client, true, devSupportCoderId, 0, false, false, resourceIds);
-    }
-
-    /**
-     * Generates all the payments for the people who won money for the given project (designers, developers,
-     * and review board members). If it is a development project, it may pay the missing 25% to the designer.
-     * It doesn't insert the payments in the DB, just generates and return them.
+	
+     * Generates all the payments for the people who won money for the given project (winners and
+     * and review board members).
+     * It doesn't insert the payments in the DB, just generates and returns them.
      * <p>
      * Version 1.6 (Online Review Payments and Status Automation Assembly 1.0) Changes Notes:
      * <ul>
@@ -5267,74 +5163,80 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @param projectId         The ID of the project
      * @param status            The project's status (see /topcoder/apps/review/projecttracker/ProjectStatus.java)
      * @param client            The project's client (optional)
-     * @param payDevSupport     whether to pay dev support if needed
-     * @param devSupportCoderId the id of the coder that did development support, or 0 to use the designer. This parameter is just used when paying dev components.
      * @return The generated payments in a List of BasePayment
-     * @throws IllegalUpdateException If the affidavit/payment information
-     *                                has already been generated for this round.
+     * @throws IllegalUpdateException If the affidavit/payment information has already been generated for this round.
      * @throws SQLException           If there was some error updating the data.
      */
-    private List generateComponentPayments(long projectId, long status, String client, boolean payDevSupport,
-                                           long devSupportCoderId, long devSupportProjectId,
-                                           boolean applyReviewerWithholding, boolean payRboardBonus, List resourceIds)
+    public List generateComponentPayments(long projectId, long status, String client, List resourceIds)
             throws IllegalUpdateException, SQLException, EventFailureException {
         log.debug("generateComponentPayments called...");
 
-        // TCWEB-697
-        if (devSupportProjectId == 0) {
-            devSupportCoderId = 0;
-            payDevSupport = false;
-        }
-
         List payments = new ArrayList();
         ResultSetContainer rsc = null;
-        List<Long> pendingUserIds = getPendingUserIds(projectId);		
-		Map<Long,Double> penalties = getPaymentPenalties(projectId);
+        boolean isStudio = isStudioProject(projectId);
+        List<Long> pendingUserIds = getPendingUserIds(projectId);
+        Map<Long,Double> penalties = isStudio ? new HashMap<Long,Double>() : getPaymentPenalties(projectId);
 
         // Get winning designers/developers to be paid
         log.info("Generating payments for winners");
 
         StringBuffer getWinners = new StringBuffer(300);
-        getWinners.append(" select pr.placed, pr.user_id, payment as paid, pcl.name, r.resource_id ");
-        getWinners.append(" from tcs_catalog:project_result pr, tcs_catalog:project p, tcs_catalog:project_category_lu pcl ");
-        getWinners.append(" , tcs_catalog:resource r, tcs_catalog:resource_info ri ");
-        getWinners.append(" where pr.project_id = " + projectId + " ");
-        getWinners.append(" and pr.project_id = p.project_id ");
-        getWinners.append(" and p.project_category_id = pcl.project_category_id ");
-        getWinners.append(" and r.project_id = pr.project_id "); //join the resource and project_result tables by the project ID
-        getWinners.append(" and r.resource_role_id = 1 "); //filter by Submitter resource
-        getWinners.append(" and r.resource_id = ri.resource_id "); //join the resource and resource_info tables
-        getWinners.append(" and ri.resource_info_type_id = 1 "); //1 is for user ID
-        getWinners.append(" and ri.value = pr.user_id "); //join the resource and project_result tables by the user ID
-        getWinners.append(" and r.resource_id not in (select ri8.resource_id from tcs_catalog:resource_info ri8 where ri8.resource_info_type_id=8 and ri8.value='Yes') "); //make sure this resource has not been paid yet
-        // [BUGR-1452] - all placements with payment > 0 should be paid
-        getWinners.append(" and pr.placed is not null ");
-        getWinners.append(" and pr.payment > 0 ");
-        getWinners.append(" order by pr.placed");
+        getWinners.append(" SELECT s.placement as placed, ri1.value::int as user_id, r.resource_id, stl.name as submission_type, ");
+
+        getWinners.append(" CASE ");
+        getWinners.append("    WHEN pcl.project_type_id = 3 OR ");
+        getWinners.append("         exists (select 1 from tcs_catalog:submission s2, tcs_catalog:upload u2 where ");
+        getWinners.append("             s2.upload_id=u2.upload_id and u.project_id=u2.project_id and s2.prize_id is not null) THEN NVL(pr.prize_amount,0) ");
+        getWinners.append("    ELSE ROUND(ri7.value) ");
+        getWinners.append(" END::float AS payment ");
+
+        getWinners.append(" FROM tcs_catalog:project p "); 
+        getWinners.append(" INNER JOIN tcs_catalog:project_category_lu pcl ON pcl.project_category_id = p.project_category_id ");
+        getWinners.append(" INNER JOIN tcs_catalog:resource r ON r.project_id = p.project_id AND r.resource_role_id = 1 ");
+        getWinners.append(" INNER JOIN tcs_catalog:resource_info ri1 ON r.resource_id = ri1.resource_id AND ri1.resource_info_type_id = 1 ");
+        getWinners.append(" INNER JOIN tcs_catalog:resource_info ri7 ON r.resource_id = ri7.resource_id AND ri7.resource_info_type_id = 7 ");
+        getWinners.append(" INNER JOIN tcs_catalog:upload u ON u.resource_id = r.resource_id AND u.upload_type_id = 1 AND u.upload_status_id = 1 ");
+        getWinners.append(" INNER JOIN tcs_catalog:submission s ON s.upload_id = u.upload_id AND s.submission_type_id in (1,3) and s.placement IS NOT NULL ");
+        getWinners.append(" INNER JOIN tcs_catalog:submission_type_lu stl ON stl.submission_type_id=s.submission_type_id ");
+        getWinners.append(" LEFT OUTER JOIN tcs_catalog:prize pr ON pr.prize_id = s.prize_id ");
+
+        getWinners.append(" WHERE p.project_id = " + projectId + " ");
+        getWinners.append(" AND r.resource_id not in (SELECT ri8.resource_id FROM tcs_catalog:resource_info ri8 WHERE ri8.resource_info_type_id=8 AND ri8.value='Yes') ");
 
         rsc = runSelectQuery(getWinners.toString());
         for (int i = 0; i < rsc.size(); i++) {
             long coderId = Long.parseLong(rsc.getItem(i, "user_id").toString());
-			if (!pendingUserIds.contains(coderId)) {			
+            if (!pendingUserIds.contains(coderId)) {
                 int placed = rsc.getIntItem(i, "placed");
-                long resourceId = rsc.getLongItem(i, "resource_id");			
-				
+                long resourceId = rsc.getLongItem(i, "resource_id");
+                String submissionType = rsc.getStringItem(i, "submission_type");
+                
                 double penalty = penalties.get(coderId) == null ? 0.0 : penalties.get(coderId);
-                double amount = rsc.getDoubleItem(i, "paid")*(1.0-penalty);
-				
+                double amount = rsc.getDoubleItem(i, "payment")*(1.0-penalty);
+                
                 log.info("Generating payment. Coder: " + coderId + " placed: " + placed + " amount: " + amount + " penalty: " + penalty + " resourceId: " + resourceId);
+                if (amount < 0.01) {
+                    log.info("Ignoring the payment because of zero or negative amount.");
+                    continue;
+                }
+
                 resourceIds.add(new Long(resourceId));
-                payments.addAll(generateComponentUserPayments(coderId, amount, client, projectId, placed, devSupportCoderId, payDevSupport, devSupportProjectId, payRboardBonus));
-			} else {
+
+                if (submissionType.startsWith("Contest Submission")) {
+                    payments.addAll(generateComponentUserPayments(coderId, amount, client, projectId, placed));
+                } else if (submissionType.startsWith("Milestone Submission")) {
+                    payments.add(new ContestMilestonePrizePayment(coderId, amount, client, projectId, placed));
+                }
+            } else {
                 log.info("Payments for the coder " + coderId + " are skipped because he/she still has pending late deliverables.");
-			}
+            }
         }
 
         StringBuffer commonQuery = new StringBuffer(300);
         commonQuery.append("from tcs_catalog:project p ");
         commonQuery.append("inner join tcs_catalog:resource r ");
         commonQuery.append("on p.project_id = r.project_id ");
-        commonQuery.append("and (r.resource_role_id in (2,3,4,5,6,7,8,9,14,16,18)) ");
+        commonQuery.append("and (r.resource_role_id in (2,3,4,5,6,7,8,9,14,16,18,19,20)) ");
         commonQuery.append("inner join tcs_catalog:resource_info ri_u ");
         commonQuery.append("on r.resource_id = ri_u.resource_id ");
         commonQuery.append("and ri_u.resource_info_type_id = 1 ");
@@ -5351,8 +5253,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         getReviewers.append("select ");
         getReviewers.append("ri_u.value as user_id, ");
         getReviewers.append("CASE ");
-        getReviewers.append("    WHEN r.resource_role_id in (2,3,4,5,6,7,8,9) THEN 'Review Payment' ");
-        getReviewers.append("    WHEN r.resource_role_id = 16 THEN 'Post-Mortem Payment' ");
+        getReviewers.append("    WHEN r.resource_role_id in (2,3,4,5,6,7,8,9,16,19,20) THEN 'Review Payment' ");
         getReviewers.append("    WHEN r.resource_role_id = 14 THEN 'Copilot Payment' ");
         getReviewers.append("    WHEN r.resource_role_id = 18 THEN 'Spec Review Payment' ");
         getReviewers.append("    ELSE 'Unknown' ");
@@ -5366,12 +5267,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         for (int i = 0; i < rsc.size(); i++) {
             long coderId = Long.parseLong(rsc.getStringItem(i, "user_id"));
-			if (pendingUserIds.contains(coderId)) {
-			    log.info("Payments for the coder " + coderId + " are skipped because he/she still has pending late deliverables.");
-			    continue;
-			}
-			
-            String paymentType = rsc.getStringItem(i, "payment_type");					
+            if (pendingUserIds.contains(coderId)) {
+                log.info("Payments for the coder " + coderId + " are skipped because he/she still has pending late deliverables.");
+                continue;
+            }
+            
+            String paymentType = rsc.getStringItem(i, "payment_type");
             double penalty = penalties.get(coderId) == null ? 0.0 : penalties.get(coderId);
             double amount = rsc.getDoubleItem(i, "paid");
             double penalizedAmount = amount*(1.0-penalty);
@@ -5383,32 +5284,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             int projectType = getProjectType(projectId);
  
             if (paymentType.startsWith("Copilot Payment")) {
-               // Pay Copilot role, the penalties are not applied to the copilot payments
+                // The penalties are not applied to the copilot payments
                 p = new CopilotPayment(coderId, amount, client, projectId);
-                }
-            else if (paymentType.startsWith("Spec Review Payment")) {
-               // Pay Specification Reviewer role
+            } else if (paymentType.startsWith("Spec Review Payment")) {
                 p = new SpecificationReviewPayment(coderId, penalizedAmount, client, projectId);
-                }
-            else if (projectType == DESIGN_PROJECT) {
+            } else if (paymentType.startsWith("Review Payment")) {
                 p = new ReviewBoardPayment(coderId, penalizedAmount, client, projectId);
-                // Post-mortem review payments is not to be withheld
-                if (applyReviewerWithholding &&
-                    !paymentType.startsWith("Post-Mortem Payment")) {
-                    p.setGrossAmount(penalizedAmount * DESIGN_REVIEWERS_FIRST_INSTALLMENT_PERCENT);
-                } else {
-                    p.setGrossAmount(penalizedAmount);
-                }
-            } else if (projectType == DEVELOPMENT_PROJECT || projectType == COMPONENT_TESTING_PROJECT ||
-                // [BUGR-1452] - add support for paying other project types
-                // [BUGR-1842] - add support for UI/RIA project types
-                projectType == ARCHITECTURE_PROJECT_TYPE || projectType == CONCEPTUALIZATION_PROJECT_TYPE ||
-                projectType == SPECIFICATION_PROJECT_TYPE || projectType == TEST_SUITES_PROJECT_TYPE ||
-                projectType == ASSEMBLY_PROJECT_TYPE || projectType == UI_PROTOTYPE_PROJECT_TYPE ||
-                projectType == RIA_BUILD_PROJECT_TYPE || projectType == RIA_COMPONENT_PROJECT_TYPE ||
-                projectType == TEST_SCENARIOS_PROJECT_TYPE || projectType == SPECIFICATION_REVIEW_PROJECT_TYPE ||
-                projectType == CONTENT_CREATION_PROJECT_TYPE) {
-                p = new ReviewBoardPayment(coderId, penalizedAmount, client, projectId);
+                p.setGrossAmount(penalizedAmount);
             }
 
             payments.add(p);
@@ -5424,9 +5306,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         for (int i = 0; i < rsc.size(); i++) {
             long coderId = Long.parseLong(rsc.getStringItem(i, "user_id"));
-			if (!pendingUserIds.contains(coderId)) {
-                resourceIds.add(new Long(rsc.getLongItem(i, "resource_id")));			
-			}
+            if (!pendingUserIds.contains(coderId)) {
+                resourceIds.add(new Long(rsc.getLongItem(i, "resource_id")));
+            }
         }
 
         return payments;
@@ -5434,68 +5316,68 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     /**
      * Returns list of user IDs who have pending late deliverables for the specific project in the Online Review.
-	 * A late deliverable is pending if it has been explained by the late member but is not yet responded or if it
-	 * is still in the 24 hours window since the moment of creation (which means the late member can still explain it).
+     * A late deliverable is pending if it has been explained by the late member but is not yet responded or if it
+     * is still in the 24 hours window since the moment of creation (which means the late member can still explain it).
      *
      * @param projectId         The ID of the project
-     * @return List of user IDs who have pending late deliverables for this project.	 
+     * @return List of user IDs who have pending late deliverables for this project.     
      * @throws SQLException     If there was some error retrieving the data.
      */
-	private List<Long> getPendingUserIds(long projectId) throws SQLException {
+    private List<Long> getPendingUserIds(long projectId) throws SQLException {
         StringBuffer query = new StringBuffer(300);
         query.append(" select distinct ri.value::int as user_id from ");
         query.append(" tcs_catalog:late_deliverable ld, tcs_catalog:resource r, tcs_catalog:resource_info ri where ");
         query.append(" ld.resource_id = r.resource_id and r.project_id = " + projectId + " and ");
         query.append(" r.resource_id = ri.resource_id and ri.resource_info_type_id = 1 and ");
         query.append(" ld.forgive_ind=0 and ");
-        query.append(" ((ld.explanation is not null and ld.response is null) "); // if the explained record is waiting for the response		
+        query.append(" ((ld.explanation is not null and ld.response is null) "); // if the explained record is waiting for the response        
         query.append(" or (ld.explanation is null and ld.create_date>current-24 units hour)) "); // or if the late member still has time to explain (24 hours)
-		
-		List<Long> userIds = new ArrayList<Long>();
+        
+        List<Long> userIds = new ArrayList<Long>();
         ResultSetContainer rsc = runSelectQuery(query.toString());
         for (int i = 0; i < rsc.size(); i++) {
             long userId = rsc.getLongItem(i, "user_id");
             userIds.add(new Long(userId));
         }
-		return userIds;
-	}
+        return userIds;
+    }
 
     /**
      * Returns mapping from user ID to payment penalties due to the late deliverables for the specific project.
-	 * The values of the map are real values in [0;0.5] interval, 0 means no penalty, 0.5 means the
-	 * member payment is reduced by 50%.
+     * The values of the map are real values in [0;0.5] interval, 0 means no penalty, 0.5 means the
+     * member payment is reduced by 50%.
      *
      * @param projectId         The ID of the project
      * @return Map from user IDs to payment penalties.
      * @throws SQLException     If there was some error retrieving the data.
      */
-	private Map<Long,Double> getPaymentPenalties(long projectId) throws SQLException {
+    private Map<Long,Double> getPaymentPenalties(long projectId) throws SQLException {
         StringBuffer query = new StringBuffer(300);
         query.append(" select ri.value::int as user_id, sum(ld.delay) as total_delay from ");
         query.append(" tcs_catalog:resource r, tcs_catalog:resource_info ri, tcs_catalog:late_deliverable ld where ");
         query.append(" r.project_id=" + projectId + " and r.resource_id=ld.resource_id and r.resource_id=ri.resource_id and ");
         query.append(" ri.resource_info_type_id=1 and ld.forgive_ind=0 ");
         query.append(" group by 1 ");
-		
-		Map<Long,Double> penalties = new HashMap<Long,Double>();
+        
+        Map<Long,Double> penalties = new HashMap<Long,Double>();
         ResultSetContainer rsc = runSelectQuery(query.toString());
         for (int i = 0; i < rsc.size(); i++) {
             long userId = rsc.getLongItem(i, "user_id");
             long delay = rsc.getLongItem(i, "total_delay");
-			
-			long paymentPenaltyPercentage = (delay>0 ? 5 : 0) + (delay/3600);
-			if (paymentPenaltyPercentage > 50) {
-			    paymentPenaltyPercentage = 50;
-			}
-			
-			penalties.put(userId, (double)paymentPenaltyPercentage/100.0);
+            
+            long paymentPenaltyPercentage = (delay>0 ? 5 : 0) + (delay/3600);
+            if (paymentPenaltyPercentage > 50) {
+                paymentPenaltyPercentage = 50;
+            }
+            
+            penalties.put(userId, (double)paymentPenaltyPercentage/100.0);
         }
-		return penalties;
-	}
+        return penalties;
+    }
 
     /**
      * Adds online review payments in persistence and updates payment status to "Paid"
-	 * for the corresponding resources in the Online Review.
+     * for the corresponding resources in the Online Review.
      *
      * @param payments the review payments
      * @param resourceIds the resource ids to update the payment status.
@@ -6270,7 +6152,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         p.getHeader().setMethodId(payment.getMethodId());
         p.getHeader().setClient(payment.getClient());
         p.setInvoiceNumber(payment.getInvoiceNumber());
-        p.getHeader().setInvoiceNumber(payment.getInvoiceNumber());		
+        p.getHeader().setInvoiceNumber(payment.getInvoiceNumber());        
 
         switch (payment.getReferenceTypeId()) {
             case REFERENCE_ALGORITHM_ROUND_ID:
@@ -6370,6 +6252,17 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             return 0;
         }
         return rsc.getIntItem(0, 0);
+    }
+
+    private boolean isStudioProject(long projectId) throws SQLException {
+        ResultSetContainer rsc = runSelectQuery("SELECT pcl.project_type_id FROM tcs_catalog:project_category_lu pcl, " + 
+            " tcs_catalog:project p WHERE p.project_category_id=pcl.project_category_id and p.project_id=" + projectId);
+
+        if (rsc.size() == 0) {
+            throw new IllegalArgumentException("No project type found for project " + projectId);
+        }
+
+        return rsc.getIntItem(0, 0)==3;
     }
 
 
@@ -6485,255 +6378,25 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     /**
-     * Create payments for a design/dev project.
-     * For a 1st place design project, it just creates a payment consisting in the 75% of the amount.
-     * For a 1st place dev project, it finds the associated design project and creates a payment for the project.
-     *
-     * @param coderId     coder to be paid.
-     * @param grossAmount amount to be paid.
-     * @param client      the client of the project.
-     * @param projectId   project that is being paid.
-     * @param placed      the place of the coder in the contest.
-     */
-    public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed)
-            throws SQLException, EventFailureException {
-        return generateComponentUserPayments(coderId, grossAmount, client, projectId, placed, 0);
-    }
-
-    /**
-     * Create payments for a design/dev project.
-     * For a 1st place design project, it just creates a payment consisting in the 75% of the amount.
-     * For a 1st place dev project, it finds the associated design project and creates a payment for the project.
-     *
-     * @param coderId           coder to be paid.
-     * @param grossAmount       amount to be paid.
-     * @param client            the client of the project.
-     * @param projectId         project that is being paid.
-     * @param devSupportCoderId the id of the coder that did development support, or 0 to use the designer. This parameter is just used when paying dev components.
-     * @param placed            the place of the coder in the contest.
-     */
-    public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed, long devSupportCoderId)
-            throws SQLException, EventFailureException {
-        try {
-            return generateComponentUserPayments(coderId, grossAmount, client, projectId, placed, devSupportCoderId, true, 0, true);
-        } catch (DevSupportException e) {
-            // Done this way in order to avoid changing the interface
-            throw new IllegalArgumentException(e);
-        }
-    }
-
-    /**
-     * Create payments for a design/dev project.
-     * For a 1st place design project, it just creates a payment consisting in the 75% of the amount.
-     * For a 1st place dev project, it finds the associated design project and creates a payment for the project.
+     * Create winner payments for Online Review projects.
+     * For a 1st place project, it just creates a payment consisting in the 75% of the amount.
      *
      * @param coderId             coder to be paid.
      * @param grossAmount         amount to be paid.
      * @param client              the client of the project.
      * @param projectId           project that is being paid.
      * @param placed              the place of the coder in the contest.
-     * @param devSupportCoderId   the id of the coder that did development support, or 0 to use the designer. This parameter is just used when paying dev components.
-     * @param payDevSupport       whether to pay dev support if needed
-     * @param devSupportProjectId if dev support needs to be paid and this value is positive, that project is paid as dev support. If the value is 0, the design project
-     *                            is automatically retrieved.
      */
-    public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed, long devSupportCoderId,
-                                              boolean payDevSupport, long devSupportProjectId, boolean payRboardBonus) throws SQLException, EventFailureException, DevSupportException {
+    public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed)
+        throws SQLException, EventFailureException {
 
-
-        int projectType = getProjectType(projectId);
-
-
-        List l = new ArrayList();
-
-        // If it's not first place, just add the payment to the list and return it.
-        if (placed != 1 && (projectType == DESIGN_PROJECT || projectType == DEVELOPMENT_PROJECT)) {
-            ComponentWinningPayment cwp = new ComponentWinningPayment(coderId, grossAmount, client, projectId, placed);
-            l.add(cwp);
-            return l;
+        BasePayment p = new ContestPrizePayment(coderId, grossAmount, client, projectId, placed);
+        if (placed == 1 && !isStudioProject(projectId)) {
+            p.setGrossAmount(grossAmount * FIRST_INSTALLMENT_PERCENT);
         }
 
-        if (projectType == DESIGN_PROJECT) {
-            BasePayment p = new ComponentWinningPayment(coderId, grossAmount, client, projectId, placed);
-            p.setGrossAmount(grossAmount * DESIGN_PROJECT_FIRST_INSTALLMENT_PERCENT);
-            l.add(p);
-        } else if (projectType == DEVELOPMENT_PROJECT) {
-            // add the development payment as it is
-            ComponentWinningPayment cwp = new ComponentWinningPayment(coderId, grossAmount, client, projectId, placed);
-            l.add(cwp);
-
-            if (payDevSupport) {
-                long designProject = devSupportProjectId > 0 ? devSupportProjectId : getDesignProject(projectId);
-                log.info("1st place for dev project, will pay 2nd installment to project id: " + designProject);
-
-                if (designProject <= 0) {
-                    throw new DevSupportException("Can't find a design project for dev project " + projectId);
-                }
-
-                String query = "SELECT sum(gross_amount) as amount_paid " +
-                        "     , max(total_amount) as total_amount " +
-                        "     , max(installment_number) as installment_number " +
-                        "       , max(client) as client " +
-                        "       , max(user_id) as user_id " +
-                        "       , max(payment_method_id) as payment_method_id " +
-                        " FROM payment p, payment_detail pd " +
-                        " WHERE p.most_recent_detail_id = pd.payment_detail_id " +
-                        " AND pd.payment_type_id = " + Constants.COMPONENT_PAYMENT + " " +
-                        " AND pd.component_project_id = " + designProject +
-                        " AND gross_amount <> total_amount ";
-
-                ResultSetContainer rsc = runSelectQuery(query);
-
-                if (rsc.getItem(0, "amount_paid").getResultData() == null) {
-                    throw new DevSupportException("Can't find any previous payment for design project " + designProject);
-                }
-
-                int installment = rsc.getIntItem(0, "installment_number") + 1;
-                double totalAmount = rsc.getDoubleItem(0, "total_amount");
-                double paid = rsc.getDoubleItem(0, "amount_paid");
-                String client2 = rsc.getStringItem(0, "client");
-                long coderId2 = rsc.getLongItem(0, "user_id");
-                int methodId = rsc.getIntItem(0, "payment_method_id");
-
-                log.info("installment: " + installment + " total: " + totalAmount + " paid: " + paid);
-                if (totalAmount > paid) {
-                    if (devSupportCoderId > 0) {
-                        coderId2 = devSupportCoderId;
-                    }
-
-                    // create the design project
-                    BasePayment p = new ComponentWinningPayment(coderId2, totalAmount, client2, designProject, 1);
-                    p.setGrossAmount(totalAmount - paid);
-                    p.setInstallmentNumber(installment);
-
-                    if (devSupportCoderId == 0) {
-                        p.setMethodId(methodId);
-                    }
-                    log.info("Pay to: " + coderId2 + " $ " + (totalAmount - paid) + " for project " + designProject);
-                    l.add(p);
-                }
-
-                l.addAll(generateReviewersDevSupportPayments(designProject, payRboardBonus));
-
-            }
-        } else if (projectType == COMPONENT_TESTING_PROJECT) {
-            ComponentWinningPayment cwp = new ComponentWinningPayment(coderId, grossAmount, client, projectId, placed);
-            l.add(cwp);
-        // [BUGR-1452] - add support for paying other project types
-        } else if (projectType == CONCEPTUALIZATION_PROJECT_TYPE) {
-            ConceptualizationContestPayment ccp = new ConceptualizationContestPayment(coderId, grossAmount, client, projectId, placed);
-            l.add(ccp);
-        } else if (projectType == CONTENT_CREATION_PROJECT_TYPE) {
-            ContentCreationContestPayment cccp = new ContentCreationContestPayment(coderId, grossAmount, client, projectId, placed);
-            l.add(cccp);
-        } else if (projectType == SPECIFICATION_PROJECT_TYPE) {
-            SpecificationContestPayment scp = new SpecificationContestPayment(coderId, grossAmount, client, projectId, placed);
-            l.add(scp);
-        } else if (projectType == TEST_SUITES_PROJECT_TYPE) {
-            TestSuitesCompetitionPayment cwp = new TestSuitesCompetitionPayment(coderId, grossAmount, client, projectId, placed);
-            l.add(cwp);
-        } else if (projectType == TEST_SCENARIOS_PROJECT_TYPE) {
-            TestScenariosCompetitionPayment cwp = new TestScenariosCompetitionPayment(coderId, grossAmount, client, projectId, placed);
-            l.add(cwp);
-        } else if (projectType == ARCHITECTURE_PROJECT_TYPE) {
-            BasePayment p = new ArchitecturePayment(coderId, grossAmount, client, projectId, placed);
-            if (placed == 1) {
-                p.setGrossAmount(grossAmount * ARCHITECTURE_PROJECT_FIRST_INSTALLMENT_PERCENT);
-            }
-            l.add(p);
-        } else if (projectType == ASSEMBLY_PROJECT_TYPE) {
-            BasePayment p = new AssemblyPayment(coderId, grossAmount, client, projectId, placed);
-            if (placed == 1) {
-                p.setGrossAmount(grossAmount * ASSEMBLY_PROJECT_FIRST_INSTALLMENT_PERCENT);
-            }
-            l.add(p);
-        // [BUGR-1842] - add support for UI/RIA project types
-        } else if (projectType == UI_PROTOTYPE_PROJECT_TYPE) {
-            BasePayment p = new UIPrototypeCompetitionPayment(coderId, grossAmount, client, projectId, placed);
-            if (placed == 1) {
-                p.setGrossAmount(grossAmount * UI_PROTOTYPE_PROJECT_FIRST_INSTALLMENT_PERCENT);
-            }
-            l.add(p);
-        } else if (projectType == RIA_BUILD_PROJECT_TYPE) {
-            BasePayment p = new RIABuildCompetitionPayment(coderId, grossAmount, client, projectId, placed);
-            if (placed == 1) {
-                p.setGrossAmount(grossAmount * RIA_BUILD_PROJECT_FIRST_INSTALLMENT_PERCENT);
-            }
-            l.add(p);
-        } else if (projectType == RIA_COMPONENT_PROJECT_TYPE) {
-            BasePayment p = new RIAComponentCompetitionPayment(coderId, grossAmount, client, projectId, placed);
-            if (placed == 1) {
-                p.setGrossAmount(grossAmount * RIA_COMPONENT_PROJECT_FIRST_INSTALLMENT_PERCENT);
-            }
-            l.add(p);
-        } else if (projectType == COPILOT_POSTING_PROJECT_TYPE) {
-            BasePayment p = new CopilotPostingPayment(coderId, grossAmount, client, projectId, placed);
-            l.add(p);
-        } else throw new IllegalArgumentException("Project " + projectId + " not found or is not a dev/des component");
-
-        return l;
-    }
-
-    private List generateReviewersDevSupportPayments(long designProject, boolean payRboardBonus) throws SQLException, DevSupportException {
         List l = new ArrayList();
-
-        String query = "SELECT sum(gross_amount) as amount_paid " +
-                "     , max(total_amount) as total_amount " +
-                "     , max(installment_number) as installment_number " +
-                "       , max(client) as client " +
-                "       , user_id " +
-                "       , max(payment_method_id) as payment_method_id " +
-                " FROM payment p, payment_detail pd " +
-                " WHERE p.most_recent_detail_id = pd.payment_detail_id " +
-                " AND pd.payment_type_id = " + Constants.REVIEW_BOARD_PAYMENT + " " +
-                " AND pd.component_project_id = " + designProject +
-                " group by user_id ";
-
-        ResultSetContainer rsc = runSelectQuery(query);
-
-        for (ResultSetRow rsr : rsc) {
-            if (rsr.getItem("amount_paid").getResultData() == null) {
-                throw new DevSupportException("Can't find any previous payment for design project " + designProject);
-            }
-
-            int installment = rsr.getIntItem("installment_number") + 1;
-            double totalAmount = rsr.getDoubleItem("total_amount");
-            double paid = rsr.getDoubleItem("amount_paid");
-            String client2 = rsr.getStringItem("client");
-            long coderId2 = rsr.getLongItem("user_id");
-            int methodId = rsr.getIntItem("payment_method_id");
-
-            if (totalAmount > paid) {
-                BasePayment p = new ReviewBoardPayment(coderId2, totalAmount, client2, designProject);
-                p.setGrossAmount(totalAmount - paid);
-                p.setInstallmentNumber(installment);
-                p.setMethodId(methodId);
-                l.add(p);
-            }
-
-            if (payRboardBonus) {
-                // get parent payment
-                String query2 = "SELECT min(p.payment_id) as payment_id from payment p, payment_detail pd " +
-                " WHERE p.most_recent_detail_id = pd.payment_detail_id " +
-                " AND pd.payment_type_id = " + Constants.REVIEW_BOARD_PAYMENT + " " +
-                " AND pd.component_project_id = " + designProject +
-                " AND pd.installment_number = 1 " +
-                " AND p.user_id = " + coderId2;
-
-                ResultSetContainer rsc2 = runSelectQuery(query2);
-
-                if (rsc2.size() != 1) {
-                    throw new DevSupportException("Can't find the parent payment for design project " + designProject + " user id " + coderId2);
-                }
-
-                // pay bonus using the total amount
-                BasePayment p = new ReviewBoardBonusPayment(coderId2, totalAmount * DESIGN_REVIEWERS_BONUS_PERCENT, rsc2.getLongItem(0, "payment_id"));
-                p.setClient(client2);
-                p.setMethodId(methodId);
-                l.add(p);
-            }
-        }
-
+        l.add(p);
         return l;
     }
 
@@ -6963,7 +6626,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         String client = rsr.getStringItem("client");
         String referenceFieldName = rsr.getStringItem("reference_field_name");
         int charityInd = rsr.getIntItem("charity_ind");
-        String invoiceNumber = rsr.getStringItem("invoice_number");		
+        String invoiceNumber = rsr.getStringItem("invoice_number");        
         long reference = 0;
         if (referenceFieldName != null) {
             try {
@@ -6982,7 +6645,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         payment.setPaidDate(paidDate);
         payment.setDescription(description);
         payment.setCharity(charityInd == 1);
-        payment.setInvoiceNumber(invoiceNumber);		
+        payment.setInvoiceNumber(invoiceNumber);        
 
         BasePaymentStatus currentStatus = PaymentStatusFactory.createStatus(statusId);
         currentStatus.getReasons().clear();

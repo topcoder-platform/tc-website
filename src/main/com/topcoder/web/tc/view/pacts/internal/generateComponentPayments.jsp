@@ -18,12 +18,11 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%
 	ResultSetContainer statusList = (ResultSetContainer)
-		request.getAttribute(PactsConstants.PROJECT_TERMINATION_STATUS_LIST);
+	request.getAttribute(PactsConstants.PROJECT_TERMINATION_STATUS_LIST);
 	String projID = StringUtils.checkNull((String)request.getParameter(PactsConstants.PROJECT_ID)).trim();
 	String projTermStatus = StringUtils.checkNull((String)request.getParameter(PactsConstants.PROJECT_TERMINATION_STATUS)).trim();
 	String client = StringUtils.checkNull((String)request.getParameter(PactsConstants.PROJECT_CLIENT)).trim();
 	String coder = StringUtils.checkNull((String)request.getParameter("coder")).trim();
-	String devSupportProjectId = StringUtils.checkNull((String)request.getParameter(GenerateComponentPayments.DEV_SUPPORT_PROJECT_ID)).trim();
 %>
 <html>
     <head>
@@ -122,58 +121,6 @@
                         </td>
                         <td align="center">
                             Client: <input type="text" name="<%=PactsConstants.PROJECT_CLIENT%>" maxlength="100" size="25" value="<%=client%>"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="3" align="center">
-                            <table border="0" cellpadding="3" cellspacing="0">
-                            <tr>
-                                <td colspan="2" align="center">
-                                    <strong>Development Support (Component Development Only)</strong>
-                                </td>
-                           </tr>
-                           <tr>
-                                <td>
-                                    <strong>Design Project</strong>
-                                </td>         
-                                <td>               
-                                    <strong>Coder</strong>
-                                 </td>
-                            </tr>
-                            <tr>
-                                <td><tc-webtag:radioButton name="<%=GenerateComponentPayments.DEV_SUPPORT_PROJECT %>" value="auto"/>automatic</td>                                 
-                                 <td>&nbsp;</td>
-                            </tr>
-                            <tr>
-                                <td><tc-webtag:radioButton name="<%=GenerateComponentPayments.DEV_SUPPORT_PROJECT %>" value="none"/>none</td>
-                                <td><tc-webtag:radioButton name="<%=GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER %>" value="designer"/>the designer</td>
-                            </tr>
-                            <tr>
-                                <td><tc-webtag:radioButton name="<%= GenerateComponentPayments.DEV_SUPPORT_PROJECT %>" value="other"/>project id: 
-                                    <input type="text" name="<%= GenerateComponentPayments.DEV_SUPPORT_PROJECT_ID %>" maxlength="20" size="10" value="<%=devSupportProjectId%>"/>
-                                </td> 
-                                <td><tc-webtag:radioButton name="<%= GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER %>" value="other"/>coder:
-                                     <input type="text" name="coder" maxlength="20" size="10" value="<%=coder%>"/>
-                                </td>
-                            </tr>   
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="3" align="center">
-                            <table border="0" cellpadding="3" cellspacing="0">
-                                <tr align="center"><td>
-                                    <strong>Review Board (Component Design Only)</strong>
-                                </td></tr>
-                                <tr align="left"><td>
-                                    <tc-webtag:chkBox name="<%=GenerateComponentPayments.APPLY_REVIEWER_WITHHOLDING_ID %>"/>Apply Reviewer Withholding                                 
-                                </td></tr>
-				<%--
-                                <tr align="left"><td>
-                                    <tc-webtag:chkBox name="<%=GenerateComponentPayments.PAY_RBOARD_BONUS_ID %>"/>Pay Review Board Bonus
-                                </td></tr>
-				--%>
-                            </table>                                 
                         </td>
                     </tr>
                     <tr>

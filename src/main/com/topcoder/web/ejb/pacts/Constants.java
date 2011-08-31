@@ -64,14 +64,21 @@ package com.topcoder.web.ejb.pacts;
  * </p>
  *
  * <p>
- *   Version 1.8 Change notes:
+ *   Version 1.9 Change notes:
  *   <ol>
  *     <li>Added taxable DR payment types.</li>
  *   </ol>
  * </p>
  *
+ * <p>
+ *   Version 1.9 Change notes:
+ *   <ol>
+ *     <li>Added common payment types for all tracks. No more separate payments for architecture, assembly, components etc.</li>
+ *   </ol>
+ * </p> 
+ *
  * @author TCSDEVELOPER, pulky, VolodymyrK
- * @version 1.8
+ * @version 1.9
  */
 public interface Constants {
 
@@ -282,14 +289,14 @@ public interface Constants {
      *
      * @since 1.6
      */
-	public static final int COPILOT_POSTING_PROJECT_CATEGORY_LU = 29;
+    public static final int COPILOT_POSTING_PROJECT_CATEGORY_LU = 29;
 
     /**
      * <p>A <code>int</code> representing the copilot posting payment id.</p>
      *
      * @since 1.6
      */
-	public static final int COPILOT_POSTING_PAYMENT = 60;
+    public static final int COPILOT_POSTING_PAYMENT = 60;
 
 
     /**
@@ -297,12 +304,29 @@ public interface Constants {
      *
      * @since 1.7
      */
-	public static final int CONTENT_CREATION_PROJECT_CATEGORY_LU = 35;
+    public static final int CONTENT_CREATION_PROJECT_CATEGORY_LU = 35;
 
     /**
      * <p>A <code>int</code> representing the content creation payment id.</p>
      *
      * @since 1.7
      */
-	public static final int CONTENT_CREATION_PAYMENT = 61;
+    public static final int CONTENT_CREATION_PAYMENT = 61;
+
+    /**
+     * <p>A <code>int</code> representing the milestone prize payment id.</p>
+     * <p>This is the payment to be used for milestone payments for all tracks.</p>
+     *
+     * @since 1.9
+     */
+    public static final int CONTEST_MILESTONE_PRIZE_PAYMENT = 64;
+	
+	 /**
+     * <p>A <code>int</code> representing the prize payment id.</p>
+     * <p>This is the payment to be used for prize payments for all tracks going forward.
+	 * No more separate payments for architecture, assembly, components etc. </p>
+     *
+     * @since 1.9
+     */
+    public static final int CONTEST_PRIZE_PAYMENT = 65;
 }
