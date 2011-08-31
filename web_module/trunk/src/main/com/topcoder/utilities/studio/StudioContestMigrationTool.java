@@ -1802,7 +1802,7 @@ public class StudioContestMigrationTool extends TCLoad {
             // Disable auto-commit for target connection to manage transactions explicitly
             Connection targetConnection = getOpenConnection(TARGET_DB);
             targetConnection.setAutoCommit(false);
-            targetConnection.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
+            targetConnection.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
             
             // Do the migration
             doLoadStudioContests();
@@ -2037,6 +2037,9 @@ public class StudioContestMigrationTool extends TCLoad {
             
             // Get the contests for migration and migrate each contest in a single separate transaction
             selectedContestsResult = selectContestsStmt.executeQuery();
+
+            long count = 0;
+            long failedCount = 0;
 
             while (selectedContestsResult.next()) {
                 Long contestStatusId = getLong(selectedContestsResult, "contest_status_id");
@@ -2581,10 +2584,10 @@ public class StudioContestMigrationTool extends TCLoad {
                             // If everything went smoothly then append ID of converted project to log messages
                             Object[] currentActivity = this.activities.peek();
                             currentActivity[0] = (String) currentActivity[0] + newProjectId;
-                            
+                            count++;
                             // Commit entire transaction for migrated contest
                             getOpenConnection(TARGET_DB).commit();
-                        } catch (Exception e) {
+                        } catch (Exception e) {  failedCount++;
                             logError(e);
                             getOpenConnection(TARGET_DB).rollback();
                         } finally {
@@ -2597,8 +2600,8 @@ public class StudioContestMigrationTool extends TCLoad {
                 } else {
                     LOGGER.error("Can not migrate contest " + contestId + " as it's contest status " + contestStatusId 
                                  + " can not be mapped to respective project status");
-                }
-            }
+                } 
+            }  System.out.println("Processed " +count +" contests, failed = " + failedCount);
         } finally {
             close(selectedContestsResult);
             close(insertPhaseDependencyStmt);
@@ -2884,7 +2887,7 @@ public class StudioContestMigrationTool extends TCLoad {
             StringBuilder sql = new StringBuilder(SELECT_CONTESTS_SQL);
             sql.append("WHERE 1 = 1 ");
             if (startDateSet) {
-                sql.append("AND c.start_time >= ? ");
+                sql.append("AND c.end_time >= ? ");
             }
             if (endDateSet) {
                 sql.append("AND c.end_time <= ? ");
@@ -3643,9 +3646,11 @@ public class StudioContestMigrationTool extends TCLoad {
         String saleRefId = "";
         long saleTypeId = 0;
 
+        boolean hasPayment = false;
+
         ResultSet contestPaymentSet = selectContestPaymentStmt.executeQuery();
         while (contestPaymentSet.next()) {
-
+            hasPayment = true;
             paymentStatusId = getLong(contestPaymentSet, "payment_status_id");
             price = price + contestPaymentSet.getDouble("price");
             paypalOrderId = contestPaymentSet.getString("paypal_order_id");
@@ -3657,19 +3662,23 @@ public class StudioContestMigrationTool extends TCLoad {
 
         contestPaymentSet.close();
       
-        
-        long newContestSaleId = getContestSaleIdGenerator().getNextID();
-        insertContestSaleStmt.clearParameters();
-        insertContestSaleStmt.setLong(1, newContestSaleId);
-        insertContestSaleStmt.setLong(2, newProjectId);
-        insertContestSaleStmt.setLong(3, paymentStatusId);
-        insertContestSaleStmt.setDouble(4, price);
-        insertContestSaleStmt.setString(5, paypalOrderId);
-        insertContestSaleStmt.setTimestamp(6, createDate);
-        insertContestSaleStmt.setString(7, saleRefId);
-        insertContestSaleStmt.setLong(8, saleTypeId);
+        if (hasPayment)
+        {
+            long newContestSaleId = getContestSaleIdGenerator().getNextID();
+            insertContestSaleStmt.clearParameters();
+            insertContestSaleStmt.setLong(1, newContestSaleId);
+            insertContestSaleStmt.setLong(2, newProjectId);
+            insertContestSaleStmt.setLong(3, paymentStatusId);
+            insertContestSaleStmt.setDouble(4, price);
+            insertContestSaleStmt.setString(5, paypalOrderId);
+            insertContestSaleStmt.setTimestamp(6, createDate);
+            insertContestSaleStmt.setString(7, saleRefId);
+            insertContestSaleStmt.setLong(8, saleTypeId);
 
-        insertRecord(insertContestSaleStmt, "contest_sale");
+            insertRecord(insertContestSaleStmt, "contest_sale");
+        }
+        
+        
 
 
     }
