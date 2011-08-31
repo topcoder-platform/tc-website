@@ -23,18 +23,16 @@ public class DisplayAmounts extends BaseProcessor implements PactsConstants {
             String grossAmount = StringUtils.checkNull(getRequest().getParameter("gross_amount"));
             String netAmount = StringUtils.checkNull(getRequest().getParameter("net_amount"));
             String installmentNumber = StringUtils.checkNull(getRequest().getParameter("installment_number"));
-            String devSupportDes = StringUtils.checkNull(getRequest().getParameter(GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER));
             
             getRequest().setAttribute("type", type + "");
             getRequest().setAttribute("placed", placed + "");
             getRequest().setAttribute("isDesign", String.valueOf(isDesign));
             getRequest().setAttribute("isUpdating", String.valueOf(isUpdating));
 
-			setDefault("total_amount", totalAmount);
-			setDefault("gross_amount", grossAmount);
-			setDefault("net_amount", netAmount);
-			setDefault("installment_number", installmentNumber);
-        	setDefault(GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER, "other".equals(devSupportDes)? "other" : "designer");
+            setDefault("total_amount", totalAmount);
+            setDefault("gross_amount", grossAmount);
+            setDefault("net_amount", netAmount);
+            setDefault("installment_number", installmentNumber);
 
             setNextPage(INTERNAL_AJAX_DISPLAY_AMOUNTS);
             setIsNextPageInContext(true);

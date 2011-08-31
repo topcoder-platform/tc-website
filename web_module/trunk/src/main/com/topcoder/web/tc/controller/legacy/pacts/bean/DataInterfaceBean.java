@@ -1434,25 +1434,9 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.generateRoundPayments(roundId, makeChanges, paymentTypeId);
     }
 
-    /**
-     * Generates the component payments.
-     *
-     * <p>
-     * Version 1.1 (Online Review Payments and Status Automation Assembly 1.0) Changes Notes:
-     * <ol>
-     * <li>a new parameter is added to populate the related resource ids for generated component payments.</li>
-     * </ol>
-     * </p>
-     * @deprecated
-     */
-    public List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId, List resourceIds)
-        throws IllegalUpdateException, RemoteException, SQLException, EventFailureException {
-        PactsServicesLocal ps = getEjbHandle();
-        return ps.generateComponentPayments(projectId, status, client, devSupportCoderId, resourceIds);
-    }
 
     /**
-     * Generates the component payments.
+     * Generates the payments for Online Review project.
      *
      * <p>
      * Version 1.1 (Online Review Payments and Status Automation Assembly 1.0) Changes Notes:
@@ -1473,40 +1457,10 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws SQLException if any sql error occurs.
      * @throws EventFailureException if any error occurs.
      */
-    public List generateComponentPayments(long projectId, long status, String client, boolean applyReviewerWithholding, boolean payRboardBonus, List resourceIds)
-            throws IllegalUpdateException, RemoteException, SQLException, EventFailureException, DevSupportException {
+    public List generateComponentPayments(long projectId, long status, String client, List resourceIds)
+            throws IllegalUpdateException, SQLException, EventFailureException, RemoteException {
       PactsServicesLocal ps = getEjbHandle();
-      return ps.generateComponentPayments(projectId, status, client, applyReviewerWithholding, payRboardBonus, resourceIds);
-    }
-
-    /**
-     * Generates the component payments.
-     *
-     * <p>
-     * Version 1.1 (Online Review Payments and Status Automation Assembly 1.0) Changes Notes:
-     * <ol>
-     * <li>a new parameter is added to populate the related resource ids for generated component payments.</li>
-     * </ol>
-     * </p>
-     *
-     * @param projectId the project id
-     * @param status the project status code
-     * @param client the client name
-     * @param devSupportCoderId the coder id of designer for dev support.
-     * @param devSupportProjectId the project id of the dev support
-     * @param applyReviewerWithholding whether to apply reviewer with holding.
-     * @param payRboardBonus the bonus for paying review board.
-     * @param resourceIds the resource ids list to populate
-     * @return the list of component payments.
-     * @throws IllegalUpdateException if it is illegal to update.
-     * @throws RemoteException if any error occurs.
-     * @throws SQLException if any sql error occurs.
-     * @throws EventFailureException if any error occurs.
-     */
-    public List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId, long devSupportProjectId, boolean applyReviewerWithholding, boolean payRboardBonus, List resourceIds)
-            throws IllegalUpdateException, RemoteException, SQLException, EventFailureException, DevSupportException {
-        PactsServicesLocal ps = getEjbHandle();
-        return ps.generateComponentPayments(projectId, status, client, devSupportCoderId, devSupportProjectId, applyReviewerWithholding, payRboardBonus, resourceIds);
+      return ps.generateComponentPayments(projectId, status, client, resourceIds);
     }
 
     /**
@@ -1524,14 +1478,10 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.addOnlineReviewPayments(payments, resources);
     }
 
-    public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed) throws RemoteException, SQLException, EventFailureException {
+    public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed)
+        throws SQLException, EventFailureException, RemoteException {
         PactsServicesLocal ps = getEjbHandle();
         return ps.generateComponentUserPayments(coderId, grossAmount, client, projectId, placed);
-    }
-
-    public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed, long devSupportCoderId) throws RemoteException, SQLException, EventFailureException {
-        PactsServicesLocal ps = getEjbHandle();
-        return ps.generateComponentUserPayments(coderId, grossAmount, client, projectId, placed, devSupportCoderId);
     }
 
     /**

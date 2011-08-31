@@ -65,21 +65,6 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
             }
 
             boolean charity = getRequest().getParameter("charity_ind") != null;
-            String devSupportDes = StringUtils.checkNull(getRequest().getParameter(GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER));
-            boolean isDevSupportDes = !"other".equals(devSupportDes);
-            long devSupportId = 0;
-            
-            if (!isDevSupportDes) {
-            	String handle = StringUtils.checkNull(getRequest().getParameter("coder"));
-                Map m = new HashMap();
-                m.put(HANDLE, handle);
-                UserProfileHeader[] users = new UserProfileHeaderList(dib.findUsers(m)).getHeaderList();
-                
-            	if (users.length == 1) {
-            		devSupportId = users[0].getId();
-            	}
-            }
-
             if (adding) {
                 if (contract != null) {
                     user = contract.getHeader().getUser();
@@ -91,7 +76,6 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
             }
 
             if (updating) {
-
                 paymentId = getLongParameter(PAYMENT_ID);
             	payment = dib.getBasePayment(paymentId);
                 userId = payment.getCoderId();
@@ -187,7 +171,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
     
                             	int placed = getIntParameter("placed");
                             	ComponentWinningPayment p = (ComponentWinningPayment) payment;
-                        		List l = dib.generateComponentUserPayments(p.getCoderId(), p.getGrossAmount(), p.getClient(), p.getProjectId(), placed, devSupportId); 
+                            	List l = dib.generateComponentUserPayments(p.getCoderId(), p.getGrossAmount(), p.getClient(), p.getProjectId(), placed); 
     
                                 // manage payment status
     
@@ -247,7 +231,6 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     setDefault("gross_amount", getRequest().getParameter("gross_amount"));
                     setDefault("net_amount", getRequest().getParameter("net_amount"));
                     setDefault("installment_number", getRequest().getParameter("installment_number"));
-                    setDefault(GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER, "other".equals(devSupportDes)? "other" : "designer");
                     
                     if (((String) getRequest().getParameter("reference_description")).length() > 0) {
                         getRequest().setAttribute("reference_description", getRequest().getParameter("reference_description"));

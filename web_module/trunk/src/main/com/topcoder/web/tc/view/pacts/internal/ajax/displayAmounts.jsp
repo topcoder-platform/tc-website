@@ -84,32 +84,6 @@
 				 </taconite-replace>			    			    
             </c:otherwise>
      </c:choose>
-     <c:choose>
-		<c:when test="${type == COMPONENT_WINNING and placed == 1 and not isDesign and not isUpdating}">
-			    <taconite-replace contextNodeID="trDevSupport" parseInBrowser="true">
-			        <tr id="trDevSupport">
-			        <td><b>Development Support:</b></td>
-			        <td>
-                        	If needed, pay development support to:
-                        	<tc-webtag:radioButton name="<%=GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER %>" value="designer"/>the designer   
-                        	<tc-webtag:radioButton name="<%= GenerateComponentPayments.IS_DEV_SUPPORT_BY_DESIGNER %>" value="other"/>coder 
-                        		<tc-webtag:textInput name="coder" size="10" editable="true"/>
-			        
-			        </td>
-				    </tr>
-				 </taconite-replace>			    			    
-
-		</c:when>
-		<c:otherwise>
-			    <taconite-replace contextNodeID="trDevSupport" parseInBrowser="true">
-			        <tr id="trDevSupport">
-			        <td></td>
-			        <td></td>
-				    </tr>
-				 </taconite-replace>			    			    
-		</c:otherwise>
-	</c:choose>
-
      
      
  </taconite-root>
