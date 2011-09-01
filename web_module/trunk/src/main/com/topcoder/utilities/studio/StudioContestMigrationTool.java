@@ -1802,7 +1802,7 @@ public class StudioContestMigrationTool extends TCLoad {
             // Disable auto-commit for target connection to manage transactions explicitly
             Connection targetConnection = getOpenConnection(TARGET_DB);
             targetConnection.setAutoCommit(false);
-            targetConnection.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
+            targetConnection.setTransactionIsolation(Connection.TRANSACTION_READ_UNCOMMITTED);
             
             // Do the migration
             doLoadStudioContests();
@@ -2149,8 +2149,16 @@ public class StudioContestMigrationTool extends TCLoad {
                             insertProjectStmt.clearParameters();
                             insertProjectStmt.setLong(1, newProjectId);
                             if (contestStatusId == 2) {
+                                if (contestDetailedStatusId == null)
+                                {
+                                    contestDetailedStatusId = 8L;
+                                }
                                 insertProjectStmt.setLong(2, DETAILED_STATUS_MAPPING.get(contestDetailedStatusId));
                             } else {
+                                if (contestDetailedStatusId == null)
+                                {
+                                    contestDetailedStatusId = 17L;
+                                }
                                 insertProjectStmt.setLong(2, STATUS_MAPPING.get(contestStatusId));
                             }
                             insertProjectStmt.setLong(3, projectCategoryId);
@@ -2574,6 +2582,9 @@ public class StudioContestMigrationTool extends TCLoad {
                             File srcFolder = new File (submissionSrc);
                             File destFolder = new File (submissionDest);
 
+                            // Commit entire transaction for migrated contest
+                            getOpenConnection(TARGET_DB).commit();
+
                             if (srcFolder.exists())
                             {
                                 copyFolder(srcFolder,destFolder, submissionMap);                 
@@ -2585,8 +2596,7 @@ public class StudioContestMigrationTool extends TCLoad {
                             Object[] currentActivity = this.activities.peek();
                             currentActivity[0] = (String) currentActivity[0] + newProjectId;
                             count++;
-                            // Commit entire transaction for migrated contest
-                            getOpenConnection(TARGET_DB).commit();
+                            
                         } catch (Exception e) {  failedCount++;
                             logError(e);
                             getOpenConnection(TARGET_DB).rollback();
