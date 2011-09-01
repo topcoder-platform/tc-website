@@ -405,7 +405,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         case REFERENCE_ALGORITHM_ROUND_ID : return algorithmRoundId;
         case REFERENCE_COMPONENT_PROJECT_ID : return componentProjectId;
         case REFERENCE_ALGORITHM_PROBLEM_ID : return algorithmProblemId;
-        case REFERENCE_STUDIO_CONTEST_ID : return studioContestId;
+        case REFERENCE_STUDIO_CONTEST_ID : return studioContestId != 0 ? studioContestId : componentProjectId;
         case REFERENCE_COMPONENT_CONTEST_ID :return componentContestId;
         case REFERENCE_DIGITAL_RUN_STAGE_ID : return digitalRunStageId;
         case REFERENCE_DIGITAL_RUN_SEASON_ID : return digitalRunSeasonId;
