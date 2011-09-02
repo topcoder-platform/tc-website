@@ -319,7 +319,7 @@ public interface Constants {
      *
      * @since 1.9
      */
-    public static final int CONTEST_MILESTONE_PRIZE_PAYMENT = 64;
+    public static final int CONTEST_MILESTONE_PAYMENT = 64;
 	
 	 /**
      * <p>A <code>int</code> representing the prize payment id.</p>
@@ -328,5 +328,5 @@ public interface Constants {
      *
      * @since 1.9
      */
-    public static final int CONTEST_PRIZE_PAYMENT = 65;
+    public static final int CONTEST_PAYMENT = 65;
 }

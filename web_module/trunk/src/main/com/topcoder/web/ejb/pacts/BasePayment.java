@@ -229,8 +229,8 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case DEPLOYMENT_TASK_PAYMENT:
         case COPILOT_POSTING_PAYMENT:
         case CONTENT_CREATION_PAYMENT:
-        case CONTEST_PRIZE_PAYMENT:
-        case CONTEST_MILESTONE_PRIZE_PAYMENT:
+        case CONTEST_PAYMENT:
+        case CONTEST_MILESTONE_PAYMENT:
             return REFERENCE_COMPONENT_PROJECT_ID;
 
         case PROBLEM_WRITING_PAYMENT:
@@ -344,8 +344,8 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case RIA_COMPONENT_COMPETITION_PAYMENT: return new RIAComponentCompetitionPayment(coderId, grossAmount, referenceId, placed);
         case SPECIFICATION_WRITING_PAYMENT: return new SpecificationWritingPayment(coderId, grossAmount, referenceId, placed);
         case STUDIO_SPECIFICATION_WRITING_PAYMENT: return new StudioSpecificationWritingPayment(coderId, grossAmount, referenceId, placed);
-        case CONTEST_PRIZE_PAYMENT: return new ContestPrizePayment(coderId, grossAmount, referenceId, placed);
-        case CONTEST_MILESTONE_PRIZE_PAYMENT: return new ContestMilestonePrizePayment(coderId, grossAmount, referenceId, placed);
+        case CONTEST_PAYMENT: return new ContestPayment(coderId, grossAmount, referenceId, placed);
+        case CONTEST_MILESTONE_PAYMENT: return new ContestMilestonePayment(coderId, grossAmount, referenceId, placed);
         default: return new NoReferencePayment(paymentTypeId, coderId, grossAmount, "");
         }
     }
@@ -479,8 +479,8 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             case SPECIFICATION_WRITING_PAYMENT: return "Specification Writing Payment";
             case STUDIO_SPECIFICATION_WRITING_PAYMENT: return "Studio Specification Writing Payment";
             case CONTENT_CREATION_PAYMENT: return "Content Creation Payment";
-            case CONTEST_PRIZE_PAYMENT: return "Contest Prize Payment";
-            case CONTEST_MILESTONE_PRIZE_PAYMENT: return "Contest Milestone Prize Payment";
+            case CONTEST_PAYMENT: return "Contest Payment";
+            case CONTEST_MILESTONE_PAYMENT: return "Contest Milestone Payment";
 
             default: return "Other Payment";
         }

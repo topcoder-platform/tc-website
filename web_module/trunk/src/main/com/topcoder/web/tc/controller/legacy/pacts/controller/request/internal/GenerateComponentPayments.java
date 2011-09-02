@@ -83,8 +83,8 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
 
                 for (int i = 0; i < lst.size(); i++) {
                     BasePayment p = (BasePayment) lst.get(i);
-                    if (p.getPaymentType() == PactsConstants.CONTEST_PRIZE_PAYMENT) counts[0]++;
-                    if (p.getPaymentType() == PactsConstants.CONTEST_MILESTONE_PRIZE_PAYMENT) counts[1]++;
+                    if (p.getPaymentType() == PactsConstants.CONTEST_PAYMENT) counts[0]++;
+                    if (p.getPaymentType() == PactsConstants.CONTEST_MILESTONE_PAYMENT) counts[1]++;
                     if (p.getPaymentType() == PactsConstants.REVIEW_BOARD_PAYMENT) counts[3]++;
                     if (p.getPaymentType() == PactsConstants.COPILOT_PAYMENT) counts[4]++;
                     if (p.getPaymentType() == PactsConstants.SPECIFICATION_REVIEW_PAYMENT) counts[5]++;
