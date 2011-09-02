@@ -13,7 +13,7 @@ import java.sql.SQLException;
  *
  * @author VolodymyrK
  */
-public class ContestPrizePayment extends ComponentProjectReferencePayment {
+public class ContestPayment extends ComponentProjectReferencePayment {
 
     /**
      * Please change that number if you affect the fields in a way that will affect the
@@ -31,8 +31,8 @@ public class ContestPrizePayment extends ComponentProjectReferencePayment {
      * @param projectId project that is being paid.
      * @param placed the place of the coder in the contest.
      */
-    public ContestPrizePayment(long coderId, double grossAmount, String client, long projectId, int placed) {
-        super(CONTEST_PRIZE_PAYMENT, coderId, grossAmount, client, projectId, placed);
+    public ContestPayment(long coderId, double grossAmount, String client, long projectId, int placed) {
+        super(CONTEST_PAYMENT, coderId, grossAmount, client, projectId, placed);
     }
 
     /**
@@ -43,7 +43,7 @@ public class ContestPrizePayment extends ComponentProjectReferencePayment {
      * @param projectId project that is being paid.
      * @param placed the place of the coder in the contest.
      */
-    public ContestPrizePayment(long coderId, double grossAmount, long projectId, int placed) {
+    public ContestPayment(long coderId, double grossAmount, long projectId, int placed) {
         this(coderId, grossAmount, null, projectId, placed);
     }
 
@@ -55,7 +55,7 @@ public class ContestPrizePayment extends ComponentProjectReferencePayment {
      * @param client the client of the project.
      * @param projectId project that is being paid.
      */
-    public ContestPrizePayment(long coderId, double grossAmount, String client, long projectId) {
+    public ContestPayment(long coderId, double grossAmount, String client, long projectId) {
         this(coderId, grossAmount, client, projectId, 0);
     }
 
@@ -66,7 +66,7 @@ public class ContestPrizePayment extends ComponentProjectReferencePayment {
      * @param grossAmount amount to be paid.
      * @param projectId project that is being paid.
      */
-    public ContestPrizePayment(long coderId, double grossAmount, long projectId) {
+    public ContestPayment(long coderId, double grossAmount, long projectId) {
         this(coderId, grossAmount, null, projectId, 0);
     }
 

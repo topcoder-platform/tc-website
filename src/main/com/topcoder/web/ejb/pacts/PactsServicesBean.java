@@ -5224,7 +5224,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 if (submissionType.startsWith("Contest Submission")) {
                     payments.addAll(generateComponentUserPayments(coderId, amount, client, projectId, placed));
                 } else if (submissionType.startsWith("Milestone Submission")) {
-                    payments.add(new ContestMilestonePrizePayment(coderId, amount, client, projectId, placed));
+                    payments.add(new ContestMilestonePayment(coderId, amount, client, projectId, placed));
                 }
             } else {
                 log.info("Payments for the coder " + coderId + " are skipped because he/she still has pending late deliverables.");
@@ -6389,7 +6389,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed)
         throws SQLException, EventFailureException {
 
-        BasePayment p = new ContestPrizePayment(coderId, grossAmount, client, projectId, placed);
+        BasePayment p = new ContestPayment(coderId, grossAmount, client, projectId, placed);
         if (placed == 1 && !isStudioProject(projectId)) {
             p.setGrossAmount(grossAmount * FIRST_INSTALLMENT_PERCENT);
         }
