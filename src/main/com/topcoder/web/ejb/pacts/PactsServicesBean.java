@@ -6317,11 +6317,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             return payment;
         } catch (SQLException e) {
-            ejbContext.setRollbackOnly();
+            //ejbContext.setRollbackOnly();
             printException(e);
             throw e;
         } catch (Exception e) {
-            ejbContext.setRollbackOnly();
+            //ejbContext.setRollbackOnly();
             printException(e);
             throw new SQLException(e.getMessage());
         } finally {
@@ -6346,11 +6346,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             return p;
         } catch (SQLException e) {
-            ejbContext.setRollbackOnly();
+            //ejbContext.setRollbackOnly();
             printException(e);
             throw e;
         } catch (Exception e) {
-            ejbContext.setRollbackOnly();
+            //ejbContext.setRollbackOnly();
             printException(e);
             throw new SQLException(e.getMessage());
         }
