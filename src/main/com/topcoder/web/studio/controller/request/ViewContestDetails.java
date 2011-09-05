@@ -154,7 +154,7 @@ public class ViewContestDetails extends ShortHibernateProcessor {
 
                 // Handle milestone
                 Date milestoneDate = contest.getMilestoneDate();
-                if (milestoneDate != null && milestoneDate.before(new Date())) {
+                if (milestoneDate != null && contest.getMilestoneSubmissionClosed()) {
                     getRequest().setAttribute("canViewMilestone", true);
                 } else {
                     getRequest().setAttribute("canViewMilestone", false);
