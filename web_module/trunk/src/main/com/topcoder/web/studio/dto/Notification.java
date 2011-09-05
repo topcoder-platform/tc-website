@@ -15,24 +15,24 @@ import java.util.Date;
 public class Notification extends Base {
 
     /**
-     * <p>A <code>long</code> providing the ID for <code>Timeline Notification</code> notification.</p>
+     * <p>A <code>Integer</code> providing the ID for <code>Timeline Notification</code> notification.</p>
      */
-    public static final long TIMELINE_NOTIFICATION_ID = 1; 
+    public static final Integer TIMELINE_NOTIFICATION_ID = 1; 
 
     /**
-     * <p>A <code>Long</code> providing the ID of a project.</p>
+     * <p>A <code>Integer</code> providing the ID of a project.</p>
      */
-    protected Long projectId;
+    protected Integer projectId;
 
     /**
-     * <p>A <code>Long</code> providing external reference id of notification.</p>
+     * <p>A <code>Integer</code> providing external reference id of notification.</p>
      */
-    protected Long externalRefId;
+    protected Integer externalRefId;
 
     /**
-     * <p>A <code>Long</code> providing notification type id.</p>
+     * <p>A <code>Integer</code> providing notification type id.</p>
      */
-    protected Long notificationTypeId;
+    protected Integer notificationTypeId;
 
     /**
      * <p>A <code>String</code> providing the ID for record creator.</p>
@@ -65,52 +65,52 @@ public class Notification extends Base {
      *
      * @return a <code>Long</code> providing the ID of a project.
      */
-    public Long getProjectId() {
+    public Integer getProjectId() {
         return this.projectId;
     }
 
     /**
      * <p>Sets the ID of a project.</p>
      *
-     * @param projectId a <code>Long</code> providing the ID of a project.
+     * @param projectId a <code>Integer</code> providing the ID of a project.
      */
-    public void setProjectId(Long projectId) {
+    public void setProjectId(Integer projectId) {
         this.projectId = projectId;
     }
 
     /**
      * <p>Gets the external reference id of the notification.</p>
      *
-     * @return a <code>Long</code> providing the external reference id of the notification.
+     * @return a <code>Integer</code> providing the external reference id of the notification.
      */
-    public Long getExternalRefId() {
+    public Integer getExternalRefId() {
         return this.externalRefId;
     }
 
     /**
      * <p>Sets the external reference id of a notification.</p>
      *
-     * @param externalRefId a <code>Long</code> providing the external reference id of a notification.
+     * @param externalRefId a <code>Integer</code> providing the external reference id of a notification.
      */
-    public void setExternalRefId(Long externalRefId) {
+    public void setExternalRefId(Integer externalRefId) {
         this.externalRefId = externalRefId;
     }
 
     /**
      * <p>Gets the notification type id.</p>
      *
-     * @return a <code>Long</code> providing the notification type id.
+     * @return a <code>Integer</code> providing the notification type id.
      */
-    public Long getNotificationTypeId() {
+    public Integer getNotificationTypeId() {
         return this.notificationTypeId;
     }
 
     /**
      * <p>Sets the notification type id.</p>
      *
-     * @param notificationTypeId a <code>Long</code> providing the notification type id.
+     * @param notificationTypeId a <code>Integer</code> providing the notification type id.
      */
-    public void setNotificationTypeId(Long notificationTypeId) {
+    public void setNotificationTypeId(Integer notificationTypeId) {
         this.notificationTypeId = notificationTypeId;
     }
 
