@@ -20,6 +20,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.dao.UserDAO;
 import com.topcoder.web.common.model.Email;
 import com.topcoder.web.common.model.User;
+import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegHelper;
 
 /**
@@ -90,11 +91,26 @@ public class RegisterAction extends BaseAction implements PostAction {
             addActionError("The handle - " + handle + " is not available, please use another one.");
             return;
         }
-	// TO REMOVE, comment out for testing
-        //if ((!RegHelper.isEmptyString(email)) && getUserDAO().find(null, null, null, email).size() > 0) {
-        //    addActionError("The email - " + email + " is not available, please use another one.");
-        //    return;
-        //}
+
+        if ((!RegHelper.isEmptyString(email)) && getUserDAO().find(null, null, null, email).size() > 0) {
+            addActionError("The email - " + email + " is not available, please use another one.");
+            return;
+        }
+
+        if ((!RegHelper.isEmptyString(handle)) && !StringUtils.containsOnly(handle, Constants.HANDLE_ALPHABET, false)) {
+        	addActionError("Your user name may contain only letters, numbers and " + Constants.HANDLE_PUNCTUATION);
+        	return;
+        }
+
+        if ((!RegHelper.isEmptyString(handle)) && StringUtils.containsOnly(handle, Constants.HANDLE_PUNCTUATION, false)) {
+        	addActionError("Your user name may not contain only punctuation.");
+        	return;
+        }
+
+        if ((!RegHelper.isEmptyString(handle)) && handle.toLowerCase().trim().startsWith("admin")) {
+        	addActionError("Please choose another user name.");
+        	return;
+        }
     }
 
     /**

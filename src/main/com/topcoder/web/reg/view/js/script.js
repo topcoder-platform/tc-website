@@ -134,6 +134,10 @@ $(document).ready(function(){
 			$('#handle').after("<span class=\"tipError2\">" + errors[i].innerHTML + "</span>");
 			$('#handle').addClass('error').siblings('.tipError2').show();
 		}
+		if (errors[i].innerHTML.indexOf("password") != -1) {
+			$('#loginPassword').after("<span class=\"tipError2\">" + errors[i].innerHTML + "</span>");
+			$('#loginPassword').addClass('error').siblings('.tipError2').show();
+		}
 		if (errors[i].innerHTML.indexOf("email") != -1) {
 			$('#email').after("<span class=\"tipError2\">" + errors[i].innerHTML + "</span>");
 			$('#email').addClass('error').siblings('.tipError2').show();
