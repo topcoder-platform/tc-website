@@ -3,8 +3,8 @@
  */
 package com.topcoder.web.studio.dto;
 
-import java.util.HashSet;
-import java.util.Set;
+import com.topcoder.web.common.model.Base;
+import java.util.Date;
 
 /**
  * <p>An entity class mapped to <code>tcs_catalog.notification</code> table.</p>
@@ -92,7 +92,7 @@ public class Notification extends Base {
      *
      * @param externalRefId a <code>Long</code> providing the external reference id of a notification.
      */
-    public void setProjectId(Long externalRefId) {
+    public void setExternalRefId(Long externalRefId) {
         this.externalRefId = externalRefId;
     }
 

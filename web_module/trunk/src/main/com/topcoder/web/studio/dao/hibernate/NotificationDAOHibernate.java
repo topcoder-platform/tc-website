@@ -9,6 +9,9 @@ import com.topcoder.web.common.dao.hibernate.Base;
 import com.topcoder.web.studio.dao.NotificationDAO;
 import com.topcoder.web.studio.dto.Notification;
 
+import java.util.Date;
+import java.util.List;
+
 /**
  * <p>Notification DAO implementation.</p>
  * 
