@@ -131,25 +131,14 @@
         </div>
 
         <h1>Submission Successfully Uploaded</h1>
-<%
-    GregorianCalendar gc = new GregorianCalendar(2007, Calendar.JULY, 23);
-%>
-<c:set value="<%=new Timestamp(gc.getTime().getTime())%>" var="bigStart"/>
         <div align="center">
             <div align="left" style="width:500px; margin-top: 20px;">
                 Your Submission Has Been Uploaded
                 <br /><br />
-          <c:choose>
-            <c:when test="${contest.startTime > bigStart}">
-                    Your submission will be screened after the Submission Phase has ended. If your submission does not pass
-                    screening, you will receive an email with a list of any requirements that it failed to meet. 
-            </c:when>
-            <c:otherwise>
-                    Please allow at least 24 hours for processing. If your submission does not pass screening, you
-                    will receive an
-                    email with a list of any requirements that it failed to meet.
-            </c:otherwise>
-          </c:choose>
+                Your submission will be screened after the Submission Phase has ended. You will receive an email with a link to your scorecard results. 
+                Be sure to view your scorecard even if you've passed screening because it may contain very important comments or instructions.
+
+                Learn more about screening here: http://community.topcoder.com/studio/the-process/screening/                
                 <br /><br />
                 Thank you.
                 <br /><br />
