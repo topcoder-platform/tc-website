@@ -144,6 +144,7 @@ public class Register extends ShortHibernateProcessor {
 
                         if (isApproved) {
                             createSubmitterResource(factory, c, userId);
+                            factory.getNotificationDAO().setTimelineNotification(c.getId(), userId);
                         } else {
                             addError(Constants.REG_CONFIRM, "");
                             setDefault(Constants.CONTEST_ID, c.getId());

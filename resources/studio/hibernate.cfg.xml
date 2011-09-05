@@ -135,6 +135,7 @@
         <mapping resource="com/topcoder/web/studio/dto/ExternalContentType.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/dto/FileType.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/dto/MimeType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/Notification.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/dto/Prize.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/dto/PrizeType.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/dto/Project.hbm.xml"/>
