@@ -152,8 +152,6 @@
         <div style="margin: 40px 0px 20px 0px;">
             <form name="submissionForm" action="#">
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="BatchUpdateRank"/>
-                <c:choose>
-                     <c:when test="${contest.startTime > bigStart}">
                          <div align="center">
                              <strong>In the table below</strong> you can rank your submissions. <br />
 
@@ -174,20 +172,6 @@
                              </c:choose>
 
                              </div>
-                     </c:when>
-                     <c:otherwise>
-                         <div align="center">
-                             <strong>In the table below</strong> you can rank your submissions.
-                             <br /><nobr>This icon <img src="/i/v2/selection.png" alt="Selection" /></nobr> indicates preferred submissions that will count for
-                             this contest.
-                             <br />Submissions that have <span class="bigRed">Failed</span> can not be ranked, and are automatically moved
-                             to the bottom of the page.
-                             <br />If one of your preferred submissions fails after the submission phase, the next passing submission will
-                             take its place.
-                         </div>
-                     </c:otherwise>
-                 </c:choose>
-
                 <br /><br />
 
                 <div id="wrapper_submission">
