@@ -8,6 +8,7 @@ import com.topcoder.web.common.dao.ImageDAO;
 import com.topcoder.web.common.dao.PathDAO;
 import com.topcoder.web.common.dao.TermsOfUseDAO;
 import com.topcoder.web.common.dao.UserDAO;
+import com.topcoder.web.common.dao.NotificationDAO;
 
 /**
  * <p>An interface for the DAO Factory.</p>
@@ -94,5 +95,12 @@ public interface DAOFactory {
      * @return the <code>ReviewDAO</code> instance
      */
     ReviewDAO getReviewDAO();
+
+    /**
+     * Gets the <code>NotificationDAO</code> instance.
+     * 
+     * @return the <code>NotificationDAO</code> instance
+     */
+    NotificationDAO getNotificationDAO();
 }
 

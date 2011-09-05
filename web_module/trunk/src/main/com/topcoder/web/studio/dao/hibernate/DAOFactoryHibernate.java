@@ -13,6 +13,7 @@ import com.topcoder.web.common.dao.hibernate.ImageDAOHibernate;
 import com.topcoder.web.common.dao.hibernate.PathDAOHibernate;
 import com.topcoder.web.common.dao.hibernate.TermsOfUseDAOHibernate;
 import com.topcoder.web.common.dao.hibernate.UserDAOHibernate;
+import com.topcoder.web.common.dao.hibernate.NotificationDAOHibernate;
 import com.topcoder.web.studio.dao.DAOFactory;
 import com.topcoder.web.studio.dao.FileTypeCatalogDAO;
 import com.topcoder.web.studio.dao.ProjectDAO;
@@ -20,6 +21,7 @@ import com.topcoder.web.studio.dao.ResourceDAO;
 import com.topcoder.web.studio.dao.ReviewDAO;
 import com.topcoder.web.studio.dao.SubmissionDAO;
 import com.topcoder.web.studio.dao.UploadDAO;
+import com.topcoder.web.studio.dao.NotificationDAO;
 
 /**
  * <p>Hibernate implementation for the DAO Factory.</p>
@@ -127,5 +129,14 @@ public class DAOFactoryHibernate implements DAOFactory {
      */
     public ReviewDAO getReviewDAO() {
         return new ReviewDAOHibernate();
+    }
+
+    /**
+     * Gets the <code>NotificationDAO</code> instance.
+     * 
+     * @return the <code>NotificationDAO</code> instance
+     */
+    public NotificationDAO getNotificationDAO() {
+        return new NotificationDAOHibernate();
     }
 }

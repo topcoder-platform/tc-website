@@ -348,5 +348,6 @@ public class ReviewRegistration extends ShortHibernateProcessor {
             ProjectPhase reviewPhase = project.getPhase(phaseTypeIds[i]);
             createResource(DAOUtil.getFactory(), project, userId, reviewPhase, reviewerRoleId, payment);
         }
+        factory.getNotificationDAO().setTimelineNotification(project.getId(), userId);
     }
 }
