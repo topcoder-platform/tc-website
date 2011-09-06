@@ -17,5 +17,5 @@ public interface NotificationDAO {
      * @param projectId a <code>projectId</code> to set timeline notification.
      * @param userId a <code>userId</code> to set timeline notification.
      */
-    public void setTimelineNotification(Integer projectId, Integer userId);
+    public void setTimelineNotification(Integer projectId, long userId);
 }

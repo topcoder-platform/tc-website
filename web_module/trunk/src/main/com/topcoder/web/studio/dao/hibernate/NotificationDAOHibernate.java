@@ -42,14 +42,14 @@ public class NotificationDAOHibernate extends Base implements NotificationDAO {
      * @param projectId a <code>projectId</code> to set timeline notification.
      * @param userId a <code>userId</code> to set timeline notification.
      */
-    public void setTimelineNotification(Integer projectId, Integer userId) {
-        List<Notification> currentNotifications = session.createQuery(
+    public void setTimelineNotification(Integer projectId, long userId) {
+        List currentNotifications = session.createQuery(
                 "FROM com.topcoder.web.studio.dto.Notification n  " +
                         "WHERE n.projectId = :projectId " +
                         "AND n.externalRefId = :externalRefId " +
                         "AND n.notificationTypeId = :notificationTypeId")
                 .setInteger("projectId", projectId)
-                .setInteger("externalRefId", userId)
+                .setLong("externalRefId", userId)
                 .setInteger("notificationTypeId", Notification.TIMELINE_NOTIFICATION_ID)
                 .list();
         if (!currentNotifications.isEmpty()) {
