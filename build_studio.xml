@@ -354,6 +354,9 @@
         <antcall target="package-TCJive"/>
         <antcall target="package-EJB-MessageHistoryBean"/>
         <antcall target="package-EJB-ForumsBean"/>
+        <antcall target="package-EJB-UserBean"/>
+        <antcall target="package-EJB-ProjectBean"/>
+        <antcall target="package-EJB-TermsOfUseBean"/>
         <antcall target="build-security"/>
 
         <antcall target="expand-studio"/>
