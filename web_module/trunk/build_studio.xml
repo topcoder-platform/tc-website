@@ -343,9 +343,9 @@
         <unwar src="${war.dir}/studio.war" dest="${jboss_home}/server/default/deploy/studio.war/" overwrite="yes"/>
         <delete dir="${jboss_home}/server/default/deploy/studio.war/META-INF"/>
         <copy todir="${jboss_lib}" file="${bin}/tcwebcommon.jar"/>
-        <copy todir="${jboss_deploy}" file="${ejb_jars}/Project.jar"/>
+<!--        <copy todir="${jboss_deploy}" file="${ejb_jars}/Project.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/User.jar"/>
-        <copy todir="${jboss_deploy}" file="${ejb_jars}/TermsOfUse.jar"/>
+        <copy todir="${jboss_deploy}" file="${ejb_jars}/TermsOfUse.jar"/>-->
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/base_exception/2.0.0/base_exception.jar"/>
     </target>
@@ -413,6 +413,11 @@
         <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
         <copy todir="${jboss_deploy}" file="${jive.dir}/jive4.war"/>
         <copy todir="${jboss_deploy}" file="${ear.dir}/security.ear"/>
+
+        <copy todir="${jboss_deploy}" file="${ejb_jars}/Project.jar"/>
+        <copy todir="${jboss_deploy}" file="${ejb_jars}/User.jar"/>
+        <copy todir="${jboss_deploy}" file="${ejb_jars}/TermsOfUse.jar"/>
+
 
         <copy todir="${jboss_conf}" file="${resources}/forums/studio/jive_init.xml"/>
         <copy todir="${jboss_conf}" file="${resources}/cache.properties"/>
