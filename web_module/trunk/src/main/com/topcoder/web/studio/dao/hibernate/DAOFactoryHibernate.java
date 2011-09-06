@@ -13,7 +13,7 @@ import com.topcoder.web.common.dao.hibernate.ImageDAOHibernate;
 import com.topcoder.web.common.dao.hibernate.PathDAOHibernate;
 import com.topcoder.web.common.dao.hibernate.TermsOfUseDAOHibernate;
 import com.topcoder.web.common.dao.hibernate.UserDAOHibernate;
-import com.topcoder.web.common.dao.hibernate.NotificationDAOHibernate;
+import com.topcoder.web.studio.dao.hibernate.NotificationDAOHibernate;
 import com.topcoder.web.studio.dao.DAOFactory;
 import com.topcoder.web.studio.dao.FileTypeCatalogDAO;
 import com.topcoder.web.studio.dao.ProjectDAO;
