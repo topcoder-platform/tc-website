@@ -1,5 +1,7 @@
 <%@ page import="com.jivesoftware.base.Group,
                  com.jivesoftware.base.JiveConstants,
+                 com.jivesoftware.forum.RatingManager,
+                 com.jivesoftware.forum.RatingManagerFactory,
                  com.jivesoftware.forum.ResultFilter,
                  com.jivesoftware.forum.action.util.Page,
                  com.topcoder.shared.util.DBMS,
@@ -12,6 +14,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 
+<tc-webtag:useBean id="authToken" name="authToken" type="com.jivesoftware.base.AuthToken" toScope="request"/>
 <tc-webtag:useBean id="user" name="user" type="com.jivesoftware.base.User" toScope="request"/>
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="historyUser" name="historyUser" type="com.jivesoftware.base.User" toScope="request"/>
@@ -21,6 +24,7 @@
 
 <%  String sortField = (String) request.getAttribute("sortField");
     String sortOrder = (String) request.getAttribute("sortOrder");
+    RatingManager ratingManager = RatingManagerFactory.getInstance(authToken);
 
     StringBuffer linkBuffer = new StringBuffer("?module=History");
     linkBuffer.append("&").append(ForumConstants.USER_ID).append("=").append(historyUser.getID());
@@ -162,6 +166,7 @@
             <td class="rtHeader" width="15%"><a href="<%=dateLink%>" class="rtbcLink">Date</a></td>
             <td class="rtHeader" align="right" width="5%">Replies</td>
             <td class="rtHeader" align="right" width="5%">Edits</td>
+            <td class="rtHeader" align="right" width="5%">Rating</td>
         </tr>
         <tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage"
                             iterator='<%=(Iterator)request.getAttribute("messages")%>'>
@@ -184,6 +189,16 @@
 <td class="rtThreadCell" align="right"><%=message.getForumThread().getTreeWalker().getRecursiveChildCount(message)%></td>
 <td class="rtThreadCell" align="right">
     <A href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<%=message.getID()%>" class="rtbcLink"><%=historyBean.getEditCount(message.getID(), DBMS.FORUMS_DATASOURCE_NAME)%></A>
+</td>
+<td class="rtThreadCell" align="right">
+    <%  if (ratingManager.isRatingsEnabled()) {
+        int[] ratings = ForumsUtil.getRatings(ratingManager, message);
+        int posRatings = ratings[0];
+        int negRatings = ratings[1];%>
+    +<%=posRatings%>/-<%=negRatings%>
+    <%  } else { %>
+    N/A
+    <%  } %>
 </td>
 </tr>
 </tc-webtag:iterator>
