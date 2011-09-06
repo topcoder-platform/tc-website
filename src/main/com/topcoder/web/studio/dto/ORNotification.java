@@ -55,9 +55,9 @@ public class ORNotification extends Base {
     private Date modifyDate;
 
     /**
-     * <p>Constructs new <code>Notification</code> instance. This implementation does nothing.</p>
+     * <p>Constructs new <code>ORNotification</code> instance. This implementation does nothing.</p>
      */
-    public Notification() {
+    public ORNotification() {
     }
 
     /**
