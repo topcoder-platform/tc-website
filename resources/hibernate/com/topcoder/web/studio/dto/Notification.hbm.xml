@@ -4,10 +4,12 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="com.topcoder.web.studio.dto">
-    <class name="Notification" table="notification">
-        <property name="projectId" column="project_id"/>
-        <property name="externalRefId" column="external_ref_id"/>
-        <property name="notificationTypeId" column="notification_type_id"/>
+    <class name="ORNotification" table="notification">
+        <composite-id >
+            <key-property name="projectId" column="project_id"/>
+            <key-property name="externalRefId" column="external_ref_id"/>
+            <key-property name="notificationTypeId" column="notification_type_id"/>
+        </composite-id>
         <property name="createUser" column="create_user"/>
         <property name="modifyUser" column="modify_user"/>
         <property name="createDate" column="create_date"/>
