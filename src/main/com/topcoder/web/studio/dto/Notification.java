@@ -25,9 +25,9 @@ public class Notification extends Base {
     protected Integer projectId;
 
     /**
-     * <p>A <code>Integer</code> providing external reference id of notification.</p>
+     * <p>A <code>Long</code> providing external reference id of notification.</p>
      */
-    protected Integer externalRefId;
+    protected Long externalRefId;
 
     /**
      * <p>A <code>Integer</code> providing notification type id.</p>
@@ -81,18 +81,18 @@ public class Notification extends Base {
     /**
      * <p>Gets the external reference id of the notification.</p>
      *
-     * @return a <code>Integer</code> providing the external reference id of the notification.
+     * @return a <code>Long</code> providing the external reference id of the notification.
      */
-    public Integer getExternalRefId() {
+    public Long getExternalRefId() {
         return this.externalRefId;
     }
 
     /**
      * <p>Sets the external reference id of a notification.</p>
      *
-     * @param externalRefId a <code>Integer</code> providing the external reference id of a notification.
+     * @param externalRefId a <code>Long</code> providing the external reference id of a notification.
      */
-    public void setExternalRefId(Integer externalRefId) {
+    public void setExternalRefId(Long externalRefId) {
         this.externalRefId = externalRefId;
     }
 

@@ -8,7 +8,7 @@ import com.topcoder.web.common.dao.ImageDAO;
 import com.topcoder.web.common.dao.PathDAO;
 import com.topcoder.web.common.dao.TermsOfUseDAO;
 import com.topcoder.web.common.dao.UserDAO;
-import com.topcoder.web.common.dao.NotificationDAO;
+
 
 /**
  * <p>An interface for the DAO Factory.</p>
