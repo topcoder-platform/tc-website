@@ -259,6 +259,33 @@
         </jar>
     </target>
 
+    <target name="package-EJB-UserBean" depends="compile">
+        <jar jarfile="${ejb_jars}/User.jar">
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/user/*.class"/>
+            <metainf dir="${java}/com/topcoder/web/ejb/user" includes="*.xml"/>
+            <metainf dir="${java}/com/topcoder/web/ejb/user" includes="wsdl"/>
+        </jar>
+    </target>
+
+    <target name="package-EJB-ProjectBean" depends="compile">
+        <jar jarfile="${ejb_jars}/Project.jar">
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/project/*.class"/>
+            <metainf dir="${java}/com/topcoder/web/ejb/project" includes="*.xml"/>
+        </jar>
+    </target>
+
+
+
+    <target name="package-EJB-TermsOfUseBean" depends="compile">
+        <jar jarfile="${ejb_jars}/TermsOfUse.jar">
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/termsofuse/*.class"/>
+            <metainf dir="${java}/com/topcoder/web/ejb/termsofuse" includes="*.xml"/>
+        </jar>
+    </target>
+
 
     <target name="war-studio" depends="compile">
 <!--
