@@ -12,7 +12,7 @@ import java.util.Date;
  * @author lmmortal
  * @version 1.0 (TCCC-3529)
  */
-public class Notification extends Base {
+public class ORNotification extends Base {
 
     /**
      * <p>A <code>Integer</code> providing the ID for <code>Timeline Notification</code> notification.</p>

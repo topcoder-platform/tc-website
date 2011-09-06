@@ -7,7 +7,7 @@ import org.hibernate.Session;
 
 import com.topcoder.web.common.dao.hibernate.Base;
 import com.topcoder.web.studio.dao.NotificationDAO;
-import com.topcoder.web.studio.dto.Notification;
+import com.topcoder.web.studio.dto.ORNotification;
 
 import java.util.Date;
 import java.util.List;
@@ -44,21 +44,21 @@ public class NotificationDAOHibernate extends Base implements NotificationDAO {
      */
     public void setTimelineNotification(Integer projectId, long userId) {
         List currentNotifications = session.createQuery(
-                "FROM com.topcoder.web.studio.dto.Notification n  " +
+                "FROM com.topcoder.web.studio.dto.ORNotification n  " +
                         "WHERE n.projectId = :projectId " +
                         "AND n.externalRefId = :externalRefId " +
                         "AND n.notificationTypeId = :notificationTypeId")
                 .setInteger("projectId", projectId)
                 .setLong("externalRefId", userId)
-                .setInteger("notificationTypeId", Notification.TIMELINE_NOTIFICATION_ID)
+                .setInteger("notificationTypeId", ORNotification.TIMELINE_NOTIFICATION_ID)
                 .list();
         if (!currentNotifications.isEmpty()) {
             return;
         }
         Date now = new Date();
-        Notification n = new Notification();
+        ORNotification n = new ORNotification();
         n.setProjectId(projectId);
-        n.setNotificationTypeId(Notification.TIMELINE_NOTIFICATION_ID);
+        n.setNotificationTypeId(ORNotification.TIMELINE_NOTIFICATION_ID);
         n.setExternalRefId(userId);
         n.setCreateUser(String.valueOf(userId));
         n.setCreateDate(now);
