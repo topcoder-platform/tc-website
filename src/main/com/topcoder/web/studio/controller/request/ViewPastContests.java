@@ -108,9 +108,9 @@ public class ViewPastContests extends BaseProcessor {
                 r.setProperty("edt" , "2099-01-01 00:00:00");
         }
     }
-        System.out.println("BEFORE GET DATA");
+
         ResultSetContainer rsc = da.getData(r).get("studio_past_contests");
-        System.out.println("AFTER GET DATA");
+
         if (rsc.size() == 0 && month.equals(String
                 .valueOf(Calendar.getInstance().get(Calendar.MONTH) + 1)) && year.equals(String
                 .valueOf(Calendar.getInstance().get(Calendar.YEAR)))) {
