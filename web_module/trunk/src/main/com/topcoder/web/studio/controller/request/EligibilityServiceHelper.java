@@ -47,15 +47,18 @@ public class EligibilityServiceHelper {
         throws CreateException, NamingException, RemoteException, ContestEligibilityValidatorException {
         // Get the list of contests with eligibility constraints
         List<Long> contestIds = new ArrayList<Long>();
+        System.out.println("BEFORE READING IDS");
         for (ResultSetContainer.ResultSetRow row : data) {
             long contestId = row.getLongItem("contest_id");
             contestIds.add(contestId);
         }
 
+        System.out.println("AFTER READING IDS");
         ContestEligibilityService eligibilityService = ContestEligibilityServiceLocator.getServices();
+        System.out.println("BEFORE HAVE ELIGIBILITY");
         Set<Long> contestsWithEligibilityConstraints 
             = eligibilityService.haveEligibility(contestIds.toArray(new Long[contestIds.size()]), false);
-
+        System.out.println("AFTER HAVE ELIGIBILITY");
         // Determine which contests the user is eligible to see
         Map<Long, Boolean> eligibleContestIds = new HashMap<Long, Boolean>();
         for (ResultSetContainer.ResultSetRow row : data) {
