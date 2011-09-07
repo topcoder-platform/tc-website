@@ -981,6 +981,35 @@ public class ForumsBean extends BaseEJB {
 
 	}
 
+
+    public long[] areForumsWatched(long userID, long[] forumIDs) throws Exception {
+		try {
+			WatchManager watchManager = forumFactory.getWatchManager();
+			User user = forumFactory.getUserManager().getUser(userID);
+
+            ArrayList<Long> watched = new ArrayList<Long>();
+            for (int i = 0; i < forumIDs.length; i++) {
+                Forum forum = forumFactory.getForum(forumIDs[i]);
+                if (watchManager.isWatched(user, forum))
+                {
+                    watched.add(forumIDs[i]);
+                } 
+            }
+
+            long[] watches = new long[watched.size()];
+            for (int i = 0; i < watched.size(); i++) {
+                watches[i] = ((Long) watched.get(i)).longValue();
+            }
+
+		return watches;
+		
+		} catch (Exception e) {
+			logException(e, "Error checking areForumsWatched userid =" + userID);
+			throw new Exception("Error checking areForumsWatched userid " + userID , e);
+		}
+
+	}
+
 	/**
 	 * <p>
 	 * Adds the given <code>comment</code> to the specification review forum at
