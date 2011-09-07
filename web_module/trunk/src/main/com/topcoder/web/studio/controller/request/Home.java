@@ -39,11 +39,15 @@ public class Home extends BaseProcessor {
     protected void businessProcessing() throws Exception {
 
         Request r = new Request();
-        r.setContentHandle("studio_home_data");
-        r.setProperty(Constants.USER_ID, String.valueOf(getUser().getId()));
+       // r.setContentHandle("studio_home_data");
+       // r.setProperty(Constants.USER_ID, String.valueOf(getUser().getId()));
+
+        r.setContentHandle("studio_active_contests");
+        r.setProperty("uid",  String.valueOf(getUser().getId()));
+
         DataAccessInt dai = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
         Map<String, ResultSetContainer> data = dai.getData(r);
-        getRequest().setAttribute(r.getContentHandle(), data);
+        getRequest().setAttribute("studio_home_data", data);
 
         Map<Long, Boolean> eligibilityCheckResults 
             = EligibilityServiceHelper.checkContestsEligibility(data.get("studio_active_contests"), 
