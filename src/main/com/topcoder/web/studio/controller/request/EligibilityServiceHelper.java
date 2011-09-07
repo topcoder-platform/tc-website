@@ -47,6 +47,15 @@ public class EligibilityServiceHelper {
         throws CreateException, NamingException, RemoteException, ContestEligibilityValidatorException {
         // Get the list of contests with eligibility constraints
         List<Long> contestIds = new ArrayList<Long>();
+
+        // Determine which contests the user is eligible to see
+        Map<Long, Boolean> eligibleContestIds = new HashMap<Long, Boolean>();
+
+        if (data == null || data.size() == 0)
+        {
+            return eligibleContestIds;
+        }
+
         for (ResultSetContainer.ResultSetRow row : data) {
             long contestId = row.getLongItem("contest_id");
             contestIds.add(contestId);
@@ -56,8 +65,7 @@ public class EligibilityServiceHelper {
         Set<Long> contestsWithEligibilityConstraints 
             = eligibilityService.haveEligibility(contestIds.toArray(new Long[contestIds.size()]), false);
 
-        // Determine which contests the user is eligible to see
-        Map<Long, Boolean> eligibleContestIds = new HashMap<Long, Boolean>();
+        
         for (ResultSetContainer.ResultSetRow row : data) {
             long contestId = row.getLongItem("contest_id");
             boolean eligible = row.getBooleanItem("user_resource_exists");
