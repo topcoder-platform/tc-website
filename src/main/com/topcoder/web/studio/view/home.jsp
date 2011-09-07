@@ -203,6 +203,7 @@
                                     </div>
                                 </div><%-- End of #active_contest_content --%>
                             </div><%-- End of #active_contest --%>
+                        </div>
                         </c:if>
                         <div id="showcase">
                             <div id="showcase_head">
