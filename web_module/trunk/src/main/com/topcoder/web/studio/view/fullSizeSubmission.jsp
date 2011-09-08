@@ -15,6 +15,7 @@
 <c:set var="subFileIdx" value="<%=Constants.SUBMISSION_FILE_INDEX%>"/>
 
 <c:set var="currentTime" value="<%=new Date()%>"/>
+<c:set var="viewSubmitters" value="${contest.reviewClosed}"/>
 <c:set var="module" value="${param[modKey]}"/>
 
 <c:set var="rows" value="${submissions}"/>
@@ -263,7 +264,9 @@
     <!--End .button-line-->
     <div class="submission-file-info">
         <h4 class="submission-number">Submission #${sbmid}</h4>
-        <span class="author">by <tc-webtag:handle coderId="${submission.submitterId}" context="component" /></span>
+        <c:if test="${viewSubmitters}">
+            <span class="author">by <tc-webtag:handle coderId="${submission.submitterId}" context="component" /></span>
+        </c:if>
 
         <div class="list-wrapper">
             <div class="list-wrapper-left-top">
