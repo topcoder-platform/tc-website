@@ -164,7 +164,7 @@
                                                         <td>
                                                             <studio_tags:submissionPreview
                                                                 row="${resultRow}" showPlacement="false"
-                                                                viewSubmitters="${contest.viewableSubmitters}"/>
+                                                                viewSubmitters="${contest.reviewClosed}"/>
                                                         </td>
                                                         <c:if test="${i % 4 == 0}">
                                                             </tr><tr>
