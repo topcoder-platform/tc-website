@@ -25,6 +25,7 @@
 
 <%@ attribute name="row" required="true" type="java.lang.Object" %>
 <%@ attribute name="showPlacement" required="true" type="java.lang.Boolean" %>
+<%@ attribute name="viewSubmitters" required="true" type="java.lang.Boolean" %>
 <%@ attribute name="viewSubmissions" required="false" type="java.lang.Boolean" %>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -151,13 +152,15 @@
             </strong>
         </span>
         <br />
-        <span>
-            <strong>
-                Handle:
-                <tc-webtag:handle coderId="${userId}" context="component" />
-            </strong>
-        </span>
-        <br />
+        <c:if test="${viewSubmitters}">
+            <span>
+                <strong>
+                    Handle:
+                    <tc-webtag:handle coderId="${userId}" context="component" />
+                </strong>
+            </span>
+            <br />
+        </c:if>
         <span>
             Submitted on
             <fmt:formatDate value="${createDate}" pattern="MM.dd.yyyy 'at' HH:mm z" timeZone="${sessionInfo.timezone}"/>
