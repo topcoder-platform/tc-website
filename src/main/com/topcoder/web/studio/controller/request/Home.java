@@ -49,10 +49,10 @@ public class Home extends BaseProcessor {
         Map<String, ResultSetContainer> data = dai.getData(r);
         getRequest().setAttribute("studio_home_data", data);
 
-        Map<Long, Boolean> eligibilityCheckResults 
-            = EligibilityServiceHelper.checkContestsEligibility(data.get("studio_active_contests"), 
-                                                                getLoggedInUser().getId());
-        getRequest().setAttribute("eligibility", eligibilityCheckResults);
+       // Map<Long, Boolean> eligibilityCheckResults 
+       //     = EligibilityServiceHelper.checkContestsEligibility(data.get("studio_active_contests"), 
+       //                                                         getLoggedInUser().getId());
+       // getRequest().setAttribute("eligibility", eligibilityCheckResults);
 
         if (userIdentified()) {
             DataAccess tco08Dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);

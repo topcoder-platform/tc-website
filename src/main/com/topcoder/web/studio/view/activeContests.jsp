@@ -153,7 +153,7 @@
                                     <% boolean even = true;%>
                                     <rsc:iterator list="${contests}" id="resultRow">
                                         <c:set var="contestId" value="<%=new Long(resultRow.getLongItem("contest_id"))%>"/>
-                                        <c:if test="${requestScope.eligibility[contestId]}">
+                                       
                                         
                                         <tr><td class="space" colspan="11">&nbsp;</td></tr>
                                         <tr class="<%=even?"light":"dark"%>">
@@ -215,7 +215,7 @@
                                             </td>
                                         </tr>
                                         <% even = !even;%>
-                                        </c:if>
+                                      
                                     </rsc:iterator>
                                 </c:otherwise>
                             </c:choose>

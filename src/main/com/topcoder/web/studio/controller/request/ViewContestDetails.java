@@ -115,6 +115,11 @@ public class ViewContestDetails extends ShortHibernateProcessor {
                 DAOFactory factory = DAOUtil.getFactory();
                 Project contest = factory.getProjectDAO().find(cid.intValue());
 
+                if (contest == null)
+                {
+                    throw new NavigationException("Invalid contest specified");
+                }
+
                 // Check if the user has permissions to see contest details even if it's still not active
                 long userId = getUser().getId();
                 if (Util.isAdmin(userId) || (String.valueOf(userId).equals(contest.getCreateUserId()))
