@@ -147,7 +147,7 @@
                                         <tbody>
                                             <rsc:iterator list="<%=activeContests%>" id="resultRow" end="6">
                                                 <c:set var="contestId" value="<%=new Long(resultRow.getLongItem("contest_id"))%>"/>
-                                                <c:if test="${requestScope.eligibility[contestId]}">
+           
                                                 
                                                 <tr>
                                                     <td class="event">
@@ -191,8 +191,7 @@
                                                         %>
                                                     </td>
                                                 </tr>
-                                                
-                                                </c:if>
+                       
                                             </rsc:iterator>
                                         </tbody>
                                     </table>

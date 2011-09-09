@@ -100,6 +100,11 @@ public class ViewContestResults extends ShortHibernateProcessor {
                 throw new NavigationException("Invalid contest specified");
             }
             Project contest = DAOUtil.getFactory().getProjectDAO().find(cid);
+
+            if (contest == null)
+            {
+                throw new NavigationException("Invalid contest specified");
+            }
             getRequest().setAttribute("hasScores", true);
 
             if (Util.isAdmin(getUser().getId())) {

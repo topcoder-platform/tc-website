@@ -141,9 +141,9 @@ public class ViewPastContests extends BaseProcessor {
         s.addDefault(rsc.getColumnIndex("passing_submission_count"), "desc");
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
         
-        Map<Long, Boolean> eligibilityCheckResults 
+        /*Map<Long, Boolean> eligibilityCheckResults 
             = EligibilityServiceHelper.checkContestsEligibility(rsc, getLoggedInUser().getId());
-        getRequest().setAttribute("eligibility", eligibilityCheckResults);
+        getRequest().setAttribute("eligibility", eligibilityCheckResults);*/
 
         setNextPage("/pastContests.jsp");
         setIsNextPageInContext(true);

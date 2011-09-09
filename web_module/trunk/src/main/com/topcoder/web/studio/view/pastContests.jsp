@@ -203,7 +203,7 @@
                                 int i = 0; %>
                             <rsc:iterator list="<%=contests%>" id="resultRow">
                                 <c:set var="contestId" value="<%=new Long(resultRow.getLongItem("contest_id"))%>"/>
-                                <c:if test="${requestScope.eligibility[contestId]}">
+                               
                                 <tr><td class="space" colspan="9">&nbsp;</td></tr>
                                 <tr class="<%=even?"light":"dark"%>">
                                     <td class="valueE">
@@ -276,7 +276,7 @@
                                     
                                 </tr>
                                 <% even = !even; i++; %>
-                                </c:if>
+                              
                             </rsc:iterator>
                         </tbody>
                     </table>

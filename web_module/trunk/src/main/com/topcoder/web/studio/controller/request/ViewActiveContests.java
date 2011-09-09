@@ -61,9 +61,9 @@ public class ViewActiveContests extends BaseProcessor {
         ResultSetContainer contestsContainer = da.getData(r).get("studio_active_contests");
         getRequest().setAttribute("contests", contestsContainer);
 
-        Map<Long, Boolean> eligibilityCheckResults 
+        /*Map<Long, Boolean> eligibilityCheckResults 
             = EligibilityServiceHelper.checkContestsEligibility(contestsContainer, getLoggedInUser().getId());
-        getRequest().setAttribute("eligibility", eligibilityCheckResults);
+        getRequest().setAttribute("eligibility", eligibilityCheckResults);*/
 
         SortInfo s = new SortInfo();
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
