@@ -119,7 +119,7 @@
                                                         </c:otherwise>
                                                     </c:choose>
                                                     <studio_tags:submissionPreview row="${resultRow}"
-                                                        showPlacement="true" 
+                                                        showPlacement="true" viewSubmitters="true"
                                                         viewSubmissions="${contest.viewableSubmissions}"/>
                                                     </td>
                                                     <c:if test="${(i - 1) % 4 == 0 || i == 1}">
