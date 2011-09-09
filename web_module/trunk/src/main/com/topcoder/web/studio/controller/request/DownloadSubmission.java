@@ -189,6 +189,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
             }
         } else if (isOver && s.getContest().getViewableSubmissions()) {
             canDownload = true;
+        }
 
         String filePath = Util.createSubmissionPath(contest, 
                                                     DAOUtil.getFactory().getUserDAO().find(s.getSubmitterId()));
