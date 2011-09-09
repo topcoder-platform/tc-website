@@ -26,6 +26,8 @@ import com.topcoder.web.studio.dao.DAOUtil;
 import com.topcoder.web.studio.dto.FileType;
 import com.topcoder.web.studio.dto.MimeType;
 import com.topcoder.web.studio.dto.Project;
+import com.topcoder.web.studio.dto.Resource;
+import com.topcoder.web.studio.dto.ResourceRole;
 import com.topcoder.web.studio.dto.Submission;
 import com.topcoder.web.studio.dto.SubmissionImage;
 import com.topcoder.web.studio.util.SubmissionPresentationFilter;
@@ -89,7 +91,22 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
                                                                    Image.GALLERY_FULL_TYPE_ID};
 
 
+    /**
+     * Screener roles.
+     */
+    private static final int[] SCREENER_ROLES_IDS = { ResourceRole.SCREENER_RESOURCE_ROLE_ID,
+        ResourceRole.MILESTONE_SCREENER_RESOURCE_ROLE_ID
+    };
     
+    /**
+     * Manager roles.
+     */
+    private static final int[] MANAGER_ROLES_IDS = { ResourceRole.MANAGER_RESOURCE_ROLE_ID,
+        ResourceRole.COPILOT_RESOURCE_ROLE_ID,
+        ResourceRole.CLIENT_MANAGER_RESOURCE_ROLE_ID,
+        ResourceRole.OBSERVER_RESOURCE_ROLE_ID,
+    };
+     
     /**
      * This method executes the actual business logic for this processor.
      *
@@ -106,19 +123,33 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
         }
 
         Submission s = DAOUtil.getFactory().getSubmissionDAO().find(submissionId);
-//        Hibernate.initialize(s.getPath());
+        
         Hibernate.initialize(s.getImages());
         for (SubmissionImage image : s.getImages() ) {
             Hibernate.initialize(image.getImage());
             Hibernate.initialize(image.getImage().getPath());
         }
-//        Hibernate.initialize(s.getMimeType());
-
+        
         Project contest = s.getContest();
         Long currentUserId = getUser().getId();
+        
+        // is current user submission owner
         boolean isOwner = (currentUserId.equals(s.getSubmitterId()));
-        log.debug(currentUserId + " x " + s.getSubmitterId() + " = " +isOwner);
-        boolean isOver = new Date().after(s.getContest().getEndTime());
+
+        boolean isReviewOver = contest.getReviewClosed();
+        
+        boolean milestone = (s.getTypeId() == Submission.MILESTONE_SUBMISSION);
+
+        // holds if end of submission or milestone submission phase based on submission type. 
+        boolean isSubmissionOver = false;
+        if (milestone) {
+            isSubmissionOver = contest.getMilestoneSubmissionClosed();
+        } else {
+            isSubmissionOver = contest.getSubmissionClosed();
+        }
+        
+        boolean isScreener = Util.checkUserHasRole(contest, SCREENER_ROLES_IDS, currentUserId);
+        boolean isInManagerORRoles = Util.checkUserHasRole(contest, MANAGER_ROLES_IDS, currentUserId);
 
         // Since Studio Download Submission Refactor (Req# 2.1.3)
         // Check if there was an image type requested explicitly. If not then use -1 to indicate that no image type has
@@ -144,44 +175,20 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
         // Since TopCoder Studio Modifications v2 Assembly (Req# 5.11)- the contest creator may download the
         // submission if it already has been purchased
         boolean originalSubmissionRequested = "original".equalsIgnoreCase(submissionType);
-        boolean isContestCreator = new Long(contest.getCreateUserId()).equals(currentUserId);
-        log.debug(currentUserId + " x " + new Long(contest.getCreateUserId()) + " = " + isContestCreator);
-        boolean isPurchaser = originalSubmissionRequested && isContestCreator
-                && (Util.isSubmissionPurchased(String.valueOf(submissionId)));
 
-        boolean canDownload;
-        if (Util.isAdmin(getUser().getId())) {
-            log.debug("allow download, they're an admin");
-            //admins can download anything
+        boolean canDownload = false;
+        if (Util.isAdmin(getUser().getId()) || isOwner || isScreener) {
             canDownload = true;
-        } else if (Util.hasCockpitPermissions(getUser().getId(), contest.getId())) {
-            log.debug("allow download, they have cockpit permissions");
-            canDownload = true;
-        } else if (isOwner) {
-            log.debug("allow download, they're the submitter");
-            //submitters can always download their own work
-            canDownload = true;
-        } else if (originalSubmissionRequested) {
-            //if the original is requested, then they can only download it if they bought it
-            canDownload = isPurchaser;
-            if (log.isDebugEnabled()) {
-                log.debug("original requested, and they " + (isPurchaser?"have":"have not") + " purchased it");
+        } else if (Util.hasCockpitPermissions(getUser().getId(), contest.getId())
+                || isInManagerORRoles) {
+            if (originalSubmissionRequested && isOver) {
+                canDownload = true;
             }
-        } else if (isContestCreator) {
-            log.debug("allow download, they're the contest creator");
-            //if it's not the original, then the contest creator can download it, it doesn't matter if the contest is over or not
-            canDownload = true;
-        } else if (s.getContest().getViewableSubmissions()) {
-            log.debug("submissions are viewable");
-            //if submissions are viewable, then they can only be downloaded if the contest is over
-            canDownload = isOver;
-            if (log.isDebugEnabled()) {
-                log.debug("the contest " + (isOver?"is over":"is not over") + " so they " + (isOver?"can":"can not") + " download");
+            if (!originalSubmissionRequested) {
+                canDownload = true;
             }
-        } else {
-            log.debug("not allowed");
-            canDownload = false;
-        }
+        } else if (isOver && s.getContest().getViewableSubmissions()) {
+            canDownload = true;
 
         String filePath = Util.createSubmissionPath(contest, 
                                                     DAOUtil.getFactory().getUserDAO().find(s.getSubmitterId()));

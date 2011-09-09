@@ -40,6 +40,36 @@ public class ResourceRole extends Base {
      * <p>An <code>Integer</code> referencing the resource role id corresponding to a specification reviewer.</p>
      */
     public static final Integer SPEC_REVIEWER_RESOURCE_ROLE_ID = 18;
+    
+    /**
+     * <p>An <code>Integer</code> referencing the resource role id corresponding to a screener.</p>
+     */
+    public static final Integer SCREENER_RESOURCE_ROLE_ID = 2;
+    
+    /**
+     * <p>An <code>Integer</code> referencing the resource role id corresponding to a milestone screener.</p>
+     */
+    public static final Integer MILESTONE_SCREENER_RESOURCE_ROLE_ID = 19;
+    
+    /**
+     * <p>An <code>Integer</code> referencing the resource role id corresponding to a manager.</p>
+     */
+    public static final Integer MANAGER_RESOURCE_ROLE_ID = 13; 
+    
+    /**
+     * <p>An <code>Integer</code> referencing the resource role id corresponding to a copilot.</p>
+     */
+    public static final Integer COPILOT_RESOURCE_ROLE_ID = 14;
+    
+    /**
+     * <p>An <code>Integer</code> referencing the resource role id corresponding to a client manager.</p>
+     */
+    public static final Integer CLIENT_MANAGER_RESOURCE_ROLE_ID = 15;
+    
+    /**
+     * <p>An <code>Integer</code> referencing the resource role id corresponding to a observer.</p>
+     */
+    public static final Integer OBSERVER_RESOURCE_ROLE_ID = 12;
 
     /**
      * The resource role id.

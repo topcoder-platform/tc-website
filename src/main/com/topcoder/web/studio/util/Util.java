@@ -4,6 +4,7 @@
 package com.topcoder.web.studio.util;
 
 import java.util.Iterator;
+import java.util.List;
 
 import com.topcoder.security.TCPrincipal;
 import com.topcoder.security.TCSubject;
@@ -15,6 +16,8 @@ import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dto.Project;
+import com.topcoder.web.studio.dto.Resource;
+import com.topcoder.web.studio.dto.ResourceInfo;
 
 /**
  * <p>A helper class providing various utility methods to be utilized throughout the application.</p>
@@ -122,6 +125,33 @@ public class Util {
         return found;
     }
     
+    /**
+     * Check if passed user has role from list in given contest.
+     * 
+     * @param c contest to check.
+     * @param roleIds roleIds to check.
+     * @param userId userId to check.
+     * @return true if user had passed role in contest. false otherwise.
+     */
+    public static boolean checkUserHasRole(Project c, int[] roleIds, long userId) {
+        for (Resource r : c.getResources()) {
+            boolean currentUser = false;
+            for (ResourceInfo info : r.getInfo()) {
+                if (info.getId().getTypeId() == 1 && String.valueOf(userId).equals(info.getValue())) {
+                    currentUser = true;
+                    break;
+                }
+            }
+            if (currentUser) {
+                for (Integer roleId : roleIds) {
+                    if (r.getRole().getId() == roleId) {
+                        return true;
+                    }
+                }            
+            }
+        }
+        return false;
+    }
     
     /**
      * <p>Create the file path to store the submission files.</p>
@@ -132,18 +162,18 @@ public class Util {
      * @since 1.3
      */
     public static String createSubmissionPath(Project c, User u) {
-		StringBuffer buf = new StringBuffer(80);
-		buf.append(Constants.ROOT_STORAGE_PATH);
-		buf.append(System.getProperty("file.separator"));
-		buf.append(Constants.SUBMISSIONS_DIRECTORY_NAME);
-		buf.append(System.getProperty("file.separator"));
-		buf.append(c.getId());
-		buf.append(System.getProperty("file.separator"));
-		buf.append(u.getHandle().toLowerCase());
-		buf.append("_");
-		buf.append(u.getId());
-		buf.append(System.getProperty("file.separator"));
+        StringBuffer buf = new StringBuffer(80);
+        buf.append(Constants.ROOT_STORAGE_PATH);
+        buf.append(System.getProperty("file.separator"));
+        buf.append(Constants.SUBMISSIONS_DIRECTORY_NAME);
+        buf.append(System.getProperty("file.separator"));
+        buf.append(c.getId());
+        buf.append(System.getProperty("file.separator"));
+        buf.append(u.getHandle().toLowerCase());
+        buf.append("_");
+        buf.append(u.getId());
+        buf.append(System.getProperty("file.separator"));
 
-		return buf.toString();
+        return buf.toString();
     }
 }
