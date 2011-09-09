@@ -181,13 +181,13 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
             canDownload = true;
         } else if (Util.hasCockpitPermissions(getUser().getId(), contest.getId())
                 || isInManagerORRoles) {
-            if (originalSubmissionRequested && isOver) {
+            if (originalSubmissionRequested && isReviewOver) {
                 canDownload = true;
             }
             if (!originalSubmissionRequested) {
                 canDownload = true;
             }
-        } else if (isOver && s.getContest().getViewableSubmissions()) {
+        } else if (isReviewOver && s.getContest().getViewableSubmissions()) {
             canDownload = true;
         }
 
