@@ -290,7 +290,7 @@
                               </p>
                              </c:forEach>
                        </c:when>
-                       <c:when test="${(isMultiRound && not contest.specSubmissionStarted) || (not isStarted)}">
+                       <c:when test="${(not isStarted)}">
                                 <p>
                                     <strong>Files are not available until the contest launches</strong>
                                 </p>
