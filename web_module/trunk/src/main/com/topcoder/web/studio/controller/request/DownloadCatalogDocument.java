@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.topcoder.security.TCPrincipal;
 import com.topcoder.security.TCSubject;
+import com.topcoder.web.studio.dto.Resource;
+import com.topcoder.web.studio.dto.ResourceRole;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
@@ -53,6 +55,20 @@ import com.topcoder.web.studio.util.Util;
  * @version 1.2
  */
 public class DownloadCatalogDocument extends ShortHibernateProcessor {
+
+     /**
+     * Manager roles.
+     */
+    private static final int[] MANAGER_ROLES_IDS = { ResourceRole.MANAGER_RESOURCE_ROLE_ID,
+        ResourceRole.COPILOT_RESOURCE_ROLE_ID,
+        ResourceRole.CLIENT_MANAGER_RESOURCE_ROLE_ID,
+        ResourceRole.OBSERVER_RESOURCE_ROLE_ID,
+    };
+
+    /**
+     * Spec Reviewer roles.
+     */
+    private static final int[] SPEC_REVIEWER_ROLES_IDS = { ResourceRole.SPEC_REVIEWER_RESOURCE_ROLE_ID };
 
     /**
      * <p>Constructs new <code>DownloadCatalogDocument</code> instance. This implementation does nothing.</p>
@@ -108,16 +124,26 @@ public class DownloadCatalogDocument extends ShortHibernateProcessor {
         if (!isAdmin()) {
             // check if the user is registered for any contest that uses this documentation, or any of those contests is over.
             User u = DAOUtil.getFactory().getUserDAO().find(getUser().getId());
+            Long currentUserId = getUser().getId();
             boolean isRegistered = false;
             boolean hasPermission = false;
+            
+            boolean isSpecReviewer = Util.checkUserHasRole(project, SPEC_REVIEWER_ROLES_IDS, currentUserId);
+            boolean isInManagerORRoles = Util.checkUserHasRole(project, MANAGER_ROLES_IDS, currentUserId);
+
+
             if ((Project.STATUS_ACTIVE.equals(project.getStatusId()) 
                  && RegistrationHelper.getSubmitterResource(project, u.getId()) != null) 
                 || new Date().after(project.getEndTime())) {
                 isRegistered = true;
-            } else if (Util.hasCockpitPermissions(getUser().getId(), project.getId())) {
+            } else if (Util.hasCockpitPermissions(getUser().getId(), project.getId()) || isInManagerORRoles) {
                 hasPermission = true;
-                log.debug("allow download, they have cockpit permissions");
+                log.debug("allow download, they have cockpit permissions or OR roles");
+            } else if (isSpecReviewer) {
+                hasPermission = true;
+                log.debug("allow download, they are spec reviewers");
             }
+
 
             if (!isRegistered && !hasPermission) {
                     throw new NavigationException("User needs to be registered or has permission to the project in " +
