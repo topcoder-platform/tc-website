@@ -988,7 +988,7 @@ public class ForumsBean extends BaseEJB {
 			User user = forumFactory.getUserManager().getUser(userID);
 
             ArrayList<Long> watched = new ArrayList<Long>();
-            for (int i = 0; i < forumIDs.length; i++) {
+            for (int i = 0; i < forumIDs.length; i++) { System.out.println("-----------areForumsWatched---------------------------"+forumIDs[i]);
                 Forum forum = forumFactory.getForum(forumIDs[i]);
                 if (watchManager.isWatched(user, forum))
                 {
@@ -1009,6 +1009,54 @@ public class ForumsBean extends BaseEJB {
 		}
 
 	}
+
+
+    public void deleteForumWatches(long userID, long[] forumIDs) throws  Exception
+    {
+        try {
+			WatchManager watchManager = forumFactory.getWatchManager();
+			User user = forumFactory.getUserManager().getUser(userID);
+
+            for (int i = 0; i < forumIDs.length; i++) {
+                Forum forum = forumFactory.getForum(forumIDs[i]);
+                if (!watchManager.isWatched(user, forum))
+                {
+                    Watch watch = watchManager.getWatch(user, forum);
+                    if (watch != null) {
+                        watchManager.deleteWatch(watch);
+                    }
+                } 
+            }
+
+		
+		} catch (Exception e) {
+			logException(e, "Error checking createForumWatches userid =" + userID);
+			throw new Exception("Error checking createForumWatches userid " + userID , e);
+		}
+    }
+
+    public void createForumWatches(long userID, long[] forumIDs) throws Exception
+    {
+
+        try {
+			WatchManager watchManager = forumFactory.getWatchManager();
+			User user = forumFactory.getUserManager().getUser(userID);
+
+            for (int i = 0; i < forumIDs.length; i++) {
+                Forum forum = forumFactory.getForum(forumIDs[i]);
+                if (!watchManager.isWatched(user, forum))
+                {
+                    watchManager.createWatch(user, forum);
+                } 
+            }
+
+		
+		} catch (Exception e) {
+			logException(e, "Error checking createForumWatches userid =" + userID);
+			throw new Exception("Error checking createForumWatches userid " + userID , e);
+		}
+
+    }
 
 	/**
 	 * <p>
