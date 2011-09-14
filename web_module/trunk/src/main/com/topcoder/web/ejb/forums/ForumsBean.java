@@ -988,7 +988,7 @@ public class ForumsBean extends BaseEJB {
 			User user = forumFactory.getUserManager().getUser(userID);
 
             ArrayList<Long> watched = new ArrayList<Long>();
-            for (int i = 0; i < forumIDs.length; i++) { System.out.println("-----------areForumsWatched---------------------------"+forumIDs[i]);
+            for (int i = 0; i < forumIDs.length; i++) { 
                 Forum forum = forumFactory.getForum(forumIDs[i]);
                 if (watchManager.isWatched(user, forum))
                 {
