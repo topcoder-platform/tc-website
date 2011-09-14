@@ -80,4 +80,8 @@ public interface Forums extends EJBObject {
     public void updateSpecReviewComment(long categoryId, long userId, long questionId, ForumsUserComment comment) throws EJBException, RemoteException, ForumsException;
 
     public long[] areForumsWatched(long userID, long[] forumIDs) throws EJBException, RemoteException, Exception;
+
+    public void deleteForumWatches(long userID, long[] forumIDs) throws EJBException, RemoteException, Exception;
+
+    public void createForumWatches(long userID, long[] forumIDs) throws EJBException, RemoteException, Exception;
 }
