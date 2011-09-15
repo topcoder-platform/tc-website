@@ -134,9 +134,9 @@ public class Util {
      * @return true if user had passed role in contest. false otherwise.
      */
     public static boolean checkUserHasRole(Project c, int[] roleIds, long userId) {
-        for (Resource r : c.getResources()) {
+        for (Resource r : c.getResources()) {   
             boolean currentUser = false;
-            for (ResourceInfo info : r.getInfo()) {
+            for (ResourceInfo info : r.getInfo()) { 
                 if (info.getId().getTypeId() == 1 && String.valueOf(userId).equals(info.getValue())) {
                     currentUser = true;
                     break;
@@ -144,7 +144,7 @@ public class Util {
             }
             if (currentUser) {
                 for (Integer roleId : roleIds) {
-                    if (r.getRole().getId() == roleId) {
+                    if (r.getRole().getId().equals(roleId)) {
                         return true;
                     }
                 }            
