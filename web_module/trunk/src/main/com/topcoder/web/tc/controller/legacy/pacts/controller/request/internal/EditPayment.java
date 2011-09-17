@@ -209,7 +209,10 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                             setNextPage(Links.viewPayments(ids));
                         } else {
                             // get payment's status
-                            payment.setCurrentStatus(new Payment(dib.getPayment(paymentId)).getCurrentStatus());
+                            Payment oldPayment = new Payment(dib.getPayment(paymentId));
+                            payment.setCurrentStatus(oldPayment.getCurrentStatus());
+                            payment.setJiraIssueName(oldPayment.getJiraIssueName());
+
                             log.debug("# statuses: " + payment.getCurrentStatus().getReasons().size());
                             dib.updatePayment(payment);
                             setNextPage(Links.viewPayment(paymentId));

@@ -185,6 +185,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         cockpitProjectName = TCData.getTCString(rsr, "cockpit_project_name", "", false);
         billingAccountName = TCData.getTCString(rsr, "billing_account_name", "", false);
         invoiceNumber = TCData.getTCString(rsr, "invoice_number", "", false);
+        jiraIssueName = TCData.getTCString(rsr, "jira_issue_id", "", false);
 
         algorithmRoundId = TCData.getTCLong(rsr, "algorithm_round_id", 0, false);
         componentProjectId = TCData.getTCLong(rsr, "component_project_id", 0, false);
