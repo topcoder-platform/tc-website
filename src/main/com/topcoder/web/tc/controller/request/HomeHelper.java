@@ -51,11 +51,11 @@ public class HomeHelper {
     public static ActiveContestsSummary getStudioSummary() throws Exception {
         try {
             ActiveContestsSummary ret = new ActiveContestsSummary();
-            CachedDataAccess dai = new CachedDataAccess(MaxAge.QUARTER_HOUR, DBMS.STUDIO_DATASOURCE_NAME);
+            CachedDataAccess dai = new CachedDataAccess(MaxAge.QUARTER_HOUR, DBMS.TCS_OLTP_DATASOURCE_NAME);
             Request dataRequest = new Request();
-            dataRequest.setContentHandle("active_contests_summary");
+            dataRequest.setContentHandle("studio_active_contests_summary");
 
-            ResultSetContainer rsc = dai.getData(dataRequest).get("active_contests_summary");
+            ResultSetContainer rsc = dai.getData(dataRequest).get("studio_active_contests_summary");
             if (!rsc.isEmpty()) {
                 ret.setContestCount(rsc.get(0).getIntItem("total_contests"));
                 ret.setName("Studio");
