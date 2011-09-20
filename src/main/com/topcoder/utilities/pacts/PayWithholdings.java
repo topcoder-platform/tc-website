@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.utilities.pacts;
 
@@ -69,6 +69,7 @@ public class PayWithholdings extends DBUtility {
         query.append(" WHERE p.most_recent_detail_id = pd.payment_detail_id ");
         query.append(" AND gross_amount < total_amount ");
         query.append(" AND pd.payment_type_id in (");
+        query.append(PactsConstants.CONTEST_PAYMENT).append(", ");
         query.append(PactsConstants.ARCHITECTURE_PAYMENT).append(", ");
         query.append(PactsConstants.ASSEMBLY_PAYMENT).append(", ");
         query.append(PactsConstants.REVIEW_BOARD_PAYMENT).append(", ");
