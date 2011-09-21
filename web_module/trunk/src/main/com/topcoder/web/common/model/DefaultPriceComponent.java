@@ -369,16 +369,16 @@ public class DefaultPriceComponent implements SoftwareComponent {
             case RIA_COMPONENT_PHASE: return 50;
             case COPILOT_POSTING_PHASE: return 50;
             case CONTENT_CREATION_PHASE: return 50;
-            case ICONSETS_PHASE : 
-            case STORYBOARDS_PHASE : 
-            case WIREFRAMES_PHASE : 
-            case LOGOS_PHASE : 
-            case PRINT_PHASE : 
-            case STUDIO_SPECIFICATION_PHASE :
-            case WIDGET_PHASE : 
-            case FRONTENDFLASH_PHASE : 
-            case APPLICATIONFRONTEND_PHASE : 
-            case OTHER_PHASE : return this.calculator.getSpecReviewCost();
+            case ICONSETS_PHASE : return 75;
+            case STORYBOARDS_PHASE : return 75;
+            case WIREFRAMES_PHASE : return 75;
+            case LOGOS_PHASE : return 75;
+            case PRINT_PHASE : return 75;
+            case STUDIO_SPECIFICATION_PHASE : return 75;
+            case WIDGET_PHASE : return 75;
+            case FRONTENDFLASH_PHASE : return 75;
+            case APPLICATIONFRONTEND_PHASE : return 75;
+            case OTHER_PHASE : return 75;
             default: return 50;
         }
     }
