@@ -84,4 +84,6 @@ public interface Forums extends EJBObject {
     public void deleteForumWatches(long userID, long[] forumIDs) throws EJBException, RemoteException, Exception;
 
     public void createForumWatches(long userID, long[] forumIDs) throws EJBException, RemoteException, Exception;
+
+    public void deleteForumWatch(long userID, long forumID) throws EJBException, RemoteException, Exception;
 }

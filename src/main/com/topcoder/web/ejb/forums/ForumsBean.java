@@ -982,6 +982,29 @@ public class ForumsBean extends BaseEJB {
 	}
 
 
+    public void deleteForumWatch(long userID, long forumID) throws  Exception
+    {
+        try {
+			WatchManager watchManager = forumFactory.getWatchManager();
+			User user = forumFactory.getUserManager().getUser(userID);
+
+         
+            Forum forum = forumFactory.getForum(forumID);
+            if (!watchManager.isWatched(user, forum))
+            {
+                Watch watch = watchManager.getWatch(user, forum);
+                if (watch != null) {
+                    watchManager.deleteWatch(watch);
+                }
+            } 
+            
+		} catch (Exception e) {
+			logException(e, "Error in deleteForumWatch userid =" + userID);
+			throw new Exception("Error in deleteForumWatch userid " + userID , e);
+		}
+    }
+
+
     public long[] areForumsWatched(long userID, long[] forumIDs) throws Exception {
 		try {
 			WatchManager watchManager = forumFactory.getWatchManager();
@@ -1030,8 +1053,8 @@ public class ForumsBean extends BaseEJB {
 
 		
 		} catch (Exception e) {
-			logException(e, "Error checking createForumWatches userid =" + userID);
-			throw new Exception("Error checking createForumWatches userid " + userID , e);
+			logException(e, "Error in deleteForumWatches userid =" + userID);
+			throw new Exception("Error in deleteForumWatches userid " + userID , e);
 		}
     }
 
