@@ -146,7 +146,7 @@
          </div>
 	  	 <div class="tco11">
          <div class="emblem"><img src="/i/tournament/tco11/emblem.png" alt="TCO11" /></div>
-         <strong><A href="http://community.topcoder.com/tco11/overview-onsite-events/">12 Hour Onsite Final Marathon Round</A></strong><br />
+         <strong><A href="http://community.topcoder.com/tco11/overview-onsite-events/">12 Hour Final Marathon Round</A></strong><br />
          9:30
          </div>
 	  	 <div class="tco11">
