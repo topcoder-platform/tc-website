@@ -378,7 +378,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
             case WIDGET_PHASE : 
             case FRONTENDFLASH_PHASE : 
             case APPLICATIONFRONTEND_PHASE : 
-            case OTHER_PHASE : return this.calculator.getReviewCost();
+            case OTHER_PHASE : return this.calculator.getSpecReviewCost();
             default: return 50;
         }
     }
