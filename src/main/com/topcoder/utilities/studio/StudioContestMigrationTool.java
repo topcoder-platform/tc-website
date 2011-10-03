@@ -3334,7 +3334,7 @@ public class StudioContestMigrationTool extends TCLoad {
             insertSubmissionStmt.setLong(7, sub.placement);
         } else {
             // screening_score
-            insertSubmissionStmt.setNull(4, Types.DECIMAL);
+            insertSubmissionStmt.setDouble(4, 0);
             // initial_score
             insertSubmissionStmt.setNull(5, Types.DECIMAL);
             // final_score
