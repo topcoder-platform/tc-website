@@ -57,9 +57,8 @@ public class PayReliabilityBonus extends DBUtility {
         query.append("AND pr.reliable_ind = 1 ");
         query.append("AND pd.installment_number = 1 ");
         query.append("AND pr.project_id = pro.project_id ");
-        query.append("AND pro.project_status_id = 7 ");
         query.append("AND reliability_on_registration >= 0.8 ");
-        query.append("AND pd.payment_type_id in (6, 29, 10, 11, 42, 43, 44, 49, 55, 50, 61, 65) ");
+        query.append("AND pd.payment_type_id = " + PactsConstants.CONTEST_PAYMENT + " ");
         query.append("AND pro.project_category_id in (1, 2, 6, 7, 13, 14, 19, 23, 24, 26, 35) ");
         query.append("AND pro.project_id not in (select project_id from tcs_catalog:project_info where project_info_type_id=45 and (value='false' or value='False')) ");
 
