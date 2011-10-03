@@ -11,6 +11,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.studio.Constants;
@@ -100,6 +101,11 @@ public class ViewContestDetails extends ShortHibernateProcessor {
      * @see com.topcoder.web.common.LongHibernateProcessor#dbProcessing()
      */
     protected void dbProcessing() throws Exception {
+        // user must be logged in to view contest details.
+        if (!userLoggedIn()) {
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        }
+
         try {
             String contestId = getRequest().getParameter(Constants.CONTEST_ID);
             if ("".equals(StringUtils.checkNull(contestId))) {
