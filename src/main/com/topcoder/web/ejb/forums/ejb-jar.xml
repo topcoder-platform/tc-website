@@ -16,6 +16,11 @@
             <ejb-class>com.topcoder.web.ejb.forums.ForumsBean</ejb-class>
             <session-type>Stateless</session-type>
             <transaction-type>Container</transaction-type>
+            <env-entry>
+                <env-entry-name>tcDirectProjectForumsRootCategoryId</env-entry-name>
+                <env-entry-type>java.lang.Long</env-entry-type>
+                <env-entry-value>2478</env-entry-value>
+            </env-entry>
         </session>
     </enterprise-beans>
     <assembly-descriptor>

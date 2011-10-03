@@ -30,8 +30,12 @@ import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.controller.ForumsUtil;
 import com.topcoder.web.forums.model.TCAuthToken;
+import com.topcoder.web.tc.Constants;
 
 import javax.ejb.EJBException;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 
 import java.util.List;
 import java.math.BigDecimal;
@@ -53,8 +57,16 @@ import java.util.Date;
  * This class handles interaction with the Jive database. Please update the code
  * if you know of a way to use Jive objects remotely, instead of using
  * primitives. Keep in mind that most Jive proxy objects are not serializable.
+ *
+ * <p>
+ * Version 1.1 (TopCoder Cockpit Project Overview R1 Project Forum Backend Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added {@link #createTopCoderDirectProjectForums(String, Long)} method.</li>
+ *   </ol>
+ * </p>
  * 
  * @author mtong
+ * @version 1.1
  */
 
 public class ForumsBean extends BaseEJB {
@@ -528,6 +540,72 @@ public class ForumsBean extends BaseEJB {
 			throw e;
 		}
 	}
+
+    /**
+     * <p>Creates the forum for the specified <code>TopCoder Direct</code> project.</p>
+     * 
+     * @param projectName a <code>String</code> providing the name of <code>TC Direct</code> project to create forums 
+     *        for.
+     * @param tcDirectProjectTypeId a <code>Long</code> referencing the type of <code>TC Direct</code> project. 
+     *        May be <code>null</code>.   
+     * @return a <code>long</code> providing the ID of created forum.
+     * @throws EJBException if an unexpected error occurs.
+     * @throws Exception if an unexpected error occurs.
+     * @throws IllegalArgumentException if specified <code>projectName</code> is <code>null</code> or empty. 
+     * @since 1.1
+     */
+    public long createTopCoderDirectProjectForums(String projectName, Long tcDirectProjectTypeId) throws Exception {
+        if ((projectName == null) || (projectName.trim().length() == 0)) {
+            throw new IllegalArgumentException("The parameter [projectName] is not valid. [" + projectName + "]");
+        }
+        
+        Connection forumsConn = null;
+        try {
+            // Create new forum category for TC Direct project
+            ForumCategory newCategory 
+                = forumFactory.getForumCategory(getTcDirectProjectForumsRootCategoryId()).createCategory(projectName,
+                                                                                                         projectName);
+            newCategory.setProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS,
+                                    ForumConstants.PROPERTY_ARCHIVAL_STATUS_ACTIVE);
+            newCategory.setProperty(ForumConstants.PROPERTY_MODIFY_FORUMS, "true");
+
+            // Create sub-forums for 
+            forumsConn = DBMS.getConnection(DBMS.FORUMS_DATASOURCE_NAME);
+            PreparedStatement forumsPS;
+            if (tcDirectProjectTypeId == null) {
+                forumsPS = forumsConn.prepareStatement(
+                    "SELECT name, description " +
+                    "FROM template_project_forum t " +
+                    "WHERE t.direct_project_type_id IS NULL " +
+                    "ORDER BY t.display_order, t.template_project_forum_id");
+            } else {
+                forumsPS = forumsConn.prepareStatement(
+                    "SELECT name, description " +
+                    "FROM template_project_forum t " +
+                    "WHERE t.direct_project_type_id = ? " +
+                    "ORDER BY t.display_order, t.template_project_forum_id");
+                forumsPS.setLong(1, tcDirectProjectTypeId);
+            }
+
+            ResultSet rs = forumsPS.executeQuery();
+            while (rs.next()) {
+                forumFactory.createForum(rs.getString("name"), rs.getString("description"), newCategory);
+            }
+            rs.close();
+            forumsPS.close();
+
+            createSoftwareComponentPermissions(newCategory, true);
+            
+            return newCategory.getID();
+        } catch (Exception e) {
+            logException(e, "error in creating TC Direct project forums");
+            throw e;
+        } finally {
+            if (forumsConn != null) {
+                forumsConn.close();
+            }
+        }
+    }
 
 	private void createSoftwareComponentPermissions(ForumCategory category, boolean isPublic) throws Exception {
 		GroupManager groupManager = forumFactory.getGroupManager();
@@ -1627,6 +1705,19 @@ public class ForumsBean extends BaseEJB {
 		log.warn("Forum with category id " + categoryId + " does not contain a spec review forum!");
 		return null;
 	}
+
+    /**
+     * <p>Gets the ID for root category for forums to be created for <code>TC Direct</code> projects.</p>
+     * 
+     * @return a <code>long</code> providing the ID for root category for forums to be created for 
+     *         <code>TC Direct</code> projects.
+     * @throws NamingException if an unexpected error occurs while accessing JNDI context.
+     * @since 1.1 
+     */
+    private long getTcDirectProjectForumsRootCategoryId() throws NamingException {
+        Context context = new InitialContext(); 
+        return (Long) context.lookup("java:comp/env/tcDirectProjectForumsRootCategoryId");
+    }
 
 	/**
 	 * <p>

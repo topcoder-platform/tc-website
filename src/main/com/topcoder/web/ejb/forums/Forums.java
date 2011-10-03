@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2011 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.ejb.forums;
 
 import javax.ejb.EJBObject;
@@ -12,7 +15,17 @@ import com.jivesoftware.base.UserNotFoundException;
 import com.jivesoftware.forum.ForumCategoryNotFoundException;
 import com.jivesoftware.forum.ForumNotFoundException;
 
-
+/**
+ * <p>An interface to <code>Forums EJB</code>.</p>
+ * 
+ * <p>
+ * Version 1.1 (TopCoder Cockpit Project Overview R2 Project Forum Backend Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added {@link #createTopCoderDirectProjectForums(String, Long)} method and re-formatted the code.</li>
+ *   </ol>
+ * </p>
+ * 
+ */
 public interface Forums extends EJBObject {
     
     public void assignRole(long userID, long groupID) throws EJBException, RemoteException;
@@ -86,4 +99,21 @@ public interface Forums extends EJBObject {
     public void createForumWatches(long userID, long[] forumIDs) throws EJBException, RemoteException, Exception;
 
     public void deleteForumWatch(long userID, long forumID) throws EJBException, RemoteException, Exception;
+
+    
+    /**
+     * <p>Creates the forum for the specified <code>TopCoder Direct</code> project.</p>
+     * 
+     * @param projectName a <code>String</code> providing the name of <code>TC Direct</code> project to create forums 
+     *        for.
+     * @param tcDirectProjectTypeId a <code>Long</code> referencing the type of <code>TC Direct</code> project. 
+     *        May be <code>null</code>.   
+     * @return a <code>long</code> providing the ID of created forum.
+     * @throws EJBException if an unexpected error occurs.
+     * @throws RemoteException if an unexpected error occurs.
+     * @throws Exception if an unexpected error occurs.
+     * @since 1.1
+     */
+    public long createTopCoderDirectProjectForums(String projectName, Long tcDirectProjectTypeId) 
+        throws EJBException, RemoteException, Exception;
 }
