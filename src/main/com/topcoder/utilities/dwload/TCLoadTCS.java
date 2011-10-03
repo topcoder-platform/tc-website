@@ -149,13 +149,13 @@ public class TCLoadTCS extends TCLoad {
 
     /**
      * SQL fragment to be added to a where clause to not select projects with eligibility constraints
-     * 
+     *
      * @since 1.1.5
      */
     private static final String ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT =
             " and p.project_id not in (select ce.contest_id from contest_eligibility ce " +
             " where ce.is_studio = 0) ";
-            
+
     /**
      * Confirmed status.
      *
@@ -321,7 +321,7 @@ public class TCLoadTCS extends TCLoad {
             doClearCache();
 
             setLastUpdateTime();
-                             
+
             log.info("[TCS LOAD] SUCCESS: TCS load ran successfully.");
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
@@ -4286,7 +4286,6 @@ public class TCLoadTCS extends TCLoad {
                         "   ric_resp.comment_type_id = 5 and " +
                         "   ric.comment_type_id = 4 " +
                         ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT + " and " +
-                        "   u.project_id = ? and " +
                         "   (ric.modify_date > ? OR " +
                         "   ri.modify_date > ? OR " +
                         "   r.modify_date > ? OR " +
@@ -4323,127 +4322,116 @@ public class TCLoadTCS extends TCLoad {
             select = prepareStatement(SELECT, SOURCE_DB);
             update = prepareStatement(UPDATE, TARGET_DB);
             insert = prepareStatement(INSERT, TARGET_DB);
-            projectSelect = prepareStatement(PROJECT_SELECT, SOURCE_DB);
 
             int count = 0;
+            select.clearParameters();
+            select.setTimestamp(1, fLastLogTime);
+            select.setTimestamp(2, fLastLogTime);
+            select.setTimestamp(3, fLastLogTime);
+            select.setTimestamp(4, fLastLogTime);
+            select.setTimestamp(5, fLastLogTime);
+            select.setTimestamp(6, fLastLogTime);
+            select.setTimestamp(7, fLastLogTime);
+            select.setTimestamp(8, fLastLogTime);
 
-            projects = projectSelect.executeQuery();
+            rs = select.executeQuery();
+            while (rs.next()) {
 
-            while (projects.next()) {
-                select.clearParameters();
-                select.setLong(1, projects.getLong("project_id"));
-                select.setTimestamp(2, fLastLogTime);
-                select.setTimestamp(3, fLastLogTime);
-                select.setTimestamp(4, fLastLogTime);
-                select.setTimestamp(5, fLastLogTime);
-                select.setTimestamp(6, fLastLogTime);
-                select.setTimestamp(7, fLastLogTime);
-                select.setTimestamp(8, fLastLogTime);
-                select.setTimestamp(9, fLastLogTime);
-                //         select.setTimestamp(10, fLastLogTime);
+                update.clearParameters();
+                update.setLong(1, rs.getLong("scorecard_question_id"));
+                update.setLong(2, rs.getLong("scorecard_id"));
+                update.setObject(3, rs.getObject("user_id"));
+                update.setObject(4, rs.getObject("reviewer_id"));
+                update.setObject(5, rs.getObject("project_id"));
 
-                rs = select.executeQuery();
+                String answer = rs.getString("raw_evaluation_id");
+                int evaluationId = getEvaluationId(rs.getInt("scorecard_question_type_id"), answer);
+                if (evaluationId != 0) {
+                    update.setInt(6, evaluationId);
+                } else {
+                    update.setNull(6, Types.INTEGER);
+                }
 
-                while (rs.next()) {
+                answer = rs.getString("final_evaluation_id");
+                int finalEvaluationId = getEvaluationId(rs.getInt("scorecard_question_type_id"), answer);
+                if (finalEvaluationId != 0) {
+                    update.setInt(7, finalEvaluationId);
+                } else {
+                    update.setNull(7, Types.INTEGER);
+                }
+                String appealText = rs.getString("appeal_text");
+                if (appealText == null) {
+                    update.setNull(8, Types.BLOB);
+                } else {
+                    update.setBytes(8, DBMS.serializeTextString(appealText));
+                }
 
-                    update.clearParameters();
+                String appeal_response = rs.getString("appeal_response");
+                if (appeal_response == null) {
+                    update.setNull(9, Types.BLOB);
+                } else {
+                    update.setBytes(9, DBMS.serializeTextString(appeal_response));
+                }
 
-                    update.setLong(1, rs.getLong("scorecard_question_id"));
-                    update.setLong(2, rs.getLong("scorecard_id"));
-                    update.setObject(3, rs.getObject("user_id"));
-                    update.setObject(4, rs.getObject("reviewer_id"));
-                    update.setObject(5, rs.getObject("project_id"));
+                String successfulInd = rs.getString("successful_ind");
+                if (successfulInd == null) {
+                    update.setNull(10, Types.INTEGER);
+                } else {
+                    if ("Succeeded".equals(successfulInd)) {
+                        update.setInt(10, 1);
+                    } else {
+                        update.setInt(10, 0);
+                    }
+                }
+                update.setLong(11, rs.getLong("appeal_id"));
 
-                    String answer = rs.getString("raw_evaluation_id");
-                    int evaluationId = getEvaluationId(rs.getInt("scorecard_question_type_id"), answer);
+                int retVal = update.executeUpdate();
+
+                if (retVal == 0) {
+                    insert.clearParameters();
+
+                    insert.setLong(1, rs.getLong("scorecard_question_id"));
+                    insert.setLong(2, rs.getLong("scorecard_id"));
+                    insert.setObject(3, rs.getObject("user_id"));
+                    insert.setObject(4, rs.getObject("reviewer_id"));
+                    insert.setObject(5, rs.getObject("project_id"));
                     if (evaluationId != 0) {
-                        update.setInt(6, evaluationId);
+                        insert.setInt(6, evaluationId);
                     } else {
-                        update.setNull(6, Types.INTEGER);
+                        insert.setNull(6, Types.INTEGER);
                     }
-
-                    answer = rs.getString("final_evaluation_id");
-                    int finalEvaluationId = getEvaluationId(rs.getInt("scorecard_question_type_id"), answer);
                     if (finalEvaluationId != 0) {
-                        update.setInt(7, finalEvaluationId);
+                        insert.setInt(7, finalEvaluationId);
                     } else {
-                        update.setNull(7, Types.INTEGER);
+                        insert.setNull(7, Types.INTEGER);
                     }
-                    String appealText = rs.getString("appeal_text");
+
                     if (appealText == null) {
-                        update.setNull(8, Types.BLOB);
+                        insert.setNull(8, Types.BLOB);
                     } else {
-                        update.setBytes(8, DBMS.serializeTextString(appealText));
+                        insert.setBytes(8, DBMS.serializeTextString(appealText));
                     }
 
-                    String appeal_response = rs.getString("appeal_response");
                     if (appeal_response == null) {
-                        update.setNull(9, Types.BLOB);
+                        insert.setNull(9, Types.BLOB);
                     } else {
-                        update.setBytes(9, DBMS.serializeTextString(appeal_response));
+                        insert.setBytes(9, DBMS.serializeTextString(appeal_response));
                     }
 
-                    String successfulInd = rs.getString("successful_ind");
+                    insert.setLong(10, rs.getLong("appeal_id"));
                     if (successfulInd == null) {
-                        update.setNull(10, Types.INTEGER);
+                        insert.setNull(11, Types.INTEGER);
                     } else {
                         if ("Succeeded".equals(successfulInd)) {
-                            update.setInt(10, 1);
+                            insert.setInt(11, 1);
                         } else {
-                            update.setInt(10, 0);
+                            insert.setInt(11, 0);
                         }
                     }
-                    update.setLong(11, rs.getLong("appeal_id"));
 
-                    int retVal = update.executeUpdate();
-
-                    if (retVal == 0) {
-                        insert.clearParameters();
-
-                        insert.setLong(1, rs.getLong("scorecard_question_id"));
-                        insert.setLong(2, rs.getLong("scorecard_id"));
-                        insert.setObject(3, rs.getObject("user_id"));
-                        insert.setObject(4, rs.getObject("reviewer_id"));
-                        insert.setObject(5, rs.getObject("project_id"));
-                        if (evaluationId != 0) {
-                            insert.setInt(6, evaluationId);
-                        } else {
-                            insert.setNull(6, Types.INTEGER);
-                        }
-                        if (finalEvaluationId != 0) {
-                            insert.setInt(7, finalEvaluationId);
-                        } else {
-                            insert.setNull(7, Types.INTEGER);
-                        }
-
-                        if (appealText == null) {
-                            insert.setNull(8, Types.BLOB);
-                        } else {
-                            insert.setBytes(8, DBMS.serializeTextString(appealText));
-                        }
-
-                        if (appeal_response == null) {
-                            insert.setNull(9, Types.BLOB);
-                        } else {
-                            insert.setBytes(9, DBMS.serializeTextString(appeal_response));
-                        }
-
-                        insert.setLong(10, rs.getLong("appeal_id"));
-                        if (successfulInd == null) {
-                            insert.setNull(11, Types.INTEGER);
-                        } else {
-                            if ("Succeeded".equals(successfulInd)) {
-                                insert.setInt(11, 1);
-                            } else {
-                                insert.setInt(11, 0);
-                            }
-                        }
-
-                        insert.executeUpdate();
-                    }
-                    count++;
-
+                    insert.executeUpdate();
                 }
+                count++;
             }
 
             log.info("loaded " + count + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
