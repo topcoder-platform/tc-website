@@ -36,6 +36,7 @@ public class JobPostingServicesBean extends BaseEJB {
         StringBuffer query = null;
         Connection conn = null;
         PreparedStatement ps = null;
+        PreparedStatement ps2 = null;
         ResultSet rs = null;
 
         InitialContext ctx = null;
@@ -65,11 +66,11 @@ public class JobPostingServicesBean extends BaseEJB {
                 query.append(" INSERT");
                 query.append(" INTO job_hit (job_id, user_id, hit_type_id, timestamp)");
                 query.append(" VALUES (?, ?, ?, CURRENT)");
-                ps = conn.prepareStatement(query.toString());
-                ps.setLong(1, jobId);
-                ps.setLong(2, userId);
-                ps.setInt(3, hitTypeId);
-                int rowCount = ps.executeUpdate();
+                ps2 = conn.prepareStatement(query.toString());
+                ps2.setLong(1, jobId);
+                ps2.setLong(2, userId);
+                ps2.setInt(3, hitTypeId);
+                int rowCount = ps2.executeUpdate();
                 if (rowCount != 1) {
                     throw new Exception("Wrong number of rows inserted into job_hit: " + rowCount);
                 }
@@ -83,6 +84,7 @@ public class JobPostingServicesBean extends BaseEJB {
         } finally {
             close(rs);
             close(ps);
+            close(ps2);
             close(conn);
             close(ctx);
         }
