@@ -145,6 +145,10 @@ public class ProjectDetail extends Base {
             ResultSetContainer details = resultMap.get("project_detail");
             ResultSetContainer docs = resultMap.get("project_docs");
 
+            if (details.isEmpty()) {
+                throw new NavigationException("Could not find project information.");
+            }
+
             getRequest().setAttribute("projectDetail", details);
             getRequest().setAttribute("technologies", resultMap.get("project_technologies"));
             getRequest().setAttribute("requirements", resultMap.get("project_requirements"));
@@ -158,10 +162,6 @@ public class ProjectDetail extends Base {
             boolean full = false;  //projects are never full in our current rules
             getRequest().setAttribute("projectFull", String.valueOf(full));
             getRequest().setAttribute("projectId", projectId);
-
-            if (details.isEmpty()) {
-                throw new NavigationException("Could not find project information.");
-            }
 
             getRequest().setAttribute("paysRoyalties", !details.getBooleanItem(0, "is_custom") );
 
