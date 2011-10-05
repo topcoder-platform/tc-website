@@ -1,0 +1,105 @@
+Steps to prepare the VM for testing: (these steps assume a fresh working VM)
+1) Run DML: 
+    1.1) execute /scripts/tcs_catalog.sql against the corresponding server.
+    1.2) execute /test_files/scripts/tcs_catalog.sql against the corresponding server.
+2) Update terms of use text in the vm for existing terms (currently null) - you will have to login as heffan/password
+    2.1) go to https://tc.cloud.topcoder.com/admin/?module=EditTerms&tid=20703
+         Update the text to something like "<b>submitter</b> terms of use".
+    2.2) go to https://tc.cloud.topcoder.com/admin/?module=EditTerms&tid=20704        
+         Update the text to something like "<b>reviewer</b> terms of use."
+
+    * you can verify your updates by going to https://tc.cloud.topcoder.com/admin/?module=TermsList
+3) kill running jboss instances for tc and tcs.
+4) if you are provided with SVN branches, switch them
+        - in ~/web/: svn switch [submitter_branch]
+     otherwise copy source files to VM (you can do this in both tc or tcs accounts -> ~/web/ is shared)
+        - /web_module/* -> ~/web/
+5) Build TCS:
+    5.1) login as tcs
+    5.2) cd web
+    5.3) there is an environment issue with build_tcs.xml. You should copy over the attached file: 
+         /test_files/tcs/build_tcs.xml -> ~/web/
+    5.4) ant -f build_tcs.xml deploy
+6) Build TC:
+    6.1) login as tc
+    6.2) cd web
+    6.3) ant -f build_tc.xml deploy
+7) Update online review resource_management_persistence component.
+   Since the only change in Online Review is this jar, you can simply drop it to jboss directory to avoid 
+   redeploying Online Review. (If you want to do the full deploy, you can)
+    7.1) copy /online_review/lib/tcs/resource_management_persistence/1.2.2/resource_management_persistence.jar
+        to /home/tcs/jboss-4.0.2/server/default/deploy/review.war/WEB-INF/lib/
+8) There are some configuration files that are not updated in tcs account. To fix this you should:
+    8.1) login as tcs
+    8.2) copy included EmailEngine.xml (/test_files/tcs/conf/com/topcoder/message/email/) to 
+         ~/jboss-4.0.2/server/default/conf/com/topcoder/message/email/EmailEngine.xml
+    8.3) copy included Util.properties (/test_files/tcs/resources/security/conf/com/topcoder/security/) to 
+         ~/jboss-4.0.2/server/default/conf/com/topcoder/security/Util.properties
+    8.4) copy included OnlineReview.xml (/test_files/online_review/conf/) to 
+         ~/jboss-4.0.2/server/default/deploy/review.war/WEB-INF/classes/
+    8.5) copy included MessageResources.properties (/test_files/online_review/conf/) to 
+         ~/jboss-4.0.2/server/default/deploy/review.war/WEB-INF/classes/
+    8.6) copy included tcs_informix-ds.xml (/test_files/tcs/) to 
+         ~/jboss-4.0.2/server/default/deploy/
+    8.7) copy included ApplicationServer.properties (/test_files/tcs/) to 
+         ~/jboss-4.0.2/server/default/conf/
+9) There are some configuration files that are not updated in tc account. To fix this you should:
+    9.1) login as tc
+    9.2) copy included ApplicationServer.properties (/test_files/tc/) to 
+         ~/jboss-4.0.4.GA/server/all/conf
+10) It's a good practice to remove tmp, work and data directories in jboss. (due to the way we shutdown jboss)
+11) Start jboss instances:
+    11.1) login as tcs, jbb, ./start.sh
+    11.2) login as tc, jbb, ./start.sh
+12) After jboss instances are up, create the following query tool command/query: (informixoltp database: DB:java:OLTP)
+    12.1) A new query input "tid" must be added to query tool.
+        12.1.1) click on New Input
+        12.1.2) Description: Terms of Use Id / Code: tid / Data Type: Decimal Type
+        12.1.3) click save
+    12.2) existing_terms_agreements_list (same command name, "admin" command group)
+            Text for this query is located in /query_tool/existing_terms_agreements_list.txt.txt
+            Note: add query input "tid" to this query
+            
+    Note: if you are not familiar with query tool, check "Steps to update existing queries in Query Tool"
+13) Once all instances are running, you are all set for testing.
+
+Note: for the resource audit information, the focus was to add this code as close as possible to the resoruce 
+insert, making the operation atomic and not mixing layers like some current code in Online Review (SQL in 
+Actions layer -> ActionsHelper.java)
+
+Note2: due to the current state of the VM this deployment require several manual steps as described. If something
+is not working after you deploy, please contact PM so that these issues can be handled during review.
+
+Note3: due to some missing images in VM's apache, some pages could be missing icons or images, but this is not a 
+code problem.
+
+-------------------------------
+
+Testing tips:
+- In order to create new projects please follow this document: 
+  http://www.topcoder.com/wiki/display/docs/Creating+a+TopCoder+Competition
+- After creating the components in the admin tool, you can go to online review and change their types. (editing
+  the project)
+- To test multiple terms, you will have add rows to project_role_terms_of_use_xref.
+    http://forums.topcoder.com/?module=Thread&threadID=651363
+- To be able to register for a review position right after a project is launched (see it open), you can
+   update review_project_detail query to not sum 12 hours to the review position open time:
+   http://tc.cloud.topcoder.com/query/query?t=ModifyQuery&db=java:TCS_CATALOG&QueryId=13722
+- Note that there are different review pages for design, architecture, assembly and the rest of the project types so 
+  you sould probably test at least four project types.
+
+-------------------------------
+
+Steps to create new queries in Query Tool:
+1) Go to http://tc.cloud.topcoder.com/query/query
+2) login as heffan/password (check remember me) -> this is important
+3) Select the corresponding Datasource as required.
+4) Click on left menu "New Query" link.
+5) Complete query name and text, click save
+6) if there are query inputs:
+    6.1) click on "edit query input" link
+    6.2) select the corresponding query input from the list, then click add
+7) Click on left menu "New Command" link.
+8) Complete command name and group, click save
+9) Click on "edit command query" link
+10) select the corresponding query from the list, then click add
