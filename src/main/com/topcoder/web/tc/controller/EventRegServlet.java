@@ -242,6 +242,7 @@ public class EventRegServlet extends BaseServlet {
 
             if (user.getEventRegistration(event) != null)
             {
+                t.commit();
                 return true;
             }
             t.commit();
