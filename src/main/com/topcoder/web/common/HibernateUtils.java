@@ -186,9 +186,12 @@ public class HibernateUtils {
     public static void rollback() {
         log.debug("rollback transaction");
         try {
-            Transaction t = getFactory().getCurrentSession().getTransaction();
-            if (t != null && t.isActive()) {
-                t.rollback();
+            Session s = getSession();
+            if (s.isOpen()) {
+                Transaction t = s.getTransaction();
+                if (t != null && t.isActive()) {
+                    t.rollback();
+                }
             }
         } catch (Throwable e) {
             log.error("Failed to rollback transaction " + e.getMessage());

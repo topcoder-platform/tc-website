@@ -198,10 +198,15 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
         log.debug("close conversation");
         //only close if there is something to close
         if (String.valueOf(true).equals(getRequest().getAttribute(ACTIVE_CONVERSATION_FLAG))) {
-            HibernateUtils.getSession().flush();
-            HibernateUtils.commit();
-            HibernateUtils.closeSession(); // Unbind is automatic here
-            cleanup();
+            try {
+                HibernateUtils.getSession().flush();
+                HibernateUtils.commit();
+            } catch (Throwable e) {
+                HibernateUtils.rollback();
+            } finally {
+                HibernateUtils.closeSession(); // Unbind is automatic here
+                cleanup();
+            }
         } else if (HibernateUtils.getSession().isOpen()) {
             log.error("we're not closing a conversation that has an open session");
         }
@@ -209,9 +214,7 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
 
     public void rollback() {
         try {
-            if (HibernateUtils.getSession().getTransaction().isActive()) {
-                HibernateUtils.rollback();
-            }
+            HibernateUtils.rollback();
         } finally {
             HibernateUtils.closeSession(); // Unbind is automatic here
             cleanup();
