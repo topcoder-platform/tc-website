@@ -26,13 +26,20 @@ public interface RequestProcessor {
 
     /**
      * this method is called after the request has been
-     * fowarded/redirected or the response has been commited.
+     * forwarded/redirected or the response has been commited.
      * it can be used to clean up any resources that might need to be available
      * to the front end.
      *
      * @throws Exception
      */
     void postProcessing() throws Exception;
+
+    /**
+     * This method is called if there was an error during forwarding/redirecting.
+	 * It can be used to rollback all changes and clean up any allocated resources.
+     *
+     */
+    void rollback();
 
     /**
      * if the next page is outside the context of our particular application, it will
