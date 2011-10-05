@@ -28,6 +28,9 @@ abstract class Base implements RequestProcessor {
     public void postProcessing() throws Exception {
     }
 
+    public void rollback() {
+    }
+
     public Object getError(String key) {
         return null;
     }

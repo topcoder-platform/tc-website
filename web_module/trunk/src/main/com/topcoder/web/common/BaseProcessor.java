@@ -306,12 +306,20 @@ public abstract class BaseProcessor implements RequestProcessor {
 
     /**
      * This method is left empty here.  By default, we don't
-     * need to do anything.  But subclasses may want to provide an implementation
+     * need to do anything.  But subclasses may want to provide an implementation.
      *
      * @throws Exception
      */
     public void postProcessing() throws Exception {
 
+    }
+
+    /**
+     * This method is left empty here.  By default, we don't
+     * need to do anything.  But subclasses may want to provide an implementation.
+     */
+    public void rollback() {
+ 
     }
 }
 

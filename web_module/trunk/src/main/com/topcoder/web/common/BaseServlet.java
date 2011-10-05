@@ -230,9 +230,16 @@ public abstract class BaseServlet extends HttpServlet {
                         throw pe;
                     }
                 }
-                if (!response.isCommitted()) {
-                    fetchRegularPage(request, response, rp.getNextPage(), rp.isNextPageInContext());
+						
+                try {				
+                    if (!response.isCommitted()) {			
+                        fetchRegularPage(request, response, rp.getNextPage(), rp.isNextPageInContext());
+                    }
+				} catch (Throwable ex) {
+                    rp.rollback();
+                    throw ex;
                 }
+				
                 //if there is an exception in post processing, and we've already started writting the response
                 //we're not going to be able to forward to the error page.
                 rp.postProcessing();
@@ -335,9 +342,9 @@ public abstract class BaseServlet extends HttpServlet {
     protected void handleException(HttpServletRequest request, HttpServletResponse response, Throwable e)
             throws Exception {
         if (response.isCommitted()) {
-            log.error("caught exception, forwarding to error page: ",e); 
+            log.error("Caught exception but can't forward to the error page since the request has already been committed: ", e); 
         } else {
-            log.error("caught exception, forwarding to error page: " + e);
+            log.error("Caught exception, forwarding to error page: ", e);
         }
         if (e instanceof PermissionException) {
             response.setStatus(HttpServletResponse.SC_FORBIDDEN);

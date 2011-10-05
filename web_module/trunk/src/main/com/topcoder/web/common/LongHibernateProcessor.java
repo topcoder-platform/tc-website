@@ -207,8 +207,7 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
         }
     }
 
-
-    protected void handleException(Throwable e) {
+    public void rollback() {
         try {
             if (HibernateUtils.getSession().getTransaction().isActive()) {
                 HibernateUtils.rollback();
@@ -218,6 +217,10 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
             cleanup();
         }
 
+    }
+
+    protected void handleException(Throwable e) {
+        rollback();
     }
 
     private void cleanup() {
