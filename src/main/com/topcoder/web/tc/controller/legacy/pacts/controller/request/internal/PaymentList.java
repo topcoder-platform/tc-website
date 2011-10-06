@@ -40,23 +40,23 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
     public static final String CSV_FORMAT = "csv";
     public static final String CSV_LINK = "csv_link";
 
-    public static final int FIRST_COL = 1;
-    public static final int LAST_COL = 2;
-    public static final int USER_COL = 3;
-    public static final int DESC_COL = 4;
-    public static final int GROSS_COL = 5;
-    public static final int TAX_COL = 6;
-    public static final int NET_COL = 7;
-    public static final int TYPE_COL = 8;
-    public static final int STATUS_COL = 9;
-    public static final int CREATED_COL = 10;
-    public static final int MODIFIED_COL = 11;
-    public static final int CLIENT_COL = 12;
-    public static final int ID_COL = 13;
-    public static final int REFERENCE_ID_COL = 14;
+    public static final int NAME_COL = 1;
+    public static final int USER_COL = 2;
+    public static final int DESC_COL = 3;
+    public static final int GROSS_COL = 4;
+    public static final int TAX_COL = 5;
+    public static final int NET_COL = 6;
+    public static final int TYPE_COL = 7;
+    public static final int STATUS_COL = 8;
+    public static final int CREATED_COL = 9;
+    public static final int MODIFIED_COL = 10;
+    public static final int CLIENT_COL = 11;
+    public static final int ID_COL = 12;
+    public static final int REFERENCE_ID_COL = 13;
+    public static final int CONTEST_CATEGORY_NAME_COL = 14;
     public static final int COCKPIT_PROJECT_NAME_COL = 15;
     public static final int BILLING_ACCOUNT_NAME_COL = 16;
-    public static final int INVOICE_NUMBER_COL = 17;	
+    public static final int INVOICE_NUMBER_COL = 17;
     
     protected void businessProcessing() throws TCWebException {
         try {
@@ -184,7 +184,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         getResponse().setContentType("application/csv");
         PrintWriter writer = getResponse().getWriter();
 
-        writer.print("Payment ID,First,Last,User,Description,Gross,Tax,Net,Type,Status,Client,Project,Billing Acct,Reference ID,Invoice,Created,Modified");
+        writer.print("Payment ID,Name,User,Description,Gross,Tax,Net,Type,Status,Client,Project,Billing Acct,Reference ID,Contest Category,Invoice,Created,Modified");
         writer.print("\n");
         
         List<PaymentHeader> payments = (List<PaymentHeader>) getRequest().getAttribute(PaymentList.PAYMENTS);
@@ -204,8 +204,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
 
             String row = "";
             row = addCSVValue(row, payment.getId());
-            row = addCSVValue(row, payment.getUser().getFirst());
-            row = addCSVValue(row, payment.getUser().getLast());
+            row = addCSVValue(row, payment.getUser().getFullName());
             row = addCSVValue(row, payment.getUser().getHandle());
             row = addCSVValue(row, description);
             row = addCSVValue(row, payment.getRecentGrossAmount());
@@ -217,6 +216,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
             row = addCSVValue(row, payment.getCockpitProjectName());
             row = addCSVValue(row, payment.getBillingAccountName());
             row = addCSVValue(row, payment.getReferenceId());
+            row = addCSVValue(row, payment.getContestCategoryName());
             row = addCSVValue(row, payment.getInvoiceNumber());
             row = addCSVValue(row, payment.getCreateDate());
             row = addCSVValue(row, payment.getModifyDate());
@@ -343,23 +343,13 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 }
             });
             break;
-        case FIRST_COL:
+        case NAME_COL:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
-                    if (arg0.getUser().getFirst() == null) {
+                    if (arg0.getUser().getFullName() == null) {
                         return 1;
                     }
-                    return arg0.getUser().getFirst().toUpperCase().compareTo(arg1.getUser().getFirst().toUpperCase());
-                }
-            });
-            break;
-        case LAST_COL:
-            Collections.sort(result, new Comparator<PaymentHeader>() {
-                public int compare(PaymentHeader arg0, PaymentHeader arg1) {
-                    if (arg0.getUser().getLast() == null) {
-                        return 1;
-                    }
-                    return arg0.getUser().getLast().toUpperCase().compareTo(arg1.getUser().getLast().toUpperCase());
+                    return arg0.getUser().getFullName().toUpperCase().compareTo(arg1.getUser().getFullName().toUpperCase());
                 }
             });
             break;
@@ -468,6 +458,15 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 }
             });
             break;
+        case CONTEST_CATEGORY_NAME_COL:
+            Collections.sort(result, new Comparator<PaymentHeader>() {
+                public int compare(PaymentHeader arg0, PaymentHeader arg1) {
+                    String contestCategoryName0 = arg0.getContestCategoryName() == null ? "" : arg0.getContestCategoryName();
+                    String contestCategoryName1 = arg1.getContestCategoryName() == null ? "" : arg1.getContestCategoryName();		
+                    return contestCategoryName0.toUpperCase().compareTo(contestCategoryName1.toUpperCase());						
+                }
+            });
+            break;
         case COCKPIT_PROJECT_NAME_COL:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
@@ -510,8 +509,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         
         SortInfo s = new SortInfo();
         s.addDefault(ID_COL, "asc");
-        s.addDefault(FIRST_COL, "asc");
-        s.addDefault(LAST_COL, "asc");
+        s.addDefault(NAME_COL, "asc");
         s.addDefault(USER_COL, "asc");
         s.addDefault(DESC_COL, "asc");
         s.addDefault(GROSS_COL, "desc");
@@ -523,6 +521,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         s.addDefault(REFERENCE_ID_COL, "asc");
         s.addDefault(CREATED_COL, "desc");
         s.addDefault(MODIFIED_COL, "desc");
+        s.addDefault(CONTEST_CATEGORY_NAME_COL, "asc");
         s.addDefault(COCKPIT_PROJECT_NAME_COL, "asc");
         s.addDefault(BILLING_ACCOUNT_NAME_COL, "asc");		
         s.addDefault(INVOICE_NUMBER_COL, "asc");		

@@ -192,8 +192,7 @@ ${fn:length(paymentList)} records. <br />
     <tr>
         <td class="header"></td>
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.ID_COL%>" includeParams="true"/>" >Payment ID</a></td>	
-        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.FIRST_COL%>" includeParams="true"/>" >First</a></td>
-        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.LAST_COL%>" includeParams="true"/>" >Last</a></td>
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.NAME_COL%>" includeParams="true"/>" >Full Name</a></td>
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.USER_COL%>" includeParams="true"/>" >User</a></td>
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.DESC_COL%>" includeParams="true"/>" >Description</a></td>
         <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.GROSS_COL%>" includeParams="true"/>" >Gross</a></td>
@@ -205,6 +204,7 @@ ${fn:length(paymentList)} records. <br />
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.COCKPIT_PROJECT_NAME_COL%>" includeParams="true"/>" >Project</a></td>
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.BILLING_ACCOUNT_NAME_COL%>" includeParams="true"/>" >Billing Acct</a></td>		
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.REFERENCE_ID_COL%>" includeParams="true"/>" >Reference ID</a></td>	
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.CONTEST_CATEGORY_NAME_COL%>" includeParams="true"/>" >Contest Category</a></td>
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.INVOICE_NUMBER_COL%>" includeParams="true"/>" >Invoice</a></td>		
         <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.CREATED_COL%>" includeParams="true"/>" >Created</a></td>
         <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.MODIFIED_COL%>" includeParams="true"/>" >Modified</a></td>
@@ -239,8 +239,7 @@ ${fn:length(paymentList)} records. <br />
 
         </td>
         <td class="value"><c:out value="${payment.id}" /></td>	
-        <td class="value" nowrap="nowrap"><c:out value="${payment.user.first}" /></td>
-        <td class="value" nowrap="nowrap"><c:out value="${payment.user.last}" /></td>
+        <td class="value" nowrap="nowrap"><c:out value="${payment.user.fullName}" /></td>
         <td class="value"><a href="${pacts:viewUser(payment.user.id)}"><c:out value="${payment.user.handle}" /></td>
         <td class="value"><a href="${pacts:viewPayment(payment.id)}"><c:out value="${payment.description}" /></a>
             <c:if test="${composed}"> +
@@ -262,6 +261,7 @@ ${fn:length(paymentList)} records. <br />
         <td class="value"><c:out value="${payment.cockpitProjectName}" /></td>
         <td class="value"><c:out value="${payment.billingAccountName}" /></td>		
         <td class="value"><c:out value="${payment.referenceId}" /></td>	
+        <td class="value"><c:out value="${payment.contestCategoryName}" /></td>	
         <td class="value"><c:out value="${payment.invoiceNumber}" /></td>	
         <td class="valueC"><c:out value="${payment.createDate}" /> </td>
         <td class="valueC"><c:out value="${payment.modifyDate}" /> </td>
@@ -280,10 +280,10 @@ ${fn:length(paymentList)} records. <br />
          <% even = !even;%>
     </c:forEach>
     <tr>
-        <td class="header" colspan="8"><b>Total Net Amount:</b>
+        <td class="header" colspan="7"><b>Total Net Amount:</b>
         </td>
         <td class="headerR" nowrap="nowrap">$<fmt:formatNumber value="${totalNet}" pattern="###,###.00" /></td>
-        <td class="header" colspan="9">&nbsp;</td>
+        <td class="header" colspan="10">&nbsp;</td>
     </tr>
 
     </table>

@@ -360,6 +360,10 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
         this.first = first;
     }
 
+    public String getFullName() {
+        return first + " " + last;
+    }
+
     /**
      * <p>Gets the current user profile status.</p>
      *
