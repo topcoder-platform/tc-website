@@ -68,6 +68,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
     private String cockpitProjectName;
     private String billingAccountName;
     private BasePaymentStatus currentStatus;
+    private String contestCategoryName;
 
     private long algorithmRoundId;
     private long componentProjectId;
@@ -189,6 +190,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
 
         algorithmRoundId = TCData.getTCLong(rsr, "algorithm_round_id", 0, false);
         componentProjectId = TCData.getTCLong(rsr, "component_project_id", 0, false);
+        contestCategoryName = TCData.getTCString(rsr, "project_category_name", "", false);
 
         algorithmProblemId = TCData.getTCLong(rsr, "algorithm_problem_id", 0, false);
         studioContestId = TCData.getTCLong(rsr, "studio_contest_id", 0, false);
@@ -446,6 +448,14 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
 
     public void setJiraIssueName(String jiraIssueName) {
         this.jiraIssueName = jiraIssueName;
+    }
+
+    public String getContestCategoryName() {
+        return contestCategoryName;
+    }
+
+    public void setContestCategoryName(String contestCategoryName) {
+        this.contestCategoryName = contestCategoryName;
     }
 
 }

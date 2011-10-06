@@ -235,7 +235,7 @@ public abstract class BaseServlet extends HttpServlet {
                     if (!response.isCommitted()) {			
                         fetchRegularPage(request, response, rp.getNextPage(), rp.isNextPageInContext());
                     }
-				} catch (Throwable ex) {
+                } catch (Throwable ex) {
                     rp.rollback();
                     throw ex;
                 }
