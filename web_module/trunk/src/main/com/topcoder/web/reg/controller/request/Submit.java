@@ -88,19 +88,15 @@ public class Submit extends Base {
             }
 
             markForCommit();
-            closeConversation();
-            beginCommunication();
             if (newReg) {
                 try {
                     Long newUserId = u.getId();
-                    //have to wrap up the last stuff, and get into new stuff.  we don't want
-                    //sending email to be in the transaction
                     User newUserObj = getFactory().getUserDAO().find(newUserId);
 
                     String activationCode = StringUtils.getActivationCode(newUserId.longValue());
                     newUserObj.setActivationCode(activationCode);
                     getFactory().getUserDAO().saveOrUpdate(newUserObj);
-                    markForCommit();
+
                     String email = newUserObj.getPrimaryEmailAddress().getAddress();
 
                     RegistrationTypeDAO dao = getFactory().getRegistrationTypeDAO();
@@ -114,7 +110,6 @@ public class Submit extends Base {
                     RegistrationType openAIM = dao.getOpenAIMType();
                     RegistrationType truveo = dao.getTruveoType();
 
-                    closeConversation();
                     try {
                         sendEmail(activationCode, email, getRequestedTypes(), comp, tcs, hs, corp, min, studio, teacher, openAIM, truveo);
                     } catch (Exception e) {

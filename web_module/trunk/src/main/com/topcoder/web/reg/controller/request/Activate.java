@@ -48,6 +48,7 @@ public class Activate extends Base {
         String code = StringUtils.checkNull(getRequest().getParameter(Constants.ACTIVATION_CODE));
         long userId = StringUtils.getCoderId(code);
 
+        markForCommit();
         try {
             User u = getFactory().getUserDAO().find(new Long(userId));
             if (u == null) {
@@ -59,7 +60,6 @@ public class Activate extends Base {
                     u.setStatus(new Character(Constants.ACTIVE_STATI[1]));
                     getFactory().getUserDAO().saveOrUpdate(u);
                     activateLDAPEntry(u.getId());
-                    markForCommit();
                     setNextPage("/activated.jsp");
                     setIsNextPageInContext(true);
                 } else if (Arrays.binarySearch(Constants.ACTIVE_STATI, status) >= 0) {
