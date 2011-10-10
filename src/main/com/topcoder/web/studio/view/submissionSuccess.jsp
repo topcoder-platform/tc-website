@@ -163,7 +163,8 @@
                                      they will neither be screened nor reviewed.
                                      If you make more than ${contest.maxSubmissions} submission<c:if test="${contest.maxSubmissions>1}">s</c:if>
                                      for this contest, you can rearrange the order of your submissions until the end of the Submission Phase. 
-                                     Note that milestone submissions can't be rearranged after milestone deadline.
+                                     Note that milestone submissions can't be rearranged after milestone deadline. All submissions that are not eligible (anything over the submission limit)
+									 remaining after the submission phase has ended will be deleted by the system.
                                  </c:when>
                              <c:otherwise>
                                  <nobr>This icon <img src="/i/v2/selection.png" alt="Selection" /></nobr> indicates preferred submissions that will count for
