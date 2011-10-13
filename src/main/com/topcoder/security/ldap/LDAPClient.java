@@ -8,6 +8,7 @@ import com.topcoder.util.net.ldap.sdkinterface.Entry;
 import com.topcoder.util.net.ldap.sdkinterface.LDAPSDK;
 import com.topcoder.util.net.ldap.sdkinterface.LDAPSDKAccessDeniedException;
 import com.topcoder.util.net.ldap.sdkinterface.LDAPSDKConnection;
+import com.topcoder.util.net.ldap.sdkinterface.LDAPSDKNoSuchObjectException;
 import com.topcoder.util.net.ldap.sdkinterface.LDAPSDKException;
 import com.topcoder.util.net.ldap.sdkinterface.Update;
 import com.topcoder.util.net.ldap.sdkinterface.Values;
@@ -348,6 +349,9 @@ public class LDAPClient {
             String entryDN = buildTopCoderMemberEntryDN(userId);
             this.ldapConnection.deleteEntry(entryDN);
             log.info("Deleted LDAP entry: " + entryDN);
+        } catch (LDAPSDKNoSuchObjectException e) {
+            log.warn("LDAP entry not found for deletion: " + userId);
+            // Ignore this exception.
         } catch (LDAPSDKException e) {
             log.error("Failed to delete LDAP entry for user " + userId + " due to unexpected error");
             throw LDAPClientException.createUnexpectedErrorException(e);

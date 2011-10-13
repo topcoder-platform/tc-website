@@ -1,6 +1,7 @@
 package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.security.GeneralSecurityException;
+import com.topcoder.security.NoSuchUserException;
 import com.topcoder.security.GroupPrincipal;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
@@ -86,13 +87,20 @@ public class Submit extends Base {
 
             getFactory().getUserDAO().saveOrUpdate(u);
 
-            // Close transaction now and persist the changes before sending the activation email so that if there's any exception
-            // during persisting the objects the email won't be sent.
-            markForCommit();
-            closeConversation();
-            // END TRANSACTION
+            try {
+                securityStuff(newReg, u);
 
-            securityStuff(newReg, u);
+                // Close transaction now and persist the changes before sending the activation email so that if there's any exception
+                // during persisting the objects the email won't be sent.
+                markForCommit();
+                closeConversation();
+                // END TRANSACTION
+            } catch (Exception e) {
+                if (newReg) {
+                    removeUser(u.getId());
+                }
+                throw e;
+            }
 
             if (newReg) {
                 sendEmail(activationCode, emailAddress, getRequestedTypes(), comp, tcs, hs, corp, min, studio, teacher, openAIM, truveo);
@@ -152,7 +160,7 @@ public class Submit extends Base {
 
             String password = (String) getRequest().getSession().getAttribute("password");
             if (newUser) {
-                //create the security user entry
+                // Create the security user entry.
                 myPrincipal = pmr.createUser(u.getId(), u.getHandle(), password, tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
             } else {
                 myPrincipal = new UserPrincipal("", u.getId());
@@ -189,6 +197,18 @@ public class Submit extends Base {
             close(ctx);
         }
 
+    }
+
+    private void removeUser(long userId) throws Exception {
+        Context ctx = null;
+        try {
+            ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
+            PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+            PrincipalMgrRemote pmr = pmrh.create();
+            pmr.removeUser(new UserPrincipal("", userId), new TCSubject(132456), DBMS.JTS_OLTP_DATASOURCE_NAME);
+        } finally {
+            close(ctx);
+        }
     }
 
 
