@@ -86,13 +86,13 @@ public class Submit extends Base {
 
             getFactory().getUserDAO().saveOrUpdate(u);
 
-            securityStuff(newReg, u);
-
             // Close transaction now and persist the changes before sending the activation email so that if there's any exception
             // during persisting the objects the email won't be sent.
             markForCommit();
             closeConversation();
             // END TRANSACTION
+
+            securityStuff(newReg, u);
 
             if (newReg) {
                 sendEmail(activationCode, emailAddress, getRequestedTypes(), comp, tcs, hs, corp, min, studio, teacher, openAIM, truveo);
