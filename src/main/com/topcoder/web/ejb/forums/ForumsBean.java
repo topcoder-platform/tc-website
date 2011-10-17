@@ -594,7 +594,7 @@ public class ForumsBean extends BaseEJB {
             rs.close();
             forumsPS.close();
 
-            createSoftwareComponentPermissions(newCategory, true);
+            createSoftwareComponentPermissions(newCategory, false);
             
             return newCategory.getID();
         } catch (Exception e) {
