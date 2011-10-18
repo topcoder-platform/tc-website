@@ -32,7 +32,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.TCData;
  * @author  cucu, pulky, VolodymyrK
  */
 public class PaymentList extends PactsBaseProcessor implements PactsConstants {
-   	
+    
     public static final String PAYMENTS = "payments";
     public static final String RELIABILITY = "reliability";
     public static final String GROUP_RELIABILITY = "gr";
@@ -88,34 +88,34 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
     
                 // Add all the payment id's to a set
                 for (int i = 0; i < results.length; i++) {
-                	if (results[i].getTypeId() != RELIABILITY_BONUS_PAYMENT) {
-                		ids.put(new Long(results[i].getId()), results[i]);
-                	}
+                    if (results[i].getTypeId() != RELIABILITY_BONUS_PAYMENT) {
+                        ids.put(new Long(results[i].getId()), results[i]);
+                    }
                 }
     
                 List<PaymentHeader> payments = new ArrayList<PaymentHeader>();
                 Map reliability = new HashMap();
                 
                 for (int i = 0; i < results.length; i++) {
-                	// remove the word "Payment" from the type description
-                	int pos = results[i].getType().indexOf("Payment");
+                    // remove the word "Payment" from the type description
+                    int pos = results[i].getType().indexOf("Payment");
                     if (pos >= 0) {
-                    	results[i].setType(results[i].getType().substring(0, pos) );
+                        results[i].setType(results[i].getType().substring(0, pos) );
                     }
                     
-                	if (!groupRel || results[i].getTypeId() != RELIABILITY_BONUS_PAYMENT) {
-                		payments.add(results[i]);
-                	} else {
-                		Long parentId = new Long(results[i].getParentPaymentId());
-                		PaymentHeader parent = (PaymentHeader) ids.get(parentId);
-                		if (parent != null) {
-                			reliability.put(parentId, new Long(results[i].getId()));
-                			parent.setRecentGrossAmount(parent.getRecentGrossAmount() + results[i].getRecentGrossAmount());
-                			parent.setRecentNetAmount(parent.getRecentNetAmount() + results[i].getRecentNetAmount());
-                		} else {
-                			payments.add(results[i]);            			
-                		}
-                	}            	
+                    if (!groupRel || results[i].getTypeId() != RELIABILITY_BONUS_PAYMENT) {
+                        payments.add(results[i]);
+                    } else {
+                        Long parentId = new Long(results[i].getParentPaymentId());
+                        PaymentHeader parent = (PaymentHeader) ids.get(parentId);
+                        if (parent != null) {
+                            reliability.put(parentId, new Long(results[i].getId()));
+                            parent.setRecentGrossAmount(parent.getRecentGrossAmount() + results[i].getRecentGrossAmount());
+                            parent.setRecentNetAmount(parent.getRecentNetAmount() + results[i].getRecentNetAmount());
+                        } else {
+                            payments.add(results[i]);                       
+                        }
+                    }               
                 }
                 
                 if (results.length != 1) {
@@ -247,7 +247,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
 
         String statusValuesStr = createValuesStr(request.getParameterValues(STATUS_CODE));
         if (!statusValuesStr.equals("")) query.put(STATUS_CODE, statusValuesStr);
-    	String typeValuesStr = createValuesStr(request.getParameterValues(TYPE_CODE));
+        String typeValuesStr = createValuesStr(request.getParameterValues(TYPE_CODE));
         if (!typeValuesStr.equals("")) query.put(TYPE_CODE, typeValuesStr);
         param = request.getParameter(EARLIEST_DUE_DATE);
         if (param != null && !param.equals("")) query.put(EARLIEST_DUE_DATE, TCData.dateForm(param));
@@ -257,6 +257,10 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         if (param != null && !param.equals("")) query.put(EARLIEST_CREATION_DATE, TCData.dateForm(param));
         param = request.getParameter(LATEST_CREATION_DATE);
         if (param != null && !param.equals("")) query.put(LATEST_CREATION_DATE, TCData.dateForm(param));
+        param = request.getParameter(EARLIEST_MODIFICATION_DATE);
+        if (param != null && !param.equals("")) query.put(EARLIEST_MODIFICATION_DATE, TCData.dateForm(param));
+        param = request.getParameter(LATEST_MODIFICATION_DATE);
+        if (param != null && !param.equals("")) query.put(LATEST_MODIFICATION_DATE, TCData.dateForm(param));
         param = request.getParameter(EARLIEST_PAY_DATE);
         if (param != null && !param.equals("")) query.put(EARLIEST_PAY_DATE, TCData.dateForm(param));
         param = request.getParameter(LATEST_PAY_DATE);
@@ -289,19 +293,19 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
     
     // Helper function generating a comma-separated list from an array of values
     private String createValuesStr(String[] values) {
-    	if (values == null) return "";
-    	StringBuffer valuesStr = new StringBuffer(100);
-    	
-    	for (int i=0; i<values.length; i++) {
-    		if (values[i].equals("")) {
-    			return "";
-    		}
-    		valuesStr.append(values[i]);
-    		if (i < values.length-1) {
-    			valuesStr.append(',');
-    		}
-    	}
-    	return valuesStr.toString();
+        if (values == null) return "";
+        StringBuffer valuesStr = new StringBuffer(100);
+        
+        for (int i=0; i<values.length; i++) {
+            if (values[i].equals("")) {
+                return "";
+            }
+            valuesStr.append(values[i]);
+            if (i < values.length-1) {
+                valuesStr.append(',');
+            }
+        }
+        return valuesStr.toString();
     }
 
     /**
@@ -462,8 +466,8 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
                     String contestCategoryName0 = arg0.getContestCategoryName() == null ? "" : arg0.getContestCategoryName();
-                    String contestCategoryName1 = arg1.getContestCategoryName() == null ? "" : arg1.getContestCategoryName();		
-                    return contestCategoryName0.toUpperCase().compareTo(contestCategoryName1.toUpperCase());						
+                    String contestCategoryName1 = arg1.getContestCategoryName() == null ? "" : arg1.getContestCategoryName();       
+                    return contestCategoryName0.toUpperCase().compareTo(contestCategoryName1.toUpperCase());                        
                 }
             });
             break;
@@ -471,8 +475,8 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
                     String cockpitProjectName0 = arg0.getCockpitProjectName() == null ? "" : arg0.getCockpitProjectName();
-                    String cockpitProjectName1 = arg1.getCockpitProjectName() == null ? "" : arg1.getCockpitProjectName();		
-                    return cockpitProjectName0.toUpperCase().compareTo(cockpitProjectName1.toUpperCase());						
+                    String cockpitProjectName1 = arg1.getCockpitProjectName() == null ? "" : arg1.getCockpitProjectName();      
+                    return cockpitProjectName0.toUpperCase().compareTo(cockpitProjectName1.toUpperCase());                      
                 }
             });
             break;
@@ -480,8 +484,8 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
                     String billingAccountName0 = arg0.getBillingAccountName() == null ? "" : arg0.getBillingAccountName();
-                    String billingAccountName1 = arg1.getBillingAccountName() == null ? "" : arg1.getBillingAccountName();		
-                    return billingAccountName0.toUpperCase().compareTo(billingAccountName1.toUpperCase());					
+                    String billingAccountName1 = arg1.getBillingAccountName() == null ? "" : arg1.getBillingAccountName();      
+                    return billingAccountName0.toUpperCase().compareTo(billingAccountName1.toUpperCase());                  
                 }
             });
             break;
@@ -489,7 +493,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
                     String invoiveNumber0 = arg0.getInvoiceNumber() == null ? "" : arg0.getInvoiceNumber();
-                    String invoiveNumber1 = arg1.getInvoiceNumber() == null ? "" : arg1.getInvoiceNumber();		
+                    String invoiveNumber1 = arg1.getInvoiceNumber() == null ? "" : arg1.getInvoiceNumber();     
                     return invoiveNumber0.toUpperCase().compareTo(invoiveNumber1.toUpperCase());
                 }
             });
@@ -523,8 +527,8 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         s.addDefault(MODIFIED_COL, "desc");
         s.addDefault(CONTEST_CATEGORY_NAME_COL, "asc");
         s.addDefault(COCKPIT_PROJECT_NAME_COL, "asc");
-        s.addDefault(BILLING_ACCOUNT_NAME_COL, "asc");		
-        s.addDefault(INVOICE_NUMBER_COL, "asc");		
+        s.addDefault(BILLING_ACCOUNT_NAME_COL, "asc");      
+        s.addDefault(INVOICE_NUMBER_COL, "asc");        
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
     }
 
