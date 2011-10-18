@@ -887,6 +887,8 @@ public class DataInterfaceBean implements PactsConstants {
                     key.equals(LATEST_CREATION_DATE) ||
                     key.equals(EARLIEST_PAY_DATE) ||
                     key.equals(LATEST_PAY_DATE) ||
+                    key.equals(EARLIEST_MODIFICATION_DATE) ||
+                    key.equals(LATEST_MODIFICATION_DATE) ||
                     key.equals(EARLIEST_DUE_DATE) ||
                     key.equals(LATEST_DUE_DATE))
                 inputOk = validateInput(value, DATE);
@@ -1634,7 +1636,7 @@ public class DataInterfaceBean implements PactsConstants {
     public double computePaymentNetAmount(int paymentTypeId, double grossAmount, long coderId) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
         return ps.computePaymentNetAmount(paymentTypeId, grossAmount, coderId);
-    }	
+    }   
 
     public BasePayment addPayment(BasePayment payment) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
