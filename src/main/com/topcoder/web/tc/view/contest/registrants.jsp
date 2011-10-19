@@ -380,6 +380,9 @@
                 <c:when test="${pt == CONTENT_CREATION_PROJECT_TYPE}">
                     <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='Content_Creation'/>
                 </c:when>
+                <c:when test="${pt == REPORTING_PROJECT_TYPE}">
+                    <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='Reporting'/>
+                </c:when>
                 <c:otherwise>
                     <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' />
                 </c:otherwise>
