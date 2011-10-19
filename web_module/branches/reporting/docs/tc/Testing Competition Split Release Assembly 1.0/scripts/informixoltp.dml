@@ -1,0 +1,10 @@
+database informixoltp;
+
+-- rename old payment type
+update payment_type_lu set payment_type_desc = "Test Suites Payment" where payment_type_id = 44;
+
+-- add new payment type
+insert into payment_type_lu (payment_type_desc, payment_type_id, payment_reference_id, show_in_profile_ind, show_details_ind, due_date_interval, create_date, modify_date, pay_on_day, requires_client_ind, global_ad_ind)
+values ("Test Scenarios Payment", 55, 2, 1, 1, null, current, current, 15, 1, 't');
+
+

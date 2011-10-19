@@ -1,0 +1,66 @@
+************************************************************************************************************************
+Note: This document is for specific VM instructions. It is delibreatedly not part of deployment document because it's 
+      not meant for production deployment. (while deployment document indeed describes production deployment)
+************************************************************************************************************************
+
+Steps to prepare the VM for testing: (these steps assume a fresh working VM)
+1) Run database scripts:
+    - /scripts/informixoltp.dml (new payment types)
+    - /test_files/scripts/studio_oltp.ddl (we need to create studio_oltp database and contest tables for testing)
+    - /test_files/scripts/studio_oltp.dml (populates a sample studio contest)
+2) Update web module source files in tc account. (/web_module/ -> ~/web/)
+3) kill running jboss instance for tc. (jps; kill "main" process id)
+4) Build Tc:
+    4.1) login as tc
+    4.2) cd web
+    4.4) ant -f build_tc.xml deploy
+5) Start tc jboss instance:
+    5.1) login as tc, jbb, ./start.sh
+6) Login as tcs, kill running jboss instance for tcs. (jps; kill "main" process id)
+7) Copy /test_files/online_review/MessageResources.properties to 
+   /home/tcs/jboss-4.0.2/server/default/deploy/review.war/WEB-INF/classes
+   (there is a missing entry for conceptualization that will make Online Review fail)
+8) Start tcs jboss instance:
+    8.1) login as tcs, jbb, ./start.sh
+9) You are all set for testing.
+   
+
+-------------------------------
+
+Testing tips:
+- Right after jboss instances are running, you should be able to login to PACTS 
+  (http://tc.cloud.topcoder.com/PactsInternalServlet -> heffan/password) and create Studio payments. (the test studio 
+  contest is already in place)
+  (You'll need to search for a user - "Hung" for instance and click "Add payment")
+- For testing Copilot payment generation, you'll need to create a project in Online Review. Please follow instructions
+    1) Go to the software admin tool at http://tcs.cloud.topcoder.com/admin/c_login.jsp log in as heffan. 
+       Go to the catalog admin.
+    2) Request a new component.
+    3) Look up components by status Requested, approve the one you just created.
+    4) Look up components by status Approved (important), go back into the one you created. 
+       Select a catalog (applications is fine) and a category (any).
+    5) Click into the version in the component you just created. Set a non-zero price, switch the phase to 
+       specification, save.
+    6) Now go to Online Review at http://tcs.cloud.topcoder.com/review
+    7) Open the newly created specification project and save it as 'completed'
+- For testing payWithholdings script you will have to login to tc, go to /home/tc/web/scripts/pacts and execute
+  ./payWithholdings.sh (you should add "-onlyAnalyze false" if you want to persist the changes.
+  
+  To test this script accordingly you'll need to feed it with valid data. Since the script only consider payment, 
+  payment_detail and project_info tables
+  you should be able to do the following:
+  - Create a new assembly payment for $1000 (for instance)
+  - Go to the database and lower the gross and net amounts. (this way, the script will notice it's just an installment 
+    and it's not complete)
+
+    update payment_detail set gross_amount = gross_amount - 100, net_amount = net_amount - 100 
+    where payment_detail_id = [created payment detail id]
+
+  - Run the script. It should create the 2nd installment for this project. 
+    If you run it again, it won't create another one. (This is correct)
+  - You can do the same for the rest of the project types.
+  
+  Note: this is a tip for testing. You may test this differently at your discretion.
+
+
+Thank you!
