@@ -1,7 +1,7 @@
 <%--
-  - Author: TCSDEVELOPER, pulky, FireIce
-  - Version: 1.3
-  - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
+  - Author: TCSDEVELOPER, pulky, FireIce, lmmortal
+  - Version: 1.4
+  - Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page displays the home page's active contest box.
   -
@@ -13,6 +13,9 @@
   -
   - Version 1.3 (Content Creation Contest Online Review and TC Site Integration Assembly 1.0) changes:
   - Added support for new Content Creation.
+  -
+  - Version 1.4 (Add Reporting Contest Type) changes:
+  - Added support for new Reporting competitions.
 --%>
 <%@ page import="com.topcoder.web.tc.controller.request.Home" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
@@ -39,6 +42,7 @@
 <c:set var="riacomponent" value="<%=Home.RIA_COMPONENT%>"/>
 <c:set var="copilotposting" value="<%=Home.COPILOT_POSTING%>"/>
 <c:set var="contentcreation" value="<%=Home.CONTENT_CREATION%>"/>
+<c:set var="reporting" value="<%=Home.REPORTING%>"/>
 
 <div>
     <img src="/i/interface/rightNavTop.png" alt="" style="display: block;"/>
@@ -138,6 +142,17 @@
                                 <div class="prizes"><fmt:formatNumber value="${activeContestsSummary[contentcreation].prizeTotal}" pattern="$###,###"/></div>
                                 <a href="/tc?module=ActiveContests&pt=35" class="gMetal">Content Creation</a>
                                 (${activeContestsSummary[contentcreation].contestCount})
+                            </td>
+                        </tr>
+                    </c:if>
+
+                    <c:if test="${activeContestsSummary[reporting].contestCount>0}">
+
+                        <tr>
+                            <td class="value">
+                                <div class="prizes"><fmt:formatNumber value="${activeContestsSummary[reporting].prizeTotal}" pattern="$###,###"/></div>
+                                <a href="/tc?module=ActiveContests&pt=36" class="gMetal">Reporting</a>
+                                (${activeContestsSummary[reporting].contestCount})
                             </td>
                         </tr>
                     </c:if>

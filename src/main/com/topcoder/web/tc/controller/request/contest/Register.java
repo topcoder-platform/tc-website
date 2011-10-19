@@ -84,9 +84,16 @@ import com.topcoder.web.tc.controller.request.development.Base;
  *     <li>Updated {@link #register()} method.</li>
  *   </ol>
  * </p>
+ * 
+ * <p>
+ *   Version 1.6 (Add Reporting Contest Type) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #register()} method.</li>
+ *   </ol>
+ * </p>
  *
- * @author dok, pulky, FireIce
- * @version 1.5
+ * @author dok, pulky, FireIce, lmmortal
+ * @version 1.6
  */
 public class Register extends ViewRegistration {
 
@@ -233,6 +240,8 @@ public class Register extends ViewRegistration {
                 project += " RIA Component Project";
             } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.CONTENT_CREATION_PROJECT_TYPE))) {
                 project += " Content Creation Project";
+            } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.REPORTING_PROJECT_TYPE))) {
+                project += " Reporting Project";
             }
 
             long activeForumCategoryId = componentManager.getActiveForumCategory().getId();

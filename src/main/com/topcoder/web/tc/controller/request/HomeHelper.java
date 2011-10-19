@@ -30,9 +30,15 @@ import com.topcoder.web.tc.model.ActiveContestsSummary;
  * Version 1.2 changes: Updated {@link #getOnlineReviewSummary()} method to add active contest summary for
  * content creations.
  * </p>
+ * 
+ * <p>
+ * (Add Reporting Contest Type)
+ * Version 1.3 changes: Updated {@link #getOnlineReviewSummary()} method to add active contest summary for
+ * reporting.
+ * </p>
  *
- * @author pulky, Blues, FireIce
- * @version 1.2
+ * @author pulky, Blues, FireIce, lmmortal
+ * @version 1.3
  */
 public class HomeHelper {
 
@@ -224,6 +230,9 @@ public class HomeHelper {
                 case Constants.TEST_SCENARIOS_PROJECT_TYPE: {
                     ret.put(Home.TEST_SCENARIOS, summary);
                     break;
+                }
+                case Constants.REPORTING_PROJECT_TYPE: {
+                	ret.put(Home.REPORTING, summary);
                 }
             }
 

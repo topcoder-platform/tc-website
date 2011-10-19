@@ -1,6 +1,6 @@
 <%--
-  - Author: pulky, snow01, FireIce
-  - Version: 1.4
+  - Author: pulky, snow01, FireIce, lmmortal
+  - Version: 1.5
   - Since: TCS Release 2.2.2
   - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
   -
@@ -21,6 +21,9 @@
   -
   - Version 1.4 (Content Creation Contest Online Review and TC Site Integration Assembly version 1.0) Change Notes:
   - added support for handling new content creation competitions.
+  -
+  - Version 1.5 (Add Reporting Contest Type) Change Notes:
+  - added support for handling new reporting competitions.
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
@@ -38,6 +41,7 @@
 <c:set var="RIA_BUILD_PROJECT_TYPE" value="<%=Constants.RIA_BUILD_PROJECT_TYPE%>" />
 <c:set var="RIA_COMPONENT_PROJECT_TYPE" value="<%=Constants.RIA_COMPONENT_PROJECT_TYPE%>" />
 <c:set var="CONTENT_CREATION_PROJECT_TYPE" value="<%=Constants.CONTENT_CREATION_PROJECT_TYPE%>" />
+<c:set var="REPORTING_PROJECT_TYPE" value="<%=Constants.REPORTING_PROJECT_TYPE%>" />
 
 <c:set var="projectType" value="${param[PROJECT_TYPE_ID]}"/>
 
@@ -65,6 +69,9 @@
     </c:when>
     <c:when test="${projectType == CONTENT_CREATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Content Creation"/>
+    </c:when>
+    <c:when test="${projectType == REPORTING_PROJECT_TYPE}">
+        <c:set var="projectTypeDesc" value="Reporting"/>
     </c:when>
 </c:choose>
 
@@ -119,6 +126,11 @@
                     <jsp:param name="level1" value="content_creation"/>
                 </jsp:include>
             </c:when>
+            <c:when test="${projectType == REPORTING_PROJECT_TYPE}">
+                <jsp:include page="/top.jsp" >
+                    <jsp:param name="level1" value="reporting"/>
+                </jsp:include>
+            </c:when>
         </c:choose>
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <tr valign="top">
@@ -165,6 +177,11 @@
                                 <jsp:param name="node" value="content_creation_review_board"/>
                             </jsp:include>
                         </c:when>
+                        <c:when test="${projectType == REPORTING_PROJECT_TYPE}">
+                            <jsp:include page="/includes/global_left.jsp">
+                                <jsp:param name="node" value="reporting_review_board"/>
+                            </jsp:include>
+                        </c:when>                        
                     </c:choose>
                 </td>
                 <!-- Left Column Ends -->
@@ -371,6 +388,12 @@
                             <jsp:include page="/public_right.jsp">
                                 <jsp:param name="level1" value="review_board"/>
                                 <jsp:param name="level2" value="content_creation"/>
+                            </jsp:include>
+                        </c:when>
+                        <c:when test="${projectType == REPORTING_PROJECT_TYPE}">
+                            <jsp:include page="/public_right.jsp">
+                                <jsp:param name="level1" value="review_board"/>
+                                <jsp:param name="level2" value="reporting"/>
                             </jsp:include>
                         </c:when>
                     </c:choose>
