@@ -133,11 +133,11 @@
 							nav.search("m_reporting_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/How+to+Compete+in+Reporting+Competitions", "How to Compete", "reporting_how_to_compete"));
 							nav.search("m_reporting_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/Reporting+Competition+Tutorial", "Tutorial", "assembly_tutorial"));
 							nav.search("m_reporting_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/Reporting+Competition+Documentation", "Documentation", "reporting_documentation"));
-					nav.search("m_reporting_competitions").addChild(new NavNode("http://community.topcoder.com/tc?module=ViewReportingActiveContests", "Active Contests", "reporting_compete"));
-					nav.search("m_reporting_competitions").addChild(new NavNode("http://community.topcoder.com/tc?module=ContestStatus&amp;pt=36", "Contest Status", "reporting_contest_status"));
-					nav.search("m_reporting_competitions").addChild(new NavNode("http://community.topcoder.com/tc?module=CompList&amp;ph=147", "Past Contests", "reporting_past"));
-					nav.search("m_reporting_competitions").addChild(new NavNode("http://community.topcoder.com/tc?module=ViewReviewProjects&amp;pt=36", "Review Opportunities", "reporting_review"));
-					nav.search("m_reporting_competitions").addChild(new NavNode("http://community.topcoder.com/tc?module=ReviewBoard&amp;pt=36", "Meet the Review Board", "reporting_review_board"));
+					nav.search("m_reporting_competitions").addChild(new NavNode("http://community.topcoder.com/tc?module=ViewActiveContests;pt=" + WebConstants.REPORTING_PROJECT_TYPE, "Active Contests", "reporting_compete"));
+					nav.search("m_reporting_competitions").addChild(new NavNode("http://community.topcoder.com/tc?module=ContestStatus&amp;pt="+  WebConstants.REPORTING_PROJECT_TYPE, "Contest Status", "reporting_contest_status"));
+					nav.search("m_reporting_competitions").addChild(new NavNode("http://community.topcoder.com/tc?module=CompList&amp;pt=" + WebConstants.REPORTING_PROJECT_TYPE, "Past Contests", "reporting_past"));
+					nav.search("m_reporting_competitions").addChild(new NavNode("http://community.topcoder.com/tc?module=ViewReviewProjects&amp;pt=" +  WebConstants.REPORTING_PROJECT_TYPE, "Review Opportunities", "reporting_review"));
+					nav.search("m_reporting_competitions").addChild(new NavNode("http://community.topcoder.com/tc?module=ReviewBoard&amp;pt=" + WebConstants.REPORTING_PROJECT_TYPE, "Meet the Review Board", "reporting_review_board"));
 
 			nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'competition_ui_dev')", "UI Development", "competition_ui_dev"));
   			    nav.search("competition_ui_dev").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_ui_prototype_competitions')", "UI Prototype", "m_ui_prototype_competitions"));
