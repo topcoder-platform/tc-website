@@ -133,7 +133,7 @@
 							nav.search("m_reporting_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/How+to+Compete+in+Reporting+Competitions", "How to Compete", "reporting_how_to_compete"));
 							nav.search("m_reporting_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/Reporting+Competition+Tutorial", "Tutorial", "assembly_tutorial"));
 							nav.search("m_reporting_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/Reporting+Competition+Documentation", "Documentation", "reporting_documentation"));
-					nav.search("m_reporting_competitions").addChild(new NavNode("http://community.topcoder.com/tc?module=ViewActiveContests&amp;pt=" + WebConstants.REPORTING_PROJECT_TYPE, "Active Contests", "reporting_compete"));
+					nav.search("m_reporting_competitions").addChild(new NavNode("http://community.topcoder.com/tc?module=ActiveContests&amp;pt=" + WebConstants.REPORTING_PROJECT_TYPE, "Active Contests", "reporting_compete"));
 					nav.search("m_reporting_competitions").addChild(new NavNode("http://community.topcoder.com/tc?module=ContestStatus&amp;pt="+  WebConstants.REPORTING_PROJECT_TYPE, "Contest Status", "reporting_contest_status"));
 					nav.search("m_reporting_competitions").addChild(new NavNode("http://community.topcoder.com/tc?module=CompList&amp;pt=" + WebConstants.REPORTING_PROJECT_TYPE, "Past Contests", "reporting_past"));
 					nav.search("m_reporting_competitions").addChild(new NavNode("http://community.topcoder.com/tc?module=ViewReviewProjects&amp;pt=" +  WebConstants.REPORTING_PROJECT_TYPE, "Review Opportunities", "reporting_review"));
