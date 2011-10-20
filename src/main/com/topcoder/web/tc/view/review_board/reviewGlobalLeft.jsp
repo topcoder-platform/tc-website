@@ -78,7 +78,8 @@
                 <jsp:param name="node" value="content_creation_review"/>
             </jsp:include>
         </c:when>
-        <c:when test="${projectType == REPORTING_PROJECT_TYPE}">
+        <c:when test="${projectType == REPORTING_PROJECT_TYPE ||
+            projectType == REPORTING_SPECIFICATION_PROJECT_TYPE}">
             <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="reporting_review"/>
             </jsp:include>
