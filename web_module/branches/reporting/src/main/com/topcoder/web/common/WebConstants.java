@@ -663,6 +663,13 @@ public interface WebConstants {
      */
     public static final long CONTENT_CREATION_SPECIFICATION_PROJECT_TYPE =
 	    CONTENT_CREATION_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;
+    
+    /**
+     * <p>An <code>long</code> representing reporting specification project category id.</p>
+	 * @since 1.6.5
+     */
+    public static final long REPORTING_SPECIFICATION_PROJECT_TYPE =
+	    REPORTING_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;
 
     /**
      * <p>An <code>long</code> representing content creation phase id.</p>
@@ -676,6 +683,13 @@ public interface WebConstants {
      */
     public static final long PHASE_REPORTING = REPORTING_PROJECT_TYPE + GENERAL_PHASE_OFFSET;
 
+    /**
+     * <p>An <code>long</code> representing reporting specification phase id.</p>
+	 * @since 1.6.5
+     */
+    public static final long PHASE_REPORTING_SPECIFICATION =
+	    PHASE_REPORTING + SPECIFICATION_COMPETITION_OFFSET;
+    
     /**
      * <p>An <code>long</code> representing copilot posting specification phase id.</p>
 	 * @since 1.6.2

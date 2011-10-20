@@ -87,7 +87,8 @@
             <jsp:param name="title" value="Review Opportunities"/>
         </jsp:include>
     </c:when>
-    <c:when test="${projectType == REPORTING_PROJECT_TYPE}">
+    <c:when test="${projectType == REPORTING_PROJECT_TYPE ||
+        projectType == REPORTING_SPECIFICATION_PROJECT_TYPE}">
         <jsp:include page="/page_title.jsp">
             <jsp:param name="image" value="reporting"/>
             <jsp:param name="title" value="Review Opportunities"/>

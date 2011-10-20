@@ -57,6 +57,8 @@
     value="<%=Constants.RIA_COMPONENT_SPECIFICATION_PROJECT_TYPE%>" scope="request"/>
 <c:set var="CONTENT_CREATION_SPECIFICATION_PROJECT_TYPE"
     value="<%=Constants.CONTENT_CREATION_SPECIFICATION_PROJECT_TYPE%>" scope="request"/>
+<c:set var="REPORTING_SPECIFICATION_PROJECT_TYPE"
+    value="<%=Constants.REPORTING_SPECIFICATION_PROJECT_TYPE%>" scope="request"/>
 
 <c:choose>
     <c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
@@ -160,6 +162,12 @@
         <c:set var="projectTypeTitle" value="Specification Review" scope="request"/>
         <c:set var="eligibleReviewBoardName" value="the TopCoder Content Creation Review Board" scope="request"/>
         <c:set var="handleContext" value="conent_creation" scope="request"/>
+    </c:when>
+    <c:when test="${projectType == REPORTING_SPECIFICATION_PROJECT_TYPE}">
+        <c:set var="projectTypeDesc" value="Specification Review" scope="request"/>
+        <c:set var="projectTypeTitle" value="Specification Review" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="the TopCoder Reporting Review Board" scope="request"/>
+        <c:set var="handleContext" value="reporting" scope="request"/>
     </c:when>
     <c:when test="${projectType == DESIGN_SPECIFICATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Specification Review" scope="request"/>

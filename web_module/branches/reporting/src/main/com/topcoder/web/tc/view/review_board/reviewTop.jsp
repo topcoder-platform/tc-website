@@ -59,7 +59,8 @@
             <jsp:param name="level1" value="content_creation"/>
         </jsp:include>
     </c:when>
-    <c:when test="${projectType == REPORTING_PROJECT_TYPE}">
+    <c:when test="${projectType == REPORTING_PROJECT_TYPE ||
+        projectType == REPORTING_SPECIFICATION_PROJECT_TYPE}">    
         <jsp:include page="/top.jsp" >
             <jsp:param name="level1" value="reporting"/>
         </jsp:include>
