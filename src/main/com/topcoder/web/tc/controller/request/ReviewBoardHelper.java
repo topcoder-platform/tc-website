@@ -124,7 +124,8 @@ public final class ReviewBoardHelper {
             || reviewBoardType.equals(String.valueOf(WebConstants.UI_PROTOTYPE_SPECIFICATION_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.RIA_BUILD_SPECIFICATION_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.RIA_COMPONENT_SPECIFICATION_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.CONTENT_CREATION_SPECIFICATION_PROJECT_TYPE));
+            || reviewBoardType.equals(String.valueOf(WebConstants.CONTENT_CREATION_SPECIFICATION_PROJECT_TYPE))
+            || reviewBoardType.equals(String.valueOf(WebConstants.REPORTING_SPECIFICATION_PROJECT_TYPE));
         }
 
         return supported;
