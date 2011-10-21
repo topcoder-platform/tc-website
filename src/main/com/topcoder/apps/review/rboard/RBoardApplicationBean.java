@@ -134,7 +134,6 @@ import com.topcoder.web.ejb.forums.ForumsHome;
  *     int, boolean)} method to support validating review positions for content creation projects.</li>
  *     <li>Updated {@link #getReviewRespInfo()} method for support content creation contest.</li>
  *   </ol>
- * </p>
  *
  *   Version 1.0.17 Change notes:
  *   <ol>
@@ -143,9 +142,17 @@ import com.topcoder.web.ejb.forums.ForumsHome;
  *     </li>
  *     <li>Old-style Spec Review projects are not supported anymore.</li>
  *   </ol>
- *
- * @author dok, ivern, isv, pulky, snow01, VolodymyrK, Blues, FireIce
- * @version 1.0.17
+ *   
+ *   Version 1.0.18 Change notes:
+ *   <ol>
+ *     <li>Added {@link #REPORTING_PRIMARY_REVIEW_ID} constant.</li>
+ *     <li>Updated {@link #validateRegularUserTrans(java.sql.Connection, long, int, long, Boolean, java.sql.Timestamp,
+ *     int, boolean)} method to support validating review positions for reporting projects.</li>
+ *     <li>Updated {@link #getReviewRespInfo()} method for support reporting contest.</li>
+ *   </ol>
+ * </p>
+ * @author dok, ivern, isv, pulky, snow01, VolodymyrK, Blues, FireIce, lmmortal
+ * @version 1.0.18
  */
 public class RBoardApplicationBean extends BaseEJB {
     private static final int INTERNAL_ADMIN_USER = 100129;
@@ -272,6 +279,13 @@ public class RBoardApplicationBean extends BaseEJB {
      * @since 1.0.16
      */
     private static final int CONTENT_CREATION_PRIMARY_REVIEW_ID = 63;
+
+    /**
+     * <p>An <code>int</code> representing the primary review id for Reporting.</p>
+     *
+     * @since 1.0.18
+     */
+    private static final int REPORTING_PRIMARY_REVIEW_ID = 76;
 
 
     /**
@@ -1299,6 +1313,11 @@ public class RBoardApplicationBean extends BaseEJB {
             validateReviewPositions(reviewTypeId, primary, reviewers, CONTENT_CREATION_PRIMARY_REVIEW_ID,
                 INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         }
+        else if (phaseId == (WebConstants.REPORTING_PROJECT_TYPE + 111)) {
+           validateReviewPositions(reviewTypeId, primary, reviewers, REPORTING_PRIMARY_REVIEW_ID,
+                INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
+        }
+
 
         // If somebody came in by constructing the URL, make sure that there is at least one
         // primary before we run out of spots.
@@ -1392,10 +1411,10 @@ public class RBoardApplicationBean extends BaseEJB {
         Map returnMap = new HashMap();
         int[] respIds = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
                 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42,
-				43, 44, 45, 46, 47, 48, 49, 50, 60, 61, 62, 63, 64, 65};
+				43, 44, 45, 46, 47, 48, 49, 50, 60, 61, 62, 63, 64, 65, 76, 77, 78, 79};
         int[] phaseIds = {113, 113, 113, 112, 112, 112, 125, 125, 125, 118, 118, 118, 134, 134, 134,
                 117, 117, 117, 124, 124, 124, 130, 130, 130, 135, 135, 135, 136, 136, 136, 137, 137, 137,
-                114, 114, 114, 138, 1113, 1112, 1125, 1118, 1134, 1117, 1124, 1130, 1135, 1136, 1137, 1114, 1146, 140, 140, 140, 146, 146, 146};
+                114, 114, 114, 138, 1113, 1112, 1125, 1118, 1134, 1117, 1124, 1130, 1135, 1136, 1137, 1114, 1146, 140, 140, 140, 146, 146, 146, 147, 147, 147, 1147};
 
         for (int i = 0; i < respIds.length; i++) {
             returnMap.put(new Integer(respIds[i]), new Integer(phaseIds[i]));

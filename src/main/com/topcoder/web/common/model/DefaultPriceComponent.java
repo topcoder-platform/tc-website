@@ -97,6 +97,11 @@ import com.topcoder.shared.util.logging.Logger;
  *     <li>Added {@link #getMilestoneScreeningCost()} to calculate payment for the milestone screener.</li>
  *     <li>Updated {@link #getSpecReviewCost()} method for setting spec review payment for studio contests.</li>
  *   </ol>
+ *   
+ *   Version 1.1.9 (Add Reporting Contest Type) Change notes:
+ *   <ol>
+ *     <li>Added support for Reporting Contest Type.</li>
+ *   </ol>
  * </p>
  *
  * @author dok, ivern, isv, pulky, snow01, VolodymyrK, FireIce, flexme
@@ -226,7 +231,8 @@ public class DefaultPriceComponent implements SoftwareComponent {
         } else if (phaseId == ARCHITECTURE_PHASE) {
             return new ArchitectureReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
         } else if (phaseId == SPECIFICATION_PHASE || phaseId == TEST_SUITES_PHASE ||
-                   phaseId == TEST_SCENARIOS_PHASE || phaseId == COPILOT_POSTING_PHASE || phaseId == CONTENT_CREATION_PHASE) {
+                   phaseId == TEST_SCENARIOS_PHASE || phaseId == COPILOT_POSTING_PHASE || phaseId == CONTENT_CREATION_PHASE ||
+                   phaseId == REPORTING_PHASE) {
             return new ApplicationReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
         } else if (phaseId == UI_PROTOTYPE_PHASE || phaseId == RIA_BUILD_PHASE ||
                 phaseId == RIA_COMPONENT_PHASE) {
@@ -379,6 +385,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
             case FRONTENDFLASH_PHASE : return 75;
             case APPLICATIONFRONTEND_PHASE : return 75;
             case OTHER_PHASE : return 75;
+            case REPORTING_PHASE : return 50;
             default: return 50;
         }
     }
@@ -417,6 +424,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
             System.out.println("RIA Component phaseId                   : " + RIA_COMPONENT_PHASE);
             System.out.println("Copilot Posting phaseId                 : " + COPILOT_POSTING_PHASE);
             System.out.println("Content Creation phaseId                : " + CONTENT_CREATION_PHASE);
+            System.out.println("Reporting phaseId                       : " + REPORTING_PHASE);
             System.out.println("Specification Review phaseId            : " + SPECIFICATION_REVIEW_PHASE);
             System.out.println("Design Specification phaseId            : " + DESIGN_SPECIFICATION_PHASE);
             System.out.println("Development Specification phaseId       : " + DEVELOPMENT_SPECIFICATION_PHASE);

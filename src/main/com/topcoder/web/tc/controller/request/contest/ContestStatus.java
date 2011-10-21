@@ -32,10 +32,15 @@ import com.topcoder.web.tc.controller.request.development.Base;
  *   <ol>
  *     <li>Updated {@link #DEFAULT_PROJECT_TYPES} constant.</li>
  *   </ol>
+ *   
+ *   Version 1.4 (Add Reporting Contest Type) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #DEFAULT_PROJECT_TYPES} constant to support reporting contest type.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, pulky, FireIce
- * @version 1.3
+ * @author dok, pulky, FireIce, lmmortal
+ * @version 1.4
  */
 public class ContestStatus extends Base {
 
@@ -48,7 +53,8 @@ public class ContestStatus extends Base {
         Constants.ASSEMBLY_PROJECT_TYPE, Constants.ARCHITECTURE_PROJECT_TYPE,
         Constants.TEST_SUITES_PROJECT_TYPE, Constants.TEST_SCENARIOS_PROJECT_TYPE, Constants.SPECIFICATION_PROJECT_TYPE,
         Constants.CONCEPTUALIZATION_PROJECT_TYPE, Constants.UI_PROTOTYPE_PROJECT_TYPE,
-        Constants.RIA_BUILD_PROJECT_TYPE, Constants.RIA_COMPONENT_PROJECT_TYPE, Constants.CONTENT_CREATION_PROJECT_TYPE};
+        Constants.RIA_BUILD_PROJECT_TYPE, Constants.RIA_COMPONENT_PROJECT_TYPE, Constants.CONTENT_CREATION_PROJECT_TYPE,
+        Constants.REPORTING_PROJECT_TYPE};
 
     public static final String DEFAULT_NAMESPACE = "com.topcoder.web.tc.controller.request.contest.ContestStatus";
 

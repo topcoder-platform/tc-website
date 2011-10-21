@@ -76,9 +76,16 @@ package com.topcoder.web.common;
  *     <li>Added constants {@link #REVIEW_ID}.</li>
  *   </ol>
  * </p>
+ * 
+ * <p>
+ *   Version 1.6.5 (Add Reporting Contest Type) Change notes:
+ *   <ol>
+ *     <li>Added constants {@link #REPORTING_PROJECT_TYPE}, {@link #PHASE_REPORTING}.</li>
+ *   </ol>
+ * </p>
  *
- * @author dok, pulky, snow01, FireIce, TCSASSEMBER
- * @version 1.6.4
+ * @author dok, pulky, snow01, FireIce, lmmortal
+ * @version 1.6.5
  */
 public interface WebConstants {
     public static final String HANDLE = "ha";
@@ -643,6 +650,12 @@ public interface WebConstants {
 	 * @since 1.6.2
      */
     public static final int CONTENT_CREATION_PROJECT_TYPE = 35;
+    
+    /**
+     * <p>An <code>int</code> representing reporting project type id.</p>
+    * @since 1.6.5
+     */
+    public static final int REPORTING_PROJECT_TYPE = 36;
 
     /**
      * <p>An <code>long</code> representing content creation specification project category id.</p>
@@ -650,13 +663,33 @@ public interface WebConstants {
      */
     public static final long CONTENT_CREATION_SPECIFICATION_PROJECT_TYPE =
 	    CONTENT_CREATION_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;
+    
+    /**
+     * <p>An <code>long</code> representing reporting specification project category id.</p>
+	 * @since 1.6.5
+     */
+    public static final long REPORTING_SPECIFICATION_PROJECT_TYPE =
+	    REPORTING_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;
 
     /**
      * <p>An <code>long</code> representing content creation phase id.</p>
 	 * @since 1.6.2
      */
     public static final long PHASE_CONTENT_CREATION = CONTENT_CREATION_PROJECT_TYPE + GENERAL_PHASE_OFFSET;
+    
+    /**
+     * <p>An <code>long</code> representing reporting phase id.</p>
+    * @since 1.6.5
+     */
+    public static final long PHASE_REPORTING = REPORTING_PROJECT_TYPE + GENERAL_PHASE_OFFSET;
 
+    /**
+     * <p>An <code>long</code> representing reporting specification phase id.</p>
+	 * @since 1.6.5
+     */
+    public static final long PHASE_REPORTING_SPECIFICATION =
+	    PHASE_REPORTING + SPECIFICATION_COMPETITION_OFFSET;
+    
     /**
      * <p>An <code>long</code> representing copilot posting specification phase id.</p>
 	 * @since 1.6.2

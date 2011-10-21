@@ -53,11 +53,19 @@ import com.topcoder.web.common.WebConstants;
  *           </ul>
  *         </td>
  *     </tr>
+ *     <tr>
+ *         <td>Version 1.5 (Add Reporting Contest Type)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Updated {@link #isReviewBoardTypeSupported(String, boolean)} method.</li> 
+ *           </ul>
+ *         </td>
+ *     </tr>
  *   </table>
  * </p>
  *
- * @author pulky, snow01, FireIce
- * @version 1.4
+ * @author pulky, snow01, FireIce, lmmortal
+ * @version 1.5
  */
 public final class ReviewBoardHelper {
 
@@ -101,7 +109,8 @@ public final class ReviewBoardHelper {
             || reviewBoardType.equals(String.valueOf(WebConstants.UI_PROTOTYPE_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.RIA_BUILD_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.RIA_COMPONENT_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.CONTENT_CREATION_PROJECT_TYPE));
+            || reviewBoardType.equals(String.valueOf(WebConstants.CONTENT_CREATION_PROJECT_TYPE))
+            || reviewBoardType.equals(String.valueOf(WebConstants.REPORTING_PROJECT_TYPE));
 
 		if (!supported && includeSpecificationReviews) {
             supported = reviewBoardType.equals(String.valueOf(WebConstants.DESIGN_SPECIFICATION_PROJECT_TYPE))
@@ -115,7 +124,8 @@ public final class ReviewBoardHelper {
             || reviewBoardType.equals(String.valueOf(WebConstants.UI_PROTOTYPE_SPECIFICATION_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.RIA_BUILD_SPECIFICATION_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.RIA_COMPONENT_SPECIFICATION_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.CONTENT_CREATION_SPECIFICATION_PROJECT_TYPE));
+            || reviewBoardType.equals(String.valueOf(WebConstants.CONTENT_CREATION_SPECIFICATION_PROJECT_TYPE))
+            || reviewBoardType.equals(String.valueOf(WebConstants.REPORTING_SPECIFICATION_PROJECT_TYPE));
         }
 
         return supported;
