@@ -44,8 +44,14 @@ import com.topcoder.web.tc.Constants;
  *     <li>Updated {@link #businessProcessing()} method.</li>
  *   </ol>
  * </p>
- * @author cucu, pulky, Blues, FireIce
- * @version 1.4
+ *  <p>
+ *   Version 1.5 (Add Reporting Contest Type) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #businessProcessing()} method to display Reporting contests.</li>
+ *   </ol>
+ * </p>
+ * @author cucu, pulky, Blues, FireIce, lmmortal
+ * @version 1.5
  */
 public class CompList extends Base {
 
@@ -80,7 +86,8 @@ public class CompList extends Base {
                   || Constants.RIA_BUILD_PROJECT_TYPE == projectTypeId
                   || Constants.RIA_COMPONENT_PROJECT_TYPE == projectTypeId
                   || Constants.COPILOT_POSTING_PROJECT_TYPE == projectTypeId
-                  || Constants.CONTENT_CREATION_PROJECT_TYPE == projectTypeId)) {
+                  || Constants.CONTENT_CREATION_PROJECT_TYPE == projectTypeId
+                  || Constants.REPORTING_PROJECT_TYPE == projectTypeId)) {
                 throw new TCWebException("Invalid project_type_id (" + projectTypeId + ") parameter");
             }
 

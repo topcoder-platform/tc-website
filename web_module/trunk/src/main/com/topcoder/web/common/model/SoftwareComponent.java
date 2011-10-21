@@ -56,7 +56,12 @@ import com.topcoder.web.common.WebConstants;
  *     <li>Added constants for the the phases of Studio Contests.</li>
  *   </ol>
  * </p>
- *
+ * <p>
+ *   Version 1.7 (Add Reporting Contest Type) Change noets:
+ *   <ol>
+ *     <li>Added {@link #REPORTING_PHASE} constant for new Reporting contest type.</li>
+ *   </ol>
+ * </p>
  * @author dok, pulky, snow01, VolodymyrK, FireIce, flexme
  * @version 1.6
  */
@@ -281,6 +286,14 @@ public interface SoftwareComponent extends Cloneable, Serializable {
      * @since 1.5
      */
     public final static int CONTENT_CREATION_PHASE =(int) WebConstants.PHASE_CONTENT_CREATION;
+    
+    /**
+     * <p>An <code>int</code> representing reporting phase id.</p>
+     *
+     * @since 1.7
+     */
+    public final static int REPORTING_PHASE =
+            (int) WebConstants.PHASE_REPORTING;
 
     public final static int LEVEL1 = 100;
     public final static int LEVEL2 = 200;

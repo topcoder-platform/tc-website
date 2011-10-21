@@ -1,6 +1,6 @@
 <%--
-  - Author: pulky, snow01, FireIce
-  - Version: 1.2
+  - Author: pulky, snow01, FireIce, lmmortal
+  - Version: 1.3
   - Since: Specification Review Integration 1.0
   - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
   -
@@ -12,6 +12,9 @@
   -
   - Version 1.2 (Content Creation Contest Online Review and TC Site Integration Assembly version 1.0) changes:
   - Added constants for new content creation competitions.
+  -
+  - Version 1.3 (Add Reporting Contest Type) changes:
+  - Added constants for new reporting competitions.
 --%>
 
 <%@ page import="com.topcoder.web.tc.Constants" %>
@@ -29,6 +32,7 @@
 <c:set var="ARCHITECTURE_PROJECT_TYPE" value="<%=Constants.ARCHITECTURE_PROJECT_TYPE%>" scope="request"/>
 <c:set var="ASSEMBLY_PROJECT_TYPE" value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>" scope="request"/>
 <c:set var="CONTENT_CREATION_PROJECT_TYPE" value="<%=Constants.CONTENT_CREATION_PROJECT_TYPE%>" scope="request"/>
+<c:set var="REPORTING_PROJECT_TYPE" value="<%=Constants.REPORTING_PROJECT_TYPE%>" scope="request"/>
 <c:set var="CONCEPTUALIZATION_SPECIFICATION_PROJECT_TYPE"
     value="<%=Constants.CONCEPTUALIZATION_SPECIFICATION_PROJECT_TYPE%>" scope="request"/>
 <c:set var="SPECIFICATION_SPECIFICATION_PROJECT_TYPE" value="<%=Constants.SPECIFICATION_SPECIFICATION_PROJECT_TYPE%>"
@@ -53,6 +57,8 @@
     value="<%=Constants.RIA_COMPONENT_SPECIFICATION_PROJECT_TYPE%>" scope="request"/>
 <c:set var="CONTENT_CREATION_SPECIFICATION_PROJECT_TYPE"
     value="<%=Constants.CONTENT_CREATION_SPECIFICATION_PROJECT_TYPE%>" scope="request"/>
+<c:set var="REPORTING_SPECIFICATION_PROJECT_TYPE"
+    value="<%=Constants.REPORTING_SPECIFICATION_PROJECT_TYPE%>" scope="request"/>
 
 <c:choose>
     <c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
@@ -157,6 +163,12 @@
         <c:set var="eligibleReviewBoardName" value="the TopCoder Content Creation Review Board" scope="request"/>
         <c:set var="handleContext" value="conent_creation" scope="request"/>
     </c:when>
+    <c:when test="${projectType == REPORTING_SPECIFICATION_PROJECT_TYPE}">
+        <c:set var="projectTypeDesc" value="Specification Review" scope="request"/>
+        <c:set var="projectTypeTitle" value="Specification Review" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="the TopCoder Reporting Review Board" scope="request"/>
+        <c:set var="handleContext" value="reporting" scope="request"/>
+    </c:when>
     <c:when test="${projectType == DESIGN_SPECIFICATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Specification Review" scope="request"/>
         <c:set var="projectTypeTitle" value="Specification Review" scope="request"/>
@@ -186,6 +198,12 @@
         <c:set var="projectTypeTitle" value="Content Creation" scope="request"/>
         <c:set var="eligibleReviewBoardName" value="the TopCoder Content Creation Review Board" scope="request"/>
         <c:set var="handleContext" value="content_creation" scope="request"/>
+    </c:when>
+    <c:when test="${projectType == REPORTING_PROJECT_TYPE}">
+        <c:set var="projectTypeDesc" value="Reporting" scope="request"/>
+        <c:set var="projectTypeTitle" value="Reporting" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="the TopCoder Reporting Review Board" scope="request"/>
+        <c:set var="handleContext" value="reporting" scope="request"/>
     </c:when>
     <c:when test="${projectType == DESIGN_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Component" scope="request"/>

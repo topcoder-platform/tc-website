@@ -1,14 +1,17 @@
 <%--
-  - Author: pulky, snow01, FireIce
-  - Version: 1.1
+  - Author: pulky, snow01, FireIce, lmmortal
+  - Version: 1.2
   - Since: Specification Review Integration 1.0
-  - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
+  - Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: This is a simple include page that that helps avoiding duplicated code in review board pages.
   - It will resolve included global left navigation bar according to the project type.
   -
   - Version 1.1 (Content Creation Contest Online Review and TC Site Integration Assembly version 1.0) changes:
   - Added support for new content creation competitions.
+  -
+  - Version 1.2 (Add Reporting Contest Type) changes:
+  - Added support for new reporting competitions.
 --%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -73,6 +76,12 @@
             projectType == CONTENT_CREATION_SPECIFICATION_PROJECT_TYPE}">
             <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="content_creation_review"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${projectType == REPORTING_PROJECT_TYPE ||
+            projectType == REPORTING_SPECIFICATION_PROJECT_TYPE}">
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="reporting_review"/>
             </jsp:include>
         </c:when>
         <c:when test="${projectType == DESIGN_PROJECT_TYPE ||

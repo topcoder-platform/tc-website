@@ -147,11 +147,22 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *           </ul>
  *         </td>
  *     </tr>
+ *     <tr>
+ *         <td>Version 1.12 (Add Reporting Contest Type)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Updated {@link #getProjectDetailPage(int)} method.</li>
+ *             <li>Updated {@link #getRegistrantsCommandName(int)} method.</li>
+ *             <li>Updated {@link #getProjectTypeId(com.topcoder.web.common.TCRequest)} method.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
+
  *   </table>
  * </p>
  *
- * @author dok, isv, pulky, VolodymyrK, Blues, FireIce
- * @version 1.11
+ * @author dok, isv, pulky, VolodymyrK, Blues, FireIce, lmmortal
+ * @version 1.12
  */
 public abstract class Base extends ShortHibernateProcessor {
 
@@ -223,6 +234,8 @@ public abstract class Base extends ShortHibernateProcessor {
             return "/copilotposting/projectDetail.jsp";
         } else if (projectTypeId ==Constants.CONTENT_CREATION_PROJECT_TYPE) {
             return "/contentcreation/projectDetail.jsp";
+        } else if (projectTypeId ==Constants.REPORTING_PROJECT_TYPE) {
+            return "/reporting/projectDetail.jsp";
         } else {
             return "";
         }
@@ -248,7 +261,8 @@ public abstract class Base extends ShortHibernateProcessor {
             || projectTypeId == Constants.RIA_BUILD_PROJECT_TYPE
             || projectTypeId == Constants.RIA_COMPONENT_PROJECT_TYPE
             || projectTypeId == Constants.COPILOT_POSTING_PROJECT_TYPE
-            || projectTypeId == Constants.CONTENT_CREATION_PROJECT_TYPE) {
+            || projectTypeId == Constants.CONTENT_CREATION_PROJECT_TYPE
+            || projectTypeId == Constants.REPORTING_PROJECT_TYPE) {
             return "registrants";
         } else {
             return "contest_registrants";
@@ -346,6 +360,8 @@ public abstract class Base extends ShortHibernateProcessor {
                 projectTypeId = Constants.COPILOT_POSTING_PROJECT_TYPE;
             } else if (String.valueOf(SoftwareComponent.CONTENT_CREATION_PHASE).equals(phaseId)) {
                 projectTypeId = Constants.CONTENT_CREATION_PROJECT_TYPE;
+            } else if (String.valueOf(SoftwareComponent.REPORTING_PHASE).equals(phaseId)) {
+                projectTypeId = Constants.REPORTING_PROJECT_TYPE;
             }
         }
         return projectTypeId;

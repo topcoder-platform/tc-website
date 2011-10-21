@@ -46,8 +46,14 @@ import com.topcoder.web.tc.controller.request.util.TCCC06ComponentTerms;
  *     <li>Added {@link #CONTENT_CREATION} constant.</li>
  *   </ol>
  * </p>
+ * <p>
+ *   Version 1.5 (Add Reporting Contest Type) Change notes:
+ *   <ol>
+ *     <li>Added {@link #REPORTING} constant.</li>
+ *   </ol>
+ * </p>
  * @author dok, pulky, Blues, FireIce
- * @version 1.4
+ * @version 1.5
  */
 public class Home extends Base {
     public static final String DESIGN = "design";
@@ -89,6 +95,13 @@ public class Home extends Base {
      * @since 1.4
      */
     public static final String CONTENT_CREATION = "contentcreation";
+    
+    /**
+     * <p>A <code>String</code> representing reporting key.</p>
+     *
+     * @since 1.5
+     */
+    public static final String REPORTING = "reporting";
 
     public static final String BUGS = "bugs";
     public static final String DR = "dr";

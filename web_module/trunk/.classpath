@@ -126,7 +126,6 @@
 	<classpathentry kind="lib" path="lib/jars/tcs/object_factory/2.0.1/object_factory.jar"/>
 	<classpathentry kind="lib" path="lib/jars/tcs/phase_management/1.0/phase_management.jar"/>
 	<classpathentry kind="lib" path="lib/jars/tcs/project_management/1.0/project_management.jar"/>
-	<classpathentry kind="lib" path="lib/jars/tcs/project_phase_template/1.0/project_phase_template.jar"/>
 	<classpathentry kind="lib" path="lib/jars/tcs/project_phases/2.0/project_phases.jar"/>
 	<classpathentry kind="lib" path="lib/jars/tcs/refreshable_cache.jar"/>
 	<classpathentry kind="lib" path="lib/jars/tcs/searchengine.jar"/>
@@ -176,6 +175,6 @@
 	<classpathentry kind="lib" path="lib/jars/tcs/pipeline_service/1.0.0/pipeline_service.jar"/>
 	<classpathentry kind="lib" path="lib/jars/tcs/pipeline_service_facade/1.0.0/pipeline_service_facade.jar"/>
 	<classpathentry kind="lib" path="lib/jars/tcs/pipeline_service_persistence/1.0.0/pipeline_service_persistence.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.6.0_12"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

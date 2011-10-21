@@ -1,14 +1,17 @@
 <%--
-  - Author: pulky, snow01, FireIce
-  - Version: 1.1
+  - Author: pulky, snow01, FireIce, lmmortal
+  - Version: 1.2
   - Since: Specification Review Integration 1.0
-  - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
+  - Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: This is a simple include page that that helps avoiding duplicated code in review board pages.
   - It will resolve included page title to the project type.
   -
   - Version 1.1 (Content Creation Contest Online Review and TC Site Integration Assembly version 1.0) changes:
   - Added support for new content creation competitions.
+  -
+  - Version 1.2 (Add Reporting Contest Type) changes:
+  - Added support for new reporting competitions.
 --%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -81,6 +84,13 @@
         projectType == CONTENT_CREATION_SPECIFICATION_PROJECT_TYPE}">
         <jsp:include page="/page_title.jsp">
             <jsp:param name="image" value="content_creation"/>
+            <jsp:param name="title" value="Review Opportunities"/>
+        </jsp:include>
+    </c:when>
+    <c:when test="${projectType == REPORTING_PROJECT_TYPE ||
+        projectType == REPORTING_SPECIFICATION_PROJECT_TYPE}">
+        <jsp:include page="/page_title.jsp">
+            <jsp:param name="image" value="reporting"/>
             <jsp:param name="title" value="Review Opportunities"/>
         </jsp:include>
     </c:when>

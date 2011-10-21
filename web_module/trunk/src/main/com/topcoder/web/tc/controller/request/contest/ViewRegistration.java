@@ -78,8 +78,14 @@ import com.topcoder.web.tc.controller.request.development.Base;
  *     <li>Updated {@link #validation()} method.</li>
  *   </ol>
  * </p>
- * @author dok, pulky, Blues, FireIce
- * @version 1.6
+ * <p>
+ *   Version 1.7 (Add Reporting Contest Type) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #validation()} method.</li>
+ *   </ol>
+ * </p>
+ * @author dok, pulky, Blues, FireIce, lmmortal
+ * @version 1.7
  */
 public class ViewRegistration extends Base {
 
@@ -181,7 +187,8 @@ public class ViewRegistration extends Base {
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.RIA_BUILD_PROJECT_TYPE)) &&
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.RIA_COMPONENT_PROJECT_TYPE)) &&
 		        !String.valueOf(projectTypeId).equals(String.valueOf(Constants.COPILOT_POSTING_PROJECT_TYPE)) &&
-                !String.valueOf(projectTypeId).equals(String.valueOf(Constants.CONTENT_CREATION_PROJECT_TYPE))) {
+                !String.valueOf(projectTypeId).equals(String.valueOf(Constants.CONTENT_CREATION_PROJECT_TYPE)) &&
+                !String.valueOf(projectTypeId).equals(String.valueOf(Constants.REPORTING_PROJECT_TYPE))) {
             throw new NavigationException("Invalid project specified (wrong category)");
         }
 

@@ -112,10 +112,15 @@ import com.topcoder.web.tc.Constants;
  *   <ol>
  *     <li>Updated {@link #validateWithCatalog(int)} method.</li>
  *   </ol>
+ *   
+ *   Version 1.0.14 (Add Reporting Contest Type) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #validateWithCatalog(int)} method.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, isv, pulky, snow01, VolodymyrK, FireIce
- * @version 1.0.13
+ * @author dok, isv, pulky, snow01, VolodymyrK, FireIce, lmmortal
+ * @version 1.0.14
  */
 public class ProjectReviewApply extends Base {
     protected long projectId = 0;
@@ -352,6 +357,7 @@ public class ProjectReviewApply extends Base {
             projectTypeId != WebConstants.UI_PROTOTYPE_SPECIFICATION_PROJECT_TYPE &&
             projectTypeId != WebConstants.RIA_BUILD_SPECIFICATION_PROJECT_TYPE &&
             projectTypeId != WebConstants.RIA_COMPONENT_SPECIFICATION_PROJECT_TYPE &&
-            projectTypeId != WebConstants.CONTENT_CREATION_PROJECT_TYPE;
+            projectTypeId != WebConstants.CONTENT_CREATION_PROJECT_TYPE &&
+            projectTypeId != WebConstants.REPORTING_PROJECT_TYPE;
     }
 }

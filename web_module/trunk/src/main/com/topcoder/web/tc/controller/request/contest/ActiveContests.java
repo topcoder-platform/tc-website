@@ -41,10 +41,15 @@ import java.util.Map;
  *   <ol>
  *     <li>Updated {@link #DEFAULT_PROJECT_TYPES} constant.</li>
  *   </ol>
+ * 
+ *  Version 1.5 (Add Reporting Contest Type) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #DEFAULT_PROJECT_TYPES} constant to support Reporting type.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, pulky, Blues, FireIce
- * @version 1.4
+ * @author dok, pulky, Blues, FireIce, lmmortal
+ * @version 1.5
  */
 public class ActiveContests extends ActiveContestsBase {
 
@@ -57,7 +62,7 @@ public class ActiveContests extends ActiveContestsBase {
         Constants.SPECIFICATION_PROJECT_TYPE, Constants.CONCEPTUALIZATION_PROJECT_TYPE,
         Constants.UI_PROTOTYPE_PROJECT_TYPE, Constants.RIA_BUILD_PROJECT_TYPE,
         Constants.RIA_COMPONENT_PROJECT_TYPE, Constants.COPILOT_POSTING_PROJECT_TYPE,
-        Constants.CONTENT_CREATION_PROJECT_TYPE};
+        Constants.CONTENT_CREATION_PROJECT_TYPE, Constants.REPORTING_PROJECT_TYPE};
 
     public static final String DEFAULT_NAMESPACE = "com.topcoder.web.tc.controller.request.contest.ActiveContests";
 
