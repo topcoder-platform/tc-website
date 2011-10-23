@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+
+<project name="TCS DW Loader" default="dist" basedir=".">
+
+    <property file="build_data_loader.properties"/>
+
+    <!-- COMPONENT PARAMETERS -->
+    <property name="component" value="tcs_dw_loader"/>
+    <property name="package" value="com.topcoder.utilities.dwload"/>
+    <property name="packagedir" value="com/topcoder/utilities/dwload"/>
+    <property name="distfilename" value="tcs_dw_loader"/>
+    <property name="component_version" value="1.0"/>
+    <property name="component_path" value="${distfilename}/${component_version}"/>
+    <property name="data.loader.dist" value="/mnt/shared/web/build/tcs_dw_loader.jar"/>
+
+    <!-- DIRECTORY SETUP -->
+    <property name="srcdir" value="src"/>
+    <property name="tcs_libdir" value="lib/tcs"/>
+    <property name="ext_libdir" location="lib/jars"/>
+    <property name="shared_libdir" value="/mnt/shared/shared/build/artifacts"/>
+    <property name="jar_tcs_libdir" value="lib/tcs"/>
+    <property name="jar_ext_libdir" location="lib/third_party"/>
+    <property name="jar_shared_libdir" location="lib/shared"/>
+    <property name="docsdir" value="docs"/>
+    <property name="configdir" value="conf"/>
+
+    <property name="javamain" value="${srcdir}/main"/>
+
+    <property name="builddir" value="build"/>
+    <property name="build_classdir" value="${builddir}/classes"/>
+    <property name="build_distdir" value="${builddir}/dist"/>
+    <property name="build_lib" value="${builddir}/lib"/>
+    <property name="build_conf" value="${builddir}/conf"/>
+
+    <!-- Server installation directories -->
+    <property name="deploy-dir" value="d:\tomcat\webapps\${distfilename}.war"/>
+
+    <!-- EXECUTION TAGS -->
+    <property name="debug" value="off"/>
+    <property name="verbose" value="no"/>
+
+    <!-- COMPONENT DISTRIBUTION STRUCTURE -->
+    <property name="dist_lib" value="${build_distdir}/lib/tcs"/>
+
+    <!-- NAME FOR .JAR AND .WAR FILES -->
+    <property name="component.jar" value="${dist_lib}/${component_path}/${distfilename}.jar"/>
+
+    <!-- TCS Dependencies -->
+    <property name="shared.jar" value="${shared_libdir}/shared-SNAPSHOT.jar"/>
+
+    <!-- 3rd Party Dependencies  -->
+    <property name="ifxjdbc.jar" value="${ext_libdir}/ifxjdbc.jar"/>
+    <property name="log4j.jar" value="${ext_libdir}/log4j-1.2.7.jar"/>
+    <property name="jbossall-client.jar" value="${ext_libdir}/jboss/jbossall-client.jar"/>
+
+    <path id="buildlibs">
+        <pathelement location="${ifxjdbc.jar}"/>
+        <pathelement location="${log4j.jar}"/>
+        <pathelement location="${jbossall-client.jar}"/>
+        <pathelement location="${shared.jar}"/>
+    </path>
+
+    <path id="runtime.classpath">
+        <fileset dir="lib">
+            <include name="*.jar"/>
+        </fileset>
+        <pathelement location="resources"/>
+        <pathelement location="."/>
+    </path>
+
+    <target name="compile">
+        <mkdir dir="${build_classdir}"/>
+        <echo message="${shared.jar}"/>
+        <javac srcdir="${javamain}"
+               destdir="${build_classdir}"
+               includes="${packagedir}/**/*.java"
+               debug="true"
+               verbose="${verbose}"
+               source="1.5"
+               target="1.5"
+                >
+            <classpath refid="buildlibs"/>
+        </javac>
+    </target>
+
+    <target name="dist" depends="clean,compile">
+        <mkdir dir="${build_lib}"/>
+        <mkdir dir="${build_conf}"/>
+        <copy todir="${build_lib}" file="${ifxjdbc.jar}" flatten="true"/>
+        <copy todir="${build_lib}" file="${shared.jar}" flatten="true"/>
+        <copy todir="${build_lib}" file="${log4j.jar}" flatten="true"/>
+        <copy todir="${build_lib}" file="${jbossall-client.jar}" flatten="true"/>
+        <copy todir="${build_conf}" file="scripts/dwload/loadtcs.xml" flatten="true"/>
+        <copy todir="${build_conf}" file="scripts/dwload/loadweeklystat.xml" flatten="true"/>
+        <copy tofile="${builddir}/build.xml" file="build_data_loader.xml" flatten="true" overwrite="true"/>
+        <jar destfile="${data.loader.dist}">
+            <fileset dir="${build_classdir}">
+                <include name="${packagedir}/**/*.class"/>
+            </fileset>
+            <fileset dir=".">
+                <include name="resources/Application.properties"/>
+                <include name="resources/DBMS.properties"/>
+                <include name="resources/cache.properties"/>
+                <include name="resources/log4j.properties"/>
+            </fileset>
+            <fileset dir="${builddir}">
+                <include name="lib/*.jar"/>
+                <include name="conf/*.xml"/>
+                <include name="build.xml"/>
+            </fileset>
+        </jar>
+    </target>
+    
+    <target name="clean">
+        <delete failonerror="false">
+            <fileset dir="${builddir}" includes="${packagedir}/**/*.class"/>
+            <fileset dir="${build_lib}" includes="**/*.jar"/>
+        </delete>
+    </target>
+
+    <target name="tcs_dw">
+        <java classname="com.topcoder.shared.util.dwload.TCLoadUtility" fork="true" 
+              maxmemory="1024M">
+            <arg value="-xmlfile"/>
+            <arg value="conf/loadtcs.xml"/>
+            <classpath refid="runtime.classpath"/>
+        </java>
+    </target>
+
+    <target name="weeklystat">
+        <java classname="com.topcoder.shared.util.dwload.TCLoadUtility" fork="true" 
+              maxmemory="1024M">
+            <arg value="-xmlfile"/>
+            <arg value="conf/loadweeklystat.xml"/>
+            <classpath refid="runtime.classpath"/>
+        </java>
+    </target>
+
+    <!-- ************************************************************************** -->
+    <!-- ************ REMOVE EVERYTHING BELOW HERE FOR THE DISTRIBUTION ************* -->
+    <!-- ************************************************************************** -->
+
+
+    <!-- ************************************************************************** -->
+    <!-- ************************ END REMOVE EVERYTHING ***************************** -->
+    <!-- ************************************************************************** -->
+</project>

@@ -335,8 +335,9 @@ public class TCLoadTCS extends TCLoad {
     }
 
 
-    public void doClearCache() throws Exception {
-        String[] keys = new String[]{
+    public void doClearCache() {
+        try {        
+            String[] keys = new String[]{
             "member_projects", "project_results_all", "contest_prizes", "contest_projects", "project_details",
             "tccc05_", "tccc06_", "tco07_", "usdc_", "component_history", "tcs_ratings_history",
             "member_profile", "Coder_Data", "Coder_Track_Data", "Coder_Dev_Data", "Coder_Des_Data", "Component_",
@@ -356,7 +357,10 @@ public class TCLoadTCS extends TCLoad {
             s.add(key);
         }
         CacheClearer.removelike(s);
-    }
+        } catch (Exception e) {
+            log.error("An error caught while clearing the cache (ignored).", e);
+         }    
+       }
 
     protected void getLastUpdateTime() throws Exception {
         Statement stmt = null;
