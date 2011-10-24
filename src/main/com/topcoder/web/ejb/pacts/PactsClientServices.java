@@ -241,5 +241,42 @@ public interface PactsClientServices extends EJBObject {
      */
     Boolean hasHardCopyAssignmentDocumentByUserId(long userId, long assignmentDocumentTypeId) throws RemoteException;
 
+    /**
+     * Sets the status on all contest payments with Pending or On Hold status older than a specified time
+     * to Expired. The time limit is specified in <tt>PactsConstants.java</tt>
+     * and is currently set to 60 days.
+     *
+     * @return The number of affidavit/payment pairs thus affected.
+     */
+    int expireOldPayments() throws RemoteException;
+
+    /**
+     * Sets the status on all affidavits older than a specified time
+     * to Expired, and set the status on their associated payment (if any)
+     * to Canceled.  The time limit is specified in <tt>PactsConstants.java</tt>
+     * and is currently set to 60 days.  Any payments that were already paid
+     * that would here have been canceled are logged.
+     *
+     * @return The number of affidavit/payment pairs thus affected.
+     */
+    int expireOldAffidavits() throws RemoteException;
+
+    /**
+     * Sets the status on all assignment documents older than a specified time
+     * to Expired, and set the status on their associated payment (if any)
+     * to Canceled.
+     *
+     * @return The number of affidavit/payment pairs thus affected.
+     */
+    int expireOldAssignmentDocuments() throws RemoteException;
+
+    /**
+     * Checks all recently inactivated members and sets the status of their payments to Cancelled.
+     *
+     * @param userId ID of the member to check or 0 to check all members.
+     * @return The number of recently inactivated members who had payments.
+     */
+    int checkInactiveCoders(long userId) throws RemoteException;
+
 }
 
