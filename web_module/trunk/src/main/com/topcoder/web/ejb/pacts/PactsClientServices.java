@@ -248,7 +248,7 @@ public interface PactsClientServices extends EJBObject {
      *
      * @return The number of affidavit/payment pairs thus affected.
      */
-    int expireOldPayments() throws RemoteException;
+    int expireOldPayments() throws RemoteException, SQLException;
 
     /**
      * Sets the status on all affidavits older than a specified time
@@ -259,7 +259,7 @@ public interface PactsClientServices extends EJBObject {
      *
      * @return The number of affidavit/payment pairs thus affected.
      */
-    int expireOldAffidavits() throws RemoteException;
+    int expireOldAffidavits() throws RemoteException, SQLException;
 
     /**
      * Sets the status on all assignment documents older than a specified time
@@ -268,7 +268,7 @@ public interface PactsClientServices extends EJBObject {
      *
      * @return The number of affidavit/payment pairs thus affected.
      */
-    int expireOldAssignmentDocuments() throws RemoteException;
+    int expireOldAssignmentDocuments() throws RemoteException, SQLException;
 
     /**
      * Checks all recently inactivated members and sets the status of their payments to Cancelled.
@@ -276,7 +276,7 @@ public interface PactsClientServices extends EJBObject {
      * @param userId ID of the member to check or 0 to check all members.
      * @return The number of recently inactivated members who had payments.
      */
-    int checkInactiveCoders(long userId) throws RemoteException;
+    int checkInactiveCoders(long userId) throws RemoteException, SQLException;
 
 }
 
