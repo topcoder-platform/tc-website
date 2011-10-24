@@ -149,7 +149,7 @@
             <td class="value">
           <% if (resultRow.getIntItem("tourny_project") > 0) { %>
                 <div align="center">
-                  <a href='http://community.topcoder.com/tco11'><img class="emblem" src="/i/tournament/tco11/emblem.png" alt="" border="0" onMouseOver="postPopUpText('globalPopupText','Eligible for the TopCoder Open'); popUp(this,'globalPopup');" onMouseOut="popHide()" /></a>
+                  <a href='http://community.topcoder.com/tco12'><img class="emblem" src="/i/tournament/tco12/software_tco12_icon.png" alt="" border="0" onMouseOver="postPopUpText('globalPopupText','Eligible for the TopCoder Open'); popUp(this,'globalPopup');" onMouseOut="popHide()" /></a>
                 </div>
            <% } else if (resultRow.isValidColumn("paypal_brand") && resultRow.getItem("paypal_brand").getResultData() != null && resultRow.getIntItem("paypal_brand") > 0) { %>
                 <div align="center">

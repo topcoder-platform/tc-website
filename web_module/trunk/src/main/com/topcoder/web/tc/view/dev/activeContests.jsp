@@ -143,7 +143,7 @@
                 <% if (resultRow.getIntItem("tourny_project") > 0) { %>
                 <div align="center">
 
-                    <a href='http://community.topcoder.com/tco11'><img class="emblem" src="/i/tournament/tco11/emblem.png" alt="" border="0" onmouseover="postPopUpText('globalPopupText','Eligible for the TopCoder Open'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
+                    <a href='http://community.topcoder.com/tco12'><img class="emblem" src="/i/tournament/tco12/emblem.png" alt="" border="0" onmouseover="postPopUpText('globalPopupText','Eligible for the TopCoder Open'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
                 </div>
                 <% } else { %>
                 &nbsp;
@@ -286,7 +286,7 @@
             <td class="value">
                 <% if (resultRow.getIntItem("tourny_project") > 0) { %>
                 <div align="center">
-                    <a href='http://community.topcoder.com/tco11'><img class="emblem" src="/i/tournament/tco11/emblem.png" alt="" border="0" onmouseover="postPopUpText('globalPopupText','Eligible for the TopCoder Open'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
+                    <a href='http://community.topcoder.com/tco12'><img class="emblem" src="/i/tournament/tco12/software_tco12_icon.png" alt="" border="0" onmouseover="postPopUpText('globalPopupText','Eligible for the TopCoder Open'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
                 </div>
                 <% } %>
             </td>
