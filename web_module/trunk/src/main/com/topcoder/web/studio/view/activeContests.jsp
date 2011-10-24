@@ -159,8 +159,8 @@
                                         <tr class="<%=even?"light":"dark"%>">
                                             <td class="valueE">
                                                 <%-- if tco show icon --%>
-                                                <% if ("3433".equals(resultRow.getStringItem("event_id"))) { %>
-                                                <a href="http://community.topcoder.com/tco11"><img src="/i/tournament/tco11/tco11-icon.png" alt="Eligible for the TCO11" /><span>Eligible for the TCO11</span></a>
+                                                <% if ("3434".equals(resultRow.getStringItem("event_id"))) { %>
+                                                <a href="http://community.topcoder.com/tco12"><img src="/i/tournament/tco12/tco12_icon_design.png" alt="Eligible for the TCO12" /><span>Eligible for the TCO12</span></a>
                                                 <% } else { %>
                                                 &nbsp;
                                                 <% } %>
