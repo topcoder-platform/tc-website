@@ -134,7 +134,7 @@
       </td>
       <td class="value">24
 	  		<div class="long">
-         <strong><a href="/tc?module=MatchDetails&rd=14672">MM 74/a></strong><br />
+         <strong><a href="/tc?module=MatchDetails&rd=14672">MM 74</a></strong><br />
          13:00<br />
          2 weeks
          </div>
