@@ -31,7 +31,6 @@
     <property name="web" value="src/main/com/topcoder/web"/>
     <property name="jboss_home" value="${env.JBOSS_HOME}"/>
     <property name="jboss_deploy" value="${jboss_home}/server/all/deploy"/>
-    <property name="jboss_deploy_hasingleton" value="${jboss_home}/server/all/deploy-hasingleton"/>
     <property name="jboss_lib" value="${jboss_home}/server/all/lib"/>
     <property name="jboss_conf" value="${jboss_home}/server/all/conf"/>
 
@@ -553,19 +552,6 @@
         </jar>
     </target>
 
-    <target name="build-sars" depends="compile">
-        <jar jarfile="${sar.dir}/expireOldAffidavitsAndPayments.sar" basedir="${classes}"
-             includes="com/topcoder/utilities/pacts/ExpireOldAffidavitsAndPayments*,
-                     com/topcoder/web/tc/controller/legacy/pacts/bean/*.class,
-                     com/topcoder/web/tc/controller/legacy/pacts/common/*.class,
-                     com/topcoder/web/ejb/pacts/*.class">
-
-            <metainf dir="${java}/com/topcoder/utilities/pacts" includes="*.xml"/>
-        </jar>
-
-    </target>
-
-
     <target name="deploy" depends="compile">
         <antcall target="deploy-tc"/>
         <antcall target="deploy-admin"/>
@@ -579,7 +565,6 @@
         <antcall target="deploy-security"/>
         <antcall target="move-libs"/>
         <antcall target="move-conf"/>
-        <antcall target="build-sars"/>
         <antcall target="deploy-rboard"/>
     </target>
 
@@ -1352,7 +1337,7 @@
     </target>
 
 
-    <target name="war-tc" depends="compile,build-sars">
+    <target name="war-tc" depends="compile">
         <war warfile="${war.dir}/tc.war" webxml="${resources}/tc/web.xml">
             <fileset dir="${java}/com/topcoder/web/tc/view">
                 <include name="**/*.*"/>
@@ -1487,11 +1472,6 @@
                 <include name="User.jar"/>
                 <include name="UserServices.jar"/>
                 <include name="Util.jar"/>
-            </fileset>
-        </copy>
-        <copy todir="${jboss_deploy_hasingleton}">
-            <fileset dir="${sar.dir}">
-                <include name="expireOldAffidavitsAndPayments.sar"/>
             </fileset>
         </copy>
         <unwar src="${war.dir}/tc.war" dest="${jboss_deploy}/tc.war/" overwrite="yes"/>
