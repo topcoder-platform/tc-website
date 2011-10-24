@@ -77,7 +77,7 @@
                 <div>
                 <div align="center" style="text-align:left; width:500px; font-size:12px; line-height: 18px;">
                     <br /><br />
-                    Please be aware that you are <b>NOT REGISTERED for the TCO11 tournament</b> that this contest is part of. Registering for this contest will not register you for the TCO11 tournament. If you don't register for the tournament prior to registering for this contest, you will not receive points for this contest even if you sign up for TCO11 at a later date.
+                    Please be aware that you are <b>NOT REGISTERED for the TCO12 tournament</b> that this contest is part of. Registering for this contest will not register you for the TCO12 tournament. If you don't register for the tournament prior to registering for this contest, you will not receive points for this contest even if you sign up for TCO12 at a later date.
                     <br /><br />
 
                     <form name="terms" method="POST" action="${sessionInfo.servletPath}">
@@ -88,9 +88,9 @@
                 </div>
                 <div align="center" style="font-size:14px;">
                         <br /><br />
-                        <a href="http://community.topcoder.com/tco11" target="_blank">Take me to register for the TCO11</a><br />
+                        <a href="http://community.topcoder.com/tco12" target="_blank">Take me to register for the TCO12</a><br />
                         <br />
-                        <a href="#" onclick="document.terms.submit()">I don't want to register for TCO11. Just register for this contest.</a>
+                        <a href="#" onclick="document.terms.submit()">I don't want to register for TCO12. Just register for this contest.</a>
 
                     </form>
                 </div>

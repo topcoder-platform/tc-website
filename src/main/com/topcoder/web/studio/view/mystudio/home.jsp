@@ -98,7 +98,7 @@
                             <p>
                                 <strong>Leaderboards</strong><br/>
                                 <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/dr?module=ViewLeaderBoard&sc=&sd=">Studio Cup</a><br/>
-                                TCO11 Studio Track (coming soon)
+                                TCO12 Studio Track (coming soon)
                             </p>
 
                         </div>

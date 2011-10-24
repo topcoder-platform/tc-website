@@ -112,8 +112,8 @@
                                    class="post_project"></a>
                             </div>
                             <div id="homePageBanner">
-                                <a href="http://community.topcoder.com/tco11/studio/">
-                                    <img src="/i/tournament/tco11/2011-tco-banner-studio.jpg" alt="TCO 2011"/></a>
+                                <a href="http://community.topcoder.com/tco12/studio/">
+                                    <img src="/i/tournament/tco12/2011-tco-banner-studio.jpg" alt="TCO 2011"/></a>
                                 <br/>
                                 <br/>
                             </div>
@@ -151,10 +151,10 @@
                                                 
                                                 <tr>
                                                     <td class="event">
-                                                        <% if ("3433".equals(resultRow.getStringItem("event_id"))) { %>
-                                                        <a href="http://community.topcoder.com/tco11/studio">
-                                                            <img src="/i/tournament/tco11/tco11-iconsmall.png"
-                                                                 alt="Eligible for the TCO11" /></a>
+                                                        <% if ("3434".equals(resultRow.getStringItem("event_id"))) { %>
+                                                        <a href="http://community.topcoder.com/tco12/studio">
+                                                            <img src="/i/tournament/tco12/tco12_small_icon_design.png"
+                                                                 alt="Eligible for the TCO12" /></a>
                                                         <%} else {%>&nbsp;<%}%>
                                                     </td>
                                                     <td class="first">
