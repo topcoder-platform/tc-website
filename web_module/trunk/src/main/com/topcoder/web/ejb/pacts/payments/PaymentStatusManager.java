@@ -405,6 +405,12 @@ public class PaymentStatusManager {
             List<BasePayment> payments = dib.findCoderPayments(criteria);
 
             for (BasePayment payment : payments) {
+                // Only algorithm payments are cancelable.
+                if (payment.getPaymentType() != PactsConstants.ALGORITHM_CONTEST_PAYMENT &&
+                    payment.getPaymentType() != PactsConstants.ALGORITHM_TOURNAMENT_PRIZE_PAYMENT) {
+                    continue;
+                }
+
                 // notify the status manager and update the payment
                 try {
                     cancelled += payment.getCurrentStatus().inactiveCoder(payment);

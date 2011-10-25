@@ -271,7 +271,8 @@ public interface PactsClientServices extends EJBObject {
     int expireOldAssignmentDocuments() throws RemoteException, SQLException;
 
     /**
-     * Checks all recently inactivated members and sets the status of their payments to Cancelled.
+     * Checks all inactivated members and sets the status of their payments to Cancelled.
+     * Only algorithm payments are cancelable.
      *
      * @param userId ID of the member to check or 0 to check all members.
      * @return The number of recently inactivated members who had payments.

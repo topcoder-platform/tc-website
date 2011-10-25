@@ -5555,7 +5555,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             if (userId != 0) {
                 getHoldPayments.append("AND u.user_id == " + userId + " ");
             } else {
-                getHoldPayments.append("AND u.modify_date > current - 7 units day ");
                 getHoldPayments.append("AND user_id in (select distinct user_id from payment) ");
             }
 
@@ -5566,14 +5565,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             long notifyUserId = 0;
             int count = 0;
             for (int i = 0; i < users.getRowCount(); i++) {
-//                try {
                 notifyUserId = users.getLongItem(i, 0);
                 count += psm.inactiveCoder(notifyUserId);
                 log.debug("checkInactiveCoders: payments cancelled: " + count);
-//                } catch (EventFailureException e) {
-//                    log.warn("Payment ID " + notifyUserId + " cancellation (account status) could not be completed due to\n" +
-//                            e.getMessage());
-//                }
             }
 
             return count;
