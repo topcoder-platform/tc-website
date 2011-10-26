@@ -58,7 +58,7 @@
    <div class="sectionHeader">Current Tournaments</div>
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
       <tr valign="top">
-         <td style="padding-right: 8px;"><a href="http://community.topcoder.com/tco12"></a><br /></td>
+         <td style="padding-right: 8px;"><a href="https://studio.topcoder.com/?module=ViewContestDetails&ct=30024175"><img src="http://community.topcoder.com/tco12/wp-content/themes/tco12-draft/i/tcoLogo.png" alt="TopCoder Open" /></a><br /></td>
          <td width="100%">
          <span class="bodySubtitle">2012 TopCoder&#174; Open</span>
          <br /><br />
