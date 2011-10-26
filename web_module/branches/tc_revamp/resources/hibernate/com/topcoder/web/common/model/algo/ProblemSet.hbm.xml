@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model.algo">
+
+    <class name="ProblemSet" table="college_problem_set" mutable="false">
+        <id name="id" column="problem_set_id" access="field"/>
+
+        <property name="name" column="name" access="field"/>
+        <property name="description" column="description" access="field"/>
+
+        <set name="components" table="problem_set_component_xref" access="field">
+            <key column="problem_set_id" not-null="true"/>
+            <many-to-many column="component_id" class="Component"/>
+        </set>
+        
+    </class>
+</hibernate-mapping>

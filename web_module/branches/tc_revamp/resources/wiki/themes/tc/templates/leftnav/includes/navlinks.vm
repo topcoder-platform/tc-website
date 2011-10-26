@@ -1,0 +1,142 @@
+#set ($spaceKey = $spaceKey)
+#if (!$spaceKey && $space)
+#set ($spaceKey = $space.key)
+#end
+
+#macro (addNews)
+#set ($spaceKey = $helper.spaceKey)
+
+#if ($permissionCheckDispatcher.isPermitted("/pages/createblogpost.action?spaceKey=$spaceKey"))
+#if ($helper.page.id)
+#set ($fromPageParam = "&fromPageId=$helper.page.id")
+#else
+#set ($fromPageParam = "")
+#end
+<a href="$req.contextPath/pages/createblogpost.action?spaceKey=$generalUtil.urlEncode($spaceKey)$fromPageParam"><img src="$req.contextPath/images/icons/add_blogentry_16.gif" height=16 width=16 border=0 align=absmiddle title="Add News">
+    Add News</a>
+#end
+#end
+
+#macro (addPage)
+#set ($spaceKey = $helper.spaceKey)
+
+#if ($permissionCheckDispatcher.isPermitted("/pages/createpage.action?spaceKey=$spaceKey"))
+## if user currently viewing a page, add page automatically creates a new page with that page is the parent
+#if ($helper.page.id && !$helper.page.postingDay)
+<a href="$req.contextPath/pages/createpage.action?spaceKey=$generalUtil.urlEncode($spaceKey)&fromPageId=$helper.page.id"><img src="$req.contextPath/images/icons/add_page_16.gif" height=16 width=16 border=0 align=absmiddle title="Add Page">
+    Add Page</a>
+#else
+<a href="$req.contextPath/pages/createpage.action?spaceKey=$generalUtil.urlEncode($spaceKey)"><img src="$req.contextPath/images/icons/add_page_16.gif" height=16 width=16 border=0 align=absmiddle title="Add Page">
+    Add Page</a>
+#end
+#end
+#end
+
+## SPACE NAV LINKS
+
+#macro (browsePagesLink)
+#if ($permissionCheckDispatcher.isPermitted("/pages/listpages.action?key=$helper.spaceKey"))
+<a href="$req.contextPath/pages/listpages.action?key=$generalUtil.urlEncode($spaceKey)" #if ($context == 'space-pages') class="current" #end>Pages</a>
+#end
+#end
+
+#macro (viewLabelsLink)
+#if ($permissionCheckDispatcher.isPermitted("/labels/listlabels-heatmap.action?key=$helper.spaceKey"))
+<a href="$req.contextPath/labels/listlabels-heatmap.action?key=$generalUtil.urlEncode($spaceKey)" #if ($context == 'space-labels') class="current" #end>Labels</a>
+#end
+#end
+
+#macro (browseMailLink)
+#if (!$space.type.equals('personal'))
+#if ($permissionCheckDispatcher.isPermitted("/spaces/viewmailarchive.action?key=$spaceKey"))
+<a href="$req.contextPath/spaces/viewmailarchive.action?key=$generalUtil.urlEncode($spaceKey)" #if ($context == 'space-mails') class="current" #end>Mail</a>
+#end
+#end
+#end
+
+#macro (browseNewsLink)
+#if ($permissionCheckDispatcher.isPermitted("/pages/viewrecentblogposts.action?key=$spaceKey"))
+<a href="$req.contextPath/pages/viewrecentblogposts.action?key=$generalUtil.urlEncode($spaceKey)" #if ($context == 'space-blogposts') class="current" #end>News</a>
+#end
+#end
+
+#macro (browseTemplatesLink)
+#if ($permissionCheckDispatcher.isPermitted("/pages/templates/listpagetemplates.action?key=$spaceKey"))
+<a href="$req.contextPath/pages/templates/listpagetemplates.action?key=$generalUtil.urlEncode($spaceKey)" #if ($context == 'space-templates') class="current" #end>Templates</a>
+#end
+#end
+
+#macro (advancedLink)
+#if ($permissionCheckDispatcher.isPermitted("/spaces/viewspacesummary.action?key=$spaceKey"))
+<a href="$req.contextPath/spaces/viewspacesummary.action?key=$generalUtil.urlEncode($spaceKey)" #if ($context == 'space-operations') class="current" #end>Advanced</a>
+#end
+#end
+
+#macro (spaceAdminLink)
+#if ($permissionCheckDispatcher.isPermitted("/spaces/spaceadmin.action?key=$spaceKey"))
+<a href="$req.contextPath/spaces/spaceadmin.action?key=$generalUtil.urlEncode($spaceKey)" #if ($context == 'space-administration') class="current" #end>Space Admin</a>
+#end
+#end
+
+#macro (viewMailLink)
+#if ($permissionCheckDispatcher.isPermitted("/spaces/viewmail.action?key=$spaceKey&id=$helper.action.mail.id"))
+<a href="$req.contextPath/spaces/viewmail.action?key=$generalUtil.urlEncode($spaceKey)&id=$helper.action.mail.id" #if ($mode == 'view') class="current" #end>View</a>
+#end
+#end
+
+#macro (viewAttachmentsLink)
+#if ($permissionCheckDispatcher.isPermitted("/spaces/listattachmentsforspace.action?key=$spaceKey"))
+<a href="$req.contextPath/spaces/listattachmentsforspace.action?key=$generalUtil.urlEncode($spaceKey)" #if ($context == 'space-attachments') class="current" #end>Attachments</a>
+#end
+#end
+
+#macro (viewLabelsLink)
+#if ($permissionCheckDispatcher.isPermitted("/labels/listlabels-heatmap.action?key=$spaceKey"))
+<a href="$req.contextPath/labels/listlabels-heatmap.action?key=$generalUtil.urlEncode($spaceKey)" #if ($context == 'space-labels') class="current" #end>Labels</a>
+#end
+#end
+
+
+<content tag="navops">
+    <h5>
+        <a href="#" onCLick="toggleMenu('browsenav'); return false;"><img src="$req.contextPath/images/icons/browse_space.gif" height="16" width="16" border="0" align="absmiddle" title="Find Content">
+            Browse Space</a></h5>
+
+    <div id="browsenav" class="subnav" style="display:none;">
+        <ul>
+            #foreach ($item in $action.webInterfaceManager.getDisplayableItems("system.space", $action.remoteUser,
+            $helper))
+            <li><a href="$item.link.getDisplayableUrl($req, $helper)" #if ($context == $item.key) class="current"
+                #end>$item.label.getDisplayableLabel($req, $helper)
+            </a>
+        </li>
+        #end
+    </ul>
+</div>
+
+#if ($action.webInterfaceManager.getDisplayableItems("system.space.actions", $action.remoteUser, $helper).size() > 1)
+<h5>
+    <a href="#" onCLick="toggleMenu('addcontent'); return false;"><img src="$req.contextPath/images/icons/add_16.gif" height="16" width="16" border="0" align="absmiddle" title="Find Content">
+        Add Content</a></h5>
+<div id="addcontent" class="subnav" style="display:none;">
+    <ul>
+        #foreach ($item in $action.webInterfaceManager.getDisplayableItems("system.space.actions", $action.remoteUser,
+        $helper))
+        #if ($item.key != "browse-space" && $item.key != "browse-personal-space")
+        #set ($itemRenderedUrl = $item.link.getDisplayableUrl($req, $helper))
+        #set ($itemLabel = $item.label.getDisplayableLabel($req, $helper))
+
+        #if ($item.icon)
+        #set ($icon = $item.icon)
+        <li>
+            <a href="$itemRenderedUrl"><img src="$icon.url.getDisplayableUrl($req, $helper)" height="$icon.height" width="$icon.width" border="0" align="absmiddle" title="$itemLabel">&nbsp;$itemLabel</a>
+        </li>
+        #else
+        <li><a href="$itemRenderedUrl">$itemLabel</a></li>
+        #end
+        #end
+        #end
+    </ul>
+</div>
+#end
+</content>

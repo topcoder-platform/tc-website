@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.studio.dto">
+    <class name="StudioProjectSpecification" table="project_studio_specification" mutable="false">
+        <id name="id" column="project_studio_spec_id" />
+        <property name="goals" column="goals" access="field"/>
+        <property name="targetAudience" column="target_audience" access="field"/>
+        <property name="brandingGuidelines" column="branding_guidelines" access="field"/>
+        <property name="dislikedDesignWebsites" column="disliked_design_websites" access="field"/>
+        <property name="otherInstructions" column="other_instructions" access="field"/>
+        <property name="winningCriteria" column="winning_criteria" access="field"/>
+        <property name="submittersLockedBetweenRounds" column="submitters_locked_between_rounds" access="field"/>
+        <property name="round1Introduction" column="round_one_introduction" access="field"/>
+        <property name="round2Introduction" column="round_two_introduction" access="field"/>
+        <property name="colors" column="colors" access="field"/>
+        <property name="fonts" column="fonts" access="field"/>
+        <property name="layoutAndSize" column="layout_and_size" access="field"/>
+        <property name="contestIntroduction" column="contest_introduction" access="field"/>
+        <property name="contestDescription" column="contest_description" access="field"/>
+        <property name="contentRequirements" column="content_requirements" access="field"/>
+        <property name="generalFeedback" column="general_feedback" access="field"/>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model.algo">
+
+    <class name="RoomResult" table="room_result">
+        <composite-id name="id" class="RoomResult$Identifier">
+            <key-many-to-one name="round" class="Round" column="round_id"/>
+            <key-many-to-one name="room" class="Room" column="room_id"/>
+            <key-many-to-one name="coder" class="com.topcoder.web.common.model.Coder" column="coder_id"/>
+        </composite-id>
+    
+        <property name="roomSeed" column="room_seed" access="field"/>
+        <property name="oldRating" column="old_rating" access="field"/>
+        <property name="newRating" column="new_rating" access="field"/>
+        <property name="paid" column="paid" access="field"/>
+        <property name="roomPlaced" column="room_placed" access="field"/>
+        <property name="divisionPlaced" column="division_placed" access="field"/>
+        <property name="attended" column="attended" access="field"/>
+        <property name="advanced" column="advanced" access="field"/>
+        <property name="overallRank" column="overall_rank" access="field"/>
+        <property name="pointTotal" column="point_total" access="field"/>
+        <property name="divisionSeed" column="division_seed" access="field"/>
+    </class>
+</hibernate-mapping>

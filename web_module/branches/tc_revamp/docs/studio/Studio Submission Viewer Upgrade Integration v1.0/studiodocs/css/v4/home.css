@@ -1,0 +1,1027 @@
+@charset  "UTF-8";
+
+/* ==================================================================
+ * TopCoder Studio CSS
+ * Author : Luis Enrique 
+ * Created: 2008-3-29
+ * ================================================================= */
+
+/* ------------------
+GENERAL RULES
+------------------- */
+
+*
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+body
+{
+	margin: 0;
+	background: #000000;
+	text-align: center;
+	color: #333333;
+	font-family: Arial, Verdana, Helvetica, sans-serif;
+	font-size: 85%;
+}
+
+img
+{
+	border: none;
+	padding-right: 2px;
+}
+
+/* Firefox Outline */
+a:active { outline: none; }
+a:focus { -moz-outline-style: none; }
+
+/* ---------------
+MAIN SITE LAYOUT 
+----------------- */
+
+#page-wrap
+{
+	margin: 0px auto;
+	background: #FFFFFF;
+}
+
+#alignCenter
+{
+        text-align:center;
+}
+
+#wrapper
+{
+	width: 1000px;
+    margin: 30px auto 0px auto;
+	text-align: left;
+	background: #FFFFFF;
+}
+
+/* ----- HEADINGS ----- */
+#wrapper h1
+{
+	color: #036;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 24px;
+	font-weight: bold;
+	background: transparent url(../../i/v4/line_dots.png) repeat-x left bottom;
+	padding-bottom: 15px;
+	padding-top: 5px;
+	margin-top: 0px;
+	margin-left: 35px;
+	margin-right: 35px;
+}
+#wrapper h1.middle
+{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+#wrapper h1.middleLine
+{
+	font-size: 10px;
+	padding: 0px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#wrapper h2
+{
+	padding-top: 10px;
+	padding-bottom: 5px;
+}
+
+#wrapper h3
+{
+	padding-top: 10px;
+	padding-bottom: 5px;
+}
+
+#wrapper h4
+{
+	padding-top: 10px;
+	padding-bottom: 5px;
+}
+
+#wrapper ol
+{
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+#wrapper li { margin-left: 45px; }
+
+#page-wrap #wrapper #content
+{
+	margin: 15px auto 0 auto;
+	text-align: left;
+}
+
+/* ------------------
+RIGHT CONTENT LAYOUT
+------------------- */
+
+.content_r
+{
+	width: 247px;
+	float: right;
+	background-color: #FFFFFF;
+	margin-bottom: 15px;
+}
+
+.content_r div
+{
+	margin: 10px 11px 10px 11px;
+	background-color: #FFFFFF;
+	width: 222px;
+}
+
+.content_r div div
+{
+	/*footer*/
+	width: 101%;
+	height: 5px;
+	margin: 0px;
+	overflow: hidden;
+	background: url(/i/v3/data_box_b.png);
+	clear: both;
+}
+
+.content_r p, .content_r ul, .content_r span
+{
+	display: block;
+	padding: 6.6% 3.4% 4.6% 6.6%;
+	border-left: 1px solid #cdcdcd;
+	border-right: 1px solid #cdcdcd;
+	background-color: #fff;
+}
+
+.content_r p { padding: 8px 0px 4px 0px; }
+
+.content_r ul
+{
+	width: 100%;
+	padding: 13px 0 1px 0;
+	list-style-image: url(/i/v3/dot.png);
+}
+
+.content_r li
+{
+	padding-bottom: 1em;
+	font-size: 11px;
+	line-height: 1em;
+	padding-right: 10px;
+	margin-left: 20px;
+}
+
+.content_r li a
+{
+	font-size: 11px;
+	color: #000000;
+	text-decoration: underline;
+}
+
+.content_r li a:hover
+{
+	font-size: 11px;
+	color: #F90;
+	text-decoration: underline;
+}
+
+.content_r h2
+{
+	display: block;
+	width: 224px;
+	height: 27px;
+	text-indent: -9999px;
+}
+
+.content_r li b
+{
+	font-size: 11px;
+	font-weight: bold;
+}
+
+
+/* ------------------
+NEW VIEW SUBMISSIONS PAGES
+------------------- */
+
+div .linkBox
+{
+	float: right;
+	font-size: 11px;
+	margin-right: 35px;
+	padding: 0px 0px 3px 8px;
+	border-left: 6px solid #2A81B3;
+	border-bottom: 1px solid #2A81B3;
+	letter-spacing: 4px;
+}
+div .breadcrumb
+{
+	font-size: 95%;
+	margin-left: 35px;
+}
+#contentSubmissions {
+	margin-bottom:30px;
+}
+#contentSubmissions img{
+	width:223px;
+	height:187px;
+}
+/*The table*/
+#content table{
+	width: 100%;
+	margin:10px 0;
+	border:none;
+
+}
+#content table tbody td {
+	background:none;
+	padding:5px 5px 20px 5px;
+	width:233px;
+}
+#content .text {
+	line-height: 16px;
+	margin-top:5px;
+	width:100%;
+	text-align:center;
+}
+#content .info {
+	color:#2a617f;
+	font-size: 18px;
+	line-height: 21px;
+}
+#content .submissionId {
+	color:#2a617f;
+}
+#content a
+{
+	color: #2a617f;
+	text-decoration: underline;
+}
+#content a:link,
+#content a:visited
+{
+	color: #2a617f;
+	text-decoration: underline;
+}
+
+#content a:hover,
+#content a:active
+{
+	color: #F90;
+	text-decoration: underline;
+}
+#content img {
+	border: none;
+}
+#content .loading {
+    background: url(/i/v4/loading.gif) no-repeat center center;
+}
+/* Multiple preview images */
+#content .control {
+	width:223px;
+	height: 28px;
+	margin-top:0;
+	background: url(/i/v4/bgMultiImageControl.png);
+	text-align: center;
+}
+#content .control span{
+	line-height:28px;
+	font-weight:bold;
+}
+#content .control .btnPrevious {
+	float:left;
+	width:25px;
+	height: 28px;
+	margin:0;
+	background: url(/i/v4/btnMultiImagePre.png);
+}
+#content .control .btnNext {
+	float:right;
+	width:25px;
+	height: 28px;
+	margin:0;
+	background: url(/i/v4/btnMultiImageNext.png);
+}
+#content .submission {
+	width:223px;
+	margin:0;
+}
+#content .submission .previewImg {
+	width:223px;
+	height:187px;
+	overflow: hidden;
+}
+#content .submission .previewImg UL {
+	width:2007px;
+	margin:0;
+	list-style-type:none;
+	float: left;
+}
+
+#content .submission .previewImg UL LI {
+	margin:0;
+	width:223px;
+	height:187px;
+	list-style:none;
+	float: left;
+}
+
+/*Winners*/
+#winners .winner {
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#winners .winner1 {
+	width:auto !important;
+}
+
+/*The paging box*/
+#submissions .pagingBox{
+	font-size: 12px;
+	padding: 10px 0 10px 60px;
+	height:18px;
+}
+#submissions .pagingBox SPAN{
+	padding-top:2px;
+	float:left;
+}
+#submissions .pagingBox UL{
+	display:inline;
+	list-style-type: none;
+}
+#submissions .pagingBox UL LI
+{
+	display:inline;
+	height:18px;
+	width:28px;
+	list-style: none;
+	text-align:center;
+	margin:0 5px 0 0;
+	float:left;
+	position: relative;
+}
+#submissions .pagingBox UL LI A {
+	display: block;
+	height:18px;
+	width:28px;
+	background-color:#dddddd;
+	color: black;
+	text-decoration:none;
+	text-align: center;
+	padding-top:2px;
+}
+#submissions .pagingBox UL LI A.active,
+#submissions .pagingBox UL LI A:hover {
+	background-color:#2d74a2;
+	color: white;
+	text-decoration:none;
+}
+#submissions .pagingBox .pageNav{
+	float:left;
+}
+#submissions .pagingBox .pageThumbnails{
+    float:right;
+    margin-right:80px;
+}
+
+/*View preview image in full size*/
+#contentImgFullSize {
+	width: 1000px;
+	margin-bottom:30px;
+	text-align:center;
+}
+#contentImgFullSize h1{
+	text-align: left;
+}
+#contentImgFullSize .leftAlign {
+	float: left;
+	margin-left: 35px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+#contentImgFullSize .rightAlign {
+	float: right;
+	margin-right: 35px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+#contentImgFullSize .text {
+	margin: 5px 20px;
+	text-align:left;
+}
+#contentImgFullSize .control {
+	margin-top:10px;
+	margin-bottom:0px;
+	margin-left:auto !important;
+	margin-right:auto !important;
+}
+#contentImgFullSize .previewImg {
+	width:100%;
+	height:100%;
+	min-width:50px;
+	min-height:50px;
+}
+#contentImgFullSize .previewImg UL {
+	margin:0;
+	list-style-type:none;
+}
+
+#contentImgFullSize .previewImg UL LI {
+	margin:0;
+	list-style:none;
+}
+
+/* Carousel */
+.jcarousel-container-horizontal
+{
+	width:223px;
+	height:187px;
+}
+.jcarousel-clip-horizontal
+{
+	width:223px;
+	height:187px;
+}
+.jcarousel-item
+{
+	width:223px;
+	height:187px;
+}
+#contentImgFullSize .jcarousel-container-horizontal
+{
+	width:930px;
+	height:100%;
+}
+#contentImgFullSize .jcarousel-clip-horizontal
+{
+	width:930px;
+	height:100%;
+}
+#contentImgFullSize .jcarousel-item
+{
+	width:930px;
+	height:100%;
+}
+.jcarousel-item-placeholder
+{
+	background: #fff;
+	color: #000;
+}
+.jcarousel-next-horizontal
+{
+	background: transparent url(../i/next-horizontal.png) no-repeat 0 0;
+	cursor: pointer;
+	height: 32px;
+	position: absolute;
+	right: 5px;
+	top: 43px;
+	width: 32px;
+}
+.jcarousel-next-horizontal:hover
+{
+}
+.jcarousel-next-horizontal:active
+{
+}
+.jcarousel-next-disabled-horizontal,
+.jcarousel-next-disabled-horizontal:hover,
+.jcarousel-next-disabled-horizontal:active
+{
+	background-position: -96px 0;
+	cursor: default;
+}
+.jcarousel-prev-horizontal
+{
+	background: transparent url(prev-horizontal.png) no-repeat 0 0;
+	cursor: pointer;
+	height: 32px;
+	left: 5px;
+	position: absolute;
+	top: 43px;
+	width: 32px;
+}
+.jcarousel-prev-horizontal:hover
+{
+	background-position: -32px 0;
+}
+.jcarousel-prev-horizontal:active
+{
+	background-position: -64px 0;
+}
+.jcarousel-prev-disabled-horizontal,
+.jcarousel-prev-disabled-horizontal:hover,
+.jcarousel-prev-disabled-horizontal:active
+{
+	background-position: -96px 0;
+	cursor: default;
+}
+
+
+
+/* ------------------
+TABLES
+------------------- */
+
+table
+{
+	margin-left: 3px;
+	width: 530px;
+	border-collapse: collapse;
+}
+
+table tbody td
+{
+	padding: 12px 10px 11px 7px;
+	background: url(/i/v3/dotted_silver.png) top left repeat-x;
+	font-size: 12px;
+}
+
+table thead th { background-color: #f5f5f5; }
+table .img { padding: 12px 2px 10px 10px; }
+
+/*--  Login Box ---------------------------------------*/
+#loginBox { padding: 0; }
+
+#loginBox p, #loginBox span
+{
+	padding: 8px 0;
+	width: 100%;
+	margin: 0;
+}
+
+#login_data span
+{
+	border: none;
+	font-size: 18px;
+}
+
+#loginBox { text-align: center; }
+#loginBox h2 { background: url(/i/v3/login.png) no-repeat; }
+
+#loginBox b
+{
+	line-height: 1.8em;
+	color: #000000;
+}
+
+#loginBox a
+{
+	color: #000000;
+	text-decoration: underline;
+}
+
+#loginBox a:hover
+{
+	color: #F90;
+	text-decoration: underline;
+}
+
+#loginBox table
+{
+	width: 100px;
+	margin: 0px auto;
+	padding: 0px;
+	background: #ffffff;
+	border: none;
+	text-align: center;
+}
+
+#loginBox table tbody tr.pd { height: 30px; }
+
+#loginBox table tbody td
+{
+	padding: 1px 0px;
+	background: transparent;
+	font-size: 11px;
+}
+
+#loginBox table tbody input.txt
+{
+	margin: 0px 2px;
+	padding: 1px;
+	width: 70px;
+	font-size: 10px;
+	color: #555555;
+	background: #ffffff;
+	border: 1px solid #999999;
+}
+
+#loginBox table tbody input.checkbox
+{
+	margin: 0px 2px;
+	padding: 1px;
+	width: 14px;
+	font-size: 10px;
+	color: #555555;
+	background: #ffffff;
+	border: 1px solid #999999;
+}
+
+#loginBox table tbody .img { padding: 0px; }
+#loginBox table tbody input.btn { padding: 0px; }
+#loginBox table tbody a { font-size: 11px; }
+
+/*--  News Box -----------------------------------------*/
+.newsBox h2 { background: url(/i/v3/news.png) no-repeat; }
+.content_r div.newsBox { margin-top: 8px; }
+
+/*--  Prizes Paid Box -----------------------------------------*/
+#prizesPaidBox
+{
+	background: url(/i/v4/prizes_paid_ground.png) no-repeat;
+	height: 145px;
+	width: 224px;
+}
+
+#prizesPaidBox p
+{
+	margin: 0;
+	padding: 38px 0 0 0;
+	text-align: center;
+	font-size: 32px;
+	font-weight: normal;
+	color: #FFFFFF;
+	background-color: transparent;
+	border: none;
+}
+
+
+/*--  Designer Box -------------------------------------*/
+.designerBox *
+{
+	position: relative;
+	font-size: 12px;
+	line-height: 1.2em;
+}
+
+.designerBox b
+{
+	line-height: 1.8em;
+	font-size: 12px;
+}
+
+.designerBox img.member
+{
+	float: left;
+	margin: 6px 10px 0 10px;
+}
+
+.designerBox p
+{
+	width: 100%;
+	padding: 10px 0 15px 0;
+}
+
+.designerBox h2 { background: transparent url(/i/v3/designer.png) no-repeat; }
+
+.designerBox i
+{
+	padding-right: 5em;
+	font-size: 14px;
+	color: #000000;
+}
+
+.content_r .designerBox { margin-top: 8px; }
+.designerBox p { line-height: 1.2em; }
+
+.designerBox a
+{
+	color: #000000;
+	text-decoration: underline;
+}
+
+.designerBox a:hover
+{
+	color: #F90;
+	text-decoration: underline;
+}
+
+/*--  Assignment Box ------------------------------------*/
+.assignmentBox
+{
+	height: 168px;
+	background: url(/i/v3/assignment.png) top left no-repeat;
+}
+
+.assignmentBox b
+{
+	color: #1b91c5;
+	line-height: 1em;
+}
+
+.assignmentBox a
+{
+	color: #3d99cd;
+	font: normal 12px arial;
+	font-weight: bold;
+	word-spacing: -1px;
+	text-decoration: none;
+}
+
+.assignmentBox a:hover
+{
+	color: #F90;
+	font-weight: bold;
+	word-spacing: -1px;
+	text-decoration: none;
+}
+
+.content_r div.assignmentBox { margin: 11px 0 10px 12px; }
+
+/* ------------------
+LEFT CONTENT LAYOUT
+------------------- */
+
+.content_l
+{
+	width: 560px;
+	float: left;
+	padding-bottom: 8px;
+	margin-bottom: 15px;
+}
+
+.content_l div
+{
+	margin: 2% 2.2% 0% 2.3%;
+	position: relative;
+}
+
+/*--  Project Box ---------------------------------------*/
+.banner p
+{
+	float: right;
+	padding: 14px 16px 0px 0px;
+	word-spacing: -1px;
+}
+
+.banner p a.simpleArrow { padding: 0px; }
+
+/*--  Welcome Box ---------------------------------------*/
+.welcome
+{
+	margin-top: 11px;
+	padding-bottom: 15px;
+	width: 536px;
+	height: 167px;
+}
+
+#welcome_head
+{
+	width: 536px;
+	height: 46px;
+	margin: 0px;
+	padding: 0px;
+	background: url(/i/v3/welcome_header.png);
+}
+
+#welcome_head h1
+{
+	margin: 0px;
+	padding: 6px 0px 0px 9px;
+	color: #fefefe;
+	font: bold 16px arial;
+}
+
+#welcome_head p
+{
+	margin: 2px 9px;
+	padding: 0px;
+	color: #fefefe;
+	font-size: 12px;
+}
+
+#welcome_banner
+{
+	width: 536px;
+	height: 121px;
+	margin: 0px;
+	padding: 0px;
+}
+
+/*--  Contest and Winners Boxes --------------------------*/
+/*  .contests div, .winners div
+{
+	margin: 0px;
+	background: url(/i/v3/border_r.png) right top repeat-y;
+	position: relative;
+}  */
+
+.contests div 
+{
+	margin: 20px 0px 0px 0px;
+	background: url(/i/v3/border_r.png) right top repeat-y;
+	position: relative;
+}
+
+.winners div
+{
+	margin: 0px 0px 0px 0px;
+	position: relative;
+}
+
+.contests table { width: 528px; }
+
+table.winners
+{
+	width: 528px;
+	background-image: none;
+}
+
+.content_l div.winners
+{
+	margin-top: 11px;
+	margin-left: 13px;
+}
+
+.winners table a
+{
+	color: #000000;
+	text-decoration: underline;
+}
+
+.winners table a:hover
+{
+	color: #F90;
+	text-decoration: underline;
+}
+
+.winners table i
+{
+	color: #000000;
+	font-weight: bold;
+}
+
+/* .contests div div div, .winners div div div
+{
+	width: 100%;
+	height: 5px;
+	background: url(/i/v3/table_bottom_l.png) top left no-repeat;
+	overflow: hidden;
+}  */
+
+.contests div div div
+{
+	width: 100%;
+	height: 5px;
+	background: url(/i/v3/table_bottom_l.png) top left no-repeat;
+	overflow: hidden;
+}
+
+.contests h2 span, .winners h2 span
+{
+	display: block;
+	padding: 10px;
+	color: #fefefe;
+	background: url(/i/v3/active_contest.png) top left no-repeat;
+	text-indent: -999px;
+}
+
+.contests span.more, .winners span.more
+{
+	position: relative;
+	z-index: 2;
+	display: block;
+	margin-top: -32px;
+	padding: 0px 13px 10px 0px;
+	text-align: right;
+	font-size: 11px;
+}
+
+.contests a, .more a
+{
+	color: #000000;
+	text-decoration: underline;
+}
+
+.contests a:hover, .more a:hover
+{
+	color: #F90;
+	text-decoration: underline;
+}
+
+.contests span.more a, .winners span.more a
+{
+	color: #fefefe;
+	background: url(/i/v3/right_arrow_2.png) center left no-repeat;
+	padding-left: 10px;
+}
+
+/* .contests div div, .winners div div { background: #fff url(/i/v3/table_bottom_r.png) top right no-repeat; }
+.contests, .winners { background: #fff url(/i/v3/border_l.png) top left repeat-y; } */
+
+.contests div div  { background: #fff url(/i/v3/table_bottom_r.png) top right no-repeat; }
+.contests  { background: #fff url(/i/v3/border_l.png) top left repeat-y; }
+.contests h2 { background: url(/i/v3/table_title_r.png) top right no-repeat; }
+
+/*--  Project Box ---------------------------------------*/
+.content_l div.banner
+{
+	width: 537px;
+	height: 121px;
+	margin: 9px 10px 7px 13px;
+}
+
+/*--  Winners Box ---------------------------------------*/
+.winners h2 { background: url(/i/v3/table_title_r_2.png) top right no-repeat; width: 534px; }
+.winners h2 span { background: url(/i/v3/recent_winner.png) top left no-repeat; }
+.winners table { margin-top: 0px; }
+
+/*--  Contests Box --------------------------------------*/
+div.contests
+{
+	margin-top: 11px;
+	margin-left: 13px;
+}
+
+.contests table thead th
+{
+	text-align: left;
+	font-weight: bold;
+	font-size: 12px;
+	color: #010101;
+}
+
+.contests table thead th.first
+{
+	width: 330px;
+	padding: 10px 0px 6px 15px;
+}
+
+.contests table thead th.second
+{
+	width: 65px;
+	padding: 10px 0px 6px 10px;
+}
+
+.contests table thead th.last { padding: 10px 10px 6px 10px; }
+.contests table tbody td.first { padding: 10px 0px 6px 15px; }
+.contests table tbody td.second { padding: 10px 0px 6px 10px; }
+.contests table tbody td.last { padding: 10px 10px 6px 10px; }
+.contests table tbody tr.last_row td { padding-bottom: 5px; }
+
+
+/* ------------------
+MISC
+------------------- */
+
+b { font: bold 17px arial; }
+
+br.clear
+{
+	display: block;
+	clear: both;
+	width: 100%;
+	height: 0px;
+}
+
+i
+{
+	color: #053e59;
+	font-weight: bold;
+	font-style: normal;
+}
+
+.simpleArrow, .assignmentBox p.simpleArrow, .banner a.simpleArrow
+{
+	width: 85%;
+	padding: 8.1% 6.8% 4.6% 9%;
+	border: none;
+	color: white;
+	background-color: transparent;
+	font: bold 17px/1em arial;
+}
+
+.line, .content_l div.line
+{
+	height: 1px;
+	overflow: hidden;
+	background: url(/i/v3/dotted.png) top right repeat-x;
+	margin: 0px 14px 0px 14px;
+}
+
+.TClogo
+{
+	float: left;
+	padding-left: 17px;
+	padding-top: 4px;
+}
+
+.img.img_c
+{
+	position: relative;
+	top: 2px;
+}
+
+.img_c_table { margin-bottom: -2px; }
+.coderText { font-weight: bold; }
+
+.coderTextOrange
+{
+	color: #ff9900;
+	font-weight: bold;
+}
