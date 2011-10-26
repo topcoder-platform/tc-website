@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.topcoder.web.tc.impl.entity">
+    <class name="ProjectPhase" table="project_phase">
+        <id name="projectPhaseId" column="project_phase_id">
+        </id>
+
+        <property name="projectId" column="project_id" not-null="true" />
+        <property name="phaseTypeId" column="phase_type_id" not-null="true" />
+		<property name="phaseStatusId" column="phase_status_id" not-null="true" />
+		<property name="scheduledStartTime" column="scheduled_start_time" />
+		<property name="scheduledEndTime" column="scheduled_end_time" />
+		<property name="actualStartTime" column="actual_start_time" />
+		<property name="actualEndTime" column="actual_end_time" />
+	</class>
+</hibernate-mapping>

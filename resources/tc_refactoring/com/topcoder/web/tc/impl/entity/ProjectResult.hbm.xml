@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.topcoder.web.tc.impl.entity">
+    <class name="ProjectResult" table="project_result">
+        <composite-id>
+		    <key-property name="projectId" column="project_id"/>
+			<key-property name="placed" column="placed"/>
+	    </composite-id>
+
+		<property name="finalScore" column="final_score" not-null="true" />
+	</class>
+</hibernate-mapping>

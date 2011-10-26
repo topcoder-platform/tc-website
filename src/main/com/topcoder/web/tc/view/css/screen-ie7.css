@@ -1,0 +1,13 @@
+.boxContainer .bottom .inner { background:#f5f5f5 url(../i/boxContainer-bg-bm.png) left 3px repeat-x; }
+.topTenSelect{ position:relative; top:-5px; }
+#name .subNav .head .inner{ background-position:left top; }
+#topNav .subNav .content ul li a span.over{ z-index:-1; }
+#topNav{ z-index:-1; }
+#filterContainer .content .struct.full li .optionsContainer .secondColumn{ width:197px; }
+#filterContainer .content .struct li .optionsContainer{ width:488px; overflow:hidden; display:inline; }
+#filterContainer .content .struct.full li .optionsContainer{ width:648px; overflow:hidden; }
+#filterContainer .content .struct li .moreOptions .dateFilter p img{ top:2px; }
+#contestList li.current .arrow{ right:-15px; }
+#contestList li ul{ padding-bottom:10px; }
+#name li.hover a span.wrap span{ padding:0px 6px 0px 6px;height:26px;line-height:22px; }
+#filterContainer .content .struct li .catalog{ padding:4px 59px 15px 59px; }

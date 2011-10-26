@@ -1,4 +1,0 @@
-database informixoltp;
--- insert missing (old) payment_type_lu row for application testing
-insert into payment_type_lu (payment_type_desc, payment_type_id, payment_reference_id, show_in_profile_ind, show_details_ind, due_date_interval, create_date, modify_date, pay_on_day, requires_client_ind, global_ad_ind)
-values ("Testing Competition Payment", 44, 2, 1, 1, null, current, current, 15, 1, 't');

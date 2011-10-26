@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.ui.theme" value="simple" />
+	<constant name="struts.custom.i18n.resources" value="application" />
+	<package name="default" extends="json-default" namespace="/">
+		<default-action-ref name="home"></default-action-ref>
+		
+		<action name="home" class="homeAction">
+			<result>home.jsp</result>
+		</action>
+		<action name="contests" class="genericContestsAction">
+			<result>contests.jsp</result>
+		</action>
+		<action name="activeContestsManager" class="activeContestsManagerAction">
+			<result type="json" />
+		</action>
+		<action name="contestStatusManager" class="contestStatusManagerAction">
+			<result type="json"/>
+		</action>
+		<action name="pastContestsManager" class="pastContestsManagerAction">
+			<result type="json"/>
+		</action>
+		<action name="upcomingContestsManager" class="upcomingContestsManagerAction">
+			<result type="json"/>
+		</action>
+		<action name="reviewOpportunitiesManager" class="reviewOpportunitiesManagerAction">
+			<result type="json"/>
+		</action>
+		<action name="searchContestsManager" class="searchContestsManagerAction">
+			<result type="json"/>
+		</action>
+		<action name="login" class="loginAction">
+			<result name="success" type="redirect">
+				<param name="location">home.action</param>
+			</result>
+			<result name="login">login.jsp</result>
+			<result name="input">login.jsp</result>
+		</action>
+		<action name="logout" class="logoutAction">
+			<result type="redirect">
+				<param name="location">home.action</param>
+			</result>
+		</action>
+	</package>
+</struts>   

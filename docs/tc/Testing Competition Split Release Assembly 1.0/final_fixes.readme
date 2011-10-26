@@ -1,9 +1,0 @@
-The following was fixed:
-
-- Added Submit & Review links for both tracks.
-- Fixed "When Contest Status page for Test Scenarios is displayed "Active Contests" but not "Contest Status" item is highlighted with red at the left hand navigation."
-- Updated reviewers.readme:
-    - Mention to delete TestingCompetitionPayment.java
-    - Added more details about query precedence.
-
-Thank you!

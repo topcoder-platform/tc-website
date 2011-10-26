@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.topcoder.web.tc.impl.entity">
+	<class name="RBoardApplication" table="rboard_application">
+		<composite-id>
+			<key-property access="field" column="user_id" name="userId"
+				type="long" />
+			<key-property access="field" column="project_id" name="projectId"
+				type="long" />
+			<key-property access="field" column="phase_id" name="phaseId"
+				type="long" />
+		</composite-id>
+	</class>
+</hibernate-mapping>
