@@ -58,6 +58,21 @@
    <div class="sectionHeader">Current Tournaments</div>
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
       <tr valign="top">
+         <td style="padding-right: 8px;"><a href="http://community.topcoder.com/tco12"></a><br /></td>
+         <td width="100%">
+         <span class="bodySubtitle">2012 TopCoder&#174; Open</span>
+         <br /><br />
+		Dates and Location TBD
+         <a href="http://community.topcoder.com/tco12">Details</a>
+         </td>
+      </tr>
+   </table>
+   
+   <hr width="100%" size="1" noshade="noshade" />
+
+      <div class="sectionHeader" width="100%">Past Tournaments</div>
+   <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
+      <tr valign="top">
          <td style="padding-right: 8px;"><a href="http://community.topcoder.com/tco11"><img src="/i/tournament/tco11/TCO11_In_White.png" alt="2011 TopCoder Open" border="0" /></a><br /></td>
          <td width="100%">
          <span class="bodySubtitle">2011 TopCoder&#174; Open</span>
@@ -69,11 +84,7 @@
          </td>
       </tr>
    </table>
-
    
-   <hr width="100%" size="1" noshade="noshade" />
-
-      <div class="sectionHeader" width="100%">Past Tournaments</div>
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
       <tr valign="top">
          <td style="padding-right: 8px;"><a href="/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=overview"><img src="/i/tournament/tco10/tco10_tourn_logo.png" alt="2010 TopCoder Open" border="0" /></a><br /></td>
