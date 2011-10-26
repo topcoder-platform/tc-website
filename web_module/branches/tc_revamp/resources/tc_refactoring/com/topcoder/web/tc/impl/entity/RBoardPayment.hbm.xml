@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.topcoder.web.tc.impl.entity">
+	<class name="RBoardPayment" table="rboard_payment">
+		<composite-id>
+			<key-property access="field" column="project_id" name="projectId"
+				type="long" />
+			<key-property access="field" column="phase_id" name="phaseId"
+				type="long" />
+			<key-property access="field" column="primary_ind" name="primary"
+				type="boolean" />
+		</composite-id>
+		<property access="field" column="amount" name="amount" type="double" />
+	</class>
+</hibernate-mapping>

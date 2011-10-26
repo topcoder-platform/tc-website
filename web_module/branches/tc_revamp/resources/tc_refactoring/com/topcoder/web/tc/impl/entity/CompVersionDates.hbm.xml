@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.topcoder.web.tc.impl.entity">
+	<class name="CompVersionDates" table="comp_version_dates">
+		<id access="field" column="comp_version_dates_id" name="compVersionDatesId"
+			type="long" />
+		<property access="field" column="comp_vers_id" name="compVersId"
+			type="long" />
+		<property access="field" column="phase_id" name="phaseId"
+			type="long" />
+		<property access="field" column="status_id" name="statusId"
+			type="long" />
+	</class>
+</hibernate-mapping>

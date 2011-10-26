@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.topcoder.web.tc.impl.entity">
+	<class name="CompVersions" table="comp_versions">
+		<id access="field" column="comp_vers_id" name="compVersId"
+			type="long" />
+		<property access="field" column="component_id" name="componentId"
+			type="long" />
+		<property access="field" column="phase_id" name="phaseId"
+			type="long" />
+	</class>
+</hibernate-mapping>

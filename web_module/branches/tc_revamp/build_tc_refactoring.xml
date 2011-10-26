@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="build" name="tc">
+  <property environment="env" />
+  <property name="build" value="build" />
+  <property name="war.dir" value="${build}/wars" />
+  <property name="ejb_jars" value="${build}/ejb_jars" />
+  <property name="classes" value="${build}/classes" />
+  <property name="lib.dir" value="lib" />
+  <property name="external.jars.dir" location="../external-artifacts"/>
+  <property name="resources" value="resources" />
+  <property name="src.dir" value="src" />
+  <property name="bin" value="${lib.dir}/bin" />
+  <property name="java" value="${src.dir}/main" />
+  <property name="jars.dir" value="${lib.dir}/jars" />
+  <property name="jive.dir" value="${lib.dir}/jive" />
+  <property name="jboss_home" value="/home/tc/jboss-4.0.4.GA" />
+  <property name="jboss_deploy" value="${jboss_home}/server/all/deploy" />
+  <property name="jboss_deploy_hasingleton" value="${jboss_home}/server/all/deploy-hasingleton" />
+  <property name="jboss_lib" value="${jboss_home}/server/all/lib" />
+  <property name="apache_tcdocs" value="/mnt/apache/tcdocs" />
+  <property name="shared.jar" value="${bin}/shared.jar" />
+  <property name="deprecation" value="true" />
+  <property name="debug" value="true" />
+  <path id="class.path">
+    <pathelement location="${classes}" />
+	<pathelement location="${shared.jar}"/>
+    <pathelement location="${jars.dir}/log4j-1.2.7.jar" />
+    <pathelement location="${jars.dir}/ifxjdbc.jar" />
+    <pathelement location="${jars.dir}/bfograph.jar" />
+    <pathelement location="${jars.dir}/activation.jar" />
+    <pathelement location="${jars.dir}/axis_dok.jar" />
+    <pathelement location="${jars.dir}/topcoder_commons_utility.jar" />
+    <pathelement location="${jars.dir}/jstl-1.2.jar" />
+
+    <pathelement location="${jars.dir}/jboss/javax.servlet.jar" />
+    <pathelement location="${jars.dir}/jboss/javax.servlet.jsp.jar" />
+    <pathelement location="${jars.dir}/jboss/jbossall-client.jar" />
+    <pathelement location="${jars.dir}/jboss/xalan.jar" />
+    <pathelement location="${jars.dir}/jboss/xercesImpl.jar" />
+    <pathelement location="${jars.dir}/jboss/xml-apis.jar" />
+    <pathelement location="${jars.dir}/jboss/mail.jar" />
+    <pathelement location="${jars.dir}/jboss/jboss-system.jar" />
+    <pathelement location="${jars.dir}/jboss/jboss-cache.jar" />
+    <pathelement location="${jars.dir}/jboss/jboss-jaxws.jar" />
+    <pathelement location="${jars.dir}/jboss/jboss-ejb3x.jar" />
+    <pathelement location="${jars.dir}/jboss/jgroups.jar" />
+    <pathelement location="${jars.dir}/jboss/scheduler-plugin.jar" />
+
+    <pathelement location="${jive.dir}/jivebase.jar" />
+    <pathelement location="${jive.dir}/jiveforums.jar" />
+    <pathelement location="${jive.dir}/xwork.jar" />
+    <pathelement location="${jive.dir}/htmlparser.jar" />
+
+    <pathelement location="${jars.dir}/org.springframework.aop-3.0.5.RELEASE.jar" />
+    <pathelement location="${jars.dir}/org.springframework.asm-3.0.5.RELEASE.jar" />
+    <pathelement location="${jars.dir}/org.springframework.beans-3.0.5.RELEASE.jar" />
+    <pathelement location="${jars.dir}/org.springframework.context.support-3.0.5.RELEASE.jar" />
+    <pathelement location="${jars.dir}/org.springframework.context-3.0.5.RELEASE.jar" />
+    <pathelement location="${jars.dir}/org.springframework.core-3.0.5.RELEASE.jar" />
+    <pathelement location="${jars.dir}/org.springframework.expression-3.0.5.RELEASE.jar" />
+    <pathelement location="${jars.dir}/org.springframework.jdbc-3.0.5.RELEASE.jar" />
+    <pathelement location="${jars.dir}/org.springframework.orm-3.0.5.RELEASE.jar" />
+    <pathelement location="${jars.dir}/org.springframework.transaction-3.0.5.RELEASE.jar" />
+    <pathelement location="${jars.dir}/org.springframework.web-3.0.5.RELEASE.jar" />
+
+    <pathelement location="${struts.dir}/commons-beanutils.jar" />
+    <pathelement location="${struts.dir}/commons-collections.jar" />
+    <pathelement location="${struts.dir}/struts.jar" />
+
+    <pathelement location="${jars.dir}/tcs/json_object/1.0/json_object.jar" />
+    <pathelement location="${jars.dir}/tcs/base_exception/2.0.0/base_exception.jar" />
+
+    <pathelement location="${jive.dir}/velocity-dep.jar" />
+    <pathelement location="${jars.dir}/hibernate3.jar" />
+
+    <pathelement location="${jars.dir}/commons-fileupload-1.2.1.jar" />
+    <pathelement location="${jars.dir}/commons-io-1.3.2.jar" />
+    <pathelement location="${jars.dir}/commons-logging-api-1.1.jar" />
+    <pathelement location="${jars.dir}/freemarker-2.3.16.jar" />
+    <pathelement location="${jars.dir}/ognl-3.0.jar" />
+    <pathelement location="${jars.dir}/struts2-core-2.2.1.jar" />
+    <pathelement location="${jars.dir}/struts2-spring-plugin-2.2.1.jar" />
+    <pathelement location="${jars.dir}/struts2-json-plugin-2.2.1.jar" />
+    <pathelement location="${jars.dir}/xwork-core-2.2.1.jar" />
+  </path>
+  <target name="init">
+    <mkdir dir="${classes}" />
+    <mkdir dir="${war.dir}" />
+  </target>
+  <target name="compile_common" depends="init" unless="compile_common_set">
+    <ant antfile="build_common.xml" target="build-dist" />
+    <property name="compile_common_set" value="true" />
+  </target>
+  <target name="compile" depends="init,compile_common" unless="compile_set">
+    <depend srcdir="${java}" destdir="${classes}" cache="${build}/cache" />
+    <javac srcdir="${java}" destdir="${classes}" classpathref="class.path" deprecation="${deprecation}" debug="${debug}" source="1.5" target="1.5" memoryMaximumSize="380m" memoryInitialSize="380m" fork="true">
+      <include name="com/topcoder/web/tc/**/*.java" />
+    </javac>
+    <property name="compile_set" value="true" />
+  </target>
+  
+  <target name="move-libs">
+    <delete file="${jboss_lib}\base_exception.jar"/>
+    <delete file="${jboss_lib}\hibernate3.jar"/>
+    <delete file="${jboss_lib}\hibernate-annotations.jar"/>
+    <copy todir="${jboss_lib}">
+      <fileset dir="${bin}">
+        <include name="tcwebcommon.jar" />
+        <include name="tc.jar" />
+      </fileset>
+    </copy>
+    <copy todir="${jboss_lib}" file="${shared.jar}" />
+    <copy todir="${jboss_lib}">
+      <fileset dir="${jars.dir}">
+        <include name="ifxjdbc.jar" />
+        <include name="bfograph.jar" />
+        <include name="object_formatter.jar" />
+        <include name="tcsUtil.jar" />
+        <include name="fileconvert.jar" />
+        <include name="httpunit.jar" />
+        <include name="itext-1.1.jar" />
+        <!-- don't deploy this on the main site anymore
+                <include name="tc.jar"/>
+                <include name="TestServices.jar"/>
+                <include name="asyncservices.jar"/>
+                -->
+      </fileset>
+      <fileset dir="${jars.dir}/tcs/id_generator/3.0">
+        <include name="id_generator.jar" />
+      </fileset>
+      <fileset dir="${jars.dir}/tcs/db_connection_factory/1.0">
+        <include name="db_connection_factory.jar" />
+      </fileset>
+      <fileset dir="${jars.dir}/tcs/alerts_wrapper/1.0">
+        <include name="java_alerts_wrapper.jar" />
+      </fileset>
+      <fileset dir="${jars.dir}/tcs/object_factory/2.0.1">
+        <include name="object_factory.jar" />
+      </fileset>
+      <fileset dir="${jars.dir}/tcs/json_object/1.0">
+        <include name="json_object.jar" />
+      </fileset>
+      <fileset dir="${jars.dir}/tcs">
+        <include name="logging_wrapper.jar" />
+      </fileset>
+      <fileset dir="${jars.dir}/tcs">
+        <include name="ldap_sdk_interface.jar" />
+      </fileset>
+      <fileset dir="${jars.dir}">
+        <include name="netscape_ldap_sdk.jar" />
+        <include name="ldap.jar" />
+      </fileset>
+      <fileset dir="${external.jars.dir}">
+        <include name="random_string_image-1.0.jar" />
+        <include name="command_line_utility-1.0.0.jar" />
+        <include name="spell_check-1.0.0.jar" />
+        <include name="random_string_generator-1.0.0.jar" />
+      </fileset>
+    </copy>
+    <copy todir="${jboss_lib}" file="${jars.dir}/tcs/file_upload/2.0.2.0/file_upload.jar" />
+    <copy todir="${jboss_lib}" file="${jars.dir}/tcs/configuration_manager/2.1.5/configuration_manager.jar" />
+    <copy todir="${jboss_lib}" file="${jars.dir}/tcs/data_validation/1.0/data_validation.jar" />
+    <copy todir="${jboss_lib}" file="${jars.dir}/tcs/file_system_server/1.0/file_system_server.jar" />
+    <copy todir="${jboss_lib}" file="${jars.dir}/tcs/guid_generator/1.0/guid_generator.jar" />
+    <copy todir="${jboss_lib}" file="${jars.dir}/tcs/heartbeat/1.0/heartbeat.jar" />
+    <copy todir="${jboss_lib}" file="${jars.dir}/tcs/ip_server/2.0.1/ip_server.jar" />
+    <copy todir="${jboss_lib}" file="${jars.dir}/tcs/typesafe_enum/1.0/typesafe_enum.jar" />
+    <copy todir="${jboss_lib}" file="${jars.dir}/tcs/contest_eligibility_validation_client/1.0.0/contest_eligibility_validation_client.jar" />
+    <copy todir="${jboss_lib}" file="${jars.dir}/hibernate3.jar"/>
+
+    <copy todir="${jboss_lib}" file="${jars.dir}/tcs/pipeline_service_persistence/1.0.0/pipeline_service_persistence.jar" />
+    <copy todir="${jboss_lib}" file="${jars.dir}/tcs/pipeline_service/1.0.0/pipeline_service.jar" />
+    <copy todir="${jboss_lib}" file="${jars.dir}/tcs/pipeline_service_facade/1.0.0/pipeline_service_facade.jar" />
+
+    <copy todir="${jboss_lib}">
+      <fileset dir="${jars.dir}/tcs">
+        <include name="catalog.jar" />
+        <include name="base_exception.jar" />
+        <include name="user.jar" />
+      </fileset>
+    </copy>
+    <copy todir="${jboss_lib}">
+      <fileset dir="${ejb_jars}">
+        <include name="security.jar" />
+      </fileset>
+    </copy>
+
+  </target>
+  
+  <target name="deploy" depends="compile">
+	<antcall target="deploy-tc"/>
+	<antcall target="deploy-security"/>
+  </target>
+  
+  <target name="deploy-tc">
+    <antcall target="war-tc" />
+    <antcall target="move-libs" />
+  </target>
+  <target name="war-tc" depends="compile">
+    <war warfile="${war.dir}/tc.war" webxml="${resources}/tc_refactoring/WEB-INF/web.xml">
+      <fileset dir="${java}/com/topcoder/web/tc/view">
+        <include name="**/*.jsp"/>
+        <include name="**/*.xml"/>
+      </fileset>
+      <classes dir="${classes}">
+        <include name="com/topcoder/web/tc/**/*.class" />
+      </classes>
+      <classes dir="${resources}/tc_refactoring">
+        <include name="struts.xml" />
+	    <include name="validators.xml" />
+	    <include name="*.properties"/>
+      </classes>
+      <classes dir="${resources}/tc_refactoring">
+        <include name="com/topcoder/web/tc/impl/entity/*.hbm.xml" />
+      </classes>
+      <webinf dir="${resources}/tc_refactoring">
+        <include name="jboss-web.xml" />
+      </webinf>
+      <webinf dir="${resources}/tc_refactoring/WEB-INF">
+        <include name="applicationContext.xml" />
+      </webinf>
+      <lib dir="${jars.dir}">
+        <include name="jstl-1.2.jar" />
+        <include name="standard.jar" />
+        <include name="commons-fileupload-1.2.1.jar" />
+        <include name="commons-io-1.3.2.jar" />
+        <include name="commons-logging-api-1.1.jar" />
+        <include name="freemarker-2.3.16.jar" />
+        <include name="ognl-3.0.jar" />
+        <include name="struts2-core-2.2.1.jar" />
+        <include name="struts2-spring-plugin-2.2.1.jar" />
+        <include name="struts2-json-plugin-2.2.1.jar" />
+        <include name="xwork-core-2.2.1.jar" />
+        <include name="org.springframework.aop-3.0.5.RELEASE.jar" />
+        <include name="org.springframework.asm-3.0.5.RELEASE.jar" />
+        <include name="org.springframework.beans-3.0.5.RELEASE.jar" />
+        <include name="org.springframework.context.support-3.0.5.RELEASE.jar" />
+        <include name="org.springframework.context-3.0.5.RELEASE.jar" />
+        <include name="org.springframework.core-3.0.5.RELEASE.jar" />
+        <include name="org.springframework.expression-3.0.5.RELEASE.jar" />
+        <include name="org.springframework.jdbc-3.0.5.RELEASE.jar" />
+        <include name="org.springframework.orm-3.0.5.RELEASE.jar" />
+        <include name="org.springframework.transaction-3.0.5.RELEASE.jar" />
+        <include name="org.springframework.web-3.0.5.RELEASE.jar" />
+        <include name="topcoder_commons_utility.jar"/>
+      </lib>
+    </war>
+    <antcall target="expand-tc"/>
+    <antcall target="deploy-apache-static"/>
+  </target>
+  <target name="expand-tc">
+    <unwar src="${war.dir}/tc.war" dest="${jboss_deploy}/tc.war/" overwrite="yes" />
+    <delete dir="${jboss_deploy}/tc.war/META-INF" />
+  </target>
+
+  <target name="deploy-apache-static" description="copies all static resources to Apache htdocs. Only used on a (unix) VM.">
+    <mkdir dir="${apache_tcdocs}/i"/>
+    <mkdir dir="${apache_tcdocs}/css"/>
+    <mkdir dir="${apache_tcdocs}/js"/>
+    <copy todir="${apache_tcdocs}/i" overwrite="true">
+      <fileset dir="${java}/com/topcoder/web/tc/view/i">
+        <include name="**/*" />
+      </fileset>
+    </copy>
+    <copy todir="${apache_tcdocs}/css" overwrite="true">
+      <fileset dir="${java}/com/topcoder/web/tc/view/css">
+        <include name="**/*" />
+      </fileset>
+    </copy>
+    <copy todir="${apache_tcdocs}/js" overwrite="true">
+      <fileset dir="${java}/com/topcoder/web/tc/view/js">
+        <include name="**/*" />
+      </fileset>
+    </copy>
+  </target>
+</project>

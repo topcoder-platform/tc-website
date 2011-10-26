@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
+	xmlns:tx="http://www.springframework.org/schema/tx">
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName">
+			<value>com.informix.jdbc.IfxDriver</value>
+		</property>
+		<property name="url">
+			<value>jdbc:informix-sqli://env.topcoder.com:2021/tcs_catalog:informixserver=informixoltp_tcp
+			</value>
+		</property>
+		<property name="username">
+			<value>informix</value>
+		</property>
+		<property name="password">
+			<value>1nf0rm1x</value>
+		</property>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/topcoder/web/tc/impl/entity/Project.hbm.xml</value>
+				<value>com/topcoder/web/tc/impl/entity/ProjectCategoryLookup.hbm.xml
+				</value>
+				<value>com/topcoder/web/tc/impl/entity/ProjectGroupCategoryLookup.hbm.xml
+				</value>
+				<value>com/topcoder/web/tc/impl/entity/ProjectCatalogLookup.hbm.xml
+				</value>
+				<value>com/topcoder/web/tc/impl/entity/ProjectInfo.hbm.xml</value>
+				<value>com/topcoder/web/tc/impl/entity/Upload.hbm.xml</value>
+				<value>com/topcoder/web/tc/impl/entity/Submission.hbm.xml</value>
+				<value>com/topcoder/web/tc/impl/entity/Resource.hbm.xml</value>
+				<value>com/topcoder/web/tc/impl/entity/ProjectPhase.hbm.xml</value>
+				<value>com/topcoder/web/tc/impl/entity/ContestEligibility.hbm.xml
+				</value>
+				<value>com/topcoder/web/tc/impl/entity/ResourceSubmission.hbm.xml
+				</value>
+				<value>com/topcoder/web/tc/impl/entity/ProjectResult.hbm.xml</value>
+				<value>com/topcoder/web/tc/impl/entity/ResourceInfo.hbm.xml</value>
+				<value>com/topcoder/web/tc/impl/entity/PhaseType.hbm.xml</value>
+				<value>com/topcoder/web/tc/impl/entity/ProjectStatusLookup.hbm.xml
+				</value>
+				<value>com/topcoder/web/tc/impl/entity/CompCatalog.hbm.xml</value>
+				<value>com/topcoder/web/tc/impl/entity/CompVersionDates.hbm.xml
+				</value>
+				<value>com/topcoder/web/tc/impl/entity/CompVersions.hbm.xml</value>
+				<value>com/topcoder/web/tc/impl/entity/PhaseCriteria.hbm.xml</value>
+				<value>com/topcoder/web/tc/impl/entity/RBoardApplication.hbm.xml
+				</value>
+				<value>com/topcoder/web/tc/impl/entity/RBoardPayment.hbm.xml</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.InformixDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="hibernateTemplateBean" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="activeContestsManagerBean" class="com.topcoder.web.tc.impl.ActiveContestsManagerImpl">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplateBean" />
+		</property>
+		<property name="activeStatusId" value="1" />
+		<property name="projectNameInfoId" value="6" />
+		<property name="contestSubmissionTypeId" value="1" />
+		<property name="activeSubmissionStatusId" value="1" />
+		<property name="failedScreeningSubmissionStatusId" value="2" />
+		<property name="failedReviewSubmissionStatusId" value="3" />
+		<property name="completedWithoutWinSubmissionStatusId" value="4" />
+		<property name="submitterRoleId" value="1" />
+		<property name="registrationPhaseTypeId" value="1" />
+		<property name="submissionPhaseTypeId" value="2" />
+		<property name="finalReviewPhaseTypeId" value="10" />
+		<property name="firstPlaceCostInfoId" value="36" />
+		<property name="reliabilityBonusCostInfoId" value="38" />
+		<property name="digitalRunPointInfoId" value="30" />
+		<property name="paymentsInfoId" value="16" />
+		<property name="digitalRunFlagInfoId" value="26" />
+		<property name="openPhaseStatusId" value="2" />
+	</bean>
+	<bean id="contestStatusManagerBean" class="com.topcoder.web.tc.impl.ContestStatusManagerImpl">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplateBean" />
+		</property>
+		<property name="projectNameInfoId" value="6" />
+		<property name="registrationPhaseTypeId" value="1" />
+		<property name="submissionPhaseTypeId" value="2" />
+		<property name="finalReviewPhaseTypeId" value="10" />
+		<property name="openPhaseStatusId" value="2" />
+		<property name="winnerIdInfoId" value="23" />
+		<property name="externalReferenceIdInfoId" value="1" />
+		<property name="handleInfoId" value="2" />
+		<property name="secondPlaceIdInfoId" value="24" />
+		<property name="firstPlaceCostInfoId" value="36" />
+	</bean>
+	<bean id="pastContestsManagerBean" class="com.topcoder.web.tc.impl.PastContestsManagerImpl">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplateBean" />
+		</property>
+		<property name="projectNameInfoId" value="6" />
+		<property name="completedStatusId" value="7" />
+		<property name="contestSubmissionTypeId" value="1" />
+		<property name="activeSubmissionStatusId" value="1" />
+		<property name="registrationPhaseTypeId" value="1" />
+		<property name="submissionPhaseTypeId" value="2" />
+		<property name="failedScreeningSubmissionStatusId" value="2" />
+		<property name="failedReviewSubmissionStatusId" value="3" />
+		<property name="completedWithoutWinSubmissionStatusId" value="4" />
+		<property name="submitterRoleId" value="1" />
+		<property name="approvalPhaseTypeId" value="11" />
+		<property name="passingScreeningScore" value="75" />
+		<property name="winnerIdInfoId" value="23" />
+		<property name="externalReferenceIdInfoId" value="1" />
+		<property name="handleInfoId" value="2" />
+	</bean>
+	<bean id="upcomingContestsManagerBean"
+		class="com.topcoder.web.tc.implement.UpcomingContestsManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="loggerName" value="UpcomingContestsManagerImpl" />
+	</bean>
+	<bean id="reviewOpportunitiesManagerBean"
+		class="com.topcoder.web.tc.implement.ReviewOpportunitiesManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="loggerName" value="ReviewOpportunitiesManagerImpl" />
+	</bean>
+	<bean id="searchContestsManagerBean" class="com.topcoder.web.tc.implement.SearchContestsManagerImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="loggerName" value="SearchContestsManagerImpl" />
+	</bean>
+	<bean id="categoriesManagerBean" class="com.topcoder.web.tc.impl.CategoriesManagerImpl">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplateBean" />
+		</property>
+	</bean>
+	
+	<bean id="homeDataManagerBean" class="com.topcoder.web.tc.impl.HomeDataManagerImpl">
+	</bean>
+
+	<bean id="activeContestsManagerAction" class="com.topcoder.web.tc.action.ActiveContestsManagerAction"
+		scope="prototype">
+		<property name="activeContestsManager">
+			<ref bean="activeContestsManagerBean" />
+		</property>
+	</bean>
+	<bean id="contestStatusManagerAction" class="com.topcoder.web.tc.action.ContestStatusManagerAction"
+		scope="prototype">
+		<property name="contestStatusManager">
+			<ref bean="contestStatusManagerBean" />
+		</property>
+	</bean>
+	<bean id="pastContestsManagerAction" class="com.topcoder.web.tc.action.PastContestsManagerAction"
+		scope="prototype">
+		<property name="pastContestsManager">
+			<ref bean="pastContestsManagerBean" />
+		</property>
+	</bean>
+	<bean id="upcomingContestsManagerAction"
+		class="com.topcoder.web.tc.action.UpcomingContestsManagerAction"
+		scope="prototype" init-method="checkConfiguration">
+		<property name="upcomingContestsManager" ref="upcomingContestsManagerBean" />
+	</bean>
+	<bean id="reviewOpportunitiesManagerAction"
+		class="com.topcoder.web.tc.action.ReviewOpportunitiesManagerAction"
+		scope="prototype" init-method="checkConfiguration">
+		<property name="reviewOpportunitiesManager" ref="reviewOpportunitiesManagerBean" />
+	</bean>
+	<bean id="searchContestsManagerAction" class="com.topcoder.web.tc.action.SearchContestsManagerAction"
+		scope="prototype" init-method="checkConfiguration">
+		<property name="searchContestsManager" ref="searchContestsManagerBean" />
+	</bean>
+	<bean id="genericContestsAction" class="com.topcoder.web.tc.action.GenericContestsAction"
+		scope="prototype">
+		<property name="categoriesManager" ref="categoriesManagerBean" />
+	</bean>
+	<bean id="homeAction" class="com.topcoder.web.tc.action.HomeAction" scope="prototype">
+		<property name="homeDataManager" ref="homeDataManagerBean"/>
+	</bean>
+	<bean id="loginAction" class="com.topcoder.web.tc.action.LoginAction"
+		scope="prototype">
+		<property name="homeDataManager" ref="homeDataManagerBean"/>
+	</bean>
+	<bean id="logoutAction" class="com.topcoder.web.tc.action.LogoutAction"
+		scope="prototype">
+	</bean>
+</beans>
