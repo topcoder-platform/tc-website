@@ -1,0 +1,11 @@
+<html>
+	<head>
+		<title>$action.getText("action.name")</title>
+		<meta name="help-path" content="/admin/lookandfeel/help/choosetheme.vm"/>
+	</head>
+
+	<body>
+        #parse ("/templates/leftnav/common-configuretheme.vm")
+        #parse ("/admin/lookandfeel/lookandfeel-breadcrumbs.vm")
+	</body>
+</html>

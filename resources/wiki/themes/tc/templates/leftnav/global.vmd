@@ -1,0 +1,234 @@
+<!-- GLOBAL DECORATOR
+    This decorator handles a global context - i.e. information which is independent of space - and a profile context.
+    Current mode - 'dashboard', 'view-profile', 'edit-profile', 'change-password-profile', 'edit-notifications-profile'
+-->
+
+#set ($mode     = $params.get("mode"))
+#set ($context  = $params.get("context"))
+#set ($helper  = $params.get("helper"))
+#set ($infoPanelWidth = $params.get("infopanel-width"))
+#set ($maxFavouritePages = "10")  ## Change this value to increase the number of favourite pages displayed on the Dashboard
+
+#infoPanelInitFromParams()
+<!-- GENERAL PAGE DECORATING BEGINS -->
+
+        <div class="pagebody">
+            <!-- output errors -->
+            #parse ( "/template/includes/actionerrors.vm" )
+
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                <!-- CONTEXT * MODE SPECIFIC DECORATING BEGINS -->
+                #if ($mode == "dashboard")
+                    #rssautodiscovery($action.rssDescriptor)
+                    #permitSearchEngines()
+
+                    <td width="50%" valign="top">
+                        <div class="padded">
+                        #parse ( "/dashboard/dashboard-welcome.vm" )
+
+                        $helper.renderConfluenceMacro("{spaces}")
+
+                        #if ( $permissionCheckDispatcher.isPermitted("/spaces/createspace-start.action") )
+                            $helper.renderConfluenceMacro("{create-space-button}")
+                            <b><a href="$req.contextPath/spaces/createspace-start.action">$action.getText("action.space.create")</a></b><span class="smalltext"> - $action.getText("create.space.description")</span><br>
+                        #end
+                        <img src="$req.contextPath/images/icons/feed_wizard.gif" align='absmiddle' height="32" width="32"> <b><a href="$req.contextPath/dashboard/configurerssfeed.action"> $action.getText("feed.builder")</a></b><span class="smalltext"> - $action.getText("feed.builder.desc")</span><br>
+#*TC no people directory link                            
+                        #if (!$settingsManager.getGlobalSettings().isSharedMode())
+                            <img src="$req.contextPath/images/icons/people_directory_32.gif" align='absmiddle' height="32" width="32"> <b><a href="$req.contextPath/peopledirectory.action"> $action.getText("people.directory.title")</a></b><span class="smalltext"> - $action.getText("people.directory.description")</span><br>
+                        #end
+*#
+                        </div>
+                    </td>
+                    <td width="50%" valign="top">
+                        <div class="padded">
+                        #set ($title = $action.getText("recent-updated-contents"))
+                        $helper.renderConfluenceMacro("{recently-updated:dashboard}")
+                        $helper.renderConfluenceMacro("{favpages:maxResults=$maxFavouritePages}")
+                        </div>
+                    </td>
+
+                <content tag="breadcrumbs">
+                    #dashboardlink ()
+                </content>
+                #elseif ($mode == "userdir")
+                    <td width="100%" valign="top">
+                    $body
+                    </td>
+
+                    <content tag="breadcrumbs">
+                        #dashboardlink() &gt; $action.getText('people.directory.name')
+                    </content>
+                #elseif ($mode == "rss")
+                    <td width="50%" valign="top">
+                        $body
+                    </td>
+                    <content tag="breadcrumbs">
+                        #dashboardlink () &gt;
+                        $action.getActionName($action.getClass().getName())
+                    </content>
+
+                #elseif ($context == "profile")
+                    #set ($readOnly = $helper.action.user && $userAccessor.isReadOnly($helper.action.user))
+
+                    <div class="greynavbar">
+                    <span style="float:right; padding: 6px 10px 4px 0px">
+
+                    #if ($action.space)
+						#personalSpaceLink()
+                    #else
+                        #createPersonalSpaceLink()
+                    #end
+                    </span>
+						<ul id="foldertab" style="margin-bottom: 0px; padding-top: 10px;">
+							#foreach ($item in $action.webInterfaceManager.getDisplayableItems("system.profile", $action.remoteUser, $helper))
+								<li><a href="$item.link.getDisplayableUrl($req, $helper)" #if ($mode == $item.key) class="current" #end>$item.label.getDisplayableLabel($req, $helper)</a></li>
+							#end
+						</ul>
+                    </div>
+                    </tr>
+                    <tr>
+
+                    ##MODE - VIEW-PROFILE
+                    #if ($mode == "view-profile")
+                        #permitSearchEngines()
+                        #set ($user = $helper.action.user)
+                        <td valign="top">
+
+                        ##BEGINNING OF INTERNAL TABLE FOR PROFILE VIEW
+                        <table border=0 width=100% cellspacing="10">
+                            <tr>
+                                <td valign=top>
+                                    $body
+                                </td>
+
+                         <!-- begin right side of view profile -->
+                             #if ( $helper.action.viewingMyProfile )
+                            <td  valign="top" width="200px">
+                            <div id="profileSummary" class="borderedGreyBox">
+                                <div class="pageheader"><div class="formtitle">$action.getText("profile.summary")</div></div>
+                                <h3>$helper.getText("groups.name")</h3>
+                                #set ($groups = $userAccessor.getGroups($user).currentPage)
+
+                                #if (!$groups || $groups.size() == 0)
+                                    #if ( $viewingMyProfile )
+                                        $helper.getText("not.in.any.groups")
+                                    #else
+                                        $helper.getText("user.has.no.groups")
+                                    #end
+                                #else
+                                    <ul>
+                                    #foreach ($group in $groups)
+                                        <li><img src="${req.contextPath}/images/icons/bullet_blue.gif" width="8" height="8" align="absmiddle"/>
+                                        $group.name</li>
+                                    #end
+                                    </ul>
+                                #end
+
+                                <h3>$action.getText("general.preferences.header")</h3>
+                                <ul>
+                                <li>$helper.getText("site.homepage"): $helper.action.siteHomePageName</li>
+                                <li>$helper.getText("language.select"): $helper.action.getUserLocaleName()</li>
+                                <li>$helper.getText("time.zone.select"): $helper.action.getUserTimeZone()</li>
+                                </ul>
+
+                                <h3>$action.getText("notification.preferences.header")</h3>
+                                <ul>
+                                <li>$helper.getText("daily.report.email"):#onoff ($helper.action.notifyByEmail)</li>
+                                <li>$helper.getText("notify.for.my.own.actions"):#onoff ($helper.action.notifyForMyOwnActions)</li>
+                                <li>$helper.getText("email.mimetype"): $helper.action.mimeTypeUserFriendly</li>
+                                </ul>
+
+                                <h3>$helper.getText("user.stats")</h3>
+                                <ul>
+                                #if (!$settingsManager.getGlobalSettings().isExternalUserManagement())
+                                    <li>$helper.getText("signup.date"): #if( $helper.action.signupDate ) $helper.action.dateFormatter.format( $helper.action.signupDate ) #else NA #end</li>
+                                #end
+                                <li>$helper.getText("last.login.date"): #if( $helper.action.lastLoginDate ) $helper.action.dateFormatter.format( $helper.action.lastLoginDate ) #else NA #end</li>
+                                <li>$helper.getText("authored.pages.count"): $stack.findValue("authoredPagesCount")</li>
+                                </ul>
+
+                                #if ($readOnly)
+                                    <h3>$helper.getText("readonly.account")</h3>
+                                #end
+                            </div>
+                            </td>
+                             #end
+
+                            </tr>
+                        </table>
+
+                        ##END OF INTERNAL TABLE FOR PROFILE VIEW
+
+                        </td>
+
+                        ##BREADCRUMBS FOR PROFILE
+                        #parse ( "/users/user-breadcrumbs.vm" )
+
+                    ##MODE - EDIT-PROFILE || CHANGE-PASSWORD-PROFILE
+                    #elseif ($mode == "edit-profile" || $mode == "change-password-profile")
+                        <td valign="top">
+                        <table cellpadding=0 width="100%">
+                            <tr>
+                                <td width="10%" valign="top">
+                                <div class="navmenu" style="margin-top: 1em">
+                                    #set ($location = "system.profile.edit")
+                                    #foreach ($section in $action.webInterfaceManager.getDisplayableSections($location, $action.remoteUser, $helper))
+                                        #set ($sectionKey = "$location/$section.key")
+                                        #set ($displayableItems = $action.webInterfaceManager.getDisplayableItems($sectionKey, $action.remoteUser, $helper))
+
+                                        #if (!$displayableItems.isEmpty())
+                                            <div class="menuheading">$section.label.getDisplayableLabel($req, $helper)</div>
+                                            <div class="menuitems">
+                                            #foreach ($item in $displayableItems)
+                                                <img src="$req.contextPath/images/icons/bullet_creme.gif" height="8" width="8" alt="" />
+                                                <a href="$item.link.getDisplayableUrl($req, $helper)">$item.label.getDisplayableLabel($req, $helper)</a><br />
+                                            #end
+                                            </div>
+                                        #end
+                                    #end
+                                </div>
+                                </td>
+                                <td width="90%">
+                                $body
+                                </td>
+                             </tr>
+                         </table>
+                         </td>
+                        ##BREADCRUMBS FOR PROFILE
+                        #parse ( "/users/user-breadcrumbs.vm" )
+
+                    #elseif ($mode == "configure-rss-feed" || $mode == "my-labels" || $mode == "edit-notifications-profile")
+                        <td valign="top">
+                        $body
+                        </td>
+                        #parse ( "/users/user-breadcrumbs.vm" )
+                    #elseif ($mode == 'drafts')
+
+                        #parse ( "/users/user-breadcrumbs.vm" )
+                        #permitSearchEngines()
+                        $body
+
+                    #end
+                #elseif ($context == "labels")
+
+                    #parse ( "/labels/breadcrumbs.vm" )
+                    #permitSearchEngines()
+                    $body
+
+                #end
+                <!-- CONTEXT * MODE SPECIFIC DECORATING ENDS-->
+
+                ## INFO PANEL FOR ANY PAGE
+                <!-- ochre   -->
+                #if ($infoPanelRequired == true)
+                    <td width="$infoPanelWidth" valign="top" id="helptd">
+                        #infoPanel(true true true true)
+                    </td>
+                #end
+
+                </tr>
+            </table>
+    </div>
+<!-- GENERAL PAGE DECORATING ENDS -->

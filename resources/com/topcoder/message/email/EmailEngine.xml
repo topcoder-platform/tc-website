@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<CMConfig>
+    <Property name="smtp_host_addr">
+        <Value></Value>
+    </Property>
+    <Property name="smtp_host_port">
+        <Value></Value>
+    </Property>
+    <Property name="username">
+        <Value></Value>
+    </Property>
+    <Property name="password">
+        <Value></Value>
+    </Property>
+</CMConfig>

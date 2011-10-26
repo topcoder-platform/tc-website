@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model.algo">
+
+    <class name="Room" table="room">
+        <id name="id" column="room_id">
+            <generator class="com.topcoder.web.common.model.IdGenerator">
+                <param name="sequence_name">ROOM_SEQ</param>
+            </generator>
+        </id>
+        <many-to-one name="round" column="round_id" class="Round" access="field"/>
+
+        <property name="name" column="name" access="field"/>
+        <property name="divisionId" column="division_id" access="field"/>
+        <property name="roomTypeId" column="room_type_id" access="field"/>
+
+        <property name="eligible" column="eligible"  access="field"/>
+        <property name="unrated" column="unrated" access="field"/>
+
+        <set name="roomResults" cascade="all-delete-orphan" inverse="true" access="field">
+            <key column="room_id" not-null="true"/>
+            <one-to-many class="RoomResult"/>
+        </set>
+
+    </class>
+</hibernate-mapping>

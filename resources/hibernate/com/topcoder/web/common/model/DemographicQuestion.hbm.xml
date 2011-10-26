@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+
+
+    <class name="DemographicQuestion" table="demographic_question" mutable="false">
+        <id name="id" column="demographic_question_id" access="field"/>
+        <property name="text" column="demographic_question_text" access="field"/>
+        <property name="selectable" access="field"/>
+        <property name="description" column="demographic_question_desc" access="field"/>
+
+        <set name="answers" cascade="none" inverse="true" order-by="sort">
+            <key column="demographic_question_id" not-null="true"/>
+            <one-to-many class="DemographicAnswer"/>
+            <filter name="activeFilter" condition=":status = status"/>
+        </set>
+
+    </class>
+    <filter-def name="activeFilter">
+        <filter-param name="status" type="string"/>
+    </filter-def>
+
+</hibernate-mapping>

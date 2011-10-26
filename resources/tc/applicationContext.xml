@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="profileService" class="com.topcoder.direct.services.copilot.SqlCopilotProfileService">
+    </bean>    
+
+    <bean id="projectService" class="com.topcoder.direct.services.copilot.MockCopilotProjectService">
+    </bean>
+    
+    <bean id="photoRemovalServlet"
+		class="com.topcoder.web.tc.memberphoto.servlet.MemberPhotoRemovalServlet">
+        <property name="removalReasonParameterName">
+            <value>removalReason</value>
+        </property>
+        <property name="notAdministratorErrorName">
+            <value>not_admin_error_name</value>
+        </property>
+        <property name="validationErrorForwardUrl">
+            <value>validation_error_forward_url</value>
+        </property>
+        <property name="memberHasNoPhotoErrorName">
+            <value>member_has_no_photo_error_name</value>
+        </property>
+        <property name="emailBodyTemplateFileName">
+            <value>/home/tc/jboss-4.0.4.GA/server/all/conf/template.txt</value>
+        </property>
+        <property name="fromEmailAddress">
+            <value>test@topcoder.com</value>
+        </property>
+        <property name="emailSubject">
+            <value>MySubject</value>
+        </property>
+        <property name="emailSendFlag">
+            <value>false</value>
+        </property>
+        <property name="photoImageSubmittedDirectory">
+            <value>/</value>
+        </property>
+        <property name="photoImageRemovedDirectory">
+            <value>/removed/</value>
+        </property>
+        <property name="serverPathPrefix">
+            <value>/mnt/apache/tcdocs/i/m</value>
+        </property>      
+    </bean>
+
+    <bean id="photoUploadServlet"
+		class="com.topcoder.web.tc.memberphoto.servlet.MemberPhotoUploadServlet">
+        <property name="fileUploaderNamespace">
+            <value>MemoryFileUpload</value>
+        </property>
+        <property name="photoImageFormFileName">
+            <value>photoFile</value>
+        </property>
+        <property name="targetImageWidth">
+            <value>115</value>
+        </property>
+        <property name="targetImageHeight">
+            <value>138</value>
+        </property>
+        <property name="photoImageSubmittedDirectory">
+            <value>/</value>
+        </property>
+        <property name="photoImagePreviewDirectory">
+            <value>/preview/</value>
+        </property>
+        <property name="previewPhotoImagePathName">
+            <value>previewPath</value>
+        </property>
+        <property name="previewForwardUrl">
+            <value>tc?module=MyHome</value>
+        </property>
+        <property name="submitForwardUrl">
+            <value>tc?module=MyHome</value>
+        </property>        
+        <property name="targetImageLeftCornerXParameterName">
+            <value>lx</value>
+        </property>
+        <property name="targetImageLeftCornerYParameterName">
+            <value>ly</value>
+        </property>
+        <property name="targetImageRightCornerXParameterName">
+            <value>rx</value>
+        </property>
+        <property name="targetImageRightCornerYParameterName">
+            <value>ry</value>
+        </property>
+        <property name="maxFileSize">
+            <value>100000000000</value>
+        </property>
+        <property name="submittedActionParameterName">
+            <value>photoAction</value>
+        </property>
+        <property name="serverPathPrefix">
+            <value>/mnt/apache/tcdocs/i/m</value>
+        </property>        
+    </bean>
+
+</beans>

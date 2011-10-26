@@ -1,0 +1,7 @@
+The following items were fixed:
+
+BeBetter:
+4.1.1:
+    #1: updated deployment document.
+
+Thanks.

@@ -1,0 +1,15 @@
+Note\:
+%comment%
+
+Fonts\:
+%loop:font%
+%index%. Font Name....\:%name%
+   Font URL.....\:%url%
+%endloop%
+
+Stock Arts\:
+%loop:stockArt%
+%index%. Stock Art Name.........\:%name%
+   Stock Art URL..........\:%url%
+   Stock Art File Number..\:%fileNumber%
+%endloop%

@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+        version="2.0">
+
+
+    <description>
+        TopCoder Private Label Tags
+    </description>
+
+    <tlib-version>1.0</tlib-version>
+
+    <short-name>pl_tag</short-name>
+
+    <uri>privatelabel.tld</uri>
+
+    <tag>
+        <name>questionIterator</name>
+        <tag-class>com.topcoder.web.common.tag.ListIteratorTag</tag-class>
+        <tei-class>com.topcoder.web.privatelabel.view.tag.DemographicQuestionIteratorTagInfo</tei-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>id</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>list</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>answerIterator</name>
+        <tag-class>com.topcoder.web.common.tag.ListIteratorTag</tag-class>
+        <tei-class>com.topcoder.web.privatelabel.view.tag.DemographicAnswerIteratorTagInfo</tei-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>id</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>list</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>responseIterator</name>
+        <tag-class>com.topcoder.web.common.tag.ListIteratorTag</tag-class>
+        <tei-class>com.topcoder.web.privatelabel.view.tag.DemographicResponseIteratorTagInfo</tei-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>id</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>list</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+
+    <tag>
+        <name>demographicInput</name>
+        <tag-class>com.topcoder.web.privatelabel.view.tag.DemographicInput</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>styleClass</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>question</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>onchange</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>demographicAnswerText</name>
+        <tag-class>com.topcoder.web.privatelabel.view.tag.DemographicAnswerText</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>questions</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>response</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>demographicQuestionText</name>
+        <tag-class>com.topcoder.web.privatelabel.view.tag.DemographicQuestionText</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>questions</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>response</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+</taglib>

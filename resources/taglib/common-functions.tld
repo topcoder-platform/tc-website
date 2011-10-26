@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+        version="2.0">
+
+    <description>
+        Some utility funcions
+    </description>
+
+    <tlib-version>1.0</tlib-version>
+
+    <short-name>cf</short-name>
+
+    <uri>common-functions</uri>
+
+    <function>
+        <name>contains</name>
+        <function-class>com.topcoder.web.common.function.Util</function-class>
+        <function-signature>
+            boolean contains(java.util.Collection, java.lang.Object)
+        </function-signature>
+    </function>
+    <function>
+        <name>containsMapKey</name>
+        <function-class>com.topcoder.web.common.function.Util</function-class>
+        <function-signature>
+            boolean containsMapKey(java.util.Map, java.lang.Object)
+        </function-signature>
+    </function>
+    <function>
+        <name>ordinal</name>
+        <function-class>com.topcoder.web.common.function.Util</function-class>
+        <function-signature>
+           String ordinal(int)
+        </function-signature>
+    </function>
+
+</taglib>
+

@@ -1,0 +1,179 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--
+  - Author: pulky, pvmagacho
+  - Version: 1.4
+  - Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: Studio Hibernate configuration file
+  -
+  - Version 1.1 (Configurable Contest Terms-Studio Release Assembly v1.0) changes: Added ResourceRole, PhaseType
+  - and ContestRoleTermsOfUse mappings.
+  - Version 1.2 (Studio Release Assembly - Spec Review Sign up page v1.0) changes: Added PermissionType, SpecReview,
+  - SpecReviewReviewer, SpecReviewStatus and UserPermissionGrant mappings.
+  - Version 1.3 (Studio Multi-Rounds Assembly - Studio Contest Details v1.0) changes: Added ContestMilestonePrize and
+  - ContestMultiRoundInformation mappings.
+  - Version 1.4 (Re-platforming Studio Release 4 Assembly) changes: Remove studio_oltp database reference. Moved to tcs_catalog database.
+-->
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <!-- Uncomment this block when executing ant run_studio_tests task -->
+<!--
+                <session-factory>
+                    <property name="connection.username">informix</property>
+                    <property name="connection.password">topcoder</property>
+                    <property name="connection.url">jdbc:informix-sqli://tcsdesigner:1526/studio_oltp:INFORMIXSERVER=tcs</property>
+                    <property name="connection.driver_class">com.informix.jdbc.IfxDriver</property>
+-->
+
+   <!-- Uncomment this block when executing ant deploy task -->
+    <session-factory name="java:comp/env/hibernate/SessionFactory">
+
+        <property name="connection.datasource">java:/TCS_CATALOG</property>
+
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.InformixDialect</property>
+        <property name="current_session_context_class">com.topcoder.web.common.ExtendedThreadLocalSessionContext</property>
+
+
+        <!--   using jdbc transactions right now cuz i can't get jta to work right.  it could be jboss, or it could be something else...not sure
+                <property name="hibernate.transaction.manager_lookup_class">org.hibernate.transaction.JBossTransactionManagerLookup</property>
+                <property name="hibernate.transaction.factory_class">org.hibernate.transaction.JTATransactionFactory</property>
+        -->
+
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+        <property name="hibernate.query.substitutions">true 1, false 0</property>
+
+        <mapping resource="com/topcoder/web/common/model/Address.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/AlgoRating.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/AlgoRatingType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Answer.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Coder.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/CoderImage.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/CoderReferral.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/CoderType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Company.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Contact.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Country.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/CurrentSchool.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/DemographicAnswer.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/DemographicAssignment.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/DemographicQuestion.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/DemographicResponse.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Email.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Event.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/EventRegistration.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/EventType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/FileType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Image.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/IntroEventConfig.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/IntroEventPropertyType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/MemberContactMessage.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/MemberContactBlackList.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Notification.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/NotificationType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Path.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Payment.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/PermissionType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Phone.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Preference.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/PreferenceGroup.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/PreferenceType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/PreferenceValue.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Question.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/QuestionStyle.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/QuestionType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/RegistrationType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Region.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/RegionType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Referral.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Response.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Resume.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/School.hbm.xml"/>
+        <mapping class="com.topcoder.web.common.model.SchoolAssociationType"/>
+        <mapping resource="com/topcoder/web/common/model/SchoolType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/SecretQuestion.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/SecurityGroup.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/SpecReview.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/SpecReviewReviewer.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/SpecReviewStatus.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/State.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Survey.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Team.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/TeamType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/TermsOfUse.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/TimeZone.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/User.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/UserGroup.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/UserPermissionGrant.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/UserPreference.hbm.xml"/>
+        <mapping class="com.topcoder.web.common.model.UserSchool"/>
+        <mapping resource="com/topcoder/web/common/model/UserSecurityKey.hbm.xml"/>
+
+        <mapping resource="com/topcoder/web/common/model/comp/Contest.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/comp/ContestPrize.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/comp/PhaseType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/comp/Project.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/comp/ProjectInfo.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/comp/ProjectPhase.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/comp/ResourceRole.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/comp/Submission.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/comp/UserContestPrize.hbm.xml"/>
+        
+        <mapping resource="com/topcoder/web/studio/dto/Contest.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/ContestPrize.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/Document.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/DocumentType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/ExternalContent.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/ExternalContentProperty.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/ExternalContentType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/FileType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/MimeType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/Notification.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/Prize.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/PrizeType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/Project.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/ProjectCategory.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/ProjectInfo.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/ProjectPhase.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/ResourceRole.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/Resource.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/ResourceInfo.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/ResourceSubmission.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/StudioProjectSpecification.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/Submission.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/SubmissionDeclaration.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/SubmissionImage.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/Upload.hbm.xml"/>
+
+        <mapping resource="com/topcoder/web/common/voting/Candidate.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/voting/CandidateInfo.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/voting/CandidateProperty.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/voting/CondorcetSchulzeElection.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/voting/ElectionStatus.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/voting/RankBallot.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/voting/Vote.hbm.xml"/>
+
+        <mapping resource="com/topcoder/web/studio/dto/CommentType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/ScorecardType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/ScorecardQuestion.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/ScorecardSection.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/ScorecardGroup.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/Scorecard.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/ReviewComment.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/ReviewItemComment.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/ReviewItem.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/dto/Review.hbm.xml"/>
+        
+        <mapping class="com.topcoder.web.common.model.educ.Professor"/>
+        <mapping class="com.topcoder.web.common.model.educ.ProfessorStatus"/>
+
+    </session-factory>
+
+</hibernate-configuration>

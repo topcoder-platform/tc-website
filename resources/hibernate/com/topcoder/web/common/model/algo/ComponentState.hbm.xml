@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model.algo">
+
+    <class name="ComponentState" table="component_state" mutable="false">
+        <id name="id" column="component_state_id" access="field"/>
+        <property name="points" column="points" access="field"/>
+        <property name="statusId" column="status_id" access="field"/>
+        <property name="submissionNumber" column="submission_number" access="field"/>
+        
+        <many-to-one name="round" column="round_id" class="Round" access="field" fetch="join"/>
+        <many-to-one name="coder" column="coder_id" class="com.topcoder.web.common.model.Coder" access="field" fetch="join"/>
+        <many-to-one name="component" column="component_id" class="Component" access="field" fetch="join"/>
+    </class>
+</hibernate-mapping>

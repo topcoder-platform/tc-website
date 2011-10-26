@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.openaim.model">
+
+    <class name="DocumentType" table="document_type_lu" mutable="false">
+        <id name="id" column="document_type_id" />
+        <property name="description" column="document_type_desc" />
+    </class>
+</hibernate-mapping>
