@@ -68,7 +68,7 @@
       </tr>
    </table>
    
-   <hr width="100%" size="1" noshade="noshade" />
+  <%-- <hr width="100%" size="1" noshade="noshade" /> --%>
 
       <div class="sectionHeader" width="100%">Past Tournaments</div>
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
@@ -85,6 +85,8 @@
       </tr>
    </table>
    
+      <hr width="100%" size="1" noshade="noshade" />
+	  
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
       <tr valign="top">
          <td style="padding-right: 8px;"><a href="/tc?module=Static&d1=tournaments&d2=tco10&d3=overview&d4=overview"><img src="/i/tournament/tco10/tco10_tourn_logo.png" alt="2010 TopCoder Open" border="0" /></a><br /></td>
