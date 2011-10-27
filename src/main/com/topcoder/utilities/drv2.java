@@ -71,7 +71,7 @@ public class drv2 extends DBUtility {
         query.append("    and reg.project_id = p.project_id and reg.phase_type_id = 1 ");
         query.append("    and rev.project_id = p.project_id and rev.phase_type_id = 4 ");
         query.append("    and reg.actual_start_time is not null and reg.actual_start_time >= t.track_start_date ");
-        query.append("    and nvl(rev.actual_start_time, rev.scheduled_start_time) < t.track_end_date ");
+        query.append("    and nvl(reg.actual_start_time, reg.scheduled_start_time) < t.track_end_date ");
         query.append("    and p.project_category_id = pcl.project_category_id and pcl.project_type_id = 3 ");
         query.append("    and p.project_status_id in (1,7) ");
         query.append("    and p.project_id = ppx.project_id ");
