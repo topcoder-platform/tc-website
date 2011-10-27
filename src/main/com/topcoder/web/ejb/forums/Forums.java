@@ -100,6 +100,8 @@ public interface Forums extends EJBObject {
 
     public void deleteForumWatch(long userID, long forumID) throws EJBException, RemoteException, Exception;
 
+    public void removeUserPermission(long userID, long forumCategoryID) throws EJBException, Exception;
+
     
     /**
      * <p>Creates the forum for the specified <code>TopCoder Direct</code> project.</p>

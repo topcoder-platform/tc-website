@@ -107,4 +107,6 @@ public interface ForumsLocal extends EJBLocalObject {
     public List<ForumsSpecReviewComment> getSpecReviewComments(long categoryId) throws EJBException, ForumsException;
 
     public void updateSpecReviewComment(long categoryId, long userId, long questionId, ForumsUserComment comment) throws EJBException, ForumsException;
+
+    public void removeUserPermission(long userID, long forumCategoryID) throws EJBException, Exception;
 }
