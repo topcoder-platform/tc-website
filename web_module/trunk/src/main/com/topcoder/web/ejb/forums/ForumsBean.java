@@ -159,6 +159,24 @@ public class ForumsBean extends BaseEJB {
 		}
 	}
 
+   public void removeCategoryPerms(long userID, long forumCategoryID, long[] perms) {
+        try {
+            User user = forumFactory.getUserManager().getUser(userID);
+            ForumCategory forumCategory = forumFactory.getForumCategory(forumCategoryID);
+            PermissionsManager fcPermManager = forumCategory.getPermissionsManager();
+            for (int i = 0; i < perms.length; i++) {
+                fcPermManager.removeUserPermission(user, PermissionType.ADDITIVE, perms[i]);
+            }
+        } catch (Exception e) {
+            log.info("*** error in removing category permissions: " + e);
+        }
+    }
+   
+   public void removeUserPermission(long userID, long forumCategoryID) throws EJBException, Exception
+   {
+       this.removeCategoryPerms(userID, forumCategoryID, ForumConstants.REGISTERED_PERMS);
+   }
+
 	public void removeRole(long userID, long groupID) {
 		try {
 			User user = forumFactory.getUserManager().getUser(userID);
@@ -959,6 +977,7 @@ public class ForumsBean extends BaseEJB {
 			// log.debug("Converted permissions.");
 		}
 	}
+
 
 	private long createForum(long categoryID, String name) throws Exception {
 		return createForum(categoryID, name, "");
