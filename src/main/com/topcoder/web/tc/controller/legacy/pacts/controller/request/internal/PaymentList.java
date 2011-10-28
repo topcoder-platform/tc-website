@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
+import java.util.Calendar;
+import java.util.Date;
 import java.io.PrintWriter;
 import java.io.IOException;
 import javax.servlet.http.HttpServletResponse;
@@ -24,7 +26,22 @@ import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeader;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeaderList;
+import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
 import com.topcoder.web.tc.controller.legacy.pacts.common.TCData;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.OutputKeys;
+ 
+import org.w3c.dom.Attr;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 /**
  * Display a Payment List
@@ -37,6 +54,8 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
     public static final String RELIABILITY = "reliability";
     public static final String GROUP_RELIABILITY = "gr";
     public static final String TOGGLE_GROUP_RELIABILITY = "tgr";
+    public static final String TRAVELEX_XML_FORMAT = "travxml";
+    public static final String TRAVELEX_XML_LINK = "travxml_link";
     public static final String CSV_FORMAT = "csv";
     public static final String CSV_LINK = "csv_link";
 
@@ -156,15 +175,20 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 if (getRequest().getAttribute(CHECKED_PAYMENT_ID) == null) {
                     getRequest().setAttribute(CHECKED_PAYMENT_ID, "");                        
                 }                    
-                
-                if ("true".equals(getRequest().getParameter(CSV_FORMAT))) {
+
+                if ("true".equals(getRequest().getParameter(TRAVELEX_XML_FORMAT))) {
+                    produceTravelexXML();
+                } else if ("true".equals(getRequest().getParameter(CSV_FORMAT))) {
                     produceCSV();
                 } else {                   
                     String toggle = requestQuery.replaceAll(GROUP_RELIABILITY + "=" + groupRel, "") + "&" + GROUP_RELIABILITY + "=" + !groupRel;
                     getRequest().setAttribute(TOGGLE_GROUP_RELIABILITY, toggle);
 
-                    String csv_link = requestQuery + "&" + CSV_FORMAT + "=true";
+                    String ungroup = requestQuery.replaceAll(GROUP_RELIABILITY + "=" + groupRel, "") + "&" + GROUP_RELIABILITY + "=false";
+                    String csv_link = ungroup + "&" + CSV_FORMAT + "=true";
+                    String travxml_link = ungroup + "&" + TRAVELEX_XML_FORMAT + "=true";
                     getRequest().setAttribute(CSV_LINK, csv_link);
+                    getRequest().setAttribute(TRAVELEX_XML_LINK, travxml_link);
 
                     setNextPage(INTERNAL_PAYMENT_LIST_JSP);
                     setIsNextPageInContext(true);
@@ -179,6 +203,103 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         }
     }
 
+    public void produceTravelexXML() throws TCWebException, IOException {
+        getResponse().addHeader("content-disposition", "inline; filename=\"payments.xml\"");
+        getResponse().setContentType("text/xml");
+
+        List<PaymentHeader> allPayments = (List<PaymentHeader>) getRequest().getAttribute(PaymentList.PAYMENTS);
+        Map<Long, List<PaymentHeader>> userPaymentsMap = new HashMap<Long, List<PaymentHeader>>();
+
+        // Group all payments by member.
+        for (PaymentHeader payment : allPayments) {
+            long userId = payment.getUser().getId();
+            List<PaymentHeader> userPayments = userPaymentsMap.get(userId);
+            if (userPayments == null) {
+                userPayments = new ArrayList<PaymentHeader>();
+                userPaymentsMap.put(userId, userPayments);
+            }
+            userPayments.add(payment);
+        }
+
+        Calendar date = Calendar.getInstance();
+        date.setTime(new Date());
+
+        try {
+            DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+ 
+            // root elements
+            Document doc = docBuilder.newDocument();
+            Element rootElement = doc.createElement("ns0:TPDocXML");
+            rootElement.setAttribute("xmlns:ns0", "http://EAI");
+            rootElement.setAttribute("Version", "1.0");
+            rootElement.setAttribute("FileID", new SimpleDateFormat("MM/dd/yyyy HH:mm:ss").format(date.getTime()));
+            doc.appendChild(rootElement);
+
+            Element paymentsElement = doc.createElement("Payments");
+            rootElement.appendChild(paymentsElement);
+ 
+            for(Long userId : userPaymentsMap.keySet()) {
+                List<PaymentHeader> userPayments = userPaymentsMap.get(userId);
+                UserProfileHeader user = userPayments.get(0).getUser();
+
+                double totalUserAmount = 0.0;
+                for(PaymentHeader payment : userPayments) {
+                    totalUserAmount += payment.getRecentNetAmount();
+                }
+
+                Element paymentElement = doc.createElement("Payment");
+                paymentElement.setAttribute("PaymentID", "" + userPayments.get(0).getId());
+                paymentElement.setAttribute("PaymentReference", "TopCoder Member Payments");
+
+                Element payFromElement = doc.createElement("PayFrom");
+                payFromElement.setAttribute("PFPayerName", "TopCoder, Inc.");
+                paymentElement.appendChild(payFromElement);
+
+                Element payToElement = doc.createElement("PayTo");
+                payToElement.setAttribute("PTPayeeID", user.getHandle());
+                payToElement.setAttribute("PTPayeeName", user.getFullName());
+                payToElement.setAttribute("PTAmount", "" + totalUserAmount);
+                paymentElement.appendChild(payToElement);
+
+                Element remittanceElement = doc.createElement("Remittance");
+                remittanceElement.setAttribute("Type", "XML");
+                paymentElement.appendChild(remittanceElement);
+
+                for(PaymentHeader payment : userPayments) {
+                    Element remittanceRecordElement = doc.createElement("RemittanceRecord");
+
+                    remittanceRecordElement.setAttribute("PayerDocumentDate", new SimpleDateFormat("MM/dd/yyyy").format(date.getTime()));
+                    remittanceRecordElement.setAttribute("PayerDocumentType", "PO");
+                    remittanceRecordElement.setAttribute("PayerDocumentNumber", "" + payment.getReferenceId());
+                    remittanceRecordElement.setAttribute("AmountPaid", "" + payment.getRecentNetAmount());
+                    remittanceRecordElement.setAttribute("Notes", payment.getDescription());
+
+                    remittanceElement.appendChild(remittanceRecordElement);
+                }
+                
+                paymentsElement.appendChild(paymentElement);
+            }
+
+            // write the content
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+
+            PrintWriter writer = getResponse().getWriter();
+            StreamResult result = new StreamResult(writer); 
+            transformer.transform(new DOMSource(doc), result);
+            getResponse().setStatus(HttpServletResponse.SC_OK);
+            writer.flush();
+
+        } catch (ParserConfigurationException pce) {
+            throw new TCWebException(pce);
+        } catch (TransformerException tfe) {
+            throw new TCWebException(tfe);
+        }
+    }
+
     private void produceCSV() throws IOException {
         getResponse().addHeader("content-disposition", "inline; filename=\"payment_list.csv\"");
         getResponse().setContentType("application/csv");
@@ -188,14 +309,9 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         writer.print("\n");
         
         List<PaymentHeader> payments = (List<PaymentHeader>) getRequest().getAttribute(PaymentList.PAYMENTS);
-        Map reliabilityMap = (Map) getRequest().getAttribute(PaymentList.RELIABILITY);
-        boolean groupReliability = (Boolean) getRequest().getAttribute(PaymentList.GROUP_RELIABILITY);
 
         for (PaymentHeader payment : payments) {
             String description = payment.getDescription();
-            if (reliabilityMap.containsKey(payment.getId())) {
-                description += " + Reliability";
-            }
 
             String status = payment.getCurrentStatus().getDesc();
             for (PaymentStatusReason reason : payment.getCurrentStatus().getReasons()) {
