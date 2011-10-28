@@ -204,7 +204,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
     }
 
     public void produceTravelexXML() throws TCWebException, IOException {
-        getResponse().addHeader("content-disposition", "inline; filename=\"payments.xml\"");
+        getResponse().addHeader("content-disposition", "attachment; filename=\"payments.xml\"");
         getResponse().setContentType("text/xml");
 
         List<PaymentHeader> allPayments = (List<PaymentHeader>) getRequest().getAttribute(PaymentList.PAYMENTS);
@@ -301,7 +301,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
     }
 
     private void produceCSV() throws IOException {
-        getResponse().addHeader("content-disposition", "inline; filename=\"payment_list.csv\"");
+        getResponse().addHeader("content-disposition", "attachment; filename=\"payment_list.csv\"");
         getResponse().setContentType("application/csv");
         PrintWriter writer = getResponse().getWriter();
 
