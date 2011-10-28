@@ -180,10 +180,6 @@ If you win, you may be asked to make minor adjustments to your submission.  If s
     to view additional information and communicate with the project sponsor.
 </p>
 
-<p><span class="bodySubtitle"><strong>Scorecards</strong></span><br/>
-    View the <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review/actions/ViewScorecard.do?method=viewScorecard&scid=<rsc:item set="<%=projectDetail%>" name="screening_scorecard_id"/>">screening</a> and <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review/actions/ViewScorecard.do?method=viewScorecard&scid=<rsc:item set="<%=projectDetail%>" name="review_scorecard_id"/>">review</a> scorecards for this project.
-</p>
-
 <%-- Timeline --%>
 <table cellspacing="0" class="formFrame" align="center" width="530">
     <tr>
@@ -206,10 +202,6 @@ If you win, you may be asked to make minor adjustments to your submission.  If s
     <tr>
         <td class="bodyText">Winner Announced:</td><td class="bodyText" align="right">
         <rsc:item set="<%=projectDetail%>" name="winner_announced_date" format="MM.dd.yyyy hh:mm a z"/></td>
-    </tr>
-    <tr>
-        <td class="bodyText">Final Submission Due Date:</td><td class="bodyText" align="right">
-        <rsc:item set="<%=projectDetail%>" name="final_submission_date" format="MM.dd.yyyy hh:mm a z"/></td>
     </tr>
 </table>
 </p>
