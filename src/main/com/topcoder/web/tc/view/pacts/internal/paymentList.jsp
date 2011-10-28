@@ -176,8 +176,7 @@ ${fn:length(paymentList)} records. <br />
 
     <input type=hidden name="query" value="${query}">
 
-    <a href="${csvLink}">Download as CSV (Excel)</a><br/>
-    <a href="${travxmlLink}">Download as Travelex XML</a><br/>
+    <a href="${csvLink}">Download as CSV (Excel)</a> - <a href="${travxmlLink}">Download as Travelex XML</a><br/>
 
     <a href="${toggleGroupReliability}">
         <c:choose>
