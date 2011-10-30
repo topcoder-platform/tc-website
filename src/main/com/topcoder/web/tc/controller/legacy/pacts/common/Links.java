@@ -57,10 +57,10 @@ public class Links implements PactsConstants {
     }
 
     public static String addPayment(long userId) {
-        return createLink("EditPayment", USER_ID, userId + "");
+        return createLink("AddPayment", USER_ID, userId + "");
     }
     public static String addContractPayment(long contractId) {
-        return createLink("EditPayment", CONTRACT_ID, contractId + "");
+        return createLink("AddPayment", CONTRACT_ID, contractId + "");
     }
 
     public static String updatePayment(long paymentId) {
