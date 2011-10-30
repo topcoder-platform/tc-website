@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2010 - 2010 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.common.security;
 
 import com.topcoder.security.TCSubject;
@@ -29,9 +32,17 @@ import java.util.StringTokenizer;
 
 /**
  * Uses the TCS security component to process login requests, and HTTP cookies or a Persistor to store a User.
+ * 
+ * <p>
+ * Version 1.1 (BUG TCCC-3698) changes:
+ *  <ul>
+ *      <li>Created the instance variable bigCookieTime to set the expire time for main site cookie.</li>
+ *  </ul>
+ * </p>
  *
- * @author Greg Paul, Ambrose Feinstein
- * @version $Id$
+ * @author Greg Paul, Ambrose Feinstein, pvmagacho
+ * @version 1.1
+ * @since $Id$
  */
 public class BasicAuthentication implements WebAuthentication {
 
@@ -74,6 +85,16 @@ public class BasicAuthentication implements WebAuthentication {
     private String userHash = null;
     private boolean readOnly = false;
 
+    /**
+     * <p>
+     * Represents the expire time for main site cookie. The default value is SSO_TIMEOUT_SECONDS.
+     * </p>
+     * <p>
+     * Has getter and setter.
+     * </p>
+     */
+    private int bigCookieTime = SSO_TIMEOUT_SECONDS;
+    
     /**
      * Construct an authentication instance backed by the given persistor
      * and HTTP request and response.
@@ -504,7 +525,7 @@ public class BasicAuthentication implements WebAuthentication {
             log.debug("set sso cookie for " + uid);
         }
         if (MAIN_SITE.equals(defaultCookiePath)) {
-            addGeneralCookie(defaultCookiePath.getName() + "_" + BIG_SESSION_KEY, uid + "|" + hashForUser(uid), SSO_TIMEOUT_SECONDS);
+            addGeneralCookie(defaultCookiePath.getName() + "_" + BIG_SESSION_KEY, uid + "|" + hashForUser(uid), getBigCookieTime());
         }
     }
 
@@ -613,4 +634,21 @@ public class BasicAuthentication implements WebAuthentication {
         }
     }
 
+    /**
+     * Sets the expire time for main site cookie.
+     *
+     * @param time the expire time for main site cookie to set
+     */
+    public void setBigCookieTime(int time) {
+        this.bigCookieTime = time;
+    }
+    
+    /**
+     * Gets the expire time for main site cookie.
+     *
+     * @return the expire time for main site cookie
+     */
+    public int getBigCookieTime() {
+        return bigCookieTime;
+    }
 }
