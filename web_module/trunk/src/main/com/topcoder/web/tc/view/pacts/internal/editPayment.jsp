@@ -244,7 +244,12 @@ function searchKeyPress(e)
 </form>
 
 <form name="f" action="<%= PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
+<c:if test="${updating}">
    <input type="hidden" name="module" value="EditPayment">
+</c:if> 
+<c:if test="${adding}">
+   <input type="hidden" name="module" value="AddPayment">
+</c:if> 
    <input type="hidden" name="search_text">
    <input type="hidden" name="round_unknown">
    <input type="hidden" name="reference_id" value="<c:out value="${requestScope.reference_id}" />">
