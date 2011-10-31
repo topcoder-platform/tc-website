@@ -135,7 +135,7 @@
         <c:forEach items="${requirements}" var="resultRow">
           <p><span class="bodySubtitle">Overview</span><br></p>
           ${resultRow.map["detailed_requirements"]}
-
+          
             <%-- need permission to view private description --%>
             <c:if test="${privateDescriptionPermission}">
                 <p><span class="bodySubtitle">Details</span><br></p>
@@ -178,6 +178,20 @@ If you win, you may be asked to make minor adjustments to your submission.  If s
     <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<rsc:item set="<%=projectDetail%>" name="jive_category_id"/>">forum</a>
     <% } %>
     to view additional information and communicate with the project sponsor.
+</p>
+
+<%-- Experience --%>
+<p><span class="bodySubtitle"><strong>Experience</strong></span><br>
+    <ul class="noSpList">
+        <c:forEach items="${experiences}" var="exp">
+            <li>${exp}</li>
+        </c:forEach>
+    </ul>    
+</p>
+
+<%-- Budget --%>
+<p><span class="bodySubtitle"><strong>Budget</strong></span><br>
+    ${budgetText}
 </p>
 
 <%-- Timeline --%>
