@@ -7,6 +7,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
@@ -77,6 +79,10 @@ public class ProjectDetail extends Base {
                          + "If you are unsure how to do this, please contact the Liquid PMO liquid@us.ibm.com for assistance and include your TopCoder handle. "
                          + "Since Liquid Portal is hosted on W3, TopCoder cannot provide support for this issue. ";
 
+    private static final long BUDGET_EXTRA_INFO_TYPE_ID = 1L;
+    
+    private static final long OTHER_EXPERIENCE_EXTRA_INFO_TYPE_ID = 2L;
+    
     /**
      * This method executes the actual logic for this processor.
      *
@@ -170,6 +176,25 @@ public class ProjectDetail extends Base {
             Date postingDate = details.getTimestampItem(0, "posting_date");
             getRequest().setAttribute("maxReliabilityBonus",
                     reliabilityBonus.getReliabilityPercent(1.0, postingDate, categoryId) * firstPlacePrize);
+            
+            // set experiences and budget
+            if (projectTypeId == Constants.COPILOT_POSTING_PROJECT_TYPE) {
+                List<String> experiences = retrieveCopilotExperiences(projectId);
+                
+                String extraExp = retrieveCopilotExtraInfo(OTHER_EXPERIENCE_EXTRA_INFO_TYPE_ID, projectId);
+                if (extraExp != null) {
+                    experiences.add(extraExp);
+                }
+                getRequest().setAttribute("experiences", experiences);
+                
+                String budget = retrieveCopilotExtraInfo(BUDGET_EXTRA_INFO_TYPE_ID, projectId);
+                if (budget == null) {
+                    budget = "None";
+                } else {
+                    budget = "$ " + budget;
+                }
+                getRequest().setAttribute("budgetText", budget);
+            }
 
             String projectDetailPage = getProjectDetailPage(projectTypeId);
             if (projectDetailPage.equals("")) {
@@ -300,5 +325,45 @@ public class ProjectDetail extends Base {
         ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("is_copilot_posting_registered");
 
         return !rsc.isEmpty();
+    }
+    
+    private String retrieveCopilotExtraInfo(long extraId, String projectId) throws Exception {
+        DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
+        Request r = new Request();
+        r.setContentHandle("copilot_contest_extra_info");
+        r.setProperty("extraId", String.valueOf(extraId));
+        r.setProperty("pj", projectId);
+        
+        ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("copilot_contest_extra_info");
+        Iterator<ResultSetContainer.ResultSetRow> iterator = rsc.iterator();
+
+        // check the result
+        if (iterator.hasNext()) {
+            ResultSetContainer.ResultSetRow row = iterator.next();
+            return row.getStringItem("value");
+        } else {
+            // no records found, return null
+            return null;
+        }
+    }
+    
+    private List<String> retrieveCopilotExperiences(String projectId) throws Exception {
+        List<String> ret = new ArrayList<String>();
+        
+        DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
+        Request r = new Request();
+        r.setContentHandle("copilot_contest_experiences");
+        r.setProperty("pj", projectId);
+        
+        ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("copilot_contest_experiences");
+        Iterator<ResultSetContainer.ResultSetRow> iterator = rsc.iterator();    
+        
+        while (iterator.hasNext()) {
+            ResultSetContainer.ResultSetRow row = iterator.next();
+            
+            ret.add(row.getStringItem("name"));
+        }
+        
+        return ret;
     }
 }
