@@ -186,7 +186,7 @@ public class ViewRegistration extends Base {
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.UI_PROTOTYPE_PROJECT_TYPE)) &&
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.RIA_BUILD_PROJECT_TYPE)) &&
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.RIA_COMPONENT_PROJECT_TYPE)) &&
-		        !String.valueOf(projectTypeId).equals(String.valueOf(Constants.COPILOT_POSTING_PROJECT_TYPE)) &&
+                !String.valueOf(projectTypeId).equals(String.valueOf(Constants.COPILOT_POSTING_PROJECT_TYPE)) &&
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.CONTENT_CREATION_PROJECT_TYPE)) &&
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.REPORTING_PROJECT_TYPE))) {
             throw new NavigationException("Invalid project specified (wrong category)");
@@ -227,7 +227,7 @@ public class ViewRegistration extends Base {
 
     private boolean isRegisteredForTournament() throws Exception {
         return DAOUtil.getFactory().getEventRegistrationDAO().find(new Long(getUser().getId()),
-                Event.TCO11_EVENT_ID) != null;
+                Event.TCO12_EVENT_ID) != null;
     }
 
     protected ComponentRegistrationServicesLocal getRegEJB() throws Exception {
