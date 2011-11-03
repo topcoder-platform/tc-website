@@ -149,6 +149,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     private static final String trxDataSource = DBMS.JTS_OLTP_DATASOURCE_NAME;
 
+    private static final Long MIN_ACCRUAL_AMOUNT = 25l;
+
     private SessionContext ejbContext;
 
     public void ejbRemove() {
@@ -888,7 +890,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     private Map getUserProfileHeader(Connection c, long userId) throws SQLException {
         StringBuffer selectHeader = new StringBuffer(300);
         selectHeader.append("SELECT u.user_id, u.handle, u.first_name, u.middle_name, u.last_name, ");
-        selectHeader.append("nvl(ua.accrual_amount, 0) as accrual_amount FROM user u, outer(user_accrual ua) ");
+        selectHeader.append("nvl(ua.accrual_amount, "+MIN_ACCRUAL_AMOUNT+") as accrual_amount FROM user u, outer(user_accrual ua) ");
         selectHeader.append(" WHERE u.user_id = " + userId);
         selectHeader.append(" AND u.user_id = ua.user_id ");
 
@@ -1407,7 +1409,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             if (rsc.iterator().hasNext()) {
                 return ((ResultSetRow) rsc.iterator().next()).getDoubleItem("accrual_amount");
             } else {
-                return 0;
+                return MIN_ACCRUAL_AMOUNT;
             }
         } finally {
             close(conn);
@@ -1425,8 +1427,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             throw new IllegalArgumentException("Invalid user ID");
         }
 
-        if (newAccrualAmount < 0) {
-            throw new IllegalArgumentException("Invalid accrual amount");
+        if (newAccrualAmount < MIN_ACCRUAL_AMOUNT) {
+            throw new IllegalArgumentException("Invalid accrual amount, should be greater or equal than "+MIN_ACCRUAL_AMOUNT);
         }
 
         // store
@@ -3260,7 +3262,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     public Map findUsers(Map searchCriteria) throws SQLException {
         StringBuffer selectHeader = new StringBuffer(300);
         selectHeader.append("SELECT u.user_id, u.handle, UPPER(u.handle) AS uchandle, u.first_name, u.middle_name, " +
-                            "u.last_name, nvl(ua.accrual_amount, 0) as accrual_amount, s.user_status_desc ");
+                            "u.last_name, nvl(ua.accrual_amount, "+MIN_ACCRUAL_AMOUNT+") as accrual_amount, s.user_status_desc ");
         StringBuffer from = new StringBuffer(300);
         from.append("FROM user u, outer(user_accrual ua), user_status_lu s ");
 
@@ -5151,7 +5153,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     /**
-	
+    
      * Generates all the payments for the people who won money for the given project (winners and
      * and review board members).
      * It doesn't insert the payments in the DB, just generates and returns them.
