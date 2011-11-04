@@ -108,6 +108,7 @@
         <pathelement location="${jars.dir}/tcs/copilot_pool_and_profiles_common.jar"/>
         <pathelement location="${jars.dir}/tcs/copilot_pool_and_profiles_services.jar"/>
         <pathelement location="${jars.dir}/tcs/pipeline_service_facade/1.0.0/pipeline_service_facade.jar"/>
+		<pathelement location="${jars.dir}/tcs/topcoder_commons_utility.jar"/>
         
         <pathelement location="${jars.dir}/tcs/member_photo_manager/2.0.0/member_photo_manager.jar"/>
         <pathelement location="${jars.dir}/tcs/document_generator/3.1.0/document_generator.jar"/>
@@ -142,6 +143,7 @@
         <pathelement location="${jars.dir}/hibernate-3.2/ant-antlr-1.6.5.jar"/>
         <pathelement location="${jars.dir}/hibernate-3.2/antlr-2.7.6.jar"/>
 
+
         <pathelement location="${jars.dir}/hibernate-3.0/hibernate-validator.jar"/>
         
         <pathelement location="${jars.dir}/hibernate-3.1/hibernate-commons-annotations.jar"/>
@@ -161,6 +163,9 @@
 
         <pathelement location="${jars.dir}/TestServices.jar"/>
         <pathelement location="${jars.dir}/asyncservices.jar"/>
+
+		<pathelement location="${jars.dir}/xwork-core-2.2.1.jar"/>
+
         <!-- app side dependencies...get rid of this if possible it's bad long contest design -->
         <pathelement location="${jars.dir}/tc.jar"/>
     </path>
