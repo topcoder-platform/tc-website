@@ -182,6 +182,10 @@ If you win, you may be asked to make minor adjustments to your submission.  If s
 
 <%-- Experience --%>
 <p><span class="bodySubtitle"><strong>Experience</strong></span><br>
+    <c:if test="${empty experiences}">
+        Not set.
+    </c:if>
+    
     <ul class="noSpList">
         <c:forEach items="${experiences}" var="exp">
             <li>${exp}</li>

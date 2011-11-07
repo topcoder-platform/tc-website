@@ -189,7 +189,7 @@ public class ProjectDetail extends Base {
                 
                 String budget = retrieveCopilotExtraInfo(BUDGET_EXTRA_INFO_TYPE_ID, projectId);
                 if (budget == null) {
-                    budget = "None";
+                    budget = "Don't have a budget yet.";
                 } else {
                     budget = "$ " + budget;
                 }
