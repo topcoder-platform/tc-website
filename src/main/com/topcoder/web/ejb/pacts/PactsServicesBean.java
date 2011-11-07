@@ -4420,12 +4420,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 ejbContext.setRollbackOnly();
             }
         } else {
-            try {
-                for (BasePayment payment : updatePayments) {
+            for (BasePayment payment : updatePayments) {
+                try {
                     updatePayment(payment);
+                } catch (Exception e) {
+                    ejbContext.setRollbackOnly();
+                    errors.put(payment.getId(), e.getMessage());
+                    return errors;
                 }
-            } catch (Exception e) {
-                ejbContext.setRollbackOnly();
             }
         }
         return errors;
