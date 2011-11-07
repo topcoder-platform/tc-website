@@ -151,7 +151,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 getRequest().setAttribute(GROUP_RELIABILITY, Boolean.valueOf(groupRel));
 
                 // mirror parameters
-                getRequest().setAttribute(PAYMENT_ID, StringUtils.htmlEncode(getRequest().getParameter(PAYMENT_ID)));
+                getRequest().setAttribute(PAYMENT_ID, StringUtils.htmlEncode(createValuesStr(getRequest().getParameterValues(PAYMENT_ID))));
                 getRequest().setAttribute(PROJECT_ID, StringUtils.htmlEncode(getRequest().getParameter(PROJECT_ID)));
                 getRequest().setAttribute(HANDLE, StringUtils.htmlEncode(getRequest().getParameter(HANDLE)));
                 getRequest().setAttribute(EARLIEST_CREATION_DATE, StringUtils.htmlEncode(getRequest().getParameter(EARLIEST_CREATION_DATE)));
@@ -164,8 +164,8 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 getRequest().setAttribute(LATEST_DUE_DATE, StringUtils.htmlEncode(getRequest().getParameter(LATEST_DUE_DATE)));
                 getRequest().setAttribute(LOWEST_NET_AMOUNT, StringUtils.htmlEncode(getRequest().getParameter(LOWEST_NET_AMOUNT)));
                 getRequest().setAttribute(HIGHEST_NET_AMOUNT, StringUtils.htmlEncode(getRequest().getParameter(HIGHEST_NET_AMOUNT)));
-                getRequest().setAttribute(STATUS_CODE, StringUtils.htmlEncode(getRequest().getParameter(STATUS_CODE)));
-                getRequest().setAttribute(TYPE_CODE, StringUtils.htmlEncode(getRequest().getParameter(TYPE_CODE)));
+                getRequest().setAttribute(STATUS_CODE, StringUtils.htmlEncode(createValuesStr(getRequest().getParameterValues(STATUS_CODE))));
+                getRequest().setAttribute(TYPE_CODE, StringUtils.htmlEncode(createValuesStr(getRequest().getParameterValues(TYPE_CODE))));
                 getRequest().setAttribute(METHOD_CODE, StringUtils.htmlEncode(getRequest().getParameter(METHOD_CODE)));
 
                 getRequest().setAttribute(AFFIDAVIT_ID, StringUtils.htmlEncode(getRequest().getParameter(AFFIDAVIT_ID)));

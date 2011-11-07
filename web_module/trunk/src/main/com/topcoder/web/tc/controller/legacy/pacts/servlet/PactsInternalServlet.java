@@ -147,14 +147,13 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         //This is an encapluated boolean to store that information
         PassedParam pp = new PassedParam();
         try {
-            trace(request, response);
-
             //just jamming in the new way of doing things.  perhaps one day this whole system will leave the dark side
             if (request.getParameter(MODULE) != null || request.getAttribute(MODULE) != null) {
                 process(request, response);
                 return;
             }
-
+            
+            trace(request, response);
             if (!doAuthenticate(request, response)) return;
 
             String task = request.getParameter(TASK_STRING);
@@ -547,14 +546,13 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
 
         try {
-            trace(request, response);
-
             //just jamming in the new way of doing things.  perhaps one day this whole system will leave the dark side
             if (request.getParameter(MODULE) != null || request.getAttribute(MODULE) != null) {
                 process(request, response);
                 return;
             }
 
+            trace(request, response);
             if (!doAuthenticate(request, response)) return;
 
             String task = null;
