@@ -1545,7 +1545,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             updatePs = conn.prepareStatement("update 'informix'.user_payment_method set payment_method = '"+paymentMethod+"' where user_id = "+userId);
             int updated = updatePs.executeUpdate();
             if (updated == 0) {
-                insertPs = c.prepareStatement("insert into 'informix'.user_payment_method(user_id, payment_method) values ("+userId+",'"+paymentMethod+"')");
+                insertPs = conn.prepareStatement("insert into 'informix'.user_payment_method(user_id, payment_method) values ("+userId+",'"+paymentMethod+"')");
                 insertPs.executeUpdate();
             } else if (updated > 1) {
                 throw (new EJBException("Wrong number of rows updated in 'saveUserPaymentMethod'. " + "Updated " + updated + ", should have updated 1."));
