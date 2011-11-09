@@ -17,6 +17,7 @@
 <c:set var="MODULE" value="<%=Constants.MODULE_KEY%>"/>
 <c:set var="MINIMUM_PAYMENT_ACCRUAL_AMOUNT" value="<%=Constants.MINIMUM_PAYMENT_ACCRUAL_AMOUNT%>"/>
 <c:set var="ACCRUAL_AMOUNT" value="<%=EditPaymentPreferences.ACCRUAL_AMOUNT_PARAM%>"/>
+<c:set var="PAYMENT_METHOD" value="<%=EditPaymentPreferences.PAYMENT_METHOD_PARAM%>"/>
 <html>
 
 <head>
@@ -62,11 +63,9 @@
                 </jsp:include>
 
                 <p align="center">
-                    This is where you can set your payment threshold amount to any amount above $25 so that once you
-                    prize winnings reach this limit your prize money will be paid out to you in the next scheduled
-                    payment.  Your prize winnings will not go into "owed status" until they have reached your set
-                    payment threshold amount.  You can only set a dollar amount threshold here; you cannot specify a
-                    future payment date to release your prize winnings on.
+                    Set your payment threshold amount to any amount above $${MINIMUM_PAYMENT_ACCRUAL_AMOUNT}
+                    so that once your winnings reach this limit your money will be paid out to you in the next scheduled
+                    payment. You can also set the preferred payment method here.
                 </p>
 
                 <form name="f" action="${sessionInfo.servletPath}" method="post">
@@ -74,19 +73,35 @@
                     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
                         <tbody>
                         <tr>
-                            <td class="title">Payment Preferences</td>
+                            <td class="title" colspan=2>Payment Preferences</td>
                         </tr>
-                        <tc-webtag:errorIterator id="err" name="${ACCRUAL_AMOUNT}">
-                            <tr>
-                                <td><span class="bigRed"><c:out value="${err}"/></span></td>
-                            </tr>
-                        </tc-webtag:errorIterator>
+
                         <tr class="light">
-                            <td class="value" style="border: none;">
+                            <td class="value" width="100%" style="border: none;">
                                 Payment accrual amount (minimum $${MINIMUM_PAYMENT_ACCRUAL_AMOUNT}):
-                                <tc-webtag:textInput name="${ACCRUAL_AMOUNT}"/>
+                                <tc-webtag:errorIterator id="err" name="${ACCRUAL_AMOUNT}">
+                                    <br/><span class="bigRed"><c:out value="${err}"/></span>
+                                </tc-webtag:errorIterator>
+                            </td>
+                            <td class="value" nowrap="nowrap" style="border: none; vertical-align: middle;">
+                                <tc-webtag:textInput name="${ACCRUAL_AMOUNT}" size="6"/>
                             </td>
                         </tr>
+
+                        <tr class="light">
+                            <td class="value" width="100%" style="border: none; vertical-align: middle;">
+                                Payment method:
+                                <tc-webtag:errorIterator id="err" name="${PAYMENT_METHOD}">
+                                    <br/><span class="bigRed"><c:out value="${err}"/></span>
+                                </tc-webtag:errorIterator>
+                            </td>
+                            <td class="value" nowrap="nowrap" style="border: none;">
+                                <tc-webtag:radioButton name="${PAYMENT_METHOD}" value="PayPal"/>PayPal<br />
+                                <tc-webtag:radioButton name="${PAYMENT_METHOD}" value="Wire"/>Wire<br />
+                                <tc-webtag:radioButton name="${PAYMENT_METHOD}" value="ACH"/>ACH
+                            </td>
+                        </tr>
+
                         </tbody>
                     </table>
                 </form>

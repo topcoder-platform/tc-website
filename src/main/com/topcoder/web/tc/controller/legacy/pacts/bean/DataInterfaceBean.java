@@ -1743,6 +1743,16 @@ public class DataInterfaceBean implements PactsConstants {
         ps.saveUserAccrualThreshold(userId, newAccrualAmount);
     }
 
+    public String getUserPaymentMethod(long userId) throws RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.getUserPaymentMethod(userId);
+    }
+
+    public void saveUserPaymentMethod(long userId, String paymentMethod) throws RemoteException {
+        PactsServicesLocal ps = getEjbHandle();
+        ps.saveUserPaymentMethod(userId, paymentMethod);
+    }
+
     /**
      */
     public Map<Long, BasePaymentStatus> getPaymentStatusMap() throws RemoteException, SQLException {

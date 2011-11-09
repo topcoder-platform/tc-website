@@ -203,6 +203,14 @@
             </method>
             <method>
                 <ejb-name>PactsServices</ejb-name>
+                <method-name>saveUserPaymentMethod</method-name>
+                <method-params>
+                    <method-param>long</method-param>
+                    <method-param>String</method-param>
+                </method-params>
+            </method>
+            <method>
+                <ejb-name>PactsServices</ejb-name>
                 <method-name>expireOldAssignmentDocuments</method-name>
             </method>
             <method>

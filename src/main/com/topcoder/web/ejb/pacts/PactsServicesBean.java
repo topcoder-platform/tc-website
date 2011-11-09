@@ -64,6 +64,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfile;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
 
+import static com.topcoder.web.tc.Constants.MINIMUM_PAYMENT_ACCRUAL_AMOUNT;
 
 /**
  * <p>The EJB class which handles database access for the PACTS system.</p>
@@ -148,8 +149,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     public static final Long COLLEGE_MAJOR = 17l;
 
     private static final String trxDataSource = DBMS.JTS_OLTP_DATASOURCE_NAME;
-
-    private static final Long MIN_ACCRUAL_AMOUNT = 25l;
 
     private SessionContext ejbContext;
 
@@ -890,7 +889,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     private Map getUserProfileHeader(Connection c, long userId) throws SQLException {
         StringBuffer selectHeader = new StringBuffer(300);
         selectHeader.append("SELECT u.user_id, u.handle, u.first_name, u.middle_name, u.last_name, ");
-        selectHeader.append("nvl(ua.accrual_amount, "+MIN_ACCRUAL_AMOUNT+") as accrual_amount FROM user u, outer(user_accrual ua) ");
+        selectHeader.append("nvl(ua.accrual_amount, "+MINIMUM_PAYMENT_ACCRUAL_AMOUNT+") as accrual_amount FROM user u, outer(user_accrual ua) ");
         selectHeader.append(" WHERE u.user_id = " + userId);
         selectHeader.append(" AND u.user_id = ua.user_id ");
 
@@ -1397,6 +1396,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Returns the accrual threshold of a user
      *
+	 * @param userId User ID
      * @return accrual threshold
      * @throws SQLException If there is some problem retrieving the data
      */
@@ -1409,7 +1409,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             if (rsc.iterator().hasNext()) {
                 return ((ResultSetRow) rsc.iterator().next()).getDoubleItem("accrual_amount");
             } else {
-                return MIN_ACCRUAL_AMOUNT;
+                return MINIMUM_PAYMENT_ACCRUAL_AMOUNT;
             }
         } finally {
             close(conn);
@@ -1427,8 +1427,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             throw new IllegalArgumentException("Invalid user ID");
         }
 
-        if (newAccrualAmount < MIN_ACCRUAL_AMOUNT) {
-            throw new IllegalArgumentException("Invalid accrual amount, should be greater or equal than "+MIN_ACCRUAL_AMOUNT);
+        if (newAccrualAmount < MINIMUM_PAYMENT_ACCRUAL_AMOUNT) {
+            throw new IllegalArgumentException("Invalid accrual amount, should be greater or equal than "+MINIMUM_PAYMENT_ACCRUAL_AMOUNT);
         }
 
         // store
@@ -1488,15 +1488,78 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
 
         } catch (SQLException e) {
-            ejbContext.setRollbackOnly();
             DBMS.printSqlException(true, e);
             throw (new EJBException(e.getMessage(), e));
         } catch (Exception e) {
-            ejbContext.setRollbackOnly();
             throw (new EJBException(e.getMessage(), e));
         } finally {
             close(ps);
             close(c);
+        }
+    }
+
+    /**
+     * Returns the preferred payment method for a user.
+     *
+	 * @param userId User ID	 
+     * @return Preferred payment method or null if not set
+     * @throws SQLException If there is some problem retrieving the data
+     */
+    public String getUserPaymentMethod(long userId) throws SQLException {
+        Connection conn = null;
+        try {
+            conn = DBMS.getConnection(trxDataSource);
+            ResultSetContainer rsc = runSelectQuery(conn, "SELECT payment_method FROM user_payment_method where user_id = " + userId);
+
+            if (rsc.iterator().hasNext()) {
+                return ((ResultSetRow) rsc.iterator().next()).getStringItem("payment_method");
+            } else {
+                return null;
+            }
+        } finally {
+            close(conn);
+        }
+    }
+
+    /**
+	 * Saves the preferred payment method for a user.
+     *
+	 * @param userId User ID	 
+     * @param paymentMethod Preferred payment method.
+     * @throws SQLException If there is some problem updating the data
+     */
+    public void saveUserPaymentMethod(long userId, String paymentMethod) {
+        if (userId == 0) {
+            throw new IllegalArgumentException("Invalid user ID");
+        }
+		
+        if (paymentMethod == null || paymentMethod.trim().length()==0) {
+            throw new IllegalArgumentException("Empty payment method.");
+        }
+
+        PreparedStatement insertPs = null, updatePs = null;
+        Connection conn = null;
+        try {
+            conn = DBMS.getConnection(trxDataSource);
+
+            updatePs = conn.prepareStatement("update 'informix'.user_payment_method set payment_method = '"+paymentMethod+"' where user_id = "+userId);
+            int updated = updatePs.executeUpdate();
+            if (updated == 0) {
+                insertPs = c.prepareStatement("insert into 'informix'.user_payment_method(user_id, payment_method) values ("+userId+",'"+paymentMethod+"')");
+                insertPs.executeUpdate();
+            } else if (updated > 1) {
+                throw (new EJBException("Wrong number of rows updated in 'saveUserPaymentMethod'. " + "Updated " + updated + ", should have updated 1."));
+            }
+
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw (new EJBException(e.getMessage(), e));
+        } catch (Exception e) {
+            throw (new EJBException(e.getMessage(), e));
+        } finally {
+            close(updatePs);
+            close(insertPs);
+            close(conn);
         }
     }
 
@@ -3262,7 +3325,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     public Map findUsers(Map searchCriteria) throws SQLException {
         StringBuffer selectHeader = new StringBuffer(300);
         selectHeader.append("SELECT u.user_id, u.handle, UPPER(u.handle) AS uchandle, u.first_name, u.middle_name, " +
-                            "u.last_name, nvl(ua.accrual_amount, "+MIN_ACCRUAL_AMOUNT+") as accrual_amount, s.user_status_desc ");
+                            "u.last_name, nvl(ua.accrual_amount, "+MINIMUM_PAYMENT_ACCRUAL_AMOUNT+") as accrual_amount, s.user_status_desc ");
         StringBuffer from = new StringBuffer(300);
         from.append("FROM user u, outer(user_accrual ua), user_status_lu s ");
 
@@ -6318,11 +6381,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             return payment;
         } catch (SQLException e) {
-            //ejbContext.setRollbackOnly();
             printException(e);
             throw e;
         } catch (Exception e) {
-            //ejbContext.setRollbackOnly();
             printException(e);
             throw new SQLException(e.getMessage());
         } finally {
@@ -6347,11 +6408,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             return p;
         } catch (SQLException e) {
-            //ejbContext.setRollbackOnly();
             printException(e);
             throw e;
         } catch (Exception e) {
-            //ejbContext.setRollbackOnly();
             printException(e);
             throw new SQLException(e.getMessage());
         }
