@@ -39,18 +39,18 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
 	
     protected void businessProcessing() throws TCWebException {
         try {
-        	boolean fullList = "true".equals(getRequest().getParameter(FULL_LIST));
+            boolean fullList = "true".equals(getRequest().getParameter(FULL_LIST));
             String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
             String endRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.END_RANK));
             String sortColStr = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
             
-        	boolean sortAscending= "asc".equals(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
-        	int sortCol = 3;
+            boolean sortAscending= "asc".equals(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+            int sortCol = 3;
         	
-        	if (sortColStr.trim().length() > 0) {
-        		sortCol = Integer.parseInt(sortColStr);
-        	}
-        	
+            if (sortColStr.trim().length() > 0) {
+                sortCol = Integer.parseInt(sortColStr);
+            }
+            
             // Normalizes optional parameters and sets defaults
             if ("".equals(startRank) || Integer.parseInt(startRank) <= 0) {
                 startRank = "1";
@@ -80,11 +80,15 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
                 } else {
                     if (!fullList) {
                         if (payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS)) ||
-                            payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.DELETED_PAYMENT_STATUS)) ||
                             payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.EXPIRED_PAYMENT_STATUS)) ||
                             payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.PAID_PAYMENT_STATUS))) {
                             removePayments.add(payment);
                         }
+                    }
+
+                    // Deleted payments should not be shown either way.
+                    if (payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.DELETED_PAYMENT_STATUS))) {
+                        removePayments.add(payment);
                     }
                 }
             }
@@ -106,7 +110,7 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
             
             getRequest().setAttribute(PAYMENTS, payments);
             getRequest().setAttribute(CODER, getUser().getId() + "");
-        	getRequest().setAttribute(FULL_LIST, Boolean.valueOf(fullList));
+            getRequest().setAttribute(FULL_LIST, Boolean.valueOf(fullList));
             
             SortInfo s = new SortInfo();
             s.addDefault(DESCRIPTION_COL, "asc");
