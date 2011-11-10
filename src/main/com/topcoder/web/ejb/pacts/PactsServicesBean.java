@@ -4598,11 +4598,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             String paymentDetailStr = paymentDetailId + "";
 
-            // If the payment is deleted, set the most recent detail to null
-            if (p.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.DELETED_PAYMENT_STATUS))) {
-                paymentDetailStr = "null";
-            }
-
             // Update the header
             StringBuffer updateHeader = new StringBuffer(300);
             updateHeader.append("UPDATE payment SET most_recent_detail_id = " + paymentDetailStr);
