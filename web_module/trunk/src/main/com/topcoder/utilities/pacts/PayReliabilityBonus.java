@@ -53,7 +53,8 @@ public class PayReliabilityBonus extends DBUtility {
         query.append("payment_detail pd ");
         query.append("WHERE p.user_id = pr.user_id ");
         query.append("AND component_project_id = pr.project_id ");
-        query.append("AND p.most_recent_detail_id = pd.payment_detail_id ");      
+        query.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
+        query.append("AND pd.payment_status_id != 69 ");
         query.append("AND pr.reliable_ind = 1 ");
         query.append("AND pd.installment_number = 1 ");
         query.append("AND pr.project_id = pro.project_id ");
