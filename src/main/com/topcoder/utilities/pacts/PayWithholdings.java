@@ -22,8 +22,8 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
  *
  * This class will check for pending withholdings that should be released and will generate the payments accordingly.
  *
- * @author pulky
- * @version 1.0 (PACTS Release Assembly 1.1.1)
+ * @author pulky, VolodymyrK
+ * @version 1.0
  */
 public class PayWithholdings extends DBUtility {
 
@@ -57,7 +57,7 @@ public class PayWithholdings extends DBUtility {
 
         // Get partial payments to release withholdings.
         // If releasePeriodDays were reached since project completion, make the payment.
-        query.append("SELECT user_id, client, pd.payment_type_id, pd.payment_method_id ");
+        query.append("SELECT user_id, client, pd.payment_type_id ");
         query.append(" , pd.component_project_id ");
         query.append(" , (select max(pp.actual_end_time) from tcs_catalog:project_phase pp "); 
         query.append("         where pp.project_id = pd.component_project_id ");
@@ -68,16 +68,8 @@ public class PayWithholdings extends DBUtility {
         query.append(" FROM payment p, payment_detail pd ");
         query.append(" WHERE p.most_recent_detail_id = pd.payment_detail_id ");
         query.append(" AND gross_amount < total_amount ");
-        query.append(" AND pd.payment_type_id in (");
-        query.append(PactsConstants.CONTEST_PAYMENT).append(", ");
-        query.append(PactsConstants.ARCHITECTURE_PAYMENT).append(", ");
-        query.append(PactsConstants.ASSEMBLY_PAYMENT).append(", ");
-        query.append(PactsConstants.REVIEW_BOARD_PAYMENT).append(", ");
-        query.append(PactsConstants.TEST_SUITES_PAYMENT).append(", ");
-        query.append(PactsConstants.TEST_SCENARIOS_PAYMENT).append(", ");
-        query.append(PactsConstants.UI_PROTOTYPE_COMPETITION_PAYMENT).append(", ");
-        query.append(PactsConstants.RIA_BUILD_COMPETITION_PAYMENT).append(", ");
-        query.append(PactsConstants.COMPONENT_PAYMENT).append(") ");
+        query.append(" AND pd.payment_status_id != 69 ");
+        query.append(" AND pd.payment_type_id = " + PactsConstants.CONTEST_PAYMENT + " ");
         query.append(" AND (select max(pp.actual_end_time) from tcs_catalog:project_phase pp "); 
         query.append("         where pp.project_id = pd.component_project_id ");
         query.append("         and pp.phase_status_id = 3) + ").append(releasePeriodDays); 
@@ -85,7 +77,7 @@ public class PayWithholdings extends DBUtility {
         query.append(" AND (select max(pp.actual_end_time) from tcs_catalog:project_phase pp "); 
         query.append("         where pp.project_id = pd.component_project_id ");
         query.append("         and pp.phase_status_id = 3) >= " + START_DATE);
-        query.append(" GROUP BY 1, 2, 3, 4, 5, 6 ");
+        query.append(" GROUP BY 1, 2, 3, 4, 5 ");
         query.append(" HAVING sum(gross_amount) < sum(case when installment_number = 1 then total_amount else 0.0 end) ");
 
         PreparedStatement psSelProjects = prepareStatement("informixoltp", query.toString());
@@ -104,7 +96,6 @@ public class PayWithholdings extends DBUtility {
             String client = rs.getString("client");
             int paymentTypeId = rs.getInt("payment_type_id");
             int installment = rs.getInt("installment_number") + 1;
-            int methodId = rs.getInt("payment_method_id");
             double releaseAmount = totalAmount - amountPaid;
 
             if (onlyAnalyze.equalsIgnoreCase("false")) {
@@ -112,7 +103,6 @@ public class PayWithholdings extends DBUtility {
 
                 bp.setClient(client);
                 bp.setInstallmentNumber(installment);
-                bp.setMethodId(methodId);
                 bp.setTotalAmount(totalAmount);
 
                 ejb.addPayment(bp);
