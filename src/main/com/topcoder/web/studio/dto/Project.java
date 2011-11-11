@@ -498,6 +498,21 @@ public class Project extends Base {
         return false;
     }
 
+
+	/**
+     * <p>Indicates whether the Review phase is closed.</p>
+     *
+     * @return true if Review phase is closed, false otherwise
+     * @since 1.2
+     */
+    public Boolean getScreeningClosed() {
+        ProjectPhase reviewPhase = getPhase(ProjectPhase.SCREENING);
+        if (reviewPhase != null) {
+            return (reviewPhase.getStatusId() == ProjectPhase.STATUS_CLOSED);
+        }
+        return false;
+    }
+
     /**
      * <p>Indicates whether the Submission phase is open.</p>
      *

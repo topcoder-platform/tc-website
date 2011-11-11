@@ -137,6 +137,8 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
         boolean isOwner = (currentUserId.equals(s.getSubmitterId()));
 
         boolean isReviewOver = contest.getReviewClosed();
+
+		boolean isScreeningOver = contest.getScreeningClosed();
         
         boolean milestone = (s.getTypeId() == Submission.MILESTONE_SUBMISSION);
 
