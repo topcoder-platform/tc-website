@@ -286,7 +286,7 @@ protected void loadCaptcha() throws IOException, InvalidConfigException, Obfusca
 
     protected boolean isRegisteredForTournament() throws Exception {
         return DAOUtil.getFactory().getEventRegistrationDAO().find(new Long(getUser().getId()),
-                Event.TCO11_EVENT_ID) != null;
+                Event.TCO12_EVENT_ID) != null;
     }
 
     protected ComponentRegistrationServicesLocal getRegEJB() throws Exception {
