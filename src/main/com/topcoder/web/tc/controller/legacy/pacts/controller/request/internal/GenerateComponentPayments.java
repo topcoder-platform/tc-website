@@ -59,6 +59,8 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
 
     protected void businessProcessing() throws TCWebException {
         try {
+            long currentUserId = getAuthentication().getActiveUser().getId();
+
             DataInterfaceBean dib = new DataInterfaceBean();
             Map map = dib.getProjectTerminationStatusTypes();
             getRequest().setAttribute(PROJECT_TERMINATION_STATUS_LIST, map.get(PROJECT_TERMINATION_STATUS_LIST));
@@ -77,7 +79,7 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
 
                 List resourceIds = new ArrayList();
                 List lst = bean.generateComponentPayments(Long.parseLong(projectID), Integer.parseInt(projectTermStatus), client, resourceIds);
-                lst = bean.addOnlineReviewPayments(lst, resourceIds);
+                lst = bean.addOnlineReviewPayments(lst, resourceIds, currentUserId);
 
                 List<String> ids = new ArrayList<String>();
 

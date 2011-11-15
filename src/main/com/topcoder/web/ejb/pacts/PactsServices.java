@@ -195,7 +195,7 @@ public interface PactsServices extends EJBObject {
      * @throws SQLException if any sql error occurs.
      * @since Online Review Payments and Status Automation Assembly 1.0
      */
-    List addOnlineReviewPayments(List payments, List resourceIds) throws RemoteException, SQLException;
+    List addOnlineReviewPayments(List payments, List resourceIds, long operatorUserId) throws RemoteException, SQLException;
 
     List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed) throws SQLException, RemoteException, EventFailureException;
 

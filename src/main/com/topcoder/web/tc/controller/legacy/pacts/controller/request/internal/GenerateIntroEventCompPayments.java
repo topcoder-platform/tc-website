@@ -20,6 +20,7 @@ public class GenerateIntroEventCompPayments extends ShortHibernateProcessor impl
     @Override
     protected void dbProcessing() throws Exception {
         String[] pay = getRequest().getParameterValues("pay");
+        long currentUserId = getAuthentication().getActiveUser().getId();
         
         if (pay == null || pay.length == 0) {
             throw new NavigationException("No payments selected");
@@ -37,7 +38,7 @@ public class GenerateIntroEventCompPayments extends ShortHibernateProcessor impl
 
             // Create the payment in PACTS
             BasePayment payment = new IntroEventCompPayment(winnerId, amount, contestId, place);            
-            payment = bean.addPayment(payment);
+            payment = bean.addPayment(payment, currentUserId);
             ids.add(payment.getId());
             
             // add an entry in user_contest_prize

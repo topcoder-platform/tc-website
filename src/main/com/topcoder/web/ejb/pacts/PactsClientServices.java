@@ -34,7 +34,7 @@ public interface PactsClientServices extends EJBObject {
      * @param payment payment to add.
      * @return payment the payment added, with additional information (like id, status, description...)
      */
-    BasePayment addPayment(BasePayment payment)  throws RemoteException, SQLException;
+    BasePayment addPayment(BasePayment payment) throws RemoteException, SQLException;
 
     /**
      * Adds many payments at once in one transaction, so if one fails, it rolls back.

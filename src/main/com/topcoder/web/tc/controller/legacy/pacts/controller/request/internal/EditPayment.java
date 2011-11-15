@@ -48,6 +48,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
     protected void businessProcessing() throws TCWebException {
     	SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT_STRING);
         try {
+            long currentUserId = getAuthentication().getActiveUser().getId();
             boolean updating = getRequest().getParameter("payment_id") != null;
             boolean adding = !updating;
 
@@ -162,7 +163,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                         payment.setInvoiceNumber(invoiceNumber);
                    
                         if (adding) {
-                        	List payments = new ArrayList();
+                            List payments = new ArrayList();
                             if (contractId > 0) {
                                 payment.setContractId(contractId);
                             } 
@@ -178,21 +179,21 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                                 if (p.isDesign() && grossAmount == 0) {
                             		BasePayment aux = (BasePayment) l.get(0);
                             		if (installmentNumber == 1) {
-                            			p.setGrossAmount(aux.getGrossAmount());
+                                             p.setGrossAmount(aux.getGrossAmount());
                             		} else {
-                            			p.setGrossAmount(totalAmount - aux.getGrossAmount());
+                                             p.setGrossAmount(totalAmount - aux.getGrossAmount());
                             		}
     
-                                    payment = dib.addPayment(p);
+                                        payment = dib.addPayment(p, currentUserId);
                                 	payments.add(p);
                             	} else {
                             		l.set(0, p);
     
-                                    l = dib.addPayments(l);
+                                        l = dib.addPayments(l, currentUserId);
                             		payments.addAll(l);
                             	}
                             } else {
-                            	payment = dib.addPayment(payment);
+                            	payment = dib.addPayment(payment, currentUserId);
                             	payments.add(payment);
                             }               
 
@@ -214,7 +215,8 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                             payment.setJiraIssueName(oldPayment.getJiraIssueName());
 
                             log.debug("# statuses: " + payment.getCurrentStatus().getReasons().size());
-                            dib.updatePayment(payment);
+
+                            dib.updatePayment(payment, false, currentUserId);
                             setNextPage(Links.viewPayment(paymentId));
                         }
     

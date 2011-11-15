@@ -207,11 +207,12 @@ public interface PactsServicesLocal extends EJBLocalObject {
      *
      * @param payments the review payments
      * @param resourceIds the resource ids to update the payment status.
+     * @param operatorUserId User ID of the operator or 0 if not set
      * @return the online review payments.
      * @throws SQLException if any sql error occurs.
      * @since Online Review Payments and Status Automation Assembly 1.0
      */
-    List addOnlineReviewPayments(List payments, List resourceIds) throws SQLException;
+    List addOnlineReviewPayments(List payments, List resourceIds, long operatorUserId) throws SQLException;
 
     int expireOldPayments() throws SQLException;
 
@@ -269,11 +270,17 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     BasePayment addPayment(BasePayment payment) throws SQLException;
 
+    BasePayment addPayment(BasePayment payment, long operatorUserId) throws SQLException;
+
     List addPayments(List payments) throws SQLException;
+
+    List addPayments(List payments, long operatorUserId) throws SQLException;
 
     BasePayment updatePayment(BasePayment payment) throws  Exception;
 
     BasePayment updatePayment(BasePayment payment, boolean supervisor) throws  Exception;
+
+    BasePayment updatePayment(BasePayment payment, boolean supervisor, long operatorUserId) throws  Exception;
 
     List findPayments(int paymentTypeId) throws  SQLException, InvalidStatusException;
 
@@ -335,6 +342,6 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     public Map<Long, BasePaymentStatus> getPaymentStatusMap() throws SQLException;
 
-    public Map<Long, String> newPaymentEvent(String[] paymentIDs, int event, String value);
+    public Map<Long, String> newPaymentEvent(String[] paymentIDs, int event, String value, long operatorUserId);
 }
 

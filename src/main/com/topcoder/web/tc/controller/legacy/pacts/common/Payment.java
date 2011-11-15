@@ -79,6 +79,7 @@ public class Payment implements PactsConstants, java.io.Serializable {
     private boolean charity;
     private String invoiceNumber;
     private String jiraIssueName;
+    private String createUserHandle;
 
     // When the event took place. Is not stored in the db, but is needed in order to know if referrals must be paid
     private Date eventDate;
@@ -140,6 +141,7 @@ public class Payment implements PactsConstants, java.io.Serializable {
             charity = TCData.getTCInt(rRow, "charity_ind") != 0;
             invoiceNumber = TCData.getTCString(rRow, "invoice_number");
             jiraIssueName = TCData.getTCString(rRow, "jira_issue_id");
+            createUserHandle = TCData.getTCString(rRow, "create_user_handle");
 
             if (row == 0)
                 header = new PaymentHeader(results, row);
@@ -601,4 +603,11 @@ public class Payment implements PactsConstants, java.io.Serializable {
         this.jiraIssueName = jiraIssueName;
     }
 
+    public String getCreateUserHandle() {
+        return createUserHandle;
+    }
+
+    public void setCreateUserHandle(String createUserHandle) {
+        this.createUserHandle = createUserHandle;
+    }
 }
