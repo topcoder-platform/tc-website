@@ -408,6 +408,16 @@ public class MemberProfile extends Base {
                 memberContactEnabled = "yes".equals(rsc2.getStringItem(0, "value"));
             }
 
+
+            // check whether the current member is in copilot pool.
+            DataAccessInt dai3 = getDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME, false);
+            r = new Request();
+            r.setContentHandle("copilot_posting");
+            r.setProperty("uid", String.valueOf(coderId));
+            Map result3 = dai3.getData(r);
+            ResultSetContainer rsc3 = (ResultSetContainer) result3.get("is_in_copilot_pool");
+            boolean isInCopilotPool = !rsc3.isEmpty();
+
             // check whether or not show earnings
             if (!DAOUtil.useQueryToolFactory) {
                 HibernateUtils.getSession().beginTransaction();
@@ -434,6 +444,7 @@ public class MemberProfile extends Base {
             getRequest().setAttribute("hasUIPrototype", new Boolean(hasUIPrototype));
             getRequest().setAttribute("hasRIABuild", new Boolean(hasRIABuild));
             getRequest().setAttribute("memberContactEnabled", new Boolean(memberContactEnabled));
+            getRequest().setAttribute("isInCopilotPool", new Boolean(isInCopilotPool));
             getRequest().setAttribute("hidePayments", new Boolean(hidePayments));
             getRequest().setAttribute("tab", tab);
 

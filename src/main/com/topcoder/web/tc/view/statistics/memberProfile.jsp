@@ -76,6 +76,7 @@
 <% ResultSetContainer rscCoderData = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Data");
   boolean registeredHS = ((Boolean)request.getAttribute("registeredHS")).booleanValue();
   boolean memberContactEnabled = ((Boolean)request.getAttribute("memberContactEnabled")).booleanValue();
+  boolean isInCopilotPool = ((Boolean)request.getAttribute("isInCopilotPool")).booleanValue();
   boolean hidePayments = ((Boolean)request.getAttribute("hidePayments")).booleanValue();
 %>
 
@@ -234,6 +235,9 @@ This member has not yet been rated in a competition.
             <rsc:item name="school_name" set="<%=rscCoderData%>"/></td></tr>
             <% }%>
             <tr><td class="cat" colspan="2">
+            <% if(isInCopilotPool) { %>
+                <A href="/tc?module=ViewCopilotProfile&pid=<%=rscCoderData.getStringItem(0, "coder_id")%>">[Copilot Profile]</A><br>
+            <% } %>
             <% if(memberContactEnabled) { %>
                 <A href="/tc?module=MemberContact&th=<%=rscCoderData.getStringItem(0, "handle")%>">[Send a message]</A><br>
             <% } %>
