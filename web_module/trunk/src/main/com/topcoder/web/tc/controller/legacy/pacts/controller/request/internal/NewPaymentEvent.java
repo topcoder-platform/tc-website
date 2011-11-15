@@ -23,7 +23,8 @@ public class NewPaymentEvent extends PaymentList implements PactsConstants {
         List<String> checkedIds = new ArrayList<String>(paymentIDs.length);
         Map<Long, String> errors = null;
         try {
-            errors = dib.newPaymentEvent(paymentIDs, event, invoiceNumber);
+            long currentUserId = getAuthentication().getActiveUser().getId();
+            errors = dib.newPaymentEvent(paymentIDs, event, invoiceNumber, currentUserId);
         } catch (Exception e) {
             throw new TCWebException(e);
         }

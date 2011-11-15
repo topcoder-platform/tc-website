@@ -63,6 +63,7 @@ public class GenerateDRPayments extends ShortHibernateProcessor implements Pacts
         }
 
         try {
+            long currentUserId = getAuthentication().getActiveUser().getId();
             long trackId = Long.parseLong(getRequest().getParameter(Constants.TRACK_ID));
             DataInterfaceBean bean = new DataInterfaceBean();
             List<Long> ids = new ArrayList<Long>();
@@ -84,7 +85,7 @@ public class GenerateDRPayments extends ShortHibernateProcessor implements Pacts
                 } else {
                     throw new Exception("Invalid contest type: " + contestTypeId);
                 }
-                nonTaxablePayment = bean.addPayment(nonTaxablePayment);
+                nonTaxablePayment = bean.addPayment(nonTaxablePayment, currentUserId);
                 ids.add(nonTaxablePayment.getId());
 
                 // Create the taxable payment in PACTS.
@@ -99,7 +100,7 @@ public class GenerateDRPayments extends ShortHibernateProcessor implements Pacts
                     }
                     double netAmount = bean.computePaymentNetAmount(taxablePayment.getPaymentType(), taxablePayment.getGrossAmount(), taxablePayment.getCoderId());
                     taxablePayment.setNetAmount(netAmount);
-                    taxablePayment = bean.addPayment(taxablePayment);
+                    taxablePayment = bean.addPayment(taxablePayment, currentUserId);
                     ids.add(taxablePayment.getId());
                 }
             }

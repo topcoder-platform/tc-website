@@ -1469,14 +1469,15 @@ public class DataInterfaceBean implements PactsConstants {
      *
      * @param payments the review payments
      * @param resourceIds the resource ids to update the payment status.
+     * @param operatorUserId User ID of the operator or 0 if not set
      * @return the online review payments.
      * @throws RemoteException if any error occurs.
      * @throws SQLException if any sql error occurs.
      * @since Online Review Payments and Status Automation Assembly 1.0
      */
-    public List addOnlineReviewPayments(List payments, List resources) throws SQLException, RemoteException {
+    public List addOnlineReviewPayments(List payments, List resources, long operatorUserId) throws SQLException, RemoteException {
         PactsServicesLocal ps = getEjbHandle();
-        return ps.addOnlineReviewPayments(payments, resources);
+        return ps.addOnlineReviewPayments(payments, resources, operatorUserId);
     }
 
     public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed)
@@ -1643,6 +1644,11 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.addPayment(payment);
     }
 
+    public BasePayment addPayment(BasePayment payment, long operatorUserId) throws RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.addPayment(payment, operatorUserId);
+    }
+
     public BasePayment updatePayment(BasePayment payment) throws RemoteException, Exception {
         PactsServicesLocal ps = getEjbHandle();
         return ps.updatePayment(payment);
@@ -1653,6 +1659,11 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.updatePayment(payment, supervisor);
     }
 
+    public BasePayment updatePayment(BasePayment payment, boolean supervisor, long operatorUserId) throws RemoteException, Exception {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.updatePayment(payment, supervisor, operatorUserId);
+    }
+
     public BasePayment getBasePayment(long paymentId) throws RemoteException, SQLException, InvalidStatusException {
         PactsServicesLocal ps = getEjbHandle();
         return ps.getBasePayment(paymentId);
@@ -1661,6 +1672,11 @@ public class DataInterfaceBean implements PactsConstants {
     public List addPayments(List payments) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
         return ps.addPayments(payments);
+    }
+
+    public List addPayments(List payments, long operatorUserId) throws RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.addPayments(payments, operatorUserId);
     }
 
     public List findPayments(int paymentTypeId, long referenceId) throws RemoteException, SQLException, InvalidStatusException {
@@ -1760,9 +1776,9 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.getPaymentStatusMap();
     }
 
-    public Map<Long, String> newPaymentEvent(String[] paymentIDs, int event, String value) throws RemoteException {
+    public Map<Long, String> newPaymentEvent(String[] paymentIDs, int event, String value, long operatorUserId) throws RemoteException {
         PactsServicesLocal ps = getEjbHandle();
-        return ps.newPaymentEvent(paymentIDs, event, value);
+        return ps.newPaymentEvent(paymentIDs, event, value, operatorUserId);
     }
 }
 

@@ -722,10 +722,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentDetails.append("pa.first_name, pa.middle_name, pa.last_name, pa.address1, ");
         selectPaymentDetails.append("pa.address2, pa.city, pa.state_code, pa.zip, pa.country_code, ");
         selectPaymentDetails.append("state.state_name, country.country_name, pd.date_modified, pd.date_due, ");
-        selectPaymentDetails.append("pd.charity_ind, pa.address3, pa.province, pd.total_amount, pd.installment_number, pd.invoice_number ");
+        selectPaymentDetails.append("pd.charity_ind, pa.address3, pa.province, pd.total_amount, pd.installment_number, ");
+        selectPaymentDetails.append("pd.invoice_number, pd.jira_issue_id, cu.handle as create_user_handle ");
         selectPaymentDetails.append("FROM payment p, payment_detail_xref pdx, payment_detail pd, ");
         selectPaymentDetails.append("payment_status_lu s, modification_rationale_lu mr, payment_type_lu pt, payment_method_lu pm, ");
-        selectPaymentDetails.append("OUTER(payment_address pa, OUTER state, OUTER country) ");
+        selectPaymentDetails.append("OUTER(payment_address pa, OUTER state, OUTER country), outer user cu ");
         selectPaymentDetails.append("WHERE p.payment_id = " + paymentId + " ");
         selectPaymentDetails.append("AND pdx.payment_id = p.payment_id ");
         selectPaymentDetails.append("AND pd.payment_detail_id = pdx.payment_detail_id ");
@@ -736,6 +737,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentDetails.append("AND mr.modification_rationale_id = pd.modification_rationale_id ");
         selectPaymentDetails.append("AND state.state_code = pa.state_code ");
         selectPaymentDetails.append("AND country.country_code = pa.country_code ");
+        selectPaymentDetails.append("AND cu.user_id = pd.create_user ");
         selectPaymentDetails.append("ORDER BY 1");
 
         return doPayment(paymentId, selectPaymentDetails.toString());
@@ -3508,7 +3510,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             String paymentStr = "null";
             if (p != null) {
-                paymentId = makeNewPayment(c, p, p.payReferrer());
+                paymentId = makeNewPayment(c, p, p.payReferrer(), 0);
                 paymentStr = "" + paymentId;
             } else {
                 if (a.getPayment() != null) {
@@ -3813,10 +3815,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      *
      * @param c Connection to use
      * @param p payment to insert
+     * @param operatorUserId User ID of the operator or 0 if not set
      * @return the payment_detail_id of the inserted record
      * @throws Exception
      */
-    private long insertPaymentDetail(Connection c, Payment p) throws Exception {
+    private long insertPaymentDetail(Connection c, Payment p, long operatorUserId) throws Exception {
         PreparedStatement ps = null;
         long paymentDetailId = IdGeneratorClient.getSeqId("PAYMENT_DETAIL_SEQ");
         try {
@@ -3827,8 +3830,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             insertPaymentDetail.append("  payment_desc, payment_type_id, payment_method_id, date_modified, date_due, client, ");
             insertPaymentDetail.append("  algorithm_round_id, component_project_id, algorithm_problem_id, studio_contest_id, ");
             insertPaymentDetail.append("  component_contest_id, digital_run_stage_id, digital_run_season_id, parent_payment_id, ");
-            insertPaymentDetail.append("  charity_ind, total_amount, installment_number, digital_run_track_id, invoice_number, jira_issue_id ) ");
-            insertPaymentDetail.append(" VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            insertPaymentDetail.append("  charity_ind, total_amount, installment_number, digital_run_track_id, invoice_number, jira_issue_id, create_user ) ");
+            insertPaymentDetail.append(" VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
             ps = c.prepareStatement(insertPaymentDetail.toString());
             ps.setLong(1, paymentDetailId);
@@ -3888,7 +3891,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setBoolean(22, p.isCharity());
             ps.setDouble(23, p.getTotalAmount() == 0 ? p.getGrossAmount() : p.getTotalAmount()); // default to gross amount if not filled.
             ps.setInt(24, p.getInstallmentNumber());
-            ps.setString(26, p.getInvoiceNumber());            
+            ps.setString(26, p.getInvoiceNumber());
+
+            if (operatorUserId != 0) {
+                ps.setLong(28, operatorUserId);
+            } else {
+                ps.setNull(28, Types.DECIMAL);
+            }
+
             ps.executeUpdate();
 
             // insert reasons:
@@ -3918,7 +3928,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     // Helper function that adds the specified payment to the database
     // Assumes autocommit is false
-    private long makeNewPayment(Connection c, Payment p, boolean createReferralPayment) throws Exception {
+    private long makeNewPayment(Connection c, Payment p, boolean createReferralPayment, long operatorUserId) throws Exception {
         log.debug("makeNewPayment called...");
         long paymentId = IdGeneratorClient.getSeqId("PAYMENT_SEQ");
         long paymentDetailId = 0;
@@ -3934,7 +3944,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             String referralStr = "null";
 
             p.setRationaleId(MODIFICATION_NEW);
-            paymentDetailId = insertPaymentDetail(c, p);
+            paymentDetailId = insertPaymentDetail(c, p, operatorUserId);
 
             // Add the payment record
             StringBuffer insertPayment = new StringBuffer(300);
@@ -3996,7 +4006,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     log.debug("referrer found:" + handle);
 
                     // Recursive call
-                    long referralId = makeNewPayment(c, referPay, false);
+                    long referralId = makeNewPayment(c, referPay, false, operatorUserId);
                     referralStr = "" + referralId;
                 }
             }
@@ -4025,8 +4035,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
-    private long makeNewContractPayment(Connection c, long contractId, Payment p) throws Exception {
-        long paymentId = makeNewPayment(c, p, false);
+    private long makeNewContractPayment(Connection c, long contractId, Payment p, long operatorUserId) throws Exception {
+        long paymentId = makeNewPayment(c, p, false, operatorUserId);
 
         // Now add the contract_payment_xref entry
         StringBuffer insertXref = new StringBuffer(300);
@@ -4430,7 +4440,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
 
-    public Map<Long, String> newPaymentEvent(String[] paymentIDs, int event, String value) {
+    public Map<Long, String> newPaymentEvent(String[] paymentIDs, int event, String value, long operatorUserId) {
         Map<Long, String> errors = new HashMap<Long, String>();
         List<BasePayment> updatePayments = new ArrayList<BasePayment>();
 
@@ -4485,7 +4495,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         } else {
             for (BasePayment payment : updatePayments) {
                 try {
-                    updatePayment(payment);
+                    updatePayment(payment, false, operatorUserId);
                 } catch (Exception e) {
                     ejbContext.setRollbackOnly();
                     errors.put(payment.getId(), e.getMessage());
@@ -4566,7 +4576,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws Exception if the update fails
      */
     private void updatePayment(Payment p) throws Exception {
-        updatePayment(p, false);
+        updatePayment(p, false, 0);
     }
 
     /**
@@ -4576,9 +4586,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      *
      * @param p          the payment to update
      * @param supervisor true if the update requester is a supervisor
+     * @param operatorUserId User ID of the operator or 0 if not set
      * @throws Exception if the update fails
      */
-    private void updatePayment(Payment p, boolean supervisor) throws Exception {
+    private void updatePayment(Payment p, boolean supervisor, long operatorUserId) throws Exception {
         PreparedStatement ps = null;
         Connection c = null;
 
@@ -4594,7 +4605,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             fillPaymentNetAmount(p);
 
-            long paymentDetailId = insertPaymentDetail(c, p);
+            long paymentDetailId = insertPaymentDetail(c, p, operatorUserId);
 
             String paymentDetailStr = paymentDetailId + "";
 
@@ -5393,7 +5404,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         query.append(" tcs_catalog:late_deliverable ld, tcs_catalog:resource r, tcs_catalog:resource_info ri where ");
         query.append(" ld.resource_id = r.resource_id and r.project_id = " + projectId + " and ");
         query.append(" r.resource_id = ri.resource_id and ri.resource_info_type_id = 1 and ");
-        query.append(" ld.forgive_ind=0 and ");
+        query.append(" ld.forgive_ind=0 and ld.late_deliverable_type_id=1 and ");
         query.append(" ((ld.explanation is not null and ld.response is null) "); // if the explained record is waiting for the response        
         query.append(" or (ld.explanation is null and ld.create_date>current-24 units hour)) "); // or if the late member still has time to explain (24 hours)
         
@@ -5420,7 +5431,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         query.append(" select ri.value::int as user_id, sum(ld.delay) as total_delay from ");
         query.append(" tcs_catalog:resource r, tcs_catalog:resource_info ri, tcs_catalog:late_deliverable ld where ");
         query.append(" r.project_id=" + projectId + " and r.resource_id=ld.resource_id and r.resource_id=ri.resource_id and ");
-        query.append(" ri.resource_info_type_id=1 and ld.forgive_ind=0 ");
+        query.append(" ri.resource_info_type_id=1 and ld.forgive_ind=0 and ld.late_deliverable_type_id=1 ");
         query.append(" group by 1 ");
         
         Map<Long,Double> penalties = new HashMap<Long,Double>();
@@ -5445,12 +5456,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      *
      * @param payments the review payments
      * @param resourceIds the resource ids to update the payment status.
+     * @param operatorUserId User ID of the operator or 0 if not set
      * @return the online review payments.
      * @throws RemoteException if any error occurs.
      * @throws SQLException if any sql error occurs.
      * @since Online Review Payments and Status Automation Assembly 1.0
      */
-    public List addOnlineReviewPayments(List payments, List resourceIds) throws SQLException {
+    public List addOnlineReviewPayments(List payments, List resourceIds, long operatorUserId) throws SQLException {
         log.info("addOnlineReviewPayments ..");
 
         if (!resourceIds.isEmpty()) {
@@ -5488,7 +5500,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
         }
 
-        return addPayments(payments);
+        return addPayments(payments, operatorUserId);
     }
 
     /**
@@ -6260,7 +6272,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws Exception if the update fails
      */
     public BasePayment updatePayment(BasePayment payment) throws Exception {
-        return updatePayment(payment, false);
+        return updatePayment(payment, false, 0);
     }
 
     /**
@@ -6275,6 +6287,22 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws Exception if the update fails
      */
     public BasePayment updatePayment(BasePayment payment, boolean supervisor) throws Exception {
+        return updatePayment(payment, supervisor, 0);
+    }
+
+    /**
+     * Update a payment for regular users.
+     * The payment must be already saved in the database, or an exception will be thrown.
+     * <p/>
+     * This method assumes autocommit is set to false
+     *
+     * @param payment    payment to update.
+     * @param supervisor true if the requester is a supervisor
+     * @param operatorUserId User ID of the operator or 0 if not set
+     * @return the updated payment.
+     * @throws Exception if the update fails
+     */
+    public BasePayment updatePayment(BasePayment payment, boolean supervisor, long operatorUserId) throws Exception {
         try {
             if (payment.getId() <= 0) {
                 throw new IllegalArgumentException("Payment is missing payment_id");
@@ -6292,7 +6320,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             Payment p = createPayment(payment);
             p.setRationaleId(rationale);
-            updatePayment(p, supervisor);
+            updatePayment(p, supervisor, operatorUserId);
             payment.resetModificationRationale();
 
             return payment;
@@ -6333,6 +6361,19 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException
      */
     public BasePayment addPayment(BasePayment payment) throws SQLException {
+        return addPayment(payment, 0);
+    }
+
+    /**
+     * Add a payment in the database.
+     * An instance of a subclass of BasePayment must be passed.
+     *
+     * @param payment payment to add.
+     * @return payment the payment added.
+     * @param operatorUserId User ID of the operator or 0 if not set
+     * @throws SQLException
+     */
+    public BasePayment addPayment(BasePayment payment, long operatorUserId) throws SQLException {
         Connection c = null;
 
         try {
@@ -6365,9 +6406,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     payment instanceof MarathonMatchTournamentPrizePayment) {
                 paymentId = makeNewAlgorithmPayment(c, p, (AlgorithmRoundReferencePayment) payment);
             } else if (payment.getContractId() > 0) {
-                paymentId = makeNewContractPayment(c, payment.getContractId(), p);
+                paymentId = makeNewContractPayment(c, payment.getContractId(), p, operatorUserId);
             } else {
-                paymentId = makeNewPayment(c, p, p.payReferrer());
+                paymentId = makeNewPayment(c, p, p.payReferrer(), operatorUserId);
             }
 
             payment.setId(paymentId);
@@ -6394,11 +6435,23 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException
      */
     public List addPayments(List payments) throws SQLException {
+        return addPayments(payments, 0);
+    }
+
+    /**
+     * Adds many payments at once in one transaction, so if one fails, it rolls back.
+     *
+     * @param payments payments to add to DB.
+     * @return a list of the payments added, with the information completed (payment_id, net amount calculated)
+     * @param operatorUserId User ID of the operator or 0 if not set
+     * @throws SQLException
+     */
+    public List addPayments(List payments, long operatorUserId) throws SQLException {
         try {
             List p = new ArrayList();
 
             for (int i = 0; i < payments.size(); i++) {
-                p.add(addPayment((BasePayment) payments.get(i)));
+                p.add(addPayment((BasePayment) payments.get(i), operatorUserId));
             }
 
             return p;
