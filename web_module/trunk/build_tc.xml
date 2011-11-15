@@ -13,6 +13,7 @@
     <property name="build.javadocs" value="${build}/javadocs"/>
     <property name="lib.dir" value="lib"/>
     <property name="jars.dir" value="${lib.dir}/jars"/>
+    <property name="openid4java.dir" value="${jars.dir}/openid4java" />
     <property name="jive.dir" value="lib/jars/jive"/>
     <property name="struts.dir" value="${lib.dir}/jakarta-struts-1.1/lib"/>
     <property name="bin" value="lib/bin"/>
@@ -40,7 +41,18 @@
 
     <target name="main" depends="compile">
     </target>
-
+	
+    <path id="openid4java.path">
+		<pathelement location="${openid4java.dir}/openid4java-0.9.6.jar"/>
+		<pathelement location="${openid4java.dir}/commons-codec-1.3.jar"/>
+		<pathelement location="${openid4java.dir}/guice-2.0.jar"/>
+		<pathelement location="${openid4java.dir}/httpclient-4.0.jar"/>
+		<pathelement location="${openid4java.dir}/httpcore-4.0.1.jar"/>
+		<pathelement location="${openid4java.dir}/nekohtml-1.9.14.jar"/>
+		<pathelement location="${openid4java.dir}/xercesImpl-2.8.1.jar"/>
+		<pathelement location="${openid4java.dir}/socialauth-2.0-beta3.jar"/>
+		<pathelement location="${openid4java.dir}/json-20080701.jar"/>
+    </path>
 
     <path id="class.path">
         <pathelement location="${classes}"/>
@@ -163,6 +175,8 @@
         <pathelement location="${jars.dir}/asyncservices.jar"/>
         <!-- app side dependencies...get rid of this if possible it's bad long contest design -->
         <pathelement location="${jars.dir}/tc.jar"/>
+        <!--OpenID-->
+    	<path refid="openid4java.path" />
     </path>
     <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
     <property name="class.path" refid="class.path"/>

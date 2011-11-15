@@ -36,6 +36,11 @@ import com.topcoder.web.common.throttle.Throttle;
  *     so it could be overridden by subclasses if necessary.</li>
  *   </ol>
  * </p>
+ *  <p>
+ *   Update in 1.1(Release Assembly - OpenID Project Update 1 v1.0 ):
+ *   Update protected String getFullProcessorName(String cmd) to enable locating 
+ *   OpenID processor.
+ * </p>
  *
  * @author Greg Paul, isv
  * @version 1.1
@@ -51,6 +56,12 @@ public abstract class BaseServlet extends HttpServlet {
     public static final String URL_KEY = "url";
     public static final String NEXT_PAGE_KEY = "nextpage";
     public static final String SESSION_INFO_KEY = "sessionInfo";
+    /**
+     * <p>
+     * Represent the qualified name of this class.
+     * </p>
+     */
+    private static final String CLASS_NAME = BaseServlet.class.getName();
 
     private final Logger log = Logger.getLogger(getClass());
 
@@ -144,7 +155,7 @@ public abstract class BaseServlet extends HttpServlet {
 
                 request.setCharacterEncoding("utf-8");
 
-                TCRequest tcRequest = createRequest(request);
+                TCRequest tcRequest = HttpObjectFactory.createRequest(request);
                 TCResponse tcResponse = HttpObjectFactory.createResponse(response);
 
                 if (throttleEnabled) {
@@ -275,8 +286,24 @@ public abstract class BaseServlet extends HttpServlet {
         return HttpObjectFactory.createRequest(request);
     }
 
+    
+    /**
+     * <p>
+     * Changes to allow user to configure full processor name in the properties
+     * file.
+     * </p>
+     * 
+     * @param cmd
+     *            name of the module to process.
+     * @return qualified name of the processor.
+     */
     protected String getFullProcessorName(String cmd) {
-        return PATH + (PATH.endsWith(".") ? "" : ".") + getProcessor(cmd);
+        String processorName = getProcessor(cmd);
+        if (!processorName.startsWith("com.")) {
+            processorName = PATH + (PATH.endsWith(".") ? "" : ".")
+                    + getProcessor(cmd);
+        }
+        return processorName;
     }
 
     protected final void fetchRegularPage(HttpServletRequest request, HttpServletResponse response, String dest,
