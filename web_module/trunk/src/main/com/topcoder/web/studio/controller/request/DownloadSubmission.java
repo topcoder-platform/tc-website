@@ -189,7 +189,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
             if (!originalSubmissionRequested) {
                 canDownload = true;
             }
-        } else if (isReviewOver && s.getContest().getViewableSubmissions() && !originalSubmissionRequested) {
+        } else if (isScreeningOver && s.getContest().getViewableSubmissions() && !originalSubmissionRequested) {
             canDownload = true;
         }
 
