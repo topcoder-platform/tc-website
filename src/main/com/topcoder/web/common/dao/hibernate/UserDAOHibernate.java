@@ -21,11 +21,25 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @author dok
+ * <p>
+ * Update (Release Assembly - OpenID Project Update 1 v1.0 ):
+ * Add implementation of <code>public getUserByOpenId(String openId)</code>
+ * method.
+ * </p>
+ * 
+ * @author dok, TCSASSEMBLER
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Apr 7, 2006
+ *          updated date: Sept 26th, 2011
  */
 public class UserDAOHibernate extends Base implements UserDAO {
+    
+    /**
+     * <p>
+     * Represent the qualified name of this class.
+     * </p>
+     */
+    private static final String CLASS_NAME = UserDAOHibernate.class.getName();
 
     public UserDAOHibernate() {
         super();
@@ -242,5 +256,28 @@ public class UserDAOHibernate extends Base implements UserDAO {
         }
         log.debug("found " + ret.size() + " responses for " + q.getId());
         return ret;
+    }
+
+    /**
+     * <p>
+     * Get user by open id.
+     * <p>
+     * 
+     * @param openId
+     *            the open id for the user, not null.
+     * @return the corresponding user, or null if there is no match.
+     */
+    public User getUserByOpenId(String openId) throws IllegalArgumentException {
+        String signature = CLASS_NAME + "#getUserByOpenId(String openId)";
+        
+        log.debug("Entrance: " + signature + "with parameter openId = "
+                + openId);
+        
+        if(null == openId) {
+            throw new IllegalArgumentException("openId should NOT be null!");
+        }
+        User user = (User)super.findOne(User.class, "openId", openId);
+        log.debug("Exit:" + signature + ", returning " + user);
+        return user;
     }
 }

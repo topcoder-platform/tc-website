@@ -184,6 +184,9 @@ public interface WebConstants {
 
     //resume parameters
     public static final String RESUME = "resume";
+    
+    //openid parameter
+    public static final String OPEN_ID = "openid";
 
     public static final int PREFERENCE_TEXT_ANSWER = 3;
     public static final int PREFERENCE_MULTIPLE_ANSWER = 2;

@@ -14,9 +14,14 @@ import java.util.Set;
 import java.util.TreeSet;
 
 /**
+ * <p>
  * A class containing user information.
- *
- * @author dok
+ * </p>
+ * <p>
+ * Update(Release Assembly - OpenID Project Update 1 v1.0):
+ * Add <code>private String openId</code> field.
+ * </p>
+ * @author dok, TCASSEMBLER
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Mar 29, 2006
  */
@@ -52,6 +57,13 @@ public class User extends Base {
     private Professor professor;
     private Set<UserSchool> schools;
     private Set<School> createdSchools;
+    
+    /**
+     * <p>
+     * The open id for the user.
+     * </p>
+     */
+    private String openId;
 
 
     /**
@@ -90,6 +102,27 @@ public class User extends Base {
 
     public void setId(Long id) {
         this.id = id;
+    }
+    
+    /**
+     * <p>
+     * Getter of openId field.
+     * </p>
+     *
+     * @return the openId field.
+     */
+    public String getOpenId() {
+        return openId;
+    }
+
+    /**
+     * <p>
+     * Setter of the openId field.
+     * </p>
+     * @param openId the openId to set
+     */
+    public void setOpenId(String openId) {
+        this.openId = openId;
     }
 
     public String getFirstName() {
