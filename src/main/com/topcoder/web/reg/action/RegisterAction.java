@@ -3,6 +3,7 @@
  */
 package com.topcoder.web.reg.action;
 
+import java.sql.Timestamp;
 import java.util.Collection;
 
 import javax.naming.Context;
@@ -17,7 +18,10 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.UserDAO;
+import com.topcoder.web.common.model.Coder;
+import com.topcoder.web.common.model.CoderType;
 import com.topcoder.web.common.model.Email;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.reg.Constants;
@@ -187,7 +191,13 @@ public class RegisterAction extends BaseAction implements PostAction {
           emailAdd.setUser(user);
           user.addEmailAddress(emailAdd);
         }
-        user.setPassword(password);
+        // not save password to user table.
+        //user.setPassword(password);
+        // create a new coder record
+        Coder coder = new Coder();
+        coder.setCompCountry(DAOUtil.getFactory().getCountryDAO().find("840"));
+        coder.setCoderType(DAOUtil.getFactory().getCoderTypeDAO().find(CoderType.PROFESSIONAL));
+        user.setCoder(coder);
         return user;
     }
 
