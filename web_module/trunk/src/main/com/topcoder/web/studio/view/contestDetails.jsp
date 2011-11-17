@@ -102,44 +102,46 @@
         <%-- CONTEST SUMMARY --%>
         <h5 class="contentTitle">Contest Summary</h5>
 
-        ${spec.contestIntroduction}
+        <p class="paragraph">${spec.contestIntroduction}</p>
 
+        <p class="paragraph1">Please read the contest specification carefully and watch the forums for any
+                    questions or feedback concerning this contest. It is important that you monitor any updates
+                    provided by the client or Studio Admins in the forums. Please post any questions you might have for
+                    the client in the forums.</p>
 
-        <c:if test="${not empty spec.contestDescription or isMultiRound}">
-            <h5 class="contentTitle">Full Description &amp; Project Guide</h5>
-            <c:if test="${isMultiRound and not empty contest.milestonePrize 
+        <c:if test="${isMultiRound and not empty contest.milestonePrize
                           and not empty spec.round1Introduction and not empty spec.round2Introduction}">
-                
-                <h6 class="smallTitle">Studio Tournament Format</h6><br/>
+
+                <h5 class="contentTitle">Studio Tournament Format</h5>
 
                 <p class="paragraph">This Studio competition will be run as a two-round tournament with a total prize purse of
                 <fmt:formatNumber value="${contest.totalPrizePurse}" pattern="$###,###.00"/>.</p>
 
                 <span class="subTitle">Round One (1)</span>
-                ${spec.round1Introduction}
-                
+                <p class="paragraph">${spec.round1Introduction}</p>
+
                 <span class="subTitle">Round Two (2)</span>
-                ${spec.round2Introduction}
+                <p class="paragraph">${spec.round2Introduction}</p>
 
-                <p class="paragraph">Please read the contest specification carefully and watch the forums for any
-                    questions or feedback concerning this contest. It is important that you monitor any updates
-                    provided by the client or Studio Admins in the forums. Please post any questions you might have for
-                    the client in the forums.</p>
+                <h6 class="smallTitle red">Regarding the Rounds:</h6>
 
-                <h6 class="smallTitle">Regarding the Rounds:</h6>
+                <ul class="red">
+                    <li>To be eligible for Round 1 prizes and design feedback, you must submit before the Milestone
+                        deadline.</li>
+                    <li>A day or two after the milestone deadline, the contest holder will announce Round 1 winners and
+                        provide design feedback to those winners in the "Milestone" tab above.</li>
+                    <li>You must submit to Round 1 to be eligible to compete in Round 2. If your submission fails
+                        screening for a small mistake in Round 1, you may still be eligible to submit to Round 2.</li>
+                    <li>Every competitor with a passing Round 1 submission can submit to Round 2, even if they didn't
+                        win a milestone prize. </li>
+                    <li><a href="http://community.topcoder.com/studio/types-of-competitions/multi-round-competitions-mini-tournaments/">Learn more here</a>.</li>
+                </ul>
+        </c:if>
 
-                <p class="paragraph2">To be eligible for Round 1 prizes and design feedback, you must submit before the
-                    Milestone deadline.</p>
+        <c:if test="${not empty spec.contestDescription}">
+            <h5 class="contentTitle">Full Description &amp; Project Guide</h5>
 
-                <p class="paragraph2">The contest holder will announce Round 1 winners and provide design feedback to
-                    those winners in the forum after the milestone deadline. </p>
-
-                <p class="paragraph2">You must submit to Round 1 to be eligible to compete in Round 2. If your
-                    submission fails screening for a small mistake in Round 1, you may still submit to Round 2.</p>
-            </c:if>
-            <c:if test="${not empty spec.contestDescription}">
-                ${spec.contestDescription}
-            </c:if>
+            ${spec.contestDescription}
         </c:if>
 
         <%-- SPECIFIC CONTEST DETAILS --%>
