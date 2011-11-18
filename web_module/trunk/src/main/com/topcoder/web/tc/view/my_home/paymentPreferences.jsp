@@ -96,9 +96,9 @@
                                 </tc-webtag:errorIterator>
                             </td>
                             <td class="value" nowrap="nowrap" style="border: none;">
-                                <tc-webtag:radioButton name="${PAYMENT_METHOD}" value="PayPal"/>PayPal<br />
-                                <tc-webtag:radioButton name="${PAYMENT_METHOD}" value="Wire"/>Wire<br />
-                                <tc-webtag:radioButton name="${PAYMENT_METHOD}" value="ACH"/>ACH
+                                <c:forEach var="paymentMethod" items="${paymentMethods}">
+                                    <tc-webtag:radioButton name="${PAYMENT_METHOD}" value="${paymentMethod.id}"/>${paymentMethod.name}<br />
+                                </c:forEach>
                             </td>
                         </tr>
 

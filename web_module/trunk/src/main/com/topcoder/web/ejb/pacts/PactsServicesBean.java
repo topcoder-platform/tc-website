@@ -1503,18 +1503,18 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Returns the preferred payment method for a user.
      *
-	 * @param userId User ID	 
-     * @return Preferred payment method or null if not set
+     * @param userId User ID	 
+     * @return ID of the preferred payment method or null if not set
      * @throws SQLException If there is some problem retrieving the data
      */
-    public String getUserPaymentMethod(long userId) throws SQLException {
+    public Long getUserPaymentMethod(long userId) throws SQLException {
         Connection conn = null;
         try {
             conn = DBMS.getConnection(trxDataSource);
-            ResultSetContainer rsc = runSelectQuery(conn, "SELECT payment_method FROM user_payment_method where user_id = " + userId);
+            ResultSetContainer rsc = runSelectQuery(conn, "SELECT payment_method_id FROM user_payment_method where user_id = " + userId);
 
             if (rsc.iterator().hasNext()) {
-                return ((ResultSetRow) rsc.iterator().next()).getStringItem("payment_method");
+                return ((ResultSetRow) rsc.iterator().next()).getLongItem("payment_method_id");
             } else {
                 return null;
             }
@@ -1524,19 +1524,19 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     /**
-	 * Saves the preferred payment method for a user.
+     * Saves the preferred payment method for a user.
      *
-	 * @param userId User ID	 
-     * @param paymentMethod Preferred payment method.
+     * @param userId User ID	 
+     * @param paymentMethod ID of the preferred payment method.
      * @throws SQLException If there is some problem updating the data
      */
-    public void saveUserPaymentMethod(long userId, String paymentMethod) {
+    public void saveUserPaymentMethod(long userId, long paymentMethodId) {
         if (userId == 0) {
             throw new IllegalArgumentException("Invalid user ID");
         }
 		
-        if (paymentMethod == null || paymentMethod.trim().length()==0) {
-            throw new IllegalArgumentException("Empty payment method.");
+        if (paymentMethodId <= 0) {
+            throw new IllegalArgumentException("Invalid payment method ID.");
         }
 
         PreparedStatement insertPs = null, updatePs = null;
@@ -1544,10 +1544,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         try {
             conn = DBMS.getConnection(trxDataSource);
 
-            updatePs = conn.prepareStatement("update 'informix'.user_payment_method set payment_method = '"+paymentMethod+"' where user_id = "+userId);
+            updatePs = conn.prepareStatement("update 'informix'.user_payment_method set payment_method_id = '"+paymentMethodId+"' where user_id = "+userId);
             int updated = updatePs.executeUpdate();
             if (updated == 0) {
-                insertPs = conn.prepareStatement("insert into 'informix'.user_payment_method(user_id, payment_method) values ("+userId+",'"+paymentMethod+"')");
+                insertPs = conn.prepareStatement("insert into 'informix'.user_payment_method(user_id, payment_method_id) values ("+userId+",'"+paymentMethodId+"')");
                 insertPs.executeUpdate();
             } else if (updated > 1) {
                 throw (new EJBException("Wrong number of rows updated in 'saveUserPaymentMethod'. " + "Updated " + updated + ", should have updated 1."));

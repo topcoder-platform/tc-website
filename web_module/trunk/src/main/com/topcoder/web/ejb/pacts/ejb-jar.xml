@@ -231,7 +231,7 @@
                 <method-name>saveUserPaymentMethod</method-name>
                 <method-params>
                     <method-param>long</method-param>
-                    <method-param>String</method-param>
+                    <method-param>long</method-param>
                 </method-params>
             </method>
             <method>
