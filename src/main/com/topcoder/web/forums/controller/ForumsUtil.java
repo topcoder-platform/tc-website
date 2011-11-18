@@ -673,6 +673,12 @@ public class ForumsUtil {
         if (parentCategory == null) return false;
         return (parentCategory.getID() == WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID);
     }
+	
+	public static boolean isDirectProjectSubcategory(ForumCategory category) {
+        ForumCategory parentCategory = category.getParentCategory();
+        if (parentCategory == null) return false;
+        return (parentCategory.getID() == WebConstants.DIRECT_PROJECT_FORUMS_ROOT_CATEGORY_ID);
+    }
 
     public static ImageData getImageData(ForumsLocal forumsBean, ForumCategory category) {
         long compVersID = Long.parseLong(category.getProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_ID));

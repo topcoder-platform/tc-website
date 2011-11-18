@@ -58,7 +58,7 @@ public class Watch extends ForumsProcessor {
                 break;
             case JiveConstants.FORUM_CATEGORY:
                 ForumCategory category = forumFactory.getForumCategory(id);
-                if (ForumsUtil.isSoftwareSubcategory(category)) {
+                if (ForumsUtil.isSoftwareSubcategory(category) || ForumsUtil.isDirectProjectSubcategory(category)) {
                     if (cmd.equals("add")) {
                         watchManager.createWatch(user, category);
                     } else if (cmd.equals("remove")) {

@@ -148,7 +148,7 @@
             		<%	} %>
                 </td>
                 <td align="right" nowrap="nowrap" valign="top">
-                	<%	if (ForumsUtil.isSoftwareSubcategory(forumCategory)) { %>
+                	<%	if (ForumsUtil.isSoftwareSubcategory(forumCategory) || ForumsUtil.isDirectProjectSubcategory(forumCategory)) { %>
                 		<A href="?module=Watch&<%=ForumConstants.WATCH_TYPE%>=<%=JiveConstants.FORUM_CATEGORY%>&<%=ForumConstants.WATCH_ID%>=<%=forumCategory.getID()%>&<%=ForumConstants.WATCH_COMMAND%>=<%=cmd%>" class="rtbcLink"><%=watchMessage%></A>&#160; |&#160;
                 	<%	} %>
                 	<%	boolean isAuthorized = forumCategory.isAuthorized(Permissions.SYSTEM_ADMIN) || 

@@ -349,6 +349,8 @@ public interface WebConstants {
     public static final long APPLICATION_CATALOG = 9926572;
 
     public static final long TCS_FORUMS_ROOT_CATEGORY_ID = 22;
+	
+	public static final long DIRECT_PROJECT_FORUMS_ROOT_CATEGORY_ID = 2478;
 
     public static final String CANDIDATE_IDS = "cids";
 
