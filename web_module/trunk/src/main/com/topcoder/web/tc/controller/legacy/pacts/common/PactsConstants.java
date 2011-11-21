@@ -525,7 +525,6 @@ public interface PactsConstants extends Constants {
     public static final String DEFAULT_AFFIDAVIT_PAYMENT_TYPE = "Contest Payment";
     public static final String DEFAULT_CONTRACT_PAYMENT_TYPE = "Contract Payment";
     public static final String DEFAULT_PAYMENT_TYPE = "Algorithm Contest Payment";
-    public static final String DEFAULT_PAYMENT_METHOD = "Check";
     public static final String DEFAULT_CONTRACT_PAYMENT_STATUS = "Pending";
     public static final String DEFAULT_PAYMENT_STATUS = "Pending";
     public static final String DEFAULT_CONTRACT_TYPE = "Problem Writer Contract";

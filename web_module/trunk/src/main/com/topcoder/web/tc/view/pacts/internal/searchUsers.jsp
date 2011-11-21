@@ -13,6 +13,15 @@
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.*" %>
 
+<% int paymentMethodRowCount = 0;
+   ResultSetContainer paymentMethod = (ResultSetContainer) request.getAttribute(PactsConstants.PAYMENT_METHOD_LIST);
+   if (paymentMethod == null) {
+      out.println("No Payment Method List!");
+   }
+   else paymentMethodRowCount = paymentMethod.getRowCount();
+%>
+
+
 <h1 align="center">PACTS</h1>
 <h2 align="center">Search Users</h2>
 
@@ -76,6 +85,18 @@
               Care</td>
           </tr>
 <%}%>
+
+          <tr>
+            <td>Payment Method:</td>
+<% out.println("            <td><select name=\""+PactsConstants.METHOD_CODE+"\" multiple size=4>");
+   out.println("              <option value=\"\" selected>Any</option>");
+   for (int n = 0; n < paymentMethodRowCount; n++) {
+       ResultSetContainer.ResultSetRow rsr = paymentMethod.getRow(n);
+       out.println("<option value=\""+TCData.getTCInt(rsr,"payment_method_id",0,true)+"\">"+TCData.getTCString(rsr,"payment_method_desc","method",true)+"</option>");
+   } %>
+              </select></td>
+          </tr>
+
    <script language="javascript">
    <!--
    document.searchForm.<%=PactsConstants.HANDLE %>.focus();

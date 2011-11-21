@@ -103,7 +103,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
     private boolean charity = false;
     private double totalAmount;
     private int installmentNumber;
-    private int methodId = Constants.DEFAULT_PAYMENT_METHOD_ID;
+    private int methodId = Constants.NOT_SET_PAYMENT_METHOD_ID;
 
     // If positive, the payment is for that contract, so a row relating the contact and the payment will be inserted
     private long contractId = 0;

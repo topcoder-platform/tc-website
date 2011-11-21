@@ -1045,6 +1045,7 @@ public class DataInterfaceBean implements PactsConstants {
             else if (key.equals(FIRST_NAME) ||
                     key.equals(MIDDLE_NAME) ||
                     key.equals(LAST_NAME) ||
+					key.equals(METHOD_CODE) ||
                     key.equals(HANDLE))
                 inputOk = validateInput(value, STRING);
             else if (key.equals(HAS_ACTIVE_CONTRACTS) ||

@@ -280,6 +280,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                                         && checkParam(STRING_TYPE, request.getParameter(MIDDLE_NAME), false, pp)
                                         && checkParam(STRING_TYPE, request.getParameter(LAST_NAME), false, pp)
                                         && checkParam(STRING_TYPE, request.getParameter(HANDLE), false, pp)
+                                        && checkParam(INT_TYPE, request.getParameter(METHOD_CODE), false, pp)
                                         && checkParam(BOOL_TYPE, request.getParameter(HAS_ACTIVE_CONTRACTS), false, pp)
                                         && checkParam(BOOL_TYPE, request.getParameter(HAS_PENDING_AFFIDAVITS), false, pp)
                                         && checkParam(BOOL_TYPE, request.getParameter(HAS_TAX_FORMS_ON_FILE), false, pp)
@@ -1782,9 +1783,11 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     /*
     Forwarding JSP: "search.jsp"
     */
-    private void doSearchUsers(HttpServletRequest request, HttpServletResponse response) {
+    private void doSearchUsers(HttpServletRequest request, HttpServletResponse response) throws Exception {
         log.debug("doSearchUsers<br>");
 
+        DataInterfaceBean dib = new DataInterfaceBean();
+        request.setAttribute(PAYMENT_METHOD_LIST, dib.getPaymentMethods().get(PAYMENT_METHOD_LIST));
         forward(INTERNAL_SEARCH_USERS_JSP, request, response);
     }
 
@@ -1796,7 +1799,6 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         log.debug("doSearch<br>");
 
         DataInterfaceBean dib = new DataInterfaceBean();
-        request.setAttribute(PAYMENT_TYPE_LIST, dib.getPaymentTypes().get(PAYMENT_TYPE_LIST));
         request.setAttribute(PAYMENT_TYPE_LIST, dib.getPaymentTypes().get(PAYMENT_TYPE_LIST));
         request.setAttribute(PAYMENT_STATUS_LIST, PaymentStatusFactory.getAllStatusList());
         request.setAttribute(PAYMENT_METHOD_LIST, dib.getPaymentMethods().get(PAYMENT_METHOD_LIST));

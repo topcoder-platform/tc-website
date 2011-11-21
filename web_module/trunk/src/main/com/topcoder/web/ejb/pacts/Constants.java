@@ -259,7 +259,7 @@ public interface Constants {
     public static final int AFFIDAVIT_CANCELED_STATUS = 75;
     public static final int AFFIDAVIT_DELETED_STATUS = 76;
 
-    public static final int DEFAULT_PAYMENT_METHOD_ID = 1;
+    public static final int NOT_SET_PAYMENT_METHOD_ID = 1;
 
     public static final int ASSEMBLY_PROJECT_CATEGORY_LU = 14;
     public static final int ARCHITECTURE_PROJECT_CATEGORY_LU = 7;
