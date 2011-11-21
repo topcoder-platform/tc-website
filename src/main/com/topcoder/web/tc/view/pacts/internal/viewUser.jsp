@@ -149,6 +149,11 @@
     </tr>
 
     <tr>
+        <td><b>Payment Method:</b></td>
+        <td><%= user.getHeader().getPaymentMethod() %></td>
+    </tr>
+
+    <tr>
         <td><b>Accrual Amount:</b></td>
         <td>$<fmt:formatNumber value="${user.header.accrualAmount}" pattern="###,##0.00" /></td>
     </tr>

@@ -198,7 +198,7 @@
 					s_id = TCData.getTCInt(rsr,"payment_method_id",0,true);
 					out.print(s_id);
 					s = TCData.getTCString(rsr,"payment_method_desc","default payment method",true);
-					if (method < 0 && s.equals(PactsConstants.DEFAULT_PAYMENT_METHOD)) {
+					if (method < 0 && s_id==NOT_SET_PAYMENT_METHOD_ID) {
 						out.print(" selected");
 					} else if (method == s_id) out.print(" selected");
 					out.print(">" + s + "</option>\n");

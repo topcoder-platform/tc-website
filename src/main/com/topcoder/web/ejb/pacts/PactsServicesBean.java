@@ -891,9 +891,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     private Map getUserProfileHeader(Connection c, long userId) throws SQLException {
         StringBuffer selectHeader = new StringBuffer(300);
         selectHeader.append("SELECT u.user_id, u.handle, u.first_name, u.middle_name, u.last_name, ");
-        selectHeader.append("nvl(ua.accrual_amount, "+MINIMUM_PAYMENT_ACCRUAL_AMOUNT+") as accrual_amount FROM user u, outer(user_accrual ua) ");
-        selectHeader.append(" WHERE u.user_id = " + userId);
-        selectHeader.append(" AND u.user_id = ua.user_id ");
+        selectHeader.append("nvl(ua.accrual_amount,"+MINIMUM_PAYMENT_ACCRUAL_AMOUNT+") as accrual_amount, ");
+        selectHeader.append("pml.payment_method_desc as payment_method ");
+        selectHeader.append("FROM user u ");
+        selectHeader.append("LEFT OUTER JOIN user_accrual ua ON u.user_id = ua.user_id ");
+        selectHeader.append("LEFT OUTER JOIN user_payment_method upm ON u.user_id = upm.user_id ");
+        selectHeader.append("INNER JOIN payment_method_lu pml ON pml.payment_method_id = nvl(upm.payment_method_id, "+NOT_SET_PAYMENT_METHOD_ID+") ");
+        selectHeader.append("WHERE u.user_id = " + userId + " ");
 
         StringBuffer selectGroups = new StringBuffer(300);
         selectGroups.append("SELECT group_id FROM group_user ");
@@ -3326,17 +3330,21 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public Map findUsers(Map searchCriteria) throws SQLException {
         StringBuffer selectHeader = new StringBuffer(300);
-        selectHeader.append("SELECT u.user_id, u.handle, UPPER(u.handle) AS uchandle, u.first_name, u.middle_name, " +
-                            "u.last_name, nvl(ua.accrual_amount, "+MINIMUM_PAYMENT_ACCRUAL_AMOUNT+") as accrual_amount, s.user_status_desc ");
+        selectHeader.append("SELECT u.user_id, u.handle, UPPER(u.handle) AS uchandle, u.first_name, u.middle_name, ");
+        selectHeader.append("u.last_name, nvl(ua.accrual_amount, "+MINIMUM_PAYMENT_ACCRUAL_AMOUNT+") as accrual_amount, s.user_status_desc, ");
+        selectHeader.append("pml.payment_method_desc as payment_method ");
         StringBuffer from = new StringBuffer(300);
-        from.append("FROM user u, outer(user_accrual ua), user_status_lu s ");
+        from.append("FROM user u ");
 
-        ArrayList whereClauses = new ArrayList();
+        ArrayList joinClauses = new ArrayList();
+        ArrayList whereClauses = new ArrayList();		
         ArrayList orClauses = new ArrayList();
         ArrayList objects = new ArrayList();
 
-        whereClauses.add("u.user_id = ua.user_id");
-        whereClauses.add("u.status = s.user_status_id ");
+        joinClauses.add("INNER JOIN user_status_lu s ON u.status = s.user_status_id ");
+        joinClauses.add("LEFT OUTER JOIN user_accrual ua ON u.user_id = ua.user_id ");
+        joinClauses.add("LEFT OUTER JOIN user_payment_method upm ON u.user_id = upm.user_id ");
+        joinClauses.add("INNER JOIN payment_method_lu pml ON pml.payment_method_id = nvl(upm.payment_method_id, "+NOT_SET_PAYMENT_METHOD_ID+") ");				
 
         Iterator i = searchCriteria.keySet().iterator();
         try {
@@ -3371,6 +3379,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 } else if (key.equals(HANDLE)) {
                     whereClauses.add("UPPER(u.handle) LIKE ?");
                     objects.add(value);
+                } else if (key.equals(METHOD_CODE)) {
+                    whereClauses.add("nvl(upm.payment_method_id, "+NOT_SET_PAYMENT_METHOD_ID+") IN (" + value + ")");					
                 } else if (key.equals(HAS_ACTIVE_CONTRACTS)) {
                     boolean wantExists = makeBoolean(value);
                     StringBuffer clause = new StringBuffer(300);
@@ -3431,6 +3441,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
 
         selectHeader.append(from.toString());
+        for (int j = 0; j < joinClauses.size(); j++) {
+            selectHeader.append((String) joinClauses.get(j));
+        }
+
         for (int j = 0; j < whereClauses.size(); j++) {
             if (j == 0)
                 selectHeader.append(" WHERE ");

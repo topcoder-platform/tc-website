@@ -53,6 +53,7 @@
                 <td><b>Middle Name</b></td>
                 <td><b>Accrual Amount</b></td>
                 <td><b>Status</b></td>
+                <td><b>Payment Method</b></td>
             </tr>
             <c:forEach items="${userList}" var="user">
                 <tr>
@@ -65,6 +66,7 @@
                     <td><c:out value="${user.middle}"/></td>
                     <td><fmt:formatNumber value="${user.accrualAmount}" pattern="${DECIMAL_FORMAT_STRING}"/></td>
                     <td><c:out value="${user.status}"/></td>
+                    <td><c:out value="${user.paymentMethod}"/></td>
                 </tr>
             </c:forEach>
         </table>

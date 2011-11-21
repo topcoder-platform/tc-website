@@ -78,12 +78,32 @@ public class InternalDispatchUserProfileList implements PactsConstants {
         param = request.getParameter(HAS_GLOBAL_AD);
         if (param != null && !param.equals("")) search.put(HAS_GLOBAL_AD, param);
 
+    	String methodValuesStr = createValuesStr(request.getParameterValues(METHOD_CODE));
+        if (!methodValuesStr.equals("")) search.put(METHOD_CODE, methodValuesStr);
+
         DataInterfaceBean dib = new DataInterfaceBean();
 
         Map results = dib.findUsers(search);
         if (results == null) return new UserProfileHeader[0];
         return (new UserProfileHeaderList(results)).getHeaderList();
 
+    }
+
+    // Helper function generating a comma-separated list from an array of values
+    private String createValuesStr(String[] values) {
+    	if (values == null) return "";
+    	StringBuffer valuesStr = new StringBuffer(100);
+    	
+    	for (int i=0; i<values.length; i++) {
+    		if (values[i].equals("")) {
+    			return "";
+    		}
+    		valuesStr.append(values[i]);
+    		if (i < values.length-1) {
+    			valuesStr.append(',');
+    		}
+    	}
+    	return valuesStr.toString();
     }
 }
 

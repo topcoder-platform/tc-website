@@ -17,6 +17,7 @@ import java.rmi.RemoteException;
 
 import static com.topcoder.web.tc.Constants.MODULE_KEY;
 import static com.topcoder.web.tc.Constants.MINIMUM_PAYMENT_ACCRUAL_AMOUNT;
+import static com.topcoder.web.ejb.pacts.Constants.NOT_SET_PAYMENT_METHOD_ID;
 
 /**
  * <p>A controller for requests relevant to <code>Edit Payment Preferences</code> functionality. As of current version
@@ -102,10 +103,16 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
         List<PaymentMethod> paymentMethods = new ArrayList<PaymentMethod>();
         for (int i=0;i<rsc.getRowCount();i++) {
             ResultSetContainer.ResultSetRow rsr = rsc.getRow(i);
-            PaymentMethod paymentMethod = new PaymentMethod();
-            paymentMethod.setId(TCData.getTCLong(rsr, "payment_method_id", 0, true));
-            paymentMethod.setName(TCData.getTCString(rsr, "payment_method_desc", "method", true));
-            paymentMethods.add(paymentMethod);
+            long methodID = TCData.getTCLong(rsr, "payment_method_id", 0, true);
+            String methodDesc = TCData.getTCString(rsr, "payment_method_desc", "method", true);
+
+            // Don't show the "Not Set" option.
+            if (methodID != NOT_SET_PAYMENT_METHOD_ID) {
+                PaymentMethod paymentMethod = new PaymentMethod();
+                paymentMethod.setId(methodID);
+                paymentMethod.setName(methodDesc);
+                paymentMethods.add(paymentMethod);
+           }
         }
         getRequest().setAttribute("paymentMethods", paymentMethods);
     }
@@ -142,7 +149,7 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
                 if (newAccrualAmount < MINIMUM_PAYMENT_ACCRUAL_AMOUNT) {
                     addError(ACCRUAL_AMOUNT_PARAM,
                             "Payment accrual amount must be greater or equal to $" + MINIMUM_PAYMENT_ACCRUAL_AMOUNT);
-                } else if (paymentMethodId <= 0) {
+                } else if (paymentMethodId <= 0 || paymentMethodId == NOT_SET_PAYMENT_METHOD_ID) {
                     addError(PAYMENT_METHOD_PARAM, "Payment method is incorrect");
                 } else {
                     dataBean.saveUserAccrualThreshold(getUser().getId(), newAccrualAmount);

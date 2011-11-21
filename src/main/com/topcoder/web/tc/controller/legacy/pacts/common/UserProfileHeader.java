@@ -66,6 +66,7 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
     private String middle;
     private String first;
     private double accrualAmount;
+    private String paymentMethod;
 
     /**
      * <p>A <code>String</code> providing the name for the current user profile status.</p>
@@ -90,6 +91,7 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
         groupId = new long[0];
         accrualAmount = 0;
         status = "";
+        paymentMethod = "";
     }
 
 /* This constructor makes the object out of raw data.
@@ -108,6 +110,7 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
         groupId = new long[0];
         accrualAmount = 0;
         status = "";
+        paymentMethod = "";
     }
 
     /* This constructor makes the object out of raw data.
@@ -128,6 +131,7 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
         groupId = new long[0];
         accrualAmount = 0;
         status = "";
+        paymentMethod = "";
     }
 
 
@@ -154,6 +158,7 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
                 first = "";
                 groupId = new long[0];
                 accrualAmount = 0;
+                paymentMethod = "";
                 status = "";
                 return;
             }
@@ -164,6 +169,8 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
             middle = TCData.getTCString(row, "middle_name", "", false);
             first = TCData.getTCString(row, "first_name", "", false);
             accrualAmount = TCData.getTCDouble(row, "accrual_amount", 0, false);
+            paymentMethod = TCData.getTCString(row, "payment_method", "", false);
+
             if (row.isValidColumn("user_status_desc")) {
                 status = TCData.getTCString(row, "user_status_desc");
             }
@@ -182,6 +189,7 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
             middle = "";
             first = "";
             accrualAmount = 0;
+            paymentMethod = "";
             status = "";
             groupId = new long[0];
         }
@@ -207,6 +215,7 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
             first = "";
             groupId = new long[0];
             accrualAmount = 0;
+            paymentMethod = "";
             status = "";
             return;
         }
@@ -217,6 +226,8 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
         middle = TCData.getTCString(rsr, "middle_name", "", false);
         first = TCData.getTCString(rsr, "first_name", "", false);
         accrualAmount = TCData.getTCDouble(rsr, "accrual_amount", 0, false);
+        paymentMethod = TCData.getTCString(rsr, "payment_method", "", false);
+
         if (rsr.isValidColumn("user_status_desc")) {
             status = TCData.getTCString(rsr, "user_status_desc");
         }
@@ -242,6 +253,7 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
             middle = "";
             first = "";
             accrualAmount = 0;
+            paymentMethod = "";
             status = "";
             groupId = new long[0];
             return;
@@ -254,6 +266,7 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
         middle = TCData.getTCString(rsr, "middle_name", "", false);
         first = TCData.getTCString(rsr, "first_name", "", false);
         accrualAmount = TCData.getTCDouble(rsr, "accrual_amount", 0, false);
+        paymentMethod = TCData.getTCString(rsr, "payment_method", "", false);
         status = "";
         groupId = new long[0];
 
@@ -318,6 +331,14 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
 
     public void setAccrualAmount(double accrualAmount) {
         this.accrualAmount = accrualAmount;
+    }
+
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
     }
 
     public String getHandle() {
