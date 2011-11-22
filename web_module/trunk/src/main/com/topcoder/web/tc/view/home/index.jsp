@@ -97,7 +97,7 @@
 					</div>
 					<span class="tipArrow"></span>
 				</div>
-				<a href="http://topcoder.com/home/pressroom/">Press Room</a>
+				<a href="http://www.topcoder.com/aboutus/news/">Press Room</a>
 				</li>
 				<li id="contactUs">
 				<div class="tip hide">
@@ -108,7 +108,7 @@
 					</div>
 					<span class="tipArrow"></span>
 				</div>
-				<a href="http://topcoder.com/home/help">Help</a>
+				<a href="http://www.topcoder.com/help">Help</a>
 				</li>
 				<li id="aboutUs">
 				<div class="tip hide">
@@ -119,7 +119,7 @@
 					</div>
 					<span class="tipArrow"></span>
 				</div>
-				<a href="http://topcoder.com/home/lets-talk/">Contact Us</a>
+				<a href="http://www.topcoder.com/aboutus/contact-us/">Contact Us</a>
 				</li>
                 <li id="blog">
                 <div class="tip hide">
@@ -141,7 +141,7 @@
 					</div>
 					<span class="tipArrow"></span>
 				</div>
-				<div style="margin-top:-42px; padding-right:0"><a href="http://www.topcoder.com/reg"><img src="./i/home/register.png" alt="Register with TopCoder" /></a></div>
+				<div style="margin-top:-42px; padding-right:0"><a href="http://www.topcoder.com/reg2"><img src="./i/home/register.png" alt="Register with TopCoder" /></a></div>
 				</li>
 			</ul>
 			<!-- end mainNav -->
@@ -184,12 +184,12 @@
 										<!-- NOTE: Option values must be on one line to render properly -->
 										<select name="c_select" class="dropdownList">
 											<option value="1">What can we help you do today? </option>
-											<option value="<tc-webtag:linkTracking link='http://topcoder.com/home/community' refer='About' />">Learn about TopCoder </option>
-											<option value="<tc-webtag:linkTracking link='http://topcoder.com/home/community' refer='Community' />">Build my own community </option>
-											<option value="<tc-webtag:linkTracking link='http://topcoder.com/home/community' refer='Resources' />">Extend my internal resources with TopCoder </option>
-											<option value="<tc-webtag:linkTracking link='http://topcoder.com/home/community' refer='Apps' />">Build a website, phone app, web presence </option>
-											<option value="<tc-webtag:linkTracking link='http://topcoder.com/home/community' refer='Data' />">Analyze my data to see what it's telling me </option>
-											<option value="<tc-webtag:linkTracking link='http://topcoder.com/home/community' refer='Offer' />">See what else TopCoder has to offer </option>
+											<option value="<tc-webtag:linkTracking link='http://www.topcoder.com/' refer='About' />">Learn about TopCoder </option>
+											<option value="<tc-webtag:linkTracking link='http://www.topcoder.com/' refer='Community' />">Build my own community </option>
+											<option value="<tc-webtag:linkTracking link='http://www.topcoder.com/' refer='Resources' />">Extend my internal resources with TopCoder </option>
+											<option value="<tc-webtag:linkTracking link='http://www.topcoder.com/' refer='Apps' />">Build a website, phone app, web presence </option>
+											<option value="<tc-webtag:linkTracking link='http://www.topcoder.com/' refer='Data' />">Analyze my data to see what it's telling me </option>
+											<option value="<tc-webtag:linkTracking link='http://www.topcoder.com/' refer='Offer' />">See what else TopCoder has to offer </option>
 										</select>
 									</div>
 									<!-- get start -->
