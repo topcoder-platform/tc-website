@@ -5418,7 +5418,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         query.append(" tcs_catalog:late_deliverable ld, tcs_catalog:resource r, tcs_catalog:resource_info ri where ");
         query.append(" ld.resource_id = r.resource_id and r.project_id = " + projectId + " and ");
         query.append(" r.resource_id = ri.resource_id and ri.resource_info_type_id = 1 and ");
-        query.append(" ld.forgive_ind=0 and ld.late_deliverable_type_id=1 and ");
+        query.append(" ld.forgive_ind=0 and ");
         query.append(" ((ld.explanation is not null and ld.response is null) "); // if the explained record is waiting for the response        
         query.append(" or (ld.explanation is null and ld.create_date>current-24 units hour)) "); // or if the late member still has time to explain (24 hours)
         
@@ -5442,10 +5442,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     private Map<Long,Double> getPaymentPenalties(long projectId) throws SQLException {
         StringBuffer query = new StringBuffer(300);
-        query.append(" select ri.value::int as user_id, sum(ld.delay) as total_delay from ");
-        query.append(" tcs_catalog:resource r, tcs_catalog:resource_info ri, tcs_catalog:late_deliverable ld where ");
+        query.append(" select ri.value::int as user_id, nvl(sum(ld.delay),0) as total_delay, ");
+        query.append(" sum(case when ld.late_deliverable_type_id=2 then 1 else 0 end)::int as rejected_final_fixes ");
+        query.append(" from tcs_catalog:resource r, tcs_catalog:resource_info ri, tcs_catalog:late_deliverable ld where ");
         query.append(" r.project_id=" + projectId + " and r.resource_id=ld.resource_id and r.resource_id=ri.resource_id and ");
-        query.append(" ri.resource_info_type_id=1 and ld.forgive_ind=0 and ld.late_deliverable_type_id=1 ");
+        query.append(" ri.resource_info_type_id=1 and ld.forgive_ind=0 ");
         query.append(" group by 1 ");
         
         Map<Long,Double> penalties = new HashMap<Long,Double>();
@@ -5453,8 +5454,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         for (int i = 0; i < rsc.size(); i++) {
             long userId = rsc.getLongItem(i, "user_id");
             long delay = rsc.getLongItem(i, "total_delay");
+            long rejectedFinalFixes = rsc.getLongItem(i, "rejected_final_fixes");
             
-            long paymentPenaltyPercentage = (delay>0 ? 5 : 0) + (delay/3600);
+            long paymentPenaltyPercentage = (delay>0 ? 5 : 0) + (delay/3600) + rejectedFinalFixes * 5;
             if (paymentPenaltyPercentage > 50) {
                 paymentPenaltyPercentage = 50;
             }
