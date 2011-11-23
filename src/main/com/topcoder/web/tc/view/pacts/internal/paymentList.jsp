@@ -38,6 +38,12 @@
     <title>PACTS - Payment List</title>
     <script type="text/javascript" src="/js/jquery-1.2.6.pack.js"></script>
     <script type="text/javascript" src="/js/jqueryFloatObject-1.2.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="/js/jscal/skins/aqua/theme.css">
+    <script type="text/javascript" src="/js/jscal/calendar.js"></script>
+    <script type="text/javascript" src="/js/jscal/lang/calendar-en.js"></script>
+    <script type="text/javascript" src="/js/jscal/calendar-setup.js"></script>
+
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
@@ -110,11 +116,18 @@
             var e = document.getElementsByName("status_id")[0];
             var selectedValue = e.options[e.selectedIndex].value;
 
-            if (selectedValue == '4') {
-                document.getElementsByName("invoice_number_section")[0].style.visibility = 'visible';
+            if (selectedValue == '2') {
+                document.getElementsByName("pay_date_section")[0].style.display = 'block';
             } else {
-                document.getElementsByName("invoice_number_section")[0].style.visibility = 'hidden';
+                document.getElementsByName("pay_date_section")[0].style.display = 'none';
             }
+
+            if (selectedValue == '4') {
+                document.getElementsByName("invoice_number_section")[0].style.display = 'block';
+            } else { 
+                document.getElementsByName("invoice_number_section")[0].style.display = 'none';
+            }
+
         }
 
     </script>
@@ -188,6 +201,7 @@ ${fn:length(paymentList)} records. <br />
 <a href="Javascript:checkAll(true)">check all</a> -
  <a href="Javascript:checkAll(false)">uncheck all</a> <br>
 <br/>
+
 <c:set var="totalNet" value="0" />
 <table id="datatable" border="1" cellpadding="0" cellspacing="0"  class="stat" width="100%">
     <tr>
@@ -308,14 +322,33 @@ ${fn:length(paymentList)} records. <br />
         </OPTION>
 </SELECT>
 <input type="submit" value="Apply Event">
-<div name="invoice_number_section" style="visibility:hidden;">
+<div name="invoice_number_section" style="display:none;">
     Invoice Number: <input type="text" name="new_invoice_number" size="11" maxlength="11"/>
+</div>
+<div name="pay_date_section" style="display:none;">
+    Pay Date: <tc-webtag:textInput name="pay_date" id="pay_date" size="12" editable="true" /> 
+    <button id="trigger_pay_date">Set</button>
 </div>
 
 </form>
 <jsp:include page="InternalFooter.jsp" flush="true"/>
 </td></tr>
 </table>
+
+<script language="javascript" type="text/javascript">
+    <!--
+Calendar.setup(
+{
+ inputField  : "pay_date",  
+                    ifFormat    : "<%= PactsConstants.JS_DATE_FORMAT_STRING %>",
+                    button      : "trigger_pay_date",
+                    showsTime   : false,
+                    singleClick  : false,
+                    cache       : true
+}
+);
+                -->
+</script>
 
 <%--
 <script type="text/javascript">

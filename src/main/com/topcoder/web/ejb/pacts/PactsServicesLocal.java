@@ -1,5 +1,6 @@
 package com.topcoder.web.ejb.pacts;
 
+import java.util.Date;
 import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.util.List;
@@ -342,6 +343,6 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     public Map<Long, BasePaymentStatus> getPaymentStatusMap() throws SQLException;
 
-    public Map<Long, String> newPaymentEvent(String[] paymentIDs, int event, String value, long operatorUserId);
+    public Map<Long, String> newPaymentEvent(String[] paymentIDs, int event, String value, Date payDate, long operatorUserId);
 }
 
