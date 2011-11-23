@@ -1777,9 +1777,9 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.getPaymentStatusMap();
     }
 
-    public Map<Long, String> newPaymentEvent(String[] paymentIDs, int event, String value, long operatorUserId) throws RemoteException {
+    public Map<Long, String> newPaymentEvent(String[] paymentIDs, int event, String value, Date payDate, long operatorUserId) throws RemoteException {
         PactsServicesLocal ps = getEjbHandle();
-        return ps.newPaymentEvent(paymentIDs, event, value, operatorUserId);
+        return ps.newPaymentEvent(paymentIDs, event, value, payDate, operatorUserId);
     }
 }
 

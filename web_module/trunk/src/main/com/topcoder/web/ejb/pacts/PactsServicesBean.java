@@ -4454,11 +4454,15 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
 
-    public Map<Long, String> newPaymentEvent(String[] paymentIDs, int event, String value, long operatorUserId) {
+    public Map<Long, String> newPaymentEvent(String[] paymentIDs, int event, String value, Date payDate, long operatorUserId) {
         Map<Long, String> errors = new HashMap<Long, String>();
         List<BasePayment> updatePayments = new ArrayList<BasePayment>();
 
         boolean rollback = true;
+
+        if (event==2 && payDate==null) {
+            errors.put(0l, "Incorrect payment date.");
+        }
 
         Map criteria = new HashMap();
         for (String paymentId : paymentIDs) {
@@ -4481,6 +4485,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                                 break;
                             case 2:
                                 psm.newUserEvent(payment, UserEvents.PAY_EVENT);
+                                payment.setPaidDate(payDate);
                                 break;
                             case 3:
                                 psm.newUserEvent(payment, UserEvents.DELETE_EVENT);
