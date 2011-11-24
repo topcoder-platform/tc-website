@@ -320,6 +320,9 @@ ${fn:length(paymentList)} records. <br />
         <OPTION value='4'>
             Set Invoice Number
         </OPTION>
+        <OPTION value='5'>
+            Assign Payment Method
+        </OPTION>
 </SELECT>
 <input type="submit" value="Apply Event">
 <div name="invoice_number_section" style="display:none;">
