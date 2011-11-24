@@ -205,7 +205,7 @@
 <span class="bigRed">NOTE: Please see the eligibility requirements below.</span>
 
 <p>
-<div align="right"><A href="/tc?module=Static&d1=features&d2=061906"><img src="/i/development/assembly/learn_more.gif" alt="Want to Learn More?" border="0" /></A></div>
+<div align="right"><A href="http://<%=ApplicationServer.WIKI_SERVER_NAME%>/display/tc/Assembly+Competition+Tutorial"><img src="/i/development/assembly/learn_more.gif" alt="Want to Learn More?" border="0" /></A></div>
 </p>
 
 
