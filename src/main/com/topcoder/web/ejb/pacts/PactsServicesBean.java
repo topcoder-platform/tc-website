@@ -721,7 +721,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentDetails.append("pd.payment_method_id, pm.payment_method_desc, ");
         selectPaymentDetails.append("pa.first_name, pa.middle_name, pa.last_name, pa.address1, ");
         selectPaymentDetails.append("pa.address2, pa.city, pa.state_code, pa.zip, pa.country_code, ");
-        selectPaymentDetails.append("state.state_name, country.country_name, pd.date_modified, pd.date_due, ");
+        selectPaymentDetails.append("state.state_name, country.country_name, pd.create_date as modify_date, pd.date_due, ");
         selectPaymentDetails.append("pd.charity_ind, pa.address3, pa.province, pd.total_amount, pd.installment_number, ");
         selectPaymentDetails.append("pd.invoice_number, pd.jira_issue_id, cu.handle as create_user_handle ");
         selectPaymentDetails.append("FROM payment p, payment_detail_xref pdx, payment_detail pd, ");
@@ -1093,7 +1093,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentDetails.append("pd.payment_method_id, pm.payment_method_desc, ");
         selectPaymentDetails.append("pa.first_name, pa.middle_name, pa.last_name, pa.address1, ");
         selectPaymentDetails.append("pa.address2, pa.city, pa.state_code, pa.zip, pa.country_code, ");
-        selectPaymentDetails.append("state.state_name, country.country_name, pd.date_modified, pd.date_due, ");
+        selectPaymentDetails.append("state.state_name, country.country_name, pd.create_date as modify_date, pd.date_due, ");
         selectPaymentDetails.append("pd.charity_ind, pa.address3, pa.province, pd.total_amount, pd.installment_number, pd.invoice_number ");
         selectPaymentDetails.append("FROM payment p, payment_detail pd, payment_status_lu s, ");
         selectPaymentDetails.append("modification_rationale_lu mr, payment_type_lu pt, payment_method_lu pm, ");
