@@ -21,7 +21,7 @@ public class PaymentAddition implements java.io.Serializable {
     public long user_id;
     public String payment_desc;
     public int payment_type_id;
-    public int payment_method_id;
+    public long payment_method_id;
     public double net_amount;
     public double gross_amount;
     public int status_id;
@@ -46,7 +46,7 @@ public class PaymentAddition implements java.io.Serializable {
      * @param grossAmount The gross amount of the payment
      * @param statusId The status code of the payment
      */
-    public PaymentAddition(long userId, String description, int typeId, int methodId, double netAmount,
+    public PaymentAddition(long userId, String description, int typeId, long methodId, double netAmount,
                            double grossAmount, int statusId) {
         this.user_id = userId;
         this.payment_desc = description;

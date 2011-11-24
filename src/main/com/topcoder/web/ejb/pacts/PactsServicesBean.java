@@ -42,6 +42,7 @@ import com.topcoder.web.ejb.pacts.assignmentdocuments.ComponentProject;
 import com.topcoder.web.ejb.pacts.assignmentdocuments.StudioContest;
 import com.topcoder.web.ejb.pacts.assignmentdocuments.User;
 import com.topcoder.web.ejb.pacts.payments.BasePaymentStatus;
+import com.topcoder.web.ejb.pacts.payments.OwedPaymentStatus;
 import com.topcoder.web.ejb.pacts.payments.EventFailureException;
 import com.topcoder.web.ejb.pacts.payments.InvalidStatusException;
 import com.topcoder.web.ejb.pacts.payments.InvalidStatusReasonException;
@@ -3857,7 +3858,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setInt(7, p.getRationaleId());
             ps.setString(8, p.getHeader().getDescription());
             ps.setInt(9, p.getHeader().getTypeId());
-            ps.setInt(10, p.getHeader().getMethodId());
+            ps.setLong(10, p.getHeader().getMethodId());
             ps.setTimestamp(11, new Timestamp(System.currentTimeMillis())); // date_modified
             ps.setTimestamp(12, makeTimestamp(p.getDueDate(), true, false));
             if (!checkNull(p.getHeader().getClient()).equals("")) {
@@ -4492,6 +4493,18 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                                 break;
                             case 4:
                                 payment.setInvoiceNumber(value);
+                                break;
+                            case 5:
+                                Long paymentMethodId = getUserPaymentMethod(payment.getCoderId());
+                                if (paymentMethodId == null) {
+                                    errors.put(payment.getId(), "The member has not set the preferred payment method.");
+                                } else if (payment.getCurrentStatus().getId() != OwedPaymentStatus.ID) {
+                                    errors.put(payment.getId(), "Can't assign payment method for payment in " +
+                                               payment.getCurrentStatus().getDesc() + " status");
+                                } else {
+                                    payment.setMethodId(paymentMethodId);
+                                }
+
                                 break;
                         }
                     } catch (EventFailureException efe) {

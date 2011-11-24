@@ -63,7 +63,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
     private String method;
     private int recentStatusId;
     private int typeId;
-    private int methodId;
+    private long methodId;
     private String client;
     private String cockpitProjectName;
     private String billingAccountName;
@@ -107,7 +107,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         recentStatusId = 0;
         currentStatus = null;
         typeId = 0;
-        methodId = 1;   // Check
+        methodId = 1;   // Not Set
     }
 
 /* This constructor makes the object out of the Map containing
@@ -168,7 +168,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         type = TCData.getTCString(rsr, "payment_type_desc", "default type description", true);
         typeId = TCData.getTCInt(rsr, "payment_type_id", 0, true);
         method = TCData.getTCString(rsr, "payment_method_desc", "default method description", true);
-        methodId = TCData.getTCInt(rsr, "payment_method_id", 1, true);
+        methodId = TCData.getTCLong(rsr, "payment_method_id", 1, true);
         if (rsr.isValidColumn("first_name")) {
             user = new UserProfileHeader(
                     TCData.getTCLong(rsr, "user_id", 0, true),
@@ -298,11 +298,11 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         this.typeId = typeId;
     }
 
-    public int getMethodId() {
+    public long getMethodId() {
         return methodId;
     }
 
-    public void setMethodId(int methodId) {
+    public void setMethodId(long methodId) {
         this.methodId = methodId;
     }
 

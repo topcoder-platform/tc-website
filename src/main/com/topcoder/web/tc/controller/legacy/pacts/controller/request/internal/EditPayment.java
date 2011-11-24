@@ -88,7 +88,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
             double totalAmount = 0.0;
             double grossAmount = 0.0;
             double netAmount = 0.0;
-            int methodId = -1;
+            long methodId = -1;
             int modificationRationaleId = -1;
             int installmentNumber = 1;
             String dueDate = "";
@@ -115,7 +115,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                 if (getRequest().getParameter("installment_number") != null) {
                 	installmentNumber = getIntParameter("installment_number");
                 }
-                methodId = getIntParameter("payment_method_id");
+                methodId = getLongParameter("payment_method_id");
 
                 modificationRationaleId = getOptionalIntParameter("modification_rationale_id");
 
@@ -246,7 +246,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
 
                 if (adding) {
                     typeId = contractId > 0? CONTRACT_PAYMENT : ALGORITHM_CONTEST_PAYMENT;
-                    methodId = 1; // CHECK
+                    methodId = 1; // NOT SET
                     Calendar date = Calendar.getInstance();
                     date.setTime(new Date());
                     date.add(Calendar.DAY_OF_YEAR, COMPONENT_DUE_DATE_INTERVAL);
