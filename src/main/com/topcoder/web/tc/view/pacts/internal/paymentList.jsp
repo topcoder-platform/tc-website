@@ -117,17 +117,16 @@
             var selectedValue = e.options[e.selectedIndex].value;
 
             if (selectedValue == '2') {
-                document.getElementsByName("pay_date_section")[0].style.display = 'block';
+                document.getElementById("pay_date_section").style.display = 'block';
             } else {
-                document.getElementsByName("pay_date_section")[0].style.display = 'none';
+                document.getElementById("pay_date_section").style.display = 'none';
             }
 
             if (selectedValue == '4') {
-                document.getElementsByName("invoice_number_section")[0].style.display = 'block';
+                document.getElementById("invoice_number_section").style.display = 'block';
             } else { 
-                document.getElementsByName("invoice_number_section")[0].style.display = 'none';
+                document.getElementById("invoice_number_section").style.display = 'none';
             }
-
         }
 
     </script>
@@ -325,10 +324,10 @@ ${fn:length(paymentList)} records. <br />
         </OPTION>
 </SELECT>
 <input type="submit" value="Apply Event">
-<div name="invoice_number_section" style="display:none;">
+<div id="invoice_number_section" style="display:none;">
     Invoice Number: <input type="text" name="new_invoice_number" size="11" maxlength="11"/>
 </div>
-<div name="pay_date_section" style="display:none;">
+<div id='pay_date_section' style='display:none;'>
     Pay Date: <tc-webtag:textInput name="pay_date" id="pay_date" size="12" editable="true" /> 
     <button id="trigger_pay_date">Set</button>
 </div>
