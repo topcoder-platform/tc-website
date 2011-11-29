@@ -34,7 +34,7 @@
     <title>TopCoder,Inc.</title> 
 	<!-- Meta Tags -->
 	<meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
-	
+	<meta http-equiv="Refresh" content="0; URL=http://www.topcoder.com/">
 	<!-- External CSS -->
 	<link href="./css/home/homepage.css" rel="stylesheet" type="text/css" />
 	<!--[if IE 6]>
