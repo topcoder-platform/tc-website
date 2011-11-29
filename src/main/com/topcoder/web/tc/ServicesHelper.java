@@ -32,9 +32,11 @@ import com.topcoder.web.tc.dto.UpcomingContestsFilter;
  * <p>
  * The class is thread safe because it's immutable.
  * </p>
- * 
- * @author duxiaoyang
- * @version 1.0
+ * <p>
+ * Changes in 1.1: Removed references to subType.
+ * </p>
+ * @author duxiaoyang, pinoydream
+ * @version 1.1
  */
 public final class ServicesHelper {
 
@@ -202,7 +204,7 @@ public final class ServicesHelper {
 
     /**
      * <p>
-     * Sets fields into the given filter. It will set type, subtype, catalog,
+     * Sets fields into the given filter. It will set type, catalog,
      * registrationStart, and submissionEnd for the filter, as well as specific
      * filter fields depending on the type of the filter.
      * </p>
@@ -225,7 +227,6 @@ public final class ServicesHelper {
             // set fields available for all filters
             filter.setContestName(getStringFromJson(jsonFilter, "contestName"));
             filter.setType(getStringListFromJson(jsonFilter, "types"));
-            filter.setSubtype(getStringListFromJson(jsonFilter, "subTypes"));
             filter.setCatalog(getStringListFromJson(jsonFilter, "catalogs"));
             filter.setRegistrationStart(getDateIntervalFromJson(jsonFilter,
                     "registrationStartDate", dateFormat, errors));

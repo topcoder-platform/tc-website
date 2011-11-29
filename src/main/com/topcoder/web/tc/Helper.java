@@ -46,8 +46,12 @@ import com.topcoder.web.tc.dto.PastContestFilter;
  * </ul>
  * </p>
  *
- * @author TCSDEVELOPER, TCSASSEMBLIER
- * @version 1.2
+ * <p>
+ * Changes in 1.3: Removed reference to subTypes in addFilterForSQL and parseJsonToBaseFilter methods.
+ * </p>
+ *
+ * @author TCSDEVELOPER, pinoydream
+ * @version 1.3
  */
 public final class Helper {
     /**
@@ -179,13 +183,8 @@ public final class Helper {
 
         // Add filter for types
         if (checkListNotNullAndNotEmpty(filter.getTypes())) {
-            sql += addListToFilter("projectGroupCategory.name",
+            sql += addListToFilter("projectCategory.name",
                     filter.getTypes());
-        }
-
-        // Add filter for subTypes
-        if (checkListNotNullAndNotEmpty(filter.getSubTypes())) {
-            sql += addListToFilter("projectCategory.name", filter.getSubTypes());
         }
 
         // Add filter for catalogs
@@ -492,7 +491,6 @@ public final class Helper {
             if (jsonObject.isNestedKeyDefined("filter")) {
                 JSONObject jsonFilter = jsonObject.getNestedObject("filter");
                 filter.setTypes(getListFromJson(jsonFilter, "types"));
-                filter.setSubTypes(getListFromJson(jsonFilter, "subTypes"));
                 filter.setCatalogs(getListFromJson(jsonFilter, "catalogs"));
                 filter.setContestName(getStringFromJson(jsonFilter,
                         "contestName"));

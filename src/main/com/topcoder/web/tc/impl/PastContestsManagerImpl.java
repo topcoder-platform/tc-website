@@ -55,6 +55,8 @@ import com.topcoder.web.tc.dto.PastContestFilter;
  * // This call retrieves all active contests whose name starts with &quot;TC Refactoring&quot; and prize &lt;= 1000
  * // sorted in ascending order by &quot;contestName&quot; property. The page size is 10 and only the 2nd page
  * // should be returned.
+ * //
+
  * List&ltPastContestsDTO&gt; pastContestses = manager.retrievePastContests(&quot;projectGroupCategory.name&quot;,
  *     SortingOrder.ASCENDING, 2, 10, filter);
  * </pre>
@@ -70,8 +72,12 @@ import com.topcoder.web.tc.dto.PastContestFilter;
  * </ul>
  * </p>
  *
- * @author mekanizumu, TCSDEVELOPER
- * @version 1.1
+ * <p>
+ * Changes in Version 1.2 : Removed subType in SQL and DTO.
+ * </p>
+ *
+ * @author mekanizumu, TCSDEVELOPER, pinoydream
+ * @version 1.2
  */
 public class PastContestsManagerImpl extends HibernateDaoSupport implements
         PastContestsManager {
@@ -88,8 +94,8 @@ public class PastContestsManagerImpl extends HibernateDaoSupport implements
      * Represent the sql query string.
      * </p>
      */
-    private static final String SQL_QUERY = "SELECT DISTINCT new map(project.projectId as contestId, projectGroupCategory.name as type,"
-            + " projectCategory.name as subType, projectCatalog.name as catalog, projectNameInfo.value as contestName,"
+    private static final String SQL_QUERY = "SELECT DISTINCT new map(project.projectId as contestId, projectCategory.name as type,"
+            + " projectCatalog.name as catalog, projectNameInfo.value as contestName,"
             + " (select count(*) from Submission s, Upload u where u.projectId=project.projectId"
             + " and u.uploadId=s.uploadId and s.submissionTypeId=:contestSubmissionTypeId"
             + " and s.submissionStatusId in (:activeSubmissionStatusId, :failedScreeningSubmissionStatusId,"
@@ -106,7 +112,7 @@ public class PastContestsManagerImpl extends HibernateDaoSupport implements
             + " and s2.screeningScore >= :passingScreeningScore) as passedScreeningCount,"
             + " winnerIdInfo.value as winnerExternalReferenceId, projectResult.finalScore as winnerScore)"
             + " from Project project,"
-            + " ProjectCategoryLookup projectCategory, ProjectGroupCategoryLookup projectGroupCategory,"
+            + " ProjectCategoryLookup projectCategory,"
             + " ProjectCatalogLookup projectCatalog, ProjectInfo projectNameInfo,"
             + " Resource r2, ProjectPhase registrationPhase, ProjectPhase submissionPhase,"
             + " ProjectPhase approvalPhase, ProjectInfo winnerIdInfo,"
@@ -114,10 +120,8 @@ public class PastContestsManagerImpl extends HibernateDaoSupport implements
             + " ResourceInfo handleInfo where project.projectStatusId=:completedStatusId"
             // this condition means only completed projects are returned.
             + " and project.projectCategoryId=projectCategory.projectCategoryId"
-            // this join is for sub-type
-            + " and projectCategory.projectGroupCategoryId=projectGroupCategory.projectGroupCategoryId"
-            + " and projectGroupCategory.projectCatalogId=projectCatalog.projectCatalogId"
             // this join is for type
+            + " and projectCategory.projectCatalogId=projectCatalog.projectCatalogId"
             + " and projectNameInfo.projectId=project.projectId"
             + " and projectNameInfo.projectInfoTypeId=:projectNameInfoId"
             // this join is for getting the contest name
@@ -554,7 +558,6 @@ public class PastContestsManagerImpl extends HibernateDaoSupport implements
         PastContestDTO dto = new PastContestDTO();
         dto.setContestId((Long) map.get("contestId"));
         dto.setType((String) map.get("type"));
-        dto.setSubType((String) map.get("subType"));
         dto.setCatalog((String) map.get("catalog"));
         dto.setContestName((String) map.get("contestName"));
         dto.setNumberOfSubmissions(((Long) map.get("numberOfSubmissions"))

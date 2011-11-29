@@ -57,8 +57,6 @@ import com.topcoder.web.tc.dto.ContestStatusFilter;
  * // This call retrieves all active contests whose name starts with &quot;TC Refactoring&quot; and prize &lt;= 1000
  * // sorted in ascending order by &quot;contestName&quot; property. The page size is 10 and only the 2nd page
  * // should be returned.
- * List&ltContestStatusDTO&gt; contestStatuses = manager.retrieveContestStatus(&quot;projectGroupCategory.name&quot;,
- *     SortingOrder.ASCENDING, 2, 10, filter);
  * </pre>
  * 
  * </p>
@@ -74,8 +72,12 @@ import com.topcoder.web.tc.dto.ContestStatusFilter;
  * </ul>
  * </p>
  *
+ * <p>
+ * Changes in Version 1.2 : Removed subType in SQL and DTO.
+ * </p>
+ *
  * @author mekanizumu, TCSDEVELOPER
- * @version 1.1
+ * @version 1.2
  */
 public class ContestStatusManagerImpl extends HibernateDaoSupport implements
         ContestStatusManager {
@@ -91,8 +93,8 @@ public class ContestStatusManagerImpl extends HibernateDaoSupport implements
      * Represent the sql query string.
      * </p>
      */
-    private static final String SQL_QUERY = "SELECT DISTINCT new map(project.projectId as contestId, projectGroupCategory.name as type,"
-            + " projectCategory.name as subType, projectCatalog.name as catalog,"
+    private static final String SQL_QUERY = "SELECT DISTINCT new map(project.projectId as contestId, projectCategory.name as type,"
+            + " projectCatalog.name as catalog,"
             + " submissionPhase.scheduledEndTime as submissionDueDate,"
             + " finalReviewPhase.scheduledEndTime as finalReviewDueDate, "
 			+ " (SELECT name from PhaseType WHERE phaseTypeId = ("
@@ -114,16 +116,13 @@ public class ContestStatusManagerImpl extends HibernateDaoSupport implements
             + " and secondPlaceIdInfo.projectInfoTypeId=:secondPlaceIdInfoId) as secondPlaceHandleId,"
             // these joins get the Resource representing the second place
             + " firstPrizeInfo.value as firstPrize) from Project project, ProjectCategoryLookup projectCategory,"
-            + " ProjectGroupCategoryLookup projectGroupCategory,"
             + " ProjectCatalogLookup projectCatalog, ProjectPhase registrationPhase,"
             + " ProjectPhase submissionPhase, ProjectPhase finalReviewPhase,"
             + " ProjectInfo firstPrizeInfo, ProjectInfo projectNameInfo"
             + " where project.projectCategoryId=projectCategory.projectCategoryId"
 			+ " and project.projectStatusId = 1"
-            // this join is for sub-type
-            + " and projectCategory.projectGroupCategoryId=projectGroupCategory.projectGroupCategoryId"
             // this join is for type
-            + " and projectGroupCategory.projectCatalogId=projectCatalog.projectCatalogId"
+            + " and projectCategory.projectCatalogId=projectCatalog.projectCatalogId"
             // this join is for catalog
             + " and projectNameInfo.projectId=project.projectId"
             + " and projectNameInfo.projectInfoTypeId=:projectNameInfoId"
@@ -517,7 +516,6 @@ public class ContestStatusManagerImpl extends HibernateDaoSupport implements
         ContestStatusDTO dto = new ContestStatusDTO();
         dto.setContestId((Long) map.get("contestId"));
         dto.setType((String) map.get("type"));
-        dto.setSubType((String) map.get("subType"));
         dto.setCatalog((String) map.get("catalog"));
         dto.setSubmissionDueDate(Helper.getEDTTime((Date) map.get("submissionDueDate")));
         dto.setFinalReviewDueDate(Helper.getEDTTime((Date) map.get("finalReviewDueDate")));

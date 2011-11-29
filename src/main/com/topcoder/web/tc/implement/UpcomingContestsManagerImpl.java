@@ -38,8 +38,12 @@ import com.topcoder.web.tc.dto.UpcomingContestsFilter;
  * Changes in Version 1.1 : Updated {@link #transferMapToDTO(Map)} method to set contestId.
  * </p>
  *
- * @author flytoj2ee, duxiaoyang
- * @version 1.1
+ * <p>
+ * Changes in Version 1.2 : Removed subType in SQL and DTO.
+ * </p>
+ *
+ * @author flytoj2ee, duxiaoyang, pinoydream
+ * @version 1.2
  */
 public class UpcomingContestsManagerImpl extends AbstractManagerImpl implements
         UpcomingContestsManager {
@@ -47,17 +51,17 @@ public class UpcomingContestsManagerImpl extends AbstractManagerImpl implements
     /**
      * Represents the base HQL statement used to search contests.
      */
-    private static final String BASE_HQL = "SELECT pgc.name AS type, pc.name AS subtype,"
+    private static final String BASE_HQL = "SELECT pc.name AS type,"
             + " (SELECT MAX(scheduledStartTime) FROM ProjectPhase WHERE phaseTypeId = 1 AND projectId = p.projectId) AS registrationStart,"
             + " (SELECT MAX(scheduledEndTime) FROM ProjectPhase WHERE phaseTypeId = 2 AND projectId = p.projectId) AS submissionEnd,"
             + " CONCAT(pi6.value, ' ', pi7.value) AS contestName, CAST(technology_list(pi1.value) AS string) AS technologies, CAST(pi36.value AS double) AS firstPrize,"
             + " CASE ps.projectStatusId WHEN 1 THEN 'Draft' WHEN 2 THEN 'Scheduled' ELSE ps.name END AS status,"
             + " (SELECT MAX(scheduledStartTime) FROM ProjectPhase WHERE projectId = p.projectId AND phaseTypeId = 1) AS contestStartTime, p.projectId as contestId"
-            + " FROM Project p, ProjectCategoryLookup pc, ProjectGroupCategoryLookup pgc, ProjectStatusLookup ps, ProjectCatalogLookup c,"
+            + " FROM Project p, ProjectCategoryLookup pc, ProjectStatusLookup ps, ProjectCatalogLookup c,"
             + " ProjectInfo pi6, ProjectInfo pi7, ProjectInfo pi1, ProjectInfo pi36"
             + " WHERE p.projectStatusId IN (1, 2, 7) AND p.projectCategoryId NOT IN (27) AND (p.tcDirectProjectId IS NULL OR p.tcDirectProjectId NOT IN (840))"
-            + " AND p.projectCategoryId = pc.projectCategoryId AND pc.projectGroupCategoryId = pgc.projectGroupCategoryId"
-            + " AND pgc.projectCatalogId = c.projectCatalogId AND p.projectStatusId = ps.projectStatusId"
+            + " AND p.projectCategoryId = pc.projectCategoryId"
+            + " AND pc.projectCatalogId = c.projectCatalogId AND p.projectStatusId = ps.projectStatusId"
             + " AND p.projectId = pi6.projectId AND pi6.projectInfoTypeId = 6 AND LOWER(pi6.value) NOT LIKE '%delete%'"
             + " AND p.projectId = pi7.projectId AND pi7.projectInfoTypeId = 7 AND p.projectId = pi1.projectId AND pi1.projectInfoTypeId = 1"
             + " AND p.projectId = pi36.projectId AND pi36.projectInfoTypeId = 36"
@@ -328,16 +332,15 @@ public class UpcomingContestsManagerImpl extends AbstractManagerImpl implements
             for (Object[] row : result) {
                 UpcomingContestDTO dto = new UpcomingContestDTO();
                 dto.setType((String) row[0]);
-                dto.setSubtype((String) row[1]);
-                dto.setRegisterDate(Helper.getEDTTime((Date) row[2]));
-                dto.setSubmitDate(Helper.getEDTTime((Date) row[3]));
+                dto.setRegisterDate(Helper.getEDTTime((Date) row[1]));
+                dto.setSubmitDate(Helper.getEDTTime((Date) row[2]));
                 dto.setDuration((int) ((dto.getSubmitDate().getTime() - dto
                         .getRegisterDate().getTime()) / MILLISECOND_IN_A_DAY));
-                dto.setContestName((String) row[4]);
-                dto.setTechnologies((String) row[5]);
-                dto.setFirstPrize((Double) row[6]);
-                dto.setStatus((String) row[7]);
-                dto.setContestId((Long)row[9]); 
+                dto.setContestName((String) row[3]);
+                dto.setTechnologies((String) row[4]);
+                dto.setFirstPrize((Double) row[5]);
+                dto.setStatus((String) row[6]);
+                dto.setContestId((Long)row[8]); 
                 contests.add(dto);
             }
             return null;

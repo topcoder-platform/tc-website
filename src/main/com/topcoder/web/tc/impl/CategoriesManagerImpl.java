@@ -40,15 +40,16 @@ import com.topcoder.web.tc.Helper;
  *
  * // Get all types of catalog 'application'
  * types = categoriesManager.getContestTypes(&quot;application&quot;);
- *
- * // Get all sub-types of type 'architecture'
- * List&lt;String&gt; subTypes = categoriesManager.getContestSubTypes(&quot;architecture&quot;);
  * </pre>
  *
  * </p>
  *
- * @author mekanizumu, TCSDEVELOPER
- * @version 1.0
+ * <p>
+ * Changes in 1.1: Removed getContestSubTypes method since it is unused.
+ * </p>
+ *
+ * @author mekanizumu, TCSDEVELOPER, pinoydream
+ * @version 1.1
  */
 public class CategoriesManagerImpl extends HibernateDaoSupport implements CategoriesManager {
     /**
@@ -70,7 +71,7 @@ public class CategoriesManagerImpl extends HibernateDaoSupport implements Catego
      * Represent the sql query string.
      * </p>
      */
-    private static final String SQL_QUERY_CONTEST_TYPES = "select t.name from ProjectGroupCategoryLookup t";
+    private static final String SQL_QUERY_CONTEST_TYPES = "select t.name from ProjectCategoryLookup t";
 
     /**
      * <p>
@@ -78,17 +79,8 @@ public class CategoriesManagerImpl extends HibernateDaoSupport implements Catego
      * </p>
      */
     private static final String SQL_QUERY_CONTEST_TYPES_WITH_CATEGORY = "select t.name from"
-        + " ProjectGroupCategoryLookup t, ProjectCatalogLookup c"
+        + " ProjectCategoryLookup t, ProjectCatalogLookup c"
         + " where t.projectCatalogId=c.projectCatalogId and c.name=?";
-
-    /**
-     * <p>
-     * Represent the sql query string.
-     * </p>
-     */
-    private static final String SQL_QUERY_CONTEST_SUBTYPES_WITH_TYPE = "select t.name from"
-        + " ProjectCategoryLookup t, ProjectGroupCategoryLookup g"
-        + " where t.projectGroupCategoryId=g.projectGroupCategoryId and g.name=?";
 
     /**
      * <p>
@@ -192,44 +184,6 @@ public class CategoriesManagerImpl extends HibernateDaoSupport implements Catego
 
             List<String> result = this.getHibernateTemplate().find(SQL_QUERY_CONTEST_TYPES_WITH_CATEGORY,
                 category);
-
-            // log exit
-            Helper.logExit(LOGGER, signature, startTime, result);
-
-            return result;
-        } catch (IllegalArgumentException e) {
-            throw Helper.logException(LOGGER, e, signature);
-        } catch (DataAccessException e) {
-            throw Helper.logException(LOGGER, new CategoriesManagerException(
-                "DataAccessException occurs while executing", e), signature);
-        }
-    }
-
-    /**
-     * <p>
-     * Get all contest sub-types of a contest type.
-     * </p>
-     *
-     * @param type
-     *            the type under which all sub-types are returned.
-     * @return all contest sub-types of the given contest type. It won't be null but could be empty.
-     * @throws IllegalArgumentException
-     *             if type is null or empty.
-     * @throws CategoriesManagerException
-     *             if any error occurs
-     */
-    @SuppressWarnings("unchecked")
-    public List<String> getContestSubTypes(String type) throws CategoriesManagerException {
-        // Log the entry
-        final String signature = CLASS_NAME + ".getContestTypes(String)";
-        Helper.logEntrance(LOGGER, signature, null, null);
-        final long startTime = System.currentTimeMillis();
-
-        try {
-            checkStringNotNullAndNotEmpty("type", type);
-
-            List<String> result = this.getHibernateTemplate()
-                            .find(SQL_QUERY_CONTEST_SUBTYPES_WITH_TYPE, type);
 
             // log exit
             Helper.logExit(LOGGER, signature, startTime, result);

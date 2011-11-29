@@ -4,8 +4,7 @@
     <class name="ProjectCategoryLookup" table="project_category_lu">
         <id name="projectCategoryId" column="project_category_id">
         </id>
-
-        <property name="projectGroupCategoryId" column="project_group_category_id" not-null="true" />
+        <property name="projectCatalogId" column="project_catalog_id" not-null="true" />
 		<property name="name" column="name" not-null="true" />
 	</class>
 </hibernate-mapping>

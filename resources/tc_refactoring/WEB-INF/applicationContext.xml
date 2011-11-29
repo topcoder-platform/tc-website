@@ -3,22 +3,9 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
 	xmlns:tx="http://www.springframework.org/schema/tx">
-	<bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName">
-			<value>com.informix.jdbc.IfxDriver</value>
-		</property>
-		<property name="url">
-			<value>jdbc:informix-sqli://env.topcoder.com:2021/tcs_catalog:informixserver=informixoltp_tcp
-			</value>
-		</property>
-		<property name="username">
-			<value>informix</value>
-		</property>
-		<property name="password">
-			<value>1nf0rm1x</value>
-		</property>
-	</bean>
+    <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName" value="java:/TCS_CATALOG"/>
+    </bean>
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
 		<property name="dataSource">
@@ -27,33 +14,24 @@
 		<property name="mappingResources">
 			<list>
 				<value>com/topcoder/web/tc/impl/entity/Project.hbm.xml</value>
-				<value>com/topcoder/web/tc/impl/entity/ProjectCategoryLookup.hbm.xml
-				</value>
-				<value>com/topcoder/web/tc/impl/entity/ProjectGroupCategoryLookup.hbm.xml
-				</value>
-				<value>com/topcoder/web/tc/impl/entity/ProjectCatalogLookup.hbm.xml
-				</value>
+				<value>com/topcoder/web/tc/impl/entity/ProjectCategoryLookup.hbm.xml</value>
+				<value>com/topcoder/web/tc/impl/entity/ProjectCatalogLookup.hbm.xml</value>
 				<value>com/topcoder/web/tc/impl/entity/ProjectInfo.hbm.xml</value>
 				<value>com/topcoder/web/tc/impl/entity/Upload.hbm.xml</value>
 				<value>com/topcoder/web/tc/impl/entity/Submission.hbm.xml</value>
 				<value>com/topcoder/web/tc/impl/entity/Resource.hbm.xml</value>
 				<value>com/topcoder/web/tc/impl/entity/ProjectPhase.hbm.xml</value>
-				<value>com/topcoder/web/tc/impl/entity/ContestEligibility.hbm.xml
-				</value>
-				<value>com/topcoder/web/tc/impl/entity/ResourceSubmission.hbm.xml
-				</value>
+				<value>com/topcoder/web/tc/impl/entity/ContestEligibility.hbm.xml</value>
+				<value>com/topcoder/web/tc/impl/entity/ResourceSubmission.hbm.xml</value>
 				<value>com/topcoder/web/tc/impl/entity/ProjectResult.hbm.xml</value>
 				<value>com/topcoder/web/tc/impl/entity/ResourceInfo.hbm.xml</value>
 				<value>com/topcoder/web/tc/impl/entity/PhaseType.hbm.xml</value>
-				<value>com/topcoder/web/tc/impl/entity/ProjectStatusLookup.hbm.xml
-				</value>
+				<value>com/topcoder/web/tc/impl/entity/ProjectStatusLookup.hbm.xml</value>
 				<value>com/topcoder/web/tc/impl/entity/CompCatalog.hbm.xml</value>
-				<value>com/topcoder/web/tc/impl/entity/CompVersionDates.hbm.xml
-				</value>
+				<value>com/topcoder/web/tc/impl/entity/CompVersionDates.hbm.xml</value>
 				<value>com/topcoder/web/tc/impl/entity/CompVersions.hbm.xml</value>
 				<value>com/topcoder/web/tc/impl/entity/PhaseCriteria.hbm.xml</value>
-				<value>com/topcoder/web/tc/impl/entity/RBoardApplication.hbm.xml
-				</value>
+				<value>com/topcoder/web/tc/impl/entity/RBoardApplication.hbm.xml</value>
 				<value>com/topcoder/web/tc/impl/entity/RBoardPayment.hbm.xml</value>
 			</list>
 		</property>

@@ -21,20 +21,18 @@ import com.topcoder.web.tc.dto.AbstractContestsFilter;
  * thread-safe after configuration assuming that the passed in parameters are not changed by other threads at the same
  * time.
  * </p>
- * @author flytoj2ee, duxiaoyang
- * @version 1.0
+ * <p>
+ * Changes in 1.1: Removed references to subType in SQL and DTOs.
+ * </p>
+ * @author flytoj2ee, duxiaoyang, pinoydream
+ * @version 1.1
  */
 public abstract class AbstractManagerImpl extends HibernateDaoSupport {
 
     /**
      * Represents the type criteria statement.
      */
-    private static final String TYPE_CRITERIA = " AND pgc.name IN (:type)";
-
-    /**
-     * Represents the subtype criteria statement.
-     */
-    private static final String SUBTYPE_CRITERIA = " AND pc.name IN (:subtype)";
+    private static final String TYPE_CRITERIA = " AND pc.name IN (:type)";
 
     /**
      * Represents the catalog criteria statement.
@@ -162,7 +160,7 @@ public abstract class AbstractManagerImpl extends HibernateDaoSupport {
     /**
      * <p>
      * Returns a common filter clause which can be used in an HQL statement. The returned clause will contain criteria
-     * for type, subtype, catalog, registration start time, and submission end time.
+     * for type, catalog, registration start time, and submission end time.
      * </p>
      * @param filter
      *            the filter whose clause will be returned.
@@ -172,9 +170,6 @@ public abstract class AbstractManagerImpl extends HibernateDaoSupport {
         StringBuilder hql = new StringBuilder();
         if (filter.getType() != null) {
             hql.append(TYPE_CRITERIA);
-        }
-        if (filter.getSubtype() != null) {
-            hql.append(SUBTYPE_CRITERIA);
         }
         if (filter.getCatalog() != null) {
             hql.append(CATALOG_CRITERIA);
@@ -247,7 +242,7 @@ public abstract class AbstractManagerImpl extends HibernateDaoSupport {
 
     /**
      * <p>
-     * Sets the common criteria into the given query. It will set type, subtype, catalog, registration start time, and
+     * Sets the common criteria into the given query. It will set type, catalog, registration start time, and
      * submission end time into the given query.
      * </p>
      * @param query
@@ -258,9 +253,6 @@ public abstract class AbstractManagerImpl extends HibernateDaoSupport {
     protected void setCommonFilterCondition(Query query, AbstractContestsFilter filter) {
         if (filter.getType() != null) {
             query.setParameterList("type", filter.getType(), StringType.INSTANCE);
-        }
-        if (filter.getSubtype() != null) {
-            query.setParameterList("subtype", filter.getSubtype(), StringType.INSTANCE);
         }
         if (filter.getCatalog() != null) {
             query.setParameterList("catalog", filter.getCatalog(), StringType.INSTANCE);

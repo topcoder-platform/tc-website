@@ -45,7 +45,6 @@ import com.topcoder.web.tc.dto.ContestsFilter;
  * the contest name.</li>
  * <li>catalog - the list of catalogs of the contests to retrieve.</li>
  * <li>type - the list of types of the contests to retrieve.</li>
- * <li>subtype - the list of sub-types of the contests to retrieve.</li>
  * <li>contestFinalization - the finish time of the contests to retrieve.</li>
  * <li>winnerHandle - the winner handle of the contests to retrieve. It will use
  * LIKE to match the winner handle.</li>
@@ -84,7 +83,7 @@ import com.topcoder.web.tc.dto.ContestsFilter;
  * the user request, so the Struts actions don't need to be thread-safe.
  * </p>
  * 
- * @author flytoj2ee, duxiaoyang
+ * @author flytoj2ee, duxiaoyang, pinoydream
  * @version 1.0
  */
 public class SearchContestsManagerAction extends BaseJSONParameterAction {

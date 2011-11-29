@@ -56,7 +56,7 @@ import com.topcoder.web.tc.dto.BaseFilter;
  * // This call retrieves all active contests whose name starts with &quot;TC Refactoring&quot; and prize &lt;= 1000
  * // sorted in ascending order by &quot;contestName&quot; property. The page size is 10 and only the 2nd page
  * // should be returned.
- * List&lt;ActiveContestDTO&gt; activeContests = manager.retrieveActiveContests(&quot;projectGroupCategory.name&quot;,
+ * List&lt;ActiveContestDTO&gt; activeContests = manager.retrieveActiveContests(&quot;projectCategory.name&quot;,
  *     SortingOrder.ASCENDING, 2, 10, filter);
  * </pre>
  *
@@ -66,8 +66,12 @@ import com.topcoder.web.tc.dto.BaseFilter;
  * Changes in Version 1.1 : Updated {@link #transferMapToDTO(Map)} method to set contestId.
  * </p>
  *
- * @author mekanizumu, TCSASSEMBLER
- * @version 1.1
+ * <p>
+ * Changes in Version 1.2 : Removed subType in SQL and DTO.
+ * </p>
+ *
+ * @author mekanizumu, pinoydream
+ * @version 1.2
  */
 public class ActiveContestsManagerImpl extends HibernateDaoSupport implements ActiveContestsManager {
     /**
@@ -82,8 +86,8 @@ public class ActiveContestsManagerImpl extends HibernateDaoSupport implements Ac
      * Represent the sql query string.
      * </p>
      */
-    private static final String SQL_QUERY = "SELECT DISTINCT new map(project.projectId as contestId, projectGroupCategory.name as type,"
-        + " projectCategory.name as subType, projectCatalog.name as catalog, projectNameInfo.value as contestName,"
+    private static final String SQL_QUERY = "SELECT DISTINCT new map(project.projectId as contestId, projectCategory.name as type,"
+        + " projectCatalog.name as catalog, projectNameInfo.value as contestName,"
         + " (select count(*) from Submission s, Upload u where u.projectId=project.projectId"
         + " and u.uploadId=s.uploadId and s.submissionTypeId=:contestSubmissionTypeId"
         + " and s.submissionStatusId in (:activeSubmissionStatusId, :failedScreeningSubmissionStatusId,"
@@ -96,7 +100,7 @@ public class ActiveContestsManagerImpl extends HibernateDaoSupport implements Ac
         + " submissionPhase.scheduledEndTime as submissionEndDate, firstPrizeInfo.value as firstPrize,"
         + " reliabilityBonusInfo.value as reliabilityBonus, digitalRunInfo.value as digitalRunPoints,"
         + " digitalRunFlagInfo.value as digitalRunFlag, paymentsInfo.value as payments) from Project project,"
-        + " ProjectCategoryLookup projectCategory, ProjectGroupCategoryLookup projectGroupCategory,"
+        + " ProjectCategoryLookup projectCategory,"
         + " ProjectCatalogLookup projectCatalog, ProjectInfo projectNameInfo,"
         // +" Upload as u, Submission s,"
         + " Resource r2, ProjectPhase registrationPhase, ProjectPhase submissionPhase,"
@@ -105,9 +109,8 @@ public class ActiveContestsManagerImpl extends HibernateDaoSupport implements Ac
         + " where project.projectStatusId=:activeStatusId"
         // this condition means only active projects are returned.
         + " and project.projectCategoryId=projectCategory.projectCategoryId"
-        // this join is for sub-type
-        + " and projectCategory.projectGroupCategoryId=projectGroupCategory.projectGroupCategoryId"
-        + " and projectGroupCategory.projectCatalogId=projectCatalog.projectCatalogId"
+        // catalog id
+        + " and projectCategory.projectCatalogId=projectCatalog.projectCatalogId"
         // this join is for type
         + " and projectNameInfo.projectId=project.projectId"
         + " and projectNameInfo.projectInfoTypeId=:projectNameInfoId"
@@ -549,7 +552,6 @@ public class ActiveContestsManagerImpl extends HibernateDaoSupport implements Ac
         // digitalRunFlag is not "On", use null as the value of ActiveContestDTO.digitalRunPoints.
         dto.setContestId((Long) map.get("contestId"));
         dto.setType((String) map.get("type"));
-        dto.setSubType((String) map.get("subType"));
         dto.setCatalog((String) map.get("catalog"));
         dto.setContestName((String) map.get("contestName"));
         dto.setNumberOfSubmissions(((Long) map.get("numberOfSubmissions")).intValue());

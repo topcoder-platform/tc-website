@@ -22,11 +22,19 @@ import com.topcoder.web.tc.Helper;
  * need to be thread-safe.
  * </p>
  *
- * @author mekanizumu, TCSDEVELOPER
- * @version 1.0
+ * <p>
+ * Changes in 1.1: Removed unused method retrieveContestSubTypes.
+ * </p>
+ *
+ * @author mekanizumu, TCSDEVELOPER, pinoydream
+ * @version 1.1
  */
 public class CategoriesManagerAction extends ActionSupport {
     /**
+	 * Generated serial version UID.
+	 */
+	private static final long serialVersionUID = -7235042895311781958L;
+	/**
      * <p>
      * Represent the class name.
      * </p>
@@ -49,7 +57,7 @@ public class CategoriesManagerAction extends ActionSupport {
      * doesn't have a getter. It cannot be null. (Note that the above statement applies only after the setter
      * has been called as part of the IoC initialization. This field's value has no restriction before the IoC
      * initialization) It does not need to be initialized when the instance is created. It is used in
-     * retrieveContestTypes(), retrieveContestSubTypes(), retrieveCatalogs(), setCategoriesManager(). Its
+     * retrieveContestTypes(), retrieveCatalogs(), setCategoriesManager(). Its
      * value legality is checked in checkConfiguration() method.
      * </p>
      */
@@ -69,7 +77,7 @@ public class CategoriesManagerAction extends ActionSupport {
      * The type used to get the contest sub-types. It has both getter and setter. It cannot be null or empty.
      * (Note that the above statement applies only after the field has passed Struts validation. This field's
      * value has no restriction before then.) It does not need to be initialized when the instance is created.
-     * It is used in getType(), setType(), retrieveContestSubTypes().
+     * It is used in getType(), setType().
      * </p>
      */
     private String type;
@@ -82,15 +90,6 @@ public class CategoriesManagerAction extends ActionSupport {
      * </p>
      */
     private List<String> contestTypes;
-
-    /**
-     * <p>
-     * The retrieved contest sub types. It is accessed through getter and doesn't have a setter. It cannot be
-     * null but can be empty. The contained values can't be null or empty. It does not need to be initialized
-     * when the instance is created. It is used in getContestSubTypes(), retrieveContestSubTypes().
-     * </p>
-     */
-    private List<String> contestSubTypes;
 
     /**
      * <p>
@@ -132,41 +131,6 @@ public class CategoriesManagerAction extends ActionSupport {
                 contestTypes = categoriesManager.getContestTypes();
             }
 
-            // log exit
-            Helper.logExit(LOGGER, signature, startTime, SUCCESS);
-
-            return SUCCESS;
-        } catch (CategoriesManagerException e) {
-            throw Helper.logException(LOGGER, new ContestServicesActionException(
-                "CategoriesManagerException occurs while getting ContestTypes", e), signature);
-        }
-    }
-
-    /**
-     * <p>
-     * Get contest sub types.
-     * </p>
-     *
-     * @return INPUT or SUCCESS
-     * @throws ContestServicesActionException
-     *             if any error occurs
-     */
-    public String retrieveContestSubTypes() throws ContestServicesActionException {
-        // Log the entry
-        final String signature = CLASS_NAME + ".retrieveContestSubTypes()";
-        Helper.logEntrance(LOGGER, signature, null, null);
-        final long startTime = System.currentTimeMillis();
-
-        try {
-            if (!Helper.checkStringNotNullAndNotEmptyOfBoolean(type)) {
-                this.addFieldError("type", "type is required");
-
-                // log exit
-                Helper.logExit(LOGGER, signature, startTime, INPUT);
-
-                return INPUT;
-            }
-            contestSubTypes = categoriesManager.getContestSubTypes(type);
             // log exit
             Helper.logExit(LOGGER, signature, startTime, SUCCESS);
 
@@ -260,17 +224,6 @@ public class CategoriesManagerAction extends ActionSupport {
      */
     public List<String> getContestTypes() {
         return contestTypes;
-    }
-
-    /**
-     * <p>
-     * Getter method for contestSubTypes, simply return the value of the namesake field.
-     * </p>
-     *
-     * @return the contestSubTypes
-     */
-    public List<String> getContestSubTypes() {
-        return contestSubTypes;
     }
 
     /**

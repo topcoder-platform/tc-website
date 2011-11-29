@@ -40,8 +40,12 @@ import com.topcoder.web.tc.dto.Filterable;
  * </ul>
  * </p>
  *
- * @author flytoj2ee, duxiaoyang
- * @version 1.1
+ * <p>
+ * Changes in Version 1.2 : Removed subType in SQL and DTO.
+ * </p>
+ *
+ * @author flytoj2ee, duxiaoyang, pinoydream
+ * @version 1.2
  */
 public class SearchContestsManagerImpl extends AbstractManagerImpl implements
         SearchContestsManager {
@@ -49,7 +53,7 @@ public class SearchContestsManagerImpl extends AbstractManagerImpl implements
     /**
      * Represents the base HQL statement used to search contests.
      */
-    private static final String BASE_HQL = "SELECT pgc.name AS type, pc.name AS subtype, pi.value AS contestName, c.name AS catalog,"
+    private static final String BASE_HQL = "SELECT pc.name AS type, pi.value AS contestName, c.name AS catalog,"
             + " (SELECT COUNT(*) FROM Resource r WHERE r.projectId = p.projectId AND resourceRoleId = 1) AS numberOfRegistrants,"
             + " (SELECT COUNT(*) FROM Submission s, Upload u WHERE s.uploadId = u.uploadId AND u.projectId = p.projectId"
             + " AND s.submissionTypeId = 1 AND s.submissionStatusId IN (1, 2, 3, 4)) AS numberOfSubmissions,"
@@ -64,12 +68,12 @@ public class SearchContestsManagerImpl extends AbstractManagerImpl implements
             + "     ELSE 'Scheduled'"
             + "   END"
             + " WHEN 2 THEN 'Draft' ELSE 'Completed' END AS status"
-            + " FROM Project p, ProjectCategoryLookup pc, ProjectGroupCategoryLookup pgc, ProjectCatalogLookup c,"
+            + " FROM Project p, ProjectCategoryLookup pc, ProjectCatalogLookup c,"
             + " ProjectInfo pi, ProjectResult pr, ProjectInfo wpi"
             + " WHERE NOT EXISTS (SELECT 1 FROM ContestEligibility ce WHERE ce.studio = 0 AND ce.contestId = p.projectId)"
             + " AND p.projectStatusId IN (1, 2, 7) AND p.projectCategoryId NOT IN (27) AND (p.tcDirectProjectId IS NULL OR p.tcDirectProjectId NOT IN (840))"
-            + " AND p.projectCategoryId = pc.projectCategoryId AND pc.projectGroupCategoryId = pgc.projectGroupCategoryId"
-            + " AND pgc.projectCatalogId = c.projectCatalogId"
+            + " AND p.projectCategoryId = pc.projectCategoryId"
+            + " AND pc.projectCatalogId = c.projectCatalogId"
             + " AND p.projectId = pi.projectId AND pi.projectInfoTypeId = 6"
             + " AND pr.projectId = p.projectId AND pr.placed = 1"
             + " AND wpi.projectId = p.projectId AND wpi.projectInfoTypeId = 23";
@@ -492,17 +496,16 @@ public class SearchContestsManagerImpl extends AbstractManagerImpl implements
             for (Object[] row : result) {
                 ContestDTO dto = new ContestDTO();
                 dto.setType((String) row[0]);
-                dto.setSubtype((String) row[1]);
-                dto.setContestName((String) row[2]);
-                dto.setCatalog((String) row[3]);
-                dto.setNumberOfRegistrants(((Long) row[4]).intValue());
-                dto.setNumberOfSubmissions(((Long) row[5]).intValue());
-                dto.setPassedScreeningCount(((Long) row[6]).intValue());
+                dto.setContestName((String) row[1]);
+                dto.setCatalog((String) row[2]);
+                dto.setNumberOfRegistrants(((Long) row[3]).intValue());
+                dto.setNumberOfSubmissions(((Long) row[4]).intValue());
+                dto.setPassedScreeningCount(((Long) row[5]).intValue());
                 dto.setWinnerProfileLink(WINNER_PROFILE_LINK_PREFIX
-                        + (String) row[7]);
-                dto.setWinnerScore((Double) row[8]);
-                dto.setContestId((Long) row[10]);
-                dto.setStatus((String) row[11]);
+                        + (String) row[6]);
+                dto.setWinnerScore((Double) row[7]);
+                dto.setContestId((Long) row[9]);
+                dto.setStatus((String) row[10]);
                 contests.add(dto);
             }
             return null;

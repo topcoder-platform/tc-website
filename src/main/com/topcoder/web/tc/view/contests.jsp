@@ -164,12 +164,6 @@
 																			<input type="checkbox" name="${cate}" />
 																			${cate}
 																		</li>
-																		<s:iterator value="subCategoriesByCategory[#cate]" id="subCate">
-																			<li class="more sub hide">
-																				<input type="checkbox" name="${subCate}"/>
-																				${subCate}
-																			</li>
-																		</s:iterator>
 																	</s:if>
 																</s:if>
 																<s:else>
@@ -177,12 +171,6 @@
 																		<input type="checkbox" name="${cate}" />
 																		${cate}
 																	</li>
-																	<s:iterator value="subCategoriesByCategory[#cate]" id="subCate">
-																		<li class="more sub hide">
-																			<input type="checkbox" name="${subCate}"/>
-																			${subCate}
-																		</li>
-																	</s:iterator>
 																</s:else>
 															</s:iterator>
 														</ul>
@@ -327,7 +315,6 @@
 						<s:if test='category=="ActiveContests"'>
 							<colgroup>
 								<col width="65" />
-								<col width="86" />
 								<col width="160" />
 								<col width="65" />
 								<col width="65" />
@@ -341,9 +328,6 @@
 								<tr>
 									<th class="first">
 										<span></span>Type
-									</th>
-									<th>
-										Subtype
 									</th>
 									<th>
 										Contest Name
@@ -375,7 +359,6 @@
 						<s:elseif test='category=="ContestStatus"'>
 							<colgroup>
 								<col width="65" />
-								<col width="86" />
 								<col />
 								<col width="160" />
 								<col width="65" />
@@ -388,9 +371,6 @@
 								<tr>
 									<th class="first">
 										<span></span>Type
-									</th>
-									<th>
-										Subtype
 									</th>
 									<th>
 										Catalog
@@ -419,7 +399,6 @@
 						<s:elseif test='category=="PastContests"'>
 							<colgroup>
 								<col width="65" />
-								<col width="86" />
 								<col />
 								<col width="150" />
 								<col width="65" />
@@ -432,9 +411,6 @@
 								<tr>
 									<th class="first">
 										<span></span>Type
-									</th>
-									<th>
-										Subtype
 									</th>
 									<th>
 										Catalog
@@ -466,7 +442,6 @@
 								<col width="65" />
 								<col />
 								<col width="65" />
-								<col width="86" />
 								<col width="160" />
 								<col />
 								<col />
@@ -490,9 +465,6 @@
 										Type
 									</th>
 									<th>
-										Subtype
-									</th>
-									<th>
 										Contest Name
 									</th>
 									<th>
@@ -507,7 +479,6 @@
 						<s:elseif test='category=="ReviewOpportunities"'>
 							<colgroup>
 								<col width="65" />
-								<col width="86" />
 								<col width="160" />
 								<col width="55" />
 								<col width="55" />
@@ -522,9 +493,6 @@
 								<tr>
 									<th class="first">
 										<span></span>Type
-									</th>
-									<th>
-										Subtype
 									</th>
 									<th>
 										Contest Name
@@ -560,7 +528,6 @@
 							<colgroup>
 								<col width="240" />
 								<col width="65" />
-								<col width="86" />
 								<col />
 								<col width="60" />
 								<col width="75" />
@@ -574,9 +541,6 @@
 									</th>
 									<th>
 										Type
-									</th>
-									<th>
-										Subtype
 									</th>
 									<th>
 										Catalog

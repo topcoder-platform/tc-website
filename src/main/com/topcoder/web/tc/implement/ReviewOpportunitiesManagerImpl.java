@@ -40,7 +40,11 @@ import com.topcoder.web.tc.dto.ReviewOpportunitiesFilter;
  * </ul>
  * </p>
  *
- * @author flytoj2ee, duxiaoyang
+ * <p>
+ * Changes in Version 1.2 : Removed subType in SQL and DTO.
+ * </p>
+ *
+ * @author flytoj2ee, duxiaoyang, pinoydream
  * @version 1.1
  */
 public class ReviewOpportunitiesManagerImpl extends AbstractManagerImpl implements ReviewOpportunitiesManager {
@@ -48,7 +52,7 @@ public class ReviewOpportunitiesManagerImpl extends AbstractManagerImpl implemen
     /**
      * Represents the base HQL statement used to search contests.
      */
-    private static final String BASE_HQL = "SELECT pgc.name AS type, pc.name AS subtype,"
+    private static final String BASE_HQL = "SELECT pc.name AS type,"
             + " ppay.amount AS primaryReviewerPayment, spay.amount AS secondaryReviewerPayment,"
             + " (SELECT COUNT(DISTINCT u.resourceId) FROM Upload u, Submission s WHERE u.projectId = p.projectId"
             + " AND s.submissionTypeId = 1 AND s.submissionStatusId in (1, 2, 3, 4) AND u.uploadId = s.uploadId"
@@ -59,7 +63,7 @@ public class ReviewOpportunitiesManagerImpl extends AbstractManagerImpl implemen
             + " ppreg.scheduledStartTime AS opensOn, ppsub.scheduledStartTime AS contestStartTime, p.projectId as contestId, pc.projectCategoryId as projectCategoryId"
             + " FROM Project p, ProjectPhase ppreg, ProjectPhase ppsub, ProjectPhase ppscr, ProjectPhase pprev,"
             + " PhaseCriteria ph, ProjectInfo pi1, CompVersions cv, CompVersionDates cvd, CompCatalog cc,"
-            + " ProjectCategoryLookup pc, ProjectGroupCategoryLookup pgc, ProjectCatalogLookup c,"
+            + " ProjectCategoryLookup pc, ProjectCatalogLookup c,"
             + " RBoardPayment ppay, RBoardPayment spay"
             + " WHERE NOT EXISTS (SELECT 1 FROM ContestEligibility WHERE studio = 0 AND contestId = p.projectId)"
             + " AND ppreg.projectId = p.projectId AND ppreg.phaseTypeId = 1 AND ppreg.scheduledStartTime <= CURRENT"
@@ -72,8 +76,8 @@ public class ReviewOpportunitiesManagerImpl extends AbstractManagerImpl implemen
             + " AND pi1.value = cv.compVersId AND cv.phaseId IN (112, 113)"
             + " AND cvd.compVersId = cv.compVersId AND cvd.phaseId = cv.phaseId AND cvd.statusId <> 303"
             + " AND cc.componentId = cv.componentId"
-            + " AND p.projectCategoryId = pc.projectCategoryId AND pc.projectGroupCategoryId = pgc.projectGroupCategoryId"
-            + " AND pgc.projectCatalogId = c.projectCatalogId AND p.projectStatusId = 1"
+            + " AND p.projectCategoryId = pc.projectCategoryId"
+            + " AND pc.projectCatalogId = c.projectCatalogId AND p.projectStatusId = 1"
             + " AND ppay.projectId = p.projectId AND ppay.phaseId = pprev.projectPhaseId AND ppay.primary = 1"
             + " AND spay.projectId = p.projectId AND spay.phaseId = pprev.projectPhaseId and spay.primary = 0"
             + " AND (SELECT COUNT(*) FROM RBoardApplication app WHERE app.projectId = p.projectId AND app.phaseId < 1000) < CAST(ph.parameter AS int)"
@@ -365,17 +369,16 @@ public class ReviewOpportunitiesManagerImpl extends AbstractManagerImpl implemen
             for (Object[] row : result) {
                 ReviewOpportunityDTO dto = new ReviewOpportunityDTO();
                 dto.setType((String) row[0]);
-                dto.setSubtype((String) row[1]);
-                dto.setPrimaryReviewerPayment((Double) row[2]);
-                dto.setSecondaryReviewerPayment((Double) row[3]);
-                dto.setSubmissionsNumber(((Long) row[4]).intValue());
-                dto.setContestName((String) row[5]);
-                dto.setReviewStart(Helper.getEDTTime((Date) row[6]));
-                dto.setReviewEnd(Helper.getEDTTime((Date) row[7]));
-                dto.setNumberOfReviewPositionsAvailable(((Long) row[8]).intValue());
-                dto.setOpensOn(Helper.getEDTTime((Date) row[9]));
-                dto.setContestId((Long) row[11]);
-                dto.setProjectCategoryId(((Long) row[12]).intValue());
+                dto.setPrimaryReviewerPayment((Double) row[1]);
+                dto.setSecondaryReviewerPayment((Double) row[2]);
+                dto.setSubmissionsNumber(((Long) row[3]).intValue());
+                dto.setContestName((String) row[4]);
+                dto.setReviewStart(Helper.getEDTTime((Date) row[5]));
+                dto.setReviewEnd(Helper.getEDTTime((Date) row[6]));
+                dto.setNumberOfReviewPositionsAvailable(((Long) row[7]).intValue());
+                dto.setOpensOn(Helper.getEDTTime((Date) row[8]));
+                dto.setContestId((Long) row[10]);
+                dto.setProjectCategoryId(((Long) row[11]).intValue());
                 reviewOpportunities.add(dto);
             }
             return null;

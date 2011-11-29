@@ -14,9 +14,13 @@ package com.topcoder.web.tc.dto;
  * <p>
  * Changes in Version 1.1 : Added {@link #contestId} field.
  * </p>
- * 
- * @author flytoj2ee, duxiaoyang
- * @version 1.0
+ *
+ * <p>
+ * Changes in Version 1.2 : Removed subType property and corresponding getter/setter methods.
+ * </p>
+ *
+ * @author flytoj2ee, duxiaoyang, pinoydream
+ * @version 1.2
  */
 public abstract class AbstractContestDTO extends ContestNameEntity {
     /**
@@ -29,12 +33,6 @@ public abstract class AbstractContestDTO extends ContestNameEntity {
      * setter methods.
      */
     private String type;
-
-    /**
-     * Represents the sub-type of contest. It can be any string value. It can be accessed through corresponding getter
-     * and setter methods.
-     */
-    private String subtype;
 
     /**
      * <p>
@@ -65,27 +63,6 @@ public abstract class AbstractContestDTO extends ContestNameEntity {
         this.type = type;
     }
 
-    /**
-     * <p>
-     * Gets the sub-type of contest.
-     * </p>
-     * @return the sub-type of contest.
-     */
-    public String getSubtype() {
-        return subtype;
-    }
-
-    /**
-     * <p>
-     * Sets the sub-type of contest.
-     * </p>
-     * @param subtype
-     *            the contest sub-type to set.
-     */
-    public void setSubtype(String subtype) {
-        this.subtype = subtype;
-    }
-    
     /**
      * <p>
      * Gets the contest id.

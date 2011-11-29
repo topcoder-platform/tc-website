@@ -34,8 +34,12 @@ import com.topcoder.web.tc.dto.TopTenDTO;
  * Top10 Details
  * ActiveContests Summary  
  * </p>
- * @author kanakarajank
- * @version 1.0
+ * <p>
+ * Changes 11-22-2011:
+ * - corrected switch constants to proper project category id
+ * </p>
+ * @author kanakarajank, pinoydream
+ * @version 1.1
  */
 public class HomeDataManagerImpl implements HomeDataManager {
 
@@ -439,23 +443,27 @@ public class HomeDataManagerImpl implements HomeDataManager {
 
 				switch (row.getIntItem("project_category_id")) {
 
-				case 4: {
+				case 1: {
 					ret.put(HomeDataManager.DESIGN, summary);
 					break;
 				}
-				case 8: {
+				case 2: {
 					ret.put(HomeDataManager.DEVELOPMENT, summary);
 					break;
 				}
-				case 6: {
+				case 14: {
 					ret.put(HomeDataManager.ASSEMBLY, summary);
 					break;
 				}
-				case 7: {
+				case 13: {
 					ret.put(HomeDataManager.TEST_SUITES, summary);
 					break;
 				}
-				case 5: {
+				case 7: {
+					ret.put(HomeDataManager.ARCHITECTURE, summary);
+					break;
+				}
+				case 26: {
 					ret.put(HomeDataManager.TEST_SCENARIOS, summary);
 					break;
 				}

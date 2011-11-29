@@ -14,8 +14,12 @@ import java.util.List;
  * that the passed in parameters are not changed by other threads at the same time.
  * </p>
  *
- * @author mekanizumu, TCSDEVELOPER
- * @version 1.0
+ * <p>
+ * Changes in 1.1: Removed getContestSubTypes method since it is unused.
+ * </p>
+ *
+ * @author mekanizumu, TCSDEVELOPER, pinoydream
+ * @version 1.1
  */
 public interface CategoriesManager {
     /**
@@ -55,18 +59,4 @@ public interface CategoriesManager {
      */
     public List<String> getContestTypes(String category) throws CategoriesManagerException;
 
-    /**
-     * <p>
-     * Get all contest sub-types of a contest type.
-     * </p>
-     *
-     * @param type
-     *            the type under which all sub-types are returned.
-     * @return all contest sub-types of the given contest type. It won't be null but could be empty.
-     * @throws IllegalArgumentException
-     *             if type is null or empty.
-     * @throws CategoriesManagerException
-     *             if any error occurs
-     */
-    public List<String> getContestSubTypes(String type) throws CategoriesManagerException;
 }

@@ -27,11 +27,11 @@ public class ProjectCategoryLookup extends LookupEntity {
     /**
      * <p>
      * The project group category id. It has both getter and setter. It can be any value. It does not need to
-     * be initialized when the instance is created. It is used in getProjectGroupCategoryId(),
-     * setProjectGroupCategoryId().
+     * be initialized when the instance is created. It is used in getProjectCatalogId(),
+     * setProjectCatalogId().
      * </p>
      */
-    private long projectGroupCategoryId;
+    private long projectCatalogId;
 
     /**
      * <p>
@@ -67,24 +67,24 @@ public class ProjectCategoryLookup extends LookupEntity {
 
     /**
      * <p>
-     * Getter method for projectGroupCategoryId, simply return the value of the namesake field.
+     * Getter method for projectCatalogId, simply return the value of the namesake field.
      * </p>
      *
-     * @return The project group category id
+     * @return The project catalog id
      */
-    public long getProjectGroupCategoryId() {
-        return projectGroupCategoryId;
+    public long getProjectCatalogId() {
+        return projectCatalogId;
     }
 
     /**
      * <p>
-     * Setter method for the projectGroupCategoryId, simply set the value to the namesake field.
+     * Setter method for the projectCatalogId, simply set the value to the namesake field.
      * </p>
      *
-     * @param projectGroupCategoryId
-     *            The project group category id to set
+     * @param projectCatalogId
+     *            The project catalog id to set
      */
-    public void setProjectGroupCategoryId(long projectGroupCategoryId) {
-        this.projectGroupCategoryId = projectGroupCategoryId;
+    public void setProjectCatalogId(long projectCatalogId) {
+        this.projectCatalogId = projectCatalogId;
     }
 }
