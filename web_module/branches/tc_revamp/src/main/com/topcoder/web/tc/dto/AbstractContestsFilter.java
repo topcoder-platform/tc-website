@@ -12,8 +12,11 @@ import java.util.List;
  * <p>
  * This class is not thread-safe because it is mutable.
  * </p>
- * @author flytoj2ee, duxiaoyang
- * @version 1.0
+ * <p>
+ * Changes in 1.1: Removed subType property and corresponding references.
+ * </p>
+ * @author flytoj2ee, duxiaoyang, pinoydream
+ * @version 1.1
  */
 public abstract class AbstractContestsFilter extends ContestNameEntity implements Filterable {
 
@@ -22,12 +25,6 @@ public abstract class AbstractContestsFilter extends ContestNameEntity implement
      * getter and setter methods.
      */
     private List<String> type;
-
-    /**
-     * Represents the sub-type of contest filter. It can be any string value. It can be accessed through corresponding
-     * getter and setter methods.
-     */
-    private List<String> subtype;
 
     /**
      * Represents the catalog of contest filter. It can be any string value. It can be accessed through corresponding
@@ -74,27 +71,6 @@ public abstract class AbstractContestsFilter extends ContestNameEntity implement
      */
     public void setType(List<String> type) {
         this.type = type;
-    }
-
-    /**
-     * <p>
-     * Gets the sub-type of contest filter.
-     * </p>
-     * @return the sub-type of contest filter.
-     */
-    public List<String> getSubtype() {
-        return subtype;
-    }
-
-    /**
-     * <p>
-     * Sets the sub-type of contest filter.
-     * </p>
-     * @param subtype
-     *            the contest filter sub-type to set.
-     */
-    public void setSubtype(List<String> subtype) {
-        this.subtype = subtype;
     }
 
     /**

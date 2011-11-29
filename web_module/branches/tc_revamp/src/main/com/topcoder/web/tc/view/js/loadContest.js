@@ -1,6 +1,20 @@
 /*
  * Copyright (C) 2011 TopCoder Inc., All Rights Reserved.
  */
+
+//initialize sorters first
+jQuery.fn.dataTableExt.oSort['usmoney-asc']  = function(x,y) {
+	x = cleanAmount(x);
+	y = cleanAmount(y);
+    return ((x < y) ? -1 : ((x > y) ?  1 : 0));
+};
+ 
+jQuery.fn.dataTableExt.oSort['usmoney-desc'] = function(x,y) {
+	x = cleanAmount(x);
+	y = cleanAmount(y);
+    return ((x < y) ?  1 : ((x > y) ? -1 : 0));
+};
+
 $(function () {
     var category = $("#category").html();
     var type = $("#contestType").html();
@@ -14,7 +28,15 @@ $(function () {
         var types = new Array();
         if (type.length > 0) {
             types.push(type);
-            $("input[type='checkbox'][name='" + type + "']").attr("checked", true);
+            // only check types, not the catalog
+            var chckboxes = $("input[type='checkbox'][name='" + type + "']");
+            if (chckboxes.length > 0) {
+            	chckboxes.each(function() {
+            		if(!$(this).parent().hasClass('first')) {
+                		$(this).attr("checked", true);
+                	}
+            	});
+            }
         }
     } 
     
@@ -44,6 +66,7 @@ function updateTypeLink(type) {
 			$("span.arrow", $(this)).remove();
 		} else {
 			if (text == type) {
+				
 				$(this).addClass("current");
 				$(this).append("<span class='arrow'/>");
 			
@@ -66,14 +89,13 @@ function updateTypeLink(type) {
 * @param name - the contest name.
 * @param catalog - the catalog.
 * @param types - the array of contest types.
-* @param subTypes - the array of sub contest types.
 * @param winnerHandle - the winner handle.
 * @param minPrize - the lower bound of the contest prize.
 * @param maxPrize - the upper bound of the contest prize.
 * @param dateFilters - the array containing the array of date interval type, first date and second date of registration/submission/finalization/review date.
 * @return the constructed parameter for AJAX request.
 */
-function constructParameter(category, name, catalog, types, subTypes, winnerHandle, minPrize, maxPrize, dateFilters) {
+function constructParameter(category, name, catalog, types, winnerHandle, minPrize, maxPrize, dateFilters) {
     var columnName;
     var subDate, regDate,finalDate, revDate;
     if (category == "ActiveContests") {
@@ -127,7 +149,6 @@ function constructParameter(category, name, catalog, types, subTypes, winnerHand
     filterParam += constructDateFilter("contestFinalizationDate", finalDate);
     filterParam += constructDateFilter("reviewEndDate", revDate);
     filterParam += constructListFilter("types", types);
-    filterParam += constructListFilter("subTypes", subTypes);
     if (filterParam.length > 0) {
         filterParam = filterParam.substring(0, filterParam.length - 1);
     }
@@ -145,16 +166,11 @@ function constructParameter(category, name, catalog, types, subTypes, winnerHand
 function search(category,type, saveCookie){
 	 var errors = new Array();
      var types = new Array();
-     var subTypes = new Array();
      var dateFilters = new Array();
      $(".optionsContainer ul.options li").each(function () {
          var checkbox = $(this).find("input[type='checkbox']");
          if (checkbox.attr("checked")) {
-             if (!$(this).hasClass("sub")) {
-                 types.push(checkbox.attr("name"));
-             } else {
-                 subTypes.push(checkbox.attr("name"));
-             }
+             types.push(checkbox.attr("name"));
          }
      });
      var contestName = $("#contestName").val().length > 0 ? $("#contestName").val().replace(/^\s+/,"") : null;
@@ -225,7 +241,7 @@ function search(category,type, saveCookie){
      			dateFilters[1].push("AFTER_CURRENT_DATE");
      		}
      	}
-         var parameter = constructParameter(category, contestName, catalog, types, subTypes, winnerHandle, minPrize.toString(), maxPrize.toString(), dateFilters);
+         var parameter = constructParameter(category, contestName, catalog, types, winnerHandle, minPrize.toString(), maxPrize.toString(), dateFilters);
 		 var curType = "";
 		 if (isDefined(types) && types.length == 1) {
 			curType = types[0];
@@ -233,7 +249,7 @@ function search(category,type, saveCookie){
 		 updateTypeLink(curType);
          loadContests(category, parameter);
          if (!(isDefined(type) && type.length > 0) && saveCookie) {
-         	loadCookieFromInput(category,contestName,catalog,types,subTypes,winnerHandle, minPrize.toString(), maxPrize.toString(), dateFilters);
+         	loadCookieFromInput(category,contestName,catalog,types,winnerHandle, minPrize.toString(), maxPrize.toString(), dateFilters);
          }
      } else {
          showErrors(errors);
@@ -360,39 +376,47 @@ function loadContests(category, parameter) {
 					$("#contestTable").clone(true).insertAfter("#filterContainer");
 					$(".contestTable").remove();
 				}
+				var aoColumns = [];
 				var tbody = $("#contestTable tbody");
 				if (category == "ActiveContests") {
 					$.each(data.activeContests, function (i, item) {
-						tbody.append("<tr><td class='first leftAligned'>" + item.type + "</td><td class='leftAligned'>" + item.subType + "</td><td class='leftAligned'><a href='" + getContestLink(item) + "'>" + item.contestName + "</a></td><td class='leftAligned datetime'>" + getDateTimeValue(item.registrationEndDate) + "</td><td class='leftAligned datetime'>" + getDateTimeValue(item.submissionEndDate) + "</td><td>$" + item.firstPrize + "</td><td>$" + item.reliabilityBonus + "</td><td>" + item.digitalRunPoints + "</td><td><a href='" + getRegDetailLink(item) + "'>" + item.numberOfRegistrants + "</a></td><td class='last'><a href='" + getRegDetailLink(item) + "'>" + item.numberOfSubmissions + "</a></td></tr>");
+						tbody.append("<tr><td class='first leftAligned'>" + item.type + "</td><td class='leftAligned'><a href='" + getContestLink(item) + "'>" + item.contestName + "</a></td><td class='leftAligned datetime'>" + getDateTimeValue(item.registrationEndDate) + "</td><td class='leftAligned datetime'>" + getDateTimeValue(item.submissionEndDate) + "</td><td>$" + item.firstPrize + "</td><td>$" + item.reliabilityBonus + "</td><td>" + item.digitalRunPoints + "</td><td><a href='" + getRegDetailLink(item) + "'>" + item.numberOfRegistrants + "</a></td><td class='last'><a href='" + getRegDetailLink(item) + "'>" + item.numberOfSubmissions + "</a></td></tr>");
 					});
+					aoColumns = [null,null,null,null,{'sType':'usmoney'},{'sType':'usmoney'},null,null,null];
 				} else if (category == "ContestStatus") {
 					$.each(data.contestStatuses, function (i, item) {
-						tbody.append("<tr><td class='first leftAligned'>" + item.type + "</td><td class='leftAligned'>" + item.subType + "</td><td>" + item.catalog + "</td><td class='leftAligned'><a href='" + getContestLink(item) + "'>" + "Contest Name" + "</a></td><td class='leftAligned datetime'>" + getDateTimeValue(item.submissionDueDate) + "</td><td class='leftAligned'>" + getDateValue(item.finalReviewDueDate) + "</td><td class='leftAligned'>" + getValue(item.currentPhase) + "</td><td>" + getValue(item.firstPlaceHandle) + "</td><td class='last'>" + getValue(item.secondPlaceHandle) + "</td></tr>");
+						tbody.append("<tr><td class='first leftAligned'>" + item.type + "</td><td>" + item.catalog + "</td><td class='leftAligned'><a href='" + getContestLink(item) + "'>" + "Contest Name" + "</a></td><td class='leftAligned datetime'>" + getDateTimeValue(item.submissionDueDate) + "</td><td class='leftAligned'>" + getDateValue(item.finalReviewDueDate) + "</td><td class='leftAligned'>" + getValue(item.currentPhase) + "</td><td>" + getValue(item.firstPlaceHandle) + "</td><td class='last'>" + getValue(item.secondPlaceHandle) + "</td></tr>");
 					});
+					aoColumns = [null,null,null,null,null,null,null,null];
 				} else if (category == "PastContests") {
 					$.each(data.pastContests, function (i, item) {
-						tbody.append("<tr><td class='first leftAligned'>" + item.type + "</td><td class='leftAligned'>" + item.subType + "</td><td>" + item.catalog + "</td><td class='leftAligned'><a href='" + getContestLink(item) + "'>" + item.contestName + "</a></td><td class='leftAligned'>" + getDateTimeValue(item.completionDate) + "</td><td>" + item.numberOfRegistrants + "</td><td>" + item.numberOfSubmissions + "</td><td>" + item.passedScreeningCount + "<td class='last'>" + getValue(item.winnerProfileLink) + "</td></tr>");
+						tbody.append("<tr><td class='first leftAligned'>" + item.type + "</td><td>" + item.catalog + "</td><td class='leftAligned'><a href='" + getContestLink(item) + "'>" + item.contestName + "</a></td><td class='leftAligned'>" + getDateTimeValue(item.completionDate) + "</td><td>" + item.numberOfRegistrants + "</td><td>" + item.numberOfSubmissions + "</td><td>" + item.passedScreeningCount + "<td class='last'>" + getValue(item.winnerProfileLink) + "</td></tr>");
 					});
+					aoColumns = [null,null,null,null,null,null,null,null];
 				} else if (category == "ReviewOpportunities") {
 					$.each(data.reviewOpportunities, function (i, item) {
-						tbody.append("<tr><td class='first leftAligned'>" + item.type + "</td><td class='leftAligned'>" + item.subtype + "</td><td class='leftAligned'><a href='" + getContestLink(item) + "'>" + item.contestName + "</a></td><td>$" + item.primaryReviewerPayment + "</td><td>$" + item.secondaryReviewerPayment + "</td><td>" + item.submissionsNumber + "</td><td class='leftAligned datetime'>" + getDateTimeValue(item.opensOn) + "</td><td>" + getDateValue(item.reviewStart) + "</td><td>" + getDateValue(item.reviewEnd) + "</td><td>" + item.numberOfReviewPositionsAvailable + "</td><td class='last'><a href='" + getReviewDetailLink(item) + "'>Details</a></td></tr>");
+						tbody.append("<tr><td class='first leftAligned'>" + item.type + "</td><td class='leftAligned'><a href='" + getContestLink(item) + "'>" + item.contestName + "</a></td><td>$" + item.primaryReviewerPayment + "</td><td>$" + item.secondaryReviewerPayment + "</td><td>" + item.submissionsNumber + "</td><td class='leftAligned datetime'>" + getDateTimeValue(item.opensOn) + "</td><td>" + getDateValue(item.reviewStart) + "</td><td>" + getDateValue(item.reviewEnd) + "</td><td>" + item.numberOfReviewPositionsAvailable + "</td><td class='last'><a href='" + getReviewDetailLink(item) + "'>Details</a></td></tr>");
 					});
+					aoColumns = [null,null,{'sType':'usmoney'},{'sType':'usmoney'},null,null,null,null,null,null];
 				} else if (category == "UpcomingContests") {
 					$.each(data.upcomingContests, function (i, item) {
-						tbody.append("<tr><td class='first leftAligned datetime'>" + getDateTimeValue(item.registerDate) + "</td><td class='leftAligned datetime'>" + getDateTimeValue(item.submitDate) + "</td><td>" + item.duration + "</td><td class='leftAligned'>" + item.type + "</td><td class='leftAligned'>" + item.subtype + "</td><td class='leftAligned'><a href='" + getContestLink(item) + "'>" + item.contestName + "</a></td><td class='leftAligned'>" + getValue(item.technologies) + "</td><td class='leftAligned last'>" + item.status + "</td></tr>");
+						tbody.append("<tr><td class='first leftAligned datetime'>" + getDateTimeValue(item.registerDate) + "</td><td class='leftAligned datetime'>" + getDateTimeValue(item.submitDate) + "</td><td>" + item.duration + "</td><td class='leftAligned'>" + item.type + "</td><td class='leftAligned'><a href='" + getContestLink(item) + "'>" + item.contestName + "</a></td><td class='leftAligned'>" + getValue(item.technologies) + "</td><td class='leftAligned last'>" + item.status + "</td></tr>");
 					});
+					aoColumns = [null,null,null,null,null,null,null];
 				} else {
 					$("span.num").html(data.contests.length);
                     $("strong", $("span.num").parent()).html(getValue(contestName));
 					$.each(data.contests, function (i, item) {
-						tbody.append("<tr></td><td class='first leftAligned'><a href='" + getContestLink(item) + "'>" + item.contestName + "</td><td class='leftAligned'>" + item.type + "</td><td class='leftAligned'>" + item.subtype + "</td><td>" + item.catalog + "</td><td>Not Set</td><td class='leftAligned'>" + item.status + "</td><td class='leftAligned'><a href='" + getRegDetailLink(item) + "'>" + item.numberOfRegistrants + "</a></td><td class='last'><a href='" + getContestLink(item) + "'>Details</a></td></tr>");
+						tbody.append("<tr><td class='first leftAligned'><a href='" + getContestLink(item) + "'>" + item.contestName + "</td><td class='leftAligned'>" + item.type + "</td><td>" + item.catalog + "</td><td>Not Set</td><td class='leftAligned'>" + item.status + "</td><td class='leftAligned'><a href='" + getRegDetailLink(item) + "'>" + item.numberOfRegistrants + "</a></td><td class='last'><a href='" + getContestLink(item) + "'>Details</a></td></tr>");
 					});
 					$("h1.heading").children("span").show();
+					aoColumns = [null,null,null,null,null,null,null];
 				}
 				$('#contestTable').dataTable({
 					"iDisplayLength" : pageCount ,
 					"sPaginationType": "full_numbers",
 					"aaSorting": [],
+					"aoColumns": aoColumns,
 					"fnDrawCallback":function(){
 						$("th.sorting").css("cursor", "pointer");
 						if ($('#contestTable_previous').hasClass('paginate_button_disabled') && 
@@ -515,14 +539,13 @@ function showErrors(errors) {
  * @param name - the contest name.
  * @param catalog - the catalog.
  * @param types - the array of contest types.
- * @param subTypes - the array of sub contest types.
  * @param winnerHandle - the winner handle.
  * @param minPrize - the lower bound of the contest prize.
  * @param maxPrize - the upper bound of the contest prize.
  * @param dateFilters - the array containing the array of date interval type, first date and second date of registration/submission/finalization/review date.
  */
 
-function loadCookieFromInput(category, name, catalog,types, subTypes, winnerHandle, minPrize, maxPrize, dateFilters) {
+function loadCookieFromInput(category, name, catalog,types, winnerHandle, minPrize, maxPrize, dateFilters) {
     var filterParam = "";
     var regDate, subDate, finalDate, revDate;
     var subDate, regDate,finalDate, revDate;
@@ -570,7 +593,6 @@ function loadCookieFromInput(category, name, catalog,types, subTypes, winnerHand
     filterParam += constructDateFilter("contestFinalizationDate", finalDate);
     filterParam += constructDateFilter("reviewEndDate", revDate);
     filterParam += constructListFilter("types", types);
-    filterParam += constructListFilter("subTypes", subTypes);
     
     if (filterParam.length > 0) {
         filterParam = "{" + filterParam.substring(0, filterParam.length - 1) + "}";
@@ -587,16 +609,6 @@ function loadFiltersFromCookie(category){
 	var jsonCookieFilter = $.getCookie(category);
 	if (isDefined(jsonCookieFilter)){
 		
-		//Get SubTypes from cookie
-		if (isDefined(jsonCookieFilter.subTypes)){
-			$.each(jsonCookieFilter.subTypes,function(index,value){
-				var subTypeCheckBox = $("input[type='checkbox'][name='" + value + "']");
-				if (subTypeCheckBox.parent().hasClass("sub")){
-					subTypeCheckBox.attr("checked",true);
-					subTypeCheckBox.triggerHandler("click");
-				}
-			});
-		}
 		//Get the contestName from the cookie
 		if (isDefined(jsonCookieFilter.contestName)){
 			$("#contestName").val(jsonCookieFilter.contestName);
@@ -668,4 +680,19 @@ function isValidNumber(n) {
 	var n2 = n;
     n = parseInt(n);
     return (n!='NaN' && ( n2 == n || n2 == n + '+' ));
+}
+
+ /**
+  * Cleans amount.
+  * @param amt Amount to be cleaned.
+  * @return clean amount.
+  */
+function cleanAmount(amt) {
+	var charsToRemove = ["$",","];
+	for (var i=0;i<charsToRemove.length;i++) {
+		while (amt.indexOf(charsToRemove[i],0) != -1) {
+			amt = amt.replace(charsToRemove[i],'');
+		}
+	}
+	return parseFloat(amt);
 }

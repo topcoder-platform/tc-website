@@ -14,8 +14,12 @@ import java.util.List;
  * Thread Safety: This class is not thread-safe because it's mutable.
  * </p>
  *
- * @author mekanizumu, TCSDEVELOPER
- * @version 1.0
+ * <p>
+ * Changes in 1.1: Removed subTypes and corresponding getter/setter methods.
+ * </p>
+ *
+ * @author mekanizumu, TCSDEVELOPER, pinoydream
+ * @version 1.1
  */
 public abstract class BaseFilter implements Filterable {
     /**
@@ -26,15 +30,6 @@ public abstract class BaseFilter implements Filterable {
      * </p>
      */
     private List<String> types;
-
-    /**
-     * <p>
-     * The contest sub-types that the data to filter must match (it must match at least one of the values in
-     * the list). It has both getter and setter. It can be any value. It does not need to be initialized when
-     * the instance is created. It is used in setSubTypes(), getSubTypes().
-     * </p>
-     */
-    private List<String> subTypes;
 
     /**
      * <p>
@@ -109,29 +104,6 @@ public abstract class BaseFilter implements Filterable {
      */
     public void setTypes(List<String> types) {
         this.types = types;
-    }
-
-    /**
-     * <p>
-     * Getter method for subTypes, simply return the value of the namesake field.
-     * </p>
-     *
-     * @return the subTypes
-     */
-    public List<String> getSubTypes() {
-        return subTypes;
-    }
-
-    /**
-     * <p>
-     * Setter method for the subTypes, simply set the value to the namesake field.
-     * </p>
-     *
-     * @param subTypes
-     *            the subTypes to set
-     */
-    public void setSubTypes(List<String> subTypes) {
-        this.subTypes = subTypes;
     }
 
     /**

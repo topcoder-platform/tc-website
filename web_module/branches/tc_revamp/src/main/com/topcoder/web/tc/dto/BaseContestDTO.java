@@ -15,8 +15,12 @@ package com.topcoder.web.tc.dto;
  * Changes in Version 1.1 : Added {@link #contestId} field.
  * </p>
  *
- * @author mekanizumu, TCSDEVELOPER
- * @version 1.0
+ * <p>
+ * Changes in Version 1.2 : Removed "subType" field and corresponding getter/setter methods.
+ * </p>
+ *
+ * @author mekanizumu, TCSDEVELOPER, pinoydream
+ * @version 1.2
  */
 public abstract class BaseContestDTO {
     /**
@@ -31,14 +35,6 @@ public abstract class BaseContestDTO {
      * </p>
      */
     private String type;
-
-    /**
-     * <p>
-     * The contest sub-type. It has both getter and setter. It can be any value. It does not need to be
-     * initialized when the instance is created. It is used in setSubType(), getSubType().
-     * </p>
-     */
-    private String subType;
 
     /**
      * <p>
@@ -104,29 +100,6 @@ public abstract class BaseContestDTO {
      */
     public void setType(String type) {
         this.type = type;
-    }
-
-    /**
-     * <p>
-     * Getter method for subType, simply return the value of the namesake field.
-     * </p>
-     *
-     * @return the subType
-     */
-    public String getSubType() {
-        return subType;
-    }
-
-    /**
-     * <p>
-     * Setter method for the subType, simply set the value to the namesake field.
-     * </p>
-     *
-     * @param subType
-     *            The contest sub-type
-     */
-    public void setSubType(String subType) {
-        this.subType = subType;
     }
 
     /**

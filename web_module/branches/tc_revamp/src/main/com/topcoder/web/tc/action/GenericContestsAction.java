@@ -20,12 +20,20 @@ import com.topcoder.web.tc.Helper;
  * <b>Thread Safety:</b> This class is not thread safe because its base class is
  * not thread safe.
  * </p>
- * 
- * @author TCSASSEMBLIER
+ *
+ * <p>
+ * Changes in 1.1: Removed subCategoriesByCategory property and all references to it.
+ * </p>
+ *
+ * @author TCSASSEMBLIER, pinoydream
  * @version 1.0
  */
 public class GenericContestsAction extends ActionSupport {
     /**
+	 * Generated serial version UID.
+	 */
+	private static final long serialVersionUID = 4931815199895889777L;
+	/**
      * The category of the contests.
      */
     private String category;
@@ -59,11 +67,6 @@ public class GenericContestsAction extends ActionSupport {
      * The mapping between catalogs and the corresponding categories.
      */
     private Map<String, List<String>> categoriesByCatalog;
-
-    /**
-     * The mapping between categories and the corresponding sub categories.
-     */
-    private Map<String, List<String>> subCategoriesByCategory;
 
     /**
      * The list of catalogs.
@@ -114,18 +117,10 @@ public class GenericContestsAction extends ActionSupport {
 
         // Get the categories by catalogs
         categoriesByCatalog = new HashMap<String, List<String>>();
-        subCategoriesByCategory = new HashMap<String, List<String>>();
         catalogs = categoriesManager.getCatalogs();
         for (String c : catalogs) {
             List<String> categories = categoriesManager.getContestTypes(c);
             categoriesByCatalog.put(c, categories);
-
-            // Get sub categories by categories
-            for (String cat : categories) {
-                List<String> subCategories = categoriesManager
-                        .getContestSubTypes(cat);
-                subCategoriesByCategory.put(cat, subCategories);
-            }
         }
 
         if ("ActiveContests".equals(category)) {
@@ -233,16 +228,6 @@ public class GenericContestsAction extends ActionSupport {
      */
     public List<String> getCatalogs() {
         return catalogs;
-    }
-
-    /**
-     * Gets the mapping between categories and the corresponding sub categories.
-     * 
-     * @return the mapping between categories and the corresponding sub
-     *         categories.
-     */
-    public Map<String, List<String>> getSubCategoriesByCategory() {
-        return subCategoriesByCategory;
     }
 
     /**
