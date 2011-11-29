@@ -212,6 +212,11 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
 
         // Group all payments by member.
         for (PaymentHeader payment : allPayments) {
+            // Only Wire and ACH payments get into the Travelex XML
+            if (!payment.getMethod().equals("Wire") && !payment.getMethod().equals("ACH")) {
+                continue;
+            }
+
             long userId = payment.getUser().getId();
             List<PaymentHeader> userPayments = userPaymentsMap.get(userId);
             if (userPayments == null) {
@@ -244,8 +249,10 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 UserProfileHeader user = userPayments.get(0).getUser();
 
                 double totalUserAmount = 0.0;
+                boolean applyWireFee = false;
                 for(PaymentHeader payment : userPayments) {
                     totalUserAmount += payment.getRecentNetAmount();
+                    applyWireFee = applyWireFee || payment.getMethod().equals("Wire");
                 }
 
                 Element paymentElement = doc.createElement("Payment");
@@ -274,6 +281,18 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                     remittanceRecordElement.setAttribute("PayerDocumentNumber", "" + payment.getReferenceId());
                     remittanceRecordElement.setAttribute("AmountPaid", "" + payment.getRecentNetAmount());
                     remittanceRecordElement.setAttribute("Notes", payment.getDescription());
+
+                    remittanceElement.appendChild(remittanceRecordElement);
+                }
+
+                if (applyWireFee) {
+                    Element remittanceRecordElement = doc.createElement("RemittanceRecord");
+
+                    remittanceRecordElement.setAttribute("PayerDocumentDate", new SimpleDateFormat("MM/dd/yyyy").format(date.getTime()));
+                    remittanceRecordElement.setAttribute("Notes", "Adjustment for Wire Fee");
+                    remittanceRecordElement.setAttribute("AmountPaid", "0.0");
+                    remittanceRecordElement.setAttribute("AdjustmentAmount", "-10.0");
+                    remittanceRecordElement.setAttribute("AdjustmentReason", "Processing Fee");
 
                     remittanceElement.appendChild(remittanceRecordElement);
                 }

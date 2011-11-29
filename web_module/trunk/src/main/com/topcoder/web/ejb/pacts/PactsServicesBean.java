@@ -6633,7 +6633,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         sb.append("    pd.algorithm_round_id, pd.component_project_id, pd.algorithm_problem_id, ");
         sb.append("    pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, pd.digital_run_track_id, ");
         sb.append("    pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.client, ");
-        sb.append("    pd.invoice_number, pd.jira_issue_id, ");
+        sb.append("    pd.invoice_number, pd.jira_issue_id, pd.payment_method_id, ");
         sb.append("    pd.charity_ind, pdsrx.payment_status_reason_id, ");
         sb.append("    (SELECT reference_field_name   ");
         sb.append("       FROM payment_reference_lu pr,payment_type_lu pt ");
@@ -6764,6 +6764,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         Date dueDate = rsr.getTimestampItem("date_due");
         Date paidDate = rsr.getTimestampItem("date_paid");
         long statusId = rsr.getLongItem("payment_status_id");
+        long methodId = rsr.getLongItem("payment_method_id");
         String description = rsr.getStringItem("payment_desc");
         String client = rsr.getStringItem("client");
         String referenceFieldName = rsr.getStringItem("reference_field_name");
@@ -6791,6 +6792,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         payment.setCharity(charityInd == 1);
         payment.setInvoiceNumber(invoiceNumber);
         payment.setJiraIssueName(jiraIssueName);
+        payment.setMethodId(methodId);
 
         BasePaymentStatus currentStatus = PaymentStatusFactory.createStatus(statusId);
         currentStatus.getReasons().clear();

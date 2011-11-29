@@ -27,9 +27,9 @@
             var selectedValue = e.options[e.selectedIndex].value;
 
             if (selectedValue == '53') {
-                document.getElementsByName("pay_date_section")[0].style.display = 'inline';
+                document.getElementById("pay_date_section").style.display = 'inline';
             } else {
-                document.getElementsByName("pay_date_section")[0].style.display = 'none';
+                document.getElementById("pay_date_section").style.display = 'none';
             }
         }
 
@@ -93,7 +93,7 @@
                         </OPTION>
                     </c:forEach>
                 </SELECT>
-                <div name="pay_date_section" style="display:none;">
+                <div id="pay_date_section" style="display:none;">
                     &nbsp;&nbsp;
                     Pay Date: <tc-webtag:textInput name="pay_date" id="pay_date" size="12" editable="true" />
                     <button id="trigger_pay_date">Set</button>
