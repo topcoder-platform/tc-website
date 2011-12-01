@@ -44,7 +44,7 @@
 
 <strong><a href="/tc?module=Static&amp;d1=calendar&amp;d2=apr_12" class="prevNext">&lt; prev</a> <a href="/tc?module=Static&amp;d1=calendar&amp;d2=jun_12" class="prevNext">next &gt;</a></strong>
 <jsp:include page="dropdown.jsp" >
-<jsp:param name="currMonth" value="may_12/>
+<jsp:param name="currMonth" value="may_12"/>
 </jsp:include>
 
 <table cellspacing="0" cellpadding="0" class="calendar" width="100%">
@@ -80,7 +80,7 @@
       </td>
       <td class="value">8
 	    <div class="srm">
-		 <strong><A href="/tc?module=MatchDetails&rd=14434">SRM 541</A></strong><br />
+		 <strong><A href="/tc?module=MatchDetails&rd=14734">SRM 541</A></strong><br />
          21:00
         </div>		  
       </td>
@@ -109,7 +109,7 @@
       </td>
       <td class="value">19
 	    <div class="srm">
-		 <strong><A href="/tc?module=MatchDetails&rd=14435">SRM 542</A></strong><br />
+		 <strong><A href="/tc?module=MatchDetails&rd=14735">SRM 542</A></strong><br />
          12:00
         </div>		  
       </td>
@@ -139,7 +139,7 @@
       </td>
       <td class="value">29
 	    <div class="srm">
-		 <strong><A href="/tc?module=MatchDetails&rd=14436">SRM 543</A></strong><br />
+		 <strong><A href="/tc?module=MatchDetails&rd=14736">SRM 543</A></strong><br />
          07:00
         </div>		  
       </td>
