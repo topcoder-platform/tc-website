@@ -77,22 +77,22 @@
                                 <font color="#FF0000">No rounds found containing <c:out value="${search}"/>. </font>
                             </c:if>
                             or: 
-	                        <c:if test="${not firstLoad}">  
-	                            <script type="text/javascript">
-                                	referenceChanged('algorithm_round_id');
-                            	</script>
-	                       </c:if>                                                                        
+                            <c:if test="${not firstLoad}">  
+                                <script type="text/javascript">
+                                    referenceChanged('algorithm_round_id');
+                                </script>
+                           </c:if>                                                                        
                         </c:when>
                         <c:otherwise>                   
                              <tc-webtag:rscSelect name="algorithm_round_id" list="${rounds}" 
                                      fieldText="round_desc" fieldValue="round_id"  selectedValue="${param.reference_id}"                      
                                      useTopValue="false" onChange="referenceChanged('algorithm_round_id')" />
                              <input type="button" value="do another search" onClick="typeChanged()" /> or: 
-	                        <c:if test="${not firstLoad}">  
-	                            <script type="text/javascript">
-                                	referenceChanged('algorithm_round_id');
-                            	</script>
-	                       </c:if>                                                                        
+                            <c:if test="${not firstLoad}">  
+                                <script type="text/javascript">
+                                    referenceChanged('algorithm_round_id');
+                                </script>
+                           </c:if>                                                                        
                         </c:otherwise>   
                         </c:choose>                                   
                         <input type="checkbox" name="round_unknown_cbx" onClick="setRoundUnknown(this.checked)" <%= "true".equals(request.getAttribute("round_unknown"))? "checked=\"checked\"": ""  %>/>
@@ -112,7 +112,7 @@
                         </c:if>
                         <c:if test="${not empty projects}">                   
                              <tc-webtag:rscSelect name="component_project_id" list="${projects}" 
-                                     fieldText="project_desc" fieldValue="project_id" selectedValue="${param.reference_id}"                                             
+                                     fieldText="project_desc" fieldValue="project_id" selectedValue="${param.reference_id}"
                                      useTopValue="false"  onChange="referenceChanged('component_project_id')"/>
                              <input type="button" value="do another search" onClick="typeChanged()" />           
                         </c:if>                                  
@@ -162,7 +162,7 @@
                         </c:if>
                         <c:if test="${not empty studioContests}">                   
                              <tc-webtag:rscSelect name="studio_contest_id" list="${studioContests}" 
-                                     fieldText="name" fieldValue="contest_id" selectedValue="${param.reference_id}"                                             
+                                     fieldText="project_desc" fieldValue="project_id" selectedValue="${param.reference_id}"
                                      useTopValue="false"  onChange="referenceChanged('studio_contest_id')"/>
                              <input type="button" value="do another search" onClick="typeChanged()" />
                         </c:if>          
@@ -285,22 +285,22 @@
         </c:choose>   
      </taconite-replace>     
     <taconite-replace contextNodeID="trPlaced" parseInBrowser="true">
-    	<c:choose>
+        <c:choose>
             <c:when test="${type == COMPONENT_WINNING}">
             <tr id="trPlaced"> 
             <td><b>Placed:</b></td>
             <td>
-             	<select name="placed" onChange="placedChanged()">
-             		<option value="1">1st</option>
-             		<option value="2">2nd</option>                             		
-               	 </select>
+                <select name="placed" onChange="placedChanged()">
+                    <option value="1">1st</option>
+                    <option value="2">2nd</option>                                  
+                 </select>
             </td>
             </tr>
             </c:when>
             <c:otherwise>
                 <tr id="trPlaced"> <td></td><td></td></tr>
             </c:otherwise>
-	</c:choose>
+    </c:choose>
 
     </taconite-replace>
     
