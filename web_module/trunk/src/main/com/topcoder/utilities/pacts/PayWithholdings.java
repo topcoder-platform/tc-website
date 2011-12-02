@@ -27,11 +27,11 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
  */
 public class PayWithholdings extends DBUtility {
 
-	/**
-	 * A hard cutoff date for the start of the payments, to filter out old project data.
-	 */
-	private static final String START_DATE = "MDY(03, 01, 2009)";
-	
+    /**
+     * A hard cutoff date for the start of the payments, to filter out old project data.
+     */
+    private static final String START_DATE = "MDY(03, 01, 2009)";
+    
     /**
      * This variable tells if only an analysis is wanted.
      */
@@ -59,9 +59,6 @@ public class PayWithholdings extends DBUtility {
         // If releasePeriodDays were reached since project completion, make the payment.
         query.append("SELECT user_id, client, pd.payment_type_id ");
         query.append(" , pd.component_project_id ");
-        query.append(" , (select max(pp.actual_end_time) from tcs_catalog:project_phase pp "); 
-        query.append("         where pp.project_id = pd.component_project_id ");
-        query.append("         and pp.phase_status_id = 3) as project_completion_date "); 
         query.append(" , sum(gross_amount) as amount_paid ");
         query.append(" , sum(case when installment_number = 1 then total_amount else 0.0 end) as total_amount ");
         query.append(" , max(installment_number) as installment_number ");
@@ -72,13 +69,10 @@ public class PayWithholdings extends DBUtility {
         query.append(" AND pd.payment_type_id = " + PactsConstants.CONTEST_PAYMENT + " ");
         query.append(" AND (select max(pp.actual_end_time) from tcs_catalog:project_phase pp "); 
         query.append("         where pp.project_id = pd.component_project_id ");
-        query.append("         and pp.phase_status_id = 3) + ").append(releasePeriodDays); 
-        query.append(" UNITS DAY < current ");
-        query.append(" AND (select max(pp.actual_end_time) from tcs_catalog:project_phase pp "); 
-        query.append("         where pp.project_id = pd.component_project_id ");
         query.append("         and pp.phase_status_id = 3) >= " + START_DATE);
-        query.append(" GROUP BY 1, 2, 3, 4, 5 ");
+        query.append(" GROUP BY 1, 2, 3, 4 ");
         query.append(" HAVING sum(gross_amount) < sum(case when installment_number = 1 then total_amount else 0.0 end) ");
+        query.append(" AND min(p.create_date) + " + releasePeriodDays + " UNITS DAY < current  ");
 
         PreparedStatement psSelProjects = prepareStatement("informixoltp", query.toString());
 
@@ -92,7 +86,6 @@ public class PayWithholdings extends DBUtility {
             long referenceId = rs.getLong("component_project_id");
             double totalAmount = rs.getDouble("total_amount");
             double amountPaid = rs.getDouble("amount_paid");
-            Date projectCompletionDate = rs.getDate("project_completion_date");
             String client = rs.getString("client");
             int paymentTypeId = rs.getInt("payment_type_id");
             int installment = rs.getInt("installment_number") + 1;
@@ -108,8 +101,7 @@ public class PayWithholdings extends DBUtility {
                 ejb.addPayment(bp);
             }
 
-            log.info("" + userId + ", " + referenceId + ", " + projectCompletionDate + ", " + totalAmount + ", "
-                    + releaseAmount);
+            log.info("" + userId + ", " + referenceId + ", " + totalAmount + ", " + releaseAmount);
 
             count++;
         }
