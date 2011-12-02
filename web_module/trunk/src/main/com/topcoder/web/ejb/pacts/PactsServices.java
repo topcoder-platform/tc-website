@@ -197,8 +197,6 @@ public interface PactsServices extends EJBObject {
      */
     List addOnlineReviewPayments(List payments, List resourceIds, long operatorUserId) throws RemoteException, SQLException;
 
-    List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed) throws SQLException, RemoteException, EventFailureException;
-
     int expireOldPayments() throws RemoteException, SQLException;
 
     int expireOldAffidavits() throws RemoteException, SQLException;

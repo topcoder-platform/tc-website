@@ -265,7 +265,6 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
 
                 Element payToElement = doc.createElement("PayTo");
                 payToElement.setAttribute("PTPayeeID", user.getHandle());
-                payToElement.setAttribute("PTPayeeName", user.getFullName());
                 payToElement.setAttribute("PTAmount", "" + totalUserAmount);
                 paymentElement.appendChild(payToElement);
 

@@ -4482,7 +4482,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     try {
                         switch (event) {
                             case 1:
-                                psm.newUserEvent(payment, UserEvents.ENTER_INTO_PAYMENT_SYSTEM_EVENT);
+                                if (payment.getMethodId() == Constants.NOT_SET_PAYMENT_METHOD_ID) {
+                                    errors.put(payment.getId(), "The payment method field is not set.");
+                                } else {
+                                    psm.newUserEvent(payment, UserEvents.ENTER_INTO_PAYMENT_SYSTEM_EVENT);
+                                }
                                 break;
                             case 2:
                                 psm.newUserEvent(payment, UserEvents.PAY_EVENT);
@@ -5330,7 +5334,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 resourceIds.add(new Long(resourceId));
 
                 if (submissionType.startsWith("Contest Submission")) {
-                    payments.addAll(generateComponentUserPayments(coderId, amount, client, projectId, placed));
+                    BasePayment p = new ContestPayment(coderId, amount, client, projectId, placed);
+                    if (placed == 1 && !isStudioProject(projectId)) {
+                        p.setGrossAmount(amount * FIRST_INSTALLMENT_PERCENT);
+                    }
+
+                    payments.add(p);
                 } else if (submissionType.startsWith("Milestone Submission")) {
                     payments.add(new ContestMilestonePayment(coderId, amount, client, projectId, placed));
                 }
@@ -6516,29 +6525,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         ResultSetContainer rsc = runSelectQuery(query);
         return rsc.size() == 0 ? -1 : rsc.getIntItem(0, 0);
-    }
-
-    /**
-     * Create winner payments for Online Review projects.
-     * For a 1st place project, it just creates a payment consisting in the 75% of the amount.
-     *
-     * @param coderId             coder to be paid.
-     * @param grossAmount         amount to be paid.
-     * @param client              the client of the project.
-     * @param projectId           project that is being paid.
-     * @param placed              the place of the coder in the contest.
-     */
-    public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed)
-        throws SQLException, EventFailureException {
-
-        BasePayment p = new ContestPayment(coderId, grossAmount, client, projectId, placed);
-        if (placed == 1 && !isStudioProject(projectId)) {
-            p.setGrossAmount(grossAmount * FIRST_INSTALLMENT_PERCENT);
-        }
-
-        List l = new ArrayList();
-        l.add(p);
-        return l;
     }
 
     /**

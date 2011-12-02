@@ -1481,12 +1481,6 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.addOnlineReviewPayments(payments, resources, operatorUserId);
     }
 
-    public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed)
-        throws SQLException, EventFailureException, RemoteException {
-        PactsServicesLocal ps = getEjbHandle();
-        return ps.generateComponentUserPayments(coderId, grossAmount, client, projectId, placed);
-    }
-
     /**
      * Generates a map with project ID keys and component ID values from the component and review board
      * payments in the given list.
