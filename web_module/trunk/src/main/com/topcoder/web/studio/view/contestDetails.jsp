@@ -351,11 +351,11 @@
                 <span class="grayRCLB"></span>
                 <span class="grayRCRB"></span>
 
-                <p>
+                <ul>
                     <c:forEach items="${contest.fileTypes}" var="fileType" varStatus="status">
-                        <strong>${fileType.description}</strong><c:if test="${not status.last}">,</c:if>
+                        <li><strong>${fileType.description}</strong></li>
                     </c:forEach>
-                </p>
+                </ul>
 
                 <p>You must include all source files with your submission. </p>
             </div>
