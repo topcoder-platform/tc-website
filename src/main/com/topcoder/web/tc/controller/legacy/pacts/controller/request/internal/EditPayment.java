@@ -168,45 +168,19 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                                 payment.setContractId(contractId);
                             } 
                             
-                            if (payment instanceof ComponentWinningPayment) {
-    
-                            	int placed = getIntParameter("placed");
-                            	ComponentWinningPayment p = (ComponentWinningPayment) payment;
-                            	List l = dib.generateComponentUserPayments(p.getCoderId(), p.getGrossAmount(), p.getClient(), p.getProjectId(), placed); 
-    
-                                // manage payment status
-    
-                                if (p.isDesign() && grossAmount == 0) {
-                            		BasePayment aux = (BasePayment) l.get(0);
-                            		if (installmentNumber == 1) {
-                                             p.setGrossAmount(aux.getGrossAmount());
-                            		} else {
-                                             p.setGrossAmount(totalAmount - aux.getGrossAmount());
-                            		}
-    
-                                        payment = dib.addPayment(p, currentUserId);
-                                	payments.add(p);
-                            	} else {
-                            		l.set(0, p);
-    
-                                        l = dib.addPayments(l, currentUserId);
-                            		payments.addAll(l);
-                            	}
-                            } else {
-                            	payment = dib.addPayment(payment, currentUserId);
-                            	payments.add(payment);
-                            }               
+                            payment = dib.addPayment(payment, currentUserId);
+                            payments.add(payment);
 
-                    		List ids = new ArrayList();
-                    		for (int i = 0; i < payments.size(); i++) {
-                    			long id = ((BasePayment) payments.get(i)).getId();
-                    			ids.add(new Long(id)); 
+                            List ids = new ArrayList();
+                            for (int i = 0; i < payments.size(); i++) {
+                                long id = ((BasePayment) payments.get(i)).getId();
+                                ids.add(new Long(id)); 
     
-                            	List refer = dib.findPayments(CODER_REFERRAL_PAYMENT, id);
-                        		for (int j = 0; j < refer.size(); j++) {
-                        			ids.add(new Long(((BasePayment) refer.get(j)).getId())); 
-                        		}
-                    		}                		
+                                List refer = dib.findPayments(CODER_REFERRAL_PAYMENT, id);
+                                for (int j = 0; j < refer.size(); j++) {
+                                    ids.add(new Long(((BasePayment) refer.get(j)).getId())); 
+                                }
+                            }                		
                             setNextPage(Links.viewPayments(ids));
                         } else {
                             // get payment's status

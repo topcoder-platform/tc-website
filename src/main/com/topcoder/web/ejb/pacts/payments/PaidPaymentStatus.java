@@ -33,16 +33,6 @@ public class PaidPaymentStatus extends BasePaymentStatus {
     public static final Long ID = 53l;
 
     /**
-     * This method is executed when a payment is paid and will set the paid date
-     *
-     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#activate(com.topcoder.web.ejb.pacts.BasePayment)
-     */
-    @Override
-    public void activate(BasePayment payment) throws StateTransitionFailureException {
-        payment.setPaidDate(new Date());
-    }
-
-    /**
      * Default constructor
      */
     public PaidPaymentStatus() {
