@@ -123,7 +123,7 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
      *
      * <p>Parses the new payment accrual amount value from respective request parameter and verifies that such a value
      * is provided and is numeric value greater than {@link com.topcoder.web.tc.Constants#MINIMUM_PAYMENT_ACCRUAL_AMOUNT}.
-     * Also checks that the specified payment method is either PayPal, Wire or ACH.
+     * Also checks that the specified payment method is not the "Not Set" one.
      * If any of those validation rules is violated then appropriate error message is bound to incoming request.
      * Otherwise the new payment preferences for current user are saved to persistent data store.</p>
      *
@@ -143,20 +143,30 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
         } else if (isEmpty(paymentMethodValue)) {
             addError(PAYMENT_METHOD_PARAM, "You must specify a preferred payment method");
         } else {
+            int newAccrualAmount = 0;
             try {
-                int newAccrualAmount = Integer.parseInt(accrualAmountValue);
-                long paymentMethodId = Long.parseLong(paymentMethodValue);
+                newAccrualAmount = Integer.parseInt(accrualAmountValue);
+            } catch (NumberFormatException e) {
+                addError(ACCRUAL_AMOUNT_PARAM, "Payment accrual amount must be an integer number");
+            }
+
+            long paymentMethodId = 0;
+            try {
+                paymentMethodId = Long.parseLong(paymentMethodValue);
+            } catch (NumberFormatException e) {
+                addError(PAYMENT_METHOD_PARAM, "Payment method ID must be an integer number");
+            }
+
+            if (!hasErrors()) {
                 if (newAccrualAmount < MINIMUM_PAYMENT_ACCRUAL_AMOUNT) {
                     addError(ACCRUAL_AMOUNT_PARAM,
-                            "Payment accrual amount must be greater or equal to $" + MINIMUM_PAYMENT_ACCRUAL_AMOUNT);
+                             "Payment accrual amount must be greater or equal to $" + MINIMUM_PAYMENT_ACCRUAL_AMOUNT);
                 } else if (paymentMethodId <= 0 || paymentMethodId == NOT_SET_PAYMENT_METHOD_ID) {
                     addError(PAYMENT_METHOD_PARAM, "Payment method is incorrect");
                 } else {
                     dataBean.saveUserAccrualThreshold(getUser().getId(), newAccrualAmount);
                     dataBean.saveUserPaymentMethod(getUser().getId(), paymentMethodId);
                 }
-            } catch (NumberFormatException e) {
-                addError(ACCRUAL_AMOUNT_PARAM, "Payment accrual amount must be integer number");
             }
         }
     }

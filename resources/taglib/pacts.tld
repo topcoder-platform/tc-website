@@ -22,6 +22,13 @@
         </function-signature>
     </function>
     <function>
+        <name>updateUserPaymentMethod</name>
+        <function-class>com.topcoder.web.tc.controller.legacy.pacts.common.Links</function-class>
+        <function-signature>
+            String updateUserPaymentMethod(long)
+        </function-signature>
+    </function>
+    <function>
         <name>addGlobalAD</name>
         <function-class>com.topcoder.web.tc.controller.legacy.pacts.common.Links</function-class>
         <function-signature>
