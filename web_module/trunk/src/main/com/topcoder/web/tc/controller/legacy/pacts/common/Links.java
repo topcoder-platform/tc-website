@@ -20,6 +20,10 @@ public class Links implements PactsConstants {
     public static String updateUserAccrual(long userId) {
         return createLink("EditUserAccrualAmount", USER_ID, userId + "");
     }
+
+    public static String updateUserPaymentMethod(long userId) {
+        return createLink("EditUserPaymentMethod", USER_ID, userId + "");
+    }
     
     public static String addGlobalAD(long userId) {
         return createLink("AddGlobalAD", USER_ID, userId + "");

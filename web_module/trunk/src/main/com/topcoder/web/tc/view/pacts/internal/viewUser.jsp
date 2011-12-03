@@ -248,8 +248,8 @@
         out.println("\">Add Tax Form</a><br>");
     %>
 
-        <a href="${pacts:updateUserAccrual(user.header.id)}">Edit user accrual amount</a>
-        <br/>
+        <a href="${pacts:updateUserAccrual(user.header.id)}">Edit user accrual amount</a><br/>
+        <a href="${pacts:updateUserPaymentMethod(user.header.id)}">Edit user payment method</a><br/>
         
 <% if ("on".equalsIgnoreCase(com.topcoder.web.tc.Constants.GLOBAL_AD_FLAG)) {%>
         <c:if test="${not has_global_ad}">
