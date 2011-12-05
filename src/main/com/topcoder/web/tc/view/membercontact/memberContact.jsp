@@ -158,11 +158,15 @@
         <c:set value="<%=Helper.NOT_RATED%>" var="notRated"/>
         <c:set value="<%=Helper.BANNED%>" var="banned"/>
         <c:choose>
-            <c:when test="${cf:containsMapKey(requestScope, notRated)}">
-        <span class="bigRed">
+            <%-- 
+			REMOVED BY thx1138 on 28 Nov 2011
+			Remove the comment marks to ensure the member is rated before
+			allowing access to member contact
+			<c:when test="${cf:containsMapKey(requestScope, notRated)}">
+			<span class="bigRed">
            You must be a rated member to contact other members.
-        </span>
-            </c:when>
+			</span>
+           </c:when>--%>
             <c:when test="${cf:containsMapKey(requestScope, banned)}">
         <span class="bigRed">
            You are not allowed to contact other members.
