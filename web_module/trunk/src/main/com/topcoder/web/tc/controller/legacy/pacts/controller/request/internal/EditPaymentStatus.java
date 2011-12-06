@@ -8,6 +8,7 @@ import java.util.Date;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.payments.PaidPaymentStatus;
+import com.topcoder.web.ejb.pacts.payments.DeletedPaymentStatus;
 import com.topcoder.web.ejb.pacts.payments.BasePaymentStatus;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason;
@@ -61,7 +62,11 @@ public class EditPaymentStatus extends PactsBaseProcessor implements PactsConsta
                 if (newStatusId == 0) {
                     throw new IllegalArgumentException("Missing parameter " + PAYMENT_ID + " or new_status_id");
                 }
-				
+		
+                if (newStatusId == DeletedPaymentStatus.ID && dib.isInvoicedPayment(paymentId)) {
+                    addError("error", "You can't delete the payment after it was invoiced.");
+                }
+		
                 BasePaymentStatus bps = PaymentStatusFactory.createStatus(newStatusId);
                 String[] reasonIds = getRequest().getParameterValues("new_status_reason_id");
                 if (reasonIds != null) { 
@@ -69,7 +74,7 @@ public class EditPaymentStatus extends PactsBaseProcessor implements PactsConsta
                         bps.getReasons().add(PaymentStatusReason.getStatusReasonUsingId(Long.decode(reasonId)));
                     }
                 }
-            
+
                 payment.setCurrentStatus(bps);
                 if (bps.getId()==PaidPaymentStatus.ID)  {
                     Date payDate = checkDate("pay_date", "Please enter a valid pay date");
@@ -84,7 +89,7 @@ public class EditPaymentStatus extends PactsBaseProcessor implements PactsConsta
                     setIsNextPageInContext(false);
                 }
             }
-			
+
             if (getRequest().getParameter("new_status_id") == null || hasErrors()) {
                 // The user is loading the page, so set the default values
 

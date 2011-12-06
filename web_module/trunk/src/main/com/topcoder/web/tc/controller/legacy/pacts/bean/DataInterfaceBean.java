@@ -1775,5 +1775,11 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServicesLocal ps = getEjbHandle();
         return ps.newPaymentEvent(paymentIDs, event, value, payDate, operatorUserId);
     }
+
+    public boolean isInvoicedPayment(long paymentId) throws RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.isInvoicedPayment(paymentId);
+    }
 }
+
 

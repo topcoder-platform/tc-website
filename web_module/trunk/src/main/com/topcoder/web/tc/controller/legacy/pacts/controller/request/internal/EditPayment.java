@@ -131,6 +131,14 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     addError("error", "Please enter a valid client");
                 }
 
+                if (dib.isInvoicedPayment(paymentId)) {
+                    BasePayment oldPayment = dib.getBasePayment(paymentId);
+                    if (oldPayment.getTotalAmount() != totalAmount ||
+                        oldPayment.getNetAmount() != netAmount) {
+                        addError("error", "You can't change payment amount after the payment was invoiced.");
+                    }
+                }
+
                 if (!hasErrors()) {
                     // Parameters are ok, so add or update the payment
 
@@ -153,7 +161,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                         payment.setDescription(desc);
                         
                         payment.setTotalAmount(totalAmount);
-                        payment.setGrossAmount(grossAmount > 0 && (payment instanceof ComponentWinningPayment || payment instanceof ReviewBoardPayment) ? grossAmount : totalAmount);
+                        payment.setGrossAmount(grossAmount > 0 ? grossAmount : totalAmount);
                         payment.setNetAmount(netAmount);
                         payment.setDueDate(sdf.parse(dueDate));
                         payment.setMethodId(methodId);

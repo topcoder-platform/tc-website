@@ -242,6 +242,10 @@
                 <ejb-name>PactsServices</ejb-name>
                 <method-name>newPaymentEvent</method-name>
             </method>
+            <method>
+                <ejb-name>PactsServices</ejb-name>
+                <method-name>isInvoicedPayment</method-name>
+            </method>
             <trans-attribute>Required</trans-attribute>
         </container-transaction>
     </assembly-descriptor>

@@ -3653,8 +3653,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     // Helper function that checks a payment for validity
     private void checkPayment(Connection c, Payment p, boolean newPayment)
             throws IllegalUpdateException, PaymentPaidException, SQLException {
-        // Not allowed to manually set status to Printed or Paid.  This can only be done
-        // by the system.
 
         // Can't have net amount > gross amount
         if (p.getNetAmount() > p.getGrossAmount()) {
@@ -4493,7 +4491,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                                 payment.setPaidDate(payDate);
                                 break;
                             case 3:
-                                psm.newUserEvent(payment, UserEvents.DELETE_EVENT);
+                                if (isInvoicedPayment(payment.getId())) {
+                                    errors.put(payment.getId(), "Can't delete invoiced payment.");
+                                } else {
+                                    psm.newUserEvent(payment, UserEvents.DELETE_EVENT);
+                                }
                                 break;
                             case 4:
                                 payment.setInvoiceNumber(value);
@@ -6394,6 +6396,18 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return rsc.getIntItem(0, 0)==3;
     }
 
+    /**
+     * Checks whether the payment was invoiced.
+     *
+     * @param paymentId ID of the payment to check.
+     * @return true if the payment was invoiced.
+     * @throws SQLException
+     */
+    public boolean isInvoicedPayment(long paymentId) throws SQLException {
+        ResultSetContainer rsc = runSelectQuery("SELECT invoice_record_id from invoice_record where payment_id = " + paymentId);
+
+        return rsc.size() > 0;
+    }
 
     /**
      * Add a payment in the database.
@@ -6912,7 +6926,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return runSelectQuery(query.toString());
 
     }
-
 
     class AlgorithmContestPaymentDataRetriever extends AlgorithmContestPayment {
         private final String roundName;
