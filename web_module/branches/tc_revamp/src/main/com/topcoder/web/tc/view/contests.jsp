@@ -14,9 +14,9 @@
 			<s:param name="title">${title}</s:param>
 			<s:param name="jqueryUI">true</s:param>
 		</s:include>
-		<script src="../js/jquery.dataTables.js" type="text/javascript"></script>
-		<script type="text/javascript" src="../js/loadContest.js"></script>
-		<script type="text/javascript" src="../js/jquery.ezCookie_0.8.0.min.js"></script>
+		<script src="../js/tc/jquery.dataTables.js" type="text/javascript"></script>
+		<script type="text/javascript" src="../js/tc/loadContest.js"></script>
+		<script type="text/javascript" src="../js/tc/jquery.ezCookie_0.8.0.min.js"></script>
 	</head>
 	<body>
 		<span id="category" style="display: none;">${category }</span>
