@@ -13,8 +13,8 @@
 		<s:include value="/includes/head.jsp">
 			<s:param name="title">Home</s:param>
 		</s:include>
-		<link href="../css/skin.css" type="text/css" rel="stylesheet" media="screen" />
-		<script src="../js/jquery.jcarousel.min.js" type="text/javascript"></script>
+		<link href="../css/tc/skin.css" type="text/css" rel="stylesheet" media="screen" />
+		<script src="../js/tc/jquery.jcarousel.min.js" type="text/javascript"></script>
 	</head>
 
 	<body>
