@@ -31,7 +31,7 @@ import com.topcoder.web.studio.Constants;
 public abstract class BaseBoardV2 extends BaseProcessor {
 
     protected ResultSetContainer getPointsData(String datasource, String query, int trackId, int userId, boolean potential) throws Exception {
-        CachedDataAccess cda = new CachedDataAccess(MaxAge.HALF_HOUR, datasource);
+        DataAccess cda = new DataAccess(datasource);
         Request dataRequest = new Request();
         dataRequest.setContentHandle(query);
         dataRequest.setProperty(Constants.TRACK_ID, String.valueOf(trackId));
@@ -113,7 +113,7 @@ public abstract class BaseBoardV2 extends BaseProcessor {
         r.setContentHandle("drv2_results");
         r.setProperty(Constants.TRACK_ID, String.valueOf(trackId));
         
-        DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME); 
+        DataAccessInt dai = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME); 
         Map m = dai.getData(r);
         ResultSetContainer rsc = (ResultSetContainer) m.get("drv2_results");
             

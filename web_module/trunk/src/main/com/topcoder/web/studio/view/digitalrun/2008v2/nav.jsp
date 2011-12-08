@@ -32,10 +32,10 @@
     <% } else { %>
         | <a class="bcLink" href="/?module=Static&amp;d1=digitalrun&amp;d2=2008v2&amp;d3=overview">Overview</a>
     <% } %>
-    <% if (tabLev2.equals("2011_tournament")) {%>
-        | 2011 Tournament
+    <% if (tabLev2.equals("tco_wireframe_tournament")) {%>
+        | TCO Wireframe Tournament
     <% } else { %>
-        | <a class="bcLink" href="/?module=Static&amp;d1=digitalrun&amp;d2=2008v2&amp;d3=2011_tournament">2011 Tournament</a>
+        | <a class="bcLink" href="/?module=Static&amp;d1=digitalrun&amp;d2=2008v2&amp;d3=tco_wireframe_tournament">TCO Wireframe Tournament</a>
     <% } %>
     <% if (tabLev2.equals("schedule")) {%>
         | Schedule

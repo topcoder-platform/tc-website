@@ -67,7 +67,7 @@
             </jsp:include>
 
             <p>
-                <a href="/?module=Static&d1=digitalrun&d2=2008v2&d3=2011_tournament"><img src="i/digital_run/wireframe_sc_banner.png" align="right" border="0"></a>Now is your chance to be the driving force in the growth of TopCoder Studio and reap the benefits in the form of monthly cash awards in the Studio Cup, a division of <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=digital_run&d2=description">TopCoder's Digital Run (DR)</a>. The Studio Cup is tied directly to Studio's revenue, so the more you compete, the more contests we run and the more cash we pay out at the end of each month. 
+                <a href="http://community.topcoder.com/tco12/win-tco-trips/"><img src="i/digital_run/wireframe_sc_banner.png" align="right" border="0"></a>Now is your chance to be the driving force in the growth of TopCoder Studio and reap the benefits in the form of monthly cash awards in the Studio Cup, a division of <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=digital_run&d2=description">TopCoder's Digital Run (DR)</a>. The Studio Cup is tied directly to Studio's revenue, so the more you compete, the more contests we run and the more cash we pay out at the end of each month. 
             </p>
             
             <p>
