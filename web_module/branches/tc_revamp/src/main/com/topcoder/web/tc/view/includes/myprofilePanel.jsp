@@ -22,7 +22,7 @@
 		</s:if>
 		<s:else>
 			<s:url id="imageAnchor" value="%{getText('register.url')}"/>
-			<s:url id="imageUrl" value="../i/user-big.png"/>
+			<s:url id="imageUrl" value="../i/tc/user-big.png"/>
 		</s:else>
 		<s:a href="%{imageAnchor}"><img src='<s:property value="%{imageUrl}"/>'/></s:a>
 		<ul>
