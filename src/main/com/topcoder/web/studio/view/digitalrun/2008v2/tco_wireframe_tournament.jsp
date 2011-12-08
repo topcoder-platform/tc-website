@@ -62,15 +62,15 @@
 
 <jsp:include page="nav.jsp" >
     <jsp:param name="tabLev1" value="design"/>
-    <jsp:param name="tabLev2" value="2011_tournament"/>
+    <jsp:param name="tabLev2" value="tco_wireframe_tournament"/>
 </jsp:include>
 
 <p>
-    <strong>2011 Wireframe Studio Cup Tournament</strong>
+    <strong>TCO12 Wireframe Studio Cup Tournament</strong>
 </p>
-During the months of April, May and June in 2011, a single member was designated the "Wireframe SC Tournament Winner" from each month based on how many points they accumulated during wireframe contests. The winner from each month won an all-expenses paid trip to TCO11!
+We are happy to announce another special opportunity for wireframe competitors! During the Online Periods of the TCO12, a single member will be designated the "Wireframe SC Tournament Winner" from each Period based on how many points they accumulated within wireframe contests. The winner from each Period will win an all-expenses paid trip to TCO12!
 <br /><br />
-Winners were chosen based on the highest points earned from wireframe contests only. Points from other contest types did not count toward the tally.
+Winners are chosen based on the highest points earned from wireframe contests only. Points from other contest types will not count toward the tally. Each winner can only win a single trip and that trip is non-transferable. <a href="http://community.topcoder.com/tco12/win-tco-trips/" target="_blank">See this page for more information</a>.
 <br /><br />
 
                         <br clear="all"/>
