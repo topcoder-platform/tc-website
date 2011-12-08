@@ -14,11 +14,11 @@
 	<div class="content">
 		<ul>
 			<li><a href="<s:url value="%{getText('topcoder.network.alcatel.url')}"/>" title="Alcatel Lucent"><img
-					src="../i/architecture-logo.png" alt="Alcatel Lucent" /></a></li>
+					src="../i/tc/architecture-logo.png" alt="Alcatel Lucent" /></a></li>
 			<li><a href="<s:url value="%{getText('topcoder.network.paypal.url')}"/>" title="PayPalX"><img
-					src="../i/payPalX-logo.png" alt="PayPalX" /> </a></li>
+					src="../i/tc/payPalX-logo.png" alt="PayPalX" /> </a></li>
 			<li><a href="<s:url value="%{getText('topcoder.network.darpacs.url')}"/>" title="Dapra CS-STEM"><img
-					src="../i/dapraCS-STEM-logo.png" alt="Dapra CS-STEM" /></a></li>
+					src="../i/tc/dapraCS-STEM-logo.png" alt="Dapra CS-STEM" /></a></li>
 		</ul>
 	</div>
 </div>
