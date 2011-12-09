@@ -88,61 +88,59 @@ public class ActiveContestsManagerImpl extends HibernateDaoSupport implements Ac
      */
     private static final String SQL_QUERY = "SELECT DISTINCT new map(project.projectId as contestId, projectCategory.name as type,"
         + " projectCatalog.name as catalog, projectNameInfo.value as contestName,"
-        + " (select count(*) from Submission s, Upload u where u.projectId=project.projectId"
-        + " and u.uploadId=s.uploadId and s.submissionTypeId=:contestSubmissionTypeId"
-        + " and s.submissionStatusId in (:activeSubmissionStatusId, :failedScreeningSubmissionStatusId,"
-        + " :failedReviewSubmissionStatusId, :completedWithoutWinSubmissionStatusId)) as numberOfSubmissions,"
+        + " (SELECT count(*) FROM Submission s, Upload u WHERE u.projectId=project.projectId"
+        + "                  and u.uploadId=s.uploadId and s.submissionTypeId=:contestSubmissionTypeId"
+        + "                  and s.submissionStatusId in (:activeSubmissionStatusId, :failedScreeningSubmissionStatusId,"
+        + "                                               :failedReviewSubmissionStatusId, :completedWithoutWinSubmissionStatusId)) as numberOfSubmissions,"
         // get the number of submissions
-        + " (select count(*) from r2 where r2.projectId=project.projectId and"
-        + " r2.resourceRoleId=:submitterRoleId) as numberOfRegistrants,"
+        + " (SELECT count(*) FROM Resource r2 WHERE r2.projectId=project.projectId and"
+        + "                                r2.resourceRoleId=:submitterRoleId) as numberOfRegistrants,"
         // gets the number of registrants
         + " registrationPhase.scheduledEndTime as registrationEndDate,"
         + " submissionPhase.scheduledEndTime as submissionEndDate, firstPrizeInfo.value as firstPrize,"
         + " reliabilityBonusInfo.value as reliabilityBonus, digitalRunInfo.value as digitalRunPoints,"
-        + " digitalRunFlagInfo.value as digitalRunFlag, paymentsInfo.value as payments) from Project project,"
-        + " ProjectCategoryLookup projectCategory,"
-        + " ProjectCatalogLookup projectCatalog, ProjectInfo projectNameInfo,"
-        // +" Upload as u, Submission s,"
-        + " Resource r2, ProjectPhase registrationPhase, ProjectPhase submissionPhase,"
-        + " ProjectPhase finalReviewPhase, ProjectInfo firstPrizeInfo, ProjectInfo reliabilityBonusInfo,"
-        + " ProjectInfo digitalRunInfo, ProjectInfo paymentsInfo, ProjectInfo digitalRunFlagInfo"
-        + " where project.projectStatusId=:activeStatusId"
+        + " digitalRunFlagInfo.value as digitalRunFlag, paymentsInfo.value as payments) "
+		+ " FROM Project project,"
+        + "      ProjectCategoryLookup projectCategory,"
+        + "      ProjectCatalogLookup projectCatalog, ProjectInfo projectNameInfo,"
+        + "      ProjectPhase registrationPhase, ProjectPhase submissionPhase,"
+        + "      ProjectPhase finalReviewPhase, ProjectInfo firstPrizeInfo, ProjectInfo reliabilityBonusInfo,"
+        + "      ProjectInfo digitalRunInfo, ProjectInfo paymentsInfo, ProjectInfo digitalRunFlagInfo"
+        + " WHERE project.projectStatusId=:activeStatusId"
         // this condition means only active projects are returned.
-        + " and project.projectCategoryId=projectCategory.projectCategoryId"
+        + "       and project.projectCategoryId=projectCategory.projectCategoryId"
         // catalog id
-        + " and projectCategory.projectCatalogId=projectCatalog.projectCatalogId"
+        + "       and projectCategory.projectCatalogId=projectCatalog.projectCatalogId"
         // this join is for type
-        + " and projectNameInfo.projectId=project.projectId"
-        + " and projectNameInfo.projectInfoTypeId=:projectNameInfoId"
-        // and u.projectId=project.projectId"
+        + "       and projectNameInfo.projectId=project.projectId"
+        + "       and projectNameInfo.projectInfoTypeId=:projectNameInfoId"
         // this join is for getting the contest name
-        + " and registrationPhase.projectId=project.projectId"
-        + " and registrationPhase.phaseTypeId=:registrationPhaseTypeId"
+        + "       and registrationPhase.projectId=project.projectId"
+        + "       and registrationPhase.phaseTypeId=:registrationPhaseTypeId"
         // this join is for getting the registration end date
-        + " and submissionPhase.projectId=project.projectId"
-        + " and submissionPhase.phaseTypeId=:submissionPhaseTypeId"
+        + "       and submissionPhase.projectId=project.projectId"
+        + "       and submissionPhase.phaseTypeId=:submissionPhaseTypeId"
         // this join is for getting the submission end date
-        + " and finalReviewPhase.projectId=project.projectId"
+        + "       and finalReviewPhase.projectId=project.projectId"
         // this join is for getting the final review phase
-        + " and firstPrizeInfo.projectId=project.projectId"
-        + " and firstPrizeInfo.projectInfoTypeId=:firstPlaceCostInfoId"
+        + "       and firstPrizeInfo.projectId=project.projectId"
+        + "       and firstPrizeInfo.projectInfoTypeId=:firstPlaceCostInfoId"
         // this join is for getting the winner prize
-        + " and reliabilityBonusInfo.projectId=project.projectId"
-        + " and reliabilityBonusInfo.projectInfoTypeId=:reliabilityBonusCostInfoId"
+        + "       and reliabilityBonusInfo.projectId=project.projectId"
+        + "       and reliabilityBonusInfo.projectInfoTypeId=:reliabilityBonusCostInfoId"
         // this join is for getting the reliability bonus
-        + " and digitalRunInfo.projectId=project.projectId"
-        + " and digitalRunInfo.projectInfoTypeId=:digitalRunPointInfoId"
+        + "       and digitalRunInfo.projectId=project.projectId"
+        + "       and digitalRunInfo.projectInfoTypeId=:digitalRunPointInfoId"
         // this join is for getting the digital run points
-        + " and paymentsInfo.projectId=project.projectId and paymentsInfo.projectInfoTypeId=:paymentsInfoId"
+        + "       and paymentsInfo.projectId=project.projectId and paymentsInfo.projectInfoTypeId=:paymentsInfoId"
         // this join is for getting the payments
-        + " and digitalRunFlagInfo.projectId=project.projectId"
-        + " and digitalRunFlagInfo.projectInfoTypeId=:digitalRunFlagInfoId"
+        + "       and digitalRunFlagInfo.projectId=project.projectId"
+        + "       and digitalRunFlagInfo.projectInfoTypeId=:digitalRunFlagInfoId"
         // this join is for getting the flag denoting whether DR is on or not
-        + " and (submissionPhase.phaseStatusId=:openPhaseStatusId"
-        + " or registrationPhase.phaseStatusId=:openPhaseStatusId)"
+        + "       and (submissionPhase.phaseStatusId=:openPhaseStatusId"
+        + "                            or registrationPhase.phaseStatusId=:openPhaseStatusId)"
         // these two means only active contests are returned
-        + " and not exists (from ContestEligibility contestEligibility where contestEligibility.studio=1"
-        + " and contestEligibility.contestId=project.projectId)"; // this filters out the studio contests
+        + "       and NOT EXISTS (FROM ContestEligibility contestEligibility WHERE contestEligibility.contestId=project.projectId)"; // this filters out the studio contests
 
     /**
      * <p>
