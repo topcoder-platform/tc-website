@@ -97,27 +97,28 @@ public class PastContestsManagerImpl extends HibernateDaoSupport implements
     private static final String SQL_QUERY = "SELECT DISTINCT new map(project.projectId as contestId, projectCategory.name as type,"
             + " projectCatalog.name as catalog, projectNameInfo.value as contestName,"
             + " (select count(*) from Submission s, Upload u where u.projectId=project.projectId"
-            + " and u.uploadId=s.uploadId and s.submissionTypeId=:contestSubmissionTypeId"
-            + " and s.submissionStatusId in (:activeSubmissionStatusId, :failedScreeningSubmissionStatusId,"
-            + " :failedReviewSubmissionStatusId, :completedWithoutWinSubmissionStatusId)) as numberOfSubmissions,"
+            + "                       and u.uploadId=s.uploadId and s.submissionTypeId=:contestSubmissionTypeId"
+            + "                       and s.submissionStatusId in (:activeSubmissionStatusId, :failedScreeningSubmissionStatusId,"
+            + "                                                    :failedReviewSubmissionStatusId, :completedWithoutWinSubmissionStatusId)) as numberOfSubmissions,"
             // get the number of submissions
-            + " (select count(*) from r2 where r2.projectId=project.projectId and r2.resourceRoleId=:submitterRoleId)"
-            + " as numberOfRegistrants,"
+            + " (select count(*) from Resource r2 where r2.projectId=project.projectId and r2.resourceRoleId=:submitterRoleId)"
+            + "            as numberOfRegistrants,"
             // gets the number of registrants
             + " approvalPhase.actualEndTime as completionDate,"
             + " handleInfo.value as winnerHandle,"
             + " (select count(*) from Resource r3, ResourceSubmission rs2, Submission s2"
-            + " where r3.projectId=project.projectId and rs2.resourceId=r3.resourceId"
-            + " and s2.submissionId=rs2.submissionId"
-            + " and s2.screeningScore >= :passingScreeningScore) as passedScreeningCount,"
+            + "                             where r3.projectId=project.projectId and rs2.resourceId=r3.resourceId"
+            + "                                   and s2.submissionId=rs2.submissionId"
+            + "                                    and s2.screeningScore >= :passingScreeningScore) as passedScreeningCount,"
             + " winnerIdInfo.value as winnerExternalReferenceId, projectResult.finalScore as winnerScore)"
-            + " from Project project,"
-            + " ProjectCategoryLookup projectCategory,"
-            + " ProjectCatalogLookup projectCatalog, ProjectInfo projectNameInfo,"
-            + " Resource r2, ProjectPhase registrationPhase, ProjectPhase submissionPhase,"
-            + " ProjectPhase approvalPhase, ProjectInfo winnerIdInfo,"
-            + " ProjectResult projectResult,Resource r4, ResourceInfo externalReferenceIdInfo,"
-            + " ResourceInfo handleInfo where project.projectStatusId=:completedStatusId"
+            + " FROM Project project,"
+            + "              ProjectCategoryLookup projectCategory,"
+            + "              ProjectCatalogLookup projectCatalog, ProjectInfo projectNameInfo,"
+            + "              ProjectPhase registrationPhase, ProjectPhase submissionPhase,"
+            + "              ProjectPhase approvalPhase, ProjectInfo winnerIdInfo,"
+            + "              ProjectResult projectResult,Resource r4, ResourceInfo externalReferenceIdInfo,"
+            + "              ResourceInfo handleInfo "
+			+ " WHERE project.projectStatusId=:completedStatusId"
             // this condition means only completed projects are returned.
             + " and project.projectCategoryId=projectCategory.projectCategoryId"
             // this join is for type
@@ -144,8 +145,7 @@ public class PastContestsManagerImpl extends HibernateDaoSupport implements
             + " and externalReferenceIdInfo.resourceInfoTypeId=:externalReferenceIdInfoId"
             + " and externalReferenceIdInfo.value=winnerIdInfo.value"
             // these joins get the Resource representing the winner
-            + " and not exists (from ContestEligibility contestEligibility where contestEligibility.studio=1"
-            + " and contestEligibility.contestId=project.projectId)";// this
+            + " and not exists (from ContestEligibility contestEligibility where contestEligibility.contestId=project.projectId)";// this
                                                                      // filters
                                                                      // out the
                                                                      // studio
