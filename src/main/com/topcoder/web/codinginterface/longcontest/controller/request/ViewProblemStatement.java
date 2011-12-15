@@ -64,14 +64,17 @@ public class ViewProblemStatement extends Base {
                 if (!rsc.isEmpty()&&rsc.getItem(0, "language_id").getResultData()!=null) {
                     lid = rsc.getIntItem(0, "language_id");
                 } else {
-                    Coder coder = (Coder)createEJB(getInitialContext(), Coder.class);
+                    //Coder coder = (Coder)createEJB(getInitialContext(), Coder.class);
                     try {
+						Coder coder = (Coder)createEJB(getInitialContext(), Coder.class);
                         Integer lang = coder.getLanguageId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME);
                         if (lang != null) {
                             lid = lang;
                         }
                     } catch (RowNotFoundException e) {
                         lid = JavaLanguage.ID;
+					} catch (Exception e) {
+						lid = javaLanguage.ID;
                     }
 
                 }
