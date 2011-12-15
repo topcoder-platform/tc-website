@@ -40,11 +40,14 @@ public class ViewActiveContests extends Base {
 
             // Prepare a request to get active contest information
             Request r = new Request();
-            r.setContentHandle("long_contest_active_contests");
+            //r.setContentHandle("long_contest_active_contests");
+			// changed query that is called to allow discluding of hidden rounds
+			r.setContentHandle("long_contest_active_contests_user");
+			r.setProperty(Constants.CODER_ID, String.valueOf(getUser().getId()));
 
             // Fetch Data
             Map<String, ResultSetContainer> m = dai.getData(r);
-            ResultSetContainer rsc = m.get("long_contest_active_contests");
+            ResultSetContainer rsc = m.get("long_contest_active_contests_user");
 
             RoundRegistrationLocal reg =
                     (RoundRegistrationLocal) createLocalEJB(getInitialContext(), RoundRegistration.class);
