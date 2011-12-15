@@ -33,9 +33,10 @@ public class ViewProblemStatement extends Base {
      *
      */
     protected void longContestProcessing() throws TCWebException {
-        if (getUser().isAnonymous()) {
-            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-        }
+        // Decided to provide non-logged in access to marathon problem statements (11/17/2011) - commented out the check below 
+		//if (getUser().isAnonymous()) {
+        //    throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        //}
         try {
             TCRequest request = getRequest();
             long rd = Long.parseLong(request.getParameter(Constants.ROUND_ID));
