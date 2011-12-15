@@ -64,7 +64,7 @@ public class CoderSessionInfo extends SessionInfo {
             }
         }
 
-        CachedDataAccess countDai = new CachedDataAccess(MaxAge.QUARTER_HOUR, DBMS.DW_DATASOURCE_NAME);
+        CachedDataAccess countDai = new CachedDataAccess(MaxAge.QUARTER_HOUR, DBMS.OLTP_DATASOURCE_NAME);
         Request countReq = new Request();
         countReq.setContentHandle("member_count");
         memberCount = ((ResultSetContainer) countDai.getData(countReq).get("member_count")).getIntItem(0, "member_count");
