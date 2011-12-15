@@ -302,7 +302,7 @@ public abstract class Base extends BaseProcessor {
         r.setProperty("rd", String.valueOf(roundID));
         return !((ResultSetContainer)getDataAccess(true).getData(r).get(
         		"long_contest_exclusive_round_check")).isEmpty();
-           	
-    }
+				
+
 }
 
