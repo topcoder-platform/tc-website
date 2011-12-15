@@ -1,0 +1,50 @@
+-- multi preview images
+database studio_oltp; 
+
+delete from contest_results_mock;
+
+insert into contest_results_mock (submitter_id, amount, reg_date, submit_date, submission_id, is_image, height, width, placed, final_score, prize_type_id, show_submissions, require_preview_image, require_preview_file, contest_channel_id, gallery_image_count, contest_id)
+values (132456, 1000.00, current, current, [new multiple preview image submission id], 'f', null, null, 1, 100.0, 1, "true", "true", "false", 1, 6, 2713);
+insert into contest_results_mock (submitter_id, amount, reg_date, submit_date, submission_id, is_image, height, width, placed, final_score, prize_type_id, show_submissions, require_preview_image, require_preview_file, contest_channel_id, gallery_image_count, contest_id)
+values (132456,  900.00, current, current, [new multiple preview image submission id], 'f', null, null, 2,  90.0, 1, "true", "true", "false", 1, 6, 2713);
+insert into contest_results_mock (submitter_id, amount, reg_date, submit_date, submission_id, is_image, height, width, placed, final_score, prize_type_id, show_submissions, require_preview_image, require_preview_file, contest_channel_id, gallery_image_count, contest_id)
+values (132456,  800.00, current, current, [new multiple preview image submission id], 'f', null, null, 3,  80.0, 1, "true", "true", "false", 1, 6, 2713);
+insert into contest_results_mock (submitter_id, amount, reg_date, submit_date, submission_id, is_image, height, width, placed, final_score, prize_type_id, show_submissions, require_preview_image, require_preview_file, contest_channel_id, gallery_image_count, contest_id)
+values (132456,  700.00, current, current, [new multiple preview image submission id], 'f', null, null, 4,  70.0, 1, "true", "true", "false", 1, 6, 2713);
+insert into contest_results_mock (submitter_id, amount, reg_date, submit_date, submission_id, is_image, height, width, placed, final_score, prize_type_id, show_submissions, require_preview_image, require_preview_file, contest_channel_id, gallery_image_count, contest_id)
+values (132456,  600.00, current, current, [new multiple preview image submission id], 'f', null, null, 5,  60.0, 1, "true", "true", "false", 1, 6, 2713);
+
+
+delete from submissions_mock;
+
+insert into submissions_mock (user_id, submission_id, handle_lower, is_image, create_date, width, height, final_score, review_status_id, require_preview_image, require_preview_file, contest_channel_id, gallery_image_count, contest_id)
+values (132456, [new multiple preview image submission id], "heffan", 'f', current, null, null, 100.0, 1, "true", "false", 1, 6, 2713);
+insert into submissions_mock (user_id, submission_id, handle_lower, is_image, create_date, width, height, final_score, review_status_id, require_preview_image, require_preview_file, contest_channel_id, gallery_image_count, contest_id)
+values (132456, [new multiple preview image submission id], "heffan", 'f', current, null, null, 90.0, 1, "true", "false", 1, 6, 2713);
+insert into submissions_mock (user_id, submission_id, handle_lower, is_image, create_date, width, height, final_score, review_status_id, require_preview_image, require_preview_file, contest_channel_id, gallery_image_count, contest_id)
+values (132456, [new multiple preview image submission id], "heffan", 'f', current, null, null, 90.0, 1, "true", "false", 1, 6, 2713);
+insert into submissions_mock (user_id, submission_id, handle_lower, is_image, create_date, width, height, final_score, review_status_id, require_preview_image, require_preview_file, contest_channel_id, gallery_image_count, contest_id)
+values (132456, [new multiple preview image submission id], "heffan", 'f', current, null, null, 90.0, 1, "true", "false", 1, 6, 2713);
+insert into submissions_mock (user_id, submission_id, handle_lower, is_image, create_date, width, height, final_score, review_status_id, require_preview_image, require_preview_file, contest_channel_id, gallery_image_count, contest_id)
+values (132456, [new multiple preview image submission id], "heffan", 'f', current, null, null, 90.0, 1, "true", "false", 1, 6, 2713);
+insert into submissions_mock (user_id, submission_id, handle_lower, is_image, create_date, width, height, final_score, review_status_id, require_preview_image, require_preview_file, contest_channel_id, gallery_image_count, contest_id)
+values (132456, [new multiple preview image submission id], "heffan", 'f', current, null, null, 90.0, 1, "true", "false", 1, 6, 2713);
+insert into submissions_mock (user_id, submission_id, handle_lower, is_image, create_date, width, height, final_score, review_status_id, require_preview_image, require_preview_file, contest_channel_id, gallery_image_count, contest_id)
+values (132456, [new multiple preview image submission id], "heffan", 'f', current, null, null, 90.0, 1, "true", "false", 1, 6, 2713);
+insert into submissions_mock (user_id, submission_id, handle_lower, is_image, create_date, width, height, final_score, review_status_id, require_preview_image, require_preview_file, contest_channel_id, gallery_image_count, contest_id)
+values (132456, [new multiple preview image submission id], "heffan", 'f', current, null, null, 90.0, 1, "true", "false", 1, 6, 2713);
+insert into submissions_mock (user_id, submission_id, handle_lower, is_image, create_date, width, height, final_score, review_status_id, require_preview_image, require_preview_file, contest_channel_id, gallery_image_count, contest_id)
+values (132456, [new multiple preview image submission id], "heffan", 'f', current, null, null, 90.0, 1, "true", "false", 1, 6, 2713);
+insert into submissions_mock (user_id, submission_id, handle_lower, is_image, create_date, width, height, final_score, review_status_id, require_preview_image, require_preview_file, contest_channel_id, gallery_image_count, contest_id)
+values (132456, [new multiple preview image submission id], "heffan", 'f', current, null, null, 90.0, 1, "true", "false", 1, 6, 2713);
+insert into submissions_mock (user_id, submission_id, handle_lower, is_image, create_date, width, height, final_score, review_status_id, require_preview_image, require_preview_file, contest_channel_id, gallery_image_count, contest_id)
+values (132456, [new multiple preview image submission id], "heffan", 'f', current, null, null, 90.0, 1, "true", "false", 1, 6, 2713);
+insert into submissions_mock (user_id, submission_id, handle_lower, is_image, create_date, width, height, final_score, review_status_id, require_preview_image, require_preview_file, contest_channel_id, gallery_image_count, contest_id)
+values (132456, [new multiple preview image submission id], "heffan", 'f', current, null, null, 90.0, 1, "true", "false", 1, 6, 2713);
+insert into submissions_mock (user_id, submission_id, handle_lower, is_image, create_date, width, height, final_score, review_status_id, require_preview_image, require_preview_file, contest_channel_id, gallery_image_count, contest_id)
+values (132456, [new multiple preview image submission id], "heffan", 'f', current, null, null, 90.0, 1, "true", "false", 1, 6, 2713);
+insert into submissions_mock (user_id, submission_id, handle_lower, is_image, create_date, width, height, final_score, review_status_id, require_preview_image, require_preview_file, contest_channel_id, gallery_image_count, contest_id)
+values (132456, [new multiple preview image submission id], "heffan", 'f', current, null, null, 90.0, 1, "true", "false", 1, 6, 2713);
+insert into submissions_mock (user_id, submission_id, handle_lower, is_image, create_date, width, height, final_score, review_status_id, require_preview_image, require_preview_file, contest_channel_id, gallery_image_count, contest_id)
+values (132456, [new multiple preview image submission id], "heffan", 'f', current, null, null, 90.0, 1, "true", "false", 1, 6, 2713);
+
