@@ -99,9 +99,9 @@
                                 </tr>
 
                                 <tr valign="middle">
-                                    <td nowrap class="bodyText" align="right">Handle:</td>
+                                    <td nowrap class="bodyText" align="right">Username:</td>
                                     <td colspan="2" align="left">
-                                        <input type="text" name="<%=Login.USER_NAME%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
+                                        <input type="text" name="<%=Login.USER_NAME%>" value="" maxlength="50" size="12" onkeypress="submitEnter(event)">
                                     </td>
                                 </tr>
 
