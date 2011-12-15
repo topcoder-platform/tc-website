@@ -74,7 +74,7 @@ public class ViewProblemStatement extends Base {
                     } catch (RowNotFoundException e) {
                         lid = JavaLanguage.ID;
 					} catch (Exception e) {
-						lid = javaLanguage.ID;
+						lid = JavaLanguage.ID;
                     }
 
                 }
