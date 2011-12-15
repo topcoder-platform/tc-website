@@ -43,9 +43,10 @@ public class ViewStandings extends Base {
             if (roundID == null) {
                 // Find most recent round
                 Request r = new Request();
-                r.setContentHandle("long_contest_active_contests");
+                r.setContentHandle("long_contest_active_contests_user");
+				r.setProperty(Constants.CODER_ID, String.valueOf(getUser().getId()));
                 Map m = dai.getData(r);
-                ResultSetContainer rsc = (ResultSetContainer) m.get("long_contest_active_contests");
+                ResultSetContainer rsc = (ResultSetContainer) m.get("long_contest_active_contests_user");
                 if (rsc.size() == 0) { // No active contests
                     getRequest().setAttribute(Constants.MESSAGE, "There are currently no active rounds.");
                 } else { // Show the most recent active round
