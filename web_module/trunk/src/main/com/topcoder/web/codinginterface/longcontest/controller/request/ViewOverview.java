@@ -57,9 +57,10 @@ public class ViewOverview extends Base {
             if (roundID == null) {
                 // Find most recent round
                 Request req = new Request();
-                req.setContentHandle("long_contest_active_contests");
+                req.setContentHandle("long_contest_active_contests_user");
+				req.setProperty(Constants.CODER_ID, String.valueOf(getUser().getId()));
                 ResultSetContainer rsc =
-                        (ResultSetContainer) getDataAccess(false).getData(req).get("long_contest_active_contests");
+                        (ResultSetContainer) getDataAccess(false).getData(req).get("long_contest_active_contests_user");
                 if (rsc.isEmpty()) { // No active contests
                     getRequest().setAttribute(Constants.MESSAGE, "There are currently no active rounds.");
                     setNextPage(Constants.PAGE_VIEW_REGISTRANTS);
