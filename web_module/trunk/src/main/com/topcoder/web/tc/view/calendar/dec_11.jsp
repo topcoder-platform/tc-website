@@ -125,6 +125,10 @@
       <td class="value">22
       </td>
       <td class="value">23
+	  	 <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=14762">SRM 526.5</A></strong><br />
+         21:00
+        </div>	  
       </td>
       <td class="value">24
       </td>
