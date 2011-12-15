@@ -76,6 +76,8 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
     public static final int COCKPIT_PROJECT_NAME_COL = 15;
     public static final int BILLING_ACCOUNT_NAME_COL = 16;
     public static final int INVOICE_NUMBER_COL = 17;
+
+    private static final double WIRE_FEE = 10.0;
     
     protected void businessProcessing() throws TCWebException {
         try {
@@ -254,6 +256,9 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                     totalUserAmount += payment.getRecentNetAmount();
                     applyWireFee = applyWireFee || payment.getMethod().equals("Wire");
                 }
+                if (applyWireFee) {
+                    totalUserAmount -= WIRE_FEE;
+                }
 
                 Element paymentElement = doc.createElement("Payment");
                 paymentElement.setAttribute("PaymentID", "" + userPayments.get(0).getId());
@@ -290,7 +295,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                     remittanceRecordElement.setAttribute("PayerDocumentDate", new SimpleDateFormat("MM/dd/yyyy").format(date.getTime()));
                     remittanceRecordElement.setAttribute("Notes", "Adjustment for Wire Fee");
                     remittanceRecordElement.setAttribute("AmountPaid", "0.0");
-                    remittanceRecordElement.setAttribute("AdjustmentAmount", "-10.0");
+                    remittanceRecordElement.setAttribute("AdjustmentAmount", "-"+WIRE_FEE);
                     remittanceRecordElement.setAttribute("AdjustmentReason", "Processing Fee");
 
                     remittanceElement.appendChild(remittanceRecordElement);

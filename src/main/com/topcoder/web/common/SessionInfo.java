@@ -170,7 +170,7 @@ public class SessionInfo implements Serializable {
     }
 
     private int loadMemberCount() throws Exception {
-        CachedDataAccess countDai = new CachedDataAccess(MaxAge.QUARTER_HOUR, DBMS.DW_DATASOURCE_NAME);
+        CachedDataAccess countDai = new CachedDataAccess(MaxAge.QUARTER_HOUR, DBMS.OLTP_DATASOURCE_NAME);
         Request countReq = new Request();
         countReq.setContentHandle("member_count");
         return ((ResultSetContainer) countDai.getData(countReq).get("member_count")).getIntItem(0, "member_count");
