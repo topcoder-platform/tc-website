@@ -190,7 +190,7 @@
 		</table>
     <%}%>
 
-    <%if(rsr.getIntItem("round_id") == 13772 || round_id == 14525 || round_id == 14584) {%>
+    <%if(rsr.getIntItem("round_id") == 13772 || round_id == 14525 || round_id == 14584 || round_id == 14996) {%>
 		<div class="sectionHeader">Prizes</div>
 		<p align="justify">There will be $10,000 in total prize money.  The 5 highest scorers in the round will receive prizes as follows:</p>
 
@@ -334,7 +334,7 @@
 	
      <p align="justify">
 	 
-		<% if (Arrays.binarySearch(assignRounds, round_id)>=0 || round_id==14481 || round_id==14525 || round_id == 14584) { %>
+		<% if (Arrays.binarySearch(assignRounds, round_id)>=0 || round_id==14481 || round_id==14525 || round_id == 14584 || round_id == 14996) { %>
 		
 			As a condition of winning and redeeming a cash prize, Competitors will be required to submit, 
 			among other things, a completed TopCoder Competition Assignment Agreement, 
@@ -353,7 +353,7 @@
     <%if(rsr.getIntItem("round_id") == 13754  || rsr.getIntItem("round_id") == 13934 || rsr.getIntItem("round_id") == 13772 || 
 	     rsr.getIntItem("round_id") == 13569 || rsr.getIntItem("round_id") == 13570 || rsr.getIntItem("round_id") == 13679 ||  
 		 rsr.getIntItem("round_id") == 13680 || rsr.getIntItem("round_id") == 13681 || rsr.getIntItem("round_id") == 14525 ||
-		 rsr.getIntItem("round_id") == 14584) {%>
+		 rsr.getIntItem("round_id") == 14584 || rsr.getIntItem("round_id") == 14996) {%>
 
 		<p align="justify">
 			This Competition is open to all members of the TopCoder website, who have agreed to the terms thereof, and who are at least 
@@ -425,7 +425,7 @@
 
     <div class="sectionHeader">Ownership and Rights</div>
     
-	<% if (Arrays.binarySearch(assignRounds, round_id)>=0 || round_id==14525 || round_id == 14584) { %>
+	<% if (Arrays.binarySearch(assignRounds, round_id)>=0 || round_id==14525 || round_id == 14584 || round_id == 14996) { %>
 		
 		<p align="justify">
 			You hereby acknowledge and agree that TopCoder owns, solely and exclusively, all right, title and interest, including all intellectual property 
