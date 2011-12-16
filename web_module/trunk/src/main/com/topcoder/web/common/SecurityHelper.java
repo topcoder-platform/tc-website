@@ -79,6 +79,7 @@ public class SecurityHelper {
                         cc.set(address, ret);
                     } catch (Exception e) {
                         log.error("UNABLE TO INSERT INTO CACHE: " + e.getMessage());
+						e.printStackTrace();
                     }
                 }
             } else {
