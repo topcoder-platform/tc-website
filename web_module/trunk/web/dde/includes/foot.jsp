@@ -10,7 +10,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%
-        CachedDataAccess countDai = new CachedDataAccess(MaxAge.QUARTER_HOUR, DBMS.DW_DATASOURCE_NAME);
+        CachedDataAccess countDai = new CachedDataAccess(MaxAge.QUARTER_HOUR, DBMS.OLTP_DATASOURCE_NAME);
         Request countReq = new Request();
         countReq.setContentHandle("member_count");
         Integer memberCount = Integer.valueOf(((ResultSetContainer) countDai.getData(countReq).get("member_count")).getIntItem(0, "member_count"));
