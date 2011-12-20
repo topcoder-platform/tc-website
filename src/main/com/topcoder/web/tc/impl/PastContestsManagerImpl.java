@@ -509,6 +509,12 @@ public class PastContestsManagerImpl extends HibernateDaoSupport implements
                             "DataAccessException occurs while executing", e),
                             signature);
         }
+		catch (Exception e) {
+            throw Helper
+                    .logException(LOGGER, new PastContestsManagerException(
+                            "DataAccessException occurs while executing", e),
+                            signature);
+        }
     }
 
     /**
@@ -564,7 +570,10 @@ public class PastContestsManagerImpl extends HibernateDaoSupport implements
                 .intValue());
         dto.setNumberOfRegistrants(((Long) map.get("numberOfRegistrants"))
                 .intValue());
-        dto.setCompletionDate(Helper.getEDTTime((Date) map.get("completionDate")));
+		if (map.get("completionDate") != null)
+		{
+			dto.setCompletionDate(Helper.getEDTTime((Date) map.get("completionDate")));
+		}
         dto.setPassedScreeningCount(((Long) map.get("passedScreeningCount"))
                 .intValue());
         String winnerExternalReferenceId = (String) map
