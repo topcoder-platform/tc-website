@@ -84,7 +84,8 @@
 		<property name="externalReferenceIdInfoId" value="1" />
 		<property name="handleInfoId" value="2" />
 		<property name="secondPlaceIdInfoId" value="24" />
-		<property name="firstPlaceCostInfoId" value="36" />
+		<property name="firstPlaceCostInfoId" value="16" />
+		<property name="submitterRoleId" value="1" />
 	</bean>
 	<bean id="pastContestsManagerBean" class="com.topcoder.web.tc.impl.PastContestsManagerImpl">
 		<property name="hibernateTemplate">
