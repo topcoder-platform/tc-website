@@ -97,29 +97,31 @@ public class ContestStatusManagerImpl extends HibernateDaoSupport implements
             + " projectCatalog.name as catalog,"
             + " submissionPhase.scheduledEndTime as submissionDueDate,"
             + " finalReviewPhase.scheduledEndTime as finalReviewDueDate, "
-			+ " (SELECT name from PhaseType WHERE phaseTypeId = ("
-			+ "    SELECT MAX(ptl.phaseTypeId) FROM PhaseType ptl, ProjectPhase currentPhase WHERE ptl.phaseTypeId = currentPhase.phaseTypeId"
-			+ "		     AND currentPhase.projectId = project.projectId AND currentPhase.phaseStatusId=:openPhaseStatusId)) as currentPhase,"
-            + " (select handleInfo.value from ProjectInfo winnerIdInfo, Resource r1, ResourceInfo externalReferenceIdInfo,"
-            + " ResourceInfo handleInfo where winnerIdInfo.projectId=project.projectId"
-            + " and winnerIdInfo.projectInfoTypeId=:winnerIdInfoId"
+			+ " (SELECT name FROM PhaseType WHERE phaseTypeId = ("
+			+ "          SELECT MAX(ptl.phaseTypeId) FROM PhaseType ptl, ProjectPhase currentPhase WHERE ptl.phaseTypeId = currentPhase.phaseTypeId"
+			+ "		     								AND currentPhase.projectId = project.projectId AND currentPhase.phaseStatusId=:openPhaseStatusId)) as currentPhase,"
+            + " (select handleInfo.value FROM ProjectInfo winnerIdInfo, Resource r1, ResourceInfo externalReferenceIdInfo,"
+            + " 								ResourceInfo handleInfo where winnerIdInfo.projectId=project.projectId"
+            + " 																and winnerIdInfo.projectInfoTypeId=:winnerIdInfoId"
             // this join gets the winner handle
-            + " and r1.projectId=project.projectId and externalReferenceIdInfo.resourceId=r1.resourceId"
-            + " and externalReferenceIdInfo.resourceInfoTypeId=:externalReferenceIdInfoId"
-            + " and externalReferenceIdInfo.value=winnerIdInfo.value"
+            + " 																and r1.projectId=project.projectId and externalReferenceIdInfo.resourceId=r1.resourceId "
+			+ "                                                                 and r1.resourceRoleId = :submitterRoleId "
+            + " 																and externalReferenceIdInfo.resourceInfoTypeId=:externalReferenceIdInfoId"
+            + " 																and externalReferenceIdInfo.value=winnerIdInfo.value"
             // this join gets the winner external reference ID
-            + " and handleInfo.resourceId=r1.resourceId and handleInfo.resourceInfoTypeId=:handleInfoId) as firstPlaceHandle,"
-            + " (select winnerIdInfo.value from ProjectInfo winnerIdInfo where winnerIdInfo.projectId=project.projectId"
-            + " and winnerIdInfo.projectInfoTypeId=:winnerIdInfoId) as firstPlaceHandleId,"
+            + " 																and handleInfo.resourceId=r1.resourceId and handleInfo.resourceInfoTypeId=:handleInfoId) as firstPlaceHandle,"
+            + " (select winnerIdInfo.value FROM ProjectInfo winnerIdInfo WHERE winnerIdInfo.projectId=project.projectId"
+            + " 									and winnerIdInfo.projectInfoTypeId=:winnerIdInfoId) as firstPlaceHandleId,"
             // these joins get the Resource representing the winner
-            + " (select secondPlaceIdInfo.value from ProjectInfo secondPlaceIdInfo where secondPlaceIdInfo.projectId=project.projectId"
-            + " and secondPlaceIdInfo.projectInfoTypeId=:secondPlaceIdInfoId) as secondPlaceHandleId,"
+            + " (select secondPlaceIdInfo.value FROM ProjectInfo secondPlaceIdInfo WHERE secondPlaceIdInfo.projectId=project.projectId"
+            + " 									and secondPlaceIdInfo.projectInfoTypeId=:secondPlaceIdInfoId) as secondPlaceHandleId,"
             // these joins get the Resource representing the second place
-            + " firstPrizeInfo.value as firstPrize) from Project project, ProjectCategoryLookup projectCategory,"
-            + " ProjectCatalogLookup projectCatalog, ProjectPhase registrationPhase,"
-            + " ProjectPhase submissionPhase, ProjectPhase finalReviewPhase,"
-            + " ProjectInfo firstPrizeInfo, ProjectInfo projectNameInfo"
-            + " where project.projectCategoryId=projectCategory.projectCategoryId"
+            + " firstPrizeInfo.value as firstPrize) "
+			+ " FROM Project project, ProjectCategoryLookup projectCategory,"
+            + " 	ProjectCatalogLookup projectCatalog, ProjectPhase registrationPhase,"
+            + " 	ProjectPhase submissionPhase, ProjectPhase finalReviewPhase,"
+            + " 	ProjectInfo firstPrizeInfo, ProjectInfo projectNameInfo"
+            + " WHERE project.projectCategoryId=projectCategory.projectCategoryId"
 			+ " and project.projectStatusId = 1"
             // this join is for type
             + " and projectCategory.projectCatalogId=projectCatalog.projectCatalogId"
@@ -137,7 +139,8 @@ public class ContestStatusManagerImpl extends HibernateDaoSupport implements
             + " and finalReviewPhase.phaseTypeId=:finalReviewPhaseTypeId"
             // this join is for getting the final review phase due date
             + " and firstPrizeInfo.projectId=project.projectId"
-            + " and firstPrizeInfo.projectInfoTypeId=:firstPlaceCostInfoId";
+            + " and firstPrizeInfo.projectInfoTypeId=:firstPlaceCostInfoId "
+			+ " and exists (SELECT phaseTypeId from ProjectPhase pp where pp.projectId = project.projectId and pp.phaseStatusId = :openPhaseStatusId) ";
     // this join is for getting the winner prize
 
     /**
@@ -291,6 +294,21 @@ public class ContestStatusManagerImpl extends HibernateDaoSupport implements
      * </p>
      */
     private long firstPlaceCostInfoId;
+	
+	
+	 /**
+     * <p>
+     * The id of the resource_role_lu row that has name 'Submitter'. It is set
+     * through setter and doesn't have a getter. It must be non-negative. (Note
+     * that the above statement applies only after the setter has been called as
+     * part of the IoC initialization. This field's value has no restriction
+     * before the IoC initialization) It does not need to be initialized when
+     * the instance is created. It is used in setSubmitterRoleId(),
+     * retrievePastContests(). Its value legality is checked in
+     * checkConfiguration() method.
+     * </p>
+     */
+    private long submitterRoleId;
 
     /**
      * <p>
@@ -499,6 +517,7 @@ public class ContestStatusManagerImpl extends HibernateDaoSupport implements
                 externalReferenceIdInfoId);
         query.setParameter("handleInfoId", handleInfoId);
         query.setParameter("secondPlaceIdInfoId", secondPlaceIdInfoId);
+		query.setParameter("submitterRoleId", submitterRoleId);
     }
 
     /**
@@ -698,6 +717,19 @@ public class ContestStatusManagerImpl extends HibernateDaoSupport implements
     public void setFirstPlaceCostInfoId(long firstPlaceCostInfoId) {
         this.firstPlaceCostInfoId = firstPlaceCostInfoId;
     }
+	
+	/**
+     * <p>
+     * Setter method for the submitterRoleId, simply set the value to the
+     * namesake field.
+     * </p>
+     * 
+     * @param submitterRoleId
+     *            The id of the resource_role_lu row that has name 'Submitter'
+     */
+    public void setSubmitterRoleId(long submitterRoleId) {
+        this.submitterRoleId = submitterRoleId;
+    }
 
     /**
      * <p>
@@ -731,5 +763,7 @@ public class ContestStatusManagerImpl extends HibernateDaoSupport implements
                 registrationPhaseTypeId);
         Helper.checkNotNegativeForConfiguration("firstPlaceCostInfoId",
                 firstPlaceCostInfoId);
+		Helper.checkNotNegativeForConfiguration("submitterRoleId",
+                submitterRoleId);
     }
 }
