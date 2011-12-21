@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<loadDefinition>
+    <sourcedb>jdbc:informix-sqli://184.72.192.120:2021/studio_oltp:INFORMIXSERVER=informixoltp_tcp;user=coder;password=c0d3r4T</sourcedb>
+    <targetdb>jdbc:informix-sqli://env.topcoder.com:2021/tcs_catalog:INFORMIXSERVER=informixoltp_tcp;user=coder;password=c0d3r4T</targetdb>
+    <load>
+        <classname>com.topcoder.utilities.studio.StudioContestMigrationTool</classname>
+        <parameterList>
+            <parameter name="start_date" value=""/>
+            <parameter name="end_date" value=""/>
+            <parameter name="contest_ids" value=""/>
+            <parameter name="screening_scorecard_id" value="200"/>
+            <parameter name="review_scorecard_id" value="201"/>
+            <parameter name="milestone_screening_scorecard_id" value="202"/>
+            <parameter name="milestone_review_scorecard_id" value="203"/>
+            <parameter name="screening_scorecard_question_id" value="200"/>
+            <parameter name="review_scorecard_question_id" value="201"/>
+            <parameter name="milestone_screening_scorecard_question_id" value="202"/>
+            <parameter name="milestone_review_scorecard_question_id" value="203"/>
+            <parameter name="software_documents_root" value="/home/tc/software"/>
+        </parameterList>
+    </load>
+</loadDefinition>

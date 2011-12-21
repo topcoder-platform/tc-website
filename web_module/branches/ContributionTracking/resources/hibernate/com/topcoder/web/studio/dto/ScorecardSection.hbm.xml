@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+        
+<hibernate-mapping package="com.topcoder.web.studio.dto">
+    <class name="ScorecardSection" table="scorecard_section">
+        <id name="id" column="scorecard_section_id" />
+        <property name="name" column="name" access="field" />
+        <property name="weight" column="weight" access="field" />
+        <property name="sort" column="sort" access="field" />
+        <set name="questions" order-by="sort asc">
+            <key column="scorecard_section_id" />
+            <one-to-many class="ScorecardQuestion" />
+        </set>
+    </class>
+</hibernate-mapping>

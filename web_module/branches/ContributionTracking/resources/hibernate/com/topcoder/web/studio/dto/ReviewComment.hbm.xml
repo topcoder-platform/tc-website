@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+        
+<hibernate-mapping package="com.topcoder.web.studio.dto">
+    <class name="ReviewComment" table="review_comment">
+        <id name="id" column="review_comment_id" />
+        <property name="content" column="content" access="field" />
+        <property name="extraInfo" column="extra_info" access="field" />
+        <property name="sort" column="sort" access="field" />
+        <many-to-one name="author" column="resource_id" class="Resource" />
+        <many-to-one name="type" column="comment_type_id" class="CommentType" />
+    </class>
+</hibernate-mapping>
+        

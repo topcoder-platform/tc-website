@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<!--
+  - Author: pvmagacho, TCSASSEMBLER
+  - Version: 1.1
+  - Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: Hibernate mapping file for external_content_type table
+-->
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.studio.dto" >
+
+    <class name="ExternalContentType" table="external_content_type">
+        <id name="id" column="external_content_type_id">
+        </id>
+		<property name="name"/>
+    </class>
+
+</hibernate-mapping>

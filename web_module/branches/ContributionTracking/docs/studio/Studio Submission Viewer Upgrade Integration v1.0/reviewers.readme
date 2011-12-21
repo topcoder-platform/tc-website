@@ -1,0 +1,96 @@
+************************************************************************************************************************
+Note: This document is for specific VM instructions. It is delibreatedly not part of deployment document because it's 
+      not meant for production deployment. (while deployment document indeed describes production deployment)
+************************************************************************************************************************
+
+
+Steps to prepare the VM for testing: (these steps assume a fresh working VM)
+1) Run database scripts for mocking up queries: (** see Note2)
+    - /test_files/scripts/studio_oltp.ddl
+2) Update web module source files in studio account. (/web_module/ -> ~/web/)
+3) kill running jboss instance for studio. (jps; kill "main" process id)
+4) Copy static content to apache (/studiodocs/ -> /usr/local/apache/studiodocs/)
+5) Build Studio:
+    5.1) login as studio
+    5.2) cd web
+    5.3) copy included build_studio.xml to the vm (/test_files/web_module/build_studio.xml -> ~/web/) with a small change 
+         to avoid deploying security.ear since it will break VM's authentication.
+    5.4) ant -f build_studio.xml deploy
+6) Start studio jboss instance:
+    6.1) login as studio, jbb, ./start.sh
+7) Once jboss instance is running, update the following query tool queries:
+    7.1) contest_results (http://studio.cloud.topcoder.com/query/query?t=ModifyQuery&db=java:JTS_STUDIO_OLTP&QueryId=27507)
+            select * from contest_results_mock
+            where contest_id = @ct@
+            order by nvl(placed, 99999) asc
+    7.2) submissions (http://studio.cloud.topcoder.com/query/query?t=ModifyQuery&db=java:JTS_STUDIO_OLTP&QueryId=26979)
+            select * from submissions_mock
+            where contest_id = @ct@
+            order by final_score desc
+
+    Note: if you are not familiar with query tool, check "Steps to update existing queries in Query Tool"    
+8) Now we need to update some of the contest's properties for testing:
+    8.1) go to http://studio.cloud.topcoder.com/admin?module=ViewContest&ct=2713 (login as heffan/password)
+    8.2) change "Are submitter user names viewable?:" to yes.
+    8.3) change "Contest End" and "Winner(s) Announced" years to 2010 (to open the contest)
+    8.4) click save.
+    8.5) since there is no multiple image preview submission in the VM, we need to upload one:
+         8.5.1) go to http://studio.cloud.topcoder.com/?module=ViewSubmission&ct=2713
+         8.5.2) select the corresponding files:
+                    submission zip file -> /test_files/multi_image_submission/submission.zip
+                    submission source zip file -> /test_files/multi_image_submission/source.zip
+                    submission preview image -> /test_files/multi_image_submission/4_grantingRights.jpg
+         8.5.3) click submit.
+         8.5.4) Please take note of the submission id (it will appear in the url next to "sbmid=" (If you did this
+                first thing after getting the vm, the id would probably be 24058)
+    8.6) Now we need to close the contest
+         8.6.1) go to http://studio.cloud.topcoder.com/admin?module=ViewContest&ct=2713
+         8.6.2) change "Contest End" and "Winner(s) Announced" years back to 2008 (to close the contest)
+         8.6.3) click save.
+    8.7) The submission needs to pass screening:
+         8.7.1) go to http://studio.cloud.topcoder.com/admin?module=ViewSubmissionDetail&sbmid=24058 
+                (replace 24058 with the newly created submission id)
+         8.7.2) change status to "passed".
+         8.7.3) click submit.
+9) At this point you are ready to feed queries with mock data. There are two sets of data included, one for single
+   preview images and another one for multiple preview images.
+   To apply a data set before testing:
+   9.1) run *one* of the database scripts:
+        9.1.1) for single preview images: /test_files/scripts/single_preview_image.dml
+        9.1.2) for multiple preview images: /test_files/scripts/multi_preview_images.dml (note that you need to update
+               this script with the new multi image submission id (8.5.4) before execution.
+   9.2) since results query is cached, you must restart cache after changing the data.
+        9.2.1) login as cache; kill jboss process; jbb; ./start.sh
+   9.3) You should be able to test:
+            - http://studio.cloud.topcoder.com/?module=ViewContestResults&ct=2713
+            - http://studio.cloud.topcoder.com/?module=ViewSubmissions&ct=2713
+        
+   * After testing one of the scenarios, follow the same steps for the other one.
+   
+   
+Note: due to the current state of the VM this deployment require several manual steps as described. IF something
+is not working after you deploy, please contact PM so that can be handled during review.
+
+Note2: Since testing of this assembly is hard because of the VM state, the strategy used for testing was to
+make query tool the system's interface. All necessary queries were mocked so that the pages work correctly and are
+easy to test. I've provided this to make testing easier, but it's your choice whether to use it or not.
+
+
+-------------------------------
+
+Issues to consider while reviewing:
+- JSP code was cleaned, all scriptlets removed and only jstl is used.
+- custom tags were added to encapsulate pagination and preview functionalities.
+- pagination functionality was improved.
+
+Thank you!
+
+-------------------------------
+
+Steps to update existing queries in Query Tool:
+1) Go to http://studio.cloud.topcoder.com/query/query
+2) login as heffan/password (check remember me) -> this is important
+3) Select the corresponding Datasource as required.
+4) Click on left menu "Query List" link.
+5) Search for the specified query name and click "edit" next to it.
+6) Make your changes and click save
