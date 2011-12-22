@@ -96,7 +96,8 @@ public class ContestStatusManagerImpl extends HibernateDaoSupport implements
     private static final String SQL_QUERY = "SELECT DISTINCT new map(project.projectId as contestId, projectCategory.name as type,"
             + " projectCatalog.name as catalog,"
             + " submissionPhase.scheduledEndTime as submissionDueDate,"
-            + " finalReviewPhase.scheduledEndTime as finalReviewDueDate, "
+            + "  (SELECT MAX(finalReviewPhase.scheduledEndTime) from ProjectPhase finalReviewPhase where finalReviewPhase.projectId=project.projectId "
+			+ "					and finalReviewPhase.phaseTypeId=:finalReviewPhaseTypeId) as finalReviewDueDate,  "
 			+ " (SELECT name FROM PhaseType WHERE phaseTypeId = ("
 			+ "          SELECT MAX(ptl.phaseTypeId) FROM PhaseType ptl, ProjectPhase currentPhase WHERE ptl.phaseTypeId = currentPhase.phaseTypeId"
 			+ "		     								AND currentPhase.projectId = project.projectId AND currentPhase.phaseStatusId=:openPhaseStatusId)) as currentPhase,"
@@ -119,7 +120,7 @@ public class ContestStatusManagerImpl extends HibernateDaoSupport implements
             + " firstPrizeInfo.value as firstPrize) "
 			+ " FROM Project project, ProjectCategoryLookup projectCategory,"
             + " 	ProjectCatalogLookup projectCatalog, ProjectPhase registrationPhase,"
-            + " 	ProjectPhase submissionPhase, ProjectPhase finalReviewPhase,"
+            + " 	ProjectPhase submissionPhase,"
             + " 	ProjectInfo firstPrizeInfo, ProjectInfo projectNameInfo"
             + " WHERE project.projectCategoryId=projectCategory.projectCategoryId"
 			+ " and project.projectStatusId = 1"
@@ -135,9 +136,6 @@ public class ContestStatusManagerImpl extends HibernateDaoSupport implements
             + " and submissionPhase.projectId=project.projectId"
             + " and submissionPhase.phaseTypeId=:submissionPhaseTypeId"
             // this join is for getting the submission due date
-            + " and finalReviewPhase.projectId=project.projectId"
-            + " and finalReviewPhase.phaseTypeId=:finalReviewPhaseTypeId"
-            // this join is for getting the final review phase due date
             + " and firstPrizeInfo.projectId=project.projectId"
             + " and firstPrizeInfo.projectInfoTypeId=:firstPlaceCostInfoId "
 			+ " and exists (SELECT phaseTypeId from ProjectPhase pp where pp.projectId = project.projectId and pp.phaseStatusId = :openPhaseStatusId) ";
@@ -490,6 +488,12 @@ public class ContestStatusManagerImpl extends HibernateDaoSupport implements
         } catch (IllegalArgumentException e) {
             throw Helper.logException(LOGGER, e, signature);
         } catch (DataAccessException e) {
+            throw Helper.logException(LOGGER,
+                    new ContestStatusManagerException(
+                            "DataAccessException occurs while executing", e),
+                    signature);
+        }
+		catch (Exception e) {
             throw Helper.logException(LOGGER,
                     new ContestStatusManagerException(
                             "DataAccessException occurs while executing", e),
