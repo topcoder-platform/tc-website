@@ -562,6 +562,7 @@ public class TCLoadTCS extends TCLoad {
         PreparedStatement select = null;
         PreparedStatement insert = null;
         PreparedStatement update = null;
+        PreparedStatement delete = null;
         ResultSet rs = null;
         int submissionId=0;
 
@@ -582,6 +583,7 @@ public class TCLoadTCS extends TCLoad {
                             "   ,ri.value as submitter_id" +
                             ",  u.project_id" +
                             ",  u.parameter as submission_url" +
+                            ",  s.submission_status_id " +
                             ",  1 as submission_type " +
                             "from submission s" +
                             "   ,upload u" +
@@ -597,7 +599,6 @@ public class TCLoadTCS extends TCLoad {
                             "   and r.resource_id = ri.resource_id " +
                             "   and ri.resource_info_type_id = 1 " +
                             "   and u.upload_type_id = 1 " +
-                            "   and s.submission_status_id <> 5 " +
                             ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
                             (firstRun ? "" :
                                     "and (s.modify_date > ? " +
@@ -611,11 +612,12 @@ public class TCLoadTCS extends TCLoad {
                                                     ")"
                                                     : ")"));
 
-            final String UPDATE = "update submission set submission_url=? " +
-                    "where submission_id=?";
+            final String UPDATE = "update submission set submission_url=? where submission_id=?";
 
             final String INSERT = "insert into submission (submitter_id, project_id, submission_url, submission_type, submission_id)" +
                     "values (?, ?, ?, ?, ?) ";
+
+            final String DELETE = "delete from submission where submission_id=?";
 
             select = prepareStatement(SELECT, SOURCE_DB);
 
@@ -628,14 +630,22 @@ public class TCLoadTCS extends TCLoad {
 
             update = prepareStatement(UPDATE, TARGET_DB);
             insert = prepareStatement(INSERT, TARGET_DB);
+            delete = prepareStatement(DELETE, TARGET_DB);
             rs = select.executeQuery();
 
             int count = 0;
             while (rs.next()) {
-                count++;
                 submissionId = rs.getInt("submission_id");
 
-                update.clearParameters();
+                // If the submission was deleted in the source DB then delete it from the target DB as well
+                if (rs.getInt("submission_status_id") == 5) {
+                    delete.clearParameters();
+                    delete.setInt(1, submissionId);
+                    delete.executeUpdate();
+                    continue;
+                }
+
+                count++;
 
                 // make sure submission dir exist
                 String submissionUrl = rs.getString("submission_url");
@@ -643,6 +653,8 @@ public class TCLoadTCS extends TCLoad {
                     // submission_dir does not prefix
                     submissionUrl = this.submissionDir + submissionUrl;
                 }
+
+                update.clearParameters();
                 update.setString(1, submissionUrl);
                 update.setInt(2, submissionId);
 
@@ -668,6 +680,7 @@ public class TCLoadTCS extends TCLoad {
             close(rs);
             close(insert);
             close(update);
+            close(delete);
             close(select);
         }
     }
