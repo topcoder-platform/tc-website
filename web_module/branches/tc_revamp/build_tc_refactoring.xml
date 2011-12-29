@@ -13,11 +13,12 @@
   <property name="java" value="${src.dir}/main" />
   <property name="jars.dir" value="${lib.dir}/jars" />
   <property name="jive.dir" value="${lib.dir}/jive" />
-  <property name="jboss_home" value="/home/tc/jboss-4.0.4.GA" />
+  <property name="jboss_home" value="${env.JBOSS_HOME}"/>
   <property name="jboss_deploy" value="${jboss_home}/server/all/deploy" />
   <property name="jboss_deploy_hasingleton" value="${jboss_home}/server/all/deploy-hasingleton" />
   <property name="jboss_lib" value="${jboss_home}/server/all/lib" />
   <property name="apache_tcdocs" value="/mnt/apache/tcdocs" />
+  <property name="struts.dir" value="${lib.dir}/jakarta-struts-1.1/lib"/>
   <property name="shared.jar" value="${bin}/shared.jar" />
   <property name="deprecation" value="true" />
   <property name="debug" value="true" />
@@ -31,6 +32,7 @@
     <pathelement location="${jars.dir}/axis_dok.jar" />
     <pathelement location="${jars.dir}/topcoder_commons_utility.jar" />
     <pathelement location="${jars.dir}/jstl-1.2.jar" />
+	<pathelement location="${jars.dir}/object_formatter.jar"/>
 
     <pathelement location="${jars.dir}/jboss/javax.servlet.jar" />
     <pathelement location="${jars.dir}/jboss/javax.servlet.jsp.jar" />
@@ -67,11 +69,61 @@
     <pathelement location="${struts.dir}/commons-collections.jar" />
     <pathelement location="${struts.dir}/struts.jar" />
 
-    <pathelement location="${jars.dir}/tcs/json_object/1.0/json_object.jar" />
-    <pathelement location="${jars.dir}/tcs/base_exception/2.0.0/base_exception.jar" />
+    <pathelement location="${jars.dir}/tcs/configuration_manager/2.1.5/configuration_manager.jar"/>
+	<pathelement location="${jars.dir}/object_formatter.jar"/>
+	<pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
+	<pathelement location="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
+	<pathelement location="${jars.dir}/tcs/file_upload/2.2.0/file_upload.jar"/>
+	<pathelement location="${jars.dir}/tcs/json_object/1.0/json_object.jar"/>
+	<pathelement location="${jars.dir}/tcs/base_exception.jar"/>
+	<pathelement location="${jars.dir}/tcs/email_engine/3.0/email_engine.jar"/>
+	<pathelement location="${jars.dir}/tcs/workdays/1.0/workdays.jar"/>
+	<pathelement location="${jars.dir}/tcs/document_generation.jar"/>
+	<pathelement location="${jars.dir}/tcs/refreshable_cache.jar"/>
+	<pathelement location="${jars.dir}/tcs/project_phases/2.0/project_phases.jar"/>
+	<pathelement location="${jars.dir}/tcs/job_scheduling.jar"/>
+	<pathelement location="${jars.dir}/tcs/math_matrix.jar"/>
+	<pathelement location="${jars.dir}/tcs/project_phase_template/1.2.0/project_phase_template.jar"/>
+	<pathelement location="${jars.dir}/tcs/file_class/1.0/file_class.jar"/>
+	<pathelement location="${jars.dir}/tcs/typesafe_enum/1.0/typesafe_enum.jar"/>
+	<pathelement location="${jars.dir}/tcs/simple_cache.jar"/>
+	<pathelement location="${jars.dir}/tcs/workdays/1.0/workdays.jar"/>
+	<pathelement location="${jars.dir}/tcs/contest_eligibility_validation_client/1.0.0/contest_eligibility_validation_client.jar"/>
+	<pathelement location="${jars.dir}/tcs/pipeline_service_persistence/1.0.0/pipeline_service_persistence.jar"/>
+	<pathelement location="${jars.dir}/tcs/pipeline_service/1.0.0/pipeline_service.jar"/>
+	<pathelement location="${jars.dir}/tcs/pipeline_service_facade/1.0.0/pipeline_service_facade.jar"/>
+	<pathelement location="${jars.dir}/tcs/copilot_pool_and_profiles_common.jar"/>
+	<pathelement location="${jars.dir}/tcs/copilot_pool_and_profiles_services.jar"/>
+	<pathelement location="${jars.dir}/tcs/pipeline_service_facade/1.0.0/pipeline_service_facade.jar"/>
+	
+	<pathelement location="${jars.dir}/tcs/member_photo_manager/2.0.0/member_photo_manager.jar"/>
+	<pathelement location="${jars.dir}/tcs/document_generator/3.1.0/document_generator.jar"/>
+	<pathelement location="${jars.dir}/tcs/configuration_persistence/1.0.1/configuration_persistence.jar"/>
+
+	<!--required for aol alerts only -->
+    <pathelement location="${jars.dir}/tcs/alerts_wrapper/1.0/java_alerts_wrapper.jar"/>
+    <pathelement location="${jars.dir}/tcs/logging_wrapper/2.0.0/logging_wrapper.jar"/>
+    <pathelement location="${jars.dir}/tcs/object_factory/2.0.1/object_factory.jar"/>
+
+	<pathelement location="${external.jars.dir}/base_exception-2.0.0.jar"/>
+    <pathelement location="${external.jars.dir}/configuration_api-2.0.0.jar"/>
+    <pathelement location="${external.jars.dir}/image_overlay-1.0.0.jar"/>
+    <pathelement location="${external.jars.dir}/image_resizing-1.0.0.jar"/>
+    <pathelement location="${external.jars.dir}/image_manipulation-1.0.0.jar"/>
+    <pathelement location="${external.jars.dir}/random_string_image-1.0.jar"/>
+    <pathelement location="${external.jars.dir}/spell_check-1.0.0.jar"/>
+    <pathelement location="${external.jars.dir}/random_string_generator-1.0.0.jar"/>
 
     <pathelement location="${jive.dir}/velocity-dep.jar" />
     <pathelement location="${jars.dir}/hibernate3.jar" />
+
+    <pathelement location="${jars.dir}/hibernate-3.0/hibernate-validator.jar"/>
+        
+    <pathelement location="${jars.dir}/hibernate-3.1/hibernate-commons-annotations.jar"/>
+
+    <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-annotations.jar"/>
+    <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-entitymanager.jar"/>
+    <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/ejb3-persistence.jar"/>
 
     <pathelement location="${jars.dir}/commons-fileupload-1.2.1.jar" />
     <pathelement location="${jars.dir}/commons-io-1.3.2.jar" />
@@ -82,6 +134,11 @@
     <pathelement location="${jars.dir}/struts2-spring-plugin-2.2.1.jar" />
     <pathelement location="${jars.dir}/struts2-json-plugin-2.2.1.jar" />
     <pathelement location="${jars.dir}/xwork-core-2.2.1.jar" />
+
+	 <pathelement location="${jars.dir}/fileconvert.jar"/>
+     <pathelement location="${jars.dir}/httpunit.jar"/>
+     <pathelement location="${jars.dir}/itext-1.1.jar"/>
+
   </path>
   <target name="init">
     <mkdir dir="${classes}" />
