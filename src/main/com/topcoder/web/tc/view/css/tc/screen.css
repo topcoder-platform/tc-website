@@ -3,7 +3,7 @@
  **/
 
 body{
-	background:url(../i/body-bg.png) 0 0 repeat-x;
+	background:url(../../i/tc/body-bg.png) 0 0 repeat-x;
 	font-family:Arial, Helvetica, sans-serif; 
 	font-size:12px;
 }
@@ -25,7 +25,7 @@ body{
 	padding:0 5px;
 }
 .text1{
-	background:#ffffff url(../i/text1-bg.png) left top repeat-x;
+	background:#ffffff url(../../i/tc/text1-bg.png) left top repeat-x;
 	border-top:1px solid #727272;
 	border-left:1px solid #b4b4b4;
 	border-right:1px solid #b4b4b4;
@@ -60,20 +60,20 @@ a.redlink,a.redlink:visited{
 }
 a.redlink:hover{ text-decoration:underline;}
 a.redBtn,a.redBtn:visited{
-	background:url(../i/buttons-l.png) 0 0 no-repeat;
+	background:url(../../i/tc/buttons-l.png) 0 0 no-repeat;
 	display:inline-block;
 	height:20px;
 	padding-left:5px;
 	text-decoration:none;
 }
 	a.redBtn .rightSide{
-		background:url(../i/buttons-r.png) 100% 0 no-repeat;
+		background:url(../../i/tc/buttons-r.png) 100% 0 no-repeat;
 		display:inline-block;
 		height:20px;
 		padding-right:5px;
 	}
 	a.redBtn .inner{
-		background:url(../i/buttons-bg.png) 0 0 repeat-x;
+		background:url(../../i/tc/buttons-bg.png) 0 0 repeat-x;
 		display:inline-block;
 		height:20px;
 		font-family:"Myriad Pro";
@@ -88,20 +88,20 @@ a.redBtn,a.redBtn:visited{
 	a.redBtn:hover .inner { background-position: 0 -20px;}
 	
 a.greyBtn,a.greyBtn:visited{
-	background:url(../i/button1-l.png) 0 0 no-repeat;
+	background:url(../../i/tc/button1-l.png) 0 0 no-repeat;
 	display:inline-block;
 	height:20px;
 	padding-left:5px;
 	text-decoration:none;
 }
 	a.greyBtn .rightSide{
-		background:url(../i/button1-r.png) 100% 0 no-repeat;
+		background:url(../../i/tc/button1-r.png) 100% 0 no-repeat;
 		display:inline-block;
 		height:20px;
 		padding-right:5px;
 	}
 	a.greyBtn .inner{
-		background:url(../i/button1-bg.png) 0 0 repeat-x;
+		background:url(../../i/tc/button1-bg.png) 0 0 repeat-x;
 		display:inline-block;
 		height:20px;
 		font-family:'Myriad Pro';
@@ -116,7 +116,7 @@ a.greyBtn,a.greyBtn:visited{
 	a.greyBtn:hover .inner { background-position: 0 -20px;}
 
 a.bulletLink,a.bulletLink:visited{
-	background:url(../i/red-bullet.png) left 1px no-repeat;
+	background:url(../../i/tc/red-bullet.png) left 1px no-repeat;
 	font-size:11px;
 	color:#666666;
 	padding-left:10px;
@@ -125,7 +125,7 @@ a.bulletLink,a.bulletLink:visited{
 	a.bulletLink:hover{ text-decoration:underline;}
 	
 a.hint, a.hint:visited{
-	background:url(../i/hint.png) 0 0 no-repeat;
+	background:url(../../i/tc/hint.png) 0 0 no-repeat;
 	display:inline-block;
 	width:18px;
 	height:18px;
@@ -144,7 +144,7 @@ a.hint, a.hint:visited{
 
 	/* header */
 	#header {
-		background:url(../i/header-bg.png) left top no-repeat;
+		background:url(../../i/tc/header-bg.png) left top no-repeat;
 		height:94px;
 		position:relative;
 		z-index:1;
@@ -152,7 +152,7 @@ a.hint, a.hint:visited{
 		
 		/* logo */
 		a.logo,a.logo:visited {
-			background:url(../i/logo.png) 0 0 no-repeat;
+			background:url(../../i/tc/logo.png) 0 0 no-repeat;
 			display:inline-block;
 			width:219px;
 			height:43px;
@@ -167,15 +167,15 @@ a.hint, a.hint:visited{
 		}
 		
 		#name .leftPart {
-			background:url(../i/name-side-l.png) 0 0 no-repeat;
+			background:url(../../i/tc/name-side-l.png) 0 0 no-repeat;
 			padding-left:4px;
 		}
 			#name .rightPart  {
-				background:url(../i/name-side-r.png) 100% 0 no-repeat;
+				background:url(../../i/tc/name-side-r.png) 100% 0 no-repeat;
 				padding-right:4px;
 			}
 				#name .innerPart  {
-					background:url(../i/name-bg.png) 0 0 repeat-x;
+					background:url(../../i/tc/name-bg.png) 0 0 repeat-x;
 					padding:0 4px;
 				}
 					#name ul {
@@ -185,7 +185,7 @@ a.hint, a.hint:visited{
 					#name li {
 						float:left;
 						padding:0 7px;
-						background:url(../i/name-divider.png) right 1px no-repeat;
+						background:url(../../i/tc/name-divider.png) right 1px no-repeat;
 						
 					}
 					
@@ -214,7 +214,7 @@ a.hint, a.hint:visited{
 						}
 						
 						#name li.hover a.hoverBtn,#name li.hover a.hoverBtn:visited {
-							background:#ffffff url(../i/flyout-tab-side.png) left top no-repeat;
+							background:#ffffff url(../../i/tc/flyout-tab-side.png) left top no-repeat;
 							padding-left:1px;
 							position:relative;
 							z-index:9999;
@@ -224,11 +224,11 @@ a.hint, a.hint:visited{
 								padding:0 1px 0 0;
 								color:#000;
 								font-size:11px;
-								background:#ffffff url(../i/flyout-tab-side.png) right top no-repeat;	
+								background:#ffffff url(../../i/tc/flyout-tab-side.png) right top no-repeat;	
 							}
 								#name li.hover a span.wrap span {
 									display:inline-block;
-									background:#ffffff url(../i/flyout-tab.png) left bottom repeat-x;
+									background:#ffffff url(../../i/tc/flyout-tab.png) left bottom repeat-x;
 									padding:6px 6px 10px 6px;
 									cursor:pointer;
 								}
@@ -268,45 +268,45 @@ a.hint, a.hint:visited{
 								}
 							
 							#name .subNav .head {
-								background:url(../i/flyout-tl.png) left bottom no-repeat;
+								background:url(../../i/tc/flyout-tl.png) left bottom no-repeat;
 								padding-left:5px;
 								height:4px;	
 							}
 								#name .subNav .head .rightSide {
-									background:url(../i/flyout-tr.png) 100% 0 no-repeat;
+									background:url(../../i/tc/flyout-tr.png) 100% 0 no-repeat;
 									padding-right:6px;
 									height:4px;	
 								}
 									#name .subNav .head .inner {
-										background: url(../i/flyout-tm.png) left bottom repeat-x;
+										background: url(../../i/tc/flyout-tm.png) left bottom repeat-x;
 										height:4px;	
 										overflow:hidden;
 										
 									}
 							
 							#name .subNav .content {
-								background:url(../i/flyout-ml.png) 0 0 repeat-y;
+								background:url(../../i/tc/flyout-ml.png) 0 0 repeat-y;
 								padding-left:5px;
 							}
 								#name .subNav .content .rightSideCustom {
-									background:url(../i/flyout-mr.png) 100% 0 repeat-y;
+									background:url(../../i/tc/flyout-mr.png) 100% 0 repeat-y;
 									padding-right:5px;
 								}
 									#name .subNav .content .innerSide {
-										background:#fefefe url(../i/flyout-mm.png) left bottom repeat-x;
+										background:#fefefe url(../../i/tc/flyout-mm.png) left bottom repeat-x;
 										padding:10px 14px 18px 10px;
 									}
 							
 							#name .subNav .foot {
-								background:url(../i/flyout-bl.png) 0 0 no-repeat;
+								background:url(../../i/tc/flyout-bl.png) 0 0 no-repeat;
 								padding-left:7px;
 							}
 								#name .subNav .foot .rightSide {
-									background:url(../i/flyout-br.png) 100% 0 no-repeat;
+									background:url(../../i/tc/flyout-br.png) 100% 0 no-repeat;
 									padding-right:7px;
 								}
 									#name .subNav .foot .inner {
-										background:url(../i/flyout-bm.png) 0 0 repeat-x;
+										background:url(../../i/tc/flyout-bm.png) 0 0 repeat-x;
 										padding-right:7px;
 										height:9px;
 									}
@@ -343,31 +343,31 @@ a.hint, a.hint:visited{
 			}
 			
 			#topNav li a.current,#topNav li a.current:visited{
-				background:url(../i/topNav-current-side.png) 0 0 no-repeat;
+				background:url(../../i/tc/topNav-current-side.png) 0 0 no-repeat;
 				padding:0 0 0 4px;
 				color:#fffffe;
 			}
 			#topNav li a.firstLevel,#topNav li a.firstLevel:visited,#topNav li a:hover{
-				background:url(../i/topNav-firstLevel-side.png) 0 0 no-repeat;
+				background:url(../../i/tc/topNav-firstLevel-side.png) 0 0 no-repeat;
 				padding:0 0 0 4px;
 				color:#fffffe;
 			}
 				#topNav li a.current .rightSide {
 					display:inline-block;
-					background:url(../i/topNav-current-side.png) 100% -29px no-repeat;
+					background:url(../../i/tc/topNav-current-side.png) 100% -29px no-repeat;
 					padding-right:4px;
 				}
 				#topNav li a.firstLevel .rightSide,#topNav li a:hover .rightSide{
 					display:inline-block;
-					background:url(../i/topNav-firstLevel-side.png) 100% -29px no-repeat;
+					background:url(../../i/tc/topNav-firstLevel-side.png) 100% -29px no-repeat;
 					padding-right:4px;
 				}
 					#topNav li a.current .inner {
-						background:#ff0000 url(../i/topNav-current-bg.png) left bottom repeat-x;
+						background:#ff0000 url(../../i/tc/topNav-current-bg.png) left bottom repeat-x;
 						padding:9px 4px 8px 4px;
 					}
 					#topNav li a.firstLevel .inner,#topNav li a:hover .inner{
-						background:#ff0000 url(../i/topNav-firstLevel-bg.png) left bottom repeat-x;
+						background:#ff0000 url(../../i/tc/topNav-firstLevel-bg.png) left bottom repeat-x;
 						padding:9px 4px 8px 4px;
 					}
 					#topNav li a:hover { color:#fffffe; }
@@ -375,7 +375,7 @@ a.hint, a.hint:visited{
 			#topNav li a.current .arrow{
 				position:absolute;
 				display:block;
-				background:url(../i/topNav-arrow.png) 0 0 no-repeat;
+				background:url(../../i/tc/topNav-arrow.png) 0 0 no-repeat;
 				width:13px;
 				height:10px;
 				top:27px;
@@ -397,36 +397,36 @@ a.hint, a.hint:visited{
 				}
 					
 				#topNav .subNav .head {
-					background:url(../i/topNav-flyout-tl.png) left top no-repeat;
+					background:url(../../i/tc/topNav-flyout-tl.png) left top no-repeat;
 					padding-left:5px;
 				}
 					#topNav .subNav .head .rightSide {
-						background:url(../i/topNav-flyout-tr.png) 100% 0 no-repeat;
+						background:url(../../i/tc/topNav-flyout-tr.png) 100% 0 no-repeat;
 						padding-right:5px;
 					}
 						#topNav .subNav .head .inner {
-							background: url(../i/topNav-flyout-tm.png) left top repeat-x;
+							background: url(../../i/tc/topNav-flyout-tm.png) left top repeat-x;
 							padding-top:4px;
 						}
 				
 				#topNav .subNav .content {
-					background:url(../i/topNav-flyout-ml.png) left top repeat-y;
+					background:url(../../i/tc/topNav-flyout-ml.png) left top repeat-y;
 					padding-left:4px;
 				}
 					#topNav .subNav .content .leftContent{
-						background:url(../i/topNav-flyout-ms.png) left bottom no-repeat;
+						background:url(../../i/tc/topNav-flyout-ms.png) left bottom no-repeat;
 						padding-left:1px;
 					}
 					#topNav .subNav .content .rightSideCustom {
-						background:url(../i/topNav-flyout-mr.png) right top repeat-y;
+						background:url(../../i/tc/topNav-flyout-mr.png) right top repeat-y;
 						padding-right:4px;
 					}
 						#topNav .subNav .content .rightContent{
-							background:url(../i/topNav-flyout-ms.png) right bottom no-repeat;
+							background:url(../../i/tc/topNav-flyout-ms.png) right bottom no-repeat;
 							padding-right:1px;
 						}
 						#topNav .subNav .content ul {
-							background:#ff0000 url(../i/topNav-flyout-mm.png) left bottom repeat-x;
+							background:#ff0000 url(../../i/tc/topNav-flyout-mm.png) left bottom repeat-x;
 							padding-top:4px;
 						}
 							#topNav .subNav .content ul li a,#topNav .subNav .content ul li a:visited {
@@ -450,22 +450,22 @@ a.hint, a.hint:visited{
 								height:22px;
 								width:100%;
 								padding:0 2px 0 0;
-								background:url(../i/topNav-flyout-hover.png) 0 0 repeat-x;
+								background:url(../../i/tc/topNav-flyout-hover.png) 0 0 repeat-x;
 							}
 							#topNav .subNav .content ul li a:hover span.over{ display:block; }
 						
 						
 				
 				#topNav .subNav .foot {
-					background:url(../i/topNav-flyout-bl.png) 0 0 no-repeat;
+					background:url(../../i/tc/topNav-flyout-bl.png) 0 0 no-repeat;
 					padding-left:8px;
 				}
 					#topNav .subNav .foot .rightSide {
-						background:url(../i/topNav-flyout-br.png) 100% 0 no-repeat;
+						background:url(../../i/tc/topNav-flyout-br.png) 100% 0 no-repeat;
 						padding-right:8px;
 					}
 						#topNav .subNav .foot .inner {
-							background:url(../i/topNav-flyout-bm.png) 0 0 repeat-x;
+							background:url(../../i/tc/topNav-flyout-bm.png) 0 0 repeat-x;
 							padding:4px 0 5px 0;
 						}
 			
@@ -486,24 +486,24 @@ a.hint, a.hint:visited{
 			color:#666666;
 		}
 			.blackTitle {
-				background:url(../i/blackHeader-side.png) 0 0 no-repeat;
+				background:url(../../i/tc/blackHeader-side.png) 0 0 no-repeat;
 				padding-left:4px;
 				color:#fffffe;
 				font-size:14px;height:30px;
 			}
 				.blackTitle .rightSide {
-					background:url(../i/blackHeader-side.png) 100% -30px no-repeat;
+					background:url(../../i/tc/blackHeader-side.png) 100% -30px no-repeat;
 					padding-right:4px;
 					display:block;height:30px;
 				}
 					.blackTitle .inner {
-						background:url(../i/blackHeader-bg.png) 0 0 repeat-x;
+						background:url(../../i/tc/blackHeader-bg.png) 0 0 repeat-x;
 						display:block;
 						padding: 0 0 0 7px;height:30px;line-height:30px;
 					}
 					
 					.search .icon {
-						background:url(../i/icons.png) 0 center no-repeat;
+						background:url(../../i/tc/icons.png) 0 center no-repeat;
 						display:inline-block;
 						padding-left:16px;
 					}
@@ -554,19 +554,19 @@ a.hint, a.hint:visited{
 						}
 						
 							.tools li a.umlTool,.tools li a.umlTool:visited  {
-								background:url(../i/tools.png) 0 0 no-repeat;
+								background:url(../../i/tc/tools.png) 0 0 no-repeat;
 								height:66px;
 								display:block;
 								
 							}
 							.tools li a.eventCalendar,.tools li a.eventCalendar:visited  {
-								background:url(../i/tools.png) 0 -66px no-repeat;
+								background:url(../../i/tc/tools.png) 0 -66px no-repeat;
 								height:66px;
 								display:block;
 								
 							}
 							.tools li a.surveys,.tools li a.surveys:visited  {
-								background:url(../i/tools.png) 0 -132px no-repeat;
+								background:url(../../i/tc/tools.png) 0 -132px no-repeat;
 								height:66px;
 								display:block;
 							}
@@ -595,54 +595,54 @@ a.hint, a.hint:visited{
 			}
 			
 				.boxContainer .top {
-					background:url(../i/boxContainer-bg-lt.png) 0 0 no-repeat;
+					background:url(../../i/tc/boxContainer-bg-lt.png) 0 0 no-repeat;
 					height:9px;
 					overflow:hidden;
 					padding-left:9px;
 				}
 					.boxContainer .top .rightSide {
-						background:url(../i/boxContainer-bg-rt.png) 100% 0 no-repeat;
+						background:url(../../i/tc/boxContainer-bg-rt.png) 100% 0 no-repeat;
 						height:9px;
 						overflow:hidden;
 						padding-right:9px;
 					}
 					.boxContainer .top .inner {
-						background:url(../i/boxContainer-bg-tm.png) 0 0 repeat-x;
+						background:url(../../i/tc/boxContainer-bg-tm.png) 0 0 repeat-x;
 						height:9px;
 						overflow:hidden;
 						
 					}
 				
 				.boxContainer .bottom {
-					background:url(../i/boxContainer-bg-lb.png) 0 0 no-repeat;
+					background:url(../../i/tc/boxContainer-bg-lb.png) 0 0 no-repeat;
 					height:9px;
 					overflow:hidden;
 					padding-left:9px;
 				}
 					.boxContainer .bottom .rightSide {
-						background:url(../i/boxContainer-bg-rb.png) 100% 0 no-repeat;
+						background:url(../../i/tc/boxContainer-bg-rb.png) 100% 0 no-repeat;
 						height:9px;
 						overflow:hidden;
 						padding-right:9px;
 					}
 					.boxContainer .bottom .inner {
-						background:#f5f5f5 url(../i/boxContainer-bg-bm.png) 0 bottom repeat-x;
+						background:#f5f5f5 url(../../i/tc/boxContainer-bg-bm.png) 0 bottom repeat-x;
 						height:9px;
 						overflow:hidden;
 						
 					}	
 					
 				.boxContainer .content {
-					background:url(../i/boxContainer-bg-lm.png) 0 0 repeat-y;
+					background:url(../../i/tc/boxContainer-bg-lm.png) 0 0 repeat-y;
 					padding-left:5px;
 				}
 					.boxContainer .content div.rightSide {
-						background:url(../i/boxContainer-bg-rm.png) 100% 0 repeat-y;
+						background:url(../../i/tc/boxContainer-bg-rm.png) 100% 0 repeat-y;
 						padding-right:5px;
 					}
 					
 					.boxContainer .content .details {
-						background:url(../i/new-headline-mm.png) 0 0 repeat-x;
+						background:url(../../i/tc/new-headline-mm.png) 0 0 repeat-x;
 						height:160px;
 						padding:15px 20px 43px 20px;
 						overflow: hidden;
@@ -711,7 +711,7 @@ a.hint, a.hint:visited{
 									text-decoration: none;
 								}
 								#newsHeadLineCarouselNav li.active a {
-									background:url(../i/carouselNav.png) 0 0 no-repeat;
+									background:url(../../i/tc/carouselNav.png) 0 0 no-repeat;
 									color: #fffffe;
 									font-weight:bold;
 								}
@@ -737,24 +737,24 @@ a.hint, a.hint:visited{
 					}
 				
 					#newsContainer .blackTitle {
-						background:url(../i/blackHeader-side-4.png) 0 0 no-repeat;
+						background:url(../../i/tc/blackHeader-side-4.png) 0 0 no-repeat;
 						padding-left:4px;
 						color:#fffffe;
 						font-size:14px;height:30px;
 					}
 						#newsContainer .blackTitle .rightSide {
-							background:url(../i/blackHeader-side-4.png) 100% -30px no-repeat;
+							background:url(../../i/tc/blackHeader-side-4.png) 100% -30px no-repeat;
 							padding-right:4px;
 							display:block;height:30px;
 						}
 							#newsContainer .blackTitle .inner {
-								background:url(../i/blackHeader-bg-4.png) 0 0 repeat-x;
+								background:url(../../i/tc/blackHeader-bg-4.png) 0 0 repeat-x;
 								display:block;
 								padding: 0 0 0 7px;height:30px;line-height:30px;
 							}
 					
 					.corners {
-						background:url(../i/corners.png) 0 0 no-repeat;
+						background:url(../../i/tc/corners.png) 0 0 no-repeat;
 						display:block;
 						position:absolute;
 						width:3px;
@@ -793,7 +793,7 @@ a.hint, a.hint:visited{
 						
 					#newsContainer .content .meta {
 						padding: 9px 0 0 0;
-						background: url(../i/dotted.gif) repeat-x;
+						background: url(../../i/tc/dotted.gif) repeat-x;
 						color:#999999;
 					}
 						.meta .byline {
@@ -828,7 +828,7 @@ a.hint, a.hint:visited{
 				#newsArchives li {
 					width:255px;
 					float:left;
-					background:url(../i/red-bullet.png) left 1px no-repeat;
+					background:url(../../i/tc/red-bullet.png) left 1px no-repeat;
 					padding-left:13px;
 					margin-bottom:6px;
 				}
@@ -845,15 +845,15 @@ a.hint, a.hint:visited{
 			padding-bottom:8px;
 		}
 			.manOfM .blackTitle {
-				background:url(../i/blackHeader-side-2.png) 0 0 no-repeat;height:49px;
+				background:url(../../i/tc/blackHeader-side-2.png) 0 0 no-repeat;height:49px;
 				
 			}
 				.manOfM .rightSide {
-					background:url(../i/blackHeader-side-2.png) 100% -49px no-repeat;height:49px;
+					background:url(../../i/tc/blackHeader-side-2.png) 100% -49px no-repeat;height:49px;
 					
 				}
 					.manOfM .inner {
-						background:url(../i/blackHeader-bg-2.png) 0 0 repeat-x;
+						background:url(../../i/tc/blackHeader-bg-2.png) 0 0 repeat-x;
 						height:42px;
 						padding:7px 0 0 7px;line-height:normal;
 					}
@@ -908,7 +908,7 @@ a.hint, a.hint:visited{
 									
 									.manOfM .meta {
 										padding: 9px 0 10px 0;
-										background: url(../i/dotted.gif) repeat-x;
+										background: url(../../i/tc/dotted.gif) repeat-x;
 										
 									}
 										.manOfM .meta a.bulletLink { margin:0; }
@@ -950,15 +950,15 @@ a.hint, a.hint:visited{
 						}
 			
 			.topTen .blackTitle {
-				background:url(../i/blackHeader-side-3.png) 0 0 no-repeat;height:57px;
+				background:url(../../i/tc/blackHeader-side-3.png) 0 0 no-repeat;height:57px;
 				
 			}
 				.topTen .rightSide {
-					background:url(../i/blackHeader-side-3.png) 100% -57px no-repeat;height:57px;
+					background:url(../../i/tc/blackHeader-side-3.png) 100% -57px no-repeat;height:57px;
 					
 				}
 					.topTen .inner {
-						background:url(../i/blackHeader-bg-3.png) 0 0 repeat-x;
+						background:url(../../i/tc/blackHeader-bg-3.png) 0 0 repeat-x;
 						height:57px;
 						padding:0px 7px 0 7px;
 					}
@@ -992,7 +992,7 @@ a.hint, a.hint:visited{
 								.topTen .content th {
 									padding-bottom:8px;
 									margin-bottom:7px;
-									background:url(../i/dotted.gif) left bottom repeat-x;
+									background:url(../../i/tc/dotted.gif) left bottom repeat-x;
 								}
 								.topTen th.second { text-align:left;}
 								
@@ -1006,7 +1006,7 @@ a.hint, a.hint:visited{
 								}
 								.topTen .meta {
 									padding: 9px 0 10px 0;
-									background: url(../i/dotted.gif) repeat-x;
+									background: url(../../i/tc/dotted.gif) repeat-x;
 									
 								}
 									.topTen .meta a.bulletLink { margin:0; margin-left:10px; }
@@ -1032,7 +1032,7 @@ a.hint, a.hint:visited{
 			color:#000000;
 		}
 		#contestList li.current a,#contestList li.current a:visited,#contestList li.current a:hover{
-			background:url(../i/contestListCurrent-bg.png) left top no-repeat;
+			background:url(../../i/tc/contestListCurrent-bg.png) left top no-repeat;
 			color:#fffffe;
 		}
 			#contestList li a span{
@@ -1040,21 +1040,21 @@ a.hint, a.hint:visited{
 				padding:10px 0 10px 12px;
 			}
 			#contestList li.current a span{
-				background:url(../i/contestListCurrent-bg-repeat.png) left top repeat-x;
+				background:url(../../i/tc/contestListCurrent-bg-repeat.png) left top repeat-x;
 			}
 		#contestList li .node,#contestList li .node:visited{
 			padding-left:3px;
 		}
 			#contestList li .node span{ padding-left:13px; }
-			#contestList li .expanded span{ background:url(../i/node-expanded-icon.png) left center no-repeat; }
-			#contestList li .collapsed span{ background:url(../i/node-collapsed-icon.gif) left center no-repeat; }
+			#contestList li .expanded span{ background:url(../../i/tc/node-expanded-icon.png) left center no-repeat; }
+			#contestList li .collapsed span{ background:url(../../i/tc/node-collapsed-icon.gif) left center no-repeat; }
 		#contestList li .expanded:hover{ background:none; }
 		#contestList li.current .arrow{
 			position:absolute;
 			top:0;
 			right:-15px;
 			display:block;
-			background:url(../i/contestListCurrent-arrow.png) left top no-repeat;
+			background:url(../../i/tc/contestListCurrent-arrow.png) left top no-repeat;
 			width:15px;
 			height:32px;
 		}
@@ -1109,8 +1109,8 @@ a.hint, a.hint:visited{
 			width:auto;
 			padding:12px 14px 13px 20px;
 		}
-		#filterContainer .content .normal{ background:#ffffff url(../i/filter-normal-bg.png) left bottom repeat-x; }
-		#filterContainer .content .expanded{ background:#ffffff url(../i/filter-expanded-bg.png) left bottom repeat-x; }
+		#filterContainer .content .normal{ background:#ffffff url(../../i/tc/filter-normal-bg.png) left bottom repeat-x; }
+		#filterContainer .content .expanded{ background:#ffffff url(../../i/tc/filter-expanded-bg.png) left bottom repeat-x; }
 		#filterContainer .content .struct{
 			float:left;
 		}
@@ -1154,10 +1154,10 @@ a.hint, a.hint:visited{
 					}
 					#filterContainer .content .struct li .optionsContainer .optionBtn:hover{ text-decoration:underline; }
 					#filterContainer .content .struct li .optionsContainer .expanded{
-						background:url(../i/node-expanded-icon.png) left center no-repeat;
+						background:url(../../i/tc/node-expanded-icon.png) left center no-repeat;
 					}
 					#filterContainer .content .struct li .optionsContainer .collapsed{
-						background:url(../i/node-collapsed-icon.gif) left center no-repeat;
+						background:url(../../i/tc/node-collapsed-icon.gif) left center no-repeat;
 					}
 					#filterContainer .content .struct li .optionsContainer .columns{ float:left; }
 					#filterContainer .content .struct.full li .optionsContainer .firstColumn{ width:182px; }
@@ -1256,34 +1256,34 @@ a.hint, a.hint:visited{
 						}
 						.rightAligned{ text-align:right; }
 						#filterContainer .content .struct li .moreOptions .priceFilter .sliderContainer{
-							background:url(../i/slider-bg.png) left top no-repeat;
+							background:url(../../i/tc/slider-bg.png) left top no-repeat;
 							margin-top:7px;
 							width:286px;
 							padding-left:9px;
 							height:56px;
 						}
 							#filterContainer .content .struct li .moreOptions .priceFilter .sliderContainer .rightSide{
-								background:url(../i/slider-bg.png) right -112px no-repeat;
+								background:url(../../i/tc/slider-bg.png) right -112px no-repeat;
 								padding-right:9px;
 								height:56px;
 							}
 							#filterContainer .content .struct li .moreOptions .priceFilter .sliderContainer .content{
-								background:url(../i/slider-bg.png) left -56px repeat-x;
+								background:url(../../i/tc/slider-bg.png) left -56px repeat-x;
 								height:34px;
 								padding-top:22px;
 							}
 							#slider{
 								border:none;
-								background:url(../i/slider-track.png) left top repeat-x;
+								background:url(../../i/tc/slider-track.png) left top repeat-x;
 								width:245px;
 								height:6px;
 								margin-left:11px;
 							}
 							.ui-slider-handle{
-								background:url(../i/handle-bg.png) center top no-repeat;
+								background:url(../../i/tc/handle-bg.png) center top no-repeat;
 								margin-top:-7px;
 							}
-							.ui-slider-range{ background:url(../i/slider-drag.png) left top repeat-x; }
+							.ui-slider-range{ background:url(../../i/tc/slider-drag.png) left top repeat-x; }
 							#filterContainer .content .sliderContainer .content ul.scale{
 								float:left;
 								padding:5px 0 0 9px;
@@ -1373,12 +1373,12 @@ a.hint, a.hint:visited{
 	    }
 	    .pagerContainer .pager span.next a
 	    {
-	        background:url(../i/nextBtn-bg.png) right 1px no-repeat;
+	        background:url(../../i/tc/nextBtn-bg.png) right 1px no-repeat;
 			padding-right:10px;
 	    }
 	    .pagerContainer .pager span.previous a
 	    {
-	        background:url(../i/prevBtn-bg.png) left 1px no-repeat;
+	        background:url(../../i/tc/prevBtn-bg.png) left 1px no-repeat;
 			padding-left:10px;
 	    }
 		.pagerContainer .pager ul{ float:left; }
@@ -1403,11 +1403,11 @@ a.hint, a.hint:visited{
 					font-weight:normal;
 				}
 				.pagerContainer .pager ul li .prev,.pagerContainer .pager ul li .prev:visited{
-					background:url(../i/prevBtn-bg.png) left 1px no-repeat;
+					background:url(../../i/tc/prevBtn-bg.png) left 1px no-repeat;
 					padding-left:10px;
 				}
 				.pagerContainer .pager ul li .next,.pagerContainer .pager ul li .next:visited{
-					background:url(../i/nextBtn-bg.png) right 1px no-repeat;
+					background:url(../../i/tc/nextBtn-bg.png) right 1px no-repeat;
 					padding-right:10px;
 				}
 
@@ -1425,7 +1425,7 @@ a.hint, a.hint:visited{
 		border-bottom:1px solid #d0d0d0;
 	}
 		.contestTable table th{
-			background:#363636 url(../i/th-bg.png) left bottom repeat-x;
+			background:#363636 url(../../i/tc/th-bg.png) left bottom repeat-x;
 			padding:8px 0;
 			color:#ffffff;
 			font-weight:normal;
@@ -1438,7 +1438,7 @@ a.hint, a.hint:visited{
 				top:0;
 				left:0;
 				display:block;
-				background:url(../i/thl-bg.png) left top no-repeat;
+				background:url(../../i/tc/thl-bg.png) left top no-repeat;
 				width:4px;
 				height:4px;
 			}
@@ -1447,7 +1447,7 @@ a.hint, a.hint:visited{
 				top:0;
 				right:0;
 				display:block;
-				background:url(../i/thr-bg.png) left top no-repeat;
+				background:url(../../i/tc/thr-bg.png) left top no-repeat;
 				width:4px;
 				height:4px;
 			}
@@ -1460,8 +1460,8 @@ a.hint, a.hint:visited{
 			
 		}
 		.contestTable table td.datetime{ width:54px; }
-		.contestTable table td.first{ background:url(../i/td-bg.png) left top repeat-y; }
-		.contestTable table td.last{ background:url(../i/td-bg.png) right top repeat-y; }
+		.contestTable table td.first{ background:url(../../i/tc/td-bg.png) left top repeat-y; }
+		.contestTable table td.last{ background:url(../../i/tc/td-bg.png) right top repeat-y; }
 		.contestTable table tr.even td{ background-color:#f5f5f5; }
 		.contestTable table tr.last td{ border-bottom:1px solid #d0d0d0; }
 		
@@ -1469,8 +1469,8 @@ a.hint, a.hint:visited{
 			border-top:2px solid #ffc600;
 			border-bottom:2px solid #ffc600;
 		} */
-		.contestTable table tr.hover td.first{ background-image:url(../i/td-hover-bg.png) }
-		.contestTable table tr.hover td.last{ background-image:url(../i/td-hover-bg.png) }
+		.contestTable table tr.hover td.first{ background-image:url(../../i/tc/td-hover-bg.png) }
+		.contestTable table tr.hover td.last{ background-image:url(../../i/tc/td-hover-bg.png) }
 		.contestTable table td.leftAligned{ text-align:left; }
 		.contestTable table td a,.contestTable table td a:visited{
 			color:#ec1c23;
@@ -1479,7 +1479,7 @@ a.hint, a.hint:visited{
 		.contestTable table td a:hover{ text-decoration:underline; }
 		.contestTable .tableContainer .tdHover{
 			position:absolute;
-			background:url(../i/td-hover-bg1.png) left top repeat-x;
+			background:url(../../i/tc/td-hover-bg1.png) left top repeat-x;
 			width:100%;
 			height:2px;
 			left:0;
@@ -1491,7 +1491,7 @@ a.hint, a.hint:visited{
  */
 #footerWrapper{
 	width:100%;
-	background:#000000 url(../i/footerWrapper-bg.png) left top repeat-x;
+	background:#000000 url(../../i/tc/footerWrapper-bg.png) left top repeat-x;
 }
 	#footer{
 		width:960px;
@@ -1535,7 +1535,7 @@ a.hint, a.hint:visited{
 	/*display:none;*/
 	}
 #preloaderModal {
-	background:url(../i/_animation_loading.gif) 0 0 no-repeat;
+	background:url(../../i/tc/_animation_loading.gif) 0 0 no-repeat;
 	width:100px;
 	height:80px;
 	top:0;
