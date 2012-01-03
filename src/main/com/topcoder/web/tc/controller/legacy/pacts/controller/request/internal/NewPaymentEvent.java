@@ -2,6 +2,7 @@ package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,8 +21,21 @@ public class NewPaymentEvent extends PaymentList implements PactsConstants {
         int wrongPayments = 0;
         int event = Integer.parseInt(getRequest().getParameter("status_id"));
         String invoiceNumber = (event == 4) ? getRequest().getParameter("new_invoice_number") : null;
-        Date payDate = (event == 2) ? checkDate("pay_date", "Please enter a valid pay date") : null;
-        
+        Date payDate = (event == 2) ? checkDate("pay_date", "Please enter a valid pay date", false) : null;
+        if (payDate != null) {
+            Calendar c = Calendar.getInstance();
+            c.setTime(payDate);
+            if (c.get(Calendar.YEAR) < 2000) {
+                addError("error", "Please enter a valid pay date");
+            }
+        }
+
+        if (hasErrors()) {
+            getRequest().setAttribute("message_result", errors.get("error"));
+            super.businessProcessing();
+            return;
+        }
+
         List<String> checkedIds = new ArrayList<String>(paymentIDs.length);
         Map<Long, String> errors = null;
         try {
@@ -45,7 +59,7 @@ public class NewPaymentEvent extends PaymentList implements PactsConstants {
             getRequest().setAttribute("checked_payments", checkedIds);
             
             if (errors.containsKey(0l)) {
-                getRequest().setAttribute("message_result", errors.get(0l));                
+                getRequest().setAttribute("message_result", errors.get(0l));
             } else {
                 getRequest().setAttribute("message_result", "Your request could not be processed because " + wrongPayments + " errors have been found found, please try again");
             }

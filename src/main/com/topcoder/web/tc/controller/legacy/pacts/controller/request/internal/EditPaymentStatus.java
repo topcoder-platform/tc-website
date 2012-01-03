@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Date;
+import java.util.Calendar;
 
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.pacts.BasePayment;
@@ -77,7 +78,14 @@ public class EditPaymentStatus extends PactsBaseProcessor implements PactsConsta
 
                 payment.setCurrentStatus(bps);
                 if (bps.getId()==PaidPaymentStatus.ID)  {
-                    Date payDate = checkDate("pay_date", "Please enter a valid pay date");
+                    Date payDate = checkDate("pay_date", "Please enter a valid pay date", false);
+                    if (payDate != null) {
+                        Calendar c = Calendar.getInstance();
+                        c.setTime(payDate);
+                        if (c.get(Calendar.YEAR) < 2000) {
+                            addError("error", "Please enter a valid pay date");
+                        }
+                    }
                     payment.setPaidDate(payDate);
                 }
 				
