@@ -114,16 +114,25 @@ public abstract class PactsBaseProcessor extends BaseProcessor{
         return value;
     }
 
-    protected Date checkDate(String name, String errorMsg) {
+    protected Date checkDate(String name, String errorMsg, boolean allowFutureDate) {
         SimpleDateFormat dfmt = new SimpleDateFormat("MM/dd/yy");
         Date d = null;
         try {
             d = dfmt.parse((String) getRequest().getParameter(name));
             log.debug("parsed Date = " + d);
+
+            if (!allowFutureDate && d.compareTo(new Date())>0) {
+                addError("error", "The date should not be a future date.");
+                return null;
+            }
         } catch (Exception e3) {
             addError("error", errorMsg);
         }
         return d;
+    }
+
+    protected Date checkDate(String name, String errorMsg) {
+        return checkDate(name, errorMsg, true);
     }
 
     protected int calculateAge(Date birthday) {
