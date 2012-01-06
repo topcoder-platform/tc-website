@@ -352,6 +352,15 @@ Please check out the rules link below for more detail.
     <br>
     <b>Participants may submit code written in the following language: C++ </b>
 </p>
+<%}else if(roundId == 15023 ) {%>
+<p align="justify">
+    In TopCoder Marathon Match events, the system will be testing submissions for optimization according to the scoring criteria 
+    outlined in the problem statement that is associated with this event.	
+    Each event may have a different scoring mechanism. 
+    Competitors will have to understand the scoring mechanism in order to effectively compete.  
+    <br>
+    <b>Participants may submit code written in the following languages: Java, C++, C#.NET, or VB.NET. </b>
+</p>
 <%} else { %>
 <p align="justify">
     In TopCoder Marathon Match events, the system will be testing submissions for optimization according to the scoring criteria 
