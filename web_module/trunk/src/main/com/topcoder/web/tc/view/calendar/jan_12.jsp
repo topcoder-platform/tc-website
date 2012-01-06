@@ -76,6 +76,12 @@
          3 weeks<br />
 		 $10k Prizes
          </div>
+	  	 <div class="long">
+         <strong><a href="/tc?module=MatchDetails&rd=15024">Soybean MM 1</a></strong><br />
+         14:00<br />
+         2 weeks<br />
+		 $10k Prizes
+         </div>		 
       </td>
       <td class="value">7
       </td>
