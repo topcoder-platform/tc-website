@@ -70,6 +70,12 @@
       <td class="value">5
       </td>
       <td class="value">6
+	  	 <div class="long">
+         <strong><a href="/tc?module=MatchDetails&rd=15023">MM SFFCompression</a></strong><br />
+         13:00<br />
+         3 weeks
+		 $10k Prizes
+         </div>
       </td>
       <td class="value">7
       </td>
