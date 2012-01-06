@@ -73,7 +73,7 @@
 	  	 <div class="long">
          <strong><a href="/tc?module=MatchDetails&rd=15023">MM SFFCompression</a></strong><br />
          13:00<br />
-         3 weeks
+         3 weeks<br />
 		 $10k Prizes
          </div>
       </td>
