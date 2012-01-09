@@ -103,21 +103,21 @@
                                             </tr>
                                             <tr>
                                                 <td>Application Front-End</td>
-                                                <td><a href="http://studio.topcoder.com/?module=ViewContestResults&ct=1002164&sbmid=30919&pn=1&ps=12" title="Shape Plotter Game Interface" target="_blank">Shape Plotter Game Interface</a></td>
+                                                <td><a href="http://studio.topcoder.com/?module=ViewContestResults&ct=30022566" title="Shape Plotter Game Interface" target="_blank">Shape Plotter Game Interface</a></td>
                                                 <td>6 Days</td>
                                                 <td align="center">13</td>
                                                 <td>
-                                                <a href="http://studio.topcoder.com/?module=ViewContestResults&ct=1002164&sbmid=30919&pn=1&ps=12" title="Shape Plotter Game Interface, 1" target="_blank">1</a>, <a href="http://studio.topcoder.com/?module=ViewContestResults&ct=1002164&sbmid=30951&pn=1&ps=12" title="Shape Plotter Game Interface, 2" target="_blank">2</a>
+                                                <a href="http://studio.topcoder.com/?module=DownloadSubmission&sbmid=108990" title="Shape Plotter Game Interface, 1" target="_blank">1</a>, <a href="http://studio.topcoder.com/?module=DownloadSubmission&sbmid=108990" title="Shape Plotter Game Interface, 2" target="_blank">2</a>
                                                 </td>
                                             </tr>
                                             
                                             <tr>
                                                 <td>Application Front-End</td>
-                                                <td><a href="http://studio.topcoder.com/?module=ViewContestResults&ct=1002158&sbmid=30813&pn=1&ps=12" title="Turn On the Light Game Interface" target="_blank">Turn On the Light Game Interface</a></td>
+                                                <td><a href="http://studio.topcoder.com/?module=ViewContestResults&ct=30022562" title="Turn On the Light Game Interface" target="_blank">Turn On the Light Game Interface</a></td>
                                                 <td>7 Days</td>
                                                 <td align="center">16</td>
                                                 <td>
-                                                <a href="http://studio.topcoder.com/?module=ViewContestResults&ct=1002158&sbmid=30813&pn=1&ps=12" title="Turn On the Light Game Interface, 1" target="_blank">1</a>, <a href="http://studio.topcoder.com/?module=ViewContestResults&ct=1002158&sbmid=30803&pn=1&ps=12" title="Turn On the Light Game Interface, 2" target="_blank">2</a>
+                                                <a href="http://studio.topcoder.com/?module=DownloadSubmission&sbmid=108874" title="Turn On the Light Game Interface, 1" target="_blank">1</a>, <a href="http://studio.topcoder.com/?module=DownloadSubmission&sbmid=108869" title="Turn On the Light Game Interface, 2" target="_blank">2</a>
                                                 </td>
                                             </tr>
                                         </table>

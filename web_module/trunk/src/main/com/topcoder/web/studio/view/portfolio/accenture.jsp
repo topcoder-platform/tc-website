@@ -99,21 +99,21 @@
                                             </tr>
                                             <tr>
                                                 <td>Mobile UI Design</td>
-                                                <td><a href="http://studio.topcoder.com/?module=ViewContestResults&ct=1002303&sbmid=31950&pn=1&ps=12" title="Accenture iPhone Event App Skin Storyboard" target="_blank">Accenture iPhone Event App Skin Storyboard</a></td>
+                                                <td><a href="http://studio.topcoder.com/?module=ViewContestResults&ct=30022643" title="Accenture iPhone Event App Skin Storyboard" target="_blank">Accenture iPhone Event App Skin Storyboard</a></td>
                                                 <td>3 Days</td>
                                                 <td align="center">13</td>
                                                 <td>
-                                                <a href="http://studio.topcoder.com/?module=ViewContestResults&ct=1002303&sbmid=31950&pn=1&ps=12" title="Accenture iPhone Event App Skin Storyboard, 1" target="_blank">1</a>, <a href="http://studio.topcoder.com/?module=ViewContestResults&ct=1002303&sbmid=31947&pn=1&ps=12" title="Accenture iPhone Event App Skin Storyboard, 2" target="_blank">2</a>
+                                                <a href="http://studio.topcoder.com/?module=DownloadSubmission&sbmid=109970" title="Accenture iPhone Event App Skin Storyboard, 1" target="_blank">1</a>, <a href="http://studio.topcoder.com/?module=DownloadSubmission&sbmid=109968" title="Accenture iPhone Event App Skin Storyboard, 2" target="_blank">2</a>
                                                 </td>
                                             </tr>
                                             
                                             <tr>
                                                 <td>Wireframes</td>
-                                                <td><a href="http://studio.topcoder.com/?module=DownloadSubmission&sbmid=31842" title="Accenture Signature Event iPhone app Wireframes" target="_blank">Accenture Signature Event iPhone app Wireframes</a></td>
+                                                <td><a href="http://studio.topcoder.com/?module=ViewContestResults&ct=30022620" title="Accenture Signature Event iPhone app Wireframes" target="_blank">Accenture Signature Event iPhone app Wireframes</a></td>
                                                 <td>6 Days</td>
                                                 <td align="center">18</td>
                                                 <td>
-                                                <a href="http://studio.topcoder.com/?module=DownloadSubmission&sbmid=31842" title="Accenture Signature Event iPhone app Wireframes" target="_blank">Download</a>
+                                                <a href="http://studio.topcoder.com/?module=DownloadSubmission&sbmid=109631" title="Accenture Signature Event iPhone app Wireframes" target="_blank">Download</a>
 
                                                 </td>
                                             </tr>

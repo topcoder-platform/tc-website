@@ -102,21 +102,21 @@
                                             </tr>
                                             <tr>
                                                 <td>Web Design</td>
-                                                <td><a href="http://studio.topcoder.com/?module=ViewContestResults&ct=1001698&sbmid=26827&pn=1&ps=12" title="PayPal X Storyboard" target="_blank">PayPal X Storyboard</a></td>
+                                                <td><a href="http://studio.topcoder.com/?module=ViewContestResults&ct=30022105" title="PayPal X Storyboard" target="_blank">PayPal X Storyboard</a></td>
                                                 <td>11 Days</td>
                                                 <td align="center">24</td>
                                                 <td>
-                                                <a href="http://studio.topcoder.com/?module=ViewContestResults&ct=1001698&sbmid=26827&pn=1&ps=12" title="PayPal X Storyboard, 1" target="_blank">1</a>, <a href="http://studio.topcoder.com/?module=ViewContestResults&ct=1001698&sbmid=26836&pn=1&ps=12" title="PayPal X Storyboard, 2" target="_blank">2</a>
+                                                <a href="http://studio.topcoder.com/?module=DownloadSubmission&sbmid=104784" title="PayPal X Storyboard, 1" target="_blank">1</a>, <a href="http://studio.topcoder.com/?module=DownloadSubmission&sbmid=104786" title="PayPal X Storyboard, 2" target="_blank">2</a>
                                                 </td>
                                             </tr>
                                             
                                             <tr>
                                                 <td>Mobile UI Design</td>
-                                                <td><a href="http://studio.topcoder.com/?module=ViewContestResults&ct=1001864&sbmid=28546&pn=1&ps=12" title="PayPal X Developer Conference App Design" target="_blank">PayPal X Developer Conference App Design</a></td>
+                                                <td><a href="http://studio.topcoder.com/?module=ViewContestResults&ct=30022204" title="PayPal X Developer Conference App Design" target="_blank">PayPal X Developer Conference App Design</a></td>
                                                 <td>7 Days</td>
                                                 <td align="center">12</td>
                                                 <td>
-                                                <a href="http://studio.topcoder.com/?module=ViewContestResults&ct=1001864&sbmid=28546&pn=1&ps=12" title="PayPal X Developer Conference App Design, 1" target="_blank">1</a>, <a href="http://studio.topcoder.com/?module=ViewContestResults&ct=1001864&sbmid=28533&pn=1&ps=12" title="PayPal X Developer Conference App Design, 2" target="_blank">2</a>
+                                                <a href="http://studio.topcoder.com/?module=DownloadSubmission&sbmid=106496" title="PayPal X Developer Conference App Design, 1" target="_blank">1</a>, <a href="http://studio.topcoder.com/?module=DownloadSubmission&sbmid=106494" title="PayPal X Developer Conference App Design, 2" target="_blank">2</a>
                                                 </td>
                                             </tr>
                                         </table>
