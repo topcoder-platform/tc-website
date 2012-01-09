@@ -98,11 +98,11 @@
                                             
                                             <tr>
                                                 <td>Web Design</td>
-                                                <td><a href="http://studio.topcoder.com/?module=ViewContestResults&ct=1002207&sbmid=31248&pn=1&ps=12" title="Location-Based Services (LBS) Demo Re-Skin Contest" target="_blank">Location-Based Services (LBS) Demo Re-Skin Contest</a></td>
+                                                <td><a href="http://studio.topcoder.com/?module=ViewContestResults&ct=30022585" title="Location-Based Services (LBS) Demo Re-Skin Contest" target="_blank">Location-Based Services (LBS) Demo Re-Skin Contest</a></td>
                                                 <td>7 Days</td>
                                                 <td align="center">28</td>
                                                 <td>
-                                                <a href="http://studio.topcoder.com/?module=ViewContestResults&ct=1002207&sbmid=31248&pn=1&ps=12" title="Location-Based Services (LBS) Demo Re-Skin Contest, 1" target="_blank">1</a>, <a href="http://studio.topcoder.com/?module=ViewContestResults&ct=1002207&sbmid=31242&pn=1&ps=12" title="Location-Based Services (LBS) Demo Re-Skin Contest, 2" target="_blank">2</a>
+                                                <a href="http://studio.topcoder.com/?module=DownloadSubmission&sbmid=109210" title="Location-Based Services (LBS) Demo Re-Skin Contest, 1" target="_blank">1</a>, <a href="http://studio.topcoder.com/?module=DownloadSubmission&sbmid=109209" title="Location-Based Services (LBS) Demo Re-Skin Contest, 2" target="_blank">2</a>
                                                 </td>
                                             </tr>
                                         </table>
