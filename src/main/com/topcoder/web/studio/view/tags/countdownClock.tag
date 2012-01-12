@@ -1,27 +1,34 @@
 <%--
-  - Author: pulky
-  - Version: 1.0
+  - Author: pulky, duxiaoyang
+  - Version: 1.1
   - Since: BUGR-1829
-  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  - Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: This is a custom tag to show active contests countdown clock.
   -
   - Required attributes:
   -     * end: the date the contest ends
   -     * mode: short or long
+  - Optional attribute:
+  -     * start: the date the contest starts, if not given, current time will be used
+  -
+  - Version 1.1 (TopCoder Studio Contest Listings) change notes: added start attribute.
 --%>
 
 <%@ tag import="java.sql.Timestamp" %>
 <%@ tag body-content="empty" %>
 
+<%@ attribute name="begin" required="false" type="java.sql.Timestamp" %>
 <%@ attribute name="end" required="true" type="java.sql.Timestamp" %>
 <%@ attribute name="mode" required="true" type="java.lang.String" %>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<c:set var="now" value="<%=new Timestamp(System.currentTimeMillis())%>"/>
-<c:set var="minutes" value="${((end.time - now.time) - ((end.time - now.time) % 300000)) / 60000}"/>
+<c:if test="${begin eq null}">
+<c:set var="begin" value="<%=new Timestamp(System.currentTimeMillis())%>"/>
+</c:if>
+<c:set var="minutes" value="${((end.time - begin.time) - ((end.time - begin.time) % 300000)) / 60000}"/>
 <c:set var="hours" value="${((minutes) - ((minutes) % 60)) / 60}"/>
 <c:set var="days" value="${((hours) - ((hours) % 24)) / 24}"/>
 
