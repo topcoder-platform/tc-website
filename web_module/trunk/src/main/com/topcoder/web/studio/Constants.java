@@ -64,8 +64,16 @@ import java.util.MissingResourceException;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, isv, pvmagacho
- * @version 1.7
+ * <p>
+ * Version 1.8 (TopCoder Studio Contest Listings 1.0) Change notes:
+ *   <ol>
+ *     <li>Added {@link #JIRA_SERVICE_URL}, {@link #JIRA_USERNAME}, {@link #JIRA_PASSWORD}, and {@link #JIRA_JQL}
+ *     constants.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky, isv, pvmagacho, TCSASSEMBLY
+ * @version 1.8
  */
 public class Constants implements WebConstants {
     private static final TCResourceBundle bundle = new TCResourceBundle("Studio");
@@ -618,6 +626,33 @@ public class Constants implements WebConstants {
      */
     public static final String NUMBER_MILESTONE_PRIZES = "nmp";
 
+    /**
+     * <p>A <code>String</code> providing the URL for retrieving bug race contests from JIRA.</p>
+     *
+     * @since 1.8
+     */
+    public static String JIRA_SERVICE_URL;
+
+    /**
+     * <p>A <code>String</code> providing the username for retrieving bug race contests from JIRA.</p>
+     *
+     * @since 1.8
+     */
+    public static String JIRA_USERNAME;
+
+    /**
+     * <p>A <code>String</code> providing the password for retrieving bug race contests from JIRA.</p>
+     *
+     * @since 1.8
+     */
+    public static String JIRA_PASSWORD;
+
+    /**
+     * <p>A <code>String</code> providing the JQL for retrieving bug race contests from JIRA.</p>
+     *
+     * @since 1.8
+     */
+    public static String JIRA_JQL;
 
     static {
         initialize();

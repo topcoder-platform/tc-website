@@ -1,6 +1,6 @@
 <%--
-  - Author: pulky, isv, pvmagacho
-  - Version: 1.4
+  - Author: pulky, isv, pvmagacho, duxiaoyang
+  - Version: 1.5
   - Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page presents active contests
@@ -11,20 +11,29 @@
   - Version 1.3 (Replatforming Studio Release 1 Assembly) change notes: active contests are filtered based on 
   - eligibility constraints.
   - Version 1.4 (Replatforming Studio Release 4 Assembly) change notes: clean up old model classes.
+  - Version 1.5 (TopCoder Studio Contest Listings Assembly) change notes: apply new look-and-feel.
 --%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
-<%@ page import="java.util.Date" %>
-<%@ page import="java.sql.Timestamp" %>
+<%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants" %>
+<%@ page import="com.topcoder.web.studio.controller.request.SortingHelper" %>
+<%@ page import="java.util.ArrayList,java.util.Map,java.util.HashMap" %>
+<%@ page import="java.util.Date,java.sql.Timestamp" %>
+<%@ page import="java.net.URLEncoder" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="studio_tags" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<% ResultSetContainer contests = (ResultSetContainer) request.getAttribute("contests");%>
+<%
+    ResultSetContainer contests = (ResultSetContainer) request.getAttribute("contests");
+    String sortCriteria = URLEncoder.encode((String) request.getAttribute(SortingHelper.SORTING_CRITERIA_KEY));
+    Map sortDirection = new HashMap();
+    SortingHelper.parseSortingParameter((String) request.getAttribute(SortingHelper.SORTING_CRITERIA_KEY), new ArrayList(), sortDirection);
+ %>
 
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -40,7 +49,7 @@
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
     
-    <script src="/js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"></script>
+    <script src="/js/NewStyleHeaderFooter/jquery-1.4.1.min.js" type="text/javascript"></script>
     <script src="/js/NewStyleHeaderFooter/preloadCssImages.jQuery_v5.js" language="javascript"></script>
     <script type="text/javascript">
             $(document).ready(function(){
@@ -49,6 +58,10 @@
             });
     </script>
     <script src="/js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/js/NewStyleHeaderFooter/jquery.tools.tooltip.min.js"></script>
+    <script type="text/javascript" src="/js/NewStyleHeaderFooter/jquery.jqtransform.js"></script>
+    <script type="text/javascript" src="/js/NewStyleHeaderFooter/date.js"></script>
+    <script type="text/javascript" src="/js/NewStyleHeaderFooter/jquery.datePicker.js"></script>
     <script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
     <script type="text/javascript" language="javascript">
 
@@ -79,163 +92,203 @@
             <jsp:param name="section" value="contest" />
         </jsp:include>
         <br />
-        <%-- container --%>
-        <div id="container">    
-            <div id="wrapper">
-            <%-- content --%>
-            <div id="content">
-                <div class="contentTop">
-                    <div class="contentMiddle">
-
+        <div id="content-new">
+            <div class="contentMask">
+                <div class="title">
                     <h1>Active Contests</h1>
-                    
-                    <div align="right"><strong>Need help? Learn how to
-                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=Static&amp;d1=support&amp;d2=getStarted">get started</a></strong>.<br />
-                    </div>
-                    
-                    <div class="tableTabOn" style="margin-left: 20px;"><a href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</a></div>
-                    <div class="tableTabOff"><a href="${sessionInfo.servletPath}?module=ViewPastContests">Past Contests</a></div>
-                              <%-- BUGR-1211 Added Active Bug Race Tab --%>
-                    <div class="tableTabOff"><a href="${sessionInfo.servletPath}?module=ViewActiveBugRaces">Active Bug Race Competitions</a></div>
-                    <div class="tableTabOff"><a href="${sessionInfo.servletPath}?module=ViewReviewOpportunities">Review Opportunities</a></div>
+                    <p class="help">
+                        Need help? Learn how to
+                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=Static&amp;d1=support&amp;d2=getStarted">get started</a>.
+                    </p>
+                </div><!-- end of .title -->
 
-                    <a href="http://feeds.feedburner.com/ActiveContests" rel="alternate" type="application/rss+xml"><img align="right" src="/i/v2/interface/btnRSS.png" alt="RSS" style="vertical-align:midium; margin-right: 5px; margin-top:5px "/></a>
-                    <br  clear="all"/>
+                <div class="topLine">
+                    <ul class="tabs">
+                        <li class="active">
+                            <a href="${sessionInfo.servletPath}?module=ViewActiveContests">
+                                <span class="tabMask"><span class="text">Active Contests</span></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="${sessionInfo.servletPath}?module=ViewPastContests">
+                                <span class="tabMask"><span class="text">Past Contests</span></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="${sessionInfo.servletPath}?module=ViewActiveBugRaces">
+                                <span class="tabMask"><span class="text">Active Bug Race Competitions</span></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="${sessionInfo.servletPath}?module=ViewReviewOpportunities">
+                                <span class="tabMask"><span class="text">Review Opportunities</span></span>
+                            </a>
+                        </li>
+                    </ul><!-- end of .tabs -->
+                    <a href="http://feeds.feedburner.com/ActiveContests" rel="alternate" type="application/rss+xml" class="rssBtn"></a>
+                </div> <!-- end of .topLine -->
 
-                    <div class="statHolder">
-                        <div class="NE"><img src="/i/v2/stat_tableNE.png" alt="" /></div>
-                        <div class="NW"><img src="/i/v2/stat_tableNW.png" alt="" /></div>
-                        <div class="container">
-                            <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-                            <tbody>
-                                <tr>
-                                    <td class="header">&nbsp;
-                                    
-                                    </td>
-                                    <td class="header" width="100%">
-                                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Project</a>
-                                    </td>
-                                    <td class="headerC">
-                                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("start_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Start Date</a></td>
-                                    <td class="headerC" nowrap="nowrap">
-                                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("milestone_date")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Round 1 End</a></td>
-                                    <td class="headerC">
-                                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("end_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">End Date</a></td>
-                                    <td class="headerC" nowrap="nowrap">
-                                        Time Left</td>
-                                    <td class="headerR" nowrap="nowrap">
-                                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("prize_total")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Purse</a>
-                                  </td>
-                                    <td class="headerR" nowrap="nowrap">
-                                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("dr_points")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Points</a>
-                                    </td>
-                                    <td class="headerC">
-                                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("registrants")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Registrants</a>
-                                    </td>
-                                    <td class="headerC">
-                                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("submission_count")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submissions</a>
-                                    </td>
-                                    <td class="header">&nbsp;</td>
-                                </tr>
-                                <c:choose>
-                                    <c:when test="${fn:length(contests)==0}">
-                                        <tr><td class="space" colspan="10">&nbsp;</td></tr>
-                                        <tr class="light">
-                                            <td class="valueC" colspan="10">
-                                                <div align="center" style="margin: 40px 0px 40px 0px;">
-                                                    There are currently no active contests, but check back soon.
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </c:when>
-                                    <c:otherwise>
-
-                                    <% boolean even = true;%>
+                <div class="dataTable">
+                    <table cellpadding="0" cellspacing="0">
+                        <colgroup>
+                            <col width="30px" />
+                            <col width="208px" />
+                            <col width="37px" />
+                            <col width="64px" />
+                            <col width="74px" />
+                            <col width="62px" />
+                            <col width="60px" />
+                            <col width="48px" />
+                            <col width="45px" />
+                            <col width="70px" />
+                            <col width="78px" />
+                            <col width="" />
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <% 
+                                    String sortColumn = (String) request.getAttribute("sortColumn");
+                                    if (sortColumn == null) {
+                                        sortColumn = "";
+                                    }
+                                    String sortOrder = (String) request.getAttribute("sortDirection");
+                                    if (sortOrder == null) {
+                                        sortOrder = "asc";
+                                    }
+                                %>
+                                <th class="first <%=((Boolean) sortDirection.get(Integer.valueOf(contests.getColumnIndex("name")))).booleanValue() ? "sortDown" : "sort"%> <%=sortColumn.equals("") || sortColumn.equals("" + contests.getColumnIndex("name")) ? "hover" : ""%>" colspan="2">
+                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests&sc=<%=contests.getColumnIndex("name")%>&sd=<%=sortOrder%>&sortCriteria=<%=sortCriteria%>"/><span>Project</span></a>
+                                </th>
+                                <th class="<%=((Boolean) sortDirection.get(Integer.valueOf(contests.getColumnIndex("type_name")))).booleanValue() ? "sortDown" : "sort"%> <%=sortColumn.equals("" + contests.getColumnIndex("type_name")) ? "hover" : ""%>">
+                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests&sc=<%=contests.getColumnIndex("type_name")%>&sd=<%=sortOrder%>&sortCriteria=<%=sortCriteria%>"/><span>Type</span></a>
+                                </th>
+                                <th class="<%=((Boolean) sortDirection.get(Integer.valueOf(contests.getColumnIndex("start_time")))).booleanValue() ? "sortDown" : "sort"%> <%=sortColumn.equals("" + contests.getColumnIndex("start_time")) ? "hover" : ""%>">
+                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests&sc=<%=contests.getColumnIndex("start_time")%>&sd=<%=sortOrder%>&sortCriteria=<%=sortCriteria%>"/><span>Start Date</span></a>
+                                </th>
+                                <th class="<%=((Boolean) sortDirection.get(Integer.valueOf(contests.getColumnIndex("milestone_date")))).booleanValue() ? "sortDown" : "sort"%> <%=sortColumn.equals("" + contests.getColumnIndex("milestone_date")) ? "hover" : ""%>">
+                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests&sc=<%=contests.getColumnIndex("milestone_date")%>&sd=<%=sortOrder%>&sortCriteria=<%=sortCriteria%>"/><span>Round 1 End</span></a>
+                                </th>
+                                <th class="<%=((Boolean) sortDirection.get(Integer.valueOf(contests.getColumnIndex("end_time")))).booleanValue() ? "sortDown" : "sort"%> <%=sortColumn.equals("" + contests.getColumnIndex("end_time")) ? "hover" : ""%>">
+                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests&sc=<%=contests.getColumnIndex("end_time")%>&sd=<%=sortOrder%>&sortCriteria=<%=sortCriteria%>"><span>End Date</span></a>
+                                </th>
+                                <th>
+                                    <a href="javascript:;"><span>Time Left</span></a>
+                                </th>
+                                <th class="<%=((Boolean) sortDirection.get(Integer.valueOf(contests.getColumnIndex("prize_total")))).booleanValue() ? "sortDown" : "sort"%> <%=sortColumn.equals("" + contests.getColumnIndex("prize_total")) ? "hover" : ""%>">
+                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests&sc=<%=contests.getColumnIndex("prize_total")%>&sd=<%=sortOrder%>&sortCriteria=<%=sortCriteria%>"><span>Purse</span></a>
+                                </th>
+                                <th class="<%=((Boolean) sortDirection.get(Integer.valueOf(contests.getColumnIndex("dr_points")))).booleanValue() ? "sortDown" : "sort"%> <%=sortColumn.equals("" + contests.getColumnIndex("dr_points")) ? "hover" : ""%>">
+                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests&sc=<%=contests.getColumnIndex("dr_points")%>&sd=<%=sortOrder%>&sortCriteria=<%=sortCriteria%>"><span>Points</span></a>
+                                </th>
+                                <th class="<%=((Boolean) sortDirection.get(Integer.valueOf(contests.getColumnIndex("registrants")))).booleanValue() ? "sortDown" : "sort"%> <%=sortColumn.equals("" + contests.getColumnIndex("registrants")) ? "hover" : ""%>">
+                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests&sc=<%=contests.getColumnIndex("registrants")%>&sd=<%=sortOrder%>&sortCriteria=<%=sortCriteria%>"><span>Registrants</span></a>
+                                </th>
+                                <th class="<%=((Boolean) sortDirection.get(Integer.valueOf(contests.getColumnIndex("submission_count")))).booleanValue() ? "sortDown" : "sort"%> <%=sortColumn.equals("" + contests.getColumnIndex("submission_count")) ? "hover" : ""%>">
+                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests&sc=<%=contests.getColumnIndex("submission_count")%>&sd=<%=sortOrder%>&sortCriteria=<%=sortCriteria%>"><span>Submissions</span></a>
+                                </th>
+                                <th class="last <%=((Boolean) sortDirection.get(Integer.valueOf(contests.getColumnIndex("is_user_registered")))).booleanValue() ? "sortDown" : "sort"%> <%=sortColumn.equals("" + contests.getColumnIndex("is_user_registered")) ? "hover" : ""%>">
+                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests&sc=<%=contests.getColumnIndex("is_user_registered")%>&sd=<%=sortOrder%>&sortCriteria=<%=sortCriteria%>"><span>Action</span></a>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:choose>
+                                <c:when test="${fn:length(contests)==0}">
+                            <tr><td class="space" colspan="12">&nbsp;</td></tr>
+                            <tr class="light">
+                                <td class="valueC" colspan="12">
+                                    <div align="center" style="margin: 40px 0px 40px 0px;">
+                                        There are currently no active contests, but check back soon.
+                                    </div>
+                                </td>
+                            </tr>
+                                </c:when>
+                                <c:otherwise>
+                                    <c:set var="even" value="false" />
                                     <rsc:iterator list="${contests}" id="resultRow">
                                         <c:set var="contestId" value="<%=new Long(resultRow.getLongItem("contest_id"))%>"/>
-                                       
-                                        
-                                        <tr><td class="space" colspan="11">&nbsp;</td></tr>
-                                        <tr class="<%=even?"light":"dark"%>">
-                                            <td class="valueE">
-                                                <%-- if tco show icon --%>
-                                                <% if ("3434".equals(resultRow.getStringItem("event_id"))) { %>
-                                                <a href="http://community.topcoder.com/tco12"><img src="/i/tournament/tco12/tco12_icon_design.png" alt="Eligible for the TCO12" /><span>Eligible for the TCO12</span></a>
-                                                <% } else if ("18".equals(resultRow.getStringItem("contest_type_id")) && "true".equals(resultRow.getStringItem("in_tco")) ) { %>
-                                                <a href="http://community.topcoder.com/tco12/win-tco-trips"><img src="/i/tournament/tco12/tco12_icon_wireframe.png" alt="Eligible for the TCO12" /><span>Eligible for the TCO12</span></a>
-												<% } else { %>
-                                                &nbsp;
-                                                <% } %>
-                                            </td>
-                                            <td class="value">
-                                                <%-- Since TopCoder Studio Modifications assembly Req# 5.2 --%>
-                                                <div class="contestTitle">
-                                                    <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
-                                                        <rsc:item name="name" row="<%=resultRow%>"/>
-                                                    </a>
-                                                </div>
-                                            </td>
-                                            <td class="valueC">
-                                                <rsc:item name="start_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
-                                            </td>
-                                            <td class="valueC">
-                                                <rsc:item name="milestone_date" row="<%=resultRow%>" ifNull="-" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
-                                            </td>
-                                            <td class="valueC">
-                                                <rsc:item name="end_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
-                                            </td>
-                                            <td class="valueC">
-                                                <%
-                                                    Timestamp endDate;
-                                                    Object milestoneDate = resultRow.getItem("milestone_date").getResultData(); 
-                                                    if (milestoneDate != null && (new Date()).before((Date) milestoneDate)) {
-                                                        endDate = (Timestamp) milestoneDate;
-                                                    } else {
-                                                        endDate = (Timestamp)(resultRow.getItem("end_time").getResultData());
-                                                    }
-                                                %>
-                                                 <div class="countdown"><studio_tags:countdownClock mode="short" end="<%=endDate%>"/></div>
-                                            </td>
-                                            <td class="valueR">
-                                                <rsc:item name="prize_total" row="<%=resultRow%>" format="$###,###.00" ifNull="&nbsp;"/>
-                                            </td>
-                                            <td class="valueR">
-                                                <rsc:item name="dr_points" row="<%=resultRow%>" format="######" ifNull="&nbsp;"/>
-                                            </td>
-                                            <td class="valueC">
-                                                <rsc:item name="registrants" row="<%=resultRow%>"/>
-                                            </td>
-                                            <td class="valueC">
-                                                <rsc:item name="submission_count" row="<%=resultRow%>"/>
-                                            </td>
-                                            <td class="valueW" nowrap="nowrap">
-                                                <% if (resultRow.getIntItem("is_user_registered") == 1) { %>
-                                                <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" onfocus="this.blur();"><img src="/i/v2/interface/btnSubmitOrganize.png" alt="Submit &amp; Organize" style="margin: 6px 0px 6px 0px;"/></a>
-                                                <% } else { %>
-                                                <a href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" onfocus="this.blur();"><img src="/i/v2/interface/btnRegister.png" alt="Register" style="margin: 6px 0px 6px 0px;"/></a>
-                                                <% } %>
-                                            </td>
-                                        </tr>
-                                        <% even = !even;%>
-                                      
+                            <tr>
+                                <td colspan="12" class="space">&nbsp;</td>
+                            </tr>
+                            <tr <c:if test="${even}">class="even"</c:if>>
+                                <td class="first">
+                                    <%-- if tco show icon --%>
+                                    <% if ("3434".equals(resultRow.getStringItem("event_id"))) { %>
+                                    <a href="http://community.topcoder.com/tco12"><img src="/i/tournament/tco12/tco12_icon_design.png" alt="Eligible for the TCO12" /><span>Eligible for the TCO12</span></a>
+                                    <% } else if ("18".equals(resultRow.getStringItem("contest_type_id")) && "true".equals(resultRow.getStringItem("in_tco")) ) { %>
+                                    <a href="http://community.topcoder.com/tco12/win-tco-trips"><img src="/i/tournament/tco12/tco12_icon_wireframe.png" alt="Eligible for the TCO12" /><span>Eligible for the TCO12</span></a>
+                                    <% } else { %>
+                                    &nbsp;
+                                    <% } %>
+                                </td>
+                                <td class="project">
+                                    <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
+                                        <strong><rsc:item name="name" row="<%=resultRow%>"/></strong>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="typeIcon tooltip type<rsc:item name="type_id" row="<%=resultRow%>"/>" href="javascript:;">
+                                        <span class="tipT">Contest Type</span>
+                                        <span class="tipC"><rsc:item name="type_name" row="<%=resultRow%>"/></span>
+                                    </a>
+                                </td>
+                                <td>
+                                    <rsc:item name="start_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                                </td>
+                                <td>
+                                    <rsc:item name="milestone_date" row="<%=resultRow%>" ifNull="-" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                                </td>
+                                <td>
+                                    <rsc:item name="end_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                                </td>
+                                <td class="timeLeft">
+                                    <%
+                                        Timestamp endDate;
+                                        Object milestoneDate = resultRow.getItem("milestone_date").getResultData();
+                                        if (milestoneDate != null && (new Date()).before((Date) milestoneDate)) {
+                                            endDate = (Timestamp) milestoneDate;
+                                        } else {
+                                            endDate = (Timestamp)(resultRow.getItem("end_time").getResultData());
+                                        }
+                                    %>
+                                    <studio_tags:countdownClock mode="short" end="<%=endDate%>"/>
+                                </td>
+                                <td class="purse">
+                                    <rsc:item name="prize_total" row="<%=resultRow%>" format="$###,###.00" ifNull="&nbsp;"/>
+                                </td>
+                                <td>
+                                    <rsc:item name="dr_points" row="<%=resultRow%>" format="######" ifNull="&nbsp;"/>
+                                </td>
+                                <td>
+                                    <rsc:item name="registrants" row="<%=resultRow%>"/>
+                                </td>
+                                <td>
+                                    <rsc:item name="submission_count" row="<%=resultRow%>"/>
+                                </td>
+                                <td class="last">
+                                    <% if (resultRow.getIntItem("is_user_registered") == 1) { %>
+                                        <a href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" onfocus="this.blur();"><img src="/i/v2/interface/btnSubmitOrganize.png" alt="Submit &amp; Organize" style="margin: 6px 0px 6px 0px;"/></a>
+                                    <% } else { %>
+                                        <a href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" onfocus="this.blur();"><img src="/i/v2/interface/btnRegister.png" alt="Register" style="margin: 6px 0px 6px 0px;"/></a>
+                                    <% } %>
+                                </td>
+                            </tr>
+                                        <c:set var="even" value="${not even}" />
                                     </rsc:iterator>
                                 </c:otherwise>
                             </c:choose>
                         </tbody>
-                        </table>
-                    </div>
-                    <div class="SE"><img src="/i/v2/stat_tableSE.png" alt="" /></div>
-                    <div class="SW"><img src="/i/v2/stat_tableSW.png" alt="" /></div>
-                </div>
-
-                <br clear="all"/>
+                    </table>
+                </div><!-- end of .dataTable -->
             </div>
-            <div class="contentBottom"></div>
-        </div>
-    </div>
-</div>
+        
 
 <jsp:include page="foot.jsp"/>
-            
+
+<div class="tooltipsBox" id="tooltipsBox1">
+    <div class="tooltipsH"><h6></h6></div>
+    <div class="tooltipsC"><p></p></div>
+    <div class="tooltipsF"></div>
+</div>
 </body>
 </html>

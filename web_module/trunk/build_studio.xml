@@ -172,7 +172,8 @@
         <pathelement location="${jars.dir}/netscape_ldap_sdk.jar"/>
         <pathelement location="${jars.dir}/ldap.jar"/>
 
-    	
+    	<!-- JIRA SOAP client -->
+    	<pathelement location="${jars.dir}/jira-soapclient-all.jar"/>
     </path>
     <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
     <property name="class.path" refid="class.path"/>
@@ -365,6 +366,9 @@
             	<include name="log4j.jar"/>
             	<include name="xercesImpl.jar"/>            	
             </lib>
+        	<lib dir="${jars.dir}">
+        		<include name="jira-soapclient-all.jar"/>
+        	</lib>
         </war>
         <delete file="${jboss_home}/server/default/deploy/studio.war"/>
         <unwar src="${war.dir}/studio.war" dest="${jboss_home}/server/default/deploy/studio.war/" overwrite="yes"/>
