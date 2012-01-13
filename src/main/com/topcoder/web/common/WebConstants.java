@@ -83,9 +83,17 @@ package com.topcoder.web.common;
  *     <li>Added constants {@link #REPORTING_PROJECT_TYPE}, {@link #PHASE_REPORTING}.</li>
  *   </ol>
  * </p>
+ * 
+ * <p>
+ *   Version 1.6.6 (TopCoder Terms of Use Management Refactoring v1.0) Change notes:
+ *   <ol>
+ *     <li>Added constants {@link #DEPENDENCIES_TERMS_AGREED}, {@link #DEPENDENCIES_TERMS_PENDING}, {@link #PRE_PENDING_TERMS},
+ *     {@link #TERMS_AGREED_ROLES}, {@link #TERMS_GROUP}, {@link #TERMS_STATUS}, {@link #TERMS_GROUP_HAS_AGREED}, {@link #COMMON_RESOURCE_ROLES}.</li>
+ *   </ol>
+ * </p>
  *
- * @author dok, pulky, snow01, FireIce, lmmortal
- * @version 1.6.5
+ * @author dok, pulky, snow01, FireIce, lmmortal, TCSASSEMBER
+ * @version 1.6.6
  */
 public interface WebConstants {
     public static final String HANDLE = "ha";
@@ -141,6 +149,26 @@ public interface WebConstants {
     public static final String EVENT_ID = "eid";
 
     public static final String TERMS = "terms";
+    /**
+     * Represents the agreed dependencies terms attribute key.
+     * 
+     * @since 1.6.6
+     */
+    public static final String DEPENDENCIES_TERMS_AGREED = "dependenciesTermsAgreed";
+    
+    /**
+     * Represents the pending dependencies terms attribute key.
+     * 
+     * @since 1.6.6
+     */
+    public static final String DEPENDENCIES_TERMS_PENDING = "dependenciesTermsPending";
+    
+    /**
+     * Represents the parameter key of the pre terms of use need to be agreed.
+     * 
+     * @since 1.6.6
+     */
+    public static final String PRE_PENDING_TERMS = "prePendingTerms";
 
     /**
      * Represents the review id attribute key.
@@ -155,7 +183,42 @@ public interface WebConstants {
      * @since 1.2
      */
     public static final String TERMS_AGREED = "terms_agreed";
+    
+    /**
+     * Represents the attribute key for the role names who have agreed the terms.
+     * 
+     * @since 1.6.6
+     */
+    public static final String TERMS_AGREED_ROLES = "terms_agreed_roles";
 
+    /**
+     * Represents the attribute key for the terms group list.
+     * 
+     * @since 1.6.6
+     */
+    public static final String TERMS_GROUP = "terms_group";
+    
+    /**
+     * Represents the attribute key for the terms status (Whether the user has agreed or not) array.
+     * 
+     * @since 1.6.6
+     */
+    public static final String TERMS_STATUS = "terms_status";
+    
+    /**
+     * Represents the attribute key for the terms group which has been agreed
+     * 
+     * @since 1.6.6
+     */
+    public static final String TERMS_GROUP_HAS_AGREED = "terms_group_has_agreed";
+    
+    /**
+     * Represents the attribute key for the common resource role names for the current terms group.
+     * 
+     * @since 1.6.6
+     */
+    public static final String COMMON_RESOURCE_ROLES = "common_resource_roles"; 
+    
     /**
      * <p>A <code>String</code> representing terms pending attribute key.</p>
      *

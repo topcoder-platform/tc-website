@@ -1,14 +1,12 @@
 /*
- * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.admin.controller.request;
 
-import com.topcoder.shared.util.DBMS;
+import com.cronos.termsofuse.dao.UserTermsOfUseDao;
 import com.topcoder.web.admin.Constants;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.ejb.user.UserTermsOfUse;
-import com.topcoder.web.ejb.user.UserTermsOfUseLocator;
 
 /**
  * <strong>Purpose</strong>:
@@ -25,8 +23,15 @@ import com.topcoder.web.ejb.user.UserTermsOfUseLocator;
   *   </ol>
   * </p>
  *
- * @author pulky, isv
- * @version 1.1 (Miscellaneous TC Improvements Assembly v1.0)
+ * <p>
+ *   Version 1.2 (TopCoder Terms of Use Management Refactoring v1.0) Change notes:
+ *   <ol>
+ *     <li>Updated to use the Terms of Use DAO component instead of Terms of Use EJB.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author pulky, isv, TCSASSEMBER
+ * @version 1.2 (Miscellaneous TC Improvements Assembly v1.0)
  * @since 1.0 (Configurable Contest Terms Release Assembly v2.0)
  */
 public class CreateTermsOfUseAgreement extends Base {
@@ -58,7 +63,7 @@ public class CreateTermsOfUseAgreement extends Base {
     protected void businessProcessing() throws NavigationException {
         try {
             // Validate terms, handle, request source and create an agreement if request passes the validation
-            long termsId = TermsOfUseHelper.validateTermsOfUse(getRequest(), getInitialContext());
+            long termsId = TermsOfUseHelper.validateTermsOfUse(getTermsOfUseDao(), getRequest());
             Long userId = validateHandle();
             String source = StringUtils.checkNull(getRequest().getParameter(SOURCE));
             String sourceModule;
@@ -109,22 +114,22 @@ public class CreateTermsOfUseAgreement extends Base {
      * @throws Exception if any other error occurs.
      */
     private boolean createAgreement(long termsId, long userId) throws NavigationException, Exception {
-        UserTermsOfUse userTermsOfUse = UserTermsOfUseLocator.getService();
+        UserTermsOfUseDao userTermsOfUse = getUserTermsOfUseDao();
 
         // check if the agreement already exists
-        if (userTermsOfUse.hasTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
+        if (userTermsOfUse.hasTermsOfUse(userId, termsId)) {
             addError(Constants.HANDLE, "The agreement already exists for the specified handle.");
             return false;
         }
 
         // check if the the specified user is banned from accepting this terms of use
-        if (userTermsOfUse.hasTermsOfUseBan(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
+        if (userTermsOfUse.hasTermsOfUseBan(userId, termsId)) {
             addError(Constants.HANDLE, "The specified handle is banned from having this terms of use.");
             return false;
         }
 
         try {
-            userTermsOfUse.createUserTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+            userTermsOfUse.createUserTermsOfUse(userId, termsId);
             return true;
         } catch (Exception e) {
             throw new NavigationException("There was an unexpected error while generating the agreement.", e);

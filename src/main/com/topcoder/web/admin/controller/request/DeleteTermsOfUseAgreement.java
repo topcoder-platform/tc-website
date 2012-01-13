@@ -1,75 +1,190 @@
 /*
- * Copyright (C) 2010 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.admin.controller.request;
 
-import com.topcoder.shared.util.DBMS;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+import java.util.Set;
+
+import com.cronos.termsofuse.dao.TermsOfUseDao;
+import com.cronos.termsofuse.model.TermsOfUse;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.web.admin.Constants;
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.ejb.user.UserTermsOfUse;
-import com.topcoder.web.ejb.user.UserTermsOfUseLocator;
 
 /**
- * <p>A controller for handling the requests for deleting the individual agreement for requested user to requested
- * terms of use.</p>
+ * <p>This class shows terms of use details and allow edition.</p>
  *
- * @author isv
- * @version 1.0 (Miscellaneous TC Improvements Assembly v1.0)
+ * <p>
+ *   Version 1.1 (Configurable Contest Terms Release Assembly v1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for new columns in terms_of_use table.</li>
+ *   </ol>
+ * </p>
+ *
+ * <p>
+ *   Version 1.2 (TopCoder Terms of Use Management Refactoring v1.0) Change notes:
+ *   <ol>
+ *     <li>Updated to use the Terms of Use DAO component instead of Terms of Use EJB.</li>
+ *     <li>Added method {@link #loadTermsAgreeTypeList()} to load the list of terms agree-ability types.</li>
+ *     <li>Added method {@link #loadTermsDependenciesList(String, String[])} to load the candidate and existing
+ *     terms dependencies list.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author dok, pulky, TCSASSEMBER
+ * @version 1.2
  */
-public class DeleteTermsOfUseAgreement extends Base {
+public class EditTerms extends Base {
 
     /**
-     * <p>Implements the business logic which is to delete the agreement for requested user to requested terms of use.
-     * </p>
+     * This method will retrieve the existing terms of use (if needed) and present the edition form.
      *
-     * @throws Exception if an unexpected error occurs which prevents request from successful processing.
+     * @throws Exception if any error occurs
+     * @see com.topcoder.web.common.BaseProcessor#businessProcessing()
      */
-    @Override
     protected void businessProcessing() throws Exception {
-        try {
-            // Validate terms, handle and remove an agreement if request passes the validation
-            long termsId = TermsOfUseHelper.validateTermsOfUse(getRequest(), getInitialContext());
-            Long userId = validateUserId();
-            if (!hasErrors()) {
-                deleteAgreement(termsId, userId);
-                // Redirect after POST to View User Agreements page
-                setNextPage(getSessionInfo().getServletPath() + "?module=ViewEditTermsUsers&"
-                            + Constants.TERMS_OF_USE_ID + "=" + termsId + "&agreementRemoved=true");
-                setIsNextPageInContext(false);
+        String tId = getRequest().getParameter(Constants.TERMS_OF_USE_ID);
+        if (tId!=null) {
+            TermsOfUseDao termsOfUseDao = getTermsOfUseDao();
+            TermsOfUse terms = termsOfUseDao.getTermsOfUse(Long.parseLong(tId));
+
+            if (terms != null) {
+                setDefault(Constants.TERMS_OF_USE_ID, tId);
+                setDefault(Constants.TERMS_OF_USE_TYPE_ID, terms.getTermsOfUseTypeId());
+                setDefault(Constants.TERMS, termsOfUseDao.getTermsOfUseText(terms.getTermsOfUseId()));
+                setDefault(Constants.TERMS_TITLE, terms.getTitle());
+                setDefault(Constants.TERMS_AGREE_TYPE_ID, terms.getAgreeabilityType().getTermsOfUseAgreeabilityTypeId());
+                setDefault(Constants.TERMS_URL, terms.getUrl());
             } else {
-                // There was validation error - forward to View User Agreements page to display error message
-                TermsOfUseHelper.loadExistingAgreements(getRequest(), getDataAccess(), termsId);
-                setNextPage("/viewEditTermsUsers.jsp");
-                setIsNextPageInContext(true);
+                addError(Constants.TERMS_OF_USE_TYPE_ID, "Could not retrieve the specified terms of use.");
             }
-        } catch (NavigationException e) {
-            throw e;
-        } catch (Exception e) {
-            throw new NavigationException("There was an unexpected error while processing the specified agreement.", e);
         }
+        loadTermsTypeList();
+        loadTermsAgreeTypeList();
+        loadTermsDependenciesList(tId, null);
+        setNextPage("/editTerms.jsp");
+        setIsNextPageInContext(true);
+    }
+
+    protected void loadTermsTypeList() throws Exception {
+        Request r = new Request();
+        r.setContentHandle("terms_of_use_type_list");
+        getRequest().setAttribute("terms_of_use_type_list", getDataAccess().getData(r).get("terms_of_use_type_list"));
     }
 
     /**
-     * This method creates a specific terms of use agreement
-     *
-     * <p>Note: error messages are added to the request.</p>
-     *
-     * @param termsId a <code>long</code> providing the ID for terms of use to remove agreement for.
-     * @param userId a <code>long</code> providing the ID for user to remove agreement for.
-     * @throws NavigationException if there was an error while removing the agreement.
-     * @throws Exception if any other error occurs which prevents the method from successful execution.
+     * This method will load the terms agree-ability types list.
+     * 
+     * @throws Exception if any error occurs
+     * @since 1.2
      */
-    private void deleteAgreement(long termsId, long userId) throws NavigationException, Exception {
-        UserTermsOfUse userTermsOfUse = UserTermsOfUseLocator.getService();
-        if (!userTermsOfUse.hasTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
-            addError(Constants.HANDLE, "The agreement does not exist for the specified handle.");
+    protected void loadTermsAgreeTypeList() throws Exception {
+        Request r = new Request();
+        r.setContentHandle("terms_of_use_agree_type_list");
+        getRequest().setAttribute("terms_of_use_agree_type_list", getDataAccess().getData(r).get("terms_of_use_agree_type_list"));
+    }
+    
+    /**
+     * This method will load the candidate and existing dependencies terms of use.
+     * 
+     * @param tid the id of dependent terms of use
+     * @param depIds the IDs of the dependencies terms selected by user, null if not available. 
+     * @throws Exception if any error occurs
+     * @since 1.2
+     */
+    protected void loadTermsDependenciesList(String tid, String[] depIds) throws Exception {
+        TermsOfUseDao termsOfUseDao = getTermsOfUseDao();
+        // the existing dependencies terms
+        List<TermsOfUse> dependenciesTerms;
+        // the candidate dependencies terms
+        List<TermsOfUse> canBeDependenciesTerms;
+        if (tid == null || tid.trim().length() == 0) {
+            // when create a new terms of use, the candidate dependencies terms of use are all terms of use
+            dependenciesTerms = new ArrayList<TermsOfUse>();
+            canBeDependenciesTerms = termsOfUseDao.getAllTermsOfUse();
         } else {
-            try {
-                userTermsOfUse.removeUserTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-            } catch (Exception e) {
-                throw new NavigationException("There was an unexpected error while removing the agreement.", e);
+            Long tidid = Long.parseLong(tid);
+            dependenciesTerms = termsOfUseDao.getDependencyTermsOfUse(tidid);
+            canBeDependenciesTerms = new ArrayList<TermsOfUse>();
+            
+            List<TermsOfUse> allTerms = termsOfUseDao.getAllTermsOfUse();
+            Set<Long> depTerms = new HashSet<Long>();
+            for (TermsOfUse term : dependenciesTerms) {
+                depTerms.add(term.getTermsOfUseId());
             }
-            getRequest().setAttribute("message", "The agreement was successfully removed.");
+            
+            for (TermsOfUse term : allTerms) {
+                if (depTerms.contains(term.getTermsOfUseId())) {
+                    continue;
+                }
+                if (String.valueOf(term.getTermsOfUseId()).equals(tid)) {
+                    continue;
+                }
+                
+                if (!isDependencyRelationShip(tidid, term.getTermsOfUseId())) {
+                    // to avoid cycle dependency
+                    canBeDependenciesTerms.add(term);
+                }
+            }
         }
+        
+        if (depIds != null) {
+            List<TermsOfUse> candidateAndExist = new ArrayList<TermsOfUse>();
+            candidateAndExist.addAll(dependenciesTerms);
+            candidateAndExist.addAll(canBeDependenciesTerms);
+            dependenciesTerms.clear();
+            canBeDependenciesTerms.clear();
+            
+            Set<Long> depIdsSet = new HashSet<Long>();
+            for (String depId : depIds) {
+                depIdsSet.add(Long.parseLong(depId));
+            }
+            
+            for (TermsOfUse terms : candidateAndExist) {
+                if (depIdsSet.contains(terms.getTermsOfUseId())) {
+                    dependenciesTerms.add(terms);
+                } else {
+                    canBeDependenciesTerms.add(terms);
+                }
+            }
+        }
+        getRequest().setAttribute("dependencies_terms_of_use", dependenciesTerms);
+        getRequest().setAttribute("can_be_dependencies_terms_of_use", canBeDependenciesTerms);
+    }
+    
+    /**
+     * Checks whether a terms of use id dependent on another terms of use.
+     * 
+     * @param termsId1 the id of another terms of use
+     * @param termsId2 the id of the first terms of use
+     * @return true if termsId2 is dependent on termsId1
+     * @throws Exception if any error occurs
+     * @since 1.2
+     */
+    private boolean isDependencyRelationShip(long termsId1, long termsId2) throws Exception {
+        Set<Long> visited = new HashSet<Long>();
+        Queue<Long> queue = new LinkedList<Long>();
+        queue.add(termsId2);
+        
+        TermsOfUseDao termsOfUseDao = getTermsOfUseDao();
+        
+        while (!queue.isEmpty()) {
+            long tid = queue.remove();
+            List<TermsOfUse> depTerms = termsOfUseDao.getDependencyTermsOfUse(tid);
+            for (TermsOfUse term : depTerms) {
+                if (term.getTermsOfUseId() == termsId1) {
+                    return true;
+                }
+                if (!visited.contains(term.getTermsOfUseId())) {
+                    visited.add(term.getTermsOfUseId());
+                    queue.add(term.getTermsOfUseId());
+                }
+            }
+        }
+        return false;
     }
 }

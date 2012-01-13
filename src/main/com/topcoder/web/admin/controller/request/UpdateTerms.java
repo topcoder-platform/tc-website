@@ -1,19 +1,19 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.admin.controller.request;
 
 import javax.transaction.Status;
 import javax.transaction.TransactionManager;
 
+import com.cronos.termsofuse.dao.TermsOfUseDao;
+import com.cronos.termsofuse.model.TermsOfUse;
+import com.cronos.termsofuse.model.TermsOfUseAgreeabilityType;
 import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.admin.Constants;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.ejb.termsofuse.TermsOfUse;
-import com.topcoder.web.ejb.termsofuse.TermsOfUseEntity;
 
 /**
  * <p>This class processes update/create requests for terms of use.</p>
@@ -25,8 +25,17 @@ import com.topcoder.web.ejb.termsofuse.TermsOfUseEntity;
  *   </ol>
  * </p>
  *
- * @author dok, pulky
- * @version 1.1
+ * <p>
+ *   Version 1.2 (TopCoder Terms of Use Management Refactoring v1.0) Change notes:
+ *   <ol>
+ *     <li>Updated to use the Terms of Use DAO component instead of Terms of Use EJB.</li>
+ *     <li>Updated method {@link #businessProcessing()} to create/update terms of use dependencies.</li>
+ *     <li>Updated method {@link #businessProcessing()} to update the terms agree-ability type.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author dok, pulky, TCSASSEMBER
+ * @version 1.2
  */
 public class UpdateTerms extends EditTerms {
 
@@ -42,32 +51,62 @@ public class UpdateTerms extends EditTerms {
         String ttId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_TYPE_ID));
 
         String termsTitle = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_TITLE));
-        Integer termsElectronicallySignable  = StringUtils.checkNull(
-                getRequest().getParameter(Constants.TERMS_ELECTRONICALLY_SIGNABLE)).equals("on") ? 1 : 0;
+        String tatId  = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_AGREE_TYPE_ID));
         String termsUrl = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_URL));
+        String[] depTermsIds = getRequest().getParameterValues(Constants.DEPENDENCIES_TERMS_IDS);
+        if (depTermsIds == null) {
+            depTermsIds = new String[0];
+        }
 
         TransactionManager tm = null;
         try {
 
-            if (!valid(ttId, termsTitle, termsElectronicallySignable, termsUrl)) {
+            if (!valid(ttId, termsTitle, tatId, termsUrl)) {
                 loadTermsTypeList();
+                loadTermsAgreeTypeList();
+                loadTermsDependenciesList(tId, depTermsIds);
                 setDefault(Constants.TERMS_OF_USE_TYPE_ID, ttId);
                 setDefault(Constants.TERMS_OF_USE_ID, tId);
                 setDefault(Constants.TERMS, termsText);
                 setDefault(Constants.TERMS_TITLE, termsTitle);
-                setDefault(Constants.TERMS_ELECTRONICALLY_SIGNABLE, termsElectronicallySignable.equals(1));
+                setDefault(Constants.TERMS_AGREE_TYPE_ID, tatId);
                 setDefault(Constants.TERMS_URL, termsUrl);
                 setNextPage("/editTerms.jsp");
                 setIsNextPageInContext(true);
             } else {
-                TermsOfUseEntity terms = new TermsOfUseEntity(StringUtils.checkNull(tId).equals("") ? null :
-                    Long.parseLong(tId), termsText, Integer.parseInt(ttId), termsTitle, termsElectronicallySignable,
-                    termsUrl);
-
-                TermsOfUse termsOfUse = (TermsOfUse) createEJB(getInitialContext(), TermsOfUse.class);
+                TermsOfUseDao termsOfUseDao = getTermsOfUseDao();
+                TermsOfUse terms;
+                
                 tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
                 tm.begin();
-                termsOfUse.updateTermsOfUse(terms, DBMS.JTS_OLTP_DATASOURCE_NAME);
+                if (StringUtils.checkNull(tId).equals("")) {
+                    // create
+                    terms = new TermsOfUse();
+                    TermsOfUseAgreeabilityType tat = new TermsOfUseAgreeabilityType();
+                    tat.setTermsOfUseAgreeabilityTypeId(Integer.parseInt(tatId));
+                    terms.setAgreeabilityType(tat);
+                    terms.setTermsOfUseTypeId(Integer.parseInt(ttId));
+                    terms.setTitle(termsTitle);
+                    terms.setUrl(termsUrl);
+                    termsOfUseDao.createTermsOfUse(terms, termsText);
+                } else {
+                    // update
+                    terms = termsOfUseDao.getTermsOfUse(Long.parseLong(tId));
+                    terms.getAgreeabilityType().setTermsOfUseAgreeabilityTypeId(Integer.parseInt(tatId));
+                    terms.setTermsOfUseTypeId(Integer.parseInt(ttId));
+                    terms.setTitle(termsTitle);
+                    terms.setUrl(termsUrl);
+                    termsOfUseDao.updateTermsOfUse(terms);
+                    termsOfUseDao.setTermsOfUseText(terms.getTermsOfUseId(), termsText);
+                }
+                
+                // update dependencies
+                termsOfUseDao.deleteAllDependencyRelationshipsForDependent(terms.getTermsOfUseId());
+                if (depTermsIds != null) {
+                    for (String depId : depTermsIds) {
+                        termsOfUseDao.createDependencyRelationship(terms.getTermsOfUseId(), Long.parseLong(depId));
+                    }
+                }
                 tm.commit();
 
                 SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
@@ -89,14 +128,14 @@ public class UpdateTerms extends EditTerms {
      *
      * @param ttId the terms type id field content
      * @param termsTitle the terms title field content
-     * @param termsElectronicallySignable the terms electronically signable field content
+     * @param tatId the ID of the terms agree-ability type
      * @param termsUrl the terms url field content
      *
      * @return true if the form data is valid
      *
      * @since 1.1
      */
-    private boolean valid(String ttId, String termsTitle, Integer termsElectronicallySignable, String termsUrl) {
+    private boolean valid(String ttId, String termsTitle, String tatId, String termsUrl) {
         if (ttId.equals("")) {
             addError(Constants.TERMS_OF_USE_TYPE_ID, "You must choose a terms of use type");
         }
@@ -105,7 +144,10 @@ public class UpdateTerms extends EditTerms {
             addError(Constants.TERMS_TITLE, "You must enter a terms title");
         }
 
-        if (termsElectronicallySignable == 0 && termsUrl.length() == 0) {
+        if (tatId.equals("")) {
+            addError(Constants.TERMS_AGREE_TYPE_ID, "You must choose a terms of use agreeability type");
+        }
+        if (tatId.equals(String.valueOf(Constants.NON_ELEC_AGREEABLE_TYPE)) && termsUrl.length() == 0) {
             addError(Constants.TERMS_URL, "If the terms is not electronically signable you must provide a terms URL");
         }
 
