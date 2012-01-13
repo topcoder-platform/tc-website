@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2010 - 2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.admin.controller.request;
 
@@ -12,8 +12,15 @@ import com.topcoder.web.common.NavigationException;
  * <p>Actually this controller does nothing and is introduced to enforce the authorization of the users attempting to
  * access the page.</p>
  *
- * @author isv
- * @version 1.0 (Miscellaneous TC Improvements Assembly v1.0)
+ * <p>
+ *   Version 1.1 (TopCoder Terms of Use Management Refactoring v1.0) Change notes:
+ *   <ol>
+ *     <li>Updated to use the Terms of Use DAO component instead of Terms of Use EJB.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author isv, TCSASSEMBER
+ * @version 1.1 (Miscellaneous TC Improvements Assembly v1.0)
  */
 public class ViewAddTermsUsers extends Base {
 
@@ -32,7 +39,7 @@ public class ViewAddTermsUsers extends Base {
     @Override
     protected void businessProcessing() throws Exception {
         try {
-            TermsOfUseHelper.validateTermsOfUse(getRequest(), getInitialContext());
+            TermsOfUseHelper.validateTermsOfUse(getTermsOfUseDao(), getRequest());
             setNextPage("/addTermsUsers.jsp");
             setIsNextPageInContext(true);
         } catch (Exception e) {

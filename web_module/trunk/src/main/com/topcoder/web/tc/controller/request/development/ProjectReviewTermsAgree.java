@@ -16,7 +16,6 @@ import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.tc.Constants;
 
 /**
@@ -62,8 +61,15 @@ import com.topcoder.web.tc.Constants;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, isv, snow01, VolodymyrK
- * @version 1.0.6
+ * <p>
+ *   Version 1.0.7 (TopCoder Terms of Use Management Refactoring v1.0) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #applicationProcessing(Boolean, Timestamp, int)} to handle the case that the user have just agreed a dependent terms of use.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author dok, pulky, isv, snow01, VolodymyrK, TCSASSEMBER
+ * @version 1.0.7
  */
 public class ProjectReviewTermsAgree extends ProjectReviewApply {
 
@@ -100,6 +106,15 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
                     } else {
                         // save user terms of use record
                         saveUserTermsOfUse(userId, Long.parseLong(termsOfUseId));
+                        if (hasPrePendingTerm("ProjectReviewApply")) {
+                            StringBuilder url = new StringBuilder();
+                            url.append(getNextPage());
+                            url.append("&").append(Constants.REVIEWER_TYPE_ID).append("=").append(getRequest().getParameter(Constants.REVIEWER_TYPE_ID));
+                            url.append("&").append(Constants.PROJECT_TYPE_ID).append("=").append(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
+                            url.append("&").append(Constants.PRIMARY_FLAG).append("=").append(primary);
+                            setNextPage(url.toString());
+                            return;
+                        }
                     }
                 }
                 

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001 - 2010 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc;
 
@@ -91,8 +91,17 @@ import java.util.MissingResourceException;
  *   </ol>
  * </p>
  *
+ * <p>
+ *   Version 1.9.1 (TopCoder Terms of Use Management Refactoring v1.0) Change notes:
+ *   <ol>
+ *     <li>Added constants {@link #RESOURCE_ROLE_IDS}, {@link #TERMS_OF_USE_DAO_NS}, {@link #USER_TERMS_OF_USE_DAO_NS},
+ *     {@link #PROJECT_TERMS_OF_USE_DAO_NS}, {@link #NON_AGREEABLE_TERMS_TYPE_ID}, {@link #NON_ELEC_AGREEABLE_TERMS_TYPE_ID},
+ *     {@link #ELEC_AGREEABLE_TERMS_TYPE_ID}.</li>
+ *   </ol>
+ * </p>
+ * 
  * @author pulky, isv, VolodymyrK, TCSASSEMBLER
- * @version 1.9
+ * @version 1.9.1
  */
 public class Constants implements WebConstants {
 
@@ -181,6 +190,13 @@ public class Constants implements WebConstants {
     public static String PHASE_ID;
     public static String SEASON_ID;
     public static String REVIEW_RESP_ID;
+    
+    /**
+     * Represents the resource role IDs parameter name in query tool.
+     * 
+     * @since 1.9.1
+     */
+    public static String RESOURCE_ROLE_IDS;
 
     public static String STAGE_ID;
     public static String PRIMARY_FLAG;
@@ -524,6 +540,48 @@ public class Constants implements WebConstants {
      */
     public static String MAX_RIA_BUILD_RATING;	
 
+    /**
+     * <p>A <code>String</code> providing the namespace of terms of use DAO implementation.</p>
+     * 
+     * @since 1.9.1
+     */
+    public static String TERMS_OF_USE_DAO_NS;
+    
+    /**
+     * <p>A <code>String</code> providing the namespace of user terms of use DAO implementation.</p>
+     * 
+     * @since 1.9.1
+     */
+    public static String USER_TERMS_OF_USE_DAO_NS;
+    
+    /**
+     * <p>A <code>String</code> providing the namespace of project terms of use DAO implementation.</p>
+     * 
+     * @since 1.9.1
+     */
+    public static String PROJECT_TERMS_OF_USE_DAO_NS;
+    
+    /**
+     * <p>The id of the non agreeable terms type.</p>
+     * 
+     * @since 1.9.1
+     */
+    public static int NON_AGREEABLE_TERMS_TYPE_ID;
+    
+    /**
+     * <p>The id of the non-electronically agreeable terms type.</p>
+     * 
+     * @since 1.9.1
+     */
+    public static int NON_ELEC_AGREEABLE_TERMS_TYPE_ID;
+    
+    /**
+     * <p>The id of the electronically agreeable terms type.</p>
+     * 
+     * @since 1.9.1
+     */
+    public static int ELEC_AGREEABLE_TERMS_TYPE_ID;
+    
     /* misc constants */
     public static int SRM_SURVEY_QUESTION;
     public static int TOURNAMENT_SURVEY_QUESTION;
@@ -970,6 +1028,8 @@ public class Constants implements WebConstants {
      */
     public static String ARTICLES_ARCHIVE_CATEGORY;
         
+    public static final String CONFIGURATION_FILE = "com/topcoder/util/config/ConfigManager.properties";
+    
     static {
         initialize();
     }

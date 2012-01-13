@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.contest;
 
@@ -92,8 +92,15 @@ import com.topcoder.web.tc.controller.request.development.Base;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, FireIce, lmmortal
- * @version 1.6
+ * <p>
+ *   Version 1.7 (TopCoder Terms of Use Management Refactoring v1.0) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #developmentProcessing()} to handle the case that the user have just agreed a dependent terms of use.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author dok, pulky, FireIce, lmmortal, TCSASSEMBER
+ * @version 1.7
  */
 public class Register extends ViewRegistration {
 
@@ -124,12 +131,17 @@ public class Register extends ViewRegistration {
                     if (log.isDebugEnabled()) {
                         log.debug("they agree to terms");
                     }
+                    
                     // save user terms of use record
                     saveUserTermsOfUse(userId, Long.parseLong(termsOfUseId));
+                    if (hasPrePendingTerm("ViewRegistration")) {
+                        // the user has just agreed a dependent terms of use, the page need redirect to the dependency terms of use
+                        return;
+                    }
                 } else {
                     addError(Constants.TERMS_AGREE, "You must agree to the terms in order to proceed.");
                 }
-
+                
                 // process terms of use
                 boolean hasMoreTerms = processTermsOfUse(projectId, userId, Base.SUBMITTER_ROLE_IDS, Long.parseLong(termsOfUseId));
                 if (!hasMoreTerms) {

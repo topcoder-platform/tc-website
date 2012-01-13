@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.development;
 
@@ -73,8 +73,15 @@ import com.topcoder.web.tc.Constants;
  *   </ol>
  * </p>
  *
- * @author dok, pulky
- * @version 1.2
+ * <p>
+ *   Version 1.3 (TopCoder Terms of Use Management Refactoring v1.0) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #developmentProcessing()} to handle the case that the user have just agreed a dependent terms of use.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author dok, pulky, TCSASSEMBER
+ * @version 1.3
  */
 public class Register extends ViewRegistration {
 
@@ -113,6 +120,10 @@ public class Register extends ViewRegistration {
                     } else {
                         // save user terms of use record
                         saveUserTermsOfUse(userId, Long.parseLong(termsOfUseId));
+                        if (hasPrePendingTerm("ViewProjectRegistration")) {
+                            // the user has just agreed a dependent terms of use, the page need redirect to the dependency terms of use
+                            return;
+                        }
                     }
 
                     // get survey

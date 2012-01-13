@@ -1,6 +1,6 @@
 <%--
-  - Author: pulky, FireIce, lmmortal
-  - Version: 1.7
+  - Author: pulky, FireIce, lmmortal, TCSASSEMBER
+  - Version: 1.8
   - Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page shows the registration terms for a specific project.
@@ -25,6 +25,9 @@
   -
   - Version 1.7 (Add Reporting Contest Type) changes:
   - Added support for new Reporting competitions.
+  -
+  - Version 1.8 (TopCoder Terms of Use Management Refactoring v1.0) change:
+  - Added support for the new terms of use agreement work flow (Terms Of Use Group).
 --%>
 <%@ page language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -67,6 +70,7 @@
 <c:set value="<%=Constants.TERMS_OF_USE_ID%>" var="TERMS_OF_USE_ID"/>
 <c:set value="<%=BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
 <c:set value="<%=Constants.PROJECT_ID%>" var="PROJECT_ID"/>
+<c:set var="NON_ELEC_AGREEABLE_TERMS_TYPE_ID" value="<%=Constants.NON_ELEC_AGREEABLE_TERMS_TYPE_ID%>"/>
 
 <c:choose>
     <c:when test="${pt == DESIGN_PROJECT_TYPE || pt == DEVELOPMENT_PROJECT_TYPE}">
@@ -84,6 +88,35 @@
 <jsp:include page="../top.jsp">
     <jsp:param name="level1" value="development"/>
 </jsp:include>
+
+<script type="text/javascript">
+<!--
+function togGroup(link, index) {
+    var obj = document.getElementById("groupTitle" + index);
+    var co = document.getElementById("group" + index);
+    if (obj.className.indexOf("term_group_exp") != -1) {
+        co.style.display = "none";
+        obj.className = obj.className.replace("term_group_exp", "term_group_col");
+    } else {
+        co.style.display = "block";
+        obj.className = obj.className.replace("term_group_col", "term_group_exp");
+    }
+    if (link.blur) link.blur();
+}
+function goBack() {
+    var pre = '${prePendingTerms}';
+    var pres = pre.split(",");
+    if (pre.length > 0 && pres.length > 0) {
+        var tid = pres[pres.length - 1];
+        pres.splice(pres.length - 1, 1);
+        pre = pres.join(",");
+        location.href = '/tc?module=${viewRegistrationModule}&${PROJECT_ID}=${requestScope[defaults][PROJECT_ID]}&${TERMS_OF_USE_ID}=' + tid + '&<%=Constants.PRE_PENDING_TERMS%>=' + pre;
+    } else {
+        location.href = '/tc?module=${viewRegistrationModule}&${PROJECT_ID}=${requestScope[defaults][PROJECT_ID]}';
+    }
+}
+// -->
+</script>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
 <tbody>
@@ -239,35 +272,75 @@
                 </c:when>
             </c:choose>
 
-            <form action="${sessionInfo.servletPath}" method="POST" name="regForm">
-                <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="${registrationModule}"/>
-
-                <tc-webtag:hiddenInput name="${PROJECT_ID}"/>
-
+            <form action="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=${registrationModule}&${PROJECT_ID}=${requestScope[defaults][PROJECT_ID]}&<%=Constants.PRE_PENDING_TERMS%>=${prePendingTerms}" method="POST" name="regForm">
                 <c:choose>
                     <c:when test="${not empty terms}">
-                        <tc-webtag:hiddenInput name="${TERMS_OF_USE_ID}" value="${terms.termsOfUseId}"/>
-                        ${terms.title}<br/>
-                        <iframe width="590" height="300" marginWidth="5"
-                            src="${sessionInfo.servletPath}?module=Terms&amp;${TERMS_OF_USE_ID}=${terms.termsOfUseId}">
-                        </iframe>
+                        <c:choose>
+                            <c:when test="${empty dependenciesTermsPending}">
+                                <tc-webtag:hiddenInput name="${TERMS_OF_USE_ID}" value="${terms.termsOfUseId}"/>
+                                ${terms.title}<br/>
+                                <iframe width="590" height="300" marginWidth="5"
+                                    src="${sessionInfo.servletPath}?module=Terms&amp;${TERMS_OF_USE_ID}=${terms.termsOfUseId}">
+                                </iframe>
+                            </c:when>
+                            <c:otherwise>
+                                <table width="600px" class="leftalign">
+                                <tr><td style="text-align:center;">${terms.title}</td></tr>
+                                <c:if test="${not empty dependenciesTermsAgreed}">
+                                <tr><td>
+                                    You have the following terms (which you have agreed to) for ${terms.title}:<br/>
+                                    <ul style="margin-left:40px;">
+                                        <c:forEach items="${dependenciesTermsAgreed}" var="dep_terms_agreed_item">
+                                            <li>
+                                                ${dep_terms_agreed_item.title}
+                                                <c:choose>
+                                                    <c:when test="${dep_terms_agreed_item.agreeabilityType.termsOfUseAgreeabilityTypeId == NON_ELEC_AGREEABLE_TERMS_TYPE_ID}">
+                                                        <a href="${dep_terms_agreed_item.url}">(View)</a>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <a href="/tc?module=Terms&tuid=${dep_terms_agreed_item.termsOfUseId}" target="_blank">(View)</a>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </li>
+                                        </c:forEach>
+                                    </ul>
+                                </td></tr>
+                                </c:if>
+                                <c:if test="${not empty dependenciesTermsPending}">
+                                <tr><td>
+                                    You have the following terms pending for agreement before you can read and agree to ${terms.title}:<br/>
+                                    <ul style="margin-left:40px;">
+                                        <c:forEach items="${dependenciesTermsPending}" var="dep_terms_pending_item">
+                                            <li>
+                                                ${dep_terms_pending_item.title}
+                                                <a href="/tc?module=${viewRegistrationModule}&${PROJECT_ID}=${requestScope[defaults][PROJECT_ID]}&tuid=${dep_terms_pending_item.termsOfUseId}&prePendingTerms=${prePendingTerms}">(View and agree)</a>
+                                            </li>
+                                        </c:forEach>
+                                    </ul>
+                                </td></tr>
+                                </c:if>
+                                </table>
+                            </c:otherwise>
+                        </c:choose>
                     </c:when>
                     <c:otherwise>
-                        <table>
+                        <table class="leftalign">
                             <c:if test="${not empty terms_agreed}">
                                 <tr>
                                     <td>
-                                        The following terms (that you already agreed to) apply to this project:
+                                        The following terms of use apply to this project:
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <c:forEach items="${terms_agreed}" var="terms_agreed_item">
+                                        You have agreed to:<br/>
+                                        <c:forEach items="${terms_agreed}" var="terms_agreed_item_group">
+                                        <c:forEach items="${terms_agreed_item_group}" var="terms_agreed_item">
                                             <ul>
                                                 <li>
                                                     ${terms_agreed_item.title}
                                                     <c:choose>
-                                                        <c:when test="${terms_agreed_item.electronicallySignable != 1}">
+                                                        <c:when test="${terms_agreed_item.agreeabilityType.termsOfUseAgreeabilityTypeId == NON_ELEC_AGREEABLE_TERMS_TYPE_ID}">
                                                             <a href="${terms_agreed_item.url}">(View)</a>
                                                         </c:when>
                                                         <c:otherwise>
@@ -277,33 +350,60 @@
                                                 </li>
                                             </ul>
                                         </c:forEach>
+                                        </c:forEach>
                                     </td>
                                 </tr>
                             </c:if>
                             <c:choose>
-                                <c:when test="${not empty terms_pending}">
+                                <c:when test="${not empty terms_group}">
                                     <tr>
                                         <td>
-                                            You have the following terms pending for agreement:
+                                            <div class="term_title">
+                                            The following groups of terms of use apply to this project.<br/>
+                                            You need to agree to at least one of the groups of terms before you can register:
+                                            </div>
                                         </td>
                                     </tr>
+                                    <c:forEach items="${terms_group}" var="terms_group_item" varStatus="vars">
                                     <tr>
                                         <td>
-                                            <c:forEach items="${terms_pending}" var="terms_pending_item">
+                                            <div class="term_group term_group_exp" id="groupTitle${vars.index}"><a href="#" onclick="togGroup(this, ${vars.index});return false;" class="term_group_icon"></a><div class="term_group_box" style="width:430px;"><strong>Group ${vars.count}</strong></div><div style="clear:both;"></div></div>
+                                            <div class="term_group_content" id="group${vars.index}">
+                                            <c:if test="${terms_group_has_agreed[vars.index]}">
+                                                You have agreed to:<br/>
                                                 <ul>
+                                                <c:forEach items="${terms_group_item}" var="tou_item">
+                                                    <c:if test="${terms_status[tou_item.termsOfUseId]}">
                                                     <li>
-                                                        ${terms_pending_item.title}
-                                                        <a href="/tc?module=${viewRegistrationModule}&${PROJECT_ID}=${requestScope[defaults][PROJECT_ID]}&tuid=${terms_pending_item.termsOfUseId}">(View and agree)</a>
-                                                    </li>
+                                                        ${tou_item.title}
+                                                        <c:choose>
+                                                            <c:when test="${tou_item.agreeabilityType.termsOfUseAgreeabilityTypeId == NON_ELEC_AGREEABLE_TERMS_TYPE_ID}">
+                                                                <a href="${tou_item.url}">(View)</a>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                <a href="/tc?module=Terms&tuid=${tou_item.termsOfUseId}" target="_blank">(View)</a>
+                                                            </c:otherwise>
+                                                        </c:choose>
+                                                    </li> 
+                                                    </c:if>
+                                                </c:forEach>
                                                 </ul>
+                                            </c:if>
+                                            You have the following terms pending for agreement:
+                                            <ul>
+                                            <c:forEach items="${terms_group_item}" var="tou_item">
+                                                <c:if test="${not terms_status[tou_item.termsOfUseId]}">
+                                                    <li>
+                                                        ${tou_item.title}
+                                                        <a href="/tc?module=${viewRegistrationModule}&${PROJECT_ID}=${requestScope[defaults][PROJECT_ID]}&tuid=${tou_item.termsOfUseId}&prePendingTerms=${prePendingTerms}">(View and agree)</a>
+                                                    </li> 
+                                                </c:if>
                                             </c:forEach>
+                                            </ul>
+                                            </div>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            In order to register you must agree to all pending terms of use.
-                                        </td>
-                                    </tr>
+                                    </c:forEach>
                                 </c:when>
                                 <c:otherwise>
                                     <c:if test="${pt == DESIGN_PROJECT_TYPE || pt == DEVELOPMENT_PROJECT_TYPE}">
@@ -354,7 +454,7 @@
                                             <img src="/i/captcha/${requestScope[captchaFileName]}" alt="captcha image"/>
 
                                          <p>
-                                             <a href="javascript:window.location.reload()">This image is hard to read. Show me a different
+                                             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=${viewRegistrationModule}&${PROJECT_ID}=${requestScope[defaults][PROJECT_ID]}">This image is hard to read. Show me a different
                                                     one.</a>
                                             </p>
                                         </td>
@@ -381,14 +481,14 @@
                 </c:choose>
 
                 <p style="width: 510px;">
-                    <c:if test="${not empty terms}">
+                    <c:if test="${not empty terms and empty dependenciesTermsPending}">
                         <c:choose>
-                            <c:when test="${terms.electronicallySignable == 1}">
+                            <c:when test="${terms.agreeabilityType.termsOfUseAgreeabilityTypeId != NON_ELEC_AGREEABLE_TERMS_TYPE_ID}">
                                 <span class="errorText"><tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>"><%=err%>
                                     <br /></tc-webtag:errorIterator></span>
 
                                     I Agree to the Terms and Conditions stated above&#160;
-                                    <tc-webtag:chkBox name="<%=Constants.TERMS_AGREE%>"/>
+                                    <input name="<%=Constants.TERMS_AGREE%>" type="checkbox" id="agreechk" onclick="if (this.checked) document.getElementById('conbtn').disabled = ''; else document.getElementById('conbtn').disabled = 'disabled';"/>
                             </c:when>
                             <c:otherwise>
                                 <jsp:include page="/terms/paper_terms.jsp">
@@ -401,24 +501,24 @@
 
                 <p style="width: 510px;">
                     <c:choose>
-                        <c:when test="${not empty terms}">
+                        <c:when test="${not empty terms and empty dependenciesTermsPending}">
                             <table>
                             <tr>
                             <c:set value="Go back" var="returnMessage"/>
-                            <c:if test="${terms.electronicallySignable == 1}">
+                            <c:if test="${terms.agreeabilityType.termsOfUseAgreeabilityTypeId != NON_ELEC_AGREEABLE_TERMS_TYPE_ID}">
                                 <td>
-                                <a class="button" href="Javascript:document.regForm.submit();" style="width:60px;">Continue</a>
+                                <input id="conbtn" type="submit" onClick="" name="submit" value=" Continue" disabled/>
                                 </td>
                                 <c:set value="Cancel" var="returnMessage"/>
                             </c:if>
                             <td>
-                            <a class="button" href="/tc?module=${viewRegistrationModule}&${PROJECT_ID}=${requestScope[defaults][PROJECT_ID]}" style="width:60px;">${returnMessage}</a>
+                            <input type="button" onClick="goBack()" name="${returnMessage}" value="${returnMessage}"/>
                             </td>
                             </tr>
                             </table>
                         </c:when>
                         <c:otherwise>
-                            <c:if test="${empty terms_pending}">
+                            <c:if test="${empty terms_group and empty terms}">
                                 <a class="button" href="Javascript:document.regForm.submit();" style="width:60px;">Register</a>
                             </c:if>
                         </c:otherwise>

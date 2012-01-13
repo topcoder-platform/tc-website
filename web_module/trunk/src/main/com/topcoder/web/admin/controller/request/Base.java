@@ -1,8 +1,14 @@
 /*
- * Copyright (C) 2005-2010 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2005-2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.admin.controller.request;
 
+import com.cronos.termsofuse.dao.TermsOfUseDao;
+import com.cronos.termsofuse.dao.UserTermsOfUseDao;
+import com.cronos.termsofuse.dao.impl.TermsOfUseDaoImpl;
+import com.cronos.termsofuse.dao.impl.UserTermsOfUseDaoImpl;
+import com.topcoder.configuration.ConfigurationObject;
+import com.topcoder.configuration.persistence.ConfigurationFileManager;
 import com.topcoder.security.NoSuchUserException;
 import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.admin.PrincipalMgrRemote;
@@ -19,14 +25,45 @@ import com.topcoder.web.common.StringUtils;
 /**
  * <p>A base class for controllers processing the requests for <code>TopCoder Administration</code> module.</p>
  *
- * @author dok, isv
+ * <p>
+ *   Version 1.2 (TopCoder Terms of Use Management Refactoring v1.0) Change notes:
+ *   <ol>
+ *     <li>Added method {@link #getTermsOfUseDao()} to get the terms of use DAO instance.</li>
+ *     <li>Added method {@link #getUserTermsOfUseDao()} to get the user terms of use DAO instance.</li>
+ *     <li>Added method {@link #getConfiguration(String)} to get the configuration object by namespace.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author dok, isv, TCSASSEMBER
  * @version $Revision$ $Date$
  *          Create Date: Nov 9, 2005
- * @version 1.1
+ * @version 1.2
  * @since 1.0
  */
 abstract public class Base extends BaseProcessor {
 
+    /**
+     * <p>Represents the instance of terms of use DAO.</p>
+     * 
+     * @since 1.2
+     */
+    private TermsOfUseDao termsOfUseDao = null;
+    
+    /**
+     * <p>Represents the instance of user terms of use DAO.</p>
+     * 
+     * @since 1.2
+     */
+    private UserTermsOfUseDao userTermsOfUseDao = null;
+    
+    /**
+     * <p>A <code>String</code> providing the location of the configuration file used
+     * by configuration manager component.</p>
+     * 
+     * @since 1.2
+     */
+    private static final String CONFIGURATION_FILE = "com/topcoder/util/config/ConfigManager.properties";
+    
     /**
      * <p>Constructs new <code>Base</code> instance. This implementation does nothing.</p>
      *
@@ -155,5 +192,44 @@ abstract public class Base extends BaseProcessor {
         }
         return null;
     }
+    
+    /**
+     * <p>Gets the instance of the terms of use DAO.</p>
+     * 
+     * @return the instance of the terms of use DAO
+     * @throws Exception if any error occurs
+     * @since 1.2
+     */
+    protected TermsOfUseDao getTermsOfUseDao() throws Exception {
+        if (termsOfUseDao == null) {
+            termsOfUseDao = new TermsOfUseDaoImpl(getConfiguration(Constants.TERMS_OF_USE_DAO_NS));
+        }
+        return termsOfUseDao;
+    }
+    
+    /**
+     * <p>Gets the instance of the user terms of use DAO.</p>
+     * 
+     * @return the instance of the user terms of use DAO
+     * @throws Exception if any error occurs
+     * @since 1.2
+     */
+    protected UserTermsOfUseDao getUserTermsOfUseDao() throws Exception {
+        if (userTermsOfUseDao == null) {
+            userTermsOfUseDao = new UserTermsOfUseDaoImpl(getConfiguration(Constants.USER_TERMS_OF_USE_DAO_NS));
+        }
+        return userTermsOfUseDao;
+    }
+    
+    /**
+     * <p>Gets the configuration object by the namespace.</p>
+     * 
+     * @param namespace the namespace of the configuration
+     * @return the corresponding configuration object
+     * @throws Exception if any error occurs
+     * @since 1.2
+     */
+    private ConfigurationObject getConfiguration(String namespace) throws Exception {
+        return new ConfigurationFileManager(CONFIGURATION_FILE).getConfiguration(namespace).getChild(namespace);
+    }
 }
-
