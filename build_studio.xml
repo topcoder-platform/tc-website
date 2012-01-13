@@ -469,9 +469,9 @@
         <unwar src="${war.dir}/studio.war" dest="${jboss_home}/server/default/deploy/studio.war/" overwrite="yes"/>
         <delete dir="${jboss_home}/server/default/deploy/studio.war/META-INF"/>
         <copy todir="${jboss_conf}">
-            <fileset dir="${resources}">
+            <!--<fileset dir="${resources}">
                 <include name="Studio.properties"/>
-            </fileset>
+            </fileset>-->
         </copy>
     </target>
 
