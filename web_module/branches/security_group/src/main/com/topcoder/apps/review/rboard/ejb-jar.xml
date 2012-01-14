@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE ejb-jar PUBLIC
+      "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN"
+      "http://java.sun.com/dtd/ejb-jar_2_0.dtd">
+
+<ejb-jar>
+    <description>Review Board Jar</description>
+    <display-name>Review Board Jar</display-name>
+    <enterprise-beans>
+        <session>
+            <description>Review Board Application EJB</description>
+            <display-name>Review Board Application  EJB</display-name>
+            <ejb-name>RBoardApplication</ejb-name>
+            <home>com.topcoder.apps.review.rboard.RBoardApplicationHome</home>
+            <remote>com.topcoder.apps.review.rboard.RBoardApplication</remote>
+            <ejb-class>com.topcoder.apps.review.rboard.RBoardApplicationBean</ejb-class>
+            <transaction-type>Bean</transaction-type>
+            <session-type>Stateless</session-type>
+        </session>
+        <session>
+            <description>Review Board Payment EJB</description>
+            <display-name>Review Board Payment EJB</display-name>
+            <ejb-name>RBoardPayment</ejb-name>
+            <home>com.topcoder.apps.review.rboard.RBoardPaymentHome</home>
+            <remote>com.topcoder.apps.review.rboard.RBoardPayment</remote>
+            <ejb-class>com.topcoder.apps.review.rboard.RBoardPaymentBean</ejb-class>
+            <transaction-type>Bean</transaction-type>
+            <session-type>Stateless</session-type>
+        </session>
+    </enterprise-beans>
+    <assembly-descriptor>
+        <container-transaction>
+            <method>
+                <ejb-name>RBoardApplication</ejb-name>
+                <method-name>*</method-name>
+            </method>
+            <trans-attribute>Required</trans-attribute>
+        </container-transaction>
+    </assembly-descriptor>
+</ejb-jar>
+
+
