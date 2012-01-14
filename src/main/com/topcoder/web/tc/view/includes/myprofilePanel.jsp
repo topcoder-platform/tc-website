@@ -21,7 +21,7 @@
 			<s:url id="imageUrl" value="#request.memberInfo.imageUrl"/>
 		</s:if>
 		<s:else>
-			<s:url id="imageAnchor" value="%{getText('register.url')}"/>
+			<s:url id="imageAnchor" value="%{memberProfileUrl}"/>
 			<s:url id="imageUrl" value="../i/tc/user-big.png"/>
 		</s:else>
 		<s:a href="%{imageAnchor}"><img src='<s:property value="%{imageUrl}"/>'/></s:a>

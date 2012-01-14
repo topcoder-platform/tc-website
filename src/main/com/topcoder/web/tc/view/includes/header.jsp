@@ -200,10 +200,6 @@
 											<a href="<s:url value="%{getText('topcoder.network.ntl.url')}"/>"> <span>NASA Tournament Lab</span> <span
 												class="over"></span> </a>
 										</li>
-										<li>
-											<a href="<s:url value="%{getText('topcoder.network.paypal.url')}"/>"> <span>PayPalX</span> <span
-												class="over"></span> </a>
-										</li>
 									</ul>
 								</div>
 							</div>
