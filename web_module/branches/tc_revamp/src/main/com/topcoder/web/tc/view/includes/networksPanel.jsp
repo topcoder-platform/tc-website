@@ -15,8 +15,8 @@
 		<ul>
 			<li><a href="<s:url value="%{getText('topcoder.network.alcatel.url')}"/>" title="Alcatel Lucent"><img
 					src="../i/tc/architecture-logo.png" alt="Alcatel Lucent" /></a></li>
-			<li><a href="<s:url value="%{getText('topcoder.network.paypal.url')}"/>" title="PayPalX"><img
-					src="../i/tc/payPalX-logo.png" alt="PayPalX" /> </a></li>
+			<li><a href="<s:url value="%{getText('topcoder.network.ntl.url')}"/>" title="NASA Tournament Lab"><img
+					src="../i/tc/payPalX-logo.png" alt="NASA Tournament Lab" /> </a></li>
 			<li><a href="<s:url value="%{getText('topcoder.network.darpacs.url')}"/>" title="Dapra CS-STEM"><img
 					src="../i/tc/dapraCS-STEM-logo.png" alt="Dapra CS-STEM" /></a></li>
 		</ul>
