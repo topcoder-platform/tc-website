@@ -109,6 +109,7 @@
       <td class="value">18
 	    <div class="srm">
 		 <strong><A href="/tc?module=MatchDetails&rd=14726">SRM 533</A></strong><br />
+		 brought to you by <A href="http://community.topcoder.com/tco12/overview-sponsor/tco12-sponsor-google/">Google</A><br />
          12:00
         </div>	  
       </td>
@@ -126,6 +127,7 @@
       <td class="value">23
 	    <div class="srm">
 		 <strong><A href="/tc?module=MatchDetails&rd=14727">SRM 534</A></strong><br />
+		 brought to you by <A href="http://community.topcoder.com/tco12/overview-sponsor/tco12-sponsor-google/">Google</A><br />
          21:00
         </div>	  
       </td>
