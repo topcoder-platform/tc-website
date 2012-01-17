@@ -29,7 +29,7 @@
 					<s:param name="cr" value="21221008"/>
 					<s:param name="tab" value="'des'"/>
 				</s:url>
-				<td><img src="../i/m/BLE.jpeg" alt="" /></td>
+				<td><img src="http://community.topcoder.com/i/m/BLE.jpeg" alt="" /></td>
 				<td class="userInfo"><strong><a href="<s:url value="%{getText('mom.design.url')}"/>"
 						class="gMetal">Design</a> </strong> <s:a href="%{memberProfileUrl}"
 					cssClass="coderTextBlue">BLE</s:a> <span>6 wins, 2 second places</span></td>
