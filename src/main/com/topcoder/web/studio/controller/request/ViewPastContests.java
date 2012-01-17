@@ -105,7 +105,7 @@ public class ViewPastContests extends BaseProcessor {
         // load up the contests
         DataAccess da = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
         Request r = new Request();
-        r.setContentHandle("studio_past_contests");
+        r.setContentHandle("studio_past_contests_multi_sort");
         r.setProperty("uid", String.valueOf(userId));
 
         String col = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
@@ -130,7 +130,7 @@ public class ViewPastContests extends BaseProcessor {
         
         String sortCriteria = SortingHelper.getSortingClause(sortPriority, sortDirection);
         r.setProperty(SortingHelper.MULTI_SORTING_KEY, sortCriteria);
-        r.setProperty(DataAccessConstants.SORT_QUERY, "studio_past_contests");
+        r.setProperty(DataAccessConstants.SORT_QUERY, "studio_past_contests_multi_sort");
 
         SimpleDateFormat df1 = new SimpleDateFormat("dd/MM/yyyy");
         SimpleDateFormat df2 = new SimpleDateFormat("yyyy-MM-dd");
@@ -256,7 +256,7 @@ public class ViewPastContests extends BaseProcessor {
         r.setProperty("smax", maxSub);
         getRequest().setAttribute("maxSub", maxSub);
 
-        ResultSetContainer rsc = da.getData(r).get("studio_past_contests");
+        ResultSetContainer rsc = da.getData(r).get("studio_past_contests_multi_sort");
 
         String pageSize = getRequest().getParameter("pageSize");
         if (pageSize == null) {
