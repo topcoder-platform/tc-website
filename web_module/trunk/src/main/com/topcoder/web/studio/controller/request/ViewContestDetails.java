@@ -129,7 +129,7 @@ public class ViewContestDetails extends ShortHibernateProcessor {
 
                 // Check if the user has permissions to see contest details even if it's still not active
                 long userId = getUser().getId();
-                if (Util.isAdmin(userId) || (String.valueOf(userId).equals(contest.getCreateUserId()))
+                if (Util.isAdmin(userId) || Util.isTCStuff(userId) || (String.valueOf(userId).equals(contest.getCreateUserId()))
                     || hasPermissions(userId, cid)) {
                     getRequest().setAttribute("contest", contest);
                 } else {

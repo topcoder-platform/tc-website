@@ -155,7 +155,7 @@ public abstract class BaseProcessor implements RequestProcessor {
      * @return boolean
      */
     protected boolean userLoggedIn() {
-        return !auth.getUser().isAnonymous();
+        return !auth.getActiveUser().isAnonymous();
     }
 
     /**
