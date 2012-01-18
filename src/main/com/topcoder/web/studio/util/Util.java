@@ -125,6 +125,15 @@ public class Util {
         return found;
     }
     
+    public static boolean isTCStuff(long userId) throws Exception {
+        TCSubject subject = SecurityHelper.getUserSubject(userId);
+        boolean found = false;
+        for (Iterator it = subject.getPrincipals().iterator(); it.hasNext() && !found;) {
+            found = ((TCPrincipal) it.next()).getId() == Constants.TC_STUFF_ROLE_ID;
+        }
+        return found;
+    }
+
     /**
      * Check if passed user has role from list in given contest.
      * 
