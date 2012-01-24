@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-  <payRoyalties>
-    <sourcesList>
-        <source name = "informixoltp" value = "jdbc:informix-sqli://63.118.154.190:1526/informixoltp:INFORMIXSERVER=devinformix10_shm;user=coder;password=altec"/>
-    </sourcesList>
-    <parameterList>
-    </parameterList>
-  </payRoyalties>

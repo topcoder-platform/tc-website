@@ -1,1 +1,0 @@
-Class-Path: idgenerator.jar forum_persistence_layer.jar OnlineReviewClient.jar
