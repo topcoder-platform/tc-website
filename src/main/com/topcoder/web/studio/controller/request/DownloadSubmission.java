@@ -182,7 +182,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
         if (Util.isAdmin(getUser().getId()) || isOwner || isScreener) {
             canDownload = true;
         } else if (Util.hasCockpitPermissions(getUser().getId(), contest.getId())
-                || isInManagerORRoles) {
+                || isInManagerORRoles || Util.isTCStuff(getUser().getId())) {
             if (originalSubmissionRequested && isReviewOver) {
                 canDownload = true;
             }
