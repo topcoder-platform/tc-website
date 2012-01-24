@@ -80,6 +80,11 @@ public class Upload extends Base {
     private String parameter;
 
     /**
+     * <p>Represents the project phase of the submission upload.</p>
+     */
+    private ProjectPhase projectPhase;
+    
+    /**
      * <p>Gets the submission upload unique identifier.</p>
      *
      * @return the submission upload unique identifier
@@ -258,4 +263,22 @@ public class Upload extends Base {
 	public void setParameter(String parameter) {
 		this.parameter = parameter;
 	}
+
+    /**
+     * <p>Gets the project phase of the submission upload.</p>
+     * 
+     * @return the project phase of the submission upload.
+     */
+    public ProjectPhase getProjectPhase() {
+        return projectPhase;
+    }
+
+    /**
+     * <p>Sets the project phase of the submission upload.</p>
+     * 
+     * @param projectPhase the project phase of the submission upload to set.
+     */
+    public void setProjectPhase(ProjectPhase projectPhase) {
+        this.projectPhase = projectPhase;
+    }
 }
