@@ -81,7 +81,11 @@ public class OutstandingProjects extends BaseProcessor {
             && !getRequest().getParameter(Constants.PHASE_ID).equals(
                 String.valueOf(SoftwareComponent.UI_PROTOTYPE_PHASE))
             && !getRequest().getParameter(Constants.PHASE_ID).equals(
-                String.valueOf(SoftwareComponent.RIA_BUILD_PHASE))) {												
+                String.valueOf(SoftwareComponent.RIA_BUILD_PHASE))
+            && !getRequest().getParameter(Constants.PHASE_ID).equals(
+                String.valueOf(SoftwareComponent.CONTENT_CREATION_PHASE))
+            && !getRequest().getParameter(Constants.PHASE_ID).equals(
+                String.valueOf(SoftwareComponent.REPORTING_PHASE))) {
             throw new TCWebException("invalid " + Constants.PHASE_ID + " parameter.");
         }
 
@@ -105,7 +109,11 @@ public class OutstandingProjects extends BaseProcessor {
                 && !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(
                     String.valueOf(Constants.UI_PROTOTYPE_PROJECT_TYPE))
                 && !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(
-                    String.valueOf(Constants.RIA_BUILD_PROJECT_TYPE))) {															
+                    String.valueOf(Constants.RIA_BUILD_PROJECT_TYPE))
+                && !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(
+                    String.valueOf(Constants.CONTENT_CREATION_PROJECT_TYPE))
+                && !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(
+                    String.valueOf(Constants.REPORTING_PROJECT_TYPE))) {
                 throw new TCWebException("invalid " + Constants.PROJECT_TYPE_ID + " parameter.");
             }
 
@@ -196,7 +204,13 @@ public class OutstandingProjects extends BaseProcessor {
                 break;
             case Constants.RIA_BUILD_PROJECT_TYPE:
                 handleType = HandleTag.RIA_BUILD;
-                break;												
+                break;
+            case Constants.CONTENT_CREATION_PROJECT_TYPE:
+                handleType = HandleTag.CONTENT_CREATION;
+                break;
+            case Constants.REPORTING_PROJECT_TYPE:
+                handleType = HandleTag.REPORTING;
+                break;
         }
         getRequest().setAttribute(Constants.TYPE_KEY, handleType);
         getRequest().setAttribute(Constants.CODER_ID, getRequest().getParameter(Constants.CODER_ID));

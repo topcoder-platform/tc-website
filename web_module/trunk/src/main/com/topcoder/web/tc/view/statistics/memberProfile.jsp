@@ -200,7 +200,26 @@ This member has not yet been rated in a competition.
             <%} else {%>
                 not rated
             <%}%>
-            </td></tr>	    	    	    
+            </td></tr>
+
+            <tr><td class="cat" nowrap="nowrap">Content Creation Rating:</td><td class="stat" align="right">
+            <%if(rscCoderData.getStringItem(0, "content_creation_rating") != null) {%>
+                <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "content_creation_rating")%>'>
+                <rsc:item name="content_creation_rating" set="<%=rscCoderData%>" format="####"/></tc-webtags:ratingColor>
+            <%} else {%>
+                not rated
+            <%}%>
+            </td></tr>
+
+            <tr><td class="cat" nowrap="nowrap">Reporting Rating:</td><td class="stat" align="right">
+            <%if(rscCoderData.getStringItem(0, "reporting_rating") != null) {%>
+                <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "reporting_rating")%>'>
+                <rsc:item name="reporting_rating" set="<%=rscCoderData%>" format="####"/></tc-webtags:ratingColor>
+            <%} else {%>
+                not rated
+            <%}%>
+            </td></tr>
+
             <tr><td class="cat" nowrap="nowrap">Marathon Matches Rating:</td><td class="stat" align="right">
             <%if(rscCoderData.getStringItem(0, "mm_rating") != null) {%>
                 <tc-webtags:ratingColor rating='<%=rscCoderData.getIntItem(0, "mm_rating")%>'>
@@ -331,6 +350,20 @@ This member has not yet been rated in a competition.
    <jsp:param name="track" value="RIA Builds"/>
    <jsp:param name="competition_type" value="ria_build"/>
    <jsp:param name="phase_id" value="<%= WebConstants.PHASE_RIA_BUILD %>"/>
+</jsp:include>
+<% } else if(tab.equals("content_creation")) { %>
+<jsp:include page="memberProfileTabs.jsp" />
+<jsp:include page="memberProfileTabTrack.jsp">
+   <jsp:param name="track" value="Content Creation"/>
+   <jsp:param name="competition_type" value="content_creation"/>
+   <jsp:param name="phase_id" value="<%= WebConstants.PHASE_CONTENT_CREATION %>"/>
+</jsp:include>
+<% } else if(tab.equals("reporting")) { %>
+<jsp:include page="memberProfileTabs.jsp" />
+<jsp:include page="memberProfileTabTrack.jsp">
+   <jsp:param name="track" value="Reporting"/>
+   <jsp:param name="competition_type" value="reporting"/>
+   <jsp:param name="phase_id" value="<%= WebConstants.PHASE_REPORTING %>"/>
 </jsp:include>
 <% } else if(tab.equals("long")) { %>
 <jsp:include page="memberProfileTabs.jsp" />

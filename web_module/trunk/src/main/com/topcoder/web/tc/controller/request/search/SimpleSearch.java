@@ -271,7 +271,17 @@ public class SimpleSearch extends Base {
             queryBottom.append(", outer (tcs_dw:user_rating ria_build_r)");
         } else {
             queryBottom.append(", tcs_dw:user_rating ria_build_r");
-        }						
+        }
+        if (m.getMinContentCreationRating() == null && m.getMaxContentCreationRating() == null) {
+            queryBottom.append(", outer (tcs_dw:user_rating content_creation_r)");
+        } else {
+            queryBottom.append(", tcs_dw:user_rating content_creation_r");
+        }
+        if (m.getMinReportingRating() == null && m.getMaxReportingRating() == null) {
+            queryBottom.append(", outer (tcs_dw:user_rating reporting_r)");
+        } else {
+            queryBottom.append(", tcs_dw:user_rating reporting_r");
+        }
         queryBottom.append(" WHERE c.coder_id = r.coder_id");
         queryBottom.append(" AND c.coder_id = hsr.coder_id");
         queryBottom.append(" AND c.coder_id = mmr.coder_id");
@@ -295,7 +305,9 @@ public class SimpleSearch extends Base {
         queryBottom.append(betweenFilter("testr.rating", m.getMinTestRating(), m.getMaxTestRating()));
         queryBottom.append(betweenFilter("test_scenarios_r.rating", m.getMinTestScenariosRating(), m.getMaxTestScenariosRating()));
         queryBottom.append(betweenFilter("ui_prototype_r.rating", m.getMinUIPrototypeRating(), m.getMaxUIPrototypeRating()));
-        queryBottom.append(betweenFilter("ria_build_r.rating", m.getMinRIABuildRating(), m.getMaxRIABuildRating()));						
+        queryBottom.append(betweenFilter("ria_build_r.rating", m.getMinRIABuildRating(), m.getMaxRIABuildRating()));
+        queryBottom.append(betweenFilter("content_creation_r.rating", m.getMinContentCreationRating(), m.getMaxContentCreationRating()));
+        queryBottom.append(betweenFilter("reporting_r.rating", m.getMinReportingRating(), m.getMaxReportingRating()));
         queryBottom.append(betweenFilter("r.num_ratings", m.getMinNumRatings(), m.getMaxNumRatings()));
         queryBottom.append(betweenFilter("hsr.num_ratings", m.getMinNumHSRatings(), m.getMaxNumHSRatings()));
         queryBottom.append(betweenFilter("mmr.num_ratings", m.getMinNumMarRatings(), m.getMaxNumMarRatings()));
@@ -340,7 +352,11 @@ public class SimpleSearch extends Base {
         queryBottom.append(" AND c.coder_id = ui_prototype_r.user_id");
         queryBottom.append(" AND ui_prototype_r.phase_id = 130");
         queryBottom.append(" AND c.coder_id = ria_build_r.user_id");
-        queryBottom.append(" AND ria_build_r.phase_id = 135");						
+        queryBottom.append(" AND ria_build_r.phase_id = 135");
+        queryBottom.append(" AND c.coder_id = content_creation_r.user_id");
+        queryBottom.append(" AND content_creation_r.phase_id = 146");
+        queryBottom.append(" AND c.coder_id = reporting_r.user_id");
+        queryBottom.append(" AND reporting_r.phase_id = 147");
         queryBottom.append(" AND r.algo_rating_type_id=1");
         queryBottom.append(" AND hsr.algo_rating_type_id=2");
         queryBottom.append(" AND mmr.algo_rating_type_id=3");
@@ -365,7 +381,9 @@ public class SimpleSearch extends Base {
         searchQuery.append(" , testr.rating as test_rating");
         searchQuery.append(" , test_scenarios_r.rating as test_scenarios_rating");
         searchQuery.append(" , ui_prototype_r.rating as ui_prototype_rating");
-        searchQuery.append(" , ria_build_r.rating as ria_build_rating");						
+        searchQuery.append(" , ria_build_r.rating as ria_build_rating");
+        searchQuery.append(" , content_creation_r.rating as content_creation_rating");
+        searchQuery.append(" , reporting_r.rating as reporting_rating");
         searchQuery.append(" , hsr.rating as hs_rating");
         searchQuery.append(" , hsr.num_ratings as num_hs_ratings");
         searchQuery.append(" , (SELECT date FROM calendar cal WHERE cal.calendar_id = hsro.calendar_id) AS last_hs_competed");
@@ -461,7 +479,25 @@ public class SimpleSearch extends Base {
         searchQuery.append("     where p.project_id = pr.project_id ");
         searchQuery.append("     and phase_id = 135");
         searchQuery.append("     and rating_ind = 1 ");
-        searchQuery.append("     and user_id = c.coder_id) as last_ria_build_competed ");		
+        searchQuery.append("     and user_id = c.coder_id) as last_ria_build_competed ");
+        searchQuery.append(" , (select max(num_ratings)  from tcs_dw:project_result pr, tcs_dw:project p ");
+        searchQuery.append("     where p.project_id = pr.project_id ");
+        searchQuery.append("     and phase_id = 146");
+        searchQuery.append("     and user_id = c.coder_id) as num_content_creation_ratings ");
+        searchQuery.append(" , (select max(rating_date)  from tcs_dw:project_result pr, tcs_dw:project p ");
+        searchQuery.append("     where p.project_id = pr.project_id ");
+        searchQuery.append("     and phase_id = 146");
+        searchQuery.append("     and rating_ind = 1 ");
+        searchQuery.append("     and user_id = c.coder_id) as last_content_creation_competed ");
+        searchQuery.append(" , (select max(num_ratings)  from tcs_dw:project_result pr, tcs_dw:project p ");
+        searchQuery.append("     where p.project_id = pr.project_id ");
+        searchQuery.append("     and phase_id = 147");
+        searchQuery.append("     and user_id = c.coder_id) as num_reporting_ratings ");
+        searchQuery.append(" , (select max(rating_date)  from tcs_dw:project_result pr, tcs_dw:project p ");
+        searchQuery.append("     where p.project_id = pr.project_id ");
+        searchQuery.append("     and phase_id = 147");
+        searchQuery.append("     and rating_ind = 1 ");
+        searchQuery.append("     and user_id = c.coder_id) as last_reporting_competed ");
 
         searchQuery.append(queryBottom.toString());
         if (m.getSortCol() == null) {
@@ -593,7 +629,19 @@ public class SimpleSearch extends Base {
             countQuery.append(", tcs_dw:user_rating ria_build_r");
             filter.append(" AND c.coder_id = ria_build_r.user_id");
             filter.append(" AND ria_build_r.phase_id = 135");
-        }				
+        }
+
+        if (!(m.getMinContentCreationRating() == null && m.getMaxContentCreationRating() == null)) {
+            countQuery.append(", tcs_dw:user_rating content_creation_r");
+            filter.append(" AND c.coder_id = content_creation_r.user_id");
+            filter.append(" AND content_creation_r.phase_id = 146");
+        }
+		
+        if (!(m.getMinReportingRating() == null && m.getMaxReportingRating() == null)) {
+            countQuery.append(", tcs_dw:user_rating reporting_r");
+            filter.append(" AND c.coder_id = reporting_r.user_id");
+            filter.append(" AND reporting_r.phase_id = 147");
+        }
 
         if (m.getStateCode() != null)
             filter.append(" AND c.state_code like '").append(StringUtils.replace(m.getStateCode(), "'", "''")).append("'");
@@ -614,7 +662,9 @@ public class SimpleSearch extends Base {
         filter.append(betweenFilter("testr.rating", m.getMinTestRating(), m.getMaxTestRating()));
         filter.append(betweenFilter("test_scenarios_r.rating", m.getMinTestScenariosRating(), m.getMaxTestScenariosRating()));
         filter.append(betweenFilter("ui_prototype_r.rating", m.getMinUIPrototypeRating(), m.getMaxUIPrototypeRating()));
-        filter.append(betweenFilter("ria_build_r.rating", m.getMinRIABuildRating(), m.getMaxRIABuildRating()));						
+        filter.append(betweenFilter("ria_build_r.rating", m.getMinRIABuildRating(), m.getMaxRIABuildRating()));
+        filter.append(betweenFilter("content_creation_r.rating", m.getMinContentCreationRating(), m.getMaxContentCreationRating()));
+        filter.append(betweenFilter("reporting_r.rating", m.getMinReportingRating(), m.getMaxReportingRating()));
         filter.append(betweenFilter("r.num_ratings", m.getMinNumRatings(), m.getMaxNumRatings()));
         filter.append(betweenFilter("hsr.num_ratings", m.getMinNumHSRatings(), m.getMaxNumHSRatings()));
         filter.append(betweenFilter("mmr.num_ratings", m.getMinNumMarRatings(), m.getMaxNumMarRatings()));
@@ -681,6 +731,12 @@ public class SimpleSearch extends Base {
         s.addDefault(rsc.getColumnIndex("ria_build_rating"), "desc");
         s.addDefault(rsc.getColumnIndex("num_ria_build_ratings"), "desc");
         s.addDefault(rsc.getColumnIndex("last_ria_build_competed"), "desc");
+        s.addDefault(rsc.getColumnIndex("content_creation_rating"), "desc");
+        s.addDefault(rsc.getColumnIndex("num_content_creation_ratings"), "desc");
+        s.addDefault(rsc.getColumnIndex("last_content_creation_competed"), "desc");
+        s.addDefault(rsc.getColumnIndex("reporting_rating"), "desc");
+        s.addDefault(rsc.getColumnIndex("num_reporting_ratings"), "desc");
+        s.addDefault(rsc.getColumnIndex("last_reporting_competed"), "desc");
         s.addDefault(rsc.getColumnIndex("hs_rating"), "desc");
         s.addDefault(rsc.getColumnIndex("num_hs_ratings"), "desc");
         s.addDefault(rsc.getColumnIndex("last_hs_competed"), "desc");

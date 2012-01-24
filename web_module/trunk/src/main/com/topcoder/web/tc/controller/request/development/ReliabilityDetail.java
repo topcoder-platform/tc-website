@@ -62,7 +62,9 @@ public class ReliabilityDetail extends Base {
                 || String.valueOf(SoftwareComponent.TEST_SUITES_PHASE).equals(phaseId)
                 || String.valueOf(SoftwareComponent.TEST_SCENARIOS_PHASE).equals(phaseId)
                 || String.valueOf(SoftwareComponent.UI_PROTOTYPE_PHASE).equals(phaseId)
-                || String.valueOf(SoftwareComponent.RIA_BUILD_PHASE).equals(phaseId))												
+                || String.valueOf(SoftwareComponent.RIA_BUILD_PHASE).equals(phaseId)
+                || String.valueOf(SoftwareComponent.CONTENT_CREATION_PHASE).equals(phaseId)
+                || String.valueOf(SoftwareComponent.REPORTING_PHASE).equals(phaseId))
             {
                 Request r = new Request();
                 r.setContentHandle("reliability_detail");
@@ -104,7 +106,13 @@ public class ReliabilityDetail extends Base {
                         break;
                     case Constants.RIA_BUILD_PROJECT_TYPE:
                         handleType = HandleTag.RIA_BUILD;
-                        break;																		
+                        break;
+                    case Constants.CONTENT_CREATION_PROJECT_TYPE:
+                        handleType = HandleTag.CONTENT_CREATION;
+                        break;
+                    case Constants.REPORTING_PROJECT_TYPE:
+                        handleType = HandleTag.REPORTING;
+                        break;
                 }
 
                 getRequest().setAttribute(Constants.TYPE_KEY, handleType);

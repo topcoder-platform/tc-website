@@ -538,7 +538,12 @@ public class Constants implements WebConstants {
      *
      * @since 1.9
      */
-    public static String MAX_RIA_BUILD_RATING;	
+    public static String MAX_RIA_BUILD_RATING;
+
+    public static String MIN_CONTENT_CREATION_RATING;
+    public static String MAX_CONTENT_CREATION_RATING;
+    public static String MIN_REPORTING_RATING;
+    public static String MAX_REPORTING_RATING;
 
     /**
      * <p>A <code>String</code> providing the namespace of terms of use DAO implementation.</p>

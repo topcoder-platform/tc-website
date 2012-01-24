@@ -310,7 +310,41 @@ selections will be returned. Click on a Handle to view information about the Cod
       <td class="value" style="border: 0px;">
          <tc-webtag:textInput name="<%=Constants.MAX_RIA_BUILD_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
       </td>
-   </tr>         
+   </tr>
+   <tr>
+      <td class="valueR" style="border: 0px;">
+         <strong>Content Creation</strong> rating:
+      </td>
+      <td class="valueR" style="border: 0px;">
+         Min:
+      </td>
+      <td class="value" style="border: 0px;">
+         <tc-webtag:textInput name="<%=Constants.MIN_CONTENT_CREATION_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+      </td>
+      <td class="valueR" style="border: 0px;">
+         Max:
+      </td>
+      <td class="value" style="border: 0px;">
+         <tc-webtag:textInput name="<%=Constants.MAX_CONTENT_CREATION_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+      </td>
+   </tr>
+   <tr>
+      <td class="valueR" style="border: 0px;">
+         <strong>Reporting</strong> rating:
+      </td>
+      <td class="valueR" style="border: 0px;">
+         Min:
+      </td>
+      <td class="value" style="border: 0px;">
+         <tc-webtag:textInput name="<%=Constants.MIN_REPORTING_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+      </td>
+      <td class="valueR" style="border: 0px;">
+         Max:
+      </td>
+      <td class="value" style="border: 0px;">
+         <tc-webtag:textInput name="<%=Constants.MAX_REPORTING_RATING%>" size="6" maxlength="6" onKeyPress="submitEnter(event)"/>
+      </td>
+   </tr>
    <tr>
       <td class="valueR" style="border: 0px;">
          <strong>High School</strong> rating:

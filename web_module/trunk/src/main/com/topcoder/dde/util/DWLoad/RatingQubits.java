@@ -66,7 +66,9 @@ public class RatingQubits {
     private static final int TEST_SCENARIOS_PHASE_ID = 137;
     private static final int UI_PROTOTYPES_PHASE_ID = 130;
     private static final int RIA_BUILDS_PHASE_ID = 135;
-    private final static String NEW_RATING_CATEGORIES = "(4, 7, 8)";
+    private static final int CONTENT_CREATION_PHASE_ID = 146;
+    private static final int REPORTING_PHASE_ID = 147;
+    private final static String NEW_RATING_STATUSES = "(4, 7, 8)";
 
     /**
      * SQL fragment to be added to a where clause to not select projects with eligibility constraints
@@ -185,6 +187,8 @@ public class RatingQubits {
         runScore(conn, historyLength, TEST_SCENARIOS_PHASE_ID, newPhasesCutoff);
         runScore(conn, historyLength, UI_PROTOTYPES_PHASE_ID, uiPrototypeCutoff);
         runScore(conn, historyLength, RIA_BUILDS_PHASE_ID, riaBuildCutoff);
+        runScore(conn, historyLength, CONTENT_CREATION_PHASE_ID, riaBuildCutoff);
+        runScore(conn, historyLength, REPORTING_PHASE_ID, riaBuildCutoff);
     }
 
     // Run a score without a specific cut off time
@@ -215,7 +219,7 @@ public class RatingQubits {
             	sqlStr += ", project_phase pp ";
             }
             sqlStr += "where p.project_id = pr.project_id " +
-                    "and p.project_status_id in " + NEW_RATING_CATEGORIES + " " +
+                    "and p.project_status_id in " + NEW_RATING_STATUSES + " " +
                     "and p.project_category_id = ? " +
                     "and pr.rating_ind = 1 " +
                     "and pr.final_score is not null " +
@@ -586,7 +590,7 @@ public class RatingQubits {
      */
     private final String OLD_RATINGS = "select pr.project_id, pr.user_id, pr.old_rating from project_result pr, project p " +
             "where p.project_id = pr.project_id " +
-            "and p.project_status_id in  " + NEW_RATING_CATEGORIES + " " +
+            "and p.project_status_id in  " + NEW_RATING_STATUSES + " " +
             "and p.project_category_id = ? " +
             "and pr.rating_ind =1 " +
             ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +
@@ -624,7 +628,7 @@ public class RatingQubits {
      */
     private final String NEW_RATINGS = "select pr.project_id, pr.user_id, pr.new_rating from project_result pr, project p " +
             "where p.project_id = pr.project_id " +
-            "and p.project_status_id in  " + NEW_RATING_CATEGORIES + " " +
+            "and p.project_status_id in  " + NEW_RATING_STATUSES + " " +
             "and p.project_category_id = ? " +
             "and pr.rating_ind =1 " +
             ELIGIBILITY_CONSTRAINTS_SQL_FRAGMENT +

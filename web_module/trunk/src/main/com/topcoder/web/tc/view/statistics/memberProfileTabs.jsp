@@ -22,26 +22,30 @@
    boolean isRatedTestScenarios = ((Boolean)request.getAttribute("hasTestScenarios")).booleanValue();
    boolean isRatedUIPrototype = ((Boolean)request.getAttribute("hasUIPrototype")).booleanValue();
    boolean isRatedRIABuild = ((Boolean)request.getAttribute("hasRIABuild")).booleanValue();
+   boolean isRatedContentCreation = ((Boolean)request.getAttribute("hasContentCreation")).booleanValue();
+   boolean isRatedReporting = ((Boolean)request.getAttribute("hasReporting")).booleanValue();
    String selectedTab = (String) request.getAttribute("tab");
    String coderId = request.getParameter("cr");
 %>
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="tabTable">
-   <col width="7%"/>
+   <col width="6%"/>
    <% if (isRegHS) {%>
-   <col width="7%"/>
+   <col width="6%"/>
    <% } %>
+   <col width="6%"/>
+   <col width="6%"/>
+   <col width="6%"/>
    <col width="7%"/>
    <col width="7%"/>
-   <col width="8%"/>
-   <col width="8%"/>
-   <col width="8%"/>
-   <col width="8%"/>
-   <col width="8%"/>
-   <col width="8%"/>
-   <col width="8%"/>
-   <col width="8%"/>
-   <col width="8%"/>
+   <col width="7%"/>
+   <col width="7%"/>
+   <col width="7%"/>
+   <col width="7%"/>
+   <col width="7%"/>
+   <col width="7%"/>
+   <col width="7%"/>
+   <col width="7%"/>
    <tr>
       <td>
       <% if (isRatedAlg) {%>
@@ -190,6 +194,30 @@
          <% } %>
       <% } else { %>
       <div class="tabLinkNA">RIA Build</div>
+      <% } %>
+      </td>
+
+      <td>
+      <% if (isRatedContentCreation) {%>
+         <% if (selectedTab.equals("content_creation")) {%>
+         <A class="tabLinkOn" href="/tc?module=MemberProfile&tab=content_creation&cr=<%=coderId%>"><div>Content Creation</div></A>
+         <% } else { %>
+         <A class="tabLinkOff" href="/tc?module=MemberProfile&tab=content_creation&cr=<%=coderId%>"><div>Content Creation</div></A>
+         <% } %>
+      <% } else { %>
+      <div class="tabLinkNA">Content Creation</div>
+      <% } %>
+      </td>
+
+      <td>
+      <% if (isRatedReporting) {%>
+         <% if (selectedTab.equals("reporting")) {%>
+         <A class="tabLinkOn" href="/tc?module=MemberProfile&tab=reporting&cr=<%=coderId%>"><div>Reporting</div></A>
+         <% } else { %>
+         <A class="tabLinkOff" href="/tc?module=MemberProfile&tab=reporting&cr=<%=coderId%>"><div>Reporting</div></A>
+         <% } %>
+      <% } else { %>
+      <div class="tabLinkNA">Reporting</div>
       <% } %>
       </td>
 

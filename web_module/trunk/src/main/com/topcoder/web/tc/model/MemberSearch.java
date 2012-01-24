@@ -233,7 +233,12 @@ public class MemberSearch {
      *
      * @since 1.2
      */
-    private Integer maxRIABuildRating = null;		
+    private Integer maxRIABuildRating = null;
+
+    private Integer minContentCreationRating = null;
+    private Integer maxContentCreationRating = null;
+    private Integer minReportingRating = null;
+    private Integer maxReportingRating = null;
 
     public Integer getMaxDaysSinceLastHSComp() {
         return maxDaysSinceLastHSComp;
@@ -849,5 +854,97 @@ public class MemberSearch {
      */
     public void setMaxRIABuildRating(Integer maxRIABuildRating) {
         this.maxRIABuildRating = maxRIABuildRating;
-    }	
+    }
+
+    /**
+     * <p>
+     * Get Content Creation minimum rating.
+     * </p>
+     *
+     * @return Content Creation minimum rating.
+     */
+    public Integer getMinContentCreationRating() {
+        return minContentCreationRating;
+    }
+
+    /**
+     * <p>
+     * Set Content Creation minimum rating.
+     * </p>
+     *
+     * @param minContentCreationRating
+     *            Content Creation minimum rating.
+     */
+    public void setMinContentCreationRating(Integer minContentCreationRating) {
+        this.minContentCreationRating = minContentCreationRating;
+    }
+
+    /**
+     * <p>
+     * Get Content Creation maximum rating.
+     * </p>
+     *
+     * @return Content Creation maximum rating.
+     */
+    public Integer getMaxContentCreationRating() {
+        return maxContentCreationRating;
+    }
+
+    /**
+     * <p>
+     * Set Content Creation maximum rating.
+     * </p>
+     *
+     * @param maxContentCreationRating
+     *            Content Creation maximum rating.
+     */
+    public void setMaxContentCreationRating(Integer maxContentCreationRating) {
+        this.maxContentCreationRating = maxContentCreationRating;
+    }
+
+    /**
+     * <p>
+     * Get Reporting minimum rating.
+     * </p>
+     *
+     * @return Reporting minimum rating.
+     */
+    public Integer getMinReportingRating() {
+        return minReportingRating;
+    }
+
+    /**
+     * <p>
+     * Set Reporting minimum rating.
+     * </p>
+     *
+     * @param maxReportingRating
+     *            Reporting minimum rating.
+     */
+    public void setMinReportingRating(Integer minReportingRating) {
+        this.minReportingRating = minReportingRating;
+    }
+
+    /**
+     * <p>
+     * Get Reporting maximum rating.
+     * </p>
+     *
+     * @return Reporting maximum rating.
+     */
+    public Integer getMaxReportingRating() {
+        return maxReportingRating;
+    }
+
+    /**
+     * <p>
+     * Set Reporting maximum rating.
+     * </p>
+     *
+     * @param maxReportingRating
+     *            Reporting maximum rating.
+     */
+    public void setMaxReportingRating(Integer maxReportingRating) {
+        this.maxReportingRating = maxReportingRating;
+    }
 }
