@@ -1,0 +1,36 @@
+<jboss-web>
+
+    <ejb-ref>
+        <ejb-ref-name>com.topcoder.apps.review.projecttracker.ProjectTrackerHome</ejb-ref-name>
+        <jndi-name>com.topcoder.apps.review.projecttracker.ProjectTrackerHome</jndi-name>
+    </ejb-ref>
+    <ejb-ref>
+        <ejb-ref-name>security/PrincipalMgr</ejb-ref-name>
+        <jndi-name>security/PrincipalMgr</jndi-name>
+    </ejb-ref>
+    <ejb-ref>
+        <ejb-ref-name>security/PolicyMgr</ejb-ref-name>
+        <jndi-name>security/PolicyMgr</jndi-name>
+    </ejb-ref>
+
+    <ejb-local-ref>
+        <ejb-ref-name>UserManager</ejb-ref-name>
+        <jndi-name>projecttracker/UserManager</jndi-name>
+    </ejb-local-ref>
+   
+    <ejb-local-ref>
+        <ejb-ref-name>ProjectTracker</ejb-ref-name>
+        <jndi-name>projecttracker/ProjectTracker</jndi-name>
+    </ejb-local-ref>
+   
+    <ejb-local-ref>
+        <ejb-ref-name>DocumentManager</ejb-ref-name>
+        <jndi-name>document/DocumentManager</jndi-name>
+    </ejb-local-ref>
+
+    <resource-ref>
+        <res-ref-name>jdbc/DefaultDS</res-ref-name>
+        <jndi-name>java:/InformixDS</jndi-name>
+    </resource-ref>
+
+</jboss-web>

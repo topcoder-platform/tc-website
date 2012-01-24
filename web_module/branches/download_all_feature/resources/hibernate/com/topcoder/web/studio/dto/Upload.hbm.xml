@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.studio.dto" >
+
+    <class name="Upload" table="upload" >
+        <id name="id" column="upload_id">
+            <generator class="com.topcoder.web.common.model.IdGenerator">
+                <param name="sequence_name">upload_id_seq</param>
+                <param name="return_class">java.lang.Integer</param>
+            </generator>
+        </id>
+		<property name="statusId" column="upload_status_id" access="field"/>
+		<property name="typeId" column="upload_type_id" access="field"/>
+		<property name="createDate" column="create_date" />
+		<property name="createUser" column="create_user" />
+		<property name="modifyDate" column="modify_date" />
+		<property name="modifyUser" column="modify_user" />			
+		
+		<property name="parameter" />
+	
+		<many-to-one name="resource" column="resource_id" class="Resource" />	
+		<many-to-one name="contest" column="project_id" class="Project" />				
+    </class>
+</hibernate-mapping>

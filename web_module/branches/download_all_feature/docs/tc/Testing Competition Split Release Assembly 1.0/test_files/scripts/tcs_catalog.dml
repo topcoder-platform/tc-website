@@ -1,0 +1,40 @@
+database tcs_catalog;
+-- insert missing (old) review_resp rows for application testing
+INSERT INTO review_resp (review_resp_id, review_resp_name, phase_id) VALUES (19, 'Application Testing Reviewer 1', 124);
+INSERT INTO review_resp (review_resp_id, review_resp_name, phase_id) VALUES (20, 'Application Testing Reviewer 2', 124);
+INSERT INTO review_resp (review_resp_id, review_resp_name, phase_id) VALUES (21, 'Application Testing Reviewer 3', 124);
+
+-- Sample screening and review scorecards for the new project types
+INSERT INTO 'informix'.scorecard(scorecard_id,scorecard_status_id,scorecard_type_id,project_category_id,name,version,min_score,max_score,create_user,create_date,modify_user,modify_date) VALUES (30000516, 1, 1, 13, 'Test Suites Screening Scorecard', '1.0', 0.0, 100.0, '132456', '2008-11-27 14:14:29.517', '132456', '2008-11-27 14:14:29.517');
+INSERT INTO 'informix'.scorecard(scorecard_id,scorecard_status_id,scorecard_type_id,project_category_id,name,version,min_score,max_score,create_user,create_date,modify_user,modify_date) VALUES (30000517, 1, 1, 26, 'Test Scenarios Screening Scorecard', '1.0', 0.0, 100.0, '132456', '2008-11-27 14:15:30.523', '132456', '2008-11-27 14:15:30.523');
+
+INSERT INTO 'informix'.scorecard(scorecard_id,scorecard_status_id,scorecard_type_id,project_category_id,name,version,min_score,max_score,create_user,create_date,modify_user,modify_date) VALUES (30000526, 1, 2, 13, 'Test Suites Review Scorecard', '1.0', 0.0, 100.0, '132456', '2008-11-27 14:14:29.517', '132456', '2008-11-27 14:14:29.517');
+INSERT INTO 'informix'.scorecard(scorecard_id,scorecard_status_id,scorecard_type_id,project_category_id,name,version,min_score,max_score,create_user,create_date,modify_user,modify_date) VALUES (30000527, 1, 2, 26, 'Test Scenarios Review Scorecard', '1.0', 0.0, 100.0, '132456', '2008-11-27 14:15:30.523', '132456', '2008-11-27 14:15:30.523');
+
+INSERT INTO 'informix'.scorecard_group(scorecard_group_id,scorecard_id,name,weight,sort,create_user,create_date,modify_user,modify_date) VALUES (6766, 30000516, 'Group 1', 100.0, 0, '132456', '2008-11-27 14:14:29.532', '132456', '2008-11-27 14:14:29.532');
+INSERT INTO 'informix'.scorecard_group(scorecard_group_id,scorecard_id,name,weight,sort,create_user,create_date,modify_user,modify_date) VALUES (6767, 30000517, 'Group 1', 100.0, 0, '132456', '2008-11-27 14:14:29.532', '132456', '2008-11-27 14:14:29.532');
+INSERT INTO 'informix'.scorecard_group(scorecard_group_id,scorecard_id,name,weight,sort,create_user,create_date,modify_user,modify_date) VALUES (6769, 30000526, 'Group 1', 100.0, 0, '132456', '2008-11-27 14:14:29.532', '132456', '2008-11-27 14:14:29.532');
+INSERT INTO 'informix'.scorecard_group(scorecard_group_id,scorecard_id,name,weight,sort,create_user,create_date,modify_user,modify_date) VALUES (6770, 30000527, 'Group 1', 100.0, 0, '132456', '2008-11-27 14:14:29.532', '132456', '2008-11-27 14:14:29.532');
+
+INSERT INTO 'informix'.scorecard_section(scorecard_section_id,scorecard_group_id,name,weight,sort,create_user,create_date,modify_user,modify_date) VALUES (30001776, 6766, 'Section 1', 100.0, 0, '132456', '2008-11-27 14:14:29.543', '132456', '2008-11-27 14:14:29.543');
+INSERT INTO 'informix'.scorecard_section(scorecard_section_id,scorecard_group_id,name,weight,sort,create_user,create_date,modify_user,modify_date) VALUES (30001777, 6767, 'Section 1', 100.0, 0, '132456', '2008-11-27 14:14:29.543', '132456', '2008-11-27 14:14:29.543');
+INSERT INTO 'informix'.scorecard_section(scorecard_section_id,scorecard_group_id,name,weight,sort,create_user,create_date,modify_user,modify_date) VALUES (30001779, 6769, 'Section 1', 100.0, 0, '132456', '2008-11-27 14:14:29.543', '132456', '2008-11-27 14:14:29.543');
+INSERT INTO 'informix'.scorecard_section(scorecard_section_id,scorecard_group_id,name,weight,sort,create_user,create_date,modify_user,modify_date) VALUES (30001780, 6770, 'Section 1', 100.0, 0, '132456', '2008-11-27 14:14:29.543', '132456', '2008-11-27 14:14:29.543');
+
+INSERT INTO 'informix'.scorecard_question(scorecard_question_id,scorecard_question_type_id,scorecard_section_id,description,guideline,weight,sort,upload_document,upload_document_required,create_user,create_date,modify_user,modify_date) VALUES (30002006, 1, 30001776, 'Question 1', 'Guideline 1', 100.0, 0, 1, 1, '132456', '2008-11-27 14:14:29.655', '132456', '2008-11-27 14:14:29.655');
+INSERT INTO 'informix'.scorecard_question(scorecard_question_id,scorecard_question_type_id,scorecard_section_id,description,guideline,weight,sort,upload_document,upload_document_required,create_user,create_date,modify_user,modify_date) VALUES (30002007, 1, 30001777, 'Question 1', 'Guideline 1', 100.0, 0, 1, 1, '132456', '2008-11-27 14:14:29.655', '132456', '2008-11-27 14:14:29.655');
+INSERT INTO 'informix'.scorecard_question(scorecard_question_id,scorecard_question_type_id,scorecard_section_id,description,guideline,weight,sort,upload_document,upload_document_required,create_user,create_date,modify_user,modify_date) VALUES (30002009, 1, 30001779, 'Question 1', 'Guideline 1', 100.0, 0, 1, 1, '132456', '2008-11-27 14:14:29.655', '132456', '2008-11-27 14:14:29.655');
+INSERT INTO 'informix'.scorecard_question(scorecard_question_id,scorecard_question_type_id,scorecard_section_id,description,guideline,weight,sort,upload_document,upload_document_required,create_user,create_date,modify_user,modify_date) VALUES (30002010, 1, 30001780, 'Question 1', 'Guideline 1', 100.0, 0, 1, 1, '132456', '2008-11-27 14:14:29.655', '132456', '2008-11-27 14:14:29.655');
+
+INSERT INTO 'informix'.default_scorecard(project_category_id, scorecard_type_id, scorecard_id, create_user, create_date, modify_user, modify_date) VALUES (13, 1, 30000516, 1, current, 1, current);
+INSERT INTO 'informix'.default_scorecard(project_category_id, scorecard_type_id, scorecard_id, create_user, create_date, modify_user, modify_date) VALUES (26, 1, 30000517, 1, current, 1, current);
+
+INSERT INTO 'informix'.default_scorecard(project_category_id, scorecard_type_id, scorecard_id, create_user, create_date, modify_user, modify_date) VALUES (13, 2, 30000526, 1, current, 1, current);
+INSERT INTO 'informix'.default_scorecard(project_category_id, scorecard_type_id, scorecard_id, create_user, create_date, modify_user, modify_date) VALUES (26, 2, 30000527, 1, current, 1, current);
+
+-- update modify date to make sure they are grabbed by the datawarehouse loader.
+update scorecard set modify_date = current;
+update scorecard_group set modify_date = current;
+update scorecard_section set modify_date = current;
+update scorecard_question set modify_date = current;
+update default_scorecard set modify_date = current;

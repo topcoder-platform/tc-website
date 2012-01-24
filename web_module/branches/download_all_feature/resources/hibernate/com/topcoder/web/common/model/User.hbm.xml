@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+
+    <class name="User" table="user">
+        <id name="id" column="user_id">
+            <generator class="com.topcoder.web.common.model.IdGenerator">
+                <param name="sequence_name">USER_SEQ</param>
+            </generator>
+        </id>
+        <property name="firstName" column="first_name" access="field"/>
+        <property name="middleName" column="middle_name" access="field"/>
+        <property name="lastName" column="last_name" access="field"/>
+        <property name="nameInAnotherLanguage" column="name_in_another_language" access="field"/>
+        <property name="handle" access="field"/>
+        <property name="status" access="field"/>
+        <property name="openId" column="open_id" access="field"/>
+        <property name="activationCode" column="activation_code" access="field"/>
+        <many-to-one name="timeZone" column="timezone_id" class="TimeZone" access="field" cascade="none"/>
+        <one-to-one name="coder" class="Coder" cascade="save-update" access="field" fetch="select"/>
+        <one-to-one name="contact" class="Contact" cascade="save-update" access="field" fetch="select"/>
+        <one-to-one name="secretQuestion" class="SecretQuestion" cascade="save-update" access="field" fetch="select"/>
+        <one-to-one name="professor" class="com.topcoder.web.common.model.educ.Professor" cascade="save-update"
+                    access="field" fetch="select"/>
+        <one-to-one name="userSecurityKey" class="UserSecurityKey" cascade="save-update" access="field" fetch="select"/>
+
+        <set name="securityGroups" table="user_group_xref" cascade="none" inverse="true" access="field">
+            <key column="login_id" not-null="true"/>
+            <one-to-many class="UserGroup"/>
+        </set>
+        <set name="emailAddresses" cascade="save-update" inverse="true" access="field">
+            <key column="user_id" not-null="true"/>
+            <one-to-many class="Email"/>
+        </set>
+        <set name="phoneNumbers" cascade="save-update" inverse="true" access="field">
+            <key column="user_id" not-null="true"/>
+            <one-to-many class="Phone"/>
+        </set>
+        <set name="addresses" table="user_address_xref" cascade="save-update" access="field">
+            <key column="user_id" not-null="true"/>
+            <many-to-many column="address_id" class="Address"/>
+        </set>
+        <set name="notifications" table="user_notify_xref" cascade="save-update" access="field">
+            <key column="user_id" not-null="true"/>
+            <many-to-many column="notify_id" class="Notification"/>
+        </set>
+        <set name="userPreferences" table="user_preference" inverse="true" cascade="save-update" access="field">
+            <key column="user_id" not-null="true"/>
+            <one-to-many class="UserPreference"/>
+        </set>
+        <set name="demographicResponses" cascade="all-delete-orphan" inverse="true" access="field">
+            <key column="user_id" not-null="true"/>
+            <one-to-many class="DemographicResponse"/>
+        </set>
+        <set name="terms" table="user_terms_of_use_xref" cascade="none" access="field">
+            <key column="user_id" not-null="true"/>
+            <many-to-many column="terms_of_use_id" class="TermsOfUse"/>
+        </set>
+        <set name="eventRegistrations" table="event_registration" cascade="save-update" inverse="true" access="field">
+            <key column="user_id" not-null="true"/>
+            <one-to-many class="EventRegistration"/>
+        </set>
+        <set name="responses" table="response" cascade="save-update" inverse="true" access="field">
+            <key column="user_id" not-null="true"/>
+            <one-to-many class="Response"/>
+        </set>
+        <set name="ballots" cascade="save-update" inverse="true" access="field">
+            <key column="user_id" not-null="true"/>
+            <one-to-many class="com.topcoder.web.common.voting.RankBallot"/>
+        </set>
+        <set name="compPrizes" table="tcs_catalog:user_contest_prize" cascade="save-update" inverse="true"
+             access="field">
+            <key column="user_id" not-null="true"/>
+            <one-to-many class="com.topcoder.web.common.model.comp.UserContestPrize"/>
+        </set>
+        <!--can't figure out how to get this relationship to be persisted automatically, so, it'll have to be done in the code-->
+        <set name="schools" cascade="none" inverse="true">
+            <key column="user_id" not-null="true"/>
+            <one-to-many class="com.topcoder.web.common.model.UserSchool"/>
+        </set>
+        <set name="createdSchools" cascade="save-update" inverse="true">
+            <key column="user_id" not-null="true"/>
+            <one-to-many class="com.topcoder.web.common.model.School"/>
+        </set>
+
+    </class>
+
+
+</hibernate-mapping>
