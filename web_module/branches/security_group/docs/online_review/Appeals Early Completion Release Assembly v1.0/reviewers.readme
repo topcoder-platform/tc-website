@@ -1,0 +1,82 @@
+Steps to prepare the VM for testing: (these steps assume a fresh working VM)
+
+Deployment basically will follow steps defined in http://forums.topcoder.com/?module=Thread&threadID=647137 but there
+are a few differences, so the whole process is described below:
+1) login to tcs account
+2) if you are provided with SVN branches, switch them
+        - in ~/web/: svn switch https://coder.topcoder.com/internal/web_module/branches/appeals_early_completion_release_assembly_1.0_SUBMITTERHANDLEGOESHERE
+        - in ~/OR_trunk/: svn switch https://coder.topcoder.com/tcs/clients/cronos/applications/online_review/branches/appeals_early_completion_release_assembly_1.0_SUBMITTERHANDLEGOESHERE
+     otherwise copy source files to VM
+        - /online_review/* -> ~/OR_trunk/
+        - /web_module/* -> ~/web/
+3) Update shared directory
+        - in ~/shared/: svn up
+4) Copy build files
+     There are environment issues with build files. You should copy over some build files:
+        - copy attached build_tcs.xml (http://forums.topcoder.com/?module=Thread&threadID=647137) to ~/web/
+        - copy /test_files/online_review/build.xml to ~/OR_trunk/
+5) Copy configuration files
+        - unzip attached tcs_conf-backup.zip (http://forums.topcoder.com/?module=Thread&threadID=647137) to ~/conf-backup/ directory
+        Final fixes: copy provided OnlineReview.xml to this directory as well. 
+        /test_files/online_review/OnlineReview.xml -> ~/conf-backup/        
+6) Copy confirm icon to apache (/test_files/tcsdocs/ -> /mnt/apache/tcsdocs/) since it's not in the VM. (you may require special permissions, in that case ask PM)
+7) Kill jboss:
+        - run jps, kill the id that is listed as Main, wait till it's dead (when you type jps and don't see main any more)
+8) Deploy tcs:
+        - in ~/web/: ant -f build_tcs.xml deploy
+9) Deploy OR:                
+        - in ~/OR_trunk/: ant deploy
+10) Run configuration
+        - in ~/conf-backup/: ./cp-conf.sh
+11) Copy new email templates from ~/OR_trunk/conf/templates/ to ~/onlinereview/templates/
+        - cp ~/OR_trunk/conf/templates/email_template.txt ~/onlinereview/templates/
+        - cp ~/OR_trunk/conf/templates/contact_manager_template.txt  ~/onlinereview/templates/
+12) Start jboss:
+        - type jbb, then ./start.sh, then tn and wait till it tells you it's up.
+13) Run DML: (/scripts/tcs_catalog.sql)
+    Tip: To test timeline notification and contact manager emails you should update all emails to your address:
+    update email set address = "your_email_address";
+14) Once JBoss is running, you are all set for testing.
+
+Note: due to the current state of the VM this deployment require several manual steps as described. If something
+is not working after you deploy, please contact PM so that these issues can be handled during review.
+
+Note2: due to some missing images in VM's apache, some pages could be missing icons or images, but this is not a 
+code problem.
+
+-------------------------------
+
+Testing tips:
+- In order to create new projects please follow this document: 
+  http://www.topcoder.com/wiki/display/docs/Creating+a+TopCoder+Competition
+- After creating the components in the admin tool, you can go to online review and change their types. (editing
+  the project)
+- You can verify appeals early completion flag using select * from resource_info where resource_info_type_id = 13
+- You can verify aggregation review automatic approval using select * from review_comment
+
+
+Steps to complete a new Online Review project:
+1) This assumes new projects are already created in Online Review. 
+   (see http://www.topcoder.com/wiki/display/docs/Creating+a+TopCoder+Competition)
+2) Edit the project and change project's Registration and Submission phases start date to the current date. Save.
+3) Edit the project and open registration and submission phases.
+4) Now you will be able to see the project in the active contest page. You can register a user and submit a solution. 
+   Also reviewers can register. (Note: at the beggining review positions will be shown closed. You can wait or you can
+   update review_project_detail query to not sum 12 hours to the review position open time:
+   http://tc.cloud.topcoder.com/query/query?t=ModifyQuery&db=java:TCS_CATALOG&QueryId=13722
+5) Tip: After you have done this, Edit the project and change all durations to 0:01. (this will avoid problems later
+   when trying to close phases)
+6) At this point you'll have to run the project. Opening and closing phases one by one and completing all required
+   deliverables as indicated.
+
+
+Steps to update existing queries in Query Tool:
+1) Go to http://tc.cloud.topcoder.com/query/query
+2) login as heffan/password (check remember me) -> this is important
+3) Select the corresponding Datasource as required.
+4) Click on left menu "Query List" link.
+5) Search for the specified query name and click "edit" next to it.
+6) Make your changes and click save
+
+
+Thanks!!!
