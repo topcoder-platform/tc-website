@@ -46,6 +46,7 @@ import com.topcoder.web.studio.dto.ExternalContent;
 import com.topcoder.web.studio.dto.ExternalContentProperty;
 import com.topcoder.web.studio.dto.ExternalContentType;
 import com.topcoder.web.studio.dto.Project;
+import com.topcoder.web.studio.dto.ProjectPhase;
 import com.topcoder.web.studio.dto.Resource;
 import com.topcoder.web.studio.dto.ResourceSubmission;
 import com.topcoder.web.studio.dto.Submission;
@@ -463,7 +464,8 @@ public class Submit extends BaseSubmissionDataProcessor {
 					upload.setResource(resource);
 					upload.setParameter(systemFileName);
 					upload.setTypeId(Upload.SUBMISSION);
-					upload.setStatusId(Upload.STATUS_ACTIVE);					
+					upload.setStatusId(Upload.STATUS_ACTIVE);
+					upload.setProjectPhase(getSubmissionPhase(c, s));
 					
 					
 					s.setUpload(upload);
@@ -771,4 +773,19 @@ public class Submit extends BaseSubmissionDataProcessor {
         return docGen.applyTemplate(template, data);
     }
 
+    /**
+     * Gets the Project phase of a specified submission.
+     * 
+     * @param project the contest of the submission
+     * @param submission the specified submission
+     * @return the project phase of the submission
+     */
+    private ProjectPhase getSubmissionPhase(Project project, Submission submission) {
+        if (submission.getTypeId() == Submission.CONTEST_SUBMISSION) {
+            return project.getPhase(ProjectPhase.SUBMISSION);
+        } else if (submission.getTypeId() == Submission.MILESTONE_SUBMISSION) {
+            return project.getPhase(ProjectPhase.MILESTONE_SUBMISSION);
+        }
+        return null;
+    }
 }
