@@ -96,7 +96,9 @@ public class MemberProfile extends Base {
             boolean hasTest = false;
             boolean hasTestScenarios = false;
             boolean hasUIPrototype = false;
-            boolean hasRIABuild = false;									
+            boolean hasRIABuild = false;
+            boolean hasContentCreation = false;
+            boolean hasReporting = false;
 
             int algRating = 0;
             int hsRating = 0;
@@ -111,6 +113,8 @@ public class MemberProfile extends Base {
             int testScenariosRating = 0;
             int uiPrototypeRating = 0;
             int riaBuildRating = 0;
+            int contentCreationRating = 0;
+            int reportingRating = 0;
 
             String tab = StringUtils.checkNull(getRequest().getParameter("tab"));
 
@@ -271,7 +275,29 @@ public class MemberProfile extends Base {
                         maxRating = riaBuildRating;
                         defaultTab = "ria_build";
                     }
-                }												
+                }
+
+                if ((rsc.getItem(0, "content_creation_rating").getResultData() != null)
+                    && (rsc.getIntItem(0, "content_creation_rating") != 0)) {
+                    hasContentCreation = true;
+                    contentCreationRating = rsc.getIntItem(0, "content_creation_rating");
+
+                    if(contentCreationRating > maxRating) {
+                        maxRating = contentCreationRating;
+                        defaultTab = "content_creation";
+                    }
+                }
+
+                if ((rsc.getItem(0, "reporting_rating").getResultData() != null)
+                    && (rsc.getIntItem(0, "reporting_rating") != 0)) {
+                    hasReporting = true;
+                    reportingRating = rsc.getIntItem(0, "reporting_rating");
+
+                    if(reportingRating > maxRating) {
+                        maxRating = reportingRating;
+                        defaultTab = "reporting";
+                    }
+                }
 
                 if (log.isDebugEnabled()) {
                     log.debug("has long comp is " + rsc.getStringItem(0, "has_long_comp"));
@@ -283,7 +309,8 @@ public class MemberProfile extends Base {
                 // get the selected tab
                 if (tab.equals("")) {
                     if (!hasAlg && !hasHS && !hasDes && !hasDev && !hasLong && !hasConcept && !hasSpec && !hasArch
-                        && !hasAssembly && !hasTest && !hasTestScenarios && !hasUIPrototype && !hasRIABuild) {
+                        && !hasAssembly && !hasTest && !hasTestScenarios && !hasUIPrototype && !hasRIABuild
+                        && !hasContentCreation && !hasReporting) {
                         tab = "";
                     } else{
                         tab = defaultTab;
@@ -362,7 +389,8 @@ public class MemberProfile extends Base {
                     }
                 } else if (tab.equals("concept") || tab.equals("spec") || tab.equals("arch")
                     || tab.equals("assembly") || tab.equals("test") || tab.equals("test_scenarios")
-					|| tab.equals("ui_prototype") || tab.equals("ria_build")) {
+                    || tab.equals("ui_prototype") || tab.equals("ria_build") || tab.equals("content_creation")
+                    || tab.equals("reporting")) {
                     r = new Request();
                     r.setContentHandle("Coder_Track_Data");
                     r.setProperty("cr", coderId);
@@ -383,6 +411,10 @@ public class MemberProfile extends Base {
                         r.setProperty(Constants.PHASE_ID, "130");
                     } else if (tab.equals("ria_build")) {
                         r.setProperty(Constants.PHASE_ID, "135");
+                    } else if (tab.equals("content_creation")) {
+                        r.setProperty(Constants.PHASE_ID, "146");
+                    } else if (tab.equals("reporting")) {
+                        r.setProperty(Constants.PHASE_ID, "147");
                     }
 
                     dai = getDataAccess(true);
@@ -443,6 +475,8 @@ public class MemberProfile extends Base {
             getRequest().setAttribute("hasTestScenarios", new Boolean(hasTestScenarios));
             getRequest().setAttribute("hasUIPrototype", new Boolean(hasUIPrototype));
             getRequest().setAttribute("hasRIABuild", new Boolean(hasRIABuild));
+            getRequest().setAttribute("hasContentCreation", new Boolean(hasContentCreation));
+            getRequest().setAttribute("hasReporting", new Boolean(hasReporting));
             getRequest().setAttribute("memberContactEnabled", new Boolean(memberContactEnabled));
             getRequest().setAttribute("isInCopilotPool", new Boolean(isInCopilotPool));
             getRequest().setAttribute("hidePayments", new Boolean(hidePayments));

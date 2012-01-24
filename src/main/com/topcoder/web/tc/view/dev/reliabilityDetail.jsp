@@ -82,6 +82,14 @@
             <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="m_ria_build_competitions"/>
             </jsp:include>
+    <% } else if(phaseId == SoftwareComponent.CONTENT_CREATION_PHASE) { %>
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="m_content_creation_competitions"/>
+            </jsp:include>
+    <% } else if(phaseId == SoftwareComponent.REPORTING_PHASE) { %>
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="m_reporting_competitions"/>
+            </jsp:include>
     <% } %>
     <!-- Left nav ends -->
 </td>
@@ -139,6 +147,16 @@
                 <jsp:param name="image" value="ria_build"/>
                 <jsp:param name="title" value="Reliability Detail"/>
             </jsp:include>
+    <% } else if(phaseId == SoftwareComponent.CONTENT_CREATION_PHASE) { %>
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="content_creation"/>
+                <jsp:param name="title" value="Reliability Detail"/>
+            </jsp:include>
+    <% } else if(phaseId == SoftwareComponent.REPORTING_PHASE) { %>
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="reporting"/>
+                <jsp:param name="title" value="Reliability Detail"/>
+            </jsp:include>
     <% } %>
 
 <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=coderId%>' context='<%=type%>'/></span>
@@ -163,6 +181,10 @@
             <span class="bodySubtitle">UI Prototype Statistics&#160;>&#160;</span><br>
     <% } else if(phaseId == SoftwareComponent.RIA_BUILD_PHASE) { %>
             <span class="bodySubtitle">RIA Build Statistics&#160;>&#160;</span><br>
+    <% } else if(phaseId == SoftwareComponent.CONTENT_CREATION_PHASE) { %>
+            <span class="bodySubtitle">Content Creation Statistics&#160;>&#160;</span><br>
+    <% } else if(phaseId == SoftwareComponent.REPORTING_PHASE) { %>
+            <span class="bodySubtitle">Reporting Statistics&#160;>&#160;</span><br>
     <% } %>
                 <span class="bc">
                 <A HREF="/tc?module=MemberProfile&cr=<%=coderId%>" class="bcLink">Member Profile</A>

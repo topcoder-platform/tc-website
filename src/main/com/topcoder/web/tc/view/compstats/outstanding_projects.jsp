@@ -41,6 +41,8 @@
 <c:set value="<%=Constants.TEST_SCENARIOS_PROJECT_TYPE%>" var="TEST_SCENARIOS_PROJECT_TYPE"/>
 <c:set value="<%=Constants.UI_PROTOTYPE_PROJECT_TYPE%>" var="UI_PROTOTYPE_PROJECT_TYPE"/>
 <c:set value="<%=Constants.RIA_BUILD_PROJECT_TYPE%>" var="RIA_BUILD_PROJECT_TYPE"/>
+<c:set value="<%=Constants.CONTENT_CREATION_PROJECT_TYPE%>" var="CONTENT_CREATION_PROJECT_TYPE"/>
+<c:set value="<%=Constants.REPORTING_PROJECT_TYPE%>" var="REPORTING_PROJECT_TYPE"/>
 
 <BODY>
 <jsp:include page="../top.jsp"/>
@@ -103,7 +105,17 @@
             <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="m_ria_build_competitions"/>
             </jsp:include>
-        </c:when>		
+        </c:when>
+        <c:when test="${pt == CONTENT_CREATION_PROJECT_TYPE}">
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="m_content_creation_competitions"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${pt == REPORTING_PROJECT_TYPE}">
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="m_reporting_competitions"/>
+            </jsp:include>
+        </c:when>
     </c:choose>
     <!-- Left nav ends -->
 </TD>
@@ -172,7 +184,19 @@
                 <jsp:param name="image" value="ria_build"/>
                 <jsp:param name="title" value="RIA Build Current Contests"/>
             </jsp:include>
-        </c:when>		
+        </c:when>
+        <c:when test="${pt == CONTENT_CREATION_PROJECT_TYPE}">
+            <jsp:include page="../page_title.jsp">
+                <jsp:param name="image" value="content_creation"/>
+                <jsp:param name="title" value="Content Creation Current Contests"/>
+            </jsp:include>
+        </c:when>
+        <c:when test="${pt == REPORTING_PROJECT_TYPE}">
+            <jsp:include page="../page_title.jsp">
+                <jsp:param name="image" value="reporting"/>
+                <jsp:param name="title" value="Reporting Current Contests"/>
+            </jsp:include>
+        </c:when>
     </c:choose>
 
     <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='${cr}' context='${type}'/></span>
@@ -207,7 +231,13 @@
         </c:when>
         <c:when test="${pt == RIA_BUILD_PROJECT_TYPE}">
             <span class="bodySubtitle">RIA Build Statistics&#160;>&#160;</span><br>
-        </c:when>		
+        </c:when>
+        <c:when test="${pt == CONTENT_CREATION_PROJECT_TYPE}">
+            <span class="bodySubtitle">Content Creation Statistics&#160;>&#160;</span><br>
+        </c:when>
+        <c:when test="${pt == REPORTING_PROJECT_TYPE}">
+            <span class="bodySubtitle">Reporting Statistics&#160;>&#160;</span><br>
+        </c:when>
     </c:choose>
     <span class="bc">
     <A HREF="/tc?module=MemberProfile&cr=${cr}" class="bcLink">Member Profile</A>
@@ -243,6 +273,12 @@
         </c:when>
         <c:when test="${pt == RIA_BUILD_PROJECT_TYPE}">
             | <A HREF="/tc?module=ReliabilityDetail&ph=135&uid=${cr}" class="bcLink">Reliability Detail</A>
+        </c:when>
+        <c:when test="${pt == CONTENT_CREATION_PROJECT_TYPE}">
+            | <A HREF="/tc?module=ReliabilityDetail&ph=146&uid=${cr}" class="bcLink">Reliability Detail</A>
+        </c:when>
+        <c:when test="${pt == REPORTING_PROJECT_TYPE}">
+            | <A HREF="/tc?module=ReliabilityDetail&ph=147&uid=${cr}" class="bcLink">Reliability Detail</A>
         </c:when>
     </c:choose>
    </span>
@@ -281,6 +317,12 @@
                 </c:when>
                 <c:when test="${pt == RIA_BUILD_PROJECT_TYPE}">
                     <td class="title" colspan="10">Current RIA Build
+                </c:when>
+                <c:when test="${pt == CONTENT_CREATION_PROJECT_TYPE}">
+                    <td class="title" colspan="10">Current Content Creation
+                </c:when>
+                <c:when test="${pt == REPORTING_PROJECT_TYPE}">
+                    <td class="title" colspan="10">Current Reporting
                 </c:when>
             </c:choose>
             Contests

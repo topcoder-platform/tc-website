@@ -42,6 +42,8 @@ public class HandleTag extends TagSupport {
     public final static String TEST_SCENARIOS = "test_scenarios";
     public final static String UI_PROTOTYPE = "ui_prototype";
     public final static String RIA_BUILD = "ria_build";
+    public final static String CONTENT_CREATION = "content_creation";
+    public final static String REPORTING = "reporting";
     public final static String COMPONENT = "component";
     public final static String HS_OR_ALGORITHM = "hs_or_algorithm";
     public final static String MARATHON_MATCH = "marathon_match";
@@ -176,6 +178,10 @@ public class HandleTag extends TagSupport {
                     output.append("&amp;tab=ui_prototype");
                 } else if (context.trim().equalsIgnoreCase(RIA_BUILD) && rsc.getIntItem(0, "ria_build_rating") > 0) {
                     output.append("&amp;tab=ria_build");
+                } else if (context.trim().equalsIgnoreCase(CONTENT_CREATION) && rsc.getIntItem(0, "content_creation_rating") > 0) {
+                    output.append("&amp;tab=content_creation");
+                } else if (context.trim().equalsIgnoreCase(REPORTING) && rsc.getIntItem(0, "reporting_rating") > 0) {
+                    output.append("&amp;tab=reporting");
                 } else if (context.trim().equalsIgnoreCase(COMPONENT)) {
                     if (rsc.getIntItem(0, "design_rating") >= rsc.getIntItem(0, "development_rating")) {
                         if (rsc.getIntItem(0, "design_rating") > 0) {
@@ -221,7 +227,9 @@ public class HandleTag extends TagSupport {
                                 rsc.getIntItem(0, "test_suites_rating"),
                                 rsc.getIntItem(0, "test_scenarios_rating"),
                                 rsc.getIntItem(0, "ui_prototype_rating"),
-                                rsc.getIntItem(0, "ria_build_rating"));
+                                rsc.getIntItem(0, "ria_build_rating"),
+                                rsc.getIntItem(0, "content_creation_rating"),
+                                rsc.getIntItem(0, "reporting_rating"));
                     } else if (context.trim().equalsIgnoreCase(ALGORITHM)) {
                         rating = rsc.getIntItem(0, "algorithm_rating");
                     } else if (context.trim().equalsIgnoreCase(HS_ALGORITHM)) {
@@ -248,6 +256,10 @@ public class HandleTag extends TagSupport {
                         rating = rsc.getIntItem(0, "ui_prototype_rating");
                     } else if (context.trim().equalsIgnoreCase(RIA_BUILD)) {
                         rating = rsc.getIntItem(0, "ria_build_rating");
+                    } else if (context.trim().equalsIgnoreCase(CONTENT_CREATION)) {
+                        rating = rsc.getIntItem(0, "content_creation_rating");
+                    } else if (context.trim().equalsIgnoreCase(REPORTING)) {
+                        rating = rsc.getIntItem(0, "reporting_rating");
                     } else if (context.trim().equalsIgnoreCase(COMPONENT)) {
                         rating = max(rsc.getIntItem(0, "design_rating"),
                                 rsc.getIntItem(0, "development_rating"));
@@ -267,7 +279,9 @@ public class HandleTag extends TagSupport {
                                 rsc.getIntItem(0, "test_suites_rating"),
                                 rsc.getIntItem(0, "test_scenarios_rating"),
                                 rsc.getIntItem(0, "ui_prototype_rating"),
-                                rsc.getIntItem(0, "ria_build_rating"));
+                                rsc.getIntItem(0, "ria_build_rating"),
+                                rsc.getIntItem(0, "content_creation_rating"),
+                                rsc.getIntItem(0, "reporting_rating"));
                     }
                 }
 
@@ -302,8 +316,8 @@ public class HandleTag extends TagSupport {
     }
 
 
-    private static int max(int a, int b, int c, int d, int e, int i, int j, int k, int l, int m, int n, int o, int p) {
-        return max(max(max(max(max(max(max(max(max(max(max(max(a, b), c), d), e), i), j), k), l), m), n), o), p);
+    private static int max(int a, int b, int c, int d, int e, int i, int j, int k, int l, int m, int n, int o, int p, int q, int r) {
+        return max(max(max(max(max(max(max(max(max(max(max(max(max(max(a, b), c), d), e), i), j), k), l), m), n), o), p), q), r);
     }
 
     private static int max(int a, int b) {

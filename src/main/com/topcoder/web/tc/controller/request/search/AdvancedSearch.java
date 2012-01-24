@@ -107,7 +107,11 @@ public class AdvancedSearch extends SimpleSearch {
         setDefault(Constants.MIN_UI_PROTOTYPE_RATING, m.getMinUIPrototypeRating() == null ? "" : m.getMinUIPrototypeRating().toString());
         setDefault(Constants.MAX_UI_PROTOTYPE_RATING, m.getMaxUIPrototypeRating() == null ? "" : m.getMaxUIPrototypeRating().toString());
         setDefault(Constants.MIN_RIA_BUILD_RATING, m.getMinRIABuildRating() == null ? "" : m.getMinRIABuildRating().toString());
-        setDefault(Constants.MAX_RIA_BUILD_RATING, m.getMaxRIABuildRating() == null ? "" : m.getMaxRIABuildRating().toString());						
+        setDefault(Constants.MAX_RIA_BUILD_RATING, m.getMaxRIABuildRating() == null ? "" : m.getMaxRIABuildRating().toString());
+        setDefault(Constants.MIN_CONTENT_CREATION_RATING, m.getMinContentCreationRating() == null ? "" : m.getMinContentCreationRating().toString());
+        setDefault(Constants.MAX_CONTENT_CREATION_RATING, m.getMaxContentCreationRating() == null ? "" : m.getMaxContentCreationRating().toString());
+        setDefault(Constants.MIN_REPORTING_RATING, m.getMinReportingRating() == null ? "" : m.getMinReportingRating().toString());
+        setDefault(Constants.MAX_REPORTING_RATING, m.getMaxReportingRating() == null ? "" : m.getMaxReportingRating().toString());
         setDefault(Constants.MIN_NUM_RATINGS, m.getMinNumRatings() == null ? "" : m.getMinNumRatings().toString());
         setDefault(Constants.MAX_NUM_RATINGS, m.getMaxNumRatings() == null ? "" : m.getMaxNumRatings().toString());
         setDefault(Constants.MAX_DAYS_SINCE_LAST_COMP, m.getMaxDaysSinceLastComp() == null ? "" : m.getMaxDaysSinceLastComp().toString());
@@ -243,7 +247,25 @@ public class AdvancedSearch extends SimpleSearch {
 
         String maxRIABuildRating = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_RIA_BUILD_RATING));
         if (!maxRIABuildRating.equals(""))
-            ret.setMaxRIABuildRating(new Integer(maxRIABuildRating));									
+            ret.setMaxRIABuildRating(new Integer(maxRIABuildRating));
+
+        // Content Creation
+        String minContentCreationRating = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_CONTENT_CREATION_RATING));
+        if (!minContentCreationRating.equals(""))
+            ret.setMinContentCreationRating(new Integer(minContentCreationRating));
+
+        String maxContentCreationRating = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_CONTENT_CREATION_RATING));
+        if (!maxContentCreationRating.equals(""))
+            ret.setMaxContentCreationRating(new Integer(maxContentCreationRating));
+
+        // Reporting
+        String minReportingRating = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_REPORTING_RATING));
+        if (!minReportingRating.equals(""))
+            ret.setMinReportingRating(new Integer(minReportingRating));
+
+        String maxReportingRating = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_REPORTING_RATING));
+        if (!maxReportingRating.equals(""))
+            ret.setMaxReportingRating(new Integer(maxReportingRating));
 
         String minNumRatings = StringUtils.checkNull(getRequest().getParameter(Constants.MIN_NUM_RATINGS));
         if (!minNumRatings.equals(""))
