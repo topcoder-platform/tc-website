@@ -17,8 +17,8 @@
 					src="../i/tc/architecture-logo.png" alt="Alcatel Lucent" /></a></li>
 			<li><a href="<s:url value="%{getText('topcoder.network.ntl.url')}"/>" title="NASA Tournament Lab"><img
 					src="../i/tc/NTL-logo.png" alt="NASA Tournament Lab" /> </a></li>
-			<li><a href="<s:url value="%{getText('topcoder.network.darpacs.url')}"/>" title="Dapra CS-STEM"><img
-					src="../i/tc/dapraCS-STEM-logo.png" alt="Dapra CS-STEM" /></a></li>
+			<li><a href="<s:url value="%{getText('topcoder.network.darpacs.url')}"/>" title="DARPA CS-STEM"><img
+					src="../i/tc/dapraCS-STEM-logo.png" alt="DARPA CS-STEM" /></a></li>
 		</ul>
 	</div>
 </div>
