@@ -155,7 +155,7 @@ public abstract class BaseServlet extends HttpServlet {
 
                 request.setCharacterEncoding("utf-8");
 
-                TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+                TCRequest tcRequest = createRequest(request);
                 TCResponse tcResponse = HttpObjectFactory.createResponse(response);
 
                 if (throttleEnabled) {
