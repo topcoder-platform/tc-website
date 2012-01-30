@@ -53,6 +53,11 @@ $(function () {
     	$.setCookie("page_count",$(this).val(),{expires : 365});
     });
     
+    $("#yearRange").live("change",{cat :category, type : type} ,function (event) {
+    	$.setCookie("yearRange",$(this).val(),{expires : 365});
+    	search(event.data.cat, event.data.type,true);
+    });
+    
     search(category,type,false);
 });
 
@@ -93,11 +98,13 @@ function updateTypeLink(type) {
 * @param minPrize - the lower bound of the contest prize.
 * @param maxPrize - the upper bound of the contest prize.
 * @param dateFilters - the array containing the array of date interval type, first date and second date of registration/submission/finalization/review date.
+* @param yearRange - the year range.
 * @return the constructed parameter for AJAX request.
 */
-function constructParameter(category, name, catalog, types, winnerHandle, minPrize, maxPrize, dateFilters) {
+function constructParameter(category, name, catalog, types, winnerHandle, minPrize, maxPrize, dateFilters, yearRange) {
     var columnName;
     var subDate, regDate,finalDate, revDate;
+    var rollingYear;
     if (category == "ActiveContests") {
         columnName = "registrationEndDate";
         regDate = dateFilters[0];
@@ -113,6 +120,7 @@ function constructParameter(category, name, catalog, types, winnerHandle, minPri
         regDate = dateFilters[0];
         subDate = dateFilters[1];
         finalDate = dateFilters[2];
+        rollingYear = yearRange;
     } else if (category == "UpcomingContests") {
         columnName = "registrationStart";
         regDate = dateFilters[0];
@@ -143,6 +151,9 @@ function constructParameter(category, name, catalog, types, winnerHandle, minPri
     if (isDefined(maxPrize)) {
         var maxPrizeName = category == "ReviewOpportunities" ? "paymentEnd" : "prizeUpperBound";
         filterParam += "\"" + maxPrizeName + "\":\"" + quote(maxPrize) + "\",";
+    }
+    if (isDefined(rollingYear)) {
+        filterParam += "\"rollingYear\":\"" + quote(rollingYear) + "\",";
     }
     filterParam += constructDateFilter("submissionEndDate", subDate);
     filterParam += constructDateFilter("registrationStartDate", regDate);
@@ -230,6 +241,8 @@ function search(category,type, saveCookie){
      if (minPrize > maxPrize) {
          errors.push("The lower bound of the prize cannot be greater than the upper bound.");
      }
+     
+     var yearRange = $("#yearRange").val();
      if (errors.length == 0) {
      	if (category == "ActiveContests") {
      		// If any of the date filters are not given for active contests, then we have to stick to our understanding of 
@@ -241,7 +254,7 @@ function search(category,type, saveCookie){
      			dateFilters[1].push("AFTER_CURRENT_DATE");
      		}
      	}
-         var parameter = constructParameter(category, contestName, catalog, types, winnerHandle, minPrize.toString(), maxPrize.toString(), dateFilters);
+         var parameter = constructParameter(category, contestName, catalog, types, winnerHandle, minPrize.toString(), maxPrize.toString(), dateFilters, yearRange);
 		 var curType = "";
 		 if (isDefined(types) && types.length == 1) {
 			curType = types[0];
@@ -249,7 +262,7 @@ function search(category,type, saveCookie){
 		 updateTypeLink(curType);
          loadContests(category, parameter);
          if (!(isDefined(type) && type.length > 0) && saveCookie) {
-         	loadCookieFromInput(category,contestName,catalog,types,winnerHandle, minPrize.toString(), maxPrize.toString(), dateFilters);
+         	loadCookieFromInput(category,contestName,catalog,types,winnerHandle, minPrize.toString(), maxPrize.toString(), dateFilters, yearRange);
          }
      } else {
          showErrors(errors);
@@ -373,41 +386,45 @@ function loadContests(category, parameter) {
 				$("#contestTable").hide();
 				$("#contestTable tbody").empty();
 				if ($(".contestTable").length > 0) {
-					$("#contestTable").clone(true).insertAfter("#filterContainer");
+					if (category == "PastContests") {
+						$("#contestTable").clone(true).insertAfter("#yearRange");
+					} else {
+						$("#contestTable").clone(true).insertAfter("#filterContainer");
+					}
 					$(".contestTable").remove();
 				}
 				var aoColumns = [];
 				var tbody = $("#contestTable tbody");
 				if (category == "ActiveContests") {
 					$.each(data.activeContests, function (i, item) {
-						tbody.append("<tr><td class='first leftAligned'>" + item.type + "</td><td class='leftAligned'><a href='" + getContestLink(item) + "'>" + item.contestName + "</a></td><td class='leftAligned datetime'>" + getDateTimeValue(item.registrationEndDate) + "</td><td class='leftAligned datetime'>" + getDateTimeValue(item.submissionEndDate) + "</td><td>$" + item.firstPrize + "</td><td>$" + item.reliabilityBonus + "</td><td>" + item.digitalRunPoints + "</td><td><a href='" + getRegDetailLink(item) + "'>" + item.numberOfRegistrants + "</a></td><td class='last'><a href='" + getRegDetailLink(item) + "'>" + item.numberOfSubmissions + "</a></td></tr>");
+						tbody.append("<tr><td class='first leftAligned'>" + item.type + "</td><td><a href='" + getContestLink(item) + "'>" + item.contestName + "</a></td><td class='leftAligned datetime'>" + getDateTimeValue(item.registrationEndDate) + "</td><td class='leftAligned datetime'>" + getDateTimeValue(item.submissionEndDate) + "</td><td>$" + item.firstPrize + "</td><td>$" + item.reliabilityBonus + "</td><td>" + item.digitalRunPoints + "</td><td><a href='" + getRegDetailLink(item) + "'>" + item.numberOfRegistrants + "</a></td><td class='last'><a href='" + getRegDetailLink(item) + "'>" + item.numberOfSubmissions + "</a></td></tr>");
 					});
 					aoColumns = [null,null,null,null,{'sType':'usmoney'},{'sType':'usmoney'},null,null,null];
 				} else if (category == "ContestStatus") {
 					$.each(data.contestStatuses, function (i, item) {
-						tbody.append("<tr><td class='first leftAligned'>" + item.type + "</td><td>" + item.catalog + "</td><td class='leftAligned'><a href='" + getContestLink(item) + "'>" + "Contest Name" + "</a></td><td class='leftAligned datetime'>" + getDateTimeValue(item.submissionDueDate) + "</td><td class='leftAligned'>" + getDateValue(item.finalReviewDueDate) + "</td><td class='leftAligned'>" + getValue(item.currentPhase) + "</td><td>" + getValue(item.firstPlaceHandle) + "</td><td class='last'>" + getValue(item.secondPlaceHandle) + "</td></tr>");
+						tbody.append("<tr><td class='first leftAligned'>" + item.type + "</td><td>" + item.catalog + "</td><td><a href='" + getContestLink(item) + "'>" + item.contestName + "</a></td><td class='leftAligned datetime'>" + getDateTimeValue(item.submissionDueDate) + "</td><td class='leftAligned'>" + getDateValue(item.finalReviewDueDate) + "</td><td class='leftAligned'>" + getValue(item.currentPhase) + "</td><td>" + getValue(item.firstPlaceHandle) + "</td><td class='last'>" + getValue(item.secondPlaceHandle) + "</td></tr>");
 					});
 					aoColumns = [null,null,null,null,null,null,null,null];
 				} else if (category == "PastContests") {
 					$.each(data.pastContests, function (i, item) {
-						tbody.append("<tr><td class='first leftAligned'>" + item.type + "</td><td>" + item.catalog + "</td><td class='leftAligned'><a href='" + getContestLink(item) + "'>" + item.contestName + "</a></td><td class='leftAligned'>" + getDateTimeValue(item.completionDate) + "</td><td>" + item.numberOfRegistrants + "</td><td>" + item.numberOfSubmissions + "</td><td>" + item.passedScreeningCount + "<td class='last'>" + getValue(item.winnerProfileLink) + "</td></tr>");
+						tbody.append("<tr><td class='first leftAligned'>" + item.type + "</td><td>" + item.catalog + "</td><td><a href='" + getContestLink(item) + "'>" + item.contestName + "</a></td><td class='leftAligned'>" + getDateTimeValue(item.completionDate) + "</td><td>" + item.numberOfRegistrants + "</td><td>" + item.numberOfSubmissions + "</td><td>" + item.passedScreeningCount + "<td class='last'>" + getValue(item.winnerProfileLink) + "</td></tr>");
 					});
 					aoColumns = [null,null,null,null,null,null,null,null];
 				} else if (category == "ReviewOpportunities") {
 					$.each(data.reviewOpportunities, function (i, item) {
-						tbody.append("<tr><td class='first leftAligned'>" + item.type + "</td><td class='leftAligned'><a href='" + getContestLink(item) + "'>" + item.contestName + "</a></td><td>$" + item.primaryReviewerPayment + "</td><td>$" + item.secondaryReviewerPayment + "</td><td>" + item.submissionsNumber + "</td><td class='leftAligned datetime'>" + getDateTimeValue(item.opensOn) + "</td><td>" + getDateValue(item.reviewStart) + "</td><td>" + getDateValue(item.reviewEnd) + "</td><td>" + item.numberOfReviewPositionsAvailable + "</td><td class='last'><a href='" + getReviewDetailLink(item) + "'>Details</a></td></tr>");
+						tbody.append("<tr><td class='first leftAligned'>" + item.type + "</td><td><a href='" + getContestLink(item) + "'>" + item.contestName + "</a></td><td>$" + item.primaryReviewerPayment + "</td><td>$" + item.secondaryReviewerPayment + "</td><td>" + item.submissionsNumber + "</td><td class='leftAligned datetime'>" + getDateTimeValue(item.opensOn) + "</td><td>" + getDateValue(item.reviewStart) + "</td><td>" + getDateValue(item.reviewEnd) + "</td><td>" + item.numberOfReviewPositionsAvailable + "</td><td class='last'><a href='" + getReviewDetailLink(item) + "'>Details</a></td></tr>");
 					});
 					aoColumns = [null,null,{'sType':'usmoney'},{'sType':'usmoney'},null,null,null,null,null,null];
 				} else if (category == "UpcomingContests") {
 					$.each(data.upcomingContests, function (i, item) {
-						tbody.append("<tr><td class='first leftAligned datetime'>" + getDateTimeValue(item.registerDate) + "</td><td class='leftAligned datetime'>" + getDateTimeValue(item.submitDate) + "</td><td>" + item.duration + "</td><td class='leftAligned'>" + item.type + "</td><td class='leftAligned'><a href='" + getContestLink(item) + "'>" + item.contestName + "</a></td><td class='leftAligned'>" + getValue(item.technologies) + "</td><td class='leftAligned last'>" + item.status + "</td></tr>");
+						tbody.append("<tr><td class='first leftAligned datetime'>" + getDateTimeValue(item.registerDate) + "</td><td class='leftAligned datetime'>" + getDateTimeValue(item.submitDate) + "</td><td>" + item.duration + "</td><td class='leftAligned'>" + item.type + "</td><td><a href='" + getContestLink(item) + "'>" + item.contestName + "</a></td><td class='leftAligned'>" + getValue(item.technologies) + "</td><td class='leftAligned last'>" + item.status + "</td></tr>");
 					});
 					aoColumns = [null,null,null,null,null,null,null];
 				} else {
 					$("span.num").html(data.contests.length);
                     $("strong", $("span.num").parent()).html(getValue(contestName));
 					$.each(data.contests, function (i, item) {
-						tbody.append("<tr><td class='first leftAligned'><a href='" + getContestLink(item) + "'>" + item.contestName + "</td><td class='leftAligned'>" + item.type + "</td><td>" + item.catalog + "</td><td>Not Set</td><td class='leftAligned'>" + item.status + "</td><td class='leftAligned'><a href='" + getRegDetailLink(item) + "'>" + item.numberOfRegistrants + "</a></td><td class='last'><a href='" + getContestLink(item) + "'>Details</a></td></tr>");
+						tbody.append("<tr><td class='first'><a href='" + getContestLink(item) + "'>" + item.contestName + "</td><td class='leftAligned'>" + item.type + "</td><td>" + item.catalog + "</td><td>Not Set</td><td class='leftAligned'>" + item.status + "</td><td class='leftAligned'><a href='" + getRegDetailLink(item) + "'>" + item.numberOfRegistrants + "</a></td><td class='last'><a href='" + getContestLink(item) + "'>Details</a></td></tr>");
 					});
 					$("h1.heading").children("span").show();
 					aoColumns = [null,null,null,null,null,null,null];
@@ -542,13 +559,15 @@ function showErrors(errors) {
  * @param winnerHandle - the winner handle.
  * @param minPrize - the lower bound of the contest prize.
  * @param maxPrize - the upper bound of the contest prize.
+ * @param yearRange - the year range.
  * @param dateFilters - the array containing the array of date interval type, first date and second date of registration/submission/finalization/review date.
  */
 
-function loadCookieFromInput(category, name, catalog,types, winnerHandle, minPrize, maxPrize, dateFilters) {
+function loadCookieFromInput(category, name, catalog,types, winnerHandle, minPrize, maxPrize, dateFilters, yearRange) {
     var filterParam = "";
     var regDate, subDate, finalDate, revDate;
     var subDate, regDate,finalDate, revDate;
+    var rollingYear;
     if (category == "ActiveContests") {
         regDate = dateFilters[0];
         subDate = dateFilters[1];
@@ -561,6 +580,7 @@ function loadCookieFromInput(category, name, catalog,types, winnerHandle, minPri
         regDate = dateFilters[0];
         subDate = dateFilters[1];
         finalDate = dateFilters[2];
+        rollingYear = yearRange;
     } else if (category == "UpcomingContests") {
         regDate = dateFilters[0];
         subDate = dateFilters[1];
@@ -587,6 +607,9 @@ function loadCookieFromInput(category, name, catalog,types, winnerHandle, minPri
     if (isDefined(maxPrize)) {
         var maxPrizeName = category == "ReviewOpportunities" ? "paymentEnd" : "prizeUpperBound";
         filterParam += "\"" + maxPrizeName + "\":\"" + quote(maxPrize) + "\",";
+    }
+    if (isDefined(rollingYear)) {
+        filterParam += "\"rollingYear\":\"" + quote(rollingYear) + "\",";
     }
     filterParam += constructDateFilter("submissionEndDate", subDate);
     filterParam += constructDateFilter("registrationStartDate", regDate);

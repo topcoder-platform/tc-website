@@ -11,8 +11,12 @@ package com.topcoder.web.tc.dto;
  * Thread Safety: This class is not thread-safe because it's mutable.
  * </p>
  *
- * @author mekanizumu, TCSDEVELOPER
- * @version 1.0
+ * <p>
+ * Changes in Version 1.1 : Added {@link #rollingYear} field.
+ * </p>
+ *
+ * @author mekanizumu, TCSDEVELOPER, bugbuka
+ * @version 1.1
  */
 public class PastContestFilter extends BaseFilter {
     /**
@@ -22,6 +26,13 @@ public class PastContestFilter extends BaseFilter {
      * </p>
      */
     private String winnerHandle;
+    
+    /**
+     * <p>
+     * Represents the rolling year.
+     * </p>
+     */
+    private String rollingYear;
 
     /**
      * <p>
@@ -53,6 +64,26 @@ public class PastContestFilter extends BaseFilter {
      */
     public void setWinnerHandle(String winnerHandle) {
         this.winnerHandle = winnerHandle;
+    }
+    
+    /**
+     * <p>
+     * Gets the rolling year.
+     * </p>
+     *
+     * @return the rolling year.
+     */
+    public String getRollingYear() {
+        return rollingYear;
+    }
+
+    /**
+     * Sets the rolling year.
+     *
+     * @param rollingYear the rolling year.
+     */
+    public void setRollingYear(String rollingYear) {
+        this.rollingYear = rollingYear;
     }
 
 }

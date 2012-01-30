@@ -5,6 +5,8 @@ package com.topcoder.web.tc;
 
 import java.util.List;
 
+import com.topcoder.web.tc.dto.CategoryDTO;
+
 /**
  * <p>
  * This interface defines the contract for getting lookup values of contest type, sub-types, and catalogs.
@@ -18,8 +20,13 @@ import java.util.List;
  * Changes in 1.1: Removed getContestSubTypes method since it is unused.
  * </p>
  *
- * @author mekanizumu, TCSDEVELOPER, pinoydream
- * @version 1.1
+ * <p>
+ * Changes in 1.2 : 1, Add method {@link #getCategoryName(Long)} to get category name by category id. 2, Using 
+ * CategoryDTO instead of String to represent the returned category
+ * </p>
+ * 
+ * @author mekanizumu, TCSDEVELOPER, pinoydream, bugbuka
+ * @version 1.2
  */
 public interface CategoriesManager {
     /**
@@ -42,7 +49,7 @@ public interface CategoriesManager {
      * @throws CategoriesManagerException
      *             if any error occurs
      */
-    public List<String> getContestTypes() throws CategoriesManagerException;
+    public List<CategoryDTO> getContestTypes() throws CategoriesManagerException;
 
     /**
      * <p>
@@ -57,6 +64,17 @@ public interface CategoriesManager {
      * @throws CategoriesManagerException
      *             if any error occurs
      */
-    public List<String> getContestTypes(String category) throws CategoriesManagerException;
-
+    public List<CategoryDTO> getContestTypes(String category) throws CategoriesManagerException;
+    
+    /**
+     * <p>
+     * Get the category name specified by the category id.
+     * </p>
+     * @param categoryId 
+     *            the specified category id
+     * @return category name. if there is no corresponding category name, returns null.
+     * @throws CategoriesManagerException
+     *             if any error occurs
+     */
+    public String getCategoryName(Long categoryId) throws CategoriesManagerException;
 }

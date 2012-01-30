@@ -75,9 +75,13 @@ import com.topcoder.web.tc.dto.ContestStatusFilter;
  * <p>
  * Changes in Version 1.2 : Removed subType in SQL and DTO.
  * </p>
+ * 
+ * <p>
+ * Changes in Version 1.3 : Added contestName in SQL and DTO.
+ * </p>
  *
- * @author mekanizumu, TCSDEVELOPER
- * @version 1.2
+ * @author mekanizumu, TCSDEVELOPER, bugbuka
+ * @version 1.3
  */
 public class ContestStatusManagerImpl extends HibernateDaoSupport implements
         ContestStatusManager {
@@ -93,7 +97,7 @@ public class ContestStatusManagerImpl extends HibernateDaoSupport implements
      * Represent the sql query string.
      * </p>
      */
-    private static final String SQL_QUERY = "SELECT DISTINCT new map(project.projectId as contestId, projectCategory.name as type,"
+    private static final String SQL_QUERY = "SELECT DISTINCT new map(compCatalog.componentName as contestName,  projectNameInfo.value as contestId, projectCategory.name as type,"
             + " projectCatalog.name as catalog,"
             + " submissionPhase.scheduledEndTime as submissionDueDate,"
             + "  (SELECT MAX(finalReviewPhase.scheduledEndTime) from ProjectPhase finalReviewPhase where finalReviewPhase.projectId=project.projectId "
@@ -121,13 +125,15 @@ public class ContestStatusManagerImpl extends HibernateDaoSupport implements
 			+ " FROM Project project, ProjectCategoryLookup projectCategory,"
             + " 	ProjectCatalogLookup projectCatalog, ProjectPhase registrationPhase,"
             + " 	ProjectPhase submissionPhase,"
-            + " 	ProjectInfo firstPrizeInfo, ProjectInfo projectNameInfo"
+            + " 	ProjectInfo firstPrizeInfo, ProjectInfo projectNameInfo,"
+            + " 	CompCatalog compCatalog"
             + " WHERE project.projectCategoryId=projectCategory.projectCategoryId"
 			+ " and project.projectStatusId = 1"
             // this join is for type
             + " and projectCategory.projectCatalogId=projectCatalog.projectCatalogId"
             // this join is for catalog
             + " and projectNameInfo.projectId=project.projectId"
+            + " and projectNameInfo.value=compCatalog.componentId"
             + " and projectNameInfo.projectInfoTypeId=:projectNameInfoId"
             // this join is for getting the contest name
             + " and registrationPhase.projectId=project.projectId"
@@ -537,7 +543,8 @@ public class ContestStatusManagerImpl extends HibernateDaoSupport implements
      */
     private static ContestStatusDTO transferMapToDTO(Map<String, Object> map) {
         ContestStatusDTO dto = new ContestStatusDTO();
-        dto.setContestId((Long) map.get("contestId"));
+        dto.setContestId(Long.parseLong((String)map.get("contestId")));
+        dto.setContestName((String) map.get("contestName"));
         dto.setType((String) map.get("type"));
         dto.setCatalog((String) map.get("catalog"));
         dto.setSubmissionDueDate(Helper.getEDTTime((Date) map.get("submissionDueDate")));

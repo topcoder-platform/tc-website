@@ -49,9 +49,13 @@ import com.topcoder.web.tc.dto.PastContestFilter;
  * <p>
  * Changes in 1.3: Removed reference to subTypes in addFilterForSQL and parseJsonToBaseFilter methods.
  * </p>
+ * 
+ * <p>
+ * Changes in 1.4: added rollingYear filter for PastContestFilter in method {@link #parseJsonToBaseFilter(BaseFilter)}.
+ * </p>
  *
- * @author TCSDEVELOPER, pinoydream
- * @version 1.3
+ * @author TCSDEVELOPER, pinoydream, bugbuka
+ * @version 1.4
  */
 public final class Helper {
     /**
@@ -519,6 +523,9 @@ public final class Helper {
                     ((PastContestFilter) filter)
                             .setWinnerHandle(getStringFromJson(jsonFilter,
                                     "winnerHandle"));
+                    ((PastContestFilter) filter)
+                    .setRollingYear(getStringFromJson(jsonFilter,
+                            "rollingYear"));
                 }
                 if (filter instanceof ContestStatusFilter) {
                     ((ContestStatusFilter) filter)

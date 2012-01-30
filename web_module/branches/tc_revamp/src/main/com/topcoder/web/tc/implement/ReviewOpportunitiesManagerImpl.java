@@ -6,6 +6,7 @@ package com.topcoder.web.tc.implement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -14,14 +15,18 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.orm.hibernate3.HibernateCallback;
 
 import com.topcoder.commons.utils.Log4jUtility;
+import com.topcoder.web.common.model.ApplicationReviewerPaymentCalculator;
+import com.topcoder.web.common.model.ArchitectureReviewerPaymentCalculator;
+import com.topcoder.web.common.model.AssemblyReviewerPaymentCalculator;
+import com.topcoder.web.common.model.ConceptualizationReviewerPaymentCalculator;
 import com.topcoder.web.tc.ContestsServiceManagerException;
 import com.topcoder.web.tc.Helper;
-import com.topcoder.web.tc.ServicesHelper;
 import com.topcoder.web.tc.ReviewOpportunitiesManager;
+import com.topcoder.web.tc.ServicesHelper;
 import com.topcoder.web.tc.SortingOrder;
 import com.topcoder.web.tc.dto.Filterable;
-import com.topcoder.web.tc.dto.ReviewOpportunityDTO;
 import com.topcoder.web.tc.dto.ReviewOpportunitiesFilter;
+import com.topcoder.web.tc.dto.ReviewOpportunityDTO;
 
 /**
  * <p>
@@ -43,9 +48,13 @@ import com.topcoder.web.tc.dto.ReviewOpportunitiesFilter;
  * <p>
  * Changes in Version 1.2 : Removed subType in SQL and DTO.
  * </p>
+ * 
+ * <p>
+ * Changes in Version 1.3 : Remove the RBoardPayment and ProjectCatalogLookup table join in SQL.
+ * </p>
  *
- * @author flytoj2ee, duxiaoyang, pinoydream
- * @version 1.1
+ * @author flytoj2ee, duxiaoyang, pinoydream, bugbuka
+ * @version 1.3
  */
 public class ReviewOpportunitiesManagerImpl extends AbstractManagerImpl implements ReviewOpportunitiesManager {
 
@@ -53,18 +62,21 @@ public class ReviewOpportunitiesManagerImpl extends AbstractManagerImpl implemen
      * Represents the base HQL statement used to search contests.
      */
     private static final String BASE_HQL = "SELECT pc.name AS type,"
-            + " ppay.amount AS primaryReviewerPayment, spay.amount AS secondaryReviewerPayment,"
             + " (SELECT COUNT(DISTINCT u.resourceId) FROM Upload u, Submission s WHERE u.projectId = p.projectId"
             + " AND s.submissionTypeId = 1 AND s.submissionStatusId in (1, 2, 3, 4) AND u.uploadId = s.uploadId"
-            + " AND u.uploadTypeId = 1) AS submissionsNumber, cc.componentName AS contestName,"
+            + " AND u.uploadTypeId = 1) AS submissionsNumber, " 
+            + " cc.componentName AS contestName,"
             + " pprev.scheduledStartTime AS reviewStart, pprev.scheduledEndTime AS reviewEnd,"
             + " CAST(ph.parameter AS int) - (SELECT COUNT(*) FROM RBoardApplication rba"
             + " WHERE rba.projectId = p.projectId AND rba.phaseId < 1000) AS numberOfReviewPositionsAvailable,"
-            + " ppreg.scheduledStartTime AS opensOn, ppsub.scheduledStartTime AS contestStartTime, p.projectId as contestId, pc.projectCategoryId as projectCategoryId"
+            + " ppreg.scheduledStartTime AS opensOn, ppsub.scheduledStartTime AS contestStartTime, p.projectId as contestId, pc.projectCategoryId as projectCategoryId,"
+            + " pi_prize.value AS prize, "
+            + " (SELECT COUNT(DISTINCT u.resourceId) FROM Upload u, Submission s WHERE u.projectId = p.projectId"
+            + " AND s.submissionTypeId = 1 AND s.submissionStatusId in (1, 3, 4) AND u.uploadId = s.uploadId"
+            + " AND u.uploadTypeId = 1) AS submission_passed_screening_count" 
             + " FROM Project p, ProjectPhase ppreg, ProjectPhase ppsub, ProjectPhase ppscr, ProjectPhase pprev,"
             + " PhaseCriteria ph, ProjectInfo pi1, CompVersions cv, CompVersionDates cvd, CompCatalog cc,"
-            + " ProjectCategoryLookup pc, ProjectCatalogLookup c,"
-            + " RBoardPayment ppay, RBoardPayment spay"
+            + " ProjectCategoryLookup pc, ProjectInfo pi_prize"
             + " WHERE NOT EXISTS (SELECT 1 FROM ContestEligibility WHERE studio = 0 AND contestId = p.projectId)"
             + " AND ppreg.projectId = p.projectId AND ppreg.phaseTypeId = 1 AND ppreg.scheduledStartTime <= CURRENT"
             + " AND ppsub.projectId = p.projectId AND ppsub.phaseTypeId = 2 AND ppsub.scheduledStartTime <= CURRENT"
@@ -74,31 +86,25 @@ public class ReviewOpportunitiesManagerImpl extends AbstractManagerImpl implemen
             + " AND ph.projectPhaseId = pprev.projectPhaseId AND ph.phaseCriteriaTypeId = 6"
             + " AND pi1.projectId = p.projectId AND pi1.projectInfoTypeId = 1"
             + " AND pi1.value = cv.compVersId AND cv.phaseId IN (112, 113)"
+            + " AND pi_prize.projectId = p.projectId AND pi_prize.projectInfoTypeId = 16"
             + " AND cvd.compVersId = cv.compVersId AND cvd.phaseId = cv.phaseId AND cvd.statusId <> 303"
             + " AND cc.componentId = cv.componentId"
             + " AND p.projectCategoryId = pc.projectCategoryId"
-            + " AND pc.projectCatalogId = c.projectCatalogId AND p.projectStatusId = 1"
-            + " AND ppay.projectId = p.projectId AND ppay.phaseId = pprev.projectPhaseId AND ppay.primary = 1"
-            + " AND spay.projectId = p.projectId AND spay.phaseId = pprev.projectPhaseId and spay.primary = 0"
+            + " AND p.projectStatusId = 1"
             + " AND (SELECT COUNT(*) FROM RBoardApplication app WHERE app.projectId = p.projectId AND app.phaseId < 1000) < CAST(ph.parameter AS int)"
-            + " AND (SELECT COUNT(*) FROM RBoardApplication app WHERE app.projectId = p.projectId AND app.phaseId = cv.phaseId) < 3";
+            + " AND (((SELECT COUNT(*) FROM RBoardApplication app WHERE app.projectId = p.projectId AND app.phaseId = cv.phaseId) < 3)"
+            + "   or not exists (select 1"
+            + "                   from RBoardApplication app"
+            + "                  where app.projectId = p.projectId"
+            + "                    and app.phaseId = cv.phaseId))"
+            ;
 
     /**
      * Represents the criteria used to filter contest name.
      */
     private static final String CONTEST_NAME_CRITERIA = " AND cc.componentName LIKE :contestName";
 
-    /**
-     * Represents the criteria used to filter start value of payment.
-     */
-    private static final String PAYMENT_START_CRITERIA = " AND ppay.amount >= :paymentStart";
-
-    /**
-     * Represents the criteria used to filter end value of payment.
-     */
-    private static final String PAYMENT_END_CRITERIA = " AND ppay.amount <= :paymentEnd";
-
-    /**
+   /**
      * Represents the criteria used to filter contest end date before a specific date.
      */
     private static final String REVIEW_END_DATE_BEFORE_CRITERIA = " AND pprev.scheduledEndTime < :reviewEnd";
@@ -301,12 +307,6 @@ public class ReviewOpportunitiesManagerImpl extends AbstractManagerImpl implemen
             if (filter.getContestName() != null && filter.getContestName().trim().length() != 0) {
                 hql.append(CONTEST_NAME_CRITERIA);
             }
-            if (filter.getPaymentStart() != null && filter.getPaymentStart() != Filterable.OPEN_INTERVAL) {
-                hql.append(PAYMENT_START_CRITERIA);
-            }
-            if (filter.getPaymentEnd() != null && filter.getPaymentEnd() != Filterable.OPEN_INTERVAL) {
-                hql.append(PAYMENT_END_CRITERIA);
-            }
             if (filter.getReviewEndDate() != null) {
                 switch (filter.getReviewEndDate().getIntervalType()) {
                 case BEFORE:
@@ -337,12 +337,7 @@ public class ReviewOpportunitiesManagerImpl extends AbstractManagerImpl implemen
             if (filter.getContestName() != null && filter.getContestName().trim().length() != 0) {
                 query.setString("contestName", "%" + filter.getContestName() + "%");
             }
-            if (filter.getPaymentStart() != null && filter.getPaymentStart() != Filterable.OPEN_INTERVAL) {
-                query.setInteger("paymentStart", filter.getPaymentStart());
-            }
-            if (filter.getPaymentEnd() != null && filter.getPaymentEnd() != Filterable.OPEN_INTERVAL) {
-                query.setInteger("paymentEnd", filter.getPaymentEnd());
-            }
+
             if (filter.getReviewEndDate() != null) {
                 switch (filter.getReviewEndDate().getIntervalType()) {
                 case BEFORE:
@@ -366,19 +361,48 @@ public class ReviewOpportunitiesManagerImpl extends AbstractManagerImpl implemen
             // perform the query, and fill the result into the given list
             @SuppressWarnings("unchecked")
             List<Object[]> result = query.list();
+            
             for (Object[] row : result) {
                 ReviewOpportunityDTO dto = new ReviewOpportunityDTO();
                 dto.setType((String) row[0]);
-                dto.setPrimaryReviewerPayment((Double) row[1]);
-                dto.setSecondaryReviewerPayment((Double) row[2]);
-                dto.setSubmissionsNumber(((Long) row[3]).intValue());
-                dto.setContestName((String) row[4]);
-                dto.setReviewStart(Helper.getEDTTime((Date) row[5]));
-                dto.setReviewEnd(Helper.getEDTTime((Date) row[6]));
-                dto.setNumberOfReviewPositionsAvailable(((Long) row[7]).intValue());
-                dto.setOpensOn(Helper.getEDTTime((Date) row[8]));
-                dto.setContestId((Long) row[10]);
-                dto.setProjectCategoryId(((Long) row[11]).intValue());
+                Integer submissionCount = ((Long) row[1]).intValue();
+                dto.setSubmissionsNumber(submissionCount);
+                dto.setContestName((String) row[2]);
+                dto.setReviewStart(Helper.getEDTTime((Date) row[3]));
+                dto.setReviewEnd(Helper.getEDTTime((Date) row[4]));
+                dto.setNumberOfReviewPositionsAvailable(((Long) row[5]).intValue());
+                dto.setOpensOn(Helper.getEDTTime((Date) row[6]));
+                dto.setContestId((Long) row[8]);
+                Integer contestCategoryID = ((Long) row[9]).intValue();
+                dto.setProjectCategoryId(contestCategoryID);
+                Float firstPlacePrize = Float.parseFloat(((String) row[10]));
+                Integer passedScreeningCount = ((Long) row[11]).intValue();
+                ApplicationReviewerPaymentCalculator appReviewerPaymentCalculator;
+                switch (contestCategoryID) {
+                	case 7:
+                		// Architecture
+                		appReviewerPaymentCalculator = new ArchitectureReviewerPaymentCalculator(firstPlacePrize, 
+                				submissionCount, passedScreeningCount);
+                		break;
+                	case 14:
+                		// Assembly
+                		appReviewerPaymentCalculator = new AssemblyReviewerPaymentCalculator(firstPlacePrize, 
+                				submissionCount, passedScreeningCount);
+                		break;
+                	case 23:
+                		// Conceptualization
+                		appReviewerPaymentCalculator = new ConceptualizationReviewerPaymentCalculator(firstPlacePrize, 
+                				submissionCount, passedScreeningCount);
+                		break;
+                	default:
+                		appReviewerPaymentCalculator = new ApplicationReviewerPaymentCalculator(firstPlacePrize, 
+                				submissionCount, passedScreeningCount);
+                }
+                dto.setPrimaryReviewerPayment(Math.round(appReviewerPaymentCalculator.getScreeningCost() + 
+                		appReviewerPaymentCalculator.getReviewCost() + 
+                		appReviewerPaymentCalculator.getAggregationCost() +
+                		appReviewerPaymentCalculator.getFinalReviewCost()));
+                dto.setSecondaryReviewerPayment(Math.round(appReviewerPaymentCalculator.getReviewCost()));
                 reviewOpportunities.add(dto);
             }
             return null;

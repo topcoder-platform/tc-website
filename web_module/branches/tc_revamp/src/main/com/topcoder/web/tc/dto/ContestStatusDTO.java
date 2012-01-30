@@ -20,15 +20,24 @@ import java.util.Date;
  * <p>
  * Changes in Version 1.2 : Removed subType property and corresponding getter/setter methods.
  * </p>
+ * 
+ * <p>
+ * Changes in Version 1.3 : Added {@link #contestName} field.
+ * </p>
  *
- * @author mekanizumu, TCSDEVELOPER, pinoydream
- * @version 1.2
+ * @author mekanizumu, TCSDEVELOPER, pinoydream, bugbuka
+ * @version 1.3
  */
 public class ContestStatusDTO {
     /**
      * Represents the contest id.
      */
     private long contestId;
+    
+    /**
+     * Represents the contest name.
+     */
+    private String contestName;
     
     /**
      * <p>
@@ -273,5 +282,23 @@ public class ContestStatusDTO {
      */
     public void setContestId(long contestId) {
         this.contestId = contestId;
+    }
+    
+    /**
+     * Gets the contest name.
+     * 
+     * @return the contest name.
+     */
+    public String getContestName() {
+        return contestName;
+    }
+
+    /**
+     * Sets the contest name.
+     * 
+     * @param contestId the contest name.
+     */
+    public void setContestName(String contestName) {
+        this.contestName = contestName;
     }
 }
