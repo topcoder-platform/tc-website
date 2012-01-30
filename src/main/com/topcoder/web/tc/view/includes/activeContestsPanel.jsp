@@ -1,9 +1,13 @@
 <%--
-  - Author: kanakarajank
-  - Version: 1.0
+  - Author: kanakarajank, bugbuka
+  - Version: 2.0
   - Copyright (C) 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: Contains HTML elements and controls to submit contest name for searching.
+  -
+  - Changes 01/16/2012:
+  - http://apps.topcoder.com/wiki/display/~winterflame/Release+Assembly+-+TC+Refactoring+Stage+1+Update+1
+  - Using category id instead of type.
  --%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
 <%@ page isELIgnored ="false"%>
@@ -21,7 +25,7 @@
 			</s:if>
 			<s:url var="contestLink" action="contests" namespace="/">
 				<s:param name="category">ActiveContests</s:param>
-				<s:param name="type">Component Design</s:param>
+				<s:param name="id">1</s:param>
 			</s:url>
 			<s:set value="#request.design" var="cont"/>
 			<s:if test="#cont.contestCount > 0 ">
@@ -30,7 +34,7 @@
 			</s:if>
 			<s:url var="contestLink" action="contests" namespace="/">
 				<s:param name="category">ActiveContests</s:param>
-				<s:param name="type">Component Development</s:param>
+				<s:param name="id">2</s:param>
 			</s:url>
 			<s:set value="#request.dev" var="cont"/>
 			<s:if test="#cont.contestCount > 0 ">
@@ -39,7 +43,7 @@
 			</s:if>
 			<s:url var="contestLink" action="contests" namespace="/">
 				<s:param name="category">ActiveContests</s:param>
-				<s:param name="type">Assembly</s:param>
+				<s:param name="id">14</s:param>
 			</s:url>
 			<s:set value="#request.assembly" var="cont"/>
 			<s:if test="#cont.contestCount > 0 ">
@@ -54,7 +58,7 @@
 			</s:if>
 			<s:url var="contestLink" action="contests" namespace="/">
 				<s:param name="category">ActiveContests</s:param>
-				<s:param name="type">Architecture</s:param>
+				<s:param name="id">7</s:param>
 			</s:url>
 			<s:set value="#request.arch" var="cont"/>
 			<s:if test="#cont.contestCount > 0 ">
@@ -63,7 +67,7 @@
 			</s:if>
 			<s:url var="contestLink" action="contests" namespace="/">
 				<s:param name="category">ActiveContests</s:param>
-				<s:param name="type">Specification</s:param>
+				<s:param name="id">6</s:param>
 			</s:url>
 			<s:set value="#request.spec" var="cont"/>
 			<s:if test="#cont.contestCount > 0 ">
@@ -72,7 +76,7 @@
 			</s:if>
 			<s:url var="contestLink" action="contests" namespace="/">
 				<s:param name="category">ActiveContests</s:param>
-				<s:param name="type">UI Prototype</s:param>
+				<s:param name="id">19</s:param>
 			</s:url>
 			<s:set value="#request.uiprototype" var="cont"/>
 			<s:if test="#cont.contestCount > 0 ">

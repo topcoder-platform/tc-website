@@ -11,6 +11,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.topcoder.web.tc.CategoriesManager;
 import com.topcoder.web.tc.CategoriesManagerException;
 import com.topcoder.web.tc.Helper;
+import com.topcoder.web.tc.dto.CategoryDTO;
 
 /**
  * <p>
@@ -25,9 +26,13 @@ import com.topcoder.web.tc.Helper;
  * <p>
  * Changes in 1.1: Removed unused method retrieveContestSubTypes.
  * </p>
+ * 
+ * <p>
+ * Changes in 1.2: Change the contestTypes to List&lt;CategoryDTO&gt;
+ * </p>
  *
- * @author mekanizumu, TCSDEVELOPER, pinoydream
- * @version 1.1
+ * @author mekanizumu, TCSDEVELOPER, pinoydream, bugbuka
+ * @version 1.2
  */
 public class CategoriesManagerAction extends ActionSupport {
     /**
@@ -89,7 +94,7 @@ public class CategoriesManagerAction extends ActionSupport {
      * the instance is created. It is used in retrieveContestTypes(), getContestTypes().
      * </p>
      */
-    private List<String> contestTypes;
+    private List<CategoryDTO> contestTypes;
 
     /**
      * <p>
@@ -222,7 +227,7 @@ public class CategoriesManagerAction extends ActionSupport {
      *
      * @return the contestTypes
      */
-    public List<String> getContestTypes() {
+    public List<CategoryDTO> getContestTypes() {
         return contestTypes;
     }
 

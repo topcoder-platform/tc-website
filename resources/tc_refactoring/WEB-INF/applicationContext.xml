@@ -75,7 +75,7 @@
 		<property name="hibernateTemplate">
 			<ref bean="hibernateTemplateBean" />
 		</property>
-		<property name="projectNameInfoId" value="6" />
+		<property name="projectNameInfoId" value="2" />
 		<property name="registrationPhaseTypeId" value="1" />
 		<property name="submissionPhaseTypeId" value="2" />
 		<property name="finalReviewPhaseTypeId" value="10" />

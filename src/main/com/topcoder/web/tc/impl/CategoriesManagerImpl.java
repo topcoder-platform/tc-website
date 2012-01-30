@@ -3,15 +3,21 @@
  */
 package com.topcoder.web.tc.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.springframework.dao.DataAccessException;
+import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import com.topcoder.web.tc.CategoriesManager;
 import com.topcoder.web.tc.CategoriesManagerException;
 import com.topcoder.web.tc.Helper;
+import com.topcoder.web.tc.dto.CategoryDTO;
 
 /**
  * <p>
@@ -48,8 +54,13 @@ import com.topcoder.web.tc.Helper;
  * Changes in 1.1: Removed getContestSubTypes method since it is unused.
  * </p>
  *
- * @author mekanizumu, TCSDEVELOPER, pinoydream
- * @version 1.1
+ * <p>
+ * Changes in 1.2 : 1, Add method {@link #getCategoryName(Long)} to get category name by category id. 2, Using 
+ * CategoryDTO instead of String to represent the returned category
+ * </p>
+ * 
+ * @author mekanizumu, TCSDEVELOPER, pinoydream, bugbuka
+ * @version 1.2
  */
 public class CategoriesManagerImpl extends HibernateDaoSupport implements CategoriesManager {
     /**
@@ -78,10 +89,18 @@ public class CategoriesManagerImpl extends HibernateDaoSupport implements Catego
      * Represent the sql query string.
      * </p>
      */
-    private static final String SQL_QUERY_CONTEST_TYPES_WITH_CATEGORY = "select t.name from"
+    private static final String SQL_QUERY_CONTEST_TYPES_WITH_CATEGORY = "select t.projectCategoryId as categoryId, t.name as categoryName from"
         + " ProjectCategoryLookup t, ProjectCatalogLookup c"
-        + " where t.projectCatalogId=c.projectCatalogId and c.name=?";
+        + " where t.projectCatalogId=c.projectCatalogId and c.name=:catalog";
 
+    /**
+     * <p>
+     * Represent the sql query string.
+     * </p>
+     */
+    private static final String SQL_QUERY_CATEGORY_NAME = "select t.name from ProjectCategoryLookup t"
+    	+ " where t.projectCategoryId=?";
+    
     /**
      * <p>
      * The Logger object used for logging. It's a constant. So it can only be that constant value It is final
@@ -132,6 +151,41 @@ public class CategoriesManagerImpl extends HibernateDaoSupport implements Catego
 
     /**
      * <p>
+     * Get the category name specified by the category id.
+     * </p>
+     *
+     * @param categoryId 
+     *            the specified category id
+     * @return category name. if there is no corresponding category name, returns null.
+     * @throws CategoriesManagerException
+     *             if any error occurs
+     */
+    @SuppressWarnings("unchecked")
+    public String getCategoryName(Long categoryId) throws CategoriesManagerException{
+        // Log the entry
+        final String signature = CLASS_NAME + ".getCategoryName(Long)";
+        Helper.logEntrance(LOGGER, signature, null, null);
+        final long startTime = System.currentTimeMillis();
+        
+        try {
+            List<String> result = this.getHibernateTemplate().find(SQL_QUERY_CATEGORY_NAME, categoryId);
+
+            // log exit
+            Helper.logExit(LOGGER, signature, startTime, result);
+ 
+            if (result != null && !result.isEmpty()) {
+                return result.get(0);
+            }
+
+            return null;
+        } catch (DataAccessException e) {
+            throw Helper.logException(LOGGER, new CategoriesManagerException(
+                "DataAccessException occurs while executing", e), signature);
+        }
+    }
+    
+    /**
+     * <p>
      * Get all contest types.
      * </p>
      *
@@ -140,19 +194,54 @@ public class CategoriesManagerImpl extends HibernateDaoSupport implements Catego
      *             if any error occurs
      */
     @SuppressWarnings("unchecked")
-    public List<String> getContestTypes() throws CategoriesManagerException {
+    public List<CategoryDTO> getContestTypes() throws CategoriesManagerException {
         // Log the entry
         final String signature = CLASS_NAME + ".getContestTypes()";
         Helper.logEntrance(LOGGER, signature, null, null);
         final long startTime = System.currentTimeMillis();
 
         try {
-            List<String> result = this.getHibernateTemplate().find(SQL_QUERY_CONTEST_TYPES);
+            // This will hold the result to return:
+            final List<CategoryDTO> categories = new ArrayList<CategoryDTO>();
+            
+            // This block should call this.getHibernateTemplate().execute(new
+            // HibernateCallback() { ...}), the
+            // anonymous HibernateCallback is defined as follows
+            this.getHibernateTemplate().execute(
+                    new HibernateCallback<Object>() {
+
+                        /**
+                         * <p>
+                         * Do the hibernate process.
+                         * </p>
+                         * 
+                         * @param session
+                         *            the session
+                         * @return null
+                         * @throws HibernateException
+                         *             if any error occurs
+                         */
+                         public Object doInHibernate(Session session)
+                                 throws HibernateException {
+                     
+                             Query query = session.createQuery(SQL_QUERY_CONTEST_TYPES);
+                     
+                             // Execute the query:
+                             List<Object[]> result = query.list();
+                             for (Object[] row : result) {
+                             	CategoryDTO dto = new CategoryDTO();
+                             	dto.setCategoryId((Long)row[0]);
+                                 dto.setCategoryName((String) row[1]);
+                                 categories.add(dto);
+                             }
+                             return null;
+                         }
+                     });
 
             // log exit
-            Helper.logExit(LOGGER, signature, startTime, result);
+            Helper.logExit(LOGGER, signature, startTime, categories);
 
-            return result;
+            return categories;
         } catch (DataAccessException e) {
             throw Helper.logException(LOGGER, new CategoriesManagerException(
                 "DataAccessException occurs while executing", e), signature);
@@ -173,22 +262,58 @@ public class CategoriesManagerImpl extends HibernateDaoSupport implements Catego
      *             if any error occurs
      */
     @SuppressWarnings("unchecked")
-    public List<String> getContestTypes(String category) throws CategoriesManagerException {
+    public List<CategoryDTO> getContestTypes(final String catalog) throws CategoriesManagerException {
         // Log the entry
         final String signature = CLASS_NAME + ".getContestTypes(String)";
         Helper.logEntrance(LOGGER, signature, null, null);
         final long startTime = System.currentTimeMillis();
 
         try {
-            checkStringNotNullAndNotEmpty("category", category);
+            checkStringNotNullAndNotEmpty("catalog", catalog);
 
-            List<String> result = this.getHibernateTemplate().find(SQL_QUERY_CONTEST_TYPES_WITH_CATEGORY,
-                category);
+            // This will hold the result to return:
+            final List<CategoryDTO> categories = new ArrayList<CategoryDTO>();
+            
+            // This block should call this.getHibernateTemplate().execute(new
+            // HibernateCallback() { ...}), the
+            // anonymous HibernateCallback is defined as follows
+            this.getHibernateTemplate().execute(
+                    new HibernateCallback<Object>() {
 
+                        /**
+                         * <p>
+                         * Do the hibernate process.
+                         * </p>
+                         * 
+                         * @param session
+                         *            the session
+                         * @return null
+                         * @throws HibernateException
+                         *             if any error occurs
+                         */
+                        public Object doInHibernate(Session session)
+                                throws HibernateException {
+
+                            Query query = session.createQuery(SQL_QUERY_CONTEST_TYPES_WITH_CATEGORY);
+                            query.setParameter("catalog", catalog);
+
+                            // Execute the query:
+                            List<Object[]> result = query.list();
+                            for (Object[] row : result) {
+                            	CategoryDTO dto = new CategoryDTO();
+                                dto.setCategoryId((Long)row[0]);
+                                dto.setCategoryName((String) row[1]);
+                                categories.add(dto);
+                            }
+                            return null;
+                        }
+                    });
+            
+            
             // log exit
-            Helper.logExit(LOGGER, signature, startTime, result);
+            Helper.logExit(LOGGER, signature, startTime, categories);
 
-            return result;
+            return categories;
         } catch (IllegalArgumentException e) {
             throw Helper.logException(LOGGER, e, signature);
         } catch (DataAccessException e) {

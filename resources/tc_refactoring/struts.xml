@@ -6,7 +6,9 @@
 	<constant name="struts.custom.i18n.resources" value="application" />
 	<package name="default" extends="json-default" namespace="/">
 		<default-action-ref name="home"></default-action-ref>
-		
+		<global-results>
+            <result name="error">/errorPage.jsp</result>
+        </global-results>		
 		<action name="home" class="homeAction">
 			<result>home.jsp</result>
 		</action>

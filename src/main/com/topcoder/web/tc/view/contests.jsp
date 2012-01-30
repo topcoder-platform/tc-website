@@ -1,9 +1,14 @@
 <%--
-  - Author: TCSASSEMBLIER, kanakarajank
+  - Author: kanakarajank, bugbuka
   - Version: 2.0
   - Copyright (C) 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: The page to display and filter a list of contests.
+  -
+  - Changes 01/16/2012:
+  - http://apps.topcoder.com/wiki/display/~winterflame/Release+Assembly+-+TC+Refactoring+Stage+1+Update+1
+  - Using category id instead of type.
+  - Added year range dropdown list for PastContests.
  --%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
 <%@ page isELIgnored="false"%>
@@ -54,10 +59,10 @@
 									<s:iterator value="categoriesByCatalog[#cata]" id="cate">
 										<s:url var="contestLink" action="contests" namespace="/">
 											<s:param name="category">ActiveContests</s:param>
-											<s:param name="type">${cate}</s:param>
+											<s:param name="id">${cate.categoryId}</s:param>
 										</s:url>
 										<li>
-											<a href="${contestLink}">${cate}</a>
+											<a href="${contestLink}">${cate.categoryName}</a>
 										</li>
 									</s:iterator>
 								</ul>
@@ -161,15 +166,15 @@
 																<s:if test="%{#cate=='Bug Races'}">
 																	<s:if test="%{category=='ActiveContests'}">
 																		<li class="more hide">
-																			<input type="checkbox" name="${cate}" />
-																			${cate}
+																			<input type="checkbox" name="${cate.categoryName}" />
+																			${cate.categoryName}
 																		</li>
 																	</s:if>
 																</s:if>
 																<s:else>
 																	<li class="more hide">
-																		<input type="checkbox" name="${cate}" />
-																		${cate}
+																		<input type="checkbox" name="${cate.categoryName}" />
+																		${cate.categoryName}
 																	</li>
 																</s:else>
 															</s:iterator>
@@ -309,6 +314,23 @@
 							</div>
 						</div>
 					</div>
+
+                    <s:if test="%{category=='PastContests'}">
+                        <div class="yearRangeFilter">
+                        <span class="plainText">Year Range :</span>
+                        
+                        <select id="yearRange" class="select" name="yearRange">
+                            <s:iterator value="yearRanges" id="yearRange">
+                                <option value="<s:property value='yearRange'/>">
+                                    <s:property value='yearRange'/>
+                                </option>
+                            </s:iterator>
+                        </select>
+                        
+                        </div>
+                    </s:if>
+                    <!-- End .yearRangeFilter -->
+					
 					<!-- #filter -->
 					<table id="contestTable" cellpadding="0" cellspacing="0"
 						style="display: none;">

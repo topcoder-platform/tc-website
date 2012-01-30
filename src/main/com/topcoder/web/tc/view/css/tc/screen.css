@@ -1297,6 +1297,16 @@ a.hint, a.hint:visited{
 							#filterContainer .content .sliderContainer .content ul.scale li.last{
 								margin:0;
 							}
+							
+	.yearRangeFilter .plainText{
+		color:#333333;
+		font-size:12px;
+		font-weight:bold;
+	}
+	
+	.yearRangeFilter .select{
+		width:100px;
+	}
 
 .pagerContainer{
 	padding:0 1px;
