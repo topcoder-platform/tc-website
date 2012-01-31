@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001 - 2010 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common;
 
@@ -53,10 +53,47 @@ package com.topcoder.web.common;
  *     <li>Added constants for the Copilot Posting.</li>
  *   </ol>
  * </p>
+ *
+ * <p>
+ *   Version 1.6.2 (Content Creation Contest Online Review and TC Site Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added {@link #CONTENT_CREATION_PROJECT_TYPE}, {@link #CONTENT_CREATION_SPECIFICATION_PROJECT_TYPE},
+ *     {@link #PHASE_CONTENT_CREATION} and {@link #PHASE_CONTENT_CREATION_SPECIFICATION} constants for the Content
+ *     Creation.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, pulky, snow01, TCSASSEMBLER
- * @version 1.6.1
+ * <p>
+ *   Version 1.6.3 (Online Review Replatforming Release 2) Change notes:
+ *   <ol>
+ *     <li>Added constants for the the phases of Studio Contests.</li>
+ *   </ol>
+ * </p>
+ *
+ * <p>
+ *   Version 1.6.4 (Replatforming Studio Release 5) Change notes:
+ *   <ol>
+ *     <li>Added constants {@link #REVIEW_ID}.</li>
+ *   </ol>
+ * </p>
+ * 
+ * <p>
+ *   Version 1.6.5 (Add Reporting Contest Type) Change notes:
+ *   <ol>
+ *     <li>Added constants {@link #REPORTING_PROJECT_TYPE}, {@link #PHASE_REPORTING}.</li>
+ *   </ol>
+ * </p>
+ * 
+ * <p>
+ *   Version 1.6.6 (TopCoder Terms of Use Management Refactoring v1.0) Change notes:
+ *   <ol>
+ *     <li>Added constants {@link #DEPENDENCIES_TERMS_AGREED}, {@link #DEPENDENCIES_TERMS_PENDING}, {@link #PRE_PENDING_TERMS},
+ *     {@link #TERMS_AGREED_ROLES}, {@link #TERMS_GROUP}, {@link #TERMS_STATUS}, {@link #TERMS_GROUP_HAS_AGREED}, {@link #COMMON_RESOURCE_ROLES}.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky, snow01, FireIce, lmmortal, TCSASSEMBER
+ * @version 1.6.6
  */
 public interface WebConstants {
     public static final String HANDLE = "ha";
@@ -90,6 +127,7 @@ public interface WebConstants {
     public static final String TITLE = "ttl";
     public static final String GIVEN_NAME = "fn";
     public static final String MIDDLE_NAME = "mn";
+    public static final String NAME_IN_ANOTHER_LANGUAGE = "nial";
     public static final String SURNAME = "ln";
     public static final String ADDRESS1 = "a1";
     public static final String ADDRESS2 = "a2";
@@ -111,6 +149,33 @@ public interface WebConstants {
     public static final String EVENT_ID = "eid";
 
     public static final String TERMS = "terms";
+    /**
+     * Represents the agreed dependencies terms attribute key.
+     * 
+     * @since 1.6.6
+     */
+    public static final String DEPENDENCIES_TERMS_AGREED = "dependenciesTermsAgreed";
+    
+    /**
+     * Represents the pending dependencies terms attribute key.
+     * 
+     * @since 1.6.6
+     */
+    public static final String DEPENDENCIES_TERMS_PENDING = "dependenciesTermsPending";
+    
+    /**
+     * Represents the parameter key of the pre terms of use need to be agreed.
+     * 
+     * @since 1.6.6
+     */
+    public static final String PRE_PENDING_TERMS = "prePendingTerms";
+
+    /**
+     * Represents the review id attribute key.
+     * 
+     * @since 1.6.4
+     */
+    public static final String REVIEW_ID = "rid";
 
     /**
      * <p>A <code>String</code> representing terms agree attribute key.</p>
@@ -118,7 +183,42 @@ public interface WebConstants {
      * @since 1.2
      */
     public static final String TERMS_AGREED = "terms_agreed";
+    
+    /**
+     * Represents the attribute key for the role names who have agreed the terms.
+     * 
+     * @since 1.6.6
+     */
+    public static final String TERMS_AGREED_ROLES = "terms_agreed_roles";
 
+    /**
+     * Represents the attribute key for the terms group list.
+     * 
+     * @since 1.6.6
+     */
+    public static final String TERMS_GROUP = "terms_group";
+    
+    /**
+     * Represents the attribute key for the terms status (Whether the user has agreed or not) array.
+     * 
+     * @since 1.6.6
+     */
+    public static final String TERMS_STATUS = "terms_status";
+    
+    /**
+     * Represents the attribute key for the terms group which has been agreed
+     * 
+     * @since 1.6.6
+     */
+    public static final String TERMS_GROUP_HAS_AGREED = "terms_group_has_agreed";
+    
+    /**
+     * Represents the attribute key for the common resource role names for the current terms group.
+     * 
+     * @since 1.6.6
+     */
+    public static final String COMMON_RESOURCE_ROLES = "common_resource_roles"; 
+    
     /**
      * <p>A <code>String</code> representing terms pending attribute key.</p>
      *
@@ -147,6 +247,9 @@ public interface WebConstants {
 
     //resume parameters
     public static final String RESUME = "resume";
+    
+    //openid parameter
+    public static final String OPEN_ID = "openid";
 
     public static final int PREFERENCE_TEXT_ANSWER = 3;
     public static final int PREFERENCE_MULTIPLE_ANSWER = 2;
@@ -213,6 +316,56 @@ public interface WebConstants {
     public static final long PHASE_ASSEMBLY = 125;
 
     /**
+     * The phase id of studio icon set track.
+     */
+    public static final long PHASE_ICONSETS = 127;
+    
+    /**
+     * The phase id of studio storyboards track.
+     */
+    public static final long PHASE_STORYBOARDS = 128;
+    
+    /**
+     * The phase id of studio wireframes track.
+     */
+    public static final long PHASE_WIREFRAMES = 129;
+    
+    /**
+     * The phase id of studio logos track.
+     */
+    public static final long PHASE_LOGOS = 131;
+    
+    /**
+     * The phase id of studio print track.
+     */
+    public static final long PHASE_PRINT = 132;
+    
+    /**
+     * The phase id of studio specification track.
+     */
+    public static final long PHASE_STUDIO_SPECIFICATION = 133;
+    
+    /**
+     * The phase id of studio widget track.
+     */
+    public static final long PHASE_WIDGET = 141;
+    
+    /**
+     * The phase id of studio front end flash track.
+     */
+    public static final long PHASE_FRONTENDFLASH = 142;
+    
+    /**
+     * The phase id of studio application front end track.
+     */
+    public static final long PHASE_APPLICATIONFRONTEND = 143;
+    
+    /**
+     * The phase id of studio other track.
+     */
+    public static final long PHASE_OTHER = 145;
+
+    /**
      * <p>A <code>long</code> representing phase offeset according to project id.</p>
      *
      * @since 1.1
@@ -259,6 +412,8 @@ public interface WebConstants {
     public static final long APPLICATION_CATALOG = 9926572;
 
     public static final long TCS_FORUMS_ROOT_CATEGORY_ID = 22;
+	
+	public static final long DIRECT_PROJECT_FORUMS_ROOT_CATEGORY_ID = 2478;
 
     public static final String CANDIDATE_IDS = "cids";
 
@@ -314,12 +469,12 @@ public interface WebConstants {
      * @since 1.1
      */
     public static final int RIA_COMPONENT_PROJECT_TYPE = 25;
-    
+
     /**
      * <p>An <code>int</code> representing specification review project type id.</p>
      */
     public static final int SPECIFICATION_REVIEW_PROJECT_TYPE = 27;
-    
+
     /**
      * <p>An <code>long</code> representing design specification project category id.</p>
      *
@@ -428,7 +583,7 @@ public interface WebConstants {
      * @since 1.1
      */
     public static final long PHASE_RIA_COMPONENT = RIA_COMPONENT_PROJECT_TYPE + GENERAL_PHASE_OFFSET;
-    
+
     /**
      * <p>A <code>long</code> representing specification review phase id.</p>
      */
@@ -499,7 +654,7 @@ public interface WebConstants {
      */
     public static final long PHASE_TEST_SUITES_SPECIFICATION =
         PHASE_TEST_SUITES + SPECIFICATION_COMPETITION_OFFSET;
-        
+
     /**
      * <p>An <code>long</code> representing test scenarios competition specification phase id.</p>
      *
@@ -557,6 +712,58 @@ public interface WebConstants {
      */
     public static final long PHASE_COPILOT_POSTING_SPECIFICATION =
 	    PHASE_COPILOT_POSTING + SPECIFICATION_COMPETITION_OFFSET;
+
+    /**
+     * <p>An <code>int</code> representing content creation project type id.</p>
+	 * @since 1.6.2
+     */
+    public static final int CONTENT_CREATION_PROJECT_TYPE = 35;
+    
+    /**
+     * <p>An <code>int</code> representing reporting project type id.</p>
+    * @since 1.6.5
+     */
+    public static final int REPORTING_PROJECT_TYPE = 36;
+
+    /**
+     * <p>An <code>long</code> representing content creation specification project category id.</p>
+	 * @since 1.6.2
+     */
+    public static final long CONTENT_CREATION_SPECIFICATION_PROJECT_TYPE =
+	    CONTENT_CREATION_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;
+    
+    /**
+     * <p>An <code>long</code> representing reporting specification project category id.</p>
+	 * @since 1.6.5
+     */
+    public static final long REPORTING_SPECIFICATION_PROJECT_TYPE =
+	    REPORTING_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;
+
+    /**
+     * <p>An <code>long</code> representing content creation phase id.</p>
+	 * @since 1.6.2
+     */
+    public static final long PHASE_CONTENT_CREATION = CONTENT_CREATION_PROJECT_TYPE + GENERAL_PHASE_OFFSET;
+    
+    /**
+     * <p>An <code>long</code> representing reporting phase id.</p>
+    * @since 1.6.5
+     */
+    public static final long PHASE_REPORTING = REPORTING_PROJECT_TYPE + GENERAL_PHASE_OFFSET;
+
+    /**
+     * <p>An <code>long</code> representing reporting specification phase id.</p>
+	 * @since 1.6.5
+     */
+    public static final long PHASE_REPORTING_SPECIFICATION =
+	    PHASE_REPORTING + SPECIFICATION_COMPETITION_OFFSET;
+    
+    /**
+     * <p>An <code>long</code> representing copilot posting specification phase id.</p>
+	 * @since 1.6.2
+     */
+    public static final long PHASE_CONTENT_CREATION_SPECIFICATION =
+	    PHASE_CONTENT_CREATION + SPECIFICATION_COMPETITION_OFFSET;
 
     /**
      * <p>A <code>String</code> representing clients attribute key.</p>
