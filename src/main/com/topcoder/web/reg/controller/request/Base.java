@@ -233,6 +233,7 @@ public abstract class Base extends LongHibernateProcessor {
         ret.put(Constants.GIVEN_NAME, getTrimmedParameter(Constants.GIVEN_NAME));
         ret.put(Constants.MIDDLE_NAME, getTrimmedParameter(Constants.MIDDLE_NAME));
         ret.put(Constants.SURNAME, getTrimmedParameter(Constants.SURNAME));
+        ret.put(Constants.NAME_IN_ANOTHER_LANGUAGE, getTrimmedParameter(Constants.NAME_IN_ANOTHER_LANGUAGE));
         ret.put(Constants.PASSWORD, getTrimmedParameter(Constants.PASSWORD));
         ret.put(Constants.PASSWORD_CONFIRM, getTrimmedParameter(Constants.PASSWORD_CONFIRM));
         ret.put(Constants.SECRET_QUESTION, getTrimmedParameter(Constants.SECRET_QUESTION));
@@ -305,6 +306,7 @@ public abstract class Base extends LongHibernateProcessor {
             simpleValidation(GivenNameValidator.class, fields, params, Constants.GIVEN_NAME);
             simpleValidation(MiddleNameValidator.class, fields, params, Constants.MIDDLE_NAME);
             simpleValidation(SurnameValidator.class, fields, params, Constants.SURNAME);
+            simpleValidation(NameInAnotherLanguageValidator.class, fields, params, Constants.NAME_IN_ANOTHER_LANGUAGE);
         }
 
         ValidationResult termsResults = new TermsOfUseValidator(getRegUser()).validate(
@@ -400,8 +402,7 @@ public abstract class Base extends LongHibernateProcessor {
         setDefault(Constants.MIDDLE_NAME, u.getMiddleName());
         setDefault(Constants.SURNAME, u.getLastName());
         setDefault(Constants.GIVEN_NAME, u.getFirstName());
-        setDefault(Constants.PASSWORD, u.getPassword());
-        setDefault(Constants.PASSWORD_CONFIRM, u.getPassword());
+        setDefault(Constants.NAME_IN_ANOTHER_LANGUAGE, u.getNameInAnotherLanguage());
 
         if (u.getSecretQuestion() != null) {
             setDefault(Constants.SECRET_QUESTION, u.getSecretQuestion().getQuestion());
@@ -802,18 +803,21 @@ public abstract class Base extends LongHibernateProcessor {
 
         setDefault(Constants.SHOW_EARNINGS, String.valueOf(params.get(Constants.SHOW_EARNINGS)));
 
+
         if (!isNewRegistration() && getFactory().getPaymentDAO().hasPayments(getRegUser().getId())) {
             setDefault(Constants.MIDDLE_NAME, u.getMiddleName());
             setDefault(Constants.SURNAME, u.getLastName());
             setDefault(Constants.GIVEN_NAME, u.getFirstName());
         }
 
-
         if (!isNewRegistration()) {
             setDefault(Constants.HANDLE, u.getHandle());
+            setDefault(Constants.NAME_IN_ANOTHER_LANGUAGE, u.getNameInAnotherLanguage());
         }
 
         getRequest().setAttribute("hasPayments", getFactory().getPaymentDAO().hasPayments(u.getId()));
+        getRequest().setAttribute("isNameInAnotherLanguageEmpty", u.getNameInAnotherLanguage() == null || u.getNameInAnotherLanguage().trim().length() == 0);
+
 
         List nots = getFactory().getNotificationDAO().getNotifications(getRequestedTypes());
         if (nots != null) {

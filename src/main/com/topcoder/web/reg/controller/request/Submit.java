@@ -1,6 +1,7 @@
 package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.security.GeneralSecurityException;
+import com.topcoder.security.NoSuchUserException;
 import com.topcoder.security.GroupPrincipal;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
@@ -50,12 +51,11 @@ public class Submit extends Base {
     protected void registrationProcessing() throws Exception {
         User u = getRegUser();
         boolean newReg = isNewRegistration();
+
         if (getRegUser() == null) {
             throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/reg");
         } else if (newReg || userLoggedIn()) {
-            //todo check if the handle is taken again
             getFactory().getUserDAO().saveOrUpdate(u);
-
             HSRegistrationHelper rh = new HSRegistrationHelper(getRequest(), (Map<String, Response>) getRequest().getSession().getAttribute(Constants.HS_RESPONSES));
 
             if (hasRequestedType(RegistrationType.HIGH_SCHOOL_ID) &&
@@ -63,80 +63,47 @@ public class Submit extends Base {
                 rh.registerForSeason(u);
             }
 
-            securityStuff(newReg, u);
-
             if (getRequest().getSession().getAttribute(Constants.INACTIVATE_HS) != null) {
                 rh.inactivateUser(u);
             }
 
+            String activationCode = "";
+            String emailAddress = u.getPrimaryEmailAddress().getAddress();
+            RegistrationTypeDAO dao = getFactory().getRegistrationTypeDAO();
+            RegistrationType comp = dao.getCompetitionType();
+            RegistrationType tcs = dao.getSoftwareType();
+            RegistrationType hs = dao.getHighSchoolType();
+            RegistrationType corp = dao.getCorporateType();
+            RegistrationType min = dao.getMinimalType();
+            RegistrationType studio = dao.getStudioType();
+            RegistrationType teacher = dao.getTeacherType();
+            RegistrationType openAIM = dao.getOpenAIMType();
+            RegistrationType truveo = dao.getTruveoType();
 
-            if (log.isDebugEnabled()) {
-                for (UserSchool sc : u.getSchools()) {
-                    if (sc.getSchool() == null) {
-                        log.debug("school null");
-                    }
-                    if (sc.getUser() == null) {
-                        log.debug("user null");
-                    }
-                    if (sc.getAssociationType() == null) {
-                        log.debug("ass null");
-                    }
-                    if (sc.isPrimary() == null) {
-                        log.debug("primary null");
-                    }
-                }
+            if (newReg) {
+                activationCode = StringUtils.getActivationCode(u.getId().longValue());
+                u.setActivationCode(activationCode);
             }
 
-            markForCommit();
-            closeConversation();
-            beginCommunication();
-            if (newReg) {
-                try {
-                    Long newUserId = u.getId();
-                    //have to wrap up the last stuff, and get into new stuff.  we don't want
-                    //sending email to be in the transaction
-                    User newUserObj = getFactory().getUserDAO().find(newUserId);
+            getFactory().getUserDAO().saveOrUpdate(u);
 
-                    String activationCode = StringUtils.getActivationCode(newUserId.longValue());
-                    newUserObj.setActivationCode(activationCode);
-                    getFactory().getUserDAO().saveOrUpdate(newUserObj);
-                    markForCommit();
-                    String email = newUserObj.getPrimaryEmailAddress().getAddress();
+            try {
+                securityStuff(newReg, u);
 
-                    RegistrationTypeDAO dao = getFactory().getRegistrationTypeDAO();
-                    RegistrationType comp = dao.getCompetitionType();
-                    RegistrationType tcs = dao.getSoftwareType();
-                    RegistrationType hs = dao.getHighSchoolType();
-                    RegistrationType corp = dao.getCorporateType();
-                    RegistrationType min = dao.getMinimalType();
-                    RegistrationType studio = dao.getStudioType();
-                    RegistrationType teacher = dao.getTeacherType();
-                    RegistrationType openAIM = dao.getOpenAIMType();
-                    RegistrationType truveo = dao.getTruveoType();
-
-                    closeConversation();
-                    try {
-                        sendEmail(activationCode, email, getRequestedTypes(), comp, tcs, hs, corp, min, studio, teacher, openAIM, truveo);
-                    } catch (Exception e) {
-                        //we don't want whatever happened to affect the registration.
-                        e.printStackTrace();
-                    }
-                } catch (Throwable e) {
-                    if (u != null && u.getId() != null) {
-                        Context ctx = null;
-                        try {
-                            ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
-                            PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
-                            PrincipalMgrRemote pmr = pmrh.create();
-                            pmr.removeUser(new UserPrincipal("", u.getId().longValue()), new TCSubject(132456));
-
-                        } catch (Throwable ex) {
-                            log.error("problem in exception callback for user: " + u.getId() + " " + e.getMessage());
-                        } finally {
-                            close(ctx);
-                        }
-                    }
+                // Close transaction now and persist the changes before sending the activation email so that if there's any exception
+                // during persisting the objects the email won't be sent.
+                markForCommit();
+                closeConversation();
+                // END TRANSACTION
+            } catch (Exception e) {
+                if (newReg) {
+                    removeUser(u.getId());
                 }
+                throw e;
+            }
+
+            if (newReg) {
+                sendEmail(activationCode, emailAddress, getRequestedTypes(), comp, tcs, hs, corp, min, studio, teacher, openAIM, truveo);
             }
 
             HashSet h = new HashSet();
@@ -190,12 +157,14 @@ public class Submit extends Base {
             UserPrincipal myPrincipal;
             PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
             PrincipalMgrRemote pmr = pmrh.create();
+
+            String password = (String) getRequest().getSession().getAttribute("password");
             if (newUser) {
-                //create the security user entry
-                myPrincipal = pmr.createUser(u.getId(), u.getHandle(), u.getPassword(), tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
+                // Create the security user entry.
+                myPrincipal = pmr.createUser(u.getId(), u.getHandle(), password, tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
             } else {
                 myPrincipal = new UserPrincipal("", u.getId());
-                pmr.editPassword(myPrincipal, u.getPassword(), tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
+                pmr.editPassword(myPrincipal, password, tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
             }
 
             List<SecurityGroup> types = getFactory().getSecurityGroupDAO().getSecurityGroups(getRequestedTypes());
@@ -228,6 +197,18 @@ public class Submit extends Base {
             close(ctx);
         }
 
+    }
+
+    private void removeUser(long userId) throws Exception {
+        Context ctx = null;
+        try {
+            ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
+            PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+            PrincipalMgrRemote pmr = pmrh.create();
+            pmr.removeUser(new UserPrincipal("", userId), new TCSubject(132456), DBMS.JTS_OLTP_DATASOURCE_NAME);
+        } finally {
+            close(ctx);
+        }
     }
 
 
