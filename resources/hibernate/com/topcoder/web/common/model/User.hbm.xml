@@ -14,9 +14,10 @@
         <property name="firstName" column="first_name" access="field"/>
         <property name="middleName" column="middle_name" access="field"/>
         <property name="lastName" column="last_name" access="field"/>
+        <property name="nameInAnotherLanguage" column="name_in_another_language" access="field"/>
         <property name="handle" access="field"/>
         <property name="status" access="field"/>
-        <property name="password" access="field"/>
+        <property name="openId" column="open_id" access="field"/>
         <property name="activationCode" column="activation_code" access="field"/>
         <many-to-one name="timeZone" column="timezone_id" class="TimeZone" access="field" cascade="none"/>
         <one-to-one name="coder" class="Coder" cascade="save-update" access="field" fetch="select"/>
