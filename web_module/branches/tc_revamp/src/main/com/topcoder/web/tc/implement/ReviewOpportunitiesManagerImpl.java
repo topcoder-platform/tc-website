@@ -90,6 +90,7 @@ public class ReviewOpportunitiesManagerImpl extends AbstractManagerImpl implemen
             + " AND cvd.compVersId = cv.compVersId AND cvd.phaseId = cv.phaseId AND cvd.statusId <> 303"
             + " AND cc.componentId = cv.componentId"
             + " AND p.projectCategoryId = pc.projectCategoryId"
+            + " AND pc.projectCategoryId != 3"
             + " AND p.projectStatusId = 1"
             + " AND (SELECT COUNT(*) FROM RBoardApplication app WHERE app.projectId = p.projectId AND app.phaseId < 1000) < CAST(ph.parameter AS int)"
             + " AND (((SELECT COUNT(*) FROM RBoardApplication app WHERE app.projectId = p.projectId AND app.phaseId = cv.phaseId) < 3)"
@@ -378,6 +379,10 @@ public class ReviewOpportunitiesManagerImpl extends AbstractManagerImpl implemen
                 Float firstPlacePrize = Float.parseFloat(((String) row[10]));
                 Integer passedScreeningCount = ((Long) row[11]).intValue();
                 ApplicationReviewerPaymentCalculator appReviewerPaymentCalculator;
+				if (submissionCount == 0 && passedScreeningCount == 0) {
+				    submissionCount = 1;
+                    passedScreeningCount = 1;
+				}
                 switch (contestCategoryID) {
                 	case 7:
                 		// Architecture
