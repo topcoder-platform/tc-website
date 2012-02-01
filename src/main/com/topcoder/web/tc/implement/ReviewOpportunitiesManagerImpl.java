@@ -91,6 +91,7 @@ public class ReviewOpportunitiesManagerImpl extends AbstractManagerImpl implemen
             + " AND cc.componentId = cv.componentId"
             + " AND p.projectCategoryId = pc.projectCategoryId"
             + " AND pc.projectTypeId != 3"
+            + " AND pc.projectCategoryId != 29"
             + " AND p.projectStatusId = 1"
             + " AND (SELECT COUNT(*) FROM RBoardApplication app WHERE app.projectId = p.projectId AND app.phaseId < 1000) < CAST(ph.parameter AS int)"
             + " AND (((SELECT COUNT(*) FROM RBoardApplication app WHERE app.projectId = p.projectId AND app.phaseId = cv.phaseId) < 3)"
