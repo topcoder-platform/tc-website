@@ -389,7 +389,7 @@ $(document).ready(function () {
     if ($(".datepicker").length > 0) {
         $(".datepicker").datepicker({
             showOn: "button",
-            buttonImage: "../i/calendar-icon.png",
+            buttonImage: "../i/tc/calendar-icon.png",
             buttonImageOnly: true
         });
         $(".dp-choose-date").click(function () {
