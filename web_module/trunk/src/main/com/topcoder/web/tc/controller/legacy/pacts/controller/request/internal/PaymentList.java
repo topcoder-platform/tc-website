@@ -389,6 +389,8 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         if (!statusValuesStr.equals("")) query.put(STATUS_CODE, statusValuesStr);
         String typeValuesStr = createValuesStr(request.getParameterValues(TYPE_CODE));
         if (!typeValuesStr.equals("")) query.put(TYPE_CODE, typeValuesStr);
+        String methodValuesStr = createValuesStr(request.getParameterValues(METHOD_CODE));
+        if (!methodValuesStr.equals("")) query.put(METHOD_CODE, methodValuesStr);
         param = request.getParameter(EARLIEST_DUE_DATE);
         if (param != null && !param.equals("")) query.put(EARLIEST_DUE_DATE, TCData.dateForm(param));
         param = request.getParameter(LATEST_DUE_DATE);

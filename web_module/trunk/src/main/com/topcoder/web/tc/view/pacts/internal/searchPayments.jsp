@@ -23,12 +23,19 @@
 
 
 <% int paymentTypeRowCount = 0;
+   int paymentMethodRowCount = 0;
    ResultSetContainer paymentType = (ResultSetContainer) request.getAttribute(PactsConstants.PAYMENT_TYPE_LIST);
    if (paymentType == null) {
       out.println("No Payment Type List!");
       //paymentType = new ResultSetContainer();
    }
    else paymentTypeRowCount = paymentType.getRowCount();
+   ResultSetContainer paymentMethod = (ResultSetContainer) request.getAttribute(PactsConstants.PAYMENT_METHOD_LIST);
+   if (paymentMethod == null) {
+      out.println("No Payment Method List!");
+      //paymentMethod = new ResultSetContainer();
+   }
+   else paymentMethodRowCount = paymentMethod.getRowCount();   
    ResultSetContainer.ResultSetRow rsr;
 %>
 
@@ -67,33 +74,33 @@
           </tr>
           <tr>
             <td>Creation Date:</td>
-			<td>Between <input type="text" name="<%= PactsConstants.EARLIEST_CREATION_DATE %>" id="<%= PactsConstants.EARLIEST_CREATION_DATE %>" size="10">
-				<button id="trigger_<%= PactsConstants.EARLIEST_CREATION_DATE %>">Set</button>			
-			and <input type="text" name="<%= PactsConstants.LATEST_CREATION_DATE %>" id="<%= PactsConstants.LATEST_CREATION_DATE %>" size="10">
-				<button id="trigger_<%= PactsConstants.LATEST_CREATION_DATE %>">Set</button></td>
+            <td>Between <input type="text" name="<%= PactsConstants.EARLIEST_CREATION_DATE %>" id="<%= PactsConstants.EARLIEST_CREATION_DATE %>" size="10">
+                <button id="trigger_<%= PactsConstants.EARLIEST_CREATION_DATE %>">Set</button>          
+            and <input type="text" name="<%= PactsConstants.LATEST_CREATION_DATE %>" id="<%= PactsConstants.LATEST_CREATION_DATE %>" size="10">
+                <button id="trigger_<%= PactsConstants.LATEST_CREATION_DATE %>">Set</button></td>
           </tr>
           <tr>
             <td>Last Modification Date:</td>
-			<td>Between <input type="text" name="<%= PactsConstants.EARLIEST_MODIFICATION_DATE %>" id="<%= PactsConstants.EARLIEST_MODIFICATION_DATE %>" size="10">
-				<button id="trigger_<%= PactsConstants.EARLIEST_MODIFICATION_DATE %>">Set</button>			
-			and <input type="text" name="<%= PactsConstants.LATEST_MODIFICATION_DATE %>" id="<%= PactsConstants.LATEST_MODIFICATION_DATE %>" size="10">
-				<button id="trigger_<%= PactsConstants.LATEST_MODIFICATION_DATE %>">Set</button></td>
+            <td>Between <input type="text" name="<%= PactsConstants.EARLIEST_MODIFICATION_DATE %>" id="<%= PactsConstants.EARLIEST_MODIFICATION_DATE %>" size="10">
+                <button id="trigger_<%= PactsConstants.EARLIEST_MODIFICATION_DATE %>">Set</button>          
+            and <input type="text" name="<%= PactsConstants.LATEST_MODIFICATION_DATE %>" id="<%= PactsConstants.LATEST_MODIFICATION_DATE %>" size="10">
+                <button id="trigger_<%= PactsConstants.LATEST_MODIFICATION_DATE %>">Set</button></td>
           </tr>
           
           
           <tr>
             <td>Pay Date:</td>
-			<td>Between <input type="text" name="<%= PactsConstants.EARLIEST_PAY_DATE %>" id="<%= PactsConstants.EARLIEST_PAY_DATE %>" size="10">
-				<button id="trigger_<%= PactsConstants.EARLIEST_PAY_DATE %>">Set</button>			
-			and <input type="text" name="<%= PactsConstants.LATEST_PAY_DATE %>" id="<%= PactsConstants.LATEST_PAY_DATE %>" size="10">
-				<button id="trigger_<%= PactsConstants.LATEST_PAY_DATE %>">Set</button></td>
+            <td>Between <input type="text" name="<%= PactsConstants.EARLIEST_PAY_DATE %>" id="<%= PactsConstants.EARLIEST_PAY_DATE %>" size="10">
+                <button id="trigger_<%= PactsConstants.EARLIEST_PAY_DATE %>">Set</button>           
+            and <input type="text" name="<%= PactsConstants.LATEST_PAY_DATE %>" id="<%= PactsConstants.LATEST_PAY_DATE %>" size="10">
+                <button id="trigger_<%= PactsConstants.LATEST_PAY_DATE %>">Set</button></td>
           </tr>
           <tr>
             <td>Due Date:</td>
-			<td>Between <input type="text" name="<%= PactsConstants.EARLIEST_DUE_DATE %>" id="<%= PactsConstants.EARLIEST_DUE_DATE %>" size="10">
-				<button id="trigger_<%= PactsConstants.EARLIEST_DUE_DATE %>">Set</button>			
-			and <input type="text" name="<%= PactsConstants.LATEST_DUE_DATE %>" id="<%= PactsConstants.LATEST_DUE_DATE %>" size="10">
-				<button id="trigger_<%= PactsConstants.LATEST_DUE_DATE %>">Set</button></td>
+            <td>Between <input type="text" name="<%= PactsConstants.EARLIEST_DUE_DATE %>" id="<%= PactsConstants.EARLIEST_DUE_DATE %>" size="10">
+                <button id="trigger_<%= PactsConstants.EARLIEST_DUE_DATE %>">Set</button>           
+            and <input type="text" name="<%= PactsConstants.LATEST_DUE_DATE %>" id="<%= PactsConstants.LATEST_DUE_DATE %>" size="10">
+                <button id="trigger_<%= PactsConstants.LATEST_DUE_DATE %>">Set</button></td>
 
           </tr>
           <tr>
@@ -118,6 +125,16 @@
    for (int n = 0; n < paymentTypeRowCount; n++) {
       rsr = paymentType.getRow(n);
       out.println("              <option value=\""+TCData.getTCInt(rsr,"payment_type_id",0,true)+"\">"+TCData.getTCString(rsr,"payment_type_desc","type",true)+"</option>");
+   } %>
+              </select></td>
+          </tr>
+          <tr>
+            <td>Method:</td>
+<% out.println("            <td><select name=\""+PactsConstants.METHOD_CODE+"\" multiple size=4>");
+   out.println("              <option value=\"\" selected>Any</option>");
+   for (int n = 0; n < paymentMethodRowCount; n++) {
+      rsr = paymentMethod.getRow(n);
+      out.println("              <option value=\""+TCData.getTCInt(rsr,"payment_method_id",0,true)+"\">"+TCData.getTCString(rsr,"payment_method_desc","method",true)+"</option>");
    } %>
               </select></td>
           </tr>
