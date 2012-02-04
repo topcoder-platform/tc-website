@@ -143,6 +143,9 @@
                                 <th class="<%=((Boolean) sortDirection.get(new Integer(2))).booleanValue() ? "sortDown" : "sort"%> <%=sortColumn.equals("2") ? "hover" : ""%>">
                                     <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveBugRaces&sc=2&sd=<%=sortOrder%>&sortCriteria=<%=sortCriteria%>"><span>Bug Race Competitions Title</span></a>
                                 </th>
+                                <th class="<%=((Boolean) sortDirection.get(new Integer(3))).booleanValue() ? "sortDown" : "sort"%> <%=sortColumn.equals("3") ? "hover" : ""%>">
+                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveBugRaces&sc=3&sd=<%=sortOrder%>&sortCriteria=<%=sortCriteria%>"><span>Prize</span></a>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -164,8 +167,11 @@
                                 <td class="first">
                                     ${fn:substringAfter(issue.key, "-")}
                                 </td>
-                                <td class="bugTitle last">
+                                <td class="bugTitle">
                                     <a href="https://apps.topcoder.com/bugs/browse/${issue.key}"><strong>${issue.summary}</strong></a>
+                                </td>
+                                <td class="last">
+                                    $${issue.prize}
                                 </td>
                             </tr>
                                     </c:forEach>
