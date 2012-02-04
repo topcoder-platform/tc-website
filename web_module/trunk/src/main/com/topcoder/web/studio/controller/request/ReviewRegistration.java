@@ -199,7 +199,7 @@ public class ReviewRegistration extends ShortHibernateProcessor {
             
             ResourceInfo userNameResourceInfo = new ResourceInfo();
             userNameResourceInfo.setId(new ResourceInfo.Identifier(resource, 2L));
-            userNameResourceInfo.setValue(getLoggedInUser().getUserName());
+            userNameResourceInfo.setValue(getUser().getUserName());
             userNameResourceInfo.setCreateUser(String.valueOf(userId));
             userNameResourceInfo.setCreateDate(now);
             userNameResourceInfo.setModifyUser(String.valueOf(userId));
@@ -318,7 +318,7 @@ public class ReviewRegistration extends ShortHibernateProcessor {
         }
         
         // Get current user ID
-        long userId = getLoggedInUser().getId();
+        long userId = getUser().getId();
 
         List<TermsOfUseEntity> termsPending 
             = RegistrationHelper.getPendingTermsOfUse(reviewerRoleIds, project.getId(), userId);

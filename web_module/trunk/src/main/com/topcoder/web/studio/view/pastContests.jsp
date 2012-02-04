@@ -72,6 +72,9 @@
     <script type="text/javascript" src="/js/NewStyleHeaderFooter/jquery.tools.tooltip.min.js"></script>
     <script type="text/javascript" src="/js/NewStyleHeaderFooter/jquery.jqtransform.js"></script>
     <script type="text/javascript" src="/js/NewStyleHeaderFooter/date.js"></script>
+    <script type="text/javascript">
+        Date.format = 'mm/dd/yyyy';
+    </script>
     <script type="text/javascript" src="/js/NewStyleHeaderFooter/jquery.datePicker.js"></script>
     <script src="/js/NewStyleHeaderFooter/contestListingScripts.js" type="text/javascript"></script>
     <script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>

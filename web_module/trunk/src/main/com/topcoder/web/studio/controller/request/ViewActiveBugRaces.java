@@ -14,11 +14,13 @@ import java.util.Map;
 
 import com.atlassian.jira.rpc.soap.client.JiraSoapService;
 import com.atlassian.jira.rpc.soap.client.JiraSoapServiceServiceLocator;
+import com.atlassian.jira.rpc.soap.client.RemoteCustomFieldValue;
 import com.atlassian.jira.rpc.soap.client.RemoteIssue;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.studio.Constants;
+import com.topcoder.web.studio.dto.JIRAIssue;
 
 /**
  * BUGR-1211 February 18, 2009
@@ -33,6 +35,11 @@ import com.topcoder.web.studio.Constants;
  */
 public class ViewActiveBugRaces extends BaseProcessor {
 
+    /**
+     * Represents the id of "First Place Payment" custom field.
+     */
+    private static String PRIZE_CUSTOM_FIELD_ID = "customfield_10012";
+    
     /**
      * Represents the default sort priority. It is a list containing column numbers.
      */
@@ -54,8 +61,28 @@ public class ViewActiveBugRaces extends BaseProcessor {
         DEFAULT_SORT_DIRECTION.put(1, true);
         DEFAULT_SORT_PRIORITY.add(2);         // summary
         DEFAULT_SORT_DIRECTION.put(2, true);
+        DEFAULT_SORT_PRIORITY.add(3);         // prize
+        DEFAULT_SORT_DIRECTION.put(3, true);
     }
 
+    /**
+     * Gets the first place payment of a jira issue.
+     * 
+     * @param issue the jira issue
+     * @return the first place payment of a jira issue.
+     */
+    private static double getIssuePrize(RemoteIssue issue) {
+        for (RemoteCustomFieldValue field : issue.getCustomFieldValues()) {
+            if (PRIZE_CUSTOM_FIELD_ID.equals(field.getCustomfieldId())) {
+                try {
+                    return Double.parseDouble(field.getValues()[0]);
+                } catch (Exception e) {
+                }
+            }
+        }
+        return 0.0;
+    }
+    
     protected void businessProcessing() throws Exception {
         // Get configurations
         String jiraServiceUrl = Constants.JIRA_SERVICE_URL;
@@ -69,7 +96,7 @@ public class ViewActiveBugRaces extends BaseProcessor {
         String token = jiraSoapService.login(user, password);
 
         // Get issues
-        RemoteIssue[] issues = jiraSoapService.getIssuesFromJqlSearch(token, jql, Integer.MAX_VALUE);
+        RemoteIssue[] remoteIssues = jiraSoapService.getIssuesFromJqlSearch(token, jql, Integer.MAX_VALUE);
 
         String col = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
         String order = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
@@ -85,6 +112,13 @@ public class ViewActiveBugRaces extends BaseProcessor {
             order = SortingHelper.changeSortingOrder(sortPriority, sortDirection, Integer.parseInt(col), order);
         }
 
+        JIRAIssue[] issues = new JIRAIssue[remoteIssues.length];
+        for (int i = 0; i < issues.length; i++) {
+            issues[i] = new JIRAIssue();
+            issues[i].setKey(remoteIssues[i].getKey());
+            issues[i].setSummary(remoteIssues[i].getSummary());
+            issues[i].setPrize(getIssuePrize(remoteIssues[i]));
+        }
         String sortCriteria = SortingHelper.getSortingClause(sortPriority, sortDirection);
         Arrays.sort(issues, new IssueComparator(sortPriority, sortDirection));
         getRequest().setAttribute("issues", issues);
@@ -98,12 +132,12 @@ public class ViewActiveBugRaces extends BaseProcessor {
 
     /**
      * <p>
-     * This class is used to compare <code>RemoteIssue</code> instances based on given sorting criteria.
+     * This class is used to compare <code>JIRAIssue</code> instances based on given sorting criteria.
      * </p>
      * @author TCSASSEMBLY
      * @version 1.0
      */
-    private static class IssueComparator implements Comparator<RemoteIssue> {
+    private static class IssueComparator implements Comparator<JIRAIssue> {
 
         /**
          * Represents the sorting priority.
@@ -130,8 +164,30 @@ public class ViewActiveBugRaces extends BaseProcessor {
         }
 
         /**
+         * Compares two objects.
+         * 
+         * @param o1 the first object to compare
+         * @param o2 the second object to compare
+         * @param sortDirection the sort direction
+         * @return negative if the first instance is less than the second one, or positive if the first instance is
+         *          greater than the second one
+         */
+        private static int compareObjects(Object o1, Object o2, boolean sortDirection) {
+            int ret = 0;
+            if (o1 instanceof Double) {
+                ret = (Double) o1 < (Double) o2 ? -1 : 1;
+            } else if (o1 instanceof String) {
+                ret = ((String) o1).compareTo((String) o2); 
+            }
+            if (!sortDirection) {
+                ret = -ret;
+            }
+            return ret;
+        }
+        
+        /**
          * <p>
-         * Compares two <code>RemoteIssue</code> instances.
+         * Compares two <code>JIRAIssue</code> instances.
          * </p>
          * @param o1
          *            the first <code>RemoteIssue</code> instance to compare.
@@ -140,14 +196,24 @@ public class ViewActiveBugRaces extends BaseProcessor {
          * @return negative if the first instance is less than the second one, or positive if the first instance is
          *         greater than the second one, or 0 if they are equal.
          */
-        public int compare(RemoteIssue o1, RemoteIssue o2) {
-            int key1 = Integer.parseInt(o1.getKey().split("-")[1]);
-            int key2 = Integer.parseInt(o2.getKey().split("-")[1]);
-            if (sortPriority.get(0).equals(1)) {
-                if (sortDirection.get(1)) {
-                    return key1 - key2;
-                } else {
-                    return key2 - key1;
+        public int compare(JIRAIssue o1, JIRAIssue o2) {
+            Object[] values1 = new Object[3];
+            Object[] values2 = new Object[3];
+            
+            values1[0] = o1.getKey();
+            values1[1] = o1.getSummary();
+            values1[2] = o1.getPrize();
+            
+            values2[0] = o2.getKey();
+            values2[1] = o2.getSummary();
+            values2[2] = o2.getPrize();
+            
+            for (int i = 0; i < values1.length; i++) {
+                int index = sortPriority.get(i);
+                Object ol = values1[index - 1];
+                Object or = values2[index - 1];
+                if (!ol.equals(or)) {
+                    return compareObjects(ol, or, sortDirection.get(index));
                 }
             } else {
                 if (!o1.getSummary().equals(o2.getSummary())) {
@@ -164,6 +230,7 @@ public class ViewActiveBugRaces extends BaseProcessor {
                     }
                 }
             }
+            return 0;
         }
     }
 }

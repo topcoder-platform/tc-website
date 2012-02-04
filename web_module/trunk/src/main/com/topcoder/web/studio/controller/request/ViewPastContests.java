@@ -132,7 +132,7 @@ public class ViewPastContests extends BaseProcessor {
         r.setProperty(SortingHelper.MULTI_SORTING_KEY, sortCriteria);
         r.setProperty(DataAccessConstants.SORT_QUERY, "studio_past_contests_multi_sort");
 
-        SimpleDateFormat df1 = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat df1 = new SimpleDateFormat("MM/dd/yyyy");
         SimpleDateFormat df2 = new SimpleDateFormat("yyyy-MM-dd");
 
         String[] contestTypes = getRequest().getParameterValues("contestType");
@@ -172,7 +172,7 @@ public class ViewPastContests extends BaseProcessor {
         getRequest().setAttribute("startDateTime", startTime);
 
         if (endDate == null || endDate.trim().length() == 0) {
-            endDate = "31/12/2099";
+            endDate = "12/31/2099";
             endTime = "01:00";
         }
         r.setProperty("edt" , df2.format(df1.parse(endDate)) + " " + endTime + ":00");
