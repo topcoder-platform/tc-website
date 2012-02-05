@@ -215,20 +215,6 @@ public class ViewActiveBugRaces extends BaseProcessor {
                 if (!ol.equals(or)) {
                     return compareObjects(ol, or, sortDirection.get(index));
                 }
-            } else {
-                if (!o1.getSummary().equals(o2.getSummary())) {
-                    if (sortDirection.get(2)) {
-                        return o1.getSummary().compareTo(o2.getSummary());
-                    } else {
-                        return o2.getSummary().compareTo(o1.getSummary());
-                    }
-                } else {
-                    if (sortDirection.get(1)) {
-                        return key1 - key2;
-                    } else {
-                        return key2 - key1;
-                    }
-                }
             }
             return 0;
         }
