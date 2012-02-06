@@ -3,7 +3,6 @@
  */
 package com.topcoder.web.tc.impl;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -82,9 +81,13 @@ import com.topcoder.web.tc.dto.PastContestFilter;
  * <p>
  * Changes in Version 1.3 : Added rolling year filter.
  * </p>
+ * 
+ * <p>
+ * Changes in Version 1.4 : Removed rolling year filter, instead, add default date range filter.
+ * </p>
  *
  * @author mekanizumu, TCSDEVELOPER, pinoydream, bugbuka
- * @version 1.3
+ * @version 1.4
  */
 public class PastContestsManagerImpl extends HibernateDaoSupport implements
         PastContestsManager {
@@ -171,11 +174,11 @@ public class PastContestsManagerImpl extends HibernateDaoSupport implements
     
     /**
      * <p>
-     * The SimpleDateFormat object used for formatting date. It is used in {@link #isValidDate(String)} method to check 
-     * whether the input string is a valid date.
+     * The SimpleDateFormat object used for formatting date. It is used in {@link #generateDefaultDateRangeFilter()} 
+     * method.
      * </p>
      */
-    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+    private static final SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy");
 
     /**
      * <p>
@@ -488,10 +491,8 @@ public class PastContestsManagerImpl extends HibernateDaoSupport implements
                                         + filter.getWinnerHandle() + "%'";
                             }
                             
-                            // Add filter for rollingYear
-                            if (Helper.checkStringNotNullAndNotEmptyOfBoolean(filter.getRollingYear())) {
-                                sql += generateRollingYearCreteria(filter.getRollingYear());
-                            }
+                            // Add default date range filter
+                            sql += generateDefaultDateRangeFilter();
 
                             // Add order
                             sql += Helper.addOrderForSQL(columnName,
@@ -539,53 +540,27 @@ public class PastContestsManagerImpl extends HibernateDaoSupport implements
 
     /**
      * <p>
-     * Generate the rolling year criteria SQL clause.
+     * Generate the default date range filter SQL clause. The default range will be last 6 months, using registration 
+     * start date and submission end date, so by default the registration start date (current date - 6 months), and 
+     * contest finalize date (before today) will be filled with the default dates.
      * </p>
      * 
      * @param rollingYear the rolling year
      * @return the rolling year criteria SQL clause
      */
-    private String generateRollingYearCreteria(String rollingYear){
-    	String[] years = rollingYear.split("-");
-    	Calendar now = Calendar.getInstance();
+    private String generateDefaultDateRangeFilter(){
+    	// current date - 6 months
+    	Calendar startDate = Calendar.getInstance();
+    	startDate.add(Calendar.MONTH, -6);
     	
-    	Integer month = now.get(Calendar.MONTH) + 1;
-    	Integer day = now.get(Calendar.DATE);
+    	// before today
+    	Calendar endDate = Calendar.getInstance();
     	
-    	String startDate = month+"/"+day+"/"+years[0];
-    	if (!isValidDate(startDate)){
-    		startDate = month+"/"+(day-1)+"/"+years[0];
-    	}
+    	String defaultDateRangeClause = 
+    		" And registrationPhase.actualStartTime>=to_date('"+df.format(startDate.getTime())+"', '%m/%d/%Y')"
+    		+ " And approvalPhase.actualEndTime<=to_date('"+df.format(endDate.getTime())+"', '%m/%d/%Y')";
     	
-    	String endDate = month+"/"+day+"/"+years[1];
-    	if (!isValidDate(endDate)){
-    		endDate = month+"/"+(day-1)+"/"+years[1];
-    	}    
-    	
-    	String rollingYearCreteria = 
-    		" And approvalPhase.actualEndTime>=to_date('"+startDate+"', '%m/%d/%Y')"
-    		+ " And approvalPhase.actualEndTime<=to_date('"+endDate+"', '%m/%d/%Y')";
-    	
-    	return rollingYearCreteria;
-    }
-    
-    /**
-     * <p>
-     * Check whether the input string is a valid date.
-     * </p>
-     * 
-     * @param dateStr the date string
-     * @return boolean whether the input string is a valid date.
-     */
-    private static Boolean isValidDate(String dateStr){
-    	try{
-  		  java.text.SimpleDateFormat dFormat = new SimpleDateFormat("MM/dd/yyyy");  
-  		  dFormat.setLenient(false);
-  		  dFormat.parse(dateStr);
-    	}catch(Exception e){
-    		return false;
-    	}
-    	return true;
+    	return defaultDateRangeClause;
     }
     
     /**
