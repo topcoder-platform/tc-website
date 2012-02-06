@@ -85,7 +85,7 @@
                                         individuals alike, helping them tap into the resources of our Global
                                         Community to tackle issues just like yours.</p>
 
-                                        <a href="http://<%=ApplicationServer.SERVER_NAME%>/home/">
+                                        <a href="http://<%=ApplicationServer.SERVER_NAME%>">
                                             Visit us here for more information on how to put TopCoder to work for you!
                                         </a>
                                     </div>
