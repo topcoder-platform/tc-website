@@ -12,6 +12,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
 <title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
 <link rel="stylesheet" href="/news/wp-content/themes/tc2/style.css" type="text/css" media="screen" />
 <jsp:include page="../script.jsp" />
@@ -98,7 +99,11 @@ function init() {
     </div>
     <script type="text/javascript" language="javascript">
 
-    $("#replaced").load("/news/index.php #replacercode");
+    $(document).ready(
+        function() {
+            $("#replaced").load("/news/index.php #replacercode");
+        }
+    );
 
     </script>
     </td>
