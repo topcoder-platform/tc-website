@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.studio.dao.hibernate;
 
@@ -24,8 +24,17 @@ import com.topcoder.web.studio.dto.Upload;
  *   </ol>
  * </p>
  *
- * @author dok, pvmagacho
- * @version 1.1
+ * <p>
+ *   Version 1.2 (Module Assembly - TopCoder Studio and Cockpit Download All Submissions Feature Assembly 1.0) Change 
+ *   notes:
+ *   <ol>
+ *     <li>Fixed a bug in {@link #getSubmissions(List, Integer, Integer)} method caused by missing to add 
+ *     <code>submissionTypeId</code> parameter to <code>typeIds</code> list.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pvmagacho, isv
+ * @version 1.2
  */
 public class SubmissionDAOHibernate extends Base implements SubmissionDAO {    
     /**
@@ -186,6 +195,7 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
         statusIds.add(submissionStatusId);
         
         List<Integer> typeIds = new ArrayList<Integer>();
+        typeIds.add(submissionTypeId);
         return getSubmissions(uploads, typeIds, statusIds);
     }
 }
