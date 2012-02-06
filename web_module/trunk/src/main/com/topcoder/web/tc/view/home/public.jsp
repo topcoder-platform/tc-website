@@ -90,9 +90,13 @@ function init() {
             <div id="replaced">
     </div>
     <script type="text/javascript" language="javascript">
-
-    $("#replaced").load("/news/index.php #replacercode");
-
+    
+    $(document).ready(
+        function() {
+            $("#replaced").load("/news/index.php #replacercode");
+        }
+    ); 
+    
     </script>
 </td>
 </tr>
