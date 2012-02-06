@@ -9,6 +9,10 @@
   - http://apps.topcoder.com/wiki/display/~winterflame/Release+Assembly+-+TC+Refactoring+Stage+1+Update+1
   - Using category id instead of type.
   - Added year range dropdown list for PastContests.
+  -
+  - Changes 02/04/2012:
+  - http://apps.topcoder.com/bugs/browse/TCCC-3978
+  - Removed year range dropdown list.
  --%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
 <%@ page isELIgnored="false"%>
@@ -314,22 +318,6 @@
 							</div>
 						</div>
 					</div>
-
-                    <s:if test="%{category=='PastContests'}">
-                        <div class="yearRangeFilter">
-                        <span class="plainText">Year Range :</span>
-                        
-                        <select id="yearRange" class="select" name="yearRange">
-                            <s:iterator value="yearRanges" id="yearRange">
-                                <option value="<s:property value='yearRange'/>">
-                                    <s:property value='yearRange'/>
-                                </option>
-                            </s:iterator>
-                        </select>
-                        
-                        </div>
-                    </s:if>
-                    <!-- End .yearRangeFilter -->
 					
 					<!-- #filter -->
 					<table id="contestTable" cellpadding="0" cellspacing="0"

@@ -53,11 +53,6 @@ $(function () {
     	$.setCookie("page_count",$(this).val(),{expires : 365});
     });
     
-    $("#yearRange").live("change",{cat :category, type : type} ,function (event) {
-    	$.setCookie("yearRange",$(this).val(),{expires : 365});
-    	search(event.data.cat, event.data.type,true);
-    });
-    
     search(category,type,false);
 });
 
@@ -98,13 +93,11 @@ function updateTypeLink(type) {
 * @param minPrize - the lower bound of the contest prize.
 * @param maxPrize - the upper bound of the contest prize.
 * @param dateFilters - the array containing the array of date interval type, first date and second date of registration/submission/finalization/review date.
-* @param yearRange - the year range.
 * @return the constructed parameter for AJAX request.
 */
-function constructParameter(category, name, catalog, types, winnerHandle, minPrize, maxPrize, dateFilters, yearRange) {
+function constructParameter(category, name, catalog, types, winnerHandle, minPrize, maxPrize, dateFilters) {
     var columnName;
     var subDate, regDate,finalDate, revDate;
-    var rollingYear;
     if (category == "ActiveContests") {
         columnName = "registrationEndDate";
         regDate = dateFilters[0];
@@ -120,7 +113,6 @@ function constructParameter(category, name, catalog, types, winnerHandle, minPri
         regDate = dateFilters[0];
         subDate = dateFilters[1];
         finalDate = dateFilters[2];
-        rollingYear = yearRange;
     } else if (category == "UpcomingContests") {
         columnName = "registrationStart";
         regDate = dateFilters[0];
@@ -151,9 +143,6 @@ function constructParameter(category, name, catalog, types, winnerHandle, minPri
     if (isDefined(maxPrize)) {
         var maxPrizeName = category == "ReviewOpportunities" ? "paymentEnd" : "prizeUpperBound";
         filterParam += "\"" + maxPrizeName + "\":\"" + quote(maxPrize) + "\",";
-    }
-    if (isDefined(rollingYear)) {
-        filterParam += "\"rollingYear\":\"" + quote(rollingYear) + "\",";
     }
     filterParam += constructDateFilter("submissionEndDate", subDate);
     filterParam += constructDateFilter("registrationStartDate", regDate);
@@ -242,7 +231,6 @@ function search(category,type, saveCookie){
          errors.push("The lower bound of the prize cannot be greater than the upper bound.");
      }
      
-     var yearRange = $("#yearRange").val();
      if (errors.length == 0) {
      	if (category == "ActiveContests") {
      		// If any of the date filters are not given for active contests, then we have to stick to our understanding of 
@@ -254,7 +242,7 @@ function search(category,type, saveCookie){
      			dateFilters[1].push("AFTER_CURRENT_DATE");
      		}
      	}
-         var parameter = constructParameter(category, contestName, catalog, types, winnerHandle, minPrize.toString(), maxPrize.toString(), dateFilters, yearRange);
+         var parameter = constructParameter(category, contestName, catalog, types, winnerHandle, minPrize.toString(), maxPrize.toString(), dateFilters);
 		 var curType = "";
 		 if (isDefined(types) && types.length == 1) {
 			curType = types[0];
@@ -262,7 +250,7 @@ function search(category,type, saveCookie){
 		 updateTypeLink(curType);
          loadContests(category, parameter);
          if (!(isDefined(type) && type.length > 0) && saveCookie) {
-         	loadCookieFromInput(category,contestName,catalog,types,winnerHandle, minPrize.toString(), maxPrize.toString(), dateFilters, yearRange);
+         	loadCookieFromInput(category,contestName,catalog,types,winnerHandle, minPrize.toString(), maxPrize.toString(), dateFilters);
          }
      } else {
          showErrors(errors);
@@ -386,11 +374,7 @@ function loadContests(category, parameter) {
 				$("#contestTable").hide();
 				$("#contestTable tbody").empty();
 				if ($(".contestTable").length > 0) {
-					if (category == "PastContests") {
-						$("#contestTable").clone(true).insertAfter("#yearRange");
-					} else {
-						$("#contestTable").clone(true).insertAfter("#filterContainer");
-					}
+					$("#contestTable").clone(true).insertAfter("#filterContainer");
 					$(".contestTable").remove();
 				}
 				var aoColumns = [];
@@ -559,15 +543,13 @@ function showErrors(errors) {
  * @param winnerHandle - the winner handle.
  * @param minPrize - the lower bound of the contest prize.
  * @param maxPrize - the upper bound of the contest prize.
- * @param yearRange - the year range.
  * @param dateFilters - the array containing the array of date interval type, first date and second date of registration/submission/finalization/review date.
  */
 
-function loadCookieFromInput(category, name, catalog,types, winnerHandle, minPrize, maxPrize, dateFilters, yearRange) {
+function loadCookieFromInput(category, name, catalog,types, winnerHandle, minPrize, maxPrize, dateFilters) {
     var filterParam = "";
     var regDate, subDate, finalDate, revDate;
     var subDate, regDate,finalDate, revDate;
-    var rollingYear;
     if (category == "ActiveContests") {
         regDate = dateFilters[0];
         subDate = dateFilters[1];
@@ -580,7 +562,6 @@ function loadCookieFromInput(category, name, catalog,types, winnerHandle, minPri
         regDate = dateFilters[0];
         subDate = dateFilters[1];
         finalDate = dateFilters[2];
-        rollingYear = yearRange;
     } else if (category == "UpcomingContests") {
         regDate = dateFilters[0];
         subDate = dateFilters[1];
@@ -607,9 +588,6 @@ function loadCookieFromInput(category, name, catalog,types, winnerHandle, minPri
     if (isDefined(maxPrize)) {
         var maxPrizeName = category == "ReviewOpportunities" ? "paymentEnd" : "prizeUpperBound";
         filterParam += "\"" + maxPrizeName + "\":\"" + quote(maxPrize) + "\",";
-    }
-    if (isDefined(rollingYear)) {
-        filterParam += "\"rollingYear\":\"" + quote(rollingYear) + "\",";
     }
     filterParam += constructDateFilter("submissionEndDate", subDate);
     filterParam += constructDateFilter("registrationStartDate", regDate);

@@ -53,9 +53,13 @@ import com.topcoder.web.tc.dto.PastContestFilter;
  * <p>
  * Changes in 1.4: added rollingYear filter for PastContestFilter in method {@link #parseJsonToBaseFilter(BaseFilter)}.
  * </p>
+ * 
+ * <p>
+ * Changes in 1.5: Removed rollingYear filter for PastContestFilter in method {@link #parseJsonToBaseFilter(BaseFilter)}.
+ * </p>
  *
  * @author TCSDEVELOPER, pinoydream, bugbuka
- * @version 1.4
+ * @version 1.5
  */
 public final class Helper {
     /**
@@ -523,9 +527,6 @@ public final class Helper {
                     ((PastContestFilter) filter)
                             .setWinnerHandle(getStringFromJson(jsonFilter,
                                     "winnerHandle"));
-                    ((PastContestFilter) filter)
-                    .setRollingYear(getStringFromJson(jsonFilter,
-                            "rollingYear"));
                 }
                 if (filter instanceof ContestStatusFilter) {
                     ((ContestStatusFilter) filter)

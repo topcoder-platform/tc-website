@@ -3,8 +3,6 @@
  */
 package com.topcoder.web.tc.action;
 
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,8 +30,12 @@ import com.topcoder.web.tc.dto.CategoryDTO;
  * Changes in 1.2: Initialize the year range data, support category id
  * </p>
  * 
+ * <p>
+ * Changes in 1.3: removed the year range data.
+ * </p>
+ * 
  * @author TCSASSEMBLIER, pinoydream, bugbuka
- * @version 1.2
+ * @version 1.3
  */
 public class GenericContestsAction extends ActionSupport {
     /**
@@ -41,16 +43,6 @@ public class GenericContestsAction extends ActionSupport {
 	 */
 	private static final long serialVersionUID = 4931815199895889777L;
 	
-	/**
-     * The start year for the past contests 
-     */
-    private static final Integer START_YEAR = 2001;
-    
-	/**
-     * The year range list. 
-     */    
-    private static List<String> yearRanges;
-    
 	/**
      * The category of the contests.
      */
@@ -95,20 +87,6 @@ public class GenericContestsAction extends ActionSupport {
      * The list of catalogs.
      */
     private List<String> catalogs;
-
-    /**
-     * <p>
-     * It's a static initializer to initialize the year range list.
-     * </p>
-     */
-    static {
-    	yearRanges = new ArrayList<String>();
-    	Calendar now = Calendar.getInstance();
-    	Integer thisYear = now.get(Calendar.YEAR);
-    	for(int i = thisYear; i > START_YEAR; i--){
-    		yearRanges.add((i - 1)+"-"+i);
-    	}    	
-    }
     
     /**
      * <p>
@@ -308,13 +286,4 @@ public class GenericContestsAction extends ActionSupport {
     public void setCategoriesManager(CategoriesManager categoriesManager) {
         this.categoriesManager = categoriesManager;
     }
-    
-    /**
-     * Gets the list of year range.
-     * 
-     * @return the list of year range.
-     */
-	public List<String> getYearRanges() {
-		return yearRanges;
-	}
 }
