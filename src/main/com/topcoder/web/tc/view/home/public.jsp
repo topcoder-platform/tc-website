@@ -11,6 +11,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <html>
 <head>
+<meta http-equiv="X-UA-Compatible" content="IE=9">
 <title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
 <link rel="stylesheet" href="http://www.topcoder.com/news/wp-content/themes/tc2/style.css" type="text/css" media="screen" />
 <jsp:include page="../script.jsp" />
