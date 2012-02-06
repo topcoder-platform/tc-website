@@ -47,6 +47,7 @@
                 <br />
                 
                 <div style="width:268px; float:left; margin-right:100px;">
+<!--                
                     <div align="center"><img src="/i/about/hdr_contact_form.png" alt="Contact Form" /></div>
                     <br />
                     <form action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=utf-8" method="post">
@@ -116,6 +117,7 @@
                         --%>
                         <p align="right"><input type="image" name="submit" img src="/i/about/btn_submit.png" alt="Submit"></p>
                     </form>
+-->                    
                 </div>
                 
                 <div style="width:314px; float:left;">
