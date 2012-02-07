@@ -325,7 +325,7 @@
 					<s:if test='#tagName=="HowItWorks"'>current</s:if>
 				</s:set>
 				<a href="<s:url value="%{getText('howitworks.url')}"/>" class="${howItWorksLinkClass }"> <span
-					class="rightSide"> <span class="inner">How it works?</span>
+					class="rightSide"> <span class="inner">How it works</span>
 				</span> <span class="arrow"></span> </a>
 			</li>
 			<li>
