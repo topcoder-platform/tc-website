@@ -55,11 +55,6 @@
 										Contests</span> </a>
 								<span class="arrow"></span>
 								<ul <s:if test='#cata!=catalog'>class="hide"</s:if>>
-									<s:if test='#cata=="Design"'>
-										<li>
-											<a href="http://studio.topcoder.com">Studio</a>
-										</li>
-									</s:if>
 									<s:iterator value="categoriesByCatalog[#cata]" id="cate">
 										<s:url var="contestLink" action="contests" namespace="/">
 											<s:param name="category">ActiveContests</s:param>
