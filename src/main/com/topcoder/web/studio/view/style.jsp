@@ -1,7 +1,7 @@
 <%--
-  - Author: TCSDEVELOPER
-  - Version: 1.2
-  - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
+  - Author: isv
+  - Version: 1.3
+  - Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page helps include custom CSS according to the caller
   -
@@ -11,6 +11,8 @@
   - * New styles selected for studio home page.
   - Version 1.2 (Studio Contest Detail Pages Assembly version 1.0) changes:
   -     - Added import CSS for tc_studio_details pages  
+  - Version 1.3 (Studio Member Profiles Assembly version 1.0) changes:
+  -     - Updated import CSS for tc_studio_profile pages  
 --%>
 <%@ page contentType="text/html" %>
 
@@ -99,6 +101,11 @@
 <!--[if IE 6]>
     <link rel="stylesheet" type="text/css" href="/css/v4/studio-ie6.css" />
 <![endif]-->
+<!-- external stylesheet -->
+<link rel="stylesheet" href="/css/memberProfile.css"/>
+<link rel="stylesheet" href="/css/jqtransform.css"/>
+
+
 <% } else if (key.equals("tc_studio_forums")) { %>
 <link type="text/css" rel="stylesheet" href="/css/v4/main.css" />
 <link type="text/css" rel="stylesheet" href="/css/forums.css" />

@@ -1,6 +1,6 @@
 <%--
-  - Author: pulky, pvmagacho, TCSASSEMBER
-  - Version: 1.6
+  - Author: pulky, pvmagacho, isv
+  - Version: 1.7
   - Since: Studio Submission Viewer Upgrade Integration v1.0
   - Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
   -
@@ -13,6 +13,7 @@
   - Version 1.4 (Re-platforming Studio Release 3 Assembly) : Updated the logic to use contests hosted in tcs_catalog database
   - Version 1.5 (Re-platforming Studio Release 4 Assembly) : Clean up old studio model files. Added mark for purchase flag
   - Version 1.6 (Re-platforming Studio Release 5 Assembly) : Use the model class in com.topcoder.web.studio.dto package.
+  - Version 1.7 (TopCoder Studio Member Profiles Assembly) change notes: linked to Studio's member profile.
   -
   - Required attributes:
   -     * row: the submission information
@@ -156,7 +157,7 @@
             <span>
                 <strong>
                     Handle:
-                    <tc-webtag:handle coderId="${userId}" context="component" />
+                    <studio:handle coderId="${userId}" />
                 </strong>
             </span>
             <br />

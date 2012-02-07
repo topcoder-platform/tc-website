@@ -1,9 +1,10 @@
 <%--
-  - Author: TCSASSEMBER
-  - Version: 1.0 (Replatforming Studio Release 5)
-  - Copyright (C) 2011 TopCoder Inc., All Rights Reserved.
+  - Author: isv
+  - Version: 1.1 (Replatforming Studio Release 5)
+  - Copyright (C) 2011-2012 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page presents scorecard details.
+  - Version 1.1 (TopCoder Studio Member Profiles Assembly) change notes: linked to Studio's member profile.
 --%>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
@@ -45,8 +46,8 @@
                     <strong>Contest:</strong><span><a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${contest.id}">${contest.projectName}</a></span><br/>
                     <strong>Phase:</strong><span>${review.author.role.phaseType.name}</span><br/>
                     <strong>Submission Number:</strong><span>${review.submission.id}</span><br/>
-                    <strong>Submitter:</strong><span><tc-webtag:handle coderId="${submitter}" context="component" /></span><br/>
-                    <strong>${review.author.role.name}:</strong><span><tc-webtag:handle coderId="${reviewer}" context="component" /></span>
+                    <strong>Submitter:</strong><span><studio:handle coderId="${submitter}" /></span><br/>
+                    <strong>${review.author.role.name}:</strong><span><studio:handle coderId="${reviewer}" /></span>
                 </div>
                 <div id="scorecardTable">
                     <a href="javascript:showAll();">Expand all questions</a>&nbsp;|&nbsp;<a href="javascript:hideAll();">Contract all questions</a>

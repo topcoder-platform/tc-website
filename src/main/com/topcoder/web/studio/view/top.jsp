@@ -1,7 +1,7 @@
 <%--
-  - Author: TCSDEVELOPER, isv
-  - Version: 1.2
-  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  - Author: isv
+  - Version: 1.3
+  - Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page renders studio site top section.
   -
@@ -11,6 +11,7 @@
   - Version 1.2 (Studio Enhancements Release Assembly 1) Change notes:
   - * Renamed FAQ link to Help link.
   - * Updated URLs for Help and News links.
+  - Version 1.3 (TopCoder Studio Member Profiles Assembly) change notes: linked to Studio's member profile.
 --%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
@@ -140,7 +141,7 @@ String section = request.getParameter("section") == null ? "" : request.getParam
                         <li class="login"><a class="gMetal" id="login_link" href="#">Login</a></li>
                     </c:when>
                     <c:otherwise>
-                        <li class="logged-in"><span class="welcome">Hello,&nbsp;</span><tc-webtag:handle coderId="${sessionInfo.userId}" context="component" /></li>
+                        <li class="logged-in"><span class="welcome">Hello,&nbsp;</span><studio:handle coderId="${sessionInfo.userId}" /></li>
                         <li class="logout gMetal"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=Logout" id="logout_link">Logout</a></li>
                     </c:otherwise>
                 </c:choose>
