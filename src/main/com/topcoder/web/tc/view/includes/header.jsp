@@ -325,7 +325,7 @@
 					<s:if test='#tagName=="HowItWorks"'>current</s:if>
 				</s:set>
 				<a href="<s:url value="%{getText('howitworks.url')}"/>" class="${howItWorksLinkClass }"> <span
-					class="rightSide"> <span class="inner">How it works</span>
+					class="rightSide"> <span class="inner">How it Works</span>
 				</span> <span class="arrow"></span> </a>
 			</li>
 			<li>
@@ -334,6 +334,14 @@
 				</s:set>
 				<a href="<s:url value="%{getText('abouttc.url')}"/>" class="${About }"> <span
 					class="rightSide"> <span class="inner">About TopCoder</span>
+				</span> <span class="arrow"></span> </a>
+			</li>
+			<li>
+				<s:set name="studioLinkClass">
+					<s:if test='#tagName=="studioLink"'>current</s:if>
+				</s:set>
+				<a href="<s:url value="%{getText('studio.url')}"/>" class="${studioLink }"> <span
+					class="rightSide"> <span class="inner">Studio</span>
 				</span> <span class="arrow"></span> </a>
 			</li>
 		</ul>
