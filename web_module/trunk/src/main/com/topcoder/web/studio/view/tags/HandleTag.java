@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2008-2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2008-2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.studio.view.tags;
 
@@ -21,31 +21,38 @@ import java.net.URLEncoder;
  * <p>
  * Version 1.2 (Re-platforming Studio Release 4 Assembly 1.0) Change notes:
  *   <ol>
- *     <li>The generated link points to MemberProfile controller in TC appliaction.</li>
+ *     <li>The generated link points to MemberProfile controller in TC application.</li>
  *   </ol>
  * </p>
  *
- * @author dok, TCSDEVELOPER
- * @version 1.2
+ * <p>
+ * Version 1.3 (Studio Member Profiles Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated the tag to render link to Studio's member profile.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, isv
+ * @version 1.3
  * @since TopCoder Studio Website 1.0
  */
 public class HandleTag extends TagSupport {
-
+    
     /**
      * <p>A <code>Logger</code> to be used for logging various events encountered while executing the tag.</p>
      */
     private static final Logger log = Logger.getLogger(HandleTag.class);
-
+    
     /**
      * <p>A <code>long</code> providing the ID of a coder to render the handle for.</p>
      */
     private long coderId = 0;
-
+    
     /**
      * <p>A <code>String</code> providing optional CSS style to be used for rendering the coder handle.</p>
      */
     private String cssclass = "coderText";
-
+    
     /**
      * <p>Sets the ID of a coder to render the handle for.</p>
      *
@@ -54,7 +61,7 @@ public class HandleTag extends TagSupport {
     public void setCoderId(long coderId) {
         this.coderId = coderId;
     }
-
+    
     /**
      * <p>Sets the CSS style class to be used for rendering the coder handle.</p>
      *
@@ -63,7 +70,7 @@ public class HandleTag extends TagSupport {
     public void setStyleClass(String cssclass) {
         this.cssclass = cssclass;
     }
-
+    
     /**
      * <p>Processes the <code>Start Tag</code> event.</p>
      *
@@ -77,17 +84,17 @@ public class HandleTag extends TagSupport {
      */
     public int doStartTag() throws JspException {
         try {
-
+            
             StringBuilder output = new StringBuilder();
             //lookup ratings from cache
             CachedDataAccess da = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
-
+            
             Request r = new Request();
             r.setContentHandle("coder_all_ratings");
             r.setProperty("cr", String.valueOf(this.coderId));
-
+            
             Map m = da.getData(r);
-
+            
             ResultSetContainer rsc = (ResultSetContainer) m.get("coder_all_ratings");
             if (rsc.isEmpty()) {
                 output.append("UNKNOWN USER");
@@ -101,9 +108,9 @@ public class HandleTag extends TagSupport {
                 } else {
                     output.append(this.cssclass);
                 }
-                output.append("\" href=\"http://").append(ApplicationServer.SERVER_NAME);
-                output.append("/tc?module=MemberProfile&cr=");
-                output.append(this.coderId);
+                output.append("\" href=\"http://").append(ApplicationServer.STUDIO_SERVER_NAME);
+                output.append("/?module=ViewMemberProfile&ha=");
+                output.append(handle);
                 output.append("\">");
                 output.append(handle);
                 output.append("</a>");
@@ -115,7 +122,7 @@ public class HandleTag extends TagSupport {
         }
         return SKIP_BODY;
     }
-
+    
     /**
      * <p>Handles the <code>End Tag</code> event.</p>
      *

@@ -1,3 +1,10 @@
+<%--
+  - Author: isv
+  - Version: 1.1
+  - Copyright (C) 2012 TopCoder Inc., All Rights Reserved.
+  -
+  - Version 1.1 (TopCoder Studio Member Profiles Assembly) change notes: linked to Studio's member profile.
+--%>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="java.util.Date" %>
 <%@ page import="java.util.TreeMap" %>

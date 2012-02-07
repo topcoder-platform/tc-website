@@ -1,7 +1,7 @@
 <%--
-  - Author: isv, isv, TCSASSEMBER, duxiaoyang
-  - Version: 1.4
-  - Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
+  - Author: isv, duxiaoyang
+  - Version: 1.5
+  - Copyright (C) 2001 - 2012 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page presents specification review opportunities
   -
@@ -14,6 +14,7 @@
   - Version 1.3 change notes: udpated the logic for display reviewer payments.
   -
   - Version 1.4 (TopCoder Studio Contest Listings) change notes: apply new look-and-feel.
+  - Version 1.5 (TopCoder Studio Member Profiles Assembly) change notes: linked to Studio's member profile.
 --%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
@@ -239,7 +240,7 @@
                                             </a>
                                         </c:when>
                                         <c:otherwise>
-                                            <tc-webtag:handle coderId="${resultRow.map['reviewer_id']}" context="component" />
+                                            <studio:handle coderId="${resultRow.map['reviewer_id']}" />
                                         </c:otherwise>
                                     </c:choose>
                                 </td>

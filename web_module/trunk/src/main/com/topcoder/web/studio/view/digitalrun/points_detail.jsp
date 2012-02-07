@@ -1,3 +1,10 @@
+<%--
+  - Author: isv
+  - Version: 1.1
+  - Copyright (C) 2012 TopCoder Inc., All Rights Reserved.
+  -
+  - Version 1.1 (TopCoder Studio Member Profiles Assembly) change notes: linked to Studio's member profile.
+--%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer,
                  com.topcoder.shared.dataAccess.DataAccessConstants,
                  com.topcoder.web.studio.Constants,
@@ -9,6 +16,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="studio.tld" prefix="studio" %>
 
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -84,7 +92,7 @@
 <thead>
     <tr>
         <th class="title" colspan="6">
-            <a href="<%=sessionInfo.getServletPath()%>?module=ViewLeaderBoard&amp;tid=${tid}">${trackInfo.trackDesc}</a> Leaderboard Details - <tc-webtag:handle coderId='${cr}' context='${context}'/>
+            <a href="<%=sessionInfo.getServletPath()%>?module=ViewLeaderBoard&amp;tid=${tid}">${trackInfo.trackDesc}</a> Leaderboard Details - <studio:handle coderId='${cr}'/>
         </th>
     </tr>
     <tr>

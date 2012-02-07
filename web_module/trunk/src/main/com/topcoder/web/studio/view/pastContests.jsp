@@ -1,7 +1,7 @@
 <%--
   - Author: pulky, isv, duxiaoyang
-  - Version: 1.4
-  - Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
+  - Version: 1.5
+  - Copyright (C) 2001 - 2012 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page presents past contests
   -
@@ -10,6 +10,7 @@
   - Version 1.3 (Replatforming Studio Release 1 Assembly) change notes: the contests are filtered based on eligibility
   - constraints.
   - Version 1.4 (TopCoder Studio Contest Listings Assembly) change notes: apply new look-and-feel.
+  - Version 1.5 (TopCoder Studio Member Profiles Assembly) change notes: linked to Studio's member profile.
 --%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
@@ -48,6 +49,8 @@
     }
  %>
 
+<c:set var="STUDIO_SERVER_NAME" value="<%=ApplicationServer.STUDIO_SERVER_NAME%>"/>
+
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -72,9 +75,6 @@
     <script type="text/javascript" src="/js/NewStyleHeaderFooter/jquery.tools.tooltip.min.js"></script>
     <script type="text/javascript" src="/js/NewStyleHeaderFooter/jquery.jqtransform.js"></script>
     <script type="text/javascript" src="/js/NewStyleHeaderFooter/date.js"></script>
-    <script type="text/javascript">
-        Date.format = 'mm/dd/yyyy';
-    </script>
     <script type="text/javascript" src="/js/NewStyleHeaderFooter/jquery.datePicker.js"></script>
     <script src="/js/NewStyleHeaderFooter/contestListingScripts.js" type="text/javascript"></script>
     <script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
@@ -548,7 +548,7 @@
                                             <img src="studio.jpg?module=DownloadSubmission&sbmid=<%=winners.get(0).getStringItem("submission_id")%>&sbt=thumb" alt="" />
                                     <%         } %>
                                             <p><rsc:item name="amount" row="<%=winners.get(0)%>" format="$###,###.00" ifNull="&nbsp;"/></p>
-                                            <a href="http://www.topcoder.com/tc?module=MemberProfile&cr=<%=winners.get(0).getStringItem("user_id")%>"><strong><%=winners.get(0).getStringItem("handle_lower")%></strong></a>
+                                            <a href="http://${STUDIO_SERVER_NAME}/?module=ViewMemberProfile&ha=<%=winners.get(0).getStringItem("handle_lower")%>"><strong><%=winners.get(0).getStringItem("handle_lower")%></strong></a>
                                         </div>
                                         <div class="tooltipsF">
                                     <%         if (resultRow.getBooleanItem("show_submissions")) { %>
@@ -566,7 +566,7 @@
                                             <img src="studio.jpg?module=DownloadSubmission&sbmid=<%=winners.get(1).getStringItem("submission_id")%>&sbt=thumb" alt="" />
                                     <%         } %>
                                             <p><rsc:item name="amount" row="<%=winners.get(1)%>" format="$###,###.00" ifNull="&nbsp;"/></p>
-                                            <a href="http://www.topcoder.com/tc?module=MemberProfile&cr=<%=winners.get(1).getStringItem("user_id")%>"><strong><%=winners.get(1).getStringItem("handle_lower")%></strong></a>
+                                            <a href="http://${STUDIO_SERVER_NAME}/?module=ViewMemberProfile&ha=<%=winners.get(1).getStringItem("handle_lower")%>"><strong><%=winners.get(1).getStringItem("handle_lower")%></strong></a>
                                         </div>
                                         <div class="tooltipsF">
                                     <%         if (resultRow.getBooleanItem("show_submissions")) { %>
@@ -584,7 +584,7 @@
                                             <img src="studio.jpg?module=DownloadSubmission&sbmid=<%=winners.get(2).getStringItem("submission_id")%>&sbt=thumb" alt="" />
                                     <%         } %>
                                             <p><rsc:item name="amount" row="<%=winners.get(2)%>" format="$###,###.00" ifNull="&nbsp;"/></p>
-                                            <a href="http://www.topcoder.com/tc?module=MemberProfile&cr=<%=winners.get(2).getStringItem("user_id")%>"><strong><%=winners.get(2).getStringItem("handle_lower")%></strong></a>
+                                            <a href="http://${STUDIO_SERVER_NAME}/?module=ViewMemberProfile&ha=<%=winners.get(2).getStringItem("handle_lower")%>"><strong><%=winners.get(2).getStringItem("handle_lower")%></strong></a>
                                         </div>
                                         <div class="tooltipsF">
                                     <%         if (resultRow.getBooleanItem("show_submissions")) { %>
