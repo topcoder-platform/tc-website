@@ -91,7 +91,6 @@
 <![endif]-->
 <% } else if (key.equals("tc_studio_profile")) { %>
 <link type="text/css" rel="stylesheet" href="/css/v4/main.css" />
-<link type="text/css" rel="stylesheet" href="/css/v4/profile.css" />
 <link type="text/css" rel="stylesheet" href="/css/v4/studio-navigation.css" />
 <link type="text/css" rel="stylesheet" href="/js/jcarousel/jquery.jcarousel.css" />
 <link type="text/css" rel="stylesheet" href="/css/v4/newstyles.css" />
