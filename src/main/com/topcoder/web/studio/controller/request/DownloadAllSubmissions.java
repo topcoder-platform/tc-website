@@ -86,13 +86,21 @@ public class DownloadAllSubmissions extends BaseSubmissionDataProcessor {
         
         // Round and submission types
         String roundType = request.getParameter("round");
+        boolean milestoneSubmissionsRequested = roundType.equalsIgnoreCase("milestone");
         int submissionTypeId;
-        if (roundType.equalsIgnoreCase("milestone")) {
+        if (milestoneSubmissionsRequested) {
             submissionTypeId = Submission.MILESTONE_SUBMISSION;
         } else {
             submissionTypeId = Submission.CONTEST_SUBMISSION;
         }
         
+        // Download type
+        String downloadType = request.getParameter("type");
+        boolean originalFilesRequested = "original".equalsIgnoreCase(downloadType);
+        if (milestoneSubmissionsRequested) {
+            originalFilesRequested = false;
+        }
+
         // Contest data
         DAOFactory factory = DAOUtil.getFactory();
         SubmissionDAO submissionDAO = factory.getSubmissionDAO();
@@ -100,7 +108,6 @@ public class DownloadAllSubmissions extends BaseSubmissionDataProcessor {
         UserDAO userDAO = factory.getUserDAO();
         Project contest = factory.getProjectDAO().find(contestId);
 
-        // Context for the requested contest
         // Uploads and submissions
         List<Upload> uploads = uploadDAO.getUploads(contest);
         List<Submission> submissions
@@ -114,7 +121,8 @@ public class DownloadAllSubmissions extends BaseSubmissionDataProcessor {
                 }
             }
         }
-        
+
+        // Context for the requested contest
         boolean isScreeningOver = contest.getScreeningClosed();
         boolean isReviewOver = contest.getReviewClosed();
         boolean isScreener = Util.checkUserHasRole(contest, SCREENER_ROLES_IDS, currentUserId);
@@ -122,25 +130,26 @@ public class DownloadAllSubmissions extends BaseSubmissionDataProcessor {
         boolean isAdmin = Util.isAdmin(getUser().getId());
         boolean hasCockpitPermissions = Util.hasCockpitPermissions(getUser().getId(), contest.getId());
         boolean canDownload = false;
+        if (isAdmin || isScreener) {
+            canDownload = true;
+        } else if (hasCockpitPermissions || isInManagerORRoles) {
+            if (originalFilesRequested && originalSubmissionsAvailable && isReviewOver) {
+                canDownload = true;
+            }
+            if (!originalFilesRequested) {
+                canDownload = true;
+            }
+        } else if (isScreeningOver && contest.getViewableSubmissions() && !originalFilesRequested) {
+            canDownload = true;
+        }
         log.debug("All submissions download context : contestId = " + contestId + ", userId = " + currentUserId + ", "
                   + "originalSubmissionsAvailable = " + originalSubmissionsAvailable
                   + ", isScreeningOver = " + isScreeningOver + ", isScreener = " + isScreener
                   + ", isReviewOver = " + isReviewOver
                   + ", isInManagerORRoles = " + isInManagerORRoles + ", isAdmin = " + isAdmin
-                  + ", hasCockpitPermissions = " + hasCockpitPermissions);
-        if (isAdmin || isScreener) {
-            canDownload = true;
-        } else if (hasCockpitPermissions || isInManagerORRoles) {
-            if (originalSubmissionsAvailable && isReviewOver) {
-                canDownload = true;
-            }
-            if (!originalSubmissionsAvailable) {
-                canDownload = true;
-            }
-        } else if (isScreeningOver && contest.getViewableSubmissions() && !originalSubmissionsAvailable) {
-            canDownload = true;
-        }
-        log.debug("Can user " + currentUserId + " download all submissions for contest " + contestId + " = "
+                  + ", hasCockpitPermissions = " + hasCockpitPermissions + ", viewableSubmissions = "
+                  + contest.getViewableSubmissions() + ", originalFilesRequested = " + originalFilesRequested
+                  + ". Can user " + currentUserId + " download all submissions for contest " + contestId + " = "
                   + canDownload);
 
         // Generate ALL submissions archive if allowed
@@ -160,19 +169,21 @@ public class DownloadAllSubmissions extends BaseSubmissionDataProcessor {
                         File submissionsDir 
                             = new File(Util.createSubmissionPath(contest, userDAO.find(submission.getSubmitterId())));
                         File submissionFile;
-                        if (originalSubmissionsAvailable) {
+                        if (originalFilesRequested) {
                             submissionFile = new File(submissionsDir, submission.getUpload().getParameter());
                         } else {
                             submissionFile = new File(submissionsDir, submission.getId() + "_preview.zip");
                         }
                         
                         if (submissionFile.exists()) {
-                            if (originalSubmissionsAvailable) {
+                            if (originalFilesRequested ) {
                                 // When downloading original files - include only paid submissions
                                 if (submission.getPrize() != null) {
+                                    log.debug("Including sources for submission " + submission.getId());
                                     processOriginalArchive(zos, submission, submissionFile);
                                 }
                             } else {
+                                log.debug("Including preview for submission " + submission.getId());
                                 processPreviewArchive(zos, submission, submissionFile);
                             }
                         } else {
@@ -197,13 +208,11 @@ public class DownloadAllSubmissions extends BaseSubmissionDataProcessor {
      * @param zos a <code>ZipOutputStream</code> to output the submission content to. 
      * @param submission a <code>Submission</code> providing submission data. 
      * @param submissionFile a <code>File</code> providing submission content. 
-     * @return an <code>int</code> providing the total size of submission files 
      * @throws IOException if an unexpected error occurs.
      */
-    private int processPreviewArchive(ZipOutputStream zos, Submission submission, File submissionFile) 
+    private void processPreviewArchive(ZipOutputStream zos, Submission submission, File submissionFile) 
         throws IOException {
         
-        int size = 0;
         byte[] buffer = new byte[8192];
         int read;
         
@@ -218,7 +227,6 @@ public class DownloadAllSubmissions extends BaseSubmissionDataProcessor {
                     zos.putNextEntry(outputEntry);
                     while ((read = zis.read(buffer)) != -1) {
                         zos.write(buffer, 0, read);
-                        size += read;
                     }
                     zos.closeEntry();
                 }
@@ -227,7 +235,6 @@ public class DownloadAllSubmissions extends BaseSubmissionDataProcessor {
         } finally {
             zis.close();
         }
-        return size;
     }
 
     /**
