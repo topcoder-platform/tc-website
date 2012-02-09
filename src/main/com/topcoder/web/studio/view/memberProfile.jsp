@@ -229,7 +229,7 @@ boolean hidePayments = ((Boolean)request.getAttribute("hidePayments")).booleanVa
         <div class="rightPart">
             <div class="memberPhotoWrapper">
                 <h2><c:out value="${profile.handle}"/></h2>
-                <img src="${profile.imageUrl}" alt="Member Photo" width="198" height="171"/>
+                <img src="${profile.imageUrl}" alt="Member Photo"/>
             </div>
             <!--end .memberPhotoWrapper-->
 
