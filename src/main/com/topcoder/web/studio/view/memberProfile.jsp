@@ -245,11 +245,7 @@ boolean hidePayments = ((Boolean)request.getAttribute("hidePayments")).booleanVa
            <% } %>
             <dl>
                 <dt>Country:</dt>
-                <dd>
-                    <img src="/i/flag_${profile.country}.gif" alt="<c:out value="${profile.country}"/>"
-                         class="countryFlag"
-                         width="15" height="10"/><c:out value="${profile.country}"/>
-                </dd>
+                <dd><c:out value="${profile.country}"/></dd>
             </dl>
             <%--
                 <ul class="achievementWrapper">
