@@ -52,6 +52,10 @@
 </jsp:include>
 <br/>
 
+<%
+boolean hidePayments = ((Boolean)request.getAttribute("hidePayments")).booleanValue();
+%>
+
 <div id="content-new">
 <!-- content -->
 <div class="Wrapper">
@@ -233,10 +237,12 @@
                 <dt>Member Since:</dt>
                 <dd><fmt:formatDate value="${profile.memberSince}" pattern="yyyy"/></dd>
             </dl>
+            <% if(!hidePayments) { %>
             <dl>
                 <dt>Total Earnings:</dt>
                 <dd>$<fmt:formatNumber value="${profile.overallEarnings}" pattern="#,##0.00"/></dd>
             </dl>
+           <% } %>
             <dl>
                 <dt>Country:</dt>
                 <dd>

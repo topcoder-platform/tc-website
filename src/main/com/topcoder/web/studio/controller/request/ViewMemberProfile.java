@@ -39,11 +39,13 @@ public class ViewMemberProfile extends BaseProcessor {
      * <p>A <code>String</code> providing the SQL statement to be used for locating the user account based on provided
      * handle.</p>
      */
-    private static final String MEMBER_PROFILE_SEARCH_SQL
-        = "SELECT u.handle," +
-          "       u.user_id " +
-          "FROM user u " +
-          "WHERE u.handle = ?";
+    private static final String MEMBER_PROFILE_SEARCH_SQL =
+       "SELECT u.handle,  u.user_id, up.value " +
+       "  FROM user u " +
+       ", OUTER user_preference up " +
+       "  WHERE u.handle = ? " +
+       "    AND u.user_id = up.user_id " +
+       "    AND up.preference_id = 100";
 
     /**
      * <p>A <code>String</code> providing the SQL statement to be used for getting the basic data for member profile.
@@ -153,7 +155,8 @@ public class ViewMemberProfile extends BaseProcessor {
           "AND   s.submission_type_id = 1 " +
           "AND   s.submission_status_id <> 5 " +
           "AND   ri.value = ?  " +
-          "AND   s.create_date >= CURRENT - 60 UNITS DAY";
+          "AND   s.create_date >= CURRENT - 60 UNITS DAY " +
+          "ORDER BY s.create_date desc ";
 
     /**
      * <p>A <code>String</code> providing the SQL statement to be used for getting the details on winning submissions 
@@ -180,6 +183,7 @@ public class ViewMemberProfile extends BaseProcessor {
           "INNER JOIN upload u ON u.project_id = p.project_id AND u.resource_id = r.resource_id " +
           "INNER JOIN submission s ON u.upload_id = s.upload_id " +
           "WHERE pcl.project_type_id = 3 " +
+          "AND   p.project_status_id = 7 " +
           "AND   r.resource_role_id = 1 " +
           "AND   ri.resource_info_type_id = 1 " +
           "AND   u.upload_status_id = 1 " +
@@ -187,7 +191,8 @@ public class ViewMemberProfile extends BaseProcessor {
           "AND   s.submission_type_id = 1 " +
           "AND   s.submission_status_id <> 5 " +
           "AND   ri.value = ?  " +
-          "AND   NOT s.placement IS NULL";
+          "AND   NOT s.placement IS NULL " +
+          "ORDER BY s.placement asc ";
 
     /**
      * <p>Constructs new <code>ViewMemberProfile</code> instance. This implementation does nothing.</p>
@@ -257,6 +262,9 @@ public class ViewMemberProfile extends BaseProcessor {
             result = stmt.executeQuery();
             if (result.next()) {
                 long userId = result.getLong("user_id");
+                String hide = result.getString("value");
+                boolean hidePayments = hide != null && "hide".equals(hide);
+                getRequest().setAttribute("hidePayments", new Boolean(hidePayments));
                 close(result);
                 close(stmt);
 
