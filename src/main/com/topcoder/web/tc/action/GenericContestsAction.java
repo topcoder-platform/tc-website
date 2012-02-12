@@ -3,6 +3,8 @@
  */
 package com.topcoder.web.tc.action;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,14 +36,27 @@ import com.topcoder.web.tc.dto.CategoryDTO;
  * Changes in 1.3: removed the year range data.
  * </p>
  * 
+ * <p>
+ * Changes in 1.4: added defaultStartDate and defaultEndDate, it is used to set default date range filter for past 
+ * contests.
+ * </p>
+ * 
  * @author TCSASSEMBLIER, pinoydream, bugbuka
- * @version 1.3
+ * @version 1.4
  */
 public class GenericContestsAction extends ActionSupport {
     /**
 	 * Generated serial version UID.
 	 */
 	private static final long serialVersionUID = 4931815199895889777L;
+	
+    /**
+     * <p>
+     * The SimpleDateFormat object used for formatting date. It is used in {@link #getdefaultStartDate()} and
+     * {@link #getdefaultEndDate()} ethod.
+     * </p>
+     */
+    private static final SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy");
 	
 	/**
      * The category of the contests.
@@ -285,5 +300,30 @@ public class GenericContestsAction extends ActionSupport {
      */
     public void setCategoriesManager(CategoriesManager categoriesManager) {
         this.categoriesManager = categoriesManager;
+    }
+    
+    /**
+     * Gets the default start date, (current date - 6 months)
+     * 
+     * @return the default start date.
+     */
+    public String getDefaultStartDate() {
+    	// current date - 6 months
+    	Calendar startDate = Calendar.getInstance();
+    	startDate.add(Calendar.MONTH, -6);
+    	
+        return df.format(startDate.getTime());
+    }
+    
+    /**
+     * Gets the default end date, (before today)
+     * 
+     * @return the default end date.
+     */
+    public String getDefaultEndDate() {
+    	// before today
+    	Calendar endDate = Calendar.getInstance();
+    	
+        return df.format(endDate.getTime());
     }
 }
