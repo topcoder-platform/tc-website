@@ -18,6 +18,16 @@ jQuery.fn.dataTableExt.oSort['usmoney-desc'] = function(x,y) {
 $(function () {
     var category = $("#category").html();
     var type = $("#contestType").html();
+    var defaultStartDate = $("#defaultStartDate").html();
+    var defaultEndDate = $("#defaultEndDate").html();
+    
+    if (category == "PastContests") {
+        $(".dateFilter select.dateSelect").eq(0).val("AFTER");
+        $(".dateFilter select.dateSelect").eq(0).siblings(".dateContainer").find("input[name='firstDate']").val(defaultStartDate);
+        $(".dateFilter select.dateSelect").eq(2).val("BEFORE");
+        $(".dateFilter select.dateSelect").eq(2).siblings(".dateContainer").find("input[name='firstDate']").val(defaultEndDate);
+        $("#filterContainer .content .struct li .optionsContainer .optionBtn").click();
+    }
     // Load the Filters from the cookie only when there are no types given
     // Because these are specific searches
     if (!(isDefined(type) && type.length > 0)) {

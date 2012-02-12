@@ -13,6 +13,10 @@
   - Changes 02/04/2012:
   - http://apps.topcoder.com/bugs/browse/TCCC-3978
   - Removed year range dropdown list.
+  -
+  - Changes 02/11/2012:
+  - http://apps.topcoder.com/bugs/browse/TCCC-3978
+  - Added defaultStartDate and defaultEndDate for past contests.
  --%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
 <%@ page isELIgnored="false"%>
@@ -28,7 +32,9 @@
 		<script type="text/javascript" src="../js/tc/jquery.ezCookie_0.8.0.min.js"></script>
 	</head>
 	<body>
-		<span id="category" style="display: none;">${category }</span>
+		<span id="category" style="display: none;">${category}</span>
+		<span id="defaultStartDate" style="display: none;">${defaultStartDate}</span>
+		<span id="defaultEndDate" style="display: none;">${defaultEndDate}</span>
 		<s:if test='category=="ActiveContests"'>
 			<span id="contestType" style="display: none;">${type}</span>
 		</s:if>
