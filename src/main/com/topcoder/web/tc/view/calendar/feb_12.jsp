@@ -67,6 +67,12 @@
       <td class="value">2
       </td>
       <td class="value">3
+	  	 <div class="long">
+         <strong><a href="/tc?module=MatchDetails&rd=15038">DATCompression</a></strong><br />
+         13:00<br />
+         2 weeks<br />
+		 $10k Prizes
+         </div>	
       </td>
       <td class="value">4
       </td>
