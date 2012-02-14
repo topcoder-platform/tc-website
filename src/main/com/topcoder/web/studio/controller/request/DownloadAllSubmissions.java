@@ -26,6 +26,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
@@ -109,9 +110,17 @@ public class DownloadAllSubmissions extends BaseSubmissionDataProcessor {
         Project contest = factory.getProjectDAO().find(contestId);
 
         // Uploads and submissions
-        List<Upload> uploads = uploadDAO.getUploads(contest);
+        List<Upload> uploads = uploadDAO.getUploads(contest);    
+		
+		List<Integer> statusIds = new ArrayList<Integer>();
+        statusIds.add(Submission.STATUS_ACTIVE);
+		statusIds.add(Submission.COMPLETED_WITHOUT_WIN);
+        
+        List<Integer> typeIds = new ArrayList<Integer>();
+        typeIds.add(submissionTypeId);
+		
         List<Submission> submissions
-            = submissionDAO.getSubmissions(uploads, submissionTypeId, Submission.STATUS_ACTIVE);
+            = submissionDAO.getSubmissions(uploads, typeIds, statusIds);
         boolean originalSubmissionsAvailable = false;
         if (submissions != null && !submissions.isEmpty()) {
             for (Submission submission : submissions) {
@@ -163,7 +172,7 @@ public class DownloadAllSubmissions extends BaseSubmissionDataProcessor {
     
                 ServletOutputStream sos = response.getOutputStream();
                 ZipOutputStream zos = new ZipOutputStream(sos);
-    
+
                 try {
                     for (Submission submission : submissions) {
                         File submissionsDir 
