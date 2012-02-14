@@ -139,6 +139,7 @@
      <pathelement location="${jars.dir}/httpunit.jar"/>
      <pathelement location="${jars.dir}/itext-1.1.jar"/>
 
+  	<pathelement location="${jars.dir}/jira-soapclient-all.jar"/>
   </path>
   <target name="init">
     <mkdir dir="${classes}" />
@@ -176,6 +177,7 @@
         <include name="fileconvert.jar" />
         <include name="httpunit.jar" />
         <include name="itext-1.1.jar" />
+      	<include name="jira-soapclient-all.jar" />
         <!-- don't deploy this on the main site anymore
                 <include name="tc.jar"/>
                 <include name="TestServices.jar"/>

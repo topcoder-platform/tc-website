@@ -1,6 +1,6 @@
 <%--
-  - Author: kanakarajank, bugbuka
-  - Version: 2.0
+  - Author: kanakarajank, bugbuka, duxiaoyang
+  - Version: 2.1
   - Copyright (C) 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: The page to display and filter a list of contests.
@@ -17,6 +17,9 @@
   - Changes 02/11/2012:
   - http://apps.topcoder.com/bugs/browse/TCCC-3978
   - Added defaultStartDate and defaultEndDate for past contests.
+  -
+  - Changes in version 2.1 (TC Refactoring Stage 1 Update 2):
+  - Added bug race contests part.
  --%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
 <%@ page isELIgnored="false"%>
@@ -73,6 +76,13 @@
 								</ul>
 							</li>
 						</s:iterator>
+						<s:url var="bugRacesLink" action="contests" namespace="/">
+							<s:param name="category">BugRaces</s:param>
+						</s:url>
+						<li <s:if test='category=="BugRaces"'>class="current"</s:if>>
+							<a href="${bugRacesLink}"><span>Bug Race Contests</span> </a>
+							<span class="arrow"></span>
+						</li>
 						<li <s:if test='category=="ContestStatus"'>class="current"</s:if>>
 							<s:url var="contestStatusLink" action="contests" namespace="/">
 								<s:param name="category">ContestStatus</s:param>
@@ -130,6 +140,10 @@
 						<a href="http://community.topcoder.com/tc?module=BasicRSS&c=rss_Registration_Open&dsid=28" class="redBtn rssBtn"><span
 							class="rightSide"><span class="inner">RSS</span> </span> </a>
 					</s:if>
+					<s:if test='category=="BugRaces"'>
+					    <a href="http://apps.topcoder.com/bugs/sr/jira.issueviews:searchrequest-xml/temp/SearchRequest.xml?pid=10021&status=1&status=3&status=4&sorter/field=issuekey&sorter/order=DESC&tempMax=1000" class="redBtn rssBtn"><span
+							class="rightSide"><span class="inner">RSS</span> </span> </a>
+					</s:if>
 					<h1 class="heading">
 						${title }
 						<s:if test='category=="SearchContests"&&contestName!=""'>
@@ -139,6 +153,7 @@
 					</h1>
 					<div class="clear"></div>
 					<div id="filterContainer" class="boxContainer">
+					    <s:if test='category!="BugRaces"'>
 						<div class="top">
 							<div class="rightSide">
 								<div class="inner"></div>
@@ -318,6 +333,7 @@
 								<div class="inner"></div>
 							</div>
 						</div>
+						</s:if>
 					</div>
 					
 					<!-- #filter -->
@@ -367,6 +383,24 @@
 								</tr>
 							</thead>
 						</s:if>
+						<s:elseif test='category=="BugRaces"'>
+						    <colgroup>
+						        <col width="355"/>
+						        <col width="65" />
+						        <col width="65" />
+						        <col width="65" />
+						        <col width="200" />
+						    </colgroup>
+						    <thead>
+						        <tr>
+						            <th class="first"><span></span>Contest</th>
+						            <th>Payment</th>
+						            <th><strong>TCO12</strong><br />Points</th>
+						            <th>Registrants</th>
+						            <th>Active Since</th>
+						        </tr>
+						    </thead>
+						</s:elseif>
 						<s:elseif test='category=="ContestStatus"'>
 							<colgroup>
 								<col width="65" />

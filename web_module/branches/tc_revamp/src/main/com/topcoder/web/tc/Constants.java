@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001 - 2010 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc;
 
@@ -91,8 +91,15 @@ import java.util.MissingResourceException;
  *   </ol>
  * </p>
  *
- * @author pulky, isv, VolodymyrK, TCSASSEMBLER
- * @version 1.9
+ * <p>
+ * Changes in version 1.10 (TC Refactoring Stage 1 Update 2):
+ * <ul>
+ * <li>Added configurations for JIRA bug races tickets.</li>
+ * </ul>
+ * </p>
+ *
+ * @author pulky, isv, VolodymyrK, TCSASSEMBLER, duxiaoyang
+ * @version 1.10
  */
 public class Constants implements WebConstants {
 
@@ -969,6 +976,42 @@ public class Constants implements WebConstants {
      * @since 1.8
      */
     public static String ARTICLES_ARCHIVE_CATEGORY;
+
+    /**
+     * <p>A <code>String</code> providing the JIRA SOAP service URL.</p>
+     * @since 1.10
+     */
+    public static String JIRA_SERVICE_URL;
+
+    /**
+     * <p>A <code>String</code> providing the JIRA username.</p>
+     * @since 1.10
+     */
+    public static String JIRA_USERNAME;
+
+    /**
+     * <p>A <code>String</code> providing the JIRA password.</p>
+     * @since 1.10
+     */
+    public static String JIRA_PASSWORD;
+
+    /**
+     * <p>A <code>String</code> providing the JIRA JQL for querying bug race contests.</p>
+     * @since 1.10
+     */
+    public static String JIRA_JQL;
+
+    /**
+     * <p>A <code>String</code> providing the JIRA custom field id for payment.</p>
+     * @since 1.10
+     */
+    public static String CUSTOM_FIELD_ID_PAYMENT;
+
+    /**
+     * <p>A <code>String</code> providing the JIRA custom field id for TCO points.</p>
+     * @since 1.10
+     */
+    public static String CUSTOM_FIELD_ID_TCO_POINTS;
         
     static {
         initialize();

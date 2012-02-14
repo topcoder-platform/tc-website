@@ -1,9 +1,13 @@
 <%--
-  - Author: kanakarajank
-  - Version: 1.0
+  - Author: kanakarajank, duxiaoyang
+  - Version: 1.1
+  - Since: 1.0
   - Copyright (C) 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: Contains HTML elements and controls to submit contest name for searching.
+  -
+  - Changes in version 1.1 (TC Refactoring Stage 1 Update 2):
+  - Applied the new logic for top ten developers.
  --%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
 <%@ page isELIgnored="false"%>
@@ -14,7 +18,7 @@
 						list represents the top rated algorithm competition participants
 						that have competed within the last 180 days.</span> </a> <span>Top 10
 					Developers</span> <select class="topTenSelect" onChange="swapTopTen(this.value);" >
-					<option value="topTenAlgo" selected="selected">Algorithm</option>
+					<option value="topTenAlgo">Algorithm</option>
 					<option value="topTenAlgoSchools">Algorithm Schools</option>
 					<option value="topTenAlgoCountries">Algorithm Countries</option>
 					<option value="topTenDes">Design</option>
@@ -52,7 +56,7 @@
 						<tr>
 					</s:else>
 						<td class="first"><s:property value="#detail.rank"/></td>
-						<td><strong><s:a href="%{memberProfileUrl}" cssClass="redlink"><s:property value="#detail.handle"/></s:a> </strong></td>
+						<td><strong><s:a href="%{memberProfileUrl}" cssClass="%{#detail.rating < 900 ? 'coderTextGray' : #detail.rating < 1200 ? 'coderTextGreen' : #detail.rating < 1500 ? 'coderTextBlue' : #detail.rating < 2200 ? 'coderTextYellow' : 'coderTextRed'}"><s:property value="#detail.handle"/></s:a> </strong></td>
 						<td class="last"><strong><s:property value="#detail.rating"/></strong></td>
 					</tr>
 				</s:iterator>	
@@ -117,7 +121,7 @@
 						<tr>
 					</s:else>
 						<td class="first"><s:property value="#detail.rank"/></td>
-						<td><strong><s:a href="%{url}" cssClass="redlink"><s:property value="#detail.name"/></s:a> </strong></td>
+						<td><strong><s:a href="%{url}" cssClass="%{#detail.avgRating < 900 ? 'coderTextGray' : #detail.avgRating < 1200 ? 'coderTextGreen' : #detail.avgRating < 1500 ? 'coderTextBlue' : #detail.avgRating < 2200 ? 'coderTextYellow' : 'coderTextRed'}"><s:property value="#detail.name"/></s:a> </strong></td>
 						<td class="last"><strong><s:property value="#detail.avgRating"/></strong></td>
 					</tr>
 				</s:iterator>
@@ -153,7 +157,7 @@
 						<tr>
 					</s:else>
 						<td class="first"><s:property value="#detail.rank"/></td>
-						<td><strong><s:a href="%{memberProfileUrl}" cssClass="redlink"><s:property value="#detail.handle"/></s:a> </strong></td>
+						<td><strong><s:a href="%{memberProfileUrl}" cssClass="%{#detail.rating < 900 ? 'coderTextGray' : #detail.rating < 1200 ? 'coderTextGreen' : #detail.rating < 1500 ? 'coderTextBlue' : #detail.rating < 2200 ? 'coderTextYellow' : 'coderTextRed'}"><s:property value="#detail.handle"/></s:a> </strong></td>
 						<td class="last"><strong><s:property value="#detail.rating"/></strong></td>
 					</tr>
 				</s:iterator>
@@ -190,7 +194,7 @@
 						<tr>
 					</s:else>
 						<td class="first"><s:property value="#detail.rank"/></td>
-						<td><strong><s:a href="%{memberProfileUrl}" cssClass="redlink"><s:property value="#detail.handle"/></s:a> </strong></td>
+						<td><strong><s:a href="%{memberProfileUrl}" cssClass="%{#detail.rating < 900 ? 'coderTextGray' : #detail.rating < 1200 ? 'coderTextGreen' : #detail.rating < 1500 ? 'coderTextBlue' : #detail.rating < 2200 ? 'coderTextYellow' : 'coderTextRed'}"><s:property value="#detail.handle"/></s:a> </strong></td>
 						<td class="last"><strong><s:property value="#detail.rating"/></strong></td>
 					</tr>
 				</s:iterator>
@@ -227,7 +231,7 @@
 						<tr>
 					</s:else>
 						<td class="first"><s:property value="#detail.rank"/></td>
-						<td><strong><s:a href="%{memberProfileUrl}" cssClass="redlink"><s:property value="#detail.handle"/></s:a> </strong></td>
+						<td><strong><s:a href="%{memberProfileUrl}" cssClass="%{#detail.rating < 900 ? 'coderTextGray' : #detail.rating < 1200 ? 'coderTextGreen' : #detail.rating < 1500 ? 'coderTextBlue' : #detail.rating < 2200 ? 'coderTextYellow' : 'coderTextRed'}"><s:property value="#detail.handle"/></s:a> </strong></td>
 						<td class="last"><strong><s:property value="#detail.rating"/></strong></td>
 					</tr>
 				</s:iterator>
@@ -264,7 +268,7 @@
 						<tr>
 					</s:else>
 						<td class="first"><s:property value="#detail.rank"/></td>
-						<td><strong><s:a href="%{memberProfileUrl}" cssClass="redlink"><s:property value="#detail.handle"/></s:a> </strong></td>
+						<td><strong><s:a href="%{memberProfileUrl}" cssClass="%{#detail.rating < 900 ? 'coderTextGray' : #detail.rating < 1200 ? 'coderTextGreen' : #detail.rating < 1500 ? 'coderTextBlue' : #detail.rating < 2200 ? 'coderTextYellow' : 'coderTextRed'}"><s:property value="#detail.handle"/></s:a> </strong></td>
 						<td class="last"><strong><s:property value="#detail.rating"/></strong></td>
 					</tr>
 				</s:iterator>
@@ -301,7 +305,7 @@
 						<tr>
 					</s:else>
 						<td class="first"><s:property value="#detail.rank"/></td>
-						<td><strong><s:a href="%{memberProfileUrl}" cssClass="redlink"><s:property value="#detail.handle"/></s:a> </strong></td>
+						<td><strong><s:a href="%{memberProfileUrl}" cssClass="%{#detail.rating < 900 ? 'coderTextGray' : #detail.rating < 1200 ? 'coderTextGreen' : #detail.rating < 1500 ? 'coderTextBlue' : #detail.rating < 2200 ? 'coderTextYellow' : 'coderTextRed'}"><s:property value="#detail.handle"/></s:a> </strong></td>
 						<td class="last"><strong><s:property value="#detail.rating"/></strong></td>
 					</tr>
 				</s:iterator>
@@ -338,7 +342,7 @@
 						<tr>
 					</s:else>
 						<td class="first"><s:property value="#detail.rank"/></td>
-						<td><strong><s:a href="%{memberProfileUrl}" cssClass="redlink"><s:property value="#detail.handle"/></s:a> </strong></td>
+						<td><strong><s:a href="%{memberProfileUrl}" cssClass="%{#detail.rating < 900 ? 'coderTextGray' : #detail.rating < 1200 ? 'coderTextGreen' : #detail.rating < 1500 ? 'coderTextBlue' : #detail.rating < 2200 ? 'coderTextYellow' : 'coderTextRed'}"><s:property value="#detail.handle"/></s:a> </strong></td>
 						<td class="last"><strong><s:property value="#detail.rating"/></strong></td>
 					</tr>
 				</s:iterator>
@@ -375,7 +379,7 @@
 						<tr>
 					</s:else>
 						<td class="first"><s:property value="#detail.rank"/></td>
-						<td><strong><s:a href="%{memberProfileUrl}" cssClass="redlink"><s:property value="#detail.handle"/></s:a> </strong></td>
+						<td><strong><s:a href="%{memberProfileUrl}" cssClass="%{#detail.rating < 900 ? 'coderTextGray' : #detail.rating < 1200 ? 'coderTextGreen' : #detail.rating < 1500 ? 'coderTextBlue' : #detail.rating < 2200 ? 'coderTextYellow' : 'coderTextRed'}"><s:property value="#detail.handle"/></s:a> </strong></td>
 						<td class="last"><strong><s:property value="#detail.rating"/></strong></td>
 					</tr>
 				</s:iterator>
@@ -412,7 +416,7 @@
 						<tr>
 					</s:else>
 						<td class="first"><s:property value="#detail.rank"/></td>
-						<td><strong><s:a href="%{memberProfileUrl}" cssClass="redlink"><s:property value="#detail.handle"/></s:a> </strong></td>
+						<td><strong><s:a href="%{memberProfileUrl}" cssClass="%{#detail.rating < 900 ? 'coderTextGray' : #detail.rating < 1200 ? 'coderTextGreen' : #detail.rating < 1500 ? 'coderTextBlue' : #detail.rating < 2200 ? 'coderTextYellow' : 'coderTextRed'}"><s:property value="#detail.handle"/></s:a> </strong></td>
 						<td class="last"><strong><s:property value="#detail.rating"/></strong></td>
 					</tr>
 				</s:iterator>

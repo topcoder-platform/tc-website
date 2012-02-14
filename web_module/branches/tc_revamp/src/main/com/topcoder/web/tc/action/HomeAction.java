@@ -42,12 +42,19 @@ import com.topcoder.web.tc.dto.TopTenDTO;
 /**
  * The action for TC home page.
  * <p>
+ * Changes in version 1.1 (TC Refactoring Stage 1 Update 2):
+ * <ul>
+ * <li>Added highestRating in request attribute.</li>
+ * </ul>
+ * </p>
+ * <p>
  * <b>Thread Safety:</b> This class is not thread safe because its base class is
  * not thread safe.
  * </p>
  * 
- * @author TCSASSEMBLIER
- * @version 1.0
+ * @author TCSASSEMBLIER, duxiaoyang
+ * @version 1.1
+ * @since 1.0
  */
 public class HomeAction extends ActionSupport implements ServletResponseAware, ServletRequestAware {
     /**
@@ -98,6 +105,7 @@ public class HomeAction extends ActionSupport implements ServletResponseAware, S
 				MemberInfo memberInfo = homeDataManager.retrieveMemberDetails(authentication.getActiveUser().getId());
 				System.out.println(memberInfo);
 		    	request.setAttribute("memberInfo", memberInfo);
+		    	request.setAttribute("highestRating", getHighestRating(memberInfo));
 			}
 			loadPublicData();
         } catch (Exception e){
@@ -185,8 +193,29 @@ public class HomeAction extends ActionSupport implements ServletResponseAware, S
         	Log4jUtility.logException(LOGGER, "loadPublicData()", e);
         }
     }
-    
-   
+
+    /**
+     * <p>
+     * Gets the highest rating of the given member.
+     * </p>
+     * @param memberInfo the member information.
+     * @return the highest rating of the given member.
+     */
+    private long getHighestRating(MemberInfo memberInfo) {
+        long highestRating = memberInfo.getRating();
+        highestRating = Math.max(highestRating, memberInfo.getDesignRating());
+        highestRating = Math.max(highestRating, memberInfo.getDevelopmentRating());
+        highestRating = Math.max(highestRating, memberInfo.getConceptRating());
+        highestRating = Math.max(highestRating, memberInfo.getSpecRating());
+        highestRating = Math.max(highestRating, memberInfo.getArchRating());
+        highestRating = Math.max(highestRating, memberInfo.getAssemblyRating());
+        highestRating = Math.max(highestRating, memberInfo.getTestRating());
+        highestRating = Math.max(highestRating, memberInfo.getTestScenariosRating());
+        highestRating = Math.max(highestRating, memberInfo.getUiPrototypeRating());
+        highestRating = Math.max(highestRating, memberInfo.getRiaBuildRating());
+        highestRating = Math.max(highestRating, memberInfo.getMmRating());
+        return highestRating;
+    }
 
     /**
 	 * @return the homeDataManager

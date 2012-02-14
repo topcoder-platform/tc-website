@@ -40,9 +40,16 @@ import com.topcoder.web.tc.dto.CategoryDTO;
  * Changes in 1.4: added defaultStartDate and defaultEndDate, it is used to set default date range filter for past 
  * contests.
  * </p>
- * 
- * @author TCSASSEMBLIER, pinoydream, bugbuka
- * @version 1.4
+ *
+ * <p>
+ * Changes in version 1.5 (TC Refactoring Stage 1 Update 2):
+ * <ul>
+ * <li>Added title for bug race page.</li>
+ * </ul>
+ * </p>
+ *
+ * @author TCSASSEMBLIER, pinoydream, bugbuka, duxiaoyang
+ * @version 1.5
  */
 public class GenericContestsAction extends ActionSupport {
     /**
@@ -131,6 +138,7 @@ public class GenericContestsAction extends ActionSupport {
         titleMap.put("UpcomingContests", "Upcoming Contests");
         titleMap.put("ReviewOpportunities", "Review Opportunities");
         titleMap.put("SearchContests", "Search Contests");
+        titleMap.put("BugRaces", "Active Bug Race Competitions");
     }
 
     /**

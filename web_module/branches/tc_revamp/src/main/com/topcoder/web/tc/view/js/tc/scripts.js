@@ -513,6 +513,8 @@ $(document).ready(function () {
     }*/
     
     applyPageSettingsFromCookie($("#userId").html());
+    
+    initTopTen();
 });
 
 /**
@@ -902,4 +904,20 @@ function swapTopTen(topTenID){
     $('#topAssembly').hide();
     $('#topTestSuites').hide();
     $('#'+topTenID).show();
+    $.setCookie("defaultTopTen", topTenID, {expires : 365});
+}
+
+function initTopTen() {
+    var id = $.getCookie('defaultTopTen');
+    if (id == null) id = 'topTenAlgo';
+
+    $.each($(".topTenSelect option"), function() {
+        if ($(this).val() == id) {
+            $(this).attr("selected", "selected");
+        } else {
+        	$(this).removeAttr("selected");
+        }
+    });
+
+    swapTopTen(id);
 }

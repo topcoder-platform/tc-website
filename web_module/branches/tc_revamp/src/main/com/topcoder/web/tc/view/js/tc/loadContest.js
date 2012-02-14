@@ -60,7 +60,11 @@ $(function () {
     });
     
     $("#contestTable_length select").live("change", function(){
-    	$.setCookie("page_count",$(this).val(),{expires : 365});
+    	var value = $(this).val();
+    	if ($(this).find("option:selected").html() == "All") {
+    		value = -1;
+    	}
+    	$.setCookie("page_count",value,{expires : 365});
     });
     
     search(category,type,false);
@@ -177,13 +181,17 @@ function search(category,type, saveCookie){
 	 var errors = new Array();
      var types = new Array();
      var dateFilters = new Array();
+     if (category == "BugRaces") {
+    	 loadContests(category, "");
+    	 return;
+     }
      $(".optionsContainer ul.options li").each(function () {
          var checkbox = $(this).find("input[type='checkbox']");
          if (checkbox.attr("checked")) {
              types.push(checkbox.attr("name"));
          }
      });
-     var contestName = $("#contestName").val().length > 0 ? $("#contestName").val().replace(/^\s+/,"") : null;
+     var contestName = $("#contestName").length > 0 && $("#contestName").val().length > 0 ? $("#contestName").val().replace(/^\s+/,"") : null;
      if (contestName == null) {
          $("h1.heading").children("span").hide();
      }
@@ -360,11 +368,13 @@ function loadContests(category, parameter) {
         url = "upcomingContestsManager.action";
     } else if (category == "ReviewOpportunities") {
         url = "reviewOpportunitiesManager.action";
+    } else if (category == "BugRaces") {
+    	url = "bugRacesManager.action";
     } else {
         url = "searchContestsManager.action";
     }
     modalPreloader("#preload");
-    var contestName = $("#contestName").val().length > 0 ? $("#contestName").val().replace(/^\s+/,"") : null;
+    var contestName = $("#contestName").length > 0 && $("#contestName").val().length > 0 ? $("#contestName").val().replace(/^\s+/,"") : null;
 	var data={parameter:parameter};
 	$.ajax({
 		url:url,
@@ -372,7 +382,7 @@ function loadContests(category, parameter) {
 		dataType:'json',
 		type:'POST',
 		success: function (data) {
-			if (data.jsonErrors.length == 0) {
+			if (data.jsonErrors == undefined || data.jsonErrors.length == 0) {
 				var pageCountFromCookie = $.getCookie("page_count");
 				var pageCount;
 				if (isDefined(pageCountFromCookie)){
@@ -390,31 +400,57 @@ function loadContests(category, parameter) {
 				var aoColumns = [];
 				var tbody = $("#contestTable tbody");
 				if (category == "ActiveContests") {
+					if (pageCount == -1) {
+						pageCount = data.activeContests.length;
+					}
 					$.each(data.activeContests, function (i, item) {
 						tbody.append("<tr><td class='first leftAligned'>" + item.type + "</td><td><a href='" + getContestLink(item) + "'>" + item.contestName + "</a></td><td class='leftAligned datetime'>" + getDateTimeValue(item.registrationEndDate) + "</td><td class='leftAligned datetime'>" + getDateTimeValue(item.submissionEndDate) + "</td><td>$" + item.firstPrize + "</td><td>$" + item.reliabilityBonus + "</td><td>" + item.digitalRunPoints + "</td><td><a href='" + getRegDetailLink(item) + "'>" + item.numberOfRegistrants + "</a></td><td class='last'><a href='" + getRegDetailLink(item) + "'>" + item.numberOfSubmissions + "</a></td></tr>");
 					});
 					aoColumns = [null,null,null,null,{'sType':'usmoney'},{'sType':'usmoney'},null,null,null];
 				} else if (category == "ContestStatus") {
+					if (pageCount == -1) {
+						pageCount = data.activeContests.length;
+					}
 					$.each(data.contestStatuses, function (i, item) {
 						tbody.append("<tr><td class='first leftAligned'>" + item.type + "</td><td>" + item.catalog + "</td><td><a href='" + getContestLink(item) + "'>" + item.contestName + "</a></td><td class='leftAligned datetime'>" + getDateTimeValue(item.submissionDueDate) + "</td><td class='leftAligned'>" + getDateValue(item.finalReviewDueDate) + "</td><td class='leftAligned'>" + getValue(item.currentPhase) + "</td><td>" + getValue(item.firstPlaceHandle) + "</td><td class='last'>" + getValue(item.secondPlaceHandle) + "</td></tr>");
 					});
 					aoColumns = [null,null,null,null,null,null,null,null];
 				} else if (category == "PastContests") {
+					if (pageCount == -1) {
+						pageCount = data.pastContests.length;
+					}
 					$.each(data.pastContests, function (i, item) {
 						tbody.append("<tr><td class='first leftAligned'>" + item.type + "</td><td>" + item.catalog + "</td><td><a href='" + getContestLink(item) + "'>" + item.contestName + "</a></td><td class='leftAligned'>" + getDateTimeValue(item.completionDate) + "</td><td>" + item.numberOfRegistrants + "</td><td>" + item.numberOfSubmissions + "</td><td>" + item.passedScreeningCount + "<td class='last'>" + getValue(item.winnerProfileLink) + "</td></tr>");
 					});
 					aoColumns = [null,null,null,null,null,null,null,null];
 				} else if (category == "ReviewOpportunities") {
+					if (pageCount == -1) {
+						pageCount = data.reviewOpportunities.length;
+					}
 					$.each(data.reviewOpportunities, function (i, item) {
 						tbody.append("<tr><td class='first leftAligned'>" + item.type + "</td><td><a href='" + getContestLink(item) + "'>" + item.contestName + "</a></td><td>$" + item.primaryReviewerPayment + "</td><td>$" + item.secondaryReviewerPayment + "</td><td>" + item.submissionsNumber + "</td><td class='leftAligned datetime'>" + getDateTimeValue(item.opensOn) + "</td><td>" + getDateValue(item.reviewStart) + "</td><td>" + getDateValue(item.reviewEnd) + "</td><td>" + item.numberOfReviewPositionsAvailable + "</td><td class='last'><a href='" + getReviewDetailLink(item) + "'>Details</a></td></tr>");
 					});
 					aoColumns = [null,null,{'sType':'usmoney'},{'sType':'usmoney'},null,null,null,null,null,null];
 				} else if (category == "UpcomingContests") {
+					if (pageCount == -1) {
+						pageCount = data.upcomingContests.length;
+					}
 					$.each(data.upcomingContests, function (i, item) {
 						tbody.append("<tr><td class='first leftAligned datetime'>" + getDateTimeValue(item.registerDate) + "</td><td class='leftAligned datetime'>" + getDateTimeValue(item.submitDate) + "</td><td>" + item.duration + "</td><td class='leftAligned'>" + item.type + "</td><td><a href='" + getContestLink(item) + "'>" + item.contestName + "</a></td><td class='leftAligned'>" + getValue(item.technologies) + "</td><td class='leftAligned last'>" + item.status + "</td></tr>");
 					});
 					aoColumns = [null,null,null,null,null,null,null];
+				} else if (category == "BugRaces") {
+					if (pageCount == -1) {
+						pageCount = data.bugRaces.length;
+					}
+					$.each(data.bugRaces, function (i, item) {
+						tbody.append("<tr><td class='first leftAligned'><a href='https://apps.topcoder.com/bugs/browse/" + item.key + "'>" + item.summary + "</a></td><td>$" + item.payment + "</td><td>" + item.tcoPoints + "</td><td>" + item.registrants + "</td><td class='last'>" + getDateTimeValue(item.activeSince) + "</td></tr>");
+					});
+					aoColumns = [null,null,null,null,null];
 				} else {
+					if (pageCount == -1) {
+						pageCount = data.contests.length;
+					}
 					$("span.num").html(data.contests.length);
                     $("strong", $("span.num").parent()).html(getValue(contestName));
 					$.each(data.contests, function (i, item) {

@@ -38,8 +38,16 @@ import com.topcoder.web.tc.dto.TopTenDTO;
  * Changes 11-22-2011:
  * - corrected switch constants to proper project category id
  * </p>
- * @author kanakarajank, pinoydream
- * @version 1.1
+ * <p>
+ * Changes in version 1.2 (TC Refactoring Stage 1 Update 2):
+ * <ul>
+ * <li>Added user's image.</li>
+ * <li>Remove dummy data for top 10 developers.</li>
+ * </ul>
+ * </p>
+ * @author kanakarajank, pinoydream, duxiaoyang
+ * @version 1.2
+ * @since 1.0
  */
 public class HomeDataManagerImpl implements HomeDataManager {
 
@@ -84,6 +92,7 @@ public class HomeDataManagerImpl implements HomeDataManager {
 			Request dataRequest = new Request();
 			dataRequest.setContentHandle("member_profile");
 			dataRequest.setProperty("cr", String.valueOf(coderId));
+			dataRequest.setProperty("cu", String.valueOf(coderId));
 			Map<String, ResultSetContainer> map = dwDai.getData(dataRequest);
 			ResultSetContainer resultSetContainer = map.get("Coder_Data");
 			if (resultSetContainer != null && resultSetContainer.size() > 0) {
@@ -159,6 +168,9 @@ public class HomeDataManagerImpl implements HomeDataManager {
 					row = resultSetContainer.get(0);
 					if (row.getItem("has_image").getResultData() != null) {
 						memberInfo.setHasImage(row.getIntItem("has_image"));
+					}
+					if (row.getItem("image_path").getResultData() != null) {
+					    memberInfo.setImagePath(row.getStringItem("image_path") + row.getStringItem("image_file_name"));
 					}
 				}
 			}
@@ -257,41 +269,29 @@ public class HomeDataManagerImpl implements HomeDataManager {
 			list = new ArrayList<TopTenDTO>();
 			for (ResultSetRow row : rsContainer) {
 				TopTenDTO topTenDto = new TopTenDTO();
-				if (row.getItem("coder_id").getResultData() != null) {
+				if (row.isValidColumn("coder_id") && row.getItem("coder_id").getResultData() != null) {
 					topTenDto.setCoderId(row.getLongItem("coder_id"));
 				}
-				if (row.getItem("handle").getResultData() != null) {
+				if (row.isValidColumn("handle") && row.getItem("handle").getResultData() != null) {
 					topTenDto.setHandle(row.getStringItem("handle"));
 				}
-				if (row.getItem("rating").getResultData() != null) {
+				if (row.isValidColumn("rating") && row.getItem("rating").getResultData() != null) {
 					topTenDto.setRating(row.getLongItem("rating"));
 				}
-				if (row.getItem("rank").getResultData() != null) {
+				if (row.isValidColumn("rank") && row.getItem("rank").getResultData() != null) {
 					topTenDto.setRank(row.getIntItem("rank"));
 				}
-				if (row.getItem("name").getResultData() != null) {
+				if (row.isValidColumn("name") && row.getItem("name").getResultData() != null) {
 					topTenDto.setName(row.getStringItem("name"));
 				}
-				if (row.getItem("avg_rating").getResultData() != null) {
+				if (row.isValidColumn("avg_rating") && row.getItem("avg_rating").getResultData() != null) {
 					topTenDto.setAvgRating(row.getDoubleItem("avg_rating"));
 				}
-				if (row.getItem("country_code").getResultData() != null) {
-					topTenDto.setCountryCode(row.getIntItem("country_code"));
+				if (row.isValidColumn("country_code") && row.getItem("country_code").getResultData() != null) {
+					topTenDto.setCountryCode(Integer.parseInt(row.getStringItem("country_code")));
 				}
 				list.add(topTenDto);
 			}
-			topTenDetails.put(key, list);
-		} else {
-			// Insert Dummy Data
-			list = new ArrayList<TopTenDTO>();
-			TopTenDTO topTenDto = new TopTenDTO();
-			topTenDto.setCoderId(132456);
-			topTenDto.setHandle("heffan");
-			topTenDto.setName("School1");
-			topTenDto.setRank(1);
-			topTenDto.setRating(1234);
-			topTenDto.setAvgRating(1234.5);
-			list.add(topTenDto);
 			topTenDetails.put(key, list);
 		}
 	}

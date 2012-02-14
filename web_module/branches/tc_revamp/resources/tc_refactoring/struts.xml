@@ -33,6 +33,9 @@
 		<action name="searchContestsManager" class="searchContestsManagerAction">
 			<result type="json"/>
 		</action>
+		<action name="bugRacesManager" class="bugRacesManagerAction">
+			<result type="json"/>
+		</action>
 		<action name="login" class="loginAction">
 			<result name="success" type="redirect">
 				<param name="location">home.action</param>
