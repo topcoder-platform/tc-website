@@ -182,6 +182,8 @@ public class ViewMemberProfile extends BaseProcessor {
           "INNER JOIN project_category_lu pcl ON p.project_category_id = pcl.project_category_id " +
           "INNER JOIN upload u ON u.project_id = p.project_id AND u.resource_id = r.resource_id " +
           "INNER JOIN submission s ON u.upload_id = s.upload_id " +
+          "INNER JOIN project_prize_xref prxx ON p.project_id = prxx.project_id " +
+          "INNER JOIN prize pzz on pzz.prize_id = prxx.prize_id and pzz.prize_type_id = 15 " +
           "WHERE pcl.project_type_id = 3 " +
           "AND   p.project_status_id = 7 " +
           "AND   r.resource_role_id = 1 " +
@@ -192,7 +194,8 @@ public class ViewMemberProfile extends BaseProcessor {
           "AND   s.submission_status_id <> 5 " +
           "AND   ri.value = ?  " +
           "AND   NOT s.placement IS NULL " +
-          "ORDER BY s.placement asc ";
+          "AND   s.prize_id = pzz.prize_id " +
+          "ORDER BY s.create_date desc ";
 
     /**
      * <p>Constructs new <code>ViewMemberProfile</code> instance. This implementation does nothing.</p>
