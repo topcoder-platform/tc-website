@@ -1,14 +1,17 @@
 <%--
-  - Author: TCSASSEMBLIER, kanakarajank
-  - Version: 2.0
+  - Author: TCSASSEMBLIER, kanakarajank, duxiaoyang
+  - Version: 2.1
   - Copyright (C) 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: HTML elements for header of TC web pages.
+  -
+  - Changes in version 1.1 (TC Refactoring Stage 1 Update 2):
+  - Fixed the color in member handle.
  --%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
 <%@ page isELIgnored="false"%>
 <s:set value="#session['sessionInfo']" var="sessionInfo"/>
-
+<s:set value="#request.highestRating" var="highestRating"/>
 	<s:if test="%{#sessionInfo != null}">
 		<s:set var="handleId" value="%{#sessionInfo.handle}"/>
 		<span id="userId" style="display: none;"><s:property value="%{#sessionInfo.userId}"/></span>
@@ -18,6 +21,26 @@
 		<s:set var="handleId" value="%{'Guest'}" />	
 		<span id="userId" style="display: none;">-1</span>
 		<span id="handleId" style="display: none;"><s:property value="%{#handleId}"/></span>
+	</s:if>
+	<s:if test="%{#highestRating != null}">
+		<s:if test="%{#highestRating == 0}">
+			<s:set var="handleClass" value="%{'coderTextWhite'}"/>
+		</s:if>
+		<s:elseif test="%{#highestRating < 900}">
+			<s:set var="handleClass" value="%{'coderTextGray'}"/>
+		</s:elseif>
+		<s:elseif test="%{#highestRating < 1200}">
+			<s:set var="handleClass" value="%{'coderTextGreen'}"/>
+		</s:elseif>
+		<s:elseif test="%{#highestRating < 1500}">
+			<s:set var="handleClass" value="%{'coderTextBlue'}"/>
+		</s:elseif>
+		<s:elseif test="%{#highestRating < 2200}">
+			<s:set var="handleClass" value="%{'coderTextYellow'}"/>
+		</s:elseif>
+		<s:else>
+			<s:set var="handleClass" value="%{'coderTextRed'}"/>
+		</s:else>
 	</s:if>
 <div id="header">
 	<div id="name">
@@ -41,12 +64,12 @@
 					</s:if>
 					<s:if test="%{#handleId!='Guest'}">
 					<ul class="user">
-						<s:url id="memberProfileUrl" value="%{getText('memberprofile.url')}">
+						<s:url id="memberProfileUrl" value="%{getText('memberprofile.url')}" escapeAmp="false">
 							<s:param name="cr" value="#sessionInfo.userId"/>
 						</s:url>
 						<li>
 							<span class="wrap">Hello,</span>
-							<s:a href="%{memberProfileUrl}" cssClass="redlink"><span class="wrap"><s:property value="%{#sessionInfo.handle}"/></span></s:a>
+							<s:a href="%{memberProfileUrl}" cssClass="%{#handleClass}"><span class="wrap"><s:property value="%{#sessionInfo.handle}"/></span></s:a>
 						</li>
 						<li class="pageSetting">
 							<div class="subNav hide">

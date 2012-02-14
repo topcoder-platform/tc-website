@@ -74,7 +74,17 @@
         <pathelement location="${jive.dir}/xwork.jar"/>
         <pathelement location="${jive.dir}/htmlparser.jar"/>
 
-        <pathelement location="${jars.dir}/spring.jar"/>
+        <pathelement location="${jars.dir}/org.springframework.aop-3.0.5.RELEASE.jar" />
+        <pathelement location="${jars.dir}/org.springframework.asm-3.0.5.RELEASE.jar" />
+        <pathelement location="${jars.dir}/org.springframework.beans-3.0.5.RELEASE.jar" />
+        <pathelement location="${jars.dir}/org.springframework.context.support-3.0.5.RELEASE.jar" />
+        <pathelement location="${jars.dir}/org.springframework.context-3.0.5.RELEASE.jar" />
+        <pathelement location="${jars.dir}/org.springframework.core-3.0.5.RELEASE.jar" />
+        <pathelement location="${jars.dir}/org.springframework.expression-3.0.5.RELEASE.jar" />
+        <pathelement location="${jars.dir}/org.springframework.jdbc-3.0.5.RELEASE.jar" />
+        <pathelement location="${jars.dir}/org.springframework.orm-3.0.5.RELEASE.jar" />
+        <pathelement location="${jars.dir}/org.springframework.transaction-3.0.5.RELEASE.jar" />
+        <pathelement location="${jars.dir}/org.springframework.web-3.0.5.RELEASE.jar" />
 
         <pathelement location="${struts.dir}/commons-beanutils.jar"/>
         <pathelement location="${struts.dir}/commons-collections.jar"/>
@@ -158,11 +168,23 @@
         <pathelement location="${external.jars.dir}/random_string_image-1.0.jar"/>
         <pathelement location="${external.jars.dir}/spell_check-1.0.0.jar"/>
         <pathelement location="${external.jars.dir}/random_string_generator-1.0.0.jar"/>
+        
+        <pathelement location="${jars.dir}/commons-fileupload-1.2.1.jar" />
+        <pathelement location="${jars.dir}/commons-io-1.3.2.jar" />
+        <pathelement location="${jars.dir}/commons-logging-api-1.1.jar" />
+        <pathelement location="${jars.dir}/freemarker-2.3.16.jar" />
+        <pathelement location="${jars.dir}/ognl-3.0.jar" />
+        <pathelement location="${jars.dir}/struts2-core-2.2.1.jar" />
+        <pathelement location="${jars.dir}/struts2-spring-plugin-2.2.1.jar" />
+        <pathelement location="${jars.dir}/struts2-json-plugin-2.2.1.jar" />
+        <pathelement location="${jars.dir}/xwork-core-2.2.1.jar" />
 
         <pathelement location="${jars.dir}/TestServices.jar"/>
         <pathelement location="${jars.dir}/asyncservices.jar"/>
         <!-- app side dependencies...get rid of this if possible it's bad long contest design -->
         <pathelement location="${jars.dir}/tc.jar"/>
+        
+        <pathelement location="${jars.dir}/jira-soapclient-all.jar"/>
     </path>
     <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
     <property name="class.path" refid="class.path"/>

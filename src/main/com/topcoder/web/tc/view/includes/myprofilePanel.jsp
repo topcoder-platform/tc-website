@@ -1,14 +1,23 @@
 <%--
-  - Author: kanakarajank
-  - Version: 1.0
+  - Author: kanakarajank, duxiaoyang
+  - Version: 1.1
+  - Since: 1.0
   - Copyright (C) 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: Contains HTML elements and controls to submit contest name for searching.
+  -
+  - Changes in version 1.1 (TC Refactoring Stage 1 Update 2):
+  - Fixed the extra ampersand in member profile url.
+  - Added member photo display.
+  - Fixed the color in member handle.
  --%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
 <%@ page isELIgnored="false"%>
 <s:set var="sessionInfo" value="#session['sessionInfo']"/>
 <s:set var="handleId" value="%{#sessionInfo.handle}"/>
+<s:if test="%{#handleClass == 'coderTextWhite'}">
+	<s:set var="handleClass" value="%{'coderTextBlack'}"/>
+</s:if>
 <div class="infoBox myProfile">
 	<s:set var="handleId" value="%{#sessionInfo.handle}"/>
 	<div class="blackTitle">
@@ -16,18 +25,18 @@
 					Profile</span> </span> </span>
 	</div>
 	<div class="content">
-		<s:if test="#request.memberInfo.hasImage" >
-			<s:url id="imageAnchor" value="%{memberProfileUrl}"/>
-			<s:url id="imageUrl" value="#request.memberInfo.imageUrl"/>
+		<s:if test="#request.memberInfo.hasImage > 0" >
+			<s:url id="imageAnchor" value="%{memberProfileUrl}" escapeAmp="false"/>
+			<s:url id="imageUrl" value="..%{#request.memberInfo.imagePath}"/>
 		</s:if>
 		<s:else>
-			<s:url id="imageAnchor" value="%{memberProfileUrl}"/>
+			<s:url id="imageAnchor" value="%{memberProfileUrl}" escapeAmp="false"/>
 			<s:url id="imageUrl" value="../i/tc/user-big.png"/>
 		</s:else>
 		<s:a href="%{imageAnchor}"><img src='<s:property value="%{imageUrl}"/>'/></s:a>
 		<ul>
 			<li class="profile"><strong><s:a href="%{memberProfileUrl}"
-					cssClass="redlink"><s:property value="%{#handleId}"/></s:a> </strong>
+					cssClass="%{#handleClass}"><s:property value="%{#handleId}"/></s:a> </strong>
 				<p>
 					<s:url id="paymentSummaryUrl" value="%{getText('paymentsummary.url')}">
 						<s:param name="cr" value="#sessionInfo.userId"/>

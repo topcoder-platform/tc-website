@@ -126,6 +126,8 @@
 			<ref bean="hibernateTemplateBean" />
 		</property>
 	</bean>
+	<bean id="bugRacesManagerBean" class="com.topcoder.web.tc.impl.BugRacesManagerImpl">
+	</bean>
 	
 	<bean id="homeDataManagerBean" class="com.topcoder.web.tc.impl.HomeDataManagerImpl">
 	</bean>
@@ -165,6 +167,10 @@
 	<bean id="genericContestsAction" class="com.topcoder.web.tc.action.GenericContestsAction"
 		scope="prototype">
 		<property name="categoriesManager" ref="categoriesManagerBean" />
+	</bean>
+	<bean id="bugRacesManagerAction" class="com.topcoder.web.tc.action.BugRacesManagerAction"
+		scope="prototype">
+		<property name="bugRacesManager" ref="bugRacesManagerBean" />
 	</bean>
 	<bean id="homeAction" class="com.topcoder.web.tc.action.HomeAction" scope="prototype">
 		<property name="homeDataManager" ref="homeDataManagerBean"/>
