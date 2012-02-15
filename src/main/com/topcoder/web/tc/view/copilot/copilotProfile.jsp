@@ -227,7 +227,7 @@
 	                                        <c:forEach items="${copilotProfile.contestTypeStats}" var="entry">
 	
 	                                            <div class="controller" id="ctype${entry.value.projectCategoryId}">
-	                                                <div class="controllerWrapper"><span>${entry.value.projectCategoryName}</span></div>
+	                                                <div class="controllerWrapper"><span>${entry.value.projectCategoryName}</span><span class="arrow"></span></div>
 	                                            </div>
 	
 	                                        </c:forEach>
