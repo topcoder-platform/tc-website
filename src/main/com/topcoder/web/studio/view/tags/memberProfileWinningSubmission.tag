@@ -34,6 +34,8 @@
     <span id="xxx_2_${submission.submissionId}" class="hide">$<fmt:formatNumber value="${submission.contestPrizePurse}" pattern="#,##0.00"/></span>
     <span id="xxx_3_${submission.submissionId}" class="hide"><c:out value="${submission.contestName}"/></span>
     <span id="xxx_3_1_${submission.submissionId}" class="hide"><c:out value="${submission.contestId}"/></span>
+    <span id="xxx_5_${submission.submissionId}" class="hide"><c:out value="${submission.contestTypeId}"/></span>
+    <span id="xxx_5_1_${submission.submissionId}" class="hide"><c:out value="${submission.contestTypeName}"/></span>
     <c:if test="${not submission.locked}">
         <span id="xxx_4_${submission.submissionId}" class="hide">http://studio.topcoder.com/?module=DownloadSubmission&sbmid=${submission.submissionId}&sbt=small</span>
     </c:if>

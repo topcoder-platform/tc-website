@@ -30,12 +30,6 @@ import com.topcoder.web.studio.dto.MemberProfileSubmission;
 public class ViewMemberProfile extends BaseProcessor {
 
     /**
-     * <p>A <code>String</code> providing the URL for the image to be displayed instead of member photo in case member's
-     * profile does not have any member photo associated with it.</p>
-     */
-    private static final String NO_MEMBER_PHOTO_IMAGE_URL = "http://www.topcoder.com/i/m/nophoto.jpg";
-
-    /**
      * <p>A <code>String</code> providing the SQL statement to be used for locating the user account based on provided
      * handle.</p>
      */
@@ -43,7 +37,7 @@ public class ViewMemberProfile extends BaseProcessor {
        "SELECT u.handle,  u.user_id, up.value " +
        "  FROM user u " +
        ", OUTER user_preference up " +
-       "  WHERE u.handle = ? " +
+       "  WHERE lower(u.handle) = ? " +
        "    AND u.user_id = up.user_id " +
        "    AND up.preference_id = 100";
 
@@ -111,6 +105,7 @@ public class ViewMemberProfile extends BaseProcessor {
           "       WHERE pp.project_id = p.project_id  " +
           "       AND pp.phase_type_id = 15) AS milestone_date " +
           "    , p.project_category_id as contest_type_id  " +
+          "    , pcl.name as contest_type_name " +
           "FROM project p " +
           "INNER JOIN resource r ON r.project_id = p.project_id  " +
           "INNER JOIN resource_info ri ON r.resource_id = ri.resource_id  " +
@@ -134,9 +129,11 @@ public class ViewMemberProfile extends BaseProcessor {
           "    , (SELECT pi.value FROM project_info pi WHERE pi.project_id = p.project_id AND pi.project_info_type_id = 53) AS submissions_viewable " +
           "    , (SELECT MAX(r.modify_date) FROM review rv WHERE rv.submission_id = s.submission_id AND rv.committed = 1) AS review_time " +
           "    , p.project_category_id as contest_type_id " +
+          "    , pcl.name as contest_type_name " +
           "    , s.submission_status_id " +
           "    , s.create_date " +
           "    , s.placement " +
+          "    , pzz.place as prize_place " + 
           "    , s.screening_score " +
           "    , s.initial_score " +
           "    , s.final_score " +
@@ -147,12 +144,13 @@ public class ViewMemberProfile extends BaseProcessor {
           "INNER JOIN project_category_lu pcl ON p.project_category_id = pcl.project_category_id " +
           "INNER JOIN upload u ON u.project_id = p.project_id AND u.resource_id = r.resource_id " +
           "INNER JOIN submission s ON u.upload_id = s.upload_id " +
+          "LEFT JOIN prize pzz on s.prize_id = pzz.prize_id " +
           "WHERE pcl.project_type_id = 3 " +
           "AND   r.resource_role_id = 1 " +
           "AND   ri.resource_info_type_id = 1 " +
           "AND   u.upload_status_id = 1 " +
           "AND   u.upload_type_id = 1 " +
-          "AND   s.submission_type_id = 1 " +
+          "AND   s.submission_type_id in (1, 3) " +
           "AND   s.submission_status_id <> 5 " +
           "AND   ri.value = ?  " +
           "AND   s.create_date >= CURRENT - 60 UNITS DAY " +
@@ -167,14 +165,11 @@ public class ViewMemberProfile extends BaseProcessor {
           "    p.project_id AS contest_id " +
           "    , (SELECT pi.value FROM project_info pi WHERE pi.project_id = p.project_id AND pi.project_info_type_id = 6) AS name " +
           "    , (SELECT pi.value FROM project_info pi WHERE pi.project_id = p.project_id AND pi.project_info_type_id = 53) AS submissions_viewable " +
-          "    , (SELECT SUM(pr.prize_amount * pr.number_of_submissions)  " +
-          "       FROM prize pr  " +
-          "       INNER JOIN project_prize_xref prx ON pr.prize_id = prx.prize_id " +
-          "       WHERE prx.project_id = p.project_id " +
-          "       AND pr.prize_type_id IN (14, 15))::DECIMAL(10,2) AS prize_total " +
+          "    , pzz.prize_amount AS prize_total " +
           "    , p.project_category_id as contest_type_id " +
+          "    , pcl.name as contest_type_name " +
           "    , s.create_date " +
-          "    , s.placement " +
+          "    , pzz.place as placement " +
           "    , s.submission_id " +
           "FROM project p " +
           "INNER JOIN resource r ON r.project_id = p.project_id  " +
@@ -182,19 +177,17 @@ public class ViewMemberProfile extends BaseProcessor {
           "INNER JOIN project_category_lu pcl ON p.project_category_id = pcl.project_category_id " +
           "INNER JOIN upload u ON u.project_id = p.project_id AND u.resource_id = r.resource_id " +
           "INNER JOIN submission s ON u.upload_id = s.upload_id " +
-          "INNER JOIN project_prize_xref prxx ON p.project_id = prxx.project_id " +
-          "INNER JOIN prize pzz on pzz.prize_id = prxx.prize_id and pzz.prize_type_id = 15 " +
+          "INNER JOIN prize pzz on s.prize_id = pzz.prize_id and pzz.prize_type_id in (14,15) " +
           "WHERE pcl.project_type_id = 3 " +
           "AND   p.project_status_id = 7 " +
           "AND   r.resource_role_id = 1 " +
           "AND   ri.resource_info_type_id = 1 " +
           "AND   u.upload_status_id = 1 " +
           "AND   u.upload_type_id = 1 " +
-          "AND   s.submission_type_id = 1 " +
+          "AND   s.submission_type_id in (1,3) " +
           "AND   s.submission_status_id <> 5 " +
           "AND   ri.value = ?  " +
           "AND   NOT s.placement IS NULL " +
-          "AND   s.prize_id = pzz.prize_id " +
           "ORDER BY s.create_date desc ";
 
     /**
@@ -261,7 +254,7 @@ public class ViewMemberProfile extends BaseProcessor {
         try {
             // Resolve the user ID based on handle
             stmt = connCommon.prepareStatement(MEMBER_PROFILE_SEARCH_SQL);
-            stmt.setString(1, handle);
+            stmt.setString(1, handle.toLowerCase());
             result = stmt.executeQuery();
             if (result.next()) {
                 long userId = result.getLong("user_id");
@@ -285,7 +278,7 @@ public class ViewMemberProfile extends BaseProcessor {
                     profile.setCountry(result.getString("country_name"));
                     String imageUrl = result.getString("image_url");
                     if (result.wasNull()) {
-                        profile.setImageUrl(new URL(NO_MEMBER_PHOTO_IMAGE_URL));
+                        profile.setImageUrl(null);
                     } else {
                         profile.setImageUrl(new URL(imageUrl));
                     }
@@ -326,6 +319,7 @@ public class ViewMemberProfile extends BaseProcessor {
                         registration.setContestId(result.getLong("contest_id"));
                         registration.setContestName(result.getString("name"));
                         registration.setContestTypeId(result.getLong("contest_type_id"));
+                        registration.setContestTypeName(result.getString("contest_type_name"));
                         registration.setContestEndTime(result.getTimestamp("end_time"));
                         registration.setContestStartTime(result.getTimestamp("start_time"));
                         registration.setContestPrizePurse(result.getDouble("prize_total"));
@@ -348,6 +342,7 @@ public class ViewMemberProfile extends BaseProcessor {
                         submission.setContestId(result.getLong("contest_id"));
                         submission.setContestName(result.getString("name"));
                         submission.setContestTypeId(result.getLong("contest_type_id"));
+                        submission.setContestTypeName(result.getString("contest_type_name"));
                         int statusId = result.getInt("submission_status_id");
                         submission.setFailed(statusId == 2 || statusId == 3);
                         submission.setLocked("false".equalsIgnoreCase(result.getString("submissions_viewable")));
@@ -360,6 +355,12 @@ public class ViewMemberProfile extends BaseProcessor {
                         if (!result.wasNull()) {
                             submission.setPlacement(placement);
                             submission.setPassedReview(true);
+                        }
+                        int prizePlace = result.getInt("prize_place");
+                        if (!result.wasNull()) {
+                            submission.setPrizePlace(prizePlace);
+                        } else {
+                            submission.setPrizePlace(-1);
                         }
                         submission.setReviewTime(result.getTimestamp("review_time"));
                         submission.setSubmissionTime(result.getTimestamp("create_date"));
@@ -381,6 +382,7 @@ public class ViewMemberProfile extends BaseProcessor {
                         submission.setContestId(result.getLong("contest_id"));
                         submission.setContestName(result.getString("name"));
                         submission.setContestTypeId(result.getLong("contest_type_id"));
+                        submission.setContestTypeName(result.getString("contest_type_name"));
                         submission.setContestPrizePurse(result.getDouble("prize_total"));
                         submission.setLocked("false".equalsIgnoreCase(result.getString("submissions_viewable")));
                         int placement = result.getInt("placement");

@@ -31,6 +31,11 @@ public class MemberProfileRegistration  implements Serializable {
     private long contestTypeId;
 
     /**
+     * <p>A <code>String</code> providing the name of a type of contest.</p>
+     */
+    private String contestTypeName;
+    
+    /**
      * <p>A <code>Date</code> providing the start time of contest.</p>
      */
     private Date contestStartTime;
@@ -128,6 +133,24 @@ public class MemberProfileRegistration  implements Serializable {
         this.contestTypeId = contestTypeId;
     }
 
+    /**
+     * <p>Gets the name of a type of contest.</p>
+     *
+     * @return a <code>String</code> providing the name of a type of contest.
+     */
+    public String getContestTypeName() {
+        return this.contestTypeName;
+    }
+
+    /**
+     * <p>Sets the name of a type of contest.</p>
+     *
+     * @param contestTypeName a <code>String</code> providing the name of a type of contest.
+     */
+    public void setContestTypeName(String contestTypeName) {
+        this.contestTypeName = contestTypeName;
+    }
+    
     /**
      * <p>Gets the name of contest user is registered to.</p>
      *
