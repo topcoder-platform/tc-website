@@ -16,7 +16,11 @@
 <%@ attribute name="submission" required="true" rtexprvalue="true" type="com.topcoder.web.studio.dto.MemberProfileSubmission" %>
 
 <li>
-    <div class="regTitle typeWebDesign">
+    <div class="regTitle">
+        <a href="javascript:;" class="typeIcon tooltip type${submission.contestTypeId}">
+                                        <span class="tipT">Contest Type</span>
+                                        <span class="tipC">${submission.contestTypeName}</span>
+                                    </a>
         <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;${CONTEST_ID}=${submission.contestId}" class="contestTitleLink">
         <c:out value="${submission.contestName}"/></a></div>
     <div class="thumbWrapper">
@@ -43,12 +47,12 @@
                 </c:when>
             </c:choose>
             <c:choose>
-                <c:when test="${submission.placement ne null}">
-                    <span class="smallRankIcon rank${submission.placement}"></span>
+                <c:when test="${submission.prizePlace ne -1}">
+                    <span class="smallRankIcon rank${submission.prizePlace}"></span>
                 </c:when>
-                <c:otherwise>
+                <c:when test="${not submission.pendingReview and submission.placement eq null}">
                     <span class="statusIcon pendingIcon" title=""></span>
-                </c:otherwise>
+                </c:when>
             </c:choose>
         </div>
     </div>

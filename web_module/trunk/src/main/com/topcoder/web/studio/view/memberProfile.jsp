@@ -31,6 +31,7 @@
 
     <!-- external javascript -->
     <script type="text/javascript" src="/js/jquery-1.7.1.min.js"></script>
+    <script src="http://cdn.jquerytools.org/1.2.6/all/jquery.tools.min.js"></script>
     <script type="text/javascript" src="/js/jquery.jqtransform.js"></script>
     <script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
     <script type="text/javascript" src="/js/memberProfile.js"></script>
@@ -75,7 +76,11 @@ boolean hidePayments = ((Boolean)request.getAttribute("hidePayments")).booleanVa
                                     <ul>
                                 </c:if>
                                 <li <c:if test="${loop.index mod 6 eq 5}">class="last"</c:if>>
-                                    <div class="regTitle typeWebDesign">
+                                    <div class="regTitle">
+				        <a class="typeIcon tooltip type${reg.contestTypeId}" href="javascript:;" style="margin-top: 10.5px; visibility: visible;">
+					    <span class="tipT">Contest Type</span>
+					        <span class="tipC">${reg.contestTypeName}</span>
+						</a>
                                         <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;${CONTEST_ID}=${reg.contestId}"
                                            class="contestTitleLink"><c:out value="${reg.contestName}"/></a>
                                     </div>
@@ -158,7 +163,11 @@ boolean hidePayments = ((Boolean)request.getAttribute("hidePayments")).booleanVa
                                 </div>
                             </div>
 
-                            <div class="regTitle typeWebDesign">
+                            <div class="regTitle">
+			        <a id="xxx5" style="visibility: hidden;" href="javascript:;" class="typeIcon tooltip">
+				    <span class="tipT">Contest Type</span>
+				    <span class="tipC">Application Front-End Design</span>
+				</a>
                                 <a class="contestTitleLink" href="javascript:;" id="xxx3"></a></div>
                             <span class="rankIcon"></span>
                             <dl class="firstLine">
@@ -182,6 +191,7 @@ boolean hidePayments = ((Boolean)request.getAttribute("hidePayments")).booleanVa
                                 </c:forEach>
                             </ul>
                         </div>
+			<div class="pageNumbers"></div>
                     </c:when>
                     <c:otherwise>
                         There are no winning submissions.
@@ -229,7 +239,11 @@ boolean hidePayments = ((Boolean)request.getAttribute("hidePayments")).booleanVa
         <div class="rightPart">
             <div class="memberPhotoWrapper">
                 <h2><c:out value="${profile.handle}"/></h2>
-                <img src="${profile.imageUrl}" alt="Member Photo"/>
+		<div class="memberPhotoBox">
+		<a href="http://community.topcoder.com//tc?module=MemberProfile&cr=${profile.userId}">
+                <img width="117" height="140" src="<c:if test="${not empty profile.imageUrl}">${profile.imageUrl}</c:if><c:if test="${empty profile.imageUrl}">/i/no_photo.png</c:if>" alt="Member Photo"/>
+		</a>
+		</div>
             </div>
             <!--end .memberPhotoWrapper-->
 
@@ -247,6 +261,11 @@ boolean hidePayments = ((Boolean)request.getAttribute("hidePayments")).booleanVa
                 <dt>Country:</dt>
                 <dd><c:out value="${profile.country}"/></dd>
             </dl>
+            <c:if test="${profile.userId eq sessionInfo.userId}">
+            <div class="manageAccoutLink">
+	    [<a href="http://community.topcoder.com/tc?module=MyHome">Manage TopCoder Account</a>]
+            </div>
+	    </c:if>
             <%--
                 <ul class="achievementWrapper">
                     <li class="achievementItem"></li>
@@ -279,13 +298,13 @@ boolean hidePayments = ((Boolean)request.getAttribute("hidePayments")).booleanVa
             <form id="QuoteBannerForm" action="">
                 <input name="bannerStyle" id="bannerStyleInput" type="hidden" value="${profile.bannerStyle}"/>
             <div class="quoteSettingWrapper">
-                <h4>QUOTE SETTINGS</h4>
-
                 <div class="checkBoxWrapper">
                     <input name="isDisplayQuote" type="checkbox" class="checkInput" value="1" id="isDisplayQuote"
                            <c:if test="${profile.displayQuote}">checked="checked"</c:if>/>
                     <label class="checkboxLabel">Display quote on profile page</label>
                 </div>
+                <h4>QUOTE SETTINGS</h4>
+
                 <input name="quoteTxt" type="text" class="text fullRowTextInpu" maxlength="200"
                        value="<c:out value="${profile.quote}"/>"/>
 
@@ -365,38 +384,128 @@ boolean hidePayments = ((Boolean)request.getAttribute("hidePayments")).booleanVa
             <!-- end .quoteSettingWrapper -->
 
             <div class="quoteSettingWrapper quoteWp lastQuoteSettingWrapper">
-                <h4>BANNER SETTINGS</h4>
-
                 <div class="checkBoxWrapper">
                     <input name="isDisplayBanner" type="checkbox" class="checkInput" value="1"
                            <c:if test="${profile.displayBanner}">checked="checked"</c:if>/>
                     <label class="checkboxLabel">Display banner on profile page</label>
                 </div>
+                <h4>BANNER SETTINGS</h4>
                 <ul class="bannerSelectionArea">
                     <li <c:if test="${profile.bannerStyle eq 'bannerStyle1'}">class="selected"</c:if>>
-                        <div class="bannerStyle1">
-                            <div class="selectedBack">
+                        <div class="">
+                            <div class="selectedBack bannerStyle1">
                                 <div class="triangle"></div>
                             </div>
                         </div>
                     </li>
                     <li <c:if test="${profile.bannerStyle eq 'bannerStyle2'}">class="selected"</c:if>>
-                        <div class="bannerStyle2">
-                            <div class="selectedBack">
+                        <div class="">
+                            <div class="selectedBack bannerStyle2">
                                 <div class="triangle"></div>
                             </div>
                         </div>
                     </li>
                     <li <c:if test="${profile.bannerStyle eq 'bannerStyle3'}">class="selected"</c:if>>
-                        <div class="bannerStyle3">
-                            <div class="selectedBack">
+                        <div class="">
+                            <div class="selectedBack bannerStyle3">
                                 <div class="triangle"></div>
                             </div>
                         </div>
                     </li>
                     <li <c:if test="${profile.bannerStyle eq 'bannerStyle4'}">class="selected"</c:if>>
-                        <div class="bannerStyle4">
-                            <div class="selectedBack">
+                        <div class="">
+                            <div class="selectedBack bannerStyle4">
+                                <div class="triangle"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li <c:if test="${profile.bannerStyle eq 'bannerStyle5'}">class="selected"</c:if>>
+                        <div class="">
+                            <div class="selectedBack bannerStyle5">
+                                <div class="triangle"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li <c:if test="${profile.bannerStyle eq 'bannerStyle6'}">class="selected"</c:if>>
+                        <div class="">
+                            <div class="selectedBack bannerStyle6">
+                                <div class="triangle"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li <c:if test="${profile.bannerStyle eq 'bannerStyle7'}">class="selected"</c:if>>
+                        <div class="">
+                            <div class="selectedBack bannerStyle7">
+                                <div class="triangle"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li <c:if test="${profile.bannerStyle eq 'bannerStyle8'}">class="selected"</c:if>>
+                        <div class="">
+                            <div class="selectedBack bannerStyle8">
+                                <div class="triangle"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li <c:if test="${profile.bannerStyle eq 'bannerStyle9'}">class="selected"</c:if>>
+                        <div class="">
+                            <div class="selectedBack bannerStyle9">
+                                <div class="triangle"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li <c:if test="${profile.bannerStyle eq 'bannerStyle10'}">class="selected"</c:if>>
+                        <div class="">
+                            <div class="selectedBack bannerStyle10">
+                                <div class="triangle"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li <c:if test="${profile.bannerStyle eq 'bannerStyle11'}">class="selected"</c:if>>
+                        <div class="">
+                            <div class="selectedBack bannerStyle11">
+                                <div class="triangle"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li <c:if test="${profile.bannerStyle eq 'bannerStyle12'}">class="selected"</c:if>>
+                        <div class="">
+                            <div class="selectedBack bannerStyle12">
+                                <div class="triangle"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li <c:if test="${profile.bannerStyle eq 'bannerStyle13'}">class="selected"</c:if>>
+                        <div class="">
+                            <div class="selectedBack bannerStyle13">
+                                <div class="triangle"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li <c:if test="${profile.bannerStyle eq 'bannerStyle14'}">class="selected"</c:if>>
+                        <div class="">
+                            <div class="selectedBack bannerStyle14">
+                                <div class="triangle"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li <c:if test="${profile.bannerStyle eq 'bannerStyle15'}">class="selected"</c:if>>
+                        <div class="">
+                            <div class="selectedBack bannerStyle15">
+                                <div class="triangle"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li <c:if test="${profile.bannerStyle eq 'bannerStyle16'}">class="selected"</c:if>>
+                        <div class="">
+                            <div class="selectedBack bannerStyle16">
+                                <div class="triangle"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li <c:if test="${profile.bannerStyle eq 'bannerStyle17'}">class="selected"</c:if>>
+                        <div class="">
+                            <div class="selectedBack bannerStyle17">
                                 <div class="triangle"></div>
                             </div>
                         </div>
@@ -409,10 +518,10 @@ boolean hidePayments = ((Boolean)request.getAttribute("hidePayments")).booleanVa
         </div>
         <!-- end .modalBody -->
         <div class="bannerContainer">
-            <a href="javascript:;" id="discardChanges"
-               class="btn blueBtnProfile discardChanges"><span style="display: block;"><span style="display: block;">Discard Changes</span></span></a>
-            <a href="javascript:;" class="btn blueBtnProfile updateChanges" id="updateChanges"><span
-                    style="display: block;"><span style="display: block;">Update</span></span></a>
+            <span id="discardChanges"
+               class="btn blueBtnProfile discardChanges"><span style="display: block;"><span style="display: block;">Cancel</span></span></span>
+            <span class="btn blueBtnProfile updateChanges" id="updateChanges"><span
+                    style="display: block;"><span style="display: block;">Save</span></span></span>
         </div>
         <!-- end .bannerContainer -->
     </div>
@@ -423,5 +532,10 @@ boolean hidePayments = ((Boolean)request.getAttribute("hidePayments")).booleanVa
 
 <jsp:include page="foot.jsp"/>
 
+<div class="tooltipsBox" id="tooltipsBox1">
+    <div class="tooltipsH"><h6></h6></div>
+    <div class="tooltipsC"><p></p></div>
+    <div class="tooltipsF"></div>
+</div>
 </body>
 </html>
