@@ -555,7 +555,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 selectPaymentHeader.append("p.user_id, u.handle, pd.date_modified, pd.gross_amount, pd.client, ");
                 selectPaymentHeader.append("pd.algorithm_round_id, pd.component_project_id, pd.algorithm_problem_id, ");
                 selectPaymentHeader.append("pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, 0 as payment_status_reason_id, ");
-                selectPaymentHeader.append("pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.digital_run_track_id, pd.invoice_number ");
+                selectPaymentHeader.append("pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.digital_run_track_id ");
                 selectPaymentHeader.append("FROM payment p, payment_type_lu pt, payment_method_lu pm, payment_detail pd, ");
                 selectPaymentHeader.append("payment_status_lu s, user u ");
                 selectPaymentHeader.append("WHERE p.payment_id = " + paymentId + " ");
@@ -608,7 +608,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentHeaders.append("p.user_id, u.handle, pd.date_modified, pd.gross_amount, pd.client, ");
         selectPaymentHeaders.append("pd.algorithm_round_id, pd.component_project_id, pd.algorithm_problem_id, ");
         selectPaymentHeaders.append("pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, ");
-        selectPaymentHeaders.append("pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.digital_run_track_id, pd.invoice_number ");
+        selectPaymentHeaders.append("pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.digital_run_track_id ");
         selectPaymentHeaders.append("FROM contract_payment_xref cpx, payment p, payment_type_lu pt, payment_method_lu pm, ");
         selectPaymentHeaders.append("payment_detail pd, payment_status_lu s, user u ");
         selectPaymentHeaders.append("WHERE cpx.contract_id = " + contractId + " ");
@@ -684,7 +684,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentDetails.append("pa.address2, pa.city, pa.state_code, pa.zip, pa.country_code, ");
         selectPaymentDetails.append("state.state_name, country.country_name, pd.date_modified, pd.date_due, ");
         selectPaymentDetails.append("pd.charity_ind, pa.address3, pa.province, pd.total_amount, pd.installment_number, ");
-        selectPaymentDetails.append("pd.invoice_number, pd.jira_issue_id, pdsrx.payment_status_reason_id ");
+        selectPaymentDetails.append("pd.jira_issue_id, pdsrx.payment_status_reason_id ");
         selectPaymentDetails.append("FROM payment p, payment_detail pd, payment_status_lu s, ");
         selectPaymentDetails.append("modification_rationale_lu mr, payment_type_lu pt, payment_method_lu pm, ");
         selectPaymentDetails.append("OUTER payment_detail_status_reason_xref pdsrx, ");
@@ -724,7 +724,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentDetails.append("pa.address2, pa.city, pa.state_code, pa.zip, pa.country_code, ");
         selectPaymentDetails.append("state.state_name, country.country_name, pd.create_date as modify_date, pd.date_due, ");
         selectPaymentDetails.append("pd.charity_ind, pa.address3, pa.province, pd.total_amount, pd.installment_number, ");
-        selectPaymentDetails.append("pd.invoice_number, pd.jira_issue_id, cu.handle as create_user_handle ");
+        selectPaymentDetails.append("pd.jira_issue_id, cu.handle as create_user_handle ");
         selectPaymentDetails.append("FROM payment p, payment_detail_xref pdx, payment_detail pd, ");
         selectPaymentDetails.append("payment_status_lu s, modification_rationale_lu mr, payment_type_lu pt, payment_method_lu pm, ");
         selectPaymentDetails.append("OUTER(payment_address pa, OUTER state, OUTER country), outer user cu ");
@@ -755,7 +755,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentHeader.append("pd.algorithm_round_id, pd.component_project_id, pd.algorithm_problem_id, ");
         selectPaymentHeader.append("pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, 0 as payment_status_reason_id, ");
         selectPaymentHeader.append("pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.digital_run_track_id, ");
-        selectPaymentHeader.append("pd.invoice_number, pd.jira_issue_id ");
+        selectPaymentHeader.append("pd.jira_issue_id ");
         selectPaymentHeader.append("FROM payment p, payment_type_lu pt, payment_method_lu pm, payment_detail pd, ");
         selectPaymentHeader.append("payment_status_lu s, user u ");
         selectPaymentHeader.append("WHERE p.payment_id = " + paymentId + " ");
@@ -1058,7 +1058,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentHeaders.append("p.user_id, u.handle, pd.date_modified, pd.gross_amount, pd.client, ");
         selectPaymentHeaders.append("pd.algorithm_round_id, pd.component_project_id, pd.algorithm_problem_id, ");
         selectPaymentHeaders.append("pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, ");
-        selectPaymentHeaders.append("pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.digital_run_track_id, pd.invoice_number ");
+        selectPaymentHeaders.append("pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.digital_run_track_id ");
         selectPaymentHeaders.append("FROM payment p, payment_type_lu pt, payment_method_lu pm, payment_detail pd, ");
         selectPaymentHeaders.append("payment_status_lu s, user u ");
         selectPaymentHeaders.append("WHERE p.user_id = " + userId + " ");
@@ -1095,7 +1095,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentDetails.append("pa.first_name, pa.middle_name, pa.last_name, pa.address1, ");
         selectPaymentDetails.append("pa.address2, pa.city, pa.state_code, pa.zip, pa.country_code, ");
         selectPaymentDetails.append("state.state_name, country.country_name, pd.create_date as modify_date, pd.date_due, ");
-        selectPaymentDetails.append("pd.charity_ind, pa.address3, pa.province, pd.total_amount, pd.installment_number, pd.invoice_number ");
+        selectPaymentDetails.append("pd.charity_ind, pa.address3, pa.province, pd.total_amount, pd.installment_number ");
         selectPaymentDetails.append("FROM payment p, payment_detail pd, payment_status_lu s, ");
         selectPaymentDetails.append("modification_rationale_lu mr, payment_type_lu pt, payment_method_lu pm, ");
         selectPaymentDetails.append("OUTER(payment_address pa, OUTER state, OUTER country) ");
@@ -1137,7 +1137,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentHeaders.append("p.user_id, u.handle, pd.date_modified, pd.gross_amount, pd.client, ");
         selectPaymentHeaders.append("pd.algorithm_round_id, pd.component_project_id, pd.algorithm_problem_id, ");
         selectPaymentHeaders.append("pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, ");
-        selectPaymentHeaders.append("pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, digital_run_track_id, pd.invoice_number ");
+        selectPaymentHeaders.append("pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, digital_run_track_id ");
         selectPaymentHeaders.append("FROM payment p, payment_detail pd, payment_status_lu s, user u, ");
         selectPaymentHeaders.append("modification_rationale_lu mr, payment_type_lu pt, payment_method_lu pm, ");
         selectPaymentHeaders.append("OUTER(payment_address pa, OUTER state, OUTER country) ");
@@ -1295,7 +1295,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentHeaders.append("p.user_id, u.handle, pd.date_modified, pd.gross_amount, pd.client, ");
         selectPaymentHeaders.append("pd.algorithm_round_id, pd.component_project_id, pd.algorithm_problem_id, ");
         selectPaymentHeaders.append("pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, ");
-        selectPaymentHeaders.append("pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.digital_run_track_id, pd.invoice_number ");
+        selectPaymentHeaders.append("pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.digital_run_track_id ");
         selectPaymentHeaders.append("FROM contract_payment_xref cpx, payment p, payment_type_lu pt, payment_method_lu pm, ");
         selectPaymentHeaders.append("payment_detail pd, payment_status_lu s, user u ");
         selectPaymentHeaders.append("WHERE cpx.contract_id = " + contractId + " ");
@@ -3113,12 +3113,15 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectHeaders.append("pd.date_modified, pd.gross_amount, nvl(pdsrx.payment_status_reason_id, 0) as payment_status_reason_id, ");
         selectHeaders.append("pd.algorithm_round_id, pd.component_project_id, pd.algorithm_problem_id, ");
         selectHeaders.append("pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, ");
-        selectHeaders.append("pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.digital_run_track_id, pd.invoice_number, pd.jira_issue_id, ");
+        selectHeaders.append("pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.digital_run_track_id, pd.jira_issue_id, ");
         selectHeaders.append("ttp.name as billing_account_name, ttp.po_box_number as po_number, tdp.project_id as cockpit_project_id, tdp.name as cockpit_project_name, ");
         selectHeaders.append("pcl.name as project_category_name, ");
 
         // client_name
-        selectHeaders.append(" nvl((select ttc.name from time_oltp:client_project ttcp, time_oltp:client ttc where ttp.project_id = ttcp.project_id and ttcp.client_id = ttc.client_id), pd.client) as client_name ");
+        selectHeaders.append(" nvl((select ttc.name from time_oltp:client_project ttcp, time_oltp:client ttc where ttp.project_id = ttcp.project_id and ttcp.client_id = ttc.client_id), pd.client) as client_name, ");
+
+        // "invoiced" flag
+        selectHeaders.append(" exists (select 1 from invoice_record ir where ir.payment_id = p.payment_id) as invoiced ");
 
         StringBuffer from = new StringBuffer(1500);
         from.append(" FROM payment p ");
@@ -3179,9 +3182,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     whereClauses.append(" AND p.payment_id in (" + value + ")");
                 } else if (key.equals(HANDLE)) {
                     whereClauses.append(" AND UPPER(u.handle) LIKE ?");  //todo user handle_lower
-                    objects.add(value);
-                } else if (key.equals(INVOICE_NUMBER)) {
-                    whereClauses.append(" AND UPPER(pd.invoice_number) = ?");
                     objects.add(value);
                 } else if (key.equals(COCKPIT_PROJECT)) {
                     whereClauses.append(" AND UPPER(tdp.name) LIKE ?");
@@ -3843,8 +3843,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             insertPaymentDetail.append("  payment_desc, payment_type_id, payment_method_id, date_modified, date_due, client, ");
             insertPaymentDetail.append("  algorithm_round_id, component_project_id, algorithm_problem_id, studio_contest_id, ");
             insertPaymentDetail.append("  component_contest_id, digital_run_stage_id, digital_run_season_id, parent_payment_id, ");
-            insertPaymentDetail.append("  charity_ind, total_amount, installment_number, digital_run_track_id, invoice_number, jira_issue_id, create_user ) ");
-            insertPaymentDetail.append(" VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            insertPaymentDetail.append("  charity_ind, total_amount, installment_number, digital_run_track_id, jira_issue_id, create_user ) ");
+            insertPaymentDetail.append(" VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
             ps = c.prepareStatement(insertPaymentDetail.toString());
             ps.setLong(1, paymentDetailId);
@@ -3876,14 +3876,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     break;
                 case REFERENCE_COMPONENT_PROJECT_ID:
                     setNullableLong(ps, 15, p.getHeader().getComponentProjectId());
-                    setNullableString(ps, 27, p.getHeader().getJiraIssueName());
+                    setNullableString(ps, 26, p.getHeader().getJiraIssueName());
                     break;
                 case REFERENCE_ALGORITHM_PROBLEM_ID:
                     setNullableLong(ps, 16, p.getHeader().getAlgorithmProblemId());
                     break;
                 case REFERENCE_STUDIO_CONTEST_ID:
                     setNullableLong(ps, 17, p.getHeader().getStudioContestId());
-                    setNullableString(ps, 27, p.getHeader().getJiraIssueName());
+                    setNullableString(ps, 26, p.getHeader().getJiraIssueName());
                     break;
                 case REFERENCE_COMPONENT_CONTEST_ID:
                     setNullableLong(ps, 18, p.getHeader().getComponentContestId());
@@ -3904,12 +3904,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setBoolean(22, p.isCharity());
             ps.setDouble(23, p.getTotalAmount() == 0 ? p.getGrossAmount() : p.getTotalAmount()); // default to gross amount if not filled.
             ps.setInt(24, p.getInstallmentNumber());
-            ps.setString(26, p.getInvoiceNumber());
 
             if (operatorUserId != 0) {
-                ps.setLong(28, operatorUserId);
+                ps.setLong(27, operatorUserId);
             } else {
-                ps.setNull(28, Types.DECIMAL);
+                ps.setNull(27, Types.DECIMAL);
             }
 
             ps.executeUpdate();
@@ -4453,7 +4452,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
 
-    public Map<Long, String> newPaymentEvent(String[] paymentIDs, int event, String value, Date payDate, long operatorUserId) {
+    public Map<Long, String> newPaymentEvent(String[] paymentIDs, int event, Date payDate, long operatorUserId) {
         Map<Long, String> errors = new HashMap<Long, String>();
         List<BasePayment> updatePayments = new ArrayList<BasePayment>();
 
@@ -4498,9 +4497,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                                 }
                                 break;
                             case 4:
-                                payment.setInvoiceNumber(value);
-                                break;
-                            case 5:
                                 Long paymentMethodId = getUserPaymentMethod(payment.getCoderId());
                                 if (paymentMethodId == null) {
                                     errors.put(payment.getId(), "The member has not set the preferred payment method.");
@@ -6266,8 +6262,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         p.setMethodId(payment.getMethodId());
         p.getHeader().setMethodId(payment.getMethodId());
         p.getHeader().setClient(payment.getClient());
-        p.setInvoiceNumber(payment.getInvoiceNumber());
-        p.getHeader().setInvoiceNumber(payment.getInvoiceNumber());        
 
         switch (payment.getReferenceTypeId()) {
             case REFERENCE_ALGORITHM_ROUND_ID:
@@ -6633,7 +6627,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         sb.append("    pd.algorithm_round_id, pd.component_project_id, pd.algorithm_problem_id, ");
         sb.append("    pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, pd.digital_run_track_id, ");
         sb.append("    pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.client, ");
-        sb.append("    pd.invoice_number, pd.jira_issue_id, pd.payment_method_id, ");
+        sb.append("    pd.jira_issue_id, pd.payment_method_id, ");
         sb.append("    pd.charity_ind, pdsrx.payment_status_reason_id, ");
         sb.append("    (SELECT reference_field_name   ");
         sb.append("       FROM payment_reference_lu pr,payment_type_lu pt ");
@@ -6769,7 +6763,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         String client = rsr.getStringItem("client");
         String referenceFieldName = rsr.getStringItem("reference_field_name");
         int charityInd = rsr.getIntItem("charity_ind");
-        String invoiceNumber = rsr.getStringItem("invoice_number");
         String jiraIssueName = rsr.getStringItem("jira_issue_id");
 
         long reference = 0;
@@ -6790,7 +6783,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         payment.setPaidDate(paidDate);
         payment.setDescription(description);
         payment.setCharity(charityInd == 1);
-        payment.setInvoiceNumber(invoiceNumber);
         payment.setJiraIssueName(jiraIssueName);
         payment.setMethodId(methodId);
 

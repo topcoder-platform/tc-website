@@ -280,7 +280,6 @@ public interface PactsConstants extends Constants {
     public static final String LATEST_EXPIRE_DATE = "latest_expire_date";
     public static final String EARLIEST_AFFIRM_DATE = "earliest_affirm_date";
     public static final String LATEST_AFFIRM_DATE = "latest_affirm_date";
-    public static final String INVOICE_NUMBER = "invoice_number";
     public static final String COCKPIT_PROJECT = "cockpit_project";
     public static final String BILLING_ACCOUNT = "billing_account";
 

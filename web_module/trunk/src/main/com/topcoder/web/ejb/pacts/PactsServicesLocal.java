@@ -340,7 +340,7 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     public Map<Long, BasePaymentStatus> getPaymentStatusMap() throws SQLException;
 
-    public Map<Long, String> newPaymentEvent(String[] paymentIDs, int event, String value, Date payDate, long operatorUserId);
+    public Map<Long, String> newPaymentEvent(String[] paymentIDs, int event, Date payDate, long operatorUserId);
 
     public boolean isInvoicedPayment(long paymentId) throws SQLException;
 }

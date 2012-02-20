@@ -170,12 +170,6 @@
 				</td>
 		</tr>
 </c:if>
-<c:if test="${payment.invoiceNumber ne null and not empty payment.invoiceNumber }">
-		<tr>
-			<td><b>Invoice:</b></td>
-			<td><c:out value="${payment.invoiceNumber}" /></td>
-		</tr>
-</c:if>
 <%-- 		<tr>
 			<td><b>Reviewed:</b></td>
 			<td>

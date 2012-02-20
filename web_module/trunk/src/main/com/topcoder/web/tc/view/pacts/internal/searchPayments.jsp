@@ -61,10 +61,6 @@
 <% out.println("            <td><input type=\"text\" name=\""+PactsConstants.HANDLE+"\" size=\"20\"></td>"); %>
           </tr>
           <tr>
-            <td>Invoice Number:</td>
-<% out.println("            <td><input type=\"text\" name=\""+PactsConstants.INVOICE_NUMBER+"\" size=\"11\" maxlength=\"11\"></td>"); %>
-          </tr>
-          <tr>
             <td>Cockpit Project:</td>
 <% out.println("            <td><input type=\"text\" name=\""+PactsConstants.COCKPIT_PROJECT+"\" size=\"20\"></td>"); %>
           </tr>

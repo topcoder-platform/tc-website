@@ -20,7 +20,6 @@ public class NewPaymentEvent extends PaymentList implements PactsConstants {
         DataInterfaceBean dib = new DataInterfaceBean();
         int wrongPayments = 0;
         int event = Integer.parseInt(getRequest().getParameter("status_id"));
-        String invoiceNumber = (event == 4) ? getRequest().getParameter("new_invoice_number") : null;
         Date payDate = (event == 2) ? checkDate("pay_date", "Please enter a valid pay date", false) : null;
         if (payDate != null) {
             Calendar c = Calendar.getInstance();
@@ -40,7 +39,7 @@ public class NewPaymentEvent extends PaymentList implements PactsConstants {
         Map<Long, String> errors = null;
         try {
             long currentUserId = getAuthentication().getActiveUser().getId();
-            errors = dib.newPaymentEvent(paymentIDs, event, invoiceNumber, payDate, currentUserId);
+            errors = dib.newPaymentEvent(paymentIDs, event, payDate, currentUserId);
         } catch (Exception e) {
             throw new TCWebException(e);
         }

@@ -121,12 +121,6 @@
             } else {
                 document.getElementById("pay_date_section").style.display = 'none';
             }
-
-            if (selectedValue == '4') {
-                document.getElementById("invoice_number_section").style.display = 'block';
-            } else { 
-                document.getElementById("invoice_number_section").style.display = 'none';
-            }
         }
 
     </script>
@@ -219,7 +213,7 @@ ${fn:length(paymentList)} records. <br />
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.BILLING_ACCOUNT_NAME_COL%>" includeParams="true"/>" >Billing Acct</a></td>		
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.REFERENCE_ID_COL%>" includeParams="true"/>" >Reference ID</a></td>	
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.CONTEST_CATEGORY_NAME_COL%>" includeParams="true"/>" >Contest Category</a></td>
-        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.INVOICE_NUMBER_COL%>" includeParams="true"/>" >Invoice</a></td>		
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.INVOICED_COL%>" includeParams="true"/>" >Invoiced</a></td>		
         <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.CREATED_COL%>" includeParams="true"/>" >Created</a></td>
         <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.MODIFIED_COL%>" includeParams="true"/>" >Modified</a></td>
     </tr>
@@ -276,7 +270,7 @@ ${fn:length(paymentList)} records. <br />
         <td class="value"><c:out value="${payment.billingAccountName}" /></td>		
         <td class="value"><c:out value="${payment.referenceId}" /></td>	
         <td class="value"><c:out value="${payment.contestCategoryName}" /></td>	
-        <td class="value"><c:out value="${payment.invoiceNumber}" /></td>	
+        <td class="value"><c:out value="${payment.invoiced}" /></td>	
         <td class="valueC"><c:out value="${payment.createDate}" /> </td>
         <td class="valueC"><c:out value="${payment.modifyDate}" /> </td>
         </tr>
@@ -317,16 +311,10 @@ ${fn:length(paymentList)} records. <br />
             Delete
         </OPTION>
         <OPTION value='4'>
-            Set Invoice Number
-        </OPTION>
-        <OPTION value='5'>
             Assign Payment Method
         </OPTION>
 </SELECT>
 <input type="submit" value="Apply Event">
-<div id="invoice_number_section" style="display:none;">
-    Invoice Number: <input type="text" name="new_invoice_number" size="11" maxlength="11"/>
-</div>
 <div id='pay_date_section' style='display:none;'>
     Pay Date: <tc-webtag:textInput name="pay_date" id="pay_date" size="12" editable="true" /> 
     <button id="trigger_pay_date">Set</button>
