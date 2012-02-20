@@ -145,7 +145,7 @@ boolean hidePayments = ((Boolean)request.getAttribute("hidePayments")).booleanVa
                 </div>
             
             <div class="panelWrapper" id="winSubmission">
-                <h2 class="titleShadow">Winning Submissions</h2>
+                <h2 class="titleShadow">Recent Winning Submissions</h2>
 
                 <c:choose>
                     <c:when test="${not empty profile.winningSubmissions}">
