@@ -384,12 +384,6 @@ function searchKeyPress(e)
             <button id="trigger_due_date">Set</button>       
         </td>            
     </tr>
-    <tr>
-        <td><b>Invoice:</b></td>
-        <td>
-            <tc-webtag:textInput name="invoice_number" size="11" maxlength="11" editable="true" />
-        </td>
-    </tr>
 <c:if test="${updating}">    
     <tr>
         <td><b>Rationale:</b></td><td>

@@ -903,7 +903,6 @@ public class DataInterfaceBean implements PactsConstants {
             else if (key.equals(STATUS_CODE) ||
                     key.equals(TYPE_CODE) ||
                     key.equals(METHOD_CODE) ||
-                    key.equals(INVOICE_NUMBER) ||
                     key.equals(COCKPIT_PROJECT) ||
                     key.equals(BILLING_ACCOUNT) ||
                     key.equals(HANDLE))
@@ -1771,9 +1770,9 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.getPaymentStatusMap();
     }
 
-    public Map<Long, String> newPaymentEvent(String[] paymentIDs, int event, String value, Date payDate, long operatorUserId) throws RemoteException {
+    public Map<Long, String> newPaymentEvent(String[] paymentIDs, int event, Date payDate, long operatorUserId) throws RemoteException {
         PactsServicesLocal ps = getEjbHandle();
-        return ps.newPaymentEvent(paymentIDs, event, value, payDate, operatorUserId);
+        return ps.newPaymentEvent(paymentIDs, event, payDate, operatorUserId);
     }
 
     public boolean isInvoicedPayment(long paymentId) throws RemoteException, SQLException {

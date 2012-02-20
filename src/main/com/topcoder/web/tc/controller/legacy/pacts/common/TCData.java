@@ -36,6 +36,25 @@ public class TCData {
         return getTCLong(row, key, 0, LOG_EXCEPTIONS);
     }
 
+    public static boolean getTCBoolean(ResultSetContainer.ResultSetRow row,
+                               String key, boolean defaultVal,
+                               boolean printException) {
+        try {
+            return row.getBooleanItem(key);
+        } catch (Exception e) {
+            log.debug("getTCBoolean got excepted with key=" + key);
+            if (printException) {
+                e.printStackTrace();
+            }
+            return defaultVal;
+        }
+    }
+
+    public static boolean getTCBoolean(ResultSetContainer.ResultSetRow row,
+                               String key) {
+        return getTCBoolean(row, key, false, LOG_EXCEPTIONS);
+    }
+
     public static int getTCInt(ResultSetContainer.ResultSetRow row,
                                String key, int defaultVal,
                                boolean printException) {

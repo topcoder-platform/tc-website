@@ -77,7 +77,6 @@ public class Payment implements PactsConstants, java.io.Serializable {
     private String province;
     private String address3;
     private boolean charity;
-    private String invoiceNumber;
     private String jiraIssueName;
     private String createUserHandle;
 
@@ -139,7 +138,6 @@ public class Payment implements PactsConstants, java.io.Serializable {
             description = TCData.getTCString(rRow, "payment_desc");
             modifiedDate = TCData.getTCDate(rRow, "modify_date");
             charity = TCData.getTCInt(rRow, "charity_ind") != 0;
-            invoiceNumber = TCData.getTCString(rRow, "invoice_number");
             jiraIssueName = TCData.getTCString(rRow, "jira_issue_id");
             createUserHandle = TCData.getTCString(rRow, "create_user_handle");
 
@@ -561,14 +559,6 @@ public class Payment implements PactsConstants, java.io.Serializable {
 
     public void setCharity(boolean charity) {
         this.charity = charity;
-    }
-
-    public String getInvoiceNumber() {
-        return invoiceNumber;
-    }
-
-    public void setInvoiceNumber(String invoiceNumber) {
-        this.invoiceNumber = invoiceNumber;
     }
 
     public int getInstallmentNumber() {

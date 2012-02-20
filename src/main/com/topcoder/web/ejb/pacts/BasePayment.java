@@ -120,8 +120,6 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
 
     private String client = null;
 
-    private String invoiceNumber = null;
-
     private String jiraIssueName = null;
 
     /**
@@ -675,14 +673,6 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
      */
     public void setHasGlobalAD(boolean hasGlobalAD) {
         this.hasGlobalAD = hasGlobalAD;
-    }
-
-    public String getInvoiceNumber() {
-        return invoiceNumber;
-    }
-
-    public void setInvoiceNumber(String invoiceNumber) {
-        this.invoiceNumber = invoiceNumber;
     }
 
     public String getJiraIssueName() {
