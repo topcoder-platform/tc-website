@@ -161,7 +161,7 @@ public class ViewMemberProfile extends BaseProcessor {
      * for the member profile.</p>
      */
     private static final String WINNING_SUBMISSIONS_SQL
-        = "SELECT " +
+        = "SELECT FIRST 40 " +
           "    p.project_id AS contest_id " +
           "    , (SELECT pi.value FROM project_info pi WHERE pi.project_id = p.project_id AND pi.project_info_type_id = 6) AS name " +
           "    , (SELECT pi.value FROM project_info pi WHERE pi.project_id = p.project_id AND pi.project_info_type_id = 53) AS submissions_viewable " +
