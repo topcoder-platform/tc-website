@@ -3869,7 +3869,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 ps.setNull(i, Types.DECIMAL);
             }
             ps.setNull(25, Types.DECIMAL);
-            ps.setNull(27, Types.VARCHAR);
+            ps.setNull(26, Types.VARCHAR);
             switch (BasePayment.getReferenceTypeId(p.getHeader().getTypeId())) {
                 case REFERENCE_ALGORITHM_ROUND_ID:
                     setNullableLong(ps, 14, p.getHeader().getAlgorithmRoundId());
