@@ -53,7 +53,7 @@
 </div>
 <p class="detail">A copilot is someone who has one thing on their mind: helping you. This person can take what you're thinking and make it real. They're the leading edge to a world of resource. They'll tell you what's possible, how long it will take, how much it will cost and, best of all, what they think. They'll be with you for the rest of the process.
 
-The road you take will be defined by you and your copilot. Want to learn more? Find out how we break it down <a href="http://topcoder.com/home/index.php?p=23">here</a>.</p>
+The road you take will be defined by you and your copilot. Want to learn more? Find out how we break it down <a href="http://www.topcoder.com/how-it-works/">here</a>.</p>
 
 
 <%
