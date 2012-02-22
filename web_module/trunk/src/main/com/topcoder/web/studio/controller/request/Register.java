@@ -96,7 +96,9 @@ public class Register extends ShortHibernateProcessor {
 //                bother = !CoderType.PROFESSIONAL.equals(u.getCoder().getCoderType().getId());
   //              log.debug("Coder type: " + u.getCoder().getCoderType().getDescription());
                 log.debug("Bother: " + bother);
-
+				log.debug("User id :" + u.getId());
+				log.debug("User handle : " + u.getHandle());
+				
                 if (RegistrationHelper.getSubmitterResource(c, u.getId()) == null) {
                     String termsOfUseId = StringUtils.checkNull(request.getParameter(Constants.TERMS_OF_USE_ID));
                     if (!"".equals(termsOfUseId)) {
@@ -143,7 +145,7 @@ public class Register extends ShortHibernateProcessor {
                         }
 
                         if (isApproved) {
-                            createSubmitterResource(factory, c, userId);
+                            createSubmitterResource(factory, c, u);
                             factory.getNotificationDAO().setTimelineNotification(c.getId(), userId);
                         } else {
                             addError(Constants.REG_CONFIRM, "");
@@ -192,9 +194,9 @@ public class Register extends ShortHibernateProcessor {
      * 
      * @param factory a <code>DAOFactory</code> providing the DAO factory. 
      * @param project a <code>Project</code>  
-     * @param userId a <code>long</code> providing the user ID.
+     * @param u a <code>User</code> providing the user ID and Handle.
      */
-    private void createSubmitterResource(DAOFactory factory, Project project, long userId) {
+    private void createSubmitterResource(DAOFactory factory, Project project, User u) {
 
         Date now = new Date();
         Resource resource = new Resource();
@@ -202,42 +204,42 @@ public class Register extends ShortHibernateProcessor {
         ResourceRole role = new ResourceRole();
         role.setId(ResourceRole.SUBMITTER_RESOURCE_ROLE_ID.intValue());
         resource.setRole(role);
-        resource.setCreateUser(String.valueOf(userId));
+        resource.setCreateUser(String.valueOf(u.getId()));
         resource.setCreateDate(now);
-        resource.setModifyUser(String.valueOf(userId));
+        resource.setModifyUser(String.valueOf(u.getId()));
         resource.setModifyDate(now);
 
         ResourceInfo userIdResourceInfo = new ResourceInfo();
         userIdResourceInfo.setId(new ResourceInfo.Identifier(resource, 1L));
-        userIdResourceInfo.setValue(String.valueOf(userId));
-        userIdResourceInfo.setCreateUser(String.valueOf(userId));
+        userIdResourceInfo.setValue(String.valueOf(u.getId()));
+        userIdResourceInfo.setCreateUser(String.valueOf(u.getId()));
         userIdResourceInfo.setCreateDate(now);
-        userIdResourceInfo.setModifyUser(String.valueOf(userId));
+        userIdResourceInfo.setModifyUser(String.valueOf(u.getId()));
         userIdResourceInfo.setModifyDate(now);
 
         ResourceInfo userNameResourceInfo = new ResourceInfo();
         userNameResourceInfo.setId(new ResourceInfo.Identifier(resource, 2L));
-        userNameResourceInfo.setValue(getLoggedInUser().getUserName());
-        userNameResourceInfo.setCreateUser(String.valueOf(userId));
+        userNameResourceInfo.setValue(u.getHandle());
+        userNameResourceInfo.setCreateUser(String.valueOf(u.getId()));
         userNameResourceInfo.setCreateDate(now);
-        userNameResourceInfo.setModifyUser(String.valueOf(userId));
+        userNameResourceInfo.setModifyUser(String.valueOf(u.getId()));
         userNameResourceInfo.setModifyDate(now);
 
         DateFormat df = new SimpleDateFormat("MM.dd.yyyy hh:mm aa");
         ResourceInfo regDateResourceInfo = new ResourceInfo();
         regDateResourceInfo.setId(new ResourceInfo.Identifier(resource, 6L));
         regDateResourceInfo.setValue(df.format(now));
-        regDateResourceInfo.setCreateUser(String.valueOf(userId));
+        regDateResourceInfo.setCreateUser(String.valueOf(u.getId()));
         regDateResourceInfo.setCreateDate(now);
-        regDateResourceInfo.setModifyUser(String.valueOf(userId));
+        regDateResourceInfo.setModifyUser(String.valueOf(u.getId()));
         regDateResourceInfo.setModifyDate(now);
 
         ResourceInfo paymentStatusResourceInfo = new ResourceInfo();
         paymentStatusResourceInfo.setId(new ResourceInfo.Identifier(resource, 8L));
         paymentStatusResourceInfo.setValue("N/A");
-        paymentStatusResourceInfo.setCreateUser(String.valueOf(userId));
+        paymentStatusResourceInfo.setCreateUser(String.valueOf(u.getId()));
         paymentStatusResourceInfo.setCreateDate(now);
-        paymentStatusResourceInfo.setModifyUser(String.valueOf(userId));
+        paymentStatusResourceInfo.setModifyUser(String.valueOf(u.getId()));
         paymentStatusResourceInfo.setModifyDate(now);
 
         Set<ResourceInfo> infos = new HashSet<ResourceInfo>();
