@@ -48,7 +48,12 @@
             </c:choose>
             <c:choose>
                 <c:when test="${submission.prizePlace ne -1}">
-                    <span class="smallRankIcon rank${submission.prizePlace}"></span>
+                    <c:if test="${submission.prizeTypeId eq 14}">
+			<span class="smallRankIcon rankM"></span>
+                    </c:if>
+                    <c:if test="${submission.prizeTypeId eq 15}">
+			<span class="smallRankIcon rank${submission.prizePlace}"></span>
+                    </c:if>
                 </c:when>
                 <c:when test="${not submission.pendingReview and submission.placement eq null}">
                     <span class="statusIcon pendingIcon" title=""></span>

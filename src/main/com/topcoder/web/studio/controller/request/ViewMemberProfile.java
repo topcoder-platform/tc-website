@@ -138,6 +138,7 @@ public class ViewMemberProfile extends BaseProcessor {
           "    , s.initial_score " +
           "    , s.final_score " +
           "    , s.submission_id " +
+          "    , pzz.prize_type_id " +
           "FROM project p " +
           "INNER JOIN resource r ON r.project_id = p.project_id  " +
           "INNER JOIN resource_info ri ON r.resource_id = ri.resource_id  " +
@@ -170,6 +171,7 @@ public class ViewMemberProfile extends BaseProcessor {
           "    , pcl.name as contest_type_name " +
           "    , s.create_date " +
           "    , pzz.place as placement " +
+          "    , pzz.prize_type_id " +
           "    , s.submission_id " +
           "FROM project p " +
           "INNER JOIN resource r ON r.project_id = p.project_id  " +
@@ -362,6 +364,13 @@ public class ViewMemberProfile extends BaseProcessor {
                         } else {
                             submission.setPrizePlace(-1);
                         }
+						
+						int prizeTypeId = result.getInt("prize_type_id");
+                        if (!result.wasNull()) {
+                            submission.setPrizeTypeId(prizeTypeId);
+                        } else {
+                            submission.setPrizeTypeId(-1);
+                        }
                         submission.setReviewTime(result.getTimestamp("review_time"));
                         submission.setSubmissionTime(result.getTimestamp("create_date"));
 
@@ -388,6 +397,10 @@ public class ViewMemberProfile extends BaseProcessor {
                         int placement = result.getInt("placement");
                         if (!result.wasNull()) {
                             submission.setPlacement(placement);
+                        }
+						int prizeTypeId = result.getInt("prize_type_id");
+                        if (!result.wasNull()) {
+                            submission.setPrizeTypeId(prizeTypeId);
                         }
                         submission.setSubmissionTime(result.getTimestamp("create_date"));
 

@@ -59,7 +59,12 @@ public class MemberProfileSubmission extends MemberProfileRegistration implement
      * <p>An <code>int</code> providing the prize placement.</p>
      */
     private int prizePlace;
-    
+
+	/**
+     * <p>An <code>int</code> providing the prize placement.</p>
+     */
+    private int prizeTypeId;
+	
     /**
      * <p>Constructs new <code>MemberProfileSubmission</code> instance. This implementation does nothing.</p>
      */
@@ -226,5 +231,22 @@ public class MemberProfileSubmission extends MemberProfileRegistration implement
      */
     public void setPrizePlace(int prizePlace) {
         this.prizePlace = prizePlace;
+    }
+	/**
+     * <p>Gets the prize placement.</p>
+     *
+     * @return an <code>int</code> providing the prize placement.
+     */
+    public int getPrizeTypeId() {
+        return this.prizeTypeId;
+    }
+    
+    /**
+     * <p>Sets the prize placement.</p>
+     *
+     * @param prizePlace an <code>int</code> providing the prize placement.
+     */
+    public void setPrizeTypeId(int prizeTypeId) {
+        this.prizeTypeId = prizeTypeId;
     }
 }
