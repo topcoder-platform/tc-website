@@ -75,7 +75,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
     public static final int CONTEST_CATEGORY_NAME_COL = 14;
     public static final int COCKPIT_PROJECT_NAME_COL = 15;
     public static final int BILLING_ACCOUNT_NAME_COL = 16;
-    public static final int INVOICED_COL = 17;
+    public static final int INVOICE_NUMBER_COL = 17;
 
     private static final double WIRE_FEE = 10.0;
     
@@ -329,7 +329,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         getResponse().setContentType("application/csv");
         PrintWriter writer = getResponse().getWriter();
 
-        writer.print("Payment ID,Name,User,Description,Gross,Tax,Net,Type,Status,Client,Project,Billing Acct,Reference ID,Contest Category,Invoiced,Created,Modified");
+        writer.print("Payment ID,Name,User,Description,Gross,Tax,Net,Type,Status,Client,Project,Billing Acct,Reference ID,Contest Category,Invoice Number,Created,Modified");
         writer.print("\n");
         
         List<PaymentHeader> payments = (List<PaymentHeader>) getRequest().getAttribute(PaymentList.PAYMENTS);
@@ -357,7 +357,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
             row = addCSVValue(row, payment.getBillingAccountName());
             row = addCSVValue(row, payment.getReferenceId());
             row = addCSVValue(row, payment.getContestCategoryName());
-            row = addCSVValue(row, payment.isInvoiced());
+            row = addCSVValue(row, payment.getInvoiceNumber());
             row = addCSVValue(row, payment.getCreateDate());
             row = addCSVValue(row, payment.getModifyDate());
 
@@ -629,16 +629,12 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 }
             });
             break;
-        case INVOICED_COL:
+        case INVOICE_NUMBER_COL:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
-                    if (arg0.isInvoiced() && !arg1.isInvoiced()) {
-                        return -1;
-                    } else if (!arg0.isInvoiced() && arg1.isInvoiced()) {
-                        return 1;
-                    } else {
-                        return 0;
-                    }
+                    String invoiceNumber0 = arg0.getInvoiceNumber() == null ? "" : arg0.getInvoiceNumber();
+                    String invoiceNumber1 = arg1.getInvoiceNumber() == null ? "" : arg1.getInvoiceNumber();      
+                    return invoiceNumber0.toUpperCase().compareTo(invoiceNumber1.toUpperCase());                  
                 }
             });
             break;
@@ -672,7 +668,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         s.addDefault(CONTEST_CATEGORY_NAME_COL, "asc");
         s.addDefault(COCKPIT_PROJECT_NAME_COL, "asc");
         s.addDefault(BILLING_ACCOUNT_NAME_COL, "asc");      
-        s.addDefault(INVOICED_COL, "asc");        
+        s.addDefault(INVOICE_NUMBER_COL, "asc");        
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
     }
 

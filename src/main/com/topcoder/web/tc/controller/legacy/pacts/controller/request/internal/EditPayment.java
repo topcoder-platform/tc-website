@@ -129,7 +129,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     addError("error", "Please enter a valid client");
                 }
 
-                if (dib.isInvoicedPayment(paymentId)) {
+                if (dib.getInvoiceNumber(paymentId) != null) {
                     BasePayment oldPayment = dib.getBasePayment(paymentId);
                     if (oldPayment.getTotalAmount() != totalAmount ||
                         oldPayment.getNetAmount() != netAmount) {
