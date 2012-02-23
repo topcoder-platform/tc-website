@@ -3120,8 +3120,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         // client_name
         selectHeaders.append(" nvl((select ttc.name from time_oltp:client_project ttcp, time_oltp:client ttc where ttp.project_id = ttcp.project_id and ttcp.client_id = ttc.client_id), pd.client) as client_name, ");
 
-        // "invoiced" flag
-        selectHeaders.append(" exists (select 1 from invoice_record ir where ir.payment_id = p.payment_id) as invoiced ");
+        // invoice number
+        selectHeaders.append(" (select min(i.invoice_number) from invoice i, invoice_record ir where i.invoice_id=ir.invoice_id and ir.payment_id = p.payment_id) as invoice_number ");
 
         StringBuffer from = new StringBuffer(1500);
         from.append(" FROM payment p ");
@@ -4490,7 +4490,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                                 payment.setPaidDate(payDate);
                                 break;
                             case 3:
-                                if (isInvoicedPayment(payment.getId())) {
+                                if (getInvoiceNumber(payment.getId()) != null) {
                                     errors.put(payment.getId(), "Can't delete invoiced payment.");
                                 } else {
                                     psm.newUserEvent(payment, UserEvents.DELETE_EVENT);
@@ -6391,16 +6391,17 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     /**
-     * Checks whether the payment was invoiced.
+     * Returns invoice number associated with the payment or null if the payment was not invoiced yet.
      *
      * @param paymentId ID of the payment to check.
-     * @return true if the payment was invoiced.
+     * @return Invoice number or null.
      * @throws SQLException
      */
-    public boolean isInvoicedPayment(long paymentId) throws SQLException {
-        ResultSetContainer rsc = runSelectQuery("SELECT invoice_record_id from invoice_record where payment_id = " + paymentId);
+    public String getInvoiceNumber(long paymentId) throws SQLException {
+        ResultSetContainer rsc = runSelectQuery("SELECT i.invoice_number from invoice_record ir, invoice i " +
+            " where i.invoice_id=ir.invoice_id and ir.payment_id = " + paymentId);
 
-        return rsc.size() > 0;
+        return rsc.size() > 0 ? rsc.getStringItem(0, "invoice_number") : null;
     }
 
     /**

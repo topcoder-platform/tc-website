@@ -83,7 +83,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
     private String modifyDate;
     private String createDate;
 
-    private boolean invoiced;
+    private String invoiceNumber;
     private String jiraIssueName;
 
     /**************\
@@ -185,7 +185,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         client = TCData.getTCString(rsr, "client_name", "", false);
         cockpitProjectName = TCData.getTCString(rsr, "cockpit_project_name", "", false);
         billingAccountName = TCData.getTCString(rsr, "billing_account_name", "", false);
-        invoiced = TCData.getTCBoolean(rsr, "invoiced", false, false);
+        invoiceNumber = TCData.getTCString(rsr, "invoice_number", "", false);
         jiraIssueName = TCData.getTCString(rsr, "jira_issue_id", "", false);
 
         algorithmRoundId = TCData.getTCLong(rsr, "algorithm_round_id", 0, false);
@@ -434,12 +434,12 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         this.modifyDate = modifyDate;
     }
 
-    public boolean isInvoiced() {
-        return invoiced;
+    public String getInvoiceNumber() {
+        return invoiceNumber;
     }
 
-    public void setInvoiced(boolean invoiced) {
-        this.invoiced = invoiced;
+    public void setInvoiceNumber(String invoiceNumber) {
+        this.invoiceNumber = invoiceNumber;
     }
 
     public String getJiraIssueName() {

@@ -64,7 +64,7 @@ public class EditPaymentStatus extends PactsBaseProcessor implements PactsConsta
                     throw new IllegalArgumentException("Missing parameter " + PAYMENT_ID + " or new_status_id");
                 }
 		
-                if (newStatusId == DeletedPaymentStatus.ID && dib.isInvoicedPayment(paymentId)) {
+                if (newStatusId == DeletedPaymentStatus.ID && dib.getInvoiceNumber(paymentId) != null) {
                     addError("error", "You can't delete the payment after it was invoiced.");
                 }
 		
