@@ -18,7 +18,13 @@
 <%@ attribute name="selected" required="true" rtexprvalue="true" type="java.lang.Boolean" %>
 
 <li id="ws${submission.submissionId}">
+<c:if test="${submission.prizeTypeId eq 14}">
+    <a href="javascript:;" class="rankM" title="${submission.submissionId}">
+                    </c:if>
+                    <c:if test="${submission.prizeTypeId eq 15}">
     <a href="javascript:;" class="rank${submission.placement}" title="${submission.submissionId}">
+                    </c:if>
+
         <c:choose>
             <c:when test="${not submission.locked}">
                 <img alt="smallThumbPlaceholder"
