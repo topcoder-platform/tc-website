@@ -39,7 +39,7 @@
 
       <br />
 <p>Your application has been received.</p>
-  <p>You will be contacted by a TopCoder Recruiter if you meet Citi's requirements. Thank you.</p>
+<p>You will be contacted by a Citi Recruiter if we have an opening that matches your skill sets. Thank you for your interest.</p>
 <p>&nbsp;</p>
 
 </td>
