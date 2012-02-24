@@ -37,6 +37,11 @@ public class GetAttachment extends ForumsProcessor {
         try {
             // Set the headers.
             getResponse().setContentType("application/x-download");
+			 getResponse().setHeader("Cache-Control", "must-revalidate");
+			 getResponse().setHeader("Pragma", "must-revalidate");
+			 getResponse().setDateHeader("Expires", 0);
+						 
+			getResponse().setHeader("Content-Length", String.valueOf(attachment.getSize()));
             getResponse().setHeader("Content-Disposition", "attachment; filename=\"" + attachment.getName() + "\"");
             getResponse().setHeader("Content-Length", String.valueOf(attachment.getSize()));
 
