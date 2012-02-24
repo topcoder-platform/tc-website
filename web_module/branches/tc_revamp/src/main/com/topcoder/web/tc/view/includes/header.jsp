@@ -71,6 +71,7 @@
 							<span class="wrap">Hello,</span>
 							<s:a href="%{memberProfileUrl}" cssClass="%{#handleClass}"><span class="wrap"><s:property value="%{#sessionInfo.handle}"/></span></s:a>
 						</li>
+
 						<li class="pageSetting">
 							<div class="subNav hide">
 								<div class="head">
@@ -370,5 +371,12 @@
 		</ul>
 	</div>
 	<!--End #topNav-->
+	<div>
+		<p class="lookCP homeLookCP">Looking for Customer Portal?
+		<a href="javascript:;" onclick="window.open('https://www.topcoder.com/direct');">
+			<strong>Go There Now</strong>
+		</a>
+		</p>
+	</div>
 </div>
 <!--End #header-->

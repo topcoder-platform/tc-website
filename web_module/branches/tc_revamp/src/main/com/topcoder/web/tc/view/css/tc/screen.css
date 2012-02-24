@@ -1547,3 +1547,24 @@ a.hint, a.hint:visited{
 	padding-left:20px;
 	font-size:12px;
 }
+.lookCP {
+    color:#ffffff;
+    float: right;
+    font-size: 11px;
+    margin-top: 10px;
+    padding-left: 13px;
+    padding-right: 0px;
+}
+.lookCP a, .lookCP a:visited {
+	color:#9B9B9B;
+    font-weight: bold;
+    text-decoration: underline;
+}
+.lookCP a:hover {
+    color: #FF0000;
+}
+.homeLookCP {
+    position: absolute;
+    right: 11px;
+    top: 32px;
+}
