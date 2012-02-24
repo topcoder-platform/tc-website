@@ -73,6 +73,9 @@ public class GetAttachmentImage extends ForumsProcessor {
         }
 
         // Write the content of the attachment out
+			 getResponse().setHeader("Cache-Control", "must-revalidate");
+			 getResponse().setHeader("Pragma", "must-revalidate");
+			 getResponse().setDateHeader("Expires", 0);
         getResponse().setHeader("Content-disposition", "filename=\"" + image + "\";");
         getResponse().setContentType(outputType);
         InputStream in = null;
