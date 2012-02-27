@@ -240,7 +240,7 @@ public class RBoardApplicationBean extends BaseEJB {
      *
      * @since 1.0.16
      */
-    private static final int CONCEPTUALIZATION_NEW_PRIMARY_REVIEW_ID = 93;
+    private static final int CONCEPTUALIZATION_NEW_PRIMARY_REVIEW_ID = 112;
     
     /**
      * <p>A <code>int</code> representing the primary review id for specification projects.</p>
@@ -1624,7 +1624,7 @@ public class RBoardApplicationBean extends BaseEJB {
         ResultSet rs = null;
         
         String query = "select count(*) as tot from project_phase " +
-                            " where project_id = ? and phase_type_id = 15";
+                            " where project_id = ? and phase_type_id = 18";
         try {
             ps = conn.prepareStatement(query);
             ps.setLong(1, projectId);
