@@ -85,10 +85,15 @@ import com.topcoder.web.tc.model.ReviewBoardApplication;
  *     <li>Updated the review registration phase not to list more review opportunities than specified
  *         in the Review phase properties in the Online Review.</li>
  *   </ol>
+ *
+ *   Version 1.0.10 (Online Review Update Review Management Topcoder web site assembly) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #retrieveReviewProjectDetail(String, int, String)} method to handle the New Review Phases.</li>
+ *   </ol>
  * </p>
  *
  * @author dok, isv, pulky, snow01, VolodymyrK
- * @version 1.0.9
+ * @version 1.0.10
  * @since 1.0
  */
 public class ReviewProjectDetail extends Base {
@@ -241,24 +246,35 @@ public class ReviewProjectDetail extends Base {
                     hasPrimary |= app.isPrimary();
                 }
                 if (!hasPrimary) {
-                    if (detail.getLongItem(0, "phase_id") == SoftwareComponent.DEV_PHASE
-                        || detail.getLongItem(0, "phase_id") == 116) {
-
-                        for (Iterator it = reviewerList.iterator(); it.hasNext();) {
-                            app = (ReviewBoardApplication) it.next();
-
-                            //set a primary to be the failure test spot, but only do it
-                            //if it's not filled.  perhaps we put someone in there
-                            //who didn't want to be primary, failure is primary is just
-                            //a convention, not a rule.  in this case, someone would have to
-                            //be set primary manually
-                            if (app.getReviewerType().equals("Failure") && !app.isSpotFilled())
-                                app.setPrimary(true);
+                    if (detail.getIntItem(0, "is_new_review_system") == 0) {
+                        if (detail.getLongItem(0, "phase_id") == SoftwareComponent.DEV_PHASE
+                            || detail.getLongItem(0, "phase_id") == 116) {
+    
+                            for (Iterator it = reviewerList.iterator(); it.hasNext();) {
+                                app = (ReviewBoardApplication) it.next();
+    
+                                //set a primary to be the failure test spot, but only do it
+                                //if it's not filled.  perhaps we put someone in there
+                                //who didn't want to be primary, failure is primary is just
+                                //a convention, not a rule.  in this case, someone would have to
+                                //be set primary manually
+                                if (app.getReviewerType().equals("Failure") && !app.isSpotFilled())
+                                    app.setPrimary(true);
+                            }
+                        } else {
+                            for (Iterator it = reviewerList.iterator(); it.hasNext() && !hasPrimary;) {
+                                app = (ReviewBoardApplication) it.next();
+                                if (!app.isSpotFilled()) {
+                                    app.setPrimary(true);
+                                    hasPrimary = true;
+                                }
+                            }
                         }
                     } else {
+                        // for new review system, primary reviewer is Primary Reviewer Evaluator
                         for (Iterator it = reviewerList.iterator(); it.hasNext() && !hasPrimary;) {
                             app = (ReviewBoardApplication) it.next();
-                            if (!app.isSpotFilled()) {
+                            if (app.getReviewerType().contains("Evaluator")) {
                                 app.setPrimary(true);
                                 hasPrimary = true;
                             }
@@ -361,6 +377,7 @@ public class ReviewProjectDetail extends Base {
         getRequest().setAttribute("hasSubmission", checkPhaseExistence(detail, "submission_start"));
         getRequest().setAttribute("hasScreening", checkPhaseExistence(detail, "screening_start"));
         getRequest().setAttribute("hasReview", checkPhaseExistence(detail, "review_start"));
+        getRequest().setAttribute("hasPrimaryReviewEvaluation", checkPhaseExistence(detail, "primary_review_evaluation_start"));
         getRequest().setAttribute("hasAppeals", checkPhaseExistence(detail, "appeals_start"));
         getRequest().setAttribute("hasAggregation", checkPhaseExistence(detail, "aggregation_start"));
         getRequest().setAttribute("hasAggregationReview", checkPhaseExistence(detail, "agg_review_start"));
