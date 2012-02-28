@@ -89,6 +89,7 @@
       <td class="value">11
 	    <div class="srm">
 		 <strong><A href="/tc?module=MatchDetails&rd=14732">SRM 540</A></strong><br />
+		 $5000 in prizes by <A href="http://community.topcoder.com/tc?module=Static&d1=sponsors&d2=citi">Citi</A><br />
          07:00
         </div>		  
       </td>
