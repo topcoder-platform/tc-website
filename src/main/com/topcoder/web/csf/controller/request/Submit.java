@@ -261,7 +261,7 @@ public class Submit extends BaseSubmissionDataProcessor {
         User u = new User();
         u.setHandle(curr.getHandle() + "_" + (cFactory.getSubmissionDAO().getSubmissions(curr, c).size() + 1) + "_" + System.currentTimeMillis());
 
-        u.setPassword("");
+       // u.setPassword("");
         u.setFirstName(curr.getFirstName());
         u.setLastName(curr.getLastName());
         Email a = new Email();
