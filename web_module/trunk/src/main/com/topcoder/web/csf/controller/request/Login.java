@@ -95,7 +95,7 @@ public class Login extends ShortHibernateProcessor {
             PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
             PrincipalMgrRemote pmr = pmrh.create();
             log.debug("create the security user");
-            myPrincipal = pmr.createUser(u.getId(), u.getHandle(), u.getPassword(), tcs, DBMS.CSF_DATASOURCE_NAME);
+            myPrincipal = pmr.createUser(u.getId(), u.getHandle(), "", tcs, DBMS.CSF_DATASOURCE_NAME);
 
             //addVote them to these two as well.  eventually i'm guessing we'll rearrange security and this'll change
             Collection groups = pmr.getGroups(tcs, DBMS.CSF_DATASOURCE_NAME);
@@ -180,7 +180,7 @@ public class Login extends ShortHibernateProcessor {
             log.debug("user doesn't exist, create in TC system " + user.value.getUserId());
             u = new User();
             u.setHandle(user.value.getUserId());
-            u.setPassword(password);
+          //  u.setPassword(password);
             u.setFirstName(username);
             u.setLastName(username);
             Email a = new Email();
@@ -239,7 +239,7 @@ public class Login extends ShortHibernateProcessor {
             setIsNextPageInContext(false);
         }
         log.debug("on successful login, going to " + getNextPage());
-        getAuthentication().login(new SimpleUser(u.getId(), u.getHandle(), u.getPassword()), false);
+        getAuthentication().login(new SimpleUser(u.getId(), u.getHandle(), ""), false);
     }
 
 }
