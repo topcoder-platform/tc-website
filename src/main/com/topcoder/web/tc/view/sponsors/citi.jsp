@@ -87,6 +87,11 @@
                                 <tr>
                                     <td style="height: 35px; background: white" valign="middle">
                                         <p>
+                                            Citi will be sponsoring two single round matches on <a href="http://community.topcoder.com/tc?module=MatchDetails&rd=14730">March 17</a> and
+                                            <a href="http://community.topcoder.com/tc?module=MatchDetails&rd=14732">April 11</a>, 2012 so join them in the Competition Arena for chat sessions to discuss their exciting career opportunities.
+                                            Learn more about TopCoder SRMs <a href="http://apps.topcoder.com/wiki/display/tc/Algorithm+Overview">here</a>.
+                                        </p>
+                                        <p>
                                             For more information, please visit us at <a href="http://www.citigroup.com">www.citigroup.com</a>.</p>
                                     </td>
                                 </tr>
