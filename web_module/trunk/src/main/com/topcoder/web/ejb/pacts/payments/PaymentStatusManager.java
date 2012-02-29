@@ -119,6 +119,8 @@ public class PaymentStatusManager {
             
             // notify the status manager and update each payment
             for (BasePayment payment : payments) {
+                // Reload the payment, it could have been changed if it's attached to a parent payment.
+                payment = dib.getBasePayment(payment.getId());
                 BasePaymentStatus currentStatus = payment.getCurrentStatus();
 
                 currentStatus.newTaxForm(payment);
@@ -157,7 +159,12 @@ public class PaymentStatusManager {
             
             // notify the status manager and update each payment
             for (BasePayment payment : payments) {
+                // Reload the payment, it could have been changed if it's attached to a parent payment.
+                payment = dib.getBasePayment(payment.getId());
                 BasePaymentStatus currentStatus = payment.getCurrentStatus();
+                if (currentStatus.getId() != PaymentStatus.ON_HOLD_PAYMENT_STATUS.getId()) {
+                    continue;
+                }
 
                 currentStatus.hardCopyIPTransfer(payment);
                 dib.updatePayment(payment);
@@ -191,7 +198,12 @@ public class PaymentStatusManager {
             
             // notify the status manager and update each payment
             for (BasePayment payment : payments) {
+                // Reload the payment, it could have been changed if it's attached to a parent payment.
+                payment = dib.getBasePayment(payment.getId());
                 BasePaymentStatus currentStatus = payment.getCurrentStatus();
+                if (currentStatus.getId() != PaymentStatus.ON_HOLD_PAYMENT_STATUS.getId()) {
+                    continue;
+                }
 
                 currentStatus.signedGlobalAD(payment);
                 dib.updatePayment(payment);
@@ -265,7 +277,13 @@ public class PaymentStatusManager {
             // if no payments are found, do nothing.
             // notify the status manager and update the payment
             for (BasePayment payment : payments) {
+                // Reload the payment, it could have been changed if it's attached to a parent payment.
+                payment = dib.getBasePayment(payment.getId());
                 BasePaymentStatus currentStatus = payment.getCurrentStatus();
+                if (currentStatus.getId() != PaymentStatus.ON_HOLD_PAYMENT_STATUS.getId()) {
+                    continue;
+                }
+
                 currentStatus.affirmedIPTransfer(payment);
                 dib.updatePayment(payment);
     
@@ -407,6 +425,9 @@ public class PaymentStatusManager {
             List<BasePayment> payments = dib.findCoderPayments(criteria);
 
             for (BasePayment payment : payments) {
+                // Reload the payment, it could have been changed if it's attached to a parent payment.
+                payment = dib.getBasePayment(payment.getId());
+
                 // Only algorithm payments are cancelable.
                 if (payment.getPaymentType() != PactsConstants.ALGORITHM_CONTEST_PAYMENT &&
                     payment.getPaymentType() != PactsConstants.ALGORITHM_TOURNAMENT_PRIZE_PAYMENT) {
