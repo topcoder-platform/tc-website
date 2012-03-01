@@ -745,8 +745,9 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param opensOn timestamp when the positions opens on
      * @param reviewTypeId the type of the review
      * @param primary true if the reviewer is signing up for primary reviewer position
+     * @return true if the timeline was extended
      */
-    public void createRBoardApplication(String dataSource, long userId,
+    public boolean createRBoardApplication(String dataSource, long userId,
                                         long projectId, int reviewRespId, int phaseId, Boolean open, Timestamp opensOn,
                                         int reviewTypeId, boolean primary) throws RBoardRegistrationException {
 
@@ -832,6 +833,8 @@ public class RBoardApplicationBean extends BaseEJB {
             conn.commit();
             log.debug("Registration for project " + projectId + " completed in " + (System.currentTimeMillis() - start)
                       + " milliseconds");
+
+            return extended;
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
             rollback(conn);
@@ -865,12 +868,13 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param open Whether the registration is actually open
      * @param opensOn timestamp when the positions opens on
      * @param reviewTypeId the type of the review
+     * @return true if the timeline was extended	 
      * @throws RBoardRegistrationException if an unexpected error occurs.
      * @throws RemoteException if an error occurs while calling EJB method remotely.
      * @throws EJBException if an error occurs doing persistence operations
      * @since 1.0.14
      */
-    public void createSpecReviewRBoardApplication(String dataSource, long userId,
+    public boolean createSpecReviewRBoardApplication(String dataSource, long userId,
                                         long projectId, int reviewRespId, int phaseId, Boolean open, Timestamp opensOn,
                                         int reviewTypeId) throws RBoardRegistrationException {
 
@@ -923,6 +927,8 @@ public class RBoardApplicationBean extends BaseEJB {
             // Prepare resource for review phase
             insertUserRole(conn, nextId(RESOURCE_ID_SEQ), SPECIFICATION_REVIEWER_ROLE, projectId, pid, userId);
 
+            boolean extended = extendOpenPhase(conn, projectId, SPECIFICATION_REVIEW_PHASE, 2);
+
             // Create forum permission
             Forums forumsBean = null;
             Context context = TCContext.getInitial(ApplicationServer.FORUMS_HOST_URL);
@@ -933,6 +939,8 @@ public class RBoardApplicationBean extends BaseEJB {
             conn.commit();
             log.debug("Registration for spec review for project " + projectId + " completed in "
                       + (System.currentTimeMillis() - start) + " milliseconds");
+
+            return extended;
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
             rollback(conn);
