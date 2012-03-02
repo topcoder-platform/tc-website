@@ -265,7 +265,7 @@
             <li>Room assignments within each division will performed randomly, with prizes distributed evenly among all
                 rooms in each division.
             </li>
-<% if (Arrays.binarySearch(regularPrizeRounds, roundId >= 0) { %>
+<% if (Arrays.binarySearch(regularPrizeRounds, roundId) >= 0) { %>
             <li>70% of the total purse will be awarded to division one competitors, and 30% to division two
                 competitors.
             </li>
