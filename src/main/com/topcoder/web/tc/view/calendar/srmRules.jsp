@@ -13,7 +13,8 @@
     //sort it just for insurance, we're going to use binary search later
     Arrays.sort(regularPrizeRounds);
     
-
+    long[] newWayPrizeRounds = {14730,14732};
+    Arrays.sort(newWayPrizeRounds);
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -51,7 +52,7 @@
     <jsp:param name="title" value="SRM Official Rules & Qualification"/>
 </jsp:include>
 
-<% if (Arrays.binarySearch(regularPrizeRounds, roundId)>=0) { %>
+<% if (Arrays.binarySearch(regularPrizeRounds, roundId)>=0 || Arrays.binarySearch(newWayPrizeRounds, roundId)>=0) { %>
                                 <span class="bigRed">
                                     <b>
                                         <rsc:item name="contest_name" row="<%=rsr%>"/>
@@ -77,6 +78,7 @@ according to the following rules:
     <li>
         The total prize purse is $5,000.
     </li>
+<% if (Arrays.binarySearch(regularPrizeRounds, roundId) >= 0) { %>
     <li>
         70% of the total purse will be awarded to division one competitors, and 30% to division two competitors.
     </li>
@@ -93,6 +95,18 @@ according to the following rules:
         distributed evenly. (For example, if five coders tie for second place in a division one room, each will receive
         (30%+20%)/5 or 10% of the room award.)
     </li>
+<% } else { %>
+            <li>56% of the total purse will be awarded to division one competitors, 24% to division two
+                competitors. The remaining 20% of the prize purse will be awarded to 20 competitors chosen
+		uniformly, at random, from both divisions.
+            </li>
+            <li>The first place coder in each room will receive 100% the
+                room award.
+            </li>
+            <li>In the event of a tie for any prize winning position, the sum of the awards of the tied competitors will
+                be distributed evenly.
+            </li>
+<% } %>
     <li>
         Prizes will only be awarded to competitors who finish with positive (greater than zero) scores.
     </li>
