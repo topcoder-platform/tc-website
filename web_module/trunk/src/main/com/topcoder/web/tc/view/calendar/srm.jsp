@@ -17,6 +17,9 @@
             10773,10778,10787,11122,11126,12169,12172,12177,13901,14429};
     //sort it just for insurance, we're going to use binary search later
     Arrays.sort(regularPrizeRounds);
+
+    long[] newWayPrizeRounds = {14730,14732};
+    Arrays.sort(newWayPrizeRounds);
 	
 	long[] unratedRounds = {13935,13952};
 	Arrays.sort(unratedRounds);
@@ -250,7 +253,7 @@
     </TD>
 </TR>
 
-<% } else if (Arrays.binarySearch(regularPrizeRounds, roundId)>=0) { %>
+<% } else if (Arrays.binarySearch(regularPrizeRounds, roundId)>=0 || Arrays.binarySearch(newWayPrizeRounds, roundId)>=0) { %>
 <TR>
     <TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
         <font size="3"><b>Total Prize Purse of $5,000 !!!</b></font><br/><br/>
@@ -262,6 +265,7 @@
             <li>Room assignments within each division will performed randomly, with prizes distributed evenly among all
                 rooms in each division.
             </li>
+<% if (Arrays.binarySearch(regularPrizeRounds, roundId >= 0) { %>
             <li>70% of the total purse will be awarded to division one competitors, and 30% to division two
                 competitors.
             </li>
@@ -279,6 +283,19 @@
                 distributed evenly. (For example, if five coders tie for second place in a division one room, each will
                 receive (30%+20%)/5 or 10% of the room award.)
             </li>
+<% } else { %>
+            <li>56% of the total purse will be awarded to division one competitors, 24% to division two
+                competitors. The remaining 20% of the prize purse will be awarded to 20 competitors chosen
+		uniformly, at random, from both divisions.
+            </li>
+            <li>Approximately 20 competitors will be assigned to each room.</li>
+            <li>The first place coder in each room will receive 100% the
+                room award.
+            </li>
+            <li>In the event of a tie for any prize winning position, the sum of the awards of the tied competitors will
+                be distributed evenly.
+            </li>
+<% } %>
             <li>Prizes will only be awarded to competitors who finish with greater than zero scores.</li>
             <li>In order to be eligible for prizes, a competitor must be a TopCoder member in good standing, at least 18
                 years of age, and must not be a resident of Cuba, Iran, Iraq, Libya, North Korea, Sudan, Syria, the
