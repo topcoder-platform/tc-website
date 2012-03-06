@@ -58,7 +58,7 @@
                             <br />
                             Being one of the largest financial institutions in the world, we provide excellent
                             career prospects in key global locations such as <span style="font-weight: bold; color: #023C59;">
-                                London, Toronto, New York, Singapore, and Tokyo.</span>
+                                London, Toronto, New York, Singapore, and Belfast.</span>
                             <br />
                             <br />
                             At Citi, you will be given the <span style="font-weight: bold; color: #B34444;">opportunity
