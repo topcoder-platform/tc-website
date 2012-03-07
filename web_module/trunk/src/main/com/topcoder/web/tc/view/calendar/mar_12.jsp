@@ -88,6 +88,12 @@
 		 <strong><A href="/tc?module=MatchDetails&rd=14728">SRM 536</A></strong><br />
          07:00
         </div>	  
+	  	 <div class="long">
+         <strong><a href="/tc?module=MatchDetails&rd=15075">Soybean MM 2</a></strong><br />
+         12:00<br />
+         2 weeks<br />
+		 $10k Prizes
+         </div>
       </td>
       <td class="value">8
       </td>
