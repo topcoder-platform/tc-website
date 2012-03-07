@@ -96,6 +96,12 @@
          </div>
       </td>
       <td class="value">8
+	  	 <div class="long">
+         <strong><a href="/tc?module=MatchDetails&rd=15076">HMS Challenge #2</a></strong><br />
+         12:00<br />
+         3 weeks<br />
+		 $10k Prizes
+         </div>
       </td>
       <td class="value">9
       </td>
