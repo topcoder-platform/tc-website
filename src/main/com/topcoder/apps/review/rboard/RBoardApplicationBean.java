@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.apps.review.rboard;
 
@@ -157,6 +157,14 @@ import com.topcoder.web.ejb.forums.ForumsHome;
  *     <li>Change Common.close() statement to close().</li>
  *     <li>Add support for the New Review Phases System.</li>
  *   </ol>
+ *
+ *   Version 1.0.19 Change notes:
+  *   <ol>
+  *     <li>Added {@link #BUG_HUNT_PRIMARY_REVIEW_ID} constant.</li>
+  *     <li>Updated {@link #validateRegularUserTrans(java.sql.Connection, long, int, long, Boolean, java.sql.Timestamp,
+  *     int, boolean)} method to support validating review positions for bug hunt projects.</li>
+  *     <li>Updated {@link #getReviewRespInfo()} method for support bug hunt contest.</li>
+  *   </ol>
  * </p>
  *
  * @author dok, ivern, isv, pulky, snow01, VolodymyrK, Blues, FireIce, lmmortal
@@ -394,8 +402,12 @@ public class RBoardApplicationBean extends BaseEJB {
      */
     private static final int REPORTING_NEW_PRIMARY_REVIEW_ID = 127;	
 
-
-
+    /**
+     * <p>An <code>int</code> representing the primary review id for Bug Hunt contest.</p>
+     *
+     * @since 1.0.19
+     */
+    private static final int BUG_HUNT_PRIMARY_REVIEW_ID = 131;
 
     /**
      * <p>A <code>String</code> containing the error message for inconsistent reviewers for most project types.</p>
@@ -504,14 +516,13 @@ public class RBoardApplicationBean extends BaseEJB {
                                        + ",project_info pi_vt "
                                        + ",project_info pi_vi "
                                        + ",comp_versions cv "
-                                       + ",comp_jive_category_xref cjcx "
+                                       + " left outer join comp_jive_category_xref cjcx on cjcx.comp_vers_id = cv.comp_vers_id "
                                        + "where p.project_id = ? "
                                        + "and p.project_category_id = pt.project_category_id "
                                        + "and p.project_id = pi_cn.project_id and pi_cn.project_info_type_id = 6 "
                                        + "and p.project_id = pi_vt.project_id and pi_vt.project_info_type_id = 7 "
                                        + "and p.project_id = pi_vi.project_id and pi_vi.project_info_type_id = 2 "
                                        + "and cv.component_id = pi_vi.value and cv.phase_id in (112, 113) "
-                                       + "and cjcx.comp_vers_id = cv.comp_vers_id "
             );
             ps.setLong(1, projectId);
 
@@ -520,7 +531,9 @@ public class RBoardApplicationBean extends BaseEJB {
                 returnMap.put("projectName", rs.getString("component_name"));
                 returnMap.put("projectVersion", rs.getString("version_text").trim());
                 returnMap.put("projectType", rs.getString("project_type_name"));
-                returnMap.put("jiveCategoryId", rs.getString("jive_category_id"));
+                if(rs.getObject("jive_category_id") != null) {
+                    returnMap.put("jiveCategoryId", rs.getString("jive_category_id"));
+                }
             } else {
                 throw (new EJBException("Couldn't find project info for pid: " + projectId));
             }
@@ -828,8 +841,9 @@ public class RBoardApplicationBean extends BaseEJB {
             Context context = TCContext.getInitial(ApplicationServer.FORUMS_HOST_URL);
             ForumsHome forumsHome = (ForumsHome) context.lookup(ForumsHome.EJB_REF_NAME);
             forumsBean = forumsHome.create();
-            forumsBean.assignRole(userId, "Software_Users_" + projectInfo.get("jiveCategoryId"));
-
+            if (projectInfo.containsKey("jiveCategoryId")) {
+                forumsBean.assignRole(userId, "Software_Users_" + projectInfo.get("jiveCategoryId"));
+            }
             conn.commit();
             log.debug("Registration for project " + projectId + " completed in " + (System.currentTimeMillis() - start)
                       + " milliseconds");
@@ -1356,9 +1370,13 @@ public class RBoardApplicationBean extends BaseEJB {
                 throw new RBoardRegistrationException("Sorry, you are not authorized to perform reviews at this time.");
             }
 
+            String tmp = "!!!!!! DEBUG - reviewTypeId" + reviewTypeId + " projectTypeId:" + projectTypeId;
+            
+            tmp += "\n!!!!!! DEBUG - reviewTypeId check:" + reviewRespMap.containsKey(new Integer(reviewTypeId)) + " projectTypeId check:" + reviewRespMap.get(reviewTypeId).equals(projectTypeId + 111);
+            
             if (!reviewRespMap.containsKey(new Integer(reviewTypeId))
                 || !reviewRespMap.get(reviewTypeId).equals(projectTypeId + 111)) {
-                throw new RBoardRegistrationException("Invalid request, incorrect review position specified.");
+                throw new RBoardRegistrationException("Invalid request, incorrect review position specified.\n" + tmp);
             }
         } catch (SQLException sqle) {
             sqle.printStackTrace();
@@ -1467,6 +1485,10 @@ public class RBoardApplicationBean extends BaseEJB {
         } else if (phaseId == (WebConstants.REPORTING_PROJECT_TYPE + 111)) {
            validateReviewPositions(newReviewSystem, reviewTypeId, primary, reviewers, REPORTING_PRIMARY_REVIEW_ID, REPORTING_NEW_PRIMARY_REVIEW_ID,
                 INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
+        } else if (phaseId == (WebConstants.BUG_HUNT_PROJECT_TYPE + 111)) {
+            // TODO: Add bug hunt pirmary review id for new review system
+            validateReviewPositions(newReviewSystem, reviewTypeId, primary, reviewers, BUG_HUNT_PRIMARY_REVIEW_ID, -1,
+                    INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         }
 
 
@@ -1563,11 +1585,13 @@ public class RBoardApplicationBean extends BaseEJB {
         int[] respIds = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
                 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42,
 				43, 44, 45, 46, 47, 48, 49, 50, 60, 61, 62, 63, 64, 65, 76, 77, 78, 79,
-				112, 113, 114};
+				112, 113, 114,
+                130, 131};
         int[] phaseIds = {113, 113, 113, 112, 112, 112, 125, 125, 125, 118, 118, 118, 134, 134, 134,
                 117, 117, 117, 124, 124, 124, 130, 130, 130, 135, 135, 135, 136, 136, 136, 137, 137, 137,
                 114, 114, 114, 138, 1113, 1112, 1125, 1118, 1134, 1117, 1124, 1130, 1135, 1136, 1137, 1114, 1146, 140, 140, 140, 146, 146, 146, 147, 147, 147, 1147,
-				134, 134, 134};
+				134, 134, 134,
+                1120, 120};
 
         for (int i = 0; i < respIds.length; i++) {
             returnMap.put(new Integer(respIds[i]), new Integer(phaseIds[i]));

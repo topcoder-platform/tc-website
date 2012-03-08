@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.compstats;
 
@@ -50,8 +50,14 @@ import com.topcoder.web.tc.Constants;
  *     <li>Updated {@link #businessProcessing()} method to display Reporting contests.</li>
  *   </ol>
  * </p>
- * @author cucu, pulky, Blues, FireIce, lmmortal
- * @version 1.5
+ * <p>
+  *   Version 1.6 (Release Assembly - TopCoder BugHunt Competition Integration) Change notes:
+  *   <ol>
+  *     <li>Updated {@link #businessProcessing()} method to display Bug Hunt contests.</li>
+  *   </ol>
+  * </p>
+ * @author cucu, pulky, Blues, FireIce, lmmortal, TCSASSEMBLER
+ * @version 1.6
  */
 public class CompList extends Base {
 
@@ -87,6 +93,7 @@ public class CompList extends Base {
                   || Constants.RIA_COMPONENT_PROJECT_TYPE == projectTypeId
                   || Constants.COPILOT_POSTING_PROJECT_TYPE == projectTypeId
                   || Constants.CONTENT_CREATION_PROJECT_TYPE == projectTypeId
+                  || Constants.BUG_HUNT_PROJECT_TYPE == projectTypeId
                   || Constants.REPORTING_PROJECT_TYPE == projectTypeId)) {
                 throw new TCWebException("Invalid project_type_id (" + projectTypeId + ") parameter");
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.development;
 
@@ -117,10 +117,15 @@ import com.topcoder.web.tc.Constants;
  *   <ol>
  *     <li>Updated {@link #validateWithCatalog(int)} method.</li>
  *   </ol>
+ *
+ *   Version 1.0.15 (Release Assembly - TopCoder BugHunt Competition Integration) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #validateWithCatalog(int)} method to support Bug Hunt project type.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, isv, pulky, snow01, VolodymyrK, FireIce, lmmortal
- * @version 1.0.14
+ * @author dok, isv, pulky, snow01, VolodymyrK, FireIce, lmmortal, TCSASSEMBLER
+ * @version 1.0.15
  */
 public class ProjectReviewApply extends Base {
     protected long projectId = 0;
@@ -179,12 +184,20 @@ public class ProjectReviewApply extends Base {
                     Map results = getDataAccess().getData(r);
                     detail = (ResultSetContainer) results.get("spec_review_project_detail");
                 } else {
-                    r.setContentHandle("review_project_detail");
+                    if(projectTypeId.equals(String.valueOf(Constants.BUG_HUNT_PROJECT_TYPE))) {
+                        r.setContentHandle("bug_hunt_review_project_detail");
+                    } else {
+                        r.setContentHandle("review_project_detail");
+                    }
                     r.setProperty(Constants.PROJECT_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
                     r.setProperty(Constants.PHASE_ID, String.valueOf(phaseId));
                     r.setProperty(Constants.PROJECT_TYPE_ID, projectTypeId);
                     Map results = getDataAccess().getData(r);
-                    detail = (ResultSetContainer) results.get("review_project_detail");
+                    if (projectTypeId.equals(String.valueOf(Constants.BUG_HUNT_PROJECT_TYPE))) {
+                        detail = (ResultSetContainer) results.get("bug_hunt_review_project_detail");
+                    } else {
+                        detail = (ResultSetContainer) results.get("review_project_detail");
+                    }
                 }
 
                 int catalog = detail.getIntItem(0, "category_id");
@@ -358,6 +371,8 @@ public class ProjectReviewApply extends Base {
             projectTypeId != WebConstants.RIA_BUILD_SPECIFICATION_PROJECT_TYPE &&
             projectTypeId != WebConstants.RIA_COMPONENT_SPECIFICATION_PROJECT_TYPE &&
             projectTypeId != WebConstants.CONTENT_CREATION_PROJECT_TYPE &&
+            projectTypeId != WebConstants.BUG_HUNT_PROJECT_TYPE &&
+            projectTypeId != WebConstants.BUG_HUNT_SPECIFICATION_PROJECT_TYPE &&
             projectTypeId != WebConstants.REPORTING_PROJECT_TYPE;
     }
 }

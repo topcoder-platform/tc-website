@@ -1,7 +1,7 @@
 <%--
-  - Author: pulky, FireIce
-  - Version: 1.3
-  - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
+  - Author: pulky, FireIce, TCSASSEMBLER
+  - Version: 1.5
+  - Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page lists all active contests for a specific project type to show their status.
   -
@@ -13,8 +13,13 @@
   -
   - Version 1.3 (Content Creation Contest Online Review and TC Site Integration Assembly version 1.0) changes:
   - Added support for new Content Creation competitions.
+  -
   - Version 1.4 (Add Reporting Contest Type) changes:
-  - Added support for new Reporting competitions.
+  - Added support for new Reporting competitions
+  -
+  - Version 1.5 (Release Assembly - TopCoder BugHunt Competition Integration) changes:
+  - Added support for new Bug Hunt competitions.
+  -
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
@@ -57,6 +62,7 @@
 <c:set value="<%=Constants.RIA_COMPONENT_PROJECT_TYPE%>" var="RIA_COMPONENT_TYPE_ID"/>
 <c:set value="<%=Constants.CONTENT_CREATION_PROJECT_TYPE%>" var="CONTENT_CREATION_TYPE_ID"/>
 <c:set value="<%=Constants.REPORTING_PROJECT_TYPE%>" var="REPORTING_TYPE_ID"/>
+<c:set value="<%=Constants.BUG_HUNT_PROJECT_TYPE%>" var="BUG_HUNT_TYPE_ID"/>
 
 
 <jsp:include page="../top.jsp">
@@ -133,6 +139,11 @@
                     <jsp:param name="node" value="reporting_status"/>
                 </jsp:include>
             </c:when>
+          <c:when test="${pt == BUG_HUNT_TYPE_ID}">
+              <jsp:include page="/includes/global_left.jsp">
+                  <jsp:param name="node" value="bug_hunt_contest_status"/>
+              </jsp:include>
+          </c:when>
       </c:choose>
 </td>
 
@@ -224,6 +235,12 @@
                 <jsp:param name="title" value="Contest Status"/>
             </jsp:include>
         </c:when>
+        <c:when test="${pt == BUG_HUNT_TYPE_ID}">
+            <jsp:include page="/page_title.jsp">
+                 <jsp:param name="image" value="bug_hunt"/>
+                 <jsp:param name="title" value="Contest Status"/>
+            </jsp:include>
+        </c:when>
       </c:choose>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
@@ -231,7 +248,7 @@
         <c:choose>
         <c:when test="${pt == ARCHITECTURE_TYPE_ID || pt == ASSEMBLY_TYPE_ID || pt == TEST_SUITES_TYPE_ID ||
             pt == TEST_SCENARIOS_TYPE_ID || pt == UI_PROTOTYPE_TYPE_ID || pt == RIA_BUILD_TYPE_ID ||
-            pt == RIA_COMPONENT_TYPE_ID || pt == CONTENT_CREATION_TYPE_ID || pt == REPORTING_TYPE_ID}">
+            pt == RIA_COMPONENT_TYPE_ID || pt == CONTENT_CREATION_TYPE_ID || pt == REPORTING_TYPE_ID || pt == BUG_HUNT_TYPE_ID}">
             <td class="title" colspan="8">Contest Status</td>
         </c:when>
         <c:when test="${pt == DEVELOPMENT_TYPE_ID}">
@@ -250,7 +267,7 @@
         </c:if>
         <c:if test="${pt != ARCHITECTURE_TYPE_ID && pt != ASSEMBLY_TYPE_ID && pt != TEST_SUITES_TYPE_ID &&
             pt != TEST_SCENARIOS_TYPE_ID && pt != UI_PROTOTYPE_TYPE_ID && pt != RIA_BUILD_TYPE_ID &&
-            pt != RIA_COMPONENT_TYPE_ID && pt != CONTENT_CREATION_TYPE_ID && pt != REPORTING_TYPE_ID}">
+            pt != RIA_COMPONENT_TYPE_ID && pt != CONTENT_CREATION_TYPE_ID && pt != REPORTING_TYPE_ID && pt != BUG_HUNT_TYPE_ID}">
             <td class="headerC">
                 <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("catalog_name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Catalog</a>
             </td>
@@ -264,9 +281,11 @@
         <td class="headerC" nowrap="nowrap">
             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("reg_end_date")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submission<br>Due Date</a>
             </td>
+    <c:if test="${pt != BUG_HUNT_TYPE_ID}">
         <td class="headerC" nowrap="nowrap">
             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("final_review_end_date")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Final Review<br>Due Date</a>
             </td>
+    </c:if>
         <td class="headerC">
             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("current_phase")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Current Phase</a>
         </td>
@@ -289,7 +308,7 @@
             </c:if>
             <c:if test="${pt != ARCHITECTURE_TYPE_ID && pt != ASSEMBLY_TYPE_ID && pt != TEST_SUITES_TYPE_ID &&
                 pt != TEST_SCENARIOS_TYPE_ID && pt != UI_PROTOTYPE_TYPE_ID && pt != RIA_BUILD_TYPE_ID &&
-                pt != RIA_COMPONENT_TYPE_ID && pt != CONTENT_CREATION_TYPE_ID && pt != REPORTING_TYPE_ID}">
+                pt != RIA_COMPONENT_TYPE_ID && pt != CONTENT_CREATION_TYPE_ID && pt != REPORTING_TYPE_ID && pt != BUG_HUNT_TYPE_ID}">
             <td class="valueC">
                 <tc_tags:languageIcon catalogName = "<%=resultRow.getStringItem("catalog_name")%>" aolBrand="<%=(resultRow.getItem("aol_brand").getResultData() != null)%>"
                                       paypalBrand="<%=(resultRow.getItem("paypal_brand") != null && resultRow.getItem("paypal_brand").getResultData() != null)%>"/>
@@ -319,9 +338,11 @@
             <td class="valueC" nowrap="nowrap">
                 <rsc:item name="reg_end_date" row="<%=resultRow%>" format="MM.dd.yyyy"/>
             </td>
-            <td class="valueC" nowrap="nowrap">
-                <rsc:item name="final_review_end_date" row="<%=resultRow%>" format="MM.dd.yyyy"/>
-            </td>
+            <c:if test="${pt != BUG_HUNT_TYPE_ID}">
+                <td class="valueC" nowrap="nowrap">
+                    <rsc:item name="final_review_end_date" row="<%=resultRow%>" format="MM.dd.yyyy"/>
+                </td>
+            </c:if>
             <td class="valueC">
                 <rsc:item name="current_phase" row="<%=resultRow%>"/>
             </td>

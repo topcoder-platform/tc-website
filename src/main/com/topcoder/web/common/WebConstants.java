@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common;
 
@@ -92,8 +92,16 @@ package com.topcoder.web.common;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, snow01, FireIce, lmmortal, TCSASSEMBER
- * @version 1.6.6
+ * <p>
+  *   Version 1.6.7 (Release Assembly - TopCoder BugHunt Competition Integration) Change notes:
+  *   <ol>
+  *     <li>Added constants {@link #BUG_HUNT_PROJECT_TYPE}, {@link #BUG_HUNT_SPECIFICATION_PROJECT_TYPE}, {@link #PHASE_BUG_HUNT}
+ *      and {@link #PHASE_BUG_HUNT_SPECIFICATION}</li>
+  *   </ol>
+  * </p>
+ *
+ * @author dok, pulky, snow01, FireIce, lmmortal, TCSASSEMBLER
+ * @version 1.6.7
  */
 public interface WebConstants {
     public static final String HANDLE = "ha";
@@ -726,6 +734,14 @@ public interface WebConstants {
     public static final int REPORTING_PROJECT_TYPE = 36;
 
     /**
+     * <p>
+     *  An <code>int</code> representing the bug hunt project type id.
+     * </p>
+     * @since 1.6.7
+     */
+    public static final int BUG_HUNT_PROJECT_TYPE = 9;
+
+    /**
      * <p>An <code>long</code> representing content creation specification project category id.</p>
 	 * @since 1.6.2
      */
@@ -738,6 +754,15 @@ public interface WebConstants {
      */
     public static final long REPORTING_SPECIFICATION_PROJECT_TYPE =
 	    REPORTING_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;
+
+
+    /**
+     * <p>
+     *  An <code>int</code> representing the bug hunt specification project id.
+     * </p>
+     * @since 1.6.7
+     */
+    public static final long BUG_HUNT_SPECIFICATION_PROJECT_TYPE = BUG_HUNT_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;
 
     /**
      * <p>An <code>long</code> representing content creation phase id.</p>
@@ -752,6 +777,14 @@ public interface WebConstants {
     public static final long PHASE_REPORTING = REPORTING_PROJECT_TYPE + GENERAL_PHASE_OFFSET;
 
     /**
+     * <p>
+     *  An <code>long</code> representing bug hunt project phase id.
+     * </p>
+     * @since 1.6.7
+     */
+    public static final long PHASE_BUG_HUNT = BUG_HUNT_PROJECT_TYPE + GENERAL_PHASE_OFFSET;
+
+    /**
      * <p>An <code>long</code> representing reporting specification phase id.</p>
 	 * @since 1.6.5
      */
@@ -764,6 +797,14 @@ public interface WebConstants {
      */
     public static final long PHASE_CONTENT_CREATION_SPECIFICATION =
 	    PHASE_CONTENT_CREATION + SPECIFICATION_COMPETITION_OFFSET;
+
+    /**
+     * <p>
+     *  An <code>long</code> represenintg bug hunt specification phase id.
+     * </p>
+     * @since 1.6.7
+     */
+    public static final long PHASE_BUG_HUNT_SPECIFICATION = PHASE_BUG_HUNT + SPECIFICATION_COMPETITION_OFFSET;
 
     /**
      * <p>A <code>String</code> representing clients attribute key.</p>

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.development;
 
@@ -170,12 +170,22 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *           </ul>
  *         </td>
  *     </tr>
+ *     <tr>
+  *         <td>Version 1.14 (Release Assembly - TopCoder BugHunt Competition Integration)</td>
+  *         <td>
+  *           <ul>
+  *             <li>Updated {@link #getProjectDetailPage(int)} method.</li>
+  *             <li>Updated {@link #getRegistrantsCommandName(int)} method.</li>
+  *             <li>Updated {@link #getProjectTypeId(com.topcoder.web.common.TCRequest)} method.</li>
+  *           </ul>
+  *         </td>
+  *     </tr>
 
  *   </table>
  * </p>
  *
  * @author dok, isv, pulky, VolodymyrK, Blues, FireIce, lmmortal, TCSASSEMBER
- * @version 1.13
+ * @version 1.14
  */
 public abstract class Base extends ShortHibernateProcessor {
 
@@ -270,6 +280,8 @@ public abstract class Base extends ShortHibernateProcessor {
             return "/contentcreation/projectDetail.jsp";
         } else if (projectTypeId ==Constants.REPORTING_PROJECT_TYPE) {
             return "/reporting/projectDetail.jsp";
+        } else if (projectTypeId == Constants.BUG_HUNT_PROJECT_TYPE) {
+            return "/bughunt/projectDetail.jsp";
         } else {
             return "";
         }
@@ -296,6 +308,7 @@ public abstract class Base extends ShortHibernateProcessor {
             || projectTypeId == Constants.RIA_COMPONENT_PROJECT_TYPE
             || projectTypeId == Constants.COPILOT_POSTING_PROJECT_TYPE
             || projectTypeId == Constants.CONTENT_CREATION_PROJECT_TYPE
+            || projectTypeId == Constants.BUG_HUNT_PROJECT_TYPE
             || projectTypeId == Constants.REPORTING_PROJECT_TYPE) {
             return "registrants";
         } else {
@@ -396,6 +409,8 @@ public abstract class Base extends ShortHibernateProcessor {
                 projectTypeId = Constants.CONTENT_CREATION_PROJECT_TYPE;
             } else if (String.valueOf(SoftwareComponent.REPORTING_PHASE).equals(phaseId)) {
                 projectTypeId = Constants.REPORTING_PROJECT_TYPE;
+            } else if (String.valueOf(SoftwareComponent.BUG_HUNT_PHASE).equals(phaseId)) {
+                projectTypeId = Constants.BUG_HUNT_PROJECT_TYPE;
             }
         }
         return projectTypeId;

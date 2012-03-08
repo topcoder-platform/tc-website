@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2001-2010 TopCoder Inc.  All Rights Reserved.
+ * Copyright (c) 2001-2012 TopCoder Inc.  All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request;
 
@@ -37,8 +37,14 @@ import com.topcoder.web.tc.model.ActiveContestsSummary;
  * reporting.
  * </p>
  *
- * @author pulky, Blues, FireIce, lmmortal
- * @version 1.3
+ * <p>
+ * (Release Assembly - TopCoder BugHunt Competition Integration)
+ * Version 1.4 changes: Updated {@link #getOnlineReviewSummary()} method to add active contest summary for
+ * Bug Hunt.
+ * </p>
+ *
+ * @author pulky, Blues, FireIce, lmmortal, TCSASSEMBLER
+ * @version 1.4
  */
 public class HomeHelper {
 
@@ -199,6 +205,18 @@ public class HomeHelper {
                 summary.setPrizeTotal(row.getFloatItem("total_prizes"));
             }
             ret.put(Home.CONTENT_CREATION, summary);
+        }
+
+        ResultSetContainer bugHunt = dataMap.get("bug_hunt_active_contests_summary");
+        if (!bugHunt.isEmpty()) {
+            ResultSetContainer.ResultSetRow row = bugHunt.get(0);
+            summary = new ActiveContestsSummary();
+            summary.setContestCount(row.getIntItem("total_contests"));
+            summary.setName(row.getStringItem("category_name"));
+            if (row.getItem("total_prizes").getResultData() != null) {
+                summary.setPrizeTotal(row.getFloatItem("total_prizes"));
+            }
+            ret.put(Home.BUG_HUNT, summary);
         }
 
         for (ResultSetContainer.ResultSetRow row : dataMap.get("homepage_active_contest_summary")) {

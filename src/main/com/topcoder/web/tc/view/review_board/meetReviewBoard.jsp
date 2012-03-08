@@ -1,8 +1,8 @@
 <%--
-  - Author: pulky, snow01, FireIce, lmmortal
-  - Version: 1.5
+  - Author: pulky, snow01, FireIce, lmmortal, TCSASSEMBLER
+  - Version: 1.6
   - Since: TCS Release 2.2.2
-  - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
+  - Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page lists the members of the review board corresponding to the specified project type.
   - It displays the list of reviewers along with their handles and photos. The page also contains the links for
@@ -24,6 +24,9 @@
   -
   - Version 1.5 (Add Reporting Contest Type) Change Notes:
   - added support for handling new reporting competitions.
+  -
+  - Version 1.6 (Release Assembly - TopCoder BugHunt Competition Integration) Change Notes:
+  - added support for handling new Bug Hunt competitions.
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
@@ -42,6 +45,7 @@
 <c:set var="RIA_COMPONENT_PROJECT_TYPE" value="<%=Constants.RIA_COMPONENT_PROJECT_TYPE%>" />
 <c:set var="CONTENT_CREATION_PROJECT_TYPE" value="<%=Constants.CONTENT_CREATION_PROJECT_TYPE%>" />
 <c:set var="REPORTING_PROJECT_TYPE" value="<%=Constants.REPORTING_PROJECT_TYPE%>" />
+<c:set var="BUG_HUNT_PROJECT_TYPE" value="<%=Constants.BUG_HUNT_PROJECT_TYPE%>" />
 
 <c:set var="projectType" value="${param[PROJECT_TYPE_ID]}"/>
 
@@ -72,6 +76,9 @@
     </c:when>
     <c:when test="${projectType == REPORTING_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Reporting"/>
+    </c:when>
+    <c:when test="${projectType == BUG_HUNT_PROJECT_TYPE}">
+        <c:set var="projectTypeDesc" value="Bug Hunt"/>
     </c:when>
 </c:choose>
 
@@ -131,6 +138,11 @@
                     <jsp:param name="level1" value="reporting"/>
                 </jsp:include>
             </c:when>
+            <c:when test="${projectType == BUG_HUNT_PROJECT_TYPE}">
+                <jsp:include page="/top.jsp" >
+                    <jsp:param name="level1" value="bug_hunt"/>
+                </jsp:include>
+            </c:when>
         </c:choose>
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <tr valign="top">
@@ -181,7 +193,12 @@
                             <jsp:include page="/includes/global_left.jsp">
                                 <jsp:param name="node" value="reporting_review_board"/>
                             </jsp:include>
-                        </c:when>                        
+                        </c:when>
+                        <c:when test="${projectType == BUG_HUNT_PROJECT_TYPE}">
+                            <jsp:include page="/includes/global_left.jsp">
+                                <jsp:param name="node" value="bug_hunt_review_board"/>
+                            </jsp:include>
+                        </c:when>
                     </c:choose>
                 </td>
                 <!-- Left Column Ends -->
@@ -239,6 +256,12 @@
                             <jsp:include page="/page_title.jsp">
                                 <jsp:param name="image" value="content_creation"/>
                                 <jsp:param name="title" value="Meet the Content Creation Review Board"/>
+                            </jsp:include>
+                        </c:when>
+                        <c:when test="${projectType == BUG_HUNT_PROJECT_TYPE}">
+                            <jsp:include page="/page_title.jsp">
+                                <jsp:param name="image" value="bug_hunt"/>
+                                <jsp:param name="title" value="Meet the Bug Hunt Review Board"/>
                             </jsp:include>
                         </c:when>
                     </c:choose>
@@ -394,6 +417,12 @@
                             <jsp:include page="/public_right.jsp">
                                 <jsp:param name="level1" value="review_board"/>
                                 <jsp:param name="level2" value="reporting"/>
+                            </jsp:include>
+                        </c:when>
+                        <c:when test="${projectType == BUG_HUNT_PROJECT_TYPE}">
+                            <jsp:include page="/public_right.jsp">
+                                <jsp:param name="level1" value="review_board"/>
+                                <jsp:param name="level2" value="bug_hunt"/>
                             </jsp:include>
                         </c:when>
                     </c:choose>

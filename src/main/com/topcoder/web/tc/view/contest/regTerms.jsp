@@ -1,7 +1,7 @@
 <%--
-  - Author: pulky, FireIce, lmmortal, TCSASSEMBER
-  - Version: 1.8
-  - Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
+  - Author: pulky, FireIce, lmmortal, TCSASSEMBLER
+  - Version: 1.9
+  - Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page shows the registration terms for a specific project.
   -
@@ -28,6 +28,9 @@
   -
   - Version 1.8 (TopCoder Terms of Use Management Refactoring v1.0) change:
   - Added support for the new terms of use agreement work flow (Terms Of Use Group).
+  -
+  - Version 1.9 (Release Assembly - TopCoder BugHunt Competition Integration) changes:
+  - Added support for new Bug Hunt competitions
 --%>
 <%@ page language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -67,6 +70,7 @@
 <c:set value="<%=Constants.COPILOT_POSTING_PROJECT_TYPE%>" var="COPILOT_POSTING_PROJECT_TYPE"/>
 <c:set value="<%=Constants.CONTENT_CREATION_PROJECT_TYPE%>" var="CONTENT_CREATION_PROJECT_TYPE"/>
 <c:set value="<%=Constants.REPORTING_PROJECT_TYPE%>" var="REPORTING_PROJECT_TYPE"/>
+<c:set value="<%=Constants.BUG_HUNT_PROJECT_TYPE%>" var="BUG_HUNT_PROJECT_TYPE"/>
 <c:set value="<%=Constants.TERMS_OF_USE_ID%>" var="TERMS_OF_USE_ID"/>
 <c:set value="<%=BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
 <c:set value="<%=Constants.PROJECT_ID%>" var="PROJECT_ID"/>
@@ -184,6 +188,11 @@ function goBack() {
                         <jsp:param name="node" value="reporting_compete"/>
                     </jsp:include>
                 </c:when>
+                <c:when test="${pt == BUG_HUNT_PROJECT_TYPE}">
+                    <jsp:include page="/includes/global_left.jsp">
+                        <jsp:param name="node" value="bug_hunt_compete"/>
+                    </jsp:include>
+                </c:when>
             </c:choose>
         </td>
 <%-- Left Column Ends --%>
@@ -267,6 +276,12 @@ function goBack() {
                 <c:when test="${pt == REPORTING_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="reporting"/>
+                        <jsp:param name="title" value="Active Contests"/>
+                    </jsp:include>
+                </c:when>
+                <c:when test="${pt == BUG_HUNT_PROJECT_TYPE}">
+                    <jsp:include page="/page_title.jsp">
+                        <jsp:param name="image" value="bug_hunt"/>
                         <jsp:param name="title" value="Active Contests"/>
                     </jsp:include>
                 </c:when>

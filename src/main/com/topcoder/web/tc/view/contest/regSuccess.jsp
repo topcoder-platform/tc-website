@@ -1,7 +1,7 @@
 <%--
-  - Author: pulky, FireIce, lmmortal
-  - Version: 1.5
-  - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
+  - Author: pulky, FireIce, lmmortal, TCSASSEMBLER
+  - Version: 1.6
+  - Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page shows a successful registration message after registration.
   -
@@ -19,6 +19,9 @@
   -
   - Version 1.5 (Add Reporting Contest Type) changes:
   - Added support for new Reporting competitions.
+  -
+  - Version 1.6 (Release Assembly - TopCoder BugHunt Competition Integration) changes:
+  - Added support for new Bug Hunt competitions.
 --%>
 <%@ page language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -52,6 +55,7 @@
 <c:set value="<%=Constants.COPILOT_POSTING_PROJECT_TYPE%>" var="COPILOT_POSTING_PROJECT_TYPE"/>
 <c:set value="<%=Constants.CONTENT_CREATION_PROJECT_TYPE%>" var="CONTENT_CREATION_PROJECT_TYPE"/>
 <c:set value="<%=Constants.REPORTING_PROJECT_TYPE%>" var="REPORTING_PROJECT_TYPE"/>
+<c:set value="<%=Constants.BUG_HUNT_PROJECT_TYPE%>" var="BUG_HUNT_PROJECT_TYPE"/>
 
 <body>
 
@@ -123,6 +127,11 @@
                 <c:when test="${pt == REPORTING_PROJECT_TYPE}">
                     <jsp:include page="/includes/global_left.jsp">
                         <jsp:param name="node" value="reporting_compete"/>
+                    </jsp:include>
+                </c:when>
+                <c:when test="${pt == BUG_HUNT_PROJECT_TYPE}">
+                    <jsp:include page="/includes/global_left.jsp">
+                        <jsp:param name="node" value="bug_hunt_compete"/>
                     </jsp:include>
                 </c:when>
             </c:choose>
@@ -207,6 +216,12 @@
                 <c:when test="${pt == REPORTING_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="reporting"/>
+                        <jsp:param name="title" value="Active Contests"/>
+                    </jsp:include>
+                </c:when>
+                <c:when test="${pt == BUG_HUNT_PROJECT_TYPE}">
+                    <jsp:include page="/page_title.jsp">
+                        <jsp:param name="image" value="bug_hunt"/>
                         <jsp:param name="title" value="Active Contests"/>
                     </jsp:include>
                 </c:when>

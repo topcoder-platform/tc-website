@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request;
 
@@ -52,8 +52,14 @@ import com.topcoder.web.tc.controller.request.util.TCCC06ComponentTerms;
  *     <li>Added {@link #REPORTING} constant.</li>
  *   </ol>
  * </p>
- * @author dok, pulky, Blues, FireIce
- * @version 1.5
+ * <p>
+ *   Version 1.6 (Release Assembly - TopCoder BugHunt Competition Integration) Change notes:
+ *   <ol>
+ *     <li>Added {@link #BUG_HUNT} constant.</li>
+ *   </ol>
+ * </p>
+ * @author dok, pulky, Blues, FireIce, TCSASSEMBLER
+ * @version 1.6
  */
 public class Home extends Base {
     public static final String DESIGN = "design";
@@ -102,6 +108,14 @@ public class Home extends Base {
      * @since 1.5
      */
     public static final String REPORTING = "reporting";
+
+    /**
+     * <p>
+     *     A <code>String</code> representing Bug Hunt key.
+     * </p>
+     * @since 1.6
+     */
+    public static final String BUG_HUNT = "bughunt";
 
     public static final String BUGS = "bugs";
     public static final String DR = "dr";

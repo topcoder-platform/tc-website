@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common.model;
 
@@ -102,10 +102,15 @@ import com.topcoder.shared.util.logging.Logger;
  *   <ol>
  *     <li>Added support for Reporting Contest Type.</li>
  *   </ol>
+ *
+ *   Version 1.2.0 (Release Assembly - TopCoder BugHunt Competition Integration) Change notes:
+  *   <ol>
+  *     <li>Added support for Bug Hunt Contest Type.</li>
+  *   </ol>
  * </p>
  *
- * @author dok, ivern, isv, pulky, snow01, VolodymyrK, FireIce, flexme
- * @version 1.1.8
+ * @author dok, ivern, isv, pulky, snow01, VolodymyrK, FireIce, flexme, TCSASSEMBLER
+ * @version 1.2.0
  */
 
 public class DefaultPriceComponent implements SoftwareComponent {
@@ -232,7 +237,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
             return new ArchitectureReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
         } else if (phaseId == SPECIFICATION_PHASE || phaseId == TEST_SUITES_PHASE ||
                    phaseId == TEST_SCENARIOS_PHASE || phaseId == COPILOT_POSTING_PHASE || phaseId == CONTENT_CREATION_PHASE ||
-                   phaseId == REPORTING_PHASE) {
+                   phaseId == REPORTING_PHASE || phaseId == BUG_HUNT_PHASE) {
             return new ApplicationReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
         } else if (phaseId == UI_PROTOTYPE_PHASE || phaseId == RIA_BUILD_PHASE ||
                 phaseId == RIA_COMPONENT_PHASE) {
@@ -244,7 +249,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
                 phaseId == TEST_SUITES_SPECIFICATION_PHASE || phaseId == TEST_SCENARIOS_SPECIFICATION_PHASE ||
                 phaseId == UI_PROTOTYPE_SPECIFICATION_PHASE || phaseId == RIA_BUILD_SPECIFICATION_PHASE ||
                 phaseId == RIA_COMPONENT_SPECIFICATION_PHASE || phaseId == COPILOT_POSTING_SPECIFICATION_PHASE ||
-                phaseId == CONTENT_CREATION_SPECIFICATION_PHASE) {
+                phaseId == CONTENT_CREATION_SPECIFICATION_PHASE || phaseId == BUG_HUNT_SPECIFICATION_PHASE) {
             return new SpecificationReviewerPaymentCalculator(phaseId);
         } else if (phaseId == ICONSETS_PHASE || phaseId == STORYBOARDS_PHASE || phaseId == WIREFRAMES_PHASE ||
                 phaseId == LOGOS_PHASE || phaseId == PRINT_PHASE || phaseId == STUDIO_SPECIFICATION_PHASE ||
@@ -386,6 +391,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
             case APPLICATIONFRONTEND_PHASE : return 75;
             case OTHER_PHASE : return 75;
             case REPORTING_PHASE : return 50;
+            case BUG_HUNT_PHASE : return 50;
             default: return 50;
         }
     }
@@ -425,6 +431,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
             System.out.println("Copilot Posting phaseId                 : " + COPILOT_POSTING_PHASE);
             System.out.println("Content Creation phaseId                : " + CONTENT_CREATION_PHASE);
             System.out.println("Reporting phaseId                       : " + REPORTING_PHASE);
+            System.out.println("Bug Hunt phaseId                        : " + BUG_HUNT_PHASE);
             System.out.println("Specification Review phaseId            : " + SPECIFICATION_REVIEW_PHASE);
             System.out.println("Design Specification phaseId            : " + DESIGN_SPECIFICATION_PHASE);
             System.out.println("Development Specification phaseId       : " + DEVELOPMENT_SPECIFICATION_PHASE);
@@ -437,7 +444,8 @@ public class DefaultPriceComponent implements SoftwareComponent {
             System.out.println("RIA Build Specification phaseId         : " + RIA_BUILD_SPECIFICATION_PHASE);
             System.out.println("RIA Component Specification phaseId     : " + RIA_COMPONENT_SPECIFICATION_PHASE);
             System.out.println("Copilot Posting Specification phaseId   : " + COPILOT_POSTING_SPECIFICATION_PHASE);
-            System.out.println("Content Creation Specification phaseId   : " + CONTENT_CREATION_SPECIFICATION_PHASE);
+            System.out.println("Content Creation Specification phaseId  : " + CONTENT_CREATION_SPECIFICATION_PHASE);
+            System.out.println("Bug Hunt Specification phaseId          : " + BUG_HUNT_SPECIFICATION_PHASE);
         } else {
             DefaultPriceComponent sc = new DefaultPriceComponent(1, Integer.parseInt(args[0]),
                                                                  Integer.parseInt(args[1]), Integer.parseInt(args[2]),
