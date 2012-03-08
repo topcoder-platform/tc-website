@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.contest;
 
@@ -84,8 +84,14 @@ import com.topcoder.web.tc.controller.request.development.Base;
  *     <li>Updated {@link #validation()} method.</li>
  *   </ol>
  * </p>
- * @author dok, pulky, Blues, FireIce, lmmortal
- * @version 1.7
+ * <p>
+ *   Version 1.8 (Release Assembly - TopCoder BugHunt Competition Integration) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #validation()} method to support Bug Hunt project type.</li>
+ *   </ol>
+ * </p>
+ * @author dok, pulky, Blues, FireIce, lmmortal, TCSASSEMBLER
+ * @version 1.8
  */
 public class ViewRegistration extends Base {
 
@@ -188,6 +194,7 @@ public class ViewRegistration extends Base {
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.RIA_COMPONENT_PROJECT_TYPE)) &&
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.COPILOT_POSTING_PROJECT_TYPE)) &&
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.CONTENT_CREATION_PROJECT_TYPE)) &&
+                !String.valueOf(projectTypeId).equals(String.valueOf(Constants.BUG_HUNT_PROJECT_TYPE)) &&
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.REPORTING_PROJECT_TYPE))) {
             throw new NavigationException("Invalid project specified (wrong category)");
         }

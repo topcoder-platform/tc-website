@@ -157,14 +157,25 @@ public class ReviewProjectDetail extends Base {
     private void retrieveReviewProjectDetail(String projectId, int phaseId, String projectTypeId) throws TCWebException {
         try {
             Request r = new Request();
-            r.setContentHandle("review_project_detail");
+            if(projectTypeId.equals(String.valueOf(Constants.BUG_HUNT_PROJECT_TYPE))) {
+                r.setContentHandle("bug_hunt_review_project_detail");
+            } else {
+                r.setContentHandle("review_project_detail");
+            }
             r.setProperty(Constants.PROJECT_ID, projectId);
             r.setProperty(Constants.PHASE_ID, String.valueOf(phaseId));
             r.setProperty(Constants.PROJECT_TYPE_ID, projectTypeId);
             getRequest().setAttribute("phase_id", new Integer(phaseId));
 
             Map results = getDataAccess().getData(r);
-            ResultSetContainer detail = (ResultSetContainer) results.get("review_project_detail");
+            ResultSetContainer detail;
+
+            if(projectTypeId.equals(String.valueOf(Constants.BUG_HUNT_PROJECT_TYPE))) {
+                detail = (ResultSetContainer) results.get("bug_hunt_review_project_detail");
+            }
+            else {
+                detail = (ResultSetContainer) results.get("review_project_detail");
+            }
             getRequest().setAttribute("projectDetail", detail);
 
             getRequest().setAttribute("specReviewExtensionNeeded", (Boolean) false);

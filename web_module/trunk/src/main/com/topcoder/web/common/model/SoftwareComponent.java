@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common.model;
 
@@ -62,8 +62,14 @@ import com.topcoder.web.common.WebConstants;
  *     <li>Added {@link #REPORTING_PHASE} constant for new Reporting contest type.</li>
  *   </ol>
  * </p>
- * @author dok, pulky, snow01, VolodymyrK, FireIce, flexme
- * @version 1.6
+ * <p>
+  *   Version 1.8 (Release Assembly - TopCoder BugHunt Competition Integration) Change noets:
+  *   <ol>
+  *     <li>Added {@link #BUG_HUNT_PHASE} and {@link #BUG_HUNT_SPECIFICATION_PHASE} constant for new Bug Hunt contest type.</li>
+  *   </ol>
+  * </p>
+ * @author dok, pulky, snow01, VolodymyrK, FireIce, flexme, TCSASSEMBLER
+ * @version 1.8
  */
 public interface SoftwareComponent extends Cloneable, Serializable {
 
@@ -294,6 +300,19 @@ public interface SoftwareComponent extends Cloneable, Serializable {
      */
     public final static int REPORTING_PHASE =
             (int) WebConstants.PHASE_REPORTING;
+
+    /**
+     * <p> An <code>int</code> representing bug race phase id.</p>
+     * @since 1.8
+     */
+    public final static int BUG_HUNT_PHASE = (int) WebConstants.PHASE_BUG_HUNT;
+
+    /**
+     * <p>An <code>int</code> representing bug race specification phase id.</p>
+     * @since 1.8
+     */
+    public final static int BUG_HUNT_SPECIFICATION_PHASE =
+                (int) WebConstants.BUG_HUNT_SPECIFICATION_PROJECT_TYPE;
 
     public final static int LEVEL1 = 100;
     public final static int LEVEL2 = 200;

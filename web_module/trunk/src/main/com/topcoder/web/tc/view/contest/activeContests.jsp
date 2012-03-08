@@ -1,7 +1,7 @@
 <%--
-  - Author: pulky, FireIce
-  - Version: 1.4
-  - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
+  - Author: pulky, FireIce, TCSASSEMBLER
+  - Version: 1.6
+  - Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page lists all active contests for a specific project type.
   -
@@ -15,8 +15,12 @@
   -
   - Version 1.4 (Content Creation Contest Online Review and TC Site Integration Assembly version 1.0) changes:
   - Added support for content creation.
+  -
   - Version 1.5 (Add Reporting Contest Type) changes:
   - Added support for reporting.
+  -
+  - Version 1.6 (Release Assembly - TopCoder BugHunt Competition Integration) changes:
+  - Added support for Bug Hunt project type.
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
@@ -40,6 +44,7 @@
 <c:set value="<%=Constants.RIA_COMPONENT_PROJECT_TYPE%>" var="RIA_COMPONENT_TYPE_ID"/>
 <c:set value="<%=Constants.CONTENT_CREATION_PROJECT_TYPE%>" var="CONTENT_CREATION_TYPE_ID"/>
 <c:set value="<%=Constants.REPORTING_PROJECT_TYPE%>" var="REPORTING_TYPE_ID"/>
+<c:set value="<%=Constants.BUG_HUNT_PROJECT_TYPE%>" var="BUG_HUNT_TYPE_ID"/>
 
 
 <%@ page contentType="text/html;charset=utf-8" %>
@@ -125,6 +130,11 @@
                     <jsp:param name="node" value="reporting_compete"/>
                 </jsp:include>
             </c:when>
+            <c:when test="${pt == BUG_HUNT_TYPE_ID}">
+                  <jsp:include page="/includes/global_left.jsp">
+                      <jsp:param name="node" value="bug_hunt_compete"/>
+                  </jsp:include>
+            </c:when>
           </c:choose>
         </td>
 <%-- Left Column Ends --%>
@@ -199,6 +209,12 @@
                 <jsp:param name="title" value="Active Contests"/>
             </jsp:include>
         </c:when>
+          <c:when test="${pt == BUG_HUNT_TYPE_ID}">
+              <jsp:include page="/page_title.jsp">
+                  <jsp:param name="image" value="bug_hunt"/>
+                  <jsp:param name="title" value="Active Contests"/>
+              </jsp:include>
+          </c:when>
       </c:choose>
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:10px;">
@@ -249,6 +265,10 @@
             <c:when test="${pt == REPORTING_TYPE_ID}">
                 <a href="/wiki/display/tc/How+to+Compete+in+Reporting+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
             </c:when>
+              <c:when test="${pt == BUG_HUNT_TYPE_ID}">
+                  <a href="/wiki/display/tc/How+to+Compete+in+Bug+Hunt+Competitions"><img
+                          src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br/><br/>
+              </c:when>
           </c:choose>
         </td>
     </tr>
@@ -311,6 +331,12 @@
             <a href="/tc?module=BasicRSS&amp;c=rss_Registration_Open&dsid=28&pt=36">Subscribe Now</a>
             <a href="/tc?module=BasicRSS&amp;c=rss_Registration_Open&dsid=28&pt=36"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
         </c:when>
+        <c:when test="${pt == BUG_HUNT_TYPE_ID}">
+              Competition opportunities via RSS -
+              <a href="/tc?module=BasicRSS&amp;c=rss_Registration_Open&dsid=28&pt=9">Subscribe Now</a>
+              <a href="/tc?module=BasicRSS&amp;c=rss_Registration_Open&dsid=28&pt=9"><img
+                      src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
+        </c:when>
       </c:choose>
     <br /><br />
 </div>
@@ -359,6 +385,9 @@
             </c:when>
             <c:when test="${pt == REPORTING_TYPE_ID}">
                 Active Reporting Contests</td>
+            </c:when>
+            <c:when test="${pt == BUG_HUNT_TYPE_ID}">
+                Active Bug Hunt Contests</td>
             </c:when>
           </c:choose>
     </tr>

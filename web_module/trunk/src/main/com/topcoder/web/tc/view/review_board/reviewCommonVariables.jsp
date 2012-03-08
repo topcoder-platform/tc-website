@@ -1,8 +1,8 @@
 <%--
-  - Author: pulky, snow01, FireIce, lmmortal
-  - Version: 1.3
+  - Author: pulky, snow01, FireIce, lmmortal, TCSASSEMBLER
+  - Version: 1.4
   - Since: Specification Review Integration 1.0
-  - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
+  - Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
   -
   - Version 1.1 (BUGR-3065) changes: added constants for UI prototype, RIA build and RIA component specification
   - reviews
@@ -15,6 +15,9 @@
   -
   - Version 1.3 (Add Reporting Contest Type) changes:
   - Added constants for new reporting competitions.
+  -
+  - Version 1.4 (Release Assembly - TopCoder BugHunt Competition Integration) changes:
+  - Added constants for new Bug Hunt competitions.
 --%>
 
 <%@ page import="com.topcoder.web.tc.Constants" %>
@@ -33,6 +36,7 @@
 <c:set var="ASSEMBLY_PROJECT_TYPE" value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>" scope="request"/>
 <c:set var="CONTENT_CREATION_PROJECT_TYPE" value="<%=Constants.CONTENT_CREATION_PROJECT_TYPE%>" scope="request"/>
 <c:set var="REPORTING_PROJECT_TYPE" value="<%=Constants.REPORTING_PROJECT_TYPE%>" scope="request"/>
+<c:set var="BUG_HUNT_PROJECT_TYPE" value="<%=Constants.BUG_HUNT_PROJECT_TYPE%>" scope="request"/>
 <c:set var="CONCEPTUALIZATION_SPECIFICATION_PROJECT_TYPE"
     value="<%=Constants.CONCEPTUALIZATION_SPECIFICATION_PROJECT_TYPE%>" scope="request"/>
 <c:set var="SPECIFICATION_SPECIFICATION_PROJECT_TYPE" value="<%=Constants.SPECIFICATION_SPECIFICATION_PROJECT_TYPE%>"
@@ -59,6 +63,8 @@
     value="<%=Constants.CONTENT_CREATION_SPECIFICATION_PROJECT_TYPE%>" scope="request"/>
 <c:set var="REPORTING_SPECIFICATION_PROJECT_TYPE"
     value="<%=Constants.REPORTING_SPECIFICATION_PROJECT_TYPE%>" scope="request"/>
+<c:set var="BUG_HUNT_SPECIFICATION_PROJECT_TYPE"
+    value="<%=Constants.BUG_HUNT_SPECIFICATION_PROJECT_TYPE%>" scope="request"/>
 
 <c:choose>
     <c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
@@ -169,6 +175,12 @@
         <c:set var="eligibleReviewBoardName" value="the TopCoder Reporting Review Board" scope="request"/>
         <c:set var="handleContext" value="reporting" scope="request"/>
     </c:when>
+    <c:when test="${projectType == BUG_HUNT_SPECIFICATION_PROJECT_TYPE}">
+        <c:set var="projectTypeDesc" value="Specification Review" scope="request"/>
+        <c:set var="projectTypeTitle" value="Specification Review" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="the TopCoder Bug Hunt Review Board" scope="request"/>
+        <c:set var="handleContext" value="bug_hunt" scope="request"/>
+    </c:when>
     <c:when test="${projectType == DESIGN_SPECIFICATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Specification Review" scope="request"/>
         <c:set var="projectTypeTitle" value="Specification Review" scope="request"/>
@@ -204,6 +216,12 @@
         <c:set var="projectTypeTitle" value="Reporting" scope="request"/>
         <c:set var="eligibleReviewBoardName" value="the TopCoder Reporting Review Board" scope="request"/>
         <c:set var="handleContext" value="reporting" scope="request"/>
+    </c:when>
+    <c:when test="${projectType == BUG_HUNT_PROJECT_TYPE}">
+        <c:set var="projectTypeDesc" value="Bug Hunt" scope="request"/>
+        <c:set var="projectTypeTitle" value="Bug Hunt" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="the TopCoder Bug Hunt Review Board" scope="request"/>
+        <c:set var="handleContext" value="bug_hunt" scope="request"/>
     </c:when>
     <c:when test="${projectType == DESIGN_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Component" scope="request"/>

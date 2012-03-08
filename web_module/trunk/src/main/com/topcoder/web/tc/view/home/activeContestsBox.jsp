@@ -1,7 +1,7 @@
 <%--
-  - Author: TCSDEVELOPER, pulky, FireIce, lmmortal
-  - Version: 1.4
-  - Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
+  - Author: pulky, FireIce, lmmortal, TCSASSEMBLER
+  - Version: 1.5
+  - Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page displays the home page's active contest box.
   -
@@ -16,6 +16,9 @@
   -
   - Version 1.4 (Add Reporting Contest Type) changes:
   - Added support for new Reporting competitions.
+  -
+  - Version 1.5 (Release Assembly - TopCoder BugHunt Competition Integration) changes:
+  - Added support for new Bug Hunt competitions.
 --%>
 <%@ page import="com.topcoder.web.tc.controller.request.Home" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
@@ -43,6 +46,7 @@
 <c:set var="copilotposting" value="<%=Home.COPILOT_POSTING%>"/>
 <c:set var="contentcreation" value="<%=Home.CONTENT_CREATION%>"/>
 <c:set var="reporting" value="<%=Home.REPORTING%>"/>
+<c:set var="bughunt" value="<%=Home.BUG_HUNT%>"/>
 
 <div>
     <img src="/i/interface/rightNavTop.png" alt="" style="display: block;"/>
@@ -167,6 +171,20 @@
                             </td>
                         </tr>
                     </c:if>
+
+                    <c:if test="${activeContestsSummary[bughunt].contestCount>0}">
+
+                        <tr>
+                            <td class="value">
+                                <div class="prizes"><fmt:formatNumber
+                                        value="${activeContestsSummary[bughunt].prizeTotal}"
+                                        pattern="$###,###"/></div>
+                                <a href="/tc?module=ActiveContests&pt=9" class="gMetal">Bug Hunt</a>
+                                (${activeContestsSummary[bughunt].contestCount})
+                            </td>
+                        </tr>
+                    </c:if>
+
                     <c:if test="${activeContestsSummary[testSuites].contestCount>0}">
 
                         <tr>

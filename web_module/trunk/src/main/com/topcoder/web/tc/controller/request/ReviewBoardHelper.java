@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request;
 
@@ -61,11 +61,19 @@ import com.topcoder.web.common.WebConstants;
  *           </ul>
  *         </td>
  *     </tr>
+ *     <tr>
+ *         <td>Version 1.6 (Release Assembly - TopCoder BugHunt Competition Integration)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Updated {@link #isReviewBoardTypeSupported(String, boolean)} method.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
  *   </table>
  * </p>
  *
- * @author pulky, snow01, FireIce, lmmortal
- * @version 1.5
+ * @author pulky, snow01, FireIce, lmmortal, TCSASSEMBLER
+ * @version 1.6
  */
 public final class ReviewBoardHelper {
 
@@ -110,6 +118,7 @@ public final class ReviewBoardHelper {
             || reviewBoardType.equals(String.valueOf(WebConstants.RIA_BUILD_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.RIA_COMPONENT_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.CONTENT_CREATION_PROJECT_TYPE))
+            || reviewBoardType.equals(String.valueOf(WebConstants.BUG_HUNT_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.REPORTING_PROJECT_TYPE));
 
 		if (!supported && includeSpecificationReviews) {
@@ -125,6 +134,7 @@ public final class ReviewBoardHelper {
             || reviewBoardType.equals(String.valueOf(WebConstants.RIA_BUILD_SPECIFICATION_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.RIA_COMPONENT_SPECIFICATION_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.CONTENT_CREATION_SPECIFICATION_PROJECT_TYPE))
+            || reviewBoardType.equals(String.valueOf(WebConstants.BUG_HUNT_SPECIFICATION_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.REPORTING_SPECIFICATION_PROJECT_TYPE));
         }
 

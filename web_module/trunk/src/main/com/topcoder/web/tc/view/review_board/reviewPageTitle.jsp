@@ -1,6 +1,6 @@
 <%--
-  - Author: pulky, snow01, FireIce, lmmortal
-  - Version: 1.2
+  - Author: pulky, snow01, FireIce, lmmortal, TCSASSEMBLER
+  - Version: 1.3
   - Since: Specification Review Integration 1.0
   - Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
   -
@@ -12,6 +12,9 @@
   -
   - Version 1.2 (Add Reporting Contest Type) changes:
   - Added support for new reporting competitions.
+  -
+  - Version 1.3 (Release Assembly - TopCoder BugHunt Competition Integration) changes:
+  - Added support for new Bug Hunt competitions.
 --%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -91,6 +94,13 @@
         projectType == REPORTING_SPECIFICATION_PROJECT_TYPE}">
         <jsp:include page="/page_title.jsp">
             <jsp:param name="image" value="reporting"/>
+            <jsp:param name="title" value="Review Opportunities"/>
+        </jsp:include>
+    </c:when>
+    <c:when test="${projectType == BUG_HUNT_PROJECT_TYPE ||
+        projectType == BUG_HUNT_SPECIFICATION_PROJECT_TYPE}">
+        <jsp:include page="/page_title.jsp">
+            <jsp:param name="image" value="bug_hunt"/>
             <jsp:param name="title" value="Review Opportunities"/>
         </jsp:include>
     </c:when>

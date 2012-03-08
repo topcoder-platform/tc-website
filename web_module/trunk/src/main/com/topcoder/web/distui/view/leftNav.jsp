@@ -1,11 +1,12 @@
 <%--
- * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
  *
  * This JSP renders TopCoder web site's left navigation bar.
  *
  * Changes:
  * Add copilot pool link under Copilot Opportunites (TopCoder Copilot Pool Page Front End Assembly).
  * Add copilot posting link as active contests (Copilot Selection Contest Online Review and TC Site Integration Assembly)
+ * Add bug hunt contest type to left side panel (Release Assembly - TopCoder BugHunt Competition Integration)
  *
 --%>
 <%@ page language="java"%>
@@ -193,6 +194,17 @@
 							nav.search("m_bugraces_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/How+to+Compete+in+Bug+Race+Competitions", "How to Compete", "bugraces_how_to_compete"));
 					nav.search("m_bugraces_competitions").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/Active+Bug+Race+Competitions", "Active Contests", "bugraces_compete"));
 					nav.search("m_bugraces_competitions").addChild(new NavNode("http://apps.topcoder.com/wiki/x/FQG2AQ", "Review Opportunities", "bugraces_review"));
+                nav.search("competition_qa").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_bughunt_competitions')", "Bug Hunt", "m_bughunt_competitions"));
+    				nav.search("m_bughunt_competitions").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/BugHunt", "Overview", "bughunt_overview"));
+    				nav.search("m_bughunt_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_bughunt_support')", "Track Information", "m_bughunt_support"));
+    						nav.search("m_bughunt_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/How+to+Compete+in+Bug+Hunt+Competitions", "How to Compete", "bug_hunt_how_to_compete"));
+    						nav.search("m_bughunt_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/Bug+Hunt+Competition+Tutorial", "Tutorial", "bug_hunt_tutorial"));
+    						nav.search("m_bughunt_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/Bug+Hunt+Competition+Documentation", "Documentation", "bug_hunt_documentation"));
+    				nav.search("m_bughunt_competitions").addChild(new NavNode("http://community.topcoder.com/tc?module=ActiveContests&amp;pt=" + WebConstants.BUG_HUNT_PROJECT_TYPE, "Active Contests", "bug_hunt_compete"));
+    				nav.search("m_bughunt_competitions").addChild(new NavNode("http://community.topcoder.com/tc?module=ContestStatus&amp;pt="+  WebConstants.BUG_HUNT_PROJECT_TYPE, "Contest Status", "bug_hunt_contest_status"));
+    				nav.search("m_bughunt_competitions").addChild(new NavNode("http://community.topcoder.com/tc?module=CompList&amp;pt=" + WebConstants.BUG_HUNT_PROJECT_TYPE, "Past Contests", "bug_hunt_past"));
+    				nav.search("m_bughunt_competitions").addChild(new NavNode("http://community.topcoder.com/tc?module=ViewReviewProjects&amp;pt=" +  WebConstants.BUG_HUNT_PROJECT_TYPE, "Review Opportunities", "bug_hunt_review"));
+    				nav.search("m_bughunt_competitions").addChild(new NavNode("http://community.topcoder.com/tc?module=ReviewBoard&amp;pt=" + WebConstants.BUG_HUNT_PROJECT_TYPE, "Meet the Review Board", "bug_hunt_review_board"));
 
 			nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'competition_algo')", "Algorithm", "competition_algo"));
 				nav.search("competition_algo").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_algo_competitions')", "Single Round Matches (SRM)", "m_algo_competitions"));

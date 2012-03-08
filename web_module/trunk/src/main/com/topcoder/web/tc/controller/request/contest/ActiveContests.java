@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.contest;
 
@@ -46,10 +46,16 @@ import java.util.Map;
  *   <ol>
  *     <li>Updated {@link #DEFAULT_PROJECT_TYPES} constant to support Reporting type.</li>
  *   </ol>
+ *
+ *   Version 1.6 (Release Assembly - TopCoder BugHunt Competition Integration) Change notes:
+  *   <ol>
+  *     <li>Updated {@link #DEFAULT_PROJECT_TYPES} constant to support Bug Hunt project type.</li>
+  *   </ol>
+ *
  * </p>
  *
- * @author dok, pulky, Blues, FireIce, lmmortal
- * @version 1.5
+ * @author dok, pulky, Blues, FireIce, lmmortal, TCSASSEMBLER
+ * @version 1.6
  */
 public class ActiveContests extends ActiveContestsBase {
 
@@ -62,7 +68,7 @@ public class ActiveContests extends ActiveContestsBase {
         Constants.SPECIFICATION_PROJECT_TYPE, Constants.CONCEPTUALIZATION_PROJECT_TYPE,
         Constants.UI_PROTOTYPE_PROJECT_TYPE, Constants.RIA_BUILD_PROJECT_TYPE,
         Constants.RIA_COMPONENT_PROJECT_TYPE, Constants.COPILOT_POSTING_PROJECT_TYPE,
-        Constants.CONTENT_CREATION_PROJECT_TYPE, Constants.REPORTING_PROJECT_TYPE};
+        Constants.CONTENT_CREATION_PROJECT_TYPE, Constants.REPORTING_PROJECT_TYPE, Constants.BUG_HUNT_PROJECT_TYPE};
 
     public static final String DEFAULT_NAMESPACE = "com.topcoder.web.tc.controller.request.contest.ActiveContests";
 

@@ -1,7 +1,7 @@
 <%--
-  - Author: pulky, FireIce
-  - Version: 1.4
-  - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
+  - Author: pulky, FireIce, TCSASSEMBLER
+  - Version: 1.5
+  - Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page lists all past projects for a specific project type.
   -
@@ -16,8 +16,12 @@
   -
   - Version 1.4 (Content Creation Contest Online Review and TC Site Integration Assembly  1.0) changes:
   - Added support for new Content Creation.
+  -
   - Version 1.5 (Add Reporting Contest Type) changes:
   - Added support for new Reporting type.
+  -
+  - Version 1.6 (Release Assembly - TopCoder BugHunt Competition Integration) changes:
+  - Added support for new Bug Hunt type.
 --%>
 <%@  page language="java"
     import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*, com.topcoder.web.tc.Constants,
@@ -47,6 +51,7 @@
 <c:set value="<%=Constants.COPILOT_POSTING_PROJECT_TYPE%>" var="COPILOT_POSTING_TYPE_ID"/>
 <c:set value="<%=Constants.CONTENT_CREATION_PROJECT_TYPE%>" var="CONTENT_CREATION_TYPE_ID"/>
 <c:set value="<%=Constants.REPORTING_PROJECT_TYPE%>" var="REPORTING_TYPE_ID"/>
+<c:set value="<%=Constants.BUG_HUNT_PROJECT_TYPE%>" var="BUG_HUNT_TYPE_ID"/>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
@@ -165,6 +170,11 @@
                     <jsp:param name="node" value="reporting_past"/>
                 </jsp:include>
             </c:when>
+            <c:when test="${pt == BUG_HUNT_TYPE_ID}">
+                <jsp:include page="/includes/global_left.jsp">
+                    <jsp:param name="node" value="bug_hunt_past"/>
+                </jsp:include>
+            </c:when>
         </c:choose>
         </td>
 <!-- Left Column Ends -->
@@ -271,6 +281,13 @@
         </jsp:include>
         <span class="bodySubtitle">Application Statistics &gt; Reporting Contests</span><br>
     </c:when>
+    <c:when test="${pt == BUG_HUNT_TYPE_ID}">
+        <jsp:include page="../page_title.jsp" >
+            <jsp:param name="image" value="statistics_w"/>
+            <jsp:param name="title" value="Bug Hunt List"/>
+        </jsp:include>
+        <span class="bodySubtitle">Application Statistics &gt; Bug Hunt Contests</span><br>
+    </c:when>
 </c:choose>
 
 <form name="compListForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
@@ -346,6 +363,10 @@
                 <c:when test="${pt == REPORTING_TYPE_ID}">
                     <td class="tableTitle" colspan="9">
                     Reporting
+                </c:when>
+                <c:when test="${pt == BUG_HUNT_TYPE_ID}">
+                    <td class="tableTitle" colspan="9">
+                    Bug Hunt
                 </c:when>
             </c:choose>
 
