@@ -108,9 +108,10 @@
             <td class="rtHeader" align="center" colspan="2"><div style="width:320px;">Last Post</div></td>
         </tr>
         <tc-webtag:iterator id="subcategory" type="com.jivesoftware.forum.ForumCategory" iterator='<%=itCategories%>'>
-            <% trackerClass = (user == null || subcategory.getMessageCount() <= 0 || readTracker.getReadStatus(user, subcategory.getLatestMessage()) == ReadTracker.READ
+	
+            <% trackerClass = (user == null || subcategory.getMessageCount() <= 0 || subcategory.getLatestMessage() == null || readTracker.getReadStatus(user, subcategory.getLatestMessage()) == ReadTracker.READ
                     || ("true".equals(user.getProperty("markWatchesRead")) && watchManager.isWatched(user, subcategory.getLatestMessage().getForumThread()))) ? "rtLinkOld" : "rtLinkBold"; %>
-            <% if (subcategory.getMessageCount() > 0 || ("true".equals(category.getProperty(ForumConstants.PROPERTY_SHOW_EMPTY_FORUMS_ON_MAIN)))) { %>
+            <% if ((subcategory.getMessageCount() > 0  && subcategory.getLatestMessage() != null) || ("true".equals(category.getProperty(ForumConstants.PROPERTY_SHOW_EMPTY_FORUMS_ON_MAIN)))) { %>
             <tr>
                 <td class="rtThreadCellWrap">
                 	<%	if (category.getID() == WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID) { %>
