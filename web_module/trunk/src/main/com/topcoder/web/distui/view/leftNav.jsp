@@ -195,11 +195,11 @@
 					nav.search("m_bugraces_competitions").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/Active+Bug+Race+Competitions", "Active Contests", "bugraces_compete"));
 					nav.search("m_bugraces_competitions").addChild(new NavNode("http://apps.topcoder.com/wiki/x/FQG2AQ", "Review Opportunities", "bugraces_review"));
                 nav.search("competition_qa").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_bughunt_competitions')", "Bug Hunt", "m_bughunt_competitions"));
-    				nav.search("m_bughunt_competitions").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/BugHunt", "Overview", "bughunt_overview"));
+    				nav.search("m_bughunt_competitions").addChild(new NavNode("http://apps.topcoder.com/wiki/x/W5ogAg", "Overview", "bughunt_overview"));
     				nav.search("m_bughunt_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_bughunt_support')", "Track Information", "m_bughunt_support"));
-    						nav.search("m_bughunt_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/How+to+Compete+in+Bug+Hunt+Competitions", "How to Compete", "bug_hunt_how_to_compete"));
-    						nav.search("m_bughunt_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/Bug+Hunt+Competition+Tutorial", "Tutorial", "bug_hunt_tutorial"));
-    						nav.search("m_bughunt_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/Bug+Hunt+Competition+Documentation", "Documentation", "bug_hunt_documentation"));
+    						nav.search("m_bughunt_support").addChild(new NavNode("http://apps.topcoder.com/wiki/x/cpogAg", "How to Compete", "bug_hunt_how_to_compete"));
+    						//nav.search("m_bughunt_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/Bug+Hunt+Competition+Tutorial", "Tutorial", "bug_hunt_tutorial"));
+    						//nav.search("m_bughunt_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/Bug+Hunt+Competition+Documentation", "Documentation", "bug_hunt_documentation"));
     				nav.search("m_bughunt_competitions").addChild(new NavNode("http://community.topcoder.com/tc?module=ActiveContests&amp;pt=" + WebConstants.BUG_HUNT_PROJECT_TYPE, "Active Contests", "bug_hunt_compete"));
     				nav.search("m_bughunt_competitions").addChild(new NavNode("http://community.topcoder.com/tc?module=ContestStatus&amp;pt="+  WebConstants.BUG_HUNT_PROJECT_TYPE, "Contest Status", "bug_hunt_contest_status"));
     				nav.search("m_bughunt_competitions").addChild(new NavNode("http://community.topcoder.com/tc?module=CompList&amp;pt=" + WebConstants.BUG_HUNT_PROJECT_TYPE, "Past Contests", "bug_hunt_past"));
