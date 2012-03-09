@@ -178,7 +178,7 @@
 </p>
 
 <p><strong>Scorecards</strong><br/>
-    View the <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review/actions/ViewScorecard.do?method=viewScorecard&scid=<rsc:item set="<%=projectDetail%>" name="screening_scorecard_id"/>">screening</a> and <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review/actions/ViewScorecard.do?method=viewScorecard&scid=<rsc:item set="<%=projectDetail%>" name="review_scorecard_id"/>">review</a> scorecards for this project.
+    View the <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review/actions/ViewScorecard.do?method=viewScorecard&scid=<rsc:item set="<%=projectDetail%>" name="review_scorecard_id"/>">review</a> scorecard for this project.
 </p>
 
 <br>
@@ -206,10 +206,6 @@
     <tr>
         <td class="bodyText">Winner Announced:</td><td class="bodyText" align="right">
         <rsc:item set="<%=projectDetail%>" name="winner_announced_date" format="MM.dd.yyyy hh:mm a z"/></td>
-    </tr>
-    <tr>
-        <td class="bodyText">Final Submission Due Date:</td><td class="bodyText" align="right">
-        <rsc:item set="<%=projectDetail%>" name="final_submission_date" format="MM.dd.yyyy hh:mm a z"/></td>
     </tr>
 </table>
 </p>
