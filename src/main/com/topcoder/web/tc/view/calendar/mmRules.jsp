@@ -213,6 +213,33 @@
 		</tr>
 		</table>
     <%}%>
+
+    <%if(round_id=15077) {%>
+		<div class="sectionHeader">Prizes</div>
+		<p align="justify">There will be $7,500 in total prize money.  The 5 highest scorers in the round will receive prizes as follows:</p>
+
+		<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
+		<tr>
+			<td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right">$3,750</td>
+		</tr>
+		<tr>
+			<td class="bodyText" nowrap="nowrap">2nd</td><td class="bodyText" align="right">$1,500</td>
+		</tr>
+		<tr>
+			<td class="bodyText" nowrap="nowrap">3rd</td><td class="bodyText" align="right">$1,125</td>
+		</tr>
+		<tr>
+			<td class="bodyText" nowrap="nowrap">4th</td><td class="bodyText" align="right">$700</td>
+		</tr>
+		<tr>
+			<td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$350</td>
+		</tr>
+		</table>
+
+		<p align="justify">The 10 highest scorers in the round will be allowed to participate in the extra submission phase which will have $2,500 in
+		total prize money. The detailed rules of this phase will be posted to the marathon match forum.</p>
+    <%}%>
+
 	
 	<% if (Arrays.binarySearch(nsaRounds, round_id)>=0) { %>
 	
@@ -336,7 +363,8 @@
      <p align="justify">
 	 
 		<% if (Arrays.binarySearch(assignRounds, round_id)>=0 || round_id==14481 || round_id==14525 || round_id == 14584 || 
-		       round_id == 15024 || round_id == 15075 || round_id == 15023 || round_id == 15034 || round_id == 15038 || round_id == 15076) { %>
+		       round_id == 15024 || round_id == 15075 || round_id == 15023 || round_id == 15034 || round_id == 15038 || round_id == 15076
+		       || round_id == 15077) { %>
 		
 			As a condition of winning and redeeming a cash prize, Competitors will be required to submit, 
 			among other things, a completed TopCoder Competition Assignment Agreement, 
@@ -357,7 +385,7 @@
 		 rsr.getIntItem("round_id") == 13680 || rsr.getIntItem("round_id") == 13681 || rsr.getIntItem("round_id") == 14525 ||
 		 rsr.getIntItem("round_id") == 14584 || rsr.getIntItem("round_id") == 15024 || rsr.getIntItem("round_id") == 15075 ||
 		 rsr.getIntItem("round_id") == 15023 || rsr.getIntItem("round_id") == 15034 || round_id == 15038 ||
-		 rsr.getIntItem("round_id") == 15076) {%>
+		 rsr.getIntItem("round_id") == 15076 || rsr.getIntItem("round_id") == 15077) {%>
 
 		<p align="justify">
 			This Competition is open to all members of the TopCoder website, who have agreed to the terms thereof, and who are at least 
@@ -430,7 +458,7 @@
     <div class="sectionHeader">Ownership and Rights</div>
     
 	<% if (Arrays.binarySearch(assignRounds, round_id)>=0 || round_id==14525 || round_id == 14584 || round_id == 15024 || round_id == 15075 ||
-	       round_id == 15023 || round_id == 15034 || round_id == 15038 || round_id == 15076) { %>
+	       round_id == 15023 || round_id == 15034 || round_id == 15038 || round_id == 15076 || round_id == 15077) { %>
 		
 		<p align="justify">
 			You hereby acknowledge and agree that TopCoder owns, solely and exclusively, all right, title and interest, including all intellectual property 
