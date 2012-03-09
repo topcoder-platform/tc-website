@@ -6,8 +6,8 @@
 
     <!-- COMPONENT PARAMETERS -->
     <property name="component" value="tcs_dw_loader"/>
-    <property name="package" value="com.topcoder.utilities.dwload"/>
-    <property name="packagedir" value="com/topcoder/utilities/dwload"/>
+    <property name="package" value="com.topcoder.utilities"/>
+    <property name="packagedir" value="com/topcoder/utilities"/>
     <property name="distfilename" value="tcs_dw_loader"/>
     <property name="component_version" value="1.0"/>
     <property name="component_path" value="${distfilename}/${component_version}"/>
@@ -61,9 +61,10 @@
     </path>
 
     <path id="runtime.classpath">
-        <fileset dir="lib">
-            <include name="*.jar"/>
-        </fileset>
+    	<pathelement location="${ifxjdbc.jar}"/>
+    	<pathelement location="${log4j.jar}"/>
+    	<pathelement location="${shared.jar}"/>
+    	<pathelement location="${data.loader.dist}"/>
         <pathelement location="resources"/>
         <pathelement location="."/>
     </path>
@@ -92,7 +93,9 @@
         <copy todir="${build_lib}" file="${jbossall-client.jar}" flatten="true"/>
         <copy todir="${build_conf}" file="scripts/dwload/loadtcs.xml" flatten="true"/>
         <copy todir="${build_conf}" file="scripts/dwload/loadweeklystat.xml" flatten="true"/>
+    	<copy todir="${build_conf}" file="scripts/dwload/loadAchievement.xml" flatten="true" />
         <copy tofile="${builddir}/build.xml" file="build_data_loader.xml" flatten="true" overwrite="true"/>
+    	
         <jar destfile="${data.loader.dist}">
             <fileset dir="${build_classdir}">
                 <include name="${packagedir}/**/*.class"/>
@@ -102,9 +105,13 @@
                 <include name="resources/DBMS.properties"/>
                 <include name="resources/cache.properties"/>
                 <include name="resources/log4j.properties"/>
+            	<include name="scripts/sql/*.sql"/>
             </fileset>
             <fileset dir="${builddir}">
-                <include name="lib/*.jar"/>
+            	<!--
+            		Guess this is an error.
+                	<include name="lib/*.jar"/>
+                -->
                 <include name="conf/*.xml"/>
                 <include name="build.xml"/>
             </fileset>
@@ -115,6 +122,7 @@
         <delete failonerror="false">
             <fileset dir="${builddir}" includes="${packagedir}/**/*.class"/>
             <fileset dir="${build_lib}" includes="**/*.jar"/>
+        	<filename name="${data.loader.dist}"/>
         </delete>
     </target>
 
@@ -135,6 +143,18 @@
             <classpath refid="runtime.classpath"/>
         </java>
     </target>
+	
+	<target name="tcs_dw_achievement">
+		<antcall target="dist" />
+		<java classname="com.topcoder.shared.util.sql.DBUtilityLauncher" fork="true" maxmemory="1024M">
+			<arg value="com.topcoder.utilities.MemberAchievementUtility"/>
+            <arg value="-xmlfile"/>
+            <arg value="scripts/dwload/loadAchievement.xml"/>
+			<arg value="-path"/>
+			<arg value="/home/tc/web/scripts/sql/"/>
+			<classpath refid="runtime.classpath" />
+		</java>
+	</target>
 
     <!-- ************************************************************************** -->
     <!-- ************ REMOVE EVERYTHING BELOW HERE FOR THE DISTRIBUTION ************* -->

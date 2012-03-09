@@ -83,6 +83,8 @@ public class MemberProfile implements Serializable {
      */
     private List<MemberProfileSubmission> winningSubmissions;
 
+    private List<MemberProfileAchievement> achievements;
+
     /**
      * <p>A <code>boolean</code> providing the flag indicating whether the quote for profile is to be displayed or
      * not.</p>
@@ -430,5 +432,13 @@ public class MemberProfile implements Serializable {
      */
     public void setCurrentRegistrations(List<MemberProfileRegistration> currentRegistrations) {
         this.currentRegistrations = currentRegistrations;
+    }
+
+    public List<MemberProfileAchievement> getAchievements() {
+        return achievements;
+    }
+
+    public void setAchievements(List<MemberProfileAchievement> achievements) {
+        this.achievements = achievements;
     }
 }

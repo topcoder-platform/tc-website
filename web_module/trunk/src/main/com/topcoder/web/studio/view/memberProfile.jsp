@@ -5,7 +5,7 @@
   -
   - Description: This page renders a single Member Profile page
 --%>
-<%@ page import="com.topcoder.web.studio.Constants" %>
+<%@ page import="com.topcoder.web.studio.Constants" %> 
 <%@ page import="com.topcoder.web.common.BaseProcessor" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -239,11 +239,11 @@ boolean hidePayments = ((Boolean)request.getAttribute("hidePayments")).booleanVa
         <div class="rightPart">
             <div class="memberPhotoWrapper">
                 <h2><c:out value="${profile.handle}"/></h2>
-		<div class="memberPhotoBox">
-		<a href="http://community.topcoder.com//tc?module=MemberProfile&cr=${profile.userId}">
-                <img width="117" height="140" src="<c:if test="${not empty profile.imageUrl}">${profile.imageUrl}</c:if><c:if test="${empty profile.imageUrl}">/i/no_photo.png</c:if>" alt="Member Photo"/>
-		</a>
-		</div>
+                <div class="memberPhotoBox">
+                <a href="http://community.topcoder.com//tc?module=MemberProfile&cr=${profile.userId}">
+                        <img width="117" height="140" src="<c:if test="${not empty profile.imageUrl}">${profile.imageUrl}</c:if><c:if test="${empty profile.imageUrl}">/i/no_photo.png</c:if>" alt="Member Photo"/>
+                </a>
+                </div>
             </div>
             <!--end .memberPhotoWrapper-->
 
@@ -263,17 +263,21 @@ boolean hidePayments = ((Boolean)request.getAttribute("hidePayments")).booleanVa
             </dl>
             <c:if test="${profile.userId eq sessionInfo.userId}">
             <div class="manageAccoutLink">
-	    [<a href="http://community.topcoder.com/tc?module=MyHome">Manage TopCoder Account</a>]
+                [<a href="http://community.topcoder.com/tc?module=MyHome">Manage TopCoder Account</a>]
             </div>
-	    </c:if>
-            <%--
-                <ul class="achievementWrapper">
-                    <li class="achievementItem"></li>
-                    <li class="achievementItem"></li>
-                    <li class="achievementItem lastOfRow"></li>
-                    <li class="achievementItem"></li>
-                </ul>
-            --%>
+            </c:if>
+            
+            <ul class="achievementWrapper">
+                <c:forEach items="${profile.achievements}" var="achievement" varStatus="loop">
+                    <li class="achievementItem <c:if test='${(loop.index + 1) mod 3 eq 0}'>lastOfRow</c:if>"
+                        style="background:url('../i/badges/studio_badge_${achievement.achievementRuleId}.gif') no-repeat scroll 0 0 transparent;border:none">
+                        <input type="hidden" class="achievementName" value="${achievement.name}">
+                        <input type="hidden" class="achievementDesc" value="${achievement.desc}">
+                        <input type="hidden" class="achievementTime" value="<fmt:formatDate value="${achievement.awardTime}" pattern="MM.dd.yyyy HH:MM"/>EST">
+                    </li>
+                </c:forEach>
+            </ul>
+        
             <!--end .achievementWrapper-->
         </div>
         <!--end .rightPart-->
