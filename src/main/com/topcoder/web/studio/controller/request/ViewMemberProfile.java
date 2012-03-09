@@ -16,6 +16,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dto.MemberProfile;
+import com.topcoder.web.studio.dto.MemberProfileAchievement;
 import com.topcoder.web.studio.dto.MemberProfileRegistration;
 import com.topcoder.web.studio.dto.MemberProfileSubmission;
 
@@ -192,6 +193,11 @@ public class ViewMemberProfile extends BaseProcessor {
           "AND   NOT s.placement IS NULL " +
           "ORDER BY s.create_date desc ";
 
+    private static final String ACHIEVEMENTS = "select user_achievement_name, user_achievement_rule_desc, uar.user_achievement_rule_id, create_date " +
+            "from user_achievement_xref uax, user_achievement_rule uar " +
+            "where uax.user_id = ? and uax.user_achievement_rule_id = uar.user_achievement_rule_id " +
+            "and uar.user_achievement_type_id = 1";
+
     /**
      * <p>Constructs new <code>ViewMemberProfile</code> instance. This implementation does nothing.</p>
      */
@@ -214,12 +220,15 @@ public class ViewMemberProfile extends BaseProcessor {
         Connection connOltp = null;
         Connection connDW = null;
         Connection connTCS = null;
+        Connection connTCSDW = null;
         try {
             connCommon = DBMS.getConnection(DBMS.COMMON_OLTP_DATASOURCE_NAME);
             connOltp = DBMS.getConnection(DBMS.OLTP_DATASOURCE_NAME);
             connDW = DBMS.getConnection(DBMS.DW_DATASOURCE_NAME);
             connTCS = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
-            MemberProfile memberProfile = getMemberProfile(connTCS, connCommon, connOltp, connDW, handle);
+            connTCSDW = DBMS.getConnection(DBMS.TCS_DW_DATASOURCE_NAME);
+
+            MemberProfile memberProfile = getMemberProfile(connTCS, connCommon, connOltp, connDW, connTCSDW, handle);
             setDefault(Constants.MEMBER_PROFILE, memberProfile);
             setNextPage("/memberProfile.jsp");
             setIsNextPageInContext(true);
@@ -228,6 +237,7 @@ public class ViewMemberProfile extends BaseProcessor {
             close(connCommon);
             close(connOltp);
             close(connDW);
+            close(connTCSDW);
         }
     }
 
@@ -247,7 +257,7 @@ public class ViewMemberProfile extends BaseProcessor {
      * @throws MalformedURLException in case member photo image URL is invalid.
      */
     private MemberProfile getMemberProfile(Connection connTCS, Connection connCommon, Connection connOltp,
-                                           Connection connDW, String handle)
+                                           Connection connDW, Connection connTCSDW, String handle)
         throws SQLException, MemberNotFoundException, MalformedURLException {
 
         PreparedStatement stmt = null;
@@ -407,6 +417,25 @@ public class ViewMemberProfile extends BaseProcessor {
                         winningSubmissions.add(submission);
                     }
                     profile.setWinningSubmissions(winningSubmissions);
+                    close(result);
+                    close(stmt);
+
+                    // Get achievements
+                    stmt = connTCSDW.prepareStatement(ACHIEVEMENTS);
+                    stmt.setString(1, String.valueOf(userId));
+                    result = stmt.executeQuery();
+                    List<MemberProfileAchievement> achievements = new ArrayList<MemberProfileAchievement>();
+                    while (result.next()) {
+                        MemberProfileAchievement achievement = new MemberProfileAchievement();
+
+                        achievement.setName(result.getString("user_achievement_name"));
+                        achievement.setDesc(result.getString("user_achievement_rule_desc"));
+                        achievement.setAchievementRuleId(result.getInt("user_achievement_rule_id"));
+                        achievement.setAwardTime(result.getTimestamp("create_date"));
+
+                        achievements.add(achievement);
+                    }
+                    profile.setAchievements(achievements);
                     close(result);
                     close(stmt);
 
