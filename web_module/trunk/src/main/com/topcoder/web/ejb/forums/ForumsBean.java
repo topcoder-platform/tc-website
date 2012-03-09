@@ -826,24 +826,34 @@ public class ForumsBean extends BaseEJB {
 		}
 	}
 
-	// Given an input list of component IDs, returns the IDs corresponding with
-	// approved components.
+	// Given an input list of component IDs, returns the IDs corresponding with approved components.
 	public HashSet getApprovedComponents(long[] compIDs) {
+            HashSet ret = new HashSet();
+            for (int i=0; i<compIDs.length; i+=1000) {
+                int end = i+999 < compIDs.length ? i+999 : compIDs.length-1;
+                ret.addAll(getApprovedComponents(compIDs, i, end));
+            }
+            return ret;
+        }
+
+	private HashSet getApprovedComponents(long[] compIDs, int begin, int end) {
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
+
+		if (begin > end) {
+			return new HashSet();
+		}
 
 		try {
 			conn = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
 			StringBuffer psStrBuf = new StringBuffer("select c.component_id from comp_catalog c where status_id = "
 					+ WebConstants.STATUS_APPROVED + " " + "and c.component_id IN (");
-			for (int i = 0; i < compIDs.length - 1; i++) {
+			for (int i = begin; i < end ; i++) {
 				psStrBuf.append(compIDs[i]);
 				psStrBuf.append(',');
 			}
-			if (compIDs.length > 0) {
-				psStrBuf.append(compIDs[compIDs.length - 1]);
-			}
+			psStrBuf.append(compIDs[end]);
 			psStrBuf.append(")");
 			ps = conn.prepareStatement(psStrBuf.toString());
 			rs = ps.executeQuery();
