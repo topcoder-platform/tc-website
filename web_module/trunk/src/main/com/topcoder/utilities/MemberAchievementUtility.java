@@ -285,12 +285,10 @@ public class MemberAchievementUtility extends DBUtility {
      *            value of the parameter
      */
     private void logEntrance(String signature, String paraName, Object paramValue) {
-        if (log.isInfoEnabled()) {
-            log.info("Enter " + signature);
+        log.info("Enter " + signature);
             if (null != paraName) {
                 log.info("Parameter{" + paraName + ":" + paramValue + "}");
             }
-        }
     }
 
     /**
@@ -301,9 +299,7 @@ public class MemberAchievementUtility extends DBUtility {
      * @param signature
      */
     private void logEntrance(String signature) {
-        if (log.isInfoEnabled()) {
             log.info("Enter " + signature);
-        }
     }
 
     /**
@@ -316,9 +312,8 @@ public class MemberAchievementUtility extends DBUtility {
      *            Return value of the method.
      */
     private void logExit(String signature, Object ret) {
-        if (log.isInfoEnabled()) {
             log.info("Exit " + signature + ".\n Returning " + ret);
-        }
+	
     }
 
     /**
@@ -330,10 +325,8 @@ public class MemberAchievementUtility extends DBUtility {
      * @param ret
      *            Return value of the method.
      */
-    private void logExit(String signature) {
-        if (log.isInfoEnabled()) {
-            log.info("Exit " + signature);
-        }
+    private void logExit(String signature) { 
+            log.info("Exit " + signature); 
     }
 
     /**
@@ -344,10 +337,8 @@ public class MemberAchievementUtility extends DBUtility {
      * @param sql
      *            The SQL statement.
      */
-    private void logSQL(String sql) {
-        if (log.isInfoEnabled()) {
-            log.info("Executing: " + sql);
-        }
+    private void logSQL(String sql) { 
+            log.info("Executing: " + sql); 
     }
 
     /**
@@ -360,10 +351,9 @@ public class MemberAchievementUtility extends DBUtility {
      * @return time in milliseconds.
      */
     private long logStart(String signature) {
-        final long start = System.currentTimeMillis();
-        if (log.isInfoEnabled()) {
+        final long start = System.currentTimeMillis(); 
             log.info(signature + " starts at: " + DATE_FORMAT.format(new Date(start)));
-        }
+   
         return start;
     }
 
@@ -377,11 +367,10 @@ public class MemberAchievementUtility extends DBUtility {
      * @param start
      */
     private void logEnd(String signature, long start) {
-        if (log.isInfoEnabled()) {
-            final long end = System.currentTimeMillis();
+             final long end = System.currentTimeMillis();
             log.info(signature + " ends at: " + DATE_FORMAT.format(new Date(end)) + ".\n It approximately costs "
                     + (end - start) + " ms");
-        }
+     
     }
 
     /**
@@ -394,7 +383,7 @@ public class MemberAchievementUtility extends DBUtility {
      *            a collection of user IDs being logged down.
      */
     private void logUserIDs(List<Long> userIds) {
-        if (log.isInfoEnabled() && null != userIds && !userIds.isEmpty()) {
+        if (null != userIds && !userIds.isEmpty()) {
             log.info("The following User ID(s) are involved: ");
             StringBuilder sb = new StringBuilder("[");
             int len = userIds.size();
