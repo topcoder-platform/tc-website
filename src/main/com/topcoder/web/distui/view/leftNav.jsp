@@ -257,6 +257,7 @@
 			   nav.search("m_topcoder_networks").addChild(new NavNode("http://community.topcoder.com/alcatel/", "Alcatel Lucent", "alu"));
 			   nav.search("m_topcoder_networks").addChild(new NavNode("http://community.topcoder.com/amdapp/", "AMD OpenCL", "amd_opencl"));
 			   nav.search("m_topcoder_networks").addChild(new NavNode("http://community.topcoder.com/darpacs/", "DARPA CS-STEM", "darpacs"));
+			   nav.search("m_topcoder_networks").addChild(new NavNode("http://community.topcoder.com/lifetech-network/", "Life Technologies", "lifetech"));
 			   nav.search("m_topcoder_networks").addChild(new NavNode("http://community.topcoder.com/ntl/", "NASA Tournament Lab", "ntl"));
 			   nav.search("m_topcoder_networks").addChild(new NavNode("http://community.topcoder.com/x/", "PayPalX", "ppx"));
 
