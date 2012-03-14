@@ -1073,7 +1073,7 @@ public class RBoardApplicationBean extends BaseEJB {
                 "     , resource_info ri_userid " +
                 " where p.project_status_id = 1 " +
                 "   and p.project_id = pp_review.project_id " +
-                "   and pp_review.phase_type_id in (4, 15) " +
+                "   and pp_review.phase_type_id in (4, 18) " +
                 "   and pp_review.phase_status_id != 3 " +
                 "   and (pp_review.scheduled_end_time >= current " +
                 "        or ((select count(*) " +
@@ -1106,7 +1106,7 @@ public class RBoardApplicationBean extends BaseEJB {
                 "            and pp_subm.phase_status_id in (1,2) " +
                 "            and pp_subm.project_id = p.project_id)) " +
                 "   and p.project_id = r.project_id " +
-                "   and r.resource_role_id in (4, 5, 6, 7, 19) " +
+                "   and r.resource_role_id in (4, 5, 6, 7, 21) " +
                 "   and r.resource_id = ri_userid.resource_id " +
                 "   and ri_userid.resource_info_type_id = 1 " +
                 "   and ri_userid.value = ? ";
@@ -1120,7 +1120,7 @@ public class RBoardApplicationBean extends BaseEJB {
             "     , resource_info ri_userid " +
             " where p.project_status_id = 1 " +
             "   and p.project_id = pp_review.project_id " +
-            "   and pp_review.phase_type_id = 16 " +
+            "   and pp_review.phase_type_id = 19 " +
             "   and pp_review.phase_status_id != 3 " +
             " and ( exists (select 1  " +                              // There's at least one active submission...
             "            from submission s " +
@@ -1135,7 +1135,7 @@ public class RBoardApplicationBean extends BaseEJB {
             "            and pp_subm.phase_status_id in (1,2) " +
             "            and pp_subm.project_id = p.project_id)) " +
             "   and p.project_id = r.project_id " +
-            "   and r.resource_role_id = 20 " +
+            "   and r.resource_role_id = 22 " +
             "   and r.resource_id = ri_userid.resource_id " +
             "   and ri_userid.resource_info_type_id = 1 " +
             "   and ri_userid.value = ? ";
