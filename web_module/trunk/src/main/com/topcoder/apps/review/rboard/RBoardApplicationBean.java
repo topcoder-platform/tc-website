@@ -1075,8 +1075,7 @@ public class RBoardApplicationBean extends BaseEJB {
                 "   and p.project_id = pp_review.project_id " +
                 "   and pp_review.phase_type_id in (4, 18) " +
                 "   and pp_review.phase_status_id != 3 " +
-                "   and (pp_review.scheduled_end_time >= current " +
-                "        or ((select count(*) " +
+                "   and (((select count(*) " +
                 "               from review " +
                 "              where resource_id = r.resource_id " +
                 "                and committed = 1) " +
