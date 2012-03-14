@@ -1067,50 +1067,54 @@ public class RBoardApplicationBean extends BaseEJB {
 
         final String query =
                 "select count(*) as active_projects " +
-                "  from project p " +
-                "     , project_phase pp_review " +
-                "     , resource r " +
-                "     , resource_info ri_userid " +
-                " where p.project_status_id = 1 " +
-                "   and p.project_id = pp_review.project_id " +
-                "   and pp_review.phase_type_id in (4, 18) " +
-                "   and pp_review.phase_status_id != 3 " +
-                "   and (((select count(*) " +
-                "               from review " +
-                "              where resource_id = r.resource_id " +
-                "                and committed = 1) " +
-                "            < (select count(*) " +
-                "                 from submission s " +
-                "                    , upload u " +
-                "                where u.project_id = p.project_id " +
-                "                  and u.upload_type_id = 1 " +
-                "                  and u.upload_id = s.upload_id " +
-                "                  and s.submission_type_id = 1 " +
-                "                  and s.submission_status_id = 1)) " +
-                "        or (p.project_category_id = 2 " +
-                "            and not exists (select * " +
-                "                              from upload u " +
-                "                             where u.resource_id = r.resource_id " +
-                "                               and u.upload_type_id = 2))) " +
-                " and ( exists (select 1  " +                              // There's at least one active submission...
-                "            from submission s " +
-                "             , upload u " +
-                "             where u.project_id = p.project_id     " +
-                "             and u.upload_type_id = 1              " +
-                "             and u.upload_id = s.upload_id         " +
-                "             and s.submission_type_id = 1          " +
-                "             and s.submission_status_id = 1)       " +
-                "         or exists(                               " +  // or the submission phase is scheduled or open
-                "            select 1 from project_phase pp_subm where pp_subm.phase_type_id = 2 " +
-                "            and pp_subm.phase_status_id in (1,2) " +
-                "            and pp_subm.project_id = p.project_id)) " +
-                "   and p.project_id = r.project_id " +
-                "   and r.resource_role_id in (4, 5, 6, 7, 21) " +
-                "   and r.resource_id = ri_userid.resource_id " +
-                "   and ri_userid.resource_info_type_id = 1 " +
-                "   and ri_userid.value = ? ";
-        
-        // query the application deploy for Primary Review Evaluator
+                "from project p " +
+                ", project_phase pp_review " +
+                ", resource r " + 
+                ", resource_info ri_userid " +  
+                "where p.project_status_id = 1 " +  
+                "and p.project_id = pp_review.project_id " +  
+                "and pp_review.phase_type_id in ( 4, 18)" +  
+                "and pp_review.phase_status_id != 3 " +  
+                "and ( " + 
+                "    ( " +
+                "      ( " +
+                "       (select count(*) " +  
+                "          from review " +  
+                "          where resource_id = r.resource_id " + 
+                "           and committed = 1) " +  
+                "          < (select count(*) " +  
+                "            from submission s " +  
+                "            , upload u " +  
+                "            where u.project_id = p.project_id " + 
+                "            and u.upload_type_id = 1 " +  
+                "            and u.upload_id = s.upload_id " +  
+                "            and s.submission_type_id = 1 " +  
+                "            and s.submission_status_id = 1) " +  
+                "        or (p.project_category_id = 2 " +  
+                "             and not exists (select * " +  
+                "              from upload u " + 
+                "             where u.resource_id = r.resource_id " +  
+                "               and u.upload_type_id = 2)) " +
+                "        ) " +
+                "        and exists (select *  from submission s , upload u " +  
+                "           where u.project_id = p.project_id " +  
+                "             and u.upload_type_id = 1 " +  
+                "             and u.upload_id = s.upload_id " +  
+                "             and s.submission_type_id = 1 " +  
+                "             and s.submission_status_id = 1) " +
+                "    ) " +
+                "    or exists( " +                             
+                "     select 1 from project_phase pp_subm where pp_subm.phase_type_id = 2 " +  
+                "     and pp_subm.phase_status_id in (1,2) " +  
+                "     and pp_subm.project_id = p.project_id)) " +
+                "     and p.project_id = r.project_id " +  
+                "     and r.resource_role_id in (4, 5, 6, 7, 21) " +  
+                "     and r.resource_id = ri_userid.resource_id " +  
+                "     and ri_userid.resource_info_type_id = 1 " +  
+                "     and ri_userid.value = ?;";
+
+       
+          // query the application deploy for Primary Review Evaluator
         final String query2 =
             "select count(*) as active_projects " +
             "  from project p " +
