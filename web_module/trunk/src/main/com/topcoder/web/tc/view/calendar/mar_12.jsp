@@ -123,6 +123,12 @@
       <td class="value">13
       </td>
       <td class="value">14
+	  	 <div class="long">
+         <strong><a href="/tc?module=MatchDetails&rd=15078">AffineSWOptimization MM</a></strong><br />
+         13:00<br />
+         2 weeks<br />
+		 $10k Prizes
+         </div>
       </td>
       <td class="value">15
       </td>
