@@ -238,20 +238,12 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="tableHeader" align="left" nowrap="nowrap" colspan="10">
+                                <td class="tableHeader" align="left" nowrap="nowrap" colspan="12">
                                     <img src="/i/development/up_arrow_gr.gif" border="0" alt=""/>: the payment for
                                     reviewing this component has increased
                                 </td>
                             </tr>
                         </table>
-                        <br/>
-                        <c:if test="${applicationDelayHours > 0 || applicationDelayMinutes > 0}">
-                            <p>
-                                Due to your existing review commitments, review positions open for you
-                                ${applicationDelayHours} hours and ${applicationDelayMinutes} minutes after a project
-                                opens for review registration.
-                            </p>
-                        </c:if>
                         <br/>
                     </c:if>
 
@@ -267,7 +259,7 @@
                                 <td>
                                     <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
                                         <tr>
-                                            <td class="tableTitle" colspan="8">
+                                            <td class="tableTitle" colspan="9">
                                                 ${projectTypeDesc} Specification Review Opportunities
                                             </td>
                                         </tr>
@@ -276,6 +268,7 @@
                                             <td class="tableHeader" align="center">Catalog</td>
                                             <td class="tableHeader" align="center" width="100%">${projectTypeDesc}</td>
                                             <td class="tableHeader" align="right">Reviewer<br>Payment</td>
+                                            <td class="tableHeader" align="center">Opens<br>On</td>
                                             <td class="tableHeader" align="center">Review<br>Start</td>
                                             <td class="tableHeader" align="center">Review<br>End</td>
                                             <td class="tableHeader" align="center">Positions<br>Available</td>
@@ -298,6 +291,19 @@
                                                         value="${specificationReviewPrices[i].specReviewCost}"
                                                         pattern="#,###.00"/>
                                                 </td>
+
+                                                <c:choose>
+                                                    <c:when test="${waitingToReview[i]}">
+                                                        <td class="statDk" align="center" nowrap="nowrap">
+                                                            <fmt:formatDate value="${waitingUntil[i]}"
+                                                                pattern="MM.dd.yyyy'<br />'hh:mm a"/>
+                                                        </td>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                            <td class="statDk" align="center"><i>open</i></td>
+                                                    </c:otherwise>
+                                                </c:choose>
+
                                                 <td class="statDk" align="center">
                                                     <fmt:formatDate value="${resultRow.map['review_start']}"
                                                                 pattern="MM.dd.yyyy"/>
@@ -324,7 +330,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="tableHeader" align="left" nowrap="nowrap" colspan="10">
+                                <td class="tableHeader" align="left" nowrap="nowrap" colspan="9">
                                     <img src="/i/development/up_arrow_gr.gif" border="0" alt=""/>: the payment for
                                     reviewing this specification has increased
                                 </td>
@@ -333,14 +339,24 @@
                         <br/>
                     </c:if>
 
-                    <c:if test="${fn:length(projectList) + fn:length(specificationReviewList) == 0}">
-                        <br/>
-                        <p align="center">Sorry, there are currently no review positions available.</p>
-                        <br/>
-                    </c:if>
-
-
-
+                    <c:choose>
+                        <c:when test="${fn:length(projectList) + fn:length(specificationReviewList) == 0}">
+                            <br/>
+                            <p align="center">Sorry, there are currently no review positions available.</p>
+                            <br/>
+                        </c:when>
+                        <c:otherwise>
+                            <c:if test="${applicationDelayHours > 0 || applicationDelayMinutes > 0}">
+                                <br/>
+                                <p>
+                                    Due to your existing review commitments, review positions open for you
+                                    ${applicationDelayHours} hours and ${applicationDelayMinutes} minutes after a project
+                                    opens for review registration.
+                                </p>
+                                <br/>
+                            </c:if>
+                        </c:otherwise>
+                    </c:choose>
 
                 </td>
                 <!-- Center Column Ends -->

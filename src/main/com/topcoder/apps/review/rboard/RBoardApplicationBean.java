@@ -1143,10 +1143,28 @@ public class RBoardApplicationBean extends BaseEJB {
             "   and ri_userid.resource_info_type_id = 1 " +
             "   and ri_userid.value = ? ";
 
+        final String querySpecReviewers =
+                "select count(*) as active_projects " +
+                "from project p " +
+                ", project_phase pp_review " +
+                ", resource r " + 
+                ", resource_info ri_userid " +  
+                "where p.project_status_id = 1 " +  
+                "and p.project_id = pp_review.project_id " +  
+                "and pp_review.phase_type_id = 14 " +  
+                "and pp_review.phase_status_id != 3 " +  
+                "and p.project_id = r.project_id " +  
+                "and r.resource_role_id = 18 " +  
+                "and r.project_phase_id = pp_review.project_phase_id " +  
+                "and r.resource_id = ri_userid.resource_id " +  
+                "and ri_userid.resource_info_type_id = 1 " +  
+                "and ri_userid.value = ?;";
+
         PreparedStatement ps = null;
         ResultSet rs = null;
         int activeProjects = 0;
         int activeProjects2 = 0;
+        int activeSpecReviews = 0;
         try {
             ps = conn.prepareStatement(query);
             ps.setLong(1, userId);
@@ -1164,6 +1182,7 @@ public class RBoardApplicationBean extends BaseEJB {
             rs = null;
             ps = null;
         }
+
         try {
             ps = conn.prepareStatement(query2);
             ps.setLong(1, userId);
@@ -1178,8 +1197,29 @@ public class RBoardApplicationBean extends BaseEJB {
         } finally {
             close(rs);
             close(ps);
+            rs = null;
+            ps = null;
         }
-        return activeProjects * APPLICATION_DELAY_PER_ACTIVE_PROJECT + activeProjects2 * APPLICATION_DEPLOY_PRIMARY_EVALUATOR_PER_ACTIVE_PROJECT;
+
+        try {
+            ps = conn.prepareStatement(querySpecReviewers);
+            ps.setLong(1, userId);
+
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                activeSpecReviews = rs.getInt("active_projects");
+            }
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw new EJBException(e);
+        } finally {
+            close(rs);
+            close(ps);
+        }
+
+        return activeProjects * APPLICATION_DELAY_PER_ACTIVE_PROJECT +
+               activeSpecReviews * APPLICATION_DELAY_PER_ACTIVE_PROJECT +
+               activeProjects2 * APPLICATION_DEPLOY_PRIMARY_EVALUATOR_PER_ACTIVE_PROJECT;
     }
 
     /**
@@ -1298,11 +1338,11 @@ public class RBoardApplicationBean extends BaseEJB {
         try {
             conn = DBMS.getConnection(dataSource);
             conn.setAutoCommit(false);
-			if (phaseId > WebConstants.SPECIFICATION_COMPETITION_OFFSET) {
-			    validateSpecReviewUserTrans(conn, projectId, phaseId, userId, open, opensOn, reviewTypeId);
+            if (phaseId > WebConstants.SPECIFICATION_COMPETITION_OFFSET) {
+                validateSpecReviewUserTrans(conn, projectId, phaseId, userId, open, opensOn, reviewTypeId);
             } else {
                 validateRegularUserTrans(conn, projectId, phaseId, userId, open, opensOn, reviewTypeId, primary);
-			}
+            }
             conn.commit();
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
@@ -1335,10 +1375,10 @@ public class RBoardApplicationBean extends BaseEJB {
             throws RBoardRegistrationException, RemoteException {
         log.debug("validateUserWithoutCatalog called...");
 		
-		// Check for the "old-style" Spec Review projects which are not supported anymore.
-		if (reviewTypeId == 37) {
+        // Check for the "old-style" Spec Review projects which are not supported anymore.
+        if (reviewTypeId == 37) {
             throw new RBoardRegistrationException("Old-style Spec Review projects are not supported anymore.");
-		}		
+        }		
 		
         Connection conn = null;
 
@@ -1373,13 +1413,9 @@ public class RBoardApplicationBean extends BaseEJB {
                 throw new RBoardRegistrationException("Sorry, you are not authorized to perform reviews at this time.");
             }
 
-            String tmp = "!!!!!! DEBUG - reviewTypeId" + reviewTypeId + " projectTypeId:" + projectTypeId;
-            
-            tmp += "\n!!!!!! DEBUG - reviewTypeId check:" + reviewRespMap.containsKey(new Integer(reviewTypeId)) + " projectTypeId check:" + reviewRespMap.get(reviewTypeId).equals(projectTypeId + 111);
-            
             if (!reviewRespMap.containsKey(new Integer(reviewTypeId))
                 || !reviewRespMap.get(reviewTypeId).equals(projectTypeId + 111)) {
-                throw new RBoardRegistrationException("Invalid request, incorrect review position specified.\n" + tmp);
+                throw new RBoardRegistrationException("Invalid request, incorrect review position specified.\n");
             }
         } catch (SQLException sqle) {
             sqle.printStackTrace();
@@ -1533,7 +1569,8 @@ public class RBoardApplicationBean extends BaseEJB {
             throw new RBoardRegistrationException("You have already applied to review this project.");
         }
 
-        if (opensOn.getTime() > System.currentTimeMillis()) {
+        long applicationDelay = getApplicationDelay(conn, userId);
+        if (System.currentTimeMillis() < opensOn.getTime() + applicationDelay) {
             throw new RBoardRegistrationException("Sorry, this project is not open for review yet.  "
                                                   + "You will need to wait until "
                                                   + timeStampToString(opensOn));

@@ -112,7 +112,6 @@ public class ViewReviewProjects extends ReviewProjectDetail {
             ArrayList<Timestamp> waitingUntil = new ArrayList<Timestamp>();
 
             RBoardApplication rba = createRBoardApplication();
-
             long applicationDelay = rba.getApplicationDelay(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId());
 
             for (Iterator it = rsc.iterator(); it.hasNext();) {
@@ -192,6 +191,11 @@ public class ViewReviewProjects extends ReviewProjectDetail {
             ResultSetContainer.ResultSetRow rsr = null;
 
             ArrayList prices = new ArrayList();
+            ArrayList<Boolean> waitingToReview = new ArrayList<Boolean>();
+            ArrayList<Timestamp> waitingUntil = new ArrayList<Timestamp>();
+
+            RBoardApplication rba = createRBoardApplication();
+            long applicationDelay = rba.getApplicationDelay(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId());
 
             for (Iterator it = rsc.iterator(); it.hasNext();) {
                 rsr = (ResultSetContainer.ResultSetRow) it.next();
@@ -199,10 +203,28 @@ public class ViewReviewProjects extends ReviewProjectDetail {
                 prices.add(makeSpecReviewApp(rsr.getIntItem("phase_id"), rsr.getIntItem("level_id"),
                         rsr.getLongItem("project_id"), rsr.getFloatItem("prize"), 0,
                         Constants.SPECIFICATION_REVIEWER_TYPE).getComponent());
+
+                Timestamp opensOn = (Timestamp) ((TCTimestampResult) rsr.getItem("opens_on")).getResultData();
+
+                if (System.currentTimeMillis() < opensOn.getTime() + applicationDelay) {
+                    waitingToReview.add(Boolean.TRUE);
+                    waitingUntil.add(new Timestamp(opensOn.getTime() + applicationDelay));
+                } else {
+                    waitingToReview.add(Boolean.FALSE);
+                    waitingUntil.add(new Timestamp(0));
+                }
             }
 
             getRequest().setAttribute("specificationReviewPrices", prices);
             getRequest().setAttribute("specificationReviewProjectTypeId", specificationReviewProjectTypeId);
+
+            getRequest().setAttribute("waitingToReview", waitingToReview);
+            getRequest().setAttribute("waitingUntil", waitingUntil);
+            getRequest().setAttribute("applicationDelayHours",
+                                      new Integer((int) (applicationDelay / (1000 * 60 * 60))));
+            getRequest().setAttribute("applicationDelayMinutes",
+                                      new Integer((int) ((applicationDelay % (1000 * 60 * 60)) / (1000 * 60))));
+
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
