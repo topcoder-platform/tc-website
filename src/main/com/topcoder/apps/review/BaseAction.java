@@ -7,7 +7,7 @@ package com.topcoder.apps.review;
 import com.topcoder.util.log.Level;
 import com.topcoder.util.log.Log;
 import com.topcoder.util.log.LogException;
-import com.topcoder.util.log.LogManager;
+import com.topcoder.util.log.LogFactory;
 import org.apache.struts.action.Action;
 import org.apache.struts.util.MessageResources;
 
@@ -43,11 +43,12 @@ public abstract class BaseAction extends Action {
      * @param message The logging message.
      */
     protected void log(Level level, java.lang.Object message) {
-       
+        try {
             if (log == null) {
-                log = LogManager.getLog(); //LogFactory.getInstance().getLog(logName);
+                log = LogFactory.getInstance().getLog(logName);
             }
             log.log(level, message);
-       
+        } catch (LogException e) {
+        }
     }
 }
