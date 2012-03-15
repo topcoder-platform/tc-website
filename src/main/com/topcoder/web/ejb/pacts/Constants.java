@@ -103,6 +103,7 @@ public interface Constants {
     public static final int COMPONENT_TOURNAMENT_BONUS_PAYMENT = 19;
     public static final int ROYALTY_PAYMENT = 20;
     public static final int MARATHON_MATCH_PAYMENT = 21;
+    public static final int MARATHON_MATCH_NON_TAXABLE_PAYMENT = 66;
     public static final int ALGORITHM_TOURNAMENT_PRIZE_PAYMENT = 22;
     public static final int BUG_FIXES_PAYMENT = 23;
     public static final int RELIABILITY_BONUS_PAYMENT = 24;
