@@ -5,7 +5,7 @@
   -
   - Description: This page renders a single Member Profile page
 --%>
-<%@ page import="com.topcoder.web.studio.Constants" %> 
+<%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.common.BaseProcessor" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -273,7 +273,7 @@ boolean hidePayments = ((Boolean)request.getAttribute("hidePayments")).booleanVa
                         style="background:url('../i/badges/studio_badge_${achievement.achievementRuleId}.gif') no-repeat scroll 0 0 transparent;border:none">
                         <input type="hidden" class="achievementName" value="${achievement.name}">
                         <input type="hidden" class="achievementDesc" value="${achievement.desc}">
-                        <input type="hidden" class="achievementTime" value="<fmt:formatDate value="${achievement.awardTime}" pattern="MM.dd.yyyy HH:MM"/>EST">
+<!--                        <input type="hidden" class="achievementTime" value="<fmt:formatDate value="${achievement.awardTime}" pattern="MM.dd.yyyy HH:MM"/>EST"> -->
                     </li>
                 </c:forEach>
             </ul>
