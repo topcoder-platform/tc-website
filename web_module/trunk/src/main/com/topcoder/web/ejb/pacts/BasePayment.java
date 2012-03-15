@@ -205,6 +205,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         switch(paymentType) {
         case ALGORITHM_CONTEST_PAYMENT:
         case MARATHON_MATCH_PAYMENT:
+        case MARATHON_MATCH_NON_TAXABLE_PAYMENT:
         case MARATHON_MATCH_TOURNAMENT_PRIZE_PAYMENT:
         case ALGORITHM_TOURNAMENT_PRIZE_PAYMENT:
         case HIGH_SCHOOL_TOURNAMENT_PRIZE_PAYMENT:
@@ -297,6 +298,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         switch(paymentTypeId) {
         case ALGORITHM_CONTEST_PAYMENT: return new AlgorithmContestPayment(coderId, grossAmount, referenceId, placed);
         case MARATHON_MATCH_PAYMENT: return new MarathonMatchPayment(coderId, grossAmount, referenceId, placed);
+        case MARATHON_MATCH_NON_TAXABLE_PAYMENT: return new MarathonMatchNonTaxablePayment(coderId, grossAmount, referenceId, placed);
         case ALGORITHM_TOURNAMENT_PRIZE_PAYMENT: return new AlgorithmTournamentPrizePayment(coderId, grossAmount, referenceId, placed);
         case HIGH_SCHOOL_TOURNAMENT_PRIZE_PAYMENT: return new HighSchoolTournamentPrizePayment(coderId, grossAmount, referenceId, placed);
         case COMPONENT_PAYMENT: return new ComponentWinningPayment(coderId, grossAmount, referenceId, placed);
@@ -441,6 +443,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             case COMPONENT_TOURNAMENT_BONUS_PAYMENT: return "Component Tournament Bonus Payment";
             case ROYALTY_PAYMENT: return "Royalty Payment";
             case MARATHON_MATCH_PAYMENT: return "Marathon Match Payment";
+            case MARATHON_MATCH_NON_TAXABLE_PAYMENT: return "Marathon Match Non-Taxable Payment";
             case MARATHON_MATCH_TOURNAMENT_PRIZE_PAYMENT: return "Marathon Match Tournament Prize Payment";
             case ALGORITHM_TOURNAMENT_PRIZE_PAYMENT: return "Algorithm Tournament Prize Payment";
             case HIGH_SCHOOL_TOURNAMENT_PRIZE_PAYMENT: return "High School Tournament Prize Payment";
@@ -461,7 +464,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             case DIGITAL_RUN_V2_PRIZE_PAYMENT: return "Digital Run v2 Payment";
             case DIGITAL_RUN_V2_TOP_PERFORMERS_PAYMENT: return "Digital Run v2 Top Performers Payment";
             case DIGITAL_RUN_V2_TAXABLE_PRIZE_PAYMENT: return "Digital Run v2 Payment (taxable)";
-            case DIGITAL_RUN_V2_TAXABLE_TOP_PERFORMERS_PAYMENT: return "Digital Run v2 Top Performers Payment (taxable)";			
+            case DIGITAL_RUN_V2_TAXABLE_TOP_PERFORMERS_PAYMENT: return "Digital Run v2 Top Performers Payment (taxable)";
             case SPECIFICATION_CONTEST_PAYMENT: return "Specification Contest Payment";
             case CONCEPTUALIZATION_CONTEST_PAYMENT: return "Conceptualization Contest Payment";
             case TEST_SUITES_PAYMENT: return "Test Suites Payment";

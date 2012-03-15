@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.ajax;
 
@@ -68,7 +68,7 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
                         if (type == ALGORITHM_CONTEST_PAYMENT) {
                             map = dib.findRounds("%" + search + "%", ALGORITHM_CONTEST_ROUND_TYPES);
 
-                        } else if (type == MARATHON_MATCH_PAYMENT || type == MARATHON_MATCH_TOURNAMENT_PRIZE_PAYMENT) {
+                        } else if (type == MARATHON_MATCH_PAYMENT || type == MARATHON_MATCH_NON_TAXABLE_PAYMENT || type == MARATHON_MATCH_TOURNAMENT_PRIZE_PAYMENT) {
                             map = dib.findRounds("%" + search + "%", MARATHON_MATCH_ROUND_TYPES);
 
                         }  else if (type == HIGH_SCHOOL_TOURNAMENT_PRIZE_PAYMENT) {
