@@ -155,6 +155,12 @@
         </div>		  
       </td>
       <td class="value">30
+	  	<div class="tco12">
+        	<div class="emblem"><img src="/i/tournament/tco12/emblem.png" alt="TCO12" /></div>
+        	<strong><A href="http://community.topcoder.com/tco12/marathon-schedule/">Marathon Round 3</A></strong><br />
+        	13:00<br />
+        	2 weeks<br />
+		</div>
       </td>
       <td class="value">31
       </td>
