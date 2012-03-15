@@ -333,9 +333,15 @@
                                         <input type="text" class="text" <c:if test="${not empty title2}">value="${title2}"</c:if>/>
                                     </div>
                                 </li>
+                                <li class="winnerHandle">
+                                     <input type="checkbox" name="winner" <c:if test="${not empty winnerHandle}">checked="checked"</c:if>/>
+                                     <label>Winner's handle:</label>
+                                     <div class="fields">
+                                        <input id="winnerHandle" class="text" type="text" <c:if test="${not empty winnerHandle}">value="${winnerHandle}"</c:if>/>
+                                    </div>
+                                </li>
                                 <li class="winnerPlacement">
-                                    <input type="checkbox" name="winner" <c:if test="${winner ne '0'}">checked="checked"</c:if>/>
-                                    <label>Winner's handle up to a certain placement:</label>
+                                    <label> up to:</label>
                                     <div class="fields">
                                         <select>
                                             <option value="1" <c:if test="${winner eq '1'}">selected="selected"</c:if>>first place</option>
@@ -545,7 +551,8 @@
                                         <div class="tooltipsH"><h6>1st Place</h6></div>
                                         <div class="tooltipsC">
                                     <%         if (resultRow.getBooleanItem("show_submissions")) { %>
-                                            <img src="studio.jpg?module=DownloadSubmission&sbmid=<%=winners.get(0).getStringItem("submission_id")%>&sbt=thumb" alt="" />
+                                            <img src="/i/ajax-loader.gif" />
+                                            <img src="" rel="studio.jpg?module=DownloadSubmission&sbmid=<%=winners.get(0).getStringItem("submission_id")%>&sbt=thumb" alt="Thumb" class="thumb hide"/>
                                     <%         } %>
                                             <p><rsc:item name="amount" row="<%=winners.get(0)%>" format="$###,###.00" ifNull="&nbsp;"/></p>
                                             <a href="http://${STUDIO_SERVER_NAME}/?module=ViewMemberProfile&ha=<%=winners.get(0).getStringItem("handle_lower")%>"><strong><%=winners.get(0).getStringItem("handle_lower")%></strong></a>
@@ -563,7 +570,8 @@
                                         <div class="tooltipsH"><h6>2nd Place</h6></div>
                                         <div class="tooltipsC">
                                     <%         if (resultRow.getBooleanItem("show_submissions")) { %>
-                                            <img src="studio.jpg?module=DownloadSubmission&sbmid=<%=winners.get(1).getStringItem("submission_id")%>&sbt=thumb" alt="" />
+                                            <img src="/i/ajax-loader.gif" />
+                                            <img src="" rel="studio.jpg?module=DownloadSubmission&sbmid=<%=winners.get(1).getStringItem("submission_id")%>&sbt=thumb" alt="Thumb" class="thumb hide"/>
                                     <%         } %>
                                             <p><rsc:item name="amount" row="<%=winners.get(1)%>" format="$###,###.00" ifNull="&nbsp;"/></p>
                                             <a href="http://${STUDIO_SERVER_NAME}/?module=ViewMemberProfile&ha=<%=winners.get(1).getStringItem("handle_lower")%>"><strong><%=winners.get(1).getStringItem("handle_lower")%></strong></a>
@@ -581,7 +589,8 @@
                                         <div class="tooltipsH"><h6>3rd Place</h6></div>
                                         <div class="tooltipsC">
                                     <%         if (resultRow.getBooleanItem("show_submissions")) { %>
-                                            <img src="studio.jpg?module=DownloadSubmission&sbmid=<%=winners.get(2).getStringItem("submission_id")%>&sbt=thumb" alt="" />
+                                            <img src="/i/ajax-loader.gif" />
+                                            <img src="" rel="studio.jpg?module=DownloadSubmission&sbmid=<%=winners.get(2).getStringItem("submission_id")%>&sbt=thumb" alt="Thumb" class="thumb hide"/>
                                     <%         } %>
                                             <p><rsc:item name="amount" row="<%=winners.get(2)%>" format="$###,###.00" ifNull="&nbsp;"/></p>
                                             <a href="http://${STUDIO_SERVER_NAME}/?module=ViewMemberProfile&ha=<%=winners.get(2).getStringItem("handle_lower")%>"><strong><%=winners.get(2).getStringItem("handle_lower")%></strong></a>

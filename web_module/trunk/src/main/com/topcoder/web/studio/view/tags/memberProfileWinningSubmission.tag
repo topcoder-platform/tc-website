@@ -27,8 +27,9 @@
 
         <c:choose>
             <c:when test="${not submission.locked}">
+                <div class="loading"><img src="/i/ajax-loader.gif"/></div>
                 <img alt="smallThumbPlaceholder"
-                     src="http://studio.topcoder.com?module=DownloadSubmission&amp;sbmid=${submission.submissionId}&amp;sbt=tiny"/>
+                     src="" rel="http://studio.topcoder.com?module=DownloadSubmission&amp;sbmid=${submission.submissionId}&amp;sbt=tiny" class="thumb" style="display:none;"/>
             </c:when>
             <c:otherwise>
                 <img src="/i/lockedThumb.png" alt="locked"/>

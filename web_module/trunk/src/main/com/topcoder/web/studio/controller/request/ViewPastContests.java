@@ -81,7 +81,7 @@ public class ViewPastContests extends BaseProcessor {
         DEFAULT_SORT_PRIORITY.add(4);           // start_time
         DEFAULT_SORT_DIRECTION.put(4, true);
         DEFAULT_SORT_PRIORITY.add(5);           // end_time
-        DEFAULT_SORT_DIRECTION.put(5, true);
+        DEFAULT_SORT_DIRECTION.put(5, false);
         DEFAULT_SORT_PRIORITY.add(14);          // first_place
         DEFAULT_SORT_DIRECTION.put(14, true);
         DEFAULT_SORT_PRIORITY.add(22);          // winner_count
@@ -110,6 +110,12 @@ public class ViewPastContests extends BaseProcessor {
 
         String col = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
         String order = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+        if (col.trim().length() == 0) {
+            col = "5";
+        }
+        if (order.trim().length() == 0) {
+            order = "desc";
+        }
         String query = getRequest().getQueryString();
         query = removeParameter(query, "pageSize");
         query = removeParameter(query, "pageNum");
@@ -140,11 +146,20 @@ public class ViewPastContests extends BaseProcessor {
         String startTime = getRequest().getParameter("startDateTime");
         String endDate = getRequest().getParameter("endDate");
         String endTime = getRequest().getParameter("endDateTime");
+        String title1 = getRequest().getParameter("title1");
+        if (title1 == null || title1.trim().length() == 0) {
+            title1 = "";
+        }
         if (contestTypes == null || contestTypes.length == 0) {
             contestTypes = new String[] {"16", "17", "18", "20", "21", "22", "30", "31", "32", "34"};
-            startDate = df1.format(new Date(new Date().getTime() - 45 * MILLISECOND_IN_A_DAY));
+            if (title1.length() == 0) {
+                startDate = df1.format(new Date(new Date().getTime() - 45 * MILLISECOND_IN_A_DAY));
+                endDate = df1.format(new Date());
+            } else {
+                startDate = "01/01/1900";
+                endDate = "12/31/2099";
+            }
             startTime = "01:00";
-            endDate = df1.format(new Date());
             endTime = "01:00";
             StringBuilder sb = new StringBuilder();
             for (String contestType : contestTypes) {
@@ -193,10 +208,6 @@ public class ViewPastContests extends BaseProcessor {
         r.setProperty("dmax", maxDuration);
         getRequest().setAttribute("maxDuration", maxDuration);
         
-        String title1 = getRequest().getParameter("title1");
-        if (title1 == null || title1.trim().length() == 0) {
-            title1 = "";
-        }
         getRequest().setAttribute("title1", title1);
 
         String title2 = getRequest().getParameter("title2");
@@ -207,12 +218,16 @@ public class ViewPastContests extends BaseProcessor {
 
         r.setProperty("pjn", "%" + (title1.equals("") ? title2.toLowerCase() : title1.toLowerCase()) + "%");
 
+        String winnerHandle = getRequest().getParameter("winnerHandle");
         String winner = getRequest().getParameter("winner");
-        if (winner == null || winner.trim().length() == 0) {
-            winner = "0";
+        if (winnerHandle == null || winnerHandle.trim().length() == 0) {
+            winnerHandle = "";
+            winner = "1";
         }
         r.setProperty("wc", winner);
+        r.setProperty("ha", winnerHandle);
         getRequest().setAttribute("winner", winner);
+        getRequest().setAttribute("winnerHandle", winnerHandle);
 
         String firstPrize = getRequest().getParameter("firstPrize");
         if (firstPrize == null || firstPrize.trim().length() == 0) {

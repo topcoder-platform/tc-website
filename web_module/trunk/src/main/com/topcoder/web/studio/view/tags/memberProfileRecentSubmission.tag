@@ -25,11 +25,12 @@
         <c:out value="${submission.contestName}"/></a></div>
     <div class="thumbWrapper">
         <c:choose>
-            <c:when test="${submission.locked}">
+            <c:when test="${submission.locked or submission.pendingReview or (not submission.pendingReview and submission.placement eq null)}">
                 <img alt="locked" src="/i/lockedThumb.png"/>
             </c:when>
             <c:otherwise>
-                <img alt="smallThumbPlaceholder" src="http://studio.topcoder.com?module=DownloadSubmission&sbmid=${submission.submissionId}&amp;sbt=tiny"/>
+                <div class="loading"><img src="/i/ajax-loader.gif"/></div>
+                <img alt="smallThumbPlaceholder" src="" rel="http://studio.topcoder.com?module=DownloadSubmission&sbmid=${submission.submissionId}&amp;sbt=tiny" class="thumb" style="display:none;"/>
             </c:otherwise>
         </c:choose>
 
