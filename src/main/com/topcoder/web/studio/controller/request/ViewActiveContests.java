@@ -65,7 +65,7 @@ public class ViewActiveContests extends BaseProcessor {
         DEFAULT_SORT_PRIORITY.add(3);          // type_name
         DEFAULT_SORT_DIRECTION.put(3, true);
         DEFAULT_SORT_PRIORITY.add(4);          // start_time
-        DEFAULT_SORT_DIRECTION.put(4, true);
+        DEFAULT_SORT_DIRECTION.put(4, false);
         DEFAULT_SORT_PRIORITY.add(14);         // milestone_date
         DEFAULT_SORT_DIRECTION.put(14, true);
         DEFAULT_SORT_PRIORITY.add(5);          // end_time
@@ -98,6 +98,12 @@ public class ViewActiveContests extends BaseProcessor {
 
         String col = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
         String order = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+        if (col.trim().length() == 0) {
+            col = "4";
+        }
+        if (order.trim().length() == 0) {
+            order = "desc";
+        }
 
         List<Integer> sortPriority = new ArrayList<Integer>(DEFAULT_SORT_PRIORITY);
         Map<Integer, Boolean> sortDirection = new HashMap<Integer, Boolean>(DEFAULT_SORT_DIRECTION);
