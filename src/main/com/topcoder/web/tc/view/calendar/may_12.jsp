@@ -64,6 +64,12 @@
       <td class="value">1
       </td>
       <td class="value">2
+	  	<div class="tco12">
+        	<div class="emblem"><img src="/i/tournament/tco12/emblem.png" alt="TCO12" /></div>
+        	<strong><A href="http://community.topcoder.com/tco12/marathon-schedule/">Marathon Round 2</A></strong><br />
+        	13:00<br />
+        	2 weeks<br />
+		</div>
       </td>
       <td class="value">3
       </td>
@@ -91,6 +97,11 @@
       <td class="value">11
       </td>
       <td class="value">12
+	  	<div class="tco12">
+        	<div class="emblem"><img src="/i/tournament/tco12/emblem.png" alt="TCO12" /></div>
+        	<strong><A href="http://community.topcoder.com/tco12/algorithm-schedule/">Algorithm Round 2A</A></strong><br />
+        	12:00<br />
+		</div>
       </td>
    </tr>
    
