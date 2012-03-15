@@ -66,16 +66,27 @@
       <td class="value">3
       </td>
       <td class="value">4
+	  	<div class="tco12">
+        	<div class="emblem"><img src="/i/tournament/tco12/emblem.png" alt="TCO12" /></div>
+        	<strong><A href="http://community.topcoder.com/tco12/marathon-schedule/">Marathon Round 1</A></strong><br />
+        	13:00<br />
+        	2 weeks<br />
+		</div>
 	    <div class="srm">
 		 <strong><A href="/tc?module=MatchDetails&rd=14731">SRM 539</A></strong><br />
          21:00
-        </div>		  
+        </div>
       </td>
       <td class="value">5
       </td>
       <td class="value">6
       </td>
       <td class="value">7
+	  	<div class="tco12">
+        	<div class="emblem"><img src="/i/tournament/tco12/emblem.png" alt="TCO12" /></div>
+        	<strong><A href="http://community.topcoder.com/tco12/algorithm-schedule/">Algorithm Round 1B</A></strong><br />
+        	12:00<br />
+		</div>
       </td>
    </tr>
 
@@ -98,6 +109,11 @@
       <td class="value">13
       </td>
       <td class="value">14
+	  	<div class="tco12">
+        	<div class="emblem"><img src="/i/tournament/tco12/emblem.png" alt="TCO12" /></div>
+        	<strong><A href="http://community.topcoder.com/tco12/algorithm-schedule/">Algorithm Round 1C</A></strong><br />
+        	12:00<br />
+		</div>
       </td>
    </tr>
 
@@ -115,6 +131,11 @@
       <td class="value">20
       </td>
       <td class="value">21
+	  	<div class="tco12">
+        	<div class="emblem"><img src="/i/tournament/tco12/emblem.png" alt="TCO12" /></div>
+        	<strong><A href="http://community.topcoder.com/tco12/algorithm-schedule/">Algorithm Round 2A</A></strong><br />
+        	12:00<br />
+		</div>
       </td>
    </tr>
 
