@@ -178,6 +178,11 @@
       <td class="value">30
       </td>
       <td class="value">31
+	  	<div class="tco12">
+        	<div class="emblem"><img src="/i/tournament/tco12/emblem.png" alt="TCO12" /></div>
+        	<strong><A href="http://community.topcoder.com/tco12/algorithm-schedule/">Algorithm Round 1A</A></strong><br />
+        	12:00<br />
+		</div>
       </td>
    </tr>
 
