@@ -30,7 +30,6 @@ import java.util.Iterator;
 import java.util.Set;
 import com.topcoder.util.log.Level;
 import com.topcoder.util.log.Log;
-import com.topcoder.util.log.LogManager;
 import com.topcoder.util.log.LogException;
 import com.topcoder.util.log.LogFactory;
 
@@ -239,10 +238,11 @@ public final class ProjectForm extends ReviewForm {
     protected void log(Level level, java.lang.Object message) {
         
             if (log == null) {
-                log = LogManager.getLog();   //LogFactory.getInstance().getLog("com.topcoder.apps.review");
+                log = LogFactory.getInstance().getLog("com.topcoder.apps.review");
             }
             log.log(level, message);
-       
+        } catch (LogException e) {
+        }
     }
 
 
