@@ -236,7 +236,7 @@ public final class ProjectForm extends ReviewForm {
      * @message the text to be logged.
      */
     protected void log(Level level, java.lang.Object message) {
-        
+        try {
             if (log == null) {
                 log = LogFactory.getInstance().getLog("com.topcoder.apps.review");
             }
