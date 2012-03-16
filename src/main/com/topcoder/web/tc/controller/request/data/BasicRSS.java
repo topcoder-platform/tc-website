@@ -2,10 +2,9 @@ package com.topcoder.web.tc.controller.request.data;
 
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.web.common.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.SecurityHelper;
-import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Static;
@@ -40,7 +39,7 @@ public class BasicRSS extends Static {
             getRequest().setAttribute("title", title);
 
             //for now we'll assume they're gettin data from the warehouse, perhaps that'll change later
-            Map<String, ResultSetContainer> m = new CachedDataAccess(MaxAge.HOUR, BasicData.getDataSource(ds)).getData(r);
+            Map<String, ResultSetContainer> m = new DataAccess(BasicData.getDataSource(ds)).getData(r);
             getRequest().setAttribute("results", m);
 
             if (hasParameter(Constants.STATIC_PREFIX + 1)) {
