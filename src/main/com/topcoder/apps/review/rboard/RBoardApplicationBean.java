@@ -1144,7 +1144,7 @@ public class RBoardApplicationBean extends BaseEJB {
             "   and ri_userid.value = ? ";
 
         final String querySpecReviewers =
-                "select count(*) as active_projects " +
+                "select count(distinct p.project_id) as active_projects " +
                 "from project p " +
                 ", project_phase pp_review " +
                 ", resource r " + 
