@@ -316,6 +316,13 @@
 		otherwise explicitly permitted, Competitors may not copy or include code from any third party, including "open source" code or other code that 
 		is or may be subject to license terms or restrictions. 
     </p>
+
+<%	if (round_id == 15078) { %>
+	<p align="justify">
+		You are permitted to use open source code that is licensed under the GPLv2 license or a license that is compatible with the
+		GPLv2 license, provided that the code is clearly identified in comments and that your use does not violate the terms of the applicable license.
+	</p>
+<%	} %>
 	
 	<p>
 	  IN ORDER TO BE ELIGIBLE, YOU WARRANT THAT YOUR SUBMISSION FOR THIS COMPETITION:<br>
