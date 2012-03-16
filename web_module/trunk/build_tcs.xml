@@ -74,7 +74,7 @@
         <pathelement location="${jars.dir}/tcs/file_class/1.0/file_class.jar"/>
         <pathelement location="${jars.dir}/tcs/file_upload/2.0.2.0/file_upload.jar"/>
         <pathelement location="${jars.dir}/tcs/job_scheduling.jar"/>
-        <pathelement location="${jars.dir}/tcs/logging_wrapper.jar"/>
+        <pathelement location="${jars.dir}/tcs/logging_wrapper/2.0.0/logging_wrapper.jar"/>
         <pathelement location="${jars.dir}/tcs/math_matrix.jar"/>
         <pathelement location="${jars.dir}/tcs/object_formatter.jar"/>
         <pathelement location="${jars.dir}/tcs/refreshable_cache.jar"/>
@@ -347,7 +347,7 @@
                 <include name="document_generation.jar"/>
                 <include name="email_engine.jar"/>
                 <include name="job_scheduling.jar"/>
-                <include name="logging_wrapper.jar"/>
+                <include name="logging_wrapper/2.0.0/logging_wrapper.jar"/>
                 <include name="math_matrix.jar"/>
                 <include name="object_formatter.jar"/>
                 <include name="refreshable_cache.jar"/>
