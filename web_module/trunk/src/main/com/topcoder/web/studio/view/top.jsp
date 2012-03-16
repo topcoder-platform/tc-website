@@ -24,129 +24,133 @@
 String section = request.getParameter("section") == null ? "" : request.getParameter("section");
 %>
 
-<div id="header2">
-    <div class="wrapper2">
-
-        <%-- MASTHEAD AND LOGO --%>
-        <h1><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>" title="TopCoder"><span>TopCoder Direct</span></a></h1>
-
-        <%-- LOGIN FORM (NEW) --%>
-        <c:choose>
-            <c:when test="${sessionInfo.anonymous}">
-                <div id="loginform">
-                    <div id="login_left"></div>
-                    <div id="login_right"></div>
-                    <form method="post" name="frmLogin" action="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>">
-                        <input type="hidden" name="module" value="Login" />
-                        <div id="left">
-                            <div id="username">
-                                <span>Username:</span>
-                                <input type="text" name="<%=Login.USER_NAME%>" maxlength="30" type="text" tabindex="1" />
-                            </div>
-                            <div id="password"><span>Password:</span>
-                                <input type="password" name="<%=Login.PASSWORD%>" maxlength="30" tabindex="2" />
-                                <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword" title="Forgot your password?" >Forgot?</a>
-                            </div>
-                            <div id="rememberme">
-                                <input type="checkbox" id="remember" name="<%=Login.REMEMBER_USER%>" />
-                                <label for="remember">Remember me</label>
-                            </div>
-                        </div>
-                        <div id="right">
-                            <a href="#" class="button" tabindex="3">Login</a>
-                            <div class="register">
-                                <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/" title="Register">Register today!</a>
-                            </div>
-                        </div>
-                    </form>
+<!-- #header -->
+<div id="header">
+    <div class="headerInner">
+        <h1><a href="http://studio.topcoder.com" title="Topcoder Studio"><img src="/i/v4/logo-topcoder-studio.png" alt="Topcoder Studio" /></a></h1>
+        <!-- #userPanel -->
+        <div id="userPanel">
+            <div class="userPanelR">
+                <div class="userPanelC">
+                    <c:choose>
+                        <c:when test="${sessionInfo.anonymous}">
+                            Hello, <strong>Guest</strong> | <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Login">login</a> | <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/">Register</a>
+                        </c:when>
+                        <c:otherwise>
+                            Hello, <studio:handle coderId="${sessionInfo.userId}" styleClass="userLink" /> | <a href="http://community.topcoder.com/studio/the-process/">Studio Help</a> | <a href="/?module=MyStudioHome">My Studio</a> | <a href="http://www.topcoder.com/">About TopCoder</a> | <a href="/?module=Logout">Log out</a>
+                        </c:otherwise>
+                    </c:choose>
                 </div>
-            </c:when>
-        </c:choose>
-        <%-- END LOGIN FORM --%>
-
-        <h2 id="ready_engage"><span>Ready.. ENGAGE</span></h2>
-        <div id="studio_menu">
-            <ul>
-                <li class="left"><a href="/">{ }</a></li>
-                <li><a href="/?module=ViewActiveContests" <% if (section.equals("contest")) {%> class="active"<% } %>>Contests</a></li>
-                <li><a href="/forums" <% if (section.equals("forums")) {%> class="active"<% } %>>Forums</a></li>
-                <li><a href="/?module=Static&amp;d1=support&amp;d2=getStarted" <% if (section.equals("howitworks")) {%> class="active"<% } %>>How It Works</a></li>
-                <li><a href="/?module=Static&d1=digitalrun&d2=2008v2&d3=home" <% if (section.equals("cup")) {%> class="active"<% } %>>Studio Cup</a></li>
-                <li><a href="/?module=MyStudioHome" <% if (section.equals("my_studio")) {%> class="active"<% } %>>My Studio</a></li>
-                <li><a href="http://community.topcoder.com/studio/" <% if (section.equals("blog")) {%> class="active"<% } %>>Blog</a></li>
-                <li><a href="/?module=Static&amp;d1=portfolio&amp;d2=portfolio" <% if (section.equals("portfolio")) {%> class="active"<% } %>>Portfolio</a></li>
-                <li class="right"><a href="/?module=Static&amp;d1=contactUs" <% if (section.equals("contact")) {%> class="active"<% } %>>Contact Studio</a></li>
-            </ul>
+            </div>
         </div>
-
-        <%-- MAIN NAVIGATION --%>
-        <div id="nav">
-            <h3 class="hide">Main Navigation</h3>
-            <ul>
-                <li class="left"><a href="http://www.topcoder.com/">TopCoder Home</a></li>
-                <!--<li><a href="http://software.topcoder.com/">Engage</a>
-                    <ul>
-                        <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/cockpit/cockpit.jsp">TopCoder Direct</a></li>
-                        <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/">Components</a></li>
-                        <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/indexTCS.jsp">Software</a></li>
-                        <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/platform-tools.jsp">Platform Tools</a></li>
-                        <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/training.jsp">Training &amp; Mentoring</a></li>
-                        <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/TCD/support.jsp">Support &amp; Maintenance</a></li>
-                        <li class="last-li"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/contact.jsp">Contact Us</a></li>
-                    </ul>
-                </li>-->
-                <li   id="studio" class="on" ><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/">Design</a>
-                    <%--<ul>
-                    <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">Active Contests</a></li>
-                    <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/direct/">Launch a Contest</a></li>
-                    <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums">Studio Forums</a></li>
-                    <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/blog/">Studio Blog</a></li>
-                    <li><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=MyStudioHome">My Studio</a></li>
-                    <li class="last-li"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Static&amp;d1=contactUs">Contact Studio</a></li>
-                    </ul>--%>
-                </li>
-                <li><a href="http://www.topcoder.com/tc">Develop</a>
-                    <ul>
-                        <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&amp;pt=23">Conceptualization</a></li>
-                        <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&amp;pt=6">Specification</a></li>
-                        <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ActiveContests&amp;pt=7">Architecture</a></li>
-                        <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&amp;ph=112">Component Design</a></li>
-                        <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&amp;ph=113">Component Development</a></li>
-                        <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewAssemblyActiveContests">Assembly</a></li>
-                        <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=ViewActiveContests">Marathon Matches</a></li>
-                        <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/wiki/display/tc/Bug+Races">Bug Race Competitions</a></li>
-                        <li class="last-li"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">Studio Competitions</a></li>
-                    </ul>
-                </li>
-                <li><a href="http://www.topcoder.com/tc">Community</a>
-                    <ul>
-                        <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/">Join TopCoder</a></li>
-                        <li><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=MyHome">My TopCoder</a></li>
-                        <li><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/">TopCoder Forums</a></li>
-                        <li class="last-li"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums">Studio Forums</a></li>
-                    </ul>
-                </li>
-                <li class="left"><a href="http://topcoder.com/home/lets-talk/">Contact TopCoder</a></li>
-            </ul>
-        </div><%-- #navigation ends --%>
-
-        <%-- SUB NAVIGATION --%>
-        <div id="nav_support">
-            <h3 class="hide">SUB Navigation</h3>
-            <ul>
-                <li class="left"><a href="http://<%=ApplicationServer.SERVER_NAME%>/home/studio/the-process/">Studio Help</a></li>
-
-                <c:choose>
-                    <c:when test="${sessionInfo.anonymous}">
-                        <li class="login"><a class="gMetal" id="login_link" href="#">Login</a></li>
-                    </c:when>
-                    <c:otherwise>
-                        <li class="logged-in"><span class="welcome">Hello,&nbsp;</span><studio:handle coderId="${sessionInfo.userId}" /></li>
-                        <li class="logout gMetal"><a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=Logout" id="logout_link">Logout</a></li>
-                    </c:otherwise>
-                </c:choose>
-            </ul>
-        </div><%-- #navigation ends --%>
+        <!-- end #userPanel  -->
+        
+        <!-- #nav  -->
+        <ul id="nav">
+            <li <% if (section.equals("tc_studio_home") || section.equals("home")) {%> class="current"<% } %>>
+                <span class="navMenuR"><span class="navMenuC">
+                    <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>">Home</a>
+                </span></span>
+            </li>
+            <li <% if (section.equals("contest")) {%> class="current"<% } %>>
+                <span class="navMenuR"><span class="navMenuC">
+                    <a href="/?module=ViewActiveContests">Competitions</a>
+                </span></span>
+            </li>
+            <li <% if (section.equals("forums")) {%> class="current"<% } %>>
+                <span class="navMenuR"><span class="navMenuC">
+                    <a href="/forums">Forums</a>
+                </span></span>
+            </li>
+            <li <% if (section.equals("howitworks")) {%> class="current"<% } %>>
+                <span class="navMenuR"><span class="navMenuC">
+                    <a href="javascript:;">How it works</a>
+                </span></span>
+                <div class="subNav">
+                    <div class="subNavHead">
+                        <div class="subNavHeadR">
+                            <div class="subNavHeadC">
+                                <div class="subNavHeadInner"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="subNavContent">
+                        <div class="subNavContentR">
+                            <div class="subNavContentC">
+                                <ul>
+                                    <li><a href="http://community.topcoder.com/studio/what-is-studio/">Designer Guide</a></li>
+                                    <!-- test DOM -->
+                                    <li><a href="http://community.topcoder.com/studio/what-is-studio/">Designer Guide test nav</a></li>
+                                    <!-- end test DOM -->
+                                    <li><a href="http://www.topcoder.com/solutions/">Launch a contest</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- bottom part -->
+                    <div class="subNavFoot">
+                        <div class="subNavFootR">
+                            <div class="subNavFootC">
+                                <div class="subNavFootInner"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li <% if (section.equals("cup")) {%> class="current"<% } %>>
+                <span class="navMenuR"><span class="navMenuC">
+                    <a href="javascript:;">Tournaments</a>
+                </span></span>
+                <div class="subNav">
+                    <div class="subNavHead">
+                        <div class="subNavHeadR">
+                            <div class="subNavHeadC">
+                                <div class="subNavHeadInner"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="subNavContent">
+                        <div class="subNavContentR">
+                            <div class="subNavContentC">
+                                <ul>
+                                    <li><a href="/?module=Static&amp;d1=digitalrun&amp;d2=2008v2&amp;d3=home">Studio Cup</a></li>
+                                    <!-- test DOM -->
+                                    <li><a href="http://community.topcoder.com/studio/what-is-studio/">Designer Guide test nav test nav test nav</a></li>
+                                    <!-- end test DOM -->
+                                    <li><a href="http://community.topcoder.com/tco12/studio/">TCO</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- bottom part -->
+                    <div class="subNavFoot">
+                        <div class="subNavFootR">
+                            <div class="subNavFootC">
+                                <div class="subNavFootInner"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li <% if (section.equals("blog")) {%> class="current"<% } %>>
+                <span class="navMenuR"><span class="navMenuC">
+                    <a href="http://community.topcoder.com/studio/">Blog</a>
+                </span></span>
+            </li>
+            <li <% if (section.equals("portfolio")) {%> class="current"<% } %>>
+                <span class="navMenuR"><span class="navMenuC">
+                    <a href="/?module=Static&amp;d1=portfolio&amp;d2=portfolio">Portfolio</a>
+                </span></span>
+            </li>
+            <li <% if (section.equals("contact")) {%> class="current"<% } %>>
+                <span class="navMenuR"><span class="navMenuC">
+                    <a href="/?module=Static&amp;d1=contactUs">Contact Studio</a>
+                </span></span>
+            </li>
+        </ul>
+        <!-- end #nav  -->
+        
     </div>
-    <%-- .wrapper ends --%>
-</div><%-- #header ends --%>
+</div>
+<!-- end #header -->
+ 
