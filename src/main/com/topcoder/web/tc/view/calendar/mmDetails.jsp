@@ -308,7 +308,8 @@ Please check out the rules link below for more detail.
 <%}%>
 
 <%if(roundId == 14525 || roundId == 14584 || roundId == 15024 || roundId == 15075 || roundId == 15023 || 
-     roundId == 15034 || roundId == 15038 || roundId == 15076 || roundId == 15077 || roundId == 15078) {%>
+     roundId == 15034 || roundId == 15038 || roundId == 15076 || roundId == 15077 || roundId == 15078
+     || roundId == 15080) {%>
 <p align="justify">
     <b>Please note that this event is being run for a TopCoder customer.  By winning a prize in this event you agree to transfer ownership of
     your submission to TopCoder.  Please make sure to read
@@ -352,6 +353,13 @@ total prize money</b>.
 </p>
 <%}%>
 
+<%if (roundId == 15080) 
+{%>
+<p align="justify">
+    This Marathon Match is a money match that has a <b>$1,000 prize purse</b>! The top two highest scorers 
+	will receive prizes with the first place winner receiving $700!
+</p>
+<%}%>
 
 
 <%-- LIMIT THE REMAINING COPY TO ONLY NON-EXPERIMENTAL ROUNDS --%>
@@ -590,6 +598,21 @@ submission, within one week of the announcment of the winners in order to receiv
 
 <p align="justify">The 10 highest scorers in the round will be allowed to participate in the extra submission phase which will have $2,500 in
 total prize money. The detailed rules of this phase will be posted to the marathon match forum.</p>
+<%}%>
+
+<%if (roundId == 15080) {%>
+<div class="sectionHeader">Prizes</div>
+    <p align="justify">There will be $1,000 in total prize money.  The 2 highest scorers in this round will receive compensation
+    for their submissions as follows:</p>
+
+<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
+    <tr>
+        <td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right">$700</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">2nd</td><td class="bodyText" align="right">$300</td>
+    </tr>
+</table>
 <%}%>
 
 
