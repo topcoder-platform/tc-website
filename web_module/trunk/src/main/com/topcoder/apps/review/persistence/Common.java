@@ -32,7 +32,7 @@ import com.topcoder.util.cache.refreshable.RefreshableCache;
 import com.topcoder.util.log.Level;
 import com.topcoder.util.log.Log;
 import com.topcoder.util.log.LogException;
-import com.topcoder.util.log.LogFactory;
+import com.topcoder.util.log.LogManager;
 
 
 /**
@@ -259,45 +259,37 @@ public class Common {
     }
 
     private static void info(String msg) {
-        try {
+      
             if (log == null) {
                 log = Common.getLog();
             }
             log.log(Level.INFO, msg);
-        } catch (LogException e1) {
-            e1.printStackTrace();
-        }
+       
     }
 
     private static void debug(String msg) {
-        try {
+        
             if (log == null) {
                 log = Common.getLog();
             }
             log.log(Level.DEBUG, msg);
-        } catch (LogException e1) {
-            e1.printStackTrace();
-        }
+       
     }
 
     private static void error(String msg) {
-        try {
+      
             if (log == null) {
                 log = Common.getLog();
             }
             log.log(Level.ERROR, msg);
-        } catch (LogException e1) {
-            e1.printStackTrace();
-        }
+      
     }
 
     private static Log getLog() {
         Log newLog = null;
-        try {
-            newLog = LogFactory.getInstance().getLog("com.topcoder.apps.review.persistence.Common");
-        } catch (LogException e) {
-            e.printStackTrace();
-        }
+        
+            newLog = LogManager.getLog(); //LogFactory.getInstance().getLog("com.topcoder.apps.review.persistence.Common");
+        
         return newLog;
     }
 

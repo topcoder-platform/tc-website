@@ -17,7 +17,7 @@ import com.topcoder.security.policy.TCPermission;
 import com.topcoder.util.log.Level;
 import com.topcoder.util.log.Log;
 import com.topcoder.util.log.LogException;
-import com.topcoder.util.log.LogFactory;
+import com.topcoder.util.log.LogManager;
 
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
@@ -46,34 +46,26 @@ public class UserManagerBean implements SessionBean {
     private static Log log;
 
     static {
-        try {
-            log = LogFactory.getInstance().getLog("com.topcoder.apps.review.document.UserManagerBean");
-        } catch (LogException e) {
-            e.printStackTrace();
-        }
+       
+            log = LogManager.getLog();  //LogFactory.getInstance().getLog("com.topcoder.apps.review.document.UserManagerBean");
+      
     }
     private void info(String msg) {
-        try {
+      
             log.log(Level.INFO, msg);
-        } catch (LogException e1) {
-            e1.printStackTrace();
-        }
+    
     }
 
     private void debug(String msg) {
-        try {
+       
             log.log(Level.DEBUG, msg);
-        } catch (LogException e1) {
-            e1.printStackTrace();
-        }
+      
     }
 
     private void error(String msg) {
-        try {
+     
             log.log(Level.ERROR, msg);
-        } catch (LogException e1) {
-            e1.printStackTrace();
-        }
+      
     }
 
     /**
