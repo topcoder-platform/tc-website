@@ -79,8 +79,6 @@ String section = request.getParameter("section") == null ? "" : request.getParam
                             <div class="subNavContentC">
                                 <ul>
                                     <li><a href="http://community.topcoder.com/studio/what-is-studio/">Designer Guide</a></li>
-                                    <!-- test DOM -->
-                                    <li><a href="http://community.topcoder.com/studio/what-is-studio/">Designer Guide test nav</a></li>
                                     <!-- end test DOM -->
                                     <li><a href="http://www.topcoder.com/solutions/">Launch a contest</a></li>
                                 </ul>
@@ -114,8 +112,6 @@ String section = request.getParameter("section") == null ? "" : request.getParam
                             <div class="subNavContentC">
                                 <ul>
                                     <li><a href="/?module=Static&amp;d1=digitalrun&amp;d2=2008v2&amp;d3=home">Studio Cup</a></li>
-                                    <!-- test DOM -->
-                                    <li><a href="http://community.topcoder.com/studio/what-is-studio/">Designer Guide test nav test nav test nav</a></li>
                                     <!-- end test DOM -->
                                     <li><a href="http://community.topcoder.com/tco12/studio/">TCO</a></li>
                                 </ul>
