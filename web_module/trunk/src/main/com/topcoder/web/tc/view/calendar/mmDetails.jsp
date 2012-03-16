@@ -613,6 +613,10 @@ total prize money. The detailed rules of this phase will be posted to the marath
         <td class="bodyText" nowrap="nowrap">2nd</td><td class="bodyText" align="right">$300</td>
     </tr>
 </table>
+
+<p align="justify">
+    
+</p>
 <%}%>
 
 

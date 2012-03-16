@@ -240,6 +240,26 @@
 		total prize money. The detailed rules of this phase will be posted to the marathon match forum.</p>
     <%}%>
 
+	<%if (round_id == 15080) {%>
+	<div class="sectionHeader">Prizes</div>
+    	<p align="justify">There will be $1,000 in total prize money.  The 2 highest scorers in this round will receive compensation
+		for their submissions as follows:</p>
+
+		<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
+    	<tr>
+        	<td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right">$700</td>
+    	</tr>
+    	<tr>
+        	<td class="bodyText" nowrap="nowrap">2nd</td><td class="bodyText" align="right">$300</td>
+    	</tr>
+	</table>
+
+	<p align="justify">
+    
+	</p>
+	<%}%>
+
+
 	
 	<% if (Arrays.binarySearch(nsaRounds, round_id)>=0) { %>
 	
@@ -323,6 +343,24 @@
 		GPLv2 license, provided that the code is clearly identified in comments and that your use does not violate the terms of the applicable license.
 	</p>
 <%	} %>
+
+<%	if (round_id == 15080) { %>
+	<p align="justify">
+		You are allowed to use the code and ideas from the source codes located here in your submissions:
+		<ul>
+			<li>http://community.topcoder.com/longcontest/?module=ViewProblemSolution&pm=11747&rd=15034&cr=11789293&subnum=62</li>
+			<li>http://community.topcoder.com/longcontest/?module=ViewProblemSolution&pm=11747&rd=15034&cr=22628687&subnum=11</li>
+			<li>http://community.topcoder.com/longcontest/?module=ViewSubmissionHistory&rd=15034&pm=11747&cr=20639245</li>
+			<li>http://community.topcoder.com/longcontest/?module=ViewSubmissionHistory&rd=15034&pm=11747&cr=274023</li>
+			<li>http://community.topcoder.com/longcontest/?module=ViewProblemSolution&pm=11747&rd=15034&cr=22663678&subnum=15</li>
+			<li>http://community.topcoder.com/longcontest/?module=ViewProblemSolution&pm=11747&rd=15034&cr=23011839&subnum=19</li>
+			<li>http://www.topcoder.com/contest/problem/MinorityVariants2/code.zip</li>
+		</ul>
+	</p>
+	You are also allowed to the ideas from the document located here: http://www.topcoder.com/contest/problem/MinorityVariants2/description.pdf.
+	<p>
+<%	} %>
+
 	
 	<p>
 	  IN ORDER TO BE ELIGIBLE, YOU WARRANT THAT YOUR SUBMISSION FOR THIS COMPETITION:<br>
@@ -371,7 +409,7 @@
 	 
 		<% if (Arrays.binarySearch(assignRounds, round_id)>=0 || round_id==14481 || round_id==14525 || round_id == 14584 || 
 		       round_id == 15024 || round_id == 15075 || round_id == 15023 || round_id == 15034 || round_id == 15038 || round_id == 15076
-		       || round_id == 15077 || round_id == 15078) { %>
+		       || round_id == 15077 || round_id == 15078 || round_id == 15080) { %>
 		
 			As a condition of winning and redeeming a cash prize, Competitors will be required to submit, 
 			among other things, a completed TopCoder Competition Assignment Agreement, 
@@ -392,7 +430,8 @@
 		 rsr.getIntItem("round_id") == 13680 || rsr.getIntItem("round_id") == 13681 || rsr.getIntItem("round_id") == 14525 ||
 		 rsr.getIntItem("round_id") == 14584 || rsr.getIntItem("round_id") == 15024 || rsr.getIntItem("round_id") == 15075 ||
 		 rsr.getIntItem("round_id") == 15023 || rsr.getIntItem("round_id") == 15034 || round_id == 15038 ||
-		 rsr.getIntItem("round_id") == 15076 || rsr.getIntItem("round_id") == 15077 || rsr.getIntItem("round_id") == 15078) {%>
+		 rsr.getIntItem("round_id") == 15076 || rsr.getIntItem("round_id") == 15077 || rsr.getIntItem("round_id") == 15078 ||
+		 rsr.getIntItem("round_id") == 15080) {%>
 
 		<p align="justify">
 			This Competition is open to all members of the TopCoder website, who have agreed to the terms thereof, and who are at least 
@@ -465,7 +504,8 @@
     <div class="sectionHeader">Ownership and Rights</div>
     
 	<% if (Arrays.binarySearch(assignRounds, round_id)>=0 || round_id==14525 || round_id == 14584 || round_id == 15024 || round_id == 15075 ||
-	       round_id == 15023 || round_id == 15034 || round_id == 15038 || round_id == 15076 || round_id == 15077 || round_id == 15078) { %>
+	       round_id == 15023 || round_id == 15034 || round_id == 15038 || round_id == 15076 || round_id == 15077 || round_id == 15078
+	       || round_id == 15080) { %>
 		
 		<p align="justify">
 			You hereby acknowledge and agree that TopCoder owns, solely and exclusively, all right, title and interest, including all intellectual property 
