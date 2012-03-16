@@ -21,7 +21,7 @@ import com.topcoder.util.idgenerator.bean.IdGenHome;
 import com.topcoder.util.log.Level;
 import com.topcoder.util.log.Log;
 import com.topcoder.util.log.LogException;
-import com.topcoder.util.log.LogFactory;
+import com.topcoder.util.log.LogManager;
 
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
@@ -69,27 +69,27 @@ public class NotificationBean implements SessionBean {
     private static final int PK_VIOLATION_ERROR_CODE = -268;
 
     private void info(String msg) {
-        try {
+        //try {
             log.log(Level.INFO, msg);
-        } catch (LogException e1) {
-            e1.printStackTrace();
-        }
+        //} catch (LogException e1) {
+       //     e1.printStackTrace();
+       // }
     }
 
     private void debug(String msg) {
-        try {
+       // try {
             log.log(Level.DEBUG, msg);
-        } catch (LogException e1) {
-            e1.printStackTrace();
-        }
+       // } catch (LogException e1) {
+       //     e1.printStackTrace();
+       // }
     }
 
     private void error(String msg) {
-        try {
+       // try {
             log.log(Level.ERROR, msg);
-        } catch (LogException e1) {
-            e1.printStackTrace();
-        }
+       // } catch (LogException e1) {
+       //     e1.printStackTrace();
+       // }
     }
 
     /**
@@ -545,11 +545,11 @@ public class NotificationBean implements SessionBean {
             throw new CreateException("Could not find bean!" + e);
         }
 
-        try {
-            log = LogFactory.getInstance().getLog("com.topcoder.apps.review.notification.NotificationBean");
-        } catch (LogException e) {
-            e.printStackTrace();
-        }
+        //try {
+            log = LogManager.getLog();
+        //} catch (LogException e) {
+        //    e.printStackTrace();
+        //}
 
         debug("ProjectTrackerBean created");
     }
