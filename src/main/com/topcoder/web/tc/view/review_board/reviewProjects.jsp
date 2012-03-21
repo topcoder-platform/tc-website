@@ -245,10 +245,18 @@
                             </tr>
                         </table>
                         <br/>
+                        <c:if test="${applicationDelayHours > 0 || applicationDelayMinutes > 0}">
+                            <p>
+                                Due to your existing review commitments, review positions open for you
+                                ${applicationDelayHours} hours and ${applicationDelayMinutes} minutes after a project
+                                opens for review registration.
+                            </p>
+                        </c:if>
+                        <br/>
                     </c:if>
 
 
-                    <c:if test="${fn:length(specificationReviewList) > 0}">
+                    <c:if test="${fn:length(specReviewList) > 0}">
                         <div align="right" style="padding-top: 10px">
                             <b>Spec Review opportunities via RSS -</b>
                             <a href="/tc?module=BasicRSS&c=rss_spec_review_opportunities&dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
@@ -276,7 +284,7 @@
                                         </tr>
 
                                         <c:set var="i" value="0"/>
-                                        <c:forEach items="${specificationReviewList}" var="resultRow">
+                                        <c:forEach items="${specReviewList}" var="resultRow">
                                             <tr>
                                                 <td class="statDk" align="center">Specification Review</td>
                                                 <td class="statDk" align="center">${projectTypeDesc}</td>
@@ -288,14 +296,14 @@
                                                 </td>
                                                 <td class="statDk" align="right">
                                                     $ <fmt:formatNumber
-                                                        value="${specificationReviewPrices[i].specReviewCost}"
+                                                        value="${specReviewPrices[i].specReviewCost}"
                                                         pattern="#,###.00"/>
                                                 </td>
 
                                                 <c:choose>
-                                                    <c:when test="${waitingToReview[i]}">
+                                                    <c:when test="${specReviewWaitingToReview[i]}">
                                                         <td class="statDk" align="center" nowrap="nowrap">
-                                                            <fmt:formatDate value="${waitingUntil[i]}"
+                                                            <fmt:formatDate value="${specReviewWaitingUntil[i]}"
                                                                 pattern="MM.dd.yyyy'<br />'hh:mm a"/>
                                                         </td>
                                                     </c:when>
@@ -316,7 +324,7 @@
                                                     ${resultRow.map["available_spots"]}
                                                 </td>
                                                 <td class="statDk" align="left" nowrap="nowrap">
-                                                    <a href="${sessionInfo.servletPath}?${MODULE_KEY}=ReviewProjectDetail&${PROJECT_ID}=${resultRow.map['project_id']}&${PROJECT_TYPE_ID}=${specificationReviewProjectTypeId}">
+                                                    <a href="${sessionInfo.servletPath}?${MODULE_KEY}=ReviewProjectDetail&${PROJECT_ID}=${resultRow.map['project_id']}&${PROJECT_TYPE_ID}=${specReviewProjectTypeId}">
                                                         details
                                                     </a>
                                                     <c:if test="${resultRow.map['price_changes'] > 0}">
@@ -336,26 +344,23 @@
                                 </td>
                             </tr>
                         </table>
+                        <br/>			
+                        <c:if test="${specReviewApplicationDelayHours > 0 || specReviewApplicationDelayMinutes > 0}">
+                            <p>
+                                Due to your existing specification review commitments, new specification review positions open for you
+                                ${specReviewApplicationDelayHours} hours and ${specReviewApplicationDelayMinutes} minutes after a project
+                                opens for review registration.
+                            </p>
+                        </c:if>			
                         <br/>
                     </c:if>
 
                     <c:choose>
-                        <c:when test="${fn:length(projectList) + fn:length(specificationReviewList) == 0}">
+                        <c:when test="${fn:length(projectList) + fn:length(specReviewList) == 0}">
                             <br/>
                             <p align="center">Sorry, there are currently no review positions available.</p>
                             <br/>
                         </c:when>
-                        <c:otherwise>
-                            <c:if test="${applicationDelayHours > 0 || applicationDelayMinutes > 0}">
-                                <br/>
-                                <p>
-                                    Due to your existing review commitments, review positions open for you
-                                    ${applicationDelayHours} hours and ${applicationDelayMinutes} minutes after a project
-                                    opens for review registration.
-                                </p>
-                                <br/>
-                            </c:if>
-                        </c:otherwise>
                     </c:choose>
 
                 </td>

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.development;
 
@@ -186,7 +186,7 @@ public class ViewReviewProjects extends ReviewProjectDetail {
 
         try {
             ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("spec_review_projects");
-            getRequest().setAttribute("specificationReviewList", rsc);
+            getRequest().setAttribute("specReviewList", rsc);
 
             ResultSetContainer.ResultSetRow rsr = null;
 
@@ -195,7 +195,7 @@ public class ViewReviewProjects extends ReviewProjectDetail {
             ArrayList<Timestamp> waitingUntil = new ArrayList<Timestamp>();
 
             RBoardApplication rba = createRBoardApplication();
-            long applicationDelay = rba.getApplicationDelay(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId());
+            long applicationDelay = rba.getSpecReviewApplicationDelay(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId());
 
             for (Iterator it = rsc.iterator(); it.hasNext();) {
                 rsr = (ResultSetContainer.ResultSetRow) it.next();
@@ -215,14 +215,14 @@ public class ViewReviewProjects extends ReviewProjectDetail {
                 }
             }
 
-            getRequest().setAttribute("specificationReviewPrices", prices);
-            getRequest().setAttribute("specificationReviewProjectTypeId", specificationReviewProjectTypeId);
+            getRequest().setAttribute("specReviewPrices", prices);
+            getRequest().setAttribute("specReviewProjectTypeId", specificationReviewProjectTypeId);
 
-            getRequest().setAttribute("waitingToReview", waitingToReview);
-            getRequest().setAttribute("waitingUntil", waitingUntil);
-            getRequest().setAttribute("applicationDelayHours",
+            getRequest().setAttribute("specReviewWaitingToReview", waitingToReview);
+            getRequest().setAttribute("specReviewWaitingUntil", waitingUntil);
+            getRequest().setAttribute("specReviewApplicationDelayHours",
                                       new Integer((int) (applicationDelay / (1000 * 60 * 60))));
-            getRequest().setAttribute("applicationDelayMinutes",
+            getRequest().setAttribute("specReviewApplicationDelayMinutes",
                                       new Integer((int) ((applicationDelay % (1000 * 60 * 60)) / (1000 * 60))));
 
         } catch (TCWebException e) {

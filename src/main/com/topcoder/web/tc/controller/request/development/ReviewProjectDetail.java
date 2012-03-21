@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.development;
 
@@ -373,7 +373,7 @@ public class ReviewProjectDetail extends Base {
             getRequest().setAttribute("reviewerList", reviewerList);
 
             RBoardApplication rba = createRBoardApplication();
-            long applicationDelay = rba.getApplicationDelay(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId());
+            long applicationDelay = rba.getSpecReviewApplicationDelay(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId());
             Timestamp opensOn = (Timestamp) ((TCTimestampResult) detail.getItem(0, "opens_on")).getResultData();
 
             if (System.currentTimeMillis() < opensOn.getTime() + applicationDelay) {
@@ -414,10 +414,10 @@ public class ReviewProjectDetail extends Base {
     }
 
     private Boolean checkPhaseExistence(ResultSetContainer rsc, String columnName) {
-	    if (rsc.isValidColumn(columnName) == false) {
-            return Boolean.FALSE;		
-		}
-		
+        if (rsc.isValidColumn(columnName) == false) {
+            return Boolean.FALSE;       
+        }
+        
         String columnValue = rsc.getStringItem(0, columnName);
         if (columnValue == null || columnValue.trim().equals("")) {
             return Boolean.FALSE;
@@ -586,7 +586,7 @@ public class ReviewProjectDetail extends Base {
 
         r.setContentHandle("review_board_payments");
         r.setProperty(Constants.PROJECT_ID, String.valueOf(projectId));
-        r.setProperty(Constants.PHASE_ID, String.valueOf(phaseId));		
+        r.setProperty(Constants.PHASE_ID, String.valueOf(phaseId));     
 
         Map results = getDataAccess().getData(r);
         ResultSetContainer detail = (ResultSetContainer) results.get("review_board_payments");

@@ -195,7 +195,13 @@ public class RBoardApplicationBean extends BaseEJB {
      * this value in milliseconds.
      */
     private static final int APPLICATION_DELAY_PER_ACTIVE_PROJECT = 6 * 60 * 60 * 1000;
-    
+
+    /**
+     * For every active spec review a reviewer has, they get a compounded delay to sign up to new spec reviews that is equal to
+     * this value in milliseconds.
+     */
+    private static final int APPLICATION_DELAY_PER_ACTIVE_SPEC_REVIEW = 6 * 60 * 60 * 1000;    
+	
     /**
      * For every active project a Primary Review Evaluator has, they get a compounded delay to sign up to new projects that is equal to
      * this value in milliseconds.
@@ -366,8 +372,8 @@ public class RBoardApplicationBean extends BaseEJB {
      * @since 1.0.15
      */
     private static final int COPILOT_POSTING_PRIMARY_REVIEW_ID = 38;
-	
-	/**
+    
+    /**
      * <p>An <code>int</code> representing the Primary Review Evaluator id for Copilot Posting.</p>
      *
      * @since 1.0.16
@@ -380,8 +386,8 @@ public class RBoardApplicationBean extends BaseEJB {
      * @since 1.0.16
      */
     private static final int CONTENT_CREATION_PRIMARY_REVIEW_ID = 63;
-	
-	/**
+    
+    /**
      * <p>An <code>int</code> representing the primary review id for Content Creation.</p>
      *
      * @since 1.0.16
@@ -394,13 +400,13 @@ public class RBoardApplicationBean extends BaseEJB {
      * @since 1.0.18
      */
     private static final int REPORTING_PRIMARY_REVIEW_ID = 76;
-	
+    
     /**
      * <p>An <code>int</code> representing the primary review id for Reporting.</p>
      *
      * @since 1.0.18
      */
-    private static final int REPORTING_NEW_PRIMARY_REVIEW_ID = 127;	
+    private static final int REPORTING_NEW_PRIMARY_REVIEW_ID = 127; 
 
     /**
      * <p>An <code>int</code> representing the primary review id for Bug Hunt contest.</p>
@@ -584,7 +590,7 @@ public class RBoardApplicationBean extends BaseEJB {
 
     /**
      * Gets resource role ID for the specified review_resp_id.
-	 * The value is retrieved directly from the review_resp table.
+     * The value is retrieved directly from the review_resp table.
      *
      * @param reviewRespId review_resp_id to retrieve the role ID for.
      * @param conn the connection being used
@@ -596,11 +602,11 @@ public class RBoardApplicationBean extends BaseEJB {
     private int getResourceRoleIdByReviewRespId(int reviewRespId, Connection conn)
             throws SQLException {
 
-		log.debug("getResourceRoleIdByReviewRespId called: reviewRespId = " + reviewRespId);
+        log.debug("getResourceRoleIdByReviewRespId called: reviewRespId = " + reviewRespId);
 
         PreparedStatement ps = null;
         ResultSet rs = null;
-		int resourceRoleId;
+        int resourceRoleId;
         try {
             ps = conn.prepareStatement("select resource_role_id from review_resp where review_resp_id = ?");
             ps.setLong(1, reviewRespId);
@@ -639,7 +645,7 @@ public class RBoardApplicationBean extends BaseEJB {
     private void insertUserRole(Connection conn, long resourceId, long resourceRoleId,
                                 long projectId, String phaseId, long userId) {
 
-		log.debug("insertUserRole called: projectId = " + projectId + ", resourceRoleId = " + resourceRoleId +", phaseId = " + phaseId + ", userId = " + userId);
+        log.debug("insertUserRole called: projectId = " + projectId + ", resourceRoleId = " + resourceRoleId +", phaseId = " + phaseId + ", userId = " + userId);
         PreparedStatement ps = null;
         try {
             ps = conn.prepareStatement("INSERT INTO resource " +
@@ -734,7 +740,7 @@ public class RBoardApplicationBean extends BaseEJB {
             pstmt.close();
         }
 
-		return ret;
+        return ret;
     }
 
     private long nextId(String tableId) {
@@ -811,21 +817,21 @@ public class RBoardApplicationBean extends BaseEJB {
                 roleId = PRIMARY_SCREEN_ROLE;
                 pid = (String) phaseInfos.get(String.valueOf(SCREEN_PHASE));
                 if (pid != null && !pid.equals("")) {
-                	insertUserRole(conn, nextId(RESOURCE_ID_SEQ), roleId, projectId, pid, userId);
+                    insertUserRole(conn, nextId(RESOURCE_ID_SEQ), roleId, projectId, pid, userId);
                 }
 
                 // Prepare for aggregator
                 roleId = AGGREGATOR_REVIEWER_ROLE;
                 pid = (String) phaseInfos.get(String.valueOf(AGGREGATION_PHASE));
                 if (pid != null && !pid.equals("")) {
-                	insertUserRole(conn, nextId(RESOURCE_ID_SEQ), roleId, projectId, pid, userId);
+                    insertUserRole(conn, nextId(RESOURCE_ID_SEQ), roleId, projectId, pid, userId);
                 }
 
                 // Prepare for final review
                 roleId = FINAL_REVIEWER_ROLE;
                 pid = (String) phaseInfos.get(String.valueOf(FINAL_REVIEW_PHASE));
                 if (pid != null && !pid.equals("")) {
-                	insertUserRole(conn, nextId(RESOURCE_ID_SEQ), roleId, projectId, pid, userId);
+                    insertUserRole(conn, nextId(RESOURCE_ID_SEQ), roleId, projectId, pid, userId);
                 }
             }
 
@@ -869,10 +875,10 @@ public class RBoardApplicationBean extends BaseEJB {
      *
      * Updated for Version 1.0.12
      *      - Now the write permissions for the contest are assigned to the spec reviewer.
-	 *
+     *
      * Updated for Version 1.0.14
      *      - The method was completely rewritten to adapt for the new Spec Review process,
-	 *        where Spec Review is a set of phases in the parent project in OR, not a spearate OR project.
+     *        where Spec Review is a set of phases in the parent project in OR, not a spearate OR project.
      *
      * @param dataSource the datasource being used
      * @param userId the user id to insert
@@ -882,7 +888,7 @@ public class RBoardApplicationBean extends BaseEJB {
      * @param open Whether the registration is actually open
      * @param opensOn timestamp when the positions opens on
      * @param reviewTypeId the type of the review
-     * @return true if the timeline was extended	 
+     * @return true if the timeline was extended     
      * @throws RBoardRegistrationException if an unexpected error occurs.
      * @throws RemoteException if an error occurs while calling EJB method remotely.
      * @throws EJBException if an error occurs doing persistence operations
@@ -928,9 +934,9 @@ public class RBoardApplicationBean extends BaseEJB {
 
             Map phaseInfos = getPhaseInfo(projectId, conn);
             String pid = (String) phaseInfos.get(String.valueOf(SPECIFICATION_REVIEW_PHASE));
-			if (pid == null || pid.equals("")) {
-			    throw new RBoardRegistrationException("Invalid state of the project, no Specification Review phase found.");
-			}
+            if (pid == null || pid.equals("")) {
+                throw new RBoardRegistrationException("Invalid state of the project, no Specification Review phase found.");
+            }
 
             insert(conn, "rboard_application",
                    new String[]{"user_id", "project_id", "phase_id", "review_resp_id", "primary_ind"},
@@ -972,18 +978,18 @@ public class RBoardApplicationBean extends BaseEJB {
 
     /**
      * Extend the deadline of the phase of the specified type to be at least specified number of hours from now.
-	 * The phase is only extended if open.
+     * The phase is only extended if open.
      *
      * @param conn the connection being used
      * @param projectId the project id to inspect
      * @param phaseTypeId the type of the phase to extend
-	 * @param hours the minimum number of fours from now the new deadline should be
+     * @param hours the minimum number of fours from now the new deadline should be
      * @return true if extended
      */
     private boolean extendOpenPhase(Connection conn, long projectId, int phaseTypeId, int hours) throws SQLException {
 
         log.debug("extendOpenPhase called: projectId = " + projectId + ", phaseTypeId = " + phaseTypeId);
-		
+        
         PreparedStatement ps = null;
         try {
             ps = conn.prepareStatement("update project_phase set " +
@@ -1001,9 +1007,9 @@ public class RBoardApplicationBean extends BaseEJB {
             ps.setInt(5, hours);
 
             int updated = ps.executeUpdate();
-			
+            
             log.debug("Number of extended phases: " + updated);
-			
+            
             return updated > 0;
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
@@ -1143,28 +1149,10 @@ public class RBoardApplicationBean extends BaseEJB {
             "   and ri_userid.resource_info_type_id = 1 " +
             "   and ri_userid.value = ? ";
 
-        final String querySpecReviewers =
-                "select count(distinct p.project_id) as active_projects " +
-                "from project p " +
-                ", project_phase pp_review " +
-                ", resource r " + 
-                ", resource_info ri_userid " +  
-                "where p.project_status_id = 1 " +  
-                "and p.project_id = pp_review.project_id " +  
-                "and pp_review.phase_type_id = 14 " +  
-                "and pp_review.phase_status_id != 3 " +  
-                "and p.project_id = r.project_id " +  
-                "and r.resource_role_id = 18 " +  
-                "and r.project_phase_id = pp_review.project_phase_id " +  
-                "and r.resource_id = ri_userid.resource_id " +  
-                "and ri_userid.resource_info_type_id = 1 " +  
-                "and ri_userid.value = ?;";
-
         PreparedStatement ps = null;
         ResultSet rs = null;
         int activeProjects = 0;
         int activeProjects2 = 0;
-        int activeSpecReviews = 0;
         try {
             ps = conn.prepareStatement(query);
             ps.setLong(1, userId);
@@ -1201,24 +1189,7 @@ public class RBoardApplicationBean extends BaseEJB {
             ps = null;
         }
 
-        try {
-            ps = conn.prepareStatement(querySpecReviewers);
-            ps.setLong(1, userId);
-
-            rs = ps.executeQuery();
-            if (rs.next()) {
-                activeSpecReviews = rs.getInt("active_projects");
-            }
-        } catch (SQLException e) {
-            DBMS.printSqlException(true, e);
-            throw new EJBException(e);
-        } finally {
-            close(rs);
-            close(ps);
-        }
-
         return activeProjects * APPLICATION_DELAY_PER_ACTIVE_PROJECT +
-               activeSpecReviews * APPLICATION_DELAY_PER_ACTIVE_PROJECT +
                activeProjects2 * APPLICATION_DEPLOY_PRIMARY_EVALUATOR_PER_ACTIVE_PROJECT;
     }
 
@@ -1248,6 +1219,82 @@ public class RBoardApplicationBean extends BaseEJB {
     }
 
     /**
+     * Retrieves the time a spec reviewer should wait before being able to apply to a new spec review.
+     *
+     * For every ongoing spec review, the reviewer gets a compounded delay of APPLICATION_DELAY_PER_ACTIVE_SPEC_REVIEW.
+     *
+     * @param conn the connection being used
+     * @param userId the user id to inspect
+     * @return the time to wait in milliseconds
+     */
+    private long getSpecReviewApplicationDelay(Connection conn, long userId) {
+        log.debug("getSpecReviewApplicationDelay(Connection conn, long userId) called...");
+
+        final String querySpecReviewers =
+                "select count(distinct p.project_id) as active_projects " +
+                "from project p " +
+                ", project_phase pp_review " +
+                ", resource r " + 
+                ", resource_info ri_userid " +  
+                "where p.project_status_id = 1 " +  
+                "and p.project_id = pp_review.project_id " +  
+                "and pp_review.phase_type_id = 14 " +  
+                "and pp_review.phase_status_id != 3 " +  
+                "and p.project_id = r.project_id " +  
+                "and r.resource_role_id = 18 " +  
+                "and r.project_phase_id = pp_review.project_phase_id " +  
+                "and r.resource_id = ri_userid.resource_id " +  
+                "and ri_userid.resource_info_type_id = 1 " +  
+                "and ri_userid.value = ?;";
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        int activeSpecReviews = 0;
+
+        try {
+            ps = conn.prepareStatement(querySpecReviewers);
+            ps.setLong(1, userId);
+
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                activeSpecReviews = rs.getInt("active_projects");
+            }
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw new EJBException(e);
+        } finally {
+            close(rs);
+            close(ps);
+        }
+
+        return activeSpecReviews * APPLICATION_DELAY_PER_ACTIVE_SPEC_REVIEW;
+    }
+
+    /**
+     * Retrieves the time a spec reviewer should wait before being able to apply to a new spec review.
+     *
+     * For every ongoing spec review, the reviewer gets a compounded delay of APPLICATION_DELAY_PER_ACTIVE_SPEC_REVIEW.
+     *
+     * @param dataSource the datasource being used
+     * @param userId the user id to inspect
+     * @return the time to wait in milliseconds
+     */
+    public long getSpecReviewApplicationDelay(String dataSource, long userId) {
+        log.debug("getSpecReviewApplicationDelay(String dataSource, long userId) called...");
+
+        Connection conn = null;
+        try {
+            conn = DBMS.getConnection(dataSource);
+            return getSpecReviewApplicationDelay(conn, userId);
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw new EJBException(e);
+        } finally {
+            close(conn);
+        }
+    }
+
+    /**
      * Validates some non-transacional constraints for the review signup
      *
      * @param dataSource the datasource being used
@@ -1262,10 +1309,10 @@ public class RBoardApplicationBean extends BaseEJB {
 
         log.debug("validateUser called...");
 
-		// Check for the "old-style" Spec Review projects which are not supported anymore.
-		if (reviewTypeId == 37) {
+        // Check for the "old-style" Spec Review projects which are not supported anymore.
+        if (reviewTypeId == 37) {
             throw new RBoardRegistrationException("Old-style Spec Review projects are not supported anymore.");
-		}
+        }
 
         Connection conn = null;
 
@@ -1284,11 +1331,11 @@ public class RBoardApplicationBean extends BaseEJB {
 
             long status = 0;
             try {
-	            if (phaseId > WebConstants.SPECIFICATION_COMPETITION_OFFSET) {
+                if (phaseId > WebConstants.SPECIFICATION_COMPETITION_OFFSET) {
                     status = getStatus(conn, userId, phaseId - 111 - WebConstants.SPECIFICATION_COMPETITION_OFFSET, catalogId);
-				} else {
+                } else {
                     status = getStatus(conn, userId, phaseId - 111, catalogId);
-				}
+                }
             } catch (RowNotFoundException rnfe) {
                 try {
                     throw new RBoardRegistrationException("Sorry, you are not a " + getCatalogName(conn, catalogId)
@@ -1374,12 +1421,12 @@ public class RBoardApplicationBean extends BaseEJB {
     public void validateUserWithoutCatalog(String dataSource, int reviewTypeId, long userId, int projectTypeId)
             throws RBoardRegistrationException, RemoteException {
         log.debug("validateUserWithoutCatalog called...");
-		
+        
         // Check for the "old-style" Spec Review projects which are not supported anymore.
         if (reviewTypeId == 37) {
             throw new RBoardRegistrationException("Old-style Spec Review projects are not supported anymore.");
-        }		
-		
+        }       
+        
         Connection conn = null;
 
         try {
@@ -1390,11 +1437,11 @@ public class RBoardApplicationBean extends BaseEJB {
 
             long status = 0;
             try {
-	            if (projectTypeId > WebConstants.SPECIFICATION_COMPETITION_OFFSET) {
+                if (projectTypeId > WebConstants.SPECIFICATION_COMPETITION_OFFSET) {
                     status = getStatus(conn, userId, projectTypeId - WebConstants.SPECIFICATION_COMPETITION_OFFSET);
-				} else {
+                } else {
                     status = getStatus(conn, userId, projectTypeId);
-				}
+                }
             } catch (RowNotFoundException rnfe) {
                 rnfe.printStackTrace();
                 try {
@@ -1569,7 +1616,7 @@ public class RBoardApplicationBean extends BaseEJB {
             throw new RBoardRegistrationException("You have already applied to review this project.");
         }
 
-        long applicationDelay = getApplicationDelay(conn, userId);
+        long applicationDelay = getSpecReviewApplicationDelay(conn, userId);
         if (System.currentTimeMillis() < opensOn.getTime() + applicationDelay) {
             throw new RBoardRegistrationException("Sorry, this project is not open for review yet.  "
                                                   + "You will need to wait until "
@@ -1624,13 +1671,13 @@ public class RBoardApplicationBean extends BaseEJB {
         Map returnMap = new HashMap();
         int[] respIds = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
                 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42,
-				43, 44, 45, 46, 47, 48, 49, 50, 60, 61, 62, 63, 64, 65, 76, 77, 78, 79,
-				112, 113, 114,
+                43, 44, 45, 46, 47, 48, 49, 50, 60, 61, 62, 63, 64, 65, 76, 77, 78, 79,
+                112, 113, 114,
                 130, 131};
         int[] phaseIds = {113, 113, 113, 112, 112, 112, 125, 125, 125, 118, 118, 118, 134, 134, 134,
                 117, 117, 117, 124, 124, 124, 130, 130, 130, 135, 135, 135, 136, 136, 136, 137, 137, 137,
                 114, 114, 114, 138, 1113, 1112, 1125, 1118, 1134, 1117, 1124, 1130, 1135, 1136, 1137, 1114, 1146, 140, 140, 140, 146, 146, 146, 147, 147, 147, 1147,
-				134, 134, 134,
+                134, 134, 134,
                 1120, 120};
 
         for (int i = 0; i < respIds.length; i++) {
