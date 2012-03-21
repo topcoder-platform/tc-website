@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006-2011 TopCoder, Inc. All rights reserved.
+ * Copyright (c) 2006-2012 TopCoder, Inc. All rights reserved.
  */
 
 package com.topcoder.apps.review.rboard;
@@ -61,6 +61,8 @@ public interface RBoardApplication extends EJBObject {
 
     long getApplicationDelay(String dataSource, long userId) throws RemoteException;
 
+    long getSpecReviewApplicationDelay(String dataSource, long userId) throws RemoteException;
+
     void validateUser(String dataSource, int catalog, int reviewTypeId, long userId, int phaseId)
         throws RBoardRegistrationException, RemoteException;
 
@@ -95,12 +97,12 @@ public interface RBoardApplication extends EJBObject {
      * @param phaseId the phase id
      * @param opensOn timestamp when the positions opens on
      * @param reviewTypeId the type of the review
-	 * @return true if the timeline was extended
-	 * @throws RBoardRegistrationException if an unexpected error occurs.
+     * @return true if the timeline was extended
+     * @throws RBoardRegistrationException if an unexpected error occurs.
      * @throws RemoteException if an error occurs while calling EJB method remotely.
      * @throws EJBException if an error occurs doing persistence operations
-	 *
-	 * @since 1.0.4
+     *
+     * @since 1.0.4
      */
     public boolean createSpecReviewRBoardApplication(String dataSource, long userId,
                                         long projectId, int reviewRespId, int phaseId, Boolean open, Timestamp opensOn,
