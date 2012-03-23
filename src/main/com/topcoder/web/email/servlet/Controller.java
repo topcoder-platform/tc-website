@@ -64,16 +64,16 @@ public class Controller
         try {
             request.setCharacterEncoding("utf-8");
             String taskName = request.getParameter(EmailConstants.TASK);
-            log.debug("Requested task: " + taskName);
+            log.info("Requested task: " + taskName);
 
             // if there's no task parameter, go home
             if (taskName == null) {
-                log.debug("No task parameter - going home");
+                log.info("No task parameter - going home");
                 taskName = EmailConstants.HOME_TASK;
             }
 
             String taskClassName = EmailConstants.TASK_PACKAGE + "." + taskName;
-            log.debug("Task bean: " + taskClassName);
+            log.info("Task bean: " + taskClassName);
 
             TCRequest tcRequest = HttpObjectFactory.createRequest(request);
             TCResponse tcResponse = HttpObjectFactory.createUnCachedResponse(response);
@@ -110,10 +110,10 @@ public class Controller
             if (!dest.startsWith("/")) {
                 dest = "/" + dest;
             }
-            log.debug("forwarding to " + dest);
+            log.info("forwarding to " + dest);
             getServletContext().getContext("/").getRequestDispatcher(response.encodeURL(dest)).forward(request, response);
         } else {
-            log.debug("redirecting to " + dest);
+            log.info("redirecting to " + dest);
             response.sendRedirect(response.encodeRedirectURL(dest));
         }
     }

@@ -167,7 +167,7 @@ public class ScheduledJobTask
 
         request.getSession().setAttribute("ScheduledJob", job);
 
-        log.debug("Creating job: " + job);
+        log.info("Creating job: " + job);
 
         // forward to the first scheduled job creation form
         return EmailConstants.SCHEDULEDJOB_CREATE_PAGE;
@@ -232,7 +232,7 @@ public class ScheduledJobTask
                 calendar.add(Calendar.DAY_OF_MONTH, 1);
                 testJob.setEndDate(calendar.getTime());
 
-                log.debug("Creating test job:\n" + testJob);
+                log.info("Creating test job:\n" + testJob);
                 // create test job
                 createJob(testJob);
             }
@@ -260,7 +260,7 @@ public class ScheduledJobTask
                 calendar.add(Calendar.MINUTE, -15);
                 testJob.setStartDate(calendar.getTime());
 
-                log.debug("Creating reminder job:\n" + testJob);
+                log.info("Creating reminder job:\n" + testJob);
                 createJob(testJob);
             }
 
@@ -295,19 +295,19 @@ public class ScheduledJobTask
                 testJob.setEndDate(calendar.getTime());
             }
 
-            log.debug("Adding scheduled job:\n" + job);
+            log.info("Adding scheduled job:\n" + job);
 
             // create the job
             int baseJobId = createJob(job);
 
             if (testJob != null) {
-                log.debug("Creating report job:\n" + testJob);
+                log.info("Creating report job:\n" + testJob);
                 createReportJob(testJob, baseJobId);
             }
 
             job.setAdded(true);
         } else {
-            log.debug("Already added the job");
+            log.info("Already added the job");
         }
 
         // forward to scheduled job list page
@@ -336,7 +336,7 @@ public class ScheduledJobTask
         ScheduledJobForm job = retrieveJob(jobId);
         request.getSession().setAttribute("ScheduledJob", job);
 
-        log.debug("Editing scheduled job\n " + job);
+        log.info("Editing scheduled job\n " + job);
 
         // forward to scheduled job editing page
         return showEdit(request, response);
@@ -364,7 +364,7 @@ public class ScheduledJobTask
         ScheduledJobForm job = retrieveJob(jobId);
         request.setAttribute("ScheduledJob", job);
 
-        log.debug("Viewing scheduled job\n " + job);
+        log.info("Viewing scheduled job\n " + job);
 
         // forward to scheduled job viewing page
         return EmailConstants.SCHEDULEDJOB_VIEW_PAGE;
@@ -425,7 +425,7 @@ public class ScheduledJobTask
         ArrayList errorList = job.validate();
         if (errorList.size() > 0) {
             // error - go back
-            log.debug("Job form validation failed - errors: " + errorList);
+            log.info("Job form validation failed - errors: " + errorList);
 
             // set error list attribute
             request.setAttribute("Error", errorList);
@@ -433,7 +433,7 @@ public class ScheduledJobTask
             // forward back to job editing page
             return reloadEdit(request, response);
         } else {
-            log.debug("Saving job:\n" + job);
+            log.info("Saving job:\n" + job);
 
             saveJob(job);
 
@@ -478,7 +478,7 @@ public class ScheduledJobTask
         ArrayList errorList = job.validate();
         if (errorList.size() > 0) {
             // error - go back
-            log.debug("Job form validation failed - errors: " + errorList);
+            log.info("Job form validation failed - errors: " + errorList);
 
             // set error list attribute
             request.setAttribute("Error", errorList);
@@ -503,13 +503,13 @@ public class ScheduledJobTask
             throws ServletException {
         String group = request.getParameter(EmailConstants.GROUP);
         if (group == null) {
-            log.debug("No group specified - choosing first group");
+            log.info("No group specified - choosing first group");
 
             group = String.valueOf(AddressListTask.getFirstAddressListGroupId());
         }
         request.setAttribute(EmailConstants.GROUP, group);
 
-        log.debug("Listing address lists for group: " + group);
+        log.info("Listing address lists for group: " + group);
 
         return EmailConstants.SCHEDULEDJOB_CHOOSE_LIST_ADD_PAGE;
     }
@@ -534,7 +534,7 @@ public class ScheduledJobTask
         ArrayList errorList = job.validate();
         if (errorList.size() > 0) {
             // error - go back
-            log.debug("Job form validation failed - errors: " + errorList);
+            log.info("Job form validation failed - errors: " + errorList);
 
             // set error list attribute
             request.setAttribute("Error", errorList);
@@ -565,7 +565,7 @@ public class ScheduledJobTask
 
         job.setCommandInputMap(commandInputMap);
 
-        log.debug("command inputs: " + commandInputMap);
+        log.info("command inputs: " + commandInputMap);
 
         // forward to template choosing screen
         return chooseTemplateAdd(request, response);
@@ -590,7 +590,7 @@ public class ScheduledJobTask
         job.setListId(listId);
         job.setCommandId("0");
 
-        log.debug("address list: " + job.getListId());
+        log.info("address list: " + job.getListId());
 
         // forward to template choosing screen
         return chooseTemplateAdd(request, response);
@@ -609,13 +609,13 @@ public class ScheduledJobTask
             throws ServletException {
         String group = request.getParameter(EmailConstants.GROUP);
         if (group == null) {
-            log.debug("No group specified - choosing first group");
+            log.info("No group specified - choosing first group");
 
             group = String.valueOf(TemplateTask.getFirstTemplateGroupId());
         }
         request.setAttribute(EmailConstants.GROUP, group);
 
-        log.debug("Listing templates for group: " + group);
+        log.info("Listing templates for group: " + group);
 
         // forward to template chooser page
         return EmailConstants.SCHEDULEDJOB_CHOOSE_TEMPLATE_ADD_PAGE;
@@ -644,13 +644,13 @@ public class ScheduledJobTask
 
         String group = request.getParameter(EmailConstants.REPORT_GROUP);
         if (group == null) {
-            log.debug("No group specified - choosing first group");
+            log.info("No group specified - choosing first group");
 
             group = String.valueOf(TemplateTask.getFirstTemplateGroupId());
         }
         request.setAttribute(EmailConstants.REPORT_GROUP, group);
 
-        log.debug("Listing templates for group: " + group);
+        log.info("Listing templates for group: " + group);
 
         // forward to template chooser page
         return EmailConstants.SCHEDULEDJOB_CHOOSE_REPORT_TEMPLATE_PAGE;
@@ -673,7 +673,7 @@ public class ScheduledJobTask
         job.setCommandId(request.getParameter(EmailConstants.COMMAND_ID));
         job.setListId("0");
 
-        log.debug("command: " + job.getCommandId());
+        log.info("command: " + job.getCommandId());
 
         // retrieve command inputs for the command
         Set commandInputSet = StatisticsUtilities.getCommandInputs(Integer.parseInt(job.getCommandId()));
@@ -702,7 +702,7 @@ public class ScheduledJobTask
         // first set the template id
         ScheduledJobForm job = (ScheduledJobForm) request.getSession().getAttribute("ScheduledJob");
         job.setTemplateId(request.getParameter("templateId"));
-        log.debug("template id: " + job.getTemplateId());
+        log.info("template id: " + job.getTemplateId());
 
         // forward to page that asks if user wants a test
         return EmailConstants.SCHEDULEDJOB_ASK_SEND_TEST_PAGE;
@@ -722,7 +722,7 @@ public class ScheduledJobTask
         ScheduledJobForm job = (ScheduledJobForm) request.getSession().getAttribute("ScheduledJob");
 
         job.setTemplateId(request.getParameter("templateId"));
-        log.debug("template id: " + job.getTemplateId());
+        log.info("template id: " + job.getTemplateId());
         job.setTestId(null);
 
         if (!job.getSendTestState()
@@ -772,12 +772,12 @@ public class ScheduledJobTask
             calendar.add(Calendar.DAY_OF_MONTH, 1);
             testJob.setEndDate(calendar.getTime());
 
-            log.debug("Creating test job:\n" + testJob);
+            log.info("Creating test job:\n" + testJob);
             // create test job
 
             createJob(testJob);
         } else {
-            log.debug("Already created job.");
+            log.info("Already created job.");
         }
 
         // create regular job
@@ -804,13 +804,13 @@ public class ScheduledJobTask
 
         String group = request.getParameter(EmailConstants.GROUP);
         if (group == null) {
-            log.debug("No group specified - choosing first group");
+            log.info("No group specified - choosing first group");
 
             group = String.valueOf(AddressListTask.getFirstAddressListGroupId());
         }
         request.setAttribute(EmailConstants.GROUP, group);
 
-        log.debug("Listing address lists for group: " + group);
+        log.info("Listing address lists for group: " + group);
 
         // forward to the list selection page
         return EmailConstants.SCHEDULEDJOB_CHOOSE_LIST_EDIT_PAGE;
@@ -834,7 +834,7 @@ public class ScheduledJobTask
         job.setListId(listId);
         job.setCommandId("0");
 
-        log.debug("address list: " + job.getListId());
+        log.info("address list: " + job.getListId());
 
         // go back to the edit page
         return showEdit(request, response);
@@ -856,13 +856,13 @@ public class ScheduledJobTask
 
         String group = request.getParameter(EmailConstants.GROUP);
         if (group == null) {
-            log.debug("No group specified - choosing first group");
+            log.info("No group specified - choosing first group");
 
             group = String.valueOf(TemplateTask.getFirstTemplateGroupId());
         }
         request.setAttribute(EmailConstants.GROUP, group);
 
-        log.debug("Listing templates for group: " + group);
+        log.info("Listing templates for group: " + group);
 
         // forward to template editing page
         return EmailConstants.SCHEDULEDJOB_CHOOSE_TEMPLATE_EDIT_PAGE;
@@ -882,7 +882,7 @@ public class ScheduledJobTask
 
         // set the template id
         job.setTemplateId(request.getParameter("templateId"));
-        log.debug("template id: " + job.getTemplateId());
+        log.info("template id: " + job.getTemplateId());
 
         // go back to the edit page
         return showEdit(request, response);
@@ -925,7 +925,7 @@ public class ScheduledJobTask
         job.setCommandId(request.getParameter(EmailConstants.COMMAND_ID));
         job.setListId("0");
 
-        log.debug("command: " + job.getCommandId());
+        log.info("command: " + job.getCommandId());
 
         // retrieve command inputs for the command
         Set commandInputSet = StatisticsUtilities.getCommandInputs(Integer.parseInt(job.getCommandId()));
@@ -958,7 +958,7 @@ public class ScheduledJobTask
 
         job.setCommandInputMap(commandInputMap);
 
-        log.debug("command inputs: " + commandInputMap);
+        log.info("command inputs: " + commandInputMap);
 
         // go back to the edit page
         return showEdit(request, response);
@@ -992,7 +992,7 @@ public class ScheduledJobTask
             er = EmailConstants.DEFAULT_NUM_LOG_ENTRIES_PER_SCREEN;
         }
 
-        log.debug("Showing log for job id: " + jobId);
+        log.info("Showing log for job id: " + jobId);
 
         request.setAttribute(EmailConstants.SR, String.valueOf(sr));
         request.setAttribute(EmailConstants.ER, String.valueOf(er));
@@ -1124,7 +1124,7 @@ public class ScheduledJobTask
             // retrieve email address
             String emailAddress = request.getParameter("EmailAddress");
 
-            log.debug("Searching on e-mail address: " + emailAddress);
+            log.info("Searching on e-mail address: " + emailAddress);
 
             inputMap.put(WebConstants.EMAIL, emailAddress);
 
@@ -1136,7 +1136,7 @@ public class ScheduledJobTask
             // retrieve subject
             String subject = request.getParameter("Subject");
 
-            log.debug("Searching on subject: " + subject);
+            log.info("Searching on subject: " + subject);
 
             inputMap.put("subject", subject);
 
@@ -1151,7 +1151,7 @@ public class ScheduledJobTask
                 int startDay = Integer.parseInt(request.getParameter("startDay"));
                 GregorianCalendar calendar = new GregorianCalendar(startYear, startMonth, startDay);
 
-                log.debug("Searching by date - start date: " + calendar.getTime());
+                log.info("Searching by date - start date: " + calendar.getTime());
 
                 inputMap.put("sda", String.valueOf(new java.sql.Date(calendar.getTime().getTime())));
 
@@ -1160,7 +1160,7 @@ public class ScheduledJobTask
                 int endDay = Integer.parseInt(request.getParameter("endDay"));
                 calendar = new GregorianCalendar(endYear, endMonth, endDay);
 
-                log.debug("Searching by date - end date: " + calendar.getTime());
+                log.info("Searching by date - end date: " + calendar.getTime());
 
                 inputMap.put("ed", String.valueOf(new java.sql.Date(calendar.getTime().getTime())));
             } catch (Exception e) {
@@ -1293,6 +1293,9 @@ public class ScheduledJobTask
         try {
             context = new InitialContext();
             EmailJob emailJob = (EmailJob) BaseProcessor.createEJB(context, EmailJob.class);
+
+            log.info("createJob() method called: templateId " + job.getTemplateId() + 
+                      ", listId " + job.getListId() + ", commandId " + job.getCommandId());
 
             id = emailJob.createEmailJob(
                     Integer.parseInt(job.getTemplateId()),
@@ -1494,61 +1497,61 @@ public class ScheduledJobTask
 
 // this is from when I was using the stats bean to retrieve all this information
 /*
-		Context context = null;
-		try {
-			context = new InitialContext();
-			StatisticsHome statisticsHome = (StatisticsHome) context.lookup(EmailConstants.STATISTICS_EJB);
-			Statistics statistics = statisticsHome.create();
-			Map m = new HashMap();
+        Context context = null;
+        try {
+            context = new InitialContext();
+            StatisticsHome statisticsHome = (StatisticsHome) context.lookup(EmailConstants.STATISTICS_EJB);
+            Statistics statistics = statisticsHome.create();
+            Map m = new HashMap();
 
-			m.put("c", "job_details");
-			m.put("ji", job.getId());
+            m.put("c", "job_details");
+            m.put("ji", job.getId());
 
-			Map detailsMap = statistics.executeCommand(m, EmailConstants.DATA_SOURCE_NAME);
-			ResultSetContainer rsc1 = (ResultSetContainer) detailsMap.get("Job_Details_1");
-			ResultSetContainer rsc2 = (ResultSetContainer) detailsMap.get("Job_Details_2");
+            Map detailsMap = statistics.executeCommand(m, EmailConstants.DATA_SOURCE_NAME);
+            ResultSetContainer rsc1 = (ResultSetContainer) detailsMap.get("Job_Details_1");
+            ResultSetContainer rsc2 = (ResultSetContainer) detailsMap.get("Job_Details_2");
 
-			for (int i = 0; i < rsc1.size(); i++) {
-				TCResultItem templateId = rsc1.getItem(i, "email_template_id");
-				TCResultItem commandId = rsc1.getItem(i, "command_id");
-				TCResultItem listId = rsc1.getItem(i, "email_list_id");
+            for (int i = 0; i < rsc1.size(); i++) {
+                TCResultItem templateId = rsc1.getItem(i, "email_template_id");
+                TCResultItem commandId = rsc1.getItem(i, "command_id");
+                TCResultItem listId = rsc1.getItem(i, "email_list_id");
 
-				TCResultItem fromAddress = rsc1.getItem(i, "from_address");
-				TCResultItem fromPersonal = rsc1.getItem(i, "from_personal");
-				TCResultItem subject = rsc1.getItem(i, "subject");
-				TCResultItem startDate = rsc2.getItem(i, "start_after_date");
-				TCResultItem endDate = rsc2.getItem(i, "end_before_date");
+                TCResultItem fromAddress = rsc1.getItem(i, "from_address");
+                TCResultItem fromPersonal = rsc1.getItem(i, "from_personal");
+                TCResultItem subject = rsc1.getItem(i, "subject");
+                TCResultItem startDate = rsc2.getItem(i, "start_after_date");
+                TCResultItem endDate = rsc2.getItem(i, "end_before_date");
 
-				job.setTemplateId(String.valueOf(templateId));
-				job.setCommandId(String.valueOf(commandId));
-				job.setListId(String.valueOf(listId));
-				job.setFromAddress(String.valueOf(fromAddress));
-				job.setFromPersonal(String.valueOf(fromPersonal));
-				job.setSubject(String.valueOf(subject));
-				Date date = (Date) ((TCTimestampResult) startDate).getResultData();
-				job.setStartDate(date);
-				date = (Date) ((TCTimestampResult) endDate).getResultData();
+                job.setTemplateId(String.valueOf(templateId));
+                job.setCommandId(String.valueOf(commandId));
+                job.setListId(String.valueOf(listId));
+                job.setFromAddress(String.valueOf(fromAddress));
+                job.setFromPersonal(String.valueOf(fromPersonal));
+                job.setSubject(String.valueOf(subject));
+                Date date = (Date) ((TCTimestampResult) startDate).getResultData();
+                job.setStartDate(date);
+                date = (Date) ((TCTimestampResult) endDate).getResultData();
 
-				job.setEndDate(date);
+                job.setEndDate(date);
 
-				if (Integer.parseInt(job.getCommandId()) != 0) {
-					job.setListType(EmailConstants.PREDEFINED_QUERY);
-				} else {
-					job.setListType(EmailConstants.STATIC_LIST);
-				}
-			}
-		} catch (Exception e) {
-			log.error("Error getting job details", e);
-			throw new ServletException(e.toString());
-		} finally {
-			if (context != null) {
-				try {
-					context.close();
+                if (Integer.parseInt(job.getCommandId()) != 0) {
+                    job.setListType(EmailConstants.PREDEFINED_QUERY);
+                } else {
+                    job.setListType(EmailConstants.STATIC_LIST);
+                }
+            }
+        } catch (Exception e) {
+            log.error("Error getting job details", e);
+            throw new ServletException(e.toString());
+        } finally {
+            if (context != null) {
+                try {
+                    context.close();
 
-				} catch (NamingException e) {
-				}
-			}
-		}
+                } catch (NamingException e) {
+                }
+            }
+        }
 */
     }
 
@@ -1728,23 +1731,23 @@ public class ScheduledJobTask
     public static Object[] getJobLog(int jobId, int sr, int er)
             throws ServletException {
 /*
-		try {
-			Map inputMap = new HashMap();
-			// job id parameter
-			inputMap.put("ji", String.valueOf(jobId));
-			// set sr/er parameters
-			inputMap.put("sr", String.valueOf(sr));
-			inputMap.put("er", String.valueOf(er));
+        try {
+            Map inputMap = new HashMap();
+            // job id parameter
+            inputMap.put("ji", String.valueOf(jobId));
+            // set sr/er parameters
+            inputMap.put("sr", String.valueOf(sr));
+            inputMap.put("er", String.valueOf(er));
 
-			// run query, get results
-			Map resultMap = StatisticsUtilities.runStatsQuery(EmailConstants.JOB_LOG_COMMAND, inputMap);
+            // run query, get results
+            Map resultMap = StatisticsUtilities.runStatsQuery(EmailConstants.JOB_LOG_COMMAND, inputMap);
 
-			return (ResultSetContainer) resultMap.get(EmailConstants.JOB_LOG_RESULT);
+            return (ResultSetContainer) resultMap.get(EmailConstants.JOB_LOG_RESULT);
 
-		} catch (Exception e) {
-			log.error("Error getting job log information", e);
-			throw new ServletException(e.toString());
-		}
+        } catch (Exception e) {
+            log.error("Error getting job log information", e);
+            throw new ServletException(e.toString());
+        }
 */
 
 
