@@ -58,7 +58,7 @@ public class TemplateTask
                 nextPage = delete(request, response);
             }
         } catch (Exception e) {
-            log.debug("Template task error", e);
+            log.info("Template task error", e);
             throw new ServletException(e.toString());
         }
 
@@ -79,13 +79,13 @@ public class TemplateTask
             throws ServletException {
         String group = request.getParameter(EmailConstants.GROUP);
         if (group == null) {
-            log.debug("No group specified - choosing first group");
+            log.info("No group specified - choosing first group");
 
             group = String.valueOf(getFirstTemplateGroupId());
         }
         request.setAttribute(EmailConstants.GROUP, group);
 
-        log.debug("Listing templates for group: " + group);
+        log.info("Listing templates for group: " + group);
 
         return EmailConstants.EMAILTEMPLATE_LIST_PAGE;
     }
@@ -108,7 +108,7 @@ public class TemplateTask
         // clear error list
         request.setAttribute("Error", null);
 
-        log.debug("Creating new template...");
+        log.info("Creating new template...");
 
         // forward to the template creation page
         return EmailConstants.EMAILTEMPLATE_CREATE_PAGE;
@@ -137,7 +137,7 @@ public class TemplateTask
             ArrayList errorList = template.validate();
             if (errorList.size() > 0) {
                 // error - go back
-                log.debug("Template validation failed - errors: " + errorList);
+                log.info("Template validation failed - errors: " + errorList);
 
                 // set error list attribute
                 request.setAttribute("Error", errorList);
@@ -145,7 +145,7 @@ public class TemplateTask
                 // forward back to template creation page
                 return EmailConstants.EMAILTEMPLATE_CREATE_PAGE;
             } else {
-                log.debug("Adding template:\n" + template);
+                log.info("Adding template:\n" + template);
 
                 int templateId = createTemplate(template);
                 template.setId(String.valueOf(templateId));
@@ -156,7 +156,7 @@ public class TemplateTask
                 return list(request, response);
             }
         } else {
-            log.debug("Already added template.");
+            log.info("Already added template.");
 
             // forward to the template list page
             return list(request, response);
@@ -188,7 +188,7 @@ public class TemplateTask
         // clear error list
         request.setAttribute("Error", null);
 
-        log.debug("Editing template:\n" + template);
+        log.info("Editing template:\n" + template);
 
         // forward to the template editing page
         return EmailConstants.EMAILTEMPLATE_EDIT_PAGE;
@@ -223,7 +223,7 @@ public class TemplateTask
         ArrayList errorList = template.validate();
         if (errorList.size() > 0) {
             // error - go back
-            log.debug("Template validation failed - errors: " + errorList);
+            log.info("Template validation failed - errors: " + errorList);
 
             // set error list parameter
             request.setAttribute("Error", errorList);
@@ -231,7 +231,7 @@ public class TemplateTask
             // forward back to template creation page
             return EmailConstants.EMAILTEMPLATE_EDIT_PAGE;
         } else {
-            log.debug("Saving template:\n" + template);
+            log.info("Saving template:\n" + template);
 
             saveTemplate(templateId, template);
 
@@ -258,7 +258,7 @@ public class TemplateTask
             throw new ServletException(e.toString());
         }
 
-        log.debug("Deleting template:\n" + templateId);
+        log.info("Deleting template:\n" + templateId);
 
         deleteTemplate(templateId);
 
@@ -290,7 +290,7 @@ public class TemplateTask
                     template.getName(),
                     template.getTemplate());
         } catch (Exception e) {
-            log.debug("Error adding template:\n" + template, e);
+            log.info("Error adding template:\n" + template, e);
             throw new ServletException(e.toString());
         } finally {
             if (context != null) {
@@ -329,7 +329,7 @@ public class TemplateTask
             template.setTemplate(emailTemplate.getData(templateId));
 
         } catch (Exception e) {
-            log.debug("Error retrieving template:\n" + template, e);
+            log.info("Error retrieving template:\n" + template, e);
             throw new ServletException(e.toString());
         } finally {
             if (context != null) {
@@ -367,7 +367,7 @@ public class TemplateTask
             emailTemplate.setData(templateId,
                     template.getTemplate());
         } catch (Exception e) {
-            log.debug("Error saving template", e);
+            log.info("Error saving template", e);
             throw new ServletException(e.toString());
         } finally {
             if (context != null) {
@@ -398,7 +398,7 @@ public class TemplateTask
             emailTemplate.setGroupId(templateId,
                     EmailConstants.DELETED_GROUP_ID);
         } catch (Exception e) {
-            log.debug("Error deleting template", e);
+            log.info("Error deleting template", e);
             throw new ServletException(e.toString());
         } finally {
             if (context != null) {
@@ -423,7 +423,7 @@ public class TemplateTask
             throws ServletException {
         Map templateMap;
 
-        log.debug("Retrieving templates of group: " + group);
+        log.info("Retrieving templates of group: " + group);
 
         InitialContext context = null;
         try {

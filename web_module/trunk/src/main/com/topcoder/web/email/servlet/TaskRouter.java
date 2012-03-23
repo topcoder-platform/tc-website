@@ -62,12 +62,12 @@ public class TaskRouter {
             //response.setHeader("Cache-Control","no-store");
             //response.setHeader("Pragma","no-cache");
             //response.setDateHeader ("Expires", 0);
-            log.debug("Forwarding to url: " + url);
+            log.info("Forwarding to url: " + url);
             servlet.getServletContext().getRequestDispatcher(
                     response.encodeURL(url)
             ).forward(request, response);
         } else {
-            log.debug("Redirecting to url: " + url);
+            log.info("Redirecting to url: " + url);
             response.sendRedirect(response.encodeRedirectURL(url));
         }
     }
