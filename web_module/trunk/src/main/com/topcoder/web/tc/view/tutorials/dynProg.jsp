@@ -250,7 +250,7 @@ Let's see what happens for a randomly generated sequence: 5, 3, 4, 8, 6, 7:
    <tr>
       <td class=sidebarText>6</td>
       <td class=sidebarText>4</td>
-      <td class=sidebarText>4</td>
+      <td class=sidebarText>5</td>
    </tr>
 </table>
 <br/><br/>
