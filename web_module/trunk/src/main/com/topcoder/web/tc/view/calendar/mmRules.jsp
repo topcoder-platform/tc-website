@@ -22,8 +22,8 @@
 	long[] assignRounds = {13953,13934,13754,13772,13569,13570,13679,13680,13681};
 	Arrays.sort(assignRounds);
 	
-	long[] ntlRounds = {14481, 14570};
-	Arrays.sort(nsaRounds);
+	long[] ntlRounds = {14481, 14570, 15087};
+	Arrays.sort(ntlRounds);
 	
 %>
 <c:set var="row" value="<%=rsr%>" />
@@ -336,6 +336,21 @@
 		otherwise explicitly permitted, Competitors may not copy or include code from any third party, including "open source" code or other code that 
 		is or may be subject to license terms or restrictions. 
     </p>
+
+<%	if (round_id == 15087) { %>
+	<p align="justify">
+		It is allowed to include certain open source code in the submissions made by competitors. In order to include open source code, the
+		associated open source license must be compatible with the Apache 2 license ( http://www.apache.org/foundation/license-faq.html ) and
+		all open source code within the submission must be clearly delineated. In addition, if open source code is included within a
+		submission, this fact must be clearly marked at the top of the submitted code file listing the open source license and
+		the open source project that has been included.
+	</p>
+	<p align="justify">
+		Your solution can reuse code and ideas from certain solutions of the original USPTO Algorithm Challenge. The rules for such reusage
+		are contained in "Reusing code and ideas" section of the problem statement
+		(http://community.topcoder.com/longcontest/?module=ViewProblemStatement&compid=24976&rd=15087).
+	</p>
+<%	} %>
 
 <%	if (round_id == 15078) { %>
 	<p align="justify">
