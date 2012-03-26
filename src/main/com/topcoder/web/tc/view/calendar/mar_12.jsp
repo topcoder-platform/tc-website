@@ -174,6 +174,12 @@
       <td class="value">25
       </td>
       <td class="value">26
+	  	 <div class="long">
+         <strong><a href="/tc?module=MatchDetails&rd=15087">USPTO Algorithm Followup Challenge</a></strong><br />
+         13:00<br />
+         3 weeks<br />
+		 $10k Prizes
+         </div>
       </td>
       <td class="value">27
       </td>      
