@@ -41,6 +41,8 @@ public class ScheduledJobTask
         // determine the desired step
         try {
             step = step.trim();
+            log.info("ScheduledJobTask step: " + step);
+
             if (step.equals(EmailConstants.SCHEDULEDJOB_LIST)) {
                 nextPage = list(request, response);
             } else if (step.equals(EmailConstants.SCHEDULEDJOB_CREATE)) {
@@ -111,7 +113,9 @@ public class ScheduledJobTask
                 nextPage = resumeJob(request, response);
             }
         } catch (Exception e) {
-            throw new ServletException(e);
+            e.printStackTrace(); // This is temporal, just to find out what is going on with the mass email system.
+
+            throw new ServletException(e.toString());
         }
 
         // forward to the next page
