@@ -43,6 +43,14 @@ public class ScheduledJobTask
             step = step.trim();
             log.info("ScheduledJobTask step: " + step);
 
+            // some temporal debug logs
+            log.info("Session ID: " + request.getSession().getId());
+
+            Enumeration<Sting> attributeNames = request.getSession().getAttributeNames();
+            for(String attributeName : attributeNames) {
+                log.info("Attribute: name " + attributeName + ", value " + request.getSession().getAttribute(attributeName));
+            }
+
             if (step.equals(EmailConstants.SCHEDULEDJOB_LIST)) {
                 nextPage = list(request, response);
             } else if (step.equals(EmailConstants.SCHEDULEDJOB_CREATE)) {
