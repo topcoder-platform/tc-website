@@ -111,7 +111,7 @@ public class ScheduledJobTask
                 nextPage = resumeJob(request, response);
             }
         } catch (Exception e) {
-            throw new ServletException(e.toString());
+            throw new ServletException(e);
         }
 
         // forward to the next page
