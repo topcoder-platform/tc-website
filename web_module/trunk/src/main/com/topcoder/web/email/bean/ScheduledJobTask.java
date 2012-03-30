@@ -46,7 +46,7 @@ public class ScheduledJobTask
             // some temporal debug logs
             log.info("Session ID: " + request.getSession().getId());
 
-            Enumeration<Sting> attributeNames = request.getSession().getAttributeNames();
+            List<String> attributeNames = Collections.list(request.getSession().getAttributeNames());
             for(String attributeName : attributeNames) {
                 log.info("Attribute: name " + attributeName + ", value " + request.getSession().getAttribute(attributeName));
             }
