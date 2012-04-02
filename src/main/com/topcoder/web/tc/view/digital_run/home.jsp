@@ -90,7 +90,7 @@ function menu_goto( menuform )
                     <a href="/tc?module=ViewActiveContests&amp;ph=112">Active contests</a>
                 </div>
                 <div>
-                    <a href="/dr?module=ViewLeaderBoard&amp;tid=2129">Leaderboards</a>
+                    <a href="/dr?module=ViewLeaderBoard&amp;tid=2135">Leaderboards</a>
                 </div>
                 <div class="prizeLine">
                     <span class="money">
@@ -115,7 +115,7 @@ function menu_goto( menuform )
                     <a href="/tc?module=ViewActiveContests&amp;ph=113">Active contests</a>
                 </div>
                 <div>
-                    <a href="/dr?module=ViewLeaderBoard&amp;tid=2130">Leaderboards</a>
+                    <a href="/dr?module=ViewLeaderBoard&amp;tid=2136">Leaderboards</a>
                 </div>
                 <div class="prizeLine">
                     <span class="money">
@@ -140,7 +140,7 @@ function menu_goto( menuform )
                     <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">Active contests</a>
                 </div>
                 <div>
-                    <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/dr?module=ViewLeaderBoard&amp;tid=2131">Leaderboards</a>
+                    <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/dr?module=ViewLeaderBoard&amp;tid=2137">Leaderboards</a>
                 </div>
                 <div class="prizeLine">
                     <span class="money">
