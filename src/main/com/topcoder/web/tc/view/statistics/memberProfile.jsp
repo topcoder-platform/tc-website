@@ -37,6 +37,7 @@
     <script type="text/javascript" src="/js/jquery.form.js"></script>
     <script type="text/javascript" src="/js/jquery.Jcrop.js"></script>
     <script type="text/javascript" src="/js/photo.js"></script> 
+    <script type="text/javascript" src="/js/badge-tooltips.js"></script> 
     
     <link type="text/css" href="/css/jquery.Jcrop.css" rel="stylesheet"/>
     <link type="text/css" href="/css/photo.css" rel="stylesheet"/>
@@ -74,6 +75,7 @@
 
 
 <% ResultSetContainer rscCoderData = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("Coder_Data");
+  ResultSetContainer achievementsData = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("software_achievements");
   boolean registeredHS = ((Boolean)request.getAttribute("registeredHS")).booleanValue();
   boolean memberContactEnabled = ((Boolean)request.getAttribute("memberContactEnabled")).booleanValue();
   boolean isInCopilotPool = ((Boolean)request.getAttribute("isInCopilotPool")).booleanValue();
@@ -97,9 +99,46 @@ This member has not yet been rated in a competition.
 			</a>
 		  </c:otherwise>
       </c:choose>
+      <table class="statTableHolderInnerTable" cellspacing="0" cellpadding="0" border="0" width="100%">
+      <% if (!registeredHS || (rscCoderData.getStringItem(0, "rating") != null) || (rscCoderData.getStringItem(0, "design_rating") != null) || (rscCoderData.getStringItem(0, "development_rating") != null)) { %>
+            <% if(!hidePayments) { %>
+            <tr><td class="cat" nowrap="nowrap">Total Earnings:</td><td class="stat" align="right">
+                <% if (rscCoderData.getItem(0, "overall_earnings").getResultData() == null || rscCoderData.getDoubleItem(0, "overall_earnings") > 0) { %>
+                <A href="/tc?module=PaymentSummary&cr=<%=rscCoderData.getStringItem(0, "coder_id")%>">
+                <% } %>
+                    <rsc:item name="overall_earnings" set="<%=rscCoderData%>" format="$#,##0.00"/>
+                <% if (rscCoderData.getItem(0, "overall_earnings").getResultData() == null || rscCoderData.getDoubleItem(0, "overall_earnings") > 0) { %>
+                </A>
+                <% } %>
+                </td></tr>
+            <% } %>
+<% } %>
+            <tr><td class="cat" nowrap="nowrap">Member Since:</td><td class="stat" align="right">
+            <rsc:item name="member_since" set="<%=rscCoderData%>" format="MM.dd.yyyy"/></td></tr>
+             <% if (rscCoderData.getItem(0, "country_name").getResultData()!=null) { %>
+            <tr><td class="cat">Country:</td><td class="stat" align="right"><div style="width: 100px;">
+            <rsc:item name="country_name" set="<%=rscCoderData%>"/></div></td></tr>
+             <% } %>
+            <% if (rscCoderData.getStringItem(0,"school_name")!=null) { %>
+            <tr><td class="cat">School:</td><td class="stat" align="right">
+            <rsc:item name="school_name" set="<%=rscCoderData%>"/></td></tr>
+            <% }%>
+            <tr><td class="cat" colspan="2">
+            <% if(isInCopilotPool) { %>
+                <A href="/tc?module=ViewCopilotProfile&pid=<%=rscCoderData.getStringItem(0, "coder_id")%>">[Copilot Profile]</A><br>
+            <% } %>
+            <% if(memberContactEnabled) { %>
+                <A href="/tc?module=MemberContact&th=<%=rscCoderData.getStringItem(0, "handle")%>">[Send a message]</A><br>
+            <% } %>
+            <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=History&userID=<%=rscCoderData.getStringItem(0, "coder_id")%>">[Forum post history]</A><br>
+             <% if (rscCoderData.getIntItem(0, "has_achievements")>0 || achievementsData.size() > 0) { %>
+             <A href="/tc?module=SimpleStats&c=coder_achievements&d1=statistics&d2=coderAchievements&cr=<%=rscCoderData.getStringItem(0, "coder_id")%>">[Achievements]</A>
+             <% } %>
+            </td></tr>
+        </table>
       </td>
       <td valign="top">
-         <table cellpadding="0" cellspacing="0" border="0" class="statTable">
+         <table cellpadding="0" cellspacing="0" border="0" class="statTable statTableProfileTable">
             <tr><td class="handleCell" colspan="2">
                 <tc-webtags:handle coderId='<%=rscCoderData.getStringItem(0, "coder_id")%>'/></td></tr>
             <tr><td class="cat" nowrap="nowrap">Algorithm Rating:</td><td class="stat" align="right">
@@ -230,47 +269,25 @@ This member has not yet been rated in a competition.
             <%}%>
             </td></tr>
             <tr><td class="cat" colspan="2">&#160;</td></tr>
-<% if (!registeredHS || (rscCoderData.getStringItem(0, "rating") != null) || (rscCoderData.getStringItem(0, "design_rating") != null) || (rscCoderData.getStringItem(0, "development_rating") != null)) { %>
-            <% if(!hidePayments) { %>
-            <tr><td class="cat" nowrap="nowrap">Total Earnings:</td><td class="stat" align="right">
-                <% if (rscCoderData.getItem(0, "overall_earnings").getResultData() == null || rscCoderData.getDoubleItem(0, "overall_earnings") > 0) { %>
-                <A href="/tc?module=PaymentSummary&cr=<%=rscCoderData.getStringItem(0, "coder_id")%>">
-                <% } %>
-                    <rsc:item name="overall_earnings" set="<%=rscCoderData%>" format="$#,##0.00"/>
-                <% if (rscCoderData.getItem(0, "overall_earnings").getResultData() == null || rscCoderData.getDoubleItem(0, "overall_earnings") > 0) { %>
-                </A>
-                <% } %>
-                </td></tr>
-            <% } %>
-<% } %>
-            <tr><td class="cat" nowrap="nowrap">Member Since:</td><td class="stat" align="right">
-            <rsc:item name="member_since" set="<%=rscCoderData%>" format="MM.dd.yyyy"/></td></tr>
-             <% if (rscCoderData.getItem(0, "country_name").getResultData()!=null) { %>
-            <tr><td class="cat">Country:</td><td class="stat" align="right"><div style="width: 100px;">
-            <rsc:item name="country_name" set="<%=rscCoderData%>"/></div></td></tr>
-             <% } %>
-            <% if (rscCoderData.getStringItem(0,"school_name")!=null) { %>
-            <tr><td class="cat">School:</td><td class="stat" align="right">
-            <rsc:item name="school_name" set="<%=rscCoderData%>"/></td></tr>
-            <% }%>
-            <tr><td class="cat" colspan="2">
-            <% if(isInCopilotPool) { %>
-                <A href="/tc?module=ViewCopilotProfile&pid=<%=rscCoderData.getStringItem(0, "coder_id")%>">[Copilot Profile]</A><br>
-            <% } %>
-            <% if(memberContactEnabled) { %>
-                <A href="/tc?module=MemberContact&th=<%=rscCoderData.getStringItem(0, "handle")%>">[Send a message]</A><br>
-            <% } %>
-            <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=History&userID=<%=rscCoderData.getStringItem(0, "coder_id")%>">[Forum post history]</A><br>
-             <% if (rscCoderData.getIntItem(0, "has_achievements")>0) { %>
-             <A href="/tc?module=SimpleStats&c=coder_achievements&d1=statistics&d2=coderAchievements&cr=<%=rscCoderData.getStringItem(0, "coder_id")%>">[Achievements]</A>
-             <% } %>
-            </td></tr>
          </table>
       </td>
       <td class="quoteCell">
-        <% if(!"".equals(StringUtils.checkNull(rscCoderData.getStringItem(0,"quote")))) {%>
+        <% if(achievementsData.size() == 0 && !"".equals(StringUtils.checkNull(rscCoderData.getStringItem(0,"quote")))) {%>
         <div class="quoteBox"><span class="quoteTitle">Quote:</span><br><br>
         <div align="center">"<%=StringUtils.htmlEncode(rscCoderData.getStringItem(0, "quote"))%>"</div></div>
+        <%}%>
+        <% if (achievementsData.size() > 0) {%>
+            <% if(!"".equals(StringUtils.checkNull(rscCoderData.getStringItem(0,"quote")))) {%>
+            <div class="newQuoteBox"><div align="center">"<%=StringUtils.htmlEncode(rscCoderData.getStringItem(0, "quote"))%>"</div></div>
+            <%}%>
+            <div class="quoteBadgesRecord">
+            <rsc:iterator list="<%=achievementsData%>" id="resultRow">
+                <span class="quoteBadgesItem badge<rsc:item name="id" row="<%=resultRow%>"/>">
+                    <span class="achievementName"><rsc:item name="name" row="<%=resultRow%>"/></span>
+                    <span class="achievementDesc"><rsc:item name="desc" row="<%=resultRow%>"/></span>
+                </span>
+            </rsc:iterator>
+            </div>
         <%}%>
       </td>
    <tr>

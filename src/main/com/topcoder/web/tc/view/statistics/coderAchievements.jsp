@@ -46,7 +46,7 @@
 <table cellpadding="0" cellspacing="0" border="0" width="500" class="statTableHolder">
    <tr>
       <td>
-      <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
+      <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable" style="margin-bottom:0;">
          <tr><td class="tableTitle" colspan="6">Coder Achievements</td></tr>
          <tr>
             <td CLASS="tableHeader">Date</td>
@@ -56,7 +56,14 @@
       <rsc:iterator list="<%=results%>" id="resultRow">
          <tr>
             <td class="<%=even?"statLt":"statDk"%>" nowrap="nowrap"><rsc:item name="achievement_date" row="<%=resultRow%>" format="MM.dd.yyyy"/></TD>
-            <td class="<%=even?"statLt":"statDk"%>" nowrap="nowrap"><rsc:item name="description" row="<%=resultRow%>"/></TD>
+            <td class="<%=even?"statLt":"statDk"%>" nowrap="nowrap">
+            <% if (resultRow.getIntItem("id") == -1) { %>
+            <rsc:item name="description" row="<%=resultRow%>"/>
+            <%}else{%>
+                <div class="badgeCon">
+                <span class="smallBadge smallBadge<rsc:item name="id" row="<%=resultRow%>"/>"></span><rsc:item name="description" row="<%=resultRow%>"/>
+            <%}%>
+            </TD>
          </tr>
       <%even=!even;%>
       </rsc:iterator>
