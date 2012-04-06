@@ -65,7 +65,7 @@
 	  	 <div class="long">
          <strong><a href="/tc?module=MatchDetails&rd=15103">Soybean MM 3</a></strong><br />
          16:00<br />
-         17 days<br />
+         19 days<br />
 		 $10k Prizes
          </div>
       </td>
