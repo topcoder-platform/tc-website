@@ -1239,13 +1239,20 @@ public class RBoardApplicationBean extends BaseEJB {
                 "where p.project_status_id = 1 " +  
                 "and p.project_id = pp_review.project_id " +  
                 "and pp_review.phase_type_id = 14 " +  
-                "and pp_review.phase_status_id != 3 " +  
                 "and p.project_id = r.project_id " +  
                 "and r.resource_role_id = 18 " +  
                 "and r.project_phase_id = pp_review.project_phase_id " +  
                 "and r.resource_id = ri_userid.resource_id " +  
                 "and ri_userid.resource_info_type_id = 1 " +  
-                "and ri_userid.value = ?;";
+                "and ri_userid.value = ? " +
+
+                "and r.create_date > current - 6 units hour " +
+                "and not exists " + // make sure this is the first spec review phase in a project
+                "   ( " +
+                "   select * from project_phase pp_review2 where " +
+                "   p.project_id = pp_review2.project_id and pp_review2.phase_type_id = 14 and " +
+                "   pp_review2.actual_start_time < pp_review.actual_start_time " +
+                "   );";
 
         PreparedStatement ps = null;
         ResultSet rs = null;
