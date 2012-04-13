@@ -76,6 +76,11 @@
         </init-param>
 
         <init-param>
+            <param-name>default_job_group_id</param-name>
+            <param-value>1</param-value>
+        </init-param>
+
+        <init-param>
             <param-name>default_num_log_entries_per_screen</param-name>
             <param-value>50</param-value>
         </init-param>

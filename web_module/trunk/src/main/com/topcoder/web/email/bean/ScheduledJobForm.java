@@ -50,6 +50,7 @@ public class ScheduledJobForm
 
     protected Date endDate;
 
+    protected int jobGroupId;
 
     protected String fromAddress;
 
@@ -509,6 +510,27 @@ public class ScheduledJobForm
 
 
         return minutes;
+
+    }
+
+    public void setJobGroupId(String id) {
+
+        try {
+
+            this.jobGroupId = Integer.parseInt(id);
+
+        } catch (NumberFormatException e) {
+
+            this.jobGroupId = 0;
+
+        }
+
+    }
+
+
+    public String getJobGroupId() {
+
+        return String.valueOf(jobGroupId);
 
     }
 

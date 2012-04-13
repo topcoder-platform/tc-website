@@ -153,6 +153,7 @@ public class EmailConstants {
     private static final String TEST_LIST_GROUP_ID_KEY = "test_list_group_id";
     private static final String DATA_SOURCE_NAME_KEY = "data_source";
     private static final String RECENT_JOB_DAYS_KEY = "recent_job_days";
+    private static final String DEFAULT_JOB_GROUP_ID_KEY = "default_job_group_id";
     private static final String DEFAULT_NUM_LOG_ENTRIES_PER_SCREEN_KEY = "default_num_log_entries_per_screen";
 
     private static final String RECENT_JOBS_COMMAND_KEY = "recent_jobs_command";
@@ -256,6 +257,9 @@ public class EmailConstants {
 
     // #days to look back for recent job list screen
     public static int RECENT_JOB_DAYS;
+
+    // Job group ID to be used for all manually created email jobs
+    public static int DEFAULT_JOB_GROUP_ID;
 
     // default #log entries to display per log screen
     public static int DEFAULT_NUM_LOG_ENTRIES_PER_SCREEN;
@@ -390,6 +394,11 @@ public class EmailConstants {
         }
         try {
             RECENT_JOB_DAYS = Integer.parseInt(servletConfig.getInitParameter(RECENT_JOB_DAYS_KEY));
+        } catch (NumberFormatException e) {
+            throw new ServletException(e);
+        }
+        try {
+            DEFAULT_JOB_GROUP_ID = Integer.parseInt(servletConfig.getInitParameter(DEFAULT_JOB_GROUP_ID_KEY));
         } catch (NumberFormatException e) {
             throw new ServletException(e);
         }

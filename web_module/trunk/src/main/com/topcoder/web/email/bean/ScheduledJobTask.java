@@ -2,6 +2,7 @@ package com.topcoder.web.email.bean;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.ejb.EmailServices.EmailJob;
+import com.topcoder.shared.ejb.EmailServices.EmailJobGroup;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.WebConstants;
@@ -140,8 +141,18 @@ public class ScheduledJobTask
 
     private String list(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
-        // retrieve jobs from last "RECENT_JOB_DAYS" days
-        ArrayList jobIdList = retrieveRecentJobs(EmailConstants.RECENT_JOB_DAYS);
+        String group = request.getParameter(EmailConstants.GROUP);
+        if (group == null) {
+            log.info("No group specified - choosing first group");
+
+            group = String.valueOf(getFirstJobGroupId());
+        }
+        request.setAttribute(EmailConstants.GROUP, group);
+
+        log.info("Listing jobs for group: " + group);
+
+        // retrieve jobs from last "RECENT_JOB_DAYS" days for the specified group ID
+        ArrayList jobIdList = retrieveRecentJobs(EmailConstants.RECENT_JOB_DAYS, Integer.parseInt(group));
 
         request.getSession().setAttribute("JobList", jobIdList);
 
@@ -1257,10 +1268,11 @@ public class ScheduledJobTask
      * Retrieves a list of job id's of recent jobs.
      *
      * @param numDaysBack the number of days to look back
+     * @param jobGroupId Job group ID
      * @return ArrayList    a list of job id's
      */
 
-    private static ArrayList retrieveRecentJobs(int numDaysBack)
+    private static ArrayList retrieveRecentJobs(int numDaysBack, int jobGroupId)
             throws ServletException {
         ArrayList jobIdList;
 
@@ -1274,6 +1286,7 @@ public class ScheduledJobTask
             Calendar calendar = new GregorianCalendar();
             calendar.add(Calendar.DAY_OF_MONTH, -1 * numDaysBack);
             m.put("sda", String.valueOf(new java.sql.Date(calendar.getTime().getTime())));
+            m.put("grpid", String.valueOf(jobGroupId));
 
             Map recentJobsMap = StatisticsUtilities.runStatsQuery(EmailConstants.RECENT_JOBS_COMMAND, m);
             resultSetContainer = (ResultSetContainer) recentJobsMap.get(EmailConstants.RECENT_JOBS_RESULT);
@@ -1313,6 +1326,7 @@ public class ScheduledJobTask
                     Integer.parseInt(job.getTemplateId()),
                     Integer.parseInt(job.getListId()),
                     Integer.parseInt(job.getCommandId()),
+                    EmailConstants.DEFAULT_JOB_GROUP_ID,
                     job.getStartDate(),
                     job.getEndDate(),
                     job.getFromAddress(),
@@ -1365,6 +1379,7 @@ public class ScheduledJobTask
                     Integer.parseInt(job.getTemplateId()),
                     Integer.parseInt(job.getListId()),
                     Integer.parseInt(job.getCommandId()),
+                    Integer.parseInt(job.getJobGroupId()),
                     job.getStartDate(),
                     job.getEndDate(),
                     job.getFromAddress(),
@@ -1858,6 +1873,61 @@ public class ScheduledJobTask
         scheduledJob.setSendTest(request.getParameter("sendTest"));
         scheduledJob.setSendReport(request.getParameter("sendReport"));
         scheduledJob.setSendReminder(request.getParameter("sendReminder"));
+    }
+
+    /**
+     * Returns all job groups mapped by id.
+     *
+     * @return Map      map of job group id's to job group names
+     */
+
+    public static Map getJobGroupMap()
+            throws ServletException {
+        Map groupMap = new HashMap();
+
+        InitialContext context = null;
+        try {
+            context = new InitialContext();
+            EmailJobGroup emailJobGroup = (EmailJobGroup) BaseProcessor.createEJB(context, EmailJobGroup.class);
+            groupMap = emailJobGroup.getGroups();
+        } catch (Exception e) {
+            log.error("Error getting job group listing", e);
+            throw new ServletException(e.toString());
+        } finally {
+            if (context != null) {
+                try {
+                    context.close();
+                } catch (NamingException e) {
+                }
+            }
+        }
+
+        return groupMap;
+    }
+
+
+    /**
+     * Returns the group id of the first job group
+     *
+     * @return int  group id of the first job group or -1 if there are no groups
+     */
+
+    public static int getFirstJobGroupId()
+            throws ServletException {
+        // get all groups
+        final Map jobGroupMap = getJobGroupMap();
+        // get all group id's
+        List groupIdList = new ArrayList(jobGroupMap.keySet());
+
+        // sort by the IDs
+        Collections.sort(groupIdList);
+
+        // grab the first one
+        if (groupIdList.size() > 0) {
+            return ((Integer) groupIdList.get(0)).intValue();
+        } else {
+            return -1;
+        }
     }
 
 }
