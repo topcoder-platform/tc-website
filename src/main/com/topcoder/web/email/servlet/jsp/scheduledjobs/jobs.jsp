@@ -13,6 +13,23 @@
 
 <jsp:include page="../header.jsp" />
 <p class="bodyTextBig"><b>Scheduled Jobs</b></p>
+
+<p>
+<form name="frmGroup" action="<%=response.encodeURL(EmailConstants.ALIAS)%>" method ="post">
+	<input type="hidden" name="<%=EmailConstants.TASK%>" value="<%=EmailConstants.SCHEDULEDJOB_TASK%>">
+	<input type="hidden" name="<%=EmailConstants.STEP%>" value="<%=EmailConstants.SCHEDULEDJOB_LIST%>">
+
+        <p class="bodyText">
+	Group:
+	<email:groupSelect
+	name="<%=EmailConstants.GROUP%>"
+	groupMap="<%=ScheduledJobTask.getJobGroupMap()%>"
+	onChange="frmGroup.submit()"
+	selectedValue="<%=(String) request.getAttribute(EmailConstants.GROUP)%>"/>
+        </p>
+</form>
+<p>
+
 <p class="bodyText">
 <a href="javascript:taskSubmit('<%=EmailConstants.SCHEDULEDJOB_TASK%>', '<%=EmailConstants.SCHEDULEDJOB_CREATE%>', '');">
 [schedule new job]</a>
