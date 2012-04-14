@@ -216,7 +216,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
      * <p>Factory method that returns the correct instance of ReviewerPaymentCalculator for a given phase.</p>
      *
      * Updated for Specification Review Integration 1.0
-     *		- Added specification review calculator.
+     *      - Added specification review calculator.
      *
      * @param prize first place prize for the competition.
      * @param submissionCount number of submissions.
@@ -370,7 +370,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
             case DESIGN_PHASE: return 30;
             case DEV_PHASE: return 30;
             case ARCHITECTURE_PHASE: return 50;
-            case ASSEMBLY_PHASE: return 100;
+            case ASSEMBLY_PHASE: return 50;
             case CONCEPTUALIZATION_PHASE: return 30;
             case SPECIFICATION_PHASE: return 40;
             case TEST_SUITES_PHASE: return 50;
