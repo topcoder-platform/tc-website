@@ -16,6 +16,8 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.common.error.RequestRateExceededException;
+import com.topcoder.web.common.throttle.Throttle;
 
 /**
  * <p>A controller to handle the requests for displaying the list of active review projects of specified type. The
@@ -70,6 +72,8 @@ import com.topcoder.web.tc.Constants;
  */
 public class ViewReviewProjects extends ReviewProjectDetail {
 
+    private static final Throttle throttle = new Throttle(100, 60*100*1000);
+
     /**
      * <p>Constructs new <code>ViewReviewProjects</code> instance. This implementation does nothing.</p>
      */
@@ -102,6 +106,10 @@ public class ViewReviewProjects extends ReviewProjectDetail {
         r.setProperty(Constants.PROJECT_TYPE_ID, projectTypeId);
 
         try {
+            if (throttle.throttle(getRequest().getRemoteAddr())) {
+                throw new RequestRateExceededException(getRequest().getSession().getId(), getUser().getUserName());
+            }
+
             ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("review_projects");
             getRequest().setAttribute("projectList", rsc);
 
