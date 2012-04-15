@@ -342,10 +342,6 @@ Please check out the rules link below for more detail.
 </p>
 <%}%>
 
-<%if(roundId == 15120) {%>
-	<p align="justify"><b>Additionally, the first place winner will receive a free trip to <a href="http://community.topcoder.com/tco12/">TCO'12</a> Onsite Finals!</b></p>
-<%}%>
-
 <%if(roundId == 15077) {%>
 <p align="justify">
     This Marathon Match is a money match that has a <b>$7,500 prize purse</b>! The top five highest scorers 
@@ -569,10 +565,6 @@ submission, within one week of the announcment of the winners in order to receiv
     </tr>
 </table>
     
-<%if(roundId == 15120) {%>
-	<p align="justify">Additionally, the first place winner will receive a free trip to <a href="http://community.topcoder.com/tco12/">TCO'12</a> Onsite Finals!</p>
-<%}%>
-
 
 <p align="justify">
     
