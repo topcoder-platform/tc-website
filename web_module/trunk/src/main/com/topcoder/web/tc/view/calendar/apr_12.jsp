@@ -125,6 +125,12 @@
 
    <tr>	  
       <td class="value">15
+	  	 <div class="long">
+         <strong><a href="/tc?module=MatchDetails&rd=15120">Soybean MM 4</a></strong><br />
+         14:00<br />
+         2 weeks<br />
+		 $10k & TCO'12 Trip
+         </div>
       </td>
       <td class="value">16
       </td>

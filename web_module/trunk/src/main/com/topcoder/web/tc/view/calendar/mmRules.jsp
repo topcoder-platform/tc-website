@@ -215,7 +215,7 @@
 		</table>
     <%}%>
 
-    {%if(roundId == 15120) {%>
+    <%if(round_id == 15120) {%>
 		<p align="justify">Additionally, the first place winner will receive a free trip to TCO'12 Onsite Finals!</p>
 	<%}%>
 
