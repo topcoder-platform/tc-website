@@ -215,11 +215,6 @@
 		</table>
     <%}%>
 
-    <%if(round_id == 15120) {%>
-		<p align="justify">Additionally, the first place winner will receive a free trip to TCO'12 Onsite Finals!</p>
-	<%}%>
-
-
     <%if(round_id==15077) {%>
 		<div class="sectionHeader">Prizes</div>
 		<p align="justify">There will be $7,500 in total prize money.  The 5 highest scorers in the round will receive prizes as follows:</p>
