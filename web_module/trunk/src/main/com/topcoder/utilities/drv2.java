@@ -21,7 +21,7 @@ public class drv2 extends DBUtility {
     private String onlyAnalyze = null;
 
     
-	protected void runUtility() throws Exception {
+    protected void runUtility() throws Exception {
         StringBuffer query2 = new StringBuffer(200);
         query2.append("select max(dr_points_id) as pointsId from dr_points");
 
@@ -44,18 +44,18 @@ public class drv2 extends DBUtility {
         query.append("   else 't' end as potential, ");
         query.append("   s.placement as placed, ");
         query.append("                           case when p.project_status_id = 7 then ");
-        query.append("								(select count(*) from submission s3, upload u3  ");
-        query.append("								where s3.upload_id = u3.upload_id and u3.project_id = p.project_id and u3.upload_status_id = 1  ");
-        query.append("								and s3.submission_type_id = 1 and s3.prize_id is not null and s3.mark_for_purchase = 'f') ");
-        query.append("							else  ");
-        query.append("								(select min (passing_count) from  ");
-        query.append("								table(multiset	(select count(*) as passing_count from submission s3, upload u3  ");
-        query.append("									 where s3.upload_id = u3.upload_id and s3.submission_type_id = 1 and u3.upload_status_id = 1  ");
-        query.append("										and s3.submission_status_id != 5  and u3.project_id = p.project_id and s3.mark_for_purchase = 'f' ");
-        query.append("										UNION ");
-        query.append("									select count(*) as passing_count from project_prize_xref ppx3, prize p3 where ppx3.project_id = p.project_id ");
-        query.append("									and ppx3.prize_id = p3.prize_id and p3.prize_type_id = 15))) ");
-        query.append("									end as count_of_passing_subs, ");
+        query.append("                              (select count(*) from submission s3, upload u3  ");
+        query.append("                              where s3.upload_id = u3.upload_id and u3.project_id = p.project_id and u3.upload_status_id = 1  ");
+        query.append("                              and s3.submission_type_id = 1 and s3.prize_id is not null and s3.mark_for_purchase = 'f') ");
+        query.append("                          else  ");
+        query.append("                              (select min (passing_count) from  ");
+        query.append("                              table(multiset  (select count(*) as passing_count from submission s3, upload u3  ");
+        query.append("                                   where s3.upload_id = u3.upload_id and s3.submission_type_id = 1 and u3.upload_status_id = 1  ");
+        query.append("                                      and s3.submission_status_id != 5  and u3.project_id = p.project_id and s3.mark_for_purchase = 'f' ");
+        query.append("                                      UNION ");
+        query.append("                                  select count(*) as passing_count from project_prize_xref ppx3, prize p3 where ppx3.project_id = p.project_id ");
+        query.append("                                  and ppx3.prize_id = p3.prize_id and p3.prize_type_id = 15))) ");
+        query.append("                                  end as count_of_passing_subs, ");
         query.append("  dr.value as dr_points, ");
         query.append("  u.handle ");
         query.append("  from project p, ");
@@ -68,12 +68,13 @@ public class drv2 extends DBUtility {
         query.append("       project_phase reg, ");
         query.append("       project_phase rev, ");
         query.append("       project_category_lu pcl, ");
-        query.append("       project_prize_xref ppx, ");
-        query.append("       prize pz, ");
         query.append("       resource r, ");
         query.append("       resource_info ri ");
         query.append("   where p.project_id = up.project_id  ");
         query.append("   and up.upload_id = s.upload_id ");
+        query.append("    and s.submission_type_id = 1 ");
+        query.append("    and s.submission_status_id in (1,4) ");
+        query.append("    and (p.project_status_id = 1 or s.prize_id is not null) ");
         query.append("    and dr.project_id = p.project_id  ");
         query.append("    and dr.project_info_type_id = 30 ");
         query.append("    and drfl.project_id = p.project_id ");
@@ -84,11 +85,7 @@ public class drv2 extends DBUtility {
         query.append("    and nvl(reg.actual_start_time, reg.scheduled_start_time) < t.track_end_date ");
         query.append("    and p.project_category_id = pcl.project_category_id and pcl.project_type_id = 3 ");
         query.append("    and p.project_status_id in (1,7) ");
-        query.append("    and p.project_id = ppx.project_id ");
-        query.append("    and ppx.prize_id = pz.prize_id ");
-        query.append("    and pz.prize_type_id = 15 ");
         query.append("    and r.resource_id = up.resource_id ");
-        query.append("    and s.prize_id = pz.prize_id ");
         query.append("    and s.mark_for_purchase = 'f' ");
         query.append("   and r.resource_id = ri.resource_id and ri.resource_info_type_id = 1 ");
         query.append("   and t.track_type_id = 3 and t.track_id >= 2086 ");
@@ -191,7 +188,7 @@ public class drv2 extends DBUtility {
             DBMS.close(psSelPoints);
             DBMS.close(psSelMaxId);
         }
-	}
+    }
 
 
     /**
@@ -202,7 +199,7 @@ public class drv2 extends DBUtility {
 
         onlyAnalyze = (String) params.get("onlyAnalyze");
         if (onlyAnalyze == null) {
-        	onlyAnalyze = "false";
+            onlyAnalyze = "false";
         }
         params.remove("onlyAnalyze");
 
