@@ -72,7 +72,17 @@ import com.topcoder.web.common.throttle.Throttle;
  */
 public class ViewReviewProjects extends ReviewProjectDetail {
 
-    private static final Throttle throttle = new Throttle(100, 60*100*1000);
+    /**
+     * <p>Protects the page from throttling in a medium term.
+     * Allows for no more than 100 requests per 100 minutes, which is 1 request per 1 minute in average.</p>
+     */
+    private static final Throttle mediumThrottle = new Throttle(100, 100 * (60*1000));
+
+    /**
+     * <p>Protects the page from throttling in a long term.
+     * Allows for no more than 300 requests per 3000 minutes, which is 1 request per 10 minutes in average.</p>
+     */
+    private static final Throttle longThrottle = new Throttle(300, 300 * (10*60*1000));
 
     /**
      * <p>Constructs new <code>ViewReviewProjects</code> instance. This implementation does nothing.</p>
@@ -106,7 +116,10 @@ public class ViewReviewProjects extends ReviewProjectDetail {
         r.setProperty(Constants.PROJECT_TYPE_ID, projectTypeId);
 
         try {
-            if (throttle.throttle(getRequest().getRemoteAddr())) {
+            if (mediumThrottle.throttle(getRequest().getRemoteAddr())) {
+                throw new RequestRateExceededException(getRequest().getSession().getId(), getUser().getUserName());
+            }
+            if (longThrottle.throttle(getRequest().getRemoteAddr())) {
                 throw new RequestRateExceededException(getRequest().getSession().getId(), getUser().getUserName());
             }
 
