@@ -1,14 +1,11 @@
 /*
- * Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.development;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 import com.topcoder.randomstringimg.InvalidConfigException;
 import com.topcoder.randomstringimg.ObfuscationException;
@@ -184,6 +181,8 @@ public class ViewRegistration extends Base {
             getRequest().setAttribute(Constants.MESSAGE, "Sorry, you have screened this project and are not eligible to compete.");
         } else if (getRegEJB().isUserWinningDesigner(projectId, getUser().getId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
             getRequest().setAttribute(Constants.MESSAGE, "Sorry, Winners of the design phase of a component are not allowed to participate in the development phase.");
+        } else if (!checkMemberCountry(getUser().getId())) {
+            getRequest().setAttribute(Constants.MESSAGE, "You are not eligible to participate in this competition. Please contact support@topcoder.com if you have any questions.");
 /* Commented out by: George1 [2008/02/07] upon request from Tony Jefts
         } else if (!getRegEJB().isUserReliableEnough(phase, getUser().getId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
             getRequest().setAttribute(Constants.MESSAGE, "Sorry, since your reliability is less than 70%, you may not register for more than 2 projects at a time."); */

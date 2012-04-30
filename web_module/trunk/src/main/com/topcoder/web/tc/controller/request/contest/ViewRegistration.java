@@ -5,6 +5,7 @@ package com.topcoder.web.tc.controller.request.contest;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.*;
 
 import com.topcoder.randomstringimg.InvalidConfigException;
 import com.topcoder.randomstringimg.ObfuscationException;
@@ -207,6 +208,8 @@ public class ViewRegistration extends Base {
             getRequest().setAttribute(Constants.MESSAGE, "Sorry, registration is not currently open.");
         } else if (getRegEJB().isUserRegistered(projectId, getUser().getId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
             getRequest().setAttribute(Constants.MESSAGE, "You have already registered for this contest.");
+        } else if (!checkMemberCountry(getUser().getId())) {
+            getRequest().setAttribute(Constants.MESSAGE, "You are not eligible to participate in this competition. Please contact support@topcoder.com if you have any questions.");
         }
 
         if (projectTypeId == Constants.COPILOT_POSTING_PROJECT_TYPE) {

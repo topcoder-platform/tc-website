@@ -3,12 +3,7 @@
  */
 package com.topcoder.web.tc.controller.request.development;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import com.cronos.termsofuse.dao.ProjectTermsOfUseDao;
 import com.cronos.termsofuse.dao.TermsOfUseDao;
@@ -34,6 +29,10 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SoftwareComponent;
+import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.model.Address;
+import com.topcoder.web.common.model.Country;
+import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.ejb.project.Project;
 import com.topcoder.web.ejb.project.ProjectLocal;
 import com.topcoder.web.tc.Constants;
@@ -1026,6 +1025,36 @@ public abstract class Base extends ShortHibernateProcessor {
 
          return detail.getIntItem(0, "group_id");
     }
+
+    /**
+     * This method will check if member's country is eligible.
+     */
+    protected boolean checkMemberCountry(long userId) throws Exception {
+        User user = DAOUtil.getFactory().getUserDAO().find(getUser().getId());
+        if (user != null) {
+            Set<Address> addresses = user.getAddresses();
+            if (addresses != null) {
+                for (Address address : addresses) {
+                    Country country = address.getCountry();
+                    if (country != null && !isEligibleCountry(country)) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    private boolean isEligibleCountry(Country country) {
+        Set<String> ineligibleCountries = new HashSet<String>();
+        ineligibleCountries.add("Iran");
+        ineligibleCountries.add("North Korea");
+        ineligibleCountries.add("Cuba");
+        ineligibleCountries.add("Sudan");
+        ineligibleCountries.add("Syria");
+        return !ineligibleCountries.contains(country.getName());
+    }
+
     
     /**
      * Gets the <code>TermsOfUseDao</code> instance.
