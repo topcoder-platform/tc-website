@@ -12,8 +12,6 @@ import java.io.IOException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.text.DateFormat;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
@@ -188,9 +186,6 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
         // the date format used for displaying the dates
         DateFormat dateFormatter = new SimpleDateFormat("MM/dd/yyy");
 
-        // the format used for payment amounts
-        NumberFormat moneyFormatter = new DecimalFormat("###,##0.00");
-
         // set up the sheet header first
         Row row = sheet.getRow(1);
         row.getCell(1).setStringValue("Description");
@@ -208,7 +203,7 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
             row.getCell(1).setStringValue(payment.getDescription());
             row.getCell(2).setStringValue(payment.getPaymentTypeDesc());
             row.getCell(3).setStringValue(dateFormatter.format(payment.getDueDate()));
-            row.getCell(4).setStringValue(moneyFormatter.format(payment.getNetAmount()));
+            row.getCell(4).setNumberValue(payment.getNetAmount());
             row.getCell(5).setStringValue(payment.getCurrentStatus().getDesc());
 
             if (payment.getPaidDate() != null) {
