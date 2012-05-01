@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<loadDefinition>
+    <parameterList>
+        <parameter name="path" value="/home/tc/web/scripts/sql/"/>
+    </parameterList>
+    
+    <sourcesList>
+    	<parameter name="tcs_catalog" value="jdbc:informix-sqli://env.topcoder.com:2021/tcs_catalog:INFORMIXSERVER=informixoltp_tcp;user=coder;password=c0d3r4T" />
+    	<parameter name="tcs_dw" value="jdbc:informix-sqli://env.topcoder.com:2021/tcs_dw:INFORMIXSERVER=informixoltp_tcp;user=coder;password=c0d3r4T" />
+    </sourcesList>
+</loadDefinition>

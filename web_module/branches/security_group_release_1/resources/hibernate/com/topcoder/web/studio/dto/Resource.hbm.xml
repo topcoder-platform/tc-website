@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.studio.dto">
+    <class name="Resource" table="resource" mutable="false">
+        <id name="id" column="resource_id">
+            <generator class="com.topcoder.web.common.model.IdGenerator">
+                <param name="sequence_name">resource_id_seq</param>
+            </generator>
+        </id>
+        <property name="projectId" column="project_id"/>
+        <many-to-one name="role" column="resource_role_id" class="ResourceRole" />
+        <property name="phaseId" column="project_phase_id"/>
+        <property name="createUser" column="create_user"/>
+        <property name="modifyUser" column="modify_user"/>
+        <property name="createDate" column="create_date"/>
+        <property name="modifyDate" column="modify_date"/>
+        <set name="info" table="resource_info" access="field" cascade="all" inverse="true">
+            <key column="resource_id" not-null="true"/>
+            <one-to-many class="ResourceInfo"/>
+        </set>
+    </class>
+</hibernate-mapping>
