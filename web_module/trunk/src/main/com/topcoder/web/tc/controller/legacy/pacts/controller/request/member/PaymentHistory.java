@@ -7,6 +7,14 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+import java.text.DateFormat;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.web.common.BaseProcessor;
@@ -21,32 +29,45 @@ import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
+import com.topcoder.excel.Row;
+import com.topcoder.excel.Sheet;
+import com.topcoder.excel.Workbook;
+import com.topcoder.excel.impl.ExcelSheet;
+import com.topcoder.excel.impl.ExcelWorkbook;
+import com.topcoder.excel.output.Biff8WorkbookSaver;
+import com.topcoder.excel.output.WorkbookSaver;
+import com.topcoder.excel.output.WorkbookSavingException;
+
 /**
  *
- * @author  cucu, pulky
+ * @author  cucu, pulky, VolodymyrK
  */
 public class PaymentHistory extends BaseProcessor implements PactsConstants {
 
-	public static final String FULL_LIST = "full_list";
-	public static final String PAYMENTS = "payments";
-	public static final String CODER = "cr";
+
+    public static final String XLS_FORMAT = "xls";
+    public static final String XLS_LINK = "xls_link";
+    public static final String FULL_LIST = "full_list";
+    public static final String PAYMENTS = "payments";
+    public static final String CODER = "cr";
     private static final int DESCRIPTION_COL = 1;
     private static final int TYPE_COL = 2;
     private static final int DUE_DATE_COL = 3;
     private static final int NET_PAYMENT_COL = 4;
     private static final int STATUS_COL = 5;
     private static final int PAID_DATE_COL = 6;
-	
+    
     protected void businessProcessing() throws TCWebException {
         try {
             boolean fullList = "true".equals(getRequest().getParameter(FULL_LIST));
             String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
             String endRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.END_RANK));
             String sortColStr = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+            boolean exportToExcel = "true".equals(getRequest().getParameter(XLS_FORMAT));
             
             boolean sortAscending= "asc".equals(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
             int sortCol = 3;
-        	
+            
             if (sortColStr.trim().length() > 0) {
                 sortCol = Integer.parseInt(sortColStr);
             }
@@ -78,7 +99,7 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
                 if (payment.getPaymentType() == 3 || payment.getPaymentType() == 5) {
                     removePayments.add(payment);
                 } else {
-                    if (!fullList) {
+                    if (!fullList && !exportToExcel) {
                         if (payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS)) ||
                             payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.EXPIRED_PAYMENT_STATUS)) ||
                             payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.PAID_PAYMENT_STATUS))) {
@@ -98,36 +119,104 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
             // sort the result in the first place
             sortResult(payments, sortCol, sortAscending);
             
-            // now crop
-            payments = cropResult(payments, Integer.parseInt(startRank), Integer.parseInt(endRank));
-            
             if ("on".equalsIgnoreCase(com.topcoder.web.tc.Constants.GLOBAL_AD_FLAG)) {
                 removeDuplicateReasons(payments);
             }
+
+            if (exportToExcel) {
+                produceXLS(payments);
+            } else {
+                // now crop
+                payments = cropResult(payments, Integer.parseInt(startRank), Integer.parseInt(endRank));
+                        
+                setDefault(DataAccessConstants.SORT_COLUMN, sortCol + "");
+                setDefault(DataAccessConstants.SORT_DIRECTION, getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
             
-            setDefault(DataAccessConstants.SORT_COLUMN, sortCol + "");
-            setDefault(DataAccessConstants.SORT_DIRECTION, getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+                getRequest().setAttribute(PAYMENTS, payments);
+                getRequest().setAttribute(CODER, getUser().getId() + "");
+                getRequest().setAttribute(FULL_LIST, Boolean.valueOf(fullList));
+
+                String requestQuery = MEMBER_SERVLET_URL + "?" + getRequest().getQueryString();
+                String xlsLink = requestQuery + "&" + XLS_FORMAT + "=true";
+                getRequest().setAttribute(XLS_LINK, xlsLink);
             
-            getRequest().setAttribute(PAYMENTS, payments);
-            getRequest().setAttribute(CODER, getUser().getId() + "");
-            getRequest().setAttribute(FULL_LIST, Boolean.valueOf(fullList));
+                SortInfo s = new SortInfo();
+                s.addDefault(DESCRIPTION_COL, "asc");
+                s.addDefault(TYPE_COL, "asc");
+                s.addDefault(DUE_DATE_COL, "desc");
+                s.addDefault(NET_PAYMENT_COL, "desc");
+                s.addDefault(STATUS_COL, "asc");
+                s.addDefault(PAID_DATE_COL, "desc");
+                getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
             
-            SortInfo s = new SortInfo();
-            s.addDefault(DESCRIPTION_COL, "asc");
-            s.addDefault(TYPE_COL, "asc");
-            s.addDefault(DUE_DATE_COL, "desc");
-            s.addDefault(NET_PAYMENT_COL, "desc");
-            s.addDefault(STATUS_COL, "asc");
-            s.addDefault(PAID_DATE_COL, "desc");
-            getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
-            
-            setNextPage(PactsConstants.PAYMENT_HISTORY_JSP);
-            setIsNextPageInContext(true);
+                setNextPage(PactsConstants.PAYMENT_HISTORY_JSP);
+                setIsNextPageInContext(true);
+            }
         } catch (Exception e) {
             throw new TCWebException(e);
         }
     }
-    
+
+    private void produceXLS(List<BasePayment> payments) throws WorkbookSavingException, IOException {
+        Workbook workbook = new ExcelWorkbook();
+        Sheet sheet = new ExcelSheet("Member Payments", (ExcelWorkbook) workbook);
+        insertSheetData(sheet, payments);
+        workbook.addSheet(sheet);
+
+        // Create a new WorkBookSaver
+        WorkbookSaver saver = new Biff8WorkbookSaver();
+        ByteArrayOutputStream saveTo = new ByteArrayOutputStream();
+        saver.save(workbook, saveTo);
+
+        // Write the output
+        getResponse().addHeader("content-disposition", "attachment; filename=\"payments.xls\"");
+        getResponse().setContentType("application/vnd.ms-excel");
+
+        ServletOutputStream output = getResponse().getOutputStream();
+        saveTo.writeTo(getResponse().getOutputStream());
+
+        getResponse().setStatus(HttpServletResponse.SC_OK);
+        output.flush();
+    }
+
+    /**
+     * <p>Inserts the sheet data.</p>
+     *
+     * @param sheet the sheet.
+     */
+    private void insertSheetData(Sheet sheet, List<BasePayment> payments) {
+        // the date format used for displaying the dates
+        DateFormat dateFormatter = new SimpleDateFormat("MM/dd/yyy");
+
+        // the format used for payment amounts
+        NumberFormat moneyFormatter = new DecimalFormat("###,##0.00");
+
+        // set up the sheet header first
+        Row row = sheet.getRow(1);
+        row.getCell(1).setStringValue("Description");
+        row.getCell(2).setStringValue("Type");
+        row.getCell(3).setStringValue("Due Date");
+        row.getCell(4).setStringValue("Net Payment");
+        row.getCell(5).setStringValue("Status");
+        row.getCell(6).setStringValue("Date Paid");
+
+        // insert sheet data from 2nd row
+        int rowIndex = 2;
+        for (BasePayment payment : payments) {
+            row = sheet.getRow(rowIndex++);
+
+            row.getCell(1).setStringValue(payment.getDescription());
+            row.getCell(2).setStringValue(payment.getPaymentTypeDesc());
+            row.getCell(3).setStringValue(dateFormatter.format(payment.getDueDate()));
+            row.getCell(4).setStringValue(moneyFormatter.format(payment.getNetAmount()));
+            row.getCell(5).setStringValue(payment.getCurrentStatus().getDesc());
+
+            if (payment.getPaidDate() != null) {
+                row.getCell(6).setStringValue(dateFormatter.format(payment.getPaidDate()));
+            }
+        }
+
+    }
 
     private List cropResult(List result, int startRank, int endRank) {
         Boolean croppedDataAfter = Boolean.TRUE;
