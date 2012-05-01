@@ -13,6 +13,7 @@
 <c:set var="fullList" value="<%= request.getAttribute(PaymentHistory.FULL_LIST) %>"/>
 <c:set var="payments" value="<%= request.getAttribute(PaymentHistory.PAYMENTS) %>"/>
 <c:set var="cr" value="<%= request.getAttribute(PaymentHistory.CODER) %>"/>
+<c:set var="xlsLink" value="<%= request.getAttribute(PaymentHistory.XLS_LINK) %>" />
 
 <c:set value="<%=PaymentHistory.DEFAULTS_KEY%>" var="defaults"/>
 <c:set value="<%=DataAccessConstants.START_RANK%>" var="startRank"/>
@@ -21,7 +22,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>TopCoder - PACTs</title>
+<title>TopCoder - PACTS</title>
 
 
 <jsp:include page="/script.jsp" />
@@ -77,10 +78,10 @@
     </div>
     <span class="bodySubtitle">Payments > </span><br>
     <c:if test="${fullList}" >
-        View all | <a href="/PactsMemberServlet?module=PaymentHistory&full_list=false" class="bcLink">View pending</a>
+        View all | <a href="/PactsMemberServlet?module=PaymentHistory&full_list=false" class="bcLink">View pending</a> | <a href="${xlsLink}" class="bcLink">Export to Excel</a>
     </c:if>
     <c:if test="${not fullList}" >
-        <a href="/PactsMemberServlet?module=PaymentHistory&full_list=true" class="bcLink">View all</a> | View pending
+        <a href="/PactsMemberServlet?module=PaymentHistory&full_list=true" class="bcLink">View all</a> | View pending | <a href="${xlsLink}" class="bcLink">Export to Excel</a>
     </c:if>
 </div>
 

@@ -98,6 +98,7 @@
         <pathelement location="${jars.dir}/object_formatter.jar"/>
         <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
         <pathelement location="${jars.dir}/tcs/db_connection_factory/1.1/db_connection_factory.jar"/>
+        <pathelement location="${jars.dir}/tcs/excel_utility/2.0/excel_utility.jar"/>
         <pathelement location="${jars.dir}/tcs/file_upload/2.2.0/file_upload.jar"/>
         <pathelement location="${jars.dir}/tcs/json_object/1.0/json_object.jar"/>
         <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
@@ -650,6 +651,7 @@
         <mkdir dir="${jboss_conf}/com/topcoder/util/file"/>
         <mkdir dir="${jboss_conf}/com/topcoder/message/email"/>
         <mkdir dir="${jboss_conf}/com/topcoder/servlet/request"/>
+        <mkdir dir="${jboss_conf}/com/topcoder/web/tc/controller"/>
         <mkdir dir="${jboss_conf}/com/topcoder/web/tc/controller/request/contest"/>
         <copy todir="${jboss_conf}/com/topcoder/security">
             <fileset dir="${resources}/com/topcoder/security">
@@ -686,6 +688,11 @@
         <copy todir="${jboss_conf}/com/topcoder/web/tc/controller/request/contest">
             <fileset dir="${resources}/com/topcoder/web/tc/controller/request/contest">
                 <include name="ProjectDetail.properties"/>
+            </fileset>
+        </copy>
+        <copy todir="${jboss_conf}/com/topcoder/web/tc/controller">
+            <fileset dir="${resources}/com/topcoder/web/tc/controller">
+                <include name="payoneer.xml"/>
             </fileset>
         </copy>
 		<!--
@@ -763,6 +770,7 @@
         </copy>
         
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/file_upload/2.2.0/file_upload.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/excel_utility/2.0/excel_utility.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/configuration_manager/2.1.5/configuration_manager.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/data_validation/1.0/data_validation.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/file_system_server/1.0/file_system_server.jar"/>
