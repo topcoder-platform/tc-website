@@ -44,7 +44,6 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
 
 
     public static final String XLS_FORMAT = "xls";
-    public static final String XLS_LINK = "xls_link";
     public static final String FULL_LIST = "full_list";
     public static final String PAYMENTS = "payments";
     public static final String CODER = "cr";
@@ -134,10 +133,6 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
                 getRequest().setAttribute(CODER, getUser().getId() + "");
                 getRequest().setAttribute(FULL_LIST, Boolean.valueOf(fullList));
 
-                String requestQuery = MEMBER_SERVLET_URL + "?" + getRequest().getQueryString();
-                String xlsLink = requestQuery + "&" + XLS_FORMAT + "=true";
-                getRequest().setAttribute(XLS_LINK, xlsLink);
-            
                 SortInfo s = new SortInfo();
                 s.addDefault(DESCRIPTION_COL, "asc");
                 s.addDefault(TYPE_COL, "asc");
