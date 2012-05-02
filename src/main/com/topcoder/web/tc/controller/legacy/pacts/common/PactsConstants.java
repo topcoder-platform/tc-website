@@ -370,6 +370,7 @@ public interface PactsConstants extends Constants {
     // NOTE: affidavits and contracts have specialized payments
     public static final String PAYMENT_TASK = "payments";
     public static final String PAYMENT_HISTORY_CMD = "payment_history";
+    public static final String PAYMENT_STATUS_SUMMARY_CMD = "payment_status_summary";
     public static final String PAYMENT_DETAILS_CMD = "payment_details";
 
     // tax form member jsps
@@ -431,6 +432,7 @@ public interface PactsConstants extends Constants {
     public static final String CONTRACT_PAYMENT_SUMMARY_JSP = MEMBER_JSP_DIR + "ContractPaymentSummary.jsp";
     public static final String CONTRACT_DETAILS_JSP = MEMBER_JSP_DIR + "ContractDetails.jsp";
     public static final String PAYMENT_HISTORY_JSP = MEMBER_JSP_DIR + "PaymentHistory.jsp";
+    public static final String PAYMENT_STATUS_SUMMARY_JSP = MEMBER_JSP_DIR + "PaymentStatusSummary.jsp";
     public static final String PAYMENT_DETAILS_JSP = MEMBER_JSP_DIR + "PaymentDetails.jsp";
     public static final String TAX_FORM_HISTORY_JSP = MEMBER_JSP_DIR + "TaxFormHistory.jsp";
     public static final String TAX_FORM_DETAILS_JSP = MEMBER_JSP_DIR + "TaxFormDetails.jsp";
