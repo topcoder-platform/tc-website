@@ -31,6 +31,7 @@
 					//nav.search("m_competitions_overview").addChild(new NavNode("http://apps.topcoder.com/wiki/x/DIKMAg", "General Info", "m_overview_general_info"));
 					nav.search("m_competitions_overview").addChild(new NavNode("http://apps.topcoder.com/wiki/x/MQD9Ag", "Reliability", "m_overview_reliability"));
 					nav.search("m_competitions_overview").addChild(new NavNode("http://apps.topcoder.com/wiki/x/lYE_/", "Ratings", "m_overview_rating"));
+					nav.search("m_competitions_overview").addChild(new NavNode("http://apps.topcoder.com/wiki/x/EoK1B/", "Badges", "m_overview_badges"));
 					nav.search("m_competitions_overview").addChild(new NavNode("http://apps.topcoder.com/wiki/x/aoE_/", "How to Get Paid", "m_how_to_get_paid"));
 					nav.search("m_competitions_overview").addChild(new NavNode("http://apps.topcoder.com/wiki/x/2gRmAw", "Administrative Overview ", "m_administrative_overview"));
 
