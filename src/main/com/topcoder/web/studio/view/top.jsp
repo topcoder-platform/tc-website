@@ -81,6 +81,7 @@ String section = request.getParameter("section") == null ? "" : request.getParam
                                     <li><a href="http://community.topcoder.com/studio/what-is-studio/">Competitor Guide</a></li>
                                     <!-- end test DOM -->
                                     <li><a href="http://www.topcoder.com/solutions/">Launch a contest</a></li>
+                                    <li><a href="http://community.topcoder.com/studio/the-process/achievement-badges/">Badges</a></li>
                                 </ul>
                             </div>
                         </div>
