@@ -40,6 +40,7 @@ import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.OutputKeys;
  
 import org.w3c.dom.Attr;
+import org.w3c.dom.Text;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -58,6 +59,8 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
     public static final String TRAVELEX_XML_LINK = "travxml_link";
     public static final String CSV_FORMAT = "csv";
     public static final String CSV_LINK = "csv_link";
+    public static final String PAYONEER_XML_FORMAT = "payoneer_xml";
+    public static final String PAYONEER_XML_LINK = "payoneer_xml_link";
 
     public static final int NAME_COL = 1;
     public static final int USER_COL = 2;
@@ -182,6 +185,8 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                     produceTravelexXML();
                 } else if ("true".equals(getRequest().getParameter(CSV_FORMAT))) {
                     produceCSV();
+                } else if ("true".equals(getRequest().getParameter(PAYONEER_XML_FORMAT))) {
+                    producePayoneerXML();
                 } else {                   
                     String toggle = requestQuery.replaceAll(GROUP_RELIABILITY + "=" + groupRel, "") + "&" + GROUP_RELIABILITY + "=" + !groupRel;
                     getRequest().setAttribute(TOGGLE_GROUP_RELIABILITY, toggle);
@@ -189,8 +194,10 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                     String ungroup = requestQuery.replaceAll(GROUP_RELIABILITY + "=" + groupRel, "") + "&" + GROUP_RELIABILITY + "=false";
                     String csv_link = ungroup + "&" + CSV_FORMAT + "=true";
                     String travxml_link = ungroup + "&" + TRAVELEX_XML_FORMAT + "=true";
+                    String payoneer_xml_link = ungroup + "&" + PAYONEER_XML_FORMAT + "=true";
                     getRequest().setAttribute(CSV_LINK, csv_link);
                     getRequest().setAttribute(TRAVELEX_XML_LINK, travxml_link);
+                    getRequest().setAttribute(PAYONEER_XML_LINK, payoneer_xml_link);
 
                     setNextPage(INTERNAL_PAYMENT_LIST_JSP);
                     setIsNextPageInContext(true);
@@ -342,43 +349,123 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 status += "\n- " + reason.getDesc();
             }
 
-            String row = "";
-            row = addCSVValue(row, payment.getId());
-            row = addCSVValue(row, payment.getUser().getFullName());
-            row = addCSVValue(row, payment.getUser().getHandle());
-            row = addCSVValue(row, description);
-            row = addCSVValue(row, payment.getRecentGrossAmount());
-            row = addCSVValue(row, payment.getRecentGrossAmount()-payment.getRecentNetAmount());
-            row = addCSVValue(row, payment.getRecentNetAmount());
-            row = addCSVValue(row, payment.getType());
-            row = addCSVValue(row, status);
-            row = addCSVValue(row, payment.getClient());
-            row = addCSVValue(row, payment.getCockpitProjectName());
-            row = addCSVValue(row, payment.getBillingAccountName());
-            row = addCSVValue(row, payment.getReferenceId());
-            row = addCSVValue(row, payment.getContestCategoryName());
-            row = addCSVValue(row, payment.getInvoiceNumber());
-            row = addCSVValue(row, payment.getCreateDate());
-            row = addCSVValue(row, payment.getModifyDate());
+            StringBuilder row = new StringBuilder();
+            addCSVValue(row, payment.getId());
+            addCSVValue(row, payment.getUser().getFullName());
+            addCSVValue(row, payment.getUser().getHandle());
+            addCSVValue(row, description);
+            addCSVValue(row, payment.getRecentGrossAmount());
+            addCSVValue(row, payment.getRecentGrossAmount()-payment.getRecentNetAmount());
+            addCSVValue(row, payment.getRecentNetAmount());
+            addCSVValue(row, payment.getType());
+            addCSVValue(row, status);
+            addCSVValue(row, payment.getClient());
+            addCSVValue(row, payment.getCockpitProjectName());
+            addCSVValue(row, payment.getBillingAccountName());
+            addCSVValue(row, payment.getReferenceId());
+            addCSVValue(row, payment.getContestCategoryName());
+            addCSVValue(row, payment.getInvoiceNumber());
+            addCSVValue(row, payment.getCreateDate());
+            addCSVValue(row, payment.getModifyDate());
 
-            writer.print(row+"\n");
+            row.deleteCharAt(row.length()-1);
+            writer.print(row.toString()+"\n");
         }
 
         getResponse().setStatus(HttpServletResponse.SC_OK);
         writer.flush();
     }
 
-    String addCSVValue(String row, Object value) {
+    public void producePayoneerXML() throws TCWebException, IOException {
+        getResponse().addHeader("content-disposition", "attachment; filename=\"payments.xml\"");
+        getResponse().setContentType("text/xml");
+
+        try {
+            DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+ 
+            // root elements
+            Document doc = docBuilder.newDocument();
+
+            Element payoneerInElement = doc.createElement("PayoneerIn");
+            doc.appendChild(payoneerInElement);
+ 
+            Element payoutPaymentsElement = doc.createElement("PayoutPayments");
+            payoneerInElement.appendChild(payoutPaymentsElement);
+ 
+            double totalAmount = 0.0;
+            List<PaymentHeader> allPayments = (List<PaymentHeader>) getRequest().getAttribute(PaymentList.PAYMENTS);
+            
+            for (PaymentHeader payment : allPayments) {    
+                UserProfileHeader user = payment.getUser();            
+                totalAmount += payment.getRecentNetAmount();
+
+                Element payoutPaymentElement = doc.createElement("PayoutPayment");
+                payoutPaymentsElement.appendChild(payoutPaymentElement);
+                
+                Element paymentDateElement = doc.createElement("PaymentDate");
+                paymentDateElement.appendChild(doc.createTextNode(""+payment.getCreateDate()));
+
+                Element payeeIDElement = doc.createElement("PayeeID");
+                payeeIDElement.appendChild(doc.createTextNode(""+payment.getUser().getId()));
+
+                Element intPaymentIDElement = doc.createElement("IntPaymentID");
+                intPaymentIDElement.appendChild(doc.createTextNode(""+payment.getId()));
+
+                Element amountElement = doc.createElement("Amount");
+                amountElement.appendChild(doc.createTextNode(""+payment.getRecentNetAmount()));
+                
+                Element currencyElement = doc.createElement("Currency");
+                currencyElement.appendChild(doc.createTextNode("USD"));
+
+                Element descriptionElement = doc.createElement("Description");
+                descriptionElement.appendChild(doc.createTextNode(payment.getDescription()));
+                
+                payoutPaymentElement.appendChild(paymentDateElement);
+                payoutPaymentElement.appendChild(payeeIDElement);
+                payoutPaymentElement.appendChild(intPaymentIDElement);
+                payoutPaymentElement.appendChild(amountElement);
+                payoutPaymentElement.appendChild(currencyElement);
+                payoutPaymentElement.appendChild(descriptionElement);
+            }
+
+            Element payoutTotals = doc.createElement("Totals");
+            payoneerInElement.appendChild(payoutTotals);
+            
+            Element amountElement = doc.createElement("Amount");
+            amountElement.appendChild(doc.createTextNode(""+totalAmount));
+            payoutTotals.appendChild(amountElement);    
+
+            // write the content
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+
+            PrintWriter writer = getResponse().getWriter();
+            StreamResult result = new StreamResult(writer); 
+            transformer.transform(new DOMSource(doc), result);
+            getResponse().setStatus(HttpServletResponse.SC_OK);
+            writer.flush();
+
+        } catch (ParserConfigurationException pce) {
+            throw new TCWebException(pce);
+        } catch (TransformerException tfe) {
+            throw new TCWebException(tfe);
+        }
+    }
+
+    void addCSVValue(StringBuilder row, Object value) {
       if (value != null) {
           String item = value.toString();
           if (item.contains(",") || item.contains("\n") || item.contains("\"")) {
-              row += "\"" + item.replaceAll("\"","\"\"") + "\"";
+              row.append("\"" + item.replaceAll("\"","\"\"") + "\"");
           } else {
-              row += item;
+              row.append(item);
           }
       }
 
-      return row+",";
+      row.append(",");
     }
 
     private Map getQuery(TCRequest request) {

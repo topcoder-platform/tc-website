@@ -30,6 +30,7 @@
 <c:set var="toggleGroupReliability" value="<%= request.getAttribute(PaymentList.TOGGLE_GROUP_RELIABILITY) %>" />
 <c:set var="csvLink" value="<%= request.getAttribute(PaymentList.CSV_LINK) %>" />
 <c:set var="travxmlLink" value="<%= request.getAttribute(PaymentList.TRAVELEX_XML_LINK) %>" />
+<c:set var="payoneerXMLLink" value="<%= request.getAttribute(PaymentList.PAYONEER_XML_LINK) %>" />
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -182,7 +183,7 @@ ${fn:length(paymentList)} records. <br />
 
     <input type=hidden name="query" value="${query}">
 
-    <a href="${csvLink}">Download as CSV (Excel)</a> - <a href="${travxmlLink}">Download as Travelex XML</a><br/>
+    <a href="${csvLink}">Download as CSV (Excel)</a> - <a href="${travxmlLink}">Download as Travelex XML</a> - <a href="${payoneerXMLLink}">Download as Payoneer XML</a><br/>
 
     <a href="${toggleGroupReliability}">
         <c:choose>

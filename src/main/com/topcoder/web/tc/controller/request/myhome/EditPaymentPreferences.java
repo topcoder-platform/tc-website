@@ -4,6 +4,7 @@
 package com.topcoder.web.tc.controller.request.myhome;
 
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.tc.controller.PayoneerService;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.TCRequest;
@@ -11,13 +12,13 @@ import com.topcoder.web.common.model.PaymentMethod;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.*;
 import com.topcoder.shared.dataAccess.resultSet.*;
-import java.util.*;
-
-import java.rmi.RemoteException;
 
 import static com.topcoder.web.tc.Constants.MODULE_KEY;
 import static com.topcoder.web.tc.Constants.MINIMUM_PAYMENT_ACCRUAL_AMOUNT;
 import static com.topcoder.web.ejb.pacts.Constants.NOT_SET_PAYMENT_METHOD_ID;
+import static com.topcoder.web.ejb.pacts.Constants.PAYONEER_PAYMENT_METHOD_ID;
+
+import java.util.*;
 
 /**
  * <p>A controller for requests relevant to <code>Edit Payment Preferences</code> functionality. As of current version
@@ -28,6 +29,8 @@ import static com.topcoder.web.ejb.pacts.Constants.NOT_SET_PAYMENT_METHOD_ID;
  * @version 1.1
  */
 public class EditPaymentPreferences extends ShortHibernateProcessor {
+
+    private static final String DEFAULT_PAYONEER_NAMESPACE = "com.topcoder.payoneer";
 
     /**
      * <p>A <code>String</code> providing the name of request parameter providing the payment accrual amount provided by
@@ -87,7 +90,7 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
             }
             Long paymentMethodId = dataBean.getUserPaymentMethod(getUser().getId());
             forwardToEditPaymentPreferencesView(String.valueOf(currentPaymentAccrualAmount),
-			    paymentMethodId == null ? "" : paymentMethodId.toString());
+                paymentMethodId == null ? "" : paymentMethodId.toString());
         }
     }
 
@@ -130,7 +133,7 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
      * @throws RemoteException if an error is encountered while communicating to <code>PACTS Services EJB</code>
      *         remotely.
      */
-    private void savePaymentPreferences() throws RemoteException {
+    private void savePaymentPreferences() throws Exception {
         TCRequest request = getRequest();
         DataInterfaceBean dataBean = new DataInterfaceBean();
 
@@ -155,6 +158,16 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
                 paymentMethodId = Long.parseLong(paymentMethodValue);
             } catch (NumberFormatException e) {
                 addError(PAYMENT_METHOD_PARAM, "Payment method ID must be an integer number");
+            }
+            
+            if (paymentMethodId == PAYONEER_PAYMENT_METHOD_ID) {
+                PayoneerService.PayeeStatus payeeStatus = PayoneerService.getPayeeStatus(getLoggedInUser().getId());
+                if (payeeStatus == PayoneerService.PayeeStatus.NOT_REGISTERED) {
+                    addError(PAYMENT_METHOD_PARAM, "You have not registered with Payoneer yet");
+                }
+                if (payeeStatus == PayoneerService.PayeeStatus.REGISTERED) {
+                    addError(PAYMENT_METHOD_PARAM, "You have not activated with Payoneer yet");
+                }
             }
 
             if (!hasErrors()) {

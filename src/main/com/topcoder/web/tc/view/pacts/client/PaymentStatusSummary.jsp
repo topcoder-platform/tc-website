@@ -71,7 +71,7 @@
         </tr>
         <tr>
             <td class="header">Payment Status</td>
-            <td class="headerR">Total Net Amount</td>
+            <td class="headerR">Net Amount</td>
         </tr>
 
 

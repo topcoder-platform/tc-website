@@ -1,8 +1,9 @@
 /*
- * Copyright (C) 2007 - 2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2007 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.myhome;
 
+import com.topcoder.web.tc.controller.PayoneerService;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
@@ -32,7 +33,7 @@ import com.topcoder.web.common.model.User;
  *   </ol>
  * </p>
  * 
- * @author Pablo Wolfus (pulky), pvmagacho
+ * @author Pablo Wolfus (pulky), pvmagacho, VolodymyrK
  * @version 1.1
  */
 public class Home extends ShortHibernateProcessor {
@@ -66,6 +67,14 @@ public class Home extends ShortHibernateProcessor {
             
         }
         getRequest().setAttribute("userImage", image);
+
+        PayoneerService.PayeeStatus payeeStatus = PayoneerService.getPayeeStatus(getLoggedInUser().getId());
+        if (payeeStatus == PayoneerService.PayeeStatus.NOT_REGISTERED) {
+            getRequest().setAttribute("payoneerRegistered", false);
+            getRequest().setAttribute("payoneerRegLink", PayoneerService.getRegistrationLink(getLoggedInUser().getId()));
+        } else {
+            getRequest().setAttribute("payoneerRegistered", true);
+        }
 
         setNextPage("/my_home/index.jsp");
         setIsNextPageInContext(true);
