@@ -1549,10 +1549,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         try {
             conn = DBMS.getConnection(trxDataSource);
 
-            updatePs = conn.prepareStatement("update 'informix'.user_payment_method set payment_method_id = '"+paymentMethodId+"' where user_id = "+userId);
+            updatePs = conn.prepareStatement("update 'informix'.user_payment_method set payment_method_id = "+paymentMethodId+" where user_id = "+userId);
             int updated = updatePs.executeUpdate();
             if (updated == 0) {
-                insertPs = conn.prepareStatement("insert into 'informix'.user_payment_method(user_id, payment_method_id) values ("+userId+",'"+paymentMethodId+"')");
+                insertPs = conn.prepareStatement("insert into 'informix'.user_payment_method(user_id, payment_method_id) values ("+userId+","+paymentMethodId+")");
                 insertPs.executeUpdate();
             } else if (updated > 1) {
                 throw (new EJBException("Wrong number of rows updated in 'saveUserPaymentMethod'. " + "Updated " + updated + ", should have updated 1."));
@@ -1570,6 +1570,70 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
+    /**
+     * Returns the email address of the user's PayPal account.
+     *
+     * @param userId User ID	 
+     * @return PayPal account's email address
+     * @throws SQLException If there is some problem retrieving the data
+     */
+    public String getUserPayPalAccount(long userId) throws SQLException {
+        Connection conn = null;
+        try {
+            conn = DBMS.getConnection(trxDataSource);
+            ResultSetContainer rsc = runSelectQuery(conn, "SELECT email_address FROM user_paypal_account where user_id = " + userId);
+
+            if (rsc.iterator().hasNext()) {
+                return ((ResultSetRow) rsc.iterator().next()).getStringItem("email_address");
+            } else {
+                return null;
+            }
+        } finally {
+            close(conn);
+        }
+    }
+
+    /**
+     * Saves the email address of the user's PayPal account.
+     *
+     * @param userId User ID	 
+     * @param payPalAccount PayPal account's email address
+     * @throws SQLException If there is some problem updating the data
+     */
+    public void saveUserPayPalAccount(long userId, String payPalAccount) {
+        if (userId == 0) {
+            throw new IllegalArgumentException("Invalid user ID");
+        }
+
+        if (payPalAccount == null) {
+            throw new IllegalArgumentException("Invalid email address of the PayPal account");
+        }
+		
+        PreparedStatement insertPs = null, updatePs = null;
+        Connection conn = null;
+        try {
+            conn = DBMS.getConnection(trxDataSource);
+
+            updatePs = conn.prepareStatement("update 'informix'.user_paypal_account set email_address = '"+payPalAccount+"' where user_id = "+userId);
+            int updated = updatePs.executeUpdate();
+            if (updated == 0) {
+                insertPs = conn.prepareStatement("insert into 'informix'.user_paypal_account(user_id, email_address) values ("+userId+",'"+payPalAccount+"')");
+                insertPs.executeUpdate();
+            } else if (updated > 1) {
+                throw (new EJBException("Wrong number of rows updated in 'saveUserPayPalAccount'. " + "Updated " + updated + ", should have updated 1."));
+            }
+
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw (new EJBException(e.getMessage(), e));
+        } catch (Exception e) {
+            throw (new EJBException(e.getMessage(), e));
+        } finally {
+            close(updatePs);
+            close(insertPs);
+            close(conn);
+        }
+    }
 
     public Map<Long, BasePaymentStatus> getPaymentStatusMap() throws SQLException {
         Map<Long, BasePaymentStatus> statusMap = new HashMap<Long, BasePaymentStatus>();

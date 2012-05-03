@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2010-2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.myhome;
 
@@ -16,8 +16,11 @@ import com.topcoder.shared.dataAccess.resultSet.*;
 import static com.topcoder.web.tc.Constants.MODULE_KEY;
 import static com.topcoder.web.tc.Constants.MINIMUM_PAYMENT_ACCRUAL_AMOUNT;
 import static com.topcoder.web.ejb.pacts.Constants.NOT_SET_PAYMENT_METHOD_ID;
+import static com.topcoder.web.ejb.pacts.Constants.PAYPAL_PAYMENT_METHOD_ID;
 import static com.topcoder.web.ejb.pacts.Constants.PAYONEER_PAYMENT_METHOD_ID;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.*;
 
 /**
@@ -45,9 +48,24 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
     public static final String PAYMENT_METHOD_PARAM = "paymentMethod";
 
     /**
-     * <p>Constructs new <code>EditPaymentPreferences</code> instance. This implementation does nothing.</p>
+     * <p>A <code>String</code> providing the name of request parameter providing the PayPal account provided by
+     * current user.</p>
+     */
+    public static final String PAYPAL_ACCOUNT_PARAM = "paypalAccount";
+
+    /**
+     * <p>Regex pattern to validate email addresses.</p>
+     */
+    private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+
+    private Pattern pattern;
+    
+    /**
+     * <p>Constructs new <code>EditPaymentPreferences</code> instance.
+     * Simply initializes the regex pattern object..</p>
      */
     public EditPaymentPreferences() {
+        pattern = Pattern.compile(EMAIL_PATTERN);
     }
 
     /**
@@ -79,7 +97,8 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
                 // There were validation errors - forward to Edit Payment Preferences page to display errors
                 forwardToEditPaymentPreferencesView(
                     getRequest().getParameter(ACCRUAL_AMOUNT_PARAM),
-                    getRequest().getParameter(PAYMENT_METHOD_PARAM));
+                    getRequest().getParameter(PAYMENT_METHOD_PARAM),
+                    getRequest().getParameter(PAYPAL_ACCOUNT_PARAM));
             }
         } else {
             // GET request is treated as request for displaying the Payment Preferences form
@@ -89,8 +108,11 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
                 currentPaymentAccrualAmount = MINIMUM_PAYMENT_ACCRUAL_AMOUNT;
             }
             Long paymentMethodId = dataBean.getUserPaymentMethod(getUser().getId());
+
+            String payPalAccount = dataBean.getUserPayPalAccount(getUser().getId());
+
             forwardToEditPaymentPreferencesView(String.valueOf(currentPaymentAccrualAmount),
-                paymentMethodId == null ? "" : paymentMethodId.toString());
+                paymentMethodId == null ? "" : paymentMethodId.toString(), payPalAccount);
         }
     }
 
@@ -140,11 +162,14 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
         // Parse accrual amount from request and validate that it's numeric and is greater than minimum allowed value
         String accrualAmountValue = request.getParameter(ACCRUAL_AMOUNT_PARAM);
         String paymentMethodValue = request.getParameter(PAYMENT_METHOD_PARAM);
+        String payPalAccountValue = request.getParameter(PAYPAL_ACCOUNT_PARAM);
 
         if (isEmpty(accrualAmountValue)) {
             addError(ACCRUAL_AMOUNT_PARAM, "You must specify a payment accrual amount");
         } else if (isEmpty(paymentMethodValue)) {
             addError(PAYMENT_METHOD_PARAM, "You must specify a preferred payment method");
+        } else if (!isEmpty(payPalAccountValue) && !checkEmailAddress(payPalAccountValue)) {
+            addError(PAYPAL_ACCOUNT_PARAM, "Invalid email address specified for the PayPal account");
         } else {
             int newAccrualAmount = 0;
             try {
@@ -170,6 +195,10 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
                 }
             }
 
+            if (paymentMethodId == PAYPAL_PAYMENT_METHOD_ID && isEmpty(payPalAccountValue)) {
+                addError(PAYPAL_ACCOUNT_PARAM, "You must specify your PayPal account email address");
+            }
+
             if (!hasErrors()) {
                 if (newAccrualAmount < MINIMUM_PAYMENT_ACCRUAL_AMOUNT) {
                     addError(ACCRUAL_AMOUNT_PARAM,
@@ -179,9 +208,18 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
                 } else {
                     dataBean.saveUserAccrualThreshold(getUser().getId(), newAccrualAmount);
                     dataBean.saveUserPaymentMethod(getUser().getId(), paymentMethodId);
+                    dataBean.saveUserPayPalAccount(getUser().getId(), payPalAccountValue);
                 }
             }
         }
+    }
+
+    private boolean checkEmailAddress(String emailAddress) {
+        if (emailAddress == null || emailAddress.length() > 100) {
+            return false;
+        }
+
+        return pattern.matcher(emailAddress).matches();
     }
 
     /**
@@ -191,10 +229,12 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
      *
      * @param paymentAccrualAmount a <code>String</code> providing the payment accrual amount to be displayed to user.
      * @param paymentMethodId a <code>String</code> providing the ID of the the payment method to be displayed to user.
+     * @param payPalAccount a <code>String</code> providing the email address of the user's PayPal account.
      */
-    private void forwardToEditPaymentPreferencesView(String paymentAccrualAmount, String paymentMethodId) {
+    private void forwardToEditPaymentPreferencesView(String paymentAccrualAmount, String paymentMethodId, String payPalAccount) {
         setDefault(ACCRUAL_AMOUNT_PARAM, paymentAccrualAmount);
         setDefault(PAYMENT_METHOD_PARAM, paymentMethodId);
+        setDefault(PAYPAL_ACCOUNT_PARAM, payPalAccount);
         setIsNextPageInContext(true);
         setNextPage("/my_home/paymentPreferences.jsp");
     }

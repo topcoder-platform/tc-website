@@ -21,7 +21,7 @@ public class RadioButtonTag extends BaseTag {
             }
             boolean checked = value.equalsIgnoreCase(selected) || "true".equalsIgnoreCase(selected);
             if (checked) {
-                ret.append("checked=\"checked\"");
+                ret.append("checked=\"checked\" ");
             }
             if (onClick != null)
                 ret.append("onClick=\"").append(onClick).append("\" ");

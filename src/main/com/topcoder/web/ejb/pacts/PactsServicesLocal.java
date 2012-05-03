@@ -338,6 +338,10 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     public void saveUserPaymentMethod(long userId, long paymentMethodId);
 
+    public String getUserPayPalAccount(long userId) throws SQLException;
+
+    public void saveUserPayPalAccount(long userId, String payPalAccount);
+
     public Map<Long, BasePaymentStatus> getPaymentStatusMap() throws SQLException;
 
     public Map<Long, String> newPaymentEvent(String[] paymentIDs, int event, Date payDate, long operatorUserId);

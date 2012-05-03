@@ -261,6 +261,7 @@ public interface Constants {
     public static final int AFFIDAVIT_DELETED_STATUS = 76;
 
     public static final long NOT_SET_PAYMENT_METHOD_ID = 1;
+    public static final long PAYPAL_PAYMENT_METHOD_ID = 2;
     public static final long PAYONEER_PAYMENT_METHOD_ID = 5;
 
     public static final int ASSEMBLY_PROJECT_CATEGORY_LU = 14;
