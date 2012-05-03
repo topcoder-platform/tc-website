@@ -214,6 +214,13 @@
                             <p><a href="https://www.topcoder.com/reg/?nrg=false">Update my profile</a></p>
                             <p class="<c:if test='${userImage!=null}'>hide</c:if>"><a href="javascript:;" id="submitPhotoLink" >Submit a photo</a></p>
                             <p class="<c:if test='${userImage==null}'>hide</c:if>"><a href="javascript:;" id="removePhotoLink">Remove photo</a></p>
+<%-- uncomment when ready to integrate
+                            <c:choose>
+                                <c:when test="${payoneerRegistered==false}">
+                                    <p><a href="${payoneerRegLink}">Register with Payoneer</a></p>
+                                </c:when>
+                            </c:choose>
+--%>
                         </td>
                         <td class="value">
                             <p><a href="/tc?module=EditPreferences&amp;group=10">Privacy</a></p>
