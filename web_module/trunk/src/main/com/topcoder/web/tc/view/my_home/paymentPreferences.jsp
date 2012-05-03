@@ -18,6 +18,7 @@
 <c:set var="MINIMUM_PAYMENT_ACCRUAL_AMOUNT" value="<%=Constants.MINIMUM_PAYMENT_ACCRUAL_AMOUNT%>"/>
 <c:set var="ACCRUAL_AMOUNT" value="<%=EditPaymentPreferences.ACCRUAL_AMOUNT_PARAM%>"/>
 <c:set var="PAYMENT_METHOD" value="<%=EditPaymentPreferences.PAYMENT_METHOD_PARAM%>"/>
+<c:set var="PAYPAL_ACCOUNT" value="<%=EditPaymentPreferences.PAYPAL_ACCOUNT_PARAM%>"/>
 <html>
 
 <head>
@@ -99,6 +100,18 @@
                                 <c:forEach var="paymentMethod" items="${paymentMethods}">
                                     <tc-webtag:radioButton name="${PAYMENT_METHOD}" value="${paymentMethod.id}"/>${paymentMethod.name}<br />
                                 </c:forEach>
+                            </td>
+                        </tr>
+
+                        <tr class="light">
+                            <td class="value" width="100%" style="border: none;">
+                                The email address of your PayPal account:
+                                <tc-webtag:errorIterator id="err" name="${PAYPAL_ACCOUNT}">
+                                    <br/><span class="bigRed"><c:out value="${err}"/></span>
+                                </tc-webtag:errorIterator>
+                            </td>
+                            <td class="value" nowrap="nowrap" style="border: none; vertical-align: middle;">
+                                <tc-webtag:textInput name="${PAYPAL_ACCOUNT}" size="30"/><br/>(leave blank if not applicable)
                             </td>
                         </tr>
 

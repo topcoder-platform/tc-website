@@ -1763,6 +1763,16 @@ public class DataInterfaceBean implements PactsConstants {
         ps.saveUserPaymentMethod(userId, paymentMethodId);
     }
 
+    public String getUserPayPalAccount(long userId) throws RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.getUserPayPalAccount(userId);
+    }
+
+    public void saveUserPayPalAccount(long userId, String payPalAccount) throws RemoteException {
+        PactsServicesLocal ps = getEjbHandle();
+        ps.saveUserPayPalAccount(userId, payPalAccount);
+    }
+
     /**
      */
     public Map<Long, BasePaymentStatus> getPaymentStatusMap() throws RemoteException, SQLException {
