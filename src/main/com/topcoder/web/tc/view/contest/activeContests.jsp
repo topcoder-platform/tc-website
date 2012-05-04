@@ -217,7 +217,7 @@
           </c:when>
       </c:choose>
 
-<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:10px;">
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
     <tr>
       <c:choose>
         <c:when test="${hasDR}">
@@ -274,7 +274,11 @@
     </tr>
 </table>
 
-<div align="right" style="padding-top: 10px">
+<div align="center">
+    <a href="http://community.topcoder.com/tco12/overview-sponsor/tco12-sponsor-dena/"><img src="/i/tournament/tco12/DeNA_Sponsor_Banner_510x114.jpg" alt="DeNA - TCO12 Sponsor" /></a><br /><br />
+</div>
+
+<div align="right">
       <c:choose>
         <c:when test="${pt == ARCHITECTURE_TYPE_ID}">
             Competition opportunities via RSS -

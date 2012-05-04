@@ -65,7 +65,7 @@
 
 <% if (design) { %>
 
-<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:10px;">
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
     <tr>
         <td>
             <a href="/dr"><img src="/i/development/digitalRun.gif" alt="The Digital Run" border="0"/></a>
@@ -76,7 +76,11 @@
     </tr>
 </table>
 
-<div align="right" style="padding-top: 10px">
+<div align="center">
+    <a href="http://community.topcoder.com/tco12/overview-sponsor/tco12-sponsor-dena/"><img src="/i/tournament/tco12/DeNA_Sponsor_Banner_510x114.jpg" alt="DeNA - TCO12 Sponsor" /></a><br /><br />
+</div>
+
+<div align="right">
     Competition opportunities via RSS - <a href="/tc?module=BasicRSS&amp;c=rss_Design_Registration_Open&amp;dsid=28">Subscribe Now</a>
     <a href="/tc?module=BasicRSS&amp;c=rss_Design_Registration_Open&amp;dsid=28"><img src="/wiki/images/icons/rss.gif" alt="RSS" /></a>
     <br /><br />
@@ -203,7 +207,7 @@
 
 <% } else { %>
 
-<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:10px;">
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
     <tr>
         <td>
             <a href="/dr"><img src="/i/development/digitalRun.gif" alt="The Digital Run" border="0"/></a>
@@ -214,7 +218,11 @@
     </tr>
 </table>
 
-<div align="right" style="padding-top: 10px">
+<div align="center">
+    <a href="http://community.topcoder.com/tco12/overview-sponsor/tco12-sponsor-dena/"><img src="/i/tournament/tco12/DeNA_Sponsor_Banner_510x114.jpg" alt="DeNA - TCO12 Sponsor" /></a><br /><br />
+</div>
+
+<div align="right">
     Competition opportunities via RSS - <a href="/tc?module=BasicRSS&amp;c=rss_Development_Registration_Open&amp;dsid=28">Subscribe Now</a>
     <a href="/tc?module=BasicRSS&amp;c=rss_Development_Registration_Open&amp;dsid=28"><img src="/wiki/images/icons/rss.gif" alt="RSS" /></a>
     <br /><br />
