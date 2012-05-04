@@ -68,6 +68,7 @@ public class Home extends ShortHibernateProcessor {
         }
         getRequest().setAttribute("userImage", image);
 
+/* Uncomment when ready for the Payoneer integration
         PayoneerService.PayeeStatus payeeStatus = PayoneerService.getPayeeStatus(getLoggedInUser().getId());
         if (payeeStatus == PayoneerService.PayeeStatus.NOT_REGISTERED) {
             getRequest().setAttribute("payoneerRegistered", false);
@@ -75,7 +76,7 @@ public class Home extends ShortHibernateProcessor {
         } else {
             getRequest().setAttribute("payoneerRegistered", true);
         }
-
+*/
         setNextPage("/my_home/index.jsp");
         setIsNextPageInContext(true);
     }
