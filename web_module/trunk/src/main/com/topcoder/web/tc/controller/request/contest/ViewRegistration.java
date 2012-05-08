@@ -213,8 +213,9 @@ public class ViewRegistration extends Base {
         }
 
         if (projectTypeId == Constants.COPILOT_POSTING_PROJECT_TYPE) {
-            // check whether the registrants is in copilot for copilot posting registration
-            if (!isInCopilotPool(getUser().getId())) {
+            // Check whether the registrant is in copilot pool for copilot posting registration.
+            // For marathon match copilot postings let everyone register.
+            if (!isInCopilotPool(getUser().getId()) && !isMarathonMatchCopilotPosting(projectId)) {
                getRequest().setAttribute(Constants.MESSAGE, "Only active copilot in copilot pool can register copilot posting.");
             }
         }
@@ -272,6 +273,24 @@ public class ViewRegistration extends Base {
         r.setContentHandle("copilot_posting");
         r.setProperty("uid", String.valueOf(userId));
         ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("is_in_copilot_pool");
+        return !rsc.isEmpty();
+    }
+
+    /**
+     * Checks whether the project is a copilot posting for a Marathon Match.
+     *
+     * @param projectId the id of the project
+     * @return true if a MM copilot posting, false otherwise
+     * @throws Exception if there is any error.
+     *
+     * @since 1.5
+     */
+    private static boolean isMarathonMatchCopilotPosting(long projectId) throws Exception {
+        DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
+        Request r = new Request();
+        r.setContentHandle("is_mm_copilot_posting");
+        r.setProperty("pj", String.valueOf(projectId));
+        ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("is_mm_copilot_posting");
         return !rsc.isEmpty();
     }
 }
