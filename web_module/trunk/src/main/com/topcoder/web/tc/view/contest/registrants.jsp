@@ -353,13 +353,12 @@
 </td>
 <td width="75%" valign="top">
     <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTable">
-        <tr><td class="tableTitle" colspan="10">Registrants</td></tr>
+        <tr><td class="tableTitle" colspan="9">Registrants</td></tr>
         <tr>
             <td CLASS="tableHeader">Handle</td>
             <td CLASS="tableHeader" align="right">Rating</td>
             <td CLASS="tableHeader" align="right">Reliability</td>
             <td CLASS="tableHeader" align="center">Registration Date</td>
-            <td CLASS="tableHeader" align="center">Submission Date</td>
          </tr>
           <rsc:iterator list="<%=registrants%>" id="resultRow">
           <tr>
@@ -417,9 +416,6 @@
               </td>
               <td class="statDk" align="center" nowrap="0">
                   <rsc:item name="inquiry_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="America/New_York"/>
-              </td>
-              <td class="statDk" align="center" nowrap="0">
-                  <rsc:item name="submission_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="America/New_York" ifNull="-"/>
               </td>
           </tr>
           </rsc:iterator>
