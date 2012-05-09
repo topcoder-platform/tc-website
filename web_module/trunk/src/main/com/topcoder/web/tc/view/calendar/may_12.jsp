@@ -85,6 +85,13 @@
       <td class="value">7
       </td>
       <td class="value">8
+	  	 <div class="long">
+         <strong><a href="/tc?module=MatchDetails&rd=15130">Treephaser MM</a></strong><br />
+         13:00<br />
+         2 weeks<br />
+		 $7.5k+$2.5k Prizes
+         </div>
+
 	    <div class="srm">
 		 <strong><A href="/tc?module=MatchDetails&rd=14734">SRM 542</A></strong><br />
          21:00

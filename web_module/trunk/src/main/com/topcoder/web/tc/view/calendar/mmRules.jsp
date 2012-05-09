@@ -215,7 +215,7 @@
 		</table>
     <%}%>
 
-    <%if(round_id==15077) {%>
+    <%if(round_id==15077 || round_id==15130) {%>
 		<div class="sectionHeader">Prizes</div>
 		<p align="justify">There will be $7,500 in total prize money.  The 5 highest scorers in the round will receive prizes as follows:</p>
 
@@ -230,10 +230,10 @@
 			<td class="bodyText" nowrap="nowrap">3rd</td><td class="bodyText" align="right">$1,125</td>
 		</tr>
 		<tr>
-			<td class="bodyText" nowrap="nowrap">4th</td><td class="bodyText" align="right">$700</td>
+			<td class="bodyText" nowrap="nowrap">4th</td><td class="bodyText" align="right">$750</td>
 		</tr>
 		<tr>
-			<td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$350</td>
+			<td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$375</td>
 		</tr>
 		</table>
 
@@ -433,12 +433,13 @@
 	 
 		<% if (Arrays.binarySearch(assignRounds, round_id)>=0 || round_id==14481 || round_id==14525 || round_id == 14584 || 
 		       round_id == 15024 || round_id == 15075 || round_id == 15023 || round_id == 15034 || round_id == 15038 || round_id == 15076
-		       || round_id == 15077 || round_id == 15078 || round_id == 15080 || round_id == 15103 || round_id == 15120) { %>
+		       || round_id == 15077 || round_id == 15078 || round_id == 15080 || round_id == 15103 || round_id == 15120
+		       || round_id == 15130) { %>
 		
 			As a condition of winning and redeeming a cash prize, Competitors will be required to submit, 
 			among other things, a completed TopCoder Competition Assignment Agreement, 
 			if one is not already on file with TopCoder, AND a one to two-page description explaining how the algorithm for the winning submission works.
-			<% if (round_id == 15103 || round_id == 15120) { %>
+			<% if (round_id == 15103 || round_id == 15120 || round_id == 15130) { %>
 			The description must be submitted within 7 days after the contest results are published.
 			Questions sent by email from TopCoder requesting clarification to the description must be answered within 3 days.
 			If the description or a response to a clarification request is not received, TopCoder reserves the right to disqualify the submission. 
@@ -459,7 +460,8 @@
 		 rsr.getIntItem("round_id") == 14584 || rsr.getIntItem("round_id") == 15024 || rsr.getIntItem("round_id") == 15075 ||
 		 rsr.getIntItem("round_id") == 15023 || rsr.getIntItem("round_id") == 15034 || round_id == 15038 ||
 		 rsr.getIntItem("round_id") == 15076 || rsr.getIntItem("round_id") == 15077 || rsr.getIntItem("round_id") == 15078 ||
-		 rsr.getIntItem("round_id") == 15080 || rsr.getIntItem("round_id") == 15103 || rsr.getIntItem("round_id") == 15120) {%>
+		 rsr.getIntItem("round_id") == 15080 || rsr.getIntItem("round_id") == 15103 || rsr.getIntItem("round_id") == 15120 ||
+		 rsr.getIntItem("round_id") == 15130) {%>
 
 		<p align="justify">
 			This Competition is open to all members of the TopCoder website, who have agreed to the terms thereof, and who are at least 
@@ -533,7 +535,7 @@
     
 	<% if (Arrays.binarySearch(assignRounds, round_id)>=0 || round_id==14525 || round_id == 14584 || round_id == 15024 || round_id == 15075 ||
 	       round_id == 15023 || round_id == 15034 || round_id == 15038 || round_id == 15076 || round_id == 15077 || round_id == 15078
-	       || round_id == 15080 || round_id == 15103 || round_id == 15120) { %>
+	       || round_id == 15080 || round_id == 15103 || round_id == 15120 || round_id == 15130) { %>
 		
 		<p align="justify">
 			You hereby acknowledge and agree that TopCoder owns, solely and exclusively, all right, title and interest, including all intellectual property 

@@ -309,7 +309,7 @@ Please check out the rules link below for more detail.
 
 <%if(roundId == 14525 || roundId == 14584 || roundId == 15024 || roundId == 15075 || roundId == 15023 || 
      roundId == 15034 || roundId == 15038 || roundId == 15076 || roundId == 15077 || roundId == 15078
-     || roundId == 15080 || roundId == 15103 || roundId == 15120) {%>
+     || roundId == 15080 || roundId == 15103 || roundId == 15120 || roundId == 15130) {%>
 <p align="justify">
     <b>Please note that this event is being run for a TopCoder customer.  By winning a prize in this event you agree to transfer ownership of
     your submission to TopCoder.  Please make sure to read
@@ -342,7 +342,7 @@ Please check out the rules link below for more detail.
 </p>
 <%}%>
 
-<%if(roundId == 15077) {%>
+<%if(roundId == 15077 || roundId == 15130) {%>
 <p align="justify">
     This Marathon Match is a money match that has a <b>$7,500 prize purse</b>! The top five highest scorers 
 	will receive prizes with the first place winner receiving $3,750!
@@ -388,9 +388,13 @@ total prize money</b>.
     In TopCoder Marathon Match events, the system will be testing submissions for optimization according to the scoring criteria 
     outlined in the problem statement that is associated with this event.	
     Each event may have a different scoring mechanism. 
-    Competitors will have to understand the scoring mechanism in order to effectively compete.   
-	<br>
-    Participants may submit code written in one of the following languages: Java, C++, C#.NET, VB.NET, or Python. 
+    Competitors will have to understand the scoring mechanism in order to effectively compete.
+    <% if (roundId == 15130) { %>
+    <br><br>
+    Participants may submit only code written in C++.
+	<% } else { %>
+	Participants may submit code written in one of the following languages: Java, C++, C#.NET, VB.NET, or Python. 
+	<% } %>
 </p>
 <% } %>
 
@@ -575,7 +579,7 @@ submission, within one week of the announcment of the winners in order to receiv
 </p>
 <%}%>
 
-<%if(roundId == 15077) {%>
+<%if(roundId == 15077 || roundId == 15130) {%>
 <div class="sectionHeader">Prizes</div>
     <p align="justify">There will be $7,500 in total prize money.  The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
 
@@ -590,10 +594,10 @@ submission, within one week of the announcment of the winners in order to receiv
         <td class="bodyText" nowrap="nowrap">3rd</td><td class="bodyText" align="right">$1,125</td>
     </tr>
     <tr>
-        <td class="bodyText" nowrap="nowrap">4th</td><td class="bodyText" align="right">$700</td>
+        <td class="bodyText" nowrap="nowrap">4th</td><td class="bodyText" align="right">$750</td>
     </tr>
     <tr>
-        <td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$350</td>
+        <td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$375</td>
     </tr>
 </table>
 
