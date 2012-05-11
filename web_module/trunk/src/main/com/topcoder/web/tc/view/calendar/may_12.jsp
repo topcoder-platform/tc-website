@@ -120,6 +120,12 @@
       <td class="value">15
       </td>
       <td class="value">16
+	  	 <div class="long">
+         <strong><a href="http://community.topcoder.com/tc?module=Static&d1=introevent&d2=tcap2012&d3=overview">TCAP MM Event</a></strong><br />
+         11:59<br />
+         15 days<br />
+		 TCO Trip & Other Prizes
+         </div>
       </td>
       <td class="value">17
       </td>
