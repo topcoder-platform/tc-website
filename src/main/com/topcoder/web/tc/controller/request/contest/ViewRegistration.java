@@ -96,6 +96,8 @@ import com.topcoder.web.tc.controller.request.development.Base;
  */
 public class ViewRegistration extends Base {
 
+    private static final long MARATHON_MATCH_EXTRA_INFO_TYPE_ID = 3L;
+
     private ComponentRegistrationServicesLocal regServices = null;
 
     protected int projectTypeId = 0;
@@ -213,9 +215,12 @@ public class ViewRegistration extends Base {
         }
 
         if (projectTypeId == Constants.COPILOT_POSTING_PROJECT_TYPE) {
+            String marathonMatchValue = retrieveCopilotExtraInfo(MARATHON_MATCH_EXTRA_INFO_TYPE_ID, projectId);
+            boolean marathonMatchCopilotPosting = marathonMatchValue!=null && marathonMatchValue.equalsIgnoreCase("true");
+
             // Check whether the registrant is in copilot pool for copilot posting registration.
             // For marathon match copilot postings let everyone register.
-            if (!isInCopilotPool(getUser().getId()) && !isMarathonMatchCopilotPosting(projectId)) {
+            if (!isInCopilotPool(getUser().getId()) && !marathonMatchCopilotPosting) {
                getRequest().setAttribute(Constants.MESSAGE, "Only active copilot in copilot pool can register copilot posting.");
             }
         }
@@ -276,23 +281,26 @@ public class ViewRegistration extends Base {
         return !rsc.isEmpty();
     }
 
-    /**
-     * Checks whether the project is a copilot posting for a Marathon Match.
-     *
-     * @param projectId the id of the project
-     * @return true if a MM copilot posting, false otherwise
-     * @throws Exception if there is any error.
-     *
-     * @since 1.5
-     */
-    private static boolean isMarathonMatchCopilotPosting(long projectId) throws Exception {
+    private String retrieveCopilotExtraInfo(long extraId, long projectId) throws Exception {
         DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
         Request r = new Request();
-        r.setContentHandle("is_mm_copilot_posting");
+        r.setContentHandle("copilot_contest_extra_info");
+        r.setProperty("extraId", String.valueOf(extraId));
         r.setProperty("pj", String.valueOf(projectId));
-        ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("is_mm_copilot_posting");
-        return !rsc.isEmpty();
+        
+        ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("copilot_contest_extra_info");
+        Iterator<ResultSetContainer.ResultSetRow> iterator = rsc.iterator();
+
+        // check the result
+        if (iterator.hasNext()) {
+            ResultSetContainer.ResultSetRow row = iterator.next();
+            return row.getStringItem("value");
+        } else {
+            // no records found, return null
+            return null;
+        }
     }
+
 }
 
 

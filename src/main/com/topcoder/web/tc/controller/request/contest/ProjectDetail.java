@@ -82,6 +82,8 @@ public class ProjectDetail extends Base {
     private static final long BUDGET_EXTRA_INFO_TYPE_ID = 1L;
     
     private static final long OTHER_EXPERIENCE_EXTRA_INFO_TYPE_ID = 2L;
+
+    private static final long MARATHON_MATCH_EXTRA_INFO_TYPE_ID = 3L;
     
     /**
      * This method executes the actual logic for this processor.
@@ -130,10 +132,13 @@ public class ProjectDetail extends Base {
 
                     boolean hasPrivateDescriptionPermission = registered || permissions[0] || permissions[2] || getSessionInfo().isAdmin();
 
-                    boolean noRegisterButton =  !hasPrivateDescriptionPermission  && !permissions[1];
+                    String marathonMatchValue = retrieveCopilotExtraInfo(MARATHON_MATCH_EXTRA_INFO_TYPE_ID, projectId);
+                    boolean marathonMatchCopilotPosting = marathonMatchValue!=null && marathonMatchValue.equalsIgnoreCase("true");
+
+                    boolean registerButton = hasPrivateDescriptionPermission || permissions[1] || marathonMatchCopilotPosting;
 
                     getRequest().setAttribute("privateDescriptionPermission", hasPrivateDescriptionPermission);
-                    getRequest().setAttribute("registerButton", !noRegisterButton);
+                    getRequest().setAttribute("registerButton", registerButton);
 
                 } catch (NavigationException navigationEx) {
                     throw navigationEx;
