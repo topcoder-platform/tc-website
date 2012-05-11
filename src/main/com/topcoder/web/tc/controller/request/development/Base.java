@@ -29,10 +29,6 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SoftwareComponent;
-import com.topcoder.web.common.model.User;
-import com.topcoder.web.common.model.Address;
-import com.topcoder.web.common.model.Country;
-import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.ejb.project.Project;
 import com.topcoder.web.ejb.project.ProjectLocal;
 import com.topcoder.web.tc.Constants;
@@ -993,12 +989,10 @@ public abstract class Base extends ShortHibernateProcessor {
         Request r = new Request();
         ResultSetContainer detail=null;
 
-         r.setContentHandle("is_eligible");
-         r.setProperty(Constants.PROJECT_ID, String.valueOf(pid));
-         r.setProperty(Constants.USER_ID, String.valueOf(userId));
-         Map results = getDataAccess().getData(r);
-
-         detail = (ResultSetContainer) results.get("is_eligible");
+        r.setContentHandle("is_eligible");
+        r.setProperty(Constants.PROJECT_ID, String.valueOf(pid));
+        r.setProperty(Constants.USER_ID, String.valueOf(userId));
+        Map results = getDataAccess().getData(r);
 
         detail = (ResultSetContainer) results.get("is_eligible");
 
@@ -1027,34 +1021,16 @@ public abstract class Base extends ShortHibernateProcessor {
     }
 
     /**
-     * This method will check if member's country is eligible.
+     * This method checks if member's country is eligible.
      */
     protected boolean checkMemberCountry(long userId) throws Exception {
-        User user = DAOUtil.getFactory().getUserDAO().find(getUser().getId());
-        if (user != null) {
-            Set<Address> addresses = user.getAddresses();
-            if (addresses != null) {
-                for (Address address : addresses) {
-                    Country country = address.getCountry();
-                    if (country != null && !isEligibleCountry(country)) {
-                        return false;
-                    }
-                }
-            }
-        }
-        return true;
+        DataAccessInt dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
+        Request r = new Request();
+        r.setContentHandle("is_eligible_country");
+        r.setProperty(Constants.CODER_ID, String.valueOf(userId));
+        ResultSetContainer rsc = ((ResultSetContainer) dai.getData(r).get("is_eligible_country"));
+        return !rsc.isEmpty();
     }
-
-    private boolean isEligibleCountry(Country country) {
-        Set<String> ineligibleCountries = new HashSet<String>();
-        ineligibleCountries.add("Iran");
-        ineligibleCountries.add("North Korea");
-        ineligibleCountries.add("Cuba");
-        ineligibleCountries.add("Sudan");
-        ineligibleCountries.add("Syria");
-        return !ineligibleCountries.contains(country.getName());
-    }
-
     
     /**
      * Gets the <code>TermsOfUseDao</code> instance.

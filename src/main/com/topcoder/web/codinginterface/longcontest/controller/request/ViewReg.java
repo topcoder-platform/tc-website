@@ -61,6 +61,10 @@ public class ViewReg extends Base {
                 throw new NavigationException("Registration is not currently open");
             } else {
 
+                if (!checkMemberCountry(getUser().getId())) {
+                    throw new NavigationException("You are not eligible to participate in this competition. Please contact support@topcoder.com if you have any questions.");
+                }
+
                 if (requiresInvitation(round) && !isInvited(user.getId(), round)) {
                     throw new NavigationException("Sorry, this round is by invitation only.");
                 }
@@ -249,6 +253,18 @@ public class ViewReg extends Base {
             return now.before(end) && now.after(start);
         }
 
+    }
+
+    /**
+     * This method checks if member's country is eligible.
+     */
+    protected boolean checkMemberCountry(long userId) throws Exception {
+        DataAccessInt dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
+        Request r = new Request();
+        r.setContentHandle("is_eligible_country");
+        r.setProperty(Constants.CODER_ID, String.valueOf(userId));
+        ResultSetContainer rsc = ((ResultSetContainer) dai.getData(r).get("is_eligible_country"));
+        return !rsc.isEmpty();
     }
 
     //check if the round requires an invitation
