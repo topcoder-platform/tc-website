@@ -34,11 +34,6 @@
 <td width="100%" align="center" class="bodyColumn">
 <div class="fixedWidthBody">
 
-<jsp:include page="../../page_title.jsp">
-    <jsp:param name="image" value="college_tour"/>
-    <jsp:param name="title" value="Overview"/>
-</jsp:include>
-
 <div align="center">
     <img src="/i/introevent/Calabi-YauSpaceLogo.jpg" border="0" />
 </div>
