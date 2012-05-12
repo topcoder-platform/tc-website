@@ -349,10 +349,10 @@
     <tr>
           <c:choose>
             <c:when test="${hasDR}">
-                <td class="title" colspan="9">
+                <td class="title" colspan="10">
             </c:when>
             <c:otherwise>
-                <td class="title" colspan="8">
+                <td class="title" colspan="9">
             </c:otherwise>
           </c:choose>
 
@@ -418,6 +418,7 @@
       <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Rated</a>/
       <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Unrated</a>
       </td>
+      <td class="headerC" width="10%"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">Submissions</a></td>
    </tr>
 
     <% boolean even = false; %>
@@ -479,6 +480,9 @@
          <% if (resultRow.getIntItem("total_inquiries") > 0) { %>
          </a>
          <% } %>
+            </td>
+            <td class="valueC">
+                <rsc:item name="total_submissions" row="<%=resultRow%>"/>
             </td>
         </tr>
     <% even = !even;%>
