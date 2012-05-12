@@ -88,7 +88,7 @@
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-        <td class="title" colspan="10">Active Component Design Contests</td>
+        <td class="title" colspan="11">Active Component Design Contests</td>
     </tr>
     <tr>
         <td class="headerC">
@@ -123,6 +123,9 @@
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">Registrants</a><br />
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Rated</a>/
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>">Unrated</a>
+        </td>
+        <td class="headerC" width="10%">
+            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Submissions</a>
         </td>
     </tr>
 
@@ -189,6 +192,9 @@
                 </a>
                 <% } %>
             </td>
+            <td class="valueC">
+                <rsc:item name="total_submissions" row="<%=resultRow%>"/>
+            </td>
         </tr>
         <% even = !even;%>
     </rsc:iterator>
@@ -224,7 +230,7 @@
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-        <td class="title" colspan="11">Active Component Development Contests</td>
+        <td class="title" colspan="12">Active Component Development Contests</td>
     </tr>
     <tr>
         <td class="headerC">
@@ -262,6 +268,9 @@
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">Registrants</a><br />
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Rated</a>/
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>">Unrated</a>
+        </td>
+        <td class="headerC" width="10%">
+            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Submissions</a>
         </td>
     </tr>
 
@@ -327,6 +336,9 @@
                     <% if (resultRow.getIntItem("total_inquiries") > 0) { %>
                 </a>
                 <% } %>
+            </td>
+            <td class="valueC">
+                <rsc:item name="total_submissions" row="<%=resultRow%>"/>
             </td>
         </tr>
         <% even = !even;%>
