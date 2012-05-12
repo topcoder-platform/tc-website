@@ -96,8 +96,6 @@ import com.topcoder.web.tc.controller.request.development.Base;
  */
 public class ViewRegistration extends Base {
 
-    private static final long MARATHON_MATCH_EXTRA_INFO_TYPE_ID = 3L;
-
     private ComponentRegistrationServicesLocal regServices = null;
 
     protected int projectTypeId = 0;
@@ -215,8 +213,8 @@ public class ViewRegistration extends Base {
         }
 
         if (projectTypeId == Constants.COPILOT_POSTING_PROJECT_TYPE) {
-            String marathonMatchValue = retrieveCopilotExtraInfo(MARATHON_MATCH_EXTRA_INFO_TYPE_ID, projectId);
-            boolean marathonMatchCopilotPosting = marathonMatchValue!=null && marathonMatchValue.equalsIgnoreCase("true");
+            String copilotPostingType = retrieveCopilotPostingType(projectId);
+            boolean marathonMatchCopilotPosting = copilotPostingType!=null && copilotPostingType.equalsIgnoreCase("Marathon Match");
 
             // Check whether the registrant is in copilot pool for copilot posting registration.
             // For marathon match copilot postings let everyone register.
@@ -281,14 +279,13 @@ public class ViewRegistration extends Base {
         return !rsc.isEmpty();
     }
 
-    private String retrieveCopilotExtraInfo(long extraId, long projectId) throws Exception {
+    private String retrieveCopilotPostingType(long projectId) throws Exception {
         DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
         Request r = new Request();
-        r.setContentHandle("copilot_contest_extra_info");
-        r.setProperty("extraId", String.valueOf(extraId));
+        r.setContentHandle("copilot_posting_type");
         r.setProperty("pj", String.valueOf(projectId));
         
-        ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("copilot_contest_extra_info");
+        ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("copilot_posting_type");
         Iterator<ResultSetContainer.ResultSetRow> iterator = rsc.iterator();
 
         // check the result
