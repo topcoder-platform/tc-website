@@ -83,8 +83,6 @@ public class ProjectDetail extends Base {
     
     private static final long OTHER_EXPERIENCE_EXTRA_INFO_TYPE_ID = 2L;
 
-    private static final long MARATHON_MATCH_EXTRA_INFO_TYPE_ID = 3L;
-    
     /**
      * This method executes the actual logic for this processor.
      *
@@ -132,8 +130,8 @@ public class ProjectDetail extends Base {
 
                     boolean hasPrivateDescriptionPermission = registered || permissions[0] || permissions[2] || getSessionInfo().isAdmin();
 
-                    String marathonMatchValue = retrieveCopilotExtraInfo(MARATHON_MATCH_EXTRA_INFO_TYPE_ID, projectId);
-                    boolean marathonMatchCopilotPosting = marathonMatchValue!=null && marathonMatchValue.equalsIgnoreCase("true");
+                    String copilotPostingType = retrieveCopilotPostingType(projectId);
+                    boolean marathonMatchCopilotPosting = copilotPostingType!=null && copilotPostingType.equalsIgnoreCase("Marathon Match");
 
                     boolean registerButton = hasPrivateDescriptionPermission || permissions[1] || marathonMatchCopilotPosting;
 
@@ -340,6 +338,25 @@ public class ProjectDetail extends Base {
         r.setProperty("pj", projectId);
         
         ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("copilot_contest_extra_info");
+        Iterator<ResultSetContainer.ResultSetRow> iterator = rsc.iterator();
+
+        // check the result
+        if (iterator.hasNext()) {
+            ResultSetContainer.ResultSetRow row = iterator.next();
+            return row.getStringItem("value");
+        } else {
+            // no records found, return null
+            return null;
+        }
+    }
+
+    private String retrieveCopilotPostingType(String projectId) throws Exception {
+        DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
+        Request r = new Request();
+        r.setContentHandle("copilot_posting_type");
+        r.setProperty("pj", projectId);
+        
+        ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("copilot_posting_type");
         Iterator<ResultSetContainer.ResultSetRow> iterator = rsc.iterator();
 
         // check the result
