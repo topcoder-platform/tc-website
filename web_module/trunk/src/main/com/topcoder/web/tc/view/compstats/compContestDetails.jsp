@@ -32,6 +32,7 @@
     ResultSetContainer reviewers = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("reviewers_for_project");
     ResultSetContainer projectInfo = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("project_info");
     ResultSetContainer submissions = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("submissions");
+    ResultSetContainer reviewResults = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("review_results");
     SessionInfo sessionInfo = (SessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);
 
     long projectId = ((Long) request.getAttribute("pid")).longValue();
@@ -183,7 +184,7 @@
 <td width="75%" valign="top">
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="stat" style="border: none;">
 <tr>
-    <td class="title" colspan="12">
+    <td class="title" colspan="<%= 9+reviewers.size() %>">
         Competitors
     </td>
 </tr>
@@ -201,28 +202,18 @@
         <a href='/dr'><img class="emblem" src="/i/interface/emblem/digitalrun.png" alt="" border="0" onmouseover="popUp(this,'popDR')" onmouseout="popHide()"/></a>
         Points
     </TD>
-    <TD CLASS="headerC">&nbsp;</TD>
-    <TD CLASS="headerC">Reviewers</TD>
-    <TD CLASS="headerC">&nbsp;</TD>
+    <% if (!reviewers.isEmpty()) { %>
+    <TD CLASS="headerC" colspan="<%= reviewers.size() %>">Reviewers</TD>
+    <% } %>
     <TD CLASS="headerC" rowspan="2">&nbsp;</TD>
 </tr>
 <tr>
-    <%
-        if (reviewers.isEmpty()) {
-    %>
-    <TD CLASS="headerC">unknown*</TD>
-    <TD CLASS="headerC">unknown*</TD>
-    <TD CLASS="headerC" colspan="2">unknown*</TD>
-    <% } else {
-        for (int k = 0; k < 3 && k < reviewers.size(); k++) {
-             if (reviewers.getLongItem(k, "reviewer_id") == userId) {
-                 isReviewer = true;
-             }
+    <% for (int k = 0; k < reviewers.size(); k++) {
+         if (reviewers.getLongItem(k, "reviewer_id") == userId) {
+           isReviewer = true;
+         }
     %>
     <TD CLASS="headerC">
-        <% if (reviewers.size() < k + 1) { %>
-        unknown*
-        <% } else { %>
         <% if ("Stress".equalsIgnoreCase(reviewers.getStringItem(k, "review_resp_desc"))) { %>
         <div id="popStress" class="popUp">
             <div>Stress</div>
@@ -246,10 +237,8 @@
         </div>
         <% } %>
         <tc-webtag:handle coderId='<%= reviewers.getLongItem(k, "reviewer_id") %>' context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/>
-        <% } %>
 
     </TD>
-    <% } %>
     <% } %>
 
 </tr>
@@ -306,26 +295,28 @@
             **
             <% } %>
         </b></TD>
-        <%
-            for (int k = 0; k < 3; k++) {
-                if (reviewers.size() < k + 1) { %>
+
+        <% for (int k = 0; k < reviewers.size(); k++) { %>
         <TD class="valueC">
-            <rsc:item row="<%=resultRow%>" name="<%="score"+(k+1)%>" format="0.00"/>
-        </TD>
-        <%
-        } else { %>
-        <TD class="valueC">
-        <% if (isComplete || userId == reviewers.getLongItem(k, "reviewer_id") || userId == resultRow.getLongItem("user_id")) { %>
-            <A HREF='/tc?module=ScorecardDetails&pj=<%=projectId%>&uid=<%=resultRow.getLongItem("user_id")%>&rid=<%=reviewers.getLongItem(k, "reviewer_id")%>' class="bcLink">
-                <rsc:item row="<%=resultRow%>" name="<%="score"+(k+1)%>" format="0.00"/>
-            </A>
+          <rsc:iterator list="<%=reviewResults%>" id="reviewResultRow">
+
+          <% if (reviewResultRow.getLongItem("reviewer_id") == reviewers.getLongItem(k, "reviewer_id") &&
+                 reviewResultRow.getLongItem("submitter_id") == resultRow.getLongItem("user_id")) { %>
+
+            <% if (isComplete || userId == reviewers.getLongItem(k, "reviewer_id") || userId == resultRow.getLongItem("user_id")) { %>
+               <A HREF='/tc?module=ScorecardDetails&pj=<%=projectId%>&uid=<%=resultRow.getLongItem("user_id")%>&rid=<%=reviewers.getLongItem(k, "reviewer_id")%>' class="bcLink">
+                 <rsc:item row="<%=reviewResultRow%>" name="<%="final_score"%>" format="0.00"/>
+               </A>
             <% } else { %>
-                <rsc:item row="<%=resultRow%>" name="<%="score"+(k+1)%>" format="0.00"/>
+                 <rsc:item row="<%=reviewResultRow%>" name="<%="final_score"%>" format="0.00"/>
             <% } %>
+
+          <% } %>
+
+          </rsc:iterator>
         </TD>
-        <% }
-        %>
-        <% } %>
+        <%  } %>
+
         <TD class="valueC" nowrap="nowrap">
             <% if ((isComplete || userId == resultRow.getLongItem("user_id") || isReviewer) 
                     && (sessionInfo.isAdmin() || projectInfo.getIntItem(0, "viewable_category_ind") == 1)                  
