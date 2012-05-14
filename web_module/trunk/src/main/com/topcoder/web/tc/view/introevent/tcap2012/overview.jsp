@@ -46,10 +46,10 @@
     <br>
 
     <h3>The Event</h3>
-    TopCoder is sponsoring an onsite programming competition from Wednesday 05.16 2012 11:59 PM CST until Thursday 05.31 2012 11:59 PM CST.
+    TopCoder is sponsoring an online programming competition from Wednesday 05.16 2012 11:59 PM EDT until Thursday 05.31 2012 11:59 PM EDT.
     <br><br>
 
-    <span class="bigRed">Registration for this event is from Wednesday 05.16 2012 11:59 PM CST until Thursday 05.31 2012 11:59 PM CST.</span><br>
+    <span class="bigRed">Registration for this event is from Wednesday 05.16 2012 11:59 PM EDT until Thursday 05.31 2012 11:59 PM EDT.</span><br>
     <br>
     
     TopCoder representative will present at some sites to discuss TopCoder competitions and employment services.
@@ -76,8 +76,13 @@
 
     <h3>Event Schedule</h3>
 
-
     The timeline for the day of the event: Yingying Wu and Jiazhi Wu will give a presentation to explain the benefits of TopCoder membership and competition.
+
+    <br><br>
+
+    <h3>Forum</h3>
+
+    Please visit Marathon Match Discussion Forum for 2012 TopCoder Asia-Pacific Programming Competition <a href="http://apps.topcoder.com/forums/?module=Thread&threadID=746187&start=0">here</a> for discussions and questions about this event, as well as topics pertaining to TopCoder's Marathon Matches, such as strategy and competition formats.
 
     <br><br>
     
