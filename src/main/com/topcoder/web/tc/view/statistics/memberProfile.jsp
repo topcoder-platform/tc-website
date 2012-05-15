@@ -439,8 +439,7 @@ This member has not yet been rated in a competition.
                 </div>
             
                 <div class="alert">
-                    Browse Photo should be in *.JPG format file which is the width is 126 pixel and the height is 140 pixel.
-                </div>
+                    For optimal results, your photo should be a PNG image of size 115x138, meaning 115 pixels in width and 138 pixels in height.</div>
 				<div>
                     <a class="link" href="http://topcoder.com/home/help/?p=866">Photo Policy</a>
                 </div>
