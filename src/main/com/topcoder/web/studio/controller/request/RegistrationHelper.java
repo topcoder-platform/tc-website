@@ -15,6 +15,8 @@ import javax.naming.NamingException;
 
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.model.Address;
+import com.topcoder.web.common.model.Country;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.ejb.project.ProjectRoleTermsOfUse;
 import com.topcoder.web.ejb.project.ProjectRoleTermsOfUseLocator;
@@ -270,5 +272,41 @@ public class RegistrationHelper {
             }
         }
         return terms;
+    }
+    
+    /**
+     * Checks whether the user with the specified country can register contest.
+     *
+     * @return true if the user with the specified country can register contest, false otherwise.
+     */
+    private static boolean isEligibleCountry(Country country) {
+        Set<String> ineligibleCountries = new HashSet<String>();
+        ineligibleCountries.add("Iran");
+        ineligibleCountries.add("North Korea");
+        ineligibleCountries.add("Cuba");
+        ineligibleCountries.add("Sudan");
+        ineligibleCountries.add("Syria");
+        return !ineligibleCountries.contains(country.getName());
+    }
+    
+    /**
+     * This method will check if member's country is eligible.
+     *
+     * @param user the user to check
+     * @return true if the user can register contest, false otherwise.
+     */
+    protected static boolean checkMemberCountry(User user) throws Exception {
+        if (user != null) {
+            Set<Address> addresses = user.getAddresses();
+            if (addresses != null) {
+                for (Address address : addresses) {
+                    Country country = address.getCountry();
+                    if (country != null && !isEligibleCountry(country)) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
     }
 }

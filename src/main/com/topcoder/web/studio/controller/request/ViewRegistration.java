@@ -95,6 +95,10 @@ public class ViewRegistration extends ShortHibernateProcessor {
                 } else {
                     throw new NavigationException("Invalid contest specified.");
                 }
+                
+                if (!RegistrationHelper.checkMemberCountry(u)) {
+                    throw new NavigationException("You are not eligible to participate in this competition. Please contact support@topcoder.com if you have any questions.");
+                }
 
                 if ("on".equalsIgnoreCase(Constants.GLOBAL_AD_FLAG)) {
                     getRequest().setAttribute("has_global_ad", PactsServicesLocator.getService().hasGlobalAD(userId));
