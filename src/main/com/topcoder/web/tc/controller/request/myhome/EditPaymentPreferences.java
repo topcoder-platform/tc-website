@@ -56,7 +56,7 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
     /**
      * <p>Regex pattern to validate email addresses.</p>
      */
-    private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+    private static final String EMAIL_PATTERN = "([_A-Za-z0-9-]+)(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})";
 
     private Pattern pattern;
     
