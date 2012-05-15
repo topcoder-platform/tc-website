@@ -88,6 +88,10 @@ public class Register extends ShortHibernateProcessor {
                 Project c = factory.getProjectDAO().find(contestId.intValue());
                 long userId = getUser().getId();
                 User u = factory.getUserDAO().find(userId);
+                
+                if (!RegistrationHelper.checkMemberCountry(u)) {
+                    throw new NavigationException("You are not eligible to participate in this competition. Please contact support@topcoder.com if you have any questions.");
+                }
 
                 boolean bother = true;
 
