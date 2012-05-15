@@ -20,6 +20,7 @@
     ResultSetContainer demographicList = null;
     ResultSetContainer notifyList = null;
     ResultSetContainer handleList = null;
+	ResultSetContainer emailList = null;
     ResultSetContainer ratingList = null;
     ResultSetContainer addressList = null;
     ResultSetContainer violationList = null;
@@ -152,6 +153,7 @@
             regTypeList = (ResultSetContainer) ((Map) detailList.get(k)).get("registration_types");
             termsList = (ResultSetContainer) ((Map) detailList.get(k)).get("user_terms_of_use");
             specReviewInfoList = (ResultSetContainer) ((Map) detailList.get(k)).get("spec_review_stats");
+			emailList = (ResultSetContainer) ((Map) detailList.get(k)).get("email_history");
 %>
 
 <hr size="3"/>
@@ -370,8 +372,30 @@
         </tr>
     </rsc:iterator>
 </table>
-<%
 
+<%
+	}
+    if (!emailList.isEmpty()) {
+
+%>
+<br/><br/>
+<table class="entry" cellspacing="2" cellpadding="2">
+    <tr class="shaded2"><td colspan="3"><b>Email History</b></td></tr>
+    <tr>
+        <td><b>old handle</b></td>
+        <td><b>new handle</b></td>
+        <td><b>date of change</b></td>
+    </tr>
+
+    <rsc:iterator list="<%=emailList%>" id="resultRow">
+        <tr>
+            <td><rsc:item name="old_value" row="<%=resultRow%>"/></td>
+            <td><rsc:item name="new_value" row="<%=resultRow%>"/></td>
+            <td><rsc:item name="timestamp" row="<%=resultRow%>" format="MM/dd/yyyy hh:mm a"/></td>
+        </tr>
+    </rsc:iterator>
+</table>
+<%
     }
     if (!addressList.isEmpty()) {
 
