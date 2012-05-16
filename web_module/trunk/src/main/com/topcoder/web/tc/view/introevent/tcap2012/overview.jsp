@@ -71,12 +71,13 @@
             <li>1000 Top Performers<sup>*</sup> - Up to 1000 competitors with highest final ranks will receive an English copy of
             book "The Shape of Inner Space: String Theory and the Geometry of the Universe's Hidden Dimensions" authored by Shing-Tung Yau.
             </li>
-            <li>
     </ul>
 
     The champion, Calabi-Yau prize winners and Top Performers will receive a certificate<sup>*</sup> indicating the prize and rank in 2012 TopCoder
     Asia-Pacific competition among 400,000+ (up to date) TopCoder members.
     Placement in the marathon competition will be determined by the total number of points at the conclusion of the marathon competition.
+
+    <br><br>
 
 	<sup>*</sup> Daily Champion and Top Performer prizes and certificates are only distributed in mainland China. Winners residing out of this
     region may request their prizes and certificates to be picked up onsite TopCoder Open 2012 at Caribe Royale, Orlando. In the case a
