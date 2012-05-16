@@ -5,13 +5,13 @@
 
 <hibernate-mapping package="com.topcoder.web.common.model">
 
-    <class name="Address" table="address">
+    <class name="Address" table="common_oltp:address">
         <id name="id" column="address_id">
             <generator class="com.topcoder.web.common.model.IdGenerator">
                 <param name="sequence_name">ADDRESS_SEQ</param>
             </generator>
         </id>
-        <set name="users" table="user_address_xref" inverse="true" access="field">
+        <set name="users" table="common_oltp:user_address_xref" inverse="true" access="field">
             <key column="address_id"/>
             <many-to-many column="user_id" class="User"/>
         </set>
