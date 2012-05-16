@@ -5,7 +5,7 @@
 
 <hibernate-mapping package="com.topcoder.web.common.model">
 
-    <class name="RegionType" table="region_type_lu" mutable="false">
+    <class name="RegionType" table="informixoltp:region_type_lu" mutable="false">
         <id name="id" column="region_type_id" access="field"/>
         <property name="description" column="region_type_desc" access="field"/>
     </class>

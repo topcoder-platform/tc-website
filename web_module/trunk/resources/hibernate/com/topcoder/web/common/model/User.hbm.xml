@@ -39,7 +39,7 @@
             <key column="user_id" not-null="true"/>
             <one-to-many class="Phone"/>
         </set>
-        <set name="addresses" table="user_address_xref" cascade="save-update" access="field">
+        <set name="addresses" table="common_oltp:user_address_xref" cascade="save-update" access="field">
             <key column="user_id" not-null="true"/>
             <many-to-many column="address_id" class="Address"/>
         </set>
