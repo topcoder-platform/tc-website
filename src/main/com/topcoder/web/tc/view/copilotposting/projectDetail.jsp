@@ -145,7 +145,7 @@
           <p><span class="bodySubtitle">Submission Deliverables</span><br></p>
 To be considered for review, you must submit 2 documents in a single zip file.<br><Br>
 
-1.	Game Plan - This is a roadmap of the contests that you plan to run to complete the project.  This should be your best estimate based on the information provided to you.  Communicate in the forums to make sure expectations are clear.  (<a href=http://www.topcoder.com/wiki/download/attachments/35131974/GamePlan_Template.xls>Download the Template</a>)<br><br>
+1.	Game Plan - This is a roadmap of the contests that you plan to run to complete the project.  This should be your best estimate based on the information provided to you.  Communicate in the forums to make sure expectations are clear.  (<a href=http://www.topcoder.com/wiki/download/attachments/47416596/GamePlan_Template.xls>Download the Template</a>)<br><br>
 2.	Strategy Document - This is a 1 page text document that describes your general approach and strategy to executing and completing the project.  You should include explanations of release points, dependencies, assumptions and risks.  (<a href=http://apps.topcoder.com/wiki/download/attachments/47416596/Strategy_Document_Sample.doc>Download a Sample</a>)<br>
 
           
