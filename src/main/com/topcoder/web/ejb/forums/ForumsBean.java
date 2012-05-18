@@ -1097,7 +1097,7 @@ public class ForumsBean extends BaseEJB {
 
          
             Forum forum = forumFactory.getForum(forumID);
-            if (!watchManager.isWatched(user, forum))
+            if (watchManager.isWatched(user, forum))
             {
                 Watch watch = watchManager.getWatch(user, forum);
                 if (watch != null) {
@@ -1149,7 +1149,7 @@ public class ForumsBean extends BaseEJB {
 
             for (int i = 0; i < forumIDs.length; i++) {
                 Forum forum = forumFactory.getForum(forumIDs[i]);
-                if (!watchManager.isWatched(user, forum))
+                if (watchManager.isWatched(user, forum))
                 {
                     Watch watch = watchManager.getWatch(user, forum);
                     if (watch != null) {
