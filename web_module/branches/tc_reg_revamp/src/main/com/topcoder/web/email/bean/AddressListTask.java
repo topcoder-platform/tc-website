@@ -20,8 +20,8 @@ import java.util.*;
 /**
  * Task bean to add/edit/remove address lists
  *
- * @author	James Lee (jameslee@cs.stanford.edu)
- * @version	1.0
+ * @author  James Lee (jameslee@cs.stanford.edu)
+ * @version 1.0
  *
  */
 
@@ -67,6 +67,7 @@ public class AddressListTask
                 nextPage = bulkAdd(request, response);
             }
         } catch (Exception e) {
+            e.printStackTrace ();
             throw new ServletException(e.toString());
         }
 
@@ -77,23 +78,23 @@ public class AddressListTask
     /**
      * Displays address lists.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
+     * @param request   the HttpServletRequest object
+     * @param response  the HttpServletResponse object
      *
-     * @return String	the URL of the next page
+     * @return String   the URL of the next page
      */
 
     private String list(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
         String group = request.getParameter(EmailConstants.GROUP);
         if (group == null) {
-            log.debug("No group specified - choosing first group");
+            log.info("No group specified - choosing first group");
 
             group = String.valueOf(getFirstAddressListGroupId());
         }
         request.setAttribute(EmailConstants.GROUP, group);
 
-        log.debug("Listing address lists for group: " + group);
+        log.info("Listing address lists for group: " + group);
 
         return EmailConstants.ADDRESSLIST_LIST_PAGE;
     }
@@ -101,10 +102,10 @@ public class AddressListTask
     /**
      * Begins the address list creation process.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
+     * @param request   the HttpServletRequest object
+     * @param response  the HttpServletResponse object
      *
-     * @return String	the URL of the next page
+     * @return String   the URL of the next page
      */
 
 
@@ -117,7 +118,7 @@ public class AddressListTask
         // clear error list
         request.setAttribute("Error", null);
 
-        log.debug("Creating new address list...");
+        log.info("Creating new address list...");
 
         // forward to the address list creation page
         return EmailConstants.ADDRESSLIST_CREATE_PAGE;
@@ -126,10 +127,10 @@ public class AddressListTask
     /**
      * Adds a newly created address list.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
+     * @param request   the HttpServletRequest object
+     * @param response  the HttpServletResponse object
      *
-     * @return String	the URL of the next page
+     * @return String   the URL of the next page
      */
 
     private String add(HttpServletRequest request, HttpServletResponse response)
@@ -143,7 +144,7 @@ public class AddressListTask
         ArrayList errorList = addressList.validate();
         if (errorList.size() > 0) {
             // error - go back
-            log.debug("Address list validation failed - errors: " + errorList);
+            log.info("Address list validation failed - errors: " + errorList);
 
             // set error list attribute
             request.setAttribute("Error", errorList);
@@ -151,7 +152,7 @@ public class AddressListTask
             // forward back to address list creation page
             return EmailConstants.ADDRESSLIST_CREATE_PAGE;
         } else {
-            log.debug("Adding address list:\n" + addressList);
+            log.info("Adding address list:\n" + addressList);
 
             int id = createList(addressList);
             addressList.setId(String.valueOf(id));
@@ -164,10 +165,10 @@ public class AddressListTask
     /**
      * Begins the address list editing process.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
+     * @param request   the HttpServletRequest object
+     * @param response  the HttpServletResponse object
      *
-     * @return String	the URL of the next page
+     * @return String   the URL of the next page
      */
 
     private String edit(HttpServletRequest request, HttpServletResponse response)
@@ -186,7 +187,7 @@ public class AddressListTask
         // clear error list
         request.setAttribute("Error", null);
 
-        log.debug("Editing address list:\n" + list);
+        log.info("Editing address list:\n" + list);
 
         // forward to address list editing page
         return EmailConstants.ADDRESSLIST_EDIT_PAGE;
@@ -196,10 +197,10 @@ public class AddressListTask
     /**
      * Saves an edited address list.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
+     * @param request   the HttpServletRequest object
+     * @param response  the HttpServletResponse object
      *
-     * @return String	the URL of the next page
+     * @return String   the URL of the next page
      */
 
     private String save(HttpServletRequest request, HttpServletResponse response)
@@ -213,7 +214,7 @@ public class AddressListTask
         ArrayList errorList = addressList.validate();
         if (errorList.size() > 0) {
             // error - go back
-            log.debug("Address list validation failed - errors: " + errorList);
+            log.info("Address list validation failed - errors: " + errorList);
 
             // set error list attribute
             request.setAttribute("Error", errorList);
@@ -221,7 +222,7 @@ public class AddressListTask
             // forward back to address list creation page
             return EmailConstants.ADDRESSLIST_CREATE_PAGE;
         } else {
-            log.debug("Saving address list:\n" + addressList);
+            log.info("Saving address list:\n" + addressList);
 
             saveAddressList(addressList);
 
@@ -237,10 +238,10 @@ public class AddressListTask
     /**
      * Shows member adding form.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
+     * @param request   the HttpServletRequest object
+     * @param response  the HttpServletResponse object
      *
-     * @return String	the URL of the next page
+     * @return String   the URL of the next page
      */
 
     private String showAddMember(HttpServletRequest request, HttpServletResponse response)
@@ -258,10 +259,10 @@ public class AddressListTask
     /**
      * Deletes an address list.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
+     * @param request   the HttpServletRequest object
+     * @param response  the HttpServletResponse object
      *
-     * @return String	the URL of the next page
+     * @return String   the URL of the next page
      */
 
     private String delete(HttpServletRequest request, HttpServletResponse response)
@@ -275,7 +276,7 @@ public class AddressListTask
             throw new ServletException(e.toString());
         }
 
-        log.debug("Deleting address list:\n" + listId);
+        log.info("Deleting address list:\n" + listId);
 
         deleteAddressList(listId);
 
@@ -287,12 +288,12 @@ public class AddressListTask
      * Adds a new member to the current address list.  Goes back to the member
      * adding screen.
      *
-     * @param request	the HttpServletRequest object
+     * @param request   the HttpServletRequest object
 
-     * @param response	the HttpServletResponse object
+     * @param response  the HttpServletResponse object
 
      *
-     * @return String	the URL of the next page
+     * @return String   the URL of the next page
      */
 
     private String addMember(HttpServletRequest request, HttpServletResponse response)
@@ -307,7 +308,7 @@ public class AddressListTask
         ArrayList errorList = memberData.validate();
         if (errorList.size() > 0) {
             // error - go back
-            log.debug("Member data validation failed - errors: " + errorList);
+            log.info("Member data validation failed - errors: " + errorList);
 
             // set error list attribute
             request.setAttribute("Error", errorList);
@@ -325,7 +326,7 @@ public class AddressListTask
             // clear error list attribute
             request.setAttribute("Error", null);
 
-            log.debug("Adding member:\n" + memberData);
+            log.info("Adding member:\n" + memberData);
 
             addMember(listId, memberData);
 
@@ -337,10 +338,10 @@ public class AddressListTask
     /**
      * Edits the specified member.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
+     * @param request   the HttpServletRequest object
+     * @param response  the HttpServletResponse object
      *
-     * @return String	the URL of the next page
+     * @return String   the URL of the next page
      */
 
     private String editMember(HttpServletRequest request, HttpServletResponse response)
@@ -358,7 +359,7 @@ public class AddressListTask
 
         MemberData memberData = retrieveMemberData(listId, memberId);
 
-        log.debug("editing member:\n" + memberData);
+        log.info("editing member:\n" + memberData);
 
         request.getSession().setAttribute("MemberData", memberData);
 
@@ -369,10 +370,10 @@ public class AddressListTask
     /**
      * Saves an edited member.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
+     * @param request   the HttpServletRequest object
+     * @param response  the HttpServletResponse object
      *
-     * @return String	the URL of the next page
+     * @return String   the URL of the next page
      */
 
     private String saveMember(HttpServletRequest request, HttpServletResponse response)
@@ -387,7 +388,7 @@ public class AddressListTask
         ArrayList errorList = memberData.validate();
         if (errorList.size() > 0) {
             // error - go back
-            log.debug("Member data validation failed - errors: " + errorList);
+            log.info("Member data validation failed - errors: " + errorList);
 
             // set error list attribute
             request.setAttribute("Error", errorList);
@@ -402,7 +403,7 @@ public class AddressListTask
                 throw new ServletException(e.toString());
             }
 
-            log.debug("Saving member:\n" + memberData);
+            log.info("Saving member:\n" + memberData);
 
             saveMember(listId, memberData);
 
@@ -414,10 +415,10 @@ public class AddressListTask
     /**
      * Removes a member from the address list.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
+     * @param request   the HttpServletRequest object
+     * @param response  the HttpServletResponse object
      *
-     * @return String	the URL of the next page
+     * @return String   the URL of the next page
      */
 
     private String deleteMember(HttpServletRequest request, HttpServletResponse response)
@@ -433,7 +434,7 @@ public class AddressListTask
             throw new ServletException(e.toString());
         }
 
-        log.debug("Deleting address list member " + memberId);
+        log.info("Deleting address list member " + memberId);
 
         deleteMember(listId, memberId);
 
@@ -444,10 +445,10 @@ public class AddressListTask
     /**
      * Shows bulk entry form.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
+     * @param request   the HttpServletRequest object
+     * @param response  the HttpServletResponse object
      *
-     * @return String	the URL of the next page
+     * @return String   the URL of the next page
      */
 
     private String showBulkAdd(HttpServletRequest request, HttpServletResponse response)
@@ -465,10 +466,10 @@ public class AddressListTask
     /**
      * Bulk adds members.
      *
-     * @param request	the HttpServletRequest object
-     * @param response	the HttpServletResponse object
+     * @param request   the HttpServletRequest object
+     * @param response  the HttpServletResponse object
      *
-     * @return String	the URL of the next page
+     * @return String   the URL of the next page
      */
 
     private String bulkAdd(HttpServletRequest request, HttpServletResponse response)
@@ -512,7 +513,7 @@ public class AddressListTask
                         // validate new member data
                         ArrayList memberErrors = memberData.validate();
                         if (memberErrors.size() == 0) {
-                            log.debug("Adding member:\n " + memberData);
+                            log.info("Adding member:\n " + memberData);
                             addMember(listId, memberData);
                         } else {
                             errors.addAll(memberErrors);
@@ -526,7 +527,7 @@ public class AddressListTask
             }
         }
 
-        log.debug("Invalid rows:\n" + invalidRowList);
+        log.info("Invalid rows:\n" + invalidRowList);
 
         // set error list attribute
         request.setAttribute("Error", errors);
@@ -554,9 +555,9 @@ public class AddressListTask
     /**
      * Creates a new list using properties from an AddressListForm object.
      *
-     * @param addressList	the AddressListForm representing the new list
+     * @param addressList   the AddressListForm representing the new list
      *
-     * @return int	the ID of the new list
+     * @return int  the ID of the new list
      */
 
     private static int createList(AddressListForm addressList)
@@ -589,9 +590,9 @@ public class AddressListTask
      * Retrieves information about an address list and returns
      * the AddressListForm object representing the list.
      *
-     * @param listId		the id of the desired address list
+     * @param listId        the id of the desired address list
      *
-     * @return AddressListForm	the populated AddressListForm
+     * @return AddressListForm  the populated AddressListForm
      */
 
     private static AddressListForm retrieveAddressList(int listId)
@@ -647,7 +648,7 @@ public class AddressListTask
     /**
      * Updates an address list using properties from an AddressListForm object.
      *
-     * @param addressList	the AddressListForm representing the list
+     * @param addressList   the AddressListForm representing the list
      */
 
     private static void saveAddressList(AddressListForm addressList)
@@ -679,7 +680,7 @@ public class AddressListTask
     /**
      * Deletes an address list by setting it's group to the deleted group
      *
-     * @param listId	the id of the list to delete
+     * @param listId    the id of the list to delete
      */
 
     private static void deleteAddressList(int listId)
@@ -711,17 +712,17 @@ public class AddressListTask
     /**
      * Adds a member to an address list.
      *
-     * @param listId		the id of the address list
-     * @param memberData	MemberData object containing the new member
+     * @param listId        the id of the address list
+     * @param memberData    MemberData object containing the new member
      *
-     * @return int	the ID of the new member
+     * @return int  the ID of the new member
      */
 
     private static int addMember(int listId, MemberData memberData)
             throws ServletException {
         int id = -1;
 
-        log.debug("member xml: " + memberData.toXML());
+        log.info("member xml: " + memberData.toXML());
 
         InitialContext context = null;
         try {
@@ -748,10 +749,10 @@ public class AddressListTask
      * Retrieves a member's data and returns a MemberData object
      * representing the member.
      *
-     * @param listId		the id of the address list
-     * @param memberId		the id of the desired member
+     * @param listId        the id of the address list
+     * @param memberId      the id of the desired member
      *
-     * @return MemberData	MemberData object containing the desired member
+     * @return MemberData   MemberData object containing the desired member
      */
 
     private static MemberData retrieveMemberData(int listId, int memberId)
@@ -798,8 +799,8 @@ public class AddressListTask
      * Updates a member's data.  The specified MemberData object
      * must have a valid id.
      *
-     * @param listId		the id of the address list
-     * @param memberData	MemberData object containing the member data
+     * @param listId        the id of the address list
+     * @param memberData    MemberData object containing the member data
      */
 
     private static void saveMember(int listId, MemberData memberData)
@@ -832,8 +833,8 @@ public class AddressListTask
     /**
      * Deletes a member from a list.
      *
-     * @param listId	the id of the address list
-     * @param memberId	the id of the member to delete
+     * @param listId    the id of the address list
+     * @param memberId  the id of the member to delete
      */
 
 
@@ -862,16 +863,16 @@ public class AddressListTask
     /**
      * Returns all address lists in a group mapped by id.
      *
-     * @param group		desired group id
+     * @param group     desired group id
      *
-     * @return Map		map of address list id's to address list names
+     * @return Map      map of address list id's to address list names
      */
 
     public static Map getAddressListMap(int group)
             throws ServletException {
         Map addressListMap;
 
-        log.debug("Retrieving address lists of group: " + group);
+        log.info("Retrieving address lists of group: " + group);
 
         InitialContext context = null;
         try {
@@ -897,7 +898,7 @@ public class AddressListTask
     /**
      * Returns all address list groups mapped by id.
      *
-     * @return Map		map of address list group id's to address list group names
+     * @return Map      map of address list group id's to address list group names
      */
 
     public static Map getAddressListGroupMap()
@@ -928,7 +929,7 @@ public class AddressListTask
     /**
      * Returns the group id of the first address list group (alphabetically)
      *
-     * @return int	group id of the first address list group or -1 if there are no groups
+     * @return int  group id of the first address list group or -1 if there are no groups
      */
 
     public static int getFirstAddressListGroupId()
@@ -958,9 +959,9 @@ public class AddressListTask
     /**
      * Returns the name of the address list with the given listId
      *
-     * @param listId	the id of the desired list
+     * @param listId    the id of the desired list
      *
-     * @return String	the name of the address list
+     * @return String   the name of the address list
      */
 
     public static String getAddressListName(int listId)
@@ -991,9 +992,9 @@ public class AddressListTask
     /**
      * Returns the set of member id's of an address list.
      *
-     * @param listId	the id of the desired list
+     * @param listId    the id of the desired list
      *
-     * @return Set		a set containing member id's of the list
+     * @return Set      a set containing member id's of the list
      */
 
     public static Set getMemberIds(int listId)
@@ -1024,10 +1025,10 @@ public class AddressListTask
     /**
      * Returns member data text for the specified address list member.
      *
-     * @param memberId	the id of the desired member
-     * @param listId	the id of the desired list
+     * @param memberId  the id of the desired member
+     * @param listId    the id of the desired list
      *
-     * @return String	the specified member's data
+     * @return String   the specified member's data
      */
 
     public static String getMemberDataText(int listId, int memberId)
@@ -1058,8 +1059,8 @@ public class AddressListTask
     /**
      * Populates an AddressListForm with properties from a request.
      *
-     * @param addressList	the AddressListForm to populate
-     * @param request	the HttpServletRequest object
+     * @param addressList   the AddressListForm to populate
+     * @param request   the HttpServletRequest object
      */
 
     private static void setProperties(AddressListForm addressList, HttpServletRequest request) {
@@ -1085,8 +1086,8 @@ public class AddressListTask
     /**
      * Populates a MemberData with properties from a request.
      *
-     * @param memberData	the MemberData to populate
-     * @param request	the HttpServletRequest object
+     * @param memberData    the MemberData to populate
+     * @param request   the HttpServletRequest object
      */
 
 
