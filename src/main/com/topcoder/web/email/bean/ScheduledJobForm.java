@@ -50,6 +50,7 @@ public class ScheduledJobForm
 
     protected Date endDate;
 
+    protected int jobGroupId;
 
     protected String fromAddress;
 
@@ -512,6 +513,27 @@ public class ScheduledJobForm
 
     }
 
+    public void setJobGroupId(String id) {
+
+        try {
+
+            this.jobGroupId = Integer.parseInt(id);
+
+        } catch (NumberFormatException e) {
+
+            this.jobGroupId = 0;
+
+        }
+
+    }
+
+
+    public String getJobGroupId() {
+
+        return String.valueOf(jobGroupId);
+
+    }
+
 
     public void setFromAddress(String fromAddress) {
 
@@ -702,50 +724,50 @@ public class ScheduledJobForm
         StringBuffer sb = new StringBuffer(1000);
 
 
-        sb.append("ID:\n");
+        sb.append("ID: ");
 
         sb.append(id);
 
         sb.append("\n");
 
-        sb.append("Template ID:\n");
+        sb.append("Template ID: ");
 
         sb.append(templateId);
 
         sb.append("\n");
 
-        sb.append("Address List ID:\n");
+        sb.append("Address List ID: ");
 
         sb.append(listId);
 
         sb.append("\n");
 
-        sb.append("Command ID:\n");
+        sb.append("Command ID: ");
 
         sb.append(commandId);
 
         sb.append("\n");
 
-        sb.append("From Address:\n");
+        sb.append("From Address: ");
 
         sb.append(fromAddress);
 
         sb.append("\n");
 
 
-        sb.append("From Personal:\n");
+        sb.append("From Personal: ");
 
         sb.append(fromPersonal);
 
         sb.append("\n");
 
-        sb.append("Subject:\n");
+        sb.append("Subject: ");
 
         sb.append(subject);
 
         sb.append("\n");
 
-        sb.append("Start Date:\n");
+        sb.append("Start Date: ");
 
         //sb.append(startMonth + "/" + startDay + "/" + startYear + " " + startHour + ":" + startMinutes);
 
@@ -753,7 +775,7 @@ public class ScheduledJobForm
 
         sb.append("\n");
 
-        sb.append("End Date:\n");
+        sb.append("End Date: ");
 
         //sb.append(endMonth + "/" + endDay + "/" + endYear + " " + endHour + ":" + endMinutes);
 
