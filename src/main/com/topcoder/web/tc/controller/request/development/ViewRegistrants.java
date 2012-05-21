@@ -8,7 +8,10 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
+
+import java.util.Map;
 
 /**
  * <p><strong>Purpose</strong>: This processor handle requests to show registrants for aspecific project.</p>
@@ -50,7 +53,21 @@ public class ViewRegistrants extends Base {
             Request r = new Request();
             r.setContentHandle(getRegistrantsCommandName(projectTypeId));
             r.setProperty(Constants.PROJECT_ID, String.valueOf(projectId));
-            getRequest().setAttribute("resultMap", getDataAccess().getData(r));
+            Map<String, ResultSetContainer> resultMap = getDataAccess().getData(r);
+
+            ResultSetContainer registrants = resultMap.get(getRegistrantsCommandName(projectTypeId));
+            boolean canViewSubmissionTimestamps = getSessionInfo().isAdmin() || 
+                userSubmitted(getUser().getId(), registrants);
+
+            if (canViewSubmissionTimestamps) {
+                registrants.sortByColumn("submission_date", "inquiry_date", false, false);
+            } else {
+                registrants.sortByColumn("inquiry_date", false);
+            }
+
+            getRequest().setAttribute("resultMap", resultMap);
+            getRequest().setAttribute("canViewSubmissionTimestamps", canViewSubmissionTimestamps);
+
             setNextPage("/contest/registrants.jsp");
             setIsNextPageInContext(true);
         } catch (TCWebException e) {
@@ -60,5 +77,15 @@ public class ViewRegistrants extends Base {
         } catch (Exception e) {
             throw new TCWebException(e);
         }
+    }
+
+    private boolean userSubmitted(long userId, ResultSetContainer registrants) {
+        for (int i=0;i<registrants.size();i++) {
+            ResultSetContainer.ResultSetRow row = registrants.get(i);
+            if (row.getLongItem("user_id") == userId && row.getItem("submission_date").getResultData() != null) {
+                return true;
+            }
+        }
+        return false;
     }
 }
