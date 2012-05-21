@@ -36,6 +36,7 @@
 <%@ taglib prefix="tc_tags" tagdir="/WEB-INF/tags" %>
 <% int projectTypeId = ((Integer) request.getAttribute(Constants.PROJECT_TYPE_ID)).intValue();
     ResultSetContainer registrants = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get(Base.getRegistrantsCommandName(projectTypeId));
+    boolean canViewSubmissionTimestamps = (Boolean) request.getAttribute("canViewSubmissionTimestamps");
 %>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 
@@ -419,7 +420,7 @@
                   <rsc:item name="inquiry_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="America/New_York"/>
               </td>
               <td class="statDk" align="center" nowrap="0">
-                <% if (registrants.getBooleanItem(0, "hide_submissions")==true) { %>
+                <% if (canViewSubmissionTimestamps==false && registrants.getBooleanItem(0, "hide_submissions")==true) { %>
                     <i>Hidden</i>
                 </a>
                 <% } else { %>
