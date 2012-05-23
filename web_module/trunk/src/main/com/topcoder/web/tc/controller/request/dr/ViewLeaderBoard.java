@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
+ * Copyright (c) 2006-2012 TopCoder, Inc. All rights reserved.
  */
 
 package com.topcoder.web.tc.controller.request.dr;
@@ -87,7 +87,8 @@ public class ViewLeaderBoard extends BaseBoardV2 {
         getRequest().setAttribute("hasRookieCompetition", Boolean.FALSE);
         getRequest().setAttribute("resultObject", resultObject);
         getRequest().setAttribute("topTripWinners", 1);
-        getRequest().setAttribute("trackExists", true);            
+        getRequest().setAttribute("trackExists", true);
+        getRequest().setAttribute("showPotentialDetails", getSessionInfo().isAdmin());
 
         getRequest().setAttribute("isDesign", trackInfo.getTrackTypeId() == 1);
         getRequest().setAttribute("isDevelopment", trackInfo.getTrackTypeId() == 2);
