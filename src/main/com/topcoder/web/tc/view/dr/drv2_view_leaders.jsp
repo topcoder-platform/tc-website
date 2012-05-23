@@ -242,9 +242,14 @@ Please select a <strong>${trackInfo.trackTypeDesc} Track</strong><br />
         </td>
         <td class="valueR">
             <c:if test="${boardRow.potentialPoints>0}">
-                <a href="/dr?module=PointsDetail&amp;pf=1&amp;cr=${boardRow.userId}&amp;tid=${tid}" class="bcLink">
-                    <fmt:formatNumber value="${boardRow.potentialPoints}"  minFractionDigits="2" maxFractionDigits="2"/>
+                <c:if test="${showPotentialDetails}">
+                    <a href="/dr?module=PointsDetail&amp;pf=1&amp;cr=${boardRow.userId}&amp;tid=${tid}" class="bcLink">
+                        <fmt:formatNumber value="${boardRow.potentialPoints}"  minFractionDigits="2" maxFractionDigits="2"/>
                     </a>
+                </c:if>
+                <c:if test="${!showPotentialDetails}">
+                    <fmt:formatNumber value="${boardRow.potentialPoints}"  minFractionDigits="2" maxFractionDigits="2"/>
+                </c:if>
             </c:if>
         </td>
         <td class="valueR"><fmt:formatNumber value="${boardRow.totalPoints}"  minFractionDigits="2" maxFractionDigits="2"/></td>
