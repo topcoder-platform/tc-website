@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
@@ -74,7 +74,7 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
 
             if (!projectID.equals("") && !projectTermStatus.equals("")) {
                 DataInterfaceBean bean = new DataInterfaceBean();
-                int[] counts = new int[6];
+                int[] counts = new int[7];
                 log.debug("status type " + getRequest().getParameter(PROJECT_TERMINATION_STATUS));
 
                 List resourceIds = new ArrayList();
@@ -90,6 +90,7 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
                     if (p.getPaymentType() == PactsConstants.REVIEW_BOARD_PAYMENT) counts[3]++;
                     if (p.getPaymentType() == PactsConstants.COPILOT_PAYMENT) counts[4]++;
                     if (p.getPaymentType() == PactsConstants.SPECIFICATION_REVIEW_PAYMENT) counts[5]++;
+                    if (p.getPaymentType() == PactsConstants.MARATHON_MATCH_NON_TAXABLE_PAYMENT) counts[6]++;
 
                     ids.add(p.getId() + "");
 
@@ -130,7 +131,8 @@ public class GenerateComponentPayments extends BaseProcessor implements PactsCon
      */
     private String generateSuccessMessage(int[] counts) {
         final String[] countType = new String[] {
-            " contest prize", " contest milestone prize", " referral", " review board", " copilot", " specification review"};
+            " contest prize", " contest milestone prize", " referral", " review board", " copilot", " specification review",
+            " marathon match (non-taxable)"};
 
         StringBuffer sb = new StringBuffer();
 
