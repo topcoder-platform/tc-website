@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.ejb.pacts;
 
@@ -1403,7 +1403,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Returns the accrual threshold of a user
      *
-	 * @param userId User ID
+     * @param userId User ID
      * @return accrual threshold
      * @throws SQLException If there is some problem retrieving the data
      */
@@ -1508,7 +1508,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Returns the preferred payment method for a user.
      *
-     * @param userId User ID	 
+     * @param userId User ID
      * @return ID of the preferred payment method or null if not set
      * @throws SQLException If there is some problem retrieving the data
      */
@@ -1531,7 +1531,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Saves the preferred payment method for a user.
      *
-     * @param userId User ID	 
+     * @param userId User ID
      * @param paymentMethod ID of the preferred payment method.
      * @throws SQLException If there is some problem updating the data
      */
@@ -1539,7 +1539,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         if (userId == 0) {
             throw new IllegalArgumentException("Invalid user ID");
         }
-		
+        
         if (paymentMethodId <= 0) {
             throw new IllegalArgumentException("Invalid payment method ID.");
         }
@@ -1573,7 +1573,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Returns the email address of the user's PayPal account.
      *
-     * @param userId User ID	 
+     * @param userId User ID
      * @return PayPal account's email address
      * @throws SQLException If there is some problem retrieving the data
      */
@@ -1596,7 +1596,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Saves the email address of the user's PayPal account.
      *
-     * @param userId User ID	 
+     * @param userId User ID
      * @param payPalAccount PayPal account's email address
      * @throws SQLException If there is some problem updating the data
      */
@@ -1608,7 +1608,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         if (payPalAccount == null) {
             throw new IllegalArgumentException("Invalid email address of the PayPal account");
         }
-		
+        
         PreparedStatement insertPs = null, updatePs = null;
         Connection conn = null;
         try {
@@ -3402,14 +3402,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         from.append("FROM user u ");
 
         ArrayList joinClauses = new ArrayList();
-        ArrayList whereClauses = new ArrayList();		
+        ArrayList whereClauses = new ArrayList();
         ArrayList orClauses = new ArrayList();
         ArrayList objects = new ArrayList();
 
         joinClauses.add("INNER JOIN user_status_lu s ON u.status = s.user_status_id ");
         joinClauses.add("LEFT OUTER JOIN user_accrual ua ON u.user_id = ua.user_id ");
         joinClauses.add("LEFT OUTER JOIN user_payment_method upm ON u.user_id = upm.user_id ");
-        joinClauses.add("INNER JOIN payment_method_lu pml ON pml.payment_method_id = nvl(upm.payment_method_id, "+NOT_SET_PAYMENT_METHOD_ID+") ");				
+        joinClauses.add("INNER JOIN payment_method_lu pml ON pml.payment_method_id = nvl(upm.payment_method_id, "+NOT_SET_PAYMENT_METHOD_ID+") ");
 
         Iterator i = searchCriteria.keySet().iterator();
         try {
@@ -3445,7 +3445,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     whereClauses.add("UPPER(u.handle) LIKE ?");
                     objects.add(value);
                 } else if (key.equals(METHOD_CODE)) {
-                    whereClauses.add("nvl(upm.payment_method_id, "+NOT_SET_PAYMENT_METHOD_ID+") IN (" + value + ")");					
+                    whereClauses.add("nvl(upm.payment_method_id, "+NOT_SET_PAYMENT_METHOD_ID+") IN (" + value + ")");
                 } else if (key.equals(HAS_ACTIVE_CONTRACTS)) {
                     boolean wantExists = makeBoolean(value);
                     StringBuffer clause = new StringBuffer(300);
@@ -5355,6 +5355,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         StringBuffer getWinners = new StringBuffer(300);
         getWinners.append(" SELECT s.placement as placed, ri1.value::int as user_id, r.resource_id, stl.name as submission_type, ");
+        getWinners.append(" pcl.project_category_id, pi56.value::int as mm_round_id, ");
 
         getWinners.append(" CASE ");
         getWinners.append("    WHEN pcl.project_type_id = 3 OR ");
@@ -5372,6 +5373,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         getWinners.append(" INNER JOIN tcs_catalog:submission s ON s.upload_id = u.upload_id AND s.submission_type_id in (1,3) and s.placement IS NOT NULL ");
         getWinners.append(" INNER JOIN tcs_catalog:submission_type_lu stl ON stl.submission_type_id=s.submission_type_id ");
         getWinners.append(" LEFT OUTER JOIN tcs_catalog:prize pr ON pr.prize_id = s.prize_id ");
+        getWinners.append(" LEFT OUTER JOIN tcs_catalog:project_info pi56 ON pi56.project_id=p.project_id and pi56.project_info_type_id=56 ");
 
         getWinners.append(" WHERE p.project_id = " + projectId + " ");
         getWinners.append(" AND r.resource_id not in (SELECT ri8.resource_id FROM tcs_catalog:resource_info ri8 WHERE ri8.resource_info_type_id=8 AND ri8.value='Yes') ");
@@ -5382,6 +5384,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             if (!pendingUserIds.contains(coderId)) {
                 int placed = rsc.getIntItem(i, "placed");
                 long resourceId = rsc.getLongItem(i, "resource_id");
+                long projectCategoryId = rsc.getLongItem(i, "project_category_id");
                 String submissionType = rsc.getStringItem(i, "submission_type");
                 
                 double penalty = penalties.get(coderId) == null ? 0.0 : penalties.get(coderId);
@@ -5393,18 +5396,30 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     continue;
                 }
 
-                resourceIds.add(new Long(resourceId));
-
                 if (submissionType.startsWith("Contest Submission")) {
-                    BasePayment p = new ContestPayment(coderId, amount, client, projectId, placed);
-                    if (placed == 1 && !isStudioProject(projectId)) {
-                        p.setGrossAmount(amount * FIRST_INSTALLMENT_PERCENT);
+                    BasePayment p = null;
+                    if (projectCategoryId == 37) { // If Marathon Match
+                        if (rsc.getItem(i, "mm_round_id").getResultData() == null) {
+                            log.info("MM round ID is not set. Ignoring the payment.");
+                            continue;                            
+                        }
+
+                        long mmRoundId = rsc.getLongItem(i, "mm_round_id");
+                        p = new MarathonMatchNonTaxablePayment(coderId, amount, mmRoundId, placed);
+                        p.setClient(client);
+                    } else {
+                        p = new ContestPayment(coderId, amount, client, projectId, placed);
+                        if (placed == 1 && !isStudioProject(projectId)) {
+                            p.setGrossAmount(amount * FIRST_INSTALLMENT_PERCENT);
+                        }
                     }
 
                     payments.add(p);
                 } else if (submissionType.startsWith("Milestone Submission")) {
                     payments.add(new ContestMilestonePayment(coderId, amount, client, projectId, placed));
                 }
+                
+                resourceIds.add(new Long(resourceId));                
             } else {
                 log.info("Payments for the coder " + coderId + " are skipped because he/she still has pending late deliverables.");
             }
