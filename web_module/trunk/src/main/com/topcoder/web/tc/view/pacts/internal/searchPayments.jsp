@@ -134,6 +134,16 @@
    } %>
               </select></td>
           </tr>
+          <tr>
+              <td>Tax Withheld:</td>
+              <td>
+                  <select name="<%=PactsConstants.IS_TAXED%>" size=3>
+                      <option value="" selected>Any</option>
+                      <option value="True" selected>Yes</option>
+                      <option value="False" selected>No</option>
+                   </select>
+              </td>
+          </tr>
 <%--          <tr>
             <td>Is Reviewed:</td>
 <% out.println("            <td><input type=\"radio\" value=\"true\" name=\""+PactsConstants.IS_REVIEWED+"\">Yes<br>");

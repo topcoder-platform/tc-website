@@ -514,6 +514,8 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         if (param != null && !param.equals("")) query.put(COCKPIT_PROJECT, param);
         param = request.getParameter(BILLING_ACCOUNT);
         if (param != null && !param.equals("")) query.put(BILLING_ACCOUNT, param);
+        param = request.getParameter(IS_TAXED);
+        if (param != null && !param.equals("")) query.put(IS_TAXED, param);
 
         return query;
     }
