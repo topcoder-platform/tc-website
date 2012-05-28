@@ -11,6 +11,7 @@
 
 
 <c:set var="context" value='${isDevelopment ? "development" : isDesign ? "design" : "component"}' />
+<c:set var="currentUserId" value="<%=sessionInfo.getUserId()%>"/>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -242,14 +243,16 @@ Please select a <strong>${trackInfo.trackTypeDesc} Track</strong><br />
         </td>
         <td class="valueR">
             <c:if test="${boardRow.potentialPoints>0}">
-                <c:if test="${showPotentialDetails}">
-                    <a href="/dr?module=PointsDetail&amp;pf=1&amp;cr=${boardRow.userId}&amp;tid=${tid}" class="bcLink">
+                <c:choose>
+                    <c:when test="${showPotentialDetails || boardRow.userId == currentUserId}">
+                        <a href="/dr?module=PointsDetail&amp;pf=1&amp;cr=${boardRow.userId}&amp;tid=${tid}" class="bcLink">
+                            <fmt:formatNumber value="${boardRow.potentialPoints}"  minFractionDigits="2" maxFractionDigits="2"/>
+                        </a>
+                    </c:when>
+                    <c:otherwise>
                         <fmt:formatNumber value="${boardRow.potentialPoints}"  minFractionDigits="2" maxFractionDigits="2"/>
-                    </a>
-                </c:if>
-                <c:if test="${!showPotentialDetails}">
-                    <fmt:formatNumber value="${boardRow.potentialPoints}"  minFractionDigits="2" maxFractionDigits="2"/>
-                </c:if>
+                    </c:otherwise>
+                </c:choose>
             </c:if>
         </td>
         <td class="valueR"><fmt:formatNumber value="${boardRow.totalPoints}"  minFractionDigits="2" maxFractionDigits="2"/></td>
