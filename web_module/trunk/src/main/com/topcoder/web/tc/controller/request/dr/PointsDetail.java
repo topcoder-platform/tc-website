@@ -33,7 +33,7 @@ public class PointsDetail extends BaseBoardV2 {
 
         // As of May 2012 the breakdown by contests for potential DR points is disabled for non-admins
         // to hide the submitters' information for ongoing contests to increase the review anonymity.
-        if (potential && !getSessionInfo().isAdmin()) {
+        if (potential && !getSessionInfo().isAdmin() && userId != getUser().getId()) {
             throw new TCWebException("Breakdown by contests for potential DR points is not supported for non-admins.");
         }
 
