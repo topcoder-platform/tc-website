@@ -139,8 +139,8 @@
               <td>
                   <select name="<%=PactsConstants.IS_TAXED%>" size=3>
                       <option value="" selected>Any</option>
-                      <option value="True" selected>Yes</option>
-                      <option value="False" selected>No</option>
+                      <option value="True">Yes</option>
+                      <option value="False">No</option>
                    </select>
               </td>
           </tr>
