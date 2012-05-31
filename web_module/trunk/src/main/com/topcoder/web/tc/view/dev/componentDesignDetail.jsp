@@ -119,7 +119,7 @@
       </div>
       </td>
       <td width="40%" align="right" style="padding: 0px 5px 10px 0px;">
-         <A class="bigButton" style="width: 100px;" href="/tc?module=ViewProjectRegistration&<%=Constants.PROJECT_ID%>=<%= request.getAttribute("projectId") %>">1: Register</A>
+         <A class="bigButton" style="width: 100px;" href="/tc?module=ViewRegistration&<%=Constants.PROJECT_ID%>=<%= request.getAttribute("projectId") %>">1: Register</A>
       </td>
       <td width="25%" align="right" style="padding: 0px 0px 10px 5px;">
       <%-- Submit --%>

@@ -76,16 +76,8 @@
 <c:set value="<%=Constants.PROJECT_ID%>" var="PROJECT_ID"/>
 <c:set var="NON_ELEC_AGREEABLE_TERMS_TYPE_ID" value="<%=Constants.NON_ELEC_AGREEABLE_TERMS_TYPE_ID%>"/>
 
-<c:choose>
-    <c:when test="${pt == DESIGN_PROJECT_TYPE || pt == DEVELOPMENT_PROJECT_TYPE}">
-        <c:set value="ProjectRegister" var="registrationModule"/>
-        <c:set value="ViewProjectRegistration" var="viewRegistrationModule"/>
-    </c:when>
-    <c:otherwise>
-        <c:set value="Register" var="registrationModule"/>
-        <c:set value="ViewRegistration" var="viewRegistrationModule"/>
-    </c:otherwise>
-</c:choose>
+<c:set value="Register" var="registrationModule"/>
+<c:set value="ViewRegistration" var="viewRegistrationModule"/>
 
 <body>
 
@@ -421,43 +413,6 @@ function goBack() {
                                     </c:forEach>
                                 </c:when>
                                 <c:otherwise>
-                                    <c:if test="${pt == DESIGN_PROJECT_TYPE || pt == DEVELOPMENT_PROJECT_TYPE}">
-                                    <tr>
-                                        <td>
-                                        <tc:questionIterator list="<%=questionInfo%>" id="question">
-                                            <table width="510" border="0" cellpadding="5" cellspacing="0" class="formFrame" align="center">
-                                                <tr>
-                                                    <td colspan="2" class="bodySubtitle" valign="top" width="100%">
-                                                        <jsp:getProperty name="question" property="text"/>
-                                                        <br /><br />
-                                                        <hr width="100%" size="1" noshade/>
-                                                    </td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2" class="errorText">
-                                                        <tc-webtag:errorIterator id="err" name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%>
-                                                            <br /></tc-webtag:errorIterator>
-                                                    </td>
-                                                </tr>
-                                             <% boolean even = false; %>
-                                                <tc:answerInput id="answerInput" question="<%=question%>">
-                                                    <tr class="<%=even?"formTextOdd":"formTextEven"%>">
-                                                        <td width="100%">
-                                                            <%=answerText%>
-                                                        </td>
-                                                        <td align="center">
-                                                            <%=answerInput%>
-                                                        </td>
-                                                    </tr>
-                                                    <% even = !even; %>
-                                                </tc:answerInput>
-                                            </table>
-                                            <p><br /></p>
-                                        </tc:questionIterator>
-                                        </td>
-                                    </tr>
-                                    </c:if>
                                     <c:if test="${not empty notRegistered}">
                                         <span class="errorText">
                                          Please be aware that you are NOT REGISTERED for the tournament, and registering for this contest will not register you for the tournament.  If you don't register for the tournament prior to registering for this contest, it will not count in the tournament standings even if you sign up at a later date.
