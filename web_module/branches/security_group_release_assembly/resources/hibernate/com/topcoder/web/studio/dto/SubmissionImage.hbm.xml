@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.studio.dto" auto-import="false">
+    <class name="SubmissionImage" table="submission_image">
+        <composite-id name="id" class="SubmissionImage$Identifier">
+            <key-many-to-one name="submission" class="Submission" column="submission_id"/>
+            <key-many-to-one name="image" class="com.topcoder.web.common.model.Image" column="image_id"/>
+        </composite-id>
+        <property name="sortIndex" column="sort_order"/>
+    </class>
+</hibernate-mapping>

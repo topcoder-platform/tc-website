@@ -1,0 +1,422 @@
+<!--
+    This build script provides targets to assist in the
+    moving of code to a production environment
+ -->
+<project name="topcoder" basedir=".">
+
+    <target name="jar-classes" >
+        <jar destfile="./lib/bin/classes.jar" update="true">
+            <fileset dir="./build/classes">
+                <include name="**"/>
+            </fileset>
+        </jar>
+    </target>
+
+    <target name="package-topcoder" >
+
+        <delete dir="build"/>
+        <delete file="topcoder.jar"/>
+
+        <exec dir="." executable="svn">
+            <arg line="update src resources lib build_tc.xml"/>
+        </exec>
+
+        <exec dir="../shared" executable="svn">
+            <arg line="update"/>
+        </exec>
+
+        <exec dir="../external-artifacts" executable="svn">
+            <arg line="update"/>
+        </exec>
+
+
+        <ant antfile="build_tc.xml" target="deploy"/>
+
+
+        <antcall target="jar-classes"/>
+
+        <jar destfile="topcoder.jar" update="true">
+            <fileset dir=".">
+                <include name="build/ejb_jars/**"/>
+                <include name="build/wars/**"/>
+                <include name="build/sars/**"/>
+                <include name="build/ears/security.ear"/>
+                <include name="resources/xsl/**"/>
+                <include name="resources/taglib/**"/>
+                <include name="resources/tc/**"/>
+                <include name="resources/com/topcoder/randomstringimg/**"/>
+                <include name="resources/com/topcoder/web/tc/controller/request/contest/**"/>
+                <include name="resources/stat/**"/>
+                <include name="resources/corp/**"/>
+                <include name="resources/email/**"/>
+                <include name="resources/privatelabel/**"/>
+                <include name="resources/TC.properties"/>
+                <include name="resources/PrivateLabel*.properties"/>
+                <include name="resources/PactsInternalServlet.properties"/>
+                <include name="resources/Registration.properties"/>
+                <include name="resources/CorpConstants.properties"/>
+                <include name="resources/DataAccess.properties"/>
+                <include name="resources/EP.properties"/>
+                <include name="resources/problem.xsd"/>
+                <include name="move.xml"/>
+                <include name="build_tc.xml"/>
+                <include name="lib/bin/shared.jar"/>
+                <include name="lib/bin/tcwebcommon.jar"/>
+                <include name="lib/bin/classes.jar"/>
+
+            </fileset>
+        </jar>
+
+    </target>
+
+
+    <target name="package-software" >
+
+
+        <exec dir="." executable="svn">
+            <arg line="update"/>
+        </exec>
+
+        <exec dir="../shared" executable="svn">
+            <arg line="update"/>
+        </exec>
+
+        <exec dir="../external-artifacts" executable="svn">
+            <arg line="update"/>
+        </exec>
+
+        <ant antfile="build_old.xml" target="clean"/>
+        <ant antfile="build_tcs.xml" target="build-site"/>
+        <!--remove with new OR
+                <ant antfile="build_tcs.xml" target="build-screening"/>
+        -->
+
+        <jar destfile="software.jar" update="true">
+            <fileset dir=".">
+                <include name="lib/bin/shared.jar"/>
+                <include name="lib/bin/tcwebcommon.jar"/>
+                <!--remove with new OR
+                                <include name="lib/bin/screening.jar"/>
+                -->
+                <include name="build/ears/dde.ear"/>
+                <!--remove with new OR
+                                <include name="build/wars/review.war"/>
+                -->
+                <include name="build/wars/dde.war"/>
+                <include name="build/wars/onsite.war"/>
+                <include name="build/ejb_jars/Project.jar"/>
+                <include name="build/ejb_jars/RBoard.jar"/>
+                <!--remove with new OR
+                                <include name="build/ejb_jars/Specification.jar"/>
+                -->
+                <include name="build_tcs.xml"/>
+                <include name="resources/automatic_screening/com/topcoder/apps/**"/>
+                <include name="resources/automatic_screening/com/topcoder/file/**"/>
+                <include name="resources/automatic_screening/com/topcoder/util/**"/>
+                <include name="resources/onsite.properties"/>
+            </fileset>
+        </jar>
+    </target>
+
+    <target name="package-forums" >
+        <delete dir="build"/>
+        <delete file="forums.jar"/>
+
+
+        <exec dir="." executable="svn">
+            <arg line="update"/>
+        </exec>
+
+        <exec dir="../shared" executable="svn">
+            <arg line="update"/>
+        </exec>
+
+        <exec dir="../external-artifacts" executable="svn">
+            <arg line="update"/>
+        </exec>
+
+        <ant antfile="build_forums.xml" target="build-forums"/>
+
+        <jar destfile="forums.jar" update="true">
+            <fileset dir=".">
+                <include name="build/wars/forums.war"/>
+                <include name="build/ejb_jars/messagehistory.jar"/>
+                <include name="build/ejb_jars/User.jar"/>
+                <include name="build/ears/security.ear"/>
+                <include name="build/ejb_jars/Email.jar"/>
+                <include name="build/ejb_jars/forums.jar"/>
+                <include name="build/ejb_jars/security.jar"/>
+                <include name="lib/bin/shared.jar"/>
+                <include name="lib/bin/tcwebcommon.jar"/>
+                <include name="lib/bin/tcjive.jar"/>
+                <include name="build_forums.xml"/>
+            </fileset>
+        </jar>
+    </target>
+
+    <target name="package-studio" >
+
+        <delete dir="build"/>
+        <delete file="studio.jar"/>
+
+
+        <exec dir="." executable="svn">
+            <arg line="update src resources lib build_studio.xml"/>
+        </exec>
+
+        <exec dir="../shared" executable="svn">
+            <arg line="update"/>
+        </exec>
+
+        <exec dir="../external-artifacts" executable="svn">
+            <arg line="update"/>
+        </exec>
+
+        <ant antfile="build_studio.xml" target="deploy"/>
+        <ant antfile="build_studio.xml" target="build-security"/>
+
+        <jar destfile="studio.jar" update="true">
+            <fileset dir=".">
+                <include name="build/ejb_jars/*.jar"/>
+                <include name="build/wars/*.war"/>
+                <include name="build/ears/*.ear"/>
+                <include name="resources/studio/**"/>
+                <include name="resources/forums/filter/**"/>
+                <include name="resources/forums/studio/**"/>
+                <include name="resources/Studio.properties"/>
+                <include name="move.xml"/>
+                <include name="build_studio.xml"/>
+                <include name="lib/bin/*.jar"/>
+            </fileset>
+        </jar>
+
+    </target>
+
+
+    <target name="package-openaim" >
+
+        <delete dir="build"/>
+        <delete file="openaim.jar"/>
+
+        <exec dir="." executable="svn">
+            <arg line="update src resources lib build_studio.xml"/>
+        </exec>
+
+        <exec dir="../shared" executable="svn">
+            <arg line="update"/>
+        </exec>
+
+        <exec dir="../external-artifacts" executable="svn">
+            <arg line="update"/>
+        </exec>
+
+        <ant antfile="build_openaim.xml" target="deploy"/>
+        <ant antfile="build_openaim.xml" target="build-security"/>
+
+        <jar destfile="openaim.jar" update="true">
+            <fileset dir=".">
+                <include name="build/ejb_jars/*.jar"/>
+                <include name="build/wars/*.war"/>
+                <include name="build/ears/*.ear"/>
+                <include name="resources/openaim/**"/>
+                <include name="resources/forums/filter/**"/>
+                <include name="resources/forums/openaim/**"/>
+                <include name="resources/OpenAIM.properties"/>
+                <include name="move.xml"/>
+                <include name="build_openaim.xml"/>
+                <include name="lib/bin/*.jar"/>
+            </fileset>
+        </jar>
+
+    </target>
+
+
+
+    <target name="package-security" >
+
+        <delete dir="build"/>
+        <delete file="security.jar"/>
+
+        <exec dir="." executable="svn">
+            <arg line="update src resources lib build_studio.xml"/>
+        </exec>
+
+        <exec dir="../shared" executable="svn">
+            <arg line="update"/>
+        </exec>
+
+        <exec dir="../external-artifacts" executable="svn">
+            <arg line="update"/>
+        </exec>
+
+        <ant antfile="build_security.xml" target="deploy"/>
+
+        <jar destfile="security.jar" update="true">
+            <fileset dir=".">
+                <include name="build/ejb_jars/*.jar"/>
+                <include name="build/ears/*.ear"/>
+                <include name="move.xml"/>
+                <include name="build_security.xml"/>
+                <include name="lib/bin/*.jar"/>
+            </fileset>
+        </jar>
+
+    </target>
+
+
+
+    <target name="package-mm" >
+
+        <delete dir="build"/>
+        <delete file="mm.jar"/>
+
+        <exec dir="." executable="svn">
+            <arg line="update src resources lib build_studio.xml"/>
+        </exec>
+
+        <exec dir="../shared" executable="svn">
+            <arg line="update"/>
+        </exec>
+
+        <exec dir="../external-artifacts" executable="svn">
+            <arg line="update"/>
+        </exec>
+
+        <ant antfile="build_mm.xml" target="build"/>
+
+        <jar destfile="mm.jar" update="true">
+            <fileset dir=".">
+                <include name="build/ejb_jars/**"/>
+                <include name="build/wars/**"/>
+                <include name="build/ears/security.ear"/>
+                <include name="resources/longcontest/**"/>
+                <include name="resources/LongContest.properties"/>
+                <include name="resources/DataAccess.properties"/>
+                <include name="resources/problem.xsd"/>
+                <include name="move.xml"/>
+                <include name="build_mm.xml"/>
+                <include name="lib/bin/shared.jar"/>
+                <include name="lib/bin/tcwebcommon.jar"/>
+            </fileset>
+        </jar>
+
+    </target>
+
+
+
+    <target name="package-truveo" >
+
+        <delete dir="build"/>
+        <delete file="truveo.jar"/>
+
+        <exec dir="." executable="svn">
+            <arg line="update src resources lib build_truveo.xml"/>
+        </exec>
+
+        <exec dir="../shared" executable="svn">
+            <arg line="update"/>
+        </exec>
+
+        <exec dir="../external-artifacts" executable="svn">
+            <arg line="update"/>
+        </exec>
+
+        <ant antfile="build_truveo.xml" target="dist"/>
+        <ant antfile="build_truveo.xml" target="build-security"/>
+
+        <jar destfile="truveo.jar" update="true">
+            <fileset dir=".">
+                <include name="build/ejb_jars/*.jar"/>
+                <include name="build/wars/*.war"/>
+                <include name="build/ears/*.ear"/>
+                <include name="resources/truveo/**"/>
+                <include name="resources/forums/filter/**"/>
+                <include name="resources/forums/truveo/**"/>
+                <include name="resources/Truveo.properties"/>
+                <include name="move.xml"/>
+                <include name="build_truveo.xml"/>
+                <include name="lib/bin/*.jar"/>
+            </fileset>
+        </jar>
+
+    </target>
+
+
+    <target name="package-ribbit" >
+
+        <delete dir="build"/>
+        <delete file="ribbit.jar"/>
+
+        <exec dir="." executable="svn">
+            <arg line="update src resources lib build_ribbit.xml"/>
+        </exec>
+
+        <exec dir="../shared" executable="svn">
+            <arg line="update"/>
+        </exec>
+
+        <exec dir="../external-artifacts" executable="svn">
+            <arg line="update"/>
+        </exec>
+
+        <ant antfile="build_ribbit.xml" target="dist"/>
+        <ant antfile="build_ribbit.xml" target="build-security"/>
+
+        <jar destfile="ribbit.jar" update="true">
+            <fileset dir=".">
+                <include name="build/ejb_jars/*.jar"/>
+                <include name="build/wars/*.war"/>
+                <include name="build/ears/*.ear"/>
+                <include name="resources/aolicq/**"/>
+                <include name="resources/forums/filter/**"/>
+                <include name="resources/forums/aolicq/**"/>
+                <include name="resources/Aolicq.properties"/>
+                <include name="move.xml"/>
+                <include name="build_ribbit.xml"/>
+                <include name="lib/bin/*.jar"/>
+            </fileset>
+        </jar>
+
+    </target>
+
+
+
+    <target name="package-winformula" >
+
+        <delete dir="build"/>
+        <delete file="winformula.jar"/>
+
+        <exec dir="." executable="svn">
+            <arg line="update src resources lib build_winformula.xml"/>
+        </exec>
+
+        <exec dir="../shared" executable="svn">
+            <arg line="update"/>
+        </exec>
+
+        <exec dir="../external-artifacts" executable="svn">
+            <arg line="update"/>
+        </exec>
+
+        <ant antfile="build_winformula.xml" target="dist"/>
+        <ant antfile="build_winformula.xml" target="build-security"/>
+
+        <jar destfile="winformula.jar" update="true">
+            <fileset dir=".">
+                <include name="build/ejb_jars/*.jar"/>
+                <include name="build/wars/*.war"/>
+                <include name="build/ears/*.ear"/>
+                <include name="resources/winformula/**"/>
+                <include name="resources/forums/filter/**"/>
+                <include name="resources/forums/winformula/**"/>
+                <include name="resources/Winformula.properties"/>
+                <include name="move.xml"/>
+                <include name="build_winformula.xml"/>
+                <include name="lib/bin/*.jar"/>
+            </fileset>
+        </jar>
+
+    </target>
+
+</project>
+
