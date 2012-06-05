@@ -1,10 +1,10 @@
 <CMConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="C:\tcs\Components\Configuration Manager\web\doc\CM v2 Schema.xsd" version="v2">
     <Config name="com.topcoder.servlet.request.FileUpload">
         <Property name="allowed_dirs">
-            <Value>./temp_files</Value>
+            <Value>/mnt/shared/temp_files</Value>
         </Property>
         <Property name="default_dir">
-            <Value>./temp_files</Value>
+            <Value>/mnt/shared/temp_files</Value>
         </Property>
         <Property name="overwrite">
             <Value>true</Value>
@@ -19,4 +19,4 @@
             <Value>Valid</Value>	
         </Property>          
     </Config>
-</CMConfig>
+</CMConfig> 

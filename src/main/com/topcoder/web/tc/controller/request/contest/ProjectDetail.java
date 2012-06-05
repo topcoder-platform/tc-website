@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.contest;
 
@@ -167,6 +167,7 @@ public class ProjectDetail extends Base {
             Long rootCategoryId = details.getLongItem(0, "root_category_id");
 
             getRequest().setAttribute("instructionsLinks", getInstructionLinks(docs, categoryId, rootCategoryId));
+            getRequest().setAttribute("canDownloadDocuments", canDownloadDocuments(docs));
 
             boolean full = false;  //projects are never full in our current rules
             getRequest().setAttribute("projectFull", String.valueOf(full));
@@ -212,6 +213,30 @@ public class ProjectDetail extends Base {
         } catch (Exception e) {
             throw new TCWebException(e);
         }
+    }
+
+    /**
+     * <p>
+     * Returns true if the current user is authorized download the documents.
+     * </p>
+     *
+     * @param docs the project documents list.
+     * @return true if the current user is authorized to download the documents and false otherwise.
+     */
+    private boolean canDownloadDocuments(ResultSetContainer docs) throws Exception {
+
+        // If there are no documents just return true.
+        if ((docs == null) || (docs.size() == 0)) {
+            return true;
+        }
+
+        // Check only the first document in the list since the answer would be the same fo all of them.
+        for (ResultSetContainer.ResultSetRow row : docs) {
+            String docId = row.getMap().get("document_id").toString();
+            return canDownloadDocument(docId);
+        }
+
+        return false;
     }
 
     /**

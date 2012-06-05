@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc;
 
@@ -190,6 +190,7 @@ public class Constants implements WebConstants {
     public static String PHASE_ID;
     public static String SEASON_ID;
     public static String REVIEW_RESP_ID;
+    public static String DOCUMENT_ID;
     
     /**
      * Represents the resource role IDs parameter name in query tool.
