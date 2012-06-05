@@ -3,7 +3,7 @@
   - Version: 1.0
   - Version: 1.1 (Distribution Auto Generation Assembly v1.0) Change notes: Added support for showing instruction
     links next to document (@see ProjectDetail.properties)
-  - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
+  - Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
   -
   - Description: This is a simple include page that renders available documentation and helps avoiding duplicated 
   - code in project details pages.
@@ -12,20 +12,23 @@
 --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
-<c:set var="SOFTWARE_SERVER_NAME" value="<%=ApplicationServer.SOFTWARE_SERVER_NAME%>" scope="request"/>
+<%@ page import="com.topcoder.web.tc.Constants" %>
 
 <c:if test="${fn:length(supportingDocs) > 0}">
-    <p><span class="bodySubtitle"><strong>Supporting Documentation</strong></span><br/>
+    <p><span class="bodySubtitle"><strong>Supporting Documentation</strong></span>
+    <c:if test="${!canDownloadDocuments}">
+        <i>(register the contest to see the documentation)</i>
+    </c:if>
+    <br/>
+
         <c:forEach items="${supportingDocs}" var="resultRow" varStatus="status">
             <p>
-            
                 <c:choose>
-                    <c:when test="${resultRow.map['document_type_id'] == 0}">
-                        &nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="http://${SOFTWARE_SERVER_NAME}/catalog/document?id=${resultRow.map['document_id']}">Requirements Specification</a>
+                    <c:when test="${canDownloadDocuments}">
+                        &nbsp;&nbsp;&nbsp;&nbsp;<a href="/tc?module=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${resultRow.map['document_id']}">${resultRow.map['document_name']}</a>
                     </c:when>
                     <c:otherwise>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="http://${SOFTWARE_SERVER_NAME}/catalog/document?id=${resultRow.map['document_id']}">${resultRow.map['document_name']}</a>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<i>${resultRow.map['document_name']}</i>
                     </c:otherwise>
                 </c:choose>
                 <%-- Wiki instructions link --%>

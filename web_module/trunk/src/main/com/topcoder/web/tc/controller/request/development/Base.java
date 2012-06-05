@@ -1033,6 +1033,31 @@ public abstract class Base extends ShortHibernateProcessor {
     }
     
     /**
+     * This method checks if the current user is authorized to download the specified document.
+     * @param docId Document ID.
+     * @return true if the current user is authorized to download the specified document and false otherwise.
+     */
+    protected boolean canDownloadDocument(String docId) throws Exception {
+        // Admins can download everything.
+        if (getSessionInfo().isAdmin()) {
+            return true;
+        } else {
+            Request r = new Request();
+            r.setContentHandle("document_download");
+            r.setProperty(Constants.DOCUMENT_ID, docId);
+            r.setProperty(Constants.USER_ID, String.valueOf(getUser().getId()));
+
+            DataAccessInt dai = getDataAccess(false);
+            Map result = dai.getData(r);
+            ResultSetContainer rsc = (ResultSetContainer) result.get("document_download");
+            if (rsc.getRowCount() > 0 && rsc.getLongItem(0, "can_download") == 1) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
      * Gets the <code>TermsOfUseDao</code> instance.
      * 
      * @return the <code>TermsOfUseDao</code> instance.
