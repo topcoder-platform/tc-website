@@ -61,10 +61,65 @@
    <tr>
       <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
       <td class="value">1
+	  	<div class="tco12">
+        	<div class="emblem"><img src="/i/tournament/tco12/emblem.png" alt="TCO12" /></div>
+        	<strong><A href="http://community.topcoder.com/tco12/overview-onsite-events/">Studio Semifinal 1</A></strong><br />
+        	8:30<br />
+		</div>
+	  	<div class="tco12">
+        	<div class="emblem"><img src="/i/tournament/tco12/emblem.png" alt="TCO12" /></div>
+        	<strong><A href="http://community.topcoder.com/tco12/overview-onsite-events/">Marathon Championship Round</A></strong><br />
+        	9:30<br />
+		</div>
+	  	<div class="tco12">
+        	<div class="emblem"><img src="/i/tournament/tco12/emblem.png" alt="TCO12" /></div>
+        	<strong><A href="http://community.topcoder.com/tco12/overview-onsite-events/">Mod Dash Final 1</A></strong><br />
+        	12:30<br />
+		</div>
+		<div class="tco12">
+        	<div class="emblem"><img src="/i/tournament/tco12/emblem.png" alt="TCO12" /></div>
+        	<strong><A href="http://community.topcoder.com/tco12/overview-onsite-events/">Studio Semifinal 2</A></strong><br />
+        	14:30<br />
+		</div>
       </td>
       <td class="value">2
+		<div class="tco12">
+        	<div class="emblem"><img src="/i/tournament/tco12/emblem.png" alt="TCO12" /></div>
+        	<strong><A href="http://community.topcoder.com/tco12/overview-onsite-events/">Algorithm Semifinal 1</A></strong><br />
+        	8:30<br />
+		</div>
+		<div class="tco12">
+        	<div class="emblem"><img src="/i/tournament/tco12/emblem.png" alt="TCO12" /></div>
+        	<strong><A href="http://community.topcoder.com/tco12/overview-onsite-events/">Mod Dash Final 2</A></strong><br />
+        	11:00<br />
+		</div>
+		<div class="tco12">
+        	<div class="emblem"><img src="/i/tournament/tco12/emblem.png" alt="TCO12" /></div>
+        	<strong><A href="http://community.topcoder.com/tco12/overview-onsite-events/">Algorithm Semifinal 2</A></strong><br />
+        	12:30<br />
+		</div>
+		<div class="tco12">
+        	<div class="emblem"><img src="/i/tournament/tco12/emblem.png" alt="TCO12" /></div>
+        	<strong><A href="http://community.topcoder.com/tco12/overview-onsite-events/">Studio Championship Round</A></strong><br />
+        	14:30<br />
+		</div>
+		<div class="tco12">
+        	<div class="emblem"><img src="/i/tournament/tco12/emblem.png" alt="TCO12" /></div>
+        	<strong><A href="http://community.topcoder.com/tco12/overview-onsite-events/">Algorithm Wildcard Round</A></strong><br />
+        	17:30<br />
+		</div>
       </td>
       <td class="value">3
+		<div class="tco12">
+        	<div class="emblem"><img src="/i/tournament/tco12/emblem.png" alt="TCO12" /></div>
+        	<strong><A href="http://community.topcoder.com/tco12/overview-onsite-events/">Mod Dash Final 3</A></strong><br />
+        	8:30<br />
+		</div>
+		<div class="tco12">
+        	<div class="emblem"><img src="/i/tournament/tco12/emblem.png" alt="TCO12" /></div>
+        	<strong><A href="http://community.topcoder.com/tco12/overview-onsite-events/">Algorithm Championship Round</A></strong><br />
+        	13:00<br />
+		</div>
       </td>
       <td class="value">4
       </td>

@@ -44,7 +44,7 @@
 
 <strong><a href="/tc?module=Static&amp;d1=calendar&amp;d2=nov_12" class="prevNext">&lt; prev</a>  <!-- | <a href="/tc?module=Static&amp;d1=calendar&amp;d2=jan_13" class="prevNext">next &gt;</a> --> </strong>
 <jsp:include page="dropdown.jsp" >
-<jsp:param name="currMonth" value="nov_12"/>
+<jsp:param name="currMonth" value="dec_12"/>
 </jsp:include>
 
 <table cellspacing="0" cellpadding="0" class="calendar" width="100%">
