@@ -105,11 +105,6 @@ function noenter(e)
       <td class="rtTextCell" nowrap="nowrap"><strong>Forum:</strong></td>
       <td class="rtTextCell100">
 <select size="1" name="<%=ForumConstants.SEARCH_SCOPE%>" id="<%=ForumConstants.SEARCH_SCOPE%>">
-<%  if (searchScope == null || searchScope.equals("all")) { %>
-        <option value="all" selected>All Forums</option>
-<%  } else { %>
-        <option value="all">All Forums</option>
-<%  } %>
 <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=(Iterator)request.getAttribute("forums")%>'>
 <%  String searchScopeValue = "f" + forum.getID();
     if (searchScope != null && searchScope.equals(searchScopeValue)) { %>
