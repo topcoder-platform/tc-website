@@ -143,6 +143,9 @@
             </c:if>
             
           <p><span class="bodySubtitle">Submission Deliverables</span><br></p>
+
+Please refer to the <a href="http://apps.topcoder.com/wiki/x/FIXTAg">How-To</a> guidelines prior to submitting.</br></br>
+
 To be considered for review, you must submit 2 documents in a single zip file.<br><Br>
 
 1.	Game Plan - This is a roadmap of the contests that you plan to run to complete the project.  This should be your best estimate based on the information provided to you.  Communicate in the forums to make sure expectations are clear.  (<a href=http://www.topcoder.com/wiki/download/attachments/47416596/GamePlan_Template.xls>Download the Template</a>)<br><br>
