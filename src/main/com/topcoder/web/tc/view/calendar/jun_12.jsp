@@ -89,6 +89,12 @@
 		 <strong><A href="/tc?module=MatchDetails&rd=14737">SRM 545</A></strong><br />
          11:00
         </div>		  
+	  	 <div class="long">
+         <strong><a href="/tc?module=MatchDetails&rd=15188">HMS Challenge #3</a></strong><br />
+         13:00<br />
+         2 weeks<br />
+		 $10k Prizes
+         </div>
       </td>
       <td class="value">8
       </td>
