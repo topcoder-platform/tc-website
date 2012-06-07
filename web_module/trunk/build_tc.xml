@@ -693,6 +693,7 @@
         <copy todir="${jboss_conf}/com/topcoder/web/tc/controller">
             <fileset dir="${resources}/com/topcoder/web/tc/controller">
                 <include name="payoneer.xml"/>
+                <include name="paypal.xml"/>
             </fileset>
         </copy>
 		<!--
