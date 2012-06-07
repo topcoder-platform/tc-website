@@ -5,6 +5,7 @@ package com.topcoder.web.tc.controller.request.myhome;
 
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.tc.controller.PayoneerService;
+import com.topcoder.web.tc.controller.PayPalService;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.TCRequest;
@@ -32,8 +33,6 @@ import java.util.*;
  * @version 1.1
  */
 public class EditPaymentPreferences extends ShortHibernateProcessor {
-
-    private static final String DEFAULT_PAYONEER_NAMESPACE = "com.topcoder.payoneer";
 
     /**
      * <p>A <code>String</code> providing the name of request parameter providing the payment accrual amount provided by

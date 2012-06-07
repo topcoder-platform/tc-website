@@ -30,6 +30,8 @@ import java.util.*;
 public class PayoneerService {
 
     private static final String DEFAULT_PAYONEER_NAMESPACE = "com.topcoder.web.tc.controller.PayoneerService";
+    
+    private static PayoneerConfig config = null;
 
     /**
      * <p>Constructs new <code>PayoneerService</code> instance. This implementation does nothing.</p>
@@ -49,15 +51,15 @@ public class PayoneerService {
      */
     public static PayeeStatus getPayeeStatus(long payeeId) throws PayoneerServiceException {
         try {
-            PayoneerConfig config = getPayoneerConfig();
+            PayoneerConfig payoneerConfig = getPayoneerConfig();
             Map<String,String> parameters = new HashMap<String,String>();
             parameters.put("mname", "GetPayeeDetails");
-            parameters.put("p1", config.username);
-            parameters.put("p2", config.password);
-            parameters.put("p3", config.partnerId);
+            parameters.put("p1", payoneerConfig.username);
+            parameters.put("p2", payoneerConfig.password);
+            parameters.put("p3", payoneerConfig.partnerId);
             parameters.put("p4", ""+payeeId);
 
-            Document response = getXMLResponse(config.baseApiUrl, parameters);
+            Document response = getXMLResponse(payoneerConfig.baseApiUrl, parameters);
 
             // Error node means the user is unknown to Payoneer and thus not registered.
             NodeList error = response.getElementsByTagName("Error");
@@ -115,16 +117,16 @@ public class PayoneerService {
      */
     public static String getRegistrationLink(long payeeId) throws PayoneerServiceException {
         try {
-            PayoneerConfig config = getPayoneerConfig();
+            PayoneerConfig payoneerConfig = getPayoneerConfig();
             Map<String,String> parameters = new HashMap<String,String>();
             parameters.put("mname", "GetToken");
-            parameters.put("p1", config.username);
-            parameters.put("p2", config.password);
-            parameters.put("p3", config.partnerId);
+            parameters.put("p1", payoneerConfig.username);
+            parameters.put("p2", payoneerConfig.password);
+            parameters.put("p3", payoneerConfig.partnerId);
             parameters.put("p4", ""+payeeId);
             parameters.put("p10", "True"); // Creates a XML response with the token URL.
 
-            Document response = getXMLResponse(config.baseApiUrl, parameters);
+            Document response = getXMLResponse(payoneerConfig.baseApiUrl, parameters);
 
             // Error node means something went wrong.
             NodeList error = response.getElementsByTagName("Error");
@@ -157,14 +159,16 @@ public class PayoneerService {
      * <p>This is a private helper method to get the Payoneer API credentials from the configuration.</p>
      */
     private static PayoneerConfig getPayoneerConfig() throws ConfigManagerException {
-        PayoneerConfig config = new PayoneerConfig();
+        if (config == null) {
+            config = new PayoneerConfig();
 
-        ConfigManager configManager = ConfigManager.getInstance();
-        if (configManager.existsNamespace(DEFAULT_PAYONEER_NAMESPACE)) {
-            config.baseApiUrl = (String) configManager.getProperty(DEFAULT_PAYONEER_NAMESPACE, "base_api_url");
-            config.partnerId = (String) configManager.getProperty(DEFAULT_PAYONEER_NAMESPACE, "partner_id");
-            config.username = (String) configManager.getProperty(DEFAULT_PAYONEER_NAMESPACE, "username");
-            config.password = (String) configManager.getProperty(DEFAULT_PAYONEER_NAMESPACE, "password");
+            ConfigManager configManager = ConfigManager.getInstance();
+            if (configManager.existsNamespace(DEFAULT_PAYONEER_NAMESPACE)) {
+                config.baseApiUrl = (String) configManager.getProperty(DEFAULT_PAYONEER_NAMESPACE, "base_api_url");
+                config.partnerId = (String) configManager.getProperty(DEFAULT_PAYONEER_NAMESPACE, "partner_id");
+                config.username = (String) configManager.getProperty(DEFAULT_PAYONEER_NAMESPACE, "username");
+                config.password = (String) configManager.getProperty(DEFAULT_PAYONEER_NAMESPACE, "password");
+            }
         }
         return config;
     }

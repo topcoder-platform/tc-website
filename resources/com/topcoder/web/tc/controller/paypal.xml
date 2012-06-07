@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<CMConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/export/home/tcssite/jboss-3.0.4_tomcat-4.0.6/server/default/conf/CM v2 Schema.xsd" version="v2">
+    <Property name="baseAdaptivePaymentsUrl">
+        <Value>https://svcs.sandbox.paypal.com/AdaptivePayments/</Value>
+    </Property>
+    <Property name="baseAdaptiveAccountsUrl">
+        <Value>https://svcs.sandbox.paypal.com/AdaptiveAccounts/</Value>
+    </Property>
+    <Property name="username">
+        <Value>username</Value>
+    </Property>
+    <Property name="password">
+        <Value>password</Value>
+    </Property>
+    <Property name="applicationId">
+        <Value>applicationId</Value>
+    </Property>
+    <Property name="signature">
+        <Value>signature</Value>
+    </Property>
+    <Property name="senderEmail">
+        <Value>senderEmail@topcoder.com</Value>
+    </Property>
+</CMConfig>
