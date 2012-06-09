@@ -2,15 +2,7 @@ package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.List;
-import java.util.Map;
-import java.util.Calendar;
-import java.util.Date;
+import java.util.*;
 import java.io.PrintWriter;
 import java.io.IOException;
 import javax.servlet.http.HttpServletResponse;
@@ -62,6 +54,12 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
     public static final String PAYONEER_XML_FORMAT = "payoneer_xml";
     public static final String PAYONEER_XML_LINK = "payoneer_xml_link";
 
+    public static final String REFERENCE_PAYMENTS = "reference_payments";
+    public static final String BREAKDOWN_LINKS = "breakdown_links";
+    public static final String GROUPED_NET_AMOUNTS = "grouped_net_amounts";
+    public static final String GROUPED_GROSS_AMOUNTS = "grouped_gross_amounts";
+    public static final String GROUP_BY_FIELDS = "group_by_fields";
+
     public static final int NAME_COL = 1;
     public static final int USER_COL = 2;
     public static final int DESC_COL = 3;
@@ -70,8 +68,8 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
     public static final int NET_COL = 6;
     public static final int TYPE_COL = 7;
     public static final int STATUS_COL = 8;
-    public static final int CREATED_COL = 9;
-    public static final int MODIFIED_COL = 10;
+    public static final int CREATE_DATE_COL = 9;
+    public static final int MODIFY_DATE_COL = 10;
     public static final int CLIENT_COL = 11;
     public static final int ID_COL = 12;
     public static final int REFERENCE_ID_COL = 13;
@@ -79,6 +77,8 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
     public static final int COCKPIT_PROJECT_NAME_COL = 15;
     public static final int BILLING_ACCOUNT_NAME_COL = 16;
     public static final int INVOICE_NUMBER_COL = 17;
+    public static final int PAID_DATE_COL = 18;
+    public static final int METHOD_COL = 19;
 
     private static final double WIRE_FEE = 10.0;
     
@@ -103,14 +103,20 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
             log.debug("query.size(): " + query.size());
             if (query.size() > 0) {
                 Map paymentMap = dib.findPayments(query);
-    
                 PaymentHeaderList phl = new PaymentHeaderList(paymentMap);
-                
                 PaymentHeader[] results = phl.getHeaderList();
-    
-                Map ids = new HashMap();
-    
+
+                List<Long> groupByFields = getGroupByFields();
+                if (groupByFields.size() > 0) {
+                    sortResult(Arrays.asList(results), sortCol, invert);
+                    processGroupingReport(results, groupByFields);
+                    setNextPage(INTERNAL_GROUPED_PAYMENT_LIST_JSP);
+                    setIsNextPageInContext(true);
+                    return;
+                }
+
                 // Add all the payment id's to a set
+                Map ids = new HashMap();
                 for (int i = 0; i < results.length; i++) {
                     if (results[i].getTypeId() != RELIABILITY_BONUS_PAYMENT) {
                         ids.put(new Long(results[i].getId()), results[i]);
@@ -119,7 +125,6 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
     
                 List<PaymentHeader> payments = new ArrayList<PaymentHeader>();
                 Map reliability = new HashMap();
-                
                 for (int i = 0; i < results.length; i++) {
                     // remove the word "Payment" from the type description
                     int pos = results[i].getType().indexOf("Payment");
@@ -143,7 +148,6 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 }
                 
                 if (results.length != 1) {
-                    // sort payments
                     sortResult(payments, sortCol, invert);
                 }                    
 
@@ -179,7 +183,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 
                 if (getRequest().getAttribute(CHECKED_PAYMENT_ID) == null) {
                     getRequest().setAttribute(CHECKED_PAYMENT_ID, "");                        
-                }                    
+                }
 
                 if ("true".equals(getRequest().getParameter(TRAVELEX_XML_FORMAT))) {
                     produceTravelexXML();
@@ -455,17 +459,171 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         }
     }
 
-    void addCSVValue(StringBuilder row, Object value) {
-      if (value != null) {
-          String item = value.toString();
-          if (item.contains(",") || item.contains("\n") || item.contains("\"")) {
-              row.append("\"" + item.replaceAll("\"","\"\"") + "\"");
-          } else {
-              row.append(item);
-          }
-      }
+    /**
+     * Finds a payment in the specified list that belongs to the same group that the specified target payment.
+     * the grouping is defined by the groupByFields parameter.
+     *
+     * @param payments List of reference payments. Each payment in the list represents a group.
+     * @param tagetPayment Target payment whose group is to be found.
+     * @param groupByFields List of the fields the payments are grouped by.
+     * @return Index of the group in the payments list or -1 if no group found.
+     */
+    private int findReferencePayment(List<PaymentHeader> payments, PaymentHeader tagetPayment, List<Long> groupByFields) {
+        for (int i=0;i<payments.size();i++) {
+            PaymentHeader payment = payments.get(i);
+            
+            boolean match = true;
+            for (Long groupByField : groupByFields) {
+                if (groupByField == USER_COL && !payment.getUser().getHandle().equals(tagetPayment.getUser().getHandle())) {
+                    match = false;
+                }
+                if (groupByField == TYPE_COL && !payment.getType().equals(tagetPayment.getType())) {
+                    match = false;
+                }
+                if (groupByField == STATUS_COL && !payment.getRecentStatus().equals(tagetPayment.getRecentStatus())) {
+                    match = false;
+                }
+                if (groupByField == METHOD_COL && !payment.getMethod().equals(tagetPayment.getMethod())) {
+                    match = false;
+                }
+                if (groupByField == PAID_DATE_COL && !payment.getPaidDate().equals(tagetPayment.getPaidDate())) {
+                    match = false;
+                }
+                if (groupByField == CREATE_DATE_COL && !payment.getCreateDate().equals(tagetPayment.getCreateDate())) {
+                    match = false;
+                }
+            }
+            if (match) {
+                return i;
+            }
+        }
+        return -1;
+    }
 
-      row.append(",");
+    /**
+     * Generates breakdown report link for the specified group.
+     *
+     * @param payment Reference payment that defines the group.
+     * @param groupByFields List of the fields the payments are grouped by.
+     * @return URL link for the group breakdown report.
+     */
+    private String getBreakdownLink(PaymentHeader payment, List<Long> groupByFields) {
+        String requestQuery = INTERNAL_SERVLET_URL + "?" + getRequest().getQueryString();
+        
+        // Remove the grouping parameters from the request string.
+        requestQuery = requestQuery.replaceAll(GROUPING_CODE + "=[^&]*&", "").replaceAll(GROUPING_CODE + "=[^&]*$", "");
+
+        // For each grouping field replace the existing constraints in the request string with the one corresponding to the group.
+        for (Long groupingField : groupByFields) {
+            if (groupingField == USER_COL) {
+                requestQuery = requestQuery.replaceAll(HANDLE + "=[^&]*&", "").replaceAll(HANDLE + "=[^&]*$", "");
+                requestQuery = (requestQuery.endsWith("&") ? requestQuery : requestQuery + "&") + HANDLE + "=" + payment.getUser().getHandle();
+            }
+            if (groupingField == TYPE_COL) {
+                requestQuery = requestQuery.replaceAll(TYPE_CODE + "=[^&]*&", "").replaceAll(TYPE_CODE + "=[^&]*$", "");
+                requestQuery = (requestQuery.endsWith("&") ? requestQuery : requestQuery + "&") + TYPE_CODE + "=" + payment.getTypeId();
+            }
+            if (groupingField == STATUS_COL) {
+                requestQuery = requestQuery.replaceAll(STATUS_CODE + "=[^&]*&", "").replaceAll(STATUS_CODE + "=[^&]*$", "");
+                requestQuery = (requestQuery.endsWith("&") ? requestQuery : requestQuery + "&") + STATUS_CODE + "=" + payment.getRecentStatusId();
+            }
+            if (groupingField == METHOD_COL) {
+                requestQuery = requestQuery.replaceAll(METHOD_CODE + "=[^&]*&", "").replaceAll(METHOD_CODE + "=[^&]*$", "");
+                requestQuery = (requestQuery.endsWith("&") ? requestQuery : requestQuery + "&") + METHOD_CODE + "=" + payment.getMethodId();
+            }                        
+            if (groupingField == PAID_DATE_COL) {
+                requestQuery = requestQuery.replaceAll(EARLIEST_PAY_DATE + "=[^&]*&", "").replaceAll(EARLIEST_PAY_DATE + "=[^&]*$", "");
+                requestQuery = (requestQuery.endsWith("&") ? requestQuery : requestQuery + "&") + EARLIEST_PAY_DATE + "=" + payment.getPaidDate();
+
+                requestQuery = requestQuery.replaceAll(LATEST_PAY_DATE + "=[^&]*&", "").replaceAll(LATEST_PAY_DATE + "=[^&]*$", "");
+                requestQuery = (requestQuery.endsWith("&") ? requestQuery : requestQuery + "&") + LATEST_PAY_DATE + "=" + payment.getPaidDate();
+            }
+            if (groupingField == CREATE_DATE_COL) {
+                requestQuery = requestQuery.replaceAll(EARLIEST_CREATION_DATE + "=[^&]*&", "").replaceAll(EARLIEST_CREATION_DATE + "=[^&]*$", "");
+                requestQuery = (requestQuery.endsWith("&") ? requestQuery : requestQuery + "&") + EARLIEST_CREATION_DATE + "=" + payment.getCreateDate();
+
+                requestQuery = requestQuery.replaceAll(LATEST_CREATION_DATE + "=[^&]*&", "").replaceAll(LATEST_CREATION_DATE + "=[^&]*$", "");
+                requestQuery = (requestQuery.endsWith("&") ? requestQuery : requestQuery + "&") + LATEST_CREATION_DATE + "=" + payment.getCreateDate();
+            }
+        }
+        return requestQuery;
+    }
+
+    /**
+     * Groups payments by the specified fields and saves the result to the request attributes.
+     *
+     * @param payments Arrays of payments to be grouped.
+     * @param groupByFields List of the fields the payments will be grouped by.
+     */
+    private void processGroupingReport(PaymentHeader[] payments, List<Long> groupByFields) {
+        // This list will contain one payment from each group, this payment will be referred to
+        // as the "reference payment" for all other payments in the same group.
+        List<PaymentHeader> referencePayments = new ArrayList<PaymentHeader>();
+
+        // This list will contain all URL links for the breakdown report for each group.
+        List<String> breakdownLinks = new ArrayList<String>();
+
+        List<Double> netAmounts = new ArrayList<Double>(), grossAmounts = new ArrayList<Double>();
+        
+        for(PaymentHeader payment : payments) {
+            // Check if there's already a group for this payment.
+            int index = findReferencePayment(referencePayments, payment, groupByFields);
+            if (index != -1) {
+                // Add net and gross amounts to the existing group.
+                netAmounts.set(index, netAmounts.get(index)+payment.getRecentNetAmount());
+                grossAmounts.set(index, grossAmounts.get(index)+payment.getRecentGrossAmount());
+            } else {
+                // If no group found it is added to the list.
+                referencePayments.add(payment);
+                netAmounts.add(payment.getRecentNetAmount());
+                grossAmounts.add(payment.getRecentGrossAmount());
+                breakdownLinks.add(getBreakdownLink(payment, groupByFields));
+            }
+        }
+
+        getRequest().setAttribute(REFERENCE_PAYMENTS, referencePayments);
+        getRequest().setAttribute(BREAKDOWN_LINKS, breakdownLinks);
+        getRequest().setAttribute(GROUPED_NET_AMOUNTS, netAmounts);
+        getRequest().setAttribute(GROUPED_GROSS_AMOUNTS, grossAmounts);
+        getRequest().setAttribute(GROUP_BY_FIELDS, groupByFields);
+    }
+
+    /**
+     * Returns list of payment fields to group by.
+     * @return List of the fields the payments will be grouped by.
+     */
+    private List<Long> getGroupByFields() {
+        String[] values = getRequest().getParameterValues(GROUPING_CODE);
+        
+        Set<Long> groupByFields = new HashSet<Long>();
+        if (values != null) {
+            for (String value : values) {
+                if (StringUtils.isNumber(value)) {
+                    Long colID = Long.valueOf(value);
+                    if (colID == USER_COL || colID == TYPE_COL || colID == STATUS_COL ||
+                        colID == METHOD_COL || colID == PAID_DATE_COL || colID == CREATE_DATE_COL) {
+                        groupByFields.add(colID);
+                    }
+                }
+            }
+        }
+        
+        List<Long> ret = new ArrayList<Long>(groupByFields);
+        Collections.sort(ret);
+        return ret;
+    }
+
+    void addCSVValue(StringBuilder row, Object value) {
+        if (value != null) {
+            String item = value.toString();
+            if (item.contains(",") || item.contains("\n") || item.contains("\"")) {
+                row.append("\"" + item.replaceAll("\"","\"\"") + "\"");
+            } else {
+                row.append(item);
+            }
+        }
+
+        row.append(",");
     }
 
     private Map getQuery(TCRequest request) {
@@ -640,13 +798,23 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 }
             });
             break;
-            case STATUS_COL:
+        case STATUS_COL:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
                     if (arg0.getRecentStatus() == null) {
                         return 1;
                     }
                     return arg0.getRecentStatus().toUpperCase().compareTo(arg1.getRecentStatus().toUpperCase());
+                }
+            });
+            break;
+        case METHOD_COL:
+            Collections.sort(result, new Comparator<PaymentHeader>() {
+                public int compare(PaymentHeader arg0, PaymentHeader arg1) {
+                    if (arg0.getMethod() == null) {
+                        return 1;
+                    }
+                    return arg0.getMethod().toUpperCase().compareTo(arg1.getMethod().toUpperCase());
                 }
             });
             break;
@@ -667,7 +835,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 }
             });
             break;
-        case CREATED_COL:
+        case CREATE_DATE_COL:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
                     SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy");
@@ -679,12 +847,24 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 }
             });
             break;
-        case MODIFIED_COL:
+        case MODIFY_DATE_COL:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
                     SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy");
                     try {
                         return (sdf.parse(arg0.getModifyDate())).compareTo(sdf.parse(arg1.getModifyDate()));
+                    } catch (ParseException e) {
+                        return 0;
+                    }
+                }
+            });
+            break;
+        case PAID_DATE_COL:
+            Collections.sort(result, new Comparator<PaymentHeader>() {
+                public int compare(PaymentHeader arg0, PaymentHeader arg1) {
+                    SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy");
+                    try {
+                        return (sdf.parse(arg0.getPaidDate())).compareTo(sdf.parse(arg1.getPaidDate()));
                     } catch (ParseException e) {
                         return 0;
                     }
@@ -752,8 +932,8 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         s.addDefault(STATUS_COL, "asc");
         s.addDefault(CLIENT_COL, "asc");
         s.addDefault(REFERENCE_ID_COL, "asc");
-        s.addDefault(CREATED_COL, "desc");
-        s.addDefault(MODIFIED_COL, "desc");
+        s.addDefault(CREATE_DATE_COL, "desc");
+        s.addDefault(MODIFY_DATE_COL, "desc");
         s.addDefault(CONTEST_CATEGORY_NAME_COL, "asc");
         s.addDefault(COCKPIT_PROJECT_NAME_COL, "asc");
         s.addDefault(BILLING_ACCOUNT_NAME_COL, "asc");      

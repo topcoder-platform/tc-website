@@ -200,7 +200,7 @@ ${fn:length(paymentList)} records. <br />
 <table id="datatable" border="1" cellpadding="0" cellspacing="0"  class="stat" width="100%">
     <tr>
         <td class="header"></td>
-        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.ID_COL%>" includeParams="true"/>" >Payment ID</a></td>	
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.ID_COL%>" includeParams="true"/>" >Payment ID</a></td> 
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.NAME_COL%>" includeParams="true"/>" >Full Name</a></td>
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.USER_COL%>" includeParams="true"/>" >User</a></td>
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.DESC_COL%>" includeParams="true"/>" >Description</a></td>
@@ -211,12 +211,12 @@ ${fn:length(paymentList)} records. <br />
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.STATUS_COL%>" includeParams="true"/>" >Status</a></td>
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.CLIENT_COL%>" includeParams="true"/>" >Client</a></td>
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.COCKPIT_PROJECT_NAME_COL%>" includeParams="true"/>" >Project</a></td>
-        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.BILLING_ACCOUNT_NAME_COL%>" includeParams="true"/>" >Billing Acct</a></td>		
-        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.REFERENCE_ID_COL%>" includeParams="true"/>" >Reference ID</a></td>	
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.BILLING_ACCOUNT_NAME_COL%>" includeParams="true"/>" >Billing Acct</a></td>     
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.REFERENCE_ID_COL%>" includeParams="true"/>" >Reference ID</a></td> 
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.CONTEST_CATEGORY_NAME_COL%>" includeParams="true"/>" >Contest Category</a></td>
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.INVOICE_NUMBER_COL%>" includeParams="true"/>" >Invoice #</a></td>
-        <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.CREATED_COL%>" includeParams="true"/>" >Created</a></td>
-        <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.MODIFIED_COL%>" includeParams="true"/>" >Modified</a></td>
+        <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.CREATE_DATE_COL%>" includeParams="true"/>" >Created</a></td>
+        <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.MODIFY_DATE_COL%>" includeParams="true"/>" >Modified</a></td>
     </tr>
     <% boolean even = true;%>
     <c:forEach var="payment" items="${paymentList}" varStatus="index">
@@ -247,7 +247,7 @@ ${fn:length(paymentList)} records. <br />
             </c:choose>
 
         </td>
-        <td class="value"><c:out value="${payment.id}" /></td>	
+        <td class="value"><c:out value="${payment.id}" /></td>  
         <td class="value" nowrap="nowrap"><c:out value="${payment.user.fullName}" /></td>
         <td class="value"><a href="${pacts:viewUser(payment.user.id)}"><c:out value="${payment.user.handle}" /></td>
         <td class="value"><a href="${pacts:viewPayment(payment.id)}"><c:out value="${payment.description}" /></a>
@@ -268,10 +268,10 @@ ${fn:length(paymentList)} records. <br />
 
         <td class="value"><c:out value="${payment.client}" /></td>
         <td class="value"><c:out value="${payment.cockpitProjectName}" /></td>
-        <td class="value"><c:out value="${payment.billingAccountName}" /></td>		
-        <td class="value"><c:out value="${payment.referenceId}" /></td>	
-        <td class="value"><c:out value="${payment.contestCategoryName}" /></td>	
-        <td class="value"><c:out value="${payment.invoiceNumber}" /></td>	
+        <td class="value"><c:out value="${payment.billingAccountName}" /></td>      
+        <td class="value"><c:out value="${payment.referenceId}" /></td> 
+        <td class="value"><c:out value="${payment.contestCategoryName}" /></td> 
+        <td class="value"><c:out value="${payment.invoiceNumber}" /></td>   
         <td class="valueC"><c:out value="${payment.createDate}" /> </td>
         <td class="valueC"><c:out value="${payment.modifyDate}" /> </td>
         </tr>
