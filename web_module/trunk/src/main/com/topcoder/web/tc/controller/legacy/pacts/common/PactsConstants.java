@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.legacy.pacts.common;
 
@@ -254,6 +254,7 @@ public interface PactsConstants extends Constants {
     public static final String STATUS_CODE = "status_code";
     public static final String TYPE_CODE = "type_code";
     public static final String METHOD_CODE = "method_code";
+    public static final String GROUPING_CODE = "grouping_code";
     public static final String EARLIEST_CREATION_DATE = "earliest_creation_date";
     public static final String LATEST_CREATION_DATE = "latest_creation_date";
     public static final String EARLIEST_MODIFICATION_DATE = "earliest_modification_date";
@@ -452,6 +453,7 @@ public interface PactsConstants extends Constants {
     public static final String INTERNAL_SEARCH_NOTES_JSP = INTERNAL_JSP_DIR + "/searchNotes.jsp";
     public static final String INTERNAL_AFFIDAVIT_LIST_JSP = INTERNAL_JSP_DIR + "/affidavitList.jsp";
     public static final String INTERNAL_PAYMENT_LIST_JSP = INTERNAL_JSP_DIR + "/paymentList.jsp";
+    public static final String INTERNAL_GROUPED_PAYMENT_LIST_JSP = INTERNAL_JSP_DIR + "/groupedPaymentList.jsp";
     public static final String INTERNAL_CONTRACT_LIST_JSP = INTERNAL_JSP_DIR + "/contractList.jsp";
     public static final String INTERNAL_TAX_FORM_LIST_JSP = INTERNAL_JSP_DIR + "/taxFormList.jsp";
     public static final String INTERNAL_USER_LIST_JSP = INTERNAL_JSP_DIR + "/userList.jsp";

@@ -1,4 +1,5 @@
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*" %>
+<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.PaymentList" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -144,6 +145,21 @@
                    </select>
               </td>
           </tr>
+
+          <tr>
+            <td>Group By:</td>
+            <td>
+                <select name="<%=PactsConstants.GROUPING_CODE%>" multiple size=4>
+                    <option value="<%=PaymentList.USER_COL%>">Handle</option>
+                    <option value="<%=PaymentList.TYPE_COL%>">Type</option>
+                    <option value="<%=PaymentList.STATUS_COL%>">Status</option>
+                    <option value="<%=PaymentList.METHOD_COL%>">Method</option>
+                    <option value="<%=PaymentList.CREATE_DATE_COL%>">Creation Date</option>
+                    <option value="<%=PaymentList.PAID_DATE_COL%>">Paid Date</option>
+                </select>
+            </td>
+          </tr>
+
 <%--          <tr>
             <td>Is Reviewed:</td>
 <% out.println("            <td><input type=\"radio\" value=\"true\" name=\""+PactsConstants.IS_REVIEWED+"\">Yes<br>");

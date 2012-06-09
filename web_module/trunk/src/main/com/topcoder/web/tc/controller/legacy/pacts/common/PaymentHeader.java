@@ -82,6 +82,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
 
     private String modifyDate;
     private String createDate;
+    private String paidDate;
 
     private String invoiceNumber;
     private String jiraIssueName;
@@ -202,6 +203,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
 
         createDate = TCData.getTCDate(rsr, "create_date", "00/00/00", false);
         modifyDate = TCData.getTCDate(rsr, "modify_date", "00/00/00", false);
+        paidDate = TCData.getTCDate(rsr, "date_paid", "00/00/00", false);
     }
 
 /* Constructor
@@ -432,6 +434,14 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
 
     public void setModifyDate(String modifyDate) {
         this.modifyDate = modifyDate;
+    }
+
+    public String getPaidDate() {
+        return paidDate;
+    }
+
+    public void setPaidDate(String paidDate) {
+        this.paidDate = paidDate;
     }
 
     public String getInvoiceNumber() {
