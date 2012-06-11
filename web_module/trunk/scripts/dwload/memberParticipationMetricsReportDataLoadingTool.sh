@@ -20,5 +20,5 @@ CP=$CP:../../lib/jars/tcs/base_exception/2.0.0/base_exception.jar
 
 CP=$CP:../../../shared/build/artifacts/shared-SNAPSHOT.jar
 
-nohup java  -cp $CP com.topcoder.shared.util.sql.DBUtilityLauncher com.topcoder.utilities.MemberParticipationMetricsReportDataLoadUtility -xmlfile memberParticipationMetricsReportDataLoadingTool.xml $@ > ./memberParticipationMetricsReportDataLoadingTool.out 2>&1 &
+nohup java  -cp $CP com.topcoder.shared.util.sql.DBUtilityLauncher com.topcoder.utilities.dwload.MemberParticipationMetricsReportDataLoadUtility -xmlfile memberParticipationMetricsReportDataLoadingTool.xml $@ > ./memberParticipationMetricsReportDataLoadingTool.out 2>&1 &
 tail -f memberParticipationMetricsReportDataLoadingTool.out
