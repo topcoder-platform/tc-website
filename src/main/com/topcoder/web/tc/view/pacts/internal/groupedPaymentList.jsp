@@ -78,7 +78,11 @@ ${fn:length(netAmounts)} records <br />
 
     <% boolean even = true;%>
     <c:set var="i" value="0" />
+    <c:set var="totalNet" value="0" />
+    <c:set var="totalGross" value="0" />
     <c:forEach var="referencePayment" items="${referencePayments}" varStatus="index">
+        <c:set var="totalNet" value="${totalNet + netAmounts[i]}" />
+        <c:set var="totalGross" value="${totalNet + grossAmounts[i]}" />        
         <tr class="<%=even?"light":"dark"%>">
 
         <c:forEach var="groupByField" items="${groupByFields}" varStatus="index">
@@ -106,12 +110,18 @@ ${fn:length(netAmounts)} records <br />
             </c:choose>
             </td>
         </c:forEach>
-        <td class="value"><a href="${breakdownLinks[i]}"><c:out value="${grossAmounts[i]}" /></a></td>
-        <td class="value"><a href="${breakdownLinks[i]}"><c:out value="${netAmounts[i]}" /></a></td>
-
+        <td class="value" nowrap="nowrap"><a href="${breakdownLinks[i]}">$<fmt:formatNumber value="${grossAmounts[i]}" pattern="###,##0.00" /></a></td>
+        <td class="value" nowrap="nowrap"><a href="${breakdownLinks[i]}">$<fmt:formatNumber value="${netAmounts[i]}" pattern="###,##0.00" /></a></td>
+        </tr>
         <c:set var="i" value="${i+1}" />
         <% even = !even;%>
     </c:forEach> 
+    <tr>
+        <td class="header" colspan="${fn:length(groupByFields)}"><b>Total Amount:</td>
+        <td class="headerR" nowrap="nowrap">$<fmt:formatNumber value="${totalGross}" pattern="###,###.00" /></td>
+        <td class="headerR" nowrap="nowrap">$<fmt:formatNumber value="${totalNet}" pattern="###,###.00" /></td>
+    </tr>
+
  </table>
 <br/>
 
