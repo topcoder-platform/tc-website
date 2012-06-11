@@ -111,8 +111,15 @@ import com.topcoder.utilities.dwload.contestresult.drv2.ContestResultCalculatorV
  *   </ol>
  * </p>
  *
- * @author rfairfax, pulky, ivern, VolodymyrK, moonli, isv
- * @version 1.2.0
+ * <p>
+ * Version 1.2.1 (Module Assembly - Contest Fee Based on % of Member Cost Cockpit Pages Update) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #doLoadProjects()} method to use percentage based admin fee if its enabled.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author rfairfax, pulky, ivern, VolodymyrK, moonli, isv, minhu
+ * @version 1.2.1
  */
 public class TCLoadTCS extends TCLoad {
 
@@ -949,6 +956,8 @@ public class TCLoadTCS extends TCLoad {
                             "   ,pcl.name " +
                             "   ,p.tc_direct_project_id " +
                             "   ,piaf.value::DECIMAL(10,2) AS admin_fee " +
+                            "   ,nvl((select cast (nvl(pi57.value, '0') as DECIMAL (10,2)) from project_info pi57" +
+                            "       where p.project_id = pi57.project_id and pi57.project_info_type_id = 57),0) as contest_fee_percentage " +                         
 //                            "   ,(SELECT SUM(value::decimal(10,2)) " +
 //                            "     FROM project_info costs " +
 //                            "     WHERE costs.project_id = p.project_id " +
@@ -1205,8 +1214,12 @@ public class TCLoadTCS extends TCLoad {
                     update.setInt(29, rs.getInt("project_category_id"));
                     update.setString(30, rs.getString("name"));
                     update.setLong(31, rs.getLong("tc_direct_project_id"));
-                    update.setDouble(32, rs.getDouble("admin_fee"));
-                    update.setDouble(33, rs.getDouble("contest_prizes_total"));
+                    
+                    double prizeTotal = rs.getDouble("contest_prizes_total");
+                    double percentage = rs.getDouble("contest_fee_percentage");
+                    double adminFee = rs.getDouble("admin_fee");
+                    update.setDouble(32, (percentage < 1e-5 ? adminFee : percentage * prizeTotal));
+                    update.setDouble(33, prizeTotal);
                     if (rs.getString("billing_project_id") != null
                         && !rs.getString("billing_project_id").equals("0"))
                     {
@@ -1288,8 +1301,8 @@ public class TCLoadTCS extends TCLoad {
                         insert.setInt(30, rs.getInt("project_category_id"));
                         insert.setString(31, rs.getString("name"));
                         insert.setLong(32, rs.getLong("tc_direct_project_id"));
-                        insert.setDouble(33, rs.getDouble("admin_fee"));
-                        insert.setDouble(34, rs.getDouble("contest_prizes_total"));
+                        insert.setDouble(33, (percentage < 1e-7 ? adminFee : percentage * prizeTotal));
+                        insert.setDouble(34, prizeTotal);
                         if (rs.getString("billing_project_id") != null
                                 && !rs.getString("billing_project_id").equals("0"))
                         {
