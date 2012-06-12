@@ -92,7 +92,7 @@
 	  	 <div class="long">
          <strong><a href="/tc?module=MatchDetails&rd=15189">HMS Challenge #3</a></strong><br />
          14:00<br />
-         2 weeks<br />
+         13 days 10 hours<br />
 		 $10k Prizes
          </div>
       </td>
