@@ -69,7 +69,7 @@
 
                     <p>In order to register for NASA Robots Challenge, please perform the following actions:
                     <ul>
-                    <li>Answer the questions from our survey.</li>
+                    <li>Answer the questions from our survey. The data collected, including survey responses, analysis of code submissions, will be used for research purposes.  All other data is confidential and is collected solely for research purposes. Answers to these questions will not affect your eligibility for winning a prize in this or future contests in anyway. Only the immediate project team at TopCoder, Harvard University and NASA will see your individual data. Data will only be shared outside the immediate project team in an anonymous form in which individuals cannot be identified.</li>
                     <li>Read the round terms and make sure you agree with them.</li>
                     <li>Click the "Accept" button at the bottom of the page.</li>
                     </ul>
