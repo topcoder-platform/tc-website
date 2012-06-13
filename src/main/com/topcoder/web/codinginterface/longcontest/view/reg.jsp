@@ -69,7 +69,7 @@
 
                     <p>In order to register for NASA Robots Challenge, please perform the following actions:
                     <ul>
-                    <li>Answer all the questions below. Please make sure to provide (non-empty) answer to <i>all</i> questions. (Otherwise, the system
+                    <li>Answer the questions from our survey. Please make sure to provide (non-empty) answer to <u>all</u> questions. (Otherwise, the system
                     won't accept your registration and you will need to repeat from scratch.)</li>
                     <li>Read the round terms and make sure you agree with them.</li>
                     <li>Click the "Accept" button at the bottom of the page.</li>
