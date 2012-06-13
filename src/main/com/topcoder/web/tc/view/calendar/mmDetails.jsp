@@ -364,7 +364,7 @@ total prize money</b>.
 
 <% if (roundId == 15200) { %>
 <p align="justify">
-This round is created to let you register for the following experimental <a href="http://community.topcoder.com/ntl/?page_id=804">match</a>.
+This round is created to let you register for the following <a href="http://community.topcoder.com/ntl/?page_id=804">match</a>.
 </p>
 <% } %>
 
