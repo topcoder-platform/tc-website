@@ -63,8 +63,8 @@
                     </div>
                     <span class="bigHandle">Contest: <%=request.getAttribute(Constants.CONTEST_NAME)%> &gt; <%=request.getAttribute(Constants.ROUND_NAME)%></span>
 
-                    <% int roundId = request.getAttribute(Constants.ROUND_ID)==null?-1:((Integer)request.getAttribute(Constants.ROUND_ID)).intValue();
-                    if (roundId == 15200) { %>
+                    <% String roundId = request.getAttribute(Constants.ROUND_ID)==null?"-1":((String)request.getAttribute(Constants.ROUND_ID));
+                    if (roundId.equals("15200")) { %>
                     <p></p>
 
                     <p>In order to register for NASA Robots Challenge, please perform the following actions:
