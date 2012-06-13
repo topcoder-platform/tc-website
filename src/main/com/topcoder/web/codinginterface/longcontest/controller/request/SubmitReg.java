@@ -253,7 +253,7 @@ public class SubmitReg extends ViewReg {
         boolean found = false;
         for (Iterator it = responses.iterator(); it.hasNext() && !found;) {
             r = (SurveyAnswerData) it.next();
-            found = (r.getQuestionID() == question.getId());
+            found = (r.getQuestionID() == question.getId()) && (r.getAnswers().size() > 0 || r.getChoices().size() > 0);
         }
         return found;
     }
@@ -292,11 +292,17 @@ public class SubmitReg extends ViewReg {
             r = (SurveyAnswerData) it.next();
             Question question = findQuestion(r.getQuestionID());
             if (question.getStyleId() == Question.MULTIPLE_CHOICE) {
-                setDefault(AnswerInput.PREFIX + r.getQuestionID() + "," + ((SurveyChoiceData)(r.getChoices().get(0))).getID(), "true");
+                if (r.getChoices().size() > 0) {
+                    setDefault(AnswerInput.PREFIX + r.getQuestionID() + "," + ((SurveyChoiceData)(r.getChoices().get(0))).getID(), "true");
+                }
             } else if (question.isFreeForm()) {
-                setDefault(AnswerInput.PREFIX + r.getQuestionID(), r.getAnswers().get(0));
+                if (r.getAnswers().size() > 0) {
+                    setDefault(AnswerInput.PREFIX + r.getQuestionID(), r.getAnswers().get(0));
+                }
             } else {
-                setDefault(AnswerInput.PREFIX + r.getQuestionID(), new Long(((SurveyChoiceData)(r.getChoices().get(0))).getID()));
+                if (r.getChoices().size() > 0) {
+                    setDefault(AnswerInput.PREFIX + r.getQuestionID(), new Long(((SurveyChoiceData)(r.getChoices().get(0))).getID()));
+                }
             }
         }
     }
