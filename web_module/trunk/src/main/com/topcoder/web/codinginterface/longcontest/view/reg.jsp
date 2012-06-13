@@ -63,6 +63,21 @@
                     </div>
                     <span class="bigHandle">Contest: <%=request.getAttribute(Constants.CONTEST_NAME)%> &gt; <%=request.getAttribute(Constants.ROUND_NAME)%></span>
 
+                    <% if (request.getAttribute(Constants.ROUND_ID) == 15200) { %>
+                    <p></p>
+
+                    <p>In order to register for NASA Robots Challenge, please perform the following actions:
+                    <ul>
+                    <li>Answer all the questions below. Please make sure to provide (non-empty) answer to <i>all</i> questions. (Otherwise, the system
+                    won't accept your registration and you will need to repeat from scratch.)</li>
+                    <li>Read the round terms and make sure you agree with them.</li>
+                    <li>Click the "Accept" button at the bottom of the page.</li>
+                    </ul>
+                    </p>
+
+                    <p></p>
+                    <% } %>
+
                     <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST"
                           name="surveyForm">
                         <input type="hidden" name="<%=Constants.MODULE%>" value="SubmitReg"/>
