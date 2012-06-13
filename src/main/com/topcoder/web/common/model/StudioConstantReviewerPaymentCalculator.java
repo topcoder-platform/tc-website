@@ -1,7 +1,9 @@
 /*
- * Copyright (C) 2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2011-2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common.model;
+
+import com.topcoder.web.common.WebConstants;
 
 /**
  * <p>
@@ -44,13 +46,6 @@ public class StudioConstantReviewerPaymentCalculator extends BaseReviewerPayment
     private static final float SPEC_REVIEW_PAYMENT = 75.0f;
     
     /**
-     * Represents the project category id of Logo contest.
-     * 
-     * @since 1.1
-     */
-    private static final int LOGO_CONTEST_CATEGORY_ID = 20;
-
-    /**
      * Represents the id of the project category.
      */
     private int projectCategory;
@@ -58,6 +53,7 @@ public class StudioConstantReviewerPaymentCalculator extends BaseReviewerPayment
     /**
      * Constructor using parameters
      * 
+     * @param projectCategory the id of the project category.
      * @param firstPlacePrize
      *            the first place prize
      * @param submissionCount
@@ -65,9 +61,9 @@ public class StudioConstantReviewerPaymentCalculator extends BaseReviewerPayment
      * @param passedScreeningCount
      *            the submissions that passed screening count
      */
-    public StudioConstantReviewerPaymentCalculator(float firstPlacePrize, int submissionCount, int passedScreeningCount) {
+    public StudioConstantReviewerPaymentCalculator(int projectCategory, float firstPlacePrize, int submissionCount, int passedScreeningCount) {
         super(firstPlacePrize, submissionCount, passedScreeningCount);
-        projectCategory = 0;
+        this.projectCategory = projectCategory;
     }
 
     /**
@@ -87,7 +83,7 @@ public class StudioConstantReviewerPaymentCalculator extends BaseReviewerPayment
      * @return the payment for the screener.
      */
     public float getScreeningCost() {
-        if (projectCategory == LOGO_CONTEST_CATEGORY_ID) {
+        if (projectCategory == (int) WebConstants.PHASE_LOGOS - (int) WebConstants.GENERAL_PHASE_OFFSET) {
             return LOGO_CONTEST_SCREENER_PAYMENT;
         }
         return SCREENER_PAYMENT;
