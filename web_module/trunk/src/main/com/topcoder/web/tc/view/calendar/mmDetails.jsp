@@ -362,9 +362,15 @@ total prize money</b>.
 </p>
 <%}%>
 
+<% if (roundId == 15200) { %>
+<p align="justify">
+This round is created to let you register for the following experimental <a href="http://community.topcoder.com/ntl/?page_id=804">match</a>.
+</p>
+<% %>
+
 
 <%-- LIMIT THE REMAINING COPY TO ONLY NON-EXPERIMENTAL ROUNDS --%>
-<%if (Arrays.binarySearch(experimentalRounds, roundId)<0) { %>
+<%if (Arrays.binarySearch(experimentalRounds, roundId)<0 && roundId != 15200) { %>
 
 <%if(roundId == 13772 ) {%>
 <p align="justify">
@@ -401,7 +407,7 @@ total prize money</b>.
 
 
 <p align="justify">
-<%if(roundId == 13953 ) {%>
+<% if (roundId == 13953 ) {%>
     Once the submission phase of a Marathon Match has ended, final testing will run 
 	and may take several days to complete.  Upon completion of final testing, 
     the final results will become available in the Marathon Match Archive on the web site. 
@@ -420,7 +426,7 @@ total prize money</b>.
     For more details on the Marathon Match format, <a href="/longcontest/?module=Static&d1=instructions">click here</a>
 </p>
 
-<%if(roundId == 10834) {%>
+<%if(roundId == 10834) {%>                                                   
 <div class="sectionHeader">Prizes</div>
     There will be $5000 in total prize money.  The first and second highest scoring
     submissions in each of the five languages supported will receive $750 and $250,
