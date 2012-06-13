@@ -366,7 +366,7 @@ total prize money</b>.
 <p align="justify">
 This round is created to let you register for the following experimental <a href="http://community.topcoder.com/ntl/?page_id=804">match</a>.
 </p>
-<% %>
+<% } %>
 
 
 <%-- LIMIT THE REMAINING COPY TO ONLY NON-EXPERIMENTAL ROUNDS --%>
