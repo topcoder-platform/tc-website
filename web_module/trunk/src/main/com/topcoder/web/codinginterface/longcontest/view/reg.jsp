@@ -132,7 +132,7 @@
                 </div>
 
                 <form name="terms">
-                    <textarea style="width:510; height:300;" name="textarea">
+                    <textarea style="width:510; height:300;" name="textarea" readonly="readonly">
                         <%=request.getAttribute(Constants.ROUND_TERMS_KEY)%>
                     </textarea>
                     <br><br>
