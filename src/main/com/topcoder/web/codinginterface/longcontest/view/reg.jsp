@@ -86,6 +86,11 @@
                         <% int i = 1; %>
                         <% List questionInfo = (List) request.getAttribute("questionInfo");%>
                         <tc-webtag:questionIterator list="<%=questionInfo%>" id="question">
+                        	<% if (roundId.equals("15200") && i == 8) { %>
+                        	<p class="bodySubtitle">
+                        	There are many reasons to participate in TopCoder contests. Please rate the importance of these statements for your reasons to participate in TopCoder contests.
+                        	</p>
+                        	<% } %>
                             <table width="510" border="0" cellpadding="5" cellspacing="0" class="formFrame"
                                    align="center">
                                 <tr>
