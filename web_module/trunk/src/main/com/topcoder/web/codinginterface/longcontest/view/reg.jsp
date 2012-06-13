@@ -95,7 +95,11 @@
                                    align="center">
                                 <tr>
                                     <td colspan="2" class="bodySubtitle" valign="top" width="100%">
-                                        <%=questionInfo.size() > 1 ? i + ". " : ""%>
+                                        <% if (roundId.equals("15200") && i >= 8) { %>
+                                        	<%= "8" + (char)((int)'a'+i-8) + ". " %>
+                                        <% } else { %>
+                                        	<%=questionInfo.size() > 1 ? i + ". " : ""%>
+                                        <% } %>
                                         <jsp:getProperty name="question" property="text"/>
                                         <br/><br/>
                                         <hr width="100%" size="1" noshade/>
