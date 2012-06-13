@@ -3,6 +3,7 @@
  */
 package com.topcoder.web.common.model;
 
+import com.topcoder.web.common.WebConstants;
 import com.topcoder.shared.util.logging.Logger;
 
 /**
@@ -255,7 +256,8 @@ public class DefaultPriceComponent implements SoftwareComponent {
                 phaseId == LOGOS_PHASE || phaseId == PRINT_PHASE || phaseId == STUDIO_SPECIFICATION_PHASE ||
                 phaseId == WIDGET_PHASE || phaseId == FRONTENDFLASH_PHASE || phaseId == APPLICATIONFRONTEND_PHASE ||
                 phaseId == OTHER_PHASE){
-            return new StudioConstantReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
+            return new StudioConstantReviewerPaymentCalculator(phaseId - (int) WebConstants.GENERAL_PHASE_OFFSET,
+                prize, submissionCount, submissionsPassedScreening);
         } else {
             throw new IllegalArgumentException("Invalid phaseId (" + phaseId + ")");
         }
