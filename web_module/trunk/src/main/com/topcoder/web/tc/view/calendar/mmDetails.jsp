@@ -713,9 +713,11 @@ total prize money. The detailed rules of this phase will be posted to the marath
     </table>
 </div>
 
+<% if (roundId != 15200) { %>
 <h2 align="center">
     <a href="?<%=Constants.MODULE_KEY%>=MatchRules&amp;<%=Constants.ROUND_ID%>=${row.map['round_id']}" class="bcLink">Rules & Regulations</a>
 </h2>
+<% } %>
 
 
 
