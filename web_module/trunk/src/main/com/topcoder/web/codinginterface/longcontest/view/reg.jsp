@@ -69,7 +69,7 @@
 
                     <p>In order to register for NASA Robots Challenge, please perform the following actions:
                     <ul>
-                    <li>Answer the questions from our survey. The survey responses collected is confidential and is collected solely for research purposes. Answers to these questions will not affect your eligibility for winning a prize in this or future contests in anyway. Only the immediate project team at TopCoder, Harvard University and NASA will see your individual data. Data will only be shared outside the immediate project team in an anonymous form in which individuals cannot be identified.</li>
+                    <li>Answer the questions from our survey. The survey responses are confidential and are collected solely for research purposes. Answers to these questions will not affect your eligibility for winning a prize in this or future contests in anyway. Only the immediate project team at TopCoder, Harvard University and NASA will see your individual data. Data will only be shared outside the immediate project team in an anonymous form in which individuals cannot be identified.</li>
                     <li>Read the contest terms and make sure you agree with them.</li>
                     <li>Click the "Accept" button at the bottom of the page.</li>
                     </ul>
