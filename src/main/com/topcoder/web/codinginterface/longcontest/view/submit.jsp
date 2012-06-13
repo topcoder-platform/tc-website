@@ -96,6 +96,7 @@
 <%-- Left Column Ends --%>
 
 <%-- Center Column Begins --%>
+<% if (!request.getParameter(Constants.ROUND_ID).equals("15200")) { %>
 <TD class="statTableSpacer" width="100%" valign="top">
 
     <jsp:include page="page_title.jsp">
@@ -192,6 +193,7 @@ Arg Types: <%=StringUtils.htmlEncode((String) paramTypes.get(i))%>
     </div>
     <br/><br/>
 </td>
+<% } %>
 
 <%-- Right Column Begins --%>
 <td width="170">
