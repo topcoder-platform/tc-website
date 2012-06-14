@@ -112,6 +112,18 @@
       <td class="value">13
       </td>
       <td class="value">14
+	  	 <div class="long">
+         <strong><a href="/tc?module=MatchDetails&rd=15201">Soybean MM 5a</a></strong><br />
+         13:00<br />
+         2 weeks<br />
+		 $5k Prizes
+         </div>
+	  	 <div class="long">
+         <strong><a href="/tc?module=MatchDetails&rd=15202">Soybean MM 5b</a></strong><br />
+         13:00<br />
+         2 weeks<br />
+		 $5k Prizes
+         </div>
       </td>
       <td class="value">15
       </td>
