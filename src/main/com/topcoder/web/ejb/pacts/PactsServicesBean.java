@@ -5648,7 +5648,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             query.append(" WHERE payment_type_id = " + ALGORITHM_CONTEST_PAYMENT);
             query.append(" AND pd.payment_detail_id = p.most_recent_detail_id");
             query.append(" AND payment_status_id = " + PaymentStatus.ON_HOLD_PAYMENT_STATUS.getId());
-            query.append(" AND today - " + PAYMENT_EXPIRE_TIME + " units day > date_due");
+            query.append(" AND today - " + PAYMENT_EXPIRE_TIME + " units day > p.create_date");
             ResultSetContainer payments = runSelectQuery(c, query.toString());
 
             int rowCount = payments.getRowCount();
@@ -6707,7 +6707,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     private StringBuffer getCoderPaymentsSelect() {
         StringBuffer sb = new StringBuffer(100);
         sb.append(" SELECT p.payment_id, p.user_id, pd.payment_desc, pd.payment_type_id, ");
-        sb.append("    pd.gross_amount, pd.net_amount, pd.payment_status_id, s.payment_status_desc, pd.date_due, pd.date_paid, ");
+        sb.append("    pd.gross_amount, pd.net_amount, pd.payment_status_id, s.payment_status_desc, ");
+        sb.append("    p.create_date, pd.date_due, pd.date_paid, ");
         sb.append("    pd.algorithm_round_id, pd.component_project_id, pd.algorithm_problem_id, ");
         sb.append("    pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, pd.digital_run_track_id, ");
         sb.append("    pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.client, ");
@@ -6839,6 +6840,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         double totalAmount = rsr.getDoubleItem("total_amount");
         int paymentType = rsr.getIntItem("payment_type_id");
         int installmentNumber = rsr.getIntItem("installment_number");
+        Date createDate = rsr.getTimestampItem("create_date");
         Date dueDate = rsr.getTimestampItem("date_due");
         Date paidDate = rsr.getTimestampItem("date_paid");
         long statusId = rsr.getLongItem("payment_status_id");
@@ -6863,6 +6865,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         payment.setNetAmount(netAmount);
         payment.setTotalAmount(totalAmount);
         payment.setInstallmentNumber(installmentNumber);
+        payment.setCreateDate(createDate);
         payment.setDueDate(dueDate);
         payment.setPaidDate(paidDate);
         payment.setDescription(description);
@@ -7010,10 +7013,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         public AlgorithmContestPaymentDataRetriever(long roundId) throws SQLException {
             super(1, 0.01, roundId);
+
             AlgorithmRoundReferencePayment.Processor processor = (AlgorithmRoundReferencePayment.Processor) getProcessor();
             roundName = processor.getRoundName(roundId);
-            dueDate = processor.lookupDueDate(this);
             eventDate = processor.lookupEventDate(this);
+            dueDate = processor.lookupDueDate(this);
         }
 
         public Date getDueDate() {

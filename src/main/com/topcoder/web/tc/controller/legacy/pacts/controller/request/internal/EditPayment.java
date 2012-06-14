@@ -228,7 +228,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     methodId = 1; // NOT SET
                     Calendar date = Calendar.getInstance();
                     date.setTime(new Date());
-                    date.add(Calendar.DAY_OF_YEAR, COMPONENT_DUE_DATE_INTERVAL);
+                    date.add(Calendar.DAY_OF_YEAR, DUE_DATE_INTERVAL);
                     dueDate = new SimpleDateFormat(DATE_FORMAT_STRING).format(date.getTime());
 
                 } else {
