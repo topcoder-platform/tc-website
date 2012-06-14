@@ -40,8 +40,7 @@ public class NoReferencePayment extends BasePayment {
      * @param coderId id of the coder being paid
      * @param grossAmount amount to pay
      * @param description description of the payment.
-     * @param eventDate the date that the event took place.  An interval will be summed depending on the type
-     * to calculate the due date.
+     * @param eventDate the date that the event took place.
      */
     public NoReferencePayment(int paymentTypeId, long coderId, double grossAmount, String description, Date eventDate) {
         super(paymentTypeId, coderId, grossAmount);

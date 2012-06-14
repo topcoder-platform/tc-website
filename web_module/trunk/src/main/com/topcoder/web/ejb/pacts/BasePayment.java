@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.ejb.pacts;
 
@@ -94,6 +94,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
     private long coderId;
     private double grossAmount;
     private double netAmount = 0;
+    private Date createDate = null;
     private Date dueDate = null;
     private Date paidDate = null;
     private BasePaymentStatus currentStatus;
@@ -155,6 +156,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         this.totalAmount = grossAmount;
         this.installmentNumber = 1;
         this.placed = placed;
+        this.createDate = new Date();
     }
 
     /**
@@ -535,12 +537,21 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         this.description = description;
     }
 
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        fieldChanged(MODIFICATION_MULTIPLE_FIELDS, createDate != null && !createDate.equals(this.createDate));
+        this.createDate = createDate;
+    }
+
     public Date getDueDate() {
         return dueDate;
     }
 
     public void setDueDate(Date dueDate) {
-        fieldChanged(MODIFICATION_DATE_PAID, dueDate != null && !dueDate.equals(this.dueDate));
+        fieldChanged(MODIFICATION_MULTIPLE_FIELDS, dueDate != null && !dueDate.equals(this.dueDate));
         this.dueDate = dueDate;
     }
 
@@ -719,20 +730,31 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
 
         /**
          * Get the due date of the payment.
-         * It is calculated as the day the event being paid took place plus
+         * It is calculated as the payment creation date plus
          * an interval of days that is looked up from the database
          *
          * @return the due date of the payment.
          * @throws SQLException if an error occurred trying to access db.
          */
         public Date lookupDueDate(BasePayment payment) throws SQLException {
-            Date eventDate = payment.getEventDate();
+            StringBuffer query = new StringBuffer(100);
+            query.append(" SELECT due_date_interval ");
+            query.append(" FROM payment_type_lu ");
+            query.append(" WHERE payment_type_id = " + payment.getPaymentType());
 
-            if (eventDate == null) {
-                eventDate = new Date();
+            ResultSetContainer rsc = runSelectQuery(query.toString());
+
+            if (rsc.getRowCount() != 1) {
+                throw new IllegalArgumentException("Payment type not found: " + payment.getPaymentType());
             }
 
-            return getDueDate(eventDate, payment.getPaymentType());
+            Calendar dueDateCal = Calendar.getInstance();
+            dueDateCal.setTime(payment.getCreateDate());
+
+            int days = rsc.getIntItem(0, "due_date_interval");
+            dueDateCal.add(Calendar.DAY_OF_YEAR, days);
+
+            return dueDateCal.getTime();
         }
 
         /**
@@ -880,40 +902,6 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
                 close(rs);
                 close(ps);
             }
-        }
-
-        /**
-         * Get the due date for the payment.
-         *
-         * @param eventDate the date the event took place.
-         * @param paymentTypeId type id of the payment
-         * @return the due date for the payment.
-         */
-        protected Date getDueDate(Date eventDate, int paymentTypeId) throws SQLException {
-            StringBuffer query = new StringBuffer(100);
-            query.append(" SELECT due_date_interval, pay_on_day ");
-            query.append(" FROM payment_type_lu ");
-            query.append(" WHERE payment_type_id = " + paymentTypeId);
-
-            ResultSetContainer rsc = runSelectQuery(query.toString());
-
-            if (rsc.getRowCount() != 1) {
-                throw new IllegalArgumentException("Payment type not found: " + paymentTypeId);
-            }
-
-            Calendar dueDateCal = Calendar.getInstance();
-
-            if (rsc.getItem(0, "due_date_interval").getResultData() != null) {
-                int days = rsc.getIntItem(0, "due_date_interval");
-                dueDateCal.setTime(eventDate);
-                dueDateCal.add(Calendar.DAY_OF_YEAR, days);
-            } else {
-                dueDateCal.setTime(new Date());
-                dueDateCal.add(Calendar.MONTH, 1);
-                dueDateCal.set(Calendar.DAY_OF_MONTH, rsc.getIntItem(0, "pay_on_day"));
-            }
-
-            return dueDateCal.getTime();
         }
 
         /**
