@@ -86,7 +86,7 @@
 </table>
 
 <div align="center">
-    <a href="http://community.topcoder.com/tco12/overview-sponsor/tco12-sponsor-dena/"><img src="/i/tournament/tco12/DeNA_Sponsor_Banner_510x114.jpg" alt="DeNA - TCO12 Sponsor" /></a><br /><br />
+    <a href="http://community.topcoder.com/tco12/overview-sponsor/tco12-sponsor-facebook/"><img src="/i/tournament/tco12/Facebook_Sponsor_Banner_510x114.jpg" alt="Facebook - TCO12 Sponsor" /></a><br /><br />
 </div>
 
 <div align="right">
