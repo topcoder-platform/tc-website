@@ -192,7 +192,7 @@ public class RegisterAction extends BaseAction implements PostAction {
           user.addEmailAddress(emailAdd);
         }
         // not save password to user table.
-        //user.setPassword(password);
+        user.setPassword(password);
         // create a new coder record
         Coder coder = new Coder();
         coder.setCompCountry(DAOUtil.getFactory().getCountryDAO().find("840"));
