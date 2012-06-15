@@ -4,6 +4,7 @@
 package com.topcoder.web.tc.controller.request.myhome;
 
 import com.topcoder.web.tc.controller.PayoneerService;
+import com.topcoder.web.tc.controller.PayoneerServiceException;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
@@ -15,6 +16,8 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
+
+import java.util.*;
 
 /**
  * <p>
@@ -37,6 +40,9 @@ import com.topcoder.web.common.model.User;
  * @version 1.1
  */
 public class Home extends ShortHibernateProcessor {
+
+    List<Long> payoneerTestGroup = Arrays.asList(8518361l);
+
     /**
      * Handle http request.
      * 
@@ -68,15 +74,23 @@ public class Home extends ShortHibernateProcessor {
         }
         getRequest().setAttribute("userImage", image);
 
-/* Uncomment when ready for the Payoneer integration
-        PayoneerService.PayeeStatus payeeStatus = PayoneerService.getPayeeStatus(getLoggedInUser().getId());
-        if (payeeStatus == PayoneerService.PayeeStatus.NOT_REGISTERED) {
+        try {
+            PayoneerService.PayeeStatus payeeStatus = PayoneerService.getPayeeStatus(getLoggedInUser().getId());
+            if (payeeStatus == PayoneerService.PayeeStatus.NOT_REGISTERED) {
+                getRequest().setAttribute("payoneerRegistered", false);
+
+                if (payoneerTestGroup.contains(getLoggedInUser().getId())) {
+                    getRequest().setAttribute("payoneerRegLink", PayoneerService.getRegistrationLink(getLoggedInUser().getId()));
+                }
+            } else {
+                getRequest().setAttribute("payoneerRegistered", true);
+            }
+        } catch (PayoneerServiceException pse) {
+            // If an exception happened assume user is not registered but don't show the registration link
             getRequest().setAttribute("payoneerRegistered", false);
-            getRequest().setAttribute("payoneerRegLink", PayoneerService.getRegistrationLink(getLoggedInUser().getId()));
-        } else {
-            getRequest().setAttribute("payoneerRegistered", true);
+            log.error("Payoneer service error.", pse);
         }
-*/
+
         setNextPage("/my_home/index.jsp");
         setIsNextPageInContext(true);
     }
