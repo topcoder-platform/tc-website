@@ -49,6 +49,8 @@ public interface DAOFactory {
     IntroEventDAO getIntroEventDAO();
 
     IntroEventPropertyTypeDAO getIntroEventPropertyTypeDAO();
+	
+	InvalidHandleDAO getInvalidHandleDAO();
 
     EventRegistrationDAO getEventRegistrationDAO();
 

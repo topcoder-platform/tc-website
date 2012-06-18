@@ -28,6 +28,11 @@ public class DAOFactoryQueryTool implements DAOFactory {
     public UserPreferenceDAO getUserPreferenceDAO() {
         return new UserPreferenceDAOQueryTool();
     }
+	
+	// The DAO for retrieving invalid handles
+	public InvalidHandleDAO getInvalidHandleDAO(){
+		return new InvalidHandleDAOQueryTool();
+	}
 
     // The rest of the DAOs are not supported
 
