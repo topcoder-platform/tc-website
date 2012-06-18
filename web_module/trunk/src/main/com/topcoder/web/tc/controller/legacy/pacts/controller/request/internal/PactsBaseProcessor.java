@@ -102,6 +102,18 @@ public abstract class PactsBaseProcessor extends BaseProcessor{
         return value;
     }
 
+    protected double checkNegativeDouble(String name, String errorMsg) {
+        double value = 0;
+        try {
+            value = Double.parseDouble(getRequest().getParameter(name));
+        } catch(NumberFormatException e) {}
+
+        if (value >= 0) {
+            addError("error", errorMsg);
+        }
+        return value;
+    }
+
     protected double checkNonNegativeDouble(String name, String errorMsg) {
         double value = -1;
         try {

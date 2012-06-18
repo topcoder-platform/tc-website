@@ -323,13 +323,15 @@ public interface Constants {
      * @since 1.9
      */
     public static final int CONTEST_MILESTONE_PAYMENT = 64;
-	
-	 /**
+
+     /**
      * <p>A <code>int</code> representing the prize payment id.</p>
      * <p>This is the payment to be used for prize payments for all tracks going forward.
-	 * No more separate payments for architecture, assembly, components etc. </p>
+     * No more separate payments for architecture, assembly, components etc. </p>
      *
      * @since 1.9
      */
     public static final int CONTEST_PAYMENT = 65;
+
+    public static final int NEGATIVE_PAYMENT = 67;
 }

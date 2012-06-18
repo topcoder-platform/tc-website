@@ -3727,7 +3727,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             throw new IllegalUpdateException("Net amount cannot exceed gross amount");
         }
 
-        if (p.getGrossAmount() < 0) {
+        if (p.getGrossAmount() < 0 && p.getTypeId() != NEGATIVE_PAYMENT && p.getHeader().getTypeId() != NEGATIVE_PAYMENT) {
             throw new IllegalUpdateException("Gross amount must be non negative");
         }
 
@@ -3778,7 +3778,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     || paymentTypeId == CODER_REFERRAL_PAYMENT
                     || paymentTypeId == ONE_OFF_PAYMENT
                     || paymentTypeId == DIGITAL_RUN_V2_TAXABLE_PRIZE_PAYMENT
-                    || paymentTypeId == DIGITAL_RUN_V2_TAXABLE_TOP_PERFORMERS_PAYMENT) {                    
+                    || paymentTypeId == DIGITAL_RUN_V2_TAXABLE_TOP_PERFORMERS_PAYMENT) {
 
                 StringBuffer getUserWithholding = new StringBuffer(300);
                 getUserWithholding.append("SELECT withholding_amount, withholding_percentage, use_percentage,date_filed ");

@@ -122,9 +122,11 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
                 }
             }
 
-            // charity payments don't need checks
+            // charity and negative payments don't need checks
             log.debug("Payment charity: " + payment.isCharity());
-            if (!payment.isCharity() && payment.getPaymentType() != BasePayment.CHARITY_PAYMENT) {
+            if (!payment.isCharity() &&
+                payment.getPaymentType() != BasePayment.CHARITY_PAYMENT &&
+                payment.getPaymentType() != BasePayment.NEGATIVE_PAYMENT) {
                 // check for tax form (every payment type)
                  checkUserTaxForm(payment, dib);
 
