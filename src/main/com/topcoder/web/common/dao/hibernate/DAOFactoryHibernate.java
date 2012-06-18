@@ -26,6 +26,7 @@ import com.topcoder.web.common.dao.EventTypeDAO;
 import com.topcoder.web.common.dao.FileTypeDAO;
 import com.topcoder.web.common.dao.ImageDAO;
 import com.topcoder.web.common.dao.IntroEventDAO;
+import com.topcoder.web.common.dao.InvalidHandleDAO;
 import com.topcoder.web.common.dao.IntroEventPropertyTypeDAO;
 import com.topcoder.web.common.dao.LanguageDAO;
 import com.topcoder.web.common.dao.MemberContactBlackListDAO;
@@ -138,6 +139,11 @@ public class DAOFactoryHibernate implements DAOFactory {
         return new IntroEventDAOHibernate();
     }
 
+	
+	public InvalidHandleDAO getInvalidHandleDAO(){
+		throw new RuntimeException("Not supported");
+	}
+	
     public IntroEventPropertyTypeDAO getIntroEventPropertyTypeDAO() {
         return new IntroEventPropertyTypeDAOHibernate();
     }
