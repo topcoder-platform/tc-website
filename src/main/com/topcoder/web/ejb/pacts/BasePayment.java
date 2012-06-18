@@ -259,7 +259,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case DIGITAL_RUN_V2_PRIZE_PAYMENT:
         case DIGITAL_RUN_V2_TOP_PERFORMERS_PAYMENT:
         case DIGITAL_RUN_V2_TAXABLE_PRIZE_PAYMENT:
-        case DIGITAL_RUN_V2_TAXABLE_TOP_PERFORMERS_PAYMENT:		
+        case DIGITAL_RUN_V2_TAXABLE_TOP_PERFORMERS_PAYMENT:
             return REFERENCE_DIGITAL_RUN_TRACK_ID;
 
         case DIGITAL_RUN_ROCKIE_PRIZE_PAYMENT:
@@ -330,7 +330,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case DIGITAL_RUN_V2_PRIZE_PAYMENT: return new DigitalRunV2PrizePayment(coderId, grossAmount, referenceId, placed);
         case DIGITAL_RUN_V2_TOP_PERFORMERS_PAYMENT: return new DigitalRunV2TopPerformersPayment(coderId, grossAmount, referenceId, placed);
         case DIGITAL_RUN_V2_TAXABLE_PRIZE_PAYMENT: return new DigitalRunV2TaxablePrizePayment(coderId, grossAmount, referenceId, placed);
-        case DIGITAL_RUN_V2_TAXABLE_TOP_PERFORMERS_PAYMENT: return new DigitalRunV2TaxableTopPerformersPayment(coderId, grossAmount, referenceId, placed);		
+        case DIGITAL_RUN_V2_TAXABLE_TOP_PERFORMERS_PAYMENT: return new DigitalRunV2TaxableTopPerformersPayment(coderId, grossAmount, referenceId, placed);
         case SPECIFICATION_CONTEST_PAYMENT: return new SpecificationContestPayment(coderId, grossAmount, referenceId, placed);
         case CONTENT_CREATION_PAYMENT: return new ContentCreationContestPayment(coderId, grossAmount, referenceId, placed);
         case CONCEPTUALIZATION_CONTEST_PAYMENT: return new ConceptualizationContestPayment(coderId, grossAmount, referenceId, placed);
@@ -432,6 +432,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             case STUDIO_REVIEW_BOARD_PAYMENT: return "Studio Review Board Payment";
             case ONE_OFF_PAYMENT: return "One-off Payment";
             case ARTICLE_PAYMENT: return "Article Payment";
+            case NEGATIVE_PAYMENT: return "Negative Payment";
             case ASSEMBLY_PAYMENT: return "Assembly Payment";
             case TESTING_PAYMENT: return "Testing Payment";
             case LOGO_CONTEST_PAYMENT: return "Logo Contest Payment";
@@ -674,16 +675,16 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
     /**
      * Return the global ad.
      * @return hasGlobalAD the new global ad.
-	 * @since 1.5
+     * @since 1.5
      */
-	public boolean getHasGlobalAD() {
+    public boolean getHasGlobalAD() {
         return hasGlobalAD;
     }
 
     /**
      * Set the global ad.
      * @param hasGlobalAD the new global ad.
-	 * @since 1.5
+     * @since 1.5
      */
     public void setHasGlobalAD(boolean hasGlobalAD) {
         this.hasGlobalAD = hasGlobalAD;

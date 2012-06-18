@@ -46,7 +46,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
     private static final int CLIENT_REQUIRED = 2;
 
     protected void businessProcessing() throws TCWebException {
-    	SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT_STRING);
+        SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT_STRING);
         try {
             long currentUserId = getAuthentication().getActiveUser().getId();
             boolean updating = getRequest().getParameter("payment_id") != null;
@@ -78,7 +78,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
 
             if (updating) {
                 paymentId = getLongParameter(PAYMENT_ID);
-            	payment = dib.getBasePayment(paymentId);
+                payment = dib.getBasePayment(paymentId);
                 userId = payment.getCoderId();
                 user = new UserProfileHeader(dib.getUserProfileHeader(userId));
             }
@@ -95,23 +95,30 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
             String client = "";
 
             if (getRequest().getParameter("payment_desc") != null) {
-            	// The user is trying to save the payment, so check that the parameters are ok
+                // The user is trying to save the payment, so check that the parameters are ok
 
                 desc = checkNotEmptyString("payment_desc", "Please enter a description for the payment.");
                 typeId = getIntParameter("payment_type_id");
                 client = (String) getRequest().getParameter("client");
-                totalAmount = checkNonNegativeDouble("total_amount", "Please enter a valid total amount");
+
+                totalAmount = (typeId == NEGATIVE_PAYMENT) ? 
+                    checkNegativeDouble("total_amount", "Please enter a valid negative total amount") :
+                    checkNonNegativeDouble("total_amount", "Please enter a valid total amount");
 
                 if (getRequest().getParameter("gross_amount") != null && getRequest().getParameter("gross_amount").trim().length() > 0) {
-                	grossAmount = checkNonNegativeDouble("gross_amount", "Please enter a valid gross amount");
+                    grossAmount = (typeId == NEGATIVE_PAYMENT) ?
+                        checkNegativeDouble("gross_amount", "Please enter a valid negative gross amount") :
+                        checkNonNegativeDouble("gross_amount", "Please enter a valid gross amount");
                 }
                 
                 if (getRequest().getParameter("net_amount").trim().length() > 0) {
-                    netAmount = checkNonNegativeDouble("net_amount", "Please enter a valid net amount");
+                    netAmount = (typeId == NEGATIVE_PAYMENT) ?
+                        checkNegativeDouble("net_amount", "Please enter a valid negative net amount") : 
+                        checkNonNegativeDouble("net_amount", "Please enter a valid net amount");
                 }
 
                 if (getRequest().getParameter("installment_number") != null) {
-                	installmentNumber = getIntParameter("installment_number");
+                    installmentNumber = getIntParameter("installment_number");
                 }
                 methodId = getLongParameter("payment_method_id");
 
@@ -146,12 +153,12 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                         tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
                         tm.begin();
                         
-                    	payment = BasePayment.createPayment(typeId, userId, grossAmount, 0);                    	
-                    	if (updating) {
-                    		payment.setId(paymentId);
+                        payment = BasePayment.createPayment(typeId, userId, grossAmount, 0);                        
+                        if (updating) {
+                            payment.setId(paymentId);
                         }
                         
-                    	setReference(payment);                
+                        setReference(payment);                
                         
                         if (dib.requiresClient(payment.getPaymentType()) > CLIENT_NOT_REQUIRED) {
                             payment.setClient((String) getRequest().getParameter("client"));
@@ -185,7 +192,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                                 for (int j = 0; j < refer.size(); j++) {
                                     ids.add(new Long(((BasePayment) refer.get(j)).getId())); 
                                 }
-                            }                		
+                            }
                             setNextPage(Links.viewPayments(ids));
                         } else {
                             // get payment's status
@@ -237,7 +244,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     methodId = payment.getMethodId();
 
 //                    if (payment instanceof ComponentProjectReferencePayment) {
-//                    	client = ((ComponentProjectReferencePayment) payment).getClient();
+//                      client = ((ComponentProjectReferencePayment) payment).getClient();
                         client = payment.getClient();
 //                    }
 
@@ -260,7 +267,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                         payment = dib.fillPaymentData(payment);
                         refDescr = payment.getReferenceDescription();
                         if (payment instanceof ComponentWinningPayment || payment instanceof ReviewBoardPayment) {
-                        	isDesign = ((ComponentProjectReferencePayment) payment).isDesign() + "";
+                            isDesign = ((ComponentProjectReferencePayment) payment).isDesign() + "";
                         }
                     } catch(Exception e) {}
                     getRequest().setAttribute("reference_description", refDescr);
@@ -306,10 +313,9 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
     }
 
     private void setReference(BasePayment payment) {
-    	String rf = "reference_id";
+        String rf = "reference_id";
 
-    	boolean useRef = getRequest().getParameter(rf) != null && getRequest().getParameter(rf).trim().length() > 0;
-    	
+        boolean useRef = getRequest().getParameter(rf) != null && getRequest().getParameter(rf).trim().length() > 0;
         
 
         if (payment instanceof AlgorithmRoundReferencePayment) {
@@ -319,14 +325,14 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
             ((ComponentProjectReferencePayment) payment).setProjectId(getLongParameter(useRef? rf : "component_project_id"));
             
         } else if (payment instanceof AlgorithmProblemReferencePayment) {
-        	((AlgorithmProblemReferencePayment) payment).setProblemId(getOptionalLongParameter(useRef? rf : "algorithm_problem_id", 0));
+            ((AlgorithmProblemReferencePayment) payment).setProblemId(getOptionalLongParameter(useRef? rf : "algorithm_problem_id", 0));
             
         } else if (payment instanceof StudioContestReferencePayment) {
-        	((StudioContestReferencePayment) payment).setContestId(getLongParameter(useRef? rf : "studio_contest_id"));
-        	
+            ((StudioContestReferencePayment) payment).setContestId(getLongParameter(useRef? rf : "studio_contest_id"));
+            
         } else if (payment instanceof ComponentContestReferencePayment) {
-        	((ComponentContestReferencePayment) payment).setContestId(getLongParameter(useRef? rf : "component_contest_id"));
-        	
+            ((ComponentContestReferencePayment) payment).setContestId(getLongParameter(useRef? rf : "component_contest_id"));
+            
         } else if (payment instanceof DigitalRunStageReferencePayment) {
             ((DigitalRunStageReferencePayment) payment).setStageId(getLongParameter(useRef? rf : "digital_run_stage_id"));
             
@@ -334,14 +340,14 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
             ((DigitalRunTrackReferencePayment) payment).setTrackId(getLongParameter(useRef? rf : "digital_run_track_id"));
             
         } else if (payment instanceof DigitalRunSeasonReferencePayment) {
-        	((DigitalRunSeasonReferencePayment) payment).setSeasonId(getLongParameter(useRef? rf : "digital_run_season_id"));
-        	
+            ((DigitalRunSeasonReferencePayment) payment).setSeasonId(getLongParameter(useRef? rf : "digital_run_season_id"));
+            
         } else if (payment instanceof ParentReferencePayment) {
-        	((ParentReferencePayment) payment).setParentId(getLongParameter(useRef? rf : "parent_reference_id"));
+            ((ParentReferencePayment) payment).setParentId(getLongParameter(useRef? rf : "parent_reference_id"));
         }
      }
 
-	private long getReferenceId(BasePayment payment) {
+    private long getReferenceId(BasePayment payment) {
         if (payment instanceof AlgorithmRoundReferencePayment) {
             return ((AlgorithmRoundReferencePayment) payment).getRoundId();
             
@@ -349,30 +355,30 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
             return ((ComponentProjectReferencePayment) payment).getProjectId();
             
         } else if (payment instanceof AlgorithmProblemReferencePayment) {
-        	return ((AlgorithmProblemReferencePayment) payment).getProblemId();
+            return ((AlgorithmProblemReferencePayment) payment).getProblemId();
             
         } else if (payment instanceof StudioContestReferencePayment) {
-        	return ((StudioContestReferencePayment) payment).getContestId();
-        	
+            return ((StudioContestReferencePayment) payment).getContestId();
+            
         } else if (payment instanceof ComponentContestReferencePayment) {
-        	return ((ComponentContestReferencePayment) payment).getContestId();
-        	
+            return ((ComponentContestReferencePayment) payment).getContestId();
+            
         } else if (payment instanceof DigitalRunStageReferencePayment) {
-        	return ((DigitalRunStageReferencePayment) payment).getStageId();
-        	
+            return ((DigitalRunStageReferencePayment) payment).getStageId();
+            
         } else if (payment instanceof DigitalRunTrackReferencePayment) {
             return ((DigitalRunTrackReferencePayment) payment).getTrackId();
             
         } else if (payment instanceof DigitalRunSeasonReferencePayment) {
-        	return ((DigitalRunSeasonReferencePayment) payment).getSeasonId();
-        	
+            return ((DigitalRunSeasonReferencePayment) payment).getSeasonId();
+            
         } else if (payment instanceof ParentReferencePayment) {
-        	return ((ParentReferencePayment) payment).getParentId();
+            return ((ParentReferencePayment) payment).getParentId();
         }
 
-		return 0;
-	}
+        return 0;
+    }
 
-	
+    
 }
 

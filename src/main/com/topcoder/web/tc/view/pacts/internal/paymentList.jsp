@@ -85,7 +85,7 @@
             var netAmountText = '';
             for (var i = 0; i < netAnountHtml.length; i++ ) {
                 var c = netAnountHtml.charAt(i);
-                if (c >= '0' && c <= '9') {
+                if ((c >= '0' && c <= '9') || c == '-') {
                     netAmountText += c;
                 }
             }
