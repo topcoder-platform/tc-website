@@ -41,7 +41,7 @@ import java.util.*;
  */
 public class Home extends ShortHibernateProcessor {
 
-    List<Long> payoneerTestGroup = Arrays.asList(8518361l);
+    List<Long> payoneerTestGroup = Arrays.asList(8518361l, 23078253l);
 
     /**
      * Handle http request.
@@ -76,18 +76,20 @@ public class Home extends ShortHibernateProcessor {
 
         try {
             PayoneerService.PayeeStatus payeeStatus = PayoneerService.getPayeeStatus(getLoggedInUser().getId());
-            if (payeeStatus == PayoneerService.PayeeStatus.NOT_REGISTERED) {
-                getRequest().setAttribute("payoneerRegistered", false);
+            // Only show the registration link if the member hasn't activated with Payoneer yet
+            if (payeeStatus == PayoneerService.PayeeStatus.NOT_REGISTERED ||
+                payeeStatus == PayoneerService.PayeeStatus.REGISTERED) {
+                getRequest().setAttribute("payoneerActivated", false);
 
                 if (payoneerTestGroup.contains(getLoggedInUser().getId())) {
                     getRequest().setAttribute("payoneerRegLink", PayoneerService.getRegistrationLink(getLoggedInUser().getId()));
                 }
             } else {
-                getRequest().setAttribute("payoneerRegistered", true);
+                getRequest().setAttribute("payoneerActivated", true);
             }
         } catch (PayoneerServiceException pse) {
             // If an exception happened assume user is not registered but don't show the registration link
-            getRequest().setAttribute("payoneerRegistered", false);
+            getRequest().setAttribute("payoneerActivated", false);
             log.error("Payoneer service error.", pse);
         }
 
