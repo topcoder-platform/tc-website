@@ -59,7 +59,7 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
 
     private Pattern pattern;
     
-    List<Long> payoneerTestGroup = Arrays.asList(8518361l);
+    List<Long> payoneerTestGroup = Arrays.asList(8518361l, 23078253l);
 
     /**
      * <p>Constructs new <code>EditPaymentPreferences</code> instance.

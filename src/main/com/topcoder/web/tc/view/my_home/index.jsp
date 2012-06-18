@@ -215,7 +215,7 @@
                             <p class="<c:if test='${userImage!=null}'>hide</c:if>"><a href="javascript:;" id="submitPhotoLink" >Submit a photo</a></p>
                             <p class="<c:if test='${userImage==null}'>hide</c:if>"><a href="javascript:;" id="removePhotoLink">Remove photo</a></p>
                             <c:choose>
-                                <c:when test="${(payoneerRegistered==false) && (not empty payoneerRegLink)}">
+                                <c:when test="${(payoneerActivated==false) && (not empty payoneerRegLink)}">
                                     <p><a href="${payoneerRegLink}">Register with Payoneer</a></p>
                                 </c:when>
                             </c:choose>
@@ -278,7 +278,7 @@
                                 <span class="file-wrapper">
                                 <input type="file" name="photoFile" id="inputFile" />
                                 </span>                     
-                            </span>                                           	 	
+                            </span>                                                 
                         </span>
                     </a>
                 </form>
@@ -289,27 +289,27 @@
             </div>
             <div id="photoUploadRight">
                 <div id="previewDiv">
-                    <img src="i/previewPhoto.jpg" alt="" />		
+                    <img src="i/previewPhoto.jpg" alt="" />     
                 </div>
             
                 <div class="alert">
                     Browse Photo should be in *.JPG format file which is the width is 126 pixel and the height is 140 pixel.
                 </div>
-				<div>
+                <div>
                     <a class="link" href="http://topcoder.com/home/help/?p=866">Photo Policy</a>
                 </div>
                 <a href="javascript:;" class="btn1 btnCancel">
                     <span class="rightSide">
                         <span class="inner">
                             Cancel                                               
-                        </span>                                           	 	
+                        </span>                                                 
                     </span>                                         
-                </a>				
+                </a>                
                 <a href="javascript:;" class="btn1 red btnUpload">
                     <span class="rightSide">
                         <span class="inner">
                             Upload                                               
-                        </span>                                           	 	
+                        </span>                                                 
                     </span>                                         
                 </a>
                 <form action="photo?module=upload&photoAction=commit" method="post" id="submitPhotoForum">
@@ -342,7 +342,7 @@
                     <span class="rightSide">
                     <span class="inner">
                           No                                               
-                       </span>                                           	 	
+                       </span>                                                  
                    </span>                                         
                 </a>
                 
@@ -350,7 +350,7 @@
                     <span class="rightSide">
                     <span class="inner">
                           Yes                                               
-                       </span>                                           	 	
+                       </span>                                                  
                    </span>                                         
                 </a>
                 
