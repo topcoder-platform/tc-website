@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Connection;
+import java.sql.DriverManager;
 
 /**
  * <p>A DB utility which is intended to load data for <code>Participation Metrics Report</code> from transactional 
@@ -55,14 +57,14 @@ public class MemberParticipationMetricsReportDataLoadUtility extends DBUtility {
      * <p>An <code>int</code> providing the number of rows with transactional data that should be fetched from the 
      * database when more rows are needed.</p>
      */
-    private static final int DATA_FETCH_SIZE = 100;
+    private static final int DATA_FETCH_SIZE = 20;
 
     /**
      * <p>A <code>String</code> providing the base ptah for files with SQL statements for selecting the records to be
      * loaded from transactional database to warehouse database.</p>
      */
     private static final String PARTICIPATION_METRICS_REPORT_SQL_FILES_BASE 
-        = "/home/tc/web/scripts/sql/participationMetricsReport";
+        = "/home/coder/web/scripts/sql";
 
     /**
      * <p>A <code>String</code> providing the SQL statement to be used for selecting records for loading to 
@@ -145,20 +147,24 @@ public class MemberParticipationMetricsReportDataLoadUtility extends DBUtility {
         log.info("Participation Metrics Report data loading has started");
 
         try {
+			// Load data for user permission grants
+            loadWarehouseData(USER_PERMISSION_GRANT_LOAD_SQL_FILE, "user permission grants",
+                              USER_PERMISSION_GRANT_DELETE_SQL, USER_PERMISSION_GRANT_INSERT_SQL, 
+                              new UserPermissionGrantDataStatementInitializer()); 
+							  
+			// Load data for copilots
+            loadWarehouseData(PARTICIPATION_METRICS_REPORT_COPILOT_LOAD_SQL_FILE, "copilots", 
+                              PARTICIPATION_METRICS_REPORT_COPILOT_DELETE_SQL, 
+                              PARTICIPATION_METRICS_REPORT_COPILOT_INSERT_SQL, new CopilotDataStatementInitializer()); 
+							  
             // Load data for members
             loadWarehouseData(PARTICIPATION_METRICS_REPORT_MEMBERS_LOAD_SQL_FILE, "members",
                               PARTICIPATION_METRICS_REPORT_MEMBERS_DELETE_SQL,
-                              PARTICIPATION_METRICS_REPORT_MEMBERS_INSERT_SQL, new MemberDataStatementInitializer());
+                              PARTICIPATION_METRICS_REPORT_MEMBERS_INSERT_SQL, new MemberDataStatementInitializer()); 
 
-            // Load data for copilots
-            loadWarehouseData(PARTICIPATION_METRICS_REPORT_COPILOT_LOAD_SQL_FILE, "copilots", 
-                              PARTICIPATION_METRICS_REPORT_COPILOT_DELETE_SQL, 
-                              PARTICIPATION_METRICS_REPORT_COPILOT_INSERT_SQL, new CopilotDataStatementInitializer());
+            
 
-            // Load data for user permission grants
-            loadWarehouseData(USER_PERMISSION_GRANT_LOAD_SQL_FILE, "user permission grants",
-                              USER_PERMISSION_GRANT_DELETE_SQL, USER_PERMISSION_GRANT_INSERT_SQL, 
-                              new UserPermissionGrantDataStatementInitializer());
+            
         } catch (SQLException e) {
             log.error(e.getMessage());
             DBMS.printSqlException(true, e);
@@ -230,15 +236,21 @@ public class MemberParticipationMetricsReportDataLoadUtility extends DBUtility {
         log.info("Participation Metrics Report data loading for " + dataType + " has started");
         
         ResultSet result = null;
-        PreparedStatement selectStatement = null;
+
+		PreparedStatement selectStatement = null;
         PreparedStatement deleteStatement = null;
         PreparedStatement insertStatement = null;
+		Connection sourceConn = null;
         try {
             // Retrieve all records from transactional database table
             String selectSQL = loadSQLFromFile(loadSqlFileName);
             log.info("Running SQL statement: " + selectSQL);
-            selectStatement = prepareStatement(TRANSACTIONAL_DATA_SOURCE, selectSQL);
+			sourceConn = getDBConnection(TRANSACTIONAL_DATA_SOURCE);
+			sourceConn.setTransactionIsolation(Connection.TRANSACTION_READ_UNCOMMITTED);
+			
+            selectStatement = prepareStatement(selectSQL, sourceConn);
             selectStatement.setFetchSize(DATA_FETCH_SIZE);
+			
             result = selectStatement.executeQuery();
             log.info("Retrieved transactional records for " + dataType + " from database");
 
@@ -268,11 +280,39 @@ public class MemberParticipationMetricsReportDataLoadUtility extends DBUtility {
                 }
             }
         } finally {
+			
             DBMS.close(deleteStatement);
             DBMS.close(insertStatement);
             DBMS.close(selectStatement, result);
+			if (sourceConn != null) 
+			{ sourceConn.close(); }
             log.info("Participation Metrics Report data loading for " + dataType + " has finished");
         }
+    }
+	
+	private Connection getDBConnection(String source) throws SQLException {
+				Connection connection = DriverManager.getConnection((String)sources.get(source));
+			
+			return connection;
+		}
+		
+		/**
+     * Call this method to create a PreparedStatement for a given sql.
+     *
+     * @param source The reference to target database.
+     * @param sqlStr The sql query.
+     * @return a statement to be executed for specified query.
+     * @throws SQLException if an SQL error occurs while communicating to database.
+     */
+    private PreparedStatement prepareStatement(String sqlStr, Connection conn) throws SQLException {
+       
+        PreparedStatement ps = null;
+        try {
+            ps = conn.prepareStatement(sqlStr);
+        } catch (SQLException sqle) {
+            throw sqle;
+        }
+        return ps;
     }
 
     /**
@@ -457,5 +497,7 @@ public class MemberParticipationMetricsReportDataLoadUtility extends DBUtility {
             b.append(selectedData.getInt("is_studio"));
             return b.toString();
         }
+		
+		
     }
 }
