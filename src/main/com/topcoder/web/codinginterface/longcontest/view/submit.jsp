@@ -105,10 +105,6 @@
     </jsp:include>
 
     <div align="center">
-    <font color="red">Submissions are temporarily disabled.</font>
-    </div>
-
-    <!-- <div align="center">
         <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="codingForm">
             <input type="hidden" name="<%=Constants.MODULE%>" value="<%=Constants.RP_SUBMIT%>">
             <input type="hidden" name="<%=Constants.ROUND_ID%>" value="<%=request.getParameter(Constants.ROUND_ID)%>">
@@ -165,6 +161,18 @@ Arg Types: <%=StringUtils.htmlEncode((String) paramTypes.get(i))%>
                         <%}%>
                     </td>
                 </tr>
+
+<% if (Long.valueOf(request.getParameter(Constants.ROUND_ID)) >= 15212 &&
+       Long.valueOf(request.getParameter(Constants.ROUND_ID)) <= 15277) { %>
+                <tr>
+                    <td colspan="2">
+                        <span class="bodySubtitle">Time Allocated</span><br>
+                        How much time have you been working on your submission since your last submit?<br/>
+                        Hours: <input type="text" name="hbs_hours" value="" maxlength="2" size="2"/>
+                        Minutes: <input type="text" name="hbs_minutes" value="" maxlength="2" size="2"/>
+                    </td>
+                </tr>
+<% } %>
                 <tr>
                     <td colspan="2">
                         <span class="bodySubtitle">Messages</span><br>
@@ -194,7 +202,7 @@ Arg Types: <%=StringUtils.htmlEncode((String) paramTypes.get(i))%>
                 </tr>
             </table>
         </form>
-    </div> -->
+    </div>
     <br/><br/>
 </td>
 <% } %>
