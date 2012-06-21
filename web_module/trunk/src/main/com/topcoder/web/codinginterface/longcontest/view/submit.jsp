@@ -104,6 +104,10 @@
         <jsp:param name="title" value="Coding Area"/>
     </jsp:include>
 
+    <div align="center">
+    <font color="red">Submissions are temporarily disabled.</font>
+    </div>
+
     <!-- <div align="center">
         <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="codingForm">
             <input type="hidden" name="<%=Constants.MODULE%>" value="<%=Constants.RP_SUBMIT%>">
