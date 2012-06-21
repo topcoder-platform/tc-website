@@ -104,7 +104,7 @@
         <jsp:param name="title" value="Coding Area"/>
     </jsp:include>
 
-    <div align="center">
+    <!-- <div align="center">
         <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="codingForm">
             <input type="hidden" name="<%=Constants.MODULE%>" value="<%=Constants.RP_SUBMIT%>">
             <input type="hidden" name="<%=Constants.ROUND_ID%>" value="<%=request.getParameter(Constants.ROUND_ID)%>">
@@ -190,7 +190,7 @@ Arg Types: <%=StringUtils.htmlEncode((String) paramTypes.get(i))%>
                 </tr>
             </table>
         </form>
-    </div>
+    </div> -->
     <br/><br/>
 </td>
 <% } %>
