@@ -92,7 +92,7 @@
                                 <tr valign="middle">
                                     <td nowrap class="bodyText" align="right">Handle:</td>
                                     <td colspan="2" align="left">
-                                        <input type="text" name="<%=Constants.KEY_USER_HANDLE%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
+                                        <input type="text" name="<%=Constants.KEY_USER_HANDLE%>" value="" maxlength="30" size="12" onkeypress="submitEnter(event)">
                                     </td>
                                 </tr>
 
