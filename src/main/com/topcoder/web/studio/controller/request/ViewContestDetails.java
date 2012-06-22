@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.studio.controller.request;
 
@@ -72,8 +72,16 @@ import com.topcoder.web.studio.util.Util;
  *   </ol>
  * </p>
  * 
+ * <p>
+ * Version 1.2.5 (Release Assembly - TopCoder Studio CCA Integration) change notes:
+ *   <ol>
+ *     <li>Added {@link #CONFIDENTIALITY_TYPE_INFO_ID} constant.</li>
+ *     <li>Updated {@link #dbProcessing()} to check whether the contest is CCA enforced.</li>
+ *   </ol>
+ * </p>
+ * 
  * @author dok, pulky, isv, TCSDEVELOPER
- * @version 1.2.4
+ * @version 1.2.5
  */
 public class ViewContestDetails extends ShortHibernateProcessor {
 
@@ -84,6 +92,13 @@ public class ViewContestDetails extends ShortHibernateProcessor {
      */
     private static final String CAN_VIEW_CONTEST_DETAILS_QUERY_NAME = "studio_can_view_contest_details";
 
+    /**
+     * An <code>int</code> constant that store the id of confidentiality type project info.
+     * 
+     * @since 1.2.5
+     */
+    private static final int CONFIDENTIALITY_TYPE_INFO_ID = 34;
+    
     protected static final Logger log = Logger.getLogger(ViewContestDetails.class);
 
 
@@ -148,6 +163,7 @@ public class ViewContestDetails extends ShortHibernateProcessor {
                 boolean registered =
                     isUserIdentified && (RegistrationHelper.getSubmitterResource(contest, userId) != null);
                 getRequest().setAttribute("registered", registered);
+                getRequest().setAttribute("cca", "standard_cca".equalsIgnoreCase(contest.getInfo(CONFIDENTIALITY_TYPE_INFO_ID)));
 
                 boolean isSpecReviewer = RegistrationHelper.getSpecReviewerResource(contest, userId) != null;
                 getRequest().setAttribute("isSpecReviewer", isSpecReviewer);

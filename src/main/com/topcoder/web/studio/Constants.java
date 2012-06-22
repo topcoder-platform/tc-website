@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.studio;
 
@@ -71,9 +71,18 @@ import java.util.MissingResourceException;
  *     constants.</li>
  *   </ol>
  * </p>
+ * 
+ * <p>
+ * Version 1.9 (Release Assembly - TopCoder Studio CCA Integration) change notes:
+ *   <ol>
+ *     <li>Added {@link #RESOURCE_ROLE_IDS}, {@link #TERMS_OF_USE_DAO_NS}, {@link #USER_TERMS_OF_USE_DAO_NS},
+ *     {@link #PROJECT_TERMS_OF_USE_DAO_NS}, {@link #NON_AGREEABLE_TERMS_TYPE_ID}, {@link #NON_ELEC_AGREEABLE_TERMS_TYPE_ID},
+ *     {@link #ELEC_AGREEABLE_TERMS_TYPE_ID}, and {@link #CONFIGURATION_FILE} constants.</li>
+ *   </ol>
+ * </p>
  *
  * @author dok, pulky, isv, pvmagacho, TCSASSEMBLY
- * @version 1.8
+ * @version 1.9
  */
 public class Constants implements WebConstants {
     private static final TCResourceBundle bundle = new TCResourceBundle("Studio");
@@ -655,6 +664,62 @@ public class Constants implements WebConstants {
      */
     public static String JIRA_JQL;
 
+    /**
+     * Represents the resource role IDs parameter name in query tool.
+     * 
+     * @since 1.9
+     */
+    public static String RESOURCE_ROLE_IDS;
+    
+    /**
+     * <p>A <code>String</code> providing the namespace of terms of use DAO implementation.</p>
+     * 
+     * @since 1.9
+     */
+    public static String TERMS_OF_USE_DAO_NS;
+    
+    /**
+     * <p>A <code>String</code> providing the namespace of user terms of use DAO implementation.</p>
+     * 
+     * @since 1.9
+     */
+    public static String USER_TERMS_OF_USE_DAO_NS;
+    
+    /**
+     * <p>A <code>String</code> providing the namespace of project terms of use DAO implementation.</p>
+     * 
+     * @since 1.9
+     */
+    public static String PROJECT_TERMS_OF_USE_DAO_NS;
+    
+    /**
+     * <p>The id of the non agreeable terms type.</p>
+     * 
+     * @since 1.9
+     */
+    public static int NON_AGREEABLE_TERMS_TYPE_ID;
+    
+    /**
+     * <p>The id of the non-electronically agreeable terms type.</p>
+     * 
+     * @since 1.9
+     */
+    public static int NON_ELEC_AGREEABLE_TERMS_TYPE_ID;
+    
+    /**
+     * <p>The id of the electronically agreeable terms type.</p>
+     * 
+     * @since 1.9
+     */
+    public static int ELEC_AGREEABLE_TERMS_TYPE_ID;
+    
+    /**
+     * <p>The configuration file location.</p>
+     * 
+     * @since 1.9
+     */
+    public static final String CONFIGURATION_FILE = "com/topcoder/util/config/ConfigManager.properties";
+    
     static {
         initialize();
     }

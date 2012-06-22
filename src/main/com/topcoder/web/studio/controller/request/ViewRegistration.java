@@ -6,7 +6,6 @@ package com.topcoder.web.studio.controller.request;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.studio.Constants;
@@ -40,10 +39,18 @@ import com.topcoder.web.studio.dto.ProjectPhase;
  *   </ol>
  * </p>
  *
+ * <p>
+ * Version 1.4 (Release Assembly - TopCoder Studio CCA Integration) change notes:
+ *   <ol>
+ *     <li>The base class was changed to <code>BaseTermsOfUse</code>.</li>
+ *     <li>Updated {@link #dbProcessing()} to support the new logic of terms of use.</li>
+ *   </ol>
+ * </p>
+ * 
  * @author dok, pulky, isv, TCSASSEMBER
- * @version 1.3
+ * @version 1.4
  */
-public class ViewRegistration extends ShortHibernateProcessor {
+public class ViewRegistration extends BaseTermsOfUse {
     
     /**
      * <p>Constructs new <code>ViewRegistration</code> instance. This implementation does nothing.</p>
@@ -105,8 +112,8 @@ public class ViewRegistration extends ShortHibernateProcessor {
                 }
 
                 // process terms of use
-                RegistrationHelper.processTermsOfUse(getRequest(), contest.getId().longValue(), u, 
-                                                     RegistrationHelper.REGISTRANT_ROLE_IDS);
+                String termsOfUseId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_ID));
+                processTermsOfUse(contestId, userId, RegistrationHelper.REGISTRANT_ROLE_IDS, "".equals(termsOfUseId) ? -1 : Long.parseLong(termsOfUseId));
 
                 setNextPage("/contestReg.jsp");
                 setIsNextPageInContext(true);
