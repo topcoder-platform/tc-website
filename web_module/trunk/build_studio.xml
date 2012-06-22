@@ -104,13 +104,15 @@
         <pathelement location="${jars.dir}/object_formatter.jar"/>
         <pathelement location="${jars.dir}/idgenerator.jar"/>
         <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
-        <pathelement location="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
+        <pathelement location="${jars.dir}/tcs/db_connection_factory/1.1/db_connection_factory.jar"/>
         <pathelement location="${jars.dir}/tcs/file_upload/2.0.2.0/file_upload.jar"/>
         <pathelement location="${jars.dir}/tcs/json_object/1.0/json_object.jar"/>
         <pathelement location="${jars.dir}/tcs/guid_generator/1.0/guid_generator.jar"/>
         <pathelement location="${jars.dir}/tcs/typesafe_enum/1.0/typesafe_enum.jar"/>
         <pathelement location="${jars.dir}/tcs/search_builder/1.4.0/search_builder.jar"/>
         <pathelement location="${jars.dir}/tcs/contest_eligibility_validation_client/1.0.0/contest_eligibility_validation_client.jar"/>
+    	<pathelement location="${jars.dir}/tcs/terms_of_use/1.1.0/terms_of_use.jar"/>
+    	<pathelement location="${jars.dir}/tcs/configuration_persistence/1.0.1/configuration_persistence.jar"/>
         
         <!--        <pathelement location="${jars.dir}/tcsUtil.jar"/>-->
         <!--
@@ -413,8 +415,11 @@
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/ip_server/2.0.1/ip_server.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/typesafe_enum/1.0/typesafe_enum.jar"/>
     	<copy todir="${jboss_lib}" file="${jars.dir}/tcs/search_builder/1.4.0/search_builder.jar"/>
+    	<copy todir="${jboss_lib}" file="${jars.dir}/tcs/terms_of_use/1.1.0/terms_of_use.jar"/>
+    	<copy todir="${jboss_lib}" file="${jars.dir}/tcs/configuration_persistence/1.0.1/configuration_persistence.jar"/>
+    	<copy todir="${jboss_lib}" file="${jars.dir}/tcs/logging_wrapper/2.0.0/logging_wrapper.jar"/>
     	
-        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/db_connection_factory/1.1/db_connection_factory.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/object_formatter.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/ifxjdbc.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-3.1/ehcache-1.2.2.jar"/>
@@ -443,7 +448,6 @@
         <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
         <copy todir="${jboss_deploy}" file="${jive.dir}/jive4.war"/>
-        <copy todir="${jboss_deploy}" file="${ear.dir}/security.ear"/>
 
         <copy todir="${jboss_deploy}" file="${ejb_jars}/Project.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/User.jar"/>
@@ -456,23 +460,21 @@
         <copy todir="${jboss_conf}" file="${resources}/DBMS.properties"/>
         <copy todir="${jboss_conf}" file="${resources}/DataAccess.properties"/>
         <copy todir="${jboss_conf}" file="${resources}/EmailEngineConfig.properties"/>
+    	<copy todir="${jboss_conf}" file="${resources}/TermsOfUse.xml"/>
 
         <copy todir="${jboss_conf}/com/topcoder/db/connectionfactory/"
               file="${resources}/com/topcoder/db/connectionfactory/DBConnectionFactoryImpl.xml"/>
         <copy todir="${jboss_conf}/com/topcoder/security/" file="${resources}/com/topcoder/security/Util.properties"/>
         <copy todir="${jboss_conf}/com/topcoder/util/config/"
-              file="${resources}/com/topcoder/util/config/ConfigManager.properties"/>
+              file="${resources}/studio/com/topcoder/util/config/ConfigManager.properties"/>
         <copy todir="${jboss_conf}/com/topcoder/servlet/request/"
               file="${resources}/com/topcoder/servlet/request/FileUpload.xml"/>
 
         <delete file="${jboss_home}/server/default/deploy/studio.war"/>
         <unwar src="${war.dir}/studio.war" dest="${jboss_home}/server/default/deploy/studio.war/" overwrite="yes"/>
         <delete dir="${jboss_home}/server/default/deploy/studio.war/META-INF"/>
-        <!--<copy todir="${jboss_conf}">
-            <fileset dir="${resources}">
-                <include name="Studio.properties"/>
-            </fileset>
-        </copy>-->
+        <copy todir="${jboss_conf}" file="${resources}/Studio.properties"/>
+    	<copy todir="${jboss_deploy}" file="${ear.dir}/security.ear"/>
     </target>
 
     <target name="package-TCJive" depends="compile">

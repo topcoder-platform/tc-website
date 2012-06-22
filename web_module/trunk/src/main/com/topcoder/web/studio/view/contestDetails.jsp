@@ -1,6 +1,6 @@
 <%--
-  - Author: pulky, isv, pvmagacho
-  - Version: 1.6
+  - Author: pulky, isv, pvmagacho, TCSASSEMBER
+  - Version: 1.7
   - Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page presents specific contest details
@@ -20,6 +20,8 @@
   -     - Updated the logic to use projects from tcs_catalog database.
   - Version 1.6 (Re-platforming Studio Release 4 Assembly) changes:
   -     - Clean up old studio model files
+  - Version 1.7 (Release Assembly - TopCoder Studio CCA Integration) change notes:
+  -     - Add permission checking for the contest which is CCA enforced.
 --%>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
@@ -46,6 +48,7 @@
 <c:set var="isClosed" value="${contest.submissionClosed}"/>
 <c:set var="hasCockpitPermissions" value="${requestScope.has_cockpit_permissions}"/>
 <c:set var="spec" value="${contest.studioProjectSpecification}"/>
+<c:set var="canSeeCCASection" value="${(registered or not cca) || (not empty hasCockpitPermissions && hasCockpitPermissions) || specReviewer}"/>
 
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -117,11 +120,13 @@
                 <p class="paragraph">This Studio competition will be run as a two-round tournament with a total prize purse of
                 <fmt:formatNumber value="${contest.totalPrizePurse}" pattern="$###,###.00"/>.</p>
 
-                <span class="subTitle">Round One (1)</span>
-                <p class="paragraph">${spec.round1Introduction}</p>
-
-                <span class="subTitle">Round Two (2)</span>
-                <p class="paragraph">${spec.round2Introduction}</p>
+                <c:if test="${canSeeCCASection}">
+	                <span class="subTitle">Round One (1)</span>
+	                <p class="paragraph">${spec.round1Introduction}</p>
+	
+	                <span class="subTitle">Round Two (2)</span>
+	                <p class="paragraph">${spec.round2Introduction}</p>
+                </c:if>
 
                 <h6 class="smallTitle red">Regarding the Rounds:</h6>
 
@@ -138,7 +143,7 @@
                 </ul>
         </c:if>
 
-        <c:if test="${not empty spec.contestDescription}">
+        <c:if test="${canSeeCCASection and not empty spec.contestDescription}">
             <h5 class="contentTitle">Full Description &amp; Project Guide</h5>
 
             ${spec.contestDescription}

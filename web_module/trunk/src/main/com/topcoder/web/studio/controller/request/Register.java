@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.studio.controller.request;
 
@@ -12,11 +12,8 @@ import java.util.Set;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.common.dao.TermsOfUseDAO;
-import com.topcoder.web.common.model.TermsOfUse;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.DAOFactory;
@@ -51,10 +48,18 @@ import com.topcoder.web.studio.dto.ResourceRole;
  *   </ol>
  * </p>
  * 
+ * <p>
+ * Version 1.4 (Release Assembly - TopCoder Studio CCA Integration) change notes:
+ *   <ol>
+ *     <li>The base class was changed to <code>BaseTermsOfUse</code>.</li>
+ *     <li>Updated {@link #dbProcessing()} to support the new logic of terms of use.</li>
+ *   </ol>
+ * </p>
+ * 
  * @author dok, pulky, isv, TCSASSEMBER
- * @version 1.3
+ * @version 1.4
  */
-public class Register extends ShortHibernateProcessor {
+public class Register extends BaseTermsOfUse {
 
     /**
      * <p>Constructs new <code>Register</code> instance. This implementation does nothing.</p>
@@ -83,7 +88,6 @@ public class Register extends ShortHibernateProcessor {
                 }
 
                 DAOFactory factory = DAOUtil.getFactory();
-                TermsOfUseDAO termsOfUse = factory.getTermsOfUse();
                 
                 Project c = factory.getProjectDAO().find(contestId.intValue());
                 long userId = getUser().getId();
@@ -107,23 +111,28 @@ public class Register extends ShortHibernateProcessor {
                     String termsOfUseId = StringUtils.checkNull(request.getParameter(Constants.TERMS_OF_USE_ID));
                     if (!"".equals(termsOfUseId)) {
                         if ("on".equals(request.getParameter(Constants.TERMS_AGREE))) {
-                            log.debug("agreed to terms");
-                            // add user terms of use record
-                            TermsOfUse tou = termsOfUse.find(Integer.parseInt(termsOfUseId));
-                            u.addTerms(tou);
+                            if (hasTermsOfUseBan(u.getId(), Long.parseLong(termsOfUseId))) {
+                                addError(Constants.TERMS_AGREE, "Sorry, you can not agree to this terms of use.");
+                            } else {
+                                log.debug("agreed to terms");
+                                // add user terms of use record
+                                saveUserTermsOfUse(u.getId(), Long.parseLong(termsOfUseId));
+                                if (hasPrePendingTerm("ViewRegistration")) {
+                                    // the user has just agreed a dependent terms of use, the page need redirect to the dependency terms of use
+                                    return;
+                                }
+                            }
                         } else {
                             addError(Constants.TERMS_AGREE, "You must agree to the terms in order to continue.");
                         }
 
                         // process terms of use
-                        RegistrationHelper.processTermsOfUse(request, c.getId().longValue(), u, 
-                                                             RegistrationHelper.REGISTRANT_ROLE_IDS);
+                        processTermsOfUse(c.getId().toString(), u.getId(), RegistrationHelper.REGISTRANT_ROLE_IDS, Long.parseLong(termsOfUseId));
                         backToTermsResponse(request, c);
                         return;
                     } else {
                         // make sure user don't have pending terms of use (he could get here faking the URL)
-                        if (RegistrationHelper.processTermsOfUse(request, c.getId().longValue(), u, 
-                                                                 RegistrationHelper.REGISTRANT_ROLE_IDS)) {
+                        if (processTermsOfUse(c.getId().toString(), u.getId(), RegistrationHelper.REGISTRANT_ROLE_IDS, -1)) {
                             backToTermsResponse(request, c);
                             return;
                         }
