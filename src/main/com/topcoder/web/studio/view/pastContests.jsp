@@ -1,6 +1,6 @@
 <%--
   - Author: pulky, isv, duxiaoyang
-  - Version: 1.5
+  - Version: 1.6
   - Copyright (C) 2001 - 2012 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page presents past contests
@@ -11,6 +11,7 @@
   - constraints.
   - Version 1.4 (TopCoder Studio Contest Listings Assembly) change notes: apply new look-and-feel.
   - Version 1.5 (TopCoder Studio Member Profiles Assembly) change notes: linked to Studio's member profile.
+  - Version 1.6 (TopCoder Studio Improvements 1 Assembly) change notes: fixed URL for "get started" link.
 --%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
@@ -135,7 +136,7 @@
                 <div class="title">
                     <h1>Past Contests</h1>
                     <p class="help">
-                        Need help? Learn how to <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=Static&amp;d1=support&amp;d2=getStarted">get started</a>.
+                        Need help? Learn how to <a href="http://community.topcoder.com/studio/what-is-studio/">get started</a>.
                     </p>
                 </div><!-- end of .title -->
 
@@ -213,7 +214,7 @@
                             <div class="right">
                                 <label>Contest Title</label>
                                 <div class="search">
-                                    <input type="text" name="title1" <c:if test="${title1 ne '%'}">value="${title1}"</c:if>/>
+                                    <input type="text" name="title" <c:if test="${title ne '%'}">value="${title}"</c:if>/>
                                     <a href="javascript:;"></a>
                                 </div>
                             </div>
@@ -229,57 +230,89 @@
                                     <label><strong>All</strong></label>
                                 </li>
                                 <li>
-                                    <input type="checkbox" value="17" <c:if test="${fn:contains(contestType, ',17,')}">checked="checked"</c:if>/>
+                                    <input type="checkbox" class="contestTypeBox" value="17" <c:if test="${fn:contains(contestType, ',17,')}">checked="checked"</c:if>/>
                                     <label>Web Design</label>
                                 </li>
                                 <li>
-                                    <input type="checkbox" value="18" <c:if test="${fn:contains(contestType, ',18,')}">checked="checked"</c:if>/>
+                                    <input type="checkbox" class="contestTypeBox" value="18" <c:if test="${fn:contains(contestType, ',18,')}">checked="checked"</c:if>/>
                                     <label>Wireframe</label>
                                 </li>
                                 <li>
-                                    <input type="checkbox" value="32" <c:if test="${fn:contains(contestType, ',32,')}">checked="checked"</c:if>/>
+                                    <input type="checkbox" class="contestTypeBox" value="32" <c:if test="${fn:contains(contestType, ',32,')}">checked="checked"</c:if>/>
                                     <label>Application Front End</label>
                                 </li>
                                 <li>
-                                    <input type="checkbox" value="30" <c:if test="${fn:contains(contestType, ',30,')}">checked="checked"</c:if>/>
-                                    <label>Widget</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" value="21" <c:if test="${fn:contains(contestType, ',21,')}">checked="checked"</c:if>/>
-                                    <label>Print/Presentation</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" value="16" <c:if test="${fn:contains(contestType, ',16,')}">checked="checked"</c:if>/>
-                                    <label>Banner/Icon</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" value="20" <c:if test="${fn:contains(contestType, ',20,')}">checked="checked"</c:if>/>
-                                    <label>Logo Design</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" value="22" <c:if test="${fn:contains(contestType, ',22,')}">checked="checked"</c:if>/>
-                                    <label>Idea Generation</label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" value="34" <c:if test="${fn:contains(contestType, ',34,')}">checked="checked"</c:if>/>
-                                    <label>Other</label>
+                                    <input type="checkbox" class="contestTypeBox" value="30" <c:if test="${fn:contains(contestType, ',30,')}">checked="checked"</c:if>/>
+                                    <label>Widget/Mobile Screen</label>
                                 </li>
                             </ul>
                             <ul class="middle">
                                 <li>
+                                    <input type="checkbox" class="contestTypeBox" value="21"
+                                           <c:if test="${fn:contains(contestType, ',21,')}">checked="checked"</c:if>/>
+                                    <label>Print/Presentation</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" class="contestTypeBox" value="16"
+                                           <c:if test="${fn:contains(contestType, ',16,')}">checked="checked"</c:if>/>
+                                    <label>Banner/Icon</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" class="contestTypeBox" value="20"
+                                           <c:if test="${fn:contains(contestType, ',20,')}">checked="checked"</c:if>/>
+                                    <label>Logo Design</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" class="contestTypeBox" value="22"
+                                           <c:if test="${fn:contains(contestType, ',22,')}">checked="checked"</c:if>/>
+                                    <label>Idea Generation</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" class="contestTypeBox" value="34"
+                                           <c:if test="${fn:contains(contestType, ',34,')}">checked="checked"</c:if>/>
+                                    <label>Other</label>
+                                </li>
+                            </ul>
+                            <ul class="right">
+                                <li>
                                     <input type="checkbox" name="startDate" checked="checked"/>
                                     <label>Start date:</label>
+
                                     <div class="fields date">
-                                        <input type="text" readonly="readonly" />
+                                        <input type="text" readonly="readonly"/>
                                         <select>
-                                            <option value="01:00" <c:if test="${startDateTime eq '01:00'}">selected="selected"</c:if>>01:00</option>
-                                            <option value="03:00" <c:if test="${startDateTime eq '03:00'}">selected="selected"</c:if>>03:00</option>
-                                            <option value="07:00" <c:if test="${startDateTime eq '07:00'}">selected="selected"</c:if>>07:00</option>
-                                            <option value="10:00" <c:if test="${startDateTime eq '10:00'}">selected="selected"</c:if>>10:00</option>
-                                            <option value="13:00" <c:if test="${startDateTime eq '13:00'}">selected="selected"</c:if>>13:00</option>
-                                            <option value="16:00" <c:if test="${startDateTime eq '16:00'}">selected="selected"</c:if>>16:00</option>
-                                            <option value="19:00" <c:if test="${startDateTime eq '19:00'}">selected="selected"</c:if>>19:00</option>
-                                            <option value="22:00" <c:if test="${startDateTime eq '22:00'}">selected="selected"</c:if>>22:00</option>
+                                            <option value="01:00"
+                                                    <c:if test="${startDateTime eq '01:00'}">selected="selected"</c:if>>
+                                                01:00
+                                            </option>
+                                            <option value="03:00"
+                                                    <c:if test="${startDateTime eq '03:00'}">selected="selected"</c:if>>
+                                                03:00
+                                            </option>
+                                            <option value="07:00"
+                                                    <c:if test="${startDateTime eq '07:00'}">selected="selected"</c:if>>
+                                                07:00
+                                            </option>
+                                            <option value="10:00"
+                                                    <c:if test="${startDateTime eq '10:00'}">selected="selected"</c:if>>
+                                                10:00
+                                            </option>
+                                            <option value="13:00"
+                                                    <c:if test="${startDateTime eq '13:00'}">selected="selected"</c:if>>
+                                                13:00
+                                            </option>
+                                            <option value="16:00"
+                                                    <c:if test="${startDateTime eq '16:00'}">selected="selected"</c:if>>
+                                                16:00
+                                            </option>
+                                            <option value="19:00"
+                                                    <c:if test="${startDateTime eq '19:00'}">selected="selected"</c:if>>
+                                                19:00
+                                            </option>
+                                            <option value="22:00"
+                                                    <c:if test="${startDateTime eq '22:00'}">selected="selected"</c:if>>
+                                                22:00
+                                            </option>
                                         </select>
                                         <span>ET (GMT-04)</span>
                                     </div>
@@ -287,133 +320,76 @@
                                 <li>
                                     <input type="checkbox" name="endDate" checked="checked"/>
                                     <label>End date:</label>
+
                                     <div class="fields date">
-                                        <input type="text" readonly="readonly" />
+                                        <input type="text" readonly="readonly"/>
                                         <select>
-                                            <option value="01:00" <c:if test="${endDateTime eq '01:00'}">selected="selected"</c:if>>01:00</option>
-                                            <option value="03:00" <c:if test="${endDateTime eq '03:00'}">selected="selected"</c:if>>03:00</option>
-                                            <option value="07:00" <c:if test="${endDateTime eq '07:00'}">selected="selected"</c:if>>07:00</option>
-                                            <option value="10:00" <c:if test="${endDateTime eq '10:00'}">selected="selected"</c:if>>10:00</option>
-                                            <option value="13:00" <c:if test="${endDateTime eq '13:00'}">selected="selected"</c:if>>13:00</option>
-                                            <option value="16:00" <c:if test="${endDateTime eq '16:00'}">selected="selected"</c:if>>16:00</option>
-                                            <option value="19:00" <c:if test="${endDateTime eq '19:00'}">selected="selected"</c:if>>19:00</option>
-                                            <option value="22:00" <c:if test="${endDateTime eq '22:00'}">selected="selected"</c:if>>22:00</option>
+                                            <option value="01:00"
+                                                    <c:if test="${endDateTime eq '01:00'}">selected="selected"</c:if>>
+                                                01:00
+                                            </option>
+                                            <option value="03:00"
+                                                    <c:if test="${endDateTime eq '03:00'}">selected="selected"</c:if>>
+                                                03:00
+                                            </option>
+                                            <option value="07:00"
+                                                    <c:if test="${endDateTime eq '07:00'}">selected="selected"</c:if>>
+                                                07:00
+                                            </option>
+                                            <option value="10:00"
+                                                    <c:if test="${endDateTime eq '10:00'}">selected="selected"</c:if>>
+                                                10:00
+                                            </option>
+                                            <option value="13:00"
+                                                    <c:if test="${endDateTime eq '13:00'}">selected="selected"</c:if>>
+                                                13:00
+                                            </option>
+                                            <option value="16:00"
+                                                    <c:if test="${endDateTime eq '16:00'}">selected="selected"</c:if>>
+                                                16:00
+                                            </option>
+                                            <option value="19:00"
+                                                    <c:if test="${endDateTime eq '19:00'}">selected="selected"</c:if>>
+                                                19:00
+                                            </option>
+                                            <option value="22:00"
+                                                    <c:if test="${endDateTime eq '22:00'}">selected="selected"</c:if>>
+                                                22:00
+                                            </option>
                                         </select>
                                         <span>ET (GMT-04)</span>
                                     </div>
                                 </li>
-                                <li>
-                                    <input type="checkbox" name="minDuration" <c:if test="${minDuration ne '0'}">checked="checked"</c:if>/>
-                                    <label>Min duration:</label>
-                                    <div class="fields">
-                                        <select>
-                                            <option value="3" <c:if test="${minDuration eq '3'}">selected="selected"</c:if>>3</option>
-                                            <option value="5" <c:if test="${minDuration eq '5'}">selected="selected"</c:if>>5</option>
-                                            <option value="6" <c:if test="${minDuration eq '6'}">selected="selected"</c:if>>6</option>
-                                            <option value="7" <c:if test="${minDuration eq '7'}">selected="selected"</c:if>>7</option>
-                                        </select>
-                                    </div>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="maxDuration" <c:if test="${maxDuration ne '1000'}">checked="checked"</c:if>/>
-                                    <label>Max duration:</label>
-                                    <div class="fields">
-                                        <select>
-                                            <option value="10" <c:if test="${maxDuration eq '10'}">selected="selected"</c:if>>10</option>
-                                            <option value="15" <c:if test="${maxDuration eq '15'}">selected="selected"</c:if>>15</option>
-                                            <option value="16" <c:if test="${maxDuration eq '16'}">selected="selected"</c:if>>16</option>
-                                            <option value="17" <c:if test="${maxDuration eq '17'}">selected="selected"</c:if>>17</option>
-                                        </select>
-                                    </div>
-                                </li>
-                                <li class="wordInTitle">
-                                    <input type="checkbox" name="title2" <c:if test="${not empty title2}">checked="checked"</c:if>/>
-                                    <label>Word in title:</label>
-                                    <div class="fields">
-                                        <input type="text" class="text" <c:if test="${not empty title2}">value="${title2}"</c:if>/>
-                                    </div>
-                                </li>
                                 <li class="winnerHandle">
-                                     <input type="checkbox" name="winner" <c:if test="${not empty winnerHandle}">checked="checked"</c:if>/>
-                                     <label>Winner's handle:</label>
-                                     <div class="fields">
-                                        <input id="winnerHandle" class="text" type="text" <c:if test="${not empty winnerHandle}">value="${winnerHandle}"</c:if>/>
+                                    <input type="checkbox" name="winner"
+                                           <c:if test="${not empty winnerHandle}">checked="checked"</c:if>/>
+                                    <label>Winner's handle:</label>
+
+                                    <div class="fields">
+                                        <input id="winnerHandle" class="text" type="text"
+                                               <c:if test="${not empty winnerHandle}">value="${winnerHandle}"</c:if>/>
                                     </div>
                                 </li>
                                 <li class="winnerPlacement">
                                     <label> up to:</label>
+
                                     <div class="fields">
                                         <select>
-                                            <option value="1" <c:if test="${winner eq '1'}">selected="selected"</c:if>>first place</option>
-                                            <option value="2" <c:if test="${winner eq '2'}">selected="selected"</c:if>>top two places</option>
-                                            <option value="3" <c:if test="${winner eq '3'}">selected="selected"</c:if>>top three places</option>
-                                            <option value="-1" <c:if test="${winner eq '-1'}">selected="selected"</c:if>>any prize placement</option>
+                                            <option value="1" <c:if test="${winner eq '1'}">selected="selected"</c:if>>
+                                                first place
+                                            </option>
+                                            <option value="2" <c:if test="${winner eq '2'}">selected="selected"</c:if>>
+                                                top two places
+                                            </option>
+                                            <option value="3" <c:if test="${winner eq '3'}">selected="selected"</c:if>>
+                                                top three places
+                                            </option>
+                                            <option value="-1"
+                                                    <c:if test="${winner eq '-1'}">selected="selected"</c:if>>any prize
+                                                placement
+                                            </option>
                                         </select>
                                     </div>
-                                </li>
-                            </ul>
-                            <ul class="right">
-                                <li>
-                                    <input type="checkbox" name="firstPrize" <c:if test="${firstPrize ne '-1'}">checked="checked"</c:if>/>
-                                    <label>First-place prize amount:</label>
-                                    <div class="fields">
-                                        <input type="text" class="text" <c:if test="${firstPrize ne '-1'}">value="${firstPrize}"</c:if>/>
-                                    </div>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="totalPrize" <c:if test="${totalPrize ne '-1'}">checked="checked"</c:if>/>
-                                    <label>Total prize purse:</label>
-                                    <div class="fields">
-                                        <input type="text" class="text" <c:if test="${totalPrize ne '-1'}">value="${totalPrize}"</c:if>/>
-                                    </div>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="minReg" <c:if test="${minReg ne '0'}">checked="checked"</c:if>/>
-                                    <label>Min registrants:</label>
-                                    <div class="fields">
-                                        <select>
-                                            <option value="3" <c:if test="${minReg eq '3'}">selected="selected"</c:if>>3</option>
-                                            <option value="4" <c:if test="${minReg eq '4'}">selected="selected"</c:if>>4</option>
-                                            <option value="5" <c:if test="${minReg eq '5'}">selected="selected"</c:if>>5</option>
-                                        </select>
-                                    </div>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="maxReg" <c:if test="${maxReg ne '1000'}">checked="checked"</c:if>/>
-                                    <label>Max registrants:</label>
-                                    <div class="fields">
-                                        <select>
-                                            <option value="10" <c:if test="${maxReg eq '10'}">selected="selected"</c:if>>10</option>
-                                            <option value="11" <c:if test="${maxReg eq '11'}">selected="selected"</c:if>>11</option>
-                                            <option value="12" <c:if test="${maxReg eq '12'}">selected="selected"</c:if>>12</option>
-                                        </select>
-                                    </div>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="minSub" <c:if test="${minSub ne '0'}">checked="checked"</c:if>/>
-                                    <label>Min submissions:</label>
-                                    <div class="fields">
-                                        <select>
-                                            <option value="10" <c:if test="${minSub eq '10'}">selected="selected"</c:if>>10</option>
-                                            <option value="11" <c:if test="${minSub eq '11'}">selected="selected"</c:if>>11</option>
-                                            <option value="12" <c:if test="${minSub eq '12'}">selected="selected"</c:if>>12</option>
-                                        </select>
-                                    </div>
-                                </li>
-                                <li>
-                                    <input type="checkbox" name="maxSub" <c:if test="${maxSub ne '1000'}">checked="checked"</c:if>/>
-                                    <label>Max submissions:</label>
-                                    <div class="fields">
-                                        <select>
-                                            <option value="10" <c:if test="${maxSub eq '10'}">selected="selected"</c:if>>10</option>
-                                            <option value="11" <c:if test="${maxSub eq '11'}">selected="selected"</c:if>>11</option>
-                                            <option value="12" <c:if test="${maxSub eq '12'}">selected="selected"</c:if>>12</option>
-                                        </select>
-                                    </div>
-                                </li>
-                                <li class="selectAll">
-                                    <input type="checkbox"/>
-                                    <label>Select all</label>
                                 </li>
                             </ul>
 
@@ -490,7 +466,7 @@
                                 </c:when>
                                 <c:otherwise>
                             <c:set var="even" value="false" />
-                            <rsc:iterator list="<%=contests%>" id="resultRow" begin="${begin}" end="${end}">
+                            <rsc:iterator list="<%=contests%>" id="resultRow">
                                 <c:set var="contestId" value="<%=new Long(resultRow.getLongItem("contest_id"))%>"/>
                             <tr><td colspan="11" class="space">&nbsp;</td></tr>
                             <tr <c:if test="${even}">class="even"</c:if>>
