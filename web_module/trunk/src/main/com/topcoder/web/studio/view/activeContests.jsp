@@ -1,7 +1,7 @@
 <%--
   - Author: pulky, isv, pvmagacho, duxiaoyang
-  - Version: 1.5
-  - Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
+  - Version: 1.6
+  - Copyright (C) 2001 - 2012 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page presents active contests
   -
@@ -12,6 +12,8 @@
   - eligibility constraints.
   - Version 1.4 (Replatforming Studio Release 4 Assembly) change notes: clean up old model classes.
   - Version 1.5 (TopCoder Studio Contest Listings Assembly) change notes: apply new look-and-feel.
+  - Version 1.6 (TopCoder Studio Improvements 1 Assembly) change notes: fixed URL for "get started" link; updated URL
+  - for RSS button
 --%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow" %>
@@ -27,6 +29,8 @@
 <%@ taglib prefix="studio_tags" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<c:set var="TC_SERVER" value="<%=ApplicationServer.SERVER_NAME%>"/>
 
 <%
     ResultSetContainer contests = (ResultSetContainer) request.getAttribute("contests");
@@ -99,7 +103,7 @@
                     <h1>Active Contests</h1>
                     <p class="help">
                         Need help? Learn how to
-                        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=Static&amp;d1=support&amp;d2=getStarted">get started</a>.
+                        <a href="http://community.topcoder.com/studio/what-is-studio/">get started</a>.
                     </p>
                 </div><!-- end of .title -->
 
@@ -126,7 +130,8 @@
                             </a>
                         </li>
                     </ul><!-- end of .tabs -->
-                    <a href="http://feeds.feedburner.com/ActiveContests" rel="alternate" type="application/rss+xml" class="rssBtn"></a>
+                    <a href="http://${TC_SERVER}/tc?module=BasicRSS&amp;c=rss_Studio_Registration_Open&amp;dsid=28" 
+                       rel="alternate" type="application/rss+xml" class="rssBtn"></a>
                 </div> <!-- end of .topLine -->
 
                 <div class="dataTable">

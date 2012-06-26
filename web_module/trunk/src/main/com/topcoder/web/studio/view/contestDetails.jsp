@@ -20,7 +20,9 @@
   -     - Updated the logic to use projects from tcs_catalog database.
   - Version 1.6 (Re-platforming Studio Release 4 Assembly) changes:
   -     - Clean up old studio model files
-  - Version 1.7 (Release Assembly - TopCoder Studio CCA Integration) change notes:
+  - Version 1.7 (TopCoder Studio Improvements 1 Assembly) changes:
+  -     - Fixed style for How To Submit section
+  - Version 1.8 (Release Assembly - TopCoder Studio CCA Integration) change notes:
   -     - Add permission checking for the contest which is CCA enforced.
 --%>
 <%@ page import="com.topcoder.web.studio.Constants" %>
@@ -202,7 +204,7 @@
         <%-- How to Submit --%>
         <h5 class="contentTitle">How to Submit</h5>
         <p class="paragraph">
-            <ul>
+            <ul class="howToSubmit">
                 <li>New to Studio? <a href="http://topcoder.com/home/studio/new-member-guide/" target="_blank">Learn how to compete
                     here</a>.
                 </li>
