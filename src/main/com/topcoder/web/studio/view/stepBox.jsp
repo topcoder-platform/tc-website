@@ -1,14 +1,12 @@
 <%--
   - Author: isv, pvmagacho
-  - Version: 1.3 (Studio Contest Detail Pages assembly)
+  - Version: 1.2 (Studio Contest Detail Pages assembly)
   - Copyright (C) 2010 - 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page renders the common header for Studio Contest Detail pages.
   -
   - Version 1.1 (Re-platforming Studio Release 4 Assembly) : Clean up old studio model files. Added mark for purchase flag
   - Version 1.2 (Re-platforming Studio Release 5 Assembly) : Use the model class in com.topcoder.web.studio.dto package
-  - Version 1.3 (TopCoder Studio Improvements 1 Assembly) change notes: hiding "Next Deadline" text if contest is 
-  - already finished
 --%>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.studio.dto.Prize" %>
@@ -277,7 +275,7 @@ request.setAttribute("clientPrize", new Long(Prize.MILESTONE_PRIZE_TYPE_ID));
             <span class="nextBottom"></span>
 
             <div class="nextBoxContent nextDeadlineNextBoxContent">
-                <c:if test="${not isFinished}"><span class="nextDTitle">Next Deadline</span></c:if>
+                <span class="nextDTitle">Next Deadline</span>
                 <span class="CEDate"><c:out value="${nextDeadlineText}"/></span>
                 <span class="timeLeft"><%=ViewContestDetails.getTextualDiff((Date) request.getAttribute("nextDeadlineTime"))%></span>
             </div>

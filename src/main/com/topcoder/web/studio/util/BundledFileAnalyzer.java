@@ -29,15 +29,8 @@ import com.topcoder.web.studio.dto.FileType;
  *   </ol>
  * </p>
  *
- * <p>
- * Version 1.3 (TopCoder Studio Improvements 1 Assembly 1.0) Change notes:
- *   <ol>
- *     <li>Added {@link #isEmpty()} method.</li>
- *   </ol>
- * </p>
- *
- * @author isv, pvmagacho
- * @version 1.3
+ * @author isv, pvmagacho, TCSASSEMBER
+ * @version 1.2
  * @since TopCoder Studio Modifications Assembly (Req# 5.6, 5.7)
  */
 public interface BundledFileAnalyzer {
@@ -124,13 +117,5 @@ public interface BundledFileAnalyzer {
      * @throws IOException if an I/O error occurs while reading the content.
      */
     Map<String, byte[]> getFiles(byte[] content) throws IOException;
-
-    /**
-     * <p>Gets the flag indicating whether analyzed file was empty or not.</p>
-     *
-     * @return a <code>boolean</code> providing the flag indicating whether analyzed file was empty or not.
-     * @since 1.3
-     */
-    boolean isEmpty();
 
 }

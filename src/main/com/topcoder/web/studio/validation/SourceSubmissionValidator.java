@@ -1,9 +1,8 @@
 /*
- * Copyright (C) 2005-2012 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2005-2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.studio.validation;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
 import com.topcoder.servlet.request.FileDoesNotExistException;
@@ -14,10 +13,8 @@ import com.topcoder.web.common.validation.BasicResult;
 import com.topcoder.web.common.validation.ValidationInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.common.validation.Validator;
-import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dto.FileType;
 import com.topcoder.web.studio.dto.Project;
-import com.topcoder.web.studio.util.BundledFileAnalyzer;
 
 /**
  * <p>Class used to validate the source file from contest <code>Submission</code>.</p>
@@ -37,14 +34,7 @@ import com.topcoder.web.studio.util.BundledFileAnalyzer;
  *   </ol>
  * </p>
  *
- * <p>
- * Version 1.3 (TopCoder Studio Improvements 1 Assembly 1.0) Change notes:
- *   <ol>
- *     <li>Updated {@link #validate(ValidationInput)} method to check the submitted file for empty content.</li>
- *   </ol>
- * </p>
- *
- * @author aisacovich, pvmagacho, isv
+ * @author aisacovich, pvmagacho, TCSASSEMBER
  * @version 1.2
  */
 public class SourceSubmissionValidator implements Validator {
@@ -109,28 +99,6 @@ public class SourceSubmissionValidator implements Validator {
             return new BasicResult(false, "Unknown file type submitted: " + submission.getContentType());
         } else if (!ft.getBundled()) {
             return new BasicResult(false, "Invalid file type submitted: " + submission.getContentType());
-        } else {
-            BundledFileAnalyzer fileParser;
-            try {
-                fileParser = UnifiedSubmissionValidator.getBundledFileParser(submission.getRemoteFileName());
-            } catch (PersistenceException e) {
-                log.warn("Error getting bundled file parser.", e);
-                return new BasicResult(false, "Error getting bundled file parser.");
-            } catch (FileDoesNotExistException e) {
-                log.warn("Error getting bundled file parser.", e);
-                return new BasicResult(false, "Error getting bundled file parser.");
-            }
-
-            try {
-                fileParser.analyze(new ByteArrayInputStream(arr), false);
-
-                if (fileParser.isEmpty()) {
-                    return new BasicResult(false, "Archive file was empty");
-                }
-            } catch (IOException e) {
-                log.error("Could not validate the input due to I/O error", e);
-                return new BasicResult(false, "Communication error when receiving submission.");
-            }
         }
 
         return ValidationResult.SUCCESS;

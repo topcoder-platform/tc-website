@@ -1,11 +1,9 @@
 <%--
   - Author: isv
-  - Version: 1.2
+  - Version: 1.1
   - Copyright (C) 2012 TopCoder Inc., All Rights Reserved.
   -
   - Version 1.1 (TopCoder Studio Member Profiles Assembly) change notes: linked to Studio's member profile.
-  - Version 1.2 (TopCoder Studio Improvements 1 Assembly) change notes: changed the text for "Download" link to 
-  - "Download Preview"
 --%>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="java.util.Date" %>
@@ -177,7 +175,7 @@
 
         <ul class="thumbnail-action-wrapper">
             <li class="action-button"><a href="?${modKey}=DownloadSubmission&amp;sbmid=${sbmid}"
-                                         class="btn-download-view">Download Preview</a></li>
+                                         class="btn-download-view">Download</a></li>
             <li class="state-info">
                 <span class="state">Image <span class="current-order">1</span> of <span
                     class="total-order">${submission.fullGalleryImagesCount}</span></span>

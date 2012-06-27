@@ -1,15 +1,13 @@
 <%--
-  - Author: isv, pvmagacho, duxiaoyang
-  - Version: 1.4
-  - Copyright (C) 2001 - 2012 TopCoder Inc., All Rights Reserved.
+  - Author: TCSDEVELOPER, pvmagacho, duxiaoyang
+  - Version: 1.3
+  - Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page presents active bug races
   -
   - Version 1.1 (Studio Release Assembly - Spec Review Sign up page v1.0) changes: Added "Review Opportunities" tab.
   - Version 1.2 (Re-platforming Studio Release 4 Assembly) changes: Clean up old studio model files.
   - Version 1.3 (TopCoder Studio Contest Listings Assembly) change notes: apply new look-and-feel.
-  - Version 1.4 (TopCoder Studio Improvements 1 Assembly) change notes: fixed URL for "get started" link;
-  - switched # and Title columns
 --%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
@@ -91,7 +89,7 @@
                 <div class="title">
                     <h1>Active Bug Race Competitions</h1>
                     <p class="help">
-                        Need help? Learn how to <a href="http://community.topcoder.com/studio/what-is-studio/">get started</a>.
+                        Need help? Learn how to <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=Static&amp;d1=support&amp;d2=getStarted">get started</a>.
                     </p>
                 </div><!-- end of .title -->
 
@@ -124,8 +122,8 @@
                 <div class="dataTable">
                     <table cellpadding="0" cellspacing="0">
                         <colgroup>
-                            <col width=""/>
                             <col width="200px" />
+                            <col width="" />
                         </colgroup>
                         <thead>
                             <tr>
@@ -139,11 +137,11 @@
                                         sortOrder = "asc";
                                     }
                                 %>
-                                <th class="first <%=((Boolean) sortDirection.get(new Integer(2))).booleanValue() ? "sortDown" : "sort"%> <%=sortColumn.equals("2") ? "hover" : ""%>">
-                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveBugRaces&sc=2&sd=<%=sortOrder%>&sortCriteria=<%=sortCriteria%>"><span>Bug Race Competitions Title</span></a>
-                                </th>
-                                <th class="<%=((Boolean) sortDirection.get(new Integer(1))).booleanValue() ? "sortDown" : "sort"%> <%=sortColumn.equals("") || sortColumn.equals("1") ? "hover" : ""%>">
+                                <th class="first <%=((Boolean) sortDirection.get(new Integer(1))).booleanValue() ? "sortDown" : "sort"%> <%=sortColumn.equals("") || sortColumn.equals("1") ? "hover" : ""%>">
                                     <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveBugRaces&sc=1&sd=<%=sortOrder%>&sortCriteria=<%=sortCriteria%>"><span>Bug Race Competition #</span></a>
+                                </th>
+                                <th class="<%=((Boolean) sortDirection.get(new Integer(2))).booleanValue() ? "sortDown" : "sort"%> <%=sortColumn.equals("2") ? "hover" : ""%>">
+                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveBugRaces&sc=2&sd=<%=sortOrder%>&sortCriteria=<%=sortCriteria%>"><span>Bug Race Competitions Title</span></a>
                                 </th>
                                 <th class="<%=((Boolean) sortDirection.get(new Integer(3))).booleanValue() ? "sortDown" : "sort"%> <%=sortColumn.equals("3") ? "hover" : ""%>">
                                     <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveBugRaces&sc=3&sd=<%=sortOrder%>&sortCriteria=<%=sortCriteria%>"><span>Prize</span></a>
@@ -166,11 +164,11 @@
                                     <c:forEach items="${issues}" var="issue" varStatus="status">
                             <tr><td colspan="2" class="space">&nbsp;</td></tr>
                             <tr class="<c:if test="${status.index mod 2 == 1}">even</c:if>">
-                                <td class="bugTitle first">
-                                    <a href="https://apps.topcoder.com/bugs/browse/${issue.key}"><strong>${issue.summary}</strong></a>
-                                </td>
-                                <td>
+                                <td class="first">
                                     ${fn:substringAfter(issue.key, "-")}
+                                </td>
+                                <td class="bugTitle">
+                                    <a href="https://apps.topcoder.com/bugs/browse/${issue.key}"><strong>${issue.summary}</strong></a>
                                 </td>
                                 <td class="last">
                                     $${issue.prize}

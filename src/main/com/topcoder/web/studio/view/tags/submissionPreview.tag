@@ -1,6 +1,6 @@
 <%--
   - Author: pulky, pvmagacho, isv
-  - Version: 1.8
+  - Version: 1.7
   - Since: Studio Submission Viewer Upgrade Integration v1.0
   - Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
   -
@@ -14,8 +14,6 @@
   - Version 1.5 (Re-platforming Studio Release 4 Assembly) : Clean up old studio model files. Added mark for purchase flag
   - Version 1.6 (Re-platforming Studio Release 5 Assembly) : Use the model class in com.topcoder.web.studio.dto package.
   - Version 1.7 (TopCoder Studio Member Profiles Assembly) change notes: linked to Studio's member profile.
-  - Version 1.8 (TopCoder Studio Improvements 1 Assembly) change notes: changed the text for "Download" link to 
-  - "Download Preview"
   -
   - Required attributes:
   -     * row: the submission information
@@ -181,7 +179,7 @@
             <span>
                 <a class="${fullSizeClass}" href="?${modKey}=${module}&amp;ct=${contestId}&amp;sbmid=${row.map['submission_id']}&amp;pn=${pn}&amp;ps=${ps}">View Full Size</a>
                 &nbsp;|&nbsp;
-                <a href="?${modKey}=DownloadSubmission&amp;${subId}=${row.map["submission_id"]}">Download Preview</a>
+                <a href="?${modKey}=DownloadSubmission&amp;${subId}=${row.map["submission_id"]}">Download</a>
             </span>
         </c:if>
     </div>
