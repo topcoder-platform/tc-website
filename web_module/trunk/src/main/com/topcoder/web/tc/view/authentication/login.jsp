@@ -11,6 +11,7 @@
     if (nextpage == null) nextpage = request.getHeader("Referer");
     if (nextpage == null) nextpage = "http://" + request.getServerName();
     String message = (String) request.getAttribute("message");
+    if (message == null) message = request.getParameter("message");
     if (message == null) message = "";
 %>
 
