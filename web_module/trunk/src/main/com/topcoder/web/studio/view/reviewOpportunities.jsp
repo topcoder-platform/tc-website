@@ -1,6 +1,6 @@
 <%--
   - Author: isv, duxiaoyang
-  - Version: 1.6
+  - Version: 1.5
   - Copyright (C) 2001 - 2012 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page presents specification review opportunities
@@ -15,7 +15,6 @@
   -
   - Version 1.4 (TopCoder Studio Contest Listings) change notes: apply new look-and-feel.
   - Version 1.5 (TopCoder Studio Member Profiles Assembly) change notes: linked to Studio's member profile.
-  - Version 1.6 (TopCoder Studio Improvements 1 Assembly) change notes: switched Contest Name and Type columns
 --%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
@@ -140,8 +139,8 @@
                 <div class="dataTable">
                     <table cellpadding="0" cellspacing="0">
                         <colgroup>
-                            <col width="410px"/>
                             <col width="80px" />
+                            <col width="410px" />
                             <col width="150px" />
                             <col width="120px" />
                             <col width="" />
@@ -158,11 +157,11 @@
                                         sortOrder = "asc";
                                     }
                                 %>
-                                <th class="first <%=((Boolean) sortDirection.get(Integer.valueOf(reviews.getColumnIndex("name")))).booleanValue() ? "sortDown" : "sort"%> <%=sortColumn.equals("" + reviews.getColumnIndex("name")) ? "hover" : ""%>">
-                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewReviewOpportunities&sc=<%=reviews.getColumnIndex("name")%>&sd=<%=sortOrder%>&sortCriteria=<%=sortCriteria%>"><span>Contest Name</span></a>
-                                </th>
-                                <th class="<%=((Boolean) sortDirection.get(Integer.valueOf(reviews.getColumnIndex("review_type")))).booleanValue() ? "sortDown" : "sort"%> <%=sortColumn.equals("") || sortColumn.equals("" + reviews.getColumnIndex("review_type")) ? "hover" : ""%>">
+                                <th class="first <%=((Boolean) sortDirection.get(Integer.valueOf(reviews.getColumnIndex("review_type")))).booleanValue() ? "sortDown" : "sort"%> <%=sortColumn.equals("") || sortColumn.equals("" + reviews.getColumnIndex("review_type")) ? "hover" : ""%>">
                                     <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewReviewOpportunities&sc=<%=reviews.getColumnIndex("review_type")%>&sd=<%=sortOrder%>&sortCriteria=<%=sortCriteria%>"><span>Type</span></a>
+                                </th>
+                                <th class="<%=((Boolean) sortDirection.get(Integer.valueOf(reviews.getColumnIndex("name")))).booleanValue() ? "sortDown" : "sort"%> <%=sortColumn.equals("" + reviews.getColumnIndex("name")) ? "hover" : ""%>">
+                                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewReviewOpportunities&sc=<%=reviews.getColumnIndex("name")%>&sd=<%=sortOrder%>&sortCriteria=<%=sortCriteria%>"><span>Contest Name</span></a>
                                 </th>
                                 <th class="<%=((Boolean) sortDirection.get(Integer.valueOf(reviews.getColumnIndex("sort_start_time")))).booleanValue() ? "sortDown" : "sort"%> <%=sortColumn.equals("" + reviews.getColumnIndex("sort_start_time")) ? "hover" : ""%>">
                                     <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewReviewOpportunities&sc=<%=reviews.getColumnIndex("sort_start_time")%>&sd=<%=sortOrder%>&sortCriteria=<%=sortCriteria%>"><span>Scheduled Start Date</span></a>
@@ -192,13 +191,13 @@
                                         <c:set var="isSpecReview" value="${resultRow.map['review_type'] eq 'Spec Review'}"/>
                             <tr><td colspan="5" class="space">&nbsp;</td></tr>
                             <tr class="<c:if test="${status.index mod 2 == 1}">even</c:if>">
-                                <td class="first contestName">
+                                <td class="first">
+                                    <c:out value="${resultRow.map['review_type']}"/>
+                                </td>
+                                <td>
                                     <a href="${VIEW_CONTEST_DETAILS_LINK}=${resultRow.map['contest_id']}">
                                         <strong>${resultRow.map['name']}</strong>
                                     </a>
-                                </td>
-                                <td>
-                                    <c:out value="${resultRow.map['review_type']}"/>
                                 </td>
                                 <td>
                                     <c:choose>
