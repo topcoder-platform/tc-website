@@ -62,7 +62,7 @@ public class InvalidHandleDAOQueryTool extends Base implements InvalidHandleDAO 
         }
         Request r = new Request();
         r.setContentHandle("invalid_handle");
-        r.setProperty("handle", handle);
+        r.setProperty("ha", handle);
         System.out.println("Request created.");
         List<String> result = getData(r, "invalid_handle");
         return result.size() == 0 ? null : result.get(0);
