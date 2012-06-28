@@ -269,7 +269,6 @@ public class ForumsUtil {
         Iterator itCategories = forumCategory.getCategories();
         ArrayList categoriesList = new ArrayList();
         ArrayList emptyCategories = new ArrayList();
-        long[] componentIDs = new long[forumCategory.getCategoryCount()];
         int n = -1;
 
         while (itCategories.hasNext()) {
@@ -278,33 +277,10 @@ public class ForumsUtil {
             String archivalStatus = c.getProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS);
             if (ForumConstants.PROPERTY_ARCHIVAL_STATUS_CLOSED.equals(archivalStatus)) continue;
 
-            try {
-                componentIDs[n] = Long.parseLong(c.getProperty(ForumConstants.PROPERTY_COMPONENT_ID));
-            } catch (NumberFormatException nfe) {
-                //log.info("*** Category " + c.getID() + " has no PROPERTY_COMPONENT_ID: add ID or remove category");
-                continue;
-            }
-
-            if (c.getMessageCount() > 0 || mergeEmptyCategories) {
+            if (mergeEmptyCategories || c.getMessageCount() > 0) {
                 categoriesList.add(c);
             } else {
                 emptyCategories.add(c);
-            }
-        }
-
-        HashSet approvedComponents = forumsBean.getApprovedComponents(componentIDs);
-        for (int i = categoriesList.size() - 1; i >= 0; i--) {
-            ForumCategory c = (ForumCategory) categoriesList.get(i);
-            String componentIDStr = c.getProperty(ForumConstants.PROPERTY_COMPONENT_ID);
-            if (!approvedComponents.contains(componentIDStr)) {
-                categoriesList.remove(i);
-            }
-        }
-        for (int i = emptyCategories.size() - 1; i >= 0; i--) {
-            ForumCategory c = (ForumCategory) emptyCategories.get(i);
-            String componentIDStr = c.getProperty(ForumConstants.PROPERTY_COMPONENT_ID);
-            if (!approvedComponents.contains(componentIDStr)) {
-                emptyCategories.remove(i);
             }
         }
 

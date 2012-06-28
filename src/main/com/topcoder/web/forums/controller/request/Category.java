@@ -63,7 +63,6 @@ public class Category extends ForumsProcessor {
         String markRead = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MARK_READ));
         if (markRead.equals("t") && forumCategory.getID() != 1 && forumCategory.getID() != WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID) {
             forumFactory.getReadTracker().markRead(user, forumCategory);
-            super.setUnreadCategories();
         }
 
         ResultFilter resultFilter = new ResultFilter();
