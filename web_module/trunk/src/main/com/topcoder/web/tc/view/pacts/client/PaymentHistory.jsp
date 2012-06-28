@@ -124,7 +124,7 @@
         <tr>
             <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true" excludeParams="sr"/>" >Description</a></td>
             <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true" excludeParams="sr"/>" >Type</a></td>
-            <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr"/>" >Due Date</a></td>
+            <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr"/>" >Create Date</a></td>
             <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true" excludeParams="sr" />" >Net Payment</a></td>
             <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true" excludeParams="sr"/>" >Status</a></td>
             <td class="headerC">
@@ -176,7 +176,7 @@
             
             </td>
             <td class="value">${payment.paymentTypeDesc}</td>
-            <td class="valueC"><fmt:formatDate value="${payment.dueDate}" pattern="MM/dd/yyyy"/></td>
+            <td class="valueC"><fmt:formatDate value="${payment.createDate}" pattern="MM/dd/yyyy"/></td>
             <td class="valueR"><fmt:formatNumber value="${payment.netAmount}" type="currency" currencySymbol="$"/></td>
             <td class="value"><strong>${payment.currentStatus.desc}</strong> 
                 <c:forEach items="${payment.currentStatus.reasons}" var="reason">    

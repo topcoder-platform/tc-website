@@ -49,7 +49,7 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
     public static final String CODER = "cr";
     private static final int DESCRIPTION_COL = 1;
     private static final int TYPE_COL = 2;
-    private static final int DUE_DATE_COL = 3;
+    private static final int CREATE_DATE_COL = 3;
     private static final int NET_PAYMENT_COL = 4;
     private static final int STATUS_COL = 5;
     private static final int PAID_DATE_COL = 6;
@@ -136,7 +136,7 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
                 SortInfo s = new SortInfo();
                 s.addDefault(DESCRIPTION_COL, "asc");
                 s.addDefault(TYPE_COL, "asc");
-                s.addDefault(DUE_DATE_COL, "desc");
+                s.addDefault(CREATE_DATE_COL, "desc");
                 s.addDefault(NET_PAYMENT_COL, "desc");
                 s.addDefault(STATUS_COL, "asc");
                 s.addDefault(PAID_DATE_COL, "desc");
@@ -185,7 +185,7 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
         Row row = sheet.getRow(1);
         row.getCell(1).setStringValue("Description");
         row.getCell(2).setStringValue("Type");
-        row.getCell(3).setStringValue("Due Date");
+        row.getCell(3).setStringValue("Create Date");
         row.getCell(4).setStringValue("Net Payment");
         row.getCell(5).setStringValue("Status");
         row.getCell(6).setStringValue("Date Paid");
@@ -197,7 +197,7 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
 
             row.getCell(1).setStringValue(payment.getDescription());
             row.getCell(2).setStringValue(payment.getPaymentTypeDesc());
-            row.getCell(3).setStringValue(dateFormatter.format(payment.getDueDate()));
+            row.getCell(3).setStringValue(dateFormatter.format(payment.getCreateDate()));
             row.getCell(4).setNumberValue(payment.getNetAmount());
             row.getCell(5).setStringValue(payment.getCurrentStatus().getDesc());
 
@@ -259,11 +259,11 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
                     }
                 });
                 break;
-            case DUE_DATE_COL:
+            case CREATE_DATE_COL:
                 Collections.sort(result, new Comparator() {
                     public int compare(Object arg0, Object arg1) {
-                        Date date0 = ((BasePayment) arg0).getDueDate();
-                        Date date1 = ((BasePayment) arg1).getDueDate();
+                        Date date0 = ((BasePayment) arg0).getCreateDate();
+                        Date date1 = ((BasePayment) arg1).getCreateDate();
                         if (date0 == null && date1 == null) return 0; 
                         if (date0 == null && date1 != null) return -1; 
                         if (date0 != null && date1 == null) return 1; 

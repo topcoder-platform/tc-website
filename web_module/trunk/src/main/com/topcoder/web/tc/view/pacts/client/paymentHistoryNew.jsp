@@ -69,7 +69,7 @@
     </tr>
     <tr>
         <td class="header">Description</td>
-        <td class="headerC">Due Date</td>
+        <td class="headerC">Create Date</td>
         <td class="headerR">Net Payment</td>
         <td class="headerC">Status</td>
         <td class="headerC">
@@ -110,7 +110,7 @@
                 </c:otherwise>
             </c:choose>
         </td>
-        <td class="valueC"><c:out value="${payment.dueDate}"/></td>
+        <td class="valueC"><c:out value="${payment.createDate}"/></td>
         <td class="valueR">$<fmt:formatNumber value="${payment.netAmount}" pattern="###,##0.00" /></td>
         <td class="valueC"><c:out escapeXml="false" value="${payment.statusDesc}"/></td>
         <td class="valueC">
