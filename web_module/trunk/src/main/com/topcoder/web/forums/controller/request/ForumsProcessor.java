@@ -7,6 +7,7 @@ import com.jivesoftware.base.AuthToken;
 import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.base.User;
 import com.jivesoftware.forum.Forum;
+import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.ForumFactory;
 import com.jivesoftware.forum.ReadTracker;
@@ -43,50 +44,6 @@ public abstract class ForumsProcessor extends BaseProcessor {
         getRequest().setAttribute("authToken", authToken);
         getRequest().setAttribute("user", user);
         getRequest().setAttribute("forumFactory", forumFactory);
-
-        setUnreadCategories();
-    }
-
-    //  Determine categories with unread forums
-    protected void setUnreadCategories() throws UnauthorizedException {
-        ReadTracker readTracker = forumFactory.getReadTracker();
-        WatchManager watchManager = forumFactory.getWatchManager();
-        StringBuffer unreadCategories = new StringBuffer();
-        ForumCategory rootCategory = forumFactory.getRootForumCategory();
-        Iterator itCategories = rootCategory.getCategories();
-        while (itCategories.hasNext()) {
-            ForumCategory category = (ForumCategory) itCategories.next();
-            Iterator itForums = category.getForums();
-            boolean isCategoryRead = true;
-            while (isCategoryRead && itForums.hasNext()) {
-                Forum forum = (Forum) itForums.next();
-                if (user != null && forum.getLatestMessage() != null
-                        && readTracker.getReadStatus(user, forum.getLatestMessage()) != ReadTracker.READ
-                        && !("true".equals(user.getProperty("markWatchesRead")) && watchManager.isWatched(user, forum.getLatestMessage().getForumThread()))) {
-                    isCategoryRead = false;
-                }
-            }
-            if (category.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME) == null) {
-                if (log.isDebugEnabled()) {
-                    log.debug("category nav name is null " + category.getDescription());
-                }
-            }
-            if (!isCategoryRead && category.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME) != null) {
-                unreadCategories.append(category.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME)).append(',');
-            }
-        }
-        if (unreadCategories.length() > 0) {
-            if (log.isDebugEnabled()) {
-                log.debug("unread:" + unreadCategories);
-            }
-            getRequest().setAttribute("unreadCategories",
-                    unreadCategories.substring(0, unreadCategories.length() - 1));
-        } else {
-            if (log.isDebugEnabled()) {
-                log.debug("no unread categories");
-            }
-            getRequest().setAttribute("unreadCategories", "");
-        }
     }
 
 /*

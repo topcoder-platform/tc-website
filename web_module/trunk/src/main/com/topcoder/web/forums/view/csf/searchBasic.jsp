@@ -10,7 +10,6 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <tc-webtag:useBean id="dates" name="dates" type="java.util.HashMap" toScope="request"/>
-<tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 
 <% HashMap errors = (HashMap) request.getAttribute(BaseProcessor.ERRORS_KEY);

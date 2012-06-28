@@ -38,6 +38,12 @@ public class Main extends ForumsProcessor {
 
         while (itCategories.hasNext()) {
             ForumCategory category = (ForumCategory) itCategories.next();
+            if (category.getID() == WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID) {
+                // Just skip the Software forums category.
+                // It became too large to be displayed on the main page.
+                continue;
+            }
+
             categoryList.add(category);
 
             getRequest().setAttribute("numActiveForums_" + category.getID(), new Long(0));
@@ -49,32 +55,6 @@ public class Main extends ForumsProcessor {
                     ArrayList pageList = ForumsUtil.getPage(categoriesList, 0, Integer.parseInt(category.getProperty("displayLimit")));
                     getRequest().setAttribute("categoriesIterator_" + category.getID(), pageList.iterator());
                     getRequest().setAttribute("numActiveCategories_" + category.getID(), new Long(pageList.size()));
-
-                    // create image data for software components
-                    if (category.getID() == WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID) {
-                        Hashtable imageDataTable = new Hashtable();
-                        long[] compVersIDs = new long[pageList.size()];
-                        long[] compIDs = new long[pageList.size()];
-                        for (int i = 0; i < pageList.size(); i++) {
-                            ForumCategory subcategory = (ForumCategory) pageList.get(i);
-                            compVersIDs[i] = Long.parseLong(subcategory.getProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_ID));
-                            compIDs[i] = Long.parseLong(subcategory.getProperty(ForumConstants.PROPERTY_COMPONENT_ID));
-                        }
-                        Hashtable compVersPhasesTable = forumsBean.getComponentVersionPhases(compVersIDs);
-                        Hashtable rootCategoriesTable = forumsBean.getComponentRootCategories(compIDs);
-                        for (int i = 0; i < pageList.size(); i++) {
-                            ForumCategory subcategory = (ForumCategory) pageList.get(i);
-                            long compVersPhase = -1, rootCategoryID = -1;
-                            if (compVersPhasesTable.containsKey(String.valueOf(compVersIDs[i]))) {
-                                compVersPhase = Long.parseLong((String) compVersPhasesTable.get(String.valueOf(compVersIDs[i])));
-                            }
-                            if (rootCategoriesTable.containsKey(String.valueOf(compIDs[i]))) {
-                                rootCategoryID = Long.parseLong((String) rootCategoriesTable.get(String.valueOf(compIDs[i])));
-                            }
-                            imageDataTable.put(String.valueOf(subcategory.getID()), new ImageData(compVersPhase, rootCategoryID));
-                        }
-                        getRequest().setAttribute("imageDataTable_" + category.getID(), imageDataTable);
-                    }
                 } else {
                     boolean excludeEmptyForums = !("true".equals(category.getProperty(ForumConstants.PROPERTY_SHOW_EMPTY_FORUMS_ON_MAIN)));
                     ArrayList forumsList = ForumsUtil.getForums(category, resultFilter, excludeEmptyForums);
@@ -82,6 +62,7 @@ public class Main extends ForumsProcessor {
                     getRequest().setAttribute("forumsIterator_" + category.getID(), pageList.iterator());
                     getRequest().setAttribute("numActiveForums_" + category.getID(), new Long(pageList.size()));
                 }
+
             } else {
                 resultFilter.setNumResults(ResultFilter.NULL_INT);
                 getRequest().setAttribute("forumsIterator_" + category.getID(), category.getForums(resultFilter));
@@ -94,7 +75,6 @@ public class Main extends ForumsProcessor {
         String markRead = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MARK_READ));
         if (markRead.equals("t")) {
             forumFactory.getReadTracker().markRead(user, forumFactory.getRootForumCategory());
-            super.setUnreadCategories();
         }
         */
 
