@@ -499,6 +499,10 @@
                                     <a href="http://community.topcoder.com/tco12/win-tco-trips"><img src="/i/tournament/tco12/tco12_icon_wireframe.png" alt="Eligible for the TCO12" /><span>Eligible for the TCO12</span></a>
                                     <% } else if ("3434".equals(resultRow.getStringItem("event_id"))) { %>
                                     <a href="http://community.topcoder.com/tco12/studio"><img src="/i/tournament/tco12/tco12_icon_design.png" alt="Eligible for the TCO12" /><span>Eligible for the TCO12</span></a>
+										 <%  } else if ("18".equals(resultRow.getStringItem("contest_type_id")) &&  "3436".equals(resultRow.getStringItem("event_id")) ) { %>
+                                    <a href="http://community.topcoder.com/tco13/win-tco-trips"><img src="/i/tournament/tco13/tco13_icon_wireframe.png" alt="Eligible for the TCO13" /><span>Eligible for the TCO13</span></a>
+									 <% } else if ("3436".equals(resultRow.getStringItem("event_id"))) { %>
+                                    <a href="http://community.topcoder.com/tco13"><img src="/i/tournament/tco13/tco13_icon_design.png" alt="Eligible for the TCO13" /><span>Eligible for the TCO13</span></a>
                                    
                                     <% } else { %>
                                     &nbsp;
