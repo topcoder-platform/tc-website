@@ -157,7 +157,8 @@
                 </div>
            <% } else if (resultRow.isValidColumn("cms_contest") && resultRow.getItem("cms_contest").getResultData() != null && resultRow.getIntItem("cms_contest") > 0) { %>
                 <div align="center">
-                  <img class="emblem" src="/i/development/smCMS.png" alt="CMS" border="0" /></a>
+                  <img class="emblem" src="/i/development/smCMS.png" alt="CMS" border="0" 
+				  onMouseOver="postPopUpText('globalPopupText','CMS Challenge Competitions'); popUp(this,'globalPopup');" onMouseOut="popHide()" /></a>
                 </div>
 			<% } else if (resultRow.isValidColumn("paypal_brand") && resultRow.getItem("paypal_brand").getResultData() != null && resultRow.getIntItem("paypal_brand") > 0) { %>
                 <div align="center">
