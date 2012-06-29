@@ -430,9 +430,13 @@
                 </a>
             </td>
             <td class="value">
-          <% if (resultRow.getIntItem("tourny_project") > 0) { %>
+          <% if (resultRow.getIntItem("tourny_project") == 3434) { %>
                 <div align="center">
                   <a href='http://community.topcoder.com/tco12'><img class="emblem" src="/i/tournament/tco12/software_tco12_icon.png" alt="" border="0" onMouseOver="postPopUpText('globalPopupText','Eligible for the TopCoder Open'); popUp(this,'globalPopup');" onMouseOut="popHide()" /></a>
+                </div>
+			  <% } else if (resultRow.getIntItem("tourny_project") == 3436) { %>
+                <div align="center">
+                  <a href='http://community.topcoder.com/tco13'><img class="emblem" src="/i/tournament/tco13/software_tco13_icon.png" alt="" border="0" onMouseOver="postPopUpText('globalPopupText','Eligible for the TopCoder Open'); popUp(this,'globalPopup');" onMouseOut="popHide()" /></a>
                 </div>
 		    <% } else if (resultRow.isValidColumn("cms_contest") && resultRow.getItem("cms_contest").getResultData() != null && resultRow.getIntItem("cms_contest") > 0) { %>
                 <div align="center">
