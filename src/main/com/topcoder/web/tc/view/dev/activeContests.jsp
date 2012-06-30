@@ -144,12 +144,12 @@
                 </a>
             </td>
             <td class="value">
-                <% if (resultRow.getIntItem("tourny_project") = 3434) { %>
+                <% if (resultRow.getIntItem("tourny_project") == 3434) { %>
                 <div align="center">
 
                     <a href='http://community.topcoder.com/tco12'><img class="emblem" src="/i/tournament/tco12/software_tco12_icon.png" alt="" border="0" onmouseover="postPopUpText('globalPopupText','Eligible for the TopCoder Open'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
                 </div>
-				  <% } else  if (resultRow.getIntItem("tourny_project") = 3436) { %>
+				  <% } else  if (resultRow.getIntItem("tourny_project") == 3436) { %>
                 <div align="center">
 
                     <a href='http://community.topcoder.com/tco13'><img class="emblem" src="/i/tournament/tco13/software_tco13_icon.png" alt="" border="0" onmouseover="postPopUpText('globalPopupText','Eligible for the TopCoder Open'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
