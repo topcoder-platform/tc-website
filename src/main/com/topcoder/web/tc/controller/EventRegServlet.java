@@ -125,7 +125,7 @@ public class EventRegServlet extends BaseServlet {
                 //For now, we force the event id.
                 //3433 tco11
                 // 3434 tco12
-                if (eventId != 3433 && eventId!= 3434 && eventId != 3435) {
+                if (eventId != 3433 && eventId!= 3434 && eventId != 3435 && eventId != 3436) {
                     response.getOutputStream().println(cb == null ? "<response>bad event</response>" : cb + "({\"response\":\"bad event\"})");
                     return;
                 }
@@ -144,6 +144,11 @@ public class EventRegServlet extends BaseServlet {
 				else if (eventId == 3435)
                 {
                     termsId = 21003;
+                }
+				else if (eventId == 3436)
+                {
+                    termsId = 20933;
+                    commandToRefresh = "tco13_registrants";
                 }
               
 
