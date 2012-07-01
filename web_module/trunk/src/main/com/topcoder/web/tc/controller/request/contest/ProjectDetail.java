@@ -178,8 +178,11 @@ public class ProjectDetail extends Base {
             ReliabilityBonusCalculator reliabilityBonus = ReliabilityBonusCalculator.getInstance();
             Double firstPlacePrize = details.getDoubleItem(0, "total_payment");
             Date postingDate = details.getTimestampItem(0, "posting_date");
+            Boolean reliabilityBonuseEligible = details.getBooleanItem(0, "reliability_bonus_eligible");
             getRequest().setAttribute("maxReliabilityBonus",
-                    reliabilityBonus.getReliabilityPercent(1.0, postingDate, categoryId) * firstPlacePrize);
+                    reliabilityBonuseEligible ?
+                    reliabilityBonus.getReliabilityPercent(1.0, postingDate, categoryId) * firstPlacePrize : 
+                    0.0);
             
             // set experiences and budget
             if (projectTypeId == Constants.COPILOT_POSTING_PROJECT_TYPE) {
