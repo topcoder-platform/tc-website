@@ -33,7 +33,7 @@
 
         <div style="padding: 15px; text-align: left; width: 540px;">
 
-        <center><a href="http://apps.topcoder.com/wiki/display/~wdvorak/NASA+Robot+Winners"><img src="/i/sponsor/NASARobotButton.png" /></a></center>
+        <center><a href="http://apps.topcoder.com/wiki/display/tc/NASA+Robot+Winners"><img src="/i/sponsor/NASARobotButton.png" /></a></center>
 
 </td>
 <!-- Center Column Ends -->
