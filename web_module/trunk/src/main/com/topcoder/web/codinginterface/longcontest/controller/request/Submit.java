@@ -324,8 +324,12 @@ public class Submit extends Base {
             ps.setLong(1, userId);
             ps.setLong(2, roundId);
             ps.setLong(3, componentId);
-            ps.setLong(4, Long.parseLong(hours));
-            ps.setLong(5, Long.parseLong(minutes));
+
+            long hoursLong = (hours == null || hours.trim().length() == 0) ? 0 : Long.parseLong(hours);
+            long minutesLong = (minutes == null || minutes.trim().length() == 0) ? 0 : Long.parseLong(minutes);
+
+            ps.setLong(4, hoursLong);
+            ps.setLong(5, minutesLong);
 
             ps.executeUpdate();
         } catch (SQLException e) {
