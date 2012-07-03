@@ -263,7 +263,7 @@ public class ForumsUtil {
     }
 
     // Returns subcategories within a category, with empty/inactive/unapproved categories omitted or placed at 
-    // the list's end. Only forums for approved software components are displayed.
+    // the list's end.
     public static ArrayList getCategories(ForumsLocal forumsBean, ForumCategory forumCategory, ResultFilter resultFilter,
                                           boolean excludeEmptyCategories, boolean mergeEmptyCategories) throws RemoteException {
         Iterator itCategories = forumCategory.getCategories();
@@ -649,8 +649,8 @@ public class ForumsUtil {
         if (parentCategory == null) return false;
         return (parentCategory.getID() == WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID);
     }
-	
-	public static boolean isDirectProjectSubcategory(ForumCategory category) {
+    
+    public static boolean isDirectProjectSubcategory(ForumCategory category) {
         ForumCategory parentCategory = category.getParentCategory();
         if (parentCategory == null) return false;
         return (parentCategory.getID() == WebConstants.DIRECT_PROJECT_FORUMS_ROOT_CATEGORY_ID);

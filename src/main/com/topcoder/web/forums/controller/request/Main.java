@@ -50,15 +50,19 @@ public class Main extends ForumsProcessor {
             getRequest().setAttribute("numActiveCategories_" + category.getID(), new Long(0));
             String limit = StringUtils.checkNull(category.getProperty(ForumConstants.PROPERTY_DISPLAY_LIMIT));
             if (!"".equals(limit)) {
+                int displayLimit = Integer.parseInt(category.getProperty(ForumConstants.PROPERTY_DISPLAY_LIMIT));
+                if (displayLimit <= 0) {
+                   continue;
+                }
+
                 if (category.getCategoryCount() > 0) {
                     ArrayList categoriesList = ForumsUtil.getCategories(forumsBean, category, resultFilter, true, false);
-                    ArrayList pageList = ForumsUtil.getPage(categoriesList, 0, Integer.parseInt(category.getProperty("displayLimit")));
+                    ArrayList pageList = ForumsUtil.getPage(categoriesList, 0, displayLimit);
                     getRequest().setAttribute("categoriesIterator_" + category.getID(), pageList.iterator());
                     getRequest().setAttribute("numActiveCategories_" + category.getID(), new Long(pageList.size()));
                 } else {
-                    boolean excludeEmptyForums = !("true".equals(category.getProperty(ForumConstants.PROPERTY_SHOW_EMPTY_FORUMS_ON_MAIN)));
-                    ArrayList forumsList = ForumsUtil.getForums(category, resultFilter, excludeEmptyForums);
-                    ArrayList pageList = ForumsUtil.getPage(forumsList, 0, Integer.parseInt(category.getProperty("displayLimit")));
+                    resultFilter.setNumResults(displayLimit);
+                    ArrayList pageList = ForumsUtil.getForums(category, resultFilter, false);
                     getRequest().setAttribute("forumsIterator_" + category.getID(), pageList.iterator());
                     getRequest().setAttribute("numActiveForums_" + category.getID(), new Long(pageList.size()));
                 }
@@ -71,7 +75,7 @@ public class Main extends ForumsProcessor {
         }
 
         /*  2/12/07: With the addition of the software forums, the forums have become too large to 
-         * 	read track in one pass.
+         *  read track in one pass.
         String markRead = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MARK_READ));
         if (markRead.equals("t")) {
             forumFactory.getReadTracker().markRead(user, forumFactory.getRootForumCategory());
@@ -85,8 +89,8 @@ public class Main extends ForumsProcessor {
         getRequest().setAttribute("resultFilter", resultFilter);
 
         //if (markRead.equals("t")) {
-        //	setNextPage(getSessionInfo().getServletPath() + "?module=Main");
-        //	setIsNextPageInContext(false);
+        //  setNextPage(getSessionInfo().getServletPath() + "?module=Main");
+        //  setIsNextPageInContext(false);
         //} else {
         setNextPage("/main.jsp");
         setIsNextPageInContext(true);

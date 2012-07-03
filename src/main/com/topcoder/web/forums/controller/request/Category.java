@@ -73,24 +73,29 @@ public class Category extends ForumsProcessor {
             resultFilter.setSortOrder(Integer.parseInt(sortOrder));
         }
 
-        ArrayList list = null;
+        int totalListSize = 0;
+        ArrayList pageList = null;
         if (forumCategory.getCategoryCount() > 0) {
             boolean excludeEmptyCategories = "true".equals(forumCategory.getProperty(ForumConstants.PROPERTY_HIDE_EMPTY_CATEGORIES));
             boolean mergeEmptyCategories = "true".equals(forumCategory.getProperty(ForumConstants.PROPERTY_MERGE_EMPTY_CATEGORIES));
-            list = ForumsUtil.getCategories(forumsBean, forumCategory, resultFilter, excludeEmptyCategories, mergeEmptyCategories);
+            ArrayList list = ForumsUtil.getCategories(forumsBean, forumCategory, resultFilter, excludeEmptyCategories, mergeEmptyCategories);
+            pageList = ForumsUtil.getPage(list, startIdx, forumRange);
+            totalListSize = list.size();
         } else {
-            boolean excludeEmptyForums = "true".equals(forumCategory.getProperty(ForumConstants.PROPERTY_HIDE_EMPTY_FORUMS));
-            list = ForumsUtil.getForums(forumCategory, resultFilter, excludeEmptyForums);
+            totalListSize = forumCategory.getForumCount(resultFilter);
+
+            resultFilter.setStartIndex(startIdx);
+            resultFilter.setNumResults(forumRange);
+            pageList = ForumsUtil.getForums(forumCategory, resultFilter, false);
         }
         
-        if (list.size() == 0 && isGuest()) {
+        if (totalListSize == 0 && isGuest()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
         
-        ArrayList pageList = ForumsUtil.getPage(list, startIdx, forumRange);
         resultFilter.setStartIndex(startIdx);
         resultFilter.setNumResults(forumRange);
-        Paging paging = new Paging(resultFilter, list.size());
+        Paging paging = new Paging(resultFilter, totalListSize);
         Paginator paginator = new Paginator(paging);
 
         if (ForumsUtil.isSoftwareSubcategory(forumCategory)) {
