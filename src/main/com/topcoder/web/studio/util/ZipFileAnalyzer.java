@@ -39,8 +39,15 @@ import com.topcoder.web.studio.validation.UnifiedSubmissionValidator;
  *   </ol>
  * </p>
  *
+ * <p>
+ * Version 1.3 (TopCoder Studio Improvements 1 Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added {@link #empty} property.</li>
+ *   </ol>
+ * </p>
+ *
  * @author isv, pvmagacho, TCSASSEMBER
- * @version 1.2
+ * @version 1.3
  * @since TopCoder Studio Modifications Assembly (Req# 5.7)
  */
 public class ZipFileAnalyzer implements BundledFileAnalyzer {
@@ -152,6 +159,13 @@ public class ZipFileAnalyzer implements BundledFileAnalyzer {
      * </p>
      */
     protected FileType previewImageFileType = null;
+
+    /**
+     * <p>A <code>boolean</code> providing the flag indicating whether analyzed file was empty or not.</p>
+     * 
+     * @since 1.3
+     */
+    protected boolean empty;
 
     /**
      * <p>
@@ -331,6 +345,16 @@ public class ZipFileAnalyzer implements BundledFileAnalyzer {
     }
 
     /**
+     * <p>Gets the flag indicating whether analyzed file was empty or not.</p>
+     *
+     * @return a <code>boolean</code> providing the flag indicating whether analyzed file was empty or not.
+     * @since 1.3
+     */
+    public boolean isEmpty() {
+        return this.empty;
+    }
+
+    /**
      * <p>
      * Gets the details for the files bundled within the specified content of
      * the bundled file.
@@ -383,6 +407,7 @@ public class ZipFileAnalyzer implements BundledFileAnalyzer {
         this.nativeSubmissionProvided = false;
         this.previewImageProvided = false;
         this.previewFileProvided = false;
+        this.empty = true;
 
         try {
             ZipEntry entry = content.getNextEntry();
@@ -391,7 +416,7 @@ public class ZipFileAnalyzer implements BundledFileAnalyzer {
             }
             while (!(this.nativeSubmissionProvided && this.previewImageProvided && this.previewFileProvided)
                     && (entry != null)) {
-
+                this.empty = false;
                 if (log.isDebugEnabled()) {
                     StringBuilder b = new StringBuilder(100);
                     b.append(entry.getName()).append(" ");
