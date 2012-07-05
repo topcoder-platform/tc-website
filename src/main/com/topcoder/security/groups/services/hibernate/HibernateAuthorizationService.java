@@ -170,7 +170,7 @@ public class HibernateAuthorizationService extends BaseGroupService implements A
                         List<DirectProject> directProjects = group.getDirectProjects();
                         if (null != directProjects) {
                             for (DirectProject directProject : directProjects) {
-                                if (null != directProject && directProject.getId() == resourceId) {
+                                if (null != directProject && directProject.getDirectProjectId() == resourceId) {
                                     resourceAvailable = true;
                                     break;
                                 }
