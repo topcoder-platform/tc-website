@@ -466,15 +466,18 @@
               file="${resources}/com/topcoder/db/connectionfactory/DBConnectionFactoryImpl.xml"/>
         <copy todir="${jboss_conf}/com/topcoder/security/" file="${resources}/com/topcoder/security/Util.properties"/>
         <copy todir="${jboss_conf}/com/topcoder/util/config/"
-              file="${resources}/studio/com/topcoder/util/config/ConfigManager.properties"/>
+              file="${resources}/com/topcoder/util/config/ConfigManager.properties"/>
         <copy todir="${jboss_conf}/com/topcoder/servlet/request/"
               file="${resources}/com/topcoder/servlet/request/FileUpload.xml"/>
 
         <delete file="${jboss_home}/server/default/deploy/studio.war"/>
         <unwar src="${war.dir}/studio.war" dest="${jboss_home}/server/default/deploy/studio.war/" overwrite="yes"/>
         <delete dir="${jboss_home}/server/default/deploy/studio.war/META-INF"/>
-        <copy todir="${jboss_conf}" file="${resources}/Studio.properties"/>
-    	<copy todir="${jboss_deploy}" file="${ear.dir}/security.ear"/>
+        <!--<copy todir="${jboss_conf}">
+            <fileset dir="${resources}">
+                <include name="Studio.properties"/>
+            </fileset>
+        </copy>-->
     </target>
 
     <target name="package-TCJive" depends="compile">
