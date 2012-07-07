@@ -1,0 +1,327 @@
+<project name="topcoder" default="main" basedir=".">
+    <property environment="env"/>
+    <property name="Name" value="TopCoder"/>
+    <property name="build" value="build"/>
+    <property name="war.dir" value="${build}/wars"/>
+    <property name="ear.dir" value="${build}/ears"/>
+    <property name="sar.dir" value="${build}/sars"/>
+    <property name="ejb_jars" value="${build}/ejb_jars"/>
+    <property name="classes" value="${build}/classes"/>
+    <property name="testclasses" value="${build}/testcases"/>
+    <property name="global-dist.dir" value="${basedir}/../dist/artifacts"/>
+    <property name="external.jars.dir" location="../external-artifacts"/>
+    <property name="build.javadocs" value="${build}/javadocs"/>
+    <property name="lib.dir" value="lib"/>
+    <property name="jars.dir" value="${lib.dir}/jars"/>
+    <property name="bin" value="lib/bin"/>
+    <property name="src.dir" value="src"/>
+    <property name="java" value="${src.dir}/main"/>
+    <property name="shared.build" value="${basedir}/../shared"/>
+    <property name="shared" value="../shared/src/main"/>
+    <property name="testjava" value="${src.dir}/testcases"/>
+    <property name="resources" value="resources"/>
+    <property name="conf" value="conf"/>
+    <property name="taglib" value="${resources}/taglib"/>
+    <property name="images" value="images"/>
+    <property name="shared.jar" value="${bin}/shared.jar"/>
+    <property name="common.jar" value="${bin}/tcwebcommon.jar"/>
+    <property name="web" value="src/main/com/topcoder/web"/>
+    <property name="jboss_home" value="${env.JBOSS_HOME}"/>
+    <property name="jboss_deploy" value="${jboss_home}/server/security/deploy"/>
+    <property name="jboss_lib" value="${jboss_home}/server/security/lib"/>
+    <property name="jboss_conf" value="${jboss_home}/server/security/conf"/>
+
+    <property name="deprecation" value="true"/>
+    <property name="debug" value="true"/>
+    <property name="junitsummary" value="on"/>
+
+    <target name="main" depends="compile">
+    </target>
+
+
+    <path id="class.path">
+        <pathelement location="${classes}"/>
+        <pathelement location="${shared.jar}"/>
+        <pathelement location="${testclasses}"/>
+        <pathelement location="${resources}"/>
+        <pathelement location="${resources}/hibernate"/>
+        <pathelement location="${images}"/>
+        <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+        <pathelement location="${jars.dir}/ifxjdbc.jar"/>
+        <pathelement location="${jars.dir}/bfograph.jar"/>
+        <pathelement location="${jars.dir}/activation.jar"/>
+
+        <pathelement location="${jars.dir}/jboss/javax.servlet.jar"/>
+        <pathelement location="${jars.dir}/jboss/javax.servlet.jsp.jar"/>
+        <pathelement location="${jars.dir}/jboss/jbossall-client.jar"/>
+        <pathelement location="${jars.dir}/jboss/xalan.jar"/>
+        <pathelement location="${jars.dir}/jboss/xercesImpl.jar"/>
+        <pathelement location="${jars.dir}/jboss/xml-apis.jar"/>
+        <pathelement location="${jars.dir}/jboss/mail.jar"/>
+        <pathelement location="${jars.dir}/jboss/jboss-system.jar"/>
+        <pathelement location="${jars.dir}/jboss/jboss-cache.jar"/>
+        <pathelement location="${jars.dir}/jboss/jgroups.jar"/>
+        <pathelement location="${jars.dir}/jboss/scheduler-plugin.jar"/>
+
+        <!-- TCS Components -->
+
+        <pathelement location="${jars.dir}/tcs/configuration_manager/2.1.5/configuration_manager.jar"/>
+        <pathelement location="${jars.dir}/object_formatter.jar"/>
+        <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
+        <pathelement location="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
+        <pathelement location="${jars.dir}/tcs/file_upload/2.0.2.0/file_upload.jar"/>
+        <pathelement location="${jars.dir}/tcs/json_object/1.0/json_object.jar"/>
+        <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
+
+        <!--required for aol alerts only -->
+        <pathelement location="${jars.dir}/tcs/alerts_wrapper/1.0/java_alerts_wrapper.jar"/>
+        <pathelement location="${jars.dir}/tcs/logging_wrapper.jar"/>
+        <pathelement location="${jars.dir}/tcs/object_factory/2.0.1/object_factory.jar"/>
+
+        <!-- LDAP SDK -->
+        <pathelement location="${jars.dir}/tcs/ldap_sdk_interface/1.0.2/ldap_sdk_interface.jar"/>
+        <pathelement location="${jars.dir}/netscape_ldap_sdk.jar"/>
+        <pathelement location="${jars.dir}/ldap.jar"/>
+
+        <!-- TCS Other -->
+        <pathelement location="${jars.dir}/tcs/catalog.jar"/>
+        <pathelement location="${jars.dir}/tcs/user.jar"/>
+
+        <!-- file conversion component -->
+        <pathelement location="${jars.dir}/fileconvert.jar"/>
+        <pathelement location="${jars.dir}/httpunit.jar"/>
+        <pathelement location="${jars.dir}/itext-1.1.jar"/>
+        
+        <pathelement location="${external.jars.dir}/jboss-4.2.2-ejb3x.jar"/>
+        <pathelement location="${external.jars.dir}/jboss-4.2.2-jaxws.jar"/>
+        <pathelement location="${external.jars.dir}/jaxb-api-jboss-4.2.2.jar"/>
+    </path>
+    <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
+    <property name="class.path" refid="class.path"/>
+
+    <target name="init">
+        <mkdir dir="${classes}"/>
+        <mkdir dir="${testclasses}"/>
+        <mkdir dir="${bin}"/>
+        <mkdir dir="${ejb_jars}"/>
+        <mkdir dir="${ear.dir}"/>
+    </target>
+
+        <target name="compile_common" depends="init" unless="compile_common_set">
+        <ant antfile="build_common.xml" target="build-dist"/>
+        <property name="compile_common_set" value="true"/>
+    </target>
+    <target name="compile" depends="init, compile_common" unless="compile_set">
+        <depend srcdir="${java}" destdir="${classes}" cache="${build}/cache"/>
+        <javac
+                srcdir="${java}"
+                destdir="${classes}"
+                classpathref="class.path"
+                deprecation="${deprecation}"
+                debug="${debug}"
+                source="1.5"
+                target="1.5" memoryMaximumSize="380m" memoryInitialSize="380m" fork="true">
+            <include name="com/topcoder/web/ejb/security/**"/>
+        </javac>
+        <property name="compile_set" value="true"/>
+    </target>
+
+    <target name="clean">
+        <!-- kill the entire build dir -->
+        <delete dir="${build}"/>
+        <delete dir="${bin}"/>
+        <ant dir="${shared.build}" target="clean"/>
+    </target>
+
+    <target name="package-EJB-SecurityBean" depends="compile">
+        <jar jarfile="${ejb_jars}/Security.jar">
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/security/*.class"/>
+        </jar>
+    </target>
+
+
+    <target name="deploy" depends="compile, package-EJB-SecurityBean, build-ejbs, build-security">
+        <antcall target="expand"/>
+    </target>
+
+    <target name="expand">
+        <antcall target="move-libs"/>
+        <antcall target="move-conf"/>
+        <antcall target="deploy-security"/>
+
+        <copy todir="${jboss_deploy}">
+            <fileset dir="${ejb_jars}">
+                <include name="Security.jar"/>
+                <include name="User.jar"/>
+                <include name="Email.jar"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="move-conf">
+        <copy todir="${jboss_conf}">
+            <fileset dir="${resources}">
+                <include name="ApplicationServer.properties"/>
+                <include name="DBMS.properties"/>
+                <include name="cache.properties"/>
+                <include name="LDAP.properties"/>
+            </fileset>
+        </copy>
+        <mkdir dir="${jboss_conf}/com/topcoder/security"/>
+        <mkdir dir="${jboss_conf}/com/topcoder/util/config"/>
+        <copy todir="${jboss_conf}/com/topcoder/security">
+            <fileset dir="${resources}/com/topcoder/security">
+                <include name="Util.properties"/>
+            </fileset>
+        </copy>
+        <copy todir="${jboss_conf}/com/topcoder/util/config">
+            <fileset dir="${resources}/com/topcoder/util/config">
+                <include name="ConfigManager.properties"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="move-libs">
+        <copy todir="${jboss_lib}">
+            <fileset dir="${bin}">
+                <include name="tcwebcommon.jar"/>
+            </fileset>
+        </copy>
+        <copy todir="${jboss_lib}" file="${shared.jar}"/>
+
+        <copy todir="${jboss_lib}">
+            <fileset dir="${ejb_jars}">
+                <include name="security.jar"/>
+            </fileset>
+        </copy>
+
+        <copy todir="${jboss_lib}">
+            <fileset dir="${external.jars.dir}">
+                <include name="ifxjdbc-3.00.JC3.jar"/>
+                <include name="configuration_manager-2.1.5.jar"/>
+                <include name="id_generator-3.0.0.jar"/>
+                <include name="base_exception-2.0.0.jar"/>
+            </fileset>
+            <fileset dir="${jars.dir}">
+                <include name="netscape_ldap_sdk.jar"/>
+                <include name="ldap.jar"/>
+            </fileset>
+            <fileset dir="${jars.dir}/tcs/ldap_sdk_interface/1.0.2">
+                <include name="ldap_sdk_interface.jar"/>
+            </fileset>
+        </copy>
+
+    </target>
+
+
+    <target name="deploy-security">
+        <copy todir="${jboss_deploy}">
+            <fileset dir="${ear.dir}">
+                <include name="security.ear"/>
+            </fileset>
+        </copy>
+
+    </target>
+
+    <target name="build-security" depends="compile_common">
+        <javac
+                srcdir="${java}"
+                destdir="${classes}"
+                classpathref="class.path"
+                deprecation="${deprecation}"
+                debug="${debug}"
+                source="1.5"
+                target="1.5"
+                >
+            <include name="com/topcoder/security/**"/>
+        </javac>
+        <jar jarfile="${ejb_jars}/security.jar">
+            <zipfileset dir="${classes}" includes="com/topcoder/security/**"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/**"/>
+            <metainf dir="${resources}/security/conf" includes="*.xml" excludes="application.xml"/>
+        </jar>
+
+        <ear earfile="${ear.dir}/security.ear" appxml="${resources}/security/conf/application.xml">
+            <fileset dir="${jars.dir}">
+                <include name="configmanager2.jar"/>
+            </fileset>
+            <fileset dir="${jars.dir}/tcs/id_generator/3.0">
+                <include name="id_generator.jar"/>
+            </fileset>
+            <fileset dir="${external.jars.dir}">
+                <include name="base_exception-2.0.0.jar"/>
+            </fileset>
+            <fileset dir="${jars.dir}/tcs/db_connection_factory/1.0">
+                <include name="db_connection_factory.jar"/>
+            </fileset>
+            <fileset dir="${ejb_jars}">
+                <include name="security.jar"/>
+            </fileset>
+        </ear>
+    </target>
+
+    <target name="build-ejbs">
+        <ant antfile="build_tc.xml" target="package-EJB-UserBean"/>
+        <ant antfile="build_tc.xml" target="package-EJB-EmailBean"/>
+    </target>
+
+
+
+    <target name="compile_tests" depends="compile">
+        <javac srcdir="${testjava}" destdir="${testclasses}"
+               classpathref="class.path"
+               deprecation="${deprecation}"
+               debug="${debug}">
+            <include name="com/topcoder/web/ejb/security/**"/>
+        </javac>
+    </target>
+
+    <target name="run_tests" depends="compile_tests" description="run junit tests">
+        <junit printsummary="${junitsummary}" fork="yes">
+            <classpath>
+                <pathelement location="${classes}"/>
+                <pathelement location="${shared.jar}"/>
+                <pathelement location="${testclasses}"/>
+                <pathelement location="${resources}"/>
+                <pathelement location="${jars.dir}/axis.jar"/>
+
+                <pathelement location="${external.jars.dir}/log4j-1.2.13.jar"/>
+                <pathelement location="${external.jars.dir}/jboss-jaxrpc-4.2.2.jar"/>
+                <pathelement location="${external.jars.dir}/jboss-saaj-4.2.2.jar"/>
+                <pathelement location="${external.jars.dir}/jboss-common-client-4.2.2.jar"/>
+                <pathelement location="${external.jars.dir}/commons-logging-1.1.jar"/>
+                <pathelement location="${external.jars.dir}/wsdl4j-1.6.2.jar"/>
+                <pathelement location="${external.jars.dir}/jbossws-client-4.2.2.jar"/>
+                <pathelement location="${external.jars.dir}/jbossws-spi-4.2.2.jar"/>
+                <pathelement location="${external.jars.dir}/jboss-jaxws-4.2.2.jar"/>
+                <pathelement location="${external.jars.dir}/jbossall-client-4.2.2.jar"/>
+                <pathelement location="${external.jars.dir}/jbossws-common-4.2.2.jar"/>
+
+
+                <pathelement location="${external.jars.dir}/xalan-2.6.0.jar"/>
+                <pathelement location="${external.jars.dir}/xerces-2.6.2.jar"/>
+                <pathelement location="${external.jars.dir}/xml-apis-2.6.2.jar"/>
+                <pathelement location="${external.jars.dir}/activation-1.1.jar"/>
+                <pathelement location="${external.jars.dir}/mail-1.4.0.jar"/>
+<!--
+                <jboss-home>\client\axis-ws4ee.jar
+-->
+
+
+
+            </classpath>
+            <formatter type="xml"/>
+            <test name="com.topcoder.web.ejb.security.AuthorizationTests" todir="${testclasses}"/>
+        </junit>
+
+        <junitreport todir="${testclasses}">
+            <fileset dir="${testclasses}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="${testclasses}/html"/>
+        </junitreport>
+    </target>
+
+
+
+</project>
