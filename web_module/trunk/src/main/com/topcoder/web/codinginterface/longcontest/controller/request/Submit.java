@@ -38,11 +38,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-import com.topcoder.shared.util.DBMS;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-
 /**
  * Allows a coder to submit code for a round.
  *
@@ -73,14 +68,11 @@ public class Submit extends Base {
             long cid = Long.parseLong(getParameter(request, Constants.COMPONENT_ID));
             long rid = Long.parseLong(getParameter(request, Constants.ROUND_ID));
             long cd = Long.parseLong(getParameter(request, Constants.CONTEST_ID));
-
             boolean examplesOnly = "true".equals(getParameter(request, Constants.EXAMPLES_ONLY));
             log.debug("the examples only flag is " + examplesOnly);
             String action = getParameter(request, Constants.ACTION_KEY);
             String code = getParameter(request, Constants.CODE);
             String message = getParameter(request, Constants.MESSAGE);
-            String hours = getParameter(request, "hbs_hours");
-            String minutes = getParameter(request, "hbs_minutes");
 
             if (!acceptingSubmissions(cid)) {
                 throw new NavigationException("Sorry, we are currently not accepting submissions.");
@@ -216,11 +208,6 @@ public class Submit extends Base {
                     return;
                 }
 
-                if (!checkHBSSurvey(request, uid, rid, cid, hours, minutes)) {
-                    request.setAttribute(Constants.LANGUAGES, allowedLanguages);
-                    return;
-                }
-
                 ResultSetContainer lastExampleCompilation =
                         (ResultSetContainer) m.get("long_contest_recent_example_compilation");
 
@@ -262,7 +249,6 @@ public class Submit extends Base {
                     }
                     if (res.getCompileStatus()) {
                         // everything went ok! :)
-                        saveSurveyAnswer(uid, rid, cid, hours, minutes);
                         request.getSession().setAttribute(Constants.MESSAGE, res.getCompileError());
                         closeProcessingPage(buildProcessorRequestString("SubmitSuccess",
                                     new String[]{Constants.ROUND_ID, Constants.CONTEST_ID, Constants.COMPONENT_ID},
@@ -307,65 +293,6 @@ public class Submit extends Base {
             log.error("Unexpected error in code submit module.", e);
             throw new TCWebException("An error occurred while compiling your code", e);
         }
-    }
-
-    private void saveSurveyAnswer(long userId, long roundId, long componentId, String hours, String minutes) throws Exception {
-        if (roundId < 15212l || roundId > 15277l) {
-            return;
-        }
-
-        String query = "insert into hbs_survey values (?,?,?,current,?,?)";
-
-        Connection conn = null;
-        PreparedStatement ps = null;
-        try {
-            conn = DBMS.getConnection(DBMS.OLTP_DATASOURCE_NAME);
-            ps = conn.prepareStatement(query.toString());
-            ps.setLong(1, userId);
-            ps.setLong(2, roundId);
-            ps.setLong(3, componentId);
-
-            long hoursLong = (hours == null || hours.trim().length() == 0) ? 0 : Long.parseLong(hours);
-            long minutesLong = (minutes == null || minutes.trim().length() == 0) ? 0 : Long.parseLong(minutes);
-
-            ps.setLong(4, hoursLong);
-            ps.setLong(5, minutesLong);
-
-            ps.executeUpdate();
-        } catch (SQLException e) {
-            DBMS.printSqlException(true, e);
-            throw new TCWebException(e);
-        } finally {
-            ps.close();
-            conn.close();
-        }
-    }
-
-    private boolean checkHBSSurvey(TCRequest request, long userId, long roundId, long componentId, String hours, String minutes) {
-        if (roundId < 15212l || roundId > 15277l) {
-            return true;
-        }
-
-        boolean valid = true;
-        long hoursLong = 0, minutesLong = 0;
-        try {
-            hoursLong = (hours == null || hours.trim().length() == 0) ? 0 : Long.parseLong(hours);
-            minutesLong = (minutes == null || minutes.trim().length() == 0) ? 0 : Long.parseLong(minutes);
-        } catch (NumberFormatException e) {
-            valid = false;
-        }
-        
-        if (hoursLong < 0 || minutesLong < 0 || minutesLong > 59 || hoursLong > 72 || minutesLong + hoursLong == 0) {
-            valid = false;
-        }
-
-        if (!valid) {
-            request.setAttribute(Constants.MESSAGE, "Please specify valid hours and minutes values.");
-            setNextPage(Constants.SUBMISSION_JSP);
-            setIsNextPageInContext(true);
-            return false;
-        }
-        return true;
     }
 
     private boolean checkLanguages(TCRequest request, String code, int language, List allowedLanguages) {

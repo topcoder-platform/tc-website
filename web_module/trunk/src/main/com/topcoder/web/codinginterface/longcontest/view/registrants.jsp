@@ -54,7 +54,6 @@
         </td>
         <%-- Left Column Ends --%>
 
-        <c:if test="${infoRow.map['round_id'] != 15200}">
         <%-- Center Column Begins --%>
         <td class="statTableSpacer" width="100%" valign="top">
 
@@ -151,7 +150,6 @@
             </logic:empty>
 
         </td>
-        </c:if>
 
         <%-- Right Column Begins --%>
         <td width="170">

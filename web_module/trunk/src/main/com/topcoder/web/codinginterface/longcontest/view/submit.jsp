@@ -96,7 +96,6 @@
 <%-- Left Column Ends --%>
 
 <%-- Center Column Begins --%>
-<% if (!request.getParameter(Constants.ROUND_ID).equals("15200")) { %>
 <TD class="statTableSpacer" width="100%" valign="top">
 
     <jsp:include page="page_title.jsp">
@@ -161,18 +160,6 @@ Arg Types: <%=StringUtils.htmlEncode((String) paramTypes.get(i))%>
                         <%}%>
                     </td>
                 </tr>
-
-<% if (Long.valueOf(request.getParameter(Constants.ROUND_ID)) >= 15212 &&
-       Long.valueOf(request.getParameter(Constants.ROUND_ID)) <= 15277) { %>
-                <tr>
-                    <td colspan="2">
-                        <span class="bodySubtitle">Time Allocated</span><br>
-                        How much time have you been working on your submission since your last submit?<br/>
-                        Hours: <input type="text" name="hbs_hours" value="" maxlength="2" size="2"/>
-                        Minutes: <input type="text" name="hbs_minutes" value="" maxlength="2" size="2"/>
-                    </td>
-                </tr>
-<% } %>
                 <tr>
                     <td colspan="2">
                         <span class="bodySubtitle">Messages</span><br>
@@ -205,7 +192,6 @@ Arg Types: <%=StringUtils.htmlEncode((String) paramTypes.get(i))%>
     </div>
     <br/><br/>
 </td>
-<% } %>
 
 <%-- Right Column Begins --%>
 <td width="170">
