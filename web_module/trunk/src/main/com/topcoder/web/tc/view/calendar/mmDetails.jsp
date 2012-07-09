@@ -368,15 +368,8 @@ total prize money</b>.
 </p>
 <%}%>
 
-<% if (roundId == 15200) { %>
-<p align="justify">
-This round is created to let you register for the following <a href="http://community.topcoder.com/ntl/?page_id=804">match</a>.
-</p>
-<% } %>
-
-
 <%-- LIMIT THE REMAINING COPY TO ONLY NON-EXPERIMENTAL ROUNDS --%>
-<%if (Arrays.binarySearch(experimentalRounds, roundId)<0 && roundId != 15200) { %>
+<%if (Arrays.binarySearch(experimentalRounds, roundId)<0) { %>
 
 <%if(roundId == 13772 ) {%>
 <p align="justify">
@@ -757,11 +750,9 @@ total prize money. The detailed rules of this phase will be posted to the marath
     </table>
 </div>
 
-<% if (roundId != 15200) { %>
 <h2 align="center">
     <a href="?<%=Constants.MODULE_KEY%>=MatchRules&amp;<%=Constants.ROUND_ID%>=${row.map['round_id']}" class="bcLink">Rules & Regulations</a>
 </h2>
-<% } %>
 
 
 
