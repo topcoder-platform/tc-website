@@ -261,7 +261,7 @@ public class ViewPastContests extends BaseProcessor {
             rsc = da.getData(r).get("studio_past_contests_by_title");
             totalRecordCount = da.getData(r).get("studio_past_contests_by_title_count").getIntItem(0, "cnt");
         } else {
-            rsc = da.getData(r).get("studio_past_contests_multi_sort");
+            rsc = da.getData(r).get("studio_past_contests_multi_sort_v2");
             totalRecordCount = da.getData(r).get("studio_past_contests_multi_sort_count").getIntItem(0, "cnt");
         }
 
