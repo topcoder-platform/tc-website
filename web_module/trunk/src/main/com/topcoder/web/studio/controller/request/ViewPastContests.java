@@ -201,8 +201,9 @@ public class ViewPastContests extends BaseProcessor {
                 startTime = "01:00";
                 endTime = "01:00";
                 StringBuilder sb = new StringBuilder();
+                sb.append("&contestType=");
                 for (String contestType : contestTypes) {
-                    sb.append("&contestType=" + contestType);
+                    sb.append(contestType).append(",");
                 }
                 sb.append("&startDate=" + startDate);
                 sb.append("&startDateTime=" + startTime);
@@ -218,7 +219,7 @@ public class ViewPastContests extends BaseProcessor {
             getRequest().setAttribute("contestType", "," + sb.toString());
 
             if (startDate == null || startDate.trim().length() == 0) {
-                startDate = "01/01/1900";
+                startDate = "01/01/2000";
                 startTime = "01:00";
             }
             r.setProperty("sdt" , df2.format(df1.parse(startDate)) + " " + startTime + ":00");
