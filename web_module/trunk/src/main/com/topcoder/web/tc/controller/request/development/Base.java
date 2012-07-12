@@ -166,20 +166,28 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *         </td>
  *     </tr>
  *     <tr>
-  *         <td>Version 1.14 (Release Assembly - TopCoder BugHunt Competition Integration)</td>
-  *         <td>
-  *           <ul>
-  *             <li>Updated {@link #getProjectDetailPage(int)} method.</li>
-  *             <li>Updated {@link #getRegistrantsCommandName(int)} method.</li>
-  *             <li>Updated {@link #getProjectTypeId(com.topcoder.web.common.TCRequest)} method.</li>
-  *           </ul>
-  *         </td>
-  *     </tr>
-
+ *         <td>Version 1.14 (Release Assembly - TopCoder BugHunt Competition Integration)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Updated {@link #getProjectDetailPage(int)} method.</li>
+ *             <li>Updated {@link #getRegistrantsCommandName(int)} method.</li>
+ *             <li>Updated {@link #getProjectTypeId(com.topcoder.web.common.TCRequest)} method.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
+ *     <tr>
+ *         <td>Version 1.15 (Release Assembly - TopCoder Software Contest Detail Page Update)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Added {@link #getDataWarehouseDataAccess()} and {@link #getDataWarehouseDataAccess(boolean)} methods.</li>
+ *             <li>Removed getProjectDetailPage method since there is no separate page for each project category.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
  *   </table>
  * </p>
  *
- * @author dok, isv, pulky, VolodymyrK, Blues, FireIce, lmmortal, TCSASSEMBER
+ * @author dok, isv, pulky, VolodymyrK, Blues, FireIce, lmmortal, duxiaoyang
  * @version 1.14
  */
 public abstract class Base extends ShortHibernateProcessor {
@@ -238,51 +246,6 @@ public abstract class Base extends ShortHibernateProcessor {
     }
 
     /**
-     * <p>This method returns the page to show Project Details according to the project type.</p>
-     *
-     * @param projectTypeId an <code>int</code> referencing the requested project type.
-     *
-     * @return a <code>String</code> with the corresponding page path.
-     */
-    public static String getProjectDetailPage(int projectTypeId) {
-        if (projectTypeId==Constants.DESIGN_PROJECT_TYPE) {
-            return Constants.DESIGN_DETAIL;
-        } else if (projectTypeId==Constants.DEVELOPMENT_PROJECT_TYPE) {
-            return Constants.DEVELOPMENT_DETAIL;
-        } else if (projectTypeId ==Constants.ASSEMBLY_PROJECT_TYPE) {
-            return "/dev/assembly/projectDetail.jsp";
-        } else if (projectTypeId==Constants.ARCHITECTURE_PROJECT_TYPE) {
-            return "/architecture/projectDetail.jsp";
-        } else if (projectTypeId==Constants.COMPONENT_TESTING_PROJECT_TYPE) {
-            return "/dev/testing/projectDetail.jsp";
-        } else if (projectTypeId==Constants.TEST_SUITES_PROJECT_TYPE) {
-            return "/testsuites/projectDetail.jsp";
-        } else if (projectTypeId==Constants.TEST_SCENARIOS_PROJECT_TYPE) {
-            return "/testscenarios/projectDetail.jsp";
-        } else if (projectTypeId==Constants.CONCEPTUALIZATION_PROJECT_TYPE) {
-            return "/conceptualization/projectDetail.jsp";
-        } else if (projectTypeId==Constants.SPECIFICATION_PROJECT_TYPE) {
-            return "/specification/projectDetail.jsp";
-        } else if (projectTypeId==Constants.UI_PROTOTYPE_PROJECT_TYPE) {
-            return "/uiprototype/projectDetail.jsp";
-        } else if (projectTypeId==Constants.RIA_BUILD_PROJECT_TYPE) {
-            return "/riabuild/projectDetail.jsp";
-        } else if (projectTypeId==Constants.RIA_COMPONENT_PROJECT_TYPE) {
-            return "/riacomponent/projectDetail.jsp";
-        } else if (projectTypeId==Constants.COPILOT_POSTING_PROJECT_TYPE) {
-            return "/copilotposting/projectDetail.jsp";
-        } else if (projectTypeId ==Constants.CONTENT_CREATION_PROJECT_TYPE) {
-            return "/contentcreation/projectDetail.jsp";
-        } else if (projectTypeId ==Constants.REPORTING_PROJECT_TYPE) {
-            return "/reporting/projectDetail.jsp";
-        } else if (projectTypeId == Constants.BUG_HUNT_PROJECT_TYPE) {
-            return "/bughunt/projectDetail.jsp";
-        } else {
-            return "";
-        }
-    }
-
-    /**
      * <p>This method returns registrants command name according to the project type.</p>
      *
      * @param projectTypeId an <code>int</code> referencing the requested project type.
@@ -337,6 +300,29 @@ public abstract class Base extends ShortHibernateProcessor {
         return getDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME, cached);
     }
 
+    /**
+     * <p>
+     * Gets data warehouse data accessor with no cache support.
+     * </p>
+     * @return the data warehouse data accessor with no cache support.
+     * @throws Exception if any error occurs.
+     */
+    public DataAccessInt getDataWarehouseDataAccess() throws Exception {
+        return getDataAccess(DBMS.TCS_DW_DATASOURCE_NAME, false);
+    }
+
+    /**
+     * <p>
+     * Gets data warehouse data accessor.
+     * </p>
+     * @param cached whether cache support is needed.
+     * @return the data warehouse data accessor with no cache support.
+     * @throws Exception if any error occurs.
+     */
+    public DataAccessInt getDataWarehouseDataAccess(boolean cached) throws Exception {
+        return getDataAccess(DBMS.TCS_DW_DATASOURCE_NAME, cached);
+    }
+
     public DataAccessInt getDataAccess(String datasource, boolean cached) throws Exception {
         if (datasource == null) return null;
         DataAccessInt dAccess = null;
@@ -346,7 +332,6 @@ public abstract class Base extends ShortHibernateProcessor {
             dAccess = new DataAccess(datasource);
         return dAccess;
     }
-
 
     /**
      * Get the project type id from the request.  If the request contains the phase id, then use that
