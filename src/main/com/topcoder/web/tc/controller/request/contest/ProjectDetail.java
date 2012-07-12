@@ -63,8 +63,17 @@ import com.topcoder.web.tc.controller.request.util.ReliabilityBonusCalculator;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, romanoTC, Blues
- * @version 1.5
+ * <p>
+ *   Version 1.6 (Release Assembly - TopCoder Software Contest Detail Page Update) Change notes:
+ *   <ol>
+ *     <li>Added {@link #getProjectOverview(String)}, {@link #getMilestoneInfo(String)}, and
+ *     {@link #getProjectResult(String)} to retrieve information for different parts of the page.</li>
+ *     <li>Modified {@link #developmentProcessing()} to invoke the new methods to populate data into page.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky, romanoTC, Blues, duxiaoyang
+ * @version 1.6
  */
 public class ProjectDetail extends Base {
 
@@ -90,9 +99,9 @@ public class ProjectDetail extends Base {
      * @see com.topcoder.web.tc.controller.request.development.Base#developmentProcessing()
      */
     protected void developmentProcessing() throws TCWebException {
-
         try {
             String projectId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID));
+            getRequest().setAttribute("projectId", Long.parseLong(projectId));
 
             if (projectId.equals("")) {
                 throw new TCWebException("parameter " + Constants.PROJECT_ID + " expected.");
@@ -109,7 +118,50 @@ public class ProjectDetail extends Base {
                 throw new NavigationException("Could not find project information.");
             }
 
-            int projectTypeId = getProjectTypeId(Long.parseLong(projectId));
+            // get project overview
+            getProjectOverview(projectId);
+
+            // get milestone information
+            getMilestoneInfo(projectId);
+
+            // get project result information
+            getProjectResult(projectId);
+
+            setNextPage("/contest/projectDetail.jsp");
+            setIsNextPageInContext(true);
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new TCWebException(e);
+        }
+    }
+
+    /**
+     * <p>
+     * Gets project overview information and add it to request.
+     * </p>
+     * @param projectId
+     *            the id of the project.
+     * @throws TCWebException
+     *             if any error occurs.
+     */
+    private void getProjectOverview(String projectId) throws TCWebException {
+        try {
+            Request r = new Request();
+            r.setContentHandle("project_detail_v2");
+            r.setProperty(Constants.PROJECT_ID, projectId);
+
+            Map<String, ResultSetContainer> resultMap = getDataAccess().getData(r);
+
+            ResultSetContainer details = resultMap.get("project_detail_v2");
+            ResultSetContainer docs = resultMap.get("project_docs");
+
+            if (details.isEmpty()) {
+                throw new NavigationException("Could not find project information.");
+            }
+
+            long projectTypeId = details.getLongItem(0, "project_category_id");
+            getRequest().setAttribute("leftNav", getLeftNav((int) projectTypeId));
 
             if (projectTypeId == -1) {
                 throw new TCWebException("Could not find project information.");
@@ -122,18 +174,22 @@ public class ProjectDetail extends Base {
 
                     // if user is anonymous, throw exception
                     if (getSessionInfo().isAnonymous()) {
-                        throw new NavigationException("Anonymous User does not has permission to view copilot posting details");
+                        throw new NavigationException(
+                                "Anonymous User does not has permission to view copilot posting details");
                     }
 
                     // check permission to view private description
                     boolean registered = isUserCopilotPostingRegistered(projectId);
 
-                    boolean hasPrivateDescriptionPermission = registered || permissions[0] || permissions[2] || getSessionInfo().isAdmin();
+                    boolean hasPrivateDescriptionPermission = registered || permissions[0] || permissions[2]
+                            || getSessionInfo().isAdmin();
 
                     String copilotPostingType = retrieveCopilotPostingType(projectId);
-                    boolean marathonMatchCopilotPosting = copilotPostingType!=null && copilotPostingType.equalsIgnoreCase("Marathon Match");
+                    boolean marathonMatchCopilotPosting = copilotPostingType != null
+                            && copilotPostingType.equalsIgnoreCase("Marathon Match");
 
-                    boolean registerButton = hasPrivateDescriptionPermission || permissions[1] || marathonMatchCopilotPosting;
+                    boolean registerButton = hasPrivateDescriptionPermission || permissions[1]
+                            || marathonMatchCopilotPosting;
 
                     getRequest().setAttribute("privateDescriptionPermission", hasPrivateDescriptionPermission);
                     getRequest().setAttribute("registerButton", registerButton);
@@ -145,19 +201,11 @@ public class ProjectDetail extends Base {
                 }
             }
 
-            Request r = new Request();
-            r.setContentHandle("project_detail");
-            r.setProperty(Constants.PROJECT_ID, projectId);
-
-            Map<String, ResultSetContainer> resultMap = getDataAccess().getData(r);
-
-            ResultSetContainer details = resultMap.get("project_detail");
-            ResultSetContainer docs = resultMap.get("project_docs");
-
-            if (details.isEmpty()) {
-                throw new NavigationException("Could not find project information.");
+            String projectCategory = details.getStringItem(0, "project_category_name");
+            if (projectCategory.contains("Competition")) {
+                projectCategory = projectCategory.substring(0, projectCategory.indexOf("Competition") - 1);
             }
-
+            getRequest().setAttribute("projectCategory", projectCategory);
             getRequest().setAttribute("projectDetail", details);
             getRequest().setAttribute("technologies", resultMap.get("project_technologies"));
             getRequest().setAttribute("requirements", resultMap.get("project_requirements"));
@@ -169,11 +217,11 @@ public class ProjectDetail extends Base {
             getRequest().setAttribute("instructionsLinks", getInstructionLinks(docs, categoryId, rootCategoryId));
             getRequest().setAttribute("canDownloadDocuments", canDownloadDocuments(docs));
 
-            boolean full = false;  //projects are never full in our current rules
+            boolean full = false; // projects are never full in our current rules
             getRequest().setAttribute("projectFull", String.valueOf(full));
             getRequest().setAttribute("projectId", projectId);
 
-            getRequest().setAttribute("paysRoyalties", !details.getBooleanItem(0, "is_custom") );
+            getRequest().setAttribute("paysRoyalties", !details.getBooleanItem(0, "is_custom"));
 
             ReliabilityBonusCalculator reliabilityBonus = ReliabilityBonusCalculator.getInstance();
             Double firstPlacePrize = details.getDoubleItem(0, "total_payment");
@@ -183,17 +231,22 @@ public class ProjectDetail extends Base {
                     reliabilityBonuseEligible ?
                     reliabilityBonus.getReliabilityPercent(1.0, postingDate, categoryId) * firstPlacePrize : 
                     0.0);
-            
+            getRequest().setAttribute("hasDR", details.getIntItem(0, "dr_points") > 0);
+            getRequest().setAttribute("hasMilestone",
+                    details.getItem(0, "milestone_submission_date").getResultData() != null);
+            getRequest().setAttribute("milestoneReviewFinished", details.getIntItem(0, "milestone_review_status") == 3);
+
             // set experiences and budget
             if (projectTypeId == Constants.COPILOT_POSTING_PROJECT_TYPE) {
+                getRequest().setAttribute("isCopilotPosting", true);
                 List<String> experiences = retrieveCopilotExperiences(projectId);
-                
+
                 String extraExp = retrieveCopilotExtraInfo(OTHER_EXPERIENCE_EXTRA_INFO_TYPE_ID, projectId);
                 if (extraExp != null) {
                     experiences.add(extraExp);
                 }
                 getRequest().setAttribute("experiences", experiences);
-                
+
                 String budget = retrieveCopilotExtraInfo(BUDGET_EXTRA_INFO_TYPE_ID, projectId);
                 if (budget == null) {
                     budget = "Don't have a budget yet.";
@@ -201,20 +254,136 @@ public class ProjectDetail extends Base {
                     budget = "$ " + budget;
                 }
                 getRequest().setAttribute("budgetText", budget);
+            } else {
+                getRequest().setAttribute("isCopilotPosting", false);
             }
-
-            String projectDetailPage = getProjectDetailPage(projectTypeId);
-            if (projectDetailPage.equals("")) {
-                throw new TCWebException("Invalid phase found: " + (projectTypeId + 111));
-            }
-
-            setNextPage(projectDetailPage);
-            setIsNextPageInContext(true);
-
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
             throw new TCWebException(e);
+        }
+    }
+
+    /**
+     * <p>
+     * Gets milestone information and add it to request.
+     * </p>
+     * @param projectId
+     *            the id of the project.
+     * @throws TCWebException
+     *             if any error occurs.
+     */
+    private void getMilestoneInfo(String projectId) throws TCWebException {
+        try {
+            Request r = new Request();
+            r.setContentHandle("milestone_info");
+            r.setProperty(Constants.PROJECT_ID, projectId);
+            DataAccessInt dai = getDataAccess();
+            Map milestoneInfo = dai.getData(r);
+
+            ResultSetContainer milestones = (ResultSetContainer) milestoneInfo.get("milestone_info");
+            getRequest().setAttribute("milestones", milestones);
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new TCWebException(e);
+        }
+    }
+
+    /**
+     * <p>
+     * Gets project result information and add it to request.
+     * </p>
+     * @param projectId
+     *            the id of the project.
+     * @throws TCWebException
+     *             if any error occurs.
+     */
+    private void getProjectResult(String projectId) throws TCWebException {
+        try {
+            Request r = new Request();
+            r.setContentHandle("comp_contest_details");
+            r.setProperty(Constants.PROJECT_ID, projectId);
+            DataAccessInt dai = getDataWarehouseDataAccess();
+            Map contestResult = dai.getData(r);
+
+            ResultSetContainer projectInfo = (ResultSetContainer) contestResult.get("project_info");
+            if (projectInfo.size() == 0
+                    || ((projectInfo.getIntItem(0, "status_id") != 4) && (projectInfo.getIntItem(0, "status_id") != 5) && (projectInfo
+                            .getIntItem(0, "status_id") != 7))) {
+                getRequest().setAttribute("resultAvailable", false);
+                getRequest().setAttribute("resultMap", new HashMap());
+                getRequest().setAttribute("isComplete", Boolean.FALSE);
+            } else {
+                getRequest().setAttribute("resultAvailable", true);
+                getRequest().setAttribute("resultMap", contestResult);
+
+                // check if there is a completed or suspended version of the component
+                Request rp = new Request();
+                rp.setContentHandle("find_projects");
+
+                // Find all the projects that match with the component id, version and phase
+                rp.setProperty("compid", projectInfo.getStringItem(0, "component_id"));
+                rp.setProperty("vr", projectInfo.getStringItem(0, "version_id"));
+                rp.setProperty(Constants.PHASE_ID, projectInfo.getStringItem(0, "phase_id"));
+
+                Map result = dai.getData(rp);
+                ResultSetContainer dates = (ResultSetContainer) result.get("find_projects");
+                boolean isComplete = false;
+                for (int i = 0; i < dates.size() && !isComplete; i++) {
+                    if (dates.getIntItem(i, "status_id") == 7 || dates.getIntItem(i, "suspended_ind") == 1) {
+                        isComplete = true;
+                    }
+                }
+                getRequest().setAttribute("isComplete", new Boolean(isComplete));
+            }
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new TCWebException(e);
+        }
+    }
+
+    /**
+     * <p>
+     * Gets the node name for left navigation menu.
+     * </p>
+     * @param projectTypeId
+     *            the project type id.
+     * @return the node name for the specified project type.
+     */
+    private String getLeftNav(int projectTypeId) {
+        switch (projectTypeId) {
+        case 1:
+            return "des_compete";
+        case 2:
+            return "dev_compete";
+        case 6:
+            return "specification_compete";
+        case 7:
+            return "architecture_compete";
+        case 9:
+            return "bug_hunt_compete";
+        case 13:
+            return "test_suites_compete";
+        case 14:
+            return "assembly_compete";
+        case 19:
+            return "ui_prototype_compete";
+        case 23:
+            return "conceptualization_compete";
+        case 24:
+            return "ria_build_compete";
+        case 26:
+            return "test_scenarios_compete";
+        case 29:
+            return "copilots_compete";
+        case 35:
+            return "content_creation_compete";
+        case 36:
+            return "reporting_compete";
+        default:
+            return "competition_home";
         }
     }
 
