@@ -646,13 +646,11 @@ public class ForumsBean extends BaseEJB {
      * @param body the thread body.
      * @param userId the author of the thread
      * @return the id of the new created thread
-     * @throws EJBException if an unexpected EJB error occurs.
-     * @throws RemoteException if an unexpected EJB error occurs.
      * @throws IllegalArgumentException if subject is null or empty, body is null or empty
      * @throws Exception if any other error occurs
      * @since 1.2
      */
-    public long postThreadToQuestionForum(long categoryId, String subject, String body, long userId) throws EJBException, RemoteException, Exception {
+    public long postThreadToQuestionForum(long categoryId, String subject, String body, long userId) throws Exception {
         if (subject == null || subject.trim().length() == 0) {
             throw new IllegalArgumentException("The subject can't be null or empty.");
         }
@@ -663,6 +661,7 @@ public class ForumsBean extends BaseEJB {
             Forum forum = getQuestionForum(categoryId);
             if (forum == null) {
                 // can't find the questions forum
+                log.info("Can't find the question forum under category " + categoryId);
                 return 0L;
             }
             subject = ForumsUtil.formatSubject(subject);
@@ -1810,9 +1809,7 @@ public class ForumsBean extends BaseEJB {
      * @param categoryId
      *            The category ID to retrieve the question forum from.
      * @return The question forum.
-     * @throws SpecReviewCommentServiceException
-     *             If no specification review forum was found in the given
-     *             category.
+     * @throws ForumsException if any error occurs
      * @since 1.2
      */
     private Forum getQuestionForum(long categoryId) throws ForumsException {
