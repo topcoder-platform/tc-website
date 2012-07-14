@@ -59,8 +59,6 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
 
     private Pattern pattern;
     
-    List<Long> payoneerTestGroup = Arrays.asList(8518361l, 23078253l);
-
     /**
      * <p>Constructs new <code>EditPaymentPreferences</code> instance.
      * Simply initializes the regex pattern object..</p>
@@ -133,12 +131,10 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
             String methodDesc = TCData.getTCString(rsr, "payment_method_desc", "method", true);
 
             if (methodID == PAYONEER_PAYMENT_METHOD_ID) {
-                if (payoneerTestGroup.contains(getLoggedInUser().getId())) {
-                    PaymentMethod paymentMethod = new PaymentMethod();
-                    paymentMethod.setId(methodID);
-                    paymentMethod.setName(methodDesc);
-                    paymentMethods.add(paymentMethod);
-                }
+                PaymentMethod paymentMethod = new PaymentMethod();
+                paymentMethod.setId(methodID);
+                paymentMethod.setName(methodDesc);
+                paymentMethods.add(paymentMethod);
             } else {
                 // Don't show the "Not Set" option.
                 if (methodID != NOT_SET_PAYMENT_METHOD_ID) {
