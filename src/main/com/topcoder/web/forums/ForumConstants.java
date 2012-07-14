@@ -1,5 +1,5 @@
 /*
- * Created on May 3, 2005
+ * Copyright (C) 2005 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.forums;
 
@@ -7,7 +7,17 @@ import com.jivesoftware.base.JiveGlobals;
 import com.jivesoftware.forum.ForumPermissions;
 
 /**
- * @author mtong
+ * <p>This class contains the constants used by the forums EJB.</p>
+ *
+ * <p>
+ * Version 1.1 (Release Assembly - TopCoder Cockpit Post Software Milestone Feedback to Forum)) Change notes:
+ *   <ol>
+ *     <li>Added {@link #QUESTION_FORUM_SUFFIX} constant.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author mtong, TCSASSEMBER
+ * @version 1.1
  */
 public interface ForumConstants {    
     public final static String CATEGORY_ID = "categoryID";
@@ -63,6 +73,15 @@ public interface ForumConstants {
      * </p>
      */
     public final static String SPEC_REVIEW_FORUM_SUFFIX = "Spec Review";
+    
+    /**
+     * <p>
+     * Represents the suffix for all the question forums.
+     * </p>
+     * 
+     * @since 1.1
+     */
+    public final static String QUESTION_FORUM_SUFFIX = "Questions";
     
     /**
      * <p>

@@ -1,8 +1,12 @@
+/*
+ * Copyright (C) 2012 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.ejb.forums;
 
 import com.jivesoftware.base.AuthFactory;
 import com.jivesoftware.base.Group;
 import com.jivesoftware.base.GroupManager;
+import com.jivesoftware.base.JiveConstants;
 import com.jivesoftware.base.PermissionType;
 import com.jivesoftware.base.PermissionsManager;
 import com.jivesoftware.base.UnauthorizedException;
@@ -39,6 +43,7 @@ import javax.naming.NamingException;
 
 import java.util.List;
 import java.math.BigDecimal;
+import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -65,8 +70,16 @@ import java.util.Date;
  *   </ol>
  * </p>
  * 
- * @author mtong
- * @version 1.1
+ * <p>
+ * Version 1.2 (Release Assembly - TopCoder Cockpit Post Software Milestone Feedback to Forum)) Change notes:
+ *   <ol>
+ *     <li>Added {@link #postThreadToQuestionForum(long, String, String, long)} to post a new thread in a specified forum.</li>
+ *     <li>Added {@link #getQuestionForum(long)} to get the question forum in a specified category.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author mtong, TCSASSEMBER
+ * @version 1.2
  */
 
 public class ForumsBean extends BaseEJB {
@@ -622,6 +635,60 @@ public class ForumsBean extends BaseEJB {
             if (forumsConn != null) {
                 forumsConn.close();
             }
+        }
+    }
+    
+    /**
+     * <p>Post a new thread to the question forum under a specified category.</p>
+     * 
+     * @param categoryId the id of the specified category.
+     * @param subject the thread subject.
+     * @param body the thread body.
+     * @param userId the author of the thread
+     * @return the id of the new created thread
+     * @throws EJBException if an unexpected EJB error occurs.
+     * @throws RemoteException if an unexpected EJB error occurs.
+     * @throws IllegalArgumentException if subject is null or empty, body is null or empty
+     * @throws Exception if any other error occurs
+     * @since 1.2
+     */
+    public long postThreadToQuestionForum(long categoryId, String subject, String body, long userId) throws EJBException, RemoteException, Exception {
+        if (subject == null || subject.trim().length() == 0) {
+            throw new IllegalArgumentException("The subject can't be null or empty.");
+        }
+        if (body == null || body.trim().length() == 0) {
+            throw new IllegalArgumentException("The body can't be null or empty.");
+        }
+        try {
+            Forum forum = getQuestionForum(categoryId);
+            if (forum == null) {
+                // can't find the questions forum
+                return 0L;
+            }
+            subject = ForumsUtil.formatSubject(subject);
+            body = body.trim();
+            User forumUser = forumFactory.getUserManager().getUser(userId);
+            ForumMessage message = forum.createMessage(forumUser);
+            message.setSubject(subject);
+            message.setBody(body);
+            
+            WatchManager watchManager = forumFactory.getWatchManager();
+            ForumThread thread = forum.createThread(message);
+            forum.addThread(thread);
+            if ("true".equals(forumUser.getProperty("jiveAutoWatchNewTopics")) && !watchManager.isWatched(forumUser, thread) &&
+                    watchManager.getTotalWatchCount(forumUser, JiveConstants.THREAD) < ForumConstants.MAX_THREAD_WATCHES) {
+                watchManager.createWatch(forumUser, thread);
+            }
+            
+            ForumCategory category = ForumsUtil.getMasterCategory(thread.getForum().getForumCategory());
+            while (category != null) {
+                category.setModificationDate(thread.getModificationDate());
+                category = category.getParentCategory();
+            }
+            return thread.getID();
+        } catch (Exception e) {
+            logException(e, "Error in posting a new thread");
+            throw e;
         }
     }
 
@@ -1734,6 +1801,40 @@ public class ForumsBean extends BaseEJB {
 		log.warn("Forum with category id " + categoryId + " does not contain a spec review forum!");
 		return null;
 	}
+
+    /**
+     * <p>
+     * Retrieves the question forum from the given <code>categoryId</code>.
+     * </p>
+     * 
+     * @param categoryId
+     *            The category ID to retrieve the question forum from.
+     * @return The question forum.
+     * @throws SpecReviewCommentServiceException
+     *             If no specification review forum was found in the given
+     *             category.
+     * @since 1.2
+     */
+    private Forum getQuestionForum(long categoryId) throws ForumsException {
+        ForumCategory forumCategory = null;
+        try {
+            forumCategory = forumFactory.getForumCategory(categoryId);
+            Forum forum = null;
+            for (Iterator iter = forumCategory.getForums(); iter.hasNext();) {
+                forum = (Forum) iter.next();
+                String name = forum.getName();
+                if (name.endsWith(ForumConstants.QUESTION_FORUM_SUFFIX)) {
+                    return forum;
+                }
+            }
+        } catch (Exception e) {
+            ForumsException srce = new ForumsException("An error occured while retrieving question forum!", e);
+            logException(srce, "An error occured while retrieving spec review forum!");
+            throw srce;
+        }
+
+        return null;
+    }
 
     /**
      * <p>Gets the ID for root category for forums to be created for <code>TC Direct</code> projects.</p>
