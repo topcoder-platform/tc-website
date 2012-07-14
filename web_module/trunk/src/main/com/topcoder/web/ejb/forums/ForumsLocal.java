@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2012 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.ejb.forums;
 
 import com.jivesoftware.base.UnauthorizedException;
@@ -16,7 +19,17 @@ import java.util.HashSet;
 import java.util.Hashtable;
 
 /**
- * @author mtong
+ * <p>An interface to <code>Forums EJB</code>.</p>
+ * 
+ * <p>
+ * Version 1.1 (Release Assembly - TopCoder Cockpit Post Software Milestone Feedback to Forum)) Change notes:
+ *   <ol>
+ *     <li>Added {@link #postThreadToQuestionForum(long, String, String, long)} to post a new thread in a specified forum.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author mtong, TCSASSEMBER
+ * @version 1.1
  */
 public interface ForumsLocal extends EJBLocalObject {
 
@@ -109,4 +122,19 @@ public interface ForumsLocal extends EJBLocalObject {
     public void updateSpecReviewComment(long categoryId, long userId, long questionId, ForumsUserComment comment) throws EJBException, ForumsException;
 
     public void removeUserPermission(long userID, long forumCategoryID) throws EJBException, Exception;
+    
+    /**
+     * <p>Post a new thread to the question forum under a specified category.</p>
+     * 
+     * @param categoryId the id of the specified category.
+     * @param subject the thread subject.
+     * @param body the thread body.
+     * @param userId the author of the thread
+     * @return the id of the new created thread
+     * @throws EJBException if an unexpected EJB error occurs.
+     * @throws IllegalArgumentException if subject is null or empty, body is null or empty
+     * @throws Exception if any other error occurs
+     * @since 1.2
+     */
+    public long postThreadToQuestionForum(long categoryId, String subject, String body, long userId) throws EJBException, Exception;
 }

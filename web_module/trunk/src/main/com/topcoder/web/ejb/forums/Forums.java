@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2011 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.ejb.forums;
 
@@ -25,6 +25,15 @@ import com.jivesoftware.forum.ForumNotFoundException;
  *   </ol>
  * </p>
  * 
+ * <p>
+ * Version 1.2 (Release Assembly - TopCoder Cockpit Post Software Milestone Feedback to Forum)) Change notes:
+ *   <ol>
+ *     <li>Added {@link #postThreadToQuestionForum(long, String, String, long)} to post a new thread in a specified forum.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author TCSASSEMBER
+ * @version 1.2
  */
 public interface Forums extends EJBObject {
     
@@ -118,4 +127,20 @@ public interface Forums extends EJBObject {
      */
     public long createTopCoderDirectProjectForums(String projectName, Long tcDirectProjectTypeId) 
         throws EJBException, RemoteException, Exception;
+    
+    /**
+     * <p>Post a new thread to the question forum under a specified category.</p>
+     * 
+     * @param categoryId the id of the specified category.
+     * @param subject the thread subject.
+     * @param body the thread body.
+     * @param userId the author of the thread
+     * @return the id of the new created thread
+     * @throws EJBException if an unexpected EJB error occurs.
+     * @throws RemoteException if an unexpected EJB error occurs.
+     * @throws IllegalArgumentException if subject is null or empty, body is null or empty
+     * @throws Exception if any other error occurs
+     * @since 1.2
+     */
+    public long postThreadToQuestionForum(long categoryId, String subject, String body, long userId) throws EJBException, RemoteException, Exception;
 }
