@@ -9,7 +9,6 @@ import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import com.topcoder.shared.dataAccess.CachedDataAccess;
@@ -20,8 +19,7 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.ShortHibernateProcessor;
-import com.topcoder.web.ejb.termsofuse.TermsOfUseEntity;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.DAOFactory;
 import com.topcoder.web.studio.dao.DAOUtil;
@@ -97,7 +95,7 @@ import com.topcoder.web.studio.dto.ResourceRole;
  * @version 1.3
  * @since Studio Release Assembly - Spec Review Sign up page v1.0
  */
-public class ReviewRegistration extends ShortHibernateProcessor {
+public class ReviewRegistration extends BaseTermsOfUse {
 
     /**
      * A <code>String</code> constant that stores the query name for the review_board_member query
@@ -124,19 +122,19 @@ public class ReviewRegistration extends ShortHibernateProcessor {
     /**
      * <p>An <code>int</code> providing the ID for <code>Primary Screener</code> resource role.</p>
      */
-    private static final int SCREENER_ROLE_ID = 2;
+    protected static final int SCREENER_ROLE_ID = 2;
 
     /**
      * <p>An <code>int</code> providing the ID for <code>Milestone Screener</code> resource role.</p>
      */
-    private static final int MILESTONE_SCREENER_ROLE_ID = 19;
+    protected static final int MILESTONE_SCREENER_ROLE_ID = 19;
 
     /**
      * <p>An <code>int</code> providing the ID for <code>Specification Reviewer</code> resource role.</p>
      * 
      * @since 1.1
      */
-    private static final int SPECIFICATION_REVIEWER_ROLE_ID = 18;
+    protected static final int SPECIFICATION_REVIEWER_ROLE_ID = 18;
     
     /**
      * This method executes the actual business logic for this processor.
@@ -148,20 +146,17 @@ public class ReviewRegistration extends ShortHibernateProcessor {
         // user must be logged in
         if (userLoggedIn()) {
             boolean isSpecReview = getRequest().getParameter(Constants.MODULE_KEY).equals("SpecReviewRegistration");
+            getRequest().setAttribute("isSpecReview", isSpecReview);
             if (isSpecReview) {
-                registerReviewer(new int[] {SPECIFICATION_REVIEWER_ROLE_ID}, 
-                                 new int[] {SPECIFICATION_REVIEW_PHASE_TYPE_ID}, "Specification", 0.0);
+                registerReviewer(new Integer[] {SPECIFICATION_REVIEWER_ROLE_ID}, 
+                                 new Integer[] {SPECIFICATION_REVIEW_PHASE_TYPE_ID}, "Specification", 0.0, "SpecViewReviewTerms");
             } else {
-                registerReviewer(new int[] {SCREENER_ROLE_ID, MILESTONE_SCREENER_ROLE_ID}, 
-                                 new int[] {SCREENING_PHASE_TYPE_ID, MILESTONE_SCREENING_PHASE_TYPE_ID}, "Screening", 0.0);
+                registerReviewer(new Integer[] {SCREENER_ROLE_ID, MILESTONE_SCREENER_ROLE_ID}, 
+                                 new Integer[] {SCREENING_PHASE_TYPE_ID, MILESTONE_SCREENING_PHASE_TYPE_ID}, "Screening", 0.0, "ViewReviewTerms");
             }
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
-
-        setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY + "=" 
-                    + ViewReviewOpportunities.MODULE_NAME);
-        setIsNextPageInContext(false);
     }
 
     /**
@@ -252,7 +247,7 @@ public class ReviewRegistration extends ShortHibernateProcessor {
      * @return true if the user is an active or immune reviewer for the specified contest type.
      * @throws Exception if an error occurs in the underlying layer.
      */
-    private boolean userInORReviewBoard(long userId, int projectCategoryId) throws Exception {
+    protected boolean userInORReviewBoard(long userId, int projectCategoryId) throws Exception {
         if (log.isDebugEnabled()) {
             log.debug("checking if userId " + userId + " can perform reviews for project category id: "
                       + projectCategoryId);
@@ -291,10 +286,11 @@ public class ReviewRegistration extends ShortHibernateProcessor {
      *        reviewer for desired <code>Studio</code> project.
      * @param reviewType a <code>String</code> providing the textual description of the review type to be included into
      *        error messages.
-     * @param payment a <code>double</code> providing the amount of payment for review to be set for resource. 
+     * @param payment a <code>double</code> providing the amount of payment for review to be set for resource.
+     * @param viewTermsModuleKey the module key to view the reviewer terms of use 
      * @throws Exception if an unexpected error occurs.
      */
-    private void registerReviewer(int[] reviewerRoleIds, int[] phaseTypeIds, String reviewType, double payment) 
+    private void registerReviewer(Integer[] reviewerRoleIds, Integer[] phaseTypeIds, String reviewType, double payment, String viewTermsModuleKey) 
         throws Exception {
         // get contest id from the request
         long contestId;
@@ -319,35 +315,56 @@ public class ReviewRegistration extends ShortHibernateProcessor {
         
         // Get current user ID
         long userId = getUser().getId();
+        getRequest().setAttribute("contest", project);
 
-        List<TermsOfUseEntity> termsPending 
-            = RegistrationHelper.getPendingTermsOfUse(reviewerRoleIds, project.getId(), userId);
-
-        // If there are terms of use which are not accepted by user yet then raise an error
-        if (!termsPending.isEmpty()) {
-            StringBuilder b = new StringBuilder();
-            for (TermsOfUseEntity terms : termsPending) {
-                b.append(terms.getTitle()).append("<br/>");
-            }
-            throw new NavigationException("You have to accept following terms of use first: " + b);
-        }
-
-        // double check that this spot is not taken (we need this again in the transaction)
-        Set<Resource> resources = project.getResources();
-        for (Resource resource : resources) {
-            for (int i = 0; i < reviewerRoleIds.length; i++) {
-                int reviewerRoleId = reviewerRoleIds[i];
-                if (resource.getRole().getId().intValue() == reviewerRoleId) {
-                    throw new NavigationException("The specified " + reviewType + " review position is already taken");
+        String termsOfUseId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_ID));
+        if (!"".equals(termsOfUseId)) {
+            // agree terms of use
+            if (!"on".equalsIgnoreCase(getRequest().getParameter(Constants.TERMS_AGREE))) {
+                addError(Constants.TERMS_AGREE, "You must agree to the terms in order to review the contest.");
+            } else {
+                if (hasTermsOfUseBan(userId, Long.parseLong(termsOfUseId))) {
+                    addError(Constants.TERMS_AGREE, "Sorry, you can not agree to this terms of use.");
+                } else {
+                    // save user terms of use record
+                    saveUserTermsOfUse(userId, Long.parseLong(termsOfUseId));
+                    if (hasPrePendingTerm(viewTermsModuleKey)) {
+                        return;
+                    }
                 }
             }
+            
+            processTermsOfUse(String.valueOf(contestId), userId, reviewerRoleIds, Long.parseLong(termsOfUseId));
+            
+            setNextPage("/reviewerReg.jsp");
+            setIsNextPageInContext(true);
+        } else {
+            // make sure they don't have pending terms of use
+            if (processTermsOfUse(String.valueOf(contestId), userId, reviewerRoleIds, -1) || hasErrors()) {
+                setNextPage("/reviewerReg.jsp");
+                setIsNextPageInContext(true);
+            } else {
+                // double check that this spot is not taken (we need this again in the transaction)
+                Set<Resource> resources = project.getResources();
+                for (Resource resource : resources) {
+                    for (int i = 0; i < reviewerRoleIds.length; i++) {
+                        int reviewerRoleId = reviewerRoleIds[i];
+                        if (resource.getRole().getId().intValue() == reviewerRoleId) {
+                            throw new NavigationException("The specified " + reviewType + " review position is already taken");
+                        }
+                    }
+                }
+                
+                for (int i = 0; i < reviewerRoleIds.length; i++) {
+                    int reviewerRoleId = reviewerRoleIds[i];
+                    ProjectPhase reviewPhase = project.getPhase(phaseTypeIds[i]);
+                    createResource(DAOUtil.getFactory(), project, userId, reviewPhase, reviewerRoleId, payment);
+                }
+                factory.getNotificationDAO().setTimelineNotification(project.getId(), userId);
+                setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY + "=" 
+                    + ViewReviewOpportunities.MODULE_NAME);
+                setIsNextPageInContext(false);
+            }
         }
-        
-        for (int i = 0; i < reviewerRoleIds.length; i++) {
-            int reviewerRoleId = reviewerRoleIds[i];
-            ProjectPhase reviewPhase = project.getPhase(phaseTypeIds[i]);
-            createResource(DAOUtil.getFactory(), project, userId, reviewPhase, reviewerRoleId, payment);
-        }
-        factory.getNotificationDAO().setTimelineNotification(project.getId(), userId);
     }
 }

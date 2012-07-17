@@ -36,8 +36,8 @@
 <c:set value="${sessionInfo.servletPath}?${MODULE_KEY}" var="BASE_URL"/>
 <c:set value="http://apps.topcoder.com/wiki/display/tcstudio/Studio+Member+Opportunities" var="BECOME_STUDIO_REVIEWER_LINK"/>
 <c:set value="${BASE_URL}=ViewContestDetails&amp;${CONTEST_ID}" var="VIEW_CONTEST_DETAILS_LINK"/>
-<c:set value="${BASE_URL}=ReviewRegistration&amp;${CONTEST_ID}" var="SCREENING_REVIEW_REGISTRATION_LINK"/>
-<c:set value="${BASE_URL}=SpecReviewRegistration&amp;${CONTEST_ID}" var="SPEC_REVIEW_REGISTRATION_LINK"/>
+<c:set value="${BASE_URL}=ViewReviewTerms&amp;${CONTEST_ID}" var="SCREENING_REVIEW_REGISTRATION_LINK"/>
+<c:set value="${BASE_URL}=SpecViewReviewTerms&amp;${CONTEST_ID}" var="SPEC_REVIEW_REGISTRATION_LINK"/>
 <%
     ResultSetContainer reviews = (ResultSetContainer) request.getAttribute("reviews");
     String sortCriteria = URLEncoder.encode((String) request.getAttribute(SortingHelper.SORTING_CRITERIA_KEY));
