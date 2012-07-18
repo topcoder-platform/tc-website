@@ -92,7 +92,7 @@
                             <% } else { %>
                             <a href="javascript:;" class="register disable"><span><span>REGISTER</span></span></a>
                             <% } %>
-                            <% if (projectInfo.getIntItem(0, "status_id") == 1) { %>
+                            <% if (projectDetail.getStringItem(0, "project_status").equals("open")) { %>
                             <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review" class="submit"><span><span>SUBMIT</span></span></a>
                             <% } else { %>
                             <a href="javascript:;" class="submit disable"><span><span>SUBMIT</span></span></a>
