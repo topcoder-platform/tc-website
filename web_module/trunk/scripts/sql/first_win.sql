@@ -16,3 +16,4 @@ WHERE
 	pc.project_type_id in ( 1 ,2) AND
 	pz.place = 1 AND
 	p.project_status_id = 7
+   AND p.project_category_id != 27
