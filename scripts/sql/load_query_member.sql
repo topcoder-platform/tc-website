@@ -6,7 +6,8 @@ SELECT
      WHERE u.resource_id = rr.resource_id 
      AND u.project_id = p.project_id 
      AND u.upload_type_id = 1 
-     AND u.upload_status_id = 1) as is_submitter,
+     AND u.upload_status_id = 1
+	 AND u.modify_date > ?) as is_submitter,
     (SELECT COUNT(*) > 0 
      FROM prize pr
      INNER JOIN submission s ON pr.prize_id = s.prize_id
@@ -18,7 +19,8 @@ SELECT
      AND u.resource_id = rr.resource_id
      AND u.project_id = p.project_id 
      AND u.upload_type_id = 1 
-     AND u.upload_status_id = 1) AS is_milestone_winner,
+     AND u.upload_status_id = 1
+	 AND (pr.modify_date > ? OR s.modify_date > ? OR u.modify_date > ?)) AS is_milestone_winner,
     (SELECT COUNT(*) > 0 
      FROM prize pr
      INNER JOIN submission s ON pr.prize_id = s.prize_id
@@ -30,17 +32,23 @@ SELECT
      AND u.resource_id = rr.resource_id
      AND u.project_id = p.project_id 
      AND u.upload_type_id = 1 
-     AND u.upload_status_id = 1) AS is_final_winner,
+     AND u.upload_status_id = 1
+	 AND (pr.modify_date > ? OR s.modify_date > ? OR u.modify_date > ?)) AS is_final_winner,
     addr.country_code as country_id,
     cntry.country_name
 FROM
     project p 
     INNER JOIN resource rr ON p.project_id = rr.project_id 
     INNER JOIN resource_info rri ON rr.resource_id = rri.resource_id 
+	INNER JOIN project_info pi32 on pi32.project_id = p.project_id and pi32.project_info_type_id = 32 
     LEFT JOIN common_oltp:user_address_xref uax ON uax.user_id = rri.value::int 
     LEFT JOIN common_oltp:address addr ON addr.address_id = uax.address_id 
     LEFT JOIN common_oltp:country cntry ON addr.country_code = cntry.country_code 
+	
 WHERE rr.resource_role_id=1
 AND rri.resource_info_type_id=1 
 AND p.project_status_id not in (2,3) 
 AND p.project_category_id not in (27)
+AND (p.modify_date > ? or rr.modify_date > ? or rri.modify_date > ?)
+
+order by p.project_id desc
