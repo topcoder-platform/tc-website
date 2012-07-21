@@ -105,6 +105,7 @@
       <td class="value">16
 	    <div class="srm">
 		 <strong><A href="/tc?module=MatchDetails&rd=15174">SRM 552</A></strong><br />
+         brought to you by <A href="http://community.topcoder.com/tco12/overview-sponsor/tco12-sponsor-facebook/">Facebook</A><br />
          21:00
         </div>
       </td>
