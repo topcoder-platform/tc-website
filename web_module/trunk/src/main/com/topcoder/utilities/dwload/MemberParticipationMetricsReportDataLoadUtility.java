@@ -89,7 +89,7 @@ public class MemberParticipationMetricsReportDataLoadUtility extends DBUtility {
     private static final String USER_PERMISSION_GRANT_LOAD_SQL_FILE 
         = PARTICIPATION_METRICS_REPORT_SQL_FILES_BASE + "/load_query_upg.sql";
     
-    private static final int PARTICIPATION_METRICS_REPORT_MEMBERS_LOAD_SQL_DATE_NUM = 10;
+    private static final int PARTICIPATION_METRICS_REPORT_MEMBERS_LOAD_SQL_DATE_NUM = 18;
     
     private static final int PARTICIPATION_METRICS_REPORT_COPILOT_LOAD_SQL_DATE_NUM = 3;
 
@@ -101,7 +101,7 @@ public class MemberParticipationMetricsReportDataLoadUtility extends DBUtility {
      */
     private static final String PARTICIPATION_METRICS_REPORT_MEMBERS_INSERT_SQL 
         = "INSERT INTO participation_metrics_report_member(contest_id, registrant_id, is_submitter, " +
-          "is_milestone_winner, is_final_winner, country_code, country) VALUES (?, ?, ?, ?, ?, ?, ?)";
+          "is_milestone_winner, is_final_winner, country_code, country, num_of_milestone_subs, num_of_final_subs, num_of_milestone_wins, num_of_final_wins) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     /**
      * <p>A <code>String</code> providing the SQL statement to be used for inserting records to 
@@ -484,6 +484,10 @@ public class MemberParticipationMetricsReportDataLoadUtility extends DBUtility {
             boolean isFinalWinner = selectedData.getBoolean("is_final_winner");
             String countryId = selectedData.getString("country_id");
             String countryName = selectedData.getString("country_name");
+			long numberOfMilestoneSubmissions = selectedData.getLong("number_of_milestone_submissions");
+			long numberOfFinalSubmissions = selectedData.getLong("number_of_final_submissions");
+			long numberOfMilestoneWins = selectedData.getLong("number_of_milestone_wins");
+			long numberOfFinalWins = selectedData.getLong("number_of_final_wins");
 
             insertStatement.setLong(1, contestId);
             insertStatement.setLong(2, registrantId);
@@ -492,6 +496,10 @@ public class MemberParticipationMetricsReportDataLoadUtility extends DBUtility {
             insertStatement.setBoolean(5, isFinalWinner);
             insertStatement.setString(6, countryId);
             insertStatement.setString(7, countryName);
+            insertStatement.setLong(8, numberOfMilestoneSubmissions);
+            insertStatement.setLong(9, numberOfFinalSubmissions);
+            insertStatement.setLong(10, numberOfMilestoneWins);
+            insertStatement.setLong(11, numberOfFinalWins);
             
             deleteStatement.setLong(1, contestId);
             deleteStatement.setLong(2, registrantId);
@@ -512,7 +520,11 @@ public class MemberParticipationMetricsReportDataLoadUtility extends DBUtility {
             b.append(selectedData.getBoolean("is_milestone_winner")).append(", ");
             b.append(selectedData.getBoolean("is_final_winner")).append(", ");
             b.append(selectedData.getString("country_id")).append(", ");
-            b.append(selectedData.getString("country_name"));
+            b.append(selectedData.getString("country_name")).append(", ");
+			b.append(selectedData.getLong("number_of_milestone_submissions")).append(", ");
+			b.append(selectedData.getLong("number_of_final_submissions")).append(", ");
+			b.append(selectedData.getLong("number_of_milestone_wins")).append(", ");
+			b.append(selectedData.getLong("number_of_final_wins"));
             return b.toString();
         }
     }
