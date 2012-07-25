@@ -35,7 +35,49 @@ SELECT
      AND u.upload_status_id = 1
 	 AND (pr.modify_date > ? OR s.modify_date > ? OR u.modify_date > ?)) AS is_final_winner,
     addr.country_code as country_id,
-    cntry.country_name
+    cntry.country_name,
+	 (SELECT COUNT(s.submission_id)
+	 FROM submission s INNER JOIN upload u ON u.upload_id = s.upload_id
+	 WHERE s.submission_type_id = 3
+		AND u.resource_id = rr.resource_id
+		AND u.project_id = p.project_id
+		AND s.submission_status_id != 5
+		AND u.upload_type_id = 1
+		AND u.upload_status_id = 1 AND u.modify_date > ?) AS number_of_milestone_submissions,
+	 (SELECT COUNT(s.submission_id)
+	 FROM submission s INNER JOIN upload u ON u.upload_id = s.upload_id
+	 WHERE s.submission_type_id = 1
+		AND u.resource_id = rr.resource_id
+		AND u.project_id = p.project_id
+		AND s.submission_status_id != 5
+		AND u.upload_type_id = 1
+		AND u.upload_status_id = 1 AND u.modify_date > ?) AS number_of_final_submissions,
+    (SELECT COUNT(*) 
+     FROM prize pr
+     INNER JOIN submission s ON pr.prize_id = s.prize_id
+     INNER JOIN upload u ON u.upload_id = s.upload_id
+     WHERE pr.place = 1 
+     AND pr.prize_type_id = 15
+     AND s.submission_type_id = 1 
+     AND s.submission_status_id != 5
+     AND u.resource_id = rr.resource_id
+     AND u.project_id = p.project_id 
+     AND u.upload_type_id = 1 
+     AND u.upload_status_id = 1
+	 AND (pr.modify_date > ? OR s.modify_date > ? OR u.modify_date > ?)) AS number_of_final_wins,
+    (SELECT COUNT(*) 
+     FROM prize pr
+     INNER JOIN submission s ON pr.prize_id = s.prize_id
+     INNER JOIN upload u ON u.upload_id = s.upload_id
+     WHERE pr.place = 1 
+     AND pr.prize_type_id = 14
+     AND s.submission_type_id = 3
+     AND s.submission_status_id != 5
+     AND u.resource_id = rr.resource_id
+     AND u.project_id = p.project_id 
+     AND u.upload_type_id = 1 
+     AND u.upload_status_id = 1
+	 AND (pr.modify_date > ? OR s.modify_date > ? OR u.modify_date > ?)) AS number_of_milestone_wins
 FROM
     project p 
     INNER JOIN resource rr ON p.project_id = rr.project_id 
