@@ -267,6 +267,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
 
         case CODER_REFERRAL_PAYMENT:
         case RELIABILITY_BONUS_PAYMENT:
+        case NEGATIVE_PAYMENT:
         case REVIEW_BOARD_BONUS_PAYMENT:
             return REFERENCE_PARENT_PAYMENT_ID;
         case UI_PROTOTYPE_COMPETITION_PAYMENT:
@@ -350,6 +351,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case STUDIO_SPECIFICATION_WRITING_PAYMENT: return new StudioSpecificationWritingPayment(coderId, grossAmount, referenceId, placed);
         case CONTEST_PAYMENT: return new ContestPayment(coderId, grossAmount, referenceId, placed);
         case CONTEST_MILESTONE_PAYMENT: return new ContestMilestonePayment(coderId, grossAmount, referenceId, placed);
+        case NEGATIVE_PAYMENT: return new NegativePayment(coderId, grossAmount, referenceId);
         default: return new NoReferencePayment(paymentTypeId, coderId, grossAmount, "");
         }
     }

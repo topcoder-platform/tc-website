@@ -44,9 +44,6 @@ import org.w3c.dom.Element;
 public class PaymentList extends PactsBaseProcessor implements PactsConstants {
     
     public static final String PAYMENTS = "payments";
-    public static final String RELIABILITY = "reliability";
-    public static final String GROUP_RELIABILITY = "gr";
-    public static final String TOGGLE_GROUP_RELIABILITY = "tgr";
     public static final String TRAVELEX_XML_FORMAT = "travxml";
     public static final String TRAVELEX_XML_LINK = "travxml_link";
     public static final String CSV_FORMAT = "csv";
@@ -92,7 +89,6 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 sortCol = Integer.parseInt(StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN)));
             }
 
-            boolean groupRel = !"false".equals(getRequest().getParameter(GROUP_RELIABILITY));
             String requestQuery = INTERNAL_SERVLET_URL + "?" + getRequest().getQueryString();
             getRequest().setAttribute("query", requestQuery);
             log.debug("QueryString: " + requestQuery);
@@ -115,16 +111,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                     return;
                 }
 
-                // Add all the payment id's to a set
-                Map ids = new HashMap();
-                for (int i = 0; i < results.length; i++) {
-                    if (results[i].getTypeId() != RELIABILITY_BONUS_PAYMENT) {
-                        ids.put(new Long(results[i].getId()), results[i]);
-                    }
-                }
-    
                 List<PaymentHeader> payments = new ArrayList<PaymentHeader>();
-                Map reliability = new HashMap();
                 for (int i = 0; i < results.length; i++) {
                     // remove the word "Payment" from the type description
                     int pos = results[i].getType().indexOf("Payment");
@@ -132,22 +119,10 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                         results[i].setType(results[i].getType().substring(0, pos) );
                     }
                     
-                    if (!groupRel || results[i].getTypeId() != RELIABILITY_BONUS_PAYMENT) {
-                        payments.add(results[i]);
-                    } else {
-                        Long parentId = new Long(results[i].getParentPaymentId());
-                        PaymentHeader parent = (PaymentHeader) ids.get(parentId);
-                        if (parent != null) {
-                            reliability.put(parentId, new Long(results[i].getId()));
-                            parent.setRecentGrossAmount(parent.getRecentGrossAmount() + results[i].getRecentGrossAmount());
-                            parent.setRecentNetAmount(parent.getRecentNetAmount() + results[i].getRecentNetAmount());
-                        } else {
-                            payments.add(results[i]);                       
-                        }
-                    }               
+                    payments.add(results[i]);
                 }
                 
-                if (results.length != 1) {
+                if (results.length > 1) {
                     sortResult(payments, sortCol, invert);
                 }                    
 
@@ -156,8 +131,6 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 }
 
                 getRequest().setAttribute(PAYMENTS, payments);
-                getRequest().setAttribute(RELIABILITY, reliability);
-                getRequest().setAttribute(GROUP_RELIABILITY, Boolean.valueOf(groupRel));
 
                 // mirror parameters
                 getRequest().setAttribute(PAYMENT_ID, StringUtils.htmlEncode(createValuesStr(getRequest().getParameterValues(PAYMENT_ID))));
@@ -192,13 +165,9 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 } else if ("true".equals(getRequest().getParameter(PAYONEER_XML_FORMAT))) {
                     producePayoneerXML();
                 } else {                   
-                    String toggle = requestQuery.replaceAll(GROUP_RELIABILITY + "=" + groupRel, "") + "&" + GROUP_RELIABILITY + "=" + !groupRel;
-                    getRequest().setAttribute(TOGGLE_GROUP_RELIABILITY, toggle);
-
-                    String ungroup = requestQuery.replaceAll(GROUP_RELIABILITY + "=" + groupRel, "") + "&" + GROUP_RELIABILITY + "=false";
-                    String csv_link = ungroup + "&" + CSV_FORMAT + "=true";
-                    String travxml_link = ungroup + "&" + TRAVELEX_XML_FORMAT + "=true";
-                    String payoneer_xml_link = ungroup + "&" + PAYONEER_XML_FORMAT + "=true";
+                    String csv_link = requestQuery + "&" + CSV_FORMAT + "=true";
+                    String travxml_link = requestQuery + "&" + TRAVELEX_XML_FORMAT + "=true";
+                    String payoneer_xml_link = requestQuery + "&" + PAYONEER_XML_FORMAT + "=true";
                     getRequest().setAttribute(CSV_LINK, csv_link);
                     getRequest().setAttribute(TRAVELEX_XML_LINK, travxml_link);
                     getRequest().setAttribute(PAYONEER_XML_LINK, payoneer_xml_link);
@@ -340,7 +309,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         getResponse().setContentType("application/csv");
         PrintWriter writer = getResponse().getWriter();
 
-        writer.print("Payment ID,Name,User,Description,Gross,Tax,Net,Type,Status,Client,Project,Billing Acct,Reference ID,Contest Category,Invoice Number,Created,Modified");
+        writer.print("Payment ID,Name,User,Description,Gross,Tax,Net,Type,Method,Status,Client,Project,Billing Acct,Reference ID,Contest Category,Invoice Number,Created,Modified");
         writer.print("\n");
         
         List<PaymentHeader> payments = (List<PaymentHeader>) getRequest().getAttribute(PaymentList.PAYMENTS);
@@ -362,6 +331,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
             addCSVValue(row, payment.getRecentGrossAmount()-payment.getRecentNetAmount());
             addCSVValue(row, payment.getRecentNetAmount());
             addCSVValue(row, payment.getType());
+            addCSVValue(row, payment.getMethod());
             addCSVValue(row, status);
             addCSVValue(row, payment.getClient());
             addCSVValue(row, payment.getCockpitProjectName());
@@ -929,6 +899,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         s.addDefault(TAX_COL, "desc");
         s.addDefault(NET_COL, "desc");
         s.addDefault(TYPE_COL, "asc");
+        s.addDefault(METHOD_COL, "asc");
         s.addDefault(STATUS_COL, "asc");
         s.addDefault(CLIENT_COL, "asc");
         s.addDefault(REFERENCE_ID_COL, "asc");
