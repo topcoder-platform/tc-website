@@ -6047,7 +6047,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         query.append(" FROM payment_detail pd, payment p, user u ");
         query.append(" WHERE pd.payment_detail_id = p.most_recent_detail_id ");
         query.append(" AND p.user_id = u.user_id ");
-        query.append(" AND " + filterCondition("'[' || u.handle || '] ' || pd.payment_desc", search));
+        query.append(" AND " + filterCondition("'[' || u.handle::lvarchar || '] ' || pd.payment_desc::lvarchar", search));
         query.append(" ORDER BY 2");
 
         ArrayList param = new ArrayList();
