@@ -25,9 +25,6 @@
 
 <%--<c:set var="statusList" value="<%= request.getAttribute(PactsConstants.STATUS_CODE_LIST) %>" />--%>
 <c:set var="paymentList" value="<%= request.getAttribute(PaymentList.PAYMENTS) %>" />
-<c:set var="reliabilityMap" value="<%= request.getAttribute(PaymentList.RELIABILITY) %>" />
-<c:set var="groupReliability" value="<%= request.getAttribute(PaymentList.GROUP_RELIABILITY) %>" />
-<c:set var="toggleGroupReliability" value="<%= request.getAttribute(PaymentList.TOGGLE_GROUP_RELIABILITY) %>" />
 <c:set var="csvLink" value="<%= request.getAttribute(PaymentList.CSV_LINK) %>" />
 <c:set var="travxmlLink" value="<%= request.getAttribute(PaymentList.TRAVELEX_XML_LINK) %>" />
 <c:set var="payoneerXMLLink" value="<%= request.getAttribute(PaymentList.PAYONEER_XML_LINK) %>" />
@@ -185,13 +182,6 @@ ${fn:length(paymentList)} records. <br />
 
     <a href="${csvLink}">Download as CSV (Excel)</a> - <a href="${travxmlLink}">Download as Travelex XML</a> - <a href="${payoneerXMLLink}">Download as Payoneer XML</a><br/>
 
-    <a href="${toggleGroupReliability}">
-        <c:choose>
-            <c:when test="${groupReliability}">Ungroup components and reliabilities</c:when>
-            <c:otherwise>Group components with their reliabilities</c:otherwise>
-        </c:choose>
-    </a><br>
-
 <a href="Javascript:checkAll(true)">check all</a> -
  <a href="Javascript:checkAll(false)">uncheck all</a> <br>
 <br/>
@@ -208,6 +198,7 @@ ${fn:length(paymentList)} records. <br />
         <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.TAX_COL%>" includeParams="true"/>" >Tax</a></td>
         <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.NET_COL%>" includeParams="true"/>" >Net</a></td>
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.TYPE_COL%>" includeParams="true"/>" >Type</a></td>
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.METHOD_COL%>" includeParams="true"/>" >Method</a></td>
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.STATUS_COL%>" includeParams="true"/>" >Status</a></td>
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.CLIENT_COL%>" includeParams="true"/>" >Client</a></td>
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.COCKPIT_PROJECT_NAME_COL%>" includeParams="true"/>" >Project</a></td>
@@ -220,23 +211,10 @@ ${fn:length(paymentList)} records. <br />
     </tr>
     <% boolean even = true;%>
     <c:forEach var="payment" items="${paymentList}" varStatus="index">
-            <c:set var="composed" value="false" />
-            <c:set var="mark" value="" />
-            <c:if test="${not empty reliabilityMap[payment.id]}">
-                <c:set var="composed" value="true" />
-                <c:set var="mark" value="*" />
-            </c:if>
         <c:set var="totalNet" value="${totalNet + payment.recentNetAmount}" />
         <tr class="<%=even?"light":"dark"%>">
         <td>
-            <c:choose>
-                <c:when test="${composed}">
-                    <c:set var="row_key" value="${payment.id},${reliabilityMap[payment.id]}"/>
-                </c:when>
-                <c:otherwise>
-                    <fmt:formatNumber var="row_key" value="${payment.id}" groupingUsed="False"/>
-                </c:otherwise>
-            </c:choose>
+            <fmt:formatNumber var="row_key" value="${payment.id}" groupingUsed="False"/>
             <c:choose>
                 <c:when test="${empty checked_payments || cf:contains(checked_payments, row_key)}">
                    <input type="checkbox" name="checked_payment_id" value="${row_key}" checked
@@ -250,15 +228,12 @@ ${fn:length(paymentList)} records. <br />
         <td class="value"><c:out value="${payment.id}" /></td>  
         <td class="value" nowrap="nowrap"><c:out value="${payment.user.fullName}" /></td>
         <td class="value"><a href="${pacts:viewUser(payment.user.id)}"><c:out value="${payment.user.handle}" /></td>
-        <td class="value"><a href="${pacts:viewPayment(payment.id)}"><c:out value="${payment.description}" /></a>
-            <c:if test="${composed}"> +
-                 <a href="${pacts:viewPayment(reliabilityMap[payment.id])}">Reliability</a>
-            </c:if>
-        </td>
-        <td class="valueR" nowrap>$<fmt:formatNumber value="${payment.recentGrossAmount}" pattern="###,##0.00" /><c:out value="${mark}" /></td>
-        <td class="valueR" nowrap>$<fmt:formatNumber value="${payment.recentGrossAmount - payment.recentNetAmount}" pattern="###,##0.00" /><c:out value="${mark}" /></td>
-        <td class="valueR" nowrap  id="pna${index.index}">$<fmt:formatNumber value="${payment.recentNetAmount}" pattern="###,##0.00" /><c:out value="${mark}" /></td>
+        <td class="value"><a href="${pacts:viewPayment(payment.id)}"><c:out value="${payment.description}" /></a></td>
+        <td class="valueR" nowrap>$<fmt:formatNumber value="${payment.recentGrossAmount}" pattern="###,##0.00" /></td>
+        <td class="valueR" nowrap>$<fmt:formatNumber value="${payment.recentGrossAmount - payment.recentNetAmount}" pattern="###,##0.00" /></td>
+        <td class="valueR" nowrap  id="pna${index.index}">$<fmt:formatNumber value="${payment.recentNetAmount}" pattern="###,##0.00" /></td>
         <td class="value"><c:out value="${payment.type}" /></td>
+        <td class="value"><c:out value="${payment.method}" /></td>
 
         <td class="value"><strong>${payment.currentStatus.desc}</strong>
             <c:forEach items="${payment.currentStatus.reasons}" var="reason">
