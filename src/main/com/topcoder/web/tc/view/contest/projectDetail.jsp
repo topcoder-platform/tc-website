@@ -392,12 +392,12 @@
                                                 <!-- resultTop -->
                                                 <div class="reslutTop">
                                                     <ul>
-                                                        <% if (submissions.getItem(0, "final_score").getResultData() != null && submissions.getDoubleItem(0, "final_score") >= 75.0) { %>
+                                                        <% if (submissions.size() > 0 && submissions.getItem(0, "final_score").getResultData() != null && submissions.getDoubleItem(0, "final_score") >= 75.0) { %>
                                                         <li class="first"><div class="firstPrize">
                                                             <a href="javascript:;" class="blue"><tc-webtag:handle coderId='<%= submissions.getLongItem(0, "user_id") %>' context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/></a>
                                                         </div></li>
                                                         <% } %>
-                                                        <% if (submissions.getItem(1, "final_score").getResultData() != null && submissions.getDoubleItem(1, "final_score") >= 75.0) { %>
+                                                        <% if (submissions.size() > 1 && submissions.getItem(1, "final_score").getResultData() != null && submissions.getDoubleItem(1, "final_score") >= 75.0) { %>
                                                         <li><div class="seccondPrize">
                                                             <a href="javascript:;" class="yellow"><tc-webtag:handle coderId='<%= submissions.getLongItem(1, "user_id") %>' context='<%= projectInfo.getStringItem(0, "phase_desc") %>'/></a>
                                                         </div></li>
