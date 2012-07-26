@@ -1,6 +1,6 @@
 <%--
-  - Author: pulky, snow01, FireIce, lmmortal, TCSASSEMBLER
-  - Version: 1.4
+  - Author: pulky, snow01, FireIce, lmmortal, isv
+  - Version: 1.5
   - Since: Specification Review Integration 1.0
   - Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
   -
@@ -18,6 +18,9 @@
   -
   - Version 1.4 (Release Assembly - TopCoder BugHunt Competition Integration) changes:
   - Added constants for new Bug Hunt competitions.
+  -
+  - Version 1.5 (Release Assembly - TopCoder Assembly Track Subtypes Integration Assembly 1.0) Change notes:
+  -  Added support for Assembly track contest subtypes.
 --%>
 
 <%@ page import="com.topcoder.web.tc.Constants" %>
@@ -33,7 +36,10 @@
 <c:set var="DESIGN_PROJECT_TYPE" value="<%=Constants.DESIGN_PROJECT_TYPE%>" scope="request"/>
 <c:set var="DEVELOPMENT_PROJECT_TYPE" value="<%=Constants.DEVELOPMENT_PROJECT_TYPE%>" scope="request"/>
 <c:set var="ARCHITECTURE_PROJECT_TYPE" value="<%=Constants.ARCHITECTURE_PROJECT_TYPE%>" scope="request"/>
-<c:set var="ASSEMBLY_PROJECT_TYPE" value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>" scope="request"/>
+<c:set var="MODULE_ASSEMBLY_PROJECT_TYPE" value="<%=Constants.MODULE_ASSEMBLY_PROJECT_TYPE%>" scope="request"/>
+<c:set value="<%=Constants.RELEASE_ASSEMBLY_PROJECT_TYPE%>" var="RELEASE_ASSEMBLY_PROJECT_TYPE" scope="request"/>
+<c:set value="<%=Constants.SYSTEM_ASSEMBLY_PROJECT_TYPE%>" var="SYSTEM_ASSEMBLY_PROJECT_TYPE" scope="request"/>
+<c:set value="<%=Constants.PROTOTYPE_ASSEMBLY_PROJECT_TYPE%>" var="PROTOTYPE_ASSEMBLY_PROJECT_TYPE" scope="request"/>
 <c:set var="CONTENT_CREATION_PROJECT_TYPE" value="<%=Constants.CONTENT_CREATION_PROJECT_TYPE%>" scope="request"/>
 <c:set var="REPORTING_PROJECT_TYPE" value="<%=Constants.REPORTING_PROJECT_TYPE%>" scope="request"/>
 <c:set var="BUG_HUNT_PROJECT_TYPE" value="<%=Constants.BUG_HUNT_PROJECT_TYPE%>" scope="request"/>
@@ -47,8 +53,16 @@
     value="<%=Constants.TEST_SCENARIOS_SPECIFICATION_PROJECT_TYPE%>" scope="request"/>
 <c:set var="ARCHITECTURE_SPECIFICATION_PROJECT_TYPE" value="<%=Constants.ARCHITECTURE_SPECIFICATION_PROJECT_TYPE%>"
     scope="request"/>
-<c:set var="ASSEMBLY_SPECIFICATION_PROJECT_TYPE" value="<%=Constants.ASSEMBLY_SPECIFICATION_PROJECT_TYPE%>"
+<c:set var="MODULE_ASSEMBLY_SPECIFICATION_PROJECT_TYPE" value="<%=Constants.MODULE_ASSEMBLY_SPECIFICATION_PROJECT_TYPE%>"
     scope="request"/>
+<c:set var="RELEASE_ASSEMBLY_SPECIFICATION_PROJECT_TYPE" value="<%=Constants.RELEASE_ASSEMBLY_SPECIFICATION_PROJECT_TYPE%>"
+       scope="request"/>
+<c:set var="SYSTEM_ASSEMBLY_SPECIFICATION_PROJECT_TYPE"
+       value="<%=Constants.SYSTEM_ASSEMBLY_SPECIFICATION_PROJECT_TYPE%>"
+       scope="request"/>
+<c:set var="PROTOTYPE_ASSEMBLY_SPECIFICATION_PROJECT_TYPE"
+       value="<%=Constants.PROTOTYPE_ASSEMBLY_SPECIFICATION_PROJECT_TYPE%>"
+       scope="request"/>
 <c:set var="DESIGN_SPECIFICATION_PROJECT_TYPE"
     value="<%=Constants.DESIGN_SPECIFICATION_PROJECT_TYPE%>" scope="request"/>
 <c:set var="DEVELOPMENT_SPECIFICATION_PROJECT_TYPE"
@@ -157,7 +171,10 @@
         <c:set var="eligibleReviewBoardName" value="the TopCoder Architecture Review Board" scope="request"/>
         <c:set var="handleContext" value="architecture" scope="request"/>
     </c:when>
-    <c:when test="${projectType == ASSEMBLY_SPECIFICATION_PROJECT_TYPE}">
+    <c:when test="${projectType == MODULE_ASSEMBLY_SPECIFICATION_PROJECT_TYPE 
+                   or projectType == RELEASE_ASSEMBLY_SPECIFICATION_PROJECT_TYPE 
+                   or projectType == SYSTEM_ASSEMBLY_SPECIFICATION_PROJECT_TYPE 
+                   or projectType == PROTOTYPE_ASSEMBLY_SPECIFICATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Specification Review" scope="request"/>
         <c:set var="projectTypeTitle" value="Specification Review" scope="request"/>
         <c:set var="eligibleReviewBoardName" value="the TopCoder Assembly Review Board" scope="request"/>
@@ -199,7 +216,7 @@
         <c:set var="eligibleReviewBoardName" value="the TopCoder Architecture or Development Review Boards" scope="request"/>
         <c:set var="handleContext" value="architecture" scope="request"/>
     </c:when>
-    <c:when test="${projectType == ASSEMBLY_PROJECT_TYPE}">
+    <c:when test="${projectType == MODULE_ASSEMBLY_PROJECT_TYPE or projectType == RELEASE_ASSEMBLY_PROJECT_TYPE or projectType == SYSTEM_ASSEMBLY_PROJECT_TYPE or projectType == PROTOTYPE_ASSEMBLY_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Assembly" scope="request"/>
         <c:set var="projectTypeTitle" value="Assembly" scope="request"/>
         <c:set var="eligibleReviewBoardName" value="the TopCoder Assembly Review Board" scope="request"/>

@@ -7,7 +7,7 @@
  * Add copilot pool link under Copilot Opportunites (TopCoder Copilot Pool Page Front End Assembly).
  * Add copilot posting link as active contests (Copilot Selection Contest Online Review and TC Site Integration Assembly)
  * Add bug hunt contest type to left side panel (Release Assembly - TopCoder BugHunt Competition Integration)
- *
+ * Changed links for Assembly track to integrate newly added Assembly track subtypes
 --%>
 <%@ page language="java"%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
@@ -114,11 +114,11 @@
 							nav.search("m_assembly_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/Assembly+Competition+Tutorial", "Tutorial", "assembly_tutorial"));
 							nav.search("m_assembly_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/Assembly+Competition+Documentation", "Documentation", "assembly_documentation"));
 					nav.search("m_assembly_competitions").addChild(new NavNode("http://community.topcoder.com/tc?module=ViewAssemblyActiveContests", "Active Contests", "assembly_compete"));
-					nav.search("m_assembly_competitions").addChild(new NavNode("http://community.topcoder.com/tc?module=ContestStatus&amp;pt=14", "Contest Status", "assembly_contest_status"));
-					nav.search("m_assembly_competitions").addChild(new NavNode("http://community.topcoder.com/tc?module=CompList&amp;ph=125", "Past Contests", "assembly_past"));
-					nav.search("m_assembly_competitions").addChild(new NavNode("http://community.topcoder.com/tc?module=ViewReviewProjects&amp;pt=14", "Review Opportunities", "assembly_review"));
-					nav.search("m_assembly_competitions").addChild(new NavNode("http://community.topcoder.com/tc?module=ReviewBoard&amp;pt=14", "Meet the Review Board", "assembly_review_board"));
-				nav.search("competition_dev").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_test_suites_competitions')", "Test Suites", "m_test_suites_competitions"));
+					nav.search("m_assembly_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ContestStatus&amp;pt=14,38,39,40", "Contest Status", "assembly_contest_status"));
+					nav.search("m_assembly_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=CompList&amp;ph=125,149,150,151", "Past Contests", "assembly_past"));
+					nav.search("m_assembly_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ViewReviewProjects&amp;pt=14,38,39,40", "Review Opportunities", "assembly_review"));
+                    nav.search("m_assembly_competitions").addChild(new NavNode("http://" + ApplicationServer.SERVER_NAME + "/tc?module=ReviewBoard&amp;pt=14,38,39,40", "Meet the Review Board", "assembly_review_board"));
+                    nav.search("competition_dev").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_test_suites_competitions')", "Test Suites", "m_test_suites_competitions"));
 					nav.search("m_test_suites_competitions").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/Test+Scenarios+and+Scripts", "Overview", "test_suites_overview"));
 					nav.search("m_test_suites_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_test_suites_support')", "Track Information", "m_test_suites_support"));
 							nav.search("m_test_suites_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/How+to+Compete+in+Testing+Competitions", "How to Compete", "test_suites_how_to_compete"));

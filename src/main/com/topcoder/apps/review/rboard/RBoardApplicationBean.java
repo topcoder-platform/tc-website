@@ -166,9 +166,24 @@ import com.topcoder.web.ejb.forums.ForumsHome;
   *     <li>Updated {@link #getReviewRespInfo()} method for support bug hunt contest.</li>
   *   </ol>
  * </p>
+ * 
+ * <p>
+ * Version 1.0.20 (Release Assembly - TopCoder Assembly Track Subtypes Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Renamed <code>ASSEMBLY_PRIMARY_REVIEW_ID</code> constant to {@link #MODULE_ASSEMBLY_PRIMARY_REVIEW_ID}.</li>
+ *     <li>Added {@link #RELEASE_ASSEMBLY_PRIMARY_REVIEW_ID} constant.</li>
+ *     <li>Added {@link #SYSTEM_ASSEMBLY_PRIMARY_REVIEW_ID} constant.</li>
+ *     <li>Added {@link #PROTOTYPE_ASSEMBLY_PRIMARY_REVIEW_ID} constant.</li>
+ *     <li>Renamed <code>ASSEMBLY_NEW_PRIMARY_REVIEW_ID</code> constant to {@link #MODULE_ASSEMBLY_NEW_PRIMARY_REVIEW_ID}.</li>
+ *     <li>Added {@link #RELEASE_ASSEMBLY_NEW_PRIMARY_REVIEW_ID} constant.</li>
+ *     <li>Added {@link #SYSTEM_ASSEMBLY_NEW_PRIMARY_REVIEW_ID} constant.</li>
+ *     <li>Added {@link #PROTOTYPE_ASSEMBLY_NEW_PRIMARY_REVIEW_ID} constant.</li>
+ *     <li>Added support for Assembly track contest subtypes.</li>
+ *   </ol>
+ * </p>
  *
  * @author dok, ivern, isv, pulky, snow01, VolodymyrK, Blues, FireIce, lmmortal
- * @version 1.0.19
+ * @version 1.0.20
  */
 public class RBoardApplicationBean extends BaseEJB {
     private static final int INTERNAL_ADMIN_USER = 100129;
@@ -241,19 +256,64 @@ public class RBoardApplicationBean extends BaseEJB {
     private static final int DESIGN_NEW_PRIMARY_REVIEW_ID = 115;
     
     /**
-     * <p>A <code>int</code> representing the primary review id for assembly projects.</p>
+     * <p>A <code>int</code> representing the primary review id for <code>Module Assembly</code>  projects.</p>
      *
      * @since 1.0.8
      */
-    private static final int ASSEMBLY_PRIMARY_REVIEW_ID = 7;
+    private static final int MODULE_ASSEMBLY_PRIMARY_REVIEW_ID = 7;
 
     /**
-     * <p>A <code>int</code> representing the Primary Review Evaluator id for assembly projects.</p>
+     * <p>A <code>int</code> representing the primary review id for <code>Release Assembly</code>  projects.</p>
+     *
+     * @since 1.0.20
+     */
+    private static final int RELEASE_ASSEMBLY_PRIMARY_REVIEW_ID = 133;
+
+    /**
+     * <p>A <code>int</code> representing the primary review id for <code>System Assembly</code>  projects.</p>
+     *
+     * @since 1.0.20
+     */
+    private static final int SYSTEM_ASSEMBLY_PRIMARY_REVIEW_ID = 136;
+
+    /**
+     * <p>A <code>int</code> representing the primary review id for <code>Prototype Assembly</code>  projects.</p>
+     *
+     * @since 1.0.20
+     */
+    private static final int PROTOTYPE_ASSEMBLY_PRIMARY_REVIEW_ID = 139;
+
+    /**
+     * <p>A <code>int</code> representing the Primary Review Evaluator id for <code>Module Assembly</code> projects.</p>
      *
      * @since 1.0.16
      */
-    private static final int ASSEMBLY_NEW_PRIMARY_REVIEW_ID = 109;
-    
+    private static final int MODULE_ASSEMBLY_NEW_PRIMARY_REVIEW_ID = 109;
+
+    /**
+     * <p>A <code>int</code> representing the Primary Review Evaluator id for <code>Release Assembly</code>
+     * projects.</p>
+     *
+     * @since 1.0.20
+     */
+    private static final int RELEASE_ASSEMBLY_NEW_PRIMARY_REVIEW_ID = 142;
+
+    /**
+     * <p>A <code>int</code> representing the Primary Review Evaluator id for <code>System Assembly</code>
+     * projects.</p>
+     *
+     * @since 1.0.20
+     */
+    private static final int SYSTEM_ASSEMBLY_NEW_PRIMARY_REVIEW_ID = 145;
+
+    /**
+     * <p>A <code>int</code> representing the Primary Review Evaluator id for <code>Prototype Assembly</code>
+     * projects.</p>
+     *
+     * @since 1.0.20
+     */
+    private static final int PROTOTYPE_ASSEMBLY_NEW_PRIMARY_REVIEW_ID = 148;
+
     /**
      * <p>A <code>int</code> representing the primary review id for architecture projects.</p>
      *
@@ -1542,9 +1602,21 @@ public class RBoardApplicationBean extends BaseEJB {
         } else if (phaseId == SoftwareComponent.DESIGN_PHASE) {
             validateReviewPositions(newReviewSystem, reviewTypeId, primary, reviewers, DESIGN_PRIMARY_REVIEW_ID, DESIGN_NEW_PRIMARY_REVIEW_ID,
                     INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
-        } else if (phaseId == (WebConstants.ASSEMBLY_PROJECT_TYPE + 111)) {
-            validateReviewPositions(newReviewSystem, reviewTypeId, primary, reviewers, ASSEMBLY_PRIMARY_REVIEW_ID, ASSEMBLY_NEW_PRIMARY_REVIEW_ID,
-                    INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
+        } else if (phaseId == (WebConstants.MODULE_ASSEMBLY_PROJECT_TYPE + 111)) {
+            validateReviewPositions(newReviewSystem, reviewTypeId, primary, reviewers,
+                                    MODULE_ASSEMBLY_PRIMARY_REVIEW_ID, MODULE_ASSEMBLY_NEW_PRIMARY_REVIEW_ID, INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
+        } else if (phaseId == (WebConstants.RELEASE_ASSEMBLY_PROJECT_TYPE + 111)) {
+            validateReviewPositions(newReviewSystem, reviewTypeId, primary, reviewers,
+                                    RELEASE_ASSEMBLY_PRIMARY_REVIEW_ID, RELEASE_ASSEMBLY_NEW_PRIMARY_REVIEW_ID,
+                                    INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
+        } else if (phaseId == (WebConstants.SYSTEM_ASSEMBLY_PROJECT_TYPE + 111)) {
+            validateReviewPositions(newReviewSystem, reviewTypeId, primary, reviewers,
+                                    SYSTEM_ASSEMBLY_PRIMARY_REVIEW_ID, SYSTEM_ASSEMBLY_NEW_PRIMARY_REVIEW_ID,
+                                    INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
+        } else if (phaseId == (WebConstants.PROTOTYPE_ASSEMBLY_PROJECT_TYPE + 111)) {
+            validateReviewPositions(newReviewSystem, reviewTypeId, primary, reviewers,
+                                    PROTOTYPE_ASSEMBLY_PRIMARY_REVIEW_ID, PROTOTYPE_ASSEMBLY_NEW_PRIMARY_REVIEW_ID,
+                                    INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
         } else if (phaseId == (WebConstants.ARCHITECTURE_PROJECT_TYPE + 111)) {
             validateReviewPositions(newReviewSystem, reviewTypeId, primary, reviewers, ARCHITECTURE_PRIMARY_REVIEW_ID, ARCHITECTURE_NEW_PRIMARY_REVIEW_ID,
                     INCONSISTENT_REVIEWERS_ERROR_MESSAGE_COMMON);
@@ -1681,13 +1753,19 @@ public class RBoardApplicationBean extends BaseEJB {
                 43, 44, 45, 46, 47, 48, 49, 50, 60, 61, 62, 63, 64, 65, 76, 77, 78, 79,
                 112, 113, 114,
                 109, 110, 111,
-                130, 131};
+                130, 131,
+                133, 134, 135, 136, 137, 138, 139, 140, 141,
+                142, 143, 144, 145, 146, 147, 148, 149, 150,
+                151, 152, 153};
         int[] phaseIds = {113, 113, 113, 112, 112, 112, 125, 125, 125, 118, 118, 118, 134, 134, 134,
                 117, 117, 117, 124, 124, 124, 130, 130, 130, 135, 135, 135, 136, 136, 136, 137, 137, 137,
                 114, 114, 114, 138, 1113, 1112, 1125, 1118, 1134, 1117, 1124, 1130, 1135, 1136, 1137, 1114, 1146, 140, 140, 140, 146, 146, 146, 147, 147, 147, 1147,
                 134, 134, 134,
                 125, 125, 125,
-                1120, 120};
+                1120, 120,
+                149, 149, 149, 150, 150, 150, 151, 151, 151,
+                149, 149, 149, 150, 150, 150, 151, 151, 151,
+                1149, 1150, 1151};
 
         for (int i = 0; i < respIds.length; i++) {
             returnMap.put(new Integer(respIds[i]), new Integer(phaseIds[i]));

@@ -8,7 +8,10 @@
             <Value>23</Value> <!-- CONCEPTUALIZATION_PROJECT_TYPE -->
             <Value>6</Value> <!-- SPECIFICATION_PROJECT_TYPE -->
             <Value>13</Value> <!-- TEST_SUITES_PROJECT_TYPE -->
-            <Value>14</Value> <!-- ASSEMBLY_PROJECT_TYPE -->
+            <Value>14</Value> <!-- MODULE ASSEMBLY_PROJECT_TYPE -->
+            <Value>38</Value> <!-- RELEASE ASSEMBLY_PROJECT_TYPE -->
+            <Value>39</Value> <!-- SYSTEM ASSEMBLY_PROJECT_TYPE -->
+            <Value>40</Value> <!-- PROTOTYPE ASSEMBLY_PROJECT_TYPE -->
             <Value>19</Value> <!-- UI_PROTOTYPE_PROJECT_TYPE -->
             <Value>24</Value> <!-- RIA_BUILD_PROJECT_TYPE -->
             <Value>25</Value> <!-- RIA_COMPONENT_PROJECT_TYPE -->

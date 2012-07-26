@@ -1,6 +1,6 @@
 <%--
   - Author: pulky, FireIce, TCSASSEMBLER
-  - Version: 1.5
+  - Version: 1.7
   - Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page lists all past projects for a specific project type.
@@ -22,6 +22,9 @@
   -
   - Version 1.6 (Release Assembly - TopCoder BugHunt Competition Integration) changes:
   - Added support for new Bug Hunt type.
+  -
+  - Version 1.7 (Release Assembly - TopCoder Assembly Track Subtypes Integration Assembly 1.0) Change notes:
+  -  Added support for Assembly track contest subtypes.
 --%>
 <%@  page language="java"
     import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*, com.topcoder.web.tc.Constants,
@@ -41,7 +44,10 @@
 <c:set value="<%=Constants.CONCEPTUALIZATION_PROJECT_TYPE%>" var="CONCEPTUALIZATION_TYPE_ID"/>
 <c:set value="<%=Constants.SPECIFICATION_PROJECT_TYPE%>" var="SPECIFICATION_TYPE_ID"/>
 <c:set value="<%=Constants.ARCHITECTURE_PROJECT_TYPE%>" var="ARCHITECTURE_TYPE_ID"/>
-<c:set value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>" var="ASSEMBLY_TYPE_ID"/>
+<c:set value="<%=Constants.MODULE_ASSEMBLY_PROJECT_TYPE%>" var="MODULE_ASSEMBLY_PROJECT_TYPE"/>
+<c:set value="<%=Constants.RELEASE_ASSEMBLY_PROJECT_TYPE%>" var="RELEASE_ASSEMBLY_PROJECT_TYPE"/>
+<c:set value="<%=Constants.SYSTEM_ASSEMBLY_PROJECT_TYPE%>" var="SYSTEM_ASSEMBLY_PROJECT_TYPE"/>
+<c:set value="<%=Constants.PROTOTYPE_ASSEMBLY_PROJECT_TYPE%>" var="PROTOTYPE_ASSEMBLY_PROJECT_TYPE"/>
 <c:set value="<%=Constants.TEST_SUITES_PROJECT_TYPE%>" var="TEST_SUITES_TYPE_ID"/>
 <c:set value="<%=Constants.TEST_SCENARIOS_PROJECT_TYPE%>" var="TEST_SCENARIOS_TYPE_ID"/>
 
@@ -125,7 +131,7 @@
                     <jsp:param name="node" value="architecture_stats"/>
                  </jsp:include>
             </c:when>
-            <c:when test="${pt == ASSEMBLY_TYPE_ID}">
+            <c:when test="${pt == MODULE_ASSEMBLY_PROJECT_TYPE or pt == RELEASE_ASSEMBLY_PROJECT_TYPE or pt == SYSTEM_ASSEMBLY_PROJECT_TYPE or pt == PROTOTYPE_ASSEMBLY_PROJECT_TYPE}">
                  <jsp:include page="/includes/global_left.jsp">
                     <jsp:param name="node" value="assembly_stats"/>
                  </jsp:include>
@@ -218,7 +224,7 @@
         </jsp:include>
         <span class="bodySubtitle">Application Statistics &gt; Architecture Contests</span><br>
     </c:when>
-    <c:when test="${pt == ASSEMBLY_TYPE_ID}">
+    <c:when test="${pt == MODULE_ASSEMBLY_PROJECT_TYPE or pt == RELEASE_ASSEMBLY_PROJECT_TYPE or pt == SYSTEM_ASSEMBLY_PROJECT_TYPE or pt == PROTOTYPE_ASSEMBLY_PROJECT_TYPE}">
         <jsp:include page="../page_title.jsp" >
             <jsp:param name="image" value="statistics_w"/>
             <jsp:param name="title" value="Component Contest List"/>
@@ -328,7 +334,7 @@
                     <td class="tableTitle" colspan="9">
                     Architecture
                 </c:when>
-                <c:when test="${pt == ASSEMBLY_TYPE_ID}">
+                <c:when test="${pt == MODULE_ASSEMBLY_PROJECT_TYPE or pt == RELEASE_ASSEMBLY_PROJECT_TYPE or pt == SYSTEM_ASSEMBLY_PROJECT_TYPE or pt == PROTOTYPE_ASSEMBLY_PROJECT_TYPE}">
                     <td class="tableTitle" colspan="9">
                     Assembly
                 </c:when>
@@ -395,7 +401,12 @@
             <c:if test="${pt == DEVELOPMENT_TYPE_ID}">
                 <td class="<%=even?"statLt":"statDk"%>" align="center"><strong><rsc:item name="type" row="<%=resultRow%>" /></strong></TD>
             </c:if>
-            <td class="<%=even?"statLt":"statDk"%>" align="left"><rsc:item name="component_name" row="<%=resultRow%>" /> <rsc:item name="version_text" row="<%=resultRow%>" /></TD>
+            <td class="<%=even?"statLt":"statDk"%>" align="left">
+                <c:if test="${pt == MODULE_ASSEMBLY_PROJECT_TYPE or pt == RELEASE_ASSEMBLY_PROJECT_TYPE or pt == SYSTEM_ASSEMBLY_PROJECT_TYPE or pt == PROTOTYPE_ASSEMBLY_PROJECT_TYPE}">
+                    <rsc:item name="project_category_name" row="<%=resultRow%>"/> -
+                </c:if>
+                <rsc:item name="component_name" row="<%=resultRow%>" /> <rsc:item name="version_text" row="<%=resultRow%>" />
+            </TD>
             <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="category_desc" row="<%=resultRow%>" /></TD>
             <td class="<%=even?"statLt":"statDk"%>" align="center"><rsc:item name="complete_date" row="<%=resultRow%>" format="MM.dd.yyyy" ifNull="unknown*"/></TD>
             <td class="<%=even?"statLt":"statDk"%>" align="right" style="padding-right: 30px;"><rsc:item name="num_registrations" row="<%=resultRow%>" ifNull="*" /></TD>

@@ -1,11 +1,14 @@
 <%--
-  - Author: TCSDEVELOPER, pulky
+  - Author: pulky, isv
   - Version: 1.1
-  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  - Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page displays the reliability details page.
   -
   - Version 1.1 (Testing Competition Split Release Assembly 1.0) changes: Updated Application Testing to Test Suites.
+  -
+  - Version 1.2 (Release Assembly - TopCoder Assembly Track Subtypes Integration Assembly 1.0) Change notes:
+  -  Added support for Assembly track contest subtypes.
 --%>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -50,7 +53,10 @@
             <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="m_dev_competitions"/>
             </jsp:include>
-    <% } else if(phaseId == SoftwareComponent.ASSEMBLY_PHASE ) { %>
+    <% } else if(phaseId == SoftwareComponent.MODULE_ASSEMBLY_PHASE ||
+                 phaseId == SoftwareComponent.RELEASE_ASSEMBLY_PHASE ||
+                 phaseId == SoftwareComponent.SYSTEM_ASSEMBLY_PHASE ||
+                 phaseId == SoftwareComponent.RELEASE_ASSEMBLY_PHASE) { %>
             <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="m_assembly_competitions"/>
             </jsp:include>
@@ -107,7 +113,10 @@
                 <jsp:param name="image" value="comp_development"/>
                 <jsp:param name="title" value="Reliability Detail"/>
             </jsp:include>
-    <% } else if(phaseId == SoftwareComponent.ASSEMBLY_PHASE ) { %>
+    <% } else if(phaseId == SoftwareComponent.MODULE_ASSEMBLY_PHASE ||
+                 phaseId == SoftwareComponent.RELEASE_ASSEMBLY_PHASE ||
+                 phaseId == SoftwareComponent.SYSTEM_ASSEMBLY_PHASE ||
+                 phaseId == SoftwareComponent.RELEASE_ASSEMBLY_PHASE) { %>
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="assembly"/>
                 <jsp:param name="title" value="Reliability Detail"/>
@@ -165,7 +174,10 @@
             <span class="bodySubtitle">Design Statistics&#160;>&#160;</span><br>
     <% } else if(phaseId == SoftwareComponent.DEV_PHASE) { %>
             <span class="bodySubtitle">Design Statistics&#160;>&#160;</span><br>
-    <% } else if(phaseId == SoftwareComponent.ASSEMBLY_PHASE ) { %>
+    <% } else if(phaseId == SoftwareComponent.MODULE_ASSEMBLY_PHASE ||
+                 phaseId == SoftwareComponent.RELEASE_ASSEMBLY_PHASE ||
+                 phaseId == SoftwareComponent.SYSTEM_ASSEMBLY_PHASE ||
+                 phaseId == SoftwareComponent.RELEASE_ASSEMBLY_PHASE) { %>
             <span class="bodySubtitle">Assembly Statistics&#160;>&#160;</span><br>
     <% } else if(phaseId == SoftwareComponent.CONCEPTUALIZATION_PHASE) { %>
             <span class="bodySubtitle">Conceptualization Statistics&#160;>&#160;</span><br>

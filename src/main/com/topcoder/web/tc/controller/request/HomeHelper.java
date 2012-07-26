@@ -43,8 +43,15 @@ import com.topcoder.web.tc.model.ActiveContestsSummary;
  * Bug Hunt.
  * </p>
  *
+ * <p>
+ * Version 1.5 (Release Assembly - TopCoder Assembly Track Subtypes Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for Assembly track contest subtypes.</li>
+ *   </ol>
+ * </p>
+ *
  * @author pulky, Blues, FireIce, lmmortal, TCSASSEMBLER
- * @version 1.4
+ * @version 1.5
  */
 public class HomeHelper {
 
@@ -237,8 +244,20 @@ public class HomeHelper {
                     ret.put(Home.DEVELOPMENT, summary);
                     break;
                 }
-                case Constants.ASSEMBLY_PROJECT_TYPE: {
-                    ret.put(Home.ASSEMBLY, summary);
+                case Constants.MODULE_ASSEMBLY_PROJECT_TYPE: {
+                    handleAssemblySubtypeSummary(ret, summary);
+                    break;
+                }
+                case Constants.RELEASE_ASSEMBLY_PROJECT_TYPE: {
+                    handleAssemblySubtypeSummary(ret, summary);
+                    break;
+                }
+                case Constants.SYSTEM_ASSEMBLY_PROJECT_TYPE: {
+                    handleAssemblySubtypeSummary(ret, summary);
+                    break;
+                }
+                case Constants.PROTOTYPE_ASSEMBLY_PROJECT_TYPE: {
+                    handleAssemblySubtypeSummary(ret, summary);
                     break;
                 }
                 case Constants.TEST_SUITES_PROJECT_TYPE: {
@@ -294,5 +313,24 @@ public class HomeHelper {
             ret.setContestCount(0);
             return ret;
         }
+    }
+
+    /**
+     * <p>Accumulates the summary for assembly track subtype.</p>
+     * 
+     * @param ret a <code>Map</code> collecting the contest summaries per contest category. 
+     * @param summary a <code>ActiveContestsSummary</code> providing the details for summary for assembly track subtype.
+     * @since 1.5
+     */
+    private static void handleAssemblySubtypeSummary(HashMap<String, ActiveContestsSummary> ret,
+                                                     ActiveContestsSummary summary) {
+        if (!ret.containsKey(Home.ASSEMBLY)) {
+            ret.put(Home.ASSEMBLY, summary);
+        } else {
+            ActiveContestsSummary assemblySummary = ret.get(Home.ASSEMBLY);
+            assemblySummary.setContestCount(assemblySummary.getContestCount() + summary.getContestCount());
+            assemblySummary.setPrizeTotal(assemblySummary.getPrizeTotal() + summary.getPrizeTotal());
+        }
+        
     }
 }

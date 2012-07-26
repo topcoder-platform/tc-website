@@ -92,8 +92,15 @@ import com.topcoder.web.tc.model.ReviewBoardApplication;
  *   </ol>
  * </p>
  *
+ * <p>
+ * Version 1.0.11 (Release Assembly - TopCoder Assembly Track Subtypes Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for Assembly track contest subtypes.</li>
+ *   </ol>
+ * </p>
+ *
  * @author dok, isv, pulky, snow01, VolodymyrK
- * @version 1.0.10
+ * @version 1.0.11
  * @since 1.0
  */
 public class ReviewProjectDetail extends Base {
@@ -139,7 +146,7 @@ public class ReviewProjectDetail extends Base {
             retrieveReviewProjectDetail(projectId, phaseId, projectTypeId);
         }
 
-        setNextPage(getReviewProjectDetailView(projectTypeId));
+        setNextPage(getReviewProjectDetailView());
         setIsNextPageInContext(true);
     }
     
@@ -656,12 +663,11 @@ public class ReviewProjectDetail extends Base {
      * 
      * Updated for Version 1.0.6 - now review details are viewable through unified page.
      *
-     * @param projectType a <code>String</code> referencing the project type requested by client.
      * @return a <code>String</code> referencing the view to be used for displaying the review details for projects of
      *         specified type.
      * @since TCS Release 2.2.0 (TCS-54)
      */
-    private String getReviewProjectDetailView(String projectType) {
+    private String getReviewProjectDetailView() {
         return Constants.UNIFIED_REVIEW_PROJECT_DETAIL_PAGE;
     }
 }

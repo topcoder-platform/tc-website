@@ -3,6 +3,8 @@
  */
 package com.topcoder.web.common;
 
+import com.topcoder.web.tc.Constants;
+
 /**
  * <p><strong>Purpose</strong>: This interface is used to define constants for general use.</p>
  *
@@ -100,8 +102,33 @@ package com.topcoder.web.common;
   *   </ol>
   * </p>
  *
- * @author dok, pulky, snow01, FireIce, lmmortal, TCSASSEMBLER
- * @version 1.6.7
+ * <p>
+ * Version 1.6.8 (Release Assembly - TopCoder Assembly Track Subtypes Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Renamed <code>ASSEMBLY_PROJECT_TYPE</code> constant to {@link #MODULE_ASSEMBLY_PROJECT_TYPE}.</li>
+ *     <li>Added {@link #RELEASE_ASSEMBLY_PROJECT_TYPE} constant.</li>
+ *     <li>Added {@link #SYSTEM_ASSEMBLY_PROJECT_TYPE} constant.</li>
+ *     <li>Added {@link #PROTOTYPE_ASSEMBLY_PROJECT_TYPE} constant.</li>
+ *     <li>Renamed <code>PHASE_ASSEMBLY</code> constant to {@link #PHASE_MODULE_ASSEMBLY}.</li>
+ *     <li>Added {@link #PHASE_RELEASE_ASSEMBLY} constant.</li>
+ *     <li>Added {@link #PHASE_SYSTEM_ASSEMBLY} constant.</li>
+ *     <li>Added {@link #PHASE_PROTOTYPE_ASSEMBLY} constant.</li>
+ *     <li>Renamed <code>PHASE_ASSEMBLY_SPECIFICATION</code> constant to {@link #PHASE_MODULE_ASSEMBLY_SPECIFICATION}.
+ *     <li>Added {@link #PHASE_RELEASE_ASSEMBLY_SPECIFICATION} constant.</li>
+ *     <li>Added {@link #PHASE_SYSTEM_ASSEMBLY_SPECIFICATION} constant.</li>
+ *     <li>Added {@link #PHASE_PROTOTYPE_ASSEMBLY_SPECIFICATION} constant.</li>
+ *     </li>
+ *     <li>Renamed <code>ASSEMBLY_SPECIFICATION_PROJECT_TYPE</code> constant to 
+ *     {@link #MODULE_ASSEMBLY_SPECIFICATION_PROJECT_TYPE}.</li>
+ *     <li>Added {@link #RELEASE_ASSEMBLY_SPECIFICATION_PROJECT_TYPE} constant.</li>
+ *     <li>Added {@link #SYSTEM_ASSEMBLY_SPECIFICATION_PROJECT_TYPE} constant.</li>
+ *     <li>Added {@link #PROTOTYPE_ASSEMBLY_SPECIFICATION_PROJECT_TYPE} constant.</li>
+ *   </ol>
+ * </p>
+ * 
+ *
+ * @author dok, pulky, snow01, FireIce, lmmortal, TCSASSEMBLER, isv
+ * @version 1.6.8
  */
 public interface WebConstants {
     public static final String HANDLE = "ha";
@@ -321,7 +348,28 @@ public interface WebConstants {
     public static final long PHASE_CONCEPTUALIZATION = 134;
     public static final long PHASE_SPECIFICATION = 117;
     public static final long PHASE_ARCHITECTURE = 118;
-    public static final long PHASE_ASSEMBLY = 125;
+    public static final long PHASE_MODULE_ASSEMBLY = 125;
+
+    /**
+     * <p>A <code>long</code> providing the ID for <code>Release Assembly</code> phase.</p>
+     * 
+     * @since 1.6.8
+     */
+    public static final long PHASE_RELEASE_ASSEMBLY = 149;
+
+    /**
+     * <p>A <code>long</code> providing the ID for <code>System Assembly</code> phase.</p>
+     *
+     * @since 1.6.8
+     */
+    public static final long PHASE_SYSTEM_ASSEMBLY = 150;
+
+    /**
+     * <p>A <code>long</code> providing the ID for <code>Prototype Assembly</code> phase.</p>
+     *
+     * @since 1.6.8
+     */
+    public static final long PHASE_PROTOTYPE_ASSEMBLY = 151;
 
     /**
      * The phase id of studio icon set track.
@@ -455,7 +503,31 @@ public interface WebConstants {
      */
     public static final int TEST_SCENARIOS_PROJECT_TYPE = 26;
 
-    public static final int ASSEMBLY_PROJECT_TYPE = 14;
+    /**
+     * <p>An <code>int</code> providing the ID for <code>Module Assembly</code> project category.</p>
+     */
+    public static final int MODULE_ASSEMBLY_PROJECT_TYPE = 14;
+
+    /**
+     * <p>An <code>int</code> providing the ID for <code>Release Assembly</code> project category.</p>
+     * 
+     * @since 1.6.8
+     */
+    public static final int RELEASE_ASSEMBLY_PROJECT_TYPE = 38;
+
+    /**
+     * <p>An <code>int</code> providing the ID for <code>System Assembly</code> project category.</p>
+     *
+     * @since 1.6.8
+     */
+    public static final int SYSTEM_ASSEMBLY_PROJECT_TYPE = 39;
+
+    /**
+     * <p>An <code>int</code> providing the ID for <code>Prototype Assembly</code> project category.</p>
+     *
+     * @since 1.6.8
+     */
+    public static final int PROTOTYPE_ASSEMBLY_PROJECT_TYPE = 40;
 
     /**
      * <p>An <code>int</code> representing ui prototype project type id.</p>
@@ -524,12 +596,36 @@ public interface WebConstants {
         ARCHITECTURE_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;
 
     /**
-     * <p>An <code>long</code> representing assembly specification project category id.</p>
+     * <p>An <code>long</code> representing <code>Module Assembly</code> specification project category id.</p>
      *
      * @since 1.3
      */
-    public static final long ASSEMBLY_SPECIFICATION_PROJECT_TYPE =
-        ASSEMBLY_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;
+    public static final long MODULE_ASSEMBLY_SPECIFICATION_PROJECT_TYPE =
+        MODULE_ASSEMBLY_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;
+
+    /**
+     * <p>An <code>long</code> representing <code>Release Assembly</code> specification project category id.</p>
+     *
+     * @since 1.6.8
+     */
+    public static final long RELEASE_ASSEMBLY_SPECIFICATION_PROJECT_TYPE =
+        RELEASE_ASSEMBLY_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;
+
+    /**
+     * <p>An <code>long</code> representing <code>System Assembly</code> specification project category id.</p>
+     *
+     * @since 1.6.8
+     */
+    public static final long SYSTEM_ASSEMBLY_SPECIFICATION_PROJECT_TYPE =
+        SYSTEM_ASSEMBLY_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;
+
+    /**
+     * <p>An <code>long</code> representing <code>Prototype Assembly</code> specification project category id.</p>
+     *
+     * @since 1.6.8
+     */
+    public static final long PROTOTYPE_ASSEMBLY_SPECIFICATION_PROJECT_TYPE =
+        PROTOTYPE_ASSEMBLY_PROJECT_TYPE + SPECIFICATION_COMPETITION_OFFSET;
 
     /**
      * <p>An <code>long</code> representing test suites specification project category id.</p>
@@ -649,11 +745,36 @@ public interface WebConstants {
     public static final long PHASE_ARCHITECTURE_SPECIFICATION = PHASE_ARCHITECTURE + SPECIFICATION_COMPETITION_OFFSET;
 
     /**
-     * <p>An <code>long</code> representing assembly specification phase id.</p>
+     * <p>An <code>long</code> representing <code>Module Assembly</code> specification phase id.</p>
      *
      * @since 1.3
      */
-    public static final long PHASE_ASSEMBLY_SPECIFICATION =  PHASE_ASSEMBLY + SPECIFICATION_COMPETITION_OFFSET;
+    public static final long PHASE_MODULE_ASSEMBLY_SPECIFICATION 
+        = PHASE_MODULE_ASSEMBLY + SPECIFICATION_COMPETITION_OFFSET;
+
+    /**
+     * <p>An <code>long</code> representing <code>Release Assembly</code> specification phase id.</p>
+     *
+     * @since 1.6.8
+     */
+    public static final long PHASE_RELEASE_ASSEMBLY_SPECIFICATION 
+        = PHASE_RELEASE_ASSEMBLY + SPECIFICATION_COMPETITION_OFFSET;
+
+    /**
+     * <p>An <code>long</code> representing <code>System Assembly</code> specification phase id.</p>
+     *
+     * @since 1.6.8
+     */
+    public static final long PHASE_SYSTEM_ASSEMBLY_SPECIFICATION
+        = PHASE_SYSTEM_ASSEMBLY + SPECIFICATION_COMPETITION_OFFSET;
+
+    /**
+     * <p>An <code>long</code> representing <code>Prototype Assembly</code> specification phase id.</p>
+     *
+     * @since 1.6.8
+     */
+    public static final long PHASE_PROTOTYPE_ASSEMBLY_SPECIFICATION
+        = PHASE_PROTOTYPE_ASSEMBLY + SPECIFICATION_COMPETITION_OFFSET;
 
     /**
      * <p>An <code>long</code> representing test suite competition specification phase id.</p>
@@ -826,4 +947,13 @@ public interface WebConstants {
      * @since 1.6
      */
     public static final String END_DATE = "edate";
+
+    /**
+     * <p>An <code>int</code> array providing the IDs for project categories from <code>Assembly</code> track.</p>
+     */
+    public static final int[] ASSEMBLY_TRACK_SUBTYPES = {MODULE_ASSEMBLY_PROJECT_TYPE,
+                                                         RELEASE_ASSEMBLY_PROJECT_TYPE,
+                                                         SYSTEM_ASSEMBLY_PROJECT_TYPE,
+                                                         PROTOTYPE_ASSEMBLY_PROJECT_TYPE};
+
 }

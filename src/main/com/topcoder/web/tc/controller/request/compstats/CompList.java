@@ -4,6 +4,7 @@
 package com.topcoder.web.tc.controller.request.compstats;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
@@ -56,8 +57,16 @@ import com.topcoder.web.tc.Constants;
   *     <li>Updated {@link #businessProcessing()} method to display Bug Hunt contests.</li>
   *   </ol>
   * </p>
- * @author cucu, pulky, Blues, FireIce, lmmortal, TCSASSEMBLER
- * @version 1.6
+ *
+ * <p>
+ * Version 1.7 (Release Assembly - TopCoder Assembly Track Subtypes Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for Assembly track contest subtypes.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author cucu, pulky, Blues, FireIce, lmmortal, isv
+ * @version 1.7
  */
 public class CompList extends Base {
 
@@ -75,37 +84,42 @@ public class CompList extends Base {
 
             String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
             //String phaseId = StringUtils.checkNull(getRequest().getParameter(Constants.PHASE_ID));
-            int projectTypeId= com.topcoder.web.tc.controller.request.development.Base.getProjectTypeId(getRequest());
+            int[] projectTypeIdsNum 
+                = com.topcoder.web.tc.controller.request.development.Base.getProjectTypeIds(getRequest());
 
             String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
             String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
 
-            if (!(Constants.DESIGN_PROJECT_TYPE == projectTypeId
-                  || Constants.DEVELOPMENT_PROJECT_TYPE == projectTypeId
-                  || Constants.CONCEPTUALIZATION_PROJECT_TYPE == projectTypeId
-                  || Constants.SPECIFICATION_PROJECT_TYPE == projectTypeId
-                  || Constants.ARCHITECTURE_PROJECT_TYPE == projectTypeId
-                  || Constants.ASSEMBLY_PROJECT_TYPE == projectTypeId
-                  || Constants.TEST_SUITES_PROJECT_TYPE == projectTypeId
-                  || Constants.TEST_SCENARIOS_PROJECT_TYPE == projectTypeId
-                  || Constants.UI_PROTOTYPE_PROJECT_TYPE == projectTypeId
-                  || Constants.RIA_BUILD_PROJECT_TYPE == projectTypeId
-                  || Constants.RIA_COMPONENT_PROJECT_TYPE == projectTypeId
-                  || Constants.COPILOT_POSTING_PROJECT_TYPE == projectTypeId
-                  || Constants.CONTENT_CREATION_PROJECT_TYPE == projectTypeId
-                  || Constants.BUG_HUNT_PROJECT_TYPE == projectTypeId
-                  || Constants.REPORTING_PROJECT_TYPE == projectTypeId)) {
-                throw new TCWebException("Invalid project_type_id (" + projectTypeId + ") parameter");
+            String arrayText = Arrays.toString(projectTypeIdsNum);
+            String projectTypeIds = String.valueOf(arrayText.substring(1, arrayText.length() - 1));
+            for (int i = 0; i < projectTypeIdsNum.length; i++) {
+                int projectTypeId = projectTypeIdsNum[i];
+                if (!(Constants.DESIGN_PROJECT_TYPE == projectTypeId
+                      || Constants.DEVELOPMENT_PROJECT_TYPE == projectTypeId
+                      || Constants.CONCEPTUALIZATION_PROJECT_TYPE == projectTypeId
+                      || Constants.SPECIFICATION_PROJECT_TYPE == projectTypeId
+                      || Constants.ARCHITECTURE_PROJECT_TYPE == projectTypeId
+                      || Constants.MODULE_ASSEMBLY_PROJECT_TYPE == projectTypeId
+                      || Constants.RELEASE_ASSEMBLY_PROJECT_TYPE == projectTypeId
+                      || Constants.SYSTEM_ASSEMBLY_PROJECT_TYPE == projectTypeId
+                      || Constants.PROTOTYPE_ASSEMBLY_PROJECT_TYPE == projectTypeId
+                      || Constants.TEST_SUITES_PROJECT_TYPE == projectTypeId
+                      || Constants.TEST_SCENARIOS_PROJECT_TYPE == projectTypeId
+                      || Constants.UI_PROTOTYPE_PROJECT_TYPE == projectTypeId
+                      || Constants.RIA_BUILD_PROJECT_TYPE == projectTypeId
+                      || Constants.RIA_COMPONENT_PROJECT_TYPE == projectTypeId
+                      || Constants.COPILOT_POSTING_PROJECT_TYPE == projectTypeId
+                      || Constants.CONTENT_CREATION_PROJECT_TYPE == projectTypeId
+                      || Constants.BUG_HUNT_PROJECT_TYPE == projectTypeId
+                      || Constants.REPORTING_PROJECT_TYPE == projectTypeId)) {
+                    throw new TCWebException("Invalid project_type_id (" + projectTypeId + ") parameter");
+                }
+                if (Constants.DEVELOPMENT_PROJECT_TYPE == projectTypeId) {
+                    projectTypeIds += (", " + Constants.COMPONENT_TESTING_PROJECT_TYPE);
+                }
             }
 
-            String projectTypeIds;
             // add component testing project to the development page
-            if (Constants.DEVELOPMENT_PROJECT_TYPE==projectTypeId) {
-                projectTypeIds = projectTypeId + ", " + Constants.COMPONENT_TESTING_PROJECT_TYPE;
-            } else {
-                projectTypeIds = String.valueOf(projectTypeId);
-            }
-
 
             ArrayList<ResultFilter> filters = new ArrayList<ResultFilter>(1);
             String contestName = StringUtils.checkNull(getRequest().getParameter(Constants.CONTEST_NAME));
@@ -158,7 +172,7 @@ public class CompList extends Base {
 
 
             getRequest().setAttribute("resultMap", result);
-            getRequest().setAttribute(Constants.PROJECT_TYPE_ID, projectTypeId);
+            getRequest().setAttribute(Constants.PROJECT_TYPE_ID, projectTypeIdsNum[0]);
 
             setNextPage("/compstats/compList.jsp");
             setIsNextPageInContext(true);

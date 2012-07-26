@@ -106,8 +106,15 @@ import com.topcoder.web.tc.controller.request.development.Base;
   *   </ol>
   * </p>
  *
+ * <p>
+ * Version 1.9 (Release Assembly - TopCoder Assembly Track Subtypes Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for Assembly track contest subtypes.</li>
+ *   </ol>
+ * </p>
+ *
  * @author dok, pulky, FireIce, lmmortal, TCSASSEMBLER
- * @version 1.8
+ * @version 1.9
  */
 public class Register extends ViewRegistration {
 
@@ -252,8 +259,14 @@ public class Register extends ViewRegistration {
                 project += " Design";
             } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.DEVELOPMENT_PROJECT_TYPE))) {
                 project += " Development";
-            } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.ASSEMBLY_PROJECT_TYPE))) {
-                project += " Assembly Project";
+            } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.MODULE_ASSEMBLY_PROJECT_TYPE))) {
+                project += " Module Assembly Project";
+            } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.RELEASE_ASSEMBLY_PROJECT_TYPE))) {
+                project += " Release Assembly Project";
+            } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.SYSTEM_ASSEMBLY_PROJECT_TYPE))) {
+                project += " System Assembly Project";
+            } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.PROTOTYPE_ASSEMBLY_PROJECT_TYPE))) {
+                project += " Prototype Assembly Project";
             } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.ARCHITECTURE_PROJECT_TYPE))) {
                 project += " Architecture Project";
             } else if (String.valueOf(projectTypeId).equals(String.valueOf(Constants.SPECIFICATION_PROJECT_TYPE))) {
