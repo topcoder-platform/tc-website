@@ -1,6 +1,6 @@
 <%--
   - Author: pulky, FireIce, TCSASSEMBLER
-  - Version: 1.5
+  - Version: 1.6
   - Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page lists all active contests for a specific project type to show their status.
@@ -20,6 +20,8 @@
   - Version 1.5 (Release Assembly - TopCoder BugHunt Competition Integration) changes:
   - Added support for new Bug Hunt competitions.
   -
+  - Version 1.6 (Release Assembly - TopCoder Assembly Track Subtypes Integration Assembly 1.0) Change notes:
+  -  Added support for Assembly track contest subtypes.
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
@@ -54,7 +56,10 @@
 <c:set value="<%=Constants.ARCHITECTURE_PROJECT_TYPE%>" var="ARCHITECTURE_TYPE_ID"/>
 <c:set value="<%=Constants.CONCEPTUALIZATION_PROJECT_TYPE%>" var="CONCEPTUALIZATION_TYPE_ID"/>
 <c:set value="<%=Constants.SPECIFICATION_PROJECT_TYPE%>" var="SPECIFICATION_TYPE_ID"/>
-<c:set value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>" var="ASSEMBLY_TYPE_ID"/>
+<c:set value="<%=Constants.MODULE_ASSEMBLY_PROJECT_TYPE%>" var="MODULE_ASSEMBLY_PROJECT_TYPE"/>
+<c:set value="<%=Constants.RELEASE_ASSEMBLY_PROJECT_TYPE%>" var="RELEASE_ASSEMBLY_PROJECT_TYPE"/>
+<c:set value="<%=Constants.SYSTEM_ASSEMBLY_PROJECT_TYPE%>" var="SYSTEM_ASSEMBLY_PROJECT_TYPE"/>
+<c:set value="<%=Constants.PROTOTYPE_ASSEMBLY_PROJECT_TYPE%>" var="PROTOTYPE_ASSEMBLY_PROJECT_TYPE"/>
 <c:set value="<%=Constants.TEST_SUITES_PROJECT_TYPE%>" var="TEST_SUITES_TYPE_ID"/>
 <c:set value="<%=Constants.TEST_SCENARIOS_PROJECT_TYPE%>" var="TEST_SCENARIOS_TYPE_ID"/>
 <c:set value="<%=Constants.UI_PROTOTYPE_PROJECT_TYPE%>" var="UI_PROTOTYPE_TYPE_ID"/>
@@ -99,7 +104,7 @@
                     <jsp:param name="node" value="specification_contest_status"/>
                </jsp:include>
             </c:when>
-            <c:when test="${pt == ASSEMBLY_TYPE_ID}">
+            <c:when test="${pt == MODULE_ASSEMBLY_PROJECT_TYPE or pt == RELEASE_ASSEMBLY_PROJECT_TYPE or pt == SYSTEM_ASSEMBLY_PROJECT_TYPE or pt == PROTOTYPE_ASSEMBLY_PROJECT_TYPE}">
                <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="assembly_contest_status"/>
                </jsp:include>
@@ -187,7 +192,7 @@
                 <jsp:param name="title" value="Contest Status"/>
             </jsp:include>
         </c:when>
-        <c:when test="${pt == ASSEMBLY_TYPE_ID}">
+        <c:when test="${pt == MODULE_ASSEMBLY_PROJECT_TYPE or pt == RELEASE_ASSEMBLY_PROJECT_TYPE or pt == SYSTEM_ASSEMBLY_PROJECT_TYPE or pt == PROTOTYPE_ASSEMBLY_PROJECT_TYPE}">
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="assembly"/>
                 <jsp:param name="title" value="Contest Status"/>
@@ -246,7 +251,9 @@
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <c:choose>
-        <c:when test="${pt == ARCHITECTURE_TYPE_ID || pt == ASSEMBLY_TYPE_ID || pt == TEST_SUITES_TYPE_ID ||
+        <c:when test="${pt == ARCHITECTURE_TYPE_ID || pt == MODULE_ASSEMBLY_PROJECT_TYPE || pt == RELEASE_ASSEMBLY_PROJECT_TYPE 
+            || pt == SYSTEM_ASSEMBLY_PROJECT_TYPE || pt == PROTOTYPE_ASSEMBLY_PROJECT_TYPE
+            || pt == TEST_SUITES_TYPE_ID ||
             pt == TEST_SCENARIOS_TYPE_ID || pt == UI_PROTOTYPE_TYPE_ID || pt == RIA_BUILD_TYPE_ID ||
             pt == RIA_COMPONENT_TYPE_ID || pt == CONTENT_CREATION_TYPE_ID || pt == REPORTING_TYPE_ID || pt == BUG_HUNT_TYPE_ID}">
             <td class="title" colspan="8">Contest Status</td>
@@ -265,7 +272,9 @@
                 <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=ContestStatus<tc-webtag:sort column="<%=contests.getColumnIndex("type")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Type</a>
             </td>
         </c:if>
-        <c:if test="${pt != ARCHITECTURE_TYPE_ID && pt != ASSEMBLY_TYPE_ID && pt != TEST_SUITES_TYPE_ID &&
+        <c:if test="${pt != ARCHITECTURE_TYPE_ID && pt != MODULE_ASSEMBLY_PROJECT_TYPE && pt != RELEASE_ASSEMBLY_PROJECT_TYPE  
+            && pt != SYSTEM_ASSEMBLY_PROJECT_TYPE  && pt != PROTOTYPE_ASSEMBLY_PROJECT_TYPE 
+            && pt != TEST_SUITES_TYPE_ID &&
             pt != TEST_SCENARIOS_TYPE_ID && pt != UI_PROTOTYPE_TYPE_ID && pt != RIA_BUILD_TYPE_ID &&
             pt != RIA_COMPONENT_TYPE_ID && pt != CONTENT_CREATION_TYPE_ID && pt != REPORTING_TYPE_ID && pt != BUG_HUNT_TYPE_ID}">
             <td class="headerC">
@@ -306,7 +315,11 @@
                     <strong><rsc:item name="type" row="<%=resultRow%>"/></strong>
                 </td>
             </c:if>
-            <c:if test="${pt != ARCHITECTURE_TYPE_ID && pt != ASSEMBLY_TYPE_ID && pt != TEST_SUITES_TYPE_ID &&
+            <c:if test="${pt != ARCHITECTURE_TYPE_ID && pt != MODULE_ASSEMBLY_PROJECT_TYPE
+                && pt != RELEASE_ASSEMBLY_PROJECT_TYPE
+                && pt != SYSTEM_ASSEMBLY_PROJECT_TYPE
+                && pt != PROTOTYPE_ASSEMBLY_PROJECT_TYPE
+                && pt != TEST_SUITES_TYPE_ID &&
                 pt != TEST_SCENARIOS_TYPE_ID && pt != UI_PROTOTYPE_TYPE_ID && pt != RIA_BUILD_TYPE_ID &&
                 pt != RIA_COMPONENT_TYPE_ID && pt != CONTENT_CREATION_TYPE_ID && pt != REPORTING_TYPE_ID && pt != BUG_HUNT_TYPE_ID}">
             <td class="valueC">
@@ -316,6 +329,10 @@
             </c:if>
             <td class="value">
                 <a href="/tc?module=ProjectDetail&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">
+                    <c:if test="${pt == MODULE_ASSEMBLY_PROJECT_TYPE or pt == RELEASE_ASSEMBLY_PROJECT_TYPE 
+                                  or pt == SYSTEM_ASSEMBLY_PROJECT_TYPE or pt == PROTOTYPE_ASSEMBLY_PROJECT_TYPE}">
+                        <rsc:item name="phase" row="<%=resultRow%>"/> - 
+                    </c:if>
                     <rsc:item name="component_name" row="<%=resultRow%>"/> <rsc:item name="version_text" row="<%=resultRow%>"/>
                 </a>
             </td>

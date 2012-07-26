@@ -1,6 +1,6 @@
 <%--
-  - Author: pulky, FireIce, lmmortal, TCSASSEMBLER
-  - Version: 1.6
+  - Author: pulky, FireIce, lmmortal, isv
+  - Version: 1.7
   - Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page lists all registrants to a specific project.
@@ -22,6 +22,9 @@
   -
   - Version 1.6 (Release Assembly - TopCoder BugHunt Competition Integration) changes:
   - Added support for new Bug Hunt.
+  -
+  - Version 1.7 (Release Assembly - TopCoder Assembly Track Subtypes Integration Assembly 1.0) Change notes:
+  -  Added support for Assembly track contest subtypes.
 --%>
 <%@ page language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -59,7 +62,10 @@
 <c:set value="<%=Constants.DEVELOPMENT_PROJECT_TYPE%>" var="DEVELOPMENT_PROJECT_TYPE"/>
 <c:set value="<%=Constants.CONCEPTUALIZATION_PROJECT_TYPE%>" var="CONCEPTUALIZATION_PROJECT_TYPE"/>
 <c:set value="<%=Constants.SPECIFICATION_PROJECT_TYPE%>" var="SPECIFICATION_PROJECT_TYPE"/>
-<c:set value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>" var="ASSEMBLY_PROJECT_TYPE"/>
+<c:set value="<%=Constants.MODULE_ASSEMBLY_PROJECT_TYPE%>" var="MODULE_ASSEMBLY_PROJECT_TYPE"/>
+<c:set value="<%=Constants.RELEASE_ASSEMBLY_PROJECT_TYPE%>" var="RELEASE_ASSEMBLY_PROJECT_TYPE"/>
+<c:set value="<%=Constants.SYSTEM_ASSEMBLY_PROJECT_TYPE%>" var="SYSTEM_ASSEMBLY_PROJECT_TYPE"/>
+<c:set value="<%=Constants.PROTOTYPE_ASSEMBLY_PROJECT_TYPE%>" var="PROTOTYPE_ASSEMBLY_PROJECT_TYPE"/>
 <c:set value="<%=Constants.ARCHITECTURE_PROJECT_TYPE%>" var="ARCHITECTURE_PROJECT_TYPE"/>
 <c:set value="<%=Constants.COMPONENT_TESTING_PROJECT_TYPE%>" var="COMPONENT_TESTING_PROJECT_TYPE"/>
 <c:set value="<%=Constants.TEST_SUITES_PROJECT_TYPE%>" var="TEST_SUITES_PROJECT_TYPE"/>
@@ -104,7 +110,7 @@
                         <jsp:param name="node" value="specification_compete"/>
                     </jsp:include>
                 </c:when>
-                <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
+                <c:when test="${pt == MODULE_ASSEMBLY_PROJECT_TYPE or pt == RELEASE_ASSEMBLY_PROJECT_TYPE or pt == SYSTEM_ASSEMBLY_PROJECT_TYPE or pt == PROTOTYPE_ASSEMBLY_PROJECT_TYPE}">
                     <jsp:include page="/includes/global_left.jsp">
                         <jsp:param name="node" value="assembly_compete"/>
                     </jsp:include>
@@ -190,7 +196,7 @@
                         <jsp:param name="title" value="Active Contests"/>
                     </jsp:include>
                 </c:when>
-                <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
+                <c:when test="${pt == MODULE_ASSEMBLY_PROJECT_TYPE or pt == RELEASE_ASSEMBLY_PROJECT_TYPE or pt == SYSTEM_ASSEMBLY_PROJECT_TYPE or pt == PROTOTYPE_ASSEMBLY_PROJECT_TYPE}">
                     <jsp:include page="/page_title.jsp">
                         <jsp:param name="image" value="assembly"/>
                         <jsp:param name="title" value="Active Contests"/>
@@ -284,7 +290,7 @@
                 <c:when test="${pt == SPECIFICATION_PROJECT_TYPE}">
                       Specification
                 </c:when>
-                <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
+                <c:when test="${pt == MODULE_ASSEMBLY_PROJECT_TYPE or pt == RELEASE_ASSEMBLY_PROJECT_TYPE or pt == SYSTEM_ASSEMBLY_PROJECT_TYPE or pt == PROTOTYPE_ASSEMBLY_PROJECT_TYPE}">
                       Assembly
                 </c:when>
                 <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
@@ -381,7 +387,7 @@
                 <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
                     <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='Architecture'/>
                 </c:when>
-                <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
+                <c:when test="${pt == MODULE_ASSEMBLY_PROJECT_TYPE or pt == RELEASE_ASSEMBLY_PROJECT_TYPE or pt == SYSTEM_ASSEMBLY_PROJECT_TYPE or pt == PROTOTYPE_ASSEMBLY_PROJECT_TYPE}">
                     <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id") %>' context='Assembly'/>
                 </c:when>
                 <c:when test="${pt == TEST_SUITES_PROJECT_TYPE}">

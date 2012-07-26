@@ -72,8 +72,15 @@ import com.topcoder.web.common.WebConstants;
  *   </table>
  * </p>
  *
- * @author pulky, snow01, FireIce, lmmortal, TCSASSEMBLER
- * @version 1.6
+ * <p>
+ * Version 1.7 (Release Assembly - TopCoder Assembly Track Subtypes Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for Assembly track contest subtypes.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author pulky, snow01, FireIce, lmmortal, isv
+ * @version 1.7
  */
 public final class ReviewBoardHelper {
 
@@ -108,7 +115,10 @@ public final class ReviewBoardHelper {
     public static boolean isReviewBoardTypeSupported(String reviewBoardType, boolean includeSpecificationReviews) {
         boolean supported = reviewBoardType.equals(String.valueOf(WebConstants.DESIGN_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.DEVELOPMENT_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.ASSEMBLY_PROJECT_TYPE))
+            || reviewBoardType.equals(String.valueOf(WebConstants.MODULE_ASSEMBLY_PROJECT_TYPE))
+            || reviewBoardType.equals(String.valueOf(WebConstants.RELEASE_ASSEMBLY_PROJECT_TYPE))
+            || reviewBoardType.equals(String.valueOf(WebConstants.SYSTEM_ASSEMBLY_PROJECT_TYPE))
+            || reviewBoardType.equals(String.valueOf(WebConstants.PROTOTYPE_ASSEMBLY_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.ARCHITECTURE_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.CONCEPTUALIZATION_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.SPECIFICATION_PROJECT_TYPE))
@@ -124,7 +134,10 @@ public final class ReviewBoardHelper {
 		if (!supported && includeSpecificationReviews) {
             supported = reviewBoardType.equals(String.valueOf(WebConstants.DESIGN_SPECIFICATION_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.DEVELOPMENT_SPECIFICATION_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.ASSEMBLY_SPECIFICATION_PROJECT_TYPE))
+            || reviewBoardType.equals(String.valueOf(WebConstants.MODULE_ASSEMBLY_SPECIFICATION_PROJECT_TYPE))
+            || reviewBoardType.equals(String.valueOf(WebConstants.RELEASE_ASSEMBLY_SPECIFICATION_PROJECT_TYPE))
+            || reviewBoardType.equals(String.valueOf(WebConstants.SYSTEM_ASSEMBLY_SPECIFICATION_PROJECT_TYPE))
+            || reviewBoardType.equals(String.valueOf(WebConstants.PROTOTYPE_ASSEMBLY_SPECIFICATION_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.ARCHITECTURE_SPECIFICATION_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.CONCEPTUALIZATION_SPECIFICATION_PROJECT_TYPE))
             || reviewBoardType.equals(String.valueOf(WebConstants.SPECIFICATION_SPECIFICATION_PROJECT_TYPE))

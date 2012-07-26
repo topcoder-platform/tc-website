@@ -1,8 +1,9 @@
 /*
- * Copyright (c) 2001-2008 TopCoder Inc.  All Rights Reserved.
+ * Copyright (c) 2001-2012 TopCoder Inc.  All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.contest;
 
+import java.util.Arrays;
 import java.util.Map;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
@@ -32,13 +33,27 @@ import com.topcoder.web.tc.controller.request.development.ReliabilityBonusColumn
  *   </table>
  * </p>
  *
+ * <p>
+ * Version 1.2 (Release Assembly - TopCoder Assembly Track Subtypes Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for Assembly track contest subtypes.</li>
+ *   </ol>
+ * </p>
+ *
  * @author pulky
- * @version 1.1
+ * @version 1.2
  */
 public abstract class ActiveContestsBase extends Base {
 
     private int projectTypeId = 0;
-    
+
+    /**
+     * <p>A <code>int[]</code> providing the IDs of project categories to get active contests for.</p>
+     * 
+     * @since 1.2
+     */
+    private int[] projectTypeIds;
+
     protected void setProjectType(int  projectTypeId) {
         this.projectTypeId = projectTypeId;
     }
@@ -73,7 +88,12 @@ public abstract class ActiveContestsBase extends Base {
                 r.setProperty(DataAccessConstants.SORT_COLUMN, sortCol);
             }
 
-            r.setProperty(Constants.PROJECT_TYPE_ID, String.valueOf(getProjectType()));
+            if (getProjectTypeIds() == null) {
+                r.setProperty(Constants.PROJECT_TYPES_ID, String.valueOf(getProjectType()));
+            } else {
+                String arrayText = Arrays.toString(getProjectTypeIds());
+                r.setProperty(Constants.PROJECT_TYPES_ID, arrayText.substring(1, arrayText.length() - 1));
+            }
             r.setProperty(DataAccessConstants.SORT_QUERY, getCommandName());
             Map<String, ResultSetContainer> result = getDataAccess().getData(r);
             ResultSetContainer rsc = new ResultSetContainer(result.get(getCommandName()), 
@@ -109,5 +129,25 @@ public abstract class ActiveContestsBase extends Base {
         } catch (Exception e) {
             throw new TCWebException(e);
         }
+    }
+
+    /**
+     * <p>Gets the IDs of project categories to get active contests for.</p>
+     *
+     * @return a <code>int[]</code> providing the IDs of project categories to get active contests for.
+     * @since 1.2
+     */
+    protected int[] getProjectTypeIds() {
+        return this.projectTypeIds;
+    }
+
+    /**
+     * <p>Sets the IDs of project categories to get active contests for.</p>
+     *
+     * @param projectTypeIds a <code>int[]</code> providing the IDs of project categories to get active contests for.
+     * @since 1.2
+     */
+    protected void setProjectTypeIds(int[] projectTypeIds) {
+        this.projectTypeIds = projectTypeIds;
     }
 }

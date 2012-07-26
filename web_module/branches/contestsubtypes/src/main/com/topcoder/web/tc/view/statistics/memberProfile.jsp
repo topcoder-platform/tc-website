@@ -1,20 +1,22 @@
 <%--
-  - Author: TCSDEVELOPER, pulky, pvmagacho
-  - Version: 1.3
-  - Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
+  - Author: isv, pulky, pvmagacho
+  - Version: 1.4
+  - Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page displays the member profile page.
   -
   - Version 1.1 (Testing Competition Split Release Assembly 1.0) changes: Updated Application Testing to Test Suites.
   - Version 1.2 (BUG#TCCC-3216) changes: Member photo is now retrieved from informixoltp database.
   - Version 1.3 (BUG#TCCC-3348) changes: Update link for no photo image. Pops up window to submit new photo.
+  -
+  - Version 1.4 (Release Assembly - TopCoder Assembly Track Subtypes Integration Assembly 1.0) Change notes:
+  -  Added support for Assembly track contest subtypes.
 --%>
 <%@  page language="java"
     import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,com.topcoder.shared.util.ApplicationServer,
           com.topcoder.web.common.StringUtils, com.topcoder.web.common.WebConstants"%>
 
 <%@ page import="java.util.Map"%>
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ page import="javax.servlet.http.HttpServletRequest"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtags" %>
@@ -338,7 +340,7 @@ This member has not yet been rated in a competition.
 <jsp:include page="memberProfileTabTrack.jsp">
    <jsp:param name="track" value="Assembly"/>
    <jsp:param name="competition_type" value="assembly"/>
-   <jsp:param name="phase_id" value="<%= WebConstants.PHASE_ASSEMBLY %>"/>
+   <jsp:param name="phase_id" value="<%= WebConstants.PHASE_MODULE_ASSEMBLY %>"/>
 </jsp:include>
 <% } else if(tab.equals("test")) { %> <!-- Member Profile Enhancment -->
 <jsp:include page="memberProfileTabs.jsp" />

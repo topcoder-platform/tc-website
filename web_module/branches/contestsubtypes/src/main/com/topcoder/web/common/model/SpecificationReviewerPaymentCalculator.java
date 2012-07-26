@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common.model;
 
@@ -12,9 +12,16 @@ package com.topcoder.web.common.model;
  *     <li>Added {@link #getMilestoneScreeningCost()} to calculate payment for the milestone screener.</li>
  *   </ol>
  * </p>
+ *
+ * <p>
+ * Version 1.0.2 (Release Assembly - TopCoder Assembly Track Subtypes Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for Assembly track contest subtypes.</li>
+ *   </ol>
+ * </p>
  * 
  * @author snow01, flexme
- * @version 1.0.1 (Specification Review Integration 1.0)
+ * @version 1.0.2 (Specification Review Integration 1.0)
  */
 public class SpecificationReviewerPaymentCalculator implements ReviewerPaymentCalculator {
 
@@ -116,7 +123,10 @@ public class SpecificationReviewerPaymentCalculator implements ReviewerPaymentCa
                 && phaseId != SoftwareComponent.CONCEPTUALIZATION_SPECIFICATION_PHASE
                 && phaseId != SoftwareComponent.SPECIFICATION_SPECIFICATION_PHASE
                 && phaseId != SoftwareComponent.ARCHITECTURE_SPECIFICATION_PHASE
-                && phaseId != SoftwareComponent.ASSEMBLY_SPECIFICATION_PHASE
+                && phaseId != SoftwareComponent.MODULE_ASSEMBLY_SPECIFICATION_PHASE
+                && phaseId != SoftwareComponent.RELEASE_ASSEMBLY_SPECIFICATION_PHASE
+                && phaseId != SoftwareComponent.SYSTEM_ASSEMBLY_SPECIFICATION_PHASE
+                && phaseId != SoftwareComponent.PROTOTYPE_ASSEMBLY_SPECIFICATION_PHASE
                 && phaseId != SoftwareComponent.TEST_SUITES_SPECIFICATION_PHASE
                 && phaseId != SoftwareComponent.TEST_SCENARIOS_SPECIFICATION_PHASE
                 && phaseId != SoftwareComponent.UI_PROTOTYPE_SPECIFICATION_PHASE
@@ -148,7 +158,13 @@ public class SpecificationReviewerPaymentCalculator implements ReviewerPaymentCa
                 return STANDARD_SPECIFICATION_SPECIFICATION_REVIEW_PRICE;
             case SoftwareComponent.ARCHITECTURE_SPECIFICATION_PHASE:
                 return STANDARD_ARCHITECTURE_SPECIFICATION_REVIEW_PRICE;
-            case SoftwareComponent.ASSEMBLY_SPECIFICATION_PHASE:
+            case SoftwareComponent.MODULE_ASSEMBLY_SPECIFICATION_PHASE:
+                return STANDARD_ASSEMBLY_SPECIFICATION_REVIEW_PRICE;
+            case SoftwareComponent.RELEASE_ASSEMBLY_SPECIFICATION_PHASE:
+                return STANDARD_ASSEMBLY_SPECIFICATION_REVIEW_PRICE;
+            case SoftwareComponent.SYSTEM_ASSEMBLY_SPECIFICATION_PHASE:
+                return STANDARD_ASSEMBLY_SPECIFICATION_REVIEW_PRICE;
+            case SoftwareComponent.PROTOTYPE_ASSEMBLY_SPECIFICATION_PHASE:
                 return STANDARD_ASSEMBLY_SPECIFICATION_REVIEW_PRICE;
             case SoftwareComponent.TEST_SUITES_SPECIFICATION_PHASE:
                 return STANDARD_TEST_SUITES_SPECIFICATION_REVIEW_PRICE;

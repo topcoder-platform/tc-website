@@ -1,6 +1,6 @@
 <%--
-  - Author: pulky, snow01, FireIce, lmmortal, TCSASSEMBLER
-  - Version: 1.3
+  - Author: pulky, snow01, FireIce, lmmortal, isv
+  - Version: 1.4
   - Since: Specification Review Integration 1.0
   - Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
   -
@@ -15,6 +15,9 @@
   -
   - Version 1.3 (Release Assembly - TopCoder BugHunt Competition Integration) changes:
   - Added support for new Bug Hunt competitions.
+  -
+  - Version 1.4 (Release Assembly - TopCoder Assembly Track Subtypes Integration Assembly 1.0) Change notes:
+  -  Added support for Assembly track contest subtypes.
 --%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -69,8 +72,15 @@
                 <jsp:param name="node" value="architecture_review"/>
             </jsp:include>
         </c:when>
-        <c:when test="${projectType == ASSEMBLY_PROJECT_TYPE ||
-            projectType == ASSEMBLY_SPECIFICATION_PROJECT_TYPE}">
+        <c:when test="${projectType == MODULE_ASSEMBLY_PROJECT_TYPE or
+            projectType == MODULE_ASSEMBLY_PROJECT_TYPE 
+            or projectType == RELEASE_ASSEMBLY_PROJECT_TYPE 
+            or projectType == SYSTEM_ASSEMBLY_PROJECT_TYPE 
+            or projectType == PROTOTYPE_ASSEMBLY_PROJECT_TYPE
+            or projectType == MODULE_ASSEMBLY_SPECIFICATION_PROJECT_TYPE 
+            or projectType == RELEASE_ASSEMBLY_SPECIFICATION_PROJECT_TYPE 
+            or projectType == SYSTEM_ASSEMBLY_SPECIFICATION_PROJECT_TYPE 
+            or projectType == PROTOTYPE_ASSEMBLY_SPECIFICATION_PROJECT_TYPE}">
             <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="assembly_review"/>
             </jsp:include>

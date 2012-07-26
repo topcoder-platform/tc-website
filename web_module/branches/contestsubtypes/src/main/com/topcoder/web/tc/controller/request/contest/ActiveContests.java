@@ -54,8 +54,15 @@ import java.util.Map;
  *
  * </p>
  *
- * @author dok, pulky, Blues, FireIce, lmmortal, TCSASSEMBLER
- * @version 1.6
+ * <p>
+ * Version 1.7 (Release Assembly - TopCoder Assembly Track Subtypes Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for Assembly track contest subtypes.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author dok, pulky, Blues, FireIce, lmmortal, isv
+ * @version 1.7
  */
 public class ActiveContests extends ActiveContestsBase {
 
@@ -63,7 +70,9 @@ public class ActiveContests extends ActiveContestsBase {
      * <p>An <code>int[]</code> representing default valid project types. This array will be used for
      * validation if the configuration entry is not found.</p>
      */
-    public static final int[] DEFAULT_PROJECT_TYPES = new int[] {Constants.ASSEMBLY_PROJECT_TYPE,
+    public static final int[] DEFAULT_PROJECT_TYPES = new int[] {Constants.MODULE_ASSEMBLY_PROJECT_TYPE,
+        Constants.RELEASE_ASSEMBLY_PROJECT_TYPE, Constants.SYSTEM_ASSEMBLY_PROJECT_TYPE,
+        Constants.PROTOTYPE_ASSEMBLY_PROJECT_TYPE,
         Constants.ARCHITECTURE_PROJECT_TYPE, Constants.TEST_SUITES_PROJECT_TYPE, Constants.TEST_SCENARIOS_PROJECT_TYPE,
         Constants.SPECIFICATION_PROJECT_TYPE, Constants.CONCEPTUALIZATION_PROJECT_TYPE,
         Constants.UI_PROTOTYPE_PROJECT_TYPE, Constants.RIA_BUILD_PROJECT_TYPE,

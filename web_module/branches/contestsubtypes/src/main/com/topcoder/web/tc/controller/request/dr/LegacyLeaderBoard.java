@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
+ * Copyright (c) 2006-2012 TopCoder, Inc. All rights reserved.
  */
 
 package com.topcoder.web.tc.controller.request.dr;
@@ -22,8 +22,15 @@ import com.topcoder.web.tc.model.dr.LeaderBoardRow;
  * <strong>Purpose</strong>:
  * A processor to retrieve dr leader board.
  *
- * @author pulky, cucu
- * @version 1.0.3
+ * <p>
+ * Version 1.2.1 (Release Assembly - TopCoder Assembly Track Subtypes Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for Assembly track contest subtypes.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author pulky, cucu, isv
+ * @version 1.0.4
  */
 public class LegacyLeaderBoard extends BaseBoard {
 
@@ -56,14 +63,14 @@ public class LegacyLeaderBoard extends BaseBoard {
         setDefault(Constants.STAGE_ID, stageId);
 
         // handle old assembly boards
-        if (WebConstants.ASSEMBLY_PROJECT_TYPE==projectTypeId &&
+        if (WebConstants.MODULE_ASSEMBLY_PROJECT_TYPE ==projectTypeId &&
                 stageId == 5) {
             setNextPage("/digital_run/2007dot5/asmLeaderboardS1.jsp");
             setIsNextPageInContext(true);
             return;
         }
 
-        if (WebConstants.ASSEMBLY_PROJECT_TYPE==projectTypeId &&
+        if (WebConstants.MODULE_ASSEMBLY_PROJECT_TYPE ==projectTypeId &&
                 stageId == 6) {
             setNextPage("/digital_run/2007dot5/asmLeaderboardS2.jsp");
             setIsNextPageInContext(true);        

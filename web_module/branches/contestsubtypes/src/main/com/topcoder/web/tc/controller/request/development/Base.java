@@ -39,148 +39,51 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *
  * <p><b>Change Log:</b></p>
  *
+ * <p> <table> <tr> <td>Version 1.1 (TCS Release 2.2.2)</td> <td> <ul> <li>Added support for Conceptualization,
+ * Specification and Application Testing project types.</li> </ul> </td> </tr> <tr> <td>Version 1.2 (Studio Coding In
+ * Online Review)</td> <td> <ul> <li>Added support for new UI Prototype, RIA Build and RIA Component competitions.</li>
+ * </ul> </td> </tr> <tr> <td>Version 1.3 (Testing Competition Split Release Assembly 1.0)</td> <td> <ul> <li>Updated
+ * Application Testing to Test Suites.</li> <li>Added support for new Test Scenarios competitions.</li> </ul> </td>
+ * </tr> <tr> <td>Version 1.4 (Configurable Contest Terms Release Assembly v1.0)</td> <td> <ul> <li>Added new
+ * functionality that asks for several terms of use and show those the user already agreed to.</li> </ul> </td> </tr>
+ * <tr> <td>Version 1.5 (Specification Review Integration 1.0)</td> <td> <ul> <li>Updated
+ * <code>isProjectTypeSupported</code> to support specification review projects.</li> </ul> </td> </tr> <tr> <td>Version
+ * 1.6 (Configurable Contest Terms Release Assembly v2.0)</td> <td> <ul> <li>Updated <code>processTermsOfUse</code> to
+ * set both agreed and pending terms in the request.</li> <li>Added sort order to displayed terms of use.</li> </ul>
+ * </td> </tr> <tr> <td>Version 1.6 (BUGR-2749)</td> <td> <ul> <li>Added constant to support reliability bonus column in
+ * active contests page.</li> </ul> </td> </tr> <tr> <td>Version 1.7 (Competition Registration Eligibility v1.0)</td>
+ * <td> <ul> <li>Added method to check for eligibility constraints.</li> </ul> </td> </tr> <tr> <td>Version 1.8 </td>
+ * <td> <ul> <li>Phase ID -> Resource Role ID mapping is now done via a query instead of hardcoding the values.</li>
+ * </ul> </td> </tr> <tr> <td>Version 1.9 (Copilot Selection Contest Online Review and TC Site Integration Assembly
+ * v1.0)</td> <td> <ul> <li>Added support for copilot posting.</li> </ul> </td> </tr> <tr> <td>Version 1.10 (Content
+ * Creation Contest Online Review and TC Site Integration Assembly 1.0)</td> <td> <ul> <li>Updated {@link
+ * #getProjectDetailPage(int)} method.</li> <li>Updated {@link #getRegistrantsCommandName(int)} method.</li> <li>Updated
+ * {@link #getProjectTypeId(com.topcoder.web.common.TCRequest)} method.</li> </ul> </td> </tr> <tr> <td>Version
+ * 1.11</td> <td> <ul> <li>Added checks for users being banned from having certain terms of use.</li> </ul> </td> </tr>
+ * <tr> <td>Version 1.12 (Add Reporting Contest Type)</td> <td> <ul> <li>Updated {@link #getProjectDetailPage(int)}
+ * method.</li> <li>Updated {@link #getRegistrantsCommandName(int)} method.</li> <li>Updated {@link
+ * #getProjectTypeId(com.topcoder.web.common.TCRequest)} method.</li> </ul> </td> </tr> <tr> <td>Version 1.13 (TopCoder
+ * Terms of Use Management Refactoring v1.0)</td> <td> <ul> <li>Added {@link #getTermsOfUseDao()} to the terms of use
+ * DAO instance.</li> <li>Added {@link #getUserTermsOfUseDao()} to the user terms of use DAO instance.</li> <li>Added
+ * {@link #getProjectTermsOfUseDao()} to the project terms of use DAO instance.</li> <li>Updated to use Terms of Use DAO
+ * component instead of Terms of Use EJB.</li> <li>Added {@link #hasPrePendingTerm(String)} method to check whether the
+ * user has pre-pending dependent term need to agree.</li> <li>Updated {@link #processTermsOfUse(String, long, int[],
+ * long)} method to handle the new logic to terms of user agreement.</li> </ul> </td> </tr> <tr> <td>Version 1.14
+ * (Release Assembly - TopCoder BugHunt Competition Integration)</td> <td> <ul> <li>Updated {@link
+ * #getProjectDetailPage(int)} method.</li> <li>Updated {@link #getRegistrantsCommandName(int)} method.</li> <li>Updated
+ * {@link #getProjectTypeId(com.topcoder.web.common.TCRequest)} method.</li> </ul> </td> </tr>
+ *
+ * </table> </p>
+ *
  * <p>
- *   <table>
- *     <tr>
- *         <td>Version 1.1 (TCS Release 2.2.2)</td>
- *         <td>
- *           <ul>
- *             <li>Added support for Conceptualization, Specification and Application Testing project types.</li>
- *           </ul>
- *         </td>
- *     </tr>
- *     <tr>
- *         <td>Version 1.2 (Studio Coding In Online Review)</td>
- *         <td>
- *           <ul>
- *             <li>Added support for new UI Prototype, RIA Build and RIA Component competitions.</li>
- *           </ul>
- *         </td>
- *     </tr>
- *     <tr>
- *         <td>Version 1.3 (Testing Competition Split Release Assembly 1.0)</td>
- *         <td>
- *           <ul>
- *               <li>Updated Application Testing to Test Suites.</li>
- *               <li>Added support for new Test Scenarios competitions.</li>
- *           </ul>
- *         </td>
- *     </tr>
- *     <tr>
- *         <td>Version 1.4 (Configurable Contest Terms Release Assembly v1.0)</td>
- *         <td>
- *           <ul>
- *             <li>Added new functionality that asks for several terms of use and show those the user already agreed to.</li>
- *           </ul>
- *         </td>
- *     </tr>
- *     <tr>
- *         <td>Version 1.5 (Specification Review Integration 1.0)</td>
- *         <td>
- *           <ul>
- *             <li>Updated <code>isProjectTypeSupported</code> to support specification review projects.</li>
- *           </ul>
- *         </td>
- *     </tr>
- *     <tr>
- *         <td>Version 1.6 (Configurable Contest Terms Release Assembly v2.0)</td>
- *         <td>
- *           <ul>
- *             <li>Updated <code>processTermsOfUse</code> to set both agreed and pending terms in the request.</li>
- *              <li>Added sort order to displayed terms of use.</li>
- *           </ul>
- *         </td>
- *     </tr>
-         <tr>
- *         <td>Version 1.6 (BUGR-2749)</td>
- *         <td>
- *           <ul>
- *             <li>Added constant to support reliability bonus column in active contests page.</li>
- *           </ul>
- *         </td>
- *     </tr>
-         <tr>
- *         <td>Version 1.7 (Competition Registration Eligibility v1.0)</td>
- *         <td>
- *           <ul>
- *             <li>Added method to check for eligibility constraints.</li>
- *           </ul>
- *         </td>
- *     </tr>
-          <tr>
- *         <td>Version 1.8 </td>
- *         <td>
- *           <ul>
- *             <li>Phase ID -> Resource Role ID mapping is now done via a query instead of hardcoding the values.</li>
- *           </ul>
- *         </td>
- *     </tr>
- *      <tr>
- *         <td>Version 1.9 (Copilot Selection Contest Online Review and TC Site Integration Assembly v1.0)</td>
- *         <td>
- *           <ul>
- *             <li>Added support for copilot posting.</li>
- *           </ul>
- *         </td>
- *     </tr>
- *      <tr>
- *         <td>Version 1.10 (Content Creation Contest Online Review and TC Site Integration Assembly 1.0)</td>
- *         <td>
- *           <ul>
- *             <li>Updated {@link #getProjectDetailPage(int)} method.</li>
- *             <li>Updated {@link #getRegistrantsCommandName(int)} method.</li>
- *             <li>Updated {@link #getProjectTypeId(com.topcoder.web.common.TCRequest)} method.</li>
- *           </ul>
- *         </td>
- *     </tr>
- *      <tr>
- *         <td>Version 1.11</td>
- *         <td>
- *           <ul>
- *             <li>Added checks for users being banned from having certain terms of use.</li>
- *           </ul>
- *         </td>
- *     </tr>
- *     <tr>
- *         <td>Version 1.12 (Add Reporting Contest Type)</td>
- *         <td>
- *           <ul>
- *             <li>Updated {@link #getProjectDetailPage(int)} method.</li>
- *             <li>Updated {@link #getRegistrantsCommandName(int)} method.</li>
- *             <li>Updated {@link #getProjectTypeId(com.topcoder.web.common.TCRequest)} method.</li>
- *           </ul>
- *         </td>
- *     </tr>
- *     <tr>
- *         <td>Version 1.13 (TopCoder Terms of Use Management Refactoring v1.0)</td>
- *         <td>
- *           <ul>
- *             <li>Added {@link #getTermsOfUseDao()} to the terms of use DAO instance.</li>
- *             <li>Added {@link #getUserTermsOfUseDao()} to the user terms of use DAO instance.</li>
- *             <li>Added {@link #getProjectTermsOfUseDao()} to the project terms of use DAO instance.</li>
- *             <li>Updated to use Terms of Use DAO component instead of Terms of Use EJB.</li>
- *             <li>Added {@link #hasPrePendingTerm(String)} method to check whether the user has pre-pending
- *             dependent term need to agree.</li>
- *             <li>Updated {@link #processTermsOfUse(String, long, int[], long)} method to handle the new logic to terms of user agreement.</li>
- *           </ul>
- *         </td>
- *     </tr>
- *     <tr>
-  *         <td>Version 1.14 (Release Assembly - TopCoder BugHunt Competition Integration)</td>
-  *         <td>
-  *           <ul>
-  *             <li>Updated {@link #getProjectDetailPage(int)} method.</li>
-  *             <li>Updated {@link #getRegistrantsCommandName(int)} method.</li>
-  *             <li>Updated {@link #getProjectTypeId(com.topcoder.web.common.TCRequest)} method.</li>
-  *           </ul>
-  *         </td>
-  *     </tr>
-
- *   </table>
+ * Version 1.15 (Release Assembly - TopCoder Assembly Track Subtypes Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for Assembly track contest subtypes.</li>
+ *   </ol>
  * </p>
  *
- * @author dok, isv, pulky, VolodymyrK, Blues, FireIce, lmmortal, TCSASSEMBER
- * @version 1.14
+ * @author dok, isv, pulky, VolodymyrK, Blues, FireIce, lmmortal
+ * @version 1.15
  */
 public abstract class Base extends ShortHibernateProcessor {
 
@@ -249,7 +152,10 @@ public abstract class Base extends ShortHibernateProcessor {
             return Constants.DESIGN_DETAIL;
         } else if (projectTypeId==Constants.DEVELOPMENT_PROJECT_TYPE) {
             return Constants.DEVELOPMENT_DETAIL;
-        } else if (projectTypeId ==Constants.ASSEMBLY_PROJECT_TYPE) {
+        } else if (projectTypeId ==Constants.MODULE_ASSEMBLY_PROJECT_TYPE ||
+                   projectTypeId == Constants.RELEASE_ASSEMBLY_PROJECT_TYPE ||
+                   projectTypeId == Constants.SYSTEM_ASSEMBLY_PROJECT_TYPE ||
+                   projectTypeId == Constants.PROTOTYPE_ASSEMBLY_PROJECT_TYPE) {
             return "/dev/assembly/projectDetail.jsp";
         } else if (projectTypeId==Constants.ARCHITECTURE_PROJECT_TYPE) {
             return "/architecture/projectDetail.jsp";
@@ -295,7 +201,10 @@ public abstract class Base extends ShortHibernateProcessor {
             || projectTypeId == Constants.CONCEPTUALIZATION_PROJECT_TYPE
             || projectTypeId == Constants.SPECIFICATION_PROJECT_TYPE
             || projectTypeId == Constants.ARCHITECTURE_PROJECT_TYPE
-            || projectTypeId == Constants.ASSEMBLY_PROJECT_TYPE
+            || projectTypeId == Constants.MODULE_ASSEMBLY_PROJECT_TYPE
+            || projectTypeId == Constants.RELEASE_ASSEMBLY_PROJECT_TYPE
+            || projectTypeId == Constants.SYSTEM_ASSEMBLY_PROJECT_TYPE
+            || projectTypeId == Constants.PROTOTYPE_ASSEMBLY_PROJECT_TYPE
             || projectTypeId == Constants.TEST_SUITES_PROJECT_TYPE
             || projectTypeId == Constants.TEST_SCENARIOS_PROJECT_TYPE
             || projectTypeId == Constants.UI_PROTOTYPE_PROJECT_TYPE
@@ -386,8 +295,14 @@ public abstract class Base extends ShortHibernateProcessor {
                 projectTypeId = Constants.SPECIFICATION_PROJECT_TYPE;
             } else if (String.valueOf(SoftwareComponent.ARCHITECTURE_PHASE).equals(phaseId)) {
                 projectTypeId = Constants.ARCHITECTURE_PROJECT_TYPE;
-            } else if (String.valueOf(SoftwareComponent.ASSEMBLY_PHASE).equals(phaseId)) {
-                projectTypeId = Constants.ASSEMBLY_PROJECT_TYPE;
+            } else if (String.valueOf(SoftwareComponent.MODULE_ASSEMBLY_PHASE).equals(phaseId)) {
+                projectTypeId = Constants.MODULE_ASSEMBLY_PROJECT_TYPE;
+            } else if (String.valueOf(SoftwareComponent.RELEASE_ASSEMBLY_PHASE).equals(phaseId)) {
+                projectTypeId = Constants.RELEASE_ASSEMBLY_PROJECT_TYPE;
+            } else if (String.valueOf(SoftwareComponent.SYSTEM_ASSEMBLY_PHASE).equals(phaseId)) {
+                projectTypeId = Constants.SYSTEM_ASSEMBLY_PROJECT_TYPE;
+            } else if (String.valueOf(SoftwareComponent.PROTOTYPE_ASSEMBLY_PHASE).equals(phaseId)) {
+                projectTypeId = Constants.PROTOTYPE_ASSEMBLY_PROJECT_TYPE;
             } else if (String.valueOf(SoftwareComponent.TEST_SUITES_PHASE).equals(phaseId)) {
                 projectTypeId = Constants.TEST_SUITES_PROJECT_TYPE;
             } else if (String.valueOf(SoftwareComponent.TEST_SCENARIOS_PHASE).equals(phaseId)) {
@@ -413,8 +328,80 @@ public abstract class Base extends ShortHibernateProcessor {
     }
 
     /**
-     * <p>Checks whether the specified project type requested by client is currently supported by this controller
-     * or not.</p>
+     * <p>This method infers the project type ids from the request.</p>
+     * 
+     * <p>It will get the project type ids from the request. If the request contains the phase id, then it will use
+     * that to figure out the project type ids.</p>
+     *
+     * @param r an <code>TCRequest</code> containing the request.
+     * @return an <code>int</code> array with the corresponding project type ids. (a zero-length array will be returned if 
+     *         it can't be found)
+     * @throws TCWebException if the project type id parameter is not valid.
+     */
+    public static int[] getProjectTypeIds(TCRequest r) throws TCWebException {
+        int[] projectTypeIds;
+
+        String projectTypeIdsParam = StringUtils.checkNull(r.getParameter(Constants.PROJECT_TYPE_ID));
+        if ("".equals(projectTypeIdsParam)) {
+            String[] phaseIds = StringUtils.checkNull(r.getParameter(Constants.PHASE_ID)).split(",");
+            projectTypeIds = new int[phaseIds.length];
+            for (int i = 0; i < phaseIds.length; i++) {
+                String phaseId = phaseIds[i];
+                if (String.valueOf(SoftwareComponent.DESIGN_PHASE).equals(phaseId)) {
+                    projectTypeIds[i] = Constants.DESIGN_PROJECT_TYPE;
+                } else if (String.valueOf(SoftwareComponent.DEV_PHASE).equals(phaseId)) {
+                    projectTypeIds[i] = Constants.DEVELOPMENT_PROJECT_TYPE;
+                } else if (String.valueOf(SoftwareComponent.CONCEPTUALIZATION_PHASE).equals(phaseId)) {
+                    projectTypeIds[i] = Constants.CONCEPTUALIZATION_PROJECT_TYPE;
+                } else if (String.valueOf(SoftwareComponent.SPECIFICATION_PHASE).equals(phaseId)) {
+                    projectTypeIds[i] = Constants.SPECIFICATION_PROJECT_TYPE;
+                } else if (String.valueOf(SoftwareComponent.ARCHITECTURE_PHASE).equals(phaseId)) {
+                    projectTypeIds[i] = Constants.ARCHITECTURE_PROJECT_TYPE;
+                } else if (String.valueOf(SoftwareComponent.MODULE_ASSEMBLY_PHASE).equals(phaseId)) {
+                    projectTypeIds[i] = Constants.MODULE_ASSEMBLY_PROJECT_TYPE;
+                } else if (String.valueOf(SoftwareComponent.RELEASE_ASSEMBLY_PHASE).equals(phaseId)) {
+                    projectTypeIds[i] = Constants.RELEASE_ASSEMBLY_PROJECT_TYPE;
+                } else if (String.valueOf(SoftwareComponent.SYSTEM_ASSEMBLY_PHASE).equals(phaseId)) {
+                    projectTypeIds[i] = Constants.SYSTEM_ASSEMBLY_PROJECT_TYPE;
+                } else if (String.valueOf(SoftwareComponent.PROTOTYPE_ASSEMBLY_PHASE).equals(phaseId)) {
+                    projectTypeIds[i] = Constants.PROTOTYPE_ASSEMBLY_PROJECT_TYPE;
+                } else if (String.valueOf(SoftwareComponent.TEST_SUITES_PHASE).equals(phaseId)) {
+                    projectTypeIds[i] = Constants.TEST_SUITES_PROJECT_TYPE;
+                } else if (String.valueOf(SoftwareComponent.TEST_SCENARIOS_PHASE).equals(phaseId)) {
+                    projectTypeIds[i] = Constants.TEST_SCENARIOS_PROJECT_TYPE;
+                } else if (String.valueOf(SoftwareComponent.UI_PROTOTYPE_PHASE).equals(phaseId)) {
+                    projectTypeIds[i] = Constants.UI_PROTOTYPE_PROJECT_TYPE;
+                } else if (String.valueOf(SoftwareComponent.RIA_BUILD_PHASE).equals(phaseId)) {
+                    projectTypeIds[i] = Constants.RIA_BUILD_PROJECT_TYPE;
+                } else if (String.valueOf(SoftwareComponent.RIA_COMPONENT_PHASE).equals(phaseId)) {
+                    projectTypeIds[i] = Constants.RIA_COMPONENT_PROJECT_TYPE;
+                } else if (String.valueOf(SoftwareComponent.COPILOT_POSTING_PHASE).equals(phaseId)) {
+                    projectTypeIds[i] = Constants.COPILOT_POSTING_PROJECT_TYPE;
+                } else if (String.valueOf(SoftwareComponent.CONTENT_CREATION_PHASE).equals(phaseId)) {
+                    projectTypeIds[i] = Constants.CONTENT_CREATION_PROJECT_TYPE;
+                } else if (String.valueOf(SoftwareComponent.REPORTING_PHASE).equals(phaseId)) {
+                    projectTypeIds[i] = Constants.REPORTING_PROJECT_TYPE;
+                } else if (String.valueOf(SoftwareComponent.BUG_HUNT_PHASE).equals(phaseId)) {
+                    projectTypeIds[i] = Constants.BUG_HUNT_PROJECT_TYPE;
+                }
+            }
+        } else {
+            String[] projectTypeIdsString = projectTypeIdsParam.split(",");
+            projectTypeIds = new int[projectTypeIdsString.length];
+            for (int i = 0; i < projectTypeIdsString.length; i++) {
+                if (!StringUtils.isNumber(projectTypeIdsString[i])) {
+                    throw new TCWebException("Invalid project_type_id (" + projectTypeIdsParam + ") parameter");
+                }
+                projectTypeIds[i] = Integer.parseInt(projectTypeIdsString[i]);
+            }
+        }
+        return projectTypeIds;
+
+    }
+
+    /**
+     * <p>Checks whether the specified project type requested by client is currently supported by this controller or
+     * not.</p>
      *
      * This method delegates to ReviewBoardHelper.isReviewBoardTypeSupported().
      *
@@ -429,14 +416,13 @@ public abstract class Base extends ShortHibernateProcessor {
     /**
      * This helper method returns if the specified user is banned from accepting the specified terms of use.
      *
-     * @param userId the user id that is requesting the registration
+     * @param userId       the user id that is requesting the registration
      * @param termsOfUseId the terms of use id the user agreed to
      * @throws Exception if any error occurs
-     *
      * @since 1.11
      */
     protected boolean hasTermsOfUseBan(long userId, long termsOfUseId)
-            throws Exception {
+        throws Exception {
 
         UserTermsOfUseDao userTermsOfUseDao = getUserTermsOfUseDao();
         return userTermsOfUseDao.hasTermsOfUseBan(userId, termsOfUseId);

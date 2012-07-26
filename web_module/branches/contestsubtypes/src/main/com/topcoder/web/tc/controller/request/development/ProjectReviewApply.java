@@ -124,8 +124,15 @@ import com.topcoder.web.tc.Constants;
  *   </ol>
  * </p>
  *
- * @author dok, isv, pulky, snow01, VolodymyrK, FireIce, lmmortal, TCSASSEMBLER
- * @version 1.0.15
+ * <p>
+ * Version 1.0.16 (Release Assembly - TopCoder Assembly Track Subtypes Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for Assembly track contest subtypes.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, isv, pulky, snow01, VolodymyrK, FireIce, lmmortal
+ * @version 1.0.16
  */
 public class ProjectReviewApply extends Base {
     protected long projectId = 0;
@@ -327,7 +334,10 @@ public class ProjectReviewApply extends Base {
             return Constants.REVIEWER_TERMS;
         } else if (projectType.equals(String.valueOf(WebConstants.DEVELOPMENT_PROJECT_TYPE))) {
             return Constants.REVIEWER_TERMS;
-        } else if (projectType.equals(String.valueOf(WebConstants.ASSEMBLY_PROJECT_TYPE))) {
+        } else if (projectType.equals(String.valueOf(WebConstants.MODULE_ASSEMBLY_PROJECT_TYPE)) ||
+                   projectType.equals(String.valueOf(WebConstants.RELEASE_ASSEMBLY_PROJECT_TYPE)) ||
+                   projectType.equals(String.valueOf(WebConstants.SYSTEM_ASSEMBLY_PROJECT_TYPE)) ||
+                   projectType.equals(String.valueOf(WebConstants.PROTOTYPE_ASSEMBLY_PROJECT_TYPE))) {
             return Constants.ASSEMBLY_REVIEWER_TERMS;
         } else if (projectType.equals(String.valueOf(WebConstants.ARCHITECTURE_PROJECT_TYPE))) {
             return Constants.ARCHITECTURE_REVIEWER_TERMS;
@@ -352,7 +362,10 @@ public class ProjectReviewApply extends Base {
      * @since 1.0.6
      */
     private boolean validateWithCatalog(int projectTypeId) {
-        return projectTypeId != WebConstants.ASSEMBLY_PROJECT_TYPE &&
+        return projectTypeId != WebConstants.MODULE_ASSEMBLY_PROJECT_TYPE &&
+            projectTypeId != WebConstants.RELEASE_ASSEMBLY_PROJECT_TYPE &&
+            projectTypeId != WebConstants.SYSTEM_ASSEMBLY_PROJECT_TYPE &&
+            projectTypeId != WebConstants.PROTOTYPE_ASSEMBLY_PROJECT_TYPE &&
             projectTypeId != WebConstants.ARCHITECTURE_PROJECT_TYPE &&
             projectTypeId != WebConstants.CONCEPTUALIZATION_PROJECT_TYPE &&
             projectTypeId != WebConstants.SPECIFICATION_PROJECT_TYPE &&
@@ -361,7 +374,10 @@ public class ProjectReviewApply extends Base {
             projectTypeId != WebConstants.UI_PROTOTYPE_PROJECT_TYPE &&
             projectTypeId != WebConstants.RIA_BUILD_PROJECT_TYPE &&
             projectTypeId != WebConstants.RIA_COMPONENT_PROJECT_TYPE &&
-            projectTypeId != WebConstants.ASSEMBLY_SPECIFICATION_PROJECT_TYPE &&
+            projectTypeId != WebConstants.MODULE_ASSEMBLY_SPECIFICATION_PROJECT_TYPE &&
+            projectTypeId != WebConstants.RELEASE_ASSEMBLY_SPECIFICATION_PROJECT_TYPE &&
+            projectTypeId != WebConstants.SYSTEM_ASSEMBLY_SPECIFICATION_PROJECT_TYPE &&
+            projectTypeId != WebConstants.PROTOTYPE_ASSEMBLY_SPECIFICATION_PROJECT_TYPE &&
             projectTypeId != WebConstants.ARCHITECTURE_SPECIFICATION_PROJECT_TYPE &&
             projectTypeId != WebConstants.CONCEPTUALIZATION_SPECIFICATION_PROJECT_TYPE &&
             projectTypeId != WebConstants.SPECIFICATION_SPECIFICATION_PROJECT_TYPE &&

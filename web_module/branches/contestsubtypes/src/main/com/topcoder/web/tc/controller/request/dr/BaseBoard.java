@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
+ * Copyright (c) 2006-2012 TopCoder, Inc. All rights reserved.
  */
 
 package com.topcoder.web.tc.controller.request.dr;
@@ -28,8 +28,15 @@ import com.topcoder.web.tc.model.dr.IBoardRow;
  * <strong>Purpose</strong>:
  * Base implementation for the dr boards.
  *
- * @author pulky
- * @version 1.0.3
+ * <p>
+ * Version 1.0.4 (Release Assembly - TopCoder Assembly Track Subtypes Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for Assembly track contest subtypes.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author pulky, isv
+ * @version 1.0.4
  */
 public abstract class BaseBoard extends BaseProcessor {
     /**
@@ -81,7 +88,10 @@ public abstract class BaseBoard extends BaseProcessor {
         if (!hasParameter(Constants.PHASE_ID)) {
             if (!getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(String.valueOf(Constants.DESIGN_PROJECT_TYPE)) &&
                     !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(String.valueOf(Constants.DEVELOPMENT_PROJECT_TYPE)) &&
-                    !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(String.valueOf(Constants.ASSEMBLY_PROJECT_TYPE))) {
+                    !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(String.valueOf(Constants.MODULE_ASSEMBLY_PROJECT_TYPE)) &&
+                    !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(String.valueOf(Constants.RELEASE_ASSEMBLY_PROJECT_TYPE)) &&
+                    !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(String.valueOf(Constants.SYSTEM_ASSEMBLY_PROJECT_TYPE)) &&
+                    !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(String.valueOf(Constants.PROTOTYPE_ASSEMBLY_PROJECT_TYPE))) {
                 throw new TCWebException("invalid " + Constants.PROJECT_TYPE_ID + " parameter.");
             }
             

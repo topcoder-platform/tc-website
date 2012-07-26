@@ -1,5 +1,5 @@
 <%--
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.  
+ * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.  
  *
  * This JSP shows the consolidated leaderboard for the corresponding track type.
  * This same JSP is used for all project-based leaderboard pages. Project type is used to adapt
@@ -9,8 +9,11 @@
  *
  * Version 1.2 (2009 TopCoder Open Site Integration 1.1.1) changes: removed table header.
  *
- * Author TCSDEVELOPER
- * Version 1.2
+ * Version 1.3 (Release Assembly - TopCoder Assembly Track Subtypes Integration Assembly 1.0) Change notes:
+ *  Renamed Constants.ASSEMBLY_PROJECT_TYPE to Constants.MODULE_ASSEMBLY_PROJECT_TYPE
+ *
+ * Author isv
+ * Version 1.3
  * Since 2009 TopCoder Open Site Integration
 --%>
 
@@ -30,7 +33,7 @@
 <c:set var="DESIGN_PROJECT_TYPE" value="<%=Constants.DESIGN_PROJECT_TYPE%>"/>
 <c:set var="DEVELOPMENT_PROJECT_TYPE" value="<%=Constants.DEVELOPMENT_PROJECT_TYPE%>"/>
 <c:set var="ARCHITECTURE_PROJECT_TYPE" value="<%=Constants.ARCHITECTURE_PROJECT_TYPE%>"/>
-<c:set var="ASSEMBLY_PROJECT_TYPE" value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>"/>
+<c:set var="ASSEMBLY_PROJECT_TYPE" value="<%=Constants.MODULE_ASSEMBLY_PROJECT_TYPE%>"/>
 <c:set var="CONCEPTUALIZATION_PROJECT_TYPE" value="<%=Constants.CONCEPTUALIZATION_PROJECT_TYPE%>"/>
 <c:set var="incompleteProjects" value="false"/>
 

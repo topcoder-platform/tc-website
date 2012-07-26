@@ -1,6 +1,6 @@
 <%--
-  - Author: pulky, snow01, FireIce
-  - Version: 1.4
+  - Author: pulky, snow01, FireIce, isv
+  - Version: 1.5
   - Since: TCS Release 2.2.2
   - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
   -
@@ -21,6 +21,9 @@
 
   - Version 1.4 (Content Creation Contest Online Review and TC Site Integration Assembly 1.0) changes:
   - Fix Review Opportunities table header colspan problem.
+  -
+  - Version 1.5 (Release Assembly - TopCoder Assembly Track Subtypes Integration Assembly 1.0) Change notes:
+  -  Added support for Assembly track contest subtypes.
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
@@ -37,7 +40,7 @@
 <c:set var="PROJECT_TYPE_ID" value="<%=Constants.PROJECT_TYPE_ID%>"/>
 <c:set var="APPLICATIONS_CATALOG_ID" value="<%=Constants.APPLICATIONS_CATALOG_ID%>"/>
 <c:set var="DEV_PHASE" value="<%=SoftwareComponent.DEV_PHASE%>"/>
-<c:set var="projectType" value="${param[PROJECT_TYPE_ID]}" scope="request"/>
+<c:set var="projectType" value="${fn:split(param[PROJECT_TYPE_ID], ',')[0]}" scope="request"/>
 <jsp:include page="reviewCommonVariables.jsp"/>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -130,13 +133,14 @@
 
                                         <c:set var="i" value="0"/>
                                         <c:forEach items="${projectList}" var="resultRow">
+                                            <c:set value="${resultRow.map['phase_id'] - 111}" var="localProjectType"/>
                                             <tr>
                                                 <c:choose>
-                                                    <c:when test="${projectType == DESIGN_PROJECT_TYPE ||
-                                                        projectType == DESIGN_SPECIFICATION_PROJECT_TYPE}">
+                                                    <c:when test="${localProjectType == DESIGN_PROJECT_TYPE ||
+                                                        localProjectType == DESIGN_SPECIFICATION_PROJECT_TYPE}">
                                                     </c:when>
-                                                    <c:when test="${projectType == DEVELOPMENT_PROJECT_TYPE ||
-                                                        projectType == DEVELOPMENT_SPECIFICATION_PROJECT_TYPE}">
+                                                    <c:when test="${localProjectType == DEVELOPMENT_PROJECT_TYPE ||
+                                                        localProjectType == DEVELOPMENT_SPECIFICATION_PROJECT_TYPE}">
                                                         <td class="statDk" align="center">
                                                             <c:choose>
                                                                 <c:when test="${resultRow.map['phase_id'] == DEV_PHASE}">
@@ -149,15 +153,28 @@
                                                         </td>
                                                     </c:when>
                                                     <c:otherwise>
-                                                        <td class="statDk" align="center">${projectTypeDesc}</td>
+                                                        <c:choose>
+                                                            <c:when test="${localProjectType == MODULE_ASSEMBLY_PROJECT_TYPE 
+                                                            or localProjectType == RELEASE_ASSEMBLY_PROJECT_TYPE 
+                                                            or localProjectType == SYSTEM_ASSEMBLY_PROJECT_TYPE 
+                                                            or localProjectType == PROTOTYPE_ASSEMBLY_PROJECT_TYPE}">
+                                                                <td class="statDk"
+                                                                    align="center">${resultRow.map['phase_desc']}</td>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                <td class="statDk"
+                                                                    align="center">${projectTypeDesc}</td>
+                                                            </c:otherwise>
+                                                        </c:choose>
+                                                        
                                                     </c:otherwise>
                                                 </c:choose>
                                                 <td class="statDk" align="center">
                                                     <c:choose>
-                                                        <c:when test="${projectType == DEVELOPMENT_PROJECT_TYPE ||
-                                                            projectType == DESIGN_PROJECT_TYPE ||
-                                                            projectType == DESIGN_SPECIFICATION_PROJECT_TYPE ||
-                                                            projectType == DEVELOPMENT_SPECIFICATION_PROJECT_TYPE}">
+                                                        <c:when test="${localProjectType == DEVELOPMENT_PROJECT_TYPE ||
+                                                            localProjectType == DESIGN_PROJECT_TYPE ||
+                                                            localProjectType == DESIGN_SPECIFICATION_PROJECT_TYPE ||
+                                                            localProjectType == DEVELOPMENT_SPECIFICATION_PROJECT_TYPE}">
                                                             <tc_tags:languageIcon catalogName = "${resultRow.map['catalog']}" aolBrand="${resultRow.map['aol_brand'] != null}"
                                                                                   paypalBrand="${resultRow.map['paypal_brand'] != null}"/>
                                                         </c:when>
@@ -181,10 +198,10 @@
                                                 </td>
                                                 <td class="statDk" align="center">
                                                     <c:choose>
-                                                                <c:when test="${projectType != DEVELOPMENT_PROJECT_TYPE &&
-                                                                    projectType != DESIGN_PROJECT_TYPE &&
-                                                                    projectType != DESIGN_SPECIFICATION_PROJECT_TYPE &&
-                                                                    projectType != DEVELOPMENT_SPECIFICATION_PROJECT_TYPE &&
+                                                                <c:when test="${localProjectType != DEVELOPMENT_PROJECT_TYPE &&
+                                                                    localProjectType != DESIGN_PROJECT_TYPE &&
+                                                                    localProjectType != DESIGN_SPECIFICATION_PROJECT_TYPE &&
+                                                                    localProjectType != DEVELOPMENT_SPECIFICATION_PROJECT_TYPE &&
                                                                     resultRow.map['paypal_brand'] != null}">
                                                                       <img src="/i/development/smPayPalX.gif" alt="PayPal X" border="0" />
                                                                  </c:when>
@@ -224,7 +241,7 @@
                                                     ${resultRow.map["available_spots"]}
                                                 </td>
                                                 <td class="statDk" align="left" nowrap="nowrap">
-                                                    <a href="${sessionInfo.servletPath}?${MODULE_KEY}=ReviewProjectDetail&${PROJECT_ID}=${resultRow.map['project_id']}&${PROJECT_TYPE_ID}=${projectType}">
+                                                    <a href="${sessionInfo.servletPath}?${MODULE_KEY}=ReviewProjectDetail&${PROJECT_ID}=${resultRow.map['project_id']}&${PROJECT_TYPE_ID}=${localProjectType}">
                                                         details
                                                     </a>
                                                     <c:if test="${resultRow.map['price_changes'] > 0}">
@@ -285,8 +302,9 @@
 
                                         <c:set var="i" value="0"/>
                                         <c:forEach items="${specReviewList}" var="resultRow">
+                                            <c:set value="${resultRow.map['phase_id'] - 111}" var="localProjectType"/>
                                             <tr>
-                                                <td class="statDk" align="center">Specification Review</td>
+                                                <td class="statDk" align="center"><c:out value="${resultRow.map['phase_desc']}"/></td>
                                                 <td class="statDk" align="center">${projectTypeDesc}</td>
                                                 <td class="statDk" align="center" >
                                                     <a href="${sessionInfo.servletPath}?${MODULE_KEY}=ProjectDetail&${PROJECT_ID}=${resultRow.map['ref_project_id']}">
@@ -324,7 +342,7 @@
                                                     ${resultRow.map["available_spots"]}
                                                 </td>
                                                 <td class="statDk" align="left" nowrap="nowrap">
-                                                    <a href="${sessionInfo.servletPath}?${MODULE_KEY}=ReviewProjectDetail&${PROJECT_ID}=${resultRow.map['project_id']}&${PROJECT_TYPE_ID}=${specReviewProjectTypeId}">
+                                                    <a href="${sessionInfo.servletPath}?${MODULE_KEY}=ReviewProjectDetail&${PROJECT_ID}=${resultRow.map['project_id']}&${PROJECT_TYPE_ID}=${localProjectType}">
                                                         details
                                                     </a>
                                                     <c:if test="${resultRow.map['price_changes'] > 0}">

@@ -1,7 +1,7 @@
 <%--
-  - Author: pulky
-  - Version: 1.1
-  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  - Author: pulky, isv
+  - Version: 1.2
+  - Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page shows project details for assembly competitions.
   - 
@@ -9,6 +9,9 @@
   -    * Removed Requirements Specification section if existed.
   -    * Renamed the existing "Documentation" section to "Forum". Changed attached wording.
   -    * Added support for multiple documentation downloads.
+  -
+  - Version 1.2 (Release Assembly - TopCoder Assembly Track Subtypes Integration Assembly 1.0) Change notes:
+  - Added displaying the Assembly subtype in contest name area 
 --%>
 <%@ page language="java" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -71,7 +74,7 @@
 
 <table cellspacing="0" class="formFrame" align="center" width="530">
     <tr>
-        <td class="projectTitles" nowrap="nowrap">Assembly Project -
+        <td class="projectTitles" nowrap="nowrap"><rsc:item set="<%=projectDetail%>" name="project_category_name"/> Project -
             <rsc:item set="<%=projectDetail%>" name="component_name"/></td>
     </tr>
 </table>

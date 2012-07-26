@@ -14,7 +14,6 @@ import com.topcoder.shared.dataAccess.resultSet.TCTimestampResult;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.common.error.RequestRateExceededException;
 import com.topcoder.web.common.throttle.Throttle;
@@ -67,8 +66,15 @@ import com.topcoder.web.common.throttle.Throttle;
  *   </ol> 
  * </p>
  *
+ * <p>
+ * Version 1.0.8 (Release Assembly - TopCoder Assembly Track Subtypes Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for Assembly track contest subtypes.</li>
+ *   </ol>
+ * </p>
+ *
  * @author dok, ivern, isv, pulky, snow01
- * @version 1.0.7
+ * @version 1.0.8
  */
 public class ViewReviewProjects extends ReviewProjectDetail {
 
@@ -103,17 +109,20 @@ public class ViewReviewProjects extends ReviewProjectDetail {
      * @throws TCWebException if an unexpected error occurs or if requested project type is not supported.
      */
     protected void developmentProcessing() throws TCWebException {
-        String projectTypeId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
-        if (!isProjectTypeSupported(projectTypeId)) {
-            throw new TCWebException("Invalid project type specified " + projectTypeId);
+        String projectTypeIdsParam = getRequest().getParameter(Constants.PROJECT_TYPE_ID);
+        String[] projectTypeIds = StringUtils.checkNull(projectTypeIdsParam).split(",");
+        for (String projectTypeId : projectTypeIds) {
+            if (!isProjectTypeSupported(projectTypeId)) {
+                throw new TCWebException("Invalid project type specified " + projectTypeId);
+            }
         }
-
-        int phase_id = (Integer.parseInt(projectTypeId) + (int)Constants.GENERAL_PHASE_OFFSET);
-        getRequest().setAttribute("phase_id", new Integer(phase_id));
+        
+//        int phase_id = (Integer.parseInt(projectTypeId) + (int)Constants.GENERAL_PHASE_OFFSET);
+//        getRequest().setAttribute("phase_id", new Integer(phase_id));
 
         Request r = new Request();
         r.setContentHandle("review_projects");
-        r.setProperty(Constants.PROJECT_TYPE_ID, projectTypeId);
+        r.setProperty(Constants.PROJECT_TYPES_ID, projectTypeIdsParam);
 
         try {
             if (mediumThrottle.throttle(getRequest().getRemoteAddr())) {
@@ -123,7 +132,7 @@ public class ViewReviewProjects extends ReviewProjectDetail {
                 throw new RequestRateExceededException(getRequest().getSession().getId(), getUser().getUserName());
             }
 
-            ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("review_projects");
+            ResultSetContainer rsc = getDataAccess().getData(r).get("review_projects");
             getRequest().setAttribute("projectList", rsc);
 
             ResultSetContainer.ResultSetRow rsr = null;
@@ -174,42 +183,45 @@ public class ViewReviewProjects extends ReviewProjectDetail {
             //             get("tournament_review_projects"));
 
             // process specification review positions
-            processSpecificationReviewPositions(projectTypeId);
+            processSpecificationReviewPositions(projectTypeIdsParam);
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
             throw new TCWebException(e);
         }
-        setNextPage(getReviewOpportunitiesView(projectTypeId));
+        setNextPage(getReviewOpportunitiesView());
         setIsNextPageInContext(true);
     }
 
     /**
      * <p>Private helper method to process specification review positions for the specified project type id.</p>
      *
-     * @param projectTypeId the project type id to process
+     * @param projectTypeIdsParam the project type ids (comma-separated) to process
      * @throws TCWebException if any error occurs during the process
-     *
      * @since 1.0.7
      */
     @SuppressWarnings("unchecked")
-    private void processSpecificationReviewPositions(String projectTypeId) throws TCWebException {
-        String specificationReviewProjectTypeId = Integer.toString(Integer.parseInt(projectTypeId)
-                + Constants.SPECIFICATION_COMPETITION_OFFSET);
-        if (!isProjectTypeSupported(specificationReviewProjectTypeId, true)) {
-            // simply return from here.
-            return;
+    private void processSpecificationReviewPositions(String projectTypeIdsParam) throws TCWebException {
+        String[] projectTypeIds = StringUtils.checkNull(projectTypeIdsParam).split(",");
+        for (String projectTypeId : projectTypeIds) {
+            String specificationReviewProjectTypeId 
+                = Integer.toString(Integer.parseInt(projectTypeId) + Constants.SPECIFICATION_COMPETITION_OFFSET);
+            if (!isProjectTypeSupported(specificationReviewProjectTypeId, true)) {
+                // simply return from here.
+                return;
+            }
         }
+
 
         Request r = new Request();
         r.setContentHandle("spec_review_projects");
-        r.setProperty(Constants.PROJECT_TYPE_ID, projectTypeId);
+        r.setProperty(Constants.PROJECT_TYPES_ID, projectTypeIdsParam);
 
         try {
-            ResultSetContainer rsc = (ResultSetContainer) getDataAccess().getData(r).get("spec_review_projects");
+            ResultSetContainer rsc = getDataAccess().getData(r).get("spec_review_projects");
             getRequest().setAttribute("specReviewList", rsc);
 
-            ResultSetContainer.ResultSetRow rsr = null;
+            ResultSetContainer.ResultSetRow rsr;
 
             ArrayList prices = new ArrayList();
             ArrayList<Boolean> waitingToReview = new ArrayList<Boolean>();
@@ -237,7 +249,6 @@ public class ViewReviewProjects extends ReviewProjectDetail {
             }
 
             getRequest().setAttribute("specReviewPrices", prices);
-            getRequest().setAttribute("specReviewProjectTypeId", specificationReviewProjectTypeId);
 
             getRequest().setAttribute("specReviewWaitingToReview", waitingToReview);
             getRequest().setAttribute("specReviewWaitingUntil", waitingUntil);
@@ -259,12 +270,11 @@ public class ViewReviewProjects extends ReviewProjectDetail {
      * 
      * Updated for Version 1.0.7 - now all review opportunities are viewable through unified page.
      *
-     * @param projectType a <code>String</code> referencing the project type requested by client.
      * @return a <code>String</code> referencing the view to be used for displaying the list of review opportunities for
      *         specified project type.
      * @since TCS Release 2.2.0 (TCS-54)
      */
-    private String getReviewOpportunitiesView(String projectType) {
+    private String getReviewOpportunitiesView() {
         return Constants.UNIFIED_REVIEW_PROJECTS_PAGE;
     }
 }

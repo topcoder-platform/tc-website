@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request;
 
@@ -61,8 +61,15 @@ import com.topcoder.web.tc.Constants;
  *   </table>
  * </p>
  *
+ * <p>
+ * Version 1.5 (Release Assembly - TopCoder Assembly Track Subtypes Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for Assembly track contest subtypes.</li>
+ *   </ol>
+ * </p>
+ *
  * @author dok, isv, pulky
- * @version 1.4
+ * @version 1.5
  */
 public class ReviewBoard extends Base {
 
@@ -83,24 +90,27 @@ public class ReviewBoard extends Base {
      * @throws NavigationException if requested review board type is not supported.
      */
     protected void businessProcessing() throws TCWebException {
-        String projectTypeId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
-        if (ReviewBoardHelper.isReviewBoardTypeSupported(projectTypeId)) {
-            Request r = new Request();
-            r.setContentHandle("review_board_members");
-            r.setProperty(Constants.PROJECT_TYPE_ID, projectTypeId);
-            try {
-                DataAccessInt dai = getDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME, true);
-                getRequest().setAttribute("memberList", dai.getData(r).get("review_board_members"));
-                String reviewBoardView = getReviewBoardView(projectTypeId);
-                setNextPage(reviewBoardView);
-                setIsNextPageInContext(true);
-            } catch (TCWebException e) {
-                throw e;
-            } catch (Exception e) {
-                throw new TCWebException(e);
+        String projectTypeIdsParam = getRequest().getParameter(Constants.PROJECT_TYPE_ID);
+        String[] projectTypeIds = StringUtils.checkNull(projectTypeIdsParam).split(",");
+        for (String projectTypeId : projectTypeIds) {
+            if (!ReviewBoardHelper.isReviewBoardTypeSupported(projectTypeId)) {
+                throw new TCWebException("Invalid project type specified " + projectTypeId);
             }
-        } else {
-            throw new NavigationException("Invalid project type specified " + projectTypeId);
+        }
+
+        Request r = new Request();
+        r.setContentHandle("review_board_members");
+        r.setProperty(Constants.PROJECT_TYPES_ID, projectTypeIdsParam);
+        try {
+            DataAccessInt dai = getDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME, true);
+            getRequest().setAttribute("memberList", dai.getData(r).get("review_board_members"));
+            String reviewBoardView = getReviewBoardView(projectTypeIds[0]);
+            setNextPage(reviewBoardView);
+            setIsNextPageInContext(true);
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new TCWebException(e);
         }
     }
 
@@ -118,7 +128,13 @@ public class ReviewBoard extends Base {
             return "/review_board/design.jsp";
         } else if (reviewBoardType.equals(String.valueOf(WebConstants.DEVELOPMENT_PROJECT_TYPE))) {
             return "/review_board/development.jsp";
-        } else if (reviewBoardType.equals(String.valueOf(WebConstants.ASSEMBLY_PROJECT_TYPE))) {
+        } else if (reviewBoardType.equals(String.valueOf(WebConstants.MODULE_ASSEMBLY_PROJECT_TYPE))) {
+            return "/review_board/assembly.jsp";
+        } else if (reviewBoardType.equals(String.valueOf(WebConstants.RELEASE_ASSEMBLY_PROJECT_TYPE))) {
+            return "/review_board/assembly.jsp";
+        } else if (reviewBoardType.equals(String.valueOf(WebConstants.SYSTEM_ASSEMBLY_PROJECT_TYPE))) {
+            return "/review_board/assembly.jsp";
+        } else if (reviewBoardType.equals(String.valueOf(WebConstants.PROTOTYPE_ASSEMBLY_PROJECT_TYPE))) {
             return "/review_board/assembly.jsp";
         } else if (reviewBoardType.equals(String.valueOf(WebConstants.ARCHITECTURE_PROJECT_TYPE))) {
             return "/review_board/architecture.jsp";

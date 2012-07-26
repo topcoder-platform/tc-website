@@ -68,8 +68,23 @@ import com.topcoder.web.common.WebConstants;
   *     <li>Added {@link #BUG_HUNT_PHASE} and {@link #BUG_HUNT_SPECIFICATION_PHASE} constant for new Bug Hunt contest type.</li>
   *   </ol>
   * </p>
- * @author dok, pulky, snow01, VolodymyrK, FireIce, flexme, TCSASSEMBLER
- * @version 1.8
+ * 
+ * <p>
+ * Version 1.8.1 (Release Assembly - TopCoder Assembly Track Subtypes Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Renamed <code>ASSEMBLY_PHASE</code> constant to {@link #MODULE_ASSEMBLY_PHASE}.</li>
+ *     <li>Added {@link #RELEASE_ASSEMBLY_PHASE} constant.</li>
+ *     <li>Added {@link #SYSTEM_ASSEMBLY_PHASE} constant.</li>
+ *     <li>Added {@link #PROTOTYPE_ASSEMBLY_PHASE} constant.</li>
+ *     <li>Renamed <code>ASSEMBLY_SPECIFICATION_PHASE</code> constant to 
+ *     {@link #MODULE_ASSEMBLY_SPECIFICATION_PHASE}.</li>
+ *     <li>Added {@link #RELEASE_ASSEMBLY_SPECIFICATION_PHASE} constant.</li>
+ *     <li>Added {@link #SYSTEM_ASSEMBLY_SPECIFICATION_PHASE} constant.</li>
+ *     <li>Added {@link #PROTOTYPE_ASSEMBLY_SPECIFICATION_PHASE} constant.</li>
+ *   </ol>
+ * </p>
+ * @author dok, pulky, snow01, VolodymyrK, FireIce, flexme, TCSASSEMBLER, isv
+ * @version 1.8.1
  */
 public interface SoftwareComponent extends Cloneable, Serializable {
 
@@ -78,7 +93,28 @@ public interface SoftwareComponent extends Cloneable, Serializable {
     public final static int CONCEPTUALIZATION_PHASE = (int) WebConstants.PHASE_CONCEPTUALIZATION;
     public final static int SPECIFICATION_PHASE = (int) WebConstants.PHASE_SPECIFICATION;
     public final static int ARCHITECTURE_PHASE = (int) WebConstants.PHASE_ARCHITECTURE;
-    public final static int ASSEMBLY_PHASE = (int) WebConstants.PHASE_ASSEMBLY;
+    public final static int MODULE_ASSEMBLY_PHASE = (int) WebConstants.PHASE_MODULE_ASSEMBLY;
+
+    /**
+     * <p>An <code>int</code> providing the ID for <code>Release Assembly</code> contest track.</p>
+     * 
+     * @since 1.8.1
+     */
+    public final static int RELEASE_ASSEMBLY_PHASE = (int) WebConstants.PHASE_RELEASE_ASSEMBLY;
+
+    /**
+     * <p>An <code>int</code> providing the ID for <code>System Assembly</code> contest track.</p>
+     *
+     * @since 1.8.1
+     */
+    public final static int SYSTEM_ASSEMBLY_PHASE = (int) WebConstants.PHASE_SYSTEM_ASSEMBLY;
+
+    /**
+     * <p>An <code>int</code> providing the ID for <code>Prototype Assembly</code> contest track.</p>
+     *
+     * @since 1.8.1
+     */
+    public final static int PROTOTYPE_ASSEMBLY_PHASE = (int) WebConstants.PHASE_PROTOTYPE_ASSEMBLY;
 
     /**
      * The phase id of studio icon set track.
@@ -217,11 +253,35 @@ public interface SoftwareComponent extends Cloneable, Serializable {
     public final static int ARCHITECTURE_SPECIFICATION_PHASE = (int) WebConstants.PHASE_ARCHITECTURE_SPECIFICATION;
 
     /**
-     * <p>An <code>int</code> representing assembly specification phase id.</p>
+     * <p>An <code>int</code> representing <code>Module Assembly</code> specification phase id.</p>
      *
      * @since 1.3
      */
-    public final static int ASSEMBLY_SPECIFICATION_PHASE = (int) WebConstants.PHASE_ASSEMBLY_SPECIFICATION;
+    public final static int MODULE_ASSEMBLY_SPECIFICATION_PHASE = (int) WebConstants.PHASE_MODULE_ASSEMBLY_SPECIFICATION;
+
+    /**
+     * <p>An <code>int</code> representing <code>Release Assembly</code> specification phase id.</p>
+     *
+     * @since 1.8.1
+     */
+    public final static int RELEASE_ASSEMBLY_SPECIFICATION_PHASE 
+        = (int) WebConstants.PHASE_RELEASE_ASSEMBLY_SPECIFICATION;
+
+    /**
+     * <p>An <code>int</code> representing <code>System Assembly</code> specification phase id.</p>
+     *
+     * @since 1.8.1
+     */
+    public final static int SYSTEM_ASSEMBLY_SPECIFICATION_PHASE
+        = (int) WebConstants.PHASE_SYSTEM_ASSEMBLY_SPECIFICATION;
+
+    /**
+     * <p>An <code>int</code> representing <code>Prototype Assembly</code> specification phase id.</p>
+     *
+     * @since 1.8.1
+     */
+    public final static int PROTOTYPE_ASSEMBLY_SPECIFICATION_PHASE
+        = (int) WebConstants.PHASE_PROTOTYPE_ASSEMBLY_SPECIFICATION;
 
     /**
      * <p>An <code>int</code> representing test suites competition specification phase id.</p>

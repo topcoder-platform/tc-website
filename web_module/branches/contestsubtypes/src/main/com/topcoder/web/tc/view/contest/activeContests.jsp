@@ -1,6 +1,6 @@
 <%--
-  - Author: pulky, FireIce, TCSASSEMBLER
-  - Version: 1.6
+  - Author: pulky, FireIce, isv
+  - Version: 1.7
   - Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page lists all active contests for a specific project type.
@@ -21,6 +21,9 @@
   -
   - Version 1.6 (Release Assembly - TopCoder BugHunt Competition Integration) changes:
   - Added support for Bug Hunt project type.
+  -
+  - Version 1.7 (Release Assembly - TopCoder Assembly Track Subtypes Integration Assembly 1.0) Change notes:
+  -  Added support for Assembly track contest subtypes.
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
@@ -36,7 +39,10 @@
 <c:set value="<%=Constants.ARCHITECTURE_PROJECT_TYPE%>" var="ARCHITECTURE_TYPE_ID"/>
 <c:set value="<%=Constants.CONCEPTUALIZATION_PROJECT_TYPE%>" var="CONCEPTUALIZATION_TYPE_ID"/>
 <c:set value="<%=Constants.SPECIFICATION_PROJECT_TYPE%>" var="SPECIFICATION_TYPE_ID"/>
-<c:set value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>" var="ASSEMBLY_TYPE_ID"/>
+<c:set value="<%=Constants.MODULE_ASSEMBLY_PROJECT_TYPE%>" var="MODULE_ASSEMBLY_PROJECT_TYPE"/>
+<c:set value="<%=Constants.RELEASE_ASSEMBLY_PROJECT_TYPE%>" var="RELEASE_ASSEMBLY_PROJECT_TYPE"/>
+<c:set value="<%=Constants.SYSTEM_ASSEMBLY_PROJECT_TYPE%>" var="SYSTEM_ASSEMBLY_PROJECT_TYPE"/>
+<c:set value="<%=Constants.PROTOTYPE_ASSEMBLY_PROJECT_TYPE%>" var="PROTOTYPE_ASSEMBLY_PROJECT_TYPE"/>
 <c:set value="<%=Constants.TEST_SUITES_PROJECT_TYPE%>" var="TEST_SUITES_TYPE_ID"/>
 <c:set value="<%=Constants.TEST_SCENARIOS_PROJECT_TYPE%>" var="TEST_SCENARIOS_TYPE_ID"/>
 <c:set value="<%=Constants.UI_PROTOTYPE_PROJECT_TYPE%>" var="UI_PROTOTYPE_TYPE_ID"/>
@@ -69,6 +75,7 @@
     <jsp:param name="level1" value="development"/>
 </jsp:include>
 
+<c:set var="isAssembly" value="${pt == MODULE_ASSEMBLY_PROJECT_TYPE or pt == RELEASE_ASSEMBLY_PROJECT_TYPE or pt == SYSTEM_ASSEMBLY_PROJECT_TYPE or pt == PROTOTYPE_ASSEMBLY_PROJECT_TYPE}"/>
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
 <tbody>
     <tr valign="top">
@@ -100,7 +107,7 @@
                     <jsp:param name="node" value="architecture_compete"/>
                 </jsp:include>
             </c:when>
-            <c:when test="${pt == ASSEMBLY_TYPE_ID}">
+            <c:when test="${isAssembly}">
                 <jsp:include page="/includes/global_left.jsp">
                     <jsp:param name="node" value="assembly_compete"/>
                 </jsp:include>
@@ -161,7 +168,7 @@
                 <jsp:param name="title" value="Active Contests"/>
             </jsp:include>
         </c:when>
-        <c:when test="${pt == ASSEMBLY_TYPE_ID}">
+        <c:when test="${isAssembly}">
             <jsp:include page="/page_title.jsp">
                 <jsp:param name="image" value="assembly"/>
                 <jsp:param name="title" value="Active Contests"/>
@@ -241,7 +248,7 @@
             <c:when test="${pt == ARCHITECTURE_TYPE_ID}">
                 <a href="/wiki/display/tc/How+to+Compete+in+Architecture+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
             </c:when>
-            <c:when test="${pt == ASSEMBLY_TYPE_ID}">
+            <c:when test="${isAssembly}">
                 <a href="http://<%=ApplicationServer.WIKI_SERVER_NAME%>/display/tc/How+to+Compete+in+Assembly+Competitions"><img src="/i/development/get_started.gif" alt="Getting Started" border="0"/></a><br /><br />
             </c:when>
             <c:when test="${pt == CONCEPTUALIZATION_TYPE_ID}">
@@ -285,7 +292,7 @@
             <a href="/tc?module=BasicRSS&amp;c=rss_Architecture_Registration_Open&amp;dsid=28">Subscribe Now</a>
             <a href="/tc?module=BasicRSS&amp;c=rss_Architecture_Registration_Open&amp;dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
         </c:when>
-        <c:when test="${pt == ASSEMBLY_TYPE_ID}">
+        <c:when test="${isAssembly}">
             Competition opportunities via RSS -
             <a href="/tc?module=BasicRSS&amp;c=rss_Assembly_Registration_Open&amp;dsid=28">Subscribe Now</a>
             <a href="/tc?module=BasicRSS&amp;c=rss_Assembly_Registration_Open&amp;dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
@@ -366,7 +373,7 @@
             <c:when test="${pt == ARCHITECTURE_TYPE_ID}">
                 Active Software Architecture Contests</td>
             </c:when>
-            <c:when test="${pt == ASSEMBLY_TYPE_ID}">
+            <c:when test="${isAssembly}">
                 Active Software Assembly Contests</td>
             </c:when>
             <c:when test="${pt == CONCEPTUALIZATION_TYPE_ID}">
@@ -426,6 +433,11 @@
         <tr class="<%=even?"dark":"light"%>">
             <td class="value">
                 <a href="/tc?module=ProjectDetail&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">
+                    <c:choose>
+                        <c:when test="${isAssembly}">
+                            <rsc:item name="project_category_name" row="<%=resultRow%>"/> -
+                        </c:when>
+                    </c:choose>
                     <rsc:item name="contest_name" row="<%=resultRow%>"/>
                 </a>
             </td>

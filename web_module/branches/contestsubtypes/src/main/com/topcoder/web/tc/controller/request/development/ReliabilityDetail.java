@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.development;
 
@@ -35,8 +35,15 @@ import com.topcoder.web.tc.Constants;
  *   </ol> 
  * </p>
  *
- * @author dok, pulky, VolodymyrK
- * @version 1.3
+ * <p>
+ * Version 1.4 (Release Assembly - TopCoder Assembly Track Subtypes Integration Assembly 1.0 Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Re-factored the code to ease integration of new <code>Assembly</code> track subtypes.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky, VolodymyrK, isv
+ * @version 1.4
  */
 public class ReliabilityDetail extends Base {
 
@@ -51,79 +58,26 @@ public class ReliabilityDetail extends Base {
      */
     protected void developmentProcessing() throws TCWebException {
         try {
-            String phaseId = getRequest().getParameter(Constants.PHASE_ID);
+            int projectTypeId = getProjectTypeId();
             String userId = getRequest().getParameter(Constants.USER_ID);
-            if (String.valueOf(SoftwareComponent.DESIGN_PHASE).equals(phaseId)
-                || String.valueOf(SoftwareComponent.DEV_PHASE).equals(phaseId)
-                || String.valueOf(SoftwareComponent.CONCEPTUALIZATION_PHASE).equals(phaseId)
-                || String.valueOf(SoftwareComponent.SPECIFICATION_PHASE).equals(phaseId)
-                || String.valueOf(SoftwareComponent.ARCHITECTURE_PHASE).equals(phaseId)
-                || String.valueOf(SoftwareComponent.ASSEMBLY_PHASE).equals(phaseId)
-                || String.valueOf(SoftwareComponent.TEST_SUITES_PHASE).equals(phaseId)
-                || String.valueOf(SoftwareComponent.TEST_SCENARIOS_PHASE).equals(phaseId)
-                || String.valueOf(SoftwareComponent.UI_PROTOTYPE_PHASE).equals(phaseId)
-                || String.valueOf(SoftwareComponent.RIA_BUILD_PHASE).equals(phaseId)
-                || String.valueOf(SoftwareComponent.CONTENT_CREATION_PHASE).equals(phaseId)
-                || String.valueOf(SoftwareComponent.REPORTING_PHASE).equals(phaseId))
-            {
-                Request r = new Request();
-                r.setContentHandle("reliability_detail");
-                r.setProperty(Constants.PHASE_ID, phaseId);
-                r.setProperty(Constants.USER_ID, userId);
-                getRequest().setAttribute("contests", getDataAccess().getData(r).get("reliability_detail"));
 
-                getRequest().setAttribute(Constants.PHASE_ID, phaseId);
-                getRequest().setAttribute(Constants.CODER_ID, userId);
+            Request r = new Request();
+            r.setContentHandle("reliability_detail");
+            r.setProperty(Constants.PROJECT_TYPES_ID, getProjectTypeIds(projectTypeId));
+            r.setProperty(Constants.USER_ID, userId);
+            getRequest().setAttribute("contests", getDataAccess().getData(r).get("reliability_detail"));
 
-                String handleType = "";
-                switch (Integer.parseInt(getRequest().getParameter(Constants.PHASE_ID)) - 111) {
-                    case Constants.DESIGN_PROJECT_TYPE:
-                        handleType = HandleTag.DESIGN;
-                        break;
-                    case Constants.DEVELOPMENT_PROJECT_TYPE:
-                        handleType = HandleTag.DEVELOPMENT;
-                        break;
-                    case Constants.ASSEMBLY_PROJECT_TYPE:
-                        handleType = HandleTag.ASSEMBLY;
-                        break;
-                    case Constants.CONCEPTUALIZATION_PROJECT_TYPE:
-                        handleType = HandleTag.CONCEPTUALIZATION;
-                        break;
-                    case Constants.SPECIFICATION_PROJECT_TYPE:
-                        handleType = HandleTag.SPECIFICATION;
-                        break;
-                    case Constants.ARCHITECTURE_PROJECT_TYPE:
-                        handleType = HandleTag.ARCHITECTURE;
-                        break;
-                    case Constants.TEST_SUITES_PROJECT_TYPE:
-                        handleType = HandleTag.TEST_SUITES;
-                        break;
-                    case Constants.TEST_SCENARIOS_PROJECT_TYPE:
-                        handleType = HandleTag.TEST_SCENARIOS;
-                        break;
-                    case Constants.UI_PROTOTYPE_PROJECT_TYPE:
-                        handleType = HandleTag.UI_PROTOTYPE;
-                        break;
-                    case Constants.RIA_BUILD_PROJECT_TYPE:
-                        handleType = HandleTag.RIA_BUILD;
-                        break;
-                    case Constants.CONTENT_CREATION_PROJECT_TYPE:
-                        handleType = HandleTag.CONTENT_CREATION;
-                        break;
-                    case Constants.REPORTING_PROJECT_TYPE:
-                        handleType = HandleTag.REPORTING;
-                        break;
-                }
+            getRequest().setAttribute(Constants.PHASE_ID, projectTypeId + 111);
+            getRequest().setAttribute(Constants.CODER_ID, userId);
 
-                getRequest().setAttribute(Constants.TYPE_KEY, handleType);
-                getRequest().setAttribute(Constants.PROJECT_TYPE_ID,
-                    Integer.parseInt(getRequest().getParameter(Constants.PHASE_ID)) - 111);
+            String handleType = getHandleType(projectTypeId);
 
-                setNextPage("/dev/reliabilityDetail.jsp");
-                setIsNextPageInContext(true);
-            } else {
-                throw new TCWebException("Invalid phase specified " + phaseId);
-            }
+            getRequest().setAttribute(Constants.TYPE_KEY, handleType);
+            getRequest().setAttribute(Constants.PROJECT_TYPE_ID,
+                                      Integer.parseInt(getRequest().getParameter(Constants.PHASE_ID)) - 111);
+
+            setNextPage("/dev/reliabilityDetail.jsp");
+            setIsNextPageInContext(true);
 
         } catch (TCWebException e) {
             throw e;
@@ -132,5 +86,98 @@ public class ReliabilityDetail extends Base {
         }
 
 
+    }
+
+    /**
+     * <p>Gets the name for competition track matching the specified project category.</p>
+     *
+     * @param projectTypeId an <code>int</code> providing the ID of requested project category.
+     * @return a <code>String</code> providing the comma-separated list of project category IDs.
+     * @since 1.4
+     */
+    protected String getHandleType(int projectTypeId) {
+        switch (projectTypeId) {
+            case Constants.DESIGN_PROJECT_TYPE:
+                return HandleTag.DESIGN;
+            case Constants.DEVELOPMENT_PROJECT_TYPE:
+                return HandleTag.DEVELOPMENT;
+            case Constants.CONCEPTUALIZATION_PROJECT_TYPE:
+                return HandleTag.CONCEPTUALIZATION;
+            case Constants.SPECIFICATION_PROJECT_TYPE:
+                return HandleTag.SPECIFICATION;
+            case Constants.ARCHITECTURE_PROJECT_TYPE:
+                return HandleTag.ARCHITECTURE;
+            case Constants.TEST_SUITES_PROJECT_TYPE:
+                return HandleTag.TEST_SUITES;
+            case Constants.TEST_SCENARIOS_PROJECT_TYPE:
+                return HandleTag.TEST_SCENARIOS;
+            case Constants.UI_PROTOTYPE_PROJECT_TYPE:
+                return HandleTag.UI_PROTOTYPE;
+            case Constants.RIA_BUILD_PROJECT_TYPE:
+                return HandleTag.RIA_BUILD;
+            case Constants.CONTENT_CREATION_PROJECT_TYPE:
+                return HandleTag.CONTENT_CREATION;
+            case Constants.REPORTING_PROJECT_TYPE:
+                return HandleTag.REPORTING;
+        }
+        return "";
+    }
+
+    /**
+     * <p>Gets the ID for requested project category to retrieve data for.</p>
+     *
+     * @return an <code>int</code> providing the ID for requested project category.
+     * @throws TCWebException if an unexpected error occurs.
+     * @since 1.4
+     */
+    protected int getProjectTypeId() throws TCWebException {
+        int projectTypeId;
+        String phaseId = getRequest().getParameter(Constants.PHASE_ID);
+        if (hasParameter(Constants.PHASE_ID)) {
+            if (!phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE)) &&
+                !phaseId.equals(String.valueOf(SoftwareComponent.DESIGN_PHASE)) &&
+                !phaseId.equals(String.valueOf(SoftwareComponent.CONCEPTUALIZATION_PHASE)) &&
+                !phaseId.equals(String.valueOf(SoftwareComponent.SPECIFICATION_PHASE)) &&
+                !phaseId.equals(String.valueOf(SoftwareComponent.ARCHITECTURE_PHASE)) &&
+                !phaseId.equals(String.valueOf(SoftwareComponent.TEST_SUITES_PHASE)) &&
+                !phaseId.equals(String.valueOf(SoftwareComponent.TEST_SCENARIOS_PHASE)) &&
+                !phaseId.equals(String.valueOf(SoftwareComponent.UI_PROTOTYPE_PHASE)) &&
+                !phaseId.equals(String.valueOf(SoftwareComponent.RIA_BUILD_PHASE)) &&
+                !phaseId.equals(String.valueOf(SoftwareComponent.CONTENT_CREATION_PHASE)) &&
+                !phaseId.equals(String.valueOf(SoftwareComponent.REPORTING_PHASE))) {
+                throw new TCWebException("Invalid phase specified " + phaseId);
+            }
+            projectTypeId = Integer.parseInt(phaseId) - 111;
+        } else {
+            String projectTypeIdParam = getRequest().getParameter(Constants.PROJECT_TYPE_ID);
+            if (!projectTypeIdParam.equals(String.valueOf(Constants.DESIGN_PROJECT_TYPE)) &&
+                !projectTypeIdParam.equals(String.valueOf(Constants.DEVELOPMENT_PROJECT_TYPE)) &&
+                !projectTypeIdParam.equals(String.valueOf(Constants.CONCEPTUALIZATION_PROJECT_TYPE)) &&
+                !projectTypeIdParam.equals(String.valueOf(Constants.SPECIFICATION_PROJECT_TYPE)) &&
+                !projectTypeIdParam.equals(String.valueOf(Constants.ARCHITECTURE_PROJECT_TYPE)) &&
+                !projectTypeIdParam.equals(String.valueOf(Constants.TEST_SUITES_PROJECT_TYPE)) &&
+                !projectTypeIdParam.equals(String.valueOf(Constants.TEST_SCENARIOS_PROJECT_TYPE)) &&
+                !projectTypeIdParam.equals(String.valueOf(Constants.UI_PROTOTYPE_PROJECT_TYPE)) &&
+                !projectTypeIdParam.equals(String.valueOf(Constants.RIA_BUILD_PROJECT_TYPE)) &&
+                !projectTypeIdParam.equals(String.valueOf(Constants.CONTENT_CREATION_PROJECT_TYPE)) &&
+                !projectTypeIdParam.equals(String.valueOf(Constants.REPORTING_PROJECT_TYPE))) {
+                throw new TCWebException("Invalid project type specified " + projectTypeIdParam);
+            }
+
+            projectTypeId = Integer.parseInt(projectTypeIdParam);
+        }
+
+        return projectTypeId;
+    }
+
+    /**
+     * <p>Gets the list of project category IDs for data retrieval.</p>
+     *
+     * @param projectTypeId an <code>int</code> providing the ID of requested project category.
+     * @return a <code>String</code> providing the comma-separated list of project category IDs.
+     * @since 1.4
+     */
+    protected String getProjectTypeIds(int projectTypeId) {
+        return String.valueOf(projectTypeId);
     }
 }

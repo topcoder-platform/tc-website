@@ -91,8 +91,16 @@ import com.topcoder.web.tc.controller.request.development.Base;
  *     <li>Updated {@link #validation()} method to support Bug Hunt project type.</li>
  *   </ol>
  * </p>
- * @author dok, pulky, Blues, FireIce, lmmortal, TCSASSEMBLER
- * @version 1.8
+ *
+ * <p>
+ * Version 1.9 (Release Assembly - TopCoder Assembly Track Subtypes Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for Assembly track contest subtypes.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author dok, pulky, Blues, FireIce, lmmortal, isv
+ * @version 1.9
  */
 public class ViewRegistration extends Base {
 
@@ -185,7 +193,10 @@ public class ViewRegistration extends Base {
 
         if (!String.valueOf(projectTypeId).equals(String.valueOf(Constants.DESIGN_PROJECT_TYPE)) &&
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.DEVELOPMENT_PROJECT_TYPE)) &&
-                !String.valueOf(projectTypeId).equals(String.valueOf(Constants.ASSEMBLY_PROJECT_TYPE)) &&
+                !String.valueOf(projectTypeId).equals(String.valueOf(Constants.MODULE_ASSEMBLY_PROJECT_TYPE)) &&
+                !String.valueOf(projectTypeId).equals(String.valueOf(Constants.RELEASE_ASSEMBLY_PROJECT_TYPE)) &&
+                !String.valueOf(projectTypeId).equals(String.valueOf(Constants.SYSTEM_ASSEMBLY_PROJECT_TYPE)) &&
+                !String.valueOf(projectTypeId).equals(String.valueOf(Constants.PROTOTYPE_ASSEMBLY_PROJECT_TYPE)) &&
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.ARCHITECTURE_PROJECT_TYPE)) &&
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.COMPONENT_TESTING_PROJECT_TYPE)) &&
                 !String.valueOf(projectTypeId).equals(String.valueOf(Constants.CONCEPTUALIZATION_PROJECT_TYPE)) &&

@@ -3,8 +3,8 @@
  */
 package com.topcoder.web.common.model;
 
-import com.topcoder.web.common.WebConstants;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.WebConstants;
 
 /**
  * <p><strong>Purpose</strong>: Calculates Reviewers tasks costs.</p>
@@ -110,8 +110,15 @@ import com.topcoder.shared.util.logging.Logger;
   *   </ol>
  * </p>
  *
+ * <p>
+ * Version 1.2.1 (Release Assembly - TopCoder Assembly Track Subtypes Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added support for Assembly track contest subtypes.</li>
+ *   </ol>
+ * </p>
+ *
  * @author dok, ivern, isv, pulky, snow01, VolodymyrK, FireIce, flexme, TCSASSEMBLER
- * @version 1.2.0
+ * @version 1.2.1
  */
 
 public class DefaultPriceComponent implements SoftwareComponent {
@@ -230,7 +237,13 @@ public class DefaultPriceComponent implements SoftwareComponent {
                                                                    int submissionsPassedScreening) {
         if (phaseId == DESIGN_PHASE || phaseId == DEV_PHASE) {
             return new ComponentReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
-        } else if (phaseId == ASSEMBLY_PHASE) {
+        } else if (phaseId == MODULE_ASSEMBLY_PHASE) {
+            return new AssemblyReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
+        } else if (phaseId == RELEASE_ASSEMBLY_PHASE) {
+            return new AssemblyReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
+        } else if (phaseId == SYSTEM_ASSEMBLY_PHASE) {
+            return new AssemblyReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
+        } else if (phaseId == PROTOTYPE_ASSEMBLY_PHASE) {
             return new AssemblyReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
         } else if (phaseId == CONCEPTUALIZATION_PHASE) {
             return new ConceptualizationReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
@@ -246,7 +259,9 @@ public class DefaultPriceComponent implements SoftwareComponent {
         } else if (phaseId == SPECIFICATION_REVIEW_PHASE ||
                 phaseId == DESIGN_SPECIFICATION_PHASE || phaseId == DEVELOPMENT_SPECIFICATION_PHASE ||
                 phaseId == CONCEPTUALIZATION_SPECIFICATION_PHASE || phaseId == SPECIFICATION_SPECIFICATION_PHASE ||
-                phaseId == ARCHITECTURE_SPECIFICATION_PHASE || phaseId == ASSEMBLY_SPECIFICATION_PHASE ||
+                phaseId == ARCHITECTURE_SPECIFICATION_PHASE || phaseId == MODULE_ASSEMBLY_SPECIFICATION_PHASE ||
+                phaseId == RELEASE_ASSEMBLY_SPECIFICATION_PHASE || phaseId == SYSTEM_ASSEMBLY_SPECIFICATION_PHASE ||
+                phaseId == PROTOTYPE_ASSEMBLY_SPECIFICATION_PHASE ||
                 phaseId == TEST_SUITES_SPECIFICATION_PHASE || phaseId == TEST_SCENARIOS_SPECIFICATION_PHASE ||
                 phaseId == UI_PROTOTYPE_SPECIFICATION_PHASE || phaseId == RIA_BUILD_SPECIFICATION_PHASE ||
                 phaseId == RIA_COMPONENT_SPECIFICATION_PHASE || phaseId == COPILOT_POSTING_SPECIFICATION_PHASE ||
@@ -372,7 +387,10 @@ public class DefaultPriceComponent implements SoftwareComponent {
             case DESIGN_PHASE: return 30;
             case DEV_PHASE: return 30;
             case ARCHITECTURE_PHASE: return 50;
-            case ASSEMBLY_PHASE: return 50;
+            case MODULE_ASSEMBLY_PHASE: return 50;
+            case RELEASE_ASSEMBLY_PHASE: return 50;
+            case SYSTEM_ASSEMBLY_PHASE: return 50;
+            case PROTOTYPE_ASSEMBLY_PHASE: return 50;
             case CONCEPTUALIZATION_PHASE: return 30;
             case SPECIFICATION_PHASE: return 40;
             case TEST_SUITES_PHASE: return 50;
@@ -424,7 +442,10 @@ public class DefaultPriceComponent implements SoftwareComponent {
             System.out.println("Conceptualization phaseId               : " + CONCEPTUALIZATION_PHASE);
             System.out.println("Specification phaseId                   : " + SPECIFICATION_PHASE);
             System.out.println("Architecture phaseId                    : " + ARCHITECTURE_PHASE);
-            System.out.println("Assembly phaseId                        : " + ASSEMBLY_PHASE);
+            System.out.println("Module Assembly phaseId                 : " + MODULE_ASSEMBLY_PHASE);
+            System.out.println("Release Assembly phaseId                : " + RELEASE_ASSEMBLY_PHASE);
+            System.out.println("System Assembly phaseId                 : " + SYSTEM_ASSEMBLY_PHASE);
+            System.out.println("Prototype Assembly phaseId              : " + PROTOTYPE_ASSEMBLY_PHASE);
             System.out.println("Test Suites phaseId                     : " + TEST_SUITES_PHASE);
             System.out.println("Test Scenarios phaseId                  : " + TEST_SCENARIOS_PHASE);
             System.out.println("UI Prototype phaseId                    : " + UI_PROTOTYPE_PHASE);

@@ -1,3 +1,11 @@
+<%--
+  - Author: pulky, snow01, FireIce, isv
+  - Version: 1.1
+  - Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
+  -
+  - Version 1.1 (Release Assembly - TopCoder Assembly Track Subtypes Integration Assembly 1.0) Change notes:
+  -  Added support for Assembly track contest subtypes.
+--%>
 <%@ page language="java"
          import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.web.tc.Constants,
@@ -5,6 +13,7 @@
 
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtags" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <script src="/js/tcscript.js" type="text/javascript"></script>
 
 <% ResultSetContainer rscTrackData = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("Coder_Track_Data"); %>
@@ -30,12 +39,22 @@
         </tr>
         <tr>
             <td class="catNW" colspan="2">
-                <A href='/tc?module=CompetitionHistory&<%=Constants.PHASE_ID%>=<%=request.getParameter("phase_id")%>&cr=<%=request.getParameter("cr")%>'>[competition
-                    history]</A><br>
-                <A href='/tc?module=OutstandingProjects&<%=Constants.PHASE_ID%>=<%=request.getParameter("phase_id")%>&cr=<%=request.getParameter("cr")%>'>[current
-                    contests]</A><br>
-                <A href="/tc?module=ReliabilityDetail&ph=<%=request.getParameter("phase_id")%>&uid=<%=request.getParameter("cr")%>">[reliability
-                    detail]</A><br><br>
+                <c:choose>
+                    <c:when test="${param['track'] eq 'Assembly'}">
+                        <a href='/tc?module=AssemblyCompetitionHistory&amp;cr=<%=request.getParameter("cr")%>'>[competition history]</a><br/>
+                        <a href='/tc?module=AssemblyOutstandingProjects&amp;cr=<%=request.getParameter("cr")%>'>[current contests]</a><br/>
+                        <a href="/tc?module=AssemblyReliabilityDetail&amp;uid=<%=request.getParameter("cr")%>">[reliability detail]</a>
+                        <br/><br/>
+                    </c:when>
+                    <c:otherwise>
+                        <A href='/tc?module=CompetitionHistory&<%=Constants.PHASE_ID%>=<%=request.getParameter("phase_id")%>&cr=<%=request.getParameter("cr")%>'>[competition
+                            history]</A><br>
+                        <A href='/tc?module=OutstandingProjects&<%=Constants.PHASE_ID%>=<%=request.getParameter("phase_id")%>&cr=<%=request.getParameter("cr")%>'>[current
+                            contests]</A><br>
+                        <A href="/tc?module=ReliabilityDetail&ph=<%=request.getParameter("phase_id")%>&uid=<%=request.getParameter("cr")%>">[reliability
+                            detail]</A><br><br>
+                    </c:otherwise>
+                </c:choose>
             </td>
         </tr>
         <tr>
