@@ -144,7 +144,7 @@
       <td class="value">30
 	    <div class="srm">
 		 <strong><A href="/tc?module=MatchDetails&rd=15184">SRM 562</A></strong><br />
-         21:00
+         11:00
         </div>
       </td>
       <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
