@@ -7,6 +7,7 @@ import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.ejb.EJBException;
 
@@ -31,9 +32,16 @@ import com.jivesoftware.forum.ForumNotFoundException;
  *     <li>Added {@link #postThreadToQuestionForum(long, String, String, long)} to post a new thread in a specified forum.</li>
  *   </ol>
  * </p>
+ *
+ * <p>
+ * Version 1.3 (Release Assembly - TC Direct Project Forum Configuration Assembly) Change notes:
+ *   <ol>
+ *     <li>Modified {@link #createTopCoderDirectProjectForums(String, Long, Map)} to add a new argument.</li>
+ *   </ol>
+ * </p>
  * 
- * @author TCSASSEMBER
- * @version 1.2
+ * @author TCSASSEMBER, duxiaoyang
+ * @version 1.3
  */
 public interface Forums extends EJBObject {
     
@@ -91,6 +99,14 @@ public interface Forums extends EJBObject {
 
     public void updateComponentName(long categoryID, String name) throws EJBException, RemoteException, Exception;
 
+    /**
+     * Update the studio forum category name.
+     *
+     * @param categeoryId the id of the category to update
+     * @param name the new category name
+     */
+    public void updateStudioForumName(long categoryID, String name) throws EJBException, RemoteException,Exception;
+    
     public void deleteCategoryWatches(long userID, long[] categoryIDs) throws EJBException, RemoteException, ForumCategoryNotFoundException, UnauthorizedException, UserNotFoundException;
 
     public long[] areCategoriesWatched(long userID, long[] categoryIDs) throws EJBException, RemoteException, ForumCategoryNotFoundException, UnauthorizedException, UserNotFoundException;
@@ -143,4 +159,22 @@ public interface Forums extends EJBObject {
      * @since 1.2
      */
     public long postThreadToQuestionForum(long categoryId, String subject, String body, long userId) throws EJBException, RemoteException, Exception;
+
+    /**
+     * <p>Creates the forum for the specified <code>TopCoder Direct</code> project.</p>
+     * 
+     * @param projectName a <code>String</code> providing the name of <code>TC Direct</code> project to create forums 
+     *        for.
+     * @param tcDirectProjectTypeId a <code>Long</code> referencing the type of <code>TC Direct</code> project. 
+     *        May be <code>null</code>.
+     * @param forums the pre-configured forums to be created.
+     * @return a <code>long</code> providing the ID of created forum.
+     * @throws EJBException if an unexpected error occurs.
+     * @throws Exception if an unexpected error occurs.
+     * @throws IllegalArgumentException if specified <code>projectName</code> is <code>null</code> or empty, or
+     *         specified <code>forums</code> contains null key/value.
+     * @since 1.1
+     */
+    public long createTopCoderDirectProjectForums(String projectName, Long tcDirectProjectTypeId,
+            Map<String, String> forums) throws EJBException, RemoteException, Exception;
 }

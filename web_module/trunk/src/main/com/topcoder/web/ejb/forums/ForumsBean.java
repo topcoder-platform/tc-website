@@ -57,6 +57,7 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Date;
+import java.util.Map;
 
 /**
  * This class handles interaction with the Jive database. Please update the code
@@ -77,9 +78,17 @@ import java.util.Date;
  *     <li>Added {@link #getQuestionForum(long)} to get the question forum in a specified category.</li>
  *   </ol>
  * </p>
+ *
+ * <p>
+ * Version 1.3 (Release Assembly - TC Direct Project Forum Configuration Assembly) Change notes:
+ *   <ol>
+ *     <li>Modified {@link #createTopCoderDirectProjectForums(String, Long, Map)} to support project forum template
+ *     configuration.</li>
+ *   </ol>
+ * </p>
  * 
- * @author mtong, TCSASSEMBER
- * @version 1.2
+ * @author mtong, TCSASSEMBER, duxiaoyang
+ * @version 1.3
  */
 
 public class ForumsBean extends BaseEJB {
@@ -637,6 +646,88 @@ public class ForumsBean extends BaseEJB {
             }
         }
     }
+
+     /**
+     * <p>Creates the forum for the specified <code>TopCoder Direct</code> project.</p>
+     * 
+     * @param projectName a <code>String</code> providing the name of <code>TC Direct</code> project to create forums 
+     *        for.
+     * @param tcDirectProjectTypeId a <code>Long</code> referencing the type of <code>TC Direct</code> project. 
+     *        May be <code>null</code>.
+     * @param forums the pre-configured forums to be created.
+     * @return a <code>long</code> providing the ID of created forum.
+     * @throws EJBException if an unexpected error occurs.
+     * @throws Exception if an unexpected error occurs.
+     * @throws IllegalArgumentException if specified <code>projectName</code> is <code>null</code> or empty, or
+     *         specified <code>forums</code> contains null key/value.
+     * @since 1.1
+     */
+    public long createTopCoderDirectProjectForums(String projectName, Long tcDirectProjectTypeId,
+            Map<String, String> forums) throws Exception {
+        if ((projectName == null) || (projectName.trim().length() == 0)) {
+            throw new IllegalArgumentException("The parameter [projectName] is not valid. [" + projectName + "]");
+        }
+        if (forums != null) {
+            for (String key : forums.keySet()) {
+                if (key == null || forums.get(key) == null) {
+                    throw new IllegalArgumentException("The parameter [forums] is not valid. [" + forums + "]");
+                }
+            }
+        }
+        
+        Connection forumsConn = null;
+        try {
+            // Create new forum category for TC Direct project
+            ForumCategory newCategory 
+                = forumFactory.getForumCategory(getTcDirectProjectForumsRootCategoryId()).createCategory(projectName,
+                                                                                                         projectName);
+            newCategory.setProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS,
+                                    ForumConstants.PROPERTY_ARCHIVAL_STATUS_ACTIVE);
+            newCategory.setProperty(ForumConstants.PROPERTY_MODIFY_FORUMS, "true");
+
+            if (forums == null) {
+                // Create sub-forums for 
+                forumsConn = DBMS.getConnection(DBMS.FORUMS_DATASOURCE_NAME);
+                PreparedStatement forumsPS;
+                if (tcDirectProjectTypeId == null) {
+                    forumsPS = forumsConn.prepareStatement(
+                        "SELECT name, description " +
+                        "FROM template_project_forum t " +
+                        "WHERE t.direct_project_type_id IS NULL " +
+                        "ORDER BY t.display_order, t.template_project_forum_id");
+                } else {
+                    forumsPS = forumsConn.prepareStatement(
+                        "SELECT name, description " +
+                        "FROM template_project_forum t " +
+                        "WHERE t.direct_project_type_id = ? " +
+                        "ORDER BY t.display_order, t.template_project_forum_id");
+                    forumsPS.setLong(1, tcDirectProjectTypeId);
+                }
+    
+                ResultSet rs = forumsPS.executeQuery();
+                while (rs.next()) {
+                    forumFactory.createForum(rs.getString("name"), rs.getString("description"), newCategory);
+                }
+                rs.close();
+                forumsPS.close();
+            } else {
+                for (String forumName : forums.keySet()) {
+                    forumFactory.createForum(forumName, forums.get(forumName), newCategory);
+                }
+            }
+
+            createSoftwareComponentPermissions(newCategory, false);
+            
+            return newCategory.getID();
+        } catch (Exception e) {
+            logException(e, "error in creating TC Direct project forums");
+            throw e;
+        } finally {
+            if (forumsConn != null) {
+                forumsConn.close();
+            }
+        }
+    }
     
     /**
      * <p>Post a new thread to the question forum under a specified category.</p>
@@ -962,6 +1053,22 @@ public class ForumsBean extends BaseEJB {
 			forumCategory.setName(ForumsUtil.getComponentCategoryName(name, oldVersionText));
 		} catch (Exception e) {
 			logException(e, "error in updating component name");
+			throw e;
+		}
+	}
+    
+    /**
+     * Update the studio forum category name.
+     *
+     * @param categeoryId the id of the category to update
+     * @param name the new category name
+     */
+    public void updateStudioForumName(long categoryID, String name) throws Exception {
+		try {
+			ForumCategory forumCategory = forumFactory.getForumCategory(categoryID);
+			forumCategory.setName(name);
+		} catch (Exception e) {
+			logException(e, "error in updating studio forum name");
 			throw e;
 		}
 	}
