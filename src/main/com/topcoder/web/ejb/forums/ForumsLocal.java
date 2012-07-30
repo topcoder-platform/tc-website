@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.HashSet;
 import java.util.Hashtable;
+import java.util.Map;
 
 /**
  * <p>An interface to <code>Forums EJB</code>.</p>
@@ -111,6 +112,14 @@ public interface ForumsLocal extends EJBLocalObject {
 
     public void updateComponentName(long categoryID, String name) throws EJBException, Exception;
 
+    /**
+     * Update the studio forum category name.
+     *
+     * @param categeoryId the id of the category to update
+     * @param name the new category name
+     */
+    public void updateStudioForumName(long categoryID, String name) throws EJBException, Exception;
+    
      public void deleteCategoryWatches(long userID, long[] categoryIDs) throws EJBException, Exception;
 
     public long[] areCategoriesWatched(long userID, long[] categoryIDs) throws EJBException, Exception;
@@ -137,4 +146,22 @@ public interface ForumsLocal extends EJBLocalObject {
      * @since 1.2
      */
     public long postThreadToQuestionForum(long categoryId, String subject, String body, long userId) throws EJBException, Exception;
+	
+	    /**
+     * <p>Creates the forum for the specified <code>TopCoder Direct</code> project.</p>
+     * 
+     * @param projectName a <code>String</code> providing the name of <code>TC Direct</code> project to create forums 
+     *        for.
+     * @param tcDirectProjectTypeId a <code>Long</code> referencing the type of <code>TC Direct</code> project. 
+     *        May be <code>null</code>.
+     * @param forums the pre-configured forums to be created.
+     * @return a <code>long</code> providing the ID of created forum.
+     * @throws EJBException if an unexpected error occurs.
+     * @throws Exception if an unexpected error occurs.
+     * @throws IllegalArgumentException if specified <code>projectName</code> is <code>null</code> or empty, or
+     *         specified <code>forums</code> contains null key/value.
+     * @since 1.1
+     */
+    public long createTopCoderDirectProjectForums(String projectName, Long tcDirectProjectTypeId,
+            Map<String, String> forums) throws EJBException, RemoteException, Exception;
 }
