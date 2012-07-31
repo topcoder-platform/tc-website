@@ -1060,13 +1060,13 @@ public class ForumsBean extends BaseEJB {
     /**
      * Update the studio forum category name.
      *
-     * @param categeoryId the id of the category to update
+     * @param forumId the id of the forum to update
      * @param name the new category name
      */
-    public void updateStudioForumName(long categoryID, String name) throws Exception {
-		try {
-			ForumCategory forumCategory = forumFactory.getForumCategory(categoryID);
-			forumCategory.setName(name);
+    public void updateStudioForumName(long forumId, String name) throws Exception {
+		try { 
+			Forum forum = forumFactory.getForum(forumId);
+			forum.setName(name);
 		} catch (Exception e) {
 			logException(e, "error in updating studio forum name");
 			throw e;
