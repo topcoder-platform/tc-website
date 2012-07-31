@@ -163,5 +163,5 @@ public interface ForumsLocal extends EJBLocalObject {
      * @since 1.1
      */
     public long createTopCoderDirectProjectForums(String projectName, Long tcDirectProjectTypeId,
-            Map<String, String> forums) throws EJBException, RemoteException, Exception;
+            Map<String, String> forums) throws EJBException, Exception;
 }
