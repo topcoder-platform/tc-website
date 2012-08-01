@@ -144,6 +144,7 @@
       <td class="value">30
 	    <div class="srm">
 		 <strong><A href="/tc?module=MatchDetails&rd=15184">SRM 562</A></strong><br />
+         brought to you by <A href="http://community.topcoder.com/tco12/overview-sponsor/tco12-sponsor-dena/">DeNA</A><br />
          11:00
         </div>
       </td>
