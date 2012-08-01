@@ -1,0 +1,16 @@
+1,shen75  you can leverage NonEmptyValidator and SizeValidator to check the input and size of handle.
+This is a comment. And this idea is not good. No need to introduce more dependencies just to check the length of handle. 
+We could check it directly.
+
+2, flytoj2ee In http://tc.cloud.topcoder.com/reg/registerAction.action page, it could pass handle validation if input "ass_1". 
+Won't fix. See http://apps.topcoder.com/forums/?module=Thread&threadID=753829&start=0
+
+3, FF is revamped against head version of DB trunk. This is approved at http://apps.topcoder.com/forums/?module=Thread&threadID=753829&start=0
+
+4, Sections of Database setup and scripts related stuffs are removed because of #3.
+
+5, Currently, DB trunk has an issue with invaid_handle query. Final reviewer may need manually update text column of "invalid_handle" query.
+ I have filed a JIRA Ticket to mashannon168. I think it would be fixed very soon.
+
+6, All other issues are fixed or no longer exist becuase of switching to Head Revision of DB trunk. 
+

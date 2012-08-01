@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2011 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.reg.action;
 
@@ -31,8 +31,16 @@ import com.topcoder.web.reg.RegHelper;
  * <p>
  * Performs the registration action.
  * </p>
+ * <p>
+ * Version 1.1(Release Assembly - TC Registration Site 2 Handle Validation
+ * Upgrade v1.0) Change notes:
+ * <ol>
+ * <li>{@link #validate()} method has been re-factored.</li>
+ * </ol>
+ * </p>
  * 
- * @author live_world
+ * @version 1.1
+ * @author live_world, leo_lol
  */
 public class RegisterAction extends BaseAction implements PostAction {
 
@@ -88,40 +96,39 @@ public class RegisterAction extends BaseAction implements PostAction {
 
     /**
      * Validates the user.
+     * <p>
+     * Updated in version 1.1: handle validation logic has been changed to add
+     * offensive words checking. See {@link RegHelper#validateHandle(String)}
+     * for more information.
+     * </p>
      */
     @Override
     public void validate() {
+        //Validate invalid handle
+        if(!RegHelper.validateHandle(handle, this)) {
+            return;
+        }
+        
+        //Validate availability of the handle.
         if ((!RegHelper.isEmptyString(handle)) && getUserDAO().find(handle, true) != null) {
             addActionError("The handle - " + handle + " is not available, please use another one.");
             return;
         }
 
+        //Validate availability of email.
         if ((!RegHelper.isEmptyString(email)) && getUserDAO().find(null, null, null, email).size() > 0) {
             addActionError("The email - " + email + " is not available, please use another one.");
             return;
-        }
-
-        if ((!RegHelper.isEmptyString(handle)) && !StringUtils.containsOnly(handle, Constants.HANDLE_ALPHABET, false)) {
-        	addActionError("Your user name may contain only letters, numbers and " + Constants.HANDLE_PUNCTUATION);
-        	return;
-        }
-
-        if ((!RegHelper.isEmptyString(handle)) && StringUtils.containsOnly(handle, Constants.HANDLE_PUNCTUATION, false)) {
-        	addActionError("Your user name may not contain only punctuation.");
-        	return;
-        }
-
-        if ((!RegHelper.isEmptyString(handle)) && handle.toLowerCase().trim().startsWith("admin")) {
-        	addActionError("Please choose another user name.");
-        	return;
         }
     }
 
     /**
      * Registers a new user.
      * 
-     * @return a <code>String</code> referencing the next view or action to route request to
-     * @throws Exception if an unexpected error occurs while processing the request
+     * @return a <code>String</code> referencing the next view or action to
+     *         route request to
+     * @throws Exception
+     *             if an unexpected error occurs while processing the request
      */
     @Override
     public String execute() throws Exception {
@@ -133,8 +140,8 @@ public class RegisterAction extends BaseAction implements PostAction {
             addSecurityStuff(user);
             // send activation mail
             if (email != null) {
-              RegHelper.sendActivationEmail(activationEmailSubject, activationCode, activationEmailBodyTemplateFile,
-                  email, activationEmailFromAddress);
+                RegHelper.sendActivationEmail(activationEmailSubject, activationCode, activationEmailBodyTemplateFile,
+                        email, activationEmailFromAddress);
             }
             user.setActivationCode(activationCode);
             userDao.saveOrUpdate(user);
@@ -148,7 +155,8 @@ public class RegisterAction extends BaseAction implements PostAction {
     /**
      * The setter for the activationEmailBodyTemplateFile instance variable.
      * 
-     * @param activationEmailBodyTemplateFile the activationEmailBodyTemplateFile to set
+     * @param activationEmailBodyTemplateFile
+     *            the activationEmailBodyTemplateFile to set
      */
     public void setActivationEmailBodyTemplateFile(String activationEmailBodyTemplateFile) {
         this.activationEmailBodyTemplateFile = activationEmailBodyTemplateFile;
@@ -157,7 +165,8 @@ public class RegisterAction extends BaseAction implements PostAction {
     /**
      * The setter for the activationEmailSubject instance variable.
      * 
-     * @param activationEmailSubject the activationEmailSubject to set
+     * @param activationEmailSubject
+     *            the activationEmailSubject to set
      */
     public void setActivationEmailSubject(String activationEmailSubject) {
         this.activationEmailSubject = activationEmailSubject;
@@ -166,7 +175,8 @@ public class RegisterAction extends BaseAction implements PostAction {
     /**
      * The setter for the activationEmailFromAddress instance variable.
      * 
-     * @param activationEmailFromAddress the activationEmailFromAddress to set
+     * @param activationEmailFromAddress
+     *            the activationEmailFromAddress to set
      */
     public void setActivationEmailFromAddress(String activationEmailFromAddress) {
         this.activationEmailFromAddress = activationEmailFromAddress;
@@ -183,13 +193,13 @@ public class RegisterAction extends BaseAction implements PostAction {
         user.setLastName(lastName);
         user.setHandle(handle);
         if (email != null) {
-          Email emailAdd = new Email();
-          emailAdd.setAddress(email);
-          emailAdd.setPrimary(Boolean.TRUE);
-          emailAdd.setEmailTypeId(Email.TYPE_ID_PRIMARY);
-          emailAdd.setStatusId(Email.STATUS_ID_UNACTIVE);
-          emailAdd.setUser(user);
-          user.addEmailAddress(emailAdd);
+            Email emailAdd = new Email();
+            emailAdd.setAddress(email);
+            emailAdd.setPrimary(Boolean.TRUE);
+            emailAdd.setEmailTypeId(Email.TYPE_ID_PRIMARY);
+            emailAdd.setStatusId(Email.STATUS_ID_UNACTIVE);
+            emailAdd.setUser(user);
+            user.addEmailAddress(emailAdd);
         }
         // not save password to user table.
         user.setPassword(password);
@@ -204,24 +214,23 @@ public class RegisterAction extends BaseAction implements PostAction {
     /**
      * Reverts the security stuff.
      * 
-     * @param user the User to revert
-     * @param exception the occurred exception
+     * @param user
+     *            the User to revert
+     * @param exception
+     *            the occurred exception
      */
     private static void revertSecurityStuff(User user, Exception exception) {
         if (user != null && user.getId() != null) {
             Context ctx = null;
             try {
-                ctx =
-                    TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY,
+                ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY,
                         ApplicationServer.SECURITY_PROVIDER_URL);
-                PrincipalMgrRemoteHome pmrh =
-                    (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+                PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
                 PrincipalMgrRemote pmr = pmrh.create();
                 pmr.removeUser(new UserPrincipal("", user.getId().longValue()), new TCSubject(132456));
 
             } catch (Throwable ex) {
-                LOGGER
-                    .error("problem in exception callback for user: " + user.getId() + " " + exception.getMessage());
+                LOGGER.error("problem in exception callback for user: " + user.getId() + " " + exception.getMessage());
             } finally {
                 RegHelper.closeContext(LOGGER, ctx);
             }
@@ -231,28 +240,29 @@ public class RegisterAction extends BaseAction implements PostAction {
     /**
      * Adds the user to security groups.
      * 
-     * @param user the user to be created
-     * @throws Exception any exception while creation
+     * @param user
+     *            the user to be created
+     * @throws Exception
+     *             any exception while creation
      */
     @SuppressWarnings("unchecked")
     private static void addSecurityStuff(User user) throws Exception {
         Context ctx = null;
         try {
-            ctx =
-                TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY,
+            ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY,
                     ApplicationServer.SECURITY_PROVIDER_URL);
-            // 132456 is a dump user id for creating user.this is from existing code.
+            // 132456 is a dump user id for creating user.this is from existing
+            // code.
             TCSubject tcs = new TCSubject(132456);
 
             PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
             PrincipalMgrRemote pmr = pmrh.create();
             // create the security user entry
-            UserPrincipal myPrincipal =
-                pmr
-                    .createUser(user.getId(), user.getHandle(), user.getPassword(), tcs,
-                        DBMS.JTS_OLTP_DATASOURCE_NAME);
+            UserPrincipal myPrincipal = pmr.createUser(user.getId(), user.getHandle(), user.getPassword(), tcs,
+                    DBMS.JTS_OLTP_DATASOURCE_NAME);
 
-            // add them to these two as well. eventually i'm guessing we'll rearrange security and this'll change
+            // add them to these two as well. eventually i'm guessing we'll
+            // rearrange security and this'll change
             Collection<GroupPrincipal> groups = pmr.getGroups(tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
 
             GroupPrincipal anonGroup = RegHelper.findGroupPrincipal(groups, "Anonymous");
@@ -284,7 +294,8 @@ public class RegisterAction extends BaseAction implements PostAction {
     /**
      * The setter for the firstName instance variable.
      * 
-     * @param firstName the firstName to set
+     * @param firstName
+     *            the firstName to set
      */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -302,7 +313,8 @@ public class RegisterAction extends BaseAction implements PostAction {
     /**
      * The setter for the lastName instance variable.
      * 
-     * @param lastName the lastName to set
+     * @param lastName
+     *            the lastName to set
      */
     public void setLastName(String lastName) {
         this.lastName = lastName;
@@ -320,7 +332,8 @@ public class RegisterAction extends BaseAction implements PostAction {
     /**
      * The setter for the handle instance variable.
      * 
-     * @param handle the handle to set
+     * @param handle
+     *            the handle to set
      */
     public void setHandle(String handle) {
         this.handle = handle;
@@ -338,7 +351,8 @@ public class RegisterAction extends BaseAction implements PostAction {
     /**
      * The setter for the email instance variable.
      * 
-     * @param email the email to set
+     * @param email
+     *            the email to set
      */
     public void setEmail(String email) {
         this.email = email;
@@ -356,7 +370,8 @@ public class RegisterAction extends BaseAction implements PostAction {
     /**
      * The setter for the password instance variable.
      * 
-     * @param password the password to set
+     * @param password
+     *            the password to set
      */
     public void setPassword(String password) {
         this.password = password;
@@ -374,7 +389,8 @@ public class RegisterAction extends BaseAction implements PostAction {
     /**
      * The setter for the passwordConfirm instance variable.
      * 
-     * @param passwordConfirm the passwordConfirm to set
+     * @param passwordConfirm
+     *            the passwordConfirm to set
      */
     public void setPasswordConfirm(String passwordConfirm) {
         this.passwordConfirm = passwordConfirm;
@@ -392,7 +408,8 @@ public class RegisterAction extends BaseAction implements PostAction {
     /**
      * The setter for the captchaWord instance variable.
      * 
-     * @param captchaWord the captchaWord to set
+     * @param captchaWord
+     *            the captchaWord to set
      */
     public void setCaptchaWord(String captchaWord) {
         this.captchaWord = captchaWord;

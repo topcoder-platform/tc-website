@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common.dao.hibernate;
 
@@ -27,6 +27,7 @@ import com.topcoder.web.common.dao.FileTypeDAO;
 import com.topcoder.web.common.dao.ImageDAO;
 import com.topcoder.web.common.dao.IntroEventDAO;
 import com.topcoder.web.common.dao.IntroEventPropertyTypeDAO;
+import com.topcoder.web.common.dao.InvalidHandleDAO;
 import com.topcoder.web.common.dao.LanguageDAO;
 import com.topcoder.web.common.dao.MemberContactBlackListDAO;
 import com.topcoder.web.common.dao.MemberContactMessageDAO;
@@ -70,20 +71,29 @@ import com.topcoder.web.common.dao.VisaLetterEventDAO;
 import com.topcoder.web.common.dao.VisaLetterRequestDAO;
 
 /**
- * <p>Hibernate implementation for the DAO Factory.</p>
- *
  * <p>
- *   Version 1.1 (Studio Release Assembly - Spec Review Sign up page v1.0) Change notes:
+ * Hibernate implementation for the DAO Factory.
+ * </p>
+ * <p>
+ * Version 1.1 (Studio Release Assembly - Spec Review Sign up page v1.0) Change
+ * notes:
+ * <ol>
+ * Added method to get Specification Review DAO
+ * </ol>
+ * <ol>
+ * Added method to get User Permission Grant DAO
+ * </ol>
+ * </p>
+ * 
+ * <p>
+ *   Version 1.2(Release Assembly - TC Registration Site 2 Handle Validation Upgrade) Change notes:
  *   <ol>
- *       Added method to get Specification Review DAO
- *   </ol>
- *   <ol>
- *       Added method to get User Permission Grant DAO
+ *      <li>Add method {@link #getInvalidHandleDAO()}</li>
  *   </ol>
  * </p>
- *
- * @author dok, TCSDEVELOPER
- * @version 1.1
+ * 
+ * @author dok, TCSDEVELOPER, leo_lol
+ * @version 1.2
  */
 public class DAOFactoryHibernate implements DAOFactory {
     public AlgoRatingTypeDAO getAlgoRatingTypeDAO() {
@@ -336,7 +346,7 @@ public class DAOFactoryHibernate implements DAOFactory {
 
     /**
      * This method constructs the corresponding Specification Review DAO object
-     *
+     * 
      * @return hibernate implementation of the <code>SpecReviewDAO</code>
      * @since 1.1
      */
@@ -346,12 +356,24 @@ public class DAOFactoryHibernate implements DAOFactory {
 
     /**
      * This method constructs the corresponding User Permission Grant DAO object
-     *
-     * @return hibernate implementation of the <code>UserPermissionGrantDAO</code>
+     * 
+     * @return hibernate implementation of the
+     *         <code>UserPermissionGrantDAO</code>
      * @since 1.1
      */
     public UserPermissionGrantDAO getUserPermissionGrantDAO() {
         return new UserPermissionGrantDAOHibernate();
+    }
+
+    /**
+     * This method constructs the corresponding InvalidHandleDAO object.
+     * <em>Warning: </em> This method is still not supported via Hibernate.
+     * @throws RuntimeException To show this method is still not supported.
+     * @return Instance of {@link InvalidHandleDAO}.
+     * @since 1.2
+     */
+    public InvalidHandleDAO getInvalidHandleDAO() {
+        throw new RuntimeException("Not supported");
     }
 
 }

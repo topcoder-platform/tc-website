@@ -23,20 +23,7 @@
             <message>the max length of the last name is ${maxLength}</message>
         </field-validator>
     </field>
-    <field name="handle">
-        <field-validator type="requiredstring">
-            <param name="trim">true</param>
-            <message>Please fill your handle</message>
-        </field-validator>
-        <field-validator type="stringlength">
-            <param name="maxLength">15</param>
-            <param name="minLength">2</param>
-            <param name="trim">true</param>
-            <message>valid handle must be between ${minLength} and ${maxLength} characters long.</message>
-        </field-validator>
-    </field>
-
-
+	
     <field name="email">
         <field-validator type="requiredstring">
             <param name="trim">true</param>

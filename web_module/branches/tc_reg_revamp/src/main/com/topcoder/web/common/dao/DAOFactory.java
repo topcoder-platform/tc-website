@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common.dao;
 
@@ -15,9 +15,16 @@ package com.topcoder.web.common.dao;
  *       Added method to get User Permission Grant DAO
  *   </ol>
  * </p>
+ * 
+ * <p>
+ *      Version 1.2 (Release Assembly - TC Registration Site 2 Handle Validation Upgrade) Change notes:
+ *      <ol>
+ *           <li>Add {@link #getInvalidHandleDAO()} method</li>
+ *      </ol>
+ * </p>
  *
- * @author dok, TCSDEVELOPER, VolodymyrK
- * @version 1.1
+ * @author dok, TCSDEVELOPER, VolodymyrK, leo_lol
+ * @version 1.2
  */
 public interface DAOFactory {
     AlgoRatingTypeDAO getAlgoRatingTypeDAO();
@@ -159,5 +166,13 @@ public interface DAOFactory {
      * @since 1.1
      */
     UserPermissionGrantDAO getUserPermissionGrantDAO();
+    
+    /**
+     * This method constructs the corresponding InvalidHandleDAO object.
+     * 
+     * @return Instance of {@link InvalidHandleDAO}.
+     * @since 1.2
+     */
+    InvalidHandleDAO getInvalidHandleDAO();
 
 }
