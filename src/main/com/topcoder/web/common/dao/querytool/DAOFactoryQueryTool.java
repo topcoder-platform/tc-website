@@ -1,29 +1,39 @@
 /*
- * Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common.dao.querytool;
 
 import com.topcoder.web.common.dao.*;
 
 /**
- * <p>Query Tool implementation for the DAO Factory.</p>
- *
  * <p>
- *   Version 1.1 (Studio Release Assembly - Spec Review Sign up page v1.0) Change notes:
- *   <ol>
- *       Added method to get Specification Review DAO
- *   </ol>
- *   <ol>
- *       Added method to get User Permission Grant DAO
- *   </ol>
+ * Query Tool implementation for the DAO Factory.
  * </p>
- *
- * @author pulky, TCSDEVELOPER
- * @version 1.1
+ * <p>
+ * Version 1.1 (Studio Release Assembly - Spec Review Sign up page v1.0) Change
+ * notes:
+ * <ol>
+ * Added method to get Specification Review DAO
+ * </ol>
+ * <ol>
+ * Added method to get User Permission Grant DAO
+ * </ol>
+ * </p>
+ * 
+ * <p>
+ * Change log of version 1.2(Release Assembly - TC Registration Site 2 Handle Validation Upgrade)
+ * <ol>
+ *      <li>Add method {@link #getInvalidHandleDAO()}</li> 
+ * </ol>
+ * </p>
+ * 
+ * @author pulky, TCSDEVELOPER, leo_lol
+ * @version 1.2
  */
 public class DAOFactoryQueryTool implements DAOFactory {
 
-    // This DAO exists because hibernate is currently not caching and we need a faster implementation
+    // This DAO exists because hibernate is currently not caching and we need a
+    // faster implementation
 
     public UserPreferenceDAO getUserPreferenceDAO() {
         return new UserPreferenceDAOQueryTool();
@@ -277,11 +287,11 @@ public class DAOFactoryQueryTool implements DAOFactory {
 
     /**
      * This method constructs the corresponding Specification Review DAO object
-     *
      * Note: this is not currently supported
-     *
+     * 
      * @return Query Tool implementation of the <code>SpecReviewDAO</code>
-     * @throws RuntimeException always since this DAO is not currently supported
+     * @throws RuntimeException
+     *             always since this DAO is not currently supported
      * @since 1.1
      */
     public SpecReviewDAO getSpecReviewDAO() {
@@ -290,14 +300,25 @@ public class DAOFactoryQueryTool implements DAOFactory {
 
     /**
      * This method constructs the corresponding User Permission Grant DAO object
-     *
      * Note: this is not currently supported
-     *
-     * @return Query Tool implementation of the <code>UserPermissionGrantDAO</code>
-     * @throws RuntimeException always since this DAO is not currently supported
+     * 
+     * @return Query Tool implementation of the
+     *         <code>UserPermissionGrantDAO</code>
+     * @throws RuntimeException
+     *             always since this DAO is not currently supported
      * @since 1.1
      */
     public UserPermissionGrantDAO getUserPermissionGrantDAO() {
         throw new RuntimeException("Not supported");
+    }
+
+    /**
+     * This method constructs the corresponding InvalidHandleDAO object.
+     * 
+     * @return Instance of {@link InvalidHandleDAO}.
+     * @since 1.2
+     */
+    public InvalidHandleDAO getInvalidHandleDAO() {
+        return new InvalidHandleDAOQueryTool();
     }
 }
