@@ -421,19 +421,19 @@ public class MemberPhotoRemovalServlet extends HttpServlet {
             documentGenerator = DocumentGeneratorFactory
                     .getDocumentGenerator(configurationObject); 
         } catch (ConfigurationAccessException e) {
-            throw new MemberPhotoRemovalException("Fail to intiate document generator", e);
+            throw new MemberPhotoRemovalException("Fail to intiate document generator" + e, e);
         } catch (UnrecognizedNamespaceException e) {
-            throw new MemberPhotoRemovalException("Fail to intiate document generator", e);
+            throw new MemberPhotoRemovalException("Fail to intiate document generator" + e, e);
         } catch (ConfigurationParserException e) {
-            throw new MemberPhotoRemovalException("Fail to intiate document generator", e);
+            throw new MemberPhotoRemovalException("Fail to intiate document generator" + e, e);
         } catch (NamespaceConflictException e) {
-            throw new MemberPhotoRemovalException("Fail to intiate document generator", e);
+            throw new MemberPhotoRemovalException("Fail to intiate document generator" + e, e);
         } catch (UnrecognizedFileTypeException e) {
-            throw new MemberPhotoRemovalException("Fail to intiate document generator", e);
+            throw new MemberPhotoRemovalException("Fail to intiate document generator" + e, e);
         } catch (IOException e) {
-            throw new MemberPhotoRemovalException("Fail to intiate document generator", e);
+            throw new MemberPhotoRemovalException("Fail to intiate document generator" + e, e);
         } catch (DocumentGeneratorConfigurationException e) {
-            throw new MemberPhotoRemovalException("Fail to intiate document generator", e);
+            throw new MemberPhotoRemovalException("Fail to intiate document generator" + e, e);
         }
         
     }
