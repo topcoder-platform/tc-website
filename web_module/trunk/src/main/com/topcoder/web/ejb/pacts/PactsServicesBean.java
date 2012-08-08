@@ -4567,8 +4567,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                             case 4:
                                 Long paymentMethodId = getUserPaymentMethod(payment.getCoderId());
                                 if (paymentMethodId == null) {
-                                    errors.put(payment.getId(), "The member has not set the preferred payment method.");
-                                } else if (payment.getCurrentStatus().getId() != OwedPaymentStatus.ID) {
+                                    paymentMethodId = Constants.NOT_SET_PAYMENT_METHOD_ID;
+                                }
+
+                                if (payment.getCurrentStatus().getId() != OwedPaymentStatus.ID) {
                                     errors.put(payment.getId(), "Can't assign payment method for payment in " +
                                                payment.getCurrentStatus().getDesc() + " status");
                                 } else {

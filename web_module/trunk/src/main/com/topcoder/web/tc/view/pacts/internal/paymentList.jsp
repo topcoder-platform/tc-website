@@ -254,7 +254,7 @@ ${fn:length(paymentList)} records. <br />
         <tr>
         <td colspan="4">
         </td>
-        <td colspan="13">
+        <td colspan="15">
             <span class="bigRed">
                     <%=err%><br/>
             </span>
@@ -267,7 +267,7 @@ ${fn:length(paymentList)} records. <br />
         <td class="header" colspan="7"><b>Total Net Amount:</b>
         </td>
         <td class="headerR" nowrap="nowrap">$<fmt:formatNumber value="${totalNet}" pattern="###,###.00" /></td>
-        <td class="header" colspan="10">&nbsp;</td>
+        <td class="header" colspan="11">&nbsp;</td>
     </tr>
 
     </table>
