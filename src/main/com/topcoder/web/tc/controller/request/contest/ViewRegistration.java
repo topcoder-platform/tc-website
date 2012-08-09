@@ -243,7 +243,7 @@ public class ViewRegistration extends Base {
 
     private boolean isRegisteredForTournament() throws Exception {
         return DAOUtil.getFactory().getEventRegistrationDAO().find(new Long(getUser().getId()),
-                Event.TCO12_EVENT_ID) != null;
+                Event.TCO13_EVENT_ID) != null;
     }
 
     protected ComponentRegistrationServicesLocal getRegEJB() throws Exception {
