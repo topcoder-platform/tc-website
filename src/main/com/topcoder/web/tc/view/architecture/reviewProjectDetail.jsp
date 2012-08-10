@@ -102,43 +102,43 @@
                     <td class="projectHeaders" width="50%" align="right">End</td>
                 <tr>
                     <td class="projectCells">Submission</td>
-                    <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="submission_start" format="MM.dd.yyyy"/></td>
-                    <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="submission_end" format="MM.dd.yyyy"/></td>
+                    <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="submission_start" format="MM.dd.yyyy hh:mm a z"/></td>
+                    <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="submission_end" format="MM.dd.yyyy hh:mm a z"/></td>
                 </tr>
                 <tr>
                     <td class="projectCells">Screening</td>
-                    <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="screening_start" format="MM.dd.yyyy"/></td>
-                    <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="screening_end" format="MM.dd.yyyy"/></td>
+                    <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="screening_start" format="MM.dd.yyyy hh:mm a z"/></td>
+                    <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="screening_end" format="MM.dd.yyyy hh:mm a z"/></td>
                 </tr>
                 <tr>
                     <td class="projectCells">Review</td>
-                    <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="review_start" format="MM.dd.yyyy"/></td>
-                    <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="review_end" format="MM.dd.yyyy"/></td>
+                    <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="review_start" format="MM.dd.yyyy hh:mm a z"/></td>
+                    <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="review_end" format="MM.dd.yyyy hh:mm a z"/></td>
                 </tr>
                 <tr>
                     <td class="projectCells">Appeals</td>
-                    <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="appeals_start" format="MM.dd.yyyy"/></td>
-                    <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="appeals_end" format="MM.dd.yyyy"/></td>
+                    <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="appeals_start" format="MM.dd.yyyy hh:mm a z"/></td>
+                    <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="appeals_end" format="MM.dd.yyyy hh:mm a z"/></td>
                 </tr>
                 <tr>
                     <td class="projectCells">Aggregation</td>
-                    <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="aggregation_start" format="MM.dd.yyyy"/></td>
-                    <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="aggregation_end" format="MM.dd.yyyy"/></td>
+                    <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="aggregation_start" format="MM.dd.yyyy hh:mm a z"/></td>
+                    <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="aggregation_end" format="MM.dd.yyyy hh:mm a z"/></td>
                 </tr>
                 <tr>
                     <td class="projectCells">Aggregation Review</td>
-                    <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="agg_review_start" format="MM.dd.yyyy"/></td>
-                    <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="agg_review_end" format="MM.dd.yyyy"/></td>
+                    <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="agg_review_start" format="MM.dd.yyyy hh:mm a z"/></td>
+                    <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="agg_review_end" format="MM.dd.yyyy hh:mm a z"/></td>
                 </tr>
                 <tr>
                     <td class="projectCells">Final Fixes</td>
-                    <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="final_fix_start" format="MM.dd.yyyy"/></td>
-                    <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="final_fix_end" format="MM.dd.yyyy"/></td>
+                    <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="final_fix_start" format="MM.dd.yyyy hh:mm a z"/></td>
+                    <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="final_fix_end" format="MM.dd.yyyy hh:mm a z"/></td>
                 </tr>
                 <tr>
                     <td class="projectCells">Final Review</td>
-                    <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="final_review_start" format="MM.dd.yyyy"/></td>
-                    <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="final_review_end" format="MM.dd.yyyy"/></td>
+                    <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="final_review_start" format="MM.dd.yyyy hh:mm a z"/></td>
+                    <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="final_review_end" format="MM.dd.yyyy hh:mm a z"/></td>
                 </tr>
             </table>
 
