@@ -105,72 +105,72 @@
                 <c:if test="${hasSpecificationSubmission}">
                     <tr>
                         <td class="projectCells">Specification Submission</td>
-                        <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="specification_submission_start" format="MM.dd.yyyy"/></td>
-                        <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="specification_submission_end" format="MM.dd.yyyy"/></td>
+                        <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="specification_submission_start" format="MM.dd.yyyy hh:mm a z"/></td>
+                        <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="specification_submission_end" format="MM.dd.yyyy hh:mm a z"/></td>
                     </tr>
                 </c:if>
                 <c:if test="${hasSpecificationReview}">
                     <tr>
                         <td class="projectCells">Specification Review</td>
-                        <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="specification_review_start" format="MM.dd.yyyy"/></td>
-                        <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="specification_review_end" format="MM.dd.yyyy"/></td>
+                        <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="specification_review_start" format="MM.dd.yyyy hh:mm a z"/></td>
+                        <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="specification_review_end" format="MM.dd.yyyy hh:mm a z"/></td>
                     </tr>
                 </c:if>
 
                 <c:if test="${hasSubmission}">
                     <tr>
                         <td class="projectCells">Submission</td>
-                        <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="submission_start" format="MM.dd.yyyy"/></td>
-                        <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="submission_end" format="MM.dd.yyyy"/></td>
+                        <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="submission_start" format="MM.dd.yyyy hh:mm a z"/></td>
+                        <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="submission_end" format="MM.dd.yyyy hh:mm a z"/></td>
                     </tr>
                 </c:if>
                 <c:if test="${hasScreening}">
                     <tr>
                         <td class="projectCells">Screening</td>
-                        <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="screening_start" format="MM.dd.yyyy"/></td>
-                        <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="screening_end" format="MM.dd.yyyy"/></td>
+                        <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="screening_start" format="MM.dd.yyyy hh:mm a z"/></td>
+                        <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="screening_end" format="MM.dd.yyyy hh:mm a z"/></td>
                     </tr>
                 </c:if>
                 <c:if test="${hasReview}">
                     <tr>
                         <td class="projectCells">Review</td>
-                        <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="review_start" format="MM.dd.yyyy"/></td>
-                        <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="review_end" format="MM.dd.yyyy"/></td>
+                        <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="review_start" format="MM.dd.yyyy hh:mm a z"/></td>
+                        <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="review_end" format="MM.dd.yyyy hh:mm a z"/></td>
                     </tr>
                 </c:if>
                 <c:if test="${hasAppeals}">
                     <tr>
                         <td class="projectCells">Appeals</td>
-                        <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="appeals_start" format="MM.dd.yyyy"/></td>
-                        <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="appeals_end" format="MM.dd.yyyy"/></td>
+                        <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="appeals_start" format="MM.dd.yyyy hh:mm a z"/></td>
+                        <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="appeals_end" format="MM.dd.yyyy hh:mm a z"/></td>
                     </tr>
                 </c:if>
                 <c:if test="${hasAggregation}">
                     <tr>
                         <td class="projectCells">Aggregation</td>
-                        <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="aggregation_start" format="MM.dd.yyyy"/></td>
-                        <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="aggregation_end" format="MM.dd.yyyy"/></td>
+                        <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="aggregation_start" format="MM.dd.yyyy hh:mm a z"/></td>
+                        <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="aggregation_end" format="MM.dd.yyyy hh:mm a z"/></td>
                     </tr>
                 </c:if>
                 <c:if test="${hasAggregationReview}">
                     <tr>
                         <td class="projectCells">Aggregation Review</td>
-                        <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="agg_review_start" format="MM.dd.yyyy"/></td>
-                        <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="agg_review_end" format="MM.dd.yyyy"/></td>
+                        <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="agg_review_start" format="MM.dd.yyyy hh:mm a z"/></td>
+                        <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="agg_review_end" format="MM.dd.yyyy hh:mm a z"/></td>
                     </tr>
                 </c:if>
                 <c:if test="${hasFinalFixes}">
                     <tr>
                         <td class="projectCells">Final Fixes</td>
-                        <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="final_fix_start" format="MM.dd.yyyy"/></td>
-                        <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="final_fix_end" format="MM.dd.yyyy"/></td>
+                        <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="final_fix_start" format="MM.dd.yyyy hh:mm a z"/></td>
+                        <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="final_fix_end" format="MM.dd.yyyy hh:mm a z"/></td>
                     </tr>
                 </c:if>
                 <c:if test="${hasFinalReview}">
                     <tr>
                         <td class="projectCells">Final Review</td>
-                        <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="final_review_start" format="MM.dd.yyyy"/></td>
-                        <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="final_review_end" format="MM.dd.yyyy"/></td>
+                        <td class="projectCells" align="center"><rsc:item set="<%=projectDetail%>" name="final_review_start" format="MM.dd.yyyy hh:mm a z"/></td>
+                        <td class="projectCells" align="right"><rsc:item set="<%=projectDetail%>" name="final_review_end" format="MM.dd.yyyy hh:mm a z"/></td>
                     </tr>
                 </c:if>
             </table>
