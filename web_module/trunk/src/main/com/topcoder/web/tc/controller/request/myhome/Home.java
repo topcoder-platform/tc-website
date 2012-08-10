@@ -41,8 +41,6 @@ import java.util.*;
  */
 public class Home extends ShortHibernateProcessor {
 
-    List<Long> payoneerTestGroup = Arrays.asList(8518361l, 23078253l);
-
     /**
      * Handle http request.
      * 
@@ -81,9 +79,7 @@ public class Home extends ShortHibernateProcessor {
                 payeeStatus == PayoneerService.PayeeStatus.REGISTERED) {
                 getRequest().setAttribute("payoneerActivated", false);
 
-                if (payoneerTestGroup.contains(getLoggedInUser().getId())) {
-                    getRequest().setAttribute("payoneerRegLink", PayoneerService.getRegistrationLink(getLoggedInUser().getId()));
-                }
+                getRequest().setAttribute("payoneerRegLink", PayoneerService.getRegistrationLink(getLoggedInUser().getId()));
             } else {
                 getRequest().setAttribute("payoneerActivated", true);
             }
