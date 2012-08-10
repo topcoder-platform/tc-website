@@ -145,7 +145,7 @@
 	    <div class="srm">
 		 <strong><A href="/tc?module=MatchDetails&rd=15184">SRM 562</A></strong><br />
          brought to you by <A href="http://community.topcoder.com/tco12/overview-sponsor/tco12-sponsor-dena/">DeNA</A><br />
-         11:00
+         21:00
         </div>
       </td>
       <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
