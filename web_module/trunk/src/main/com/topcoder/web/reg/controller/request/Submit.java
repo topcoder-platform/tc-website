@@ -55,6 +55,7 @@ public class Submit extends Base {
         if (getRegUser() == null) {
             throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/reg");
         } else if (newReg || userLoggedIn()) {
+            
             getFactory().getUserDAO().saveOrUpdate(u);
             HSRegistrationHelper rh = new HSRegistrationHelper(getRequest(), (Map<String, Response>) getRequest().getSession().getAttribute(Constants.HS_RESPONSES));
 
@@ -82,6 +83,7 @@ public class Submit extends Base {
 
             if (newReg) {
                 activationCode = StringUtils.getActivationCode(u.getId().longValue());
+				u.setRegSource("reg");
                 u.setActivationCode(activationCode);
             }
 
