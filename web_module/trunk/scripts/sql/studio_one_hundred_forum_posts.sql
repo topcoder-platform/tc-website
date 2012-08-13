@@ -1,4 +1,4 @@
-select tjm.userid::INTEGER AS user_id, extend(dbinfo("UTC_TO_DATETIME",tjm.creationdate), year to fraction) AS earned_date
+select tjm.userid::INTEGER AS user_id, extend(dbinfo("UTC_TO_DATETIME",tjm.creationdate/1000), year to fraction) AS earned_date
 from (
   select jm.userid, jm.creationdate,
    (select count(*)
