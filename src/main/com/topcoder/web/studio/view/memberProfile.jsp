@@ -37,10 +37,23 @@
     <script type="text/javascript" src="/js/memberProfile.js"></script>
 
     <script src="/js/NewStyleHeaderFooter/preloadCssImages.jQuery_v5.js" language="javascript"></script>
+    
+    <script type="text/javascript" src="/js/badge-tooltips.js"></script> 
+    <script type="text/javascript" src="/js/badgeBase.js"></script>
+    <link type="text/css" rel="stylesheet" href="/css/profileBadges.css" />    
+    <link type="text/css" rel="stylesheet" href="/css/style.css" />    
+    
     <script type="text/javascript">
         $(document).ready(function () {
             //Run the script to preload images from CSS
             $.preloadCssImages();
+            
+            var categoryName = 'progress meters studio';
+            var groupBadgeDiv = $('.groupBadgeDiv');
+            var singleBadgeDiv = $('.singleBadgeDiv');
+            var badges = $('.hidenBadgesDiv');
+            
+            renderGroupBadges(categoryName, groupBadgeDiv, singleBadgeDiv, badges);            
         });
     </script>
 </head>
@@ -267,17 +280,24 @@ boolean hidePayments = ((Boolean)request.getAttribute("hidePayments")).booleanVa
             </div>
             </c:if>
             
-            <ul class="achievementWrapper">
+            <div class="hidenBadgesDiv hide">
                 <c:forEach items="${profile.achievements}" var="achievement" varStatus="loop">
-                    <li class="achievementItem <c:if test='${(loop.index + 1) mod 3 eq 0}'>lastOfRow</c:if>"
-                        style="background:url('../i/badges/studio_badge_${achievement.achievementRuleId}.gif') no-repeat scroll 0 0 transparent;border:none">
-                        <input type="hidden" class="achievementName" value="${achievement.name}">
-                        <input type="hidden" class="achievementDesc" value="${achievement.desc}">
-<!--                        <input type="hidden" class="achievementTime" value="<fmt:formatDate value="${achievement.awardTime}" pattern="MM.dd.yyyy HH:MM"/>EST"> -->
-                    </li>
+                    <div class="quoteBadgesItem">
+                        <input type="hidden" class="achievementId" value='${achievement.achievementRuleId}'></input>
+                        <input type="hidden" class="achievementName" value='${achievement.name}'></input>
+                        <input type="hidden" class="achievementDesc" value='${achievement.desc}'></input>
+                        <input type="hidden" class="achievementDate" value='<fmt:formatDate value="${achievement.awardTime}" pattern="MM.dd.yyyy HH:MM"/>EST'></input>
+                    </div>
                 </c:forEach>
-            </ul>
-        
+            </div>
+            
+            <div class="achiv groupBadgeDiv">
+                <div class="clear-float"></div>
+            </div>
+            <div class="clear-float"></div>
+            <div class="footer-badges singleBadgeDiv">
+            </div>
+            
             <!--end .achievementWrapper-->
         </div>
         <!--end .rightPart-->
