@@ -192,7 +192,7 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
             }
             
             if (paymentMethodId == PAYONEER_PAYMENT_METHOD_ID) {
-                PayoneerService.PayeeStatus payeeStatus = PayoneerService.getPayeeStatus(getLoggedInUser().getId());
+                PayoneerService.PayeeStatus payeeStatus = PayoneerService.getPayeeStatus(getUser().getId());
                 if (payeeStatus == PayoneerService.PayeeStatus.NOT_REGISTERED) {
                     addError(PAYMENT_METHOD_PARAM, "You have not registered with Payoneer yet");
                 }
