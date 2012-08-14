@@ -99,9 +99,16 @@ import java.util.MissingResourceException;
  *     {@link #ELEC_AGREEABLE_TERMS_TYPE_ID}.</li>
  *   </ol>
  * </p>
- * 
+ *
+ * <p>
+ *   Version 1.9.2 (Release Assembly - TopCoder Software Contest Detail Page Bug Fix Release) Change notes:
+ *   <ol>
+ *     <li>Added constants {@link #TAB_INDEX}.</li>
+ *   </ol>
+ * </p>
+ *
  * @author pulky, isv, VolodymyrK, TCSASSEMBLER
- * @version 1.9.1
+ * @version 1.9.2
  */
 public class Constants implements WebConstants {
 
@@ -1035,7 +1042,13 @@ public class Constants implements WebConstants {
     public static String ARTICLES_ARCHIVE_CATEGORY;
         
     public static final String CONFIGURATION_FILE = "com/topcoder/util/config/ConfigManager.properties";
-    
+
+    /**
+     * <p>A <code>String</code> providing the tab index to show for contest detail page.</p>
+     *
+     * @since 1.9.2
+     */
+    public static final String TAB_INDEX = "tab";
     static {
         initialize();
     }
