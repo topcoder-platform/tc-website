@@ -1,5 +1,5 @@
 SELECT m.user_id, min(m.earned_date) AS earned_date
-FROM (
+FROM table(multiset(
 SELECT ri.value::INTEGER AS user_id, rev.create_date as earned_date
 FROM resource_info AS ri
 	JOIN upload AS u ON ri.resource_id = u.resource_id
@@ -13,4 +13,4 @@ WHERE s.submission_status_id IN (1, 4)
 	AND s.submission_type_id in (1, 3)
 	AND pc.project_type_id in (1, 2)
 	AND p.project_status_id in (1, 7)
-) as m group by m.user_id
+)) as m group by m.user_id

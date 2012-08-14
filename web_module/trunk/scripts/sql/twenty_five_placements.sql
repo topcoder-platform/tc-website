@@ -1,11 +1,11 @@
 SELECT tm.user_id, min(tm.earned_date)
-FROM (SELECT ri.value as user_id
+FROM table(multiset(SELECT ri.value as user_id
     , rev.create_date as earned_date
   FROM resource_info ri
-    join (SELECT ri.value
+    join table(multiset(SELECT ri.value
              , ri.resource_id
              , (SELECT count(*) 
-                  FROM (SELECT ri.value
+                  FROM table(multiset(SELECT ri.value
                              , ri.resource_id
                           FROM resource_info ri
                           JOIN upload AS up ON up.resource_id = ri.resource_id
@@ -20,7 +20,7 @@ FROM (SELECT ri.value as user_id
                            AND pc.project_type_id in (1, 2)
                            AND pz.place >= 1 
                            AND p.project_status_id = 7 
-                      ORDER BY ri.value) AS i 
+                      ORDER BY ri.value)) AS i 
                 WHERE i.value = ri.value 
                   AND i.resource_id < ri.resource_id) + 1 AS row_num
          FROM resource_info ri
@@ -35,7 +35,7 @@ FROM (SELECT ri.value as user_id
           AND s.submission_type_id = 1
           AND pc.project_type_id in (1,2)
           AND pz.place >= 1 
-          AND p.project_status_id = 7) AS t on ri.resource_id = t.resource_id 
+          AND p.project_status_id = 7)) AS t on ri.resource_id = t.resource_id 
          JOIN upload AS up ON up.resource_id = ri.resource_id
          JOIN submission AS s ON s.upload_id = up.upload_id
             JOIN project AS p ON up.project_id = p.project_id
@@ -46,5 +46,5 @@ FROM (SELECT ri.value as user_id
  WHERE ri.resource_info_type_id = 1 
    AND t.value = ri.value 
    AND sc.scorecard_type_id = 2
-   AND row_num = 25) AS tm
+   AND row_num = 25)) AS tm
 GROUP BY tm.user_id
