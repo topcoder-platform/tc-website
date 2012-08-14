@@ -197,22 +197,22 @@
                 'classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" ' + 
                 'codebase="http://fpdownload.macromedia.com" ' + 
                 '/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" ' + 
-                'width="540" ' + 
-                'height="240" ' + 
+                'width="600" ' + 
+                'height="400" ' + 
                 'id="graphLoader" ' + 
                 'align="middle"> ' + 
                 '<param name="allowScriptAccess" value="sameDomain" /> ' + 
                 '<param name="movie" value="/flash/graphLoader.swf?competitionType=hs&coderID=<%=request.getParameter("cr")%>&myRating=<%=rscAlgData.getIntItem(0, "rating")%>" />' + 
                 '<param name="menu" value="true" /> ' + 
                 '<param name="quality" value="high" /> ' + 
-                '<param name="bgcolor" value="#EEEEEE" /> ' + 
+                '<param name="bgcolor" value="#FFFFFF" /> ' + 
                 '<embed ' + 
                 'src="/flash/graphLoader.swf?competitionType=hs&coderID=<%=request.getParameter("cr")%>&myRating=<%=rscAlgData.getIntItem(0, "rating")%>" ' + 
                 'menu="true" ' + 
                 'quality="high" ' + 
-                'bgcolor="#EEEEEE" ' + 
-                'width="540" ' + 
-                'height="240" ' + 
+                'bgcolor="#FFFFFF" ' + 
+                'width="600" ' + 
+                'height="400" ' + 
                 'name="graphLoader" ' + 
                 'swLiveConnect="true" ' + 
                 'align="middle" ' + 
