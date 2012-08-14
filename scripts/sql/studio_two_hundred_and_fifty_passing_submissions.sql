@@ -1,10 +1,10 @@
 SELECT ri.value as user_id
     , rev.create_date as earned_date
   FROM submission s
-    join (SELECT ri.value
+    join table(multiset(SELECT ri.value
              , s.submission_id
              , (SELECT count(*) 
-                  FROM (SELECT ri.value
+                  FROM table(multiset(SELECT ri.value
                              , s.submission_id
                           FROM resource_info ri
                             JOIN upload AS u ON ri.resource_id = u.resource_id
@@ -17,7 +17,7 @@ SELECT ri.value as user_id
                             AND s.submission_type_id in (1, 3)
                             AND pc.project_type_id = 3
                             AND p.project_status_id in (1, 7)
-                          ORDER BY ri.value) AS i 
+                          ORDER BY ri.value)) AS i 
                    WHERE i.value = ri.value 
                   AND i.submission_id < s.submission_id) + 1 AS row_num
            FROM resource_info ri
@@ -30,7 +30,7 @@ SELECT ri.value as user_id
             AND u.upload_type_id = 1
             AND s.submission_type_id in (1, 3)
             AND pc.project_type_id = 3
-            AND p.project_status_id in (1, 7)) AS t on s.submission_id = t.submission_id
+            AND p.project_status_id in (1, 7))) AS t on s.submission_id = t.submission_id
     JOIN upload AS up ON up.upload_id = s.upload_id
     JOIN resource_info ri ON up.resource_id = ri.resource_id
      JOIN project AS p ON up.project_id = p.project_id
