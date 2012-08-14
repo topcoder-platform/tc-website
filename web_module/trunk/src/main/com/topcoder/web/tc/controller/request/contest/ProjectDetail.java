@@ -24,6 +24,9 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.development.Base;
 import com.topcoder.web.tc.controller.request.util.ReliabilityBonusCalculator;
+import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServices;
+import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServicesLocal;
+
 
 /**
  * <p>A controller to handle the requests for displaying the details of a given project.</p>
@@ -72,8 +75,17 @@ import com.topcoder.web.tc.controller.request.util.ReliabilityBonusCalculator;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, romanoTC, Blues, duxiaoyang
- * @version 1.6
+ * <p>
+ *   Version 1.7 (Release Assembly - TopCoder Software Contest Detail Page Bug Fix Release) Change notes:
+ *   <ol>
+ *     <li>Added a new field regServices to check the user is registered for a project.</li>
+ *     <li>Modified {@link #developmentProcessing()} to add tabIndex to the request parameter.</li>
+ *     <li>Modified {@link #getProjectOverview()} to add submissionPhaseOpen to the request parameter.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky, romanoTC, Blues, duxiaoyang, TCSASSEBMLER
+ * @version 1.7
  */
 public class ProjectDetail extends Base {
 
@@ -91,9 +103,15 @@ public class ProjectDetail extends Base {
     private static final long BUDGET_EXTRA_INFO_TYPE_ID = 1L;
     
     private static final long OTHER_EXPERIENCE_EXTRA_INFO_TYPE_ID = 2L;
+    /**
+     * The service to check whether the user is registered or not.
+     * @since 1.7
+     */
+    private ComponentRegistrationServicesLocal regServices = null;
 
     /**
      * This method executes the actual logic for this processor.
+     * Changes in version 1.7: add tabIndex to the request parameter.
      *
      * @throws TCWebException if any error occurs
      * @see com.topcoder.web.tc.controller.request.development.Base#developmentProcessing()
@@ -117,6 +135,11 @@ public class ProjectDetail extends Base {
                 }
                 throw new NavigationException("Could not find project information.");
             }
+            String tabIndex = getRequest().getParameter(Constants.TAB_INDEX);
+            if((null == tabIndex) || (!tabIndex.equals("milestone") && !tabIndex.equals("results"))) {
+                tabIndex = "overview";
+            }
+            getRequest().setAttribute("tabIndex", tabIndex);
 
             // get project overview
             getProjectOverview(projectId);
@@ -140,6 +163,7 @@ public class ProjectDetail extends Base {
      * <p>
      * Gets project overview information and add it to request.
      * </p>
+     * Changes in version 1.7: add submissionPhaseOpen to the request parameter.
      * @param projectId
      *            the id of the project.
      * @throws TCWebException
@@ -161,7 +185,8 @@ public class ProjectDetail extends Base {
             }
 
             long projectTypeId = details.getLongItem(0, "project_category_id");
-            getRequest().setAttribute("leftNav", getLeftNav((int) projectTypeId));
+            long projectStatusId = details.getLongItem(0, "project_status_id");
+            getRequest().setAttribute("leftNav", getLeftNav((int) projectTypeId, (int) projectStatusId));
 
             if (projectTypeId == -1) {
                 throw new TCWebException("Could not find project information.");
@@ -201,6 +226,12 @@ public class ProjectDetail extends Base {
                 }
             }
 
+            // determine the submission phase is open or not
+            getRequest().setAttribute("submissionPhaseOpen", Boolean.TRUE);
+            String submissionPhaseOpened= details.getStringItem(0, "submission_phase_opened");
+            if("closed".equals(submissionPhaseOpened.trim())) {
+                getRequest().setAttribute("submissionPhaseOpen", Boolean.FALSE);
+            }
             String projectCategory = details.getStringItem(0, "project_category_name");
             if (projectCategory.contains("Competition")) {
                 projectCategory = projectCategory.substring(0, projectCategory.indexOf("Competition") - 1);
@@ -215,7 +246,7 @@ public class ProjectDetail extends Base {
             Long rootCategoryId = details.getLongItem(0, "root_category_id");
 
             getRequest().setAttribute("instructionsLinks", getInstructionLinks(docs, categoryId, rootCategoryId));
-            getRequest().setAttribute("canDownloadDocuments", canDownloadDocuments(docs));
+            getRequest().setAttribute("canDownloadDocuments", canDownloadDocuments(docs, Long.parseLong(projectId)));
 
             boolean full = false; // projects are never full in our current rules
             getRequest().setAttribute("projectFull", String.valueOf(full));
@@ -234,6 +265,10 @@ public class ProjectDetail extends Base {
             getRequest().setAttribute("hasDR", details.getIntItem(0, "dr_points") > 0);
             getRequest().setAttribute("hasMilestone",
                     details.getItem(0, "milestone_submission_date").getResultData() != null);
+            getRequest().setAttribute("hasFinalReview",
+                    details.getItem(0, "final_review_start_date").getResultData() != null);
+            getRequest().setAttribute("hasApproval",
+                    details.getItem(0, "final_approval_start_date").getResultData() != null);
             getRequest().setAttribute("milestoneReviewFinished", details.getIntItem(0, "milestone_review_status") == 3);
 
             // set experiences and budget
@@ -348,40 +383,48 @@ public class ProjectDetail extends Base {
      * <p>
      * Gets the node name for left navigation menu.
      * </p>
+     * Changes in version 1.7: add projectStatusId parameter.
      * @param projectTypeId
      *            the project type id.
+     * @param projectStatusId
+     *            the project status id.
      * @return the node name for the specified project type.
      */
-    private String getLeftNav(int projectTypeId) {
+    private String getLeftNav(int projectTypeId, int projectStatusId) {
+        boolean isPasProject = false;
+        if((4 == projectStatusId) || (5 == projectStatusId) || (6 == projectStatusId) || (7 == projectStatusId)
+            || (8 == projectStatusId) || (9 == projectStatusId) || (10 == projectStatusId) || (11 == projectStatusId)) {
+            isPasProject = true;
+        }
         switch (projectTypeId) {
         case 1:
-            return "des_compete";
+            return isPasProject ? "des_past" : "des_compete";
         case 2:
-            return "dev_compete";
+            return isPasProject ? "dev_past" : "dev_compete";
         case 6:
-            return "specification_compete";
+            return isPasProject ? "specification_past" : "specification_compete";
         case 7:
-            return "architecture_compete";
+            return isPasProject ? "architecture_past" : "architecture_compete";
         case 9:
-            return "bug_hunt_compete";
+            return isPasProject ? "bug_hunt_past" : "bug_hunt_compete";
         case 13:
-            return "test_suites_compete";
+            return isPasProject ? "test_suites_past" : "test_suites_compete";
         case 14:
-            return "assembly_compete";
+            return isPasProject ? "assembly_past" : "assembly_compete";
         case 19:
-            return "ui_prototype_compete";
+            return isPasProject ? "ui_prototype_past" : "ui_prototype_compete";
         case 23:
-            return "conceptualization_compete";
+            return isPasProject ? "conceptualization_past" : "conceptualization_compete";
         case 24:
-            return "ria_build_compete";
+            return isPasProject ? "ria_build_past" : "ria_build_compete";
         case 26:
-            return "test_scenarios_compete";
+            return isPasProject ? "test_scenarios_past" : "test_scenarios_compete";
         case 29:
-            return "copilots_compete";
+            return isPasProject ? "copilot_past" : "copilots_compete";
         case 35:
-            return "content_creation_compete";
+            return isPasProject ? "content_creation_past" : "content_creation_compete";
         case 36:
-            return "reporting_compete";
+            return isPasProject ? "reporting_past" : "reporting_compete";
         default:
             return "competition_home";
         }
@@ -391,12 +434,21 @@ public class ProjectDetail extends Base {
      * <p>
      * Returns true if the current user is authorized download the documents.
      * </p>
+     * Changes in version 1.7: add a parameter projectId and return false if the user is not admin and not registered.
      *
      * @param docs the project documents list.
+     * @param projectId the project id
      * @return true if the current user is authorized to download the documents and false otherwise.
      */
-    private boolean canDownloadDocuments(ResultSetContainer docs) throws Exception {
-
+    private boolean canDownloadDocuments(ResultSetContainer docs, long projectId) throws Exception {
+        if (regServices == null) {
+            regServices = (ComponentRegistrationServicesLocal) createLocalEJB(getInitialContext(),
+                    ComponentRegistrationServices.class);
+        }
+        // if the user is not registered for the project, return false
+        if(!getSessionInfo().isAdmin() && !regServices.isUserRegistered(projectId, getUser().getId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
+            return false;
+        }
         // If there are no documents just return true.
         if ((docs == null) || (docs.size() == 0)) {
             return true;

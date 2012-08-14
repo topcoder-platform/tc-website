@@ -1,6 +1,10 @@
 <%--
-  - Author: duxiaoyang
-  - Version: 1.0
+  - Author: duxiaoyang, TCSASSEBMLER
+  - Version: 1.1
+  - Fix the bugs from
+  -  http://apps.topcoder.com/wiki/display/docs/Release+Assembly+-+TopCoder+Software+Contest+Detail+Page+Bug+Fix+Release
+  - It mainly fixes the UI issues.
+  -
   - Copyright (C) 2012 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page shows project details information.
@@ -50,7 +54,13 @@
    SessionInfo sessionInfo = (SessionInfo) request.getAttribute(BaseServlet.SESSION_INFO_KEY);
 
    long projectId = Long.parseLong((String) request.getAttribute("projectId"));
+   String tabIndex = (String) request.getAttribute("tabIndex");
    boolean isComplete = ((Boolean) request.getAttribute("isComplete")).booleanValue() || sessionInfo.isAdmin();
+   boolean submissionPhaseOpen = ((Boolean) request.getAttribute("submissionPhaseOpen")).booleanValue();
+   boolean hasMilestone = ((Boolean) request.getAttribute("hasMilestone")).booleanValue();
+   boolean hasFinalReview = ((Boolean) request.getAttribute("hasFinalReview")).booleanValue();
+   boolean hasApproval = ((Boolean) request.getAttribute("hasApproval")).booleanValue();
+
    long userId = sessionInfo.isAnonymous() ? -1 : sessionInfo.getUserId();
    boolean isReviewer = false;
    if (reviewers != null) {
@@ -61,6 +71,7 @@
        }
    }
    String[] places = {"1st", "2nd", "3rd", "4th", "5th"};
+   String milestoneGeneralFeedback = projectDetail.getStringItem(0, "milestone_general_feedback");
 %>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -92,7 +103,7 @@
                             <% } else { %>
                             <a href="javascript:;" class="register disable"><span><span>REGISTER</span></span></a>
                             <% } %>
-                            <% if (projectDetail.getStringItem(0, "project_status").trim().equals("open")) { %>
+                            <% if (submissionPhaseOpen) { %>
                             <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review" class="submit"><span><span>SUBMIT</span></span></a>
                             <% } else { %>
                             <a href="javascript:;" class="submit disable"><span><span>SUBMIT</span></span></a>
@@ -169,16 +180,16 @@
                             <div class="tabSection">
                                 <div class="tab">
                                     <ul>
-                                        <li><a href="javascript:;" class="current" rel="overview">
+                                        <li><a href="javascript:;" <c:if test="${tabIndex == 'overview'}"> class="current"</c:if> rel="overview">
                                             <span><span><span>Contest Overview</span></span></span>
                                         </a></li>
                                         <c:if test="${milestoneReviewFinished}">
-                                        <li><a href="javascript:;" rel="milestones">
+                                        <li><a href="javascript:;" <c:if test="${tabIndex == 'milestone'}"> class="current"</c:if> rel="milestones">
                                             <span><span><span>Milestones</span></span></span>
                                         </a></li>
                                         </c:if>
                                         <c:if test="${resultAvailable}">
-                                        <li><a href="javascript:;" rel="winners">
+                                        <li><a href="javascript:;" <c:if test="${tabIndex == 'results'}"> class="current"</c:if> rel="winners">
                                             <span><span><span>Results</span></span></span>
                                         </a></li>
                                         </c:if>
@@ -191,8 +202,9 @@
                                     <div id="overview" class="tabContainerInner">
                                         <!-- contest overview -->
                                         <div class="contestOverview">
-                                            <div class="containerInner">
-                                                <h3>Contest Overview</h3>
+                                            <h3>Contest Overview</h3>
+                                            <div class="containerInner" id="contestOverviewContainerInner">
+                                                
                                 <c:if test="${isCopilotPosting}">
                                     <c:choose>
                                         <c:when test="${fn:length(requirements) > 0}">
@@ -253,14 +265,14 @@
                                     <c:if test="${isCopilotPosting}">
                                         <!-- Experience -->
                                         <div class="technologies">
+                                            <h3>Experience</h3>
                                             <div class="containerInner">
-                                                <h3>Experience</h3>
                                                 <ul>
                                                 <c:if test="${empty experiences}">
                                                     Not set.
                                                 </c:if>
                                                 <c:forEach items="${experiences}" var="exp" varStatus="state">
-                                                    <li class="${state.index % 2 == 0 ? (state.last ? "first-last" : "first") : "last"}">${exp}</li>
+                                                    <li class="first">${exp}</li>
                                                 </c:forEach>
                                                 </ul>
                                                 <div class="clear"></div>
@@ -271,26 +283,45 @@
                                     <c:if test="${not isCopilotPosting}">
                                         <!-- Technologies -->
                                         <div class="technologies">
+                                            <h3>Technologies</h3>
                                             <div class="containerInner">
-                                                <h3>Technologies</h3>
+                                                <c:choose>
+                                                <c:when test="${empty technologies}">
+                                                    <strong>N/A</strong>
+                                                </c:when>
+                                                <c:otherwise>
                                                 <ul>
-                                                <c:set var="index" value="0"/>
-                                                <c:set var="count" value="<%=technologies.size()%>"/>
                                                 <rsc:iterator list="<%=technologies%>" id="item">
-                                                    <li class="${index % 2 == 0 ? (index == count - 1 ? "first-last" : "first") : "last"}"><rsc:item row="<%=item%>" name="technology_name"/></li>
-                                                    <c:set var="index" value="${index + 1}"/>
+                                                    <li class="first"><rsc:item row="<%=item%>" name="technology_name"/></li>
                                                 </rsc:iterator>
                                                 </ul>
+                                                </c:otherwise>
+                                                </c:choose>
                                                 <div class="clear"></div>
                                             </div>
                                         </div>
                                         <!-- End .technologies -->
                                     </c:if>
-
+                                    <c:if test="${not isCopilotPosting and fn:length(requirements) > 0}">
+                                        <!-- Guidelines -->
+                                        <div class="finalSubmissionGuidelines">
+                                            <h3>Final Submission Guidelines</h3>
+                                            <div class="containerInner">
+                                                <c:forEach items="${requirements}" var="resultRow">
+                                                    <div class="container">
+                                                    ${resultRow.map["final_submission_guidelines"]}
+                                                    </div>
+                                                </c:forEach>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+                                        <!-- End .Guidelines -->
+                                    </c:if>
                                         <!-- Eligibility -->
                                         <div class="eligibility">
+                                            <h3>Eligibility</h3>
                                             <div class="containerInner">
-                                                <h3>Eligibility</h3>
+                                                
                                                 <p>You must be a TopCoder member, at least 18 years of age, meeting all of the membership requirements. In addition, you must fit into one of the following categories.</p>
                                                 <dl>
                                                     <dt>If you reside in the United States, you must be either:</dt>
@@ -320,27 +351,32 @@
                                     <c:if test="${milestoneReviewFinished}">
                                     <!-- Milestones -->
                                     <div id="milestones" class="tabContainerInner">
-                                        <!-- Milestone Winners -->
-                                        <div class="milestoneWinners">
+                                        <%
+                                            int place = 0;
+                                            for (int i = 0; i < milestoneInfo.size(); ++i) {
+                                                int milestoneStatus = milestoneInfo.getIntItem(i, "submission_status_id");
+                                                double finalScore = milestoneInfo.getDoubleItem(i, "final_score");
+                                                if (milestoneStatus == 6 || milestoneStatus == 7 || finalScore <= 10.1) {
+                                                    continue;
+                                                }
+                                                place++;
+                                                long submissionId = milestoneInfo.getLongItem(i, "submission_id");
+                                                if(1 == place) { // print the milestone winners div start
+                                         %>
+                                         <!-- Milestone Winners -->
+                                         <div class="milestoneWinners">
                                             <h3>Milestone Winners</h3>
                                             <div class="milestoneWinnersList">
                                                 <div class="milestoneWinnersListInner">
                                                     <ul>
-                                                    <% int place = 0;
-                                                       for (int i = 0; i < milestoneInfo.size(); ++i) {
-                                                           int milestoneStatus = milestoneInfo.getIntItem(i, "submission_status_id");
-                                                           double finalScore = milestoneInfo.getDoubleItem(i, "final_score");
-                                                           if (milestoneStatus == 6 || milestoneStatus == 7 || finalScore <= 10.1) {
-                                                               continue;
-                                                           }
-                                                       place++;
-                                                    %>
-                                                        <li class="prize<%=places[place - 1]%>"><div><span class="contest"><span>#<%=milestoneInfo.getLongItem(i, "submission_id")%></span></span></div></li>
-                                                    <% }
-                                                       for (int i = place; i < projectDetail.getIntItem(0, "milestone_number"); ++i) {
-                                                    %>
-                                                        <li class="prize<%=places[i]%> greyBg"><div><span class="contest"><span></span></span></div></li>
-                                                    <% } %>
+                                          <%
+                                                }
+                                          %>
+                                                    <li class="prize<%=places[place - 1]%>"><div><span class="contest"><span>#<%=submissionId%></span></span></div></li>
+                                          <%
+                                            }
+                                                if(place > 0) { // print the milestone winners div end
+                                          %>
                                                     </ul>
                                                 </div>
                                                 <div class="corner tl"></div>
@@ -351,21 +387,26 @@
                                             <div class="shadow"></div>
                                         </div>
                                         <!-- End .milestoneWinners -->
+                                          <%
+                                                }
+                                          %>
 
+                                        <% if ((null != milestoneGeneralFeedback) && !milestoneGeneralFeedback.trim().equals("")) { %>
                                         <!-- Milestone General Feedback -->
                                         <div class="feedback">
                                             <div class="title">
                                                 <h3>Milestone General Feedback</h3>
                                             </div>
                                             <div class="container">
-                                                <p><rsc:item set="<%=projectDetail%>" name="milestone_general_feedback"/></p>
+                                                <p><%=milestoneGeneralFeedback%></p>
                                             </div>
                                         </div>
+                                        <% } %>
                                         <!-- End .feedback -->
-                                    <% for (int i = 0; i < milestoneInfo.size(); ++i) {
-                                           if (milestoneInfo.getStringItem(i, "feedback") == null) {
-                                               continue;
-                                           }
+                                    <% 
+                                        for (int i = 0; i < milestoneInfo.size(); ++i) {
+                                            String feedback = milestoneInfo.getStringItem(i, "feedback");
+                                            if ((null != feedback) && !feedback.trim().equals("")) {
                                     %>
                                         <!-- Feedback -->
                                         <div class="feedback">
@@ -374,11 +415,11 @@
                                                 <a href="javascript:;" class="toggle">Show</a>
                                             </div>
                                             <div class="container hidden">
-                                                <p><%=milestoneInfo.getStringItem(i, "feedback")%></p>
+                                                <p><%=feedback%></p>
                                             </div>
                                         </div>
                                         <!-- End .feedback -->
-                                    <% } %>
+                                    <% }}%>
                                     </div>
                                     <!-- End #milestones -->
                                     </c:if>
@@ -537,7 +578,23 @@
                                         </c:if>
                                         <li class="twoLine last">
                                             <strong>Final Submission:</strong>
-                                            <span><rsc:item set="<%=projectDetail%>" name="final_submission_date" format="MM/dd/yyyy hh:mm a z"/></span>
+                                            <span>
+                                            <%
+                                                if(null != projectDetail.getStringItem(0, "final_submission_date")) {
+                                            %>
+                                            <rsc:item set="<%=projectDetail%>" name="final_submission_date" format="MM/dd/yyyy hh:mm a z"/>
+                                            <%
+                                                } else if(null != projectDetail.getStringItem(0, "initial_submission_date")) {
+                                            %>
+                                            <rsc:item set="<%=projectDetail%>" name="initial_submission_date" format="MM/dd/yyyy hh:mm a z"/>
+                                            <%
+                                                } else {
+                                            %>
+                                            <span>&nbsp;</span>
+                                            <%
+                                                }
+                                            %>
+                                            </span>
                                         </li>
                                     </ul>
                                     <div class="corner tl"></div>
@@ -548,16 +605,52 @@
                                 <div class="shadow"></div>
                             </div>
                             <!-- End .timeline -->
-
+                            <!-- Review Style -->
+                            <div class="reviewStyle">
+                                <h3>Review Style</h3>
+                                <div class="inner">
+                                    <ul>
+                                        <%
+                                            if(hasMilestone) {
+                                        %>
+                                        <li>
+                                            <strong>Milestone Review: </strong><span>User Selection</span>
+                                            <a href="javascript:;" class="tooltip" onmouseover="showTooltip(this, 'MilestoneReview');" onmouseout="hideTooltip('MilestoneReview');">&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                                        </li>
+                                        <%  }
+                                            if(hasFinalReview) {
+                                        %>
+                                        <li><strong>Final Review: </strong><span>Community Review Board</span>
+                                            <a href="javascript:;" class="tooltip" onmouseover="showTooltip(this, 'FinalReview');" onmouseout="hideTooltip('FinalReview');">&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                                        </li>
+                                        <%
+                                            }
+                                            if(hasApproval) {
+                                        %>
+                                        <li><strong>Approval: </strong><span>User Sign-Off</span>
+                                            <a href="javascript:;" class="tooltip" onmouseover="showTooltip(this, 'Approval');" onmouseout="hideTooltip('Approval');">&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                                        </li>
+                                        <%
+                                            }
+                                        %>
+                                    </ul>
+                                    <div class="corner tl"></div>
+                                    <div class="corner tr"></div>
+                                    <div class="corner bl"></div>
+                                    <div class="corner br"></div>
+                                </div>
+                                <div class="shadow"></div>
+                            </div>
+                            <!-- End review style section -->
                             <!-- Contest Links -->
                             <div class="contestLinks">
                                 <h3>Contest Links</h3>
                                 <div class="inner">
                                     <ul>
                                         <% if (projectDetail.getItem(0, "jive_category_id").getResultData() != null) { %>
-										<li>
+                                        <li>
                                             <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<rsc:item set="<%=projectDetail%>" name="jive_category_id"/>">Contest Forum</a>
-									    </li>
+                                        </li>
                                         <% } %>
                                         <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review/actions/ViewScorecard.do?method=viewScorecard&scid=<rsc:item set="<%=projectDetail%>" name="screening_scorecard_id"/>">Screening Scorecard</a></li>
                                         <li><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review/actions/ViewScorecard.do?method=viewScorecard&scid=<rsc:item set="<%=projectDetail%>" name="review_scorecard_id"/>">Review Scorecard</a></li>
@@ -575,21 +668,21 @@
                             <!-- donwloads -->
                             <div class="donwloads">
                                 <h3>Downloads</h3>
-                                <c:if test="${!canDownloadDocuments}">
-                                    <i>(register the contest to see the documentation)</i>
-                                </c:if>
                                 <div class="inner">
+                                    <c:choose>
+                                    <c:when test="${!canDownloadDocuments}">
+                                        <% if(!projectDetail.getStringItem(0, "project_status").equals("closed")) { 
+                                        %>
+                                        <a href="/tc?module=ViewRegistration&<%=Constants.PROJECT_ID%>=<%= request.getAttribute("projectId") %>" class="register"><span>Register the contest to see the documentation</span></a>
+                                        <% } else { %>
+                                        <strong>Register phase is closed</strong>
+                                        <% } %>
+                                    </c:when>
+                                    <c:otherwise>
                                     <ul>
                                 <c:forEach items="${supportingDocs}" var="resultRow" varStatus="status">
                                         <li>
-                                    <c:choose>
-                                        <c:when test="${canDownloadDocuments}">
                                             <a href="/tc?module=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${resultRow.map['document_id']}">${resultRow.map['document_name']}</a>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <i href="javascript:;">${resultRow.map['document_name']}</i>
-                                        </c:otherwise>
-                                    </c:choose>
                                     <%-- Wiki instructions link --%>
                                     <c:if test="${instructionsLinks[status.index] != null}">
                                             (<a href='${instructionsLinks[status.index]}'>instructions</a>)
@@ -597,6 +690,8 @@
                                         </li>
                                 </c:forEach>
                                     </ul>
+                                    </c:otherwise>
+                                    </c:choose>
                                     <div class="corner tl"></div>
                                     <div class="corner tr"></div>
                                     <div class="corner bl"></div>
@@ -605,26 +700,6 @@
                                 <div class="shadow"></div>
                             </div>
                             <!-- End .donwloads -->
-                            </c:if>
-
-                            <c:if test="${not isCopilotPosting and fn:length(requirements) > 0}">
-                                <c:forEach items="${requirements}" var="resultRow">
-                            <!-- Guidelines -->
-                            <div class="guidelines">
-                                <h3>Final Submission Guidelines</h3>
-                                <div class="inner">
-                                    <div class="container">
-                                        ${resultRow.map["final_submission_guidelines"]}
-                                    </div>
-                                    <div class="corner tl"></div>
-                                    <div class="corner tr"></div>
-                                    <div class="corner bl"></div>
-                                    <div class="corner br"></div>
-                                </div>
-                                <div class="shadow"></div>
-                            </div>
-                            <!-- End .guidelines -->
-                                </c:forEach>
                             </c:if>
                         </div>
                         <!-- End .columnSideBar -->
@@ -684,5 +759,66 @@
 </div>
 </rsc:iterator>
 <!-- End #tip -->
-
+<%
+    if(hasMilestone) {
+%>
+<div class="tip reviewStyleTip tipMilestoneReview" onmouseover="enterTooltip('MilestoneReview')" onmouseout="hideTooltip('MilestoneReview')">
+    <div class="inner">
+        <div class="tipHeader">
+            <h2>Milestone Review</h2>
+        </div>
+        <div class="tipBody">
+            User can select the reviewers. See <a href="http://community.topcoder.com/tc?module=ReviewBoard&pt=14">review board</a>
+        </div>
+        <div class="corner tl"></div>
+        <div class="corner tr"></div>
+        <div class="corner bl"></div>
+        <div class="corner br"></div>
+    </div>
+    <div class="shadow"></div>
+</div>
+<!-- End #Milestone Review tip -->
+<%
+    }
+    if(hasFinalReview) {
+%>
+<div class="tip reviewStyleTip tipFinalReview" onmouseover="enterTooltip('FinalReview')" onmouseout="hideTooltip('FinalReview')">
+    <div class="inner">
+        <div class="tipHeader">
+            <h2>Final Review</h2>
+        </div>
+        <div class="tipBody">
+            User can select the reviewers. See <a href="http://community.topcoder.com/tc?module=ReviewBoard&pt=14">review board</a>
+        </div>
+        <div class="corner tl"></div>
+        <div class="corner tr"></div>
+        <div class="corner bl"></div>
+        <div class="corner br"></div>
+    </div>
+    <div class="shadow"></div>
+</div>
+<!-- End #FinalReview tip -->
+<%
+    }
+    if(hasApproval) {
+%>
+<div class="tip reviewStyleTip tipApproval" onmouseover="enterTooltip('Approval')" onmouseout="hideTooltip('Approval')">
+    <div class="inner">
+        <div class="tipHeader">
+            <h2>Approval</h2>
+        </div>
+        <div class="tipBody">
+            User can select the reviewers. See <a href="http://community.topcoder.com/tc?module=ReviewBoard&pt=14">review board</a>
+        </div>
+        <div class="corner tl"></div>
+        <div class="corner tr"></div>
+        <div class="corner bl"></div>
+        <div class="corner br"></div>
+    </div>
+    <div class="shadow"></div>
+</div>
+<!-- End #Approval tip -->
+<%
+    }
+%>
 </body></html>
