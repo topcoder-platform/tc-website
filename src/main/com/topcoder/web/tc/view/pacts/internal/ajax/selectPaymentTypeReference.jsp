@@ -201,10 +201,10 @@
                      <c:when test="${refId == PARENT_PAYMENT}">
                         <c:if test="${empty parentPayments}">                  
                             <input type="hidden" name="missing_reference" value="Please select a parent for the payment"/>                        
-                          Enter search text for the parent payment detail: <input type="text" name="searchInput" value="${search}" />
+                          Enter ID of the parent payment: <input type="text" name="searchInput" value="${search}" />
                           <input type="button" value="search" onClick="search()" />
                             <c:if test="${not empty search}">          
-                                <font color="#FF0000">No payments found containing <c:out value="${search}"/>. </font>
+                                <font color="#FF0000">No payment found with ID <c:out value="${search}"/></font>
                             </c:if>
                           <br/>
                         </c:if>

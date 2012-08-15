@@ -4,6 +4,7 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.ajax;
 
 import java.util.Map;
+import java.sql.SQLException;
 
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
@@ -127,9 +128,13 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
                         field = "studio_contest_id";
                         break;
 
-                    case REFERENCE_PARENT_PAYMENT_ID:
-                        map = dib.findPaymentsByDescription("%" + search + "%");
-                        getRequest().setAttribute(PARENT_REFERENCE_LIST, map.get(PARENT_REFERENCE_LIST));
+                    case REFERENCE_PARENT_PAYMENT_ID:                        
+                        try {
+                            map = dib.getPayment(Long.parseLong(search.trim()));
+                            getRequest().setAttribute(PARENT_REFERENCE_LIST, map.get(PAYMENT_HEADER_LIST));
+                        } catch (NumberFormatException e) {
+                        } catch (SQLException e) {
+                        }
                         field = "parent_reference_id";
                         break;
 
