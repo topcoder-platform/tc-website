@@ -46,7 +46,7 @@
     
     <link type="text/css" rel="stylesheet" href="/css/reset.css" media="screen" />
     <link type="text/css" rel="stylesheet" href="/css/jquery-ui-1.8.11.custom.css" media="screen" />
-    <link type="text/css" rel="stylesheet" href="/css/screen.css" media="screen" />
+    <link type="text/css" rel="stylesheet" href="/css/tc/screen.css" media="screen" />
     <link type="text/css" rel="stylesheet" href="/css/jquery.Jcrop.css" />
     <link type="text/css" rel="stylesheet" href="/css/photo.css" />
     <link type="text/css" rel="stylesheet" href="/css/profileBadges.css" />
