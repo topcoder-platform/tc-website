@@ -125,6 +125,7 @@
       <td class="value">22
 	    <div class="srm">
 		 <strong><A href="/tc?module=MatchDetails&rd=15175">SRM 553</A></strong><br />
+         brought to you by <A href="http://community.topcoder.com/tco12/overview-sponsor/two-sigma/">Two Sigma</A><br />
          21:00
         </div>
       </td>
