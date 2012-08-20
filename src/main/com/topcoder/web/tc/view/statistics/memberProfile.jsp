@@ -44,7 +44,7 @@
     <script type="text/javascript" src="/js/popup.js"></script>
     <script type="text/javascript" src="/js/badgeBase.js"></script>
     
-    <link type="text/css" rel="stylesheet" href="/css/reset.css" media="screen" />
+    <link type="text/css" rel="stylesheet" href="/css/tc/reset.css" media="screen" />
     <link type="text/css" rel="stylesheet" href="/css/jquery-ui-1.8.11.custom.css" media="screen" />
     <link type="text/css" rel="stylesheet" href="/css/tc/screen.css" media="screen" />
     <link type="text/css" rel="stylesheet" href="/css/jquery.Jcrop.css" />
