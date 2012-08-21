@@ -264,11 +264,11 @@
                                 </div>
                                 <div class="icon">
                                     <c:if test="${copilotInfo['is_software_copilot']}">
-                                        <p><img src="images/SoftwareCertified.png" alt="Software Certified" title="Certified TopCoder Software Copilot" /></p>
+                                        <p><img src="i/cimages/SoftwareCertified.png" alt="Software Certified" title="Certified TopCoder Software Copilot" /></p>
                                     </c:if>
                                     
                                     <c:if test="${copilotInfo['is_studio_copilot']}">
-                                        <p><img src="images/StudioCertified.png" alt="Studio Certified" title="Certified TopCoder Studio Copilot" /></p>
+                                        <p><img src="i/cimages/StudioCertified.png" alt="Studio Certified" title="Certified TopCoder Studio Copilot" /></p>
                                     </c:if>  
                                 </div>
                             </div>
