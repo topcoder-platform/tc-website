@@ -52,6 +52,14 @@ public class User extends Base {
     private Professor professor;
     private Set<UserSchool> schools;
     private Set<School> createdSchools;
+    
+   
+    /**
+     * <p>
+     * The source of user registrations from the different TopCoder websites.
+     * </p>
+     */
+    private String regSource;
 
 
     /**
@@ -132,14 +140,6 @@ public class User extends Base {
         this.status = status;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getActivationCode() {
         return activationCode;
     }
@@ -162,6 +162,14 @@ public class User extends Base {
 
     public void setEmailAddresses(Set<Email> emailAddresses) {
         this.emailAddresses = emailAddresses;
+    }
+
+    public String getRegSource() {
+        return regSource;
+    }
+
+    public void setRegSource(String regSource) {
+        this.regSource = regSource;
     }
 
     /**
