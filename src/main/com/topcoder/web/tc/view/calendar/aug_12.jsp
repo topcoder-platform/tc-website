@@ -123,6 +123,13 @@
       <td class="value">21
       </td>
       <td class="value">22
+	  	 <div class="long">
+         <strong><a href="/tc?module=MatchDetails&rd=15322">Soteria Serious Injury Prediction</a></strong><br />
+         17:00<br />
+         3 weeks<br />
+		 $10k Prizes
+         </div>
+
 	    <div class="srm">
 		 <strong><A href="/tc?module=MatchDetails&rd=15175">SRM 553</A></strong><br />
          brought to you by <A href="http://community.topcoder.com/tco12/overview-sponsor/two-sigma/">Two Sigma</A><br />
