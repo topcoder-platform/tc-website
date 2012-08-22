@@ -17,6 +17,7 @@
         <property name="handle" access="field"/>
         <property name="status" access="field"/>
         <property name="activationCode" column="activation_code" access="field"/>
+        <property name="regSource" column="reg_source" access="field"/>
         <many-to-one name="timeZone" column="timezone_id" class="TimeZone" access="field" cascade="none"/>
         <one-to-one name="coder" class="Coder" cascade="save-update" access="field" fetch="select"/>
         <one-to-one name="contact" class="Contact" cascade="save-update" access="field" fetch="select"/>

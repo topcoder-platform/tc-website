@@ -21,7 +21,13 @@ public class User extends SecureObject implements java.io.Serializable, Permissi
     private java.util.HashMap UserTypeDetails;
     private String LoggedIn;
     private String Terms;
-
+   
+    /**
+     * <p>
+     * The source of user registrations from the different TopCoder websites.
+     * </p>
+     */
+    private String regSource;
 
     public User() {
         super();
@@ -35,6 +41,7 @@ public class User extends SecureObject implements java.io.Serializable, Permissi
         UserTypeDetails = new java.util.HashMap(4);
         LoggedIn = "";
         Terms = "";
+        regSource = "";
     }
 
 
@@ -233,6 +240,20 @@ public class User extends SecureObject implements java.io.Serializable, Permissi
      */
     public String getTerms() {
         return Terms;
+    }
+
+    /**
+     * Get the registration source.
+     */
+    public String getRegSource() {
+        return regSource;
+    }
+
+    /**
+     * Set the registration source.
+     */
+    public void setRegSource(String regSource) {
+        this.regSource = regSource;
     }
 
     public String toString() {
