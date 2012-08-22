@@ -140,6 +140,14 @@ public class User extends Base {
         this.status = status;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getActivationCode() {
         return activationCode;
     }
