@@ -95,6 +95,11 @@ public class RegisterAction extends BaseAction implements PostAction {
     private String activationEmailFromAddress;
 
     /**
+     * Represents register source.
+     */
+    private static final String REGISTER_SOURCE_NAME = "reg2";
+
+    /**
      * Validates the user.
      * <p>
      * Updated in version 1.1: handle validation logic has been changed to add
@@ -144,6 +149,7 @@ public class RegisterAction extends BaseAction implements PostAction {
                         email, activationEmailFromAddress);
             }
             user.setActivationCode(activationCode);
+            user.setRegSource(REGISTER_SOURCE_NAME);
             userDao.saveOrUpdate(user);
         } catch (Exception e) {
             revertSecurityStuff(user, e);
