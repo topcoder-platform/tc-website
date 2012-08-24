@@ -1,0 +1,203 @@
+Steps to prepare the VM for testing: (these steps assume a fresh working VM)
+1) Run DML: *
+    - /test_files/scripts/tcs_catalog.dml
+    - /test_files/scripts/informixoltp.dml
+    - /scripts/tcs_catalog.dml
+    - /scripts/informixoltp.dml
+    - /test_files/scripts/rboard.dml
+    
+    * To aviod precedence conflicts, dml commands should be ran in the following order: (tcs_catalog)
+    1) missing rows dml
+    2) adding new types
+    3) adding scorecards
+
+        -- insert missing (old) review_resp rows for application testing
+        INSERT INTO review_resp (review_resp_id, review_resp_name, phase_id) VALUES (19, 'Application Testing Reviewer 1', 124);
+        INSERT INTO review_resp (review_resp_id, review_resp_name, phase_id) VALUES (20, 'Application Testing Reviewer 2', 124);
+        INSERT INTO review_resp (review_resp_id, review_resp_name, phase_id) VALUES (21, 'Application Testing Reviewer 3', 124);
+        
+        -- rename "Application Testing" track to "Test Suites"
+        update project_category_lu set name = "Test Suites", description = "Test Suites" where project_category_id = 13;
+        update review_resp set review_resp_name = "Test Suites Reviewer 1" where review_resp_id = 19;
+        update review_resp set review_resp_name = "Test Suites Reviewer 2" where review_resp_id = 20;
+        update review_resp set review_resp_name = "Test Suites Reviewer 3" where review_resp_id = 21;
+        
+        -- add new Online Review project type for "Test Scenarios".
+        insert into project_category_lu (project_category_id, project_type_id, name, description, create_user, create_date, modify_user, modify_date) values (26, 2, "Test Scenarios", "Test Scenarios", "System", current, "System", current); 
+        insert into review_resp (review_resp_id, review_resp_name, phase_id) values (31, 'Test Scenarios Reviewer 1', 137);
+        insert into review_resp (review_resp_id, review_resp_name, phase_id) values (32, 'Test Scenarios Reviewer 2', 137);
+        insert into review_resp (review_resp_id, review_resp_name, phase_id) values (33, 'Test Scenarios Reviewer 3', 137);
+        
+        
+        -- Sample screening and review scorecards for the new project types
+        INSERT INTO 'informix'.scorecard(scorecard_id,scorecard_status_id,scorecard_type_id,
+        [...]
+    
+2) Update web module source files in both tc and tcs accounts. (/web_module/ -> ~/web/)
+    * Delete /web/src/com/topcoder/web/ejb/pacts/TestingCompetitionPayment.java in the VM since it was deleted in SVN.
+3) Update online review source files and configurations in tcs account. (/online_review/ -> ~/OR_TRUNK/)
+4) kill running jboss instances for tc, tcs and distui.
+5) Build TCS:
+    5.1) login as tcs
+    5.2) cd web
+    5.3) there is an environment issue with build_tcs.xml. You should copy over the attached file: 
+         /test_files/tcs/build_tcs.xml -> ~/web/
+    5.4) ant -f build_tcs.xml deploy
+6) Build TC:
+    6.1) login as tc
+    6.2) cd web
+    6.3) ant -f build_tc.xml deploy
+7) Build Distributed UI:
+    7.1) login as distui
+    7.2) cd web
+    7.3) ant -f build_distui.xml deploy
+8) Build Online Review:
+    8.1) login as tcs
+    8.2) cd OR_TRUNK
+    8.3) you should get latest trunk sources (they are not being refreshed with each VM instantiation)
+    8.4) there is an environment issue with build.xml. You should copy over the attached file: 
+         /test_files/online_review/build.xml -> ~/OR_TRUNK/
+    8.5) ant deploy
+9) There are some configuration files that are not updated in tcs account. To fix this you should:
+    9.1) login as tcs
+    9.2) copy included EmailEngine.xml (/test_files/tcs/conf/com/topcoder/message/email/) to 
+         ~/jboss-4.0.2/server/default/conf/com/topcoder/message/email/EmailEngine.xml
+    9.3) copy included Util.properties (/test_files/tcs/resources/security/conf/com/topcoder/security/) to 
+         ~/jboss-4.0.2/server/default/conf/com/topcoder/security/Util.properties
+    9.4) copy included OnlineReview.xml (/test_files/online_review/conf/) to 
+         ~/jboss-4.0.2/server/default/deploy/review.war/WEB-INF/classes/
+    9.5) copy included JNDIUtils.properties (/test_files/online_review/conf/com/topcoder/naming/jndiutility/) to 
+         ~/jboss-4.0.2/server/default/deploy/review.war/WEB-INF/classes/com/topcoder/naming/jndiutility/
+    9.6) copy included MessageResources.properties (/online_review/conf/) to 
+         ~/jboss-4.0.2/server/default/deploy/review.war/WEB-INF/classes/
+10) The VM may be missing the shared directory /captcha. You should create /captcha in case it's not there already.
+   (you will need root access for this).
+    Note that tc user must have read/write permissions over this directory.
+    cd / ; mkdir captcha ; chown tc /captcha/ ; chgrp -hR app /captcha/
+11) There is a new datasource used by tcs that is not deployed to the VM. Adding any for testing is ok, so these 
+    lines should be added to /home/tcs/jboss-4.0.2/server/default/deploy/tcs_informix-ds.xml so that OR doesn't error:
+          <no-tx-datasource>
+            <jndi-name>TimeDS</jndi-name>
+            <connection-url>jdbc:informix-sqli://env.topcoder.com:2021/informixoltp:INFORMIXSERVER=informixoltp_tcp</connection-url>
+            <driver-class>com.informix.jdbc.IfxDriver</driver-class>
+            <user-name>coder</user-name>
+            <password>c0d3r4T</password>
+                <new-connection-sql>set lock mode to wait 5</new-connection-sql>
+        
+                <!-- sql to call on an existing pooled connection when it is obtained from pool -->
+                <check-valid-connection-sql>select '1' from dual</check-valid-connection-sql>
+        
+              <!-- corresponding type-mapping in the standardjbosscmp-jdbc.xml (optional) -->
+              <metadata>
+                 <type-mapping>InformixDB</type-mapping>
+              </metadata>
+          </no-tx-datasource>    
+12) Start jboss instances:
+    12.1) login as distui, jbb, ./start.sh
+    12.2) login as tcs, jbb, ./start.sh
+    12.3) login as tc, jbb, ./start.sh
+13) Update the following query tool queries since they are not up to date in the VM : (tcs_dw database: DB:java:TCS_DW)
+    13.1) comp_list
+            Text for this query is located in /test_files/query_tool/comp_list.txt
+
+    Note: if you are not familiar with query tool, check "Steps to update existing queries in Query Tool"    
+    Note2: I have requested the admins to fix homepage_active_contest_summary command that is out of date in the new 
+           VMs. If you are having troubles loading TC main home page, please let the admins know.
+14) Update the following query tool commands/queries: 
+    14.1) coder_all_ratings (informixoltp database: DB:java:OLTP)
+            Text for this query is located in /query_tool/coder_all_ratings.txt
+    14.2) contest_project_status (tcs_catalog database: DB:java:TCS_CATALOG)
+            Text for this query is located in /query_tool/contest_project_status.txt
+    14.3) project_detail (tcs_catalog database: DB:java:TCS_CATALOG)
+            Text for this query is located in /query_tool/project_detail.txt
+
+    Note: if you are not familiar with query tool, check "Steps to create new queries in Query Tool"
+       
+15) Since there are some missing/new images, update Cloud's apache 
+    15.1) /test_files/tcdocs/i/* -> /mnt/apache/tcdocs/i/
+    15.2) /tcdocs/i/* -> /mnt/apache/tcdocs/i/
+    15.3) /tcsdocs/i/* -> /mnt/apache/tcsdocs/i/
+16) Once all instances are running, you are all set for testing.
+
+Note: due to the current state of the VM this deployment require several manual steps as described. If something
+is not working after you deploy, please contact PM so that these issues can be handled during review.
+
+Note2: due to some missing images in VM's apache, some pages could be missing icons or images, but this is not a 
+code problem.
+
+Note3: Past Contest page allows using phase id *or* project type id as a parameter. The link (left nav) was changed to 
+  use the latter to make it consistent with the rest of the pages. It's recommended to change the rest as well since 
+  using phase id is just a hack.
+
+-------------------------------
+
+Testing tips:
+- In order to create new projects please follow this document: 
+  http://www.topcoder.com/wiki/display/docs/Creating+a+TopCoder+Competition
+- After creating the components in the admin tool, you can go to online review and change their types. (editing
+  the project)
+- For all new projects you can:
+    - check they are shown in Online Review
+    - when they are open, they are shown in the corresponding active opportunities page
+    - you can register to projects and navigate all related pages
+    - you can register to the new review positions. Please follow /test_files/scripts/tcs_catalog.dml
+      to see the test review board setup. This will help you check review board eligibility rules.
+- To test Online Review automatic reviewer payment and Past Contests page you will have to:
+    - Create a new project and drive it through the whole process until it's completed. 
+        (if you are not familiar with this, see Steps to complete a new Online Review project)
+    - Run TCS datawarehouse loader:  (This is required since the past contests page is populated with DW data. This is 
+      why TCLoadTCS.java was updated)
+        1) login as tc
+        2) cd ~/web/scripts/dwload
+        3) ./loadtcs.sh
+        4) tail tcs_load.log
+    - After doing this you'll be able to see the project in the past contest page and also query tcs_dw database
+      to see that the new project types were loaded successfully.
+        
+        Note: the loader won't be able to complete all the work because of poor VM data state. But the loaded data
+        until the failure is enough to test the past contests page.
+        
+        Note2: after loading you'll have to clean the cache (otherwise it will show an empty table). 
+        For this you can simply login as cache user and kill and restart jboss.
+
+-------------------------------
+
+Steps to update existing queries in Query Tool:
+1) Go to http://tc.cloud.topcoder.com/query/query
+2) login as heffan/password (check remember me) -> this is important
+3) Select the corresponding Datasource as required.
+4) Click on left menu "Query List" link.
+5) Search for the specified query name and click "edit" next to it.
+6) Make your changes and click save
+
+
+Steps to create new queries in Query Tool:
+1) Go to http://tc.cloud.topcoder.com/query/query
+2) login as heffan/password (check remember me) -> this is important
+3) Select the corresponding Datasource as required.
+4) Click on left menu "New Query" link.
+5) Complete query name and text, click save
+6) if there are query inputs:
+    6.1) click on "edit query input" link
+    6.2) select the corresponding query input from the list, then click add
+7) Click on left menu "New Command" link.
+8) Complete command name and group, click save
+9) Click on "edit command query" link
+10) select the corresponding query from the list, then click add
+
+
+Steps to complete a new Online Review project:
+1) This assumes new projects are already created in Online Review. 
+   (see http://www.topcoder.com/wiki/display/docs/Creating+a+TopCoder+Competition)
+2) Edit the project and change project's type, also change Registration and Submission phases start date to the current
+   date. Save.
+3) Edit the project and open registration and submission phases.
+4) Now you will be able to see the project in the active contest page. You can register a user and submit a solution. 
+   Also reviewers can register. (Note: at the beggining review positions will be shown closed. You can wait or you can
+   update review_project_detail query to not sum 12 hours to the review position open time:
+   http://tc.cloud.topcoder.com/query/query?t=ModifyQuery&db=java:TCS_CATALOG&QueryId=13722)
+5) Tip: After you have done this, Edit the project and change all durations to 0:01. (this will avoid problems later
+   when trying to close phases)
+6) At this point you'll have to run the project. Opening and closing phases one by one and completing all required
+   deliverables as indicated.
+7) Once you have closed final review, you should edit the project one more time and mark its status "complete".
