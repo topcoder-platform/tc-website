@@ -144,20 +144,20 @@
     <c:when test="${fn:length(requirements) > 0}">
         <c:forEach items="${requirements}" var="resultRow">
         	<p><span class="bodySubtitle">Detailed Requirements</span><br></p>
-        	${resultRow.map["detailed_requirements"]}
+        	<p><c:out value="${resultRow.map['detailed_requirements']}"></c:out></p>
         
 			<c:if test="${fn:length(submission_deliverables) > 0}">        	
         		<p><span class="bodySubtitle">Submission Deliverables</span><br></p>
-        		${resultRow.map["submission_deliverables"]}
+	        	<p><c:out value="${resultRow.map['submission_deliverables']}"></c:out></p>
 			</c:if>        
 
 			<c:if test="${fn:length(environment_setup_instruction) > 0}">        	
 	        	<p><span class="bodySubtitle">Environment Setup Instructions</span><br></p> 
-	        	${resultRow.map["environment_setup_instruction"]}
+	        	<p><c:out value="${resultRow.map['environment_setup_instruction']}"></c:out></p>
 			</c:if>        
         
         	<p><span class="bodySubtitle">Final Submission Guidelines</span><br></p> 
-        	${resultRow.map["final_submission_guidelines"]}
+	        	<p><c:out value="${resultRow.map['final_submission_guidelines']}"></c:out></p>
         
         </c:forEach>
     </c:when>
