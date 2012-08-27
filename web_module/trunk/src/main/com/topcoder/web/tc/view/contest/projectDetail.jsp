@@ -768,7 +768,7 @@
             <h2>Milestone Review</h2>
         </div>
         <div class="tipBody">
-            User can select the reviewers. See <a href="http://community.topcoder.com/tc?module=ReviewBoard&pt=14">review board</a>
+            Customer performs a subjective review of milestone submissions, awards bonuses and provides feedback to competitors.
         </div>
         <div class="corner tl"></div>
         <div class="corner tr"></div>
@@ -788,7 +788,7 @@
             <h2>Final Review</h2>
         </div>
         <div class="tipBody">
-            User can select the reviewers. See <a href="http://community.topcoder.com/tc?module=ReviewBoard&pt=14">review board</a>
+            <a href="http://community.topcoder.com/tc?module=ReviewBoard&pt=14">Community Review Board</a> performs a thorough review based on scorecards.
         </div>
         <div class="corner tl"></div>
         <div class="corner tr"></div>
@@ -808,7 +808,7 @@
             <h2>Approval</h2>
         </div>
         <div class="tipBody">
-            User can select the reviewers. See <a href="http://community.topcoder.com/tc?module=ReviewBoard&pt=14">review board</a>
+            Customer has final opportunity to sign-off on the delivered assets.
         </div>
         <div class="corner tl"></div>
         <div class="corner tr"></div>
