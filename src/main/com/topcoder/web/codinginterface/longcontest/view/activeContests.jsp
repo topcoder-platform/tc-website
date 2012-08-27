@@ -160,9 +160,9 @@
                 </logic:empty>
             </table>
 
-            <div align="center" style="margin:10px;">
+<!--            <div align="center" style="margin:10px;">
                 <a href="javascript:arena();"><img src="/i/longcontest/launchArena.png" alt="Launch Arena" /></a>
-            </div>
+            </div> -->
 
         </td>
 <%-- Center Column Ends --%>
