@@ -445,10 +445,7 @@ public class ProjectDetail extends Base {
             regServices = (ComponentRegistrationServicesLocal) createLocalEJB(getInitialContext(),
                     ComponentRegistrationServices.class);
         }
-        // if the user is not registered for the project, return false
-        if(!getSessionInfo().isAdmin() && !regServices.isUserRegistered(projectId, getUser().getId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
-            return false;
-        }
+       
         // If there are no documents just return true.
         if ((docs == null) || (docs.size() == 0)) {
             return true;
