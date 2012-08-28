@@ -25,7 +25,6 @@
     <property name="web" value="src/main/com/topcoder/web"/>
     <property name="jboss_home" value="${env.JBOSS_HOME}"/>
     <property name="jboss_deploy" value="${jboss_home}/server/cache/deploy"/>
-    <property name="jboss_deploy_hasingleton" value="${jboss_home}/server/cache/deploy-hasingleton"/>
     <property name="jboss_lib" value="${jboss_home}/server/cache/lib"/>
     <property name="jboss_conf" value="${jboss_home}/server/cache/conf"/>
 
