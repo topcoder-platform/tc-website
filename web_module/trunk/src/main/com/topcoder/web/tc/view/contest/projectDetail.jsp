@@ -788,7 +788,7 @@
             <h2>Final Review</h2>
         </div>
         <div class="tipBody">
-            <a href="http://community.topcoder.com/tc?module=ReviewBoard&pt=14">Community Review Board</a> performs a thorough review based on scorecards.
+            <a href="http://community.topcoder.com/tc?module=ReviewBoard&pt=${projectTypeId}">Community Review Board</a> performs a thorough review based on scorecards.
         </div>
         <div class="corner tl"></div>
         <div class="corner tr"></div>

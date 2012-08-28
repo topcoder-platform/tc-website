@@ -237,6 +237,7 @@ public class ProjectDetail extends Base {
                 projectCategory = projectCategory.substring(0, projectCategory.indexOf("Competition") - 1);
             }
             getRequest().setAttribute("projectCategory", projectCategory);
+            getRequest().setAttribute("projectTypeId", projectTypeId);
             getRequest().setAttribute("projectDetail", details);
             getRequest().setAttribute("technologies", resultMap.get("project_technologies"));
             getRequest().setAttribute("requirements", resultMap.get("project_requirements"));
