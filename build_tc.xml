@@ -1,39 +1,39 @@
 <project name="topcoder" default="main" basedir=".">
-    <property environment="env" />
-    <property name="Name" value="TopCoder" />
-    <property name="build" value="build" />
-    <property name="war.dir" value="${build}/wars" />
-    <property name="ear.dir" value="${build}/ears" />
-    <property name="sar.dir" value="${build}/sars" />
-    <property name="ejb_jars" value="${build}/ejb_jars" />
-    <property name="classes" value="${build}/classes" />
-    <property name="testclasses" value="${build}/testcases" />
-    <property name="global-dist.dir" value="${basedir}/../dist/artifacts" />
-    <property name="external.jars.dir" location="../external-artifacts" />
-    <property name="build.javadocs" value="${build}/javadocs" />
-    <property name="lib.dir" value="lib" />
-    <property name="jars.dir" value="${lib.dir}/jars" />
-    <property name="jive.dir" value="lib/jars/jive" />
-    <property name="struts.dir" value="${lib.dir}/jakarta-struts-1.1/lib" />
-    <property name="bin" value="lib/bin" />
-    <property name="src.dir" value="src" />
-    <property name="java" value="${src.dir}/main" />
-    <property name="shared.build" value="${basedir}/../shared" />
-    <property name="shared" value="../shared/src/main" />
-    <property name="testjava" value="${src.dir}/testcases" />
-    <property name="resources" value="resources" />
-    <property name="conf" value="conf" />
-    <property name="taglib" value="${resources}/taglib" />
-    <property name="images" value="images" />
-    <property name="shared.jar" value="${bin}/shared.jar" />
-    <property name="common.jar" value="${bin}/tcwebcommon.jar" />
-    <property name="long.jar" value="${bin}/long.jar" />
-    <property name="web" value="src/main/com/topcoder/web" />
-    <property name="jboss_home" value="${env.JBOSS_HOME}" />
-    <property name="jboss_deploy" value="${jboss_home}/server/all/deploy" />
-    <property name="jboss_deploy_hasingleton" value="${jboss_home}/server/all/deploy-hasingleton" />
-    <property name="jboss_lib" value="${jboss_home}/server/all/lib" />
-    <property name="jboss_conf" value="${jboss_home}/server/all/conf" />
+    <property environment="env"/>
+    <property name="Name" value="TopCoder"/>
+    <property name="build" value="build"/>
+    <property name="war.dir" value="${build}/wars"/>
+    <property name="ear.dir" value="${build}/ears"/>
+   
+    <property name="ejb_jars" value="${build}/ejb_jars"/>
+    <property name="classes" value="${build}/classes"/>
+    <property name="testclasses" value="${build}/testcases"/>
+    <property name="global-dist.dir" value="${basedir}/../dist/artifacts"/>
+    <property name="external.jars.dir" location="../external-artifacts"/>
+    <property name="build.javadocs" value="${build}/javadocs"/>
+    <property name="lib.dir" value="lib"/>
+    <property name="jars.dir" value="${lib.dir}/jars"/>
+    <property name="openid4java.dir" value="${jars.dir}/openid4java" />
+    <property name="jive.dir" value="lib/jars/jive"/>
+    <property name="struts.dir" value="${lib.dir}/jakarta-struts-1.1/lib"/>
+    <property name="bin" value="lib/bin"/>
+    <property name="src.dir" value="src"/>
+    <property name="java" value="${src.dir}/main"/>
+    <property name="shared.build" value="${basedir}/../shared"/>
+    <property name="shared" value="../shared/src/main"/>
+    <property name="testjava" value="${src.dir}/testcases"/>
+    <property name="resources" value="resources"/>
+    <property name="conf" value="conf"/>
+    <property name="taglib" value="${resources}/taglib"/>
+    <property name="images" value="images"/>
+    <property name="shared.jar" value="${bin}/shared.jar"/>
+    <property name="common.jar" value="${bin}/tcwebcommon.jar"/>
+    <property name="long.jar" value="${bin}/long.jar"/>
+    <property name="web" value="src/main/com/topcoder/web"/>
+    <property name="jboss_home" value="${env.JBOSS_HOME}"/>
+    <property name="jboss_deploy" value="${jboss_home}/server/all/deploy"/>
+    <property name="jboss_lib" value="${jboss_home}/server/all/lib"/>
+    <property name="jboss_conf" value="${jboss_home}/server/all/conf"/>
 
     <property name="deprecation" value="true" />
     <property name="debug" value="true" />
@@ -178,7 +178,7 @@
         <mkdir dir="${ejb_jars}" />
         <mkdir dir="${war.dir}" />
         <mkdir dir="${ear.dir}" />
-        <mkdir dir="${sar.dir}" />
+  
     </target>
 
     <target name="compile_common" depends="init" unless="compile_common_set">
@@ -537,18 +537,6 @@
         </jar>
     </target>
 
-    <target name="build-sars" depends="compile">
-        <jar jarfile="${sar.dir}/expireOldAffidavitsAndPayments.sar" basedir="${classes}" includes="com/topcoder/utilities/pacts/ExpireOldAffidavitsAndPayments*,
-                     com/topcoder/web/tc/controller/legacy/pacts/bean/*.class,
-                     com/topcoder/web/tc/controller/legacy/pacts/common/*.class,
-                     com/topcoder/web/ejb/pacts/*.class">
-
-            <metainf dir="${java}/com/topcoder/utilities/pacts" includes="*.xml" />
-        </jar>
-
-    </target>
-
-
     <target name="deploy" depends="compile">
         <antcall target="deploy-tc" />
         <antcall target="deploy-admin" />
@@ -559,11 +547,10 @@
         <antcall target="deploy-reg" />
         <antcall target="deploy-ep" />
 
-        <antcall target="deploy-security" />
-        <antcall target="move-libs" />
-        <antcall target="move-conf" />
-        <antcall target="build-sars" />
-        <antcall target="deploy-rboard" />
+        <antcall target="deploy-security"/>
+        <antcall target="move-libs"/>
+        <antcall target="move-conf"/>
+        <antcall target="deploy-rboard"/>
     </target>
 
     <!-- TCS Release 2.2.0 - Copy the Review Board Application EJB -->
@@ -1284,7 +1271,7 @@
     </target>
 
 
-    <target name="war-tc" depends="compile,build-sars">
+    <target name="war-tc" depends="compile">
         <war warfile="${war.dir}/tc.war" webxml="${resources}/tc/web.xml">
             <fileset dir="${java}/com/topcoder/web/tc/view">
                 <include name="**/*.*" />
@@ -1304,9 +1291,7 @@
                 <include name="calendar.jsp" />
                 <include name="public_right.jsp" />
             </fileset>
-            <fileset dir="${sar.dir}">
-                <include name="*.sar" />
-            </fileset>
+  
             <classes dir="${classes}">
                 <include name="com/topcoder/web/tc/**/*.class" />
                 <include name="com/fx4m/**/*.class" />
@@ -1421,13 +1406,8 @@
                 <include name="Util.jar" />
             </fileset>
         </copy>
-        <copy todir="${jboss_deploy_hasingleton}">
-            <fileset dir="${sar.dir}">
-                <include name="expireOldAffidavitsAndPayments.sar" />
-            </fileset>
-        </copy>
-        <unwar src="${war.dir}/tc.war" dest="${jboss_deploy}/tc.war/" overwrite="yes" />
-        <delete dir="${jboss_deploy}/tc.war/META-INF" />
+        <unwar src="${war.dir}/tc.war" dest="${jboss_deploy}/tc.war/" overwrite="yes"/>
+        <delete dir="${jboss_deploy}/tc.war/META-INF"/>
     </target>
 
 
