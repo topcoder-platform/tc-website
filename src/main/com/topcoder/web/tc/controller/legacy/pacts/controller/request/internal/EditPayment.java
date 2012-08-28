@@ -262,16 +262,11 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     setDefault("net_amount", new Double(netAmount));
 
                     String refDescr = "[Can't get the description]";
-                    String isDesign = "";
                     try {
                         payment = dib.fillPaymentData(payment);
                         refDescr = payment.getReferenceDescription();
-                        if (payment instanceof ComponentWinningPayment || payment instanceof ReviewBoardPayment) {
-                            isDesign = ((ComponentProjectReferencePayment) payment).isDesign() + "";
-                        }
                     } catch(Exception e) {}
                     getRequest().setAttribute("reference_description", refDescr);
-                    getRequest().setAttribute("is_design", isDesign);
 
                     
                 }

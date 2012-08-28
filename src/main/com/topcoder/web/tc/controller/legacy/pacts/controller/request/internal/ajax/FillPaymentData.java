@@ -44,12 +44,6 @@ public class FillPaymentData extends BaseProcessor implements PactsConstants {
             //getRequest().setAttribute("statusId", payment.getStatusId() + "");
             getRequest().setAttribute("referenceDescription", payment.getReferenceDescription());
 
-            if (payment instanceof ComponentWinningPayment || payment instanceof ReviewBoardPayment) {
-            	getRequest().setAttribute("isDesign", ((ComponentProjectReferencePayment) payment).isDesign() + "");
-            } else {
-            	getRequest().setAttribute("isDesign", "");
-            }
-            
             setNextPage(INTERNAL_AJAX_FILL_PAYMENT_DATA);
             setIsNextPageInContext(true);
         } catch (Exception e) {

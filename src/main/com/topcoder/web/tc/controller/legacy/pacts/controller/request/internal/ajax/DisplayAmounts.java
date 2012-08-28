@@ -16,7 +16,6 @@ public class DisplayAmounts extends BaseProcessor implements PactsConstants {
         try {
             int type = Integer.parseInt(getRequest().getParameter("payment_type_id"));
             int placed = getRequest().getParameter("placed") != null? Integer.parseInt(getRequest().getParameter("placed")) : 0;
-            boolean isDesign = "true".equalsIgnoreCase(getRequest().getParameter("is_design"));
             boolean isUpdating = "true".equalsIgnoreCase(getRequest().getParameter("is_updating"));
  
             String totalAmount = StringUtils.checkNull(getRequest().getParameter("total_amount"));
@@ -26,7 +25,6 @@ public class DisplayAmounts extends BaseProcessor implements PactsConstants {
             
             getRequest().setAttribute("type", type + "");
             getRequest().setAttribute("placed", placed + "");
-            getRequest().setAttribute("isDesign", String.valueOf(isDesign));
             getRequest().setAttribute("isUpdating", String.valueOf(isUpdating));
 
             setDefault("total_amount", totalAmount);
