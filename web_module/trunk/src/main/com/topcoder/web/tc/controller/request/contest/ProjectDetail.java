@@ -209,9 +209,8 @@ public class ProjectDetail extends Base {
                     boolean hasPrivateDescriptionPermission = registered || permissions[0] || permissions[2]
                             || getSessionInfo().isAdmin();
 
-                    String copilotPostingType = retrieveCopilotPostingType(projectId);
-                    boolean marathonMatchCopilotPosting = copilotPostingType != null
-                            && copilotPostingType.equalsIgnoreCase("Marathon Match");
+                    List<String> copilotPostingTypes = retrieveCopilotPostingTypes(projectId);
+                    boolean marathonMatchCopilotPosting = copilotPostingTypes.contains("Marathon Match");
 
                     boolean registerButton = hasPrivateDescriptionPermission || permissions[1]
                             || marathonMatchCopilotPosting;
@@ -597,7 +596,7 @@ public class ProjectDetail extends Base {
         }
     }
 
-    private String retrieveCopilotPostingType(String projectId) throws Exception {
+    private List<String> retrieveCopilotPostingTypes(String projectId) throws Exception {
         DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
         Request r = new Request();
         r.setContentHandle("copilot_posting_type");
@@ -607,13 +606,12 @@ public class ProjectDetail extends Base {
         Iterator<ResultSetContainer.ResultSetRow> iterator = rsc.iterator();
 
         // check the result
-        if (iterator.hasNext()) {
+        List<String> ret = new ArrayList<String>();
+        while (iterator.hasNext()) {
             ResultSetContainer.ResultSetRow row = iterator.next();
-            return row.getStringItem("value");
-        } else {
-            // no records found, return null
-            return null;
+            ret.add(row.getStringItem("value"));
         }
+        return ret;
     }
     
     private List<String> retrieveCopilotExperiences(String projectId) throws Exception {
