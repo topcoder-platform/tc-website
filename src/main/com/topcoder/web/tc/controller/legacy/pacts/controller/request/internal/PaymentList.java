@@ -354,6 +354,29 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         getResponse().addHeader("content-disposition", "attachment; filename=\"payments.xml\"");
         getResponse().setContentType("text/xml");
 
+        List<PaymentHeader> allPayments = (List<PaymentHeader>) getRequest().getAttribute(PaymentList.PAYMENTS);
+        Map<Long, Double> memberAmounts = new HashMap<Long, Double>();
+        Map<Long, Long> internalPaymentIDs = new HashMap<Long, Long>();
+        double totalAmount = 0.0;
+
+        // Group all payments by member.
+        for (PaymentHeader payment : allPayments) {
+            // Only Payoneer payments get into the Payoneer XML
+            if (payment.getMethod().equals("Payoneer")) {
+	            long userId = payment.getUser().getId();
+	            if (memberAmounts.containsKey(userId)) {
+		            memberAmounts.put(userId, memberAmounts.get(userId)+payment.getRecentNetAmount());
+	            } else {
+		            memberAmounts.put(userId, payment.getRecentNetAmount());
+					internalPaymentIDs.put(userId, payment.getId());
+	            } 
+                totalAmount += payment.getRecentNetAmount();				
+			}
+        }
+
+        Calendar date = Calendar.getInstance();
+        date.setTime(new Date());
+
         try {
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
@@ -366,34 +389,28 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
  
             Element payoutPaymentsElement = doc.createElement("PayoutPayments");
             payoneerInElement.appendChild(payoutPaymentsElement);
- 
-            double totalAmount = 0.0;
-            List<PaymentHeader> allPayments = (List<PaymentHeader>) getRequest().getAttribute(PaymentList.PAYMENTS);
-            
-            for (PaymentHeader payment : allPayments) {    
-                UserProfileHeader user = payment.getUser();            
-                totalAmount += payment.getRecentNetAmount();
-
+         
+            for(Long userId : memberAmounts.keySet()) {
                 Element payoutPaymentElement = doc.createElement("PayoutPayment");
                 payoutPaymentsElement.appendChild(payoutPaymentElement);
                 
                 Element paymentDateElement = doc.createElement("PaymentDate");
-                paymentDateElement.appendChild(doc.createTextNode(""+payment.getCreateDate()));
+                paymentDateElement.appendChild(doc.createTextNode(new SimpleDateFormat("MM/dd/yyyy").format(date.getTime())));
 
                 Element payeeIDElement = doc.createElement("PayeeID");
-                payeeIDElement.appendChild(doc.createTextNode(""+payment.getUser().getId()));
+                payeeIDElement.appendChild(doc.createTextNode(""+userId));
 
                 Element intPaymentIDElement = doc.createElement("IntPaymentID");
-                intPaymentIDElement.appendChild(doc.createTextNode(""+payment.getId()));
+                intPaymentIDElement.appendChild(doc.createTextNode(""+internalPaymentIDs.get(userId)));
 
                 Element amountElement = doc.createElement("Amount");
-                amountElement.appendChild(doc.createTextNode(""+payment.getRecentNetAmount()));
+                amountElement.appendChild(doc.createTextNode(""+memberAmounts.get(userId)));
                 
                 Element currencyElement = doc.createElement("Currency");
                 currencyElement.appendChild(doc.createTextNode("USD"));
 
                 Element descriptionElement = doc.createElement("Description");
-                descriptionElement.appendChild(doc.createTextNode(payment.getDescription()));
+                descriptionElement.appendChild(doc.createTextNode("TopCoder Member Payments"));
                 
                 payoutPaymentElement.appendChild(paymentDateElement);
                 payoutPaymentElement.appendChild(payeeIDElement);
