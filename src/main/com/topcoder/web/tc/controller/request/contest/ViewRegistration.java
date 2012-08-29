@@ -215,8 +215,8 @@ public class ViewRegistration extends Base {
         }
 
         if (projectTypeId == Constants.COPILOT_POSTING_PROJECT_TYPE) {
-            String copilotPostingType = retrieveCopilotPostingType(projectId);
-            boolean marathonMatchCopilotPosting = copilotPostingType!=null && copilotPostingType.equalsIgnoreCase("Marathon Match");
+            List<String> copilotPostingTypes = retrieveCopilotPostingTypes(projectId);
+            boolean marathonMatchCopilotPosting = copilotPostingTypes.contains("Marathon Match");
 
             // Check whether the registrant is in copilot pool for copilot posting registration.
             // For marathon match copilot postings let everyone register.
@@ -281,7 +281,7 @@ public class ViewRegistration extends Base {
         return !rsc.isEmpty();
     }
 
-    private String retrieveCopilotPostingType(long projectId) throws Exception {
+    private List<String> retrieveCopilotPostingTypes(long projectId) throws Exception {
         DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
         Request r = new Request();
         r.setContentHandle("copilot_posting_type");
@@ -291,13 +291,12 @@ public class ViewRegistration extends Base {
         Iterator<ResultSetContainer.ResultSetRow> iterator = rsc.iterator();
 
         // check the result
-        if (iterator.hasNext()) {
+        List<String> ret = new ArrayList<String>();
+        while (iterator.hasNext()) {
             ResultSetContainer.ResultSetRow row = iterator.next();
-            return row.getStringItem("value");
-        } else {
-            // no records found, return null
-            return null;
+            ret.add(row.getStringItem("value"));
         }
+        return ret;
     }
 
 }
