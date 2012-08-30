@@ -95,7 +95,7 @@
             <!-- the copilot profile content -->
             <div class="copilot-pool" id="copilot-profile">
                 <div class="header-title">
-                    <div class="left-title"><img src="images/copilot-statistics.png" alt=""/></div>
+                    <div class="left-title"><img src="/i/copilots/copilot-statistics.png" alt=""/></div>
                     <div class="right-title b">
                         Copilot Profile
                         &nbsp;|&nbsp;<a href="/tc?module=ViewCopilotPool">Copilot Pool</a>
