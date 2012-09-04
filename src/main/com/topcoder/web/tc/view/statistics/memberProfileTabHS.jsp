@@ -153,7 +153,7 @@
                         </colgroup>
                         <thead>
                             <tr class="title">
-                                <th colspan="5" class="textLeft leftSpacing">Challanges</th>
+                                <th colspan="5" class="textLeft leftSpacing">Challenges</th>
                             </tr>
                             <tr class="subTitle">
                                 <th class="textLeft"><span class="leftBorder"></span>Problem</th>
