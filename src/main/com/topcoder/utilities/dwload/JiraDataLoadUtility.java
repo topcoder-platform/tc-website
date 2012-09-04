@@ -18,13 +18,18 @@ import com.topcoder.shared.util.sql.DBUtility;
  * A DB utility which is intended to load data for JIRA Tickets from MySQL
  * database to warehouse database.
  * </p>
+ *
+ * <p>
+ * Version 1.1: Add the loading of jira issue TCo points.
+ * </p>
+ *
  * <p>
  * <strong>Thread Safety: </strong> It's a data utility tool and will not run in
  * parallel.
  * </p>
  * 
  * @author TCSASSEMBLER
- * @version 1.0
+ * @version 1.1 (Module Assembly - JIRA issues loading update and report creation)
  * @since 1.0
  */
 public class JiraDataLoadUtility extends DBUtility {
@@ -68,24 +73,30 @@ public class JiraDataLoadUtility extends DBUtility {
 
     /**
      * SQL to retrieve all JIRA records.
+     *
+     * <p>
+     * Update in version 1.1 - select TCO points from customfield 10080
+     * </p>
      */
     private static final String SQL_QUERY_JIRA = "SELECT i.pkey AS ticket_id, i.reporter, i.assignee, i.summary, "
             + "i.description, i.created, i.updated, i.duedate AS due_date, i.resolutiondate AS resolution_date, i.votes, "
             + "IFNULL(TRIM(payee.stringvalue),'N/A') AS winner, payment.numbervalue AS payment_amount, "
-            + "IFNULL(payment_status.stringvalue, 'Not Paid') AS status, "
-            + "CAST(contest.stringvalue AS SIGNED INTEGER) AS contest_id "
+            + "IFNULL(payment_status.stringvalue, 'Not Paid') AS payment_status, tcopoints.numbervalue AS tco_points,"
+            + "CAST(contest.stringvalue AS SIGNED INTEGER) AS contest_id, st.pname as status "
             + "FROM jiraissue AS i "
             + "JOIN customfieldvalue contest ON contest.customfield = 10093 AND contest.issue = i.id and contest.ID = (select max(id) from customfieldvalue where customfield = 10093 AND issue = i.id) "
+			+ "JOIN issuestatus st on st.id = i.issuestatus "
             + "LEFT JOIN customfieldvalue payment ON payment.customfield = 10012 AND payment.issue = i.id "
             + "LEFT JOIN customfieldvalue payee ON payee.customfield = 10040 AND payee.issue = i.id "
-            + "LEFT JOIN customfieldvalue payment_status ON payment_status.customfield = 10030 AND payment_status.issue = i.id ";
+            + "LEFT JOIN customfieldvalue payment_status ON payment_status.customfield = 10030 AND payment_status.issue = i.id "
+            + "LEFT JOIN customfieldvalue tcopoints ON tcopoints.customfield = 10080 AND tcopoints.issue = i.id ";
 
     /**
      * SQL to insert JIRA Tickets into tcs_dw:jira_issue.
      */
     private static final String SQL_INSERT_JIRA_ISSUE = "INSERT INTO 'informix'.jira_issue(jira_issue_id, ticket_id, "
             + "reporter, assignee, summary, description, created, updated, due_date, resolution_date, votes, winner, "
-            + "payment_amount, contest_id, status) VALUES(jira_issue_seq.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            + "payment_amount, tco_points, contest_id, status) VALUES(jira_issue_seq.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     /**
      * SQL to delete existing JIRA Tickets.
@@ -196,9 +207,10 @@ public class JiraDataLoadUtility extends DBUtility {
 
     /**
      * This is the method that would do the real loading work.
-     * 
-     * @throws SQLException
-     *             if there is any {@link SQLException}.
+     *
+     * <p>
+     * Update in version 1.1 - insert tco points to the jira_issue int tcs_dw
+     * </p>
      */
     private void loadJiraData() throws SQLException {
         final String signature = CLASS_NAME + "#loadJiraData()";
@@ -249,8 +261,9 @@ public class JiraDataLoadUtility extends DBUtility {
                 pst.setInt(10, rs.getInt("votes"));
                 pst.setString(11, rs.getString("winner"));
                 pst.setDouble(12, rs.getDouble("payment_amount"));
-                pst.setLong(13, rs.getLong("contest_id"));
-                pst.setString(14, rs.getString("status"));
+                pst.setInt(13, rs.getInt("tco_points"));
+                pst.setLong(14, rs.getLong("contest_id"));
+                pst.setString(15, rs.getString("status"));
                 pst.executeUpdate();
             }
             log.debug(row + " row(s) loaded into tcs_dw:jira_issue");
