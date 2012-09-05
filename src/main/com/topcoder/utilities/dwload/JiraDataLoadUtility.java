@@ -81,7 +81,7 @@ public class JiraDataLoadUtility extends DBUtility {
     private static final String SQL_QUERY_JIRA = "SELECT i.pkey AS ticket_id, i.reporter, i.assignee, i.summary, "
             + "i.description, i.created, i.updated, i.duedate AS due_date, i.resolutiondate AS resolution_date, i.votes, "
             + "IFNULL(TRIM(payee.stringvalue),'N/A') AS winner, payment.numbervalue AS payment_amount, "
-            + "IFNULL(payment_status.stringvalue, 'Not Paid') AS payment_status, tcopoints.numbervalue AS tco_points,"
+            + "IFNULL(payment_status.stringvalue, 'Not Paid') AS payment_status, CAST(IFNULL(tcopoints.STRINGVALUE, '0') AS SIGNED INTEGER) AS  tco_points,"
             + "CAST(contest.stringvalue AS SIGNED INTEGER) AS contest_id, st.pname as status "
             + "FROM jiraissue AS i "
             + "JOIN customfieldvalue contest ON contest.customfield = 10093 AND contest.issue = i.id and contest.ID = (select max(id) from customfieldvalue where customfield = 10093 AND issue = i.id) "
