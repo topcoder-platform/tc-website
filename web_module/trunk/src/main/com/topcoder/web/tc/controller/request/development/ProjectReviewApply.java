@@ -163,10 +163,6 @@ public class ProjectReviewApply extends Base {
             }
             projectId = Long.parseLong(getRequest().getParameter(Constants.PROJECT_ID));
 
-            if ((long)getProjectTypeId(projectId) != Long.parseLong(projectTypeId)) {
-                throw new TCWebException("Invalid project type specified " + projectTypeId);
-            }        
-
             // check eligibility constraints
             if (checkEligibilityConstraints(projectId, new ClassResource(this.getClass())) != 0) {
                 throw new NavigationException("Could not find project information.");
@@ -183,11 +179,22 @@ public class ProjectReviewApply extends Base {
                 ResultSetContainer detail=null;
 
                 if (phaseId > Constants.SPECIFICATION_COMPETITION_OFFSET) {
+                    // check that projectTypeId matches
+                    if ((long)getProjectTypeId(projectId) !=
+                        Long.parseLong(projectTypeId) - Constants.SPECIFICATION_COMPETITION_OFFSET) {
+                        throw new TCWebException("Invalid project type specified " + projectTypeId);
+                    }
+
                     r.setContentHandle("spec_review_project_detail");
                     r.setProperty(Constants.PROJECT_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
                     Map results = getDataAccess().getData(r);
                     detail = (ResultSetContainer) results.get("spec_review_project_detail");
                 } else {
+                    // check that projectTypeId matches
+                    if ((long)getProjectTypeId(projectId) != Long.parseLong(projectTypeId)) {
+                        throw new TCWebException("Invalid project type specified " + projectTypeId);
+                    }
+
                     if(projectTypeId.equals(String.valueOf(Constants.BUG_HUNT_PROJECT_TYPE))) {
                         r.setContentHandle("bug_hunt_review_project_detail");
                     } else {
