@@ -2,6 +2,8 @@ package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.*;
 import java.io.PrintWriter;
 import java.io.IOException;
@@ -378,6 +380,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         date.setTime(new Date());
 
         try {
+            DecimalFormat df = new DecimalFormat("0.00", new DecimalFormatSymbols(Locale.US));
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
  
@@ -404,7 +407,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 intPaymentIDElement.appendChild(doc.createTextNode(""+internalPaymentIDs.get(userId)));
 
                 Element amountElement = doc.createElement("Amount");
-                amountElement.appendChild(doc.createTextNode(""+memberAmounts.get(userId)));
+                amountElement.appendChild(doc.createTextNode(df.format(memberAmounts.get(userId))));
                 
                 Element currencyElement = doc.createElement("Currency");
                 currencyElement.appendChild(doc.createTextNode("USD"));
@@ -424,7 +427,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
             payoneerInElement.appendChild(payoutTotals);
             
             Element amountElement = doc.createElement("Amount");
-            amountElement.appendChild(doc.createTextNode(""+totalAmount));
+            amountElement.appendChild(doc.createTextNode(df.format(totalAmount)));
             payoutTotals.appendChild(amountElement);    
 
             // write the content
