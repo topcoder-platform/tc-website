@@ -125,22 +125,33 @@ public class ReviewProjectDetail extends Base {
             throw new TCWebException("Invalid project type specified " + projectTypeId);
         }
 
-        int phaseId = (Integer.parseInt(projectTypeId) + (int) Constants.GENERAL_PHASE_OFFSET);
-        String projectId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID));
+        try {
+            int phaseId = (Integer.parseInt(projectTypeId) + (int) Constants.GENERAL_PHASE_OFFSET);
+            String projectId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID));
+            
+            // check that projectTypeId matches
+            if ((long)getProjectTypeId(Long.parseLong(projectId)) != Long.parseLong(projectTypeId)) {
+                throw new TCWebException("Invalid project type specified " + projectTypeId);
+            }    
 
-        // check eligibility constraints
-        if (checkEligibilityConstraints(projectId, new ClassResource(this.getClass())) != 0) {
-            throw new NavigationException("Could not find project information.");
+            // check eligibility constraints
+            if (checkEligibilityConstraints(projectId, new ClassResource(this.getClass())) != 0) {
+                throw new NavigationException("Could not find project information.");
+            }
+
+            if (phaseId > Constants.SPECIFICATION_COMPETITION_OFFSET) {
+                retrieveSpecReviewProjectDetail(projectId, phaseId);
+            } else {
+                retrieveReviewProjectDetail(projectId, phaseId, projectTypeId);
+            }
+
+            setNextPage(getReviewProjectDetailView(projectTypeId));
+            setIsNextPageInContext(true);
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new TCWebException(e);
         }
-
-        if (phaseId > Constants.SPECIFICATION_COMPETITION_OFFSET) {
-            retrieveSpecReviewProjectDetail(projectId, phaseId);
-        } else {
-            retrieveReviewProjectDetail(projectId, phaseId, projectTypeId);
-        }
-
-        setNextPage(getReviewProjectDetailView(projectTypeId));
-        setIsNextPageInContext(true);
     }
     
     /**
