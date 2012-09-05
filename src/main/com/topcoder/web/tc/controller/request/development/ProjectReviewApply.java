@@ -163,6 +163,10 @@ public class ProjectReviewApply extends Base {
             }
             projectId = Long.parseLong(getRequest().getParameter(Constants.PROJECT_ID));
 
+            if ((long)getProjectTypeId(projectId) != Long.parseLong(projectTypeId)) {
+                throw new TCWebException("Invalid project type specified " + projectTypeId);
+            }        
+
             // check eligibility constraints
             if (checkEligibilityConstraints(projectId, new ClassResource(this.getClass())) != 0) {
                 throw new NavigationException("Could not find project information.");
