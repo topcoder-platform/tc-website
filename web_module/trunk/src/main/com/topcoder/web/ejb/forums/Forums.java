@@ -39,9 +39,17 @@ import com.jivesoftware.forum.ForumNotFoundException;
  *     <li>Modified {@link #createTopCoderDirectProjectForums(String, Long, Map)} to add a new argument.</li>
  *   </ol>
  * </p>
+ *
+ * <p>
+ * Version 1.4 (Release Assembly - TC Direct Project Forum Configuration Assembly 2) Change notes:
+ *   <ol>
+ *     <li>Added {@link #addTopCoderDirectProjectForum(long, String, String)} to add a direct project forum.</li>
+ *     <li>Added {@link #deleteTopCoderDirectProjectForum(long, long)} to delete a direct project forum.</li>
+ *   </ol>
+ * </p>
  * 
  * @author TCSASSEMBER, duxiaoyang
- * @version 1.3
+ * @version 1.4
  */
 public interface Forums extends EJBObject {
     
@@ -177,4 +185,33 @@ public interface Forums extends EJBObject {
      */
     public long createTopCoderDirectProjectForums(String projectName, Long tcDirectProjectTypeId,
             Map<String, String> forums) throws EJBException, RemoteException, Exception;
+
+    /**
+     * <p>
+     * Adds a forum to the existing TopCoder Direct project forum category.
+     * </p>
+     * @param forumCategoryId the TopCoder Direct project forum category id.
+     * @param forumName the name of the forum to be added.
+     * @param forumDescription the description of the forum to be added.
+     * @return the id of the added forum.
+     * @throws EJBException if an unexpected error occurs.
+     * @throws RemoteException if an unexpected error occurs.
+     * @throws Exception if an unexpected error occurs.
+     * @since 1.4
+     */
+    public long addTopCoderDirectProjectForum(long forumCategoryId, String forumName, String forumDescription)
+            throws EJBException, RemoteException, Exception;
+
+    /**
+     * <p>
+     * Deletes an existing TopCoder Direct project forum.
+     * </p>
+     * @param forumCategoryId the id of the forum category.
+     * @param forumId the id of the forum to be deleted.
+     * @throws EJBException if an unexpected error occurs.
+     * @throws RemoteException if an unexpected error occurs.
+     * @throws Exception if an unexpected error occurs.
+     * @since 1.4
+     */
+    public void deleteTopCoderDirectProjectForum(long forumCategoryId, long forumId) throws EJBException, RemoteException, Exception;
 }

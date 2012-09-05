@@ -86,9 +86,17 @@ import java.util.Map;
  *     configuration.</li>
  *   </ol>
  * </p>
- * 
+ *
+ * <p>
+ * Version 1.4 (Release Assembly - TC Direct Project Forum Configuration Assembly 2) Change notes:
+ *   <ol>
+ *     <li>Added {@link #addTopCoderDirectProjectForum(long, String, String)} to add a direct project forum.</li>
+ *     <li>Added {@link #deleteTopCoderDirectProjectForum(long, long)} to delete a direct project forum.</li>
+ *   </ol>
+ * </p>
+ *
  * @author mtong, TCSASSEMBER, duxiaoyang
- * @version 1.3
+ * @version 1.4
  */
 
 public class ForumsBean extends BaseEJB {
@@ -728,7 +736,68 @@ public class ForumsBean extends BaseEJB {
             }
         }
     }
-    
+
+    /**
+     * <p>
+     * Adds a forum to the existing TopCoder Direct project forum category.
+     * </p>
+     * @param forumCategoryId the TopCoder Direct project forum category id.
+     * @param forumName the name of the forum to be added.
+     * @param forumDescription the description of the forum to be added.
+     * @return the id of the added forum.
+     * @throws IllegalArgumentException if <code>forumName</code> or <code>forumDescription</code> is null or empty.
+     * @throws EJBException if an unexpected error occurs.
+     * @throws RemoteException if an unexpected error occurs.
+     * @throws Exception if an unexpected error occurs.
+     * @since 1.4
+     */
+    public long addTopCoderDirectProjectForum(long forumCategoryId, String forumName, String forumDescription)
+            throws EJBException, RemoteException, Exception {
+        if ((forumName == null) || (forumName.trim().length() == 0)) {
+            throw new IllegalArgumentException("The parameter [forumName] is not valid. [" + forumName + "]");
+        }
+        if ((forumDescription == null) || (forumDescription.trim().length() == 0)) {
+            throw new IllegalArgumentException("The parameter [forumDescription] is not valid. [" + forumDescription
+                    + "]");
+        }
+
+        try {
+            ForumCategory forumCategory = forumFactory.getForumCategory(forumCategoryId);
+            Forum forum = forumFactory.createForum(forumName, forumDescription, forumCategory);
+            return forum.getID();
+        } catch (Exception e) {
+            logException(e, "Error when adding TC Direct project forum.");
+            throw e;
+        }
+    }
+
+    /**
+     * <p>
+     * Deletes an existing TopCoder Direct project forum.
+     * </p>
+     * @param forumCategoryId the id of the forum category.
+     * @param forumId the id of the forum to be deleted.
+     * @throws EJBException if an unexpected error occurs.
+     * @throws RemoteException if an unexpected error occurs.
+     * @throws Exception if an unexpected error occurs.
+     * @since 1.4
+     */
+    public void deleteTopCoderDirectProjectForum(long forumCategoryId, long forumId) throws EJBException, RemoteException, Exception {
+        try {
+            Forum forum = forumFactory.getForum(forumId);
+            if (forum.getThreadCount() > 0) {
+                throw new EJBException("Cannot delete active forum which has threads in it.");
+            }
+            if (forum.getForumCategory().getID() != forumCategoryId) {
+                throw new EJBException("Given forum does not belong to the given category.");
+            }
+            forum.getForumCategory().deleteForum(forum);
+        } catch (Exception e) {
+            logException(e, "Error when deleting TC Direct project forum.");
+            throw e;
+        }
+    }
+
     /**
      * <p>Post a new thread to the question forum under a specified category.</p>
      * 
