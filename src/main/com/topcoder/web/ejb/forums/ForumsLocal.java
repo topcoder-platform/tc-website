@@ -28,9 +28,17 @@ import java.util.Map;
  *     <li>Added {@link #postThreadToQuestionForum(long, String, String, long)} to post a new thread in a specified forum.</li>
  *   </ol>
  * </p>
+ *
+ * <p>
+ * Version 1.2 (Release Assembly - TC Direct Project Forum Configuration Assembly 2) Change notes:
+ *   <ol>
+ *     <li>Added {@link #addTopCoderDirectProjectForum(long, String, String)} to add a direct project forum.</li>
+ *     <li>Added {@link #deleteTopCoderDirectProjectForum(long, long)} to delete a direct project forum.</li>
+ *   </ol>
+ * </p>
  * 
- * @author mtong, TCSASSEMBER
- * @version 1.1
+ * @author mtong, TCSASSEMBER, duxiaoyang
+ * @version 1.2
  */
 public interface ForumsLocal extends EJBLocalObject {
 
@@ -164,4 +172,31 @@ public interface ForumsLocal extends EJBLocalObject {
      */
     public long createTopCoderDirectProjectForums(String projectName, Long tcDirectProjectTypeId,
             Map<String, String> forums) throws EJBException, Exception;
+
+    /**
+     * <p>
+     * Adds a forum to the existing TopCoder Direct project forum category.
+     * </p>
+     * @param forumCategoryId the TopCoder Direct project forum category id.
+     * @param forumName the name of the forum to be added.
+     * @param forumDescription the description of the forum to be added.
+     * @return the id of the added forum.
+     * @throws EJBException if an unexpected error occurs.
+     * @throws Exception if an unexpected error occurs.
+     * @since 1.2
+     */
+    public long addTopCoderDirectProjectForum(long forumCategoryId, String forumName, String forumDescription)
+            throws EJBException, Exception;
+
+    /**
+     * <p>
+     * Deletes an existing TopCoder Direct project forum.
+     * </p>
+     * @param forumCategoryId the id of the forum category.
+     * @param forumId the id of the forum to be deleted.
+     * @throws EJBException if an unexpected error occurs.
+     * @throws Exception if an unexpected error occurs.
+     * @since 1.2
+     */
+    public void deleteTopCoderDirectProjectForum(long forumCategoryId, long forumId) throws EJBException, Exception;
 }
