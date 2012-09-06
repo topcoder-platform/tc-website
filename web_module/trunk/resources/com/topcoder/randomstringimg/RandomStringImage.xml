@@ -7,10 +7,10 @@
             <Value>100</Value>
         </Property>
         <Property name="colorfiles">
-            <Value>/home/tc/web/resources/com/topcoder/randomstringimg/Colors.xml</Value>
+            <Value>/home/web/web/resources/com/topcoder/randomstringimg/Colors.xml</Value>
         </Property>
         <Property name="dictionaries">
-            <Value>/home/tc/web/resources/com/topcoder/randomstringimg/movie-characters</Value>
+            <Value>/home/web/web/resources/com/topcoder/randomstringimg/movie-characters</Value>
         </Property>
         <Property name="algorithms">
             <Value>com.topcoder.randomstringimg.algorithms.BlurObfuscator</Value>
