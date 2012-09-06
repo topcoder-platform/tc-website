@@ -1,16 +1,23 @@
 <%--
   - Author: isv
-  - Version: 1.0 (TopCoder Studio Member Profile Assembly)
+  - Version: 1.1 (TopCoder Studio Member Profile Assembly)
   - Copyright (C) 2010-2012 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page renders a single Member Profile page
+  -
+  - Version 1.1 (Release Assembly - TopCoder Member Photo Uploader Improvement) changes: updated logic for displaying 
+  - member photos. Added logic for uploading member photo image.
 --%>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.common.BaseProcessor" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="studio_tags" tagdir="/WEB-INF/tags" %>
+<%@ taglib uri="common-functions" prefix="cf" %>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -28,6 +35,8 @@
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_studio_profile"/>
     </jsp:include>
+    <link type="text/css" href="/css/jquery.Jcrop.css" rel="stylesheet"/>
+    <link type="text/css" href="/css/photo.css" rel="stylesheet"/>
 
     <!-- external javascript -->
     <script type="text/javascript" src="/js/jquery-1.7.1.min.js"></script>
@@ -35,6 +44,9 @@
     <script type="text/javascript" src="/js/jquery.jqtransform.js"></script>
     <script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
     <script type="text/javascript" src="/js/memberProfile.js"></script>
+    <script type="text/javascript" src="/js/jquery.form.js"></script>
+    <script type="text/javascript" src="/js/jquery.Jcrop.js"></script>
+    <script type="text/javascript" src="/js/photo.js"></script>
 
     <script src="/js/NewStyleHeaderFooter/preloadCssImages.jQuery_v5.js" language="javascript"></script>
     
@@ -44,6 +56,9 @@
     <link type="text/css" rel="stylesheet" href="/css/style.css" />    
     
     <script type="text/javascript">
+        var previewPath = <%= request.getParameter("previewPath") == null ? null : "\'http://"  + ApplicationServer.SERVER_NAME + request.getParameter("previewPath") + "\'" %>;
+        var originalFile = <%= request.getParameter("originalFileName") == null ? null : "\'"  + request.getParameter("originalFileName") + "\'" %>;
+
         $(document).ready(function () {
             //Run the script to preload images from CSS
             $.preloadCssImages();
@@ -253,9 +268,27 @@ boolean hidePayments = ((Boolean)request.getAttribute("hidePayments")).booleanVa
             <div class="memberPhotoWrapper">
                 <h2><c:out value="${profile.handle}"/></h2>
                 <div class="memberPhotoBox">
-                <a href="http://community.topcoder.com//tc?module=MemberProfile&cr=${profile.userId}">
-                        <img width="117" height="140" src="<c:if test="${not empty profile.imageUrl}">${profile.imageUrl}</c:if><c:if test="${empty profile.imageUrl}">/i/no_photo.png</c:if>" alt="Member Photo"/>
-                </a>
+                    <c:choose>
+                        <c:when test="${not empty profile.imageUrl}">
+                            <a href="http://community.topcoder.com//tc?module=MemberProfile&cr=${profile.userId}">
+                                <img src="${cf:getResizedImagePath(profile.imageUrl, 126, 140)}" alt="Member Photo"/>
+                            </a>
+                        </c:when>
+                        <c:otherwise>
+                            <c:choose>
+                                <c:when test="${profile.userId eq sessionInfo.userId}">
+                                    <a href="javascript:;" id="submitPhotoLink">
+                                        <img width="126" height="140"
+                                             src="/i/member_photo_upload_default.png" alt="Upload Photo"/>
+                                    </a>
+                                </c:when>
+                                <c:otherwise>
+                                    <img width="126" height="140"
+                                         src="/i/member_photo_upload_default.png" alt="Upload Photo"/>
+                                </c:otherwise>
+                            </c:choose>
+                        </c:otherwise>
+                    </c:choose>
                 </div>
             </div>
             <!--end .memberPhotoWrapper-->
@@ -561,5 +594,8 @@ boolean hidePayments = ((Boolean)request.getAttribute("hidePayments")).booleanVa
     <div class="tooltipsC"><p></p></div>
     <div class="tooltipsF"></div>
 </div>
+
+<jsp:include page="photoUploadPopup.jsp"/>
+
 </body>
 </html>

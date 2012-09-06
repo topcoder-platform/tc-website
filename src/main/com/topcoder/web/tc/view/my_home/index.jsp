@@ -1,7 +1,7 @@
 <%--
-  - Author: isv, pvmagacho
-  - Version: 1.3 (BUG#TCCC-3348)
-  - Copyright (C) 2010 - 2011 TopCoder Inc., All Rights Reserved.
+  - Author: isv, pvmagacho, TCSDEVELOPER
+  - Version: 1.5 (BUG#TCCC-3348)
+  - Copyright (C) 2010 - 2012 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page renders the Home page displayed to TopCoder member. It renders the details on user
   - account (name, address, phone, etc) as well as navigation links to various areas providing other user account
@@ -19,14 +19,21 @@
   - 
   - Changes in 1.3 (BUG#TCCC-3348):
   - - Change image popup class for compatibily with Member Profile page.
+  -
+  - Changes in 1.4 (Release Assembly - TopCoder Member Photo Uploader Improvement):
+  - - Changed the dimension of Uploaded Image area and text in photo uploaded popup to reflect 400x400 dimension.
+  -
+  - Version 1.5 (Release Assembly - TopCoder Member Photo Uploader Improvement) changes: updated logic for displaying 
+  - member photos. Added logic for uploading member photo image.
 --%>
 
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
-<%@ page import="javax.servlet.http.HttpServletRequest"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="common-functions" prefix="cf" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=utf-8" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -98,13 +105,13 @@
                                 <c:when test="${userImage!=null}">
                                     <div>
                                         <a href="/tc?module=MemberProfile&amp;cr=${regUser.id}">
-                                            <img src="${pathImage}" name="image_path" alt="" class="memberPhoto" />
+                                            <img src="${cf:getResizedImagePath(pathImage, 126, 140)}" name="image_path" alt="" class="memberPhoto" />
                                         </a>
                                     </div>
                                 </c:when>
                                 <c:otherwise>
-                                    <a href="/tc?module=MemberProfile&amp;cr=${regUser.id}">
-                                        <img src="/i/m/nophoto_submit.gif" name="image_path" alt="" class="memberPhoto"/>
+                                    <a href="javascript:;" id="submitPhotoLink">
+                                        <img src="/i/member_photo_upload_default.png" name="image_path" alt="" class="memberPhoto"/>
                                     </a>
                                 </c:otherwise>
                             </c:choose>
@@ -212,7 +219,7 @@
                                 <p><a href="/tc?module=HSViewUnregister">Unregister from TCHS</a></p>
                             </c:if>
                             <p><a href="https://www.topcoder.com/reg/?nrg=false">Update my profile</a></p>
-                            <p class="<c:if test='${userImage!=null}'>hide</c:if>"><a href="javascript:;" id="submitPhotoLink" >Submit a photo</a></p>
+                            <p class="<c:if test='${userImage!=null}'>hide</c:if>"><a href="javascript:;" class="submitPhotoLink" >Submit a photo</a></p>
                             <p class="<c:if test='${userImage==null}'>hide</c:if>"><a href="javascript:;" id="removePhotoLink">Remove photo</a></p>
                             <c:choose>
                                 <c:when test="${(payoneerActivated==false) && (not empty payoneerRegLink)}">
@@ -260,71 +267,7 @@
 
 <jsp:include page="../foot.jsp" />
 
-<div class="photoPopup popupUploadPhoto transparent hide">
-    <div class="popupWindow">
-        <div class="title">UPLOAD YOUR PHOTO</div>
-        
-        <div class="content" id="uploadDiv">
-            <div id="photoUploadLeft">
-                <div class="locateInput">
-                    <div class="inner"></div>
-                </div>
-             
-                <form action="photo?module=upload&photoAction=preview" method="post" enctype="multipart/form-data" id="photoUploadForm">
-                    <a href="javascript:;" class="btn1 btnBrowse">
-                        <span class="rightSide">
-                            <span class="inner">
-                                Browse 
-                                <span class="file-wrapper">
-                                <input type="file" name="photoFile" id="inputFile" />
-                                </span>                     
-                            </span>                                                 
-                        </span>
-                    </a>
-                </form>
-                
-                <div id="uploadImage">
-                    <p>Uploaded Image</p>
-                </div>
-            </div>
-            <div id="photoUploadRight">
-                <div id="previewDiv">
-                    <img src="i/previewPhoto.jpg" alt="" />     
-                </div>
-            
-                <div class="alert">
-                    Browse Photo should be in *.JPG format file which is the width is 126 pixel and the height is 140 pixel.
-                </div>
-                <div>
-                    <a class="link" href="http://topcoder.com/home/help/?p=866">Photo Policy</a>
-                </div>
-                <a href="javascript:;" class="btn1 btnCancel">
-                    <span class="rightSide">
-                        <span class="inner">
-                            Cancel                                               
-                        </span>                                                 
-                    </span>                                         
-                </a>                
-                <a href="javascript:;" class="btn1 red btnUpload">
-                    <span class="rightSide">
-                        <span class="inner">
-                            Upload                                               
-                        </span>                                                 
-                    </span>                                         
-                </a>
-                <form action="photo?module=upload&photoAction=commit" method="post" id="submitPhotoForum">
-                    <input type="hidden" name="previewPath"></input>
-                    <input type="hidden" name="lx"></input>
-                    <input type="hidden" name="ly"></input>
-                    <input type="hidden" name="rx"></input>
-                    <input type="hidden" name="ry"></input>
-                    <input type="hidden" name="picWidth"></input>
-                    <input type="hidden" name="picHeight"></input>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+<jsp:include page="../photoUploadPopup.jsp"/>
 
 <c:if test="${userImage!=null}">
     <div class="photoPopup popupRemovePhoto transparent hide">
@@ -332,7 +275,7 @@
             <div class="title">REMOVE PHOTO</div>
             
             <div class="content">
-                <img src="${pathImage}" alt="" />
+                <img src="${cf:getResizedImagePath(pathImage, 126, 140)}" alt="" />
                 
                 <div class="text">
                     Are you sure to remove this photo?

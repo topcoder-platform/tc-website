@@ -35,6 +35,11 @@
            String ordinal(int)
         </function-signature>
     </function>
+    <function>
+        <name>getResizedImagePath</name>
+        <function-class>com.topcoder.web.common.function.Util</function-class>
+        <function-signature>java.lang.String getResizedImagePath(java.lang.String,int,int)</function-signature>
+    </function>
 
 </taglib>
 

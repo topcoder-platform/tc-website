@@ -1,3 +1,13 @@
+<%--
+  - Author: isv
+  - Version: 1.1
+  - Copyright (C) 2012 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page displays the forum related page.
+  -
+  - Version 1.1 (Release Assembly - TopCoder Member Photo Uploader Improvement) changes: updated logic for displaying 
+  - member photos.
+--%>
 <%@ page import="com.jivesoftware.forum.Forum,
                 com.jivesoftware.forum.ForumCategory,
                 com.topcoder.web.common.BaseProcessor,
@@ -9,6 +19,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page contentType="text/html;charset=utf-8" %>
+<%@ taglib uri="common-functions" prefix="cf" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="announcement" name="announcement" type="com.jivesoftware.forum.Announcement" toScope="request"/>
@@ -134,7 +146,8 @@ function AllowTabCharacter() {
    <tr>
    <td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
    <%  if (ForumsUtil.displayMemberPhoto(user, user)) { %>
-      <img src="<%=user.getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
+       <c:set var="resizedImagePath" value="<%=user.getProperty("imagePath")%>"/>
+       <img src="${cf:getResizedImagePath(resizedImagePath, 55, 61)}" border="0" class="rtPhoto" /><br/>
    <%  } %>
    <span class="bodyText"><tc-webtag:handle coderId="<%=user.getID()%>"/></span><br/><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=user.getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(user), "post")%></A></div></td>
    <td class="rtTextCell100"><%=announcement.getBody()%></td>
@@ -156,7 +169,8 @@ function AllowTabCharacter() {
     <tr>
         <td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
             <%  if (ForumsUtil.displayMemberPhoto(user, user)) { %>
-               <img src="<%=user.getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
+            <c:set var="resizedImagePath" value="<%=user.getProperty("imagePath")%>"/>
+            <img src="${cf:getResizedImagePath(resizedImagePath, 55, 61)}" border="0" class="rtPhoto" /><br/>
             <%  } %>
             <span class="bodyText"><tc-webtag:handle coderId="<%=user.getID()%>"/></span><br/><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=user.getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(user), "post")%></A></div>
         </td>

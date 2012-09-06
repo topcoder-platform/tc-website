@@ -31,8 +31,16 @@ import java.util.Map;
  *      </ol>
  * </p>  
  * 
- * @author TCSASSEMBLER
- * @version 1.1
+ * <p>
+ * Version 1.2 (Release Assembly - TopCoder Member Photo Uploader Improvement) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #getCopilotInfo(long)} to use non-cached data access. Otherwise the copilot photo is not 
+ *     displayed to user once he uploads it.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author TCSASSEMBLER, isv
+ * @version 1.2
  */
 class CopilotRequestProcessorUtil {
 
@@ -133,7 +141,7 @@ class CopilotRequestProcessorUtil {
         r.setProperty("uid", String.valueOf(userId));
 
         // query copilot_user_info with the specified user id
-        ResultSetContainer result = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("copilot_user_info");
+        ResultSetContainer result = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("copilot_user_info");
         Map<String, String> info = new HashMap<String, String>();
 
         // Build the result map

@@ -1,6 +1,6 @@
 <%--
   - Author: isv
-  - Version: 1.3
+  - Version: 1.4
   - Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page helps include custom CSS according to the caller
@@ -13,6 +13,8 @@
   -     - Added import CSS for tc_studio_details pages  
   - Version 1.3 (Studio Member Profiles Assembly version 1.0) changes:
   -     - Updated import CSS for tc_studio_profile pages  
+  - Version 1.4 (Release Assembly - TopCoder Member Photo Uploader Improvement) changes: exclued main.css for Member 
+  - Profile page
 --%>
 <%@ page contentType="text/html" %>
 
@@ -87,7 +89,9 @@
     <link rel="stylesheet" type="text/css" href="/css/v4/studio-ie6.css" />
 <![endif]-->
 <% } else if (key.equals("tc_studio_profile")) { %>
+<%--
 <link type="text/css" rel="stylesheet" href="/css/v4/main.css" />
+--%>
 <link type="text/css" rel="stylesheet" href="/js/jcarousel/jquery.jcarousel.css" />
 <link type="text/css" rel="stylesheet" href="/css/v4/newstyles.css" />
 <!--[if IE 7]>

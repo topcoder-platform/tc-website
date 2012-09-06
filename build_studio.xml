@@ -305,12 +305,16 @@
                 <include name="nav.tld"/>
                 <include name="rsc-taglib.tld"/>
                 <include name="studio.tld"/>
+                <include name="common-functions.tld"/>
             </webinf>
             <webinf dir="${java}/com/topcoder/web/studio/view/">
                 <include name="tags/*.tag"/>
             </webinf>
             <fileset dir="${java}/com/topcoder/web/studio/view">
                 <include name="**/*.jsp"/>
+            </fileset>
+            <fileset dir="${java}/com/topcoder/web/jsp">
+                <include name="photoUploadPopup.jsp"/>
             </fileset>
             <fileset dir="${java}/com/topcoder/web/forums/view/studio">
                 <include name="*.*"/>

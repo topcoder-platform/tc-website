@@ -1,13 +1,30 @@
+<%--
+  - Author: isv
+  - Version: 1.1
+  - Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page displays the member profile area on Home page.
+  -
+  - Version 1.1 (Release Assembly - TopCoder Member Photo Uploader Improvement) changes: updated logic for displaying 
+  - member photos.
+--%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.web.common.BaseServlet,
                  com.topcoder.web.common.model.CoderSessionInfo"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib uri="common-functions" prefix="cf" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% ResultSetContainer coderInfo= (ResultSetContainer)request.getAttribute("member_info");%>
 <% CoderSessionInfo info = (CoderSessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);%>
 
 <% if (coderInfo!=null && !coderInfo.isEmpty()) { %>
+
+<c:set var="hasImage" value="<%=coderInfo.getIntItem(0, "has_image") != 0%>"/>
+<c:set var="memberImagePath" value="<%=coderInfo.getStringItem(0, "image_path")%>"/>
+
+
 <table cellpadding="0" cellspacing="0" class="rightNav" style="width: 100%;">
 <tbody>
     <tr>
@@ -32,7 +49,17 @@
     </tr>
     <tr>
         <td class="valueC" colspan="2">
-        <a href="<%=coderInfo.getIntItem(0, "has_image")==0?"https://"+request.getServerName()+"/reg/?nrg=false":"/tc?module=MemberProfile&cr="+coderInfo.getIntItem(0, "coder_id")%>"><img src="<rsc:item set="<%=coderInfo%>" name="image_path" ifNull="/i/m/nophoto_submit.gif"/>" alt="" width="126" height="140" border="0" class="myStatsPhoto" /></a>
+        <a href="<%=coderInfo.getIntItem(0, "has_image")==0?"https://"+request.getServerName()+"/reg/?nrg=false":"/tc?module=MemberProfile&cr="+coderInfo.getIntItem(0, "coder_id")%>">
+            <c:choose>
+                <c:when test="${hasImage}">
+                    <c:set var="memberImagePath" value="${cf:getResizedImagePath(memberImagePath, 126, 140)}"/>
+                </c:when>
+                <c:otherwise>
+                    <c:set var="memberImagePath" value="/i/member_photo_upload_default.png"/>
+                </c:otherwise>
+            </c:choose>
+            <img src="${memberImagePath}" alt="" border="0" class="myStatsPhoto" />
+        </a>
         </td>
     </tr>
     <tr>
