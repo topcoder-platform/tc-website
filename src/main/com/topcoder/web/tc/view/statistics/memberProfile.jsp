@@ -247,7 +247,7 @@
                                                     <li><strong>Member Since</strong><span><rsc:item name="member_since" set="<%=rscCoderData%>" format="MM.dd.yyyy"/></span></li>
                                                     
                                                     <% if (rscCoderData.getItem(0, "country_name").getResultData()!=null) { %>
-                                                        <li><strong>Country</strong><span class="countryIcon" style='background: url("../i/country/<rsc:item name="country_code" set="<%=rscCoderData%>"/>.png") no-repeat scroll right 5px transparent;'><rsc:item name="country_name" set="<%=rscCoderData%>"/></span></li>
+                                                        <li><strong>Country</strong><span class="countryIcon" style='background: url("/i/country/<rsc:item name="country_code" set="<%=rscCoderData%>"/>.png") no-repeat scroll right 5px transparent;'><rsc:item name="country_name" set="<%=rscCoderData%>"/></span></li>
                                                     <% } %>
                                                     
                                                     <% if (rscCoderData.getStringItem(0,"school_name")!=null) { %>
