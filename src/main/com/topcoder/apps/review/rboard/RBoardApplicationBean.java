@@ -208,7 +208,7 @@ public class RBoardApplicationBean extends BaseEJB {
      * 
      * @since 1.0.16
      */
-    private static final int APPLICATION_DEPLOY_PRIMARY_EVALUATOR_PER_ACTIVE_PROJECT = 12 * 60 * 60 * 1000;
+    private static final int APPLICATION_DEPLOY_PRIMARY_EVALUATOR_PER_ACTIVE_PROJECT = 6 * 60 * 60 * 1000; // TODO: change to 6 for now, will change back to 12 later.
 
     private static final String RESOURCE_ID_SEQ = "resource_id_seq";
 
