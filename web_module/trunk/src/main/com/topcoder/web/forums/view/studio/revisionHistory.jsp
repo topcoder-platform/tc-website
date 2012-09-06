@@ -1,9 +1,21 @@
+<%--
+  - Author: isv
+  - Version: 1.1
+  - Copyright (C) 2012 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page displays the forum related page.
+  -
+  - Version 1.1 (Release Assembly - TopCoder Member Photo Uploader Improvement) changes: updated logic for displaying 
+  - member photos.
+--%>
 <%@ page import="com.jivesoftware.base.User,
                  com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil"
         %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
+<%@ taglib uri="common-functions" prefix="cf" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="forum" name="forum" type="com.jivesoftware.forum.Forum" toScope="request"/>
@@ -134,7 +146,8 @@
                     <td class="rtPosterCell">
                         <div class="rtPosterSpacer">
                             <% if (ForumsUtil.displayMemberPhoto(user, message.getUser())) { %>
-                            <img src="<%=message.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto"/>
+                            <c:set var="resizedImagePath" value="<%=message.getUser().getProperty("imagePath")%>"/>
+                            <img src="${cf:getResizedImagePath(resizedImagePath, 55, 61)}" border="0" class="rtPhoto"/>
                             <br />
                             <% } %>
                             <span class="bodyText"><%if (message.getUser() != null) {%><studio:handle coderId="<%=message.getUser().getID()%>"/><%}%></span>
@@ -169,7 +182,8 @@
             <td class="rtPosterCell">
                 <div class="rtPosterSpacer">
                     <% if (ForumsUtil.displayMemberPhoto(user, message.getUser())) { %>
-                    <img src="<%=message.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto"/>
+                    <c:set var="resizedImagePath" value="<%=message.getUser().getProperty("imagePath")%>"/>
+                    <img src="${cf:getResizedImagePath(resizedImagePath, 55, 61)}" border="0" class="rtPhoto"/>
                     <br />
                     <% } %>
                     <span class="bodyText"><%if (message.getUser() != null) {%><studio:handle coderId="<%=message.getUser().getID()%>"/><%}%></span>

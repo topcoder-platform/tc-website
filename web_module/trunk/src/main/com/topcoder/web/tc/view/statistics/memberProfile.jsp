@@ -1,5 +1,5 @@
 <%--
-  - Author: TCSDEVELOPER, pulky, pvmagacho, TCSASSEMBLER
+  - Author: TCSDEVELOPER, pulky, pvmagacho, isv
   - Version: 1.4
   - Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
   -
@@ -9,6 +9,8 @@
   - Version 1.2 (BUG#TCCC-3216) changes: Member photo is now retrieved from informixoltp database.
   - Version 1.3 (BUG#TCCC-3348) changes: Update link for no photo image. Pops up window to submit new photo.
   - Version 1.4 (Release Assembly - TopCoder Software Profile Update v1.0) changes: Update to match new prototype.
+  - Version 1.5 (Release Assembly - TopCoder Member Photo Uploader Improvement) changes: updated logic for displaying 
+  - member photos. Added logic for uploading member photo image.
 --%>
 <%@  page language="java"
     import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,com.topcoder.shared.util.ApplicationServer,
@@ -20,6 +22,7 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtags" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="common-functions" prefix="cf" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>    
@@ -50,7 +53,10 @@
     <link type="text/css" rel="stylesheet" href="/css/jquery.Jcrop.css" />
     <link type="text/css" rel="stylesheet" href="/css/photo.css" />
     <link type="text/css" rel="stylesheet" href="/css/profileBadges.css" />
-    
+ 
+    <link type="text/css" href="/css/jquery.Jcrop.css" rel="stylesheet"/>
+    <link type="text/css" href="/css/photo.css" rel="stylesheet"/>
+   
     <script type="text/javascript">
         var previewPath = <%= request.getParameter("previewPath") == null ? null : "\'"  + request.getParameter("previewPath") + "\'" %>;
         var originalFile = <%= request.getParameter("originalFileName") == null ? null : "\'"  + request.getParameter("originalFileName") + "\'" %>;
@@ -223,7 +229,24 @@
                             <td>
                                 <div class="rightMain">
                                     <div class="rightModule">
-                                        <c:choose>
+      <c:choose>
+		  <c:when test="${userImage!=null}">
+			<img src="${cf:getResizedImagePath(pathImage, 126, 140)}" name="image_path" alt="" class="memberPhoto" />
+		  </c:when>
+		  <c:otherwise>
+              <c:choose>
+                  <c:when test="${sessionInfo.userId eq coderId}">
+                      <a href="javascript:;" id="submitPhotoLink">
+                          <img src="/i/member_photo_upload_default.png" name="image_path" alt="" class="memberPhoto"/>
+                      </a>
+                  </c:when>
+                  <c:otherwise>
+                      <img src="/i/member_photo_upload_default.png" name="image_path" alt="" class="memberPhoto"/>
+                  </c:otherwise>
+              </c:choose>
+		  </c:otherwise>
+      </c:choose>
+                                        <%--c:choose>
                                             <c:when test="${userImage!=null}">
                                                 <div class="foto memberPhoto" style="background: url('${pathImage}') no-repeat scroll center center transparent;"></div>
                                             </c:when>
@@ -232,7 +255,7 @@
                                                     <div class="foto memberPhoto" style="background: url('/i/m/nophoto_login.gif') no-repeat scroll center center transparent;"></div>
                                                 </a>
                                             </c:otherwise>
-                                        </c:choose>
+                                        </c:choose--%>
                                         <span class="corner tl"></span>
                                         <span class="corner tr"></span> 
                                         <span class="corner bl"></span>
@@ -303,70 +326,8 @@
 
 <jsp:include page="../foot.jsp" />
 
-<div class="photoPopup popupUploadPhoto transparent hide">
-    <div class="popupWindow">
-        <div class="title">UPLOAD YOUR PHOTO</div>
-        
-        <div class="content" id="uploadDiv">
-            <div id="photoUploadLeft">
-                <div class="locateInput">
-                    <div class="inner"></div>
-                </div>
-             
-                <form action="photo?module=upload&photoAction=preview" method="post" enctype="multipart/form-data" id="photoUploadForm">
-                    <a href="javascript:;" class="btn1 btnBrowse">
-                        <span class="rightSide">
-                            <span class="inner">
-                                Browse 
-                                <span class="file-wrapper">
-                                <input type="file" name="photoFile" id="inputFile" />
-                                </span>                     
-                            </span>                                                    
-                        </span>
-                    </a>
-                </form>
-                
-                <div id="uploadImage">
-                    <p>Uploaded Image</p>
-                </div>
-            </div>
-            <div id="photoUploadRight">
-                <div id="previewDiv">
-                    <img src="i/previewPhoto.jpg" alt="" />        
-                </div>
-            
-                <div class="alert">
-                    For optimal results, your photo should be a PNG image of size 115x138, meaning 115 pixels in width and 138 pixels in height.</div>
-                <div>
-                    <a class="link" href="http://topcoder.com/home/help/?p=866">Photo Policy</a>
-                </div>
-                <a href="javascript:;" class="btn1 btnCancel">
-                    <span class="rightSide">
-                        <span class="inner">
-                            Cancel                                               
-                        </span>                                                    
-                    </span>                                         
-                </a>                
-                <a href="javascript:;" class="btn1 red btnUpload">
-                    <span class="rightSide">
-                        <span class="inner">
-                            Upload                                               
-                        </span>                                                    
-                    </span>                                         
-                </a>
-                <form action="photo?module=upload&photoAction=commit" method="post" id="submitPhotoForum">
-                    <input type="hidden" name="previewPath"></input>
-                    <input type="hidden" name="lx"></input>
-                    <input type="hidden" name="ly"></input>
-                    <input type="hidden" name="rx"></input>
-                    <input type="hidden" name="ry"></input>
-                    <input type="hidden" name="picWidth"></input>
-                    <input type="hidden" name="picHeight"></input>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+<jsp:include page="../photoUploadPopup.jsp" />
+
 
 </body>
 

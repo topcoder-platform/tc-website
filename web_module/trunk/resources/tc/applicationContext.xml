@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
+<beans xmlns="http://www.springframework.org/schema/beans" 
+       xmlns:util="http://www.springframework.org/schema/util"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
 
     <bean id="profileService" class="com.topcoder.direct.services.copilot.SqlCopilotProfileService">
     </bean>    
 
     <bean id="projectService" class="com.topcoder.direct.services.copilot.MockCopilotProjectService">
     </bean>
-    
+
+    <util:list value-type="java.lang.Integer" id="resizedMemberPhotoWidths">
+        <value>55</value>
+        <value>126</value>
+    </util:list>
+
+    <util:list value-type="java.lang.Integer" id="resizedMemberPhotoHeights">
+        <value>61</value>
+        <value>140</value>
+    </util:list>
+
     <bean id="photoRemovalServlet"
 		class="com.topcoder.web.tc.memberphoto.servlet.MemberPhotoRemovalServlet">
         <property name="removalReasonParameterName">
@@ -43,9 +55,11 @@
         </property>
         <property name="serverPathPrefix">
             <value>/mnt/apache/tcdocs/i/m</value>
-        </property>      
+        </property>
+        <property name="resizedImageWidths" ref="resizedMemberPhotoWidths"/>
+        <property name="resizedImageHeights" ref="resizedMemberPhotoHeights"/>
     </bean>
-
+    
     <bean id="photoUploadServlet"
 		class="com.topcoder.web.tc.memberphoto.servlet.MemberPhotoUploadServlet">
         <property name="fileUploaderNamespace">
@@ -55,10 +69,10 @@
             <value>photoFile</value>
         </property>
         <property name="targetImageWidth">
-            <value>115</value>
+            <value>400</value>
         </property>
         <property name="targetImageHeight">
-            <value>138</value>
+            <value>400</value>
         </property>
         <property name="photoImageSubmittedDirectory">
             <value>/</value>
@@ -95,7 +109,9 @@
         </property>
         <property name="serverPathPrefix">
             <value>/mnt/apache/tcdocs/i/m</value>
-        </property>        
+        </property>
+        <property name="resizedImageWidths" ref="resizedMemberPhotoWidths"/>
+        <property name="resizedImageHeights" ref="resizedMemberPhotoHeights"/>
     </bean>
 
 </beans>

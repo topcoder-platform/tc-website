@@ -1,3 +1,13 @@
+<%--
+  - Author: isv
+  - Version: 1.1
+  - Copyright (C) 2012 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: This page displays the forum related page.
+  -
+  - Version 1.1 (Release Assembly - TopCoder Member Photo Uploader Improvement) changes: updated logic for displaying 
+  - member photos.
+--%>
 <%@ page import="com.jivesoftware.forum.Attachment,
                 com.jivesoftware.forum.ForumMessage,
                 com.jivesoftware.forum.ForumPermissions,
@@ -9,6 +19,8 @@
                 java.util.HashMap,
                 java.util.Iterator"
 %>
+<%@ taglib uri="common-functions" prefix="cf" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -192,7 +204,8 @@ function AllowTabCharacter() {
 <tr>
 <td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
 <%  if (ForumsUtil.displayMemberPhoto(user, user)) { %>
-   <img src="<%=user.getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
+    <c:set var="resizedImagePath" value="<%=user.getProperty("imagePath")%>"/>
+    <img src="${cf:getResizedImagePath(resizedImagePath, 55, 61)}" border="0" class="rtPhoto" /><br/>
 <%  } %>
 <span class="bodyText"><tc-webtag:handle coderId="<%=user.getID()%>"/></span><br/><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=user.getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(user), "post")%></A></div></td>
 <td class="rtTextCell100">
@@ -255,7 +268,8 @@ function AllowTabCharacter() {
         <tr>
         <td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
         <%  if (ForumsUtil.displayMemberPhoto(user, message.getUser())) { %>
-            <img src="<%=message.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
+            <c:set var="resizedImagePath" value="<%=message.getUser().getProperty("imagePath")%>"/>
+            <img src="${cf:getResizedImagePath(resizedImagePath, 55, 61)}" border="0" class="rtPhoto" /><br/>
         <%  } %>
         <span class="bodyText"><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/></span><br/><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getUser().getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(message.getUser()), "post")%></A></div></td>
         <td class="rtTextCell100"><%=message.getBody()%></td>
@@ -268,7 +282,6 @@ function AllowTabCharacter() {
 
         </td>
 <!-- Center Column Ends -->
-
     </tr>
 </table>
 
