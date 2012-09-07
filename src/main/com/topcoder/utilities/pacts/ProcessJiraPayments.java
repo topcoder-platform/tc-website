@@ -148,11 +148,11 @@ public class ProcessJiraPayments extends DBUtility {
                                 issue.getReferenceId(), issue.getClient(), issue.getPayeeUserId(),
                                 issue.getPaymentAmount(), issue.getDescription(), issue.getKey());
 
-                        payment = pactsService.addPayment(payment);
-
                         updateJiraPaymentStatus(jira, token, remoteIssue, "Paid");
                         addJiraComment(jira, token, remoteIssue,
                                 "Payment processed on " + dateFormat.format(new Date()));
+
+                        payment = pactsService.addPayment(payment);
                     }
                 }
             } catch (Exception e) {
