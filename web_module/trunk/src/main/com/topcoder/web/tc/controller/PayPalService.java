@@ -9,10 +9,14 @@ import com.topcoder.shared.util.logging.Logger;
 
 import java.lang.String;
 import java.lang.StringBuilder;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.rmi.RemoteException;
 import java.net.HttpURLConnection;
 import java.net.InetAddress;
 import java.net.URL;
+import java.net.URLEncoder;
+import java.net.URLDecoder;
 import java.util.*;
 import java.io.*;
 
@@ -27,6 +31,8 @@ public class PayPalService {
     private static final String DEFAULT_PAYPAL_NAMESPACE = "com.topcoder.web.tc.controller.PayPalService";
     
     private static PayPalConfig config = null;
+
+    private static String CHARSET_NAME = "UTF-8";
 
     private static Logger log = Logger.getLogger(PayPalService.class);
 
@@ -50,18 +56,19 @@ public class PayPalService {
         if (emailAddress == null || emailAddress.trim().length() == 0) {
             throw new IllegalArgumentException("Invalid emailAddress parameter.");
         }
-        if (amount <= 0.0) {
+        if (amount < 0.01) {
             throw new IllegalArgumentException("Invalid amount parameter.");
         }
 
         try {
             PayPalConfig payPalConfig = getPayPalConfig();
 
+            DecimalFormat df = new DecimalFormat("0.00", new DecimalFormatSymbols(Locale.US));
             String requestBody="requestEnvelope.errorLanguage=en_US" +
                     "&actionType=CREATE" +
-                    "&senderEmail=" + payPalConfig.senderEmail +
-                    "&receiverList.receiver(0).email=" +  emailAddress +
-                    "&receiverList.receiver(0).amount=" + amount +
+                    "&senderEmail=" + URLEncoder.encode(payPalConfig.senderEmail, CHARSET_NAME) +
+                    "&receiverList.receiver(0).email=" +  URLEncoder.encode(emailAddress, CHARSET_NAME) +
+                    "&receiverList.receiver(0).amount=" + URLEncoder.encode(df.format(amount), CHARSET_NAME) +
                     "&currencyCode=USD" +
                     "&feesPayer=EACHRECEIVER" +
                     "&memo=TopCoder payment" +
@@ -75,7 +82,7 @@ public class PayPalService {
             Map<String, String> nvp = stringToNVP(response);
 
             String ack = nvp.get("responseEnvelope.ack");
-            if ("Failure".equalsIgnoreCase(ack) || "FailureWithWarning".equalsIgnoreCase(ack)) {
+            if (!"Success".equalsIgnoreCase(ack) && !"SuccessWithWarning".equalsIgnoreCase(ack)) {
                 throw new PayPalServiceException("PayPal service returned an error in createPayment method.");
             }
 
@@ -111,7 +118,7 @@ public class PayPalService {
             PayPalConfig payPalConfig = getPayPalConfig();
 
             String requestBody="requestEnvelope.errorLanguage=en_US" +
-                    "&payKey=" +  payKey;
+                    "&payKey=" +  URLEncoder.encode(payKey, CHARSET_NAME);
 
             log.debug("PayPal request: " + requestBody);
             String response = getNVResponse(payPalConfig.baseAdaptivePaymentsUrl + "ExecutePayment", requestBody);
@@ -120,7 +127,7 @@ public class PayPalService {
             Map<String, String> nvp = stringToNVP(response);
 
             String ack = nvp.get("responseEnvelope.ack");
-            if ("Failure".equalsIgnoreCase(ack) || "FailureWithWarning".equalsIgnoreCase(ack)) {
+            if (!"Success".equalsIgnoreCase(ack) && !"SuccessWithWarning".equalsIgnoreCase(ack)) {
                 throw new PayPalServiceException("PayPal service returned an error in executePayment method.");
             }
 
@@ -136,6 +143,49 @@ public class PayPalService {
     }
 
     /**
+     * <p>Returns the balance on the TopCoder's PayPal merchant account.</p>
+     * @return The balance amount.
+     * @throws PayPalServiceException if any error occurs.
+     */
+    public static double getBalanceAmount() throws PayPalServiceException {
+        log.info("Getting balance amount on the PayPal account");
+
+        try { 
+            PayPalConfig payPalConfig = getPayPalConfig();
+            
+            String requestBody="METHOD=GetBalance" +
+                    "&VERSION=94.0" +
+                    "&PWD=" + URLEncoder.encode(payPalConfig.password, CHARSET_NAME) +
+                    "&USER=" + URLEncoder.encode(payPalConfig.username, CHARSET_NAME) +
+                    "&SIGNATURE=" + URLEncoder.encode(payPalConfig.signature, CHARSET_NAME) +
+                    "&RETURNALLCURRENCIES=0";
+
+            log.info("PayPal request: " + requestBody);
+            String response = getNVResponse(payPalConfig.nvpUrl, requestBody);
+            log.info("PayPal response: " + response);
+
+            Map<String, String> nvp = stringToNVP(response);
+
+            String ack = nvp.get("ACK");
+            if (!"Success".equalsIgnoreCase(ack) && !"SuccessWithWarning".equalsIgnoreCase(ack)) {
+                throw new PayPalServiceException("PayPal service returned an error in getBalanceAmount method.");
+            }
+
+            String currencyCode = nvp.get("L_CURRENCYCODE0");
+            if (!"USD".equalsIgnoreCase(currencyCode)) {
+                throw new PayPalServiceException("PayPal service returned unexpected result in getBalanceAmount method.");
+            }
+
+            String balance = nvp.get("L_AMT0");
+            return Double.parseDouble(balance);
+        } catch (PayPalServiceException e) {
+            throw e;
+        } catch (Throwable e) {
+            throw new PayPalServiceException("Generic error occurred in getBalanceAmount method", e);
+        }
+    }
+
+    /**
      * <p>A private helper method to get the PayPal API credentials from the configuration.</p>
      */
     private static PayPalConfig getPayPalConfig() throws ConfigManagerException {
@@ -145,7 +195,7 @@ public class PayPalService {
             ConfigManager configManager = ConfigManager.getInstance();
             if (configManager.existsNamespace(DEFAULT_PAYPAL_NAMESPACE)) {
                 config.baseAdaptivePaymentsUrl = (String) configManager.getProperty(DEFAULT_PAYPAL_NAMESPACE, "baseAdaptivePaymentsUrl");
-                config.baseAdaptiveAccountsUrl = (String) configManager.getProperty(DEFAULT_PAYPAL_NAMESPACE, "baseAdaptiveAccountsUrl");
+                config.nvpUrl = (String) configManager.getProperty(DEFAULT_PAYPAL_NAMESPACE, "nvpUrl");
                 config.applicationId = (String) configManager.getProperty(DEFAULT_PAYPAL_NAMESPACE, "applicationId");
                 config.username = (String) configManager.getProperty(DEFAULT_PAYPAL_NAMESPACE, "username");
                 config.password = (String) configManager.getProperty(DEFAULT_PAYPAL_NAMESPACE, "password");
@@ -210,7 +260,7 @@ public class PayPalService {
     /**
      * <p>A private helper method that splits string into name-value pairs.</p>
      */
-    private static Map<String, String> stringToNVP(String s) {
+    private static Map<String, String> stringToNVP(String s) throws UnsupportedEncodingException {
         String[] parts = s.split("&");
         Map<String, String> ret = new HashMap<String,String>();
         for (String part : parts) {
@@ -219,7 +269,8 @@ public class PayPalService {
                 log.error("Invalid NVP format.");
                 continue;
             }
-            ret.put(part.substring(0,index), part.substring(index+1));
+            ret.put(URLDecoder.decode(part.substring(0, index), CHARSET_NAME),
+                URLDecoder.decode(part.substring(index + 1), CHARSET_NAME));
         }
         return ret;
     }
@@ -229,7 +280,7 @@ public class PayPalService {
      */
     private static class PayPalConfig {
         public String baseAdaptivePaymentsUrl = "";
-        public String baseAdaptiveAccountsUrl = "";
+        public String nvpUrl = "";
         public String applicationId = "";
         public String username = "";
         public String password = "";
