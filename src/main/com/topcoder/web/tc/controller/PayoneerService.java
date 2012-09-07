@@ -156,6 +156,27 @@ public class PayoneerService {
     }
     
     /**
+     * <p>Creates payment of the specified amount for the specified payee in Payoneer.</p>
+     * @param internalPaymentId The ID that this payment will be associated with in the Payoneer system. Should be unique.
+     * @param payeeId Payoneer payee ID. Corresponds to the TopCoder user ID.
+     * @param amount The amount to be paid.
+     * @throws PayoneerServiceException if any error occurs.
+     */
+    public static void createPayment(long internalPaymentId, long payeeId, double amount) throws PayoneerServiceException {
+        // Not yet implemented.
+    }
+
+    /**
+     * <p>Returns the balance on the TopCoder's Payoneer account.</p>
+     * @return The balance amount.
+     * @throws PayoneerServiceException if any error occurs.
+     */
+    public static double getBalanceAmount() throws PayoneerServiceException {
+        // Not yet implemented.
+        return 0.0;
+    }
+   
+    /**
      * <p>This is a private helper method to get the Payoneer API credentials from the configuration.</p>
      */
     private static PayoneerConfig getPayoneerConfig() throws ConfigManagerException {

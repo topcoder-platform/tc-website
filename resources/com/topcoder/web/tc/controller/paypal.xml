@@ -3,8 +3,8 @@
     <Property name="baseAdaptivePaymentsUrl">
         <Value>https://svcs.sandbox.paypal.com/AdaptivePayments/</Value>
     </Property>
-    <Property name="baseAdaptiveAccountsUrl">
-        <Value>https://svcs.sandbox.paypal.com/AdaptiveAccounts/</Value>
+    <Property name="nvpUrl">
+        <Value>https://api-3t.sandbox.paypal.com/nvp</Value>
     </Property>
     <Property name="username">
         <Value>username</Value>
