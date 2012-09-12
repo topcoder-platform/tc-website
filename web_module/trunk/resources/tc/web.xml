@@ -408,6 +408,11 @@
             <param-value>/errorPage.jsp</param-value>
         </init-param>        
     </servlet>
+	
+	<servlet>
+		<servlet-name>survey</servlet-name>
+		<jsp-file>/survey/harvardsurvey.jsp</jsp-file>
+	</servlet>
 
     <!-- let the web server do it
         <filter>
@@ -540,6 +545,11 @@
         <servlet-name>photoServletProxy</servlet-name>
         <url-pattern>/photo</url-pattern>
     </servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>survey</servlet-name>
+		<url-pattern>/tc/survey</url-pattern>
+	</servlet-mapping>
     
     <error-page>
         <error-code>404</error-code>
