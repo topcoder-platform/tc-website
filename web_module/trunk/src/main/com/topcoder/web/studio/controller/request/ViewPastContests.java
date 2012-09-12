@@ -10,6 +10,8 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.CachedDataAccess;
+import com.topcoder.web.common.cache.MaxAge;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -124,7 +126,7 @@ public class ViewPastContests extends BaseProcessor {
             pageNum = "1";
         }
 
-        DataAccess da = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
+        CachedDataAccess da = new CachedDataAccess(MaxAge.HOUR, DBMS.TCS_OLTP_DATASOURCE_NAME);
         Request r = new Request();
         if (searchByTitleOnly) {
             r.setContentHandle("studio_past_contests_by_title");
