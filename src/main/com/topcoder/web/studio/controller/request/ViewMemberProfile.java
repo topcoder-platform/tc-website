@@ -12,7 +12,6 @@ import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.studio.Constants;
@@ -24,17 +23,9 @@ import com.topcoder.web.studio.dto.MemberProfileSubmission;
 /**
  * <p>A processor for the requests for displaying the details for the member profile matching the handle which is
  * expected to be provided as request parameter.</p>
- *
- * <p>
- * Version 1.1 (Release Assembly - TopCoder Member Photo Uploader Improvement) Change notes:
- *   <ol>
- *     <li>Updated {@link #MEMBER_PROFILE_SQL} to use configurable instead of hard-coded TC server name so that the
- *     controller works correctly in VM environment.</li>
- *   </ol>
- * </p>
  * 
  * @author isv
- * @version 1.1
+ * @version 1.0
  * @since TopCoder Studio Member Profile Assembly
  */
 public class ViewMemberProfile extends BaseProcessor {
@@ -58,7 +49,7 @@ public class ViewMemberProfile extends BaseProcessor {
     private static final String MEMBER_PROFILE_SQL
         = "SELECT c.quote," +
           "       c.member_since," +
-          "       (SELECT 'http://" + ApplicationServer.SERVER_NAME + "/' || p.path || i.file_name" +
+          "       (SELECT 'http://www.topcoder.com/' || p.path || i.file_name" +
           "        FROM coder_image_xref cix" +
           "        INNER JOIN image i ON cix.image_id = i.image_id" +
           "        INNER JOIN path p ON i.path_id = p.path_id" +

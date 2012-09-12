@@ -65,7 +65,6 @@
         <pathelement location="${jars.dir}/ifxjdbc.jar"/>
         <pathelement location="${jars.dir}/bfograph.jar"/>
         <pathelement location="${jars.dir}/activation.jar"/>
-        <pathelement location="${jars.dir}/imgscalr-lib-4.2.jar"/>
         <pathelement location="${jars.dir}/axis_dok.jar"/>
 
         <pathelement location="${jars.dir}/jboss/javax.servlet.jar"/>
@@ -1375,7 +1374,6 @@
                 <include name="foot.jsp"/>
                 <include name="date_time.jsp"/>
                 <include name="script.jsp"/>
-                <include name="photoUploadPopup.jsp"/>
                 <include name="style.jsp"/>
                 <include name="body_top.jsp"/>
                 <include name="page_title.jsp"/>
@@ -1421,7 +1419,6 @@
                 <include name="standard.jar"/>
                 <include name="taconite.jar"/>
 				<include name="spring.jar"/>
-				<include name="imgscalr-lib-4.2.jar"/>
             </lib>
 			<lib dir="${jars.dir}/tcs">
 				<include name="copilot_pool_and_profiles_common.jar"/>

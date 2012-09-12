@@ -1,8 +1,9 @@
 /*
- * Copyright (C) 2011-2012 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.memberphoto.servlet;
 
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -20,6 +21,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.topcoder.servlet.request.ConfigurationException;
 import com.topcoder.servlet.request.FileDoesNotExistException;
 import com.topcoder.servlet.request.FileUploadResult;
@@ -36,10 +39,10 @@ import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.Path;
 import com.topcoder.web.memberphoto.entities.Image;
 import com.topcoder.web.memberphoto.manager.MemberPhotoDAO;
+import com.topcoder.web.memberphoto.manager.MemberPhotoManagementException;
 import com.topcoder.web.memberphoto.manager.MemberPhotoManager;
 import com.topcoder.web.memberphoto.manager.MemberPhotoManagerImpl;
 import com.topcoder.web.memberphoto.manager.persistence.JPAMemberPhotoDAO;
-import org.imgscalr.Scalr;
 
 /**
  * <p>
@@ -220,18 +223,11 @@ import org.imgscalr.Scalr;
  * <strong>Thread safety:</strong> The injected instance variables are immutable after injection. So this
  * class is thread-safe when serving user requests.
  * </p>
- *
- * <p>
- * Version 2.1 (Release Assembly - TopCoder Member Photo Uploader Improvement) Change notes:
- *   <ol>
- *     <li>Added {@link #resizedImageHeights} property.</li>
- *     <li>Added {@link #resizedImageWidths} property.</li>
- *   </ol>
- * </p>
- * @author AleaActaEst, microsky, pvmagacho, TCSDEVELOPER
- * @version 2.1
+ * @author AleaActaEst, microsky, pvmagacho
+ * @version 2.0
  */
 @SuppressWarnings("serial")
+//@Transactional
 public class MemberPhotoUploadServlet extends HttpServlet {
     /**
      * <p>
@@ -489,23 +485,7 @@ public class MemberPhotoUploadServlet extends HttpServlet {
      * The entity manager.
      */
     private EntityManager entityManager;
-
-    /**
-     * <p>A <code>int[]</code> providing the widths for resized images to be generated when member photo is
-     * uploaded.</p>
-     * 
-     * @since 2.1
-     */
-    private int[] resizedImageWidths;
-
-    /**
-     * <p>A <code>int[]</code> providing the heights for resized images to be generated when member photo is
-     * uploaded.</p>
-     * 
-     * @since 2.1
-     */
-    private int[] resizedImageHeights;
-
+    
     /**
      * <p>
      * Constructor.
@@ -586,10 +566,9 @@ public class MemberPhotoUploadServlet extends HttpServlet {
                 {
                     Helper.endCommunication(request);
                 }
-
+     
                 String imageFileName = user.getHandle() + imagepostfix;
-                String referer = request.getHeader("Referer");
-
+                
                 // determine the action for image storing
                 if (submittedAction.equals("preview")) {
                     // get the uploaded file.
@@ -630,8 +609,7 @@ public class MemberPhotoUploadServlet extends HttpServlet {
 
                     // Save image to preview folder
                     logMsg(MessageFormat.format("{0} : Saving to directory : {1}", new Date(), serverPathPrefix + photoImagePreviewDirectory));
-                    upLoadPicture(user.getHandle(), originalImage, serverPathPrefix + photoImagePreviewDirectory, false, 
-                                  originalImage.getWidth(), originalImage.getHeight());                 
+                    upLoadPicture(user.getHandle(), originalImage, serverPathPrefix + photoImagePreviewDirectory);                 
  
                     // get Path information
                     Path imagePath = null;
@@ -649,16 +627,9 @@ public class MemberPhotoUploadServlet extends HttpServlet {
                         Helper.endCommunication(request);
                     }
                     //Path imagePath = DAOUtil.getFactory().getPathDAO().find(Image.MEMBER_PHOTO_PREVIEW_PATH_ID);
-                    String file = imagePath.getPath() + imageFileName;
-                    String url;
-                    if (referer == null || referer.trim().length() == 0) {
-                        url = previewForwardUrl + "&" + previewPhotoImagePathName + "=" + file
-                                     + "&originalFileName=" + uploadedFile.getRemoteFileName();
-                    } else {
-                        url = referer + "&" + previewPhotoImagePathName + "=" + file
-                              + "&originalFileName=" + uploadedFile.getRemoteFileName();
-                    }
-                    response.sendRedirect(url);
+                    String file = imagePath.getPath() + user.getHandle() + imagepostfix;
+                    response.sendRedirect(previewForwardUrl + "&" + previewPhotoImagePathName + "=" + file
+                    	+ "&originalFileName=" + uploadedFile.getRemoteFileName());
                 } else if (submittedAction.equals("commit")) {
                     // retrieve crop info
                     int targetImageLeftCornerX = -1;
@@ -679,50 +650,80 @@ public class MemberPhotoUploadServlet extends HttpServlet {
                     } catch (NumberFormatException e) {
                         // ignore
                     }
-
+                    
                     String previewFile = request.getParameter(previewPhotoImagePathName);
                     String fullPathFile = serverPathPrefix + photoImagePreviewDirectory + previewFile.substring(previewFile.lastIndexOf("/") + 1);
                     BufferedImage originalImage = ImageIO.read(new BufferedInputStream(new FileInputStream(fullPathFile)));
+                    BufferedImage resizedImage;
                     
-                    BufferedImage resizedImage = resizeImage(originalImage, targetImageWidth, targetImageHeight, 
-                                                             targetImageLeftCornerX, targetImageLeftCornerY, 
-                                                             targetImageRightCornerX, targetImageRightCornerY, request);
+                    int imageWidth = originalImage.getWidth();
+                    int imageHeight = originalImage.getHeight();
+
+                    if ((imageWidth == 0) || (imageHeight == 0)) {
+                        throw new MemberPhotoUploadException("Either width or height of original image is null.");
+                    }
+                    
+                    // crop
+                    if (targetImageLeftCornerX != -1 && targetImageLeftCornerY != -1 && targetImageRightCornerX != -1 && targetImageRightCornerY != -1) {
+                        imageWidth = targetImageRightCornerX - targetImageLeftCornerX;
+                        imageHeight = targetImageRightCornerY - targetImageLeftCornerY;
+                        
+                        // scale the image.
+                        double ratio = targetImageWidth / (double) imageWidth;
+                        int resizedWidth = (int) (originalImage.getWidth() * ratio);
+                        int resizedHeight = (int) (originalImage.getHeight() * ratio);
+                        
+                        int picWidth = Integer.parseInt(request.getParameter("picWidth"));
+                        int picHeight = Integer.parseInt(request.getParameter("picHeight"));
+                        
+                        resizedWidth = (int) (picWidth * ratio);
+                        resizedHeight = (int) (picHeight * ratio);
+                        
+                        resizedImage = new BufferedImage(resizedWidth, resizedHeight, BufferedImage.TYPE_INT_RGB);
+                        Graphics2D g2D = resizedImage.createGraphics();
+                        g2D.drawImage(originalImage, 0, 0, resizedWidth, resizedHeight, null);
+                        
+                        int startX = (int) (targetImageLeftCornerX * ratio);
+                        int startY = (int) (targetImageLeftCornerY * ratio);
+                        resizedImage = resizedImage.getSubimage(startX, startY, targetImageWidth, targetImageHeight);
+                        
+                    } else {
+                        if ((imageWidth != targetImageWidth) || (imageHeight != targetImageHeight)) {
+                            // scale the image.
+                            resizedImage = new BufferedImage(targetImageWidth, targetImageHeight, BufferedImage.TYPE_INT_RGB);
+                            Graphics2D g2D = resizedImage.createGraphics();
+                            g2D.drawImage(originalImage, 0, 0, targetImageWidth, targetImageHeight, null);
+                        } else {
+                            resizedImage = originalImage;
+                        }
+                    }
 
                     try {
-                        saveMemberPhotoImage(memberId, imageFileName);
-
-                        // move image from preview to submitted directory
-                        logMsg(MessageFormat.format("{0} : Saving to directory : {1}", new Date(), 
-                                                    serverPathPrefix + photoImageSubmittedDirectory));
-                        upLoadPicture(user.getHandle(), resizedImage, serverPathPrefix + photoImageSubmittedDirectory,
-                                      false, targetImageWidth, targetImageHeight);
-
-                        // Generate the re-sized images of various pre-configured dimensions
-                        for (int i = 0; i < resizedImageWidths.length; i++) {
-                            int resizedWidth = resizedImageWidths[i];
-                            int resizedHeight = resizedImageHeights[i];
-    
-                            resizedImage = resizeImage(originalImage, resizedWidth, resizedHeight, targetImageLeftCornerX, 
-                                                       targetImageLeftCornerY, targetImageRightCornerX, 
-                                                       targetImageRightCornerY, request);
-
-                            upLoadPicture(user.getHandle(), resizedImage, serverPathPrefix + photoImageSubmittedDirectory,
-                                          true, resizedWidth, resizedHeight);
+                        // save image in database
+                        entityManager.getTransaction().begin();
+                        logMsg(MessageFormat.format("{0} : Uploading image for user with id {1}", new Date(), memberId));
+                        memberPhotoManager.saveMemberPhoto(memberId, user.getHandle() + imagepostfix, String.valueOf(memberId));                        
+                        entityManager.getTransaction().commit();
+                    } catch (Exception eEmf){     
+                        try {
+                            entityManager.getTransaction().rollback();
+                        } catch (Exception eTx) { 
+                        	// ignore
+                        } finally {                       	
+                        	throw new MemberPhotoUploadException("Error occurs while uploading photo.", eEmf);
                         }
                     } finally {
                         entityManager.close();
                     }
-
-                    if (referer == null || referer.trim().length() == 0) {
-                        response.sendRedirect(submitForwardUrl);
-                    } else {
-                        int pos = referer.indexOf("&" + previewPhotoImagePathName);
-                        if (pos >= 0) {
-                            referer = referer.substring(0, pos);
-                        }
-                        response.sendRedirect(referer);
-                    }
+                        
+                    // move image from preview to submitted directory
+                    logMsg(MessageFormat.format("{0} : Saving to directory : {1}", new Date(), serverPathPrefix +
+                    	photoImageSubmittedDirectory));
+                    upLoadPicture(user.getHandle(), resizedImage, serverPathPrefix + photoImageSubmittedDirectory);
+                    
+                    response.sendRedirect(submitForwardUrl);
                 }
+
             } catch (MemberPhotoUploadException e) {
                 throw e;
             } catch (ClassCastException e) {
@@ -760,58 +761,22 @@ public class MemberPhotoUploadServlet extends HttpServlet {
     }
 
     /**
-     * <p>Saves the relation between the specified member and phot imnage to database.</p>
-     * 
-     * @param memberId a <code>long</code> providing the ID of a member the photo belongs to.
-     * @param imageFileName a <code>String</code> providing the name of file with member's photo image.
-     * @throws MemberPhotoUploadException if an unexpected error occurs.
-     */
-    private void saveMemberPhotoImage(long memberId, String imageFileName) throws MemberPhotoUploadException {
-        try {
-            // save image in database
-            entityManager.getTransaction().begin();
-            logMsg(MessageFormat.format("{0} : Uploading image for user with id {1}", new Date(), memberId));
-            memberPhotoManager.saveMemberPhoto(memberId, imageFileName, String.valueOf(memberId));                        
-            entityManager.getTransaction().commit();
-        } catch (Exception eEmf){     
-            try {
-                entityManager.getTransaction().rollback();
-            } catch (Exception eTx) { 
-                // ignore
-            } finally {                       	
-                throw new MemberPhotoUploadException("Error occurs while uploading photo.", eEmf);
-            }
-        }
-    }
-
-    /**
      * <p>
      * Upload the picture to the server.
      * </p>
-     *
      * @param handle the handle of user.
      * @param resizedImage the resized Image.
      * @param directory to save.
-     * @param addDimToName
-     * @param imageWidth image width.
-     * @param imageHeight image height.
      * @throws IOException if can not write the image.
      */
-    private void upLoadPicture(String handle, BufferedImage resizedImage, String directory, boolean addDimToName, 
-                               int imageWidth, int imageHeight)
+    private void upLoadPicture(String handle, BufferedImage resizedImage, String directory)
         throws IOException {
         File dir = new File(directory);
         if (!dir.exists()) {
             dir.mkdir();
         }
         // Store image
-        String path;
-        if (addDimToName) {
-            path = directory + handle + "_" + imageWidth + "x" + imageHeight + imagepostfix;
-        } else {
-            path = directory + handle + imagepostfix;
-        }
-        logMsg("Writing photo image to " + path);
+        String path = directory + handle + imagepostfix;
         synchronized (this) {
             ImageIO.write(resizedImage, imagepostfix.substring(1), new File(path));
         }
@@ -1060,15 +1025,6 @@ public class MemberPhotoUploadServlet extends HttpServlet {
         
         // check 'submitForwardUrl' field state
         Helper.checkState(submitForwardUrl, "submitForwardUrl");
-        
-        // Check resized image heights and widths
-        Helper.checkNull(getResizedImageHeights(), "resizedImageHeights");
-        Helper.checkNull(getResizedImageWidths(), "resizedImageWidths");
-        
-        if (getResizedImageHeights().length != getResizedImageWidths().length) {
-            throw new IllegalArgumentException("Arrays resizedImageHeights and resizedImageWidths have different " +
-                                               "number of items");
-        }
     }
 
     /**
@@ -1185,109 +1141,5 @@ public class MemberPhotoUploadServlet extends HttpServlet {
      */
     public void setSubmitForwardUrl(String submitForwardUrl) {
         this.submitForwardUrl = submitForwardUrl;
-    }
-
-    /**
-     * <p>Gets the heights for resized images to be generated when member photo is uploaded.</p>
-     *
-     * @return a <code>int[]</code> providing the heights for resized images to be generated when member photo is
-     *         uploaded.
-     * @since 2.1
-     */
-    public int[] getResizedImageHeights() {
-        return this.resizedImageHeights;
-    }
-
-    /**
-     * <p>Sets the heights for resized images to be generated when member photo is uploaded.</p>
-     *
-     * @param resizedImageHeights a <code>int[]</code> providing the heights for resized images to be generated when
-     *                            member photo is uploaded.
-     * @since 2.1
-     */
-    public void setResizedImageHeights(int[] resizedImageHeights) {
-        this.resizedImageHeights = resizedImageHeights;
-    }
-
-    /**
-     * <p>Gets the widths for resized images to be generated when member photo is uploaded.</p>
-     *
-     * @return a <code>int[]</code> providing the widths for resized images to be generated when member photo is
-     *         uploaded.
-     * @since 2.1
-     */
-    public int[] getResizedImageWidths() {
-        return this.resizedImageWidths;
-    }
-
-    /**
-     * <p>Sets the widths for resized images to be generated when member photo is uploaded.</p>
-     *
-     * @param resizedImageWidths a <code>int[]</code> providing the widths for resized images to be generated when
-     *                           member photo is uploaded.
-     * @since 2.1
-     */
-    public void setResizedImageWidths(int[] resizedImageWidths) {
-        this.resizedImageWidths = resizedImageWidths;
-    }
-
-    /**
-     * <p>Resizes the specified image to specified dimension.</p>
-     * 
-     *
-     * @param originalImage a <code>BufferedImage</code> providing the original image to be re-sized. 
-     * @param newWidth an <code>int</code> specifying the new width of re-sized image. 
-     * @param newHeight an <code>int</code> specifying the new height of re-sized image.
-     * @param targetImageLeftCornerX an <code>int</code> specifying the left corner X coordinate for cropped image.
-     * @param targetImageLeftCornerY an <code>int</code> specifying the left corner Y coordinate for cropped image.
-     * @param targetImageRightCornerX an <code>int</code> specifying the right corner X coordinate for cropped image.
-     * @param targetImageRightCornerY an <code>int</code> specifying the right corner Y coordinate for cropped image.
-     * @param request an <code>HttpServletRequest</code> representing incoming request. 
-     * @return a <code>BufferedImage</code> providing the re-sized image. 
-     * @throws MemberPhotoUploadException if an unexpected error occurs.
-     */
-    private BufferedImage resizeImage(BufferedImage originalImage, int newWidth, int newHeight,
-                                      int targetImageLeftCornerX, int targetImageLeftCornerY,
-                                      int targetImageRightCornerX, int targetImageRightCornerY,
-                                      HttpServletRequest request)
-        throws MemberPhotoUploadException {
-        BufferedImage resizedImage;
-
-        int imageWidth = originalImage.getWidth();
-        int imageHeight = originalImage.getHeight();
-
-        if ((imageWidth == 0) || (imageHeight == 0)) {
-            throw new MemberPhotoUploadException("Either width or height of original image is null.");
-        }
-
-        // crop
-        if (targetImageLeftCornerX != -1 && targetImageLeftCornerY != -1 && targetImageRightCornerX != -1 &&
-            targetImageRightCornerY != -1) {
-
-            int picWidth = Integer.parseInt(request.getParameter("picWidth"));
-            int picHeight = Integer.parseInt(request.getParameter("picHeight"));
-
-            double ratio = originalImage.getWidth() / (double) picWidth;
-
-            int startX = (int) (targetImageLeftCornerX * ratio);
-            int startY = (int) (targetImageLeftCornerY * ratio);
-
-            imageWidth = targetImageRightCornerX - targetImageLeftCornerX;
-            imageHeight = targetImageRightCornerY - targetImageLeftCornerY;
-            
-            int cropWidth = (int) (imageWidth * ratio);
-            int cropHeight = (int) (imageHeight * ratio);
-
-            resizedImage = Scalr.crop(originalImage, startX, startY, cropWidth, cropHeight);
-            resizedImage = Scalr.resize(resizedImage, newWidth, newHeight);
-        } else {
-            if ((imageWidth != newWidth) || (imageHeight != newHeight)) {
-                resizedImage = Scalr.resize(originalImage, newWidth, newHeight);
-            } else {
-                resizedImage = originalImage;
-            }
-        }
-        
-        return resizedImage;
     }
 }

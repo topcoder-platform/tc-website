@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011-2012 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2011 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.memberphoto.servlet;
 
@@ -183,19 +183,8 @@ import com.topcoder.web.memberphoto.manager.persistence.JPAMemberPhotoDAO;
  * <strong>Thread safety:</strong> The injected instance variables are immutable after injection. So this
  * class is thread-safe when serving user requests.
  * </p>
- *
- * <p>
- * Version 2.1 (Release Assembly - TopCoder Member Photo Uploader Improvement) Change notes:
- *   <ol>
- *     <li>Added {@link #resizedImageHeights} property.</li>
- *     <li>Added {@link #resizedImageWidths} property.</li>
- *     <li>Updated {@link #doPost(HttpServletRequest, HttpServletResponse)} method to remove files for re-sized member
- *     photo images.</li>
- *   </ol>
- * </p>
- * 
  * @author AleaActaEst, microsky, pvmagacho
- * @version 2.1
+ * @version 2.0
  */
 @SuppressWarnings("serial")
 public class MemberPhotoRemovalServlet extends HttpServlet {
@@ -414,23 +403,7 @@ public class MemberPhotoRemovalServlet extends HttpServlet {
      * The entity manager.
      */
     private EntityManager entityManager;
-
-    /**
-     * <p>A <code>int[]</code> providing the widths for resized images to be generated when member photo is
-     * uploaded.</p>
-     *
-     * @since 2.1
-     */
-    private int[] resizedImageWidths;
-
-    /**
-     * <p>A <code>int[]</code> providing the heights for resized images to be generated when member photo is
-     * uploaded.</p>
-     *
-     * @since 2.1
-     */
-    private int[] resizedImageHeights;
-
+    
     /**
      * <p>
      * Default constructor. Initiate memberPhotoManagerFactory & documentGenerator here.
@@ -448,19 +421,19 @@ public class MemberPhotoRemovalServlet extends HttpServlet {
             documentGenerator = DocumentGeneratorFactory
                     .getDocumentGenerator(configurationObject); 
         } catch (ConfigurationAccessException e) {
-            throw new MemberPhotoRemovalException("Fail to intiate document generator", e);
+            throw new MemberPhotoRemovalException("Fail to intiate document generator" + e, e);
         } catch (UnrecognizedNamespaceException e) {
-            throw new MemberPhotoRemovalException("Fail to intiate document generator", e);
+            throw new MemberPhotoRemovalException("Fail to intiate document generator" + e, e);
         } catch (ConfigurationParserException e) {
-            throw new MemberPhotoRemovalException("Fail to intiate document generator", e);
+            throw new MemberPhotoRemovalException("Fail to intiate document generator" + e, e);
         } catch (NamespaceConflictException e) {
-            throw new MemberPhotoRemovalException("Fail to intiate document generator", e);
+            throw new MemberPhotoRemovalException("Fail to intiate document generator" + e, e);
         } catch (UnrecognizedFileTypeException e) {
-            throw new MemberPhotoRemovalException("Fail to intiate document generator", e);
+            throw new MemberPhotoRemovalException("Fail to intiate document generator" + e, e);
         } catch (IOException e) {
-            throw new MemberPhotoRemovalException("Fail to intiate document generator", e);
+            throw new MemberPhotoRemovalException("Fail to intiate document generator" + e, e);
         } catch (DocumentGeneratorConfigurationException e) {
-            throw new MemberPhotoRemovalException("Fail to intiate document generator", e);
+            throw new MemberPhotoRemovalException("Fail to intiate document generator" + e, e);
         }
         
     }
@@ -539,33 +512,20 @@ public class MemberPhotoRemovalServlet extends HttpServlet {
                 } finally {
                     entityManager.close();
                 }
-
-                // move image from submitted folder to removed folder
-                synchronized (this) {
-                    // the design wants to add but that should be a final fix.
-                    // 1. get a copy of the image form the database
-                    // 2. remove the image from the database
-                    // 2. copy the image from step 1 to
-                    // photoImageRemovedDirectory                   
-                    logMsg(MessageFormat.format("{0} : Moving to directory : {1}", new Date(), serverPathPrefix +
-                                                                                               photoImageRemovedDirectory));
-
-                    move(serverPathPrefix + photoImageSubmittedDirectory + image.getFileName(),
-                         serverPathPrefix + photoImageRemovedDirectory + image.getFileName());
-
-                    // Remove resized member photo images
-                    String imageFileName = image.getFileName();
-                    int dotPos = imageFileName.lastIndexOf('.');
-                    for (int i = 0; i < resizedImageWidths.length; i++) {
-                        int resizedWidth = resizedImageWidths[i];
-                        int resizedHeight = resizedImageHeights[i];
-                        String resizedImageFileName = imageFileName.substring(0, dotPos) + "_" + resizedWidth + "x"
-                                                      + resizedHeight + imageFileName.substring(dotPos);
-                        move(serverPathPrefix + photoImageSubmittedDirectory + resizedImageFileName,
-                             serverPathPrefix + photoImageRemovedDirectory + resizedImageFileName);
-                    }
-
-                }
+                         
+				// move image from submitted folder to removed folder
+				synchronized (this) {
+					// the design wants to add but that should be a final fix.
+					// 1. get a copy of the image form the database
+					// 2. remove the image from the database
+					// 2. copy the image from step 1 to
+					// photoImageRemovedDirectory                   
+					logMsg(MessageFormat.format("{0} : Moving to directory : {1}", new Date(), serverPathPrefix +
+						photoImageRemovedDirectory));
+					
+					move(serverPathPrefix + photoImageSubmittedDirectory + image.getFileName(),
+							serverPathPrefix + photoImageRemovedDirectory + image.getFileName());
+				}
 					
                 // get member information
                 User user = null;
@@ -957,49 +917,5 @@ public class MemberPhotoRemovalServlet extends HttpServlet {
     public void setServerPathPrefix(String serverPathPrefix) {
         this.serverPathPrefix = serverPathPrefix;
     }
-
-    /**
-     * <p>Gets the widths for resized images to be generated when member photo is uploaded.</p>
-     *
-     * @return a <code>int[]</code> providing the widths for resized images to be generated when member photo is
-     *         uploaded.
-     * @since 2.1
-     */
-    public int[] getResizedImageWidths() {
-        return this.resizedImageWidths;
-    }
-
-    /**
-     * <p>Sets the widths for resized images to be generated when member photo is uploaded.</p>
-     *
-     * @param resizedImageWidths a <code>int[]</code> providing the widths for resized images to be generated when
-     *                           member photo is uploaded.
-     * @since 2.1
-     */
-    public void setResizedImageWidths(int[] resizedImageWidths) {
-        this.resizedImageWidths = resizedImageWidths;
-    }
-
-    /**
-     * <p>Gets the heights for resized images to be generated when member photo is uploaded.</p>
-     *
-     * @return a <code>int[]</code> providing the heights for resized images to be generated when member photo is
-     *         uploaded.
-     * @since 2.1
-     */
-    public int[] getResizedImageHeights() {
-        return this.resizedImageHeights;
-    }
-
-    /**
-     * <p>Sets the heights for resized images to be generated when member photo is uploaded.</p>
-     *
-     * @param resizedImageHeights a <code>int[]</code> providing the heights for resized images to be generated when
-     *                            member photo is uploaded.
-     * @since 2.1
-     */
-    public void setResizedImageHeights(int[] resizedImageHeights) {
-        this.resizedImageHeights = resizedImageHeights;
-    }
-
+    
 }
