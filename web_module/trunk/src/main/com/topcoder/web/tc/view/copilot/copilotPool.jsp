@@ -1,13 +1,11 @@
 <%--
   - Author: TCSASSEMBLER
   - Date: 20th Aug 2010
-  - Version: 1.1
-  - Copyright (C) 2010-2012 TopCoder Inc., All Rights Reserved.
+  - Version: 1.0
+  - Copyright (C) 2010 TopCoder Inc., All Rights Reserved.
   -
   - Description: This is the page for listing the members of copilot pool, the page can be viewed in grid mode
   - or list mode, the grid mode is by default.
-  - Version 1.1 (Release Assembly - TopCoder Member Photo Uploader Improvement) changes: updated logic for displaying 
-  - member photos.
 --%>
 <%@ page import="com.topcoder.direct.services.copilot.dto.CopilotPoolMember" %>
 <%@ page import="java.util.List" %>
@@ -169,7 +167,7 @@ The road you take will be defined by you and your copilot. Want to learn more? F
 
                 CopilotPoolMember m = list.get(i++);
                 String mPath = ims.get(Long.valueOf(m.getCopilotProfile().getUserId()));
-                mPath = (mPath == null ? "/i/m/member_photo_upload_default.png" : mPath);
+                mPath = (mPath == null ? "/i/copilots/person-01.png" : mPath);
         %>
 
         <div class="copilot">

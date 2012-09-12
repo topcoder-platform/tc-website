@@ -1,13 +1,3 @@
-<%--
-  - Author: isv
-  - Version: 1.1
-  - Copyright (C) 2012 TopCoder Inc., All Rights Reserved.
-  -
-  - Description: This page displays the forum related page.
-  -
-  - Version 1.1 (Release Assembly - TopCoder Member Photo Uploader Improvement) changes: updated logic for displaying 
-  - member photos.
---%>
 <%@ page import="com.jivesoftware.base.User,
                 com.jivesoftware.forum.Forum,
                 com.topcoder.web.forums.ForumConstants,
@@ -18,8 +8,6 @@
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="common-functions" prefix="cf" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
@@ -123,8 +111,7 @@
       <td class="rtPosterCell">
          <div class="rtPosterSpacer">
             <%  if (ForumsUtil.displayMemberPhoto(user, announcement.getUser())) { %>
-                <c:set var="resizedImagePath" value="<%=announcement.getUser().getProperty("imagePath")%>"/>
-                <img src="${cf:getResizedImagePath(resizedImagePath, 55, 61)}" border="0" class="rtPhoto" /><br/>
+                <img src="<%=announcement.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
             <%  } %>
              <span class="bodyText"><%if (announcement.getUser() != null) {%><tc-webtag:handle coderId="<%=announcement.getUser().getID()%>"/><%}%></span><br/><%if (announcement.getUser() != null) {%><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=announcement.getUser().getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(announcement.getUser()), "post")%></A><%}%>
          </div>

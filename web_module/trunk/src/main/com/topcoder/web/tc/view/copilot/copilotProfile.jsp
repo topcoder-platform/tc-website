@@ -1,14 +1,10 @@
 <%--
-  - Author: TCSASSEMBLER, isv
+  - Author: TCSASSEMBLER
   - Version: 1.1
   - Copyright (C) 2010 - 2012 TopCoder Inc., All Rights Reserved.
   -
   - Description: This is the page for show the profile of a copilot in the copilot pool.
   - Version 1.1 (Release Assembly - TopCoder Copilot Profile Update v1.0) changes: Update to match new prototype.
-
-  - Version 1.2 (Release Assembly - TopCoder Member Photo Uploader Improvement) changes: updated logic for displaying 
-  - member photos. Added logic for uploading member photo image.
-
 --%>
 <%@ page import="com.topcoder.direct.services.copilot.dto.CopilotProfileDTO" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
@@ -21,7 +17,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
-<%@ taglib uri="common-functions" prefix="cf" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -59,17 +54,6 @@
             renderGroupBadges(categoryName, groupBadgeDiv, singleBadgeDiv, badges);
         });        
     </script>
-    <script type="text/javascript" src="/js/jquery.form.js"></script>
-    <script type="text/javascript" src="/js/jquery.Jcrop.js"></script>
-    <script type="text/javascript" src="/js/photo.js"></script>
-
-    <link type="text/css" href="/css/jquery.Jcrop.css" rel="stylesheet"/>
-    <link type="text/css" href="/css/photo.css" rel="stylesheet"/>
-
-    <script type="text/javascript">
-        var previewPath = <%= request.getParameter("previewPath") == null ? null : "\'"  + request.getParameter("previewPath") + "\'" %>;
-        var originalFile = <%= request.getParameter("originalFileName") == null ? null : "\'"  + request.getParameter("originalFileName") + "\'" %>;
-    </script>
     
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_copilot"/>
@@ -77,7 +61,6 @@
 </head>
 
 <body>
-
 
     <jsp:include page="/top.jsp"/>
 
@@ -254,27 +237,7 @@
                             <div class="profile-header">
                                 ${copilotInfo['handle']}
                             </div>
-                            <div class="profile-pic">
-                            <c:choose>
-                                <c:when test="${copilotInfo['imagePath'] eq null}">
-                                    <c:choose>
-                                        <c:when test="${sessionInfo.userId eq copilotProfile.copilotProfile.userId}">
-                                            <a href="javascript:;" id="submitPhotoLink">
-                                                <img src="/i/member_photo_upload_default.png" name="image_path" alt=""
-                                                     class="memberPhoto"/>
-                                            </a>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <img src="/i/member_photo_upload_default.png" name="image_path" alt=""
-                                                 class="memberPhoto"/>
-                                        </c:otherwise>
-                                    </c:choose>
-                                </c:when>
-                                <c:otherwise>
-                                    <img src="${cf:getResizedImagePath(copilotInfo['imagePath'], 126, 140)}" alt=""/>
-                                </c:otherwise>
-                            </c:choose>
-                            </div>
+                            <div class="profile-pic"><img src="${copilotInfo['imagePath'] eq null ? "/i/copilots/person-03.png" : copilotInfo['imagePath']}" alt=""/></div>
 
                             <a href="/tc?module=MemberContact&amp;th=${copilotInfo['handle']}" class="button1 contact-copilot">
                                 <span class="left"><span class="right">CONTACT COPILOT</span></span></a>
@@ -344,8 +307,6 @@
     <div class="clear-float"></div>
 
 <jsp:include page="/foot.jsp"/>
-
-<jsp:include page="../photoUploadPopup.jsp"/>
 
 </body>
 

@@ -23,10 +23,10 @@
     <property name="shared.build" value="${basedir}/../shared"/>
     <property name="global-dist.dir" value="${basedir}/../dist/artifacts"/>
     <property name="web" value="src/main/com/topcoder/web"/>
-    <property name="jboss_home" value="/home/tc/jboss-4.0.4.GA"/>
-    <property name="jboss_deploy" value="${jboss_home}/server/all/deploy"/>
-    <property name="jboss_lib" value="${jboss_home}/server/all/lib"/>
-    <property name="jboss_conf" value="${jboss_home}/server/all/conf"/>
+    <property name="jboss_home" value="../jboss-4.0.4.GA"/>
+    <property name="jboss_deploy" value="${jboss_home}/server/default/deploy"/>
+    <property name="jboss_lib" value="${jboss_home}/server/default/lib"/>
+    <property name="jboss_conf" value="${jboss_home}/server/default/conf"/>
     <property environment="env"/>
 
     <property name="deprecation" value="true"/>
@@ -300,7 +300,6 @@
             <webinf dir="${resources}/taglib">
                 <include name="tc-webtags.tld"/>
                 <include name="nav.tld"/>
-                <include name="common-functions.tld"/>
             </webinf>
             <webinf dir="${resources}/forums/tc">
                 <include name="jboss-web.xml"/>
