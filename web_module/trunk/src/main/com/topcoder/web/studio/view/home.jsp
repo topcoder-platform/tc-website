@@ -112,8 +112,8 @@
                                    class="post_project"></a>
                             </div>
                             <div id="homePageBanner">
-                                <a href="http://community.topcoder.com/tco12/">
-                                    <img src="/i/tournament/tco12/2012-tco-banner-studio-clear-FINAL.jpg" alt="TCO 2012"/></a>
+                                <a href="http://community.topcoder.com/tco13/">
+                                    <img src="/i/tournament/tco13/2013-tco-banner-studio.png" alt="TCO 2013"/></a>
                                 <br/>
                                 <br/>
                             </div>
