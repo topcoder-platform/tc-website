@@ -10,7 +10,11 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.CachedDataAccess;
 
 import javax.servlet.http.HttpServletRequest;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -29,12 +33,21 @@ import java.util.Map;
  *      <ol>
  *          <li>Retrieve is_software_copilot and is_studio_copilot data, using query tool.</li>
  *      </ol>
- * </p>  
+ * </p>
+ *
+ * <p>
+ *     Version 1.2 (Module Assembly - TopCoder Copilot Feedback Integration)
+ *     <ol>
+ *          <li>Retrieve copilot_feedback data, using query tool.</li>
+ *      </ol>
+ * </p>
  * 
- * @author TCSASSEMBLER
- * @version 1.1
+ * @author GreatKevin
+ * @version 1.2
  */
 class CopilotRequestProcessorUtil {
+
+    private static final DateFormat COPILOT_FEEDBACK_DATE_FORMAT = new SimpleDateFormat("MMMMM dd, yyyy");
 
     /**
      * Private constructor which prevents from initialization.
@@ -160,6 +173,39 @@ class CopilotRequestProcessorUtil {
         }
 
         return info;
+    }
+
+    /**
+     * Retrieves copilot feedback data via query tool
+     *
+     * @param userId the user id of the copilot
+     * @return the data in a list
+     * @throws Exception if there is any error.
+     * @since 1.2
+     */
+    public static List<Map<String, String>> getCopilotFeedback(long userId) throws Exception {
+        Request r = new Request();
+        // command - copilot_profile
+        r.setContentHandle("copilot_profile");
+        r.setProperty("uid", String.valueOf(userId));
+
+        ResultSetContainer result = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("copilot_feedback");
+
+        List<Map<String, String>> data = new ArrayList<Map<String, String>>();
+        Iterator<ResultSetContainer.ResultSetRow> itr = result.iterator();
+
+        while(itr.hasNext()) {
+            Map<String, String> feedback = new HashMap<String, String>();
+            ResultSetContainer.ResultSetRow row = itr.next();
+
+            feedback.put("submitDate", COPILOT_FEEDBACK_DATE_FORMAT.format(row.getTimestampItem("submit_date")));
+            feedback.put("feedbackAnswer", row.getStringItem("answer").toLowerCase());
+            feedback.put("feedbackText", row.getStringItem("text"));
+
+            data.add(feedback);
+        }
+
+        return data;
     }
 
     /**
