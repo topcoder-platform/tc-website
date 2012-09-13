@@ -212,6 +212,29 @@
                                         <div class="clear-float"></div>
                                     </div>
 
+                                    <div class="feedback" style="position: relative">
+                                        <c:forEach items="${requestScope.feedback}" var="entry">
+                                            <div style="position: relative;">
+                                                <div style="float: left; position: relative">
+                                                    <span class="title1 b">Feedback submitted on ${entry['submitDate']}</span>
+                                                </div>
+                                                <div style="float: right; position: relative">
+                                                    <c:if test="${entry['feedbackAnswer'] == 'yes'}">
+                                                        <img src="images/positive-status-icon.png" alt="" width="12px" height="12px">
+                                                        <span class="title1 b" style="text-align: right">I would work with this copilot again.</span>
+                                                    </c:if>
+                                                    <c:if test="${entry['feedbackAnswer'] == 'no'}">
+                                                        <img src="images/negative-status-icon.png" alt="" width="12px" height="12px">
+                                                        <span class="title1 b" style="text-align: right">I would not work with this copilot again.</span>
+                                                    </c:if>
+                                                </div>
+                                            </div>
+                                            <div style="float: left; position: relative" class="contents">
+                                               ${entry['feedbackText']}
+                                            </div>
+                                        </c:forEach>
+                                    </div>
+                                    <div class="clear-float"></div>
                                     <div class="column-chart"></div>
                                     <div class="column-chart-legend">
                                         <div class="planned-legend"><span class="icon"></span>Planned Contests</div>

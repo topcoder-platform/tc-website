@@ -39,10 +39,17 @@ import java.util.*;
  *      <ol>
  *          <li>Retrieve achievement data, using query tool.</li>
  *      </ol>
- * </p>  
+ * </p>
+ *
+ * <p>
+ *      Version 1.2 (Module Assembly - TopCoder Copilot Feedback Integration) Change notes:
+ *      <ol>
+ *          <li>Retrieve the approved copilot feedback via query tool.</li>
+ *      </ol>
+ * </p>
  * 
- * @author TCSASSEMBLER
- * @version 1.1
+ * @author GreatKevin
+ * @version 1.2
  */
 public class ViewCopilotProfile extends ShortHibernateProcessor {
     /**
@@ -96,6 +103,13 @@ public class ViewCopilotProfile extends ShortHibernateProcessor {
      * @since 1.1
      */
     private static final String ACHIEVEMENTS_KEY = "achievements";
+
+    /**
+     * The key used to store copilot feedback in request.
+     *
+     * @since 1.2
+     */
+    private static final String FEEDBACK_KEY = "feedback";
 
     /**
      * The main processing method to handle the view copilot profile request and redirect to the copilot profile page.
@@ -206,6 +220,8 @@ public class ViewCopilotProfile extends ShortHibernateProcessor {
             // set copilot achievements
             request.setAttribute(ACHIEVEMENTS_KEY, 
                     getCopilotAchievements(profileDTO.getCopilotProfile().getUserId()));
+
+            request.setAttribute(FEEDBACK_KEY, CopilotRequestProcessorUtil.getCopilotFeedback(profileDTO.getCopilotProfile().getUserId()));
 
             // set the jsp page to forward
             setNextPage(Constants.COPILOT_PROFILE);
