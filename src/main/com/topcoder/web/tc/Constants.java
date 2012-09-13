@@ -319,49 +319,12 @@ public class Constants implements WebConstants {
      */
     public static String COPILOT_PROJECT;
 
-    //dev pages
-    public static String REVIEW_PROJECT_DETAIL;
-
-    /**
-     * <p>A <code>String</code> providing the logical name for the view corresponding to
-     * <code>Assembly Review Project Details</code> page.</p>
-     *
-     * @since TCS Release 2.2.0 (TCS-54)
-     */
-    public static final String ASSEMBLY_REVIEW_PROJECT_DETAIL = "/dev/assembly/reviewProjectDetail.jsp";
-
-    /**
-     * <p>A <code>String</code> providing the logical name for the view corresponding to
-     * <code>Architecture Review Project Details</code> page.</p>
-     *
-     * @since TCS Release 2.2.1 (TCS-57)
-     */
-    public static final String ARCHITECTURE_REVIEW_PROJECT_DETAIL = "/architecture/reviewProjectDetail.jsp";
-
     /**
      * <p>A <code>String</code> providing the path to the unified review project detail page.</p>
      *
      * @since 1.1
      */
     public static final String UNIFIED_REVIEW_PROJECT_DETAIL_PAGE = "/review_board/reviewProjectDetail.jsp";
-
-    public static String REVIEW_PROJECTS;
-
-    /**
-     * <p>A <code>String</code> providing the logical name for the view corresponding to
-     * <code>Assembly Review Projects</code> page.</p>
-     *
-     * @since TCS Release 2.2.0 (TCS-54)
-     */
-    public static final String ASSEMBLY_REVIEW_PROJECTS = "/dev/assembly/reviewProjects.jsp";
-
-    /**
-     * <p>A <code>String</code> providing the logical name for the view corresponding to
-     * <code>Architecture Review Projects</code> page.</p>
-     *
-     * @since TCS Release 2.2.1 (TCS-57)
-     */
-    public static final String ARCHITECTURE_REVIEW_PROJECTS = "/architecture/reviewProjects.jsp";
 
     /**
      * <p>A <code>String</code> providing the path to the unified review project page.</p>
@@ -370,8 +333,6 @@ public class Constants implements WebConstants {
      */
     public static final String UNIFIED_REVIEW_PROJECTS_PAGE = "/review_board/reviewProjects.jsp";
 
-    public static String DESIGN_DETAIL;
-    public static String DEVELOPMENT_DETAIL;
     public static String REVIEWER_TERMS;
 
     /**

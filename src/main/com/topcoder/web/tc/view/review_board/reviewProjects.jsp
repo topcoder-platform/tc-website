@@ -69,18 +69,17 @@
 
                 <span class="bigTitle">Review opportunities</span>
 
-                <p>In the table below you will be able to see which projects are available for review, the type of
-                    project, the current number of submissions on each, the review timeline for each, and the number
-                    of review positions available for each project. If you click on an
-                    ${fn:toLowerCase(projectTypeDesc)} name you will be able to see all of the details associated with
-                    that ${fn:toLowerCase(projectTypeDesc)} review.</p>
-                <p>If you are not currently on ${eligibleReviewBoardName} you may send an email to
-                    <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a> requesting permission
-                    to perform reviews. Please keep in mind only members that have completed
-                    ${fn:toLowerCase(projectTypeDesc)} projects are eligible to join ${eligibleReviewBoardName}.</p>
-                <p>In order to sign up for a review position, click on the "details" link for any
-                    ${fn:toLowerCase(projectTypeDesc)} with positions available,and then select "Apply Now" next to the
-                    position that you would like to commit to.</p>
+                <p>In the table below you will be able to see which contests are available for review, the type of contest,
+                   the current number of submissions on each, the review timeline for each, and the number of review positions
+                   available for each contest. If you click on a contest name you will be able to see all of the details
+                   associated with that contest review.</p>
+                <p>If you are not currently on the ${eligibleReviewBoardName} you may send an email to
+                   <a href="mailto:support@topcoder.com">support@topcoder.com</a> requesting permission to perform reviews.
+                   Please keep in mind that only members who meet the <a href="http://apps.topcoder.com/wiki/display/tc/Reviewer+Qualification+Requirements">Reviewer Qualification Requirements</a>
+                   are eligible to join the TopCoder Review Board.</p>
+                <p>In order to sign up for a review position, click on the "details" link for any contest with positions
+                   available, and then select "Apply Now" next to the position that you would like to commit to.</p>
+
                 <br/>
                     <c:if test="${fn:length(projectList) > 0}">
                         <div align="right" style="padding-top: 10px">

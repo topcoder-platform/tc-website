@@ -70,169 +70,169 @@
     <c:when test="${projectType == CONCEPTUALIZATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Conceptualization" scope="request"/>
         <c:set var="projectTypeTitle" value="Conceptualization" scope="request"/>
-        <c:set var="eligibleReviewBoardName" value="the TopCoder Conceptualization Review Board" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="TopCoder Conceptualization Review Board" scope="request"/>
         <c:set var="handleContext" value="conceptualization" scope="request"/>
     </c:when>
     <c:when test="${projectType == SPECIFICATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Specification" scope="request"/>
         <c:set var="projectTypeTitle" value="Specification" scope="request"/>
-        <c:set var="eligibleReviewBoardName" value="the TopCoder Specification Review Board" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="TopCoder Specification Review Board" scope="request"/>
         <c:set var="handleContext" value="specification" scope="request"/>
     </c:when>
     <c:when test="${projectType == TEST_SUITES_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Test Suites" scope="request"/>
         <c:set var="projectTypeTitle" value="Test Suites" scope="request"/>
-        <c:set var="eligibleReviewBoardName" value="the TopCoder Test Suites Review Board" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="TopCoder Test Suites Review Board" scope="request"/>
 		<c:set var="handleContext" value="test_suites" scope="request"/>
     </c:when>
     <c:when test="${projectType == TEST_SCENARIOS_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Test Scenarios" scope="request"/>
         <c:set var="projectTypeTitle" value="Test Scenarios" scope="request"/>
-        <c:set var="eligibleReviewBoardName" value="the TopCoder Test Scenarios Review Board" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="TopCoder Test Scenarios Review Board" scope="request"/>
 		<c:set var="handleContext" value="test_scenarios" scope="request"/>
     </c:when>
     <c:when test="${projectType == UI_PROTOTYPE_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="UI Prototype" scope="request"/>
         <c:set var="projectTypeTitle" value="UI Prototype" scope="request"/>
-        <c:set var="eligibleReviewBoardName" value="the TopCoder UI Prototype Review Board" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="TopCoder UI Prototype Review Board" scope="request"/>
 		<c:set var="handleContext" value="ui_prototype" scope="request"/>
     </c:when>
     <c:when test="${projectType == RIA_BUILD_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="RIA Build" scope="request"/>
         <c:set var="projectTypeTitle" value="RIA Build" scope="request"/>
-        <c:set var="eligibleReviewBoardName" value="the TopCoder RIA Build Review Board" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="TopCoder RIA Build Review Board" scope="request"/>
 		<c:set var="handleContext" value="ria_build" scope="request"/>
     </c:when>
     <c:when test="${projectType == RIA_COMPONENT_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="RIA Component" scope="request"/>
         <c:set var="projectTypeTitle" value="RIA Component" scope="request"/>
-        <c:set var="eligibleReviewBoardName" value="the TopCoder Assembly Review Board" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="TopCoder Assembly Review Board" scope="request"/>
 		<c:set var="handleContext" value="ria_component" scope="request"/>
     </c:when>
     <c:when test="${projectType == CONCEPTUALIZATION_SPECIFICATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Specification Review" scope="request"/>
         <c:set var="projectTypeTitle" value="Specification Review" scope="request"/>
-        <c:set var="eligibleReviewBoardName" value="the TopCoder Conceptualization Review Board" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="TopCoder Conceptualization Review Board" scope="request"/>
         <c:set var="handleContext" value="conceptualization" scope="request"/>
     </c:when>
     <c:when test="${projectType == SPECIFICATION_SPECIFICATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Specification Review" scope="request"/>
         <c:set var="projectTypeTitle" value="Specification Review" scope="request"/>
-        <c:set var="eligibleReviewBoardName" value="the TopCoder Specification Review Board" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="TopCoder Specification Review Board" scope="request"/>
         <c:set var="handleContext" value="specification" scope="request"/>
     </c:when>
     <c:when test="${projectType == TEST_SUITES_SPECIFICATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Specification Review" scope="request"/>
         <c:set var="projectTypeTitle" value="Specification Review" scope="request"/>
-        <c:set var="eligibleReviewBoardName" value="the TopCoder Test Suites Review Board" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="TopCoder Test Suites Review Board" scope="request"/>
         <c:set var="handleContext" value="test_suites" scope="request"/>
     </c:when>
     <c:when test="${projectType == TEST_SCENARIOS_SPECIFICATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Specification Review" scope="request"/>
         <c:set var="projectTypeTitle" value="Specification Review" scope="request"/>
-        <c:set var="eligibleReviewBoardName" value="the TopCoder Test Scenarios Review Board" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="TopCoder Test Scenarios Review Board" scope="request"/>
         <c:set var="handleContext" value="test_scenarios" scope="request"/>
     </c:when>
     <c:when test="${projectType == UI_PROTOTYPE_SPECIFICATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Specification Review" scope="request"/>
         <c:set var="projectTypeTitle" value="Specification Review" scope="request"/>
-        <c:set var="eligibleReviewBoardName" value="the TopCoder UI Prototype Review Board" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="TopCoder UI Prototype Review Board" scope="request"/>
         <c:set var="handleContext" value="ui_prototype" scope="request"/>
     </c:when>
     <c:when test="${projectType == RIA_BUILD_SPECIFICATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Specification Review" scope="request"/>
         <c:set var="projectTypeTitle" value="Specification Review" scope="request"/>
-        <c:set var="eligibleReviewBoardName" value="the TopCoder RIA Build Review Board" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="TopCoder RIA Build Review Board" scope="request"/>
         <c:set var="handleContext" value="ria_build" scope="request"/>
     </c:when>
     <c:when test="${projectType == RIA_COMPONENT_SPECIFICATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Specification Review" scope="request"/>
         <c:set var="projectTypeTitle" value="Specification Review" scope="request"/>
-        <c:set var="eligibleReviewBoardName" value="the TopCoder RIA Component Review Board" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="TopCoder RIA Component Review Board" scope="request"/>
         <c:set var="handleContext" value="ria_component" scope="request"/>
     </c:when>
     <c:when test="${projectType == ARCHITECTURE_SPECIFICATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Specification Review" scope="request"/>
         <c:set var="projectTypeTitle" value="Specification Review" scope="request"/>
-        <c:set var="eligibleReviewBoardName" value="the TopCoder Architecture Review Board" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="TopCoder Architecture Review Board" scope="request"/>
         <c:set var="handleContext" value="architecture" scope="request"/>
     </c:when>
     <c:when test="${projectType == ASSEMBLY_SPECIFICATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Specification Review" scope="request"/>
         <c:set var="projectTypeTitle" value="Specification Review" scope="request"/>
-        <c:set var="eligibleReviewBoardName" value="the TopCoder Assembly Review Board" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="TopCoder Assembly Review Board" scope="request"/>
         <c:set var="handleContext" value="assembly" scope="request"/>
     </c:when>
     <c:when test="${projectType == CONTENT_CREATION_SPECIFICATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Specification Review" scope="request"/>
         <c:set var="projectTypeTitle" value="Specification Review" scope="request"/>
-        <c:set var="eligibleReviewBoardName" value="the TopCoder Content Creation Review Board" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="TopCoder Content Creation Review Board" scope="request"/>
         <c:set var="handleContext" value="conent_creation" scope="request"/>
     </c:when>
     <c:when test="${projectType == REPORTING_SPECIFICATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Specification Review" scope="request"/>
         <c:set var="projectTypeTitle" value="Specification Review" scope="request"/>
-        <c:set var="eligibleReviewBoardName" value="the TopCoder Reporting Review Board" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="TopCoder Reporting Review Board" scope="request"/>
         <c:set var="handleContext" value="reporting" scope="request"/>
     </c:when>
     <c:when test="${projectType == BUG_HUNT_SPECIFICATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Specification Review" scope="request"/>
         <c:set var="projectTypeTitle" value="Specification Review" scope="request"/>
-        <c:set var="eligibleReviewBoardName" value="the TopCoder Bug Hunt Review Board" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="TopCoder Bug Hunt Review Board" scope="request"/>
         <c:set var="handleContext" value="bug_hunt" scope="request"/>
     </c:when>
     <c:when test="${projectType == DESIGN_SPECIFICATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Specification Review" scope="request"/>
         <c:set var="projectTypeTitle" value="Specification Review" scope="request"/>
-        <c:set var="eligibleReviewBoardName" value="the TopCoder Architecture or Development Review Boards" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="TopCoder Component Design Review Board" scope="request"/>
         <c:set var="handleContext" value="design" scope="request"/>
     </c:when>
     <c:when test="${projectType == DEVELOPMENT_SPECIFICATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Specification Review" scope="request"/>
         <c:set var="projectTypeTitle" value="Architecture" scope="request"/>
-        <c:set var="eligibleReviewBoardName" value="the TopCoder Architecture or Development Review Boards" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="TopCoder Component Development Review Board" scope="request"/>
         <c:set var="handleContext" value="development" scope="request"/>
     </c:when>
     <c:when test="${projectType == ARCHITECTURE_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Architecture" scope="request"/>
         <c:set var="projectTypeTitle" value="Architecture" scope="request"/>
-        <c:set var="eligibleReviewBoardName" value="the TopCoder Architecture or Development Review Boards" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="TopCoder Architecture Review Board" scope="request"/>
         <c:set var="handleContext" value="architecture" scope="request"/>
     </c:when>
     <c:when test="${projectType == ASSEMBLY_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Assembly" scope="request"/>
         <c:set var="projectTypeTitle" value="Assembly" scope="request"/>
-        <c:set var="eligibleReviewBoardName" value="the TopCoder Assembly Review Board" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="TopCoder Assembly Review Board" scope="request"/>
         <c:set var="handleContext" value="assembly" scope="request"/>
     </c:when>
     <c:when test="${projectType == CONTENT_CREATION_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Content Creation" scope="request"/>
         <c:set var="projectTypeTitle" value="Content Creation" scope="request"/>
-        <c:set var="eligibleReviewBoardName" value="the TopCoder Content Creation Review Board" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="TopCoder Content Creation Review Board" scope="request"/>
         <c:set var="handleContext" value="content_creation" scope="request"/>
     </c:when>
     <c:when test="${projectType == REPORTING_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Reporting" scope="request"/>
         <c:set var="projectTypeTitle" value="Reporting" scope="request"/>
-        <c:set var="eligibleReviewBoardName" value="the TopCoder Reporting Review Board" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="TopCoder Reporting Review Board" scope="request"/>
         <c:set var="handleContext" value="reporting" scope="request"/>
     </c:when>
     <c:when test="${projectType == BUG_HUNT_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Bug Hunt" scope="request"/>
         <c:set var="projectTypeTitle" value="Bug Hunt" scope="request"/>
-        <c:set var="eligibleReviewBoardName" value="the TopCoder Bug Hunt Review Board" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="TopCoder Bug Hunt Review Board" scope="request"/>
         <c:set var="handleContext" value="bug_hunt" scope="request"/>
     </c:when>
     <c:when test="${projectType == DESIGN_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Component" scope="request"/>
         <c:set var="projectTypeTitle" value="Design" scope="request"/>
-        <c:set var="eligibleReviewBoardName" value="the TopCoder Architecture or Development Review Boards" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="TopCoder Component Design Review Board" scope="request"/>
         <c:set var="handleContext" value="design" scope="request"/>
     </c:when>
     <c:when test="${projectType == DEVELOPMENT_PROJECT_TYPE}">
         <c:set var="projectTypeDesc" value="Component" scope="request"/>
         <c:set var="projectTypeTitle" value="Development" scope="request"/>
-        <c:set var="eligibleReviewBoardName" value="the TopCoder Architecture or Development Review Boards" scope="request"/>
+        <c:set var="eligibleReviewBoardName" value="TopCoder Component Development Review Board" scope="request"/>
         <c:set var="handleContext" value="development" scope="request"/>
     </c:when>
 </c:choose>
