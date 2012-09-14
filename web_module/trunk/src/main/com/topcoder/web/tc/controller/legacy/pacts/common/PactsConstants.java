@@ -416,6 +416,7 @@ public interface PactsConstants extends Constants {
     public static final String OBJECT_TYPE = "object_type";
     public static final String PAYMENT_TYPE_ID = "payment_type_id";
     public static final String PAYMENT_REFERENCE_ID = "payment_reference_id";
+    public static final String PAYMENT_JIRA_ISSUE_ID = "jira_issue_id";
     // request attributes
     public static final String PACTS_INTERNAL_RESULT = "pacts_internal_result";
     public static final String PACTS_MEMBER_RESULT = "pacts_member_result";

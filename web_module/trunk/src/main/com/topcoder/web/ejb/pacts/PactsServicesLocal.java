@@ -290,6 +290,8 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     List findCoderPayments(long coderId, int paymentTypeId) throws  SQLException, InvalidStatusException;
 
+    List findJiraPayment(String jiraIssueKey) throws SQLException, InvalidStatusException;
+
     BasePayment getBasePayment(long paymentId) throws  SQLException, InvalidStatusException;
 
     BasePayment fillPaymentData(BasePayment payment) throws SQLException;

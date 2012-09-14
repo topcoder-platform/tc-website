@@ -255,6 +255,8 @@ public interface PactsServices extends EJBObject {
 
     List findCoderPayments(long coderId, int paymentTypeId, long referenceId) throws RemoteException, Exception, InvalidStatusException;
 
+    List findJiraPayment(String jiraIssueKey) throws RemoteException, Exception, InvalidStatusException;
+
     BasePayment getBasePayment(long paymentId) throws RemoteException, SQLException, InvalidStatusException;
 
     BasePayment fillPaymentData(BasePayment payment) throws RemoteException, SQLException;

@@ -85,6 +85,16 @@ public interface PactsClientServices extends EJBObject {
     List findCoderPayments(long coderId) throws RemoteException, Exception, InvalidStatusException;
 
     /**
+     * Find a Jira payment by its issue key.
+     * @param jiraIssueKey the issue key.
+     * @return the Jira payments for the given issue, or empty if not found
+     * @throws RemoteException if there is an error 
+     * @throws Exception if there is an error
+     * @throws InvalidStatusException if there is an error
+     */
+    List findJiraPayment(String jiraIssueKey) throws RemoteException, Exception, InvalidStatusException;
+
+    /**
      * Looks for the global AD for a particular user
      *
      * @param coderId the coder to find the global AD.

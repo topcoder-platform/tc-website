@@ -6700,6 +6700,22 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         searchCriteria.put(PAYMENT_REFERENCE_ID, String.valueOf(referenceId));
         return findCoderPayments(searchCriteria);
     }
+    
+    /**
+     * Find a Jira payment by its issue key.
+     * @param jiraIssueKey the issue key.
+     * @return the Jira payments for the given issue, or empty if not found
+     * @throws RemoteException if there is an error 
+     * @throws Exception if there is an error
+     * @throws InvalidStatusException if there is an error
+     */
+    public List findJiraPayment(String jiraIssueKey) throws SQLException, InvalidStatusException {
+        Map searchCriteria = new HashMap();
+
+        searchCriteria.put(PAYMENT_JIRA_ISSUE_ID, jiraIssueKey);
+        return findCoderPayments(searchCriteria);
+    }
+
 
     /**
      * Helper method to create the SQL select to find assignment document
@@ -6780,6 +6796,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     }
                 } else if (key.equals(PAYMENT_STATUS_ID)) {
                     query.append("AND pd.payment_status_id in (" + value + ") ");
+                } else if (key.equals(PAYMENT_JIRA_ISSUE_ID)) {
+                	query.append("AND pd.jira_issue_id = ? ");
+                	objects.add(value);
                 }
             }
             query.append(" ORDER BY p.payment_id asc ");
