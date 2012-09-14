@@ -89,7 +89,7 @@ public class MemberParticipationMetricsReportDataLoadUtility extends DBUtility {
     private static final String USER_PERMISSION_GRANT_LOAD_SQL_FILE 
         = PARTICIPATION_METRICS_REPORT_SQL_FILES_BASE + "/load_query_upg.sql";
     
-    private static final int PARTICIPATION_METRICS_REPORT_MEMBERS_LOAD_SQL_DATE_NUM = 18;
+    private static final int PARTICIPATION_METRICS_REPORT_MEMBERS_LOAD_SQL_DATE_NUM = 6;
     
     private static final int PARTICIPATION_METRICS_REPORT_COPILOT_LOAD_SQL_DATE_NUM = 3;
 
