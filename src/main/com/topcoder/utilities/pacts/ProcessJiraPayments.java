@@ -48,6 +48,7 @@ import com.topcoder.web.ejb.pacts.StudioEnhancementsPayment;
 import com.topcoder.web.ejb.pacts.StudioSpecificationReviewPayment;
 import com.topcoder.web.ejb.pacts.StudioSubmissionScreeningPayment;
 import com.topcoder.web.ejb.pacts.StudioCopilotPayment;
+import com.topcoder.web.ejb.pacts.payments.InvalidStatusException;
 import com.topcoder.www.bugs.rpc.soap.jirasoapservice_v2.JiraSoapService;
 import com.topcoder.www.bugs.rpc.soap.jirasoapservice_v2.JiraSoapServiceServiceLocator;
 
@@ -144,15 +145,24 @@ public class ProcessJiraPayments extends DBUtility {
                         updateJiraPaymentStatus(jira, token, remoteIssue, "Payment On Hold");
                         addJiraComment(jira, token, remoteIssue, sb.toString());
                     } else {
-                        BasePayment payment = createPactsPayment(issue.getReferenceType(), issue.getPaymentType(),
+                    	if (isIssuePaid(pactsService, issue)) {
+                            StringBuffer sb = new StringBuffer(200);
+                            sb.append("Payment placed on hold for the following reasons:\n\n");
+                            sb.append(" * This issue has already been paid.\n");
+
+                            updateJiraPaymentStatus(jira, token, remoteIssue, "Payment On Hold");
+                            addJiraComment(jira, token, remoteIssue, sb.toString());
+                    	} else {
+                    		BasePayment payment = createPactsPayment(issue.getReferenceType(), issue.getPaymentType(),
                                 issue.getReferenceId(), issue.getClient(), issue.getPayeeUserId(),
                                 issue.getPaymentAmount(), issue.getDescription(), issue.getKey());
 
-                        updateJiraPaymentStatus(jira, token, remoteIssue, "Paid");
-                        addJiraComment(jira, token, remoteIssue,
+                    		updateJiraPaymentStatus(jira, token, remoteIssue, "Paid");
+                    		addJiraComment(jira, token, remoteIssue,
                                 "Payment processed on " + dateFormat.format(new Date()));
 
-                        payment = pactsService.addPayment(payment);
+                    		payment = pactsService.addPayment(payment);
+                    	}
                     }
                 }
             } catch (Exception e) {
@@ -164,6 +174,27 @@ public class ProcessJiraPayments extends DBUtility {
         }
     }
 
+    /**
+     * Checks whether a Jira issue has been paid.
+     * @param pactsService the pacts service
+     * @param issue the issue to check
+     * @return true if it has been paid and the status is not 'Cancelled' or 'Deleted'
+     * @throws RemoteException
+     * @throws InvalidStatusException
+     * @throws Exception
+     */
+    private boolean isIssuePaid(PactsClientServices pactsService, JiraIssue issue) throws RemoteException, InvalidStatusException, Exception {
+    	List payments = pactsService.findJiraPayment(issue.getKey());
+    	if (payments != null && payments.size() > 0) {
+    		for (Object paymentObj : payments) {
+    			BasePayment basePayment = (BasePayment) paymentObj;
+    			if (!basePayment.getCurrentStatus().equals("Cancelled") && !basePayment.getCurrentStatus().equals("Deleted")) {
+    				return true;
+    			}
+    		}
+    	}
+    	return false;
+    }
     /**
      * Updates a Jira issue's Payment Status custom field.
      * 
