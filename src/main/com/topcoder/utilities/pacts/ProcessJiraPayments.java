@@ -49,6 +49,8 @@ import com.topcoder.web.ejb.pacts.StudioSpecificationReviewPayment;
 import com.topcoder.web.ejb.pacts.StudioSubmissionScreeningPayment;
 import com.topcoder.web.ejb.pacts.StudioCopilotPayment;
 import com.topcoder.web.ejb.pacts.payments.InvalidStatusException;
+import com.topcoder.web.ejb.pacts.payments.CancelledPaymentStatus;
+import com.topcoder.web.ejb.pacts.payments.DeletedPaymentStatus;
 import com.topcoder.www.bugs.rpc.soap.jirasoapservice_v2.JiraSoapService;
 import com.topcoder.www.bugs.rpc.soap.jirasoapservice_v2.JiraSoapServiceServiceLocator;
 
@@ -188,7 +190,8 @@ public class ProcessJiraPayments extends DBUtility {
     	if (payments != null && payments.size() > 0) {
     		for (Object paymentObj : payments) {
     			BasePayment basePayment = (BasePayment) paymentObj;
-    			if (!basePayment.getCurrentStatus().equals("Cancelled") && !basePayment.getCurrentStatus().equals("Deleted")) {
+    			if (basePayment.getCurrentStatus().getId() != DeletedPaymentStatus.ID
+                    && basePayment.getCurrentStatus().getId() != CancelledPaymentStatus.ID) {
     				return true;
     			}
     		}
