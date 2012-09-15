@@ -149,7 +149,7 @@
 
                     <a href='http://community.topcoder.com/tco12'><img class="emblem" src="/i/tournament/tco12/software_tco12_icon.png" alt="" border="0" onmouseover="postPopUpText('globalPopupText','Eligible for the TopCoder Open'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
                 </div>
-				  <% } else  if (resultRow.getIntItem("tourny_project") == 3436) { %>
+                <% } else  if (resultRow.getIntItem("tourny_project") == 3436) { %>
                 <div align="center">
 
                     <a href='http://community.topcoder.com/tco13'><img class="emblem" src="/i/tournament/tco13/software_tco13_icon.png" alt="" border="0" onmouseover="postPopUpText('globalPopupText','Eligible for the TopCoder Open'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
@@ -235,13 +235,10 @@
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-        <td class="title" colspan="12">Active Component Development Contests</td>
+        <td class="title" colspan="11">Active Component Development Contests</td>
     </tr>
     <tr>
         <td class="headerC">
-            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="16" includeParams="true"/>">Type</a>
-        </td>
-        <td class="header">
             <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Catalog</a>
         </td>
         <td class="header" width="40%">
@@ -282,9 +279,6 @@
     <% boolean even = false; %>
     <rsc:iterator list="<%=devContests%>" id="resultRow">
         <tr class="<%=even?"dark":"light"%>">
-            <td class="valueC" style="font-weight:bold">
-                <rsc:item name="type" row="<%=resultRow%>"/>
-            </td>
             <td class="valueC">
                 <tc_tags:languageIcon catalogName = "<%=resultRow.getStringItem("catalog_name")%>" aolBrand="<%=(resultRow.getItem("aol_brand").getResultData() != null)%>" 
                                       paypalBrand="<%=(resultRow.getItem("paypal_brand").getResultData() != null)%>"/> 
@@ -297,10 +291,18 @@
                 </a>
             </td>
             <td class="value">
-                <% if (resultRow.getIntItem("tourny_project") > 0) { %>
+                <% if (resultRow.getIntItem("tourny_project") == 3434) { %>
                 <div align="center">
+
                     <a href='http://community.topcoder.com/tco12'><img class="emblem" src="/i/tournament/tco12/software_tco12_icon.png" alt="" border="0" onmouseover="postPopUpText('globalPopupText','Eligible for the TopCoder Open'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
                 </div>
+                <% } else  if (resultRow.getIntItem("tourny_project") == 3436) { %>
+                <div align="center">
+
+                    <a href='http://community.topcoder.com/tco13'><img class="emblem" src="/i/tournament/tco13/software_tco13_icon.png" alt="" border="0" onmouseover="postPopUpText('globalPopupText','Eligible for the TopCoder Open'); popUp(this,'globalPopup');" onmouseout="popHide()" /></a>
+                </div>
+                <% } else { %>
+                &nbsp;
                 <% } %>
             </td>
             <td class="value">
