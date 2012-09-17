@@ -5435,7 +5435,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         commonQuery.append("from tcs_catalog:project p ");
         commonQuery.append("inner join tcs_catalog:resource r ");
         commonQuery.append("on p.project_id = r.project_id ");
-        commonQuery.append("and (r.resource_role_id in (2,3,4,5,6,7,8,9,14,16,18,19,20)) ");
+        commonQuery.append("and (r.resource_role_id in (2,3,4,5,6,7,8,9,14,16,18,19,20,21,22)) ");
         commonQuery.append("inner join tcs_catalog:resource_info ri_u ");
         commonQuery.append("on r.resource_id = ri_u.resource_id ");
         commonQuery.append("and ri_u.resource_info_type_id = 1 ");
@@ -5452,7 +5452,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         getReviewers.append("select ");
         getReviewers.append("ri_u.value as user_id, ");
         getReviewers.append("CASE ");
-        getReviewers.append("    WHEN r.resource_role_id in (2,3,4,5,6,7,8,9,16,19,20) THEN 'Review Payment' ");
+        getReviewers.append("    WHEN r.resource_role_id in (2,3,4,5,6,7,8,9,16,19,20,21,22) THEN 'Review Payment' ");
         getReviewers.append("    WHEN r.resource_role_id = 14 THEN 'Copilot Payment' ");
         getReviewers.append("    WHEN r.resource_role_id = 18 THEN 'Spec Review Payment' ");
         getReviewers.append("    ELSE 'Unknown' ");
