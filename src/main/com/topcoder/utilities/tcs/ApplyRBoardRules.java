@@ -409,7 +409,7 @@ public class ApplyRBoardRules extends DBUtility {
 
         mail.append("Only the submissions resulted in the Top" + topNSubmissions + " for each project are counted towards the reviewer statistics.\n\n");
 
-        mail.append("If you have any questions, please contact us at service@topcodersoftware.com.\n\n");
+        mail.append("If you have any questions, please contact us at support@topcoder.com\n\n");
         mail.append("Thank you, \nTopCoder Software.\n");
 
         String emailSubject = "Review Board: Activation";
@@ -461,7 +461,7 @@ public class ApplyRBoardRules extends DBUtility {
 
         mail.append("Only the submissions resulted in the Top" + topNSubmissions + " for each project are counted towards the reviewer statistics.\n\n");
 
-        mail.append("If you have any questions, please contact us at service@topcodersoftware.com.\n\n");
+        mail.append("If you have any questions, please contact us at support@topcoder.com\n\n");
         mail.append("Thank you, \nTopCoder Software.\n");
 
         String emailSubject = "Review Board: Disqualification";
@@ -511,7 +511,7 @@ public class ApplyRBoardRules extends DBUtility {
 
         mail.append("Only the submissions resulted in the Top" + topNSubmissions + " for each project are counted towards the reviewer statistics.\n\n");
 
-        mail.append("If you have any questions, please contact us at service@topcodersoftware.com.\n\n");
+        mail.append("If you have any questions, please contact us at support@topcoder.com\n\n");
         mail.append("Thank you, \nTopCoder Software.\n");
 
         String emailSubject = "Review Board: Warning";
