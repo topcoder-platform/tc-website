@@ -96,7 +96,7 @@
                                     <rsc:item name="max_rating" set="<%=rscDesData%>" format="####"/>
                                 </span></li>
                                 
-                                <li><strong>Maximum Rating</strong><span class="gray">
+                                <li><strong>Minimum Rating</strong><span class="gray">
                                     <rsc:item name="min_rating" set="<%=rscDesData%>" format="####"/>
                                 </span></li>
                             </ul>
