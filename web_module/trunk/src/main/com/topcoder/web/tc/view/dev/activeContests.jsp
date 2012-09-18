@@ -77,7 +77,7 @@
 </table>
 
 <div align="center">
-    <a href="http://community.topcoder.com/tco12/overview-sponsor/tco12-sponsor-das-keyboard/"><img src="/i/tournament/tco12/Das_Keyboard_Sponsor_Banner_510x114.png" alt="Das Keyboard - TCO12 Sponsor" /></a><br /><br />
+    <a href="http://community.topcoder.com/tco12/overview-sponsor/two-sigma/"><img src="/i/tournament/tco12/Two_Sigma_Sponsor_Banner_510x114.jpg" alt="Two Sigma - TCO12 Sponsor" /></a><br /><br />
 </div>
 
 <div align="right">
@@ -224,7 +224,7 @@
 </table>
 
 <div align="center">
-    <a href="http://community.topcoder.com/tco12/overview-sponsor/tco12-sponsor-das-keyboard/"><img src="/i/tournament/tco12/Das_Keyboard_Sponsor_Banner_510x114.png" alt="Das Keyboard - TCO12 Sponsor" /></a><br /><br />
+    <a href="http://community.topcoder.com/tco12/overview-sponsor/two-sigma/"><img src="/i/tournament/tco12/Two_Sigma_Sponsor_Banner_510x114.jpg" alt="Two Sigma - TCO12 Sponsor" /></a><br /><br />
 </div>
 
 <div align="right">
