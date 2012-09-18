@@ -397,17 +397,17 @@ public class ApplyRBoardRules extends DBUtility {
         StringBuffer mail = new StringBuffer();
         mail.append("Hello " + handle + ",\n\n");
         mail.append("We are pleased to inform you that you have been reactivated for performing ");
-        mail.append("reviews on " + catalogName + " " + projectTypeName + " projects.\n\n");
+        mail.append("reviews on " + catalogName + " " + projectTypeName + " contests.\n\n");
 
-        mail.append("Remember that to stay active you must complete at least " + submissionThresholdLong + " project" + (submissionThresholdLong > 1 ? "s" : ""));
+        mail.append("Remember that to stay active you must complete at least " + submissionThresholdLong + " contest" + (submissionThresholdLong > 1 ? "s" : ""));
         mail.append(" overall in the corresponding catalog and track with a score equal or higher than " + scoreThresholdLong + " in each one.\n");
 
-        mail.append("You also have to complete at least " + submissionThresholdShort + " project" + (submissionThresholdShort > 1 ? "s" : ""));
+        mail.append("You also have to complete at least " + submissionThresholdShort + " contest" + (submissionThresholdShort > 1 ? "s" : ""));
         mail.append(" with a score equal or higher than " + scoreThresholdShort + " in the last " + daysShortPeriod + " days");
-        mail.append(" or at least " + alternateRuleMinimumSubmissions + " project" + (alternateRuleMinimumSubmissions > 1 ? "s" : "") + " with a score equal or higher than ");
-        mail.append(alternateRuleMinimumScore + " in the last " + alternateRuleLastNProjects + " project" + (alternateRuleLastNProjects > 1 ? "s" : "") + ".\n");
+        mail.append(" or at least " + alternateRuleMinimumSubmissions + " contest" + (alternateRuleMinimumSubmissions > 1 ? "s" : "") + " with a score equal or higher than ");
+        mail.append(alternateRuleMinimumScore + " in the last " + alternateRuleLastNProjects + " posted contest" + (alternateRuleLastNProjects > 1 ? "s" : "") + ".\n");
 
-        mail.append("Only the submissions resulted in the Top" + topNSubmissions + " for each project are counted towards the reviewer statistics.\n\n");
+        mail.append("Only the submissions resulted in the Top" + topNSubmissions + " for each contest are counted towards the reviewer statistics.\n\n");
 
         mail.append("If you have any questions, please contact us at support@topcoder.com\n\n");
         mail.append("Thank you, \nTopCoder Software.\n");
@@ -445,21 +445,21 @@ public class ApplyRBoardRules extends DBUtility {
         StringBuffer mail = new StringBuffer();
         mail.append("Hello " + handle + ",\n\n");
         mail.append("We are sorry to inform you that you have been disqualified from performing additional ");
-        mail.append("reviews on " + catalogName + " " + projectTypeName + " projects, but you will still be ");
-        mail.append("able to complete your current projects.\n\n");
+        mail.append("reviews on " + catalogName + " " + projectTypeName + " contests, but you will still be ");
+        mail.append("able to complete your current contests.\n\n");
         mail.append("This is temporary. You no longer fulfill the requirements to be a reviewer, ");
         mail.append("but if you resolve this, you will be able to perform reviews again.\n\n");
 
         mail.append("Note:\n");
-        mail.append("To be qualified as a reviewer you must complete at least " + submissionThresholdLong + " project" + (submissionThresholdLong > 1 ? "s" : ""));
+        mail.append("To be qualified as a reviewer you must complete at least " + submissionThresholdLong + " contest" + (submissionThresholdLong > 1 ? "s" : ""));
         mail.append(" overall in the corresponding catalog and track with a score equal or higher than " + scoreThresholdLong + " in each one.\n");
 
-        mail.append("You also have to complete at least " + submissionThresholdShort + " project" + (submissionThresholdShort > 1 ? "s" : ""));
+        mail.append("You also have to complete at least " + submissionThresholdShort + " contest" + (submissionThresholdShort > 1 ? "s" : ""));
         mail.append(" with a score equal or higher than " + scoreThresholdShort + " in the last " + daysShortPeriod + " days");
-        mail.append(" or at least " + alternateRuleMinimumSubmissions + " project" + (alternateRuleMinimumSubmissions > 1 ? "s" : "") + " with a score equal or higher than ");
-        mail.append(alternateRuleMinimumScore + " in the last " + alternateRuleLastNProjects + " project" + (alternateRuleLastNProjects > 1 ? "s" : "") + ".\n");
+        mail.append(" or at least " + alternateRuleMinimumSubmissions + " contest" + (alternateRuleMinimumSubmissions > 1 ? "s" : "") + " with a score equal or higher than ");
+        mail.append(alternateRuleMinimumScore + " in the last " + alternateRuleLastNProjects + " posted contest" + (alternateRuleLastNProjects > 1 ? "s" : "") + ".\n");
 
-        mail.append("Only the submissions resulted in the Top" + topNSubmissions + " for each project are counted towards the reviewer statistics.\n\n");
+        mail.append("Only the submissions resulted in the Top" + topNSubmissions + " for each contest are counted towards the reviewer statistics.\n\n");
 
         mail.append("If you have any questions, please contact us at support@topcoder.com\n\n");
         mail.append("Thank you, \nTopCoder Software.\n");
@@ -498,18 +498,18 @@ public class ApplyRBoardRules extends DBUtility {
         StringBuffer mail = new StringBuffer();
         mail.append("Hello " + handle + ",\n\n");
         mail.append("This mail is to warn you that in " + daysToBeDisqualified + " day" + (daysToBeDisqualified > 1 ? "s" : "") + " you will be disqualified from performing ");
-        mail.append("reviews on " + catalogName + " " + projectTypeName + " projects.\n\n");
+        mail.append("reviews on " + catalogName + " " + projectTypeName + " contests.\n\n");
 
         mail.append("Note:\n");
-        mail.append("To be qualified as a reviewer you must complete at least " + submissionThresholdLong + " project" + (submissionThresholdLong > 1 ? "s" : ""));
+        mail.append("To be qualified as a reviewer you must complete at least " + submissionThresholdLong + " contest" + (submissionThresholdLong > 1 ? "s" : ""));
         mail.append(" overall in the corresponding catalog and track with a score equal or higher than " + scoreThresholdLong + " in each one.\n");
 
-        mail.append("You also have to complete at least " + submissionThresholdShort + " project" + (submissionThresholdShort > 1 ? "s" : ""));
+        mail.append("You also have to complete at least " + submissionThresholdShort + " contest" + (submissionThresholdShort > 1 ? "s" : ""));
         mail.append(" with a score equal or higher than " + scoreThresholdShort + " in the last " + daysShortPeriod + " days");
-        mail.append(" or at least " + alternateRuleMinimumSubmissions + " project" + (alternateRuleMinimumSubmissions > 1 ? "s" : "") + " with a score equal or higher than ");
-        mail.append(alternateRuleMinimumScore + " in the last " + alternateRuleLastNProjects + " project" + (alternateRuleLastNProjects > 1 ? "s" : "") + ".\n");
+        mail.append(" or at least " + alternateRuleMinimumSubmissions + " contest" + (alternateRuleMinimumSubmissions > 1 ? "s" : "") + " with a score equal or higher than ");
+        mail.append(alternateRuleMinimumScore + " in the last " + alternateRuleLastNProjects + " posted contest" + (alternateRuleLastNProjects > 1 ? "s" : "") + ".\n");
 
-        mail.append("Only the submissions resulted in the Top" + topNSubmissions + " for each project are counted towards the reviewer statistics.\n\n");
+        mail.append("Only the submissions resulted in the Top" + topNSubmissions + " for each contest are counted towards the reviewer statistics.\n\n");
 
         mail.append("If you have any questions, please contact us at support@topcoder.com\n\n");
         mail.append("Thank you, \nTopCoder Software.\n");
