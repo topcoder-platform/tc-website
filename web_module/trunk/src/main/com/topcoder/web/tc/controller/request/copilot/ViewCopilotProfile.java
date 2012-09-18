@@ -333,7 +333,6 @@ public class ViewCopilotProfile extends ShortHibernateProcessor {
         dto.setContestTypeStats(contestStats);
 
         // command - reporter_total  query - reporter_total
-        /*
         CachedDataAccess dai = new CachedDataAccess(DBMS.JIRA_DATASOURCE_NAME);
         r = new Request();
 
@@ -351,10 +350,6 @@ public class ViewCopilotProfile extends ShortHibernateProcessor {
         }
         
         dto.setTotalBugRaces(bugCount);
-        */
-        
-        // use a mock bug race data for test purpose
-        dto.setTotalBugRaces(15);
     }
     
     /**
