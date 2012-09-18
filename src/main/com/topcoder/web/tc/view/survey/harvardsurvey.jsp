@@ -33,9 +33,10 @@
 
 
 
-		<% String qdl = request.getParameter("Q_DL") ;  %>
+		<% String qdl = request.getParameter("SID") ;  %>
+		<% String tcid = request.getParameter("tcid") ;  %>
 		
-							<iframe src="https://qtrial.qualtrics.com/SE?Q_DL=<%=qdl%>" height="900px" width="1200px"></iframe>
+							<iframe src="https://qtrial.qualtrics.com/SE?SID=<%=qdl%>&tcid=<%=tcid%>" height="900px" width="1200px"></iframe>
 
 		
 	</div><!-- End #landingPage -->
