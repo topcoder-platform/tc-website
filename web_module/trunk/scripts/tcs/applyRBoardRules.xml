@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <applyRBoardRules>
     <sourcesList>
-        <source name = "tcs_catalog" value = "jdbc:informix-sqli://192.168.14.53:2020/tcs_catalog:INFORMIXSERVER=informixoltp_tcp;user=coder;password=bre3burn"/>
+        <source name = "tcs_catalog" value = "jdbc:informix-sqli://192.168.14.53:2020/tcs_catalog:INFORMIXSERVER=informixoltp_tcp;user=coder;password=password"/>
     </sourcesList>
     <onlyAnalyze>false</onlyAnalyze>
     <sendMails>true</sendMails>
