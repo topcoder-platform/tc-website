@@ -38,6 +38,7 @@
 
     <path id="class.path">
         <pathelement location="${classes}"/>
+        <pathelement location="${shared.jar}"/>
         <pathelement location="${testclasses}"/>
         <pathelement location="${resources}"/>
         <pathelement location="${resources}/hibernate"/>
