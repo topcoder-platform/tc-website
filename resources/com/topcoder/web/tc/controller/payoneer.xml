@@ -6,6 +6,9 @@
     <Property name="partner_id">
         <Value>12345</Value>
     </Property>
+    <Property name="program_id">
+        <Value>67890</Value>
+    </Property>
     <Property name="username">
         <Value>username</Value>
     </Property>
