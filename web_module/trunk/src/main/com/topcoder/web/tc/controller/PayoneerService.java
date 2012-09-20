@@ -8,17 +8,16 @@ import com.topcoder.util.config.ConfigManagerException;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Document;
-import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import org.w3c.dom.Element;
 
 import java.lang.String;
 import java.lang.StringBuilder;
-import java.rmi.RemoteException;
 import java.io.DataOutputStream;
-import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -61,9 +60,10 @@ public class PayoneerService {
 
             Document response = getXMLResponse(payoneerConfig.baseApiUrl, parameters);
 
-            // Error node means the user is unknown to Payoneer and thus not registered.
-            NodeList error = response.getElementsByTagName("Error");
-            if (error.getLength() > 0) {
+            // Code "002" means the payee is unknown to Payoneer and thus is not registered.
+            NodeList codeNode = response.getElementsByTagName("Code");            
+            String code = codeNode.getLength() > 0 ? codeNode.item(0).getFirstChild().getNodeValue().trim() : null;
+            if ("002".equals(code))  {
                 return PayeeStatus.NOT_REGISTERED;
             }
 
@@ -108,7 +108,7 @@ public class PayoneerService {
         } catch (PayoneerServiceException e) {
             throw e;
         } catch (Exception e) {
-            throw new PayoneerServiceException("Error occured while getting the payee status", e);
+            throw new PayoneerServiceException("Error occurred while getting the payee status", e);
         }
     }
 
@@ -128,13 +128,13 @@ public class PayoneerService {
 
             Document response = getXMLResponse(payoneerConfig.baseApiUrl, parameters);
 
-            // Error node means something went wrong.
-            NodeList error = response.getElementsByTagName("Error");
-            if (error.getLength() > 0) {
+            // Code node means something went wrong.
+            NodeList codeNode = response.getElementsByTagName("Code");
+            if (codeNode.getLength() > 0) {
                 NodeList descriptionNode = response.getElementsByTagName("Description");
-                String descripton = descriptionNode.getLength() > 0 ?
-                    descriptionNode.item(0).getFirstChild().getNodeValue() : "";
-                throw new PayoneerServiceException("Payoneer service reported an error : " + descripton);
+                String description = descriptionNode.getLength() > 0 ?
+                    descriptionNode.item(0).getFirstChild().getNodeValue().trim() : "";
+                throw new PayoneerServiceException("Payoneer service reported an error : " + description);
             }
 
             // The token node contains the registration URL.
@@ -149,7 +149,7 @@ public class PayoneerService {
         } catch (PayoneerServiceException e) {
             throw e;
         } catch (Exception e) {
-            throw new PayoneerServiceException("Error occured while getting the Payoneer registration link", e);
+            throw new PayoneerServiceException("Error occurred while getting the Payoneer registration link", e);
         }
 
         throw new PayoneerServiceException("Unable to get the registration link from the Payoneer's response");
@@ -160,10 +160,54 @@ public class PayoneerService {
      * @param internalPaymentId The ID that this payment will be associated with in the Payoneer system. Should be unique.
      * @param payeeId Payoneer payee ID. Corresponds to the TopCoder user ID.
      * @param amount The amount to be paid.
+     * @return Payment ID in the Payoneer system.
      * @throws PayoneerServiceException if any error occurs.
      */
-    public static void createPayment(long internalPaymentId, long payeeId, double amount) throws PayoneerServiceException {
-        // Not yet implemented.
+    public static long createPayment(long internalPaymentId, long payeeId, double amount) throws PayoneerServiceException {
+        try {
+            DecimalFormat df = new DecimalFormat("0.00", new DecimalFormatSymbols(Locale.US));
+            PayoneerConfig payoneerConfig = getPayoneerConfig();
+            Map<String,String> parameters = new HashMap<String,String>();
+            parameters.put("mname", "PerformPayoutPayment");
+            parameters.put("p1", payoneerConfig.username);
+            parameters.put("p2", payoneerConfig.password);
+            parameters.put("p3", payoneerConfig.partnerId);
+            parameters.put("p4", payoneerConfig.programId);
+            parameters.put("p5", ""+internalPaymentId);
+            parameters.put("p6", ""+payeeId);
+            parameters.put("p7", df.format(amount));
+            parameters.put("p8", "TopCoder payment");
+
+            String currentDate = (new SimpleDateFormat("MM/dd/yyyy HH:mm:ss")).format(new Date());
+            parameters.put("p9", currentDate);
+
+            Document response = getXMLResponse(payoneerConfig.baseApiUrl, parameters);
+
+            // Statuses other than "000" mean error
+            NodeList statusNode = response.getElementsByTagName("Status");
+            String status = statusNode.getLength() > 0 ? statusNode.item(0).getFirstChild().getNodeValue().trim() : null;
+            if (!"000".equals(status)) {
+                NodeList descriptionNode = response.getElementsByTagName("Description");
+                String description = descriptionNode.getLength() > 0 ?
+                    descriptionNode.item(0).getFirstChild().getNodeValue().trim() : "";
+                throw new PayoneerServiceException("Payoneer service reported an error : " + description);
+            }
+
+            // The PaymentID node contains the payment ID assigned by Payoneer.
+            NodeList idNode = response.getElementsByTagName("PaymentID");
+            if (idNode.getLength() > 0) {
+                String value = idNode.item(0).getFirstChild().getNodeValue();
+                if (value != null) {
+                    return Long.parseLong(value);
+                }
+            }
+        } catch (PayoneerServiceException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new PayoneerServiceException("Error occurred while getting the Payoneer balance amount", e);
+        }
+
+        throw new PayoneerServiceException("Unable to get the balance amount from the Payoneer's response");
     }
 
     /**
@@ -172,8 +216,40 @@ public class PayoneerService {
      * @throws PayoneerServiceException if any error occurs.
      */
     public static double getBalanceAmount() throws PayoneerServiceException {
-        // Not yet implemented.
-        return 0.0;
+        try {
+            PayoneerConfig payoneerConfig = getPayoneerConfig();
+            Map<String,String> parameters = new HashMap<String,String>();
+            parameters.put("mname", "GetAccountDetails");
+            parameters.put("p1", payoneerConfig.username);
+            parameters.put("p2", payoneerConfig.password);
+            parameters.put("p3", payoneerConfig.partnerId);
+
+            Document response = getXMLResponse(payoneerConfig.baseApiUrl, parameters);
+
+            // Code node means something went wrong.
+            NodeList codeNode = response.getElementsByTagName("Code");
+            if (codeNode.getLength() > 0) {
+                NodeList errorNode = response.getElementsByTagName("Error");
+                String error = errorNode.getLength() > 0 ?
+                        errorNode.item(0).getFirstChild().getNodeValue() : null;
+                throw new PayoneerServiceException("Payoneer service reported an error : " + error);
+            }
+
+            // The AccountBalance node contains the balance amount.
+            NodeList balanceNode = response.getElementsByTagName("AccountBalance");
+            if (balanceNode.getLength() > 0) {
+                String value = balanceNode.item(0).getFirstChild().getNodeValue();
+                if (value != null) {
+                    return Double.parseDouble(value);
+                }
+            }
+        } catch (PayoneerServiceException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new PayoneerServiceException("Error occurred while getting the Payoneer balance amount", e);
+        }
+
+        throw new PayoneerServiceException("Unable to get the balance amount from the Payoneer's response");
     }
    
     /**
@@ -187,6 +263,7 @@ public class PayoneerService {
             if (configManager.existsNamespace(DEFAULT_PAYONEER_NAMESPACE)) {
                 config.baseApiUrl = (String) configManager.getProperty(DEFAULT_PAYONEER_NAMESPACE, "base_api_url");
                 config.partnerId = (String) configManager.getProperty(DEFAULT_PAYONEER_NAMESPACE, "partner_id");
+                config.programId = (String) configManager.getProperty(DEFAULT_PAYONEER_NAMESPACE, "program_id");
                 config.username = (String) configManager.getProperty(DEFAULT_PAYONEER_NAMESPACE, "username");
                 config.password = (String) configManager.getProperty(DEFAULT_PAYONEER_NAMESPACE, "password");
             }
@@ -241,6 +318,7 @@ public class PayoneerService {
     private static class PayoneerConfig {
         public String baseApiUrl = "";
         public String partnerId = "";
+        public String programId = "";
         public String username = "";
         public String password = "";
     }
