@@ -1658,7 +1658,7 @@ public class TCLoadTCS extends TCLoad {
                         "   and pivers.project_info_type_id = 1 " +
                         "   and pivers.value = cv.comp_vers_id " +
                         "   and pwa.project_id = p.project_id " +
-                        "   and pwa.phase_type_id = 6 " + // winner announcement (appeals response end)
+                        "   and pwa.phase_type_id in  (6, 21)" + // winner announcement (appeals response end)
                         "   and psd.project_id = p.project_id " +
                         "   and psd.phase_type_id = 2 " +
                         "   and ppd.project_id = p.project_id " +
