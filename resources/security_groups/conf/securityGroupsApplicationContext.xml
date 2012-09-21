@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.0.xsd
+            http://www.springframework.org/schema/tx
+            http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+            http://www.springframework.org/schema/aop
+            http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+    	<property name="configLocation">
+    		<value>classpath:securityGroupsHibernate.cfg.xml</value>
+    	</property>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+    	<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+      <tx:advice id="txAdvice" transaction-manager="transactionManager">
+          <tx:attributes>
+                <tx:method name="get*" read-only="true"/>
+                <tx:method name="*"/>
+          </tx:attributes>
+      </tx:advice>
+
+      <aop:config>
+          <aop:pointcut id="serviceOperation" expression="execution(* com.topcoder.security.groups.services.hibernate.*.*(..))"/>
+          <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceOperation"/>
+      </aop:config>
+
+    <bean id="logger" class="com.topcoder.util.log.LogManager" factory-method="getLog" />
+    
+    <bean id="baseGroupService" class="com.topcoder.security.groups.services.hibernate.BaseGroupService" abstract="true">
+        <property name="logger" ref="logger" />
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+
+    <bean id="authorizationService"
+          class="com.topcoder.security.groups.services.hibernate.HibernateAuthorizationService" parent="baseGroupService">
+    </bean>
+    
+    <bean id="billingAccountService"
+          class="com.topcoder.security.groups.services.hibernate.HibernateBillingAccountService" parent="baseGroupService">
+    </bean>
+    
+    <bean id="clientService"
+          class="com.topcoder.security.groups.services.hibernate.HibernateClientService" parent="baseGroupService">
+    </bean>
+    
+    <bean id="directProjectService"
+          class="com.topcoder.security.groups.services.hibernate.HibernateDirectProjectService" parent="baseGroupService">
+    </bean>
+    
+    <bean id="groupService"
+          class="com.topcoder.security.groups.services.hibernate.HibernateGroupService" parent="baseGroupService">
+        <property name="authorizationService" ref="authorizationService" />
+    </bean>
+    
+    <bean id="userService"
+          class="com.topcoder.security.groups.services.hibernate.HibernateUserService" parent="baseGroupService">
+    </bean>
+    
+    <bean id="customerAdministratorService"
+          class="com.topcoder.security.groups.services.hibernate.HibernateCustomerAdministratorService" parent="baseGroupService">
+        <property name="clientService" ref="clientService" />
+        <property name="userService" ref="userService" />
+    </bean>
+    
+    <bean id="groupAuditService"
+          class="com.topcoder.security.groups.services.hibernate.HibernateGroupAuditService" parent="baseGroupService">
+    </bean>
+    
+    <bean id="groupInvitationService"
+          class="com.topcoder.security.groups.services.hibernate.HibernateGroupInvitationService" parent="baseGroupService">
+        <property name="authorizationService" ref="authorizationService" />
+        <property name="userService" ref="userService" />
+        <property name="emailSubject">
+            <value></value>
+        </property>
+        <property name="emailBodyTemplateSourceId">
+            <value></value>
+        </property>
+        <property name="emailBodyTemplateName">
+            <value></value>
+        </property>
+        <property name="emailSender">
+            <value></value>
+        </property>
+    </bean>
+    
+    <bean id="groupMemberService"
+          class="com.topcoder.security.groups.services.hibernate.HibernateGroupMemberService" parent="baseGroupService">
+        <property name="authorizationService" ref="authorizationService" />
+    </bean>
+    
+    
+</beans>
