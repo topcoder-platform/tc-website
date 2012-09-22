@@ -503,7 +503,7 @@
 
     <servlet-mapping>
         <servlet-name>eventreg</servlet-name>
-        <url-pattern>/eventreg</url-pattern>
+        <url-pattern>/tc/eventreg</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
