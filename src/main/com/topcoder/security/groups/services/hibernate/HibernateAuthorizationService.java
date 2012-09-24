@@ -85,7 +85,7 @@ public class HibernateAuthorizationService extends BaseGroupService implements A
      * Name of query for TC staff IDs.
      * </p>
      */
-    private static final String QUERY_IS_USER_TC_STAFF = "query_is_user_tc_staff";
+    private static final String QUERY_IS_USER_TC_STAFF = "is_user_tc_staff";
 
     /**
      * <p>
