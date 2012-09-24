@@ -28,7 +28,7 @@ import com.topcoder.shared.util.DBMS;
  * <p>
  * Version 1.1 (Release Assembly - TopCoder Security Groups Frontend - Invitations Approvals) change notes:
  * <ol>
- *   <li>Updated method {@link #search(String)} for the update DB query "query_users".</li>
+ *   <li>Updated method {@link #search(String)} for the update DB query "search_users_by_handle_email".</li>
  *   <li>Added method {@link #search(String, String)} to support search by handle and email.</li>
  * </ol>
  * </p>
@@ -69,9 +69,9 @@ public class HibernateUserService extends BaseGroupService implements UserServic
                 dataAccess = new DataAccess(DBMS.JTS_OLTP_DATASOURCE_NAME);
             Request request = new Request();
             ResultSetContainer resultContainer = null;
-            request.setContentHandle("query_user_handle_email_by_user_id");
-            request.setProperty("user_id", String.valueOf(id));
-            resultContainer = dataAccess.getData(request).get("query_user_handle_email_by_user_id");
+            request.setContentHandle("user_handle_email_by_user_id");
+            request.setProperty("uid", String.valueOf(id));
+            resultContainer = dataAccess.getData(request).get("user_handle_email_by_user_id");
             if (resultContainer != null) {
                 if (resultContainer.size() > 0) {
                     ResultSetContainer.ResultSetRow row = resultContainer.get(0);
@@ -116,10 +116,10 @@ public class HibernateUserService extends BaseGroupService implements UserServic
                 dataAccess = new DataAccess(DBMS.JTS_OLTP_DATASOURCE_NAME);
             Request request = new Request();
             ResultSetContainer resultContainer = null;
-            request.setContentHandle("query_users");
+            request.setContentHandle("search_users_by_handle_email");
             request.setProperty("ha", handle);
             request.setProperty("email", "");
-            resultContainer = dataAccess.getData(request).get("query_users");
+            resultContainer = dataAccess.getData(request).get("search_users_by_handle_email");
             if (resultContainer != null) {
                 for (ResultSetContainer.ResultSetRow row : resultContainer) {
                     UserDTO dto = new UserDTO();
@@ -172,7 +172,7 @@ public class HibernateUserService extends BaseGroupService implements UserServic
             request.setContentHandle("query_users");
             request.setProperty("ha", handle == null ? "" : handle);
             request.setProperty("email", email == null ? "" : email);
-            resultContainer = dataAccess.getData(request).get("query_users");
+            resultContainer = dataAccess.getData(request).get("search_users_by_handle_email");
             if (resultContainer != null) {
                 for (ResultSetContainer.ResultSetRow row : resultContainer) {
                     UserDTO dto = new UserDTO();
