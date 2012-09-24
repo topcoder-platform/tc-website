@@ -64,12 +64,12 @@ public class HibernateDirectProjectService extends BaseGroupService implements D
         ProjectDTO result = null;
         try {
             if (dataAccessCorp == null)
-                dataAccessCorp = new DataAccess(DBMS.CORP_OLTP_DATASOURCE_NAME);
+                dataAccessCorp = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
             Request request = new Request();
             ResultSetContainer resultContainer = null;
-            request.setContentHandle("query_project_name");
-            request.setProperty("project_id", String.valueOf(id));
-            resultContainer = dataAccessCorp.getData(request).get("query_project_name");
+            request.setContentHandle("project_name");
+            request.setProperty("tcdirectid", String.valueOf(id));
+            resultContainer = dataAccessCorp.getData(request).get("project_name");
             if (resultContainer != null) {
                 if(resultContainer.size()>0){
                     ResultSetContainer.ResultSetRow row = resultContainer.get(0);

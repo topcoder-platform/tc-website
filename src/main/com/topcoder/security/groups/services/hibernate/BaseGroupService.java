@@ -170,9 +170,9 @@ public abstract class BaseGroupService implements InitializingBean {
             projectIds = new ArrayList<Long>();
             Request request = new Request();
             ResultSetContainer resultContainer = null;
-            request.setContentHandle("query_project_ids");
-            request.setProperty("project_name", projectName);
-            resultContainer = dataAccessCorp.getData(request).get("query_project_ids");
+            request.setContentHandle("project_ids");
+            request.setProperty("pname", projectName);
+            resultContainer = dataAccessCorp.getData(request).get("project_ids");
             if (resultContainer != null) {
                 for (int i = 0; i < resultContainer.size(); ++i) {
                     ResultSetContainer.ResultSetRow row = resultContainer.get(i);

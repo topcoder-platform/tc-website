@@ -158,12 +158,12 @@ public class HibernateClientService extends BaseGroupService implements ClientSe
             Long projectId = null;
             if (criteria.getProjectName() != null && criteria.getProjectName().length() > 0) {
                 if (dataAccess == null)
-                    dataAccess = new DataAccess(DBMS.CORP_OLTP_DATASOURCE_NAME);
+                    dataAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
                 Request request = new Request();
                 ResultSetContainer resultContainer = null;
-                request.setContentHandle("query_project_id");
-                request.setProperty("project_name", criteria.getProjectName());
-                resultContainer = dataAccess.getData(request).get("query_project_id");
+                request.setContentHandle("project_id");
+                request.setProperty("pname", criteria.getProjectName());
+                resultContainer = dataAccess.getData(request).get("project_id");
                 if (resultContainer != null) {
                     if (resultContainer.size() > 0) {
                         ResultSetContainer.ResultSetRow row = resultContainer.get(0);
