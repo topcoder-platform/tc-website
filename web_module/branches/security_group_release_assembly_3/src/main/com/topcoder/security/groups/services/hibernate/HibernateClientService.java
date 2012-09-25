@@ -48,14 +48,14 @@ public class HibernateClientService extends BaseGroupService implements ClientSe
      * HQL to query billingAccount for a given id.
      * </p>
      */
-    private static final String HQL_SEARCH_CLIENTS = "from Client c where c.deleted is not null OR c.deleted != true";
+    private static final String HQL_SEARCH_CLIENTS = "from Client c where c.deleted is null OR c.deleted != true";
 
     /**
      * <p>
      * HQL to query client for a given id.
      * </p>
      */
-    private static final String HQL_GET_CLIENT = "from Client c where c.id = :id and (c.deleted is not null or c.deleted != true)";
+    private static final String HQL_GET_CLIENT = "from Client c where c.id = :id and (c.deleted is null or c.deleted != true)";
 
     /**
      * The DataAccess used to retrieve data from corporate_oltp
