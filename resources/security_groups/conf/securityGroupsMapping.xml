@@ -6,7 +6,7 @@
 <hibernate-mapping package="com.topcoder.security.groups.model">
 
     <!-- mapped from time_oltp -->
-    <class name="Client" table="client">
+    <class name="Client" table="tt_client">
         <id name="id" column="client_id" type="long">
             <generator class="increment"/>
         </id>
