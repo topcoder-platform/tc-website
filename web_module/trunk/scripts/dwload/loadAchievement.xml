@@ -6,6 +6,8 @@
     
     <sourcesList>
     	<parameter name="tcs_catalog" value="jdbc:informix-sqli://env.topcoder.com:2021/tcs_catalog:INFORMIXSERVER=informixoltp_tcp;user=informix;password=1nf0rm1x" />
-    	<parameter name="tcs_dw" value="jdbc:informix-sqli://env.topcoder.com:2021/tcs_dw:INFORMIXSERVER=informixoltp_tcp;user=informix;password=1nf0rm1x" />
+      	<parameter name="tcs_dw" value="jdbc:informix-sqli://env.topcoder.com:2021/tcs_dw:INFORMIXSERVER=informixoltp_tcp;user=informix;password=1nf0rm1x" />
+    	<parameter name="topcoder_dw" value="jdbc:informix-sqli://env.topcoder.com:2021/topcoder_dw:INFORMIXSERVER=informixoltp_tcp;user=informix;password=1nf0rm1x" />
     </sourcesList>
+
 </loadDefinition>

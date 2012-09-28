@@ -97,6 +97,13 @@ public class MemberAchievementUtility extends DBUtility {
 
     /**
      * <p>
+     * Constants to define topcoder_dw database schema to operate on.
+     * </p>
+     */
+    private static final String TOPCODER_DW = "topcoder_dw";
+
+    /**
+     * <p>
      * Instance of {@link SimpleDateFormat} to better format time while logging.
      * </p>
      */
@@ -223,6 +230,8 @@ public class MemberAchievementUtility extends DBUtility {
                 pst = prepareStatement(TCS_CATALOG, rule);
             } else if (TCS_DW.equals(dbSchema)) {
                 pst = prepareStatement(TCS_DW, rule);
+            } else if (TOPCODER_DW.equals(dbSchema)) {
+                pst = prepareStatement(TOPCODER_DW, rule);
             }
 
             rs = pst.executeQuery();
