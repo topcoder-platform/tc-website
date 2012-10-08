@@ -3735,17 +3735,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             return;
         }
 
-        // Can't update if payment has already been paid
+        // Can't update if payment's current status is Paid
         StringBuffer checkPaid = new StringBuffer(300);
-        checkPaid.append("SELECT COUNT(*) FROM payment p, payment_detail pd, payment_detail_xref pdx ");
-        checkPaid.append("WHERE p.payment_id = pdx.payment_id ");
-        checkPaid.append("AND pdx.payment_detail_id = pd.payment_detail_id ");
+        checkPaid.append("SELECT COUNT(*) FROM payment p, payment_detail pd ");
+        checkPaid.append("WHERE p.most_recent_detail_id = pd.payment_detail_id ");
         checkPaid.append("AND pd.payment_status_id = " + PaymentStatus.PAID_PAYMENT_STATUS.getId() + " ");
         checkPaid.append("AND p.payment_id = " + p.getHeader().getId());
         ResultSetContainer rsc = runSelectQuery(c, checkPaid.toString());
         int paidRecords = Integer.parseInt(rsc.getItem(0, 0).toString());
         if (paidRecords > 0) {
-            throw new PaymentPaidException("Payment " + p.getHeader().getId() + " has already been paid " +
+            throw new PaymentPaidException("Payment " + p.getHeader().getId() + " is in the Paid status " +
                     "and cannot be updated");
         }
     }
