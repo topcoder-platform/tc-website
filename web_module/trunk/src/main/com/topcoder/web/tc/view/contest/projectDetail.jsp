@@ -570,12 +570,17 @@
                                             <strong>Register By:</strong>
                                             <span><rsc:item set="<%=projectDetail%>" name="register_end_date" format="MM/dd/yyyy hh:mm a z"/></span>
                                         </li>
-                                        <c:if test="${milestoneReviewFinished}">
-                                        <li class="twoLine">
+										<c:if test="${hasMilestone}">
+                                        <li>
                                             <strong>Milestone Submission:</strong>
                                             <span><rsc:item set="<%=projectDetail%>" name="milestone_submission_date" format="MM/dd/yyyy hh:mm a z"/></span>
                                         </li>
                                         </c:if>
+                                        <li class="twoLine">
+                                            <strong>Submit By:</strong>
+                                            <span><rsc:item set="<%=projectDetail%>" name="initial_submission_date" format="MM/dd/yyyy hh:mm a z"/></span>
+                                        </li>
+										<c:if test="${hasFinalReview}">
                                         <li class="twoLine last">
                                             <strong>Final Submission:</strong>
                                             <span>
@@ -583,10 +588,7 @@
                                                 if(null != projectDetail.getStringItem(0, "final_submission_date")) {
                                             %>
                                             <rsc:item set="<%=projectDetail%>" name="final_submission_date" format="MM/dd/yyyy hh:mm a z"/>
-                                            <%
-                                                } else if(null != projectDetail.getStringItem(0, "initial_submission_date")) {
-                                            %>
-                                            <rsc:item set="<%=projectDetail%>" name="initial_submission_date" format="MM/dd/yyyy hh:mm a z"/>
+                                       
                                             <%
                                                 } else {
                                             %>
@@ -596,6 +598,7 @@
                                             %>
                                             </span>
                                         </li>
+										 </c:if>
                                     </ul>
                                     <div class="corner tl"></div>
                                     <div class="corner tr"></div>
