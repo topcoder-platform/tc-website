@@ -214,6 +214,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         date.setTime(new Date());
 
         try {
+            DecimalFormat df = new DecimalFormat("0.00", new DecimalFormatSymbols(Locale.US));
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
  
@@ -244,16 +245,16 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
 
                 Element paymentElement = doc.createElement("Payment");
                 paymentElement.setAttribute("PaymentID", "" + userPayments.get(0).getId());
-                paymentElement.setAttribute("PaymentReference", "TopCoder Member Payments");
+                paymentElement.setAttribute("PaymentReference", "POP: Honorarium - TopCoder Member Payments");
 
                 Element payFromElement = doc.createElement("PayFrom");
                 payFromElement.setAttribute("PFPayerName", "TopCoder, Inc.");
+                payFromElement.setAttribute("PFAmount", df.format(totalUserAmount));
                 paymentElement.appendChild(payFromElement);
 
                 Element payToElement = doc.createElement("PayTo");
                 payToElement.setAttribute("PTPayeeID", user.getHandle());
                 payToElement.setAttribute("PTPayeeName", user.getHandle());
-                payToElement.setAttribute("PTAmount", "" + totalUserAmount);
                 paymentElement.appendChild(payToElement);
 
                 Element remittanceElement = doc.createElement("Remittance");
@@ -266,7 +267,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                     remittanceRecordElement.setAttribute("PayerDocumentDate", new SimpleDateFormat("MM/dd/yyyy").format(date.getTime()));
                     remittanceRecordElement.setAttribute("PayerDocumentType", "PO");
                     remittanceRecordElement.setAttribute("PayerDocumentNumber", "" + payment.getReferenceId());
-                    remittanceRecordElement.setAttribute("AmountPaid", "" + payment.getRecentNetAmount());
+                    remittanceRecordElement.setAttribute("AmountPaid", df.format(payment.getRecentNetAmount()));
                     remittanceRecordElement.setAttribute("Notes", payment.getDescription());
 
                     remittanceElement.appendChild(remittanceRecordElement);
@@ -278,7 +279,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                     remittanceRecordElement.setAttribute("PayerDocumentDate", new SimpleDateFormat("MM/dd/yyyy").format(date.getTime()));
                     remittanceRecordElement.setAttribute("Notes", "Adjustment for Wire Fee");
                     remittanceRecordElement.setAttribute("AmountPaid", "0.0");
-                    remittanceRecordElement.setAttribute("AdjustmentAmount", "-"+WIRE_FEE);
+                    remittanceRecordElement.setAttribute("AdjustmentAmount", df.format(-WIRE_FEE));
                     remittanceRecordElement.setAttribute("AdjustmentReason", "Processing Fee");
 
                     remittanceElement.appendChild(remittanceRecordElement);
