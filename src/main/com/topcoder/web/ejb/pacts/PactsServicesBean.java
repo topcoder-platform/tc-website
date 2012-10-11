@@ -739,7 +739,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentDetails.append("AND state.state_code = pa.state_code ");
         selectPaymentDetails.append("AND country.country_code = pa.country_code ");
         selectPaymentDetails.append("AND cu.user_id = pd.create_user ");
-        selectPaymentDetails.append("ORDER BY 1");
+        selectPaymentDetails.append("ORDER BY modify_date");
 
         return doPayment(paymentId, selectPaymentDetails.toString());
     }
