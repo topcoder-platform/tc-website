@@ -64,7 +64,7 @@ public class ViewActiveBugRaces extends Static {
         s.addDefault(5, "desc");  // Active Since
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
-        DataAccessInt dai = getDataAccess(DBMS.JIRA_MYSQL_DATASOURCE_NAME, true);
+        DataAccessInt dai = getDataAccess(DBMS.JIRA_DATASOURCE_NAME, true);
         Map result = dai.getData(dataRequest);
 
         ResultSetContainer rsc = (ResultSetContainer) result.get(dataRequest.getContentHandle());
