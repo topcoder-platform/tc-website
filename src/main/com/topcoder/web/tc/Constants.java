@@ -299,6 +299,8 @@ public class Constants implements WebConstants {
     public static String DOWNLOAD_SUBMISSION;
     public static String DOWNLOAD_SUBMISSION_TERMS;
 
+    public static String ACTIVE_BUGRACE_COMPETITIONS;
+
     /**
      * Represents the jsp page for request processor view copilot pool. 
      */
