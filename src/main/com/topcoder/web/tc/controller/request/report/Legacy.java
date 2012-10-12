@@ -885,15 +885,15 @@ public class Legacy extends Base {
     private static final String[] MEMBER_COUNTS_HEADINGS = {"Total Count", "Rated Count", "USA Count"};
     private static final String MEMBER_COUNTS =
             "SELECT COUNT(*) AS total_count, SUM(CASE WHEN cr.rating > 0 THEN 1 ELSE 0 END) AS rated_count, " +
-                    "SUM(CASE WHEN a.country_code = 840 THEN 1 ELSE 0 END) AS usa_count " +
-                    "FROM user u, rating cr, user_address_xref x, address a " +
+                    "SUM(CASE WHEN a.country_code = 840 or a.country_code is null THEN 1 ELSE 0 END) AS usa_count  " +
+                    "FROM user u, outer rating cr, outer (user_address_xref x, address a )" +
                     "WHERE cr.coder_id = u.user_id and x.user_id = u.user_id " +
                     "and x.address_id = a.address_id and a.address_type_id = 2 AND u.status = 'A'";
 
     private static final Integer MEMBER_COUNTS_DAILY_ID = new Integer(7);
     private static final String MEMBER_COUNTS_DAILY_TITLE = "Member Counts By Day";
-    private static final int[] MEMBER_COUNTS_DAILY_TYPES = {ResultItem.STRING, ResultItem.STRING, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT};
-    private static final String[] MEMBER_COUNTS_DAILY_HEADINGS = {"Date", "Day", "Studnt", "Pro", "Total", "Actv", "USA", "AUS", "CAN", "IND", "Ukraine", "Romania", "Poland", "CHINA"};
+    private static final int[] MEMBER_COUNTS_DAILY_TYPES = {ResultItem.STRING, ResultItem.STRING, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT};
+    private static final String[] MEMBER_COUNTS_DAILY_HEADINGS = {"Date", "Day", "Studnt", "Pro", "Total", "Actv", "USA", "AUS", "CAN", "IND", "Ukraine", "Romania", "Poland", "CHINA", "reg", "reg2", "present", "mobile", "analytics"};
     private static final String MEMBER_COUNTS_DAILY =
             " SELECT TO_CHAR(member_since, '%iY-%m-%d') AS reg_date" +
                     " ,MIN(TO_CHAR(member_since, '%a')) AS day_of_week" +
@@ -901,7 +901,7 @@ public class Legacy extends Base {
                     " ,SUM(CASE WHEN c.coder_type_id = 2 THEN 1 ELSE 0 END) AS pro_count" +
                     " ,COUNT(*) AS total_count" +
                     " ,SUM(CASE WHEN status='A' THEN 1 ELSE 0 END) AS active_count" +
-                    " ,SUM(CASE WHEN a.country_code = 840 AND status='A' THEN 1 ELSE 0 END) AS usa_count" +
+                    " ,SUM(CASE WHEN (a.country_code = 840 or a.country_code is null) AND status='A' THEN 1 ELSE 0 END) AS usa_count" +
                     " ,SUM(CASE WHEN a.country_code = 036 AND status='A' THEN 1 ELSE 0 END) AS austrailia_count" +
                     " ,SUM(CASE WHEN a.country_code = 124 AND status='A' THEN 1 ELSE 0 END) AS canada_count" +
                     " ,SUM(CASE WHEN a.country_code = 356 AND status='A' THEN 1 ELSE 0 END) AS india_count" +
@@ -909,11 +909,15 @@ public class Legacy extends Base {
                     " ,SUM(CASE WHEN a.country_code = 642 AND status='A' THEN 1 ELSE 0 END) AS romania_count" +
                     " ,SUM(CASE WHEN a.country_code = 616 AND status='A' THEN 1 ELSE 0 END) AS poland_count" +
                     " ,SUM(CASE WHEN a.country_code = 156 AND status='A' THEN 1 ELSE 0 END) AS china_count" +
+					" ,SUM(CASE WHEN (u.reg_source ='reg' or u.reg_source is null) AND status='A' THEN 1 ELSE 0 END) AS reg_count" +
+					" ,SUM(CASE WHEN u.reg_source ='reg2' AND status='A' THEN 1 ELSE 0 END) AS reg2_count" +
+                    " ,SUM(CASE WHEN u.reg_source ='present' AND status='A' THEN 1 ELSE 0 END) AS present_count" +
+                    " ,SUM(CASE WHEN u.reg_source ='mobile' AND status='A' THEN 1 ELSE 0 END) AS mobile_count" +
+                    " ,SUM(CASE WHEN u.reg_source ='analytics' AND status='A' THEN 1 ELSE 0 END) AS analytics_count" +
                     " FROM user u" +
                     " ,coder c" +
-                    " ,rating cr" +
-                    " ,user_address_xref x" +
-                    " , address a" +
+                    " ,outer rating cr" +
+                    " ,outer (user_address_xref x , address a)" +
                     " WHERE u.user_id = c.coder_id" +
                     " AND cr.coder_id = c.coder_id" +
                     " and x.user_id = u.user_id " +
@@ -933,8 +937,8 @@ public class Legacy extends Base {
     private static final String MEMBER_COUNTS_WEEKLY =
             "select cal.year, cal.week_of_year week_number, min(cal.date) date_starting, max(cal.date) date_ending, " +
                     "count(*) total_reg, sum(case when u.status = 'A' then 1 else 0 end) active_count, " +
-                    "sum(case when a.country_code in ('840','124') then 0 else 1 end) intl_count " +
-                    "from coder c, user u, calendar cal ,user_address_xref x , address a " +
+                    "sum(case when a.country_code in ('840','124') or a.country_code is null then 0 else 1 end) intl_count " +
+                    "from coder c, user u, calendar cal , outer (user_address_xref x , address a )" +
                     "where date(c.member_since) = cal.date and u.user_id = c.coder_id and " +
                     "x.user_id = u.user_id  and x.address_id = a.address_id  and a.address_type_id = 2 " +
                     "and cal.date >= today - 730 group by 1,2 order by 1 desc, 2 desc";
