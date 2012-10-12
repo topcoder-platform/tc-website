@@ -173,6 +173,7 @@
       <td class="value">19
 	    <div class="srm">
 		 <strong><A href="/tc?module=MatchDetails&rd=15180">SRM 558</A></strong><br />
+		 brought to you by <A href="http://community.topcoder.com/tco12/overview-sponsor/tco12-sponsor-google/">Google</A><br />
          07:00
         </div>
       </td>
