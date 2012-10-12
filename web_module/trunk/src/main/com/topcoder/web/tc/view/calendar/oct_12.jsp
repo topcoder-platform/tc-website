@@ -156,8 +156,17 @@
       <td class="value">15
       </td>
       <td class="value">16
+	    <div class="srm">
+		 <strong><A href="http://apps.topcoder.com/forums/?module=Thread&threadID=764869&start=0">Test SRM</A></strong><br />
+         11:00
+        </div>
       </td>
       <td class="value">17
+	  	 <div class="long">
+         <strong><a href="http://apps.topcoder.com/forums/?module=Thread&threadID=764869&start=0">Test MM</a></strong><br />
+         13:00<br />
+         1 week
+         </div>
       </td>
       <td class="value">18
       </td>
