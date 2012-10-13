@@ -145,6 +145,12 @@
       <td class="value">11
       </td>
       <td class="value">12
+	  	 <div class="long">
+         <strong><a href="/tc?module=MatchDetails&rd=15398">LoadBalance MM</a></strong><br />
+         22:30<br />
+         49.5 hours<br />
+         $1k Prizes
+         </div>
       </td>
       <td class="value">13
       </td>
