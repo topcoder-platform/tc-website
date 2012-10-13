@@ -310,7 +310,7 @@ Please check out the rules link below for more detail.
 <%if(roundId == 14525 || roundId == 14584 || roundId == 15024 || roundId == 15075 || roundId == 15023 || 
      roundId == 15034 || roundId == 15038 || roundId == 15076 || roundId == 15077 || roundId == 15078
      || roundId == 15080 || roundId == 15103 || roundId == 15120 || roundId == 15130 || roundId == 15189
-     || roundId == 15201 || roundId == 15202 || roundId == 15322 || roundId == 15327) {%>
+     || roundId == 15201 || roundId == 15202 || roundId == 15322 || roundId == 15327 || roundId == 15398) {%>
 <p align="justify">
     <b>Please note that this event is being run for a TopCoder customer.  By winning a prize in this event you agree to transfer ownership of
     your submission to TopCoder.  Please make sure to read
@@ -360,7 +360,7 @@ total prize money</b>.
 </p>
 <%}%>
 
-<%if (roundId == 15080) 
+<%if (roundId == 15080 || roundId == 15398) 
 {%>
 <p align="justify">
     This Marathon Match is a money match that has a <b>$1,000 prize purse</b>! The top two highest scorers 
@@ -586,7 +586,7 @@ submission, within one week of the announcment of the winners in order to receiv
 </p>
 <%}%>
 
-<%if(roundId == 15201 || roundId == 15202 || roundId == 15327) {%>
+<%if(roundId == 15201 || roundId == 15202 || roundId == 15327 || roundId == 15398) {%>
 <div class="sectionHeader">Prizes</div>
     <p align="justify">There will be $5,000 in total prize money.  The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
 
@@ -644,7 +644,7 @@ submission, within one week of the announcment of the winners in order to receiv
 total prize money. The detailed rules of this phase will be posted to the marathon match forum.</p>
 <%}%>
 
-<%if (roundId == 15080) {%>
+<%if (roundId == 15080 || roundId == 15398) {%>
 <div class="sectionHeader">Prizes</div>
     <p align="justify">There will be $1,000 in total prize money.  The 2 highest scorers in this round will receive compensation
     for their submissions as follows:</p>
