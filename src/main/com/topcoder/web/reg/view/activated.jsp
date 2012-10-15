@@ -32,7 +32,7 @@
 					<div class="accoutSummery">
 						<h3>Your account has been activated</h3>
 						<p>Congratulations. Now you can use your account to participate in TopCoder.</p> 
-						<p>Please <a href='<s:url value="http://www.topcoder.com/tc?&module=Login"/>'>Login</a> for the next step.</p>
+						<p>Please <a href='<s:url value="https://www.topcoder.com/tc?&module=Login"/>'>Login</a> for the next step.</p>
 					</div>
 				</div>
 				
