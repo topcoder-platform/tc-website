@@ -234,7 +234,7 @@
                                             src="/i/v5/Member_of_the_month_header.jpg" >
                                     </div>
                                     <div class="member_image" style="float:left;">
-                                        <img width="126" height="140" alt="Member of the Month" src="http://community.topcoder.com/i/m/iamtong_big.jpg">
+                                        <img width="140" height="140" alt="Member of the Month" src="http://community.topcoder.com/i/m/iamtong_big.jpg">
                                     </div>
                                     <div id="member_content">
                                         <div id="member_month">

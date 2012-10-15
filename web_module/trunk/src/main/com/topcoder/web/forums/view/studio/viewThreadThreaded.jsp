@@ -315,7 +315,7 @@
 											<td class="rtPosterCell">
 												<div class="rtPosterSpacer">
 													<% if (ForumsUtil.displayMemberPhoto(user, message.getUser())) { %>
-													<img src="<%=message.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto"/>
+													<img src="<%=message.getUser().getProperty("imagePath")%>" width="61" height="61" border="0" class="rtPhoto"/>
 													<br />
 													<% } %>
 													<span class="bodyText"><%if (message.getUser() != null) {%><studio:handle coderId="<%=message.getUser().getID()%>"/><%}%></span>

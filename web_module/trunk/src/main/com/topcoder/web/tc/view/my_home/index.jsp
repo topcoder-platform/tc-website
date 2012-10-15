@@ -293,7 +293,7 @@
                 </div>
             
                 <div class="alert">
-                    Browse Photo should be in *.JPG format file which is the width is 126 pixel and the height is 140 pixel.
+                    Browse Photo should be in *.JPG format file which has the width of 140 pixels and the height of 140 pixels.
                 </div>
                 <div>
                     <a class="link" href="http://topcoder.com/home/help/?p=866">Photo Policy</a>
