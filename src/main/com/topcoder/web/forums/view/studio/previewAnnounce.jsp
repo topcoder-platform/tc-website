@@ -165,7 +165,7 @@ function AllowTabCharacter() {
    <tr>
    <td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
    <%  if (ForumsUtil.displayMemberPhoto(user, user)) { %>
-      <img src="<%=user.getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br />
+      <img src="<%=user.getProperty("imagePath")%>" width="61" height="61" border="0" class="rtPhoto" /><br />
    <%  } %>
    <span class="bodyText"><studio:handle coderId="<%=user.getID()%>"/></span><br /><a href="?module=History&<%=ForumConstants.USER_ID%>=<%=user.getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(user), "post")%></a></div></td>
    <td class="rtTextCell100"><%=announcement.getBody()%></td>
@@ -187,7 +187,7 @@ function AllowTabCharacter() {
 	<tr>
 		<td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
 			<%  if (ForumsUtil.displayMemberPhoto(user, user)) { %>
-			   <img src="<%=user.getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br />
+			   <img src="<%=user.getProperty("imagePath")%>" width="61" height="61" border="0" class="rtPhoto" /><br />
 			<%  } %>
 			<span class="bodyText"><studio:handle coderId="<%=user.getID()%>"/></span><br /><a href="?module=History&<%=ForumConstants.USER_ID%>=<%=user.getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(user), "post")%></a></div>
 		</td>

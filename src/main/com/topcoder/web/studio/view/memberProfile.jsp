@@ -254,7 +254,7 @@ boolean hidePayments = ((Boolean)request.getAttribute("hidePayments")).booleanVa
                 <h2><c:out value="${profile.handle}"/></h2>
                 <div class="memberPhotoBox">
                 <a href="http://community.topcoder.com//tc?module=MemberProfile&cr=${profile.userId}">
-                        <img width="117" height="140" src="<c:if test="${not empty profile.imageUrl}">${profile.imageUrl}</c:if><c:if test="${empty profile.imageUrl}">/i/no_photo.png</c:if>" alt="Member Photo"/>
+                        <img width="140" height="140" src="<c:if test="${not empty profile.imageUrl}">${profile.imageUrl}</c:if><c:if test="${empty profile.imageUrl}">/i/no_photo.png</c:if>" alt="Member Photo"/>
                 </a>
                 </div>
             </div>

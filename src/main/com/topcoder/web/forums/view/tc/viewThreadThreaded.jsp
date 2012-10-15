@@ -300,7 +300,7 @@ function displayVotes(messageID, posVotes, negVotes, userRating) {
       <td class="rtPosterCell">
          <div class="rtPosterSpacer">
          <%  if (ForumsUtil.displayMemberPhoto(user, message.getUser())) { %>
-            <img src="<%=message.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br>
+            <img src="<%=message.getUser().getProperty("imagePath")%>" width="61" height="61" border="0" class="rtPhoto" /><br>
          <%  } %>
          <span class="bodyText"><%if (message.getUser() != null) {%><tc-webtag:handle coderId="<%=message.getUser().getID()%>"/><%}%></span><br><%if (message.getUser() != null) {%><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=message.getUser().getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(message.getUser()), "post")%></A><%}%>
          </div>

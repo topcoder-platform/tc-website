@@ -111,7 +111,7 @@
       <td class="rtPosterCell">
          <div class="rtPosterSpacer">
             <%  if (ForumsUtil.displayMemberPhoto(user, announcement.getUser())) { %>
-                <img src="<%=announcement.getUser().getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
+                <img src="<%=announcement.getUser().getProperty("imagePath")%>" width="61" height="61" border="0" class="rtPhoto" /><br/>
             <%  } %>
              <span class="bodyText"><%if (announcement.getUser() != null) {%><tc-webtag:handle coderId="<%=announcement.getUser().getID()%>"/><%}%></span><br/><%if (announcement.getUser() != null) {%><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=announcement.getUser().getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(announcement.getUser()), "post")%></A><%}%>
          </div>

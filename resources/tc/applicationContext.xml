@@ -55,10 +55,10 @@
             <value>photoFile</value>
         </property>
         <property name="targetImageWidth">
-            <value>115</value>
+            <value>140</value>
         </property>
         <property name="targetImageHeight">
-            <value>138</value>
+            <value>140</value>
         </property>
         <property name="photoImageSubmittedDirectory">
             <value>/</value>
