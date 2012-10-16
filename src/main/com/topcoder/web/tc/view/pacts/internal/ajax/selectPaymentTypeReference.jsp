@@ -30,7 +30,8 @@
 <c:set var="DIGITAL_RUN_TRACK" value="<%= PactsConstants.REFERENCE_DIGITAL_RUN_TRACK_ID + "" %>" />
 <c:set var="DIGITAL_RUN_SEASON" value="<%= PactsConstants.REFERENCE_DIGITAL_RUN_SEASON_ID + "" %>" />
 <c:set var="PARENT_PAYMENT" value="<%= PactsConstants.REFERENCE_PARENT_PAYMENT_ID + "" %>" />
-<c:set var="COMPONENT_WINNING" value="<%= PactsConstants.COMPONENT_PAYMENT + "" %>" />
+<c:set var="CONTEST_PAYMENT" value="<%= PactsConstants.CONTEST_PAYMENT + "" %>" />
+<c:set var="CONTEST_MILESTONE_PAYMENT" value="<%= PactsConstants.CONTEST_MILESTONE_PAYMENT + "" %>" />
 
 
 <taconite-root xml:space="preserve">
@@ -201,10 +202,10 @@
                      <c:when test="${refId == PARENT_PAYMENT}">
                         <c:if test="${empty parentPayments}">                  
                             <input type="hidden" name="missing_reference" value="Please select a parent for the payment"/>                        
-                          Enter search text for the parent payment detail: <input type="text" name="searchInput" value="${search}" />
+                          Enter ID of the parent payment: <input type="text" name="searchInput" value="${search}" />
                           <input type="button" value="search" onClick="search()" />
                             <c:if test="${not empty search}">          
-                                <font color="#FF0000">No payments found containing <c:out value="${search}"/>. </font>
+                                <font color="#FF0000">No payment found with ID <c:out value="${search}"/></font>
                             </c:if>
                           <br/>
                         </c:if>
@@ -286,13 +287,21 @@
      </taconite-replace>     
     <taconite-replace contextNodeID="trPlaced" parseInBrowser="true">
         <c:choose>
-            <c:when test="${type == COMPONENT_WINNING}">
+            <c:when test="${type == CONTEST_PAYMENT or type == CONTEST_MILESTONE_PAYMENT}">
             <tr id="trPlaced"> 
             <td><b>Placed:</b></td>
             <td>
                 <select name="placed" onChange="placedChanged()">
                     <option value="1">1st</option>
-                    <option value="2">2nd</option>                                  
+                    <option value="2">2nd</option>
+                    <option value="3">3rd</option>
+                    <option value="4">4th</option>
+                    <option value="5">5th</option>
+                    <option value="6">6th</option>
+                    <option value="7">7th</option>
+                    <option value="8">8th</option>
+                    <option value="9">9th</option>
+                    <option value="10">10th</option>
                  </select>
             </td>
             </tr>

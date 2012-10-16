@@ -82,7 +82,7 @@ ${fn:length(netAmounts)} records <br />
     <c:set var="totalGross" value="0" />
     <c:forEach var="referencePayment" items="${referencePayments}" varStatus="index">
         <c:set var="totalNet" value="${totalNet + netAmounts[i]}" />
-        <c:set var="totalGross" value="${totalNet + grossAmounts[i]}" />        
+        <c:set var="totalGross" value="${totalGross + grossAmounts[i]}" />        
         <tr class="<%=even?"light":"dark"%>">
 
         <c:forEach var="groupByField" items="${groupByFields}" varStatus="index">

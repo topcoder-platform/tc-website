@@ -87,6 +87,7 @@
       <td class="value">7
 	    <div class="srm">
 		 <strong><A href="/tc?module=MatchDetails&rd=15177">SRM 555</A></strong><br />
+         brought to you by <A href="http://community.topcoder.com/tco12/overview-sponsor/tco12-sponsor-dena/">DeNA</A><br />
          07:00
         </div>
       </td>
@@ -106,6 +107,7 @@
       <td class="value">13
 	    <div class="srm">
 		 <strong><A href="/tc?module=MatchDetails&rd=15178">SRM 556</A></strong><br />
+         brought to you by <A href="http://community.topcoder.com/tco12/overview-sponsor/tco12-sponsor-dena/">DeNA</A><br />
          21:00
         </div>
       </td>

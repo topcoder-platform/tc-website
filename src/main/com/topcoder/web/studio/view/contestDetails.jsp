@@ -145,10 +145,14 @@
                 </ul>
         </c:if>
 
-        <c:if test="${canSeeCCASection and not empty spec.contestDescription}">
+        <c:if test="${not empty spec.contestDescription}">
             <h5 class="contentTitle">Full Description &amp; Project Guide</h5>
-
-            ${spec.contestDescription}
+            <c:if test="${canSeeCCASection}">
+                ${spec.contestDescription}
+            </c:if>
+            <c:if test="${not canSeeCCASection}">
+                <p class="paragraph">Only registered members with a CCA on file can view the full details of this contest. <a href="http://community.topcoder.com/studio/types-of-competitions/private-competitions/">Click here to learn how to become eligible to compete in this private contest.</a></p>
+            </c:if>
         </c:if>
 
         <%-- SPECIFIC CONTEST DETAILS --%>

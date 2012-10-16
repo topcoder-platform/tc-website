@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.sql.DBUtility;
 
@@ -30,9 +31,17 @@ import com.topcoder.shared.util.sql.DBUtility;
  * <strong>Thread Safety:</strong>This class is supposed to run in single thread
  * mode.
  * </p>
+ * <p>
+ * Change log for version 1.1 (Release Assembly - TopCoder Achievement System
+ * Update v1.0)
+ * <ul>
+ * <li>Add earn_date column</li>
+ * <li>Many methods get re-factored.</li>
+ * </ul>
+ * </p>
  * 
- * @author leo_lol
- * @version 1.0
+ * @author leo_lol, TCSASSEMBLER
+ * @version 1.1
  * @since 1.0 (Release Assembly - TopCoder Achievement System)
  */
 public class MemberAchievementUtility extends DBUtility {
@@ -70,7 +79,7 @@ public class MemberAchievementUtility extends DBUtility {
      * SQL to query achievement rules.
      * </p>
      */
-    private static final String SQL_LOAD_ACHIEVEMENT_RULE = "SELECT user_achievement_rule_id, user_achievement_rule_sql_file FROM user_achievement_rule";
+    private static final String SQL_LOAD_ACHIEVEMENT_RULE = "SELECT user_achievement_rule_id, user_achievement_rule_sql_file, db_schema FROM user_achievement_rule WHERE is_automated = 't'";
 
     /**
      * <p>
@@ -92,7 +101,7 @@ public class MemberAchievementUtility extends DBUtility {
      * </p>
      */
     private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss S");
-    
+
     /**
      * <p>
      * Default constructor.
@@ -146,14 +155,15 @@ public class MemberAchievementUtility extends DBUtility {
      * achievements.
      * </p>
      * 
-     * @return A map containing all achievement ID and the
+     * @return A List of AchievementRuleRow records containing all achievement
+     *         rule IDs, file names and DB Schemas.
      * @throws Exception
      */
-    private Map<Long, String> loadAchievementRule() throws Exception {
+    private List<AchievementRuleRow> loadAchievementRules() throws Exception {
         final String signature = CLASS_NAME + ".loadAchievementRule()";
         logEntrance(signature);
         final long start = logStart(signature);
-        Map<Long, String> resultMap = new HashMap<Long, String>();
+        List<AchievementRuleRow> achievementRules = new ArrayList<AchievementRuleRow>();
 
         PreparedStatement pst = null;
         ResultSet rs = null;
@@ -165,11 +175,15 @@ public class MemberAchievementUtility extends DBUtility {
 
             rs = pst.executeQuery();
             String basePath = getSQLFileBasePath();
+            AchievementRuleRow row = null;
             while (rs.next()) {
-                resultMap.put(rs.getLong("user_achievement_rule_id"), readSQLFile(basePath
-                        + rs.getString("user_achievement_rule_sql_file")));
+                row = new AchievementRuleRow();
+                row.setId(rs.getLong("user_achievement_rule_id"));
+                row.setFileName(readSQLFile(basePath + rs.getString("user_achievement_rule_sql_file")));
+                row.setDbSchema(rs.getString("db_schema"));
+                achievementRules.add(row);
             }
-            logExit(signature, resultMap);
+            logExit(signature, achievementRules);
             logEnd(signature, start);
         } catch (SQLException e) {
             log.error(e.getMessage());
@@ -179,7 +193,7 @@ public class MemberAchievementUtility extends DBUtility {
             DBMS.close(rs);
             DBMS.close(pst);
         }
-        return resultMap;
+        return achievementRules;
     }
 
     /**
@@ -190,27 +204,34 @@ public class MemberAchievementUtility extends DBUtility {
      * 
      * @param rule
      *            the specified achievement rule
+     * @param dbSchema
+     *            The DB Schema this SQL would runs against.
      * @return a collection of user IDs.
      * @throws Exception
      *             If there is any error.
      */
-    private List<Long> filterUser(String rule) throws Exception {
-        final String signature = CLASS_NAME + ".filterUser(String rule)";
-        logEntrance(signature, "rule", rule);
+    private Map<Long, Date> filterUser(String rule, String dbSchema) throws Exception {
+        final String signature = CLASS_NAME + ".filterUser(String rule, String dbSchema)";
+        logEntrance(signature, new String[]{"rule", "dbSchema"}, new String[]{rule, dbSchema});
         logSQL(rule);
         final long start = logStart(signature);
-        List<Long> userIDs = new ArrayList<Long>();
+        Map<Long, Date> userIdDateMap = new HashMap<Long, Date>();
         PreparedStatement pst = null;
         ResultSet rs = null;
         try {
-            pst = prepareStatement(TCS_CATALOG, rule);
+            if (TCS_CATALOG.equals(dbSchema)) {
+                pst = prepareStatement(TCS_CATALOG, rule);
+            } else if (TCS_DW.equals(dbSchema)) {
+                pst = prepareStatement(TCS_DW, rule);
+            }
+
             rs = pst.executeQuery();
             while (rs.next()) {
-                userIDs.add(rs.getLong("user_id"));
+                userIdDateMap.put(rs.getLong("user_id"), rs.getDate("earned_date"));
             }
             logEnd(signature, start);
-            logUserIDs(userIDs);
-            return userIDs;
+            logUserInfo(userIdDateMap);
+            return userIdDateMap;
         } catch (SQLException e) {
             log.error(e.getMessage());
             DBMS.printSqlException(true, e);
@@ -286,9 +307,36 @@ public class MemberAchievementUtility extends DBUtility {
      */
     private void logEntrance(String signature, String paraName, Object paramValue) {
         log.info("Enter " + signature);
-            if (null != paraName) {
-                log.info("Parameter{" + paraName + ":" + paramValue + "}");
+        if (null != paraName) {
+            log.info("Parameter{" + paraName + ":" + paramValue + "}");
+        }
+    }
+
+    /**
+     * <p>
+     * This method would log the entrance of a method with multiple parameters.
+     * </p>
+     * 
+     * @param signature
+     *            Signature of the method.
+     * @param paraNames
+     *            Names of the parameter
+     * @param paramValues
+     *            values of the parameter
+     */
+    private void logEntrance(String signature, String[] paraNames, Object[] paramValues) {
+        log.info("Enter " + signature);
+        if (null != paraNames && null != paramValues && paraNames.length > 0 
+                && paraNames.length == paramValues.length) {
+            StringBuilder sb = new StringBuilder(100);
+            sb.append("Parameter {");
+            final int len = paraNames.length;
+            for (int i = 0; i < len - 1; i++) {
+                sb.append(paraNames[i]).append(":").append(paramValues[i]).append(", ");
             }
+            sb.append(paraNames[len - 1]).append(":").append(paramValues[len - 1]).append("}");
+            log.info(sb.toString());
+        }
     }
 
     /**
@@ -299,7 +347,7 @@ public class MemberAchievementUtility extends DBUtility {
      * @param signature
      */
     private void logEntrance(String signature) {
-            log.info("Enter " + signature);
+        log.info("Enter " + signature);
     }
 
     /**
@@ -312,8 +360,8 @@ public class MemberAchievementUtility extends DBUtility {
      *            Return value of the method.
      */
     private void logExit(String signature, Object ret) {
-            log.info("Exit " + signature + ".\n Returning " + ret);
-	
+        log.info("Exit " + signature + ".\n Returning " + ret);
+
     }
 
     /**
@@ -325,8 +373,8 @@ public class MemberAchievementUtility extends DBUtility {
      * @param ret
      *            Return value of the method.
      */
-    private void logExit(String signature) { 
-            log.info("Exit " + signature); 
+    private void logExit(String signature) {
+        log.info("Exit " + signature);
     }
 
     /**
@@ -337,8 +385,8 @@ public class MemberAchievementUtility extends DBUtility {
      * @param sql
      *            The SQL statement.
      */
-    private void logSQL(String sql) { 
-            log.info("Executing: " + sql); 
+    private void logSQL(String sql) {
+        log.info("Executing: " + sql);
     }
 
     /**
@@ -351,9 +399,9 @@ public class MemberAchievementUtility extends DBUtility {
      * @return time in milliseconds.
      */
     private long logStart(String signature) {
-        final long start = System.currentTimeMillis(); 
-            log.info(signature + " starts at: " + DATE_FORMAT.format(new Date(start)));
-   
+        final long start = System.currentTimeMillis();
+        log.info(signature + " starts at: " + DATE_FORMAT.format(new Date(start)));
+
         return start;
     }
 
@@ -367,10 +415,10 @@ public class MemberAchievementUtility extends DBUtility {
      * @param start
      */
     private void logEnd(String signature, long start) {
-             final long end = System.currentTimeMillis();
-            log.info(signature + " ends at: " + DATE_FORMAT.format(new Date(end)) + ".\n It approximately costs "
-                    + (end - start) + " ms");
-     
+        final long end = System.currentTimeMillis();
+        log.info(signature + " ends at: " + DATE_FORMAT.format(new Date(end)) + ".\n It approximately costs "
+                + (end - start) + " ms");
+
     }
 
     /**
@@ -380,20 +428,28 @@ public class MemberAchievementUtility extends DBUtility {
      * </p>
      * 
      * @param userIds
-     *            a collection of user IDs being logged down.
+     *            a collection of user Id-Date map being logged down.
      */
-    private void logUserIDs(List<Long> userIds) {
-        if (null != userIds && !userIds.isEmpty()) {
+    private void logUserInfo(Map<Long, Date> userIdDateMap) {
+        if (null != userIdDateMap && !userIdDateMap.isEmpty()) {
             log.info("The following User ID(s) are involved: ");
-            StringBuilder sb = new StringBuilder("[");
-            int len = userIds.size();
-            for (int i = 1; i < len; i++) {
-                sb.append(userIds.get(i - 1)).append(", ");
-                if (i % 120 == 0) {
+            StringBuilder sb = new StringBuilder("{");
+            int count = 0;
+            for (Map.Entry<Long, Date> entry : userIdDateMap.entrySet()) {
+                sb.append(entry.getKey()).append(":").append(DATE_FORMAT.format(entry.getValue())).append(", ");
+                if ((++count) % 10 == 0) {
                     sb.append("\n");
                 }
             }
-            sb.append(userIds.get(len - 1)).append("]");
+            // remove the last unused comma
+            if (sb.length() > 2) {
+                if (sb.charAt(sb.length() - 1) == '\n' && sb.length() > 3) {
+                    sb = sb.delete(sb.length() - 3, sb.length());
+                } else {
+                    sb = sb.delete(sb.length() - 2, sb.length());
+                }
+            }
+            sb.append("}");
             log.info(sb.toString());
         }
     }
@@ -406,53 +462,51 @@ public class MemberAchievementUtility extends DBUtility {
      * 
      * @param userIds
      *            Collections of user_id that has got the achievement
-     *            represented by memberAchievementRoleId
-     * @param memberAchievementRoleId
+     *            represented by memberAchievementRuleId
+     * @param memberAchievementRuleId
      *            The Id of the achievement gained by userIds.
      * @throws Exception
      *             If there is any error.
      */
-    private void assignAchievements(List<Long> userIds, long memberAchievementRoleId) throws Exception {
+    private void assignAchievements(Map<Long, Date> userIdDateMap, long memberAchievementRuleId) throws Exception {
         final String signature = CLASS_NAME + ".assignAchievements()";
         logEntrance(signature);
-        logUserIDs(userIds);
+        logUserInfo(userIdDateMap);
         final long start = logStart(signature);
 
-        if (null == userIds || userIds.size() == 0) {
+        if (null == userIdDateMap || userIdDateMap.size() == 0) {
             return;
         }
 
         PreparedStatement pst = null;
         PreparedStatement pstClean = null;
-        
+
         try {
-            
-            List<Long> existingUserIds = findUserID(memberAchievementRoleId);
+
+            List<Long> existingUserIds = findUserID(memberAchievementRuleId);
             logSQL(SQL_INSERT_ACHIEVEMENT);
             pst = prepareStatement(TCS_DW, SQL_INSERT_ACHIEVEMENT);
-            Date currentTime = new Date(System.currentTimeMillis());
-            
-            for (long userId : userIds) {
-                if(existingUserIds.contains(userId)) {
-                    existingUserIds.remove(userId);
+            for (Map.Entry<Long, Date> entry : userIdDateMap.entrySet()) {
+                if (existingUserIds.contains(entry.getKey())) {
+                    existingUserIds.remove(entry.getKey());
                     continue;
                 }
-                pst.setLong(1, userId);
-                pst.setLong(2, memberAchievementRoleId);
-                pst.setDate(3, currentTime);
+                pst.setLong(1, entry.getKey());
+                pst.setLong(2, memberAchievementRuleId);
+                pst.setDate(3, entry.getValue());
                 pst.executeUpdate();
             }
-            
+
             logSQL(SQL_CLEAN_ACHIEVEMENT);
             pstClean = prepareStatement(TCS_DW, SQL_CLEAN_ACHIEVEMENT);
-            for(long userId:existingUserIds) {
+            for (long userId : existingUserIds) {
                 pstClean.setLong(1, userId);
-                pstClean.setLong(2, memberAchievementRoleId);
+                pstClean.setLong(2, memberAchievementRuleId);
                 pstClean.executeUpdate();
             }
             logExit(signature);
             logEnd(signature, start);
-        } catch(BatchUpdateException e) {
+        } catch (BatchUpdateException e) {
             pst.getConnection().rollback();
             log.error(e.getMessage());
             DBMS.printSqlException(true, e);
@@ -482,14 +536,14 @@ public class MemberAchievementUtility extends DBUtility {
         logEntrance(signature);
         final long start = logStart(signature);
 
-        Map<Long, String> map = loadAchievementRule();
+        List<AchievementRuleRow> achievementRules = loadAchievementRules();
 
-        long achievementRoleId = 0;
-        List<Long> userIds = null;
-        for (Map.Entry<Long, String> entry : map.entrySet()) {
-            achievementRoleId = entry.getKey();
-            userIds = filterUser(entry.getValue());
-            assignAchievements(userIds, achievementRoleId);
+        long achievementRuleId = 0;
+        Map<Long, Date> userIdDateMap = null;
+        for (AchievementRuleRow row : achievementRules) {
+            achievementRuleId = row.getId();
+            userIdDateMap = filterUser(row.getFileName(), row.getDbSchema());
+            assignAchievements(userIdDateMap, achievementRuleId);
         }
 
         logEnd(signature, start);
@@ -523,11 +577,108 @@ public class MemberAchievementUtility extends DBUtility {
     @Override
     protected void processParams() {
         super.processParams();
-        
-        if(params.contains("path")) {
+
+        if (params.contains("path")) {
             setUsageError("Please specify -path");
         }
     }
-    
-    
+
+}
+
+/**
+ * <p>
+ * This class represents the achievement rule info.
+ * </p>
+ * <p>
+ * <strong>Thread Safety: </strong> It's mutable and not thread safe.
+ * </p>
+ * 
+ * @author TCSASSEMBLER
+ * @version 1.0
+ * @since 1.0
+ */
+class AchievementRuleRow {
+    /**
+     * Id of the achievement.
+     */
+    private long id;
+
+    /**
+     * Achievement file name.
+     */
+    private String fileName;
+
+    /**
+     * DB Schema
+     */
+    private String dbSchema;
+
+    /**
+     * <p>
+     * Getter of id field.
+     * </p>
+     * 
+     * @return the id
+     */
+    public long getId() {
+        return id;
+    }
+
+    /**
+     * <p>
+     * Setter of id field.
+     * </p>
+     * 
+     * @param id
+     *            the id to set
+     */
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    /**
+     * <p>
+     * Getter of fileName field.
+     * </p>
+     * 
+     * @return the fileName
+     */
+    public String getFileName() {
+        return fileName;
+    }
+
+    /**
+     * <p>
+     * Setter of fileName field.
+     * </p>
+     * 
+     * @param fileName
+     *            the fileName to set
+     */
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    /**
+     * <p>
+     * Getter of dbSchema field.
+     * </p>
+     * 
+     * @return the dbSchema
+     */
+    public String getDbSchema() {
+        return dbSchema;
+    }
+
+    /**
+     * <p>
+     * Setter of dbSchema field.
+     * </p>
+     * 
+     * @param dbSchema
+     *            the dbSchema to set
+     */
+    public void setDbSchema(String dbSchema) {
+        this.dbSchema = dbSchema;
+    }
 }

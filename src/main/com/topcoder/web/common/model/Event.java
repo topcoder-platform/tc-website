@@ -44,6 +44,11 @@ public class Event extends Base {
      */
     public static final Long TCO12_EVENT_ID = new Long(3434);
 
+    /**
+     * <p>A <code>long</code> providing the ID for event of <code>2013 TCO</code>.</p>
+     */
+    public static final Long TCO13_EVENT_ID = new Long(3436);
+
     private Long id;
     private EventType type;
     private String description;

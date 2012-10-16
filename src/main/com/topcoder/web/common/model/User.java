@@ -64,6 +64,13 @@ public class User extends Base {
      * </p>
      */
     private String openId;
+    
+    /**
+     * <p>
+     * The source of user registrations from the different TopCoder websites.
+     * </p>
+     */
+    private String regSource;
 
 
     /**
@@ -195,6 +202,14 @@ public class User extends Base {
 
     public void setEmailAddresses(Set<Email> emailAddresses) {
         this.emailAddresses = emailAddresses;
+    }
+
+    public String getRegSource() {
+        return regSource;
+    }
+
+    public void setRegSource(String regSource) {
+        this.regSource = regSource;
     }
 
     /**

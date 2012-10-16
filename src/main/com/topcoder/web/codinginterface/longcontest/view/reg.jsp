@@ -63,21 +63,6 @@
                     </div>
                     <span class="bigHandle">Contest: <%=request.getAttribute(Constants.CONTEST_NAME)%> &gt; <%=request.getAttribute(Constants.ROUND_NAME)%></span>
 
-                    <% String roundId = request.getAttribute(Constants.ROUND_ID)==null?"-1":((String)request.getAttribute(Constants.ROUND_ID));
-                    if (roundId.equals("15200")) { %>
-                    <p></p>
-
-                    <p>In order to register for NASA Robots Challenge, please perform the following actions:
-                    <ul>
-                    <li>Answer the questions from our survey. The survey responses are confidential and are collected solely for research purposes. Answers to these questions will not affect your eligibility for winning a prize in this or future contests in anyway. Only the immediate project team at TopCoder, Harvard University and NASA will see your individual data. Data will only be shared outside the immediate project team in an anonymous form in which individuals cannot be identified.</li>
-                    <li>Read the contest terms and make sure you agree with them.</li>
-                    <li>Click the "Accept" button at the bottom of the page.</li>
-                    </ul>
-                    </p>
-
-                    <p></p>
-                    <% } %>
-
                     <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST"
                           name="surveyForm">
                         <input type="hidden" name="<%=Constants.MODULE%>" value="SubmitReg"/>
@@ -86,20 +71,11 @@
                         <% int i = 1; %>
                         <% List questionInfo = (List) request.getAttribute("questionInfo");%>
                         <tc-webtag:questionIterator list="<%=questionInfo%>" id="question">
-                        	<% if (roundId.equals("15200") && i == 8) { %>
-                        	<p class="bodySubtitle">
-                        	There are many reasons to participate in TopCoder contests. Please rate the importance of these statements for your reasons to participate in TopCoder contests.
-                        	</p>
-                        	<% } %>
                             <table width="510" border="0" cellpadding="5" cellspacing="0" class="formFrame"
                                    align="center">
                                 <tr>
                                     <td colspan="2" class="bodySubtitle" valign="top" width="100%">
-                                        <% if (roundId.equals("15200") && i >= 8) { %>
-                                        	<%= "8" + (char)((int)'a'+i-8) + ". " %>
-                                        <% } else { %>
-                                        	<%=questionInfo.size() > 1 ? i + ". " : ""%>
-                                        <% } %>
+					<%=questionInfo.size() > 1 ? i + ". " : ""%>
                                         <jsp:getProperty name="question" property="text"/>
                                         <br/><br/>
                                         <hr width="100%" size="1" noshade/>

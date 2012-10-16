@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2010 TopCoder, Inc. All rights reserved.
+ * Copyright (c) 2010 - 2012 TopCoder, Inc. All rights reserved.
  */
 package com.topcoder.web.tc.controller.request.copilot;
 
@@ -34,8 +34,15 @@ import java.util.*;
  * required to be thread-safe. Plus every time a request comes, a new instance of request processor is created,
  * so it's used in a thread-safely way. </p>
  *
+ * <p>
+ *      Version 1.1 (TopCoder Copilot Profile Update) Change notes:
+ *      <ol>
+ *          <li>Retrieve achievement data, using query tool.</li>
+ *      </ol>
+ * </p>  
+ * 
  * @author TCSASSEMBLER
- * @version 1.0
+ * @version 1.1
  */
 public class ViewCopilotProfile extends ShortHibernateProcessor {
     /**
@@ -78,10 +85,17 @@ public class ViewCopilotProfile extends ShortHibernateProcessor {
      */
     private static final String COPILOT_INFO_RESULT_KEY = "copilotInfo";
 
-     /**
+    /**
      * The key used to store copilot profile in request.
      */
     private static final String PROFILE_RESULT_KEY = "copilotProfile";
+    
+    /**
+     * The key used to store copilot achievements in request.
+     * 
+     * @since 1.1
+     */
+    private static final String ACHIEVEMENTS_KEY = "achievements";
 
     /**
      * The main processing method to handle the view copilot profile request and redirect to the copilot profile page.
@@ -188,6 +202,10 @@ public class ViewCopilotProfile extends ShortHibernateProcessor {
             
             // set the CopilotProfileDTO to request        
             request.setAttribute(PROFILE_RESULT_KEY, profileDTO);
+            
+            // set copilot achievements
+            request.setAttribute(ACHIEVEMENTS_KEY, 
+                    getCopilotAchievements(profileDTO.getCopilotProfile().getUserId()));
 
             // set the jsp page to forward
             setNextPage(Constants.COPILOT_PROFILE);
@@ -299,6 +317,7 @@ public class ViewCopilotProfile extends ShortHibernateProcessor {
         dto.setContestTypeStats(contestStats);
 
         // command - reporter_total  query - reporter_total
+        /*
         CachedDataAccess dai = new CachedDataAccess(DBMS.JIRA_DATASOURCE_NAME);
         r = new Request();
 
@@ -314,7 +333,28 @@ public class ViewCopilotProfile extends ShortHibernateProcessor {
              ResultSetContainer.ResultSetRow row = itr.next();
              bugCount = row.getIntItem("total");
         }
-
+        
         dto.setTotalBugRaces(bugCount);
+        */
+        
+        // use a mock bug race data for test purpose
+        dto.setTotalBugRaces(15);
+    }
+    
+    /**
+     * Get copilot achievements data.
+     * 
+     * @param userId the user id.
+     * @return retrieved data.
+     * @throws Exception if any exception occurs.
+     */
+    private ResultSetContainer getCopilotAchievements(long userId) throws Exception {
+        Request r = new Request();
+        
+        // command - copilot_achievements
+        r.setContentHandle("copilot_achievements");
+        r.setProperty("cr", String.valueOf(userId));
+
+        return new DataAccess(DBMS.DW_DATASOURCE_NAME).getData(r).get("copilot_achievements");
     }
 }

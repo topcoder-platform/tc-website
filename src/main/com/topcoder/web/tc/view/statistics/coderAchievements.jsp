@@ -55,7 +55,11 @@
       <%boolean even = true;%>
       <rsc:iterator list="<%=results%>" id="resultRow">
          <tr>
-            <td class="<%=even?"statLt":"statDk"%>" nowrap="nowrap"><rsc:item name="achievement_date" row="<%=resultRow%>" format="MM.dd.yyyy"/></TD>
+			<% if (resultRow.getIntItem("id") == -1) { %>
+				<td class="<%=even?"statLt":"statDk"%>" nowrap="nowrap"><rsc:item name="achievement_date" row="<%=resultRow%>" format="MM.dd.yyyy"/></TD>
+            <%}else{%>
+                <td class="<%=even?"statLt":"statDk"%>" nowrap="nowrap"></TD>
+            <%}%>
             <td class="<%=even?"statLt":"statDk"%>" nowrap="nowrap">
             <% if (resultRow.getIntItem("id") == -1) { %>
             <rsc:item name="description" row="<%=resultRow%>"/>

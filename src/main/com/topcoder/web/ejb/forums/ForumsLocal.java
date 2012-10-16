@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2012 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.ejb.forums;
 
 import com.jivesoftware.base.UnauthorizedException;
@@ -14,9 +17,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.HashSet;
 import java.util.Hashtable;
+import java.util.Map;
 
 /**
- * @author mtong
+ * <p>An interface to <code>Forums EJB</code>.</p>
+ * 
+ * <p>
+ * Version 1.1 (Release Assembly - TopCoder Cockpit Post Software Milestone Feedback to Forum)) Change notes:
+ *   <ol>
+ *     <li>Added {@link #postThreadToQuestionForum(long, String, String, long)} to post a new thread in a specified forum.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author mtong, TCSASSEMBER
+ * @version 1.1
  */
 public interface ForumsLocal extends EJBLocalObject {
 
@@ -98,6 +112,14 @@ public interface ForumsLocal extends EJBLocalObject {
 
     public void updateComponentName(long categoryID, String name) throws EJBException, Exception;
 
+    /**
+     * Update the studio forum category name.
+     *
+     * @param categeoryId the id of the category to update
+     * @param name the new category name
+     */
+    public void updateStudioForumName(long categoryID, String name) throws EJBException, Exception;
+    
      public void deleteCategoryWatches(long userID, long[] categoryIDs) throws EJBException, Exception;
 
     public long[] areCategoriesWatched(long userID, long[] categoryIDs) throws EJBException, Exception;
@@ -109,4 +131,37 @@ public interface ForumsLocal extends EJBLocalObject {
     public void updateSpecReviewComment(long categoryId, long userId, long questionId, ForumsUserComment comment) throws EJBException, ForumsException;
 
     public void removeUserPermission(long userID, long forumCategoryID) throws EJBException, Exception;
+    
+    /**
+     * <p>Post a new thread to the question forum under a specified category.</p>
+     * 
+     * @param categoryId the id of the specified category.
+     * @param subject the thread subject.
+     * @param body the thread body.
+     * @param userId the author of the thread
+     * @return the id of the new created thread
+     * @throws EJBException if an unexpected EJB error occurs.
+     * @throws IllegalArgumentException if subject is null or empty, body is null or empty
+     * @throws Exception if any other error occurs
+     * @since 1.2
+     */
+    public long postThreadToQuestionForum(long categoryId, String subject, String body, long userId) throws EJBException, Exception;
+	
+	    /**
+     * <p>Creates the forum for the specified <code>TopCoder Direct</code> project.</p>
+     * 
+     * @param projectName a <code>String</code> providing the name of <code>TC Direct</code> project to create forums 
+     *        for.
+     * @param tcDirectProjectTypeId a <code>Long</code> referencing the type of <code>TC Direct</code> project. 
+     *        May be <code>null</code>.
+     * @param forums the pre-configured forums to be created.
+     * @return a <code>long</code> providing the ID of created forum.
+     * @throws EJBException if an unexpected error occurs.
+     * @throws Exception if an unexpected error occurs.
+     * @throws IllegalArgumentException if specified <code>projectName</code> is <code>null</code> or empty, or
+     *         specified <code>forums</code> contains null key/value.
+     * @since 1.1
+     */
+    public long createTopCoderDirectProjectForums(String projectName, Long tcDirectProjectTypeId,
+            Map<String, String> forums) throws EJBException, Exception;
 }

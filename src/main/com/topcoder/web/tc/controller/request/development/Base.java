@@ -39,42 +39,153 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *
  * <p><b>Change Log:</b></p>
  *
- * <p> <table> <tr> <td>Version 1.1 (TCS Release 2.2.2)</td> <td> <ul> <li>Added support for Conceptualization,
- * Specification and Application Testing project types.</li> </ul> </td> </tr> <tr> <td>Version 1.2 (Studio Coding In
- * Online Review)</td> <td> <ul> <li>Added support for new UI Prototype, RIA Build and RIA Component competitions.</li>
- * </ul> </td> </tr> <tr> <td>Version 1.3 (Testing Competition Split Release Assembly 1.0)</td> <td> <ul> <li>Updated
- * Application Testing to Test Suites.</li> <li>Added support for new Test Scenarios competitions.</li> </ul> </td>
- * </tr> <tr> <td>Version 1.4 (Configurable Contest Terms Release Assembly v1.0)</td> <td> <ul> <li>Added new
- * functionality that asks for several terms of use and show those the user already agreed to.</li> </ul> </td> </tr>
- * <tr> <td>Version 1.5 (Specification Review Integration 1.0)</td> <td> <ul> <li>Updated
- * <code>isProjectTypeSupported</code> to support specification review projects.</li> </ul> </td> </tr> <tr> <td>Version
- * 1.6 (Configurable Contest Terms Release Assembly v2.0)</td> <td> <ul> <li>Updated <code>processTermsOfUse</code> to
- * set both agreed and pending terms in the request.</li> <li>Added sort order to displayed terms of use.</li> </ul>
- * </td> </tr> <tr> <td>Version 1.6 (BUGR-2749)</td> <td> <ul> <li>Added constant to support reliability bonus column in
- * active contests page.</li> </ul> </td> </tr> <tr> <td>Version 1.7 (Competition Registration Eligibility v1.0)</td>
- * <td> <ul> <li>Added method to check for eligibility constraints.</li> </ul> </td> </tr> <tr> <td>Version 1.8 </td>
- * <td> <ul> <li>Phase ID -> Resource Role ID mapping is now done via a query instead of hardcoding the values.</li>
- * </ul> </td> </tr> <tr> <td>Version 1.9 (Copilot Selection Contest Online Review and TC Site Integration Assembly
- * v1.0)</td> <td> <ul> <li>Added support for copilot posting.</li> </ul> </td> </tr> <tr> <td>Version 1.10 (Content
- * Creation Contest Online Review and TC Site Integration Assembly 1.0)</td> <td> <ul> <li>Updated {@link
- * #getProjectDetailPage(int)} method.</li> <li>Updated {@link #getRegistrantsCommandName(int)} method.</li> <li>Updated
- * {@link #getProjectTypeId(com.topcoder.web.common.TCRequest)} method.</li> </ul> </td> </tr> <tr> <td>Version
- * 1.11</td> <td> <ul> <li>Added checks for users being banned from having certain terms of use.</li> </ul> </td> </tr>
- * <tr> <td>Version 1.12 (Add Reporting Contest Type)</td> <td> <ul> <li>Updated {@link #getProjectDetailPage(int)}
- * method.</li> <li>Updated {@link #getRegistrantsCommandName(int)} method.</li> <li>Updated {@link
- * #getProjectTypeId(com.topcoder.web.common.TCRequest)} method.</li> </ul> </td> </tr> <tr> <td>Version 1.13 (TopCoder
- * Terms of Use Management Refactoring v1.0)</td> <td> <ul> <li>Added {@link #getTermsOfUseDao()} to the terms of use
- * DAO instance.</li> <li>Added {@link #getUserTermsOfUseDao()} to the user terms of use DAO instance.</li> <li>Added
- * {@link #getProjectTermsOfUseDao()} to the project terms of use DAO instance.</li> <li>Updated to use Terms of Use DAO
- * component instead of Terms of Use EJB.</li> <li>Added {@link #hasPrePendingTerm(String)} method to check whether the
- * user has pre-pending dependent term need to agree.</li> <li>Updated {@link #processTermsOfUse(String, long, int[],
- * long)} method to handle the new logic to terms of user agreement.</li> </ul> </td> </tr> <tr> <td>Version 1.14
- * (Release Assembly - TopCoder BugHunt Competition Integration)</td> <td> <ul> <li>Updated {@link
- * #getProjectDetailPage(int)} method.</li> <li>Updated {@link #getRegistrantsCommandName(int)} method.</li> <li>Updated
- * {@link #getProjectTypeId(com.topcoder.web.common.TCRequest)} method.</li> </ul> </td> </tr>
- *
- * </table> </p>
- *
+ * <p>
+ *   <table>
+ *     <tr>
+ *         <td>Version 1.1 (TCS Release 2.2.2)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Added support for Conceptualization, Specification and Application Testing project types.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
+ *     <tr>
+ *         <td>Version 1.2 (Studio Coding In Online Review)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Added support for new UI Prototype, RIA Build and RIA Component competitions.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
+ *     <tr>
+ *         <td>Version 1.3 (Testing Competition Split Release Assembly 1.0)</td>
+ *         <td>
+ *           <ul>
+ *               <li>Updated Application Testing to Test Suites.</li>
+ *               <li>Added support for new Test Scenarios competitions.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
+ *     <tr>
+ *         <td>Version 1.4 (Configurable Contest Terms Release Assembly v1.0)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Added new functionality that asks for several terms of use and show those the user already agreed to.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
+ *     <tr>
+ *         <td>Version 1.5 (Specification Review Integration 1.0)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Updated <code>isProjectTypeSupported</code> to support specification review projects.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
+ *     <tr>
+ *         <td>Version 1.6 (Configurable Contest Terms Release Assembly v2.0)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Updated <code>processTermsOfUse</code> to set both agreed and pending terms in the request.</li>
+ *              <li>Added sort order to displayed terms of use.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
+         <tr>
+ *         <td>Version 1.6 (BUGR-2749)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Added constant to support reliability bonus column in active contests page.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
+         <tr>
+ *         <td>Version 1.7 (Competition Registration Eligibility v1.0)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Added method to check for eligibility constraints.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
+          <tr>
+ *         <td>Version 1.8 </td>
+ *         <td>
+ *           <ul>
+ *             <li>Phase ID -> Resource Role ID mapping is now done via a query instead of hardcoding the values.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
+ *      <tr>
+ *         <td>Version 1.9 (Copilot Selection Contest Online Review and TC Site Integration Assembly v1.0)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Added support for copilot posting.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
+ *      <tr>
+ *         <td>Version 1.10 (Content Creation Contest Online Review and TC Site Integration Assembly 1.0)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Updated {@link #getProjectDetailPage(int)} method.</li>
+ *             <li>Updated {@link #getRegistrantsCommandName(int)} method.</li>
+ *             <li>Updated {@link #getProjectTypeId(com.topcoder.web.common.TCRequest)} method.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
+ *      <tr>
+ *         <td>Version 1.11</td>
+ *         <td>
+ *           <ul>
+ *             <li>Added checks for users being banned from having certain terms of use.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
+ *     <tr>
+ *         <td>Version 1.12 (Add Reporting Contest Type)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Updated {@link #getProjectDetailPage(int)} method.</li>
+ *             <li>Updated {@link #getRegistrantsCommandName(int)} method.</li>
+ *             <li>Updated {@link #getProjectTypeId(com.topcoder.web.common.TCRequest)} method.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
+ *     <tr>
+ *         <td>Version 1.13 (TopCoder Terms of Use Management Refactoring v1.0)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Added {@link #getTermsOfUseDao()} to the terms of use DAO instance.</li>
+ *             <li>Added {@link #getUserTermsOfUseDao()} to the user terms of use DAO instance.</li>
+ *             <li>Added {@link #getProjectTermsOfUseDao()} to the project terms of use DAO instance.</li>
+ *             <li>Updated to use Terms of Use DAO component instead of Terms of Use EJB.</li>
+ *             <li>Added {@link #hasPrePendingTerm(String)} method to check whether the user has pre-pending
+ *             dependent term need to agree.</li>
+ *             <li>Updated {@link #processTermsOfUse(String, long, int[], long)} method to handle the new logic to terms of user agreement.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
+ *     <tr>
+ *         <td>Version 1.14 (Release Assembly - TopCoder BugHunt Competition Integration)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Updated {@link #getProjectDetailPage(int)} method.</li>
+ *             <li>Updated {@link #getRegistrantsCommandName(int)} method.</li>
+ *             <li>Updated {@link #getProjectTypeId(com.topcoder.web.common.TCRequest)} method.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
+ *     <tr>
+ *         <td>Version 1.15 (Release Assembly - TopCoder Software Contest Detail Page Update)</td>
+ *         <td>
+ *           <ul>
+ *             <li>Added {@link #getDataWarehouseDataAccess()} and {@link #getDataWarehouseDataAccess(boolean)} methods.</li>
+ *             <li>Removed getProjectDetailPage method since there is no separate page for each project category.</li>
+ *           </ul>
+ *         </td>
+ *     </tr>
+ *   </table>
+ * </p>
  * <p>
  * Version 1.15 (Release Assembly - TopCoder Assembly Track Subtypes Integration Assembly 1.0) Change notes:
  *   <ol>
@@ -82,7 +193,7 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *   </ol>
  * </p>
  *
- * @author dok, isv, pulky, VolodymyrK, Blues, FireIce, lmmortal
+ * @author dok, isv, pulky, VolodymyrK, Blues, FireIce, lmmortal, duxiaoyang
  * @version 1.15
  */
 public abstract class Base extends ShortHibernateProcessor {
@@ -246,6 +357,29 @@ public abstract class Base extends ShortHibernateProcessor {
         return getDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME, cached);
     }
 
+    /**
+     * <p>
+     * Gets data warehouse data accessor with no cache support.
+     * </p>
+     * @return the data warehouse data accessor with no cache support.
+     * @throws Exception if any error occurs.
+     */
+    public DataAccessInt getDataWarehouseDataAccess() throws Exception {
+        return getDataAccess(DBMS.TCS_DW_DATASOURCE_NAME, false);
+    }
+
+    /**
+     * <p>
+     * Gets data warehouse data accessor.
+     * </p>
+     * @param cached whether cache support is needed.
+     * @return the data warehouse data accessor with no cache support.
+     * @throws Exception if any error occurs.
+     */
+    public DataAccessInt getDataWarehouseDataAccess(boolean cached) throws Exception {
+        return getDataAccess(DBMS.TCS_DW_DATASOURCE_NAME, cached);
+    }
+
     public DataAccessInt getDataAccess(String datasource, boolean cached) throws Exception {
         if (datasource == null) return null;
         DataAccessInt dAccess = null;
@@ -255,7 +389,6 @@ public abstract class Base extends ShortHibernateProcessor {
             dAccess = new DataAccess(datasource);
         return dAccess;
     }
-
 
     /**
      * Get the project type id from the request.  If the request contains the phase id, then use that
@@ -400,8 +533,8 @@ public abstract class Base extends ShortHibernateProcessor {
     }
 
     /**
-     * <p>Checks whether the specified project type requested by client is currently supported by this controller or
-     * not.</p>
+     * <p>Checks whether the specified project type requested by client is currently supported by this controller
+     * or not.</p>
      *
      * This method delegates to ReviewBoardHelper.isReviewBoardTypeSupported().
      *
@@ -416,13 +549,14 @@ public abstract class Base extends ShortHibernateProcessor {
     /**
      * This helper method returns if the specified user is banned from accepting the specified terms of use.
      *
-     * @param userId       the user id that is requesting the registration
+     * @param userId the user id that is requesting the registration
      * @param termsOfUseId the terms of use id the user agreed to
      * @throws Exception if any error occurs
+     *
      * @since 1.11
      */
     protected boolean hasTermsOfUseBan(long userId, long termsOfUseId)
-        throws Exception {
+            throws Exception {
 
         UserTermsOfUseDao userTermsOfUseDao = getUserTermsOfUseDao();
         return userTermsOfUseDao.hasTermsOfUseBan(userId, termsOfUseId);

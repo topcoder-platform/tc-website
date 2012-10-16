@@ -125,28 +125,16 @@
                                                >Register</a>
                                         </logic:equal>
                                         <logic:notEqual name="contest" property="coderRegistered" value="false">
-                                        <c:choose>
-                                            <c:when test="${contest.roundID == 15200}">&nbsp;</c:when>
-                                            <c:otherwise>
-                                                <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Submit&amp;<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&amp;<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>&amp;<%=Constants.CONTEST_ID%>=<tc-webtag:beanWrite name="contest" property="contestID"/>">Submit</a>
-                                            </c:otherwise>
-                                       </c:choose>
+                                            <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Submit&amp;<%=Constants.COMPONENT_ID%>=<tc-webtag:beanWrite name="contest" property="componentID"/>&amp;<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>&amp;<%=Constants.CONTEST_ID%>=<tc-webtag:beanWrite name="contest" property="contestID"/>"
+                                               >Submit</a>
                                         </logic:notEqual>
                                    </logic:equal>
                                </c:otherwise>  
                            </c:choose>
                         </td>
                         <td class="valueC" align="center">
-                            <c:choose>
-                                <c:when test="${contest.roundID == 15200}">
-                                    <tc-webtag:beanWrite name="contest" property="numRegistrants"/>
-                                </c:when>
-                                <c:otherwise>
-                                    <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewRegistrants&amp;<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" >
-                                    <tc-webtag:beanWrite name="contest" property="numRegistrants"/></a>
-                                </c:otherwise>
-                           </c:choose>
-                        </td>
+                            <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewRegistrants&amp;<%=Constants.ROUND_ID%>=<tc-webtag:beanWrite name="contest" property="roundID"/>" >
+                                <tc-webtag:beanWrite name="contest" property="numRegistrants"/></a></td>
                         <td class="valueC" align="center">
                             <tc-webtag:beanWrite name="contest" property="numCompetitors"/></td>
                         <td class="valueC" align="center">
@@ -172,9 +160,9 @@
                 </logic:empty>
             </table>
 
-            <div align="center" style="margin:10px;">
+<!--            <div align="center" style="margin:10px;">
                 <a href="javascript:arena();"><img src="/i/longcontest/launchArena.png" alt="Launch Arena" /></a>
-            </div>
+            </div> -->
 
         </td>
 <%-- Center Column Ends --%>
