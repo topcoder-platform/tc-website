@@ -63,7 +63,7 @@
             Given Name:
         </td>
         <td class="field-value">
-                ${regUser.firstName}
+                <c:out value="${regUser.firstName}" />
         </td>
     </tr>
 </c:if>
@@ -75,7 +75,7 @@
             Surname:
         </td>
         <td class="field-value">
-                ${regUser.lastName}
+                <c:out value="${regUser.lastName}"/>
         </td>
     </tr>
 </c:if>
@@ -88,7 +88,7 @@
             Name in Another Language:
         </td>
         <td class="field-value">
-                ${regUser.nameInAnotherLanguage}
+                <c:out value="${regUser.nameInAnotherLanguage}"/>
         </td>
     </tr>
 </c:if>
@@ -103,7 +103,7 @@
                 Job Title:
             </td>
             <td class="field-value">
-                    ${regUser.contact.title}
+                    <c:out value="${regUser.contact.title}"/>
             </td>
         </tr>
     </c:if>
@@ -115,7 +115,7 @@
                 Company:
             </td>
             <td class="field-value">
-                    ${regUser.contact.company.name}
+                    <c:out value="${regUser.contact.company.name}" />
             </td>
         </tr>
     </c:if>
@@ -128,7 +128,7 @@
             Current Address1:
         </td>
         <td class="field-value">
-                ${regUser.homeAddress.address1}
+                <c:out value="${regUser.homeAddress.address1}" />
         </td>
     </tr>
 </c:if>
@@ -140,7 +140,7 @@
             Current Address2:
         </td>
         <td class="field-value">
-                ${regUser.homeAddress.address2}
+                <c:out value="${regUser.homeAddress.address2}" />
         </td>
     </tr>
 </c:if>
@@ -152,7 +152,7 @@
             Current Address3:
         </td>
         <td class="field-value">
-                ${regUser.homeAddress.address3}
+                <c:out value="${regUser.homeAddress.address3}" />
         </td>
     </tr>
 </c:if>
@@ -164,7 +164,7 @@
             City:
         </td>
         <td class="field-value">
-                ${regUser.homeAddress.city}
+                <c:out value="${regUser.homeAddress.city}" />
         </td>
     </tr>
 </c:if>
@@ -176,7 +176,7 @@
             State:
         </td>
         <td class="field-value">
-                ${regUser.homeAddress.state.name}
+                <c:out value="${regUser.homeAddress.state.name}" />
         </td>
     </tr>
 </c:if>
@@ -188,7 +188,7 @@
             Postal Code:
         </td>
         <td class="field-value">
-                ${regUser.homeAddress.postalCode}
+                <c:out value="${regUser.homeAddress.postalCode}"/>
         </td>
     </tr>
 </c:if>
@@ -200,7 +200,7 @@
             Province:
         </td>
         <td class="field-value">
-                ${regUser.homeAddress.province}
+                <c:out value="${regUser.homeAddress.province}"/>
         </td>
     </tr>
 </c:if>
@@ -212,7 +212,7 @@
             Country:
         </td>
         <td class="field-value">
-                ${regUser.homeAddress.country.name}
+                <c:out value="${regUser.homeAddress.country.name}"/>
         </td>
     </tr>
 </c:if>
@@ -225,7 +225,7 @@
             Country to represent:
         </td>
         <td class="field-value">
-                ${regUser.coder.compCountry.name}
+                <c:out value="${regUser.coder.compCountry.name}"/>
         </td>
     </tr>
 </c:if>
@@ -237,7 +237,7 @@
             Timezone:
         </td>
         <td class="field-value">
-                ${regUser.timeZone.description}
+                <c:out value="${regUser.timeZone.description}"/>
         </td>
     </tr>
 </c:if>
@@ -249,7 +249,7 @@
             Phone Number:
         </td>
         <td class="field-value">
-                ${regUser.primaryPhoneNumber.number}
+                <c:out value="${regUser.primaryPhoneNumber.number}"/>
         </td>
     </tr>
 </c:if>
@@ -261,7 +261,7 @@
             Email Address:
         </td>
         <td class="field-value">
-                ${regUser.primaryEmailAddress.address}
+                <c:out value="${regUser.primaryEmailAddress.address}"/>
         </td>
     </tr>
 </c:if>
@@ -273,7 +273,7 @@
             User Name:
         </td>
         <td class="field-value">
-                ${regUser.handle}
+                <c:out value="${regUser.handle}"/>
         </td>
     </tr>
 </c:if>
@@ -297,7 +297,7 @@
             Secret Question:
         </td>
         <td class="field-value">
-                ${regUser.secretQuestion.question}
+                <c:out value="${regUser.secretQuestion.question}"/>
         </td>
     </tr>
 </c:if>
@@ -322,7 +322,7 @@
             Quote:
         </td>
         <td class="field-value">
-                ${regUser.coder.quote}
+                <c:out value="${regUser.coder.quote}"/>
         </td>
     </tr>
 </c:if>
@@ -457,10 +457,10 @@
         <td class="field-value">
             <c:choose>
                 <c:when test="${regUser.coder.currentSchool!=null}">
-                    ${regUser.coder.currentSchool.school.name}
+                    <c:out value="${regUser.coder.currentSchool.school.name}"/>
                 </c:when>
                 <c:otherwise>
-                    ${regUser.primaryTeachingSchool.school.name}
+                    <c:out value="${regUser.primaryTeachingSchool.school.name}"/>
                 </c:otherwise>
             </c:choose>
 
@@ -476,7 +476,7 @@
                 Title:
             </td>
             <td class="field-value">
-                    ${regUser.contact.title}
+                    <c:out value="${regUser.contact.title}" />
             </td>
         </tr>
     </c:if>
@@ -488,7 +488,7 @@
                 Company:
             </td>
             <td class="field-value">
-                    ${regUser.contact.company.name}
+                    <c:out value="${regUser.contact.company.name}"/>
             </td>
         </tr>
     </c:if>
