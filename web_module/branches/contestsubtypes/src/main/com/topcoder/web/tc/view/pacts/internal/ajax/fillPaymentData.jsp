@@ -10,7 +10,6 @@
 		<script type="text/javascript">
 		setDescription('<c:out value="${requestScope.description}" />');
 		setDueDate('<c:out value="${requestScope.dueDate}" />');
-		setDesign(<c:out value="${requestScope.isDesign}" />);
     </script>
 </taconite-replace-children>      
  </taconite-root>

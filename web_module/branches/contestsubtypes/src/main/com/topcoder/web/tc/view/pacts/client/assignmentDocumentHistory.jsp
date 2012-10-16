@@ -91,16 +91,16 @@
 
 </div>
 
-<c:if test="${not empty has_global_ad}">
+<c:if test="${(not empty has_global_ad) and (full_list or has_global_ad==false)}">
     <div>
         <div align="right">
             <span class="bigRed"><a class="bcLink" target="_blank" href="/wiki/display/tc/The+Assignment+Document">Download Assignment Document</a></span><br /><br />
         </div>
         <table class="stat" cellpadding="0" cellspacing="0" width="100%">
         <tbody>
-            <tr><td class="title" colspan="4">Assignment Document Status</td></tr>
+            <tr><td class="title" colspan="4">Assignment Document v2.0 Status</td></tr>
             <tr class="light">
-                <td class="value"><strong>Assignment Document Received</strong></td>
+                <td class="value"><strong>Assignment Document v2.0 Received</strong></td>
                 <td class="valueC">
                     <c:choose>
                         <c:when test="${has_global_ad}">

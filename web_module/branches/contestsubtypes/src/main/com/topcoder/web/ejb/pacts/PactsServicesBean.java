@@ -4567,8 +4567,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                             case 4:
                                 Long paymentMethodId = getUserPaymentMethod(payment.getCoderId());
                                 if (paymentMethodId == null) {
-                                    errors.put(payment.getId(), "The member has not set the preferred payment method.");
-                                } else if (payment.getCurrentStatus().getId() != OwedPaymentStatus.ID) {
+                                    paymentMethodId = Constants.NOT_SET_PAYMENT_METHOD_ID;
+                                }
+
+                                if (payment.getCurrentStatus().getId() != OwedPaymentStatus.ID) {
                                     errors.put(payment.getId(), "Can't assign payment method for payment in " +
                                                payment.getCurrentStatus().getDesc() + " status");
                                 } else {
@@ -6047,7 +6049,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         query.append(" FROM payment_detail pd, payment p, user u ");
         query.append(" WHERE pd.payment_detail_id = p.most_recent_detail_id ");
         query.append(" AND p.user_id = u.user_id ");
-        query.append(" AND " + filterCondition("'[' || u.handle || '] ' || pd.payment_desc", search));
+        query.append(" AND " + filterCondition("'[' || u.handle::lvarchar || '] ' || pd.payment_desc::lvarchar", search));
         query.append(" ORDER BY 2");
 
         ArrayList param = new ArrayList();

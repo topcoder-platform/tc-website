@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2010 TopCoder, Inc. All rights reserved.
+ * Copyright (c) 2010 - 2012 TopCoder, Inc. All rights reserved.
  */
 package com.topcoder.web.tc.controller.request.copilot;
 
@@ -24,8 +24,15 @@ import java.util.Map;
  * Thread-safety:This class is immutable and static, and does not have any internal state, so it's thread-safe.
  * </p>
  *
+ * <p>
+ *      Version 1.1 (TopCoder Copilot Profile Update) Change notes:
+ *      <ol>
+ *          <li>Retrieve is_software_copilot and is_studio_copilot data, using query tool.</li>
+ *      </ol>
+ * </p>  
+ * 
  * @author TCSASSEMBLER
- * @version 1.0
+ * @version 1.1
  */
 class CopilotRequestProcessorUtil {
 
@@ -141,6 +148,14 @@ class CopilotRequestProcessorUtil {
 
             if (result.getItem(0, "image_path").getResultData() != null) {
                 info.put("imagePath", result.getStringItem(0, "image_path"));
+            }
+            
+            if (result.getItem(0, "is_software_copilot").getResultData() != null) {
+                info.put("is_software_copilot", result.getStringItem(0, "is_software_copilot"));
+            }
+            
+            if (result.getItem(0, "is_studio_copilot").getResultData() != null) {
+                info.put("is_studio_copilot", result.getStringItem(0, "is_studio_copilot"));
             }
         }
 

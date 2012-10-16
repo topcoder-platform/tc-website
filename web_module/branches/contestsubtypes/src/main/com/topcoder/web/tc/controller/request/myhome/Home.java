@@ -41,8 +41,6 @@ import java.util.*;
  */
 public class Home extends ShortHibernateProcessor {
 
-    List<Long> payoneerTestGroup = Arrays.asList(8518361l, 23078253l);
-
     /**
      * Handle http request.
      * 
@@ -75,15 +73,13 @@ public class Home extends ShortHibernateProcessor {
         getRequest().setAttribute("userImage", image);
 
         try {
-            PayoneerService.PayeeStatus payeeStatus = PayoneerService.getPayeeStatus(getLoggedInUser().getId());
+            PayoneerService.PayeeStatus payeeStatus = PayoneerService.getPayeeStatus(getUser().getId());
             // Only show the registration link if the member hasn't activated with Payoneer yet
             if (payeeStatus == PayoneerService.PayeeStatus.NOT_REGISTERED ||
                 payeeStatus == PayoneerService.PayeeStatus.REGISTERED) {
                 getRequest().setAttribute("payoneerActivated", false);
 
-                if (payoneerTestGroup.contains(getLoggedInUser().getId())) {
-                    getRequest().setAttribute("payoneerRegLink", PayoneerService.getRegistrationLink(getLoggedInUser().getId()));
-                }
+                getRequest().setAttribute("payoneerRegLink", PayoneerService.getRegistrationLink(getUser().getId()));
             } else {
                 getRequest().setAttribute("payoneerActivated", true);
             }

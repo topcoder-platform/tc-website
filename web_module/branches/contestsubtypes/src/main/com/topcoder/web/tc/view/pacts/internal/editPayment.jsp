@@ -101,7 +101,6 @@ function displayAmounts() {
     var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=DisplayAmounts');
     ajaxRequest.addNamedFormElements("payment_type_id");
     ajaxRequest.addNamedFormElements("placed");
-    ajaxRequest.addNamedFormElements("is_design");    
     ajaxRequest.addNamedFormElements("is_updating");    
     ajaxRequest.addNamedFormElements("total_amount");    
     ajaxRequest.addNamedFormElements("gross_amount");    
@@ -122,11 +121,6 @@ function typeChanged()
 function setRoundUnknown(value){
    roundUnknown = value;
    typeChanged();   
-}
-
-function setDesign(value){
-	document.ajaxFields.is_design.value = value;
-	displayAmounts();	
 }
 
 function doReferenceChanged(refId) {
@@ -237,7 +231,6 @@ function searchKeyPress(e)
 
 <form name="ajaxFields">
    <input type="hidden" name="first_load" value="true" >
-   <input type="hidden" name="is_design" value="<%= request.getAttribute("is_design") %>" >
    <input type="hidden" name="is_updating" value="${updating}" >
    <input type="hidden" name="client" value="<%= ((Map) request.getAttribute(BaseProcessor.DEFAULTS_KEY)).get("client") %>" >
  

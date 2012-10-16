@@ -7,11 +7,15 @@ FROM
     project p
     INNER JOIN resource rr ON rr.project_id = p.project_id
     INNER JOIN resource_info rri ON rri.resource_id = rr.resource_id
+	INNER JOIN project_info pi32 on pi32.project_id = p.project_id and pi32.project_info_type_id = 32 
     LEFT JOIN common_oltp:user_address_xref uax ON uax.user_id = rri.value 
     LEFT JOIN common_oltp:address addr ON addr.address_id = uax.address_id 
     LEFT JOIN common_oltp:country cntry ON addr.country_code = cntry.country_code
+	
 WHERE
     p.project_status_id not in (2,3) 
     AND p.project_category_id not in (27)
     AND rri.resource_info_type_id = 1 
     AND rr.resource_role_id = 14
+	AND (p.modify_date > ? or rr.modify_date > ? or rri.modify_date > ?)
+order by p.project_id desc

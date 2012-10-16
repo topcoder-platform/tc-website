@@ -262,8 +262,7 @@ public class ForumsUtil {
         return forumsList;
     }
 
-    // Returns subcategories within a category, with empty/inactive/unapproved categories omitted or placed at 
-    // the list's end.
+    // Returns subcategories within a category, with empty categories omitted or placed at the list's end.
     public static ArrayList getCategories(ForumsLocal forumsBean, ForumCategory forumCategory, ResultFilter resultFilter,
                                           boolean excludeEmptyCategories, boolean mergeEmptyCategories) throws RemoteException {
         Iterator itCategories = forumCategory.getCategories();
@@ -679,8 +678,16 @@ public class ForumsUtil {
         long[] compIDs = new long[pageList.size()];
         for (int i = 0; i < pageList.size(); i++) {
             ForumCategory subcategory = pageList.get(i);
-            compVersIDs[i] = Long.parseLong(subcategory.getProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_ID));
-            compIDs[i] = Long.parseLong(subcategory.getProperty(ForumConstants.PROPERTY_COMPONENT_ID));
+            try {
+                compVersIDs[i] = Long.parseLong(subcategory.getProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_ID));
+            } catch (NumberFormatException nfe) {
+                compVersIDs[i] = -1;
+            }
+            try {
+                compIDs[i] = Long.parseLong(subcategory.getProperty(ForumConstants.PROPERTY_COMPONENT_ID));
+            } catch (NumberFormatException nfe) {
+                compIDs[i] = -1;
+            }
         }
         Hashtable compVersPhasesTable = forumsBean.getComponentVersionPhases(compVersIDs);
         Hashtable rootCategoriesTable = forumsBean.getComponentRootCategories(compIDs);

@@ -102,11 +102,10 @@
                             <tc-webtag:handle context='marathon_match' coderId='<%=resultRow.getUserId()%>'/>
                         </td>
                         <td class="value" nowrap="nowrap">
-							
-                            <%-- COMMENT OUT FOR NASA CHALLENGES 
-							<a href="?module=ViewStandings&amp;rd=<%=resultRow.getRoundId()%>">
+			    
+                            <a href="?module=ViewStandings&amp;rd=<%=resultRow.getRoundId()%>">
                                 <mm:contest roundName="<%=resultRow.getRoundName()%>" contestName="<%=resultRow.getContestName()%>" roundTypeId="<%= (Integer) roundTypes.get(new Integer(resultRow.getRoundId())) %>"/>
-                            </a> --%>
+                            </a>
 							
                         </td>
                         <td class="value" nowrap="nowrap">
