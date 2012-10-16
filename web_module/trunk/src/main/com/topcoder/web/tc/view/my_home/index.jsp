@@ -119,7 +119,7 @@
                         </td>
                         <td class="value">
                             <div style="width: 200px;">
-                                ${regUser.firstName} ${regUser.lastName}
+                                <c:out value="${regUser.firstName}" /> <c:out value="${regUser.lastName}" />
                             </div>
                         </td>
                     </tr>
@@ -128,7 +128,7 @@
                             Company:
                         </td>
                         <td class="value">
-                                ${regUser.contact.company.name}
+                                <c:out value="${regUser.contact.company.name}" />
                         </td>
                     </tr>
                     <tr class="light">
@@ -137,12 +137,12 @@
                         </td>
                         <td class="value">
                             ${regUser.homeAddress.address1}
-                            <c:if test="${not empty regUser.homeAddress.address2}"><br />${regUser.homeAddress.address2}</c:if>
-                            <c:if test="${not empty regUser.homeAddress.address3}"><br />${regUser.homeAddress.address3}</c:if>
-                            <br />${regUser.homeAddress.city}, 
+                            <c:if test="${not empty regUser.homeAddress.address2}"><br /><c:out value="${regUser.homeAddress.address2}" /></c:if>
+                            <c:if test="${not empty regUser.homeAddress.address3}"><br /><c:out value="${regUser.homeAddress.address3}" /></c:if>
+                            <br /><c:out value="${regUser.homeAddress.city}"/>, 
                             <c:if test="${not empty regUser.homeAddress.state.name}">${regUser.homeAddress.state.name}</c:if>
-                            <c:if test="${not empty regUser.homeAddress.province}">${regUser.homeAddress.province}</c:if>
-                            ${regUser.homeAddress.postalCode}
+                            <c:if test="${not empty regUser.homeAddress.province}"><c:out value="${regUser.homeAddress.province}"/></c:if>
+                            <c:out value="${regUser.homeAddress.postalCode}" />
                         </td>
                     </tr>
                     <tr class="dark">
@@ -174,7 +174,7 @@
                             Phone number:
                         </td>
                         <td class="value">
-                            ${regUser.primaryPhoneNumber.number}
+                            <c:out value="${regUser.primaryPhoneNumber.number}"/>
                         </td>
                     </tr>
                     <tr class="dark">
