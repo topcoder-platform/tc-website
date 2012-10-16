@@ -253,6 +253,10 @@ public abstract class BaseProcessor implements RequestProcessor {
     protected String getTrimmedParameter(String param) {
         return StringUtils.getTrimmedParameter(getRequest(), param);
     }
+    
+    protected String getEscapedParameter(String param) {
+        return StringUtils.htmlEncode(param);
+    }
 
 
     /**
