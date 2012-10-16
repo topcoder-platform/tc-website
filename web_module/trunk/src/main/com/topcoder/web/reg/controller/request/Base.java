@@ -220,30 +220,30 @@ public abstract class Base extends LongHibernateProcessor {
     protected Map getMainUserInput() {
         HashMap ret = new HashMap();
 
-        ret.put(Constants.ADDRESS1, getTrimmedParameter(Constants.ADDRESS1));
-        ret.put(Constants.ADDRESS2, getTrimmedParameter(Constants.ADDRESS2));
-        ret.put(Constants.ADDRESS3, getTrimmedParameter(Constants.ADDRESS3));
-        ret.put(Constants.CITY, getTrimmedParameter(Constants.CITY));
+        ret.put(Constants.ADDRESS1, getEscapedParameter(getTrimmedParameter(Constants.ADDRESS1)));
+        ret.put(Constants.ADDRESS2, getEscapedParameter(getTrimmedParameter(Constants.ADDRESS2)));
+        ret.put(Constants.ADDRESS3, getEscapedParameter(getTrimmedParameter(Constants.ADDRESS3)));
+        ret.put(Constants.CITY, getEscapedParameter(getTrimmedParameter(Constants.CITY)));
         ret.put(Constants.COUNTRY_CODE, getTrimmedParameter(Constants.COUNTRY_CODE));
         ret.put(Constants.STATE_CODE, getTrimmedParameter(Constants.STATE_CODE));
-        ret.put(Constants.POSTAL_CODE, getTrimmedParameter(Constants.POSTAL_CODE));
-        ret.put(Constants.PROVINCE, getTrimmedParameter(Constants.PROVINCE));
+        ret.put(Constants.POSTAL_CODE, getEscapedParameter(getTrimmedParameter(Constants.POSTAL_CODE)));
+        ret.put(Constants.PROVINCE, getEscapedParameter(getTrimmedParameter(Constants.PROVINCE)));
         ret.put(Constants.EMAIL, getTrimmedParameter(Constants.EMAIL));
         ret.put(Constants.EMAIL_CONFIRM, getTrimmedParameter(Constants.EMAIL_CONFIRM));
-        ret.put(Constants.GIVEN_NAME, getTrimmedParameter(Constants.GIVEN_NAME));
-        ret.put(Constants.MIDDLE_NAME, getTrimmedParameter(Constants.MIDDLE_NAME));
-        ret.put(Constants.SURNAME, getTrimmedParameter(Constants.SURNAME));
-        ret.put(Constants.NAME_IN_ANOTHER_LANGUAGE, getTrimmedParameter(Constants.NAME_IN_ANOTHER_LANGUAGE));
+        ret.put(Constants.GIVEN_NAME, getEscapedParameter(getTrimmedParameter(Constants.GIVEN_NAME)));
+        ret.put(Constants.MIDDLE_NAME, getEscapedParameter(getTrimmedParameter(Constants.MIDDLE_NAME)));
+        ret.put(Constants.SURNAME, getEscapedParameter(getTrimmedParameter(Constants.SURNAME)));
+        ret.put(Constants.NAME_IN_ANOTHER_LANGUAGE, getEscapedParameter(getTrimmedParameter(Constants.NAME_IN_ANOTHER_LANGUAGE)));
         ret.put(Constants.PASSWORD, getTrimmedParameter(Constants.PASSWORD));
         ret.put(Constants.PASSWORD_CONFIRM, getTrimmedParameter(Constants.PASSWORD_CONFIRM));
-        ret.put(Constants.SECRET_QUESTION, getTrimmedParameter(Constants.SECRET_QUESTION));
+        ret.put(Constants.SECRET_QUESTION, getEscapedParameter(getTrimmedParameter(Constants.SECRET_QUESTION)));
         ret.put(Constants.SECRET_QUESTION_RESPONSE, getTrimmedParameter(Constants.SECRET_QUESTION_RESPONSE));
         ret.put(Constants.SECURITY_KEY, getTrimmedParameter(Constants.SECURITY_KEY));
         ret.put(Constants.HANDLE, getTrimmedParameter(Constants.HANDLE));
-        ret.put(Constants.QUOTE, getTrimmedParameter(Constants.QUOTE));
-        ret.put(Constants.TITLE, getTrimmedParameter(Constants.TITLE));
-        ret.put(Constants.COMPANY_NAME, getTrimmedParameter(Constants.COMPANY_NAME));
-        ret.put(Constants.PHONE_NUMBER, getTrimmedParameter(Constants.PHONE_NUMBER));
+        ret.put(Constants.QUOTE, getEscapedParameter(getTrimmedParameter(Constants.QUOTE)));
+        ret.put(Constants.TITLE, getEscapedParameter(getTrimmedParameter(Constants.TITLE)));
+        ret.put(Constants.COMPANY_NAME, getEscapedParameter(getTrimmedParameter(Constants.COMPANY_NAME)));
+        ret.put(Constants.PHONE_NUMBER, getEscapedParameter(getTrimmedParameter(Constants.PHONE_NUMBER)));
         ret.put(Constants.COMP_COUNTRY_CODE, getTrimmedParameter(Constants.COMP_COUNTRY_CODE));
         ret.put(Constants.CODER_TYPE, getTrimmedParameter(Constants.CODER_TYPE));
         ret.put(Constants.TIMEZONE, getTrimmedParameter(Constants.TIMEZONE));
@@ -480,8 +480,8 @@ public abstract class Base extends LongHibernateProcessor {
         ret.put(Constants.VISIBLE_SCHOOL, getTrimmedParameter(Constants.VISIBLE_SCHOOL));
         ret.put(Constants.GPA_SCALE, getTrimmedParameter(Constants.GPA_SCALE));
         ret.put(Constants.GPA, getTrimmedParameter(Constants.GPA));
-        ret.put(Constants.TITLE, getTrimmedParameter(Constants.TITLE));
-        ret.put(Constants.COMPANY_NAME, getTrimmedParameter(Constants.COMPANY_NAME));
+        ret.put(Constants.TITLE, getEscapedParameter(getTrimmedParameter(Constants.TITLE)));
+        ret.put(Constants.COMPANY_NAME, getEscapedParameter(getTrimmedParameter(Constants.COMPANY_NAME)));
 
 
         if (getRequest() instanceof MultipartRequest) {
@@ -510,7 +510,7 @@ public abstract class Base extends LongHibernateProcessor {
 
         ret.put(Constants.REFERRAL, getTrimmedParameter(Constants.REFERRAL));
         ret.put(Constants.REFERRAL_CODER, getTrimmedParameter(Constants.REFERRAL_CODER));
-        ret.put(Constants.REFERRAL_OTHER, getTrimmedParameter(Constants.REFERRAL_OTHER));
+        ret.put(Constants.REFERRAL_OTHER, getEscapedParameter(getTrimmedParameter(Constants.REFERRAL_OTHER)));
 
         return ret;
 
