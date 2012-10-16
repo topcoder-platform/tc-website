@@ -930,6 +930,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         s.addDefault(COCKPIT_PROJECT_NAME_COL, "asc");
         s.addDefault(BILLING_ACCOUNT_NAME_COL, "asc");      
         s.addDefault(INVOICE_NUMBER_COL, "asc");        
+        s.addDefault(PAID_DATE_COL, "asc");        
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
     }
 

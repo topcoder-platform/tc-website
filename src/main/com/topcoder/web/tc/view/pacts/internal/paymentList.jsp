@@ -208,6 +208,7 @@ ${fn:length(paymentList)} records. <br />
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.INVOICE_NUMBER_COL%>" includeParams="true"/>" >Invoice #</a></td>
         <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.CREATE_DATE_COL%>" includeParams="true"/>" >Created</a></td>
         <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.MODIFY_DATE_COL%>" includeParams="true"/>" >Modified</a></td>
+        <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.METHOD_COL%>" includeParams="true"/>" >Paid</a></td>
     </tr>
     <% boolean even = true;%>
     <c:forEach var="payment" items="${paymentList}" varStatus="index">
@@ -249,12 +250,13 @@ ${fn:length(paymentList)} records. <br />
         <td class="value"><c:out value="${payment.invoiceNumber}" /></td>   
         <td class="valueC"><c:out value="${payment.createDate}" /> </td>
         <td class="valueC"><c:out value="${payment.modifyDate}" /> </td>
+        <td class="valueC"><c:out value="${payment.paidDate}" /></td>
         </tr>
         <tc-webtag:errorIterator id="err" name="err_${payment.id}">
         <tr>
         <td colspan="4">
         </td>
-        <td colspan="15">
+        <td colspan="16">
             <span class="bigRed">
                     <%=err%><br/>
             </span>
@@ -267,7 +269,7 @@ ${fn:length(paymentList)} records. <br />
         <td class="header" colspan="7"><b>Total Net Amount:</b>
         </td>
         <td class="headerR" nowrap="nowrap">$<fmt:formatNumber value="${totalNet}" pattern="###,###.00" /></td>
-        <td class="header" colspan="11">&nbsp;</td>
+        <td class="header" colspan="12">&nbsp;</td>
     </tr>
 
     </table>

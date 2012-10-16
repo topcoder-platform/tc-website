@@ -201,9 +201,9 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         parentPaymentId = TCData.getTCLong(rsr, "parent_payment_id", 0, false);
         digitalRunTrackId = TCData.getTCLong(rsr, "digital_run_track_id", 0, false);
 
-        createDate = TCData.getTCDate(rsr, "create_date", "00/00/00", false);
-        modifyDate = TCData.getTCDate(rsr, "modify_date", "00/00/00", false);
-        paidDate = TCData.getTCDate(rsr, "date_paid", "00/00/00", false);
+        createDate = TCData.getTCDate(rsr, "create_date", "", false);
+        modifyDate = TCData.getTCDate(rsr, "modify_date", "", false);
+        paidDate = TCData.getTCDate(rsr, "date_paid", "", false);
     }
 
 /* Constructor
