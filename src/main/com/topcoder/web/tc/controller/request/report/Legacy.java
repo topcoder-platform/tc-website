@@ -892,11 +892,11 @@ public class Legacy extends Base {
 
     private static final Integer MEMBER_COUNTS_DAILY_ID = new Integer(7);
     private static final String MEMBER_COUNTS_DAILY_TITLE = "Member Counts By Day";
-    private static final int[] MEMBER_COUNTS_DAILY_TYPES = {ResultItem.STRING, ResultItem.STRING, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT};
-    private static final String[] MEMBER_COUNTS_DAILY_HEADINGS = {"Date", "Day", "Studnt", "Pro", "Total", "Actv", "USA", "AUS", "CAN", "IND", "Ukraine", "Romania", "Poland", "CHINA", "reg", "reg2", "present", "mobile", "analytics"};
+    private static final int[] MEMBER_COUNTS_DAILY_TYPES = {ResultItem.STRING, ResultItem.STRING, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT};
+    private static final String[] MEMBER_COUNTS_DAILY_HEADINGS = {"Date", "Day", "Studnt", "Pro", "Total", "Actv", "USA", "AUS", "CAN", "IND", "Ukraine", "Romania", "Poland", "CHINA", "reg", "reg2", "present", "mobile", "analytics", "liquid"};
     private static final String MEMBER_COUNTS_DAILY =
-            " SELECT TO_CHAR(member_since, '%iY-%m-%d') AS reg_date" +
-                    " ,MIN(TO_CHAR(member_since, '%a')) AS day_of_week" +
+            " SELECT TO_CHAR(u.create_date, '%iY-%m-%d') AS reg_date" +
+                    " ,MIN(TO_CHAR(u.create_date, '%a')) AS day_of_week" +
                     " ,SUM(CASE WHEN c.coder_type_id = 1 THEN 1 ELSE 0 END) AS student_count" +
                     " ,SUM(CASE WHEN c.coder_type_id = 2 THEN 1 ELSE 0 END) AS pro_count" +
                     " ,COUNT(*) AS total_count" +
@@ -914,16 +914,16 @@ public class Legacy extends Base {
                     " ,SUM(CASE WHEN u.reg_source ='present' AND status='A' THEN 1 ELSE 0 END) AS present_count" +
                     " ,SUM(CASE WHEN u.reg_source ='mobile' AND status='A' THEN 1 ELSE 0 END) AS mobile_count" +
                     " ,SUM(CASE WHEN u.reg_source ='analytics' AND status='A' THEN 1 ELSE 0 END) AS analytics_count" +
+					" ,SUM(CASE WHEN u.reg_source ='liquid' AND status='A' THEN 1 ELSE 0 END) AS liquid_count" +
                     " FROM user u" +
-                    " ,coder c" +
-                    " ,outer rating cr" +
+                    " , outer (coder c, rating cr)" +
                     " ,outer (user_address_xref x , address a)" +
                     " WHERE u.user_id = c.coder_id" +
                     " AND cr.coder_id = c.coder_id" +
                     " and x.user_id = u.user_id " +
                     " and x.address_id = a.address_id " +
                     " and a.address_type_id = 2 " +
-                    " AND member_since > CURRENT-INTERVAL (30) DAY (2) TO DAY" +
+                    " AND u.create_date > CURRENT-INTERVAL (30) DAY (2) TO DAY" +
                     " AND u.user_id NOT IN (SELECT user_id" +
                     " FROM group_user" +
                     " WHERE group_id = 13)" +
@@ -938,8 +938,8 @@ public class Legacy extends Base {
             "select cal.year, cal.week_of_year week_number, min(cal.date) date_starting, max(cal.date) date_ending, " +
                     "count(*) total_reg, sum(case when u.status = 'A' then 1 else 0 end) active_count, " +
                     "sum(case when a.country_code in ('840','124') or a.country_code is null then 0 else 1 end) intl_count " +
-                    "from coder c, user u, calendar cal , outer (user_address_xref x , address a )" +
-                    "where date(c.member_since) = cal.date and u.user_id = c.coder_id and " +
+                    "from  user u, outer coder c, calendar cal , outer (user_address_xref x , address a )" +
+                    "where date(u.create_date) = cal.date and u.user_id = c.coder_id and " +
                     "x.user_id = u.user_id  and x.address_id = a.address_id  and a.address_type_id = 2 " +
                     "and cal.date >= today - 730 group by 1,2 order by 1 desc, 2 desc";
 
