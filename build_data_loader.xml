@@ -156,6 +156,18 @@
 		</java>
 	</target>
 
+    <target name="tcs_dw_copilot_skills">
+        <antcall target="dist" />
+        <java classname="com.topcoder.shared.util.sql.DBUtilityLauncher" fork="true" maxmemory="1024M">
+            <arg value="com.topcoder.utilities.CopilotSkillBadgesUtility"/>
+            <arg value="-xmlfile"/>
+            <arg value="scripts/dwload/loadAchievement.xml"/>
+            <arg value="-path"/>
+            <arg value="/home/tc/web/scripts/sql/"/>
+            <classpath refid="runtime.classpath" />
+        </java>
+    </target>
+
     <!-- ************************************************************************** -->
     <!-- ************ REMOVE EVERYTHING BELOW HERE FOR THE DISTRIBUTION ************* -->
     <!-- ************************************************************************** -->
