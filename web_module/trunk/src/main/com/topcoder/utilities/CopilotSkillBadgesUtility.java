@@ -3,6 +3,9 @@
  */
 package com.topcoder.utilities;
 
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.sql.DBUtility;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -15,79 +18,68 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.sql.DBUtility;
+import java.util.Set;
 
 /**
- * <p>
- * This achievement utility tool will run periodically to check what
- * achievements members accomplished and store these information so it can be
- * easily pulled by member profiles.
- * </p>
- * <p>
- * <strong>Thread Safety:</strong>This class is supposed to run in single thread
- * mode.
- * </p>
- * <p>
- * Change log for version 1.1 (Release Assembly - TopCoder Achievement System
- * Update v1.0)
- * <ul>
- * <li>Add earn_date column</li>
- * <li>Many methods get re-factored.</li>
- * </ul>
- * </p>
+ * Loads the copilot skill badges.
  *
- * <p>
- * Change log for version 1.2 
- * (Release Assembly - TopCoder Copilot Badages Feedback Load and Copilot Profile Integration v1.0)
- * <ul>
- * <li>Add checking flag auto_loaded in user_achievement_xref</li>
- * </ul>
- * </p>
- * 
- * @author leo_lol, GreatKevin
- * @version 1.2
- * @since 1.0 (Release Assembly - TopCoder Achievement System)
+ * @author GreatKevin
+ * @version 1.0 (Release Assembly - TopCoder Copilot Badages Feedback Load and Copilot Profile Integration)
  */
-public class MemberAchievementUtility extends DBUtility {
-
+public class CopilotSkillBadgesUtility extends DBUtility {
     /**
      * <p>
      * This field represent the qualified name of this class.
      * </p>
      */
-    private static final String CLASS_NAME = MemberAchievementUtility.class.getName();
+    private static final String CLASS_NAME = CopilotSkillBadgesUtility.class.getName();
 
     /**
      * <p>
-     * SQL to remove all previous achievements to reflect latest achievement.
+     * SQL to remove all previous skill badges to reflect latest skill badges.
      * <p>
      */
     private static final String SQL_CLEAN_ACHIEVEMENT = "DELETE FROM user_achievement_xref WHERE user_id = ? AND user_achievement_rule_id = ? AND auto_loaded != 'f'";
 
     /**
      * <p>
-     * SQL to insert achievement items.
+     * SQL to insert skill badges items.
      * </p>
      */
     private static final String SQL_INSERT_ACHIEVEMENT = "INSERT INTO user_achievement_xref(user_id, user_achievement_rule_id, create_date, auto_loaded) VALUES (?, ?, ?, 't')";
 
     /**
      * <p>
-     * This SQL is to query existing user_id for a given achievement rule.
+     * This SQL is to query existing user_id for a given skill badges rule.
      * </p>
      */
     private static final String SQL_QUERY_EXISING_USERS_PER_ACHIEVEMENT = "SELECT user_id FROM user_achievement_xref WHERE user_achievement_rule_id = ?";
 
     /**
      * <p>
-     * SQL to query achievement rules.
+     * SQL to query skill badges rules.
      * </p>
      */
-    private static final String SQL_LOAD_ACHIEVEMENT_RULE = "SELECT user_achievement_rule_id, user_achievement_rule_sql_file, db_schema FROM user_achievement_rule WHERE is_automated = 't' AND user_achievement_type_id != 2";
+    private static final String SQL_LOAD_ACHIEVEMENT_RULE = "SELECT user_achievement_rule_id, user_achievement_rule_sql_file, db_schema FROM user_achievement_rule WHERE user_achievement_type_id = 2";
+
+
+    private static final String SQL_CHECK_COPILOTS_FEEDBACK = "SELECT  m.user_id "
+            +"FROM    TABLE(multiset "
+            +"        (SELECT c.user_id, "
+            +"                cp.copilot_project_id "
+            +"        FROM    copilot_project cp "
+            +"                JOIN copilot_project_info cpi "
+            +"                ON      cp.copilot_project_id = cpi.copilot_project_id "
+            +"                JOIN copilot_profile c "
+            +"                ON      c.copilot_profile_id     = cp.copilot_profile_id "
+            +"        WHERE   cpi.copilot_project_info_type_id = 2 "
+            +"            AND cpi.value                        = 'Yes' "
+            +"        )) AS m "
+            +"GROUP BY m.user_id "
+            +"HAVING COUNT(*) >= 5";
 
     /**
      * <p>
@@ -105,14 +97,7 @@ public class MemberAchievementUtility extends DBUtility {
 
     /**
      * <p>
-     * Constants to define topcoder_dw database schema to operate on.
-     * </p>
-     */
-    private static final String TOPCODER_DW = "topcoder_dw";
-
-    /**
-     * <p>
-     * Instance of {@link SimpleDateFormat} to better format time while logging.
+     * Instance of {@link java.text.SimpleDateFormat} to better format time while logging.
      * </p>
      */
     private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss S");
@@ -122,7 +107,7 @@ public class MemberAchievementUtility extends DBUtility {
      * Default constructor.
      * </p>
      */
-    public MemberAchievementUtility() {
+    public CopilotSkillBadgesUtility() {
         super();
     }
 
@@ -131,12 +116,12 @@ public class MemberAchievementUtility extends DBUtility {
      * This method would simply find out all existing achievement winner's ID
      * per achievement rule.
      * </p>
-     * 
+     *
      * @param ruleId
      *            the ID of the rule to filter.
      * @return List of user ID.
      */
-    private List<Long> findUserID(long ruleId) {
+    private List<Long> findExistingUserID(long ruleId) {
         final String signature = CLASS_NAME + ".findUserID(long ruleId)";
         logEntrance(signature, "ruleId", ruleId);
         final long start = logStart(signature);
@@ -169,7 +154,7 @@ public class MemberAchievementUtility extends DBUtility {
      * This method would load all SQLs which will be used to assign
      * achievements.
      * </p>
-     * 
+     *
      * @return A List of AchievementRuleRow records containing all achievement
      *         rule IDs, file names and DB Schemas.
      * @throws Exception
@@ -203,7 +188,7 @@ public class MemberAchievementUtility extends DBUtility {
         } catch (SQLException e) {
             log.error(e.getMessage());
             DBMS.printSqlException(true, e);
-            throw new Exception("MemberAchievementUtility failed!\n" + e.getMessage());
+            throw new Exception("CopilotSkillBadgesUtility failed!\n" + e.getMessage());
         } finally {
             DBMS.close(rs);
             DBMS.close(pst);
@@ -212,11 +197,45 @@ public class MemberAchievementUtility extends DBUtility {
     }
 
     /**
+      * Loads the qualified copilots with required number of positive feedback.
+      */
+    private Set<Long> loadCopilotWithPositiveFeedback() throws Exception {
+        final String signature = CLASS_NAME + ".loadCopilotWithPositiveFeedback()";
+        logEntrance(signature);
+        final long start = logStart(signature);
+        Set<Long> copilots = new HashSet<Long>();
+
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+
+        try {
+            pst = prepareStatement(TCS_CATALOG, SQL_CHECK_COPILOTS_FEEDBACK);
+
+            logSQL(SQL_CHECK_COPILOTS_FEEDBACK);
+
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                copilots.add(rs.getLong("user_id"));
+            }
+            logExit(signature, copilots);
+            logEnd(signature, start);
+        } catch (SQLException e) {
+            log.error(e.getMessage());
+            DBMS.printSqlException(true, e);
+            throw new Exception("CopilotSkillBadgesUtility failed!\n" + e.getMessage());
+        } finally {
+            DBMS.close(rs);
+            DBMS.close(pst);
+        }
+        return copilots;
+    }
+
+    /**
      * <p>
      * This method would return a collection of user_id that is qualified for
      * the given achievement rule.
      * </p>
-     * 
+     *
      * @param rule
      *            the specified achievement rule
      * @param dbSchema
@@ -225,7 +244,7 @@ public class MemberAchievementUtility extends DBUtility {
      * @throws Exception
      *             If there is any error.
      */
-    private Map<Long, Date> filterUser(String rule, String dbSchema) throws Exception {
+    private Map<Long, Date> filterUserMatchRules(String rule, String dbSchema) throws Exception {
         final String signature = CLASS_NAME + ".filterUser(String rule, String dbSchema)";
         logEntrance(signature, new String[]{"rule", "dbSchema"}, new String[]{rule, dbSchema});
         logSQL(rule);
@@ -238,8 +257,6 @@ public class MemberAchievementUtility extends DBUtility {
                 pst = prepareStatement(TCS_CATALOG, rule);
             } else if (TCS_DW.equals(dbSchema)) {
                 pst = prepareStatement(TCS_DW, rule);
-            } else if (TOPCODER_DW.equals(dbSchema)) {
-                pst = prepareStatement(TOPCODER_DW, rule);
             }
 
             rs = pst.executeQuery();
@@ -252,7 +269,7 @@ public class MemberAchievementUtility extends DBUtility {
         } catch (SQLException e) {
             log.error(e.getMessage());
             DBMS.printSqlException(true, e);
-            throw new Exception("MemberAchievementUtility failed!\n" + e.getMessage());
+            throw new Exception("CopilotSkillBadgesUtility failed!\n" + e.getMessage());
         } finally {
             DBMS.close(rs);
             DBMS.close(pst);
@@ -264,7 +281,7 @@ public class MemberAchievementUtility extends DBUtility {
      * This method would return location that storing the SQLs for filtering
      * qualified achievement winners.
      * </p>
-     * 
+     *
      * @return Location of the folder that storing achievement files.
      */
     private String getSQLFileBasePath() {
@@ -285,7 +302,7 @@ public class MemberAchievementUtility extends DBUtility {
      * <p>
      * This method would read SQL statement from specified file.
      * </p>
-     * 
+     *
      * @param path
      *            location of the file storing SQL.
      * @return SQL the SQL statement.
@@ -314,7 +331,7 @@ public class MemberAchievementUtility extends DBUtility {
      * <p>
      * This method would log the entrance of a method.
      * </p>
-     * 
+     *
      * @param signature
      *            Signature of the method.
      * @param paraName
@@ -333,7 +350,7 @@ public class MemberAchievementUtility extends DBUtility {
      * <p>
      * This method would log the entrance of a method with multiple parameters.
      * </p>
-     * 
+     *
      * @param signature
      *            Signature of the method.
      * @param paraNames
@@ -343,7 +360,7 @@ public class MemberAchievementUtility extends DBUtility {
      */
     private void logEntrance(String signature, String[] paraNames, Object[] paramValues) {
         log.info("Enter " + signature);
-        if (null != paraNames && null != paramValues && paraNames.length > 0 
+        if (null != paraNames && null != paramValues && paraNames.length > 0
                 && paraNames.length == paramValues.length) {
             StringBuilder sb = new StringBuilder(100);
             sb.append("Parameter {");
@@ -360,7 +377,7 @@ public class MemberAchievementUtility extends DBUtility {
      * <p>
      * This method would log the entrance of a method.
      * </p>
-     * 
+     *
      * @param signature
      */
     private void logEntrance(String signature) {
@@ -371,7 +388,7 @@ public class MemberAchievementUtility extends DBUtility {
      * <p>
      * This method would log the exit of a method.
      * </p>
-     * 
+     *
      * @param signature
      * @param ret
      *            Return value of the method.
@@ -385,9 +402,8 @@ public class MemberAchievementUtility extends DBUtility {
      * <p>
      * This method would log the exit of a method.
      * </p>
-     * 
+     *
      * @param signature
-     * @param ret
      *            Return value of the method.
      */
     private void logExit(String signature) {
@@ -398,7 +414,7 @@ public class MemberAchievementUtility extends DBUtility {
      * <p>
      * This method would log down SQL statements executed/will be executed.
      * </p>
-     * 
+     *
      * @param sql
      *            The SQL statement.
      */
@@ -410,7 +426,7 @@ public class MemberAchievementUtility extends DBUtility {
      * <p>
      * This method would log down the start time in milliseconds.
      * </p>
-     * 
+     *
      * @param signature
      *            Signature of the method.
      * @return time in milliseconds.
@@ -427,7 +443,7 @@ public class MemberAchievementUtility extends DBUtility {
      * This method would log down the ending time of the execution, as well as
      * rough cost time.
      * </p>
-     * 
+     *
      * @param signature
      * @param start
      */
@@ -443,8 +459,8 @@ public class MemberAchievementUtility extends DBUtility {
      * This method logs a collection of user IDs that are being working on in
      * INFO level.
      * </p>
-     * 
-     * @param userIds
+     *
+     * @param userIdDateMap
      *            a collection of user Id-Date map being logged down.
      */
     private void logUserInfo(Map<Long, Date> userIdDateMap) {
@@ -476,8 +492,8 @@ public class MemberAchievementUtility extends DBUtility {
      * This method would add achievement records into user_achievement_xref in
      * {@link #TCS_DW} in batch processing manner.
      * </p>
-     * 
-     * @param userIds
+     *
+     * @param userIdDateMap
      *            Collections of user_id that has got the achievement
      *            represented by memberAchievementRuleId
      * @param memberAchievementRuleId
@@ -500,7 +516,7 @@ public class MemberAchievementUtility extends DBUtility {
 
         try {
 
-            List<Long> existingUserIds = findUserID(memberAchievementRuleId);
+            List<Long> existingUserIds = findExistingUserID(memberAchievementRuleId);
             logSQL(SQL_INSERT_ACHIEVEMENT);
             pst = prepareStatement(TCS_DW, SQL_INSERT_ACHIEVEMENT);
             for (Map.Entry<Long, Date> entry : userIdDateMap.entrySet()) {
@@ -527,11 +543,11 @@ public class MemberAchievementUtility extends DBUtility {
             pst.getConnection().rollback();
             log.error(e.getMessage());
             DBMS.printSqlException(true, e);
-            throw new Exception("MemberAchievementUtility#Batch execution failed!\n" + e.getMessage());
+            throw new Exception("CopilotSkillBadgesUtility#Batch execution failed!\n" + e.getMessage());
         } catch (SQLException e) {
             log.error(e.getMessage());
             DBMS.printSqlException(true, e);
-            throw new Exception("MemberAchievementUtility failed!\n" + e.getMessage());
+            throw new Exception("CopilotSkillBadgesUtility failed!\n" + e.getMessage());
         } finally {
             DBMS.close(pst);
             DBMS.close(pstClean);
@@ -543,7 +559,7 @@ public class MemberAchievementUtility extends DBUtility {
      * This implementation would first clean up existing achievement and re-fill
      * with latest data.
      * </p>
-     * 
+     *
      * @throws Exception
      *             If there is any error.
      */
@@ -554,13 +570,21 @@ public class MemberAchievementUtility extends DBUtility {
         final long start = logStart(signature);
 
         List<AchievementRuleRow> achievementRules = loadAchievementRules();
-
+        final Set<Long> copilots = loadCopilotWithPositiveFeedback();
         long achievementRuleId = 0;
         Map<Long, Date> userIdDateMap = null;
         for (AchievementRuleRow row : achievementRules) {
             achievementRuleId = row.getId();
-            userIdDateMap = filterUser(row.getFileName(), row.getDbSchema());
-            assignAchievements(userIdDateMap, achievementRuleId);
+            userIdDateMap = filterUserMatchRules(row.getFileName(), row.getDbSchema());
+            Map<Long, Date> filteredIds = new HashMap<Long, Date>();
+            for (Map.Entry<Long, Date> entry : userIdDateMap.entrySet()) {
+                // in the matched copilots, put into the filtered result
+                if (copilots.contains(entry.getKey())) {
+                    filteredIds.put(entry.getKey(), entry.getValue());
+                }
+            }
+
+            assignAchievements(filteredIds, achievementRuleId);
         }
 
         logEnd(signature, start);
@@ -571,7 +595,7 @@ public class MemberAchievementUtility extends DBUtility {
      * <p>
      * Show usage of the DBUtility.
      * <p/>
-     * 
+     *
      * @param msg
      *            The error message.
      */
@@ -579,7 +603,7 @@ public class MemberAchievementUtility extends DBUtility {
     protected void setUsageError(String msg) {
         sErrorMsg.setLength(0);
         sErrorMsg.append(msg + "\n");
-        sErrorMsg.append("MemberAchievementUtility:\n");
+        sErrorMsg.append("CopilotSkillBadgesUtility:\n");
         sErrorMsg
                 .append("   The following parameters should be included in the XML or the command line besides connections setting");
         sErrorMsg.append("   -path : location of the SQL files.\n");
@@ -598,104 +622,5 @@ public class MemberAchievementUtility extends DBUtility {
         if (params.contains("path")) {
             setUsageError("Please specify -path");
         }
-    }
-
-}
-
-/**
- * <p>
- * This class represents the achievement rule info.
- * </p>
- * <p>
- * <strong>Thread Safety: </strong> It's mutable and not thread safe.
- * </p>
- * 
- * @author TCSASSEMBLER
- * @version 1.0
- * @since 1.0
- */
-class AchievementRuleRow {
-    /**
-     * Id of the achievement.
-     */
-    private long id;
-
-    /**
-     * Achievement file name.
-     */
-    private String fileName;
-
-    /**
-     * DB Schema
-     */
-    private String dbSchema;
-
-    /**
-     * <p>
-     * Getter of id field.
-     * </p>
-     * 
-     * @return the id
-     */
-    public long getId() {
-        return id;
-    }
-
-    /**
-     * <p>
-     * Setter of id field.
-     * </p>
-     * 
-     * @param id
-     *            the id to set
-     */
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    /**
-     * <p>
-     * Getter of fileName field.
-     * </p>
-     * 
-     * @return the fileName
-     */
-    public String getFileName() {
-        return fileName;
-    }
-
-    /**
-     * <p>
-     * Setter of fileName field.
-     * </p>
-     * 
-     * @param fileName
-     *            the fileName to set
-     */
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
-
-    /**
-     * <p>
-     * Getter of dbSchema field.
-     * </p>
-     * 
-     * @return the dbSchema
-     */
-    public String getDbSchema() {
-        return dbSchema;
-    }
-
-    /**
-     * <p>
-     * Setter of dbSchema field.
-     * </p>
-     * 
-     * @param dbSchema
-     *            the dbSchema to set
-     */
-    public void setDbSchema(String dbSchema) {
-        this.dbSchema = dbSchema;
     }
 }

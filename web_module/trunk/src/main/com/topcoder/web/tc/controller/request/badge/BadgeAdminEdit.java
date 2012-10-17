@@ -46,7 +46,7 @@ public class BadgeAdminEdit extends BaseBadgeProcessor {
     /**
      * SQL to manually assign achievement;
      */
-    private static final String SQL_ASSIGN_ACHIEVEMENT = "INSERT INTO user_achievement_xref(user_id, user_achievement_rule_id, create_date) VALUES (?, ?, ?)";
+    private static final String SQL_ASSIGN_ACHIEVEMENT = "INSERT INTO user_achievement_xref(user_id, user_achievement_rule_id, create_date, auto_loaded) VALUES (?, ?, ?, 'f')";
 
     /**
      * SQL to manually remove achievement badges;
