@@ -12,6 +12,8 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCResourceBundle;
+import com.topcoder.web.common.CachedDataAccess;
+import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.ejb.email.Email;
@@ -65,6 +67,7 @@ public class ViewActiveBugRaces extends Static {
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
         DataAccessInt dai = getDataAccess(DBMS.JIRA_DATASOURCE_NAME, true);
+		((CachedDataAccess)dai).setMaxAge(MaxAge.FIVE_MINUTES);
         Map result = dai.getData(dataRequest);
 
         ResultSetContainer rsc = (ResultSetContainer) result.get(dataRequest.getContentHandle());
