@@ -336,7 +336,7 @@
                 </div>
             
                 <div class="alert">
-                    For optimal results, your photo should be a PNG image of size 115x138, meaning 115 pixels in width and 138 pixels in height.</div>
+                    Please upload your photo in JPG or PNG format. For best quality, upload a 400X400 pixel image. Drag your mouse over your photo to crop it (optional) and then view the final results above. If you are happy with the results, click "upload" below.</div>
                 <div>
                     <a class="link" href="http://topcoder.com/home/help/?p=866">Photo Policy</a>
                 </div>
