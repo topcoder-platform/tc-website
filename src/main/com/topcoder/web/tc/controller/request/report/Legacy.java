@@ -892,8 +892,8 @@ public class Legacy extends Base {
 
     private static final Integer MEMBER_COUNTS_DAILY_ID = new Integer(7);
     private static final String MEMBER_COUNTS_DAILY_TITLE = "Member Counts By Day";
-    private static final int[] MEMBER_COUNTS_DAILY_TYPES = {ResultItem.STRING, ResultItem.STRING, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT};
-    private static final String[] MEMBER_COUNTS_DAILY_HEADINGS = {"Date", "Day", "Studnt", "Pro", "Total", "Actv", "USA", "AUS", "CAN", "IND", "Ukraine", "Romania", "Poland", "CHINA", "reg", "reg2", "present", "mobile", "analytics", "liquid"};
+    private static final int[] MEMBER_COUNTS_DAILY_TYPES = {ResultItem.STRING, ResultItem.STRING, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT};
+    private static final String[] MEMBER_COUNTS_DAILY_HEADINGS = {"Date", "Day", "Studnt", "Pro", "Total", "Actv", "USA", "AUS", "CAN", "IND", "Ukraine", "Romania", "Poland", "CHINA", "reg", "reg2", "home",  "present", "mobile", "analytics", "liquid"};
     private static final String MEMBER_COUNTS_DAILY =
             " SELECT TO_CHAR(u.create_date, '%iY-%m-%d') AS reg_date" +
                     " ,MIN(TO_CHAR(u.create_date, '%a')) AS day_of_week" +
@@ -911,6 +911,7 @@ public class Legacy extends Base {
                     " ,SUM(CASE WHEN a.country_code = 156 AND status='A' THEN 1 ELSE 0 END) AS china_count" +
 					" ,SUM(CASE WHEN (u.reg_source ='reg' or u.reg_source is null) AND status='A' THEN 1 ELSE 0 END) AS reg_count" +
 					" ,SUM(CASE WHEN u.reg_source ='reg2' AND status='A' THEN 1 ELSE 0 END) AS reg2_count" +
+					" ,SUM(CASE WHEN u.reg_source ='home' AND status='A' THEN 1 ELSE 0 END) AS home_count" +
                     " ,SUM(CASE WHEN u.reg_source ='present' AND status='A' THEN 1 ELSE 0 END) AS present_count" +
                     " ,SUM(CASE WHEN u.reg_source ='mobile' AND status='A' THEN 1 ELSE 0 END) AS mobile_count" +
                     " ,SUM(CASE WHEN u.reg_source ='analytics' AND status='A' THEN 1 ELSE 0 END) AS analytics_count" +
@@ -932,13 +933,20 @@ public class Legacy extends Base {
 
     private static final Integer MEMBER_COUNTS_WEEKLY_ID = new Integer(19);
     private static final String MEMBER_COUNTS_WEEKLY_TITLE = "Member Counts By Week";
-    private static final int[] MEMBER_COUNTS_WEEKLY_TYPES = {ResultItem.STRING, ResultItem.INT, ResultItem.STRING, ResultItem.STRING, ResultItem.INT, ResultItem.INT, ResultItem.INT};
-    private static final String[] MEMBER_COUNTS_WEEKLY_HEADINGS = {"Year", "Week", "Start Date", "End Date", "Count", "Active", "International"};
+    private static final int[] MEMBER_COUNTS_WEEKLY_TYPES = {ResultItem.STRING, ResultItem.INT, ResultItem.STRING, ResultItem.STRING, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.INT};
+    private static final String[] MEMBER_COUNTS_WEEKLY_HEADINGS = {"Year", "Week", "Start Date", "End Date", "Count", "Active", "International", "reg", "reg2", "home",  "present", "mobile", "analytics", "liquid"};
     private static final String MEMBER_COUNTS_WEEKLY =
             "select cal.year, cal.week_of_year week_number, min(cal.date) date_starting, max(cal.date) date_ending, " +
                     "count(*) total_reg, sum(case when u.status = 'A' then 1 else 0 end) active_count, " +
                     "sum(case when a.country_code in ('840','124') or a.country_code is null then 0 else 1 end) intl_count " +
-                    "from  user u, outer coder c, calendar cal , outer (user_address_xref x , address a )" +
+					" ,SUM(CASE WHEN (u.reg_source ='reg' or u.reg_source is null) AND status='A' THEN 1 ELSE 0 END) AS reg_count" +
+					" ,SUM(CASE WHEN u.reg_source ='reg2' AND status='A' THEN 1 ELSE 0 END) AS reg2_count" +
+					" ,SUM(CASE WHEN u.reg_source ='home' AND status='A' THEN 1 ELSE 0 END) AS home_count" +
+                    " ,SUM(CASE WHEN u.reg_source ='present' AND status='A' THEN 1 ELSE 0 END) AS present_count" +
+                    " ,SUM(CASE WHEN u.reg_source ='mobile' AND status='A' THEN 1 ELSE 0 END) AS mobile_count" +
+                    " ,SUM(CASE WHEN u.reg_source ='analytics' AND status='A' THEN 1 ELSE 0 END) AS analytics_count" +
+					" ,SUM(CASE WHEN u.reg_source ='liquid' AND status='A' THEN 1 ELSE 0 END) AS liquid_count " +
+                    " from  user u, outer coder c, calendar cal , outer (user_address_xref x , address a )" +
                     "where date(u.create_date) = cal.date and u.user_id = c.coder_id and " +
                     "x.user_id = u.user_id  and x.address_id = a.address_id  and a.address_type_id = 2 " +
                     "and cal.date >= today - 730 group by 1,2 order by 1 desc, 2 desc";
