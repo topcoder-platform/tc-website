@@ -293,7 +293,7 @@
                 </div>
             
                 <div class="alert">
-                    Browse Photo should be in *.JPG format file which has the width of 140 pixels and the height of 140 pixels.
+                    Please upload your photo in JPG or PNG format. For best quality, upload a 400X400 pixel image. Drag your mouse over your photo to crop it (optional) and then view the final results above. If you are happy with the results, click "upload" below.
                 </div>
                 <div>
                     <a class="link" href="http://topcoder.com/home/help/?p=866">Photo Policy</a>
