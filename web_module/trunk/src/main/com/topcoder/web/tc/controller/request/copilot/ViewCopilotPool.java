@@ -405,9 +405,9 @@ public class ViewCopilotPool extends ShortHibernateProcessor {
     private Map<String, Map<Long, Integer>> getCopilotsStatistics() throws Exception {
         Request r = new Request();
         // command - copilot_statistics
-        r.setContentHandle("copilot_pool_members");
+        r.setContentHandle("copilot_pool_statistics");
 
-        ResultSetContainer statisticResults = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("copilot_pool_statistics");
+        ResultSetContainer statisticResults = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME).getData(r).get("copilot_pool_statistics");
 
         Iterator<ResultSetContainer.ResultSetRow> itr = statisticResults.iterator();
         
