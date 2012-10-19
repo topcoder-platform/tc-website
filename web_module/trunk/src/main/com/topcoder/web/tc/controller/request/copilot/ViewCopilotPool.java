@@ -265,12 +265,24 @@ public class ViewCopilotPool extends ShortHibernateProcessor {
             
             for (CopilotPoolMember cpm : copilots) {
 
-                cpm.setCurrentContests(currentContests.get(cpm.getCopilotProfile().getUserId()));
-                cpm.setCurrentProjects(currentProjects.get(cpm.getCopilotProfile().getUserId()));
-                cpm.setTotalProjects(totalProjects.get(cpm.getCopilotProfile().getUserId()));
-                cpm.setTotalContests(totalContests.get(cpm.getCopilotProfile().getUserId()));
-                cpm.setTotalRepostedContests(repostedContests.get(cpm.getCopilotProfile().getUserId()));
-                cpm.setTotalFailedContests(failedContests.get(cpm.getCopilotProfile().getUserId()));
+				if (currentContests.get(cpm.getCopilotProfile().getUserId()) != null)
+				{
+					cpm.setCurrentContests(currentContests.get(cpm.getCopilotProfile().getUserId()));
+					cpm.setCurrentProjects(currentProjects.get(cpm.getCopilotProfile().getUserId()));
+					cpm.setTotalProjects(totalProjects.get(cpm.getCopilotProfile().getUserId()));
+					cpm.setTotalContests(totalContests.get(cpm.getCopilotProfile().getUserId()));
+					cpm.setTotalRepostedContests(repostedContests.get(cpm.getCopilotProfile().getUserId()));
+					cpm.setTotalFailedContests(failedContests.get(cpm.getCopilotProfile().getUserId()));
+				}
+				else 
+				{
+					cpm.setCurrentContests(0);
+					cpm.setCurrentProjects(0);
+					cpm.setTotalProjects(0);
+					cpm.setTotalContests(0);
+					cpm.setTotalRepostedContests(0);
+					cpm.setTotalFailedContests(0);
+				}
             }
             
             //***************************************

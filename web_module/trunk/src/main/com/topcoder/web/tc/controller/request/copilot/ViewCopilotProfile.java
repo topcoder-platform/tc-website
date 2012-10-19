@@ -276,10 +276,10 @@ public class ViewCopilotProfile extends ShortHibernateProcessor {
 
         // set copilot status
         Request profileRequest = new Request();
-        profileRequest.setContentHandle("copilot_status");
+        profileRequest.setContentHandle("copilot_profile ");
         profileRequest.setProperty("uid", String.valueOf(dto.getCopilotProfile().getUserId()));
 
-        ResultSetContainer statusResults = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("copilot_status");
+        ResultSetContainer statusResults = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(profileRequest).get("copilot_status");
         itr = statusResults.iterator();
 
         if(itr.hasNext()) {
@@ -292,7 +292,7 @@ public class ViewCopilotProfile extends ShortHibernateProcessor {
         }
 
         // command - copilot contests
-        ResultSetContainer contestsResults = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("copilot_all_contests");
+        ResultSetContainer contestsResults = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(profileRequest).get("copilot_all_contests");
 
         itr = contestsResults.iterator();
 
