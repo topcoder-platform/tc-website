@@ -212,11 +212,11 @@
                                         <div class="clear-float"></div>
                                     </div>
 
-                                    <div class="feedback" style="position: relative">
+                                    <%--<div class="feedback" style="position: relative">
                                         <c:forEach items="${requestScope.feedback}" var="entry">
                                             <div style="position: relative;">
                                                 <div style="float: left; position: relative">
-                                                    <span class="title1 b">Feedback submitted on ${entry['submitDate']}</span>
+                                                    <span class="title1 b">Feedback submitted on </span>
                                                 </div>
                                                 <div style="float: right; position: relative">
                                                     <c:if test="${entry['feedbackAnswer'] == 'yes'}">
@@ -233,15 +233,57 @@
                                                ${entry['feedbackText']}
                                             </div>
                                         </c:forEach>
+                                    </div>--%>
+
+                                    <div class="bottomfeedback">
+                                        <table width="100%" cellspacing="0" cellpadding="0" class="table-details">
+                                            <thead>
+                                            <tr>
+                                                <th class="border-l border-r border-b feedback-title">
+                                                    What people say about this copilot
+
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <c:forEach items="${requestScope.feedback}" var="entry">
+                                                <tr>
+                                                    <td class="border-b">
+                                                        <table width="100%" cellspacing="0" cellpadding="0">
+                                                            <tbody><tr>
+                                                                <td class="lefticon">
+                                                                    <c:if test="${entry['feedbackAnswer'] == 'yes'}">
+                                                                        <img src="/i/feedbackgood.png">
+                                                                    </c:if>
+                                                                    <c:if test="${entry['feedbackAnswer'] == 'no'}">
+                                                                        <img src="/i/feedbackbad.png">
+                                                                    </c:if>
+                                                                </td>
+                                                                <td>
+                                                                    <c:if test="${entry['feedbackAnswer'] == 'yes'}">
+                                                                        <div class="goodfeedback-first">I would work with this copilot again</div>
+                                                                    </c:if>
+                                                                    <c:if test="${entry['feedbackAnswer'] == 'no'}">
+                                                                        <div class="badfeedback-first">I would not work with this copilot again</div>
+                                                                    </c:if>
+
+                                                                    <div class="feedback-middle">${entry['feedbackText']}</div>
+
+                                                                    <div class="feedback-bottom">Feedback submitted on ${entry['submitDate']}</div>
+                                                                </td>
+                                                            </tr>
+                                                            </tbody></table>
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
+                                            <tr><td style="height:50px;">&nbsp;</td></tr>
+                                            </tbody>
+                                        </table>
+
                                     </div>
+
                                     <div class="clear-float"></div>
-                                    <div class="column-chart"></div>
-                                    <div class="column-chart-legend">
-                                        <div class="planned-legend"><span class="icon"></span>Planned Contests</div>
-                                        <div class="real-legend"><span class="icon"></span>Actual Contests</div>
-                                        <div class="reposts-legend"><span class="icon"></span>Reposts</div>
-                                        <div class="failures-legend"><span class="icon"></span>Failures</div>
-                                    </div>
+
                                 </div>                            
                             
                             </c:when>
