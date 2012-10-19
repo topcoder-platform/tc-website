@@ -255,12 +255,11 @@ public class ViewCopilotProfile extends ShortHibernateProcessor {
     private void populateCopilotProfile(CopilotProfileDTO dto, String handle) throws Exception {
         
     	Request r = new Request();
-        // command - copilot_statistics
-        r.setContentHandle("copilot_profile");
+        // command - copilot_profile_statistics
+        r.setContentHandle("copilot_profile_statistics");
         r.setProperty("uid", String.valueOf(dto.getCopilotProfile().getUserId()));
 
-
-        ResultSetContainer statisticResults = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("copilot_profile_statistics");
+        ResultSetContainer statisticResults = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME).getData(r).get("copilot_profile_statistics");
 
         Iterator<ResultSetContainer.ResultSetRow> itr = statisticResults.iterator();
         
@@ -273,10 +272,23 @@ public class ViewCopilotProfile extends ShortHibernateProcessor {
         	dto.setTotalRepostedContests(row.getIntItem("reposted_contests_number"));
         	dto.setCurrentProjects(row.getIntItem("current_projects_number"));
         	dto.setCurrentContests(row.getIntItem("current_contests_number"));
-        	dto.getCopilotProfile().setSuspensionCount(row.getIntItem("suspension_count"));
-        	dto.getCopilotProfile().setReliability(row.getFloatItem("reliability"));
-        	dto.getCopilotProfile().getStatus().setId(row.getLongItem("status_id"));
-        	dto.getCopilotProfile().getStatus().setName(row.getStringItem("status_name"));
+        }
+
+        // set copilot status
+        Request profileRequest = new Request();
+        profileRequest.setContentHandle("copilot_status");
+        profileRequest.setProperty("uid", String.valueOf(dto.getCopilotProfile().getUserId()));
+
+        ResultSetContainer statusResults = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("copilot_status");
+        itr = statusResults.iterator();
+
+        if(itr.hasNext()) {
+            ResultSetContainer.ResultSetRow row = itr.next();
+
+            dto.getCopilotProfile().setSuspensionCount(row.getIntItem("suspension_count"));
+            dto.getCopilotProfile().setReliability(row.getFloatItem("reliability"));
+            dto.getCopilotProfile().getStatus().setId(row.getLongItem("status_id"));
+            dto.getCopilotProfile().getStatus().setName(row.getStringItem("status_name"));
         }
 
         // command - copilot contests
