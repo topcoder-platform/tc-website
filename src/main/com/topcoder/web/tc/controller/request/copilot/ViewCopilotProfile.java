@@ -276,7 +276,7 @@ public class ViewCopilotProfile extends ShortHibernateProcessor {
 
         // set copilot status
         Request profileRequest = new Request();
-        profileRequest.setContentHandle("copilot_profile ");
+        profileRequest.setContentHandle("copilot_profile");
         profileRequest.setProperty("uid", String.valueOf(dto.getCopilotProfile().getUserId()));
 
         ResultSetContainer statusResults = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(profileRequest).get("copilot_status");
