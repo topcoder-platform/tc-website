@@ -112,7 +112,11 @@
                                             <div class="userText">
                                                 "<%=StringUtils.htmlEncode(rscCoderData.getStringItem(0, "quote"))%>"  
                                             </div>
-                                        <%}%>
+                                        <%} else { %>
+					     <div class="userText">
+						Member of the world&#039;s largest global competitive community.
+                                             </div>
+					<%} %>
                                         <!--End starUl-->
                                         <div id="rightLink" class="rightLink">
                                             <% if (rscCoderData.getIntItem(0, "has_achievements")>0 || achievementsData.size() > 0) { %>
