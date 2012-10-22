@@ -21,6 +21,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import javax.ejb.EJBException;
 import javax.ejb.SessionContext;
@@ -3808,12 +3810,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 if (netAmount < 0) {
                     netAmount = 0;
                 }
+            } else {
+                return grossAmount;
             }
             
-            // Round to nearest penny
-            DecimalFormat df = new DecimalFormat("0.00");
-            String netAmountStr = df.format(netAmount);
-            double roundedNetAmount = new Double(netAmountStr).doubleValue();
+            // Round to lower pennie
+            BigDecimal bd = new BigDecimal(netAmount).setScale(2, RoundingMode.FLOOR);
+            double roundedNetAmount = bd.doubleValue();
 
             // Make sure we don't exceed the gross amount by rounding.
             return roundedNetAmount < grossAmount ? roundedNetAmount : grossAmount;
