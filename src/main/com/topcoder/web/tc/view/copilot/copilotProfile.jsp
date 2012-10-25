@@ -28,7 +28,7 @@
     <script type="text/javascript" src="/js/jquery-1.4.1.min.js"></script>
     <script type="text/javascript" src="/js/tools.tooltip.js"></script>
     <!-- Google visualization charts -->
-    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <!-- should be put after Google visualization API -->
     <c:if test="${hasContestData}">
         <script type="text/javascript" src="/js/copilot-profile.js"></script>
