@@ -49,10 +49,19 @@ import com.topcoder.shared.util.DBMS;
  *   <li>Updated {@link #afterPropertiesSet()} to add check if the {@link #userService} field was injected.</li>
  * </ol>
  * </p>
+ *
+ * <p>
+ * Version 1.2 (Release Assembly - TopCoder Security Groups Release 3) change notes:
+ * <ol>
+ *      <li>Modified method {@link #searchHistoricalData(GroupMemberSearchCriteria, int, int)} to change the data filter
+ *          logic
+ *      </li>
+ * </ol>
+ * </p>
  * 
  * @author backstretlili, TCSASSEMBLER
  * 
- * @version 1.1
+ * @version 1.2
  */
 public class HibernateGroupMemberService extends BaseGroupService implements GroupMemberService {
 
@@ -203,12 +212,17 @@ public class HibernateGroupMemberService extends BaseGroupService implements Gro
             if (isNonNullNonEmpty(criteria.getMemberHandle())) {
                 con.append(" and gm.userId in (:groupMemberUserIds) ");
             }            
-            if (criteria.getHadAccessFrom() != null) {
-                con.append(" and gm.activatedOn <= :hadAccessFrom");
+            if (criteria.getHadAccessFrom() != null && criteria.getHadAccessTill() != null) {
+                con.append(" and ((gm.activatedOn <= :hadAccessFrom and (gm.unassignedOn >= :hadAccessTill or gm.unassignedOn is null))");
+                con.append(" or (gm.activatedOn > :hadAccessFrom and gm.activatedOn < :hadAccessTill)");
+                con.append(" or (gm.unassignedOn < :hadAccessTill and gm.unassignedOn > :hadAccessFrom))");
+            } else if (criteria.getHadAccessFrom() == null && criteria.getHadAccessTill() != null) {
+                con.append(" and gm.activatedOn < :hadAccessTill");
+            } else if (criteria.getHadAccessFrom() != null && criteria.getHadAccessTill() == null) {
+                con.append(" and ((gm.unassignedOn != null and gm.unassignedOn > :hadAccessFrom) ");
+                con.append(" or gm.unassignedOn is null)");
             }
-            if (criteria.getHadAccessTill() != null) {
-                con.append(" and (gm.unassignedOn >= :hadAccessTill or gm.unassignedOn is null)");
-            }
+            
             // set page
             int row = 0, size = 0;
             if (page != 0) {
@@ -218,6 +232,7 @@ public class HibernateGroupMemberService extends BaseGroupService implements Gro
             Session session = sessionFactory.getCurrentSession();
             Query query = session.createQuery(" select distinct gm, gm.group.name " + con.toString() +
                 " order by gm.group.name asc");
+            
             setCriteria(projectIds, groupMemberUserIds, userId, criteria, query);
             query.setFirstResult(row);
             if (size > 0)query.setFetchSize(size).setMaxResults(size);

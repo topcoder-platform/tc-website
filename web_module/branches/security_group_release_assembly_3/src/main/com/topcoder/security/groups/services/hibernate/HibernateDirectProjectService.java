@@ -23,10 +23,17 @@ import com.topcoder.shared.util.DBMS;
  * <p>
  * Thread Safety:Implementations are expected to be effectively thread-safe
  * </p>
+ *
+ * <p>
+ * Version 1.1 (Release Assembly - TopCoder Security Groups Release 3) change notes:
+ * <ol>
+ *      <li>Modified method {@link #get(long)} to change the datasource of the query</li>
+ * </ol>
+ * </p>
  * 
- * @author backstretlili
+ * @author backstretlili, TCSASSEMBLER
  * 
- * @version 1.0
+ * @version 1.1
  * 
  */
 public class HibernateDirectProjectService extends BaseGroupService implements DirectProjectService {
@@ -64,7 +71,7 @@ public class HibernateDirectProjectService extends BaseGroupService implements D
         ProjectDTO result = null;
         try {
             if (dataAccessCorp == null)
-                dataAccessCorp = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
+                dataAccessCorp = new DataAccess(DBMS.CORP_OLTP_DATASOURCE_NAME);
             Request request = new Request();
             ResultSetContainer resultContainer = null;
             request.setContentHandle("project_name");

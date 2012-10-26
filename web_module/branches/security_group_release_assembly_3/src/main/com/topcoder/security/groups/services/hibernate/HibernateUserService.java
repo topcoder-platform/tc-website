@@ -33,8 +33,15 @@ import com.topcoder.shared.util.DBMS;
  * </ol>
  * </p>
  *
+ * <p>
+ * Version 1.2 (Release Assembly - TopCoder Security Groups Release 3) change notes:
+ * <ol>
+ *      <li>Modified method {@link #get(long)} to change query property name</li>
+ * </ol>
+ * </p>
+ *
  * @author backstretlili, TCSASSEMBLER
- * @version 1.1
+ * @version 1.2
  */
 public class HibernateUserService extends BaseGroupService implements UserService {
 
@@ -70,7 +77,7 @@ public class HibernateUserService extends BaseGroupService implements UserServic
             Request request = new Request();
             ResultSetContainer resultContainer = null;
             request.setContentHandle("user_handle_email_by_user_id");
-            request.setProperty("uid", String.valueOf(id));
+            request.setProperty("user_id", String.valueOf(id));
             resultContainer = dataAccess.getData(request).get("user_handle_email_by_user_id");
             if (resultContainer != null) {
                 if (resultContainer.size() > 0) {
@@ -169,7 +176,7 @@ public class HibernateUserService extends BaseGroupService implements UserServic
                 dataAccess = new DataAccess(DBMS.JTS_OLTP_DATASOURCE_NAME);
             Request request = new Request();
             ResultSetContainer resultContainer = null;
-            request.setContentHandle("query_users");
+            request.setContentHandle("search_users_by_handle_email");
             request.setProperty("ha", handle == null ? "" : handle);
             request.setProperty("email", email == null ? "" : email);
             resultContainer = dataAccess.getData(request).get("search_users_by_handle_email");

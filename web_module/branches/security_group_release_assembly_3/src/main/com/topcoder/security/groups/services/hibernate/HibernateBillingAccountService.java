@@ -29,10 +29,17 @@ import com.topcoder.shared.util.DBMS;
  * <p>
  * Thread Safety:Implementations are expected to be effectively thread-safe
  * </p>
+ *
+ * <p>
+ * Version 1.1 (Release Assembly - TopCoder Security Groups Release 3) change notes:
+ * <ol>
+ *      <li>Modified method {@link #getBillingAccountsForClient(long)} to use the new query</li>
+ * </ol>
+ * </p>
  * 
- * @author backstretlili
+ * @author backstretlili, TCSASSEMBLER
  * 
- * @version 1.0
+ * @version 1.1
  * 
  */
 public class HibernateBillingAccountService extends BaseGroupService implements BillingAccountService {
@@ -107,11 +114,11 @@ public class HibernateBillingAccountService extends BaseGroupService implements 
         List<BillingAccount> result = new ArrayList<BillingAccount>();
         try {
             if (dataAccess == null)
-                dataAccess = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
+                dataAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
             Request request = new Request();
             ResultSetContainer resultContainer = null;
-            request.setContentHandle("admin_client_billing_accounts");
-            resultContainer = dataAccess.getData(request).get("admin_client_billing_accounts");
+            request.setContentHandle("admin_client_billing_accounts_v2");
+            resultContainer = dataAccess.getData(request).get("admin_client_billing_accounts_v2");
             if (resultContainer != null) {
                 for (ResultSetContainer.ResultSetRow row : resultContainer) {
                     if (clientId == row.getLongItem("client_id")) {
