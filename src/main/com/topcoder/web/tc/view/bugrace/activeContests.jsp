@@ -66,7 +66,7 @@
 </table>
 
 <div align="center">
-    <a href="http://community.topcoder.com/tco12/overview-sponsor/two-sigma/"><img src="/i/tournament/tco12/Two_Sigma_Sponsor_Banner_510x114.jpg" alt="Two Sigma - TCO12 Sponsor" /></a><br /><br />
+    <a href="http://community.topcoder.com/tco12/overview-sponsor/pocket-gems/"><img src="/i/tournament/tco12/Pocket_Gems_Sponsor_Banner_510x114.jpg" alt="Pocket Gems - TCO12 Sponsor" /></a><br /><br />
 </div>
 
 <p>Click on an issue to view its details. If you would like to work on an issue, first view the details and then click "Vote". Voting will be equivalent to registering to work on the issue. Read the <a href="/wiki/display/tc/Bug+Race+Competition+Overview" title="Bug Race Competition Overview">full instructions</a> on how to compete.</p>
