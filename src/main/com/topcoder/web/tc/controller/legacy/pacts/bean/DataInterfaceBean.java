@@ -907,7 +907,7 @@ public class DataInterfaceBean implements PactsConstants {
                     key.equals(BILLING_ACCOUNT) ||
                     key.equals(HANDLE))
                 inputOk = validateInput(value, STRING);
-            else if (key.equals(IS_TAXED))
+            else if (key.equals(IS_TAXED) || key.equals(IS_INVOICED))
                 inputOk = validateInput(value, BOOLEAN);
             else if (key.equals(PAYMENT_ID)) {
                 String[] s = value.split(",");

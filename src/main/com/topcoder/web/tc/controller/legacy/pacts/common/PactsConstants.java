@@ -281,6 +281,7 @@ public interface PactsConstants extends Constants {
     public static final String COCKPIT_PROJECT = "cockpit_project";
     public static final String BILLING_ACCOUNT = "billing_account";
     public static final String IS_TAXED = "is_taxed";
+    public static final String IS_INVOICED = "is_invoiced";
 
     // Payment searches
     public static final String EARLIEST_DUE_DATE = "earliest_due_date";
