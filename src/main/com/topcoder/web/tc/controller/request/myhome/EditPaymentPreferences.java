@@ -5,7 +5,7 @@ package com.topcoder.web.tc.controller.request.myhome;
 
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.tc.controller.PayoneerService;
-import com.topcoder.web.tc.controller.PayPalService;
+import com.topcoder.web.tc.controller.PayoneerServiceException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.TCRequest;
@@ -16,7 +16,6 @@ import com.topcoder.shared.dataAccess.resultSet.*;
 
 import static com.topcoder.web.tc.Constants.MODULE_KEY;
 import static com.topcoder.web.tc.Constants.MINIMUM_PAYMENT_ACCRUAL_AMOUNT;
-import static com.topcoder.web.ejb.pacts.Constants.NOT_SET_PAYMENT_METHOD_ID;
 import static com.topcoder.web.ejb.pacts.Constants.PAYPAL_PAYMENT_METHOD_ID;
 import static com.topcoder.web.ejb.pacts.Constants.PAYONEER_PAYMENT_METHOD_ID;
 
@@ -83,6 +82,7 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
         }
 
         loadPaymentMethods();
+        loadPayoneerStatus();
 
         // Analyze the type of request.
         if ("POST".equalsIgnoreCase(getRequest().getMethod())) {
@@ -129,23 +129,39 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
             ResultSetContainer.ResultSetRow rsr = rsc.getRow(i);
             long methodID = TCData.getTCLong(rsr, "payment_method_id", 0, true);
             String methodDesc = TCData.getTCString(rsr, "payment_method_desc", "method", true);
+            boolean active = TCData.getTCBoolean(rsr, "active", true, true);
 
-            if (methodID == PAYONEER_PAYMENT_METHOD_ID) {
+            if (active) {
                 PaymentMethod paymentMethod = new PaymentMethod();
                 paymentMethod.setId(methodID);
                 paymentMethod.setName(methodDesc);
                 paymentMethods.add(paymentMethod);
-            } else {
-                // Don't show the "Not Set" option.
-                if (methodID != NOT_SET_PAYMENT_METHOD_ID) {
-                    PaymentMethod paymentMethod = new PaymentMethod();
-                    paymentMethod.setId(methodID);
-                    paymentMethod.setName(methodDesc);
-                    paymentMethods.add(paymentMethod);
-                }
             }
         }
         getRequest().setAttribute("paymentMethods", paymentMethods);
+    }
+
+    /**
+     * <p>Reads the payee status and registration link from the Payoneer service.</p>
+     */
+    private void loadPayoneerStatus() {
+        boolean payoneerActivated = false;
+        try {
+            PayoneerService.PayeeStatus payeeStatus = PayoneerService.getPayeeStatus(getUser().getId());
+            // Only show the registration link if the member hasn't activated with Payoneer yet
+            if (payeeStatus == PayoneerService.PayeeStatus.ACTIVATED) {
+                payoneerActivated = true;
+            } else {
+                String payoneerRegLink = PayoneerService.getRegistrationLink(getUser().getId());
+                getRequest().setAttribute("payoneerRegLink", payoneerRegLink);
+            }
+        } catch (PayoneerServiceException pse) {
+            // If an exception happened assume user is not activated
+            payoneerActivated = false;
+            log.error("Payoneer service error.", pse);
+        }
+
+        getRequest().setAttribute("payoneerActivated", payoneerActivated);
     }
 
     /**
@@ -154,7 +170,7 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
      *
      * <p>Parses the new payment accrual amount value from respective request parameter and verifies that such a value
      * is provided and is numeric value greater than {@link com.topcoder.web.tc.Constants#MINIMUM_PAYMENT_ACCRUAL_AMOUNT}.
-     * Also checks that the specified payment method is not the "Not Set" one.
+     * Also checks that the specified payment method is active.
      * If any of those validation rules is violated then appropriate error message is bound to incoming request.
      * Otherwise the new payment preferences for current user are saved to persistent data store.</p>
      *
@@ -209,7 +225,7 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
                 if (newAccrualAmount < MINIMUM_PAYMENT_ACCRUAL_AMOUNT) {
                     addError(ACCRUAL_AMOUNT_PARAM,
                              "Payment accrual amount must be greater or equal to $" + MINIMUM_PAYMENT_ACCRUAL_AMOUNT);
-                } else if (paymentMethodId <= 0 || paymentMethodId == NOT_SET_PAYMENT_METHOD_ID) {
+                } else if (paymentMethodId <= 0 || isActive(paymentMethodId) == false) {
                     addError(PAYMENT_METHOD_PARAM, "Payment method is incorrect");
                 } else {
                     dataBean.saveUserAccrualThreshold(getUser().getId(), newAccrualAmount);
@@ -218,6 +234,22 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
                 }
             }
         }
+    }
+
+    /**
+     * <p>Returns true if the given payment method is active and false otherwise.</p>
+     *
+     * @param paymentMethodId payment method ID to check
+     * @return true if the given payment method is active and false otherwise.
+     */
+    private boolean isActive(long paymentMethodId) {
+        List<PaymentMethod> paymentMethods = (List<PaymentMethod>) getRequest().getAttribute("paymentMethods");
+        for (PaymentMethod paymentMethod : paymentMethods) {
+            if (paymentMethod.getId() == paymentMethodId) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private boolean checkEmailAddress(String emailAddress) {
@@ -241,6 +273,7 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
         setDefault(ACCRUAL_AMOUNT_PARAM, paymentAccrualAmount);
         setDefault(PAYMENT_METHOD_PARAM, paymentMethodId);
         setDefault(PAYPAL_ACCOUNT_PARAM, payPalAccount);
+
         setIsNextPageInContext(true);
         setNextPage("/my_home/paymentPreferences.jsp");
     }

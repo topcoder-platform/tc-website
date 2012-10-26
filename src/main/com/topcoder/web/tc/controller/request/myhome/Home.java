@@ -3,8 +3,6 @@
  */
 package com.topcoder.web.tc.controller.request.myhome;
 
-import com.topcoder.web.tc.controller.PayoneerService;
-import com.topcoder.web.tc.controller.PayoneerServiceException;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
@@ -71,23 +69,6 @@ public class Home extends ShortHibernateProcessor {
             
         }
         getRequest().setAttribute("userImage", image);
-
-        try {
-            PayoneerService.PayeeStatus payeeStatus = PayoneerService.getPayeeStatus(getUser().getId());
-            // Only show the registration link if the member hasn't activated with Payoneer yet
-            if (payeeStatus == PayoneerService.PayeeStatus.NOT_REGISTERED ||
-                payeeStatus == PayoneerService.PayeeStatus.REGISTERED) {
-                getRequest().setAttribute("payoneerActivated", false);
-
-                getRequest().setAttribute("payoneerRegLink", PayoneerService.getRegistrationLink(getUser().getId()));
-            } else {
-                getRequest().setAttribute("payoneerActivated", true);
-            }
-        } catch (PayoneerServiceException pse) {
-            // If an exception happened assume user is not registered but don't show the registration link
-            getRequest().setAttribute("payoneerActivated", false);
-            log.error("Payoneer service error.", pse);
-        }
 
         setNextPage("/my_home/index.jsp");
         setIsNextPageInContext(true);

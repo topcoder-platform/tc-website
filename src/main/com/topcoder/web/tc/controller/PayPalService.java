@@ -53,6 +53,8 @@ public class PayPalService {
      * @throws PayPalServiceException if any error occurs.
      */
     public static String createPayment(String emailAddress, double amount) throws PayPalServiceException {
+        log.info("Creating payment in PayPal for account " + emailAddress + " with amount $" + amount);    
+
         if (emailAddress == null || emailAddress.trim().length() == 0) {
             throw new IllegalArgumentException("Invalid emailAddress parameter.");
         }
@@ -75,9 +77,9 @@ public class PayPalService {
                     "&returnUrl=http://www.topcoder.com" +
                     "&cancelUrl=http://www.topcoder.com";
 
-            log.debug("PayPal request: " + requestBody);
+            log.info("PayPal request: " + requestBody);
             String response = getNVResponse(payPalConfig.baseAdaptivePaymentsUrl + "Pay", requestBody);
-            log.debug("PayPal response: " + response);
+            log.info("PayPal response: " + response);
 
             Map<String, String> nvp = stringToNVP(response);
 
@@ -110,6 +112,8 @@ public class PayPalService {
      * @throws PayPalServiceException if any error occurs.
      */
     public static void executePayment(String payKey) throws PayPalServiceException {
+        log.info("Executing payment in PayPal with paykey " + payKey);
+        
         if (payKey == null || payKey.length() == 0) {
             throw new IllegalArgumentException("Invalid payKey parameter.");
         }
@@ -120,9 +124,9 @@ public class PayPalService {
             String requestBody="requestEnvelope.errorLanguage=en_US" +
                     "&payKey=" +  URLEncoder.encode(payKey, CHARSET_NAME);
 
-            log.debug("PayPal request: " + requestBody);
+            log.info("PayPal request: " + requestBody);
             String response = getNVResponse(payPalConfig.baseAdaptivePaymentsUrl + "ExecutePayment", requestBody);
-            log.debug("PayPal response: " + response);
+            log.info("PayPal response: " + response);
 
             Map<String, String> nvp = stringToNVP(response);
 
@@ -153,14 +157,16 @@ public class PayPalService {
         try { 
             PayPalConfig payPalConfig = getPayPalConfig();
             
+            String encodedPassword = URLEncoder.encode(payPalConfig.password, CHARSET_NAME);
             String requestBody="METHOD=GetBalance" +
                     "&VERSION=94.0" +
-                    "&PWD=" + URLEncoder.encode(payPalConfig.password, CHARSET_NAME) +
+                    "&PWD=" + encodedPassword +
                     "&USER=" + URLEncoder.encode(payPalConfig.username, CHARSET_NAME) +
                     "&SIGNATURE=" + URLEncoder.encode(payPalConfig.signature, CHARSET_NAME) +
                     "&RETURNALLCURRENCIES=0";
 
-            log.info("PayPal request: " + requestBody);
+            // Log the request string but hide the password.
+            log.info("PayPal request: " + requestBody.replaceAll(encodedPassword, "XXXXXXXX"));
             String response = getNVResponse(payPalConfig.nvpUrl, requestBody);
             log.info("PayPal response: " + response);
 

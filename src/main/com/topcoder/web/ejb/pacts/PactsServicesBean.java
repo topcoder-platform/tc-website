@@ -146,6 +146,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     private static final Logger log = Logger.getLogger(PactsServicesBean.class);
     private static final double FIRST_INSTALLMENT_PERCENT = 0.75;
+    private static final int SECOND_INSTALLMENT_HOLD_PERIOD = 30;
 
     public static final Long COLLEGE_MAJOR_DESC = 14l;
     public static final Long DEGREE_PROGRAM = 16l;
@@ -2639,7 +2640,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public Map getPaymentMethods() throws SQLException {
         StringBuffer sb = new StringBuffer(300);
-        sb.append("SELECT payment_method_id, payment_method_desc FROM payment_method_lu ORDER BY payment_method_list_order, 2");
+        sb.append("SELECT payment_method_id, payment_method_desc, active FROM payment_method_lu ORDER BY payment_method_list_order, 2");
         ResultSetContainer rsc = runSelectQuery(sb.toString());
         HashMap hm = new HashMap();
         hm.put(PAYMENT_METHOD_LIST, rsc);
@@ -5409,7 +5410,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 }
 
                 if (submissionType.startsWith("Contest Submission")) {
-                    BasePayment p = null;
+                    BasePayment payment = null, payment2 = null;
                     if (projectCategoryId == 37) { // If Marathon Match
                         if (rsc.getItem(i, "mm_round_id").getResultData() == null) {
                             log.info("MM round ID is not set. Ignoring the payment.");
@@ -5417,16 +5418,34 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                         }
 
                         long mmRoundId = rsc.getLongItem(i, "mm_round_id");
-                        p = new MarathonMatchNonTaxablePayment(coderId, amount, mmRoundId, placed);
-                        p.setClient(client);
+                        payment = new MarathonMatchNonTaxablePayment(coderId, amount, mmRoundId, placed);
+                        payment.setClient(client);
                     } else {
-                        p = new ContestPayment(coderId, amount, client, projectId, placed);
+                        payment = new ContestPayment(coderId, amount, client, projectId, placed);
+
+                        // If this is the winner's payment for a SW contest, split the payment in two installments
                         if (placed == 1 && !isStudioProject(projectId)) {
-                            p.setGrossAmount(amount * FIRST_INSTALLMENT_PERCENT);
+                            payment.setGrossAmount(amount * FIRST_INSTALLMENT_PERCENT);
+
+                            // Create the 2nd installment
+                            payment2 = new ContestPayment(coderId, amount, client, projectId, placed);
+                            payment2.setGrossAmount(amount - (amount * FIRST_INSTALLMENT_PERCENT));
+                            payment2.setInstallmentNumber(2);
+
+                            // Calculate the due date for the 2nd installment.
+                            // It should be max(general due date assigned by the system, SECOND_INSTALLMENT_HOLD_PERIOD days from now).
+                            Calendar cal = Calendar.getInstance(); 
+                            cal.add(Calendar.DATE, SECOND_INSTALLMENT_HOLD_PERIOD);
+
+                            payment2 = fillPaymentData(payment2);
+                            payment2.setDueDate(max(payment2.getDueDate(), cal.getTime()));
                         }
                     }
 
-                    payments.add(p);
+                    payments.add(payment);
+                    if (payment2 != null) {
+                        payments.add(payment2);
+                    }
                 } else if (submissionType.startsWith("Milestone Submission")) {
                     payments.add(new ContestMilestonePayment(coderId, amount, client, projectId, placed));
                 }
@@ -5517,6 +5536,22 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
 
         return payments;
+    }
+
+    /** 
+     * Returns the maximum of two dates. A null date is considered to be less than any non-null date. 
+     */
+    private static Date max(Date d1, Date d2) {
+        if (d1 == null && d2 == null) {
+            return null;
+        }
+        if (d1 == null) {
+            return d2;
+        }
+        if (d2 == null) {
+            return d1;
+        }
+        return (d1.after(d2)) ? d1 : d2;
     }
 
     /**
@@ -6282,20 +6317,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException is a problem occurs accessing db.
      */
     public BasePayment fillPaymentData(BasePayment payment) throws SQLException {
-        Connection c = null;
-        try {
-            c = DBMS.getConnection();
-
             payment.getProcessor().fillData(payment);
-
             return payment;
-        } catch (SQLException e) {
-            printException(e);
-            throw e;
-        } finally {
-            close(c);
-        }
-
     }
 
     /**

@@ -13,8 +13,6 @@ import java.util.*;
 
 import java.rmi.RemoteException;
 
-import static com.topcoder.web.ejb.pacts.Constants.NOT_SET_PAYMENT_METHOD_ID;
-
 /**
  *
  * @author  VolodymyrK
@@ -81,14 +79,14 @@ public class EditUserPaymentMethod extends PactsBaseProcessor implements PactsCo
             ResultSetContainer.ResultSetRow rsr = rsc.getRow(i);
             long methodID = TCData.getTCLong(rsr, "payment_method_id", 0, true);
             String methodDesc = TCData.getTCString(rsr, "payment_method_desc", "method", true);
+            boolean active = TCData.getTCBoolean(rsr, "active", true, true);
 
-            // Don't show the "Not Set" option.
-            if (methodID != NOT_SET_PAYMENT_METHOD_ID) {
+            if (active) {
                 PaymentMethod paymentMethod = new PaymentMethod();
                 paymentMethod.setId(methodID);
                 paymentMethod.setName(methodDesc);
                 paymentMethods.add(paymentMethod);
-           }
+            }
         }
         getRequest().setAttribute("paymentMethods", paymentMethods);
     }
@@ -99,7 +97,7 @@ public class EditUserPaymentMethod extends PactsBaseProcessor implements PactsCo
      *
      * <p>Parses the new payment method ID value from respective request parameter and verifies that such a value
      * is provided and is numeric value.
-     * Also checks that the specified payment method is not the "Not Set" one.
+     * Also checks that the specified payment method is active.
      * If any of those validation rules is violated then appropriate error message is bound to incoming request.
      * Otherwise the new payment preferences for current user are saved to persistent data store.</p>
      *
@@ -115,7 +113,7 @@ public class EditUserPaymentMethod extends PactsBaseProcessor implements PactsCo
         } else {
             try {
                 long paymentMethodId = Long.parseLong(paymentMethodValue);
-                if (paymentMethodId <= 0 || paymentMethodId == NOT_SET_PAYMENT_METHOD_ID) {
+                if (paymentMethodId <= 0 || isActive(paymentMethodId) == false) {
                     addError(PAYMENT_METHOD_PARAM, "Payment method is incorrect");
                 } else {
                     DataInterfaceBean dataBean = new DataInterfaceBean();
@@ -125,6 +123,22 @@ public class EditUserPaymentMethod extends PactsBaseProcessor implements PactsCo
                 addError(PAYMENT_METHOD_PARAM, "Payment method ID must be an integer number");
             }
         }
+    }
+
+    /**
+     * <p>Returns true if the given payment method is active and false otherwise.</p>
+     *
+     * @param paymentMethodId payment method ID to check
+     * @return true if the given payment method is active and false otherwise.
+     */
+    private boolean isActive(long paymentMethodId) {
+        List<PaymentMethod> paymentMethods = (List<PaymentMethod>) getRequest().getAttribute("paymentMethods");
+        for (PaymentMethod paymentMethod : paymentMethods) {
+            if (paymentMethod.getId() == paymentMethodId) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

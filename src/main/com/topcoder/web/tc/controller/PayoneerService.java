@@ -5,14 +5,17 @@ package com.topcoder.web.tc.controller;
 
 import com.topcoder.util.config.ConfigManager;
 import com.topcoder.util.config.ConfigManagerException;
+import com.topcoder.shared.util.logging.Logger;
 
 import javax.xml.parsers.DocumentBuilderFactory;
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
+import org.w3c.dom.*;
+import javax.xml.transform.*;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
+import java.io.*;
 import java.lang.String;
 import java.lang.StringBuilder;
-import java.io.DataOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.DecimalFormat;
@@ -32,6 +35,8 @@ public class PayoneerService {
     
     private static PayoneerConfig config = null;
 
+    private static Logger log = Logger.getLogger(PayoneerService.class);
+
     /**
      * <p>Constructs new <code>PayoneerService</code> instance. This implementation does nothing.</p>
      */
@@ -42,13 +47,17 @@ public class PayoneerService {
      * <p>Represents all possible statuses a member can have with respect to registering with Payoneer.</p>
      */
     public static enum PayeeStatus {
-        ACTIVE, REGISTERED, NOT_REGISTERED
+        ACTIVATED, REGISTERED, NOT_REGISTERED
     }
 
     /**
      * <p>Returns status of the specified member in the Payoneer system.</p>
+     * @param payeeId Payee ID.
+     * @return ACTIVATED for activated status, REGISTERED if the payee has registered but hasn't activated yet and NOT_REGISTERED otherwise.
+     * @throws PayoneerServiceException if any error occurs.
      */
     public static PayeeStatus getPayeeStatus(long payeeId) throws PayoneerServiceException {
+        log.info("Getting payee status for user ID " + payeeId);
         try {
             PayoneerConfig payoneerConfig = getPayoneerConfig();
             Map<String,String> parameters = new HashMap<String,String>();
@@ -73,7 +82,7 @@ public class PayoneerService {
             if (payOutMethod.getLength() > 0) {
                 String value = payOutMethod.item(0).getFirstChild().getNodeValue();
                 if (value != null && value.trim().equalsIgnoreCase("Direct deposit")) {
-                    return PayeeStatus.ACTIVE;
+                    return PayeeStatus.ACTIVATED;
                 }
             }
 
@@ -83,7 +92,7 @@ public class PayoneerService {
             if (cardStatus.getLength() > 0) {
                 String value = cardStatus.item(0).getFirstChild().getNodeValue();
                 if (value != null && value.trim().equalsIgnoreCase("Active")) {
-                    return PayeeStatus.ACTIVE;
+                    return PayeeStatus.ACTIVATED;
                 }
             }
 
@@ -93,7 +102,7 @@ public class PayoneerService {
             if (payeeStatus.getLength() > 0) {
                 String value = payeeStatus.item(0).getFirstChild().getNodeValue();
                 if (value != null && value.trim().equalsIgnoreCase("Active")) {
-                    return PayeeStatus.ACTIVE;
+                    return PayeeStatus.ACTIVATED;
                 }
             }
 
@@ -114,8 +123,12 @@ public class PayoneerService {
 
     /**
      * <p>Returns the link for the specified member to register with Payoneer.</p>
+     * @param payeeId Payee ID.
+     * @return The registration URL.
+     * @throws PayoneerServiceException if any error occurs.
      */
     public static String getRegistrationLink(long payeeId) throws PayoneerServiceException {
+        log.info("Getting registration link for user ID " + payeeId);
         try {
             PayoneerConfig payoneerConfig = getPayoneerConfig();
             Map<String,String> parameters = new HashMap<String,String>();
@@ -164,6 +177,7 @@ public class PayoneerService {
      * @throws PayoneerServiceException if any error occurs.
      */
     public static long createPayment(long internalPaymentId, long payeeId, double amount) throws PayoneerServiceException {
+        log.info("Creating payment in Payoneer for user ID " + payeeId + " with amount $" + amount);
         try {
             DecimalFormat df = new DecimalFormat("0.00", new DecimalFormatSymbols(Locale.US));
             PayoneerConfig payoneerConfig = getPayoneerConfig();
@@ -216,6 +230,8 @@ public class PayoneerService {
      * @throws PayoneerServiceException if any error occurs.
      */
     public static double getBalanceAmount() throws PayoneerServiceException {
+        log.info("Getting balance amount on the Payoneer account");
+        
         try {
             PayoneerConfig payoneerConfig = getPayoneerConfig();
             Map<String,String> parameters = new HashMap<String,String>();
@@ -286,6 +302,9 @@ public class PayoneerService {
                 builder.append(key+"="+parameters.get(key));
             }
             String urlParameters = builder.toString();
+            
+            // Log the request string but hide the password (which is the 'p2' parameter value).
+            log.info("Payoneer request: " + urlParameters.replaceAll(parameters.get("p2"), "XXXXXXXX"));
 
             //Create connection
             connection = (HttpURLConnection) (new URL(baseApiUrl)).openConnection();
@@ -293,7 +312,7 @@ public class PayoneerService {
             connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             connection.setRequestProperty("Content-Length", "" + Integer.toString(urlParameters.getBytes().length));
             connection.setRequestProperty("Content-Language", "en-US");
-            connection.setUseCaches (false);
+            connection.setUseCaches(false);
             connection.setDoInput(true);
             connection.setDoOutput(true);
 
@@ -306,6 +325,7 @@ public class PayoneerService {
             //Get Response
             Document response = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(connection.getInputStream());
             response.getDocumentElement().normalize();
+            log.info("Payoneer response: " + xmlToString(response));
             return response;
         } finally {
           if(connection != null) {
@@ -313,6 +333,22 @@ public class PayoneerService {
           }
         }
 
+    }
+
+    /**
+     * <p>This is a private helper method that converts XML document to a String.</p>
+     */
+    public static String xmlToString(Node node) {
+        try {
+            Source source = new DOMSource(node);
+            StringWriter stringWriter = new StringWriter();
+            Result result = new StreamResult(stringWriter);
+            TransformerFactory.newInstance().newTransformer().transform(source, result);
+            return stringWriter.getBuffer().toString();
+        } catch (Throwable e) {
+            log.error("Unable to convert XML Document to String", e);
+        }
+        return null;
     }
 
     private static class PayoneerConfig {
