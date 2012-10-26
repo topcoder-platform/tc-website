@@ -147,6 +147,17 @@
           </tr>
 
           <tr>
+              <td>Invoiced:</td>
+              <td>
+                  <select name="<%=PactsConstants.IS_INVOICED%>" size=3>
+                      <option value="" selected>Any</option>
+                      <option value="True">Yes</option>
+                      <option value="False">No</option>
+                   </select>
+              </td>
+          </tr>
+
+          <tr>
             <td>Group By:</td>
             <td>
                 <select name="<%=PactsConstants.GROUPING_CODE%>" multiple size=4>

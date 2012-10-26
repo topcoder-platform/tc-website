@@ -3259,6 +3259,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     whereClauses.append(" AND pd.net_amount < pd.gross_amount");
                 } else if (key.equals(IS_TAXED) && !makeBoolean(value)) {
                     whereClauses.append(" AND pd.net_amount = pd.gross_amount");
+                } else if (key.equals(IS_INVOICED) && makeBoolean(value)) {
+                    whereClauses.append(" AND exists (select 1 from invoice_record ir where ir.payment_id = p.payment_id)  ");
+                } else if (key.equals(IS_INVOICED) && !makeBoolean(value)) {
+                    whereClauses.append(" AND not exists (select 1 from invoice_record ir where ir.payment_id = p.payment_id)  ");
                 } else if (key.equals(STATUS_CODE)) {
                     whereClauses.append(" AND pd.payment_status_id IN (" + value + ")");
                 } else if (key.equals(TYPE_CODE)) {
