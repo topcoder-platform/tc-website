@@ -64,9 +64,9 @@
                 </jsp:include>
 
                 <p align="center">
-                    Set your payment threshold amount to any amount above $${MINIMUM_PAYMENT_ACCRUAL_AMOUNT}
-                    so that once your winnings reach this limit your money will be paid out to you in the next scheduled
-                    payment. You can also set the preferred payment method here.
+                    Set your accrual limit to any amount above $${MINIMUM_PAYMENT_ACCRUAL_AMOUNT}
+                    if you want your payments to accrue to some limit before becoming Owed.
+                    You can also set the preferred payment method and register with the payment providers here.
                 </p>
 
                 <form name="f" action="${sessionInfo.servletPath}" method="post">
@@ -119,6 +119,51 @@
                     </table>
                 </form>
 
+                    <br/>
+                    <table cellpadding="0" cellspacing="0" class="stat" width="100%">
+                        <tbody>
+                        <tr>
+                            <td class="title">Payment Providers</td>
+                        </tr>
+
+                        <tr><td class="header">Payoneer</td></tr>
+                        <tr class="light">
+                            <td class="value" width="100%" style="border: none; vertical-align: middle;" >
+                                <c:choose>
+                                    <c:when test="${payoneerActivated}">
+                                        You are already registered with Payoneer
+                                    </c:when>
+                                    <c:when test="${(payoneerActivated==false) && (not empty payoneerRegLink)}">
+                                        Register with <a href="${payoneerRegLink}">Payoneer</a> for a prepaid MasterCard or bank transfer service
+                                    </c:when>
+                                    <c:otherwise>
+                                        Couldn't get the status of your Payoneer account. Please contact <a href="mailto:support@topcoder.com">support@topcoder.com</a> for assistance.
+                                    </c:otherwise>
+                                </c:choose>
+                                <ul>
+                                <li><a href="https://payouts.payoneer.com/partners/Default/fees.aspx?pid=100018950&bhjs=1&bhqs=1">Click for more information</a> about the prepaid MasterCard and bank transfer service
+                                </ul>
+                            </td>
+                        </tr>
+
+                        <tr><td class="header">PayPal</td></tr>
+                        <tr class="light">
+                            <td class="value" width="100%" style="border: none; vertical-align: middle;" >
+                                Register with <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_registration-run">PayPal</a>
+                            </td>
+                        </tr>
+
+                        <tr><td class="header">Western Union</td></tr>
+                        <tr class="light">
+                            <td class="value" width="100%" style="border: none; vertical-align: middle;" >
+                                Register with <a href="https://payee.travelexglobalpay.com/PayeeManager/BeneficiaryEnrollment/SpecifyPayeeID.aspx?id=9E63C90B520F830246DA2FD728CDAEBF">Western Union</a>
+                                <br /><span class="grayedOut">(Use your TopCoder handle as the Payee ID during registartion)</span>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+
                 <div align="center">
                     <table cellpadding="0" cellspacing="0" style="margin: 20px;">
                         <tbody>
@@ -132,6 +177,10 @@
                         </tr>
                         </tbody>
                     </table>
+                </div>
+
+                <div align="center">Have a question about
+                    <A href="/wiki/display/tc/Payment+Methods">Payment Methods</A>?
                 </div>
 
             </div>
