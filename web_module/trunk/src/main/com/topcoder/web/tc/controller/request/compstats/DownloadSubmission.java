@@ -16,7 +16,6 @@ import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.ejb.user.UserTermsOfUseLocal;
 import com.topcoder.web.tc.Constants;
@@ -37,28 +36,28 @@ public class DownloadSubmission extends Base {
             String projId = getRequest().getParameter(Constants.PROJECT_ID);
             String coderId = getRequest().getParameter(Constants.CODER_ID);
 
+            // get the filename
+            Request r = new Request();
+            r.setContentHandle("get_submission_url");
+
+            r.setProperty(Constants.PROJECT_ID, projId);
+            r.setProperty(Constants.CODER_ID, coderId);
+            r.setProperty(Constants.SUBMISSION_TYPE, "1"); // just initiall submissions
+
+            DataAccessInt dai = getDataAccess(true);
+            Map result = dai.getData(r);
+            ResultSetContainer rsc = (ResultSetContainer) result.get("get_submission_url");
+            if (rsc.getRowCount() != 1) {
+                throw new TCWebException("Not exactly one sumbission url found.  Instead, found " + rsc.getRowCount());
+            }
+
+            if (!((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin()) {
+                    if (!canDownload(projId, coderId, rsc.getIntItem(0, "status_id"))) {
+                        throw new TCWebException("You don't have permission to download the submission.");                        
+                    }
+            }
+
             if (hasAgreedTerms(getUser().getId())) {
-                // get the filename
-                Request r = new Request();
-                r.setContentHandle("get_submission_url");
-
-                r.setProperty(Constants.PROJECT_ID, projId);
-                r.setProperty(Constants.CODER_ID, coderId);
-                r.setProperty(Constants.SUBMISSION_TYPE, "1"); // just initiall submissions
-
-                DataAccessInt dai = getDataAccess(true);
-                Map result = dai.getData(r);
-                ResultSetContainer rsc = (ResultSetContainer) result.get("get_submission_url");
-                if (rsc.getRowCount() != 1) {
-                    throw new TCWebException("Not exactly one sumbission url found.  Instead, found " + rsc.getRowCount());
-                }
-
-                if (!((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin()) {
-                        if (!canDownload(projId, coderId, rsc.getIntItem(0, "status_id"))) {
-                            throw new TCWebException("You don't have permission to download the submission.");                        
-                        }
-                }
-                
                 String url = rsc.getStringItem(0, "submission_url");
                 String fname = createFileName(url, rsc.getStringItem(0, "handle"),
                         rsc.getStringItem(0, "component_name"), rsc.getStringItem(0, "version_text"));
@@ -112,8 +111,7 @@ public class DownloadSubmission extends Base {
 
         ResultSetContainer projectInfo = (ResultSetContainer) result.get("project_info");
         
-        if (projectInfo.getIntItem(0, "category_id") == WebConstants.JAVA_CUSTOM_CATALOG ||
-                projectInfo.getIntItem(0, "category_id") == WebConstants.NET_CUSTOM_CATALOG) {
+        if (projectInfo.getIntItem(0, "viewable_category_ind") != 1) {
             return false;
         }
 
