@@ -111,12 +111,12 @@ public class HibernateDirectProjectService extends BaseGroupService implements D
         List<ProjectDTO> result = new ArrayList<ProjectDTO>();
         try {
             if (dataAccessTcs == null)
-                dataAccessTcs = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
+                dataAccessTcs = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
             Request request = new Request();
             ResultSetContainer resultContainer = null;
-            request.setContentHandle("admin_client_billing_accounts");
+            request.setContentHandle("admin_client_billing_accounts_v2");
             // request.setProperty("client_id",String.valueOf(id));
-            resultContainer = dataAccessTcs.getData(request).get("admin_client_billing_accounts");
+            resultContainer = dataAccessTcs.getData(request).get("admin_client_billing_accounts_v2");
             if (resultContainer != null) {
                 for (ResultSetContainer.ResultSetRow row : resultContainer) {
                     if (id == row.getLongItem("client_id")) {
