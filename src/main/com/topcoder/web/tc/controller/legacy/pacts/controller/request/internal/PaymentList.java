@@ -79,8 +79,6 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
     public static final int PAID_DATE_COL = 18;
     public static final int METHOD_COL = 19;
 
-    private static final double WIRE_FEE = 10.0;
-    
     protected void businessProcessing() throws TCWebException {
         try {
             boolean invert = "desc".equals(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
@@ -197,7 +195,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         // Group all payments by member.
         for (PaymentHeader payment : allPayments) {
             // Only Wire and ACH payments get into the Travelex XML
-            if (!payment.getMethod().equals("Wire") && !payment.getMethod().equals("ACH")) {
+            if (!payment.getMethod().equals("Western Union")) {
                 continue;
             }
 
@@ -234,13 +232,8 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 UserProfileHeader user = userPayments.get(0).getUser();
 
                 double totalUserAmount = 0.0;
-                boolean applyWireFee = false;
                 for(PaymentHeader payment : userPayments) {
                     totalUserAmount += payment.getRecentNetAmount();
-                    applyWireFee = applyWireFee || payment.getMethod().equals("Wire");
-                }
-                if (applyWireFee) {
-                    totalUserAmount -= WIRE_FEE;
                 }
 
                 Element paymentElement = doc.createElement("Payment");
@@ -273,18 +266,6 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                     remittanceElement.appendChild(remittanceRecordElement);
                 }
 
-                if (applyWireFee) {
-                    Element remittanceRecordElement = doc.createElement("RemittanceRecord");
-
-                    remittanceRecordElement.setAttribute("PayerDocumentDate", new SimpleDateFormat("MM/dd/yyyy").format(date.getTime()));
-                    remittanceRecordElement.setAttribute("Notes", "Adjustment for Wire Fee");
-                    remittanceRecordElement.setAttribute("AmountPaid", "0.0");
-                    remittanceRecordElement.setAttribute("AdjustmentAmount", df.format(-WIRE_FEE));
-                    remittanceRecordElement.setAttribute("AdjustmentReason", "Processing Fee");
-
-                    remittanceElement.appendChild(remittanceRecordElement);
-                }
-                
                 paymentsElement.appendChild(paymentElement);
             }
 
