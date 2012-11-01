@@ -1,4 +1,7 @@
 /*
+ * Copyright (C) 2007-2012 TopCoder Inc., All Rights Reserved.
+ */
+/*
 * AccruingPaymentStatus
 *
 * Created Apr 19, 2007
@@ -18,7 +21,17 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
 /**
  * VERY IMPORTANT: remember to update serialVersionUID if needed
- * @author Pablo Wolfus (pulky)
+ *
+ *
+ * <p>
+ * Version 1.1 (Member Payments Automation Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added {@link #pay(BasePayment)} method.</li>
+ *     <li>Added {@link #enterIntoPaymentSystem(BasePayment)} method.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author Pablo Wolfus (pulky), isv
  * @version $Id$
  */
 public class AccruingPaymentStatus extends BasePaymentStatus {
@@ -193,5 +206,36 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
         newPaymentStatus.setDesc(this.desc);
         newPaymentStatus.setActive(this.active);
         return newPaymentStatus;
+    }
+
+    /**
+     * <p>Processes the specified payment. Sets status to <code>Paid</code> and activates the payment.</p>
+     *
+     * @throws InvalidPaymentEventException if an unexpected error occurs.
+     * @throws StateTransitionFailureException if an unexpected error occurs.
+     * @since 1.1
+     */
+    @Override
+    public void pay(BasePayment payment) throws InvalidPaymentEventException, StateTransitionFailureException {
+        log.debug("moving to paid!");
+        payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.PAID_PAYMENT_STATUS));
+        payment.getCurrentStatus().activate(payment);
+    }
+
+    /**
+     * <p>Processes the specified payment. Sets status to <code>Entered Into Payment System</code> and activates the 
+     * payment.</p>
+     *
+     * @throws InvalidPaymentEventException if an unexpected error occurs.
+     * @throws StateTransitionFailureException if an unexpected error occurs.
+     * @since 1.1
+     */
+    @Override
+    public void enterIntoPaymentSystem(BasePayment payment)
+        throws InvalidPaymentEventException, StateTransitionFailureException {
+        log.debug("moving to enterIntoPaymentSystem!");
+        payment.setCurrentStatus(
+            PaymentStatusFactory.createStatus(PaymentStatus.ENTERED_INTO_PAYMENT_SYSTEM_PAYMENT_STATUS));
+        payment.getCurrentStatus().activate(payment);
     }
 }

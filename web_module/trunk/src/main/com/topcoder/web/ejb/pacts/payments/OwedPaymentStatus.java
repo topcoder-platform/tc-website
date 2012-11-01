@@ -1,4 +1,7 @@
 /*
+ * Copyright (C) 2007-2012 TopCoder Inc., All Rights Reserved.
+ */
+/*
 * OwedPaymentStatus
 *
 * Created Apr 19, 2007
@@ -14,8 +17,14 @@ import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason.AvailableStatusRe
  * This class represents a Owed status for payments.
  *
  * VERY IMPORTANT: remember to update serialVersionUID if needed
+ * <p>
+ * Version 1.1 (Member Payments Automation Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added {@link #pay(BasePayment)} method.</li>
+ *   </ol>
+ * </p>
  *
- * @author Pablo Wolfus (pulky)
+ * @author Pablo Wolfus (pulky), isv
  * @version $Id$
  */
 public class OwedPaymentStatus extends BasePaymentStatus {
@@ -123,5 +132,19 @@ public class OwedPaymentStatus extends BasePaymentStatus {
         newPaymentStatus.setDesc(this.desc);
         newPaymentStatus.setActive(this.active);
         return newPaymentStatus;
+    }
+
+    /**
+     * <p>Processes the specified payment. Sets status to <code>Paid</code> and activates the payment.</p>
+     *
+     * @throws InvalidPaymentEventException if an unexpected error occurs.
+     * @throws StateTransitionFailureException if an unexpected error occurs.
+     * @since 1.1
+     */
+    @Override
+    public void pay(BasePayment payment) throws InvalidPaymentEventException, StateTransitionFailureException {
+        log.debug("moving to paid!");
+        payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.PAID_PAYMENT_STATUS));
+        payment.getCurrentStatus().activate(payment);
     }
 }
