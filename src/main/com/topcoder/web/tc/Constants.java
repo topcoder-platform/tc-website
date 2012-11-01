@@ -107,8 +107,20 @@ import java.util.MissingResourceException;
  *   </ol>
  * </p>
  *
- * @author pulky, isv, VolodymyrK, TCSASSEMBLER
- * @version 1.9.2
+ * <p>
+ * Version 1.9.3 (Member Payments Automation Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added {@link #PAYME_CONFIRMATION_MESSAGE_TEMPLATE_WESTERN_UNION} constant.</li>
+ *     <li>Added {@link #PAYME_CONFIRMATION_MESSAGE_TEMPLATE_PAYONEER} constant.</li>
+ *     <li>Added {@link #PAYME_CONFIRMATION_MESSAGE_TEMPLATE_PAYPAL} constant.</li>
+ *     <li>Added {@link #INSUFFICIENT_BALANCE_EMAIL_FROM_ADDRESS} constant.</li>
+ *     <li>Added {@link #INSUFFICIENT_BALANCE_EMAIL_SUBJECT} constant.</li>
+ *     <li>Added {@link #INSUFFICIENT_BALANCE_EMAIL_TO_ADDRESS} constant.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author pulky, isv, VolodymyrK
+ * @version 1.9.3
  */
 public class Constants implements WebConstants {
 
@@ -1005,6 +1017,54 @@ public class Constants implements WebConstants {
     public static String ARTICLES_ARCHIVE_CATEGORY;
         
     public static final String CONFIGURATION_FILE = "com/topcoder/util/config/ConfigManager.properties";
+
+    /**
+     * <p>A <code>String</code> providing the template for confirmation message when user with PayPal preferred wants to
+     * process payments.</p>
+     *
+     * @since 1.9.3
+     */
+    public static String PAYME_CONFIRMATION_MESSAGE_TEMPLATE_PAYPAL;
+
+    /**
+     * <p>A <code>String</code> providing the template for confirmation message when user with Payoneer preferred wants 
+     * to process payments.</p>
+     *
+     * @since 1.9.3
+     */
+    public static String PAYME_CONFIRMATION_MESSAGE_TEMPLATE_PAYONEER;
+
+    /**
+     * <p>A <code>String</code> providing the template for confirmation message when user with Western Union preferred 
+     * wants to process payments.</p>
+     *
+     * @since 1.9.3
+     */
+    public static String PAYME_CONFIRMATION_MESSAGE_TEMPLATE_WESTERN_UNION;
+
+    /**
+     * <p>A <code>String</code> providing the subject for email message to be sent to intended recipient in case of
+     * insufficient balance encountered while processing user payments.</p>
+     *
+     * @since 1.9.3
+     */
+    public static String INSUFFICIENT_BALANCE_EMAIL_SUBJECT;
+
+    /**
+     * <p>A <code>String</code> providing the FROM address for email message to be sent to intended recipient in case of
+     * insufficient balance encountered while processing user payments.</p>
+     *
+     * @since 1.9.3
+     */
+    public static String INSUFFICIENT_BALANCE_EMAIL_FROM_ADDRESS;
+
+    /**
+     * <p>A <code>String</code> providing the TO address for email message to be sent to intended recipient in case of
+     * insufficient balance encountered while processing user payments.</p>
+     *
+     * @since 1.9.3
+     */
+    public static String INSUFFICIENT_BALANCE_EMAIL_TO_ADDRESS;
 
     /**
      * <p>A <code>String</code> providing the tab index to show for contest detail page.</p>

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.ejb.pacts;
 
@@ -77,8 +77,15 @@ package com.topcoder.web.ejb.pacts;
  *   </ol>
  * </p> 
  *
- * @author TCSDEVELOPER, pulky, VolodymyrK
- * @version 1.9
+ * <p>
+ * Version 1.10 (Member Payments Automation Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added {@link WESTERN_UNION_PAYMENT_METHOD_ID} constant.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author pulky, VolodymyrK, isv
+ * @version 1.10
  */
 public interface Constants {
 
@@ -263,6 +270,13 @@ public interface Constants {
     public static final long NOT_SET_PAYMENT_METHOD_ID = 1;
     public static final long PAYPAL_PAYMENT_METHOD_ID = 2;
     public static final long PAYONEER_PAYMENT_METHOD_ID = 5;
+
+    /**
+     * <p>A <code>long</code> providing the ID of <code>Western Union</code> payment method.</p>
+     * 
+     * @since 1.10
+     */
+    public static final long WESTERN_UNION_PAYMENT_METHOD_ID = 6;
 
     public static final int ASSEMBLY_PROJECT_CATEGORY_LU = 14;
     public static final int ARCHITECTURE_PROJECT_CATEGORY_LU = 7;
