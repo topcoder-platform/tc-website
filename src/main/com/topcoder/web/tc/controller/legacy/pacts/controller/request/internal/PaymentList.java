@@ -4,10 +4,14 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.io.PrintWriter;
 import java.io.IOException;
+import java.io.ByteArrayOutputStream;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.ServletOutputStream;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.web.common.StringUtils;
@@ -33,6 +37,15 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.OutputKeys;
  
+import com.topcoder.excel.Row;
+import com.topcoder.excel.Sheet;
+import com.topcoder.excel.Workbook;
+import com.topcoder.excel.impl.ExcelSheet;
+import com.topcoder.excel.impl.ExcelWorkbook;
+import com.topcoder.excel.output.Biff8WorkbookSaver;
+import com.topcoder.excel.output.WorkbookSaver;
+import com.topcoder.excel.output.WorkbookSavingException;
+ 
 import org.w3c.dom.Attr;
 import org.w3c.dom.Text;
 import org.w3c.dom.Document;
@@ -48,8 +61,8 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
     public static final String PAYMENTS = "payments";
     public static final String TRAVELEX_XML_FORMAT = "travxml";
     public static final String TRAVELEX_XML_LINK = "travxml_link";
-    public static final String CSV_FORMAT = "csv";
-    public static final String CSV_LINK = "csv_link";
+    public static final String XLS_FORMAT = "xls";
+    public static final String XLS_LINK = "xls_link";
     public static final String PAYONEER_XML_FORMAT = "payoneer_xml";
     public static final String PAYONEER_XML_LINK = "payoneer_xml_link";
 
@@ -102,12 +115,10 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 PaymentHeaderList phl = new PaymentHeaderList(paymentMap);
                 PaymentHeader[] results = phl.getHeaderList();
 
-                List<Long> groupByFields = getGroupByFields();
+                List<Integer> groupByFields = getGroupByFields();
                 if (groupByFields.size() > 0) {
                     sortResult(Arrays.asList(results), sortCol, invert);
                     processGroupingReport(results, groupByFields);
-                    setNextPage(INTERNAL_GROUPED_PAYMENT_LIST_JSP);
-                    setIsNextPageInContext(true);
                     return;
                 }
 
@@ -160,15 +171,15 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
 
                 if ("true".equals(getRequest().getParameter(TRAVELEX_XML_FORMAT))) {
                     produceTravelexXML();
-                } else if ("true".equals(getRequest().getParameter(CSV_FORMAT))) {
-                    produceCSV();
+                } else if ("true".equals(getRequest().getParameter(XLS_FORMAT))) {
+                    produceXLS();
                 } else if ("true".equals(getRequest().getParameter(PAYONEER_XML_FORMAT))) {
                     producePayoneerXML();
                 } else {                   
-                    String csv_link = requestQuery + "&" + CSV_FORMAT + "=true";
+                    String xls_link = requestQuery + "&" + XLS_FORMAT + "=true";
                     String travxml_link = requestQuery + "&" + TRAVELEX_XML_FORMAT + "=true";
                     String payoneer_xml_link = requestQuery + "&" + PAYONEER_XML_FORMAT + "=true";
-                    getRequest().setAttribute(CSV_LINK, csv_link);
+                    getRequest().setAttribute(XLS_LINK, xls_link);
                     getRequest().setAttribute(TRAVELEX_XML_LINK, travxml_link);
                     getRequest().setAttribute(PAYONEER_XML_LINK, payoneer_xml_link);
 
@@ -288,52 +299,99 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         }
     }
 
-    private void produceCSV() throws IOException {
-        getResponse().addHeader("content-disposition", "attachment; filename=\"payment_list.csv\"");
-        getResponse().setContentType("application/csv");
-        PrintWriter writer = getResponse().getWriter();
-
-        writer.print("Payment ID,Name,User,Description,Gross,Tax,Net,Type,Method,Status,Client,Project,Billing Acct,Reference ID,Contest Category,Invoice Number,Created,Modified");
-        writer.print("\n");
+    private void produceXLS() throws WorkbookSavingException, IOException {
+        Workbook workbook = new ExcelWorkbook();
+        Sheet sheet = new ExcelSheet("Payments List", (ExcelWorkbook) workbook);
         
-        List<PaymentHeader> payments = (List<PaymentHeader>) getRequest().getAttribute(PaymentList.PAYMENTS);
+        // the date format used for displaying the dates
+        DateFormat dateFormatter = new SimpleDateFormat("MM/dd/yyy");
 
+        // set up the sheet header first
+        Row row = sheet.getRow(1);
+        int colIndex = 1;
+        setStringValue(row, colIndex++, "Payment ID");
+        setStringValue(row, colIndex++, "Name");
+        setStringValue(row, colIndex++, "User");
+        setStringValue(row, colIndex++, "Description");
+        setStringValue(row, colIndex++, "Gross");
+        setStringValue(row, colIndex++, "Tax");
+        setStringValue(row, colIndex++, "Net");
+        setStringValue(row, colIndex++, "Type");
+        setStringValue(row, colIndex++, "Method");
+        setStringValue(row, colIndex++, "Status");
+        setStringValue(row, colIndex++, "Client");
+        setStringValue(row, colIndex++, "Project");
+        setStringValue(row, colIndex++, "Billing Acct");
+        setStringValue(row, colIndex++, "Reference ID");
+        setStringValue(row, colIndex++, "Contest Category");
+        setStringValue(row, colIndex++, "Invoice Number");
+        setStringValue(row, colIndex++, "Created");
+        setStringValue(row, colIndex++, "Modified");
+        setStringValue(row, colIndex++, "Paid");
+
+        // insert sheet data from 2nd row
+        int rowIndex = 2;
+        List<PaymentHeader> payments = (List<PaymentHeader>) getRequest().getAttribute(PAYMENTS);
         for (PaymentHeader payment : payments) {
             String description = payment.getDescription();
 
             String status = payment.getCurrentStatus().getDesc();
             for (PaymentStatusReason reason : payment.getCurrentStatus().getReasons()) {
-                status += "\n- " + reason.getDesc();
+                status += "\n - " + reason.getDesc();
             }
-
-            StringBuilder row = new StringBuilder();
-            addCSVValue(row, payment.getId());
-            addCSVValue(row, payment.getUser().getFullName());
-            addCSVValue(row, payment.getUser().getHandle());
-            addCSVValue(row, description);
-            addCSVValue(row, payment.getRecentGrossAmount());
-            addCSVValue(row, payment.getRecentGrossAmount()-payment.getRecentNetAmount());
-            addCSVValue(row, payment.getRecentNetAmount());
-            addCSVValue(row, payment.getType());
-            addCSVValue(row, payment.getMethod());
-            addCSVValue(row, status);
-            addCSVValue(row, payment.getClient());
-            addCSVValue(row, payment.getCockpitProjectName());
-            addCSVValue(row, payment.getBillingAccountName());
-            addCSVValue(row, payment.getReferenceId());
-            addCSVValue(row, payment.getContestCategoryName());
-            addCSVValue(row, payment.getInvoiceNumber());
-            addCSVValue(row, payment.getCreateDate());
-            addCSVValue(row, payment.getModifyDate());
-
-            row.deleteCharAt(row.length()-1);
-            writer.print(row.toString()+"\n");
+        
+            row = sheet.getRow(rowIndex++);
+            
+            colIndex = 1;
+            setNumberValue(row, colIndex++, payment.getId());
+            setStringValue(row, colIndex++, payment.getUser().getFullName());
+            setStringValue(row, colIndex++, payment.getUser().getHandle());
+            setStringValue(row, colIndex++, description);
+            setNumberValue(row, colIndex++, payment.getRecentGrossAmount());
+            setNumberValue(row, colIndex++, payment.getRecentGrossAmount()-payment.getRecentNetAmount());
+            setNumberValue(row, colIndex++, payment.getRecentNetAmount());
+            setStringValue(row, colIndex++, payment.getType());
+            setStringValue(row, colIndex++, payment.getMethod());
+            setStringValue(row, colIndex++, status);
+            setStringValue(row, colIndex++, payment.getClient());
+            setStringValue(row, colIndex++, payment.getCockpitProjectName());
+            setStringValue(row, colIndex++, payment.getBillingAccountName());
+            setNumberValue(row, colIndex++, payment.getReferenceId());
+            setStringValue(row, colIndex++, payment.getContestCategoryName());
+            setStringValue(row, colIndex++, payment.getInvoiceNumber());            
+            setStringValue(row, colIndex++, payment.getCreateDate());
+            setStringValue(row, colIndex++, payment.getModifyDate());
+            setStringValue(row, colIndex++, payment.getPaidDate());
         }
+                
+        workbook.addSheet(sheet);
+
+        // Create a new WorkBookSaver
+        WorkbookSaver saver = new Biff8WorkbookSaver();
+        ByteArrayOutputStream saveTo = new ByteArrayOutputStream();
+        saver.save(workbook, saveTo);
+
+        // Write the output
+        getResponse().addHeader("content-disposition", "attachment; filename=\"payment_list.xls\"");
+        getResponse().setContentType("application/vnd.ms-excel");
+
+        ServletOutputStream output = getResponse().getOutputStream();
+        saveTo.writeTo(getResponse().getOutputStream());
 
         getResponse().setStatus(HttpServletResponse.SC_OK);
-        writer.flush();
+        output.flush();    
     }
-
+    
+    private void setNumberValue(Row row, int colIndex, double value) {
+        row.getCell(colIndex).setNumberValue(value);
+    }
+    
+    private void setStringValue(Row row, int colIndex, String value) {
+        if (value != null && value.trim().length() > 0) {
+            row.getCell(colIndex).setStringValue(value);
+        }
+    }
+    
     public void producePayoneerXML() throws TCWebException, IOException {
         getResponse().addHeader("content-disposition", "attachment; filename=\"payments.xml\"");
         getResponse().setContentType("text/xml");
@@ -440,12 +498,12 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
      * @param groupByFields List of the fields the payments are grouped by.
      * @return Index of the group in the payments list or -1 if no group found.
      */
-    private int findReferencePayment(List<PaymentHeader> payments, PaymentHeader tagetPayment, List<Long> groupByFields) {
+    private int findReferencePayment(List<PaymentHeader> payments, PaymentHeader tagetPayment, List<Integer> groupByFields) {
         for (int i=0;i<payments.size();i++) {
             PaymentHeader payment = payments.get(i);
             
             boolean match = true;
-            for (Long groupByField : groupByFields) {
+            for (Integer groupByField : groupByFields) {
                 if (groupByField == USER_COL && !payment.getUser().getHandle().equals(tagetPayment.getUser().getHandle())) {
                     match = false;
                 }
@@ -479,14 +537,14 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
      * @param groupByFields List of the fields the payments are grouped by.
      * @return URL link for the group breakdown report.
      */
-    private String getBreakdownLink(PaymentHeader payment, List<Long> groupByFields) {
+    private String getBreakdownLink(PaymentHeader payment, List<Integer> groupByFields) {
         String requestQuery = INTERNAL_SERVLET_URL + "?" + getRequest().getQueryString();
         
         // Remove the grouping parameters from the request string.
         requestQuery = requestQuery.replaceAll(GROUPING_CODE + "=[^&]*&", "").replaceAll(GROUPING_CODE + "=[^&]*$", "");
 
         // For each grouping field replace the existing constraints in the request string with the one corresponding to the group.
-        for (Long groupingField : groupByFields) {
+        for (Integer groupingField : groupByFields) {
             if (groupingField == USER_COL) {
                 requestQuery = requestQuery.replaceAll(HANDLE + "=[^&]*&", "").replaceAll(HANDLE + "=[^&]*$", "");
                 requestQuery = (requestQuery.endsWith("&") ? requestQuery : requestQuery + "&") + HANDLE + "=" + payment.getUser().getHandle();
@@ -527,7 +585,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
      * @param payments Arrays of payments to be grouped.
      * @param groupByFields List of the fields the payments will be grouped by.
      */
-    private void processGroupingReport(PaymentHeader[] payments, List<Long> groupByFields) {
+    private void processGroupingReport(PaymentHeader[] payments, List<Integer> groupByFields) throws WorkbookSavingException, IOException {
         // This list will contain one payment from each group, this payment will be referred to
         // as the "reference payment" for all other payments in the same group.
         List<PaymentHeader> referencePayments = new ArrayList<PaymentHeader>();
@@ -553,25 +611,34 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
             }
         }
 
-        getRequest().setAttribute(REFERENCE_PAYMENTS, referencePayments);
-        getRequest().setAttribute(BREAKDOWN_LINKS, breakdownLinks);
-        getRequest().setAttribute(GROUPED_NET_AMOUNTS, netAmounts);
-        getRequest().setAttribute(GROUPED_GROSS_AMOUNTS, grossAmounts);
-        getRequest().setAttribute(GROUP_BY_FIELDS, groupByFields);
+        if ("true".equals(getRequest().getParameter(XLS_FORMAT))) {
+            produceGroupingXLS(groupByFields, referencePayments, netAmounts, grossAmounts);
+        } else {           
+            String requestQuery = INTERNAL_SERVLET_URL + "?" + getRequest().getQueryString();        
+            String xls_link = requestQuery + "&" + XLS_FORMAT + "=true";
+            getRequest().setAttribute(XLS_LINK, xls_link);
+            getRequest().setAttribute(REFERENCE_PAYMENTS, referencePayments);
+            getRequest().setAttribute(BREAKDOWN_LINKS, breakdownLinks);
+            getRequest().setAttribute(GROUPED_NET_AMOUNTS, netAmounts);
+            getRequest().setAttribute(GROUPED_GROSS_AMOUNTS, grossAmounts);
+            getRequest().setAttribute(GROUP_BY_FIELDS, groupByFields);
+            setNextPage(INTERNAL_GROUPED_PAYMENT_LIST_JSP);
+            setIsNextPageInContext(true);
+         }
     }
 
     /**
      * Returns list of payment fields to group by.
      * @return List of the fields the payments will be grouped by.
      */
-    private List<Long> getGroupByFields() {
+    private List<Integer> getGroupByFields() {
         String[] values = getRequest().getParameterValues(GROUPING_CODE);
         
-        Set<Long> groupByFields = new HashSet<Long>();
+        Set<Integer> groupByFields = new HashSet<Integer>();
         if (values != null) {
             for (String value : values) {
                 if (StringUtils.isNumber(value)) {
-                    Long colID = Long.valueOf(value);
+                    Integer colID = Integer.valueOf(value);
                     if (colID == USER_COL || colID == TYPE_COL || colID == STATUS_COL ||
                         colID == METHOD_COL || colID == PAID_DATE_COL || colID == CREATE_DATE_COL) {
                         groupByFields.add(colID);
@@ -580,22 +647,96 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
             }
         }
         
-        List<Long> ret = new ArrayList<Long>(groupByFields);
+        List<Integer> ret = new ArrayList<Integer>(groupByFields);
         Collections.sort(ret);
         return ret;
     }
 
-    void addCSVValue(StringBuilder row, Object value) {
-        if (value != null) {
-            String item = value.toString();
-            if (item.contains(",") || item.contains("\n") || item.contains("\"")) {
-                row.append("\"" + item.replaceAll("\"","\"\"") + "\"");
-            } else {
-                row.append(item);
+    private void produceGroupingXLS(List<Integer> groupByFields, List<PaymentHeader> referencePayments,
+        List<Double> netAmounts, List<Double> grossAmounts) throws WorkbookSavingException, IOException {
+        Workbook workbook = new ExcelWorkbook();
+        Sheet sheet = new ExcelSheet("Grouped Payments List", (ExcelWorkbook) workbook);
+        
+        // the date format used for displaying the dates
+        DateFormat dateFormatter = new SimpleDateFormat("MM/dd/yyy");
+
+        // set up the sheet header first
+        int colIndex = 1;
+        Row row = sheet.getRow(1);
+        for(Integer groupByField : groupByFields) {
+            switch (groupByField) {
+                case USER_COL:
+                    setStringValue(row, colIndex++, "Handle");
+                    break;
+                case TYPE_COL:
+                    setStringValue(row, colIndex++, "Type");
+                    break;
+                case STATUS_COL:
+                    setStringValue(row, colIndex++, "Status");
+                    break;
+                case METHOD_COL:
+                    setStringValue(row, colIndex++, "Method");
+                    break;
+                case PAID_DATE_COL:
+                    setStringValue(row, colIndex++, "Paid Date");
+                    break;
+                case CREATE_DATE_COL:
+                    setStringValue(row, colIndex++, "Creation Date");
+                    break;
             }
         }
+        setStringValue(row, colIndex++, "Gross Total");
+        setStringValue(row, colIndex++, "Net Total");
 
-        row.append(",");
+        // insert sheet data from 2nd row
+        int rowIndex = 2;
+        for (int i=0; i<referencePayments.size(); i++) {
+            PaymentHeader payment = referencePayments.get(i);
+            row = sheet.getRow(rowIndex++);
+            
+            colIndex = 1;
+            for(Integer groupByField : groupByFields) {
+                switch (groupByField) {
+                    case USER_COL:
+                        setStringValue(row, colIndex++, payment.getUser().getHandle());
+                        break;
+                    case TYPE_COL:
+                        setStringValue(row, colIndex++, payment.getType());
+                        break;
+                    case STATUS_COL:
+                        setStringValue(row, colIndex++, payment.getCurrentStatus().getDesc());
+                        break;
+                    case METHOD_COL:
+                        setStringValue(row, colIndex++, payment.getMethod());
+                        break;
+                    case PAID_DATE_COL:
+                        setStringValue(row, colIndex++, payment.getPaidDate());
+                        break;
+                    case CREATE_DATE_COL:
+                        setStringValue(row, colIndex++, payment.getCreateDate());
+                        break;
+                }
+            }
+        setNumberValue(row, colIndex++, grossAmounts.get(i));
+        setNumberValue(row, colIndex++, netAmounts.get(i));
+        }
+                
+        workbook.addSheet(sheet);
+
+        // Create a new WorkBookSaver
+        WorkbookSaver saver = new Biff8WorkbookSaver();
+        ByteArrayOutputStream saveTo = new ByteArrayOutputStream();
+        saver.save(workbook, saveTo);
+
+        // Write the output
+        getResponse().addHeader("content-disposition", "attachment; filename=\"grouped_payment_list.xls\"");
+        getResponse().setContentType("application/vnd.ms-excel");
+
+        ServletOutputStream output = getResponse().getOutputStream();
+        saveTo.writeTo(getResponse().getOutputStream());
+
+        getResponse().setStatus(HttpServletResponse.SC_OK);
+        output.flush();    
     }
 
     private Map getQuery(TCRequest request) {

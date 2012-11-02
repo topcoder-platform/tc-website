@@ -25,7 +25,7 @@
 
 <%--<c:set var="statusList" value="<%= request.getAttribute(PactsConstants.STATUS_CODE_LIST) %>" />--%>
 <c:set var="paymentList" value="<%= request.getAttribute(PaymentList.PAYMENTS) %>" />
-<c:set var="csvLink" value="<%= request.getAttribute(PaymentList.CSV_LINK) %>" />
+<c:set var="xlsLink" value="<%= request.getAttribute(PaymentList.XLS_LINK) %>" />
 <c:set var="travxmlLink" value="<%= request.getAttribute(PaymentList.TRAVELEX_XML_LINK) %>" />
 <c:set var="payoneerXMLLink" value="<%= request.getAttribute(PaymentList.PAYONEER_XML_LINK) %>" />
 
@@ -180,7 +180,7 @@ ${fn:length(paymentList)} records. <br />
 
     <input type=hidden name="query" value="${query}">
 
-    <a href="${csvLink}">Download as CSV (Excel)</a> - <a href="${travxmlLink}">Download as Travelex XML</a> - <a href="${payoneerXMLLink}">Download as Payoneer XML</a><br/>
+    <a href="${xlsLink}">Download in Excel</a> - <a href="${travxmlLink}">Download as Travelex XML</a> - <a href="${payoneerXMLLink}">Download as Payoneer XML</a><br/>
 
 <a href="Javascript:checkAll(true)">check all</a> -
  <a href="Javascript:checkAll(false)">uncheck all</a> <br>
@@ -208,7 +208,7 @@ ${fn:length(paymentList)} records. <br />
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.INVOICE_NUMBER_COL%>" includeParams="true"/>" >Invoice #</a></td>
         <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.CREATE_DATE_COL%>" includeParams="true"/>" >Created</a></td>
         <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.MODIFY_DATE_COL%>" includeParams="true"/>" >Modified</a></td>
-        <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.METHOD_COL%>" includeParams="true"/>" >Paid</a></td>
+        <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.PAID_DATE_COL%>" includeParams="true"/>" >Paid</a></td>
     </tr>
     <% boolean even = true;%>
     <c:forEach var="payment" items="${paymentList}" varStatus="index">

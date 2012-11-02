@@ -29,6 +29,8 @@
 <c:set var="paidDateColumn" value="<%=PaymentList.PAID_DATE_COL%>" />
 <c:set var="createDateColumn" value="<%=PaymentList.CREATE_DATE_COL%>" />
 
+<c:set var="xlsLink" value="<%= request.getAttribute(PaymentList.XLS_LINK) %>" />
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -42,8 +44,10 @@
 <table id="marginTable" border="0" cellpadding="0" cellspacing="10"  class="stat" width="100%">
 <tr><td>
 <h1>PACTS</h1>
-<h2>Grouped Payment List</h2>
+<h2>Grouped Payment List</h2><br/>
 ${fn:length(netAmounts)} records <br />
+
+<a href="${xlsLink}">Download in Excel</a> <br/><br/>
 
 <table id="datatable" border="1" cellpadding="0" cellspacing="0"  class="stat" width="100%">
     <tr>
