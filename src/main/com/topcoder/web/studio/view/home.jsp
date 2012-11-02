@@ -51,6 +51,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="studio_tags" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -108,7 +109,7 @@
                             <div id="compete_post_buttons">
                                 <a href="http://topcoder.com/home/studio/new-member-guide"
                                    class="compete"></a>
-                                <a href="${sessionInfo.servletPath}?module=Static&amp;d1=support&amp;d2=getStarted"
+                                <a href="${fn:escapeXml(sessionInfo.servletPath)}?module=Static&amp;d1=support&amp;d2=getStarted"
                                    class="post_project"></a>
                             </div>
                             <div id="homePageBanner">
@@ -162,7 +163,7 @@
                                                         <%} else {%>&nbsp;<%}%>
                                                     </td>
                                                     <td class="first">
-                                                        <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${resultRow.map['contest_id']}">
+                                                        <a href="${fn:escapeXml(sessionInfo.servletPath)}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${resultRow.map['contest_id']}">
                                                              <rsc:item name="name" row="<%=resultRow%>"/>
                                                         </a>
                                                     </td>
