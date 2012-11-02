@@ -15,6 +15,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.TimeZone;
+import java.net.URLEncoder;
 
 public class SessionInfo implements Serializable {
     private static Logger log = Logger.getLogger(SessionInfo.class);
@@ -56,7 +57,7 @@ public class SessionInfo implements Serializable {
         }
 
         serverName = request.getServerName();
-        servletPath = request.getContextPath() + request.getServletPath();
+        servletPath = URLEncoder.encode(request.getContextPath() + request.getServletPath(), "UTF-8");
         String query = request.getQueryString();
         queryString = (query == null) ? ("") : ("?" + query);
         StringBuffer buf = new StringBuffer(200);
