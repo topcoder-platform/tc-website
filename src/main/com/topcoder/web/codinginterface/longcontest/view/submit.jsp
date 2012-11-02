@@ -155,7 +155,7 @@ Arg Types: <%=StringUtils.htmlEncode((String) paramTypes.get(i))%>
                         <%if (request.getAttribute(Constants.CODE) == null || request.getAttribute(Constants.CODE).toString().equals("")) {%>
                         <textarea cols="70" rows="20" name="code" class="codeTextArea" wrap="off"></textarea>
                         <%} else {%>
-                        <textarea cols="70" rows="20" name="code" class="codeTextArea" wrap="off"><%=StringUtils.replace((String) request.getAttribute(Constants.CODE), "&", "&amp;")%></textarea>
+                        <textarea cols="70" rows="20" name="code" class="codeTextArea" wrap="off"><%=StringUtils.htmlEncode((String) request.getAttribute(Constants.CODE))%></textarea>
 
                         <%}%>
                     </td>
@@ -163,7 +163,7 @@ Arg Types: <%=StringUtils.htmlEncode((String) paramTypes.get(i))%>
                 <tr>
                     <td colspan="2">
                         <span class="bodySubtitle">Messages</span><br>
-                        <textarea cols="70" rows="5" name="messages" class="messageTextArea" wrap="off" readonly><%=(request.getAttribute(Constants.MESSAGE) != null ? "" + request.getAttribute(Constants.MESSAGE) : "")%></textarea>
+                        <textarea cols="70" rows="5" name="messages" class="messageTextArea" wrap="off" readonly><%=(request.getAttribute(Constants.MESSAGE) != null ? "" + StringUtils.htmlEncode((String) request.getAttribute(Constants.MESSAGE)) : "")%></textarea>
                     </td>
                 </tr>
                 <tr>
