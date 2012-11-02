@@ -210,11 +210,11 @@
                                         <c:when test="${fn:length(requirements) > 0}">
                                             <c:forEach items="${requirements}" var="resultRow">
                                                 <p><span class="bodySubtitle">Overview</span></p>
-									        	<p><c:out value="${resultRow.map['detailed_requirements']}" /></p>
+									        	<p>${resultRow.map['detailed_requirements']}</p>
                                                 <%-- need permission to view private description --%>
                                                 <c:if test="${privateDescriptionPermission}">
                                                 <p><span class="bodySubtitle">Details</span></p>
-                                                <p><c:out value="${resultRow.map['private_description']}" /></p>
+                                                <p>${resultRow.map['private_description']}</p>
                                                 </c:if>
                                                 <p><span class="bodySubtitle">Submission Deliverables</span></p>
                                                 <p>
@@ -228,7 +228,7 @@
                                             </c:forEach>
                                                 <%-- Budget --%>
                                                 <p><span class="bodySubtitle">Budget</span><br/></p>
-                                                <p><c:out value="${budgetText}" /></p>
+                                                <p>${budgetText}</p>
                                         </c:when>
                                         <c:otherwise>
                                             <p><span class="bodySubtitle">Application Overview</span><br/></p>
@@ -241,14 +241,14 @@
                                         <c:when test="${fn:length(requirements) > 0}">
                                             <c:forEach items="${requirements}" var="resultRow">
                                                 <p><span class="bodySubtitle">Detailed Requirements</span></p>
-									        	<p><c:out value="${resultRow.map['detailed_requirements']}" /></p>
+									        	<p>${resultRow.map['detailed_requirements']}</p>
                                                 <c:if test="${fn:length(submission_deliverables) > 0}">
                                                 <p><span class="bodySubtitle">Submission Deliverables</span></p>
-									        	<p><c:out value="${resultRow.map['submission_deliverables']}" /></p>
+									        	<p>${resultRow.map['submission_deliverables']}"</p>
                                                 </c:if>
                                                 <c:if test="${fn:length(environment_setup_instruction) > 0}">
                                                 <p><span class="bodySubtitle">Environment Setup Instructions</span></p>
-									        	<p><c:out value="${resultRow.map['environment_setup_instruction']}" /></p>
+									        	<p>${resultRow.map['environment_setup_instruction']}</p>
                                                 </c:if>
                                             </c:forEach>
                                         </c:when>
@@ -272,7 +272,7 @@
                                                     Not set.
                                                 </c:if>
                                                 <c:forEach items="${experiences}" var="exp" varStatus="state">
-                                                    <li class="first"><c:out value="${exp}" /></li>
+                                                    <li class="first">${exp}</li>
                                                 </c:forEach>
                                                 </ul>
                                                 <div class="clear"></div>
@@ -309,7 +309,7 @@
                                             <div class="containerInner">
                                                 <c:forEach items="${requirements}" var="resultRow">
                                                     <div class="container">
-                                                    <c:out value="${resultRow.map['final_submission_guidelines']}" />
+                                                    ${resultRow.map['final_submission_guidelines']}
                                                     </div>
                                                 </c:forEach>
                                                 <div class="clear"></div>
