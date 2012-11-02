@@ -44,6 +44,12 @@ public class MatchWinners extends Base {
                 sortDir = "desc";
             }
 
+            // if the sort direction is not desc, just set it to asc, this way to avoid XSS attack (sortDir is always desc or asc).
+            // this also complies to the sort logic below
+            if (!"desc".equals(sortDir)) {
+            	sortDir = "asc";
+            }
+
             int sc = Integer.parseInt(sortCol);
 
             if ("".equals(numRecords)) {
