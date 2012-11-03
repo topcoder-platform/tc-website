@@ -15,6 +15,7 @@
           com.topcoder.web.common.StringUtils, com.topcoder.web.common.WebConstants"%>
 
 <%@ page import="java.util.Map"%>
+<%@ page import="java.net.URLEncoder"%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ page import="javax.servlet.http.HttpServletRequest"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -52,8 +53,8 @@
     <link type="text/css" rel="stylesheet" href="/css/profileBadges.css" />
     
     <script type="text/javascript">
-        var previewPath = <%= request.getParameter("previewPath") == null ? null : "\'"  + request.getParameter("previewPath") + "\'" %>;
-        var originalFile = <%= request.getParameter("originalFileName") == null ? null : "\'"  + request.getParameter("originalFileName") + "\'" %>;
+	    var previewPath = <%= request.getParameter("previewPath") == null ? null : "\'"  + URLEncoder.encode(request.getParameter("previewPath"), "UTF-8").replaceAll("%2F", "/") + "\'" %>;
+    	var originalFile = <%= request.getParameter("originalFileName") == null ? null : "\'"  + URLEncoder.encode(request.getParameter("originalFileName"), "UTF-8") + "\'" %>;
         
         $(document).ready(function(){
             var categoryName = 'progress meters development';
