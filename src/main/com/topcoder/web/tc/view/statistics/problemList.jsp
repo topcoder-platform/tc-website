@@ -6,7 +6,9 @@
                 com.topcoder.web.tc.Constants,
                 javax.servlet.http.HttpServletRequest,
                 java.util.Iterator,
-                java.util.Map"
+                java.util.Map,
+                java.net.URLEncoder,
+                java.io.UnsupportedEncodingException"
         %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
@@ -74,7 +76,11 @@ function previous() {
                 buf.append("&");
                 buf.append(key);
                 buf.append("=");
-                buf.append(val);
+                try {
+	                buf.append(URLEncoder.encode(val, "UTF-8"));
+                } catch (UnsupportedEncodingException e) {
+                	// ignore this, it won't happen
+                }
             }
         }
 
