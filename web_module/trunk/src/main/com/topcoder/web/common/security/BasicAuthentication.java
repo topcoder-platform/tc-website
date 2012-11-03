@@ -235,6 +235,7 @@ public class BasicAuthentication implements WebAuthentication {
         c.setMaxAge(time);
         c.setDomain(ApplicationServer.SSO_DOMAIN);
         c.setPath("/");
+        c.setSecure(true);
         response.addCookie(c);
 
     }
@@ -581,6 +582,7 @@ public class BasicAuthentication implements WebAuthentication {
         if (!isKnownUser()) {
             Cookie c = new Cookie(KNOWN_USER, String.valueOf(true));
             c.setMaxAge(Integer.MAX_VALUE);
+            c.setSecure(true);
             response.addCookie(c);
             log.debug("add known user cookie");
         }
