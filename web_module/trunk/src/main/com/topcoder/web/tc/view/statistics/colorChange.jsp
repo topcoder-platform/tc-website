@@ -2,6 +2,7 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.common.model.SoftwareComponent" %>
 <%@ page import="com.topcoder.web.common.tag.HandleTag" %>
+<%@ page import="com.topcoder.web.common.StringUtils" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -53,17 +54,17 @@
     function next() {
         document.colorChangeForm.<%=DataAccessConstants.START_RANK%>.value =<%=changeList.getStartRow()+Constants.COLOR_CHANGE_SCROLL_SIZE%>;
         document.colorChangeForm.<%=DataAccessConstants.END_RANK%>.value =<%=changeList.getEndRow()+Constants.COLOR_CHANGE_SCROLL_SIZE%>;
-        document.colorChangeForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
-        document.colorChangeForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
-        document.colorChangeForm.<%=Constants.COLOR%>.value = '<%=request.getParameter(Constants.COLOR)==null?"":request.getParameter(Constants.COLOR)%>';
+        document.colorChangeForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":StringUtils.htmlEncode(request.getParameter(DataAccessConstants.SORT_COLUMN))%>';
+        document.colorChangeForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":StringUtils.htmlEncode(request.getParameter(DataAccessConstants.SORT_DIRECTION))%>';
+        document.colorChangeForm.<%=Constants.COLOR%>.value = '<%=request.getParameter(Constants.COLOR)==null?"":StringUtils.htmlEncode(request.getParameter(Constants.COLOR))%>';
         document.colorChangeForm.submit();
     }
     function previous() {
         document.colorChangeForm.<%=DataAccessConstants.START_RANK%>.value =<%=changeList.getStartRow()-Constants.COLOR_CHANGE_SCROLL_SIZE%>;
         document.colorChangeForm.<%=DataAccessConstants.END_RANK%>.value =<%=changeList.getEndRow()-Constants.COLOR_CHANGE_SCROLL_SIZE%>;
-        document.colorChangeForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
-        document.colorChangeForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
-        document.colorChangeForm.<%=Constants.COLOR%>.value = '<%=request.getParameter(Constants.COLOR)==null?"":request.getParameter(Constants.COLOR)%>';
+        document.colorChangeForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":StringUtils.htmlEncode(request.getParameter(DataAccessConstants.SORT_COLUMN))%>';
+        document.colorChangeForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":StringUtils.htmlEncode(request.getParameter(DataAccessConstants.SORT_DIRECTION))%>';
+        document.colorChangeForm.<%=Constants.COLOR%>.value = '<%=request.getParameter(Constants.COLOR)==null?"":StringUtils.htmlEncode(request.getParameter(Constants.COLOR))%>';
         document.colorChangeForm.submit();
     }
     //--></script>
