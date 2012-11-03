@@ -25,7 +25,7 @@ public class DownloadResume extends Base {
                 ResumeServices resumeServices = (ResumeServices) BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
                 Resume resume = resumeServices.getResume(uid, DBMS.OLTP_DATASOURCE_NAME);
 
-                getResponse().addHeader("content-disposition", "inline; filename=\"" + resume.getFileName() + "\"");
+                getResponse().addHeader("content-disposition", "attachment; filename=\"" + resume.getFileName() + "\"");
                 getResponse().setContentType(resume.getMimeType());
                 ServletOutputStream sos = getResponse().getOutputStream();
                 sos.write(resume.getFile());
