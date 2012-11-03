@@ -15,6 +15,7 @@
                 com.topcoder.shared.util.ApplicationServer,
                 com.topcoder.web.common.model.SoftwareComponent,
                 com.topcoder.web.tc.Constants" %>
+<%@ page import="com.topcoder.web.common.StringUtils" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -41,16 +42,16 @@
             var myForm = document.competitionHistoryForm;
             myForm.<%=DataAccessConstants.START_RANK%>.value = er + 1;
             myForm.<%=DataAccessConstants.END_RANK%>.value = 2 * er - sr + 1;
-            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
-            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":StringUtils.htmlEncode(request.getParameter(DataAccessConstants.SORT_COLUMN))%>';
+            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":StringUtils.htmlEncode(request.getParameter(DataAccessConstants.SORT_DIRECTION))%>';
             myForm.submit();
         }
         function previous() {
             var myForm = document.competitionHistoryForm;
             myForm.<%=DataAccessConstants.END_RANK%>.value = sr - 1;
             myForm.<%=DataAccessConstants.START_RANK%>.value = 2 * sr - er - 1;
-            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
-            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":StringUtils.htmlEncode(request.getParameter(DataAccessConstants.SORT_COLUMN))%>';
+            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":StringUtils.htmlEncode(request.getParameter(DataAccessConstants.SORT_DIRECTION))%>';
             myForm.submit();
         }
     </script>
