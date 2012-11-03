@@ -22,6 +22,7 @@
 --%>
 
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
+<%@ page import="java.net.URLEncoder"%>
 <%@ page import="javax.servlet.http.HttpServletRequest"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -50,8 +51,8 @@
     <link type="text/css" href="/css/photo.css" rel="stylesheet"/>
     
     <script type="text/javascript">
-        var previewPath = <%= request.getParameter("previewPath") == null ? null : "\'"  + request.getParameter("previewPath") + "\'" %>;
-        var originalFile = <%= request.getParameter("originalFileName") == null ? null : "\'"  + request.getParameter("originalFileName") + "\'" %>;
+        var previewPath = <%= request.getParameter("previewPath") == null ? null : "\'"  + URLEncoder.encode(request.getParameter("previewPath"), "UTF-8").replaceAll("%2F", "/") + "\'" %>;
+        var originalFile = <%= request.getParameter("originalFileName") == null ? null : "\'"  + URLEncoder.encode(request.getParameter("originalFileName"), "UTF-8") + "\'" %>;
     </script>
     
 </head>
