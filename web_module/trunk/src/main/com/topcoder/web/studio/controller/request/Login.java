@@ -15,6 +15,9 @@ import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.common.dao.hibernate.UserDAOHibernate;
 import com.topcoder.web.studio.Constants;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 import java.util.Arrays;
 
 /**
@@ -125,6 +128,14 @@ public class Login extends ShortHibernateProcessor {
             nextPage = getRequest().getHeader("Referer");
         } else {
             log.debug("next page from parameter");
+        }
+        // encode the url if it is from the user input to avoid response splitting attack
+        if (nextPage != null) {
+        	try {
+        		nextPage = URLEncoder.encode(nextPage, "UTF-8");
+        	} catch (UnsupportedEncodingException ex) {
+        		// just ignore this
+        	}
         }
         if (nextPage == null) {
             nextPage = getSessionInfo().getAbsoluteServletPath();
