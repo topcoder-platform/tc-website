@@ -117,11 +117,13 @@ public class Cookies {
             Cookie userIdCookie = new Cookie(UID_COOKIE_NAME, "" + userId);
             userIdCookie.setPath("/");
             userIdCookie.setMaxAge(LOGIN_COOKIE_MAX_AGE);
+            userIdCookie.setSecure(true);
             response.addCookie(userIdCookie);
 
             Cookie hashedPasswordCookie = new Cookie(HASH_COOKIE_NAME, hashPassword(password, userId));
             hashedPasswordCookie.setPath("/");
             hashedPasswordCookie.setMaxAge(LOGIN_COOKIE_MAX_AGE);
+            hashedPasswordCookie.setSecure(true);
             response.addCookie(hashedPasswordCookie);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
