@@ -323,6 +323,14 @@
             <param-value>/errorPage.jsp</param-value>
         </init-param>
     </servlet>
+	
+	
+	 <servlet>
+		<servlet-name>WordpressFeedServlet</servlet-name>
+		<servlet-class>com.topcoder.web.tc.controller.rooms.WordpressFeedServlet</servlet-class>
+    </servlet>
+	  
+	  
 
     <servlet>
         <servlet-name>PactsInternalServlet</servlet-name>
@@ -413,6 +421,8 @@
 		<servlet-name>survey</servlet-name>
 		<jsp-file>/survey/harvardsurvey.jsp</jsp-file>
 	</servlet>
+	
+	
 
     <!-- let the web server do it
         <filter>
@@ -550,6 +560,11 @@
 		<servlet-name>survey</servlet-name>
 		<url-pattern>/tc/survey</url-pattern>
 	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>WordpressFeedServlet</servlet-name>
+		<url-pattern>/tc/rooms</url-pattern>
+	  </servlet-mapping>
     
     <error-page>
         <error-code>404</error-code>
