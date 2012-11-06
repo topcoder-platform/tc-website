@@ -1,15 +1,18 @@
 /*
+ * Copyright (C) 2002 - 2012 TopCoder Inc., All Rights Reserved.
+ */
+ 
+/*
  * ProblemStatementTask.java
  *
  * Created on August 27, 2002, 2:38 PM
  */
-
 package com.topcoder.web.corp.controller.request.tces;
 
 import com.topcoder.security.NotAuthorizedException;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.language.CStyleLanguage;
+import com.topcoder.shared.language.BaseLanguage;
 import com.topcoder.shared.problem.Problem;
 import com.topcoder.shared.problem.ProblemComponent;
 import com.topcoder.shared.problemParser.ProblemComponentFactory;
@@ -21,7 +24,16 @@ import java.io.StringReader;
 import java.util.Map;
 
 /** Processes the problem statement task.
- * @author George Dean
+ *
+ *
+ * <p>
+ *   Version 1.1 (Code Merge for Shared Project) Change notes:
+ *   <ol>
+ *     <li>Update to retrieve language via BaseLanguage.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author George Dean, TCSASSEMBLER
  */
 public class ProblemStatementTask extends BaseTask  {
 
@@ -104,7 +116,7 @@ public class ProblemStatementTask extends BaseTask  {
         problem.setProblemComponents(arrProblemComponent);
         ProblemRenderer pr = new ProblemRenderer(problem);
         pr.setTdClass("bodyText");
-        setProblemText(pr.toHTML(new CStyleLanguage(Integer.parseInt(problemRow.getItem("language_id").toString()), "")));
+        setProblemText(pr.toHTML(BaseLanguage.getLanguage(Integer.parseInt(problemRow.getItem("language_id").toString()))));
 
         setNextPage(TCESConstants.PROBLEM_STATEMENT_PAGE);
         setIsNextPageInContext(true);
