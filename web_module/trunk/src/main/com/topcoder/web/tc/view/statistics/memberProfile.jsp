@@ -171,9 +171,17 @@
                                    <jsp:param name="phase_id" value="<%= WebConstants.PHASE_ARCHITECTURE %>"/>
                                 </jsp:include>
                                 <% } else if(tab.equals("des")) { %>
-                                <jsp:include page="memberProfileTabDes.jsp" />
+                                <jsp:include page="memberProfileTabTrack.jsp">
+                                   <jsp:param name="track" value="Component Design"/>
+                                   <jsp:param name="competition_type" value="des"/>
+                                   <jsp:param name="phase_id" value="<%= WebConstants.PHASE_DESIGN %>"/>
+                                </jsp:include>
                                 <% } else if(tab.equals("dev")) { %>
-                                <jsp:include page="memberProfileTabDev.jsp" />
+                                <jsp:include page="memberProfileTabTrack.jsp">
+                                   <jsp:param name="track" value="Component Development"/>
+                                   <jsp:param name="competition_type" value="dev"/>
+                                   <jsp:param name="phase_id" value="<%= WebConstants.PHASE_DEVELOPMENT %>"/>
+                                </jsp:include>
                                 <% } else if(tab.equals("assembly")) { %> 
                                 <jsp:include page="memberProfileTabTrack.jsp">
                                    <jsp:param name="track" value="Assembly"/>
