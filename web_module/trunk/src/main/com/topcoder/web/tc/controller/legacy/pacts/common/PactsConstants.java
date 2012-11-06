@@ -201,6 +201,7 @@ public interface PactsConstants extends Constants {
 
     public static final String ALGORITHM_ROUND_LIST = "algorithm_round_list";
     public static final String COMPONENT_PROJECT_LIST = "component_project_list";
+    public static final String COCKPIT_PROJECT_LIST = "cockpit_project_list";
     public static final String ALGORITHM_PROBLEM_LIST = "algorithm_problem_list";
     public static final String STUDIO_CONTEST_LIST = "studio_contest_list";
     public static final String COMPONENT_CONTEST_LIST = "component_contest_list";

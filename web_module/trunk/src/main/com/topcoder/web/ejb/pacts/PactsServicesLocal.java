@@ -250,6 +250,8 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     Map findProjects(String search, int categoryId) throws SQLException;
 
+    Map findCockpitProjects(String search) throws SQLException;
+
     Map findPaymentsByDescription(String search) throws SQLException;
 
     Map getDigitalRunSeasonList() throws SQLException;

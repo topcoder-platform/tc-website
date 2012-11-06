@@ -5,9 +5,6 @@ import java.text.SimpleDateFormat;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.pacts.BasePayment;
-import com.topcoder.web.ejb.pacts.ComponentProjectReferencePayment;
-import com.topcoder.web.ejb.pacts.ComponentWinningPayment;
-import com.topcoder.web.ejb.pacts.ReviewBoardPayment;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 

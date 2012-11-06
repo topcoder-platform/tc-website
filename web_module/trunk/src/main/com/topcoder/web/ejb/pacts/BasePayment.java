@@ -157,6 +157,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         this.installmentNumber = 1;
         this.placed = placed;
         this.createDate = new Date();
+        this.jiraIssueName = null;
     }
 
     /**
@@ -235,6 +236,11 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case CONTEST_PAYMENT:
         case CONTEST_MILESTONE_PAYMENT:
             return REFERENCE_COMPONENT_PROJECT_ID;
+
+        case PROJECT_BUG_FIXES_PAYMENT:
+        case PROJECT_COPILOT_PAYMENT:
+        case PROJECT_DEPLOYMENT_TASK_PAYMENT:
+            return REFERENCE_COCKPIT_PROJECT_ID;
 
         case PROBLEM_WRITING_PAYMENT:
             return REFERENCE_ALGORITHM_PROBLEM_ID;
@@ -352,6 +358,9 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case CONTEST_PAYMENT: return new ContestPayment(coderId, grossAmount, referenceId, placed);
         case CONTEST_MILESTONE_PAYMENT: return new ContestMilestonePayment(coderId, grossAmount, referenceId, placed);
         case NEGATIVE_PAYMENT: return new NegativePayment(coderId, grossAmount, referenceId);
+        case PROJECT_BUG_FIXES_PAYMENT: return new ProjectBugFixesPayment(coderId, grossAmount, referenceId);
+        case PROJECT_COPILOT_PAYMENT: return new ProjectCopilotPayment(coderId, grossAmount, referenceId);
+        case PROJECT_DEPLOYMENT_TASK_PAYMENT: return new ProjectDeploymentTaskPayment(coderId, grossAmount, referenceId);
         default: return new NoReferencePayment(paymentTypeId, coderId, grossAmount, "");
         }
     }
@@ -489,6 +498,9 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             case CONTENT_CREATION_PAYMENT: return "Content Creation Payment";
             case CONTEST_PAYMENT: return "Contest Payment";
             case CONTEST_MILESTONE_PAYMENT: return "Contest Milestone Payment";
+            case PROJECT_BUG_FIXES_PAYMENT: return "Project Bug Fixes Payment";
+            case PROJECT_COPILOT_PAYMENT: return "Project Copilot Payment";
+            case PROJECT_DEPLOYMENT_TASK_PAYMENT: return "Project Deployment Task Payment";
 
             default: return "Other Payment";
         }
@@ -697,6 +709,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
     }
 
     public void setJiraIssueName(String jiraIssueName) {
+        fieldChanged(MODIFICATION_REFERENCE, jiraIssueName != this.jiraIssueName);
         this.jiraIssueName = jiraIssueName;
     }
 

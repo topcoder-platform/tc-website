@@ -116,6 +116,12 @@ public class SelectPaymentTypeReference extends BaseProcessor implements PactsCo
                         field = "component_project_id";
                         break;
 
+                    case REFERENCE_COCKPIT_PROJECT_ID:
+                        map = dib.findCockpitProjects("%" + search + "%");
+                        getRequest().setAttribute(COCKPIT_PROJECT_LIST, map.get(COCKPIT_PROJECT_LIST));
+                        field = "cockpit_project_id";
+                        break;
+
                     case REFERENCE_COMPONENT_CONTEST_ID:
                         map = dib.findComponentContests("%" + search + "%");
                         getRequest().setAttribute(COMPONENT_CONTEST_LIST, map.get(COMPONENT_CONTEST_LIST));

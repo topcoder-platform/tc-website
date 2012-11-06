@@ -244,6 +244,7 @@ public interface Constants {
     public static final int REFERENCE_DIGITAL_RUN_SEASON_ID = 7;
     public static final int REFERENCE_PARENT_PAYMENT_ID = 8;
     public static final int REFERENCE_DIGITAL_RUN_TRACK_ID = 9;
+    public static final int REFERENCE_COCKPIT_PROJECT_ID = 10;
 
     // Modification rationale codes
     public static final int MODIFICATION_NEW = 1;
@@ -348,4 +349,8 @@ public interface Constants {
     public static final int CONTEST_PAYMENT = 65;
 
     public static final int NEGATIVE_PAYMENT = 67;
+
+    public static final int PROJECT_BUG_FIXES_PAYMENT = 68;
+    public static final int PROJECT_COPILOT_PAYMENT = 69;
+    public static final int PROJECT_DEPLOYMENT_TASK_PAYMENT = 70;
 }
