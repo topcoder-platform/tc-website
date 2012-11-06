@@ -345,36 +345,6 @@ public class MemberProfile extends Base {
                         String key = (String) it.next();
                         result.put(key, algoData.get(key));
                     }
-                } else if (tab.equals("des")) {
-                    // load des data from Coder_Des_Data
-                    r = new Request();
-                    r.setContentHandle("Coder_Des_Data");
-                    r.setProperty("cr", coderId);
-                    // design phase id
-                    r.setProperty(Constants.PHASE_ID, "112");
-
-                    dai = getDataAccess(true);
-                    Map algoData = dai.getData(r);
-                    Iterator it = algoData.keySet().iterator();
-                    while (it.hasNext()) {
-                        String key = (String) it.next();
-                        result.put(key, algoData.get(key));
-                    }
-                } else if (tab.equals("dev")) {
-                    // load des data from Coder_Des_Data
-                    r = new Request();
-                    r.setContentHandle("Coder_Dev_Data");
-                    r.setProperty("cr", coderId);
-                    // development phase id
-                    r.setProperty(Constants.PHASE_ID, "113");
-
-                    dai = getDataAccess(true);
-                    Map algoData = dai.getData(r);
-                    Iterator it = algoData.keySet().iterator();
-                    while (it.hasNext()) {
-                        String key = (String) it.next();
-                        result.put(key, algoData.get(key));
-                    }
                 } else if (tab.equals("long")) {
                     r = new Request();
                     r.setContentHandle("Coder_Long_Data");
@@ -387,7 +357,8 @@ public class MemberProfile extends Base {
                         String key = (String) it.next();
                         result.put(key, longData.get(key));
                     }
-                } else if (tab.equals("concept") || tab.equals("spec") || tab.equals("arch")
+                } else if (tab.equals("des") || tab.equals("dev") || tab.equals("concept")
+                    || tab.equals("spec") || tab.equals("arch")
                     || tab.equals("assembly") || tab.equals("test") || tab.equals("test_scenarios")
                     || tab.equals("ui_prototype") || tab.equals("ria_build") || tab.equals("content_creation")
                     || tab.equals("reporting")) {
@@ -395,7 +366,11 @@ public class MemberProfile extends Base {
                     r.setContentHandle("Coder_Track_Data");
                     r.setProperty("cr", coderId);
 
-                    if (tab.equals("concept")) {
+                    if (tab.equals("des")) {
+                        r.setProperty(Constants.PHASE_ID, "112");
+                    } else if (tab.equals("dev")) {
+                        r.setProperty(Constants.PHASE_ID, "113");
+                    } else if (tab.equals("concept")) {
                         r.setProperty(Constants.PHASE_ID, "134");
                     } else if (tab.equals("spec")) {
                         r.setProperty(Constants.PHASE_ID, "117");
