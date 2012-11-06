@@ -72,6 +72,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
 
     private long algorithmRoundId;
     private long componentProjectId;
+    private long cockpitProjectId;
     private long algorithmProblemId;
     private long studioContestId;
     private long componentContestId;
@@ -191,6 +192,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
 
         algorithmRoundId = TCData.getTCLong(rsr, "algorithm_round_id", 0, false);
         componentProjectId = TCData.getTCLong(rsr, "component_project_id", 0, false);
+        cockpitProjectId = TCData.getTCLong(rsr, "cockpit_project_id", 0, false);
         contestCategoryName = TCData.getTCString(rsr, "project_category_name", "", false);
 
         algorithmProblemId = TCData.getTCLong(rsr, "algorithm_problem_id", 0, false);
@@ -365,6 +367,14 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         this.componentProjectId = componentProjectId;
     }
 
+    public long getCockpitProjectId() {
+        return cockpitProjectId;
+    }
+
+    public void setCockpitProjectId(long cockpitProjectId) {
+        this.cockpitProjectId = cockpitProjectId;
+    }
+
     public long getDigitalRunSeasonId() {
         return digitalRunSeasonId;
     }
@@ -409,6 +419,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         switch(BasePayment.getReferenceTypeId(typeId)) {
         case REFERENCE_ALGORITHM_ROUND_ID : return algorithmRoundId;
         case REFERENCE_COMPONENT_PROJECT_ID : return componentProjectId;
+        case REFERENCE_COCKPIT_PROJECT_ID : return cockpitProjectId;
         case REFERENCE_ALGORITHM_PROBLEM_ID : return algorithmProblemId;
         case REFERENCE_STUDIO_CONTEST_ID : return studioContestId != 0 ? studioContestId : componentProjectId;
         case REFERENCE_COMPONENT_CONTEST_ID :return componentContestId;

@@ -7,6 +7,7 @@
 
 <c:set var="problems" value="${requestScope.algorithm_problem_list}"/>
 <c:set var="projects" value="${requestScope.component_project_list}"/>
+<c:set var="cockpitProjects" value="${requestScope.cockpit_project_list}"/>
 <c:set var="stages" value="${requestScope.digital_run_stage_list}"/>
 <c:set var="tracks" value="${requestScope.digital_run_track_list}"/>
 <c:set var="seasons" value="${requestScope.digital_run_season_list}"/>
@@ -23,6 +24,7 @@
 
 <c:set var="ALGORITHM_ROUND" value="<%= PactsConstants.REFERENCE_ALGORITHM_ROUND_ID + "" %>" />
 <c:set var="COMPONENT_PROJECT" value="<%= PactsConstants.REFERENCE_COMPONENT_PROJECT_ID + "" %>" />
+<c:set var="COCKPIT_PROJECT" value="<%= PactsConstants.REFERENCE_COCKPIT_PROJECT_ID + "" %>" />
 <c:set var="ALGORITHM_PROBLEM" value="<%= PactsConstants.REFERENCE_ALGORITHM_PROBLEM_ID + "" %>" />
 <c:set var="STUDIO_CONTEST" value="<%= PactsConstants.REFERENCE_STUDIO_CONTEST_ID + "" %>" />
 <c:set var="COMPONENT_CONTEST" value="<%= PactsConstants.REFERENCE_COMPONENT_CONTEST_ID + "" %>" />
@@ -123,8 +125,31 @@
                             </script>
                         </c:if>
 
-                     </c:when>               
-                     
+                     </c:when>
+
+                     <c:when test="${refId == COCKPIT_PROJECT}">
+                        <c:if test="${empty cockpitProjects}">           
+                        <input type="hidden" name="missing_reference" value="Please select a cockpit project for the payment"/>
+                          Enter search text for cockpit project name: <input type="text" name="searchInput" value="${search}" />
+                          <input type="button" value="search" onClick="search()" />
+                            <c:if test="${not empty search}">          
+                                <font color="#FF0000">No cockpit projects found containing <c:out value="${search}"/>. </font>
+                            </c:if>
+                          <br/>
+                        </c:if>
+                        <c:if test="${not empty cockpitProjects}">                   
+                             <tc-webtag:rscSelect name="cockpit_project_id" list="${cockpitProjects}" 
+                                     fieldText="cockpit_project_name" fieldValue="cockpit_project_id" selectedValue="${param.reference_id}"
+                                     useTopValue="false"  onChange="referenceChanged('cockpit_project_id')"/>
+                             <input type="button" value="do another search" onClick="typeChanged()" />           
+                        </c:if>                                  
+                        <c:if test="${not firstLoad}">  
+                            <script type="text/javascript">
+                                referenceChanged('cockpit_project_id');
+                            </script>
+                        </c:if>
+
+                     </c:when>                     
                      
                      <c:when test="${refId == ALGORITHM_PROBLEM}">
                         <c:if test="${empty problems}">             

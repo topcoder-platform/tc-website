@@ -19,7 +19,7 @@ import com.topcoder.web.ejb.pacts.AlgorithmRoundReferencePayment;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.ComponentContestReferencePayment;
 import com.topcoder.web.ejb.pacts.ComponentProjectReferencePayment;
-import com.topcoder.web.ejb.pacts.ComponentWinningPayment;
+import com.topcoder.web.ejb.pacts.CockpitProjectReferencePayment;
 import com.topcoder.web.ejb.pacts.DigitalRunSeasonReferencePayment;
 import com.topcoder.web.ejb.pacts.DigitalRunStageReferencePayment;
 import com.topcoder.web.ejb.pacts.DigitalRunTrackReferencePayment;
@@ -318,7 +318,10 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
             
         } else if (payment instanceof ComponentProjectReferencePayment) {
             ((ComponentProjectReferencePayment) payment).setProjectId(getLongParameter(useRef? rf : "component_project_id"));
-            
+
+        } else if (payment instanceof CockpitProjectReferencePayment) {
+            ((CockpitProjectReferencePayment) payment).setProjectId(getLongParameter(useRef? rf : "cockpit_project_id"));
+                        
         } else if (payment instanceof AlgorithmProblemReferencePayment) {
             ((AlgorithmProblemReferencePayment) payment).setProblemId(getOptionalLongParameter(useRef? rf : "algorithm_problem_id", 0));
             
@@ -348,6 +351,9 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
             
         } else if (payment instanceof ComponentProjectReferencePayment) {
             return ((ComponentProjectReferencePayment) payment).getProjectId();
+
+        } else if (payment instanceof CockpitProjectReferencePayment) {
+            return ((CockpitProjectReferencePayment) payment).getProjectId();            
             
         } else if (payment instanceof AlgorithmProblemReferencePayment) {
             return ((AlgorithmProblemReferencePayment) payment).getProblemId();
