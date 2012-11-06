@@ -48,6 +48,8 @@ public class ForumsUtil {
     public static long tempMessageID = 1L;
 
     // use until Jive fixes its version of ForumThread.getLatestMessage()
+    // Update: On Nov 06, 2012 VolodymyrK fixed the issue in the JIVE jar (by decompiling and then recompiling the code) so the native JIVE method shoudl be used from now on.
+/*
     public static ForumMessage getLatestMessage(ForumThread thread) {
         ForumMessage lastPost = null;
         ResultFilter filter = new ResultFilter();
@@ -60,6 +62,7 @@ public class ForumsUtil {
         }
         return lastPost;
     }
+*/
 
     /**
      * Returns the message's subject where the search term(s) appear.

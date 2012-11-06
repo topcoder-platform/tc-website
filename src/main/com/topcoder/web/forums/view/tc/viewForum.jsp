@@ -225,8 +225,11 @@
         </tr>
     </tc-webtag:iterator>
     <% } %>
+
+
     <tc-webtag:iterator id="thread" type="com.jivesoftware.forum.ForumThread" iterator='<%=(Iterator)request.getAttribute("threads")%>'>
-        <% ForumMessage lastPost = ForumsUtil.getLatestMessage(thread);
+        <% ForumMessage lastPost = thread.getLatestMessage();
+
             String trackerClass = (user == null || readTracker.getReadStatus(user, lastPost) == ReadTracker.READ ||
                     ("true".equals(user.getProperty("markWatchesRead")) && watchManager.isWatched(user, thread))) ? "rtLinkOld" : "rtLinkBold"; %>
         <tr>
