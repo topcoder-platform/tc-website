@@ -87,6 +87,7 @@
         <pathelement location="${jive.dir}/htmlparser.jar"/>
 
         <pathelement location="${jars.dir}/spring.jar"/>
+        <pathelement location="${jars.dir}/imgscalr-lib-4.2.jar"/>
 
         <pathelement location="${struts.dir}/commons-beanutils.jar"/>
         <pathelement location="${struts.dir}/commons-collections.jar"/>
@@ -1419,6 +1420,7 @@
                 <include name="standard.jar"/>
                 <include name="taconite.jar"/>
 				<include name="spring.jar"/>
+                <include name="imgscalr-lib-4.2.jar"/>
             </lib>
 			<lib dir="${jars.dir}/tcs">
 				<include name="copilot_pool_and_profiles_common.jar"/>
