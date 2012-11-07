@@ -194,14 +194,6 @@ public class Login extends Base {
         } else {
             log.debug("next page from parameter");
         }
-        // encode the url if it is from the user input to avoid response splitting attack
-        if (nextPage != null) {
-        	try {
-        		nextPage = URLEncoder.encode(nextPage, "UTF-8");
-        	} catch (UnsupportedEncodingException ex) {
-        		// just ignore this
-        	}
-        }
         if (nextPage == null) {
             nextPage = getSessionInfo().getAbsoluteServletPath();
         } else {
