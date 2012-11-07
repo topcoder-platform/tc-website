@@ -21,7 +21,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.imgscalr.Scalr;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.topcoder.servlet.request.ConfigurationException;
@@ -663,32 +662,42 @@ public class MemberPhotoUploadServlet extends HttpServlet {
                     if ((imageWidth == 0) || (imageHeight == 0)) {
                         throw new MemberPhotoUploadException("Either width or height of original image is null.");
                     }
-					
-					// crop
+                    
+                    // crop
                     if (targetImageLeftCornerX != -1 && targetImageLeftCornerY != -1 && targetImageRightCornerX != -1 && targetImageRightCornerY != -1) {
-                        int selectedImageWidth = targetImageRightCornerX - targetImageLeftCornerX;
-                        int selectedImageHeight = targetImageRightCornerY - targetImageLeftCornerY;
-						
-						int picWidth = Integer.parseInt(request.getParameter("picWidth"));
+                        imageWidth = targetImageRightCornerX - targetImageLeftCornerX;
+                        imageHeight = targetImageRightCornerY - targetImageLeftCornerY;
+                        
+                        // scale the image.
+                        double ratio = targetImageWidth / (double) imageWidth;
+                        int resizedWidth = (int) (originalImage.getWidth() * ratio);
+                        int resizedHeight = (int) (originalImage.getHeight() * ratio);
+                        
+                        int picWidth = Integer.parseInt(request.getParameter("picWidth"));
                         int picHeight = Integer.parseInt(request.getParameter("picHeight"));
-						
-						//remap to original
-						int startX = (targetImageLeftCornerX * imageWidth) / picWidth ;
-						int startY = (targetImageLeftCornerY * imageHeight) / picHeight ;
-						selectedImageWidth = (selectedImageWidth * imageWidth) / picWidth;
-						selectedImageHeight = ( selectedImageHeight * imageHeight) / picHeight;
-
-						resizedImage = Scalr.crop(originalImage, startX, startY,selectedImageWidth,selectedImageHeight);
-						resizedImage = Scalr.resize(resizedImage, Scalr.Mode.FIT_EXACT, targetImageWidth, targetImageHeight);
+                        
+                        resizedWidth = (int) (picWidth * ratio);
+                        resizedHeight = (int) (picHeight * ratio);
+                        
+                        resizedImage = new BufferedImage(resizedWidth, resizedHeight, BufferedImage.TYPE_INT_RGB);
+                        Graphics2D g2D = resizedImage.createGraphics();
+                        g2D.drawImage(originalImage, 0, 0, resizedWidth, resizedHeight, null);
+                        
+                        int startX = (int) (targetImageLeftCornerX * ratio);
+                        int startY = (int) (targetImageLeftCornerY * ratio);
+                        resizedImage = resizedImage.getSubimage(startX, startY, targetImageWidth, targetImageHeight);
+                        
                     } else {
                         if ((imageWidth != targetImageWidth) || (imageHeight != targetImageHeight)) {
                             // scale the image.
-							resizedImage = Scalr.resize(originalImage, Scalr.Mode.FIT_EXACT, targetImageWidth, targetImageHeight);
+                            resizedImage = new BufferedImage(targetImageWidth, targetImageHeight, BufferedImage.TYPE_INT_RGB);
+                            Graphics2D g2D = resizedImage.createGraphics();
+                            g2D.drawImage(originalImage, 0, 0, targetImageWidth, targetImageHeight, null);
                         } else {
                             resizedImage = originalImage;
                         }
                     }
-					
+
                     try {
                         // save image in database
                         entityManager.getTransaction().begin();
@@ -769,7 +778,7 @@ public class MemberPhotoUploadServlet extends HttpServlet {
         // Store image
         String path = directory + handle + imagepostfix;
         synchronized (this) {
-			ImageIO.write(resizedImage, imagepostfix.substring(1), new File(path));
+            ImageIO.write(resizedImage, imagepostfix.substring(1), new File(path));
         }
 
     }
