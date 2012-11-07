@@ -57,7 +57,7 @@ public class SessionInfo implements Serializable {
         }
 
         serverName = request.getServerName();
-        servletPath = URLEncoder.encode(request.getContextPath() + request.getServletPath(), "UTF-8").toLowerCase().replaceAll("%2f", "/");
+        servletPath = URLEncoder.encode(request.getContextPath() + request.getServletPath(), "UTF-8");
         String query = request.getQueryString();
         queryString = (query == null) ? ("") : ("?" + query);
         StringBuffer buf = new StringBuffer(200);
