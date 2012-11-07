@@ -59,7 +59,6 @@
         <pathelement location="${jars.dir}/httpunit.jar"/>
 
         <pathelement location="${jars.dir}/idgenerator.jar"/>
-        <pathelement location="${jars.dir}/imgscalr-lib-4.2.jar"/>
 
         <pathelement location="${jive.dir}/jivebase.jar"/>
         <pathelement location="${jive.dir}/jiveforums.jar"/>
