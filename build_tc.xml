@@ -497,14 +497,6 @@
         </jar>
     </target>
 
-    <target name="package-EJB-TermsOfUseBean" depends="compile">
-        <jar jarfile="${ejb_jars}/TermsOfUse.jar">
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/termsofuse/*.class"/>
-            <metainf dir="${java}/com/topcoder/web/ejb/termsofuse" includes="*.xml"/>
-        </jar>
-    </target>
-
     <target name="package-EJB-CompanyBean" depends="compile">
         <jar jarfile="${ejb_jars}/Company.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
@@ -974,7 +966,6 @@
         <antcall target="package-EJB-ScreeningCoderBean"/>
         <antcall target="package-EJB-SessionBean"/>
         <antcall target="package-EJB-SessionProfileBean"/>
-        <antcall target="package-EJB-TermsOfUseBean"/>
         <antcall target="package-EJB-UserBean"/>
         <antcall target="expand-corp"/>
     </target>
@@ -992,7 +983,6 @@
                 <include name="ScreeningCoder.jar"/>
                 <include name="Session.jar"/>
                 <include name="SessionProfile.jar"/>
-                <include name="TermsOfUse.jar"/>
                 <include name="User.jar"/>
             </fileset>
         </copy>

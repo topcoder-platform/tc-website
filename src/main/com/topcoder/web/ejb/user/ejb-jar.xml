@@ -21,18 +21,6 @@
             <session-type>Stateless</session-type>
         </session>
         <session>
-            <description>User Terms Of Use EJB</description>
-            <display-name>User Terms of Use EJB</display-name>
-            <ejb-name>UserTermsOfUse</ejb-name>
-            <home>com.topcoder.web.ejb.user.UserTermsOfUseHome</home>
-            <remote>com.topcoder.web.ejb.user.UserTermsOfUse</remote>
-            <local-home>com.topcoder.web.ejb.user.UserTermsOfUseLocalHome</local-home>
-            <local>com.topcoder.web.ejb.user.UserTermsOfUseLocal</local>
-            <ejb-class>com.topcoder.web.ejb.user.UserTermsOfUseBean</ejb-class>
-            <transaction-type>Container</transaction-type>
-            <session-type>Stateless</session-type>
-        </session>
-        <session>
             <description>User School EJB</description>
             <display-name>User School EJB</display-name>
             <ejb-name>UserSchool</ejb-name>
@@ -123,13 +111,6 @@
         <container-transaction>
             <method>
                 <ejb-name>User</ejb-name>
-                <method-name>*</method-name>
-            </method>
-            <trans-attribute>Supports</trans-attribute>
-        </container-transaction>
-        <container-transaction>
-            <method>
-                <ejb-name>UserTermsOfUse</ejb-name>
                 <method-name>*</method-name>
             </method>
             <trans-attribute>Supports</trans-attribute>

@@ -1,13 +1,14 @@
 package com.topcoder.web.tc.controller.request.tournament;
 
+import com.cronos.termsofuse.dao.UserTermsOfUseDao;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.SecurityHelper;
+import com.topcoder.web.common.TermsOfUseUtil;
 import com.topcoder.web.ejb.coder.CoderImage;
-import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.tc.controller.request.Base;
 
 import javax.transaction.Status;
@@ -23,14 +24,14 @@ abstract class BaseLogoTermsAgree extends Base {
     protected void businessProcessing() throws Exception {
         if (!SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(this.getClass()))) {
             throw new PermissionException(getLoggedInUser(), new SimpleResource(this.getClass().getName()));
-        } else {
-            UserTermsOfUse ut = (UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class);
+        } else {            
+            UserTermsOfUseDao ut = TermsOfUseUtil.getUserTermsOfUseDao();
 
             TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
             try {
                 tm.begin();
-                if (!ut.hasTermsOfUse(getUser().getId(), getTermsId(), DBMS.JTS_OLTP_DATASOURCE_NAME)) {
-                    ut.createUserTermsOfUse(getUser().getId(), getTermsId(), DBMS.JTS_OLTP_DATASOURCE_NAME);
+                if (!ut.hasTermsOfUse(getUser().getId(), getTermsId())) {
+                    ut.createUserTermsOfUse(getUser().getId(), getTermsId());
                 }
                 tm.commit();
             } catch (Exception e) {

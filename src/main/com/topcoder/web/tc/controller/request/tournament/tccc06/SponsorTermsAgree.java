@@ -1,13 +1,13 @@
 package com.topcoder.web.tc.controller.request.tournament.tccc06;
 
+import com.cronos.termsofuse.dao.UserTermsOfUseDao;
 import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TermsOfUseUtil;
 import com.topcoder.web.ejb.survey.Response;
-import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.tc.Constants;
 
 import javax.transaction.Status;
@@ -36,14 +36,14 @@ public class SponsorTermsAgree extends BaseProcessor {
             }
 
             if (!hasErrors()) {
-                UserTermsOfUse ut = (UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class);
+                UserTermsOfUseDao ut = TermsOfUseUtil.getUserTermsOfUseDao();
                 Response response = (Response) createEJB(getInitialContext(), Response.class);
 
                 TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
                 try {
                     tm.begin();
-                    if (!ut.hasTermsOfUse(getUser().getId(), Constants.TCCC06_SPONSOR_TERMS_ID, DBMS.JTS_OLTP_DATASOURCE_NAME)) {
-                        ut.createUserTermsOfUse(getUser().getId(), Constants.TCCC06_SPONSOR_TERMS_ID, DBMS.JTS_OLTP_DATASOURCE_NAME);
+                    if (!ut.hasTermsOfUse(getUser().getId(), Constants.TCCC06_SPONSOR_TERMS_ID)) {
+                        ut.createUserTermsOfUse(getUser().getId(), Constants.TCCC06_SPONSOR_TERMS_ID);
                     }
                     if (!response.exists(getUser().getId(), Constants.TCCC06_SPONSOR_COMPANY_QUESTION_ID)) {
                         response.createResponse(getUser().getId(), Constants.TCCC06_SPONSOR_COMPANY_QUESTION_ID, companyName);

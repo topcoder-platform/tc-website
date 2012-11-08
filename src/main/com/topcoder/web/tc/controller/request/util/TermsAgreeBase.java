@@ -1,12 +1,12 @@
 package com.topcoder.web.tc.controller.request.util;
 
+import com.cronos.termsofuse.dao.UserTermsOfUseDao;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.TermsOfUseUtil;
 import com.topcoder.web.common.cache.CacheClientFactory;
 import com.topcoder.web.common.cache.CacheClient;
-import com.topcoder.web.ejb.user.UserTermsOfUse;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -29,11 +29,11 @@ abstract class TermsAgreeBase extends TermsBase {
             } else if (now.before(getBeginning())) {
                 throw new NavigationException("The registration period for the " + getEventName() + " has not yet begun.");
             } else {
-                UserTermsOfUse userTerms = (UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class);
+                UserTermsOfUseDao userTerms = TermsOfUseUtil.getUserTermsOfUseDao();
                 if (!isRegistered()) {
                     if (isEligible()) {
                         log.info("registering " + getUser().getId() + " for the " + getEventName());
-                        userTerms.createUserTermsOfUse(getUser().getId(), getTermsId(), DBMS.OLTP_DATASOURCE_NAME);
+                        userTerms.createUserTermsOfUse(getUser().getId(), getTermsId());
                         refreshCache();
                     } else {
                         throw new NavigationException("You are not eligible to register for the " + getEventName());

@@ -1,5 +1,7 @@
 package com.topcoder.web.corp.controller;
 
+import com.cronos.termsofuse.dao.TermsOfUseDao;
+import com.cronos.termsofuse.dao.UserTermsOfUseDao;
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.NoSuchUserException;
 import com.topcoder.security.NotAuthorizedException;
@@ -24,6 +26,7 @@ import com.topcoder.web.common.HttpObjectFactory;
 import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
+import com.topcoder.web.common.TermsOfUseUtil;
 import com.topcoder.web.common.cache.CacheClient;
 import com.topcoder.web.common.cache.CacheClientFactory;
 import com.topcoder.web.common.security.BasicAuthentication;
@@ -37,12 +40,8 @@ import com.topcoder.web.ejb.address.Address;
 import com.topcoder.web.ejb.address.AddressHome;
 import com.topcoder.web.ejb.product.Purchase;
 import com.topcoder.web.ejb.product.PurchaseHome;
-import com.topcoder.web.ejb.termsofuse.TermsOfUse;
-import com.topcoder.web.ejb.termsofuse.TermsOfUseHome;
 import com.topcoder.web.ejb.user.UserAddress;
 import com.topcoder.web.ejb.user.UserAddressHome;
-import com.topcoder.web.ejb.user.UserTermsOfUse;
-import com.topcoder.web.ejb.user.UserTermsOfUseHome;
 
 import javax.ejb.CreateException;
 import javax.naming.InitialContext;
@@ -278,21 +277,15 @@ public class TransactionServlet extends HttpServlet {
                 //only begin if they have agreed to terms.
                 if ("on".equalsIgnoreCase(request.getParameter(Constants.KEY_AGREE_TO_TERMS))) {
                     if (txInfo.isFromEligibleCountry()) {
-                        InitialContext ic = null;
-                        try {
-                            ic = TCContext.getInitial();
-                            UserTermsOfUse userTerms = ((UserTermsOfUseHome) ic.lookup(UserTermsOfUseHome.EJB_REF_NAME)).create();
-                            //they must have agreeded to terms, since the purchase is beginning.  should probably be done outside
-                            //but then we don't have access to the transaction info object
-                            if (!userTerms.hasTermsOfUse(txInfo.getBuyerID(), txInfo.getTermsId(), DBMS.CORP_OLTP_DATASOURCE_NAME)) {
-                                userTerms.createUserTermsOfUse(txInfo.getBuyerID(), txInfo.getTermsId(), DBMS.CORP_OLTP_DATASOURCE_NAME);
-                            }
-                            txInfo.setAgreed(true);
-                            txBegin(request, txInfo);
-                            request.getRequestDispatcher(defaultPageIntForm).forward(request, response);
-                        } finally {
-                            BaseProcessor.close(ic);
+                        UserTermsOfUseDao userTerms = TermsOfUseUtil.getUserTermsOfUseDao();
+                        //they must have agreeded to terms, since the purchase is beginning.  should probably be done outside
+                        //but then we don't have access to the transaction info object
+                        if (!userTerms.hasTermsOfUse(txInfo.getBuyerID(), txInfo.getTermsId())) {
+                            userTerms.createUserTermsOfUse(txInfo.getBuyerID(), txInfo.getTermsId());
                         }
+                        txInfo.setAgreed(true);
+                        txBegin(request, txInfo);
+                        request.getRequestDispatcher(defaultPageIntForm).forward(request, response);
                     } else {
                         request.getRequestDispatcher(defaultPageBadCountry).forward(request, response);
                     }
@@ -548,14 +541,8 @@ public class TransactionServlet extends HttpServlet {
     private TransactionInfo buildTermsTransactionInfo(HttpServletRequest req, HttpServletResponse resp)
             throws Exception {
         TransactionInfo txInfo = buildTransactionInfo(req, resp);
-        InitialContext ic = null;
-        try {
-            ic = TCContext.getInitial();
-            TermsOfUse terms = ((TermsOfUseHome) ic.lookup(TermsOfUseHome.EJB_REF_NAME)).create();
-            txInfo.setTerms(terms.getText(txInfo.getTermsId(), DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME));
-        } finally {
-            BaseProcessor.close(ic);
-        }
+        TermsOfUseDao terms = TermsOfUseUtil.getTermsOfUseDao();
+        txInfo.setTerms(terms.getTermsOfUseText(txInfo.getTermsId()));
         return txInfo;
     }
 

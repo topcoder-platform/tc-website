@@ -1,12 +1,13 @@
 package com.topcoder.web.tc.controller.request.tournament.tccc06;
 
+import com.cronos.termsofuse.dao.UserTermsOfUseDao;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
+import com.topcoder.web.common.TermsOfUseUtil;
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.tc.Constants;
 
 import java.util.Calendar;
@@ -52,8 +53,8 @@ public abstract class Base extends ShortHibernateProcessor {
             log.debug("checking if " + getUser().getId() + " has agreed to terms " + getTermsId());
         }
         boolean ret = false;
-        UserTermsOfUse userTerms = (UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class);
-        ret = userTerms.hasTermsOfUse(getUser().getId(), getTermsId(), DBMS.OLTP_DATASOURCE_NAME);
+        UserTermsOfUseDao userTerms = TermsOfUseUtil.getUserTermsOfUseDao();
+        ret = userTerms.hasTermsOfUse(getUser().getId(), getTermsId());
         if (log.isDebugEnabled()) {
             log.debug("they " + (ret ? "are" : "are not") + " registered");
         }

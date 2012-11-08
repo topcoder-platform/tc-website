@@ -8,9 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.topcoder.web.ejb.user.UserTermsOfUse;
-import com.topcoder.web.ejb.user.UserTermsOfUseLocator;
-import com.topcoder.shared.util.DBMS;
+import com.cronos.termsofuse.dao.UserTermsOfUseDao;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.LoginException;
 import com.topcoder.web.common.BaseServlet;
@@ -20,6 +18,7 @@ import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.HttpObjectFactory;
+import com.topcoder.web.common.TermsOfUseUtil;
 
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
@@ -121,8 +120,8 @@ public class AgreeToTermsServlet extends BaseServlet {
                 // 20923 BBM
                 if ((termsId != 20873) && (termsId != 20883) && (termsId != 20903) && (termsId != 20923)) throw new RuntimeException("bad terms");
 
-                UserTermsOfUse userTermsOfUse = UserTermsOfUseLocator.getService();
-                if (userTermsOfUse.hasTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
+                UserTermsOfUseDao userTermsOfUse = TermsOfUseUtil.getUserTermsOfUseDao();
+                if (userTermsOfUse.hasTermsOfUse(userId, termsId)) {
                     // already joined
                     //BUGR-4262
                     if ((termsId==20873))
@@ -140,7 +139,7 @@ public class AgreeToTermsServlet extends BaseServlet {
                     response.getOutputStream().println(cb == null ? "<response>already agreed</response>" : cb + "({\"response\":\"already agreed\"})");
                 } else if(agree){ //BUGR-4218: only attempt to agree to the terms if agree=true
                     try {
-                        userTermsOfUse.createUserTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                        userTermsOfUse.createUserTermsOfUse(userId, termsId);
                         // success
                         //BUGR-4262
                         if ((termsId==20873))

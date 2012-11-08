@@ -279,17 +279,6 @@
         </jar>
     </target>
 
-
-
-    <target name="package-EJB-TermsOfUseBean" depends="compile">
-        <jar jarfile="${ejb_jars}/TermsOfUse.jar">
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/termsofuse/*.class"/>
-            <metainf dir="${java}/com/topcoder/web/ejb/termsofuse" includes="*.xml"/>
-        </jar>
-    </target>
-
-
     <target name="war-studio" depends="compile">
 <!--
         <ant antfile="build_tc.xml" target="package-EJB-PactsClientServicesBean"/>
@@ -389,7 +378,6 @@
         <antcall target="package-EJB-ForumsBean"/>
         <antcall target="package-EJB-UserBean"/>
         <antcall target="package-EJB-ProjectBean"/>
-        <antcall target="package-EJB-TermsOfUseBean"/>
         <antcall target="build-security"/>
 
         <antcall target="expand-studio"/>
@@ -451,7 +439,6 @@
 
         <copy todir="${jboss_deploy}" file="${ejb_jars}/Project.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/User.jar"/>
-        <copy todir="${jboss_deploy}" file="${ejb_jars}/TermsOfUse.jar"/>
 
 
         <copy todir="${jboss_conf}" file="${resources}/forums/studio/jive_init.xml"/>

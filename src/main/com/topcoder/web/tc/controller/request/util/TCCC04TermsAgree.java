@@ -1,19 +1,18 @@
 package com.topcoder.web.tc.controller.request.util;
 
+import com.cronos.termsofuse.dao.UserTermsOfUseDao;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.ejb.user.UserTermsOfUse;
+import com.topcoder.web.common.TermsOfUseUtil;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
 
-import javax.naming.InitialContext;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -35,11 +34,11 @@ public class TCCC04TermsAgree extends Base {
                 } else if (now.before(beginning)) {
                     throw new NavigationException("The registration period for the TCCC has not yet begun.");
                 } else {
-                    UserTermsOfUse userTerms = (UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class);
-                    if (!isRegistered(getUser().getId())) {
+                    UserTermsOfUseDao userTerms = TermsOfUseUtil.getUserTermsOfUseDao();
+                    if (!isRegistered(userTerms, getUser().getId())) {
                         if (isEligible(getUser().getId())) {
                             log.info("registering " + getUser().getId() + " for the tccc04");
-                            userTerms.createUserTermsOfUse(getUser().getId(), Constants.TCCC04_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME);
+                            userTerms.createUserTermsOfUse(getUser().getId(), Constants.TCCC04_TERMS_OF_USE_ID);
                         } else {
                             throw new NavigationException("You are not eligible to register for the TCCC");
                         }
@@ -66,17 +65,10 @@ public class TCCC04TermsAgree extends Base {
         return !rsc.isEmpty();
     }
 
-    public static boolean isRegistered(long userId) throws Exception {
-        InitialContext ctx = null;
+    public static boolean isRegistered(UserTermsOfUseDao userTerms, long userId) throws Exception {
         boolean ret = false;
-        try {
-            ctx = TCContext.getInitial();
-            UserTermsOfUse userTerms = (UserTermsOfUse) createEJB(ctx, UserTermsOfUse.class);
-            ret = userTerms.hasTermsOfUse(userId, Constants.TCCC04_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME);
-            log.debug("they " + (ret ? "are" : "are not") + " registered");
-        } finally {
-            close(ctx);
-        }
+        ret = userTerms.hasTermsOfUse(userId, Constants.TCCC04_TERMS_OF_USE_ID);
+        log.debug("they " + (ret ? "are" : "are not") + " registered");
         return ret;
     }
 }

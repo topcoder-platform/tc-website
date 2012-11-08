@@ -1,11 +1,11 @@
 package com.topcoder.web.tc.controller.request.util;
 
+import com.cronos.termsofuse.dao.TermsOfUseDao;
+import com.cronos.termsofuse.dao.UserTermsOfUseDao;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.ejb.termsofuse.TermsOfUse;
-import com.topcoder.web.ejb.user.UserTermsOfUse;
+import com.topcoder.web.common.TermsOfUseUtil;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
 
@@ -32,8 +32,8 @@ abstract class TermsBase extends Base {
             } else {
                 if (!isRegistered()) {
                     if (isEligible()) {
-                        TermsOfUse terms = (TermsOfUse) createEJB(getInitialContext(), TermsOfUse.class);
-                        getRequest().setAttribute("terms", terms.getText(getTermsId(), DBMS.OLTP_DATASOURCE_NAME));
+                        TermsOfUseDao terms = TermsOfUseUtil.getTermsOfUseDao();
+                        getRequest().setAttribute("terms", terms.getTermsOfUseText(getTermsId()));
                         getRequest().setAttribute(Constants.TERMS_OF_USE_ID, new Integer(getTermsId()));
                         setSuccessPage();
                     } else {
@@ -52,8 +52,8 @@ abstract class TermsBase extends Base {
             log.debug("checking if " + getUser().getId() + " has agreed to terms " + getTermsId());
         }
         boolean ret = false;
-        UserTermsOfUse userTerms = (UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class);
-        ret = userTerms.hasTermsOfUse(getUser().getId(), getTermsId(), DBMS.OLTP_DATASOURCE_NAME);
+        UserTermsOfUseDao userTerms = TermsOfUseUtil.getUserTermsOfUseDao();
+        ret = userTerms.hasTermsOfUse(getUser().getId(), getTermsId());
         if (log.isDebugEnabled()) {
             log.debug("they " + (ret ? "are" : "are not") + " registered");
         }
