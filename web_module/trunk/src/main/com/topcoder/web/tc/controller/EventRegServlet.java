@@ -11,8 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import com.topcoder.web.ejb.user.UserTermsOfUse;
-import com.topcoder.web.ejb.user.UserTermsOfUseLocator;
+import com.cronos.termsofuse.dao.UserTermsOfUseDao;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.LoginException;
@@ -24,6 +23,7 @@ import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.HttpObjectFactory;
+import com.topcoder.web.common.TermsOfUseUtil;
 
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.HibernateUtils;
@@ -115,7 +115,7 @@ public class EventRegServlet extends BaseServlet {
 
             if (!authentication.getActiveUser().isAnonymous()){
 
-                UserTermsOfUse userTermsOfUse = UserTermsOfUseLocator.getService();
+                UserTermsOfUseDao userTermsOfUse = TermsOfUseUtil.getUserTermsOfUseDao();
 
                 long userId = authentication.getActiveUser().getId();
                 long eventId = Long.parseLong(eventstr);
@@ -156,8 +156,8 @@ public class EventRegServlet extends BaseServlet {
                 if (isRegistered(eventId, userId))
                 { 
                     // if registered but for some reason, not agreed, we will agree here
-                    if (!userTermsOfUse.hasTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
-                        userTermsOfUse.createUserTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    if (!userTermsOfUse.hasTermsOfUse(userId, termsId)) {
+                        userTermsOfUse.createUserTermsOfUse(userId, termsId);
                     }
                     response.getOutputStream().println(cb == null ? "<response>already registered</response>" : cb + "({\"response\":\"already registered\"})");
                 }
@@ -165,8 +165,8 @@ public class EventRegServlet extends BaseServlet {
                     try {
                        
                         //if registered but for some reason, not agreed, we will agree here
-                        if (!userTermsOfUse.hasTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
-                            userTermsOfUse.createUserTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                        if (!userTermsOfUse.hasTermsOfUse(userId, termsId)) {
+                            userTermsOfUse.createUserTermsOfUse(userId, termsId);
                         }
                         completeRegistration(eventId, userId, commandToRefresh);
                         

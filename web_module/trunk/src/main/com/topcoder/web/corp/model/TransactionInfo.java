@@ -1,5 +1,6 @@
 package com.topcoder.web.corp.model;
 
+import com.cronos.termsofuse.dao.UserTermsOfUseDao;
 import com.topcoder.security.NotAuthorizedException;
 import com.topcoder.security.RolePrincipal;
 import com.topcoder.shared.dataAccess.DataAccessInt;
@@ -13,6 +14,7 @@ import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.HttpObjectFactory;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
+import com.topcoder.web.common.TermsOfUseUtil;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.corp.Util;
@@ -25,8 +27,6 @@ import com.topcoder.web.ejb.product.Unit;
 import com.topcoder.web.ejb.product.UnitHome;
 import com.topcoder.web.ejb.user.Contact;
 import com.topcoder.web.ejb.user.ContactHome;
-import com.topcoder.web.ejb.user.UserTermsOfUse;
-import com.topcoder.web.ejb.user.UserTermsOfUseHome;
 
 import javax.ejb.CreateException;
 import javax.naming.InitialContext;
@@ -125,8 +125,8 @@ public class TransactionInfo implements Serializable {
             Contact contactTable = ((ContactHome) icEJB.lookup(ContactHome.EJB_REF_NAME)).create();
             companyID = contactTable.getCompanyId(buyerID, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
 
-            UserTermsOfUse userTerms = ((UserTermsOfUseHome) icEJB.lookup(UserTermsOfUseHome.EJB_REF_NAME)).create();
-            agreed = userTerms.hasTermsOfUse(buyerID, termsId, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME);
+            UserTermsOfUseDao userTerms = TermsOfUseUtil.getUserTermsOfUseDao();
+            agreed = userTerms.hasTermsOfUse(buyerID, termsId);
 
             setRolesPerProduct(productID);
 

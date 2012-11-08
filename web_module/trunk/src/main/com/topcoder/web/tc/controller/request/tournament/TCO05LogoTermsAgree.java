@@ -1,10 +1,11 @@
 package com.topcoder.web.tc.controller.request.tournament;
 
+import com.cronos.termsofuse.dao.UserTermsOfUseDao;
 import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.ejb.user.UserTermsOfUse;
+import com.topcoder.web.common.TermsOfUseUtil;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
 
@@ -22,13 +23,13 @@ public class TCO05LogoTermsAgree extends Base {
         if (getUser().isAnonymous()) {
             throw new PermissionException(getUser(), new SimpleResource(this.getClass().getName()));
         } else {
-            UserTermsOfUse ut = (UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class);
+            UserTermsOfUseDao ut = TermsOfUseUtil.getUserTermsOfUseDao();
 
             TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
             try {
                 tm.begin();
-                if (!ut.hasTermsOfUse(getUser().getId(), Constants.TCO05_LOGO_TERMS_ID, DBMS.JTS_OLTP_DATASOURCE_NAME)) {
-                    ut.createUserTermsOfUse(getUser().getId(), Constants.TCO05_LOGO_TERMS_ID, DBMS.JTS_OLTP_DATASOURCE_NAME);
+                if (!ut.hasTermsOfUse(getUser().getId(), Constants.TCO05_LOGO_TERMS_ID)) {
+                    ut.createUserTermsOfUse(getUser().getId(), Constants.TCO05_LOGO_TERMS_ID);
                 }
                 tm.commit();
             } catch (Exception e) {

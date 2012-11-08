@@ -10,12 +10,11 @@
 
 package com.topcoder.web.tc.controller.request.compstats;
 
+import com.cronos.termsofuse.dao.UserTermsOfUseDao;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.ejb.user.UserTermsOfUse;
-import com.topcoder.web.ejb.user.UserTermsOfUseLocal;
+import com.topcoder.web.common.TermsOfUseUtil;
 import com.topcoder.web.tc.Constants;
 
 /**
@@ -49,10 +48,10 @@ public class DownloadSubmissionAgreeTerms extends Base {
 
 
             // update the db
-            UserTermsOfUseLocal userTerms = (UserTermsOfUseLocal) createLocalEJB(getInitialContext(), UserTermsOfUse.class);
+            UserTermsOfUseDao userTerms = TermsOfUseUtil.getUserTermsOfUseDao();
             
-            if (!userTerms.hasTermsOfUse(getUser().getId(), Constants.DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME)) {
-            	userTerms.createUserTermsOfUse(getUser().getId(), Constants.DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME);
+            if (!userTerms.hasTermsOfUse(getUser().getId(), Constants.DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID)) {
+            	userTerms.createUserTermsOfUse(getUser().getId(), Constants.DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID);
             }
 
             setNextPage(Constants.DOWNLOAD_SUBMISSION);

@@ -63,6 +63,9 @@
         <pathelement location="${jars.dir}/tcs/contest_eligibility_validation_client/1.0.0/contest_eligibility_validation_client.jar"/>
     	<pathelement location="${jars.dir}/spring.jar" />
     	<path refid="openid4java.path" />
+        <pathelement location="${jars.dir}/tcs/terms_of_use/1.1.0/terms_of_use.jar"/>
+        <pathelement location="${jars.dir}/tcs/configuration_persistence/1.0.1/configuration_persistence.jar"/>
+        <pathelement location="${external.jars.dir}/configuration_api-2.0.0.jar"/>
     </path>
     <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
     <property name="class.path" refid="class.path"/>

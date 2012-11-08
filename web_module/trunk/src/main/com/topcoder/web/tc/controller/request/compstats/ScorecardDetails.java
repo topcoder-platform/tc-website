@@ -7,10 +7,12 @@ import java.rmi.RemoteException;
 import java.util.List;
 import java.util.Map;
 
-import javax.ejb.CreateException;
 import javax.ejb.EJBException;
-import javax.naming.NamingException;
 
+import com.cronos.termsofuse.dao.ProjectTermsOfUseDao;
+import com.cronos.termsofuse.dao.TermsOfUsePersistenceException;
+import com.cronos.termsofuse.dao.UserTermsOfUseDao;
+import com.cronos.termsofuse.model.TermsOfUse;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -21,13 +23,9 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.TermsOfUseUtil;
 import com.topcoder.web.common.WebConstants;
-import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.eligibility.ContestEligibilityServiceLocator;
-import com.topcoder.web.ejb.project.ProjectRoleTermsOfUse;
-import com.topcoder.web.ejb.project.ProjectRoleTermsOfUseLocator;
-import com.topcoder.web.ejb.user.UserTermsOfUse;
-import com.topcoder.web.ejb.user.UserTermsOfUseLocator;
 import com.topcoder.web.tc.Constants;
 
 /**
@@ -221,8 +219,8 @@ public class ScorecardDetails extends Base {
      */
     private boolean hasRequiredTerms(long projectId, long userId) throws Exception {
         // check if the user agreed to all terms of use
-        ProjectRoleTermsOfUse projectRoleTermsOfUse = ProjectRoleTermsOfUseLocator.getService();
-        UserTermsOfUse userTermsOfUse = UserTermsOfUseLocator.getService();
+        ProjectTermsOfUseDao projectRoleTermsOfUse = TermsOfUseUtil.getProjectTermsOfUseDao();
+        UserTermsOfUseDao userTermsOfUse = TermsOfUseUtil.getUserTermsOfUseDao();
 
         ResultSetContainer roleIds = getPossibleRolesIds(projectId);
         for (ResultSetRow roleIdRow : roleIds) {
@@ -261,8 +259,8 @@ public class ScorecardDetails extends Base {
     /**
      * Helper method to check if a user agreed to all terms associated to a particular role
      * 
-     * @param projectRoleTermsOfUse the ProjectRoleTermsOfUse used to call service
-     * @param userTermsOfUse the UserTermsOfUse used to call service
+     * @param projectRoleTermsOfUse the ProjectTermsOfUseDao used to call service
+     * @param userTermsOfUse the UserTermsOfUseDao used to call service
      * @param roleIds the roleId to look for
      * @param projectId the projectId to look for
      * @param userId the userId to look for
@@ -270,26 +268,32 @@ public class ScorecardDetails extends Base {
      * 
      * @throws EJBException if any error occurs during EJB call
      * @throws RemoteException if any error occurs during remote EJB call
+     * @throws TermsOfUsePersistenceException if any error occurs when retrieving terms of use data
      * 
      * @since 1.1
      */
-    private boolean checkTermsForRole(ProjectRoleTermsOfUse projectRoleTermsOfUse, UserTermsOfUse userTermsOfUse, 
-            int[] roleIds, long projectId, long userId) throws EJBException, RemoteException {
+    private boolean checkTermsForRole(ProjectTermsOfUseDao projectRoleTermsOfUse, UserTermsOfUseDao userTermsOfUse, 
+            int[] roleIds, long projectId, long userId) throws EJBException, RemoteException, TermsOfUsePersistenceException {
 
         // iterate through all terms for this role
-        List<Long>[] necessaryTerms = projectRoleTermsOfUse.getTermsOfUse((int) projectId,
-                roleIds, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-
-        for (int i = 0; i < necessaryTerms.length; i++) {
-            if (necessaryTerms[i] != null) {
-                for (int j = 0; j < necessaryTerms[i].size(); j++) {
-                    Long termsId = necessaryTerms[i].get(j);
-        
-                    // check if the user has this terms
-                    if (!userTermsOfUse.hasTermsOfUse(userId, termsId, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
-                        return false;
+        for (int roleId : roleIds) {
+            Map<Integer, List<TermsOfUse>> tou = projectRoleTermsOfUse.getTermsOfUse((int) projectId, roleId, new int[] {1, 2, 3});
+            boolean valid = false;
+            for (List<TermsOfUse> terms : tou.values()) {
+                boolean ok = true;
+                for (TermsOfUse term : terms) {
+                    if (!userTermsOfUse.hasTermsOfUse(userId, term.getTermsOfUseId())) {
+                        ok = false;
+                        break;
                     }
                 }
+                if (ok) {
+                    valid = true;
+                    break;
+                }
+            }
+            if (!valid) {
+                return false;
             }
         }
         return true;

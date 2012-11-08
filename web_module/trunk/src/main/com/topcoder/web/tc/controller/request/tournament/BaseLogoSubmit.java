@@ -1,5 +1,6 @@
 package com.topcoder.web.tc.controller.request.tournament;
 
+import com.cronos.termsofuse.dao.UserTermsOfUseDao;
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.security.SimpleResource;
@@ -9,9 +10,9 @@ import com.topcoder.web.common.MultipartRequest;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.SecurityHelper;
+import com.topcoder.web.common.TermsOfUseUtil;
 import com.topcoder.web.ejb.coder.CoderImage;
 import com.topcoder.web.ejb.image.Image;
-import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
 
@@ -49,9 +50,9 @@ abstract class BaseLogoSubmit extends Base {
             throw new PermissionException(getLoggedInUser(), new SimpleResource(this.getClass().getName()));
         } else {
             //check if they agreed to terms, no back doors here buddy!
-            UserTermsOfUse ut = (UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class);
+            UserTermsOfUseDao ut = TermsOfUseUtil.getUserTermsOfUseDao();
             CoderImage coderImage = (CoderImage) createEJB(getInitialContext(), CoderImage.class);
-            if (ut.hasTermsOfUse(getUser().getId(), getTermsId(), DBMS.OLTP_DATASOURCE_NAME)) {
+            if (ut.hasTermsOfUse(getUser().getId(), getTermsId())) {
                 MultipartRequest request = (MultipartRequest) getRequest();
                 UploadedFile file = request.getUploadedFile(Constants.LOGO);
                 int submissionCount = coderImage.getImages(getUser().getId(), getImageTypeId(), DBMS.OLTP_DATASOURCE_NAME).size();

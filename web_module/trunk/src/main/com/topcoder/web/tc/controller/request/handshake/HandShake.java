@@ -16,8 +16,6 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.security.TCSubject;
-import com.topcoder.web.ejb.user.UserTermsOfUse;
-import com.topcoder.web.ejb.user.UserTermsOfUseLocator;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.LoginException;

@@ -1,7 +1,6 @@
 package com.topcoder.web.admin.controller.request;
 
 import com.topcoder.web.admin.Constants;
-import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.web.ejb.survey.Survey;
 import com.topcoder.web.ejb.survey.SurveyQuestion;
 import com.topcoder.web.common.StringUtils;

@@ -1,5 +1,6 @@
 package com.topcoder.web.tc.controller.request.util;
 
+import com.cronos.termsofuse.dao.UserTermsOfUseDao;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.ApplicationServer;
@@ -7,7 +8,6 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.ejb.user.UserEvent;
-import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.tournament.tccc06.SubmitAlgoRegistration;
 
@@ -36,7 +36,7 @@ public class TCCC06ComponentTermsAgree extends TermsAgreeBase {
             } else if (now.before(getBeginning())) {
                 throw new NavigationException("The registration period for the " + getEventName() + " has not yet begun.");
             } else {
-                UserTermsOfUse userTerms = (UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class);
+                UserTermsOfUseDao userTerms = TermsOfUseUtil.getUserTermsOfUseDao();
                 if (!isRegistered()) {
                     if (isEligible()) {
                         String aolSurvey = getRequest().getParameter(SubmitAlgoRegistration.AOL_SURVEY);
@@ -52,7 +52,7 @@ public class TCCC06ComponentTermsAgree extends TermsAgreeBase {
                                 UserEvent userEvent = (UserEvent) createEJB(getInitialContext(), UserEvent.class);
                                 userEvent.createUserEvent(getUser().getId(), Constants.TCCC06_EVENT_ID, DBMS.TCS_OLTP_DATASOURCE_NAME);
                                 log.info("registering " + getUser().getId() + " for the " + getEventName());
-                                userTerms.createUserTermsOfUse(getUser().getId(), getTermsId(), DBMS.OLTP_DATASOURCE_NAME);
+                                userTerms.createUserTermsOfUse(getUser().getId(), getTermsId());
                             } catch (Exception e) {
                                 if (tm != null && (tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK)) {
                                     tm.rollback();

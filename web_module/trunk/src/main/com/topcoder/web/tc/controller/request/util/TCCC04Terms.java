@@ -1,11 +1,12 @@
 package com.topcoder.web.tc.controller.request.util;
 
+import com.cronos.termsofuse.dao.TermsOfUseDao;
+import com.cronos.termsofuse.dao.UserTermsOfUseDao;
 import com.topcoder.shared.security.SimpleResource;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.ejb.termsofuse.TermsOfUse;
+import com.topcoder.web.common.TermsOfUseUtil;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
 
@@ -30,10 +31,11 @@ public class TCCC04Terms extends Base {
                 } else if (now.before(beginning)) {
                     throw new NavigationException("The registration period for the TCCC has not yet begun.");
                 } else {
-                    if (!TCCC04TermsAgree.isRegistered(getUser().getId())) {
+                    UserTermsOfUseDao userTerms = TermsOfUseUtil.getUserTermsOfUseDao();
+                    if (!TCCC04TermsAgree.isRegistered(userTerms, getUser().getId())) {
                         if (TCCC04TermsAgree.isEligible(getUser().getId())) {
-                            TermsOfUse terms = (TermsOfUse) createEJB(getInitialContext(), TermsOfUse.class);
-                            getRequest().setAttribute("terms", terms.getText(Constants.TCCC04_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME));
+                            TermsOfUseDao terms = TermsOfUseUtil.getTermsOfUseDao();
+                            getRequest().setAttribute("terms", terms.getTermsOfUseText(Constants.TCCC04_TERMS_OF_USE_ID));
                             setNextPage(Constants.TCCC04_TERMS);
                             setIsNextPageInContext(true);
                         } else {

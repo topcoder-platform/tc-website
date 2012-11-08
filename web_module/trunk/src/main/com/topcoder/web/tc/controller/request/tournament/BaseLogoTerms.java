@@ -1,13 +1,14 @@
 package com.topcoder.web.tc.controller.request.tournament;
 
+import com.cronos.termsofuse.dao.TermsOfUseDao;
+import com.cronos.termsofuse.dao.UserTermsOfUseDao;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.SecurityHelper;
+import com.topcoder.web.common.TermsOfUseUtil;
 import com.topcoder.web.ejb.coder.CoderImage;
-import com.topcoder.web.ejb.termsofuse.TermsOfUse;
-import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.tc.controller.request.Base;
 
 /**
@@ -21,16 +22,16 @@ abstract class BaseLogoTerms extends Base {
         if (!SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(this.getClass()))) {
             throw new PermissionException(getLoggedInUser(), new SimpleResource(this.getClass().getName()));
         } else {
-            UserTermsOfUse ut = (UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class);
-            if (ut.hasTermsOfUse(getUser().getId(), getTermsId(), DBMS.OLTP_DATASOURCE_NAME)) {
+            UserTermsOfUseDao ut = TermsOfUseUtil.getUserTermsOfUseDao();
+            if (ut.hasTermsOfUse(getUser().getId(), getTermsId())) {
                 CoderImage coderImage = (CoderImage) createEJB(getInitialContext(), CoderImage.class);
                 getRequest().setAttribute("submissionCount",
                         new Integer(coderImage.getImages(getUser().getId(), getImageTypeId(), DBMS.OLTP_DATASOURCE_NAME).size()));
                 setNextPage(true);
                 setIsNextPageInContext(true);
             } else {
-                TermsOfUse terms = (TermsOfUse) createEJB(getInitialContext(), TermsOfUse.class);
-                getRequest().setAttribute("terms", terms.getText(getTermsId(), DBMS.OLTP_DATASOURCE_NAME));
+                TermsOfUseDao terms = TermsOfUseUtil.getTermsOfUseDao();
+                getRequest().setAttribute("terms", terms.getTermsOfUseText(getTermsId()));
                 setNextPage(false);
                 setIsNextPageInContext(true);
             }

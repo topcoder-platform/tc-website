@@ -32,6 +32,8 @@ import javax.naming.NamingException;
 import javax.rmi.PortableRemoteObject;
 import javax.sql.DataSource;
 
+import com.cronos.termsofuse.dao.ProjectTermsOfUseDao;
+import com.cronos.termsofuse.dao.TermsOfUsePersistenceException;
 import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.base.UserNotFoundException;
 import com.jivesoftware.forum.ForumCategoryNotFoundException;
@@ -87,16 +89,14 @@ import com.topcoder.security.policy.PermissionCollection;
 import com.topcoder.security.policy.PolicyRemote;
 import com.topcoder.security.policy.PolicyRemoteHome;
 import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.util.config.ConfigManager;
 import com.topcoder.util.config.ConfigManagerException;
 import com.topcoder.util.config.ConfigManagerInterface;
 import com.topcoder.util.errorhandling.BaseException;
+import com.topcoder.web.common.TermsOfUseUtil;
 import com.topcoder.web.ejb.forums.Forums;
 import com.topcoder.web.ejb.forums.ForumsHome;
-import com.topcoder.web.ejb.project.ProjectRoleTermsOfUse;
-import com.topcoder.web.ejb.project.ProjectRoleTermsOfUseLocator;
 import com.topcoder.web.ejb.userservices.UserServices;
 import com.topcoder.web.ejb.userservices.UserServicesLocator;
 
@@ -1046,6 +1046,9 @@ public class ComponentManagerBean
             } catch (BaseException e) {
                 ejbContext.setRollbackOnly();
                 throw new CatalogException(e.getMessage());
+            } catch (Exception e) {
+                ejbContext.setRollbackOnly();
+                throw new CatalogException(e.getMessage());
             }
         }
 
@@ -1071,11 +1074,13 @@ public class ComponentManagerBean
      * @throws RemoteException if any errors occur during EJB remote invocation
      * @throws CreateException if any errors occur during EJB creation
      * @throws EJBException if any other errors occur while invoking EJB services
+     * @throws TermsOfUsePersistenceException if nay errors occurs when creating project role terms of use
+     * @throws Exception if any other error occurs
      * @since 1.0.3
      */
     private void generateProjectRoleTermsOfUseAssociations(long projectId, long projectTypeId)
             throws NumberFormatException, ConfigManagerException,
-            NamingException, RemoteException, CreateException, EJBException {
+            NamingException, RemoteException, CreateException, EJBException, TermsOfUsePersistenceException, Exception {
 
         // get ProjectRoleTermsOfUse entries configurations
         int submitterRoleId = Integer.parseInt(getConfigValue("submitter_role_id"));
@@ -1083,9 +1088,9 @@ public class ComponentManagerBean
         long reviewerTermsId = Long.parseLong(getConfigValue("reviewer_terms_id"));
 
         // create ProjectRoleTermsOfUse default associations
-        ProjectRoleTermsOfUse projectRoleTermsOfUse = ProjectRoleTermsOfUseLocator.getService();
+        ProjectTermsOfUseDao projectRoleTermsOfUse = TermsOfUseUtil.getProjectTermsOfUseDao();
         projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(),
-                submitterRoleId, submitterTermsId, DEFAULT_TERMS_SORT_ORDER, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                submitterRoleId, submitterTermsId, DEFAULT_TERMS_SORT_ORDER, 0);
 
         if (projectTypeId == ProjectType.ID_DEVELOPMENT) {
             int accuracyReviewerRoleId = Integer.parseInt(getConfigValue("accuracy_reviewer_role_id"));
@@ -1094,19 +1099,19 @@ public class ComponentManagerBean
 
             // if it's a development project there are several reviewer roles
             projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(),
-                    accuracyReviewerRoleId, reviewerTermsId, DEFAULT_TERMS_SORT_ORDER, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    accuracyReviewerRoleId, reviewerTermsId, DEFAULT_TERMS_SORT_ORDER, 0);
 
             projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(),
-                    failureReviewerRoleId, reviewerTermsId, DEFAULT_TERMS_SORT_ORDER, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    failureReviewerRoleId, reviewerTermsId, DEFAULT_TERMS_SORT_ORDER, 0);
 
             projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(),
-                    stressReviewerRoleId, reviewerTermsId, DEFAULT_TERMS_SORT_ORDER, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    stressReviewerRoleId, reviewerTermsId, DEFAULT_TERMS_SORT_ORDER, 0);
         } else {
             int reviewerRoleId = Integer.parseInt(getConfigValue("reviewer_role_id"));
 
             // if it's not development there is a single reviewer role
             projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(),
-                    reviewerRoleId, reviewerTermsId, DEFAULT_TERMS_SORT_ORDER, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    reviewerRoleId, reviewerTermsId, DEFAULT_TERMS_SORT_ORDER, 0);
         }
 
         // also add terms for the rest of the reviewer roles
@@ -1115,11 +1120,11 @@ public class ComponentManagerBean
         int finalReviewerRoleId = Integer.parseInt(getConfigValue("final_reviewer_role_id"));
 
         projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(),
-                primaryScreenerRoleId, reviewerTermsId, DEFAULT_TERMS_SORT_ORDER, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                primaryScreenerRoleId, reviewerTermsId, DEFAULT_TERMS_SORT_ORDER, 0);
         projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(),
-                aggregatorRoleId, reviewerTermsId, DEFAULT_TERMS_SORT_ORDER, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                aggregatorRoleId, reviewerTermsId, DEFAULT_TERMS_SORT_ORDER, 0);
         projectRoleTermsOfUse.createProjectRoleTermsOfUse(new Long(projectId).intValue(),
-                finalReviewerRoleId, reviewerTermsId, DEFAULT_TERMS_SORT_ORDER, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                finalReviewerRoleId, reviewerTermsId, DEFAULT_TERMS_SORT_ORDER, 0);
     }
 
 
