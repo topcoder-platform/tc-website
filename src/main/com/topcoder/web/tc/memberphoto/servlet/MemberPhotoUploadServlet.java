@@ -679,11 +679,11 @@ public class MemberPhotoUploadServlet extends HttpServlet {
 						selectedImageHeight = ( selectedImageHeight * imageHeight) / picHeight;
 
 						resizedImage = Scalr.crop(originalImage, startX, startY,selectedImageWidth,selectedImageHeight);
-						resizedImage = Scalr.resize(resizedImage, Scalr.Mode.FIT_EXACT, targetImageWidth, targetImageHeight);
+						resizedImage = Scalr.resize(resizedImage, Scalr.Method.ULTRA_QUALITY, Scalr.Mode.FIT_EXACT, targetImageWidth, targetImageHeight);
                     } else {
                         if ((imageWidth != targetImageWidth) || (imageHeight != targetImageHeight)) {
                             // scale the image.
-							resizedImage = Scalr.resize(originalImage, Scalr.Mode.FIT_EXACT, targetImageWidth, targetImageHeight);
+							resizedImage = Scalr.resize(originalImage, Scalr.Method.ULTRA_QUALITY, Scalr.Mode.FIT_EXACT, targetImageWidth, targetImageHeight);
                         } else {
                             resizedImage = originalImage;
                         }
