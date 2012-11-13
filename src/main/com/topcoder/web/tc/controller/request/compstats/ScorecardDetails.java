@@ -25,7 +25,6 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.TermsOfUseUtil;
 import com.topcoder.web.common.WebConstants;
-import com.topcoder.web.common.eligibility.ContestEligibilityServiceLocator;
 import com.topcoder.web.tc.Constants;
 
 /**
@@ -172,12 +171,6 @@ public class ScorecardDetails extends Base {
             return false;
         }
 
-        // if has eligibility and user is not eligible
-        if ((ContestEligibilityServiceLocator.getServices().hasEligibility(pid, false))
-              && !ContestEligibilityServiceLocator.getServices().isEligible(userId, pid, false)) {
-            return false;
-        }
-        
         // If the project isn't finished, only administrators can view the scorecard.
         if (projectInfo.getIntItem(0, "status_id") != 7
         		&& !((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin()) {
