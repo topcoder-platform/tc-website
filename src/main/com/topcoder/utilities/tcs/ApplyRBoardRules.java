@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006 TopCoder, Inc. All rights reserved.
+ * Copyright (c) 2006-2012 TopCoder, Inc. All rights reserved.
  */
 package com.topcoder.utilities.tcs;
 
@@ -18,15 +18,18 @@ import com.topcoder.shared.util.sql.DBUtility;
  * inactive reviewers or disqualify active ones. It also sends the corresponding notifications
  * and warnings for reviewers that are "about" to be disqualified.
  *
- * Version 1.0.1 (BUGR-2047) changelog:
+ * Version 1.0.1 (BUGR-2047) change log:
  * - Added a new review board rule: a reviewer needs to have a certain number of submissions (with a score higher or
  *   equal that a certain threshold) during the last X projects, where X is configurable. A reviewer needs to satisfy
  *   either the "short term" rule *or* this new rule in order to be qualified.
  * - All rules parameters were made configurable by (project type, catalog) pair.
  * - Fixed the copy-paste error "PaymentFixUtility" in the ApplyRBoardRules.java file
  *
- * @author pulky
- * @version 1.0.1
+ * Version 1.0.2 change log:
+ * - Merged review boards for all catalogs
+ *
+ * @author pulky, VolodymyrK
+ * @version 1.0.2
  */
 public class ApplyRBoardRules extends DBUtility {
     /**
@@ -175,22 +178,21 @@ public class ApplyRBoardRules extends DBUtility {
                 String logMsg = "";
 
                 Long projectTypeId = rsUsers.getLong("project_type_id");
-                Long catalogId = rsUsers.getLong("catalog_id");
 
-                // get specific parameters using project type, catalog pair.
-                int daysShortPeriod = getParam(DAYS_SHORT_PERIOD_KEY, projectTypeId, catalogId);
-                int daysLongPeriod = getParam(DAYS_LONG_PERIOD_KEY, projectTypeId, catalogId);
-                int scoreThresholdShort = getParam(SCORE_THRESHOLD_SHORT_KEY, projectTypeId, catalogId);
-                int scoreThresholdLong = getParam(SCORE_THRESHOLD_LONG_KEY, projectTypeId, catalogId);
-                int submissionThresholdLong = getParam(SUBMISSION_THRESHOLD_LONG_KEY, projectTypeId, catalogId);
-                int submissionThresholdShort = getParam(SUBMISSION_THRESHOLD_SHORT_KEY, projectTypeId, catalogId);
-                int daysBeforeWarning = getParam(DAYS_BEFORE_WARNING_KEY, projectTypeId, catalogId);
-                int firstWarningInterval = getParam(FIRST_WARNING_INTERVAL_KEY, projectTypeId, catalogId);
-                int secondWarningInterval = getParam(SECOND_WARNING_INTERVAL_KEY, projectTypeId, catalogId);
-                int alternateRuleMinimumScore = getParam(ALTERNATE_RULE_MINIMUM_SCORE_KEY, projectTypeId, catalogId);
-                int alternateRuleMinimumSubmissions = getParam(ALTERNATE_RULE_MINIMUM_SUBMISSIONS_KEY, projectTypeId, catalogId);
-                int alternateRuleLastNProjects = getParam(ALTERNATE_RULE_LAST_N_PROJECTS_KEY, projectTypeId, catalogId);
-                int topNSubmissions = getParam(TOP_N_SUBMISSIONS_KEY, projectTypeId, catalogId);
+                // get specific parameters using project type
+                int daysShortPeriod = getParam(DAYS_SHORT_PERIOD_KEY, projectTypeId);
+                int daysLongPeriod = getParam(DAYS_LONG_PERIOD_KEY, projectTypeId);
+                int scoreThresholdShort = getParam(SCORE_THRESHOLD_SHORT_KEY, projectTypeId);
+                int scoreThresholdLong = getParam(SCORE_THRESHOLD_LONG_KEY, projectTypeId);
+                int submissionThresholdLong = getParam(SUBMISSION_THRESHOLD_LONG_KEY, projectTypeId);
+                int submissionThresholdShort = getParam(SUBMISSION_THRESHOLD_SHORT_KEY, projectTypeId);
+                int daysBeforeWarning = getParam(DAYS_BEFORE_WARNING_KEY, projectTypeId);
+                int firstWarningInterval = getParam(FIRST_WARNING_INTERVAL_KEY, projectTypeId);
+                int secondWarningInterval = getParam(SECOND_WARNING_INTERVAL_KEY, projectTypeId);
+                int alternateRuleMinimumScore = getParam(ALTERNATE_RULE_MINIMUM_SCORE_KEY, projectTypeId);
+                int alternateRuleMinimumSubmissions = getParam(ALTERNATE_RULE_MINIMUM_SUBMISSIONS_KEY, projectTypeId);
+                int alternateRuleLastNProjects = getParam(ALTERNATE_RULE_LAST_N_PROJECTS_KEY, projectTypeId);
+                int topNSubmissions = getParam(TOP_N_SUBMISSIONS_KEY, projectTypeId);
 
                 psSelDetails.clearParameters();
                 psSelDetails.setInt(1, daysShortPeriod);  // Days to analyze
@@ -198,18 +200,15 @@ public class ApplyRBoardRules extends DBUtility {
                 psSelDetails.setInt(3, topNSubmissions);  // top N submissions counted
                 psSelDetails.setInt(4, rsUsers.getInt("project_type_id"));  // project_type
                 psSelDetails.setLong(5, rsUsers.getLong("user_id"));  // user_id
-                psSelDetails.setLong(6, rsUsers.getLong("catalog_id"));  // catalog_id
 
 
 //                String possibleDisqualificationReason = " (no " + submissionThresholdShort + " submissions in the last " + daysShortPeriod + " days.";
 
                 log.debug("Analyzing " + ((rsUsers.getInt("status_id") == DISQUALIFIED_STATUS) ? "Inactive" : "Active") +
                         " user " + rsUsers.getLong("user_id") + "("+ rsUsers.getString("handle") + ")" +
-                        " Project Type: " + rsUsers.getString("project_type_name") +
-                        " Catalog Id: " + rsUsers.getString("catalog_name"));
+                        " Project Type: " + rsUsers.getString("project_type_name"));
 
-                logMsg = " - <" + rsUsers.getString("handle") + "> <" + rsUsers.getString("project_type_name") + "> <" +
-                        rsUsers.getString("catalog_name") + ">";
+                logMsg = " - <" + rsUsers.getString("handle") + "> <" + rsUsers.getString("project_type_name") + ">";
 
                 rsDetailsShort = psSelDetails.executeQuery();
 
@@ -225,7 +224,6 @@ public class ApplyRBoardRules extends DBUtility {
                 psSelAlternate.setLong(2, rsUsers.getLong("user_id"));  // user_id
                 psSelAlternate.setLong(3, rsUsers.getLong("user_id"));  // user_id
                 psSelAlternate.setInt(4, rsUsers.getInt("project_type_id"));  // project_type
-                psSelAlternate.setLong(5, rsUsers.getLong("catalog_id"));  // catalog
                 rsAlternate = psSelAlternate.executeQuery();
 
                 // counts submissions
@@ -284,14 +282,13 @@ public class ApplyRBoardRules extends DBUtility {
                         // if the reviewer is inactive, but after the analysis he shouldn't be disqualified, it means
                         // he had reached again the requirements to be a reviewer, so he should be activated.
                         qualifiedReviewersCount++;
-                        updateReviewerStatus(QUALIFIED_STATUS, rsUsers.getLong("user_id"),
-                                rsUsers.getInt("project_type_id"), rsUsers.getLong("catalog_id"));
+                        updateReviewerStatus(QUALIFIED_STATUS, rsUsers.getLong("user_id"), rsUsers.getInt("project_type_id"));
 //               log.debug("... activated!!! ");
                         log.debug("ACT" + logMsg);
 
                         // send mail.
                         sendActivationMail(rsUsers.getString("handle"), rsUsers.getString("email_address"),
-                                rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"),
+                                rsUsers.getString("project_type_name"),
                                 submissionThresholdLong, submissionThresholdShort, daysShortPeriod, scoreThresholdShort, scoreThresholdLong,
                                 alternateRuleMinimumScore, alternateRuleMinimumSubmissions, alternateRuleLastNProjects, topNSubmissions);
                     }
@@ -301,14 +298,13 @@ public class ApplyRBoardRules extends DBUtility {
                         // if the reviewer is active, but after the analysis he doesn't fulfill the requirements
                         // he should be disqualified.
                         disqualifiedReviewersCount++;
-                        updateReviewerStatus(DISQUALIFIED_STATUS, rsUsers.getLong("user_id"),
-                                rsUsers.getInt("project_type_id"), rsUsers.getLong("catalog_id"));
+                        updateReviewerStatus(DISQUALIFIED_STATUS, rsUsers.getLong("user_id"), rsUsers.getInt("project_type_id"));
 //                        log.debug("... disqualified " + possibleDisqualificationReason);
                         log.debug("DISQ" + logMsg);
 
                         // send mail.
                         sendDisqualificationMail(rsUsers.getString("handle"), rsUsers.getString("email_address"),
-                                rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"),
+                                rsUsers.getString("project_type_name"),
                                 submissionThresholdLong, submissionThresholdShort, daysShortPeriod, scoreThresholdShort, scoreThresholdLong,
                                 alternateRuleMinimumScore, alternateRuleMinimumSubmissions, alternateRuleLastNProjects, topNSubmissions);
                     } else {
@@ -323,7 +319,7 @@ public class ApplyRBoardRules extends DBUtility {
                             if (daysToBeDisqualified % firstWarningInterval == 0 || daysToBeDisqualified == 1 ||
                                     (daysToBeDisqualified < firstWarningInterval && daysToBeDisqualified % secondWarningInterval == 0)) {
                                 sendWarningMail(rsUsers.getString("handle"), rsUsers.getString("email_address"),
-                                        rsUsers.getString("project_type_name"), rsUsers.getString("catalog_name"),
+                                        rsUsers.getString("project_type_name"),
                                         daysToBeDisqualified, submissionThresholdLong, submissionThresholdShort,
                                         daysShortPeriod, scoreThresholdShort, scoreThresholdLong, alternateRuleMinimumScore,
                                         alternateRuleMinimumSubmissions, alternateRuleLastNProjects, topNSubmissions);
@@ -388,16 +384,16 @@ public class ApplyRBoardRules extends DBUtility {
      * @param handle          the reviewer's handle.
      * @param userEmail       the reviewer's email address.
      * @param projectTypeName the project's type.
-     * @param catalogName     the catalogs description.
+
      */
-    private void sendActivationMail(String handle, String userEmail, String projectTypeName, String catalogName,
+    private void sendActivationMail(String handle, String userEmail, String projectTypeName,
             int submissionThresholdLong, int submissionThresholdShort, int daysShortPeriod, int scoreThresholdShort, int scoreThresholdLong,
             int alternateRuleMinimumScore, int alternateRuleMinimumSubmissions, int alternateRuleLastNProjects, int topNSubmissions) throws Exception {
 
         StringBuffer mail = new StringBuffer();
         mail.append("Hello " + handle + ",\n\n");
         mail.append("We are pleased to inform you that you have been reactivated for performing ");
-        mail.append("reviews on " + catalogName + " " + projectTypeName + " contests.\n\n");
+        mail.append("reviews on " + projectTypeName + " contests.\n\n");
 
         mail.append("Remember that to stay active you must complete at least " + submissionThresholdLong + " contest" + (submissionThresholdLong > 1 ? "s" : ""));
         mail.append(" overall in the corresponding catalog and track with a score equal or higher than " + scoreThresholdLong + " in each one.\n");
@@ -415,7 +411,7 @@ public class ApplyRBoardRules extends DBUtility {
         String emailSubject = "Review Board: Activation";
 
         try {
-            digestMail.append(" Activated - " + handle + " for " + catalogName + " " + projectTypeName + " projects.\n");
+            digestMail.append(" Activated - " + handle + " for " + projectTypeName + " projects.\n");
             if (userEmail != null && userEmail != "") {
                 if (sendMails.equalsIgnoreCase("true")) {
                     sendMail(systemEmail, userEmail, emailSubject, mail.toString());
@@ -436,16 +432,15 @@ public class ApplyRBoardRules extends DBUtility {
      * @param handle          the reviewer's handle.
      * @param userEmail       the reviewer's email address.
      * @param projectTypeName the project's type.
-     * @param catalogName     the catalogs description.
      */
-    private void sendDisqualificationMail(String handle, String userEmail, String projectTypeName, String catalogName,
+    private void sendDisqualificationMail(String handle, String userEmail, String projectTypeName,
             int submissionThresholdLong, int submissionThresholdShort, int daysShortPeriod, int scoreThresholdShort, int scoreThresholdLong,
             int alternateRuleMinimumScore, int alternateRuleMinimumSubmissions, int alternateRuleLastNProjects, int topNSubmissions) throws Exception {
 
         StringBuffer mail = new StringBuffer();
         mail.append("Hello " + handle + ",\n\n");
         mail.append("We are sorry to inform you that you have been disqualified from performing additional ");
-        mail.append("reviews on " + catalogName + " " + projectTypeName + " contests, but you will still be ");
+        mail.append("reviews on " + projectTypeName + " contests, but you will still be ");
         mail.append("able to complete your current contests.\n\n");
         mail.append("This is temporary. You no longer fulfill the requirements to be a reviewer, ");
         mail.append("but if you resolve this, you will be able to perform reviews again.\n\n");
@@ -467,7 +462,7 @@ public class ApplyRBoardRules extends DBUtility {
         String emailSubject = "Review Board: Disqualification";
 
         try {
-            digestMail.append(" Disqualified - " + handle + " for " + catalogName + " " + projectTypeName + " projects.\n");
+            digestMail.append(" Disqualified - " + handle + " for " + projectTypeName + " projects.\n");
             if (userEmail != null && userEmail != "") {
                 if (sendMails.equalsIgnoreCase("true")) {
                     sendMail(systemEmail, userEmail, emailSubject, mail.toString());
@@ -488,17 +483,16 @@ public class ApplyRBoardRules extends DBUtility {
      * @param handle               the reviewer's handle.
      * @param userEmail            the reviewer's email address.
      * @param projectTypeName      the project's type.
-     * @param catalogName          the catalogs description.
      * @param daysToBeDisqualified the days left to be disqualified.
      */
-    private void sendWarningMail(String handle, String userEmail, String projectTypeName, String catalogName, long daysToBeDisqualified,
+    private void sendWarningMail(String handle, String userEmail, String projectTypeName, long daysToBeDisqualified,
             int submissionThresholdLong, int submissionThresholdShort, int daysShortPeriod, int scoreThresholdShort, int scoreThresholdLong,
             int alternateRuleMinimumScore, int alternateRuleMinimumSubmissions, int alternateRuleLastNProjects, int topNSubmissions) throws Exception {
 
         StringBuffer mail = new StringBuffer();
         mail.append("Hello " + handle + ",\n\n");
         mail.append("This mail is to warn you that in " + daysToBeDisqualified + " day" + (daysToBeDisqualified > 1 ? "s" : "") + " you will be disqualified from performing ");
-        mail.append("reviews on " + catalogName + " " + projectTypeName + " contests.\n\n");
+        mail.append("reviews on " + projectTypeName + " contests.\n\n");
 
         mail.append("Note:\n");
         mail.append("To be qualified as a reviewer you must complete at least " + submissionThresholdLong + " contest" + (submissionThresholdLong > 1 ? "s" : ""));
@@ -533,28 +527,17 @@ public class ApplyRBoardRules extends DBUtility {
 
 
     /**
-     * Get a specific parameter (using project type, catalog pair)
-     *
-     * First it will try project type, catalog
-     * Then project type.
-     * And finally the default.
+     * Get a specific parameter
      *
      * @param key the key to find
      * @param projectTypeId the contextual project type id
-     * @param catalogId the contextual catalog id
      *
      * @return an int with the parameter value
      */
-    private int getParam(String key, Long projectTypeId, Long catalogId) {
-        String prefixTypeCatalog = "t-" + projectTypeId.toString() + "-c-" + catalogId.toString() + "-";
+    private int getParam(String key, Long projectTypeId) {
         String prefixType = "t-" + projectTypeId.toString() + "-";
 
-        String temp = (String) params.get(prefixTypeCatalog+key);
-        if (temp != null) {
-            return Integer.parseInt(temp);
-        }
-
-        temp = (String) params.get(prefixType+key);
+        String temp = (String) params.get(prefixType+key);
         if (temp != null) {
             return Integer.parseInt(temp);
         }
@@ -630,12 +613,13 @@ public class ApplyRBoardRules extends DBUtility {
      */
     private PreparedStatement prepareUsersStatement() throws SQLException {
         StringBuffer query = new StringBuffer(200);
-        query.append("select u.handle, ru.user_id, ru.project_type_id, ru.catalog_id, ru.status_id, ru.immune_ind,  ");
-        query.append("pcl.name as project_type_name, c.catalog_name,  ");
+        query.append("select distinct u.handle, ru.user_id, ru.project_type_id, ru.status_id, ru.immune_ind, ");
+        query.append("pcl.project_category_id, pcl.name as project_type_name, ");
         query.append("(select address from email e where e.user_id = ru.user_id and e.primary_ind = 1) as email_address  ");
-        query.append("from rboard_user ru, user u, catalog c, project_category_lu pcl ");
-        query.append("where ru.immune_ind = 0 and ru.status_id in (?, ?) and  ru.user_id = u.user_id  ");
-        query.append("and c.catalog_id = ru.catalog_id  and  pcl.project_category_id = ru.project_type_id ");
+        query.append("from rboard_user ru, user u, project_category_lu pcl ");
+        query.append("where ru.immune_ind = 0 and ru.status_id in (?, ?) and ru.user_id = u.user_id and ");
+        query.append("pcl.project_category_id = ru.project_type_id ");
+        query.append("order by pcl.project_category_id, ru.user_id ");
 
         PreparedStatement ps = prepareStatement("tcs_catalog", query.toString());
         ps.setInt(1, QUALIFIED_STATUS);
@@ -651,18 +635,16 @@ public class ApplyRBoardRules extends DBUtility {
     private PreparedStatement prepareDetailsStatement() throws SQLException {
         StringBuffer query = new StringBuffer(200);
         query.append("select DATE(current) as current_date, mdy(substr(pi_rating_date.value,1,2), substr(pi_rating_date.value,4,2), substr(pi_rating_date.value,7,4)) as rating_date  ");
-        query.append("from project p, project_result pr, comp_catalog cc, category_catalog cac, ");
-        query.append("project_info pi_rating_date, project_info pi_comp_id ");
+        query.append("from project p, project_result pr, ");
+        query.append("project_info pi_rating_date ");
         query.append("where pi_rating_date.project_info_type_id = 22 and ");
         query.append("pi_rating_date.project_id = p.project_id and ");
-        query.append("pi_comp_id.project_info_type_id = 2 and ");
-        query.append("pi_comp_id.project_id = p.project_id and ");
         query.append("p.project_id not in (select ce.contest_id from contest_eligibility ce where ce.is_studio = 0) and ");
         query.append("p.project_status_id in (1,4,5,6,7,8) and ");  // active or completed or canceled
-        query.append("cc.component_id = pi_comp_id.value and p.project_id = pr.project_id and  ");
+        query.append("p.project_id = pr.project_id and  ");
         query.append("mdy(substr(pi_rating_date.value,1,2), substr(pi_rating_date.value,4,2), substr(pi_rating_date.value,7,4)) >= DATE(current) - ? UNITS DAY and  ");
-        query.append("cc.root_category_id = cac.category_id and pr.final_score >= ? and pr.placed >= 1 and pr.placed <= ? and ");
-        query.append("p.project_category_id = ? and pr.user_id = ? and cac.catalog_id = ?  ");
+        query.append("pr.final_score >= ? and pr.placed >= 1 and pr.placed <= ? and ");
+        query.append("p.project_category_id = ? and pr.user_id = ?");
         query.append("order by mdy(substr(pi_rating_date.value,1,2), substr(pi_rating_date.value,4,2), substr(pi_rating_date.value,7,4)) desc  ");
         PreparedStatement ps = prepareStatement("tcs_catalog", query.toString());
         return ps;
@@ -678,18 +660,14 @@ public class ApplyRBoardRules extends DBUtility {
         query.append("select first ? p.project_id, ");
         query.append("(select pr.final_score from project_result pr where pr.project_id = p.project_id and pr.user_id = ?) as user_score, ");
         query.append("(select pr.placed from project_result pr where pr.project_id = p.project_id and pr.user_id = ?) as placed ");
-        query.append("from project p, project_info pi_rating_date, project_info pi_comp_id, comp_catalog cc, category_catalog cac, project_info pi_open ");
+        query.append("from project p, project_info pi_rating_date, project_info pi_open ");
         query.append("where pi_rating_date.project_info_type_id = 22 and pi_rating_date.project_id = p.project_id and  ");
-        query.append("      pi_comp_id.project_info_type_id = 2 and ");
-        query.append("      pi_comp_id.project_id = p.project_id and ");
         query.append("      pi_open.project_info_type_id = 12 and ");
         query.append("      pi_open.project_id = p.project_id and ");
         query.append("      pi_open.value = 'Yes' and ");
         query.append("      p.project_id not in (select ce.contest_id from contest_eligibility ce where ce.is_studio = 0) and ");
         query.append("      p.project_status_id in (4,5,6,7,8) and ");  // completed or canceled (active projects are not counted for the alternate rule)
-        query.append("      cc.component_id = pi_comp_id.value and  ");
-        query.append("      cc.root_category_id = cac.category_id and  ");
-        query.append("      p.project_category_id = ? and cac.catalog_id = ? ");
+        query.append("      p.project_category_id = ? ");
         query.append("order by mdy(substr(pi_rating_date.value,1,2), substr(pi_rating_date.value,4,2), substr(pi_rating_date.value,7,4)) desc");
 
         PreparedStatement ps = prepareStatement("tcs_catalog", query.toString());
@@ -702,13 +680,12 @@ public class ApplyRBoardRules extends DBUtility {
      * @param statusId      the status id to update.
      * @param userId        the reviewer's ID.
      * @param projectTypeId the project's type ID.
-     * @param catalogId     the catalog ID.
      */
-    private void updateReviewerStatus(int statusId, long userId, int projectTypeId, long catalogId) throws SQLException {
+    private void updateReviewerStatus(int statusId, long userId, int projectTypeId) throws SQLException {
         StringBuffer query = new StringBuffer(200);
         query.append("update rboard_user ");
         query.append("set status_id = ? ");
-        query.append("where user_id = ? and project_type_id = ? and catalog_id = ? ");
+        query.append("where user_id = ? and project_type_id = ? and immune_ind = 0");
 
         PreparedStatement psUpd = null;
         try {
@@ -718,10 +695,9 @@ public class ApplyRBoardRules extends DBUtility {
             psUpd.setInt(1, statusId);
             psUpd.setLong(2, userId);
             psUpd.setInt(3, projectTypeId);
-            psUpd.setLong(4, catalogId);
 
             if (!onlyAnalyze.equalsIgnoreCase("true")) {
-                psUpd.executeUpdate();
+                //psUpd.executeUpdate();
             }
         } finally {
             DBMS.close(psUpd);
