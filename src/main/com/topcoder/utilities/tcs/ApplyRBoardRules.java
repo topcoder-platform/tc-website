@@ -697,7 +697,7 @@ public class ApplyRBoardRules extends DBUtility {
             psUpd.setInt(3, projectTypeId);
 
             if (!onlyAnalyze.equalsIgnoreCase("true")) {
-                //psUpd.executeUpdate();
+                psUpd.executeUpdate();
             }
         } finally {
             DBMS.close(psUpd);
