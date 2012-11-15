@@ -218,7 +218,7 @@ public class ScorecardDetails extends Base {
         ResultSetContainer roleIds = getPossibleRolesIds(projectId);
         for (ResultSetRow roleIdRow : roleIds) {
             if (checkTermsForRole(projectRoleTermsOfUse, userTermsOfUse, 
-                new int[] {roleIdRow.getIntItem("resource_role_id")}, projectId, userId)) { 
+                roleIdRow.getIntItem("resource_role_id"), projectId, userId)) { 
                 return true;
             }
         }
@@ -266,11 +266,11 @@ public class ScorecardDetails extends Base {
      * @since 1.1
      */
     private boolean checkTermsForRole(ProjectTermsOfUseDao projectRoleTermsOfUse, UserTermsOfUseDao userTermsOfUse, 
-            int[] roleIds, long projectId, long userId) throws EJBException, RemoteException, TermsOfUsePersistenceException {
+            int roleId, long projectId, long userId) throws EJBException, RemoteException, TermsOfUsePersistenceException {
 
         // iterate through all terms for this role
-        for (int roleId : roleIds) {
-            Map<Integer, List<TermsOfUse>> tou = projectRoleTermsOfUse.getTermsOfUse((int) projectId, roleId, new int[] {1, 2, 3});
+        // for (int roleId : roleIds) {
+            Map<Integer, List<TermsOfUse>> tou = projectRoleTermsOfUse.getTermsOfUse((int) projectId, roleId, null);
             boolean valid = false;
             for (List<TermsOfUse> terms : tou.values()) {
                 boolean ok = true;
@@ -282,13 +282,13 @@ public class ScorecardDetails extends Base {
                 }
                 if (ok) {
                     valid = true;
-                    break;
+           //         break;
                 }
             }
             if (!valid) {
                 return false;
             }
-        }
+        //}
         return true;
     }
 }
