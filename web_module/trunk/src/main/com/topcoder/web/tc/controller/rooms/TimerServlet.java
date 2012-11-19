@@ -1,4 +1,4 @@
-package com.topcoder.web.tc.controller;
+package com.topcoder.web.tc.controller.rooms;
 
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.util.TCResourceBundle;

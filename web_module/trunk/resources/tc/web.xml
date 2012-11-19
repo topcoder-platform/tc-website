@@ -55,7 +55,7 @@
 
 	<servlet>
         <servlet-name>timer</servlet-name>
-        <servlet-class>com.topcoder.web.tc.controller.TimerServlet</servlet-class>
+        <servlet-class>com.topcoder.web.tc.controller.rooms.TimerServlet</servlet-class>
 		<init-param>
             <param-name>default_processor</param-name>
             <param-value>Home</param-value>
