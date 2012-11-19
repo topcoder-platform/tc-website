@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common.dao.querytool;
 
@@ -18,7 +18,14 @@ import com.topcoder.web.common.dao.*;
  *   </ol>
  * </p>
  *
- * @author pulky, TCSDEVELOPER
+ * <p>
+ * Version 1.2 Change notes:
+ *   <ol>
+ *     <li>Added {@link #getGovernmentIdDAO()} method.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author pulky, TCSDEVELOPER, isv
  * @version 1.1
  */
 public class DAOFactoryQueryTool implements DAOFactory {
@@ -303,6 +310,16 @@ public class DAOFactoryQueryTool implements DAOFactory {
      * @since 1.1
      */
     public UserPermissionGrantDAO getUserPermissionGrantDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    /**
+     * <p>Gets the instance of {@link GovernmentIDDAO}.</p>
+     *
+     * @return a <code>GovernmentIDDAO</code> to be used for managing government IDs.
+     * @since 1.2
+     */
+    public GovernmentIDDAO getGovernmentIdDAO() {
         throw new RuntimeException("Not supported");
     }
 }
