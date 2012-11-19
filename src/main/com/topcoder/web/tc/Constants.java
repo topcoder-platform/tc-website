@@ -119,8 +119,19 @@ import java.util.MissingResourceException;
  *   </ol>
  * </p>
  *
+ * <p>
+ * Version 1.9.4 Change notes:
+ *   <ol>
+ *     <li>Added {@link #GOVERNMENT_ID_EDIT} constant.</li>
+ *     <li>Added {@link #GOVERNMENT_ID} constant.</li>
+ *     <li>Added {@link #GOVERNMENT_ID_EXPIRES} constant.</li>
+ *     <li>Added {@link #GOVERNMENT_ID_NUMBER} constant.</li>
+ *     <li>Added {@link #GOVERNMENT_ID_RECEIVED} constant.</li>
+ *   </ol>
+ * </p>
+ *
  * @author pulky, isv, VolodymyrK
- * @version 1.9.3
+ * @version 1.9.4
  */
 public class Constants implements WebConstants {
 
@@ -283,6 +294,14 @@ public class Constants implements WebConstants {
     public static String PLACEMENT_INFO_DETAIL;
     public static String NOTE_LIST;
     public static String NOTE_EDIT;
+
+    /**
+     * <p>A <code>String</code> referencing the view for editing the government issued ID document.</p>
+     * 
+     * @since 1.9.4
+     */
+    public static String GOVERNMENT_ID_EDIT;
+    
     public static String CONTACT_DATE;
     public static String TCS_SURVEY_RESULTS;
 
@@ -1072,6 +1091,46 @@ public class Constants implements WebConstants {
      * @since 1.9.2
      */
     public static final String TAB_INDEX = "tab";
+
+    /**
+     * <p>A <code>String</code> providing the name of the request attribute providing the ID for government issued 
+     * ID document.</p>
+     * 
+     * @since 1.9.4
+     */
+    public static final String GOVERNMENT_ID = "gov_id";
+
+    /**
+     * <p>A <code>String</code> providing the name of the request attribute providing the number for government issued 
+     * ID document.</p>
+     *
+     * @since 1.9.4
+     */
+    public static final String GOVERNMENT_ID_NUMBER = "gov_id_num";
+
+    /**
+     * <p>A <code>String</code> providing the name of the request attribute providing the date of receiving for 
+     * government issued ID document.</p>
+     *
+     * @since 1.9.4
+     */
+    public static final String GOVERNMENT_ID_EXPIRES = "gov_id_exp";
+
+    /**
+     * <p>A <code>String</code> providing the name of the request attribute providing the date for expiration for 
+     * government issued ID document.</p>
+     *
+     * @since 1.9.4
+     */
+    public static final String GOVERNMENT_ID_RECEIVED = "gov_id_rcv";
+
+    /**
+     * <p>A <code>String</code> providing the name of request attribute providing the list of countries.</p>
+     *
+     * @since 1.9.4
+     */
+    public static final String COUNTRIES = "countries";
+
     static {
         initialize();
     }

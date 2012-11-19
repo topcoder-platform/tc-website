@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+  - Author: isv
+  - Version: 1.0
+  - Copyright (C) 2012 TopCoder Inc., All Rights Reserved.
+  - Description: Hibernate mapping file for gov_id_document table
+-->
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+    <class name="GovernmentID" table="common_oltp:gov_id_document">
+        <id name="id" column="gov_id_document_id" type="long" unsaved-value="-1">
+            <generator class="native"/>
+        </id>
+        <property name="country" column="country_code" access="property"/>
+        <property name="documentNumber" column="id_number" access="property"/>
+        <property name="received" column="received_date" access="property"/>
+        <property name="expires" column="expire_date" access="property"/>
+        <property name="userId" column="user_id" access="property"/>
+    </class>
+</hibernate-mapping>
+

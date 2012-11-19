@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common.dao;
 
@@ -16,8 +16,15 @@ package com.topcoder.web.common.dao;
  *   </ol>
  * </p>
  *
- * @author dok, TCSDEVELOPER, VolodymyrK
- * @version 1.1
+ * <p>
+ * Version 1.2 Change notes:
+ *   <ol>
+ *     <li>Added {@link #getGovernmentIdDAO()} method.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, TCSDEVELOPER, VolodymyrK, isv
+ * @version 1.2
  */
 public interface DAOFactory {
     AlgoRatingTypeDAO getAlgoRatingTypeDAO();
@@ -161,5 +168,13 @@ public interface DAOFactory {
      * @since 1.1
      */
     UserPermissionGrantDAO getUserPermissionGrantDAO();
+
+    /**
+     * <p>Gets the instance of {@link GovernmentIDDAO}.</p>
+     * 
+     * @return a <code>GovernmentIDDAO</code> to be used for managing government IDs. 
+     * @since 1.2
+     */
+    GovernmentIDDAO getGovernmentIdDAO();
 
 }

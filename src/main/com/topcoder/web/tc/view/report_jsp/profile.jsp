@@ -208,6 +208,13 @@
       <% } %>
     </td>
     <td>
+        <% if (p.getStringItem("has_gov_id").equals("1")) { %>
+        <a href="/tc?module=EditGovernmentID&uid=<rsc:item name="user_id" row="<%=p%>"/>">View/Edit Government ID</a>
+        <% } else { %>
+        <a href="/tc?module=EditGovernmentID&uid=<rsc:item name="user_id" row="<%=p%>"/>">Add Government ID</a>
+        <% } %>
+    </td>
+    <td>
     </td>
 </tr>
 

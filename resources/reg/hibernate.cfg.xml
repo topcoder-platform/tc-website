@@ -58,6 +58,7 @@
         <mapping resource="com/topcoder/web/common/model/EventType.hbm.xml"/>
 
         <mapping resource="com/topcoder/web/common/model/FileType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/GovernmentID.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Image.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/IntroEventConfig.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/IntroEventPropertyType.hbm.xml"/>

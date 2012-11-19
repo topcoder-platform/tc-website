@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001 - 2009 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common.dao.hibernate;
 
@@ -24,6 +24,7 @@ import com.topcoder.web.common.dao.EventDAO;
 import com.topcoder.web.common.dao.EventRegistrationDAO;
 import com.topcoder.web.common.dao.EventTypeDAO;
 import com.topcoder.web.common.dao.FileTypeDAO;
+import com.topcoder.web.common.dao.GovernmentIDDAO;
 import com.topcoder.web.common.dao.ImageDAO;
 import com.topcoder.web.common.dao.IntroEventDAO;
 import com.topcoder.web.common.dao.InvalidHandleDAO;
@@ -83,8 +84,15 @@ import com.topcoder.web.common.dao.VisaLetterRequestDAO;
  *   </ol>
  * </p>
  *
- * @author dok, TCSDEVELOPER
- * @version 1.1
+ * <p>
+ * Version 1.2 Change notes:
+ *   <ol>
+ *     <li>Added {@link #getGovernmentIdDAO()} method.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, TCSDEVELOPER, isv
+ * @version 1.2
  */
 public class DAOFactoryHibernate implements DAOFactory {
     public AlgoRatingTypeDAO getAlgoRatingTypeDAO() {
@@ -360,4 +368,13 @@ public class DAOFactoryHibernate implements DAOFactory {
         return new UserPermissionGrantDAOHibernate();
     }
 
+    /**
+     * <p>Gets the instance of {@link GovernmentIDDAO}.</p>
+     *
+     * @return a <code>GovernmentIDDAO</code> to be used for managing government IDs.
+     * @since 1.2
+     */
+    public GovernmentIDDAO getGovernmentIdDAO() {
+        return new GovernmentIDAOHibernate();
+    }
 }
