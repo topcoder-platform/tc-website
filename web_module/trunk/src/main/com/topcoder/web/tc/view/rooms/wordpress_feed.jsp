@@ -8,18 +8,18 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>		
 		<script>
 			window.onbeforeunload = function() {
-				jQuery.ajax({url:"/timer?key=0", async:false})
+				jQuery.ajax({url:"/tc/timer?key=0", async:false})
 			};
 			
 			// set timeout
-			window.setTimeout(function(){window.onbeforeunload = null;jQuery.ajax({url:"/timer?key=1", async:false});window.open('', '_self', '');window.close();}, 300000);
+			window.setTimeout(function(){window.onbeforeunload = null;jQuery.ajax({url:"/tc/timer?key=1", async:false});window.open('', '_self', '');window.close();}, 300000);
 			
 			var goToLink = function(link) {
 				window.onbeforeunload = null;
 				var url = '/timer?key=2&link=' + encodeURIComponent(link);
 				jQuery.ajax({url:url, async:false});
 			}
-			jQuery.ajax({url:'/timer', async:false});
+			jQuery.ajax({url:'/tc/timer', async:false});
 
 			function externalLinks() {
 			      if (!document.getElementsByTagName) return;
