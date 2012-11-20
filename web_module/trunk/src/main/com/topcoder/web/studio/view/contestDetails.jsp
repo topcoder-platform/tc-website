@@ -334,21 +334,25 @@
                 <span class="grayRCLB"></span>
                 <span class="grayRCRB"></span>
                 <ul>
-                    <li>1. Look for instructions in this contest regarding what files to provide. Questions? Ask in the
-                        forum for this contest.
+		    <b>Your Design Files:</b><br>
+                    <li>1. Look for instructions in this contest regarding what files to provide.
                     </li>
                     <li>2. Place your submission files into a "Submission.zip" file.</li>
                     <li>3. Place all of your source files into a "Source.zip" file.</li>
                     <li>4. Create a JPG preview file.</li>
-                    <li>5. Click "Submit" and upload your files.</li>
                 </ul>
 
                 <p>Trouble formatting your submission or want to learn more?
                     <a href="http://topcoder.com/home/studio/the-process/how-to-submit-to-a-contest/">Read this FAQs</a>.</p>
-
-                <p><strong>Note:</strong> All <a href="http://topcoder.com/home/studio/the-process/font-policy/">non-standard fonts</a> must be declared when you submit. Include the name of the font and a link to where it can be downloaded/purchased (commercial fonts only). DO NOT include any font files in your submission or source files. 
-
+		
+		<p><strong>Fonts:</strong><br> All fonts within your design must be declared when you submit. DO NOT <a style="white-space:nowrap;">include any font files in your submission</a><a style="white-space:nowrap;"> <br>or source files. </a><a href="http://topcoder.com/home/studio/the-process/font-policy/" style="white-space:nowrap;">Read the font policy here</a>.
                 </p>
+
+		<p><strong>Screening:</strong><br> <a style="white-space:nowrap;">All submissions are screened for eligibility <br>before the contest holder picks winners. <br>Don't let your hard work go to waste.<br></a> <a href="http://community.topcoder.com/studio/the-process/screening/">Learn more about how to pass screening here</a>.
+		</p>
+
+		<p>Questions? <a href="http://studio.topcoder.com/forums?module=ThreadList&forumID=6">Ask in the General Forums</a>.
+		</p>
             </div>
             <!--End grayBox2-->
 
