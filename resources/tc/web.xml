@@ -519,7 +519,7 @@
 	
 	<servlet-mapping>
         <servlet-name>timer</servlet-name>
-        <url-pattern>/timer</url-pattern>
+        <url-pattern>/tc/timer</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
