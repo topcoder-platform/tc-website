@@ -92,6 +92,8 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
     public static final int PAID_DATE_COL = 18;
     public static final int METHOD_COL = 19;
 
+    private static final double WESTERN_UNION_FEE = 8.0;
+
     protected void businessProcessing() throws TCWebException {
         try {
             boolean invert = "desc".equals(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
@@ -246,6 +248,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 for(PaymentHeader payment : userPayments) {
                     totalUserAmount += payment.getRecentNetAmount();
                 }
+                totalUserAmount -= WESTERN_UNION_FEE;
 
                 Element paymentElement = doc.createElement("Payment");
                 paymentElement.setAttribute("PaymentID", "" + userPayments.get(0).getId());
@@ -276,6 +279,16 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
 
                     remittanceElement.appendChild(remittanceRecordElement);
                 }
+
+                Element remittanceRecordElement = doc.createElement("RemittanceRecord");
+
+                remittanceRecordElement.setAttribute("PayerDocumentDate", new SimpleDateFormat("MM/dd/yyyy").format(date.getTime()));
+                remittanceRecordElement.setAttribute("Notes", "Adjustment for Wire Fee");
+                remittanceRecordElement.setAttribute("AmountPaid", "0.0");
+                remittanceRecordElement.setAttribute("AdjustmentAmount", df.format(-WESTERN_UNION_FEE));
+                remittanceRecordElement.setAttribute("AdjustmentReason", "Processing Fee");
+
+                remittanceElement.appendChild(remittanceRecordElement);
 
                 paymentsElement.appendChild(paymentElement);
             }
