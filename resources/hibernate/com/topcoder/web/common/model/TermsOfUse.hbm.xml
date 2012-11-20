@@ -21,7 +21,6 @@
         <property name="typeId" column="terms_of_use_type_id" access="field"/>
 
         <property name="title" column="title" access="field"/>
-        <property name="electronicallySignable" column="electronically_signable" access="field"/>
         <property name="url" column="url" access="field"/>
 
         <set name="users" table="user_terms_of_use_xref" inverse="true" access="field">
