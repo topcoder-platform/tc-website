@@ -76,10 +76,6 @@
     </tr>
 </table>
 
-<div align="center">
-    <a href="http://community.topcoder.com/tco12/overview-sponsor/pocket-gems/"><img src="/i/tournament/tco12/Pocket_Gems_Sponsor_Banner_510x114.jpg" alt="Pocket Gems - TCO12 Sponsor" /></a><br /><br />
-</div>
-
 <div align="right">
     Competition opportunities via RSS - <a href="/tc?module=BasicRSS&amp;c=rss_Design_Registration_Open&amp;dsid=28">Subscribe Now</a>
     <a href="/tc?module=BasicRSS&amp;c=rss_Design_Registration_Open&amp;dsid=28"><img src="/wiki/images/icons/rss.gif" alt="RSS" /></a>
@@ -222,10 +218,6 @@
         </td>
     </tr>
 </table>
-
-<div align="center">
-    <a href="http://community.topcoder.com/tco12/overview-sponsor/pocket-gems/"><img src="/i/tournament/tco12/Pocket_Gems_Sponsor_Banner_510x114.jpg" alt="Pocket Gems - TCO12 Sponsor" /></a><br /><br />
-</div>
 
 <div align="right">
     Competition opportunities via RSS - <a href="/tc?module=BasicRSS&amp;c=rss_Development_Registration_Open&amp;dsid=28">Subscribe Now</a>
