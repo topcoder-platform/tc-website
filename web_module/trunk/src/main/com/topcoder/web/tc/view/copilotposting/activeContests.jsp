@@ -85,10 +85,6 @@
     </tr>
 </table>
 
-<div align="center">
-    <a href="http://community.topcoder.com/tco12/overview-sponsor/pocket-gems/"><img src="/i/tournament/tco12/Pocket_Gems_Sponsor_Banner_510x114.jpg" alt="Pocket Gems - TCO12 Sponsor" /></a><br /><br />
-</div>
-
 <div align="right">
       <c:choose>
         <c:when test="${pt == COPILOT_POSTING_TYPE_ID}">
