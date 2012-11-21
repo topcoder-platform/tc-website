@@ -107,7 +107,7 @@
         <pathelement location="${jars.dir}/tcs/file_upload/2.2.0/file_upload.jar"/>
         <pathelement location="${jars.dir}/tcs/json_object/1.0/json_object.jar"/>
         <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
-        <pathelement location="${jars.dir}/tcs/email_engine/3.0/email_engine.jar"/>
+        <pathelement location="${jars.dir}/tcs/email_engine/3.2.0/email_engine.jar"/>
         <pathelement location="${jars.dir}/tcs/workdays/1.0/workdays.jar"/>
         <pathelement location="${jars.dir}/tcs/document_generation.jar"/>
         <pathelement location="${jars.dir}/tcs/refreshable_cache.jar"/>
@@ -800,7 +800,7 @@
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/logging_wrapper/2.0.0/logging_wrapper.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/document_generator/3.1.0/document_generator.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/member_photo_manager/2.0.0/member_photo_manager.jar"/>
-        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/email_engine/3.0/email_engine.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/email_engine/3.2.0/email_engine.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/configuration_persistence/1.0.1/configuration_persistence.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/terms_of_use/1.1.0/terms_of_use.jar"/>
 

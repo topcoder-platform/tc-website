@@ -3,7 +3,12 @@
  */
 package com.topcoder.web.tc.controller.request.myhome;
 
+import com.topcoder.message.email.EmailEngine;
+import com.topcoder.message.email.TCSEmailMessage;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.User;
+import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.PayoneerService;
 import com.topcoder.web.tc.controller.PayoneerServiceException;
 import com.topcoder.web.common.PermissionException;
@@ -19,6 +24,7 @@ import static com.topcoder.web.tc.Constants.MINIMUM_PAYMENT_ACCRUAL_AMOUNT;
 import static com.topcoder.web.ejb.pacts.Constants.PAYPAL_PAYMENT_METHOD_ID;
 import static com.topcoder.web.ejb.pacts.Constants.PAYONEER_PAYMENT_METHOD_ID;
 
+import java.text.SimpleDateFormat;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.*;
@@ -28,8 +34,16 @@ import java.util.*;
  * interprets all <code>GET</code> requests as requests for displaying <code>Edit Payment Preferences</code> page and
  * <code>POST</code> requests as requests for handling the submission of <code>Edit Payment Preferences</code> form.</p>
  *
+ * <p>
+ * Version 1.2 Change notes:
+ *   <ol>
+ *     <li>Updated {@link #savePaymentPreferences()} method to send email to user in case payment method or PayPal 
+ *     account has changed.</li>
+ *   </ol>
+ * </p>
+ *
  * @author isv, VolodymyrK
- * @version 1.1
+ * @version 1.2
  */
 public class EditPaymentPreferences extends ShortHibernateProcessor {
 
@@ -50,6 +64,11 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
      * current user.</p>
      */
     public static final String PAYPAL_ACCOUNT_PARAM = "paypalAccount";
+
+    /**
+     * <p>Format for the email timestamp. Will format as "Fri, Jul 28, 2006 01:34 PM EST".</p>
+     */
+    private static final String EMAIL_TIMESTAMP_FORMAT = "MM/dd/yyyy hh:mm a z";
 
     /**
      * <p>Regex pattern to validate email addresses.</p>
@@ -174,8 +193,7 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
      * If any of those validation rules is violated then appropriate error message is bound to incoming request.
      * Otherwise the new payment preferences for current user are saved to persistent data store.</p>
      *
-     * @throws RemoteException if an error is encountered while communicating to <code>PACTS Services EJB</code>
-     *         remotely.
+     * @throws Exception if an error is encountered while communicating to <code>PACTS Services EJB</code> remotely.
      */
     private void savePaymentPreferences() throws Exception {
         TCRequest request = getRequest();
@@ -228,9 +246,22 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
                 } else if (paymentMethodId <= 0 || isActive(paymentMethodId) == false) {
                     addError(PAYMENT_METHOD_PARAM, "Payment method is incorrect");
                 } else {
+                    // Get current payment method and PayPal email address before updating the payment preferences in DB
+                    Long oldPaymentMethodId = dataBean.getUserPaymentMethod(getUser().getId());
+                    String oldPayPalAccount = dataBean.getUserPayPalAccount(getUser().getId());
+
                     dataBean.saveUserAccrualThreshold(getUser().getId(), newAccrualAmount);
                     dataBean.saveUserPaymentMethod(getUser().getId(), paymentMethodId);
                     dataBean.saveUserPayPalAccount(getUser().getId(), payPalAccountValue);
+
+                    // In case payment method or PayPal email address has changed - notify user on the change
+                    if ((oldPaymentMethodId == null || oldPaymentMethodId != paymentMethodId)
+                        || hasPayPalAccountChanged(oldPayPalAccount, payPalAccountValue)) {
+                        User currentUser = DAOUtil.getFactory().getUserDAO().find(getUser().getId());
+                        sendEmailOnPaymentPreferencesUpdated(oldPaymentMethodId, paymentMethodId, oldPayPalAccount,
+                                                             payPalAccountValue,
+                                                             currentUser.getPrimaryEmailAddress().getAddress());
+                    }
                 }
             }
         }
@@ -276,5 +307,103 @@ public class EditPaymentPreferences extends ShortHibernateProcessor {
 
         setIsNextPageInContext(true);
         setNextPage("/my_home/paymentPreferences.jsp");
+    }
+
+    /**
+     * <p>Sends an email to email address for current user in case either payment method or PayPal email address have 
+     * changed when servicing the request for updating user's payment preferences.</p>
+     *
+     * @param oldPaymentMethodId a <code>long</code> providing the ID of old payment method.
+     * @param paymentMethodId a <code>long</code> providing the ID of new payment method.
+     * @param oldPayPalAccount a <code>String</code> providing the old PayPal account.
+     * @param payPalAccountValue a <code>String</code> providing the new PayPal account.
+     * @param toAddress a <code>String</code> providing the email address to send email to.
+     * @since 1.2
+     */
+    private void sendEmailOnPaymentPreferencesUpdated(Long oldPaymentMethodId, long paymentMethodId,
+                                                      String oldPayPalAccount, String payPalAccountValue, 
+                                                      String toAddress) {
+        try {
+            SimpleDateFormat formatter = new SimpleDateFormat(EMAIL_TIMESTAMP_FORMAT);
+            StringBuilder emailBody = new StringBuilder();
+
+            emailBody.append("<p>On ").append(formatter.format(new Date())).append(
+                ", your <a href=\"https://community.topcoder.com/tc?module=EditPaymentPreferences\">Payment Preference</a> " +
+                "information was updated.</p>");
+            emailBody.append("<p>The following changes have been made:</p>");
+            
+            emailBody.append("<ul>");
+            if (oldPaymentMethodId == null) {
+                emailBody.append("<li>Payment Method was set to ")
+                    .append(resolvePaymentMethod(paymentMethodId).getName()).append(".</li>");
+            } else if (oldPaymentMethodId != paymentMethodId) {
+                emailBody.append("<li>Payment Method was changed from ")
+                    .append(resolvePaymentMethod(oldPaymentMethodId).getName()).append(" to ")
+                    .append(resolvePaymentMethod(paymentMethodId).getName()).append(".</li>");
+            }
+            
+            if (isEmpty(oldPayPalAccount)) {
+                emailBody.append("<li>Your PayPal account email address was set to ")
+                    .append(isEmpty(payPalAccountValue) ? "" : payPalAccountValue).append(".</li>");
+            } else if (isEmpty(payPalAccountValue)) {
+                emailBody.append("<li>Your PayPal account email address ").append(
+                    isEmpty(oldPayPalAccount) ? "" : oldPayPalAccount).append(" was reset.</li>");
+            } else if (hasPayPalAccountChanged(oldPayPalAccount, payPalAccountValue)) {
+                emailBody.append("<li>Your PayPal account email address was changed from ").append(
+                    isEmpty(oldPayPalAccount) ? "" : oldPayPalAccount).append(" to ").append(
+                    isEmpty(payPalAccountValue) ? "" : payPalAccountValue).append(".</li>");
+            }
+            emailBody.append("</ul>");
+
+            emailBody.append("<p>If you did not initiate these changes, " +
+                "please <a href=\"www.topcoder.com/aboutus/contact-us\">contact</a> TopCoder immediately.</p>");
+            
+            TCSEmailMessage message = new TCSEmailMessage();
+            message.setFromAddress(Constants.PAYMENT_PREFS_UPDATE_EMAIL_FROM_ADDRESS);
+            message.setToAddress(toAddress, TCSEmailMessage.TO);
+            message.setSubject(Constants.PAYMENT_PREFS_UPDATE_EMAIL_SUBJECT);
+            message.setBody(emailBody.toString());
+            message.setContentType("text/html");
+            EmailEngine.send(message);
+            log.info("Sent email notifying on updates to user's payment preferences to " + toAddress);
+        } catch (Exception e) {
+            log.error("Failed to send an email notifying on updates to user's payment preferences", e);
+        }
+    }
+
+    /**
+     * <p>Gets the details for payment method matching the specified ID.</p>
+     * 
+     * @param paymentMethodId a <code>long</code> providing the ID of payment method.
+     * @return a <code>PaymentMethod</code> providing the details for payment method matching the specified ID or 
+     *         <code>null</code> if such a method is not found. 
+     * @since 1.2
+     */
+    @SuppressWarnings("unchecked")
+    private PaymentMethod resolvePaymentMethod(long paymentMethodId) {
+        List<PaymentMethod> paymentMethods = (List<PaymentMethod>) getRequest().getAttribute("paymentMethods");
+        for (PaymentMethod paymentMethod : paymentMethods) {
+            if (paymentMethod.getId() == paymentMethodId) {
+                return paymentMethod;
+            }
+            
+        }
+        return null;
+    }
+
+    /**
+     * <p>Checks if PayPal account has changed.</p>
+     * 
+     * @param oldPayPalAccount a <code>String</code> providing old PayPal account.
+     * @param newPayPalAccount a <code>String</code> providing new PayPal account.
+     * @return <code>true</code> if PayPal account has changed; <code>false</code> otherwise.
+     * @since 1.2
+     */
+    private boolean hasPayPalAccountChanged(String oldPayPalAccount, String newPayPalAccount) {
+        if (isEmpty(oldPayPalAccount)) {
+            return !isEmpty(newPayPalAccount);
+        } else {
+            return !oldPayPalAccount.equalsIgnoreCase(newPayPalAccount);
+        }
     }
 }

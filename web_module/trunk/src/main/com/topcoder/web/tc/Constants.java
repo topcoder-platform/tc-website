@@ -130,8 +130,16 @@ import java.util.MissingResourceException;
  *   </ol>
  * </p>
  *
+ * <p>
+ * Version 1.9.5 Change notes:
+ *   <ol>
+ *     <li>Added {@link #PAYMENT_PREFS_UPDATE_EMAIL_FROM_ADDRESS} constant.</li>
+ *     <li>Added {@link #PAYMENT_PREFS_UPDATE_EMAIL_SUBJECT} constant.</li>
+ *   </ol>
+ * </p>
+ *
  * @author pulky, isv, VolodymyrK
- * @version 1.9.4
+ * @version 1.9.5
  */
 public class Constants implements WebConstants {
 
@@ -1123,6 +1131,22 @@ public class Constants implements WebConstants {
      * @since 1.9.4
      */
     public static final String GOVERNMENT_ID_RECEIVED = "gov_id_rcv";
+
+    /**
+     * <p>A <code>String</code> providing the subject for email message to be sent to intended recipient in case of
+     * modifications to their payment preferences.</p>
+     *
+     * @since 1.9.5
+     */
+    public static String PAYMENT_PREFS_UPDATE_EMAIL_SUBJECT;
+
+    /**
+     * <p>A <code>String</code> providing the FROM address for email message to be sent to intended recipient in case of
+     * modifications to their payment preferences.</p>
+     *
+     * @since 1.9.5
+     */
+    public static String PAYMENT_PREFS_UPDATE_EMAIL_FROM_ADDRESS;
 
     /**
      * <p>A <code>String</code> providing the name of request attribute providing the list of countries.</p>
