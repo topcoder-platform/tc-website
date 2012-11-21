@@ -16,7 +16,7 @@
 			
 			var goToLink = function(link) {
 				window.onbeforeunload = null;
-				var url = '/timer?key=2&link=' + encodeURIComponent(link);
+				var url = '/tc/timer?key=2&link=' + encodeURIComponent(link);
 				jQuery.ajax({url:url, async:false});
 			}
 			jQuery.ajax({url:'/tc/timer', async:false});
