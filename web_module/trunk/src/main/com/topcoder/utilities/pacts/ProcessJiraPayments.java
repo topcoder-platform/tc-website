@@ -32,6 +32,10 @@ import com.atlassian.jira.rpc.soap.beans.RemoteIssueType;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.sql.DBUtility;
 import com.topcoder.web.ejb.pacts.BasePayment;
+import com.topcoder.web.ejb.pacts.CockpitProjectReferencePayment;
+import com.topcoder.web.ejb.pacts.ProjectBugFixesPayment;
+import com.topcoder.web.ejb.pacts.ProjectCopilotPayment;
+import com.topcoder.web.ejb.pacts.ProjectDeploymentTaskPayment;
 import com.topcoder.web.ejb.pacts.ComponentProjectReferencePayment;
 import com.topcoder.web.ejb.pacts.StudioContestReferencePayment;
 import com.topcoder.web.ejb.pacts.BugFixesPayment;
@@ -270,7 +274,7 @@ public class ProcessJiraPayments extends DBUtility {
             long userId, double amount, String description, String jiraIssueKey) {
 
         if ("TopCoder".equals(referenceType)) {
-            ComponentProjectReferencePayment payment = null;
+			ComponentProjectReferencePayment payment = null;
 
             if ("Bug Fix".equals(paymentType)) {
                 payment = new BugFixesPayment(userId, amount, client, referenceId);
@@ -319,7 +323,24 @@ public class ProcessJiraPayments extends DBUtility {
             payment.setJiraIssueName(jiraIssueKey);
 
             return payment;
-        } else {
+        } else if ("Cockpit".equals(referenceType)){
+			CockpitProjectReferencePayment payment = null;
+			if("Bug Fix".equals(paymentType)) {
+				payment = new ProjectBugFixesPayment(userId, amount, client, referenceId);
+			} else if("Copilot".equals(paymentType)) {
+				payment = new ProjectCopilotPayment(userId, amount, client, referenceId);
+			} else if("Deployment".equals(paymentType)) {
+			    payment = new ProjectDeploymentTaskPayment(userId, amount, client, referenceId);
+			} else {
+				throw new IllegalArgumentException("Unknown Cockpit payment type: " + paymentType);
+			}
+			
+			payment.setNetAmount(amount);
+            payment.setDescription(description);
+            payment.setJiraIssueName(jiraIssueKey);
+			return payment;
+		}
+		else {
             throw new IllegalArgumentException("Unknown reference type: " + referenceType);
         }
     }
@@ -354,7 +375,7 @@ public class ProcessJiraPayments extends DBUtility {
      */
     private String getIssueType(RemoteIssue issue) {
         if (issueTypeTranslation.containsKey(issue.getType())) {
-            return issueTypeTranslation.get(issue.getType());
+			return issueTypeTranslation.get(issue.getType());
         }
 
         return null;
@@ -567,6 +588,9 @@ public class ProcessJiraPayments extends DBUtility {
 
         /** The Jira id for the StudioID custom field. */
         private static final String JIRA_STUDIO_ID_FIELD_ID = "customfield_10094";
+		
+		/** The Jira id for cockpit project id custom field. */
+		private static final String JIRA_COCKPIT_PROJECT_ID_FIELD_ID = "customfield_10190";
 
         /** The PACTS payment type for this issue. */
         private String paymentType;
@@ -691,6 +715,7 @@ public class ProcessJiraPayments extends DBUtility {
          *            the RemoteIssue to obtain data from.
          */
         private void populateReferenceDataAndClientName(RemoteIssue remoteIssue) {
+			String cockpitProjectId = getCustomFieldValueById(remoteIssue, JIRA_COCKPIT_PROJECT_ID_FIELD_ID);
             String projectId = getCustomFieldValueById(remoteIssue, JIRA_PROJECT_ID_FIELD_ID);
             String studioId = getCustomFieldValueById(remoteIssue, JIRA_STUDIO_ID_FIELD_ID);
 
@@ -699,7 +724,26 @@ public class ProcessJiraPayments extends DBUtility {
             referenceInfo = "N/A";
 
             if (!(isNullOrEmpty(projectId) ^ isNullOrEmpty(studioId))) {
-                rejectIssue("One exactly of either ProjectID or StudioID must be filled out.");
+				if(isNullOrEmpty(cockpitProjectId)) {
+					rejectIssue("One exactly of Cockpit ProjectID or ProjectID or StudioID must be filled out.");
+				} else {
+					referenceType = "Cockpit";
+					try {
+						referenceId = Long.parseLong(cockpitProjectId);
+						referenceInfo = getCockpitProjectInfoById(referenceId);
+						if (referenceInfo == null) {
+							rejectIssue("Could not find Cockpit project with id " + referenceId);
+						} else {
+							client = getClientByCockpitProjectId(referenceId);
+							if (client == null || client.equals("")) {
+								client = "N/A";
+								rejectIssue("Could not retrieve client info from the project with id " + referenceId);
+							}
+						}
+					} catch (NumberFormatException e) {
+						rejectIssue("ProjectID (" + projectId + ") is not a valid Long number.");
+					}
+				}
             } else if (!isNullOrEmpty(projectId)) {
                 referenceType = "TopCoder";
                 try {
@@ -875,6 +919,14 @@ public class ProcessJiraPayments extends DBUtility {
             + "   AND pi_name.project_info_type_id = 6"
             + "   AND pi_version.project_id = pi_name.project_id"
             + "   AND pi_version.project_info_type_id = 7";
+			
+	/**
+     * A query that finds a Cockpit project by id and returns its name.
+     */
+    private static final String QUERY_COCKPIT_PROJECT_INFO_BY_ID =
+              "SELECT dp.name AS info"
+            + "  FROM corporate_oltp:tc_direct_project dp"
+            + " WHERE dp.project_id = ?";
 
     /** A query that finds a Studio contest by id and returns its name. */
     private static final String QUERY_STUDIO_CONTEST_INFO_BY_ID =
@@ -892,7 +944,19 @@ public class ProcessJiraPayments extends DBUtility {
             + "  and ttp.project_id = ttcp.project_id "
             + "  and ttcp.client_id = ttc.client_id "
             + "  and pi3.project_id = ? ";
-
+			
+	/** A query that finds client name by cockpit project id. */
+    private static final String QUERY_CLIENT_BY_COCKPIT_ID =
+              "select ttc.name as client_name "
+            + "from corporate_oltp:direct_project_account dpa, "
+			+ "     time_oltp:project ttp, "
+			+ "     time_oltp:client_project ttcp, "
+			+"      time_oltp:client ttc "
+			+" where dpa.billing_account_id = ttp.project_id "
+			+" and ttp.project_id = ttcp.project_id "
+			+" and ttcp.client_id = ttc.client_id "
+            + "and dpa.project_id = ? ";
+    
     /** A query that finds client name by studio project id. */
     private static final String QUERY_CLIENT_BY_STUDIO_ID =
               "select ttc.name as client_name "
@@ -917,6 +981,12 @@ public class ProcessJiraPayments extends DBUtility {
      * name and version.
      */
     private PreparedStatement queryTopCoderProjectInfoById = null;
+	
+	/**
+     * A prepared statement that finds a Cockpit project by id and returns its
+     * name and version.
+     */
+    private PreparedStatement queryCockpitProjectInfoById = null;
 
     /**
      * A prepared statement that finds a Studio contest by id and returns its
@@ -928,6 +998,11 @@ public class ProcessJiraPayments extends DBUtility {
      * A prepared statement that finds client name by software project id.
      */
     private PreparedStatement queryClientBySoftwareId = null;
+	
+	/**
+     * A prepared statement that finds client name by cockpit project id.
+     */
+    private PreparedStatement queryClientByCockpitId = null;
 
     /**
      * A prepared statement that finds client name by studio project id.
@@ -945,8 +1020,10 @@ public class ProcessJiraPayments extends DBUtility {
 
         queryTopCoderProjectInfoById = prepareStatement("informixoltp", QUERY_TOPCODER_PROJECT_INFO_BY_ID);
         queryStudioContestInfoById = prepareStatement("informixoltp", QUERY_STUDIO_CONTEST_INFO_BY_ID);
+		queryCockpitProjectInfoById = prepareStatement("informixoltp", QUERY_COCKPIT_PROJECT_INFO_BY_ID);
 
         queryClientBySoftwareId = prepareStatement("informixoltp", QUERY_CLIENT_BY_SOFTWARE_ID);
+		queryClientByCockpitId = prepareStatement("informixoltp", QUERY_CLIENT_BY_COCKPIT_ID);
         queryClientByStudioId = prepareStatement("informixoltp", QUERY_CLIENT_BY_STUDIO_ID);
     }
 
@@ -991,6 +1068,18 @@ public class ProcessJiraPayments extends DBUtility {
     private String getTopCoderProjectInfoById(long projectId) {
         return getInfoByProjectId(queryTopCoderProjectInfoById, projectId, "info");
     }
+	
+	/**
+     * Looks up a Cockpit project's name by project id.
+     * 
+     * @param cockpitProjectId
+     *            the id of the cockpit project to look up.
+     * @return a <code>String</code> containing the name of the
+     *         cockpit project, or <code>null</code> if it doesn't exist.
+     */
+    private String getCockpitProjectInfoById(long cockpitProjectId) {
+        return getInfoByProjectId(queryCockpitProjectInfoById, cockpitProjectId, "info");
+    }
 
     /**
      * Looks up a Studio contest's name by contest id.
@@ -1013,6 +1102,17 @@ public class ProcessJiraPayments extends DBUtility {
      */
     private String getClientBySoftwareProjectId(long projectId) {
         return getInfoByProjectId(queryClientBySoftwareId, projectId, "client_name");
+    }
+	
+	/**
+     * Looks up a client name by cockpit project id.
+     * 
+     * @param projectId
+     *            the id of the project to look up.
+     * @return a <code>String</code> containing the client name or <code>null</code> if it doesn't exist.
+     */
+    private String getClientByCockpitProjectId(long projectId) {
+        return getInfoByProjectId(queryClientByCockpitId, projectId, "client_name");
     }
 
     /**
@@ -1054,8 +1154,7 @@ public class ProcessJiraPayments extends DBUtility {
         } finally {
             close(rs);
         }
-
-        return info;
+		return info;
     }
 
     /**
