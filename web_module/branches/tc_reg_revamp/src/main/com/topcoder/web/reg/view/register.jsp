@@ -136,18 +136,7 @@
 				</div>
 			</div><!-- #container -->
 			
-            <div id="footer">
-                <!--Update footer-->
-               
-                <div class="copyright">
-                    <span>Copyright TopCoder, Inc. 2001-2012</span>
-                    <span class="line">|</span>
-                    <a href="terms_of_use.jsp" target="_blank" title="Terms of Use">Terms of Use</a>
-                    <span class="line">|</span>
-                    <a href="privacy_policy.jsp" target="_blank" title="Privacy Policy">Privacy Policy</a>
-                </div>
-                <!--End copyright-->
-            </div>
+        <jsp:include page="footer.jsp" />
 
 		</div><!-- .wrapper -->
 		<div id="modal">
