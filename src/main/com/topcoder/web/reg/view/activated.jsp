@@ -50,18 +50,7 @@
 		</div>
 	</div><!-- #container -->
 
-			<div id="footer">
-                <!--Update footer-->
-               
-                <div class="copyright">
-                    <span>Copyright TopCoder, Inc. 2001-2012</span>
-                    <span class="line">|</span>
-                    <a href="https://www.topcoder.com/tc?module=Static&d1=about&d2=terms" target="_blank" title="Terms of Use">Terms of Use</a>
-                    <span class="line">|</span>
-                    <a href="https://www.topcoder.com/tc?module=Static&d1=about&d2=privacy" target="_blank" title="Privacy Policy">Privacy Policy</a>
-                </div>
-                <!--End copyright-->
-            </div>
+    <jsp:include page="footer.jsp" />
 
 	</div><!-- .wrapper -->
 
