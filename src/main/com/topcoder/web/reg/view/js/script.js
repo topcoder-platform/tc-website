@@ -130,11 +130,23 @@ $(document).ready(function(){
 		closeModal();
 	}
 	for (i = 0; i < errors.length; i++) {
+        if (errors[i].innerHTML.indexOf("first") != -1) {
+			$('#firstName').after("<span class=\"tipError2\">" + errors[i].innerHTML + "</span>");
+			$('#firstName').addClass('error').siblings('.tipError2').show();
+		}
+		if (errors[i].innerHTML.indexOf("last") != -1) {
+			$('#lastName').after("<span class=\"tipError2\">" + errors[i].innerHTML + "</span>");
+			$('#lastName').addClass('error').siblings('.tipError2').show();
+		}
 		if (errors[i].innerHTML.indexOf("handle") != -1) {
 			$('#handle').after("<span class=\"tipError2\">" + errors[i].innerHTML + "</span>");
 			$('#handle').addClass('error').siblings('.tipError2').show();
 		}
-		if (errors[i].innerHTML.indexOf("password") != -1) {
+		if (errors[i].innerHTML.indexOf("password") != -1 && errors[i].innerHTML.indexOf("confirm") != -1) {
+			$('#confirmPassword').after("<span class=\"tipError2\">" + errors[i].innerHTML + "</span>");
+			$('#confirmPassword').addClass('error').siblings('.tipError2').show();
+		}
+		if (errors[i].innerHTML.indexOf("password") != -1 && errors[i].innerHTML.indexOf("confirm") == -1) {
 			$('#loginPassword').after("<span class=\"tipError2\">" + errors[i].innerHTML + "</span>");
 			$('#loginPassword').addClass('error').siblings('.tipError2').show();
 		}
@@ -143,7 +155,7 @@ $(document).ready(function(){
 			$('#email').addClass('error').siblings('.tipError2').show();
 		}
 		if (errors[i].innerHTML.indexOf("verification") != -1) {
-			$('#captchaWord').addClass('error').siblings('.tipError').show();
+			$('#captchaWord').addClass('error').siblings('.error2').show();
 		}
 	};
 	
@@ -187,11 +199,19 @@ $(document).ready(function(){
 		$(':text').removeClass('error');
 		var checkStauts = true;
 		if($.trim($('#firstName').val()).length == 0 ){
-			$('#firstName').addClass('error').siblings('.tipError').show();
+			$('#firstName').addClass('error').siblings('.error1').show();
+			checkStauts = false;
+		}
+		if($.trim($('#firstName').val()).length > 64 ){
+			$('#firstName').addClass('error').siblings('.error2').show();
 			checkStauts = false;
 		}
 		if($.trim($('#lastName').val()).length == 0 ){
-			$('#lastName').addClass('error').siblings('.tipError').show();
+			$('#lastName').addClass('error').siblings('.error1').show();
+			checkStauts = false;
+		}
+		if($.trim($('#lastName').val()).length > 64 ){
+			$('#lastName').addClass('error').siblings('.error2').show();
 			checkStauts = false;
 		}
 		if($.trim($('#handle').val()).length < 2 ){
@@ -212,6 +232,10 @@ $(document).ready(function(){
 			$('#confirmPassword').addClass('error').siblings('.tipError').show();
 			checkStauts = false;
 		}
+		if($.trim($('#captchaWord').val()).length == 0 ){
+            $('#captchaWord').addClass('error').siblings('.error1').show();
+            checkStauts = false;
+		}
 
 		if(!checkStauts){return false};
 		
@@ -224,7 +248,7 @@ $(document).ready(function(){
 		submitForm("formPreference");
 	});
 	
-	$('.registerPage #confirmPassword').blur(function(){
+	$('.registerPage #confirmPassword, #loginPassword').blur(function(){
 		if($.trim($('#loginPassword').val()).length != 0 && $.trim($('#confirmPassword').val()).length != 0){
 			if($.trim($('#loginPassword').val()) != $.trim($('#confirmPassword').val())){
 				$('#loginPassword').addClass('error').siblings('.tipError').hide();
@@ -243,6 +267,7 @@ $(document).ready(function(){
 	$('.resetButton').click(function(){
 		$(':text,:password').val("");
 		$('.barProgress .barControl').css('width','0%');
+		$('#checkAgree').removeAttr('checked').triggerHandler('change');
 	});
 
 /* jqTransform */

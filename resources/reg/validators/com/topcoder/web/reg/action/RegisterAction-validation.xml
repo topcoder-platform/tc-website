@@ -62,7 +62,7 @@
             <param name="expression">
             <![CDATA[password.equals(passwordConfirm)]]>
             </param>
-            <message>Password not match</message>
+            <message>Password do not match</message>
         </field-validator>
     </field>
     <field name="captchaWord">
@@ -70,7 +70,7 @@
             <param name="expression">
             <![CDATA[captchaWord.equals(sessionData.captchaWord)]]>
             </param>
-            <message>Your verification code is not match</message>
+            <message>Your verification code is incorrect</message>
         </field-validator>
     </field>
 </validators>
