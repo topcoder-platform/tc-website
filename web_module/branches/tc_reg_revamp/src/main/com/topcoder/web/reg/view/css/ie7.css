@@ -1,0 +1,7 @@
+.termline #checkAgree{
+    top: 4px !important;
+}
+
+.termline .label{
+    margin-left: 4px;
+}

@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<s:include value="/includes/html_head.jsp">
-		<s:param name="pageTitle">ACTIVATE YOUR ACCOUNT</s:param>
+		<s:param name="pageTitle">Activated</s:param>
 	</s:include>
 	<body class="confirmAccountPage">
 	<div class="wrapper">
@@ -19,7 +19,7 @@
 			<div id="mainTitle">
 				<div class="mainTitleRight">
 					<div class="mainTitleCenter">
-						<h2><span class="titleWrapper"><img src="/i/reg/font-mainTitle-congrat.png" alt="CONGRATULATION" /></span></h2>
+						<h2><span class="titleWrapper"><img src="/i/reg/font-mainTitle-congrat.png" alt="CONGRATULATION" /> </span></h2>
 					</div>
 				</div>
 			</div>
@@ -50,16 +50,18 @@
 		</div>
 	</div><!-- #container -->
 
-	<div id="footer">
+			<div id="footer">
                 <!--Update footer-->
                
                 <div class="copyright">
-                    <span>Copyright TopCoder, Inc. 2001-2011</span>
+                    <span>Copyright TopCoder, Inc. 2001-2012</span>
+                    <span class="line">|</span>
                     <a href="https://www.topcoder.com/tc?module=Static&d1=about&d2=terms" target="_blank" title="Terms of Use">Terms of Use</a>
+                    <span class="line">|</span>
                     <a href="https://www.topcoder.com/tc?module=Static&d1=about&d2=privacy" target="_blank" title="Privacy Policy">Privacy Policy</a>
                 </div>
                 <!--End copyright-->
-      </div>
+            </div>
 
 	</div><!-- .wrapper -->
 

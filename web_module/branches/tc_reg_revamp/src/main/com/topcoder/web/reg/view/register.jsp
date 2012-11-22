@@ -20,7 +20,7 @@
 					<div id="mainTitle">
 						<div class="mainTitleRight">
 							<div class="mainTitleCenter">
-								<h2><span class="titleWrapper"><img src="/i/reg/font-mainTitle-register.png" alt="register" /></span></h2>
+								<h2><span class="titleWrapper"><img src="/i/reg/font-mainTitle-register.png" alt="register" /> </span></h2>
 							</div>
 						</div>
 					</div>
@@ -38,23 +38,25 @@
 									<div class="elemLine">
 										<div class="leftPart">First Name :</div>
 										<div class="rightPart">
-											<s:textfield name="firstName" id="firstName" cssClass="text textNormal leftFloat" />
-											<span class="tipError">Please fill your first name</span>
+											<s:textfield name="firstName" id="firstName" cssClass="text textNormal leftFloat" tabIndex="1"/>
+											<span class="tipError error1">Please fill your first name</span>
+											<span class="tipError error2">Your first name is too long</span>
 										</div>
 										<div class="clearAll"></div>
 									</div>
 									<div class="elemLine">
 										<div class="leftPart">Last Name :</div>
 										<div class="rightPart">
-											<s:textfield name="lastName" id="lastName" cssClass="text textNormal leftFloat" />
-											<span class="tipError">Please fill last name</span>
+											<s:textfield name="lastName" id="lastName" cssClass="text textNormal leftFloat" tabIndex="2"/>
+											<span class="tipError error1">Please fill your last name</span>
+											<span class="tipError error2">Your last name is too long</span>
 										</div>
 										<div class="clearAll"></div>
 									</div>
 									<div class="elemLine">
 										<div class="leftPart">Handle :</div>
 										<div class="rightPart">
-											<s:textfield name="handle" id="handle" cssClass="text textNormal leftFloat" />
+											<s:textfield name="handle" id="handle" cssClass="text textNormal leftFloat" tabIndex="3"/>
 											<span class="tipError">Your handle is too short</span>
 										</div>
 										<div class="clearAll"></div>
@@ -62,7 +64,7 @@
 									<div class="elemLine">
 										<div class="leftPart">E-mail :</div>
 										<div class="rightPart">
-											<s:textfield name="email" id="email" cssClass="text textNormal leftFloat" />
+											<s:textfield name="email" id="email" cssClass="text textNormal leftFloat" tabIndex="4"/>
 											<span class="tipError">Please fill your valid email</span>
 										</div>
 										<div class="clearAll"></div>
@@ -70,8 +72,8 @@
 									<div class="elemLine">
 										<div class="leftPart">Password :</div>
 										<div class="rightPart">
-											<s:password id="loginPassword" name="password" cssClass="text textShort leftFloat" />
-											<span class="compareError">Password not match</span>
+											<s:password id="loginPassword" name="password" cssClass="text textShort leftFloat" tabIndex="5"/>
+											<span class="compareError">Passwords do not match</span>
 											<span class="tipError">Please fill your password</span>
 											<div class="barBox">
 												<span class="label">Password Strength</span>
@@ -88,7 +90,7 @@
 									<div class="elemLine">
 										<div class="leftPart">Confirm Password :</div>
 										<div class="rightPart">
-											<s:password name="passwordConfirm" id="confirmPassword" cssClass="text textShort leftFloat" />
+											<s:password name="passwordConfirm" id="confirmPassword" cssClass="text textShort leftFloat" tabIndex="6"/>
 											<span class="tipError">Please confirm your password</span>
 										</div>
 										<div class="clearAll"></div>
@@ -98,18 +100,20 @@
 										<div class="rightPart">
 											<div class="captcha" id="captcha"><s:action namespace="/" executeResult="true"
 												name="loadCaptchaAction"></s:action></div>
-											<p class="tryAnotherCode"><a id="tryAnotherCode" href="javascript:;">Try Another Code</a></p>
+											<p class="tryAnotherCode"><a id="tryAnotherCode" href="javascript:;" tabIndex="7">Try Another Code</a></p>
 											<div class="verificationCodeInput">
-												<s:textfield name="captchaWord" id="captchaWord" cssClass="text textShorter leftFloat"/>
-												<div class="tipError">Your verification code is not match</div>
+												<s:textfield name="captchaWord" id="captchaWord" cssClass="text textShorter leftFloat" tabIndex="8"/>
+												<div class="tipError error1">Please fill verification code</div>
+												<div class="tipError error2">Your verification code is incorrect</div>
 												<div class="clear"></div>
 											</div>
                                             <div class="termline">
-                                                <input type="checkbox" name="checkAgree" id="checkAgree"><span class="label">I have read and accept the <a class="terms" href="https://www.topcoder.com/reg/privacy_policy.jsp">Privacy Policy</a></span>
+                                                <input type="checkbox" name="checkAgree" id="checkAgree" tabIndex="9">
+                                                <span class="label">I have read and accept the <a class="terms" href="privacy_policy.jsp" tabIndex="10">Privacy Policy</a></span>
                                             </div>
 											<div class="formCommand">
-												<a href="javascript:;" class="button grayBtn resetButton"><span><span>Reset</span></span></a>
-												<a href="javascript:;" id="registerSubmitButton" class="button redBtn submitButton disabled"><span><span>Submit</span></span></a>
+												<a href="javascript:;" class="button grayBtn resetButton" tabIndex="11"><span><span>Reset</span></span></a>
+												<a href="javascript:;" id="registerSubmitButton" class="button redBtn submitButton disabled" tabIndex="12"><span><span>Submit</span></span></a>
 											</div>
 										</div>
 										<div class="clearAll"></div>
@@ -132,13 +136,15 @@
 				</div>
 			</div><!-- #container -->
 			
-			<div id="footer">
+            <div id="footer">
                 <!--Update footer-->
                
                 <div class="copyright">
-                    <span>Copyright TopCoder, Inc. 2001-2011</span>
-                    <a href="https://www.topcoder.com/tc?module=Static&d1=about&d2=terms" target="_blank" title="Terms of Use">Terms of Use</a>
-                    <a href="https://www.topcoder.com/tc?module=Static&d1=about&d2=privacy" target="_blank" title="Privacy Policy">Privacy Policy</a>
+                    <span>Copyright TopCoder, Inc. 2001-2012</span>
+                    <span class="line">|</span>
+                    <a href="terms_of_use.jsp" target="_blank" title="Terms of Use">Terms of Use</a>
+                    <span class="line">|</span>
+                    <a href="privacy_policy.jsp" target="_blank" title="Privacy Policy">Privacy Policy</a>
                 </div>
                 <!--End copyright-->
             </div>
@@ -150,7 +156,7 @@
 				<div class="modalContainer">
 					<div class="modalContainerInner">
                                 <p>Our privacy policy, updated as of February 23, 2006, describes the information we collect and how we use it. </p>
-                <p>TopCoder values privacy as much as we value programmers, and therefore we are committed to protecting the privacy of our users. We want to provide a safe, secure user experience. We will use reasonable commercial efforts to ensure that the information you submit to us remains private. Your personal information is immediately transferred from our Web server to behind our firewall, where it remains isolated from a direct connection to the Internet. By using this Web site, and in doing so accepting the Terms and Conditions of Use under which you may use this Web site (see <a href="terms_of_use.jsp">Terms and Conditions of Use</a>), you consent to the use of your personal information as described in this privacy policy. </p>
+                <p>TopCoder values privacy as much as we value programmers, and therefore we are committed to protecting the privacy of our users. We want to provide a safe, secure user experience. We will use reasonable commercial efforts to ensure that the information you submit to us remains private. Your personal information is immediately transferred from our Web server to behind our firewall, where it remains isolated from a direct connection to the Internet. By using this Web site, and in doing so accepting the Terms and Conditions of Use under which you may use this Web site (see <a href="terms_of_use.jsp" target="_blank">Terms and Conditions of Use</a>), you consent to the use of your personal information as described in this privacy policy. </p>
                 <p>Our privacy policy and security measures are periodically reviewed and enhanced as necessary. You should understand, however, that &quot;perfect security&quot; does not exist on the Internet. The information that you submit to us is used only for the purposes as set forth herein, as required by law, or when we believe in good faith that disclosure is legally required to protect our rights. We will not use your personal information for any other purpose other than as set out here without first obtaining your permission. The following reflects our commitment to you. </p>
                 <h4>Your California Privacy Rights</h4>
                 <p>California Civil Code Section 1798.83 permits registered users who are California residents to request certain information regarding disclosure of personal information to third parties for their direct marketing purposes. To request such information, please e-mail <a href="mailto:support@topcoder.com">support@topcoder.com</a> or write to us at:</p>

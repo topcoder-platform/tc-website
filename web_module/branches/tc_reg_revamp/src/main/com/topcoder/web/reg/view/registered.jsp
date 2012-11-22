@@ -1,10 +1,11 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<s:include value="/includes/html_head.jsp">
-		<s:param name="pageTitle">ACTIVATED</s:param>
+		<s:param name="pageTitle">Activate Your Account</s:param>
 	</s:include>
-	
+
 	<body class="activeAccountPage">
 	<div class="wrapper">
 
@@ -20,7 +21,7 @@
 			<div id="mainTitle">
 				<div class="mainTitleRight">
 					<div class="mainTitleCenter">
-						<h2><span class="titleWrapper"><img src="/i/reg/font-mainTitle-active.png" alt="ACTIVATE YOUR ACCOUNT" /></span></h2>
+						<h2><span class="titleWrapper"><img src="/i/reg/font-mainTitle-active.png" alt="ACTIVATE YOUR ACCOUNT" /> </span></h2>
 					</div>
 				</div>
 			</div>
@@ -34,8 +35,8 @@
 						<h3>Your account has been registered</h3>
 						<p>We will send you a confirmation email. Please check your email to activate your account.</p>
 						<p>If you don't receive any confirmation email, <a href="<s:url action='sendActivateEmail'>
-							 <s:param name='handle'><s:property value='handle'/>
-							 </s:param>
+                            <s:param name='handle'><s:property value='handle'/></s:param>
+							<s:param name="resent">true</s:param>
 							</s:url>">Click here</a> to send the confirmation again.</p>
 					</div>
 				</div>
@@ -54,18 +55,27 @@
 		</div>
 	</div><!-- #container -->
 
-	<div id="footer">
+            <div id="footer">
                 <!--Update footer-->
                
                 <div class="copyright">
-                    <span>Copyright TopCoder, Inc. 2001-2011</span>
-                    <a href="https://www.topcoder.com/tc?module=Static&d1=about&d2=terms" target="_blank" title="Terms of Use">Terms of Use</a>
-                    <a href="https://www.topcoder.com/tc?module=Static&d1=about&d2=privacy" target="_blank" title="Privacy Policy">Privacy Policy</a>
+                    <span>Copyright TopCoder, Inc. 2001-2012</span>
+                    <span class="line">|</span>
+                    <a href="terms_of_use.jsp" target="_blank" title="Terms of Use">Terms of Use</a>
+                    <span class="line">|</span>
+                    <a href="privacy_policy.jsp" target="_blank" title="Privacy Policy">Privacy Policy</a>
                 </div>
                 <!--End copyright-->
-      </div>
+            </div>
 
 	</div><!-- .wrapper -->
 
+	<!-- Popup if the email has been resent -->
+	<c:if test="${param.resent eq 'true'}">
+		<script type="text/javascript">
+			alert("Your confirmation email has been resent.");
+		</script>
+	</c:if>
+	
 	</body>
 </html>

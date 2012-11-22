@@ -116,13 +116,13 @@ public class RegisterAction extends BaseAction implements PostAction {
         
         //Validate availability of the handle.
         if ((!RegHelper.isEmptyString(handle)) && getUserDAO().find(handle, true) != null) {
-            addActionError("The handle - " + handle + " is not available, please use another one.");
+            addActionError("The handle - '" + handle + "' is already registered, please use another one.");
             return;
         }
 
         //Validate availability of email.
         if ((!RegHelper.isEmptyString(email)) && getUserDAO().find(null, null, null, email).size() > 0) {
-            addActionError("The email - " + email + " is not available, please use another one.");
+            addActionError("The email - '" + email + "' is already registered, please use another one.");
             return;
         }
     }
