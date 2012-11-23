@@ -20,7 +20,7 @@
 <%--@elvariable id="has_licensed_content" type="boolean"--%>
 
 <c:if test="${fn:length(fonts_data) == 0}">
-    <% request.setAttribute("fonts_data", Arrays.asList(new String[][] {new String[] {"", "", null}})); %>
+    <% request.setAttribute("fonts_data", Arrays.asList(new String[][] {new String[] {"", "", "", null}})); %>
 </c:if>
 <c:if test="${fn:length(stock_art_data) == 0}">
     <% request.setAttribute("stock_art_data", Arrays.asList(new String[][] {new String[] {"", "", "", null}, new String[] {"", "", "", null}})); %>
@@ -41,6 +41,7 @@
     <link type="text/css" rel="stylesheet" href="/css/v4/studio-navigation.css"/>
     <link type="text/css" rel="stylesheet" href="/css/v4/newstyles.css"/>
     <link type="text/css" rel="stylesheet" href="/css/submit.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/stylish-select.css"/>
     <!--[if IE 8]>
     <link type="text/css" rel="stylesheet" href="/css/submit-ie8.css"/>
     <![endif]-->
@@ -62,6 +63,7 @@
     <script src="/js/jquery.jcarousel.min.js" type="text/javascript"></script>
 
     <script src="/js/jquery.ui.core.js" type="text/javascript"></script>
+    <script src="/js/jquery.stylish-select.js" type="text/javascript"></script>
     <script src="/js/submit.js" type="text/javascript"></script>
     <script src="/js/modalPopup.js" type="text/javascript"></script>
 </head>
@@ -121,9 +123,10 @@
     <div class="upload-content-description">
         <p>Please follow the instructions on the Contest Details page regarding what your
             submission, source and preview files should contain. <br>
+            Do not name any of your files "declaration.txt" as this is added by our system. <br/>
             Please be sure to double-check that you have submitted the correct files and that your
             JPG files (if applicable) are in RGB color mode. </p>
-
+            
         <p><a href="http://topcoder.com/home/studio/the-process/how-to-submit-to-a-contest/" target="_blank">
             Learn more about formatting your submission file
         </a></p>
@@ -286,28 +289,8 @@
 
     <div id="contain-design-elements-question" class="declare-selection-wrapper">
 
-        <div class="question-item">
-            <p>Does this entry contain design elements that are not your own?</p>
-
-            <div class="radioContainer">
-                <input type="radio" id="yes-question"
-                       name="<%= Constants.CONTAINS_LICENSED_ELEMENTS %>" value="true" class="radio">
-                <label>Yes</label>
-            </div>
-            <div class="radioContainer">
-                <input type="radio" checked="checked" id="no-question"
-                       name="<%= Constants.CONTAINS_LICENSED_ELEMENTS %>" value="false" class="radio">
-                <label>No</label>
-            </div>
-            <c:if test="${not empty external_content_error}">
-                <div class="tip-error" style="width: 340px; float: right;">
-                    <span class="rightSide"><span class="text">
-                        <span class="icon"></span>
-                        ${external_content_error}
-                    </span></span>
-                </div>
-            </c:if>
-
+        <div class="license-elements">
+            <h6>Elements with a license:</h6>
             <div class="clear"></div>
         </div>
         <!--End .question-item-->
@@ -321,9 +304,18 @@
                             <div class="select-list-catpion">
                                 <span class="select-list-title">Font</span>
                             </div>
-                            <br/>
+                            <div class="clear"></div>
+                            <p class="normaltext">Check to see if your font is on the <a href="#">Studio Standard Fonts list</a>. If it is, leave the URL field blank.</p>
+                            <p>If your font is not on the list, you must provide the URL to the font page (not file) from one of the approved font websites in the dropdown box.</p>
+                            <h5>Please list ALL fonts you have used in your design below.</h5>
                             <!--End .caption-->
 
+                            <div class="policy">
+                                <a href="http://topcoder.com/home/studio/the-process/font-policy/" target="_blank">
+                                    Read Studio's Font Policy.
+                                </a>
+                            </div>
+                            
                             <c:forEach items="${fonts_data}" var="font" varStatus="i">
                                 <div class="add-font-item external-content-item">
                                     <div class="text-input">
@@ -332,34 +324,38 @@
                                                    value="<c:out value="${font[0]}" escapeXml="true"/>">
                                         </div>
                                     </div>
+                                    <select name="font">
+                                        <option value="">Standard List or Source of Font</option>
+                                        <option value="Studio Standard Fonts list" <c:if test="${font[1] eq 'Studio Standard Fonts list'}">selected="selected"</c:if>>Studio Standard Fonts list</option>
+                                        <option value="Fonts.com" <c:if test="${font[1] eq 'Fonts.com'}">selected="selected"</c:if>>Fonts.com</option>
+                                        <option value="MyFonts" <c:if test="${font[1] eq 'MyFonts'}">selected="selected"</c:if>>MyFonts</option>
+                                        <option value="Adobe Fonts" <c:if test="${font[1] eq 'Adobe Fonts'}">selected="selected"</c:if>>Adobe Fonts</option>
+                                        <option value="Font Shop" <c:if test="${font[1] eq 'Font Shop'}">selected="selected"</c:if>>Font Shop</option>
+                                        <option value="T.26 Digital Type Foundry" <c:if test="${font[1] eq 'T.26 Digital Type Foundry'}">selected="selected"</c:if>>T.26 Digital Type Foundry</option>
+                                        <option value="Font Squirrel" <c:if test="${font[1] eq 'Font Squirrel'}">selected="selected"</c:if>>Font Squirrel</option>
+                                        <option value="Linotype" <c:if test="${font[1] eq 'Linotype'}">selected="selected"</c:if>>Linotype</option>
+                                    </select>
                                     <div class="text-input">
                                         <div class="right-side">
                                             <input type="text" name="<%= Constants.FONT_URL %>"
                                                    title="Font's URL Source"
-                                                   value="<c:out value="${font[1]}" escapeXml="true"/>">
+                                                   value="<c:out value="${font[2]}" escapeXml="true"/>">
                                         </div>
                                     </div>
                                     <c:if test="${i.index == fn:length(fonts_data) - 1}">
                                         <a class="btn-add" href="javascript:;"></a>
                                     </c:if>
 
-                                    <div class="policy">
-                                        <p>Only list commercial fonts. They can be free or avaliable for purchase.
-                                            <a href="http://topcoder.com/home/studio/the-process/font-policy/" target="_blank">
-                                                Read Studio's Font Policy.
-                                            </a>
-                                        </p>
-                                    </div>
-
-                                    <c:if test="${not empty font[2]}">
+                                    <c:if test="${not empty font[3]}">
                                         <div class="tip-error">
                                             <span class="rightSide"><span class="text">
                                                 <span class="icon"></span>
-                                                ${font[2]}
+                                                ${font[3]}
                                             </span></span>
                                         </div>
                                     </c:if>
 
+                                    <div class="clear"></div>
                                 </div>
                             </c:forEach>
 

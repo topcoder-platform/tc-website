@@ -138,18 +138,18 @@ public class Constants implements WebConstants {
     public static final String SUBMISSION_COMMENT = "submission_comment";
 
     /**
-     * Contains licenced elements.
+     * Font name.
      *
      * @since 1.4
      */
-    public static final String CONTAINS_LICENSED_ELEMENTS = "cle";
+    public static final String FONT_NAME = "font_name";
 
     /**
      * Font name.
      *
      * @since 1.4
      */
-    public static final String FONT_NAME = "font_name";
+    public static final String FONT = "font";
 
     /**
      * Font url.
