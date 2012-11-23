@@ -247,115 +247,111 @@ public class Submit extends BaseSubmissionDataProcessor {
                 List<ExternalContent> externalContents = new ArrayList<ExternalContent>();
                 List<String[]> fontsData = new ArrayList<String[]>();
                 List<String[]> stockArtData = new ArrayList<String[]>();
-                boolean hasLicensedContent = Boolean.parseBoolean(r.getParameter(Constants.CONTAINS_LICENSED_ELEMENTS));
                 ExternalContentType fontType = new ExternalContentType();
                 fontType.setId(FONT_CONTENT_ID);
                 ExternalContentType saType = new ExternalContentType();
                 saType.setId(STOCK_ART_CONTENT_ID);
-                if (hasLicensedContent) {
-                    // read fonts
-                    String[] fontNames = r.getParameterValues(Constants.FONT_NAME);
-                    String[] fontUrls = r.getParameterValues(Constants.FONT_URL);
-                    for (int i = 0; i < fontNames.length; ++i) {
-                        String name = fontNames[i];
-                        String url = fontUrls[i];
-                        if (blank(name, "Font's Name") && blank(url, "Font's URL Source")) {
-                            // if both name and url are missing, just skip it
-                            continue;
-                        }
-
-                        // validate font data
-                        String error = "";
-                        if (blank(name, "Font's Name")) {
-                            error = MISSING_NAME_DOT;
-                        } else if (blank(url, "Font's URL Source")) {
-                            error = MISSING_URL_DOT;
-                        }
-                        fontsData.add(new String[] {name, url, error});
-                        if (!blank(error)) {
-                            addError(Constants.SUBMISSION_SOURCE + '.' + i, error);
-                        }
-
-                        if (!url.startsWith("http://")) {
-                        	url = "http://" + url;
-                        }
-
-                        // create ExternalContent object
-                        ExternalContent font = new ExternalContent();
-                        font.setContentType(fontType);
-                        font.setDeclaration(submissionDeclaration);
-                        font.setDisplayPosition(i);
-                        addProperty(font, "Name", name);
-                        addProperty(font, "Url", url);
-                        externalContents.add(font);
+                
+                // read fonts
+                String[] fontNames = r.getParameterValues(Constants.FONT_NAME);
+                String[] fonts = r.getParameterValues(Constants.FONT);
+                String[] fontUrls = r.getParameterValues(Constants.FONT_URL);
+                for (int i = 0; i < fontNames.length; ++i) {
+                    String name = fontNames[i];
+                    String stdFont = fonts[i];
+                    String url = fontUrls[i];
+                    if (blank(name, "Font's Name") && blank(stdFont, "") && blank(url, "Font's URL Source")) {
+                        // if both name and url are missing, just skip it
+                        continue;
                     }
 
-                    // read stock art
-                    String[] saNames = r.getParameterValues(Constants.STOCK_ART_NAME);
-                    String[] saUrls = r.getParameterValues(Constants.STOCK_ART_URL);
-                    String[] saFileNumbers = r.getParameterValues(Constants.STOCK_ART_FILE_NUMBER);
-                    for (int i = 0; i < saNames.length; ++i) {
-                        String name = saNames[i];
-                        String url = saUrls[i];
-                        String fileNumber = saFileNumbers[i];
-
-                        if (blank(name, "Description of photo") && blank(url, "Stock's Art URL Source") && blank(fileNumber, "File Number")) {
-                            // if both name url and file number are missing, just skip it
-                            continue;
-                        }
-
-                        // validate stock art data
-                        StringBuilder error = new StringBuilder();
-                        if (blank(name, "Description of photo")) {
-                            error.append(MISSING_NAME);
-                        }
-                        if (blank(url, "Stock's Art URL Source")) {
-                            if (error.length() == 0) {
-                                error.append(MISSING);
-                            } else {
-                                error.append(AND);
-                            }
-                            error.append(URL);
-                        }
-                        if (blank(fileNumber, "File Number")) {
-                            if (error.length() == 0) {
-                                error.append(MISSING);
-                            } else {
-                                error.append(AND);
-                            }
-                            error.append(FILE_NUMBER);
-                        }
-                        if (error.length() > 0) {
-                            error.append(".");
-                            addError(Constants.SUBMISSION_SOURCE + '.' + i, error.toString());
-                        }
-
-                        if (!url.startsWith("http://")) {
-                        	url = "http://" + url;
-                        }
-
-                        stockArtData.add(new String[] {name, url, fileNumber, error.toString()});
-
-                        // create ExternalContent object
-                        ExternalContent font = new ExternalContent();
-                        font.setContentType(saType);
-                        font.setDeclaration(submissionDeclaration);
-                        font.setDisplayPosition(i);
-                        addProperty(font, "Name", name);
-                        addProperty(font, "Url", url);
-                        addProperty(font, "FileNumber", fileNumber);
-                        externalContents.add(font);
+                    // validate font data
+                    String error = "";
+                    if (blank(name, "Font's Name")) {
+                        error = MISSING_NAME_DOT;
+                    } else if (blank(stdFont, "") && blank(url, "Font's URL Source")) {
+                        error = MISSING_URL_DOT;
                     }
+                    fontsData.add(new String[] {name, stdFont, url, error});
+                    if (!blank(error)) {
+                        addError(Constants.SUBMISSION_SOURCE + '.' + i, error);
+                    }
+
+                    if (blank(url, "Font's URL Source")) {
+                        url = stdFont;
+                    } else if (!url.startsWith("http://")) {
+                        url = "http://" + url;
+                    }
+
+                    // create ExternalContent object
+                    ExternalContent font = new ExternalContent();
+                    font.setContentType(fontType);
+                    font.setDeclaration(submissionDeclaration);
+                    font.setDisplayPosition(i);
+                    addProperty(font, "Name", name);
+                    addProperty(font, "Url", url);
+                    externalContents.add(font);
                 }
 
-                String contentError = "";
-                if (externalContents.size() == 0 && hasLicensedContent) {
-                    contentError = "Please enter your declarations below or select 'No' if you have no fonts or stock art to declare.";
-                    addError(Constants.CONTAINS_LICENSED_ELEMENTS, contentError);
+                // read stock art
+                String[] saNames = r.getParameterValues(Constants.STOCK_ART_NAME);
+                String[] saUrls = r.getParameterValues(Constants.STOCK_ART_URL);
+                String[] saFileNumbers = r.getParameterValues(Constants.STOCK_ART_FILE_NUMBER);
+                for (int i = 0; i < saNames.length; ++i) {
+                    String name = saNames[i];
+                    String url = saUrls[i];
+                    String fileNumber = saFileNumbers[i];
+
+                    if (blank(name, "Description of photo") && blank(url, "Stock's Art URL Source") && blank(fileNumber, "File Number")) {
+                        // if both name url and file number are missing, just skip it
+                        continue;
+                    }
+
+                    // validate stock art data
+                    StringBuilder error = new StringBuilder();
+                    if (blank(name, "Description of photo")) {
+                        error.append(MISSING_NAME);
+                    }
+                    if (blank(url, "Stock's Art URL Source")) {
+                        if (error.length() == 0) {
+                            error.append(MISSING);
+                        } else {
+                            error.append(AND);
+                        }
+                        error.append(URL);
+                    }
+                    if (blank(fileNumber, "File Number")) {
+                        if (error.length() == 0) {
+                            error.append(MISSING);
+                        } else {
+                            error.append(AND);
+                        }
+                        error.append(FILE_NUMBER);
+                    }
+                    if (error.length() > 0) {
+                        error.append(".");
+                        addError(Constants.SUBMISSION_SOURCE + '.' + i, error.toString());
+                    }
+
+                    if (!url.startsWith("http://")) {
+                        url = "http://" + url;
+                    }
+
+                    stockArtData.add(new String[] {name, url, fileNumber, error.toString()});
+
+                    // create ExternalContent object
+                    ExternalContent font = new ExternalContent();
+                    font.setContentType(saType);
+                    font.setDeclaration(submissionDeclaration);
+                    font.setDisplayPosition(i);
+                    addProperty(font, "Name", name);
+                    addProperty(font, "Url", url);
+                    addProperty(font, "FileNumber", fileNumber);
+                    externalContents.add(font);
                 }
 
                 submissionDeclaration.setExternalContents(externalContents);
-                submissionDeclaration.setHasExternalContent(hasLicensedContent);
+                submissionDeclaration.setHasExternalContent(externalContents.size() > 0);
                 String submissionComment = r.getParameter(Constants.SUBMISSION_COMMENT);
                 submissionDeclaration.setComment(submissionComment == null ? "" : (submissionComment.trim().equals("Comments") ? "" : submissionComment));
 
@@ -390,10 +386,8 @@ public class Submit extends BaseSubmissionDataProcessor {
 				if (hasErrors()) {
                     r.setAttribute("fonts_data", fontsData);
                     r.setAttribute("stock_art_data", stockArtData);
-                    r.setAttribute("has_licensed_content", hasLicensedContent);
                     r.setAttribute("submission_comment", submissionComment);
                     r.setAttribute("submission_rank", rank);
-                    r.setAttribute("external_content_error", contentError);
 
 					setDefault(Constants.CONTEST_ID, contestId.toString());
 					setDefault(Constants.SUBMISSION_RANK, rank);
@@ -409,7 +403,7 @@ public class Submit extends BaseSubmissionDataProcessor {
                     for (int i = 0; i < fontsData.size(); ++i) {
                         String[] font = fontsData.get(i);
                         declarationData.append("<font><index>").append(i + 1).append("</index><name>").
-                            append(escapeXML(font[0])).append("</name><url>").append(escapeXML(font[1])).
+                            append(escapeXML(font[0])).append("</name><url>").append(escapeXML(blank(font[1], "") ? font[2] : font[1])).
                             append("</url></font>");
                     }
 
