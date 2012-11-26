@@ -10,9 +10,28 @@
 			window.onbeforeunload = function() {
 				jQuery.ajax({url:"/tc/timer?key=0", async:false})
 			};
-			
+			function closeWindow() {
+				if (navigator.userAgent.indexOf("MSIE") > 0) {  
+					if (navigator.userAgent.indexOf("MSIE 6.0") > 0) {  
+						window.opener = null; window.close();  
+					}  
+					else {  
+						window.open('', '_top'); window.top.close();  
+					}  
+				}  
+				else if (navigator.userAgent.indexOf("Firefox") > 0) {  
+					location.replace('http://community.topcoder.com/tc');
+					event.returnValue = false;  
+					//window.history.go(-2);  
+				}  
+				else {  
+					window.opener = null;   
+					window.open('', '_self', '');  
+					window.close();  
+				}  
+			}
 			// set timeout
-			window.setTimeout(function(){window.onbeforeunload = null;jQuery.ajax({url:"/tc/timer?key=1", async:false});window.open('', '_self', '');window.close();}, 300000);
+			window.setTimeout(function(){window.onbeforeunload = null;jQuery.ajax({url:"/tc/timer?key=1", async:false});window.open('', '_self', '');closeWindow();}, 300000);
 			
 			var goToLink = function(link) {
 				window.onbeforeunload = null;
