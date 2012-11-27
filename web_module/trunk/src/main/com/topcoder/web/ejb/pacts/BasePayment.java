@@ -240,6 +240,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case PROJECT_BUG_FIXES_PAYMENT:
         case PROJECT_COPILOT_PAYMENT:
         case PROJECT_DEPLOYMENT_TASK_PAYMENT:
+        case PROJECT_ENHANCEMENTS_PAYMENT:
             return REFERENCE_COCKPIT_PROJECT_ID;
 
         case PROBLEM_WRITING_PAYMENT:
@@ -361,6 +362,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case PROJECT_BUG_FIXES_PAYMENT: return new ProjectBugFixesPayment(coderId, grossAmount, referenceId);
         case PROJECT_COPILOT_PAYMENT: return new ProjectCopilotPayment(coderId, grossAmount, referenceId);
         case PROJECT_DEPLOYMENT_TASK_PAYMENT: return new ProjectDeploymentTaskPayment(coderId, grossAmount, referenceId);
+        case PROJECT_ENHANCEMENTS_PAYMENT: return new ProjectEnhancementsPayment(coderId, grossAmount, referenceId);
         default: return new NoReferencePayment(paymentTypeId, coderId, grossAmount, "");
         }
     }
@@ -501,6 +503,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             case PROJECT_BUG_FIXES_PAYMENT: return "Project Bug Fixes Payment";
             case PROJECT_COPILOT_PAYMENT: return "Project Copilot Payment";
             case PROJECT_DEPLOYMENT_TASK_PAYMENT: return "Project Deployment Task Payment";
+            case PROJECT_ENHANCEMENTS_PAYMENT: return "Project Enhancements Payment";
 
             default: return "Other Payment";
         }

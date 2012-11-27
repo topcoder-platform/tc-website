@@ -353,4 +353,5 @@ public interface Constants {
     public static final int PROJECT_BUG_FIXES_PAYMENT = 68;
     public static final int PROJECT_COPILOT_PAYMENT = 69;
     public static final int PROJECT_DEPLOYMENT_TASK_PAYMENT = 70;
+    public static final int PROJECT_ENHANCEMENTS_PAYMENT = 71;
 }
