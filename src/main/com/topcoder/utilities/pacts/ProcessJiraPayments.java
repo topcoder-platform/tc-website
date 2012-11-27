@@ -35,6 +35,7 @@ import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.CockpitProjectReferencePayment;
 import com.topcoder.web.ejb.pacts.ProjectBugFixesPayment;
 import com.topcoder.web.ejb.pacts.ProjectCopilotPayment;
+import com.topcoder.web.ejb.pacts.ProjectEnhancementsPayment;
 import com.topcoder.web.ejb.pacts.ProjectDeploymentTaskPayment;
 import com.topcoder.web.ejb.pacts.ComponentProjectReferencePayment;
 import com.topcoder.web.ejb.pacts.StudioContestReferencePayment;
@@ -327,7 +328,9 @@ public class ProcessJiraPayments extends DBUtility {
 			CockpitProjectReferencePayment payment = null;
 			if("Bug Fix".equals(paymentType)) {
 				payment = new ProjectBugFixesPayment(userId, amount, client, referenceId);
-			} else if("Copilot".equals(paymentType)) {
+			} else if ("Enhancement".equals(paymentType)) {
+                payment = new ProjectEnhancementsPayment(userId, amount, client, referenceId);
+            } else if("Copilot".equals(paymentType)) {
 				payment = new ProjectCopilotPayment(userId, amount, client, referenceId);
 			} else if("Deployment".equals(paymentType)) {
 			    payment = new ProjectDeploymentTaskPayment(userId, amount, client, referenceId);
