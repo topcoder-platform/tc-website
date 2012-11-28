@@ -270,7 +270,7 @@ public class Submit extends BaseSubmissionDataProcessor {
                     if (blank(name, "Font's Name")) {
                         error = MISSING_NAME_DOT;
                     } else if (blank(stdFont, "") && blank(url, "Font's URL Source")) {
-                        error = MISSING_URL_DOT;
+                        stdFont = "Studio Standard Fonts";
                     }
                     fontsData.add(new String[] {name, stdFont, url, error});
                     if (!blank(error)) {
