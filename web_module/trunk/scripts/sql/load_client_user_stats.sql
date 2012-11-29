@@ -354,8 +354,8 @@ FROM tt_client cc, USER uu, calendar cal,
      AND pi32.project_info_type_id = 32
      AND p.tc_direct_project_id = tdp.project_id
      AND ri.value = u.user_id
-     AND resource_role_id IN (17,
-                              20,
+     AND resource_role_id IN (18,
+                              24,
                               4)
      AND ri.resource_id = r.resource_id
      AND ri.resource_info_type_id = 1
