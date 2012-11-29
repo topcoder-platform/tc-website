@@ -149,6 +149,11 @@ public class Submit extends BaseSubmissionDataProcessor {
     private static final String MISSING_NAME_DOT = "Missing name.";
 
     /**
+     * Missing source.
+     */
+    private static final String MISSING_SOURCE_DOT = "Missing source.";
+
+    /**
      * Missing url.
      */
     private static final String MISSING_URL_DOT = "Missing url.";
@@ -157,6 +162,11 @@ public class Submit extends BaseSubmissionDataProcessor {
      * Path to submission declaration template path.
      */
     private static final String DECLARATION_FILE_TEMPLATE = "template/submission_declaration.txt";
+
+    /**
+     * TopCoder Studio Font Policy Link
+     */
+    private static final String TC_STUDIO_FONT_POLICY_LINK = "community.topcoder.com/studio/the-process/font-policy/";
 
     /**
      * Font id in external_content_type table.
@@ -269,16 +279,21 @@ public class Submit extends BaseSubmissionDataProcessor {
                     String error = "";
                     if (blank(name, "Font's Name")) {
                         error = MISSING_NAME_DOT;
-                    } else if (blank(stdFont, "") && blank(url, "Font's URL Source")) {
-                        stdFont = "Studio Standard Fonts";
+                    } else if (blank(stdFont, "")) {
+                        error = MISSING_SOURCE_DOT;
+                    } else if (!blank(stdFont, "Studio Standard Fonts list") && blank(url, "Font's URL Source")) {
+                        error = MISSING_NAME_DOT;
                     }
+
                     fontsData.add(new String[] {name, stdFont, url, error});
                     if (!blank(error)) {
                         addError(Constants.SUBMISSION_SOURCE + '.' + i, error);
                     }
 
+                    // If stdFont is "Studio Standard Fonts List" then submitter probably did not provide a url
+                    // so we set a URL link to TopCoder Studio font policy page
                     if (blank(url, "Font's URL Source")) {
-                        url = stdFont;
+                        url = TC_STUDIO_FONT_POLICY_LINK;
                     } else if (!url.startsWith("http://")) {
                         url = "http://" + url;
                     }
@@ -399,11 +414,15 @@ public class Submit extends BaseSubmissionDataProcessor {
                     // build data for document generator
                     StringBuilder declarationData = new StringBuilder();
                     declarationData.append("<DATA>");
-                    declarationData.append("<comment>").append(blank(submissionComment, "Comments") ? "No declarations made" : escapeXML(submissionComment)).append("</comment>");
+                    declarationData.append("<comment>").
+                        append(blank(submissionComment, "Comments") ? "No declarations made" : 
+                        escapeXML(submissionComment)).append("</comment>");
                     for (int i = 0; i < fontsData.size(); ++i) {
                         String[] font = fontsData.get(i);
                         declarationData.append("<font><index>").append(i + 1).append("</index><name>").
-                            append(escapeXML(font[0])).append("</name><url>").append(escapeXML(blank(font[1], "") ? font[2] : font[1])).
+                            append(escapeXML(font[0] + (blank(font[1], "") ? "" : " ("+ font[1] + ")"))).
+                            append("</name><url>").
+                            append(escapeXML(blank(font[2], "Font's URL Source") ? TC_STUDIO_FONT_POLICY_LINK : font[2])).
                             append("</url></font>");
                     }
 
