@@ -51,15 +51,8 @@ import com.topcoder.web.studio.util.Util;
  *   </ol>
  * </p>
  * 
- * <p>
- * Version 1.3 (Topcoder Security Groups Backend - Studio Permissions Propagation) change notes:
- *   <ol>
- *     <li>Pass HttpServletRequest instance to method Util.hasCockpitPermissions.</li>
- *   </ol>
- * </p>
- *
  * @author isv, pvmagacho, TCSASSEMBER
- * @version 1.3
+ * @version 1.2
  */
 public class DownloadCatalogDocument extends ShortHibernateProcessor {
 
@@ -143,7 +136,7 @@ public class DownloadCatalogDocument extends ShortHibernateProcessor {
                  && RegistrationHelper.getSubmitterResource(project, u.getId()) != null) 
                 || new Date().after(project.getEndTime())) {
                 isRegistered = true;
-            } else if (Util.hasCockpitPermissions(getRequest(), getUser().getId(), project.getId()) || isInManagerORRoles) {
+            } else if (Util.hasCockpitPermissions(getUser().getId(), project.getId()) || isInManagerORRoles) {
                 hasPermission = true;
                 log.debug("allow download, they have cockpit permissions or OR roles");
             } else if (isSpecReviewer) {
