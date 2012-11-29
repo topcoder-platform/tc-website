@@ -27,13 +27,9 @@
 					<!-- end #mainTitle -->
 					
 					<!-- #mainContent -->
-					<div id="mainContent">
-							<div id="errors" class="invisible">
-								<s:actionerror />
-								<s:fielderror />
-							</div>						
+					<div id="mainContent">					
 							<div class="mainContentInner">
-							<s:form namespace="/" action="registerAction" method="post" id="formRegister">
+                            <div id="formRegister">
 								<div class="registerBox">
 									<div class="elemLine">
 										<div class="leftPart">First Name :</div>
@@ -119,7 +115,7 @@
 										<div class="clearAll"></div>
 									</div>
 								</div>
-							</s:form>
+							</div>
 						</div>
 						
 					</div>

@@ -230,7 +230,7 @@ public final class RegHelper {
 
         // check empty
         if (isEmptyString(handle)) {
-            action.addActionError("Please fill your handle");
+            action.addFieldError("handle", "Please fill your handle");
             return false;
         }
 
@@ -240,32 +240,32 @@ public final class RegHelper {
         final int len = handle.length();
 
         if (len < Constants.MIN_HANDLE_LENGTH) {
-            action.addActionError("The handle must be at least " + Constants.MIN_HANDLE_LENGTH
+            action.addFieldError("handle", "The handle must be at least " + Constants.MIN_HANDLE_LENGTH
                     + " characters long.");
             return false;
         }
 
         if (len > Constants.MAX_HANDLE_LENGTH) {
-            action.addActionError("The handle must be at most " + Constants.MAX_HANDLE_LENGTH + " characters long.");
+            action.addFieldError("handle", "The handle must be at most " + Constants.MAX_HANDLE_LENGTH + " characters long.");
             return false;
         }
 
         if (!StringUtils.containsOnly(handle, Constants.HANDLE_ALPHABET, false)) {
-            action.addActionError("The handle may contain only letters, numbers and " + Constants.HANDLE_PUNCTUATION);
+            action.addFieldError("handle", "The handle may contain only letters, numbers and " + Constants.HANDLE_PUNCTUATION);
             return false;
         }
 
         if (StringUtils.containsOnly(handle, Constants.HANDLE_PUNCTUATION, false)) {
-            action.addActionError("The handle may not contain only punctuation.");
+            action.addFieldError("handle", "The handle may not contain only punctuation.");
             return false;
         }
 
         if (handle.toLowerCase().trim().startsWith("admin")) {
-            action.addActionError("Please choose another handle, not starting with admin.");
+            action.addFieldError("handle", "Please choose another handle, not starting with admin.");
             return false;
         }
         if (checkInvalidHandle(handle)) {
-            action.addActionError("The handle you entered is not valid.");
+            action.addFieldError("handle", "The handle you entered is not valid.");
             return false;
         }
 

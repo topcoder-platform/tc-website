@@ -5,7 +5,8 @@ package com.topcoder.web.reg.action;
 
 import java.sql.Timestamp;
 import java.util.Collection;
-
+import java.util.HashMap;
+import java.util.Map;
 import javax.naming.Context;
 
 import com.topcoder.security.GroupPrincipal;
@@ -42,7 +43,7 @@ import com.topcoder.web.reg.RegHelper;
  * @version 1.1
  * @author live_world, leo_lol
  */
-public class RegisterAction extends BaseAction implements PostAction {
+public class RegisterAction extends BaseAjaxAction implements PostAction {
 
     /**
      * serial version UID.
@@ -98,45 +99,51 @@ public class RegisterAction extends BaseAction implements PostAction {
      * Represents register source.
      */
     private static final String REGISTER_SOURCE_NAME = "reg2";
-
+    
     /**
-     * Validates the user.
-     * <p>
-     * Updated in version 1.1: handle validation logic has been changed to add
-     * offensive words checking. See {@link RegHelper#validateHandle(String)}
-     * for more information.
-     * </p>
+     * Registers a new user.
+     * 
+     * @throws Exception
+     *             if an unexpected error occurs while processing the request
      */
-    @Override
-    public void validate() {
+    public void executeAction() throws Exception {
+        // check the parameters
+        checkRequired("firstName", "first name", firstName);
+        checkRequired("lastName", "last name", lastName);
+        checkRequired("email", "email", email);
+        checkRequired("loginPassword", "login password", password);
+        checkRequired("confirmPassword", "confirm password", passwordConfirm);
+        
+        if (password != null && passwordConfirm != null && !password.equals(passwordConfirm)) {
+            addFieldError("confirmPassword", "Passwords do not match");
+        }
+        
+        String randomString = getSessionData().getCaptchaWord();
+        if (randomString == null || randomString.compareToIgnoreCase(captchaWord) != 0) {
+            addFieldError("captchaWord", "Verification code doesn't match");
+        }
+    
         //Validate invalid handle
         if(!RegHelper.validateHandle(handle, this)) {
             return;
         }
         
+        if (hasFieldErrors()) {
+            return;
+        }
+                
         //Validate availability of the handle.
         if ((!RegHelper.isEmptyString(handle)) && getUserDAO().find(handle, true) != null) {
-            addActionError("The handle - '" + handle + "' is already registered, please use another one.");
+            addFieldError("handle", "The handle - '" + handle + "' is already registered, please use another one.");
             return;
         }
 
         //Validate availability of email.
         if ((!RegHelper.isEmptyString(email)) && getUserDAO().find(null, null, null, email).size() > 0) {
-            addActionError("The email - '" + email + "' is already registered, please use another one.");
+            addFieldError("email", "The email - '" + email + "' is already registered, please use another one.");
             return;
         }
-    }
-
-    /**
-     * Registers a new user.
-     * 
-     * @return a <code>String</code> referencing the next view or action to
-     *         route request to
-     * @throws Exception
-     *             if an unexpected error occurs while processing the request
-     */
-    @Override
-    public String execute() throws Exception {
+        
         User user = populateUser();
         try {
             UserDAO userDao = getUserDAO();
@@ -151,11 +158,14 @@ public class RegisterAction extends BaseAction implements PostAction {
             user.setActivationCode(activationCode);
             user.setRegSource(REGISTER_SOURCE_NAME);
             userDao.saveOrUpdate(user);
+            
+            Map<String, Object> result = new HashMap<String, Object>();
+            result.put("success", true);
+            setResult(result);
         } catch (Exception e) {
             revertSecurityStuff(user, e);
             throw e;
         }
-        return SUCCESS;
     }
 
     /**
@@ -420,5 +430,17 @@ public class RegisterAction extends BaseAction implements PostAction {
     public void setCaptchaWord(String captchaWord) {
         this.captchaWord = captchaWord;
     }
-
+    
+    /**
+     * Checks the parameter value is presented. If not, a field error message will be added.
+     * 
+     * @param fieldName the filed name of the parameter value
+     * @param message the message to be displayed for end user
+     * @param value the parameter value
+     */
+    private void checkRequired(String fieldName, String message, String value) {
+        if (value == null || value.trim().length() == 0) {
+            addFieldError(fieldName, "Please fill your " + message);
+        }
+    }
 }

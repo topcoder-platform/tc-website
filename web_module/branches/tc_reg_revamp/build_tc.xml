@@ -166,6 +166,7 @@
         <pathelement location="${jars.dir}/ognl-3.0.jar" />
         <pathelement location="${jars.dir}/struts2-core-2.2.1.1.jar" />
         <pathelement location="${jars.dir}/struts2-spring-plugin-2.2.1.1.jar" />
+        <pathelement location="${jars.dir}/struts2-json-plugin-2.2.1.jar" />        
         <pathelement location="${jars.dir}/xwork-core-2.2.1.1.jar" />
     </path>
     <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
@@ -956,6 +957,7 @@
                 <include name="ognl-3.0.jar" />
                 <include name="struts2-core-2.2.1.1.jar" />
                 <include name="struts2-spring-plugin-2.2.1.1.jar" />
+                <include name="struts2-json-plugin-2.2.1.jar" />
                 <include name="xwork-core-2.2.1.1.jar" />
                 <include name="spring.jar" />
             </lib>

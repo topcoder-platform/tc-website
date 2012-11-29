@@ -407,7 +407,7 @@ select.selectShorter{
 						text-decoration:underline;
 					}					
 				
-		.tipError, .compareError{
+		.tipError, .compareError,.verificationCodeInput .tipError2{
 			float:left;
 			width:auto;
 			display:inline-block;
