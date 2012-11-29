@@ -6,10 +6,6 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
-    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
-
     <servlet>
         <servlet-name>creativeservlet</servlet-name>
         <servlet-class>com.topcoder.web.studio.controller.StudioServlet</servlet-class>
