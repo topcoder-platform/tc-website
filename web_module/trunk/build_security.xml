@@ -30,19 +30,10 @@
     <property name="jboss_deploy" value="${jboss_home}/server/security/deploy"/>
     <property name="jboss_lib" value="${jboss_home}/server/security/lib"/>
     <property name="jboss_conf" value="${jboss_home}/server/security/conf"/>
-	<property name="security_groups_conf" value="${resources}/security_groups/conf" />
 
     <property name="deprecation" value="true"/>
     <property name="debug" value="true"/>
     <property name="junitsummary" value="on"/>
-	
-	<property file="securityGroups.properties" />
-	<property name="hibernate" value="${jars.dir}/hibernate-3.6.8" />
-	<property name="spring" value="${jars.dir}/spring3.0.5" />
-	<property name="test_file.dir" value="test_files" />
-	<property name="security_groups_test_lib.dir" value="${test_file.dir}/test_libs" />
-	<property name="informix.jdbc.jar" value="${security_groups_test_lib.dir}/ifxjdbc.jar" />
-	
 
     <target name="main" depends="compile">
     </target>
@@ -74,18 +65,13 @@
 
         <!-- TCS Components -->
 
-    	<pathelement location="${jars.dir}/tcs/configuration_api/1.0.0/configuration_api.jar"/>
         <pathelement location="${jars.dir}/tcs/configuration_manager/2.1.5/configuration_manager.jar"/>
-        <pathelement location="${jars.dir}/tcs/configuration_persistence/1.0.1/configuration_persistence.jar"/>
-        <pathelement location="${jars.dir}/tcs/document_generator/3.1.0/document_generator.jar"/>
-        <pathelement location="${jars.dir}/tcs/email_engine/3.0/email_engine.jar"/>
         <pathelement location="${jars.dir}/object_formatter.jar"/>
         <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
         <pathelement location="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
         <pathelement location="${jars.dir}/tcs/file_upload/2.0.2.0/file_upload.jar"/>
         <pathelement location="${jars.dir}/tcs/json_object/1.0/json_object.jar"/>
         <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
-    	<pathelement location="${jars.dir}/tcs/typesafe_enum/1.0/typesafe_enum.jar"/>
 
         <!--required for aol alerts only -->
         <pathelement location="${jars.dir}/tcs/alerts_wrapper/1.0/java_alerts_wrapper.jar"/>
@@ -100,7 +86,6 @@
         <!-- TCS Other -->
         <pathelement location="${jars.dir}/tcs/catalog.jar"/>
         <pathelement location="${jars.dir}/tcs/user.jar"/>
-    	<pathelement location="${jars.dir}/tcs/topcoder_commons_utility.jar"/>
 
         <!-- file conversion component -->
         <pathelement location="${jars.dir}/fileconvert.jar"/>
@@ -110,36 +95,6 @@
         <pathelement location="${external.jars.dir}/jboss-4.2.2-ejb3x.jar"/>
         <pathelement location="${external.jars.dir}/jboss-4.2.2-jaxws.jar"/>
         <pathelement location="${external.jars.dir}/jaxb-api-jboss-4.2.2.jar"/>
-    	
-    	<!-- Hibernate 3.6.8 -->
-    	<pathelement location="${hibernate}/antlr-2.7.6.jar"/>
-    	<pathelement location="${hibernate}/commons-collections-3.1.jar"/>
-    	<pathelement location="${hibernate}/dom4j-1.6.1.jar"/>
-    	<pathelement location="${hibernate}/hibernate3.jar"/>
-    	<pathelement location="${hibernate}/javassist-3.12.0.GA.jar"/>
-    	<pathelement location="${hibernate}/jta-1.1.jar"/>
-    	<pathelement location="${hibernate}/slf4j-api-1.6.1.jar"/>
-    	<pathelement location="${hibernate}/log4j-1.2.16.jar"/>
-    	<pathelement location="${hibernate}/slf4j-log4j12-1.6.1.jar"/>
-    	<pathelement location="${hibernate}/commons-logging-1.1.1.jar"/>
-    	<pathelement location="${hibernate}/cglib-nodep-2.2.2.jar"/>
-    	
-    	<!--Spring 3.0.5 -->
-    	<pathelement location="${spring}/org.springframework.aop-3.0.5.RELEASE.jar"/>
-    	<pathelement location="${spring}/org.springframework.asm-3.0.5.RELEASE.jar"/>
-    	<pathelement location="${spring}/org.springframework.aspects-3.0.5.RELEASE.jar"/>
-    	<pathelement location="${spring}/org.springframework.beans-3.0.5.RELEASE.jar"/>
-    	<pathelement location="${spring}/org.springframework.context.support-3.0.5.RELEASE.jar"/>
-    	<pathelement location="${spring}/org.springframework.context-3.0.5.RELEASE.jar"/>
-    	<pathelement location="${spring}/org.springframework.core-3.0.5.RELEASE.jar"/>
-    	<pathelement location="${spring}/org.springframework.expression-3.0.5.RELEASE.jar"/>
-    	<pathelement location="${spring}/org.springframework.instrument.tomcat-3.0.5.RELEASE.jar"/>
-    	<pathelement location="${spring}/org.springframework.instrument-3.0.5.RELEASE.jar"/>
-    	<pathelement location="${spring}/org.springframework.jdbc-3.0.5.RELEASE.jar"/>
-    	<pathelement location="${spring}/org.springframework.orm-3.0.5.RELEASE.jar"/>
-    	<pathelement location="${spring}/org.springframework.test-3.0.5.RELEASE.jar"/>
-    	<pathelement location="${spring}/org.springframework.transaction-3.0.5.RELEASE.jar"/>
-    	<pathelement location="${spring}/org.springframework.web-3.0.5.RELEASE.jar"/>
     </path>
     <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
     <property name="class.path" refid="class.path"/>
@@ -152,12 +107,11 @@
         <mkdir dir="${ear.dir}"/>
     </target>
 
-    <target name="compile_common" depends="init" unless="compile_common_set">
+        <target name="compile_common" depends="init" unless="compile_common_set">
         <ant antfile="build_common.xml" target="build-dist"/>
         <property name="compile_common_set" value="true"/>
     </target>
-    
-	<target name="compile" depends="init, compile_common" unless="compile_set">
+    <target name="compile" depends="init, compile_common" unless="compile_set">
         <depend srcdir="${java}" destdir="${classes}" cache="${build}/cache"/>
         <javac
                 srcdir="${java}"
@@ -367,109 +321,7 @@
             <report format="frames" todir="${testclasses}/html"/>
         </junitreport>
     </target>
-	
-	<!-- Below is for Security Groups -->
-	<target name="packageSecurityGroups" depends="build-security">
-		<delete file="${jars.dir}/tcs/topcoder_security_groups.jar" />
-		<echo message="Start to package security group" />
-		<jar jarfile="${jars.dir}/tcs/topcoder_security_groups.jar">
-			<zipfileset dir="${classes}" includes="com/topcoder/security/groups/**" />
-			<metainf dir="${security_groups_conf}" includes="*.xml" excludes="securityGroupsApplicationContext.xml" />
-		</jar>
-	</target>
-	
-	<!-- Unit Test for SecurityGroups -->
-	<macrodef name="securityGroupsTestSetup">
-		<sequential>
-			<sql driver="${jdbc.driver}" url="${jdbc.url}" userid="${jdbc.username}" password="${jdbc.password}" src="${test_file.dir}/sql/time_oltp_test_data.sql">
-				<classpath>
-					<pathelement location="${informix.jdbc.jar}"/>
-				</classpath>
-			</sql>
-		</sequential>
-	</macrodef>
-	
-	<macrodef name="securityGroupsTestTearDown">
-		<sequential>
-			<sql driver="${jdbc.driver}" url="${jdbc.url}" userid="${jdbc.username}" password="${jdbc.password}" src="${test_file.dir}/sql/time_oltp_test_data_clean_up.sql">
-				<classpath>
-					<pathelement location="${informix.jdbc.jar}"/>
-				</classpath>
-			</sql>
-		</sequential>
-	</macrodef>
-	
-	<path id="junit4.8">
-		<fileset dir="${jars.dir}/junit4.8">
-			<include name="*.jar"/>
-		</fileset>
-	</path>
-	
-	<path id="test.path">
-		<fileset dir="${security_groups_test_lib.dir}">
-			<include name="*.jar"/>
-		</fileset>
-	</path>
-	
-	<target name="compileSecurityGroupsUnitTest">
-		<antcall target="packageSecurityGroups" />
-		<echo message="Compile Security Groups Unit Test"></echo>
-		
-		<mkdir dir="${build}/tests"/>
-		
-		<javac srcdir="${src.dir}/tests" destdir="${build}/tests">
-			<include name="com/topcoder/security/groups/**"/>
-			<classpath refid="junit4.8" />
-			<classpath refid="class.path" />
-		</javac>
-	</target>
-	
-	<target name="runSecurityGroupsUnitTest">
-		<antcall target="compileSecurityGroupsUnitTest" />
-		
-		<echo message="Prepare test data" />
-		<echo message="Cleaning possible test data" />
-		<securityGroupsTestTearDown/>
-		<echo message="Inserting sample test data" />
-		<securityGroupsTestSetup/>
-		<echo message="Test data setup successfully" />
-		
-		<echo message="Run Unit Test of Security Unit Test" />
-		<tstamp />
-		
-		<delete dir="${build}/report" />
-		<mkdir dir="${build}/report/data"/>
-		
-		<junit printsummary="true">
-			<jvmarg value="-ea"/>
-			<jvmarg value="-esa"/>
-			<formatter type="xml"/>
-			
-			<classpath refid="class.path" />
-			<classpath refid="junit4.8" />
-			<classpath refid="test.path" />
-			
-			<classpath path="${build}/tests" />
-			<classpath path="${test_file.dir}/security_groups" />
-			<batchtest fork="true" todir="${build}/report/data">
-				<fileset dir="${src.dir}/tests">
-					<include name="com/topcoder/security/groups/**/*Test.java"/>
-				</fileset>
-			</batchtest>
-		</junit>
-		
-		<junitreport todir="${build}/report">
-			<fileset dir="${build}/report/data">
-				<include name="*.xml"/>
-			</fileset>
-			<report format="frames" todir="${build}/report"/>
-		</junitreport>
-		
-		<echo message="Unit test completes! Prepare to clean up test data" />
-		<securityGroupsTestTearDown/>
-		<echo message="All test data cleaned up!" />
-		<echo message="All is finished" />
-	</target>
-	<!-- End of Security Group -->
+
+
 
 </project>
