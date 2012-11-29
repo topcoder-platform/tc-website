@@ -34,16 +34,9 @@ import java.util.zip.ZipOutputStream;
 /**
  * <p>A controller to be used for servicing requests for downloading all submissions for specified round of single 
  * request.</p>
- *
- * <p>
- * Version 1.1 (System Assembly - TopCoder Security Groups Final Merge) change notes:
- *   <ol>
- *     <li>Pass HttpServletRequest instance to method Util.hasCockpitPermissions.</li>
- *   </ol>
- * </p>
- *
- * @author isv, TCSASSEMBER
- * @version 1.1 (Module Assembly - TopCoder Studio and Cockpit Download All Submissions Feature)
+ * 
+ * @author isv
+ * @version 1.0 (Module Assembly - TopCoder Studio and Cockpit Download All Submissions Feature)
  */
 public class DownloadAllSubmissions extends BaseSubmissionDataProcessor {
 
@@ -144,7 +137,7 @@ public class DownloadAllSubmissions extends BaseSubmissionDataProcessor {
         boolean isScreener = Util.checkUserHasRole(contest, SCREENER_ROLES_IDS, currentUserId);
         boolean isInManagerORRoles = Util.checkUserHasRole(contest, MANAGER_ROLES_IDS, currentUserId);
         boolean isAdmin = Util.isAdmin(getUser().getId());
-        boolean hasCockpitPermissions = Util.hasCockpitPermissions(getRequest(), getUser().getId(), contest.getId());
+        boolean hasCockpitPermissions = Util.hasCockpitPermissions(getUser().getId(), contest.getId());
         boolean canDownload = false;
         if (isAdmin || isScreener) {
             canDownload = true;

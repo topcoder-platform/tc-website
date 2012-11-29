@@ -61,15 +61,8 @@ import com.topcoder.web.studio.validation.UnifiedSubmissionValidator;
  *   </ol>
  * </p>
  * 
- * <p>
- * Version 1.5 (Topcoder Security Groups Backend - Studio Permissions Propagation) change notes:
- *   <ol>
- *     <li>Pass HttpServletRequest instance to method Util.hasCockpitPermissions.</li>
- *   </ol>
- * </p>
- *
  * @author dok, isv, pulky, pvmagacho, TCSASSEMBER
- * @version 1.5
+ * @version 1.4
  */
 public class DownloadSubmission extends BaseSubmissionDataProcessor {
     private static final Logger log = Logger.getLogger(DownloadSubmission.class);
@@ -188,8 +181,8 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
         boolean canDownload = false;
         if (Util.isAdmin(getUser().getId()) || isOwner || isScreener) {
             canDownload = true;
-        } else if (Util.hasCockpitPermissions(getRequest(), getUser().getId(), contest.getId())
-                || isInManagerORRoles) {
+        } else if (Util.hasCockpitPermissions(getUser().getId(), contest.getId())
+                || isInManagerORRoles || Util.isTCStuff(getUser().getId())) {
             if (originalSubmissionRequested && isReviewOver) {
                 canDownload = true;
             }
