@@ -113,6 +113,11 @@
         <pathelement location="${jars.dir}/tcs/contest_eligibility_validation_client/1.0.0/contest_eligibility_validation_client.jar"/>
     	<pathelement location="${jars.dir}/tcs/terms_of_use/1.1.0/terms_of_use.jar"/>
     	<pathelement location="${jars.dir}/tcs/configuration_persistence/1.0.1/configuration_persistence.jar"/>
+        <pathelement location="${jars.dir}/tcs/topcoder_commons_utility.jar"/>
+        <pathelement location="${jars.dir}/tcs/logging_wrapper.jar"/>
+        <pathelement location="${jars.dir}/tcs/topcoder_security_groups/1.0.0/topcoder_security_groups.jar"/>
+        <pathelement location="${jars.dir}/tcs/email_engine/3.0/email_engine.jar"/>
+        <pathelement location="${jars.dir}/tcs/configuration_persistence/1.0.1/configuration_persistence.jar"/>
         
         <!--        <pathelement location="${jars.dir}/tcsUtil.jar"/>-->
         <!--
@@ -139,6 +144,16 @@
         <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-commons-annotations.jar"/>
         <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-annotations.jar"/>
         <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/ejb3-persistence.jar"/>
+
+        <pathelement location="${jars.dir}/spring/spring-orm.jar"/>
+        <pathelement location="${jars.dir}/spring/spring-tx.jar"/>
+        <pathelement location="${jars.dir}/spring/spring-aop.jar"/>
+        <pathelement location="${jars.dir}/spring/spring-context-support.jar"/>
+        <pathelement location="${jars.dir}/spring/spring-jdbc.jar"/>
+        <pathelement location="${jars.dir}/spring/spring-beans.jar"/>
+        <pathelement location="${jars.dir}/spring/spring-context.jar"/>
+        <pathelement location="${jars.dir}/spring/spring-core.jar"/>
+        <pathelement location="${jars.dir}/spring/spring-web.jar"/>
 
         <!-- only for tests -->
         <pathelement location="${external.jars.dir}/mockejb-0.6-beta2.jar"/>
@@ -295,6 +310,9 @@
                 <include name="rsc-taglib.tld"/>
                 <include name="studio.tld"/>
             </webinf>
+            <webinf dir="${resources}/studio">
+                <include name="applicationContext.xml"/>
+            </webinf>
             <webinf dir="${java}/com/topcoder/web/studio/view/">
                 <include name="tags/*.tag"/>
             </webinf>
@@ -315,6 +333,10 @@
             </classes>
             <classes dir="conf">
                 <include name="template/submission_declaration.txt"/>
+            </classes>
+            <classes dir="${resources}/studio">
+                <include name="securityGroupsHibernate.cfg.xml"/>
+                <include name="securityGroupsMapping.xml"/>
             </classes>
             <classes dir="${resources}/hibernate">
                 <include name="com/topcoder/web/common/model/**/*.xml"/>
@@ -403,9 +425,12 @@
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/ip_server/2.0.1/ip_server.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/typesafe_enum/1.0/typesafe_enum.jar"/>
     	<copy todir="${jboss_lib}" file="${jars.dir}/tcs/search_builder/1.4.0/search_builder.jar"/>
-    	<copy todir="${jboss_lib}" file="${jars.dir}/tcs/terms_of_use/1.1.0/terms_of_use.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/terms_of_use/1.1.0/terms_of_use.jar"/>
     	<copy todir="${jboss_lib}" file="${jars.dir}/tcs/configuration_persistence/1.0.1/configuration_persistence.jar"/>
     	<copy todir="${jboss_lib}" file="${jars.dir}/tcs/logging_wrapper/2.0.0/logging_wrapper.jar"/>
+    	<copy todir="${jboss_lib}" file="${jars.dir}/tcs/topcoder_commons_utility.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/logging_wrapper/2.0.0/logging_wrapper.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/topcoder_security_groups/1.0.0/topcoder_security_groups.jar"/>
     	
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/db_connection_factory/1.1/db_connection_factory.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/object_formatter.jar"/>
@@ -432,6 +457,21 @@
         <copy todir="${jboss_lib}" file="${external.jars.dir}/jai_codec-1.1.3.jar"/>
         <copy todir="${jboss_lib}" file="${external.jars.dir}/jai_core-1.1.3.jar"/>
 
+        <copy todir="${jboss_lib}" file="${jars.dir}/spring/spring-orm.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/spring/spring-tx.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/spring/spring-aop.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/spring/spring-context-support.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/spring/spring-jdbc.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/spring/spring-beans.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/spring/spring-context.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/spring/spring-core.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/spring/spring-web.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/aop/javax.persistence.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/aop/aopalliance.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/aop/aspectjrt.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/aop/org.aspectj.matcher.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/aop/aspectjweaver.jar"/>
+
 
         <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
@@ -447,7 +487,7 @@
         <copy todir="${jboss_conf}" file="${resources}/DBMS.properties"/>
         <copy todir="${jboss_conf}" file="${resources}/DataAccess.properties"/>
         <copy todir="${jboss_conf}" file="${resources}/EmailEngineConfig.properties"/>
-    	<copy todir="${jboss_conf}" file="${resources}/TermsOfUse.xml"/>
+        <copy todir="${jboss_conf}" file="${resources}/TermsOfUse.xml"/>
 
         <copy todir="${jboss_conf}/com/topcoder/db/connectionfactory/"
               file="${resources}/com/topcoder/db/connectionfactory/DBConnectionFactoryImpl.xml"/>
@@ -465,6 +505,9 @@
                 <include name="Studio.properties"/>
             </fileset>
         </copy>-->
+<!--
+        <copy todir="${jboss_deploy}" file="${ear.dir}/security.ear"/>
+-->
     </target>
 
     <target name="package-TCJive" depends="compile">
