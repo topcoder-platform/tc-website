@@ -208,7 +208,7 @@
             </tc-webtag:errorIterator></span><% } %>
             <% if (showPrevNextThreads && (nextThread != null || prevThread != null)) { %><br />
             <% if (prevThread != null) { %>
-            <% prevPost = ForumsUtil.getLatestMessage(prevThread);
+            <% prevPost = prevThread.getLatestMessage();
                 prevTrackerClass = (user == null || readTracker.getReadStatus(user, prevPost) == ReadTracker.READ) ? "rtbcLink" : "rtLinkBold"; %>
             <a href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=prevThread.getID()%>&<%=ForumConstants.START_IDX%>=0&mc=<%=prevThread.getMessageCount()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="<%=prevTrackerClass%>">Previous
                 Thread</a>
@@ -216,7 +216,7 @@
             Previous Thread
             <% } %>&#160;|&#160;
             <% if (nextThread != null) { %>
-            <% nextPost = ForumsUtil.getLatestMessage(nextThread);
+            <% nextPost = nextThread.getLatestMessage();
                 nextTrackerClass = (user == null || readTracker.getReadStatus(user, nextPost) == ReadTracker.READ) ? "rtbcLink" : "rtLinkBold"; %>
             <a href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=nextThread.getID()%>&<%=ForumConstants.START_IDX%>=0&mc=<%=nextThread.getMessageCount()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="<%=nextTrackerClass%>">Next
                 Thread</a>
@@ -415,7 +415,7 @@
 </b>
 <% if (showPrevNextThreads && (nextThread != null || prevThread != null)) { %><br />
 <% if (prevThread != null) { %>
-<% prevPost = ForumsUtil.getLatestMessage(prevThread);
+<% prevPost = prevThread.getLatestMessage();
     prevTrackerClass = (user == null || readTracker.getReadStatus(user, prevPost) == ReadTracker.READ) ? "rtbcLink" : "rtLinkBold"; %>
 <a href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=prevThread.getID()%>&<%=ForumConstants.START_IDX%>=0&mc=<%=prevThread.getMessageCount()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="<%=prevTrackerClass%>">Previous
     Thread</a>
@@ -423,7 +423,7 @@
 Previous Thread
 <% } %>&#160;|&#160;
 <% if (nextThread != null) { %>
-<% nextPost = ForumsUtil.getLatestMessage(nextThread);
+<% nextPost = nextThread.getLatestMessage();
     nextTrackerClass = (user == null || readTracker.getReadStatus(user, nextPost) == ReadTracker.READ) ? "rtbcLink" : "rtLinkBold"; %>
 <a href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=nextThread.getID()%>&<%=ForumConstants.START_IDX%>=0&mc=<%=nextThread.getMessageCount()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>" class="<%=nextTrackerClass%>">Next
     Thread</a>
