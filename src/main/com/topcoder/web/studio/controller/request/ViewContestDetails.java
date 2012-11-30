@@ -73,6 +73,13 @@ import com.topcoder.web.studio.util.Util;
  * </p>
  * 
  * <p>
+ * Version 1.2.5 (Topcoder Security Groups Backend - Studio Permissions Propagation) change notes:
+ *   <ol>
+ *     <li>Pass HttpServletRequest instance to method Util.hasCockpitPermissions.</li>
+ *   </ol>
+ * </p>
+ *
+ * <p>
  * Version 1.2.5 (Release Assembly - TopCoder Studio CCA Integration) change notes:
  *   <ol>
  *     <li>Added {@link #CONFIDENTIALITY_TYPE_INFO_ID} constant.</li>
@@ -178,7 +185,7 @@ public class ViewContestDetails extends ShortHibernateProcessor {
                 }
 
                 getRequest().setAttribute("currentTime", new Date());
-                getRequest().setAttribute("has_cockpit_permissions", Util.hasCockpitPermissions(userId, cid));
+                getRequest().setAttribute("has_cockpit_permissions", Util.hasCockpitPermissions(getRequest(), userId, cid));
 
                 // Handle milestone
                 Date milestoneDate = contest.getMilestoneDate();
