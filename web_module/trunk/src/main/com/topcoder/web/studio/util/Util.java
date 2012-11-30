@@ -1,13 +1,19 @@
 /*
- * Copyright (C) 2008-2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2008-2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.studio.util;
 
 import java.util.Iterator;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.web.context.support.WebApplicationContextUtils;
+
 import com.topcoder.security.TCPrincipal;
 import com.topcoder.security.TCSubject;
+import com.topcoder.security.groups.model.ResourceType;
+import com.topcoder.security.groups.services.AuthorizationService;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -54,8 +60,17 @@ import com.topcoder.web.studio.dto.ResourceInfo;
  *   </ol>
  * </p>
  *
+ * <p>
+ * Version 1.5 (Topcoder Security Groups Backend - Studio Permissions Propagation) change notes:
+ *   <ol>
+ *     <li>Added constants {@link #AUTHORIZATION_SERVICE_NAME} and {@link #DIRECT_PROJECT_AND_CLIENT_FOR_CONTEST_QUERY_NAME}.</li>
+ *     <li>Updated {@link #hasCockpitPermissions(HttpServletRequest, long, long)} method to handle the
+ *     new security group logic.</li>
+ *   </ol>
+ * </p>
+ * 
  * @author isv, pulky, isv, pvmagacho, TCSASSEMBER
- * @version 1.4
+ * @version 1.5
  * @since TopCoder Studio Modifications Assembly v2
  */
 public class Util {
@@ -66,7 +81,21 @@ public class Util {
      * @since 1.1
      */
     private static final String HAS_COCKPIT_PERMISSIONS_QUERY_NAME = "has_cockpit_permissions";
+    
+    /**
+     * A <code>String</code> constant that stores the spring bean name for the authorization service.
+     * 
+     * @since 1.5
+     */
+    private static final String AUTHORIZATION_SERVICE_NAME = "authorizationService";
 
+    /**
+     * A <code>String</code> constant that stores the query name for the direct_project_and_client_for_contest query.
+     * 
+     * @since 1.5
+     */
+    private static final String DIRECT_PROJECT_AND_CLIENT_FOR_CONTEST_QUERY_NAME = "direct_project_and_client_for_contest";
+    
     /**
      * <p>Checks if the submission referenced by the specified ID has been already purchased.</p>
      *
@@ -97,13 +126,14 @@ public class Util {
     /**
      * <p>Checks if the user has cockpit permissions over the specified contest.</p>
      *
+     * @param request the HTTP request instance
      * @param userId the user id to query
      * @param contestId the user id to query
      * @return <code>true</code> if  the user has cockpit permissions over the specified contest, false otherwise
      * @throws Exception if an unexpected error occurs.
      * @since 1.1
      */
-    public static boolean hasCockpitPermissions(long userId, long contestId) throws Exception {
+    public static boolean hasCockpitPermissions(HttpServletRequest request, long userId, long contestId) throws Exception {
         DataAccess da = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
         Request r = new Request();
         r.setContentHandle(HAS_COCKPIT_PERMISSIONS_QUERY_NAME);
@@ -111,6 +141,22 @@ public class Util {
         r.setProperty(Constants.PROJECT_ID_KEY, String.valueOf(contestId));
         ResultSetContainer result = da.getData(r).get(HAS_COCKPIT_PERMISSIONS_QUERY_NAME);
         if (!result.isEmpty()) {
+            return true;
+        }
+        
+        r = new Request();
+        r.setContentHandle(DIRECT_PROJECT_AND_CLIENT_FOR_CONTEST_QUERY_NAME);
+        r.setProperty(Constants.PROJECT_ID_KEY, String.valueOf(contestId));
+        result = da.getData(r).get(DIRECT_PROJECT_AND_CLIENT_FOR_CONTEST_QUERY_NAME);
+        AuthorizationService authorizationService = retrieveAuthorizationService(request);
+        long tcDirectId = result.getLongItem(0, "tc_direct_id");
+        if (result.getItem(0, "client_id").getResultData() != null) {
+            long clientId = result.getLongItem(0, "client_id");
+            if (authorizationService.isCustomerAdministrator(userId, clientId)) {
+                return true;
+            }
+        }
+        if (authorizationService.checkAuthorization(userId, tcDirectId, ResourceType.PROJECT) != null) {
             return true;
         }
         return false;
@@ -184,5 +230,17 @@ public class Util {
         buf.append(System.getProperty("file.separator"));
 
         return buf.toString();
+    }
+    
+    /**
+     * Get authorization service from spring.
+     *
+     * @param request the http servlet request
+     * @return retrieved authorization service
+     * @since 1.5
+     */
+    private static AuthorizationService retrieveAuthorizationService(HttpServletRequest request) {
+        return (AuthorizationService) WebApplicationContextUtils.getWebApplicationContext(
+                request.getSession().getServletContext()).getBean(AUTHORIZATION_SERVICE_NAME);
     }
 }
