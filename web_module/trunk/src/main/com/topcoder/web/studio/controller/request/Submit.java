@@ -303,7 +303,7 @@ public class Submit extends BaseSubmissionDataProcessor {
                     font.setContentType(fontType);
                     font.setDeclaration(submissionDeclaration);
                     font.setDisplayPosition(i);
-                    addProperty(font, "Name", name);
+                    addProperty(font, "Name", name + " (" + stdFont + ")");
                     addProperty(font, "Url", url);
                     externalContents.add(font);
                 }
