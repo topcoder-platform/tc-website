@@ -38,7 +38,6 @@ import com.topcoder.web.ejb.pacts.ProjectCopilotPayment;
 import com.topcoder.web.ejb.pacts.ProjectEnhancementsPayment;
 import com.topcoder.web.ejb.pacts.ProjectDeploymentTaskPayment;
 import com.topcoder.web.ejb.pacts.ComponentProjectReferencePayment;
-import com.topcoder.web.ejb.pacts.StudioContestReferencePayment;
 import com.topcoder.web.ejb.pacts.BugFixesPayment;
 import com.topcoder.web.ejb.pacts.ComponentBuildPayment;
 import com.topcoder.web.ejb.pacts.ComponentEnhancementsPayment;
@@ -48,11 +47,6 @@ import com.topcoder.web.ejb.pacts.PactsClientServices;
 import com.topcoder.web.ejb.pacts.PactsClientServicesHome;
 import com.topcoder.web.ejb.pacts.ReviewBoardPayment;
 import com.topcoder.web.ejb.pacts.SpecificationReviewPayment;
-import com.topcoder.web.ejb.pacts.StudioBugFixesPayment;
-import com.topcoder.web.ejb.pacts.StudioEnhancementsPayment;
-import com.topcoder.web.ejb.pacts.StudioSpecificationReviewPayment;
-import com.topcoder.web.ejb.pacts.StudioSubmissionScreeningPayment;
-import com.topcoder.web.ejb.pacts.StudioCopilotPayment;
 import com.topcoder.web.ejb.pacts.payments.InvalidStatusException;
 import com.topcoder.web.ejb.pacts.payments.CancelledPaymentStatus;
 import com.topcoder.web.ejb.pacts.payments.DeletedPaymentStatus;
@@ -164,11 +158,12 @@ public class ProcessJiraPayments extends DBUtility {
                                 issue.getReferenceId(), issue.getClient(), issue.getPayeeUserId(),
                                 issue.getPaymentAmount(), issue.getDescription(), issue.getKey());
 
+                            payment = pactsService.addPayment(payment);
+
                     		updateJiraPaymentStatus(jira, token, remoteIssue, "Paid");
                     		addJiraComment(jira, token, remoteIssue,
                                 "Payment processed on " + dateFormat.format(new Date()));
 
-                    		payment = pactsService.addPayment(payment);
                     	}
                     }
                 }
@@ -297,27 +292,6 @@ public class ProcessJiraPayments extends DBUtility {
                 description += " (" + paymentType + ")";
             } else {
                 throw new IllegalArgumentException("Unknown TopCoder payment type: " + paymentType);
-            }
-            payment.setNetAmount(amount);
-            payment.setDescription(description);
-            payment.setJiraIssueName(jiraIssueKey);
-
-            return payment;
-        } else if ("Studio".equals(referenceType)) {
-            StudioContestReferencePayment payment = null;
-
-            if ("Bug Fix".equals(paymentType)) {
-                payment = new StudioBugFixesPayment(userId, amount, client, referenceId);
-            } else if ("Enhancement".equals(paymentType)) {
-                payment = new StudioEnhancementsPayment(userId, amount, client, referenceId);
-            } else if ("Specification Review".equals(paymentType)) {
-                payment = new StudioSpecificationReviewPayment(userId, amount, client, referenceId);
-            } else if ("Studio Submission Screening".equals(paymentType)) {
-                payment = new StudioSubmissionScreeningPayment(userId, amount, client, referenceId);
-            } else if ("Copilot".equals(paymentType)) {
-                payment = new StudioCopilotPayment(userId, amount, client, referenceId);
-            } else {
-                throw new IllegalArgumentException("Unknown Studio payment type: " + paymentType);
             }
             payment.setNetAmount(amount);
             payment.setDescription(description);
@@ -588,9 +562,6 @@ public class ProcessJiraPayments extends DBUtility {
 
         /** The Jira id for the ProjectID custom field. */
         private static final String JIRA_PROJECT_ID_FIELD_ID = "customfield_10093";
-
-        /** The Jira id for the StudioID custom field. */
-        private static final String JIRA_STUDIO_ID_FIELD_ID = "customfield_10094";
 		
 		/** The Jira id for cockpit project id custom field. */
 		private static final String JIRA_COCKPIT_PROJECT_ID_FIELD_ID = "customfield_10190";
@@ -720,68 +691,51 @@ public class ProcessJiraPayments extends DBUtility {
         private void populateReferenceDataAndClientName(RemoteIssue remoteIssue) {
 			String cockpitProjectId = getCustomFieldValueById(remoteIssue, JIRA_COCKPIT_PROJECT_ID_FIELD_ID);
             String projectId = getCustomFieldValueById(remoteIssue, JIRA_PROJECT_ID_FIELD_ID);
-            String studioId = getCustomFieldValueById(remoteIssue, JIRA_STUDIO_ID_FIELD_ID);
 
             referenceId = 0L;
             referenceType = "N/A";
             referenceInfo = "N/A";
 
-            if (!(isNullOrEmpty(projectId) ^ isNullOrEmpty(studioId))) {
-				if(isNullOrEmpty(cockpitProjectId)) {
-					rejectIssue("One exactly of Cockpit ProjectID or ProjectID or StudioID must be filled out.");
-				} else {
-					referenceType = "Cockpit";
-					try {
-						referenceId = Long.parseLong(cockpitProjectId);
-						referenceInfo = getCockpitProjectInfoById(referenceId);
-						if (referenceInfo == null) {
-							rejectIssue("Could not find Cockpit project with id " + referenceId);
-						} else {
-							client = getClientByCockpitProjectId(referenceId);
-							if (client == null || client.equals("")) {
-								client = "N/A";
-								rejectIssue("Could not retrieve client info from the project with id " + referenceId);
-							}
-						}
-					} catch (NumberFormatException e) {
-						rejectIssue("ProjectID (" + projectId + ") is not a valid Long number.");
-					}
-				}
-            } else if (!isNullOrEmpty(projectId)) {
-                referenceType = "TopCoder";
-                try {
-                    referenceId = Long.parseLong(projectId);
-                    referenceInfo = getTopCoderProjectInfoById(referenceId);
-                    if (referenceInfo == null) {
-                        rejectIssue("Could not find TopCoder project with id " + referenceId);
-                    } else {
-                        client = getClientBySoftwareProjectId(referenceId);
-                        if (client == null || client.equals("")) {
-                            client = "N/A";
-                            rejectIssue("Could not retrieve client info from the project with id " + referenceId);
-                        }
-                    }
-                } catch (NumberFormatException e) {
-                    rejectIssue("ProjectID (" + projectId + ") is not a valid Long number.");
-                }
+            if (!(isNullOrEmpty(projectId) ^ isNullOrEmpty(cockpitProjectId))) {
+                    rejectIssue("Exactly one of Cockpit ProjectID or ProjectID should be filled out.");
             } else {
-                referenceType = "Studio";
-                try {
-                    referenceId = Long.parseLong(studioId);
-                    referenceInfo = getStudioContestInfoById(referenceId);
-                    if (referenceInfo == null) {
-                        rejectIssue("Could not find Studio project with id " + referenceId);
-                    } else {
-                        client = getClientByStudioProjectId(referenceId);
-                        if (client == null || client.equals("")) {
-                            client = "N/A";
-                            rejectIssue("Could not retrieve client info from the project with id " + referenceId);
+                if (!isNullOrEmpty(projectId)) {
+                    referenceType = "TopCoder";
+                    try {
+                        referenceId = Long.parseLong(projectId);
+                        referenceInfo = getTopCoderProjectInfoById(referenceId);
+                        if (referenceInfo == null) {
+                            rejectIssue("Could not find TopCoder project with id " + referenceId);
+                        } else {
+                            client = getClientBySoftwareProjectId(referenceId);
+                            if (client == null || client.equals("")) {
+                                client = "N/A";
+                                rejectIssue("Could not retrieve client info from the project with id " + referenceId);
+                            }
                         }
+                    } catch (NumberFormatException e) {
+                        rejectIssue("ProjectID (" + projectId + ") is not a valid Long number.");
                     }
-                } catch (NumberFormatException e) {
-                    rejectIssue("StudioID (" + studioId + ") is not a valid Long number.");
+                } else {
+                    referenceType = "Cockpit";
+                    try {
+                        referenceId = Long.parseLong(cockpitProjectId);
+                        referenceInfo = getCockpitProjectInfoById(referenceId);
+                        if (referenceInfo == null) {
+                            rejectIssue("Could not find Cockpit project with id " + referenceId);
+                        } else {
+                            client = getClientByCockpitProjectId(referenceId);
+                            if (client == null || client.equals("")) {
+                                client = "N/A";
+                                rejectIssue("Could not retrieve client info from the project with id " + referenceId);
+                            }
+                        }
+                    } catch (NumberFormatException e) {
+                        rejectIssue("ProjectID (" + projectId + ") is not a valid Long number.");
+                    }
                 }
             }
+
         }
 
         /**
@@ -931,10 +885,6 @@ public class ProcessJiraPayments extends DBUtility {
             + "  FROM corporate_oltp:tc_direct_project dp"
             + " WHERE dp.project_id = ?";
 
-    /** A query that finds a Studio contest by id and returns its name. */
-    private static final String QUERY_STUDIO_CONTEST_INFO_BY_ID =
-            "SELECT name AS info FROM studio_oltp:contest WHERE contest_id = ?";
-
     /** A query that finds client name by software project id. */
     private static final String QUERY_CLIENT_BY_SOFTWARE_ID =
               "select ttc.name as client_name "
@@ -959,19 +909,6 @@ public class ProcessJiraPayments extends DBUtility {
 			+" and ttp.project_id = ttcp.project_id "
 			+" and ttcp.client_id = ttc.client_id "
             + "and dpa.project_id = ? ";
-    
-    /** A query that finds client name by studio project id. */
-    private static final String QUERY_CLIENT_BY_STUDIO_ID =
-              "select ttc.name as client_name "
-            + "from studio_oltp:contest_config cc1, "
-            + "     time_oltp:project ttp, "
-            + "     time_oltp:client_project ttcp, "
-            + "     time_oltp:client ttc "
-            + "where cc1.property_id = 28 "
-            + "  and cc1.property_value = ttp.project_id "
-            + "  and ttp.project_id = ttcp.project_id "
-            + "  and ttcp.client_id = ttc.client_id "
-            + "  and cc1.contest_id = ? ";
 
     /**
      * A prepared statement that finds a member by handle and returns their user
@@ -992,12 +929,6 @@ public class ProcessJiraPayments extends DBUtility {
     private PreparedStatement queryCockpitProjectInfoById = null;
 
     /**
-     * A prepared statement that finds a Studio contest by id and returns its
-     * name.
-     */
-    private PreparedStatement queryStudioContestInfoById = null;
-
-    /**
      * A prepared statement that finds client name by software project id.
      */
     private PreparedStatement queryClientBySoftwareId = null;
@@ -1006,11 +937,6 @@ public class ProcessJiraPayments extends DBUtility {
      * A prepared statement that finds client name by cockpit project id.
      */
     private PreparedStatement queryClientByCockpitId = null;
-
-    /**
-     * A prepared statement that finds client name by studio project id.
-     */
-    private PreparedStatement queryClientByStudioId = null;
 
     /**
      * Initializes all of the prepared statements used by the application.
@@ -1022,12 +948,10 @@ public class ProcessJiraPayments extends DBUtility {
         queryUserIdByHandle = prepareStatement("informixoltp", QUERY_USER_ID_BY_HANDLE);
 
         queryTopCoderProjectInfoById = prepareStatement("informixoltp", QUERY_TOPCODER_PROJECT_INFO_BY_ID);
-        queryStudioContestInfoById = prepareStatement("informixoltp", QUERY_STUDIO_CONTEST_INFO_BY_ID);
 		queryCockpitProjectInfoById = prepareStatement("informixoltp", QUERY_COCKPIT_PROJECT_INFO_BY_ID);
 
         queryClientBySoftwareId = prepareStatement("informixoltp", QUERY_CLIENT_BY_SOFTWARE_ID);
 		queryClientByCockpitId = prepareStatement("informixoltp", QUERY_CLIENT_BY_COCKPIT_ID);
-        queryClientByStudioId = prepareStatement("informixoltp", QUERY_CLIENT_BY_STUDIO_ID);
     }
 
     /**
@@ -1085,18 +1009,6 @@ public class ProcessJiraPayments extends DBUtility {
     }
 
     /**
-     * Looks up a Studio contest's name by contest id.
-     * 
-     * @param contestId
-     *            the id of the contest to look up.
-     * @return a <code>String</code> containing the name of the contest, or
-     *         <code>null</code> if it doesn't exist.
-     */
-    private String getStudioContestInfoById(long contestId) {
-        return getInfoByProjectId(queryStudioContestInfoById, contestId, "info");
-    }
-
-    /**
      * Looks up a client name by software project id.
      * 
      * @param projectId
@@ -1116,17 +1028,6 @@ public class ProcessJiraPayments extends DBUtility {
      */
     private String getClientByCockpitProjectId(long projectId) {
         return getInfoByProjectId(queryClientByCockpitId, projectId, "client_name");
-    }
-
-    /**
-     * Looks up a client name by studio project id.
-     * 
-     * @param projectId
-     *            the id of the project to look up.
-     * @return a <code>String</code> containing the client name or <code>null</code> if it doesn't exist.
-     */
-    private String getClientByStudioProjectId(long projectId) {
-        return getInfoByProjectId(queryClientByStudioId, projectId, "client_name");
     }
 
     /**
