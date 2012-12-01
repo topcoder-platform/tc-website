@@ -101,7 +101,7 @@ public class TimerServlet extends BaseServlet {
 		log.info(logInfo + dateFormatter.format(new Date()));
 		if (!authentication.getActiveUser().isAnonymous()) {
 			Long userId = new Long(user.getUserId());
-			pageTrackerDAO.createPageTrackRecord(userId.toString(), actionId, url);
+			pageTrackerDAO.createPageTrackRecord(userId.toString(), actionId, url, request.getParameter("src"));
 		}
 		
 		//out.write(logInfo + dateFormatter.format(new Date()));

@@ -19,15 +19,15 @@ public class PageTrackerDAO {
 
      private static Logger log = Logger.getLogger(PageTrackerDAO.class);
 
-     public void createPageTrackRecord(String user, int actionId, String url) {
+     public void createPageTrackRecord(String user, int actionId, String url,String source) {
 	 Connection conn = null;
         PreparedStatement ps = null;
 	 
 	 try {
 		 StringBuffer query = new StringBuffer(1024);
                query.append("INSERT ");
-               query.append("INTO page_tracker (tracking_id,user_id,action_id,next_page_url) ");
-               query.append("VALUES (?,?,?,?)");
+               query.append("INTO page_tracker (tracking_id,user_id,action_id,next_page_url,source) ");
+               query.append("VALUES (?,?,?,?,?)");
 
 	        //long ret = IdGeneratorClient.getSeqId("PAGE_TRACKER_SEQ");
 
@@ -38,6 +38,8 @@ public class PageTrackerDAO {
 		 ps.setString(2, user);
                ps.setInt(3, actionId);
 		 ps.setString(4, url);
+		 ps.setString(5, source);
+
 
 		 int rc = ps.executeUpdate();
 		 log.debug("rows updated: " + rc);

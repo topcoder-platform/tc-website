@@ -7,8 +7,10 @@
 <title>WordPress Feed</title>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>		
 		<script>
+			var len=window.location.protocol.length+window.location.host.length+3;
+			var src=window.location.href.substring(len,window.location.href.length);
 			window.onbeforeunload = function() {
-				jQuery.ajax({url:"/tc/timer?key=0", async:false})
+				jQuery.ajax({url:"/tc/timer?key=0&src="+src, async:false})
 			};
 			function closeWindow() {
 				if (navigator.userAgent.indexOf("MSIE") > 0) {  
@@ -31,14 +33,14 @@
 				}  
 			}
 			// set timeout
-			window.setTimeout(function(){window.onbeforeunload = null;jQuery.ajax({url:"/tc/timer?key=1", async:false});window.open('', '_self', '');closeWindow();}, 300000);
+			window.setTimeout(function(){window.onbeforeunload = null;jQuery.ajax({url:"/tc/timer?key=1&src="+src, async:false});window.open('', '_self', '');closeWindow();}, 300000);
 			
 			var goToLink = function(link) {
 				window.onbeforeunload = null;
-				var url = '/tc/timer?key=2&link=' + encodeURIComponent(link);
+				var url = '/tc/timer?key=2&link=' + encodeURIComponent(link)+'&src='+src;
 				jQuery.ajax({url:url, async:false});
 			}
-			jQuery.ajax({url:'/tc/timer', async:false});
+			jQuery.ajax({url:'/tc/timer?src='+src, async:false});
 
 			function externalLinks() {
 			      if (!document.getElementsByTagName) return;
