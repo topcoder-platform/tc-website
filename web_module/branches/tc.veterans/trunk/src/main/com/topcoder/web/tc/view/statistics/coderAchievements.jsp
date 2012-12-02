@@ -21,6 +21,7 @@
 
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <% ResultSetContainer results = (ResultSetContainer)((Map)request.getAttribute("resultMap")).get("coder_achievements"); %>
 <%
   SessionInfo sessionInfo = (SessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);
