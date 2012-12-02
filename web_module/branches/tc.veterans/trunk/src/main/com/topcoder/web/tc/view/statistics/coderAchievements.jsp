@@ -115,13 +115,8 @@
             	<% if (resultRow.getIntItem("id") == -1) { %>
             		<rsc:item name="description" row="<%=resultRow%>"/>
             	<%}else{%>
-                	<div class="badgeCon">
- 						<c:if test="${isVeteran}">                      
-							<span class="smallBadge veteranSmallBadge smallBadge<rsc:item name="id" row="<%=resultRow%>"/>"></span><rsc:item name="description" row="<%=resultRow%>"/>
-				  		</c:if>
-				<c:if test="${!isVeteran}">  
-							<span class="smallBadge smallBadge<rsc:item name="id" row="<%=resultRow%>"/>"></span><rsc:item name="description" row="<%=resultRow%>"/>
-				</c:if>
+                	<div class="badgeCon">            
+					<span class="smallBadge <c:if test="${isVeteran}"> veteranSmallBadge </c:if> smallBadge<rsc:item name="id" row="<%=resultRow%>"/>"></span><rsc:item name="description" row="<%=resultRow%>"/>
 				<%}%>
             </td>
             <% if (backpackVisible) { %>
