@@ -81,7 +81,6 @@
 <jsp:param name="title" value="Coder Achievements"/>
 </jsp:include>
 
-<c:set var="isVeteran" value=""/>
 
     <% if (!results.isEmpty()) { %>
       <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=results.getLongItem(0, "coder_id")%>' /></span>
@@ -102,11 +101,12 @@
             <td CLASS="tableHeader"><label><input type="checkbox" id="toggleAllBadges" onchange="toggleAllBackpackItems(this)" /> Toggle all</label></td>
             <% } %>
          </tr>
+        <%String iVeteran = "";%>
          <rsc:iterator list="<%=results%>" id="resultRow">
-             <c:set var="aid" value="<%=resultRow.getIntItem("id")%>"/>
-             <c:if test="${aid == 128}">
-                <c:set var="isVeteran" value="veteran"/>
-             </c:if>
+           <% int aid = resultRow.getIntItem("id");
+             if(aid == 128) {
+             	isVeteran = "veteran";
+             } %>
          </rsc:iterator>
       <%boolean even = true;%>
       <rsc:iterator list="<%=results%>" id="resultRow">
