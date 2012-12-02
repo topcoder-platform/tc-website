@@ -80,6 +80,7 @@
 <jsp:param name="title" value="Coder Achievements"/>
 </jsp:include>
 
+<c:set var="isVeteran" value=""/>
 
     <% if (!results.isEmpty()) { %>
       <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=results.getLongItem(0, "coder_id")%>' /></span>
@@ -100,11 +101,10 @@
             <td CLASS="tableHeader"><label><input type="checkbox" id="toggleAllBadges" onchange="toggleAllBackpackItems(this)" /> Toggle all</label></td>
             <% } %>
          </tr>
-         <c:set var="isVeteran" value="${false}"/>
          <rsc:iterator list="<%=results%>" id="resultRow">
              <c:set var="aid" value="<%=resultRow.getIntItem("id")%>"/>
              <c:if test="${aid == 128}">
-                <c:set var="isVeteran" value="${true}"/>
+                <c:set var="isVeteran" value="veteran"/>
              </c:if>
          </rsc:iterator>
       <%boolean even = true;%>
@@ -115,8 +115,9 @@
             	<% if (resultRow.getIntItem("id") == -1) { %>
             		<rsc:item name="description" row="<%=resultRow%>"/>
             	<%}else{%>
-                	<div class="badgeCon">            
-					<span class="smallBadge <c:if test="${isVeteran}"> veteranSmallBadge </c:if> smallBadge<rsc:item name="id" row="<%=resultRow%>"/>"></span><rsc:item name="description" row="<%=resultRow%>"/>
+                	<div class="badgeCon">                     
+					<span class="smallBadge <%=isVeteran%>SmallBadge smallBadge<rsc:item name="id" row="<%=resultRow%>"/>"></span><rsc:item name="description" row="<%=resultRow%>"/>
+				  
 				<%}%>
             </td>
             <% if (backpackVisible) { %>
