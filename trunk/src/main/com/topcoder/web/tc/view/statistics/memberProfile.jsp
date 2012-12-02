@@ -62,6 +62,9 @@
             var singleBadgeDiv = $('.footer-badges');
             var badges = $('.hidenBadgesDiv');
             
+            $("#mphImg").load(function() {
+                $("#mph").width($("#mphImg").width());
+            });
             renderGroupBadges(categoryName, groupBadgeDiv, singleBadgeDiv, badges);
         });
     </script>
@@ -236,13 +239,34 @@
                             <td>
                                 <div class="rightMain">
                                     <div class="rightModule">
+                                        <c:set var="isVeteran" value="${false}"/>
+                                        <rsc:iterator list="<%=achievementsData%>" id="resultRow">
+                                            <c:set var="aid" value="<%=resultRow.getIntItem("id")%>"/>
+                                            <c:if test="${aid == 128}">
+                                                <c:set var="isVeteran" value="${true}"/>
+                                            </c:if>
+                                        </rsc:iterator>
                                         <c:choose>
                                             <c:when test="${userImage!=null}">
-                                                <div class="foto memberPhoto" style="background: url('${pathImage}') no-repeat scroll center center transparent;"></div>
+                                                <div class="foto memberPhoto">
+                                                    <div id="mph">
+                                                        <c:if test="${isVeteran}">
+                                                        <div id="veteranRibbon"></div>
+                                                        </c:if>
+                                                        <img id="mphImg" src="${pathImage}"/>
+                                                    </div>
+                                                </div>
                                             </c:when>
                                             <c:otherwise>
                                                 <a href="javascript:;" id="submitPhotoLink">
-                                                    <div class="foto memberPhoto" style="background: url('/i/m/nophoto_login.gif') no-repeat scroll center center transparent;"></div>
+                                                    <div class="foto memberPhoto">
+                                                        <div id="mph">
+                                                            <c:if test="${isVeteran}">
+                                                            <div id="veteranRibbon"></div>
+                                                            </c:if>
+                                                            <img id="mphImg" src="/i/m/nophoto_login.gif"/>
+                                                        </div>
+                                                    </div>
                                                 </a>
                                             </c:otherwise>
                                         </c:choose>
