@@ -69,7 +69,9 @@
                 var w = $("#mphImg").width();
                 if (w > 0) $("#mph").width(w);
             });
-            renderGroupBadges(categoryName, groupBadgeDiv, singleBadgeDiv, badges);
+
+            if($("#veteranRibbon")
+            renderGroupBadges(categoryName, groupBadgeDiv, singleBadgeDiv, badges, $('#veteranRibbon').length);
         });
     </script>
 
