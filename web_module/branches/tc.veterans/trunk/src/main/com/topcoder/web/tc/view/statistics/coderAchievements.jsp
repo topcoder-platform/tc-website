@@ -116,7 +116,7 @@
             		<rsc:item name="description" row="<%=resultRow%>"/>
             	<%}else{%>
                 	<div class="badgeCon">
- 					<% if (isVeteran} { %>
+ 					<% if (isVeteran) { %>
 							<span class="smallBadge veteranSmallBadge smallBadge<rsc:item name="id" row="<%=resultRow%>"/>"></span><rsc:item name="description" row="<%=resultRow%>"/>
 					<% } else { %> 
 							<span class="smallBadge smallBadge<rsc:item name="id" row="<%=resultRow%>"/>"></span><rsc:item name="description" row="<%=resultRow%>"/>
