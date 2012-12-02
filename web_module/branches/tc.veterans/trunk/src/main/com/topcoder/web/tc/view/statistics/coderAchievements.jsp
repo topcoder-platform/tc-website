@@ -94,7 +94,6 @@
             <% } %>
          </tr>
          <tr>
-            <td CLASS="tableHeader">Badge</td>
             <td CLASS="tableHeader">Date</td>
             <td CLASS="tableHeader">Description</td>
             <% if (backpackVisible) { %>
@@ -104,9 +103,6 @@
       <%boolean even = true;%>
       <rsc:iterator list="<%=results%>" id="resultRow">
          <tr>
-            <td class="<%=even?"statLt":"statDk"%>">
-              <span class="smallBadge smallBadge<rsc:item name="id" row="<%=resultRow%>"/>"><br /></span>
-            </td>
             <% if (resultRow.getIntItem("id") <= -1) { %>
             <td class="<%=even?"statLt":"statDk"%>" nowrap="nowrap"><rsc:item name="achievement_date" row="<%=resultRow%>" format="MM.dd.yyyy"/></td>
             <%}else{%>
