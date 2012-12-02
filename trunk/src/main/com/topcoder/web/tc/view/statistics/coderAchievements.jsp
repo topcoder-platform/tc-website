@@ -116,16 +116,14 @@
             		<rsc:item name="description" row="<%=resultRow%>"/>
             	<%}else{%>
                 	<div class="badgeCon">
-					<c:if test="">
-						<c:choose>
-						      <c:when test="${isVeteran}">
-								<span class="smallBadge veteranSmallBadge smallBadge<rsc:item name="id" row="<%=resultRow%>"/>"></span><rsc:item name="description" row="<%=resultRow%>"/>
-						      </c:when>
-
-						      <c:otherwise>
-								<span class="smallBadge smallBadge<rsc:item name="id" row="<%=resultRow%>"/>"></span><rsc:item name="description" row="<%=resultRow%>"/>
-						      </c:otherwise>
-						</c:choose>
+ 					<c:choose>
+						<c:when test="${isVeteran}">
+							<span class="smallBadge veteranSmallBadge smallBadge<rsc:item name="id" row="<%=resultRow%>"/>"></span><rsc:item name="description" row="<%=resultRow%>"/>
+					    </c:when>
+				      	<c:otherwise>
+							<span class="smallBadge smallBadge<rsc:item name="id" row="<%=resultRow%>"/>"></span><rsc:item name="description" row="<%=resultRow%>"/>
+						</c:otherwise>
+					</c:choose>
 				<%}%>
             </td>
             <% if (backpackVisible) { %>
