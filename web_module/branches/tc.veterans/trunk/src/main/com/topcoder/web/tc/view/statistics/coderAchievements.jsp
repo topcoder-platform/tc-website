@@ -101,7 +101,7 @@
             <td CLASS="tableHeader"><label><input type="checkbox" id="toggleAllBadges" onchange="toggleAllBackpackItems(this)" /> Toggle all</label></td>
             <% } %>
          </tr>
-        <%String iVeteran = "";%>
+        <%String isVeteran = "";%>
          <rsc:iterator list="<%=results%>" id="resultRow">
            <% int aid = resultRow.getIntItem("id");
              if(aid == 128) {
