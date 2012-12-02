@@ -70,7 +70,6 @@
                 if (w > 0) $("#mph").width(w);
             });
 
-            if($("#veteranRibbon")
             renderGroupBadges(categoryName, groupBadgeDiv, singleBadgeDiv, badges, $('#veteranRibbon').length);
         });
     </script>
