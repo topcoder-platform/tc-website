@@ -100,6 +100,13 @@
             <td CLASS="tableHeader"><label><input type="checkbox" id="toggleAllBadges" onchange="toggleAllBackpackItems(this)" /> Toggle all</label></td>
             <% } %>
          </tr>
+         <c:set var="isVeteran" value="${false}"/>
+         <rsc:iterator list="<%=results%>" id="resultRow">
+             <c:set var="aid" value="<%=resultRow.getIntItem("id")%>"/>
+             <c:if test="${aid == 128}">
+                <c:set var="isVeteran" value="${true}"/>
+             </c:if>
+         </rsc:iterator>
       <%boolean even = true;%>
       <rsc:iterator list="<%=results%>" id="resultRow">
          <tr>
@@ -109,7 +116,16 @@
             		<rsc:item name="description" row="<%=resultRow%>"/>
             	<%}else{%>
                 	<div class="badgeCon">
-                	<span class="smallBadge smallBadge<rsc:item name="id" row="<%=resultRow%>"/>"></span><rsc:item name="description" row="<%=resultRow%>"/>
+					<c:if test="">
+						<c:choose>
+						      <c:when test="${isVeteran}">
+								<span class="smallBadge veteranSmallBadge smallBadge<rsc:item name="id" row="<%=resultRow%>"/>"></span><rsc:item name="description" row="<%=resultRow%>"/>
+						      </c:when>
+
+						      <c:otherwise>
+								<span class="smallBadge smallBadge<rsc:item name="id" row="<%=resultRow%>"/>"></span><rsc:item name="description" row="<%=resultRow%>"/>
+						      </c:otherwise>
+						</c:choose>
 				<%}%>
             </td>
             <% if (backpackVisible) { %>
