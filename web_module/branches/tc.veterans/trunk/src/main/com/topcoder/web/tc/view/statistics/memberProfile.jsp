@@ -65,6 +65,10 @@
             $("#mphImg").load(function() {
                 $("#mph").width($("#mphImg").width());
             });
+            $("#mphImg").ready(function() {
+                var w = $("#mphImg").width();
+                if (w > 0) $("#mph").width(w);
+            });
             renderGroupBadges(categoryName, groupBadgeDiv, singleBadgeDiv, badges);
         });
     </script>
