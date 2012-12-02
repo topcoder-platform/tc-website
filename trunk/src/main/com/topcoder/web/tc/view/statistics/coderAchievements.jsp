@@ -113,7 +113,12 @@
             <td class="<%=even?"statLt":"statDk"%>" nowrap="nowrap"><br /></td>
             <%}%>
             <td class="<%=even?"statLt":"statDk"%>" nowrap="nowrap">
-              <rsc:item name="description" row="<%=resultRow%>"/>
+            	<% if (resultRow.getIntItem("id") == -1) { %>
+            		<rsc:item name="description" row="<%=resultRow%>"/>
+            	<%}else{%>
+                	<div class="badgeCon">
+                	<span class="smallBadge smallBadge<rsc:item name="id" row="<%=resultRow%>"/>"></span><rsc:item name="description" row="<%=resultRow%>"/>
+				<%}%>
             </td>
             <% if (backpackVisible) { %>
             <td class="<%=even?"statLt":"statDk"%>">
