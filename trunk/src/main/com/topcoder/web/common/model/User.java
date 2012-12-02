@@ -1,3 +1,6 @@
+/*
+ * Copyright (C)  - 2012 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.common.model;
 
 import com.topcoder.web.common.WebConstants;
@@ -21,9 +24,16 @@ import java.util.TreeSet;
  * Update(Release Assembly - OpenID Project Update 1 v1.0):
  * Add <code>private String openId</code> field.
  * </p>
+ * 
+ * <p>
+ * Version 1.1 (TopCoder Registration and Veterans Integration) change notes:
+ *  <ul>
+ *      <li>Added {@link #veteranCodes} filed, also the getter/seter were added.</li>
+ *  </ul>
+ * </p>
+ * 
  * @author dok, TCASSEMBLER
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Mar 29, 2006
+ * @version 1.1
  */
 public class User extends Base {
     private Long id;
@@ -59,6 +69,13 @@ public class User extends Base {
     private Set<School> createdSchools;
     
     /**
+     * Represents the veteran Svc Occ Code of this user.
+     * 
+     * @since 1.1
+     */
+    private Set<UserVeteranCode> veteranCodes;
+    
+    /**
      * <p>
      * The open id for the user.
      * </p>
@@ -83,6 +100,9 @@ public class User extends Base {
      */
     private boolean agreedToSiteTerms;
 
+    /**
+     * Default constructor.
+     */
     public User() {
         super();
         status = WebConstants.UNACTIVE_STATI[1];
@@ -101,6 +121,7 @@ public class User extends Base {
         compPrizes = new HashSet<UserContestPrize>();
         schools = new HashSet<UserSchool>();
         createdSchools = new HashSet<School>();
+        veteranCodes = new HashSet<UserVeteranCode>();
     }
 
     public Long getId() {
@@ -334,6 +355,26 @@ public class User extends Base {
 
     public String getHandleLower() {
         return handle.toLowerCase();
+    }
+
+    /**
+     * Gets the veteran Svc Occ Code of this user.
+     *  
+     * @return veteran Svc Occ Code of this user.
+     * @since 1.1
+     */
+    public Set<UserVeteranCode> getVeteranCodes() {
+        return veteranCodes;
+    }
+
+    /**
+     * Sets the veteran Svc Occ Code of this user.
+     * 
+     * @param veteranCodes veteran Svc Occ Code of this user.
+     * @since 1.1
+     */
+    public void setVeteranCodes(Set<UserVeteranCode> veteranCodes) {
+        this.veteranCodes = veteranCodes;
     }
 
     public Set<RegistrationType> getRegistrationTypes() {

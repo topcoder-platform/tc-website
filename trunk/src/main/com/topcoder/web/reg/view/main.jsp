@@ -1,3 +1,13 @@
+<%--
+  - Author: TCSASSEMBER
+  - Version: 1.1
+  - Copyright (C) - 2012 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: Displays the Main page of the registration process.
+  -
+  - Version 1.1 (TopCoder Registration and Veterans Integration) changes:
+  - - Added support to the "I am Veteran" function.
+--%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.common.HSRegistrationHelper,
                  com.topcoder.web.common.tag.AnswerInput,
@@ -58,6 +68,19 @@
 					}
 				}
 			}
+            function displayVeteran(show) {
+                if (document.getElementById){
+                    obj1 = document.getElementById('<%=Constants.VETERAN_USERNAME%>_row');
+                    obj2 = document.getElementById('<%=Constants.VETERAN_PASSWORD%>_row');
+                    if (show) {
+                        obj1.style.display = "";
+                        obj2.style.display = "";
+                    } else {
+                        obj1.style.display = "none";
+                        obj2.style.display = "none";
+                    }
+                }
+            }
 
             // -->
         </script>
@@ -541,6 +564,62 @@
                             <tc-webtag:errorIterator id="err" name="<%=Constants.SHOW_EARNINGS%>"><%=err%></tc-webtag:errorIterator>
                             </span>
                             <tc-webtag:errorIterator id="err" name="<%=Constants.SHOW_EARNINGS%>"><script type="text/javascript">applyError('<%=Constants.SHOW_EARNINGS%>_row', '<%=Constants.SHOW_EARNINGS%>_status')</script></tc-webtag:errorIterator>
+                            
+                        </li>
+                        </c:if>
+                        
+                        <c:set value="<%=Constants.IS_VETERAN%>" var="isVeteran"/>
+                        <c:if test="${cf:contains(fields, isVeteran)}">
+                        <li class="form-row" id="<%=Constants.IS_VETERAN%>_row">
+                            <tc-webtag:errorIterator id="err" name="<%=Constants.IS_VETERAN%>"></tc-webtag:errorIterator>
+                            
+                            <label for="<%=Constants.IS_VETERAN%>">
+                            <c:if test="${cf:contains(reqFields, isVeteran)}"><span class="required">*</span></c:if>
+                            I am Veteran:
+                            </label>
+                            <tc-webtag:radioButton name="<%=Constants.IS_VETERAN%>" value="yes" onClick="displayVeteran(true);"/>
+                            Yes
+                            <tc-webtag:radioButton name="<%=Constants.IS_VETERAN%>" value="no" onClick="displayVeteran(false);"/>
+                            No
+                            
+                            <span style="visibility: hidden" id="<%=Constants.IS_VETERAN%>_status">
+                            <tc-webtag:errorIterator id="err" name="<%=Constants.IS_VETERAN%>"><%=err%></tc-webtag:errorIterator>
+                            </span>
+                            <tc-webtag:errorIterator id="err" name="<%=Constants.IS_VETERAN%>"><script type="text/javascript">applyError('<%=Constants.IS_VETERAN%>_row', '<%=Constants.IS_VETERAN%>_status')</script></tc-webtag:errorIterator>
+                            
+                        </li>
+                        
+                        <li class="form-row" id="<%=Constants.VETERAN_USERNAME%>_row" <c:if test="${not beVeteran}">style="display:none;"</c:if> >
+                            <tc-webtag:errorIterator id="err" name="<%=Constants.VETERAN_USERNAME%>"></tc-webtag:errorIterator>
+                            
+                            <label for="<%=Constants.VETERAN_USERNAME%>">
+                            <c:if test="${isNewReg}"><span class="required">*</span></c:if>
+                            Veteran username:
+                            </label>
+                            
+                            <tc-webtag:textInput name="<%=Constants.VETERAN_USERNAME%>" id="<%=Constants.VETERAN_USERNAME%>" size="40" editable="true"/>
+                            
+                            <span style="visibility: hidden" id="<%=Constants.VETERAN_USERNAME%>_status">
+                            <tc-webtag:errorIterator id="err" name="<%=Constants.VETERAN_USERNAME%>"><%=err%></tc-webtag:errorIterator>
+                            </span>
+                            <tc-webtag:errorIterator id="err" name="<%=Constants.VETERAN_USERNAME%>"><script type="text/javascript">applyError('<%=Constants.VETERAN_USERNAME%>_row', '<%=Constants.VETERAN_USERNAME%>_status')</script></tc-webtag:errorIterator>
+                            
+                        </li>
+                        
+                        <li class="form-row" id="<%=Constants.VETERAN_PASSWORD%>_row" <c:if test="${not beVeteran}">style="display:none;"</c:if> >
+                            <tc-webtag:errorIterator id="err" name="<%=Constants.VETERAN_PASSWORD%>"></tc-webtag:errorIterator>
+                            
+                            <label for="<%=Constants.VETERAN_PASSWORD%>">
+                            <c:if test="${isNewReg}"><span class="required">*</span></c:if>
+                            Veteran password:
+                            </label>
+                            
+                            <tc-webtag:textInput name="<%=Constants.VETERAN_PASSWORD%>" id="<%=Constants.VETERAN_PASSWORD%>" size="40" editable="true" passw="true"/>
+                            
+                            <span style="visibility: hidden" id="<%=Constants.VETERAN_PASSWORD%>_status">
+                            <tc-webtag:errorIterator id="err" name="<%=Constants.VETERAN_PASSWORD%>"><%=err%></tc-webtag:errorIterator>
+                            </span>
+                            <tc-webtag:errorIterator id="err" name="<%=Constants.VETERAN_PASSWORD%>"><script type="text/javascript">applyError('<%=Constants.VETERAN_PASSWORD%>_row', '<%=Constants.VETERAN_PASSWORD%>_status')</script></tc-webtag:errorIterator>
                             
                         </li>
                         </c:if>

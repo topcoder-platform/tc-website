@@ -52,6 +52,7 @@
         <mapping resource="com/topcoder/web/common/model/DemographicQuestion.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/DemographicResponse.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Email.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/UserVeteranCode.hbm.xml"/>
 
         <mapping resource="com/topcoder/web/common/model/Event.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/EventRegistration.hbm.xml"/>

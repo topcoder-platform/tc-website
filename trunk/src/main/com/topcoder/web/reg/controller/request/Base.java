@@ -1,3 +1,6 @@
+/*
+ * Copyright (C)  - 2012 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.servlet.request.FileDoesNotExistException;
@@ -34,9 +37,20 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @author dok
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Mar 29, 2006
+ * This class is the base class for all registration related processor.
+ * 
+ * <p>
+ * Version 1.1 (TopCoder Registration and Veterans Integration) change notes:
+ *  <ul>
+ *      <li>Updated method {@link #getMainUserInput()} to get the veteran related data from request.</li>
+ *      <li>Updated method {@link #checkMainFields(Map)} to validate the veteran related data.</li>
+ *      <li>Updated method {@link #setMainDefaults(User)} to set the veteran related data.</li>
+ *      <li>Updated method {@link #reloadMain(Map, User, Set)} to set the veteran related data.</li>
+ *  </ul>
+ * </p>
+ * 
+ * @author dok, TCSASSEMBER
+ * @version 1.1
  */
 public abstract class Base extends LongHibernateProcessor {
 
@@ -249,6 +263,9 @@ public abstract class Base extends LongHibernateProcessor {
         ret.put(Constants.TIMEZONE, getTrimmedParameter(Constants.TIMEZONE));
         ret.put(Constants.MEMBER_CONTACT, getTrimmedParameter(Constants.MEMBER_CONTACT));
         ret.put(Constants.SHOW_EARNINGS, getTrimmedParameter(Constants.SHOW_EARNINGS));
+        ret.put(Constants.IS_VETERAN, getTrimmedParameter(Constants.IS_VETERAN));
+        ret.put(Constants.VETERAN_USERNAME, getTrimmedParameter(Constants.VETERAN_USERNAME));
+        ret.put(Constants.VETERAN_PASSWORD, getTrimmedParameter(Constants.VETERAN_PASSWORD));
         ret.put(Constants.TERMS_OF_USE_ID, getTrimmedParameter(Constants.TERMS_OF_USE_ID));
         ret.put(Constants.HS_REG_QUESTIONS, getTrimmedParameter(Constants.HS_REG_QUESTIONS));
 
@@ -277,7 +294,7 @@ public abstract class Base extends LongHibernateProcessor {
      * a error will be added to the request via the normal RequestProcessor error reporting
      * mechanism.
      *
-     * @param params
+     * @param params the parameters submit by the user.
      */
     protected void checkMainFields(Map params) {
 
@@ -377,9 +394,48 @@ public abstract class Base extends LongHibernateProcessor {
                 addError(Constants.SHOW_EARNINGS, nonEmptyResult.getMessage());
             }
         }
+        if (fields.contains(Constants.IS_VETERAN)) {
+            ValidationResult nonEmptyResult =
+                    new NonEmptyValidator("Please enter your preference.").validate(
+                            new StringInput((String) params.get(Constants.IS_VETERAN)));
+            if (!nonEmptyResult.isValid()) {
+                addError(Constants.IS_VETERAN, nonEmptyResult.getMessage());
+            }
+            
+            if (((String) params.get(Constants.IS_VETERAN)).equalsIgnoreCase("yes")) {
+                boolean required = false;
+                if (isNewRegistration()) {
+                    // new registration, so veteran username and veteran password are required
+                    required = true;
+                } else {
+                    // veteran username and veteran password are not required if both of them are empty
+                    String username = (String) params.get(Constants.VETERAN_USERNAME);
+                    String password = (String) params.get(Constants.VETERAN_PASSWORD);
+                    required = (username != null && username.trim().length() > 0) || (password != null && password.trim().length() > 0);
+                }
+                if (required) {
+                    nonEmptyResult =
+                            new NonEmptyValidator("Please enter the username.").validate(
+                                    new StringInput((String) params.get(Constants.VETERAN_USERNAME)));
+                    if (!nonEmptyResult.isValid()) {
+                        addError(Constants.VETERAN_USERNAME, nonEmptyResult.getMessage());
+                    }
+                    nonEmptyResult =
+                            new NonEmptyValidator("Please enter the password.").validate(
+                                    new StringInput((String) params.get(Constants.VETERAN_PASSWORD)));
+                    if (!nonEmptyResult.isValid()) {
+                        addError(Constants.VETERAN_PASSWORD, nonEmptyResult.getMessage());
+                    }
+                }
+            }
+        }
     }
 
-
+    /**
+     * Sets the default values for the main page.
+     * 
+     * @param u the user instance.
+     */
     protected void setMainDefaults(User u) {
         if (u.getHomeAddress() != null) {
             setDefault(Constants.ADDRESS1, u.getHomeAddress().getAddress1());
@@ -443,6 +499,7 @@ public abstract class Base extends LongHibernateProcessor {
         setDefault(Constants.MEMBER_CONTACT, u.isMemberContactEnabled() ? "yes" : "no");
 
         setDefault(Constants.SHOW_EARNINGS, u.isShowEarningsEnabled() ? "show" : "hide");
+        setDefault(Constants.IS_VETERAN, u.getVeteranCodes().size() > 0 ? "yes" : "no");
 
         if (u.getContact() != null) {
             setDefault(Constants.TITLE, u.getContact().getTitle());
@@ -781,9 +838,9 @@ public abstract class Base extends LongHibernateProcessor {
     /**
      * Reloads the main page, setting the default values and loading drop downs.
      *
-     * @param params
-     * @param u
-     * @param fields
+     * @param params the parameters submit by the user.
+     * @param u the user instance.
+     * @param fields the set of fields in the main page.
      */
     protected void reloadMain(Map params, User u, Set fields) {
         Map.Entry me;
@@ -802,6 +859,12 @@ public abstract class Base extends LongHibernateProcessor {
         setDefault(Constants.MEMBER_CONTACT, String.valueOf(params.get(Constants.MEMBER_CONTACT) != null));
 
         setDefault(Constants.SHOW_EARNINGS, String.valueOf(params.get(Constants.SHOW_EARNINGS)));
+        
+        setDefault(Constants.IS_VETERAN, String.valueOf(params.get(Constants.IS_VETERAN)));
+        
+        getRequest().setAttribute("beVeteran", String.valueOf(params.get(Constants.IS_VETERAN)).equalsIgnoreCase("yes"));
+        
+        setDefault(Constants.VETERAN_USERNAME, String.valueOf(params.get(Constants.VETERAN_USERNAME)));
 
 
         if (!isNewRegistration() && getFactory().getPaymentDAO().hasPayments(getRegUser().getId())) {

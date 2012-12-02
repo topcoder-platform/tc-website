@@ -1,3 +1,6 @@
+/*
+ * Copyright (C)  - 2012 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.reg;
 
 import com.topcoder.shared.util.logging.Logger;
@@ -13,9 +16,17 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @author dok
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Apr 28, 2006
+ * This class contains the different fields set for different registration type.
+ * 
+ * <p>
+ * Version 1.1 (TopCoder Registration and Veterans Integration) change notes:
+ *  <ul>
+ *      <li>Added <code>Constants.IS_VETERAN</code>, <code>Constants.VETERAN_USERNAME</code> and
+ *      <code>Constants.VETERAN_PASSWORD</code> to the necessary fields set.</li>
+ *  </ul>
+ * 
+ * @author dok, TCSASSEMBER
+ * @version 1.1
  */
 public class RegFieldHelper {
 
@@ -97,6 +108,9 @@ public class RegFieldHelper {
         mainCompFields.add(Constants.COMP_COUNTRY_CODE);
         mainCompFields.add(Constants.CODER_TYPE);
         mainCompFields.add(Constants.TIMEZONE);
+        mainCompFields.add(Constants.IS_VETERAN);
+        mainCompFields.add(Constants.VETERAN_USERNAME);
+        mainCompFields.add(Constants.VETERAN_PASSWORD);
 
         requiredMainCompFields.add(Constants.GIVEN_NAME);
         requiredMainCompFields.add(Constants.SURNAME);
@@ -116,6 +130,7 @@ public class RegFieldHelper {
         requiredMainCompFields.add(Constants.COMP_COUNTRY_CODE);
         requiredMainCompFields.add(Constants.CODER_TYPE);
         requiredMainCompFields.add(Constants.TIMEZONE);
+        requiredMainCompFields.add(Constants.IS_VETERAN);
 
         secondaryCompStudentFields.add(Constants.DEMOG_PREFIX);
         secondaryCompStudentFields.add(Constants.RESUME);
@@ -173,6 +188,9 @@ public class RegFieldHelper {
         mainHSFields.add(Constants.QUOTE);
         mainHSFields.add(Constants.NOTIFICATION);
         mainHSFields.add(Constants.TIMEZONE);
+        mainHSFields.add(Constants.IS_VETERAN);
+        mainHSFields.add(Constants.VETERAN_USERNAME);
+        mainHSFields.add(Constants.VETERAN_PASSWORD);
 
         requiredMainHSFields.add(Constants.GIVEN_NAME);
         requiredMainHSFields.add(Constants.SURNAME);
@@ -187,6 +205,7 @@ public class RegFieldHelper {
         requiredMainHSFields.add(Constants.EMAIL);
         requiredMainHSFields.add(Constants.EMAIL_CONFIRM);
         requiredMainHSFields.add(Constants.TIMEZONE);
+        requiredMainHSFields.add(Constants.IS_VETERAN);
 
     }
 
@@ -231,6 +250,9 @@ public class RegFieldHelper {
         mainCorpFields.add(Constants.TIMEZONE);
         mainCorpFields.add(Constants.TITLE);
         mainCorpFields.add(Constants.COMPANY_NAME);
+        mainCompFields.add(Constants.IS_VETERAN);
+        mainCompFields.add(Constants.VETERAN_USERNAME);
+        mainCompFields.add(Constants.VETERAN_PASSWORD);
 
         requiredMainCorpFields.add(Constants.GIVEN_NAME);
         requiredMainCorpFields.add(Constants.SURNAME);
@@ -249,6 +271,7 @@ public class RegFieldHelper {
         requiredMainCorpFields.add(Constants.TIMEZONE);
         requiredMainCorpFields.add(Constants.TITLE);
         requiredMainCorpFields.add(Constants.COMPANY_NAME);
+        requiredMainCorpFields.add(Constants.IS_VETERAN);
 
     }
 
@@ -277,6 +300,9 @@ public class RegFieldHelper {
         mainSoftwareFields.add(Constants.TIMEZONE);
         mainSoftwareFields.add(Constants.TITLE);
         mainSoftwareFields.add(Constants.COMPANY_NAME);
+        mainSoftwareFields.add(Constants.IS_VETERAN);
+        mainSoftwareFields.add(Constants.VETERAN_USERNAME);
+        mainSoftwareFields.add(Constants.VETERAN_PASSWORD);
 
         requiredMainSoftwareFields.add(Constants.GIVEN_NAME);
         requiredMainSoftwareFields.add(Constants.SURNAME);
@@ -295,6 +321,7 @@ public class RegFieldHelper {
         requiredMainSoftwareFields.add(Constants.TIMEZONE);
         requiredMainSoftwareFields.add(Constants.TITLE);
         requiredMainSoftwareFields.add(Constants.COMPANY_NAME);
+        requiredMainSoftwareFields.add(Constants.IS_VETERAN);
 
         secondarySoftwareFields.add(Constants.DEMOG_PREFIX);
     }
@@ -338,6 +365,9 @@ public class RegFieldHelper {
         mainStudioFields.add(Constants.COMP_COUNTRY_CODE);
         mainStudioFields.add(Constants.CODER_TYPE);
         mainStudioFields.add(Constants.TIMEZONE);
+        mainStudioFields.add(Constants.IS_VETERAN);
+        mainStudioFields.add(Constants.VETERAN_USERNAME);
+        mainStudioFields.add(Constants.VETERAN_PASSWORD);
 
         requiredMainStudioFields.add(Constants.GIVEN_NAME);
         requiredMainStudioFields.add(Constants.SURNAME);
@@ -354,6 +384,7 @@ public class RegFieldHelper {
         requiredMainStudioFields.add(Constants.COMP_COUNTRY_CODE);
         requiredMainStudioFields.add(Constants.CODER_TYPE);
         requiredMainStudioFields.add(Constants.TIMEZONE);
+        requiredMainStudioFields.add(Constants.IS_VETERAN);
 
         secondaryStudioStudentFields.add(Constants.DEMOG_PREFIX);
         secondaryStudioStudentFields.add(Constants.VISIBLE_SCHOOL);
@@ -414,6 +445,9 @@ public class RegFieldHelper {
         mainTeacherFields.add(Constants.EMAIL_CONFIRM);
         mainTeacherFields.add(Constants.NOTIFICATION);
         mainTeacherFields.add(Constants.TIMEZONE);
+        mainTeacherFields.add(Constants.IS_VETERAN);
+        mainTeacherFields.add(Constants.VETERAN_USERNAME);
+        mainTeacherFields.add(Constants.VETERAN_PASSWORD);
 
         requiredMainTeacherFields.add(Constants.GIVEN_NAME);
         requiredMainTeacherFields.add(Constants.SURNAME);
@@ -429,6 +463,7 @@ public class RegFieldHelper {
         requiredMainTeacherFields.add(Constants.EMAIL);
         requiredMainTeacherFields.add(Constants.EMAIL_CONFIRM);
         requiredMainTeacherFields.add(Constants.TIMEZONE);
+        requiredMainTeacherFields.add(Constants.IS_VETERAN);
 
 
         secondaryTeacherFields.add(Constants.DEMOG_PREFIX);
@@ -477,6 +512,9 @@ public class RegFieldHelper {
         mainOpenAIMFields.add(Constants.COMP_COUNTRY_CODE);
         mainOpenAIMFields.add(Constants.CODER_TYPE);
         mainOpenAIMFields.add(Constants.TIMEZONE);
+        mainOpenAIMFields.add(Constants.IS_VETERAN);
+        mainOpenAIMFields.add(Constants.VETERAN_USERNAME);
+        mainOpenAIMFields.add(Constants.VETERAN_PASSWORD);
 
         requiredMainOpenAIMFields.add(Constants.GIVEN_NAME);
         requiredMainOpenAIMFields.add(Constants.SURNAME);
@@ -494,6 +532,7 @@ public class RegFieldHelper {
         requiredMainOpenAIMFields.add(Constants.COMP_COUNTRY_CODE);
         requiredMainOpenAIMFields.add(Constants.CODER_TYPE);
         requiredMainOpenAIMFields.add(Constants.TIMEZONE);
+        requiredMainOpenAIMFields.add(Constants.IS_VETERAN);
 
         secondaryOpenAIMStudentFields.add(Constants.DEMOG_PREFIX);
         secondaryOpenAIMStudentFields.add(Constants.VISIBLE_SCHOOL);
@@ -555,6 +594,9 @@ public class RegFieldHelper {
         mainTruveoFields.add(Constants.COMP_COUNTRY_CODE);
         mainTruveoFields.add(Constants.CODER_TYPE);
         mainTruveoFields.add(Constants.TIMEZONE);
+        mainTruveoFields.add(Constants.IS_VETERAN);
+        mainTruveoFields.add(Constants.VETERAN_USERNAME);
+        mainTruveoFields.add(Constants.VETERAN_PASSWORD);
 
         requiredMainTruveoFields.add(Constants.GIVEN_NAME);
         requiredMainTruveoFields.add(Constants.SURNAME);
@@ -571,6 +613,7 @@ public class RegFieldHelper {
         requiredMainTruveoFields.add(Constants.COMP_COUNTRY_CODE);
         requiredMainTruveoFields.add(Constants.CODER_TYPE);
         requiredMainTruveoFields.add(Constants.TIMEZONE);
+        requiredMainTruveoFields.add(Constants.IS_VETERAN);
 
         secondaryTruveoStudentFields.add(Constants.DEMOG_PREFIX);
         secondaryTruveoStudentFields.add(Constants.VISIBLE_SCHOOL);

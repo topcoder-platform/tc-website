@@ -1,3 +1,6 @@
+/*
+ * Copyright (C)  - 2012 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.shared.security.ClassResource;
@@ -24,12 +27,25 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @author dok
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Mar 29, 2006
+ * This class is the processor the process the main page of the registration process.
+ * 
+ * <p>
+ * Version 1.1 (TopCoder Registration and Veterans Integration) change notes:
+ *  <ul>
+ *      <li>Updated method {@link #registrationProcessing()} to set the "isVeteran" attribute.</li>
+ *  </ul>
+ * </p>
+ *  
+ * @author dok, TCSASSEMBER
+ * @version 1.1
  */
 public class Main extends Base {
 
+    /**
+     * Process the user's request for the main page.
+     * 
+     * @throws Exception if any error occurs.
+     */
     protected void registrationProcessing() throws Exception {
 
         if (isNewRegistration() || userLoggedIn()) {
@@ -182,6 +198,7 @@ public class Main extends Base {
                 getRequest().setAttribute(Constants.REQUIRED_FIELDS, reqFields);
                 getRequest().setAttribute("regTerms", getFactory().getTermsOfUse().find(Constants.REG_TERMS_ID));
                 getRequest().setAttribute("season", season);
+                getRequest().setAttribute("beVeteran", u.getVeteranCodes().size() > 0);
                 setNextPage("/main.jsp");
                 setIsNextPageInContext(true);
             }

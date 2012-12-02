@@ -1,3 +1,6 @@
+/*
+ * Copyright (C)  - 2012 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.reg;
 
 import com.topcoder.shared.util.TCResourceBundle;
@@ -12,9 +15,17 @@ import java.util.List;
 import java.util.MissingResourceException;
 
 /**
- * @author dok
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Mar 29, 2006
+ * This class contains the constant values used by the reg application.
+ *  
+ * <p>
+ * Version 1.1 (TopCoder Registration and Veterans Integration) change notes:
+ *  <ul>
+ *      <li>Added constant {@link #VET_ACHIEVEMENT_RULE_ID}.</li>
+ *  </ul>
+ * </p>
+ * 
+ * @author dok, TCSASSEMBER
+ * @version 1.1
  */
 public class Constants implements WebConstants {
 
@@ -114,6 +125,13 @@ public class Constants implements WebConstants {
     public static int MAX_REFERRAL_OTHER_LENGTH;
 
     public static int REG_TERMS_ID;
+
+    /**
+     * Represents the id of veteran achievement rule in tcs_dw:user_achievement_rule table.
+     * 
+     * @since 1.1
+     */
+    public static int VET_ACHIEVEMENT_RULE_ID;
 
 
     private Constants() {
