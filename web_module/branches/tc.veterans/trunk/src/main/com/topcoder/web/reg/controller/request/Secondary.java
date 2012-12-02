@@ -1,3 +1,6 @@
+/*
+ * Copyright (C)  - 2012 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.shared.security.ClassResource;
@@ -10,6 +13,7 @@ import com.topcoder.web.common.model.*;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -17,12 +21,26 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @author dok
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Mar 29, 2006
+ * This class is the processor the process the secondary page of the registration process.
+ * 
+ * <p>
+ * Version 1.1 (TopCoder Registration and Veterans Integration) change notes:
+ *  <ul>
+ *      <li>Updated method {@link #registrationProcessing()} to pull the veteran data.</li>
+ *      <li>Updated method {@link #loadFieldsIntoUserObject(Set, Map, List)} to load the veteran Svc Occ Codes.</li>
+ *  </ul>
+ * </p>
+ *  
+ * @author dok, TCSASSEMBER
+ * @version 1.1
  */
 public class Secondary extends Base {
 
+    /**
+     * Process the user's request for the secondary page.
+     * 
+     * @throws Exception if any error occurs.
+     */
     protected void registrationProcessing() throws Exception {
         User u = getRegUser();
         if (u == null) {
@@ -43,6 +61,35 @@ public class Secondary extends Base {
                         checkHSRegistrationQuestions(rh);
                     }
 
+                    // process the veteran
+                    List<String> codes = null;
+                    if (fields.contains(Constants.IS_VETERAN) && ((String) params.get(Constants.IS_VETERAN)).trim().equalsIgnoreCase("yes")) {
+                        if (!hasError(Constants.VETERAN_USERNAME) && !hasError(Constants.VETERAN_PASSWORD)) {
+                            String username = (String) params.get(Constants.VETERAN_USERNAME);
+                            String password = (String) params.get(Constants.VETERAN_PASSWORD);
+                            if (isNewRegistration() || (username != null && username.length() > 0) || (password != null && password.length() > 0)) {
+                                // should pull the new veteran data for the user
+                                try {
+                                    codes = VeteransProcessor.processVeteransInformation(username, password);
+                                    if (codes == null || codes.size() == 0) {
+                                        // can't pull the new veteran data
+                                        addError(Constants.VETERAN_USERNAME, "Can't get the veteran data.");
+                                    }
+                                } catch (Exception e) {
+                                    // error occurs when pull the new veteran data
+                                    log.error("Error occurs when pulling veteran data", e);
+                                    addError(Constants.VETERAN_USERNAME, "Can't get the veteran data.");
+                                }
+                            } else {
+                                // use the old veteran data
+                                codes = new ArrayList<String>();
+                                for (UserVeteranCode code : u.getVeteranCodes()) {
+                                    codes.add(code.getSvcOccCode());
+                                }
+                            }
+                        }
+                    }
+                    
                     if (hasErrors()) {
                         if (registeringHS) {
                             setDefaults(rh);
@@ -77,7 +124,7 @@ public class Secondary extends Base {
                             }
                         }
 
-                        loadFieldsIntoUserObject(fields, params);
+                        loadFieldsIntoUserObject(fields, params, codes);
                         getRequest().getSession().setAttribute("password", (String) params.get(Constants.PASSWORD));
 
                         Set secondaryFields = RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), u);
@@ -142,8 +189,15 @@ public class Secondary extends Base {
         }
     }
 
-
-    private void loadFieldsIntoUserObject(Set fields, Map params) throws TCWebException {
+    /**
+     * Loads the values submit by the user into the user's instance.
+     * 
+     * @param fields the fields which should be loaded.
+     * @param params the map contains the parameters.
+     * @param codes the veteran Svc Occ Codes.
+     * @throws TCWebException if any error occurs.
+     */
+    private void loadFieldsIntoUserObject(Set fields, Map params, List<String> codes) throws TCWebException {
         User u = getRegUser();
         Address a = u.getHomeAddress();
         //we'll consider address1 to be the indicator as to whether or not we're getting an address
@@ -372,6 +426,23 @@ public class Secondary extends Base {
         }
 
         u.addTerms(getFactory().getTermsOfUse().find(new Integer(Constants.REG_TERMS_ID)));
+        
+        if (u.getVeteranCodes() != null) {
+            // remove the old veteran Svc Occ Codes
+            for (UserVeteranCode userCode : u.getVeteranCodes()) {
+                userCode.setUser(null);
+            }
+            u.getVeteranCodes().clear();
+        }
+        if (codes != null) {
+            // Set the new veteran Svc Occ Codes
+            for (String code : codes) {
+                UserVeteranCode userCode = new UserVeteranCode();
+                userCode.setSvcOccCode(code);
+                userCode.setUser(u);
+                u.getVeteranCodes().add(userCode);
+            }
+        }
         setRegUser(u);
     }
 }

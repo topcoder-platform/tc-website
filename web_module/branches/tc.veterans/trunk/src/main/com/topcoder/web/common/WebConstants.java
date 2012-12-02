@@ -99,9 +99,16 @@ package com.topcoder.web.common;
  *      and {@link #PHASE_BUG_HUNT_SPECIFICATION}</li>
   *   </ol>
   * </p>
+  * 
+  * <p>
+  *   Version 1.6.8 (TopCoder Registration and Veterans Integration) Change notes:
+  *   <ol>
+  *     <li>Added constants {@link #IS_VETERAN}, {@link #VETERAN_USERNAME} and {@link #VETERAN_PASSWORD}.</li>
+  *   </ol>
+  * </p>
  *
  * @author dok, pulky, snow01, FireIce, lmmortal, TCSASSEMBLER
- * @version 1.6.7
+ * @version 1.6.8
  */
 public interface WebConstants {
     public static final String HANDLE = "ha";
@@ -157,6 +164,27 @@ public interface WebConstants {
     public static final String EVENT_ID = "eid";
 
     public static final String TERMS = "terms";
+    /**
+     * Represents the "I am a Veteran" parameter name.
+     *
+     * @since 1.6.8 
+     */
+    public static final String IS_VETERAN = "is_veteran";
+    
+    /**
+     * Represents the "Veteran username" parameter name.
+     * 
+     * @since 1.6.8
+     */
+    public static final String VETERAN_USERNAME = "veteran_username";
+    
+    /**
+     * Represents the "Veteran password" parameter name.
+     * 
+     * @since 1.6.8
+     */
+    public static final String VETERAN_PASSWORD = "veteran_password";
+    
     /**
      * Represents the agreed dependencies terms attribute key.
      * 

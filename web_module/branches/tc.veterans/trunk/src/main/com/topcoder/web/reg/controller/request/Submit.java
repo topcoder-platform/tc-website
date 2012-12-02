@@ -1,3 +1,6 @@
+/*
+ * Copyright (C)  - 2012 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.security.GeneralSecurityException;
@@ -34,6 +37,9 @@ import com.topcoder.web.reg.Constants;
 import javax.ejb.CreateException;
 import javax.naming.Context;
 import java.rmi.RemoteException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -42,12 +48,26 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @author dok
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: May 8, 2006
+ * This class is the processor the process the submit request of the registration process.
+ * 
+ * <p>
+ * Version 1.1 (TopCoder Registration and Veterans Integration) change notes:
+ *  <ul>
+ *      <li>Updated method {@link #registrationProcessing()} to process the veteran achievements.</li>
+ *      <li>Added method {@link #loadVeteranAchievements(User, boolean)} to insert the veteran achievement for the user.</li>
+ *  </ul>
+ * </p>
+ *  
+ * @author dok, TCSASSEMBER
+ * @version 1.1
  */
 public class Submit extends Base {
 
+    /**
+     * Process the user's request for the registering the user.
+     * 
+     * @throws Exception if any error occurs.
+     */
     protected void registrationProcessing() throws Exception {
         User u = getRegUser();
         boolean newReg = isNewRegistration();
@@ -92,12 +112,20 @@ public class Submit extends Base {
             try {
                 securityStuff(newReg, u);
 
+                loadVeteranAchievements(u, false);
+
                 // Close transaction now and persist the changes before sending the activation email so that if there's any exception
                 // during persisting the objects the email won't be sent.
                 markForCommit();
                 closeConversation();
                 // END TRANSACTION
             } catch (Exception e) {
+                try {
+                    // error occurs, rollback changes, remove all the veteran achievements 
+                    loadVeteranAchievements(u, true);
+                } catch (SQLException se) {
+                    // ignore the exceptions when rollback changes
+                }
                 if (newReg) {
                     removeUser(u.getId());
                 }
@@ -321,4 +349,40 @@ public class Submit extends Base {
         EmailEngine.send(mail);
     }
 
+    /**
+     * Insert the veteran achievement for the user if the user is a veteran.
+     * 
+     * @param user the user instance.
+     * @param onlyDelete true if only delete the user's veteran achievement.
+     * @throws SQLException if any error occurs during the database operation
+     * @since 1.1
+     */
+    private static void loadVeteranAchievements(User user, boolean onlyDelete) throws SQLException {
+        final String DELETE_ACHIEVE = "DELETE FROM user_achievement_xref WHERE user_id = ?";
+        final String INSERT_ACHIEVE = "INSERT INTO user_achievement_xref (user_id, user_achievement_rule_id, create_date) VALUES (?, ?, CURRENT)";
+
+        Connection conn = DBMS.getConnection(DBMS.TCS_DW_DATASOURCE_NAME);
+
+        PreparedStatement delete = null;
+        try {
+            delete = conn.prepareStatement(DELETE_ACHIEVE);
+            delete.setLong(1, user.getId());
+            delete.execute();
+        } finally {
+            DBMS.close(delete);
+        }
+
+        if (onlyDelete || user.getVeteranCodes().size() == 0) {
+            return;
+        }
+        PreparedStatement insert = null;
+        try {
+            insert = conn.prepareStatement(INSERT_ACHIEVE);
+            insert.setLong(1, user.getId());
+            insert.setInt(2, Constants.VET_ACHIEVEMENT_RULE_ID);
+            insert.executeUpdate();
+        } finally {
+            DBMS.close(insert);
+        }
+    }
 }

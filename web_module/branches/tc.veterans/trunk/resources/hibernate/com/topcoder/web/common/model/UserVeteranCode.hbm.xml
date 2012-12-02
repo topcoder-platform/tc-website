@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+
+    <class name="UserVeteranCode" table="common_oltp:veterans_svc_occ_code">
+        <id name="id" column="svc_occ_code_id">
+            <generator class="com.topcoder.web.common.model.IdGenerator">
+                <param name="sequence_name">SVC_OCC_CODE_SEQ</param>
+            </generator>
+        </id>
+        <many-to-one name="user" column="user_id" access="field" class="User"/>
+        <property name="svcOccCode" column="svc_occ_code" access="field"/>
+    </class>
+</hibernate-mapping>

@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2012 TopCoder Inc., All Rights Reserved.
+ */
+
 package com.topcoder.web.tc.controller;
 
 import com.topcoder.shared.security.Resource;
@@ -16,6 +20,20 @@ import java.io.IOException;
 import java.util.MissingResourceException;
 import java.util.Set;
 
+/**
+ * <p>
+ * This class is used as main servlet.
+ * </p>
+ *
+ * <p>
+ *   Version 1.1 (TopCoder Mozilla Open Badge Integration 1.0) Change notes:
+ *   <ol>
+ *     <li>Added handling of HEAD request, needed by MOB service.</li>
+ *   </ol>
+ * </p>
+ * @author unknown, TrePe
+ * @version 1.1
+ */
 public class MainServlet extends BaseServlet {
     private final static Logger log = Logger.getLogger(MainServlet.class);
 
@@ -69,4 +87,14 @@ public class MainServlet extends BaseServlet {
         return ret;
     }
 
+    /**
+     * <p>
+     *     Accept HTTP request of type HEAD.
+     * </p>
+     * @since 1.1
+     */
+    protected void doHead(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        process(request, response);    	
+    }
 }

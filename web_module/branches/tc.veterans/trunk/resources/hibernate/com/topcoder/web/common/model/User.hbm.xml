@@ -36,6 +36,10 @@
             <key column="user_id" not-null="true"/>
             <one-to-many class="Email"/>
         </set>
+        <set name="veteranCodes" cascade="all-delete-orphan" inverse="true" access="field">
+            <key column="user_id" not-null="true"/>
+            <one-to-many class="UserVeteranCode"/>
+        </set>
         <set name="phoneNumbers" cascade="save-update" inverse="true" access="field">
             <key column="user_id" not-null="true"/>
             <one-to-many class="Phone"/>
