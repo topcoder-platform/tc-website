@@ -358,7 +358,8 @@ public class Submit extends Base {
      * @since 1.1
      */
     private static void loadVeteranAchievements(User user, boolean onlyDelete) throws SQLException {
-        final String DELETE_ACHIEVE = "DELETE FROM user_achievement_xref WHERE user_id = ?";
+        final String DELETE_ACHIEVE = "DELETE FROM user_achievement_xref WHERE user_id = ?"
+            + " and user_achievement_rule_id in (" + Constants.VET_ACHIEVEMENT_RULE_IDS + ")";
         final String INSERT_ACHIEVE = "INSERT INTO user_achievement_xref (user_id, user_achievement_rule_id, create_date) VALUES (?, ?, CURRENT)";
 
         Connection conn = DBMS.getConnection(DBMS.TCS_DW_DATASOURCE_NAME);
@@ -378,9 +379,11 @@ public class Submit extends Base {
         PreparedStatement insert = null;
         try {
             insert = conn.prepareStatement(INSERT_ACHIEVE);
-            insert.setLong(1, user.getId());
-            insert.setInt(2, Constants.VET_ACHIEVEMENT_RULE_ID);
-            insert.executeUpdate();
+            for (String id : Constants.VET_ACHIEVEMENT_RULE_IDS.split(",")) {
+                insert.setLong(1, user.getId());
+                insert.setInt(2, Integer.parseInt(id));
+                insert.executeUpdate();
+            }
         } finally {
             DBMS.close(insert);
         }

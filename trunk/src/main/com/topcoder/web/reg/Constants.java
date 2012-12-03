@@ -20,7 +20,7 @@ import java.util.MissingResourceException;
  * <p>
  * Version 1.1 (TopCoder Registration and Veterans Integration) change notes:
  *  <ul>
- *      <li>Added constant {@link #VET_ACHIEVEMENT_RULE_ID}.</li>
+ *      <li>Added constant {@link #VET_ACHIEVEMENT_RULE_IDS}.</li>
  *  </ul>
  * </p>
  * 
@@ -127,11 +127,11 @@ public class Constants implements WebConstants {
     public static int REG_TERMS_ID;
 
     /**
-     * Represents the id of veteran achievement rule in tcs_dw:user_achievement_rule table.
+     * Represents the ids of veteran achievement rule in tcs_dw:user_achievement_rule table.
      * 
      * @since 1.1
      */
-    public static int VET_ACHIEVEMENT_RULE_ID;
+    public static String VET_ACHIEVEMENT_RULE_IDS;
 
 
     private Constants() {
