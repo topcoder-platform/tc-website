@@ -348,10 +348,10 @@
 		<p><strong>Fonts:</strong><br> All fonts within your design must be declared when you submit. DO NOT <a style="white-space:nowrap;">include any font files in your submission</a><a style="white-space:nowrap;"> <br>or source files. </a><a href="http://topcoder.com/home/studio/the-process/font-policy/" style="white-space:nowrap;">Read the font policy here</a>.
                 </p>
 
-		<p><strong>Screening:</strong><br> <a style="white-space:nowrap;">All submissions are screened for eligibility <br>before the contest holder picks winners. <br>Don't let your hard work go to waste.<br></a> <a href="http://community.topcoder.com/studio/the-process/screening/">Learn more about how to pass screening here</a>.
+		<p><strong>Screening:</strong><br>All submissions are screened for eligibility before the contest holder picks winners. Don't let your hard work go to waste.<br> <a href="http://community.topcoder.com/studio/the-process/screening/">Learn more about how to pass screening here</a>.
 		</p>
 
-		<p>Questions? <a href="http://studio.topcoder.com/forums?module=ThreadList&forumID=6">Ask in the General Forums</a>.
+		<p>Questions? <a href="http://studio.topcoder.com/forums?module=ThreadList&forumID=6">Ask in the Forums</a>.
 		</p>
             </div>
             <!--End grayBox2-->
