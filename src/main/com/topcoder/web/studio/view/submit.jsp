@@ -334,7 +334,7 @@
                                         <option value="T.26 Digital Type Foundry" <c:if test="${font[1] eq 'T.26 Digital Type Foundry'}">selected="selected"</c:if>>T.26 Digital Type Foundry</option>
                                         <option value="Font Squirrel" <c:if test="${font[1] eq 'Font Squirrel'}">selected="selected"</c:if>>Font Squirrel</option>
                                         <option value="Linotype" <c:if test="${font[1] eq 'Linotype'}">selected="selected"</c:if>>Linotype</option>
-<option value="Linotype"                <option value="Typography.com" <c:if test="${font[1] eq 'Typography.com'}">selected="selected"</c:if>>Typography.com</option>
+                                        <option value="Typography.com" <c:if test="${font[1] eq 'Typography.com'}">selected="selected"</c:if>>Typography.com</option>
                                     </select>
                                     <div class="text-input">
                                         <div class="right-side">
