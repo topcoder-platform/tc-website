@@ -11,6 +11,8 @@
    
         <property name="statusId" column="project_status_id" access="field"/>
         <property name="categoryId" column="project_category_id" access="field"/>
+        <property name="typeId" access="property" 
+                  formula="(SELECT pcl.project_type_id FROM tcs_catalog:project_category_lu pcl WHERE pcl.project_category_id = project_category_id)"/>
         
         <map name="info" inverse="true" fetch="subselect">
             <key column="project_id" not-null="true" />

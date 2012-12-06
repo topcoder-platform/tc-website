@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2012 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.common.model.comp;
 
 import com.topcoder.web.common.model.Base;
@@ -7,6 +10,19 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * <p>An entity class mapped to <code>tcs_catalog:project</code> table.</p>
+ *
+ * <p>
+ * Version 1.1 Change notes:
+ *   <ol>
+ *     <li>Added {@link #typeId} property.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @version 1.1
+ * @author isv
+ */
 public class Project extends Base {
 
     public static final Integer STATUS_ACTIVE = 1;
@@ -29,6 +45,13 @@ public class Project extends Base {
     protected Map<Integer, ProjectInfo> info = new HashMap<Integer, ProjectInfo>();
     protected Map<Integer, ProjectPhase> phases = new HashMap<Integer, ProjectPhase>();
     protected Set<Contest> contests = new HashSet<Contest>();
+
+    /**
+     * <p>A <code>Integer</code> providing the ID of a project type.</p>
+     * 
+     * @since 1.1
+     */
+    private Integer typeId;
 
     public Integer getCategoryId() {
         return categoryId;
@@ -114,4 +137,23 @@ public class Project extends Base {
         return getPhase(ProjectPhase.REGISTRATION);
     }
 
+    /**
+     * <p>Gets the ID of a project type.</p>
+     *
+     * @return a <code>Integer</code> providing the ID of a project type.
+     * @since 1.1
+     */
+    public Integer getTypeId() {
+        return this.typeId;
+    }
+
+    /**
+     * <p>Sets the ID of a project type.</p>
+     *
+     * @param typeId a <code>Integer</code> providing the ID of a project type.
+     * @since 1.1
+     */
+    public void setTypeId(Integer typeId) {
+        this.typeId = typeId;
+    }
 }
