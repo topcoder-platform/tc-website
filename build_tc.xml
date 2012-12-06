@@ -140,6 +140,8 @@
         <!-- TCS Other -->
         <pathelement location="${jars.dir}/tcs/catalog.jar"/>
         <pathelement location="${jars.dir}/tcs/user.jar"/>
+		
+		<pathelement location="${jars.dir}/tcs/topcoder_commons_utility.jar"/>
 
         <!-- LDAP SDK -->
         <pathelement location="${jars.dir}/tcs/ldap_sdk_interface/1.0.2/ldap_sdk_interface.jar"/>
@@ -177,6 +179,7 @@
         <pathelement location="${external.jars.dir}/random_string_image-1.0.jar"/>
         <pathelement location="${external.jars.dir}/spell_check-1.0.0.jar"/>
         <pathelement location="${external.jars.dir}/random_string_generator-1.0.0.jar"/>
+
 
         <pathelement location="${jars.dir}/TestServices.jar"/>
         <pathelement location="${jars.dir}/asyncservices.jar"/>
@@ -803,6 +806,7 @@
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/email_engine/3.2.0/email_engine.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/configuration_persistence/1.0.1/configuration_persistence.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/terms_of_use/1.1.0/terms_of_use.jar"/>
+		<copy todir="${jboss_lib}" file="${jars.dir}/tcs/topcoder_commons_utility.jar"/>
 
         <copy todir="${jboss_lib}">
             <fileset dir="${jars.dir}/tcs">
