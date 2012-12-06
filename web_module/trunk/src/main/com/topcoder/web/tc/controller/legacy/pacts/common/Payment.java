@@ -22,6 +22,9 @@ import java.util.Map;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.HibernateUtils;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.comp.Project;
 import com.topcoder.web.ejb.pacts.payments.BasePaymentStatus;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason;
@@ -29,6 +32,16 @@ import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
 
 /**
  * VERY IMPORTANT: remember to update serialVersionUID if needed
+ *
+ * <p>
+ * Version 1.1 ( Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #payReferrer()} method to return <code>true</code> for <code>Studio</code> contests only.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @version 1.1
+ * @author isv
  */
 public class Payment implements PactsConstants, java.io.Serializable {
 
@@ -278,10 +291,17 @@ public class Payment implements PactsConstants, java.io.Serializable {
         header.setDescription(desc);
     }
 
+    /**
+     * <p>Checks if the referrer of the owner of this payment is to be paid or not.</p>
+     * 
+     * @return <code>true</code> if the type of this payment indicates that a referrer should be paid also; 
+     *         <code>false</code> otherwise.
+     */
     public boolean payReferrer() {
         for (int i = 0; i < PAY_REFFERAL_TYPES.length; i++) {
             if (header.getTypeId() == PAY_REFFERAL_TYPES[i]) {
-                return true;
+                long projectId = header.getComponentProjectId();
+                return projectId != 0 && isStudioContest(projectId);
             }
         }
         return false;
@@ -599,5 +619,23 @@ public class Payment implements PactsConstants, java.io.Serializable {
 
     public void setCreateUserHandle(String createUserHandle) {
         this.createUserHandle = createUserHandle;
+    }
+
+    /**
+     * <p>Checks if the specified contest is of <code>Studio</code> type.</p>
+     * 
+     * @param projectId a <code>long</code> providing the ID of a contest.
+     * @return <code>true</code> if specified contest is of <code>Studio</code> type; <code>false</code> otherwise.
+     * @since 1.1
+     */
+    private static boolean isStudioContest(long projectId) {
+        HibernateUtils.begin();
+        Project project;
+        try {
+            project = DAOUtil.getFactory().getProjectDAO().find((int) projectId);
+        } finally {
+            HibernateUtils.closeSession();
+        }
+        return project.getTypeId() == 3;
     }
 }
