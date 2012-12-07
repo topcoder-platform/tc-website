@@ -10,6 +10,8 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.TCTimestampResult;
 import com.topcoder.shared.util.logging.Logger;
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.StringTokenizer;
 
 public class TCData {
@@ -88,33 +90,16 @@ public class TCData {
         }
     }
 
-    public static String getTCString(ResultSetContainer.ResultSetRow row,
+    public static String getTCString(ResultSetContainer.ResultSetRow row, 
                                      String key) {
         return getTCString(row, key, new String(""), LOG_EXCEPTIONS);
     }
 
     public static String getTCDate(ResultSetContainer.ResultSetRow row,
-                                   String key, String defaultVal,
+                                   String key, String format, String defaultVal,
                                    boolean printException) {
         try {
-            // Commented out by STK 5/29/02
-            //StringTokenizer token = new StringTokenizer(
-            //    ((TCTimestampResult) row.getItem(key)).toString().substring(0,10),
-            //    "-");
-
-            // added by STK 5/29/02
-            StringTokenizer tok1 = new StringTokenizer(
-                    ((TCTimestampResult) row.getItem(key)).toString());
-            StringTokenizer token = new StringTokenizer(
-                    (String) tok1.nextElement(), "-");
-
-            String year = (String) token.nextElement();
-            String returnString = "";
-            while (token.hasMoreElements()) {
-                returnString += (String) token.nextElement() + "/";
-            }
-
-            return returnString + year;
+            return new SimpleDateFormat(format).format((Timestamp) row.getItem(key).getResultData());
         } catch (Exception e) {
             log.debug("getTCDate got excepted with key=" + key);
             if (printException) {
@@ -125,6 +110,14 @@ public class TCData {
             else
                 return defaultVal;
         }
+    }
+
+    public static String getTCDate(ResultSetContainer.ResultSetRow row,
+                                   String key, String defaultVal,
+                                   boolean printException) {
+
+        return getTCDate(row, key, "MM/dd/yyyy", defaultVal, LOG_EXCEPTIONS);
+
     }
 
     public static String getTCDate(ResultSetContainer.ResultSetRow row,
