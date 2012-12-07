@@ -149,7 +149,7 @@ public class Payment implements PactsConstants, java.io.Serializable {
             method = TCData.getTCString(rRow, "payment_method_desc");
             methodId = TCData.getTCLong(rRow, "payment_method_id");
             description = TCData.getTCString(rRow, "payment_desc");
-            modifiedDate = TCData.getTCDate(rRow, "modify_date");
+            modifiedDate = TCData.getTCDate(rRow, "modify_date", "MM/dd/yyyy HH:mm", "", false);
             charity = TCData.getTCInt(rRow, "charity_ind") != 0;
             jiraIssueName = TCData.getTCString(rRow, "jira_issue_id");
             createUserHandle = TCData.getTCString(rRow, "create_user_handle");

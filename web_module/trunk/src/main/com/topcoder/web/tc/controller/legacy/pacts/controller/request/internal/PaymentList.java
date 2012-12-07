@@ -1,7 +1,6 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.DateFormat;
