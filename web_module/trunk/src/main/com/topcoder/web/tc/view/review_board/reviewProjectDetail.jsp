@@ -83,43 +83,16 @@
                 <!-- Center Column Begins -->
                 <td width="100%" align="center" class="bodyText">
                     <jsp:include page="reviewPageTitle.jsp"/>
-                    <table cellspacing="0" cellpadding="0" width="530">
+                    <table cellspacing="0" cellpadding="0" width="540">
                         <tr>
-                            <td class="bodyText" align="left">
-                            <h2>Contest Name: ${projectDetailRow.map["component_name"]}</h2>
+                            <td class="bodyText" align="center">
+                            <h2>${projectDetailRow.map["component_name"]}</h2>
                             </td>
                         </tr>
                     </table>
-
-                    <table cellspacing="0" width="530" class="formFrame">
-                        <tr>
-                            <td class="tableTitle" colspan="2">Contest Details</td>
-                        </tr>
-                        <tr>
-                            <td class="tableHeader" align="left" width="50%">Catalog</td>
-                            <td class="tableHeader" align="right">Contest Type</td>
-                        </tr>
-                        <tr>
-                            <td class="projectCells" align="left">
-                                <c:choose>
-                                    <c:when test="${projectType == DEVELOPMENT_PROJECT_TYPE ||
-                                        projectType == DESIGN_PROJECT_TYPE ||
-                                        projectType == DEVELOPMENT_SPECIFICATION_PROJECT_TYPE ||
-                                        projectType == DESIGN_SPECIFICATION_PROJECT_TYPE}">
-                                            ${projectDetailRow.map['catalog']}
-                                    </c:when>
-                                    <c:otherwise>
-                                        ${projectTypeDesc}
-                                    </c:otherwise>
-                                </c:choose>
-                            </td>
-                            <td class="projectCells" align="right">${projectDetailRow.map['phase_desc']}</td>
-                        </tr>
-                    </table>
-
                     <br/>
 
-                    <table cellspacing="0" width="530" class="formFrame">
+                    <table cellspacing="0" width="540" class="formFrame">
                         <tr>
                             <td class="tableTitle" colspan="4">Timeline</td>
                         </tr>
@@ -278,7 +251,7 @@
                     <br/>
 
                     <c:if test="${specReviewExtensionNeeded || screeningExtensionNeeded || reviewExtensionNeeded}">
-                        <table cellspacing="0" cellpadding="0" width="530" class="bodyText">
+                        <table cellspacing="0" cellpadding="0" width="540" class="bodyText">
                             <c:if test="${specReviewExtensionNeeded}">
                                 <tr><td class="bodyText">
                                     <p align="left">* The Specification Review phase has already started.
@@ -304,7 +277,7 @@
                         <br/>
                     </c:if>
 
-                    <table cellspacing="0" width="530" class="formFrame">
+                    <table cellspacing="0" width="540" class="formFrame">
                         <tr>
                             <td class="tableTitle" colspan="3">Positions Available</td>
                         </tr>
@@ -358,7 +331,7 @@
 
                     <br/>
 
-                    <table cellspacing="0" cellpadding="0" width="530" class="bodyText">
+                    <table cellspacing="0" cellpadding="0" width="540" class="bodyText">
                         <c:if test="${!isSpecificationReview}">
                             <tr>
                                 <td class="bodyText">
