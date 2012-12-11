@@ -67,11 +67,11 @@
         <pathelement location="${jive.dir}/htmlparser.jar"/>
 
         <!-- tcs components -->
-        <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
+        <pathelement location="${jars.dir}/tcs/base_exception/2.0.0/base_exception.jar"/>
         <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
         <pathelement location="${jars.dir}/tcs/configuration_manager/2.1.5/configuration_manager.jar"/>
         <pathelement location="${jars.dir}/tcs/document_generation.jar"/>
-        <pathelement location="${jars.dir}/tcs/email_engine.jar"/>
+        <pathelement location="${jars.dir}/tcs/email_engine/3.2.0/email_engine.jar"/>
         <pathelement location="${jars.dir}/tcs/file_class/1.0/file_class.jar"/>
         <pathelement location="${jars.dir}/tcs/file_upload/2.0.2.0/file_upload.jar"/>
         <pathelement location="${jars.dir}/tcs/job_scheduling.jar"/>
@@ -92,17 +92,26 @@
         <pathelement location="${jars.dir}/tcs/directory_validation/1.0/directory_validation.jar"/>
         <pathelement location="${jars.dir}/tcs/generic_event_manager/1.0/generic_event_manager.jar"/>
         <pathelement location="${jars.dir}/tcs/magic_numbers/1.0/magic_numbers.jar"/>
-        <!--pathelement location="${jars.dir}/tcs/xmi_parser/1.0/xmi_parser.jar"/-->
+
         <pathelement location="${jars.dir}/tcs/xmi_parser/1.1/xmi_parser.jar"/>
-        <!--remove with new OR
-                <pathelement location="${jars.dir}/tcs/application_screening/1.0/application_screening.jar"/>
-        -->
+
         <pathelement location="${jars.dir}/tcs/executable_wrapper.jar"/>
         <pathelement location="${jars.dir}/tcs/project_phases/2.0/project_phases.jar"/>
         <pathelement location="${jars.dir}/tcs/object_factory/2.0/object_factory.jar"/>
         <pathelement location="${jars.dir}/tcs/phase_management/1.0/phase_management.jar"/>
         <pathelement location="${jars.dir}/tcs/project_management/1.0/project_management.jar"/>
         <pathelement location="${jars.dir}/tcs/project_phase_template/1.2.0/project_phase_template.jar"/>
+
+        <pathelement location="${jars.dir}/tcs/terms_of_use/1.1.0/terms_of_use.jar"/>
+        <pathelement location="${jars.dir}/tcs/configuration_api/1.1.0/configuration_api.jar"/>
+        <pathelement location="${jars.dir}/tcs/configuration_persistence/1.0.2/configuration_persistence.jar"/>
+        <pathelement location="${jars.dir}/tcs/topcoder_commons_utility/1.0.0/topcoder_commons_utility.jar"/>
+        <pathelement location="${jars.dir}/tcs/document_generator/3.1.0/document_generator.jar"/>
+        
+        <pathelement location="${jars.dir}/tcs/random_string_generator/1.0.0/random_string_generator.jar"/>
+        <pathelement location="${jars.dir}/tcs/random_string_image/1.0.0/random_string_image.jar"/>
+        <pathelement location="${jars.dir}/tcs/spell_check/1.0.0/spell_check.jar"/>
+        <pathelement location="${jars.dir}/tcs/topcoder_commons_utility/1.0.0/topcoder_commons_utility.jar"/>
 
         <!-- can't figure out how to not compile the dependencie, so i'm putting this in the classpath-->
         <pathelement location="${jars.dir}/hibernate-3.1/hibernate3.jar"/>
@@ -255,22 +264,6 @@
 
     </target>
 
-    <!--remove with new OR
-        <target name="package-EJB-Specification" depends="compile">
-            <jar jarfile="${ejb.jars.dir}/Specification.jar">
-                <zipfileset dir="${classes.dir}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
-
-                <zipfileset dir="${classes.dir}" includes="com/topcoder/shared/util/DBMS.class"/>
-                <zipfileset dir="${classes.dir}" includes="com/topcoder/shared/util/logging/Logger.class"/>
-                <zipfileset dir="${classes.dir}"
-                            includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
-                <zipfileset dir="${classes.dir}" includes="com/topcoder/apps/screening/application/*.class"/>
-                <metainf dir="${java.dir}/com/topcoder/apps/screening/application" includes="*.xml"/>
-            </jar>
-        </target>
-    -->
-
-
     <target name="package-EJB-RBoard" depends="compile">
         <jar jarfile="${ejb.jars.dir}/RBoard.jar">
             <zipfileset dir="${classes.dir}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
@@ -315,6 +308,7 @@
                 <include name="DataAccess.properties"/>
                 <include name="TCS.properties"/>
                 <include name="onsite.properties"/>
+                <include name="TermsOfUse.xml"/>
             </fileset>
             <fileset dir="${resources.dir}/security/conf">
                 <include name="com/topcoder/security/Util.properties"/>
@@ -342,21 +336,7 @@
                 <include name="webwork.jar"/>
             </fileset>
         </copy>
-        <copy todir="${jboss.lib.dir}">
-            <fileset dir="${jars.dir}/tcs">
-                <include name="base_exception.jar"/>
-                <include name="document_generation.jar"/>
-                <include name="email_engine.jar"/>
-                <include name="job_scheduling.jar"/>
-                <include name="logging_wrapper/2.0.0/logging_wrapper.jar"/>
-                <include name="math_matrix.jar"/>
-                <include name="object_formatter.jar"/>
-                <include name="refreshable_cache.jar"/>
-                <include name="searchengine.jar"/>
-                <include name="simple_cache.jar"/>
-                <include name="tcsUtil.jar"/>
-            </fileset>
-        </copy>
+                        
         <copy todir="${jboss.lib.dir}">
             <fileset dir="${jars.dir}">
                 <include name="ifxjdbc.jar"/>
@@ -370,6 +350,29 @@
                 <include name="commons-collections.jar"/>
             </fileset>
         </copy>
+        
+        <copy todir="${jboss.lib.dir}" file="${jars.dir}/tcs/document_generation.jar"/>
+        <copy todir="${jboss.lib.dir}" file="${jars.dir}/tcs/job_scheduling.jar"/>
+        <copy todir="${jboss.lib.dir}" file="${jars.dir}/tcs/math_matrix.jar"/>
+        <copy todir="${jboss.lib.dir}" file="${jars.dir}/tcs/object_formatter.jar"/>
+        <copy todir="${jboss.lib.dir}" file="${jars.dir}/tcs/refreshable_cache.jar"/>
+        <copy todir="${jboss.lib.dir}" file="${jars.dir}/tcs/searchengine.jar"/>
+        <copy todir="${jboss.lib.dir}" file="${jars.dir}/tcs/simple_cache.jar"/>
+        <copy todir="${jboss.lib.dir}" file="${jars.dir}/tcs/tcsUtil.jar"/>
+        <copy todir="${jboss.lib.dir}" file="${jars.dir}/tcs/base_exception/2.0.0/base_exception.jar"/>
+        <copy todir="${jboss.lib.dir}" file="${jars.dir}/tcs/email_engine/3.2.0/email_engine.jar"/>
+        <copy todir="${jboss.lib.dir}" file="${jars.dir}/tcs/logging_wrapper/2.0.0/logging_wrapper.jar"/>
+        <copy todir="${jboss.lib.dir}" file="${jars.dir}/tcs/configuration_api/1.1.0/configuration_api.jar"/>
+        <copy todir="${jboss.lib.dir}" file="${jars.dir}/tcs/configuration_persistence/1.0.2/configuration_persistence.jar"/>
+        <copy todir="${jboss.lib.dir}" file="${jars.dir}/tcs/topcoder_commons_utility/1.0.0/topcoder_commons_utility.jar"/>
+        <copy todir="${jboss.lib.dir}" file="${jars.dir}/tcs/document_generator/3.1.0/document_generator.jar"/>
+        <copy todir="${jboss.lib.dir}" file="${jars.dir}/tcs/random_string_generator/1.0.0/random_string_generator.jar"/>
+        <copy todir="${jboss.lib.dir}" file="${jars.dir}/tcs/random_string_image/1.0.0/random_string_image.jar"/>
+        <copy todir="${jboss.lib.dir}" file="${jars.dir}/tcs/spell_check/1.0.0/spell_check.jar"/>
+        <copy todir="${jboss.lib.dir}" file="${jars.dir}/tcs/terms_of_use/1.1.0/terms_of_use.jar"/>
+        <copy todir="${jboss.lib.dir}" file="${jars.dir}/tcs/file_upload/2.2.0/file_upload.jar"/>
+        <copy todir="${jboss.lib.dir}" file="${jars.dir}/tcs/file_upload/2.2.0/file_upload.jar"/>
+        
         <copy todir="${jboss.lib.dir}">
             <fileset dir="${jars.dir}/tcs/typesafe_enum/1.0">
                 <include name="typesafe_enum.jar"/>
@@ -416,18 +419,11 @@
             </fileset>
         </copy>
         <copy todir="${jboss.lib.dir}">
-            <!--fileset dir="${jars.dir}/tcs/xmi_parser/1.0"-->
             <fileset dir="${jars.dir}/tcs/xmi_parser/1.1">
                 <include name="xmi_parser.jar"/>
             </fileset>
         </copy>
-        <!--remove with new OR
-                <copy todir="${jboss.lib.dir}">
-                    <fileset dir="${jars.dir}/tcs/application_screening/1.0">
-                        <include name="application_screening.jar"/>
-                    </fileset>
-                </copy>
-        -->
+
         <copy todir="${jboss.lib.dir}">
             <fileset dir="${jars.dir}/tcs/data_validation/1.0">
                 <include name="data_validation.jar"/>
@@ -449,7 +445,7 @@
             </fileset>
         </copy>
         <copy todir="${jboss.lib.dir}">
-            <fileset dir="${jars.dir}">
+            <fileset dir="${jars.dir}/tcs">
                 <include name="executable_wrapper.jar"/>
             </fileset>
         </copy>
@@ -478,13 +474,6 @@
                 <include name="guid_generator.jar"/>
             </fileset>
         </copy>
-        <!--
-                <copy todir="${jboss.lib.dir}">
-                    <fileset dir="${bin.dir}">
-                        <include name="screening.jar"/>
-                    </fileset>
-                </copy>
-        -->
         <copy todir="${jboss.lib.dir}">
             <fileset dir="${bin.dir}">
                 <include name="shared.jar"/>
