@@ -235,17 +235,17 @@
                                             src="/i/v5/Member_of_the_month_header.jpg" >
                                     </div>
                                     <div class="member_image" style="float:left;">
-                                        <img width="140" height="140" alt="Member of the Month" src="http://community.topcoder.com/i/m/ngraphics.jpeg">
+                                        <img width="140" height="140" alt="Member of the Month" src="http://community.topcoder.com/i/m/maroosh.jpeg">
                                     </div>
                                     <div id="member_content">
                                         <div id="member_month">
-                                            August<br />
+                                            October<br />
                                         </div>
                                         <div id="member_greeting">
-                                            <span class="member_content special handle">Congratulations <span class="handle-color">ngraphics</span></span><br/><br/>
+                                            <span class="member_content special handle">Congratulations <span class="handle-color">maroosh</span></span><br/><br/>
                                         </div>
                                         <div id="member_stats">
-                                            <span class="member_content special">won $5,230 in 14 contests</span><br/><br/>
+                                            <span class="member_content special">won $4,985 in 15 contests</span><br/><br/>
                                             <span class="member_content special"><!--<a href="http://www.topcoder.com/news/2010/11/15/meet-the-october-coders-and-designers-of-the-month-2/">Read the interviews here.</a>--></span><br/><br/>
                                         </div>
                                     </div>
