@@ -135,6 +135,9 @@
         <pathelement location="${jars.dir}/tcs/logging_wrapper/2.0.0/logging_wrapper.jar"/>
         <pathelement location="${jars.dir}/tcs/object_factory/2.0.1/object_factory.jar"/>
 
+        <pathelement location="${jars.dir}/tcs/image_manipulation/1.0.1/image_manipulation.jar"/>
+        <pathelement location="${jars.dir}/tcs/image_overlay/1.0.0/image_overlay.jar"/>
+        <pathelement location="${jars.dir}/tcs/image_resizing/1.0.0/image_resizing.jar"/>
         <pathelement location="${jars.dir}/tcs/random_string_generator/1.0.0/random_string_generator.jar"/>
         <pathelement location="${jars.dir}/tcs/random_string_image/1.0.0/random_string_image.jar"/>
         <pathelement location="${jars.dir}/tcs/spell_check/1.0.0/spell_check.jar"/>
