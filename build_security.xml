@@ -299,9 +299,6 @@
             <fileset dir="${jars.dir}/tcs/base_exception/2.0.0">
                 <include name="base_exception.jar"/>
             </fileset>
-            <fileset dir="${jars.dir}/tcs/topcoder_commons_utility/1.0.0">
-                <include name="topcoder_commons_utility.jar"/>
-            </fileset>
             <fileset dir="${jars.dir}/tcs/db_connection_factory/1.0">
                 <include name="db_connection_factory.jar"/>
             </fileset>

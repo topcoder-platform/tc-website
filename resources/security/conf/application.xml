@@ -13,6 +13,6 @@
         <ejb>security.jar</ejb>
     </module>
     <module>
-        <ejb>base_exception-2.0.0.jar</ejb>
+        <ejb>base_exception.jar</ejb>
     </module>
 </application>
