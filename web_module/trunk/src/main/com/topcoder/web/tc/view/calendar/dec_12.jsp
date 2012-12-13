@@ -42,7 +42,7 @@
     <a href="/tc?module=BasicRSS&amp;c=rss_Pipeline&amp;dsid=28"><img src="/wiki/images/icons/rss.gif" alt="RSS" align="absmiddle" /></a>
 </div>
 
-<strong><a href="/tc?module=Static&amp;d1=calendar&amp;d2=nov_12" class="prevNext">&lt; prev</a>  <!-- | <a href="/tc?module=Static&amp;d1=calendar&amp;d2=jan_13" class="prevNext">next &gt;</a> --> </strong>
+<strong><a href="/tc?module=Static&amp;d1=calendar&amp;d2=nov_12" class="prevNext">&lt; prev</a> | <a href="/tc?module=Static&amp;d1=calendar&amp;d2=jan_13" class="prevNext">next &gt;</a> </strong>
 <jsp:include page="dropdown.jsp" >
 <jsp:param name="currMonth" value="dec_12"/>
 </jsp:include>
