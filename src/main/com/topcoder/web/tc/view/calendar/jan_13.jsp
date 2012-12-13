@@ -71,9 +71,9 @@
       </td>
       <td class="value">5
       </td>
-	</tr>
-	
-	<tr>
+    </tr>
+
+    <tr>
       <td class="value">6
       </td>
       <td class="value">7
@@ -88,9 +88,9 @@
       </td>
       <td class="value">12
       </td>
-	</tr>
-	
-	<tr>
+    </tr>
+
+    <tr>
       <td class="value">13
       </td>
       <td class="value">14
@@ -105,9 +105,9 @@
       </td>
       <td class="value">19
       </td>
-	</tr>
+    </tr>
 	
-	<tr>
+    <tr>
       <td class="value">20
       </td>
       <td class="value">21
@@ -122,9 +122,9 @@
       </td>
       <td class="value">26
       </td>
-	</tr>
+    </tr>
 	
-	<tr>
+    <tr>
       <td class="value">27
       </td>
       <td class="value">28
@@ -137,7 +137,7 @@
       </td>
       <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
       <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
-   </tr>
+    </tr>
 
 </table>
 
