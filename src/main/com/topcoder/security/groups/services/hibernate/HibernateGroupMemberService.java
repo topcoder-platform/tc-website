@@ -59,9 +59,17 @@ import com.topcoder.shared.util.DBMS;
  * </ol>
  * </p>
  * 
+ * <p>
+ * Version 1.3 (Release Assembly - TopCoder Security Groups Release 4) change notes:
+ * <ol>
+ *      <li>Fix the bug of {@link #searchHistoricalData(GroupMemberSearchCriteria, int, int)}
+ *      to filter the records on the date interval.</li>
+ * </ol>
+ * </p>
+ *
  * @author backstretlili, TCSASSEMBLER
  * 
- * @version 1.2
+ * @version 1.3
  */
 public class HibernateGroupMemberService extends BaseGroupService implements GroupMemberService {
 
@@ -171,7 +179,7 @@ public class HibernateGroupMemberService extends BaseGroupService implements Gro
             
             // get projectIds
             if (dataAccessCorp == null)
-                dataAccessCorp = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
+                dataAccessCorp = new DataAccess(DBMS.CORP_OLTP_DATASOURCE_NAME);
             List<Long> projectIds = GetProjectIds(dataAccessCorp, criteria.getProjectName());
             if (projectIds != null && projectIds.size() == 0)return result;
 
@@ -211,16 +219,13 @@ public class HibernateGroupMemberService extends BaseGroupService implements Gro
             }
             if (isNonNullNonEmpty(criteria.getMemberHandle())) {
                 con.append(" and gm.userId in (:groupMemberUserIds) ");
-            }            
+            }
             if (criteria.getHadAccessFrom() != null && criteria.getHadAccessTill() != null) {
-                con.append(" and ((gm.activatedOn <= :hadAccessFrom and (gm.unassignedOn >= :hadAccessTill or gm.unassignedOn is null))");
-                con.append(" or (gm.activatedOn > :hadAccessFrom and gm.activatedOn < :hadAccessTill)");
-                con.append(" or (gm.unassignedOn < :hadAccessTill and gm.unassignedOn > :hadAccessFrom))");
+                con.append(" and (trunc(gm.activatedOn) <= :hadAccessFrom and (trunc(gm.unassignedOn) >= :hadAccessTill or gm.unassignedOn is null)) ");
             } else if (criteria.getHadAccessFrom() == null && criteria.getHadAccessTill() != null) {
-                con.append(" and gm.activatedOn < :hadAccessTill");
+                con.append(" and trunc(gm.activatedOn) <= :hadAccessTill and (trunc(gm.unassignedOn) >= :hadAccessTill or gm.unassignedOn is null) ");
             } else if (criteria.getHadAccessFrom() != null && criteria.getHadAccessTill() == null) {
-                con.append(" and ((gm.unassignedOn != null and gm.unassignedOn > :hadAccessFrom) ");
-                con.append(" or gm.unassignedOn is null)");
+                con.append(" and trunc(gm.activatedOn) <= :hadAccessFrom and (trunc(gm.unassignedOn) >= :hadAccessFrom or gm.unassignedOn is null) ");
             }
             
             // set page
@@ -248,23 +253,10 @@ public class HibernateGroupMemberService extends BaseGroupService implements Gro
                 for (DirectProject dp : gm.getGroup().getDirectProjects()) {
                     dpIds.add(dp.getDirectProjectId());
                 }
+                data.setFrom(gm.getActivatedOn());
+                data.setTo(gm.getUnassignedOn());
                 data.setDirectProjectIds(dpIds);
                 data.setRestrictions(gm.getGroup().getRestrictions());
-                Group eGroup = findByEffectiveGroup(gm.getGroup().getId());
-                if (eGroup == null) {
-                    data.setFrom(gm.getActivatedOn());
-                } else {
-                    data.setFrom(eGroup.getArchivedOn());
-                }
-                if (gm.getGroup().getArchivedOn() != null || gm.getUnassignedOn() != null) {
-                    if (gm.getUnassignedOn() == null) {
-                        data.setTo(gm.getGroup().getArchivedOn());
-                    } else if (gm.getGroup().getArchivedOn() == null) {
-                        data.setTo(gm.getUnassignedOn());
-                    } else 
-                        data.setTo(gm.getUnassignedOn().before(gm.getGroup().getArchivedOn()) ?
-                            gm.getUnassignedOn() : gm.getGroup().getArchivedOn());
-                }
                 // data.to == null means now
                 result.getValues().add(data);
             }
