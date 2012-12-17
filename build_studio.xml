@@ -113,7 +113,7 @@
         <pathelement location="${jars.dir}/tcs/search_builder/1.4.0/search_builder.jar"/>
         <pathelement location="${jars.dir}/tcs/contest_eligibility_validation_client/1.0.0/contest_eligibility_validation_client.jar"/>
     	<pathelement location="${jars.dir}/tcs/terms_of_use/1.1.0/terms_of_use.jar"/>
-        <pathelement location="${jars.dir}/tcs/topcoder_commons_utility.jar"/>
+        <pathelement location="${jars.dir}/tcs/topcoder_commons_utility/1.0.0/topcoder_commons_utility.jar"/>
         <pathelement location="${jars.dir}/tcs/logging_wrapper.jar"/>
         <pathelement location="${jars.dir}/tcs/topcoder_security_groups/1.0.0/topcoder_security_groups.jar"/>
         <pathelement location="${jars.dir}/tcs/email_engine/3.2.0/email_engine.jar"/>
@@ -426,7 +426,7 @@
     	<copy todir="${jboss_lib}" file="${jars.dir}/tcs/configuration_api/1.1.0/configuration_api.jar"/>
     	<copy todir="${jboss_lib}" file="${jars.dir}/tcs/configuration_persistence/1.0.2/configuration_persistence.jar"/>
     	<copy todir="${jboss_lib}" file="${jars.dir}/tcs/logging_wrapper/2.0.0/logging_wrapper.jar"/>
-    	<copy todir="${jboss_lib}" file="${jars.dir}/tcs/topcoder_commons_utility.jar"/>
+    	<copy todir="${jboss_lib}" file="${jars.dir}/tcs/topcoder_commons_utility/1.0.0/topcoder_commons_utility.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/logging_wrapper/2.0.0/logging_wrapper.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/topcoder_security_groups/1.0.0/topcoder_security_groups.jar"/>
     	
