@@ -101,7 +101,7 @@
         <!-- TCS Other -->
         <pathelement location="${jars.dir}/tcs/catalog.jar"/>
         <pathelement location="${jars.dir}/tcs/user.jar"/>
-    	<pathelement location="${jars.dir}/tcs/topcoder_commons_utility.jar"/>
+    	<pathelement location="${jars.dir}/tcs/topcoder_commons_utility/1.0.0/topcoder_commons_utility.jar"/>
 
         <!-- file conversion component -->
         <pathelement location="${jars.dir}/fileconvert.jar"/>
