@@ -89,6 +89,7 @@
       <td class="value">12
         <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=15486">SRM 566</A></strong><br />
+         brought to you by <A href="http://community.topcoder.com/tco12/overview-sponsor/pocket-gems/">Pocket Gems</A><br />
          12:00
         </div>
       </td>
