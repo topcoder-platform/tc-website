@@ -31,8 +31,16 @@
     </jsp:include>
     <script type="text/javascript">
         function submit() {
+	     var email = document.getElementsByName('paypalAccount')[0];
+	     var paypal_radio = document.getElementsByName('paymentMethod')[1];
+	     var filter = /([_A-Za-z0-9-\+]+)(\.[_A-Za-z0-9-\+]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*(\.[A-Za-z]{2,})/;
+	     if (paypal_radio.checked && !filter.test(email.value)) {
+		alert('Please provide a valid paypal email address');
+		email.focus;
+	     } else {
             var myForm = document.f;
             myForm.submit();
+		}
         }
     </script>
 </head>
