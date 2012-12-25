@@ -3820,7 +3820,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
             
             // Round to lower pennie
-            BigDecimal bd = new BigDecimal(netAmount).setScale(2, RoundingMode.FLOOR);
+            BigDecimal bd = new BigDecimal(netAmount).setScale(2, RoundingMode.HALF_DOWN);
             double roundedNetAmount = bd.doubleValue();
 
             // Make sure we don't exceed the gross amount by rounding.
