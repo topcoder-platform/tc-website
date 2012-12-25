@@ -109,4 +109,14 @@ public interface GroupInvitationService {
      */
     public void sendInvitation(GroupInvitation invitation, String registrationUrl, String acceptanceUrl,
                     String rejectionUrl) throws IllegalArgumentException, SecurityGroupException;
+    
+    /**
+     * This method will get the invitation by the user id and group id.
+     * 
+     * @param groupId the group id
+     * @param userId the user id
+     * @return the retrieved group invitation
+     * @throws SecurityGroupException if any error occrus
+     */
+    public GroupInvitation getInvitation(long groupId, long userId) throws SecurityGroupException;
 }
