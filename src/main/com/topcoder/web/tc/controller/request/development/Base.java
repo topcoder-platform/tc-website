@@ -253,25 +253,7 @@ public abstract class Base extends ShortHibernateProcessor {
      * @return a <code>String</code> with the corresponding command name.
      */
     public static String getRegistrantsCommandName(int projectTypeId) {
-        if (projectTypeId == Constants.DESIGN_PROJECT_TYPE
-            || projectTypeId == Constants.DEVELOPMENT_PROJECT_TYPE
-            || projectTypeId == Constants.CONCEPTUALIZATION_PROJECT_TYPE
-            || projectTypeId == Constants.SPECIFICATION_PROJECT_TYPE
-            || projectTypeId == Constants.ARCHITECTURE_PROJECT_TYPE
-            || projectTypeId == Constants.ASSEMBLY_PROJECT_TYPE
-            || projectTypeId == Constants.TEST_SUITES_PROJECT_TYPE
-            || projectTypeId == Constants.TEST_SCENARIOS_PROJECT_TYPE
-            || projectTypeId == Constants.UI_PROTOTYPE_PROJECT_TYPE
-            || projectTypeId == Constants.RIA_BUILD_PROJECT_TYPE
-            || projectTypeId == Constants.RIA_COMPONENT_PROJECT_TYPE
-            || projectTypeId == Constants.COPILOT_POSTING_PROJECT_TYPE
-            || projectTypeId == Constants.CONTENT_CREATION_PROJECT_TYPE
-            || projectTypeId == Constants.BUG_HUNT_PROJECT_TYPE
-            || projectTypeId == Constants.REPORTING_PROJECT_TYPE) {
-            return "registrants";
-        } else {
-            return "contest_registrants";
-        }
+        return "registrants";
     }
 
     protected void dbProcessing() throws TCWebException {
