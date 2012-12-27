@@ -228,21 +228,12 @@ public class DefaultPriceComponent implements SoftwareComponent {
      */
     private ReviewerPaymentCalculator getReviewerPaymentCalculator(float prize, int submissionCount,
                                                                    int submissionsPassedScreening) {
-        if (phaseId == DESIGN_PHASE || phaseId == DEV_PHASE) {
-            return new ComponentReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
-        } else if (phaseId == ASSEMBLY_PHASE) {
-            return new AssemblyReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
-        } else if (phaseId == CONCEPTUALIZATION_PHASE) {
-            return new ConceptualizationReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
-        } else if (phaseId == ARCHITECTURE_PHASE) {
-            return new ArchitectureReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
-        } else if (phaseId == SPECIFICATION_PHASE || phaseId == TEST_SUITES_PHASE ||
-                   phaseId == TEST_SCENARIOS_PHASE || phaseId == COPILOT_POSTING_PHASE || phaseId == CONTENT_CREATION_PHASE ||
-                   phaseId == REPORTING_PHASE || phaseId == BUG_HUNT_PHASE) {
-            return new ApplicationReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
-        } else if (phaseId == UI_PROTOTYPE_PHASE || phaseId == RIA_BUILD_PHASE ||
-                phaseId == RIA_COMPONENT_PHASE) {
-            return new StudioReviewerPaymentCalculator(prize, submissionCount, submissionsPassedScreening);
+        if (phaseId == DESIGN_PHASE || phaseId == DEV_PHASE || phaseId == ASSEMBLY_PHASE || 
+            phaseId == CONCEPTUALIZATION_PHASE || phaseId == ARCHITECTURE_PHASE || phaseId == SPECIFICATION_PHASE ||
+            phaseId == TEST_SUITES_PHASE || phaseId == TEST_SCENARIOS_PHASE || phaseId == COPILOT_POSTING_PHASE ||
+            phaseId == CONTENT_CREATION_PHASE || phaseId == REPORTING_PHASE || phaseId == BUG_HUNT_PHASE ||
+            phaseId == UI_PROTOTYPE_PHASE || phaseId == RIA_BUILD_PHASE || phaseId == RIA_COMPONENT_PHASE) {
+            return new SoftwareReviewerPaymentCalculator(phaseId, prize, submissionCount, submissionsPassedScreening);
         } else if (phaseId == SPECIFICATION_REVIEW_PHASE ||
                 phaseId == DESIGN_SPECIFICATION_PHASE || phaseId == DEVELOPMENT_SPECIFICATION_PHASE ||
                 phaseId == CONCEPTUALIZATION_SPECIFICATION_PHASE || phaseId == SPECIFICATION_SPECIFICATION_PHASE ||
