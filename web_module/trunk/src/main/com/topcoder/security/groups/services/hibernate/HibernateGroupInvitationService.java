@@ -456,31 +456,6 @@ public class HibernateGroupInvitationService extends BaseGroupService implements
             wrapAndLogSecurityException(e, logger, signature);
         }
     }
-    
-    /**
-     * This method will get the invitation by the user id and group id.
-     * 
-     * @param groupId the group id
-     * @param userId the user id
-     * @return the retrieved group invitation
-     * @throws SecurityGroupException if any error occrus
-     */
-    public GroupInvitation getInvitation(long groupId, long userId) throws SecurityGroupException {
-        String queryStr = "select gi from GroupInvitation gi "
-                + " where gi.groupMember.userId=:userId"
-                + "   and gi.groupMember.group.id=:groupId"
-                + " order by gi.sentOn desc";
-        Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery(queryStr);
-        query.setParameter("userId", userId);
-        query.setParameter("groupId", groupId);
-        List<GroupInvitation> result = (List<GroupInvitation>) query.setFetchSize(1).setMaxResults(1).list();
-        if (result.size() == 0) {
-            return null;
-        } else {
-            return result.get(0);
-        }
-    }
 
     /**
      * Check the params which can not be null
