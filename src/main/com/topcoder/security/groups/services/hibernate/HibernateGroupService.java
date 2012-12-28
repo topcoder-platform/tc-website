@@ -72,17 +72,9 @@ import com.topcoder.shared.util.DBMS;
  * </ol>
  * </p>
  *
- * <p>
- * Version 1.4 (Release Assembly - TopCoder Security Groups Release 4) change notes:
- * <ol>
- *      <li>Fix the bug of {@link #update(Group)} when archiving group.</li>
- *      <li>Fix the bug of {@link #copyGroup(Group)} when setting actived date for archiving group.</li>
- * </ol>
- * </p>
- *
  * @author backstretlili, flexme, TCSASSEMBLER
  * 
- * @version 1.4
+ * @version 1.3
  * 
  */
 public class HibernateGroupService extends BaseGroupService implements GroupService {
@@ -174,22 +166,23 @@ public class HibernateGroupService extends BaseGroupService implements GroupServ
                 session.persist(newGroup);
                 
                 // update the existing group
-                existingGroup.setArchived(true);
-                existingGroup.setArchivedOn(new Date(System.currentTimeMillis()));
-                existingGroup.setEffectiveGroup(newGroup);
+                group.setArchived(true);
+                group.setArchivedOn(new Date(System.currentTimeMillis()));
+                group.setEffectiveGroup(newGroup);
 
                 // mark existing members as inactive in the archived group
-                if (existingGroup.getGroupMembers() != null) {
-                    for (GroupMember member : existingGroup.getGroupMembers()) {
+                List<GroupMember> existingMembers = null;
+                if (group.getGroupMembers() != null) {
+                    existingMembers = new ArrayList<GroupMember>();
+                    for (GroupMember member : group.getGroupMembers()) {
                         if (member.getId() != 0) {
                             member.setActive(false);
-                            if (member.getActivatedOn() != null && member.getUnassignedOn() == null) {
-                                member.setUnassignedOn(existingGroup.getArchivedOn());
-                            }
+                            existingMembers.add(member);
                         }
                     }
                 }
-                session.merge(existingGroup);
+                group.setGroupMembers(existingMembers);
+                session.merge(group);
                 retGroup = newGroup;
             } else {
                 persistNewMembers(session, group);
@@ -254,7 +247,7 @@ public class HibernateGroupService extends BaseGroupService implements GroupServ
                 // copy all members not unassigned yet
                 if (member.getUnassignedOn() == null) {
                     GroupMember newMember = new GroupMember();
-                    newMember.setActivatedOn(member.getActivatedOn() == null ? null : new Date(System.currentTimeMillis()));
+                    newMember.setActivatedOn(member.getActivatedOn());
                     newMember.setActive(member.getActive());
                     newMember.setSpecificPermission(member.getSpecificPermission());
                     newMember.setUnassignedOn(member.getUnassignedOn());
@@ -429,7 +422,7 @@ public class HibernateGroupService extends BaseGroupService implements GroupServ
             
             // get projectIds
             if (dataAccessCorp == null)
-                dataAccessCorp = new DataAccess(DBMS.CORP_OLTP_DATASOURCE_NAME);
+                dataAccessCorp = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
             List<Long> projectIds = GetProjectIds(dataAccessCorp, criteria.getProjectName());
             if (projectIds != null && projectIds.size() == 0)return result;
             
