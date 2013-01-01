@@ -4,6 +4,8 @@
 package com.topcoder.security.groups.services.hibernate;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -46,9 +48,16 @@ import com.topcoder.shared.util.DBMS;
  * </ol>
  * </p>
  *
+ * <p>
+ * Version 1.3 (Release Assembly - TopCoder Security Groups Release 5) change notes:
+ * <ol>
+ *      <li>Updated {@link #getBillingAccountsForClient(long)} to sort the result.</li>
+ * </ol>
+ * </p>
+ *
  * @author backstretlili, TCSASSEMBLER
  * 
- * @version 1.2
+ * @version 1.3
  * 
  */
 public class HibernateBillingAccountService extends BaseGroupService implements BillingAccountService {
@@ -145,6 +154,11 @@ public class HibernateBillingAccountService extends BaseGroupService implements 
                     }
                 }
             }
+            Collections.sort(result, new Comparator<BillingAccount>() {
+                public int compare(BillingAccount o1, BillingAccount o2) {
+                    return o1.getName().compareToIgnoreCase(o2.getName());
+                }
+            });
         } catch (Exception e) {
             wrapAndLogSecurityException(e, logger, signature);
         }

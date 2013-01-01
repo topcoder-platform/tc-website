@@ -429,7 +429,7 @@ public class HibernateGroupService extends BaseGroupService implements GroupServ
             
             // get projectIds
             if (dataAccessCorp == null)
-                dataAccessCorp = new DataAccess(DBMS.CORP_OLTP_DATASOURCE_NAME);
+                dataAccessCorp = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
             List<Long> projectIds = GetProjectIds(dataAccessCorp, criteria.getProjectName());
             if (projectIds != null && projectIds.size() == 0)return result;
             
