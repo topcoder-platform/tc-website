@@ -980,7 +980,7 @@
     </target>
 
     <target name="expand-reg">
-        <delete file="${jboss_deploy}/reg.war" />
+        <delete dir="${jboss_deploy}/reg.war" />
         <unwar src="${war.dir}/reg.war" dest="${jboss_deploy}/reg.war/" overwrite="yes" />
         <delete dir="${jboss_deploy}/reg.war/META-INF" />
     </target>
