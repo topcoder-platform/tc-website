@@ -969,7 +969,9 @@
                 <include name="struts.xml" />
             </classes>
             <classes dir="${resources}/reg/email_templates"/>
-            <classes dir="${resources}/reg/validators"/>
+            <classes dir="${resources}/reg/validators">
+	    	<exclude name="com/topcoder/web/reg/action/RegisterAction-validation.xml" />
+            </classes>	            
         </war>
     </target>
 
