@@ -33,6 +33,7 @@
 						<h3>Your account has been activated</h3>
 						<p>Congratulations. Now you can use your account to participate in TopCoder.</p> 
 						<p>Please <a href='<s:url value="https://www.topcoder.com/tc?&module=Login"/>'>Login</a> for the next step.</p>
+						<p>If you plan on competing in any competition, please take a minute to complete your full <a href='<s:url value="https://www.topcoder.com/reg"/>'>TopCoder profile</a>.</p>
 					</div>
 				</div>
 				
