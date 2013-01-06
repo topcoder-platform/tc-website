@@ -132,6 +132,11 @@ public class ScorecardDetails extends Base {
         long userId = getUser().getId();
         long pid = new Long(projId);
         
+        // admins can view everything
+        if (getSessionInfo().isAdmin()) {
+            return true;
+        }
+
         // you can always view your own scorecard
         if (coderId.equals("" + userId)) {
             return true;
@@ -141,7 +146,6 @@ public class ScorecardDetails extends Base {
         if (reviewerId != null && reviewerId.equals("" + userId)) {
             return true;
         }
-
         
 
         Request r = new Request();
@@ -171,9 +175,8 @@ public class ScorecardDetails extends Base {
             return false;
         }
 
-        // If the project isn't finished, only administrators can view the scorecard.
-        if (projectInfo.getIntItem(0, "status_id") != 7
-        		&& !((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin()) {
+        // scorecards for unifished projects are not viewable
+        if (projectInfo.getIntItem(0, "status_id") != 7) {
         	return false;
         }
         
