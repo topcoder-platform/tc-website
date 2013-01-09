@@ -221,8 +221,8 @@ public class RegisterAction extends BaseAjaxAction implements PostAction {
         user.setPassword(password);
         // create a new coder record
         Coder coder = new Coder();
-        coder.setCompCountry(DAOUtil.getFactory().getCountryDAO().find("840"));
-        coder.setCoderType(DAOUtil.getFactory().getCoderTypeDAO().find(CoderType.PROFESSIONAL));
+        //coder.setCompCountry(DAOUtil.getFactory().getCountryDAO().find("840"));
+        //coder.setCoderType(DAOUtil.getFactory().getCoderTypeDAO().find(CoderType.PROFESSIONAL));
         user.setCoder(coder);
         return user;
     }
