@@ -1,10 +1,14 @@
 /*
- * Copyright (C) 2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2011 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.security.groups.services.hibernate;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import com.topcoder.commons.utils.LoggingWrapperUtility;
 import com.topcoder.security.groups.services.DirectProjectService;
@@ -30,11 +34,19 @@ import com.topcoder.shared.util.DBMS;
  *      <li>Modified method {@link #get(long)} to change the datasource of the query</li>
  * </ol>
  * </p>
- * 
+ *
+ * <p>
+ * Version 1.2 (Release Assembly - TopCoder Security Groups Release 5) change notes:
+ * <ol>
+ *      <li>Removed the entrance/exit log of {@link #getProjectsByClientId(long)}.</li>
+ *      <li>Updated {@link #getProjectsByClientId(long)} to sort the result and avoid the
+ *      duplicates results.</li>
+ * </ol>
+ * </p>
+ *
  * @author backstretlili, TCSASSEMBLER
  * 
- * @version 1.1
- * 
+ * @version 1.2
  */
 public class HibernateDirectProjectService extends BaseGroupService implements DirectProjectService {
 
@@ -106,7 +118,6 @@ public class HibernateDirectProjectService extends BaseGroupService implements D
      */
     public List<ProjectDTO> getProjectsByClientId(long id) throws SecurityGroupException {
         final String signature = CLASS_NAME + ".getProjectsByClientId(long id)";
-        LoggingWrapperUtility.logEntrance(logger, signature, new String[] { "id" }, new Object[] { id });
 
         List<ProjectDTO> result = new ArrayList<ProjectDTO>();
         try {
@@ -118,20 +129,26 @@ public class HibernateDirectProjectService extends BaseGroupService implements D
             // request.setProperty("client_id",String.valueOf(id));
             resultContainer = dataAccessTcs.getData(request).get("admin_client_billing_accounts_v2");
             if (resultContainer != null) {
+                Set<Long> ids = new HashSet<Long>();
                 for (ResultSetContainer.ResultSetRow row : resultContainer) {
-                    if (id == row.getLongItem("client_id")) {
+                    if (id == row.getLongItem("client_id")
+                        && !ids.contains(row.getLongItem("direct_project_id"))) {
                         ProjectDTO dto = new ProjectDTO();
                         dto.setProjectId(row.getLongItem("direct_project_id"));
                         dto.setName(row.getStringItem("direct_project_name"));
                         result.add(dto);
+                        ids.add(dto.getProjectId());
                     }
                 }
             }
+            Collections.sort(result, new Comparator<ProjectDTO>() {
+                public int compare(ProjectDTO o1, ProjectDTO o2) {
+                    return o1.getName().compareToIgnoreCase(o2.getName());
+                }
+            });
         } catch (Exception e) {
             wrapAndLogSecurityException(e, logger, signature);
         }
-
-        LoggingWrapperUtility.logExit(logger, signature, new Object[] { result });
 
         return result;
     }

@@ -1,10 +1,14 @@
 /*
- * Copyright (C) 2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2011 - 2012 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.security.groups.services.hibernate;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -37,9 +41,23 @@ import com.topcoder.shared.util.DBMS;
  * </ol>
  * </p>
  * 
+ * <p>
+ * Version 1.2 (Release Assembly - TopCoder Security Groups Release 4) change notes:
+ * <ol>
+ *      <li>Fix the bug of {@link #getBillingAccountsForClient(long)} of retrieving duplicated billing accounts.</li>
+ * </ol>
+ * </p>
+ *
+ * <p>
+ * Version 1.3 (Release Assembly - TopCoder Security Groups Release 5) change notes:
+ * <ol>
+ *      <li>Updated {@link #getBillingAccountsForClient(long)} to sort the result.</li>
+ * </ol>
+ * </p>
+ *
  * @author backstretlili, TCSASSEMBLER
  * 
- * @version 1.1
+ * @version 1.3
  * 
  */
 public class HibernateBillingAccountService extends BaseGroupService implements BillingAccountService {
@@ -119,9 +137,11 @@ public class HibernateBillingAccountService extends BaseGroupService implements 
             ResultSetContainer resultContainer = null;
             request.setContentHandle("admin_client_billing_accounts_v2");
             resultContainer = dataAccess.getData(request).get("admin_client_billing_accounts_v2");
+            Set<Long> ids = new HashSet<Long>();
             if (resultContainer != null) {
                 for (ResultSetContainer.ResultSetRow row : resultContainer) {
-                    if (clientId == row.getLongItem("client_id")) {
+                    if (clientId == row.getLongItem("client_id")
+                        && !ids.contains(row.getLongItem("billing_account_id"))) {
                         BillingAccount dto = new BillingAccount();
                         Client client = new Client();
                         client.setId(row.getLongItem("client_id"));
@@ -130,9 +150,15 @@ public class HibernateBillingAccountService extends BaseGroupService implements 
                         dto.setId(row.getLongItem("billing_account_id"));
                         dto.setName(row.getStringItem("billing_account_name"));
                         result.add(dto);
+                        ids.add(row.getLongItem("billing_account_id"));
                     }
                 }
             }
+            Collections.sort(result, new Comparator<BillingAccount>() {
+                public int compare(BillingAccount o1, BillingAccount o2) {
+                    return o1.getName().compareToIgnoreCase(o2.getName());
+                }
+            });
         } catch (Exception e) {
             wrapAndLogSecurityException(e, logger, signature);
         }
