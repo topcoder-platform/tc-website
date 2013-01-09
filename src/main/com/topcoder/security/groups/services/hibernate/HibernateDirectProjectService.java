@@ -38,7 +38,7 @@ import com.topcoder.shared.util.DBMS;
  * <p>
  * Version 1.2 (Release Assembly - TopCoder Security Groups Release 5) change notes:
  * <ol>
- *      <li>Removed the entrace/exit log of {@link #getProjectsByClientId(long)}.</li>
+ *      <li>Removed the entrance/exit log of {@link #getProjectsByClientId(long)}.</li>
  *      <li>Updated {@link #getProjectsByClientId(long)} to sort the result and avoid the
  *      duplicates results.</li>
  * </ol>
