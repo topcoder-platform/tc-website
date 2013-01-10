@@ -18,6 +18,7 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.Answer;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.ejb.roundregistration.RoundRegistration;
+import com.topcoder.shared.security.User;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -28,7 +29,13 @@ import java.util.Map;
 /**
  * Allows a coder to register for a round.
  *
- * @author farsight
+ * <p>
+ * Changes in version 1.0 (TopCoder Competition Engine - Event Support For Registration v1.0):
+ * <ol>
+ * <li>Updated {@link #longContestProcessing()} to add the check registration condition</li>
+ * </ol>
+ * </p>
+ * @author farsight,TCSASSEMBLER
  * @version 1.0
  */
 public class ViewReg extends Base {
@@ -51,6 +58,9 @@ public class ViewReg extends Base {
 
         try {
             long round = Long.parseLong(roundID);
+            //check the round event registration condition
+            checkRegistrationCondition(user.getId(),round);
+            
             // Is the coder already registered for the round?
             if (isUserRegistered(user.getId(), round)) {
                 Integer type = (Integer) getRequest().getAttribute(Constants.ROUND_TYPE_ID);
@@ -93,7 +103,7 @@ public class ViewReg extends Base {
         }
 
     }
-
+    
     /**
      * Get the terms for the specified round
      *

@@ -35,6 +35,12 @@ import java.util.StringTokenizer;
 /**
  * Registers a coder for a round.
  *
+ * <p>
+ * Changes in version 1.0 (TopCoder Competition Engine - Event Support For Registration v1.0):
+ * <ol>
+ * <li>Updated {@link #longContestProcessing()} to add the check registration condition</li>
+ * </ol>
+ * </p>
  * @author farsight
  * @version 1.0
  */
@@ -59,6 +65,9 @@ public class SubmitReg extends ViewReg {
             long userID = user.getId();
 
             long round = Long.parseLong(roundID);
+            // it is needed to check when submit the registration request
+            checkRegistrationCondition(user.getId(),round);
+            
             if (isUserRegistered(userID, round)) {
                 setNextPage(((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getAbsoluteServletPath());
                 setIsNextPageInContext(false);
