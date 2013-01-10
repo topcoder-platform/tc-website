@@ -119,6 +119,8 @@
         <pathelement location="${jars.dir}/tcs/email_engine/3.2.0/email_engine.jar"/>
         <pathelement location="${jars.dir}/tcs/configuration_api/1.1.0/configuration_api.jar"/>
         <pathelement location="${jars.dir}/tcs/configuration_persistence/1.0.2/configuration_persistence.jar"/>
+        <pathelement location="${jars.dir}/tcs/job_processor/3.0.1/job_processor.jar"/>
+        <pathelement location="${jars.dir}/tcs/job_scheduling/3.2.0/job_scheduling.jar"/>
         
         <!--        <pathelement location="${jars.dir}/tcsUtil.jar"/>-->
         <pathelement location="${jars.dir}/tcs/document_generator/3.1.0/document_generator.jar"/>
@@ -222,6 +224,7 @@
             <include name="com/topcoder/web/ejb/forums/**"/>
             <include name="com/topcoder/web/ejb/messagehistory/**"/>
             <include name="com/topcoder/web/forums/**"/>
+            <include name="com/topcoder/forums/replyto/**"/>
             <include name="com/topcoder/web/studio/**"/>
         	<include name="com/topcoder/servlet/request/**"/>
         </javac>
@@ -270,6 +273,15 @@
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/forums/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/forums" includes="*.xml"/>
+        </jar>
+    </target>
+
+    <target name="package-EJB-ForumsReplyToEJB" depends="compile">
+        <jar jarfile="${ejb_jars}/forumsReplyTo.jar">
+            <zipfileset dir="${classes}" includes="com/topcoder/forums/replyto/ejb/**/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/forums/replyto/model/**/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/forums/replyto/util/**/*.class"/>
+            <metainf dir="${java}/com/topcoder/forums/replyto" includes="*.xml"/>
         </jar>
     </target>
 
@@ -394,6 +406,7 @@
         <antcall target="package-TCJive"/>
         <antcall target="package-EJB-MessageHistoryBean"/>
         <antcall target="package-EJB-ForumsBean"/>
+        <antcall target="package-EJB-ForumsReplyToEJB"/>
         <antcall target="package-EJB-UserBean"/>
         <antcall target="package-EJB-ProjectBean"/>
         <antcall target="build-security"/>
@@ -472,6 +485,7 @@
 
         <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
+        <copy todir="${jboss_deploy}" file="${ejb_jars}/forumsReplyTo.jar"/>
         <copy todir="${jboss_deploy}" file="${jive.dir}/jive4.war"/>
 
         <copy todir="${jboss_deploy}" file="${ejb_jars}/Project.jar"/>

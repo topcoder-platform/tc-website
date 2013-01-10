@@ -78,7 +78,7 @@
         <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
         <pathelement location="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
         <pathelement location="${jars.dir}/tcs/file_upload/2.0.2.0/file_upload.jar"/>
-        <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
+        <pathelement location="${jars.dir}/tcs/base_exception/2.0.0/base_exception.jar"/>
 
 	 <pathelement location="${jars.dir}/tcs/specification_review_comment_service/1.0.0/specification_review_comment_service.jar"/>
 
@@ -86,6 +86,10 @@
         <pathelement location="${jars.dir}/tcs/catalog.jar"/>
         <pathelement location="${jars.dir}/tcs/user.jar"/>
         <pathelement location="${jars.dir}/tcs/json_object/1.0/json_object.jar"/>
+        <pathelement location="${jars.dir}/tcs/json_object/1.0/json_object.jar"/>
+        <pathelement location="${jars.dir}/tcs/job_processor/3.0.1/job_processor.jar"/>
+        <pathelement location="${jars.dir}/tcs/job_scheduling/3.2.0/job_scheduling.jar"/>
+        <pathelement location="${jars.dir}/tcs/document_generator/3.1.0/document_generator.jar"/>
 
         <!-- hibernate files -->
         <pathelement location="${jars.dir}/hibernate-3.2/hibernate3.jar"/>
@@ -150,6 +154,7 @@
             <include name="com/topcoder/web/ejb/messagehistory/**"/>
             <include name="com/topcoder/web/ejb/email/**"/>
             <include name="com/topcoder/web/ejb/user/**"/>
+            <include name="com/topcoder/forums/replyto/**"/>
         </javac>
     </target>
 
@@ -221,6 +226,15 @@
             <metainf dir="${java}/com/topcoder/web/ejb/forums" includes="*.xml"/>
         </jar>
     </target>
+    
+    <target name="package-EJB-ForumsReplyToEJB" depends="compile_forums">
+        <jar jarfile="${ejb_jars}/forumsReplyTo.jar">
+            <zipfileset dir="${classes}" includes="com/topcoder/forums/replyto/ejb/**/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/forums/replyto/model/**/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/forums/replyto/util/**/*.class"/>
+            <metainf dir="${java}/com/topcoder/forums/replyto" includes="*.xml"/>
+        </jar>
+    </target>
 
     <target name="package-EJB-UserBean" depends="compile_forums">
         <jar jarfile="${ejb_jars}/User.jar">
@@ -270,6 +284,7 @@
         <antcall target="package-TCJive"/>
         <antcall target="package-EJB-MessageHistoryBean"/>
         <antcall target="package-EJB-ForumsBean"/>
+        <antcall target="package-EJB-ForumsReplyToEJB"/>
         <antcall target="package-EJB-UserBean"/>
         <antcall target="package-EJB-EmailBean"/>
     </target>
@@ -323,6 +338,7 @@
 
         <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
+        <copy todir="${jboss_deploy}" file="${ejb_jars}/forumsReplyTo.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/User.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/Email.jar"/>
 
