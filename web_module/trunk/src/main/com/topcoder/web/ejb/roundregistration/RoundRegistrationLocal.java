@@ -12,4 +12,6 @@ public interface RoundRegistrationLocal extends EJBLocalObject {
     void createRoundRegistration(long userId, long roundId) throws EJBException;
 
     boolean exists(long userId, long roundId) throws EJBException;
+    
+    String checkRegistrationStatus(long userId,long roundId) throws EJBException;
 }

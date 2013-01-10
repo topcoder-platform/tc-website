@@ -1,5 +1,6 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
+import com.topcoder.server.services.CoreServices;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -27,8 +28,15 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @author dok
- * @version $Revision$ $Date$
+ * 
+ * <p>
+ * Changes in version 1.0 (TopCoder Competition Engine - Event Support For Registration v1.0):
+ * <ol>
+ * <li>Added {@link #checkRegistrationCondition(int,int)} to check the registration status .</li>s
+ * </ol>
+ * </p>
+ * @author dok, TCSASSEMBLER
+ * @version 1.0
  */
 public abstract class Base extends BaseProcessor {
     protected static final Logger log = Logger.getLogger(Base.class);
@@ -286,7 +294,28 @@ public abstract class Base extends BaseProcessor {
         }
         return ret;
     }
-    
+    /**
+     * <p>
+     * check the registration condition.
+     * </p>
+     * @param userId
+     *         the user id.
+     * @param roundID
+     *         the round id.
+     * @throws Exception
+     *         if it can't pass the check, it will throw NavigationException to the web page.
+     */
+    protected void checkRegistrationCondition(long userId,long roundID) throws Exception {        
+        try {
+            RoundRegistration reg = (RoundRegistration) createEJB(getInitialContext(), RoundRegistration.class);
+            String message = reg.checkRegistrationStatus(userId, roundID);
+            if(message!=null)
+                throw new NavigationException(message);
+        } catch (Exception e) {
+            log.error("Error checkRegistrationCondition userId:" + userId +" roundID: " + roundID, e);
+            throw e;
+        }
+    }
     protected boolean isRoundCollab(long roundID) throws Exception {
         Request r = new Request();
         r.setContentHandle("long_contest_collab_round_check");
