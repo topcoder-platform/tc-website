@@ -54,11 +54,11 @@
       </tr>
    </table>
 
---%>
+
    <div class="sectionHeader">Current Tournaments</div>
 
    
-  <%-- <hr width="100%" size="1" noshade="noshade" /> --%>
+<hr width="100%" size="1" noshade="noshade" /> --%>
 
       <div class="sectionHeader" width="100%">Past Tournaments</div>
 	  
