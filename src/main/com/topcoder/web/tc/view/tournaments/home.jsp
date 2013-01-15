@@ -56,21 +56,27 @@
 
 --%>
    <div class="sectionHeader">Current Tournaments</div>
+
+   
+  <%-- <hr width="100%" size="1" noshade="noshade" /> --%>
+
+      <div class="sectionHeader" width="100%">Past Tournaments</div>
+	  
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
       <tr valign="top">
-         <td style="padding-right: 8px;"><a href="https://studio.topcoder.com/?module=ViewContestDetails&ct=30024175"><img src="http://community.topcoder.com/tco12/wp-content/themes/tco12-draft/i/tcoLogo.png" alt="TopCoder Open" /></a><br /></td>
+         <td style="padding-right: 8px;"><a href="http://community.topcoder.com/tco12"><img src="http://community.topcoder.com/tco12/wp-content/themes/tco12-draft/i/tcoLogo.png" alt="TopCoder Open" border="0" hspace="64"></a><br /></td>
          <td width="100%">
-         <span class="bodySubtitle">2012 TopCoder&#174; Open</span>
-         <br /><br />
-		Dates and Location TBD
+         <span class="bodySubtitle">2012 TopCoder&#174; Open</span><br />
+         September 30 - October 4, 2012<br />
+		 Caribe Royale<br/>
+		 Orlando, Florida, USA<br />
          <a href="http://community.topcoder.com/tco12">Details</a>
          </td>
       </tr>
    </table>
    
-  <%-- <hr width="100%" size="1" noshade="noshade" /> --%>
-
-      <div class="sectionHeader" width="100%">Past Tournaments</div>
+        <hr width="100%" size="1" noshade="noshade" />
+   
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
       <tr valign="top">
          <td style="padding-right: 8px;"><a href="http://community.topcoder.com/tco11"><img src="/i/tournament/tco11/TCO11_In_White.png" alt="2011 TopCoder Open" border="0" /></a><br /></td>
