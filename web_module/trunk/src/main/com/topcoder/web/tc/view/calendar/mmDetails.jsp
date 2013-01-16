@@ -829,6 +829,24 @@ total prize money. The detailed rules of this phase will be posted to the marath
                     <rsc:item name="reg_start_time" row="<%=rsr%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/>
                 </td>
             </tr>
+            <% if (roundId == 15520) { %>
+            <tr>
+                <td width="100%" align="left">
+                    <strong>1st milestone:</strong>
+                </td>
+                <td align="center" nowrap="nowrap">
+		<b>01.23.2013</b></br>
+		13:00 EST</td>
+            </tr>
+            <tr>
+                <td width="100%" align="left">
+                    <strong>2nd milestone:</strong>
+                </td>
+                <td align="center" nowrap="nowrap">
+		<b>01.30.2013</b></br>
+		13:00 EST</td>
+            </tr>
+            <% } %>
             <tr>
                 <td align="left">
                     <strong>Closes:</strong>
