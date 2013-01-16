@@ -103,6 +103,12 @@
       <td class="value">15
       </td>
       <td class="value">16
+         <div class="long">
+         <strong><a href="/tc?module=MatchDetails&rd=15520">ISS Longeron Challenge</a></strong><br />
+         13:00<br />
+         3 weeks<br />
+         $30k Prizes
+         </div>
       </td>
       <td class="value">17  
       </td>
