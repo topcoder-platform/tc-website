@@ -216,7 +216,7 @@
 		</table>
     <%}%>
 
-<%if (roundId == 15520) {%>
+<%if (round_id == 15520) {%>
 <div class="sectionHeader">Prizes</div>
     <p align="justify">There is a total $30,000 USD cash prize purse for this contest, 100 T-shirts, 5 stickers from space and 5 letters of recommendation. $25,000 USD is for the final prizes and $5,000 are for milestone prizes. The contestants with
 the 10 highest final scores will be awarded the following prizes.</p>
