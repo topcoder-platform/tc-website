@@ -564,7 +564,7 @@ for the final prizes, but not milestone prizes. The tester's identity will not b
 		<% if (round_id == 15520) {%>
 			As a condition of winning and redeeming a cash prize, Competitors will be required to submit, 
 			among other things, a completed TopCoder Competition Assignment Agreement, 
-			if one is not already on file with TopCoder, AND a you will need to submit a document explaining how your solution works.
+			if one is not already on file with TopCoder, AND a document explaining how their solution works.
 			If a Competitor solved the task offline, then the entire process used to find the submitted answers will need to be documented.
 			That should include all code, scripts, data used in this process.
 			The document must be submitted within 7 days after the contest results are published.
