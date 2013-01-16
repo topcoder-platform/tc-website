@@ -677,8 +677,6 @@ for the final prizes based on his initial submission, but not the tester is elig
 The tester's identity will not be revealed until the contest is over.</p>
 <%}%>
 
-<%}%>
-
 <%if(roundId == 15201 || roundId == 15202 || roundId == 15327) {%>
 <div class="sectionHeader">Prizes</div>
     <p align="justify">There will be $5,000 in total prize money.  The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
