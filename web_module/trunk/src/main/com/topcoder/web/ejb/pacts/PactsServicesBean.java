@@ -3174,16 +3174,15 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public Map findPayments(Map searchCriteria) throws SQLException {
         StringBuffer selectHeaders = new StringBuffer(3000);
-        selectHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, pd.payment_method_id, p.create_date, pd.create_date as modify_date,  ");
+        selectHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, pd.payment_method_id, p.create_date, pd.create_date as modify_date, ");
         selectHeaders.append("pt.payment_type_desc, pm.payment_method_desc, pd.net_amount, pd.payment_status_id, s.payment_status_desc, ");
         selectHeaders.append("p.user_id, u.handle, u.first_name, u.middle_name, u.last_name, ");
         selectHeaders.append("pd.date_modified, pd.date_paid, pd.gross_amount, nvl(pdsrx.payment_status_reason_id, 0) as payment_status_reason_id, ");
         selectHeaders.append("pd.algorithm_round_id, pd.component_project_id, pd.cockpit_project_id, pd.algorithm_problem_id, ");
         selectHeaders.append("pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, ");
         selectHeaders.append("pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.digital_run_track_id, pd.jira_issue_id, ");
-        selectHeaders.append("ttp.name as billing_account_name, ttp.po_box_number as po_number, tdp.project_id as cockpit_project_id, tdp.name as cockpit_project_name, ");
+        selectHeaders.append("ttp.name as billing_account_name, ttp.po_box_number as po_number, nvl(tdp1.project_id,tdp2.project_id) as cockpit_project_id, nvl(tdp1.name,tdp2.name) as cockpit_project_name, ");
         selectHeaders.append("pcl.name as project_category_name, ");
-
         // client_name
         selectHeaders.append(" nvl((select ttc.name from time_oltp:client_project ttcp, time_oltp:client ttc where ttp.project_id = ttcp.project_id and ttcp.client_id = ttc.client_id), pd.client) as client_name, ");
 
@@ -3191,20 +3190,19 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectHeaders.append(" (select min(i.invoice_number) from invoice i, invoice_record ir where i.invoice_id=ir.invoice_id and ir.payment_id = p.payment_id) as invoice_number ");
 
         StringBuffer from = new StringBuffer(1500);
-        from.append(" FROM payment p ");
-        from.append(" INNER JOIN payment_detail pd ON pd.payment_detail_id = p.most_recent_detail_id ");
-        from.append(" INNER JOIN payment_type_lu pt ON pt.payment_type_id = pd.payment_type_id ");
-        from.append(" INNER JOIN payment_method_lu pm ON pm.payment_method_id = pd.payment_method_id ");
-        from.append(" INNER JOIN payment_status_lu s ON s.payment_status_id = pd.payment_status_id ");
-        from.append(" INNER JOIN user u ON u.user_id = p.user_id ");
-        from.append(" LEFT OUTER JOIN payment_detail_status_reason_xref pdsrx ON pdsrx.payment_detail_id = pd.payment_detail_id ");
-        from.append(" LEFT OUTER JOIN tcs_catalog:project proj ON proj.project_id = pd.component_project_id ");
-        from.append(" LEFT OUTER JOIN tcs_catalog:project_category_lu pcl ON pcl.project_category_id = proj.project_category_id ");
-        from.append(" LEFT OUTER JOIN studio_oltp:contest cont ON cont.contest_id = pd.studio_contest_id ");
-        from.append(" LEFT OUTER JOIN tcs_catalog:project_info pi ON pi.project_id = pd.component_project_id and pi.project_info_type_id = 32 ");
-        from.append(" LEFT OUTER JOIN studio_oltp:contest_config cc1 ON cc1.contest_id = pd.studio_contest_id and cc1.property_id = 28 ");
-        from.append(" LEFT OUTER JOIN tcs_catalog:tc_direct_project tdp ON tdp.project_id = nvl(pd.cockpit_project_id, nvl(proj.tc_direct_project_id::int, cont.tc_direct_project_id::int)) ");
-        from.append(" LEFT OUTER JOIN time_oltp:project ttp ON ttp.project_id = nvl(pi.value::int,cc1.property_value::int) ");
+        from.append(" FROM payment p ")
+        from.append(" INNER JOIN payment_detail pd ON pd.payment_detail_id = p.most_recent_detail_id ")
+        from.append(" INNER JOIN payment_type_lu pt ON pt.payment_type_id = pd.payment_type_id ")
+        from.append(" INNER JOIN payment_method_lu pm ON pm.payment_method_id = pd.payment_method_id ")
+        from.append(" INNER JOIN payment_status_lu s ON s.payment_status_id = pd.payment_status_id ")
+        from.append(" INNER JOIN user u ON u.user_id = p.user_id ")
+        from.append(" LEFT OUTER JOIN payment_detail_status_reason_xref pdsrx ON pdsrx.payment_detail_id = pd.payment_detail_id ")
+        from.append(" LEFT OUTER JOIN tcs_catalog:project proj ON proj.project_id = pd.component_project_id ")
+        from.append(" LEFT OUTER JOIN tcs_catalog:project_category_lu pcl ON pcl.project_category_id = proj.project_category_id ")
+        from.append(" LEFT OUTER JOIN tcs_catalog:project_info pi ON pi.project_id = pd.component_project_id and pi.project_info_type_id = 32 ")
+        from.append(" LEFT OUTER JOIN tcs_catalog:tc_direct_project tdp1 ON tdp1.project_id = pd.cockpit_project_id ")
+        from.append(" LEFT OUTER JOIN tcs_catalog:tc_direct_project tdp2 ON tdp2.project_id = proj.tc_direct_project_id ")
+        from.append(" LEFT OUTER JOIN time_oltp:project ttp ON ttp.project_id = pi.value ")
 
         StringBuffer whereClauses = new StringBuffer(300);
         whereClauses.append(" WHERE 1=1 ");
