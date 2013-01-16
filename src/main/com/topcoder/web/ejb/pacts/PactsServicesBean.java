@@ -3190,19 +3190,19 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectHeaders.append(" (select min(i.invoice_number) from invoice i, invoice_record ir where i.invoice_id=ir.invoice_id and ir.payment_id = p.payment_id) as invoice_number ");
 
         StringBuffer from = new StringBuffer(1500);
-        from.append(" FROM payment p ")
-        from.append(" INNER JOIN payment_detail pd ON pd.payment_detail_id = p.most_recent_detail_id ")
-        from.append(" INNER JOIN payment_type_lu pt ON pt.payment_type_id = pd.payment_type_id ")
-        from.append(" INNER JOIN payment_method_lu pm ON pm.payment_method_id = pd.payment_method_id ")
-        from.append(" INNER JOIN payment_status_lu s ON s.payment_status_id = pd.payment_status_id ")
-        from.append(" INNER JOIN user u ON u.user_id = p.user_id ")
-        from.append(" LEFT OUTER JOIN payment_detail_status_reason_xref pdsrx ON pdsrx.payment_detail_id = pd.payment_detail_id ")
-        from.append(" LEFT OUTER JOIN tcs_catalog:project proj ON proj.project_id = pd.component_project_id ")
-        from.append(" LEFT OUTER JOIN tcs_catalog:project_category_lu pcl ON pcl.project_category_id = proj.project_category_id ")
-        from.append(" LEFT OUTER JOIN tcs_catalog:project_info pi ON pi.project_id = pd.component_project_id and pi.project_info_type_id = 32 ")
-        from.append(" LEFT OUTER JOIN tcs_catalog:tc_direct_project tdp1 ON tdp1.project_id = pd.cockpit_project_id ")
-        from.append(" LEFT OUTER JOIN tcs_catalog:tc_direct_project tdp2 ON tdp2.project_id = proj.tc_direct_project_id ")
-        from.append(" LEFT OUTER JOIN time_oltp:project ttp ON ttp.project_id = pi.value ")
+        from.append(" FROM payment p ");
+        from.append(" INNER JOIN payment_detail pd ON pd.payment_detail_id = p.most_recent_detail_id ");
+        from.append(" INNER JOIN payment_type_lu pt ON pt.payment_type_id = pd.payment_type_id ");
+        from.append(" INNER JOIN payment_method_lu pm ON pm.payment_method_id = pd.payment_method_id ");
+        from.append(" INNER JOIN payment_status_lu s ON s.payment_status_id = pd.payment_status_id ");
+        from.append(" INNER JOIN user u ON u.user_id = p.user_id ");
+        from.append(" LEFT OUTER JOIN payment_detail_status_reason_xref pdsrx ON pdsrx.payment_detail_id = pd.payment_detail_id ");
+        from.append(" LEFT OUTER JOIN tcs_catalog:project proj ON proj.project_id = pd.component_project_id ");
+        from.append(" LEFT OUTER JOIN tcs_catalog:project_category_lu pcl ON pcl.project_category_id = proj.project_category_id ");
+        from.append(" LEFT OUTER JOIN tcs_catalog:project_info pi ON pi.project_id = pd.component_project_id and pi.project_info_type_id = 32 ");
+        from.append(" LEFT OUTER JOIN tcs_catalog:tc_direct_project tdp1 ON tdp1.project_id = pd.cockpit_project_id ");
+        from.append(" LEFT OUTER JOIN tcs_catalog:tc_direct_project tdp2 ON tdp2.project_id = proj.tc_direct_project_id ");
+        from.append(" LEFT OUTER JOIN time_oltp:project ttp ON ttp.project_id = pi.value ");
 
         StringBuffer whereClauses = new StringBuffer(300);
         whereClauses.append(" WHERE 1=1 ");
