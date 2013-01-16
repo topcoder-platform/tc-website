@@ -311,7 +311,7 @@ Please check out the rules link below for more detail.
      roundId == 15034 || roundId == 15038 || roundId == 15076 || roundId == 15077 || roundId == 15078
      || roundId == 15080 || roundId == 15103 || roundId == 15120 || roundId == 15130 || roundId == 15189
      || roundId == 15201 || roundId == 15202 || roundId == 15322 || roundId == 15327 || roundId == 15398
-     || roundId == 15458) {%>
+     || roundId == 15458 || roundId == 15520) {%>
 <p align="justify">
     <b>Please note that this event is being run for a TopCoder customer.  By winning a prize in this event you agree to transfer ownership of
     your submission to TopCoder.  Please make sure to read
@@ -342,6 +342,13 @@ Please check out the rules link below for more detail.
 <p align="justify">
     This Marathon Match is a money match that has a <b>$10,000 prize purse</b>! The top five highest scorers 
 	will receive prizes with the first place winner receiving $5,000!
+</p>
+<%}%>
+
+<%if (roundId == 15520) {%>
+<p align="justify">
+This Marathon Match is a money match that has a <b>$30,000 prize purse</b>! The top ten highest scorers
+will receive prizes with the first place winner receiving $10,000!
 </p>
 <%}%>
 
@@ -585,6 +592,80 @@ submission, within one week of the announcment of the winners in order to receiv
 <p align="justify">
     
 </p>
+<%}%>
+
+<%if (roundId == 15520) {%>
+<div class="sectionHeader">Prizes</div>
+    <p align="justify">There is a total $30,000 USD cash prize purse for this contest, 100 T-shirts, 5 stickers from space and 5 letters of recommendation. $25,000 USD is for the final prizes and $5,000 are for milestone prizes. The contestants with
+the 10 highest final scores will be awarded the following prizes.</p>
+
+<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
+    <tr>
+        <td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right">$10,000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">2nd</td><td class="bodyText" align="right">$5,000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">3rd</td><td class="bodyText" align="right">$3,000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">4th</td><td class="bodyText" align="right">$1,750</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$1,500</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$1,250</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$1,000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$750</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$500</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$250</td>
+    </tr>
+</table>
+
+<p align="justify">One week after the start of the contest the first set of milestone prizes will be selected. The contestants with the top 4 highest
+provisional scores (on the leader board) at that time will receive the prizes listed below. Then two weeks after the start of the contest, the second
+set of milestone prizes will be selected for the contestants with the 4 highest provisional scores at that time.</p>
+
+<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="275">
+    <tr>
+        <td class="bodyText" nowrap="nowrap">&nbsp;</td><td class="bodyText" align="center"><b>Week 1</b></td><td class="bodyText" align="center"><b>Week 2</b></td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right">$1,000</td><td class="bodyText" align="right">$1,000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">2nd</td><td class="bodyText" align="right">$750</td><td class="bodyText" align="right">$750</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">3rd</td><td class="bodyText" align="right">$500</td><td class="bodyText" align="right">$500</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">4th</td><td class="bodyText" align="right">$250</td><td class="bodyText" align="right">$250</td>
+    </tr>
+</table>
+
+<p align="justify">Each of the contestants with one of the top 100 final non-zero scores will win a <b>NASA T-shirt</b>.</p>
+
+<p align="justify">There will also be final bonus prizes for the top 5 finishers. They will receive stickers from NASA <b>which have actually orbited the Earth</b>.
+These stickers were flown on Space Shuttle Endeavour, on mission STS-134, May 16, 2011. TopCoder will also provide letters of recommendation for the contestants
+with the top 5 highest final scores. These could be used to aid your job search, for applying for entry into a school or even for your astronaut application.</p>
+
+<p align="justify">If there are ties for any of the prizes, the tie will be broken by selecting the earliest submissions.</p>
+
+<p align="justify">Before the contest, this problem was extensively tested by an experienced marathon competitor (but for a shorter time period
+than the actual contest). The tester's pre-contest solution will be submitted at the start of the contest (using the handle "mm_tester") and
+not modified throughout the contest. This will make the tester's provisional score visible throughout the match. The tester will be eligible
+for the final prizes, but not milestone prizes. The tester's identity will not be revealed until the contest is over.</p>
 <%}%>
 
 <%if(roundId == 15201 || roundId == 15202 || roundId == 15327) {%>
