@@ -134,6 +134,21 @@
             Competitors may submit test examples once every 15 minutes. The competitors 
             rank and overall score will not be updated.
         </p>
+
+	<% if (round_id == 15520) { %>
+	<p align="justify">
+	TopCoder requires assignment of winning submissions in this competition. As a condition of 
+winning and redeeming a cash prize, Competitors will be required to submit, among other things,
+a completed TopCoder Competition Assignment Agreement, if one is not already on file with 
+TopCoder, AND a document explaining how their solution works. If a Competitor solved the 
+task offline, then the entire process used to find the submitted answers will need to be 
+documented. That should include all code, scripts, data used in this process. The document must
+be submitted within 7 days after the contest results are published. Questions sent by email from 
+TopCoder requesting clarification to this document must be answered within 3 days. If the 
+document or a response to a clarification request is not received, TopCoder reserves the right to 
+disqualify the submission.  
+	</p>
+	<% } %>
 		
 		<% if (Arrays.binarySearch(ntlRounds, round_id)>=0) { %>
 		<p align="justify">
@@ -218,8 +233,9 @@
 
 <%if (round_id == 15520) {%>
 <div class="sectionHeader">Prizes</div>
-    <p align="justify">There is a total $30,000 USD cash prize purse for this contest, 100 T-shirts, 5 stickers from space and 5 letters of recommendation. $25,000 USD is for the final prizes and $5,000 are for milestone prizes. The contestants with
-the 10 highest final scores will be awarded the following prizes.</p>
+    <p align="justify">There is a total $30,000 USD cash prize purse for this contest, 100 T-shirts, 5 stickers that have flown in space
+and 5 letters of recommendation. $25,000 USD is allocated for the final prizes and $5,000 are allocated for milestone prizes. The contestants with
+the 10 highest non-zero final scores will be awarded the following prizes.</p>
 
 <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
     <tr>
@@ -256,7 +272,8 @@ the 10 highest final scores will be awarded the following prizes.</p>
 
 <p align="justify">One week after the start of the contest the first set of milestone prizes will be selected. The contestants with the top 4 highest
 provisional scores (on the leader board) at that time will receive the prizes listed below. Then two weeks after the start of the contest, the second
-set of milestone prizes will be selected for the contestants with the 4 highest provisional scores at that time.</p>
+set of milestone prizes will be selected for the contestants with the 4 highest provisional scores at that time.
+See below for the exact date and time for the selection of the milestone winners. </p>
 
 <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="275">
     <tr>
@@ -276,18 +293,21 @@ set of milestone prizes will be selected for the contestants with the 4 highest 
     </tr>
 </table>
 
-<p align="justify">Each of the contestants with one of the top 100 final non-zero scores will win a <b>NASA T-shirt</b>.</p>
+<p align="justify">Each of the contestants with one of the top 100 final non-zero scores will win a NTL ISS Longeron T-Shirt.</p>
 
-<p align="justify">There will also be final bonus prizes for the top 5 finishers. They will receive stickers from NASA <b>which have actually orbited the Earth</b>.
-These stickers were flown on Space Shuttle Endeavour, on mission STS-134, May 16, 2011. TopCoder will also provide letters of recommendation for the contestants
-with the top 5 highest final scores. These could be used to aid your job search, for applying for entry into a school or even for your astronaut application.</p>
+<p align="justify">There will also be final bonus prizes for the top 5 final finishers. The
+1st, 2nd, 3rd, 4th, and 5th place final winners will receive stickers from NASA <b>which have actually orbited the Earth</b>.
+These stickers were flown on Space Shuttle Endeavour, on mission STS-134, May 16, 2011. TopCoder will also provide a letter of reference for
+each of the 1st, 2nd, 3rd, 4th, and 5th place final winners describing their performance in the contest.
+These could be used to aid your job search, for applying for entry into a school or even for your astronaut application.</p>
 
-<p align="justify">If there are ties for any of the prizes, the tie will be broken by selecting the earliest submissions.</p>
+<p align="justify"> If there are ties for any of the non-cash prizes, the tie will be broken by selecting the earliest submissions. In the event of a tie for a cash prize, the associated prize money will be divided evenly between the tied contestants.</p>
 
 <p align="justify">Before the contest, this problem was extensively tested by an experienced marathon competitor (but for a shorter time period
 than the actual contest). The tester's pre-contest solution will be submitted at the start of the contest (using the handle "mm_tester") and
-not modified throughout the contest. This will make the tester's provisional score visible throughout the match. The tester will be eligible
-for the final prizes, but not milestone prizes. The tester's identity will not be revealed until the contest is over.</p>
+will not be modified throughout the contest. This will make the tester's provisional score visible throughout the match. The tester will be eligible
+for the final prizes based on his initial submission, but not the tester is eligible for the milestone prizes.
+The tester's identity will not be revealed until the contest is over.</p>
 <%}%>
 
 
@@ -534,7 +554,6 @@ for the final prizes, but not milestone prizes. The tester's identity will not b
 		       || round_id == 15077 || round_id == 15078 || round_id == 15080 || round_id == 15103 || round_id == 15120
 		       || round_id == 15130 || round_id == 15189 || round_id == 15200 || round_id == 15201 || round_id == 15322
 			|| round_id == 15327 || round_id == 15458) { %>
-		
 			As a condition of winning and redeeming a cash prize, Competitors will be required to submit, 
 			among other things, a completed TopCoder Competition Assignment Agreement, 
 			if one is not already on file with TopCoder, AND a one to two-page description explaining how the algorithm for the winning submission works.
@@ -555,13 +574,14 @@ for the final prizes, but not milestone prizes. The tester's identity will not b
 			This description may or may not be published in a scientific article, in part or in full and may be substantially altered, at the discretion
 			of TopCoder. If the description is submitted for publication, you may or may not be offered an authorship position on the manuscript.
 			<% } %>
-		<%} else { %>
+		<%} else if (round_id != 15520) { %>
 
 			TopCoder does not require assignment of winning submissions in this competition.
 
 		<%}%>
 
 		<% if (round_id == 15520) {%>
+			TopCoder does require assignment of winning submissions in this competition.
 			As a condition of winning and redeeming a cash prize, Competitors will be required to submit, 
 			among other things, a completed TopCoder Competition Assignment Agreement, 
 			if one is not already on file with TopCoder, AND a document explaining how their solution works.
