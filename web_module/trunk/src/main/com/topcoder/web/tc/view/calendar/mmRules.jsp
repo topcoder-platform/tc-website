@@ -216,6 +216,81 @@
 		</table>
     <%}%>
 
+<%if (roundId == 15520) {%>
+<div class="sectionHeader">Prizes</div>
+    <p align="justify">There is a total $30,000 USD cash prize purse for this contest, 100 T-shirts, 5 stickers from space and 5 letters of recommendation. $25,000 USD is for the final prizes and $5,000 are for milestone prizes. The contestants with
+the 10 highest final scores will be awarded the following prizes.</p>
+
+<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
+    <tr>
+        <td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right">$10,000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">2nd</td><td class="bodyText" align="right">$5,000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">3rd</td><td class="bodyText" align="right">$3,000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">4th</td><td class="bodyText" align="right">$1,750</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$1,500</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$1,250</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$1,000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$750</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$500</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$250</td>
+    </tr>
+</table>
+
+<p align="justify">One week after the start of the contest the first set of milestone prizes will be selected. The contestants with the top 4 highest
+provisional scores (on the leader board) at that time will receive the prizes listed below. Then two weeks after the start of the contest, the second
+set of milestone prizes will be selected for the contestants with the 4 highest provisional scores at that time.</p>
+
+<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="275">
+    <tr>
+        <td class="bodyText" nowrap="nowrap">&nbsp;</td><td class="bodyText" align="right"><b>Week 1</b></td><td class="bodyText" align="right"><b>Week 2</b></td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right">$1,000</td><td class="bodyText" align="right">$1,000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">2nd</td><td class="bodyText" align="right">$750</td><td class="bodyText" align="right">$750</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">3rd</td><td class="bodyText" align="right">$500</td><td class="bodyText" align="right">$500</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">4th</td><td class="bodyText" align="right">$250</td><td class="bodyText" align="right">$250</td>
+    </tr>
+</table>
+
+<p align="justify">Each of the contestants with one of the top 100 final non-zero scores will win a <b>NASA T-shirt</b>.</p>
+
+<p align="justify">There will also be final bonus prizes for the top 5 finishers. They will receive stickers from NASA <b>which have actually orbited the Earth</b>.
+These stickers were flown on Space Shuttle Endeavour, on mission STS-134, May 16, 2011. TopCoder will also provide letters of recommendation for the contestants
+with the top 5 highest final scores. These could be used to aid your job search, for applying for entry into a school or even for your astronaut application.</p>
+
+<p align="justify">If there are ties for any of the prizes, the tie will be broken by selecting the earliest submissions.</p>
+
+<p align="justify">Before the contest, this problem was extensively tested by an experienced marathon competitor (but for a shorter time period
+than the actual contest). The tester's pre-contest solution will be submitted at the start of the contest (using the handle "mm_tester") and
+not modified throughout the contest. This will make the tester's provisional score visible throughout the match. The tester will be eligible
+for the final prizes, but not milestone prizes. The tester's identity will not be revealed until the contest is over.</p>
+<%}%>
+
+
     <%if(round_id == 15201 || round_id == 15202) {%>
 		<div class="sectionHeader">Prizes</div>
 		<p align="justify">There will be $5,000 in total prize money.  The 5 highest scorers in the round will receive prizes as follows:</p>
@@ -486,6 +561,17 @@
 
 		<%}%>
 
+		<% if (round_id == 15520) {%>
+			As a condition of winning and redeeming a cash prize, Competitors will be required to submit, 
+			among other things, a completed TopCoder Competition Assignment Agreement, 
+			if one is not already on file with TopCoder, AND a you will need to submit a document explaining how your solution works.
+			If a Competitor solved the task offline, then the entire process used to find the submitted answers will need to be documented.
+			That should include all code, scripts, data used in this process.
+			The document must be submitted within 7 days after the contest results are published.
+			Questions sent by email from TopCoder requesting clarification to this document must be answered within 3 days.
+			If the document or a response to a clarification request is not received, TopCoder reserves the right to disqualify the submission.
+		<%}%>
+
      </p>
 
     <div class="sectionHeader">Eligibility</div>
@@ -499,7 +585,7 @@
 		 rsr.getIntItem("round_id") == 15080 || rsr.getIntItem("round_id") == 15103 || rsr.getIntItem("round_id") == 15120 ||
 		 rsr.getIntItem("round_id") == 15130 || rsr.getIntItem("round_id") == 15189 || rsr.getIntItem("round_id") == 15200 ||
 		 rsr.getIntItem("round_id") == 15201 || rsr.getIntItem("round_id") == 15322 || rsr.getIntItem("round_id") == 15327
-		|| rsr.getIntItem("round_id") == 15398 || rsr.getIntItem("round_id") == 15458) {%>
+		|| rsr.getIntItem("round_id") == 15398 || rsr.getIntItem("round_id") == 15458 || rsr.getIntItem("round_id") == 15520) {%>
 
 		<p align="justify">
 			This Competition is open to all members of the TopCoder website, who have agreed to the terms thereof, and who are at least 
@@ -574,7 +660,7 @@
 	<% if (Arrays.binarySearch(assignRounds, round_id)>=0 || round_id==14525 || round_id == 14584 || round_id == 15024 || round_id == 15075 ||
 	       round_id == 15023 || round_id == 15034 || round_id == 15038 || round_id == 15076 || round_id == 15077 || round_id == 15078
 	       || round_id == 15080 || round_id == 15103 || round_id == 15120 || round_id == 15130 || round_id == 15189 || round_id == 15200
-	       || round_id == 15201 || round_id == 15322 || round_id == 15327 || round_id == 15398 || round_id == 15458) { %>
+	       || round_id == 15201 || round_id == 15322 || round_id == 15327 || round_id == 15398 || round_id == 15458 || round_id == 15520) { %>
 		
 		<p align="justify">
 			You hereby acknowledge and agree that TopCoder owns, solely and exclusively, all right, title and interest, including all intellectual property 

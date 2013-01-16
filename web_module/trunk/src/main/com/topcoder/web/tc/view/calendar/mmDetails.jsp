@@ -638,7 +638,7 @@ set of milestone prizes will be selected for the contestants with the 4 highest 
 
 <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="275">
     <tr>
-        <td class="bodyText" nowrap="nowrap">&nbsp;</td><td class="bodyText" align="center"><b>Week 1</b></td><td class="bodyText" align="center"><b>Week 2</b></td>
+        <td class="bodyText" nowrap="nowrap">&nbsp;</td><td class="bodyText" align="right"><b>Week 1</b></td><td class="bodyText" align="right"><b>Week 2</b></td>
     </tr>
     <tr>
         <td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right">$1,000</td><td class="bodyText" align="right">$1,000</td>
