@@ -6,22 +6,33 @@ package com.topcoder.web.reg;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.naming.Context;
 
 import com.topcoder.security.GroupPrincipal;
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.UserPrincipal;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.EmailEngine;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.dao.InvalidHandleDAO;
 import com.topcoder.web.common.dao.InvalidHandleDAOException;
-import com.topcoder.web.reg.action.BaseAction;
+import com.topcoder.web.common.dao.UserDAO;
+import com.topcoder.web.common.model.Coder;
+import com.topcoder.web.common.model.Email;
+import com.topcoder.web.common.model.User;
 
 /**
  * Helper class used in this application.
@@ -36,12 +47,51 @@ import com.topcoder.web.reg.action.BaseAction;
  * <li>Add method {@link #checkAgainstPattern(String, Pattern)}</li>
  * </ul>
  * </p>
+ * <p>
+ * Change log for version 1.2
+ * <ul>
+ * <li>Add method {@link #addSecurityStuff(User)}</li>
+ * <li>Add method {@link #revertSecurityStuff(User, Exception)}</li>
+ * <li>Add method {@link #validate(UserDTO)} </li>
+ * <li>Add method {@link #populateUser(UserDTO)} </li>
+ * <li>Add constant {@link #EMAIL_REGEX}</li>
+ * <li>Add constant {@link #VALID_EMAIL_PATTERN}</li>
+ * <li>Add constant {@link #CAPTCHA_APPLICATION_KEY}</li>
+ * <li>Add constant {@link #CAPTCHA_RELATIVE_DIR}</li>
+ * </ul>
+ * </p>
  * 
  * @author live_world, leo_lol
- * @version 1.1
+ * @version 1.2
  * @since 1.0
  */
 public final class RegHelper {
+
+    /**
+     * Represents the logger.
+     */
+    protected static final Logger LOGGER = Logger.getLogger(RegHelper.class);
+
+    /**
+     * Email regular expression.
+     */
+    private static final String EMAIL_REGEX = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+
+    /**
+     * Represents the valid email pattern. It's declared public on purpose so
+     * that other class may access it there is a need.
+     */
+    public static final Pattern VALID_EMAIL_PATTERN = Pattern.compile(EMAIL_REGEX);
+
+    /**
+     * This is the key, referencing the id-captcha_word map.
+     */
+    public static final String CAPTCHA_APPLICATION_KEY = "captcha_application_key";
+
+    /**
+     * This constant stores the relative path of captcha images.
+     */
+    public static final String CAPTCHA_RELATIVE_DIR = "i/captcha/";
 
     /**
      * <p>
@@ -53,8 +103,8 @@ public final class RegHelper {
      * 
      * @since 1.1
      */
-    private static final Pattern[] INVALID_HANDLE_PATTERNS = new Pattern[] {Pattern.compile("(.*?)es"), 
-        Pattern.compile("(.*?)s"), Pattern.compile("_*(.*?)_*") };
+    private static final Pattern[] INVALID_HANDLE_PATTERNS = new Pattern[] { Pattern.compile("(.*?)es"),
+            Pattern.compile("(.*?)s"), Pattern.compile("_*(.*?)_*") };
 
     /**
      * Private constructor.
@@ -126,6 +176,101 @@ public final class RegHelper {
      */
     public static boolean isEmptyString(String string) {
         return string == null || string.trim().length() == 0;
+    }
+
+    /**
+     * This method would validate {@link UserDTO}.
+     * 
+     * @param userDTO
+     *            UserDTO to validate.
+     * @return An instance of {@link Map} containing validation result.
+     */
+    public static Map<String, String> validate(UserDTO userDTO) {
+        if (null == userDTO) {
+            throw new IllegalArgumentException("userDTO cannot be null");
+        }
+        Map<String, String> info = new HashMap<String, String>();
+        if (isEmptyString(userDTO.getFirstName())) {
+            info.put("firstName", "First name is required");
+        }
+
+        if (isEmptyString(userDTO.getLastName())) {
+            info.put("lastName", "Last name is required");
+        }
+
+        // check if the handle is valid.
+        String handleValidationResult = RegHelper.validateHandle(userDTO.getHandle());
+        if (null != handleValidationResult) {
+            info.put("handle", handleValidationResult);
+        }
+
+        UserDAO userDAO = DAOUtil.getFactory().getUserDAO();
+
+        // check handle availability
+        if (!info.containsKey("handle")) {
+            if (userDAO.find(userDTO.getHandle(), true) != null) {
+                info.put("handle", "The handle - '" + userDTO.getHandle()
+                        + "' is already registered, please use another one.");
+            }
+        }
+
+        if (isEmptyString(userDTO.getPassword())) {
+            info.put("password", "Password is required");
+        }
+
+        if (isEmptyString(userDTO.getEmail())) {
+            info.put("email", "Email is required");
+        } else {
+            Matcher matcher = RegHelper.VALID_EMAIL_PATTERN.matcher(userDTO.getEmail().trim());
+            if (!matcher.matches()) {
+                info.put("email", "Please input valid email address");
+            } else {
+                if (userDAO.find(null, null, null, userDTO.getEmail().trim()).size() > 0) {
+                    info.put("email", "The email - '" + userDTO.getEmail()
+                            + "' is already registered, please use another one.");
+                }
+            }
+        }
+
+        if (!info.containsKey("password") && !userDTO.getPassword().equals(userDTO.getConfirmPassword())) {
+            info.put("password", "password and confirm password should be exactly same");
+        }
+
+        return info;
+    }
+
+    /**
+     * This class is to populate the {@link User} instance according to
+     * front-end input data.
+     * 
+     * @param userDTO
+     *            From which to populate User instance. Not null.
+     * @return Instance of {@link User}.
+     */
+    public static User populateUser(UserDTO userDTO) {
+        if (null == userDTO) {
+            throw new IllegalArgumentException("userDTO cannot be null");
+        }
+        User user = new User();
+        user.setFirstName(userDTO.getFirstName());
+        user.setLastName(userDTO.getLastName());
+        user.setHandle(userDTO.getHandle());
+        if (null != userDTO.getEmail()) {
+            Email emailAdd = new Email();
+            emailAdd.setAddress(userDTO.getEmail());
+            emailAdd.setPrimary(Boolean.TRUE);
+            emailAdd.setEmailTypeId(Email.TYPE_ID_PRIMARY);
+            emailAdd.setStatusId(Email.STATUS_ID_UNACTIVE);
+            emailAdd.setUser(user);
+            user.addEmailAddress(emailAdd);
+        }
+        user.setPassword(userDTO.getPassword());
+        // create a new coder record
+        Coder coder = new Coder();
+        // coder.setCompCountry(DAOUtil.getFactory().getCountryDAO().find("840"));
+        // coder.setCoderType(DAOUtil.getFactory().getCoderTypeDAO().find(CoderType.PROFESSIONAL));
+        user.setCoder(coder);
+        return user;
     }
 
     /**
@@ -222,16 +367,17 @@ public final class RegHelper {
      *            The handle to check
      * @param action
      *            The action needing validation to perform.
-     * @return true if the given handle is available, valid and non-offensive;
-     *         false there there is at least one violated discipline.
+     * @return null if the given handle is available, valid and non-offensive;
+     *         error description there there is at least one violated
+     *         discipline.
      * @since 1.1
      */
-    public static boolean validateHandle(String handle, BaseAction action) {
-
+    public static String validateHandle(String handle) {
+        String result = null;
         // check empty
         if (isEmptyString(handle)) {
-            action.addFieldError("handle", "Please fill your handle");
-            return false;
+            result = "Please fill your handle";
+            return result;
         }
 
         handle = handle.trim();
@@ -240,36 +386,35 @@ public final class RegHelper {
         final int len = handle.length();
 
         if (len < Constants.MIN_HANDLE_LENGTH) {
-            action.addFieldError("handle", "The handle must be at least " + Constants.MIN_HANDLE_LENGTH
-                    + " characters long.");
-            return false;
+            result = "The handle must be at least " + Constants.MIN_HANDLE_LENGTH + " characters long.";
+            return result;
         }
 
         if (len > Constants.MAX_HANDLE_LENGTH) {
-            action.addFieldError("handle", "The handle must be at most " + Constants.MAX_HANDLE_LENGTH + " characters long.");
-            return false;
+            result = "The handle must be at most " + Constants.MAX_HANDLE_LENGTH + " characters long.";
+            return result;
         }
 
         if (!StringUtils.containsOnly(handle, Constants.HANDLE_ALPHABET, false)) {
-            action.addFieldError("handle", "The handle may contain only letters, numbers and " + Constants.HANDLE_PUNCTUATION);
-            return false;
+            result = "The handle may contain only letters, numbers and " + Constants.HANDLE_PUNCTUATION;
+            return result;
         }
 
         if (StringUtils.containsOnly(handle, Constants.HANDLE_PUNCTUATION, false)) {
-            action.addFieldError("handle", "The handle may not contain only punctuation.");
-            return false;
+            result = "The handle may not contain only punctuation.";
+            return result;
         }
 
         if (handle.toLowerCase().trim().startsWith("admin")) {
-            action.addFieldError("handle", "Please choose another handle, not starting with admin.");
-            return false;
+            result = "Please choose another handle, not starting with admin.";
+            return result;
         }
         if (checkInvalidHandle(handle)) {
-            action.addFieldError("handle", "The handle you entered is not valid.");
-            return false;
+            result = "The handle you entered is not valid.";
+            return result;
         }
 
-        return true;
+        return result;
     }
 
     /**
@@ -389,5 +534,78 @@ public final class RegHelper {
             }
         }
         return false;
+    }
+
+    /**
+     * Adds the user to security groups.
+     * 
+     * @param user
+     *            the user to be created
+     * @throws Exception
+     *             any exception while creation
+     * @since 1.1
+     */
+    @SuppressWarnings("unchecked")
+    public static void addSecurityStuff(User user) throws Exception {
+        Context ctx = null;
+        try {
+            ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY,
+                    ApplicationServer.SECURITY_PROVIDER_URL);
+            // 132456 is a dump user id for creating user.this is from existing
+            // code.
+            TCSubject tcs = new TCSubject(132456);
+
+            PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+            PrincipalMgrRemote pmr = pmrh.create();
+            // create the security user entry
+            UserPrincipal myPrincipal = pmr.createUser(user.getId(), user.getHandle(), user.getPassword(), tcs,
+                    DBMS.JTS_OLTP_DATASOURCE_NAME);
+
+            // add them to these two as well. eventually i'm guessing we'll
+            // rearrange security and this'll change
+            Collection<GroupPrincipal> groups = pmr.getGroups(tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
+
+            GroupPrincipal anonGroup = RegHelper.findGroupPrincipal(groups, "Anonymous");
+            if (anonGroup != null) {
+                pmr.addUserToGroup(anonGroup, myPrincipal, tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
+            }
+            GroupPrincipal userGroup = RegHelper.findGroupPrincipal(groups, "Users");
+            if (userGroup != null) {
+                pmr.addUserToGroup(userGroup, myPrincipal, tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
+            }
+
+            // refresh the cached object
+            SecurityHelper.getUserSubject(user.getId().longValue(), true, DBMS.JTS_OLTP_DATASOURCE_NAME);
+        } finally {
+            RegHelper.closeContext(LOGGER, ctx);
+        }
+
+    }
+
+    /**
+     * Reverts the security stuff.
+     * 
+     * @param user
+     *            the User to revert
+     * @param exception
+     *            the occurred exception
+     */
+    public static void revertSecurityStuff(User user, Exception exception) throws Exception {
+        if (user != null && user.getId() != null) {
+            Context ctx = null;
+            try {
+                ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY,
+                        ApplicationServer.SECURITY_PROVIDER_URL);
+                PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+                PrincipalMgrRemote pmr = pmrh.create();
+                pmr.removeUser(new UserPrincipal("", user.getId().longValue()), new TCSubject(132456));
+
+            } catch (Throwable ex) {
+                throw new Exception("problem in exception callback for user: " + user.getId() + " "
+                        + exception.getMessage(), ex);
+            } finally {
+                RegHelper.closeContext(LOGGER, ctx);
+            }
+        }
     }
 }

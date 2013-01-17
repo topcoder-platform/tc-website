@@ -1,3 +1,13 @@
+<!-- 
+    - Copyright (C) 2012 TopCoder Inc., All Rights Reserved.
+    -
+    - This is the registration page.
+    - Change log for version 1.1:
+    -     input names are updated are Action now uses Model-Driven Design Pattern: e.g. handle->userDTO.handle.
+	- Author: leo_lol
+	- Version: 1.1
+	- Since: 1.0 
+ -->
 <%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -29,12 +39,12 @@
 					<!-- #mainContent -->
 					<div id="mainContent">					
 							<div class="mainContentInner">
-                            <div id="formRegister">
+							<form id="formRegister" name="formRegister" action="registerAction.action" method="post">
 								<div class="registerBox">
 									<div class="elemLine">
 										<div class="leftPart">First Name :</div>
 										<div class="rightPart">
-											<s:textfield name="firstName" id="firstName" cssClass="text textNormal leftFloat" tabIndex="1"/>
+											<s:textfield name="userDTO.firstName" id="firstName" cssClass="text textNormal leftFloat" tabIndex="1"/>
 											<span class="tipError error1">Please fill your first name</span>
 											<span class="tipError error2">Your first name is too long</span>
 										</div>
@@ -43,7 +53,7 @@
 									<div class="elemLine">
 										<div class="leftPart">Last Name :</div>
 										<div class="rightPart">
-											<s:textfield name="lastName" id="lastName" cssClass="text textNormal leftFloat" tabIndex="2"/>
+											<s:textfield name="userDTO.lastName" id="lastName" cssClass="text textNormal leftFloat" tabIndex="2"/>
 											<span class="tipError error1">Please fill your last name</span>
 											<span class="tipError error2">Your last name is too long</span>
 										</div>
@@ -52,7 +62,7 @@
 									<div class="elemLine">
 										<div class="leftPart">Handle :</div>
 										<div class="rightPart">
-											<s:textfield name="handle" id="handle" cssClass="text textNormal leftFloat" tabIndex="3"/>
+											<s:textfield name="userDTO.handle" id="handle" cssClass="text textNormal leftFloat" tabIndex="3"/>
 											<span class="tipError">Your handle is too short</span>
 										</div>
 										<div class="clearAll"></div>
@@ -60,7 +70,7 @@
 									<div class="elemLine">
 										<div class="leftPart">E-mail :</div>
 										<div class="rightPart">
-											<s:textfield name="email" id="email" cssClass="text textNormal leftFloat" tabIndex="4"/>
+											<s:textfield name="userDTO.email" id="email" cssClass="text textNormal leftFloat" tabIndex="4"/>
 											<span class="tipError">Please fill your valid email</span>
 										</div>
 										<div class="clearAll"></div>
@@ -68,7 +78,7 @@
 									<div class="elemLine">
 										<div class="leftPart">Password :</div>
 										<div class="rightPart">
-											<s:password id="loginPassword" name="password" cssClass="text textShort leftFloat" tabIndex="5"/>
+											<s:password id="loginPassword" name="userDTO.password" cssClass="text textShort leftFloat" tabIndex="5"/>
 											<span class="compareError">Passwords do not match</span>
 											<span class="tipError">Please fill your password</span>
 											<div class="barBox">
@@ -86,7 +96,7 @@
 									<div class="elemLine">
 										<div class="leftPart">Confirm Password :</div>
 										<div class="rightPart">
-											<s:password name="passwordConfirm" id="confirmPassword" cssClass="text textShort leftFloat" tabIndex="6"/>
+											<s:password name="userDTO.confirmPassword" id="confirmPassword" cssClass="text textShort leftFloat" tabIndex="6"/>
 											<span class="tipError">Please confirm your password</span>
 										</div>
 										<div class="clearAll"></div>
@@ -98,7 +108,7 @@
 												name="loadCaptchaAction"></s:action></div>
 											<p class="tryAnotherCode"><a id="tryAnotherCode" href="javascript:;" tabIndex="7">Try Another Code</a></p>
 											<div class="verificationCodeInput">
-												<s:textfield name="captchaWord" id="captchaWord" cssClass="text textShorter leftFloat" tabIndex="8"/>
+												<s:textfield name="userDTO.captchaWord" id="captchaWord" cssClass="text textShorter leftFloat" tabIndex="8"/>
 												<div class="tipError error1">Please fill verification code</div>
 												<div class="tipError error2">Your verification code is incorrect</div>
 												<div class="clear"></div>
@@ -115,7 +125,7 @@
 										<div class="clearAll"></div>
 									</div>
 								</div>
-							</div>
+							</form>
 						</div>
 						
 					</div>

@@ -3,22 +3,25 @@
  */
 package com.topcoder.web.reg.action;
 
-import java.io.FileOutputStream;
-
 import org.apache.struts2.ServletActionContext;
 
-import com.topcoder.randomstringimg.RandomStringImage;
+import com.topcoder.web.reg.Captcha;
+import com.topcoder.web.reg.CaptchaGenerator;
 
 /**
  * <p>
  * Loads captcha action for registering user.
  * </p>
+ * <p>
+ * Version 1.1 change log: This class has been completely refactored, major
+ * logic has been extracted into {@link CaptchaGenerator}.
+ * </p>
  * 
- * @author live_world
- * @version 1.0
+ * @author live_world, leo_lol
+ * @since 1.0
+ * @version 1.1
  */
 public class LoadCaptchaAction extends BaseAction {
-
     /**
      * serial version UID.
      */
@@ -30,33 +33,26 @@ public class LoadCaptchaAction extends BaseAction {
     private String captchaFile;
 
     /**
-     * Random string image configuration file.
+     * Captcha Generator, this class would manage the lifecycle of all captchas.
+     * It's be injected by Spring. Not null after IoC.
      */
-    private String randomStringImageConfigFile;
+    private CaptchaGenerator captchaGenerator;
 
     /**
      * Loads captcha for registering a new user.
      * 
-     * @return a <code>String</code> referencing the next view or action to route request to
-     * @throws Exception if an unexpected error occurs while processing the request
+     * @return a <code>String</code> referencing the next view or action to
+     *         route request to
+     * @throws Exception
+     *             if an unexpected error occurs while processing the request
      */
     @Override
     public String execute() throws Exception {
-        try {
-            captchaFile = "REG_" + System.currentTimeMillis() + ".png";
-            String appRoot = ServletActionContext.getRequest().getSession().getServletContext().getRealPath("/");
-            RandomStringImage rsi = new RandomStringImage(randomStringImageConfigFile);
-            FileOutputStream fos = new FileOutputStream(appRoot + "i/captcha/" + captchaFile);
-
-            try {
-                String word = rsi.generateRandomFromDictionaries(fos);
-                getSessionData().setCaptchaWord(word);
-            } finally {
-                fos.close();
-            }
-        } catch (Throwable e) {
-            e.printStackTrace();
-        }
+        Captcha captcha = captchaGenerator.generate(ServletActionContext.getRequest());
+        captchaFile = captcha.getPath();
+        getSessionData().setCaptchaWord(captcha.getWord());
+        // store the UUID
+        ServletActionContext.getRequest().getSession().setAttribute("UUID", captcha.getUuid());
         return SUCCESS;
     }
 
@@ -70,11 +66,14 @@ public class LoadCaptchaAction extends BaseAction {
     }
 
     /**
-     * The setter for the randomStringImageConfigFile instance variable.
+     * <p>
+     * Setter of captchaGenerator field.
+     * </p>
      * 
-     * @param randomStringImageConfigFile the randomStringImageConfigFile to set
+     * @param captchaGenerator
+     *            the captchaGenerator to set
      */
-    public void setRandomStringImageConfigFile(String randomStringImageConfigFile) {
-        this.randomStringImageConfigFile = randomStringImageConfigFile;
+    public void setCaptchaGenerator(CaptchaGenerator captchaGenerator) {
+        this.captchaGenerator = captchaGenerator;
     }
 }
