@@ -621,19 +621,19 @@ the 10 highest non-zero final scores will be awarded the following prizes.</p>
         <td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$1,500</td>
     </tr>
     <tr>
-        <td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$1,250</td>
+        <td class="bodyText" nowrap="nowrap">6th</td><td class="bodyText" align="right">$1,250</td>
     </tr>
     <tr>
-        <td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$1,000</td>
+        <td class="bodyText" nowrap="nowrap">7th</td><td class="bodyText" align="right">$1,000</td>
     </tr>
     <tr>
-        <td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$750</td>
+        <td class="bodyText" nowrap="nowrap">8th</td><td class="bodyText" align="right">$750</td>
     </tr>
     <tr>
-        <td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$500</td>
+        <td class="bodyText" nowrap="nowrap">9th</td><td class="bodyText" align="right">$500</td>
     </tr>
     <tr>
-        <td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$250</td>
+        <td class="bodyText" nowrap="nowrap">10th</td><td class="bodyText" align="right">$250</td>
     </tr>
 </table>
 
