@@ -222,7 +222,7 @@ $(document).ready(function(){
 		$.ajax({
               type: 'POST',
               url:  ctx + "/registerAction.action",
-              data: {"firstName":firstName, "lastName":lastName, "handle":handle, "email":emailAddress, "password":password, "passwordConfirm":passwordConfirm, "captchaWord": veriCode},
+              data: {"userDTO.firstName":firstName, "userDTO.lastName":lastName, "userDTO.handle":handle, "userDTO.email":emailAddress, "userDTO.password":password, "userDTO.confirmPassword":passwordConfirm, "userDTO.captchaWord": veriCode},
               cache: false,
               dataType: 'json',
               async : true,
