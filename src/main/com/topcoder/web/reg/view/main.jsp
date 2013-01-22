@@ -117,7 +117,7 @@
     </div>
 </div> --%>
 
-    <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="mainForm">
+    <form action="${sessionInfo.secureAbsoluteServletPath}" method="post" name="mainForm">
 
         <div class="block">
             <div class="sidebar">
@@ -234,7 +234,7 @@
                             
                             <label for="<%=Constants.ADDRESS1%>">
                             <c:if test="${cf:contains(reqFields, address1)}"><span class="required">*</span></c:if>
-                            Current Address 1:
+                            Current Street Address:
                             </label>
                             <tc-webtag:textInput name="<%=Constants.ADDRESS1%>" id="<%=Constants.ADDRESS1%>" size="40" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/>
                             
@@ -253,7 +253,7 @@
                             
                             <label for="<%=Constants.ADDRESS2%>">
                             <c:if test="${cf:contains(reqFields, address2)}"><span class="required">*</span></c:if>
-                            Current Address 2:
+                             Apartment # / Dorm:
                             </label>
                             <tc-webtag:textInput name="<%=Constants.ADDRESS2%>" id="<%=Constants.ADDRESS2%>" size="40" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/>
                             
@@ -272,7 +272,7 @@
                             
                             <label for="<%=Constants.ADDRESS3%>">
                             <c:if test="${cf:contains(reqFields, address3)}"><span class="required">*</span></c:if>
-                            Current Address 3:
+                             Additional Address Information:
                             </label>
                             <tc-webtag:textInput name="<%=Constants.ADDRESS3%>" id="<%=Constants.ADDRESS3%>" size="40" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/>
                             
@@ -329,7 +329,7 @@
                             
                             <label for="<%=Constants.POSTAL_CODE%>">
                             <c:if test="${cf:contains(reqFields, postalCode)}"><span class="required">*</span></c:if>
-                            Postal Code:
+                            Zip / Postal Code:
                             </label>
                             <tc-webtag:textInput name="<%=Constants.POSTAL_CODE%>" id="<%=Constants.POSTAL_CODE%>" size="40" maxlength="<%=Constants.MAX_POSTAL_CODE_LENGTH%>" editable="true"/>
                             
@@ -751,7 +751,7 @@
                         </c:if>
 
 						<c:if test="${isNewReg}">
-							<input type="hidden" name="<%=Constants.SECURITY_KEY%>" value="">						
+							<input type="hidden" name="<%=Constants.SECURITY_KEY%>" value="" />						
 						</c:if>
                         <c:if test="${not isNewReg}">
 							<c:set value="<%=Constants.SECURITY_KEY%>" var="securityKey"/>
