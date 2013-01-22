@@ -49,7 +49,7 @@
 
                         <div class="content-body">
                         
-                    <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="confirmForm">
+                    <form action="${sessionInfo.secureAbsoluteServletPath}" method="post" name="confirmForm">
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>
 
                     
@@ -125,7 +125,7 @@
 <c:if test="${cf:contains(fields, address1)}">
     <tr>
         <td class="field-name">
-            Current Address1:
+            Current Street Address:
         </td>
         <td class="field-value">
                 <c:out value="${regUser.homeAddress.address1}" />
@@ -137,7 +137,7 @@
 <c:if test="${cf:contains(fields, address2)}">
     <tr>
         <td class="field-name">
-            Current Address2:
+            Apartment # / Dorm:
         </td>
         <td class="field-value">
                 <c:out value="${regUser.homeAddress.address2}" />
@@ -149,7 +149,7 @@
 <c:if test="${cf:contains(fields, address3)}">
     <tr>
         <td class="field-name">
-            Current Address3:
+             Additional Address Information:
         </td>
         <td class="field-value">
                 <c:out value="${regUser.homeAddress.address3}" />
@@ -185,7 +185,7 @@
 <c:if test="${cf:contains(fields, postalCode)}">
     <tr>
         <td class="field-name">
-            Postal Code:
+            Zip / Postal Code:
         </td>
         <td class="field-value">
                 <c:out value="${regUser.homeAddress.postalCode}"/>
