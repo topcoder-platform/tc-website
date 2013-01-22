@@ -12,6 +12,7 @@
 
 <%@ include file="/includes/util.jsp" %>
 <%@ include file="/includes/session.jsp" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%
     // STANDARD PAGE VARIABLES
@@ -189,7 +190,7 @@
 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="middle">
-                    <td class="searchResults">Your search for "<%= keywords %>" found <%= componentSearchResults.size() %> result<%= componentSearchResults.size() == 1 ? "" : "s" %>.</td>
+                    <td class="searchResults">Your search for <c:out value="<%= keywords %>" /> found <%= componentSearchResults.size() %> result<%= componentSearchResults.size() == 1 ? "" : "s" %>.</td>
                     <td width="1%" align="right">
                     </td>
                 </tr>
