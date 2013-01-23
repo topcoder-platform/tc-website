@@ -101,7 +101,8 @@
                ${infoRow.map['num_registrants']}</a></span>
             <br/>
             </c:if>
-<span class="bodySubtitle">Competitors:  ${infoRow.map['num_competitors']}</span>
+<span class="bodySubtitle">Competitors:  ${infoRow.map['num_competitors']}</span><br/>
+<span class="bodySubtitle">Submissions:  ${infoRow.map['submission_count']}</span>
 <br>
 <form name="standingsForm" action='<jsp:getProperty name="sessionInfo" property="servletPath"/>' method="get">
     <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
