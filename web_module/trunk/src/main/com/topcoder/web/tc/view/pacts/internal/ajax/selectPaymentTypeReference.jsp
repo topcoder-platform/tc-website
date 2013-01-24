@@ -292,6 +292,9 @@
          </c:if>
          <c:if test="${refId <= 0}">
             <tr id="selectReference"> <td></td><td></td></tr>
+            <script type="text/javascript">
+                doReferenceChanged(0);
+            </script>
          </c:if>
      </taconite-replace>
      
