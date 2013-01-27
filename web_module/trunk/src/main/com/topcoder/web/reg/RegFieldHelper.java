@@ -102,6 +102,7 @@ public class RegFieldHelper {
         requiredMainCompFields.add(Constants.SURNAME);
         requiredMainCompFields.add(Constants.ADDRESS1);
         requiredMainCompFields.add(Constants.CITY);
+        requiredMainCompFields.add(Constants.POSTAL_CODE);
         requiredMainCompFields.add(Constants.COUNTRY_CODE);
         requiredMainCompFields.add(Constants.HANDLE);
         requiredMainCompFields.add(Constants.PASSWORD);
@@ -236,6 +237,7 @@ public class RegFieldHelper {
         requiredMainCorpFields.add(Constants.SURNAME);
         requiredMainCorpFields.add(Constants.ADDRESS1);
         requiredMainCorpFields.add(Constants.CITY);
+        requiredMainCorpFields.add(Constants.POSTAL_CODE);
         requiredMainCorpFields.add(Constants.COUNTRY_CODE);
         requiredMainCorpFields.add(Constants.PHONE_NUMBER);
         requiredMainCorpFields.add(Constants.HANDLE);
@@ -282,6 +284,7 @@ public class RegFieldHelper {
         requiredMainSoftwareFields.add(Constants.SURNAME);
         requiredMainSoftwareFields.add(Constants.ADDRESS1);
         requiredMainSoftwareFields.add(Constants.CITY);
+        requiredMainSoftwareFields.add(Constants.POSTAL_CODE);
         requiredMainSoftwareFields.add(Constants.COUNTRY_CODE);
         requiredMainSoftwareFields.add(Constants.PHONE_NUMBER);
         requiredMainSoftwareFields.add(Constants.HANDLE);
@@ -343,6 +346,7 @@ public class RegFieldHelper {
         requiredMainStudioFields.add(Constants.SURNAME);
         requiredMainStudioFields.add(Constants.ADDRESS1);
         requiredMainStudioFields.add(Constants.CITY);
+        requiredMainStudioFields.add(Constants.POSTAL_CODE);
         requiredMainStudioFields.add(Constants.COUNTRY_CODE);
         requiredMainStudioFields.add(Constants.HANDLE);
         requiredMainStudioFields.add(Constants.PASSWORD);
@@ -419,6 +423,7 @@ public class RegFieldHelper {
         requiredMainTeacherFields.add(Constants.SURNAME);
         requiredMainTeacherFields.add(Constants.ADDRESS1);
         requiredMainTeacherFields.add(Constants.CITY);
+        requiredMainTeacherFields.add(Constants.POSTAL_CODE);
         requiredMainTeacherFields.add(Constants.COUNTRY_CODE);
         requiredMainTeacherFields.add(Constants.PHONE_NUMBER);
         requiredMainTeacherFields.add(Constants.HANDLE);
@@ -482,6 +487,7 @@ public class RegFieldHelper {
         requiredMainOpenAIMFields.add(Constants.SURNAME);
         requiredMainOpenAIMFields.add(Constants.ADDRESS1);
         requiredMainOpenAIMFields.add(Constants.CITY);
+        requiredMainOpenAIMFields.add(Constants.POSTAL_CODE);
         requiredMainOpenAIMFields.add(Constants.COUNTRY_CODE);
         requiredMainOpenAIMFields.add(Constants.HANDLE);
         requiredMainOpenAIMFields.add(Constants.PASSWORD);
@@ -560,6 +566,7 @@ public class RegFieldHelper {
         requiredMainTruveoFields.add(Constants.SURNAME);
         requiredMainTruveoFields.add(Constants.ADDRESS1);
         requiredMainTruveoFields.add(Constants.CITY);
+        requiredMainTruveoFields.add(Constants.POSTAL_CODE);
         requiredMainTruveoFields.add(Constants.COUNTRY_CODE);
         requiredMainTruveoFields.add(Constants.HANDLE);
         requiredMainTruveoFields.add(Constants.PASSWORD);
