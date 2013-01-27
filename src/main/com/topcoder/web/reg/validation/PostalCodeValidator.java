@@ -15,8 +15,10 @@ public class PostalCodeValidator implements Validator {
         if (ret.isValid()) {
             return new SizeValidator(Constants.MIN_POSTAL_CODE_LENGTH, Constants.MAX_POSTAL_CODE_LENGTH, "postal code").validate(input);
         } else {
-            //if they didn't include a postal code, let them go, it's not required
-            return ValidationResult.SUCCESS;
+	     //if they didn't include a postal code, let them go, it's not required
+            // return ValidationResult.SUCCESS;
+            // postal code became required since BUGR-7858
+	    return ret; 
         }
     }
 }
