@@ -26,7 +26,9 @@ TABLE(
           u.handle AS copilot_handle,
           COUNT(DISTINCT p.tc_direct_project_id) AS total_projects_number, 
           COUNT(p.project_id) AS total_contests_number, 
-          SUM(CASE WHEN p.project_status_id IN (4, 5, 6, 11) THEN 1 ELSE 0 END) AS failed_contests_number,
+          SUM(CASE WHEN p.project_status_id IN (4, 5, 6, 10, 11) 
+						and not exists (select project_id from project_info where project_id = p.project_id and project_info_type_id = 60 and value = 'true')
+		  THEN 1 ELSE 0 END) AS failed_contests_number,
           SUM(CASE WHEN EXISTS (SELECT source_project_id 
                                 FROM linked_project_xref lp
                                 WHERE p.project_id = lp.source_project_id 
