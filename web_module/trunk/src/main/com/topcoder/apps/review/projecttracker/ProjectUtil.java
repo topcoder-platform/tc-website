@@ -200,7 +200,7 @@ public class ProjectUtil {
         ps.setLong(2, projectId);
         rs = ps.executeQuery();
 
-        double oldReliability = 0;
+        Double oldReliability = null;
 
         if (rs.next()) {
             oldReliability = rs.getDouble(1);
@@ -270,11 +270,11 @@ public class ProjectUtil {
         }
 
         // Reliability 5
-        if (oldReliability > 0) {
+        if (oldReliability != null) {
             index = 1;
             ps.setLong(index++, resourceId);
             ps.setLong(index++, 5);
-            ps.setString(index++, String.valueOf(oldReliability * 100));
+            ps.setString(index++, String.valueOf((double)oldReliability * 100));
             ps.setString(index++, String.valueOf(userId));
             ps.setString(index++, String.valueOf(userId));
             nr = ps.executeUpdate();
