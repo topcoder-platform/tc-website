@@ -340,6 +340,8 @@ public class Constants implements WebConstants {
 
     public static String ACTIVE_BUGRACE_COMPETITIONS;
 
+    public static String AGREE_TO_TERMS;
+
     /**
      * Represents the jsp page for request processor view copilot pool. 
      */
@@ -1154,6 +1156,43 @@ public class Constants implements WebConstants {
      * @since 1.9.4
      */
     public static final String COUNTRIES = "countries";
+
+    /**
+     * The agree to terms page.
+     */
+    public static final String AGREE_TO_TERMS_PAGE = "/terms/agree_to_terms.jsp";
+
+    /**
+     * The is_agree attribute in request.
+     */
+    public static final String IS_AGREE = "is_agree";
+
+    /**
+     * The terms content key in attribute.
+     */
+    public static final String TERMS_CONTENT = "terms.content";
+
+    /**
+     * The origin key in request.
+     */
+    public static final String TERMS_ORIGIN_PAGE_KEY = "origin";
+
+    /**
+     * The the filename key in download request.
+     */
+    public static final String FILE_NAME = "filename";
+
+    /**
+     * The file download terms id.
+     */
+    public static String FILE_DOWNLOAD_TERMS_ID;
+
+    /**
+     * The default page attribute in request.
+     */
+    public static String AGREE_TO_TERMS_DEFAULT_PAGE;
+
+    public static String FILE_TO_DOWNLOAD_PATH;
 
     static {
         initialize();
