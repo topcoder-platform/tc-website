@@ -22,6 +22,7 @@
 <c:set value="<%=Constants.TERMS_OF_USE_ID%>" var="TERMS_OF_USE_ID"/>
 <c:set value="<%=Constants.PROJECT_ID%>" var="PROJECT_ID"/>
 <c:set var="NON_ELEC_AGREEABLE_TERMS_TYPE_ID" value="<%=Constants.NON_ELEC_AGREEABLE_TERMS_TYPE_ID%>"/>
+<c:set var="ELEC_AGREEABLE_TERMS_TYPE_ID" value="<%=Constants.ELEC_AGREEABLE_TERMS_TYPE_ID%>"/>
 
 <html>
 
@@ -85,15 +86,15 @@ function goBack() {
                 <div class="maxWidthBody" align="center">
                         <b>${terms.title}</b>
                 </div>
-              
+              <br/>
                 <c:if test="${empty dependenciesTermsPending}">
                 <form action="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AgreeToTerms&<%=Constants.PRE_PENDING_TERMS%>=${prePendingTerms}" method="POST" name="agreeToTermsForm">
-                    <%= StringUtils.checkNull((String) request.getAttribute("terms.content")) %>
+                    <div style="height:500px;overflow:scroll"><%= StringUtils.checkNull((String) request.getAttribute("terms.content")) %></div>
                     <tc-webtag:hiddenInput name="${TERMS_OF_USE_ID}" value="${terms.termsOfUseId}"/>
                     <p style="width: 510px;">
-                        <c:if test="${not empty terms and empty dependenciesTermsPending}">
+                        <c:if test="${not empty terms}">
                         <c:choose>
-                            <c:when test="${terms.agreeabilityType.termsOfUseAgreeabilityTypeId != NON_ELEC_AGREEABLE_TERMS_TYPE_ID}">
+                            <c:when test="${terms.agreeabilityType.termsOfUseAgreeabilityTypeId == ELEC_AGREEABLE_TERMS_TYPE_ID}">
                             <span class="errorText"><tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>"><%=err%>
                                 <br /></tc-webtag:errorIterator></span>
 
@@ -110,11 +111,11 @@ function goBack() {
                     </p>
                     <p style="width: 510px;">
                         <c:choose>
-                        <c:when test="${not empty terms and empty dependenciesTermsPending}">
+                        <c:when test="${not empty terms}">
                         <table>
                             <tr>
                                 <c:set value="Go back" var="returnMessage"/>
-                                <c:if test="${terms.agreeabilityType.termsOfUseAgreeabilityTypeId != NON_ELEC_AGREEABLE_TERMS_TYPE_ID}">
+                                <c:if test="${terms.agreeabilityType.termsOfUseAgreeabilityTypeId == ELEC_AGREEABLE_TERMS_TYPE_ID}">
                                 <td>
                                     <input id="conbtn" type="submit" onClick="" name="submit" value=" Agree" disabled/>
                                 </td>

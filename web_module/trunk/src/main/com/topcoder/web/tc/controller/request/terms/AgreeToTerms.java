@@ -43,10 +43,6 @@ public class AgreeToTerms extends Base {
         
         TermsOfUse terms = termsOfUseDao.getTermsOfUse(termsOfUseId);
         if (!userTermsOfUseDao.hasTermsOfUse(getUser().getId(), termsOfUseId)
-                && terms.getAgreeabilityType().getTermsOfUseAgreeabilityTypeId() == Constants.NON_AGREEABLE_TERMS_TYPE_ID) {
-            throw new NavigationException("The term is not agreeable");
-        }
-        if (!userTermsOfUseDao.hasTermsOfUse(getUser().getId(), termsOfUseId)
                 && terms.getAgreeabilityType().getTermsOfUseAgreeabilityTypeId() != Constants.ELEC_AGREEABLE_TERMS_TYPE_ID) {
             throw new NavigationException("The term is not electronically agreeable");
         }
@@ -69,6 +65,7 @@ public class AgreeToTerms extends Base {
                         userTermsOfUseDao.createUserTermsOfUse(userId, termsOfUseId);
                     }
                     if (hasPrePendingTerm()) {
+                        navigateToPrePendingTerm();
                         return;
                     } else {
                         setNextPage(determineNextPage());
@@ -81,6 +78,29 @@ public class AgreeToTerms extends Base {
         }
     }
 
+    private void navigateToPrePendingTerm() {
+        String prePendingTerms = getRequest().getParameter(Constants.PRE_PENDING_TERMS);
+        String[] terms = prePendingTerms.split(",");
+        long term = Long.valueOf(terms[terms.length - 1]);
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < terms.length - 1; i++) {
+            if (i > 0) {
+                sb.append(",");
+            }
+            sb.append(terms[i]);
+        }
+        getRequest().setAttribute(Constants.PRE_PENDING_TERMS, sb.toString());
+
+        // redirect to agree the pre-pending term
+        StringBuilder url = new StringBuilder();
+        url.append("/tc?").append(Constants.MODULE_KEY).append("=Terms");
+        url.append("&").append(Constants.TERMS_OF_USE_ID).append("=").append(term);
+        url.append("&").append(Constants.PRE_PENDING_TERMS).append("=").append(sb.toString());
+        url.append("&").append(Constants.IS_AGREE).append("=true");
+        setNextPage(url.toString());
+        setIsNextPageInContext(false);
+    }
+
     private boolean hasPrePendingTerm() {
         String prePendingTerms = getRequest().getParameter(Constants.PRE_PENDING_TERMS);
         if (prePendingTerms == null || prePendingTerms.trim().length() == 0) {
@@ -91,26 +111,7 @@ public class AgreeToTerms extends Base {
         String[] terms = prePendingTerms.split(",");
         if (terms.length == 0) {
             return false;
-        }
-        long term = Long.valueOf(terms[terms.length - 1]);
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < terms.length - 1; i++) {
-            if (i > 0) {
-                sb.append(",");
-            }
-            sb.append(terms[i]);
-        }
-        getRequest().setAttribute(Constants.PRE_PENDING_TERMS, sb.toString());
-        
-        // redirect to agree the pre-pending term
-        StringBuilder url = new StringBuilder();
-        url.append("/tc?").append(Constants.MODULE_KEY).append("=Terms");
-        url.append("&").append(Constants.TERMS_OF_USE_ID).append("=").append(term);
-        url.append("&").append(Constants.PRE_PENDING_TERMS).append("=").append(sb.toString());
-        url.append("&").append(Constants.IS_AGREE).append("=true");
-        setNextPage(url.toString());
-        setIsNextPageInContext(false);
-        
+        }        
         return true;
     }
 
