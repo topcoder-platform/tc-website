@@ -5513,8 +5513,8 @@ public class TCLoadTCS extends TCLoad {
 
         // Statement for updating the records in tcs_dw.client_project_dim table
         final String UPDATE = "UPDATE client_project_dim SET client_name = ?, client_create_date = ?, client_modification_date = ?, " +
-                        "project_name = ?, project_create_date = ?, project_modification_date = ?, billing_account_code = ? " +
-                        "WHERE client_id = ? AND billing_project_id = ?";
+                        "project_name = ?, project_create_date = ?, project_modification_date = ?, billing_account_code = ? , client_id = ?" +
+                        "WHERE billing_project_id = ?";
 
         // Statement for inserting the records to tcs_dw.client_project_dim table in target database
         final String INSERT
@@ -5584,7 +5584,7 @@ public class TCLoadTCS extends TCLoad {
                     // billing account code
                     insert.setString(9, rs.getString("billing_account_code"));
                     // billing project id as client project id
-                    insert.setLong(10, rs.getLong("billing_project_id"));
+                    insert.setLong(10, rs.getLong("billing_project_id")); System.out.println("------billing_project_id--------"+rs.getLong("billing_project_id"));
                     insert.executeUpdate();
                 }
                 count++;
