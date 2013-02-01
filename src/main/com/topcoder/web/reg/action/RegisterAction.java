@@ -33,7 +33,7 @@ import com.topcoder.web.reg.UserDTO;
  * @version 1.1
  * @author live_world, leo_lol
  */
-public class RegisterAction extends BaseAjaxAction implements PostAction {
+public class RegisterAction extends BaseAction implements PostAction {
 
     /**
      * serial version UID.
@@ -55,26 +55,49 @@ public class RegisterAction extends BaseAjaxAction implements PostAction {
      */
     private static final String REGISTER_SOURCE_NAME = "reg2";
 
+
+    /**
+     * Validates the user.
+     * <p>
+     * Updated in version 1.1: handle validation logic has been changed to add
+     * offensive words checking. See {@link RegHelper#validateHandle(String)}
+     * for more information.
+     * </p>
+     */
+    @Override
+    public void validate() {
+        //Validate invalid handle
+        // if(!RegHelper.validateHandle(handle, this)) {
+        //     return;
+        // }
+        
+        String handleValidationResult = RegHelper.validateHandle(userDTO.getHandle());
+        if (null != handleValidationResult) {
+            addActionError(handleValidationResult);
+            return;
+        }
+        
+        //Validate availability of the handle.
+        if ((!RegHelper.isEmptyString(userDTO.getHandle())) && getUserDAO().find(userDTO.getHandle(), true) != null) {
+            addActionError("The handle - '" + userDTO.getHandle() + "' is already registered, please use another one.");
+            return;
+        }
+
+        //Validate availability of email.
+        if ((!RegHelper.isEmptyString(userDTO.getEmail())) && getUserDAO().find(null, null, null, userDTO.getEmail()).size() > 0) {
+            addActionError("The email - '" + userDTO.getEmail() + "' is already registered, please use another one.");
+            return;
+        }
+    }
+
     /**
      * Registers a new user.
      * 
      * @throws Exception
      *             if an unexpected error occurs while processing the request
      */
-    public void executeAction() throws Exception {
-        // Validate common fields.
-        Map<String, String> validationInfo = RegHelper.validate(userDTO);
-
-        // Check presence of required userDTO.captchaWord field.
-        if (RegHelper.isEmptyString(userDTO.getCaptchaWord())) {
-            validationInfo.put("captchaWord", "Verification code is missing");
-        } else {
-            // verify captcha.
-            String randomString = getSessionData().getCaptchaWord();
-            if (randomString == null || randomString.compareToIgnoreCase(userDTO.getCaptchaWord()) != 0) {
-                validationInfo.put("captchaWord", "Verification code doesn't match");
-            }
-        }
+    @Override
+    public String execute() throws Exception  {
 
         // Clean up the verification image after use.
         HttpSession session = ServletActionContext.getRequest().getSession();
@@ -83,16 +106,6 @@ public class RegisterAction extends BaseAjaxAction implements PostAction {
             CaptchaGenerator.deleteCaptcha(session.getServletContext(), uuid);
         }
 
-        // Add field errors.
-        if (!validationInfo.isEmpty()) {
-            for (Map.Entry<String, String> entry : validationInfo.entrySet()) {
-                addFieldError("userDTO." + entry.getKey(), entry.getValue());
-            }
-        }
-
-        if (hasFieldErrors()) {
-            return;
-        }
         User user = RegHelper.populateUser(userDTO);
         try {
             UserDAO userDao = getUserDAO();
@@ -109,13 +122,11 @@ public class RegisterAction extends BaseAjaxAction implements PostAction {
             user.setRegSource(REGISTER_SOURCE_NAME);
             userDao.saveOrUpdate(user);
 
-            Map<String, Object> result = new HashMap<String, Object>();
-            result.put("success", true);
-            setResult(result);
         } catch (Exception e) {
             RegHelper.revertSecurityStuff(user, e);
             throw e;
         }
+        return SUCCESS;
     }
 
     /**

@@ -125,7 +125,41 @@ $(document).ready(function(){
 		$('.editErrorNotice').hide();
 	});
 	
-	var errors = $("#recoverErrors span");
+	var errors = $("#errors span");
+	if (errors.length != 0) {
+		closeModal();
+	}
+	for (i = 0; i < errors.length; i++) {
+        if (errors[i].innerHTML.indexOf("first") != -1) {
+			$('#firstName').after("<span class=\"tipError2\">" + errors[i].innerHTML + "</span>");
+			$('#firstName').addClass('error').siblings('.tipError2').show();
+		}
+		if (errors[i].innerHTML.indexOf("last") != -1) {
+			$('#lastName').after("<span class=\"tipError2\">" + errors[i].innerHTML + "</span>");
+			$('#lastName').addClass('error').siblings('.tipError2').show();
+		}
+		if (errors[i].innerHTML.indexOf("handle") != -1) {
+			$('#handle').after("<span class=\"tipError2\">" + errors[i].innerHTML + "</span>");
+			$('#handle').addClass('error').siblings('.tipError2').show();
+		}
+		if (errors[i].innerHTML.indexOf("password") != -1 && errors[i].innerHTML.indexOf("confirm") != -1) {
+			$('#confirmPassword').after("<span class=\"tipError2\">" + errors[i].innerHTML + "</span>");
+			$('#confirmPassword').addClass('error').siblings('.tipError2').show();
+		}
+		if (errors[i].innerHTML.indexOf("password") != -1 && errors[i].innerHTML.indexOf("confirm") == -1) {
+			$('#loginPassword').after("<span class=\"tipError2\">" + errors[i].innerHTML + "</span>");
+			$('#loginPassword').addClass('error').siblings('.tipError2').show();
+		}
+		if (errors[i].innerHTML.indexOf("email") != -1) {
+			$('#email').after("<span class=\"tipError2\">" + errors[i].innerHTML + "</span>");
+			$('#email').addClass('error').siblings('.tipError2').show();
+		}
+		if (errors[i].innerHTML.indexOf("verification") != -1) {
+			$('#captchaWord').addClass('error').siblings('.error2').show();
+		}
+	};
+	
+	errors = $("#recoverErrors span");
 	for (i = 0; i < errors.length; i++) {
 		if (errors[i].innerHTML.indexOf("andle") != -1) {
 			$("#handleNotValidErrorMsg").show();
@@ -161,7 +195,8 @@ $(document).ready(function(){
 	
 	$('#registerSubmitButton').click(function(){
         if($(this).hasClass('disabled')) return;
-        clearFieldError();
+		$('.tipError2,.tipError,.editErrorNotice').hide();
+		$(':text').removeClass('error');
 		var checkStauts = true;
 		if($.trim($('#firstName').val()).length == 0 ){
 			$('#firstName').addClass('error').siblings('.error1').show();
@@ -206,54 +241,8 @@ $(document).ready(function(){
 		
 		if($(this).closest('form').hasClass('errorForm')){return false};
 
-		ajaxSubmitReg();
+		submitForm("formRegister");
 	});
-	
-    function ajaxSubmitReg() {
-        var ctx = "/reg2";
-        var firstName = $('#firstName').val();
-        var lastName = $('#lastName').val();
-        var handle = $('#handle').val();
-        var emailAddress = $('#email').val();
-        var password = $('#loginPassword').val();
-        var passwordConfirm = $('#confirmPassword').val();
-        var veriCode = $('#captchaWord').val();
-        
-		$.ajax({
-              type: 'POST',
-              url:  ctx + "/registerAction.action",
-              data: {"userDTO.firstName":firstName, "userDTO.lastName":lastName, "userDTO.handle":handle, "userDTO.email":emailAddress, "userDTO.password":password, "userDTO.confirmPassword":passwordConfirm, "userDTO.captchaWord": veriCode},
-              cache: false,
-              dataType: 'json',
-              async : true,
-              success: function(jsonResult) {
-                handleJsonResult(jsonResult,
-                function(result) {
-                    if (jsonResult.jsonData.fieldErrors) {
-                        var hasError = false;
-                        for (var fname in jsonResult.jsonData.fieldErrors) {
-                            hasError = true;
-                            break;
-                        }
-                        if (hasError) {
-                        	clearFieldError();
-                        }
-                        for (var fname in jsonResult.jsonData.fieldErrors) {
-                            hasError = true;
-                            showFieldError($('#' + fname), jsonResult.jsonData.fieldErrors[fname]);
-                        }
-                        if (hasError) {
-                            return;
-                        }
-                    }
-                    window.location.href = ctx + "/registered.jsp?handle=" + handle;
-                },               
-                function(errorMessage) {
-                    showErrorMessage(errorMessage);
-                });
-            }
-        });
-	}
 	
 	$('#firstStepButton').click(function(){
 		submitForm("formPreference");
@@ -684,30 +673,3 @@ function validateEmail(email)
 	var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 	return email.match(re)
 }
-
-function handleJsonResult(result, succHandler, failHandler) {
-    if (result.jsonData.error) {
-        if (failHandler) {
-            failHandler(result.jsonData.message);
-        }
-    } else {
-        if (succHandler) {
-            succHandler(result.jsonData.result);
-        }
-    }
-}
-function showErrorMessage(errorMessage) {
-    alert(errorMessage);
-}
-
-function showFieldError(field, error) {
-    field.after("<span class=\"tipError2\">" + error + "</span>");
-    field.addClass('error').siblings('.tipError2').show();
-}
-
-function clearFieldError() {
-    $('.tipError2,.tipError,.editErrorNotice').hide();
-    $('.tipError2').remove();
-	$(':text').removeClass('error');
-}
-

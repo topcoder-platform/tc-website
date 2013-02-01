@@ -8,6 +8,7 @@
 	- Version: 1.1
 	- Since: 1.0 
  -->
+
 <%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -37,7 +38,11 @@
 					<!-- end #mainTitle -->
 					
 					<!-- #mainContent -->
-					<div id="mainContent">					
+					<div id="mainContent">				
+							<div id="errors" class="invisible">
+								<s:actionerror />
+								<s:fielderror />
+							</div>	
 							<div class="mainContentInner">
 							<form id="formRegister" name="formRegister" action="registerAction.action" method="post">
 								<div class="registerBox">
