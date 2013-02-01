@@ -1,7 +1,7 @@
 <!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
         "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
 <validators>
-    <field name="firstName">
+    <field name="userDTO.firstName">
         <field-validator type="requiredstring">
             <param name="trim">true</param>
             <message>Please fill your first name</message>
@@ -12,7 +12,7 @@
             <message>the max length of the first name is ${maxLength}</message>
         </field-validator>
     </field>
-    <field name="lastName">
+    <field name="userDTO.lastName">
         <field-validator type="requiredstring">
             <param name="trim">true</param>
             <message>Please fill your last name</message>
@@ -24,7 +24,7 @@
         </field-validator>
     </field>
 	
-    <field name="email">
+    <field name="userDTO.email">
         <field-validator type="requiredstring">
             <param name="trim">true</param>
             <message>Please fill your valid email</message>
@@ -39,7 +39,7 @@
         </field-validator>
     </field>
 
-    <field name="password">
+    <field name="userDTO.password">
         <field-validator type="requiredstring">
             <param name="trim">true</param>
             <message>Please fill your password</message>
@@ -53,22 +53,26 @@
     </field>
 
 
-    <field name="passwordConfirm">
+    <field name="userDTO.confirmPassword">
         <field-validator type="requiredstring">
             <param name="trim">true</param>
             <message>Please confirm your password</message>
         </field-validator>
         <field-validator type="fieldexpression">
             <param name="expression">
-            <![CDATA[password.equals(passwordConfirm)]]>
+            <![CDATA[userDTO.password eq userDTO.confirmPassword]]>
             </param>
             <message>Password do not match</message>
         </field-validator>
     </field>
-    <field name="captchaWord">
+    <field name="userDTO.captchaWord">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message>Verification code is missing</message>
+        </field-validator>
         <field-validator type="fieldexpression">
             <param name="expression">
-            <![CDATA[captchaWord.equals(sessionData.captchaWord)]]>
+            <![CDATA[userDTO.captchaWord eq sessionData.captchaWord]]>
             </param>
             <message>Your verification code is incorrect</message>
         </field-validator>

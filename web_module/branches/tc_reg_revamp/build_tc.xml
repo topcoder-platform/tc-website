@@ -190,7 +190,6 @@
         <pathelement location="${jars.dir}/ognl-3.0.jar" />
         <pathelement location="${jars.dir}/struts2-core-2.2.1.1.jar" />
         <pathelement location="${jars.dir}/struts2-spring-plugin-2.2.1.1.jar" />
-        <pathelement location="${jars.dir}/struts2-json-plugin-2.2.1.jar" />        
         <pathelement location="${jars.dir}/xwork-core-2.2.1.1.jar" />
     	
     	<path refid="cxf.path" />
@@ -983,7 +982,6 @@
                 <include name="ognl-3.0.jar" />
                 <include name="struts2-core-2.2.1.1.jar" />
                 <include name="struts2-spring-plugin-2.2.1.1.jar" />
-                <include name="struts2-json-plugin-2.2.1.jar" />
                 <include name="xwork-core-2.2.1.1.jar" />
                 <include name="spring.jar" />
             	<include name="wsdl4j-1.5.1.jar"/>
@@ -1025,9 +1023,7 @@
                 <include name="struts.xml" />
             </classes>
             <classes dir="${resources}/reg/email_templates"/>
-            <classes dir="${resources}/reg/validators">
-            	<exclude name="com/topcoder/web/reg/action/RegisterAction-validation.xml" />
-            </classes>		
+            <classes dir="${resources}/reg/validators"/>
         </war>
     </target>
 

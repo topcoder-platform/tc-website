@@ -60,6 +60,11 @@ public class UserDTO {
     private String activationURL;
 
     /**
+     * This filed will be used to receive captcha UUID.
+     */
+    private String captchaUUID;
+
+    /**
      * <p>
      * Getter of firstName field.
      * </p>
@@ -236,5 +241,21 @@ public class UserDTO {
      */
     public void setCaptchaWord(String captchaWord) {
         this.captchaWord = captchaWord;
+    }
+
+    /**
+     * Getter of the name-sake field.
+     * @return the value of name-sake field.
+     */
+    public String getCaptchaUUID() {
+        return captchaUUID;
+    }
+
+    /**
+     * Setter of the name-sake field.
+     * @param captchaUUID the name-sake field to set
+     */
+    public void setCaptchaUUID(String captchaUUID) {
+        this.captchaUUID = captchaUUID;
     }
 }

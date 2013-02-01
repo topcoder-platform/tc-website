@@ -7,14 +7,7 @@
     <constant name="struts.ui.theme" value="simple" />
     <constant name="struts.objectFactory" value="spring" />
 
-    <package name="default" namespace="/" extends="json-default">
-        <result-types>
-            <result-type name="json" class="org.apache.struts2.json.JSONResult">
-                <param name="ignoreHierarchy">false</param>
-                <param name="includeProperties">jsonData.*</param>
-            </result-type>
-        </result-types>
-        
+    <package name="default" namespace="/" extends="struts-default">
         <interceptors>
 
             <interceptor name="regBasicInterceptor" class="regBasicInterceptor" />
@@ -39,13 +32,6 @@
                 <interceptor-ref name="shortHibernateStack" />
                 <interceptor-ref name="authenticationInterceptor" />
             </interceptor-stack>
-            
-            <!-- AJAX registration stack -->
-            <interceptor-stack name="ajaxRegStack">
-                <interceptor-ref name="shortHibernateStack" />
-                <interceptor-ref name="json" />
-            </interceptor-stack>
-            
         </interceptors>
 
         <default-interceptor-ref name="baseStack" />
@@ -89,8 +75,9 @@
         </action>
 
         <action name="registerAction" class="registerAction">
-            <interceptor-ref name="ajaxRegStack" />
-            <result type="json"></result>
+            <interceptor-ref name="shortHibernateStack" />
+            <result name="input">/register.jsp</result>
+            <result>/registered.jsp</result>
         </action>
 
         <action name="sendActivateEmail" class="sendActivateEmailAction">
