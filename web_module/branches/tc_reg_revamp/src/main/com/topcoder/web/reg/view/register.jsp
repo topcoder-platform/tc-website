@@ -1,14 +1,3 @@
-<!-- 
-    - Copyright (C) 2012 TopCoder Inc., All Rights Reserved.
-    -
-    - This is the registration page.
-    - Change log for version 1.1:
-    -     input names are updated are Action now uses Model-Driven Design Pattern: e.g. handle->userDTO.handle.
-	- Author: leo_lol
-	- Version: 1.1
-	- Since: 1.0 
- -->
-
 <%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -44,7 +33,8 @@
 								<s:fielderror />
 							</div>	
 							<div class="mainContentInner">
-							<form id="formRegister" name="formRegister" action="registerAction.action" method="post">
+							<!--form id="formRegister" name="formRegister" action="registerAction.action" method="post"-->
+							<s:form namespace="/" action="registerAction" method="post" id="formRegister">
 								<div class="registerBox">
 									<div class="elemLine">
 										<div class="leftPart">First Name :</div>
@@ -130,7 +120,7 @@
 										<div class="clearAll"></div>
 									</div>
 								</div>
-							</form>
+							</s:form>
 						</div>
 						
 					</div>
