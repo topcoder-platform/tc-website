@@ -40,7 +40,7 @@ public class Terms extends Base {
     protected void businessProcessing() throws Exception {
         // Don't allow anonymous access.
         if (this.getSessionInfo().isAnonymous()) {
-            throw new PermissionException(getLoggedInUser(), new ClassResource(this.getClass()));
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 
         long termsId = Long.parseLong(StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_ID)));
@@ -78,7 +78,7 @@ public class Terms extends Base {
             getResponse().getWriter().print(termsOfUseDao.getTermsOfUseText(termsId));
             getResponse().flushBuffer();
         } else {
-            long userId = getLoggedInUser().getId();
+            long userId = getUser().getId();
             // if user already agreed to this term, simply redirect him to the original page
             if (userTermsOfUseDao.hasTermsOfUse(getUser().getId(), termsId)) {
                 setNextPage(determineNextPage());

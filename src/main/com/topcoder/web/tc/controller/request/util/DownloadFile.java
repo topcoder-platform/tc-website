@@ -30,7 +30,7 @@ public class DownloadFile extends Base {
             if (getSessionInfo().isAnonymous()) {
                 throw new PermissionException(getUser(), new ClassResource(this.getClass()));
             }
-            long userId = getLoggedInUser().getId();
+            long userId = getUser().getId();
             long termsOfUseId = Long.parseLong(Constants.FILE_DOWNLOAD_TERMS_ID);
 
             // check whether user has the terms on file
