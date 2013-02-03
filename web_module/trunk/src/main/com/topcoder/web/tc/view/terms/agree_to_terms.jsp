@@ -91,6 +91,12 @@ function goBack() {
                 <form action="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AgreeToTerms&<%=Constants.PRE_PENDING_TERMS%>=${prePendingTerms}" method="POST" name="agreeToTermsForm">
                     <div style="height:500px;overflow:scroll"><%= StringUtils.checkNull((String) request.getAttribute("terms.content")) %></div>
                     <tc-webtag:hiddenInput name="${TERMS_OF_USE_ID}" value="${terms.termsOfUseId}"/>
+                    <c:if test="${not empty terms.url}">
+                        <br/>
+                        <div align="center">
+                            You can get a printer friendly version <a href="${terms.url}">here</a>.
+                        </div>
+                    </c:if>
                     <p style="width: 510px;">
                         <c:if test="${not empty terms}">
                         <c:choose>

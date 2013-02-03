@@ -29,9 +29,9 @@ public class AgreeToTerms extends Base {
     protected void businessProcessing() throws Exception {
         // Don't allow anonymous access.
         if (this.getSessionInfo().isAnonymous()) {
-            throw new PermissionException(getLoggedInUser(), new ClassResource(this.getClass()));
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
-        long userId = getLoggedInUser().getId();
+        long userId = getUser().getId();
 
         long termsOfUseId = Long.parseLong(StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_ID)));
         
