@@ -35,7 +35,7 @@
 						<h3>Your account has been registered</h3>
 						<p>We will send you a confirmation email. Please check your email to activate your account.</p>
 						<p>If you don't receive any confirmation email, <a href="<s:url action='sendActivateEmail'>
-                            <s:param name='handle'><s:property value='#parameters.handle'/></s:param>
+                            <s:param name='handle'><s:property value='userDTO.handle'/></s:param>
 							<s:param name="resent">true</s:param>
 							</s:url>">Click here</a> to send the confirmation again.</p>
 					</div>
