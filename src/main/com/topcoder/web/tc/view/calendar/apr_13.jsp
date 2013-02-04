@@ -113,6 +113,11 @@
       <td class="value">19
       </td>
       <td class="value">20
+		<div class="tco13">
+        	<div class="emblem"><img src="/i/tournament/tco13/emblem.png" alt="TCO13" /></div>
+        	<strong><A href="http://community.topcoder.com/tco13/algorithm/">Algorithm Round 2B</A></strong><br />
+        	12:00<br />
+		</div>
       </td>
    </tr>
 
