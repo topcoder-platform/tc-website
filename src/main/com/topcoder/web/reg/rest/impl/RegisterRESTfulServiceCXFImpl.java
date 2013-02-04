@@ -6,8 +6,6 @@ package com.topcoder.web.reg.rest.impl;
 import java.util.Map;
 import javax.ws.rs.OPTIONS;
 import javax.ws.rs.POST;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
@@ -73,11 +71,8 @@ public class RegisterRESTfulServiceCXFImpl implements RegisterRESTfulService {
      * @return Instance of {@link Response}, containing JSON data.
      */
     @POST
-    @Produces(MediaType.APPLICATION_JSON)
     public Response register(UserDTO userDTO) {
         final String signature = CLASS_NAME + "#register(UserDTO)";
-        System.out.println("Entering " + signature + " with parameter userDTO: " + userDTO);
-        LOGGER.info("Entering " + signature + " with parameter userDTO: " + userDTO);
         LOGGER.debug("Entering " + signature + " with parameter userDTO: " + userDTO);
         try {
             // begin transaction.
@@ -111,7 +106,7 @@ public class RegisterRESTfulServiceCXFImpl implements RegisterRESTfulService {
                     return Response.status(Status.BAD_REQUEST).entity(errors).build();
                 }
             } else {
-                return Response.status(Status.BAD_REQUEST).entity(errors).build();
+                return Response.status(Status.INTERNAL_SERVER_ERROR).entity(errors).build();
             }
 
         } finally {
