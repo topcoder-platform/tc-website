@@ -1075,10 +1075,11 @@ public class TCLoadTCS extends TCLoad {
                             "   (u.create_date > ? or u.modify_date > ? or s.create_date > ? or s.modify_date > ?)) " +
                             // add projects who have modified results
                             "   or p.project_id in (select distinct pr.project_id from project_result pr where (pr.create_date > ? or pr.modify_date > ?)) " +
+							"   or p.project_id in (select distinct pi.project_id from project_info pi where project_info_type_id in  (2, 3, 21, 22, 23, 26, 31, 32) and (pi.create_date > ? or pi.modify_date > ?)) " +
                             "   or p.project_id in (select distinct pmd.component_project_id::int " +
                             "      FROM informixoltp:payment pm INNER JOIN informixoltp:payment_detail pmd ON pm.most_recent_detail_id = pmd.payment_detail_id " +
                             "      WHERE NOT pmd.payment_status_id IN (65, 69) AND (pmd.create_date > ? or pmd.date_modified > ? or pm.create_date > ? or pm.modify_date > ?)) " +
-                            "   OR pir.modify_date > ? " + (needLoadMovedProject() ? " OR p.modify_user <> 'Converter'  OR pir.modify_user <> 'Converter' )" : ")");
+                             (needLoadMovedProject() ? " OR p.modify_user <> 'Converter'  OR pir.modify_user <> 'Converter' )" : ")");
 
             final String UPDATE = "update project set component_name = ?,  num_registrations = ?, " +
                     "num_submissions = ?, num_valid_submissions = ?, avg_raw_score = ?, avg_final_score = ?, " +
@@ -1129,6 +1130,7 @@ public class TCLoadTCS extends TCLoad {
             select.setTimestamp(13, fLastLogTime);
             select.setTimestamp(14, fLastLogTime);
             select.setTimestamp(15, fLastLogTime);
+			select.setTimestamp(16, fLastLogTime);
             update = prepareStatement(UPDATE, TARGET_DB);
             insert = prepareStatement(INSERT, TARGET_DB);
             updateAgain = prepareStatement(UPDATE_AGAIN, TARGET_DB);
