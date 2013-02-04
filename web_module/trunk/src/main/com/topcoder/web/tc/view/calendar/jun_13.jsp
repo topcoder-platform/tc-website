@@ -81,12 +81,22 @@
       <td class="value">4
       </td>
       <td class="value">5
+		<div class="tco13">
+        	<div class="emblem"><img src="/i/tournament/tco13/emblem.png" alt="TCO13"/></div>
+        	<strong><A href="http://community.topcoder.com/tco13/marathon/">Marathon Round 3</A></strong><br />
+        	13:00<br />
+        	2 weeks<br />
       </td>
       <td class="value">6
       </td>
       <td class="value">7
       </td>
       <td class="value">8
+		<div class="tco13">
+        	<div class="emblem"><img src="/i/tournament/tco13/emblem.png" alt="TCO13" /></div>
+        	<strong><A href="http://community.topcoder.com/tco13/algorithm/">Algorithm Round 3A</A></strong><br />
+        	12:00<br />
+		</div>
       </td>
    </tr>
 
@@ -129,6 +139,11 @@
       <td class="value">21
       </td>
       <td class="value">22
+		<div class="tco13">
+        	<div class="emblem"><img src="/i/tournament/tco13/emblem.png" alt="TCO13" /></div>
+        	<strong><A href="http://community.topcoder.com/tco13/algorithm/">Algorithm Round 3B</A></strong><br />
+        	12:00<br />
+		</div>
       </td>
    </tr>
 
