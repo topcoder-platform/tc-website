@@ -132,7 +132,7 @@ function submitEnter(e) {
         <TD CLASS="bodyTextBold" VALIGN="middle" WIDTH="100%">
             &#160;<SPAN CLASS="bodySubhead">&#160;&#160;Problem Archive&#160;&#160;</SPAN>
         </TD>
-        <TD VALIGN="top" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"></TD>
+        <TD VALIGN="top" ALIGN="right"><a href="http://apps.topcoder.com/wiki/display/tc/Write+Problems+for+TopCoder"><IMG SRC="/i/write_problems_banner.png" ALT="" BORDER="0"></a></TD>
     </TR>
 </TABLE>
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35" WIDTH="100%">
