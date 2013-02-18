@@ -13,7 +13,7 @@ WHERE
     up.upload_status_id = 1 AND
 	s.submission_type_id = 1 AND
 	pc.project_type_id in ( 1,2) AND
-	pr.placed >= 1 AND
+	pr.payment > 0 AND
 	p.project_status_id = 7
 	AND p.project_category_id != 27
 	AND NOT EXISTS (SELECT 'has_eligibility_constraints' FROM contest_eligibility ce

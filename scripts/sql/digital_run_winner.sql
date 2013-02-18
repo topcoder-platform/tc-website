@@ -3,7 +3,8 @@ select DISTINCT tcr.user_id, min(t.track_end_date) AS earned_date
      , track_contest_results tcr
 	 , track t
  where tc.track_contest_id = tcr.track_contest_id
-   and tc.track_contest_type_id = 2 
+   and tc.track_contest_type_id = 1
+   and tcr.track_contest_placement = 1
    and tc.track_id = t.track_id
    and t.track_type_id in (1, 2)
    and t.track_status_id != 3
