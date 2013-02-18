@@ -11,6 +11,6 @@ WHERE s.submission_status_id IN (1, 4)
 	AND u.upload_type_id = 1
 	AND s.submission_type_id in (1, 3)
 	AND pc.project_type_id = 3
-	AND p.project_status_id in (1, 7)
+	AND p.project_status_id in (1, 7, 8, 9)
 )) as m group by m.user_id
 HAVING COUNT(*) >= 50
