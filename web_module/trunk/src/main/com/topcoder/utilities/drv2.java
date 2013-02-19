@@ -53,8 +53,8 @@ public class drv2 extends DBUtility {
         query.append("                                   where s3.upload_id = u3.upload_id and s3.submission_type_id = 1 and u3.upload_status_id = 1  ");
         query.append("                                      and s3.submission_status_id != 5  and u3.project_id = p.project_id and s3.mark_for_purchase = 'f' ");
         query.append("                                      UNION ");
-        query.append("                                  select count(*) as passing_count from project_prize_xref ppx3, prize p3 where ppx3.project_id = p.project_id ");
-        query.append("                                  and ppx3.prize_id = p3.prize_id and p3.prize_type_id = 15))) ");
+        query.append("                                  select count(*) as passing_count from prize p3 where p3.project_id = p.project_id ");
+        query.append("                                  and p3.prize_type_id = 15))) ");
         query.append("                                  end as count_of_passing_subs, ");
         query.append("  dr.value as dr_points, ");
         query.append("  u.handle ");
