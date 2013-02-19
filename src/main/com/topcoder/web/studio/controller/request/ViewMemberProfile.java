@@ -94,8 +94,7 @@ public class ViewMemberProfile extends BaseProcessor {
           "       AND pp2.phase_type_id = 2) AS end_time " +
           "    , (SELECT SUM(pr.prize_amount * pr.number_of_submissions)  " +
           "       FROM prize pr  " +
-          "       INNER JOIN project_prize_xref prx ON pr.prize_id = prx.prize_id " +
-          "       WHERE prx.project_id = p.project_id " +
+          "       WHERE pr.project_id = p.project_id  " +
           "       AND pr.prize_type_id IN (14, 15))::DECIMAL(10,2) AS prize_total " +
           "    , (SELECT pi.value  " +
           "       FROM project_info pi  " +
