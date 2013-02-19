@@ -234,8 +234,10 @@
                                                 <img style="margin-bottom:12px;"
                                             src="/i/v5/Member_of_the_month_header.jpg" >
                                     </div>
+									
                                     <div class="member_image" style="float:left;">
-                                        <img width="140" height="140" alt="Member of the Month" src="http://community.topcoder.com/i/m/ngraphics.jpeg">
+									<!-- CHANGE THESE BACK TO 140x140 FOR NEXT MONTH -->
+                                        <img width="70" height="70" alt="Member of the Month" src="http://community.topcoder.com/i/m/ngraphics.jpeg">
                                     </div>
                                     <div id="member_content">
                                         <div id="member_month">
@@ -249,8 +251,13 @@
                                             <span class="member_content special"><!--<a href="http://www.topcoder.com/news/2010/11/15/meet-the-october-coders-and-designers-of-the-month-2/">Read the interviews here.</a>--></span><br/><br/>
                                         </div>
                                     </div>
+
+									<div id="member_of_the_month">
+                                                <img style="margin-bottom:12px;"
+                                            src="/i/v5/Member_of_the_month_header.jpg" >
+                                    </div>									
                                     <div class="member_image" style="float:left;">
-                                        <img width="140" height="140" alt="Member of the Month" src="http://community.topcoder.com/i/m/fairy_ley.png">
+                                        <img width="70" height="70" alt="Member of the Month" src="http://community.topcoder.com/i/m/fairy_ley.png">
                                     </div>									
 									<div id="member_content">
                                         <div id="member_month">
