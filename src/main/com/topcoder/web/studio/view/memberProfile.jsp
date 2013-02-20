@@ -1,12 +1,19 @@
 <%--
-  - Author: isv
-  - Version: 1.0 (TopCoder Studio Member Profile Assembly)
+  - Author: isv, TrePe
+  - Version: 1.1
   - Copyright (C) 2010-2012 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page renders a single Member Profile page
+  -
+  - Changes:
+  - 1.0 (TopCoder Studio Member Profile Assembly)
+  - 1.1 (TopCoder Achievement Utility and Badges Update)
+  -     Added userId and tcServerName javascript variables.
+  -     Added achievementHasCurrentlyAt for earned badges.
 --%>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.common.BaseProcessor" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -37,23 +44,25 @@
     <script type="text/javascript" src="/js/memberProfile.js"></script>
 
     <script src="/js/NewStyleHeaderFooter/preloadCssImages.jQuery_v5.js" language="javascript"></script>
-    
-    <script type="text/javascript" src="/js/badge-tooltips.js"></script> 
+
+    <script type="text/javascript" src="/js/badge-tooltips.js"></script>
     <script type="text/javascript" src="/js/badgeBase.js"></script>
-    <link type="text/css" rel="stylesheet" href="/css/profileBadges.css" />    
-    <link type="text/css" rel="stylesheet" href="/css/style.css" />    
-    
+    <link type="text/css" rel="stylesheet" href="/css/profileBadges.css" />
+    <link type="text/css" rel="stylesheet" href="/css/style.css" />
+
     <script type="text/javascript">
+        var userId = <%= ((Long)request.getAttribute("cr")).longValue() %>;
+        var tcServerName = '<%=ApplicationServer.SERVER_NAME%>';
         $(document).ready(function () {
             //Run the script to preload images from CSS
             $.preloadCssImages();
-            
+
             var categoryName = 'progress meters studio';
             var groupBadgeDiv = $('.groupBadgeDiv');
             var singleBadgeDiv = $('.singleBadgeDiv');
             var badges = $('.hidenBadgesDiv');
-            
-            renderGroupBadges(categoryName, groupBadgeDiv, singleBadgeDiv, badges);            
+
+            renderGroupBadges(categoryName, groupBadgeDiv, singleBadgeDiv, badges);
         });
     </script>
 </head>
@@ -90,10 +99,10 @@ boolean hidePayments = ((Boolean)request.getAttribute("hidePayments")).booleanVa
                                 </c:if>
                                 <li <c:if test="${loop.index mod 6 eq 5}">class="last"</c:if>>
                                     <div class="regTitle">
-				        <a class="typeIcon tooltip type${reg.contestTypeId}" href="javascript:;" style="margin-top: 10.5px; visibility: visible;">
-					    <span class="tipT">Contest Type</span>
-					        <span class="tipC">${reg.contestTypeName}</span>
-						</a>
+                        <a class="typeIcon tooltip type${reg.contestTypeId}" href="javascript:;" style="margin-top: 10.5px; visibility: visible;">
+                        <span class="tipT">Contest Type</span>
+                            <span class="tipC">${reg.contestTypeName}</span>
+                        </a>
                                         <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;${CONTEST_ID}=${reg.contestId}"
                                            class="contestTitleLink"><c:out value="${reg.contestName}"/></a>
                                     </div>
@@ -131,7 +140,7 @@ boolean hidePayments = ((Boolean)request.getAttribute("hidePayments")).booleanVa
                     <a href="javascript:;" class="prevArrow">Prev</a>
                     <a href="javascript:;" class="nextArrow">Next</a>
                     <span class="pageNumbers">
-                        
+
                     </span>
                 </div>
                 </c:when>
@@ -147,7 +156,7 @@ boolean hidePayments = ((Boolean)request.getAttribute("hidePayments")).booleanVa
         <div class="centerPart">
             <div class="quoteArea ${profile.displayBanner ? profile.bannerStyle : ''}}">
             </div>
-            
+
                 <div class="editBannerBtnWrapper">
                     <c:choose>
                         <c:when test="${profile.userId eq sessionInfo.userId}">
@@ -156,7 +165,7 @@ boolean hidePayments = ((Boolean)request.getAttribute("hidePayments")).booleanVa
                         <c:otherwise>&nbsp;</c:otherwise>
                     </c:choose>
                 </div>
-            
+
             <div class="panelWrapper" id="winSubmission">
                 <h2 class="titleShadow">Recent Winning Submissions</h2>
 
@@ -177,10 +186,10 @@ boolean hidePayments = ((Boolean)request.getAttribute("hidePayments")).booleanVa
                             </div>
 
                             <div class="regTitle">
-			        <a id="xxx5" style="visibility: hidden;" href="javascript:;" class="typeIcon tooltip">
-				    <span class="tipT">Contest Type</span>
-				    <span class="tipC">Application Front-End Design</span>
-				</a>
+                    <a id="xxx5" style="visibility: hidden;" href="javascript:;" class="typeIcon tooltip">
+                    <span class="tipT">Contest Type</span>
+                    <span class="tipC">Application Front-End Design</span>
+                </a>
                                 <a class="contestTitleLink" href="javascript:;" id="xxx3"></a></div>
                             <span class="rankIcon"></span>
                             <dl class="firstLine">
@@ -204,7 +213,7 @@ boolean hidePayments = ((Boolean)request.getAttribute("hidePayments")).booleanVa
                                 </c:forEach>
                             </ul>
                         </div>
-			<div class="pageNumbers"></div>
+            <div class="pageNumbers"></div>
                     </c:when>
                     <c:otherwise>
                         There are no winning submissions.
@@ -235,7 +244,7 @@ boolean hidePayments = ((Boolean)request.getAttribute("hidePayments")).booleanVa
                             <a href="javascript:;" class="prevArrow">Prev</a>
                             <a href="javascript:;" class="nextArrow">Next</a>
                     <span class="pageNumbers">
-                        
+
                     </span>
                         </div>
                     </c:when>
@@ -279,25 +288,26 @@ boolean hidePayments = ((Boolean)request.getAttribute("hidePayments")).booleanVa
                 [<a href="http://community.topcoder.com/tc?module=MyHome">Manage TopCoder Account</a>]
             </div>
             </c:if>
-            
+
             <div class="hidenBadgesDiv hide">
                 <c:forEach items="${profile.achievements}" var="achievement" varStatus="loop">
                     <div class="quoteBadgesItem">
                         <input type="hidden" class="achievementId" value='${achievement.achievementRuleId}'></input>
                         <input type="hidden" class="achievementName" value='${achievement.name}'></input>
                         <input type="hidden" class="achievementDesc" value='${achievement.desc}'></input>
-                        <input type="hidden" class="achievementDate" value='<fmt:formatDate value="${achievement.awardTime}" pattern="MM.dd.yyyy HH:MM"/>EST'></input>
+                        <input type="hidden" class="achievementDate" value='<fmt:formatDate value="${achievement.awardTime}" pattern="yyyy-MM-dd"/>'></input>
+                        <input type="hidden" class="achievementHasCurrentlyAt" value='${achievement.hasCurrentlyAt}'></input>
                     </div>
                 </c:forEach>
             </div>
-            
+
             <div class="achiv groupBadgeDiv">
                 <div class="clear-float"></div>
             </div>
             <div class="clear-float"></div>
             <div class="footer-badges singleBadgeDiv">
             </div>
-            
+
             <!--end .achievementWrapper-->
         </div>
         <!--end .rightPart-->
@@ -335,7 +345,7 @@ boolean hidePayments = ((Boolean)request.getAttribute("hidePayments")).booleanVa
                 <div class="formLineWithLabel raidoLine">
                     <div class="formLineLabel">Quote Location:</div>
                     <span class="radioItem firstRadioItemOfRow">
-                        <input name="quoteLocation" type="radio" class="radioInput" value="tl" 
+                        <input name="quoteLocation" type="radio" class="radioInput" value="tl"
                                <c:if test="${profile.quoteLocation eq 'tl'}">checked="checked"</c:if>/>
                         <label class="radioLabel">Top Left</label>
                     </span>
@@ -365,7 +375,7 @@ boolean hidePayments = ((Boolean)request.getAttribute("hidePayments")).booleanVa
                         <label class="radioLabel">Custom:</label>
                         <span class="customizedPosition <c:if test="${not fn:startsWith(profile.quoteLocation, 'ct')}">customizedPositionDisabled</c:if>">
                             x:  <input name="xVal" type="text" class="text positionVal" id="xValInput"
-                                       <c:if test="${not fn:startsWith(profile.quoteLocation, 'ct')}">disabled="disabled"</c:if> 
+                                       <c:if test="${not fn:startsWith(profile.quoteLocation, 'ct')}">disabled="disabled"</c:if>
                                        value="${fn:split(profile.quoteLocation, ' ')[1]}"/>
                             y:  <input name="yVal" type="text" class="text positionVal" id="yValInput"
                                        <c:if test="${not fn:startsWith(profile.quoteLocation, 'ct')}">disabled="disabled"</c:if>

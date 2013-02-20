@@ -152,6 +152,8 @@
             <arg value="scripts/dwload/loadAchievement.xml"/>
 			<arg value="-path"/>
 			<arg value="/home/tc/web/scripts/sql/"/>
+			<arg value="-number_of_records_to_populate_earned_date"/>
+			<arg value="-1"/>
 			<classpath refid="runtime.classpath" />
 		</java>
 	</target>

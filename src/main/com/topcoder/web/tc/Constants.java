@@ -138,8 +138,14 @@ import java.util.MissingResourceException;
  *   </ol>
  * </p>
  *
- * @author pulky, isv, VolodymyrK
- * @version 1.9.5
+ * <p>
+ * Version 1.9.6 Change notes:
+ *   <ol>
+ *     <li>Added {@link #MEMBER_ACHIEVEMENT_CURRENT_SQL_PATH} constant.</li>
+ *   </ol>
+ * </p>
+ * @author pulky, isv, VolodymyrK, TrePe
+ * @version 1.9.6
  */
 public class Constants implements WebConstants {
 
@@ -314,6 +320,7 @@ public class Constants implements WebConstants {
     public static String TCS_SURVEY_RESULTS;
 
     public static String MEMBER_PROFILE;
+    public static String MEMBER_ACHIEVEMENT_CURRENT_SQL_PATH;
 
     public static String MEMBER_CONTACT;
 
