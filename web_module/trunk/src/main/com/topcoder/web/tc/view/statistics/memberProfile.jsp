@@ -1,6 +1,6 @@
 <%--
-  - Author: TCSDEVELOPER, pulky, pvmagacho, TCSASSEMBLER
-  - Version: 1.4
+  - Author: TCSDEVELOPER, pulky, pvmagacho, TCSASSEMBLER, TrePe
+  - Version: 1.5
   - Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page displays the member profile page.
@@ -9,6 +9,7 @@
   - Version 1.2 (BUG#TCCC-3216) changes: Member photo is now retrieved from informixoltp database.
   - Version 1.3 (BUG#TCCC-3348) changes: Update link for no photo image. Pops up window to submit new photo.
   - Version 1.4 (Release Assembly - TopCoder Software Profile Update v1.0) changes: Update to match new prototype.
+  - Version 1.5 (Release Assembly - TopCoder Achievement Utility and Badges) changes: Currently @ for badges.
 --%>
 <%@  page language="java"
     import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,com.topcoder.shared.util.ApplicationServer,
@@ -23,7 +24,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>    
+<html>
 <head>
     <title>TopCoder Member Profile</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -33,42 +34,43 @@
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
-    
+
     <script type="text/javascript" src="/js/jquery-1.4.1.min.js"></script>
     <script type="text/javascript" src="/js/jquery-ui-1.8.11.custom.min.js"></script>
     <script type="text/javascript" src="/js/jquery.form.js"></script>
     <script type="text/javascript" src="/js/jquery.Jcrop.js"></script>
-    <script type="text/javascript" src="/js/photo.js"></script> 
+    <script type="text/javascript" src="/js/photo.js"></script>
     <script type="text/javascript" src="/js/my.js"></script>
     <script type="text/javascript" src="/js/scripts.js" ></script>
-    <script type="text/javascript" src="/js/badge-tooltips.js"></script> 
+    <script type="text/javascript" src="/js/badge-tooltips.js"></script>
     <script type="text/javascript" src="/js/popup.js"></script>
     <script type="text/javascript" src="/js/badgeBase.js"></script>
-    
+
     <link type="text/css" rel="stylesheet" href="/css/tc/reset.css" media="screen" />
     <link type="text/css" rel="stylesheet" href="/css/jquery-ui-1.8.11.custom.css" media="screen" />
     <link type="text/css" rel="stylesheet" href="/css/tc/screen.css" media="screen" />
     <link type="text/css" rel="stylesheet" href="/css/jquery.Jcrop.css" />
     <link type="text/css" rel="stylesheet" href="/css/photo.css" />
     <link type="text/css" rel="stylesheet" href="/css/profileBadges.css" />
-    
+
     <script type="text/javascript">
-	    var previewPath = <%= request.getParameter("previewPath") == null ? null : "\'"  + URLEncoder.encode(request.getParameter("previewPath"), "UTF-8").replaceAll("%2F", "/") + "\'" %>;
-    	var originalFile = <%= request.getParameter("originalFileName") == null ? null : "\'"  + URLEncoder.encode(request.getParameter("originalFileName"), "UTF-8") + "\'" %>;
-        
+        var userId = <%= request.getParameter("cr") %>;
+        var previewPath = <%= request.getParameter("previewPath") == null ? null : "\'"  + URLEncoder.encode(request.getParameter("previewPath"), "UTF-8").replaceAll("%2F", "/") + "\'" %>;
+        var originalFile = <%= request.getParameter("originalFileName") == null ? null : "\'"  + URLEncoder.encode(request.getParameter("originalFileName"), "UTF-8") + "\'" %>;
+
         $(document).ready(function(){
             var categoryName = 'progress meters development';
             var groupBadgeDiv = $('.groupBadgeDiv');
             var singleBadgeDiv = $('.footer-badges');
             var badges = $('.hidenBadgesDiv');
-            
+
             renderGroupBadges(categoryName, groupBadgeDiv, singleBadgeDiv, badges);
         });
     </script>
 
 </head>
 <body>
- 
+
 <jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
@@ -111,40 +113,40 @@
                                     <div class="contentText">
                                         <% if(!"".equals(StringUtils.checkNull(rscCoderData.getStringItem(0,"quote")))) {%>
                                             <div class="userText">
-                                                "<%=StringUtils.htmlEncode(rscCoderData.getStringItem(0, "quote"))%>"  
+                                                "<%=StringUtils.htmlEncode(rscCoderData.getStringItem(0, "quote"))%>"
                                             </div>
                                         <%} else { %>
-					     <div class="userText">
-						Member of the world&#039;s largest global competitive community.
+                         <div class="userText">
+                        Member of the world&#039;s largest global competitive community.
                                              </div>
-					<%} %>
+                    <%} %>
                                         <!--End starUl-->
                                         <div id="rightLink" class="rightLink">
                                             <% if (rscCoderData.getIntItem(0, "has_achievements")>0 || achievementsData.size() > 0) { %>
                                                 <a href='/tc?module=SimpleStats&c=coder_achievements&d1=statistics&d2=coderAchievements&cr=<%=rscCoderData.getStringItem(0, "coder_id")%>' class="achievements">Achievements</a>
                                             <% } %>
-                                            
+
                                             <% if(isInCopilotPool) { %>
                                                 <a href='/tc?module=ViewCopilotProfile&pid=<%=rscCoderData.getStringItem(0, "coder_id")%>'  class="copilotProfile">Copilot Profile</a>
                                             <% } %>
-                                            
+
                                             <a href='http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=History&userID=<%=rscCoderData.getStringItem(0, "coder_id")%>' id="forumPostHistory" class="forumPostHistory">Forum Post History</a>
-                                            
+
                                             <% if(memberContactEnabled) { %>
                                                 <a href='/tc?module=MemberContact&th=<%=rscCoderData.getStringItem(0, "handle")%>' class="sendAMessage">Send A Message</a>
                                             <% } %>
                                         </div>
-                                        <!--End rightLink-->                      
+                                        <!--End rightLink-->
                                     </div>
                                     <!--End contentText-->
                                     <span class="corner tl"></span>
-                                    <span class="corner bl"></span>  
-                                    <span class="right-arrow"></span>                         
+                                    <span class="corner bl"></span>
+                                    <span class="right-arrow"></span>
                                 </div>
                                 <!--End briefText-->
-                            
+
                                 <jsp:include page="memberProfileTabs.jsp" />
-                
+
                                 <%
                                     String tab = (String)request.getAttribute("tab");
                                     if(tab.equals("alg")) {
@@ -152,19 +154,19 @@
                                 <jsp:include page="memberProfileTabAlg.jsp" />
                                 <% } else if(tab.equals("hs")) { %>
                                 <jsp:include page="memberProfileTabHS.jsp" />
-                                <% } else if(tab.equals("concept")) { %> 
+                                <% } else if(tab.equals("concept")) { %>
                                 <jsp:include page="memberProfileTabTrack.jsp">
                                    <jsp:param name="track" value="Conceptualization"/>
                                    <jsp:param name="competition_type" value="concept"/>
                                    <jsp:param name="phase_id" value="<%= WebConstants.PHASE_CONCEPTUALIZATION %>"/>
                                 </jsp:include>
-                                <% } else if(tab.equals("spec")) { %> 
+                                <% } else if(tab.equals("spec")) { %>
                                 <jsp:include page="memberProfileTabTrack.jsp">
                                    <jsp:param name="track" value="Specification"/>
                                    <jsp:param name="competition_type" value="spec"/>
                                    <jsp:param name="phase_id" value="<%= WebConstants.PHASE_SPECIFICATION %>"/>
                                 </jsp:include>
-                                <% } else if(tab.equals("arch")) { %> 
+                                <% } else if(tab.equals("arch")) { %>
                                 <jsp:include page="memberProfileTabTrack.jsp">
                                    <jsp:param name="track" value="Architecture"/>
                                    <jsp:param name="competition_type" value="arch"/>
@@ -182,13 +184,13 @@
                                    <jsp:param name="competition_type" value="dev"/>
                                    <jsp:param name="phase_id" value="<%= WebConstants.PHASE_DEVELOPMENT %>"/>
                                 </jsp:include>
-                                <% } else if(tab.equals("assembly")) { %> 
+                                <% } else if(tab.equals("assembly")) { %>
                                 <jsp:include page="memberProfileTabTrack.jsp">
                                    <jsp:param name="track" value="Assembly"/>
                                    <jsp:param name="competition_type" value="assembly"/>
                                    <jsp:param name="phase_id" value="<%= WebConstants.PHASE_ASSEMBLY %>"/>
                                 </jsp:include>
-                                <% } else if(tab.equals("test")) { %> 
+                                <% } else if(tab.equals("test")) { %>
                                 <jsp:include page="memberProfileTabTrack.jsp">
                                    <jsp:param name="track" value="Test Suites"/>
                                    <jsp:param name="competition_type" value="test"/>
@@ -212,7 +214,7 @@
                                    <jsp:param name="competition_type" value="ria_build"/>
                                    <jsp:param name="phase_id" value="<%= WebConstants.PHASE_RIA_BUILD %>"/>
                                 </jsp:include>
-                                <% } else if(tab.equals("content_creation")) { %>                                        
+                                <% } else if(tab.equals("content_creation")) { %>
                                 <jsp:include page="memberProfileTabTrack.jsp">
                                    <jsp:param name="track" value="Content Creation"/>
                                    <jsp:param name="competition_type" value="content_creation"/>
@@ -225,14 +227,14 @@
                                    <jsp:param name="phase_id" value="<%= WebConstants.PHASE_REPORTING %>"/>
                                 </jsp:include>
                                 <% } else if(tab.equals("long")) { %>
-                                <jsp:include page="memberProfileTabLong.jsp" />                                        
+                                <jsp:include page="memberProfileTabLong.jsp" />
                                 <% } %>
                             </td>
-                            
+
                             <td>
                                 <div class="betweentd"></div>
                             </td>
-                            
+
                             <td>
                                 <div class="rightMain">
                                     <div class="rightModule">
@@ -247,9 +249,9 @@
                                             </c:otherwise>
                                         </c:choose>
                                         <span class="corner tl"></span>
-                                        <span class="corner tr"></span> 
+                                        <span class="corner tr"></span>
                                         <span class="corner bl"></span>
-                                        <span class="corner br"></span> 
+                                        <span class="corner br"></span>
                                     </div>
                                     <!--End rightModule-->
                                     <h3 class="titleText"><tc-webtags:handle coderId='<%=rscCoderData.getStringItem(0, "coder_id")%>'/></h3>
@@ -258,21 +260,21 @@
                                             <tr><td>
                                                 <ul class="information">
                                                     <li><strong>Member Since</strong><span><rsc:item name="member_since" set="<%=rscCoderData%>" format="MM.dd.yyyy"/></span></li>
-                                                    
+
                                                     <% if (rscCoderData.getItem(0, "country_name").getResultData()!=null) { %>
                                                         <li><strong>Country</strong><span class="countryIcon" style='background: url("/i/country/<rsc:item name="country_code" set="<%=rscCoderData%>"/>.png") no-repeat scroll right 5px transparent;'><rsc:item name="country_name" set="<%=rscCoderData%>"/></span></li>
                                                     <% } %>
-                                                    
+
                                                     <% if (rscCoderData.getStringItem(0,"school_name")!=null) { %>
                                                     <li><strong>School</strong><span><rsc:item name="school_name" set="<%=rscCoderData%>"/></span></li>
                                                     <% }%>
-                                                    
+
                                                     <% if (!registeredHS || (rscCoderData.getStringItem(0, "rating") != null) || (rscCoderData.getStringItem(0, "design_rating") != null) || (rscCoderData.getStringItem(0, "development_rating") != null)) { %>
                                                         <% if(!hidePayments) { %>
                                                             <li><strong>Total Earnings</strong><span><rsc:item name="overall_earnings" set="<%=rscCoderData%>" format="$#,##0.00"/></span></li>
                                                         <% } %>
                                                     <% } %>
-                                                    
+
                                                 </ul>
                                             </td></tr>
                                         </table>
@@ -285,9 +287,10 @@
                                                         <input type="hidden" class="achievementName" value='<rsc:item name="name" row="<%=resultRow%>"/>'></input>
                                                         <input type="hidden" class="achievementDesc" value='<rsc:item name="desc" row="<%=resultRow%>"/>'></input>
                                                         <input type="hidden" class="achievementDate" value='<rsc:item name="creation_date" row="<%=resultRow%>"/>'></input>
+                                                        <input type="hidden" class="achievementHasCurrentlyAt" value='<rsc:item name="has_currently_at" row="<%=resultRow%>"/>'></input>
                                                     </div>
                                                 </rsc:iterator>
-                                            <%}%>                                                
+                                            <%}%>
                                         </div>
                                         <div class="achiv groupBadgeDiv">
                                             <div class="clear-float"></div>
@@ -301,7 +304,7 @@
                         </tr>
                     </table>
                 </div>
-                <!--End main-->  
+                <!--End main-->
             </div>
             <!--End profileColumn-->
             <br>
@@ -319,35 +322,35 @@
 <div class="photoPopup popupUploadPhoto transparent hide">
     <div class="popupWindow">
         <div class="title">UPLOAD YOUR PHOTO</div>
-        
+
         <div class="content" id="uploadDiv">
             <div id="photoUploadLeft">
                 <div class="locateInput">
                     <div class="inner"></div>
                 </div>
-             
+
                 <form action="photo?module=upload&photoAction=preview" method="post" enctype="multipart/form-data" id="photoUploadForm">
                     <a href="javascript:;" class="btn1 btnBrowse">
                         <span class="rightSide">
                             <span class="inner">
-                                Browse 
+                                Browse
                                 <span class="file-wrapper">
                                 <input type="file" name="photoFile" id="inputFile" />
-                                </span>                     
-                            </span>                                                    
+                                </span>
+                            </span>
                         </span>
                     </a>
                 </form>
-                
+
                 <div id="uploadImage">
                     <p>Uploaded Image</p>
                 </div>
             </div>
             <div id="photoUploadRight">
                 <div id="previewDiv">
-                    <img src="i/previewPhoto.jpg" alt="" />        
+                    <img src="i/previewPhoto.jpg" alt="" />
                 </div>
-            
+
                 <div class="alert">
                     Please upload your photo in JPG or PNG format. For best quality, upload a 400X400 pixel image. Drag your mouse over your photo to crop it (optional) and then view the final results above. If you are happy with the results, click "upload" below.</div>
                 <div>
@@ -356,16 +359,16 @@
                 <a href="javascript:;" class="btn1 btnCancel">
                     <span class="rightSide">
                         <span class="inner">
-                            Cancel                                               
-                        </span>                                                    
-                    </span>                                         
-                </a>                
+                            Cancel
+                        </span>
+                    </span>
+                </a>
                 <a href="javascript:;" class="btn1 red btnUpload">
                     <span class="rightSide">
                         <span class="inner">
-                            Upload                                               
-                        </span>                                                    
-                    </span>                                         
+                            Upload
+                        </span>
+                    </span>
                 </a>
                 <form action="photo?module=upload&photoAction=commit" method="post" id="submitPhotoForum">
                     <input type="hidden" name="previewPath"></input>

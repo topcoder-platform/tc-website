@@ -24,9 +24,11 @@ import com.topcoder.web.studio.dto.MemberProfileSubmission;
  * <p>A processor for the requests for displaying the details for the member profile matching the handle which is
  * expected to be provided as request parameter.</p>
  * 
- * @author isv
- * @version 1.0
- * @since TopCoder Studio Member Profile Assembly
+ * <p>Changes 1.1: Release Assembly - TopCoder Achievement Utility and Badges Update
+ * added has_currently_at for badges</p>
+ *
+ * @author isv, TrePe
+ * @version 1.1
  */
 public class ViewMemberProfile extends BaseProcessor {
 
@@ -193,9 +195,9 @@ public class ViewMemberProfile extends BaseProcessor {
           "ORDER BY s.create_date desc ";
 
     private static final String ACHIEVEMENTS = "select user_achievement_name, user_achievement_rule_desc, uar.user_achievement_rule_id, create_date " +
-            "from user_achievement_xref uax, user_achievement_rule uar " +
-            "where uax.user_id = ? and uax.user_achievement_rule_id = uar.user_achievement_rule_id " +
-            "and uar.user_achievement_type_id = 1";
+        "from user_achievement_xref uax, user_achievement_rule uar " +
+        "where uax.user_id = ? and uax.user_achievement_rule_id = uar.user_achievement_rule_id " +
+        "and uar.user_achievement_type_id = 1";
 
     /**
      * <p>Constructs new <code>ViewMemberProfile</code> instance. This implementation does nothing.</p>
@@ -269,6 +271,7 @@ public class ViewMemberProfile extends BaseProcessor {
             result = stmt.executeQuery();
             if (result.next()) {
                 long userId = result.getLong("user_id");
+                getRequest().setAttribute("cr", userId);
                 String hide = result.getString("value");
                 boolean hidePayments = hide != null && "hide".equals(hide);
                 getRequest().setAttribute("hidePayments", new Boolean(hidePayments));
@@ -431,6 +434,7 @@ public class ViewMemberProfile extends BaseProcessor {
                         achievement.setDesc(result.getString("user_achievement_rule_desc"));
                         achievement.setAchievementRuleId(result.getInt("user_achievement_rule_id"));
                         achievement.setAwardTime(result.getTimestamp("create_date"));
+                        achievement.setHasCurrentlyAt(result.getBoolean("has_currently_at"));
 
                         achievements.add(achievement);
                     }

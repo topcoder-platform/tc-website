@@ -41,15 +41,24 @@ import com.topcoder.shared.util.sql.DBUtility;
  * </p>
  *
  * <p>
- * Change log for version 1.2 
+ * Change log for version 1.2
  * (Release Assembly - TopCoder Copilot Badages Feedback Load and Copilot Profile Integration v1.0)
  * <ul>
  * <li>Add checking flag auto_loaded in user_achievement_xref</li>
  * </ul>
  * </p>
- * 
- * @author leo_lol, GreatKevin
- * @version 1.2
+ *
+ * <p>
+ * Change log for version 1.3
+ * (Release Assembly - TopCoder Achievement Utility and Badges Update)
+ * <ul>
+ * <li>Added numberOfRecordsToPopulateEarnedDate parameter.</li>
+ * <li>Added computeEarnedDate method.</li>
+ * </ul>
+ * </p>
+ *
+ * @author leo_lol, GreatKevin, TrePe
+ * @version 1.3
  * @since 1.0 (Release Assembly - TopCoder Achievement System)
  */
 public class MemberAchievementUtility extends DBUtility {
@@ -87,28 +96,28 @@ public class MemberAchievementUtility extends DBUtility {
      * SQL to query achievement rules.
      * </p>
      */
-    private static final String SQL_LOAD_ACHIEVEMENT_RULE = "SELECT user_achievement_rule_id, user_achievement_rule_sql_file, db_schema FROM user_achievement_rule WHERE is_automated = 't' AND user_achievement_type_id != 2";
+    private static final String SQL_LOAD_ACHIEVEMENT_RULE = "SELECT user_achievement_rule_id, user_achievement_rule_sql_file, user_achievement_earned_sql_file, db_schema FROM user_achievement_rule WHERE is_automated = 't' AND user_achievement_type_id != 2";
 
     /**
      * <p>
      * Constants to define tcs_catalog database schema to operate on.
      * </p>
      */
-    private static final String TCS_CATALOG = "tcs_catalog";
+    public static final String TCS_CATALOG = "tcs_catalog";
 
     /**
      * <p>
      * Constants to define tcs_dw database schema to operate on.
      * </p>
      */
-    private static final String TCS_DW = "tcs_dw";
+    public static final String TCS_DW = "tcs_dw";
 
     /**
      * <p>
      * Constants to define topcoder_dw database schema to operate on.
      * </p>
      */
-    private static final String TOPCODER_DW = "topcoder_dw";
+    public static final String TOPCODER_DW = "topcoder_dw";
 
     /**
      * <p>
@@ -119,11 +128,44 @@ public class MemberAchievementUtility extends DBUtility {
 
     /**
      * <p>
+     * Represents the number of records to be pulled from user_achievement_xref table.
+     * It can be &gt;= 0, -1 means pull all records (default).
+     * </p>
+     * @since 1.3
+     */
+    private int numberOfRecordsToPopulateEarnedDate;
+
+    /**
+     * <p>
+     * SQL to find achievements that do not have correct earned_date.
+     * Applies only to those achievements that have specified sql file for earned date.
+     * </p>
+     */
+    private static final String SQL_FIND_UNASSIGNED_EARNED_DATE =
+        "SELECT x.user_id, x.user_achievement_rule_id, r.user_achievement_earned_sql_file " +
+        "FROM user_achievement_xref x " +
+        "JOIN user_achievement_rule r " +
+        "ON x.user_achievement_rule_id = r.user_achievement_rule_id AND r.user_achievement_earned_sql_file IS NOT NULL " +
+        "WHERE x.is_earned_date_populated = 'f'";
+
+    /**
+     * <p>
+     * SQL to update earned date of achievement for user id.
+     * </p>
+     */
+    private static final String SQL_UPDATE_EARNED_DATE =
+        "UPDATE user_achievement_xref " +
+        "SET is_earned_date_populated = 't', create_date = ? " +
+        "WHERE user_id = ? AND user_achievement_rule_id = ?";
+
+    /**
+     * <p>
      * Default constructor.
      * </p>
      */
     public MemberAchievementUtility() {
         super();
+        numberOfRecordsToPopulateEarnedDate = -1;
     }
 
     /**
@@ -131,7 +173,7 @@ public class MemberAchievementUtility extends DBUtility {
      * This method would simply find out all existing achievement winner's ID
      * per achievement rule.
      * </p>
-     * 
+     *
      * @param ruleId
      *            the ID of the rule to filter.
      * @return List of user ID.
@@ -169,16 +211,16 @@ public class MemberAchievementUtility extends DBUtility {
      * This method would load all SQLs which will be used to assign
      * achievements.
      * </p>
-     * 
-     * @return A List of AchievementRuleRow records containing all achievement
-     *         rule IDs, file names and DB Schemas.
+     *
+     * @return A Map of AchievementRuleRow records indexed by rule ID containing all achievement
+     *         SQLs and DB Schemas.
      * @throws Exception
      */
-    private List<AchievementRuleRow> loadAchievementRules() throws Exception {
+    private Map<Long, AchievementRuleRow> loadAchievementRules() throws Exception {
         final String signature = CLASS_NAME + ".loadAchievementRule()";
         logEntrance(signature);
         final long start = logStart(signature);
-        List<AchievementRuleRow> achievementRules = new ArrayList<AchievementRuleRow>();
+        Map<Long, AchievementRuleRow> achievementRules = new HashMap<Long, AchievementRuleRow>();
 
         PreparedStatement pst = null;
         ResultSet rs = null;
@@ -194,9 +236,21 @@ public class MemberAchievementUtility extends DBUtility {
             while (rs.next()) {
                 row = new AchievementRuleRow();
                 row.setId(rs.getLong("user_achievement_rule_id"));
-                row.setFileName(readSQLFile(basePath + rs.getString("user_achievement_rule_sql_file")));
+                row.setRuleSql(readSQLFile(basePath + rs.getString("user_achievement_rule_sql_file"), true));
+                String earnedDateFileName = rs.getString("user_achievement_earned_sql_file");
+                if (earnedDateFileName != null) {
+                    row.setEarnedDateSql(readSQLFile(basePath + "earned_date/" + rs.getString("user_achievement_earned_sql_file"), true));
+                }
                 row.setDbSchema(rs.getString("db_schema"));
-                achievementRules.add(row);
+                // check schema validity
+                if (!TCS_CATALOG.equals(row.getDbSchema()) &&
+                        !TCS_DW.equals(row.getDbSchema()) &&
+                        !TOPCODER_DW.equals(row.getDbSchema())) {
+                    throw new Exception("MemberAchievementUtility failed!\n" + 
+                            "Unknown DB schema (" + row.getDbSchema() + ") used in user_achievement_rule table id " + row.getId());
+                }
+
+                achievementRules.put(row.getId(), row);
             }
             logExit(signature, achievementRules);
             logEnd(signature, start);
@@ -216,7 +270,7 @@ public class MemberAchievementUtility extends DBUtility {
      * This method would return a collection of user_id that is qualified for
      * the given achievement rule.
      * </p>
-     * 
+     *
      * @param rule
      *            the specified achievement rule
      * @param dbSchema
@@ -234,13 +288,7 @@ public class MemberAchievementUtility extends DBUtility {
         PreparedStatement pst = null;
         ResultSet rs = null;
         try {
-            if (TCS_CATALOG.equals(dbSchema)) {
-                pst = prepareStatement(TCS_CATALOG, rule);
-            } else if (TCS_DW.equals(dbSchema)) {
-                pst = prepareStatement(TCS_DW, rule);
-            } else if (TOPCODER_DW.equals(dbSchema)) {
-                pst = prepareStatement(TOPCODER_DW, rule);
-            }
+            pst = prepareStatement(dbSchema, rule);
 
             rs = pst.executeQuery();
             while (rs.next()) {
@@ -264,7 +312,7 @@ public class MemberAchievementUtility extends DBUtility {
      * This method would return location that storing the SQLs for filtering
      * qualified achievement winners.
      * </p>
-     * 
+     *
      * @return Location of the folder that storing achievement files.
      */
     private String getSQLFileBasePath() {
@@ -285,28 +333,40 @@ public class MemberAchievementUtility extends DBUtility {
      * <p>
      * This method would read SQL statement from specified file.
      * </p>
-     * 
-     * @param path
-     *            location of the file storing SQL.
+     *
+     * @param path location of the file storing SQL.
+     * @param replaceUserId if "@userId" should be replaced with "?".
      * @return SQL the SQL statement.
      */
-    private String readSQLFile(String path) throws IOException {
-        final String signature = CLASS_NAME + ".loadSingleSQL(String path)";
-        logEntrance(signature, "path", path);
+    public static final String readSQLFile(String path, boolean replaceUserId) throws IOException {
         StringBuilder sb = new StringBuilder();
         File f = new File(path);
 
         if (!f.exists() || !f.canRead()) {
-            throw new IOException("The specified file does not exist or is not accessible");
+            throw new IOException("The specified file " + path + " does not exist or is not accessible");
         }
 
-        BufferedReader br = new BufferedReader(new FileReader(f));
-        String line = "";
-        while (null != (line = br.readLine())) {
-            sb.append(line).append(" ");
+        BufferedReader br = null;
+        try {
+            br = new BufferedReader(new FileReader(f));
+            String line = "";
+            while (null != (line = br.readLine())) {
+                sb.append(line).append(" ");
+            }
+        } finally {
+            if (br != null) {
+                br.close();
+            }
         }
-        br.close();
-        logExit(signature, sb.toString());
+
+        if (replaceUserId) {
+            // replace "@userId" with "?"
+            int index = sb.indexOf("@userId");
+            if (index >= 0) {
+                sb.replace(index, index + 7, "?");
+            }
+        }
+
         return sb.toString();
     }
 
@@ -314,7 +374,7 @@ public class MemberAchievementUtility extends DBUtility {
      * <p>
      * This method would log the entrance of a method.
      * </p>
-     * 
+     *
      * @param signature
      *            Signature of the method.
      * @param paraName
@@ -333,7 +393,7 @@ public class MemberAchievementUtility extends DBUtility {
      * <p>
      * This method would log the entrance of a method with multiple parameters.
      * </p>
-     * 
+     *
      * @param signature
      *            Signature of the method.
      * @param paraNames
@@ -343,7 +403,7 @@ public class MemberAchievementUtility extends DBUtility {
      */
     private void logEntrance(String signature, String[] paraNames, Object[] paramValues) {
         log.info("Enter " + signature);
-        if (null != paraNames && null != paramValues && paraNames.length > 0 
+        if (null != paraNames && null != paramValues && paraNames.length > 0
                 && paraNames.length == paramValues.length) {
             StringBuilder sb = new StringBuilder(100);
             sb.append("Parameter {");
@@ -360,7 +420,7 @@ public class MemberAchievementUtility extends DBUtility {
      * <p>
      * This method would log the entrance of a method.
      * </p>
-     * 
+     *
      * @param signature
      */
     private void logEntrance(String signature) {
@@ -371,7 +431,7 @@ public class MemberAchievementUtility extends DBUtility {
      * <p>
      * This method would log the exit of a method.
      * </p>
-     * 
+     *
      * @param signature
      * @param ret
      *            Return value of the method.
@@ -385,7 +445,7 @@ public class MemberAchievementUtility extends DBUtility {
      * <p>
      * This method would log the exit of a method.
      * </p>
-     * 
+     *
      * @param signature
      * @param ret
      *            Return value of the method.
@@ -398,7 +458,7 @@ public class MemberAchievementUtility extends DBUtility {
      * <p>
      * This method would log down SQL statements executed/will be executed.
      * </p>
-     * 
+     *
      * @param sql
      *            The SQL statement.
      */
@@ -410,7 +470,7 @@ public class MemberAchievementUtility extends DBUtility {
      * <p>
      * This method would log down the start time in milliseconds.
      * </p>
-     * 
+     *
      * @param signature
      *            Signature of the method.
      * @return time in milliseconds.
@@ -427,7 +487,7 @@ public class MemberAchievementUtility extends DBUtility {
      * This method would log down the ending time of the execution, as well as
      * rough cost time.
      * </p>
-     * 
+     *
      * @param signature
      * @param start
      */
@@ -443,7 +503,7 @@ public class MemberAchievementUtility extends DBUtility {
      * This method logs a collection of user IDs that are being working on in
      * INFO level.
      * </p>
-     * 
+     *
      * @param userIds
      *            a collection of user Id-Date map being logged down.
      */
@@ -476,7 +536,7 @@ public class MemberAchievementUtility extends DBUtility {
      * This method would add achievement records into user_achievement_xref in
      * {@link #TCS_DW} in batch processing manner.
      * </p>
-     * 
+     *
      * @param userIds
      *            Collections of user_id that has got the achievement
      *            represented by memberAchievementRuleId
@@ -540,10 +600,92 @@ public class MemberAchievementUtility extends DBUtility {
 
     /**
      * <p>
+     * This method updates earned date in user_achievement_xref table for records having
+     * is_earned_date_populated false and that have rule with specified SQL to retrieve earned date.
+     * </p>
+     *
+     * @param achievementRules
+     *            Map of rules indexed by rule id used to retrieve earned date SQL.
+     * @throws Exception
+     *             If there is any error.
+     * @since 1.3
+     */
+    private void computeEarnedDate(Map<Long, AchievementRuleRow> achievementRules) throws Exception {
+        final String signature = CLASS_NAME + ".computeEarnedDate()";
+        long start = logStart(signature);
+        // skip earned date computation
+        if (numberOfRecordsToPopulateEarnedDate == 0) {
+            logExit(signature);
+            return;
+        }
+
+        PreparedStatement pst = null;
+        PreparedStatement pstEarnedDate = null;
+        ResultSet rs = null;
+
+        try {
+            StringBuffer sql = new StringBuffer(SQL_FIND_UNASSIGNED_EARNED_DATE);
+            if (numberOfRecordsToPopulateEarnedDate >= 0) {
+                // change "SELECT ..." into "SELECT LIMIT X ..."
+                sql.insert(6, " LIMIT " + numberOfRecordsToPopulateEarnedDate);
+            }
+            logSQL(sql.toString());
+            pst = prepareStatement(TCS_DW, sql.toString());
+            pstEarnedDate = prepareStatement(TCS_DW, SQL_UPDATE_EARNED_DATE);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                long userId = rs.getLong("user_id");
+                long ruleId = rs.getLong("user_achievement_rule_id");
+                AchievementRuleRow rule = achievementRules.get(ruleId);
+                Date earnedDate;
+
+                PreparedStatement pstGetDate = null;
+                ResultSet rsDate = null;
+                try {
+                    logSQL(rule.getEarnedDateSql());
+                    pstGetDate = prepareStatement(rule.getDbSchema(), rule.getEarnedDateSql());
+                    pstGetDate.setLong(1, userId);
+                    rsDate = pstGetDate.executeQuery();
+
+                    if (rsDate.next()) {
+                        earnedDate = rsDate.getDate("earned_date");
+                    } else {
+                        throw new Exception("MemberAchievementUtility failed!\n" +
+                               "Cannot retrieve achievement (id = " + ruleId + ") earned date for user " + userId);
+                    }
+
+                } finally {
+                    DBMS.close(rsDate);
+                    DBMS.close(pstGetDate);
+                }
+
+                logSQL(SQL_UPDATE_EARNED_DATE);
+
+                pstEarnedDate.setDate(1, earnedDate);
+                pstEarnedDate.setLong(2, userId);
+                pstEarnedDate.setLong(3, ruleId);
+                pstEarnedDate.executeUpdate();
+            }
+
+        } catch (SQLException e) {
+            log.error(e.getMessage());
+            DBMS.printSqlException(true, e);
+            throw new Exception("MemberAchievementUtility failed!\n" + e.getMessage());
+        } finally {
+            DBMS.close(rs);
+            DBMS.close(pst);
+            DBMS.close(pstEarnedDate);
+        }
+
+        logEnd(signature, start);
+    }
+
+    /**
+     * <p>
      * This implementation would first clean up existing achievement and re-fill
      * with latest data.
      * </p>
-     * 
+     *
      * @throws Exception
      *             If there is any error.
      */
@@ -553,15 +695,16 @@ public class MemberAchievementUtility extends DBUtility {
         logEntrance(signature);
         final long start = logStart(signature);
 
-        List<AchievementRuleRow> achievementRules = loadAchievementRules();
+        Map<Long, AchievementRuleRow> achievementRules = loadAchievementRules();
 
         long achievementRuleId = 0;
         Map<Long, Date> userIdDateMap = null;
-        for (AchievementRuleRow row : achievementRules) {
-            achievementRuleId = row.getId();
-            userIdDateMap = filterUser(row.getFileName(), row.getDbSchema());
+        for (Map.Entry<Long, AchievementRuleRow> row : achievementRules.entrySet()) {
+            achievementRuleId = row.getKey();
+            userIdDateMap = filterUser(row.getValue().getRuleSql(), row.getValue().getDbSchema());
             assignAchievements(userIdDateMap, achievementRuleId);
         }
+        computeEarnedDate(achievementRules);
 
         logEnd(signature, start);
         logExit(signature);
@@ -571,7 +714,7 @@ public class MemberAchievementUtility extends DBUtility {
      * <p>
      * Show usage of the DBUtility.
      * <p/>
-     * 
+     *
      * @param msg
      *            The error message.
      */
@@ -598,6 +741,10 @@ public class MemberAchievementUtility extends DBUtility {
         if (params.contains("path")) {
             setUsageError("Please specify -path");
         }
+        String num = (String) params.get("number_of_records_to_populate_earned_date");
+        if (num != null) {
+            numberOfRecordsToPopulateEarnedDate = Integer.parseInt(num, 10);
+        }
     }
 
 }
@@ -609,9 +756,9 @@ public class MemberAchievementUtility extends DBUtility {
  * <p>
  * <strong>Thread Safety: </strong> It's mutable and not thread safe.
  * </p>
- * 
+ *
  * @author TCSASSEMBLER
- * @version 1.0
+ * @version 1.1
  * @since 1.0
  */
 class AchievementRuleRow {
@@ -621,9 +768,14 @@ class AchievementRuleRow {
     private long id;
 
     /**
-     * Achievement file name.
+     * Achievement rule SQL read from file.
      */
-    private String fileName;
+    private String ruleSql;
+
+    /**
+     * Earned date SQL read from file.
+     */
+    private String earnedDateSql;
 
     /**
      * DB Schema
@@ -634,7 +786,7 @@ class AchievementRuleRow {
      * <p>
      * Getter of id field.
      * </p>
-     * 
+     *
      * @return the id
      */
     public long getId() {
@@ -645,7 +797,7 @@ class AchievementRuleRow {
      * <p>
      * Setter of id field.
      * </p>
-     * 
+     *
      * @param id
      *            the id to set
      */
@@ -655,32 +807,55 @@ class AchievementRuleRow {
 
     /**
      * <p>
-     * Getter of fileName field.
+     * Getter of ruleSql field.
      * </p>
-     * 
-     * @return the fileName
+     *
+     * @return the ruleSql
      */
-    public String getFileName() {
-        return fileName;
+    public String getRuleSql() {
+        return ruleSql;
     }
 
     /**
      * <p>
-     * Setter of fileName field.
+     * Setter of ruleSql field.
      * </p>
-     * 
-     * @param fileName
-     *            the fileName to set
+     *
+     * @param ruleSql
+     *            the ruleSql to set
      */
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
+    public void setRuleSql(String ruleSql) {
+        this.ruleSql = ruleSql;
+    }
+
+    /**
+     * <p>
+     * Getter of earnedDateSql field.
+     * </p>
+     *
+     * @return the earnedDateSql
+     */
+    public String getEarnedDateSql() {
+        return earnedDateSql;
+    }
+
+    /**
+     * <p>
+     * Setter of earnedDateSql field.
+     * </p>
+     *
+     * @param earnedDateSql
+     *            the earnedDateSql to set
+     */
+    public void setEarnedDateSql(String earnedDateSql) {
+        this.earnedDateSql = earnedDateSql;
     }
 
     /**
      * <p>
      * Getter of dbSchema field.
      * </p>
-     * 
+     *
      * @return the dbSchema
      */
     public String getDbSchema() {
@@ -691,7 +866,7 @@ class AchievementRuleRow {
      * <p>
      * Setter of dbSchema field.
      * </p>
-     * 
+     *
      * @param dbSchema
      *            the dbSchema to set
      */
