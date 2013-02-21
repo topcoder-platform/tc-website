@@ -44,9 +44,9 @@
             <many-to-many column="contest_id" class="Contest"/>
         </set>
         
-        <set name="allPrizes" table="project_prize_xref" cascade="all" access="property" sort="natural">
+        <set name="allPrizes" table="prize" cascade="all" order-by="place">
             <key column="project_id" not-null="true"/>
-            <many-to-many column="prize_id" class="Prize"/>
+			<one-to-many class="Prize"/>
         </set>
         
         <set name="fileTypes" table="project_file_type_xref" cascade="none">
