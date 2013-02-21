@@ -47,7 +47,7 @@ public class Prize implements Comparable<Prize> {
     /**
      * <p>A <code>Set</code> providing the projects which this prize maps to.</p>
      */
-    private Set<Project> projects = new HashSet<Project>();
+    private Project project;
 
     /**
      * <p>A <code>PrizeType</code> providing the type of this prize.</p>
@@ -138,8 +138,8 @@ public class Prize implements Comparable<Prize> {
      *
      * @return a <code>Set</code> providing the projects which this prize maps to.
      */
-    public Set getProjects() {
-        return this.projects;
+    public Project getProject() {
+        return this.project;
     }
 
     /**
@@ -147,8 +147,8 @@ public class Prize implements Comparable<Prize> {
      *
      * @param projects a <code>Set</code> providing the projects which this prize maps to.
      */
-    public void setProjects(Set projects) {
-        this.projects = projects;
+    public void setProject(Project project) {
+        this.project = project;
     }
 
     /**
