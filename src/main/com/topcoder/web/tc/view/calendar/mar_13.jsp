@@ -145,7 +145,8 @@
       <td class="value">25
         <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=15494">SRM 574</A></strong><br />
-         11:00
+         brought to you by <A href="http://community.topcoder.com/tco13/overview/overview-sponsor/google/">Google</A><br />
+         11:00<br/>
         </div>
       </td>
       <td class="value">26
