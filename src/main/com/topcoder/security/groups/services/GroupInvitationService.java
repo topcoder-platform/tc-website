@@ -18,9 +18,18 @@ import com.topcoder.security.groups.services.dto.PagedResult;
  * Thread Safety:Implementations are expected to be effectively thread-safe
  * </p>
  * 
- * @author backstretlili
+ * <p>
+ * Version 1.1 (TopCoder Security Groups Release 6) change notes:
+ * <ol>
+ * 	<li>Updated {@link #sendInvitation(GroupInvitation, String, String, String, String, String)} method 
+ * 		to add inviter name and edit notification url.</li>
+ * </ol>
+ * </p>
  * 
- * @version 1.0
+ * @author backstretlili, freegod
+ * 
+ * @version 1.1 (TopCoder Security Groups Release 6)
+ * @since 1.0
  */
 public interface GroupInvitationService {
     /**
@@ -101,6 +110,8 @@ public interface GroupInvitationService {
      *            the URL for the invitee to use to accept the invitation
      * @param rejectionUrl
      *            the URL for the invitee to use to reject the invitation
+     * @param inviterName
+     *            the inviter's name
      * @throws IllegalArgumentException
      *             If invitation is null, and any of the URL parameters is null/empty
      * @throws SecurityGroupException
@@ -108,7 +119,8 @@ public interface GroupInvitationService {
      * 
      */
     public void sendInvitation(GroupInvitation invitation, String registrationUrl, String acceptanceUrl,
-                    String rejectionUrl) throws IllegalArgumentException, SecurityGroupException;
+                    String rejectionUrl, String inviterName) 
+                    		throws IllegalArgumentException, SecurityGroupException;
     
     /**
      * This method will get the invitation by the user id and group id.
