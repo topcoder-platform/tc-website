@@ -46,9 +46,18 @@ import com.topcoder.util.file.Template;
  *   view invitation page and pending approval page.</li>
  * </ol>
  * </p>
+ * 
+ * <p>
+ * 	Version 1.2 (Release Assembly - TopCoder Security Groups Release 6) change notes:
+ * 	<li>
+ *  	Updated method {@link #sendInvitation(GroupInvitation, String, String, String, String)} to 
+ *  	send inviter name and edit notifications url.
+ *  </li>
+ * </p>
  *
  * @author backstretlili, TCSASSEMBLER
- * @version 1.1
+ * @version 1.2 (TopCoder Security Groups Release 6)
+ * @since 1.0
  */
 public class HibernateGroupInvitationService extends BaseGroupService implements GroupInvitationService {
 
@@ -99,6 +108,11 @@ public class HibernateGroupInvitationService extends BaseGroupService implements
      */
     private String emailSender;
 
+    /**
+     * Edit notification URL.
+     */
+    private String editNotificationUrl;
+    
     /**
      * This method creates a new invitation record, and returns its ID.
      * 
@@ -408,6 +422,8 @@ public class HibernateGroupInvitationService extends BaseGroupService implements
      *            the URL for the invitee to use to accept the invitation
      * @param rejectionUrl
      *            the URL for the invitee to use to reject the invitation
+     * @param inviterName
+     *            the inviter's name
      * @throws IllegalArgumentException
      *             If invitation is null, and any of the URL parameters is null/empty
      * @throws SecurityGroupException
@@ -415,7 +431,8 @@ public class HibernateGroupInvitationService extends BaseGroupService implements
      * 
      */
     public void sendInvitation(GroupInvitation invitation, String registrationUrl, String acceptanceUrl,
-                    String rejectionUrl) throws IllegalArgumentException, SecurityGroupException {
+                    String rejectionUrl, String inviterName) 
+                    		throws IllegalArgumentException, SecurityGroupException {
         final String signature = CLASS_NAME
                         + ".sendInvitation(GroupInvitation invitation, String registrationUrl, String acceptanceUrl,String rejectionUrl)";
         LoggingWrapperUtility.logEntrance(logger, signature, new String[] { "invitation", "registrationUrl",
@@ -429,11 +446,14 @@ public class HibernateGroupInvitationService extends BaseGroupService implements
             data.append("<DATA>\n");
             UserDTO userDTO = userService.get(invitation.getGroupMember().getUserId());
             data.append("<USERNAME>").append(processString(userDTO.getHandle())).append("</USERNAME>\n");
+            data.append("<INVITER_HANDLE>").append(processString(inviterName)).append("</INVITER_HANDLE>");
             data.append("<GROUP_NAME>").append(processString(invitation.getGroupMember().getGroup().getName()))
                             .append("</GROUP_NAME>\n");
             data.append("<REGISTRATION_URL>").append(processString(registrationUrl)).append("</REGISTRATION_URL>\n");
             data.append("<ACCEPTANCE_URL>").append(processString(acceptanceUrl)).append("</ACCEPTANCE_URL>\n");
             data.append("<REJECTION_URL>").append(processString(rejectionUrl)).append("</REJECTION_URL>\n");
+            data.append("<EDIT_NOTIFICATION_URL>").append(processString(editNotificationUrl))
+            	.append("</EDIT_NOTIFICATION_URL>");
             data.append("</DATA>\n");
             ConfigurationObject configurationObject = new ConfigurationFileManager(CONFIGURATION_FILE)
                             .getConfiguration(DOCUMENT_NAMESPACE).getChild(DOCUMENT_NAMESPACE);
@@ -636,5 +656,21 @@ public class HibernateGroupInvitationService extends BaseGroupService implements
     public void setEmailSender(String emailSender) {
         this.emailSender = emailSender;
     }
+
+
+    /**
+	 * @return the editNotificationUrl
+	 */
+	public String getEditNotificationUrl() {
+		return editNotificationUrl;
+	}
+
+
+	/**
+	 * @param editNotificationUrl the editNotificationUrl to set
+	 */
+	public void setEditNotificationUrl(String editNotificationUrl) {
+		this.editNotificationUrl = editNotificationUrl;
+	}
 
 }
