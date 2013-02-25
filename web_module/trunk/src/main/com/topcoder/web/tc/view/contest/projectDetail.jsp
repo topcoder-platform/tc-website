@@ -676,7 +676,7 @@
                                     <c:when test="${!canDownloadDocuments}">
                                         <% if(!projectDetail.getStringItem(0, "project_status").equals("closed")) { 
                                         %>
-                                        <a href="/tc?module=ViewRegistration&<%=Constants.PROJECT_ID%>=<%= request.getAttribute("projectId") %>" class="register"><span>Register the contest to see the documentation</span></a>
+                                        <span class="register"><a href="/tc?module=ViewRegistration&<%=Constants.PROJECT_ID%>=<%= request.getAttribute("projectId") %>" class="register">Register</a> to see the documentation</span>
                                         <% } else { %>
                                         <strong>Register phase is closed</strong>
                                         <% } %>
