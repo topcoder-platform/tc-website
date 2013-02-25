@@ -179,7 +179,7 @@ public class CopilotSkillBadgesUtility extends DBUtility {
             while (rs.next()) {
                 row = new AchievementRuleRow();
                 row.setId(rs.getLong("user_achievement_rule_id"));
-                row.setFileName(readSQLFile(basePath + rs.getString("user_achievement_rule_sql_file")));
+                row.setRuleSql(readSQLFile(basePath + rs.getString("user_achievement_rule_sql_file")));
                 row.setDbSchema(rs.getString("db_schema"));
                 achievementRules.add(row);
             }
@@ -575,7 +575,7 @@ public class CopilotSkillBadgesUtility extends DBUtility {
         Map<Long, Date> userIdDateMap = null;
         for (AchievementRuleRow row : achievementRules) {
             achievementRuleId = row.getId();
-            userIdDateMap = filterUserMatchRules(row.getFileName(), row.getDbSchema());
+            userIdDateMap = filterUserMatchRules(row.getRuleSql(), row.getDbSchema());
             Map<Long, Date> filteredIds = new HashMap<Long, Date>();
             for (Map.Entry<Long, Date> entry : userIdDateMap.entrySet()) {
                 // in the matched copilots, put into the filtered result
