@@ -1,6 +1,6 @@
 <%--
-  - Author: pulky, snow01, FireIce, lmmortal, TCSASSEMBLER
-  - Version: 1.4
+  - Author: pulky, snow01, FireIce, lmmortal, isv
+  - Version: 1.5
   - Since: Specification Review Integration 1.0
   - Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
   -
@@ -18,6 +18,9 @@
   -
   - Version 1.4 (Release Assembly - TopCoder BugHunt Competition Integration) changes:
   - Added constants for new Bug Hunt competitions.
+  -
+  - Version 1.5 (Review Application Integration assembly) change notes:
+  -  Updated the logic to use review auctions.
 --%>
 
 <%@ page import="com.topcoder.web.tc.Constants" %>
@@ -237,5 +240,6 @@
     </c:when>
 </c:choose>
 
+<c:set var="REVIEW_AUCTION_ID" value="<%=Constants.REVIEW_AUCTION_ID%>" scope="request"/>
 <c:set var="PROJECT_ID" value="<%=Constants.PROJECT_ID%>" scope="request"/>
 <c:set var="MODULE_KEY" value="<%=Constants.MODULE_KEY%>" scope="request"/>

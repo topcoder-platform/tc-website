@@ -1,8 +1,8 @@
 <%--
-  - Author: pulky, snow01, FireIce
-  - Version: 1.4
+  - Author: pulky, snow01, FireIce, isv
+  - Version: 1.5
   - Since: TCS Release 2.2.2
-  - Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
+  - Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page lists the active review projects corresponding to the specified project type.
   - It displays the list of review projects along with other project details and links for registering.
@@ -21,6 +21,9 @@
 
   - Version 1.4 (Content Creation Contest Online Review and TC Site Integration Assembly 1.0) changes:
   - Fix Review Opportunities table header colspan problem.
+  -
+  - Version 1.5 (Review Application Integration assembly) change notes:
+  -  Updated the logic to use review auctions.
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
@@ -35,10 +38,11 @@
 
 <%-- Variables to use JSTL --%>
 <c:set var="PROJECT_TYPE_ID" value="<%=Constants.PROJECT_TYPE_ID%>"/>
-<c:set var="APPLICATIONS_CATALOG_ID" value="<%=Constants.APPLICATIONS_CATALOG_ID%>"/>
 <c:set var="DEV_PHASE" value="<%=SoftwareComponent.DEV_PHASE%>"/>
 <c:set var="projectType" value="${param[PROJECT_TYPE_ID]}" scope="request"/>
 <jsp:include page="reviewCommonVariables.jsp"/>
+
+<fmt:setLocale value="en_US"/>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -78,10 +82,11 @@
                    Please keep in mind that only members who meet the <a href="http://apps.topcoder.com/wiki/display/tc/Reviewer+Qualification+Requirements">Reviewer Qualification Requirements</a>
                    are eligible to join the TopCoder Review Board.</p>
                 <p>In order to sign up for a review position, click on the "details" link for any contest with positions
-                   available, and then select "Apply Now" next to the position that you would like to commit to.</p>
+                   available, select the review roles you would like to apply for and click "Apply Now".</p>
 
                 <br/>
-                    <c:if test="${fn:length(projectList) > 0}">
+                    <%-- CONTEST REVIEW AUCTIONS --%>
+                    <c:if test="${not empty reviewAuctions}">
                         <div align="right" style="padding-top: 10px">
                             <b>Review opportunities via RSS -</b>
                             <a href="/tc?module=BasicRSS&c=rss_Open_Review_Positions&dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
@@ -90,160 +95,83 @@
                         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
                             <tr>
                             <c:choose>
-                                <c:when test="${projectType == DESIGN_PROJECT_TYPE || projectType == DESIGN_SPECIFICATION_PROJECT_TYPE}">
-                                    <td class="tableTitle" colspan="11">
+                                <c:when test="${projectType == DEVELOPMENT_PROJECT_TYPE ||
+                                            projectType == DESIGN_PROJECT_TYPE}">
+                                    <td class="tableTitle" colspan="7">
                                 </c:when>
                                 <c:otherwise>
-                                    <td class="tableTitle" colspan="12">
+                                    <td class="tableTitle" colspan="6">
                                 </c:otherwise>
                             </c:choose>
                                     ${projectTypeTitle} Review Opportunities
                                 </td>
                             </tr>
                             <tr>
-                                <c:choose>
-                                    <c:when test="${projectType == DESIGN_PROJECT_TYPE ||
-                                        projectType == DESIGN_SPECIFICATION_PROJECT_TYPE}">
-                                    </c:when>
-                                    <c:otherwise>
-                                        <td class="tableHeader" align="center">Type</td>
-                                    </c:otherwise>
-                                </c:choose>
-                                <td class="tableHeader" align="center">Catalog</td>
-                                <td class="tableHeader" width="100%">${projectTypeDesc}</td>
-                                <td class="tableHeader" align="center"></td>
-                                <td class="tableHeader" align="right" nowrap="nowrap">
-                                    Primary Reviewer<br>Payment
-                                </td>
-                                <td class="tableHeader" align="right">Reviewer<br>Payment</td>
+                                <c:if test="${projectType == DEVELOPMENT_PROJECT_TYPE ||
+                                            projectType == DESIGN_PROJECT_TYPE}">
+                                    <td class="tableHeader" align="center">Catalog</td>
+                                </c:if>
+                                <td class="tableHeader" width="100%">Contest</td>
+                                <td class="tableHeader" align="right">Reviewer<br><nobr>Payment *</nobr></td>
                                 <td class="tableHeader" align="center">Submissions</td>
-                                <td class="tableHeader" align="center">Opens<br>On</td>
-                                <td class="tableHeader" align="center">Review<br>Start</td>
-                                <td class="tableHeader" align="center">Review<br>End</td>
-                                <td class="tableHeader" align="center">Positions<br>Available</td>
+                                <td class="tableHeader" align="center">Review Start</td>
+                                <td class="tableHeader" align="center">Open<br/>Positions</td>
                                 <td class="tableHeader">Details</td>
                             </tr>
 
                             <c:set var="i" value="0"/>
-                            <c:forEach items="${projectList}" var="resultRow">
+                            <c:forEach items="${reviewAuctions}" var="auction">
+                                <c:set var="resultRow" value="${reviewAuctionProjectsMap[auction.projectId]}" 
+                                       scope="page"/>
                                 <tr>
-                                    <c:choose>
-                                        <c:when test="${projectType == DESIGN_PROJECT_TYPE ||
-                                            projectType == DESIGN_SPECIFICATION_PROJECT_TYPE}">
-                                        </c:when>
-                                        <c:when test="${projectType == DEVELOPMENT_PROJECT_TYPE ||
-                                            projectType == DEVELOPMENT_SPECIFICATION_PROJECT_TYPE}">
-                                            <td class="statDk" align="center">
-                                                <c:choose>
-                                                    <c:when test="${resultRow.map['phase_id'] == DEV_PHASE}">
-                                                        Development
-                                                    </c:when>
-                                                    <c:otherwise>
-                                                        Testing
-                                                    </c:otherwise>
-                                                </c:choose>
-                                            </td>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <td class="statDk" align="center">${projectTypeDesc}</td>
-                                        </c:otherwise>
-                                    </c:choose>
+                                    <c:if test="${projectType == DEVELOPMENT_PROJECT_TYPE ||
+                                            projectType == DESIGN_PROJECT_TYPE}">
                                     <td class="statDk" align="center">
-                                        <c:choose>
-                                            <c:when test="${projectType == DEVELOPMENT_PROJECT_TYPE ||
-                                                projectType == DESIGN_PROJECT_TYPE ||
-                                                projectType == DESIGN_SPECIFICATION_PROJECT_TYPE ||
-                                                projectType == DEVELOPMENT_SPECIFICATION_PROJECT_TYPE}">
-                                                <tc_tags:languageIcon catalogName = "${resultRow.map['catalog']}" aolBrand="${resultRow.map['aol_brand'] != null}"
-                                                                      paypalBrand="${resultRow.map['paypal_brand'] != null}"/>
-                                            </c:when>
-                                            <c:otherwise>
-                                                ${projectTypeDesc}
-                                            </c:otherwise>
-                                        </c:choose>
+                                            <tc_tags:languageIcon catalogName="${resultRow.map['catalog']}"
+                                                                  aolBrand="false" paypalBrand="false"/>
                                     </td>
+                                    </c:if>
+
                                     <td class="statDk">
-                                        <c:choose>
-                                            <c:when test="${resultRow.map['category_id'] == APPLICATIONS_CATALOG_ID}">
-                                                ${resultRow.map["component_name"]} ${resultRow.map["version"]}
-                                            </c:when>
-                                            <c:otherwise>
-                                                <a href="${sessionInfo.servletPath}?${MODULE_KEY}=ProjectDetail&${PROJECT_ID}=${resultRow.map['project_id']}">
-                                                    ${resultRow.map["component_name"]}
-                                                    ${resultRow.map["version"]}
-                                                </a>
-                                            </c:otherwise>
-                                        </c:choose>
-                                    </td>
-                                    <td class="statDk" align="center">
-                                        <c:choose>
-                                                    <c:when test="${projectType != DEVELOPMENT_PROJECT_TYPE &&
-                                                        projectType != DESIGN_PROJECT_TYPE &&
-                                                        projectType != DESIGN_SPECIFICATION_PROJECT_TYPE &&
-                                                        projectType != DEVELOPMENT_SPECIFICATION_PROJECT_TYPE &&
-                                                        resultRow.map['paypal_brand'] != null}">
-                                                          <img src="/i/development/smPayPalX.gif" alt="PayPal X" border="0" />
-                                                     </c:when>
-                                                 </c:choose>
+                                        <a href="${sessionInfo.servletPath}?${MODULE_KEY}=ProjectDetail&${PROJECT_ID}=${resultRow.map['project_id']}">
+                                                ${resultRow.map["component_name"]}
+                                                ${resultRow.map["version"]}
+                                        </a>
                                     </td>
                                     <td class="statDk" align="right">
-                                        $ <fmt:formatNumber value="${prices[i].primaryReviewCost}"
-                                            pattern="#,###.00"/>
-                                    </td>
-                                    <td class="statDk" align="right">
-                                        $ <fmt:formatNumber value="${prices[i].reviewCost}"
-                                            pattern="#,###.00"/>
+                                        $ <fmt:formatNumber value="${prices[i]}" pattern="#,###.00"/>
                                     </td>
                                     <td class="statDk" align="center">
                                         ${resultRow.map["submission_count"]}
                                     </td>
-                                    <c:choose>
-                                        <c:when test="${waitingToReview[i]}">
-                                            <td class="statDk" align="center" nowrap="nowrap">
-                                                <fmt:formatDate value="${waitingUntil[i]}"
-                                                    pattern="MM.dd.yyyy'<br />'hh:mm a"/>
-                                            </td>
-                                        </c:when>
-                                        <c:otherwise>
-                                                <td class="statDk" align="center"><i>open</i></td>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <td class="statDk" align="center">
+                                    <td class="statDk" align="center" nowrap="nowrap">
                                         <fmt:formatDate value="${resultRow.map['review_start']}"
-                                                    pattern="MM.dd.yyyy"/>
+                                                        pattern="MM.dd.yyyy HH:mm z"/>
                                     </td>
                                     <td class="statDk" align="center">
-                                        <fmt:formatDate value="${resultRow.map['review_end']}"
-                                                    pattern="MM.dd.yyyy"/>
-                                    </td>
-                                    <td class="statDk" align="center">
-                                        ${resultRow.map["available_spots"]}
+                                        <c:set var="openPositionsCount" value="0"/>
+                                        <c:forEach items="${auction.openPositions}" var="o">
+                                            <c:set var="openPositionsCount" value="${openPositionsCount + o}"/>
+                                        </c:forEach>
+                                        ${openPositionsCount}
                                     </td>
                                     <td class="statDk" align="left" nowrap="nowrap">
-                                        <a href="${sessionInfo.servletPath}?${MODULE_KEY}=ReviewProjectDetail&${PROJECT_ID}=${resultRow.map['project_id']}&${PROJECT_TYPE_ID}=${projectType}">
+                                        <a href="${sessionInfo.servletPath}?${MODULE_KEY}=ReviewAuctionDetails&amp;${REVIEW_AUCTION_ID}=${auction.id}">
                                             details
                                         </a>
-                                        <c:if test="${resultRow.map['price_changes'] > 0}">
-                                            <img src="/i/development/up_arrow_gr.gif" border="0" alt=""/>
-                                        </c:if>
                                     </td>
                                 </tr>
                                 <c:set var="i" value="${i + 1}"/>
                             </c:forEach>
                         </table>
-                        <br/>
-                        <c:if test="${applicationDelayHours > 0 || applicationDelayMinutes > 0}">
-                            <p>
-                                    Due to your existing review commitments, review positions open for you
-                                    ${applicationDelayHours} hours and ${applicationDelayMinutes} minutes after a project
-                                    opens for review registration.
-                            </p>
-                        </c:if>
+                        <p align="left">* The reviewer payment depends on the reviewer role and the number of
+                            submissions. The actual payment may differ.
+                        </p>
                         <br/>
                     </c:if>
 
-
-                    <c:if test="${fn:length(specReviewList) > 0}">
+                    <%-- SPECIFICATION REVIEW AUCTIONS --%>
+                    <c:if test="${not empty specReviewAuctions}">
                         <div align="right" style="padding-top: 10px">
                             <b>Spec Review opportunities via RSS -</b>
                             <a href="/tc?module=BasicRSS&c=rss_spec_review_opportunities&dsid=28"><img src="/i/interface/emblem/rss.gif" alt="RSS" style="vertical-align:middle;"/></a>
@@ -256,82 +184,54 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="tableHeader" align="center">Type</td>
-                                <td class="tableHeader" align="center">Catalog</td>
-                                <td class="tableHeader" align="center" width="100%">${projectTypeDesc}</td>
+                                <c:if test="${projectType == DEVELOPMENT_PROJECT_TYPE ||
+                                            projectType == DESIGN_PROJECT_TYPE}">
+                                    <td class="tableHeader" align="center">Catalog</td>
+                                </c:if>
+                                <td class="tableHeader" width="100%">Contest</td>
                                 <td class="tableHeader" align="right">Reviewer<br>Payment</td>
-                                <td class="tableHeader" align="center">Opens<br>On</td>
-                                <td class="tableHeader" align="center">Review<br>Start</td>
-                                <td class="tableHeader" align="center">Review<br>End</td>
-                                <td class="tableHeader" align="center">Positions<br>Available</td>
-                                <td class="tableHeader">Details</td>
+                                <td class="tableHeader" align="center">Review Start</td>
+                                <td class="tableHeader" align="left">Details</td>
                             </tr>
 
                             <c:set var="i" value="0"/>
-                            <c:forEach items="${specReviewList}" var="resultRow">
+                            <c:forEach items="${specReviewAuctions}" var="specReviewAuction">
+                                <c:set var="resultRow" value="${specReviewAuctionProjectsMap[specReviewAuction.projectId]}"/>
                                 <tr>
-                                    <td class="statDk" align="center">Specification Review</td>
-                                    <td class="statDk" align="center">${projectTypeDesc}</td>
-                                    <td class="statDk" align="center" >
-                                        <a href="${sessionInfo.servletPath}?${MODULE_KEY}=ProjectDetail&${PROJECT_ID}=${resultRow.map['ref_project_id']}">
+                                    <c:if test="${projectType == DEVELOPMENT_PROJECT_TYPE ||
+                                            projectType == DESIGN_PROJECT_TYPE}">
+                                        <td class="statDk" align="center">
+                                            <tc_tags:languageIcon catalogName="${resultRow.map['catalog']}"
+                                                                  aolBrand="false" paypalBrand="false"/>
+                                        </td>
+                                    </c:if>
+                                    <td class="statDk">
+                                        <a href="${sessionInfo.servletPath}?${MODULE_KEY}=ProjectDetail&${PROJECT_ID}=${resultRow.map['project_id']}">
                                                     ${resultRow.map["component_name"]}
                                                     ${resultRow.map["version"]}
                                          </a>
                                     </td>
                                     <td class="statDk" align="right">
-                                        $ <fmt:formatNumber
-                                            value="${specReviewPrices[i].specReviewCost}"
-                                            pattern="#,###.00"/>
+                                        $ <fmt:formatNumber value="${specReviewPrices[i]}" pattern="#,###.00"/>
                                     </td>
-
-                                    <c:choose>
-                                        <c:when test="${specReviewWaitingToReview[i]}">
-                                            <td class="statDk" align="center" nowrap="nowrap">
-                                                <fmt:formatDate value="${specReviewWaitingUntil[i]}"
-                                                    pattern="MM.dd.yyyy'<br />'hh:mm a"/>
-                                            </td>
-                                        </c:when>
-                                        <c:otherwise>
-                                                <td class="statDk" align="center"><i>open</i></td>
-                                        </c:otherwise>
-                                    </c:choose>
-
-                                    <td class="statDk" align="center">
+                                    <td class="statDk" align="center" nowrap="nowrap">
                                         <fmt:formatDate value="${resultRow.map['review_start']}"
-                                                    pattern="MM.dd.yyyy"/>
-                                    </td>
-                                    <td class="statDk" align="center">
-                                        <fmt:formatDate value="${resultRow.map['review_end']}"
-                                                    pattern="MM.dd.yyyy"/>
-                                    </td>
-                                    <td class="statDk" align="center">
-                                        ${resultRow.map["available_spots"]}
+                                                    pattern="MM.dd.yyyy HH:mm z"/>
                                     </td>
                                     <td class="statDk" align="left" nowrap="nowrap">
-                                        <a href="${sessionInfo.servletPath}?${MODULE_KEY}=ReviewProjectDetail&${PROJECT_ID}=${resultRow.map['project_id']}&${PROJECT_TYPE_ID}=${specReviewProjectTypeId}">
+                                        <a href="${sessionInfo.servletPath}?${MODULE_KEY}=ReviewAuctionDetails&amp;${REVIEW_AUCTION_ID}=${specReviewAuction.id}">
                                             details
                                         </a>
-                                        <c:if test="${resultRow.map['price_changes'] > 0}">
-                                            <img src="/i/development/up_arrow_gr.gif" border="0" alt=""/>
-                                        </c:if>
                                     </td>
                                 </tr>
                                 <c:set var="i" value="${i + 1}"/>
                             </c:forEach>
                         </table>
                         <br/>            
-                        <c:if test="${specReviewApplicationDelayHours > 0 || specReviewApplicationDelayMinutes > 0}">
-                            <p>
-                                Due to your existing specification review commitments, new specification review positions open for you
-                                ${specReviewApplicationDelayHours} hours and ${specReviewApplicationDelayMinutes} minutes after a project
-                                opens for review registration.
-                            </p>
-                        </c:if>            
-                        <br/>
                     </c:if>
 
                     <c:choose>
-                        <c:when test="${fn:length(projectList) + fn:length(specReviewList) == 0}">
+                        <c:when test="${fn:length(reviewAuctions) + fn:length(specReviewAuctions) == 0}">
                             <br/>
                             <p align="center">Sorry, there are currently no review positions available.</p>
                             <br/>

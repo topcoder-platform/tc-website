@@ -1,12 +1,24 @@
 <%--
   - Author: TCSASSEMBER
-  - Version: 1.0
-  - Copyright (C) 2011 TopCoder Inc., All Rights Reserved.
+  - Version: 1.1
+  - Copyright (C) 2011-2012 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page will render the Terms Of Use Agreement section. It will be included by other reviewer sign-up pages.
+  - Version 1.1 (Review Application Integration assembly) change notes:
+  -  Updated the logic to use review auctions.
 --%>
 <%@  page language="java"  %>
+
+
 <c:set var="NON_ELEC_AGREEABLE_TERMS_TYPE_ID" value="<%=Constants.NON_ELEC_AGREEABLE_TERMS_TYPE_ID%>"/>
+<c:set var="REVIEW_APPLICATION_ROLE_ID" value="<%=Constants.REVIEW_APPLICATION_ROLE_ID%>" scope="request"/>
+<c:set var="REVIEW_AUCTION_ID" value="<%=Constants.REVIEW_AUCTION_ID%>" scope="request"/>
+
+<c:set var="t" value="${''}"/>
+<c:forEach items="${paramValues[REVIEW_APPLICATION_ROLE_ID]}" var="role">
+    <fmt:formatNumber value="${role}" pattern="######0" var="roleId"/>
+    <c:set var="t" value="${t}${REVIEW_APPLICATION_ROLE_ID}=${roleId}&"/>
+</c:forEach>
 
 <script type="text/javascript">
 <!--
@@ -29,9 +41,9 @@ function goBack() {
         var tid = pres[pres.length - 1];
         pres.splice(pres.length - 1, 1);
         pre = pres.join(",");
-        location.href = '/tc?module=ProjectReviewApply&${PROJECT_ID}=${param[PROJECT_ID]}&${REVIEWER_TYPE_ID}=${param[REVIEWER_TYPE_ID]}&${PRIMARY_FLAG}=${param[PRIMARY_FLAG]}&${PROJECT_TYPE_ID}=${projectType}&tuid=' + tid + '&<%=Constants.PRE_PENDING_TERMS%>=' + pre;
+        location.href = '/tc?module=ReviewAuctionApply&${REVIEW_AUCTION_ID}=${param[REVIEW_AUCTION_ID]}&${t}tuid=' + tid + '&<%=Constants.PRE_PENDING_TERMS%>=' + pre;
     } else {
-        location.href = '/tc?module=ProjectReviewApply&${PROJECT_ID}=${param[PROJECT_ID]}&${REVIEWER_TYPE_ID}=${param[REVIEWER_TYPE_ID]}&${PRIMARY_FLAG}=${param[PRIMARY_FLAG]}&${PROJECT_TYPE_ID}=${projectType}';
+        location.href = '/tc?module=ReviewAuctionApply&${REVIEW_AUCTION_ID}=${param[REVIEW_AUCTION_ID]}&${t}';
     }
 }
 // -->
@@ -45,12 +57,12 @@ function goBack() {
                     <input type="hidden" name="<%=Constants.TERMS_OF_USE_ID%>"
                         value="${terms.termsOfUseId}"/>
                     <tr>
-                        <td style="text-align:center;">
+                        <td style="text-align:center;" colspan="2">
                             <strong>${terms.title}</strong>
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td colspan="2">
                             <iframe width="590" height="300" marginWidth="5"
                                 src="${sessionInfo.servletPath}?module=Terms&amp;${TERMS_OF_USE_ID}=${terms.termsOfUseId}">
                             </iframe>
@@ -59,20 +71,20 @@ function goBack() {
                     <c:choose>
                         <c:when test="${terms.agreeabilityType.termsOfUseAgreeabilityTypeId != NON_ELEC_AGREEABLE_TERMS_TYPE_ID}">
                             <tr>
-                                <td class="errorText">
+                                <td class="errorText" colspan="2">
                                     <tc-webtag:errorIterator id="err" name="${TERMS_AGREE}">${err}
                                     </tc-webtag:errorIterator>
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+                                <td colspan="2">
                                     I Agree to the Terms and Conditions stated above&#160;
                                     <input name="${TERMS_AGREE}" type="checkbox" id="agreechk" onclick="if (this.checked) document.getElementById('conbtn').disabled = ''; else document.getElementById('conbtn').disabled = 'disabled';"/>
                                 </td>
                             </tr>
                         </c:when>
                         <c:otherwise>
-                            <tr><td>
+                            <tr><td colspan="2">
                             <jsp:include page="/terms/paper_terms.jsp">
                                 <jsp:param name="terms.url" value="terms.url"/>
                             </jsp:include>
@@ -81,10 +93,10 @@ function goBack() {
                     </c:choose>
                 </c:when>
                 <c:otherwise>
-                    <tr><td style="text-align:center;"><strong>${terms.title}</strong></td></tr>
+                    <tr><td style="text-align:center;" colspan="2"><strong>${terms.title}</strong></td></tr>
                     <c:if test="${not empty dependenciesTermsAgreed}">
-                        <tr><td>You have the following terms (which you have agreed to) for ${terms.title}:</td></tr>
-                        <tr><td><ul style="margin-left:40px;">
+                        <tr><td colspan="2">You have the following terms (which you have agreed to) for ${terms.title}:</td></tr>
+                        <tr><td colspan="2"><ul style="margin-left:40px;">
                             <c:forEach items="${dependenciesTermsAgreed}" var="dep_terms_agreed_item">
                                 <li>
                                     ${dep_terms_agreed_item.title}
@@ -101,12 +113,12 @@ function goBack() {
                         </ul></td></tr>
                     </c:if>
                     <c:if test="${not empty dependenciesTermsPending}">
-                        <tr><td>You have the following terms pending for agreement before you can read and agree to ${terms.title}:</td></tr>
-                        <tr><td><ul style="margin-left:40px;">
+                        <tr><td colspan="2">You have the following terms pending for agreement before you can read and agree to ${terms.title}:</td></tr>
+                        <tr><td colspan="2"><ul style="margin-left:40px;">
                             <c:forEach items="${dependenciesTermsPending}" var="dep_terms_pending_item">
                                 <li>
                                     ${dep_terms_pending_item.title}
-                                    <a href="/tc?module=ProjectReviewApply&${PROJECT_ID}=${param[PROJECT_ID]}&${REVIEWER_TYPE_ID}=${param[REVIEWER_TYPE_ID]}&${PRIMARY_FLAG}=${param[PRIMARY_FLAG]}&${PROJECT_TYPE_ID}=${projectType}&${TERMS_OF_USE_ID}=${dep_terms_pending_item.termsOfUseId}&prePendingTerms=${prePendingTerms}">(View and agree)</a>
+                                    <a href="/tc?module=ReviewAuctionApply&${REVIEW_AUCTION_ID}=${param[REVIEW_AUCTION_ID]}&${t}${TERMS_OF_USE_ID}=${dep_terms_pending_item.termsOfUseId}&prePendingTerms=${prePendingTerms}">(View and agree)</a>
                                 </li>
                             </c:forEach>
                         </ul></td></tr>
@@ -118,12 +130,12 @@ function goBack() {
             <c:if test="${not empty terms_agreed}">
                 <c:forEach items="${terms_agreed}" var="terms_agreed_item_grp" varStatus="vss">
                 <tr>
-                    <td>
+                    <td colspan="2">
                         The following terms of use (that you already agreed to) apply to the review roles (${terms_agreed_roles[vss.index]}):
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td colspan="2">
                         <c:forEach items="${terms_agreed_item_grp}" var="terms_agreed_item">
                             <ul>
                                 <li>
@@ -146,16 +158,16 @@ function goBack() {
             <c:choose>
                 <c:when test="${not empty terms_group}">
                     <tr>
-                        <td>
+                        <td colspan="2">
                             <div class="term_title">
-                            The following groups of terms of use apply to the roles:${common_resource_roles}. <br/>
+                            The following groups of terms of use apply to the roles: ${common_resource_roles}. <br/>
                             You need to agree to at least one of the groups of terms before you can register:
                             </div>
                         </td>
                     </tr>
                     <c:forEach items="${terms_group}" var="terms_group_item" varStatus="vars">
                     <tr>
-                        <td>
+                        <td colspan="2">
                             <div class="term_group term_group_exp" id="groupTitle${vars.index}"><a href="#" onclick="togGroup(this, ${vars.index});return false;" class="term_group_icon"></a><div class="term_group_box"><strong>Group ${vars.count}</strong></div><div style="clear:both;"></div></div>
                             <div class="term_group_content" id="group${vars.index}">
                             <c:if test="${terms_group_has_agreed[vars.index]}">
@@ -184,7 +196,7 @@ function goBack() {
                                 <c:if test="${not terms_status[tou_item.termsOfUseId]}">
                                     <li>
                                         ${tou_item.title}
-                                        <a href="/tc?module=ProjectReviewApply&${PROJECT_ID}=${param[PROJECT_ID]}&${REVIEWER_TYPE_ID}=${param[REVIEWER_TYPE_ID]}&${PRIMARY_FLAG}=${param[PRIMARY_FLAG]}&${PROJECT_TYPE_ID}=${projectType}&${TERMS_OF_USE_ID}=${tou_item.termsOfUseId}&prePendingTerms=${prePendingTerms}">(View and agree)</a>
+                                        <a href="/tc?module=ReviewAuctionApply&${REVIEW_AUCTION_ID}=${param[REVIEW_AUCTION_ID]}&${t}${TERMS_OF_USE_ID}=${tou_item.termsOfUseId}&prePendingTerms=${prePendingTerms}">(View and agree)</a>
                                     </li> 
                                 </c:if>
                             </c:forEach>
@@ -196,28 +208,32 @@ function goBack() {
                 </c:when>
                 <c:otherwise>
                     <tr>
+                        <td class="bodyText" colspan="2">
+                            By applying to review the contest you are committing to the <a href="/tc?module=ReviewAuctionDetails&${REVIEW_AUCTION_ID}=${param[REVIEW_AUCTION_ID]}">review timeline</a>.
+                            The timeline can change later since phases rarely end exactly as per the original schedule.
+                            The reviewers must be available throughout the entire contest and adjust to the changes in
+                            the timeline.
+                            Failure to meet the timeline may result in a suspension from the TopCoder Review Board.
+                            More details can be found <a href="http://www.topcoder.com/wiki/display/tc/Late+Deliverables+Tracking">here</a>.
+                        </td>
+                    </tr>
+                    <tr>
                         <td class="errorText">
                             <img src="/i/captcha/${requestScope[CAPTCHA_FILE_NAME]}" alt="captcha image"/>
-
-                            <p>
-                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ProjectReviewApply&<%=Constants.PRIMARY_FLAG%>=<%=request.getParameter(Constants.PRIMARY_FLAG)%>&<%=Constants.REVIEWER_TYPE_ID%>=<%=request.getParameter(Constants.REVIEWER_TYPE_ID)%>&<%=Constants.PROJECT_TYPE_ID%>=<%=request.getParameter(Constants.PROJECT_TYPE_ID)%>&<%=Constants.PROJECT_ID%>=<%=request.getParameter(Constants.PROJECT_ID)%>">This image is hard to read.
-                                    Show me a different one.</a>
-                            </p>
                         </td>
-                    </tr>
-
-                    <tr>
-                        <td class="errorText">
-                            <tc-webtag:errorIterator id="err" name="${CAPTCHA_RESPONSE}">${err}
-                                <br/></tc-webtag:errorIterator>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
+                        <td width="100%">
                             <p>
-                                Please enter the characters you see in the image above:
+                                Please enter the characters you see in the image:
                                 <tc-webtag:textInput name="${CAPTCHA_RESPONSE}"/>
                             </p>
+                            <a href="${sessionInfo.servletPath}?module=ReviewAuctionApply&${REVIEW_AUCTION_ID}=${param[REVIEW_AUCTION_ID]}&${t}">
+                                Show me a different image.</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="errorText" colspan="2">
+                            <tc-webtag:errorIterator id="err" name="${CAPTCHA_RESPONSE}">${err}
+                                <br/></tc-webtag:errorIterator>
                         </td>
                     </tr>
                 </c:otherwise>
@@ -228,7 +244,7 @@ function goBack() {
 <c:choose>
     <c:when test="${not empty terms and empty dependenciesTermsPending}">
         <tr>
-            <td style="text-align:center;">
+            <td style="text-align:center;" colspan="2">
                 <c:set value="Go back" var="returnMessage"/>
                 <c:if test="${terms.agreeabilityType.termsOfUseAgreeabilityTypeId != NON_ELEC_AGREEABLE_TERMS_TYPE_ID}">
                     <input id="conbtn" type="submit" onClick="" name="submit" value=" Continue" disabled/>
@@ -242,7 +258,7 @@ function goBack() {
     <c:otherwise>
         <c:if test="${empty terms_group and empty terms}">
             <tr>
-                <td style="text-align:center;">
+                <td style="text-align:center;" colspan="2">
                     <input type="submit" onClick="" name="submit" value=" Register"/>
                 </td>
             </tr>

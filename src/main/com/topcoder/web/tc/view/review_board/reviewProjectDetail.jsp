@@ -1,8 +1,8 @@
 <%--
-  - Author: pulky, snow01
-  - Version: 1.3
+  - Author: pulky, snow01, isv
+  - Version: 1.5
   - Since: TCS Release 2.2.2
-  - Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
+  - Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page displays the review details corresponding to the specified project.
   - It displays the list of projects phases along with the list of taken and available review positions.
@@ -20,11 +20,15 @@
   -      * code was refactored to avoid duplication.  
   -
   - Version 1.4 (Online Review Update Review Management Topcoder web site assembly) changes:
-  -      * support for New Review System Phases added. 
+  -      * support for New Review System Phases added.
+   -
+  - Version 1.5 (Review Application Integration assembly) change notes:
+  -  Updated the logic to use review auctions.
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.TCTimestampResult,
                  com.topcoder.web.tc.Constants, java.sql.Timestamp"%>
+<%@ page import="java.util.Date" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
@@ -32,13 +36,12 @@
 <%-- Variables to use JSTL --%>
 <c:set var="projectDetailRow" value="${projectDetail[0]}"/>
 <c:set var="PROJECT_TYPE_ID" value="<%=Constants.PROJECT_TYPE_ID%>" scope="request"/>
-<c:set var="projectType" value="${param[PROJECT_TYPE_ID]}" scope="request"/>
+<c:set var="REVIEW_APPLICATION_ROLE_ID" value="<%=Constants.REVIEW_APPLICATION_ROLE_ID%>" scope="request"/>
+<c:set var="REVIEW_AUCTION_ID" value="<%=Constants.REVIEW_AUCTION_ID%>" scope="request"/>
 <c:set var="now" value="<%=new TCTimestampResult(new Timestamp(System.currentTimeMillis()))%>" scope="request"/>
 <c:set var="PRIMARY_FLAG" value="<%=Constants.PRIMARY_FLAG%>" scope="request"/>
 <c:set var="REVIEWER_TYPE_ID" value="<%=Constants.REVIEWER_TYPE_ID%>" scope="request"/>
-<c:set var="SPECIFICATION_COMPETITION_OFFSET" value="<%=Constants.SPECIFICATION_COMPETITION_OFFSET%>" scope="request"/>
-<c:set var="isSpecificationReview" value="${projectType > SPECIFICATION_COMPETITION_OFFSET}" scope="request"/>
-<c:set var="isNewReviewSystem" value="${projectDetailRow.map['is_new_review_system'] == 1}"/>
+<c:set var="DATE_FORMAT" value="MM.dd.yyyy HH:mm z"/>
 
 <jsp:include page="reviewCommonVariables.jsp"/>
 <% boolean hasSpecificationSubmission = (Boolean) request.getAttribute("hasSpecificationSubmission"); %>
@@ -46,7 +49,6 @@
 <% boolean hasSubmission = (Boolean) request.getAttribute("hasSubmission"); %>
 <% boolean hasScreening = (Boolean) request.getAttribute("hasScreening"); %>
 <% boolean hasReview = (Boolean) request.getAttribute("hasReview"); %>
-<% boolean hasPrimaryReviewEvaluation = (Boolean) request.getAttribute("hasPrimaryReviewEvaluation"); %>
 <% boolean hasAppeals = (Boolean) request.getAttribute("hasAppeals"); %>
 <% boolean hasAggregation = (Boolean) request.getAttribute("hasAggregation"); %>
 <% boolean hasFinalFixes = (Boolean) request.getAttribute("hasFinalFixes"); %>
@@ -55,6 +57,8 @@
 <% boolean specReviewExtensionNeeded = (Boolean) request.getAttribute("specReviewExtensionNeeded"); %>
 <% boolean screeningExtensionNeeded = (Boolean) request.getAttribute("screeningExtensionNeeded"); %>
 <% boolean reviewExtensionNeeded = (Boolean) request.getAttribute("reviewExtensionNeeded"); %>
+
+<fmt:setLocale value="en_US"/>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -65,6 +69,32 @@
         <jsp:include page="/style.jsp">
             <jsp:param name="key" value="tc_stats"/>
         </jsp:include>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var selection = calcSelection();
+                
+                $('.reviewApplicationRoleBox').click(function() {
+                    var s1 = calcSelection();
+                    if (s1 != selection) {
+                        $('.saveReviewApplicationRoles').attr('disabled', '');
+                    } else {
+                        $('.saveReviewApplicationRoles').attr('disabled', 'disabled');
+                    }
+                });
+            });
+            
+            function calcSelection() {
+                var s = '';
+                $('.reviewApplicationRoleBox:checked').each(function() {
+                    var val = $(this).val();
+                    if (s != '') {
+                        s += ',';
+                    }
+                    s += val;
+                });
+                return s;
+            }
+        </script>
     </head>
 
     <body>
@@ -107,11 +137,11 @@
                                 <td class="projectCells">Specification Submission</td>
                                 <td class="projectCells" align="center">
                                     <fmt:formatDate value="${projectDetailRow.map['specification_submission_start']}"
-                                        pattern="MM.dd.yyyy hh:mm a"/>
+                                        pattern="${DATE_FORMAT}"/>
                                 </td>
                                 <td class="projectCells" align="center">
-                                    <fmt:formatDate value="${projectDetailRow.map['specification_submission_end']}"
-                                        pattern="MM.dd.yyyy hh:mm a"/>
+                                    <fmt:formatDate value="${projectDetailRow.map['specification_submission_end']}" 
+                                        pattern="${DATE_FORMAT}"/>
                                 </td>
                                 <td class="projectCells" align="center">${projectDetailRow.map['specification_submission_duration']}</td>
                             </tr>
@@ -122,11 +152,11 @@
                                 </td>
                                 <td class="projectCells" align="center">
                                     <fmt:formatDate value="${projectDetailRow.map['specification_review_start']}"
-                                        pattern="MM.dd.yyyy hh:mm a"/>
+                                        pattern="${DATE_FORMAT}"/>
                                 </td>
                                 <td class="projectCells" align="center">
                                     <fmt:formatDate value="${projectDetailRow.map['specification_review_end']}"
-                                        pattern="MM.dd.yyyy hh:mm a"/>
+                                        pattern="${DATE_FORMAT}"/>
                                 </td>
                                 <td class="projectCells" align="center">${projectDetailRow.map['specification_review_duration']}</td>
                             </tr>
@@ -137,11 +167,11 @@
                                 <td class="projectCells">Submission</td>
                                 <td class="projectCells" align="center">
                                     <fmt:formatDate value="${projectDetailRow.map['submission_start']}"
-                                        pattern="MM.dd.yyyy hh:mm a"/>
+                                        pattern="${DATE_FORMAT}"/>
                                 </td>
                                 <td class="projectCells" align="center">
                                     <fmt:formatDate value="${projectDetailRow.map['submission_end']}"
-                                        pattern="MM.dd.yyyy hh:mm a"/>
+                                        pattern="${DATE_FORMAT}"/>
                                 </td>
                                 <td class="projectCells" align="center">${projectDetailRow.map['submission_duration']}</td>
                             </tr>
@@ -152,54 +182,40 @@
                                 </td>
                                 <td class="projectCells" align="center">
                                     <fmt:formatDate value="${projectDetailRow.map['screening_start']}"
-                                        pattern="MM.dd.yyyy hh:mm a"/>
+                                        pattern="${DATE_FORMAT}"/>
                                 </td>
                                 <td class="projectCells" align="center">
                                     <fmt:formatDate value="${projectDetailRow.map['screening_end']}"
-                                        pattern="MM.dd.yyyy hh:mm a"/>
+                                        pattern="${DATE_FORMAT}"/>
                                 </td>
                                 <td class="projectCells" align="center">${projectDetailRow.map['screening_duration']}</td>
                             </tr>
                         </c:if>
                         <c:if test="${hasReview}">
                             <tr>
-                                <td class="projectCells"><c:if test="${!isNewReviewSystem}">Review</c:if><c:if test="${isNewReviewSystem}">Secondary Reviewer Review</c:if>
+                                <td class="projectCells">Review
 				<c:if test="${reviewExtensionNeeded}">*</c:if></td>
                                 <td class="projectCells" align="center">
                                     <fmt:formatDate value="${projectDetailRow.map['review_start']}"
-                                        pattern="MM.dd.yyyy hh:mm a"/>
+                                        pattern="${DATE_FORMAT}"/>
                                 </td>
                                 <td class="projectCells" align="center">
                                     <fmt:formatDate value="${projectDetailRow.map['review_end']}"
-                                        pattern="MM.dd.yyyy hh:mm a"/>
+                                        pattern="${DATE_FORMAT}"/>
                                 </td>
                                 <td class="projectCells" align="center">${projectDetailRow.map['review_duration']}</td>
                             </tr>
                         </c:if>
-                        <c:if test="${hasPrimaryReviewEvaluation}">
-                            <tr>
-                                <td class="projectCells">Primary Review Evaluation</td>
-                                <td class="projectCells" align="center">
-                                    <fmt:formatDate value="${projectDetailRow.map['primary_review_evaluation_start']}"
-                                        pattern="MM.dd.yyyy hh:mm a"/>
-                                </td>
-                                <td class="projectCells" align="center">
-                                    <fmt:formatDate value="${projectDetailRow.map['primary_review_evaluation_end']}"
-                                        pattern="MM.dd.yyyy hh:mm a"/>
-                                </td>
-                                <td class="projectCells" align="center">${projectDetailRow.map['primary_review_evaluation_duration']}</td>
-                            </tr>
-                        </c:if>
                         <c:if test="${hasAppeals}">
                             <tr>
-                                <td class="projectCells"><c:if test="${!isNewReviewSystem}">Appeals</c:if><c:if test="${isNewReviewSystem}">New Appeals</c:if></td>
+                                <td class="projectCells">Appeals</td>
                                 <td class="projectCells" align="center">
                                     <fmt:formatDate value="${projectDetailRow.map['appeals_start']}"
-                                        pattern="MM.dd.yyyy hh:mm a"/>
+                                        pattern="${DATE_FORMAT}"/>
                                 </td>
                                 <td class="projectCells" align="center">
                                     <fmt:formatDate value="${projectDetailRow.map['appeals_end']}"
-                                        pattern="MM.dd.yyyy hh:mm a"/>
+                                        pattern="${DATE_FORMAT}"/>
                                 </td>
                                 <td class="projectCells" align="center">${projectDetailRow.map['appeals_duration']}</td>
                             </tr>
@@ -209,11 +225,11 @@
                                 <td class="projectCells">Aggregation</td>
                                 <td class="projectCells" align="center">
                                     <fmt:formatDate value="${projectDetailRow.map['aggregation_start']}"
-                                        pattern="MM.dd.yyyy hh:mm a"/>
+                                        pattern="${DATE_FORMAT}"/>
                                 </td>
                                 <td class="projectCells" align="center">
                                     <fmt:formatDate value="${projectDetailRow.map['aggregation_end']}"
-                                        pattern="MM.dd.yyyy hh:mm a"/>
+                                        pattern="${DATE_FORMAT}"/>
                                 </td>
                                 <td class="projectCells" align="center">${projectDetailRow.map['aggregation_duration']}</td>
                             </tr>
@@ -223,11 +239,11 @@
                                 <td class="projectCells">Final Fixes</td>
                                 <td class="projectCells" align="center">
                                     <fmt:formatDate value="${projectDetailRow.map['final_fix_start']}"
-                                        pattern="MM.dd.yyyy hh:mm a"/>
+                                        pattern="${DATE_FORMAT}"/>
                                 </td>
                                 <td class="projectCells" align="center">
                                     <fmt:formatDate value="${projectDetailRow.map['final_fix_end']}"
-                                        pattern="MM.dd.yyyy hh:mm a"/>
+                                        pattern="${DATE_FORMAT}"/>
                                 </td>
                                 <td class="projectCells" align="center">${projectDetailRow.map['final_fix_duration']}</td>
                             </tr>
@@ -237,11 +253,11 @@
                                 <td class="projectCells">Final Review</td>
                                 <td class="projectCells" align="center">
                                     <fmt:formatDate value="${projectDetailRow.map['final_review_start']}"
-                                        pattern="MM.dd.yyyy hh:mm a"/>
+                                        pattern="${DATE_FORMAT}"/>
                                 </td>
                                 <td class="projectCells" align="center">
                                     <fmt:formatDate value="${projectDetailRow.map['final_review_end']}"
-                                        pattern="MM.dd.yyyy hh:mm a"/>
+                                        pattern="${DATE_FORMAT}"/>
                                 </td>
                                 <td class="projectCells" align="center">${projectDetailRow.map['final_review_duration']}</td>
                             </tr>
@@ -277,123 +293,145 @@
                         <br/>
                     </c:if>
 
-                    <table cellspacing="0" width="540" class="formFrame">
-                        <tr>
-                            <td class="tableTitle" colspan="3">Positions Available</td>
-                        </tr>
-                        <tr>
-                            <td class="tableHeader" width="50%">Position</td>
-                            <td class="tableHeader" align="center">Reviewer</td>
-                            <td class="tableHeader" width="50%" align="right">Payment</td>
-                        <tr>
-
-                        <c:forEach items="${reviewerList}" var="reviewer">
-                            <tr>
-                                <td class="projectCells">
-                                    <c:if test="${reviewer.primary and !isNewReviewSystem}">
-                                        Primary
-                                    </c:if>
-                                    ${reviewer.reviewerType}
-                                </td>
-                                <td class="projectCells" align="center" nowrap>
-                                    <c:choose>
-                                        <c:when test="${now < projectDetailRow.map['opens_on'] || !projectDetailRow.map['open']}">
-                                            <i>Not open yet </i>
-                                            <c:if test="${!isSpecificationReview}">
-                                                ***
-                                            </c:if>
-                                        </c:when>
-                                        <c:when test="${reviewer.spotFilled}">
-                                            <tc-webtag:handle coderId="${reviewer.userId}"
-                                                context="${handleContext}"/>
-                                        </c:when>
-                                        <c:when test="${waitingToReview}">
-                                            <i>Waiting until <fmt:formatDate value="${waitingUntil}"
-                                                pattern="MM.dd.yyyy hh:mm a"/> ****</i>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <a href="${sessionInfo.servletPath}?${MODULE_KEY}=ProjectReviewApply&${PROJECT_ID}=${reviewer.projectId}&${PROJECT_TYPE_ID}=${projectType}&${PRIMARY_FLAG}=${reviewer.primary}&${REVIEWER_TYPE_ID}=${reviewer.reviewerTypeId}">
-                                                Apply Now
-                                            </a>
-                                            **
-                                        </c:otherwise>
-                                    </c:choose>
-                                </td>
-                                <td class="projectCells" align="right">
-                                    $<fmt:formatNumber value="${reviewer.reviewCost}" pattern="#,###.00"/>
-                                    <c:if test="${!isSpecificationReview}">
-                                        *
-                                    </c:if>
-                                </td>
-                            </tr>
-                        </c:forEach>
-                    </table>
-
-                    <br/>
-
-                    <table cellspacing="0" cellpadding="0" width="540" class="bodyText">
-                        <c:if test="${!isSpecificationReview}">
-                            <tr>
-                                <td class="bodyText">
-                                <p align="left">* This number assumes that all submissions pass screening, the actual
-                                    payment may differ. 
-                                    <c:if test="${isNewReviewSystem}">
-                                    Payment may be lower if the review commitments will not be honored on time or if the review is not comprehensive.
-                                    </c:if></p>
-                                </td>
-                            </tr>
-                        </c:if>
-
-                        <tr>
-                            <td class="bodyText">
-                            <p align="left">** By applying to review the contest you are committing to the presented timeline.
-                                You also agree that the timeline may change later since phases rarely end exactly as per the original schedule.
-                                The reviewers must be available throughout the entire contest and adjust to the changes in the timeline.
-                                Failure to meet the timeline may result in a suspension from the TopCoder Review Board.
-                                More details can be found <a href="http://www.topcoder.com/wiki/display/tc/Late+Deliverables+Tracking">here</a>.</p>
-                            </td>
-                        </tr>
-
-                        <c:if test="${!isSpecificationReview}">
-                            <tr>
-                                <td class="bodyText">
-                                    <p align="left">*** Review positions for new projects become open 12 hours after the
-                                        project starts.</p>
-                                </td>
-                            </tr>
-                        </c:if>
-
-                        <c:if test="${applicationDelayHours > 0 || applicationDelayMinutes > 0}">
-                            <tr>
-                                <td class="bodyText">
-                                    <p align="left">
-                                        **** Due to your existing review commitments, review positions open for you
-                                        ${applicationDelayHours} hours and ${applicationDelayMinutes} minutes after
-                                        a project opens for review registration.
-                                    </p>
-                                </td>
-                            </tr>
-                        </c:if>
-
+                    <c:if test="${reviewAuction.open}">
+                    <table class="bodyText" cellpadding="0" cellspacing="0" width="540">
+                        <tbody>
                         <tr>
                             <td class="bodyText">
                                 <p align="left">
-                                    <c:choose>
-                                        <c:when test="${isSpecificationReview}">
-                                            <a href="/tc?module=ViewReviewProjects&amp;${PROJECT_TYPE_ID}=${projectType - SPECIFICATION_COMPETITION_OFFSET}">
-                                                View all projects
-                                            </a>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <a href="/tc?module=ViewReviewProjects&amp;${PROJECT_TYPE_ID}=${projectType}">
-                                                View all projects
-                                            </a>
-                                        </c:otherwise>
-                                    </c:choose>
+                                    Select the review roles you would like to apply for and click the button.
+                                    The system will assign members that best meet the review requirements for this contest.
+                                    <c:if test="${not isSpecificationReview}">
+                                        Although you will be assigned to at most one review position, applying for multiple
+                                        roles increases your chances of being selected.
+                                    </c:if>
                                 </p>
                             </td>
                         </tr>
+                        </tbody>
                     </table>
+                    <br/>
+                    
+                    <form name="" action="${sessionInfo.servletPath}" method="get">
+                        <input type="hidden" name="${MODULE_KEY}" value="ReviewAuctionApply"/>
+                        <input type="hidden" name="${REVIEW_AUCTION_ID}" value="${reviewAuction.id}"/>
+                    <table cellspacing="0" width="540" class="formFrame">
+                        <tr>
+                            <td class="tableTitle" colspan="4">Open Positions</td>
+                        </tr>
+                        <tr>
+                            <td class="tableHeader" width="50%">Role</td>
+                            <td class="tableHeader" align="center">Positions</td>
+                            <td class="tableHeader" width="50%" align="center">Payment</td>
+                            <td class="tableHeader"></td>
+                        <tr>
+
+                        <c:forEach items="${reviewAuction.auctionType.applicationRoles}" var="reviewerRole" varStatus="loop">
+                          <c:if test="${reviewAuction.openPositions[loop.index] > 0}">
+                            <tr>
+                                <td class="projectCells">
+                                    <c:out value="${reviewerRole.name}"/>
+                                </td>
+                                <td class="projectCells" align="center" nowrap>
+                                    <c:out value="${reviewAuction.openPositions[loop.index]}"/>
+                                </td>
+                                <td class="projectCells" align="center">
+                                    $<fmt:formatNumber value="${reviewApplicationRolePayments[reviewerRole.id]}" pattern="#,###.00"/>
+                                    <c:if test="${!isSpecificationReview}">*</c:if>
+                                </td>
+                                <td class="projectCells" align="right">
+                                    <c:set var="isSelected" value="false"/>
+                                    <c:forEach items="${currentPendingReviewApplications}" var="reviewApplication">
+                                        <c:if test="${reviewApplication.applicationRoleId eq reviewerRole.id}">
+                                            <c:set var="isSelected" value="true"/>
+                                        </c:if>
+                                    </c:forEach>
+                                    <input type="checkbox" name="${REVIEW_APPLICATION_ROLE_ID}" autocomplete="off" 
+                                           value="${reviewerRole.id}" class="reviewApplicationRoleBox" 
+                                           <c:if test="${isSelected}">checked="checked"</c:if>>
+                                </td>
+                            </tr>
+                        </c:if>
+                        </c:forEach>
+                    </table>
+                    <br/>
+                    <table class="bodyText" cellpadding="0" cellspacing="0" width="540">
+                        <tbody>
+                        <tr>
+                            <td class="bodyText">
+                                <c:set var="now" value="<%=new Date()%>"/>
+                                <c:choose>
+                                    <c:when test="${reviewAuction.assignmentDate > now}">
+                                        Reviewers will be assigned on <fmt:formatDate value="${reviewAuction.assignmentDate}" pattern="${DATE_FORMAT}"/>
+                                    </c:when>
+                                    <c:otherwise>
+                                        Reviewers will be assigned immediately on signup.
+                                    </c:otherwise>
+                                </c:choose>
+                            </td>
+                            <td align="right">
+                                <c:choose>
+                                    <c:when test="${empty currentPendingReviewApplications}">
+                                        <input type="submit" value="Apply Now" name="b"
+                                               class="saveReviewApplicationRoles" disabled="disabled"/>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <input type="submit" value="Update Application" name="b" disabled="disabled"
+                                               class="saveReviewApplicationRoles"/>
+                                    </c:otherwise>
+                                </c:choose>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </form>
+                        <c:if test="${!isSpecificationReview}">
+                            <table cellspacing="0" cellpadding="0" width="540" class="bodyText">
+                                <tr>
+                                    <td class="bodyText">
+                                        <p align="left">* This number assumes that all submissions pass screening, the
+                                            actual payment may differ.
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                            <br/>
+                        </c:if>
+                    <br/>
+                    </c:if>
+
+                    <table class="formFrame" cellspacing="0" width="540">
+                        <tbody>
+                        <tr>
+                            <td class="tableTitle" colspan="4">Review Applications</td>
+                        </tr>
+                        <tr>
+                            <td class="tableHeader">Handle</td>
+                            <td class="tableHeader" align="center">Role</td>
+                            <td class="tableHeader" align="center">Status</td>
+                            <td class="tableHeader" align="center">Application Date</td>
+                        </tr>
+                        <c:forEach items="${reviewApplications}" var="reviewApplicant">
+                            <c:if test="${reviewApplicant.status.id ne 2}"> <%-- Do not show Cancelled applications --%>
+                                <tr>
+                                    <td class="projectCells">
+                                        <tc-webtag:handle coderId="${reviewApplicant.userId}"/>
+                                    </td>
+                                    <td class="projectCells" align="center">
+                                        <c:out value="${reviewApplicationRoles[reviewApplicant.applicationRoleId].name}"/>
+                                    </td>
+                                    <td class="projectCells" align="center">
+                                        <c:out value="${reviewApplicant.status.name}"/>
+                                    </td>
+                                    <td class="projectCells" align="center">
+                                        <fmt:formatDate value="${reviewApplicant.createDate}" pattern="${DATE_FORMAT}"/>
+                                    </td>
+                                </tr>
+                            </c:if>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                    <br/>
                 </td>
                 <!-- Center Column Ends -->
 

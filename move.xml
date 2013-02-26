@@ -87,28 +87,15 @@
 
         <ant antfile="build_old.xml" target="clean"/>
         <ant antfile="build_tcs.xml" target="build-site"/>
-        <!--remove with new OR
-                <ant antfile="build_tcs.xml" target="build-screening"/>
-        -->
 
         <jar destfile="software.jar" update="true">
             <fileset dir=".">
                 <include name="lib/bin/shared.jar"/>
                 <include name="lib/bin/tcwebcommon.jar"/>
-                <!--remove with new OR
-                                <include name="lib/bin/screening.jar"/>
-                -->
                 <include name="build/ears/dde.ear"/>
-                <!--remove with new OR
-                                <include name="build/wars/review.war"/>
-                -->
                 <include name="build/wars/dde.war"/>
                 <include name="build/wars/onsite.war"/>
                 <include name="build/ejb_jars/Project.jar"/>
-                <include name="build/ejb_jars/RBoard.jar"/>
-                <!--remove with new OR
-                                <include name="build/ejb_jars/Specification.jar"/>
-                -->
                 <include name="build_tcs.xml"/>
                 <include name="resources/automatic_screening/com/topcoder/apps/**"/>
                 <include name="resources/automatic_screening/com/topcoder/file/**"/>

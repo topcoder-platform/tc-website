@@ -126,6 +126,11 @@
         <pathelement location="${jars.dir}/tcs/copilot_pool_and_profiles_common.jar"/>
         <pathelement location="${jars.dir}/tcs/copilot_pool_and_profiles_services.jar"/>
         <pathelement location="${jars.dir}/tcs/pipeline_service_facade/1.0.0/pipeline_service_facade.jar"/>
+        <pathelement location="${jars.dir}/tcs/review_application_management/1.0.0/review_application_management.jar"/>
+        <pathelement location="${jars.dir}/tcs/database_abstraction/2.0.0/database_abstraction.jar"/>
+        <pathelement location="${jars.dir}/tcs/search_builder/1.4.0/search_builder.jar"/>
+        <pathelement location="${jars.dir}/tcs/class_associations/1.0.0/class_associations.jar"/>
+        <pathelement location="${jars.dir}/tcs/object_factory_configuration_api_plugin/1.0.0/object_factory_configuration_api_plugin.jar"/>
         
         <pathelement location="${jars.dir}/tcs/member_photo_manager/2.0.0/member_photo_manager.jar"/>
         <pathelement location="${jars.dir}/tcs/document_generator/3.1.0/document_generator.jar"/>
@@ -554,17 +559,6 @@
         </jar>
     </target>
 
-    <target name="package-EJB-RBoard" depends="compile">
-        <jar jarfile="${ejb_jars}/RBoard.jar">
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/apps/review/persistence/Common.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/bean/IdGen.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/util/idgenerator/bean/IdGenHome.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/apps/review/rboard/*.class"/>
-            <metainf dir="${java}/com/topcoder/apps/review/rboard" includes="*.xml"/>
-        </jar>
-    </target>
-
     <target name="deploy" depends="compile">
         <antcall target="deploy-tc"/>
         <antcall target="deploy-admin"/>
@@ -578,22 +572,6 @@
         <antcall target="deploy-security"/>
         <antcall target="move-libs"/>
         <antcall target="move-conf"/>
-        <antcall target="deploy-rboard"/>
-    </target>
-
-    <!-- TCS Release 2.2.0 - Copy the Review Board Application EJB -->
-    <target name="deploy-rboard" depends="package-EJB-RBoard">
-        <echo message="Copying RBoard Application EJB..."/>
-        <copy todir="${jboss_deploy}">
-            <fileset dir="${ejb_jars}">
-                <include name="RBoard.jar"/>
-            </fileset>
-        </copy>
-        <copy todir="${jboss_lib}">
-            <fileset dir="${ejb_jars}">
-                <include name="RBoard.jar"/>
-            </fileset>
-        </copy>
     </target>
 
     <target name="expand">
@@ -636,6 +614,8 @@
                 <include name="EmailEngineConfig.properties"/>
                 <include name="LDAP.properties"/>
                 <include name="TermsOfUse.xml"/>
+                <include name="ReviewApplicationManagement.xml"/>
+                <include name="SearchBundleManager.xml"/>
             </fileset>
         </copy>
         <copy todir="${jboss_conf}">
@@ -650,6 +630,15 @@
         <mkdir dir="${jboss_conf}/com/topcoder/servlet/request"/>
         <mkdir dir="${jboss_conf}/com/topcoder/web/tc/controller"/>
         <mkdir dir="${jboss_conf}/com/topcoder/web/tc/controller/request/contest"/>
+        <mkdir dir="${jboss_conf}/com/topcoder/management/review/application/impl"/>
+
+        <copy todir="${jboss_conf}/com/topcoder/management/review/application/impl">
+            <fileset dir="${resources}/com/topcoder/management/review/application/impl">
+                <include name="ReviewApplicationManagerImpl.properties"/>
+                <include name="ReviewAuctionManagerImpl.properties"/>
+            </fileset>
+        </copy>
+        
         <copy todir="${jboss_conf}/com/topcoder/security">
             <fileset dir="${resources}/com/topcoder/security">
                 <include name="Util.properties"/>
@@ -794,6 +783,11 @@
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/topcoder_commons_utility/1.0.0/topcoder_commons_utility.jar"/>
 
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/base_exception/2.0.0/base_exception.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/review_application_management/1.0.0/review_application_management.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/database_abstraction/2.0.0/database_abstraction.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/search_builder/1.4.0/search_builder.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/object_factory_configuration_api_plugin/1.0.0/object_factory_configuration_api_plugin.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/class_associations/1.0.0/class_associations.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/configuration_api/1.1.0/configuration_api.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/random_string_image/1.0.0/random_string_image.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/random_string_generator/1.0.0/random_string_generator.jar"/>

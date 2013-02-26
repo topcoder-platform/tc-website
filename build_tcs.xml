@@ -259,22 +259,6 @@
             <metainf dir="${java.dir}/com/topcoder/dde/user" includes="*.xml"/>
         </jar>
 
-        <antcall target="package-EJB-RBoard"/>
-        <!--remove with new OR
-                <antcall target="package-EJB-Specification"/>
-        -->
-
-    </target>
-
-    <target name="package-EJB-RBoard" depends="compile">
-        <jar jarfile="${ejb.jars.dir}/RBoard.jar">
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/apps/review/persistence/Common.class"/>
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/util/idgenerator/bean/IdGen.class"/>
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/util/idgenerator/bean/IdGenHome.class"/>
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/apps/review/rboard/*.class"/>
-            <metainf dir="${java.dir}/com/topcoder/apps/review/rboard" includes="*.xml"/>
-        </jar>
     </target>
 
     <target name="copy-conf">
@@ -500,7 +484,6 @@
             <fileset dir="${ejb.jars.dir}">
                 <include name="*.jar"/>
                 <exclude name="Project.jar"/>
-                <exclude name="RBoard.jar"/>
                 <exclude name="UserServices.jar"/>
                 <!--remove with new OR
                                 <exclude name="Specification.jar"/>
@@ -527,7 +510,6 @@
         <copy todir="${jboss.deploy.dir}">
             <fileset dir="${ejb.jars.dir}">
                 <include name="Project.jar"/>
-                <include name="RBoard.jar"/>
                 <!--remove with new OR
                 <include name="Specification.jar"/>
                 -->

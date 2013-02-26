@@ -17,6 +17,14 @@
 
 
     <distributable/>
+
+    <!-- Initialization Servlet -->
+    <servlet>
+        <servlet-name>InitServlet</servlet-name>
+        <servlet-class>com.topcoder.web.tc.controller.InitServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
     <servlet>
         <servlet-name>tc</servlet-name>
         <servlet-class>com.topcoder.web.tc.controller.MainServlet</servlet-class>
