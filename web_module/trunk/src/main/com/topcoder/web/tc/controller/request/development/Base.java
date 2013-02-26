@@ -127,7 +127,6 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *         <td>Version 1.10 (Content Creation Contest Online Review and TC Site Integration Assembly 1.0)</td>
  *         <td>
  *           <ul>
- *             <li>Updated {@link #getProjectDetailPage(int)} method.</li>
  *             <li>Updated {@link #getRegistrantsCommandName(int)} method.</li>
  *             <li>Updated {@link #getProjectTypeId(com.topcoder.web.common.TCRequest)} method.</li>
  *           </ul>
@@ -145,7 +144,6 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *         <td>Version 1.12 (Add Reporting Contest Type)</td>
  *         <td>
  *           <ul>
- *             <li>Updated {@link #getProjectDetailPage(int)} method.</li>
  *             <li>Updated {@link #getRegistrantsCommandName(int)} method.</li>
  *             <li>Updated {@link #getProjectTypeId(com.topcoder.web.common.TCRequest)} method.</li>
  *           </ul>
@@ -169,7 +167,6 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *         <td>Version 1.14 (Release Assembly - TopCoder BugHunt Competition Integration)</td>
  *         <td>
  *           <ul>
- *             <li>Updated {@link #getProjectDetailPage(int)} method.</li>
  *             <li>Updated {@link #getRegistrantsCommandName(int)} method.</li>
  *             <li>Updated {@link #getProjectTypeId(com.topcoder.web.common.TCRequest)} method.</li>
  *           </ul>
@@ -187,8 +184,15 @@ import com.topcoder.web.tc.controller.request.ReviewBoardHelper;
  *   </table>
  * </p>
  *
+ * <p>
+ * Version 1.15 (Review Application Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Removed unused methods.</li>
+ *   </ol>
+ * </p>
+ *
  * @author dok, isv, pulky, VolodymyrK, Blues, FireIce, lmmortal, duxiaoyang
- * @version 1.14
+ * @version 1.16
  */
 public abstract class Base extends ShortHibernateProcessor {
 
@@ -206,17 +210,6 @@ public abstract class Base extends ShortHibernateProcessor {
      */
     protected static final int[] SUBMITTER_ROLE_IDS = new int[] {1};
 
-    /**
-     * Constant containing primary reviewer role ids
-     *
-     * Note: first item is just a placeholder. It will be filled with the corresponding review role id.
-     * Note2: there is "similar" logic in RBoardApplicationBean. It is recommended to rewrite that method to be
-     * able to extract the logic. Then, it should be possible to reuse it here.
-     *
-     * @since 1.3
-     */
-    protected static final int[] PRIMARY_ROLE_IDS = new int[] {0, 2, 8, 9};
-    
     protected Logger log = Logger.getLogger(Base.class);
 
     /**
@@ -260,18 +253,6 @@ public abstract class Base extends ShortHibernateProcessor {
         developmentProcessing();
     }
 
-    public static ResultSetContainer getOpenProjects() throws Exception {
-        Request dataRequest = null;
-        Map<String, ResultSetContainer> resultMap = null;
-        dataRequest = new Request();
-        dataRequest.setContentHandle("open_projects");
-
-        DataAccessInt dai = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
-
-        resultMap = dai.getData(dataRequest);
-        return (ResultSetContainer) resultMap.get("Retrieve open projects");
-    }
-
     abstract protected void developmentProcessing() throws TCWebException;
 
     public DataAccessInt getDataAccess() throws Exception {
@@ -307,7 +288,7 @@ public abstract class Base extends ShortHibernateProcessor {
 
     public DataAccessInt getDataAccess(String datasource, boolean cached) throws Exception {
         if (datasource == null) return null;
-        DataAccessInt dAccess = null;
+        DataAccessInt dAccess;
         if (cached)
             dAccess = new CachedDataAccess(datasource);
         else
@@ -571,7 +552,7 @@ public abstract class Base extends ShortHibernateProcessor {
      */
     private String getResourceRoleNames(List<Integer> roleIds) throws Exception {
         Request r = new Request();
-        ResultSetContainer detail = null;
+        ResultSetContainer detail;
 
          r.setContentHandle("resource_role_names");
          StringBuilder sb = new StringBuilder();
@@ -782,74 +763,11 @@ public abstract class Base extends ShortHibernateProcessor {
     }
 
     /**
-     * This helper method will get resource role id based on the review type id.
-     *
-     * @param reviewTypeId the review type id
-     * @return <code>int</code> with the role ids
-     */
-    protected int getResourceRoleId(int reviewRespId) throws TCWebException, Exception {
-
-        Request r = new Request();
-        ResultSetContainer detail=null;
-
-        r.setContentHandle("resource_role_by_review_resp");
-        r.setProperty(Constants.REVIEW_RESP_ID, String.valueOf(reviewRespId));
-        Map results = getDataAccess().getData(r);
-        if (results == null || results.size() == 0) {
-            throw new TCWebException("Invalid review response ID.");
-        }
-
-        detail = (ResultSetContainer) results.get("resource_role_by_review_resp");
-
-        if (detail != null && !detail.isEmpty()) {
-            return detail.getIntItem(0, "resource_role_id");
-        }
-        throw new TCWebException("Invalid review response ID.");
-    }
-
-    /**
-     * This helper method will get resource role ids based on the review type id and primary flag.
-     *
-     * @param reviewTypeId the review type id
-     * @param primary if the position is a primary review position
-     * @return <code>int[]</code> with the role ids
-     */
-    protected int[] getResourceRoleIds(int reviewTypeId, boolean primary) throws TCWebException, Exception {
-        int[] roleIds;
-
-        if (primary) {
-            roleIds = Base.PRIMARY_ROLE_IDS;
-        } else {
-            roleIds = new int[1];
-        }
-
-        roleIds[0] = getResourceRoleId(reviewTypeId);
-        return roleIds;
-    }
-
-    /**
-     * <p>Checks whether the specified project type requested by client is currently supported by this controller
-     * or not.</p>
-     *
-     * This method delegates to ReviewBoardHelper.isReviewBoardTypeSupported().
-     *
-     * @param projectType a <code>String</code> referencing the project type requested by client.
-     * @param includeSpecificationReviews a <code>boolean</code> specifying if specification review projects should
-     * be included in the supported types for the validation.
-     *
-     * @return <code>true</code> if specified project type is supported; <code>false</code> otherwise.
-     * @since 1.4
-     */
-    protected boolean isProjectTypeSupported(String projectType, boolean includeSpecificationReviews) {
-        return ReviewBoardHelper.isReviewBoardTypeSupported(projectType, includeSpecificationReviews);
-    }
-
-    /**
      * This method will check eligibility constraints for a particular project.
      * It will first test if the user is logged in, and in this case it will call directly the isEligible service.
      * If the user is not logged in, it will ask for login only if the project has an eligibility constraint.
      *
-     * @param pid the project id (string representation) to check for
+     * @param projectId the project id (string representation) to check for
      * @param r the resource that is asking for login
      *
      * @return true if the user can see this project, false otherwise
@@ -859,7 +777,7 @@ public abstract class Base extends ShortHibernateProcessor {
      *
      * @since 1.7
      */
-    protected int checkEligibilityConstraints(String projectId, Resource r) throws TCWebException, PermissionException {
+    protected int checkEligibilityConstraints(String projectId, Resource r) throws TCWebException {
         if (projectId == null) {
             throw new TCWebException("parameter " + Constants.PROJECT_ID + " invalid.");
         }
@@ -889,7 +807,7 @@ public abstract class Base extends ShortHibernateProcessor {
      *
      * @since 1.7
      */
-    protected int checkEligibilityConstraints(long pid, Resource r) throws TCWebException, PermissionException {
+    protected int checkEligibilityConstraints(long pid, Resource r) throws TCWebException {
         if (r == null) {
             throw new TCWebException("Invalid resource checking eligibility.");
         }
@@ -917,7 +835,7 @@ public abstract class Base extends ShortHibernateProcessor {
     protected boolean hasEligibility(long pid) throws Exception
     {
         Request r = new Request();
-        ResultSetContainer detail=null;
+        ResultSetContainer detail;
 
          r.setContentHandle("has_eligibility");
          r.setProperty(Constants.PROJECT_ID, String.valueOf(pid));
@@ -942,7 +860,6 @@ public abstract class Base extends ShortHibernateProcessor {
      * This method will check if user is eligible for a contest
      *
      * @param pid the project id to check for
-     * @param r the resource that is asking for login
      *
      * @return 0 if eligible, otherwise return the group id (we only have group eligibility now) which the user is not in
      *
@@ -954,7 +871,7 @@ public abstract class Base extends ShortHibernateProcessor {
     protected int isEligible(long userId, long pid) throws Exception
     {
         Request r = new Request();
-        ResultSetContainer detail=null;
+        ResultSetContainer detail;
 
         r.setContentHandle("is_eligible");
         r.setProperty(Constants.PROJECT_ID, String.valueOf(pid));
@@ -995,7 +912,7 @@ public abstract class Base extends ShortHibernateProcessor {
         Request r = new Request();
         r.setContentHandle("is_eligible_country");
         r.setProperty(Constants.CODER_ID, String.valueOf(userId));
-        ResultSetContainer rsc = ((ResultSetContainer) dai.getData(r).get("is_eligible_country"));
+        ResultSetContainer rsc = dai.getData(r).get("is_eligible_country");
         return !rsc.isEmpty();
     }
     

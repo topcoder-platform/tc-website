@@ -144,8 +144,16 @@ import java.util.MissingResourceException;
  *     <li>Added {@link #MEMBER_ACHIEVEMENT_CURRENT_SQL_PATH} constant.</li>
  *   </ol>
  * </p>
+ *
+ * <p>
+ * Version 1.9.7 (Review Application Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Added {@link #REVIEW_AUCTION_ID} constant.</li>
+ *     <li>Added {@link #REVIEW_APPLICATION_ROLE_ID} constant.</li>
+ *   </ol>
+ * </p>
  * @author pulky, isv, VolodymyrK, TrePe
- * @version 1.9.6
+ * @version 1.9.7
  */
 public class Constants implements WebConstants {
 
@@ -235,7 +243,21 @@ public class Constants implements WebConstants {
     public static String SEASON_ID;
     public static String REVIEW_RESP_ID;
     public static String DOCUMENT_ID;
-    
+
+    /**
+     * <p>A <code>String</code> providing the name of request parameter with ID of review auction.</p>
+     * 
+     * @since 1.9.7
+     */
+    public static String REVIEW_AUCTION_ID;
+
+    /**
+     * <p>A <code>String</code> providing the name of request parameter with ID of review application role.</p>
+     * 
+     * @since 1.9.7
+     */
+    public static String REVIEW_APPLICATION_ROLE_ID;
+
     /**
      * Represents the resource role IDs parameter name in query tool.
      * 

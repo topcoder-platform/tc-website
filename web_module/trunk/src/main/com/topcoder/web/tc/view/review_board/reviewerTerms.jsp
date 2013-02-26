@@ -1,8 +1,8 @@
 <%--
-  - Author: pulky, snow01, TCSASSEMBER
-  - Version: 1.6
+  - Author: pulky, snow01, isv
+  - Version: 1.7
   - Since: TCS Release 2.2.2
-  - Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
+  - Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page displays the review terms of use corresponding to the specified project.
   - It displays the text and provides a for for the user to accept and continue registration.
@@ -27,11 +27,15 @@
   -
   - Version 1.6 (TopCoder Terms of Use Management Refactoring v1.0) change:
   - Refactoring the page to displaying terms groups.
+  -
+  - Version 1.7 (Review Application Integration assembly) change notes:
+  -  Updated the logic to use review auctions.
 --%>
 <%@ page language="java" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <%-- Variables to use JSTL --%>
 <c:set var="REVIEWER_TYPE_ID" value="<%=Constants.REVIEWER_TYPE_ID%>"/>
@@ -42,8 +46,15 @@
 <c:set var="CAPTCHA_RESPONSE" value="<%=Constants.CAPTCHA_RESPONSE%>"/>
 <c:set var="CAPTCHA_FILE_NAME" value="<%=Constants.CAPTCHA_FILE_NAME%>"/>
 <c:set var="PROJECT_TYPE_ID" value="<%=Constants.PROJECT_TYPE_ID%>"/>
-<c:set var="projectType" value="${param[PROJECT_TYPE_ID]}" scope="request"/>
 <jsp:include page="reviewCommonVariables.jsp"/>
+
+<c:set var="REVIEW_APPLICATION_ROLE_ID" value="<%=Constants.REVIEW_APPLICATION_ROLE_ID%>" scope="request"/>
+<c:set var="REVIEW_AUCTION_ID" value="<%=Constants.REVIEW_AUCTION_ID%>" scope="request"/>
+<c:set var="t" value="${''}"/>
+<c:forEach items="${paramValues[REVIEW_APPLICATION_ROLE_ID]}" var="role">
+    <fmt:formatNumber value="${role}" pattern="######0" var="roleId"/>
+    <c:set var="t" value="${t}${REVIEW_APPLICATION_ROLE_ID}=${roleId}&"/>
+</c:forEach>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -74,7 +85,7 @@
                 <td width="100%" align="center">
                     <jsp:include page="reviewPageTitle.jsp"/>
 
-                    <form action="${sessionInfo.servletPath}?${MODULE_KEY}=ProjectReviewTermsAgree&${PROJECT_TYPE_ID}=${projectType}&${PRIMARY_FLAG}=${param[PRIMARY_FLAG]}&${REVIEWER_TYPE_ID}=${param[REVIEWER_TYPE_ID]}&${PROJECT_ID}=${param[PROJECT_ID]}&<%=Constants.PRE_PENDING_TERMS%>=${prePendingTerms}" method="POST" name="frmTerms">
+                    <form action="${sessionInfo.servletPath}?${MODULE_KEY}=ReviewAuctionTermsAgree&${REVIEW_AUCTION_ID}=${param[REVIEW_AUCTION_ID]}&${t}<%=Constants.PRE_PENDING_TERMS%>=${prePendingTerms}" method="POST" name="frmTerms">
                         <%@ include file="/review_board/reviewerTermsFormTable.jsp" %>
 
                     </form>

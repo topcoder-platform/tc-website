@@ -49,7 +49,7 @@ import com.topcoder.web.common.WebConstants;
  *         <td>Version 1.4 (Content Creation Contest Online Review and TC Site Integration Assembly version 1.0)</td>
  *         <td>
  *           <ul>
- *             <li>Updated {@link #isReviewBoardTypeSupported(String, boolean)} method.</li> 
+ *             <li>Updated {@link #isReviewBoardTypeSupported(String)} method.</li> 
  *           </ul>
  *         </td>
  *     </tr>
@@ -57,7 +57,7 @@ import com.topcoder.web.common.WebConstants;
  *         <td>Version 1.5 (Add Reporting Contest Type)</td>
  *         <td>
  *           <ul>
- *             <li>Updated {@link #isReviewBoardTypeSupported(String, boolean)} method.</li> 
+ *             <li>Updated {@link #isReviewBoardTypeSupported(String)} method.</li> 
  *           </ul>
  *         </td>
  *     </tr>
@@ -65,15 +65,22 @@ import com.topcoder.web.common.WebConstants;
  *         <td>Version 1.6 (Release Assembly - TopCoder BugHunt Competition Integration)</td>
  *         <td>
  *           <ul>
- *             <li>Updated {@link #isReviewBoardTypeSupported(String, boolean)} method.</li>
+ *             <li>Updated {@link #isReviewBoardTypeSupported(String)} method.</li>
  *           </ul>
  *         </td>
  *     </tr>
  *   </table>
  * </p>
  *
- * @author pulky, snow01, FireIce, lmmortal, TCSASSEMBLER
- * @version 1.6
+ * <p>
+ * Version 1.7 (Review Application Integration Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Removed unused method.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author pulky, snow01, FireIce, lmmortal, isv
+ * @version 1.7
  */
 public final class ReviewBoardHelper {
 
@@ -89,55 +96,20 @@ public final class ReviewBoardHelper {
 	 * @since 1.3
      */
     public static boolean isReviewBoardTypeSupported(String reviewBoardType) {
-        return isReviewBoardTypeSupported(reviewBoardType, false);
-    }
-
-    /**
-     * <p>Checks whether the specified review board type requested by client is currently supported by this controller
-     * or not. As of current version only Design, Development, Assembly, Architecture, Conceptualization, Specification,
-     * Test Suites and Test Scenarios review boards and their specification reviews are supported.</p>
-     *
-     * Updated for Specification Review Integration 1.0
-     *      - Added check for spec review project types.
-     *
-     * @param reviewBoardType a <code>String</code> referencing the review board type requested by client.
-	 * @param includeSpecificationReviews a <code>boolean</code> specifying if specification review projects should
-     * be included in the supported types for the validation.
-     * @return <code>true</code> if specified review board type is supported; <code>false</code> otherwise.
-     */
-    public static boolean isReviewBoardTypeSupported(String reviewBoardType, boolean includeSpecificationReviews) {
         boolean supported = reviewBoardType.equals(String.valueOf(WebConstants.DESIGN_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.DEVELOPMENT_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.ASSEMBLY_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.ARCHITECTURE_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.CONCEPTUALIZATION_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.SPECIFICATION_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.TEST_SUITES_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.TEST_SCENARIOS_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.UI_PROTOTYPE_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.RIA_BUILD_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.RIA_COMPONENT_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.CONTENT_CREATION_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.BUG_HUNT_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.REPORTING_PROJECT_TYPE));
-
-		if (!supported && includeSpecificationReviews) {
-            supported = reviewBoardType.equals(String.valueOf(WebConstants.DESIGN_SPECIFICATION_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.DEVELOPMENT_SPECIFICATION_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.ASSEMBLY_SPECIFICATION_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.ARCHITECTURE_SPECIFICATION_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.CONCEPTUALIZATION_SPECIFICATION_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.SPECIFICATION_SPECIFICATION_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.TEST_SUITES_SPECIFICATION_PROJECT_TYPE))
-			|| reviewBoardType.equals(String.valueOf(WebConstants.TEST_SCENARIOS_SPECIFICATION_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.UI_PROTOTYPE_SPECIFICATION_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.RIA_BUILD_SPECIFICATION_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.RIA_COMPONENT_SPECIFICATION_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.CONTENT_CREATION_SPECIFICATION_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.BUG_HUNT_SPECIFICATION_PROJECT_TYPE))
-            || reviewBoardType.equals(String.valueOf(WebConstants.REPORTING_SPECIFICATION_PROJECT_TYPE));
-        }
-
+                || reviewBoardType.equals(String.valueOf(WebConstants.DEVELOPMENT_PROJECT_TYPE))
+                || reviewBoardType.equals(String.valueOf(WebConstants.ASSEMBLY_PROJECT_TYPE))
+                || reviewBoardType.equals(String.valueOf(WebConstants.ARCHITECTURE_PROJECT_TYPE))
+                || reviewBoardType.equals(String.valueOf(WebConstants.CONCEPTUALIZATION_PROJECT_TYPE))
+                || reviewBoardType.equals(String.valueOf(WebConstants.SPECIFICATION_PROJECT_TYPE))
+                || reviewBoardType.equals(String.valueOf(WebConstants.TEST_SUITES_PROJECT_TYPE))
+                || reviewBoardType.equals(String.valueOf(WebConstants.TEST_SCENARIOS_PROJECT_TYPE))
+                || reviewBoardType.equals(String.valueOf(WebConstants.UI_PROTOTYPE_PROJECT_TYPE))
+                || reviewBoardType.equals(String.valueOf(WebConstants.RIA_BUILD_PROJECT_TYPE))
+                || reviewBoardType.equals(String.valueOf(WebConstants.RIA_COMPONENT_PROJECT_TYPE))
+                || reviewBoardType.equals(String.valueOf(WebConstants.CONTENT_CREATION_PROJECT_TYPE))
+                || reviewBoardType.equals(String.valueOf(WebConstants.BUG_HUNT_PROJECT_TYPE))
+                || reviewBoardType.equals(String.valueOf(WebConstants.REPORTING_PROJECT_TYPE));
         return supported;
     }
 }
