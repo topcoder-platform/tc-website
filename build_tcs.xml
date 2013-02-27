@@ -294,7 +294,6 @@
                 <include name="DataAccess.properties"/>
                 <include name="TCS.properties"/>
                 <include name="onsite.properties"/>
-                <include name="TermsOfUse.xml"/>
             </fileset>
             <fileset dir="${resources.dir}/security/conf">
                 <include name="com/topcoder/security/Util.properties"/>
