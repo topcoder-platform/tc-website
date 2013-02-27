@@ -300,9 +300,8 @@ public class ProjectDetail extends Base {
                 getRequest().setAttribute("isCopilotPosting", false);
             }
             
-            // FIXME New General Competition Rules section for Contest Detail Page
-            // boolean isCCARequired = details.getBooleanItem(0, "is_cca_required");
-            boolean isCCARequired = false;
+            // New General Competition Rules section for Contest Detail Page
+            boolean isCCARequired = details.getBooleanItem(0, "is_cca_required");
             getRequest().setAttribute("isCCARequired", isCCARequired);
             int supportDays = 30;  // default support days
             if (projectTypeId == Constants.ARCHITECTURE_PROJECT_TYPE) {
