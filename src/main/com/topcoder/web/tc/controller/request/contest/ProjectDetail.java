@@ -83,9 +83,16 @@ import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationS
  *     <li>Modified {@link #getProjectOverview()} to add submissionPhaseOpen to the request parameter.</li>
  *   </ol>
  * </p>
- *
- * @author dok, pulky, romanoTC, Blues, duxiaoyang, TCSASSEBMLER
- * @version 1.7
+ * 
+ * <p>
+ * Version 1.8 (BUGR-8095 - New General Competition Rules section for Contest Detail Page) Change notes:
+ *   <ol>
+ *     <li>Modified {@link #getProjectOverview(String)} to add some new rules in contest detail page.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author dok, pulky, romanoTC, Blues, duxiaoyang, TCSASSEBMLER, notpad
+ * @version 1.8
  */
 public class ProjectDetail extends Base {
 
@@ -292,6 +299,16 @@ public class ProjectDetail extends Base {
             } else {
                 getRequest().setAttribute("isCopilotPosting", false);
             }
+            
+            // FIXME New General Competition Rules section for Contest Detail Page
+            // boolean isCCARequired = details.getBooleanItem(0, "is_cca_required");
+            boolean isCCARequired = false;
+            getRequest().setAttribute("isCCARequired", isCCARequired);
+            int supportDays = 30;  // default support days
+            if (projectTypeId == Constants.ARCHITECTURE_PROJECT_TYPE) {
+                supportDays = 90;
+            }
+            getRequest().setAttribute("supportDays", supportDays);
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
