@@ -317,6 +317,57 @@
                                         </div>
                                         <!-- End .Guidelines -->
                                     </c:if>
+                                        <!-- Payments -->
+                                        <div class="payments">
+                                            <h3>Payments</h3>
+                                            <div class="containerInner">
+                                                
+                                                <p>TopCoder will compensate members with first and second place submissions. Initial payment for the winning member will be distributed in two installments. The first payment will be made at the closure of the approval phase. The second payment will be made at the completion of the support period.</p>
+                                                <c:if test="${hasMilestone}">
+                                                <p><span class="bodySubtitle">Milestone</span></p>
+                                                <dl>
+                                                    <dt>For the milestone, the top <%=projectDetail.getIntItem(0, "milestone_number")%> submissions will be chosen and ranked by the client. Read below carefully.</dt>
+                                                    <dd>
+                                                        <ul>
+                                                            <li>The winners are completely at the client's discretion.</li>
+                                                            <li>You must upload your milestone to Online Review. The timestamp of your submission will be used to determine if you are eligible for a milestone review and payment. The milestone deadline will be posted to the forum.</li>
+                                                            <li>If you are selected to win a milestone payment,<font color="red">YOUR FINAL SUBMISSION MUST PASS THE REVIEW TO EARN YOUR MILESTONE PAYMENT.</font>If you do not pass review, you will not be awarded the payment money.</li>
+                                                        </ul>
+                                                    </dd>
+                                                </dl>
+                                                </c:if>
+                                                <c:if test="${maxReliabilityBonus > 0}">
+                                                <p><span class="bodySubtitle">Reliability Rating and Bonus</span></p>
+                                                <p>The reliability bonus for each particular project depends on the reliability rating at the moment of registration for that project. A participant with no previous projects is considered to have no reliability rating, and therefore gets no bonus.</p>
+                                                <p>Reliability bonus does not apply to Digital Run winnings. Since reliability rating is based on the past 15 projects, it can only have 15 discrete values.</p>
+                                                <p>Read <a href="http://apps.topcoder.com/wiki/display/tc/Reliability+Ratings+and+Bonuses" target="_blank">more</a>.</p>
+                                                </c:if>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+                                        <!-- End .Payments -->
+                                        <!-- Restrictions -->
+                                        <c:if test="${isCCARequired}">
+                                            <div class="restrictions">
+                                                <h3>Competitor Restrictions</h3>
+                                                <div class="containerInner">
+                                                    <p>This competition requires a <a href="https://apps.topcoder.com/wiki/display/tc/Competition+Confidentiality+Agreement+(CCA)" target="_blank">CCA</a></p>
+                                                    <div class="clear"></div>
+                                                </div>
+                                            </div>
+                                        </c:if>
+                                        <!-- End .Restrictions -->
+                                        <!-- Support -->
+                                        <c:if test="${not isCopilotPosting}">
+                                            <div class="support">
+                                                <h3>Support</h3>
+                                                <div class="containerInner">
+                                                    <p>Standard ${supportDays} days support.</p>
+                                                    <div class="clear"></div>
+                                                </div>
+                                            </div>
+                                        </c:if>
+                                        <!-- End .Support -->                                         
                                         <!-- Eligibility -->
                                         <div class="eligibility">
                                             <h3>Eligibility</h3>
