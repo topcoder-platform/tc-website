@@ -498,7 +498,6 @@
         <copy todir="${jboss_conf}" file="${resources}/DBMS.properties"/>
         <copy todir="${jboss_conf}" file="${resources}/DataAccess.properties"/>
         <copy todir="${jboss_conf}" file="${resources}/EmailEngineConfig.properties"/>
-        <copy todir="${jboss_conf}" file="${resources}/TermsOfUse.xml"/>
 
         <copy todir="${jboss_conf}/com/topcoder/db/connectionfactory/"
               file="${resources}/com/topcoder/db/connectionfactory/DBConnectionFactoryImpl.xml"/>
@@ -507,6 +506,8 @@
               file="${resources}/com/topcoder/util/config/ConfigManager.properties"/>
         <copy todir="${jboss_conf}/com/topcoder/servlet/request/"
               file="${resources}/com/topcoder/servlet/request/FileUpload.xml"/>
+        <copy todir="${jboss_conf}/com/cronos/termsofuse/dao"
+              file="${resources}/com/cronos/termsofuse/dao/TermsOfUse.xml"/>
 
         <delete file="${jboss_home}/server/default/deploy/studio.war"/>
         <unwar src="${war.dir}/studio.war" dest="${jboss_home}/server/default/deploy/studio.war/" overwrite="yes"/>

@@ -613,9 +613,6 @@
                 <include name="Email.properties"/>
                 <include name="EmailEngineConfig.properties"/>
                 <include name="LDAP.properties"/>
-                <include name="TermsOfUse.xml"/>
-                <include name="ReviewApplicationManagement.xml"/>
-                <include name="SearchBundleManager.xml"/>
             </fileset>
         </copy>
         <copy todir="${jboss_conf}">
@@ -636,6 +633,19 @@
             <fileset dir="${resources}/com/topcoder/management/review/application/impl">
                 <include name="ReviewApplicationManagerImpl.properties"/>
                 <include name="ReviewAuctionManagerImpl.properties"/>
+                <include name="ReviewApplicationManagement.xml"/>
+            </fileset>
+        </copy>
+        
+        <copy todir="${jboss_conf}/com/topcoder/search/builder">
+            <fileset dir="${resources}/com/topcoder/search/builder">
+                <include name="SearchBundleManager.xml"/>
+            </fileset>
+        </copy>
+        
+        <copy todir="${jboss_conf}/com/cronos/termsofuse/dao">
+            <fileset dir="${resources}/com/cronos/termsofuse/dao">
+                <include name="TermsOfUse.xml"/>
             </fileset>
         </copy>
         
