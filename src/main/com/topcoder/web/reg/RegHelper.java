@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011 - 2012 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2011 - 2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.reg;
 
@@ -61,8 +61,15 @@ import com.topcoder.web.common.model.User;
  * </ul>
  * </p>
  * 
- * @author live_world, leo_lol
- * @version 1.2
+ * <p>
+ * Version 1.3 (Release Assembly - TC Registration Site Field Updates) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #populateUser(UserDTO)} to add home country for coder.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author live_world, leo_lol, notpad
+ * @version 1.3
  * @since 1.0
  */
 public final class RegHelper {
@@ -267,6 +274,7 @@ public final class RegHelper {
         user.setPassword(userDTO.getPassword());
         // create a new coder record
         Coder coder = new Coder();
+        coder.setHomeCountry(DAOUtil.getFactory().getCountryDAO().find(userDTO.getHomeCountryCode()));
         // coder.setCompCountry(DAOUtil.getFactory().getCountryDAO().find("840"));
         // coder.setCoderType(DAOUtil.getFactory().getCoderTypeDAO().find(CoderType.PROFESSIONAL));
         user.setCoder(coder);

@@ -23,7 +23,19 @@
             <message>the max length of the last name is ${maxLength}</message>
         </field-validator>
     </field>
-	
+	<field name="userDTO.homeCountryCode">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message>Please choose your home country</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="maxLength">3</param>
+            <param name="minLength">3</param>
+            <param name="trim">true</param>
+            <message>Your home country is invalid</message>
+        </field-validator>
+    </field>
+    
     <field name="userDTO.email">
         <field-validator type="requiredstring">
             <param name="trim">true</param>

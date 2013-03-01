@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2012 - 2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.reg;
 
@@ -13,8 +13,15 @@ import javax.xml.bind.annotation.XmlRootElement;
  * <strong>Thread Safety: </strong> It's mutable and not thread safe.
  * </p>
  * 
- * @author leo_lol
- * @version 1.0
+ * <p>
+ * Version 1.1 (Release Assembly - TC Registration Site Field Updates) Change notes:
+ *   <ol>
+ *     <li>Added {@link #homeCountryCode} field and its getter and setter.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author leo_lol, notpad
+ * @version 1.1
  * @since 1.0
  */
 @XmlRootElement(name = "user")
@@ -64,6 +71,11 @@ public class UserDTO {
      */
     private String captchaUUID;
 
+    /**
+     * Code of the user's home country.
+     */
+    private String homeCountryCode;
+    
     /**
      * <p>
      * Getter of firstName field.
@@ -257,5 +269,23 @@ public class UserDTO {
      */
     public void setCaptchaUUID(String captchaUUID) {
         this.captchaUUID = captchaUUID;
+    }
+    
+    /**
+     * Getter of the homeCountryCode field.
+     * @return the value of homeCountryCode field.
+     * @since 1.1
+     */
+    public String getHomeCountryCode() {
+        return homeCountryCode;
+    }
+
+    /**
+     * Setter of the homeCountryCode field.
+     * @param homeCountryCode the homeCountryCode to set
+     * @since 1.1
+     */
+    public void setHomeCountryCode(String homeCountryCode) {
+        this.homeCountryCode = homeCountryCode;
     }
 }
