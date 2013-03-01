@@ -1,3 +1,11 @@
+<%--
+  - Author: notpad
+  - Version: 1.1
+  - Copyright (C) 2012 - 2013 TopCoder Inc., All Rights Reserved.
+  -
+  - Version 1.1 (Release Assembly - TC Registration Site Field Updates) change log:
+  - - Add support for home counrty.
+  --%>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -54,10 +62,17 @@
 										</div>
 										<div class="clearAll"></div>
 									</div>
+                                    <div class="elemLine">
+                                        <div class="leftPart">Home Country :</div>
+                                        <div class="rightPart">
+                                            <s:select name="userDTO.homeCountryCode" list="@com.topcoder.web.reg.action.RegisterAction@COUNTRIES" listKey="code" listValue="name" emptyOption="true" id="homeCountry" cssClass="text textNormal leftFloat" tabIndex="3"/>
+											<span class="tipError error1">Please choose your home country</span>
+                                        </div>
+                                    </div>
 									<div class="elemLine">
 										<div class="leftPart">Handle :</div>
 										<div class="rightPart">
-											<s:textfield name="userDTO.handle" id="handle" cssClass="text textNormal leftFloat" tabIndex="3"/>
+											<s:textfield name="userDTO.handle" id="handle" cssClass="text textNormal leftFloat" tabIndex="4"/>
 											<span class="tipError">Your handle is too short</span>
 										</div>
 										<div class="clearAll"></div>
@@ -65,7 +80,7 @@
 									<div class="elemLine">
 										<div class="leftPart">E-mail :</div>
 										<div class="rightPart">
-											<s:textfield name="userDTO.email" id="email" cssClass="text textNormal leftFloat" tabIndex="4"/>
+											<s:textfield name="userDTO.email" id="email" cssClass="text textNormal leftFloat" tabIndex="5"/>
 											<span class="tipError">Please fill your valid email</span>
 										</div>
 										<div class="clearAll"></div>
@@ -73,7 +88,7 @@
 									<div class="elemLine">
 										<div class="leftPart">Password :</div>
 										<div class="rightPart">
-											<s:password id="loginPassword" name="userDTO.password" cssClass="text textShort leftFloat" tabIndex="5"/>
+											<s:password id="loginPassword" name="userDTO.password" cssClass="text textShort leftFloat" tabIndex="6"/>
 											<span class="compareError">Passwords do not match</span>
 											<span class="tipError">Please fill your password</span>
 											<div class="barBox">
@@ -91,7 +106,7 @@
 									<div class="elemLine">
 										<div class="leftPart">Confirm Password :</div>
 										<div class="rightPart">
-											<s:password name="userDTO.confirmPassword" id="confirmPassword" cssClass="text textShort leftFloat" tabIndex="6"/>
+											<s:password name="userDTO.confirmPassword" id="confirmPassword" cssClass="text textShort leftFloat" tabIndex="7"/>
 											<span class="tipError">Please confirm your password</span>
 										</div>
 										<div class="clearAll"></div>
@@ -101,20 +116,20 @@
 										<div class="rightPart">
 											<div class="captcha" id="captcha"><s:action namespace="/" executeResult="true"
 												name="loadCaptchaAction"></s:action></div>
-											<p class="tryAnotherCode"><a id="tryAnotherCode" href="javascript:;" tabIndex="7">Try Another Code</a></p>
+											<p class="tryAnotherCode"><a id="tryAnotherCode" href="javascript:;" tabIndex="8">Try Another Code</a></p>
 											<div class="verificationCodeInput">
-												<s:textfield name="userDTO.captchaWord" id="captchaWord" cssClass="text textShorter leftFloat" tabIndex="8"/>
+												<s:textfield name="userDTO.captchaWord" id="captchaWord" cssClass="text textShorter leftFloat" tabIndex="9"/>
 												<div class="tipError error1">Please fill verification code</div>
 												<div class="tipError error2">Your verification code is incorrect</div>
 												<div class="clear"></div>
 											</div>
                                             <div class="termline">
-                                                <input type="checkbox" name="checkAgree" id="checkAgree" tabIndex="9">
-                                                <span class="label">I have read and accept the <a class="terms" href="privacy_policy.jsp" tabIndex="10">Privacy Policy</a></span>
+                                                <input type="checkbox" name="checkAgree" id="checkAgree" tabIndex="10">
+                                                <span class="label">I have read and accept the <a class="terms" href="privacy_policy.jsp" tabIndex="11">Privacy Policy</a></span>
                                             </div>
 											<div class="formCommand">
-												<a href="javascript:;" class="button grayBtn resetButton" tabIndex="11"><span><span>Reset</span></span></a>
-												<a href="javascript:;" id="registerSubmitButton" class="button redBtn submitButton disabled" tabIndex="12"><span><span>Submit</span></span></a>
+												<a href="javascript:;" class="button grayBtn resetButton" tabIndex="12"><span><span>Reset</span></span></a>
+												<a href="javascript:;" id="registerSubmitButton" class="button redBtn submitButton disabled" tabIndex="13"><span><span>Submit</span></span></a>
 											</div>
 										</div>
 										<div class="clearAll"></div>

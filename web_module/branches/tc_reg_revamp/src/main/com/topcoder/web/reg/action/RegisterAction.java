@@ -1,17 +1,21 @@
 /*
- * Copyright (C) 2011 - 2012 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2011 - 2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.reg.action;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 
+import com.topcoder.web.common.HibernateUtils;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.UserDAO;
+import com.topcoder.web.common.model.Country;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.reg.CaptchaGenerator;
 import com.topcoder.web.reg.RegEmailSetting;
@@ -30,8 +34,15 @@ import com.topcoder.web.reg.UserDTO;
  * </ol>
  * </p>
  * 
- * @version 1.1
- * @author live_world, leo_lol
+ * <p>
+ * Version 1.2 (Release Assembly - TC Registration Site Field Updates) Change notes:
+ *   <ol>
+ *     <li>Added {@link #COUNTRIES} field to support home country field in the front end.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @version 1.2
+ * @author live_world, leo_lol, notpad
  */
 public class RegisterAction extends BaseAction implements PostAction {
 
@@ -54,7 +65,23 @@ public class RegisterAction extends BaseAction implements PostAction {
      * Represents register source.
      */
     private static final String REGISTER_SOURCE_NAME = "reg2";
+    
+    /**
+     * Represents the countries list.
+     */
+    public static final List<Country> COUNTRIES;
 
+    static {
+    	try {
+        	HibernateUtils.begin();
+        	COUNTRIES = DAOUtil.getFactory().getCountryDAO().getCountries();
+    	} finally {
+            // commit transaction.
+            HibernateUtils.getSession().flush();
+            HibernateUtils.commit();
+            HibernateUtils.closeSession();
+        }    	
+    }
 
     /**
      * Validates the user.
