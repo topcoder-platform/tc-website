@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2006 - 2013 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.servlet.request.FileDoesNotExistException;
@@ -34,9 +37,14 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @author dok
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Mar 29, 2006
+ * <p>
+ * Version 1.1 (Release Assembly - TC Registration Site Field Updates) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #checkMainFields(Map)} method to support special validation for province.</li>
+ *   </ol>
+ * </p>
+ * @author dok, notpad
+ * @version 1.1
  */
 public abstract class Base extends LongHibernateProcessor {
 
@@ -301,7 +309,17 @@ public abstract class Base extends LongHibernateProcessor {
         simpleValidation(CountryValidator.class, fields, params, Constants.COMP_COUNTRY_CODE);
         simpleValidation(CoderTypeValidator.class, fields, params, Constants.CODER_TYPE);
         simpleValidation(TimeZoneValidator.class, fields, params, Constants.TIMEZONE);
-
+        
+        // when a user comes from some special countries(for example Canada), province is needed
+        if (fields.contains(Constants.COUNTRY_CODE) && fields.contains(Constants.PROVINCE)) {
+        	String countryName = getFactory().getCountryDAO().find((String) params.get(Constants.COUNTRY_CODE)).getName().toLowerCase();
+        	if (Constants.PROVINCE_REQUIRED_COUNTRIES != null 
+        		&& Constants.PROVINCE_REQUIRED_COUNTRIES.toLowerCase().contains(countryName)
+        		&& getTrimmedParameter(Constants.PROVINCE).equals("")) {
+        		addError(Constants.PROVINCE, "Please enter your province.");
+        	}
+        }
+        
         if (isNewRegistration() || !getFactory().getPaymentDAO().hasPayments(getRegUser().getId())) {
             simpleValidation(GivenNameValidator.class, fields, params, Constants.GIVEN_NAME);
             simpleValidation(MiddleNameValidator.class, fields, params, Constants.MIDDLE_NAME);
@@ -394,6 +412,8 @@ public abstract class Base extends LongHibernateProcessor {
             }
             setDefault(Constants.POSTAL_CODE, u.getHomeAddress().getPostalCode());
             setDefault(Constants.PROVINCE, u.getHomeAddress().getProvince());
+        } else if (u.getCoder() != null && u.getCoder().getHomeCountry() != null) {
+        	setDefault(Constants.COUNTRY_CODE, u.getCoder().getHomeCountry().getCode());
         }
         if (u.getPrimaryEmailAddress() != null) {
             setDefault(Constants.EMAIL, u.getPrimaryEmailAddress().getAddress());

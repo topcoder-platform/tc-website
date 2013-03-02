@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2006 - 2013 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.shared.security.ClassResource;
@@ -17,9 +20,14 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @author dok
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Mar 29, 2006
+ * <p>
+ * Version 1.1 (Release Assembly - TC Registration Site Field Updates) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #loadFieldsIntoUserObject(Set, Map)} method to load country field into coder.home_country_code.</li>
+ *   </ol>
+ * </p>
+ * @author dok, notpad
+ * @version 1.1
  */
 public class Secondary extends Base {
 
@@ -171,7 +179,11 @@ public class Secondary extends Base {
         }
 
         if (fields.contains(Constants.COUNTRY_CODE)) {
-            a.setCountry(getFactory().getCountryDAO().find((String) params.get(Constants.COUNTRY_CODE)));
+        	Country homeCountry = getFactory().getCountryDAO().find((String) params.get(Constants.COUNTRY_CODE));
+            a.setCountry(homeCountry);
+            if (u.getCoder() != null) {
+                u.getCoder().setHomeCountry(homeCountry);
+            }
         }
 
         if (getFactory().getCountryDAO().getUS().equals(a.getCountry())) {

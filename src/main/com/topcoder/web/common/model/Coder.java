@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2006 - 2013 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.common.model;
 
 import java.sql.Timestamp;
@@ -9,9 +12,16 @@ import java.util.Set;
 /**
  * A class to hold coder data.
  *
- * @author dok
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Mar 29, 2006
+ *
+ * <p>
+ * Version 1.1 (Release Assembly - TC Registration Site Field Updates) Change notes:
+ *   <ol>
+ *     <li>Added field homeCountry and its getter and setter.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author dok, notpad
+ * @version 1.1
  */
 public class Coder extends Base {
 
@@ -20,6 +30,11 @@ public class Coder extends Base {
     private String quote;
     private CoderType coderType;
     private Country compCountry;
+    
+    /**
+     * Represents home country of the coder.
+     */
+    private Country homeCountry;
     /*
         private HSAlgoRating hsRating;
         private TCAlgoRating tcRating;
@@ -74,7 +89,26 @@ public class Coder extends Base {
     public void setCompCountry(Country compCountry) {
         this.compCountry = compCountry;
     }
+    
+    /**
+     * Getter of the coder's home country.
+     * 
+     * @return the coder's home country
+     * @since 1.1
+     */
+    public Country getHomeCountry() {
+        return homeCountry;
+    }
 
+    /**
+     * Setter of the coder's home country.
+     * 
+     * @param homeCountry the coder's home country to set
+     * @since 1.1
+     */
+    public void setHomeCountry(Country homeCountry) {
+        this.homeCountry = homeCountry;
+    }
 /*
     public HSAlgoRating getHSRating() {
         return hsRating;
