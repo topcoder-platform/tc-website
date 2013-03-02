@@ -86,7 +86,7 @@
                 <c:when test="${resultRow.map['dr_points_reference_type_id'] == 1}">
                     <c:choose>
                         <c:when test="${not pf}">
-                            <A HREF="/tc?module=CompContestDetails&pj=${resultRow.map['reference_id']}" CLASS="statLink">
+                            <A HREF="/tc?module=ProjectDetail&pj=${resultRow.map['reference_id']}&tab=results" CLASS="statLink">
                                 Contest Details
                             </A>
                         </c:when>

@@ -76,7 +76,7 @@
                                             </a>
                                             <c:if test="${project.map['is_complete'] != 0}">
                                                 |
-                                                <a href="/tc?module=CompContestDetails&amp;pj=${project.map['project_id']}">
+                                                <a href="/tc?module=ProjectDetail&amp;pj=${project.map['project_id']}&amp;tab=results">
                                                     contest details
                                                 </a>
                                             </c:if>

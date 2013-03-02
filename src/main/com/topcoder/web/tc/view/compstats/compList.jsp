@@ -408,7 +408,7 @@
                <% }  %>
                </TD>
             <td class="<%=even?"statLt":"statDk"%>" align="right"><rsc:item name="winner_score" row="<%=resultRow%>" ifNull="" format="0.00"/></TD>
-            <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap"><A HREF='/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>' class="bcLink">Contest Details</a></TD>
+            <td class="<%=even?"statLt":"statDk"%>" align="center" nowrap="nowrap"><A HREF='/tc?module=ProjectDetail&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>&tab=results' class="bcLink">Contest Details</a></TD>
             </TR>
       <%even=!even;%>
       </rsc:iterator>

@@ -48,7 +48,7 @@
 <tr class="sidebarText">
    <td nowrap="nowrap">First unrated member to win (Development)</td>
    <td align="center">$1,000</td>
-   <td align="center"><tc-webtag:handle coderId="10116099" context="development"/> - <A href="/tc?module=CompContestDetails&pj=15445503">Form Manager</A> - 93.57</td>
+   <td align="center"><tc-webtag:handle coderId="10116099" context="development"/> - <A href="/tc?module=ProjectDetail&pj=15445503&tab=results">Form Manager</A> - 93.57</td>
 </tr>
 <tr class="sidebarText">
    <td nowrap="nowrap">Most passing submissions (Design)</td>

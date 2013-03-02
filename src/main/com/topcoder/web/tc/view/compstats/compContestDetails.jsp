@@ -87,7 +87,7 @@
                      <% if (resultRow.getLongItem("project_id") == projectId) { %>
                      <rsc:item name="posting_date" row="<%=resultRow%>" format="MM.dd.yyyy"/>
                      <% } else { %>
-                     <A HREF='/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>'
+                     <A HREF='/tc?module=ProjectDetail&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>&tab=results'
                         class="bcLink">
                          <rsc:item name="posting_date" row="<%=resultRow%>" format="MM.dd.yyyy"/>
                      </A>

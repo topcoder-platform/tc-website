@@ -42,7 +42,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
             </c:choose>
         </td>
         <td class="valueR"><strong><rsc:item name="money" row="<%=row%>" format="$#,###,###.00"/></strong></td>
-        <td class="value" nowrap="nowrap"><A href="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=row%>"/>"><rsc:item name="name" row="<%=row%>"/></A></td>
+        <td class="value" nowrap="nowrap"><A href="/tc?module=ProjectDetail&pj=<rsc:item name="project_id" row="<%=row%>"/>&tab=results"><rsc:item name="name" row="<%=row%>"/></A></td>
         <td class="valueC"><rsc:item name="date" row="<%=row%>" format="MM.dd.yyyy"/></td>
         </tr>
     <% even = !even;%>

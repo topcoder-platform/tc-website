@@ -443,7 +443,7 @@
                 </TD>
                 <TD class="valueR" nowrap="nowrap">
                     <% if (resultRow.getItem("project_id").getResultData() != null) { %>
-                        <A HREF="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>" CLASS="statLink">
+                        <A HREF="/tc?module=ProjectDetail&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>&tab=results" CLASS="statLink">
                             Contest Details
                         </A>
                     <% } %>

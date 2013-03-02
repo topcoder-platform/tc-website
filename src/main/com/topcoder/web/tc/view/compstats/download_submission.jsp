@@ -51,7 +51,7 @@ If it doesn't start, please click here:
             <input type="submit" value="Download Submission">    
         </form>
 
-<a href="/tc?module=CompContestDetails&pj=<%= request.getAttribute(Constants.PROJECT_ID).toString() %>">Back to Contest Details</a>
+<a href="/tc?module=ProjectDetail&pj=<%= request.getAttribute(Constants.PROJECT_ID).toString() %>&tab=results">Back to Contest Details</a>
 </div>
 </TD>
 <td WIDTH="180" VALIGN="top">

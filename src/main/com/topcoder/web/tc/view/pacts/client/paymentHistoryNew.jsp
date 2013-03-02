@@ -94,7 +94,7 @@
                     <A href="/stat?c=coder_room_stats&cr=${payment.header.user.id}&rd=${payment.header.algorithmRoundId}"><c:out value="${payment.description}"/></A>
                 </c:when>
                 <c:when test="${(payment.typeId == 6 || payment.typeId == 7) && payment.header.componentProjectId > 0}">
-                    <A href="/tc?module=CompContestDetails&pj=${payment.header.componentProjectId}" class="bcLink"><c:out value="${payment.description}"/></A>                    
+                    <A href="/tc?module=ProjectDetail&pj=${payment.header.componentProjectId}&tab=results" class="bcLink"><c:out value="${payment.description}"/></A>
                 </c:when>
                 <c:when test="${(payment.typeId == 17 || payment.typeId == 25) && payment.header.digitalRunStageId > 0}">
                     <A href="/tc?module=LeaderBoard&ph=112&staid=${payment.header.digitalRunStageId}" class="bcLink"><c:out value="${payment.description}"/></A>                    

@@ -197,7 +197,7 @@
                         <A href="/stat?c=coder_room_stats&cr=${payment.coderId}&rd=${payment.roundId}">${payment.description}</A>
                     </c:when>
                     <c:when test="${(typeId == 6 || typeId == 7) && payment.projectId > 0}">
-                        <A href="/tc?module=CompContestDetails&pj=${payment.projectId}" class="bcLink">${payment.description}
+                        <A href="/tc?module=ProjectDetail&pj=${payment.projectId}&tab=results" class="bcLink">${payment.description}
                         <c:if test="${payment.grossAmount != payment.totalAmount}">
                             <c:choose>
                                 <c:when test="${payment.installmentNumber == 1}">(${payment.installmentNumber}st</c:when>

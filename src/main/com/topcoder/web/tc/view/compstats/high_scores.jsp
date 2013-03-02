@@ -33,7 +33,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
      <td class="valueC"><rsc:item name="rank" row="<%=row%>"/></td>
      <td class="value"><tc-webtag:handle coderId='<%=row.getLongItem("coder_id")%>' context='<%=type%>'/></td>
      <td class="valueR"><strong><rsc:item name="score" row="<%=row%>" format="0.00"/></strong></td>
-     <td class="value"><A href="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=row%>"/>"><rsc:item name="name" row="<%=row%>"/></A></td>
+     <td class="value"><A href="/tc?module=ProjectDetail&pj=<rsc:item name="project_id" row="<%=row%>"/>&tab=results"><rsc:item name="name" row="<%=row%>"/></A></td>
      <td class="valueR"><rsc:item name="date" row="<%=row%>" format="MM.dd.yyyy"/></td>
      </tr>
     <% even = !even;%>

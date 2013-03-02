@@ -85,7 +85,7 @@
                                 <a href="/tco08?module=ProjectDetails&amp;eid=${event_id}&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">results</a>
                                 <% if (isComplete) { %>
                                 |
-                                <a href="/tc?module=CompContestDetails&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">contest
+                                <a href="/tc?module=ProjectDetail&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>&amp;tab=results">contest
                                     details</a>
                                 <% } %>
                             </td>
