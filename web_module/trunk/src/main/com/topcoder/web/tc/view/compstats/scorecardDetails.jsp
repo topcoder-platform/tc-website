@@ -140,10 +140,10 @@ function hideAll(){
 <span class="bodySubtitle">Component Statistics >
 <a href='/tc?module=CompList&amp;<%=Constants.PHASE_ID%>=<rsc:item set="<%=projectInfo%>" name="phase_id"/>' class="statLink">
 <rsc:item set="<%=projectInfo%>" name="phase_desc"/> Contests</a>
- &gt; <a href='/tc?module=CompContestDetails&pj=<rsc:item name="project_id" set="<%=projectInfo%>"/>' class="bcLink">Contest Details</a>
+ &gt; <a href='/tc?module=ProjectDetail&pj=<rsc:item name="project_id" set="<%=projectInfo%>"/>&tab=results' class="bcLink">Contest Details</a>
  &gt; Scorecard Details</span>
 <br><br>
-<b>Contest:</b> <a href='/tc?module=CompContestDetails&pj=<rsc:item name="project_id" set="<%=projectInfo%>"/>' class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/></a>
+<b>Contest:</b> <a href='/tc?module=ProjectDetail&pj=<rsc:item name="project_id" set="<%=projectInfo%>"/>&tab=results' class="statLink"><rsc:item set="<%=projectInfo%>" name="component_name"/> <rsc:item set="<%=projectInfo%>" name="version_text"/></a>
 <br>
 <b>Component:</b>
                 <% if (projectInfo.getIntItem(0, "viewable_category_ind")==1) { %>

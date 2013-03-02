@@ -74,7 +74,7 @@
                                         </c:choose>
                                         <c:choose>
                                             <c:when test="${result.complete}">
-                                                | <a href="/tc?module=CompContestDetails&amp;pj=${result.projectId}">contest
+                                                | <a href="/tc?module=ProjectDetail&amp;pj=${result.projectId}&amp;tab=results">contest
                                                 details</a>
                                             </c:when>
                                             <c:otherwise>

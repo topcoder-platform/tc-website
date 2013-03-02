@@ -256,7 +256,7 @@ if (resultRow.getIntItem("payment_type_id") == 6  && resultRow.getItem("referenc
                     resultRow.getIntItem("payment_type_id") == 23 ||
                     resultRow.getIntItem("payment_type_id") == 37) && 
                     resultRow.getItem("reference_id").getResultData() != null) {%>
-                <A href="/tc?module=CompContestDetails&pj=<rsc:item name="reference_id" row="<%=resultRow%>"/>" class="bcLink">Project details</A>
+                <A href="/tc?module=ProjectDetail&pj=<rsc:item name="reference_id" row="<%=resultRow%>"/>&tab=results" class="bcLink">Project details</A>
                 <% } else if ((resultRow.getIntItem("payment_type_id") == 17 ||
                     resultRow.getIntItem("payment_type_id") == 25) && 
                     resultRow.getItem("reference_id").getResultData() != null) {%>

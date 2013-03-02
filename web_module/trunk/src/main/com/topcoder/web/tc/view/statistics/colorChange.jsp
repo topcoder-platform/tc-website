@@ -197,7 +197,7 @@ Enter a member's handle here to narrow the chart down to just that member:<br>
                                     </a>
                                 </c:when>
                                 <c:otherwise>
-                                    <a href="/tc?module=CompContestDetails&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">
+                                    <a href="/tc?module=ProjectDetail&amp;pj=<rsc:item name="project_id" row="<%=resultRow%>"/>&amp;tab=results">
                                         <rsc:item name="component_name" row="<%=resultRow%>"/>
                                         <rsc:item name="version_text" row="<%=resultRow%>"/>
                                     </a>

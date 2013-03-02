@@ -128,7 +128,7 @@
     of generic catalog components (Logging Wrapper, Collection Wrappers, Object Diff, ...) as well as components to help organise
     TC's new assembly contests (Phase / Project / Team Management). Many early projects proved popular, as designers took the opportunity
     to get some early points on the board. Part way through, the relatively simple
-    <a href="http://www.topcoder.com/tc?module=CompContestDetails&pj=30001310">Null Streams</a> component proved one of the most popular
+    <a href="http://www.topcoder.com/tc?module=ProjectDetail&pj=30001310&tab=results">Null Streams</a> component proved one of the most popular
     design contests ever with 12 submissions -- all of them passing review. Then in the final week, a number of Survey components gave
     members a last chance to climb up the leaderboard towards the top 8.</p>
 
@@ -137,7 +137,7 @@
         <li>Three designers - <tc-webtag:handle coderId="287614" />, <tc-webtag:handle coderId="152342" /> and <tc-webtag:handle coderId="119676" /> - all managed to reach the 40-point mark, with <tc-webtag:handle coderId="22498968" /> also getting 30 from 3 contests.</li>
         <li><tc-webtag:handle coderId="287614" /> submitted in 10 components, with an impressive 7 wins and 3 seconds.</li>
         <li>Not to be outdone, <tc-webtag:handle coderId="252022" /> made 17 submissions, with 14 passing review, 3 wins and 6 seconds.</li>
-        <li><tc-webtag:handle coderId="152342" /> managed to score the second ever perfect score for design, with 100% for <a href="/tc?module=CompContestDetails&pj=30001385">Survey Model</a>.</li>
+        <li><tc-webtag:handle coderId="152342" /> managed to score the second ever perfect score for design, with 100% for <a href="/tc?module=ProjectDetail&pj=30001385&tab=results">Survey Model</a>.</li>
     </ul></p>
     
     <p><span class="bodySubtitle">Development contest (<a href="/tc?module=TCO07ContestDetails&ct=287">results</a>): </span><br />
@@ -155,8 +155,8 @@
     -- during the TCO there was an average of around 16 components per week (including reposts) which gave many chances to get on the scoreboard.
     Included among them were a large number of the Time Tracker custom components, to be used on what looks like a large 
     user- and project-tracking website. In addition to these were some of the regular siren components that seem to draw developers towards them,
-    such as <a href="/tc?module=CompContestDetails&pj=30001408">Object Diff</a> (19 submissions) and 
-    <a href=/tc?module=CompContestDetails&pj=30001320">Text Normalization</a> (24 submissions). The final weeks proved to be more of 
+    such as <a href="/tc?module=ProjectDetail&pj=30001408&tab=results">Object Diff</a> (19 submissions) and
+    <a href=/tc?module=ProjectDetail&pj=30001320&tab=results">Text Normalization</a> (24 submissions). The final weeks proved to be more of
     the same, however developers now were able to enjoy asking questions to designers who were near the end of their own busy 5 week schedule.
     </p>
 
@@ -165,7 +165,7 @@
         <li>Four developers - <tc-webtag:handle coderId="14926554" />, <tc-webtag:handle coderId="14788013" />, <tc-webtag:handle coderId="9998760" /> and <tc-webtag:handle coderId="14820574" /> all obtained 40 points, and <tc-webtag:handle coderId="22655076" /> won 30 points from 3 contests. </li>
         <li><tc-webtag:handle coderId="14820574" /> was the most active submitter in the contest, with 8 components, including 5 wins. </li>
         <li>Three of <tc-webtag:handle coderId="14926554" />'s wins came from the difficult Time Tracker projects, netting $5600 in prizes and 1825 Digital Run points.</li>
-        <li><tc-webtag:handle coderId="14788013" />  joined an exclusive club -- the small handful of developers who have reached red -- after scoring 99.6 for <a href="/tc?module=CompContestDetails&pj=30001320">Text Normalization</a>.</li>
+        <li><tc-webtag:handle coderId="14788013" />  joined an exclusive club -- the small handful of developers who have reached red -- after scoring 99.6 for <a href="/tc?module=ProjectDetail&pj=30001320&tab=results">Text Normalization</a>.</li>
     </ul></p>
     
     <p><span class="bodySubtitle"><strong>The Finals: </strong></span></p>

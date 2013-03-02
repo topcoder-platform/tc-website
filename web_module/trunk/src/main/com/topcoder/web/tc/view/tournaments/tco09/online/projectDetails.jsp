@@ -130,7 +130,7 @@
                                                                     </c:if>
                                                                   </h2>
                                                                     <c:if test="${projectDetailsRow.map['complete_status'] == 1}">
-                                                                        <a href="/tc?module=CompContestDetails&amp;pj=${projectDetailsRow.map['project_id']}">
+                                                                        <a href="/tc?module=ProjectDetail&amp;pj=${projectDetailsRow.map['project_id']}&amp;tab=results">
                                                                             contest details
                                                                         </a>
                                                                     </c:if>

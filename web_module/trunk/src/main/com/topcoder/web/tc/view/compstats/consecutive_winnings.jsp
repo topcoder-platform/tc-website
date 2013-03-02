@@ -50,12 +50,12 @@ Only those contests where the competitor was rated are included.
            <rsc:item name="length" row="<%=row%>" format="0"/>
         </td>
         <td class="valueR" width="50%">
-            <A href="/tc?module=CompContestDetails&pj=<rsc:item name="start_project_id" row="<%=row%>"/>"><rsc:item name="start_project_name" row="<%=row%>"/></A><br>
+            <A href="/tc?module=ProjectDetail&pj=<rsc:item name="start_project_id" row="<%=row%>"/>&tab=results"><rsc:item name="start_project_name" row="<%=row%>"/></A><br>
             <rsc:item name="start_date" row="<%=row%>" format="MM.dd.yyyy"/>
         </td>
         <td class="valueC">-</td>
         <td class="value" width="50%">
-            <A href="/tc?module=CompContestDetails&pj=<rsc:item name="end_project_id" row="<%=row%>"/>"><rsc:item name="end_project_name" row="<%=row%>"/></A><br>
+            <A href="/tc?module=ProjectDetail&pj=<rsc:item name="end_project_id" row="<%=row%>"/>&tab=results"><rsc:item name="end_project_name" row="<%=row%>"/></A><br>
             <rsc:item name="end_date" row="<%=row%>" format="MM.dd.yyyy"/>
         </td>        
         </tr>
