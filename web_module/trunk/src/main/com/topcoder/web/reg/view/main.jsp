@@ -1,3 +1,11 @@
+<%--
+  - Author: notpad
+  - Version: 1.1
+  - Copyright (C) 2009 - 2013 TopCoder Inc., All Rights Reserved.
+  -
+  - Version 1.1 (Release Assembly - TC Registration Site Field Updates) change log:
+  - - Add onCountryChange method to require "Province" for members from some specified countries.
+  --%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.common.HSRegistrationHelper,
                  com.topcoder.web.common.tag.AnswerInput,
@@ -58,13 +66,24 @@
 					}
 				}
 			}
-
+            function onCountryChange(){
+                var countrySelect = document.getElementsByName('cc')[0];
+                var countryName = countrySelect.options[countrySelect.selectedIndex].text.toLowerCase();
+                var provinceRequired = document.getElementById('prov_required');
+                var provinceRequiredCountries = '<%=Constants.PROVINCE_REQUIRED_COUNTRIES%>';
+                provinceRequiredCountries = provinceRequiredCountries.toLowerCase();
+                if (countryName.length != 0 && provinceRequiredCountries.indexOf(countryName) != -1) {
+                    provinceRequired.style.display = "";
+                } else {
+                    provinceRequired.style.display = "none";
+                }
+            }
             // -->
         </script>
     
     </head>
 
-    <body>
+    <body onLoad="onCountryChange()">
         
         <div id="wrapper">
         
@@ -347,7 +366,7 @@
                             <tc-webtag:errorIterator id="err" name="<%=Constants.PROVINCE%>"></tc-webtag:errorIterator>
                             
                             <label for="<%=Constants.PROVINCE%>">
-                            <c:if test="${cf:contains(reqFields, province)}"><span class="required">*</span></c:if>
+                            <span class="required" style="display:none" id="prov_required">*</span>
                             Province:
                             </label>
                             <tc-webtag:textInput name="<%=Constants.PROVINCE%>" id="<%=Constants.PROVINCE%>" size="40" maxlength="<%=Constants.MAX_PROVINCE_LENGTH%>" editable="true"/>
@@ -369,7 +388,7 @@
                             <c:if test="${cf:contains(reqFields, countryCode)}"><span class="required">*</span></c:if>
                             Country:
                             </label>
-                            <tc-webtag:objectSelect name="${countryCode}" list="${countries}" valueField="code" textField="name"/>
+                            <tc-webtag:objectSelect name="${countryCode}" list="${countries}" valueField="code" textField="name" onChange="onCountryChange()"/>
                             
                             <span style="visibility: hidden" id="<%=Constants.COUNTRY_CODE%>_status">
                             <tc-webtag:errorIterator id="err" name="<%=Constants.COUNTRY_CODE%>"><%=err%></tc-webtag:errorIterator>

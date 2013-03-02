@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2006 - 2013 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.reg;
 
 import com.topcoder.shared.util.TCResourceBundle;
@@ -11,10 +14,16 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.MissingResourceException;
 
-/**
- * @author dok
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Mar 29, 2006
+/*
+ * <p>
+ * Version 1.1 (Release Assembly - TC Registration Site Field Updates) Change notes:
+ *   <ol>
+ *     <li>Added field PROVINCE_REQUIRED_COUNTRIES.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author dok, notpad
+ * @version 1.1
  */
 public class Constants implements WebConstants {
 
@@ -79,7 +88,12 @@ public class Constants implements WebConstants {
             StringUtils.ALPHABET_DIGITS_EN + HANDLE_PUNCTUATION;
     public final static String PASSWORD_ALPHABET = StringUtils.ALPHABET_ALPHA_EN +
             StringUtils.ALPHABET_DIGITS_EN + PUNCTUATION;
-
+    
+    /**
+     * Province filed is required when a user comes from these countries.
+     */
+    public static String PROVINCE_REQUIRED_COUNTRIES;
+    
     public static int MIN_HANDLE_LENGTH;
     public static int MAX_HANDLE_LENGTH;
     public static int MIN_PASSWORD_LENGTH;
