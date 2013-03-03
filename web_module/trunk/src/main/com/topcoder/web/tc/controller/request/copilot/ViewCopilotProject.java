@@ -5,7 +5,11 @@ package com.topcoder.web.tc.controller.request.copilot;
 
 import com.topcoder.direct.services.copilot.CopilotProjectService;
 import com.topcoder.direct.services.copilot.dto.CopilotProjectDTO;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
@@ -16,6 +20,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import javax.servlet.ServletContext;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p> This request processor handles the request of view copilot project details. It will use the
@@ -147,8 +152,17 @@ public class ViewCopilotProject extends ShortHibernateProcessor {
             request.setAttribute(BAR_CHART2, generateSecondBarChartJSON(projectDTO));
             request.setAttribute(BAR_CHART3, generateThirdBarChartJSON(projectDTO));
             request.setAttribute(COPILOT_PROJECT, projectDTO);
+
+            Request r = new Request();
+            // command - copilot_profile
+            r.setContentHandle("copilot_profile");
+            r.setProperty("uid", String.valueOf(projectDTO.getCopilotProject().getCopilotProfileId()));
+
+            // query copilot_user_info with the specified user id
+            Map<String, ResultSetContainer> data = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r);
+
             request.setAttribute(COPILOT_INFO,
-                    CopilotRequestProcessorUtil.getCopilotProfileInfo(projectDTO.getCopilotProject().getCopilotProfileId()));
+                    CopilotRequestProcessorUtil.getCopilotInfo(data));
 
             // set the jsp page to forward
             setNextPage(Constants.COPILOT_PROJECT);

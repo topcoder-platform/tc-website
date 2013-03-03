@@ -1,11 +1,10 @@
 /*
- * Copyright (c) 2010 TopCoder, Inc. All rights reserved.
+ * Copyright (c) 2010 - 2013 TopCoder, Inc. All rights reserved.
  */
 package com.topcoder.web.tc.controller.request.copilot;
 
-import com.topcoder.direct.services.copilot.CopilotProfileService;
 import com.topcoder.direct.services.copilot.dto.CopilotPoolMember;
-import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.direct.services.copilot.model.CopilotProfile;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
@@ -19,7 +18,11 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 /**
  * <p> This request processor handles the request of view copilot pool. It will use the spring to load an instance of
@@ -164,31 +167,34 @@ public class ViewCopilotPool extends ShortHibernateProcessor {
             Map<Long, String> copilotsImages;
 
             // Try getting the members from session to see if it's already cached
-            Object cachedCopilots = request.getSession().getAttribute(POOL_MEMBER_SESSION_KEY);
+            // Object cachedCopilots = null; // request.getSession().getAttribute(POOL_MEMBER_SESSION_KEY);
 
-            Object cachedImages = request.getSession().getAttribute(IMAGES_PATH_SESSION_KEY);
+            // Object cachedImages = null; // request.getSession().getAttribute(IMAGES_PATH_SESSION_KEY);
 
-            if (cachedCopilots == null) {
-                // not cached, get CopilotProfileService implementation from application context
-                CopilotProfileService service = (CopilotProfileService) applicationContext.getBean("profileService");
-                copilots = service.getCopilotPoolMembers();
-
-                // cache into session
-                request.getSession().setAttribute(POOL_MEMBER_SESSION_KEY, copilots);
-
-            } else {
-                // cached in the session, directly use the cached
-                copilots = (List<CopilotPoolMember>) cachedCopilots;
-            }
-
-            if (cachedImages == null) {
+            // if (cachedImages == null) {
                 // get the map from the persistence
-                copilotsImages = getCopilotsImageMap();
+                copilots = new ArrayList<CopilotPoolMember>();
+                copilotsImages = getCopilotsImageMap(copilots);
+
                 // cache into session
-                request.getSession().setAttribute(IMAGES_PATH_SESSION_KEY, copilotsImages);
-            } else {
-                copilotsImages = (Map<Long, String>) cachedImages;
-            }
+                // request.getSession().setAttribute(IMAGES_PATH_SESSION_KEY, copilotsImages);
+//            } else {
+//                copilotsImages = (Map<Long, String>) cachedImages;
+//            }
+
+//            if (cachedCopilots == null) {
+//                // not cached, get CopilotProfileService implementation from application context
+//                CopilotProfileService service = (CopilotProfileService) applicationContext.getBean("profileService");
+//                copilots = service.getCopilotPoolMembers();
+//
+//                // cache into session
+//                request.getSession().setAttribute(POOL_MEMBER_SESSION_KEY, copilots);
+//
+//            } else {
+//                // cached in the session, directly use the cached
+//                copilots = (List<CopilotPoolMember>) cachedCopilots;
+//            }
+
 
             // the total number of the copilots
             int totalSize = copilots.size();
@@ -381,7 +387,7 @@ public class ViewCopilotPool extends ShortHibernateProcessor {
      *
      * @throws Exception if any error occurs.
      */
-    private Map<Long, String> getCopilotsImageMap() throws Exception {
+    private Map<Long, String> getCopilotsImageMap(List<CopilotPoolMember> copilots) throws Exception {
         Request r = new Request();
         // command - copilot_pool_members
         r.setContentHandle("copilot_pool_members");
@@ -395,8 +401,16 @@ public class ViewCopilotPool extends ShortHibernateProcessor {
         // Build the result map
         while (iterator.hasNext()) {
             ResultSetContainer.ResultSetRow row = iterator.next();
+            CopilotPoolMember copilot = new CopilotPoolMember();
+            CopilotProfile copilotProfile = new CopilotProfile();
+            copilot.setCopilotProfile(copilotProfile);
 
-            images.put(row.getLongItem("user_id"), row.getStringItem("image_path"));
+            long userId = row.getLongItem("user_id");
+            String imagePath = row.getStringItem("image_path");
+            copilotProfile.setUserId(userId);
+
+            images.put(userId, imagePath);
+            copilots.add(copilot);
         }
 
         return images;
