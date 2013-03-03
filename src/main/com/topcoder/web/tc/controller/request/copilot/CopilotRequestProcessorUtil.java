@@ -1,13 +1,9 @@
 /*
- * Copyright (c) 2010 - 2012 TopCoder, Inc. All rights reserved.
+ * Copyright (c) 2010 - 2013 TopCoder, Inc. All rights reserved.
  */
 package com.topcoder.web.tc.controller.request.copilot;
 
-import com.topcoder.shared.dataAccess.DataAccess;
-import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.common.CachedDataAccess;
 
 import javax.servlet.http.HttpServletRequest;
 import java.text.DateFormat;
@@ -41,9 +37,17 @@ import java.util.Map;
  *          <li>Retrieve copilot_feedback data, using query tool.</li>
  *      </ol>
  * </p>
+ *
+ * <p>
+ *     Version 1.3 (BUGR-8151)
+ *     <ol>
+ *         <li>Remove getCopilotProfileInfo(long copilotProfileId), it's duplicated for getCopilotInfo</li>
+ *         <li>Updates method to use commandData as input to avoid getting command data multiple times</li>
+ *     </ol>
+ * </p>
  * 
  * @author GreatKevin
- * @version 1.2
+ * @version 1.3
  */
 class CopilotRequestProcessorUtil {
 
@@ -92,61 +96,19 @@ class CopilotRequestProcessorUtil {
 
         return result;
     }
-
-    /**
-     * Gets a map which stores the copilot's TopCoder handle, user id and TopCoder head image path by the given
-     * copilot profile id.
-     *
-     * @param copilotProfileId the copilot profile id.
-     * @return a map with copilot's information.
-     * @throws Exception if any error occurs.
-     */
-    public static Map<String, String> getCopilotProfileInfo(long copilotProfileId) throws Exception {
-
-        Request r = new Request();
-        // command - copilot_profile
-        r.setContentHandle("copilot_profile");
-        r.setProperty("uid", String.valueOf(copilotProfileId));
-
-        // query copilot_user_info with the specified user id
-        ResultSetContainer result = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("copilot_profile_info");
-        Map<String, String> info = new HashMap<String, String>();
-
-        // Build the result map
-        if (result.size() != 0) {
-            if (result.getItem(0, "handle").getResultData() != null) {
-                info.put("handle", result.getStringItem(0, "handle"));
-            }
-
-            if (result.getItem(0, "user_id").getResultData() != null) {
-                info.put("userId", result.getStringItem(0, "user_id"));
-            }
-
-            if (result.getItem(0, "image_path").getResultData() != null) {
-                info.put("imagePath", result.getStringItem(0, "image_path"));
-            }
-        }
-
-        return info;
-    }
     
     /**
      * Gets a map which stores the copilot's TopCoder handle, user id and TopCoder head image path by the given
      * copilot user id.
      *
-     * @param userId the copilot profile id.
+     * @param commandData data returned from running copilot_profile command
+     *
      * @return a map with copilot's information.
      * @throws Exception if any error occurs.
      */
-    public static Map<String, String> getCopilotInfo(long userId) throws Exception {
+    public static Map<String, String> getCopilotInfo(Map<String, ResultSetContainer> commandData) throws Exception {
 
-        Request r = new Request();
-        // command - copilot_profile
-        r.setContentHandle("copilot_profile");
-        r.setProperty("uid", String.valueOf(userId));
-
-        // query copilot_user_info with the specified user id
-        ResultSetContainer result = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("copilot_user_info");
+        ResultSetContainer result = commandData.get("copilot_user_info");
         Map<String, String> info = new HashMap<String, String>();
 
         // Build the result map
@@ -178,20 +140,16 @@ class CopilotRequestProcessorUtil {
     /**
      * Retrieves copilot feedback data via query tool
      *
-     * @param userId the user id of the copilot
+     * @param commandData data returned from running copilot_profile command
      * @return the data in a list
      * @throws Exception if there is any error.
      * @since 1.2
      */
-    public static List<Map<String, String>> getCopilotFeedback(long userId) throws Exception {
-        Request r = new Request();
-        // command - copilot_profile
-        r.setContentHandle("copilot_profile");
-        r.setProperty("uid", String.valueOf(userId));
+    public static List<Map<String, String>> getCopilotFeedback(Map<String, ResultSetContainer> commandData) throws Exception {
 
-        ResultSetContainer result = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("copilot_feedback");
+        ResultSetContainer result = commandData.get("copilot_feedback");
 
-        List<Map<String, String>> data = new ArrayList<Map<String, String>>();
+        List<Map<String, String>> feedbackData = new ArrayList<Map<String, String>>();
         Iterator<ResultSetContainer.ResultSetRow> itr = result.iterator();
 
         while(itr.hasNext()) {
@@ -202,10 +160,10 @@ class CopilotRequestProcessorUtil {
             feedback.put("feedbackAnswer", row.getStringItem("answer").toLowerCase());
             feedback.put("feedbackText", row.getStringItem("text"));
 
-            data.add(feedback);
+            feedbackData.add(feedback);
         }
 
-        return data;
+        return feedbackData;
     }
 
     /**

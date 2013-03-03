@@ -3,26 +3,28 @@
  */
 package com.topcoder.web.tc.controller.request.copilot;
 
-import com.topcoder.direct.services.copilot.CopilotProfileService;
 import com.topcoder.direct.services.copilot.dto.ContestTypeStat;
 import com.topcoder.direct.services.copilot.dto.CopilotProfileDTO;
 import com.topcoder.direct.services.copilot.model.CopilotProfile;
 import com.topcoder.direct.services.copilot.model.CopilotProfileStatus;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.tc.Constants;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import javax.servlet.ServletContext;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 /**
  * <p> This request processor handles the request of view copilot profile. It will use the spring to load an instance of
@@ -139,37 +141,51 @@ public class ViewCopilotProfile extends ShortHibernateProcessor {
                 throw new TCWebException("The copilot profile user id is not specified");
             }
 
-            CopilotProfileDTO profileDTO;
+            CopilotProfileDTO profileDTO = new CopilotProfileDTO();
+            CopilotProfile copilotProfile = new CopilotProfile();
+            CopilotProfileStatus profileStatus = new CopilotProfileStatus();
+            copilotProfile.setStatus(profileStatus);
+            profileDTO.setCopilotProfile(copilotProfile);
 
-            Object cachedValue = request.getSession().getAttribute(PROFILE_SESSION_KEY + profileId);
+//            Object cachedValue = request.getSession().getAttribute(PROFILE_SESSION_KEY + profileId);
+//
+//            if (cachedValue == null) {
+//                CopilotProfileService service = (CopilotProfileService) applicationContext.getBean(
+//                        PROFILE_SERVICE_BEAN_NAME);
+//
+//                // note that the profile service get profile by copilot topcoder User id
+//                profileDTO = service.getCopilotProfileDTO(profileId.longValue());
+//
+//                if (profileDTO == null) {
+//                    throw new TCWebException("No such copilot exists in copilot pool");
+//                }
+//
+//                request.getSession().setAttribute(PROFILE_SESSION_KEY + profileId, profileDTO);
+//
+//            } else {
+//
+//                profileDTO = (CopilotProfileDTO) cachedValue;
+//            }
 
-            if (cachedValue == null) {
-                CopilotProfileService service = (CopilotProfileService) applicationContext.getBean(
-                        PROFILE_SERVICE_BEAN_NAME);
+            Request r = new Request();
+            // command - copilot_profile
+            r.setContentHandle("copilot_profile");
+            r.setProperty("uid", String.valueOf(profileId));
 
-                // note that the profile service get profile by copilot topcoder User id
-                profileDTO = service.getCopilotProfileDTO(profileId.longValue());
+            // query copilot_user_info with the specified user id
+            Map<String, ResultSetContainer> commandData = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r);
 
-                if (profileDTO == null) {
-                    throw new TCWebException("No such copilot exists in copilot pool");
-                }
+            // get copilot info (handle, userid, image) and set to request
+            Map<String, String> info =  CopilotRequestProcessorUtil.getCopilotInfo(commandData);
 
-                request.getSession().setAttribute(PROFILE_SESSION_KEY + profileId, profileDTO);
-
-            } else {
-
-                profileDTO = (CopilotProfileDTO) cachedValue;
-            }
-
-             // get copilot info (handle, userid, image) and set to request
-            Map<String, String> info =  CopilotRequestProcessorUtil.getCopilotInfo(profileDTO.getCopilotProfile().getUserId());
+            copilotProfile.setUserId(Long.parseLong(info.get("userId")));
 
              if(info.size() == 0) {
                  throw new TCWebException("No such copilot exists in copilot pool");
             }
             
             // ****** Set the statistics in profile with query result
-            populateCopilotProfile(profileDTO, info.get("handle"));
+            populateCopilotProfile(commandData, profileDTO, info.get("handle"));
 
             // build pie chart data
             String[] pieChartProperties = PIE_CHART_PROPERTIES;
@@ -208,7 +224,7 @@ public class ViewCopilotProfile extends ShortHibernateProcessor {
             request.setAttribute(PIE_CHART_RESULT_KEY,
                     CopilotRequestProcessorUtil.encodeJsonData(pieChartProperties, pieValues));
             
-            // encode JSON data for the bar chart and set to request        
+            // encode JSON data for the bar chart and set to request
             request.setAttribute(BAR_CHART_RESULT_KEY,
                     CopilotRequestProcessorUtil.encodeJsonData(barChartProperties, barValues));
                   
@@ -221,7 +237,7 @@ public class ViewCopilotProfile extends ShortHibernateProcessor {
             request.setAttribute(ACHIEVEMENTS_KEY, 
                     getCopilotAchievements(profileDTO.getCopilotProfile().getUserId()));
 
-            request.setAttribute(FEEDBACK_KEY, CopilotRequestProcessorUtil.getCopilotFeedback(profileDTO.getCopilotProfile().getUserId()));
+            request.setAttribute(FEEDBACK_KEY, CopilotRequestProcessorUtil.getCopilotFeedback(commandData));
 
             // set the jsp page to forward
             setNextPage(Constants.COPILOT_PROFILE);
@@ -252,7 +268,8 @@ public class ViewCopilotProfile extends ShortHibernateProcessor {
      *
      * @throws Exception if any error happens.
      */
-    private void populateCopilotProfile(CopilotProfileDTO dto, String handle) throws Exception {
+    private void populateCopilotProfile(Map<String, ResultSetContainer> data,
+                                        CopilotProfileDTO dto, String handle) throws Exception {
         
     	Request r = new Request();
         // command - copilot_profile_statistics
@@ -279,7 +296,7 @@ public class ViewCopilotProfile extends ShortHibernateProcessor {
         profileRequest.setContentHandle("copilot_profile");
         profileRequest.setProperty("uid", String.valueOf(dto.getCopilotProfile().getUserId()));
 
-        ResultSetContainer statusResults = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(profileRequest).get("copilot_status");
+        ResultSetContainer statusResults = data.get("copilot_status");
         itr = statusResults.iterator();
 
         if(itr.hasNext()) {
@@ -292,7 +309,7 @@ public class ViewCopilotProfile extends ShortHibernateProcessor {
         }
 
         // command - copilot contests
-        ResultSetContainer contestsResults = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(profileRequest).get("copilot_all_contests");
+        ResultSetContainer contestsResults = data.get("copilot_all_contests");
 
         itr = contestsResults.iterator();
 
