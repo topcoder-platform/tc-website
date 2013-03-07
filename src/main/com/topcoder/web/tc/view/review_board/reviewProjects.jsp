@@ -119,7 +119,6 @@
                                 <td class="tableHeader">Details</td>
                             </tr>
 
-                            <c:set var="i" value="0"/>
                             <c:forEach items="${reviewAuctions}" var="auction">
                                 <c:set var="resultRow" value="${reviewAuctionProjectsMap[auction.projectId]}" 
                                        scope="page"/>
@@ -139,7 +138,7 @@
                                         </a>
                                     </td>
                                     <td class="statDk" align="right">
-                                        $ <fmt:formatNumber value="${prices[i]}" pattern="#,###.00"/>
+                                        $ <fmt:formatNumber value="${prices[auction.id]}" pattern="#,###.00"/>
                                     </td>
                                     <td class="statDk" align="center">
                                         ${resultRow.map["submission_count"]}
@@ -161,7 +160,6 @@
                                         </a>
                                     </td>
                                 </tr>
-                                <c:set var="i" value="${i + 1}"/>
                             </c:forEach>
                         </table>
                         <p align="left">* The reviewer payment depends on the reviewer role and the number of
@@ -194,7 +192,6 @@
                                 <td class="tableHeader" align="left">Details</td>
                             </tr>
 
-                            <c:set var="i" value="0"/>
                             <c:forEach items="${specReviewAuctions}" var="specReviewAuction">
                                 <c:set var="resultRow" value="${specReviewAuctionProjectsMap[specReviewAuction.projectId]}"/>
                                 <tr>
@@ -212,7 +209,7 @@
                                          </a>
                                     </td>
                                     <td class="statDk" align="right">
-                                        $ <fmt:formatNumber value="${specReviewPrices[i]}" pattern="#,###.00"/>
+                                        $ <fmt:formatNumber value="${specReviewPrices[specReviewAuction.id]}" pattern="#,###.00"/>
                                     </td>
                                     <td class="statDk" align="center" nowrap="nowrap">
                                         <fmt:formatDate value="${resultRow.map['review_start']}"
@@ -224,7 +221,6 @@
                                         </a>
                                     </td>
                                 </tr>
-                                <c:set var="i" value="${i + 1}"/>
                             </c:forEach>
                         </table>
                         <br/>            

@@ -131,6 +131,7 @@
         <pathelement location="${jars.dir}/tcs/search_builder/1.4.0/search_builder.jar"/>
         <pathelement location="${jars.dir}/tcs/class_associations/1.0.0/class_associations.jar"/>
         <pathelement location="${jars.dir}/tcs/object_factory_configuration_api_plugin/1.0.0/object_factory_configuration_api_plugin.jar"/>
+        <pathelement location="${jars.dir}/tcs/project_payment_calculator/1.0.0/project_payment_calculator.jar"/>
         
         <pathelement location="${jars.dir}/tcs/member_photo_manager/2.0.0/member_photo_manager.jar"/>
         <pathelement location="${jars.dir}/tcs/document_generator/3.1.0/document_generator.jar"/>
@@ -628,6 +629,7 @@
         <mkdir dir="${jboss_conf}/com/topcoder/web/tc/controller"/>
         <mkdir dir="${jboss_conf}/com/topcoder/web/tc/controller/request/contest"/>
         <mkdir dir="${jboss_conf}/com/topcoder/management/review/application/impl"/>
+        <mkdir dir="${jboss_conf}/com/topcoder/management/payment/calculator/impl"/>
 
         <copy todir="${jboss_conf}/com/topcoder/management/review/application/impl">
             <fileset dir="${resources}/com/topcoder/management/review/application/impl">
@@ -636,7 +638,16 @@
                 <include name="ReviewApplicationManagement.xml"/>
             </fileset>
         </copy>
-        
+
+        <copy todir="${jboss_conf}/com/topcoder/management/payment/calculator/impl">
+            <fileset dir="${resources}/com/topcoder/management/payment/calculator/impl">
+                <include name="ProjectPaymentAdjustmentCalculator.properties"/>
+                <include name="ProjectPaymentAdjustmentCalculator.xml"/>
+                <include name="DefaultProjectPaymentCalculator.properties"/>
+                <include name="DefaultProjectPaymentCalculator.xml"/>
+            </fileset>
+        </copy>
+
         <copy todir="${jboss_conf}/com/topcoder/search/builder">
             <fileset dir="${resources}/com/topcoder/search/builder">
                 <include name="SearchBundleManager.xml"/>
@@ -793,6 +804,7 @@
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/topcoder_commons_utility/1.0.0/topcoder_commons_utility.jar"/>
 
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/base_exception/2.0.0/base_exception.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/project_payment_calculator/1.0.0/project_payment_calculator.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/review_application_management/1.0.0/review_application_management.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/database_abstraction/2.0.0/database_abstraction.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/search_builder/1.4.0/search_builder.jar"/>

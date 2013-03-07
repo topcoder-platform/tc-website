@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2012-2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.development;
 
@@ -9,7 +9,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.topcoder.management.review.application.ReviewApplicationRole;
 import com.topcoder.management.review.application.ReviewAuction;
 import com.topcoder.management.review.application.ReviewAuctionManager;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -24,8 +23,15 @@ import com.topcoder.web.common.throttle.Throttle;
  * <p>A controller to handle the requests for displaying the list of active review auctions of specified type. The
  * desired project type is expected to be provided as {@link Constants#PROJECT_TYPE_ID} request parameter.</p>
  *
+ * <p>
+ * Version 1.1 Change notes:
+ *   <ol>
+ *     <li>The payments for review auctions are calculated using <code>Project Payment Calculator</code> component.</li>
+ *   </ol>
+ * </p>
+ *
  * @author isv
- * @version 1.0 (Review Application Integration assembly)
+ * @version 1.1 (Review Application Integration assembly)
  */
 public class ViewReviewAuctions extends ReviewAuctionDetails {
 
@@ -55,7 +61,6 @@ public class ViewReviewAuctions extends ReviewAuctionDetails {
         if (!isProjectTypeSupported(projectTypeId)) {
             throw new NavigationException("Invalid project type specified " + projectTypeId);
         }
-        int phaseId = (Integer.parseInt(projectTypeId) + (int) Constants.GENERAL_PHASE_OFFSET);
         long projectCategoryId = Long.parseLong(projectTypeId);
 
         ReviewAuctionManager reviewAuctionManager = ReviewAuctionHelper.createReviewAuctionManager();
@@ -78,22 +83,10 @@ public class ViewReviewAuctions extends ReviewAuctionDetails {
             
             // Calculate the reviewer payments for contest review auctions as maximum payment for one of the reviewer 
             // roles
-            List<Float> prices = new ArrayList<Float>();
+            Map<Long, Float> prices = new HashMap<Long, Float>();
             for (ReviewAuction reviewAuction : reviewAuctions) {
-                long reviewAuctionProjectId = reviewAuction.getProjectId();
-                if (reviewAuctionProjectsMap.containsKey(reviewAuctionProjectId)) {
-                    ResultSetContainer.ResultSetRow reviewAuctionProjectRow
-                        = reviewAuctionProjectsMap.get(reviewAuctionProjectId);
-                    float max = 0;
-                    for (ReviewApplicationRole role : reviewAuction.getAuctionType().getApplicationRoles()) {
-                        float price =
-                            ReviewAuctionHelper.calculateContestReviewPayment(reviewAuctionProjectRow, phaseId, role);
-                        max = Math.max(price, max);
-                    }
-                    prices.add(max);
-                } else {
-                    throw new TCWebException("Project not found: " + reviewAuctionProjectId);
-                }
+                Map<Long, Float> auctionRolePayments = ReviewAuctionHelper.calculateReviewPayments(reviewAuction);
+                prices.put(reviewAuction.getId(), getMaximumPayment(auctionRolePayments));
             }
             getRequest().setAttribute("prices", prices);
 
@@ -106,11 +99,10 @@ public class ViewReviewAuctions extends ReviewAuctionDetails {
                                          "spec_review_auction_projects", "specReviewAuctionProjectsMap");
 
             // Calculate the reviewer payments for specification review auctions
-            List<Float> specReviewPrices = new ArrayList<Float>();
+            Map<Long, Float> specReviewPrices = new HashMap<Long, Float>();
             for (ReviewAuction specReviewAuction : specReviewAuctions) {
-                Map<Long, Float> auctionRolePayments =
-                    ReviewAuctionHelper.calculateReviewAssignmentPayments(getDataAccess(), specReviewAuction);
-                specReviewPrices.add(getMaximumPayment(auctionRolePayments));
+                Map<Long, Float> auctionRolePayments = ReviewAuctionHelper.calculateReviewPayments(specReviewAuction);
+                specReviewPrices.put(specReviewAuction.getId(), getMaximumPayment(auctionRolePayments));
             }
             getRequest().setAttribute("specReviewPrices", specReviewPrices);
         } catch (TCWebException e) {
