@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001 - 2012 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc;
 
@@ -152,8 +152,16 @@ import java.util.MissingResourceException;
  *     <li>Added {@link #REVIEW_APPLICATION_ROLE_ID} constant.</li>
  *   </ol>
  * </p>
+ *
+ * <p>
+ * Version 1.9.8 Change notes:
+ *   <ol>
+ *     <li>Added {@link #PROJECT_PAYMENT_CALCULATOR_CLASS_NAME} constant.</li>
+ *   </ol>
+ * </p>
+ * 
  * @author pulky, isv, VolodymyrK, TrePe
- * @version 1.9.7
+ * @version 1.9.8
  */
 public class Constants implements WebConstants {
 
@@ -257,6 +265,14 @@ public class Constants implements WebConstants {
      * @since 1.9.7
      */
     public static String REVIEW_APPLICATION_ROLE_ID;
+
+    /**
+     * <p>A <code>String</code> providing the fully-qualified name of class implementing 
+     * <code>ProjectPaymentCalculator</code> interface to be used for calculating the payments for projects.</p>
+     * 
+     * @since 1.9.8
+     */
+    public static String PROJECT_PAYMENT_CALCULATOR_CLASS_NAME;
 
     /**
      * Represents the resource role IDs parameter name in query tool.

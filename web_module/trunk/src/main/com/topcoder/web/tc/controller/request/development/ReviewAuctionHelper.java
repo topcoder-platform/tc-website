@@ -1,8 +1,11 @@
 /*
- * Copyright (C) 2012 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2012-2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.development;
 
+import com.topcoder.management.payment.calculator.ProjectPaymentCalculator;
+import com.topcoder.management.payment.calculator.ProjectPaymentCalculatorException;
+import com.topcoder.management.payment.calculator.impl.ProjectPaymentAdjustmentCalculator;
 import com.topcoder.management.review.application.BaseLookupEntity;
 import com.topcoder.management.review.application.ReviewApplication;
 import com.topcoder.management.review.application.ReviewApplicationManager;
@@ -19,23 +22,32 @@ import com.topcoder.search.builder.filter.Filter;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.model.DefaultPriceComponent;
 import com.topcoder.web.common.model.comp.Project;
 import com.topcoder.web.tc.Constants;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
+import java.util.Set;
 
 /**
  * <p>A helper class providing some utility methods to be used for review application functionalities.</p>
+ *
+ * <p>
+ * Version 1.1 ( Assembly 1.0) Change notes:
+ *   <ol>
+ *     <li>Replaced <code>calculateContestReviewPayment</code> and <code>calculateReviewAssignmentPayments</code>
+ *     methods with {@link #calculateReviewPayments(ReviewAuction)} method.</li>
+ *   </ol>
+ * </p>
  * 
  * @author isv
- * @version 1.0 (Review Application Integration assembly)
+ * @version 1.1 (Review Application Integration assembly)
  */
 class ReviewAuctionHelper {
 
@@ -68,6 +80,12 @@ class ReviewAuctionHelper {
      * <p>A <code>ReviewApplicationManager</code> to be used for accessing review applications data.</p>
      */
     private static final ReviewApplicationManager reviewApplicationManager = new ReviewApplicationManagerImpl();
+
+    /**
+     * <p>A <code>ProjectPaymentCalculator</code> to be used for calculating the payments for reviewer roles for desired
+     * projects.</p>
+     */
+    private static final ProjectPaymentCalculator projectPaymentCalculator = createProjectPaymentCalculator();
 
     /**
      * <p>Constructs new <code>ReviewAuctionHelper</code> instance. This implementation does nothing.</p>
@@ -105,88 +123,43 @@ class ReviewAuctionHelper {
     }
 
     /**
-     * <p>Calculates the payments per review application roles for specified review auction.</p>
-     * 
-     * @param dataAccess a <code>DataAccess</code> providing access to database. 
-     * @param reviewAuction a <code>ReviewAuction</code> providing details for review auction. 
-     * @return a <code>Map</code> mapping the IDs for review application roles to payments.
-     * @throws Exception if an unexpected error occurs.
+     * <p>Calculates the payment for contest review for specified review application role.</p>
+     *
+     * @return a <code>float</code> providing the payment for the specified role.
+     * @throws ProjectPaymentCalculatorException if an unexpected error occurs while calculating project payments.
      */
-    static Map<Long, Float> calculateReviewAssignmentPayments(DataAccessInt dataAccess, ReviewAuction reviewAuction)
-        throws Exception {
-        // Get basic details for project associated with review auction
-        Project project = getProject((int) reviewAuction.getProjectId());
-        if (project == null) {
-            throw new TCWebException("Project for review auction is not found: " + reviewAuction.getProjectId());
-        }
-        int phaseId = project.getCategoryId() + (int) Constants.GENERAL_PHASE_OFFSET;
-
-        // For contest reviews retrieve additional data to be used for payment calculation
-        boolean isSpecReview
-            = reviewAuction.getAuctionType().getAuctionCategory().getId() == SPEC_REVIEW_AUCTION_CATEGORY_ID;
-        ResultSetContainer reviewAuctionProjectsData = null;
-        if (!isSpecReview) {
-            reviewAuctionProjectsData = getReviewAuctionProjectsData(dataAccess, Arrays.asList(reviewAuction), 
-                                                                     "review_auction_projects");
-        }
-
-        // Iterate over all review assignment roles and calculate the  
-        Map<Long, Float> prices = new TreeMap<Long, Float>();
+    static Map<Long, Float> calculateReviewPayments(ReviewAuction reviewAuction) 
+            throws ProjectPaymentCalculatorException {
+        // Combine the unique set of IDs for resource roles associated with all review application roles for specified
+        // review auction
+        Set<Long> resourceRoleIds = new HashSet<Long>();
         List<ReviewApplicationRole> reviewApplicationRoles = reviewAuction.getAuctionType().getApplicationRoles();
         for (ReviewApplicationRole role : reviewApplicationRoles) {
-            float rolePayment;
-            if (isSpecReview) {
-                // For specification review
-                DefaultPriceComponent price = new DefaultPriceComponent(0, 0, 0, phaseId, 0, 0);
-                rolePayment = price.getSpecReviewCost();
-            } else {
-                // For contest reviews
-                rolePayment = calculateContestReviewPayment(reviewAuctionProjectsData.getRow(0), phaseId, role);
-            }
-            prices.put(role.getId(), rolePayment);
-        }
-        return prices;
-    }
-
-    /**
-     * <p>Calculates the payment for contest review for specified review application role.</p>
-     * 
-     * @param reviewAuctionProjectRow a <code>ResultSetRow</code> providing the data from the result set.  
-     * @param phaseId an <code>int</code> providing the phase ID.
-     * @param role a <code>ReviewApplicationRole</code> providing the details for review application role. 
-     * @return a <code>float</code> providing the payment for the specified role. 
-     */
-    static float calculateContestReviewPayment(ResultSetContainer.ResultSetRow reviewAuctionProjectRow, int phaseId, 
-                                               ReviewApplicationRole role ) {
-        int submissionCount = reviewAuctionProjectRow.getIntItem("submission_count");
-        int submissionPassedScreeningCount
-            = reviewAuctionProjectRow.getIntItem("submission_passed_screening_count");
-        if (submissionCount == 0) {
-            submissionCount = 1;
-            submissionPassedScreeningCount = 1;
-        }
-        float prize = reviewAuctionProjectRow.getFloatItem("prize");
-
-        DefaultPriceComponent price = new DefaultPriceComponent(0, submissionCount, submissionPassedScreeningCount, 
-                                                                phaseId, prize, 0);
-
-        float sum = 0;
-        List<ReviewApplicationResourceRole> resourceRoles = role.getResourceRoles();
-        for (ReviewApplicationResourceRole resourceRole : resourceRoles) {
-            long resourceRoleId = resourceRole.getResourceRoleId();
-            if (resourceRoleId == 2) { // Primary Screener
-                sum += price.getScreeningCost();
-            } else if (resourceRoleId >= 4 && resourceRoleId <= 7) { // Reviewer, Stress/Failure/Accuracy Reviewer
-                sum += price.getReviewCost();
-            } else if (resourceRoleId == 8) { // Aggregator
-                sum += price.getAggregationCost();
-            } else if (resourceRoleId == 9) { // Final Reviewer
-                sum += price.getFinalReviewCost();
-            } else if (resourceRoleId == 19) { // Milestone Screener
-                sum += price.getMilestoneScreeningCost();
+            for (ReviewApplicationResourceRole resourceRole : role.getResourceRoles()) {
+                resourceRoleIds.add(resourceRole.getResourceRoleId());
             }
         }
-        return sum;
+
+        // Get the ID of a project associated with the specified review auction
+        long projectId = reviewAuction.getProjectId();
+
+        // Get the payments for specified project  per resource roles and combine them into resulting map per 
+        // review application roles
+        Map<Long, BigDecimal> payments 
+                = projectPaymentCalculator.getDefaultPayments(projectId, new ArrayList<Long>(resourceRoleIds));
+        
+        Map<Long, Float> result = new HashMap<Long, Float>();
+        for (ReviewApplicationRole role : reviewApplicationRoles) {
+            float rolePaymentAmount = 0;
+            for (ReviewApplicationResourceRole resourceRole : role.getResourceRoles()) {
+                if (payments.containsKey(resourceRole.getResourceRoleId())) {
+                    rolePaymentAmount += payments.get(resourceRole.getResourceRoleId()).floatValue();
+                }
+            }
+            result.put(role.getId(), rolePaymentAmount);
+        }
+
+        return result;
     }
 
     /**
@@ -262,5 +235,23 @@ class ReviewAuctionHelper {
         Filter auctionIdFilter = ReviewApplicationFilterBuilder.createAuctionIdFilter(reviewAuctionId);
         Filter filter = new AndFilter(Arrays.asList(userIdFilter, auctionIdFilter, pendingStatusIdFilter));
         return createReviewApplicationManager().searchApplications(filter);
+    }
+
+    /**
+     * <p>Creates new instance of calculator for the project payments based on the available application configuration.
+     * </p>
+     * 
+     * @return a <code>ProjectPaymentCalculator</code> to be used for calculating the payments for reviewer roles for
+     *         desired projects. 
+     */
+    static ProjectPaymentCalculator createProjectPaymentCalculator() {
+        try {
+            Class clazz = Class.forName(Constants.PROJECT_PAYMENT_CALCULATOR_CLASS_NAME);
+            ProjectPaymentCalculator calculator = (ProjectPaymentCalculator) clazz.newInstance();
+            return calculator;
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Failed to instantiate the project payment calculator of type: " 
+                    + Constants.PROJECT_PAYMENT_CALCULATOR_CLASS_NAME, e);
+        }
     }
 }

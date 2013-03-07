@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2012-2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.development;
 
@@ -31,8 +31,15 @@ import com.topcoder.web.tc.Constants;
  * <p>A controller to handle the requests for displaying the details for the requested review auction.
  * The desired auction ID is expected to be provided as {@link Constants#REVIEW_AUCTION_ID} request parameter.</p>
  *
+ * <p>
+ * Version 1.1 Change notes:
+ *   <ol>
+ *     <li>The payments for review auctions are calculated using <code>Project Payment Calculator</code> component.</li>
+ *   </ol>
+ * </p>
+ *
  * @author isv
- * @version 1.0 (Review Application Integration assembly)
+ * @version 1.1 (Review Application Integration assembly)
  */
 public class ReviewAuctionDetails extends Base {
 
@@ -108,8 +115,7 @@ public class ReviewAuctionDetails extends Base {
             getRequest().setAttribute("reviewApplicationRoles", roles);
             
             // Get the payments for each review application role for review auction
-            Map<Long, Float> reviewApplicationRolePayments =
-                ReviewAuctionHelper.calculateReviewAssignmentPayments(getDataAccess(), reviewAuction);
+            Map<Long, Float> reviewApplicationRolePayments = ReviewAuctionHelper.calculateReviewPayments(reviewAuction);
             getRequest().setAttribute("reviewApplicationRolePayments", reviewApplicationRolePayments);
             
             // Get the list of pending review applications for requested auction fr current user
