@@ -360,7 +360,7 @@ The tester's identity will not be revealed until the contest is over.</p>
 		total prize money. The detailed rules of this phase will be posted to the marathon match forum.</p>
     <%}%>
 
-	<%if (round_id == 15080 || round_id == 15398) {%>
+	<%if (round_id == 15080 || round_id == 15398 || round_id == 15589) {%>
 	<div class="sectionHeader">Prizes</div>
     	<p align="justify">There will be $1,000 in total prize money.  The 2 highest scorers in this round will receive compensation
 		for their submissions as follows:</p>
@@ -564,7 +564,7 @@ The tester's identity will not be revealed until the contest is over.</p>
 			If the description or a response to a clarification request is not received, TopCoder reserves the right to disqualify the submission. 
 			<% } %>
 
-			<% if (round_id == 15398) { %>
+			<% if (round_id == 15398 || round_id == 15589) { %>
 			The description must be submitted within 3 days after the contest results are published.
 			Questions sent by email from TopCoder requesting clarification to the description must be answered within 3 days.
 			If the description or a response to a clarification request is not received, TopCoder reserves the right to disqualify the submission. 
@@ -605,7 +605,8 @@ The tester's identity will not be revealed until the contest is over.</p>
 		 rsr.getIntItem("round_id") == 15080 || rsr.getIntItem("round_id") == 15103 || rsr.getIntItem("round_id") == 15120 ||
 		 rsr.getIntItem("round_id") == 15130 || rsr.getIntItem("round_id") == 15189 || rsr.getIntItem("round_id") == 15200 ||
 		 rsr.getIntItem("round_id") == 15201 || rsr.getIntItem("round_id") == 15322 || rsr.getIntItem("round_id") == 15327
-		|| rsr.getIntItem("round_id") == 15398 || rsr.getIntItem("round_id") == 15458 || rsr.getIntItem("round_id") == 15520) {%>
+		|| rsr.getIntItem("round_id") == 15398 || rsr.getIntItem("round_id") == 15458 || rsr.getIntItem("round_id") == 15520
+		|| rsr.getIntItem("round_id") == 15589) {%>
 
 		<p align="justify">
 			This Competition is open to all members of the TopCoder website, who have agreed to the terms thereof, and who are at least 
@@ -680,7 +681,7 @@ The tester's identity will not be revealed until the contest is over.</p>
 	<% if (Arrays.binarySearch(assignRounds, round_id)>=0 || round_id==14525 || round_id == 14584 || round_id == 15024 || round_id == 15075 ||
 	       round_id == 15023 || round_id == 15034 || round_id == 15038 || round_id == 15076 || round_id == 15077 || round_id == 15078
 	       || round_id == 15080 || round_id == 15103 || round_id == 15120 || round_id == 15130 || round_id == 15189 || round_id == 15200
-	       || round_id == 15201 || round_id == 15322 || round_id == 15327 || round_id == 15398 || round_id == 15458 || round_id == 15520) { %>
+	       || round_id == 15201 || round_id == 15322 || round_id == 15327 || round_id == 15398 || round_id == 15458 || round_id == 15520 || round_id == 15589) { %>
 		
 		<p align="justify">
 			You hereby acknowledge and agree that TopCoder owns, solely and exclusively, all right, title and interest, including all intellectual property 
