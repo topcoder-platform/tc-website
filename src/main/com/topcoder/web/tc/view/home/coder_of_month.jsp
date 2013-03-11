@@ -14,23 +14,23 @@
 <div class="leftColContent">
    <div style="padding-left:3px;">
    <div style="padding-bottom:10px;"><img src="/i/home/com_title.gif" alt="Coder of the Month" /><br />
-   - November 2012</div>
+   - January 2013</div>
    <table cellpadding="0" cellspacing="0" border="0" width="165">
    <tr>
-      <td height="76" valign="top" style="border-top: 1px solid #CCCCCC; padding: 5px 0;" ><img src="/i/m/khanhsp.jpeg" alt="" width="61" height="61"/></td>
+      <td height="76" valign="top" style="border-top: 1px solid #CCCCCC; padding: 5px 0;" ><img src="/i/m/nophoto.jpg" alt="" width="61" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;" width="100%">
          <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_ALGO_COM%>" class="gMetal">Algorithm</a></strong><br />
-         <tc-webtag:handle coderId="22895765" context="<%=HandleTag.ALGORITHM%>" darkBG="true" />
+         <tc-webtag:handle coderId="23052561" context="<%=HandleTag.ALGORITHM%>" darkBG="true" />
          <br />
          <br />
       </td>
    </tr>
    <tr>
-      <td style="border-top: 1px solid #CCCCCC; padding: 5px 0;" valign="top"><img src="/i/m/MiG-29.jpeg" alt="" width="61" height="61"/></td>
+      <td style="border-top: 1px solid #CCCCCC; padding: 5px 0;" valign="top"><img src="/i/m/LOY_big.jpg" alt="" width="61" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
          <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DESIGN_COM%>" class="gMetal">Design</a></strong><br />
-         <tc-webtag:handle coderId="20437508" context="<%=HandleTag.DESIGN%>" darkBG="true" /><br />
-        	7 wins, 1 second place<br />
+         <tc-webtag:handle coderId="20112552" context="<%=HandleTag.DESIGN%>" darkBG="true" /><br />
+        	3 wins, 2 second places<br />
          <br />
       </td>
    </tr>
@@ -38,39 +38,8 @@
       <td style="border-top: 1px solid #CCCCCC; padding: 5px 0;" valign="top"><img src="/i/m/nophoto.jpg" alt="" width="61" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
          <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DEV_COM%>" class="gMetal">Development</a></strong><br />
-         <tc-webtag:handle coderId="20771475" context="<%=HandleTag.DEVELOPMENT%>" darkBG="true" /><br />
-         4 wins, 1 second place<br />
-		 <br />
-      </td>
-   </tr>
-   </table>
-      <div style="padding-bottom:10px;"><img src="/i/home/com_title.gif" alt="Coder of the Month" /><br />
-   - December 2012</div>
-   <table cellpadding="0" cellspacing="0" border="0" width="165">
-   <tr>
-      <td height="76" valign="top" style="border-top: 1px solid #CCCCCC; padding: 5px 0;" ><img src="/i/m/razimantv.jpeg" alt="" width="61" height="61"/></td>
-      <td style="padding-left:5px; border-top: 1px solid #CCCCCC;" width="100%">
-         <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_ALGO_COM%>" class="gMetal">Algorithm</a></strong><br />
-         <tc-webtag:handle coderId="22692058" context="<%=HandleTag.ALGORITHM%>" darkBG="true" />
-         <br />
-         <br />
-      </td>
-   </tr>
-   <tr>
-      <td style="border-top: 1px solid #CCCCCC; padding: 5px 0;" valign="top"><img src="/i/m/nophoto.jpg" alt="" width="61" height="61"/></td>
-      <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
-         <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DESIGN_COM%>" class="gMetal">Design</a></strong><br />
-         <tc-webtag:handle coderId="23096061" context="<%=HandleTag.DESIGN%>" darkBG="true" /><br />
-        	7 wins, 1 second place<br />
-         <br />
-      </td>
-   </tr>
-   <tr>
-      <td style="border-top: 1px solid #CCCCCC; padding: 5px 0;" valign="top"><img src="/i/m/billthu.jpeg" alt="" width="61" height="61"/></td>
-      <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
-         <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DEV_COM%>" class="gMetal">Development</a></strong><br />
-         <tc-webtag:handle coderId="23010098" context="<%=HandleTag.DEVELOPMENT%>" darkBG="true" /><br />
-         5 wins, 1 second place<br />
+         <tc-webtag:handle coderId="23116135" context="<%=HandleTag.DEVELOPMENT%>" darkBG="true" /><br />
+         5 wins<br />
 		 <br />
       </td>
    </tr>
