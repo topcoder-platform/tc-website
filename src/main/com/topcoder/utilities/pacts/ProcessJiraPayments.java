@@ -154,11 +154,21 @@ public class ProcessJiraPayments extends DBUtility {
                             updateJiraPaymentStatus(jira, token, remoteIssue, "Payment On Hold");
                             addJiraComment(jira, token, remoteIssue, sb.toString());
                     	} else {
-                    		BasePayment payment = createPactsPayment(issue.getReferenceType(), issue.getPaymentType(),
-                                issue.getReferenceId(), issue.getClient(), issue.getPayeeUserId(),
-                                issue.getPaymentAmount(), issue.getDescription(), issue.getKey());
+                                try {
+                                    BasePayment payment = createPactsPayment(issue.getReferenceType(), issue.getPaymentType(),
+                                    issue.getReferenceId(), issue.getClient(), issue.getPayeeUserId(),
+                                    issue.getPaymentAmount(), issue.getDescription(), issue.getKey());
 
-                            payment = pactsService.addPayment(payment);
+                                    payment = pactsService.addPayment(payment);
+                                } catch (Exception e) {
+                                    StringBuffer sb = new StringBuffer(200);
+                                    sb.append("Payment placed on hold for the following reasons:\n\n");
+                                    sb.append(" * Failed to transfer the payment to PACTS: " + e.getMessage() + "\n");
+
+                                    updateJiraPaymentStatus(jira, token, remoteIssue, "Payment On Hold");
+                                    addJiraComment(jira, token, remoteIssue, sb.toString());
+                                    throw e;
+                                }
 
                     		updateJiraPaymentStatus(jira, token, remoteIssue, "Paid");
                     		addJiraComment(jira, token, remoteIssue,
