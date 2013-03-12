@@ -160,6 +160,12 @@ import java.util.MissingResourceException;
  *   </ol>
  * </p>
  * 
+ * <p>
+ * Version 1.9.6 Change notes:
+ *   <ol>
+ *     <li>Removed {@link #MEMBER_ACHIEVEMENT_CURRENT_SQL_PATH} constant.</li>
+ *   </ol>
+ * </p>
  * @author pulky, isv, VolodymyrK, TrePe
  * @version 1.9.8
  */
@@ -358,7 +364,6 @@ public class Constants implements WebConstants {
     public static String TCS_SURVEY_RESULTS;
 
     public static String MEMBER_PROFILE;
-    public static String MEMBER_ACHIEVEMENT_CURRENT_SQL_PATH;
 
     public static String MEMBER_CONTACT;
 
