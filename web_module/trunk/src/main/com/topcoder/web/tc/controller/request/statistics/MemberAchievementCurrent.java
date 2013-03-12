@@ -8,8 +8,11 @@ import java.io.PrintWriter;
 import java.util.Map;
 
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.CachedQueryDataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.QueryRequest;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.utilities.MemberAchievementUtility;
@@ -18,7 +21,9 @@ import com.topcoder.web.common.TCWebException;
 
 /**
  * <p>
- * This class is used as a REST service for retrieval of "Currently at" value for badge and user.
+ * This class is used as a REST service for retrieval of "Currently at" value for badge (ruleId) and user (cr).
+ * Returns JSON or JSONP (if GET parameter "callback" is specified) in the form
+ * <pre>{"count":123}</pre>
  * </p>
  *
  * @author TrePe
@@ -31,8 +36,8 @@ public class MemberAchievementCurrent extends Base {
      * SQL select for retrieving file name that contains sql for retrieval.
      * </p>
      */ 
-    private final static String SQL_RETRIEVE_COUNT_SQL_FILE =
-        "SELECT db_schema, user_achievement_count_sql_file FROM user_achievement_rule WHERE user_achievement_rule_id=";
+    private final static String SQL_RETRIEVE_COUNT_QUERY =
+        "SELECT db_schema, user_achievement_count_query FROM user_achievement_rule WHERE user_achievement_rule_id=";
 
     /**
      * <p>
@@ -56,19 +61,20 @@ public class MemberAchievementCurrent extends Base {
 
             // retrieve the sql file name and db_schema for ruleId through cached data access
             CachedQueryDataAccess dwaccess = new CachedQueryDataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
-            QueryRequest r = new QueryRequest();
-            r.addQuery("sql_count_file_name", SQL_RETRIEVE_COUNT_SQL_FILE + ruleId);
-            Map data = dwaccess.getData(r);
-            ResultSetContainer rs = (ResultSetContainer) data.get("sql_count_file_name");
+            QueryRequest qr = new QueryRequest();
+            qr.addQuery("sql_count_query", SQL_RETRIEVE_COUNT_QUERY + ruleId);
+            Map data = dwaccess.getData(qr);
+            ResultSetContainer rs = (ResultSetContainer) data.get("sql_count_query");
             if (rs.size() < 1) {
                 throw new TCWebException("The achievement rule " + ruleId + " does not exist");
             }
 
-            String fileName = rs.getStringItem(0, "user_achievement_count_sql_file");
-            if (fileName == null || "".equals(fileName)) {
+            String queryName = rs.getStringItem(0, "user_achievement_count_query");
+            if (queryName == null || "".equals(queryName)) {
                 throw new TCWebException("The achievement rule " + ruleId + 
-                        " does not have user_achievement_count_sql_file specified");
+                        " does not have user_achievement_count_query specified");
             }
+            
             String dbSchema = rs.getStringItem(0, "db_schema");
             if (dbSchema == null || "".equals(dbSchema)) {
                 throw new TCWebException("The achievement rule " + ruleId + " does not have db_schema specified");
@@ -84,32 +90,25 @@ public class MemberAchievementCurrent extends Base {
                 throw new TCWebException("The achievement rule " + ruleId + " uses unknown db_schema " + dbSchema);
             }
 
-            StringBuilder sb = 
-                new StringBuilder(MemberAchievementUtility.readSQLFile(Constants.MEMBER_ACHIEVEMENT_CURRENT_SQL_PATH + fileName, false));
-
-            // replace "@userId"
-            int index = sb.indexOf("@userId");
-            if (index >= 0) {
-                sb.replace(index, index + 7, "" + coderId);
-            } else {
-                throw new TCWebException("The achievement rule's " + ruleId + 
-                        " user_achievement_count_sql_file does not contain @userId");
-            }
-
             // retrieve the "currently @" for the coderId through cached data access
-            CachedQueryDataAccess daccess = new CachedQueryDataAccess(dbSchema);
-            r = new QueryRequest();
-            r.addQuery("currently_at", sb.toString());
-            data = daccess.getData(r);
-            rs = (ResultSetContainer) data.get("currently_at");
+            DataAccessInt dAccess = new CachedDataAccess(dbSchema);
+            Request r = new Request();
+            r.setContentHandle("coder_achievements");
+            r.setProperty("uid", String.valueOf(coderId));
+            Map m = dAccess.getData(r);
+            rs = (ResultSetContainer) m.get(queryName);
+            if (rs == null) {
+                throw new TCWebException("The achievement rule " + ruleId + 
+                        " does not have query " + queryName + " in Query Tool");
+            }
             if (rs.size() < 1) {
                 throw new TCWebException("The achievement rule's " + ruleId + 
-                        " user_achievement_count_sql_file returned no result");
+                        " " + queryName + " returned no result");
             }
             String count = rs.getStringItem(0, "currently_at");
             if (count == null) {
                 throw new TCWebException("The achievement rule's " + ruleId + 
-                        " user_achievement_count_sql_file does not return currently_at");
+                        " " + queryName + " does not return currently_at");
             }
 
             // return the count to frontend as simple JSON or JSONP
