@@ -101,6 +101,9 @@ public class ReviewAuctionTermsAgree extends ReviewAuctionApply {
     private boolean answeredCaptchaCorrectly() throws NavigationException {
         String response = StringUtils.checkNull(getRequest().getParameter(Constants.CAPTCHA_RESPONSE));
         String word = (String) getRequest().getSession().getAttribute(Constants.CAPTCHA_WORD);
+        // invalidates the captcha word after it has been used
+        getRequest().getSession().removeAttribute(Constants.CAPTCHA_WORD);
+
         if (word == null) {
             throw new NavigationException("Sorry, your session has expired, please start your registration again.");
         } else {
