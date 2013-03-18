@@ -241,9 +241,8 @@ public class TCLoadTCS extends TCLoad {
             fStartTime = new java.sql.Timestamp(System.currentTimeMillis());
             getLastUpdateTime();
 
-            doLoadReviewResp();
-
             doLoadEvent();
+
             doLoadUserEvent();
 
             doLoadContests();
@@ -434,71 +433,6 @@ public class TCLoadTCS extends TCLoad {
             close(psUpd);
         }
     }
-
-
-    public void doLoadReviewResp() throws Exception {
-        log.info("load review resp");
-        ResultSet reviewResp;
-
-        PreparedStatement reviewRespSelect = null;
-        PreparedStatement reviewRespUpdate = null;
-        PreparedStatement reviewRespInsert = null;
-
-        final String REVIEW_RESP_SELECT = "select review_resp_id, review_resp_name from review_resp";
-
-        final String REVIEW_RESP_UPDATE =
-                "update review_resp set review_resp_desc=? where review_resp_id=?";
-
-        final String REVIEW_RESP_INSERT =
-                "insert into review_resp (review_resp_id, review_resp_desc) values (?, ?)";
-
-
-        try {
-            long start = System.currentTimeMillis();
-
-            reviewRespSelect = prepareStatement(REVIEW_RESP_SELECT, SOURCE_DB);
-            reviewRespUpdate = prepareStatement(REVIEW_RESP_UPDATE, TARGET_DB);
-            reviewRespInsert = prepareStatement(REVIEW_RESP_INSERT, TARGET_DB);
-
-            int count = 0;
-
-            reviewResp = reviewRespSelect.executeQuery();
-
-            while (reviewResp.next()) {
-
-                reviewRespUpdate.clearParameters();
-
-                reviewRespUpdate.setObject(1, reviewResp.getObject("review_resp_name"));
-                reviewRespUpdate.setLong(2, reviewResp.getLong("review_resp_id"));
-
-                int retVal = reviewRespUpdate.executeUpdate();
-
-                if (retVal == 0) {
-                    reviewRespInsert.clearParameters();
-
-                    reviewRespInsert.setLong(1, reviewResp.getLong("review_resp_id"));
-                    reviewRespInsert.setObject(2, reviewResp.getObject("review_resp_name"));
-
-                    reviewRespInsert.executeUpdate();
-                }
-                count++;
-
-            }
-
-            log.info("loaded " + count + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
-
-
-        } catch (SQLException sqle) {
-            DBMS.printSqlException(true, sqle);
-            throw new Exception("Load of 'review_resp' table failed.\n" +
-                    sqle.getMessage());
-        } finally {
-            close(reviewRespInsert);
-            close(reviewRespUpdate);
-            close(reviewRespSelect);
-        }
-    }
-
 
     public void doLoadRoyalty() throws Exception {
         log.info("load royalties");
