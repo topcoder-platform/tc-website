@@ -71,7 +71,8 @@ public abstract class Base extends BaseProcessor {
                         type == Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID ||
                         type == Constants.AMD_LONG_ROUND_TYPE_ID ||
                         type == Constants.AMD_LONG_PRACTICE_ROUND_TYPE_ID || 
-                        type == Constants.LONG_COLLAB_ROUND_TYPE_ID)) {
+                        type == Constants.LONG_COLLAB_ROUND_TYPE_ID ||
+                        type == Constants.LONG_QA_ROUND_TYPE_ID)) {
                     throw new NavigationException("Invalid round specified, wrong type");
                 }
                 getRequest().setAttribute(Constants.ROUND_TYPE_ID, new Integer(type));
