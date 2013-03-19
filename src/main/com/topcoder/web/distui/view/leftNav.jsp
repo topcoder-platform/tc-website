@@ -75,7 +75,7 @@
                nav.search("competition_design").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_architecture_competitions')", "Architecture", "m_architecture_competitions"));
                     nav.search("m_architecture_competitions").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/Architecture+Overview", "Overview", "architecture_overview"));
                     nav.search("m_architecture_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_architecture_support')", "Track Information", "m_architecture_support"));
-                            nav.search("m_architecture_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/How+to+Compete+in+Architecture+Competitions", "How to Compete", "architecture_how_to_compete"));
+                    nav.search("m_architecture_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/Module+Architecture+Tutorial", "Module Architecture Tutorial", "module_architecture_tutorial"));
                     nav.search("m_architecture_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ActiveContests&amp;pt=7", "Active Contests", "architecture_compete"));
                     nav.search("m_architecture_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ContestStatus&amp;pt=7", "Contest Status", "architecture_contest_status"));
                     nav.search("m_architecture_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;ph=118", "Past Contests", "architecture_past"));
@@ -147,7 +147,7 @@
                   nav.search("competition_ui_dev").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_ui_prototype_competitions')", "UI Prototype", "m_ui_prototype_competitions"));
                     nav.search("m_ui_prototype_competitions").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/UI+Prototype+Competitions", "Overview", "ui_prototype_overview"));
                     nav.search("m_ui_prototype_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_ui_prototype_support')", "Track Information", "m_ui_prototype_support"));
-                            nav.search("m_ui_prototype_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/How+to+Compete+in+UI+Prototype+Competitions", "How to Compete", "ui_prototype_how_to_compete"));
+                            nav.search("m_ui_prototype_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/UI+Prototype+Competitions", "UI Prototype Tutorial", "ui_prototype_tutorial"));
                     nav.search("m_ui_prototype_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ActiveContests&amp;pt=" + WebConstants.UI_PROTOTYPE_PROJECT_TYPE, "Active Contests", "ui_prototype_compete"));
                     nav.search("m_ui_prototype_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ContestStatus&amp;pt=" + WebConstants.UI_PROTOTYPE_PROJECT_TYPE, "Contest Status", "ui_prototype_status"));
                     nav.search("m_ui_prototype_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;pt=" + WebConstants.UI_PROTOTYPE_PROJECT_TYPE, "Past Contests", "ui_prototype_past"));
@@ -157,7 +157,7 @@
                 nav.search("competition_ui_dev").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_ria_build_competitions')", "RIA Build", "m_ria_build_competitions"));
                     nav.search("m_ria_build_competitions").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/RIA+Build+Competitions", "Overview", "ria_build_overview"));
                     nav.search("m_ria_build_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_ria_build_support')", "Track Information", "m_ria_build_support"));
-                            nav.search("m_ria_build_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/How+to+Compete+in+RIA+Builds", "How to Compete", "ria_build_how_to_compete"));
+                            nav.search("m_ria_build_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/RIA+Build+Competitions", "RIA Build Tutorial", "ria_build_tutorial"));
                     nav.search("m_ria_build_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ActiveContests&amp;pt=" + WebConstants.RIA_BUILD_PROJECT_TYPE, "Active Contests", "ria_build_compete"));
                     nav.search("m_ria_build_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ContestStatus&amp;pt=" + WebConstants.RIA_BUILD_PROJECT_TYPE, "Contest Status", "ria_build_status"));
                     nav.search("m_ria_build_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;pt=" + WebConstants.RIA_BUILD_PROJECT_TYPE, "Past Contests", "ria_build_past"));
