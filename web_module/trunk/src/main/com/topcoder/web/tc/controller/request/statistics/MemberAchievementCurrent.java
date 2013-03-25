@@ -94,7 +94,7 @@ public class MemberAchievementCurrent extends Base {
             DataAccessInt dAccess = new CachedDataAccess(dbSchema);
             Request r = new Request();
             r.setContentHandle("coder_achievements");
-            r.setProperty("uid", String.valueOf(coderId));
+            r.setProperty("cr", String.valueOf(coderId));
             Map m = dAccess.getData(r);
             rs = (ResultSetContainer) m.get(queryName);
             if (rs == null) {
