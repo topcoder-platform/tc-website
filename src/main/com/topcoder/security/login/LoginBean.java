@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2002-2010 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2002-2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.security.login;
 
@@ -117,8 +117,7 @@ public class LoginBean extends BaseEJB {
             boolean canPerformImpersonatedLogins = false;
 
             try {
-                InitialContext context = new InitialContext();
-                Long impersonationRoleId = (Long) context.lookup("java:comp/env/impersonationRoleId");
+                Long impersonationRoleId = getImpersonationRoleId();
 
                 // Check if current user is granted a permission to perform impersonated logins. If so then perform
                 // impersonated login; otherwise raise a security exception
@@ -155,6 +154,18 @@ public class LoginBean extends BaseEJB {
             }
             return new TCSubject(userRoles, userId);
         }
+    }
+
+    /**
+     * <p>Returns the impersonation role ID.</p>
+     *
+     * @return Impersonation role ID.
+     * @throws NamingException if unable to retrieve the impersonation role ID.
+     */
+    protected Long getImpersonationRoleId() throws NamingException {
+        InitialContext context = new InitialContext();
+        Long impersonationRoleId = (Long)context.lookup("java:comp/env/impersonationRoleId");
+        return impersonationRoleId;
     }
 
     /**
