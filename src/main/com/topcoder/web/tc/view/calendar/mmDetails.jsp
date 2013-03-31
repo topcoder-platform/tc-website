@@ -311,7 +311,7 @@ Please check out the rules link below for more detail.
      roundId == 15034 || roundId == 15038 || roundId == 15076 || roundId == 15077 || roundId == 15078
      || roundId == 15080 || roundId == 15103 || roundId == 15120 || roundId == 15130 || roundId == 15189
      || roundId == 15201 || roundId == 15202 || roundId == 15322 || roundId == 15327 || roundId == 15398
-     || roundId == 15458 || roundId == 15520 || roundId == 15589) {%>
+     || roundId == 15458 || roundId == 15520 || roundId == 15589 || roundId == 15611) {%>
 <p align="justify">
     <b>Please note that this event is being run for a TopCoder customer.  By winning a prize in this event you agree to transfer ownership of
     your submission to TopCoder.
@@ -348,6 +348,13 @@ This is a summary with highlights of the contest details. Please make sure to re
 	will receive prizes with the first place winner receiving $5,000!
 </p>
 <%}%>
+
+<% if (roundId == 15611) { %>
+<p align="justify">
+This Marathon Match is a money match that has a <b>$10,000 prize purse</b>! The top four highest scorers
+will receive prizes with the first place winner receiving $4,000!
+</p>
+<% } %>
 
 <%if (roundId == 15520) {%>
 <p align="justify">
@@ -407,7 +414,7 @@ total prize money</b>.
     outlined in the problem statement that is associated with this event.	
     Each event may have a different scoring mechanism. 
     Competitors will have to understand the scoring mechanism in order to effectively compete.
-    <% if (roundId == 15130) { %>
+    <% if (roundId == 15130 || roundId == 15611) { %>
     <br><br>
     Participants may submit only code written in C++.
 	<% } else { %>
@@ -597,6 +604,33 @@ submission, within one week of the announcment of the winners in order to receiv
     
 </p>
 <%}%>
+
+<% if (roundId == 15611) { %>
+<div class="sectionHeader">Prizes</div>
+    <p align="justify">There will be $10,000 in total prize money.  The 4 highest scorers in this round will receive compensation for their submissions as follows:</p>
+
+<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
+    <tr>
+        <td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right">$4,000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">2nd</td><td class="bodyText" align="right">$3,000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">3rd</td><td class="bodyText" align="right">$2,000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">4th</td><td class="bodyText" align="right">$1,000</td>
+    </tr>
+</table>
+    
+
+<p align="justify">
+</p>
+    
+<p align="justify">
+</p>
+<% } %>
 
 <%if (roundId == 15520) {%>
 <div class="sectionHeader">Prizes</div>
