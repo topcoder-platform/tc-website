@@ -61,6 +61,12 @@
    <tr>
       <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
       <td class="value">1
+         <div class="long">
+         <strong>Robonaut Challenge</strong><br />
+         9:00<br />
+         3 weeks<br />
+         $10k Prizes
+         </div>
       </td>
       <td class="value">2
       </td>
