@@ -626,6 +626,7 @@ submission, within one week of the announcment of the winners in order to receiv
     
 
 <p align="justify">
+TopCoder may *offer* to purchase submissions outside the Top-4 if the client is interested in using them.
 </p>
     
 <p align="justify">
