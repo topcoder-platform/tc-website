@@ -126,7 +126,7 @@
         <pathelement location="${jars.dir}/tcs/copilot_pool_and_profiles_common.jar"/>
         <pathelement location="${jars.dir}/tcs/copilot_pool_and_profiles_services.jar"/>
         <pathelement location="${jars.dir}/tcs/pipeline_service_facade/1.0.0/pipeline_service_facade.jar"/>
-        <pathelement location="${jars.dir}/tcs/review_application_management/1.0.0/review_application_management.jar"/>
+        <pathelement location="${jars.dir}/tcs/review_application_management/1.0.1/review_application_management.jar"/>
         <pathelement location="${jars.dir}/tcs/database_abstraction/2.0.0/database_abstraction.jar"/>
         <pathelement location="${jars.dir}/tcs/search_builder/1.4.0/search_builder.jar"/>
         <pathelement location="${jars.dir}/tcs/class_associations/1.0.0/class_associations.jar"/>
@@ -805,7 +805,7 @@
 
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/base_exception/2.0.0/base_exception.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/project_payment_calculator/1.0.0/project_payment_calculator.jar"/>
-        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/review_application_management/1.0.0/review_application_management.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/review_application_management/1.0.1/review_application_management.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/database_abstraction/2.0.0/database_abstraction.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/search_builder/1.4.0/search_builder.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/object_factory_configuration_api_plugin/1.0.0/object_factory_configuration_api_plugin.jar"/>
