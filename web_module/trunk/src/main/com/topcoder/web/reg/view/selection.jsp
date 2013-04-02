@@ -43,7 +43,7 @@
     
     
         <div id="popUp2" class="popUp"> 
-            <div style="width: 400px; white-space: normal;">TopCoder Studio contests are for you "creative types" (graphic designers, artists, flash & flex designers, etc.). Whether you are a working professional or a talented "amateur", trying to build your portfolio or just looking for a great way to flex your creative muscles and earn big money in the process. At Studio you can compete in a variety of design competition types for real live clients and be eligible for large cash awards, including monthly bonus prizes in the "Studio Cup"</div> 
+            <div style="width: 400px; white-space: normal;">Compete in competitions ranging from graphic design, information architecture, mobile app design, UX and UI, logos, print and more! Have the opportunity to design for big-name clients and compete against designers from across the globe. Studio competitions give you several ways to win with multi-round competitions and you’ll be eligible to win even more in the monthly tournament called the Studio Cup. Finally, compete among the best designers in the world for a chance to become a finalist in our annual global onsite tournament called the TCO where designers compete for cash prizes and prestige!</div> 
         </div> 
     
     
@@ -98,7 +98,7 @@
                             <br/>
                         </c:if>                    
                     </p>
-                    <p>All registered TopCoder members have the ability to read and post in our forums, as well as browse sections of the site that require login, such as detailed competition statistics. </p>
+                    <p>All registered TopCoder members have the ability to read and post in our forums, as well as browse sections of both TopCoder and TopCoder Studio that require login, such as competition details and statistics.</p>
                     <p>You can always add to your registered capabilities later by clicking &quot;Update My Profile&quot;.</p>
                     <p>Please read the <a href="Javascript:openWin('/reg/privacy_policy.jsp','',1200,600);">Privacy Policy</a> </p>
                 </div>
