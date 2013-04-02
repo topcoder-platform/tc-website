@@ -13,7 +13,7 @@
 %>
 
 <div id="box-foot">
-    <small>&copy; 2012. TopCoder</small>
+    <small>&copy; 2013 TopCoder</small>
 </div>
 
 
