@@ -166,7 +166,6 @@ public class ReviewAuctionTermsAgree extends ReviewAuctionApply {
                 ReviewApplication reviewApplication = new ReviewApplication();
                 reviewApplication.setApplicationRoleId(role.getId());
                 reviewApplication.setAuctionId(reviewAuction.getId());
-                reviewApplication.setCreateDate(new Date());
                 reviewApplication.setStatus(pendingStatus);
                 reviewApplication.setUserId(getUser().getId());
                 reviewApplicationManager.createApplication(reviewApplication);
