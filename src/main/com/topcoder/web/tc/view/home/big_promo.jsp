@@ -12,7 +12,7 @@
     BufferedReader br = null;
     String content = "";
     try{
-        url = new URL("http://topcoder.com/home/blog/category/hidden/feed/");
+        url = new URL("http://community.topcoder.com/blog/category/hidden/feed/");
 		String line = null;
 		is = url.openStream();
 		InputStreamReader read = new InputStreamReader(is, "UTF-8");
