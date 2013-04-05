@@ -75,6 +75,12 @@
       <td class="value">4
       </td>
       <td class="value">5
+         <div class="long">
+         <strong><a href="/tc?module=MatchDetails&rd=15618">SensorFusion MM</a></strong><br />
+         15:00<br />
+         2 weeks<br />
+         $10k Prizes
+         </div>
       </td>
       <td class="value">6
         <div class="srm">

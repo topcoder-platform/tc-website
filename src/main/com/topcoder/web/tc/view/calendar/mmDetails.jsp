@@ -311,7 +311,7 @@ Please check out the rules link below for more detail.
      roundId == 15034 || roundId == 15038 || roundId == 15076 || roundId == 15077 || roundId == 15078
      || roundId == 15080 || roundId == 15103 || roundId == 15120 || roundId == 15130 || roundId == 15189
      || roundId == 15201 || roundId == 15202 || roundId == 15322 || roundId == 15327 || roundId == 15398
-     || roundId == 15458 || roundId == 15520 || roundId == 15589 || roundId == 15611) {%>
+     || roundId == 15458 || roundId == 15520 || roundId == 15589 || roundId == 15611 || roundId == 15618) {%>
 <p align="justify">
     <b>Please note that this event is being run for a TopCoder customer.  By winning a prize in this event you agree to transfer ownership of
     your submission to TopCoder.
@@ -342,7 +342,7 @@ This is a summary with highlights of the contest details. Please make sure to re
 
 <%if(roundId == 13772 || roundId == 14525 || roundId == 14584 || roundId == 15024 || roundId == 15075 || roundId == 15023 || 
      roundId == 15034 || roundId == 15038 || roundId == 15076 || roundId == 15078 || roundId == 15103 || roundId == 15120 ||
-     roundId == 15189 || roundId == 15322 || roundId == 15458) {%>
+     roundId == 15189 || roundId == 15322 || roundId == 15458 || roundId == 15618) {%>
 <p align="justify">
     This Marathon Match is a money match that has a <b>$10,000 prize purse</b>! The top five highest scorers 
 	will receive prizes with the first place winner receiving $5,000!
@@ -573,7 +573,7 @@ submission, within one week of the announcment of the winners in order to receiv
 
 <%if(roundId == 13772 || roundId == 14525 || roundId == 14584 || roundId == 15024 || roundId == 15075 || roundId == 15023 || 
      roundId == 15034 || roundId == 15038 || roundId == 15076 || roundId == 15078 || roundId == 15103 || roundId == 15120 ||
-     roundId == 15189 || roundId == 15322 || roundId == 15458) {%>
+     roundId == 15189 || roundId == 15322 || roundId == 15458 || roundId == 15618) {%>
 <div class="sectionHeader">Prizes</div>
     <p align="justify">There will be $10,000 in total prize money.  The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
 
