@@ -93,7 +93,7 @@
                         <tr>
                             <td class="value">
                                 <div class="prizes"><fmt:formatNumber value="${activeContestsSummary[assembly].prizeTotal}" pattern="$###,###"/></div>
-                                <a href="/tc?module=ViewAssemblyActiveContests" class="gMetal">Assembly</a>
+                                <a href="/tc?module=ActiveContests&pt=14" class="gMetal">Assembly</a>
                                 (${activeContestsSummary[assembly].contestCount})
                             </td>
                         </tr>

@@ -55,7 +55,7 @@
                             </li><li><a href="http://www.topcoder.com/tc?module=ViewArchitectureActiveContests">Software Architecture Active Contests</a></li>
 							<li><a href="http://www.topcoder.com/tc?module=ViewActiveContests&ph=112">Software Design Active Contests</a></li>
 						    <li><a href="http://www.topcoder.com/tc?module=ViewActiveContests&amp;ph=113">Software Development Active Contests</a></li>
-                            <li><a href="http://www.topcoder.com/tc?module=ViewAssemblyActiveContests">Software Assembly Active Contests</a></li>
+                            <li><a href="http://www.topcoder.com/tc?module=ActiveContests&amp;pt=14">Software Assembly Active Contests</a></li>
                             <li><a href="http://www.topcoder.com/tc?module=ActiveContests&amp;pt=13">Application Testing Active Contests</a></li>
                             <li><a href="http://www.topcoder.com/wiki/display/tc/Active+Bug+Races">Bug Races Active Contests</a> </li>
                             <li><a href="http://www.topcoder.com/wiki/display/tc/Upcoming+Review+Positions+RSS">Upcoming Review Positions</a></li>

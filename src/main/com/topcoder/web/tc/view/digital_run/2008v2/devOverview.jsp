@@ -44,7 +44,7 @@
 
 <span class="title">Overview</span>
 <br /><br />
-Each contest posted in <a href="/tc?module=ViewActiveContests&amp;ph=113">Software Development</a>, <a href="/tc?module=ViewAssemblyActiveContests">Software Assembly</a>, <a href="/tc?module=ActiveContests&amp;pt=13">Test Suites</a>, <a href="/tc?module=ActiveContests&amp;pt=19">UI Prototypes</a>, and <a href="/tc?module=ActiveContests&amp;pt=24">RIA Builds</a> will carry a point value. Placement points will be awarded based on the number of submissions that pass review, as follows:
+Each contest posted in <a href="/tc?module=ViewActiveContests&amp;ph=113">Software Development</a>, <a href="/tc?module=ActiveContests&amp;pt=14">Software Assembly</a>, <a href="/tc?module=ActiveContests&amp;pt=13">Test Suites</a>, <a href="/tc?module=ActiveContests&amp;pt=19">UI Prototypes</a>, and <a href="/tc?module=ActiveContests&amp;pt=24">RIA Builds</a> will carry a point value. Placement points will be awarded based on the number of submissions that pass review, as follows:
 <br /><br />
 <a class="bcLink" name="point_table"></a>
 <div align="center">

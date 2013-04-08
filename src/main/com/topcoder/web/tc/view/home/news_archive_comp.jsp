@@ -63,9 +63,9 @@
 <tr class="bodyText"><td nowrap="nowrap">10.17.08 3:00 PM - </td><td width="100%"><a href="/wiki/display/tc/TopCoder+Conceptualization+Contests">Compete in a Specification Contest!</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.29.08 7:00 PM - </td><td width="100%"><a href="/wiki/display/docs/Seam">JBoss Seam Contests Approaching</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.18.08 10:00 AM - </td><td width="100%"><a href="/wiki/display/tc/Active+Bug+Races">TopCoder: Kills Bugs Dead</a><br /></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">09.06.08 10:30 AM - </td><td width="100%"><a href="/tc?module=ViewAssemblyActiveContests">5000 DR Points in the NORM Assembly Run!</a><br /></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.06.08 10:30 AM - </td><td width="100%"><a href="/tc?module=ActiveContests&amp;pt=14">5000 DR Points in the NORM Assembly Run!</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.05.08 4:30 PM - </td><td width="100%"><a href="/tc?module=ProjectDetail&amp;pj=30005156">Supercharge the TC Platform!</a><br /></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">09.03.08 11:45 AM - </td><td width="100%"><a href="/tc?module=ViewAssemblyActiveContests">High Prizes, High DR, High Profile</a><br /></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">09.03.08 11:45 AM - </td><td width="100%"><a href="/tc?module=ActiveContests&amp;pt=14">High Prizes, High DR, High Profile</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.21.08 9:45 AM - </td><td width="100%"><a href="/wiki/display/docs/Competition+Environments">$3500 in Bug Races – Get on the Cloud!</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">08.19.08 9:30 AM - </td><td width="100%"><a href="/tc?module=ProjectDetail&amp;pj=30005074">MySQL Memory Engine Architecture Contest Re-Launched!</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.22.08 10:30 PM - </td><td width="100%"><a href="/truveo/">Use the New TC Battle Widget to Vote for Your Favorite Truveo Apps!</a><br /></td></tr>
@@ -75,7 +75,7 @@
 <tr class="bodyText"><td nowrap="nowrap">06.12.08 1:30 PM - </td><td width="100%"><a href="/tc?module=ViewActiveContests&amp;ph=113">New Component Testing Competitions</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.04.08 12:30 PM - </td><td width="100%"><a href="/truveo/">Video Apps Aplenty in the Truveo Challenge</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.27.08 10:00 AM - </td><td width="100%"><a href="/wiki/display/tc/Active+Bug+Races">Week at the Races</a><br /></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">05.21.08 10:00 AM - </td><td width="100%"><a href="/tc?module=ViewAssemblyActiveContests">An Assembly of Cockpit Widget Assemblies</a><br /></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">05.21.08 10:00 AM - </td><td width="100%"><a href="/tc?module=ActiveContests&amp;pt=14">An Assembly of Cockpit Widget Assemblies</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.15.08 6:00 PM - </td><td width="100%"><a href="/openaim/">Open AIM Developer Challenge - We Have Our Winners!</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.13.08 2:00 PM - </td><td width="100%"><a href="/truveo/">TopCoder launches the $100,000 Truveo Developer Challenge</a><br /></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.07.08 9:30 AM - </td><td width="100%"><a href="/openaim/">Open AIM Developer Challenge Closes, Vote for Your Favorites!</a><br /></td></tr>
