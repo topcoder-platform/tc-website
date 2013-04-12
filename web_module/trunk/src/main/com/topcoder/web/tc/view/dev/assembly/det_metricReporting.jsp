@@ -83,7 +83,7 @@ Documentation/Specifications are available in the application forums <A href="ht
 <br><br>
 --%>
 <div class="sectionHeader">Payment</div>
-TopCoder will compensate teams with first and second place submissions. Initial payment for the winning team will be distributed in two installments. First Milestone: When the winning solution is submitted and review board suggestions are integrated. Second Milestone: Marked by the completion of the Deployment phase of the project.
+TopCoder will compensate teams with first and second place submissions. Initial payment for the winning team will be distributed in two installments. First Checkpoint: When the winning solution is submitted and review board suggestions are integrated. Second Checkpoint: Marked by the completion of the Deployment phase of the project.
 <br><br>
 <strong>Winning Team</strong><br>
 Total Payment - $15,000
@@ -132,28 +132,28 @@ All submissions are required to be submitted by the end of Competition Phase. Th
 </table>
 </div>
 <br><br>
-<div class="sectionHeader">Milestones</div>
-This assembly competition will contain three milestones. The milestone deliverables will be defined in a document presented to contestants after an NDA document has been signed. After each milestone, the TopCoder team will review to verify the milestones are met. Teams who complete these milestones will be eligible for a bonus.
+<div class="sectionHeader">Checkpoints</div>
+This assembly competition will contain three checkpoints. The checkpoint deliverables will be defined in a document presented to contestants after an NDA document has been signed. After each checkpoint, the TopCoder team will review to verify the checkpoints are met. Teams who complete these checkpoints will be eligible for a bonus.
 <br><br>
-* The team with the winning submission will receive a $1000 bonus for each milestone met during the competition ($3000 max)
+* The team with the winning submission will receive a $1000 bonus for each checkpoint met during the competition ($3000 max)
 <br><br>
-* The team with the second place submission will receive a $500 bonus for each milestone met during the competition ($1500 max).
+* The team with the second place submission will receive a $500 bonus for each checkpoint met during the competition ($1500 max).
 <br><br>
-In order to qualify for the milestone bonus, the team must create a tag by 11:59PM EST the evening the milestone is due.
+In order to qualify for the checkpoint bonus, the team must create a tag by 11:59PM EST the evening the checkpoint is due.
 <br><br>
 <div align="center">
 <table cellpadding="0" cellspacing="0" border="0" width="300">
    <tr>
-      <td><strong>Milestone</strong></td><td align="right"><strong>Start</strong></td><td align="right"><strong>End</strong></td>
+      <td><strong>Checkpoint</strong></td><td align="right"><strong>Start</strong></td><td align="right"><strong>End</strong></td>
    </tr>
    <tr>
-      <td>Milestone 1</td><td align="right">01.12.2007</td><td align="right">01.18.2007</td>
+      <td>Checkpoint 1</td><td align="right">01.12.2007</td><td align="right">01.18.2007</td>
    </tr>
    <tr>
-      <td>Milestone 2</td><td align="right">01.19.2007</td><td align="right">01.25.2007</td>
+      <td>Checkpoint 2</td><td align="right">01.19.2007</td><td align="right">01.25.2007</td>
    </tr>
    <tr>
-      <td>Milestone 3</td><td align="right">01.26.2007</td><td align="right">02.01.2007</td>
+      <td>Checkpoint 3</td><td align="right">01.26.2007</td><td align="right">02.01.2007</td>
    </tr>
 </table>
 </div>

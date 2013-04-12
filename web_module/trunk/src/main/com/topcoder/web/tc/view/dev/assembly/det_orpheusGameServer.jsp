@@ -117,7 +117,7 @@ All submissions are required to be submitted by the end of Competition Phase. Th
 </div>
 <br><br>
 
-<div class="sectionHeader">Milestones</div>
+<div class="sectionHeader">Checkpoints</div>
 At intervals during the competition phase, assembly teams will be expected to demonstrate progress by providing interim deliverables as specified in the following table.
 <br><br>
 <div align="left">

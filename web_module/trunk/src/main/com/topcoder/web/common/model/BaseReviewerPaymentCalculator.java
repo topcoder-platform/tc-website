@@ -45,11 +45,11 @@ public abstract class BaseReviewerPaymentCalculator implements ReviewerPaymentCa
     }
 
     /**
-     * Calculate the payment cost for milestone screener.
+     * Calculate the payment cost for checkpoint screener.
      * 
-     * @return the payment cost for milestone screener.
+     * @return the payment cost for checkpoint screener.
      */
-    public float getMilestoneScreeningCost() {
+    public float getCheckpointScreeningCost() {
         return getScreeningCost();
     }
 }

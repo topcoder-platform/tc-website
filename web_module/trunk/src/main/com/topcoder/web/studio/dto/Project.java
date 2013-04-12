@@ -28,11 +28,11 @@ import java.util.TreeSet;
  *     <li>Added {@link #getForumId()} method.</li>
  *     <li>Added {@link #getStartTime()} method.</li>
  *     <li>Added {@link #getEndTime()} method.</li>
- *     <li>Added {@link #getMilestoneDate()} method.</li>
+ *     <li>Added {@link #getCheckpointDate()} method.</li>
  *     <li>Added {@link #getWinnerAnnouncementTime()} method.</li>
  *     <li>Added {@link #getTotalPrizePurse()} method.</li>
  *     <li>Added {@link #getMaxSubmissions()} method.</li>
- *     <li>Added {@link #getMilestonePrize()} method.</li>
+ *     <li>Added {@link #getCheckpointPrize()} method.</li>
  *     <li>Added {@link #getPrizes()} method.</li>
  *     <li>Updated {@link #getInfo(Integer)} method to handle optional project infos correctly without throwing
  *     <code>NullPointerException</code>.</li>
@@ -58,8 +58,8 @@ import java.util.TreeSet;
  * <p>
  * Version 1.3 (Re-platforming Studio Release 4 Assembly 1.0) Change notes:
  *   <ol>
- *     <li>Added {@link #getMilestoneReviewClosed()} method.</li>
- *     <li>Implemeted {@link #getMilestoneFeedbackAvailable()} method.</li>
+ *     <li>Added {@link #getCheckpointReviewClosed()} method.</li>
+ *     <li>Implemeted {@link #getCheckpointFeedbackAvailable()} method.</li>
  *   </ol>
  * </p>
  * 
@@ -431,19 +431,19 @@ public class Project extends Base {
     }
 
     /**
-     * <p>Gets the end time for milestone for this project.</p>
+     * <p>Gets the end time for checkpoint for this project.</p>
      * 
-     * @return a <code>Date</code> providing the end time for milestone for this project or <code>null</code> if this
+     * @return a <code>Date</code> providing the end time for checkpoint for this project or <code>null</code> if this
      *         project has no phases set.
      * @since 1.1
      */
-    public Date getMilestoneDate() {
-        ProjectPhase milestoneSubmissionPhase = getPhase(ProjectPhase.MILESTONE_SUBMISSION);
-        if (milestoneSubmissionPhase != null) {
-            if (milestoneSubmissionPhase.getStatusId() == ProjectPhase.STATUS_CLOSED) {
-                return milestoneSubmissionPhase.getActualEndTime();
+    public Date getCheckpointDate() {
+        ProjectPhase checkpointSubmissionPhase = getPhase(ProjectPhase.CHECKPOINT_SUBMISSION);
+        if (checkpointSubmissionPhase != null) {
+            if (checkpointSubmissionPhase.getStatusId() == ProjectPhase.STATUS_CLOSED) {
+                return checkpointSubmissionPhase.getActualEndTime();
             } else {
-                return milestoneSubmissionPhase.getScheduledEndTime();
+                return checkpointSubmissionPhase.getScheduledEndTime();
             }
         } else {
             return null;
@@ -471,15 +471,15 @@ public class Project extends Base {
     }
 
     /**
-     * <p>Indicates whether the Milestone Review phase is closed.</p>
+     * <p>Indicates whether the Checkpoint Review phase is closed.</p>
      *
-     * @return true if Milestone Review phase is closed, false otherwise
+     * @return true if Checkpoint Review phase is closed, false otherwise
      * @since 1.3
      */
-    public Boolean getMilestoneReviewClosed() {
-        ProjectPhase milestoneReviewPhase = getPhase(ProjectPhase.MILESTONE_REVIEW);
-        if (milestoneReviewPhase != null) {
-            return (milestoneReviewPhase.getStatusId() == ProjectPhase.STATUS_CLOSED);
+    public Boolean getCheckpointReviewClosed() {
+        ProjectPhase checkpointReviewPhase = getPhase(ProjectPhase.CHECKPOINT_REVIEW);
+        if (checkpointReviewPhase != null) {
+            return (checkpointReviewPhase.getStatusId() == ProjectPhase.STATUS_CLOSED);
         }
         return false;
     }
@@ -539,15 +539,15 @@ public class Project extends Base {
     }
 
     /**
-     * <p>Indicates whether the Milestone Submission phase is closed.</p>
+     * <p>Indicates whether the Checkpoint Submission phase is closed.</p>
      *
      * @return true if Review phase is closed, false otherwise
      * @since 1.2
      */
-    public Boolean getMilestoneSubmissionClosed() {
-        ProjectPhase milestoneSubmissionPhase = getPhase(ProjectPhase.MILESTONE_SUBMISSION);
-        if (milestoneSubmissionPhase != null) {
-            return (milestoneSubmissionPhase.getStatusId() == ProjectPhase.STATUS_CLOSED);
+    public Boolean getCheckpointSubmissionClosed() {
+        ProjectPhase checkpointSubmissionPhase = getPhase(ProjectPhase.CHECKPOINT_SUBMISSION);
+        if (checkpointSubmissionPhase != null) {
+            return (checkpointSubmissionPhase.getStatusId() == ProjectPhase.STATUS_CLOSED);
         }
         return false;
     }
@@ -711,7 +711,7 @@ public class Project extends Base {
     }
 
     /**
-     * <p>Gets the project's total prize purse which is a sum of all regular and milestone prizes.</p>
+     * <p>Gets the project's total prize purse which is a sum of all regular and checkpoint prizes.</p>
      *
      * @return a <code>Float</code> providing the the project's total prize purse.
      * @since 1.1
@@ -725,15 +725,15 @@ public class Project extends Base {
     }
 
     /**
-     * <p>Gets the milestone prize for this project.</p>
+     * <p>Gets the checkpoint prize for this project.</p>
      * 
-     * @return a <code>Prize</code> providing the details for <code>Milestone</code> prize set for project or
+     * @return a <code>Prize</code> providing the details for <code>Checkpoint</code> prize set for project or
      *         <code>null</code> if there is no such prize set.   
      * @since 1.1
      */
-    public Prize getMilestonePrize() {
+    public Prize getCheckpointPrize() {
         for (Prize p : this.allPrizes) {
-            if (p.getType().getId() == Prize.MILESTONE_PRIZE_TYPE_ID) {
+            if (p.getType().getId() == Prize.CHECKPOINT_PRIZE_TYPE_ID) {
                 return p;
             }
         }
@@ -757,14 +757,14 @@ public class Project extends Base {
     }
 
     /**
-     * <p>Checks if milestone feedback is available for this project.</p>
+     * <p>Checks if checkpoint feedback is available for this project.</p>
      * 
-     * @return <code>true</code> if milestone feedback is available; <code>false</code> otherwise.
+     * @return <code>true</code> if checkpoint feedback is available; <code>false</code> otherwise.
      * @since 1.1
      */
-    public boolean getMilestoneFeedbackAvailable() {
-        ProjectPhase milestoneReviewPhase = getPhase(ProjectPhase.MILESTONE_REVIEW);
-        return (milestoneReviewPhase != null) && (milestoneReviewPhase.getStatusId() == ProjectPhase.STATUS_CLOSED);
+    public boolean getCheckpointFeedbackAvailable() {
+        ProjectPhase checkpointReviewPhase = getPhase(ProjectPhase.CHECKPOINT_REVIEW);
+        return (checkpointReviewPhase != null) && (checkpointReviewPhase.getStatusId() == ProjectPhase.STATUS_CLOSED);
     }
     
     /**

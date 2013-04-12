@@ -36,15 +36,15 @@ public class Submission extends Base {
     public static final Integer FAILED_REVIEW = 3;
     public static final Integer COMPLETED_WITHOUT_WIN = 4;
     public static final Integer STATUS_DELETED = 5;
-    public static final Integer FAILED_MILESTONE_SCREENING = 6;
-    public static final Integer FAILED_MILESTONE_REVIEW = 7;
+    public static final Integer FAILED_CHECKPOINT_SCREENING = 6;
+    public static final Integer FAILED_CHECKPOINT_REVIEW = 7;
 
     /**
      * <p>Submission type (mapped to the submission_type_lu table).</p>
      */
     public static final Integer CONTEST_SUBMISSION = 1;
     public static final Integer SPECIFICATION_SUBMISSION = 2;
-    public static final Integer MILESTONE_SUBMISSION = 3;
+    public static final Integer CHECKPOINT_SUBMISSION = 3;
     
     /**
      * <p>The unique submission identifier.</p>

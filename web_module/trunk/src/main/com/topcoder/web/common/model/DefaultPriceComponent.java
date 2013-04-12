@@ -95,7 +95,7 @@ import com.topcoder.shared.util.logging.Logger;
  *   Version 1.1.8 (Online Review Replatforming Release 2) Change notes:
  *   <ol>
  *     <li>Updated {@link #getReviewerPaymentCalculator(float, int, int)} method for supporting the studio contests.</li>
- *     <li>Added {@link #getMilestoneScreeningCost()} to calculate payment for the milestone screener.</li>
+ *     <li>Added {@link #getCheckpointScreeningCost()} to calculate payment for the checkpoint screener.</li>
  *     <li>Updated {@link #getSpecReviewCost()} method for setting spec review payment for studio contests.</li>
  *   </ol>
  *   
@@ -321,13 +321,13 @@ public class DefaultPriceComponent implements SoftwareComponent {
     }
 
     /**
-     * Calculate the payment cost for milestone screener.
+     * Calculate the payment cost for checkpoint screener.
      * 
-     * @return the payment cost for milestone screener.
+     * @return the payment cost for checkpoint screener.
      * @since 1.1.8
      */
-    public float getMilestoneScreeningCost() {
-        return Math.round(this.calculator.getMilestoneScreeningCost());
+    public float getCheckpointScreeningCost() {
+        return Math.round(this.calculator.getCheckpointScreeningCost());
     }
 
     /**

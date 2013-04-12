@@ -7,13 +7,13 @@ package com.topcoder.web.ejb.pacts;
 import java.sql.SQLException;
 
 /**
- * Common payment for contest milestone prizes.
+ * Common payment for contest checkpoint prizes.
  *
  * VERY IMPORTANT: remember to update serialVersionUID if needed
  *
  * @author VolodymyrK
  */
-public class ContestMilestonePayment extends ComponentProjectReferencePayment {
+public class ContestCheckpointPayment extends ComponentProjectReferencePayment {
 
     /**
      * Please change that number if you affect the fields in a way that will affect the
@@ -31,8 +31,8 @@ public class ContestMilestonePayment extends ComponentProjectReferencePayment {
      * @param projectId project that is being paid.
      * @param placed the place of the coder in the contest.
      */
-    public ContestMilestonePayment(long coderId, double grossAmount, String client, long projectId, int placed) {
-        super(CONTEST_MILESTONE_PAYMENT, coderId, grossAmount, client, projectId, placed);
+    public ContestCheckpointPayment(long coderId, double grossAmount, String client, long projectId, int placed) {
+        super(CONTEST_CHECKPOINT_PAYMENT, coderId, grossAmount, client, projectId, placed);
     }
 
     /**
@@ -43,7 +43,7 @@ public class ContestMilestonePayment extends ComponentProjectReferencePayment {
      * @param projectId project that is being paid.
      * @param placed the place of the coder in the contest.
      */
-    public ContestMilestonePayment(long coderId, double grossAmount, long projectId, int placed) {
+    public ContestCheckpointPayment(long coderId, double grossAmount, long projectId, int placed) {
         this(coderId, grossAmount, null, projectId, placed);
     }
 
@@ -55,7 +55,7 @@ public class ContestMilestonePayment extends ComponentProjectReferencePayment {
      * @param client the client of the project.
      * @param projectId project that is being paid.
      */
-    public ContestMilestonePayment(long coderId, double grossAmount, String client, long projectId) {
+    public ContestCheckpointPayment(long coderId, double grossAmount, String client, long projectId) {
         this(coderId, grossAmount, client, projectId, 0);
     }
 
@@ -66,7 +66,7 @@ public class ContestMilestonePayment extends ComponentProjectReferencePayment {
      * @param grossAmount amount to be paid.
      * @param projectId project that is being paid.
      */
-    public ContestMilestonePayment(long coderId, double grossAmount, long projectId) {
+    public ContestCheckpointPayment(long coderId, double grossAmount, long projectId) {
         this(coderId, grossAmount, null, projectId, 0);
     }
 

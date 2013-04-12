@@ -47,9 +47,9 @@ public class ResourceRole extends Base {
     public static final Integer SCREENER_RESOURCE_ROLE_ID = 2;
     
     /**
-     * <p>An <code>Integer</code> referencing the resource role id corresponding to a milestone screener.</p>
+     * <p>An <code>Integer</code> referencing the resource role id corresponding to a checkpoint screener.</p>
      */
-    public static final Integer MILESTONE_SCREENER_RESOURCE_ROLE_ID = 19;
+    public static final Integer CHECKPOINT_SCREENER_RESOURCE_ROLE_ID = 19;
     
     /**
      * <p>An <code>Integer</code> referencing the resource role id corresponding to a manager.</p>

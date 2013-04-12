@@ -14,7 +14,7 @@ import com.topcoder.web.common.model.Base;
  * Version 1.1 (Re-platforming Studio Release 2 Assembly) Change notes:
  *   <ol>
  *     <li>Added {@link #statusId} property with respective accessor/mutator methods.</li>
- *     <li>Added {@link #MILESTONE_SUBMISSION} constant.</li>
+ *     <li>Added {@link #CHECKPOINT_SUBMISSION} constant.</li>
  *     <li>Added {@link #STATUS_SCHEDULED} constant.</li>
  *     <li>Added {@link #STATUS_OPEN} constant.</li>
  *     <li>Added {@link #STATUS_CLOSED} constant.</li>
@@ -24,7 +24,7 @@ import com.topcoder.web.common.model.Base;
  * <p>
  * Version 1.1 (Re-platforming Studio Release 4 Assembly 1.0) Change notes:
  *   <ol>
- *     <li>Added {@link #MILESTONE_REVIEW} constant.</li>
+ *     <li>Added {@link #CHECKPOINT_REVIEW} constant.</li>
  *   </ol>
  * </p>
  * 
@@ -46,18 +46,18 @@ public class ProjectPhase extends Base {
     public static final Integer APPROVAL = 11;
 
     /**
-     * <p>An <code>Integer</code> providing the ID for <code>Milestone Submission</code> phase type.</p>
+     * <p>An <code>Integer</code> providing the ID for <code>Checkpoint Submission</code> phase type.</p>
      * 
      * @since 1.1
      */
-    public static final Integer MILESTONE_SUBMISSION = 15;
+    public static final Integer CHECKPOINT_SUBMISSION = 15;
 
     /**
-     * <p>An <code>Integer</code> providing the ID for <code>Milestone Review</code> phase type.</p>
+     * <p>An <code>Integer</code> providing the ID for <code>Checkpoint Review</code> phase type.</p>
      * 
      * @since 1.1
      */
-    public static final Integer MILESTONE_REVIEW = 17;
+    public static final Integer CHECKPOINT_REVIEW = 17;
     
     /**
      * <p>An <code>Integer</code> providing the ID for <code>Specification Submission</code> phase type.</p>

@@ -187,12 +187,12 @@ public class ViewContestDetails extends ShortHibernateProcessor {
                 getRequest().setAttribute("currentTime", new Date());
                 getRequest().setAttribute("has_cockpit_permissions", Util.hasCockpitPermissions(getRequest(), userId, cid));
 
-                // Handle milestone
-                Date milestoneDate = contest.getMilestoneDate();
-                if (milestoneDate != null && contest.getMilestoneSubmissionClosed()) {
-                    getRequest().setAttribute("canViewMilestone", true);
+                // Handle checkpoint
+                Date checkpointDate = contest.getCheckpointDate();
+                if (checkpointDate != null && contest.getCheckpointSubmissionClosed()) {
+                    getRequest().setAttribute("canViewCheckpoint", true);
                 } else {
-                    getRequest().setAttribute("canViewMilestone", false);
+                    getRequest().setAttribute("canViewCheckpoint", false);
                 }
 
                 setNextPage("/contestDetails.jsp");

@@ -108,9 +108,9 @@ public class ReviewRegistration extends BaseTermsOfUse {
     private static final int SCREENING_PHASE_TYPE_ID = 3;
 
     /**
-     * <p>An <code>int</code> providing the ID for <code>Milestone Screening</code> phase type.</p>
+     * <p>An <code>int</code> providing the ID for <code>Checkpoint Screening</code> phase type.</p>
      */
-    private static final int MILESTONE_SCREENING_PHASE_TYPE_ID = 16;
+    private static final int CHECKPOINT_SCREENING_PHASE_TYPE_ID = 16;
 
     /**
      * <p>An <code>int</code> providing the ID for <code>Specification Review</code> phase type.</p>
@@ -125,9 +125,9 @@ public class ReviewRegistration extends BaseTermsOfUse {
     protected static final int SCREENER_ROLE_ID = 2;
 
     /**
-     * <p>An <code>int</code> providing the ID for <code>Milestone Screener</code> resource role.</p>
+     * <p>An <code>int</code> providing the ID for <code>Checkpoint Screener</code> resource role.</p>
      */
-    protected static final int MILESTONE_SCREENER_ROLE_ID = 19;
+    protected static final int CHECKPOINT_SCREENER_ROLE_ID = 19;
 
     /**
      * <p>An <code>int</code> providing the ID for <code>Specification Reviewer</code> resource role.</p>
@@ -151,8 +151,8 @@ public class ReviewRegistration extends BaseTermsOfUse {
                 registerReviewer(new Integer[] {SPECIFICATION_REVIEWER_ROLE_ID}, 
                                  new Integer[] {SPECIFICATION_REVIEW_PHASE_TYPE_ID}, "Specification", 0.0, "SpecViewReviewTerms");
             } else {
-                registerReviewer(new Integer[] {SCREENER_ROLE_ID, MILESTONE_SCREENER_ROLE_ID}, 
-                                 new Integer[] {SCREENING_PHASE_TYPE_ID, MILESTONE_SCREENING_PHASE_TYPE_ID}, "Screening", 0.0, "ViewReviewTerms");
+                registerReviewer(new Integer[] {SCREENER_ROLE_ID, CHECKPOINT_SCREENER_ROLE_ID}, 
+                                 new Integer[] {SCREENING_PHASE_TYPE_ID, CHECKPOINT_SCREENING_PHASE_TYPE_ID}, "Screening", 0.0, "ViewReviewTerms");
             }
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));

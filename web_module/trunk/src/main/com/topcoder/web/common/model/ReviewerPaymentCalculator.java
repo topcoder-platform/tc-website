@@ -9,7 +9,7 @@ package com.topcoder.web.common.model;
  * <p>
  * Version 1.0.1 (Online Review Replatforming Release 2) Change notes:
  *   <ol>
- *     <li>Added {@link #getMilestoneScreeningCost()} to calculate payment for the milestone screener.</li>
+ *     <li>Added {@link #getCheckpointScreeningCost()} to calculate payment for the checkpoint screener.</li>
  *   </ol>
  * </p>
  * 
@@ -24,12 +24,12 @@ public interface ReviewerPaymentCalculator {
     public float getScreeningCost();
     
     /**
-     * Returns the payment for the Milestone Screener.
+     * Returns the payment for the Checkpoint Screener.
      * 
-     * @return the payment for the Milestone Screener.
+     * @return the payment for the Checkpoint Screener.
      * @since 1.0.1
      */
-    public float getMilestoneScreeningCost();
+    public float getCheckpointScreeningCost();
 
     /**
      * Returns the payment for each Reviewer. 

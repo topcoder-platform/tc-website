@@ -40,7 +40,7 @@
 
 <span class="bigTitle">Expert Network Application</span>
 <br><br>
-<%--<span class="bigRed">NOTE: Registration has been extended for this contest. Please see new Timeline and Milestones dates below.</span>
+<%--<span class="bigRed">NOTE: Registration has been extended for this contest. Please see new Timeline and Checkpoints dates below.</span>
 <br><br>--%>
 <div class="sectionHeader">Overview</div>
 <span class="bodySubtitle">Application Overview</span><br>
@@ -131,7 +131,7 @@ All submissions are required to be submitted by the end of Competition Phase. Th
 </div>
 <br><br>
 
-<div class="sectionHeader">Milestones</div>
+<div class="sectionHeader">Checkpoints</div>
 At intervals during the competition phase, assembly teams will be expected to demonstrate progress by providing interim deliverables as specified in the following table.
 <br><br>
 <div align="left">

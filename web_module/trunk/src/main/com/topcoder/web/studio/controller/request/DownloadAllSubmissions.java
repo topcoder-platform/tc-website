@@ -56,7 +56,7 @@ public class DownloadAllSubmissions extends BaseSubmissionDataProcessor {
      * <p>An <code>int</code> array listing the IDs for screener roles.</p>
      */
     private static final int[] SCREENER_ROLES_IDS = {ResourceRole.SCREENER_RESOURCE_ROLE_ID,
-                                                     ResourceRole.MILESTONE_SCREENER_RESOURCE_ROLE_ID
+                                                     ResourceRole.CHECKPOINT_SCREENER_RESOURCE_ROLE_ID
     };
 
     /**
@@ -94,10 +94,10 @@ public class DownloadAllSubmissions extends BaseSubmissionDataProcessor {
         
         // Round and submission types
         String roundType = request.getParameter("round");
-        boolean milestoneSubmissionsRequested = roundType.equalsIgnoreCase("milestone");
+        boolean checkpointSubmissionsRequested = roundType.equalsIgnoreCase("checkpoint");
         int submissionTypeId;
-        if (milestoneSubmissionsRequested) {
-            submissionTypeId = Submission.MILESTONE_SUBMISSION;
+        if (checkpointSubmissionsRequested) {
+            submissionTypeId = Submission.CHECKPOINT_SUBMISSION;
         } else {
             submissionTypeId = Submission.CONTEST_SUBMISSION;
         }
@@ -105,7 +105,7 @@ public class DownloadAllSubmissions extends BaseSubmissionDataProcessor {
         // Download type
         String downloadType = request.getParameter("type");
         boolean originalFilesRequested = "original".equalsIgnoreCase(downloadType);
-        if (milestoneSubmissionsRequested) {
+        if (checkpointSubmissionsRequested) {
             originalFilesRequested = false;
         }
 

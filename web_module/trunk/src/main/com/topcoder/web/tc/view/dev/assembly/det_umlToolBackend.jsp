@@ -82,7 +82,7 @@ Total Payment - $10,000
 <strong>Second Place Team</strong><br>
 Total Payment - $5,000
 <br><br>
-*Additional bonuses of up to $1500 are included when the Winning and Second Place Team meet each of the competition milestones. Milestone details will be available once registered.
+*Additional bonuses of up to $1500 are included when the Winning and Second Place Team meet each of the competition checkpoints. Checkpoint details will be available once registered.
 <br><br>
 <div class="sectionHeader">Eligibility</div>
 You must be a TopCoder member, at least 18 years of age, meeting all of the membership requirements. In addition, you must fit into one of the following categories.
@@ -121,7 +121,7 @@ All submissions are required to be submitted by the end of Competition Phase. Th
 </table>
 </div>
 <br><br>
-<div class="sectionHeader">Milestones</div>
+<div class="sectionHeader">Checkpoints</div>
 At intervals during the competition phase, assembly teams will be expected to demonstrate progress by providing interim deliverables as specified in the following table. 
 <br><br>
 <table cellpadding="0" cellspacing="0" border="0" width="500">

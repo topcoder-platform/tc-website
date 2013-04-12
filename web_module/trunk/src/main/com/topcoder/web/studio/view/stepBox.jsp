@@ -26,19 +26,19 @@
 <c:set var="registered" value="${requestScope.registered}"/>
 <c:set var="prizesCount" value="${fn:length(contest.prizes)}"/>
 <%
-request.setAttribute("clientPrize", new Long(Prize.MILESTONE_PRIZE_TYPE_ID));
+request.setAttribute("clientPrize", new Long(Prize.CHECKPOINT_PRIZE_TYPE_ID));
 %>
 <c:set var="clientPrize" value="${clientPrize}"/>
-<c:set var="isMultiRound" value="${not empty contest.milestoneDate}"/>
-<c:set var="milestoneDate" value="${contest.milestoneDate}"/>
+<c:set var="isMultiRound" value="${not empty contest.checkpointDate}"/>
+<c:set var="checkpointDate" value="${contest.checkpointDate}"/>
 <c:set var="placeSuffixes"
        value="<%=new String[] {"st", "nd", "rd", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th"}%>"/>
 <c:set var="drPointsAvailable" value="${contest.digitalRunPoints ne null and contest.digitalRunPoints > 0}"/>
-<c:set var="hasMilestoneRoundPrize" value="${isMultiRound and not empty contest.milestonePrize and not empty contest.milestonePrize.numberOfSubmissions and not empty contest.milestonePrize.amount}"/>
+<c:set var="hasCheckpointRoundPrize" value="${isMultiRound and not empty contest.checkpointPrize and not empty contest.checkpointPrize.numberOfSubmissions and not empty contest.checkpointPrize.amount}"/>
 <c:set var="isFinished" value="${contest.reviewClosed}"/>
 <c:set var="isStarted" value="${contest.submissionOpen}"/>
 <c:set var="isRunning" value="${isStarted and not isFinished}"/>
-<c:set var="isMilestoneRoundPassed" value="${isRunning and isMultiRound and contest.milestoneSubmissionClosed}"/>
+<c:set var="isCheckpointRoundPassed" value="${isRunning and isMultiRound and contest.checkpointSubmissionClosed}"/>
 <c:set var="hasCockpitPermissions" value="${requestScope.has_cockpit_permissions}"/>
 <fmt:setLocale value="en_US"/>
 
@@ -207,8 +207,8 @@ request.setAttribute("clientPrize", new Long(Prize.MILESTONE_PRIZE_TYPE_ID));
             </p>
         </div>
 
-        <%-- MILESTONE PRIZES --%>
-        <div class="grayBox ${hasMilestoneRoundPrize ? 'haveMilestone' : 'noMilestone'} CDScreen1HaveMilestone">
+        <%-- CHECKPOINT PRIZES --%>
+        <div class="grayBox ${hasCheckpointRoundPrize ? 'haveCheckpoint' : 'noCheckpoint'} CDScreen1HaveCheckpoint">
             <span class="gray2RCLT"></span>
             <span class="gray2RCRT"></span>
             <span class="gray2RCLB"></span>
@@ -216,19 +216,19 @@ request.setAttribute("clientPrize", new Long(Prize.MILESTONE_PRIZE_TYPE_ID));
 
             <p>
                 <c:choose>
-                    <c:when test="${hasMilestoneRoundPrize}">
-                        <span class="prize">${contest.milestonePrize.numberOfSubmissions}</span> MILESTONE AWARDS WORTH
+                    <c:when test="${hasCheckpointRoundPrize}">
+                        <span class="prize">${contest.checkpointPrize.numberOfSubmissions}</span> CHECKPOINT AWARDS WORTH
                                 <span class="prize">
-                                   <span class="dollorIcon">$</span><fmt:formatNumber value="${contest.milestonePrize.amount}"
+                                   <span class="dollorIcon">$</span><fmt:formatNumber value="${contest.checkpointPrize.amount}"
                                                                                       pattern="###,###"/>
                                </span> EACH
                     </c:when>
-                    <c:otherwise><span class="prize"><span class="dollorIcon">&nbsp;</span></span>NO MILESTONE</c:otherwise>
+                    <c:otherwise><span class="prize"><span class="dollorIcon">&nbsp;</span></span>NO CHECKPOINT</c:otherwise>
                 </c:choose>
             </p>
         </div>
         <!--End grayBox-->
-        <div class="grayBox ${hasMilestoneRoundPrize ? 'haveMilestone CDScreen2HaveMilestone' : 'noMilestone CDScreen2noMilestone'}  hide">
+        <div class="grayBox ${hasCheckpointRoundPrize ? 'haveCheckpoint CDScreen2HaveCheckpoint' : 'noCheckpoint CDScreen2noCheckpoint'}  hide">
             <span class="gray2RCLT"></span>
             <span class="gray2RCRT"></span>
             <span class="gray2RCLB"></span>
@@ -236,14 +236,14 @@ request.setAttribute("clientPrize", new Long(Prize.MILESTONE_PRIZE_TYPE_ID));
 
             <p>
                 <c:choose>
-                    <c:when test="${hasMilestoneRoundPrize}">
-                        <span class="prize">${contest.milestonePrize.numberOfSubmissions}</span> MILESTONE AWARDS WORTH
+                    <c:when test="${hasCheckpointRoundPrize}">
+                        <span class="prize">${contest.checkpointPrize.numberOfSubmissions}</span> CHECKPOINT AWARDS WORTH
                                 <span class="prize">
-                                   <span class="dollorIcon">$</span><fmt:formatNumber value="${contest.milestonePrize.amount}"
+                                   <span class="dollorIcon">$</span><fmt:formatNumber value="${contest.checkpointPrize.amount}"
                                                                                       pattern="###,###"/>
                                </span> EACH
                     </c:when>
-                    <c:otherwise><span class="prize"><span class="dollorIcon">&nbsp;</span></span>NO MILESTONE</c:otherwise>
+                    <c:otherwise><span class="prize"><span class="dollorIcon">&nbsp;</span></span>NO CHECKPOINT</c:otherwise>
                 </c:choose>
             </p>
         </div>
@@ -263,9 +263,9 @@ request.setAttribute("clientPrize", new Long(Prize.MILESTONE_PRIZE_TYPE_ID));
                 <c:set var="nextDeadlineText" value="Contest has not started yet"/>
                 <c:set var="nextDeadlineTime" value="${contest.startTime}" scope="request"/>
             </c:when>
-            <c:when test="${isRunning and isMultiRound and not isMilestoneRoundPassed}">
-                <c:set var="nextDeadlineText" value="Milestone Submission"/>
-                <c:set var="nextDeadlineTime" value="${milestoneDate}" scope="request"/>
+            <c:when test="${isRunning and isMultiRound and not isCheckpointRoundPassed}">
+                <c:set var="nextDeadlineText" value="Checkpoint Submission"/>
+                <c:set var="nextDeadlineTime" value="${checkpointDate}" scope="request"/>
             </c:when>
             <c:otherwise>
                 <c:set var="nextDeadlineText" value="Final Submission"/>
@@ -287,9 +287,9 @@ request.setAttribute("clientPrize", new Long(Prize.MILESTONE_PRIZE_TYPE_ID));
                            at <fmt:formatDate value="${contest.startTime}" pattern="HH:mm zzz"/></span></p>
 
                 <c:if test="${isMultiRound}">
-                    <p><label>Milestone:</label>
-                       <span><fmt:formatDate value="${milestoneDate}" pattern="MMM dd, yyyy"/>
-                           at <fmt:formatDate value="${milestoneDate}" pattern="HH:mm zzz"/>
+                    <p><label>Checkpoint:</label>
+                       <span><fmt:formatDate value="${checkpointDate}" pattern="MMM dd, yyyy"/>
+                           at <fmt:formatDate value="${checkpointDate}" pattern="HH:mm zzz"/>
                        </span>
                     </p>
                 </c:if>

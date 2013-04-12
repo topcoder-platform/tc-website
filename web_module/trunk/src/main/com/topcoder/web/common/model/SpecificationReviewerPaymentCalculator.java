@@ -9,7 +9,7 @@ package com.topcoder.web.common.model;
  * <p>
  *   Version 1.0.1 (Online Review Replatforming Release 2) Change notes:
  *   <ol>
- *     <li>Added {@link #getMilestoneScreeningCost()} to calculate payment for the milestone screener.</li>
+ *     <li>Added {@link #getCheckpointScreeningCost()} to calculate payment for the checkpoint screener.</li>
  *   </ol>
  * </p>
  * 
@@ -177,14 +177,14 @@ public class SpecificationReviewerPaymentCalculator implements ReviewerPaymentCa
     }
 
     /**
-     * Gets the milestone screening cost
+     * Gets the checkpoint screening cost
      *
-     * Note: there is no milestone screening cost for specification review projects.
+     * Note: there is no checkpoint screening cost for specification review projects.
      *
      * @return the screening cost
      * @since 1.0.1
      */
-    public float getMilestoneScreeningCost() {
+    public float getCheckpointScreeningCost() {
         return 0;
     }
 

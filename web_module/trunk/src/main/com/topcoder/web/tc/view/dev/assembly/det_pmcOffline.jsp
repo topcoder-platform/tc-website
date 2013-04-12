@@ -92,13 +92,13 @@ TopCoder will compensate teams with first and second place submissions. Initial 
 <br><br>
 <strong>Winning Team</strong><br>
 Total Payment - $8,000<br>
-*Additional Milestone Bonuses - $1,500
+*Additional Checkpoint Bonuses - $1,500
 <br><br>
 <strong>Second Place Team</strong><br>
 Total Payment - $4,000<br>
-*Additional Milestone Bonuses - $800
+*Additional Checkpoint Bonuses - $800
 <br><br>
-*Additional bonuses are included when the Winning and Second Place Team meet each of the competition milestones. Milestones will be available once registered.
+*Additional bonuses are included when the Winning and Second Place Team meet each of the competition checkpoints. Checkpoints will be available once registered.
 <br><br>
 
 <div class="sectionHeader">Eligibility</div>

@@ -81,7 +81,7 @@ Documentation/Specifications are available in the application forums <A href="ht
 <br><br>
 --%>
 <div class="sectionHeader">Payment</div>
-TopCoder will compensate teams with first and second place submissions. Initial payment for the winning team will be distributed in two installments. First Milestone: When the winning solution is submitted and review board suggestions are integrated. Second Milestone: Marked by the completion of the Deployment phase of the project. 
+TopCoder will compensate teams with first and second place submissions. Initial payment for the winning team will be distributed in two installments. First Checkpoint: When the winning solution is submitted and review board suggestions are integrated. Second Checkpoint: Marked by the completion of the Deployment phase of the project. 
 <br><br>
 <strong>Winning Team</strong><br>
 Total Payment - $15,000
@@ -143,8 +143,8 @@ All submissions are required to be submitted by the end of Competition Phase. Th
 </table>
 </div>
 <br><br>
-<div class="sectionHeader">Milestones</div>
-At intervals during the competition phase, assembly teams will be expected to demonstrate progress by providing interim deliverables as specified in the following table.  <span class="bigRed">Each team will receive payment for successfully submitting their milestone as indicated below.  Milestones payments are not dependent on a final solution.  Each team will be compensated per milestone.</span><br><br>
+<div class="sectionHeader">Checkpoints</div>
+At intervals during the competition phase, assembly teams will be expected to demonstrate progress by providing interim deliverables as specified in the following table.  <span class="bigRed">Each team will receive payment for successfully submitting their checkpoint as indicated below.  Checkpoints payments are not dependent on a final solution.  Each team will be compensated per checkpoint.</span><br><br>
 <div align="center">
 <table cellpadding="0" cellspacing="0" border="0" width="350">
    <tr>

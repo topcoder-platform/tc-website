@@ -536,7 +536,7 @@
                     If you make more than ${contest.maxSubmissions} submission<c:if
                         test="${contest.maxSubmissions>1}">s</c:if>
                     for this contest, you can rearrange the order of your submissions until the end of the Submission
-                    Phase. Note that milestone submissions can't be rearranged after milestone deadline. All submissions that are not eligible (anything over the submission limit) 
+                    Phase. Note that checkpoint submissions can't be rearranged after checkpoint deadline. All submissions that are not eligible (anything over the submission limit) 
 					remaining after the submission phase has ended will be deleted by the system.
                 </p>
             </c:when>

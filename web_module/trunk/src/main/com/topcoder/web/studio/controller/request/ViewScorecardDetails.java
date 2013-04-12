@@ -129,9 +129,9 @@ public class ViewScorecardDetails extends ShortHibernateProcessor {
             throw new NavigationException("Cannot view the uncommitted review");
         }
         
-        // only Screening scorecard and Milestone Screening scorecard can be viewed in Studio site
+        // only Screening scorecard and Checkpoint Screening scorecard can be viewed in Studio site
         String scorecardType = review.getScorecard().getType().getName();
-        if (!("Screening".equals(scorecardType) || "Milestone Screening".equals(scorecardType))) {
+        if (!("Screening".equals(scorecardType) || "Checkpoint Screening".equals(scorecardType))) {
             throw new NavigationException(scorecardType + " scorecard can't be viewed in Studio");
         }
         

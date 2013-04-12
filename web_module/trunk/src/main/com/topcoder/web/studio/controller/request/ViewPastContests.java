@@ -28,7 +28,7 @@ import java.util.Map;
  *   Version 1.1 (BUGR-2786) Change notes:
  *   <ol>
  *     <li>
- *          Added sort order for milestone_date column.
+ *          Added sort order for checkpoint_date column.
  *     </li>
  *   </ol>
  * </p>

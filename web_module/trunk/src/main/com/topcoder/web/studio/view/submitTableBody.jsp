@@ -16,10 +16,10 @@
 <c:set var="isFinished" value="${contest.reviewClosed}"/>
 <c:set var="isStarted" value="${contest.submissionOpen}"/>
 <c:set var="isRunning" value="${isStarted and not isFinished}"/>
-<c:set var="isMultiRound" value="${not empty contest.milestoneDate}"/>
-<c:set var="isMilestoneRoundPassed" value="${isRunning and isMultiRound and contest.milestoneSubmissionClosed}"/>
+<c:set var="isMultiRound" value="${not empty contest.checkpointDate}"/>
+<c:set var="isCheckpointRoundPassed" value="${isRunning and isMultiRound and contest.checkpointSubmissionClosed}"/>
 
-<c:set var="milestoneSubmissionType" value="3" />
+<c:set var="checkpointSubmissionType" value="3" />
 
 <c:forEach items="${submissions}" var="submission">
     <div class="submission-list-item" data-id="${submission.id}" data-rank="${submission.rank}"
@@ -51,8 +51,8 @@
                                 <span>
                                 <c:choose>
                                     <c:when
-                                        test="${submission.typeId eq milestoneSubmissionType}">
-                                        Milestone
+                                        test="${submission.typeId eq checkpointSubmissionType}">
+                                        Checkpoint
                                     </c:when>
                                     <c:otherwise>
                                         Final
@@ -67,13 +67,13 @@
                                 </span>
                             </li>
                             <li class="move">
-                            <c:if test="${not (isMilestoneRoundPassed and submission.typeId eq milestoneSubmissionType)}">
+                            <c:if test="${not (isCheckpointRoundPassed and submission.typeId eq checkpointSubmissionType)}">
                                 <a href="javascript:;" class="btn-move-down"></a>
                                 <a href="javascript:;" class="btn-move-up"></a>
                             </c:if>
                             </li>
                             <li class="remove">
-                            <c:if test="${not (isMilestoneRoundPassed and submission.typeId eq milestoneSubmissionType)}">
+                            <c:if test="${not (isCheckpointRoundPassed and submission.typeId eq checkpointSubmissionType)}">
                                 <a href="javascript:;" class="btn-remove"></a>
                             </c:if>
                             </li>

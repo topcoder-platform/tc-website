@@ -66,7 +66,7 @@ public class ViewActiveContests extends BaseProcessor {
         DEFAULT_SORT_DIRECTION.put(3, true);
         DEFAULT_SORT_PRIORITY.add(4);          // start_time
         DEFAULT_SORT_DIRECTION.put(4, false);
-        DEFAULT_SORT_PRIORITY.add(14);         // milestone_date
+        DEFAULT_SORT_PRIORITY.add(14);         // checkpoint_date
         DEFAULT_SORT_DIRECTION.put(14, true);
         DEFAULT_SORT_PRIORITY.add(5);          // end_time
         DEFAULT_SORT_DIRECTION.put(5, true);
