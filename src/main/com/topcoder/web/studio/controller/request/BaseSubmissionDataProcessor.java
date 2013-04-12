@@ -77,7 +77,7 @@ abstract class BaseSubmissionDataProcessor extends ShortHibernateProcessor {
         
         List<Integer> subTypeIds = new ArrayList<Integer>();
         subTypeIds.add(Submission.CONTEST_SUBMISSION);
-        subTypeIds.add(Submission.MILESTONE_SUBMISSION);
+        subTypeIds.add(Submission.CHECKPOINT_SUBMISSION);
         
         if (uploads != null && uploads.size() > 0) {
             Integer maxRank = submissionDAO.getMaxRank(uploads);
@@ -95,19 +95,19 @@ abstract class BaseSubmissionDataProcessor extends ShortHibernateProcessor {
     }
     
      /**
-     * <p>Gets the submission type based on the contest phase (Milestone or Contest submission).</p>
+     * <p>Gets the submission type based on the contest phase (Checkpoint or Contest submission).</p>
      * 
      * @param project the contest to search for submission type
      * @return the submission type for current contest phase
      */
     protected Integer getSubmissionTypeId(Project project) {
         Integer submissionTypeId = Submission.CONTEST_SUBMISSION;
-        // Check if there is milestone for contest and if still open
-        Date mileStoneDate = project.getMilestoneDate();
-        if (mileStoneDate != null) {
-            if (new Date().before(mileStoneDate)) {
-                log.debug("Get submission of type Milestone.");
-                submissionTypeId = Submission.MILESTONE_SUBMISSION;
+        // Check if there is checkpoint for contest and if still open
+        Date checkpointDate = project.getCheckpointDate();
+        if (checkpointDate != null) {
+            if (new Date().before(checkpointDate)) {
+                log.debug("Get submission of type Checkpoint.");
+                submissionTypeId = Submission.CHECKPOINT_SUBMISSION;
             }
         }
         

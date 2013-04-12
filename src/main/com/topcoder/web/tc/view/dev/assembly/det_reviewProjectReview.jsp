@@ -79,10 +79,10 @@ Total Payment - $10,000
 <strong>Second Place Team</strong><br>
 Total Payment - $5,000
 <br><br>
-Initial payment for the winning team will be distributed in two installments corresponding to two project milestones:
+Initial payment for the winning team will be distributed in two installments corresponding to two project checkpoints:
 <ul>
-<li>First Milestone: The winning solution is submitted and review board suggestions are integrated.</li>
-<li>Second Milestone: The project's deployment phase is completed.</li>
+<li>First Checkpoint: The winning solution is submitted and review board suggestions are integrated.</li>
+<li>Second Checkpoint: The project's deployment phase is completed.</li>
 </ul>
 
 <div class="sectionHeader">Eligibility</div>

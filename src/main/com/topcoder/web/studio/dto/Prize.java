@@ -20,9 +20,9 @@ public class Prize implements Comparable<Prize> {
     public static final long CONTEST_PRIZE_TYPE_ID = 15; 
 
     /**
-     * <p>A <code>long</code> providing the ID for <code>Milestone Prize</code> prize type.</p>
+     * <p>A <code>long</code> providing the ID for <code>Checkpoint Prize</code> prize type.</p>
      */
-    public static final long MILESTONE_PRIZE_TYPE_ID = 14; 
+    public static final long CHECKPOINT_PRIZE_TYPE_ID = 14; 
 
     /**
      * <p>A <code>Long</code> providing the ID of this prize.</p>

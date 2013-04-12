@@ -138,7 +138,7 @@ public class ViewReviewOpportunities extends BaseProcessor {
                 payment += paymentCalculator.getScreeningCost();
                 if (row.getTimestampItem("milestone_screening_start_time") != null) {
                     // multi round
-                    payment += paymentCalculator.getMilestoneScreeningCost();
+                    payment += paymentCalculator.getCheckpointScreeningCost();
                 }
             } else if ("Spec Review".equalsIgnoreCase(reviewType)) {
                 payment = paymentCalculator.getSpecReviewCost();

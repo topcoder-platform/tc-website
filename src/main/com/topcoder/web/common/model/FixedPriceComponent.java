@@ -13,7 +13,7 @@ import com.topcoder.shared.util.logging.Logger;
  * <p>
  * Version 1.0.1 (Online Review Replatforming Release 2) Change notes:
  *   <ol>
- *     <li>Added {@link #getMilestoneScreeningCost()} to calculate payment for the milestone screener.</li>
+ *     <li>Added {@link #getCheckpointScreeningCost()} to calculate payment for the checkpoint screener.</li>
  *   </ol>
  * </p>
  * 
@@ -125,13 +125,13 @@ public class FixedPriceComponent extends DefaultPriceComponent {
     }
 
     /**
-     * Calculate the payment cost for milestone screener.
+     * Calculate the payment cost for checkpoint screener.
      * 
-     * @return the payment cost for milestone screener.
+     * @return the payment cost for checkpoint screener.
      * @since 1.0.1
      */
-    public float getMilestoneScreeningCost() {
-        return Math.round(super.getMilestoneScreeningCost() * primaryAdjustmentFactor);
+    public float getCheckpointScreeningCost() {
+        return Math.round(super.getCheckpointScreeningCost() * primaryAdjustmentFactor);
     }
 
     /**

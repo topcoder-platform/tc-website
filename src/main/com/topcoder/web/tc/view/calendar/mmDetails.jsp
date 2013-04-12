@@ -636,7 +636,7 @@ TopCoder may *offer* to purchase submissions outside the Top-4 if the client is 
 <%if (roundId == 15520) {%>
 <div class="sectionHeader">Prizes</div>
     <p align="justify">There is a total $30,000 USD cash prize purse for this contest, 100 T-shirts, 5 stickers that have flown in space
-and 5 letters of recommendation. $25,000 USD is allocated for the final prizes and $5,000 are allocated for milestone prizes. The contestants with
+and 5 letters of recommendation. $25,000 USD is allocated for the final prizes and $5,000 are allocated for checkpoint prizes. The contestants with
 the 10 highest non-zero final scores will be awarded the following prizes.</p>
 
 <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
@@ -672,10 +672,10 @@ the 10 highest non-zero final scores will be awarded the following prizes.</p>
     </tr>
 </table>
 
-<p align="justify">One week after the start of the contest the first set of milestone prizes will be selected. The contestants with the top 4 highest
+<p align="justify">One week after the start of the contest the first set of checkpoint prizes will be selected. The contestants with the top 4 highest
 provisional scores (on the leader board) at that time will receive the prizes listed below. Then two weeks after the start of the contest, the second
-set of milestone prizes will be selected for the contestants with the 4 highest provisional scores at that time.
-See below for the exact date and time for the selection of the milestone winners. </p>
+set of checkpoint prizes will be selected for the contestants with the 4 highest provisional scores at that time.
+See below for the exact date and time for the selection of the checkpoint winners. </p>
 
 <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="275">
     <tr>
@@ -708,7 +708,7 @@ These could be used to aid your job search, for applying for entry into a school
 <p align="justify">Before the contest, this problem was extensively tested by an experienced marathon competitor (but for a shorter time period
 than the actual contest). The tester's pre-contest solution will be submitted at the start of the contest (using the handle "mm_tester") and
 will not be modified throughout the contest. This will make the tester's provisional score visible throughout the match. The tester will be eligible
-for the final prizes based on his initial submission, but not the tester is eligible for the milestone prizes.
+for the final prizes based on his initial submission, but not the tester is eligible for the checkpoint prizes.
 The tester's identity will not be revealed until the contest is over.</p>
 <%}%>
 
@@ -867,7 +867,7 @@ total prize money. The detailed rules of this phase will be posted to the marath
             <% if (roundId == 15520) { %>
             <tr>
                 <td width="100%" align="left">
-                    <strong>1st milestone:</strong>
+                    <strong>1st checkpoint:</strong>
                 </td>
                 <td align="center" nowrap="nowrap">
 		<b>01.23.2013</b></br>
@@ -875,7 +875,7 @@ total prize money. The detailed rules of this phase will be posted to the marath
             </tr>
             <tr>
                 <td width="100%" align="left">
-                    <strong>2nd milestone:</strong>
+                    <strong>2nd checkpoint:</strong>
                 </td>
                 <td align="center" nowrap="nowrap">
 		<b>01.30.2013</b></br>

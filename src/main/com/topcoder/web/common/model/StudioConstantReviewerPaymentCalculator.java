@@ -16,7 +16,7 @@ import com.topcoder.web.common.WebConstants;
  * <ol>
  *   <li>Added {@link #projectCategory} field and getter/setter for it.</li>
  *   <li>Updated {@link #getScreeningCost()} method to return the screening cost based on the project category.</li>
- *   <li>Updated {@link #getMilestoneScreeningCost()} method to always return 0.</li>
+ *   <li>Updated {@link #getCheckpointScreeningCost()} method to always return 0.</li>
  *   <li>Added {@link #getSpecReviewCost()} method to return the Specification Review Cost.</li>
  * </ol>
  * </p>
@@ -90,11 +90,11 @@ public class StudioConstantReviewerPaymentCalculator extends BaseReviewerPayment
     }
 
     /**
-     * Gets the payment for the milestone screener.
+     * Gets the payment for the checkpoint screener.
      * 
-     * @return the payment for the milestone screener.
+     * @return the payment for the checkpoint screener.
      */
-    public float getMilestoneScreeningCost() {
+    public float getCheckpointScreeningCost() {
         return 0.0f;
     }
 

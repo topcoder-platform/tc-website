@@ -50,14 +50,14 @@
    ResultSetContainer projectInfo = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("project_info");
    ResultSetContainer submissions = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("submissions");
    ResultSetContainer reviewResults = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("review_results");
-   ResultSetContainer milestoneInfo = (ResultSetContainer) request.getAttribute("milestones");
+   ResultSetContainer checkpointInfo = (ResultSetContainer) request.getAttribute("checkpoints");
    SessionInfo sessionInfo = (SessionInfo) request.getAttribute(BaseServlet.SESSION_INFO_KEY);
 
    long projectId = Long.parseLong((String) request.getAttribute("projectId"));
    String tabIndex = (String) request.getAttribute("tabIndex");
    boolean isComplete = ((Boolean) request.getAttribute("isComplete")).booleanValue() || sessionInfo.isAdmin();
    boolean submissionPhaseOpen = ((Boolean) request.getAttribute("submissionPhaseOpen")).booleanValue();
-   boolean hasMilestone = ((Boolean) request.getAttribute("hasMilestone")).booleanValue();
+   boolean hasCheckpoint = ((Boolean) request.getAttribute("hasCheckpoint")).booleanValue();
    boolean hasFinalReview = ((Boolean) request.getAttribute("hasFinalReview")).booleanValue();
    boolean hasApproval = ((Boolean) request.getAttribute("hasApproval")).booleanValue();
 
@@ -71,7 +71,7 @@
        }
    }
    String[] places = {"1st", "2nd", "3rd", "4th", "5th"};
-   String milestoneGeneralFeedback = projectDetail.getStringItem(0, "milestone_general_feedback");
+   String checkpointGeneralFeedback = projectDetail.getStringItem(0, "milestone_general_feedback");
 %>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -154,9 +154,9 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <c:if test="${hasMilestone}">
-                                    <div class="milestonesInfor">
-                                        <h3>Milestones</h3>
+                                    <c:if test="${hasCheckpoint}">
+                                    <div class="checkpointsInfor">
+                                        <h3>Checkpoints</h3>
                                         <ul>
                                         <% for (int i = 0; i < projectDetail.getIntItem(0, "milestone_number"); ++i) { %>
                                             <li <%=(i == projectDetail.getIntItem(0, "milestone_number") - 1 ? "class=\"last\"" : "")%>>
@@ -183,9 +183,9 @@
                                         <li><a href="javascript:;" <c:if test="${tabIndex == 'overview'}"> class="current"</c:if> rel="overview">
                                             <span><span><span>Contest Overview</span></span></span>
                                         </a></li>
-                                        <c:if test="${milestoneReviewFinished}">
-                                        <li><a href="javascript:;" <c:if test="${tabIndex == 'milestone'}"> class="current"</c:if> rel="milestones">
-                                            <span><span><span>Milestones</span></span></span>
+                                        <c:if test="${checkpointReviewFinished}">
+                                        <li><a href="javascript:;" <c:if test="${tabIndex == 'checkpoint'}"> class="current"</c:if> rel="checkpoints">
+                                            <span><span><span>Checkpoints</span></span></span>
                                         </a></li>
                                         </c:if>
                                         <c:if test="${resultAvailable}">
@@ -323,15 +323,15 @@
                                             <div class="containerInner">
                                                 
                                                 <p>TopCoder will compensate members with first and second place submissions. Initial payment for the winning member will be distributed in two installments. The first payment will be made at the closure of the approval phase. The second payment will be made at the completion of the support period.</p>
-                                                <c:if test="${hasMilestone}">
-                                                <p><span class="bodySubtitle">Milestone</span></p>
+                                                <c:if test="${hasCheckpoint}">
+                                                <p><span class="bodySubtitle">Checkpoint</span></p>
                                                 <dl>
-                                                    <dt>For the milestone, the top <%=projectDetail.getIntItem(0, "milestone_number")%> submissions will be chosen and ranked by the client. Read below carefully.</dt>
+                                                    <dt>For the checkpoint, the top <%=projectDetail.getIntItem(0, "milestone_number")%> submissions will be chosen and ranked by the client. Read below carefully.</dt>
                                                     <dd>
                                                         <ul>
                                                             <li>The winners are completely at the client's discretion.</li>
-                                                            <li>You must upload your milestone to Online Review. The timestamp of your submission will be used to determine if you are eligible for a milestone review and payment. The milestone deadline will be posted to the forum.</li>
-                                                            <li>If you are selected to win a milestone payment,<font color="red">YOUR FINAL SUBMISSION MUST PASS THE REVIEW TO EARN YOUR MILESTONE PAYMENT.</font>If you do not pass review, you will not be awarded the payment money.</li>
+                                                            <li>You must upload your checkpoint to Online Review. The timestamp of your submission will be used to determine if you are eligible for a checkpoint review and payment. The checkpoint deadline will be posted to the forum.</li>
+                                                            <li>If you are selected to win a checkpoint payment,<font color="red">YOUR FINAL SUBMISSION MUST PASS THE REVIEW TO EARN YOUR CHECKPOINT PAYMENT.</font>If you do not pass review, you will not be awarded the payment money.</li>
                                                         </ul>
                                                     </dd>
                                                 </dl>
@@ -399,26 +399,26 @@
                                     </div>
                                     <!-- End #overview -->
 
-                                    <c:if test="${milestoneReviewFinished}">
-                                    <!-- Milestones -->
-                                    <div id="milestones" class="tabContainerInner">
+                                    <c:if test="${checkpointReviewFinished}">
+                                    <!-- Checkpoints -->
+                                    <div id="checkpoints" class="tabContainerInner">
                                         <%
                                             int place = 0;
-                                            for (int i = 0; i < milestoneInfo.size(); ++i) {
-                                                int milestoneStatus = milestoneInfo.getIntItem(i, "submission_status_id");
-                                                double finalScore = milestoneInfo.getDoubleItem(i, "final_score");
-                                                if (milestoneStatus == 6 || milestoneStatus == 7 || finalScore <= 10.1) {
+                                            for (int i = 0; i < checkpointInfo.size(); ++i) {
+                                                int checkpointStatus = checkpointInfo.getIntItem(i, "submission_status_id");
+                                                double finalScore = checkpointInfo.getDoubleItem(i, "final_score");
+                                                if (checkpointStatus == 6 || checkpointStatus == 7 || finalScore <= 10.1) {
                                                     continue;
                                                 }
                                                 place++;
-                                                long submissionId = milestoneInfo.getLongItem(i, "submission_id");
-                                                if(1 == place) { // print the milestone winners div start
+                                                long submissionId = checkpointInfo.getLongItem(i, "submission_id");
+                                                if(1 == place) { // print the checkpoint winners div start
                                          %>
-                                         <!-- Milestone Winners -->
-                                         <div class="milestoneWinners">
-                                            <h3>Milestone Winners</h3>
-                                            <div class="milestoneWinnersList">
-                                                <div class="milestoneWinnersListInner">
+                                         <!-- Checkpoint Winners -->
+                                         <div class="checkpointWinners">
+                                            <h3>Checkpoint Winners</h3>
+                                            <div class="checkpointWinnersList">
+                                                <div class="checkpointWinnersListInner">
                                                     <ul>
                                           <%
                                                 }
@@ -426,7 +426,7 @@
                                                     <li class="prize<%=places[place - 1]%>"><div><span class="contest"><span>#<%=submissionId%></span></span></div></li>
                                           <%
                                             }
-                                                if(place > 0) { // print the milestone winners div end
+                                                if(place > 0) { // print the checkpoint winners div end
                                           %>
                                                     </ul>
                                                 </div>
@@ -437,32 +437,32 @@
                                             </div>
                                             <div class="shadow"></div>
                                         </div>
-                                        <!-- End .milestoneWinners -->
+                                        <!-- End .checkpointWinners -->
                                           <%
                                                 }
                                           %>
 
-                                        <% if ((null != milestoneGeneralFeedback) && !milestoneGeneralFeedback.trim().equals("")) { %>
-                                        <!-- Milestone General Feedback -->
+                                        <% if ((null != checkpointGeneralFeedback) && !checkpointGeneralFeedback.trim().equals("")) { %>
+                                        <!-- Checkpoint General Feedback -->
                                         <div class="feedback">
                                             <div class="title">
-                                                <h3>Milestone General Feedback</h3>
+                                                <h3>Checkpoint General Feedback</h3>
                                             </div>
                                             <div class="container">
-                                                <p><%=milestoneGeneralFeedback%></p>
+                                                <p><%=checkpointGeneralFeedback%></p>
                                             </div>
                                         </div>
                                         <% } %>
                                         <!-- End .feedback -->
                                     <% 
-                                        for (int i = 0; i < milestoneInfo.size(); ++i) {
-                                            String feedback = milestoneInfo.getStringItem(i, "feedback");
+                                        for (int i = 0; i < checkpointInfo.size(); ++i) {
+                                            String feedback = checkpointInfo.getStringItem(i, "feedback");
                                             if ((null != feedback) && !feedback.trim().equals("")) {
                                     %>
                                         <!-- Feedback -->
                                         <div class="feedback">
                                             <div class="title">
-                                                <h3>Feedback #<%=milestoneInfo.getLongItem(i, "submission_id")%></h3>
+                                                <h3>Feedback #<%=checkpointInfo.getLongItem(i, "submission_id")%></h3>
                                                 <a href="javascript:;" class="toggle">Show</a>
                                             </div>
                                             <div class="container hidden">
@@ -472,7 +472,7 @@
                                         <!-- End .feedback -->
                                     <% }}%>
                                     </div>
-                                    <!-- End #milestones -->
+                                    <!-- End #checkpoints -->
                                     </c:if>
 
                                     <c:if test="${resultAvailable}">
@@ -621,9 +621,9 @@
                                             <strong>Register By:</strong>
                                             <span><rsc:item set="<%=projectDetail%>" name="register_end_date" format="MM/dd/yyyy hh:mm a z"/></span>
                                         </li>
-										<c:if test="${hasMilestone}">
+										<c:if test="${hasCheckpoint}">
                                         <li>
-                                            <strong>Milestone Submission:</strong>
+                                            <strong>Checkpoint Submission:</strong>
                                             <span><rsc:item set="<%=projectDetail%>" name="milestone_submission_date" format="MM/dd/yyyy hh:mm a z"/></span>
                                         </li>
                                         </c:if>
@@ -665,11 +665,11 @@
                                 <div class="inner">
                                     <ul>
                                         <%
-                                            if(hasMilestone) {
+                                            if(hasCheckpoint) {
                                         %>
                                         <li>
-                                            <strong>Milestone Review: </strong><span>User Selection</span>
-                                            <a href="javascript:;" class="tooltip" onmouseover="showTooltip(this, 'MilestoneReview');" onmouseout="hideTooltip('MilestoneReview');">&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                                            <strong>Checkpoint Review: </strong><span>User Selection</span>
+                                            <a href="javascript:;" class="tooltip" onmouseover="showTooltip(this, 'CheckpointReview');" onmouseout="hideTooltip('CheckpointReview');">&nbsp;&nbsp;&nbsp;&nbsp;</a>
                                         </li>
                                         <%  }
                                             if(hasFinalReview) {
@@ -814,15 +814,15 @@
 </rsc:iterator>
 <!-- End #tip -->
 <%
-    if(hasMilestone) {
+    if(hasCheckpoint) {
 %>
-<div class="tip reviewStyleTip tipMilestoneReview" onmouseover="enterTooltip('MilestoneReview')" onmouseout="hideTooltip('MilestoneReview')">
+<div class="tip reviewStyleTip tipCheckpointReview" onmouseover="enterTooltip('CheckpointReview')" onmouseout="hideTooltip('CheckpointReview')">
     <div class="inner">
         <div class="tipHeader">
-            <h2>Milestone Review</h2>
+            <h2>Checkpoint Review</h2>
         </div>
         <div class="tipBody">
-            Customer performs a subjective review of milestone submissions, awards bonuses and provides feedback to competitors.
+            Customer performs a subjective review of checkpoint submissions, awards bonuses and provides feedback to competitors.
         </div>
         <div class="corner tl"></div>
         <div class="corner tr"></div>
@@ -831,7 +831,7 @@
     </div>
     <div class="shadow"></div>
 </div>
-<!-- End #Milestone Review tip -->
+<!-- End #Checkpoint Review tip -->
 <%
     }
     if(hasFinalReview) {

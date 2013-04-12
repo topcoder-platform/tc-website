@@ -19,7 +19,7 @@
   -    * Added proper links on RSS feeds for 'Thoughts for blogs' and 'Contest Chatter'.
   -
   - Version 1.3 (BUGR-2786) Change Notes:
-  -    * If the milestone date has not been reached, use this date to calculate time left 
+  -    * If the checkpoint date has not been reached, use this date to calculate time left 
   -
   - Version 1.4 (Studio Enhancements Release Assembly 1) Change Notes:
   -    * Thoughts From The Blog entry now shows an excerpt from the blog entry
@@ -173,9 +173,9 @@
                                                     <td class="last">
                                                         <%
                                                         Date endDate;
-                                                        Object milestoneDate = resultRow.getItem("milestone_date").getResultData(); 
-                                                        if (milestoneDate != null && (new Date()).before((Date) milestoneDate)) {
-                                                            endDate = (Date) milestoneDate;
+                                                        Object checkpointDate = resultRow.getItem("milestone_date").getResultData(); 
+                                                        if (checkpointDate != null && (new Date()).before((Date) checkpointDate)) {
+                                                            endDate = (Date) checkpointDate;
                                                         } else {
                                                             endDate = (Date)(resultRow.getItem("end_time").getResultData());
                                                         }

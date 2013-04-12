@@ -33,7 +33,7 @@
 <c:set var="DIGITAL_RUN_SEASON" value="<%= PactsConstants.REFERENCE_DIGITAL_RUN_SEASON_ID + "" %>" />
 <c:set var="PARENT_PAYMENT" value="<%= PactsConstants.REFERENCE_PARENT_PAYMENT_ID + "" %>" />
 <c:set var="CONTEST_PAYMENT" value="<%= PactsConstants.CONTEST_PAYMENT + "" %>" />
-<c:set var="CONTEST_MILESTONE_PAYMENT" value="<%= PactsConstants.CONTEST_MILESTONE_PAYMENT + "" %>" />
+<c:set var="CONTEST_CHECKPOINT_PAYMENT" value="<%= PactsConstants.CONTEST_CHECKPOINT_PAYMENT + "" %>" />
 
 
 <taconite-root xml:space="preserve">
@@ -315,7 +315,7 @@
      </taconite-replace>     
     <taconite-replace contextNodeID="trPlaced" parseInBrowser="true">
         <c:choose>
-            <c:when test="${type == CONTEST_PAYMENT or type == CONTEST_MILESTONE_PAYMENT}">
+            <c:when test="${type == CONTEST_PAYMENT or type == CONTEST_CHECKPOINT_PAYMENT}">
             <tr id="trPlaced"> 
             <td><b>Placed:</b></td>
             <td>

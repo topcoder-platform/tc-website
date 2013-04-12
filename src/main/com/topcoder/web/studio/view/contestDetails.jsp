@@ -8,8 +8,8 @@
   - Version 1.1 (Studio Multi-Rounds Assembly - Studio Contest Details v1.0) changes:
   -     - If the contest is a multi-round contest, display multi-round specific "Studio Tournament Format" information.
   -       including total prize purse, round 1 and round 2 information.
-  -     - If the contest is a multi-round contest display "Milestone date" between the Start Date and End Date.
-  -     - If the contest is a multi-round contest display the milestone prize amount below the standard prize list.
+  -     - If the contest is a multi-round contest display "Checkpoint date" between the Start Date and End Date.
+  -     - If the contest is a multi-round contest display the checkpoint prize amount below the standard prize list.
   - Version 1.2 (BUGR-2890) changes:
   -     - If the user has cockpit permissions, show downloads section.
   - Version 1.3 (Studio Electronic Assignment Document Assembly version 1.0) changes:
@@ -34,7 +34,7 @@
 <%@ taglib uri="studio.tld" prefix="studio" %>
 <fmt:setLocale value="en_US"/>
 <c:set var="contest" value="${requestScope.contest}"/>
-<c:set var="isMultiRound" value="${not empty contest.milestoneDate}"/>
+<c:set var="isMultiRound" value="${not empty contest.checkpointDate}"/>
 <c:set var="registered" value="${requestScope.registered}"/>
 <c:set var="specReviewer" value="${requestScope.isSpecReviewer}" />
 <c:set var="CONTEST_ID" value="<%=Constants.CONTEST_ID%>"/>
@@ -42,7 +42,7 @@
 
 <c:set var="prizesCount" value="${fn:length(contest.prizes)}"/>
 <c:set var="drPointsAvailable" value="${contest.digitalRunPoints ne null and contest.digitalRunPoints > 0}"/>
-<c:set var="hasMilestoneRoundPrize" value="${isMultiRound and not empty contest.milestonePrize and not empty contest.milestonePrize.numberOfSubmissions and not empty contest.milestonePrize.amount}"/>
+<c:set var="hasCheckpointRoundPrize" value="${isMultiRound and not empty contest.checkpointPrize and not empty contest.checkpointPrize.numberOfSubmissions and not empty contest.checkpointPrize.amount}"/>
 <c:set var="placeSuffixes"
        value="<%=new String[] {"st", "nd", "rd", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th"}%>"/>
 <c:set var="isFinished" value="${contest.reviewClosed}"/>
@@ -114,7 +114,7 @@
                     provided by the client or Studio Admins in the forums. Please post any questions you might have for
                     the client in the forums.</p>
 
-        <c:if test="${isMultiRound and not empty contest.milestonePrize
+        <c:if test="${isMultiRound and not empty contest.checkpointPrize
                           and not empty spec.round1Introduction and not empty spec.round2Introduction}">
 
                 <h5 class="contentTitle">Studio Tournament Format</h5>
@@ -133,14 +133,14 @@
                 <h6 class="smallTitle red">Regarding the Rounds:</h6>
 
                 <ul class="red">
-                    <li>To be eligible for Round 1 prizes and design feedback, you must submit before the Milestone
+                    <li>To be eligible for Round 1 prizes and design feedback, you must submit before the Checkpoint
                         deadline.</li>
-                    <li>A day or two after the milestone deadline, the contest holder will announce Round 1 winners and
-                        provide design feedback to those winners in the "Milestone" tab above.</li>
+                    <li>A day or two after the Checkpoint deadline, the contest holder will announce Round 1 winners and
+                        provide design feedback to those winners in the "Checkpoints" tab above.</li>
                     <li>You must submit to Round 1 to be eligible to compete in Round 2. If your submission fails
                         screening for a small mistake in Round 1, you may still be eligible to submit to Round 2.</li>
                     <li>Every competitor with a passing Round 1 submission can submit to Round 2, even if they didn't
-                        win a milestone prize. </li>
+                        win a Checkpoint prize. </li>
                     <li><a href="http://community.topcoder.com/studio/types-of-competitions/multi-round-competitions-mini-tournaments/">Learn more here</a>.</li>
                 </ul>
         </c:if>

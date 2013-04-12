@@ -69,7 +69,7 @@ import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationS
  * <p>
  *   Version 1.6 (Release Assembly - TopCoder Software Contest Detail Page Update) Change notes:
  *   <ol>
- *     <li>Added {@link #getProjectOverview(String)}, {@link #getMilestoneInfo(String)}, and
+ *     <li>Added {@link #getProjectOverview(String)}, {@link #getCheckpointInfo(String)}, and
  *     {@link #getProjectResult(String)} to retrieve information for different parts of the page.</li>
  *     <li>Modified {@link #developmentProcessing()} to invoke the new methods to populate data into page.</li>
  *   </ol>
@@ -143,7 +143,7 @@ public class ProjectDetail extends Base {
                 throw new NavigationException("Could not find project information.");
             }
             String tabIndex = getRequest().getParameter(Constants.TAB_INDEX);
-            if((null == tabIndex) || (!tabIndex.equals("milestone") && !tabIndex.equals("results"))) {
+            if((null == tabIndex) || (!tabIndex.equals("checkpoint") && !tabIndex.equals("results"))) {
                 tabIndex = "overview";
             }
             getRequest().setAttribute("tabIndex", tabIndex);
@@ -151,8 +151,8 @@ public class ProjectDetail extends Base {
             // get project overview
             getProjectOverview(projectId);
 
-            // get milestone information
-            getMilestoneInfo(projectId);
+            // get checkpoint information
+            getCheckpointInfo(projectId);
 
             // get project result information
             getProjectResult(projectId);
@@ -270,13 +270,13 @@ public class ProjectDetail extends Base {
                     reliabilityBonus.getReliabilityPercent(1.0, postingDate, categoryId) * firstPlacePrize : 
                     0.0);
             getRequest().setAttribute("hasDR", details.getIntItem(0, "dr_points") > 0);
-            getRequest().setAttribute("hasMilestone",
+            getRequest().setAttribute("hasCheckpoint",
                     details.getItem(0, "milestone_submission_date").getResultData() != null);
             getRequest().setAttribute("hasFinalReview",
                     details.getItem(0, "final_review_start_date").getResultData() != null);
             getRequest().setAttribute("hasApproval",
                     details.getItem(0, "final_approval_start_date").getResultData() != null);
-            getRequest().setAttribute("milestoneReviewFinished", details.getIntItem(0, "milestone_review_status") == 3);
+            getRequest().setAttribute("checkpointReviewFinished", details.getIntItem(0, "milestone_review_status") == 3);
 
             // set experiences and budget
             if (projectTypeId == Constants.COPILOT_POSTING_PROJECT_TYPE) {
@@ -317,23 +317,23 @@ public class ProjectDetail extends Base {
 
     /**
      * <p>
-     * Gets milestone information and add it to request.
+     * Gets checkpoint information and add it to request.
      * </p>
      * @param projectId
      *            the id of the project.
      * @throws TCWebException
      *             if any error occurs.
      */
-    private void getMilestoneInfo(String projectId) throws TCWebException {
+    private void getCheckpointInfo(String projectId) throws TCWebException {
         try {
             Request r = new Request();
             r.setContentHandle("milestone_info");
             r.setProperty(Constants.PROJECT_ID, projectId);
             DataAccessInt dai = getDataAccess();
-            Map milestoneInfo = dai.getData(r);
+            Map checkpointInfo = dai.getData(r);
 
-            ResultSetContainer milestones = (ResultSetContainer) milestoneInfo.get("milestone_info");
-            getRequest().setAttribute("milestones", milestones);
+            ResultSetContainer checkpoints = (ResultSetContainer) checkpointInfo.get("milestone_info");
+            getRequest().setAttribute("checkpoints", checkpoints);
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {

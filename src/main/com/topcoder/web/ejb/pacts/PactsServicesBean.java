@@ -5448,8 +5448,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     if (payment2 != null) {
                         payments.add(payment2);
                     }
-                } else if (submissionType.startsWith("Milestone Submission")) {
-                    payments.add(new ContestMilestonePayment(coderId, amount, client, projectId, placed));
+                } else if (submissionType.startsWith("Checkpoint Submission")) {
+                    payments.add(new ContestCheckpointPayment(coderId, amount, client, projectId, placed));
                 }
                 
                 resourceIds.add(new Long(resourceId));                

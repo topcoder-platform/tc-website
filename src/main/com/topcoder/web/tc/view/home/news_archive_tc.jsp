@@ -80,7 +80,7 @@
 <tr class="bodyText"><td nowrap="nowrap">12.19.07 9:00 AM - </td><td width="100%">TopCoder Has Moved</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.13.07 12:15 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=calendar&amp;d2=thisMonth">Event Calendar updated through March 2008</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.12.07 2:30 PM - </td><td width="100%"><a href="/tc?module=Static&amp;d1=architecture&amp;d2=beta">TopCoder Architecture Competitions Are Here!</a></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">11.21.07 1:15 PM - </td><td width="100%"><a href="http://www.topcoder.com/registration/actions/ProjectDetails.do?method=displayProjectDetails&projectId=30002900">Milestone added to Client Cockpit Contest</a></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">11.21.07 1:15 PM - </td><td width="100%"><a href="http://www.topcoder.com/registration/actions/ProjectDetails.do?method=displayProjectDetails&projectId=30002900">Checkpoint added to Client Cockpit Contest</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">11.12.07 1:00 PM - </td><td width="100%"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Thread&amp;threadID=593270&amp;start=0">The Next Evolution of TopCoder</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">10.30.07 5:45 PM - </td><td width="100%"><A target="_blank" href="http://csf.topcoder.com/forums?module=Thread&amp;threadID=123&amp;start=0">CSF Mashup Assembly $40,000.00 Series Prize Purse Winners</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">09.10.07 10:15 AM - </td><td width="100%"><A target="_blank" href="http://www.equitrader.com/trader/xco/tournaments">Test your trading skills, win $20,000</a></td></tr>

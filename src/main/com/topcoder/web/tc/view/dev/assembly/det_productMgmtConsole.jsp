@@ -76,7 +76,7 @@ These applications are to be used by a TopCoder client. All application document
 <span class="bodySubtitle">Competition Overview</span><br>
 This assembly competition will consist of prototype conversion, component integration, and extensive unit testing to ensure correct operation. 
 <br><br>
-This competition involves assembling the Product Management Console. The greatest part of the application is implemented by custom and generic components that have recently been completed. The main tasks will involve configuring these components and integrating them with the .Net Prototype. Teams will be required to commit their in-progress work to TopCoder's Subversion repository at specific milestones during the competition. 
+This competition involves assembling the Product Management Console. The greatest part of the application is implemented by custom and generic components that have recently been completed. The main tasks will involve configuring these components and integrating them with the .Net Prototype. Teams will be required to commit their in-progress work to TopCoder's Subversion repository at specific checkpoints during the competition. 
 <br><br>
 <div align="right"><A href="/tc?module=Static&d1=features&d2=061906"><img src="/i/development/assembly/learn_more.gif" alt="Want to Learn More?" border="0" /></A></div>
 
@@ -99,13 +99,13 @@ TopCoder will compensate teams with first and second place submissions. Initial 
 <br><br>
 <strong>Winning Team</strong><br>
 Total Payment - $17,000<br>
-*Additional Milestone Bonuses - $3,000
+*Additional Checkpoint Bonuses - $3,000
 <br><br>
 <strong>Second Place Team</strong><br>
 Total Payment - $8,600<br>
-*Additional Milestone Bonuses - $1,500
+*Additional Checkpoint Bonuses - $1,500
 <br><br>
-*Additional bonuses are included when the Winning and Second Place Team meet each of the competition milestones. Milestones will be available once registered.
+*Additional bonuses are included when the Winning and Second Place Team meet each of the competition checkpoints. Checkpoints will be available once registered.
 <br><br>
 
 <div class="sectionHeader">Eligibility</div>

@@ -87,10 +87,10 @@ Documentation/Specifications are available in the application forums <A href="ht
 --%>
 
 <div class="sectionHeader">Payment</div>
-TopCoder will compensate teams with first and second place submissions. Initial payment for the winning team will be distributed at two milestones: 
+TopCoder will compensate teams with first and second place submissions. Initial payment for the winning team will be distributed at two checkpoints: 
 <ul>
-<li><b>First Milestone</b>: When the winning solution is submitted and review board suggestions are integrated.</li>
-<li><b>Second Milestone</b>: Marked by the completion of the Deployment phase of the project.</li>
+<li><b>First Checkpoint</b>: When the winning solution is submitted and review board suggestions are integrated.</li>
+<li><b>Second Checkpoint</b>: Marked by the completion of the Deployment phase of the project.</li>
 </ul>
 
 <strong>Winning Team</strong><br>

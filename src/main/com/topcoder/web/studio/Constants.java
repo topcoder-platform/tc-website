@@ -594,12 +594,12 @@ public class Constants implements WebConstants {
     public static final String SPEC_REVIEW_ID = "srid";
 
     /**
-     * <p>A <code>String</code> providing the name of request parameter to specify the milestone date for a multi
+     * <p>A <code>String</code> providing the name of request parameter to specify the checkpoint date for a multi
      * round contest.</p>
      *
      * @since 1.2
      */
-    public static final String MILESTONE_DATE = "md";
+    public static final String CHECKPOINT_DATE = "md";
 
     /**
      * <p>A <code>String</code> providing the name of request parameter to specify the contest round type.</p>
@@ -623,18 +623,18 @@ public class Constants implements WebConstants {
     public static final String CONTEST_ROUND_TWO_SPECIFICS = "crts";
 
     /**
-     * <p>A <code>String</code> providing the name of request parameter to specify the milestone prize amount.</p>
+     * <p>A <code>String</code> providing the name of request parameter to specify the checkpoint prize amount.</p>
      *
      * @since 1.2
      */
-    public static final String MILESTONE_PRIZE_AMOUNT = "mpa";
+    public static final String CHECKPOINT_PRIZE_AMOUNT = "mpa";
 
     /**
-     * <p>A <code>String</code> providing the name of request parameter to specify the number of milestone prizes.</p>
+     * <p>A <code>String</code> providing the name of request parameter to specify the number of checkpoint prizes.</p>
      *
      * @since 1.2
      */
-    public static final String NUMBER_MILESTONE_PRIZES = "nmp";
+    public static final String NUMBER_CHECKPOINT_PRIZES = "nmp";
 
     /**
      * <p>A <code>String</code> providing the URL for retrieving bug race contests from JIRA.</p>

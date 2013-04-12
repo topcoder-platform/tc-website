@@ -18,11 +18,11 @@
 <c:set var="servletPath" value="${sessionInfo.servletPath}"/>
 <c:set var="CONTEST_ID" value="<%=Constants.CONTEST_ID%>"/>
 <c:set var="currentTab" value="${param.currentTab}"/>
-<c:set var="isMultiRound" value="${not empty contest.milestoneDate}"/>
-<c:set var="canViewMilestone" value="${requestScope.canViewMilestone}"/>
-<c:set var="milestoneFeedbackAvailable"
-       value="${isMultiRound and canViewMilestone and contest.milestoneFeedbackAvailable}"/>
-<c:set var="isMilestoneReviewFinished" value="${contest.milestoneReviewClosed}"/>
+<c:set var="isMultiRound" value="${not empty contest.checkpointDate}"/>
+<c:set var="canViewCheckpoint" value="${requestScope.canViewCheckpoint}"/>
+<c:set var="checkpointFeedbackAvailable"
+       value="${isMultiRound and canViewCheckpoint and contest.checkpointFeedbackAvailable}"/>
+<c:set var="isCheckpointReviewFinished" value="${contest.checkpointReviewClosed}"/>
 <c:set var="isFinished" value="${contest.reviewClosed}"/>
 
 <div id="thirdNavi">
@@ -36,13 +36,13 @@
         </li>
 
         <c:choose>
-            <c:when test="${isMilestoneReviewFinished}">
+            <c:when test="${isCheckpointReviewFinished}">
                 <li><a ${currentTab eq 'm' ? 'class="current"' : ''}
-                        href="${servletPath}?module=ViewMilestoneFeedback&amp;${CONTEST_ID}=${contest.id}">
-                    <span class="right"><span class="middle">Milestones</span></span></a></li>
+                        href="${servletPath}?module=ViewCheckpointFeedback&amp;${CONTEST_ID}=${contest.id}">
+                    <span class="right"><span class="middle">Checkpoints</span></span></a></li>
             </c:when>
             <c:otherwise>
-                <li><a href="javascript:" class="deactive"><span class="right"><span class="middle">Milestones</span></span></a></li>
+                <li><a href="javascript:" class="deactive"><span class="right"><span class="middle">Checkpoints</span></span></a></li>
             </c:otherwise>
         </c:choose>
 

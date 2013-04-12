@@ -105,7 +105,7 @@ public class ViewMemberProfile extends BaseProcessor {
           "    , (SELECT pp.scheduled_end_time  " +
           "       FROM project_phase pp  " +
           "       WHERE pp.project_id = p.project_id  " +
-          "       AND pp.phase_type_id = 15) AS milestone_date " +
+          "       AND pp.phase_type_id = 15) AS checkpoint_date " +
           "    , p.project_category_id as contest_type_id  " +
           "    , pcl.name as contest_type_name " +
           "FROM project p " +

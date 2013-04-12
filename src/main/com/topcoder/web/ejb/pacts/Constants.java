@@ -332,12 +332,12 @@ public interface Constants {
     public static final int CONTENT_CREATION_PAYMENT = 61;
 
     /**
-     * <p>A <code>int</code> representing the milestone prize payment id.</p>
-     * <p>This is the payment to be used for milestone payments for all tracks.</p>
+     * <p>A <code>int</code> representing the checkpoint prize payment id.</p>
+     * <p>This is the payment to be used for checkpoint payments for all tracks.</p>
      *
      * @since 1.9
      */
-    public static final int CONTEST_MILESTONE_PAYMENT = 64;
+    public static final int CONTEST_CHECKPOINT_PAYMENT = 64;
 
      /**
      * <p>A <code>int</code> representing the prize payment id.</p>

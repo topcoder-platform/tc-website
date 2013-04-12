@@ -796,8 +796,8 @@ public class Submit extends BaseSubmissionDataProcessor {
     private ProjectPhase getSubmissionPhase(Project project, Submission submission) {
         if (submission.getTypeId() == Submission.CONTEST_SUBMISSION) {
             return project.getPhase(ProjectPhase.SUBMISSION);
-        } else if (submission.getTypeId() == Submission.MILESTONE_SUBMISSION) {
-            return project.getPhase(ProjectPhase.MILESTONE_SUBMISSION);
+        } else if (submission.getTypeId() == Submission.CHECKPOINT_SUBMISSION) {
+            return project.getPhase(ProjectPhase.CHECKPOINT_SUBMISSION);
         }
         return null;
     }

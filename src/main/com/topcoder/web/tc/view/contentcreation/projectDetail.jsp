@@ -223,8 +223,8 @@
 <p>
 TopCoder will compensate the first and second place submissions.
 Initial payment for the winner will be distributed in two installments.
-First Milestone: When the winning solution is submitted and review board suggestions are integrated.
-Second Milestone: Marked by the completion of the Deployment phase of the project.</p>
+First Checkpoint: When the winning solution is submitted and review board suggestions are integrated.
+Second Checkpoint: Marked by the completion of the Deployment phase of the project.</p>
 
 <p><strong>Winner</strong><br>
     Total Payment - $<rsc:item set="<%=projectDetail%>" name="total_payment" format="0.00"/><br>

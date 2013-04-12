@@ -75,11 +75,11 @@ TopCoder will compensate the first and second place submissions.
 <br><br>
 <strong>Winning Team</strong><br>
 Total Payment - $11,000<br>
-*Additional Milestone Bonuses - $1,000
+*Additional Checkpoint Bonuses - $1,000
 <br><br>
 <strong>Second Place Team</strong><br>
 Total Payment - $5,500<br>
-*Additional Milestone Bonuses - $1,000
+*Additional Checkpoint Bonuses - $1,000
 <br><br>
 
 <div class="sectionHeader">Eligibility</div>
@@ -119,7 +119,7 @@ All submissions are required to be submitted by the end of Competition Phase. Th
 </table>
 </div>
 <br><br>
-<div class="sectionHeader">Milestones</div>
+<div class="sectionHeader">Checkpoints</div>
 At intervals during the competition phase, assembly teams will be expected to demonstrate progress by providing interim deliverables as specified in the following table.
 <br><br>
 <div align="left">
@@ -131,7 +131,7 @@ At intervals during the competition phase, assembly teams will be expected to de
       <td valign="top" colspan="2">&#160;</td>
    </tr>
    <tr>
-      <td valign="top"><b>02.14.2007</b></td><td valign="top"><b>Milestone 1</b></td>
+      <td valign="top"><b>02.14.2007</b></td><td valign="top"><b>Checkpoint 1</b></td>
    </tr>
    <tr>
       <td valign="top">&#160;</td>
@@ -145,7 +145,7 @@ At intervals during the competition phase, assembly teams will be expected to de
       <td valign="top" colspan="2">&#160;</td>
    </tr>
    <tr>
-      <td valign="top"><b>02.22.2007</b></td><td valign="top"><b>Milestone 2</b></td>
+      <td valign="top"><b>02.22.2007</b></td><td valign="top"><b>Checkpoint 2</b></td>
    </tr>
    <tr>
       <td valign="top" colspan="2">&#160;</td>

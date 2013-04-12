@@ -234,7 +234,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case COPILOT_POSTING_PAYMENT:
         case CONTENT_CREATION_PAYMENT:
         case CONTEST_PAYMENT:
-        case CONTEST_MILESTONE_PAYMENT:
+        case CONTEST_CHECKPOINT_PAYMENT:
             return REFERENCE_COMPONENT_PROJECT_ID;
 
         case PROJECT_BUG_FIXES_PAYMENT:
@@ -357,7 +357,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case SPECIFICATION_WRITING_PAYMENT: return new SpecificationWritingPayment(coderId, grossAmount, referenceId, placed);
         case STUDIO_SPECIFICATION_WRITING_PAYMENT: return new StudioSpecificationWritingPayment(coderId, grossAmount, referenceId, placed);
         case CONTEST_PAYMENT: return new ContestPayment(coderId, grossAmount, referenceId, placed);
-        case CONTEST_MILESTONE_PAYMENT: return new ContestMilestonePayment(coderId, grossAmount, referenceId, placed);
+        case CONTEST_CHECKPOINT_PAYMENT: return new ContestCheckpointPayment(coderId, grossAmount, referenceId, placed);
         case NEGATIVE_PAYMENT: return new NegativePayment(coderId, grossAmount, referenceId);
         case PROJECT_BUG_FIXES_PAYMENT: return new ProjectBugFixesPayment(coderId, grossAmount, referenceId);
         case PROJECT_COPILOT_PAYMENT: return new ProjectCopilotPayment(coderId, grossAmount, referenceId);
@@ -499,7 +499,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             case STUDIO_SPECIFICATION_WRITING_PAYMENT: return "Studio Specification Writing Payment";
             case CONTENT_CREATION_PAYMENT: return "Content Creation Payment";
             case CONTEST_PAYMENT: return "Contest Payment";
-            case CONTEST_MILESTONE_PAYMENT: return "Contest Milestone Payment";
+            case CONTEST_CHECKPOINT_PAYMENT: return "Contest Checkpoint Payment";
             case PROJECT_BUG_FIXES_PAYMENT: return "Project Bug Fixes Payment";
             case PROJECT_COPILOT_PAYMENT: return "Project Copilot Payment";
             case PROJECT_DEPLOYMENT_TASK_PAYMENT: return "Project Deployment Task Payment";

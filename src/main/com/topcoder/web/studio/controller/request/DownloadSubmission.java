@@ -102,7 +102,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
      * Screener roles.
      */
     private static final int[] SCREENER_ROLES_IDS = { ResourceRole.SCREENER_RESOURCE_ROLE_ID,
-        ResourceRole.MILESTONE_SCREENER_RESOURCE_ROLE_ID
+        ResourceRole.CHECKPOINT_SCREENER_RESOURCE_ROLE_ID
     };
     
     /**
@@ -147,12 +147,12 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
 
 		boolean isScreeningOver = contest.getScreeningClosed();
         
-        boolean milestone = (s.getTypeId() == Submission.MILESTONE_SUBMISSION);
+        boolean checkpoint = (s.getTypeId() == Submission.CHECKPOINT_SUBMISSION);
 
-        // holds if end of submission or milestone submission phase based on submission type. 
+        // holds if end of submission or checkpoint submission phase based on submission type. 
         boolean isSubmissionOver = false;
-        if (milestone) {
-            isSubmissionOver = contest.getMilestoneSubmissionClosed();
+        if (checkpoint) {
+            isSubmissionOver = contest.getCheckpointSubmissionClosed();
         } else {
             isSubmissionOver = contest.getSubmissionClosed();
         }

@@ -3,9 +3,9 @@
   - Version: 1.1 (Studio Contest Detail Pages assembly)
   - Copyright (C) 2010-2011 TopCoder Inc., All Rights Reserved.
   -
-  - Description: This page renders the list of submissions received milestone prizes along with their and overall
-  - milestone feedbacks.
-  - Version 1.1 (Re-platforming Studio Release 4 assembly) change notes: re-factored the logic for milestone feedbacks
+  - Description: This page renders the list of submissions received checkpoint prizes along with their and overall
+  - checkpoint feedbacks.
+  - Version 1.1 (Re-platforming Studio Release 4 assembly) change notes: re-factored the logic for checkpoint feedbacks
   - displaying.
 --%>
 <%@ page import="com.topcoder.web.studio.Constants" %>
@@ -16,24 +16,24 @@
 <%@ taglib uri="studio.tld" prefix="studio" %>
 <fmt:setLocale value="en_US"/>
 <c:set var="contest" value="${requestScope.contest}"/>
-<c:set var="milestoneDate" value="${contest.milestoneDate}"/>
-<c:set var="isMultiRound" value="${not empty milestoneDate}"/>
+<c:set var="checkpointDate" value="${contest.checkpointDate}"/>
+<c:set var="isMultiRound" value="${not empty checkpointDate}"/>
 <c:set var="currentTime" value="${requestScope.currentTime}"/>
 <c:set var="registered" value="${requestScope.registered}"/>
 <c:set var="CONTEST_ID" value="<%=Constants.CONTEST_ID%>"/>
 <c:set var="servletPath" value="${sessionInfo.servletPath}"/>
 <c:set var="prizesCount" value="${fn:length(contest.prizes)}"/>
 <c:set var="drPointsAvailable" value="${contest.digitalRunPoints > 0}"/>
-<c:set var="hasMilestoneRoundPrize"
-       value="${isMultiRound and not empty contest.milestonePrize and not empty contest.milestonePrize.numberOfSubmissions and not empty contest.milestonePrize.amount}"/>
+<c:set var="hasCheckpointRoundPrize"
+       value="${isMultiRound and not empty contest.checkpointPrize and not empty contest.checkpointPrize.numberOfSubmissions and not empty contest.checkpointPrize.amount}"/>
 <c:set var="placeSuffixes"
        value="<%=new String[] {"st", "nd", "rd", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th"}%>"/>
 <c:set var="isFinished" value="${contest.reviewClosed}"/>
 <c:set var="isStarted" value="${contest.submissionOpen}"/>
 <c:set var="isRunning" value="${isStarted and not isFinished}"/>
-<c:set var="isMilestoneRoundPassed" value="${isRunning and isMultiRound and contest.milestoneSubmissionClosed}"/>
+<c:set var="isCheckpointRoundPassed" value="${isRunning and isMultiRound and contest.checkpointSubmissionClosed}"/>
 <c:set var="hasCockpitPermissions" value="${requestScope.has_cockpit_permissions}"/>
-<c:set var="milestonePrizedSubmissions" value="${requestScope.milestonePrizedSubmissions}"/>
+<c:set var="checkpointPrizedSubmissions" value="${requestScope.checkpointPrizedSubmissions}"/>
 
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -83,17 +83,17 @@
                 <!--End thirdNavi-->
                 <div class="content">
                     <div class="subColumn leftSide">
-                        <h5 class="contentTitleNoB">Milestone Winners</h5>
+                        <h5 class="contentTitleNoB">Checkpoint Winners</h5>
 
-                        <div class="deepGrayBox mileStoneWinners">
+                        <div class="deepGrayBox checkpointWinners">
                             <span class="grayRCLT"></span>
                             <span class="grayRCRT"></span>
                             <span class="grayRCLB"></span>
                             <span class="grayRCRB"></span>
 
-                            <p>The following submissions have received a milestone prize.</p>
+                            <p>The following submissions have received a checkpoint prize.</p>
                             <ul>
-                                <c:forEach items="${milestonePrizedSubmissions}" var="submission">
+                                <c:forEach items="${checkpointPrizedSubmissions}" var="submission">
                                     <li>
                                         <a href="#feedBack${submission.key}" rel="${submission.key}"
                                            class="feedBack-Show feedBack-Show-${submission.key}">#${submission.key}</a>
@@ -107,7 +107,7 @@
                     </div>
                     <!--End subColumn-->
                     <div class="mainColumn">
-                        <h5 class="contentTitle firstContentTitle">Overall Milestone Round Feedback</h5>
+                        <h5 class="contentTitle firstContentTitle">Overall Checkpoint Round Feedback</h5>
 
                         <p class="paragraph">
                             <studio:formatField text="${contest.studioProjectSpecification.generalFeedback}"/>
@@ -117,11 +117,11 @@
                             If your submission is listed on the left, your design review is posted below.
                         </p>
 
-                        <c:forEach items="${milestonePrizedSubmissions}" var="submission">
+                        <c:forEach items="${checkpointPrizedSubmissions}" var="submission">
                             <!-- #${submission.key} -->
                             <div>
                                 <h5 class="contentTitle feedBack${submission.key}" id="feedBack${submission.key}">
-                                    Design Review – Submission #${submission.key}
+                                    Design Review ?Submission #${submission.key}
                                     <a href="javascript:" rel="${submission.key}"
                                        class="feedbackShowHide feedBack-Show feedBack-Show-${submission.key}">Show</a>
                                     <a href="javascript:" rel="${submission.key}"

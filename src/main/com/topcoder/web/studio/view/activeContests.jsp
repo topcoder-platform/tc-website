@@ -6,7 +6,7 @@
   - Description: This page presents active contests
   -
   - Version 1.1 (Studio Release Assembly - Spec Review Sign up page v1.0) changes: Added "Review Opportunities" tab.
-  - Version 1.2 (BUGR-2786) changes: Added "Round 1 End" column. Fixed "time left" column to count towards milestone
+  - Version 1.2 (BUGR-2786) changes: Added "Round 1 End" column. Fixed "time left" column to count towards checkpoint
   - date if it has not been reached yet. (Only for multi round contests)
   - Version 1.3 (Replatforming Studio Release 1 Assembly) change notes: active contests are filtered based on 
   - eligibility constraints.
@@ -255,9 +255,9 @@
                                 <td class="timeLeft">
                                     <%
                                         Timestamp endDate;
-                                        Object milestoneDate = resultRow.getItem("milestone_date").getResultData();
-                                        if (milestoneDate != null && (new Date()).before((Date) milestoneDate)) {
-                                            endDate = (Timestamp) milestoneDate;
+                                        Object checkpointDate = resultRow.getItem("milestone_date").getResultData();
+                                        if (checkpointDate != null && (new Date()).before((Date) checkpointDate)) {
+                                            endDate = (Timestamp) checkpointDate;
                                         } else {
                                             endDate = (Timestamp)(resultRow.getItem("end_time").getResultData());
                                         }

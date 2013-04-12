@@ -54,7 +54,7 @@ public class ViewReviewTerms extends ReviewRegistration {
             
             String termsOfUseId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_ID));
             processTermsOfUse(String.valueOf(contestId), userId,
-                    isSpecReview ? new Integer[] {SPECIFICATION_REVIEWER_ROLE_ID} : new Integer[] {SCREENER_ROLE_ID, MILESTONE_SCREENER_ROLE_ID},
+                    isSpecReview ? new Integer[] {SPECIFICATION_REVIEWER_ROLE_ID} : new Integer[] {SCREENER_ROLE_ID, CHECKPOINT_SCREENER_ROLE_ID},
                     "".equals(termsOfUseId) ? -1 : Long.parseLong(termsOfUseId));
 
             setNextPage("/reviewerReg.jsp");
