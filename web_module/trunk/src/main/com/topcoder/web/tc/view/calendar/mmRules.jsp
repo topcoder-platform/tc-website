@@ -231,6 +231,29 @@ disqualify the submission.
 		</table>
     <%}%>
 
+<% if (round_id == 15630) {%>
+<div class="sectionHeader">Prizes</div>
+<p>This Marathon Match has a $15,000 total prize purse! $3,000 of them are awarded as two sets of milestone prizes.</p>
+<p>The first set of milestone prizes is awarded as follows: we take all solutions submitted no later than 1 week after the start of the match (1 PM, April 22; only last submission from each member) and evaluate them on all system test cases. The 3 highest scored submissions are milestone winners.</p>
+<p>The second set of milestone prizes is awarded in the same fashion, but the deadline is 2 weeks after the start of the match (1 PM, April 29). Both sets of milestone prizes use the following prize distribution:</p>
+<pre>
+1st place -- $750
+2nd place -- $500
+3rd place -- $250
+</pre>
+<p><i>Since milestone results (and even the handles of milestone winners) reveal some information about system test cases, we will announce them only after the end of the match.</i></p>
+<p></p>
+<p>The final prize of $12,000 are awarded to 5 highest scoring submissions as follows:</p>
+<pre>
+1st place -- $6,000
+2nd place -- $2,400
+3rd place -- $1,800
+4th place -- $1,200
+5th place -- $600
+</pre>
+<p>In case of any ties, the corresponding prize money are distributed equally among all tied competitors. The date/time of submission does not matter.</p>
+<% } %>
+
 <% if (round_id == 15611) { %>
 		<div class="sectionHeader">Prizes</div>
 		<p align="justify">There will be $10,000 in total prize money.  The 4 highest scorers in the round will receive prizes as follows:</p>
@@ -579,7 +602,7 @@ The tester's identity will not be revealed until the contest is over.</p>
 			among other things, a completed TopCoder Competition Assignment Agreement, 
 			if one is not already on file with TopCoder, AND a one to two-page description explaining how the algorithm for the winning submission works.
 			<% if (round_id == 15103 || round_id == 15120 || round_id == 15130 || round_id == 15189 || round_id == 15200 || round_id == 15201
-				|| round_id == 15322 || round_id == 15327 || round_id == 15458 || round_id == 15611 || round_id == 15618) { %>
+				|| round_id == 15322 || round_id == 15327 || round_id == 15458 || round_id == 15611 || round_id == 15618 || round_id == 15630) { %>
 			The description must be submitted within 7 days after the contest results are published.
 			Questions sent by email from TopCoder requesting clarification to the description must be answered within 3 days.
 			If the description or a response to a clarification request is not received, TopCoder reserves the right to disqualify the submission. 
@@ -627,7 +650,8 @@ The tester's identity will not be revealed until the contest is over.</p>
 		 rsr.getIntItem("round_id") == 15130 || rsr.getIntItem("round_id") == 15189 || rsr.getIntItem("round_id") == 15200 ||
 		 rsr.getIntItem("round_id") == 15201 || rsr.getIntItem("round_id") == 15322 || rsr.getIntItem("round_id") == 15327
 		|| rsr.getIntItem("round_id") == 15398 || rsr.getIntItem("round_id") == 15458 || rsr.getIntItem("round_id") == 15520
-		|| rsr.getIntItem("round_id") == 15589 || rsr.getIntItem("round_id") == 15611 || rsr.getIntItem("round_id") == 15618) {%>
+		|| rsr.getIntItem("round_id") == 15589 || rsr.getIntItem("round_id") == 15611 || rsr.getIntItem("round_id") == 15618
+		|| rsr.getIntItem("round_id") == 15630) {%>
 
 		<p align="justify">
 			This Competition is open to all members of the TopCoder website, who have agreed to the terms thereof, and who are at least 
@@ -703,7 +727,7 @@ The tester's identity will not be revealed until the contest is over.</p>
 	       round_id == 15023 || round_id == 15034 || round_id == 15038 || round_id == 15076 || round_id == 15077 || round_id == 15078
 	       || round_id == 15080 || round_id == 15103 || round_id == 15120 || round_id == 15130 || round_id == 15189 || round_id == 15200
 	       || round_id == 15201 || round_id == 15322 || round_id == 15327 || round_id == 15398 || round_id == 15458 || round_id == 15520 || round_id == 15589
-		|| round_id == 15611 || round_id == 15618) { %>
+		|| round_id == 15611 || round_id == 15618 || round_id == 15630) { %>
 		
 		<p align="justify">
 			You hereby acknowledge and agree that TopCoder owns, solely and exclusively, all right, title and interest, including all intellectual property 

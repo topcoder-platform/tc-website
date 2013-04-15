@@ -311,7 +311,8 @@ Please check out the rules link below for more detail.
      roundId == 15034 || roundId == 15038 || roundId == 15076 || roundId == 15077 || roundId == 15078
      || roundId == 15080 || roundId == 15103 || roundId == 15120 || roundId == 15130 || roundId == 15189
      || roundId == 15201 || roundId == 15202 || roundId == 15322 || roundId == 15327 || roundId == 15398
-     || roundId == 15458 || roundId == 15520 || roundId == 15589 || roundId == 15611 || roundId == 15618) {%>
+     || roundId == 15458 || roundId == 15520 || roundId == 15589 || roundId == 15611 || roundId == 15618
+     || roundId == 15630) {%>
 <p align="justify">
     <b>Please note that this event is being run for a TopCoder customer.  By winning a prize in this event you agree to transfer ownership of
     your submission to TopCoder.
@@ -368,6 +369,28 @@ will receive prizes with the first place winner receiving $10,000!
 	will receive prizes with the first place winner receiving $2,500!
 <%}%>
 
+<%if (roundId == 15630) {%>
+<p>This Marathon Match has a $15,000 total prize purse! $3,000 of them are awarded as two sets of milestone prizes.</p>
+<p>The first set of milestone prizes is awarded as follows: we take all solutions submitted no later than 1 week after the start of the match (1 PM, April 22; only last submission from each member) and evaluate them on all system test cases. The 3 highest scored submissions are milestone winners.</p>
+<p>The second set of milestone prizes is awarded in the same fashion, but the deadline is 2 weeks after the start of the match (1 PM, April 29). Both sets of milestone prizes use the following prize distribution:</p>
+<pre>
+1st place -- $750
+2nd place -- $500
+3rd place -- $250
+</pre>
+<p><i>Since milestone results (and even the handles of milestone winners) reveal some information about system test cases, we will announce them only after the end of the match.</i></p>
+<p></p>
+<p>The final prize of $12,000 are awarded to 5 highest scoring submissions as follows:</p>
+<pre>
+1st place -- $6,000
+2nd place -- $2,400
+3rd place -- $1,800
+4th place -- $1,200
+5th place -- $600
+</pre>
+<p>In case of any ties, the corresponding prize money are distributed equally among all tied competitors. The date/time of submission does not matter.</p>
+<%}%>
+
 <%if(roundId == 15077 || roundId == 15130) {%>
 <p align="justify">
     This Marathon Match is a money match that has a <b>$7,500 prize purse</b>! The top five highest scorers 
@@ -399,7 +422,7 @@ total prize money</b>.
     <br>
     <b>Participants may submit code written in the following language: C++ </b>
 </p>
-<%}else if(roundId == 15023 || roundId == 15322 || roundId == 15458) {%>
+<%}else if(roundId == 15023 || roundId == 15322 || roundId == 15458 || roundId == 15630) {%>
 <p align="justify">
     In TopCoder Marathon Match events, the system will be testing submissions for optimization according to the scoring criteria 
     outlined in the problem statement that is associated with this event.	
