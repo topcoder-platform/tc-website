@@ -116,7 +116,7 @@
       </td>
       <td class="value">15
          <div class="long">
-         <strong><a href="/tc?module=MatchDetails&rd=15630">Soybean MM 7</a></strong><br />
+         <strong><a href="/tc?module=MatchDetails&rd=15630">Soybean Grand Challenge</a></strong><br />
          13:00<br />
          3 weeks<br />
          $15k Prizes

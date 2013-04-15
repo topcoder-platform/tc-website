@@ -370,6 +370,7 @@ will receive prizes with the first place winner receiving $10,000!
 <%}%>
 
 <%if (roundId == 15630) {%>
+<div class="sectionHeader">Prize Structure</div>
 <p>This Marathon Match has a $15,000 total prize purse! $3,000 of them are awarded as two sets of milestone prizes.</p>
 <p>The first set of milestone prizes is awarded as follows: we take all solutions submitted no later than 1 week after the start of the match (1 PM, April 22; only last submission from each member) and evaluate them on all system test cases. The 3 highest scored submissions are milestone winners.</p>
 <p>The second set of milestone prizes is awarded in the same fashion, but the deadline is 2 weeks after the start of the match (1 PM, April 29). Both sets of milestone prizes use the following prize distribution:</p>
