@@ -27,8 +27,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div id="wrapper">
 <h1> Badge administration tool </h1>
 	<div class="hiddenData">
-		<input type="hidden" value="<%="http://" + ApplicationServer.SERVER_NAME + "/tc" %>" id="basePath" />
-		<form action="http://<%=ApplicationServer.SERVER_NAME %>/tc" method="post" id="BadgeForm">
+		<input type="hidden" value="<%="https://" + ApplicationServer.SERVER_NAME + "/tc" %>" id="basePath" />
+		<form action="https://<%=ApplicationServer.SERVER_NAME %>/tc" method="post" id="BadgeForm">
 			<input type="hidden" name="<%=BadgeAdminToolConstants.MODULE_KEY %>" value="BadgeAdminEdit"/> <br />
 			<input type="hidden" name="handle" value="${handle}" />
 			<c:if test="${not empty requestScope.earned_badges}">
@@ -41,9 +41,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div id="badgeEditor">
 	<p class="memberInfo">
 		Member: <span id="handleDisplay">${handle}</span>
-		<a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?<%=BadgeAdminToolConstants.MODULE_KEY %>=MemberProfile&cr=${userId}">&raquo; TopCoder profile</a>
-		<a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?<%=BadgeAdminToolConstants.MODULE_KEY %>=ViewMemberProfile&ha=${handle}">&raquo; Studio profile</a>
-		<a href="http://<%=ApplicationServer.SERVER_NAME %>/tc?<%=BadgeAdminToolConstants.MODULE_KEY%>=ViewCopilotProfile&pid=${userId}">&raquo; Copilot profile</a>
+		<a href="https://<%=ApplicationServer.SERVER_NAME%>/tc?<%=BadgeAdminToolConstants.MODULE_KEY %>=MemberProfile&cr=${userId}">&raquo; TopCoder profile</a>
+		<a href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?<%=BadgeAdminToolConstants.MODULE_KEY %>=ViewMemberProfile&ha=${handle}">&raquo; Studio profile</a>
+		<a href="https://<%=ApplicationServer.SERVER_NAME %>/tc?<%=BadgeAdminToolConstants.MODULE_KEY%>=ViewCopilotProfile&pid=${userId}">&raquo; Copilot profile</a>
 	</p>
 	<div id="editorControl">
 		<button id="leaveButton" onclick="leaveEditor()">Done</button>
