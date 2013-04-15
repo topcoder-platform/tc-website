@@ -39,7 +39,7 @@
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
          <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DEV_COM%>" class="gMetal">Development</a></strong><br />
          <tc-webtag:handle coderId="23021989" context="<%=HandleTag.DEVELOPMENT%>" darkBG="true" /><br />
-         5 wins<br />
+         3 wins<br />
 		 <br />
       </td>
    </tr>
