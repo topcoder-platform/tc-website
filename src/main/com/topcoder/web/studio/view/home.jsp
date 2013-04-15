@@ -237,17 +237,17 @@
 									
                                     <div class="member_image" style="float:left;">
 									<!-- CHANGE THESE BACK TO 140x140 FOR NEXT MONTH -->
-                                        <img width="140" height="140" alt="Member of the Month" src="http://community.topcoder.com/i/m/abedavera_big.jpg">
+                                        <img width="140" height="140" alt="Member of the Month" src="http://community.topcoder.com/i/m/iamtong_big.jpg">
                                     </div>
                                     <div id="member_content">
                                         <div id="member_month">
-                                            January<br />
+                                            February<br />
                                         </div>
                                         <div id="member_greeting">
-                                            <span class="member_content special handle">Congratulations <span class="handle-color">abedavera</span></span><br/><br/>
+                                            <span class="member_content special handle">Congratulations <span class="handle-color">iamtong</span></span><br/><br/>
                                         </div>
                                         <div id="member_stats">
-                                            <span class="member_content special">won $4,600 in 9 contests</span><br/><br/>
+                                            <span class="member_content special">won $4,400 in 7 contests</span><br/><br/>
                                             <span class="member_content special"><!--<a href="http://www.topcoder.com/news/2010/11/15/meet-the-october-coders-and-designers-of-the-month-2/">Read the interviews here.</a>--></span><br/><br/>
                                         </div>
                                     </div>
