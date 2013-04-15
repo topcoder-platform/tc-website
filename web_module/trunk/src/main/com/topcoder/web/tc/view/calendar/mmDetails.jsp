@@ -369,29 +369,6 @@ will receive prizes with the first place winner receiving $10,000!
 	will receive prizes with the first place winner receiving $2,500!
 <%}%>
 
-<%if (roundId == 15630) {%>
-<div class="sectionHeader">Prize Structure</div>
-<p>This Marathon Match has a $15,000 total prize purse! $3,000 of them are awarded as two sets of milestone prizes.</p>
-<p>The first set of milestone prizes is awarded as follows: we take all solutions submitted no later than 1 week after the start of the match (1 PM, April 22; only last submission from each member) and evaluate them on all system test cases. The 3 highest scored submissions are milestone winners.</p>
-<p>The second set of milestone prizes is awarded in the same fashion, but the deadline is 2 weeks after the start of the match (1 PM, April 29). Both sets of milestone prizes use the following prize distribution:</p>
-<pre>
-1st place -- $750
-2nd place -- $500
-3rd place -- $250
-</pre>
-<p><i>Since milestone results (and even the handles of milestone winners) reveal some information about system test cases, we will announce them only after the end of the match.</i></p>
-<p></p>
-<p>The final prize of $12,000 are awarded to 5 highest scoring submissions as follows:</p>
-<pre>
-1st place -- $6,000
-2nd place -- $2,400
-3rd place -- $1,800
-4th place -- $1,200
-5th place -- $600
-</pre>
-<p>In case of any ties, the corresponding prize money are distributed equally among all tied competitors. The date/time of submission does not matter.</p>
-<%}%>
-
 <%if(roundId == 15077 || roundId == 15130) {%>
 <p align="justify">
     This Marathon Match is a money match that has a <b>$7,500 prize purse</b>! The top five highest scorers 
@@ -467,6 +444,30 @@ total prize money</b>.
 <p align="justify">
     For more details on the Marathon Match format, <a href="/longcontest/?module=Static&d1=instructions">click here</a>
 </p>
+
+<%if (roundId == 15630) {%>
+<div class="sectionHeader">Prizes</div>
+<p>This Marathon Match has a $15,000 total prize purse! $3,000 of them are awarded as two sets of milestone prizes.</p>
+<p>The first set of milestone prizes is awarded as follows: we take all solutions submitted no later than 1 week after the start of the match (1 PM, April 22; only last submission from each member) and evaluate them on all system test cases. The 3 highest scored submissions are milestone winners.</p>
+<p>The second set of milestone prizes is awarded in the same fashion, but the deadline is 2 weeks after the start of the match (1 PM, April 29). Both sets of milestone prizes use the following prize distribution:</p>
+<pre>
+1st place -- $750
+2nd place -- $500
+3rd place -- $250
+</pre>
+<p><i>Since milestone results (and even the handles of milestone winners) reveal some information about system test cases, we will announce them only after the end of the match.</i></p>
+<p></p>
+<p>The final prize of $12,000 are awarded to 5 highest scoring submissions as follows:</p>
+<pre>
+1st place -- $6,000
+2nd place -- $2,400
+3rd place -- $1,800
+4th place -- $1,200
+5th place -- $600
+</pre>
+<p>In case of any ties, the corresponding prize money are distributed equally among all tied competitors. The date/time of submission does not matter.</p>
+<%}%>
+
 
 <%if(roundId == 10834) {%>                                                   
 <div class="sectionHeader">Prizes</div>
