@@ -14,7 +14,7 @@
 <div class="leftColContent">
    <div style="padding-left:3px;">
    <div style="padding-bottom:10px;"><img src="/i/home/com_title.gif" alt="Coder of the Month" /><br />
-   - January 2013</div>
+   - February 2013</div>
    <table cellpadding="0" cellspacing="0" border="0" width="165">
    <tr>
       <td height="76" valign="top" style="border-top: 1px solid #CCCCCC; padding: 5px 0;" ><img src="/i/m/cxlove.jpeg" alt="" width="61" height="61"/></td>
