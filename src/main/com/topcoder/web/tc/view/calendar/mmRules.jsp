@@ -549,7 +549,7 @@ The tester's identity will not be revealed until the contest is over.</p>
 <%	}%>
 
 	<p>
-	  IN ORDER TO BE ELIGIBLE, YOU WARRANT THAT YOUR SUBMISSION FOR THIS COMPETITION:<br>
+	  IN ORDER TO BE ELIGIBLE, YOU WARRANT THAT (UNLESS OTHERWISE SPECIFIED IN THE PROBLEM STATEMENT) YOUR SUBMISSION FOR THIS COMPETITION:<br>
        <br>•	Does not include or anticipate the inclusion of any content that is in violation of or infringes third party intellectual 
 	   property rights including, but not limited to copyrights, including music copyrights, trademarks, and rights of publicity. 
        <br>•	Is free and clear of all liens, claims, encumbrances or demands of any third parties. 
