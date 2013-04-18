@@ -256,23 +256,37 @@ disqualify the submission.
 
 <% if (round_id == 15611) { %>
 		<div class="sectionHeader">Prizes</div>
-		<p align="justify">There will be $10,000 in total prize money.  The 4 highest scorers in the round will receive prizes as follows:</p>
+    <p align="justify">The Marathon Match has $10,000 in total prize money.  The 4 highest scorers in this round will receive compensation for their submissions as follows:</p>
 
-		<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
-		<tr>
-			<td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right">$4,000</td>
-		</tr>
-		<tr>
-			<td class="bodyText" nowrap="nowrap">2nd</td><td class="bodyText" align="right">$3,000</td>
-		</tr>
-		<tr>
-			<td class="bodyText" nowrap="nowrap">3rd</td><td class="bodyText" align="right">$2,000</td>
-		</tr>
-		<tr>
-			<td class="bodyText" nowrap="nowrap">4th</td><td class="bodyText" align="right">$1,000</td>
-		</tr>
-		</table>
-		<p align="justify">TopCoder may *offer* to purchase submissions outside the top 4 if the client is interested in using them.</p>
+<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
+    <tr>
+        <td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right">$4,000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">2nd</td><td class="bodyText" align="right">$3,000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">3rd</td><td class="bodyText" align="right">$2,000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">4th</td><td class="bodyText" align="right">$1,000</td>
+    </tr>
+</table>
+
+<p align="justify">In order to be eligible for these prizes, your code submission must be written in C++ and must be made before 9 AM, April 22, 2013.</p>
+
+<p align="justify">The <a href="http://apps.topcoder.com/forums/?module=Thread&threadID=786874&start=0">additional submission phase</a> has up to $6,000
+in total prize money:
+<ul>
+<li>All submissions with the final score of at least 800,000 are eligible for a combined prize purse of $1,000. If there are several such submissions, the prize will be divided evenly among them.</li>
+<li>All submissions with the final score of at least 850,000 are eligible for a combined prize purse of $2,000. If there are several such submissions, the prize will be divided evenly among them.</li>
+<li>All submissions with the final score of at least 900,000 are eligible for a combined prize purse of $3,000. If there are several such submissions, the prize will be divided evenly among them.</li>
+</ul>
+</p>  
+
+<p align="justify">
+TopCoder may *offer* to purchase submissions that did not win any prize if the client is interested in using them.
+</p>
 <% } %>
 
 <%if (round_id == 15520) {%>
