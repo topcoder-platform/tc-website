@@ -143,6 +143,12 @@
       <td class="value">21
       </td>
       <td class="value">22
+         <div class="long">
+         <strong><a href="/tc?module=MatchDetails&rd=15611">Robonaut Challenge (extra phase)</a></strong><br />
+         9:00<br />
+         1 week<br />
+         Up to $6k Prizes
+         </div>
       </td>
       <td class="value">23
       </td>
