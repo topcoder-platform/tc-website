@@ -790,20 +790,6 @@ The tester's identity will not be revealed until the contest is over.</p>
 		estoppel or otherwise, except as expressly set forth herein.
     </p>
 	
-	<p align="justify">
-		By submitting source code and/or documentation in response to competitions posted on TopCoder's website(s) and/or otherwise participating 
-		in forum and newsgroup discussions on TopCoder's customer and developer forums, you agree to indemnify TopCoder and any parent, subsidiary 
-		or affiliated entities, TopCoder's officers and employees, and officers and employees of any parent, subsidiary or affiliated entities and 
-		hold them harmless from any and all claims and expenses, including attorney's fees, arising from your use of TopCoder's website(s) and/or 
-		the materials gained from TopCoder's website(s) or directly from TopCoder, including any material (including third party material) that 
-		you post on TopCoder's website(s) or in any news forums and any services or products available through TopCoder's website(s). In addition, 
-		you hereby release TopCoder and any parent, subsidiary or affiliated entities, TopCoder's officers and employees, and officers and employees 
-		of any parent, subsidiary or affiliated entities from any and all claims, demands, debts, obligations, damages (actual or consequential), 
-		costs, and expenses of any kind or nature whatsoever, whether known or unknown, suspected or unsuspected, disclosed or undisclosed, that you 
-		may have against them arising out of or in any way related to such disputes and/or to any services or products available at TopCoder's 
-		website(s). You hereby agree to waive all laws that may limit the efficacy of such releases.
-	</p>
-
     <div class="sectionHeader">Indemnification and Release</div>
 	<p align="justify">
 		By submitting source code and/or documentation in response to competitions posted on TopCoders website(s) and/or otherwise 
