@@ -355,6 +355,10 @@ This is a summary with highlights of the contest details. Please make sure to re
 This Marathon Match is a money match that has a <b>$10,000 prize purse</b>! The top four highest scorers
 will receive prizes with the first place winner receiving $4,000!
 </p>
+<p>
+The match will be followed with an <a href="http://apps.topcoder.com/forums/?module=Thread&threadID=786874&start=0">additional submission phase</a>
+which offers up to <b>$6,000 in prizes</b>!
+</p>
 <% } %>
 
 <%if (roundId == 15520) {%>
@@ -418,6 +422,10 @@ total prize money</b>.
     <% if (roundId == 15130 || roundId == 15611) { %>
     <br><br>
     Participants may submit only code written in C++.
+<% if (roundId == 15611) { %>
+The <a href="http://apps.topcoder.com/forums/?module=Thread&threadID=786874&start=0">additional submission phase</a> also
+allows code submissions in Java, C# and VB.NET.
+<% } %>
 	<% } else { %>
 	Participants may submit code written in one of the following languages: Java, C++, C#.NET, VB.NET, or Python. 
 	<% } %>
@@ -632,7 +640,7 @@ submission, within one week of the announcment of the winners in order to receiv
 
 <% if (roundId == 15611) { %>
 <div class="sectionHeader">Prizes</div>
-    <p align="justify">There will be $10,000 in total prize money.  The 4 highest scorers in this round will receive compensation for their submissions as follows:</p>
+    <p align="justify">The Marathon Match has $10,000 in total prize money.  The 4 highest scorers in this round will receive compensation for their submissions as follows:</p>
 
 <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
     <tr>
@@ -648,10 +656,20 @@ submission, within one week of the announcment of the winners in order to receiv
         <td class="bodyText" nowrap="nowrap">4th</td><td class="bodyText" align="right">$1,000</td>
     </tr>
 </table>
-    
+
+<p align="justify">In order to be eligible for these prizes, your code submission must be written in C++ and must be made before 9 AM, April 22, 2013.</p>
+
+<p align="justify">The <a href="http://apps.topcoder.com/forums/?module=Thread&threadID=786874&start=0">additional submission phase</a> has up to $6,000
+in total prize money:
+<ul>
+<li>All submissions with the final score of at least 800,000 are eligible for a combined prize purse of $1,000. If there are several such submissions, the prize will be divided evenly among them.</li>
+<li>All submissions with the final score of at least 850,000 are eligible for a combined prize purse of $2,000. If there are several such submissions, the prize will be divided evenly among them.</li>
+<li>All submissions with the final score of at least 900,000 are eligible for a combined prize purse of $3,000. If there are several such submissions, the prize will be divided evenly among them.</li>
+</ul>
+</p>  
 
 <p align="justify">
-TopCoder may *offer* to purchase submissions outside the Top-4 if the client is interested in using them.
+TopCoder may *offer* to purchase submissions that did not win any prize if the client is interested in using them.
 </p>
     
 <p align="justify">
