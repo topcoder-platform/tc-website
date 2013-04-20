@@ -19,6 +19,8 @@ import com.topcoder.security.groups.model.GroupPermissionType;
 import com.topcoder.security.groups.model.ResourceType;
 import com.topcoder.security.groups.services.AuthorizationService;
 import com.topcoder.security.groups.services.SecurityGroupException;
+import com.topcoder.security.groups.services.DirectProjectService;
+import com.topcoder.security.groups.services.dto.ProjectDTO;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -58,10 +60,18 @@ import com.topcoder.shared.util.DBMS;
  *   {@link #isCustomerAdministrator(long, long)}.</li>
  * </ol>
  * </p>
-
  *
- * @author leo_lol, backstretlili, TCSASSEMBLER
- * @version 1.3
+ * <p>
+ * Version 1.4 (TopCoder Security Groups - Direct Permission Mechanism Update) change notes:
+ * <ol>
+ *   <li>Updated method {@link #checkAuthorization(long, long, ResourceType)} to check allow user access
+ *   a project if he has access to the associated billing accounts.</li>
+ *   <li>Added field {@link #directProjectService} and its getter and setter.</li>
+ * </ol>
+ * </p>
+ *
+ * @author leo_lol, backstretlili, TCSASSEMBLER, notpad
+ * @version 1.4
  */
 public class HibernateAuthorizationService extends BaseGroupService implements AuthorizationService {
 
@@ -124,6 +134,14 @@ public class HibernateAuthorizationService extends BaseGroupService implements A
 
     /**
      * <p>
+     * Represents the direct project service instance.
+     * </p>
+     * @since 1.4
+     */
+    private DirectProjectService directProjectService;
+    
+    /**
+     * <p>
      * This method checks what kind of permission the given user has to access
      * the given resource, and returns the type of permission associated with
      * the user and resource. If there is no permission, null is returned.
@@ -176,7 +194,29 @@ public class HibernateAuthorizationService extends BaseGroupService implements A
                                 }
                             }
                         }
-
+                        
+                        // if a user has access to a Billing Account, he also has access to all Projects 
+                        // backed by that Billing Account.
+                        if (!resourceAvailable) {
+                            List<BillingAccount> billingAccounts = group.getBillingAccounts(); 
+                            if (null != billingAccounts) {
+                                if (directProjectService == null) {
+                                    directProjectService = new HibernateDirectProjectService();
+                                }
+                                List<ProjectDTO> projects = directProjectService.getProjectsByBillingAccounts(billingAccounts);
+                                for (ProjectDTO project : projects) {
+                                    if (project.getProjectId() == resourceId) {
+                                        resourceAvailable = true;
+                                        break;
+                                    }
+                                }
+                            }
+                            
+                            if (null == restrictions || !restrictions.contains(ResourceType.BILLING_ACCOUNT)) {
+                                restricted = false;
+                            }
+                        }   
+                        
                         if (null == restrictions || !restrictions.contains(ResourceType.PROJECT)) {
                             restricted = false;
                         }
@@ -383,5 +423,25 @@ public class HibernateAuthorizationService extends BaseGroupService implements A
     public void setDataAccess(DataAccess dataAccess) {
         this.dataAccess = dataAccess;
     }
-
+ 
+    /**
+     * Getter of directProjectService
+     * 
+     * @return the directProjectService
+     * @since 1.4
+     */
+    public DirectProjectService getDirectProjectService() {
+        return directProjectService;
+    }
+    
+    /**
+     * Setter of directProjectService
+     * 
+     * @param directProjectService
+     *            the Spring injected directProjectService
+     * @since 1.4           
+     */
+    public void setDirectProjectService(DirectProjectService directProjectService) {
+        this.directProjectService = directProjectService;
+    }
 }
