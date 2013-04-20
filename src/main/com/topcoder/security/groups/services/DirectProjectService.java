@@ -5,6 +5,7 @@ package com.topcoder.security.groups.services;
 
 import java.util.List;
 
+import com.topcoder.security.groups.model.BillingAccount;
 import com.topcoder.security.groups.services.dto.ProjectDTO;
 
 /**
@@ -15,9 +16,16 @@ import com.topcoder.security.groups.services.dto.ProjectDTO;
  * Thread Safety:Implementations are expected to be effectively thread-safe
  * </p>
  * 
- * @author TCSASSEMBLER
+ * <p>
+ * Version 1.1 (TopCoder Security Groups - Direct Permission Mechanism Update) change notes:
+ * <ol>
+ *      <li>Added {@link #getProjectsByBillingAccounts(List)} to get projects from billing accounts.</li>
+ * </ol>
+ * </p>
  * 
- * @version 1.0
+ * @author TCSASSEMBLER, notpad
+ * 
+ * @version 1.1
  * 
  */
 public interface DirectProjectService {
@@ -44,4 +52,16 @@ public interface DirectProjectService {
      *             If there are any errors during the execution of this method
      */
     public List<ProjectDTO> getProjectsByClientId(long id) throws  SecurityGroupException;
+    
+    /**
+     * This method gets all projects associated to the given billing accounts. If not found, returns
+     * an empty list.
+     * 
+     * @param id
+     *            the billing accounts
+     * @return the projects associated to the given billing accounts
+     * @throws SecurityGroupException
+     *             If there are any errors during the execution of this method
+     */
+    public List<ProjectDTO> getProjectsByBillingAccounts(List<BillingAccount> billingAccounts) throws SecurityGroupException;
 }

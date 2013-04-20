@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Set;
 
 import com.topcoder.commons.utils.LoggingWrapperUtility;
+import com.topcoder.security.groups.model.BillingAccount;
 import com.topcoder.security.groups.services.DirectProjectService;
 import com.topcoder.security.groups.services.SecurityGroupException;
 import com.topcoder.security.groups.services.dto.ProjectDTO;
@@ -44,9 +45,16 @@ import com.topcoder.shared.util.DBMS;
  * </ol>
  * </p>
  *
- * @author backstretlili, TCSASSEMBLER
+ * <p>
+ * Version 1.3 (TopCoder Security Groups - Direct Permission Mechanism Update) change notes:
+ * <ol>
+ *      <li>Added {@link #getProjectsByBillingAccounts(List)} to get projects from billing accounts.</li>
+ * </ol>
+ * </p>
  * 
- * @version 1.2
+ * @author backstretlili, TCSASSEMBLER, notpad
+ * 
+ * @version 1.3
  */
 public class HibernateDirectProjectService extends BaseGroupService implements DirectProjectService {
 
@@ -152,7 +160,57 @@ public class HibernateDirectProjectService extends BaseGroupService implements D
 
         return result;
     }
+    
+    /**
+     * This method gets all projects associated to the given billing accounts. If not found, returns
+     * an empty list.
+     * 
+     * @param id
+     *            the billing accounts
+     * @return the projects associated to the given billing accounts
+     * @throws SecurityGroupException
+     *             If there are any errors during the execution of this method
+     */
+    public List<ProjectDTO> getProjectsByBillingAccounts(List<BillingAccount> billingAccounts) throws SecurityGroupException {
+        final String signature = CLASS_NAME + ".getProjectsByBillingAccounts(List<BillingAccount> billingAccounts)";
 
+        List<ProjectDTO> result = new ArrayList<ProjectDTO>();
+        try {
+            if (dataAccessTcs == null)
+                dataAccessTcs = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
+            Request request = new Request();
+            ResultSetContainer resultContainer = null;
+            request.setContentHandle("admin_client_billing_accounts_v2");
+            // request.setProperty("client_id",String.valueOf(id));
+            resultContainer = dataAccessTcs.getData(request).get("admin_client_billing_accounts_v2");
+            if (resultContainer != null) {
+                Set<Long> ids = new HashSet<Long>();
+                for (ResultSetContainer.ResultSetRow row : resultContainer) {
+                    for (BillingAccount billingAccount : billingAccounts) {
+                        if (billingAccount.getId() == row.getLongItem("billing_account_id")) {
+                            if (!ids.contains(row.getLongItem("direct_project_id"))) {
+                                ProjectDTO dto = new ProjectDTO();
+                                dto.setProjectId(row.getLongItem("direct_project_id"));
+                                result.add(dto);
+                                ids.add(dto.getProjectId());
+                            }
+                            break;
+                        }
+                    }
+                }
+            }
+            Collections.sort(result, new Comparator<ProjectDTO>() {
+                public int compare(ProjectDTO o1, ProjectDTO o2) {
+                    return o1.getName().compareToIgnoreCase(o2.getName());
+                }
+            });
+        } catch (Exception e) {
+            wrapAndLogSecurityException(e, logger, signature);
+        }
+
+        return result;
+    }
+    
     /**
      * The setter of dataAccessCorp
      * 
