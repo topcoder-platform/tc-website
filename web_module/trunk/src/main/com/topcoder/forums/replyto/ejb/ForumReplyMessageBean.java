@@ -8,6 +8,8 @@ import java.io.Writer;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.ejb.MessageDrivenBean;
 import javax.ejb.MessageDrivenContext;
@@ -87,9 +89,77 @@ public class ForumReplyMessageBean implements MessageDrivenBean, MessageListener
     private static final String JIVE_EMAIL_INVALID_ID_SUBJECT_BODY = "watches.replyTo.email.invalidIdentifier.body";
 
     /**
+     * The pattern to search "On|At xxx wrote:" in multi lines.
+     */
+    private static final Pattern ON_WROTE_PATTERN_GLOBAL = Pattern.compile("^\\s*((On|At)\\s(.+)wrote:(\\s*))$",
+            Pattern.MULTILINE | Pattern.DOTALL | Pattern.CASE_INSENSITIVE);
+
+    /**
+     * The pattern to search "On|At xxx wrote:" in a single line.
+     */
+    private static final Pattern ON_WROTE_PATTERN = Pattern.compile("^\\s*((On|At)\\s(.+)wrote:(\\s*))$",
+            Pattern.CASE_INSENSITIVE);
+
+    /**
+     * The pattern to search "From:xxx" in a single line.
+     */
+    private static final Pattern FROM_PATTERN = Pattern.compile("^From(\\s*):(.+)$", Pattern.CASE_INSENSITIVE);
+
+    /**
+     * The pattern to search "To:xxx" in a single line.
+     */
+    private static final Pattern TO_PATTERN = Pattern.compile("^To(\\s*):(.+)$", Pattern.CASE_INSENSITIVE);
+
+    /**
+     * The pattern to search "----Original---" or "---Original Message----" in a single line.
+     */
+    private static final Pattern ORIGINAL_PATTERN = Pattern.compile("^\\s*\\-+\\s*Original\\s*(Message)?\\s*\\-+\\s*$",
+            Pattern.CASE_INSENSITIVE);
+
+    /**
      * Empty constructor.
      */
     public ForumReplyMessageBean() {
+    }
+
+    /**
+     * Filter the message body content. Remove the quote content.
+     *
+     * @param content the original message body content.
+     * @param authorEmail the author's email.
+     * @return the filtered content.
+     */
+    private static String filterMessageBodyText(String content, String authorEmail) {
+        content = content.replace("\r\n", "\n");
+
+        Matcher matcher = ON_WROTE_PATTERN_GLOBAL.matcher(content);
+        authorEmail = authorEmail.toLowerCase();
+        if (matcher.find()) {
+            content = content.replace(matcher.group(0), matcher.group(0).replace("\n", ""));
+        }
+
+        String[] lines = content.split("\n");
+        StringBuffer sb = new StringBuffer();
+        for (String line : lines) {
+            if (ON_WROTE_PATTERN.matcher(line).matches()) {
+                break;
+            }
+            if (ORIGINAL_PATTERN.matcher(line).matches()) {
+                break;
+            }
+            String lowerLine = line.toLowerCase();
+            if (lowerLine.contains(authorEmail)) {
+                break;
+            }
+            if (FROM_PATTERN.matcher(line).matches()) {
+                break;
+            }
+            if (TO_PATTERN.matcher(line).matches()) {
+                break;
+            }
+            sb.append(line).append("\n");
+        }
+        return sb.toString();
     }
 
     /**
@@ -150,7 +220,7 @@ public class ForumReplyMessageBean implements MessageDrivenBean, MessageListener
                             ForumMessage newMessage = messageToReply.getForum().createMessage(
                                     UserManagerFactory.getInstance().getUser(replyToIdentifier.getUserId()));
                             newMessage.setSubject(mm.getString("subject"));
-                            newMessage.setBody(mm.getString("content"));
+                            newMessage.setBody(filterMessageBodyText(mm.getString("content"), toEmail));
                             forumThread.addMessage(messageToReply, newMessage);
                             // Note that there's no need to create watch
                             // here because the user has already had this thread in watch list
