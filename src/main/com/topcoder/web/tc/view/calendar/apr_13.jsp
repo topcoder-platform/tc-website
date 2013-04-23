@@ -153,6 +153,12 @@
       <td class="value">23
       </td>
       <td class="value">24
+         <div class="long">
+         <strong>GWAS Speedup</strong><br />
+         9:00<br />
+         10 days<br />
+         $10K Prizes
+         </div>
       </td>
       <td class="value">25
       </td>
