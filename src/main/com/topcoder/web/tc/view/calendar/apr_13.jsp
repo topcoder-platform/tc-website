@@ -154,7 +154,7 @@
       </td>
       <td class="value">24
          <div class="long">
-         <strong>GWAS Speedup</strong><br />
+         <strong><a href="/tc?module=MatchDetails&rd=15637">GWAS Speedup</a></strong><br />
          9:00<br />
          10 days<br />
          $10K Prizes
