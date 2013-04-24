@@ -116,10 +116,10 @@ public class UserNameValidator implements Validator {
                     } else if (StringUtils.containsOnly(handle, Constants.HANDLE_PUNCTUATION, false)) {
                         ret = new BasicResult(false, "Your user name may not contain only punctuation.");
                     } else if (handle.toLowerCase().trim().startsWith("admin")) {
-                        ret = new BasicResult(false, "Please choose answer user name.");
+                        ret = new BasicResult(false, "Please choose another user name.");
                     } else if (checkInvalidHandle(handle.toLowerCase().trim())) {
                         // new validation against invalid handles
-                        ret = new BasicResult(false, "The handle you entered is not valid.");
+                        ret = new BasicResult(false, "The user name you entered is not valid.");
                     } else {
                         ret = ValidationResult.SUCCESS;
                     }
