@@ -106,7 +106,7 @@
                                 <li><strong>Reviewer Rating</strong><span class="gray">
                                     <% if (reviewerRating != null) { %>
                                         <%=reviewerRating%>
-                                    <% } else { %>(default) 100.00<% } %> 
+                                    <% } else { %>not rated<% } %> 
                                 </span></li>
                             </ul>
                         </div>
