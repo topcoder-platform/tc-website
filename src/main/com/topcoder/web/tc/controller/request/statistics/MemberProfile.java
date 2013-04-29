@@ -1,11 +1,12 @@
 /*
- * Copyright (c) 2005-2011 TopCoder, Inc. All rights reserved.
+ * Copyright (c) 2005-2013 TopCoder, Inc. All rights reserved.
  */
 
 package com.topcoder.web.tc.controller.request.statistics;
 
 import java.util.Iterator;
 import java.util.Map;
+import java.text.DecimalFormat;
 
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.DataAccess;
@@ -117,6 +118,7 @@ public class MemberProfile extends Base {
             int reportingRating = 0;
 
             String tab = StringUtils.checkNull(getRequest().getParameter("tab"));
+            int phaseId = 0;
 
             String defaultTab = "";
             int maxRating = 0;
@@ -362,35 +364,37 @@ public class MemberProfile extends Base {
                     || tab.equals("assembly") || tab.equals("test") || tab.equals("test_scenarios")
                     || tab.equals("ui_prototype") || tab.equals("ria_build") || tab.equals("content_creation")
                     || tab.equals("reporting")) {
+
+                    if (tab.equals("des")) {
+                        phaseId = 112;
+                    } else if (tab.equals("dev")) {
+                        phaseId = 113;
+                    } else if (tab.equals("concept")) {
+                        phaseId = 134;
+                    } else if (tab.equals("spec")) {
+                        phaseId = 117;
+                    } else if (tab.equals("arch")) {
+                        phaseId = 118;
+                    } else if (tab.equals("assembly")) {
+                        phaseId = 125;
+                    } else if (tab.equals("test")) {
+                        phaseId = 124;
+                    } else if (tab.equals("test_scenarios")) {
+                        phaseId = 137;
+                    } else if (tab.equals("ui_prototype")) {
+                        phaseId = 130;
+                    } else if (tab.equals("ria_build")) {
+                        phaseId = 135;
+                    } else if (tab.equals("content_creation")) {
+                        phaseId = 146;
+                    } else if (tab.equals("reporting")) {
+                        phaseId = 147;
+                    }
+
                     r = new Request();
                     r.setContentHandle("Coder_Track_Data");
                     r.setProperty("cr", coderId);
-
-                    if (tab.equals("des")) {
-                        r.setProperty(Constants.PHASE_ID, "112");
-                    } else if (tab.equals("dev")) {
-                        r.setProperty(Constants.PHASE_ID, "113");
-                    } else if (tab.equals("concept")) {
-                        r.setProperty(Constants.PHASE_ID, "134");
-                    } else if (tab.equals("spec")) {
-                        r.setProperty(Constants.PHASE_ID, "117");
-                    } else if (tab.equals("arch")) {
-                        r.setProperty(Constants.PHASE_ID, "118");
-                    } else if (tab.equals("assembly")) {
-                        r.setProperty(Constants.PHASE_ID, "125");
-                    } else if (tab.equals("test")) {
-                        r.setProperty(Constants.PHASE_ID, "124");
-                    } else if (tab.equals("test_scenarios")) {
-                        r.setProperty(Constants.PHASE_ID, "137");
-                    } else if (tab.equals("ui_prototype")) {
-                        r.setProperty(Constants.PHASE_ID, "130");
-                    } else if (tab.equals("ria_build")) {
-                        r.setProperty(Constants.PHASE_ID, "135");
-                    } else if (tab.equals("content_creation")) {
-                        r.setProperty(Constants.PHASE_ID, "146");
-                    } else if (tab.equals("reporting")) {
-                        r.setProperty(Constants.PHASE_ID, "147");
-                    }
+                    r.setProperty(Constants.PHASE_ID, ""+phaseId);
 
                     dai = getDataAccess(true);
                     Map longData = dai.getData(r);
@@ -415,7 +419,6 @@ public class MemberProfile extends Base {
                 memberContactEnabled = "yes".equals(rsc2.getStringItem(0, "value"));
             }
 
-
             // check whether the current member is in copilot pool.
             DataAccessInt dai3 = getDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME, false);
             r = new Request();
@@ -424,6 +427,17 @@ public class MemberProfile extends Base {
             Map result3 = dai3.getData(r);
             ResultSetContainer rsc3 = (ResultSetContainer) result3.get("is_in_copilot_pool");
             boolean isInCopilotPool = !rsc3.isEmpty();
+
+            r = new Request();
+            r.setContentHandle("reviewer_rating");
+            r.setProperty("uid", String.valueOf(coderId));
+            r.setProperty(Constants.PHASE_ID, ""+phaseId);
+            ResultSetContainer rsc4 = (ResultSetContainer) dai3.getData(r).get("reviewer_rating");
+            if (rsc4.size() > 0) {
+                double reviewerRating = rsc4.getDoubleItem(0, "rating");
+                DecimalFormat f = new DecimalFormat("##.00");
+                getRequest().setAttribute("reviewer_rating", f.format(reviewerRating));
+            }
 
             // check whether or not show earnings
             if (!DAOUtil.useQueryToolFactory) {

@@ -17,9 +17,11 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtags" %>
 <script src="/js/tcscript.js" type="text/javascript"></script>
 
-<% ResultSetContainer rscTrackData = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("Coder_Track_Data"); %>
-<% ResultSetContainer rscTotalData = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("Component_Submission_Details_Total"); %>
-<% ResultSetContainer rscCoderData = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("Coder_Data"); %>
+<% ResultSetContainer rscTrackData = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("Coder_Track_Data");
+   ResultSetContainer rscTotalData = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("Component_Submission_Details_Total");
+   ResultSetContainer rscCoderData = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("Coder_Data");
+   String reviewerRating = (String) request.getAttribute("reviewer_rating");
+%>
 
 <div id="dataBox" class="dataBox">
     <table>
@@ -99,6 +101,12 @@
                                 
                                 <li><strong>Minimum Rating</strong><span class="gray">
                                     <rsc:item name="min_rating" set="<%=rscTrackData%>" format="####"/>
+                                </span></li>
+
+                                <li><strong>Reviewer Rating</strong><span class="gray">
+                                    <% if (reviewerRating != null) { %>
+                                        <%=reviewerRating%>
+                                    <% } else { %>(default) 100.00<% } %> 
                                 </span></li>
                             </ul>
                         </div>
