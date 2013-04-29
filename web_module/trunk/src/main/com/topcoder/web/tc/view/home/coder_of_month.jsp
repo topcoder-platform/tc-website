@@ -29,7 +29,7 @@
       <td style="border-top: 1px solid #CCCCCC; padding: 5px 0;" valign="top"><img src="/i/m/Standlove_big2.jpg" alt="" width="61" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
          <strong><a href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DESIGN_COM%>" class="gMetal">Design</a></strong><br />
-         <tc-webtag:handle coderId="287614" context="<%=HandleTag.DESIGN%>" darkBG="true" /><br />
+         <tc-webtag:handle coderId="310233" context="<%=HandleTag.DESIGN%>" darkBG="true" /><br />
         	4 wins<br />
          <br />
       </td>
