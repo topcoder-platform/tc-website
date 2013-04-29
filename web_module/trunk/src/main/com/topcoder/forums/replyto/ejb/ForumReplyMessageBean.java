@@ -117,20 +117,39 @@ public class ForumReplyMessageBean implements MessageDrivenBean, MessageListener
             Pattern.CASE_INSENSITIVE);
 
     /**
+     * The patterns to used to match the auto-reply email content.
+     */
+    private static final Pattern[] AUTO_REPLY_PATTERNS = new Pattern[]{
+            Pattern.compile("\\bout\\s+of\\s+(the)?\\s*\\boffice\\b", Pattern.CASE_INSENSITIVE),
+            Pattern.compile("\\bautoreply\\b", Pattern.CASE_INSENSITIVE),
+            Pattern.compile("\\bauto\\-reply\\b", Pattern.CASE_INSENSITIVE),
+            Pattern.compile("\\bauto\\s+reply\\b", Pattern.CASE_INSENSITIVE)
+    };
+
+    /**
      * Empty constructor.
      */
     public ForumReplyMessageBean() {
     }
 
     /**
-     * Filter the message body content. Remove the quote content.
+     * Filter the message body content. Remove the quote content and auto reply content.
      *
      * @param content the original message body content.
      * @param authorEmail the author's email.
      * @return the filtered content.
      */
-    private static String filterMessageBodyText(String content, String authorEmail) {
+    private static String filterMessageBodyText(String subject, String content, String authorEmail) {
         content = content.replace("\r\n", "\n");
+
+        for (Pattern pattern : AUTO_REPLY_PATTERNS) {
+            if (pattern.matcher(subject).find()) {
+                return "";
+            }
+            if (pattern.matcher(content).find()) {
+                return "";
+            }
+        }
 
         Matcher matcher = ON_WROTE_PATTERN_GLOBAL.matcher(content);
         authorEmail = authorEmail.toLowerCase();
@@ -219,8 +238,14 @@ public class ForumReplyMessageBean implements MessageDrivenBean, MessageListener
                             ForumThread forumThread = messageToReply.getForumThread();
                             ForumMessage newMessage = messageToReply.getForum().createMessage(
                                     UserManagerFactory.getInstance().getUser(replyToIdentifier.getUserId()));
-                            newMessage.setSubject(mm.getString("subject"));
-                            newMessage.setBody(filterMessageBodyText(mm.getString("content"), toEmail));
+                            String subject = mm.getString("subject");
+                            String content = filterMessageBodyText(subject, mm.getString("content"), toEmail);
+                            if (content.trim().length() == 0) {
+                                LOGGER.info("Ignore this email");
+                                return;
+                            }
+                            newMessage.setSubject(subject);
+                            newMessage.setBody(content);
                             forumThread.addMessage(messageToReply, newMessage);
                             // Note that there's no need to create watch
                             // here because the user has already had this thread in watch list
