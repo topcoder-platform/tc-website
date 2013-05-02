@@ -114,7 +114,7 @@ String section = request.getParameter("section") == null ? "" : request.getParam
                                 <ul>
                                     <li><a href="/?module=Static&amp;d1=digitalrun&amp;d2=2008v2&amp;d3=home">Studio Cup</a></li>
                                     <!-- end test DOM -->
-                                    <li><a href="http://community.topcoder.com/tco12/studio/">TCO</a></li>
+                                    <li><a href="http://community.topcoder.com/tco13/">TCO</a></li>
                                 </ul>
                             </div>
                         </div>
