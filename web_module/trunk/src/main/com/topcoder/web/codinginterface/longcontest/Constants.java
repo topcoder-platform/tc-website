@@ -62,6 +62,7 @@ public class Constants implements CodingInterfaceConstants {
     public static int AMD_LONG_ROUND_TYPE_ID;
     public static int LONG_COLLAB_ROUND_TYPE_ID;
     public static int LONG_QA_ROUND_TYPE_ID;
+    public static int LONG_MILESTONE_ROUND_TYPE_ID;
     
     public static String WIN_STREAK_TYPE;
 
