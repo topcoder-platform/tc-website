@@ -3,7 +3,7 @@
     <enterprise-beans>
         <message-driven>
             <ejb-name>ForumsReplyToMDB</ejb-name>
-            <destination-jndi-name>queue/testQueue</destination-jndi-name>
+            <destination-jndi-name>@formsReplyToQueue@</destination-jndi-name>
         </message-driven>
     </enterprise-beans>
 </jboss>
