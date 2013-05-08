@@ -1,7 +1,9 @@
 <project name="topcoder" default="main" basedir=".">
+    <property name="formsReplyToQueue" value="queue/studioForumsQueue" />
     <property environment="env"/>
     <property name="Name" value="TopCoder"/>
     <property name="build" value="build"/>
+    <property name="temp_configs" value="${build}/temp_configs"/>
     <property name="war.dir" value="${build}/wars"/>
     <property name="ear.dir" value="${build}/ears"/>
     <property name="ejb_jars" value="${build}/ejb_jars"/>
@@ -277,12 +279,20 @@
     </target>
 
     <target name="package-EJB-ForumsReplyToEJB" depends="compile">
+        <delete dir="${temp_configs}"/>
+        <mkdir dir="${temp_configs}"/>
+        <copy todir="${temp_configs}">
+            <fileset dir="${java}/com/topcoder/forums/replyto" includes="*.xml"/>
+        </copy>
+        <replace dir="${temp_configs}" token="@formsReplyToQueue@" value="${formsReplyToQueue}"/>
         <jar jarfile="${ejb_jars}/forumsReplyTo.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/forums/replyto/ejb/**/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/forums/replyto/model/**/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/forums/replyto/util/**/*.class"/>
-            <metainf dir="${java}/com/topcoder/forums/replyto" includes="*.xml"/>
+            
+            <metainf dir="${temp_configs}" includes="*.xml"/>
         </jar>
+        <delete dir="${temp_configs}"/>
     </target>
 
     <target name="package-EJB-UserBean" depends="compile">
