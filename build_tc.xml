@@ -41,31 +41,56 @@
 
     <target name="main" depends="compile">
     </target>
-	
-	<path id="cxf.path">
-		<pathelement location="${jars.dir}/cxf/asm-3.3.1.jar"/>
-		<pathelement location="${jars.dir}/cxf/cxf-2.6.0.jar"/>
-		<pathelement location="${jars.dir}/cxf/cxf-api-2.6.0.jar"/>
-		<pathelement location="${jars.dir}/cxf/cxf-manifest.jar"/>
-		<pathelement location="${jars.dir}/cxf/cxf-rt-bindings-soap-2.6.0.jar"/>
-		<pathelement location="${jars.dir}/cxf/cxf-rt-core-2.6.0.jar"/>
-		<pathelement location="${jars.dir}/cxf/cxf-rt-frontend-jaxws-2.6.0.jar"/>
-		<pathelement location="${jars.dir}/cxf/cxf-tools-common-2.6.0.jar"/>
-		<pathelement location="${jars.dir}/cxf/jackson-all-1.9.11.jar"/>
-		<pathelement location="${jars.dir}/cxf/jaxb-api-2.2.6.jar"/>
-		<pathelement location="${jars.dir}/cxf/jaxb-impl-2.2.5.jar"/>
-		<pathelement location="${jars.dir}/cxf/jettison-1.3.1.jar"/>
-		<pathelement location="${jars.dir}/cxf/jsr311-api-1.1.1.jar"/>
-		<pathelement location="${jars.dir}/cxf/neethi-3.0.2.jar"/>
-		<pathelement location="${jars.dir}/cxf/saaj-api-1.3.4.jar"/>
-		<pathelement location="${jars.dir}/cxf/saaj-impl-1.3.18.jar"/>
-		<pathelement location="${jars.dir}/cxf/stax2-api-3.1.1.jar"/>
-		<pathelement location="${jars.dir}/cxf/xml-resolver-1.2.jar"/>
-		<pathelement location="${jars.dir}/cxf/xmlbeans-2.5.0.jar"/>
-		<pathelement location="${jars.dir}/cxf/xmlschema-core-2.0.2.jar"/>
-		<pathelement location="${jars.dir}/wsdl4j-1.5.1.jar"/>
-	</path>
 
+    <property name="id_generator.jar" value="${jars.dir}/tcs/id_generator/3.0/id_generator.jar" />
+    <property name="logging_wrapper.jar" value="${jars.dir}/tcs/logging_wrapper/2.0/logging_wrapper.jar" />
+    <property name="topcoder_commons_utility.jar" value="${jars.dir}/tcs/topcoder_commons_utility/1.0.0/topcoder_commons_utility.jar" />
+
+    <property name="org.springframework.aop-3.1.2.RELEASE.jar" value="${jars.dir}/spring/3.1.2/org.springframework.aop-3.1.2.RELEASE.jar" />
+    <property name="org.springframework.asm-3.1.2.RELEASE.jar" value="${jars.dir}/spring/3.1.2/org.springframework.asm-3.1.2.RELEASE.jar" />
+    <property name="org.springframework.aspects-3.1.2.RELEASE.jar" value="${jars.dir}/spring/3.1.2/org.springframework.aspects-3.1.2.RELEASE.jar"/>
+    <property name="org.springframework.beans-3.1.2.RELEASE.jar" value="${jars.dir}/spring/3.1.2/org.springframework.beans-3.1.2.RELEASE.jar" />
+    <property name="org.springframework.context-3.1.2.RELEASE.jar" value="${jars.dir}/spring/3.1.2/org.springframework.context-3.1.2.RELEASE.jar" />
+    <property name="org.springframework.context.support-3.1.2.RELEASE.jar" value="${jars.dir}/spring/3.1.2/org.springframework.context.support-3.1.2.RELEASE.jar" />
+    <property name="org.springframework.core-3.1.2.RELEASE.jar" value="${jars.dir}/spring/3.1.2/org.springframework.core-3.1.2.RELEASE.jar" />
+    <property name="org.springframework.expression-3.1.2.RELEASE.jar" value="${jars.dir}/spring/3.1.2/org.springframework.expression-3.1.2.RELEASE.jar" />
+    <property name="org.springframework.instrument-3.1.2.RELEASE.jar" value="${jars.dir}/spring/3.1.2/org.springframework.instrument-3.1.2.RELEASE.jar" />
+    <property name="org.springframework.instrument.tomcat-3.1.2.RELEASE.jar" value="${jars.dir}/spring/3.1.2/org.springframework.instrument.tomcat-3.1.2.RELEASE.jar" />
+    <property name="org.springframework.jdbc-3.1.2.RELEASE.jar" value="${jars.dir}/spring/3.1.2/org.springframework.jdbc-3.1.2.RELEASE.jar" />
+    <property name="org.springframework.orm-3.1.2.RELEASE.jar" value="${jars.dir}/spring/3.1.2/org.springframework.orm-3.1.2.RELEASE.jar" />
+    <property name="org.springframework.transaction-3.1.2.RELEASE.jar" value="${jars.dir}/spring/3.1.2/org.springframework.transaction-3.1.2.RELEASE.jar" />
+    <property name="org.springframework.web-3.1.2.RELEASE.jar" value="${jars.dir}/spring/3.1.2/org.springframework.web-3.1.2.RELEASE.jar" />
+    <property name="org.springframework.web.servlet-3.1.2.RELEASE.jar" value="${jars.dir}/spring/3.1.2/org.springframework.web.servlet-3.1.2.RELEASE.jar" />
+    <property name="org.springframework.web.struts-3.1.2.RELEASE.jar" value="${jars.dir}/spring/3.1.2/org.springframework.web.struts-3.1.2.RELEASE.jar" />
+
+    <property name="aopalliance.jar" value="${jars.dir}/aop/aopalliance-1.0.jar" />
+    <property name="asm-commons.jar" value="${jars.dir}/aop/asm-commons.jar" />
+    <property name="asm-tree.jar" value="${jars.dir}/aop/asm-tree.jar" />
+    <property name="asm.jar" value="${jars.dir}/aop/asm.jar" />
+
+    <property name="aspectjrt.jar" value="${jars.dir}/aspectj/aspectjrt.jar" />
+    <property name="aspectjweaver.jar" value="${jars.dir}/aspectj/aspectjweaver.jar" />
+	<property name="jaxb.jar" value="${jars.dir}/cxf/jaxb-api-2.2.6.jar" />
+
+    <path id="spring.3.1.2.path">
+        <pathelement location="${org.springframework.aop-3.1.2.RELEASE.jar}" />
+        <pathelement location="${org.springframework.asm-3.1.2.RELEASE.jar}" />
+        <pathelement location="${org.springframework.aspects-3.1.2.RELEASE.jar}" />
+        <pathelement location="${org.springframework.beans-3.1.2.RELEASE.jar}" />
+        <pathelement location="${org.springframework.context-3.1.2.RELEASE.jar}" />
+        <pathelement location="${org.springframework.context.support-3.1.2.RELEASE.jar}" />
+        <pathelement location="${org.springframework.core-3.1.2.RELEASE.jar}" />
+        <pathelement location="${org.springframework.expression-3.1.2.RELEASE.jar}" />
+        <pathelement location="${org.springframework.instrument-3.1.2.RELEASE.jar}" />
+        <pathelement location="${org.springframework.instrument.tomcat-3.1.2.RELEASE.jar}" />
+        <pathelement location="${org.springframework.jdbc-3.1.2.RELEASE.jar}" />
+        <pathelement location="${org.springframework.orm-3.1.2.RELEASE.jar}" />
+        <pathelement location="${org.springframework.jdbc-3.1.2.RELEASE.jar}" />
+        <pathelement location="${org.springframework.transaction-3.1.2.RELEASE.jar}" />
+        <pathelement location="${org.springframework.web-3.1.2.RELEASE.jar}" />
+        <pathelement location="${org.springframework.web.servlet-3.1.2.RELEASE.jar}" />
+        <pathelement location="${org.springframework.web.struts-3.1.2.RELEASE.jar}" />
+    </path>
 
     <path id="class.path">
         <pathelement location="${classes}" />
@@ -99,14 +124,12 @@
         <pathelement location="${jive.dir}/xwork.jar" />
         <pathelement location="${jive.dir}/htmlparser.jar" />
 
-        <pathelement location="${jars.dir}/spring.jar" />
-
         <pathelement location="${struts.dir}/commons-beanutils.jar" />
         <pathelement location="${struts.dir}/commons-collections.jar" />
         <pathelement location="${struts.dir}/struts.jar" />
+    	<pathelement location="${jaxb.jar}"/>
 
         <!-- TCS Components -->
-
         <pathelement location="${jars.dir}/tcs/configuration_manager/2.1.5/configuration_manager.jar" />
         <pathelement location="${jars.dir}/object_formatter.jar" />
         <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar" />
@@ -133,11 +156,17 @@
         <pathelement location="${jars.dir}/tcs/copilot_pool_and_profiles_common.jar" />
         <pathelement location="${jars.dir}/tcs/copilot_pool_and_profiles_services.jar" />
         <pathelement location="${jars.dir}/tcs/pipeline_service_facade/1.0.0/pipeline_service_facade.jar" />
+        <pathelement location="${topcoder_commons_utility.jar}" />
 
 
         <!--required for aol alerts only -->
         <pathelement location="${jars.dir}/tcs/alerts_wrapper/1.0/java_alerts_wrapper.jar" />
+
+        <pathelement location="${logging_wrapper.jar}" />
+        <!--
         <pathelement location="${jars.dir}/tcs/logging_wrapper.jar" />
+        -->
+
         <pathelement location="${jars.dir}/tcs/object_factory/2.0.1/object_factory.jar" />
 
         <!-- TCS Other -->
@@ -192,7 +221,7 @@
         <pathelement location="${jars.dir}/struts2-spring-plugin-2.2.1.1.jar" />
         <pathelement location="${jars.dir}/xwork-core-2.2.1.1.jar" />
     	
-    	<path refid="cxf.path" />
+        <path refid="spring.3.1.2.path" />
     </path>
     <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
     <property name="class.path" refid="class.path" />
@@ -222,6 +251,7 @@
             <include name="com/atlassian/**" />
             <include name="com/topcoder/apps/review/**" />
             <include name="com/topcoder/util/idgenerator/bean/**" />
+        	<include name="com/topcoder/reg/**"/>
 
             <exclude name="com/topcoder/web/csf/**" />
             <exclude name="com/topcoder/web/wiki/**" />
@@ -233,6 +263,7 @@
             <exclude name="com/topcoder/web/forums/**" />
             <exclude name="com/topcoder/web/onsite/**" />
             <exclude name="com/topcoder/web/ejb/security/**" />
+        	<exclude name="com/topcoder/web/reg/**"/>
         </javac>
         <property name="compile_set" value="true" />
     </target>
@@ -722,9 +753,14 @@
             <fileset dir="${jars.dir}/tcs/json_object/1.0">
                 <include name="json_object.jar" />
             </fileset>
-            <fileset dir="${jars.dir}/tcs">
-                <include name="logging_wrapper.jar" />
-            </fileset>
+
+            <!--Replace with logging wrapper 2.0 -->
+            <!--
+                <fileset dir="${jars.dir}/tcs">
+                    <include name="logging_wrapper.jar" />
+                </fileset>
+            -->
+
             <fileset dir="${jars.dir}/tcs">
                 <include name="ldap_sdk_interface.jar" />
             </fileset>
@@ -739,6 +775,11 @@
                 <include name="random_string_generator-1.0.0.jar" />
             </fileset>
         </copy>
+
+        <!--logging wrapper 2.0 -->
+        <copy todir="${jboss_lib}" file="${logging_wrapper.jar}" overwrite="true" />
+        <copy todir="${jboss_lib}" file="${topcoder_commons_utility.jar}" overwrite="true" />
+
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/file_upload/2.0.2.0/file_upload.jar" />
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/configuration_manager/2.1.5/configuration_manager.jar" />
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/data_validation/1.0/data_validation.jar" />
@@ -757,11 +798,12 @@
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/pipeline_service_persistence/1.0.0/pipeline_service_persistence.jar" />
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/pipeline_service/1.0.0/pipeline_service.jar" />
         <copy todir="${jboss_lib}" file="${jars.dir}/tcs/pipeline_service_facade/1.0.0/pipeline_service_facade.jar" />
+        <copy todir="${jboss_lib}" file="${id_generator.jar}" />
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/base_exception/2.0.0/base_exception.jar" overwrite="true" />
 
         <copy todir="${jboss_lib}">
             <fileset dir="${jars.dir}/tcs">
                 <include name="catalog.jar" />
-                <include name="base_exception.jar" />
                 <include name="user.jar" />
             </fileset>
         </copy>
@@ -770,7 +812,6 @@
                 <include name="security.jar" />
             </fileset>
         </copy>
-
     </target>
 
     <target name="war-query" depends="compile">
@@ -950,28 +991,24 @@
 
     <target name="compile-reg" depends="compile">
         <javac srcdir="${java}" destdir="${classes}" classpathref="class.path" deprecation="${deprecation}" debug="${debug}" source="1.5" target="1.5">
-            <include name="com/topcoder/web/reg/**" />
+            <include name="com/topcoder/reg/**/*.java" />
         </javac>
     </target>
 
     <target name="war-reg" depends="compile-reg">
         <war warfile="${war.dir}/reg.war" webxml="${resources}/reg/web.xml">
             <classes dir="${classes}">
-                <include name="com/topcoder/web/reg/**/*.class" />
+                <include name="com/topcoder/reg/**/*.class" />
             </classes>
-            <fileset dir="${java}/com/topcoder/web/reg/view">
+        	
+            <fileset dir="${java}/com/topcoder/reg/view">
+            	<include name="**/*"/>
             </fileset>
+        	
             <webinf dir="${resources}/reg">
                 <include name="jboss-web.xml" />
             </webinf>
-            <classes dir="${resources}/reg">
-                <include name="hibernate.cfg.xml" />
-            </classes>
-            <classes dir="${resources}/hibernate">
-                <include name="com/topcoder/web/common/**/*.xml" />
-                <include name="com/topcoder/web/tc/model/**/*.xml" />
-                <include name="com/topcoder/web/ep/model/**/*.xml" />
-            </classes>
+
             <lib dir="${jars.dir}">
                 <include name="jstl.jar" />
                 <include name="standard.jar" />
@@ -983,38 +1020,40 @@
                 <include name="struts2-core-2.2.1.1.jar" />
                 <include name="struts2-spring-plugin-2.2.1.1.jar" />
                 <include name="xwork-core-2.2.1.1.jar" />
-                <include name="spring.jar" />
-            	<include name="wsdl4j-1.5.1.jar"/>
+                <include name="struts2-json-plugin-2.2.1.1.jar" />
             </lib>
-        	<lib dir="${jars.dir}/cxf">
-        		<include name="asm-3.3.1.jar"/>
-        		<include name="cxf-2.6.0.jar"/>
-        		<include name="cxf-api-2.6.0.jar"/>
-        		<include name="cxf-manifest.jar"/>
-        		<include name="cxf-rt-bindings-soap-2.6.0.jar"/>
-        		<include name="cxf-rt-core-2.6.0.jar"/>
-        		<include name="cxf-rt-frontend-jaxws-2.6.0.jar"/>
-        		<include name="cxf-tools-common-2.6.0.jar"/>
-        		<include name="jackson-all-1.9.11.jar"/>
-        		<include name="jaxb-api-2.2.6.jar"/>
-        		<include name="jaxb-impl-2.2.5.jar"/>
-        		<include name="jettison-1.3.1.jar"/>
-        		<include name="jsr311-api-1.1.1.jar"/>
-        		<include name="neethi-3.0.2.jar"/>
-        		<include name="saaj-api-1.3.4.jar"/>
-        		<include name="saaj-impl-1.3.18.jar"/>
-        		<include name="stax2-api-3.1.1.jar"/>
-        		<include name="xml-resolver-1.2.jar"/>
-        		<include name="xmlbeans-2.5.0.jar"/>
-        		<include name="xmlschema-core-2.0.2.jar"/>
-        		
-        		<include name="geronimo-activation_1.1_spec-1.1.jar"/>
-        		<include name="geronimo-annotation_1.0_spec-1.1.1.jar"/>
-        		<include name="geronimo-jaxws_2.2_spec-1.1.jar"/>
-        		<include name="geronimo-stax-api_1.0_spec-1.0.1.jar"/>
-        		<include name="geronimo-ws-metadata_2.0_spec-1.1.3.jar"/>
-        	</lib>
-        	
+
+            <lib dir="${jars.dir}/spring/3.1.2">
+                <include name="org.springframework.aop-3.1.2.RELEASE.jar" />
+                <include name="org.springframework.asm-3.1.2.RELEASE.jar" />
+                <include name="org.springframework.aspects-3.1.2.RELEASE.jar" />
+                <include name="org.springframework.beans-3.1.2.RELEASE.jar" />
+                <include name="org.springframework.context-3.1.2.RELEASE.jar" />
+                <include name="org.springframework.context.support-3.1.2.RELEASE.jar" />
+                <include name="org.springframework.core-3.1.2.RELEASE.jar" />
+                <include name="org.springframework.expression-3.1.2.RELEASE.jar" />
+                <include name="org.springframework.instrument-3.1.2.RELEASE.jar" />
+                <include name="org.springframework.instrument.tomcat-3.1.2.RELEASE.jar" />
+                <include name="org.springframework.jdbc-3.1.2.RELEASE.jar" />
+                <include name="org.springframework.orm-3.1.2.RELEASE.jar" />
+                <include name="org.springframework.transaction-3.1.2.RELEASE.jar" />
+                <include name="org.springframework.web-3.1.2.RELEASE.jar" />
+                <include name="org.springframework.web.servlet-3.1.2.RELEASE.jar" />
+                <include name="org.springframework.web.struts-3.1.2.RELEASE.jar" />
+            </lib>
+
+            <lib dir="${jars.dir}/aop">
+                <include name="aopalliance-1.0.jar" />
+                <include name="asm-commons.jar" />
+                <include name="asm-tree.jar" />
+                <include name="asm.jar" />
+            </lib>
+
+            <lib dir="${jars.dir}/aspectj">
+                <include name="aspectjrt.jar" />
+                <include name="aspectjweaver.jar" />
+            </lib>
+
             <webinf dir="${resources}/reg">
                 <include name="applicationContext.xml" />
             </webinf>
@@ -1023,7 +1062,9 @@
                 <include name="struts.xml" />
             </classes>
             <classes dir="${resources}/reg/email_templates"/>
-            <classes dir="${resources}/reg/validators"/>
+            <classes dir="${resources}/reg/validators">
+            	<exclude name="com/topcoder/web/**"/>
+            </classes>
         </war>
     </target>
 

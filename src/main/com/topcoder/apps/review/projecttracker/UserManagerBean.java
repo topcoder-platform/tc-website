@@ -1,7 +1,7 @@
 /*
  * UserManagerBean.java
  *
- * Copyright � 2003, TopCoder, Inc. All rights reserved
+ * Copyright ??? 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.projecttracker;
@@ -17,7 +17,7 @@ import com.topcoder.security.policy.TCPermission;
 import com.topcoder.util.log.Level;
 import com.topcoder.util.log.Log;
 import com.topcoder.util.log.LogException;
-import com.topcoder.util.log.LogFactory;
+import com.topcoder.util.log.LogManager;
 
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
@@ -38,42 +38,33 @@ import java.util.Set;
 
 /**
  * This is the concrete implementation of the UserManager interface.
- *
- * @author TCSDeveloper
+ * <p>
+ *  Version 1.1 change log:
+ *  <ol>
+ *      <li>Migrate to use logging wrapper 2.</li>
+ *  </ol>
+ * </p>
+ * @version 1.1
+ * @author TCSDeveloper, TCSASSEMBLER
  */
 public class UserManagerBean implements SessionBean {
-    //todo get a decent logger in place that doesn't throw exceptions when you try to instantiate
-    private static Log log;
+    
+    /**
+     * Log instance.
+     */
+    private static Log log = LogManager.getLog("com.topcoder.apps.review.document.UserManagerBean");;
 
-    static {
-        try {
-            log = LogFactory.getInstance().getLog("com.topcoder.apps.review.document.UserManagerBean");
-        } catch (LogException e) {
-            e.printStackTrace();
-        }
-    }
+    
     private void info(String msg) {
-        try {
-            log.log(Level.INFO, msg);
-        } catch (LogException e1) {
-            e1.printStackTrace();
-        }
+        log.log(Level.INFO, msg);
     }
 
     private void debug(String msg) {
-        try {
-            log.log(Level.DEBUG, msg);
-        } catch (LogException e1) {
-            e1.printStackTrace();
-        }
+        log.log(Level.DEBUG, msg);
     }
 
     private void error(String msg) {
-        try {
-            log.log(Level.ERROR, msg);
-        } catch (LogException e1) {
-            e1.printStackTrace();
-        }
+        log.log(Level.ERROR, msg);
     }
 
     /**

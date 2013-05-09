@@ -1,0 +1,64 @@
+/*
+ * Copyright (C) 2013 TopCoder Inc., All Rights Reserved.
+ */
+package com.topcoder.reg.actions;
+
+import org.apache.struts2.ServletActionContext;
+
+import com.topcoder.commons.utils.LoggingWrapperUtility;
+import com.topcoder.reg.services.PersistenceException;
+import com.topcoder.web.common.WebConstants;
+
+/**
+ * This method would validate the activation code and then activate the the account if nothing wrong detected.
+ * <p>
+ * <strong>Thread Safety:</strong> This class is mutable and not thread-safe as its parent is not thread safe. But
+ * Struts2 framework only uses it in thread-safe manner.
+ * </p>
+ * 
+ * @author leo_lol
+ * @version 1.0
+ * @since 1.0
+ */
+public class ActivateAction extends BaseAction {
+
+    /**
+     * Generated serial number.
+     */
+    private static final long serialVersionUID = 7216018769686756492L;
+
+    /**
+     * Qualified name of this class.
+     */
+    private static final String CLASS_NAME = ActivateAction.class.getName();
+
+    /**
+     * This method would validate activation code and activate the account if there is no error.
+     * 
+     * @throws Exception
+     *             If there is any error.
+     * @return The result code.
+     */
+    @Override
+    public String execute() throws Exception {
+        final String signature = CLASS_NAME + "#execute()";
+        LoggingWrapperUtility.logEntrance(logger, signature, null, null);
+        final String code = ServletActionContext.getRequest().getParameter(WebConstants.ACTIVATION_CODE);
+
+        if (null == code || code.trim().length() == 0) {
+            addActionError("Empty activation code");
+        }
+
+        try {
+            userService.activate(code);
+        } catch (PersistenceException e) {
+            addActionError(e.getMessage());
+            LoggingWrapperUtility.logException(logger, signature, e);
+            throw e;
+        }
+
+        LoggingWrapperUtility.logExit(logger, signature, new String[] { SUCCESS });
+        return SUCCESS;
+    }
+
+}
