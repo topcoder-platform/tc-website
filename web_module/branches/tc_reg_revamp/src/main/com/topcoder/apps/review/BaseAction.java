@@ -1,22 +1,31 @@
 /**
- * Copyright � 2003, TopCoder, Inc. All rights reserved
+ * Copyright 2003, TopCoder, Inc. All rights reserved
  */
 
 package com.topcoder.apps.review;
 
 import com.topcoder.util.log.Level;
 import com.topcoder.util.log.Log;
-import com.topcoder.util.log.LogException;
-import com.topcoder.util.log.LogFactory;
+import com.topcoder.util.log.LogManager;
+
 import org.apache.struts.action.Action;
 import org.apache.struts.util.MessageResources;
 
 /**
  * Implementation of <strong>Action</strong> that provides customized logging
  * mechanics using logging_wrapper package.
+ * 
+ * <p>
+ * Version 1.1 change log:
+ *  <ol>
+ *      <li>
+ *          Migrate to use logging_wrapper version 2.0
+ *      <li>
+ *  </ol>
+ * </p>
  *
- * @author TCSDEVELOPER
- * @version 1.0
+ * @author TCSDEVELOPER, TCSASSEMBLER
+ * @version 1.1
  */
 
 public abstract class BaseAction extends Action {
@@ -43,12 +52,9 @@ public abstract class BaseAction extends Action {
      * @param message The logging message.
      */
     protected void log(Level level, java.lang.Object message) {
-        try {
-            if (log == null) {
-                log = LogFactory.getInstance().getLog(logName);
-            }
-            log.log(level, message);
-        } catch (LogException e) {
+        if (log == null) {
+            log = LogManager.getLog(logName);
         }
+        log.log(level, message);
     }
 }

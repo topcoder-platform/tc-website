@@ -31,14 +31,19 @@ import com.topcoder.util.cache.refreshable.Refreshable;
 import com.topcoder.util.cache.refreshable.RefreshableCache;
 import com.topcoder.util.log.Level;
 import com.topcoder.util.log.Log;
-import com.topcoder.util.log.LogException;
-import com.topcoder.util.log.LogFactory;
+import com.topcoder.util.log.LogManager;
 
 
 /**
  * DOCUMENT ME!
- *
- * @author TCSDeveloper
+ * <p>
+ * Version 1.1 change log.
+ *  <ol>
+ *      <li>Migrate to use logging wrapper 2</li>
+ *  </ol>
+ * </p>
+ * @version 1.1
+ * @author TCSDeveloper, TCSASSEMBLER
  */
 public class Common {
     public static int MAX_FIELD_SIZE = 20000;
@@ -259,46 +264,32 @@ public class Common {
     }
 
     private static void info(String msg) {
-        try {
-            if (log == null) {
-                log = Common.getLog();
-            }
-            log.log(Level.INFO, msg);
-        } catch (LogException e1) {
-            e1.printStackTrace();
+        if (log == null) {
+            log = Common.getLog();
         }
+        log.log(Level.INFO, msg);
     }
 
     private static void debug(String msg) {
-        try {
-            if (log == null) {
-                log = Common.getLog();
-            }
-            log.log(Level.DEBUG, msg);
-        } catch (LogException e1) {
-            e1.printStackTrace();
+        if (log == null) {
+            log = Common.getLog();
         }
+        log.log(Level.DEBUG, msg);
     }
 
     private static void error(String msg) {
-        try {
-            if (log == null) {
-                log = Common.getLog();
-            }
-            log.log(Level.ERROR, msg);
-        } catch (LogException e1) {
-            e1.printStackTrace();
+        if (log == null) {
+            log = Common.getLog();
         }
+        log.log(Level.ERROR, msg);
     }
 
+    /**
+     * Create a log via {@link LogManager}.
+     * @return Instance of {@link Log}.
+     */
     private static Log getLog() {
-        Log newLog = null;
-        try {
-            newLog = LogFactory.getInstance().getLog("com.topcoder.apps.review.persistence.Common");
-        } catch (LogException e) {
-            e.printStackTrace();
-        }
-        return newLog;
+        return LogManager.getLog("com.topcoder.apps.review.persistence.Common");
     }
 
     /**

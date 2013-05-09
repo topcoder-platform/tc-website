@@ -1,10 +1,10 @@
 <CMConfig>
     <Config name="com.topcoder.randomstringimg">
         <Property name="width">
-            <Value>200</Value>
+            <Value>263</Value>
         </Property>
         <Property name="height">
-            <Value>100</Value>
+            <Value>53</Value>
         </Property>
         <Property name="colorfiles">
             <Value>/home/web/web/resources/com/topcoder/randomstringimg/Colors.xml</Value>
