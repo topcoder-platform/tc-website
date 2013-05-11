@@ -204,11 +204,11 @@ public final class DataProvider {
         LoggingWrapperUtility.logEntrance(logger, signature, new String[] { "handle" }, new String[] { handle });
         try {
             Request r = new Request();
-            r.setContentHandle("reg_invalid_handle");
+            r.setContentHandle("invalid_handle");
             r.setProperty("ha", handle);
-            DataAccess dataAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
-            ResultSetContainer rsc = dataAccess.getData(r).get("reg_invalid_handle");
-            boolean isInvalid = rsc.getBooleanItem(0, "is_invalid");
+            DataAccess dataAccess = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
+            ResultSetContainer rsc = dataAccess.getData(r).get("invalid_handle");
+            boolean isInvalid = !rsc.isEmpty();
             LoggingWrapperUtility.logExit(logger, signature, new Object[] { isInvalid });
             return isInvalid;
         } catch (Exception e) {
