@@ -144,15 +144,15 @@ public final class DataProvider {
         LoggingWrapperUtility.logEntrance(logger, signature, null, null);
         try {
             Request r = new Request();
-            r.setContentHandle("reg_all_countries");
+            r.setContentHandle("country_list");
             DataAccess dataAccess = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
-            ResultSetContainer rsc = dataAccess.getData(r).get("reg_all_countries");
+            ResultSetContainer rsc = dataAccess.getData(r).get("country_list");
             List<Country> countries = new ArrayList<Country>();
             Country c = null;
             for (ResultSetRow row : rsc) {
                 c = new Country();
-                c.setCode(row.getStringItem("code"));
-                c.setName(row.getStringItem("name"));
+                c.setCode(row.getStringItem("country_code"));
+                c.setName(row.getStringItem("country_name"));
                 countries.add(c);
             }
             return countries;
