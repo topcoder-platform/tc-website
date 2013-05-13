@@ -62,7 +62,7 @@ public final class DataProvider {
             Request r = new Request();
             r.setContentHandle("reg_secret_question_response");
             r.setProperty("ha", handle);
-            DataAccess dataAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
+            DataAccess dataAccess = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
             ResultSetContainer rsc = dataAccess.getData(r).get("reg_secret_question_response");
             if (rsc.size() > 0) {
                 question = new SecretQuestion();
@@ -102,7 +102,7 @@ public final class DataProvider {
             Request r = new Request();
             r.setContentHandle("reg_user_info");
             r.setProperty("ha", handle);
-            DataAccess dataAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
+            DataAccess dataAccess = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
             ResultSetContainer rsc = dataAccess.getData(r).get("reg_user_info");
 
             if (rsc.size() > 0) {
@@ -145,7 +145,7 @@ public final class DataProvider {
         try {
             Request r = new Request();
             r.setContentHandle("reg_all_countries");
-            DataAccess dataAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
+            DataAccess dataAccess = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
             ResultSetContainer rsc = dataAccess.getData(r).get("reg_all_countries");
             List<Country> countries = new ArrayList<Country>();
             Country c = null;
@@ -179,7 +179,7 @@ public final class DataProvider {
             Request r = new Request();
             r.setContentHandle("reg_email_available");
             r.setProperty("email", email);
-            DataAccess dataAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
+            DataAccess dataAccess = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
             ResultSetContainer rsc = dataAccess.getData(r).get("reg_email_available");
             boolean available = rsc.getBooleanItem(0, "available");
             LoggingWrapperUtility.logExit(logger, signature, new Object[] { available });
