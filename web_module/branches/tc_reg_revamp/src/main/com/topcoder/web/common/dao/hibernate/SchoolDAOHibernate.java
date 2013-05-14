@@ -15,7 +15,7 @@ import com.topcoder.web.common.model.SchoolAssociationType;
 import com.topcoder.web.common.model.SchoolType;
 import com.topcoder.web.ep.model.Classroom;
 import com.topcoder.web.ep.model.StudentClassroom;
-import com.topcoder.web.reg.Constants;
+import com.topcoder.reg.Constants;
 
 /**
  * @author dok
