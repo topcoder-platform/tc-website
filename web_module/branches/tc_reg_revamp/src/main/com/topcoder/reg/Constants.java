@@ -1,4 +1,4 @@
-package com.topcoder.web.reg;
+package com.topcoder.reg;
 
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
