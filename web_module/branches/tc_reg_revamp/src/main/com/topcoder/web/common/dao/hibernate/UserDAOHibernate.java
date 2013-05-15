@@ -7,7 +7,7 @@ import com.topcoder.web.common.model.DemographicQuestion;
 import com.topcoder.web.common.model.DemographicResponse;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.UserSchool;
-import com.topcoder.web.reg.Constants;
+import com.topcoder.web.common.WebConstants;
 import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.Query;
@@ -62,7 +62,7 @@ public class UserDAOHibernate extends Base implements UserDAO {
             q.setString(0, userName);
         }
         if (activeRequired) {
-            q.setString(1, String.valueOf(Constants.ACTIVE_STATI[1]));
+            q.setString(1, String.valueOf(WebConstants.ACTIVE_STATI[1]));
         }
         return (User) q.uniqueResult();
 
