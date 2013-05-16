@@ -191,6 +191,7 @@ public class HibernateDirectProjectService extends BaseGroupService implements D
                             if (!ids.contains(row.getLongItem("direct_project_id"))) {
                                 ProjectDTO dto = new ProjectDTO();
                                 dto.setProjectId(row.getLongItem("direct_project_id"));
+                                dto.setName(row.getStringItem("direct_project_name"));
                                 result.add(dto);
                                 ids.add(dto.getProjectId());
                             }
