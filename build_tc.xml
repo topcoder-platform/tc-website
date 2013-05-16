@@ -1021,6 +1021,7 @@
                 <include name="struts2-spring-plugin-2.2.1.1.jar" />
                 <include name="xwork-core-2.2.1.1.jar" />
                 <include name="struts2-json-plugin-2.2.1.1.jar" />
+				<include name="netscape_ldap_sdk.jar" />				
             </lib>
 
             <lib dir="${jars.dir}/spring/3.1.2">
