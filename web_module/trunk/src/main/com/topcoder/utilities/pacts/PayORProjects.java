@@ -37,24 +37,15 @@ public class PayORProjects extends DBUtility {
             " )" +
             " and p.project_status_id not in (2,3) -- don't pay Draft and Deleted projects\n" +
             " and (select max(actual_end_time) from project_phase pp where pp.project_id=p.project_id) >= to_date('01/01/2011', '%m/%d/%Y') -- date cutoff for the old projects\n" +
-            " -- check that the project is ready to be paid: it should have either Post-Mortem phase, be in one of the 'successful' statuses or have passed a final review\n" +
+            " -- check that the project is ready to be paid: it should be either in one of the 'closed' statuses or have passed a final review\n" +
             " and" +
             " (" +
-            "   -- check that the Post-Mortem has opened and there are no other open phases\n" +
-            "   (" +
-            "     exists (select project_phase_id from project_phase where project_id = p.project_id and phase_status_id in (2,3) and phase_type_id = 12)" +
-            "     and not exists (select project_phase_id from project_phase where project_id = p.project_id and phase_status_id = 2 and phase_type_id != 12)" +
-            "   )" +
-            "   -- If the status is Completed or Cancelled - Winner Unresponsive\n" +
+            "   -- If the status is Completed or one of the Cancelled ones\n" +
+            "   p.project_status_id in (4,5,6,7,8,9,10,11)" +
             "   or" +
-            "   p.project_status_id in (7,8)" +
-            "   -- check that at least one Final Review passed and there is no more than one Approval phase (which would mean the Approval has failed)\n" +
-            "   or" +
-            "   (" +
-            "     exists (select * from review_comment rc, review rw where rc.comment_type_id=10 and rc.extra_info='Approved' and rw.review_id = rc.review_id and rw.committed=1 and" +
-            "             rc.resource_id in (select resource_id from resource r where r.project_id=p.project_id and r.resource_role_id=9))" +
-            "     and (select count(project_phase_id) from project_phase where project_id = p.project_id and phase_type_id = 11) = 1" +
-            "   )" +
+            "   -- check that at least one Final Review passed\n" +
+            "   exists (select 1 from review_comment rc, review rw where rc.comment_type_id=10 and rc.extra_info='Approved' and rw.review_id = rc.review_id and rw.committed=1 and" +
+            "           rc.resource_id in (select resource_id from resource r where r.project_id=p.project_id and r.resource_role_id=9))" +
             " )";
 
     private static final String SQL_QUERY_PAYMENTS =
