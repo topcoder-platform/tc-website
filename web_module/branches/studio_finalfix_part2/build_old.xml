@@ -1,0 +1,462 @@
+<project name="topcoder" default="main" basedir=".">
+    <property name="Name" value="TopCoder"/>
+    <property name="build" value="build"/>
+    <property name="war.dir" value="${build}/wars"/>
+    <property name="ear.dir" value="${build}/ears"/>
+    <property name="ejb_jars" value="${build}/ejb_jars"/>
+    <property name="classes" value="${build}/classes"/>
+    <property name="bin" value="lib/bin"/>
+    
+    <property name="testclasses" value="${build}/testcases"/>
+    <property name="build.javadocs" value="${build}/javadocs"/>
+    <property name="external.jars.dir" location="../external-artifacts"/>
+    <property name="lib.dir" value="lib"/>
+    <property name="jive.dir" value="lib/jars/jive"/>
+    <property name="jars.dir" value="${lib.dir}/jars"/>
+
+
+    <property name="global-dist.dir" value="${basedir}/../dist/artifacts"/>
+    <property name="shared.build" value="${basedir}/../shared"/>
+    <property name="shared.jar" value="${bin}/shared.jar"/>
+
+
+    <property name="struts.dir" value="${lib.dir}/jakarta-struts-1.1/lib"/>
+    <property name="bin" value="lib/bin"/>
+    <property name="src.dir" value="src"/>
+    <property name="java" value="${src.dir}/main"/>
+    <property name="shared" value="../shared/src/main"/>
+    <property name="testjava" value="${src.dir}/testcases"/>
+    <property name="testshared" value="../shared/src/testcases"/>
+    <property name="resources" value="resources"/>
+    <property name="conf" value="conf"/>
+    <property name="taglib" value="${resources}/taglib"/>
+    <property name="images" value="images"/>
+    <property name="shared.jar" value="${bin}/shared.jar"/>
+    <property name="common.jar" value="${bin}/tcwebcommon.jar"/>
+    <property name="long.jar" value="${bin}/long.jar"/>
+    <property name="web" value="src/main/com/topcoder/web"/>
+    <property name="jboss_home" value="../jboss-4.0.4.GA"/>
+    <property name="jboss_deploy" value="${jboss_home}/server/all/deploy"/>
+    <property name="jboss_lib" value="${jboss_home}/server/all/lib"/>
+    <property name="jboss_conf" value="${jboss_home}/server/all/conf"/>
+    <property environment="env"/>
+
+    <property name="deprecation" value="true"/>
+    <property name="debug" value="true"/>
+    <property name="junitsummary" value="on"/>
+
+    <target name="main" depends="compile">
+    </target>
+
+
+    <path id="class.path">
+        <pathelement location="${classes}"/>
+        <pathelement location="${shared.jar}"/>
+        <pathelement location="${testclasses}"/>
+        <pathelement location="${resources}"/>
+        <pathelement location="${resources}/hibernate"/>
+        <pathelement location="${images}"/>
+        <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+        <pathelement location="${jars.dir}/ifxjdbc.jar"/>
+        <pathelement location="${jars.dir}/bfograph.jar"/>
+        <pathelement location="${jars.dir}/activation.jar"/>
+
+        <pathelement location="${jars.dir}/jboss/javax.servlet.jar"/>
+        <pathelement location="${jars.dir}/jboss/javax.servlet.jsp.jar"/>
+        <pathelement location="${jars.dir}/jboss/jbossall-client.jar"/>
+        <pathelement location="${jars.dir}/jboss/xalan.jar"/>
+        <pathelement location="${jars.dir}/jboss/xercesImpl.jar"/>
+        <pathelement location="${jars.dir}/jboss/xml-apis.jar"/>
+        <pathelement location="${jars.dir}/jboss/mail.jar"/>
+        <pathelement location="${jars.dir}/jboss/jboss-system.jar"/>
+        <pathelement location="${jars.dir}/jboss/jboss-cache.jar"/>
+        <pathelement location="${jars.dir}/jboss/jgroups.jar"/>
+
+        <pathelement location="${jive.dir}/jivebase.jar"/>
+        <pathelement location="${jive.dir}/jiveforums.jar"/>
+        <pathelement location="${jive.dir}/xwork.jar"/>
+        <pathelement location="${jive.dir}/htmlparser.jar"/>
+
+        <!-- TCS Components -->
+
+        <pathelement location="${jars.dir}/tcs/configuration_manager/2.1.5/configuration_manager.jar"/>
+        <pathelement location="${jars.dir}/object_formatter.jar"/>
+        <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
+        <pathelement location="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
+        <pathelement location="${jars.dir}/tcs/file_upload/2.0.2.0/file_upload.jar"/>
+        <pathelement location="${jars.dir}/tcs/json_object/1.0/json_object.jar"/>
+        <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
+
+
+        <!--required for aol alerts only -->
+        <pathelement location="${jars.dir}/tcs/alerts_wrapper/1.0/java_alerts_wrapper.jar"/>
+        <pathelement location="${jars.dir}/tcs/logging_wrapper.jar"/>
+        <pathelement location="${jars.dir}/tcs/object_factory/2.0.1/object_factory.jar"/>
+
+        <!-- TCS Other -->
+        <pathelement location="${jars.dir}/tcs/catalog.jar"/>
+        <pathelement location="${jars.dir}/tcs/user.jar"/>
+
+        <!-- file conversion component -->
+        <pathelement location="${jars.dir}/fileconvert.jar"/>
+        <pathelement location="${jars.dir}/httpunit.jar"/>
+        <pathelement location="${jars.dir}/itext-1.1.jar"/>
+
+        <!-- hibernate files -->
+        <pathelement location="${jive.dir}/velocity-dep.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.2/hibernate3.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.2/commons-logging-1.0.4.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.2/ehcache-1.2.3.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.2/cglib-2.1.3.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.2/asm.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.2/ant-antlr-1.6.5.jar"/>
+        <pathelement location="${jars.dir}/hibernate-3.2/antlr-2.7.6.jar"/>
+        <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-commons-annotations.jar"/>
+        <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-annotations.jar"/>
+        <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/ejb3-persistence.jar"/>
+
+
+        <pathelement location="${external.jars.dir}/base_exception-2.0.0.jar"/>
+        <pathelement location="${external.jars.dir}/configuration_api-2.0.0.jar"/>
+        <pathelement location="${external.jars.dir}/image_overlay-1.0.0.jar"/>
+        <pathelement location="${external.jars.dir}/image_resizing-1.0.0.jar"/>
+        <pathelement location="${external.jars.dir}/image_manipulation-1.0.0.jar"/>
+
+        <pathelement location="${jars.dir}/TestServices.jar"/>
+        <pathelement location="${jars.dir}/asyncservices.jar"/>
+        <!-- app side dependencies...get rid of this if possible it's bad long contest design -->
+        <pathelement location="${jars.dir}/tc.jar"/>
+
+<!--
+		        <pathelement location="${confluence.jars}/hibernate-2.1.8-atlassian.jar"/>
+        <pathelement location="${confluence.jars}/atlassian-user-2007-05-22.jar"/>
+        <pathelement location="${confluence.jars}/confluence-2.5.3.jar"/>
+        <pathelement location="${confluence.jars}/seraph-0.7.23.jar"/>
+        <pathelement location="${confluence.jars}/atlassian-event-0.2.jar"/>
+
+-->
+
+
+
+
+    </path>
+    <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
+    <property name="class.path" refid="class.path"/>
+
+    <target name="init">
+        <mkdir dir="${classes}"/>
+        <mkdir dir="${testclasses}"/>
+        <mkdir dir="${bin}"/>
+        <mkdir dir="${ejb_jars}"/>
+        <mkdir dir="${war.dir}"/>
+        <mkdir dir="${ear.dir}"/>
+    </target>
+
+    <target name="compile_common" depends="init" unless="compile_common_set">
+        <ant antfile="build_common.xml" target="build-dist"/>
+        <property name="compile_common_set" value="true"/>
+    </target>
+
+   <target name="compile" depends="init,compile_common" unless="compile_set">
+        <depend srcdir="${java}" destdir="${classes}" cache="${build}/cache"/>
+        <javac
+                srcdir="${java}"
+                destdir="${classes}"
+                classpathref="class.path"
+                deprecation="${deprecation}"
+                debug="${debug}"
+                source="1.5"
+                target="1.5" memoryMaximumSize="380m" memoryInitialSize="380m" fork="true">
+            <include name="com/topcoder/ejb/**"/>
+            <include name="com/topcoder/security/**"/>
+            <include name="com/topcoder/utilities/**"/>
+            <include name="com/topcoder/web/**"/>
+            <exclude name="com/topcoder/web/csf/**"/>
+            <exclude name="com/topcoder/web/wiki/**"/>
+            <exclude name="com/topcoder/web/studio/**"/>
+            <exclude name="com/topcoder/web/openaim/**"/>
+            <exclude name="com/topcoder/web/forums/**"/>
+            <exclude name="com/topcoder/web/onsite/**"/>
+            <exclude name="com/topcoder/web/ejb/security/**"/>
+            
+        </javac>
+        <property name="compile_set" value="true"/>
+    </target>
+
+
+    <target name="clean">
+        <!-- kill the entire build dir -->
+        <delete dir="${build}"/>
+        <delete dir="${bin}"/>
+    </target>
+
+
+
+    <target name="moveQueries" depends="compile">
+        <java classname="com.topcoder.utilities.querymover.QueryMover" fork="no">
+            <arg value="12418"/>
+            <arg value="12416"/>
+            <classpath>
+                <pathelement location="${classes}"/>
+                <pathelement location="${resources}"/>
+                <fileset dir="${jars.dir}">
+                    <include name="**/*.jar"/>
+                </fileset>
+                <pathelement path="${env.CLASSPATH}"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="comp_price" depends="compile">
+        <java classname="com.topcoder.web.tc.model.SoftwareComponent" fork="false">
+            <classpath>
+                <pathelement location="${classes}"/>
+                <pathelement location="${resources}"/>
+                <fileset dir="${jars.dir}">
+                    <include name="**/*.jar"/>
+                </fileset>
+                <pathelement path="${env.CLASSPATH}"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="run-ServerMonitorBot" depends="compile">
+        <java classname="com.topcoder.utilities.ServerMonitorBot" fork="true">
+            <jvmarg value="-Dsun.java2d.noddraw=true"/>
+            <classpath>
+                <pathelement location="${classes}"/>
+                <pathelement location="${jars.dir}/sharedForApp.jar"/>
+                <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+                <pathelement location="${resources}"/>
+                <pathelement location="${jars.dir}/mail.jar"/>
+                <pathelement location="${jars.dir}/activation.jar"/>
+            </classpath>
+        </java>
+    </target>
+	
+    <target name="crawl-site" depends="compile">
+        <java classname="com.topcoder.utilities.SiteCrawler" fork="true">
+            <classpath>
+                <pathelement location="${classes}"/>
+                <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+                <pathelement location="${resources}"/>
+                <pathelement location="${jars.dir}/httpunit.jar"/>
+                <pathelement location="${jars.dir}/Tidy.jar"/>
+                <pathelement location="${jars.dir}/nekohtml.jar"/>
+                <pathelement location="${jars.dir}/xmlParserAPIs.jar"/>
+                <pathelement location="${jars.dir}/xercesImpl.jar"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="placed-stuf">
+        <java classname="com.topcoder.utilities.ProjectResultPlacedSetter" fork="true">
+            <classpath>
+      			<pathelement location="${shared.jar}"/>
+				      			<pathelement location="${bin}/classes.jar"/>
+                <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+                <pathelement location="${jars.dir}/ifxjdbc.jar"/>
+                <pathelement location="${resources}"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="competition-security-groups" depends="compile">
+        <java classname="com.topcoder.utilities.AddTCUsersToGroup" fork="true">
+            <classpath>
+                <pathelement location="${classes}"/>
+                <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+                <pathelement location="${jars.dir}/ifxjdbc.jar"/>
+                <pathelement location="${jars.dir}/jboss/jbossall-client.jar"/>
+                <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
+                <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
+                <pathelement location="${resources}"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="contact_company_create" depends="compile">
+        <java classname="com.topcoder.utilities.ContactCompanyCreator" fork="true">
+            <classpath>
+                <pathelement location="${classes}"/>
+                <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+                <pathelement location="${jars.dir}/ifxjdbc.jar"/>
+                <pathelement location="${jars.dir}/jboss/jbossall-client.jar"/>
+                <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
+                <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
+                <pathelement location="${resources}"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="condorcet">
+        <java classname="com.topcoder.utilities.CondorcetDoer" fork="true">
+            <arg value="22051"/>
+            <classpath>
+      			<pathelement location="${shared.jar}"/>
+				      			<pathelement location="${bin}/classes.jar"/>
+<!--                <pathelement location="${classes}"/>-->
+                <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+                <pathelement location="${jars.dir}/ifxjdbc.jar"/>
+                <pathelement location="${jars.dir}/jboss/jbossall-client.jar"/>
+                <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
+                <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
+                <pathelement location="${resources}"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="rate_answers">
+        <java classname="com.topcoder.utilities.SurveyRateAnswers" fork="true">
+            <arg value="19893"/>
+            <classpath>
+      			<pathelement location="${shared.jar}"/>
+				      			<pathelement location="${bin}/classes.jar"/>
+                <pathelement location="${classes}"/>
+                <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+                <pathelement location="${jars.dir}/ifxjdbc.jar"/>
+                <pathelement location="${jars.dir}/jboss/jbossall-client.jar"/>
+                <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
+                <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
+                <pathelement location="${resources}"/>
+            </classpath>
+        </java>
+    </target>
+
+
+        <target name="tco07" depends="compile">
+        <java classname="com.topcoder.utilities.TCO07Finalists" fork="true">
+            <classpath>
+      			<pathelement location="${shared.jar}"/>
+                <pathelement location="${classes}"/>
+                <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+                <pathelement location="${jars.dir}/ifxjdbc.jar"/>
+                <pathelement location="${jars.dir}/jboss/jbossall-client.jar"/>
+                <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
+                <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
+                <pathelement location="${resources}"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="royalties">
+        <java classname="com.topcoder.utilities.RoyaltyPaymentCreator" fork="true">
+            <classpath>
+                <pathelement location="${ejb_jars}/PactsClientServices.jar"/>
+      			<pathelement location="${shared.jar}"/>
+				      			<pathelement location="${classes}"/>
+                <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+                <pathelement location="${jars.dir}/ifxjdbc.jar"/>
+                <pathelement location="${jars.dir}/jboss/jbossall-client.jar"/>
+                <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
+                <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
+                <pathelement location="${resources}"/>
+				        <pathelement location="${jars.dir}/jboss/javax.servlet.jar"/>
+        <pathelement location="${jars.dir}/jboss/javax.servlet.jsp.jar"/>
+        <pathelement location="${jars.dir}/jboss/jbossall-client.jar"/>
+        <pathelement location="${jars.dir}/jboss/xalan.jar"/>
+        <pathelement location="${jars.dir}/jboss/xercesImpl.jar"/>
+        <pathelement location="${jars.dir}/jboss/xml-apis.jar"/>
+        <pathelement location="${jars.dir}/jboss/mail.jar"/>
+        <pathelement location="${jars.dir}/jboss/jboss-system.jar"/>
+
+            </classpath>
+        </java>
+    </target>
+
+    <target name="maxresponse" depends="compile">
+        <java classname="com.topcoder.utilities.CheckResponseSize" fork="true">
+            <classpath>
+                <pathelement location="${classes}"/>
+                <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+                <pathelement location="${jars.dir}/ifxjdbc.jar"/>
+                <pathelement location="${jars.dir}/jboss/jbossall-client.jar"/>
+                <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
+                <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
+                <pathelement location="${resources}"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="convertresponse" depends="compile">
+        <java classname="com.topcoder.utilities.ConvertResponses" fork="true">
+            <classpath>
+                <pathelement location="build/ejb_jars/PactsServices.jar"/>
+                <pathelement location="${classes}"/>
+                <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+                <pathelement location="${jars.dir}/ifxjdbc.jar"/>
+                <pathelement location="${jars.dir}/jboss/jbossall-client.jar"/>
+                <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
+                <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
+                <pathelement location="${resources}"/>
+            </classpath>
+        </java>
+    </target>
+
+        <target name="testcache" depends="compile">
+        <java classname="com.topcoder.utilities.TestCache" fork="true">
+            <classpath>
+                <pathelement location="${classes}"/>
+                <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+                <pathelement location="${jars.dir}/jboss/jbossall-client.jar"/>
+                <pathelement location="${jars.dir}/jboss/xalan.jar"/>
+                <pathelement location="${jars.dir}/jboss/xercesImpl.jar"/>
+                <pathelement location="${jars.dir}/jboss/xml-apis.jar"/>
+                <pathelement location="${jars.dir}/jboss/mail.jar"/>
+                <pathelement location="${jars.dir}/jboss/jboss-system.jar"/>
+                <pathelement location="${jars.dir}/jboss/jboss-cache.jar"/>
+                <pathelement location="${jars.dir}/jboss/jgroups.jar"/>
+                <pathelement location="${resources}"/>
+            </classpath>
+        </java>
+    </target>
+
+
+
+
+   <target name="oldstudio" depends="compile">
+        <java classname="com.topcoder.utilities.WidthHeightSetter" fork="true">
+            <classpath>
+                <pathelement location="${classes}"/>
+                <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+				                <pathelement location="${jars.dir}/ifxjdbc.jar"/>
+                <pathelement location="${resources}"/>
+            </classpath>
+        </java>
+    </target>
+
+
+
+    <target name="post-tournament-survey">
+        <java classname="com.topcoder.utilities.PostTournamentSurveyHelper" fork="true">
+            <arg value="algorithm.txt"/>
+            <arg value="algorithm"/>
+            <classpath>
+      			<pathelement location="${shared.jar}"/>
+      			<pathelement location="${classes}"/>
+				      			<pathelement location="${bin}/classes.jar"/>
+<!--                <pathelement location="${classes}"/>-->
+                <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+                <pathelement location="${jars.dir}/ifxjdbc.jar"/>
+                <pathelement location="${jars.dir}/jboss/jbossall-client.jar"/>
+                <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
+                <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
+                <pathelement location="${resources}"/>
+            </classpath>
+        </java>
+    </target>
+
+
+
+</project>
+
+
+
+
+
+
+
+
+
+
+

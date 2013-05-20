@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CMConfig>
+    <Config name="com.topcoder.forums.replyTo.job">
+		<Property name="forumsReplyToJob">
+			<!-- a job only has a dependence -->
+			<Property name="JobType">
+				<Value>JOB_TYPE_SCHEDULED_ENABLE_OBJECT_NAMESPACE</Value>
+			</Property>
+			<Property name="JobCommand">
+				<Value>com.topcoder.forums.replyTo.job.ForumReplyEmailRetrievalJob</Value>
+			</Property>
+			<Property name="Active">
+				<Value>True</Value>
+			</Property>
+			<Property name="Interval">
+				<Property name="Value">
+					<Value>5</Value>
+				</Property>
+				<Property name="Unit">
+					<Property name="Type">
+						<Value>com.topcoder.util.scheduler.scheduling.Second</Value>
+					</Property>
+				</Property>
+			</Property>
+			<Property name="ModificationDate">
+	            <Value>Jan 5, 2007 05:00:00 AM</Value>
+	        </Property>
+	        <Property name="Recurrence">
+	            <Value>99999999</Value>
+	        </Property>
+	        <Property name="StartDate">
+	            <Value>May 5, 2007 05:00:00 AM</Value>
+	        </Property>
+	        <Property name="StartTime">
+	            <Value>3000000</Value>
+	        </Property>
+	        <Property name="EndDate">
+	            <Value>May 5, 3007 05:00:00 AM</Value>
+	        </Property>
+		</Property>
+	</Config>
+	
+	<Config name="com.topcoder.forums.replyTo.job.ForumReplyEmailRetrievalJob">
+        <Property name="ObjectFactoryNamespace">
+            <Value>com.topcoder.util.objectfactory</Value>
+        </Property>
+        <Property name="ScheduledEnableObjectKey">
+            <Value>ForumReplyEmailRetrievalJob</Value>
+        </Property>
+    </Config>
+    <Config name="com.topcoder.util.objectfactory">
+        <Property name="ForumReplyEmailRetrievalJob">
+            <Property name="type">
+                <Value>com.topcoder.forums.replyto.job.ForumReplyEmailRetrievalJob</Value>
+            </Property>
+            <Property name="params">
+                <Property name="param1">
+                    <Property name="type">
+                        <Value>String</Value>
+                    </Property>
+                    <Property name="value">
+                        <Value>ForumReplyEmailRetrievalJob.properties</Value>
+                    </Property>
+                </Property>
+            </Property>
+        </Property>
+    </Config>
+</CMConfig>
