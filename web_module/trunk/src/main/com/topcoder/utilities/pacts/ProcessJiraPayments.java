@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2009 TopCoder, Inc.  All rights reserved.
+ * Copyright (c) 2009-2013 TopCoder, Inc.  All rights reserved.
  */
 package com.topcoder.utilities.pacts;
 
@@ -15,6 +15,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.nio.charset.Charset;
+import java.nio.charset.CharsetEncoder;
 
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
@@ -59,8 +61,7 @@ import com.topcoder.www.bugs.rpc.soap.jirasoapservice_v2.JiraSoapServiceServiceL
  * Owed), and inserts the resulting member payments into PACTS.
  * </p>
  * 
- * @author ivern
- * @version 1.0.0
+ * @author ivern, VolodymyrK
  * @see com.topcoder.shared.util.sql.DBUtility
  */
 public class ProcessJiraPayments extends DBUtility {
@@ -87,6 +88,9 @@ public class ProcessJiraPayments extends DBUtility {
 
     /** The date format to be used when inserting timestamps into Jira comments. */
     private DateFormat dateFormat = null;
+
+    /** Used to check the JIRA issue description */
+    static CharsetEncoder asciiEncoder = Charset.forName("US-ASCII").newEncoder();
 
     /**
      * Class constructor. Initializes the date format.
@@ -146,35 +150,42 @@ public class ProcessJiraPayments extends DBUtility {
                         updateJiraPaymentStatus(jira, token, remoteIssue, "Payment On Hold");
                         addJiraComment(jira, token, remoteIssue, sb.toString());
                     } else {
-                    	if (isIssuePaid(pactsService, issue)) {
+                        if (isIssuePaid(pactsService, issue)) {
                             StringBuffer sb = new StringBuffer(200);
                             sb.append("Payment placed on hold for the following reasons:\n\n");
                             sb.append(" * This issue has already been paid.\n");
 
                             updateJiraPaymentStatus(jira, token, remoteIssue, "Payment On Hold");
                             addJiraComment(jira, token, remoteIssue, sb.toString());
-                    	} else {
-                                try {
-                                    BasePayment payment = createPactsPayment(issue.getReferenceType(), issue.getPaymentType(),
-                                    issue.getReferenceId(), issue.getClient(), issue.getPayeeUserId(),
-                                    issue.getPaymentAmount(), issue.getDescription(), issue.getKey());
+                        } else if (!asciiEncoder.canEncode(issue.getDescription())) {
+                            StringBuffer sb = new StringBuffer(200);
+                            sb.append("Payment placed on hold for the following reasons:\n\n");
+                            sb.append(" * The issue description contains non-ASCII characters.\n");
 
-                                    payment = pactsService.addPayment(payment);
-                                } catch (Exception e) {
-                                    StringBuffer sb = new StringBuffer(200);
-                                    sb.append("Payment placed on hold for the following reasons:\n\n");
-                                    sb.append(" * Failed to transfer the payment to PACTS: " + e.getMessage() + "\n");
+                            updateJiraPaymentStatus(jira, token, remoteIssue, "Payment On Hold");
+                            addJiraComment(jira, token, remoteIssue, sb.toString());
+                        } else {
+                            try {
+                                BasePayment payment = createPactsPayment(issue.getReferenceType(), issue.getPaymentType(),
+                                issue.getReferenceId(), issue.getClient(), issue.getPayeeUserId(),
+                                issue.getPaymentAmount(), issue.getDescription(), issue.getKey());
 
-                                    updateJiraPaymentStatus(jira, token, remoteIssue, "Payment On Hold");
-                                    addJiraComment(jira, token, remoteIssue, sb.toString());
-                                    throw e;
-                                }
+                                payment = pactsService.addPayment(payment);
+                            } catch (Exception e) {
+                                StringBuffer sb = new StringBuffer(200);
+                                sb.append("Payment placed on hold for the following reasons:\n\n");
+                                sb.append(" * Failed to transfer the payment to PACTS: " + e.getMessage() + "\n");
 
-                    		updateJiraPaymentStatus(jira, token, remoteIssue, "Paid");
-                    		addJiraComment(jira, token, remoteIssue,
+                                updateJiraPaymentStatus(jira, token, remoteIssue, "Payment On Hold");
+                                addJiraComment(jira, token, remoteIssue, sb.toString());
+                                throw e;
+                            }
+
+                            updateJiraPaymentStatus(jira, token, remoteIssue, "Paid");
+                            addJiraComment(jira, token, remoteIssue,
                                 "Payment processed on " + dateFormat.format(new Date()));
 
-                    	}
+                        }
                     }
                 }
             } catch (Exception e) {
@@ -196,17 +207,17 @@ public class ProcessJiraPayments extends DBUtility {
      * @throws Exception
      */
     private boolean isIssuePaid(PactsClientServices pactsService, JiraIssue issue) throws RemoteException, InvalidStatusException, Exception {
-    	List payments = pactsService.findJiraPayment(issue.getKey());
-    	if (payments != null && payments.size() > 0) {
-    		for (Object paymentObj : payments) {
-    			BasePayment basePayment = (BasePayment) paymentObj;
-    			if (basePayment.getCurrentStatus().getId() != DeletedPaymentStatus.ID
+        List payments = pactsService.findJiraPayment(issue.getKey());
+        if (payments != null && payments.size() > 0) {
+            for (Object paymentObj : payments) {
+                BasePayment basePayment = (BasePayment) paymentObj;
+                if (basePayment.getCurrentStatus().getId() != DeletedPaymentStatus.ID
                     && basePayment.getCurrentStatus().getId() != CancelledPaymentStatus.ID) {
-    				return true;
-    			}
-    		}
-    	}
-    	return false;
+                    return true;
+                }
+            }
+        }
+        return false;
     }
     /**
      * Updates a Jira issue's Payment Status custom field.
@@ -280,7 +291,7 @@ public class ProcessJiraPayments extends DBUtility {
             long userId, double amount, String description, String jiraIssueKey) {
 
         if ("TopCoder".equals(referenceType)) {
-			ComponentProjectReferencePayment payment = null;
+            ComponentProjectReferencePayment payment = null;
 
             if ("Bug Fix".equals(paymentType)) {
                 payment = new BugFixesPayment(userId, amount, client, referenceId);
@@ -309,25 +320,25 @@ public class ProcessJiraPayments extends DBUtility {
 
             return payment;
         } else if ("Cockpit".equals(referenceType)){
-			CockpitProjectReferencePayment payment = null;
-			if("Bug Fix".equals(paymentType)) {
-				payment = new ProjectBugFixesPayment(userId, amount, client, referenceId);
-			} else if ("Enhancement".equals(paymentType)) {
+            CockpitProjectReferencePayment payment = null;
+            if("Bug Fix".equals(paymentType)) {
+                payment = new ProjectBugFixesPayment(userId, amount, client, referenceId);
+            } else if ("Enhancement".equals(paymentType)) {
                 payment = new ProjectEnhancementsPayment(userId, amount, client, referenceId);
             } else if("Copilot".equals(paymentType)) {
-				payment = new ProjectCopilotPayment(userId, amount, client, referenceId);
-			} else if("Deployment".equals(paymentType)) {
-			    payment = new ProjectDeploymentTaskPayment(userId, amount, client, referenceId);
-			} else {
-				throw new IllegalArgumentException("Unknown Cockpit payment type: " + paymentType);
-			}
-			
-			payment.setNetAmount(amount);
+                payment = new ProjectCopilotPayment(userId, amount, client, referenceId);
+            } else if("Deployment".equals(paymentType)) {
+                payment = new ProjectDeploymentTaskPayment(userId, amount, client, referenceId);
+            } else {
+                throw new IllegalArgumentException("Unknown Cockpit payment type: " + paymentType);
+            }
+            
+            payment.setNetAmount(amount);
             payment.setDescription(description);
             payment.setJiraIssueName(jiraIssueKey);
-			return payment;
-		}
-		else {
+            return payment;
+        }
+        else {
             throw new IllegalArgumentException("Unknown reference type: " + referenceType);
         }
     }
@@ -362,7 +373,7 @@ public class ProcessJiraPayments extends DBUtility {
      */
     private String getIssueType(RemoteIssue issue) {
         if (issueTypeTranslation.containsKey(issue.getType())) {
-			return issueTypeTranslation.get(issue.getType());
+            return issueTypeTranslation.get(issue.getType());
         }
 
         return null;
@@ -572,9 +583,9 @@ public class ProcessJiraPayments extends DBUtility {
 
         /** The Jira id for the ProjectID custom field. */
         private static final String JIRA_PROJECT_ID_FIELD_ID = "customfield_10093";
-		
-		/** The Jira id for cockpit project id custom field. */
-		private static final String JIRA_COCKPIT_PROJECT_ID_FIELD_ID = "customfield_10190";
+        
+        /** The Jira id for cockpit project id custom field. */
+        private static final String JIRA_COCKPIT_PROJECT_ID_FIELD_ID = "customfield_10190";
 
         /** The PACTS payment type for this issue. */
         private String paymentType;
@@ -699,7 +710,7 @@ public class ProcessJiraPayments extends DBUtility {
          *            the RemoteIssue to obtain data from.
          */
         private void populateReferenceDataAndClientName(RemoteIssue remoteIssue) {
-			String cockpitProjectId = getCustomFieldValueById(remoteIssue, JIRA_COCKPIT_PROJECT_ID_FIELD_ID);
+            String cockpitProjectId = getCustomFieldValueById(remoteIssue, JIRA_COCKPIT_PROJECT_ID_FIELD_ID);
             String projectId = getCustomFieldValueById(remoteIssue, JIRA_PROJECT_ID_FIELD_ID);
 
             referenceId = 0L;
@@ -886,8 +897,8 @@ public class ProcessJiraPayments extends DBUtility {
             + "   AND pi_name.project_info_type_id = 6"
             + "   AND pi_version.project_id = pi_name.project_id"
             + "   AND pi_version.project_info_type_id = 7";
-			
-	/**
+            
+    /**
      * A query that finds a Cockpit project by id and returns its name.
      */
     private static final String QUERY_COCKPIT_PROJECT_INFO_BY_ID =
@@ -907,17 +918,17 @@ public class ProcessJiraPayments extends DBUtility {
             + "  and ttp.project_id = ttcp.project_id "
             + "  and ttcp.client_id = ttc.client_id "
             + "  and pi3.project_id = ? ";
-			
-	/** A query that finds client name by cockpit project id. */
+            
+    /** A query that finds client name by cockpit project id. */
     private static final String QUERY_CLIENT_BY_COCKPIT_ID =
               "select ttc.name as client_name "
             + "from corporate_oltp:direct_project_account dpa, "
-			+ "     time_oltp:project ttp, "
-			+ "     time_oltp:client_project ttcp, "
-			+"      time_oltp:client ttc "
-			+" where dpa.billing_account_id = ttp.project_id "
-			+" and ttp.project_id = ttcp.project_id "
-			+" and ttcp.client_id = ttc.client_id "
+            + "     time_oltp:project ttp, "
+            + "     time_oltp:client_project ttcp, "
+            +"      time_oltp:client ttc "
+            +" where dpa.billing_account_id = ttp.project_id "
+            +" and ttp.project_id = ttcp.project_id "
+            +" and ttcp.client_id = ttc.client_id "
             + "and dpa.project_id = ? ";
 
     /**
@@ -931,8 +942,8 @@ public class ProcessJiraPayments extends DBUtility {
      * name and version.
      */
     private PreparedStatement queryTopCoderProjectInfoById = null;
-	
-	/**
+    
+    /**
      * A prepared statement that finds a Cockpit project by id and returns its
      * name and version.
      */
@@ -942,8 +953,8 @@ public class ProcessJiraPayments extends DBUtility {
      * A prepared statement that finds client name by software project id.
      */
     private PreparedStatement queryClientBySoftwareId = null;
-	
-	/**
+    
+    /**
      * A prepared statement that finds client name by cockpit project id.
      */
     private PreparedStatement queryClientByCockpitId = null;
@@ -958,10 +969,10 @@ public class ProcessJiraPayments extends DBUtility {
         queryUserIdByHandle = prepareStatement("informixoltp", QUERY_USER_ID_BY_HANDLE);
 
         queryTopCoderProjectInfoById = prepareStatement("informixoltp", QUERY_TOPCODER_PROJECT_INFO_BY_ID);
-		queryCockpitProjectInfoById = prepareStatement("informixoltp", QUERY_COCKPIT_PROJECT_INFO_BY_ID);
+        queryCockpitProjectInfoById = prepareStatement("informixoltp", QUERY_COCKPIT_PROJECT_INFO_BY_ID);
 
         queryClientBySoftwareId = prepareStatement("informixoltp", QUERY_CLIENT_BY_SOFTWARE_ID);
-		queryClientByCockpitId = prepareStatement("informixoltp", QUERY_CLIENT_BY_COCKPIT_ID);
+        queryClientByCockpitId = prepareStatement("informixoltp", QUERY_CLIENT_BY_COCKPIT_ID);
     }
 
     /**
@@ -1005,8 +1016,8 @@ public class ProcessJiraPayments extends DBUtility {
     private String getTopCoderProjectInfoById(long projectId) {
         return getInfoByProjectId(queryTopCoderProjectInfoById, projectId, "info");
     }
-	
-	/**
+    
+    /**
      * Looks up a Cockpit project's name by project id.
      * 
      * @param cockpitProjectId
@@ -1028,8 +1039,8 @@ public class ProcessJiraPayments extends DBUtility {
     private String getClientBySoftwareProjectId(long projectId) {
         return getInfoByProjectId(queryClientBySoftwareId, projectId, "client_name");
     }
-	
-	/**
+    
+    /**
      * Looks up a client name by cockpit project id.
      * 
      * @param projectId
@@ -1068,7 +1079,7 @@ public class ProcessJiraPayments extends DBUtility {
         } finally {
             close(rs);
         }
-		return info;
+        return info;
     }
 
     /**
