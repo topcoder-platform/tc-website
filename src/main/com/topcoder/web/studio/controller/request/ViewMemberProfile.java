@@ -194,7 +194,11 @@ public class ViewMemberProfile extends BaseProcessor {
           "AND   NOT s.placement IS NULL " +
           "ORDER BY s.create_date desc ";
 
-    private static final String ACHIEVEMENTS = "select user_achievement_name, user_achievement_rule_desc, uar.user_achievement_rule_id, create_date, user_achievement_count_sql_file IS NOT NULL AS has_currently_at " +
+    /**
+     * Represents the achievements sql to pull achievement information from Database.
+     */
+    private static final String ACHIEVEMENTS = "select user_achievement_name, user_achievement_rule_desc, uar.user_achievement_rule_id, " +
+        " create_date, user_achievement_count_query IS NOT NULL AS has_currently_at " +
         "from user_achievement_xref uax, user_achievement_rule uar " +
         "where uax.user_id = ? and uax.user_achievement_rule_id = uar.user_achievement_rule_id " +
         "and uar.user_achievement_type_id = 1";
