@@ -138,6 +138,12 @@
       <td class="value">21
       </td>
       <td class="value">22
+         <div class="long">
+         <strong>SensorFusion2 MM</strong><br />
+         09:00<br />
+         2 weeks<br />
+         $6K Prizes
+         </div>
       </td>
       <td class="value">23
       </td>
