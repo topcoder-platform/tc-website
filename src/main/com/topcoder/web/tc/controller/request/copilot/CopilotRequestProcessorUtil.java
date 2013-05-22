@@ -45,9 +45,16 @@ import java.util.Map;
  *         <li>Updates method to use commandData as input to avoid getting command data multiple times</li>
  *     </ol>
  * </p>
+ *
+ * <p>
+ *     Version 1.4 (Release Assembly - TopCoder Copilot Feedback Updates)
+ *     <ul>
+ *         <li>Adds copilot feedback ratings, 4 ratings are added. Existing old feedback still do not ratings</li>
+ *     </ul>
+ * </p>
  * 
  * @author GreatKevin
- * @version 1.3
+ * @version 1.4
  */
 class CopilotRequestProcessorUtil {
 
@@ -159,6 +166,18 @@ class CopilotRequestProcessorUtil {
             feedback.put("submitDate", COPILOT_FEEDBACK_DATE_FORMAT.format(row.getTimestampItem("submit_date")));
             feedback.put("feedbackAnswer", row.getStringItem("answer").toLowerCase());
             feedback.put("feedbackText", row.getStringItem("text"));
+            if(row.getItem("time_rating").getResultData() != null) {
+                feedback.put("timeRating", row.getStringItem("time_rating"));
+            }
+            if(row.getItem("quality_rating").getResultData() != null) {
+                feedback.put("qualityRating", row.getStringItem("quality_rating"));
+            }
+            if(row.getItem("communication_rating").getResultData() != null) {
+                feedback.put("communicationRating", row.getStringItem("communication_rating"));
+            }
+            if(row.getItem("management_rating").getResultData() != null) {
+                feedback.put("managementRating", row.getStringItem("management_rating"));
+            }
 
             feedbackData.add(feedback);
         }

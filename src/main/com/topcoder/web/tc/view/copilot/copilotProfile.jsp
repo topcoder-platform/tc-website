@@ -1,10 +1,13 @@
 <%--
-  - Author: TCSASSEMBLER
-  - Version: 1.1
-  - Copyright (C) 2010 - 2012 TopCoder Inc., All Rights Reserved.
+  - Author: TCSASSEMBLER 
+  - Version: 1.2
+  - Copyright (C) 2010 - 2013 TopCoder Inc., All Rights Reserved.
   -
   - Description: This is the page for show the profile of a copilot in the copilot pool.
   - Version 1.1 (Release Assembly - TopCoder Copilot Profile Update v1.0) changes: Update to match new prototype.
+  -
+  - Version 1.2 (Release Assembly - TopCoder Copilot Feedback Updates)
+  - - Adds ratings to each copilot feedback. Old existing feedback will not have ratings displayed
 --%>
 <%@ page import="com.topcoder.direct.services.copilot.dto.CopilotProfileDTO" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
@@ -211,7 +214,13 @@
                                         </div>
                                         <div class="clear-float"></div>
                                     </div>
-
+                             </c:when>
+                            <c:otherwise>
+                                <div class="noChartData">
+                                    The copilot does not have any contest data available
+                            </c:otherwise>
+                          </c:choose>
+                        </div>
                                     <%--<div class="feedback" style="position: relative">
                                         <c:forEach items="${requestScope.feedback}" var="entry">
                                             <div style="position: relative;">
@@ -267,6 +276,45 @@
                                                                         <div class="badfeedback-first">I would not work with this copilot again</div>
                                                                     </c:if>
 
+                                                                    <dl class="pRatings">
+                                                                        <c:if test="${entry['timeRating'] != null}">
+                                                                            <dd>
+                                                                                <label title="Timelines, gameplans">Project timelines</label>
+                                                                                <div class="ratingView">
+                                                                                    <input type="hidden" name="rating" value="${entry['timeRating']}"/>
+
+                                                                                </div>
+                                                                            </dd>
+                                                                        </c:if>
+                                                                        <c:if test="${entry['qualityRating'] != null}">
+                                                                            <dd>
+                                                                                <label title="Quality of deliverables and final &quot;product&quot;">Quality</label>
+                                                                                <div class="ratingView">
+                                                                                    <input type="hidden" name="rating" value="${entry['qualityRating']}"/>
+
+                                                                                </div>
+                                                                            </dd>
+                                                                        </c:if>
+                                                                        <c:if test="${entry['communicationRating'] != null}">
+                                                                            <dd>
+                                                                                <label title="Setting expectations correctly, proactively raising issues">Communication</label>
+                                                                                <div class="ratingView">
+                                                                                    <input type="hidden" name="rating" value="${entry['communicationRating']}"/>
+
+                                                                                </div>
+                                                                            </dd>
+                                                                        </c:if>
+                                                                        <c:if test="${entry['managementRating'] != null}">
+                                                                            <dd>
+                                                                                <label title="Manages other copilots, manages contests, manages inter-contest work">Contest management</label>
+                                                                                <div class="ratingView">
+                                                                                    <input type="hidden" name="rating" value="${entry['managementRating']}"/>
+
+                                                                                </div>
+                                                                            </dd>
+                                                                        </c:if>
+                                                                    </dl>
+
                                                                     <div class="feedback-middle">${entry['feedbackText']}</div>
 
                                                                     <div class="feedback-bottom">Feedback submitted on ${entry['submitDate']}</div>
@@ -279,22 +327,12 @@
                                             <tr><td style="height:50px;">&nbsp;</td></tr>
                                             </tbody>
                                         </table>
-
                                     </div>
 
                                     <div class="clear-float"></div>
 
                                 </div>                            
-                            
-                            </c:when>
-                            <c:otherwise>
-                                <div class="noChartData">
-                                    The copilot does not have any contest data available
-                                </div>
-                            </c:otherwise>
-                        </c:choose>
- 
-                    </div>
+
                 </div>
                 <div class="rightDiv">
                     <div class="profile-info">
