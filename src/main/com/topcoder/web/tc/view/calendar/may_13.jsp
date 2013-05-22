@@ -139,7 +139,7 @@
       </td>
       <td class="value">22
          <div class="long">
-         <strong>SensorFusion2 MM</strong><br />
+         <strong><a href="/tc?module=MatchDetails&rd=15678">SensorFusion2 MM</a></strong><br />
          09:00<br />
          2 weeks<br />
          $6K Prizes
