@@ -312,7 +312,7 @@ Please check out the rules link below for more detail.
      || roundId == 15080 || roundId == 15103 || roundId == 15120 || roundId == 15130 || roundId == 15189
      || roundId == 15201 || roundId == 15202 || roundId == 15322 || roundId == 15327 || roundId == 15398
      || roundId == 15458 || roundId == 15520 || roundId == 15589 || roundId == 15611 || roundId == 15618
-     || roundId == 15630 || roundId == 15637) {%>
+     || roundId == 15630 || roundId == 15637 || roundId == 15678) {%>
 <p align="justify">
     <b>Please note that this event is being run for a TopCoder customer.  By winning a prize in this event you agree to transfer ownership of
     your submission to TopCoder.
@@ -349,6 +349,13 @@ This is a summary with highlights of the contest details. Please make sure to re
 	will receive prizes with the first place winner receiving $5,000!
 </p>
 <%}%>
+
+<% if (roundId == 15678) { %>
+<p align="justify">
+This Marathon Match is a money match that has a <b>$6,000 prize purse</b>! The first and second place winners will receive $4,000
+and $2,000, respectively!
+</p>
+<% } %>
 
 <% if (roundId == 15611) { %>
 <p align="justify">
