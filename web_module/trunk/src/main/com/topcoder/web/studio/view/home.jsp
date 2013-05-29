@@ -245,13 +245,13 @@
                                     </div>
                                     <div id="member_content">
                                         <div id="member_month">
-                                            February<br />
+                                            April<br />
                                         </div>
                                         <div id="member_greeting">
                                             <span class="member_content special handle">Congratulations <span class="handle-color">iamtong</span></span><br/><br/>
                                         </div>
                                         <div id="member_stats">
-                                            <span class="member_content special">won $4,400 in 7 contests</span><br/><br/>
+                                            <span class="member_content special">won $4,150 in 5 contests</span><br/><br/>
                                             <span class="member_content special"><!--<a href="http://www.topcoder.com/news/2010/11/15/meet-the-october-coders-and-designers-of-the-month-2/">Read the interviews here.</a>--></span><br/><br/>
                                         </div>
                                     </div>
