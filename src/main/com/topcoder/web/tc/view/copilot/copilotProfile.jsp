@@ -61,6 +61,7 @@
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_copilot"/>
     </jsp:include>
+    <jsp:include page="/script_sharethis.jsp"/>
 </head>
 
 <body>
@@ -377,6 +378,7 @@
                             </div>
                         </div>
                     </div><div class="clear-float"></div>
+                    <jsp:include page="/buttons_sharethis.jsp"/>
                     
                     <%  
                         ResultSetContainer achievementsData = (ResultSetContainer) (request.getAttribute("achievements"));
