@@ -68,7 +68,7 @@
             renderGroupBadges(categoryName, groupBadgeDiv, singleBadgeDiv, badges);
         });
     </script>
-    <jsp:include page="/script_sharethis.jsp"/>
+
 </head>
 <body>
 
@@ -295,7 +295,6 @@
                                         </div>
                                         <div class="achiv groupBadgeDiv">
                                             <div class="clear-float"></div>
-                                            <jsp:include page="/buttons_sharethis.jsp"/>
                                         </div>
                                         <div class="clear-float"></div>
                                         <div class="footer-badges">
