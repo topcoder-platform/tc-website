@@ -12,4 +12,5 @@
 
 <script language="JavaScript" type="text/javascript" src="/js/jquery-1.4.1.min.js"></script>
 <script language="JavaScript" type="text/javascript" src="/js/tcscript.js?updated=1"></script>
+<script language="JavaScript" type="text/javascript" src="/js/loginAction.js"></script>
 

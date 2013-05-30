@@ -69,6 +69,10 @@
 <% } else if (key.equals("tc_studio")) { %>
 <link type="text/css" rel="stylesheet" href="/css/v4/main.css" />
 <link type="text/css" rel="stylesheet" href="/css/v4/newstyles.css" />
+<link type="text/css" rel="stylesheet" href="css/v4/reg_login.css" />
+<!--[if IE 7]>
+    <link rel="stylesheet" type="text/css" href="css/v4/reg_login_ie7.css" />
+<![endif]-->
 <!--[if IE 7]>
     <link rel="stylesheet" type="text/css" href="/css/v4/studio-ie7.css" />
 <![endif]-->

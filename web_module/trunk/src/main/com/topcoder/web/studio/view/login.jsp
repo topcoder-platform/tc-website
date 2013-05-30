@@ -82,49 +82,65 @@
 
                 <h1>Login</h1>
 
-                <div align="center">
-                    <div align="left" id="tc-login">
-                        <p><strong>Forgot your password?</strong><br/>
-                            If you cannot remember your password
-                            <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword" class="bodyText">click here</a> and we can help you restore your account.</p>
-                        <br />
-                        <strong>New to TopCoder Studio?</strong><br />
-                        <a href="https://<%=ApplicationServer.SERVER_NAME%>/reg/">Register now</a>. After you complete the registration process, we will send your account activation code via email.
-                        <br /><br />
+                        <div class="center">
 
-                        <form method="post" name="frmLogin" action="${sessionInfo.servletPath}">
-                            <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= StringUtils.htmlEncode(nextpage) %>">
-                            <input type="hidden" name="module" value="Login">
 
-                            <div align="center">
-                                <span class="tc-alert"><%= message %></span>
-                                <table cellpadding="2" cellspacing="0" border="0">
-                                    <tr>
-                                        <td class="name" align="right">Handle:</td>
-                                        <td class="value"><input type="text" name="<%=Login.USER_NAME%>" value="" maxlength="30" size="30" onkeypress="submitEnter(event)" class="textfield"></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="name" align="right">Password:</td>
-                                        <td class="value"><input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="30" size="30" onkeypress="submitEnter(event)" class="textfield"></td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2" align="left"><input type="checkbox" name="<%=Login.REMEMBER_USER%>" id="rememberme"> <label for="rememberme">Remember Me</label></td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2" align="center"><input type="image" src="/i/v2/interface/btnLogin.png"/></td>
-                                    </tr>
-                                </table>
-
-                                <br /><br />
-
-                                <script type="text/javascript">
-                                    document.frmLogin.<%=Login.USER_NAME%>.focus();
-                                </script>
-
+                            <div class="leftDiv">
+                                <a class="learnMore" href="javascript:;">
+                                   <p class="small">Get to know the ins &amp; outs of TopCoder Studio!</p>
+                                </a>
+                                <a class="register" href="javascript:;">
+                                    <p class="small">Register with TopCoder to access TopCoder Studio</p>
+                                </a>
+                                <div class="clear"></div>
+                                <h2>New To Studio? As a member you can...</h2>
+                                <ul class="list">
+                                    <li class="bullet1">Access and compete in our current design competitions</li>
+                                    <li class="bullet2">View past competitions and winning submissions</li>
+                                    <li class="bullet3">Have full access to the community forums</li>
+                                </ul>
                             </div>
-                        </form>
-                    </div>
-                </div>
+                            <div class="rightDiv">
+                                <div class="loginDiv">
+                                    <span class="tc-alert"><%= message %></span>
+                                    <form method="post" name="frmLogin" action="${sessionInfo.servletPath}">
+                                        <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= StringUtils.htmlEncode(nextpage) %>">
+                                        <input type="hidden" name="module" value="Login">
+                                        <div class="innerDiv">
+                                            <div class="row">
+                                                <div class="label">Handle:</div>
+                                                <div class="value"><input type="text" name="<%=Login.USER_NAME%>" id="txtHandle" class="text"/></div>
+                                                <div class="clear"></div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="label">Password:</div>
+                                                <div class="value"><input type="password" name="<%=Login.PASSWORD%>" id="txtPassword" class="text"/></div>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="label">&nbsp;</div>
+                                                <div class="value">
+                                                    <input type="checkbox" class="check" name="<%=Login.REMEMBER_USER%>" id="remember"/>
+                                                    <label for="remember">Remember Me</label>
+                                                    <a class="login" href="javascript:;">Log in</a>
+                                                </div>
+                                                <div class="clear"></div>
+                                            </div>
+                                            <div class="hr"></div>
+                                            <h3>Forgot your password?</h3>
+                                            <p>If you cannot remember your password, <a href="javascript:;" class="link">click here</a> and we can help you restore your account.</p>
+                                        </div>
+                                    </form>    
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+
+                            <script type="text/javascript">
+                                document.frmLogin.<%=Login.USER_NAME%>.focus();
+                            </script>
+
+                        </div>
 
 
                         <br clear="all"/>
