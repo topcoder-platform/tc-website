@@ -63,78 +63,55 @@
     <!-- Gutter Ends -->
 
     <!-- Center Column begins -->
-    <td width="100%"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
-
-        <table width="100%" border="0" cellpadding="0" cellspacing="0">
-            <tr valign="top">
-                <td class="bodyText" width="100%">
-                    <img src="/i/clear.gif" alt="" width="380" height="1" border="0"/><br/>
-
-                    <p><b>Forgot your password?</b><br/>
-                        If you cannot remember your password <A href="/tc?module=RecoverPassword" class="bodyText">click
-                        here</A>
-                        and we can help you restore your account.</p>
-
-                    <p><b>New to TopCoder?</b><br/>
-                        <A class="bodyText" href="https://www.topcoder.com/reg/">Register
-                            now.</A>
-                        After you complete the registration process, we will send your account activation code via
-                        email.</p>
-                </td>
-            </tr>
-            <tr valign="middle">
-                <form method="post" name="frmLogin" action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>">
-                    <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= StringUtils.htmlEncode(nextpage) %>">
-                    <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="Login">
-                    <td class="bodyText" align="center">
-                        <table border="0" cellpadding="3" cellspacing="0">
-                            <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0">
-                            </td></tr>
-                            <tr valign="top">
-                                <td class="errorText" colspan="3">
-                                    <p><%= message %></p>
-                                </td>
-                            </tr>
-
-                            <tr valign="middle">
-                                <td nowrap class="bodyText" align="right">Username:</td>
-                                <td colspan="2" align="left">
-                                    <input type="text" name="<%=Login.USER_NAME%>" value="" maxlength="50" size="12" onkeypress="submitEnter(event)">
-                                </td>
-                            </tr>
-
-                            <tr valign="middle">
-                                <td nowrap class="bodyText" align="right">Password:</td>
-                                <td align="left">
-                                    <input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="30" size="12" onkeypress="submitEnter(event)">
-                                </td>
-                                <td nowrap class="bodyText">
-                                    &#160;&#160;<a href="JavaScript:document.frmLogin.submit()" class="bodyText">Login&#160;&gt;</a>
-                                </td>
-                            </tr>
-                            <tr valign="middle">
-                                <td nowrap class="bodyText" colspan="3">
-                                    <input type="checkbox" name="<%=Login.REMEMBER_USER%>"> Remember Me</td>
-                            </tr>
-
-
-                            <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0">
-                            </td></tr>
-                        </table>
-                        <p><br/></p>
-
-                        <script>
-                            document.frmLogin.<%=Login.USER_NAME%>.focus();
-                        </script>
-
-                    </td>
-                </form>
-            </tr>
-        </table>
-
-        <p><br></p>
-
-        <p><br></p>
+    <td width="100%">
+		
+		<div class="loginAreaBox">
+			<div class="loginLeftSide">
+				<dl class="whatYouCanDo">
+					<dt>New to TopCoder? Register now!</br>As a member you can...</dt>
+					<dd class="iconCompetition">Access and compete in our competitions</dd>
+					<dd class="iconMagnifier">View past competitions and statistics</dd>
+					<dd class="iconDiscuss">Have full access to the community forums</dd>
+				</dl>
+                <div class="regLink"><a href="http://www.topcoder.com/reg/">Register for a TopCoder account here.</a></div>
+			</div>
+			<div class="loginRightSide">
+				<div class="loginFormWrapper">
+                    <div class="errorText"><%= message %></div>
+					<div class="loginCheck">You must enter a username and a password.</div>
+					 <form method="post" name="frmLogin" action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>">
+						<input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= StringUtils.htmlEncode(nextpage) %>">
+						<input type="hidden" name="<%=Constants.MODULE_KEY%>" value="Login">
+						<dl>
+							<dd>
+								<label>Username:</label>
+								<input type="text" name="<%=Login.USER_NAME%>" value="" maxlength="50" />
+							</dd>
+							<dd>
+								<label>Password:</label>
+								<input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="30" />
+							</dd>
+						</dl>
+						<div class="formCommand">
+							<div class="checkboxWrapper">
+								<input type="checkbox" name="<%=Login.REMEMBER_USER%>" id="remeberMe">
+								<label for="remeberMe">Remember Me</label>
+								<div class="clear"></div>
+							</div>
+							<a href="JavaScript:document.frmLogin.submit()" class="btnLoginNew">Login</a>
+						</div>
+						<div class="forgotPasswordSection">
+							<h3>Forgot your password?</h3>
+							<p>If you cannot remember your password, <a href="/tc?module=RecoverPassword" class="redColor">click here</a> and we can help you restore your account.</p>
+						</div>
+						<script>
+							document.frmLogin.username.focus();
+						</script>
+					</form>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
 
     </div>
 </td>

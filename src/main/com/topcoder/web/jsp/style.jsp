@@ -50,6 +50,10 @@
 <link type="text/css" rel="stylesheet" href="/css/coders.css" />
 <link type="text/css" rel="stylesheet" href="/css/stats.css" />
 <link type="text/css" rel="stylesheet" href="/css/tcStyles20080219.css" />
+<link type="text/css" rel="stylesheet" href="/css/login.css" />
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/css/ie.css" />
+<![endif]-->
 <% } else if (key.equals("tc_studio")) { %>
 <link type="text/css" rel="stylesheet" href="/css/v2/main20080522.css" />
 <% } else if (key.equals("tc_studio_forums")) { %>
