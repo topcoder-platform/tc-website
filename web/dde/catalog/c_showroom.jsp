@@ -215,7 +215,20 @@
     boolean topLevel = true;
     boolean all = false;
 
-    Category[] cats = (Category[]) colCategories.toArray(new Category[0]);
+    Category[] cats = new Category[3];
+    Category[] allCategories = (Category[]) colCategories.toArray(new Category[0]);
+    for(int i=0;i<allCategories.length;i++) {
+        if (allCategories[i].getId() == Catalog.JAVA_CATALOG) {
+            cats[0] = allCategories[i];
+        }
+        if (allCategories[i].getId() == Catalog.NET_CATALOG) {
+            cats[1] = allCategories[i];
+        }
+        if (allCategories[i].getId() == Catalog.FLASH_CATALOG) {
+            cats[2] = allCategories[i];
+        }
+    }
+
     long javaId = Catalog.JAVA_CATALOG;
     long netId = Catalog.NET_CATALOG;
     long flashId = Catalog.FLASH_CATALOG;
