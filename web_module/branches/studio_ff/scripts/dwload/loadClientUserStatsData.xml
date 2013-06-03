@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<clientUserStatsDataLoadingTool>
+    <sourcesList>
+        <source name="TransactionalData"
+                value="jdbc:informix-sqli://env.topcoder.com:2021/tcs_catalog:INFORMIXSERVER=informixoltp_tcp;user=informix;password=1nf0rm1x"/>
+        <source name="WarehouseData"
+                value="jdbc:informix-sqli://env.topcoder.com:2021/tcs_dw:INFORMIXSERVER=informixoltp_tcp;user=informix;password=1nf0rm1x"/>
+    </sourcesList>
+    <parameterList>
+        <parameter name="client_user_stats_selection_file" value="/home/tc/web/scripts/sql/load_client_user_stats.sql"/>
+    </parameterList>
+</clientUserStatsDataLoadingTool>
