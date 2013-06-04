@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<payORProjects>
+    <sourcesList>
+        <source name = "informixoltp" value = "jdbc:informix-sqli://env.topcoder.com:2021/informixoltp:INFORMIXSERVER=informixoltp_tcp;user=coder;password=c0d3r4T"/>
+    </sourcesList>
+    <parameterList>
+        <parameter name="onlyAnalyze" value="false" />
+        <parameter name="sendEmail" value="true" />
+        <parameter name="operator" value="23159226" />
+        <parameter name="emailFrom" value="do_not_reply@topcoder.com" />
+        <parameter name="emailTo" value="some_email_address@topcoder.com" />
+    </parameterList>
+</payORProjects>
