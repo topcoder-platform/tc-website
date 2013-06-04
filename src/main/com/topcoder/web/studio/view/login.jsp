@@ -86,10 +86,10 @@
 
 
                             <div class="leftDiv">
-                                <a class="learnMore" href="javascript:;">
+                                <a class="learnMore" href="http://community.topcoder.com/studio/help">
                                    <p class="small">Get to know the ins &amp; outs of TopCoder Studio!</p>
                                 </a>
-                                <a class="register" href="javascript:;">
+                                <a class="register" href="http://www.topcoder.com/reg">
                                     <p class="small">Register with TopCoder to access TopCoder Studio</p>
                                 </a>
                                 <div class="clear"></div>
