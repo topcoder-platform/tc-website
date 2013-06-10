@@ -1,12 +1,14 @@
 <%--
-  - Author: isv, pvmagacho
-  - Version: 1.1 (Studio Contest Detail Pages assembly)
-  - Copyright (C) 2010-2011 TopCoder Inc., All Rights Reserved.
+  - Author: isv, pvmagacho, TCSDEVELOEPR
+  - Version: 1.2 (Studio Contest Detail Pages assembly)
+  - Copyright (C) 2010-2013 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page renders the list of submissions received checkpoint prizes along with their and overall
   - checkpoint feedbacks.
   - Version 1.1 (Re-platforming Studio Release 4 assembly) change notes: re-factored the logic for checkpoint feedbacks
   - displaying.
+  - Version 1.2 (TC Cockpit - Studio - Final Fixes Integration Part Two Assembly) change notes:
+  -     - Added styles related to Final Fix functionalities.
 --%>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -61,11 +63,13 @@
     </script>
     <script type="text/javascript" src="/js/studioContestDetails.js">
     </script>
+    <script type="text/javascript" src="/js/studioFinalFix.js">
+    </script>
 </head>
 
 <body>
 <div id="page-wrap">
-    <div>
+    <div class="studioFF">
         <jsp:include page="top.jsp">
             <jsp:param name="section" value="contest"/>
         </jsp:include>

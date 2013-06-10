@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.studio.dao;
 
@@ -13,8 +13,15 @@ import com.topcoder.web.studio.dto.Upload;
  * <p>The Java Data Access Object interface responsible for handling the <code>Upload</code>
  * class.</p>
  *
- * @author pvmagacho 
- * @version 1.0
+ * <p>
+ * Version 1.1 (TC Cockpit - Studio - Final Fixes Integration Part Two Assembly) Change notes:
+ *   <ol>
+ *     <li>Added {@link #getUploadForPhase(long)} method.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author pvmagacho, isv 
+ * @version 1.1
  * @since (Re-platforming Studio Release 3 Assembly)
  */
 public interface UploadDAO {
@@ -46,4 +53,15 @@ public interface UploadDAO {
      * @return a list with <code>Upload</code> instance or <code>null</code> if none is found.
      */
     public List<Upload> getUploads(Project project);
+
+    /**
+     * <p>Gets the upload matching the specified project phase.</p>
+     *
+     * @param projectPhaseId a <code>long</code> providing the ID of a project phase to get upload for.
+     * @return a <code>Upload</code> matching the specified project phase or <code>null</code> if there is no such
+     *         upload.
+     * @since 1.1
+     */
+    public Upload getUploadForPhase(long projectPhaseId);
+
 }
