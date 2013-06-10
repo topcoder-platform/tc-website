@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.studio;
 
@@ -81,8 +81,15 @@ import java.util.MissingResourceException;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, isv, pvmagacho, TCSASSEMBLY
- * @version 1.9
+ * <p>
+ * Version 1.10 (TC Cockpit - Studio - Final Fixes Integration Part Two Assembly) Change notes:
+ *   <ol>
+ *     <li>Added {@link #FINAL_FIX_ROUND_NO} constant.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky, isv, pvmagacho
+ * @version 1.10
  */
 public class Constants implements WebConstants {
     private static final TCResourceBundle bundle = new TCResourceBundle("Studio");
@@ -130,6 +137,13 @@ public class Constants implements WebConstants {
     public static final String WIDTH = "width";
     public static final String HEIGHT = "height";
 
+    /**
+     * <p>A <code>String</code> providing the name of request parameter providing the final fix round number.</p>
+     * 
+     * @since 1.10
+     */
+    public static final String FINAL_FIX_ROUND_NO = "final_fix_round_no";
+    
     /**
      * Submission comment.
      *

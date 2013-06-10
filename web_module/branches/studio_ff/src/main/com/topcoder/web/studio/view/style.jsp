@@ -1,7 +1,7 @@
 <%--
   - Author: isv
-  - Version: 1.3
-  - Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
+  - Version: 1.4
+  - Copyright (C) 2004 - 2013 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page helps include custom CSS according to the caller
   -
@@ -13,6 +13,8 @@
   -     - Added import CSS for tc_studio_details pages  
   - Version 1.3 (Studio Member Profiles Assembly version 1.0) changes:
   -     - Updated import CSS for tc_studio_profile pages  
+  - Version 1.4 (TC Cockpit - Studio - Final Fixes Integration Part Two Assembly) changes:
+  -     - Added CSS imports for Studio Final Fix related pages  
 --%>
 <%@ page contentType="text/html" %>
 
@@ -83,6 +85,7 @@
 <link type="text/css" rel="stylesheet" href="/css/v4/home.css" />
 <link type="text/css" rel="stylesheet" href="/css/v4/newstyles.css" />
 <link type="text/css" rel="stylesheet" href="/css/screen.css"/>
+<link type="text/css" rel="stylesheet" href="/css/studioFinalFix.css"/>
 <!--[if IE 7]>
     <link rel="stylesheet" type="text/css" href="/css/v4/studio-ie7.css" />
     <link rel="stylesheet" type="text/css" href="/css/newStyle-ie7.css"/>
@@ -90,6 +93,19 @@
 <!--[if IE 6]>
     <link rel="stylesheet" type="text/css" href="/css/v4/studio-ie6.css" />
 <![endif]-->
+<% } else if (key.equals("tc_studio_final_fix")) { %>
+<link type="text/css" rel="stylesheet" href="/css/v4/home.css"/>
+<link type="text/css" rel="stylesheet" href="/css/v4/newstyles.css"/>
+<link type="text/css" rel="stylesheet" href="/css/screen.css"/>
+<link type="text/css" rel="stylesheet" href="/css/layout.css"/>
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="/css/v4/studio-ie7.css" />
+<link rel="stylesheet" type="text/css" href="/css/newStyle-ie7.css"/>
+<![endif]-->
+<!--[if IE 6]>
+<link rel="stylesheet" type="text/css" href="/css/v4/studio-ie6.css" />
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="/css/studioFinalFix.css"/>
 <% } else if (key.equals("tc_studio_profile")) { %>
 <link type="text/css" rel="stylesheet" href="/css/v4/main.css" />
 <link type="text/css" rel="stylesheet" href="/js/jcarousel/jquery.jcarousel.css" />
