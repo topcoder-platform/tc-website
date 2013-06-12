@@ -68,7 +68,7 @@
             renderGroupBadges(categoryName, groupBadgeDiv, singleBadgeDiv, badges);
         });
     </script>
-
+    <jsp:include page="/script_sharethis.jsp"/>
 </head>
 <body>
 
@@ -288,13 +288,14 @@
                                                         <input type="hidden" class="achievementName" value='<rsc:item name="name" row="<%=resultRow%>"/>'></input>
                                                         <input type="hidden" class="achievementDesc" value='<rsc:item name="desc" row="<%=resultRow%>"/>'></input>
                                                         <input type="hidden" class="achievementDate" value='<rsc:item name="creation_date" row="<%=resultRow%>"/>'></input>
-                                                        <input type="hidden" class="achievementHasCurrentlyAt" value='false'></input>
+                                                        <input type="hidden" class="achievementHasCurrentlyAt" value='<rsc:item name="has_currently_at" row="<%=resultRow%>"/>'></input>
                                                     </div>
                                                 </rsc:iterator>
                                             <%}%>
                                         </div>
                                         <div class="achiv groupBadgeDiv">
                                             <div class="clear-float"></div>
+                                            <jsp:include page="/buttons_sharethis.jsp"/>
                                         </div>
                                         <div class="clear-float"></div>
                                         <div class="footer-badges">
