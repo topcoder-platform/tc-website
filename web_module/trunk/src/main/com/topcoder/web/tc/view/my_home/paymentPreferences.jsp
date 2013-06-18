@@ -164,7 +164,7 @@
                         <tr><td class="header">Western Union</td></tr>
                         <tr class="light">
                             <td class="value" width="100%" style="border: none; vertical-align: middle;" >
-                                Register with <a href="https://payee.travelexglobalpay.com/PayeeManager/BeneficiaryEnrollment/SpecifyPayeeID.aspx?id=9E63C90B520F830246DA2FD728CDAEBF">Western Union</a>
+                                Register with <a href="https://payee.globalpay.westernunion.com/PayeeManager/BeneficiaryEnrollment/SpecifyPayeeID.aspx?id=9E63C90B520F830246DA2FD728CDAEBF">Western Union</a>
                                 <br /><span class="grayedOut">(Use your TopCoder handle as the Payee ID during registartion)</span>
                             </td>
                         </tr>
