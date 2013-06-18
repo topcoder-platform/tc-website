@@ -297,7 +297,7 @@
    nav.addRoot(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_edu_content')", "Tutorials", "m_edu_content"));
        nav.search("m_edu_content").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=education&amp;d2=overview", "Overview", "edu_overview"));
        nav.search("m_edu_content").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=tutorials&amp;d2=alg_index", "Algorithm Tutorials", "algo_tutorials"));
-       nav.search("m_edu_content").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=tutorials&amp;d2=comp_index", "Component Tutorials", "comp_tutorials"));
+       nav.search("m_edu_content").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=tutorials&amp;d2=software_index", "Software Tutorials", "software_tutorials"));
        nav.search("m_edu_content").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=tutorials&amp;d2=mm_index", "Marathon Tutorials", "mm_tutorials"));
        nav.search("m_edu_content").addChild(new NavNode("http://apps.topcoder.com/wiki/dashboard.action", "Wiki", "wiki"));
 

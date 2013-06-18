@@ -3,7 +3,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>Component Tutorials</title>
+<title>Software Tutorials</title>
 
 <jsp:include page="/script.jsp" />
 <jsp:include page="/style.jsp">
@@ -43,8 +43,15 @@
                <td class="bodyText" width="100%"><b>Title</b></td>
             </tr>
             <tr valign="top"><td class="bodyText">
-               <tc-webtag:handle coderId="296145" context="development"/>
-               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=comp_dev_tc_style"><strong>Component-Based Development: TopCoder Style</strong></a></td>
+               <tc-webtag:handle coderId="20221031"/>
+               </td><td class="bodyText" nowrap=nowrap><a href="/wiki/display/tc/General+Software+Competition+Tutorial"><strong>General Software Competition Tutorial</strong></a></td>
+            </tr>
+            <tr valign="top"><td class="bodyText">
+               <tc-webtag:handle coderId="152342" context="design"/>
+               </td><td class="bodyText" nowrap=nowrap><a href="/wiki/display/tc/Component+Design+Tutorial"><strong>Design Tutorial</strong></a><br>
+               Check out the Design Tutorial Movie (Flash required):<br>
+               [Audio version] <a href="#" onClick="window.open('/flash/demos/designdemo1.html','screen','height=490,width=640'); return false;">13.9 MB</a> &#160;&#160;[Text version] <a href="#" onClick="window.open('/flash/demos/designdemo2.html','screen','height=520,width=640'); return false;">7.5 MB</a>
+               </td>
             </tr>
             <tr valign="top"><td class="bodyText">
                <tc-webtag:handle coderId="251989" context="development"/>
@@ -53,13 +60,17 @@
                [Audio version] <a href="#" onClick="window.open('/flash/demos/devdemo1.html','screen','height=490,width=640'); return false;">23.6 MB</a> &#160;&#160;[Text version] <a href="#" onClick="window.open('/flash/demos/devdemo2.html','screen','height=520,width=640'); return false;">7.6 MB</a>
                </td>
             </tr>
+            <tr valign="top"><td class="bodyText">
+               <tc-webtag:handle coderId="22828420"/>
+               </td><td class="bodyText" nowrap=nowrap><a href="/wiki/display/tc/Module+Architecture+Tutorial"><strong>Module Architecture Tutorial</strong></a></td>
             </tr>
             <tr valign="top"><td class="bodyText">
-               <tc-webtag:handle coderId="152342" context="design"/>
-               </td><td class="bodyText" nowrap=nowrap><a href="/wiki/display/tc/Component+Design+Tutorial"><strong>Design Tutorial</strong></a><br>
-               Check out the Design Tutorial Movie (Flash required):<br>
-               [Audio version] <a href="#" onClick="window.open('/flash/demos/designdemo1.html','screen','height=490,width=640'); return false;">13.9 MB</a> &#160;&#160;[Text version] <a href="#" onClick="window.open('/flash/demos/designdemo2.html','screen','height=520,width=640'); return false;">7.5 MB</a>
-               </td>
+               <tc-webtag:handle coderId="20221031"/>
+               </td><td class="bodyText" nowrap=nowrap><a href="/wiki/display/tc/General+Assembly+Competition+Tutorial"><strong>General Assembly Competition Tutorial</strong></a></td>
+            </tr>
+            <tr valign="top"><td class="bodyText">
+               <tc-webtag:handle coderId="20221031"/>
+               </td><td class="bodyText" nowrap=nowrap><a href="/wiki/display/tc/Module+Assembly+Competition+Tutorial"><strong>Module Assembly Competition Tutorial</strong></a></td>
             </tr>
             <tr valign="top"><td class="bodyText">
                <tc-webtag:handle coderId="119676" context="design"/>
@@ -78,6 +89,10 @@
                <a href="/tc?module=Static&d1=tutorials&d2=adapterPattern"><strong>Adapter Pattern</strong></a><br>
                <a href="/tc?module=Static&d1=tutorials&d2=wavefrontPattern"><strong>Parallel Patterns: WaveFront Pattern</strong></a><br>
                <a href="/tc?module=Static&d1=tutorials&d2=prototypePattern"><strong>Prototype Pattern</strong></a><br></td>
+            </tr>
+            <tr valign="top"><td class="bodyText">
+               <tc-webtag:handle coderId="296145" context="development"/>
+               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=comp_dev_tc_style"><strong>Component-Based Development: TopCoder Style</strong></a></td>
             </tr>
             <tr valign="top"><td class="bodyText">
                <tc-webtag:handle coderId="15664457" context="development"/></td>
