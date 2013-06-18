@@ -57,7 +57,6 @@
                     nav.search("m_conceptualization_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_conceptualization_support')", "Track Information", "m_conceptualization_support"));
                             nav.search("m_conceptualization_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/How+to+Compete+in+Conceptualization+Competitions", "How to Compete", "conceptualization_how_to_compete"));
                             nav.search("m_conceptualization_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/Conceptualization+Documentation", "Documentation", "conceptualization_documentation"));
-                            nav.search("m_conceptualization_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/Conceptualization+Submission+Instructions", "Tutorial", "conceptualization_tutorial"));
                     nav.search("m_conceptualization_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ActiveContests&pt=23", "Active Contests", "conceptualization_compete"));
                      nav.search("m_conceptualization_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ContestStatus&amp;pt=23", "Contest Status", "conceptualization_contest_status"));
                     nav.search("m_conceptualization_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&amp;ph=134", "Past Contests", "conceptualization_past"));
@@ -112,8 +111,7 @@
                 nav.search("competition_dev").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_assembly_competitions')", "Assembly", "m_assembly_competitions"));
                     nav.search("m_assembly_competitions").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/Assembly", "Overview", "assembly_overview"));
                     nav.search("m_assembly_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_assembly_support')", "Track Information", "m_assembly_support"));
-                            nav.search("m_assembly_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/How+to+Compete+in+Assembly+Competitions", "How to Compete", "assembly_how_to_compete"));
-                            nav.search("m_assembly_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/Assembly+Competition+Tutorial", "Tutorial", "assembly_tutorial"));
+                            nav.search("m_assembly_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/Assembly+Competition+Tutorials", "Tutorials", "assembly_tutorials"));
                             nav.search("m_assembly_support").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/Assembly+Competition+Documentation", "Documentation", "assembly_documentation"));
                     nav.search("m_assembly_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ActiveContests&amp;pt=" + WebConstants.ASSEMBLY_PROJECT_TYPE, "Active Contests", "assembly_compete"));
                     nav.search("m_assembly_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ContestStatus&amp;pt=14", "Contest Status", "assembly_contest_status"));
