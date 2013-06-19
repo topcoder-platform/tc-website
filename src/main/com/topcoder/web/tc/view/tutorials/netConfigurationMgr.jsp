@@ -37,7 +37,7 @@
 <!-- Left Column Begins-->
         <td width="180" id="onLeft">
          <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="comp_tutorials"/>
+            <jsp:param name="node" value="soft_tutorials"/>
          </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -48,7 +48,7 @@
          <div class="tutorBodyFull">
 
 <jsp:include page="../page_title.jsp" >
-   <jsp:param name="image" value="comp_tut"/>
+   <jsp:param name="image" value="soft_tut"/>
    <jsp:param name="title" value="&#160;"/>
 </jsp:include>
 
