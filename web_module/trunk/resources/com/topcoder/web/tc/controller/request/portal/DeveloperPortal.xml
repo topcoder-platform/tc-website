@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<CMConfig>
+    <Config name="com.topcoder.web.tc.controller.request.portal.DeveloperPortal">
+        <Property name="access3scales">
+            <Property name="public">
+    	        <Property name="portalName">
+                    <Value>tcpoc</Value>
+                </Property>
+    	        <Property name="providerKey">
+                    <Value>xxxxxxxxxxxxxxxxxx</Value>
+                </Property>
+            </Property>
+        </Property>
+    </Config>
+</CMConfig>
