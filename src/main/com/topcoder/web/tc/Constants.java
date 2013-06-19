@@ -166,14 +166,31 @@ import java.util.MissingResourceException;
  *     <li>Removed {@link #MEMBER_ACHIEVEMENT_CURRENT_SQL_PATH} constant.</li>
  *   </ol>
  * </p>
- * @author pulky, isv, VolodymyrK, TrePe
- * @version 1.9.8
+ * Version 1.9.9 Change notes:
+ *   <ol>
+ *     <li>Added {@link #DEVELOPER_PORTAL} and 
+ *     {@link #DEVELOPER_PORTAL_WELCOME} constants.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author pulky, isv, VolodymyrK, TrePe, gevak
+ * @version 1.9.9
  */
 public class Constants implements WebConstants {
 
 
     private static final TCResourceBundle bundle = new TCResourceBundle("TC");
     private static final Logger log = Logger.getLogger(Constants.class);
+
+    /**
+     * Developer portal main page.
+     */
+    public static String DEVELOPER_PORTAL;
+
+    /**
+     * Developer portal welcome page.
+     */
+    public static String DEVELOPER_PORTAL_WELCOME;
 
     public static String DEFAULT_PAGE;
     public static String HOME_PAGE;
