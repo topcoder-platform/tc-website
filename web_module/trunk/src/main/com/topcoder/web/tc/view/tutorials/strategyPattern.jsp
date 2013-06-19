@@ -49,7 +49,7 @@
          <div class="tutorBodyFull">
 
 <jsp:include page="../page_title.jsp" >
-   <jsp:param name="image" value="comp_tut"/>
+   <jsp:param name="image" value="soft_tut"/>
    <jsp:param name="title" value="&#160;"/>
 </jsp:include>
 
