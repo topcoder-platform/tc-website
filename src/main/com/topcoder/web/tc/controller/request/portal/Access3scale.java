@@ -156,8 +156,18 @@ public class Access3scale {
      * Initialized in constructor and never changed afterwards. Not null/empty.
      * </p>
      */
-    private final String adminPortalUrl;
 
+    /**
+     * <p>
+     * Optional attribute, used to set access code when accessing private 3scale portal URL.
+     * </p>
+     *
+     * <p>
+     * Initialized in constructor and never changed afterwards. Not null/empty.
+     * </p>
+     */
+    private final String accessCode;
+    
     /**
      * Gets portal name.
      *
@@ -186,6 +196,15 @@ public class Access3scale {
     }
 
     /**
+     * Gets portal name.
+     *
+     * @return Portal name.
+     */
+    public String getAccessCode() {
+        return accessCode;
+    }
+    
+    /**
      * Creates and configures instance.
      *
      * @param config Configuration.
@@ -194,6 +213,7 @@ public class Access3scale {
     public Access3scale(ConfigurationObject config) throws Exception {
         this.portalName = (String) config.getPropertyValue("portalName");
         this.providerKey = (String) config.getPropertyValue("providerKey");
+        this.accessCode = (String) config.getPropertyValue("accessCode");
         this.portalUrl = String.format(PORTAL_URL_PATTERN, getPortalName());
         this.adminPortalUrl = String.format(ADMIN_PORTAL_URL_PATTERN, getPortalName());
     }
@@ -269,6 +289,7 @@ public class Access3scale {
             writer = new OutputStreamWriter(connection.getOutputStream());
             writer.write("provider_key=" + URLEncoder.encode(providerKey, "UTF-8"));
             writer.write("&username=" + URLEncoder.encode(username, "UTF-8"));
+            writer.write("&access_code=" + URLEncoder.encode(accessCode, "UTF-8"));
             writer.close();
             connection.connect();
             response = getConnectionResponse(connection);
