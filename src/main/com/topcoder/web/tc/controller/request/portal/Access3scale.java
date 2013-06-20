@@ -73,7 +73,7 @@ public class Access3scale {
         }
         try {
             log.info("3scale response message = " + connection.getResponseMessage());
-        } catch (Exception ex) { 
+        } catch (Exception ex) {
             log.error(ex);
         }
         String response = null;
@@ -168,7 +168,7 @@ public class Access3scale {
      * </p>
      */
     private final String accessCode;
-    
+
     /**
      * Gets portal name.
      *
@@ -204,7 +204,7 @@ public class Access3scale {
     public String getAccessCode() {
         return accessCode;
     }
-    
+
     /**
      * Creates and configures instance.
      *
@@ -320,7 +320,7 @@ public class Access3scale {
         }
         String ssoUrl = doc.getElementsByTagName("sso_url").item(0).getTextContent();
         // append access code
-        ssoURL += "&access_code=" + URLEncoder.encode(accessCode, "UTF-8");
+        ssoUrl += "&access_code=" + URLEncoder.encode(accessCode, "UTF-8");
         log.info("ssoUrl = " + ssoUrl);
         int expiresAtBeginIndex = ssoUrl.indexOf("expires_at=") + "expires_at=".length();
         int expiresAtEndIndex = ssoUrl.indexOf("&", expiresAtBeginIndex);
