@@ -4,7 +4,7 @@
         <Property name="access3scales">
             <Property name="public">
     	        <Property name="portalName">
-                    <Value>tcpoc</Value>
+                    <Value>xxx</Value>
                 </Property>
     	        <Property name="providerKey">
                     <Value>xxxxxxxxxxxxxxxxxx</Value>
