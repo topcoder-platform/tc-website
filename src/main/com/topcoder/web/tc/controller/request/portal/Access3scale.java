@@ -320,14 +320,16 @@ public class Access3scale {
         }
         String ssoUrl = doc.getElementsByTagName("sso_url").item(0).getTextContent();
         // append access code
-        ssoUrl += "&access_code=" + URLEncoder.encode(accessCode, "UTF-8");
+        if(accessCode != null) {
+           log.info("append access code.");
+           ssoUrl  +=  "&access_code=" + URLEncoder.encode(accessCode, "UTF-8");
+        }
         log.info("ssoUrl = " + ssoUrl);
         int expiresAtBeginIndex = ssoUrl.indexOf("expires_at=") + "expires_at=".length();
         int expiresAtEndIndex = ssoUrl.indexOf("&", expiresAtBeginIndex);
         if (expiresAtEndIndex < 0) expiresAtEndIndex = ssoUrl.length();
         Date expiresAt = new Date(1000 * Long.parseLong(ssoUrl.substring(expiresAtBeginIndex, expiresAtEndIndex)));
         log.info("expiresAt = " + expiresAt.toString());
-        writer.write("&access_code=" + URLEncoder.encode(accessCode, "UTF-8"));
 
         // Construct and return SSO token.
         SSOToken ssoToken = new SSOToken();
