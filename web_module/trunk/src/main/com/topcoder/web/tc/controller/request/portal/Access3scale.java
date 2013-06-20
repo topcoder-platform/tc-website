@@ -156,6 +156,7 @@ public class Access3scale {
      * Initialized in constructor and never changed afterwards. Not null/empty.
      * </p>
      */
+    private final String adminPortalUrl;
 
     /**
      * <p>
