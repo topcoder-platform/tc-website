@@ -12,6 +12,9 @@
                 <Property name="accessCode">
                     <Value>xxxxxxx</Value>
                 </Property>
+                <Property name="accountId">
+                    <Value>xxxxxxx</Value>
+                </Property>
             </Property>
         </Property>
     </Config>

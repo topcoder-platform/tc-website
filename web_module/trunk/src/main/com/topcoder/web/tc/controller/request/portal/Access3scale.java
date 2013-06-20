@@ -170,6 +170,17 @@ public class Access3scale {
     private final String accessCode;
 
     /**
+     * <p>
+     * Required attribute, the account ID used to create members in 3scale portal.
+     * </p>
+     *
+     * <p>
+     * Initialized in constructor and never changed afterwards. Not null/empty.
+     * </p>
+     */
+    private final String accountId;
+
+    /**
      * Gets portal name.
      *
      * @return Portal name.
@@ -206,6 +217,15 @@ public class Access3scale {
     }
 
     /**
+     * Gets account id.
+     *
+     * @return account id.
+     */
+    public String getAccountId() {
+        return accountId;
+    }
+
+    /**
      * Creates and configures instance.
      *
      * @param config Configuration.
@@ -216,6 +236,7 @@ public class Access3scale {
         this.providerKey = (String) config.getPropertyValue("providerKey");
         this.accessCode = (String) config.getPropertyValue("accessCode");
         this.portalUrl = String.format(PORTAL_URL_PATTERN, getPortalName());
+        this.accountId = (String) config.getPropertyValue("accountId");
         this.adminPortalUrl = String.format(ADMIN_PORTAL_URL_PATTERN, getPortalName());
     }
 
@@ -231,7 +252,7 @@ public class Access3scale {
         log.info("Enter createUser(" + username + ", ...)");
 
         // Send request and get response.
-        URL url = new URL(adminPortalUrl + "/admin/api/users.xml");
+        URL url = new URL(adminPortalUrl + "/admin/api/accounts/" + accountId + "/users.xml");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         OutputStreamWriter writer = null;
         String response = null;
