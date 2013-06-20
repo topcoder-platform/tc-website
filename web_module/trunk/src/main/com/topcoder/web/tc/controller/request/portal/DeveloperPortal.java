@@ -186,7 +186,7 @@ public class DeveloperPortal extends Base {
         log.info("Enter loadSSOTokenFromPeristence(" + portalName + "," + userName + ")");
 
         // Obtain DB connection.
-        DataAccess dataAccess = (DataAccess) getDataAccess();
+        DataAccess dataAccess = (DataAccess) getDataAccess(DBMS.COMMON_OLTP_DATASOURCE_NAME, false);
         Connection conn = (Connection) DBMS.getConnection(dataAccess.getDataSource());
 
         // Run SQL query.
@@ -194,7 +194,7 @@ public class DeveloperPortal extends Base {
         ResultSet rs = null;
         SSOToken ssoToken = null;
         try {
-            ps = conn.prepareStatement("SELECT expires_at, url FROM developer_portal:sso_token"
+            ps = conn.prepareStatement("SELECT expires_at, url FROM sso_token"
                     + " WHERE portal_name=? AND user_name=?");
             ps.setString(1, portalName);
             ps.setString(2, userName);
@@ -232,7 +232,7 @@ public class DeveloperPortal extends Base {
         log.info("Enter saveSSOTokenToPersistence(" + portalName + ", ...)");
 
         // Obtain DB connection.
-        DataAccess dataAccess = (DataAccess) getDataAccess();
+        DataAccess dataAccess = (DataAccess) getDataAccess(DBMS.COMMON_OLTP_DATASOURCE_NAME, false);
         Connection conn = (Connection) DBMS.getConnection(dataAccess.getDataSource());
 
         // Run SQL query.
@@ -241,14 +241,14 @@ public class DeveloperPortal extends Base {
             conn.setAutoCommit(false);
 
             // Delete old record.
-            ps = conn.prepareStatement("DELETE developer_portal:sso_token"
+            ps = conn.prepareStatement("DELETE sso_token"
                     + " WHERE portal_name=? AND user_name=?");
             ps.setString(1, portalName);
             ps.setString(2, userName);
             ps.executeUpdate();
 
             // Insert new record.
-            ps = conn.prepareStatement("INSERT INTO developer_portal:sso_token"
+            ps = conn.prepareStatement("INSERT INTO sso_token"
                 + " (portal_name,user_name,expires_at,url) VALUES (?,?,?,?)");
             ps.setString(1, portalName);
             ps.setString(2, userName);
