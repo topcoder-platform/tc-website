@@ -4,16 +4,16 @@
         <Property name="access3scales">
             <Property name="public">
     	        <Property name="portalName">
-                    <Value>xxx</Value>
+                    <Value>topcoder</Value>
                 </Property>
     	        <Property name="providerKey">
-                    <Value>xxxxxxxxxxxxxxxxxx</Value>
+                    <Value>b1f5176f67feb18e2634ba038c41445e</Value>
                 </Property>
                 <Property name="accessCode">
-                    <Value>xxxxxxx</Value>
+                    <Value>c156b085ff</Value>
                 </Property>
                 <Property name="accountId">
-                    <Value>xxxxxxx</Value>
+                    <Value>2445580294891</Value>
                 </Property>
             </Property>
         </Property>

@@ -370,7 +370,7 @@ public class Access3scale {
         log.info("Enter activateUser(" + userId + ")");
 
         // Make request. 404 error is expected, so keep trying (fixed amount of attempts) until 200 or other error.
-        URL url = new URL(adminPortalUrl + "/admin/api/users/" + URLEncoder.encode(userId, "UTF-8") + "/activate.xml");
+        URL url = new URL(adminPortalUrl + "/admin/api/accounts/" + accountId + "/users/" + URLEncoder.encode(userId, "UTF-8") + "/activate.xml");
         boolean success = false;
         for (int attempsRemaining = ACTIVATE_USER_ATTEMPTS_AMOUNT; attempsRemaining > 0 && !success; attempsRemaining--) {
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
