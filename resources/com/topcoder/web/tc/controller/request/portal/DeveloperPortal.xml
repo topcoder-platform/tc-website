@@ -9,6 +9,9 @@
     	        <Property name="providerKey">
                     <Value>xxxxxxxxxxxxxxxxxx</Value>
                 </Property>
+                <Property name="accessCode">
+                    <Value>xxxxxxx</Value>
+                </Property>
             </Property>
         </Property>
     </Config>
