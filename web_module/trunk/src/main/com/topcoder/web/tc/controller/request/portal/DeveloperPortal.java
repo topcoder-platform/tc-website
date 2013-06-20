@@ -128,6 +128,7 @@ public class DeveloperPortal extends Base {
                     log.info("User " + user.getUserName() + " not found in 3scale portal "
                             + access3scale.getPortalName());
                     setNextPage(Constants.DEVELOPER_PORTAL_WELCOME);
+                    setIsNextPageInContext(true);
                     return;
                 } catch (Exception ex) {
                     throw new TCWebException(ex);
@@ -158,6 +159,7 @@ public class DeveloperPortal extends Base {
                     log.info("User " + user.getUserName() + " not found in 3scale portal "
                             + access3scale.getPortalName());
                     setNextPage(Constants.DEVELOPER_PORTAL_WELCOME);
+                    setIsNextPageInContext(true);
                     return;
                 } catch (Exception ex) {
                     throw new TCWebException(ex);
