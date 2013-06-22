@@ -16,7 +16,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.util.log.Log;
-import com.topcoder.util.log.LogManager;
+import com.topcoder.util.log.LogFactory;
 import com.topcoder.web.common.model.Country;
 import com.topcoder.web.common.model.SecretQuestion;
 
@@ -40,7 +40,7 @@ public final class DataProvider {
     /**
      * Log instance for this class.
      */
-    private static Log logger = LogManager.getLog(CLASS_NAME);
+    private static Log logger = LogFactory.getInstance().getLog(CLASS_NAME);
 
     /**
      * This method would retrieve secret question for the given handle.

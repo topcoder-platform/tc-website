@@ -17,7 +17,7 @@ import com.topcoder.security.policy.TCPermission;
 import com.topcoder.util.log.Level;
 import com.topcoder.util.log.Log;
 import com.topcoder.util.log.LogException;
-import com.topcoder.util.log.LogManager;
+import com.topcoder.util.log.LogFactory;
 
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
@@ -52,7 +52,7 @@ public class UserManagerBean implements SessionBean {
     /**
      * Log instance.
      */
-    private static Log log = LogManager.getLog("com.topcoder.apps.review.document.UserManagerBean");;
+    private static Log log = LogFactory.getInstance().getLog("com.topcoder.apps.review.document.UserManagerBean");;
 
     
     private void info(String msg) {

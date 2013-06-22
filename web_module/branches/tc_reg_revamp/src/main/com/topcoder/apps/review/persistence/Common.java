@@ -31,7 +31,7 @@ import com.topcoder.util.cache.refreshable.Refreshable;
 import com.topcoder.util.cache.refreshable.RefreshableCache;
 import com.topcoder.util.log.Level;
 import com.topcoder.util.log.Log;
-import com.topcoder.util.log.LogManager;
+import com.topcoder.util.log.LogFactory;
 
 
 /**
@@ -289,7 +289,7 @@ public class Common {
      * @return Instance of {@link Log}.
      */
     private static Log getLog() {
-        return LogManager.getLog("com.topcoder.apps.review.persistence.Common");
+        return LogFactory.getInstance().getLog("com.topcoder.apps.review.persistence.Common");
     }
 
     /**

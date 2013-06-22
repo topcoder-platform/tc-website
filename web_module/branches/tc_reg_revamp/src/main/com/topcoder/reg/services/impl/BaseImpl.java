@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import com.topcoder.reg.RegistrationHelper;
 import com.topcoder.reg.services.ConfigurationException;
 import com.topcoder.util.log.Log;
+import com.topcoder.util.log.LogFactory;
 
 /**
  * This class provides basic infrastructure.
@@ -41,6 +42,7 @@ public abstract class BaseImpl {
     @PostConstruct
     public void checkConfiguration() throws ConfigurationException {
         RegistrationHelper.checkNotNull("jdbcTempalte", jdbcTemplate, ConfigurationException.class);
+        logger = LogFactory.getInstance().getLog();
         RegistrationHelper.checkNotNull("logger", logger, ConfigurationException.class);
     }
 

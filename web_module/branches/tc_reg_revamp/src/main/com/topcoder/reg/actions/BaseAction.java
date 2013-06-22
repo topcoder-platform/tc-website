@@ -10,6 +10,7 @@ import com.topcoder.reg.RegistrationHelper;
 import com.topcoder.reg.services.ConfigurationException;
 import com.topcoder.reg.services.UserService;
 import com.topcoder.util.log.Log;
+import com.topcoder.util.log.LogFactory;
 
 /**
  * This action is responsible for holding common data like logger. It implements checkConfiguration method which will be
@@ -84,6 +85,7 @@ public class BaseAction extends ActionSupport {
      */
     @PostConstruct
     public void checkConfiguration() throws ConfigurationException {
+        logger = LogFactory.getInstance().getLog();
         RegistrationHelper.checkNotNull("logger", logger, ConfigurationException.class);
 
         RegistrationHelper.checkNotNullOrEmpty("userSessionKey", userSessionKey, ConfigurationException.class);

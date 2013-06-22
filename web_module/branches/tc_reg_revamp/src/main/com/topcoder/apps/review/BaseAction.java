@@ -6,7 +6,7 @@ package com.topcoder.apps.review;
 
 import com.topcoder.util.log.Level;
 import com.topcoder.util.log.Log;
-import com.topcoder.util.log.LogManager;
+import com.topcoder.util.log.LogFactory;
 
 import org.apache.struts.action.Action;
 import org.apache.struts.util.MessageResources;
@@ -53,7 +53,7 @@ public abstract class BaseAction extends Action {
      */
     protected void log(Level level, java.lang.Object message) {
         if (log == null) {
-            log = LogManager.getLog(logName);
+            log = LogFactory.getInstance().getLog(logName);
         }
         log.log(level, message);
     }
