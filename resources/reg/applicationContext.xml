@@ -34,9 +34,6 @@
 		<constructor-arg name="dataSource" ref="dataSource" type="javax.sql.DataSource" />
 	</bean>
 	
-	<bean id="logger" class="com.topcoder.util.log.LogManager" factory-method="getLog">
-	</bean>
-	
 	<bean id="captchaGenerator" class="com.topcoder.reg.CaptchaGenerator" init-method="checkInit">
 		<property name="randomStringImageConfigFile" value="${random_string_image_config}" />
 		<property name="captchaLifeSpan" value="120000" />
@@ -57,11 +54,9 @@
 	
      <bean id="authenticationInterceptor" class="com.topcoder.reg.actions.interceptors.AuthenticationInterceptor">
      	<property name="userHandleSessionKey" value="user_handle_session_key" />
-     	<property name="logger" ref="logger" />
      </bean>
      
     <bean id="baseImpl" class="com.topcoder.reg.services.impl.BaseImpl" abstract="true">
-    	<property name="logger" ref="logger" />
     	<property name="jdbcTemplate" ref="jdbcTemplate" />
     </bean>
     
@@ -73,7 +68,6 @@
      <bean id="baseAction" class="com.topcoder.reg.actions.BaseAction" 
      	abstract="true" init-method="checkConfiguration">
      	<property name="userService" ref="userService" />
-     	<property name="logger" ref="logger" />
      	<property name="userSessionKey" value="user_session_key" />
      	<property name="userHandleSessionKey" value="user_handle_session_key" />
      	<property name="authenticationSessionKey" value="authentication_session_key" />
