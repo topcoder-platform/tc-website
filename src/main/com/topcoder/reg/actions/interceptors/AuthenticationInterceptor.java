@@ -18,6 +18,7 @@ import com.topcoder.commons.utils.LoggingWrapperUtility;
 import com.topcoder.reg.RegistrationHelper;
 import com.topcoder.reg.services.ConfigurationException;
 import com.topcoder.util.log.Log;
+import com.topcoder.util.log.LogFactory;
 
 /**
  * This action will intercept the user action, checks user session present or not, if not present it redirect to login
@@ -102,6 +103,7 @@ public class AuthenticationInterceptor extends AbstractInterceptor {
     @PostConstruct
     public void checkConfiguration() throws ConfigurationException {
         RegistrationHelper.checkNotNullOrEmpty("userHandleSessionKey", userHandleSessionKey, ConfigurationException.class);
+        logger = LogFactory.getInstance().getLog();
         RegistrationHelper.checkNotNull("logger", logger, ConfigurationException.class);
     }
 
