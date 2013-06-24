@@ -27,11 +27,12 @@ import com.topcoder.shared.util.sql.DBUtility;
  */
 public class ReviewerRatings extends DBUtility {
     
-    private static final String SQL_QUERY_REVIEW_FEEDBACK_DATA = "SELECT p.project_id, rf.reviewer_user_id AS user_id," +
-            "rf.score AS rating, pp.actual_start_time as review_date " +
+    private static final String SQL_QUERY_REVIEW_FEEDBACK_DATA = "SELECT p.project_id, rfd.reviewer_user_id AS user_id, " +
+            "rfd.score AS rating, pp.actual_start_time as review_date " +
             "FROM review_feedback rf " +
-            "INNER JOIN project p ON p.project_id = rf.project_id and p.project_category_id=? " +
-            "INNER JOIN project_phase pp ON pp.project_id=p.project_id and pp.phase_type_id=4 " +
+            "INNER JOIN review_feedback_detail rfd ON rfd.review_feedback_id = rf.review_feedback_id " +
+            "INNER JOIN project p ON p.project_id = rf.project_id and p.project_category_id = ? " +
+            "INNER JOIN project_phase pp ON pp.project_id=p.project_id and pp.phase_type_id = 4 " +
             "ORDER BY pp.actual_start_time";
 
     private static final String SQL_QUERY_PROJECT_CATEGORIES = "SELECT project_category_id " +
