@@ -71,6 +71,10 @@
       <td class="value">6
       </td>
       <td class="value">7
+        <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=15702">SRM 590</A></strong><br />
+         12:00
+        </div>
       </td>
    </tr>
 
@@ -95,6 +99,10 @@
       <td class="value">15
       </td>
       <td class="value">16
+        <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=15703">SRM 591</A></strong><br />
+         21:00
+        </div>
       </td>
       <td class="value">17
       </td>
@@ -120,6 +128,10 @@
       <td class="value">26
       </td>
       <td class="value">27
+        <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=15704">SRM 592</A></strong><br />
+         07:00
+        </div>
       </td>
       <td class="value">28
       </td>
