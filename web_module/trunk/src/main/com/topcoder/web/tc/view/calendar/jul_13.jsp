@@ -60,6 +60,10 @@
    <tr>
       <td class="empty">&#160;<br /><br /><br /><br /><br /></td>
       <td class="value">1
+        <div class="srm">
+         <strong><A href="http://apps.topcoder.com/forums/?module=Thread&threadID=792643&start=0">Test SRM</A></strong><br />
+         11:00
+        </div>
       </td>
       <td class="value">2
       </td>
@@ -81,6 +85,10 @@
       <td class="value">9
       </td>
       <td class="value">10
+        <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=15696">SRM 584</A></strong><br />
+         07:00
+        </div>
       </td>
       <td class="value">11
       </td>
@@ -102,6 +110,10 @@
       <td class="value">18
       </td>
       <td class="value">19
+        <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=15697">SRM 585</A></strong><br />
+         11:00
+        </div>
       </td>
       <td class="value">20
       </td>
@@ -121,6 +133,10 @@
       <td class="value">26
       </td>
       <td class="value">27
+        <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=15698">SRM 586</A></strong><br />
+         12:00
+        </div>
       </td>
    </tr>
 
