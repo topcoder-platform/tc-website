@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
+import java.util.UUID;
 
 import com.topcoder.configuration.ConfigurationObject;
 import com.topcoder.configuration.persistence.ConfigurationFileManager;
@@ -86,20 +87,7 @@ public class DeveloperPortal extends Base {
         User user = getUser();
         String action = getRequest().getParameter("action");
 
-        if ("createUser".equals(action)) {
-            // This is a request to create user in 3scale. Thus create user in each 3scale portal.
-            for (Access3scale access3scale : access3scales) {
-                try {
-                    access3scale.createUser(user.getUserName(), "password",
-                            "e" + Math.abs(new Random().nextInt())
-                            + "@email" + Math.abs(new Random().nextInt()) +".net");
-                } catch (Exception ex) {
-                    throw new TCWebException(ex);
-                }
-            }
-        }
-
-        if ("goToPortal".equals(action)) {
+        if ("login".equals(action)) {
             // This is a request to go to portal. Thus obtain SSO token and redirect user to SSO URL.
             // Find Access3scale corresponding to request portal.
             Access3scale access3scale = null;
@@ -109,10 +97,16 @@ public class DeveloperPortal extends Base {
                     break;
                 }
             }
+	    if(access3scale == null) {
+		throw new TCWebException("No such portal exists");
+	    }
             // Obtain SSO token.
             SSOToken ssoToken = null;
             try {
-                // Try to load from persistence.
+		if(access3scale.retrieveUser(user.getUserName()) == null) {
+			access3scale.createUser(user.getUserName(), generatePassword() , getEmailAddressOfUser(user.getUserName()));
+		}
+		// Try to load from persistence.
                 ssoToken = loadSSOTokenFromPeristence(access3scale.getPortalName(), user.getUserName());
             } catch (Exception ex) {
                 throw new TCWebException(ex);
@@ -123,13 +117,6 @@ public class DeveloperPortal extends Base {
                     ssoToken = access3scale.generateToken(user.getUserName());
                     // Persist obtained SSO token.
                     saveSSOTokenToPersistence(access3scale.getPortalName(), user.getUserName(), ssoToken);
-                } catch (UserNotFoundException ex) {
-                    // User not found in 3scale. Thus redirect to the page, which offers account creation.
-                    log.info("User " + user.getUserName() + " not found in 3scale portal "
-                            + access3scale.getPortalName());
-                    setNextPage(Constants.DEVELOPER_PORTAL_WELCOME);
-                    setIsNextPageInContext(true);
-                    return;
                 } catch (Exception ex) {
                     throw new TCWebException(ex);
                 }
@@ -138,42 +125,6 @@ public class DeveloperPortal extends Base {
             setNextPage(ssoToken.getUrl());
             return;
         }
-
-        // This is a request for portals list. Thus, detect if user exists in 3scale portals.
-        SSOToken ssoToken = null;
-        for (Access3scale access3scale : access3scales) {
-            try {
-                // Try to load from persistence.
-                ssoToken = loadSSOTokenFromPeristence(access3scale.getPortalName(), user.getUserName());
-            } catch (Exception ex) {
-                throw new TCWebException(ex);
-            }
-            if (ssoToken == null) {
-                // No token found. Check, if user exists in 3scale portal.
-                try {
-                    ssoToken = access3scale.generateToken(user.getUserName());
-                    // Persist obtained SSO token.
-                    saveSSOTokenToPersistence(access3scale.getPortalName(), user.getUserName(), ssoToken);
-                } catch (UserNotFoundException ex) {
-                    // User not found in 3scale. Thus redirect to the page, which offers account creation.
-                    log.info("User " + user.getUserName() + " not found in 3scale portal "
-                            + access3scale.getPortalName());
-                    setNextPage(Constants.DEVELOPER_PORTAL_WELCOME);
-                    setIsNextPageInContext(true);
-                    return;
-                } catch (Exception ex) {
-                    throw new TCWebException(ex);
-                }
-            }
-        }
-        // User found in 3scale portals. So, show the portals list.
-        List<String> portalNames = new ArrayList<String>();
-        for (Access3scale access3scale : access3scales) {
-            portalNames.add(access3scale.getPortalName());
-        }
-        getRequest().setAttribute("portalNames", portalNames);
-        setNextPage(Constants.DEVELOPER_PORTAL);
-        setIsNextPageInContext(true);
     }
 
     /**
@@ -274,6 +225,62 @@ public class DeveloperPortal extends Base {
         }
 
         log.info("Exit saveSSOTokenToPersistence(" + portalName + ", ...)");
+    }
+
+    /**
+     * Generates a random password.
+     *
+     * @return generated password
+     */
+    private String generatePassword() {
+	String uuid = UUID.randomUUID().toString();
+	uuid = uuid.replaceAll("-","");
+	Random random = new Random();
+	char[] password = new char[9];
+	for(int i = 0 ; i<9; i++) {
+ 		if(i == 4) {
+			password[i] = '_';
+			continue;
+		}
+		password[i] = uuid.charAt(random.nextInt(30));
+	}
+	return new String(password);
+    }
+
+    /**
+     * Retrieves email address of user.
+     *
+     * @return email address of user
+     */
+    private String getEmailAddressOfUser(String username) throws Exception {
+	// Obtain DB connection.
+        DataAccess dataAccess = (DataAccess) getDataAccess(DBMS.COMMON_OLTP_DATASOURCE_NAME, false);
+        Connection conn = (Connection) DBMS.getConnection(dataAccess.getDataSource());
+
+        // Run SQL query.
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        SSOToken ssoToken = null;
+        try {
+            ps = conn.prepareStatement("SELECT e.address FROM email e, user u"
+                    + " WHERE u.handle = ? and e.user_id = u.user_id"); 
+            ps.setString(1, username);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+		return rs.getString(1);
+            }
+        } finally {
+            try {
+                rs.close();
+            } catch (Exception ex) { }
+            try {
+                ps.close();
+            } catch (Exception ex) { }
+            try {
+                conn.close();
+            } catch (Exception ex) { }
+        }
+	throw new Exception("Email of user cannot be found");
     }
 
 }
