@@ -19,10 +19,12 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
+import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
 
 import com.topcoder.configuration.ConfigurationObject;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.security.User;
 
 /**
  * <p>
@@ -359,7 +361,52 @@ public class Access3scale {
         log.info("Exit generateToken(" + username + ")");
         return ssoToken;
     }
+    
+    /**
+     * Checks and retrieves User from 3scale.
+     *
+     * @param userName username to be retrieved
+     */
+    public String retrieveUser(String userName) throws Exception {
+        log.info("Entered retrieveUser(" + userName + ")");
 
+	// Make request
+	URL url = new URL(adminPortalUrl + "/admin/api/accounts/" + accountId + "/users.xml?provider_key=" + URLEncoder.encode(providerKey, "UTF-8"));
+	HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+	String response = null;
+	try {
+		connection.setDoOutput(true);
+		connection.setRequestMethod("GET");
+		connection.connect();
+		response = getConnectionResponse(connection);
+	} finally {
+		connection.disconnect();
+	}
+	
+    // Parse response.
+    InputSource responseSource = new InputSource();
+    responseSource.setCharacterStream(new StringReader(response));
+    Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(responseSource);
+       
+	
+	NodeList users = doc.getElementsByTagName("user");
+	int i = 0;
+	while(users.item(i) != null) {
+		Element user = (Element)users.item(i);
+		if(user.getElementsByTagName("username").item(0).getTextContent().equals(userName)) {
+			String state = user.getElementsByTagName("state").item(0).getTextContent();
+			if(state.equalsIgnoreCase("suspended")) {
+				throw new Exception("User suspended from portal");
+			} else if (state.equalsIgnoreCase("pending")) {
+				activateUser(user.getElementsByTagName("id").item(0).getTextContent());	
+			}
+			return userName;
+		}	
+		i++;
+	}
+        log.info("Exit retrieveUser(" + userName + ")");
+	return null;
+    }
     /**
      * Activates portal user.
      *
