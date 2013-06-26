@@ -685,6 +685,14 @@
                 <include name="ConfigManager.properties" />
             </fileset>
         </copy>
+        <copy todir="${jboss_conf}/com/topcoder/util/log">
+            <fileset dir="${resources}/com/topcoder/util/log">
+                <include name="Logging.xml" />
+                <include name="Logging.xml.basic" />
+                <include name="Logging.xml.jdk14" />
+                <include name="Logging.xml.log4j" />
+            </fileset>
+        </copy>
         <copy todir="${jboss_conf}/com/topcoder/servlet/request">
             <fileset dir="${resources}/com/topcoder/servlet/request">
                 <include name="FileUpload.xml" />
