@@ -106,7 +106,7 @@ TopCoder will restore the issue to the "Open" status.&#95;</p>
             <td class="value">
             <% if (resultRow.getIntItem("tco_points") > 0) { %>
                 <div align="center">
-                  <a href='http://community.topcoder.com/tco13'><img class="emblem" src="/i/tournament/tco13/software_tco13_icon.png" alt="" border="0" onMouseOver="postPopUpText('globalPopupText','Eligible for the TopCoder Open'); popUp(this,'globalPopup');" onMouseOut="popHide()" /></a>
+                  <a href='http://community.topcoder.com/tco14'><img class="emblem" src="/i/tournament/tco14/software_tco14_icon.png" alt="" border="0" onMouseOver="postPopUpText('globalPopupText','Eligible for the TopCoder Open'); popUp(this,'globalPopup');" onMouseOut="popHide()" /></a>
                 </div>
             <% } else { %>
                 &nbsp;
