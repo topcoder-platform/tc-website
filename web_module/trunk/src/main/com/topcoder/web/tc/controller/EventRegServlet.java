@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2010-2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller;
 
@@ -125,30 +125,20 @@ public class EventRegServlet extends BaseServlet {
                 //For now, we force the event id.
                 //3433 tco11
                 // 3434 tco12
-                if (eventId != 3433 && eventId!= 3434 && eventId != 3435 && eventId != 3436) {
+                if (eventId != 3435 && eventId != 3436 && eventId != 3437) {
                     response.getOutputStream().println(cb == null ? "<response>bad event</response>" : cb + "({\"response\":\"bad event\"})");
                     return;
                 }
 
                 // hard map for now
-                if (eventId == 3433)
-                {
-                    termsId = 20933;
-                    commandToRefresh = "tco11_registrants";
-                }
-                else if (eventId == 3434)
-                {
-                    termsId = 20933;
-                    commandToRefresh = "tco12_registrants";
-                }
-				else if (eventId == 3435)
-                {
+                if (eventId == 3435) {
                     termsId = 21003;
-                }
-				else if (eventId == 3436)
-                {
-                    termsId = 20933;
-                    commandToRefresh = "tco13_registrants";
+                } else if (eventId == 3436) {
+                    termsId = 21073;
+                    commandToRefresh = "tco_registrants";
+                } else if (eventId == 3437) {
+                    termsId = 21103;
+                    commandToRefresh = "tco_registrants";
                 }
               
 
@@ -190,7 +180,7 @@ public class EventRegServlet extends BaseServlet {
 
    /**
      * <p>
-     * Helper method to save TCO10 registration to the database.
+     * Helper method to save TCO registration to the database.
      * After the registration is saved registrants query cache needs to be cleaned to
      * reflect the latest addition.
      * </p>
@@ -229,12 +219,12 @@ public class EventRegServlet extends BaseServlet {
 
     /**
      * <p>
-     * Helper method to save TCO10 registration to the database.
+     * Helper method to save TCO registration to the database.
      * After the registration is saved registrants query cache needs to be cleaned to
      * reflect the latest addition.
      * </p>
      *
-     * @param event an <code>Event</code> containing TCO10 event.
+     * @param event an <code>Event</code> containing TCO event.
      * @param user an <code>User</code> containing active user.
      */
     private boolean isRegistered(long eventId, long userId) throws Exception{
