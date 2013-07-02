@@ -66,11 +66,11 @@
 </jsp:include>
 
 <p>
-    <strong>TCO12 Wireframe Studio Cup Tournament</strong>
+    <strong>TCO14 Wireframe Studio Cup Tournament</strong>
 </p>
-We are happy to announce another special opportunity for wireframe competitors! During the Online Periods of the TCO12, a single member will be designated the "Wireframe SC Tournament Winner" from each Period based on how many points they accumulated within wireframe contests. The winner from each Period will win an all-expenses paid trip to TCO12!
+We are happy to announce another special opportunity for wireframe competitors! During the Online Periods of the TCO14, a single member will be designated the "Wireframe SC Tournament Winner" from each Period based on how many points they accumulated within wireframe contests. The winner from each Period will win an all-expenses paid trip to TCO14!
 <br /><br />
-Winners are chosen based on the highest points earned from wireframe contests only. Points from other contest types will not count toward the tally. Each winner can only win a single trip and that trip is non-transferable. <a href="http://community.topcoder.com/tco12/win-tco-trips/" target="_blank">See this page for more information</a>.
+Winners are chosen based on the highest points earned from wireframe contests only. Points from other contest types will not count toward the tally. Each winner can only win a single trip and that trip is non-transferable. <a href="http://community.topcoder.com/tco14/win-tco-trips/" target="_blank">See this page for more information</a>.
 <br /><br />
 
                         <br clear="all"/>

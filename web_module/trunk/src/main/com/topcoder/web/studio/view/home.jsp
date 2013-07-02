@@ -156,14 +156,14 @@
                                                 
                                                 <tr>
                                                     <td class="event">
-                                                        <% if ("3434".equals(resultRow.getStringItem("event_id"))) { %>
-                                                        <a href="http://community.topcoder.com/tco12/studio">
-                                                            <img src="/i/tournament/tco12/tco12_small_icon_design.png"
-                                                                 alt="Eligible for the TCO12" /></a>
-														  <% } else if ("3436".equals(resultRow.getStringItem("event_id"))) { %>
+                                                        <% if ("3436".equals(resultRow.getStringItem("event_id"))) { %>
                                                         <a href="http://community.topcoder.com/tco13/studio">
                                                             <img src="/i/tournament/tco13/tco13_small_icon_design.png"
                                                                  alt="Eligible for the TCO13" /></a>
+                                                        <% } else if ("3437".equals(resultRow.getStringItem("event_id"))) { %>
+                                                        <a href="http://community.topcoder.com/tco14/studio">
+                                                            <img src="/i/tournament/tco14/tco14_small_icon_design.png"
+                                                                 alt="Eligible for the TCO14" /></a>
                                                         <%} else {%>&nbsp;<%}%>
                                                     </td>
                                                     <td class="first">
