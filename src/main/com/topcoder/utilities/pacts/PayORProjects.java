@@ -24,7 +24,19 @@ import com.topcoder.web.ejb.pacts.*;
 public class PayORProjects extends DBUtility {
     
     private static final String SQL_QUERY_PROJECTS =
-            "SELECT p.project_id, pcl.project_category_id, pcl.project_type_id, pi56.value::int as mm_round_id" +
+            "SELECT p.project_id, pcl.project_category_id, pcl.project_type_id, pi56.value::int as mm_round_id," +
+            " (CASE WHEN " +
+            "  -- check that review feedback is required for this project\n" +
+            "  EXISTS (select 1 from project_info pi59 where pi59.project_id=p.project_id and pi59.project_info_type_id=59 and pi59.value='true')" +
+            "  -- check that Review phase has closed\n" +
+            "  AND EXISTS (select 1 from project_phase pp where pp.project_id=p.project_id and pp.phase_type_id=4 and pp.phase_status_id=3)" +
+            "  -- check that the copilot is not the only reviewer (if at all)\n" +
+            "  AND EXISTS (select 1 from resource r1, resource_info ri1, resource r2, resource_info ri2 where" +
+            "              r1.project_id=p.project_id and r1.resource_role_id in (4,5,6,7) and r1.resource_id=ri1.resource_id and ri1.resource_info_type_id=1 and" +
+            "              r2.project_id=p.project_id and r2.resource_role_id = 14 and r2.resource_id=ri2.resource_id and ri2.resource_info_type_id=1 and" +
+            "              ri1.value != ri2.value)" +
+            "  -- check that review feedback hasn't been submitted for this project yet\n" +
+            "  AND NOT EXISTS (select 1 from review_feedback rf where rf.project_id=p.project_id) THEN 't' else 'f' END)::boolean as pending_review_feedback" +
             " FROM project p" +
             " INNER JOIN project_category_lu pcl ON pcl.project_category_id=p.project_category_id" +
             " LEFT OUTER JOIN project_info pi56 ON pi56.project_id=p.project_id and pi56.project_info_type_id=56" +
@@ -133,7 +145,8 @@ public class PayORProjects extends DBUtility {
                 long projectId = rs.getLong("project_id");
                 long projectCategoryId = rs.getLong("project_category_id");
                 long projectTypeId = rs.getLong("project_type_id");
-                
+                boolean pendingReviewFeedback = rs.getBoolean("pending_review_feedback");
+
                 log.info("Analyzing payments for project " + projectId);
 
                 List<Long> pendingUserIds = getPendingUserIds(projectId);
@@ -146,9 +159,19 @@ public class PayORProjects extends DBUtility {
                 rs2 = psSelPayments.executeQuery();
                 while(rs2.next()) {
                     long projectPaymentId = rs2.getLong("project_payment_id");
+                    int pactsPaymentTypeId = rs2.getInt("pacts_payment_type_id");
                     long userId = rs2.getLong("user_id");
+
+                    // Skip payment if the user has pending late deliverables.
                     if (pendingUserIds.contains(userId)) {
                         log.info("Payment " + projectPaymentId + " for user " + userId + " is skipped because the user still has pending late deliverables.");
+                        continue;
+                    }
+
+                    // Skip copilot payment if the review feedback hasn't been submitted yet (if applicable for this contest).
+                    if (pactsPaymentTypeId == BasePayment.COPILOT_PAYMENT && pendingReviewFeedback) {
+                        log.info("Copilot payment " + projectPaymentId + " for user " + userId +
+                                " is skipped because the review feedback hasn't been submitted yet.");
                         continue;
                     }
 
@@ -156,7 +179,7 @@ public class PayORProjects extends DBUtility {
                     payment.userId = userId;
                     payment.projectPaymentIds.add(projectPaymentId);
                     payment.amount = rs2.getDouble("amount");
-                    payment.pactsPaymentTypeId = rs2.getInt("pacts_payment_type_id");
+                    payment.pactsPaymentTypeId = pactsPaymentTypeId;
                     payment.place = rs2.getInt("placement");
 
                     // If the payment type is "mergeable" it means all user payments of that type should be merged and
@@ -187,6 +210,7 @@ public class PayORProjects extends DBUtility {
                 // by transferring them to PACTS and updating the records in project_payment table.
                 for(Payment payment : payments) {
                     log.info("Processing payments: " + concat(payment.projectPaymentIds));
+
                     BasePayment pactsPayment = null, pactsPayment2 = null;
 
                     // Get the penalty percentage. Copilot payments and payments for Marathon Matches are not subject to penalties.
