@@ -6,6 +6,7 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.language.BaseLanguage;
+import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.ServerBusyException;
@@ -79,6 +80,17 @@ public abstract class Base extends BaseProcessor {
                 getRequest().setAttribute(Constants.ROUND_TYPE_ID, new Integer(type));
             }
             getRequest().setAttribute(Constants.RESULTS_AVAILABLE, new Boolean(areResultsAvailable(roundId)));
+
+            // 05.07.2013 -- support for private matches
+            User usr = getUser();
+            Request r = new Request();
+            r.setContentHandle("long_contest_has_access");
+            r.setProperty("rd", String.valueOf(roundId));
+            r.setProperty("cr", String.valueOf(usr.getId()));
+            if (((ResultSetContainer)getDataAccess(true).getData(r).get(
+        		"long_contest_has_access")).isEmpty()) {
+                throw new NavigationException("This is a private round. You do not have rights to access it.");
+            }
         }
 
     }
