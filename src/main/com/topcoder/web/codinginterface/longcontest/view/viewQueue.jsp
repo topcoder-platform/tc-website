@@ -97,6 +97,7 @@
                 <% } %>
                 <%boolean even = true;%>
                 <logic:iterate collection="<%=result%>" id="resultRow" type="com.topcoder.server.ejb.TestServices.LongTestQueueStatusItem">
+<% if (resultRow.getRoundId() != 15719) { %>
                     <tr class="<%=even?"light":"dark"%>">
                         <td class="value" nowrap="nowrap">
                             <tc-webtag:handle context='marathon_match' coderId='<%=resultRow.getUserId()%>'/>
@@ -121,6 +122,7 @@
                             <%=resultRow.getCount()%>
                         </td>
                     </tr>
+<% } %>
                     <%even = !even;%>
                 </logic:iterate>
             </tbody>
