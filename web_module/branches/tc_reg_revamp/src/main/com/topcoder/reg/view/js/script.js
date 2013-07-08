@@ -639,7 +639,7 @@ function doLogin() {
 				if(null != data.nextPage) {
 					window.location.href = data.nextPage;
 				} else {
-					window.location.href= 'http://www.topcoder.com';
+					window.location.href= 'https://www.topcoder.com';
 				}
 			} else {
 				$(".loginForm_msg").text(data.message);
