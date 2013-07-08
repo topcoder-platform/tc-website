@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.contest;
 
@@ -269,14 +269,17 @@ public class ProjectDetail extends Base {
                     reliabilityBonuseEligible ?
                     reliabilityBonus.getReliabilityPercent(1.0, postingDate, categoryId) * firstPlacePrize : 
                     0.0);
-            getRequest().setAttribute("hasDR", details.getIntItem(0, "dr_points") > 0);
+            getRequest().setAttribute("hasDR",
+                    details.getItem(0, "dr_points").getResultData() != null && details.getIntItem(0, "dr_points") > 0);
             getRequest().setAttribute("hasCheckpoint",
                     details.getItem(0, "milestone_submission_date").getResultData() != null);
             getRequest().setAttribute("hasFinalReview",
                     details.getItem(0, "final_review_start_date").getResultData() != null);
             getRequest().setAttribute("hasApproval",
                     details.getItem(0, "final_approval_start_date").getResultData() != null);
-            getRequest().setAttribute("checkpointReviewFinished", details.getIntItem(0, "milestone_review_status") == 3);
+            getRequest().setAttribute("checkpointReviewFinished",
+                    details.getItem(0, "milestone_review_status").getResultData() != null &&
+                    details.getIntItem(0, "milestone_review_status") == 3);
 
             // set experiences and budget
             if (projectTypeId == Constants.COPILOT_POSTING_PROJECT_TYPE) {
@@ -301,7 +304,7 @@ public class ProjectDetail extends Base {
             }
             
             // New General Competition Rules section for Contest Detail Page
-            boolean isCCARequired = details.getBooleanItem(0, "is_cca_required");
+            boolean isCCARequired = details.getItem(0, "is_cca_required").getResultData() != null && details.getBooleanItem(0, "is_cca_required");
             getRequest().setAttribute("isCCARequired", isCCARequired);
             int supportDays = 30;  // default support days
             if (projectTypeId == Constants.ARCHITECTURE_PROJECT_TYPE) {
