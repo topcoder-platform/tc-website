@@ -50,6 +50,17 @@ public interface UserService {
      *             If there is any DB error.
      */
     public UserDTO getUserByEmail(String email) throws PersistenceException;
+    
+    /**
+     * This method find User by given user id.
+     * 
+     * @param userId
+     *            User ID.
+     * @return Instance of the {@link User} if found; null otherwise.
+     * @throws PersistenceException
+     *             If there is any DB error.
+     */
+    public UserDTO getUserByUserId(long userId) throws PersistenceException;
 
     /**
      * This method adds user to groups.

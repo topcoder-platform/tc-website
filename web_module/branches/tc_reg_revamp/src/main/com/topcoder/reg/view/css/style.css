@@ -1776,3 +1776,45 @@ span#captcha_span {
     color: red;
     padding-left:23px;
 }
+
+
+.registrationSuccessfulHedading h1{
+	font-size:18px;
+	font-weight:normal;
+	}
+	.registrationSuccessful p{
+		padding-bottom:10px;
+		}
+	.registrationSuccessful ul{
+		float:left;
+		display:inline;
+		}
+		.registrationSuccessful li{
+			float:left;
+			display:inline;
+			width:305px;
+			text-align:center;
+			}
+		.registrationSuccessful li.middle{
+			padding:0 20px;
+			}
+			.registrationSuccessful li a.tcLogo{
+				height:51px;
+				padding-top:25px;
+				display:inline-block;
+				}
+			.registrationSuccessful li a.studioLogo{
+				height:61px;
+				padding-top:15px;
+				display:inline-block;
+				}
+			.registrationSuccessful li h5{
+				padding-bottom:10px;
+				}
+			.registrationSuccessful li p{
+				text-align:left;
+				}
+	
+.registrationSuccessful {
+    margin: 40px auto !important;
+}

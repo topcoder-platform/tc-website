@@ -1,5 +1,21 @@
 $(document).ready(function() {
-	
+
+    $('#loginForm_handle, #loginForm_password').keypress(function(e) {
+        if (!isEnterKeyPressed(e)) {
+            return true;
+        }
+        doLogin();
+        return false;
+    });
+    
+    function isEnterKeyPressed(e) {
+        if (window.event) {
+            return (window.event.keyCode == 13);
+        }
+        if (e) return (e.which == 13);
+        return false;
+    }
+    
 	//fix UI
 	$(".loginForm_msg").css("width", $(".loginForm").css("width"));
 	$(".reg_validation").css("width", $("#content .rightSide").css("width"));
@@ -132,7 +148,7 @@ $(document).ready(function() {
 			   
 				function(data){
 					if(data.messages.length == 0) {
-						$("#registrationModal .section p").text("Registration step is successful, please go to your email box to activate your account!");
+                        window.location.href = 'registration_successful.jsp?email=' + email;
 					} else {
 						var msg = "";
 						var len = data.messages.length;
@@ -141,8 +157,8 @@ $(document).ready(function() {
 						}
 						msg = msg.substring(0, msg.length -2);
 						$("#registrationModal .section p").text(msg);
+                        loadModal("registrationModal");
 					}
-					loadModal("registrationModal");
 			});
 			
 		}
@@ -551,6 +567,10 @@ $(document).ready(function() {
 		$(".date-pick").datePicker({startDate:'01/01/2001'});
 		$(".information .form dl dd a.dp-choose-date").addClass("hide");        
     }
+    
+    if ($('.registrationSuccessful').length > 0) {
+        $('.titleLine').hide();
+    }
 });
 
 
@@ -619,7 +639,7 @@ function doLogin() {
 				if(null != data.nextPage) {
 					window.location.href = data.nextPage;
 				} else {
-					window.location.href= 'http://www.topcoder.com';
+					window.location.href= 'myAccount.action';
 				}
 			} else {
 				$(".loginForm_msg").text(data.message);

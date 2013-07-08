@@ -4,10 +4,13 @@
 package com.topcoder.reg.actions;
 
 import org.apache.struts2.ServletActionContext;
+import javax.servlet.http.HttpSession;
 
 import com.topcoder.commons.utils.LoggingWrapperUtility;
 import com.topcoder.reg.services.PersistenceException;
 import com.topcoder.web.common.WebConstants;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.reg.dto.UserDTO;
 
 /**
  * This method would validate the activation code and then activate the the account if nothing wrong detected.
@@ -33,6 +36,11 @@ public class ActivateAction extends BaseAction {
     private static final String CLASS_NAME = ActivateAction.class.getName();
 
     /**
+     * Session key to hold user handle.
+     */
+    private static final String USER_HANDLE_KEY = "user_handle";
+    
+    /**
      * This method would validate activation code and activate the account if there is no error.
      * 
      * @throws Exception
@@ -44,13 +52,17 @@ public class ActivateAction extends BaseAction {
         final String signature = CLASS_NAME + "#execute()";
         LoggingWrapperUtility.logEntrance(logger, signature, null, null);
         final String code = ServletActionContext.getRequest().getParameter(WebConstants.ACTIVATION_CODE);
-
+        
         if (null == code || code.trim().length() == 0) {
             addActionError("Empty activation code");
         }
 
         try {
             userService.activate(code);
+            long userId = StringUtils.getCoderId(code);
+            UserDTO userDTO = null;
+            userDTO = userService.getUserByUserId(userId);
+            ServletActionContext.getRequest().setAttribute(USER_HANDLE_KEY, userDTO.getHandle());
         } catch (PersistenceException e) {
             addActionError(e.getMessage());
             LoggingWrapperUtility.logException(logger, signature, e);
