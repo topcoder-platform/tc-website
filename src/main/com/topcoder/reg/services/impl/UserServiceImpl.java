@@ -88,6 +88,14 @@ public class UserServiceImpl extends BaseImpl implements UserService {
             + "JOIN 'informixoltp':coder AS c ON c.coder_id = u.user_id WHERE e.address=?";
 
     /**
+     * SQL to get user by user id.
+     */
+     private static final String SQL_GET_USER_BY_USER_ID = "SELECT u.user_id, u.first_name, u.last_name, u.handle, "
+            + "u.status, u.reg_source AS source, e.address, c.comp_country_code AS country "
+            + "FROM user AS u JOIN email AS e ON e.user_id = u.user_id "
+            + "JOIN 'informixoltp':coder AS c ON c.coder_id = u.user_id WHERE u.user_id = ?";
+     
+    /**
      * SQL to check group ID validity.
      */
     private static final String SQL_QUERY_GROUP_IDS = "SELECT group_id FROM security_groups WHERE group_id IN ";
@@ -247,6 +255,32 @@ public class UserServiceImpl extends BaseImpl implements UserService {
         }
 
     }
+    
+    /**
+     * This method get user by user id.
+     * 
+     * @param userId
+     *            User ID.
+     * @return Instance of the {@link UserDTO} if found; null otherwise.
+     * @throws PersistenceException
+     *             If there is any DB error.
+     */
+    @Transactional(readOnly = true)
+    public UserDTO getUserByUserId(long userId) throws PersistenceException {
+        final String signature = CLASS_NAME + "#getUserByUserId(long userId)";
+        LoggingWrapperUtility.logEntrance(logger, signature, new String[] { "userId" }, new Object[] { userId });
+        UserDTO user = null;
+        
+        try {
+            user = jdbcTemplate.queryForObject(SQL_GET_USER_BY_USER_ID, new UserDTORowMapper(), userId);
+            LoggingWrapperUtility.logExit(logger, signature, new Object[] { user });
+            return user;
+        } catch (DataAccessException e) {
+            LoggingWrapperUtility.logException(logger, signature, e);
+            throw new PersistenceException("Error while getting user from DB", e);
+        }
+
+    }    
 
     /**
      * Map result set to desired UserDTO.
