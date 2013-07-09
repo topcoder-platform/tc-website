@@ -67,9 +67,17 @@ import com.topcoder.shared.util.DBMS;
  * </ol>
  * </p>
  *
- * @author backstretlili, TCSASSEMBLER
+ * <p>
+ * Version 1.4 (TopCoder Security Groups Release 8 - Automatically Grant Permissions ) change notes:
+ * <ol>
+ *     <li>Updated {@link #searchHistoricalData(com.topcoder.security.groups.services.dto.GroupMemberSearchCriteria,
+ *          int, int)} method to remove resource restrictions and add auto grant permission flag.</li>
+ * </ol>
+ * </p>
+ *
+ * @author backstretlili, freegod
  * 
- * @version 1.3
+ * @version 1.4
  */
 public class HibernateGroupMemberService extends BaseGroupService implements GroupMemberService {
 
@@ -249,6 +257,7 @@ public class HibernateGroupMemberService extends BaseGroupService implements Gro
                 data.setGroupId(gm.getGroup().getId());
                 data.setPermission(gm.isUseGroupDefault() ? gm.getGroup().getDefaultPermission() : gm.getSpecificPermission());
                 data.setBillingAccounts(gm.getGroup().getBillingAccounts());
+                data.setAutoGrant(gm.getGroup().getAutoGrant());
                 List<Long> dpIds = new ArrayList<Long>();
                 for (DirectProject dp : gm.getGroup().getDirectProjects()) {
                     dpIds.add(dp.getDirectProjectId());
@@ -256,8 +265,8 @@ public class HibernateGroupMemberService extends BaseGroupService implements Gro
                 data.setFrom(gm.getActivatedOn());
                 data.setTo(gm.getUnassignedOn());
                 data.setDirectProjectIds(dpIds);
-                data.setRestrictions(gm.getGroup().getRestrictions());
                 // data.to == null means now
+                data.setAutoGrant(gm.getGroup().getAutoGrant());
                 result.getValues().add(data);
             }
             // set count

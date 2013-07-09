@@ -19,7 +19,6 @@ import com.topcoder.security.groups.model.BillingAccount;
 import com.topcoder.security.groups.model.DirectProject;
 import com.topcoder.security.groups.model.Group;
 import com.topcoder.security.groups.model.GroupMember;
-import com.topcoder.security.groups.model.ResourceType;
 import com.topcoder.security.groups.services.AuthorizationService;
 import com.topcoder.security.groups.services.EntityNotFoundException;
 import com.topcoder.security.groups.services.GroupService;
@@ -80,10 +79,20 @@ import com.topcoder.shared.util.DBMS;
  * </ol>
  * </p>
  *
- * @author backstretlili, flexme, TCSASSEMBLER
+ * <p>
+ * Version 1.5 (TopCoder Security Groups Release 8 - Automatically Grant Permissions) change notes:
+ * <ol>
+ *     <li>Updated {@link #copyGroup(com.topcoder.security.groups.model.Group)} method to remove restrictions
+ *         and add auto grant field.</li>
+ *     <li>Updated {@link #isSubSet(com.topcoder.security.groups.model.Group, com.topcoder.security.groups.model.Group)}
+ *         method to check auto grant permissions.</li>
+ * </ol>
+ * </p>
+ *
+ * @author backstretlili, flexme, freegod
  * 
- * @version 1.4
- * 
+ * @version 1.5
+ * @since  1.0
  */
 public class HibernateGroupService extends BaseGroupService implements GroupService {
 
@@ -233,21 +242,27 @@ public class HibernateGroupService extends BaseGroupService implements GroupServ
         Group newGroup = new Group();
         newGroup.setArchived(group.getArchived());
         newGroup.setArchivedOn(group.getArchivedOn());
-        newGroup.setBillingAccounts(group.getBillingAccounts());
+        newGroup.setAutoGrant(group.getAutoGrant());
+        if( ! newGroup.getAutoGrant()) {
+            newGroup.setBillingAccounts(group.getBillingAccounts());
+            if (group.getDirectProjects() != null) {
+                List<DirectProject> directProjects = new ArrayList<DirectProject>();
+                for (DirectProject dp : group.getDirectProjects()) {
+                    DirectProject newDP = new DirectProject();
+                    newDP.setGroup(newGroup);
+                    newDP.setDirectProjectId(dp.getDirectProjectId());
+                    directProjects.add(newDP);
+                }
+                newGroup.setDirectProjects(directProjects);
+            }
+        } else {
+            newGroup.setBillingAccounts(new ArrayList<BillingAccount>());
+            newGroup.setDirectProjects(new ArrayList<DirectProject>());
+        }
         newGroup.setClient(group.getClient());
         newGroup.setDefaultPermission(group.getDefaultPermission());
-        if (group.getDirectProjects() != null) {
-            List<DirectProject> directProjects = new ArrayList<DirectProject>();
-            for (DirectProject dp : group.getDirectProjects()) {
-                DirectProject newDP = new DirectProject();
-                newDP.setGroup(newGroup);
-                newDP.setDirectProjectId(dp.getDirectProjectId());
-                directProjects.add(newDP);
-            }
-            newGroup.setDirectProjects(directProjects);
-        }
         newGroup.setName(group.getName());
-        newGroup.setRestrictions(group.getRestrictions());
+
         List<GroupMember> newMembers = new ArrayList<GroupMember>();
         if (group.getGroupMembers() != null) {
             for (GroupMember member : group.getGroupMembers()) {
@@ -296,6 +311,12 @@ public class HibernateGroupService extends BaseGroupService implements GroupServ
         // check defaultPermission
         if (group1.getDefaultPermission() != group2.getDefaultPermission())
             return false;
+
+        //check auto granted permissions
+        if(group1.getAutoGrant() != group2.getAutoGrant()) {
+            return false;
+        }
+
         // check billingAccounts
         Set<Long> accountIds = new HashSet<Long>();
         for (BillingAccount account : group1.getBillingAccounts()) {
@@ -312,15 +333,6 @@ public class HibernateGroupService extends BaseGroupService implements GroupServ
         }
         for (DirectProject project : group2.getDirectProjects()) {
             if (!projectIds.contains(Long.valueOf(project.getId())))
-                return false;
-        }
-        // check restrictions
-        Set<ResourceType> resourceTypes = new HashSet<ResourceType>();
-        for (ResourceType type : group1.getRestrictions()) {
-            resourceTypes.add(type);
-        }
-        for (ResourceType type : group2.getRestrictions()) {
-            if (!resourceTypes.contains(type))
                 return false;
         }
 
@@ -465,6 +477,9 @@ public class HibernateGroupService extends BaseGroupService implements GroupServ
                 con.append(" and g.client.id in (select c.id from Client c ").
                     append(" where LOWER(c.name) like LOWER(:clientName)) ");
             }
+            if(null != criteria.getClientId()) {
+                con.append(" and g.client.id = :clientId ");
+            }
             if (criteria.getPermissions() != null && criteria.getPermissions().size() > 0) {
                 con.append(" and (g.defaultPermission in (:permissions)) ");
             }
@@ -539,6 +554,9 @@ public class HibernateGroupService extends BaseGroupService implements GroupServ
         }
         if (criteria.getPermissions() != null && criteria.getPermissions().size() > 0) {
             query.setParameterList("permissions", criteria.getPermissions());
+        }
+        if(null != criteria.getClientId()) {
+            query.setParameter("clientId", criteria.getClientId());
         }
     }
 

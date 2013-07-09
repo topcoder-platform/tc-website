@@ -6,17 +6,19 @@ package com.topcoder.security.groups.services.hibernate;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hibernate.HibernateException;
-import org.hibernate.Query;
-import org.hibernate.Session;
-
-import com.topcoder.commons.utils.LoggingWrapperUtility;
 import com.topcoder.security.groups.model.BillingAccount;
+import com.topcoder.security.groups.model.Client;
 import com.topcoder.security.groups.model.DirectProject;
 import com.topcoder.security.groups.model.Group;
 import com.topcoder.security.groups.model.GroupMember;
 import com.topcoder.security.groups.model.GroupPermissionType;
 import com.topcoder.security.groups.model.ResourceType;
+import com.topcoder.security.groups.services.BillingAccountService;
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.Session;
+
+import com.topcoder.commons.utils.LoggingWrapperUtility;
 import com.topcoder.security.groups.services.AuthorizationService;
 import com.topcoder.security.groups.services.SecurityGroupException;
 import com.topcoder.security.groups.services.DirectProjectService;
@@ -70,8 +72,15 @@ import com.topcoder.shared.util.DBMS;
  * </ol>
  * </p>
  *
- * @author leo_lol, backstretlili, TCSASSEMBLER, notpad
- * @version 1.4
+ * <p>
+ * Version 1.5 (TopCoder Security Groups Release 8 - Automatically Grant Permissions) change notes:
+ * <ol>
+ *     <li>Updated {@link #checkAuthorization(long, long, com.topcoder.security.groups.model.ResourceType)} method.</li>
+ * </ol>
+ * </p>
+ * @author leo_lol, backstretlili, TCSASSEMBLER, notpad, freegod
+ * @version 1.5
+ * @since 1.0
  */
 public class HibernateAuthorizationService extends BaseGroupService implements AuthorizationService {
 
@@ -142,6 +151,15 @@ public class HibernateAuthorizationService extends BaseGroupService implements A
     
     /**
      * <p>
+     * Represents the direct billing account service instance.
+     * </p>
+     *
+     * @since 1.5
+     */
+    private BillingAccountService billingAccountService;
+	
+    /**
+     * <p>
      * This method checks what kind of permission the given user has to access
      * the given resource, and returns the type of permission associated with
      * the user and resource. If there is no permission, null is returned.
@@ -177,11 +195,8 @@ public class HibernateAuthorizationService extends BaseGroupService implements A
             List<GroupMember> groupMemberList = (List<GroupMember>) query.list();
             for (GroupMember groupMember : groupMemberList) {
                 Group group = groupMember.getGroup();
-                List<ResourceType> restrictions = group.getRestrictions();
 
                 boolean resourceAvailable = false;
-
-                boolean restricted = true;
 
                 if (resourceType == ResourceType.PROJECT) {
                     if (null != group) {
@@ -211,15 +226,28 @@ public class HibernateAuthorizationService extends BaseGroupService implements A
                                     }
                                 }
                             }
-                            
-                            if (null == restrictions || !restrictions.contains(ResourceType.BILLING_ACCOUNT)) {
-                                restricted = false;
-                            }
-                        }   
-                        
-                        if (null == restrictions || !restrictions.contains(ResourceType.PROJECT)) {
-                            restricted = false;
                         }
+
+                        //if this group is granted permissions automatically, check client's projects.
+                        if(!resourceAvailable && group.getAutoGrant()) {
+                            Client client = group.getClient();
+                            if(null != client) {
+                                if(null == directProjectService) {
+                                    directProjectService = new HibernateDirectProjectService();
+                                }
+                                List<ProjectDTO> projects = directProjectService.getProjectsByClientId(client.getId());
+                                for (ProjectDTO project : projects) {
+                                    if (project.getProjectId() == resourceId) {
+                                        resourceAvailable = true;
+                                        break;
+                                    }
+                                }
+                                //no need to get billing accounts by client and then get projects by accounts.
+                                //the same query 'query_admin_client_billing_accounts_v2.txt' is used.
+                                //check service code to see details
+                            }
+                        }
+
                     }
 
                 } else if (resourceType == ResourceType.BILLING_ACCOUNT) {
@@ -234,14 +262,31 @@ public class HibernateAuthorizationService extends BaseGroupService implements A
                             }
                         }
 
-                        if (null == restrictions || !restrictions.contains(ResourceType.BILLING_ACCOUNT)) {
-                            restricted = false;
+                        //if the group is granted permissions automatically,
+                        // we should check the client's billing accounts.
+                        if(!resourceAvailable && group.getAutoGrant()) {
+                            Client client = group.getClient();
+                            if(null != client) {
+                                if(null == billingAccountService) {
+                                    billingAccountService = new HibernateBillingAccountService();
+                                }
+                                List<BillingAccount> accounts = billingAccountService
+                                        .getBillingAccountsForClient(client.getId());
+                                if (null != accounts) {
+                                    for (BillingAccount billingAccount : accounts) {
+                                        if (null != billingAccount && billingAccount.getId() == resourceId) {
+                                            resourceAvailable = true;
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
 
                 // Determine permission type according previous check.
-                if (resourceAvailable && !restricted) {
+                if (resourceAvailable ) {
                     GroupPermissionType permissionType = null;
 
                     if (groupMember.isUseGroupDefault()) {
@@ -443,5 +488,26 @@ public class HibernateAuthorizationService extends BaseGroupService implements A
      */
     public void setDirectProjectService(DirectProjectService directProjectService) {
         this.directProjectService = directProjectService;
+    }
+
+    /**
+     * Gets billing account service.
+     *
+     * @return the billing account service
+     *
+     * @since 1.5
+     */
+    public BillingAccountService getBillingAccountService() {
+        return billingAccountService;
+    }
+    /**
+     * Sets billing account service.
+     *
+     * @param billingAccountService the billing account service
+     *
+     * @since 1.5
+     */
+    public void setBillingAccountService(BillingAccountService billingAccountService) {
+        this.billingAccountService = billingAccountService;
     }
 }
