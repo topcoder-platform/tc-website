@@ -15,10 +15,16 @@ import com.topcoder.security.groups.model.GroupPermissionType;
  * <p>
  * <strong>Thread Safety:</strong> This class is mutable and not thread safe
  * </p>
- * 
- * @author TCSASSEMBLER
- * @version 1.0 (Topcoder Security Groups Backend Model and Authorization
- *          Assembly v1.0 )
+ *
+ * <p>
+ * Version 1.1 (Release Assembly - TopCoder Security Groups Release 8 - Automatically Grant Permissions) changes:
+ * <ol>
+ *      <li>Added {@link #clientId} field.</li>
+ * </ol>
+ * </p>
+ *
+ * @author TCSASSEMBLER, freegod
+ * @version 1.1 (Release Assembly - TopCoder Security Groups Release 8 - Automatically Grant Permissions )
  * @since 1.0
  */
 public class GroupSearchCriteria {
@@ -78,6 +84,15 @@ public class GroupSearchCriteria {
      * </p>
      */
     private String billingAccountName;
+
+    /**
+     * <p>
+     * Represents the client id of security group.
+     * </p>
+     *
+     * @since 1.1
+     */
+    private Long clientId;
 
     /**
      * <p>
@@ -225,5 +240,27 @@ public class GroupSearchCriteria {
      */
     public void setBillingAccountName(String billingAccountName) {
         this.billingAccountName = billingAccountName;
+    }
+
+    /**
+     * Gets client id.
+     *
+     * @return the client id
+     *
+     * @since 1.1
+     */
+    public Long getClientId() {
+        return clientId;
+    }
+
+    /**
+     * Sets client id.
+     *
+     * @param clientId the client id
+     *
+     * @since 1.1
+     */
+    public void setClientId(Long clientId) {
+        this.clientId = clientId;
     }
 }

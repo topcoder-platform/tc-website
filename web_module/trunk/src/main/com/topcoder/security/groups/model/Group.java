@@ -13,9 +13,17 @@ import java.util.List;
  * <p>
  * <strong>Thread Safety:</strong> This class is mutable and not thread safe .
  * </p>
- * 
- * @author leo_lol
- * @version 1.0 (Topcoder Security Groups Backend Model and Authorization Assembly v1.0 )
+ *
+ * <p>
+ * Version 1.1 (TopCoder Security Groups Release 8 - Automatically Grant Permissions) change notes:
+ * <ol>
+ *     <li>Remove {@link #restrictions} field.</li>
+ *     <li>Added {@link #autoGrant} field and its getter/setter.</li>
+ * </ol>
+ * </p>
+ *
+ * @author leo_lol, freegod
+ * @version 1.1 (TopCoder Security Groups Release 8 - Automatically Grant Permissions)
  * @since 1.0
  */
 public class Group extends IdentifiableEntity {
@@ -70,13 +78,11 @@ public class Group extends IdentifiableEntity {
     private List<GroupMember> groupMembers;
 
     /**
-     * <p>
-     * Represents the resource types that are restricted from the group users It
-     * is managed with a getter and setter, thus fully mutable. It may have any
-     * value.
-     * </p>
+     * This field represents whether this group should be granted permissions automatically.
+     *
+     * @since 1.1
      */
-    private List<ResourceType> restrictions;
+    private boolean autoGrant;
 
     /**
      * <p>
@@ -252,29 +258,6 @@ public class Group extends IdentifiableEntity {
 
     /**
      * <p>
-     * Getter of the restrictions field.
-     * </p>
-     * 
-     * @return the restrictions
-     */
-    public List<ResourceType> getRestrictions() {
-        return restrictions;
-    }
-
-    /**
-     * <p>
-     * Setter of the restrictions field.
-     * </p>
-     * 
-     * @param restrictions
-     *            the restrictions to set
-     */
-    public void setRestrictions(List<ResourceType> restrictions) {
-        this.restrictions = restrictions;
-    }
-
-    /**
-     * <p>
      * Getter of the archived field.
      * </p>
      * 
@@ -340,5 +323,27 @@ public class Group extends IdentifiableEntity {
      */
     public void setEffectiveGroup(Group effectiveGroup) {
         this.effectiveGroup = effectiveGroup;
+    }
+
+    /**
+     * Is auto grant.
+     *
+     * @return the boolean
+     *
+     * @since 1.1
+     */
+    public boolean getAutoGrant() {
+        return autoGrant;
+    }
+
+    /**
+     * Sets auto grant.
+     *
+     * @param autoGrant the auto grant
+     *
+     * @since 1.1
+     */
+    public void setAutoGrant(boolean autoGrant) {
+        this.autoGrant = autoGrant;
     }
 }

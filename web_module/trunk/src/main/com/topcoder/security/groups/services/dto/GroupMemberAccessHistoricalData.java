@@ -18,16 +18,24 @@ import com.topcoder.security.groups.model.ResourceType;
  * <p>
  * <strong>Thread Safety:</strong> This class is mutable and not thread safe
  * </p>
- * 
+ *
  * <p>
  * Version 1.1 (Release Assembly - TopCoder Security Groups Frontend - Miscellaneous) change notes:
  * <ol>
  *   <li>Added {@link #memberUserId} and its getter/setter.</li>
  * </ol>
  * </p>
- * 
- * @author TCSASSEMBLER
- * @version 1.1
+ *
+ * <p>
+ * Version 1.2 (TopCoder Security Groups Release 8 - Automatically Grant Permissions) change notes:
+ * <ol>
+ *     <li>Remove {@link #restrictions} field.</li>
+ *     <li>Added {@link #autoGrant} field.</li>
+ * </ol>
+ * </p>
+ *
+ * @author TCSASSEMBLER, freegod
+ * @version 1.2
  * @since 1.0
  */
 public class GroupMemberAccessHistoricalData {
@@ -64,12 +72,11 @@ public class GroupMemberAccessHistoricalData {
     private List<Long> directProjectIds;
 
     /**
-     * <p>
-     * Represents the restrictions on the group It is managed with a getter and
-     * setter, hence fully mutable. It may have any value.
-     * </p>
+     * Stands for the auto grant permission flag of a group.
+     *
+     * @since 1.2
      */
-    private List<ResourceType> restrictions;
+    private boolean autoGrant;
 
     /**
      * <p>
@@ -139,7 +146,7 @@ public class GroupMemberAccessHistoricalData {
      * <p>
      * Setter of permissions field.
      * </p>
-     * @param permissions the permissions to set
+     * @param permission the permissions to set
      */
     public void setPermission(GroupPermissionType permission) {
         this.permission = permission;
@@ -187,26 +194,6 @@ public class GroupMemberAccessHistoricalData {
 
     /**
      * <p>
-     * Getter of restrictions field.
-     * </p>
-     * @return the restrictions
-     */
-    public List<ResourceType> getRestrictions() {
-        return restrictions;
-    }
-
-    /**
-     * <p>
-     * Setter of restrictions field.
-     * </p>
-     * @param restrictions the restrictions to set
-     */
-    public void setRestrictions(List<ResourceType> restrictions) {
-        this.restrictions = restrictions;
-    }
-
-    /**
-     * <p>
      * Getter of from field.
      * </p>
      * @return the from
@@ -247,7 +234,7 @@ public class GroupMemberAccessHistoricalData {
 
     /**
      * Gets the group member user id.
-     * 
+     *
      * @return the member user id
      * @since 1.1
      */
@@ -257,11 +244,29 @@ public class GroupMemberAccessHistoricalData {
 
     /**
      * Sets the group member user id.
-     * 
+     *
      * @param memberUserId the member user id to set
      * @since 1.1
      */
     public void setMemberUserId(long memberUserId) {
         this.memberUserId = memberUserId;
+    }
+
+    /**
+     * Gets auto grant.
+     *
+     * @return the auto grant
+     */
+    public boolean getAutoGrant() {
+        return autoGrant;
+    }
+
+    /**
+     * Sets auto grant.
+     *
+     * @param autoGrant the auto grant
+     */
+    public void setAutoGrant(boolean autoGrant) {
+        this.autoGrant = autoGrant;
     }
 }
