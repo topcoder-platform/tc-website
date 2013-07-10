@@ -77,7 +77,7 @@ public class UserServiceImpl extends BaseImpl implements UserService {
     private static final String SQL_GET_USER_BY_HANDLE = "SELECT u.user_id, u.first_name, u.last_name, u.handle, "
             + "u.status, u.reg_source AS source, e.address, c.comp_country_code AS country "
             + "FROM user AS u JOIN email AS e ON e.user_id = u.user_id "
-            + "JOIN 'informixoltp':coder AS c ON c.coder_id = u.user_id WHERE u.handle = ?";
+            + "JOIN 'informixoltp':coder AS c ON c.coder_id = u.user_id WHERE u.handle_lower = LOWER(?)";
 
     /**
      * SQL to get user by given email address.
