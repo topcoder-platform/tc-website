@@ -117,7 +117,7 @@ public class RegisterAction extends BaseAction implements Preparable {
                                 messages.add("Handle '" + user.getHandle() + "' has already been taken");
                             }
                         } catch (Exception e) {
-                            // drop quietly.
+                            messages.add("Handle '" + user.getHandle() + "' has already been taken");
                         }
                     }
                 }
