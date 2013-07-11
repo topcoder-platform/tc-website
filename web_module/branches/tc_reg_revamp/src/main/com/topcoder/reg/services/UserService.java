@@ -41,6 +41,16 @@ public interface UserService {
     public UserDTO getUserByHandle(String handle) throws PersistenceException;
 
     /**
+	 * This method check the handle exists or not.
+	 *
+	 * @param handle the given handle.
+	 * @return true if the handle already exists, return false otherwise.
+	 * @throws PersistenceException If there is any DB error.
+	 *
+	 */
+	public boolean handleExists(String handle) throws PersistenceException;
+
+    /**
      * This method find User by given email address.
      * 
      * @param email
@@ -82,5 +92,5 @@ public interface UserService {
      * @throws PersistenceException
      *             If there Any error. Say activation code wrong.
      */
-    public void activate(String activationCode) throws PersistenceException;
+    public void activate(String activationCode) throws PersistenceException;	
 }
