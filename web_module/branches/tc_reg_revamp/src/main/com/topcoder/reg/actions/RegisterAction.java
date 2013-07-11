@@ -113,7 +113,7 @@ public class RegisterAction extends BaseAction implements Preparable {
                     } else {
                         // Validate handle availability.
                         try {
-                            if (userService.handleExists(user.getHandle())) {
+                            if (null != userService.getUserByHandle(user.getHandle())) {
                                 messages.add("Handle '" + user.getHandle() + "' has already been taken");
                             }
                         } catch (Exception e) {
