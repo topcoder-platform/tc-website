@@ -164,7 +164,7 @@ public class UserServiceImpl extends BaseImpl implements UserService {
             jdbcTemplate.update(SQL_INSERT_USER, userId, user.getFirstName(), user.getLastName(), user.getHandle(),
                     user.getActivationCode(), user.getSource());
             jdbcTemplate.update(SQL_INSERT_CODER, userId, user.getCountry());
-            jdbcTemplate.update(SQL_INSERT_SECURITY_USER, userId, userId,
+            jdbcTemplate.update(SQL_INSERT_SECURITY_USER, userId, user.getHandle(),
                     Util.encodePassword(user.getPassword(), "users"), null);
             long emailId = IDGeneratorFactory.getIDGenerator("EMAIL_SEQ").getNextID();
             jdbcTemplate.update(SQL_INSERT_EMAIL, userId, emailId, user.getEmail());
