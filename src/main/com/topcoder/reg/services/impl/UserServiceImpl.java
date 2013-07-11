@@ -79,6 +79,12 @@ public class UserServiceImpl extends BaseImpl implements UserService {
             + "FROM user AS u JOIN email AS e ON e.user_id = u.user_id "
             + "JOIN 'informixoltp':coder AS c ON c.coder_id = u.user_id WHERE u.handle_lower = LOWER(?)";
 
+
+	/**
+	 * SQL to check user handle exists or not.
+	 */
+	private static final String SQL_CHECK_USER_HANDLE_EXISTENCE = "SELECT 1 from user WHERE handle_lower = LOWER(?)";
+
     /**
      * SQL to get user by given email address.
      */
@@ -229,6 +235,29 @@ public class UserServiceImpl extends BaseImpl implements UserService {
         }
 
     }
+
+	/**
+	 * This method check the handle exists or not.
+	 *
+	 * @param handle the given handle.
+	 * @return true if the handle already exists, return false otherwise.
+	 * @throws PersistenceException If there is any DB error.
+	 *
+	 */
+	@Transactional(readOnly = true)
+	public boolean handleExists(String handle) throws PersistenceException {
+		final String signature = CLASS_NAME + "handleExists(String handle)";
+        LoggingWrapperUtility.logEntrance(logger, signature, new String[] { "handle" }, new String[] { handle });
+        
+        try {
+            List<Integer> result = jdbcTemplate.queryForList(SQL_CHECK_USER_HANDLE_EXISTENCE, handle, Integer.class);
+            LoggingWrapperUtility.logExit(logger, signature, result.toArray());
+            return result.size() > 0;
+        } catch (DataAccessException e) {
+            LoggingWrapperUtility.logException(logger, signature, e);
+            throw new PersistenceException("Error while checking user handle existence", e);
+        }
+	}
 
     /**
      * This method find User by given email address.
