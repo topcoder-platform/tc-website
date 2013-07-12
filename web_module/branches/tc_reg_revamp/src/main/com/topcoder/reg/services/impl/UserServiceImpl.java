@@ -250,8 +250,8 @@ public class UserServiceImpl extends BaseImpl implements UserService {
         LoggingWrapperUtility.logEntrance(logger, signature, new String[] { "handle" }, new String[] { handle });
         
         try {
-             java.util.List<java.util.Map<java.lang.String,java.lang.Object>>
-					result = jdbcTemplate.queryForList(SQL_CHECK_USER_HANDLE_EXISTENCE, handle, Integer.class);
+             java.util.List<Integer>
+					result = jdbcTemplate.queryForList(SQL_CHECK_USER_HANDLE_EXISTENCE, Integer.class, handle);
             LoggingWrapperUtility.logExit(logger, signature, null);
             return result.size() > 0;
         } catch (DataAccessException e) {
