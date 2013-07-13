@@ -72,7 +72,7 @@
                             Handle:
                         </td>
                         <td class="value">
-                            <input type="text" name="<%=Login.USER_NAME%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
+                            <input type="text" name="<%=Login.USER_NAME%>" value="" maxlength="30" size="12" onkeypress="submitEnter(event)">
                         </td>
                     </tr>
                     <tr>
