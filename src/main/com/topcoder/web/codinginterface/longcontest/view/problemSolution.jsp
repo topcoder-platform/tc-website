@@ -73,6 +73,14 @@
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link type="text/css" rel="stylesheet" href="/css/longcontest/styles.css">
+    <link type="text/css" rel="stylesheet" href="/css/codemirror/codemirror.css">
+    <script type="text/javascript" src="/js/codemirror/codemirror.js" ></script>
+    <script type="text/javascript" src="/js/codemirror/mode/clike/clike.js" ></script>
+    <script type="text/javascript" src="/js/codemirror/mode/vb/vb.js" ></script>
+    <script type="text/javascript" src="/js/codemirror/mode/python/python.js" ></script>
+    <script type="text/javascript" src="/js/codemirror/addon/edit/matchbrackets.js" ></script>
+    <script type="text/javascript" src="/js/longcontest/script.js" ></script>
 </head>
 
 <body>
@@ -81,7 +89,7 @@
     <jsp:param name="level1" value="long"/>
 </jsp:include>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<table id="longContestViewSolution" width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
         <%-- Left Column Begins--%>
         <td width="180">
@@ -115,7 +123,8 @@
 
 
             <div class="problemText" style="color:black">
-                <%=addSpace(infoRow.getStringItem("submission_text"))%>
+                <input id="lid" type="hidden" value="<%=Integer.toString(infoRow.getIntItem("language_id"))%>"/>
+                <textarea id="submissionArea" cols="70" rows="20" name="code" class="codeTextArea" wrap="off" readonly><%=infoRow.getStringItem("submission_text")%></textarea>
             </div>
 
 
