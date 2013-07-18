@@ -39,18 +39,14 @@
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <STYLE TYPE="text/css">
-        .codeTextArea, .messageTextArea,
-        {
-            font-family: Courier;
-            font-size: 12px;
-        }
-
-        .messageTextArea {
-            color: FF0000;
-        }
-    </STYLE>
-
+    <link type="text/css" rel="stylesheet" href="/css/longcontest/styles.css">
+    <link type="text/css" rel="stylesheet" href="/css/codemirror/codemirror.css">
+    <script type="text/javascript" src="/js/codemirror/codemirror.js" ></script>
+    <script type="text/javascript" src="/js/codemirror/mode/clike/clike.js" ></script>
+    <script type="text/javascript" src="/js/codemirror/mode/vb/vb.js" ></script>
+    <script type="text/javascript" src="/js/codemirror/mode/python/python.js" ></script>
+    <script type="text/javascript" src="/js/codemirror/addon/edit/matchbrackets.js" ></script>
+    <script type="text/javascript" src="/js/longcontest/script.js" ></script>
 </head>
 
 <body>
@@ -85,7 +81,7 @@
 <jsp:include page="top.jsp">
     <jsp:param name="level1" value="long"/>
 </jsp:include>
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<table id="longContestSubmit" width="100%" border="0" cellpadding="0" cellspacing="0">
 <tr valign="top">
 <%-- Left Column Begins--%>
 <td width="180">
@@ -153,9 +149,9 @@ Arg Types: <%=StringUtils.htmlEncode((String) paramTypes.get(i))%>
                     <td colspan="2">
                         <span class="bodySubtitle">Submission</span><br>
                         <%if (request.getAttribute(Constants.CODE) == null || request.getAttribute(Constants.CODE).toString().equals("")) {%>
-                        <textarea cols="70" rows="20" name="code" class="codeTextArea" wrap="off"></textarea>
+                        <textarea id="submissionArea" cols="70" rows="20" name="code" class="codeTextArea" wrap="off"></textarea>
                         <%} else {%>
-                        <textarea cols="70" rows="20" name="code" class="codeTextArea" wrap="off"><%=StringUtils.replace((String) request.getAttribute(Constants.CODE), "&", "&amp;")%></textarea>
+                        <textarea id="submissionArea" cols="70" rows="20" name="code" class="codeTextArea" wrap="off"><%=StringUtils.replace((String) request.getAttribute(Constants.CODE), "&", "&amp;")%></textarea>
 
                         <%}%>
                     </td>
