@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2012-2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.member;
 
@@ -12,6 +12,7 @@ import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.pacts.BasePayment;
+import com.topcoder.web.ejb.pacts.payments.BasePaymentStatus;
 import com.topcoder.web.ejb.pacts.payments.AccruingPaymentStatus;
 import com.topcoder.web.ejb.pacts.payments.InvalidPaymentEventException;
 import com.topcoder.web.ejb.pacts.payments.OwedPaymentStatus;
@@ -33,15 +34,20 @@ import java.util.*;
  * current user.</p>
  * 
  * @author isv
- * @version 1.0 (Member Payments Automation Assembly 1.0)
+ * @version 1.1
  */
 public class PayMe extends PaymentHistory {
 
     /**
      * <p>A <code>String</code> providing the generic error message to be displayed to users in some cases.</p>
      */
-    private static final String GENERIC_ERROR_MESSAGE = "Failed to initiate payments. " +
-                                                        "Please try again at a later time."; 
+    private static final String GENERIC_ERROR_MESSAGE = "Failed to initiate payments. Please try again at a later time."; 
+
+    /**
+     * <p>A <code>String</code> providing the error message to be displayed to users when PayPal payment fails.</p>
+     */
+    private static final String PAYPAL_ERROR_MESSAGE = "Your payment request could not be processed by PayPal at this time. "
+        + " Please confirm that your PayPal account is established properly and that any credit card on file with PayPal is \"verified\"."; 
 
     /** Format for the email timestamp. Will format as "Fri, Jul 28, 2006 01:34 PM EST". */
     private static final String EMAIL_TIMESTAMP_FORMAT = "EEE, MMM d, yyyy hh:mm a z";
@@ -140,7 +146,7 @@ public class PayMe extends PaymentHistory {
                 throw new TCWebException(e);
             } catch (PayPalServiceException e) {
                 log.error("Failed to initiate payments via PayPal service", e);
-                addError("PayMe", GENERIC_ERROR_MESSAGE);
+                addError("PayMe", PAYPAL_ERROR_MESSAGE);
             } catch (InvalidPaymentEventException e) {
                 throw new TCWebException(e);
             } catch (StateTransitionFailureException e) {
@@ -237,13 +243,30 @@ public class PayMe extends PaymentHistory {
             String userPayPalAccount = dib.getUserPayPalAccount(currentUserId);
             if (userPayPalAccount != null && userPayPalAccount.trim().length() > 0) {
                 String paymentKey = PayPalService.createPayment(userPayPalAccount, totalNetAmount);
+
+                Map<Long, BasePaymentStatus> previousPaymentStatuses = new HashMap<Long, BasePaymentStatus>();
                 for (BasePayment payment : paymentsToPay) {
+                    previousPaymentStatuses.put(payment.getId(), payment.getCurrentStatus());
+
                     payment.setPaidDate(new Date());
                     payment.setMethodId(PAYPAL_PAYMENT_METHOD_ID);
                     payment.getCurrentStatus().pay(payment);
                     dib.updatePayment(payment, false, currentUserId);
                 }
-                PayPalService.executePayment(paymentKey);
+                try {
+                    PayPalService.executePayment(paymentKey);
+                } catch (PayPalServiceException e) {
+                    log.error("PayPal service returned an error in the call to ExecutePayment operation. Reverting payments in PACTS.", e);
+                    
+                    // Revert payments in PACTS.
+                    for (BasePayment payment : paymentsToPay) {
+                        payment.setPaidDate(null);
+                        payment.setMethodId(NOT_SET_PAYMENT_METHOD_ID);
+                        payment.setCurrentStatus(previousPaymentStatuses.get(payment.getId()));
+                        dib.updatePayment(payment, true, currentUserId);
+                    }
+                    throw e;
+                }
             } else {
                 addError("PayMe", "PayPal email address is not set");
             }
