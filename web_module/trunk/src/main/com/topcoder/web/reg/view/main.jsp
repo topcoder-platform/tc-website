@@ -1,10 +1,14 @@
 <%--
   - Author: notpad
-  - Version: 1.1
+  - Version: 1.2
   - Copyright (C) 2009 - 2013 TopCoder Inc., All Rights Reserved.
   -
   - Version 1.1 (Release Assembly - TC Registration Site Field Updates) change log:
   - - Add onCountryChange method to require "Province" for members from some specified countries.
+  -
+  - Version 1.2 (Release Assembly - TopCoder Password Recovery Revamp v1.0) change log:
+  - - Remove secretQuestion related code.
+  -
   --%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.common.HSRegistrationHelper,
@@ -687,44 +691,6 @@
                             <tc-webtag:errorIterator id="err" name="<%=Constants.PASSWORD_CONFIRM%>"><%=err%></tc-webtag:errorIterator>
                             </span>
                             <tc-webtag:errorIterator id="err" name="<%=Constants.PASSWORD_CONFIRM%>"><script type="text/javascript">applyError('<%=Constants.PASSWORD_CONFIRM%>_row', '<%=Constants.PASSWORD_CONFIRM%>_status')</script></tc-webtag:errorIterator>
-                            
-                        </li>
-                        </c:if>
-
-                        <c:set value="<%=Constants.SECRET_QUESTION%>" var="secretQuestion"/>
-                        <c:if test="${cf:contains(fields, secretQuestion)}">
-                        <li class="form-row" id="<%=Constants.SECRET_QUESTION%>_row">
-                            <tc-webtag:errorIterator id="err" name="<%=Constants.SECRET_QUESTION%>"></tc-webtag:errorIterator>
-                            
-                            <label for="<%=Constants.SECRET_QUESTION%>">
-                            <c:if test="${cf:contains(reqFields, secretQuestion)}"><span class="required">*</span></c:if>
-                            Secret Question:
-                            </label>
-                            <tc-webtag:textInput name="<%=Constants.SECRET_QUESTION%>" id="<%=Constants.SECRET_QUESTION%>" size="40" editable="true"/>
-                            
-                            <span style="visibility: hidden" id="<%=Constants.SECRET_QUESTION%>_status">
-                            <tc-webtag:errorIterator id="err" name="<%=Constants.SECRET_QUESTION%>"><%=err%></tc-webtag:errorIterator>
-                            </span>
-                            <tc-webtag:errorIterator id="err" name="<%=Constants.SECRET_QUESTION%>"><script type="text/javascript">applyError('<%=Constants.SECRET_QUESTION%>_row', '<%=Constants.SECRET_QUESTION%>_status')</script></tc-webtag:errorIterator>
-                            
-                        </li>
-                        </c:if>
-
-                        <c:set value="<%=Constants.SECRET_QUESTION_RESPONSE%>" var="secretQuestionResponse"/>
-                        <c:if test="${cf:contains(fields, secretQuestionResponse)}">
-                        <li class="form-row" id="<%=Constants.SECRET_QUESTION_RESPONSE%>_row">
-                            <tc-webtag:errorIterator id="err" name="<%=Constants.SECRET_QUESTION_RESPONSE%>"></tc-webtag:errorIterator>
-                            
-                            <label for="<%=Constants.SECRET_QUESTION_RESPONSE%>">
-                            <c:if test="${cf:contains(reqFields, secretQuestionResponse)}"><span class="required">*</span></c:if>
-                            Secret Question Response:
-                            </label>
-                            <tc-webtag:textInput name="<%=Constants.SECRET_QUESTION_RESPONSE%>" id="<%=Constants.SECRET_QUESTION_RESPONSE%>" passw="true" size="30" editable="true"/>
-                            
-                            <span style="visibility: hidden" id="<%=Constants.SECRET_QUESTION_RESPONSE%>_status" class="field-error">
-                            <tc-webtag:errorIterator id="err" name="<%=Constants.SECRET_QUESTION_RESPONSE%>"><%=err%></tc-webtag:errorIterator>
-                            </span>
-                            <tc-webtag:errorIterator id="err" name="<%=Constants.SECRET_QUESTION_RESPONSE%>"><script type="text/javascript">applyError('<%=Constants.SECRET_QUESTION_RESPONSE%>_row', '<%=Constants.SECRET_QUESTION_RESPONSE%>_status')</script></tc-webtag:errorIterator>
                             
                         </li>
                         </c:if>

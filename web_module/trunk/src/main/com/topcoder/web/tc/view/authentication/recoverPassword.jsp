@@ -1,130 +1,84 @@
-<%@ page contentType="text/html; charset=utf-8"
-         import="com.topcoder.web.tc.Constants" %>
-<%@ page import="com.topcoder.web.tc.controller.request.authentication.FindUser" %>
-<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%--
+  - Author: vangavroche, TCSASSEMBLER
+  - Version: 1.1 (Release Assembly - TopCoder Password Recovery Revamp v1.0)
+  - Copyright (C) 2010 - 2013 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: The entry page of password recovery.
+  - 
+  - Changes in 1.1 ( Release Assembly - TopCoder Password Recovery Revamp v1.0 )
+  - - The change is substantial so that the previous version is nearly all removed.
+  - 
+--%>
+<%@ page contentType="text/html; charset=utf-8" import="com.topcoder.web.tc.Constants"%>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-    <jsp:include page="/style.jsp">
-        <jsp:param name="key" value="tc_reg"/>
-    </jsp:include>
-
 <html>
 <head>
-    <title>Password Recovery</title>
+<title>Password Recovery</title>
 
-    <SCRIPT type="text/javascript">
-        function send() {
-            if (!document.frm.<%= FindUser.HAS_MAIL_ACCESS %>[0].checked
-                    && !document.frm.<%= FindUser.HAS_MAIL_ACCESS %>[1].checked) {
-                alert("Please reply whether you have access or not to your email account.");
-                return;
-            }
-            document.frm.submit();
-        }
+<jsp:include page="/style.jsp">
+	<jsp:param name="key" value="tc_reg" />
+</jsp:include>
+<script language="JavaScript" type="text/javascript" src="/js/passwordRecovery.js"></script>
+<jsp:include page="/script.jsp" />
 
-        function submitEnter(e) {
-            var keycode;
-            if (window.event) keycode = window.event.keyCode;
-            else if (e) keycode = e.which;
-            else return true;
-            if (keycode == 13) {
-                document.frm.submit();
-                return false;
-            } else return true;
-        }
-    </SCRIPT>
+<script type="text/javascript">
+$(document).ready(function () {
 
+	var q = $('input[name=<%=Constants.FIND_USER_QUERY%>]')[0];
+	$('#frm').submit(function(){
+		return validateFindUserField(q);
+	});
 
-    <jsp:include page="/script.jsp"/>
-    <jsp:include page="/style.jsp">
-        <jsp:param name="key" value="tc_reg"/>
-    </jsp:include>
+});
+</script>
 </head>
 
 <body>
-<div align="center" style="padding:6px 0px 6px; 0px;">
-    <A href="/"><img src="/i/registration/tc_logo.gif" alt="TopCoder" border="0"/></A>
-</div>
+	<div align="center" style="padding: 6px 0px 6px;">
+		<A href="/"><img src="/i/registration/tc_logo.gif" alt="TopCoder" border="0" /> </A>
+	</div>
 
-<div align="center">
-    <div style="padding: 0px 10px 10px 10px; width: 600px; text-align: left;">
+	<div align="center">
+		<div style="padding: 0px 10px 10px 10px; width: 1000px; text-align: left;">
 
-        <table cellspacing="0" cellpadding="0" class="pageTitleTable">
-            <tr>
-                <td width="100%" class="pageTitle">
-                    <img border="0" src="/i/header_registration_w.gif" alt="registration_w"/></td>
-                <td align=right class="pageSubtitle">&#160;&#160;</td>
-            </tr>
-        </table>
-        <strong>Password Recovery</strong><br>
-        Have you forgotten your password? No longer have access to the email account you used when you registered?
-        Enter your information below, and we will help you get back in the game!
-        <br><br>
-
-        <form method="post" name="frm" action="/tc">
-            <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="FindUser"/>
-
-            <div align="center">
-                <table cellpadding="0" cellspacing="0" border="0" class="regFields">
-                    <tr>
-                        <td class="value" colspan="2">Do you still have access to the email account used when
-                            registering?</td>
-                    </tr>
-                    <tr>
-                        <td class="value">&#160;</td>
-                        <td class="value">
-                            <input type="radio" value="true" name="<%= FindUser.HAS_MAIL_ACCESS %>" <%= "true".equals(request.getAttribute(FindUser.HAS_MAIL_ACCESS)) ? "checked" : "" %> >
-                                Yes</input>
-                            <input type="radio" value="false" name="<%= FindUser.HAS_MAIL_ACCESS %>" <%= "false".equals(request.getAttribute(FindUser.HAS_MAIL_ACCESS)) ? "checked" : "" %> >
-                                No</input>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="value" colspan="2"><br>If you remember your username, please enter it:</td>
-                    </tr>
-                    <tc-webtag:errorIterator id="err" name="<%= FindUser.ERROR_HANDLE %>">
-                        <tr>
-                            <td colspan="2"><span class="bigRed"><%=err%></span></td>
-                        </tr>
-                    </tc-webtag:errorIterator>
-                    <tr>
-                        <td class="name">Username:</td>
-                        <td class="value">
-                            <tc-webtag:textInput name="<%=Constants.HANDLE%>" size="30" maxlength="30" onKeyPress="submitEnter(event)"/></td>
-                    </tr>
-                    <tr>
-                        <td class="value" colspan="2"><br>If you don't remember your username, please enter as much <br>
-                            information as posible in order to identify you:</td>
-                    </tr>
-                    <tc-webtag:errorIterator id="err" name="<%= FindUser.ERROR_INFO %>">
-                        <tr>
-                            <td colspan="2"><span class="bigRed"><%=err%></span></td>
-                        </tr>
-                    </tc-webtag:errorIterator>
-                    <tr>
-                        <td class="name">First Name:</td>
-                        <td class="value">
-                            <tc-webtag:textInput name="<%=Constants.FIRST_NAME%>" size="30" maxlength="30" onKeyPress="submitEnter(event)"/></td>
-                    </tr>
-                    <tr>
-                        <td class="name">Last Name:</td>
-                        <td class="value">
-                            <tc-webtag:textInput name="<%=Constants.LAST_NAME%>" size="30" maxlength="30" onKeyPress="submitEnter(event)"/></td>
-                    </tr>
-                    <tr>
-                        <td class="name">Email Address:</td>
-                        <td class="value">
-                            <tc-webtag:textInput name="<%=Constants.EMAIL%>" size="30" maxlength="100" onKeyPress="submitEnter(event)"/></td>
-                    </tr>
-                    <tr>
-                        <td class="value">&#160;</td>
-                        <td class="value"><a href="JavaScript:send()" class="bodyText">Submit</a></td>
-                    </tr>
-                </table>
-        </form>
-    </div>
-
-</div>
-</div>
-
+			<table cellspacing="0" cellpadding="0" class="pageTitleTable">
+				<tr>
+					<td width="100%" class="pageTitle"><img border="0" src="/i/header_registration_w.gif" alt="registration_w" /></td>
+					<td align=right class="pageSubtitle">&#160;&#160;</td>
+				</tr>
+			</table>
+			<form method="post" id="frm" action="/tc">
+				<input type="hidden" name="<%=Constants.MODULE_KEY%>" value="FindUser" />
+				<div align="center">
+					<p align="left">
+						<strong>Password Recovery</strong>
+					</p>
+					<table width="918" border="0">
+						<tbody>
+						<tc-webtag:errorIterator id="err" name="<%= Constants.ERROR_INFO %>">
+							<tr>
+								<td colspan="2"><span class="bigRed"><%=err%></span>
+								</td>
+							</tr>
+						</tc-webtag:errorIterator>
+						<tr>
+							<td width="247" height="51">Enter your user name or email:</td>
+							<td width="661"><tc-webtag:textInput name="<%= Constants.FIND_USER_QUERY %>" size="<%= Constants.FIND_USER_QUERY_MAX_LENGTH %>" maxlength="<%= Constants.FIND_USER_QUERY_MAX_LENGTH %>"/></td>
+						</tr>
+						<tr>
+							<td>&nbsp;</td>
+							<td>
+								<input type="submit" name="submit" value="Submit" /> 
+							 	<input type="button" name="cancel" value="Cancel"  onclick="history.go(-1);" />
+							 </td>
+							
+						</tr>
+						</tbody>
+					</table>
+				</div>
+			</form>
+		</div>
+	</div>
 </body>
 </html>

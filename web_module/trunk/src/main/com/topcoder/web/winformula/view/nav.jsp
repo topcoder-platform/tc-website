@@ -1,3 +1,13 @@
+<%--
+  - Author: vangavroche, TCSASSEMBLER
+  - Version: 1.1 (Release Assembly - TopCoder Password Recovery Revamp v1.0)
+  - Copyright (C) 2010 - 2013 TopCoder Inc., All Rights Reserved.
+  -
+  - Changes in 1.1 (Release Assembly - TopCoder Password Recovery Revamp v1.0 )
+  - - Change the entry link of password recovery from /tc?module=RecoverPassword" to /tc?module=FindUser".
+  - - Add this code document
+  - 
+--%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="java.util.Date" %>
 <%@ page import="com.topcoder.web.winformula.Constants" %>
@@ -59,7 +69,7 @@
                     </div>
                     <div id="user-links">
                         <%-- User Link --%>
-                        <a target="_blank" href="http://<%=ApplicationServer.SERVER_NAME%>/reg/">Register</a> | <a target="_blank" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword">Forgot Password</a>
+                        <a target="_blank" href="http://<%=ApplicationServer.SERVER_NAME%>/reg/">Register</a> | <a target="_blank" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=FindUser">Forgot Password</a>
                     </div>
                 </c:when>
                 <c:otherwise>

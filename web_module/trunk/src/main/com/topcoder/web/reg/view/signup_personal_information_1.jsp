@@ -1,3 +1,14 @@
+<%--
+  - Author: vangavroche, TCSASSEMBLER
+  - Version: 1.1 (Release Assembly - TopCoder Password Recovery Revamp v1.0)
+  - Copyright (C) 2010 - 2013 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: Signup personal information page.
+  - Changes in 1.1 (Release Assembly - TopCoder Password Recovery Revamp v1.0 )
+  - - Remove secretQuestion related code.
+  - - Add this code document
+  - 
+--%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -1084,23 +1095,6 @@
                                     <li class="form-row">
                                         <label for="password_confirm">* Confirm Password:</label>
                                         <input type="password" name="password_confirm" id="password_confirm" size="40" />
-                                    </li>
-                                    <li class="form-row">
-                                        <label for="secret_question">* Secret Question:</label>
-                                        <select name="secret_question" id="secret_question">
-                                            <option selected="selected">select a question</option>
-                                            <option value="1">What was your first car?</option>
-                                            <option value="2">What is the name of your first school?</option>
-                                            <option value="3">What is the name of your first pet?</option>
-                                            <option value="4">What is the name of your hometown?</option>
-                                            <option value="5">What is your father's middle name?</option>
-                                            <option value="6">What is the house number where you grew up?</option>
-                                            <option value="7">What is your favorite drink?</option>
-                                        </select>
-                                    </li>
-                                    <li class="form-row">
-                                        <label for="student_professional">* Secret Question Response:</label>
-                                        <input type="password" name="secret_question_response" id="secret_question_response" size="40" />
                                     </li>
                                     <li class="form-row">
                                         <label for="student_professional">* Student/Professional:</label>

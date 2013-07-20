@@ -15,16 +15,21 @@ import java.util.List;
 import java.util.MissingResourceException;
 
 /*
- * <p>
- * Version 1.1 (Release Assembly - TC Registration Site Field Updates) Change notes:
- *   <ol>
- *     <li>Added field PROVINCE_REQUIRED_COUNTRIES.</li>
- *   </ol>
- * </p>
- * 
- * @author dok, notpad
- * @version 1.1
- */
+* Version 1.1 (Release Assembly - TC Registration Site Field Updates) Change notes:
+*  <ol>
+*    <li>Added field PROVINCE_REQUIRED_COUNTRIES.</li>
+*  </ol>
+* </p>
+*
+* <p>
+* v1.2 (Release Assembly - TopCoder Password Recovery Revamp v1.0):
+* Remove <code> SecretQuestion </code> related information.
+* </p>
+* <p>
+* 
+* @author dok, notpad, TCSASSEMBLER
+* @version 1.2
+*/
 public class Constants implements WebConstants {
 
     private static final TCResourceBundle bundle = new TCResourceBundle("Registration");
@@ -42,8 +47,6 @@ public class Constants implements WebConstants {
     public static final String REG_TYPES = "regTypes";
     public static final String SCHOOL_TYPE = "scht";
     public static final String SCHOOL_NAME = "schn";
-    public static final String SECRET_QUESTION = "sq";
-    public static final String SECRET_QUESTION_RESPONSE = "sqr";
     public static final String SECURITY_KEY = "sk";
 
     public static final String AGE = "age";
@@ -98,10 +101,6 @@ public class Constants implements WebConstants {
     public static int MAX_HANDLE_LENGTH;
     public static int MIN_PASSWORD_LENGTH;
     public static int MAX_PASSWORD_LENGTH;
-    public static int MIN_SECRET_QUESTION_LENGTH;
-    public static int MAX_SECRET_QUESTION_LENGTH;
-    public static int MIN_SECRET_QUESTION_RESPONSE_LENGTH;
-    public static int MAX_SECRET_QUESTION_RESPONSE_LENGTH;
     public static int MAX_GIVEN_NAME_LENGTH;
     public static int MAX_SURNAME_LENGTH;
     public static int MAX_NAME_IN_ANOTHER_LANGUAGE_LENGTH;

@@ -1,7 +1,7 @@
 <%--
   - Author: isv, pvmagacho
-  - Version: 1.3 (BUG#TCCC-3348)
-  - Copyright (C) 2010 - 2011 TopCoder Inc., All Rights Reserved.
+  - Version: 1.4 (BUG#TCCC-3348)
+  - Copyright (C) 2010 - 2013 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page renders the Home page displayed to TopCoder member. It renders the details on user
   - account (name, address, phone, etc) as well as navigation links to various areas providing other user account
@@ -19,9 +19,13 @@
   - 
   - Changes in 1.3 (BUG#TCCC-3348):
   - - Change image popup class for compatibily with Member Profile page.
+  - 
+  - Changes in 1.4 (Release Assembly - TopCoder Password Recovery Revamp v1.0 ):
+  - - Add a link to add second mail.
 --%>
 
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
+<%@ page import="com.topcoder.web.tc.Constants"%>
 <%@ page import="java.net.URLEncoder"%>
 <%@ page import="javax.servlet.http.HttpServletRequest"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -215,6 +219,19 @@
                             <p><a href="https://www.topcoder.com/reg/?nrg=false">Update my profile</a></p>
                             <p class="<c:if test='${userImage!=null}'>hide</c:if>"><a href="javascript:;" id="submitPhotoLink" >Submit a photo</a></p>
                             <p class="<c:if test='${userImage==null}'>hide</c:if>"><a href="javascript:;" id="removePhotoLink">Remove photo</a></p>
+                            <p>
+                                <c:choose>
+                                <c:when test="${ regUser.secondEmailAddress == null }">
+                                    <a href="/tc?module=AddSecondEmail">Add Second Email</a>
+                                </c:when>
+                                <c:otherwise>
+                                    <form id="addfrm" action="/tc?module=AddSecondEmail" method="post" name="frm">
+                                        <input type="hidden" name="<%=Constants.SECOND_EMAIL_ADDRESS%>" value="${regUser.secondEmailAddress.address}" /> 
+                                    </form>
+                                    <a href="#" onclick="javascript:$('#addfrm').submit();">Update Second Email</a>
+                                </c:otherwise>
+                                </c:choose>
+                            </p>
                         </td>
                         <td class="value">
                             <p><a href="/tc?module=EditPreferences&amp;group=10">Privacy</a></p>

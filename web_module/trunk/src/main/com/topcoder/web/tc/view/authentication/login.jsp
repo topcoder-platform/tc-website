@@ -1,3 +1,14 @@
+<%--
+  - Author: vangavroche, TCSASSEMBLER
+  - Version: 1.1 (Release Assembly - TopCoder Password Recovery Revamp v1.0)
+  - Copyright (C) 2010 - 2013 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: Login page.
+  - Changes in 1.1 (Release Assembly - TopCoder Password Recovery Revamp v1.0 )
+  - - Change the entry link of password recovery from /tc?module=RecoverPassword" to /tc?module=FindUser".
+  - - Add this code document
+  - 
+--%>
 <%@ page contentType="text/html; charset=ISO-8859-1"
          import="com.topcoder.web.common.BaseServlet,
                  com.topcoder.web.common.StringUtils,
@@ -102,7 +113,7 @@
 						</div>
 						<div class="forgotPasswordSection">
 							<h3>Forgot your password?</h3>
-							<p>If you cannot remember your password, <a href="/tc?module=RecoverPassword" class="redColor">click here</a> and we can help you restore your account.</p>
+							<p>If you cannot remember your password, <a href="/tc?module=FindUser" class="redColor">click here</a> and we can help you restore your account.</p>
 						</div>
 						<script>
 							document.frmLogin.username.focus();
