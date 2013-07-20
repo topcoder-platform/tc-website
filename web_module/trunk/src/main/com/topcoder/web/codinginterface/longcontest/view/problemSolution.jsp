@@ -12,6 +12,8 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="mm" tagdir="/WEB-INF/tags" %>
 
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
@@ -30,7 +32,9 @@
         image = "long_comps_intel";
     }
 %>
-<% ResultSetContainer.ResultSetRow infoRow = (ResultSetContainer.ResultSetRow) request.getAttribute("infoRow"); %>
+<% ResultSetContainer.ResultSetRow infoRow = (ResultSetContainer.ResultSetRow) request.getAttribute("infoRow");
+%>
+<c:set var="problemText" value="<%=infoRow.getStringItem("submission_text")%>"/>
 <%!
     private String addSpace(String text) {
         int i = -1;
@@ -121,10 +125,12 @@
                 <br/>
                 <% } %>
 
-
             <div class="problemText" style="color:black">
+                <%=addSpace(infoRow.getStringItem("submission_text"))%>
+            </div>
+            <div id="codeMirrorContainer">
                 <input id="lid" type="hidden" value="<%=Integer.toString(infoRow.getIntItem("language_id"))%>"/>
-                <textarea id="submissionArea" cols="70" rows="20" name="code" class="codeTextArea" wrap="off" readonly><%=infoRow.getStringItem("submission_text")%></textarea>
+                <input id="problemTextOriginal" type="hidden" value="${fn:escapeXml(problemText)}"/>
             </div>
 
 
