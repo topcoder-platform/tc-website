@@ -43,8 +43,12 @@ import java.util.Set;
  *     <li>Updated {@link #checkMainFields(Map)} method to support special validation for province.</li>
  *   </ol>
  * </p>
+ * <p>
+ * v1.2 (Release Assembly - TopCoder Password Recovery Revamp v1.0):
+ * Remove <code> SecretQuestion</code> related information.
+ * </p>
  * @author dok, notpad
- * @version 1.1
+ * @version 1.2
  */
 public abstract class Base extends LongHibernateProcessor {
 
@@ -244,8 +248,6 @@ public abstract class Base extends LongHibernateProcessor {
         ret.put(Constants.NAME_IN_ANOTHER_LANGUAGE, getEscapedParameter(getTrimmedParameter(Constants.NAME_IN_ANOTHER_LANGUAGE)));
         ret.put(Constants.PASSWORD, getTrimmedParameter(Constants.PASSWORD));
         ret.put(Constants.PASSWORD_CONFIRM, getTrimmedParameter(Constants.PASSWORD_CONFIRM));
-        ret.put(Constants.SECRET_QUESTION, getEscapedParameter(getTrimmedParameter(Constants.SECRET_QUESTION)));
-        ret.put(Constants.SECRET_QUESTION_RESPONSE, getTrimmedParameter(Constants.SECRET_QUESTION_RESPONSE));
         ret.put(Constants.SECURITY_KEY, getTrimmedParameter(Constants.SECURITY_KEY));
         ret.put(Constants.HANDLE, getTrimmedParameter(Constants.HANDLE));
         ret.put(Constants.QUOTE, getEscapedParameter(getTrimmedParameter(Constants.QUOTE)));
@@ -297,8 +299,6 @@ public abstract class Base extends LongHibernateProcessor {
         simpleValidation(CityValidator.class, fields, params, Constants.CITY);
         simpleValidation(EmailValidator.class, fields, params, Constants.EMAIL);
         simpleValidation(PasswordValidator.class, fields, params, Constants.PASSWORD);
-        simpleValidation(SecretQuestionValidator.class, fields, params, Constants.SECRET_QUESTION);
-        simpleValidation(SecretQuestionResponseValidator.class, fields, params, Constants.SECRET_QUESTION_RESPONSE);
         simpleValidation(SecurityKeyValidator.class, fields, params, Constants.SECURITY_KEY);
         simpleValidation(PostalCodeValidator.class, fields, params, Constants.POSTAL_CODE);
         simpleValidation(ProvinceValidator.class, fields, params, Constants.PROVINCE);
@@ -423,11 +423,6 @@ public abstract class Base extends LongHibernateProcessor {
         setDefault(Constants.SURNAME, u.getLastName());
         setDefault(Constants.GIVEN_NAME, u.getFirstName());
         setDefault(Constants.NAME_IN_ANOTHER_LANGUAGE, u.getNameInAnotherLanguage());
-
-        if (u.getSecretQuestion() != null) {
-            setDefault(Constants.SECRET_QUESTION, u.getSecretQuestion().getQuestion());
-            setDefault(Constants.SECRET_QUESTION_RESPONSE, u.getSecretQuestion().getResponse());
-        }
 
         setDefault(Constants.HANDLE, u.getHandle());
         if (u.getContact() != null) {

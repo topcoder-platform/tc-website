@@ -1,3 +1,13 @@
+<%--
+  - Author: vangavroche, TCSASSEMBLER
+  - Version: 1.1 (Release Assembly - TopCoder Password Recovery Revamp v1.0)
+  - Copyright (C) 2010 - 2013 TopCoder Inc., All Rights Reserved.
+  -
+  - Changes in 1.1 (Release Assembly - TopCoder Password Recovery Revamp v1.0 )
+  - - Remove secretQuestion related code.
+  - - Add this code document
+  - 
+--%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.common.model.RegistrationType" %>
 <%@ page import="com.topcoder.web.reg.Constants" %>
@@ -289,31 +299,6 @@
         </td>
     </tr>
 </c:if>
-
-<c:set value="<%=Constants.SECRET_QUESTION%>" var="secretQuestion"/>
-<c:if test="${cf:contains(fields, secretQuestion)}">
-    <tr>
-        <td class="field-name">
-            Secret Question:
-        </td>
-        <td class="field-value">
-                <c:out value="${regUser.secretQuestion.question}"/>
-        </td>
-    </tr>
-</c:if>
-
-<c:set value="<%=Constants.SECRET_QUESTION_RESPONSE%>" var="secretQuestionResponse"/>
-<c:if test="${cf:contains(fields, secretQuestionResponse)}">
-    <tr>
-        <td class="field-name">
-            Secret Question Response:
-        </td>
-        <td class="field-value">
-            ********
-        </td>
-    </tr>
-</c:if>
-
 
 <c:set value="<%=Constants.QUOTE%>" var="quote"/>
 <c:if test="${cf:contains(fields, quote)}">

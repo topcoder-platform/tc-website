@@ -11,7 +11,8 @@ package com.topcoder.web.common.model;
 public class Email extends Base {
 
     public static final Integer TYPE_ID_PRIMARY = new Integer(1);
-    public static final Integer TYPE_ID_OTHER = new Integer(2);
+    public static final Integer TYPE_ID_SECOND = new Integer(2);
+    public static final Integer TYPE_ID_OTHER = new Integer(3);
 
     public static final Integer STATUS_ID_ACTIVE = new Integer(1);
     public static final Integer STATUS_ID_UNACTIVE = new Integer(2);

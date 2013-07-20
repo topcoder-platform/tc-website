@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2013 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.tc.controller.request.authentication;
 
 import com.topcoder.security.TCSubject;
@@ -9,132 +12,176 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.model.Email;
-import com.topcoder.web.common.model.PasswordRecovery;
+import com.topcoder.web.common.model.PasswordResetToken;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.reg.validation.PasswordValidator;
 import com.topcoder.web.tc.Constants;
-
 import javax.naming.Context;
 import java.util.Date;
-import java.util.Set;
-
 
 /**
- * If password is not passed, it just redirects to the reset password page.
- * If it is passed, it changes the password for a user.
- * It receives the id for a row in password_recovery table, as well as it hash code, and if this is
- * ok and the new password is valid, then is changed.
- *
- * @author Cucu
+ * <p>
+ * Reset the password.
+ * </p>
+ * <p>
+ * Thread safety: The controller instances will be created for the new requests, thus there won't be multiple
+ * threads using the same controller instance.Thus there's no thread-safety concern.
+ * </p>
+ * <p>
+ * Update v1.1 (Release Assembly - TopCoder Password Recovery Revamp v1.0): The change is substantial and the
+ * previous code is nearly totally removed.
+ * </p>
+ * @author vangavroche, TCSASSEMBLER
+ * @version 1.1
  */
 public class ResetPassword extends ShortHibernateProcessor {
 
-    public static final String PASSWORD_RECOVERY_ID = "pr";
-    public static final String HASH_CODE = "hc";
-    public static final String PASSWORD = "pwd";
-    public static final String PASSWORD_VERIF = "pwdv";
-    public static final String PASSWORD_EXPIRED = "pwexp";
+    /**
+     * <p>
+     * The class name.
+     * </p>
+     */
+    private final static String CLASS_NAME = ResetPassword.class.getName();
 
+    /**
+     * <p>
+     * Reset the password. A token needed to ensure the user can reset the password. The token will be sent to
+     * user's email.
+     * </p>
+     * 
+     * @throws Exception
+     *             the exception handled by ShortHibernateProcessor.
+     */
+    protected void dbProcessing() throws Exception {
 
-    protected void dbProcessing() throws TCWebException {
-        try {
-            String passwordRecoveryId = getRequest().getParameter(PASSWORD_RECOVERY_ID);
-            String rowHashCode = getRequest().getParameter(HASH_CODE);
-            String password = getRequest().getParameter(PASSWORD);
-            String passwordVerif = getRequest().getParameter(PASSWORD_VERIF);
+        log.debug("Enter method " + CLASS_NAME + "#dbProcessing().");
 
-            getRequest().setAttribute(PASSWORD_RECOVERY_ID, StringUtils.htmlEncode(passwordRecoveryId));
-            getRequest().setAttribute(HASH_CODE, StringUtils.htmlEncode(rowHashCode));
+        String password = getRequest().getParameter(Constants.PASSWORD);
 
-            PasswordRecovery passwordRecovery = DAOUtil.getFactory().getPasswordRecoveryDAO().find(new Long(passwordRecoveryId));
-
-            if (passwordRecovery == null) {
-                throw new TCWebException("Row not found in password_recovery: " + passwordRecoveryId);
+        if (password == null) {
+            // first come into this controller.
+            renderView(Constants.RESET_PASSWORD, null);
+            this.getRequest().getSession().setAttribute(Constants.TOKEN_ABOUT_TO_SEND, true);
+            log.debug("Exit method " + CLASS_NAME + "#dbProcessing().");
+            return;
+        } else {
+            String token = StringUtils.checkNull(getRequest().getParameter(Constants.TOKEN));
+            if (token.equals("")) {
+                renderView(Constants.RESET_PASSWORD, "The code field can not be empty");
+                log.debug("Exit method " + CLASS_NAME + "#dbProcessing().");
+                return;
             }
-
-            if (!rowHashCode.equals(passwordRecovery.hash())) {
-                throw new TCWebException("Invalid hashcode.");
-            }
-
-
-            if (passwordRecovery.getExpireDate().before(new Date())) {
-                addError("error", "The time for changing the password has expired. Please require password change again.");
-                getRequest().setAttribute(PASSWORD_EXPIRED, "true");
-
-                setNextPage(Constants.RESET_PASSWORD);
-                setIsNextPageInContext(true);
+            long userId;
+            try {
+                userId = Long.valueOf(StringUtils.checkNull(getRequest().getParameter(Constants.CODER_ID)));
+            } catch (NumberFormatException e) {
+                renderView(Constants.RESET_PASSWORD, "The userId has bad format");
+                log.debug("Exit method " + CLASS_NAME + "#dbProcessing().");
                 return;
             }
 
+            String passwordConfirm = StringUtils.checkNull(getRequest().getParameter(Constants.PASSWORD_CONFIRM));
 
-            if (password == null) {
-                setNextPage(Constants.RESET_PASSWORD);
-                setIsNextPageInContext(true);
+            if (!passwordConfirm.equals(password)) {
+                renderView(Constants.RESET_PASSWORD, "The passwords do not match.");
+                log.debug("Exit method " + CLASS_NAME + "#dbProcessing().");
                 return;
             }
-
-
-            if (passwordRecovery.isUsed()) {
-                addError("error", "The password was already changed.");
+            PasswordResetToken passwordResetToken = DAOUtil.getFactory().getPasswordResetTokenDAO().find(userId);
+            
+            if (passwordResetToken == null) {
+                log.debug("The passwordRestToken is null.");
+            } else {
+                log.debug(String.format("The input token is %s, and in DB the token is %s, will expired at %s",
+                    token, passwordResetToken.getToken(), String.valueOf(passwordResetToken.getExpiredAt())));
             }
 
-            if (!password.equals(passwordVerif)) {
-                addError("error", "Password does not match verification.");
+            if (!validateToken(passwordResetToken, token)) {
+                renderView(Constants.RESET_PASSWORD, "The code is invalid.");
+                log.debug("Exit method " + CLASS_NAME + "#dbProcessing().");
+                return;
             }
 
             ValidationResult vr = new PasswordValidator().validate(new StringInput(password));
             if (!vr.isValid()) {
-                addError("error", vr.getMessage());
-            }
-
-            if (hasErrors()) {
-                setNextPage(Constants.RESET_PASSWORD);
-                setIsNextPageInContext(true);
+                renderView(Constants.RESET_PASSWORD, vr.getMessage());
+                log.debug("Exit method " + CLASS_NAME + "#dbProcessing().");
                 return;
             }
+            updatePassword(userId, password);
 
+            DAOUtil.getFactory().getPasswordResetTokenDAO().expireToken(userId, token);
 
-            passwordRecovery.setUsed(true);
-            DAOUtil.getFactory().getPasswordRecoveryDAO().saveOrUpdate(passwordRecovery);
+            renderView(Constants.RESET_PASSWORD_CONFIRM, null);
 
-            // save the new password in user and security.
-            Context ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
-
-            User u = passwordRecovery.getUser();
-
-            TCSubject tcs = new TCSubject(132456);
-            PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
-            PrincipalMgrRemote pmr = pmrh.create();
-            UserPrincipal myPrincipal = new UserPrincipal("", u.getId());
-            pmr.editPassword(myPrincipal, password, tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
-
-            // if the user has changed email address, set it as his new primary address
-            if (!u.getPrimaryEmailAddress().equals(passwordRecovery.getRecoveryAddress())) {
-                Set<Email> s = u.getEmailAddresses();
-                for (Email e : s) {
-                    if (e.isPrimary()) {
-                        e.setAddress(passwordRecovery.getRecoveryAddress());
-                        break;
-                    }
-                }
-                u.setEmailAddresses(s);
-                getRequest().setAttribute(Constants.EMAIL, passwordRecovery.getRecoveryAddress());
-            }
-
-
-            DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);
-
-            setNextPage(Constants.RESET_PASSWORD_CONFIRM);
-            setIsNextPageInContext(true);
-        } catch (Exception e) {
-            throw new TCWebException("Couldn't change the password", e);
+            log.debug("Exit method " + CLASS_NAME + "#dbProcessing().");
         }
     }
 
+    /**
+     * <p>
+     * Validate the token, which will be expired after a configured time.
+     * </p>
+     * 
+     * @param passwordResetToken
+     *            the password reset token object.
+     * @param token
+     *            the token that the user entered.
+     * @return true if the token entered by the user matches the password reset token object.
+     */
+    private boolean validateToken(PasswordResetToken passwordResetToken, String token) {
+        return passwordResetToken != null && passwordResetToken.getExpiredAt().after(new Date())
+            && passwordResetToken.getToken().equals(token);
+    }
+
+    /**
+     * <p>
+     * Save the new password in user and security.
+     * </p>
+     * 
+     * @param userId
+     *            the id of the user who is changing his password.
+     * @param password
+     *            the password to change.
+     * @throws Exception
+     *             the exception handled by ShortHibernateProcessor.
+     */
+    private void updatePassword(long userId, String password) throws Exception {
+
+        Context ctx =
+            TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
+
+        User u = DAOUtil.getFactory().getUserDAO().find(userId);
+
+        TCSubject tcs = new TCSubject(132456);
+        PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+        PrincipalMgrRemote pmr = pmrh.create();
+        UserPrincipal myPrincipal = new UserPrincipal("", u.getId());
+        pmr.editPassword(myPrincipal, password, tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
+
+        DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);
+    }
+
+    /**
+     * <p>
+     * Render the view page. Here NextPageInContext is set to true.
+     * </p>
+     * 
+     * @param destination
+     *            the URL of view page.
+     * @param errorMessage
+     *            the error message if exist.
+     */
+    private void renderView(String destination, String errorMessage) {
+        if (errorMessage != null) {
+            this.addError(Constants.ERROR_INFO, errorMessage);
+            // this.getRequest().getSession().setAttribute(Constants.TOKEN_ABOUT_TO_SEND, "false");
+        }
+        setNextPage(destination);
+        setIsNextPageInContext(true);
+    }
 
 }

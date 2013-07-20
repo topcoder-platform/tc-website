@@ -96,12 +96,20 @@ package com.topcoder.web.common;
   *   Version 1.6.7 (Release Assembly - TopCoder BugHunt Competition Integration) Change notes:
   *   <ol>
   *     <li>Added constants {@link #BUG_HUNT_PROJECT_TYPE}, {@link #BUG_HUNT_SPECIFICATION_PROJECT_TYPE}, {@link #PHASE_BUG_HUNT}
- *      and {@link #PHASE_BUG_HUNT_SPECIFICATION}</li>
+  *      and {@link #PHASE_BUG_HUNT_SPECIFICATION}</li>
   *   </ol>
   * </p>
- *
+ * <p>
+ *   Version 1.6.8 (Release Assembly - TopCoder Password Recovery Revamp v1.0) Change notes:
+ *   <ol>
+ *     <li>Added constants {@link #FIND_USER_QUERY}, {@link #ERROR_INFO}, {@link #TOKEN},
+ *     {@link #TOKEN_ABOUT_TO_SEND}, {@link #TOKEN_LAST_SENT_AT}, {@link #PRIMARY_EMAIL_TYPE}, {@link #SECOND_EMAIL_TYPE}, {@link #EXPIRED_AT}, {@link #RANDOM_KEY
+ *     }, {@link #EMAIL_TYPE}, {@link #EMAIL_REGEX_CHECKER},{@link #SECOND_EMAIL_ADDRESS}.</li>
+ *     <li>Change {@link #PASSWORD} and {@link #PASSWORD_CONFIRM}'s value</li>
+ *   </ol>
+ * </p>
  * @author dok, pulky, snow01, FireIce, lmmortal, TCSASSEMBLER
- * @version 1.6.7
+ * @version 1.6.8
  */
 public interface WebConstants {
     public static final String HANDLE = "ha";
@@ -124,12 +132,12 @@ public interface WebConstants {
     public static final String MODULE_KEY = "module";
     public static final String PROJECT_ID_KEY = "pj";
     public static final String USER_NAME = "username";
-    public static final String PASSWORD = "password";
+    public static final String PASSWORD = "pwd";
     public static final String IMAGE_TYPE = "it";
 
     public static final String FULL_NAME = "flnm";
 
-    public static final String PASSWORD_CONFIRM = "pac";
+    public static final String PASSWORD_CONFIRM = "pwdc";
     public static final String EMAIL = "em";
     public static final String EMAIL_CONFIRM = "emc";
     public static final String TITLE = "ttl";
@@ -826,4 +834,82 @@ public interface WebConstants {
      * @since 1.6
      */
     public static final String END_DATE = "edate";
+    
+    /**
+     * <p>The only request parameter name to controller <code>FindUser</code> </p>
+     * @since 1.6.8
+     */
+    public static final String FIND_USER_QUERY = "q";
+
+    /**
+     * <p>The name for error information on JSP pages.</p>
+     * @since 1.6.8
+     */
+    public static final String ERROR_INFO = "errin";
+
+    /**
+     * <p>The token request parameter name.</p>
+     * @since 1.6.8
+     */  
+    public static final String TOKEN = "tk";
+
+    /**
+     * <p>The session variable which stores the time when the token is last sent.</p>
+     * @since 1.6.8
+     */      
+    public static final String TOKEN_LAST_SENT_AT = "tokenLastSentAt";
+
+    /**
+     * <p>
+     * The name of session attribute to decide whether send a token request when the page is loaded.
+     * </p>
+     * @since 1.6.8
+     */
+    public static final String TOKEN_ABOUT_TO_SEND = "tokenAboutToSend";
+
+    /**
+     * <p>The primary email type.</p>
+     * @since 1.6.8
+     */      
+    public static final String PRIMARY_EMAIL_TYPE = "primary";
+    /**
+     * <p>The second email type.</p>
+     * @since 1.6.8
+     */      
+    public static final String SECOND_EMAIL_TYPE = "second";
+
+    /**
+     * <p>The parameter name expired date.</p>
+     * @since 1.6.8
+     */      
+    public static final String EXPIRED_AT = "expiredAt";
+
+    /**
+     * <p>The parameter name random key which is used for adding second email.</p>
+     * @since 1.6.8
+     */      
+    public static final String RANDOM_KEY = "key";
+    
+    /**
+     * <p>
+     * The REGEX checker to tell the email apart from the user in query string.
+     * </p>
+     * @since 1.6.8
+     */
+    public static final String EMAIL_REGEX_CHECKER = ".+@[^\\.]+(\\.[^\\.]+)*";
+    
+
+    /**
+     * <p>The parameter name email type.</p>
+     * @since 1.6.8
+     */      
+    public static final String EMAIL_TYPE = "type";
+
+
+    /**
+     * <p>The parameter name second email address.</p>
+     * @since 1.6.8
+     */      
+    public static final String SECOND_EMAIL_ADDRESS = "seAddr";
+
 }

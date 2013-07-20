@@ -17,13 +17,17 @@ import java.util.TreeSet;
  * <p>
  * A class containing user information.
  * </p>
+ * 
+ * <p>
+ * v1.1 (Release Assembly - TopCoder Password Recovery Revamp v1.0):
+ * Remove <code>private SecretQuestion secretQuestion</code> field.
+ * </p>
  * <p>
  * Update(Release Assembly - OpenID Project Update 1 v1.0):
  * Add <code>private String openId</code> field.
  * </p>
  * @author dok, TCASSEMBLER
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Mar 29, 2006
+ * @version v1.1
  */
 public class User extends Base {
     private Long id;
@@ -49,7 +53,6 @@ public class User extends Base {
     private Contact contact;
     private Set<TermsOfUse> terms;
     private Set<EventRegistration> eventRegistrations;
-    private SecretQuestion secretQuestion;
     private UserSecurityKey userSecurityKey;
     private Set<Response> responses;
     private Set<RankBallot> ballots;
@@ -267,6 +270,22 @@ public class User extends Base {
     }
 
 
+    /**
+     * Get the user's second email address.
+     *
+     * @return the user's second email address or null if they don't have one.
+     */
+    public Email getSecondEmailAddress() {
+        Iterator it = getEmailAddresses().iterator();
+        while(it.hasNext()){
+            Email email = (Email) it.next();
+            if( email.getEmailTypeId().equals(Email.TYPE_ID_SECOND) ){
+                return email;
+            }
+        }
+        return null;
+    }
+
     public void setPhoneNumbers(Set<Phone> phoneNumbers) {
         this.phoneNumbers = phoneNumbers;
     }
@@ -451,14 +470,6 @@ public class User extends Base {
     public boolean isMemberContactEnabled() {
         UserPreference up = getUserPreference(Preference.MEMBER_CONTACT_PREFERENCE_ID);
         return up != null && "yes".equals(up.getValue());
-    }
-
-    public SecretQuestion getSecretQuestion() {
-        return secretQuestion;
-    }
-
-    public void setSecretQuestion(SecretQuestion secretQuestion) {
-        this.secretQuestion = secretQuestion;
     }
 
     public UserSecurityKey getUserSecurityKey() {

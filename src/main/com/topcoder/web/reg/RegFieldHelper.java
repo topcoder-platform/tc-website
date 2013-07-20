@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2013 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.reg;
 
 import com.topcoder.shared.util.logging.Logger;
@@ -13,9 +16,13 @@ import java.util.List;
 import java.util.Set;
 
 /**
+ * 
+ * <p>
+ * v1.1 (Release Assembly - TopCoder Password Recovery Revamp v1.0):
+ * Remove <code> SecretQuestion </code> related information.
+ * </p>
  * @author dok
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Apr 28, 2006
+ * @version v1.1
  */
 public class RegFieldHelper {
 
@@ -85,8 +92,6 @@ public class RegFieldHelper {
         mainCompFields.add(Constants.HANDLE);
         mainCompFields.add(Constants.PASSWORD);
         mainCompFields.add(Constants.PASSWORD_CONFIRM);
-        mainCompFields.add(Constants.SECRET_QUESTION);
-        mainCompFields.add(Constants.SECRET_QUESTION_RESPONSE);
         mainCompFields.add(Constants.SECURITY_KEY);
         mainCompFields.add(Constants.EMAIL);
         mainCompFields.add(Constants.EMAIL_CONFIRM);
@@ -107,8 +112,6 @@ public class RegFieldHelper {
         requiredMainCompFields.add(Constants.HANDLE);
         requiredMainCompFields.add(Constants.PASSWORD);
         requiredMainCompFields.add(Constants.PASSWORD_CONFIRM);
-        requiredMainCompFields.add(Constants.SECRET_QUESTION);
-        requiredMainCompFields.add(Constants.SECRET_QUESTION_RESPONSE);
         requiredMainCompFields.add(Constants.SECURITY_KEY);
         requiredMainCompFields.add(Constants.EMAIL);
         requiredMainCompFields.add(Constants.EMAIL_CONFIRM);
@@ -166,8 +169,6 @@ public class RegFieldHelper {
         mainHSFields.add(Constants.HANDLE);
         mainHSFields.add(Constants.PASSWORD);
         mainHSFields.add(Constants.PASSWORD_CONFIRM);
-        mainHSFields.add(Constants.SECRET_QUESTION);
-        mainHSFields.add(Constants.SECRET_QUESTION_RESPONSE);
         mainHSFields.add(Constants.SECURITY_KEY);
         mainHSFields.add(Constants.EMAIL);
         mainHSFields.add(Constants.EMAIL_CONFIRM);
@@ -182,8 +183,6 @@ public class RegFieldHelper {
         requiredMainHSFields.add(Constants.HANDLE);
         requiredMainHSFields.add(Constants.PASSWORD);
         requiredMainHSFields.add(Constants.PASSWORD_CONFIRM);
-        requiredMainHSFields.add(Constants.SECRET_QUESTION);
-        requiredMainHSFields.add(Constants.SECRET_QUESTION_RESPONSE);
         requiredMainHSFields.add(Constants.SECURITY_KEY);
         requiredMainHSFields.add(Constants.EMAIL);
         requiredMainHSFields.add(Constants.EMAIL_CONFIRM);
@@ -224,8 +223,6 @@ public class RegFieldHelper {
         mainCorpFields.add(Constants.HANDLE);
         mainCorpFields.add(Constants.PASSWORD);
         mainCorpFields.add(Constants.PASSWORD_CONFIRM);
-        mainCorpFields.add(Constants.SECRET_QUESTION);
-        mainCorpFields.add(Constants.SECRET_QUESTION_RESPONSE);
         mainCorpFields.add(Constants.SECURITY_KEY);
         mainCorpFields.add(Constants.EMAIL);
         mainCorpFields.add(Constants.EMAIL_CONFIRM);
@@ -243,8 +240,6 @@ public class RegFieldHelper {
         requiredMainCorpFields.add(Constants.HANDLE);
         requiredMainCorpFields.add(Constants.PASSWORD);
         requiredMainCorpFields.add(Constants.PASSWORD_CONFIRM);
-        requiredMainCorpFields.add(Constants.SECRET_QUESTION);
-        requiredMainCorpFields.add(Constants.SECRET_QUESTION_RESPONSE);
         requiredMainCorpFields.add(Constants.SECURITY_KEY);
         requiredMainCorpFields.add(Constants.EMAIL);
         requiredMainCorpFields.add(Constants.EMAIL_CONFIRM);
@@ -270,8 +265,6 @@ public class RegFieldHelper {
         mainSoftwareFields.add(Constants.HANDLE);
         mainSoftwareFields.add(Constants.PASSWORD);
         mainSoftwareFields.add(Constants.PASSWORD_CONFIRM);
-        mainSoftwareFields.add(Constants.SECRET_QUESTION);
-        mainSoftwareFields.add(Constants.SECRET_QUESTION_RESPONSE);
         mainSoftwareFields.add(Constants.SECURITY_KEY);
         mainSoftwareFields.add(Constants.EMAIL);
         mainSoftwareFields.add(Constants.EMAIL_CONFIRM);
@@ -290,8 +283,6 @@ public class RegFieldHelper {
         requiredMainSoftwareFields.add(Constants.HANDLE);
         requiredMainSoftwareFields.add(Constants.PASSWORD);
         requiredMainSoftwareFields.add(Constants.PASSWORD_CONFIRM);
-        requiredMainSoftwareFields.add(Constants.SECRET_QUESTION);
-        requiredMainSoftwareFields.add(Constants.SECRET_QUESTION_RESPONSE);
         requiredMainSoftwareFields.add(Constants.SECURITY_KEY);
         requiredMainSoftwareFields.add(Constants.EMAIL);
         requiredMainSoftwareFields.add(Constants.EMAIL_CONFIRM);
@@ -306,8 +297,6 @@ public class RegFieldHelper {
         mainMinFields.add(Constants.HANDLE);
         mainMinFields.add(Constants.PASSWORD);
         mainMinFields.add(Constants.PASSWORD_CONFIRM);
-        mainMinFields.add(Constants.SECRET_QUESTION);
-        mainMinFields.add(Constants.SECRET_QUESTION_RESPONSE);
         mainMinFields.add(Constants.SECURITY_KEY);
         mainMinFields.add(Constants.EMAIL);
         mainMinFields.add(Constants.EMAIL_CONFIRM);
@@ -332,8 +321,6 @@ public class RegFieldHelper {
         mainStudioFields.add(Constants.HANDLE);
         mainStudioFields.add(Constants.PASSWORD);
         mainStudioFields.add(Constants.PASSWORD_CONFIRM);
-        mainStudioFields.add(Constants.SECRET_QUESTION);
-        mainStudioFields.add(Constants.SECRET_QUESTION_RESPONSE);
         mainStudioFields.add(Constants.SECURITY_KEY);
         mainStudioFields.add(Constants.EMAIL);
         mainStudioFields.add(Constants.EMAIL_CONFIRM);
@@ -351,8 +338,6 @@ public class RegFieldHelper {
         requiredMainStudioFields.add(Constants.HANDLE);
         requiredMainStudioFields.add(Constants.PASSWORD);
         requiredMainStudioFields.add(Constants.PASSWORD_CONFIRM);
-        requiredMainStudioFields.add(Constants.SECRET_QUESTION);
-        requiredMainStudioFields.add(Constants.SECRET_QUESTION_RESPONSE);
         requiredMainStudioFields.add(Constants.EMAIL);
         requiredMainStudioFields.add(Constants.EMAIL_CONFIRM);
         requiredMainStudioFields.add(Constants.COMP_COUNTRY_CODE);
@@ -411,8 +396,6 @@ public class RegFieldHelper {
         mainTeacherFields.add(Constants.HANDLE);
         mainTeacherFields.add(Constants.PASSWORD);
         mainTeacherFields.add(Constants.PASSWORD_CONFIRM);
-        mainTeacherFields.add(Constants.SECRET_QUESTION);
-        mainTeacherFields.add(Constants.SECRET_QUESTION_RESPONSE);
         mainTeacherFields.add(Constants.SECURITY_KEY);
         mainTeacherFields.add(Constants.EMAIL);
         mainTeacherFields.add(Constants.EMAIL_CONFIRM);
@@ -429,8 +412,6 @@ public class RegFieldHelper {
         requiredMainTeacherFields.add(Constants.HANDLE);
         requiredMainTeacherFields.add(Constants.PASSWORD);
         requiredMainTeacherFields.add(Constants.PASSWORD_CONFIRM);
-        requiredMainTeacherFields.add(Constants.SECRET_QUESTION);
-        requiredMainTeacherFields.add(Constants.SECRET_QUESTION_RESPONSE);
         requiredMainTeacherFields.add(Constants.EMAIL);
         requiredMainTeacherFields.add(Constants.EMAIL_CONFIRM);
         requiredMainTeacherFields.add(Constants.TIMEZONE);
@@ -473,8 +454,6 @@ public class RegFieldHelper {
         mainOpenAIMFields.add(Constants.HANDLE);
         mainOpenAIMFields.add(Constants.PASSWORD);
         mainOpenAIMFields.add(Constants.PASSWORD_CONFIRM);
-        mainOpenAIMFields.add(Constants.SECRET_QUESTION);
-        mainOpenAIMFields.add(Constants.SECRET_QUESTION_RESPONSE);
         mainOpenAIMFields.add(Constants.SECURITY_KEY);
         mainOpenAIMFields.add(Constants.EMAIL);
         mainOpenAIMFields.add(Constants.EMAIL_CONFIRM);
@@ -492,8 +471,6 @@ public class RegFieldHelper {
         requiredMainOpenAIMFields.add(Constants.HANDLE);
         requiredMainOpenAIMFields.add(Constants.PASSWORD);
         requiredMainOpenAIMFields.add(Constants.PASSWORD_CONFIRM);
-        requiredMainOpenAIMFields.add(Constants.SECRET_QUESTION);
-        requiredMainOpenAIMFields.add(Constants.SECRET_QUESTION_RESPONSE);
         requiredMainOpenAIMFields.add(Constants.SECURITY_KEY);
         requiredMainOpenAIMFields.add(Constants.EMAIL);
         requiredMainOpenAIMFields.add(Constants.EMAIL_CONFIRM);
@@ -552,8 +529,6 @@ public class RegFieldHelper {
         mainTruveoFields.add(Constants.HANDLE);
         mainTruveoFields.add(Constants.PASSWORD);
         mainTruveoFields.add(Constants.PASSWORD_CONFIRM);
-        mainTruveoFields.add(Constants.SECRET_QUESTION);
-        mainTruveoFields.add(Constants.SECRET_QUESTION_RESPONSE);
         mainTruveoFields.add(Constants.SECURITY_KEY);
         mainTruveoFields.add(Constants.EMAIL);
         mainTruveoFields.add(Constants.EMAIL_CONFIRM);
@@ -571,8 +546,6 @@ public class RegFieldHelper {
         requiredMainTruveoFields.add(Constants.HANDLE);
         requiredMainTruveoFields.add(Constants.PASSWORD);
         requiredMainTruveoFields.add(Constants.PASSWORD_CONFIRM);
-        requiredMainTruveoFields.add(Constants.SECRET_QUESTION);
-        requiredMainTruveoFields.add(Constants.SECRET_QUESTION_RESPONSE);
         requiredMainTruveoFields.add(Constants.EMAIL);
         requiredMainTruveoFields.add(Constants.EMAIL_CONFIRM);
         requiredMainTruveoFields.add(Constants.COMP_COUNTRY_CODE);

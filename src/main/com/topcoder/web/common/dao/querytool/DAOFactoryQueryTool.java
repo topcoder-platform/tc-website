@@ -24,9 +24,15 @@ import com.topcoder.web.common.dao.*;
  *     <li>Added {@link #getGovernmentIdDAO()} method.</li>
  *   </ol>
  * </p>
- *
+ * <p>
+ * Version 1.3 (Release Assembly - TopCoder Password Recovery Revamp v1.0)Change notes:
+ *   <ol>
+ *     <li>Added {@link #getPasswordResetTokenDAO()} method.</li>
+ *     <li>Added {@link #getSecondEmailRequestDAO()} method.</li>
+ *   </ol>
+ * </p>
  * @author pulky, TCSDEVELOPER, isv
- * @version 1.1
+ * @version 1.3
  */
 public class DAOFactoryQueryTool implements DAOFactory {
 
@@ -320,6 +326,25 @@ public class DAOFactoryQueryTool implements DAOFactory {
      * @since 1.2
      */
     public GovernmentIDDAO getGovernmentIdDAO() {
+        throw new RuntimeException("Not supported");
+    }
+    /**
+     * <p>Gets the instance of {@link PasswordResetTokenDAO}.</p>
+     *
+     * @return a <code>PasswordResetTokenDAO</code> to be used for keeping password reset token.
+     * @since 1.3
+     */
+    public PasswordResetTokenDAO getPasswordResetTokenDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    /**
+     * <p>Gets the instance of {@link SecondEmailRequestDAO}.</p>
+     *
+     * @return a <code>SecondEmailRequestDAO</code> to be used for keeping add second email token.
+     * @since 1.3
+     */
+    public SecondEmailRequestDAO getSecondEmailRequestDAO() {
         throw new RuntimeException("Not supported");
     }
 }

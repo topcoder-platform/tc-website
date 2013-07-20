@@ -82,7 +82,7 @@
                         #if (!$settingsManager.getGlobalSettings().isExternalUserManagement())
                             <div style="float:right;">
                                 <p>
-                                <a href="http://${constantHelper.serverName}/tc?module=RecoverPassword">$action.getText("forgot.password")?</a>
+                                <a href="http://${constantHelper.serverName}/tc?module=FindUser">$action.getText("forgot.password")?</a>
                                 </p>
                             </div>
                             #if (!$settingsManager.getGlobalSettings().isDenyPublicSignup())

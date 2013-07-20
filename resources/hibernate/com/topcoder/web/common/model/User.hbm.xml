@@ -23,7 +23,6 @@
         <many-to-one name="timeZone" column="timezone_id" class="TimeZone" access="field" cascade="none"/>
         <one-to-one name="coder" class="Coder" cascade="save-update" access="field" fetch="select"/>
         <one-to-one name="contact" class="Contact" cascade="save-update" access="field" fetch="select"/>
-        <one-to-one name="secretQuestion" class="SecretQuestion" cascade="save-update" access="field" fetch="select"/>
         <one-to-one name="professor" class="com.topcoder.web.common.model.educ.Professor" cascade="save-update"
                     access="field" fetch="select"/>
         <one-to-one name="userSecurityKey" class="UserSecurityKey" cascade="save-update" access="field" fetch="select"/>

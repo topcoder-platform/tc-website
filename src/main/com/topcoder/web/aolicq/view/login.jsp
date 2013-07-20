@@ -1,3 +1,14 @@
+<%--
+  - Author: vangavroche, TCSASSEMBLER
+  - Version: 1.1 (Release Assembly - TopCoder Password Recovery Revamp v1.0)
+  - Copyright (C) 2010 - 2013 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: Login page.
+  - Changes in 1.1 (Release Assembly - TopCoder Password Recovery Revamp v1.0 )
+  - - Change the entry link of password recovery from /tc?module=RecoverPassword" to /tc?module=FindUser".
+  - - Add this code document
+  - 
+--%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.common.BaseServlet" %>
 <%@ page import="com.topcoder.web.common.StringUtils" %>
@@ -53,7 +64,7 @@
                 <div align="center">
 					<div align="left" id="tc-login">
 					<p><strong>Forgot your password?</strong><br/>
-                    If you cannot remember your password <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword" class="bodyText">click here</a> and we can help you restore your account.</p>
+                    If you cannot remember your password <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=FindUser" class="bodyText">click here</a> and we can help you restore your account.</p>
 
                     <p><strong>New to TopCoder?</strong><br />
                     <a href="https://<%=ApplicationServer.SERVER_NAME%>/reg/?module=Main&amp;rt=9">Register now</a>. After you complete the registration process, we will send your account activation code via email.</p>

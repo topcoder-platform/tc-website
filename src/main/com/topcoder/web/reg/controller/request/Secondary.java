@@ -26,8 +26,12 @@ import java.util.Set;
  *     <li>Updated {@link #loadFieldsIntoUserObject(Set, Map)} method to load country field into coder.home_country_code.</li>
  *   </ol>
  * </p>
+ * <p>
+ * v1.2 (Release Assembly - TopCoder Password Recovery Revamp v1.0):
+ * Remove <code> SecretQuestion</code> related information.
+ * </p>
  * @author dok, notpad
- * @version 1.1
+ * @version 1.2
  */
 public class Secondary extends Base {
 
@@ -215,23 +219,7 @@ public class Secondary extends Base {
             u.setNameInAnotherLanguage((String) params.get(Constants.NAME_IN_ANOTHER_LANGUAGE));
         }
 
-        if (fields.contains(Constants.SECRET_QUESTION) || fields.contains(Constants.SECRET_QUESTION_RESPONSE)) {
-            SecretQuestion sc = u.getSecretQuestion();
-            if (sc == null) {
-                sc = new SecretQuestion();
-                sc.setUser(u);
-                u.setSecretQuestion(sc);
-            }
-
-            if (fields.contains(Constants.SECRET_QUESTION)) {
-                sc.setQuestion((String) params.get(Constants.SECRET_QUESTION));
-            }
-
-            if (fields.contains(Constants.SECRET_QUESTION_RESPONSE)) {
-                sc.setResponse((String) params.get(Constants.SECRET_QUESTION_RESPONSE));
-            }
-        }
-
+        
         if (fields.contains(Constants.SECURITY_KEY)) {
         	UserSecurityKey sk = u.getUserSecurityKey();
         	if (sk == null) {

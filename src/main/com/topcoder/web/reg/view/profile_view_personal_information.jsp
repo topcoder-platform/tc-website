@@ -1,3 +1,14 @@
+<%--
+  - Author: vangavroche, TCSASSEMBLER
+  - Version: 1.1 (Release Assembly - TopCoder Password Recovery Revamp v1.0)
+  - Copyright (C) 2010 - 2013 TopCoder Inc., All Rights Reserved.
+  -
+  - Description: Profile view personal information page.
+  - Changes in 1.1 (Release Assembly - TopCoder Password Recovery Revamp v1.0 )
+  - - Remove secretQuestion related code.
+  - - Add this code document
+  - 
+--%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -181,14 +192,6 @@
                                 <tr>
                                     <td class="field-name">Password:</td>
                                     <td class="field-value">********</td>
-                                </tr>
-                                <tr>
-                                    <td class="field-name">Secret Question:</td>
-                                    <td class="field-value">What is your favorite drink?</td>
-                                </tr>
-                                <tr>
-                                    <td class="field-name">Secret Question Response:</td>
-                                    <td class="field-value">****************</td>
                                 </tr>
                                 <tr>
                                   <td class="field-name">Student/Professional:</td>

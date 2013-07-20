@@ -22,11 +22,32 @@ package com.topcoder.web.common.dao;
  *     <li>Added {@link #getGovernmentIdDAO()} method.</li>
  *   </ol>
  * </p>
- *
+ * Version 1.3 (Release Assembly - TopCoder Password Recovery Revamp v1.0)Change notes:
+ *   <ol>
+ *     <li>Added {@link #getPasswordResetTokenDAO()} method.</li>
+ *     <li>Added {@link #getSecondEmailRequestDAO()} method.</li>
+ *   </ol>
+ * </p>
  * @author dok, TCSDEVELOPER, VolodymyrK, isv
- * @version 1.2
+ * @version 1.3
  */
 public interface DAOFactory {
+    /**
+     * <p>Gets the instance of {@link PasswordResetTokenDAO}.</p>
+     *
+     * @return a <code>PasswordResetTokenDAO</code> to be used for keeping password reset token.
+     * @since 1.3
+     */
+    PasswordResetTokenDAO getPasswordResetTokenDAO();
+    
+    /**
+     * <p>Gets the instance of {@link SecondEmailRequestDAO}.</p>
+     *
+     * @return a <code>SecondEmailRequestDAO</code> to be used for keeping add second email token.
+     * @since 1.3
+     */
+    SecondEmailRequestDAO getSecondEmailRequestDAO();
+    
     AlgoRatingTypeDAO getAlgoRatingTypeDAO();
 
     CoderDAO getCoderDAO();

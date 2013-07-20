@@ -33,9 +33,13 @@ import java.util.Set;
  *     respective entry in <code>LDAP</code> directory.</li>
  *   </ul>
  * </p>
- *
+ * 
+ * <p>
+ * v2.1 (Release Assembly - TopCoder Password Recovery Revamp v1.0):
+ * update the password maximun length from 31 to 126
+ * </p>
  * @author isv
- * @version 2.0
+ * @version 2.1
  */
 public class PrincipalMgrBean extends BaseEJB {
 
@@ -266,14 +270,14 @@ public class PrincipalMgrBean extends BaseEJB {
      * @param dataSource a <code>String</code> providing the JNDI name for the data source to be used for obtaining
      *        connections to target database.
      * @return a <code>UserPrincipal</code> representing the new user account.
-     * @throws GeneralSecurityException if an unexpected error occurs while creeating new user account.
+     * @throws GeneralSecurityException if an unexpected error occurs while creating new user account.
      */
     public UserPrincipal createUser(long userId, String username, String password, TCSubject requestor,
                                     String dataSource) throws GeneralSecurityException {
         
         logger.debug(requestor + " is creating user " + username);
         checkLength(username, 50);
-        checkLength(password, 31);
+        checkLength(password, 126);
         String encPassword = Util.encodePassword(password, "users");
         logger.debug("*********password into db: " + encPassword);
 
@@ -324,13 +328,13 @@ public class PrincipalMgrBean extends BaseEJB {
      * @param dataSource a <code>String</code> providing the JNDI name for the data source to be used for obtaining
      *        connections to target database.
      * @return a <code>UserPrincipal</code> representing the new user account.
-     * @throws GeneralSecurityException if an unexpected error occurs while creeating new user account.
+     * @throws GeneralSecurityException if an unexpected error occurs while creating new user account.
      */
     public UserPrincipal createUser(String username, String password, TCSubject requestor, String dataSource)
             throws GeneralSecurityException {
         logger.debug(requestor + " is creating user " + username);
         checkLength(username, 50);
-        checkLength(password, 31);
+        checkLength(password, 126);
         String encPassword = Util.encodePassword(password, "users");
         logger.debug("*********password into db: " + encPassword);
         InitialContext ctx = null;
@@ -431,11 +435,11 @@ public class PrincipalMgrBean extends BaseEJB {
      * @param dataSource a <code>String</code> providing the JNDI name for the data source to be used for obtaining
      *        connections to target database.
      * @return a <code>UserPrincipal</code> representing the user account with updated password.
-     * @throws GeneralSecurityException if an unexpected error occurs while creeating new user account.
+     * @throws GeneralSecurityException if an unexpected error occurs while creating new user account.
      */
     public UserPrincipal editPassword(UserPrincipal user, String password, TCSubject requestor, String dataSource)
             throws GeneralSecurityException {
-        checkLength(password, 31);
+        checkLength(password, 126);
         logger.debug("UserPrincipal.editPassword");
         String encPassword = Util.encodePassword(password, "users");
         long userId = user.getId();

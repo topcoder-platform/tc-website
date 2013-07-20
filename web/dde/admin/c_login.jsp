@@ -1,3 +1,13 @@
+<%--
+  - Author: vangavroche, TCSASSEMBLER
+  - Version: 1.1 (Release Assembly - TopCoder Password Recovery Revamp v1.0)
+  - Copyright (C) 2010 - 2013 TopCoder Inc., All Rights Reserved.
+  -
+  - Changes in 1.1 (Release Assembly - TopCoder Password Recovery Revamp v1.0 )
+  - - Change the entry link of password recovery from /tc?module=RecoverPassword" to /tc?module=FindUser".
+  - - Add this code document
+  - 
+--%>
 <%@ page import="com.topcoder.dde.user.UserNotActivatedException,
                  com.topcoder.security.GeneralSecurityException"
  %>
@@ -188,7 +198,7 @@
 						<table width="500" cellpadding="0" cellspacing="8" border="0" class="admin">
 							<tr>
 								<td width="48%"><img src="/images/clear.gif" alt="" width="5" height="1" border="0" /></td>
-                                <td class="loginCenter" nowrap="nowrap"><a class="loginLinks" href='http://<%= ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword '>I forgot my password</a></td>
+                                <td class="loginCenter" nowrap="nowrap"><a class="loginLinks" href='http://<%= ApplicationServer.SERVER_NAME%>/tc?module=FindUser '>I forgot my password</a></td>
                                 
 								<td width="48%"><img src="/images/clear.gif" alt="" width="5" height="1" border="0" /></td>
 							</tr>

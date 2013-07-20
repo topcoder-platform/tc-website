@@ -1,3 +1,13 @@
+<%--
+  - Author: vangavroche, TCSASSEMBLER
+  - Version: 1.1 (Release Assembly - TopCoder Password Recovery Revamp v1.0)
+  - Copyright (C) 2010 - 2013 TopCoder Inc., All Rights Reserved.
+  -
+  - Changes in 1.1 (Release Assembly - TopCoder Password Recovery Revamp v1.0 )
+  - - Change the entry link of password recovery from /tc?module=RecoverPassword" to /tc?module=FindUser".
+  - - Add this code document
+  - 
+--%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.common.BaseServlet" %>
@@ -33,7 +43,7 @@
                             <input type="button" class="login-button" name="login" onclick="javascript:document.frmLogin2.submit()" />
                             
                             <p class="login-links"><a href="https://<%=ApplicationServer.SERVER_NAME%>/reg/?module=Main&rt=2">Register</a><br />
-                            <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword ">Forgot Password</a></p>
+                            <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=FindUser">Forgot Password</a></p>
                         </form>
                     <%-- End Login --%>
                     </div>
@@ -53,7 +63,7 @@
                 <input name="username" type="text" id="username" />
                 <input type="password" name="username" id="password" />
                 <input type="button" class="login-button" name="login" />
-                <p class="login-links"><a href="https://www.topcoder.com/reg/?module=Main&rt=2">Register</a><br /><a href="http://www.topcoder.com/tc?module=RecoverPassword ">Forgot Password</a></p>
+                <p class="login-links"><a href="https://www.topcoder.com/reg/?module=Main&rt=2">Register</a><br /><a href="http://www.topcoder.com/tc?module=FindUser">Forgot Password</a></p>
             </form>  --%>
             <h2 class="killerapp">$100,000 Killer App Challenge</h2>
 </div>

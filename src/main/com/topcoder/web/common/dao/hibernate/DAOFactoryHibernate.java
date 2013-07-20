@@ -34,6 +34,7 @@ import com.topcoder.web.common.dao.MemberContactBlackListDAO;
 import com.topcoder.web.common.dao.MemberContactMessageDAO;
 import com.topcoder.web.common.dao.NotificationDAO;
 import com.topcoder.web.common.dao.PasswordRecoveryDAO;
+import com.topcoder.web.common.dao.PasswordResetTokenDAO;
 import com.topcoder.web.common.dao.PathDAO;
 import com.topcoder.web.common.dao.PreferenceDAO;
 import com.topcoder.web.common.dao.PreferenceGroupDAO;
@@ -54,6 +55,7 @@ import com.topcoder.web.common.dao.SchoolAssociationTypeDAO;
 import com.topcoder.web.common.dao.SchoolDAO;
 import com.topcoder.web.common.dao.SchoolTypeDAO;
 import com.topcoder.web.common.dao.SeasonDAO;
+import com.topcoder.web.common.dao.SecondEmailRequestDAO;
 import com.topcoder.web.common.dao.SecurityGroupDAO;
 import com.topcoder.web.common.dao.SpecReviewDAO;
 import com.topcoder.web.common.dao.StateDAO;
@@ -72,6 +74,7 @@ import com.topcoder.web.common.dao.VisaLetterEventDAO;
 import com.topcoder.web.common.dao.VisaLetterRequestDAO;
 
 /**
+ * 
  * <p>Hibernate implementation for the DAO Factory.</p>
  *
  * <p>
@@ -90,11 +93,39 @@ import com.topcoder.web.common.dao.VisaLetterRequestDAO;
  *     <li>Added {@link #getGovernmentIdDAO()} method.</li>
  *   </ol>
  * </p>
+ * 
+ * <p>
+ * Version 1.3( Release Assembly - TopCoder Password Recovery Revamp v1.0 ) Change notes:
+ *   <ol>
+ *     <li>Added {@link #getPasswordResetTokenDAO()} method.</li>
+ *     <li>Added {@link #getSecondEmailRequestDAO()} method.</li>
+ *   </ol>
+ * </p>
  *
  * @author dok, TCSDEVELOPER, isv
- * @version 1.2
+ * @version 1.3
  */
 public class DAOFactoryHibernate implements DAOFactory {
+    /**
+     * <p>Gets the instance of {@link PasswordResetTokenDAO}.</p>
+     *
+     * @return a <code>PasswordResetTokenDAO</code> to be used for keeping password reset token.
+     * @since 1.3
+     */
+    public PasswordResetTokenDAO getPasswordResetTokenDAO(){
+        return new PasswordResetTokenDAOHibernate();
+    }
+
+    /**
+     * <p>Gets the instance of {@link SecondEmailRequestDAO}.</p>
+     *
+     * @return a <code>SecondEmailRequestDAO</code> to be used for keeping add second email token.
+     * @since 1.3
+     */
+    public SecondEmailRequestDAO getSecondEmailRequestDAO() {
+        return new SecondEmailRequestDAOHibernate();
+    }
+    
     public AlgoRatingTypeDAO getAlgoRatingTypeDAO() {
         return new AlgoRatingTypeDAOHibernate();
     }

@@ -1,11 +1,18 @@
+/*
+ * Copyright (C) 2013 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.common.dao;
 
 import java.util.List;
-
+import org.hibernate.HibernateException;
 import com.topcoder.web.common.model.User;
 
 
 /**
+ * <p>
+ * Update (Release Assembly - TopCoder Password Recovery Revamp v1.0): Add
+ * <code>findByPrimaryOrSecondEmail(String email)</code> method.
+ * </p>
  * <p>
  *  Update (Release Assembly - OpenID Project Update 1 v1.0):
  *  Add <code>public getUserByOpenId(String openId)</code> method.
@@ -40,4 +47,19 @@ public interface UserDAO {
      * @return Return the corresponding user, or null if there is no match.
      */
     User getUserByOpenId(String openId) throws IllegalArgumentException;
+    
+    /**
+     * <p>
+     * Find out the users who have the given email address.
+     * </p>
+     * 
+     * @param email
+     *            the email address
+     * @throws IllegalArgumentException
+     *             if the argument is invalid.
+     * @throws HibernateException
+     *             if any SQL errors occurs.
+     * @return the users matched the email address.
+     */
+    List<User> findByPrimaryOrSecondEmail(String email);
 }

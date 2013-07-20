@@ -63,6 +63,7 @@
         <mapping resource="com/topcoder/web/common/model/MemberContactMessage.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/MemberContactBlackList.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Notification.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/PasswordResetToken.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Path.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Payment.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Phone.hbm.xml"/>
@@ -81,7 +82,7 @@
         <mapping resource="com/topcoder/web/common/model/Resume.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/School.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/SchoolType.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/SecretQuestion.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/SecondEmailRequest.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/SecurityGroup.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/State.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Survey.hbm.xml"/>
