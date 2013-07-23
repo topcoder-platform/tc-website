@@ -172,17 +172,6 @@ public class Access3scale {
     private final String accessCode;
 
     /**
-     * <p>
-     * Required attribute, the account ID used to create members in 3scale portal.
-     * </p>
-     *
-     * <p>
-     * Initialized in constructor and never changed afterwards. Not null/empty.
-     * </p>
-     */
-    private final String accountId;
-
-    /**
      * Gets portal name.
      *
      * @return Portal name.
@@ -219,15 +208,6 @@ public class Access3scale {
     }
 
     /**
-     * Gets account id.
-     *
-     * @return account id.
-     */
-    public String getAccountId() {
-        return accountId;
-    }
-
-    /**
      * Creates and configures instance.
      *
      * @param config Configuration.
@@ -238,7 +218,6 @@ public class Access3scale {
         this.providerKey = (String) config.getPropertyValue("providerKey");
         this.accessCode = (String) config.getPropertyValue("accessCode");
         this.portalUrl = String.format(PORTAL_URL_PATTERN, getPortalName());
-        this.accountId = (String) config.getPropertyValue("accountId");
         this.adminPortalUrl = String.format(ADMIN_PORTAL_URL_PATTERN, getPortalName());
     }
 
@@ -254,7 +233,7 @@ public class Access3scale {
         log.info("Enter createUser(" + username + ", ...)");
 
         // Send request and get response.
-        URL url = new URL(adminPortalUrl + "/admin/api/accounts/" + accountId + "/users.xml");
+        URL url = new URL(adminPortalUrl + "/admin/api/signup.xml");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         OutputStreamWriter writer = null;
         String response = null;
@@ -264,7 +243,7 @@ public class Access3scale {
             writer = new OutputStreamWriter(connection.getOutputStream());
             writer.write("provider_key=" + URLEncoder.encode(providerKey, "UTF-8"));
             writer.write("&username=" + URLEncoder.encode(username, "UTF-8"));
-            writer.write("&password=" + URLEncoder.encode(password, "UTF-8"));
+            writer.write("&org_name=" + URLEncoder.encode(username, "UTF-8"));
             writer.write("&email=" + URLEncoder.encode(email, "UTF-8"));
             writer.close();
             connection.connect();
@@ -282,10 +261,12 @@ public class Access3scale {
         Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(responseSource);
         String userId = ((Element) (doc.getElementsByTagName("user").item(0))).
                 getElementsByTagName("id").item(0).getTextContent();
+	String accountId = ((Element) (doc.getElementsByTagName("account").item(0))).getElementsByTagName("id").item(0).getTextContent();
         log.info("userId = " + userId);
+	log.info("accountId =" + accountId);
 
-        // Activate user.
-        activateUser(userId);
+        // Activate user. Already activated when using Signup Express
+         activateUser(userId, accountId);
 
         log.info("Exit createUser(" + username + ", ...)");
     }
@@ -371,13 +352,18 @@ public class Access3scale {
         log.info("Entered retrieveUser(" + userName + ")");
 
 	// Make request
-	URL url = new URL(adminPortalUrl + "/admin/api/accounts/" + accountId + "/users.xml?provider_key=" + URLEncoder.encode(providerKey, "UTF-8"));
+	URL url = new URL(adminPortalUrl + "/admin/api/accounts/find.xml?provider_key=" + URLEncoder.encode(providerKey, "UTF-8") + "&username=" + 
+		URLEncoder.encode(userName, "UTF-8"));
 	HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 	String response = null;
 	try {
 		connection.setDoOutput(true);
 		connection.setRequestMethod("GET");
 		connection.connect();
+
+		// if user not found return null
+		if(connection.getResponseCode() == 404) return null;
+
 		response = getConnectionResponse(connection);
 	} finally {
 		connection.disconnect();
@@ -398,7 +384,9 @@ public class Access3scale {
 			if(state.equalsIgnoreCase("suspended")) {
 				throw new Exception("User suspended from portal");
 			} else if (state.equalsIgnoreCase("pending")) {
-				activateUser(user.getElementsByTagName("id").item(0).getTextContent());	
+				String accountId = ((Element) (doc.getElementsByTagName("account").item(0))).getElementsByTagName("id").item(0).getTextContent();
+				log.info("accountId = " + accountId);
+				activateUser(user.getElementsByTagName("id").item(0).getTextContent(), accountId);	
 			}
 			return userName;
 		}	
@@ -411,14 +399,15 @@ public class Access3scale {
      * Activates portal user.
      *
      * @param userId User ID.
+     * @param accountId Account ID.
      * @throws Exception if any error occurs.
      */
-    private void activateUser(String userId) throws Exception {
+    private void activateUser(String userId, String accountId) throws Exception {
         log.info("Enter activateUser(" + userId + ")");
 
         // Make request. 404 error is expected, so keep trying (fixed amount of attempts) until 200 or other error.
         URL url = new URL(adminPortalUrl + "/admin/api/accounts/" + accountId + "/users/" + URLEncoder.encode(userId, "UTF-8") + "/activate.xml");
-        boolean success = false;
+	boolean success = false;
         for (int attempsRemaining = ACTIVATE_USER_ATTEMPTS_AMOUNT; attempsRemaining > 0 && !success; attempsRemaining--) {
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             OutputStreamWriter writer = null;
