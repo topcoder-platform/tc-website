@@ -71,51 +71,44 @@
     </head>
     
     <body>
-        
-        <div id="wrapper">
-        
-            <div id="box-head">
-                <jsp:include page="header.jsp" />
-                <div id="page-head">
-                    <h3><strong>A Message from the TopCoder Founder</strong></h3>
-                </div>
-            </div>
-            
-            <div id="box-body">
-                <%--
-                <p class="padded center">
-                    <a href="tc_login.jsp">TC Login</a> | 
-                    <a href="studio_home.jsp">Studio Home</a> | 
-                    <a href="signup_type.jsp">Register Now</a>
-                </p>
-                --%>
-                <br />
-                <p>Welcome to TopCoder. Before you register, there are a few things we think you should know:  First, and most importantly, TopCoder is a commercial
-                site.  We charge sponsors for the right to advertise on our site.  This money pays for the operation of the site and the prizes awarded in competitions.</p>
-                
-                <p>This has several implications. Because we feel it is our obligation to let our sponsors know who their message is reaching, we collect as much
-                demographic information as possible without making the Registration process overly burdensome.  Furthermore, we require that you verify the accuracy of
-                the information you provide.  This does not mean that sponsors have access to your personal information; in general, they do
-                not. In certain circumstances such as participating in or opting in to certain events,
-                sponsors will be given access to view your demographic information, educational and work
-                experience (if provided by you), and contact information.</p>
-                
-                <p>While we believe that sponsors have every right to expect that what we give them is accurate and valuable, we also believe that they must bring more
-                than just money to our member base.  We want sponsors who provide true value to developers.  TopCoder intends to help developers increase their skill
-                level as well as increase their value to employers. Therefore, we are careful to choose sponsors that represent this philosophy.</p>
-                
-                <p>We are also very strict about the way in which sponsors present themselves to the member base&#151;no annoying banners, pop-ups, etc. We work with
-                sponsors to get their message across in an appealing and non-intrusive manner.  Because we take our relationship with sponsors seriously, we
-                believe that they have value to provide.  We ask that you listen to what they have to say.</p>
-                
-                <p>Let me be the first to say good luck in the arena.</p>
-                
-                <p><em>Jack Hughes<br />
-                Founder and Chairman, TopCoder, Inc.</em></p>
-            </div>
-            <jsp:include page="footer.jsp" />
-            
-        </div>
-        
+		<jsp:include page="header.jsp" />
+		<div id="heading" class="registrationSuccessfulHedading">	
+			<div class="inner">
+				<h1>A Message from the TopCoder Founder</h1>
+			</div><!-- END .inner -->
+		</div>
+		<div id="content" class="registrationSuccessful">
+			<%--
+			<p class="padded center">
+				<a href="tc_login.jsp">TC Login</a> | 
+				<a href="studio_home.jsp">Studio Home</a> | 
+				<a href="signup_type.jsp">Register Now</a>
+			</p>
+			--%>
+			<br />
+			<p>Welcome to TopCoder. Before you register, there are a few things we think you should know:  First, and most importantly, TopCoder is a commercial
+			site.  We charge sponsors for the right to advertise on our site.  This money pays for the operation of the site and the prizes awarded in competitions.</p>
+			
+			<p>This has several implications. Because we feel it is our obligation to let our sponsors know who their message is reaching, we collect as much
+			demographic information as possible without making the Registration process overly burdensome.  Furthermore, we require that you verify the accuracy of
+			the information you provide.  This does not mean that sponsors have access to your personal information; in general, they do
+			not. In certain circumstances such as participating in or opting in to certain events,
+			sponsors will be given access to view your demographic information, educational and work
+			experience (if provided by you), and contact information.</p>
+			
+			<p>While we believe that sponsors have every right to expect that what we give them is accurate and valuable, we also believe that they must bring more
+			than just money to our member base.  We want sponsors who provide true value to developers.  TopCoder intends to help developers increase their skill
+			level as well as increase their value to employers. Therefore, we are careful to choose sponsors that represent this philosophy.</p>
+			
+			<p>We are also very strict about the way in which sponsors present themselves to the member base&#151;no annoying banners, pop-ups, etc. We work with
+			sponsors to get their message across in an appealing and non-intrusive manner.  Because we take our relationship with sponsors seriously, we
+			believe that they have value to provide.  We ask that you listen to what they have to say.</p>
+			
+			<p>Let me be the first to say good luck in the arena.</p>
+			
+			<p><em>Jack Hughes<br />
+			Founder and Chairman, TopCoder, Inc.</em></p>
+		</div>
+		<jsp:include page="footer.jsp" />
     </body>
 </html>

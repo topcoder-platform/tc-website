@@ -11,7 +11,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-        <title>Signup Personal Information</title>
+		<c:if test="${sessionInfo.loggedIn}">
+			<title>Edit Profile</title>
+		</c:if>
+		<c:if test="${!sessionInfo.loggedIn}">
+			<title>Signup Personal Information</title>
+		</c:if>
         <script type="text/javascript" src="/js/regReskin20080904.js"></script>
         <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
         <jsp:include page="style.jsp">
@@ -43,7 +48,7 @@
     
     
         <div id="popUp2" class="popUp"> 
-            <div style="width: 400px; white-space: normal;">Compete in competitions ranging from graphic design, information architecture, mobile app design, UX and UI, logos, print and more! Have the opportunity to design for big-name clients and compete against designers from across the globe. Studio competitions give you several ways to win with multi-round competitions and youâ€™ll be eligible to win even more in the monthly tournament called the Studio Cup. Finally, compete among the best designers in the world for a chance to become a finalist in our annual global onsite tournament called the TCO where designers compete for cash prizes and prestige!</div> 
+            <div style="width: 400px; white-space: normal;">Compete in competitions ranging from graphic design, information architecture, mobile app design, UX and UI, logos, print and more! Have the opportunity to design for big-name clients and compete against designers from across the globe. Studio competitions give you several ways to win with multi-round competitions and you’ll be eligible to win even more in the monthly tournament called the Studio Cup. Finally, compete among the best designers in the world for a chance to become a finalist in our annual global onsite tournament called the TCO where designers compete for cash prizes and prestige!</div> 
         </div> 
     
     
@@ -64,136 +69,121 @@
     
         <div id="popUp6" class="popUp"> 
             <div style="width: 400px; white-space: normal;">stuff</div> 
-        </div>     
-    <div id="wrapper">
-
-        <div id="box-head">
-            <jsp:include page="header.jsp" />
-            <div id="page-head">
-                <h3 id="registration-signup"><span>Registration Signup: Personal Information</span></h3>
-            </div>
         </div>
-            
-        <div id="box-body">
-    
-            <c:if test="${sessionInfo.loggedIn}">
-                <div style="float:right;" class="small"><A href="${sessionInfo.servletPath}?module=Logout">logout</A></div>
-            </c:if>
-            
-            <c:if test="${!sessionInfo.loggedIn}">
-                <div style="float:right;" class="small">
-                    (<A href="/reg/?nrg=false">Click here</A> if you're already a registered member and would like to update
-                    your profile.)
-                </div>
-            </c:if>
-    
-            <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="selectionForm">
-            <div class="block">
-            
-                <div class="sidebar">
-                    <p>
-                        <c:if test="${!sessionInfo.loggedIn}">
-                            Before registering, we encourage you to read our <a href="Javascript:openWin('/reg/message.jsp','',1200,600);">Message
-                            from the TopCoder Founder</a>.
-                            <br/>
-                        </c:if>                    
-                    </p>
-                    <p>All registered TopCoder members have the ability to read and post in our forums, as well as browse sections of both TopCoder and TopCoder Studio that require login, such as competition details and statistics.</p>
-                    <p>You can always add to your registered capabilities later by clicking &quot;Update My Profile&quot;.</p>
-                    <p>Please read the <a href="Javascript:openWin('/reg/privacy_policy.jsp','',1200,600);">Privacy Policy</a> </p>
-                </div>
-                
-                <div class="content">
-                <h4><span>What would you like to do as a registered TopCoder member?</span><span class="hint">(check all that apply)</span><span class="end">&nbsp;</span></h4>
-                <div class="content-body">
-                <ul>
-            
-                    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Main"/>
-        
-                    <c:set value="<%=Constants.REGISTRATION_TYPE%>" var="regType"/>
-                    <span class="bigRed"><tc-webtag:errorIterator id="err" name="${regType}">${err}
-                        <br/></tc-webtag:errorIterator></span>
-        
-                    <c:set value="<%=BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
-                    <c:set value="<%=RegistrationType.TEACHER_ID%>" var="teacherType"/>
-                    <c:set value="<%=RegistrationType.OPENAIM_ID%>" var="openAIM"/>
-                    <c:set value="<%=RegistrationType.TRUVEO_ID%>" var="truveo"/>
-        
-                    <c:set value="<%=RegistrationType.HIGH_SCHOOL_ID%>" var="highSchool"/>
-                    
-
-                    <h5>Run My Own Contests</h5>
-                    <li class="form-row">
-                        <c:choose>
-                            <c:when test="${requestScope[defaults]['rt2']==null}">
-                                <input name="rt2" style="margin-left: 10px; margin-top: 5px;" type="checkbox" />
-                            </c:when>
-                            <c:otherwise>
-                                <input type="checkbox" style="margin-left: 10px; margin-top: 5px;" checked="true" disabled="true"/>
-                                <tc-webtag:hiddenInput name="rt2" value="on"/>
-                            </c:otherwise>
-                        </c:choose>
-                        I want to start using TopCoder Direct | <a href="javascript:void(0)" onmouseover="popUp(this,'popUp0');" onmouseout="popHide()">tell me more</a>
-                    </li>
-                    <h5 class="title2">I Want to Compete</h5>
-                    <li class="form-row">
-                        <c:choose>
-                            <c:when test="${requestScope[defaults]['rt1']==null}">
-                                <input name="rt1" style="margin-left: 10px; margin-top: 5px;" type="checkbox" />
-                            </c:when>
-                            <c:otherwise>
-                                <input type="checkbox" style="margin-left: 10px; margin-top: 5px;" checked="true" disabled="true"/>
-                                <tc-webtag:hiddenInput name="rt1" value="on"/>
-                            </c:otherwise>
-                        </c:choose>
-                        on TopCoder | <a href="javascript:void(0)" onmouseover="popUp(this,'popUp1');" onmouseout="popHide()">tell me more</a>
-                    </li>
-                    <li class="form-row">
-                        <c:choose>
-                            <c:when test="${requestScope[defaults]['rt6']==null}">
-                                <input name="rt6" style="margin-left: 10px; margin-top: 5px;" type="checkbox" />
-                            </c:when>
-                            <c:otherwise>
-                                <input type="checkbox" style="margin-left: 10px; margin-top: 5px;" checked="true" disabled="true"/>
-                                <tc-webtag:hiddenInput name="rt6" value="on"/>
-                            </c:otherwise>
-                        </c:choose>
-                        on TopCoder Studio | <a href="javascript:void(0)" onmouseover="popUp(this,'popUp2');" onmouseout="popHide()">tell me more</a>
-                    </li>
-                    <!--<li class="form-row">
-                        <c:choose>
-                            <c:when test="${requestScope[defaults]['rt3']==null}">
-                                <input name="rt3" style="margin-left: 10px; margin-top: 5px;" type="checkbox" />
-                            </c:when>
-                            <c:otherwise>
-                                <input type="checkbox" style="margin-left: 10px; margin-top: 5px;" checked="true" disabled="true"/>
-                                <tc-webtag:hiddenInput name="rt3" value="on"/>
-                            </c:otherwise>
-                        </c:choose>
-                        High School (Secondary School) Registration | <a href="javascript:void(0)" onmouseover="popUp(this,'popUp3');" onmouseout="popHide()">tell me more</a>
-                    </li>-->
-
-
-                    <li class="form-bottom"><br />
-                        <button type="submit" id="submit">Submit</button>
-                        <p>
-                            Or cancel and go to 
-                            <a href="http://<%=ApplicationServer.SERVER_NAME%>/" title="TopCoder">TopCoder</a> or 
-                            <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/" title="Studio">Studio</a>
-                        </p>
-                        <p>&nbsp;</p>
-                    </li>
-                    
-                </ul>
-                </div>
-                </div>
-            </div>    
-            </form>
-        </div>
-        
+		
+        <jsp:include page="header.jsp" />
+		
+		<div id="heading" class="registrationSuccessfulHedading">	
+			<div class="inner">
+				<c:if test="${sessionInfo.loggedIn}">
+					<h1>Edit Profile</h1>
+				</c:if>
+				<c:if test="${!sessionInfo.loggedIn}">
+					<h1>Registration Signup</h1>
+				</c:if>
+			</div><!-- END .inner -->
+		</div>
+		
+		<div id="content" class="registrationForm choose">
+			<div class="leftSide">
+				<c:if test="${!sessionInfo.loggedIn}">
+				<p>
+					Before registering, we encourage you to read our <a href="Javascript:openWin('/reg/message.jsp','',1200,600);">Message
+					from the TopCoder Founder</a>.
+					<br>                  
+				</p>
+				</c:if>
+				<p>All registered TopCoder members have the ability to read and post in our forums, as well as browse sections of both TopCoder and TopCoder Studio that require login, such as competition details and statistics.</p>
+				<p>You can always add to your registered capabilities later by clicking "Update My Profile".</p>
+				<p>Please read the <a href="Javascript:openWin('/reg/privacy_policy.jsp','',1200,600);">Privacy Policy</a> </p>
+				<div class="accessLogos">
+					<a href="/"><img src="/i/logo-topcoder.png" width="136" height="21" alt="TopCoder"></a><br>
+					<a href="http://studio.topcoder.com/"><img src="/i/logo-tc-studio.png" width="135" height="45" alt="TopCoder Studio"></a><br>
+					<a href="/direct/home.action"><img src="/i/logo-tc-cockpit.png" width="136" height="71" alt="TopCoder Cockpit"></a>
+				</div>
+			</div><!-- END .leftSide -->
+			<div id="nameAndContact" class="information rightSide">
+				<div class="small">
+					<c:if test="${!sessionInfo.loggedIn}">
+					(<a href="/reg/?nrg=false">Click here</a> if you're already a registered member and would like to update
+					your profile.)
+					</c:if>
+					<c:if test="${sessionInfo.loggedIn}">
+					<div class="small"><A href="${sessionInfo.servletPath}?module=Logout">logout</A></div>
+					</c:if>
+				</div>
+				<h2 class="registeredMember">What would you like to do as a registered TopCoder member?<span class="hint">(check all that apply)</span><span class="end">&nbsp;</span></h2>
+				<div class="content-body">
+					<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="selectionForm">
+						<ul class="chooseForm">
+							<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Main"/>
+							<c:set value="<%=Constants.REGISTRATION_TYPE%>" var="regType"/>
+							<span class="bigRed"><tc-webtag:errorIterator id="err" name="${regType}">${err}
+								<br/></tc-webtag:errorIterator></span>
+				
+							<c:set value="<%=BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
+							<c:set value="<%=RegistrationType.TEACHER_ID%>" var="teacherType"/>
+							<c:set value="<%=RegistrationType.OPENAIM_ID%>" var="openAIM"/>
+							<c:set value="<%=RegistrationType.TRUVEO_ID%>" var="truveo"/>
+				
+							<c:set value="<%=RegistrationType.HIGH_SCHOOL_ID%>" var="highSchool"/>
+							<h2>Run My Own Contests</h2>
+							<li class="form-row">
+								<c:choose>
+									<c:when test="${requestScope[defaults]['rt2']==null}">
+										<input name="rt2" style="margin-left: 10px; margin-top: 5px;" type="checkbox" />
+									</c:when>
+									<c:otherwise>
+										<input type="checkbox" style="margin-left: 10px; margin-top: 5px;" checked="true" disabled="true"/>
+										<tc-webtag:hiddenInput name="rt2" value="on"/>
+									</c:otherwise>
+								</c:choose>
+								I want to start using TopCoder Direct | <a href="javascript:void(0)" onmouseover="popUp(this,'popUp0');" onmouseout="popHide()">tell me more</a>
+							</li>
+							<h2 class="title2">I Want to Compete</h2>
+							<li class="form-row">
+								<c:choose>
+									<c:when test="${requestScope[defaults]['rt1']==null}">
+										<input name="rt1" style="margin-left: 10px; margin-top: 5px;" type="checkbox" />
+									</c:when>
+									<c:otherwise>
+										<input type="checkbox" style="margin-left: 10px; margin-top: 5px;" checked="true" disabled="true"/>
+										<tc-webtag:hiddenInput name="rt1" value="on"/>
+									</c:otherwise>
+								</c:choose>
+								on TopCoder | <a href="javascript:void(0)" onmouseover="popUp(this,'popUp1');" onmouseout="popHide()">tell me more</a>
+							</li>
+							<li class="form-row">
+								<c:choose>
+									<c:when test="${requestScope[defaults]['rt6']==null}">
+										<input name="rt6" style="margin-left: 10px; margin-top: 5px;" type="checkbox" />
+									</c:when>
+									<c:otherwise>
+										<input type="checkbox" style="margin-left: 10px; margin-top: 5px;" checked="true" disabled="true"/>
+										<tc-webtag:hiddenInput name="rt6" value="on"/>
+									</c:otherwise>
+								</c:choose>
+								on TopCoder Studio | <a href="javascript:void(0)" onmouseover="popUp(this,'popUp2');" onmouseout="popHide()">tell me more</a>
+							</li>
+							<li class="form-bottom">
+								<div class="btns" style="display: block;">
+									<a class="redBtn btnSave" id="submit" href="JavaScript:document.selectionForm.submit();">
+										<span class="buttonMask"><span class="text">NEXT</span></span>
+									</a>
+									<p>
+										Or cancel and go to 
+										<a href="http://<%=ApplicationServer.SERVER_NAME%>/" title="TopCoder">TopCoder</a> or 
+										<a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/" title="Studio">Studio</a>
+									</p>
+								</div>
+							</li>
+						</ul>
+					</form>
+				</div>
+			</div><!-- END #nameAndContact.rightSide -->
+			<div class="clear"></div>
+		</div>
         <jsp:include page="footer.jsp" />
-        
-    </div>
 
 </body>
 </html>

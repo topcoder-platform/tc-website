@@ -13,15 +13,12 @@
     </head>
     
     <body>
-        
-        <div id="wrapper">
-        
-            <div id="box-head">
-                <jsp:include page="header.jsp" />
-                <div id="page-head">
-                    <h3 id="your_profile"><span>Your Profile</span></h3>
-                </div>
-            </div>
+			
+			<div id="heading" class="registrationSuccessfulHedading">	
+				<div class="inner">
+					<h1>Your Profile</h1>
+				</div><!-- END .inner -->
+			</div>
             
             <div id="box-body">
             
@@ -178,8 +175,7 @@
             </div>
 
             <jsp:include page="footer.jsp" />
-            
-        </div>
+
         
     </body>
 </html>

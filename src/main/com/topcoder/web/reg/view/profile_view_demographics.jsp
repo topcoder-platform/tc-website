@@ -14,14 +14,15 @@
     
     <body>
         
-        <div id="wrapper">
-        
-            <div id="box-head">
-                <jsp:include page="header.jsp" />
-                <div id="page-head">
-                    <h3 id="your_profile"><span>Your Profile</span></h3>
-                </div>
-            </div>
+
+            <jsp:include page="header.jsp" />
+
+			
+			<div id="heading" class="registrationSuccessfulHedading">	
+				<div class="inner">
+					<h1>Your Profile</h1>
+				</div><!-- END .inner -->
+			</div>
             
             <div id="box-body">
             
@@ -30,9 +31,9 @@
                     <li><a href="profile_view_demographics.jsp" title="Profile View (Demographics)" class="active"><span>Demographics</span></a></li>
                 </ul>
                 
-                <div id="tab-content">
+                <div id="content" class="registrationForm">
 
-                    <div class="sidebox">
+                    <div class="leftSide">
 
                         <%-- Hidden until functionality is ready 
                         <h4>Profile Completeness</h4>
@@ -59,7 +60,7 @@
                         </p>
 
                     </div>
-                    <div class="content">
+                    <div class="information rightSide">
                     
                         <h4 class="floated">
                             <span>Demographic Information</span><span class="end">&nbsp;</span>
@@ -140,14 +141,11 @@
                       </div>
 
                     </div>
-                    
+                    <div class="clear"></div>
                 </div>
                 <div id="tab-content-bottom"></div>
             </div>
-
             <jsp:include page="footer.jsp" />
-            
-        </div>
-        
+
     </body>
 </html>
