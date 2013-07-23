@@ -1,13 +1,3 @@
-<%--
-  - Author: vangavroche, TCSASSEMBLER
-  - Version: 1.1 (Release Assembly - TopCoder Password Recovery Revamp v1.0)
-  - Copyright (C) 2010 - 2013 TopCoder Inc., All Rights Reserved.
-  -
-  - Changes in 1.1 (Release Assembly - TopCoder Password Recovery Revamp v1.0 )
-  - - Change the entry link of password recovery from /tc?module=RecoverPassword" to /tc?module=FindUser".
-  - - Add this code document
-  - 
---%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.common.BaseServlet" %>
 <%@ page import="com.topcoder.web.common.StringUtils" %>
@@ -46,76 +36,57 @@
     String message = (String) request.getAttribute("message");
     if (message == null) message = "";
 %>
-
-
     <body>
-        
-        <div id="wrapper">
-        
-            <div id="box-head">
-                <jsp:include page="header.jsp" />
-                <div id="page-head">
-                    <h3 id="registration-signup"><span>Registration Signup: Personal Information</span></h3>
-                </div>
-            </div>
-            
-            <div id="box-body">
-
-        <p><b>Forgot your password?</b><br/>
-        If you cannot remember your password <A href="/tc?module=FindUser" class="bodyText">click here</A>
-        and we can help you restore your account.</p>
-        <br><br>
-        <strong>New to TopCoder?</strong><br>
-        <A href="${sessionInfo.secureAbsoluteServletPath}">Register now</A>. After you complete the registration
-        process, we will send your account activation code via email.
-        <br><br>
-
-        <form method="post" name="frmLogin" action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>">
-            <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= StringUtils.htmlEncode(nextpage) %>">
-            <input type="hidden" name="module" value="Login">
-
-            <div align="center">
-                <span class="bigRed"><%= message %></span>
-                <table cellpadding="0" cellspacing="0" border="0" class="regFields">
-                    <tr>
-                        <td class="name">
-                            Handle:
-                        </td>
-                        <td class="value">
-                            <input type="text" name="<%=Login.USER_NAME%>" value="" maxlength="30" size="12" onkeypress="submitEnter(event)">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="name">
-                            Password:
-                        </td>
-                        <td class="value">
-                            <input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="30" size="12" onkeypress="submitEnter(event)">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="value">
-                            &#160;
-                        </td>
-                        <td class="value">
-                            <a href="#" onclick="document.frmLogin.submit();return false;" class="bodyText">Login</a>
-                        </td>
-                    </tr>
-                </table>
-
-                <p><br/></p>
-
-                <script type="text/javascript">
-                    document.frmLogin.<%=Login.USER_NAME%>.focus();
-                </script>
-                </div>
-
-        </form>
-
-    </div>
-            <jsp:include page="footer.jsp" />
-            
-        </div>
-        
+		<jsp:include page="header.jsp" />
+		<div id="heading" class="registrationSuccessfulHedading">	
+			<div class="inner">
+				<h1>Edit Profile</h1>
+			</div><!-- END .inner -->
+		</div>
+		<div class="loginAreaBox">
+			<div class="loginLeftSide">
+				<div class="accessLogos">
+					<a href="#"><img src="/i/logo-topcoder.png" width="136" height="21" alt="TopCoder"></a><br>
+					<a href="#"><img src="/i/logo-tc-studio.png" width="135" height="45" alt="TopCoder Studio"></a><br>
+					<a href="#"><img src="/i/logo-tc-cockpit.png" width="136" height="71" alt="TopCoder Cockpit"></a>
+				</div>
+			</div>
+			<div class="loginRightSide">
+				<div class="loginFormWrapper">
+					<span class="bigRed"><%= message %></span>
+					 <form method="post" name="frmLogin" action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>">
+						<input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= StringUtils.htmlEncode(nextpage) %>">
+						<input type="hidden" name="module" value="Login">
+						<dl>
+							<dd>
+								<label>Handle:</label>
+								<input type="text" name="<%=Login.USER_NAME%>" value="" maxlength="50" onkeypress="submitEnter(event)">
+							</dd>
+							<dd>
+								<label>Password:</label>
+								<input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="30" onkeypress="submitEnter(event)">
+							</dd>
+						</dl>
+						<div class="formCommand">
+							<div class="checkboxWrapper">
+								<input type="checkbox" name="rem" id="remeberMe">
+								<label for="remeberMe">Remember Me</label>
+								<div class="clear"></div>
+							</div>
+							<a href="#" onclick="document.frmLogin.submit();return false;" class="btnLoginNew">Login</a>
+						</div>
+						<div class="forgotPasswordSection">
+							<h3>Forgot your password?</h3>
+							<p>If you cannot remember your password, <a href="http://community.topcoder.com/tc?module=RecoverPassword" class="redColor">click here</a> and we can help you restore your account.</p>
+						</div>
+						<script>
+							document.frmLogin.<%=Login.USER_NAME%>.focus();
+						</script>
+					</form>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+        <jsp:include page="footer.jsp" />
     </body>
 </html>
