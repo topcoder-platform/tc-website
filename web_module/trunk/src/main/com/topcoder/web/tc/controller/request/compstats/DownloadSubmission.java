@@ -111,8 +111,7 @@ public class DownloadSubmission extends Base {
 
         ResultSetContainer projectInfo = (ResultSetContainer) result.get("project_info");
         
-        if (projectInfo.getIntItem(0, "category_id") == WebConstants.JAVA_CUSTOM_CATALOG ||
-                projectInfo.getIntItem(0, "category_id") == WebConstants.NET_CUSTOM_CATALOG) {
+        if (projectInfo.getIntItem(0, "viewable_category_ind") != 1) {
             return false;
         }
 
