@@ -290,31 +290,6 @@
 								</tr>
 							</c:if>
 
-							<c:set value="<%=Constants.SECRET_QUESTION%>" var="secretQuestion"/>
-							<c:if test="${cf:contains(fields, secretQuestion)}">
-								<tr>
-									<td class="field-name">
-										Secret Question:
-									</td>
-									<td class="field-value">
-											<c:out value="${regUser.secretQuestion.question}"/>
-									</td>
-								</tr>
-							</c:if>
-
-							<c:set value="<%=Constants.SECRET_QUESTION_RESPONSE%>" var="secretQuestionResponse"/>
-							<c:if test="${cf:contains(fields, secretQuestionResponse)}">
-								<tr>
-									<td class="field-name">
-										Secret Question Response:
-									</td>
-									<td class="field-value">
-										********
-									</td>
-								</tr>
-							</c:if>
-
-
 							<c:set value="<%=Constants.QUOTE%>" var="quote"/>
 							<c:if test="${cf:contains(fields, quote)}">
 								<tr>
