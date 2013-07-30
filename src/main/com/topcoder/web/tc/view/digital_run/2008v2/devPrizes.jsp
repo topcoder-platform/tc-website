@@ -60,8 +60,6 @@ The remaining 50% of the Development Cup prize pool will be distributed among th
 A total of 120 developers accumulate placement points during the Stage. We will sum the total number of placement points accumulated by the top 60 developers and divide $37,000 by that number to find the dollar per placement point bonus that is available to those 60 developers. If the total placement points of those 60 developers are 5,000, then each point is worth $7.40 ($37,000/5,000 = $7.40 per placement point). Each of the top 60 developers, including the top five, will receive $7.40 for each placement point they earned during the Stage. In addition, the top five point-getters in each Stage will receive the Top Five Stage prizes outlined above.
 <br /><br />
 --%>
-As an added prize, the top point-getter of each month starting in January, 2009 and ending in August, 2009 will win a trip to the 2010 TCO finals to be recognized at the Awards Ceremony. 
-<br /><br />
 Digital Run prize money will be paid at the end of each month within 60 days of announcing the Top Five and Top Half money winners.
 <br /><br />
 
