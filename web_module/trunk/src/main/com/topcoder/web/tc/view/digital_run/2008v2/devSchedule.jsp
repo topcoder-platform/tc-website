@@ -35,7 +35,7 @@
 
 <span class="title">Schedule</span>
 <br /><br />
-Points and prize pool money are available for each month. The monthly schedule shown below includes competitions posted within the following date range:
+Points and prize pool money are available for each month of the calendar year. The monthly schedule shown below includes competitions posted within the following date range:
 <br /><br />
 
 January 1 - January 31
@@ -52,15 +52,6 @@ January 1 - January 31
 <br />December 1 - December 31
 <br /><br />
 
-In addition, a special 3-month UI Prototype tournament is happening in 2011.
-<br /><br />
-
-April 1 - June 30, 2011
-<br /><br />
-
-During each of these months, a single winner will be chosen based on how many points they accumulated during UI Prototype contests. One winner from each month will win an all-expenses paid trip to TCO11! See <a href="http://community.topcoder.com/tco11">here</a> for more details.
-
-<br /><br />
 
     </div>
 </div>

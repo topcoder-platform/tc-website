@@ -22,11 +22,6 @@
     <% } else { %>
         <a class="bcLink" href="/tc?module=Static&amp;d1=digital_run&amp;d2=2008v2&amp;d3=desOverview">Overview</a>
     <% } %>
-    <% if (tabLev2.equals("2011_tournament")) {%>
-        | 2011 Tournament
-    <% } else { %>
-        | <a class="bcLink" href="/tc?module=Static&amp;d1=digital_run&amp;d2=2008v2&amp;d3=2011_tournament">2011 Tournament</a>
-    <% } %>
     <% if (tabLev2.equals("schedule")) {%>
         | Schedule
     <% } else { %>
@@ -54,11 +49,6 @@
         Overview
     <% } else { %>
         <a class="bcLink" href="/tc?module=Static&amp;d1=digital_run&amp;d2=2008v2&amp;d3=devOverview">Overview</a>
-    <% } %>
-    <% if (tabLev2.equals("2011_tournament")) {%>
-        | 2011 Tournament
-    <% } else { %>
-        | <a class="bcLink" href="/tc?module=Static&amp;d1=digital_run&amp;d2=2008v2&amp;d3=2011_tournament">2011 Tournament</a>
     <% } %>
     <% if (tabLev2.equals("schedule")) {%>
         | Schedule
@@ -88,11 +78,6 @@
         Overview
     <% } else { %>
         <a class="bcLink" href="/tc?module=Static&amp;d1=digital_run&amp;d2=2008v2&amp;d3=asmOverview">Overview</a>
-    <% } %>
-    <% if (tabLev2.equals("2011_tournament")) {%>
-        | 2011 Tournament
-    <% } else { %>
-        | <a class="bcLink" href="/tc?module=Static&amp;d1=digital_run&amp;d2=2008v2&amp;d3=2011_tournament">2011 Tournament</a>
     <% } %>
     <% if (tabLev2.equals("schedule")) {%>
         | Schedule

@@ -60,8 +60,6 @@ The remaining 50% of the Design Cup prize pool will be distributed among the top
 A total of 120 designers accumulate placement points during the Stage. We will sum the total number of placement points accumulated by the top 60 designers and divide $100,000 by that number to find the dollar per placement point bonus that is available to those 60 designers. If the total placement points of those 60 designers are 5,000, then each point is worth $20 ($100,000/5,000 = $20 per placement point). Each of the top 60 designers, including the top 5, will receive $20 for each placement point they earned during the Stage. In addition, the top 5 point-getters in each Stage will receive the Top Five Stage prizes outlined above.
 <br /><br />
 --%>
-As an added prize, the top point-getter of each month starting in January, 2009 and ending in August, 2009 will win a trip to the 2010 TCO finals to be recognized at the Awards Ceremony. 
-<br /><br />
 Digital Run prize money will be paid at the end of each month within 60 days of announcing the Top Five and Top Half money winners.
 <br /><br />
 

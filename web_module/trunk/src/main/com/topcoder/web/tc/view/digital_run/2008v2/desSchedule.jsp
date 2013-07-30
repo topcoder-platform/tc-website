@@ -35,7 +35,7 @@
 
 <span class="title">Schedule</span>
 <br /><br />
-Points and prize pool money are available for each month of 2009. The monthly schedule shown below includes competitions posted within the following date range:
+Points and prize pool money are available for each month of the calendar year. The monthly schedule shown below includes competitions posted within the following date range:
 <br /><br />
 
 January 1 - January 31
@@ -53,18 +53,6 @@ January 1 - January 31
 <br /><br />
 
 
-The TCO trip prize is available to the monthly winner during the following months of 2009:
-<br /><br />
-
-January 
-<br />February 
-<br />March 
-<br />April 
-<br />May 
-<br />June 
-<br />July 
-<br />August 
-<br /><br />
 
     </div>
 </div>
