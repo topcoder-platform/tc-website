@@ -97,7 +97,7 @@ public class FindUser extends ShortHibernateProcessor {
                 user = users.get(0);
             }
         } else {
-            user = dao.find(queryString, false);
+            user = dao.find(queryString, false, true);
             if (user == null) {
                 renderView(Constants.RECOVER_PASSWORD, "No user found with the given handle.", true);
                 log.debug("Exit method " + CLASS_NAME + "#dbProcessing().");
