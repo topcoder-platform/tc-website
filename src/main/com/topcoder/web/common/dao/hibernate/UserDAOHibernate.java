@@ -326,7 +326,7 @@ public class UserDAOHibernate extends Base implements UserDAO {
         List<User> users =
             session
                 .createCriteria(User.class)
-                .createCriteria("emailAddresses")
+                .createCriteria("emailAddresses").add(Restrictions.eq("status", String.valueOf(Constants.ACTIVE_STATI[1])))
                 .add(Restrictions.sqlRestriction("lower({alias}.address)=lower(?)", email, Hibernate.STRING))
                 .add(
                     Restrictions.in("emailTypeId", new Integer[] {com.topcoder.web.tc.Constants.PRIMARY_EMAIL_TYPE_ID,
