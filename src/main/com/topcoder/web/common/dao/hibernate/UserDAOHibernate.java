@@ -325,8 +325,8 @@ public class UserDAOHibernate extends Base implements UserDAO {
         @SuppressWarnings("unchecked")
         List<User> users =
             session
-                .createCriteria(User.class)
-                .createCriteria("emailAddresses").add(Restrictions.eq("status", String.valueOf(Constants.ACTIVE_STATI[1])))
+                .createCriteria(User.class).add(Restrictions.eq("status", String.valueOf(Constants.ACTIVE_STATI[1])))
+                .createCriteria("emailAddresses")
                 .add(Restrictions.sqlRestriction("lower({alias}.address)=lower(?)", email, Hibernate.STRING))
                 .add(
                     Restrictions.in("emailTypeId", new Integer[] {com.topcoder.web.tc.Constants.PRIMARY_EMAIL_TYPE_ID,
