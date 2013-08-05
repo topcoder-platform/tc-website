@@ -425,13 +425,13 @@
     <td class="statText">Division II</td>
 </tr>
 <tr>
-    <td BACKGROUND="/i/steel_bluebv_bg.gif" class="statText" width="30%"></td>
+    <td BACKGROUND="/i/steel_bluebv_bg.gif" class="statText" width="28%"></td>
     <rsc:iterator list="<%=div2Lang%>" id="resultRow">
-        <td BACKGROUND="/i/steel_bluebv_bg.gif" class="statText" width="14%" align="right">
+        <td BACKGROUND="/i/steel_bluebv_bg.gif" class="statText" width="12%" align="right">
             <rsc:item name="language_name" row="<%=resultRow%>"/>
         </td>
     </rsc:iterator>
-    <td BACKGROUND="/i/steel_bluebv_bg.gif" class="statText" width="14%" align="right">Overall</td>
+    <td BACKGROUND="/i/steel_bluebv_bg.gif" class="statText" width="12%" align="right">Overall</td>
 </tr>
 <tr>
     <td class="statText">Problems Submitted</td>
