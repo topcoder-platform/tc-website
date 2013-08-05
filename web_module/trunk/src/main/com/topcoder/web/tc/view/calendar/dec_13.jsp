@@ -92,15 +92,15 @@
       <td class="value">13
       </td>
       <td class="value">14
+        <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=15712">SRM 600</A></strong><br />
+         12:00
+        </div>
       </td>
    </tr>
 
    <tr>
       <td class="value">15
-        <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=15712">SRM 600</A></strong><br />
-         12:00
-        </div>
       </td>
       <td class="value">16
       </td>
