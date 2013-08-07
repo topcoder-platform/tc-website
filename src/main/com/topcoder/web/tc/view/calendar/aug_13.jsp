@@ -88,6 +88,10 @@
       <td class="value">9
       </td>
       <td class="value">10
+        <div class="srm">
+         <strong><A href="http://apps.topcoder.com/forums/?module=Thread&threadID=796063&start=0">Test SRM #2</A></strong><br />
+         12:00
+        </div>
       </td>
    </tr>
 
