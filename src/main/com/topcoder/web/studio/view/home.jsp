@@ -78,6 +78,75 @@
                 //Run the script to preload images from CSS
                 $.preloadCssImages();
             });
+            
+            
+            /*
+             * Copyright (C) 2013 TopCoder Inc., All Rights Reserved.
+             * @author TrePe
+             * @version 1.0 (BUGR 9200)
+             */
+            window.onload = function() {
+                var speed = 90; // ms between frames
+                var introSpeed = 100; // ms between frames on Intro text
+                var step = 0;
+                var bgpos = 0;
+                var pos, el;
+                var displayFrame = function() {
+                
+                    step++;
+                    bgpos++;
+                    // explicit white background to save some bytes in merged.jpg
+                    if (step == 33 || step == 44) {
+                        el = document.getElementById('animation');
+                        el.style.background = "#FFF";
+                        bgpos--;
+                    }
+                    if (step == 34 || step == 45) {
+                        el = document.getElementById('animation');
+                        el.style.background = "url(/i/homeBanner/merged.jpg)";
+                    }
+                    // intro appears and disappears
+                    if (step >= 11 && step <= 31) {
+                        el = document.getElementById('intro');
+                        pos = 27 - step;
+                        if (pos > 0) pos = 0;
+                        el.style.backgroundPosition = "117px " + (pos * 36) + "px";
+                        el.style.display = 'block';
+                    }
+                    if (step == 32) {
+                        el = document.getElementById('intro');
+                        el.style.display = 'none';
+                    }
+                    // logo appears
+                    if (step == 45) {
+                        el = document.getElementById('logo');
+                        el.style.display = 'block';
+                    }
+                    // technologies appear
+                    if (step >= 45) {
+                        el = document.getElementById('tech-overlay');
+                        el.style.display = 'block';
+                        el = document.getElementById('tech');
+                        el.style.display = 'block';
+                        pos = step - 45;
+                        if (pos > 3) pos = 3;
+                        el.style.backgroundPosition = ((step-46) * 10) + "px -" + (pos * 32) + "px";
+                    }
+                    // background animation stops
+                    if (step < 49) {
+                        el = document.getElementById('animation');
+                        el.style.backgroundPosition = "0 -" + (bgpos * 175) + "px";
+                    }
+                    // the whole animation stops (or not, if you remove this if)
+                    if (step < 70) {
+                        setTimeout(displayFrame, step >= 11 && step <= 31 ? introSpeed : speed)
+                    }
+                };
+                setTimeout(displayFrame, speed);
+                
+                loadHomePageFeeds();
+            }
+            
         </script>
         <script src="/js/NewStyleHeaderFooter/jquery.hoverIntent.minified.js" type="text/javascript"></script>
         <script src="/js/NewStyleHeaderFooter/scripts.js" type="text/javascript"></script>
@@ -90,7 +159,58 @@
         
         <script type="text/javascript">
 	   		(function () { var done = false; var script = document.createElement("script"); script.async = true; script.type = "text/javascript"; script.src = "https://purechat.com/VisitorWidget/WidgetScript"; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == "loaded" || this.readyState == "complete")) { var w = new PCWidget({ c: '32782020-1040-4f6a-a980-bb27ddb5204a', f: true }); done = true; } }; })();
-    	</script>        
+    	</script>
+        
+<style type="text/css">
+            #animation-container {
+                width: 782px;
+                height: 175px;
+                margin: auto;
+                padding: 0;
+            }
+            #animation {
+                background: url('/i/homeBanner/merged.jpg');
+                width: 782px;
+                height: 175px;
+                margin: 0;
+            }
+            #intro {
+                background: url('/i/homeBanner/intro.png');
+                background-position: 117px 0;
+                background-repeat: no-repeat;
+                display: none;
+                margin: -104px 0 0 0;
+                width: 782px;
+                height: 36px;
+            }
+            #tech {
+                background: url('/i/homeBanner/tech.png');
+                background-repeat: repeat-x;
+                margin: -100px 0 0 0;
+                display: none;
+                width: 782px;
+                height: 32px;
+            }
+            #tech-overlay {
+                background: url('/i/homeBanner/tech-overlay.png');
+                background-position: 262px 0;
+                background-repeat: no-repeat;
+                margin: -32px 0 0 0;
+                display: none;
+                width: 782px;
+                height: 32px;
+            }
+            #logo {
+                background: url('/i/homeBanner/logo.png');
+                background-position: 285px 30px;
+                background-repeat: no-repeat;
+                margin: -108px 0 0 0;
+                display: none;
+                width: 782px;
+                height: 175px;
+            }
+        </style>
+
     </head>
 
     <c:set var="contests" value="<%=activeContests%>"/>
@@ -98,7 +218,7 @@
     <c:set var="subId" value="<%=Constants.SUBMISSION_ID%>"/>
     <c:set var="subFileIdx" value="<%=Constants.SUBMISSION_FILE_INDEX%>"/>
 
-    <body onLoad="loadHomePageFeeds();">
+    <body>
         <div id="page-wrap">
             <jsp:include page="top.jsp">
                 <jsp:param name="section" value="home"/>
@@ -117,8 +237,13 @@
                                    class="post_project"></a>
                             </div>
                             <div id="homePageBanner">
-                                <a href="http://community.topcoder.com/tco13/">
-                                    <img src="/i/tournament/tco13/2013-tco-banner-studio.png" alt="TCO 2013"/></a>
+                                <div id="animation-container">
+                                    <div id="animation"></div>
+                                    <div id="intro"></div>
+                                    <div id="tech"></div>
+                                    <div id="tech-overlay"></div>
+                                    <div id="logo"></div>
+                                </div>
                                 <br/>
                                 <br/>
                             </div>
