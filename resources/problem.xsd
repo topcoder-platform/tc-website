@@ -20,9 +20,8 @@
         <xs:enumeration value="String"/>
         <xs:enumeration value="String[]"/>
         <xs:enumeration value="String[][]"/>
-        <xs:enumeration value="int[][]"/>
+		<xs:enumeration value="int[][]"/>
         <xs:enumeration value="long[][]"/>
-        <xs:enumeration value="Matrix2D"/>
     </xs:restriction>
 </xs:simpleType>
 
@@ -98,7 +97,7 @@
         <xs:group ref="inline"/>
         <xs:group ref="block"/>
     </xs:choice>
-    <xs:attribute name="escaped" type="xs:boolean" use="optional"/>
+	<xs:attribute name="escaped" type="xs:boolean" use="optional"/>
 </xs:complexType>
 
 <xs:complexType name="inline" mixed="true">
@@ -183,6 +182,12 @@
         </xs:all>
         <xs:attribute name="name" type="xs:token"/>
         <xs:attribute name="code_length_limit" type="xs:positiveInteger"/>
+        <xs:attribute name="execution_time_limit" type="xs:positiveInteger"/>
+        <xs:attribute name="compile_time_limit" type="xs:positiveInteger"/>
+        <xs:attribute name="gcc_build_command" type="xs:token"/>
+        <xs:attribute name="cpp_approved_path" type="xs:token"/>
+        <xs:attribute name="python_command" type="xs:token"/>
+        <xs:attribute name="python_approved_path" type="xs:token"/>
     </xs:complexType>
 </xs:element>
 
@@ -280,6 +285,7 @@
                         <xs:element name="output" type="xs:string"/>
                         <xs:element name="annotation" type="flow" minOccurs="0" maxOccurs="1"/>
                     </xs:sequence>
+                    <xs:attribute name="id" type="xs:int"/>
                     <xs:attribute name="example" type="xs:boolean"/>
                     <xs:attribute name="systemTest" type="xs:boolean"/>
                 </xs:complexType>
@@ -305,5 +311,4 @@
 
 <xs:element name="memlimit" type="flow"/>
 <xs:element name="roundType" type="flow"/>
-
 </xs:schema>
