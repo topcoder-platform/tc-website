@@ -91,56 +91,7 @@
         <script type="text/javascript">
 	   		(function () { var done = false; var script = document.createElement("script"); script.async = true; script.type = "text/javascript"; script.src = "https://purechat.com/VisitorWidget/WidgetScript"; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == "loaded" || this.readyState == "complete")) { var w = new PCWidget({ c: '32782020-1040-4f6a-a980-bb27ddb5204a', f: true }); done = true; } }; })();
     	</script>
-        
-<style type="text/css">
-            #animation-container {
-                width: 782px;
-                height: 175px;
-                margin: auto;
-                padding: 0;
-            }
-            #animation {
-                background: url('/i/homeBanner/merged.jpg');
-                width: 782px;
-                height: 175px;
-                margin: 0;
-            }
-            #intro {
-                background: url('/i/homeBanner/intro.png');
-                background-position: 117px 0;
-                background-repeat: no-repeat;
-                display: none;
-                margin: -104px 0 0 0;
-                width: 782px;
-                height: 36px;
-            }
-            #tech {
-                background: url('/i/homeBanner/tech.png');
-                background-repeat: repeat-x;
-                margin: -100px 0 0 0;
-                display: none;
-                width: 782px;
-                height: 32px;
-            }
-            #tech-overlay {
-                background: url('/i/homeBanner/tech-overlay.png');
-                background-position: 262px 0;
-                background-repeat: no-repeat;
-                margin: -32px 0 0 0;
-                display: none;
-                width: 782px;
-                height: 32px;
-            }
-            #logo {
-                background: url('/i/homeBanner/logo.png');
-                background-position: 285px 30px;
-                background-repeat: no-repeat;
-                margin: -108px 0 0 0;
-                display: none;
-                width: 782px;
-                height: 175px;
-            }
-        </style>
+       
 
     </head>
 
