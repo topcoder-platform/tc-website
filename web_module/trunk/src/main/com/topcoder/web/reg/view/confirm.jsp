@@ -1,3 +1,11 @@
+<%--
+  - Author: Standlove, TCSASSEMBLER
+  -
+  - Updated this to take care of primary email change.
+  - Version: 1.1 (Release Assembly - TopCoder Email Management Update v1.0)
+  - Copyright (C) 2010 - 2013 TopCoder Inc., All Rights Reserved.
+  -
+--%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.common.model.RegistrationType" %>
 <%@ page import="com.topcoder.web.reg.Constants" %>
@@ -255,13 +263,21 @@
 							</c:if>
 
 							<c:set value="<%=Constants.EMAIL%>" var="email"/>
+                            <c:set value="<%=Constants.CHANGED_PRIMARY_EMAIL%>" var="changed_primary_email"/>
 							<c:if test="${cf:contains(fields, email)}">
 								<tr>
 									<td class="field-name">
 										Email Address:
 									</td>
 									<td class="field-value">
-											<c:out value="${regUser.primaryEmailAddress.address}"/>
+										<c:if test="${not empty sessionScope[changed_primary_email]}">Previous : </c:if>
+   									 	<c:out value="${regUser.primaryEmailAddress.address}"/>
+                                        <c:if test="${not empty sessionScope[changed_primary_email]}">
+	   									 	<br/>New : <c:out value="${sessionScope[changed_primary_email]}"/>
+                                            <p class="redNote">You have changed your email address.
+                                                This will not take effect until you verify
+                                                the new address via the email sent to you.</p>
+                                        </c:if>
 									</td>
 								</tr>
 							</c:if>

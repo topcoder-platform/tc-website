@@ -1,7 +1,9 @@
+/*
+ * Copyright (C) 2013 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.security.GeneralSecurityException;
-import com.topcoder.security.NoSuchUserException;
 import com.topcoder.security.GroupPrincipal;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
@@ -19,16 +21,11 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.controller.request.authentication.Util;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.RegistrationTypeDAO;
 import com.topcoder.web.common.dao.UserDAO;
-import com.topcoder.web.common.model.Event;
-import com.topcoder.web.common.model.RegistrationType;
-import com.topcoder.web.common.model.Response;
-import com.topcoder.web.common.model.Season;
-import com.topcoder.web.common.model.SecurityGroup;
-import com.topcoder.web.common.model.User;
-import com.topcoder.web.common.model.UserSchool;
+import com.topcoder.web.common.model.*;
 import com.topcoder.web.reg.Constants;
 
 import javax.ejb.CreateException;
@@ -42,9 +39,15 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @author dok
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: May 8, 2006
+ * <p>
+ *   Version 1.1 (Release Assembly - TopCoder Email Address Management Update v1.0) Change notes:
+ *   <ol>
+ *     <li>Updated {@link registrationProcessing()} to add email related check.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, Standlove, TCSASSEMBLER
+ * @version 1.1
  */
 public class Submit extends Base {
 
@@ -85,6 +88,20 @@ public class Submit extends Base {
                 activationCode = StringUtils.getActivationCode(u.getId().longValue());
 				u.setRegSource("reg");
                 u.setActivationCode(activationCode);
+            }
+            // added in version 1.1 to send validation email if primary email address has been changed
+            String changedPrimaryEmail = (String) getRequest().getSession().getAttribute(
+                    Constants.CHANGED_PRIMARY_EMAIL);
+            if (changedPrimaryEmail != null) {
+                ConfirmationEmailRequest request = new ConfirmationEmailRequest();
+                request.setToEmail(changedPrimaryEmail);
+                request.setUserId(getRegUser().getId());
+                request.setSubject(Constants.PRIMARY_EMAIL_CHANGE_VERIFY_EMAIL_SUBJECT);
+                request.setBody(Constants.PRIMARY_EMAIL_CHANGE_VERIFY_EMAIL_BODY);
+                request.setRequestType(EmailRequestType.PrimaryEmailChangeConfirmation);
+                request.setFromEmail(Constants.PRIMARY_EMAIL_CHANGE_VERIFY_EMAIL_FROM_ADDRESS);
+                request.setExpirationDuration(Constants.PRIMARY_EMAIL_CHANGE_VERIFY_EMAIL_REQUEST_AGE);
+                Util.generateEmailConfirmation(request);
             }
 
             getFactory().getUserDAO().saveOrUpdate(u);

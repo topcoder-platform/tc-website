@@ -9,6 +9,7 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.controller.request.authentication.Util;
 import com.topcoder.web.common.model.*;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
@@ -30,10 +31,24 @@ import java.util.Set;
  * v1.2 (Release Assembly - TopCoder Password Recovery Revamp v1.0):
  * Remove <code> SecretQuestion</code> related information.
  * </p>
- * @author dok, notpad
- * @version 1.2
+ *
+ * <p>
+ *   Version 1.3 (Release Assembly - TopCoder Email Address Management Update v1.0) Change notes:
+ *   <ol>
+ *     <li>Updated {@link registrationProcessing()} to add email related check.</li>
+ *     <li>Updated {@link loadFieldsIntoUserObject(Set, Map)} to load email only when it's not being changed.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, notpad, Standlove, TCSASSEMBLER
+ * @version 1.3
  */
 public class Secondary extends Base {
+
+    /**
+     * <p>The error message when the email is already used.</p>
+     */
+    private static final String THE_EMAIL_IS_ALREADY_USED = "The email is already used.";
 
     protected void registrationProcessing() throws Exception {
         User u = getRegUser();
@@ -46,6 +61,26 @@ public class Secondary extends Base {
                 if (isNewRegistration() || userLoggedIn()) {
                     Map params = getMainUserInput();
                     checkMainFields(params);
+
+                    // added in Version 1.3, detect whether this is a primary email change
+                    // if so, send validation email
+                    String email = (String) params.get(Constants.EMAIL);
+                    if (isNewRegistration()) {
+                        if (Util.isEmailAlreadyUsed(email, null)) {
+                            this.addError(Constants.EMAIL, THE_EMAIL_IS_ALREADY_USED);
+                        }
+                    } else {
+                        // check the email is changed or not
+                        Email primaryEmail = u.getPrimaryEmailAddress();
+                        if (!primaryEmail.getAddress().equals(email)) {
+                            this.getRequest().getSession().setAttribute(Constants.CHANGED_PRIMARY_EMAIL, email);
+                            if (Util.isEmailAlreadyUsed(email, u.getId())) {
+                                this.addError(Constants.EMAIL, THE_EMAIL_IS_ALREADY_USED);
+                            }
+                        } else {
+                            this.getRequest().getSession().removeAttribute(Constants.CHANGED_PRIMARY_EMAIL);
+                        }
+                    }
 
                     HSRegistrationHelper rh = new HSRegistrationHelper(getRequest());
 
@@ -265,17 +300,20 @@ public class Secondary extends Base {
             u.getCoder().setQuote((String) params.get(Constants.QUOTE));
         }
 
-        if (fields.contains(Constants.EMAIL)) {
-            Email e = u.getPrimaryEmailAddress();
-            if (e == null) {
-                e = new Email();
-                e.setPrimary(Boolean.TRUE);
-                e.setEmailTypeId(Email.TYPE_ID_PRIMARY);
-                e.setStatusId(Email.STATUS_ID_UNACTIVE);
-                e.setUser(u);
-                u.addEmailAddress(e);
+        // changed in version 1.3, email related loading should be done only when the primary email is not being changed
+        if (this.getRequest().getSession().getAttribute(Constants.CHANGED_PRIMARY_EMAIL) == null) {
+            if (fields.contains(Constants.EMAIL)) {
+                Email e = u.getPrimaryEmailAddress();
+                if (e == null) {
+                    e = new Email();
+                    e.setPrimary(Boolean.TRUE);
+                    e.setEmailTypeId(Email.TYPE_ID_PRIMARY);
+                    e.setStatusId(Email.STATUS_ID_UNACTIVE);
+                    e.setUser(u);
+                    u.addEmailAddress(e);
+                }
+                e.setAddress((String) params.get(Constants.EMAIL));
             }
-            e.setAddress((String) params.get(Constants.EMAIL));
         }
 
         //we don't allow updates, so no need to set it here.

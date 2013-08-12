@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001 - 2012 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common.dao.querytool;
 
@@ -31,8 +31,14 @@ import com.topcoder.web.common.dao.*;
  *     <li>Added {@link #getSecondEmailRequestDAO()} method.</li>
  *   </ol>
  * </p>
- * @author pulky, TCSDEVELOPER, isv
- * @version 1.3
+ * <p>
+ * Version 1.4 (Release Assembly - TopCoder Email Management Update v1.0)Change notes:
+ *   <ol>
+ *     <li>Renamed <code>getSecondEmailRequestDAO</code> to {@link getEmailRequestDAO()}.</li>
+ *   </ol>
+ * </p>
+ * @author pulky, TCSDEVELOPER, isv, Standlove, TCSASSEMBLER
+ * @version 1.4
  */
 public class DAOFactoryQueryTool implements DAOFactory {
 
@@ -339,12 +345,12 @@ public class DAOFactoryQueryTool implements DAOFactory {
     }
 
     /**
-     * <p>Gets the instance of {@link SecondEmailRequestDAO}.</p>
+     * <p>Gets the instance of {@link EmailRequestDAO}.</p>
      *
-     * @return a <code>SecondEmailRequestDAO</code> to be used for keeping add second email token.
-     * @since 1.3
+     * @return a <code>EmailRequestDAO</code> to be used for keeping add email token.
+     * @since 1.4
      */
-    public SecondEmailRequestDAO getSecondEmailRequestDAO() {
+    public EmailRequestDAO getEmailRequestDAO() {
         throw new RuntimeException("Not supported");
     }
 }

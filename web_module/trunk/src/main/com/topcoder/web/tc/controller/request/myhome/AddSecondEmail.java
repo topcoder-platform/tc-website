@@ -3,21 +3,17 @@
  */
 package com.topcoder.web.tc.controller.request.myhome;
 
-import java.util.Date;
-import java.util.List;
 
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
-import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.dao.SecondEmailRequestDAO;
-import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.controller.request.authentication.Util;
+import com.topcoder.web.common.model.ConfirmationEmailRequest;
+import com.topcoder.web.common.model.EmailRequestType;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.reg.validation.EmailValidator;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.EmailEngine;
-import com.topcoder.shared.util.TCSEmailMessage;
 
 /**
  * <p>
@@ -27,9 +23,17 @@ import com.topcoder.shared.util.TCSEmailMessage;
  * Thread safety: The controller instances will be created for the new requests, thus there won't be multiple
  * threads using the same controller instance.Thus there's no thread-safety concern.
  * </p>
- * 
- * @author vangavroche, TCSASSEMBLER
- * @version 1.0
+ *
+ * <p>
+ *   Version 1.1 (Release Assembly - TopCoder Email Address Management Update v1.0) Change notes:
+ *   <ol>
+ *     <li>Updated {@link dbProcessing} to use new entity and utility method to send the request.</li>
+ *     <li>Removed <code>sendEmail</code> and <code>validateEmail</code> methods.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author vangavroche, Standlove, TCSASSEMBLER
+ * @version 1.1
  */
 public class AddSecondEmail extends ShortHibernateProcessor {
 
@@ -56,6 +60,7 @@ public class AddSecondEmail extends ShortHibernateProcessor {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
         String email = this.getRequest().getParameter(Constants.EMAIL);
+        this.getRequest().getSession().setAttribute(Constants.SECOND_EMAIL_ADDRESS_ON_EDIT, email);
 
         String secondEmail = this.getRequest().getParameter(Constants.SECOND_EMAIL_ADDRESS);
         this.getRequest().getSession().setAttribute(Constants.SECOND_EMAIL_ADDRESS, secondEmail);
@@ -67,20 +72,20 @@ public class AddSecondEmail extends ShortHibernateProcessor {
             validateEmail(email);
             if (!hasErrors()) {
                 log.debug("The email address is valid.");
-                int randomKey = (int) (Integer.MAX_VALUE * Math.random());
-                Date expiredAt = getExpiredDate();
-                long userId = this.getUser().getId();
-
-                SecondEmailRequestDAO dao = DAOUtil.getFactory().getSecondEmailRequestDAO();
-                dao.save(userId, email, randomKey, expiredAt);
-                log.debug("The second email request DAO saved successfully.");
+                ConfirmationEmailRequest request = new ConfirmationEmailRequest();
+                request.setToEmail(email);
+                request.setUserId(getUser().getId());
+                request.setSubject(Constants.SECOND_EMAIL_VERIFY_MAIL_SUBJECT);
+                request.setBody(Constants.SECOND_EMAIL_VERIFY_MAIL_BODY);
+                request.setFromEmail(Constants.SECOND_EMAIL_VERIFY_MAIL_FROM_ADDRESS);
+                request.setRequestType(EmailRequestType.SecondaryEmailConfirmation);
+                request.setExpirationDuration(Constants.SECOND_EMAIL_REQUEST_AGE);
 
                 try {
-                    sendConfirmEmail(userId, randomKey, expiredAt, email);
-                    log.debug("The confirm email is sent successfully.");
+                    Util.generateEmailConfirmation(request);
                 } catch (Exception e) {
                     renderView(Constants.SECOND_EMAIL_PAGE, "Can not send the email.");
-                    log.debug("Exit method " + CLASS_NAME + "#dbProcessing().");
+                    log.error("Error during sending email confirm.", e);
                     return;
                 }
 
@@ -106,63 +111,11 @@ public class AddSecondEmail extends ShortHibernateProcessor {
             renderView(Constants.SECOND_EMAIL_PAGE, vr.getMessage());
             return;
         }
-        List<User> users = DAOUtil.getFactory().getUserDAO().findByPrimaryOrSecondEmail(email);
-        if (!users.isEmpty()) {
-            renderView(Constants.SECOND_EMAIL_PAGE, "The email is already used.");
+        boolean flag = Util.isEmailAlreadyUsed(email, getUser().getId());
+        if (flag) {
+            renderView(Constants.SECOND_EMAIL_PAGE,"The mail address is already used.");
             return;
         }
-        SecondEmailRequestDAO dao = DAOUtil.getFactory().getSecondEmailRequestDAO();
-        if (dao.isEmailOccupied(email, this.getUser().getId())) {
-            renderView(Constants.SECOND_EMAIL_PAGE,
-                "The mail address is already used by some active request currently.");
-            return;
-        }
-    }
-
-    /**
-     * <p>
-     * Get expired date.
-     * </p>
-     * 
-     * @return the expired date.
-     */
-    private Date getExpiredDate() {
-        long currentTime = new Date().getTime();
-        return new Date(Constants.SECOND_EMAIL_REQUEST_AGE * 1000 + currentTime);
-    }
-
-    /**
-     * <p>
-     * Send a confirm email to user about the new added second email.
-     * </p>
-     * 
-     * @param userId
-     *            the user id.
-     * @param key
-     *            the random key.
-     * @param expiredAt
-     *            the expire date.
-     * @param email
-     *            the second email.
-     * @throws Exception
-     *             if the confirm email can not be sent.
-     */
-    private void sendConfirmEmail(long userId, int key, Date expiredAt, String email) throws Exception {
-
-        // send the email
-        TCSEmailMessage mail = new TCSEmailMessage();
-        mail.setSubject(Constants.SECOND_EMAIL_VERIFY_MAIL_SUBJECT);
-
-        String mailBody =
-            Constants.SECOND_EMAIL_VERIFY_MAIL_BODY.replace("{userId}", String.valueOf(userId))
-                .replace("{key}", String.valueOf(key)).replace("{expiredAt}", String.valueOf(expiredAt.getTime()));
-
-        mail.setBody(mailBody);
-
-        mail.setToAddress(email, TCSEmailMessage.TO);
-        mail.setFromAddress(Constants.SECOND_EMAIL_VERIFY_MAIL_FROM_ADDRESS);
-        EmailEngine.send(mail);
-
     }
 
     /**

@@ -94,7 +94,7 @@
         <mapping class="com.topcoder.web.common.model.SchoolAssociationType"/>
         <mapping resource="com/topcoder/web/common/model/SchoolType.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Season.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/SecondEmailRequest.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/EmailRequest.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/SecurityGroup.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/State.hbm.xml"/>
 

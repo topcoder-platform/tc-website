@@ -1,7 +1,10 @@
 <%--
-  - Author: vangavroche, TCSASSEMBLER
+  - Author: vangavroche, Standlove, TCSASSEMBLER
   - Version: 1.0 (Release Assembly - TopCoder Password Recovery Revamp v1.0)
   - Copyright (C) 2010 - 2013 TopCoder Inc., All Rights Reserved.
+  -
+  - Updated this to show both existing and editing second email
+  - Version: 1.1 (Release Assembly - TopCoder Email Management Update v1.0)
   -
   - Description: The user use this page to input his/her second email address.
 --%>
@@ -18,13 +21,18 @@
 
 <%
   String secondEmail =  (String)session.getAttribute(Constants.SECOND_EMAIL_ADDRESS);  
+  String secondEmailEdit =  (String)session.getAttribute(Constants.SECOND_EMAIL_ADDRESS_ON_EDIT);
   pageContext.setAttribute("secondEmail", secondEmail);
+  pageContext.setAttribute("secondEmailEdit", secondEmailEdit);
   if(secondEmail == null){
     pageContext.setAttribute("title", "Add Second Email");
     pageContext.setAttribute("button", "Submit");
   }else{
     pageContext.setAttribute("title", "Update Second Email");
     pageContext.setAttribute("button", "Change");
+  }
+  if (secondEmailEdit == null) {
+    secondEmailEdit = "";
   }
 %>
 
@@ -55,7 +63,6 @@
         $(inputControl).keyup(function(){
             validateAddSecondEmail( $(this) );
         });
-        $(inputControl).val('${secondEmail}');
     });
     </script>    
 </head>
@@ -96,12 +103,22 @@
                     <tr>
                         <td class="title" colspan="2">${title}</td>
                     </tr>
-                        <tr class="light">
+                        <c:if test="${secondEmail ne null }">
+                            <tr class="light">
+                                <td class="value" nowrap="nowrap" style="border: none;">
+                                    <span style="display: block; padding-top: 4px;">Your second email : </span>
+                                </td>
+                                <td class="value" width="100%" style="border: none;">
+                                    <span style="display: block; padding-top: 4px;"><c:out value="${secondEmail}"/></span>
+                                </td>
+                            </tr>
+                        </c:if>
+                        <tr class="dark">
                             <td class="value" nowrap="nowrap" style="border: none;">
-                                <span style="display: block; padding-top: 4px;">Enter your second email:</span>
+                                <span style="display: block; padding-top: 4px;">Enter new second email:</span>
                             </td>
                             <td class="value" width="100%" style="border: none;">
-                                <tc-webtag:textInput name="<%= Constants.EMAIL %>" size="50" maxlength="<%=com.topcoder.web.reg.Constants.MAX_EMAIL_LENGTH%>" styleClass="addSecondEmail" />
+                                <tc-webtag:textInput name="<%= Constants.EMAIL %>"  value="${secondEmailEdit}" size="50" maxlength="<%=com.topcoder.web.reg.Constants.MAX_EMAIL_LENGTH%>" styleClass="addSecondEmail" />
                                 <tc-webtag:errorIterator id="err" name="<%=Constants.ERROR_INFO %>">
                                     <span class="bigRed"><%=err%></span>
                                 </tc-webtag:errorIterator>

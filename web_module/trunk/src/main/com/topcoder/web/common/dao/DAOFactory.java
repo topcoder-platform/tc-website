@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001 - 2012 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common.dao;
 
@@ -28,7 +28,14 @@ package com.topcoder.web.common.dao;
  *     <li>Added {@link #getSecondEmailRequestDAO()} method.</li>
  *   </ol>
  * </p>
- * @author dok, TCSDEVELOPER, VolodymyrK, isv
+ * <p>
+ *   Version 1.4 (Release Assembly - TopCoder Email Address Management Update v1.0) Change notes:
+ *   <ol>
+ *     <li>Renamed <code>getSecondEmailRequestDAO</code> to {@link getEmailRequestDAO()}.</li>
+ *     <li>Changed {@link getEmailRequestDAO()} to use the new {@link EmailRequestDAO} entity.</li>
+ *   </ol>
+ * </p>
+ * @author dok, TCSDEVELOPER, VolodymyrK, isv, Standlove, TCSASSEMBLER
  * @version 1.3
  */
 public interface DAOFactory {
@@ -41,12 +48,12 @@ public interface DAOFactory {
     PasswordResetTokenDAO getPasswordResetTokenDAO();
     
     /**
-     * <p>Gets the instance of {@link SecondEmailRequestDAO}.</p>
+     * <p>Gets the instance of {@link EmailRequestDAO}.</p>
      *
-     * @return a <code>SecondEmailRequestDAO</code> to be used for keeping add second email token.
+     * @return a <code>EmailRequestDAO</code> to be used for keeping add second email token.
      * @since 1.3
      */
-    SecondEmailRequestDAO getSecondEmailRequestDAO();
+    EmailRequestDAO getEmailRequestDAO();
     
     AlgoRatingTypeDAO getAlgoRatingTypeDAO();
 
