@@ -14,22 +14,29 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.MissingResourceException;
 
-/*
-* Version 1.1 (Release Assembly - TC Registration Site Field Updates) Change notes:
-*  <ol>
-*    <li>Added field PROVINCE_REQUIRED_COUNTRIES.</li>
-*  </ol>
-* </p>
-*
-* <p>
-* v1.2 (Release Assembly - TopCoder Password Recovery Revamp v1.0):
-* Remove <code> SecretQuestion </code> related information.
-* </p>
-* <p>
-* 
-* @author dok, notpad, TCSASSEMBLER
-* @version 1.2
-*/
+/**
+ * <p>
+ * Version 1.1 (Release Assembly - TC Registration Site Field Updates) Change notes:
+ *  <ol>
+ *    <li>Added field PROVINCE_REQUIRED_COUNTRIES.</li>
+ *  </ol>
+ * </p>
+ *
+ * <p>
+ * v1.2 (Release Assembly - TopCoder Password Recovery Revamp v1.0):
+ * Remove <code> SecretQuestion </code> related information.
+ * </p>
+ *
+ * <p>
+ * v1.3 (Release Assembly - TopCoder Email Address Management Update v1.0):
+ * Add {@link CHANGED_PRIMARY_EMAIL}, {@link PRIMARY_EMAIL_CHANGE_VERIFY_EMAIL_SUBJECT},
+ * {@link PRIMARY_EMAIL_CHANGE_VERIFY_EMAIL_BODY}, {@link PRIMARY_EMAIL_CHANGE_VERIFY_EMAIL_FROM_ADDRESS},
+ * {@link PRIMARY_EMAIL_CHANGE_VERIFY_EMAIL_REQUEST_AGE}.
+ * </p>
+ * 
+ * @author dok, notpad, Standlove, TCSASSEMBLER
+ * @version 1.3
+ */
 public class Constants implements WebConstants {
 
     private static final TCResourceBundle bundle = new TCResourceBundle("Registration");
@@ -93,6 +100,12 @@ public class Constants implements WebConstants {
             StringUtils.ALPHABET_DIGITS_EN + PUNCTUATION;
     
     /**
+     * <p>The constant to represent the string literal changed_primary_email.</p>
+     * @since 1.3
+     */
+    public static final String CHANGED_PRIMARY_EMAIL = "changed_primary_email";
+
+    /**
      * Province filed is required when a user comes from these countries.
      */
     public static String PROVINCE_REQUIRED_COUNTRIES;
@@ -127,6 +140,30 @@ public class Constants implements WebConstants {
     public static int MAX_REFERRAL_OTHER_LENGTH;
 
     public static int REG_TERMS_ID;
+
+    /**
+     * <p>The constant to represent the subject of primary email change verification mail.</p>
+     * @since 1.3
+     */
+    public static String PRIMARY_EMAIL_CHANGE_VERIFY_EMAIL_SUBJECT;
+
+    /**
+     * <p>The constant to represent the body of primary email change verification mail.</p>
+     * @since 1.3
+     */
+    public static String PRIMARY_EMAIL_CHANGE_VERIFY_EMAIL_BODY;
+
+    /**
+     * <p>The constant to represent the from address of primary email change verification mail.</p>
+     * @since 1.3
+     */
+    public static String PRIMARY_EMAIL_CHANGE_VERIFY_EMAIL_FROM_ADDRESS;
+
+    /**
+     * <p>The constant to represent the age of the primary email change request.</p>
+     * @since 1.3
+     */
+    public static int PRIMARY_EMAIL_CHANGE_VERIFY_EMAIL_REQUEST_AGE;
 
 
     private Constants() {

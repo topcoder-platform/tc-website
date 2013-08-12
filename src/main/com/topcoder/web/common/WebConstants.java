@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001 - 2012 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common;
 
@@ -108,8 +108,14 @@ package com.topcoder.web.common;
  *     <li>Change {@link #PASSWORD} and {@link #PASSWORD_CONFIRM}'s value</li>
  *   </ol>
  * </p>
- * @author dok, pulky, snow01, FireIce, lmmortal, TCSASSEMBLER
- * @version 1.6.8
+ * <p>
+ *   Version 1.6.9 (Release Assembly - TopCoder Email Address Management Update v1.0) Change notes:
+ *   <ol>
+ *     <li>Added constants {@link #VERIFY_PAGE}, {@link #UNVERIFY_PAGE}, {@link #SECOND_EMAIL_ADDRESS_ON_EDIT}</li>
+ *   </ol>
+ * </p>
+ * @author dok, pulky, snow01, FireIce, lmmortal, Standlove, TCSASSEMBLER
+ * @version 1.6.9
  */
 public interface WebConstants {
     public static final String HANDLE = "ha";
@@ -912,4 +918,21 @@ public interface WebConstants {
      */      
     public static final String SECOND_EMAIL_ADDRESS = "seAddr";
 
+    /**
+     * <p>The parameter name second email address on edit.</p>
+     * @since 1.6.9
+     */      
+    public static final String SECOND_EMAIL_ADDRESS_ON_EDIT = "seAddrEdit";
+
+    /**
+     * <p>The page for verified email.</p>
+     * @since 1.6.9
+     */      
+    public static final String VERIFY_PAGE = "/mail_verified.jsp";
+
+    /**
+     * <p>The page for unverified email.</p>
+     * @since 1.6.9
+     */      
+    public static final String UNVERIFY_PAGE = "/mail_unverified.jsp";
 }

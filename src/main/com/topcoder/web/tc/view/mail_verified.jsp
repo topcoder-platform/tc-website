@@ -1,9 +1,12 @@
 <%--
-  - Author: vangavroche, TCSASSEMBLER
+  - Author: vangavroche, Standlove, TCSASSEMBLER
   - Version: 1.0 (Release Assembly - TopCoder Password Recovery Revamp v1.0)
   - Copyright (C) 2010 - 2013 TopCoder Inc., All Rights Reserved.
   -
-  - Description: This page will notify user the second mail is added successfully.
+  - Updated this to be unified for both primary and secondary
+  - Version: 1.1 (Release Assembly - TopCoder Email Management Update v1.0)
+  -
+  - Description: This page will notify user the mail is added/updated successfully.
 --%>
 <%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
@@ -22,8 +25,8 @@
     <title>TopCoder - My TopCoder</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <jsp:include page="../script.jsp" />
-    <jsp:include page="../style.jsp">
+    <jsp:include page="script.jsp" />
+    <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
     <style type="text/css">
@@ -35,7 +38,7 @@
 
 <body>
 
-<jsp:include page="../top.jsp" >
+<jsp:include page="top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -44,7 +47,7 @@
     <tr valign="top">
 <%-- Left Column Begins--%>
         <td width="180">
-            <jsp:include page="../includes/global_left.jsp">
+            <jsp:include page="includes/global_left.jsp">
                 <jsp:param name="node" value="my_topcoder"/>
             </jsp:include>
         </td>
@@ -54,13 +57,13 @@
         <td width="100%" align="center" class="bodyColumn">
             <div class="maxWidthBody" align="left">
             
-                <jsp:include page="../page_title.jsp" >
+                <jsp:include page="page_title.jsp" >
                     <jsp:param name="image" value="my_tc"/>
                     <jsp:param name="title" value="${sessionScope.title}"/>
                 </jsp:include>
 
                	<p>
-              		Your second email has been ${sessionScope.action}.
+              		Your email has been ${sessionScope.action}.
                 </p>     
 
                  <div align="center">
@@ -81,7 +84,7 @@
         
 <%-- Right Column Begins --%>
         <td width="170">
-            <jsp:include page="../public_right.jsp">
+            <jsp:include page="public_right.jsp">
                 <jsp:param name="level1" value="default"/>
             </jsp:include>
         </td>
@@ -91,7 +94,7 @@
 </tbody>
 </table>
 
-<jsp:include page="../foot.jsp" />
+<jsp:include page="foot.jsp" />
 
 </body>
 

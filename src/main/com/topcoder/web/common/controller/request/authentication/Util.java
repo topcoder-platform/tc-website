@@ -1,22 +1,41 @@
 /*
- * Copyright (C) 2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.common.controller.request.authentication;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.http.HttpSession;
 
+import com.topcoder.shared.util.EmailEngine;
+import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.dao.EmailRequestDAO;
+import com.topcoder.web.common.model.ConfirmationEmailRequest;
+import com.topcoder.web.common.model.EmailRequest;
+import com.topcoder.web.common.model.EmailRequestType;
+import com.topcoder.web.common.model.User;
 
 /**
  * <p>
  * This class provides a few commonly used utilities.
  * </p>
- * 
- * @author TCSASSEMBLER
- * @version 1.0
+ *
+ *
+ * <p>
+ *   Version 1.1 (Release Assembly - TopCoder Email Address Management Update v1.0) Change notes:
+ *   <ol>
+ *     <li>Added {@link #isEmailAlreadyUsed(String, Long)} method.</li>
+ *     <li>Added {@link #generateEmailConfirmation(ConfirmationEmailRequest)} method.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author Standlove,TCSASSEMBLER
+ * @version 1.1
  */
 public class Util {
     /**
@@ -106,5 +125,114 @@ public class Util {
             session.setAttribute(key, existingMsgs);
         }
         existingMsgs.add(msg);
+    }
+
+    /**
+     * <p>
+     * Check the email is already used by the others or not.
+     * </p>
+     *
+     * @param email the email address
+     * @param userId the user id
+     * @return true if the email is already used by the others, return false otherwise.
+     * @throws IllegalArgumentException if <code>email</code> is null or empty
+     * @throws HibernateException if anything wrong during calling the DAO methods
+     *
+     * @since 1.1
+     */
+    public static boolean isEmailAlreadyUsed(String email, Long userId) {
+        if (email == null) {
+            throw new IllegalArgumentException("The email cannot be null.");
+        }
+        if (email.trim().length() == 0) {
+            throw new IllegalArgumentException("The email cannot be empty.");
+        }
+        List<User> users = DAOUtil.getFactory().getUserDAO().findByPrimaryOrSecondEmail(email);
+        if (!users.isEmpty()) {
+            return true;
+        }
+        EmailRequestDAO dao = DAOUtil.getFactory().getEmailRequestDAO();
+        return dao.isEmailOccupied(email, userId);
+    }
+
+    /**
+     * <p>
+     * Send email to ensure the given email is valid.
+     * </p>
+     *
+     * @param request confirmation email request
+     * @throws IllegalArgumentException if the request is null or any of its fields is invalid
+     * @throws Exception if anything is wrong during sending email or accessing persistence layer
+     */
+    public static void generateEmailConfirmation(ConfirmationEmailRequest request) throws Exception {
+        if (request == null) {
+            throw new IllegalArgumentException("The request cannot be null.");
+        }
+        if (request.getUserId() < 0) {
+            throw new IllegalArgumentException("The request.userId shouldn't be negative.");
+        }
+        if (request.getExpirationDuration() <= 0) {
+            throw new IllegalArgumentException("The request.expirationDuration should be positive.");
+        }
+        if (request.getToEmail() == null) {
+            throw new IllegalArgumentException("The request.toEmail shouldn't be null.");
+        }
+        if (request.getToEmail().trim().length() == 0) {
+            throw new IllegalArgumentException("The request.toEmail shouldn't be empty.");
+        }
+        if (request.getFromEmail() == null) {
+            throw new IllegalArgumentException("The request.fromEmail shouldn't be null.");
+        }
+        if (request.getFromEmail().trim().length() == 0) {
+            throw new IllegalArgumentException("The request.fromEmail shouldn't be empty.");
+        }
+        if (request.getSubject() == null) {
+            throw new IllegalArgumentException("The request.subject shouldn't be null.");
+        }
+        if (request.getSubject().trim().length() == 0) {
+            throw new IllegalArgumentException("The request.subject shouldn't be empty.");
+        }
+        if (request.getBody() == null) {
+            throw new IllegalArgumentException("The request.body shouldn't be null.");
+        }
+        if (request.getBody().trim().length() == 0) {
+            throw new IllegalArgumentException("The request.body shouldn't be empty.");
+        }
+        if (request.getRequestType() != EmailRequestType.PrimaryEmailChangeConfirmation &&
+            request.getRequestType() != EmailRequestType.SecondaryEmailConfirmation) {
+            throw new IllegalArgumentException("The request.requestType should be either primary or secondary.");
+        }
+        if (!request.getBody().contains("{requestId}") || !request.getBody().contains("{key}")
+            || !request.getBody().contains("{expiredAt}")) {
+            throw new IllegalArgumentException(
+                "The request.body should contain requestId, key and expiredAt template.");
+        }
+
+        // generate a random key
+        Random random = new Random(System.currentTimeMillis());
+        int randomKey = random.nextInt();
+        // calculate the expiration date
+        Date expiredAt = new Date(request.getExpirationDuration() * 1000 + new Date().getTime());
+
+        // save the request
+        EmailRequestDAO dao = DAOUtil.getFactory().getEmailRequestDAO();
+        EmailRequest emailRequest = new EmailRequest();
+        emailRequest.setEmail(request.getToEmail());
+        emailRequest.setExpiredAt(expiredAt);
+        emailRequest.setUserId(request.getUserId());
+        emailRequest.setRandomKey(randomKey);
+        emailRequest.setRequestType(request.getRequestType());
+        long requestId = dao.save(emailRequest);
+
+        // send the email
+        TCSEmailMessage mail = new TCSEmailMessage();
+        mail.setSubject(request.getSubject());
+
+        String body = request.getBody().replace("{requestId}", String.valueOf(requestId))
+                .replace("{key}", String.valueOf(randomKey)).replace("{expiredAt}", String.valueOf(expiredAt.getTime()));
+        mail.setBody(body);
+        mail.setToAddress(request.getToEmail(), TCSEmailMessage.TO);
+        mail.setFromAddress(request.getFromEmail());
+        EmailEngine.send(mail);
     }
 }
