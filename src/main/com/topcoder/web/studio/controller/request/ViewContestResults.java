@@ -126,7 +126,7 @@ public class ViewContestResults extends ShortHibernateProcessor {
                 }
             }
 
-            getRequest().setAttribute("showFinalFixTab", Util.showFinalFixTab(contest, getUser().getId()));
+            getRequest().setAttribute("showFinalFixTab", Util.showFinalFixTab(getRequest(), contest, getUser().getId()));
             
             Integer submissionId = 0;
             try {
