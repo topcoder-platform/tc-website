@@ -352,7 +352,7 @@
             <classes dir="conf">
                 <include name="template/submission_declaration.txt"/>
             </classes>
-            <classes dir="${resources}/studio">
+            <classes dir="${resources}/security_groups/conf">
                 <include name="securityGroupsHibernate.cfg.xml"/>
                 <include name="securityGroupsMapping.xml"/>
             </classes>
@@ -516,6 +516,10 @@
               file="${resources}/com/topcoder/util/config/ConfigManager.properties"/>
         <copy todir="${jboss_conf}/com/topcoder/servlet/request/"
               file="${resources}/com/topcoder/servlet/request/FileUpload.xml"/>
+        <copy todir="${jboss_conf}/com/topcoder/servlet/request/"
+              file="${resources}/com/topcoder/servlet/request/PhotoFileUpload.xml"/>
+        <copy todir="${jboss_conf}/com/topcoder/servlet/request/"
+              file="${resources}/com/topcoder/servlet/request/MimeTypeAndFileExtensionValidator.xml"/>
         <copy todir="${jboss_conf}/com/cronos/termsofuse/dao"
               file="${resources}/com/cronos/termsofuse/dao/TermsOfUse.xml"/>
 
