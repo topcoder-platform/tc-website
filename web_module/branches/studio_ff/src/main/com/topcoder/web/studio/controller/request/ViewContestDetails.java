@@ -202,7 +202,7 @@ public class ViewContestDetails extends ShortHibernateProcessor {
                 } else {
                     getRequest().setAttribute("canViewCheckpoint", false);
                 }
-                getRequest().setAttribute("showFinalFixTab", Util.showFinalFixTab(contest, userId));
+                getRequest().setAttribute("showFinalFixTab", Util.showFinalFixTab(getRequest(), contest, userId));
                 setNextPage("/contestDetails.jsp");
                 setIsNextPageInContext(true);
             }

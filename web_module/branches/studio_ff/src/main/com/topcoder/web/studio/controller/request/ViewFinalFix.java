@@ -53,7 +53,7 @@ public class ViewFinalFix extends ShortHibernateProcessor {
         Project contest = DAOUtil.getFactory().getProjectDAO().find(contestId);
 
         // check user's permission on the final-fix
-        boolean showFinalFixTab = Util.showFinalFixTab(contest, getUser().getId());
+        boolean showFinalFixTab = Util.showFinalFixTab(getRequest(), contest, getUser().getId());
         if (!showFinalFixTab) {
             throw new NavigationException("User doesn't have permission to view the final fix");
         }

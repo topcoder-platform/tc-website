@@ -274,11 +274,15 @@ public class Util {
      * @throws Exception if an unexpected error occurs.
      * @since 1.6
      */
-    public static boolean showFinalFixTab(Project project, long currentUserId) throws Exception {
+    public static boolean showFinalFixTab(HttpServletRequest request, Project project, long currentUserId) throws Exception {
         Long winnerUserId = getWinnerUserId(project.getId());
         if ((winnerUserId != null) && (winnerUserId == currentUserId)) {
             return true;
-        } else if (project.getViewableSubmissions()) {
+        } else if (hasCockpitPermissions(request, currentUserId, project.getId())) {
+			return true;
+		}
+		
+		else if (project.getViewableSubmissions()) {
             Set<ProjectPhase> phases = project.getPhases();
             boolean allPhaseClosed = true;
             for (ProjectPhase phase : phases) {
