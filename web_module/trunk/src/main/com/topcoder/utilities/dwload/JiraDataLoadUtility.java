@@ -30,7 +30,16 @@ import com.topcoder.shared.util.sql.DBUtility;
  * 
  * @author TCSASSEMBLER
  * @version 1.1 (Module Assembly - JIRA issues loading update and report creation)
- * @since 1.0
+ *
+ * <p>
+ *     Version 1.2 Release Assembly - TC Cockpit JIRA Report Update changes log:
+ *     <ul>
+ *         <li>Updated {@link #SQL_QUERY_JIRA} to support project level issues</li>
+ *         <li>Updated {@link #SQL_INSERT_JIRA_ISSUE} to insert project_id for project level issues</li>
+ *         <li>Updated {@link #loadJiraData()} to load project level issues</li>
+ *     </ul>
+ * </p>
+ * @since 1.2
  */
 public class JiraDataLoadUtility extends DBUtility {
 
@@ -77,26 +86,54 @@ public class JiraDataLoadUtility extends DBUtility {
      * <p>
      * Update in version 1.1 - select TCO points from customfield 10080
      * </p>
+     *
+     * <p>
+     * Update in version 1.2 - add join to customfield 10190 which is Cockpit Project ID
+     * </p>
      */
     private static final String SQL_QUERY_JIRA = "SELECT i.pkey AS ticket_id, i.reporter, i.assignee, i.summary, "
             + "i.description, i.created, i.updated, i.duedate AS due_date, i.resolutiondate AS resolution_date, i.votes, "
             + "IFNULL(TRIM(payee.stringvalue),'N/A') AS winner, payment.numbervalue AS payment_amount, "
             + "IFNULL(payment_status.stringvalue, 'Not Paid') AS payment_status, CAST(IFNULL(tcopoints.STRINGVALUE, '0') AS SIGNED INTEGER) AS  tco_points,"
-            + "CAST(contest.stringvalue AS SIGNED INTEGER) AS contest_id, st.pname as status "
+            + "CAST(contest.stringvalue AS SIGNED INTEGER) AS contest_id, contest.numbervalue as project_id, st.pname as status "
             + "FROM jiraissue AS i "
-            + "JOIN customfieldvalue contest ON contest.customfield = 10093 AND contest.issue = i.id and contest.ID = (select max(id) from customfieldvalue where customfield = 10093 AND issue = i.id) "
+            + "JOIN customfieldvalue contest ON contest.customfield = 10093  AND contest.issue = i.id " 
+            + "and contest.ID = IF(contest.customfield=10093,(select max(id) from customfieldvalue where customfield = 10093 AND issue = i.id),"
+            + "(select max(id) from customfieldvalue where customfield = 10190 AND issue = i.id)) "
 			+ "JOIN issuestatus st on st.id = i.issuestatus "
             + "LEFT JOIN customfieldvalue payment ON payment.customfield = 10012 AND payment.issue = i.id "
             + "LEFT JOIN customfieldvalue payee ON payee.customfield = 10040 AND payee.issue = i.id "
             + "LEFT JOIN customfieldvalue payment_status ON payment_status.customfield = 10030 AND payment_status.issue = i.id "
-            + "LEFT JOIN customfieldvalue tcopoints ON tcopoints.customfield = 10080 AND tcopoints.issue = i.id ";
+            + "LEFT JOIN customfieldvalue tcopoints ON tcopoints.customfield = 10080 AND tcopoints.issue = i.id "
+			
+			+ " UNION ALL "
+			
+			+ " SELECT i.pkey AS ticket_id, i.reporter, i.assignee, i.summary, "
+            + "i.description, i.created, i.updated, i.duedate AS due_date, i.resolutiondate AS resolution_date, i.votes, "
+            + "IFNULL(TRIM(payee.stringvalue),'N/A') AS winner, payment.numbervalue AS payment_amount, "
+            + "IFNULL(payment_status.stringvalue, 'Not Paid') AS payment_status, CAST(IFNULL(tcopoints.STRINGVALUE, '0') AS SIGNED INTEGER) AS  tco_points,"
+            + "CAST(contest.stringvalue AS SIGNED INTEGER) AS contest_id, contest.numbervalue as project_id, st.pname as status "
+            + "FROM jiraissue AS i "
+            + "JOIN customfieldvalue contest ON contest.customfield = 10190  AND contest.issue = i.id " 
+            + "and contest.ID = IF(contest.customfield=10093,(select max(id) from customfieldvalue where customfield = 10093 AND issue = i.id),"
+            + "(select max(id) from customfieldvalue where customfield = 10190 AND issue = i.id)) "
+			+ "JOIN issuestatus st on st.id = i.issuestatus "
+            + "LEFT JOIN customfieldvalue payment ON payment.customfield = 10012 AND payment.issue = i.id "
+            + "LEFT JOIN customfieldvalue payee ON payee.customfield = 10040 AND payee.issue = i.id "
+            + "LEFT JOIN customfieldvalue payment_status ON payment_status.customfield = 10030 AND payment_status.issue = i.id "
+            + "LEFT JOIN customfieldvalue tcopoints ON tcopoints.customfield = 10080 AND tcopoints.issue = i.id "
+            + " WHERE not exists (select * from  customfieldvalue where customfield = 10093  AND issue = i.id )	";
 
     /**
      * SQL to insert JIRA Tickets into tcs_dw:jira_issue.
+     *
+     * <p>
+     * Update in version 1.2 - add column project_id into INSERT statement
+     * </p>
      */
     private static final String SQL_INSERT_JIRA_ISSUE = "INSERT INTO 'informix'.jira_issue(jira_issue_id, ticket_id, "
             + "reporter, assignee, summary, description, created, updated, due_date, resolution_date, votes, winner, "
-            + "payment_amount, tco_points, contest_id, status) VALUES(jira_issue_seq.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            + "payment_amount, tco_points, contest_id, project_id, status) VALUES(jira_issue_seq.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
 
     /**
      * SQL to delete existing JIRA Tickets.
@@ -244,7 +281,7 @@ public class JiraDataLoadUtility extends DBUtility {
             while (rs.next()) {
                 row++;
                 String ticketId = rs.getString("ticket_id");  
-				
+
                 if (needDeleteBeforeEachInsertion) {
                     deleteSingleTicket(ticketId);
                 }
@@ -262,8 +299,15 @@ public class JiraDataLoadUtility extends DBUtility {
                 pst.setString(11, rs.getString("winner"));
                 pst.setDouble(12, rs.getDouble("payment_amount"));
                 pst.setInt(13, rs.getInt("tco_points"));
-                pst.setLong(14, rs.getLong("contest_id"));
-                pst.setString(15, rs.getString("status"));
+                Long contest_id = rs.getLong("contest_id");
+                if (!rs.wasNull() && contest_id > 0){
+                    pst.setLong(14, contest_id);
+                    pst.setNull(15, java.sql.Types.INTEGER);
+                }else{
+                    pst.setNull(14, java.sql.Types.INTEGER);
+                    pst.setLong(15, rs.getLong("project_id"));
+                }
+                pst.setString(16, rs.getString("status"));
                 pst.executeUpdate();
             }
             log.debug(row + " row(s) loaded into tcs_dw:jira_issue");
