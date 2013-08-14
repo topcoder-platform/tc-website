@@ -4,7 +4,6 @@
 package com.topcoder.web.common.dao.hibernate;
 
 import com.topcoder.web.common.dao.*;
-import com.topcoder.web.common.dao.SecondEmailRequestDAO;
 
 /**
  * 
