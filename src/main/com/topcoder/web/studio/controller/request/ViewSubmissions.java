@@ -101,11 +101,42 @@ public class ViewSubmissions extends ShortHibernateProcessor {
             throw new NavigationException("Submissions are not available until the contest is over.");
         }
 
-        if (!c.getViewableSubmissions()) {
-            throw new NavigationException("Submissions are not available for this contest");
+        getRequest().setAttribute("isOver", String.valueOf(isOver));
+
+        boolean inReviewPhase = c.getScreeningClosed() && !c.getSubmissionOpen() && !c.getReviewClosed();
+
+        getRequest().setAttribute("inReviewPhase", String.valueOf(inReviewPhase));
+
+        processSubmissionsSection(c);
+
+        Long submissionId = 0l;
+        try {
+            submissionId = new Long(getRequest().getParameter(Constants.SUBMISSION_ID));
+        } catch (NumberFormatException e) {
+            // if the submission id is invalid, just ignore it.
         }
 
-        getRequest().setAttribute("isOver", String.valueOf(isOver));
+        if (submissionId > 0) {
+            getRequest().setAttribute(Constants.SUBMISSION_ID, submissionId);
+
+            // fetch submission and submission declaration data
+            SubmissionDAO submissionDAO = DAOUtil.getFactory().getSubmissionDAO();
+            Submission submission = submissionDAO.find(submissionId.intValue());
+            submission.setViewCount(submission.getViewCount() + 1);
+            submissionDAO.saveOrUpdate(submission);
+            getRequest().setAttribute("submission", submission);
+
+            setNextPage("/fullSizeSubmission.jsp");
+        } else {
+            setNextPage("/submissions.jsp");
+        }
+        setIsNextPageInContext(true);
+    }
+
+    private void  processSubmissionsSection(Project c) throws Exception {
+        if (!c.getViewableSubmissions()) {
+            return;
+        }
 
         //not caching anymore, it doesn't gain much.  perhaps we can in the future if we figure out exactly how the
         //admins use the system so we know when to refresh the cache
@@ -114,7 +145,7 @@ public class ViewSubmissions extends ShortHibernateProcessor {
         DataAccess da = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
         Request r = new Request();
         r.setContentHandle("studio_submissions");
-        r.setProperty(Constants.CONTEST_ID, contestId);
+        r.setProperty(Constants.CONTEST_ID, String.valueOf(c.getId()));
 
         getRequest().setAttribute("hasScores", c != null);
 
@@ -150,14 +181,14 @@ public class ViewSubmissions extends ShortHibernateProcessor {
         }
 
         // we don't care if they are invalid. In that case, just use defaults.
-        Integer pageNumberInt;        
+        Integer pageNumberInt;
         try {
             pageNumberInt = Integer.parseInt(pageNumber);
         } catch (NumberFormatException e) {
             pageNumberInt = 1;
         }
-        
-        Integer pageSizeInt;        
+
+        Integer pageSizeInt;
         try {
             pageSizeInt = Integer.parseInt(pageSize);
         } catch (NumberFormatException e) {
@@ -199,28 +230,5 @@ public class ViewSubmissions extends ShortHibernateProcessor {
 
         SortInfo s = new SortInfo();
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
-
-        Long submissionId = 0l;
-        try {
-            submissionId = new Long(getRequest().getParameter(Constants.SUBMISSION_ID));
-        } catch (NumberFormatException e) {
-            // if the submission id is invalid, just ignore it.
-        }
-
-        if (submissionId > 0) {
-            getRequest().setAttribute(Constants.SUBMISSION_ID, submissionId);
-
-            // fetch submission and submission declaration data
-            SubmissionDAO submissionDAO = DAOUtil.getFactory().getSubmissionDAO();
-            Submission submission = submissionDAO.find(submissionId.intValue());
-            submission.setViewCount(submission.getViewCount() + 1);
-            submissionDAO.saveOrUpdate(submission);
-            getRequest().setAttribute("submission", submission);
-
-            setNextPage("/fullSizeSubmission.jsp");
-        } else {
-            setNextPage("/submissions.jsp");
-        }
-        setIsNextPageInContext(true);
     }
 }

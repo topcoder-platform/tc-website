@@ -129,11 +129,11 @@
                                 </div>                                                                
                             </c:when>
                             <c:when test="${contest.statusId==3}">
-                                <div id="content"> 
-                                  <div class="contentTop"> 
-                                    <div class="contentMiddle"> 
+                                <div id="content">
+                                  <div class="contentTop">
+                                    <div class="contentMiddle">
                                       <h1>No Winners have been chosen</h1>
-                                      <div align="center"> 
+                                      <div align="center">
                                         <div style="width:500px; padding: 50px 0px 100px 0px;">
                                           The client has decided not to choose any winners for
                                           this competition. Please refer to the forums for
@@ -144,9 +144,34 @@
                                       </div>
                                     </div>
                                   </div>
-                                </div>                                                              
+                                </div>
                             </c:when>
-                            
+                            <c:when test="${not contest.viewableSubmissions}">
+                                <div id="content">
+                                    <div class="contentTop">
+                                        <div class="contentMiddle">
+                                            <div align="center">
+                                                <div style="width:500px; padding: 50px 0px 100px 0px;">
+                                                    <b>Submissions are not available for this contest</b> <br/><br/>
+                                                    There are many reasons why the submissions may not be viewable, such as
+                                                    the allowance of stock art, or a client's desire to keep the work private.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:when>
+                            <c:when test="${inReviewPhase}">
+                                <div id="content">
+                                    <div class="contentTop">
+                                        <div class="contentMiddle">
+                                            <div style="width:500px; padding: 50px 0px 100px 0px;">
+                                                <b>Submissions are in review.</b>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:when>
                             <c:otherwise>
 
                                 <div id="contentSubmissions">
