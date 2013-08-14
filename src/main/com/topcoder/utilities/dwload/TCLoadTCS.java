@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2010 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.utilities.dwload;
 
@@ -118,8 +118,15 @@ import com.topcoder.utilities.dwload.contestresult.drv2.ContestResultCalculatorV
  *   </ol>
  * </p>
  *
- * @author rfairfax, pulky, ivern, VolodymyrK, moonli, isv, minhu
- * @version 1.2.1
+ * <p>
+ * Version 1.2.2 (Release Assembly - TC Cockpit JIRA Report Update)
+ * <ul>
+ *     <li>Updated {@link #doLoadDirectProjectDim()} to load new column direct_project_dim::billing_project_id</li>
+ * </ul>
+ * </p>
+ *
+ * @author rfairfax, pulky, ivern, VolodymyrK, moonli, isv, minhu, Blues
+ * @version 1.2.2
  */
 public class TCLoadTCS extends TCLoad {
 
@@ -5553,20 +5560,21 @@ public class TCLoadTCS extends TCLoad {
 
         // Statement for selecting the records from time_oltp table in source database
         final String SELECT
-            = "SELECT project_id, name, description, project_status_id, create_date, modify_date "  +
-              " FROM tc_direct_project " +
-              " WHERE modify_date > ? ";
+            = "SELECT project_id, name, description, project_status_id, create_date, modify_date,"  +
+              "(SELECT max(dpa.billing_account_id) from corporate_oltp:direct_project_account dpa where dpa.project_id = tdp.project_id) as billing_project_id" +
+              " FROM tc_direct_project tdp" +
+              " WHERE tdp.modify_date > ? ";
 
         // Statement for updating the records in tcs_dw.client_project_dim table
-        final String UPDATE = "UPDATE direct_project_dim SET name = ?, description = ?, project_status_id = ?, " +
-                        " project_create_date = ?, project_modification_date = ? " +
+        final String UPDATE = "UPDATE direct_project_dim SET name = ?, description = ?, project_status_id = ?," +
+                        " project_create_date = ?, project_modification_date = ?, billing_project_id = ?" +
                         " WHERE direct_project_id = ?";
 
         // Statement for inserting the records to tcs_dw.client_project_dim table in target database
         final String INSERT
             = "INSERT INTO direct_project_dim (direct_project_id, name, description, project_status_id," +
-              "                                project_create_date, project_modification_date)" +
-              "VALUES (?,?,?,?,?,?)";
+              "                                project_create_date, project_modification_date, billing_project_id)" +
+              "VALUES (?,?,?,?,?,?,?)";
 
         PreparedStatement select = null;
         PreparedStatement insert = null;
@@ -5596,8 +5604,12 @@ public class TCLoadTCS extends TCLoad {
                 update.setDate(4, rs.getDate("create_date"));
                 // project_modification_date
                 update.setDate(5, rs.getDate("modify_date"));
+				// billing_project_id
+                update.setLong(6, rs.getLong("billing_project_id"));
                 // direct project id
-                update.setLong(6, rs.getLong("project_id"));
+                update.setLong(7, rs.getLong("project_id"));
+                
+
                 int retVal = update.executeUpdate();
 
                 if (retVal == 0) {
@@ -5615,6 +5627,8 @@ public class TCLoadTCS extends TCLoad {
                     insert.setDate(5, rs.getDate("create_date"));
                     // project_modification_date
                     insert.setDate(6, rs.getDate("modify_date"));
+                    // billing_project_id
+                    insert.setLong(7, rs.getLong("billing_project_id"));
                     insert.executeUpdate();
                 }
                 count++;
