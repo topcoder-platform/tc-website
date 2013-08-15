@@ -13,7 +13,8 @@
 --%>
 <%@  page language="java"
     import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,com.topcoder.shared.util.ApplicationServer,
-          com.topcoder.web.common.StringUtils, com.topcoder.web.common.WebConstants"%>
+          com.topcoder.web.common.StringUtils, com.topcoder.web.common.WebConstants,
+          org.springframework.web.util.HtmlUtils"%>
 
 <%@ page import="java.util.Map"%>
 <%@ page import="java.net.URLEncoder"%>
@@ -22,6 +23,7 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtags" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -114,7 +116,8 @@
                                     <div class="contentText">
                                         <% if(!"".equals(StringUtils.checkNull(rscCoderData.getStringItem(0,"quote")))) {%>
                                             <div class="userText">
-                                                "<%=StringUtils.htmlEncode(rscCoderData.getStringItem(0, "quote"))%>"
+                                                <c:set var="quote" value='<%=HtmlUtils.htmlUnescape(rscCoderData.getStringItem(0, "quote"))%>'/>
+                                                "${fn:escapeXml(quote)}"
                                             </div>
                                         <%} else { %>
                          <div class="userText">
