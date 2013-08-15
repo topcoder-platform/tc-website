@@ -944,7 +944,7 @@ public class TCLoadTCS extends TCLoad {
                           "             AND NOT pmd2.payment_status_id IN (65, 68, 69)), 0) " +
                           "   end AS contest_prizes_total " +
                             "   , pib.value AS billing_project_id " +
-                            "   , case when pcl.project_type_id != 3 then  " +
+                            "   , case when pcl.project_type_id != 3 and p.project_category_id not in (9,29) then  " +
                             "         (SELECT MAX(ppfr.actual_end_time) " +
                             "          FROM project_phase ppfr " +
                             "           WHERE ppfr.project_id = p.project_id " +
@@ -955,7 +955,7 @@ public class TCLoadTCS extends TCLoad {
                             "                                   WHERE ppappr.project_id = p.project_id " +
                             "                                   AND ppappr.phase_type_id = 11)) " +
                             "     else (select actual_end_time from project_phase ph3 " +
-                            "           where ph3.project_id = p.project_id and ph3.phase_type_id = 3 and ph3.phase_status_id = 3) " +
+                            "           where ph3.project_id = p.project_id and ph3.phase_type_id = 4 and ph3.phase_status_id = 3) " +
                             "     end as actual_complete_date  " +
                             "   from project p , " +
                             "   project_info pir, " +
