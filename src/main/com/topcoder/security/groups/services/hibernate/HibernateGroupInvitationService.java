@@ -470,6 +470,7 @@ public class HibernateGroupInvitationService extends BaseGroupService implements
             message.setFromAddress(emailSender);
             message.setToAddress(userDTO.getEmailAddress(), TCSEmailMessage.TO);
             message.setSubject(emailSubject);
+            message.setContentType("text/html");
             message.setBody(emailBody);
             EmailEngine.send(message);
         } catch (Exception e) {
