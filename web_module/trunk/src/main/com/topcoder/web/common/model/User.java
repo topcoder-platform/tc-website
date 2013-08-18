@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2013 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.common.model;
 
 import com.topcoder.web.common.WebConstants;
@@ -26,8 +29,15 @@ import java.util.TreeSet;
  * Update(Release Assembly - OpenID Project Update 1 v1.0):
  * Add <code>private String openId</code> field.
  * </p>
- * @author dok, TCASSEMBLER
- * @version v1.1
+ *
+ * <p>
+ * Changes in version 1.2 (BUGR-9400 TopCoder Update Profile Bug Race):
+ * <ol>
+ * 		<li>Update {@link #setContact(Contact contact)} method.</li>
+ * </ol>
+ * </p>
+ * @author dok, TCASSEMBLER, savon_cn
+ * @version v1.2
  */
 public class User extends Base {
     private Long id;
@@ -394,10 +404,18 @@ public class User extends Base {
     public Contact getContact() {
         return contact;
     }
-
+    /**
+     * <p>
+     * Setter the contact in user entity.
+     * Add the <code>Null</code> check like {@link #setContact(Contact contact)} method.
+     * </p>
+     * @param contact the contact entity.
+     */
     public void setContact(Contact contact) {
         this.contact = contact;
-        contact.setUser(this);
+        if (contact != null) {
+        	contact.setUser(this);
+        }
     }
 
     public void clearDemographicResponses() {
