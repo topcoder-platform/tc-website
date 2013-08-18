@@ -250,7 +250,7 @@ public abstract class Base extends LongHibernateProcessor {
         ret.put(Constants.PASSWORD_CONFIRM, getTrimmedParameter(Constants.PASSWORD_CONFIRM));
         ret.put(Constants.SECURITY_KEY, getTrimmedParameter(Constants.SECURITY_KEY));
         ret.put(Constants.HANDLE, getTrimmedParameter(Constants.HANDLE));
-        ret.put(Constants.QUOTE, getEscapedParameter(getTrimmedParameter(Constants.QUOTE)));
+        ret.put(Constants.QUOTE, getTrimmedParameter(Constants.QUOTE));
         ret.put(Constants.TITLE, getEscapedParameter(getTrimmedParameter(Constants.TITLE)));
         ret.put(Constants.COMPANY_NAME, getEscapedParameter(getTrimmedParameter(Constants.COMPANY_NAME)));
         ret.put(Constants.PHONE_NUMBER, getEscapedParameter(getTrimmedParameter(Constants.PHONE_NUMBER)));

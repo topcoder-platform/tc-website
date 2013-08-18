@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2006 - 2013 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.shared.util.logging.Logger;
@@ -16,9 +19,14 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @author dok
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: May 8, 2006
+ * <p>
+ * Changes in version 1.1 (BUGR-9400 TopCoder Update Profile Bug Race):
+ * <ol>
+ * 		<li>Update {@link #loadFieldsIntoUserObject(Set fields, Map params)} method.</li>
+ * </ol>
+ * </p>
+ * @author dok, savon_cn
+ * @version 1.1
  */
 public class Confirm extends Base {
     private static final Logger log = Logger.getLogger(Confirm.class);
@@ -68,7 +76,15 @@ public class Confirm extends Base {
         }
     }
 
-
+    /**
+     * <p>
+     * Update the user profile during registration.
+     * </p>
+     * @param fields the profile fields.
+     * @param params the map parameters.
+     * @throws TCWebException 
+     *          if any backend service error occured.
+     */
     private void loadFieldsIntoUserObject(Set fields, Map params) throws TCWebException {
         User u = getRegUser();
 
@@ -318,7 +334,12 @@ public class Confirm extends Base {
             u.getContact().setTitle((String) params.get(Constants.TITLE));
         }
 
-
+        
+        Contact uContact = u.getContact();
+        //don't insert contact information if the company is null
+        if (uContact != null && uContact.getCompany() == null) {
+        	u.setContact(null);
+        }
         setRegUser(u);
     }
 
