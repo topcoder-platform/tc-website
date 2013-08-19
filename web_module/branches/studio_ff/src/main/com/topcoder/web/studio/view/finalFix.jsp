@@ -19,6 +19,7 @@
 <c:set var="IN_REVIEW" value="${not COMPLETED and finalFixUploaded}"/>
 <c:set var="IN_PROGRESS" value="${not COMPLETED and not finalFixUploaded}"/>
 <c:set var="CONTEST_ID" value="<%=Constants.CONTEST_ID%>"/>
+<c:set var="isCurrentFinalFixRound" value="${FinalFixRoundNo eq contest.noOfFinalFixRounds}"/>
 
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -134,24 +135,34 @@
                                         <col width="54">
                                         <col>
                                         <col width="75">
-                                        <col width="15">
+                                        <c:if test="${reviewCommitted}">
+                                            <col width="15">
+                                        </c:if>
                                     </colgroup>
                                     <thead>
                                     <tr>
                                         <th>#</th>
                                         <th class="commentColumn">Item</th>
-                                        <th>Fixed?</th>
+                                        <c:if test="${reviewCommitted}">
+                                            <th>Fixed?</th>
+                                        </c:if>
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    <c:set var="myIndex" value="0"/>
                                     <c:forEach items="${finalFixDetail.comments}" var="item" varStatus="loop">
-                                        <tr>
-                                            <td><strong>${loop.index + 1}</strong></td>
+                                        <c:if test="${not isCurrentFinalFixRound or isCurrentFinalFixRound and (reviewCommitted or not item.fixed)}">
+                                            <c:set var="myIndex" value="${myIndex + 1}"/>
+                                            <tr>
+                                            <td><strong>${myIndex}</strong></td>
                                             <td class="commentColumn"><c:out value="${item.comment}"/></td>
-                                            <td class="statusCell">
-                                                <em class="${not item.fixed ? 'in' : ''}correct"></em>
-                                            </td>
+                                            <c:if test="${reviewCommitted}">
+                                                <td class="statusCell">
+                                                    <em class="${not item.fixed ? 'in' : ''}correct"></em>
+                                                </td>
+                                            </c:if>
                                         </tr>
+                                        </c:if>
                                     </c:forEach>
                                     </tbody>
                                 </table>
