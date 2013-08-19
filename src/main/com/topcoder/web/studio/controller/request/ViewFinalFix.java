@@ -17,9 +17,7 @@ import com.topcoder.web.studio.dto.ReviewItemComment;
 import com.topcoder.web.studio.dto.Upload;
 import com.topcoder.web.studio.util.Util;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -87,14 +85,20 @@ public class ViewFinalFix extends ShortHibernateProcessor {
         }
 
         // get the associated review comments
+        boolean reviewCommitted;
+        Review previousReview = null;
         Review review = DAOUtil.getFactory().getReviewDAO().getReviewByPhase(finalReviewPhase.getId());
         if ((review == null) || !review.getCommitted()) {
+            reviewCommitted = false;
             if (roundNo == 1) {
                 ProjectPhase approvalPhase = contest.getPhase(ProjectPhase.APPROVAL);
                 review = DAOUtil.getFactory().getReviewDAO().getReviewByPhase(approvalPhase.getId());
             } else {
                 review = DAOUtil.getFactory().getReviewDAO().getReviewByPhase(finalReviewPhases.get(roundNo - 2).getId());
+                previousReview = review;
             }
+        } else {
+            reviewCommitted = true;
         }
 
         // Build the DTO for Final Fix tab
@@ -108,7 +112,22 @@ public class ViewFinalFix extends ShortHibernateProcessor {
             if (reviewItemCommentTypeId == 3) { // Required comment
                 FinalFixComment finalFixComment = new FinalFixComment();
                 finalFixComment.setComment(reviewItemComment.getContent());
-                boolean fixed = "Fixed".equalsIgnoreCase(reviewItemComment.getExtraInfo());
+                boolean fixed = false;
+                if (reviewItemComment.getExtraInfo() != null) {
+                    fixed = "Fixed".equalsIgnoreCase(reviewItemComment.getExtraInfo());
+                } else {
+                    if (roundNo > 1 && previousReview != null) {
+                        Set<ReviewItemComment> previousReviewComments 
+                                = previousReview.getItems().iterator().next().getComments();
+                        for (ReviewItemComment previousReviewItemComment : previousReviewComments) {
+                            if (previousReviewItemComment.getType().getId() == 3) {
+                                if (previousReviewItemComment.getSort().equals(reviewItemComment.getSort())) {
+                                    fixed = "Fixed".equalsIgnoreCase(previousReviewItemComment.getExtraInfo());
+                                }
+                            }
+                        }
+                    }
+                }
                 finalFixComment.setFixed(fixed);
                 finalFixComments.add(finalFixComment);
                 allItemsFixed = allItemsFixed && fixed;
@@ -120,7 +139,7 @@ public class ViewFinalFix extends ShortHibernateProcessor {
 
         getRequest().setAttribute("finalFixDetail", finalFixDetail);
         getRequest().setAttribute("allItemsFixed", allItemsFixed);
-        getRequest().setAttribute("reviewCommitted", review.getCommitted());
+        getRequest().setAttribute("reviewCommitted", reviewCommitted);
         setNextPage("/finalFix.jsp");
         setIsNextPageInContext(true);
     }

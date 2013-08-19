@@ -86,7 +86,13 @@
             <c:forEach begin="1" end="${ffTabCount}" varStatus="loop">
                 <li><a href="${servletPath}?module=ViewFinalFix&amp;${CONTEST_ID}=${contest.id}&amp;${FINAL_FIX_ROUND_NO}=${loop.index}" 
                        class="${loop.index eq FinalFixRoundNo ? 'current' : ''}">
-                    <span class="right"><span class="middle">Final Fixes R${loop.index}</span></span></a></li>
+                    <span class="right"><span class="middle">
+                        Final Fixes
+                        <c:if test="${contest.noOfFinalFixRounds > 1}">
+                            R${loop.index}
+                        </c:if>
+                    </span></span></a>
+                </li>
             </c:forEach>
         </c:if>
     </ul>
