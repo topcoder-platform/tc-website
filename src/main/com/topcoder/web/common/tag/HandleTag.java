@@ -18,6 +18,7 @@ public class HandleTag extends TagSupport {
     private String link = "";
     private String cssclass = "";
     private boolean darkBG = false;
+    private String handle = null;
     /*
         private boolean algorithm = false;
         private boolean hsAlgorithm = false;
@@ -84,6 +85,10 @@ public class HandleTag extends TagSupport {
         this.darkBG = (s.toLowerCase().trim().equals("true"));
     }
 
+    public void setHandle(String handle) {
+        this.handle = handle;
+    }
+
     public void setContext(String s) {
 /*
         if (s.toLowerCase().trim().equals(ALGORITHM)) algorithm = true;
@@ -98,7 +103,8 @@ public class HandleTag extends TagSupport {
 
     public int doStartTag() throws JspException {
         try {
-            pageContext.getOut().print(getLink(coderId, cssclass, link, pageContext, context, lightStyles, darkStyles, darkBG));
+            pageContext.getOut().print(getLink(coderId, cssclass, link, pageContext, context, handle, lightStyles,
+                    darkStyles, darkBG));
         } catch (Exception e) {
             log.error("on coder id " + coderId);
             throw new JspException(e);
@@ -111,10 +117,29 @@ public class HandleTag extends TagSupport {
      * Build the handle link tag of the given coder id, using the given parameters.
      * </p>
      *
+	 
+     * <p>
+     * Update in contest - Release Assembly - TopCoder Cockpit - Tracking Marathon Matches Progress - Results Tab 2
+     * - Add parameter handle.
+     * </p>
+     *
      * @since Member Profile Enhancement assembly
      */
     public static String getLink(long coderId, String cssclass, String link,
                                  PageContext pageContext, String context,
+                                 String[] lightStyles, String[] darkStyles, boolean darkBG) throws Exception {
+        return getLink(coderId, cssclass, link, pageContext, context, null, lightStyles,
+                    darkStyles, darkBG); 
+    }
+    /**
+     * <p>
+     * Build the handle link tag of the given coder id, using the given parameters.
+     * </p>
+     *
+     * @since Release Assembly - TopCoder Cockpit - Tracking Marathon Matches Progress - Results Tab 2
+     */
+    public static String getLink(long coderId, String cssclass, String link,
+                                 PageContext pageContext, String context, String handle,
                                  String[] lightStyles, String[] darkStyles, boolean darkBG) throws Exception {
 
         //lookup ratings from cache
@@ -130,7 +155,11 @@ public class HandleTag extends TagSupport {
 
         ResultSetContainer rsc = (ResultSetContainer) m.get("coder_all_ratings");
         if (rsc.isEmpty()) {
-            output.append("UNKNOWN USER");
+            if(handle != null && handle.trim().length() != 0) {
+                output.append(handle);
+            } else {
+                output.append("UNKNOWN USER");
+            }
         } else if (rsc.getItem(0, "coder_id").getResultData() == null) {
             output.append(rsc.getStringItem(0, "handle"));
         } else {
