@@ -537,6 +537,8 @@ public class Submit extends BaseSubmissionDataProcessor {
                                 submissionDAO.changeRank(newRank, s, uploads);
                             }
                         }
+                    } else {
+                        submissionDAO.saveOrUpdate(s);
                     }
 
                     closeConversation();
