@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2006 - 2013 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
 import com.topcoder.server.ejb.TestServices.LongContestServicesException;
@@ -33,6 +36,8 @@ import javax.ejb.CreateException;
 import javax.naming.NamingException;
 import java.io.StringReader;
 import java.rmi.RemoteException;
+import java.sql.Connection;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -41,16 +46,43 @@ import java.util.Map;
 /**
  * Allows a coder to submit code for a round.
  *
- * @author farsight
- * @version 1.0
+  * <p>
+ *  Changes in 1.1 (Release Assembly - TopCoder Competition Engine Improvement Series 1):
+ * <ol>
+ * <li>
+ * Updated {@link #getMessage(ResultSetContainer, boolean, int)} method to use specified submission rate.
+ * </li>
+ * <li>
+ * Updated {@link #isNearEnd(long, int)} method to use specified submission rate.
+ * </li>
+ * <li>
+ * Updated {@link #reportError(TCRequest, long, long, long)} method to use specified submission rate.
+ * </li>
+ * <li>
+ * Updated {@link #longContestProcessing()} method to use configured submission rate.
+ * </li>
+ * </li>
+ * <li>
+ * Added {@link #buildNearEndMessage(int)} method.
+ * </li>
+ * </ol> 
+ * </p>
+ *
+ * @author farsight, gevak
+ * @version 1.1
  */
 public class Submit extends Base {
 
     private static final String NEAR_END =
-            "Note: There are less than " + Constants.SUBMISSION_RATE / 60 + " hours remaining in this event.  " +
+            "Note: There are less than {0} hour(s) remaining in this event.  " +
                     "If you make\na full submission at any point between now and the end of the event\nyou will " +
                     "not be able to make any further full subimssions for\nthe duration of the event.";
 
+    /**
+     * Processes long contest submission.
+     *
+     * @throws TCWebException If web error occurs.
+     */
     protected void longContestProcessing() throws TCWebException {
         TCRequest request = getRequest();
         User user = getAuthentication().getUser();
@@ -152,6 +184,32 @@ public class Submit extends Base {
                 getRequest().setAttribute(Constants.LANGUAGE_ID, String.valueOf(language));
             }
 
+            // Get submission rates.
+            int submissionRate = Constants.SUBMISSION_RATE;
+            int exampleSubmissionRate = Constants.EXAMPLE_SUBMISSION_RATE;
+            int rowCount = info.getRowCount();
+            log.info("rowCount = " + rowCount);
+            for (int i = 0; i < rowCount; i++) {
+                if (!isNull(info, i, "component_id")) {
+                    long componentId = info.getLongItem(i, "component_id");
+                    log.info("componentId = " + componentId);
+                    if (cid == componentId) {
+                        log.info("got cid");
+                        log.info("index = " + info.getColumnIndex("submission_rate"));
+                        log.info("index = " + info.getColumnIndex("example_submission_rate"));
+                        if (!isNull(info, i, "submission_rate")) {
+                            log.info("go sr");
+                            submissionRate = info.getIntItem(i, "submission_rate");
+                        }
+                        if (!isNull(info, i, "example_submission_rate")) {
+                            log.info("go esr");
+                            exampleSubmissionRate = info.getIntItem(i, "example_submission_rate");
+                        }
+                        break;
+                    }
+                }
+            }
+
             // The class name for this problem
             String className = pc.getClassName();
             int methodCount = pc.getAllMethodNames().length;
@@ -196,8 +254,9 @@ public class Submit extends Base {
                 log.debug("set message in request to " + message);
                 request.setAttribute(Constants.LANGUAGES, allowedLanguages);
                 setNextPage(Constants.SUBMISSION_JSP);
-                if (isNearEnd(rid)) {
-                    request.setAttribute(Constants.MESSAGE, message != null ? message + "\n\n" : "" + NEAR_END);
+                if (isNearEnd(rid, submissionRate)) {
+                    request.setAttribute(Constants.MESSAGE, message != null ? message + "\n\n" : "" +
+                            buildNearEndMessage(submissionRate));
                 } else {
                     request.setAttribute(Constants.MESSAGE, message);
                 }
@@ -213,9 +272,9 @@ public class Submit extends Base {
 
                 ThrottleResult tRes;
                 if (examplesOnly) {
-                    tRes = getMessage(lastExampleCompilation, true);
+                    tRes = getMessage(lastExampleCompilation, true, exampleSubmissionRate);
                 } else {
-                    tRes = getMessage(lastCompilation, false);
+                    tRes = getMessage(lastCompilation, false, submissionRate);
                 }
                 if (tRes.isOnHold()) {
                     request.setAttribute(Constants.CODE, code);
@@ -254,10 +313,11 @@ public class Submit extends Base {
                                     new String[]{Constants.ROUND_ID, Constants.CONTEST_ID, Constants.COMPONENT_ID},
                                     new String[]{String.valueOf(rid), String.valueOf(cd), String.valueOf(cid)}));
                     } else {
-                        reportError(request, cd, rid, cid, res.getCompileError(), code, language);
+                        reportError(request, cd, rid, cid, res.getCompileError(), code, language, submissionRate);
                     }
                 } catch (LongContestServicesException e) {
-                    reportError(request, cd, rid, cid, "Submit failed: "+MessageProvider.getText(e.getLocalizableMessage()), code, language);
+                    reportError(request, cd, rid, cid, "Submit failed: " +
+                            MessageProvider.getText(e.getLocalizableMessage()), code, language, submissionRate);
                 } catch (ServerBusyException sbe) {
                     throw new NavigationException("A submit request is already being processed.");
                 }
@@ -271,8 +331,9 @@ public class Submit extends Base {
                     // save complete
                     // go back to coding!
                     log.debug("set message in request to successful save");
-                    if (isNearEnd(rid)) {
-                        request.setAttribute(Constants.MESSAGE, "Your code has been saved.\n\n" + NEAR_END);
+                    if (isNearEnd(rid, submissionRate)) {
+                        request.setAttribute(Constants.MESSAGE, "Your code has been saved.\n\n" +
+                                buildNearEndMessage(submissionRate));
                     } else {
                         request.setAttribute(Constants.MESSAGE, "Your code has been saved.");
                     }
@@ -280,7 +341,8 @@ public class Submit extends Base {
                     setNextPage(Constants.SUBMISSION_JSP);
                     setIsNextPageInContext(true);
                 } catch (LongContestServicesException e) {
-                    reportError(request, cd, rid, cid, "Save failed: "+MessageProvider.getText(e.getLocalizableMessage()), code, language);
+                    reportError(request, cd, rid, cid, "Save failed: " +
+                            MessageProvider.getText(e.getLocalizableMessage()), code, language, submissionRate);
                 } catch (Exception e) {
                     log.error("Could not save the code:", e);
                     throw new NavigationException("Your code cannot be saved at this time.");
@@ -319,9 +381,24 @@ public class Submit extends Base {
         return true;
     }
 
-    private void reportError(TCRequest request, long cd, long rid, long cid, String message, String code, int language) throws Exception {
-        if (isNearEnd(rid)) {
-            request.getSession().setAttribute(Constants.MESSAGE, message + "\n\n" + NEAR_END);
+    /**
+     * Reports error.
+     *
+     * @param request The TC request.
+     * @param cd The contest ID.
+     * @param rid The round ID.
+     * @param cid The component ID.
+     * @param message The original message.
+     * @param code The code content.
+     * @param language The language ID.
+     * @param submissionRate The submission rate.
+     * @throws Exception if any error occured.
+     */
+    private void reportError(TCRequest request, long cd, long rid, long cid,
+            String message, String code, int language, int submissionRate) throws Exception {
+        if (isNearEnd(rid, submissionRate)) {
+            request.getSession().setAttribute(Constants.MESSAGE, message + "\n\n" +
+                    buildNearEndMessage(submissionRate));
         } else {
             request.getSession().setAttribute(Constants.MESSAGE, message);
         }
@@ -334,7 +411,15 @@ public class Submit extends Base {
 
     }
 
-    private boolean isNearEnd(long roundId) throws Exception {
+    /**
+     * Checks if end is near.
+     *
+     * @param roundId Round ID.
+     * @param submissionRate Submission rate, in minutes.
+     * @return True if end time is reached, false otherwise.
+     * @throws Exception If any error occurs.
+     */
+    private boolean isNearEnd(long roundId, int submissionRate) throws Exception {
         log.debug("isNearEnd called on round: " + roundId);
         ResultSetContainer rsc = getRoundInfo(roundId);
         if (rsc.getIntItem(0, "round_type_id") == Constants.LONG_PRACTICE_ROUND_TYPE_ID ||
@@ -344,7 +429,7 @@ public class Submit extends Base {
         } else {
             long end = rsc.getTimestampItem(0, "end_time").getTime();
             long curr = System.currentTimeMillis();
-            long diff = Constants.SUBMISSION_RATE * 60 * 1000;
+            long diff = submissionRate * 60 * 1000;
             log.debug("end: " + end + " curr: " + curr + " diff: " + diff);
             return (end - curr) < diff;
         }
@@ -413,18 +498,26 @@ public class Submit extends Base {
         return !((ResultSetContainer) getDataAccess().getData(r).get("long_contest_accept_submissions")).isEmpty();
     }
 
-    private ThrottleResult getMessage(ResultSetContainer lastCompilation, boolean examplesOnly) {
+    /**
+     * Constructs warning message if submission rate limit is violated.
+     * It uses submission rate settings from DB, if they are present, or default values otherwise.
+     *
+     * @param lastCompilation Last compilation query result.
+     * @param examplesOnly Indicates if it's an example only submission or a full submission.
+     * @param submissionRate Submission rate to use according to specified <code>examplesOnly</code>, in minutes.
+     * @return Result, which will be true with corresponding message
+     *     if submission rate limit is violated or false without message if not violated.
+     */
+    private ThrottleResult getMessage(ResultSetContainer lastCompilation, boolean examplesOnly,
+            int submissionRate) {
         StringBuffer buf = null;
         if (!lastCompilation.isEmpty()) {
-            long lastSubmit = lastCompilation.getItem(0, "submit_time").getResultData() == null ? 0 : lastCompilation.getLongItem(0, "submit_time");
+            long lastSubmit = lastCompilation.getItem(0, "submit_time").getResultData() == null ?
+                    0 : lastCompilation.getLongItem(0, "submit_time");
             long now = System.currentTimeMillis();
-            long nextSubmit;
-            if (examplesOnly) {
-                nextSubmit = lastSubmit + Constants.EXAMPLE_SUBMISSION_RATE * 60 * 1000;
-            } else {
-                nextSubmit = lastSubmit + Constants.SUBMISSION_RATE * 60 * 1000;
-            }
-            log.debug("now " + now + " last: " + lastSubmit + " diff: " + (now - lastSubmit) + " examplesonly " + examplesOnly);
+            long nextSubmit = lastSubmit + submissionRate * 60 * 1000;
+            log.info("now " + now + " last: " + lastSubmit + " diff: " +
+                    (now - lastSubmit) + " submissionRate " + submissionRate + " examplesonly " + examplesOnly);
             long minutes = 0;
             long seconds = 0;
             if (now < nextSubmit) {
@@ -462,6 +555,29 @@ public class Submit extends Base {
         } else {
             return new ThrottleResult(true, buf.toString());
         }
+    }
+
+    /**
+     * Builds the near ending message.
+      *
+     * @param submissionRate The submission rate, in minutes.
+     * @return The near ending message.
+     * @since 1.1
+     */
+    private String buildNearEndMessage(int submissionRate) {
+        StringBuilder sb = new StringBuilder();
+        int hour = submissionRate / 60;
+        int minutes = submissionRate % 60;
+        if (hour > 0 && minutes > 0) {
+            sb.append(hour).append(hour == 1? " hour " : " hours ");
+            sb.append(minutes).append(minutes == 1 ? " minute" : " minutes");
+        } else if (hour > 0){
+            sb.append(hour).append(hour == 1? " hour" : " hours");
+        } else {
+            sb.append(minutes).append(minutes == 1 ? " minute" : " minutes");
+        }
+        String result = MessageFormat.format(NEAR_END, sb.toString());
+        return result;
     }
 
     private static class ThrottleResult {
