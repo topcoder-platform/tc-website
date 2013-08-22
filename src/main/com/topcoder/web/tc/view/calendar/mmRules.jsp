@@ -259,7 +259,7 @@ disqualify the submission.
 <p>In case of any ties, the corresponding prize money are distributed equally among all tied competitors. The date/time of submission does not matter.</p>
 <% } %>
 
-<% if (roundId == 15761) { %>
+<% if (round_id == 15761) { %>
 <div class="sectionHeader">Prizes</div>
     <p align="justify">The Marathon Match has $25,000 in total prize money.  The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
 <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
