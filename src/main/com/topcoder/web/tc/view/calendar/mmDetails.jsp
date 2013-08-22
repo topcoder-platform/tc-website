@@ -721,8 +721,6 @@ Additionally, there is a $1,000 USD prize for an unusual and perspective idea. O
 
 <% } %>
 
-<%
-
 <%if (roundId == 15520) {%>
 <div class="sectionHeader">Prizes</div>
     <p align="justify">There is a total $30,000 USD cash prize purse for this contest, 100 T-shirts, 5 stickers that have flown in space
