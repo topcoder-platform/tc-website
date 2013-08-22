@@ -148,6 +148,10 @@
     </div>
 </c:if>    
 
+<p align="justify">
+<i>This contest is brought to you by: NASA's Center of Excellence for Collaborative Innovation and Harvard Business School in association with the Institute of Quantitative Social Sciences.</i>
+</p>
+
 <div class="sectionHeader">Competition Overview</div>
 
 <%-- EXPERIMENTAL SERIES --%>
