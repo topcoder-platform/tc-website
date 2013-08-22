@@ -259,6 +259,38 @@ disqualify the submission.
 <p>In case of any ties, the corresponding prize money are distributed equally among all tied competitors. The date/time of submission does not matter.</p>
 <% } %>
 
+<% if (roundId == 15761) { %>
+<div class="sectionHeader">Prizes</div>
+    <p align="justify">The Marathon Match has $25,000 in total prize money.  The 5 highest scorers in this round will receive compensation for their submissions as follows:</p>
+<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
+    <tr>
+        <td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right">$12,000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">2nd</td><td class="bodyText" align="right">$6,000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">3rd</td><td class="bodyText" align="right">$3,000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">4th</td><td class="bodyText" align="right">$2,000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">5th</td><td class="bodyText" align="right">$1,000</td>
+    </tr>
+</table>
+
+<p align="justify">
+TopCoder may *offer* to purchase submissions that did not win any prize if the client is interested in using them.
+</p>
+
+<p align="justify">
+Additionally, there is a $1,000 USD prize for an unusual and perspective idea. Only contestants with 6th and lower final scores are eligible for this prize. The idea must be described and submitted in a text document. You do not need to implement your idea (though if it is incorporated into your marathon match final submission, it can be a plus). The submission phase for ideas is separate from the marathon match and will open once the match is over. Additional details will be communicated at the match forum. Evaluation of ideas is subjective, but the main evaluation criteria for the winning idea is: can (and how much) the Top-5 marathon match algorithms benefit from this idea? TopCoder reserves the right not to award this prize if no ideas are considered to be useful enough.
+</p>
+
+<% } %>
+
+
 <% if (round_id == 15611) { %>
 		<div class="sectionHeader">Prizes</div>
     <p align="justify">The Marathon Match has $10,000 in total prize money.  The 4 highest scorers in this round will receive compensation for their submissions as follows:</p>
@@ -616,13 +648,13 @@ The tester's identity will not be revealed until the contest is over.</p>
 		       round_id == 15024 || round_id == 15075 || round_id == 15023 || round_id == 15034 || round_id == 15038 || round_id == 15076
 		       || round_id == 15077 || round_id == 15078 || round_id == 15080 || round_id == 15103 || round_id == 15120
 		       || round_id == 15130 || round_id == 15189 || round_id == 15200 || round_id == 15201 || round_id == 15322
-			|| round_id == 15327 || round_id == 15458 || round_id == 15611 || round_id == 15618 || round_id == 15637 || round_id == 15678) { %>
+			|| round_id == 15327 || round_id == 15458 || round_id == 15611 || round_id == 15618 || round_id == 15637 || round_id == 15678 || round_id == 15761) { %>
 			As a condition of winning and redeeming a cash prize, Competitors will be required to submit, 
 			among other things, a completed TopCoder Competition Assignment Agreement, 
 			if one is not already on file with TopCoder, AND a one to two-page description explaining how the algorithm for the winning submission works.
 			<% if (round_id == 15103 || round_id == 15120 || round_id == 15130 || round_id == 15189 || round_id == 15200 || round_id == 15201
 				|| round_id == 15322 || round_id == 15327 || round_id == 15458 || round_id == 15611 || round_id == 15618 || round_id == 15630 ||
-				round_id == 15637 || round_id == 15678) { %>
+				round_id == 15637 || round_id == 15678 || round_id == 15761) { %>
 			The description must be submitted within 7 days after the contest results are published.
 			Questions sent by email from TopCoder requesting clarification to the description must be answered within 3 days.
 			If the description or a response to a clarification request is not received, TopCoder reserves the right to disqualify the submission. 
@@ -671,7 +703,8 @@ The tester's identity will not be revealed until the contest is over.</p>
 		 rsr.getIntItem("round_id") == 15201 || rsr.getIntItem("round_id") == 15322 || rsr.getIntItem("round_id") == 15327
 		|| rsr.getIntItem("round_id") == 15398 || rsr.getIntItem("round_id") == 15458 || rsr.getIntItem("round_id") == 15520
 		|| rsr.getIntItem("round_id") == 15589 || rsr.getIntItem("round_id") == 15611 || rsr.getIntItem("round_id") == 15618
-		|| rsr.getIntItem("round_id") == 15630 || rsr.getIntItem("round_id") == 15637 || rsr.getIntItem("round_id") == 15678) {%>
+		|| rsr.getIntItem("round_id") == 15630 || rsr.getIntItem("round_id") == 15637 || rsr.getIntItem("round_id") == 15678
+		|| rsr.getIntItem("round_id") == 15761) {%>
 
 		<p align="justify">
 			This Competition is open to all members of the TopCoder website, who have agreed to the terms thereof, and who are at least 
@@ -747,7 +780,7 @@ The tester's identity will not be revealed until the contest is over.</p>
 	       round_id == 15023 || round_id == 15034 || round_id == 15038 || round_id == 15076 || round_id == 15077 || round_id == 15078
 	       || round_id == 15080 || round_id == 15103 || round_id == 15120 || round_id == 15130 || round_id == 15189 || round_id == 15200
 	       || round_id == 15201 || round_id == 15322 || round_id == 15327 || round_id == 15398 || round_id == 15458 || round_id == 15520 || round_id == 15589
-		|| round_id == 15611 || round_id == 15618 || round_id == 15630 || round_id == 15637 || round_id == 15678) { %>
+		|| round_id == 15611 || round_id == 15618 || round_id == 15630 || round_id == 15637 || round_id == 15678 || round_id == 15761) { %>
 		
 		<p align="justify">
 			You hereby acknowledge and agree that TopCoder owns, solely and exclusively, all right, title and interest, including all intellectual property 
