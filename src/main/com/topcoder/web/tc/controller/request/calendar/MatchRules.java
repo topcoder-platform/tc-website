@@ -27,7 +27,7 @@ public class MatchRules extends MatchInfo {
             setNextPage("/calendar/hsSRMRules.jsp");
         } else if (RoundType.SRM == roundType) {
             setNextPage("/calendar/srmRules.jsp");
-        } else if (RoundType.MARATHON == roundType) {
+        } else if (RoundType.MARATHON == roundType || RoundType.MARATHON_QA == roundType) {
             setNextPage("/calendar/mmRules.jsp");
         } else {
             throw new IllegalArgumentException("invalid round type specified " + roundType);
