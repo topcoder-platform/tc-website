@@ -11,6 +11,7 @@ public class RoundType extends Base {
     public static final Integer HS_SRM = 17;
     public static final Integer SRM = 1;
     public static final Integer MARATHON = 13;
+    public static final Integer MARATHON_QA = 27;
     public static final Integer EDUCATION_ROUND_TYPE = 21;
 
     private Integer id;
