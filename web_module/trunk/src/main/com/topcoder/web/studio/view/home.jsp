@@ -87,6 +87,7 @@
         <script type="text/JavaScript" src="/js/RSSProcessor.js"> </script>
         <script type="text/JavaScript" src="/js/AJAXProcessor.js"> </script>
         <script type="text/javascript" src="/js/jquery.timers.js"> </script> <%-- BUGR-2268: Timers library added --%>
+		<script type="text/javascript" src="/js/AnimatedBannerLoader.js"> </script> 
         
         <script type="text/javascript">
 	   		(function () { var done = false; var script = document.createElement("script"); script.async = true; script.type = "text/javascript"; script.src = "https://purechat.com/VisitorWidget/WidgetScript"; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == "loaded" || this.readyState == "complete")) { var w = new PCWidget({ c: '32782020-1040-4f6a-a980-bb27ddb5204a', f: true }); done = true; } }; })();
@@ -100,7 +101,7 @@
     <c:set var="subId" value="<%=Constants.SUBMISSION_ID%>"/>
     <c:set var="subFileIdx" value="<%=Constants.SUBMISSION_FILE_INDEX%>"/>
 
-    <body>
+    <body >
         <div id="page-wrap">
             <jsp:include page="top.jsp">
                 <jsp:param name="section" value="home"/>
