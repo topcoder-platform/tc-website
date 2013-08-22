@@ -83,6 +83,7 @@
                 </tr>
 
                 <c:set value="<%=RoundType.MARATHON%>" var="mmRoundType"/>
+                <c:set value="<%=RoundType.MARATHON_QA%>" var="mmQARoundType"/>
                 <%boolean even = true;%>
                 <logic:iterate name="<%=Constants.CONTEST_LIST_KEY%>" id="contest">
                     <tr class="<%=even?"light":"dark"%>">
@@ -91,7 +92,7 @@
                             <div style="float: right; margin-left: 4px;">
                                 <ci:sponsorImage image="sponsorImage" alt="Sponsor" border="0" ifNull=""/></div>
                                     <c:choose>
-                                        <c:when test="${mmRoundType==contest.roundTypeId}">
+                                        <c:when test="${mmRoundType==contest.roundTypeId || mmQARoundType==contest.roundTypeId}">
                                             <a href="/tc?module=MatchDetails&amp;<%=Constants.ROUND_ID%>=${contest.roundID}" >
                                                 <mm:contest roundTypeId="${contest.roundTypeId}" contestName="${contest.contestName}" roundName="${contest.contestName} - ${contest.roundName}" />
                                             </a>
