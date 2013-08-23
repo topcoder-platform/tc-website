@@ -126,14 +126,14 @@
       <td class="value">21
       </td>
       <td class="value">22
-      </td>
-      <td class="value">23
          <div class="long">
          <strong><a href="/tc?module=MatchDetails&rd=15761">Tech Challenge for Atrocity Prevention</a></strong><br />
          13:00<br />
          3 weeks<br />
          $25K Prizes
          </div>
+      </td>
+      <td class="value">23
       </td>
       <td class="value">24
       </td>
