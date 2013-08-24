@@ -1,11 +1,13 @@
 /*
- * Copyright (C) 2001-2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001-2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.studio.dto;
 
 import com.topcoder.web.common.model.Base;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -63,8 +65,20 @@ import java.util.TreeSet;
  *   </ol>
  * </p>
  * 
+ * <p>
+ * Version 1.4 (TC Cockpit - Studio - Final Fixes Integration Part Two Assembly) Change notes:
+ *   <ol>
+ *     <li>Updated the type {@link #phases} property from <code>Map</code> to <code>Set</code>.</li>
+ *     <li>Added {@link #getNoOfFinalFixRounds()} method.</li>
+ *     <li>Added {@link #getFinalFixPhases()} method.</li>
+ *     <li>Added {@link #getFinalReviewPhases()} method.</li>
+ *     <li>Added {@link #getSortedPhases(Integer)} method.</li>
+ *     <li>Added private <code>Project#PhasesComparator</code> class.</li>
+ *   </ol>
+ * </p>
+ * 
  * @author isv, pvmagacho
- * @version 1.3
+ * @version 1.4
  */
 public class Project extends Base {
 
@@ -136,7 +150,8 @@ public class Project extends Base {
     protected Integer statusId = null;
     protected Integer categoryId = null;
     protected Map<Integer, ProjectInfo> info = new HashMap<Integer, ProjectInfo>();
-    protected Map<Integer, ProjectPhase> phases = new HashMap<Integer, ProjectPhase>();
+
+    protected Set<ProjectPhase> phases = new HashSet<ProjectPhase>();
 
     /**
      * <p>A <code>Set</code> of resources associated with project.</p>
@@ -283,16 +298,38 @@ public class Project extends Base {
         return ELIGIBILITY_OPEN.equals(getProjectEligibility());
     }
 
-    public Map<Integer, ProjectPhase> getPhases() {
+    /**
+     * <p>Gets the phases for this project.</p>
+     * 
+     * @return a <code>Set</code> providing the phases for this project. 
+     */
+    public Set<ProjectPhase> getPhases() {
         return phases;
     }
 
-    public void setPhases(Map<Integer, ProjectPhase> phases) {
+    /**
+     * <p>Sets the phases for this project.</p>
+     *
+     * @param phases a <code>Set</code> providing the phases for this project. 
+     */
+    public void setPhases(Set<ProjectPhase> phases) {
         this.phases = phases;
     }
 
+    /**
+     * <p>Gets the project phase matching the specified phase type.</p>
+     * 
+     * @param phaseTypeId an <code>Integer</code> providing the ID of phase type. 
+     * @return a <code>ProjectPhase</code> matching the specified phase type or <code>null</code> if there is no such 
+     *         phase. 
+     */
     public ProjectPhase getPhase(Integer phaseTypeId) {
-        return phases.get(phaseTypeId);
+        for (ProjectPhase phase : this.phases) {
+            if (phase.getType().equals(phaseTypeId)) {
+                return phase;
+            }
+        }
+        return null;
     }
 
     public ProjectPhase getRegistrationPhase() {
@@ -827,4 +864,96 @@ public class Project extends Base {
         this.eventId = eventId;
     }
 
+    /**
+     * <p>Gets the number of final fix rounds for this project.</p>
+     * 
+     * @return an <code>int</code> providing the number of final fix rounds for project.
+     * @since 1.4
+     */
+    public int getNoOfFinalFixRounds() {
+        int rounds = 0;
+        for (ProjectPhase phase : this.phases) {
+            if (phase.getType().equals(ProjectPhase.FINAL_FIX)) {
+                rounds++;
+}
+        }
+        return rounds;
+    }
+
+    /**
+     * <p>Gets the list of <code>Final Fix</code> phases for this project.</p>
+     * 
+     * @return a <code>List</code> listing the <code>Final Fix</code> phases for this project. If no such phases exist
+     *         then empty list is returned. The returned list is sorted based on phase statuses and timelines.
+     * @since 1.4        
+     */
+    public List<ProjectPhase> getFinalFixPhases() {
+        return getSortedPhases(ProjectPhase.FINAL_FIX);
+    }
+
+    /**
+     * <p>Gets the list of <code>Final Review</code>  phases for this project.</p>
+     *
+     * @return a <code>List</code> listing the <code>Final Review</code> phases for this project. If no such phases
+     *         exist then empty list is returned. The returned list is sorted based on phase statuses and timelines.
+     * @since 1.4
+     */
+    public List<ProjectPhase> getFinalReviewPhases() {
+        return getSortedPhases(ProjectPhase.FINAL_REVIEW);
+    }
+
+    /**
+     * <p>Gets the list of phases of specified type for this project.</p>
+     *
+     * @return a <code>List</code> listing the phases of specified type for this project. If no such phases exist then 
+     *         empty list is returned. The returned list is sorted based on phase statuses and timelines.
+     * @since 1.4        
+     */
+    private List<ProjectPhase> getSortedPhases(Integer phaseTypeId) {
+        List<ProjectPhase> result = new ArrayList<ProjectPhase>();
+        for (ProjectPhase phase : this.phases) {
+            if (phase.getType().equals(phaseTypeId)) {
+                result.add(phase);
+            }
+        }
+        Collections.sort(result, new PhasesComparator());
+        return result;
+    }
+
+    /**
+     * <p>A comparator for project phases to be used for sorting the phases based on their statuses.</p>
+     * 
+     * @author isv
+     * @since 1.4
+     */
+    private static class PhasesComparator implements Comparator<ProjectPhase> {
+
+        /**
+         * <p>Constructs new <code>PhasesComparator</code> instance. This implementation does nothing.</p>
+         */
+        private PhasesComparator() {
+        }
+
+        /**
+         * <p>Compares the specified project phases. If both phases are closed then compares by their actual start times
+         * in ascending order. The open or scheduled phase comes after the closed ones.</p>
+         *
+         * @param phase1 a <code>ProjectPhase</code> representing the first project phase to be compared.
+         * @param phase2 a <code>ProjectPhase</code> representing  the second project phase to be compared.
+         */
+        public int compare(ProjectPhase phase1, ProjectPhase phase2) {
+            boolean phase1Closed = phase1.getStatusId().equals(ProjectPhase.STATUS_CLOSED);
+            boolean phase2Closed = phase2.getStatusId().equals(ProjectPhase.STATUS_CLOSED);
+            
+            if (phase1Closed) {
+                if (phase2Closed) {
+                    return phase1.getActualStartTime().compareTo(phase2.getActualStartTime());
+                } else {
+                    return -1;
+                }
+            } else {
+                return 1;
+            }
+        }
+    }
 }

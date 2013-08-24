@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2005-2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2005-2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.studio.controller.request;
 
@@ -108,8 +108,19 @@ import com.topcoder.web.studio.validation.UnifiedSubmissionValidator;
  *   </ol>
  * </p>
  *
- * @author dok, isv, Vitta, orange_cloud, pvmagacho, TCSASSEMBER
- * @version 1.3
+ * <p>
+ * Version 1.4 (TC Cockpit - Studio - Final Fixes Integration Part Two Assembly) Change notes:
+ *   <ol>
+ *     <li>Added {@link #getUploadTypeId()} method.</li>
+ *     <li>Added {@link #hasPermission(Project, User, Resource)} method.</li>
+ *     <li>Turned {@link #getSubmissionPhase(Project, Submission)} into protected method.</li>
+ *     <li>Updated {@link #dbProcessing()} method to make use of newly defined template methods and process submission
+ *     ranks optionally only if upload type indicates on submission but not final fix.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, isv, Vitta, orange_cloud, pvmagacho
+ * @version 1.4
  */
 public class Submit extends BaseSubmissionDataProcessor {	
 	private static final Logger log = Logger.getLogger(Submit.class);
@@ -219,8 +230,6 @@ public class Submit extends BaseSubmissionDataProcessor {
 				throw new NavigationException("Invalid contest specified.");
 			}
 
-			String rank = getRequest().getParameter(Constants.SUBMISSION_RANK);
-
 			DAOFactory factory = DAOUtil.getFactory();
 			SubmissionDAO submissionDAO = factory.getSubmissionDAO();
 			UploadDAO uploadDAO = factory.getUploadDAO();
@@ -228,23 +237,21 @@ public class Submit extends BaseSubmissionDataProcessor {
 
 			Project c = factory.getProjectDAO().find(contestId);
 			Date now = new Date();
-			if (now.before(c.getStartTime()) || now.after(c.getEndTime()) || 
+            if (getUploadTypeId() == Upload.SUBMISSION) {
+			    if (now.before(c.getStartTime()) || now.after(c.getEndTime()) || 
 					!Project.STATUS_ACTIVE.equals(c.getStatusId())) {
-				throw new NavigationException("Inactive contest specified.");
-			}
+				    throw new NavigationException("Inactive contest specified.");
+			    }
+            } else {
+                if (!Project.STATUS_ACTIVE.equals(c.getStatusId())) {
+                    throw new NavigationException("Inactive contest specified.");
+                }
+            }
 			User u = userDAO.find(getUser().getId());
 			
 			Resource resource = RegistrationHelper.getSubmitterResource(c, u.getId());
-			boolean isRegistered = (Util.isAdmin(u.getId()) || (String.valueOf(u.getId()).equals(c.getCreateUserId())) 
-					|| resource != null);
-			if (!isRegistered) {
-				// not registered
-				StringBuffer buf = new StringBuffer(50);
-				buf.append(getSessionInfo().getServletPath());
-				buf.append("?" + Constants.MODULE_KEY + "=ViewRegistration&");
-				buf.append(Constants.CONTEST_ID + "=").append(contestId);
-				setNextPage(buf.toString());
-				setIsNextPageInContext(false);
+            if (!hasPermission(c, u, resource)) {
+                return;
 			} else {
 				// registered
 				MultipartRequest r = (MultipartRequest) getRequest();
@@ -392,20 +399,27 @@ public class Submit extends BaseSubmissionDataProcessor {
                     addError(Constants.SUBMISSION_PREVIEW, submissionValidationResult.getMessage());
                 }
 
-                StringInput rankInput = new StringInput(rank);
-				ValidationResult rankResult = new IntegerValidator("Valid integer expected.").validate(rankInput);
-				if (!rankResult.isValid()) {
-					addError(Constants.SUBMISSION_RANK, rankResult.getMessage());
-				}
+                boolean rankUsed = (getUploadTypeId() == Upload.SUBMISSION);
+                String rank = null;
+                if (rankUsed) {
+                    rank = getRequest().getParameter(Constants.SUBMISSION_RANK);
+                    StringInput rankInput = new StringInput(rank);
+				    ValidationResult rankResult = new IntegerValidator("Valid integer expected.").validate(rankInput);
+				    if (!rankResult.isValid()) {
+					    addError(Constants.SUBMISSION_RANK, rankResult.getMessage());
+				    }
+                }
 
 				if (hasErrors()) {
                     r.setAttribute("fonts_data", fontsData);
                     r.setAttribute("stock_art_data", stockArtData);
                     r.setAttribute("submission_comment", submissionComment);
-                    r.setAttribute("submission_rank", rank);
+                    if (rankUsed) {
+                        r.setAttribute("submission_rank", rank);
+                        setDefault(Constants.SUBMISSION_RANK, rank);
+                    }
 
 					setDefault(Constants.CONTEST_ID, contestId.toString());
-					setDefault(Constants.SUBMISSION_RANK, rank);
 					loadSubmissionData(u, c, submissionDAO, uploadDAO);
 					getRequest().setAttribute("contest", c);
 					setNextPage("/submit.jsp");
@@ -476,7 +490,7 @@ public class Submit extends BaseSubmissionDataProcessor {
 					upload.setContest(c);
 					upload.setResource(resource);
 					upload.setParameter(systemFileName);
-					upload.setTypeId(Upload.SUBMISSION);
+					upload.setTypeId(getUploadTypeId());
 					upload.setStatusId(Upload.STATUS_ACTIVE);
 					upload.setProjectPhase(getSubmissionPhase(c, s));
 					
@@ -501,25 +515,30 @@ public class Submit extends BaseSubmissionDataProcessor {
 					ios.close();
 					fos.close(); 
                     
-                    List<Upload> uploads = uploadDAO.getUploads(c, resource, Upload.STATUS_ACTIVE, Upload.SUBMISSION);
-					Integer maxRank = submissionDAO.getMaxRank(uploads);
-					Integer one = 1;
-					getRequest().setAttribute("maxRank", maxRank);
 
-					if (maxRank == null) {
-						s.setRank(one);
-						submissionDAO.saveOrUpdate(s);
-					} else {
-						Integer newRank = new Integer(rank);
-						if (newRank.compareTo(maxRank) > 0) {
-							s.setRank(maxRank + 1);
-							submissionDAO.saveOrUpdate(s);
-						} else if (newRank.compareTo(one) < 0) {
-							submissionDAO.changeRank(one, s, uploads);
-						} else {
-							submissionDAO.changeRank(newRank, s, uploads);
-						}
-					}
+                    if (rankUsed) {
+                        List<Upload> uploads =
+                                uploadDAO.getUploads(c, resource, Upload.STATUS_ACTIVE, Upload.SUBMISSION);
+					    Integer maxRank = submissionDAO.getMaxRank(uploads);
+					    Integer one = 1;
+					    getRequest().setAttribute("maxRank", maxRank);
+					    if (maxRank == null) {
+						    s.setRank(one);
+						    submissionDAO.saveOrUpdate(s);
+					    } else {
+						    Integer newRank = new Integer(rank);
+						    if (newRank.compareTo(maxRank) > 0) {
+							    s.setRank(maxRank + 1);
+							    submissionDAO.saveOrUpdate(s);
+						    } else if (newRank.compareTo(one) < 0) {
+							    submissionDAO.changeRank(one, s, uploads);
+						    } else {
+							    submissionDAO.changeRank(newRank, s, uploads);
+						    }
+					    }
+                    } else {
+                        submissionDAO.saveOrUpdate(s);
+                    }
 								
 					closeConversation();
 					// have to wrap up the last stuff, and get into
@@ -555,6 +574,8 @@ public class Submit extends BaseSubmissionDataProcessor {
                     nextPage.append("&").append(Constants.UPLOAD_ID + "=").append(uploadId);
                     setNextPage(nextPage.toString());
 					setIsNextPageInContext(false);
+                    
+                    getRequest().setAttribute("success", true);
 				}
 			}
 		} else {
@@ -726,6 +747,49 @@ public class Submit extends BaseSubmissionDataProcessor {
 	}
 
     /**
+     * <p>Gets the type of the upload serviced by this controlller.</p>
+     * 
+     * @return {@link Upload#SUBMISSION} always.
+     * @since 1.4
+     */
+    protected int getUploadTypeId() {
+        return Upload.SUBMISSION;
+    }
+
+    /**
+     * <p>Checks if specified user has a permission to access specified contest.</p>
+     * 
+     * @param contest a <code>Project</code> providing the details for requested contest. 
+     * @param user a <code>User</code> representing the user account to check permission for. 
+     * @param resource a <code>Resource</code> providing the details for resource which might have been associated with
+     *        specified user for specified contest.
+     * @return <code>true</code> if specified user has a permission to access the specified contest; 
+     *         <code>false</code> otherwise.
+     * @throws Exception if an unexpected error occurs.
+     * @since 1.4
+     */
+    protected boolean hasPermission(Project contest, User user, Resource resource) throws Exception {
+        long userId = user.getId();
+        boolean isRegistered 
+            = (Util.isAdmin(userId) || (String.valueOf(userId).equals(contest.getCreateUserId())) || resource != null);
+        
+        if (!isRegistered) {
+            // not registered
+            StringBuilder buf = new StringBuilder(50);
+            buf.append(getSessionInfo().getServletPath());
+            buf.append("?").append(Constants.MODULE_KEY).append("=ViewRegistration&");
+            buf.append(Constants.CONTEST_ID).append("=").append(contest.getId());
+            
+            setNextPage(buf.toString());
+            setIsNextPageInContext(false);
+
+            return false;
+        }
+        
+        return true;
+    }
+    
+    /**
      * Checks whether string is null or empty.
      *
      * @param s string to test
@@ -793,7 +857,7 @@ public class Submit extends BaseSubmissionDataProcessor {
      * @param submission the specified submission
      * @return the project phase of the submission
      */
-    private ProjectPhase getSubmissionPhase(Project project, Submission submission) {
+    protected ProjectPhase getSubmissionPhase(Project project, Submission submission) {
         if (submission.getTypeId() == Submission.CONTEST_SUBMISSION) {
             return project.getPhase(ProjectPhase.SUBMISSION);
         } else if (submission.getTypeId() == Submission.CHECKPOINT_SUBMISSION) {

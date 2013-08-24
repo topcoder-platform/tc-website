@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2011-2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.studio.dto;
 
@@ -10,8 +10,15 @@ import com.topcoder.web.common.model.Base;
 /**
  * <p>An entity class mapped to <code>tcs_catalog.review</code> table.</p>
  * 
- * @author TCSASSEMBER
- * @version 1.0
+ * <p>
+ * Version 1.1 (TC Cockpit - Studio - Final Fixes Integration Part Two Assembly) Change notes:
+ *   <ol>
+ *     <li>Added {@link #projectPhaseId} property with respective accessor/mutator methods.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author isv
+ * @version 1.1
  * @since Replatforming Studio Release 5
  */
 public class Review extends Base {
@@ -64,6 +71,13 @@ public class Review extends Base {
      * Represents the review items of the review.
      */
     private Set<ReviewItem> items;
+
+    /**
+     * <p>A <code>long</code> providing the ID of a project phase associated with this review.</p>
+     * 
+     * @since 1.1
+     */
+    private long projectPhaseId;
 
     /**
      * Empty constructor.
@@ -231,5 +245,25 @@ public class Review extends Base {
      */
     public void setItems(Set<ReviewItem> items) {
         this.items = items;
+    }
+
+    /**
+     * <p>Gets the ID of a project phase associated with this review.</p>
+     *
+     * @return a <code>long</code> providing the ID of a project phase associated with this review.
+     * @since 1.1
+     */
+    public long getProjectPhaseId() {
+        return this.projectPhaseId;
+}
+
+    /**
+     * <p>Sets the ID of a project phase associated with this review.</p>
+     *
+     * @param projectPhaseId a <code>long</code> providing the ID of a project phase associated with this review.
+     * @since 1.1
+     */
+    public void setProjectPhaseId(long projectPhaseId) {
+        this.projectPhaseId = projectPhaseId;
     }
 }

@@ -1,7 +1,7 @@
 <%--
-  - Author: pulky, isv, pvmagacho, TCSASSEMBER
-  - Version: 1.8
-  - Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
+  - Author: pulky, isv, pvmagacho
+  - Version: 1.9
+  - Copyright (C) 2001 - 2013 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page presents specific contest details
   -
@@ -24,6 +24,8 @@
   -     - Fixed style for How To Submit section
   - Version 1.8 (Release Assembly - TopCoder Studio CCA Integration) change notes:
   -     - Add permission checking for the contest which is CCA enforced.
+  - Version 1.9 (TC Cockpit - Studio - Final Fixes Integration Part Two Assembly) change notes:
+  -     - Added styles related to Final Fix functionalities.
 --%>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
@@ -78,11 +80,13 @@
     </script>
     <script type="text/javascript" src="/js/studioContestDetails.js">
     </script>
+    <script type="text/javascript" src="/js/studioFinalFix.js">
+    </script>
 </head>
 
 <body>
 <div id="page-wrap">
-<div>
+<div class="studioFF">
 <jsp:include page="top.jsp">
     <jsp:param name="section" value="contest"/>
 </jsp:include>
