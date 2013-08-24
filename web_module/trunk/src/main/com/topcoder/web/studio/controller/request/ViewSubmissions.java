@@ -1,9 +1,7 @@
 /*
- * Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.studio.controller.request;
-
-import java.util.Date;
 
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
@@ -20,6 +18,7 @@ import com.topcoder.web.studio.dao.DAOUtil;
 import com.topcoder.web.studio.dao.SubmissionDAO;
 import com.topcoder.web.studio.dto.Project;
 import com.topcoder.web.studio.dto.Submission;
+import com.topcoder.web.studio.util.Util;
 
 /**
  * <p>This class implements the request processor for the View Submissions page.</p>
@@ -64,8 +63,15 @@ import com.topcoder.web.studio.dto.Submission;
  *   </ol>
  * </p>
  *
- * @author dok, isv, pulky, Orange_Cloud, pvmagacho, TCSASSEMBER
- * @version 1.6
+ * <p>
+ * Version 1.7 (TC Cockpit - Studio - Final Fixes Integration Part Two Assembly) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #dbProcessing()} method to set the <code>showFinalFixTab</code> attribute of the request.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, isv, pulky, Orange_Cloud, pvmagacho
+ * @version 1.7
  */
 public class ViewSubmissions extends ShortHibernateProcessor {
     /**
@@ -227,6 +233,7 @@ public class ViewSubmissions extends ShortHibernateProcessor {
         getRequest().setAttribute("totalItems", submissions.size());
 
         getRequest().setAttribute("submissions", submissions.subList(start, end));
+        getRequest().setAttribute("showFinalFixTab", Util.showFinalFixTab(getRequest(), c, getUser().getId()));
 
         SortInfo s = new SortInfo();
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);

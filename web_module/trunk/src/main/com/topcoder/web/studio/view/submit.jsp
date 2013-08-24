@@ -1,11 +1,13 @@
 <%--
   - Author: isv
-  - Version: 1.1
-  - Copyright (C) 2006-2011 TopCoder Inc., All Rights Reserved.
+  - Version: 1.2
+  - Copyright (C) 2006-2013 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page renders the page with form for submitting the Studio submission to server.
   -
   - Version 1.1 (Upload Progress Bar assembly) changes: added Upload Progress Bar area.
+  - Version 1.2 (TC Cockpit - Studio - Final Fixes Integration Part Two Assembly) changes: 
+  - Updated the form to suit the needs of uploading final fix also.
 --%>
 
 <%@ page import="com.topcoder.web.studio.Constants" %>
@@ -48,6 +50,7 @@
     <!--[if IE 7]>
     <link type="text/css" rel="stylesheet"  href="/css/submit-ie7.css"/>
     <![endif]-->
+    <link type="text/css" rel="stylesheet" href="/css/studioFinalFix.css"/>
 
 
     <link href="/css/popup/modalPopup.css" type="text/css" rel="stylesheet"/>
@@ -70,7 +73,7 @@
 
 <body id="submit-page" data-web-root="${sessionInfo.servletPath}">
 <div id="page-wrap">
-<div>
+<div class="${isFinalFixUpload ? 'studioFF' : ''}">
 <jsp:include page="top.jsp"/>
 <br/>
 
@@ -84,7 +87,16 @@
 
 <div class="upload_wrapper_submission">
 <form action="${sessionInfo.servletPath}" method="POST" name="submitForm" enctype="multipart/form-data" id="submitForm">
+
+<c:choose>
+    <c:when test="${isFinalFixUpload}">
+        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="UploadFinalFix"/>
+    </c:when>
+    <c:otherwise>
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>
+    </c:otherwise>
+</c:choose>
+
 <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
 <ul class="upload_submission_tab">
@@ -120,6 +132,8 @@
     <div class="top-info">
         <a class="btn-help" target="_blank" href="http://topcoder.com/home/studio/the-process/"></a>
     </div>
+    <c:choose>
+        <c:when test="${not isFinalFixUpload}">
     <div class="upload-content-description">
         <p>Please follow the instructions on the Contest Details page regarding what your
             submission, source and preview files should contain. <br>
@@ -131,6 +145,13 @@
             Learn more about formatting your submission file
         </a></p>
     </div>
+        </c:when>
+        <c:otherwise>
+            <div class="upload-content-description">
+                Upload your final fixes.
+            </div>
+        </c:otherwise>
+    </c:choose>
     <!--End .upload-content-description-->
     <div class="browser-content-upload">
         <div class="fill-item">
@@ -199,6 +220,7 @@
         <!--End .fill-item-->
         <div class="clear"></div>
 
+        <c:if test="${not isFinalFixUpload}">
         <div class="fill-item fill-item-rank">
             <label>Rank</label>
 
@@ -224,6 +246,7 @@
             <div class="clear"></div>
         </div>
         <!--End .fill-item-->
+        </c:if>
 
 
         <div class="button-line">
@@ -518,6 +541,7 @@
     <!--End .progress-bar-wrapper-left-top-->
 </div>
 
+<c:if test="${not isFinalFixUpload}">
 <div class="rank-submission-wrapper">
     <div class="rank-submission-note">
         <h4>Rank Your Submissions</h4>
@@ -588,6 +612,7 @@
 
 </div>
 <!--End .rank-submission-wrapper-->
+</c:if>
 
 <!-- #content block ends -->
 <br class="clear"/></div>

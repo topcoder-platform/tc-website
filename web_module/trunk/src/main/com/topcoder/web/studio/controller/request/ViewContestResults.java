@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004-2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004-2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.studio.controller.request;
 
@@ -77,8 +77,15 @@ import com.topcoder.web.studio.util.Util;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, isv, Orange_Cloud, pvmagacho, TCSASSEMBER
- * @version 1.7
+ * <p>
+ * Version 1.8 (TC Cockpit - Studio - Final Fixes Integration Part Two Assembly) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #dbProcessing()} method to set the <code>showFinalFixTab</code> attribute of the request.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky, isv, Orange_Cloud, pvmagacho
+ * @version 1.8
  */
 public class ViewContestResults extends ShortHibernateProcessor {
     /**
@@ -119,6 +126,8 @@ public class ViewContestResults extends ShortHibernateProcessor {
                 }
             }
 
+            getRequest().setAttribute("showFinalFixTab", Util.showFinalFixTab(getRequest(), contest, getUser().getId()));
+            
             Integer submissionId = 0;
             try {
                 submissionId = new Integer(getRequest().getParameter(Constants.SUBMISSION_ID));

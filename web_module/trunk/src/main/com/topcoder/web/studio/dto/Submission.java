@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2005-2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2005-2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.studio.dto;
 
@@ -24,8 +24,15 @@ import java.util.TreeSet;
  *   </ol>
  * </p>
  *
- * @author dok, pvmagacho
- * @version 1.1
+ * <p>
+ * Version 1.2 (TC Cockpit - Studio - Final Fixes Integration Part Two Assembly) Change notes:
+ *   <ol>
+ *     <li>Added {@link #FINAL_FIX_SUBMISSION} constant.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pvmagacho, isv
+ * @version 1.2
  */
 public class Submission extends Base {
     /**
@@ -45,6 +52,13 @@ public class Submission extends Base {
     public static final Integer CONTEST_SUBMISSION = 1;
     public static final Integer SPECIFICATION_SUBMISSION = 2;
     public static final Integer CHECKPOINT_SUBMISSION = 3;
+    
+    /**
+     * <p>An <code>Integer</code> referencing the <code>Final Fix</code> type of submission.</p>
+     * 
+     * @since 1.2
+     */
+    public static final Integer FINAL_FIX_SUBMISSION = 4;
     
     /**
      * <p>The unique submission identifier.</p>

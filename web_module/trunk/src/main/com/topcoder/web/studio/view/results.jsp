@@ -1,7 +1,7 @@
 <%--
-  - Author: pulky, isv, TCSDEVELOPER, pvmagacho
-  - Version: 1.6
-  - Copyright (C) 2004 - 2011 TopCoder Inc., All Rights Reserved.
+  - Author: pulky, isv, pvmagacho
+  - Version: 1.7
+  - Copyright (C) 2004 - 2013 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page lists all winners for a given contest.
   -
@@ -20,6 +20,8 @@
   -     - Applied new L&F
   - Version 1.6 (Re-platforming Studio Release 3 Assembly) changes:
   -     - Updated the logic to use contests hosted in tcs_catalog database  
+  - Version 1.7 (TC Cockpit - Studio - Final Fixes Integration Part Two Assembly) change notes:
+  -     - Added styles related to Final Fix functionalities.
 --%>
 
 <%@ page import="com.topcoder.web.studio.Constants" %>
@@ -54,6 +56,7 @@
         <!--[if IE 6]>
         <link rel="stylesheet" type="text/css" href="./css/v4/studio-ie6.css" />
         <![endif]-->
+        <link type="text/css" rel="stylesheet" href="/css/studioFinalFix.css"/>
 
         <script src="./js/NewStyleHeaderFooter/jquery-1.2.6.min.js" type="text/javascript"/></script>
         <script src="./js/NewStyleHeaderFooter/preloadCssImages.jQuery_v5.js" type="text/javascript"></script>
@@ -75,11 +78,14 @@
         <script type="text/javascript" src="./js/lib/jquery.jcarousel.pack.js"></script>
         <script type="text/javascript" src="/js/studioContestDetails.js">
         </script>
+        <script type="text/javascript" src="/js/studioFinalFix.js">
+        </script>
+
     </head>
 
     <body>
         <div id="page-wrap">
-            <div>
+            <div class="studioFF">
                 <jsp:include page="top.jsp"/>
                 <br />
 

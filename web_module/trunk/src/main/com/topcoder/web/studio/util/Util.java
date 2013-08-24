@@ -1,13 +1,14 @@
 /*
- * Copyright (C) 2008-2012 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2008-2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.studio.util;
 
 import java.util.Iterator;
-import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.topcoder.web.studio.dto.ProjectPhase;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import com.topcoder.security.TCPrincipal;
@@ -69,8 +70,16 @@ import com.topcoder.web.studio.dto.ResourceInfo;
  *   </ol>
  * </p>
  * 
- * @author isv, pulky, isv, pvmagacho, TCSASSEMBER
- * @version 1.5
+ * <p>
+ * Version 1.6 (TC Cockpit - Studio - Final Fixes Integration Part Two Assembly) Change notes:
+ *   <ol>
+ *     <li>Added {@link #getWinnerUserId(long)} method.</li>
+ *     <li>Added {@link #showFinalFixTab(HttpServletRequest, Project, long)} method.</li>
+ *   </ol>
+ * </p>
+ * 
+ * @author isv, pulky, pvmagacho
+ * @version 1.6
  * @since TopCoder Studio Modifications Assembly v2
  */
 public class Util {
@@ -230,6 +239,64 @@ public class Util {
         buf.append(System.getProperty("file.separator"));
 
         return buf.toString();
+    }
+    
+    /**
+     * <p>Gets the ID of a user who won the specified contest.</p>
+     * 
+     * @param contestId a <code>long</code> providing the ID of a contest to get winner for. 
+     * @return a <code>Long</code> providing the ID of a user who won the specified contest or <code>null</code> if 
+     *         there is no such winner.
+     * @throws Exception if an unexpected error occurs.        
+     * @since 1.6
+     */
+    public static Long getWinnerUserId(long contestId) throws Exception {
+        DataAccess da = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
+        Request r = new Request();
+        r.setContentHandle("studio_winner");
+        r.setProperty(Constants.CONTEST_ID, String.valueOf(contestId));
+        ResultSetContainer result = da.getData(r).get("studio_winner");
+        if (result.isEmpty()) {
+            return null;
+        } else {
+            return result.get(0).getLongItem(0);
+        }
+    }
+
+    /**
+     * <p>Checks if the <code>Final Fix</code> tabs are to be shown on view page for the specified project when viewed
+     * by the specified user. The <code>Final Fix</code> tabs are to be shown in case the specified contest is finished
+     * and is viewable or if the current user is the winner of specified contest.</p>
+     * 
+     * @param project a <code>Project</code> providing the details for the project. 
+     * @param currentUserId a <code>long</code> providing the ID of a current user.
+     * @return <code>true</code> if <code>Final Fix</code> tabs are to be shown; <code>false</code> otherwise.
+     * @throws Exception if an unexpected error occurs.
+     * @since 1.6
+     */
+    public static boolean showFinalFixTab(HttpServletRequest request, Project project, long currentUserId) throws Exception {
+        Long winnerUserId = getWinnerUserId(project.getId());
+        if ((winnerUserId != null) && (winnerUserId == currentUserId)) {
+            return true;
+        } else if (hasCockpitPermissions(request, currentUserId, project.getId())) {
+			return true;
+		}
+		
+		else if (project.getViewableSubmissions()) {
+            Set<ProjectPhase> phases = project.getPhases();
+            boolean allPhaseClosed = true;
+            for (ProjectPhase phase : phases) {
+                if (phase.getStatusId() != 3) {
+                    allPhaseClosed = false;
+                    break;
+                }
+            }
+            if (allPhaseClosed) {
+                return true;
+            }
+        }
+
+        return false;
     }
     
     /**

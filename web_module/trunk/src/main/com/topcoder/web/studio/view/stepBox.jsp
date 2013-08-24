@@ -1,7 +1,7 @@
 <%--
   - Author: isv, pvmagacho
-  - Version: 1.3 (Studio Contest Detail Pages assembly)
-  - Copyright (C) 2010 - 2011 TopCoder Inc., All Rights Reserved.
+  - Version: 1.4 (Studio Contest Detail Pages assembly)
+  - Copyright (C) 2010 - 2013 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page renders the common header for Studio Contest Detail pages.
   -
@@ -9,10 +9,12 @@
   - Version 1.2 (Re-platforming Studio Release 5 Assembly) : Use the model class in com.topcoder.web.studio.dto package
   - Version 1.3 (TopCoder Studio Improvements 1 Assembly) change notes: hiding "Next Deadline" text if contest is 
   - already finished
+  - Version 1.4 (TC Cockpit - Studio - Final Fixes Integration Part Two Assembly) change notes: added support for
+    Final Fix round in Next Deadline area
 --%>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.studio.dto.Prize" %>
-<%@ page import="com.topcoder.web.studio.controller.request.ViewContestDetails" %>
+<%@ page import="com.topcoder.web.studio.controller.request.Utils" %>
 <%@ page import="java.util.Date" %>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -35,7 +37,21 @@ request.setAttribute("clientPrize", new Long(Prize.CHECKPOINT_PRIZE_TYPE_ID));
        value="<%=new String[] {"st", "nd", "rd", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th"}%>"/>
 <c:set var="drPointsAvailable" value="${contest.digitalRunPoints ne null and contest.digitalRunPoints > 0}"/>
 <c:set var="hasCheckpointRoundPrize" value="${isMultiRound and not empty contest.checkpointPrize and not empty contest.checkpointPrize.numberOfSubmissions and not empty contest.checkpointPrize.amount}"/>
-<c:set var="isFinished" value="${contest.reviewClosed}"/>
+<c:set var="isFinalFixRound" value="${contest.noOfFinalFixRounds > 0}"/>
+<c:set var="waitsForFinalFix" value="${false}"/>
+<c:set var="waitsForFinalReview" value="${false}"/>
+<c:if test="${isFinalFixRound}">
+    <c:set var="waitsForFinalFix" value="${contest.finalFixPhases[fn:length(contest.finalFixPhases) - 1].statusId eq 2}"/>
+    <c:set var="waitsForFinalReview" value="${contest.finalReviewPhases[fn:length(contest.finalReviewPhases) - 1].statusId eq 2}"/>
+</c:if>
+<c:if test="${waitsForFinalFix}">
+    <c:set var="finalFixTime" value="${contest.finalFixPhases[fn:length(contest.finalFixPhases) - 1].scheduledEndTime}"/>
+</c:if>
+<c:if test="${waitsForFinalReview}">
+    <c:set var="finalReviewTime"
+           value="${contest.finalReviewPhases[fn:length(contest.finalReviewPhases) - 1].scheduledEndTime}"/>
+</c:if>
+<c:set var="isFinished" value="${contest.reviewClosed and not waitsForFinalFix and not waitsForFinalReview}"/>
 <c:set var="isStarted" value="${contest.submissionOpen}"/>
 <c:set var="isRunning" value="${isStarted and not isFinished}"/>
 <c:set var="isCheckpointRoundPassed" value="${isRunning and isMultiRound and contest.checkpointSubmissionClosed}"/>
@@ -255,6 +271,14 @@ request.setAttribute("clientPrize", new Long(Prize.CHECKPOINT_PRIZE_TYPE_ID));
     <div class="rightColumn">
 
         <c:choose>
+            <c:when test="${waitsForFinalFix}">
+                <c:set var="nextDeadlineText" value="Final Fix"/>
+                <c:set var="nextDeadlineTime" value="${finalFixTime}" scope="request"/>
+            </c:when>
+            <c:when test="${waitsForFinalReview}">
+                <c:set var="nextDeadlineText" value="Final Review"/>
+                <c:set var="nextDeadlineTime" value="${finalReviewTime}" scope="request"/>
+            </c:when>
             <c:when test="${isFinished}">
                 <c:set var="nextDeadlineText" value="Contest has ended"/>
                 <c:set var="nextDeadlineTime" value="${contest.endTime}" scope="request"/>
@@ -279,7 +303,7 @@ request.setAttribute("clientPrize", new Long(Prize.CHECKPOINT_PRIZE_TYPE_ID));
             <div class="nextBoxContent nextDeadlineNextBoxContent">
                 <c:if test="${not isFinished}"><span class="nextDTitle">Next Deadline</span></c:if>
                 <span class="CEDate"><c:out value="${nextDeadlineText}"/></span>
-                <span class="timeLeft"><%=ViewContestDetails.getTextualDiff((Date) request.getAttribute("nextDeadlineTime"))%></span>
+                <span class="timeLeft"><%=Utils.getTextualDiff((Date) request.getAttribute("nextDeadlineTime"))%></span>
             </div>
             <!--End nextBoxContent-->
             <div class="nextBoxContent allDeadlineNextBoxContent hide">

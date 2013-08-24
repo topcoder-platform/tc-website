@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001 - 2011 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.studio.dao.hibernate;
 
@@ -10,12 +10,20 @@ import com.topcoder.web.studio.dao.UploadDAO;
 import com.topcoder.web.studio.dto.Project;
 import com.topcoder.web.studio.dto.Resource;
 import com.topcoder.web.studio.dto.Upload;
+import org.hibernate.Query;
 
 /**
  * <p>Hibernate implementation for the <code>Upload</code> DAO interface.</p>
  *
- * @author pvmagacho
- * @version 1.0
+ * <p>
+ * Version 1.1 (TC Cockpit - Studio - Final Fixes Integration Part Two Assembly) Change notes:
+ *   <ol>
+ *     <li>Added {@link #getUploadForPhase(long)} method.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author pvmagacho, isv
+ * @version 1.1
  * @since (Re-platforming Studio Release 3 Assembly)
  */
 public class UploadDAOHibernate extends Base implements UploadDAO {
@@ -67,4 +75,19 @@ public class UploadDAOHibernate extends Base implements UploadDAO {
                 .setInteger(0, project.getId())
 				.list();
 	}
+
+    /**
+     * <p>Gets the upload matching the specified project phase.</p>
+     *
+     * @param projectPhaseId a <code>long</code> providing the ID of a project phase to get upload for.
+     * @return a <code>Upload</code> matching the specified project phase or <code>null</code> if there is no such
+     *         upload.
+     * @since 1.1
+     */
+    public Upload getUploadForPhase(long projectPhaseId) {
+        Query query = session.createQuery("from com.topcoder.web.studio.dto.Upload u " +
+                                          "where u.projectPhase.id = :projectPhaseId");
+        query.setLong("projectPhaseId", projectPhaseId);
+        return (Upload) query.uniqueResult();
+    }
 }
