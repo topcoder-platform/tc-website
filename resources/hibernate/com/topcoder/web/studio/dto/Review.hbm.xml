@@ -10,6 +10,7 @@
         <property name="committed" column="committed" access="field" />
         <property name="score" column="score" access="field" />
         <property name="initialScore" column="initial_score" access="field" />
+		<property name="projectPhaseId" column="project_phase_id" access="field" />
         <many-to-one name="author" column="resource_id" class="Resource" />
         <many-to-one name="scorecard" column="scorecard_id" class="Scorecard" />
         <set name="comments" order-by="sort asc">
