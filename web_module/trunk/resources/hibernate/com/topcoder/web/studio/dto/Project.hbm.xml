@@ -28,11 +28,10 @@
             <one-to-many class="ProjectInfo"/>
         </map>
 
-        <map name="phases"  inverse="true" fetch="subselect">
+        <set name="phases"  inverse="true" fetch="subselect">
             <key column="project_id" not-null="true" />
-            <map-key column="phase_type_id" type="integer"/>
             <one-to-many class="ProjectPhase"/>
-        </map>
+        </set>
         
         <set name="resources" table="resource" access="field" inverse="true">
             <key column="project_id" not-null="true"/>
