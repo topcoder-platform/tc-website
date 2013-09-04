@@ -511,6 +511,9 @@ public abstract class Base extends LongHibernateProcessor {
                     ret.put(Constants.FILE, fileBytes);
                     ret.put(Constants.FILE_TYPE, file.getContentType());
                     ret.put(Constants.FILE_NAME, file.getRemoteFileName());
+                    //remove the uploaded file from temp
+                    File oldFile = new File(req.getDir(), file.getFileId());
+                    oldFile.delete();
                 } catch (IOException e) {
                     throw new RuntimeException("Problem while reading file from user " + getRegUser().getId());
                 } catch (PersistenceException e) {
