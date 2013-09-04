@@ -79,16 +79,15 @@ public class DeveloperPortal extends Base {
      * @throws TCWebException if any error occcurs.
      */
     protected void businessProcessing() throws TCWebException {
-        if (!userIdentified()) {
-            // User not logged in. Thus redirect to login page.
-            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-        }
-
         User user = getUser();
         String action = getRequest().getParameter("action");
 
         if ("login".equals(action)) {
-            // This is a request to go to portal. Thus obtain SSO token and redirect user to SSO URL.
+            if (!userIdentified()) {
+              // User not logged in. Thus redirect to login page.
+              throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+            }  
+	    // This is a request to go to portal. Thus obtain SSO token and redirect user to SSO URL.
             // Find Access3scale corresponding to request portal.
             Access3scale access3scale = null;
             for (Access3scale a3s : access3scales) {
@@ -123,6 +122,61 @@ public class DeveloperPortal extends Base {
             }
             // Redirect user to SSO URL.
             setNextPage(ssoToken.getUrl());
+            return;
+        } else if ("checkUser".equals(action)) {
+	    getResponse().setContentType("application/json");
+	    String response = "{";
+	    if (!userIdentified()) {
+                // User not logged in.
+		response = response + "\"isLogin\":\"false\"}";
+            } else {
+		response = response + "\"isLogin\":\"true\",\"username\":\"" + user.getUserName() + "\",";
+	    // This is a request to check if user is logged in. Thus obtain SSO token and redirect user to SSO URL.
+            // Find Access3scale corresponding to request portal.
+            Access3scale access3scale = null;
+            for (Access3scale a3s : access3scales) {
+                if (a3s.getPortalName().equals(getRequest().getParameter("portalName"))) {
+                    access3scale = a3s;
+                    break;
+                }
+            }
+	    if(access3scale == null) {
+		throw new TCWebException("No such portal exists");
+	    }
+            // Obtain SSO token.
+            SSOToken ssoToken = null;
+            try {
+		if(access3scale.retrieveUser(user.getUserName()) == null) {
+			access3scale.createUser(user.getUserName(), generatePassword() , getEmailAddressOfUser(user.getUserName()));
+		}
+		// Try to load from persistence.
+                ssoToken = loadSSOTokenFromPeristence(access3scale.getPortalName(), user.getUserName());
+            } catch (Exception ex) {
+                throw new TCWebException(ex);
+            }
+            if (ssoToken == null || new Date().compareTo(ssoToken.getExpiresAt()) >= 0) {
+                // No old token of old token expired. Thus, regenerate it.
+                try {
+                    ssoToken = access3scale.generateToken(user.getUserName());
+                    // Persist obtained SSO token.
+                    saveSSOTokenToPersistence(access3scale.getPortalName(), user.getUserName(), ssoToken);
+                } catch (Exception ex) {
+                    throw new TCWebException(ex);
+                }
+            }
+            // Redirect user to SSO URL.
+            // setNextPage(ssoToken.getUrl());
+	    response = response + "\"ssoURL\":\"" + ssoToken.getUrl() + "\"}";
+	    }
+            try {
+		if(getRequest().getParameter("callback") != null) {
+			response = getRequest().getParameter("callback") + "(" + response + ")";
+		}
+		getResponse().getOutputStream().write(response.getBytes());
+	    	getResponse().flushBuffer();
+	    } catch (Exception ex) {
+		throw new TCWebException(ex);
+	    }
             return;
         }
     }
