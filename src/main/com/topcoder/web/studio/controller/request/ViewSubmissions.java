@@ -103,17 +103,14 @@ public class ViewSubmissions extends ShortHibernateProcessor {
         setDefault(Constants.CONTEST_ID, c.getId());
 
         boolean isOver = c.getSubmissionClosed();
-        if (!isOver) {
-            throw new NavigationException("Submissions are not available until the contest is over.");
-        }
 
+        // this true, means the submission is over.
         getRequest().setAttribute("isOver", String.valueOf(isOver));
 
-        boolean inReviewPhase = c.getScreeningClosed() && !c.getSubmissionOpen() && !c.getReviewClosed();
-
-        getRequest().setAttribute("inReviewPhase", String.valueOf(inReviewPhase));
-
-        processSubmissionsSection(c);
+        // submission viewable and after submission phase.
+        if(c.getViewableSubmissions() && c.getSubmissionClosed()) {
+            processSubmissionsSection(c);
+        }
 
         Long submissionId = 0l;
         try {
@@ -140,10 +137,6 @@ public class ViewSubmissions extends ShortHibernateProcessor {
     }
 
     private void  processSubmissionsSection(Project c) throws Exception {
-        if (!c.getViewableSubmissions()) {
-            return;
-        }
-
         //not caching anymore, it doesn't gain much.  perhaps we can in the future if we figure out exactly how the
         //admins use the system so we know when to refresh the cache
         //DataAccess da = new CachedDataAccess(DBMS.STUDIO_DATASOURCE_NAME);
