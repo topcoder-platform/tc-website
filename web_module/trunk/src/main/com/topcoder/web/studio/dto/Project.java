@@ -196,7 +196,7 @@ public class Project extends Base {
 
     /**
      * <p>A <code>Set</code> providing the list of file types allowed for submission for this project.</p>
-     * 
+     *
      * @since 1.1
      */
     private Set<FileType> fileTypes;
@@ -520,7 +520,21 @@ public class Project extends Base {
         }
         return false;
     }
-    
+
+    /**
+     * <p>Indicates whether the Review phase is open.</p>
+     *
+     * @return true if Review phase is open, false otherwise
+     * @since 1.2
+     */
+    public Boolean getReviewOpen() {
+        ProjectPhase reviewPhase = getPhase(ProjectPhase.REVIEW);
+        if (reviewPhase != null) {
+            return (reviewPhase.getStatusId() == ProjectPhase.STATUS_OPEN);
+        }
+        return false;
+    }
+
     /**
      * <p>Indicates whether the Review phase is closed.</p>
      *
@@ -537,15 +551,43 @@ public class Project extends Base {
 
 
 	/**
-     * <p>Indicates whether the Review phase is closed.</p>
+     * <p>Indicates whether the Screening phase is closed.</p>
      *
-     * @return true if Review phase is closed, false otherwise
+     * @return true if Screening phase is closed, false otherwise
      * @since 1.2
      */
     public Boolean getScreeningClosed() {
-        ProjectPhase reviewPhase = getPhase(ProjectPhase.SCREENING);
-        if (reviewPhase != null) {
-            return (reviewPhase.getStatusId() == ProjectPhase.STATUS_CLOSED);
+        ProjectPhase screeningPhase = getPhase(ProjectPhase.SCREENING);
+        if (screeningPhase != null) {
+            return (screeningPhase.getStatusId() == ProjectPhase.STATUS_CLOSED);
+        }
+        return false;
+    }
+
+    /**
+     * <p>Indicates whether the Screening phase is open.</p>
+     *
+     * @return true if Screening phase is open, false otherwise
+     * @since 1.2
+     */
+    public Boolean getScreeningOpen() {
+        ProjectPhase screeningPhase = getPhase(ProjectPhase.SCREENING);
+        if (screeningPhase != null) {
+            return (screeningPhase.getStatusId() == ProjectPhase.STATUS_OPEN);
+        }
+        return false;
+    }
+
+    /**
+     * <p>Indicates whether the Submission phase is open.</p>
+     *
+     * @return true if Submission phase is open, false otherwise
+     * @since 1.3
+     */
+    public Boolean getSubmissionScheduled() {
+        ProjectPhase submissionPhase = getPhase(ProjectPhase.SUBMISSION);
+        if (submissionPhase != null) {
+            return (submissionPhase.getStatusId() == ProjectPhase.STATUS_SCHEDULED);
         }
         return false;
     }

@@ -151,34 +151,82 @@
                                   </div>
                                 </div>
                             </c:when>
-                            <c:when test="${not contest.viewableSubmissions}">
+                            <c:when test="${contest.submissionScheduled}">
                                 <div id="content">
                                     <div class="contentTop">
                                         <div class="contentMiddle">
                                             <div align="center">
                                                 <div style="width:500px; padding: 50px 0px 100px 0px;">
-                                                    <b>Submissions are not available for this contest</b> <br/><br/>
-                                                    There are many reasons why the submissions may not be viewable, such as
-                                                    the allowance of stock art, or a client's desire to keep the work private.
+                                                    <div style="width:500px; padding: 50px 0px 100px 0px;">
+                                                        <b>Submission phase has not started yet</b>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </c:when>
-                            <c:when test="${inReviewPhase}">
+                            <c:when test="${contest.submissionOpen}">
                                 <div id="content">
                                     <div class="contentTop">
                                         <div class="contentMiddle">
-                                            <div style="width:500px; padding: 50px 0px 100px 0px;">
-                                                <b>Submissions are in review.</b>
+                                            <div align="center">
+                                                <div style="width:500px; padding: 50px 0px 100px 0px;">
+                                                    <div style="width:500px; padding: 50px 0px 100px 0px;">
+                                                        <b>Contest is currently in Submission phase</b>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:when>
+                            <c:when test="${contest.screeningOpen && not contest.viewableSubmissions}">
+                                <div id="content">
+                                    <div class="contentTop">
+                                        <div class="contentMiddle">
+                                            <div align="center">
+                                                <div style="width:500px; padding: 50px 0px 100px 0px;">
+                                                    <div style="width:500px; padding: 50px 0px 100px 0px;">
+                                                        <b>Submissions are currently in Screening phase</b>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:when>
+                            <c:when test="${contest.reviewOpen && not contest.viewableSubmissions}">
+                                <div id="content">
+                                    <div class="contentTop">
+                                        <div class="contentMiddle">
+                                            <div align="center">
+                                                <div style="width:500px; padding: 50px 0px 100px 0px;">
+                                                    <div style="width:500px; padding: 50px 0px 100px 0px;">
+                                                        <b>Submissions are currently in Review phase</b>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:when>
+                            <c:when test="${not contest.viewableSubmissions}">
+                                <div id="content">
+                                    <div class="contentTop">
+                                        <div class="contentMiddle">
+                                            <div align="center">
+                                                <div style="width:500px; padding: 50px 0px 100px 0px;">
+                                                    <div style="width:500px; padding: 50px 0px 100px 0px;">
+                                                        <b>Submissions are not available for this contest</b>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </c:when>
                             <c:otherwise>
-
                                 <div id="contentSubmissions">
                                     <div id="submissions">
                                         <studio_tags:pagination
