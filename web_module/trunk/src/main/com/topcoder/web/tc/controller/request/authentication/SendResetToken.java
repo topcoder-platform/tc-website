@@ -105,7 +105,7 @@ public class SendResetToken extends ShortHibernateProcessor {
 
         String type = StringUtils.checkNull(getRequest().getParameter(Constants.EMAIL_TYPE));
         if (!Constants.PRIMARY_EMAIL_TYPE.equals(type) && !Constants.SECOND_EMAIL_TYPE.equals(type)) {
-            writeResponse(400, "Invalid email type. The valid one should be primary or second.");
+            writeResponse(400, "Invalid email type. The valid one should be primary or secondary.");
             return;
         }
 

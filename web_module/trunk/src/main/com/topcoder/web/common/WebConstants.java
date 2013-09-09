@@ -882,7 +882,7 @@ public interface WebConstants {
      * <p>The second email type.</p>
      * @since 1.6.8
      */      
-    public static final String SECOND_EMAIL_TYPE = "second";
+    public static final String SECOND_EMAIL_TYPE = "secondary";
 
     /**
      * <p>The parameter name expired date.</p>

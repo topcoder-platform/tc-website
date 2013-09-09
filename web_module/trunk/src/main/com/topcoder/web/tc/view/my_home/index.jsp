@@ -223,13 +223,13 @@
                             <p>
                                 <c:choose>
                                 <c:when test="${ regUser.secondEmailAddress == null }">
-                                    <a href="/tc?module=AddSecondEmail">Add Second Email</a>
+                                    <a href="/tc?module=AddSecondEmail">Add Secondary Email</a>
                                 </c:when>
                                 <c:otherwise>
                                     <form id="addfrm" action="/tc?module=AddSecondEmail" method="post" name="frm">
                                         <input type="hidden" name="<%=Constants.SECOND_EMAIL_ADDRESS%>" value="${regUser.secondEmailAddress.address}" />
                                     </form>
-                                    <a href="#" onclick="javascript:$('#addfrm').submit();">Update Second Email</a>
+                                    <a href="#" onclick="javascript:$('#addfrm').submit();">Update Secondary Email</a>
                                 </c:otherwise>
                                 </c:choose>
                             </p>

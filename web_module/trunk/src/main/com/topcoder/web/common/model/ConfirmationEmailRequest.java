@@ -15,8 +15,14 @@ package com.topcoder.web.common.model;
  * It is introduced in Release Assembly - TopCoder Email Address Management Update v1.0.
  * </p>
  *
+ * <p>
+ * Changes in version 1.1 (TopCoder Email Management Bug Race - BUGR-9479):
+ * <ol>
+ *      <li>Add {@link #handle} field and the getter and setter method.</li>
+ * </ol>
+ * </p>
  * @author Standlove, TCSASSEMBLER
- * @version 1.0
+ * @version 1.1
  */
 public class ConfirmationEmailRequest {
     /**
@@ -53,6 +59,10 @@ public class ConfirmationEmailRequest {
      * <p>Represents the expiration duration.</p>
      */
     private long expirationDuration;
+    /**
+     * <p>Represents the user handle.</p>
+     */
+    private String handle;
 
     /**
      * <p>Gets to email.</p>
@@ -165,4 +175,20 @@ public class ConfirmationEmailRequest {
     public void setExpirationDuration(long expirationDuration) {
         this.expirationDuration = expirationDuration;
     }
+
+    /**
+     * <p>Gets user handle.</p>
+     * @return user handle.
+     */
+    public String getHandle() {
+        return handle;
+    }
+
+    /**
+     * <p>Sets user handle.</p>
+     * @param handle user handle.
+     */
+    public void setHandle(String handle) {
+        this.handle = handle;
+    }    
 }

@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) - 2013 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.common.web.util;
 
 import java.sql.PreparedStatement;
@@ -5,9 +8,19 @@ import java.sql.ResultSet;
 import java.text.FieldPosition;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
+import java.util.TimeZone;
 
+/**
+ * <p>
+ * Changes in version 1.0 (TopCoder Password Recovery Update - BUGR-9487):
+ * <ol>
+ *      <li>Add {@link #LONG_EST_DATE_FORMAT} field.</li>
+ * </ol>
+ * </p>
+ * @author gonia_119
+ * @version 1.0
+ */
 public final class DateTime {
-
 
     private static final String LONG_DATE_FORMAT = "MM/dd/yyyy hh:mm:ss aaa";
     private static final String SHORT_DATE_FORMAT = "MM/dd/yyyy";
@@ -20,6 +33,11 @@ public final class DateTime {
             , "MM/dd/yy"
             , "MM/dd/yyyy"
     };
+    
+    /**
+     * <p>the long est date format</p>
+     */
+    private static final String LONG_EST_DATE_FORMAT = "yyyy-MM-dd hh:mm:ss z";
 
 
     public static final java.sql.Time getCurrentTime(java.sql.Connection conn) throws Exception {
@@ -85,7 +103,31 @@ public final class DateTime {
         return result;
     }
 
+    /**
+     * <p>
+     * format the date to string.
+     * </p>
+     * @param date  the date.
+     * @return the formated date string.
+     */
+    public static String formatESTDate(java.util.Date date) {
+        String result = null;
+        if (date != null) {
+            SimpleDateFormat dateFormat = new SimpleDateFormat(LONG_EST_DATE_FORMAT);
+            dateFormat.setTimeZone(TimeZone.getTimeZone("EST"));
+            dateFormat.setLenient(false);
+            StringBuffer buffer = new StringBuffer(LONG_EST_DATE_FORMAT.length());
+            buffer = dateFormat.format(date, buffer, new FieldPosition(0));
+            if (buffer != null) {
+                result = buffer.toString();
+            }
+        }
+        return result;
+    }
 
+    public static void main(String args[]) {
+        System.out.println(new java.util.Date());
+    }
     public static String dateToShortString(java.sql.Date date) {
         String result = null;
         if (date != null) {
