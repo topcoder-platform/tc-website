@@ -25,10 +25,10 @@
   pageContext.setAttribute("secondEmail", secondEmail);
   pageContext.setAttribute("secondEmailEdit", secondEmailEdit);
   if(secondEmail == null){
-    pageContext.setAttribute("title", "Add Second Email");
+    pageContext.setAttribute("title", "Add Secondary Email");
     pageContext.setAttribute("button", "Submit");
   }else{
-    pageContext.setAttribute("title", "Update Second Email");
+    pageContext.setAttribute("title", "Update Secondary Email");
     pageContext.setAttribute("button", "Change");
   }
   if (secondEmailEdit == null) {
@@ -59,9 +59,6 @@
         var inputControl = $('#frm .addSecondEmail')[0];
         $('#frm').submit(function(){
             return validateAddSecondEmail( inputControl );
-        });
-        $(inputControl).keyup(function(){
-            validateAddSecondEmail( $(this) );
         });
     });
     </script>    
@@ -103,10 +100,13 @@
                     <tr>
                         <td class="title" colspan="2">${title}</td>
                     </tr>
+                    <tr>
+                        <td class="value" colspan="2">Providing a secondary email is optional, but will help us verify your account if you forget your password.</td>
+                    </tr>
                         <c:if test="${secondEmail ne null }">
                             <tr class="light">
                                 <td class="value" nowrap="nowrap" style="border: none;">
-                                    <span style="display: block; padding-top: 4px;">Your second email : </span>
+                                    <span style="display: block; padding-top: 4px;">Your secondary email : </span>
                                 </td>
                                 <td class="value" width="100%" style="border: none;">
                                     <span style="display: block; padding-top: 4px;"><c:out value="${secondEmail}"/></span>
@@ -115,7 +115,7 @@
                         </c:if>
                         <tr class="dark">
                             <td class="value" nowrap="nowrap" style="border: none;">
-                                <span style="display: block; padding-top: 4px;">Enter new second email:</span>
+                                <span style="display: block; padding-top: 4px;">Enter new secondary email:</span>
                             </td>
                             <td class="value" width="100%" style="border: none;">
                                 <tc-webtag:textInput name="<%= Constants.EMAIL %>"  value="${secondEmailEdit}" size="50" maxlength="<%=com.topcoder.web.reg.Constants.MAX_EMAIL_LENGTH%>" styleClass="addSecondEmail" />

@@ -20,9 +20,9 @@
   String secondEmail =  (String)session.getAttribute(Constants.SECOND_EMAIL_ADDRESS);  
   pageContext.setAttribute("secondEmail", secondEmail);
   if(secondEmail == null){
-    pageContext.setAttribute("title", "Add Second Email");
+    pageContext.setAttribute("title", "Add Secondary Email");
   }else{
-    pageContext.setAttribute("title", "Update Second Email");
+    pageContext.setAttribute("title", "Update Secondary Email");
   }
 %>
 
@@ -69,8 +69,8 @@
                     <jsp:param name="title" value="${title}"/>
                 </jsp:include>
 
-               	<p>
-              		A confirm mail has been sent to ${sessionScope.email}.
+                <p>
+                    A confirm mail has been sent to ${sessionScope.email}.
                 </p>       
 
                 <div align="center">

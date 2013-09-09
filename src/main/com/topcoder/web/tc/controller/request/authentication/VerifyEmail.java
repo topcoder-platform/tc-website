@@ -31,8 +31,14 @@ import com.topcoder.web.common.dao.DAOUtil;
  *   </ol>
  * </p>
  *
+ * <p>
+ * Changes in version 1.2 (TopCoder Email Management Bug Race - BUGR-9479):
+ * <ol>
+ *      <li>Update {@link #updateEmail(EmailRequest request)} method.</li>
+ * </ol>
+ * </p>
  * @author vangavroche, Standlove, TCSASSEMBLER
- * @version 1.1
+ * @version 1.2
  */
 public class VerifyEmail extends ShortHibernateProcessor {
     /**
@@ -156,10 +162,10 @@ public class VerifyEmail extends ShortHibernateProcessor {
                 // no second email before
                 secondEmail = new Email();
                 user.addEmailAddress(secondEmail);
-                this.getRequest().getSession().setAttribute("title", "Add Second Email");
+                this.getRequest().getSession().setAttribute("title", "Add Secondary Email");
                 this.getRequest().getSession().setAttribute("action", "added");
             }else{
-                this.getRequest().getSession().setAttribute("title", "Update Second Email");
+                this.getRequest().getSession().setAttribute("title", "Update Secondary Email");
                 this.getRequest().getSession().setAttribute("action", "updated");
             }
 

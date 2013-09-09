@@ -60,11 +60,11 @@
                 <tc-webtag:errorIterator id="err" name="<%=Constants.ERROR_INFO %>">
                     <span class="bigRed"><%=err%></span>
                 </tc-webtag:errorIterator>
-            	<p>
-                 	<span class="bigRed">
-        				Fail to verify the second email you provided.
-        			</span>
-        		</p>
+                <p>
+                    <span class="bigRed">
+                        Fail to verify the secondary email you provided.
+                    </span>
+                </p>
                 <div align="center">
                     <table cellpadding="0" cellspacing="0" style="margin: 20px;">
                     <tbody>

@@ -14,6 +14,7 @@ import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.reg.validation.EmailValidator;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.security.User;
 
 /**
  * <p>
@@ -32,8 +33,14 @@ import com.topcoder.shared.security.ClassResource;
  *   </ol>
  * </p>
  *
+ * <p>
+ * Changes in version 1.2 (TopCoder Email Management Bug Race - BUGR-9479):
+ * <ol>
+ *      <li>Add {@link #dbProcessing()} method.</li>
+ * </ol>
+ * </p>
  * @author vangavroche, Standlove, TCSASSEMBLER
- * @version 1.1
+ * @version 1.2
  */
 public class AddSecondEmail extends ShortHibernateProcessor {
 
@@ -74,9 +81,11 @@ public class AddSecondEmail extends ShortHibernateProcessor {
                 log.debug("The email address is valid.");
                 ConfirmationEmailRequest request = new ConfirmationEmailRequest();
                 request.setToEmail(email);
-                request.setUserId(getUser().getId());
+                User u = getUser();
+                request.setUserId(u.getId());
                 request.setSubject(Constants.SECOND_EMAIL_VERIFY_MAIL_SUBJECT);
                 request.setBody(Constants.SECOND_EMAIL_VERIFY_MAIL_BODY);
+                request.setHandle(u.getUserName());
                 request.setFromEmail(Constants.SECOND_EMAIL_VERIFY_MAIL_FROM_ADDRESS);
                 request.setRequestType(EmailRequestType.SecondaryEmailConfirmation);
                 request.setExpirationDuration(Constants.SECOND_EMAIL_REQUEST_AGE);

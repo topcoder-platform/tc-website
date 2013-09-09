@@ -73,7 +73,7 @@ $(document).ready(function () {
 						</tr>
 						<c:if test="${ not empty param.emc and param.emc gt 1}">
 							<tr>
-								<td><label> <input type="radio" name="<%=Constants.EMAIL_TYPE%>" value=<%=Constants.SECOND_EMAIL_TYPE%>> second email</label>
+								<td><label> <input type="radio" name="<%=Constants.EMAIL_TYPE%>" value=<%=Constants.SECOND_EMAIL_TYPE%>> secondary email</label>
 								</td>
 							</tr>
 						</c:if>

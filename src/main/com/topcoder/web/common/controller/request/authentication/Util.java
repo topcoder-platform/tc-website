@@ -34,8 +34,14 @@ import com.topcoder.web.common.model.User;
  *   </ol>
  * </p>
  *
+ * <p>
+ * Changes in version 1.2 (TopCoder Email Management Bug Race - BUGR-9479):
+ * <ol>
+ *      <li>Add {@link #generateEmailConfirmation(ConfirmationEmailRequest request)} to add user handle.</li>
+ * </ol>
+ * </p>
  * @author Standlove,TCSASSEMBLER
- * @version 1.1
+ * @version 1.2
  */
 public class Util {
     /**
@@ -230,6 +236,7 @@ public class Util {
 
         String body = request.getBody().replace("{requestId}", String.valueOf(requestId))
                 .replace("{key}", String.valueOf(randomKey)).replace("{expiredAt}", String.valueOf(expiredAt.getTime()));
+        body = body.replace("<HANDLE>", request.getHandle());
         mail.setBody(body);
         mail.setToAddress(request.getToEmail(), TCSEmailMessage.TO);
         mail.setFromAddress(request.getFromEmail());

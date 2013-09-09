@@ -46,8 +46,14 @@ import java.util.Set;
  *   </ol>
  * </p>
  *
+ * <p>
+ * Changes in version 1.2 (TopCoder Email Management Bug Race - BUGR-9479):
+ * <ol>
+ *      <li>Add {@link #registrationProcessing()} method.</li>
+ * </ol>
+ * </p>
  * @author dok, Standlove, TCSASSEMBLER
- * @version 1.1
+ * @version 1.2
  */
 public class Submit extends Base {
 
@@ -86,7 +92,7 @@ public class Submit extends Base {
 
             if (newReg) {
                 activationCode = StringUtils.getActivationCode(u.getId().longValue());
-				u.setRegSource("reg");
+                u.setRegSource("reg");
                 u.setActivationCode(activationCode);
             }
             // added in version 1.1 to send validation email if primary email address has been changed
@@ -97,6 +103,7 @@ public class Submit extends Base {
                 request.setToEmail(changedPrimaryEmail);
                 request.setUserId(getRegUser().getId());
                 request.setSubject(Constants.PRIMARY_EMAIL_CHANGE_VERIFY_EMAIL_SUBJECT);
+                request.setHandle(u.getHandle());
                 request.setBody(Constants.PRIMARY_EMAIL_CHANGE_VERIFY_EMAIL_BODY);
                 request.setRequestType(EmailRequestType.PrimaryEmailChangeConfirmation);
                 request.setFromEmail(Constants.PRIMARY_EMAIL_CHANGE_VERIFY_EMAIL_FROM_ADDRESS);
