@@ -678,24 +678,7 @@
 							</li>
 							</c:if>
 
-							<c:set value="<%=Constants.PHOTO%>" var="photo"/>
-							<c:if test="${cf:contains(fields, photo)}">
-							<li class="row">
-								
-								<label for="<%=Constants.PHOTO%>">
-								<c:if test="${cf:contains(reqFields, photo)}"><span class="required">*</span></c:if>
-								Member Photo:
-								</label>
-								
-								<a href="/tc?module=UserStatic&amp;d1=my_home&amp;d2=submitPhoto">
-								Click here to submit a
-								<c:if test="${regUser.coder.memberPhoto!=null}">different</c:if>
-								photo</a><br>
-								<p class="label-description">Let other TopCoder Members know what you look like. Send us a head shot that is at least 200 pixels (3 inches) across.
-								<a href="JavaScript:void window.open('/tc?module=Static&d1=member_photos&d2=index','Photo_Info','top=2,left=2,resizable=yes,width=600,height=700,status=0');" class="statTextBig">Click here</a> for more info about member photos.
-								</p>
-							</li>
-							</c:if>
+							<%-- BUGR9488 remove 'submit photo part' --%>
 
 							<c:set value="<%=Constants.CODER_TYPE%>" var="coderType"/>
 							<c:if test="${cf:contains(fields, coderType)}">

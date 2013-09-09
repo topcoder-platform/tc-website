@@ -16,10 +16,10 @@
   - Changes in 1.2 (Assembly - Upload Avatar to TC):
   - - Removed old submit photo link.
   - - Image file name is retrieved from request attribute with path + filename.
-  - 
+  -
   - Changes in 1.3 (BUG#TCCC-3348):
   - - Change image popup class for compatibily with Member Profile page.
-  - 
+  -
   - Changes in 1.4 (Release Assembly - TopCoder Password Recovery Revamp v1.0 ):
   - - Add a link to add second mail.
 --%>
@@ -32,7 +32,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=utf-8" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html>
@@ -45,20 +45,20 @@
     <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
-    
+
     <script type="text/javascript" src="/js/jquery-1.4.1.min.js"></script>
     <script type="text/javascript" src="/js/jquery.form.js"></script>
     <script type="text/javascript" src="/js/jquery.Jcrop.js"></script>
-    <script type="text/javascript" src="/js/photo.js"></script> 
-    
+    <script type="text/javascript" src="/js/photo.js"></script>
+
     <link type="text/css" href="/css/jquery.Jcrop.css" rel="stylesheet"/>
     <link type="text/css" href="/css/photo.css" rel="stylesheet"/>
-    
+
     <script type="text/javascript">
         var previewPath = <%= request.getParameter("previewPath") == null ? null : "\'"  + URLEncoder.encode(request.getParameter("previewPath"), "UTF-8").replaceAll("%2F", "/") + "\'" %>;
         var originalFile = <%= request.getParameter("originalFileName") == null ? null : "\'"  + URLEncoder.encode(request.getParameter("originalFileName"), "UTF-8") + "\'" %>;
     </script>
-    
+
 </head>
 
 <body>
@@ -81,7 +81,7 @@
 <%-- Center Column Begins --%>
         <td width="100%" align="center" class="bodyColumn">
             <div class="maxWidthBody" align="left">
-            
+
                 <jsp:include page="../page_title.jsp" >
                     <jsp:param name="image" value="my_tc"/>
                     <jsp:param name="title" value="&nbsp;"/>
@@ -108,12 +108,13 @@
                                     </div>
                                 </c:when>
                                 <c:otherwise>
-                                    <a href="/tc?module=MemberProfile&amp;cr=${regUser.id}">
+								        <%-- BUGR9488 trigger the submit photo modal if there is no photo yet--%>
+                                    <a href="javascript:;" id="submitPhotoLink">
                                         <img src="/i/m/nophoto_submit.gif" name="image_path" alt="" class="memberPhoto"/>
                                     </a>
                                 </c:otherwise>
                             </c:choose>
-                            <div>                        
+                            <div>
                                 <tc-webtag:handle coderId='${regUser.id}' />
                                 <br /><strong>Member Since:</strong>
                                 <br /><fmt:formatDate value="${regUser.coder.memberSince}" pattern="MM.dd.yyyy"/>
@@ -144,7 +145,7 @@
                             ${regUser.homeAddress.address1}
                             <c:if test="${not empty regUser.homeAddress.address2}"><br /><c:out value="${regUser.homeAddress.address2}" /></c:if>
                             <c:if test="${not empty regUser.homeAddress.address3}"><br /><c:out value="${regUser.homeAddress.address3}" /></c:if>
-                            <br /><c:out value="${regUser.homeAddress.city}"/>, 
+                            <br /><c:out value="${regUser.homeAddress.city}"/>,
                             <c:if test="${not empty regUser.homeAddress.state.name}">${regUser.homeAddress.state.name}</c:if>
                             <c:if test="${not empty regUser.homeAddress.province}"><c:out value="${regUser.homeAddress.province}"/></c:if>
                             <c:out value="${regUser.homeAddress.postalCode}" />
@@ -217,7 +218,7 @@
                                 <p><a href="/tc?module=HSViewUnregister">Unregister from TCHS</a></p>
                             </c:if>
                             <p><a href="https://www.topcoder.com/reg/?nrg=false">Update my profile</a></p>
-                            <p class="<c:if test='${userImage!=null}'>hide</c:if>"><a href="javascript:;" id="submitPhotoLink" >Submit a photo</a></p>
+							   <p class="<c:if test='${userImage!=null}'>hide</c:if>"><a href="javascript:;" id="submitPhotoLink" >Submit a photo</a></p>
                             <p class="<c:if test='${userImage==null}'>hide</c:if>"><a href="javascript:;" id="removePhotoLink">Remove photo</a></p>
                             <p>
                                 <c:choose>
@@ -226,7 +227,7 @@
                                 </c:when>
                                 <c:otherwise>
                                     <form id="addfrm" action="/tc?module=AddSecondEmail" method="post" name="frm">
-                                        <input type="hidden" name="<%=Constants.SECOND_EMAIL_ADDRESS%>" value="${regUser.secondEmailAddress.address}" /> 
+                                        <input type="hidden" name="<%=Constants.SECOND_EMAIL_ADDRESS%>" value="${regUser.secondEmailAddress.address}" />
                                     </form>
                                     <a href="#" onclick="javascript:$('#addfrm').submit();">Update Second Email</a>
                                 </c:otherwise>
@@ -258,7 +259,7 @@
             </div>
         </td>
 <%-- Center Column Ends --%>
-        
+
 <%-- Right Column Begins --%>
         <td width="170">
             <jsp:include page="../public_right.jsp">
@@ -266,7 +267,7 @@
             </jsp:include>
         </td>
 <%-- Right Column Ends --%>
-        
+
     </tr>
 </tbody>
 </table>
@@ -276,35 +277,35 @@
 <div class="photoPopup popupUploadPhoto transparent hide">
     <div class="popupWindow">
         <div class="title">UPLOAD YOUR PHOTO</div>
-        
+
         <div class="content" id="uploadDiv">
             <div id="photoUploadLeft">
                 <div class="locateInput">
                     <div class="inner"></div>
                 </div>
-             
+
                 <form action="photo?module=upload&photoAction=preview" method="post" enctype="multipart/form-data" id="photoUploadForm">
                     <a href="javascript:;" class="btn1 btnBrowse">
                         <span class="rightSide">
                             <span class="inner">
-                                Browse 
+                                Browse
                                 <span class="file-wrapper">
                                 <input type="file" name="photoFile" id="inputFile" />
-                                </span>                     
-                            </span>                                                 
+                                </span>
+                            </span>
                         </span>
                     </a>
                 </form>
-                
+
                 <div id="uploadImage">
                     <p>Uploaded Image</p>
                 </div>
             </div>
             <div id="photoUploadRight">
                 <div id="previewDiv">
-                    <img src="i/previewPhoto.jpg" alt="" />     
+                    <img src="i/previewPhoto.jpg" alt="" />
                 </div>
-            
+
                 <div class="alert">
                     Please upload your photo in JPG or PNG format. For best quality, upload a 400X400 pixel image. Drag your mouse over your photo to crop it (optional) and then view the final results above. If you are happy with the results, click "upload" below.
                 </div>
@@ -314,16 +315,16 @@
                 <a href="javascript:;" class="btn1 btnCancel">
                     <span class="rightSide">
                         <span class="inner">
-                            Cancel                                               
-                        </span>                                                 
-                    </span>                                         
-                </a>                
+                            Cancel
+                        </span>
+                    </span>
+                </a>
                 <a href="javascript:;" class="btn1 red btnUpload">
                     <span class="rightSide">
                         <span class="inner">
-                            Upload                                               
-                        </span>                                                 
-                    </span>                                         
+                            Upload
+                        </span>
+                    </span>
                 </a>
                 <form action="photo?module=upload&photoAction=commit" method="post" id="submitPhotoForum">
                     <input type="hidden" name="previewPath"></input>
@@ -343,33 +344,33 @@
     <div class="photoPopup popupRemovePhoto transparent hide">
         <div class="popupWindow">
             <div class="title">REMOVE PHOTO</div>
-            
+
             <div class="content">
                 <img src="${pathImage}" alt="" />
-                
+
                 <div class="text">
                     Are you sure to remove this photo?
                 </div>
-                
+
                 <a href="javascript:;" class="btn1 btnNo">
                     <span class="rightSide">
                     <span class="inner">
-                          No                                               
-                       </span>                                                  
-                   </span>                                         
+                          No
+                       </span>
+                   </span>
                 </a>
-                
+
                 <a href="javascript:;" class="btn1 red btnYes">
                     <span class="rightSide">
                     <span class="inner">
-                          Yes                                               
-                       </span>                                                  
-                   </span>                                         
+                          Yes
+                       </span>
+                   </span>
                 </a>
-                
+
             </div>
         </div>
-    </div>        
+    </div>
 </c:if>
 
 </body>
