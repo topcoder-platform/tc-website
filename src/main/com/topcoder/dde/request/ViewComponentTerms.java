@@ -2,6 +2,8 @@ package com.topcoder.dde.request;
 
 import javax.rmi.PortableRemoteObject;
 
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.dde.catalog.ComponentManager;
 import com.topcoder.dde.catalog.ComponentManagerHome;
 import com.topcoder.dde.catalog.NonPublicComponentException;
@@ -50,6 +52,18 @@ public class ViewComponentTerms extends BaseProcessor {
                         getInitialContext().lookup(ComponentManagerHome.EJB_REF_NAME), ComponentManagerHome.class);
     
                 TCSubject tcSubject = (TCSubject) getRequest().getSession().getAttribute("TCSUBJECT");
+
+                // If the user directly hits this URL without entering his credentials on the login page and if he is
+                // already logged in, the TCSUBJECT session attribute may not be set yet, so we need to check and set it.
+                if (tcSubject == null) {
+                    PrincipalMgrRemoteHome principalMgrHome = (PrincipalMgrRemoteHome)
+                            getInitialContext().lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+                    PrincipalMgrRemote principalMgr = principalMgrHome.create();
+
+                    tcSubject = principalMgr.getUserSubject(getUser().getId());
+                    getRequest().getSession().setAttribute("TCSUBJECT", tcSubject);
+                }
+
                 long compId = Long.parseLong((String) getRequest().getParameter("comp"));
                 ComponentManager compMgr = componentManagerHome.create(compId);
     
