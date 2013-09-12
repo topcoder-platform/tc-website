@@ -318,7 +318,7 @@ Please check out the rules link below for more detail.
      || roundId == 15080 || roundId == 15103 || roundId == 15120 || roundId == 15130 || roundId == 15189
      || roundId == 15201 || roundId == 15202 || roundId == 15322 || roundId == 15327 || roundId == 15398
      || roundId == 15458 || roundId == 15520 || roundId == 15589 || roundId == 15611 || roundId == 15618
-     || roundId == 15630 || roundId == 15637 || roundId == 15678 || roundId == 15761) {%>
+     || roundId == 15630 || roundId == 15637 || roundId == 15678 || roundId == 15761 || roundId == 15765) {%>
 <p align="justify">
     <b>Please note that this event is being run for a TopCoder customer.  By winning a prize in this event you agree to transfer ownership of
     your submission to TopCoder.
@@ -381,6 +381,13 @@ scorers will receive prizes with the first place winner receiving $12,000!
 </p>
 <% } %>
 
+<% if (roundId == 15765) { %>
+<p align="justify">
+This Marathon Match is a money match that has a <b>$15,000 prize purse</b>! The top four highest
+scorers will receive prizes with the first place winner receiving $7,000!
+</p>
+<% } %>
+
 <%if (roundId == 15520) {%>
 <p align="justify">
 This Marathon Match is a money match that has a <b>$30,000 prize purse</b>! The top ten highest scorers
@@ -424,7 +431,7 @@ total prize money</b>.
     <br>
     <b>Participants may submit code written in the following language: C++ </b>
 </p>
-<%}else if(roundId == 15023 || roundId == 15322 || roundId == 15458 || roundId == 15630 || roundId == 15637 || roundId == 15761) {%>
+<%}else if(roundId == 15023 || roundId == 15322 || roundId == 15458 || roundId == 15630 || roundId == 15637 || roundId == 15761 || roundId == 15765) {%>
 <p align="justify">
     In TopCoder Marathon Match events, the system will be testing submissions for optimization according to the scoring criteria 
     outlined in the problem statement that is associated with this event.	
@@ -695,6 +702,34 @@ TopCoder may *offer* to purchase submissions that did not win any prize if the c
 <p align="justify">
 </p>
 <% } %>
+
+<% if (roundId == 15765) { %>
+<div class="sectionHeader">Prizes</div>
+    <p align="justify">The Marathon Match has $15,000 in total prize money.  The 4 highest scorers in this round will receive compensation for their submissions as follows:</p>
+<table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
+    <tr>
+        <td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right">$7,000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">2nd</td><td class="bodyText" align="right">$4,000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">3rd</td><td class="bodyText" align="right">$2,000</td>
+    </tr>
+    <tr>
+        <td class="bodyText" nowrap="nowrap">4th</td><td class="bodyText" align="right">$1,000</td>
+    </tr>
+</table>
+
+<p align="justify">
+TopCoder may *offer* to purchase submissions that did not win any prize if the client is interested in using them.
+</p>
+
+<p align="justify">
+Additionally, there are two $700 USD and $300 USD prizes for unusual and perspective ideas. Only contestants with 5th and lower final scores are eligible for these prizes. The ideas must be described and submitted in a text document. You do not need to implement your idea (though if it is incorporated into your marathon match final submission, it can be a plus). The submission phase for ideas is separate from the marathon match and will open once the match is over. Additional details will be communicated at the match forum. Evaluation of ideas is subjective, but the main evaluation criteria for the winning ideas is: can (and how much) the Top-4 marathon match algorithms benefit from this idea? TopCoder reserves the right not to award this prize if no ideas are considered to be useful enough.
+</p>
+<% } %>
+
 
 <% if (roundId == 15761) { %>
 <div class="sectionHeader">Prizes</div>
