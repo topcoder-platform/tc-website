@@ -88,6 +88,12 @@
       <td class="value">11
       </td>
       <td class="value">12
+         <div class="long">
+         <strong><a href="/tc?module=MatchDetails&rd=15765">Collective Minds Exploration Challenge</a></strong><br />
+         13:00<br />
+         3 weeks<br />
+         $15K Prizes
+         </div>
       </td>
       <td class="value">13
       </td>
