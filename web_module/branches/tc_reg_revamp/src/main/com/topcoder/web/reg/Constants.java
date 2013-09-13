@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2005-2013 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.reg;
 
 import com.topcoder.shared.util.TCResourceBundle;
@@ -12,7 +15,10 @@ import java.util.List;
 import java.util.MissingResourceException;
 
 /**
- * @author dok
+ * (Release Assembly - TopCoder Reg2 Password Recovery Revamp and Misc Bug Fixes) change log:
+ * Removed the SecretQuestion related code.
+ *
+ * @author dok,TCSASSEMBLER
  * @version $Revision: 79505 $ Date: 2005/01/01 00:00:00
  *          Create Date: Mar 29, 2006
  */
@@ -33,8 +39,6 @@ public class Constants implements WebConstants {
     public static final String REG_TYPES = "regTypes";
     public static final String SCHOOL_TYPE = "scht";
     public static final String SCHOOL_NAME = "schn";
-    public static final String SECRET_QUESTION = "sq";
-    public static final String SECRET_QUESTION_RESPONSE = "sqr";
     public static final String SECURITY_KEY = "sk";
 
     public static final String AGE = "age";
@@ -84,10 +88,6 @@ public class Constants implements WebConstants {
     public static int MAX_HANDLE_LENGTH;
     public static int MIN_PASSWORD_LENGTH;
     public static int MAX_PASSWORD_LENGTH;
-    public static int MIN_SECRET_QUESTION_LENGTH;
-    public static int MAX_SECRET_QUESTION_LENGTH;
-    public static int MIN_SECRET_QUESTION_RESPONSE_LENGTH;
-    public static int MAX_SECRET_QUESTION_RESPONSE_LENGTH;
     public static int MAX_GIVEN_NAME_LENGTH;
     public static int MAX_SURNAME_LENGTH;
     public static int MAX_NAME_IN_ANOTHER_LANGUAGE_LENGTH;

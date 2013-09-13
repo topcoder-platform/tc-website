@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001 - 2010 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2001 - 2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc;
 
@@ -91,8 +91,15 @@ import java.util.MissingResourceException;
  *   </ol>
  * </p>
  *
+ * <p>
+ *   Version 2.0 (Release Assembly - TopCoder Reg2 Password Recovery Revamp and Misc Bug Fixes) change log:
+ *   <ol>
+ *     <li>Removed SECRET_QUESTION constant</li>
+ *   </ol>
+ * </p>
+ *
  * @author pulky, isv, VolodymyrK, TCSASSEMBLER
- * @version 1.9
+ * @version 2.0
  */
 public class Constants implements WebConstants {
 
@@ -214,7 +221,6 @@ public class Constants implements WebConstants {
     public static String EMAIL_ACTIVATE;
     public static String EMAIL_ACTIVATE_CONFIRM;
     public static String RECOVER_PASSWORD;
-    public static String SECRET_QUESTION;
     public static String RESET_PASSWORD;
     public static String RESET_PASSWORD_CONFIRM;
     public static String RECOVER_PASSWORD_CONFIRM;

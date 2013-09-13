@@ -44,12 +44,14 @@
 		<property name="emailBodyTemplateFile" value="${activation_email_body_template_file}" />
         <property name="emailFromAddress" value="${activation_email_from_address}" />
         <property name="emailSubject" value="${activation_email_subject}" />
+        <property name="senderName" value="${forgot_password_email_sender_name}" />
 	</bean>
 	
 	<bean id="forgotPasswordEmailSetting" class="com.topcoder.reg.EmailSetting">
 		<property name="emailBodyTemplateFile" value="${forgot_password_email_body_template_file}" />
         <property name="emailFromAddress" value="${forgot_password_email_from_address}" />
         <property name="emailSubject" value="${forgot_password_email_subject}" />
+        <property name="senderName" value="${forgot_password_email_sender_name}" />
 	</bean>
 	
      <bean id="authenticationInterceptor" class="com.topcoder.reg.actions.interceptors.AuthenticationInterceptor">
@@ -60,7 +62,7 @@
     	<property name="jdbcTemplate" ref="jdbcTemplate" />
     </bean>
     
-    <bean id="passwordRecoveryService" class="com.topcoder.reg.services.impl.PasswordRecoveryServiceImpl" parent="baseImpl">
+    <bean id="passwordResetTokenService" class="com.topcoder.reg.services.impl.PasswordResetTokenServiceImpl" parent="baseImpl">
     </bean>
     
     <bean id="userService" class="com.topcoder.reg.services.impl.UserServiceImpl" parent="baseImpl"></bean>
@@ -96,13 +98,13 @@
      
      <bean id="forgotPasswordAction" class="com.topcoder.reg.actions.ForgotPasswordAction"
      	parent="baseAction" scope="prototype" init-method="checkConfiguration">
-     		<property name="passwordRecoveryService" ref="passwordRecoveryService" />
+     		<property name="passwordResetTokenService" ref="passwordResetTokenService" />
      		<property name="emailSetting" ref="forgotPasswordEmailSetting" />
      </bean>
      
      <bean id="resetPasswordAction" class="com.topcoder.reg.actions.ResetPasswordAction"
      	parent="baseAction" scope="prototype" init-method="checkConfiguration">
-     	<property name="passwordRecoveryService" ref="passwordRecoveryService" />
+     	<property name="passwordResetTokenService" ref="passwordResetTokenService" />
      </bean>
      
      <bean id="activateAction" class="com.topcoder.reg.actions.ActivateAction" parent="baseAction" scope="prototype">

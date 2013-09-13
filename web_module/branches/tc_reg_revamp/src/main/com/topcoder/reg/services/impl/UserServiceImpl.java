@@ -11,9 +11,12 @@ import java.util.Map;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.InvalidResultSetAccessException;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+
 
 import com.topcoder.commons.utils.LoggingWrapperUtility;
 import com.topcoder.reg.dto.UserDTO;
@@ -34,8 +37,13 @@ import com.topcoder.web.common.StringUtils;
  * <strong>Thread Safety:</strong> This class is mutable and not thread-safe.
  * </p>
  * 
- * @author leo_lol
- * @version 1.0
+ * <p>
+ * Version 1.1(Release Assembly - TopCoder Reg2 Password Recovery Revamp and Misc Bug Fixes) change log:
+ * Updated to reflect changes to UserDTO.
+ * </p>
+ *
+ * @author sampath01, leo_lol, Urmass ,TCSASSEMBLER
+ * @version 1.1
  * @since 1.0
  */
 public class UserServiceImpl extends BaseImpl implements UserService {
@@ -72,12 +80,20 @@ public class UserServiceImpl extends BaseImpl implements UserService {
             + "primary_ind, status_id) VALUES(?, ?, 1, ?, 1, 2)";
 
     /**
+     * SQL to check if the email is corresponding to multiple user
+     */
+    private static final String SQL_MULTIPLE_USERS_BY_EMAIL = "SELECT COUNT(*) FROM (SELECT DISTINCT user_id,address from email where address=?)";
+
+    /**
      * SQL to query user info by given handle.
      */
-    private static final String SQL_GET_USER_BY_HANDLE = "SELECT u.user_id, u.first_name, u.last_name, u.handle, "
-            + "u.status, u.reg_source AS source, e.address, c.comp_country_code AS country "
-            + "FROM user AS u JOIN email AS e ON e.user_id = u.user_id "
-            + "JOIN 'informixoltp':coder AS c ON c.coder_id = u.user_id WHERE u.handle_lower = LOWER(?)";
+    private static final String SQL_GET_USER_BY_HANDLE = "SELECT u.user_id, u.first_name, u.last_name, u.handle, " +
+            "u.status, u.reg_source AS source, c.comp_country_code AS country, " +
+            "(SELECT e.address FROM user AS u JOIN email AS e ON e.user_id = u.user_id JOIN 'informixoltp':coder AS c "+
+            "ON c.coder_id = u.user_id WHERE u.handle_lower = LOWER(?) AND e.email_type_id = 1) AS email, " +
+            "(SELECT e.address FROM user AS u JOIN email AS e ON e.user_id = u.user_id JOIN 'informixoltp':coder AS c "+
+            "ON c.coder_id = u.user_id WHERE u.handle_lower = LOWER(?) AND e.email_type_id = 2) AS second_email " +
+            "FROM user AS u JOIN 'informixoltp':coder AS c ON c.coder_id = u.user_id WHERE u.handle_lower = LOWER(?)";
 
 
 	/**
@@ -88,18 +104,23 @@ public class UserServiceImpl extends BaseImpl implements UserService {
     /**
      * SQL to get user by given email address.
      */
-    private static final String SQL_GET_USER_BY_EMAIL = "SELECT u.user_id, u.first_name, u.last_name, u.handle, "
-            + "u.status, u.reg_source AS source, e.address, c.comp_country_code AS country "
-            + "FROM user AS u JOIN email as e ON e.user_id = u.user_id "
-            + "JOIN 'informixoltp':coder AS c ON c.coder_id = u.user_id WHERE e.address=?";
+    private static final String SQL_GET_USER_BY_EMAIL = "SELECT u.user_id, u.first_name, u.last_name, u.handle, " +
+            "u.status, u.reg_source AS source, c.comp_country_code AS country, " +
+            "(SELECT e.address FROM user AS u JOIN email as e ON e.user_id = u.user_id JOIN 'informixoltp':coder AS c "+
+            "ON c.coder_id = u.user_id WHERE e.address=? AND e.email_type_id = 1) AS email,  " +
+            "(SELECT e.address FROM user AS u JOIN email as e ON e.user_id = u.user_id JOIN 'informixoltp':coder AS c ON " +
+            "c.coder_id = u.user_id WHERE e.address=? AND e.email_type_id = 2) AS second_email " +
+            "FROM user AS u JOIN email as e ON e.user_id = u.user_id JOIN 'informixoltp':coder AS c " +
+            "ON c.coder_id = u.user_id WHERE e.address=?";
 
     /**
      * SQL to get user by user id.
      */
-     private static final String SQL_GET_USER_BY_USER_ID = "SELECT u.user_id, u.first_name, u.last_name, u.handle, "
-            + "u.status, u.reg_source AS source, e.address, c.comp_country_code AS country "
-            + "FROM user AS u JOIN email AS e ON e.user_id = u.user_id "
-            + "JOIN 'informixoltp':coder AS c ON c.coder_id = u.user_id WHERE u.user_id = ?";
+     private static final String SQL_GET_USER_BY_USER_ID = "SELECT u.user_id, u.first_name, u.last_name, u.handle, " +
+            "u.status, u.reg_source AS source, c.comp_country_code AS country, " +
+            "(SELECT e.address FROM email AS e WHERE e.user_id = ? AND e.email_type_id = 1) AS email,  " +
+            "(SELECT e.address FROM email AS e WHERE e.user_id = ? AND e.email_type_id = 2) AS second_email " +
+            "FROM user AS u JOIN 'informixoltp':coder AS c ON c.coder_id = u.user_id WHERE u.user_id = ?";
      
     /**
      * SQL to check group ID validity.
@@ -226,7 +247,8 @@ public class UserServiceImpl extends BaseImpl implements UserService {
         LoggingWrapperUtility.logEntrance(logger, signature, new String[] { "handle" }, new String[] { handle });
         UserDTO user = null;
         try {
-            user = jdbcTemplate.queryForObject(SQL_GET_USER_BY_HANDLE, new UserDTORowMapper(), handle);
+            Object[] args = new Object[] { handle, handle, handle };
+            user = jdbcTemplate.queryForObject(SQL_GET_USER_BY_HANDLE, args, new UserDTORowMapper());
             LoggingWrapperUtility.logExit(logger, signature, new Object[] { user });
             return user;
         } catch (DataAccessException e) {
@@ -261,6 +283,29 @@ public class UserServiceImpl extends BaseImpl implements UserService {
 	}
 
     /**
+	 * This method check if there is multiple users for the given email.
+	 *
+	 * @param email the given email.
+	 * @return true if the there is multiple users for the given email, otherwise false
+	 * @throws PersistenceException If there is any DB error.
+	 *
+	 */
+	@Transactional(readOnly = true)
+	public boolean multipleUsers(String email) throws PersistenceException {
+		final String signature = CLASS_NAME + "multipleUsers(String handle)";
+        LoggingWrapperUtility.logEntrance(logger, signature, new String[] { "email" }, new String[] { email });
+
+        try {
+             int result = jdbcTemplate.queryForInt(SQL_MULTIPLE_USERS_BY_EMAIL, new Object[] {email});
+            LoggingWrapperUtility.logExit(logger, signature, null);
+            return result > 1;
+        } catch (DataAccessException e) {
+            LoggingWrapperUtility.logException(logger, signature, e);
+            throw new PersistenceException("Error while checking multiple", e);
+        }
+	}
+
+    /**
      * This method find User by given email address.
      * 
      * @param email
@@ -276,7 +321,8 @@ public class UserServiceImpl extends BaseImpl implements UserService {
         UserDTO user = null;
 
         try {
-            user = jdbcTemplate.queryForObject(SQL_GET_USER_BY_EMAIL, new UserDTORowMapper(), email);
+            Object[] args = new Object[] { email, email, email };
+            user = jdbcTemplate.queryForObject(SQL_GET_USER_BY_EMAIL, args, new UserDTORowMapper());
             LoggingWrapperUtility.logExit(logger, signature, new Object[] { user });
             return user;
         } catch (DataAccessException e) {
@@ -300,9 +346,9 @@ public class UserServiceImpl extends BaseImpl implements UserService {
         final String signature = CLASS_NAME + "#getUserByUserId(long userId)";
         LoggingWrapperUtility.logEntrance(logger, signature, new String[] { "userId" }, new Object[] { userId });
         UserDTO user = null;
-        
         try {
-            user = jdbcTemplate.queryForObject(SQL_GET_USER_BY_USER_ID, new UserDTORowMapper(), userId);
+            Object[] args = new Object[] { userId, userId, userId };
+            user = jdbcTemplate.queryForObject(SQL_GET_USER_BY_USER_ID, args, new UserDTORowMapper());
             LoggingWrapperUtility.logExit(logger, signature, new Object[] { user });
             return user;
         } catch (DataAccessException e) {
@@ -338,7 +384,8 @@ public class UserServiceImpl extends BaseImpl implements UserService {
             UserDTO u = new UserDTO();
             u.setFirstName(rs.getString("first_name"));
             u.setLastName(rs.getString("last_name"));
-            u.setEmail(rs.getString("address"));
+            u.setEmail(rs.getString("email"));
+            u.setSecondaryEmail(rs.getString("second_email"));
             u.setCountry(rs.getString("country"));
             u.setSource(rs.getString("source"));
             u.setUserId(rs.getLong("user_id"));

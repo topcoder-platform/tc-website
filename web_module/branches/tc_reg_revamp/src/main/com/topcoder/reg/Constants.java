@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2005-2013 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.reg;
 
 import com.topcoder.shared.util.TCResourceBundle;
@@ -12,7 +15,12 @@ import java.util.List;
 import java.util.MissingResourceException;
 
 /**
- * @author dok
+ *
+ * Version 1.1(Release Assembly - TopCoder Reg2 Password Recovery Revamp and Misc Bug Fixes) change log:
+ * Removed the SecretQuestion related code and added reset code related code.
+ *
+ * @author dok, TCSASSEMBLER
+ * 
  * @version $Revision: 77355 $ Date: 2005/01/01 00:00:00
  *          Create Date: Mar 29, 2006
  */
@@ -33,8 +41,6 @@ public class Constants implements WebConstants {
     public static final String REG_TYPES = "regTypes";
     public static final String SCHOOL_TYPE = "scht";
     public static final String SCHOOL_NAME = "schn";
-    public static final String SECRET_QUESTION = "sq";
-    public static final String SECRET_QUESTION_RESPONSE = "sqr";
     public static final String SECURITY_KEY = "sk";
 
     public static final String AGE = "age";
@@ -73,6 +79,12 @@ public class Constants implements WebConstants {
 
     public static final String NEW_REG_FLAG = "isNewReg";
 
+    public static final String RESET_TOKEN_GENERATOR_CLASS =
+            "com.topcoder.web.tc.controller.request.authentication.strategies.impl.SimpleTokenGenerator";
+    public static final String USER_DTO_SESSION_KEY = "userDTO_session_key";
+    public static final String USE_PRIMARY_EMAIL_SESSION_KEY = "usePrimaryEmail";
+
+
     public final static String PUNCTUATION = "-_.{}[]()";
 	public final static String HANDLE_PUNCTUATION = "-_.{}[]";
     public final static String HANDLE_ALPHABET = StringUtils.ALPHABET_ALPHA_EN +
@@ -80,14 +92,12 @@ public class Constants implements WebConstants {
     public final static String PASSWORD_ALPHABET = StringUtils.ALPHABET_ALPHA_EN +
             StringUtils.ALPHABET_DIGITS_EN + PUNCTUATION;
 
+    public static int RESET_TOKEN_AGE;
+    public static int RESEND_TOKEN_DELAY_SECONDS;
     public static int MIN_HANDLE_LENGTH;
     public static int MAX_HANDLE_LENGTH;
     public static int MIN_PASSWORD_LENGTH;
     public static int MAX_PASSWORD_LENGTH;
-    public static int MIN_SECRET_QUESTION_LENGTH;
-    public static int MAX_SECRET_QUESTION_LENGTH;
-    public static int MIN_SECRET_QUESTION_RESPONSE_LENGTH;
-    public static int MAX_SECRET_QUESTION_RESPONSE_LENGTH;
     public static int MAX_GIVEN_NAME_LENGTH;
     public static int MAX_SURNAME_LENGTH;
     public static int MAX_MIDDLE_NAME_LENGTH;

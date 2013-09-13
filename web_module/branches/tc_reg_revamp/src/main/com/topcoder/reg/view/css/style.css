@@ -1525,7 +1525,7 @@ MODAL POPUP
 }
 
 .modal .columnLeft {
-	width: 250px;
+	width: 260px;
 	float: left;
 }
 
@@ -1582,6 +1582,41 @@ MODAL POPUP
 .modal a.done {
 	margin-top: 5px;
 }
+
+#passwordForgotModal input {
+    margin-right: 10px;
+}
+.emailTypeRadioTable {
+    display: none;
+}
+#passwordResetModal .tdLabel {
+    text-align: right;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    width: 30%;
+}
+#passwordResetModal .tdInput {
+    width: 70%;
+}
+
+#passwordResetModal .resend {
+    margin-top: 10px;
+}
+
+#passwordResetModal .expireTime {
+    color: red;
+}
+
+#passwordResetModal .label1 {
+    padding-top: 13px;
+}
+
+#passwordResetModal .label2 {
+    padding-top: 13px;
+    padding-left: 18px;
+    display: none;
+}
+
 /*
 FOOTER
 */
@@ -1757,10 +1792,10 @@ span#captcha_span {
 .password_recovery_msg {
 	margin-left: 72px;
 	color: red;
-	height: 20px;
 	line-height: 20px;
 	font-size: 14px;
 	margin-top: -18px;
+    min-height: 20px;
 }
 
 .reg_validation_area {

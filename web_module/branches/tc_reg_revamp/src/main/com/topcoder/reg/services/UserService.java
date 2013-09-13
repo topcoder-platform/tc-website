@@ -49,6 +49,17 @@ public interface UserService {
 	 *
 	 */
 	public boolean handleExists(String handle) throws PersistenceException;
+    
+
+    /**
+	 * This method check if there is multiple users for the given email.
+	 *
+	 * @param email the given email.
+	 * @return true if the there is multiple users for the given email, otherwise false
+	 * @throws PersistenceException If there is any DB error.
+	 *
+	 */
+	public boolean multipleUsers(String email) throws PersistenceException;
 
     /**
      * This method find User by given email address.

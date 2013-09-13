@@ -1,8 +1,12 @@
 <%--
    - Copyright (C) 2013 TopCoder Inc., All Rights Reserved.
    - This page contains modal windows requierd in registartion app.
-   - Version: 1.0
-   - Author: leo_lol
+   -
+   - Version 1.1(Release Assembly - TopCoder Reg2 Password Recovery Revamp and Misc Bug Fixes) change log:
+   - Updated the modal window to use reset code instead of secret question for recovery password
+   -
+   - Version: 1.1
+   - Author: leo_lol, TCSASSEMBLER
  --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -57,35 +61,15 @@
 				<img width="48" height="48" src="i/password-recovery-icon.png" alt="passwordRecovery" />
 				<img width="176" height="21" src="i/password-recovery-heading.png" alt="passwordRecovery" />
 				<div class="password_recovery_msg"></div>
+				
 				<div class="section">
-					<div class="columnLeft">Do you still have access to the<br /><strong>email account</strong> used when <strong>registering</strong>?</div>
-					<div class="columnRight">
-						<p class="twoLines">
-							<label><input type="radio" name="emailAccess" value="1" class="radio" onclick="javascript:return false;" checked="checked" /><span>Yes</span></label>
-							<label><input type="radio" name="emailAccess" value="0" class="radio" onclick="javascrit:return false;"/><span>No</span></label>
-						</p>
-					</div>
-					<div class="clear"></div>
-				</div>
-				<div class="section">
-					<div class="columnLeft"><p>If you remember your <strong>handle</strong>, please enter it:</p></div>
+					<div class="columnLeft"><p>Enter handle, primary email or secondary email</p></div>
 					<div class="columnRight"><input type="text" id="handle" class="text" name="handle" /></div>
 					<div class="clear"></div>
-				</div>
-				<div class="section">
-					<p class="dl">If you don't remember your username, please enter as much information as possible in order to identify you:</p>
-					<div class="columnLeft"><p><strong>First Name:</strong></p></div>
-					<div class="columnRight"><input type="text" id="firstName" class="dl text" name="firstName"/></div>
-					<div class="clear"></div>
-					<div class="columnLeft"><p><strong>Last Name:</strong></p></div>
-					<div class="columnRight"><input type="text" id="lastName" class="dl text" name="lastName"/></div>
-					<div class="clear"></div>
-					<div class="columnLeft"><p><strong>Email Address:</strong></p></div>
-					<div class="columnRight"><input type="text" id="email" class="dl text" name="email"/></div>
-					<div class="clear">&nbsp;</div>
-					<a class="redBtn submit fRight arrow" href="javascript:;">
-					 <span class="buttonMask"><span class="text"><span class="arrow">SUBMIT</span></span></span>
+                    <a class="redBtn submit fRight arrow" href="javascript:;">
+					    <span class="buttonMask"><span class="text"><span class="arrow">SUBMIT</span></span></span>
 					</a>
+                    <div class="clear"></div>
 				</div>
 		</div>
 		<!-- end .passwordRecoveryModal -->
@@ -94,14 +78,10 @@
 			<img width="48" height="48" src="i/password-recovery-icon.png" alt="passwordRecovery" />
 			<img width="176" height="21" src="i/password-recovery-heading.png" alt="passwordRecovery" />
 			<div class="password_recovery_msg"></div>
+			
 			<div class="section">
-				<h3>Secret Question</h3>
-				<p>Please respond to your secret question as an added measure of security.</p>
-			</div>
-			<div class="section">
-				<div class="columnLeft"><p><strong id="security_question_content">Who is your favorite uncle?</strong></p></div>
-				<div class="columnRight dl"><input type="text" id="answer"  class="text" /></div>
 				<div class="clear"></div>
+                <div class="columnLeft"><p>How would you like to reset your password?</p></div>
 				<a class="redBtn submit fRight arrow" href="javascript:;">
 					<span class="buttonMask"><span class="text"><span class="arrow">SUBMIT</span></span></span>
 				</a>
@@ -109,22 +89,61 @@
 			</div>
 		</div>
 		<!-- end .passwordForgotModal -->
-		<div id="passwordResetModal" class="modal">
-				<a href="javascript:;" class="btnClose"></a>
-				<img width="48" height="48" src="i/password-recovery-icon.png" alt="passwordRecovery" />
-				<img width="176" height="21" src="i/password-recovery-heading.png" alt="passwordRecovery" />
-				<div class="section">
-					<h3>Reset Your Password</h3>
-					<p class="dl" id="msg_content">An email has been sent to your email address. Please check your email and follow the link to reset your password.</p>
-					<p class="importantNote dl" id="reset_password_warning"><strong>Important Note : </strong>Your must do this in the next 30 minutes or your key will expire.</p>
-					<a class="redBtn done fRight" href="javascript:;">
-						<span class="buttonMask"><span class="text">DONE</span></span>
-					</a>
-				</div>
-				
-		</div>
+        <div id="passwordResetModal" class="modal">
+            <a href="javascript:;" class="btnClose"></a>
+            <img width="48" height="48" src="i/password-recovery-icon.png" alt="passwordRecovery" />
+            <img width="176" height="21" src="i/password-recovery-heading.png" alt="passwordRecovery" />
+            <div class="password_recovery_msg"></div>
+            <div class="section">
+                <h3>Reset Your Password</h3>
+                <p class="dl" id="msg_content">A code has been sent to your <strong class="receiveEmail"></strong> email. You have <span class="expireTime"></span> minutes to enter the code.</p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="tdLabel">Verification Code:</td>
+                            <td class="tdInput">
+                                <input type="text" maxlength="6" size="6" name="tk" class="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tdLabel">New Password:</td>
+                            <td class="tdInput">
+                                <input type="password" name="pwd" class="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tdLabel">Confirm Password:</td>
+                            <td class="tdInput">
+                                <input type="password" name="pwdc" class="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <a class="redBtn submit fRight arrow" href="javascript:;">
+                                    <span class="buttonMask"><span class="text"><span class="arrow">SUBMIT</span></span></span>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
 		<!-- end .passwordResetModal -->
-		
+        <div id="passwordResetSuccessModal" class="modal">
+            <a href="javascript:;" class="btnClose"></a>
+            <img width="48" height="48" src="i/password-recovery-icon.png" alt="passwordRecovery" />
+            <img width="176" height="21" src="i/password-recovery-heading.png" alt="passwordRecovery" />
+            <div class="section">
+                <p class="dl">Your password have been updated successfully!</p>
+                <a class="redBtn done fRight" href="javascript:;">
+                    <span class="buttonMask"><span class="text">DONE</span></span>
+                </a>
+            </div>
+
+        </div>
+		<!-- end .passwordResetSuccessModal -->
+
 		<!-- Registration Result Modal -->
 		<div id="registrationModal" class="modal">
 		  <a href="javascript:;" class="btnClose"></a>
@@ -133,3 +152,18 @@
 		      <p></p>
 		  </div>
 		</div>
+
+        <table class="emailTypeRadioTable">
+            <tbody>
+            <tr>
+                <td>
+                    <label><input type="radio" value="true" name="type">Primary Email</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label><input type="radio" value="false" name="type">Secondary Email</label>
+                </td>
+            </tr>
+            </tbody>
+        </table>

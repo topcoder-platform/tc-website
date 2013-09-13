@@ -1,3 +1,14 @@
+/*
+ * Copyright (C) 2013 TopCoder Inc., All Rights Reserved.
+ *
+ * Version 1.1(Release Assembly - TopCoder Reg2 Password Recovery Revamp and Misc Bug Fixes) change log:
+ * Updated to use reset code instead of secret question for recovery password
+ *
+ * Version: 1.1
+ * Author: TCSASSEMBLER
+ *
+ **/
+
 $(document).ready(function() {
 
     $('#loginForm_handle, #loginForm_password').keypress(function(e) {
@@ -71,38 +82,96 @@ $(document).ready(function() {
 			$(this).css("background-color", "WHITE");
 		});
 	});
-	
+
+    var reSendBtnDelay;
 	$("#passwordRecoveryModal .submit").click(function(){
-		var handle = $.trim($("#passwordRecoveryModal .section input#handle").val());
-		var email = $.trim($("#passwordRecoveryModal .section input#email").val());
-		
-		if(handle == '' && email == '') {
+		var userQuery = $.trim($("#passwordRecoveryModal .section input#handle").val());
+
+		if(userQuery == '') {
 			$("#passwordRecoveryModal .section input#handle").css("background-color", "#CC9999");
-			$("#passwordRecoveryModal .section input#email").css("background-color", "#CC9999");
 			return false;
 		}
-		
-		$.post("ajax/getSecurityQuestion.action", {"handle":handle, "email":email}, function(data){
+
+		$.post("ajax/findUser.action", {"userQuery":userQuery}, function(data){
 			if("OK" == data.msg) {
-				$("#passwordForgotModal #security_question_content").text(data.secretQuestion);
+                
 				$("#passwordForgotModal .password_recovery_msg").text("");
+                $("#passwordForgotModal table.emailTypeRadioTable").remove();
+                var cloneTable = $("table.emailTypeRadioTable").clone();
+                if(data.emailStatus == 1) {
+                    $($(cloneTable).find("tr")[1]).remove();
+                } else if (data.emailStatus == 2) {
+                    $($(cloneTable).find("tr")[0]).remove();
+                }
+                $($(cloneTable).find("input")[0]).attr("checked", "checked");
+                $(cloneTable).insertAfter("#passwordForgotModal .section .columnLeft");
+                $("#passwordForgotModal table.emailTypeRadioTable").show();
+                
+                //get the resend button delay time from server.
+                reSendBtnDelay = data.reSendBtnDelay;
 				loadModal("passwordForgotModal");
 			} else {
 				$("#passwordRecoveryModal .password_recovery_msg").text(data.msg);
 			}
 		});
 	});
-	
+
+    $("#passwordRecoveryModal .section input#handle").focus(function(){
+        $("#passwordRecoveryModal .password_recovery_msg").text("");
+    });
+
+    $("#passwordResetModal .section input").focus(function(){
+        $(this).css("background-color", "white");
+        $("#passwordResetModal .password_recovery_msg").text("");
+    });
+
 	$("#passwordForgotModal .submit").click(function(){
-		var answer = $("#passwordForgotModal input#answer").val();
-		$.post("ajax/forgotPassword.action", {"secretAnswer":answer}, function(data){
-			if("OK" == data.msg) {
-				loadModal("passwordResetModal");
-			} else {
-				$("#passwordForgotModal .password_recovery_msg").text(data.msg);
-			}
-		});
+        var elem = $("#passwordResetModal .label2 span");
+        elem.text(reSendBtnDelay);
+        forgotPassword("passwordForgotModal");
 	});
+
+
+    $("#passwordResetModal .submit").click(function(){
+        var code = $("#passwordResetModal input[name='tk']").val();
+        var pwd = $("#passwordResetModal input[name='pwd']").val();
+        var pwdc = $("#passwordResetModal input[name='pwdc']").val();
+        var valid = true;
+        //validate code
+        if(code.length != 6) {
+            $("#passwordResetModal input[name='tk']").css("background-color", "#CC9999");
+            $("#passwordResetModal .password_recovery_msg").text("The code should be 6 characters");
+            return;
+        }
+
+        // validate new password
+        if(pwd.length == 0) {
+            $("#passwordResetModal input[name='pwd']").css("background-color", "#CC9999");
+            $("#passwordResetModal .password_recovery_msg").text("New password is required");
+            return;
+        }
+
+        // validate confirm password
+        if(pwdc.length == 0) {
+            $("#passwordResetModal input[name='pwdc']").css("background-color", "#CC9999");
+            $("#passwordResetModal .password_recovery_msg").text("Confirm password is required");
+            return;
+        }
+
+        if(pwd != pwdc) {
+            $("#passwordResetModal input[name='pwdc']").css("background-color", "#CC9999");
+            $("#passwordResetModal .password_recovery_msg").text("Password and confirm password should be exactly same");
+            return;
+        }
+
+        $.post("ajax/resetPassword.action", {"resetToken": code, "password": pwd, "confirmPassword": pwdc }, function(data){
+            if("OK" == data.msg) {
+                loadModal("passwordResetSuccessModal");
+            } else {
+                $("#passwordResetModal .password_recovery_msg").text(data.msg);
+            }
+        });
+    });
 	
 	$(".rightSide .form .row input").blur(function(){
 		var $id = $(this).attr("id"); 
@@ -163,6 +232,27 @@ $(document).ready(function() {
 			
 		}
 	});
+
+
+    //The resend button should be delayed for certain amount of time before
+    //it is enabled to avoid malicious flooding attack.
+    function forgotPassword(id) {
+        var usePrimaryEmail = ($("#passwordForgotModal input:checked").val() === "true");
+		$.post("ajax/forgotPassword.action", {"usePrimaryEmail":usePrimaryEmail}, function(data){
+			if("OK" == data.msg) {
+                if(id == "passwordForgotModal" ) {
+                    $("#passwordResetModal .password_recovery_msg").text("");
+                    $("#passwordResetModal .expireTime").text(data.expireTime/60);
+
+                    $("#passwordResetModal .receiveEmail").text((usePrimaryEmail ? "primary" : "secondary"));
+                    $("#passwordResetModal input").val("");
+                    loadModal("passwordResetModal");
+                }
+			} else {
+				$("#" + id + " .password_recovery_msg").text(data.msg);
+			}
+		});
+    }
 		
 	function validateItem( item)
 	{
