@@ -28,6 +28,11 @@ public class EmailSetting {
     private String emailSubject;
 
     /**
+     * Represents activation email sender name.
+     */
+    private String senderName;
+
+    /**
      * Represents activation email from address.
      */
     private String emailFromAddress;
@@ -89,4 +94,22 @@ public class EmailSetting {
         this.emailFromAddress = emailFromAddress;
     }
 
+    /**
+     * Getter of the name-sake field.
+     *
+     * @return the value of name-sake field.
+     */
+    public String getSenderName() {
+        return senderName;
+    }
+
+    /**
+     * Setter of the name-sake field.
+     *
+     * @param senderName
+     *            the name-sake field to set
+     */
+    public void setSenderName(String senderName) {
+        this.senderName = senderName;
+    }
 }

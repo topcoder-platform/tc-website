@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2005-2013 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.shared.security.ClassResource;
@@ -17,7 +20,11 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @author dok
+ * (Release Assembly - TopCoder Reg2 Password Recovery Revamp and Misc Bug Fixes) change log:
+ * Removed the SecretQuestion related code.
+ *
+ * @author dok,TCSASSEMBLER
+ * 
  * @version $Revision: 79551 $ Date: 2005/01/01 00:00:00
  *          Create Date: Mar 29, 2006
  */
@@ -203,22 +210,6 @@ public class Secondary extends Base {
             u.setNameInAnotherLanguage((String) params.get(Constants.NAME_IN_ANOTHER_LANGUAGE));
         }
 
-        if (fields.contains(Constants.SECRET_QUESTION) || fields.contains(Constants.SECRET_QUESTION_RESPONSE)) {
-            SecretQuestion sc = u.getSecretQuestion();
-            if (sc == null) {
-                sc = new SecretQuestion();
-                sc.setUser(u);
-                u.setSecretQuestion(sc);
-            }
-
-            if (fields.contains(Constants.SECRET_QUESTION)) {
-                sc.setQuestion((String) params.get(Constants.SECRET_QUESTION));
-            }
-
-            if (fields.contains(Constants.SECRET_QUESTION_RESPONSE)) {
-                sc.setResponse((String) params.get(Constants.SECRET_QUESTION_RESPONSE));
-            }
-        }
 
         if (fields.contains(Constants.SECURITY_KEY)) {
         	UserSecurityKey sk = u.getUserSecurityKey();

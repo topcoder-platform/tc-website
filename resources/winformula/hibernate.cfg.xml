@@ -82,7 +82,6 @@
         <mapping resource="com/topcoder/web/common/model/School.hbm.xml"/>
         <mapping class="com.topcoder.web.common.model.SchoolAssociationType"/>
         <mapping resource="com/topcoder/web/common/model/SchoolType.hbm.xml"/>
-        <mapping resource="com/topcoder/web/common/model/SecretQuestion.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/SecurityGroup.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/State.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Survey.hbm.xml"/>

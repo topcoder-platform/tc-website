@@ -12,7 +12,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.topcoder.reg.dto.UserDTO;
-import com.topcoder.reg.services.PasswordRecoveryService;
 import com.topcoder.reg.services.PersistenceException;
 import com.topcoder.reg.util.DataProvider;
 import com.topcoder.shared.util.EmailEngine;
@@ -20,7 +19,6 @@ import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.idgenerator.IDGeneratorFactory;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.model.PasswordRecovery;
 import com.topcoder.web.common.model.User;
 /**
  * This class contains a collection of helper method.
@@ -28,8 +26,13 @@ import com.topcoder.web.common.model.User;
  * <strong>Thread Safety:</strong> This class is thread-safe.
  * </p>
  * 
- * @author sampath01, leo_lol
- * @version 1.0
+ * <p>
+ * Version 1.1(Release Assembly - TopCoder Reg2 Password Recovery Revamp and Misc Bug Fixes) change log:
+ * Updated sendResetPasswordEmail method to send the reset password token in the body of email.
+ * </p>
+ *
+ * @author sampath01, leo_lol, Urmass ,TCSASSEMBLER
+ * @version 1.1
  * @since 1.0
  */
 public final class RegistrationHelper {
@@ -227,15 +230,17 @@ public final class RegistrationHelper {
      *            the to address
      * @param fromAddress
      *            the from address
+     * @param senderName
+     *            the sender's name 
      * @throws Exception
      *             if any errors occurs while sending email
      */
-    public static void sendEmail(String subject, String content, String toAddress, String fromAddress) throws Exception {
+    public static void sendEmail(String subject, String content, String toAddress, String fromAddress, String senderName) throws Exception {
         TCSEmailMessage mail = new TCSEmailMessage();
         mail.setSubject(subject);
         mail.setBody(content);
         mail.addToAddress(toAddress, TCSEmailMessage.TO);
-        mail.setFromAddress(fromAddress);
+        mail.setFromAddress(fromAddress, senderName);
         EmailEngine.send(mail);
     }
 
@@ -252,44 +257,41 @@ public final class RegistrationHelper {
      *            the to address
      * @param fromAddress
      *            the from address
+     * @param senderName
+     *            the sender's name
      * @throws Exception
      *             if any exception occurs while sending the email
      */
     public static void sendActivationEmail(String subject, String activationCode,
-            String activationEmailBodyTemplateFile, String toAddress, String fromAddress, String url) throws Exception {
+            String activationEmailBodyTemplateFile, String toAddress, String fromAddress, String senderName, String url) throws Exception {
         TCSEmailMessage mail = new TCSEmailMessage();
         mail.setSubject(subject);
         String msg = readFileAsString(activationEmailBodyTemplateFile);
         msg = msg.replace("%ACTIVATION_CODE%", activationCode).replace("%ACTIVATION_URL%", url);
-        sendEmail(subject, msg, toAddress, fromAddress);
+        sendEmail(subject, msg, toAddress, fromAddress, senderName);
     }
 
     /**
-     * Creates a password recovery entry in DB and send the the password email to the user.
+     * Sends the reset password email. This method was updated to send the reset password token in the body of email.
      * 
-     * @param userDTO
-     *            the user instance
+     * @param emailSetting
+     *            the email setting
+     * @param toEmail
+     *            the to email address
+     * @param token
+     *            the access token
+     * @param handle
+     *            the user's handle
+     * @param expire
+     *            the expire date string
      * @throws Exception
      *             if any exception occurs while sending the mail.
      */
-    public static void sendResetPasswordEmail(UserDTO userDTO, EmailSetting emailSetting,
-            PasswordRecoveryService passwordRecoveryService, String url) throws Exception {
-        GregorianCalendar expire = new GregorianCalendar();
-        expire.add(GregorianCalendar.MINUTE, com.topcoder.web.tc.Constants.PASSWORD_RECOVERY_EXPIRE);
-        PasswordRecovery pr = new PasswordRecovery();
-        pr.setId(IDGeneratorFactory.getIDGenerator("PASSWORD_RECOVERY_SEQ").getNextID());
-        pr.setRecoveryAddress(userDTO.getEmail());
-        pr.setExpireDate(expire.getTime());
-        User user = new User();
-        user.setId(userDTO.getUserId());
-        user.setHandle(userDTO.getHandle());
-        pr.setUser(user);
-        passwordRecoveryService.create(pr);
-        url += "?pr=" + pr.getId() + "&hc=" + pr.hash();
-        String msg = readFileAsString(emailSetting.getEmailBodyTemplateFile()).replace("%URL%", url).replace(
-                "%HANDLE%", userDTO.getHandle());
+    public static void sendResetPasswordEmail(EmailSetting emailSetting, String toEmail, String token, String handle, String expire) throws Exception{
         // send the email
-        sendEmail(emailSetting.getEmailSubject(), msg, pr.getRecoveryAddress(), emailSetting.getEmailFromAddress());
+        String msg = readFileAsString(emailSetting.getEmailBodyTemplateFile()).
+                replace("{token}", token).replace("{handle}", handle).replace("{expire}", expire);
+        sendEmail(emailSetting.getEmailSubject(), msg, toEmail, emailSetting.getEmailFromAddress(), emailSetting.getSenderName());
     }
 
     /**

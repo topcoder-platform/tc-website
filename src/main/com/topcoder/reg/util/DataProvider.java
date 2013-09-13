@@ -18,7 +18,6 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.util.log.Log;
 import com.topcoder.util.log.LogFactory;
 import com.topcoder.web.common.model.Country;
-import com.topcoder.web.common.model.SecretQuestion;
 
 /**
  * This class contains a collection of data access methods.
@@ -26,8 +25,13 @@ import com.topcoder.web.common.model.SecretQuestion;
  * <strong>Thread Safety:</strong> This class is thread-safe.
  * </p>
  * 
- * @author leo_lol
- * @version 1.0
+ * <p>
+ * Version 1.1(Release Assembly - TopCoder Reg2 Password Recovery Revamp and Misc Bug Fixes) change log:
+ * Removed the getSecretQuestionByHandle method
+ * </p>
+ *
+ * @author  leo_lol, Urmass ,TCSASSEMBLER
+ * @version 1.1
  * @since 1.0
  */
 public final class DataProvider {
@@ -42,46 +46,6 @@ public final class DataProvider {
      */
     private static Log logger = LogFactory.getInstance().getLog(CLASS_NAME);
 
-    /**
-     * This method would retrieve secret question for the given handle.
-     * 
-     * @param handle
-     *            The handle
-     * @return Secret question.
-     * @throws EntityNotFoundException
-     *             If there is not such secret question.
-     * @throws PersistenceException
-     *             If there is any DB error.
-     */
-    public static SecretQuestion getSecretQuestionByHandle(String handle) throws EntityNotFoundException,
-            PersistenceException {
-        final String signature = CLASS_NAME + "#getSecretQuestionByHandle(String handle)";
-        LoggingWrapperUtility.logEntrance(logger, signature, new String[] { "handle" }, new String[] { handle });
-        SecretQuestion question = null;
-        try {
-            Request r = new Request();
-            r.setContentHandle("reg_secret_question_response");
-            r.setProperty("ha", handle);
-            DataAccess dataAccess = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
-            ResultSetContainer rsc = dataAccess.getData(r).get("reg_secret_question_response");
-            if (rsc.size() > 0) {
-                question = new SecretQuestion();
-                ResultSetRow row = rsc.get(0);
-                question.setQuestion(row.getStringItem("question"));
-                question.setResponse(row.getStringItem("response"));
-                LoggingWrapperUtility.logExit(logger, signature, new Object[] { question });
-                return question;
-            } else {
-                EntityNotFoundException e = new EntityNotFoundException(
-                        "Secret question for the given handle is not found");
-                LoggingWrapperUtility.logException(logger, signature, e);
-                throw e;
-            }
-        } catch (Exception e) {
-            LoggingWrapperUtility.logException(logger, signature, e);
-            throw new PersistenceException("Error while retrieving secret question for the given handle: " + handle, e);
-        }
-    }
 
     /**
      * This method is to get the user info of the given handle.

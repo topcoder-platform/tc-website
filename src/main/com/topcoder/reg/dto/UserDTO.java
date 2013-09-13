@@ -8,9 +8,14 @@ package com.topcoder.reg.dto;
  * <p>
  * <strong>Thread Safety:</strong> This class is mutable and not thread-safe.
  * </p>
- * 
- * @author sampath01, leo_lol
- * @version 1.0
+ *
+ * <p>
+ * Version 1.1(Release Assembly - TopCoder Reg2 Password Recovery Revamp and Misc Bug Fixes) change log:
+ * Added secondEmail attribute
+ * </p>
+ *
+ * @author sampath01, leo_lol, Urmass ,TCSASSEMBLER
+ * @version 1.1
  * @since 1.0
  */
 public class UserDTO {
@@ -44,6 +49,11 @@ public class UserDTO {
      * Email.
      */
     private String email;
+
+    /**
+     * Secondary Email.
+     */
+    private String secondaryEmail;
 
     /**
      * Password.
@@ -172,7 +182,7 @@ public class UserDTO {
 
     /**
      * Getter of the name-sake field.
-     * 
+     *
      * @return the value of name-sake field.
      */
     public String getEmail() {
@@ -181,12 +191,31 @@ public class UserDTO {
 
     /**
      * Setter of the name-sake field.
-     * 
+     *
      * @param email
      *            the name-sake field to set
      */
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    /**
+     * Getter of the name-sake field.
+     *
+     * @return the value of name-sake field.
+     */
+    public String getSecondaryEmail() {
+        return secondaryEmail;
+    }
+
+    /**
+     * Setter of the name-sake field.
+     *
+     * @param secondaryEmail
+     *            the name-sake field to set
+     */
+    public void setSecondaryEmail(String secondaryEmail) {
+        this.secondaryEmail = secondaryEmail;
     }
 
     /**

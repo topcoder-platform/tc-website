@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2005-2013 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.tc.controller.request.authentication;
 
 import com.topcoder.shared.util.ApplicationServer;
@@ -21,24 +24,23 @@ import java.util.GregorianCalendar;
  * If the email needs to be sent to a different address than the registered, then
  * it is checked that the security question is correctly replyed.
  *
- * @author Cucu
+ * Version 1.1(Release Assembly - TopCoder Reg2 Password Recovery Revamp and Misc Bug Fixes) change log:
+ * Removed the SecretQuestion related code.
+ *
+ * @author cucu, TCSASSEMBLER
+ * @version 1.1
  */
 public class RecoverEmail extends ShortHibernateProcessor {
 
-    public static final String SECRET_QUESTION_RESPONSE = "sqr";
 
     protected void dbProcessing() throws TCWebException {
         String userId = StringUtils.checkNull(getRequest().getParameter(Constants.CODER_ID));
         String email = getRequest().getParameter(Constants.EMAIL);
-        String response = StringUtils.checkNull(getRequest().getParameter(SECRET_QUESTION_RESPONSE));
 
         User u = DAOUtil.getFactory().getUserDAO().find(new Long(userId));
 
         // if different mail, check that email is valid and the secret question.
         if (email != null) {
-            if (!u.getSecretQuestion().getResponse().equalsIgnoreCase(response)) {
-                addError("error", "Incorrect response");
-            }
 
             ValidationResult vr = new EmailValidator().validate(new StringInput(email));
 
@@ -47,12 +49,9 @@ public class RecoverEmail extends ShortHibernateProcessor {
             }
 
             if (hasErrors()) {
-                getRequest().setAttribute(FindUser.SECRET_QUESTION, StringUtils.htmlEncode(u.getSecretQuestion().getQuestion()));
                 getRequest().setAttribute(Constants.CODER_ID, userId);
 
                 setDefault(Constants.EMAIL, email);
-                setDefault(SECRET_QUESTION_RESPONSE, response);
-                setNextPage(Constants.SECRET_QUESTION);
                 setIsNextPageInContext(true);
                 return;
             }

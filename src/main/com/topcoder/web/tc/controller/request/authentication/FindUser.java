@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2005-2013 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.tc.controller.request.authentication;
 
 import com.topcoder.web.common.*;
@@ -14,14 +17,17 @@ import java.util.List;
  * If exactly one user is found, it redirects to secret question if he doesn't use his registered address anymore
  * or to RecoverEmail processor if he does.
  *
- * @author cucu
+ * Version 1.1(Release Assembly - TopCoder Reg2 Password Recovery Revamp and Misc Bug Fixes) change log:
+ * Removed the SecretQuestion related code.
+ *
+ * @author cucu, TCSASSEMBLER
+ * @version 1.1
  */
 public class FindUser extends ShortHibernateProcessor {
 
     public static final String LOST_EMAIL = "le";
     public static final String GOOD_EMAIL = "ge";
     public static final String NEEDS_HANDLE = "nh";
-    public static final String SECRET_QUESTION = "sq";
     public static final String HAS_MAIL_ACCESS = "ma";
     public static final String ERROR_HANDLE = "errha";
     public static final String ERROR_INFO = "errin";
@@ -59,11 +65,6 @@ public class FindUser extends ShortHibernateProcessor {
         }
 
 
-        if (!hasMailAccess && user != null && user.getSecretQuestion() == null) {
-            addError(ERROR_INFO, "You don't have a secret question. ");
-            addError(ERROR_INFO, "Password recovery is not possible.");
-        }
-
         if (hasErrors()) {
             setDefault(Constants.HANDLE, handle);
             setDefault(Constants.FIRST_NAME, firstName);
@@ -85,9 +86,7 @@ public class FindUser extends ShortHibernateProcessor {
             setIsNextPageInContext(false);
 
         } else {
-            getRequest().setAttribute(SECRET_QUESTION, StringUtils.htmlEncode(user.getSecretQuestion().getQuestion()));
             getRequest().setAttribute(Constants.CODER_ID, user.getId().toString());
-            setNextPage(Constants.SECRET_QUESTION);
             setIsNextPageInContext(true);
         }
     }

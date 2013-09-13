@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2005-2013 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.common.model;
 
 import com.topcoder.web.common.WebConstants;
@@ -16,7 +19,10 @@ import java.util.TreeSet;
 /**
  * A class containing user information.
  *
- * @author dok
+ * (Release Assembly - TopCoder Reg2 Password Recovery Revamp and Misc Bug Fixes) change log:
+ * Removed the SecretQuestion related code. 
+ *
+ * @author dok,TCSASSEMBLER
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Mar 29, 2006
  */
@@ -44,7 +50,6 @@ public class User extends Base {
     private Contact contact;
     private Set<TermsOfUse> terms;
     private Set<EventRegistration> eventRegistrations;
-    private SecretQuestion secretQuestion;
     private UserSecurityKey userSecurityKey;
     private Set<Response> responses;
     private Set<RankBallot> ballots;
@@ -421,13 +426,6 @@ public class User extends Base {
         return up != null && "yes".equals(up.getValue());
     }
 
-    public SecretQuestion getSecretQuestion() {
-        return secretQuestion;
-    }
-
-    public void setSecretQuestion(SecretQuestion secretQuestion) {
-        this.secretQuestion = secretQuestion;
-    }
 
     public UserSecurityKey getUserSecurityKey() {
 		return userSecurityKey;

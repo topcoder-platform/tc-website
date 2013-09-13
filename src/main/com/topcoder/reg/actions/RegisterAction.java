@@ -209,7 +209,7 @@ public class RegisterAction extends BaseAction implements Preparable {
                             + WebConstants.ACTIVATION_CODE + "=" + user.getActivationCode();
                     // send activation mail
                     RegistrationHelper.sendActivationEmail(setting.getEmailSubject(), user.getActivationCode(),
-                            setting.getEmailBodyTemplateFile(), user.getEmail(), setting.getEmailFromAddress(), url);
+                            setting.getEmailBodyTemplateFile(), user.getEmail(), setting.getEmailFromAddress(), setting.getSenderName(), url);
                 } catch (PersistenceException e) {
                     LoggingWrapperUtility.logException(logger, signature, e);
                     messages.add(e.getMessage());

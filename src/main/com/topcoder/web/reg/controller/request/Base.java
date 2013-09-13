@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2005-2013 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.reg.controller.request;
 
 import com.topcoder.servlet.request.FileDoesNotExistException;
@@ -34,7 +37,11 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @author dok
+ *
+ * (Release Assembly - TopCoder Reg2 Password Recovery Revamp and Misc Bug Fixes) change log:
+ * Removed the SecretQuestion related code.
+ *
+ * @author dok,TCSASSEMBLER 
  * @version $Revision: 82104 $ Date: 2005/01/01 00:00:00
  *          Create Date: Mar 29, 2006
  */
@@ -236,8 +243,6 @@ public abstract class Base extends LongHibernateProcessor {
         ret.put(Constants.NAME_IN_ANOTHER_LANGUAGE, getEscapedParameter(getTrimmedParameter(Constants.NAME_IN_ANOTHER_LANGUAGE)));
         ret.put(Constants.PASSWORD, getTrimmedParameter(Constants.PASSWORD));
         ret.put(Constants.PASSWORD_CONFIRM, getTrimmedParameter(Constants.PASSWORD_CONFIRM));
-        ret.put(Constants.SECRET_QUESTION, getEscapedParameter(getTrimmedParameter(Constants.SECRET_QUESTION)));
-        ret.put(Constants.SECRET_QUESTION_RESPONSE, getTrimmedParameter(Constants.SECRET_QUESTION_RESPONSE));
         ret.put(Constants.SECURITY_KEY, getTrimmedParameter(Constants.SECURITY_KEY));
         ret.put(Constants.HANDLE, getTrimmedParameter(Constants.HANDLE));
         ret.put(Constants.QUOTE, getEscapedParameter(getTrimmedParameter(Constants.QUOTE)));
@@ -289,8 +294,6 @@ public abstract class Base extends LongHibernateProcessor {
         simpleValidation(CityValidator.class, fields, params, Constants.CITY);
         simpleValidation(EmailValidator.class, fields, params, Constants.EMAIL);
         simpleValidation(PasswordValidator.class, fields, params, Constants.PASSWORD);
-        simpleValidation(SecretQuestionValidator.class, fields, params, Constants.SECRET_QUESTION);
-        simpleValidation(SecretQuestionResponseValidator.class, fields, params, Constants.SECRET_QUESTION_RESPONSE);
         simpleValidation(SecurityKeyValidator.class, fields, params, Constants.SECURITY_KEY);
         simpleValidation(PostalCodeValidator.class, fields, params, Constants.POSTAL_CODE);
         simpleValidation(ProvinceValidator.class, fields, params, Constants.PROVINCE);
@@ -404,10 +407,6 @@ public abstract class Base extends LongHibernateProcessor {
         setDefault(Constants.GIVEN_NAME, u.getFirstName());
         setDefault(Constants.NAME_IN_ANOTHER_LANGUAGE, u.getNameInAnotherLanguage());
 
-        if (u.getSecretQuestion() != null) {
-            setDefault(Constants.SECRET_QUESTION, u.getSecretQuestion().getQuestion());
-            setDefault(Constants.SECRET_QUESTION_RESPONSE, u.getSecretQuestion().getResponse());
-        }
 
         setDefault(Constants.HANDLE, u.getHandle());
         if (u.getContact() != null) {
