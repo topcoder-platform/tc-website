@@ -196,8 +196,14 @@ import java.util.MissingResourceException;
  *   </ol>
  * </p>
  *
- * @author pulky, isv, VolodymyrK, TrePe, gevak
- * @version 1.9.10
+ * Version 1.9.11(Release Assembly - TopCoder Reg2 Password Recovery Revamp and Misc Bug Fixes) Change notes:
+ *   <ol>
+ *     <li>Added {@link #PERMISSION} constants.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author pulky, isv, VolodymyrK, TrePe, gevak, TCSASSEMBLER
+ * @version 1.9.11
  */
 public class Constants implements WebConstants {
 
@@ -1575,7 +1581,7 @@ public class Constants implements WebConstants {
 
     /**
      * <p>
-     * The number of seconds the “Resend Token” button should be disabled after a click.
+     * The number of seconds the Resend Token button should be disabled after a click.
      * </p>
      * 
      * @since 1.9.9
@@ -1631,7 +1637,7 @@ public class Constants implements WebConstants {
     /**
      * <p>
      *The body of the mail that is used to notify the user the reset token.
-     *It supports a variable “{token}” which is supposed to be replaced by the real token.
+     *It supports a variable {token} which is supposed to be replaced by the real token.
      * </p>
      * 
      * @since 1.9.9
@@ -1659,7 +1665,7 @@ public class Constants implements WebConstants {
     /**
      * <p>
      *The body of the mail that is used to verify the second mail.
-     *It supports variables - “{userId}”, “{key}” and “{expiredAt}” – that are used to construct the verification link.
+     *It supports variables - {userId}, {key} and {expiredAt}  that are used to construct the verification link.
      * </p>
      * 
      * @since 1.9.9
@@ -1727,6 +1733,12 @@ public class Constants implements WebConstants {
      * @since 1.9.9
      */
     public static String SECOND_EMAIL_VERIFY_MAIL_FROM_ADDRESS;
+
+    /**
+     * <p>The PERMISSION session key.</p>
+     * @since 1.9.11
+     */
+    public static String PERMISSION = "reg_permission";
     
     static {
         initialize();

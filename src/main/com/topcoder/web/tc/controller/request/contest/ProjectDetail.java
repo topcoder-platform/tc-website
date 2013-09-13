@@ -90,9 +90,17 @@ import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationS
  *     <li>Modified {@link #getProjectOverview(String)} to add some new rules in contest detail page.</li>
  *   </ol>
  * </p>
+ *
+ * <p>
+ *   Version 1.9 (Release Assembly - TopCoder Reg2 Password Recovery Revamp and Misc Bug Fixes) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #developmentProcessing()} method to fix the bug:
+ *         https://apps.topcoder.com/bugs/browse/BUGR-8819.</li>
+ *   </ol>
+ * </p>
  * 
- * @author dok, pulky, romanoTC, Blues, duxiaoyang, TCSASSEBMLER, notpad
- * @version 1.8
+ * @author dok, pulky, romanoTC, Blues, duxiaoyang, notpad, TCSASSEBMLER
+ * @version 1.9
  */
 public class ProjectDetail extends Base {
 
@@ -157,6 +165,9 @@ public class ProjectDetail extends Base {
             // get project result information
             getProjectResult(projectId);
 
+            // clear the PERMISSION session
+            getRequest().getSession().removeAttribute(Constants.PERMISSION);
+            
             setNextPage("/contest/projectDetail.jsp");
             setIsNextPageInContext(true);
         } catch (TCWebException e) {
@@ -258,6 +269,7 @@ public class ProjectDetail extends Base {
             boolean full = false; // projects are never full in our current rules
             getRequest().setAttribute("projectFull", String.valueOf(full));
             getRequest().setAttribute("projectId", projectId);
+            getRequest().setAttribute("isAnonymous", getSessionInfo().isAnonymous());
 
             getRequest().setAttribute("paysRoyalties", !details.getBooleanItem(0, "is_custom"));
 

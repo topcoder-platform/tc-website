@@ -1,11 +1,15 @@
 <%--
   - Author: duxiaoyang, TCSASSEBMLER
-  - Version: 1.1
+  - Version: 1.2
+  -
   - Fix the bugs from
   -  http://apps.topcoder.com/wiki/display/docs/Release+Assembly+-+TopCoder+Software+Contest+Detail+Page+Bug+Fix+Release
   - It mainly fixes the UI issues.
   -
-  - Copyright (C) 2012 TopCoder Inc., All Rights Reserved.
+  - Version 1.2 (Release Assembly - TopCoder Reg2 Password Recovery Revamp and Misc Bug Fixes) Change notes:
+  - Add the new-modal-window to fix the bug: https://apps.topcoder.com/bugs/browse/BUGR-8819
+  -
+  - Copyright (C) 2012-2013 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page shows project details information.
 --%>
@@ -32,6 +36,9 @@
 
 <jsp:include page="/script.jsp"/>
 <script language="JavaScript" type="text/javascript" src="/js/new-project-detail.js"></script>
+<script type="text/javascript">
+    var isAnonymous = <%= request.getAttribute("isAnonymous") %>;
+</script>
 <jsp:include page="/style.jsp">
     <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
@@ -875,4 +882,66 @@
 <%
     }
 %>
+
+<%--modal window--%>
+<!-- AJAX preloading indicator -->
+    <div id="modal-background"></div>
+    <div id="new-modal-window">
+        <!-- ajax preloader modal -->
+        <div class="outLay" id="preloaderModal" style="display: none;">
+            <div class="modalHeaderSmall">
+                <div class="modalHeaderSmallRight">
+                    <div class="modalHeaderSmallCenter"></div>
+                </div>
+            </div>
+            <div class="modalBody">
+                <span id="preloaderAnimation">
+                <img alt="Loading" src="/i/modal/preloader-loading.gif">
+                </span>
+                <div class="preloaderTips">Loading...</div>
+            </div>
+            <div class="modalFooter">
+                <div class="modalFooterRight">
+                    <div class="modalFooterCenter">
+                        <div class="&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end ajax preloader modal -->
+
+        <div id="errorModal" class="outLay">
+        <div class="modalHeader">
+            <div class="modalHeaderRight">
+                <div class="modalHeaderCenter">
+                    <h2>Errors</h2>
+                    <a href="javascript:;" class="closeModal" title="Close">Close</a>
+                </div>
+            </div>
+        </div>
+        <!-- end .modalHeader -->
+
+        <div class="modalBody">
+            <ul class="modalContent">
+                <li>In order to register for this competition, please complete your profile at
+                    <a href="www.topcoder.com/reg">www.topcoder.com/reg</a> and check "I want to Compete on TopCoder" option.
+                </li>
+            </ul>
+            <div class="modalCommandBox">
+                <a href="javascript:;" class="newButton1 defaultBtn" style="text-decoration: none;"><span class="btnR"><span
+                        class="btnC">OK</span></span></a>
+            </div>
+        </div>
+        <!-- end .modalBody -->
+
+        <div class="modalFooter">
+            <div class="modalFooterRight">
+                <div class="modalFooterCenter"></div>
+            </div>
+        </div>
+        <!-- end .modalFooter -->
+    </div>
+    <!-- end #errorModal -->
+        
+    </div>
 </body></html>
