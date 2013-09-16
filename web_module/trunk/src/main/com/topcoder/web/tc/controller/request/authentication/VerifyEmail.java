@@ -5,13 +5,19 @@ package com.topcoder.web.tc.controller.request.authentication;
 
 import java.util.Date;
 
+import com.topcoder.shared.util.EmailEngine;
+import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.web.common.ShortHibernateProcessor;
+import com.topcoder.web.common.WebConstants;
+import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Email;
 import com.topcoder.web.common.model.EmailRequest;
 import com.topcoder.web.common.model.EmailRequestType;
 import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.validation.StringInput;
+import com.topcoder.web.common.validation.ValidationResult;
+import com.topcoder.web.reg.validation.EmailValidator;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.common.dao.DAOUtil;
 
 /**
  * <p>
@@ -32,9 +38,10 @@ import com.topcoder.web.common.dao.DAOUtil;
  * </p>
  *
  * <p>
- * Changes in version 1.2 (TopCoder Email Management Bug Race - BUGR-9479):
+ * Changes in version 1.2 (TopCoder Password Recovery Update - BUGR-9487):
  * <ol>
  *      <li>Update {@link #updateEmail(EmailRequest request)} method.</li>
+ *      <li>Add {@link #sendEmailChangeNotification(String, String, String)} method.</li>
  * </ol>
  * </p>
  * @author vangavroche, Standlove, TCSASSEMBLER
@@ -150,6 +157,9 @@ public class VerifyEmail extends ShortHibernateProcessor {
     private void updateEmail(EmailRequest request) {
         User user = DAOUtil.getFactory().getUserDAO().find(request.getUserId());
 
+        String emailType = WebConstants.SECOND_EMAIL_TYPE;
+        String originAddr = null;
+
         if (request.getRequestType() == EmailRequestType.SecondaryEmailConfirmation) {
             Email secondEmail = null;
             for (Email email : user.getEmailAddresses()) {
@@ -162,11 +172,12 @@ public class VerifyEmail extends ShortHibernateProcessor {
                 // no second email before
                 secondEmail = new Email();
                 user.addEmailAddress(secondEmail);
-                this.getRequest().getSession().setAttribute("title", "Add Secondary Email");
+                this.getRequest().getSession().setAttribute("title", "Add Second Email");
                 this.getRequest().getSession().setAttribute("action", "added");
             }else{
-                this.getRequest().getSession().setAttribute("title", "Update Secondary Email");
+                this.getRequest().getSession().setAttribute("title", "Update Second Email");
                 this.getRequest().getSession().setAttribute("action", "updated");
+                originAddr = secondEmail.getAddress();
             }
 
             secondEmail.setEmailTypeId(Constants.SECOND_EMAIL_TYPE_ID);
@@ -179,15 +190,59 @@ public class VerifyEmail extends ShortHibernateProcessor {
 
             DAOUtil.getFactory().getUserDAO().saveOrUpdate(user);
         } else {
+            emailType = WebConstants.PRIMARY_EMAIL_TYPE;
             Email email = user.getPrimaryEmailAddress();
+            originAddr = email.getAddress();
             email.setAddress(request.getEmail());
             DAOUtil.getFactory().getUserDAO().saveOrUpdate(user);
             this.getRequest().getSession().setAttribute("action", "updated");
         }
 
+        try {
+            sendEmailChangeNotification(emailType, originAddr, request.getEmail());
+        } catch(Exception e) {
+            redirectToUnVerifiedPage("send email change notification failed.");
+            return;
+        }
         log.debug("update the user's email successfully.");
     }
 
+    /**
+     * <p>
+     * send email notification when user change the primary or secondary email address.
+     * </p>
+     * @param emailType
+     * @param originalEmailAddr
+     * @param destEmailAddr
+     * @throws Exception
+     */
+    private void sendEmailChangeNotification(String emailType, String originalEmailAddr, String destEmailAddr) throws Exception {
+        if (originalEmailAddr == null || destEmailAddr == null || originalEmailAddr.equals(destEmailAddr)) {
+            return;
+        }
+        EmailValidator mailValidator = new EmailValidator();
+        String[] addrs = new String[] {originalEmailAddr, destEmailAddr};
+        for (String addr : addrs) {
+            ValidationResult vr = mailValidator.validate(new StringInput(addr));
+            if (!vr.isValid()) {
+                addError(Constants.ERROR_INFO, vr.getMessage());
+                return;
+            }
+        }
+
+        // send the email
+        TCSEmailMessage mail = new TCSEmailMessage();
+        mail.setSubject(Constants.EMAIL_CHANGE_NOTIFY_MAIL_SUBJECT);
+        String body = Constants.EMAIL_CHANGE_NOTIFY_MAIL_BODY;
+        body = body.replace("{email_type}", emailType).replace("{old_email}",originalEmailAddr).replace("{new_email}",destEmailAddr);
+        mail.setBody(body);
+
+        mail.addToAddress(originalEmailAddr, TCSEmailMessage.TO);
+        mail.addToAddress(destEmailAddr, TCSEmailMessage.TO);
+        mail.setFromAddress(Constants.EMAIL_CHANGE_NOTIFY_MAIL_FROM_ADDRESS, Constants.EMAIL_CHANGE_NOTIFY_MAIL_FROM_PERSONAL);
+        EmailEngine.send(mail);
+
+    }
     /**
      * <p>
      * Render the view page. Here NextPageInContext is set to true.
