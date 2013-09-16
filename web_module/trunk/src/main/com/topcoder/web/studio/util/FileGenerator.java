@@ -362,6 +362,11 @@ public class FileGenerator implements Runnable {
                                 Integer[] imageTypeIds, int[] imageTypeSizes, boolean watermark, int fileIndex)
             throws IOException, ImageException, ImagePersistenceException, UnsupportedFormatException,
             ImageOverlayProcessingException {
+        // 18 - WireFrames contest type
+        // no need to generate alternate representation for wireFrames
+        if (project.getCategory().getId() == 18) {
+            return;
+        }
         ImageDAO imageDAO = DAOUtil.getFactory().getImageDAO();
         for (int i = 0; i < imageTypeIds.length; i++) {
             int imageTypeId = imageTypeIds[i];
