@@ -6,6 +6,7 @@ package com.topcoder.web.tc.controller.request.authentication;
 import java.io.PrintWriter;
 import java.util.Date;
 
+import com.topcoder.common.web.util.DateTime;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.web.common.ShortHibernateProcessor;
@@ -15,7 +16,9 @@ import com.topcoder.web.reg.validation.EmailValidator;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.authentication.strategies.TokenGenerator;
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.dao.PasswordResetTokenDAO;
 import com.topcoder.web.common.model.Email;
+import com.topcoder.web.common.model.PasswordResetToken;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
@@ -28,8 +31,25 @@ import com.topcoder.web.common.validation.ValidationResult;
  * Thread safety: The controller instances will be created for the new requests, thus there won't be multiple
  * threads using the same controller instance.Thus there's no thread-safety concern.
  * </p>
+ *
+ * <p>
+ * Changes in version 1.1 (TopCoder Password Recovery Update - BUGR-9487):
+ * <ol>
+ *      <li>Update {@link #dbProcessing()} method to remove resend logic.</li>
+ *      <li>Update {@link #generateToken()} method.</li>
+ * </ol>
+ * </p>
+ *
+ * <p>
+ * Changes in version 1.2 (TopCoder Password Recovery Update - BUGR-9487):
+ * <ol>
+ *      <li>Update {@link #generateToken()} method to add token validation check.</li>
+ *      <li>Update {@link #dbProcessing()} method to remove token resent logic}
+ *      <li>Update {@link #sendTokenEmail(String, String, String, String)} method to update email subject,body etc.</li>
+ * </ol>
+ * </p>
  * @author vangavroche, TCSASSEMBLER
- * @version 1.0
+ * @version 1.2
  */
 public class SendResetToken extends ShortHibernateProcessor {
     /**
@@ -49,39 +69,6 @@ public class SendResetToken extends ShortHibernateProcessor {
     @Override
     protected void dbProcessing() throws Exception {
         log.debug("Enter method " + CLASS_NAME + "#dbProcessing().");
-        Date tokenLastSentAt = null;
-        try {
-            tokenLastSentAt = (Date) getRequest().getSession().getAttribute(Constants.TOKEN_LAST_SENT_AT);
-        } catch (ClassCastException e) {
-            writeResponse(400, "Invalid param " + Constants.TOKEN_LAST_SENT_AT);
-            log.debug("Exit method " + CLASS_NAME + "#dbProcessing().");
-            return;
-        }
-
-        if (tokenLastSentAt == null) {
-            // Check the session attribute TOKEN_ABOUT_TO_SEND exist or not.
-            boolean tokenAboutToSend = false;
-            try {
-                tokenAboutToSend = (Boolean) getRequest().getSession().getAttribute(Constants.TOKEN_ABOUT_TO_SEND);
-            } catch (ClassCastException e) {
-                writeResponse(400, "Invalid param " + Constants.TOKEN_ABOUT_TO_SEND);
-                log.debug("Exit method " + CLASS_NAME + "#dbProcessing().");
-                return;
-            }
-            if (!tokenAboutToSend) {
-                writeResponse(400, "No valid session");
-                log.debug("Exit method " + CLASS_NAME + "#dbProcessing().");
-                return;
-            }
-        } else {
-            long timeToWait = tokenLastSentAt.getTime() + Constants.RESEND_BUTTON_DELAY_SECONDS * 1000L - new Date().getTime();
-            if (timeToWait > 0) {
-                writeResponse(400, String.format("Please Wait for %.0f second", timeToWait / 1000.0));
-                log.debug("Exit method " + CLASS_NAME + "#dbProcessing().");
-                return;
-            }
-        }
-        
         generateToken();
         log.debug("Exit method " + CLASS_NAME + "#dbProcessing().");
     }
@@ -103,9 +90,22 @@ public class SendResetToken extends ShortHibernateProcessor {
             return;
         }
 
+        /*
+         * If there is token exists for this email, and it has not expired,
+         * we ignore this request and respond with an error page telling user
+         * that he has already requested the token and ask him/her to contact support.
+         */
+        PasswordResetTokenDAO resetTokenDAO = DAOUtil.getFactory().getPasswordResetTokenDAO();
+        PasswordResetToken resetToken = resetTokenDAO.find(userId);
+        if (resetToken != null && resetToken.getExpiredAt().after(new Date())) {
+            writeResponse(500, "You have already request the reset token, please find it in your email inbox."
+                + " If it's not there. Please contact support@topcoder.com.");
+            return;
+        }
+        
         String type = StringUtils.checkNull(getRequest().getParameter(Constants.EMAIL_TYPE));
         if (!Constants.PRIMARY_EMAIL_TYPE.equals(type) && !Constants.SECOND_EMAIL_TYPE.equals(type)) {
-            writeResponse(400, "Invalid email type. The valid one should be primary or secondary.");
+            writeResponse(400, "Invalid email type. The valid one should be primary or second.");
             return;
         }
 
@@ -120,27 +120,31 @@ public class SendResetToken extends ShortHibernateProcessor {
         User user = DAOUtil.getFactory().getUserDAO().find(userId);
 
         String selectedEmail = null;
+        /**
+         * user may both have primary or seondary email address
+         * and he/she can select one of them to reset password
+         * so we need to get the email address from user selected.
+         */
         for (Email email : user.getEmailAddresses()) {
             if (type.equals(Constants.PRIMARY_EMAIL_TYPE) && email.getEmailTypeId() == Constants.PRIMARY_EMAIL_TYPE_ID) {
                 selectedEmail = email.getAddress();
-            }
-            if (type.equals(Constants.SECOND_EMAIL_TYPE) && email.getEmailTypeId() == Constants.SECOND_EMAIL_TYPE_ID) {
+                break;
+            } else if (type.equals(Constants.SECOND_EMAIL_TYPE) && email.getEmailTypeId() == Constants.SECOND_EMAIL_TYPE_ID) {
                 selectedEmail = email.getAddress();
+                break;
             }
         }
         
         String token = generator.generate();
         Date expiredAt = getExpireDate();
         log.debug(String.format("The token to be saved is %s, it will expired at %s", token, String.valueOf(expiredAt)));
-        DAOUtil.getFactory().getPasswordResetTokenDAO().saveToken(userId, token, expiredAt);
+        resetTokenDAO.saveToken(userId, token, expiredAt);
         try {
-            sendTokenEmail(token, selectedEmail);
+            sendTokenEmail(token, selectedEmail, user.getHandle(), DateTime.formatESTDate(expiredAt));
         } catch (Exception e) {
             writeResponse(500, "Failed to send email to " + selectedEmail);
+            return;
         }
-
-        getRequest().getSession().setAttribute(Constants.TOKEN_LAST_SENT_AT, new Date());
-        getRequest().getSession().removeAttribute(Constants.TOKEN_ABOUT_TO_SEND);
 
         writeResponse(200, null);
     }
@@ -154,10 +158,14 @@ public class SendResetToken extends ShortHibernateProcessor {
      *            the token.
      * @param selectedEmail
      *            the user email.
+     * @param handle
+     *            the user handle.
+     * @param expireDate
+     *            the expire date.
      * @throws Exception
      *             the exception handled by ShortHibernateProcessor.
      */
-    private void sendTokenEmail(String token, String selectedEmail) throws Exception {
+    private void sendTokenEmail(String token, String selectedEmail, String handle, String expireDate) throws Exception {
         ValidationResult vr = new EmailValidator().validate(new StringInput(selectedEmail));
 
         if (!vr.isValid()) {
@@ -166,10 +174,11 @@ public class SendResetToken extends ShortHibernateProcessor {
         // send the email
         TCSEmailMessage mail = new TCSEmailMessage();
         mail.setSubject(Constants.RESET_TOKEN_NOTIFY_MAIL_SUBJECT);
-        mail.setBody(Constants.RESET_TOKEN_NOTIFY_MAIL_BODY.replace("{token}", token));
+        mail.setBody(Constants.RESET_TOKEN_NOTIFY_MAIL_BODY.replace("{token}", token).replace("{handle}", handle)
+                .replace("{expiry}", expireDate));
 
         mail.setToAddress(selectedEmail, TCSEmailMessage.TO);
-        mail.setFromAddress(Constants.RESET_TOKEN_NOTIFY_MAIL_FROM_ADDRESS);
+        mail.setFromAddress(Constants.RESET_TOKEN_NOTIFY_MAIL_FROM_ADDRESS, Constants.RESET_TOKEN_NOTIFY_MAIL_FROM_PERSONAL);
         EmailEngine.send(mail);
 
     }
