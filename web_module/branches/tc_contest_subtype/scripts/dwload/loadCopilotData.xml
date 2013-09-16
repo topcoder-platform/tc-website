@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<copilotDataLoadingTool>
+    <sourcesList>
+        <source name="TransactionalData"
+                value="jdbc:informix-sqli://env.topcoder.com:2021/tcs_catalog:INFORMIXSERVER=informixoltp_tcp;user=informix;password=1nf0rm1x"/>
+        <source name="WarehouseData"
+                value="jdbc:informix-sqli://env.topcoder.com:2021/tcs_dw:INFORMIXSERVER=informixoltp_tcp;user=informix;password=1nf0rm1x"/>
+    </sourcesList>
+    <parameterList>
+        <parameter name="copilot_data_selection_file" value="/home/tc/web/scripts/sql/load_copilot_stats.sql"/>
+        <parameter name="copilot_bugs_selection_file" value="/home/tc/web/scripts/sql/load_copilot_bug_races.sql"/>
+    </parameterList>
+</copilotDataLoadingTool>
