@@ -217,11 +217,25 @@
                                         <c:when test="${fn:length(requirements) > 0}">
                                             <c:forEach items="${requirements}" var="resultRow">
                                                 <p><span class="bodySubtitle">Overview</span></p>
-									        	<p>${resultRow.map['detailed_requirements']}</p>
+                                                <p>
+                                                <c:if test="${not empty resultRow.map['detailed_requirements_text']}">
+                                                    ${resultRow.map['detailed_requirements_text']}
+                                                </c:if>
+                                                <c:if test="${empty resultRow.map['detailed_requirements_text']}">
+                                                    ${resultRow.map['detailed_requirements']}
+                                                </c:if>
+                                                </p>
                                                 <%-- need permission to view private description --%>
                                                 <c:if test="${privateDescriptionPermission}">
                                                 <p><span class="bodySubtitle">Details</span></p>
-                                                <p>${resultRow.map['private_description']}</p>
+                                                <p>
+                                                <c:if test="${not empty resultRow.map['private_description_text']}">
+                                                    ${resultRow.map['private_description_text']}
+                                                </c:if>
+                                                <c:if test="${not empty resultRow.map['private_description_text']}">
+                                                    ${resultRow.map['private_description']}
+                                                </c:if>
+                                                </p>
                                                 </c:if>
                                                 <p><span class="bodySubtitle">Submission Deliverables</span></p>
                                                 <p>
@@ -248,7 +262,14 @@
                                         <c:when test="${fn:length(requirements) > 0}">
                                             <c:forEach items="${requirements}" var="resultRow">
                                                 <p><span class="bodySubtitle">Detailed Requirements</span></p>
-									        	<p>${resultRow.map['detailed_requirements']}</p>
+                                                <p>
+                                                <c:if test="${not empty resultRow.map['detailed_requirements_text']}">
+                                                    ${resultRow.map['detailed_requirements_text']}
+                                                </c:if>
+                                                <c:if test="${empty resultRow.map['detailed_requirements_text']}">
+                                                    ${resultRow.map['detailed_requirements']}
+                                                </c:if>
+                                                </p>
                                                 <c:if test="${fn:length(submission_deliverables) > 0}">
                                                 <p><span class="bodySubtitle">Submission Deliverables</span></p>
 									        	<p>${resultRow.map['submission_deliverables']}"</p>
@@ -316,7 +337,12 @@
                                             <div class="containerInner">
                                                 <c:forEach items="${requirements}" var="resultRow">
                                                     <div class="container">
-                                                    ${resultRow.map['final_submission_guidelines']}
+                                                        <c:if test="${not empty resultRow.map['final_submission_guidelines_text']}">
+                                                            <p>${resultRow.map['final_submission_guidelines_text']}</p>
+                                                        </c:if>
+                                                        <c:if test="${empty resultRow.map['final_submission_guidelines_text']}">
+                                                            <p>${resultRow.map['final_submission_guidelines']}</p>
+                                                        </c:if>
                                                     </div>
                                                 </c:forEach>
                                                 <div class="clear"></div>
