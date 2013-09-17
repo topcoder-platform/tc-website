@@ -101,7 +101,7 @@
     <c:set var="subId" value="<%=Constants.SUBMISSION_ID%>"/>
     <c:set var="subFileIdx" value="<%=Constants.SUBMISSION_FILE_INDEX%>"/>
 
-    <body >
+    <body>
         <div id="page-wrap">
             <jsp:include page="top.jsp">
                 <jsp:param name="section" value="home"/>
@@ -120,13 +120,8 @@
                                    class="post_project"></a>
                             </div>
                             <div id="homePageBanner">
-                                <div id="animation-container">
-                                    <div id="animation"></div>
-                                    <div id="intro"></div>
-                                    <div id="tech"></div>
-                                    <div id="tech-overlay"></div>
-                                    <div id="logo"></div>
-                                </div>
+                                <a href="http://apps.topcoder.com/forums/?module=Thread&threadID=799194&start=0"  target="_blank">
+                                    <img src="/i/v4/CS_TopCoder-Banner_studio.png" alt="CloudSpokes and TopCoder"/></a>
                                 <br/>
                                 <br/>
                             </div>
