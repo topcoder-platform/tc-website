@@ -50,6 +50,7 @@
         <pathelement location="${external.jars.dir}/servlet-api-2.4.jar"/>
         <pathelement location="${external.jars.dir}/jsp-api-2.0.jar"/>
 
+
         <pathelement location="${external.jars.dir}/jbossall-client-4.2.2.jar"/>
         <pathelement location="${external.jars.dir}/object_factory-2.0.1.jar"/>
         <pathelement location="${external.jars.dir}/jboss-cache-jdk50-4.2.2.jar"/>
@@ -61,6 +62,12 @@
         <pathelement location="${external.jars.dir}/httpunit-1.6.2.jar"/>
         <pathelement location="${jars.dir}/tcs/contest_eligibility_validation_client/1.0.0/contest_eligibility_validation_client.jar"/>
     	<pathelement location="${jars.dir}/spring.jar" />
+		
+		<pathelement location="${jars.dir}/commons-httpclient-3.0.1.jar"/>
+		<pathelement location="${jars.dir}/jackson/1.9.7/jackson-core-asl.jar"/>
+		<pathelement location="${jars.dir}/jackson/1.9.7/jackson-mapper-asl.jar"/>
+		
+		
     	<path refid="openid4java.path" />
         <pathelement location="${jars.dir}/tcs/terms_of_use/1.1.0/terms_of_use.jar"/>
         <pathelement location="${jars.dir}/tcs/base_exception/2.0.0/base_exception.jar"/>
