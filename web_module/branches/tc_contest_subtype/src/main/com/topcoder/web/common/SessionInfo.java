@@ -11,11 +11,32 @@ import com.topcoder.web.common.security.WebAuthentication;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Map;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.TimeZone;
 import java.net.URLEncoder;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+
+import org.apache.commons.httpclient.Credentials;
+import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.HttpException;
+import org.apache.commons.httpclient.HttpStatus;
+import org.apache.commons.httpclient.NameValuePair;
+import org.apache.commons.httpclient.UsernamePasswordCredentials;
+import org.apache.commons.httpclient.auth.AuthScope;
+import org.apache.commons.httpclient.methods.DeleteMethod;
+import org.apache.commons.httpclient.methods.GetMethod;
+import org.apache.commons.httpclient.methods.PostMethod;
+
+import org.codehaus.jackson.JsonParseException;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.type.TypeReference;
 
 public class SessionInfo implements Serializable {
     private static Logger log = Logger.getLogger(SessionInfo.class);
@@ -138,7 +159,7 @@ public class SessionInfo implements Serializable {
         return knownUser;
     }
 
-    public int getMemberCount() {
+    public int getMemberCount() { 
         if (memberCount < 0) {
             try {
                 memberCount = loadMemberCount();
@@ -171,11 +192,53 @@ public class SessionInfo implements Serializable {
     }
 
     private int loadMemberCount() throws Exception {
+			
         CachedDataAccess countDai = new CachedDataAccess(MaxAge.QUARTER_HOUR, DBMS.OLTP_DATASOURCE_NAME);
         Request countReq = new Request();
         countReq.setContentHandle("member_count");
-        return ((ResultSetContainer) countDai.getData(countReq).get("member_count")).getIntItem(0, "member_count");
+        int mc = ((ResultSetContainer) countDai.getData(countReq).get("member_count")).getIntItem(0, "member_count");
+		mc = mc + loadCSMemberCount();
+		return mc;
     }
+	
+	private int loadCSMemberCount()  {
+	
+		try {
+		HttpClient httpclient =  new HttpClient();
+		GetMethod getMethod = null;
+		
+		URI uri = new URI("http://api.cloudspokes.com/v1/stats");
+		
+		getMethod = new GetMethod(uri.toString());
+		getMethod.addRequestHeader("accept", "application/json");
+		
+		int status = httpclient.executeMethod(getMethod);
+		//System.out.println("--------------status----"+status);
+			
+		String responseMessage = getMethod.getResponseBodyAsString();
+		
+		//System.out.println("--------------responseMessage----"+responseMessage);
+		
+		ObjectMapper mapper = new ObjectMapper();
+		Map<String,Map<String, String>> mapValues =  mapper.readValue(responseMessage, new  TypeReference<Map<String,Map<String, String>>>(){});
+
+		for (Object o:mapValues.values()) {
+			Map omap = (Map)o;
+			Object mc = omap.get("members");
+			int mcount = Integer.parseInt((String)mc);  
+			return mcount;
+		}
+
+		}
+		catch (Exception e)
+		{
+			System.out.println("error getting CS member count :"+e);
+			e.printStackTrace(System.out);
+			return 0;
+		}
+		
+		return 0;
+	}
 
 
     protected Set pruneGroups(Set groups) {

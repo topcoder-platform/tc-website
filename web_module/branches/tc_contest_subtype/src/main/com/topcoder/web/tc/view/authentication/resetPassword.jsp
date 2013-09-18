@@ -36,27 +36,27 @@
 <script type="text/javascript">
 $(document).ready(function () {
 
-	$('#resend').click(function(){
-		$.post('/tc?<%=Constants.MODULE_KEY%>=SendResetToken', 
-			{
-				<%=Constants.CODER_ID%> : ${coder_id},
-				<%=Constants.EMAIL_TYPE%> : '${type}',
-			}, 
-			function(data) {
+	$.ajax({
+		  type: 'POST',
+		  async: false,
+		  url: '/tc?<%=Constants.MODULE_KEY%>=SendResetToken',
+		  data: {
+			<%=Constants.CODER_ID%> : ${coder_id},
+			<%=Constants.EMAIL_TYPE%> : '${type}',
+		  },
+		  success: function(data){
 				if(data.successful){
 					$('#codeBoard').text('A code has been sent to your ${type} email. You have <%=Constants.RESET_TOKEN_AGE / 60%> minutes to enter the code.');
 				}
-			});
-		//disable the button for a configured time
-		$("#resend").attr("disabled", "disabled");
-		setTimeout(function(){
-			$("#resend").removeAttr("disabled");
-		},<%=Constants.RESEND_BUTTON_DELAY_SECONDS * 1000%>);
+		  },
+		  error: function(jqXHR, textStatus, errorThrown) {
+		  	 var resp = $.httpData(jqXHR);
+		  	 if (resp.error) {
+			  	 $('#codeBoard').css("color","red");
+			  	 $('#codeBoard').text(resp.error);
+		  	 }
+		  }
 	});
-	
-	<c:if test="${ not empty tokenAboutToSend }">
-		$('#resend').click();
-	</c:if>
 
 	var tk = $('input[name=<%=Constants.TOKEN%>]')[0];
 	var pwd = $('input[name=<%=Constants.PASSWORD%>]')[0];
@@ -160,9 +160,6 @@ function validateResetPassword(tk, pwd, pwdc) {
 							<td><input type="submit" name="submit" value="Submit"><input type="button" name="cancel" value="Cancel"  onclick="history.go(-1);" /></td>
 						</tr>
 					</table>
-					<p align="left">
-						Don't receive the code? <input type="submit" id="resend" value="resend">
-					</p>
 				</div>
 			</form>
 		</div>

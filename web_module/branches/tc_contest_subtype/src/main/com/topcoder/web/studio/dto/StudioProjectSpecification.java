@@ -91,6 +91,12 @@ public class StudioProjectSpecification extends Base {
     private String contestDescription;
 
     /**
+     * <p>A <code>String</code> providing the description of project for big size.</p>
+     * it will be used for priority.
+     */
+    private String contestDescriptionText;
+
+    /**
      * <p>A <code>String</code> providing the requirements for content.</p>
      */
     private String contentRequirements;
@@ -121,6 +127,24 @@ public class StudioProjectSpecification extends Base {
      */
     public String getContestDescription() {
         return this.contestDescription;
+    }
+
+    /**
+     * <p>Sets the description of project.</p>
+     *
+     * @param contestDescriptionText a <code>String</code> providing the description of project.
+     */
+    public void setContestDescriptionText(String contestDescriptionText) {
+        this.contestDescriptionText = contestDescriptionText;
+    }
+
+    /**
+     * <p>Gets the description of project.</p>
+     *
+     * @return a <code>String</code> providing the description of project.
+     */
+    public String getContestDescriptionText() {
+        return this.contestDescriptionText;
     }
 
     /**

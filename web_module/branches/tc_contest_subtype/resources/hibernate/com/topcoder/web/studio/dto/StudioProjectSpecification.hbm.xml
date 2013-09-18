@@ -20,6 +20,7 @@
         <property name="layoutAndSize" column="layout_and_size" access="field"/>
         <property name="contestIntroduction" column="contest_introduction" access="field"/>
         <property name="contestDescription" column="contest_description" access="field"/>
+        <property name="contestDescriptionText" column="contest_description_text" access="field"/>
         <property name="contentRequirements" column="content_requirements" access="field"/>
         <property name="generalFeedback" column="general_feedback" access="field"/>
     </class>

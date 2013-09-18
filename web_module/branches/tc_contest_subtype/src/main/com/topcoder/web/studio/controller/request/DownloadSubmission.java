@@ -263,7 +263,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
 
             log.debug("sendSubmission : targetImageTypeId: " + targetImageTypeId);
             String[] fileNames;
-            if (targetImageTypeId > 0) {
+            if (targetImageTypeId > 0 && contest.getCategory().getId() != 18) {
                 int fileIndex = getRequestedFileIndex();
 
                 SubmissionImage image = getSubmissionImage(submission, targetImageTypeId, fileIndex);

@@ -1740,6 +1740,32 @@ public class Constants implements WebConstants {
      */
     public static String PERMISSION = "reg_permission";
     
+        /**
+     * <p>The reset token notify mail from personal.</p>
+     * @since 1.9.11
+     */
+    public static String RESET_TOKEN_NOTIFY_MAIL_FROM_PERSONAL;
+    /**
+     * <p>The email change notify mail from address.</p>
+     * @since 1.9.11
+     */
+    public static String EMAIL_CHANGE_NOTIFY_MAIL_FROM_ADDRESS;
+    /**
+     * <p>The email change notify mail from personal.</p>
+     * @since 1.9.11
+     */
+    public static String EMAIL_CHANGE_NOTIFY_MAIL_FROM_PERSONAL;
+    /**
+     * <p>The email change notify mail subject.</p>
+     * @since 1.9.11
+     */
+    public static String EMAIL_CHANGE_NOTIFY_MAIL_SUBJECT;
+    /**
+     * <p>The email change notify mail body.</p>
+     * @since 1.9.11
+     */
+    public static String EMAIL_CHANGE_NOTIFY_MAIL_BODY;
+
     static {
         initialize();
     }
