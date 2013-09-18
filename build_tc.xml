@@ -183,6 +183,10 @@
         <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-annotations.jar"/>
         <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/hibernate-entitymanager.jar"/>
         <pathelement location="${jars.dir}/hibernate-annotations-3.3.0.GA/ejb3-persistence.jar"/>
+		
+		<pathelement location="${jars.dir}/commons-httpclient-3.0.1.jar"/>
+		<pathelement location="${jars.dir}/jackson/1.9.7/jackson-core-asl.jar"/>
+		<pathelement location="${jars.dir}/jackson/1.9.7/jackson-mapper-asl.jar"/>
 
         <pathelement location="${jars.dir}/TestServices.jar"/>
         <pathelement location="${jars.dir}/asyncservices.jar"/>
@@ -787,6 +791,10 @@
         <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-3.2/cglib-2.1.3.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-3.2/slf4j-api-1.5.8.jar"/>
         <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-3.2/slf4j-log4j12-1.5.8.jar"/>
+		
+		<copy todir="${jboss_lib}" file="${jars.dir}/commons-httpclient-3.0.1.jar"/>
+		<copy todir="${jboss_lib}" file="${jars.dir}/jackson/1.9.7/jackson-core-asl.jar"/>
+		<copy todir="${jboss_lib}" file="${jars.dir}/jackson/1.9.7/jackson-mapper-asl.jar"/>
 
         <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-3.0/hibernate-validator.jar"/>
         
