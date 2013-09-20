@@ -92,7 +92,7 @@
          <strong><a href="/tc?module=MatchDetails&rd=15765">Collective Minds Exploration Challenge</a></strong><br />
          13:00<br />
          3 weeks<br />
-         $15K Prizes
+         $15K & TCO Trip
          </div>
       </td>
       <td class="value">13
