@@ -705,10 +705,10 @@ TopCoder may *offer* to purchase submissions that did not win any prize if the c
 
 <% if (roundId == 15765) { %>
 <div class="sectionHeader">Prizes</div>
-    <p align="justify">The Marathon Match has $15,000 in total prize money.  The 4 highest scorers in this round will receive compensation for their submissions as follows:</p>
+    <p align="justify">The prize purse for this challenge is 15,000 USD and a trip to the 2013 TopCoder Open in Washington, DC! The 4 highest scorers in this round will receive compensation for their submissions as follows:</p>
 <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
     <tr>
-        <td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right">$7,000</td>
+        <td class="bodyText" nowrap="nowrap">1st</td><td class="bodyText" align="right">$7,000 and a trip to the 2013 TopCoder Open</td>
     </tr>
     <tr>
         <td class="bodyText" nowrap="nowrap">2nd</td><td class="bodyText" align="right">$4,000</td>
