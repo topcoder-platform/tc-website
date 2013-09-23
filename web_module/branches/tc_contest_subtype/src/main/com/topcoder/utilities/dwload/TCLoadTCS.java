@@ -125,8 +125,15 @@ import com.topcoder.utilities.dwload.contestresult.drv2.ContestResultCalculatorV
  * </ul>
  * </p>
  *
- * @author rfairfax, pulky, ivern, VolodymyrK, moonli, isv, minhu, Blues
- * @version 1.2.2
+ * <p>
+ * Version 1.2.3 (Release Assembly - TC Contest SubTypes TC Update Assembly v1.0) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #doLoadProjects()} method to combine sub-type if it exists.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author rfairfax, pulky, ivern, VolodymyrK, moonli, isv, minhu, Blues, tangzx
+ * @version 1.2.3
  */
 public class TCLoadTCS extends TCLoad {
 
@@ -864,7 +871,7 @@ public class TCLoadTCS extends TCLoad {
             final String SELECT =
                     "select p.project_id " +
                             "   ,cc.component_id " +
-                            "   ,cc.component_name " +
+                            "   ,CASE WHEN sc.name is null THEN cc.component_name ELSE sc.name || ' - ' || cc.component_name END AS component_name " +
                             "   ,(select count(*) from resource where project_id = p.project_id and resource_role_id = 1) as num_registrations " +
                             "   ,(select count(*) from submission sub, upload where sub.submission_type_id = 1 and sub.upload_id = upload.upload_id and project_id = p.project_id and submission_status_id <> 5) as num_submissions " +
                             //todo this should probably use the flag on project result in the dw, not got back to the submission table in transactional
@@ -973,7 +980,8 @@ public class TCLoadTCS extends TCLoad {
                             "   project_status_lu psl, " +
                             "   OUTER project_phase psd, " +
                             "   OUTER project_phase ppd, " +
-                            "   project_category_lu pcl " +
+                            "   project_category_lu pcl, " +
+                            "   OUTER project_sub_category sc " +
                             " where pir.project_id = p.project_id " +
                             "   and pir.project_info_type_id = 2 " +
                             "   and pivi.project_id = p.project_id " +
@@ -998,6 +1006,7 @@ public class TCLoadTCS extends TCLoad {
                             "   and cc.root_category_id = cat.category_id " +
                             "   and psl.project_status_id = p.project_status_id " +
                             "   and pcl.project_category_id = p.project_category_id " +
+                            "   and p.project_sub_category_id = sc.project_sub_category_id " +
                             "   and psd.project_id = p.project_id " +
                             "   and psd.phase_type_id = 2 " +
                             "   and ppd.project_id = p.project_id " +
