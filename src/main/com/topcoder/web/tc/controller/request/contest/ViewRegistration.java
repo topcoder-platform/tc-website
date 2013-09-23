@@ -24,12 +24,10 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Event;
-import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServices;
 import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServicesLocal;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.development.Base;
-
 
 
 /**
@@ -93,16 +91,8 @@ import com.topcoder.web.tc.controller.request.development.Base;
  *     <li>Updated {@link #validation()} method to support Bug Hunt project type.</li>
  *   </ol>
  * </p>
- *
- * <p>
- *   Version 1.9 (Release Assembly - TopCoder Reg2 Password Recovery Revamp and Misc Bug Fixes) Change notes:
- *   <ol>
- *     <li>Updated {@link #developmentProcessing()} method to fix the bug:
- *         https://apps.topcoder.com/bugs/browse/BUGR-8819.</li>
- *   </ol>
- * </p>
  * @author dok, pulky, Blues, FireIce, lmmortal, TCSASSEMBLER
- * @version 1.9
+ * @version 1.8
  */
 public class ViewRegistration extends Base {
 
@@ -119,17 +109,9 @@ public class ViewRegistration extends Base {
     protected void developmentProcessing() throws TCWebException {
 
         try {
-            String projectId = getRequest().getParameter(Constants.PROJECT_ID);
-            TCResponse response = getResponse();
 
-            if(getRequest().getSession().getAttribute(Constants.PERMISSION) == null ) {
-                //The current user do NOT have the permission to access ViewRegistration
-                if(getSessionInfo().isAnonymous()) {
-                    throw new PermissionException(getLoggedInUser(), new ClassResource(this.getClass()));
-                } else {
-                    response.sendRedirect("/tc?module=ProjectDetail&pj=" + projectId);
-                }
-                return;
+            if (!SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(this.getClass()))) {
+                throw new PermissionException(getLoggedInUser(), new ClassResource(this.getClass()));
             }
 
             validation();
@@ -139,7 +121,7 @@ public class ViewRegistration extends Base {
                 setIsNextPageInContext(true);
             } else {
                 String termsOfUseId = StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_ID));
-
+                String projectId = getRequest().getParameter(Constants.PROJECT_ID);
 
                 // process terms of use
                 long userId = getLoggedInUser().getId();
