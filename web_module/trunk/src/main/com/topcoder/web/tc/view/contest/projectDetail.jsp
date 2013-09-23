@@ -908,6 +908,64 @@
 <%
     }
 %>
-        
+<%--modal window--%>
+<!-- AJAX preloading indicator -->
+    <div id="modal-background"></div>
+    <div id="new-modal-window">
+        <!-- ajax preloader modal -->
+        <div class="outLay" id="preloaderModal" style="display: none;">
+            <div class="modalHeaderSmall">
+                <div class="modalHeaderSmallRight">
+                    <div class="modalHeaderSmallCenter"></div>
+                </div>
+            </div>
+            <div class="modalBody">
+                <span id="preloaderAnimation">
+                <img alt="Loading" src="/i/modal/preloader-loading.gif">
+                </span>
+                <div class="preloaderTips">Loading...</div>
+            </div>
+            <div class="modalFooter">
+                <div class="modalFooterRight">
+                    <div class="modalFooterCenter">
+                        <div class="&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end ajax preloader modal -->
+
+        <div id="errorModal" class="outLay">
+        <div class="modalHeader">
+            <div class="modalHeaderRight">
+                <div class="modalHeaderCenter">
+                    <h2>Errors</h2>
+                    <a href="javascript:;" class="closeModal" title="Close">Close</a>
+                </div>
+            </div>
+        </div>
+        <!-- end .modalHeader -->
+
+        <div class="modalBody">
+            <ul class="modalContent">
+                <li>In order to register for this competition, please complete your profile at
+                    <a href="www.topcoder.com/reg">www.topcoder.com/reg</a> and check "I want to Compete on TopCoder" option.
+                </li>
+            </ul>
+            <div class="modalCommandBox">
+                <a href="javascript:;" class="newButton1 defaultBtn" style="text-decoration: none;"><span class="btnR"><span
+                        class="btnC">OK</span></span></a>
+            </div>
+        </div>
+        <!-- end .modalBody -->
+
+        <div class="modalFooter">
+            <div class="modalFooterRight">
+                <div class="modalFooterCenter"></div>
+            </div>
+        </div>
+        <!-- end .modalFooter -->
     </div>
+    <!-- end #errorModal -->
+        </div>
 </body></html>
