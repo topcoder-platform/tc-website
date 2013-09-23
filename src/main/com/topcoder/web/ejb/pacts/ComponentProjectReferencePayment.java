@@ -1,18 +1,28 @@
+/*
+ * Copyright (C) 2013 TopCoder Inc., All Rights Reserved.
+ */
 package com.topcoder.web.ejb.pacts;
+
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
 
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.DBMS;
-
 /**
  * Payment for a component that includes a reference to a project.
  *
- * @author cucu
+ * <p>
+ * Version 1.1 (Release Assembly - TC Contest SubTypes TC Update Assembly v1.0) Change notes:
+ *   <ol>
+ *     <li>Updated lookupData(long) method to combine sub-type if it exists.</li>
+ *   </ol>
+ * </p>
  *
+ * @author cucu, tangzx
+ * @version 1.1
  */
 public abstract class ComponentProjectReferencePayment extends BasePayment {
     private long projectId;
@@ -186,7 +196,9 @@ public abstract class ComponentProjectReferencePayment extends BasePayment {
         private void lookupData(long projectId) throws SQLException {
             StringBuffer query = new StringBuffer(300);
            
-            query.append("select c.component_name, pc.name as phase_name, pi_complete.value as complete_date , pi_rt.value as version_text, cat.category_name ");
+            query.append("select ");
+            query.append("CASE WHEN sc.name is null THEN c.component_name ELSE sc.name || ' - ' || c.component_name END AS component_name, ");
+            query.append("pc.name as phase_name, pi_complete.value as complete_date , pi_rt.value as version_text, cat.category_name ");
             query.append("from project p,   ");
             query.append("comp_catalog c,   ");
             query.append("project_info pi_comp, ");  
@@ -194,7 +206,8 @@ public abstract class ComponentProjectReferencePayment extends BasePayment {
             query.append("project_info pi_rt, ");
             query.append("project_info pi_ri, ");
             query.append("categories cat,  ");
-            query.append("OUTER  project_info pi_complete ");
+            query.append("OUTER project_info pi_complete, ");
+            query.append("OUTER project_sub_category sc ");
             query.append("where pi_comp.value = c.component_id ");  
             query.append("and pi_complete.project_info_type_id = 21 ");  
             query.append("and pi_rt.project_id = p.project_id ");
@@ -207,6 +220,7 @@ public abstract class ComponentProjectReferencePayment extends BasePayment {
             query.append("and pi_ri.project_info_type_id = 5 ");
             query.append("and pi_ri.value = cat.category_id ");
             query.append("and cat.parent_category_id is null ");
+            query.append("and sc.project_sub_category_id = p.project_sub_category_id ");
             query.append("and p.project_id = " + projectId);
             
 

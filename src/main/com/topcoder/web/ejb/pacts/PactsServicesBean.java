@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.ejb.pacts;
 
@@ -10,7 +10,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.sql.Types;
-import java.text.DecimalFormat;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -127,10 +126,17 @@ import static com.topcoder.web.tc.Constants.MINIMUM_PAYMENT_ACCRUAL_AMOUNT;
  *   </ol>
  * </p>
  *
+ * <p>
+ * Version 1.8 (Release Assembly - TC Contest SubTypes TC Update Assembly v1.0) Change notes:
+ *   <ol>
+ *     <li>Updated {@link #findPayments(Map)} method to combine sub-type if it exists.</li>
+ *   </ol>
+ * </p>
+ *
  * <p>VERY IMPORTANT: remember to update serialVersionUID if needed.</p>
  *
- * @author Dave Pecora, pulky, isv, Vitta, Blues, FireIce
- * @version 1.7
+ * @author Dave Pecora, pulky, isv, Vitta, Blues, FireIce, tangzx
+ * @version 1.8
  * @see PactsConstants
  */
 public class PactsServicesBean extends BaseEJB implements PactsConstants {
@@ -3182,7 +3188,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectHeaders.append("pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, ");
         selectHeaders.append("pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.digital_run_track_id, pd.jira_issue_id, ");
         selectHeaders.append("ttp.name as billing_account_name, ttp.po_box_number as po_number, nvl(tdp1.project_id,tdp2.project_id) as cockpit_project_id, nvl(tdp1.name,tdp2.name) as cockpit_project_name, ");
-        selectHeaders.append("pcl.name as project_category_name, ");
+        selectHeaders.append("NVL(sc.name, pcl.name) as project_category_name, ");
         // client_name
         selectHeaders.append(" nvl((select ttc.name from time_oltp:client_project ttcp, time_oltp:client ttc where ttp.project_id = ttcp.project_id and ttcp.client_id = ttc.client_id), pd.client) as client_name, ");
 
@@ -3203,6 +3209,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         from.append(" LEFT OUTER JOIN tcs_catalog:tc_direct_project tdp1 ON tdp1.project_id = pd.cockpit_project_id ");
         from.append(" LEFT OUTER JOIN tcs_catalog:tc_direct_project tdp2 ON tdp2.project_id = proj.tc_direct_project_id ");
         from.append(" LEFT OUTER JOIN time_oltp:project ttp ON ttp.project_id = pi.value ");
+        from.append(" LEFT OUTER JOIN tcs_catalog:project_sub_category sc ON proj.project_sub_category_id = sc.project_sub_category_id ");
 
         StringBuffer whereClauses = new StringBuffer(300);
         whereClauses.append(" WHERE 1=1 ");
