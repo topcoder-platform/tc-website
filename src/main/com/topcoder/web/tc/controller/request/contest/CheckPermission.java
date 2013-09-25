@@ -40,7 +40,7 @@ public class CheckPermission extends Base {
             PrintWriter responseWriter = response.getWriter();
 
             boolean isAnonymous = getSessionInfo().isAnonymous();
-            if (!SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(ViewRegistration.class))) {
+            if (!SecurityHelper.hasPermission(getUser(), new ClassResource(ViewRegistration.class))) {
                 responseWriter.write("{\"msg\":\"ERROR\",\"isAnonymous\":" + isAnonymous + "}");
             } else {
                 //Set the PERMISSION session so that the ViewRegistration can be used.
