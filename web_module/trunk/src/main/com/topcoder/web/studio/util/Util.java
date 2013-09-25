@@ -77,9 +77,17 @@ import com.topcoder.web.studio.dto.ResourceInfo;
  *     <li>Added {@link #showFinalFixTab(HttpServletRequest, Project, long)} method.</li>
  *   </ol>
  * </p>
+ *
+ * <p>
+ * Version 1.7 Change notes:
+ *   <ol>
+ *     <li>Updated {@link #showFinalFixTab(HttpServletRequest, Project, long)} method to follow the logic as for viewing
+ *     submissions.</li>
+ *   </ol>
+ * </p>
  * 
  * @author isv, pulky, pvmagacho
- * @version 1.6
+ * @version 1.7
  * @since TopCoder Studio Modifications Assembly v2
  */
 public class Util {
@@ -280,18 +288,18 @@ public class Util {
             return true;
         } else if (hasCockpitPermissions(request, currentUserId, project.getId())) {
 			return true;
-		}
-		
-		else if (project.getViewableSubmissions()) {
+		} else if (project.getViewableSubmissions()) {
             Set<ProjectPhase> phases = project.getPhases();
-            boolean allPhaseClosed = true;
+            boolean approvalClosed = false;
             for (ProjectPhase phase : phases) {
-                if (phase.getStatusId() != 3) {
-                    allPhaseClosed = false;
-                    break;
+                if (phase.getType() == 11) { // Approval phase must be closed
+                    if (phase.getStatusId() == 3) {
+                        approvalClosed = true;
+                        break;
+                    }
                 }
             }
-            if (allPhaseClosed) {
+            if (approvalClosed) {
                 return true;
             }
         }

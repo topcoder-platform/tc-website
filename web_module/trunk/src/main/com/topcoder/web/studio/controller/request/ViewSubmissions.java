@@ -112,6 +112,8 @@ public class ViewSubmissions extends ShortHibernateProcessor {
             processSubmissionsSection(c);
         }
 
+        getRequest().setAttribute("showFinalFixTab", Util.showFinalFixTab(getRequest(), c, getUser().getId()));
+
         Long submissionId = 0l;
         try {
             submissionId = new Long(getRequest().getParameter(Constants.SUBMISSION_ID));
@@ -226,7 +228,6 @@ public class ViewSubmissions extends ShortHibernateProcessor {
         getRequest().setAttribute("totalItems", submissions.size());
 
         getRequest().setAttribute("submissions", submissions.subList(start, end));
-        getRequest().setAttribute("showFinalFixTab", Util.showFinalFixTab(getRequest(), c, getUser().getId()));
 
         SortInfo s = new SortInfo();
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
