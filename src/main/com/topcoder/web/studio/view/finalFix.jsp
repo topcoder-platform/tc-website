@@ -179,7 +179,7 @@
                     <c:if test="${not COMPLETED}">
                         <div class="subColumn rightSide">
                             <c:choose>
-                                <c:when test="${finalFixUploaded}">
+                                <c:when test="${finalFixUploaded or not canUploadFinalFix}">
                                     <a href="#" class="btnStudioUploadFinalFixes off">
                                         <span class="btnR"><span class="btnC"><span
                                                 class="btnIcon">Upload Final Fixes</span></span></span></a>

@@ -78,7 +78,16 @@ public class ViewFinalFix extends ShortHibernateProcessor {
         // check if submission is ready for the final-fix phase
         Upload upload = DAOUtil.getFactory().getUploadDAO().getUploadForPhase(finalFixPhase.getId());
         getRequest().setAttribute("finalFixUploaded", upload != null);
-        
+
+        // Check if user has a permission to upload a final fix for contest
+        Long winnerUserId = Util.getWinnerUserId(contest.getId());
+        if (winnerUserId != null) {
+            getRequest().setAttribute("canUploadFinalFix", getUser().getId() == winnerUserId);
+        } else {
+            getRequest().setAttribute("canUploadFinalFix", false);
+        }
+
+
         // Build the text like "24 hours left" in case the final fix is not uploaded yet
         if (upload == null) {
             getRequest().setAttribute("hoursLeftText", Utils.getTextualDiff(finalFixPhase.getScheduledEndTime()));
