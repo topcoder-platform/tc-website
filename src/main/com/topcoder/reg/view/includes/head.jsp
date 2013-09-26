@@ -61,7 +61,7 @@
 	            </h1>
 	            <div class="loginForm_msg"></div>
 	            <div class="loginForm">
-	                <s:form action="login.action" method="post" id="loginForm">
+	                <s:form action="login" method="post" id="loginForm" namespace="/ajax">
 		            	<div>
 		            	    <div class="msg_hidden"></div>
 		            	    <s:textfield type="text" value="Handle" cssClass="text light default handle" name="handle" theme="simple" tabindex="1"></s:textfield><br />

@@ -41,6 +41,11 @@ public class ActivateAction extends BaseAction {
     private static final String USER_HANDLE_KEY = "user_handle";
     
     /**
+     * Represents the activation code.
+     */
+    private String code;
+    
+    /**
      * This method would validate activation code and activate the account if there is no error.
      * 
      * @throws Exception
@@ -50,8 +55,7 @@ public class ActivateAction extends BaseAction {
     @Override
     public String execute() throws Exception {
         final String signature = CLASS_NAME + "#execute()";
-        LoggingWrapperUtility.logEntrance(logger, signature, null, null);
-        final String code = ServletActionContext.getRequest().getParameter(WebConstants.ACTIVATION_CODE);
+        LoggingWrapperUtility.logEntrance(logger, signature, null, null);        
         
         if (null == code || code.trim().length() == 0) {
             addActionError("Empty activation code");
@@ -71,6 +75,13 @@ public class ActivateAction extends BaseAction {
 
         LoggingWrapperUtility.logExit(logger, signature, new String[] { SUCCESS });
         return SUCCESS;
+    }
+    
+    /**
+     * Sets the activation code.
+     */
+    public void setCode(String code) {
+        this.code = code;
     }
 
 }
