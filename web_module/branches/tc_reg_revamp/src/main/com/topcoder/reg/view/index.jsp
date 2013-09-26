@@ -33,7 +33,7 @@
 			</div>
 			<div class="rightSide">
 					<div class="form">
-					    <s:form id="register_user_form" method="post" action="register.action" theme="simple">
+					    <s:form id="register_user_form" method="post" action="register" theme="simple" namespace="/ajax">
 						<div class="row">
 							<label>First Name</label>
 							<s:textfield name="user.firstName" id="txtFName" cssClass="text" type="text" theme="simple"></s:textfield>
