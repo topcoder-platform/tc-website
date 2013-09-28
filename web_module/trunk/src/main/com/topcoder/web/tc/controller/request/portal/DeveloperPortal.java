@@ -81,6 +81,10 @@ public class DeveloperPortal extends Base {
     protected void businessProcessing() throws TCWebException {
         User user = getUser();
         String action = getRequest().getParameter("action");
+	String user3Scale = null;
+	if(user.getUserName() != null) {
+		user3Scale = user.getUserName().replace(' ', '_');
+	}
 
         if ("login".equals(action)) {
             if (!userIdentified()) {
@@ -102,20 +106,20 @@ public class DeveloperPortal extends Base {
             // Obtain SSO token.
             SSOToken ssoToken = null;
             try {
-		if(access3scale.retrieveUser(user.getUserName()) == null) {
-			access3scale.createUser(user.getUserName(), generatePassword() , getEmailAddressOfUser(user.getUserName()));
+		if(access3scale.retrieveUser(user3Scale) == null) {
+			access3scale.createUser(user3Scale, generatePassword() , getEmailAddressOfUser(user.getUserName()));
 		}
 		// Try to load from persistence.
-                ssoToken = loadSSOTokenFromPeristence(access3scale.getPortalName(), user.getUserName());
+                ssoToken = loadSSOTokenFromPeristence(access3scale.getPortalName(), user3Scale);
             } catch (Exception ex) {
                 throw new TCWebException(ex);
             }
             if (ssoToken == null || new Date().compareTo(ssoToken.getExpiresAt()) >= 0) {
                 // No old token of old token expired. Thus, regenerate it.
                 try {
-                    ssoToken = access3scale.generateToken(user.getUserName());
+                    ssoToken = access3scale.generateToken(user3Scale);
                     // Persist obtained SSO token.
-                    saveSSOTokenToPersistence(access3scale.getPortalName(), user.getUserName(), ssoToken);
+                    saveSSOTokenToPersistence(access3scale.getPortalName(), user3Scale, ssoToken);
                 } catch (Exception ex) {
                     throw new TCWebException(ex);
                 }
@@ -146,20 +150,20 @@ public class DeveloperPortal extends Base {
             // Obtain SSO token.
             SSOToken ssoToken = null;
             try {
-		if(access3scale.retrieveUser(user.getUserName()) == null) {
-			access3scale.createUser(user.getUserName(), generatePassword() , getEmailAddressOfUser(user.getUserName()));
+		if(access3scale.retrieveUser(user3Scale) == null) {
+			access3scale.createUser(user3Scale, generatePassword() , getEmailAddressOfUser(user.getUserName()));
 		}
 		// Try to load from persistence.
-                ssoToken = loadSSOTokenFromPeristence(access3scale.getPortalName(), user.getUserName());
+                ssoToken = loadSSOTokenFromPeristence(access3scale.getPortalName(), user3Scale);
             } catch (Exception ex) {
                 throw new TCWebException(ex);
             }
             if (ssoToken == null || new Date().compareTo(ssoToken.getExpiresAt()) >= 0) {
                 // No old token of old token expired. Thus, regenerate it.
                 try {
-                    ssoToken = access3scale.generateToken(user.getUserName());
+                    ssoToken = access3scale.generateToken(user3Scale);
                     // Persist obtained SSO token.
-                    saveSSOTokenToPersistence(access3scale.getPortalName(), user.getUserName(), ssoToken);
+                    saveSSOTokenToPersistence(access3scale.getPortalName(), user3Scale, ssoToken);
                 } catch (Exception ex) {
                     throw new TCWebException(ex);
                 }
