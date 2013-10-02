@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import java.util.Calendar;
 
 import java.io.Serializable;
+import java.io.InputStream;
 import java.util.Date;
 import java.util.Map;
 import java.util.HashSet;
@@ -38,11 +39,20 @@ import org.apache.commons.httpclient.methods.DeleteMethod;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.httpclient.methods.StringRequestEntity;
+import org.apache.commons.httpclient.MultiThreadedHttpConnectionManager;
+import org.apache.commons.io.IOUtils;
+
 
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
+
+import net.sf.json.JSONObject;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONSerializer;
+
+
 
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.sql.DBUtility;
@@ -100,6 +110,9 @@ public class CoronaEventLoadUtility extends DBUtility {
 	private static final String DEFAULT_LONG ="-101.0742190";
 	
 	private static final String DEFAULT_LAT ="40.6473040";
+	
+	private static final String GEOCODE_REQUEST_URL = "http://maps.googleapis.com/maps/api/geocode/json?sensor=false&";
+    private static HttpClient maphttpClient = new HttpClient(new MultiThreadedHttpConnectionManager());
 
     /**
      * <p>
@@ -108,7 +121,8 @@ public class CoronaEventLoadUtility extends DBUtility {
      * table.
      * </p>
      */
-    private static final String SELECT_EVENT = "select handle, corona_event_type_name, country_name, longitude, latitude, file_name, ce.corona_event_type_id, ce.corona_event_id "
+    private static final String SELECT_EVENT = "select handle, corona_event_type_name, country_name, longitude, latitude, file_name, ce.corona_event_type_id, ce.corona_event_id, "
+	                                           + "address1, address2, city, state_code, province " 
 	                                           + "  from corona_event ce, corona_event_type cet, user u, outer (user_address_xref xa, address a, country c), outer (informixoltp:coder_image_xref x, informixoltp:image i) "
 											   + " where ce.user_id = u.user_id and xa.user_id =u.user_id and a.address_id = xa.address_id and a.country_code=c.country_code "
 											   + " and x.coder_id = u.user_id and i.image_id=x.image_id and display_flag = 1 and ce.scanned_ind = 0 and ce.corona_event_type_id = cet.corona_event_type_id";
@@ -148,7 +162,7 @@ public class CoronaEventLoadUtility extends DBUtility {
     @Override
     protected void runUtility()
         throws Exception {
-        log.info("Client user statistics loading has started");
+        log.info("Corona event loading has started");
 
         try {
            
@@ -157,6 +171,7 @@ public class CoronaEventLoadUtility extends DBUtility {
 			PreparedStatement updateStatement = null;
 
             Connection sourceConn = null;
+			int c = 0;
             try {
 
                 sourceConn = getDBConnection(TRANSACTIONAL_DATA_SOURCE);
@@ -170,8 +185,9 @@ public class CoronaEventLoadUtility extends DBUtility {
                 // execute select query
                 selectStatement.setFetchSize(DATA_FETCH_SIZE);
                 result = selectStatement.executeQuery();
-                log.info("Retrieved transactional records for clients users from database");
+                //log.info("Retrieved transactional records for clients users from database");
 
+				
                 while (result.next()) {
                     try {
 
@@ -185,13 +201,52 @@ public class CoronaEventLoadUtility extends DBUtility {
 						 imagefile = result.getString("file_name");
 						 } 
 						 
+						String address = null;
+						StringBuilder addBuilder = new StringBuilder();
+						if (result.getString("address1") != null && !result.getString("address1").equals("")) {
+							addBuilder.append(result.getString("address1"));
+						}
+						
+						if (result.getString("address2") != null && !result.getString("address2").equals("")) {
+							addBuilder.append(",").append(result.getString("address2"));
+						}
+						
+						if (result.getString("city") != null && !result.getString("city").equals("")) {
+							addBuilder.append(",").append(result.getString("city"));
+						}
+						 
+						if (result.getString("state_code") != null && !result.getString("state_code").equals("")) {
+							addBuilder.append(",").append(result.getString("state_code"));
+						}
+						
+						if (result.getString("province")  != null && !result.getString("province").equals("")) {
+							addBuilder.append(",").append(result.getString("province"));
+						}
+						
+						if (result.getString("country_name")!= null && !result.getString("country_name").equals("")) {
+							addBuilder.append(",").append(result.getString("country_name"));
+						}
+						
+						address = addBuilder.toString();
+						
 						String event = result.getString("corona_event_type_name");
 						long eventTypeId = result.getLong("corona_event_type_id");
 						long eventId = result.getLong("corona_event_id");
 						
+						if (address != null && !address.trim().equals("")) {
+							
+							Loc l = getLongitudeLatitude(address);
+							if (l!= null) {
+								longitude = l.strLongtitude; 
+								latitude = l.strLatitude;
+							}
+						}
+						
 						pushToCorona(handle, country, longitude, latitude, imagefile, event, eventTypeId);
 						
 						updateStatement.setLong(1, eventId);
+						
+						c++;
 
 						int updateRecordsCount = updateStatement.executeUpdate();
 						if (updateRecordsCount != 1) {
@@ -210,7 +265,7 @@ public class CoronaEventLoadUtility extends DBUtility {
                 if (sourceConn != null) {
                     sourceConn.close();
                 }
-                log.info("Corona loading has finished");
+                log.info("Published "+ c +" events");
             }
         
         } catch (SQLException e) {
@@ -220,7 +275,7 @@ public class CoronaEventLoadUtility extends DBUtility {
             log.error(e.getMessage());
             DBMS.printException(e);
         } finally {
-            log.info("Client users data loading has finished");
+            log.info("Corona loading has finished...");
         }
     }
 
@@ -299,22 +354,20 @@ public class CoronaEventLoadUtility extends DBUtility {
 				profilePic = "http://community.topcoder.com/i/m/" + imagefile;
 			}	
 			
-			if (country == null)
+			if (country == null || country.trim().equals(""))
 			{
 				country = DEFAULT_COUNTRY;
+			}
+			if (longitude == null || longitude.trim().equals(""))
+			{
 				longitude = DEFAULT_LONG; 
+			}
+			if (latitude == null || latitude.trim().equals(""))
+			{
 				latitude = DEFAULT_LAT;
 			}
-
-			List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-			nameValuePairs.add(new NameValuePair("content", content));
-			nameValuePairs.add(new NameValuePair("country", country));
-			nameValuePairs.add(new NameValuePair("eventType", event));
-			nameValuePairs.add(new NameValuePair("long", longitude));
-			nameValuePairs.add(new NameValuePair("lat", latitude));
-			nameValuePairs.add(new NameValuePair("profile_pic", profilePic));
 			
-			NameValuePair[] requestBody = nameValuePairs.toArray(new NameValuePair[] {});
+			
 			postMethod.setRequestHeader("Authorization", "Token token=" + ((String) params.get(TOKEN)));   
 			String jsonStr = "{ \"data\": { \"content\": \"" + content + "\", \"country\": \"" + country + "\", \"eventType\": \"" + event + "\", \"long\": \""
 			               + longitude + "\", \"lat\": \"" +latitude + "\", \"profile_pic\": \"" +profilePic +"\"} }";
@@ -338,6 +391,67 @@ public class CoronaEventLoadUtility extends DBUtility {
 		} 
 
 	}    
+	
+    
+	public Loc getLongitudeLatitude(String address) throws Exception {
+	
+		try {
+		
+			Loc loc = new Loc();
+			StringBuilder urlBuilder = new StringBuilder(GEOCODE_REQUEST_URL);
+			if (address != null && !"".equals(address.trim())) {
+				urlBuilder.append("&address=").append(URLEncoder.encode(address, "UTF-8"));
+			} 
+
+			final GetMethod getMethod = new GetMethod(urlBuilder.toString());
+			try {
+				
+				
+				int status = maphttpClient.executeMethod(getMethod);
+				log.info("Google API Code for api:" + status);
+				
+				InputStream is = getMethod.getResponseBodyAsStream();
+				String responseMessage = IOUtils.toString(is);
+
+				JSONObject json = (JSONObject) JSONSerializer.toJSON(responseMessage); 
+				JSONObject res = (JSONObject)json.getJSONArray("results").get(0);
+				JSONObject geometry = res.getJSONObject("geometry");
+				JSONObject location = geometry.getJSONObject("location");
+				
+				String lng = location.getString("lng");
+				String lat = location.getString("lat");
+				
+				System.out.println("lng=="+lng+", lat="+lat);
+				
+				loc.strLongtitude = lng;
+				loc.strLatitude = lat;
+				
+				return loc;
+
+			} catch (Exception ee) {
+			 ee.printStackTrace(System.out);
+			 System.out.println(ee);
+			 return null;
+		} finally {
+				
+				getMethod.releaseConnection();
+				
+			}
+		} catch (Exception e) {
+			 e.printStackTrace(System.out);
+			 System.out.println(e);
+			 return null;
+		}
+		
+	}
+
+       
+	
+	public class Loc {
+	
+		String strLatitude;
+        String strLongtitude;
+	}
 	
 
 }
