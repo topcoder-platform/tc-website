@@ -50,6 +50,7 @@
 
     <!-- 3rd Party Dependencies  -->
     <property name="ifxjdbc.jar" value="${ext_libdir}/ifxjdbc.jar"/>
+    <property name="mysql.jar" value="${ext_libdir}/mysql-connector-java-5.1.20-bin.jar" />
     <property name="log4j.jar" value="${ext_libdir}/log4j-1.2.7.jar"/>
     <property name="jbossall-client.jar" value="${ext_libdir}/jboss/jbossall-client.jar"/>
 
@@ -62,6 +63,7 @@
 
     <path id="runtime.classpath">
     	<pathelement location="${ifxjdbc.jar}"/>
+    	<pathelement location="${mysql.jar}"/>
     	<pathelement location="${log4j.jar}"/>
     	<pathelement location="${shared.jar}"/>
     	<pathelement location="${data.loader.dist}"/>
@@ -105,6 +107,7 @@
                 <include name="resources/DBMS.properties"/>
                 <include name="resources/cache.properties"/>
                 <include name="resources/log4j.properties"/>
+            	<include name="resources/MySQL_CONN.properties"/>
             	<include name="scripts/sql/*.sql"/>
             </fileset>
             <fileset dir="${builddir}">
@@ -142,6 +145,16 @@
             <arg value="conf/loadweeklystat.xml"/>
             <classpath refid="runtime.classpath"/>
         </java>
+    </target>
+
+    <target name="tcs_dw_jira">
+		<antcall target="dist" />
+		<java classname="com.topcoder.shared.util.sql.DBUtilityLauncher" fork="true" maxmemory="1024M">
+			<arg value="com.topcoder.utilities.dwload.JiraDataLoadUtility"/>
+            <arg value="-xmlfile"/>
+            <arg value="scripts/dwload/loadJira.xml"/>
+			<classpath refid="runtime.classpath" />
+		</java>
     </target>
 	
 	<target name="tcs_dw_achievement">
