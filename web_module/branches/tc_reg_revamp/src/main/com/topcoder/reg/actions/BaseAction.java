@@ -85,7 +85,7 @@ public class BaseAction extends ActionSupport {
      */
     @PostConstruct
     public void checkConfiguration() throws ConfigurationException {
-        logger = LogFactory.getInstance().getLog();
+        logger = LogFactory.getInstance().getLog("BaseAction");
         RegistrationHelper.checkNotNull("logger", logger, ConfigurationException.class);
 
         RegistrationHelper.checkNotNullOrEmpty("userSessionKey", userSessionKey, ConfigurationException.class);

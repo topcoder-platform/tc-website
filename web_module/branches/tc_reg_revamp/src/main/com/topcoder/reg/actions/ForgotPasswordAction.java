@@ -24,7 +24,7 @@ import com.topcoder.reg.services.EntityNotFoundException;
 import com.topcoder.reg.util.DataProvider;
 import com.topcoder.reg.validation.EmailValidator;
 import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.web.tc.controller.request.authentication.strategies.TokenGenerator;
+import com.topcoder.reg.authentication.strategies.TokenGenerator;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.common.validation.StringInput;
 
