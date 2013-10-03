@@ -103,7 +103,7 @@ public class AuthenticationInterceptor extends AbstractInterceptor {
     @PostConstruct
     public void checkConfiguration() throws ConfigurationException {
         RegistrationHelper.checkNotNullOrEmpty("userHandleSessionKey", userHandleSessionKey, ConfigurationException.class);
-        logger = LogFactory.getInstance().getLog();
+        logger = LogFactory.getInstance().getLog(CLASS_NAME);
         RegistrationHelper.checkNotNull("logger", logger, ConfigurationException.class);
     }
 

@@ -42,7 +42,7 @@ public abstract class BaseImpl {
     @PostConstruct
     public void checkConfiguration() throws ConfigurationException {
         RegistrationHelper.checkNotNull("jdbcTempalte", jdbcTemplate, ConfigurationException.class);
-        logger = LogFactory.getInstance().getLog();
+        logger = LogFactory.getInstance().getLog("BaseImpl");
         RegistrationHelper.checkNotNull("logger", logger, ConfigurationException.class);
     }
 
