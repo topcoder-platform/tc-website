@@ -80,7 +80,7 @@ public class Constants implements WebConstants {
     public static final String NEW_REG_FLAG = "isNewReg";
 
     public static final String RESET_TOKEN_GENERATOR_CLASS =
-            "com.topcoder.web.tc.controller.request.authentication.strategies.impl.SimpleTokenGenerator";
+            "com.topcoder.reg.strategies.impl.SimpleTokenGenerator";
     public static final String USER_DTO_SESSION_KEY = "userDTO_session_key";
     public static final String USE_PRIMARY_EMAIL_SESSION_KEY = "usePrimaryEmail";
 
