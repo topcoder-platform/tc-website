@@ -60,12 +60,12 @@
 <BODY>
 <jsp:include page="../top.jsp"/>
 
-<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-<TR valign="top">
-
 <%
     ResultSetContainer rsc2 = (ResultSetContainer) request.getAttribute(Constants.HISTORY_LIST_KEY);
 %>
+
+<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+<TR valign="top">
 
 <c:set value="<%=Constants.DESIGN_PROJECT_TYPE%>" var="DESIGN_PROJECT_TYPE"/>
 <c:set value="<%=Constants.DEVELOPMENT_PROJECT_TYPE%>" var="DEVELOPMENT_PROJECT_TYPE"/>
@@ -225,8 +225,8 @@
         </c:when>
     </c:choose>
 
-<span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='${cr}' context='${type}'/></span>
-<br>
+    <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='${cr}' context='${type}'/></span>
+    <br>
     <c:choose>
         <c:when test="${pt == DESIGN_PROJECT_TYPE}">
             <span class="bodySubtitle">Design Statistics&#160;>&#160;</span><br>
@@ -269,45 +269,9 @@
     <span class="bc">
     <A HREF="/tc?module=MemberProfile&cr=${cr}" class="bcLink">Member Profile</A>
  | Competition History
- | <A HREF="/tc?module=OutstandingProjects&cr=${cr}&pt=${pt}" class="bcLink">Current Contests</A>
-    <c:choose>
-        <c:when test="${pt == DESIGN_PROJECT_TYPE}">
-             | <A HREF="/tc?module=ReliabilityDetail&ph=112&uid=${cr}" class="bcLink">Reliability Detail</A>
-        </c:when>
-        <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE}">
-             | <A HREF="/tc?module=ReliabilityDetail&ph=113&uid=${cr}" class="bcLink">Reliability Detail</A>
-        </c:when>
-        <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
-            | <A HREF="/tc?module=ReliabilityDetail&ph=125&uid=${cr}" class="bcLink">Reliability Detail</A>
-        </c:when>
-        <c:when test="${pt == CONCEPTUALIZATION_PROJECT_TYPE}">
-            | <A HREF="/tc?module=ReliabilityDetail&ph=134&uid=${cr}" class="bcLink">Reliability Detail</A>
-        </c:when>
-        <c:when test="${pt == SPECIFICATION_PROJECT_TYPE}">
-            | <A HREF="/tc?module=ReliabilityDetail&ph=117&uid=${cr}" class="bcLink">Reliability Detail</A>
-        </c:when>
-        <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
-            | <A HREF="/tc?module=ReliabilityDetail&ph=118&uid=${cr}" class="bcLink">Reliability Detail</A>
-        </c:when>
-        <c:when test="${pt == TEST_SUITES_PROJECT_TYPE}">
-            | <A HREF="/tc?module=ReliabilityDetail&ph=124&uid=${cr}" class="bcLink">Reliability Detail</A>
-        </c:when>
-        <c:when test="${pt == TEST_SCENARIOS_PROJECT_TYPE}">
-            | <A HREF="/tc?module=ReliabilityDetail&ph=137&uid=${cr}" class="bcLink">Reliability Detail</A>
-        </c:when>
-        <c:when test="${pt == UI_PROTOTYPE_PROJECT_TYPE}">
-            | <A HREF="/tc?module=ReliabilityDetail&ph=130&uid=${cr}" class="bcLink">Reliability Detail</A>
-        </c:when>
-        <c:when test="${pt == RIA_BUILD_PROJECT_TYPE}">
-            | <A HREF="/tc?module=ReliabilityDetail&ph=135&uid=${cr}" class="bcLink">Reliability Detail</A>
-        </c:when>
-        <c:when test="${pt == CONTENT_CREATION_PROJECT_TYPE}">
-            | <A HREF="/tc?module=ReliabilityDetail&ph=146&uid=${cr}" class="bcLink">Reliability Detail</A>
-        </c:when>
-        <c:when test="${pt == REPORTING_PROJECT_TYPE}">
-            | <A HREF="/tc?module=ReliabilityDetail&ph=147&uid=${cr}" class="bcLink">Reliability Detail</A>
-        </c:when>
-    </c:choose>
+ | <A HREF="/tc?module=OutstandingProjects&pt=${pt}&cr=${cr}" class="bcLink">Current Contests</A>
+ | <A HREF="/tc?module=ReliabilityDetail&pt=${pt}&cr=${cr}" class="bcLink">Reliability Detail</A>
+ | <A HREF="/tc?module=ReviewerRatingHistory&pt=${pt}&cr=${cr}" class="bcLink">Reviewer Rating History</A>
 </span>
 
 
@@ -378,14 +342,7 @@
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Date</a>
             </TD>
             <TD CLASS="header" WIDTH="36%">
-                <c:choose>
-                    <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE || pt == DESIGN_PROJECT_TYPE}">
-                        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Component</a>
-                    </c:when>
-                    <c:otherwise>
-                        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Application</a>
-                    </c:otherwise>
-                </c:choose>
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Contest</a>
             </TD>
             <TD CLASS="header" WIDTH="8%">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("category_desc")%>" includeParams="true"/>">Category</a>

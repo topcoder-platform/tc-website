@@ -1,198 +1,252 @@
 <%--
-  - Author: TCSDEVELOPER, pulky
+  - Author: pulky, VolodymyrK
   - Version: 1.1
-  - Copyright (C) 2004 - 2009 TopCoder Inc., All Rights Reserved.
+  - Copyright (C) 2004 - 2013 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page displays the reliability details page.
   -
   - Version 1.1 (Testing Competition Split Release Assembly 1.0) changes: Updated Application Testing to Test Suites.
 --%>
-<%@ page contentType="text/html;charset=utf-8" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
-<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
-<%@ page import="com.topcoder.web.common.model.SoftwareComponent" %>
-<%@ page import="com.topcoder.web.tc.Constants" %>
+<%@ page
+        language="java"
+        import="com.topcoder.shared.dataAccess.DataAccessConstants,
+                com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                com.topcoder.shared.util.ApplicationServer,
+                com.topcoder.web.common.model.SoftwareComponent,
+                com.topcoder.web.tc.Constants" %>
+<%@ page import="com.topcoder.web.common.StringUtils" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="tc_tags" tagdir="/WEB-INF/tags" %>
-<% ResultSetContainer contests = (ResultSetContainer) request.getAttribute("contests");%>
-<% String type = (String) request.getAttribute(Constants.TYPE_KEY);
-    String coderId = (String) request.getAttribute(Constants.CODER_ID);
-    int phaseId = Integer.parseInt((String) request.getAttribute(Constants.PHASE_ID));%>
-<html>
-
-<head>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<HTML>
+<HEAD>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>TopCoder Statistics</title>
-    <jsp:include page="/script.jsp"/>
+    <TITLE>TopCoder Statistics</TITLE>
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
+    <jsp:include page="baseHRef.jsp"/>
+    <jsp:include page="../script.jsp"/>
 
-</head>
+</HEAD>
 
-<body>
-
-
+<BODY>
 <jsp:include page="../top.jsp"/>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-<tr valign="top">
-<!-- Left Column Begins-->
-<td width="180">
+<%
+    ResultSetContainer contests = (ResultSetContainer) request.getAttribute("contests");
+%>
+
+<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+<TR valign="top">
+
+<c:set value="<%=Constants.DESIGN_PROJECT_TYPE%>" var="DESIGN_PROJECT_TYPE"/>
+<c:set value="<%=Constants.DEVELOPMENT_PROJECT_TYPE%>" var="DEVELOPMENT_PROJECT_TYPE"/>
+<c:set value="<%=Constants.ASSEMBLY_PROJECT_TYPE%>" var="ASSEMBLY_PROJECT_TYPE"/>
+<c:set value="<%=Constants.CONCEPTUALIZATION_PROJECT_TYPE%>" var="CONCEPTUALIZATION_PROJECT_TYPE"/>
+<c:set value="<%=Constants.SPECIFICATION_PROJECT_TYPE%>" var="SPECIFICATION_PROJECT_TYPE"/>
+<c:set value="<%=Constants.ARCHITECTURE_PROJECT_TYPE%>" var="ARCHITECTURE_PROJECT_TYPE"/>
+<c:set value="<%=Constants.TEST_SUITES_PROJECT_TYPE%>" var="TEST_SUITES_PROJECT_TYPE"/>
+<c:set value="<%=Constants.TEST_SCENARIOS_PROJECT_TYPE%>" var="TEST_SCENARIOS_PROJECT_TYPE"/>
+<c:set value="<%=Constants.UI_PROTOTYPE_PROJECT_TYPE%>" var="UI_PROTOTYPE_PROJECT_TYPE"/>
+<c:set value="<%=Constants.RIA_BUILD_PROJECT_TYPE%>" var="RIA_BUILD_PROJECT_TYPE"/>
+<c:set value="<%=Constants.CONTENT_CREATION_PROJECT_TYPE%>" var="CONTENT_CREATION_PROJECT_TYPE"/>
+<c:set value="<%=Constants.REPORTING_PROJECT_TYPE%>" var="REPORTING_PROJECT_TYPE"/>
+
+<TD WIDTH="180">
     <!-- Left nav begins -->
-    <% if(phaseId == SoftwareComponent.DESIGN_PHASE) { %>
+    <c:choose>
+        <c:when test="${pt == DESIGN_PROJECT_TYPE}">
             <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="m_des_competitions"/>
             </jsp:include>
-    <% } else if(phaseId == SoftwareComponent.DEV_PHASE) { %>
+        </c:when>
+        <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE}">
             <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="m_dev_competitions"/>
             </jsp:include>
-    <% } else if(phaseId == SoftwareComponent.ASSEMBLY_PHASE ) { %>
+        </c:when>
+        <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
             <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="m_assembly_competitions"/>
             </jsp:include>
-    <% } else if(phaseId == SoftwareComponent.CONCEPTUALIZATION_PHASE) { %>
+        </c:when>
+        <c:when test="${pt == CONCEPTUALIZATION_PROJECT_TYPE}">
             <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="m_conceptualization_competitions"/>
             </jsp:include>
-    <% } else if(phaseId == SoftwareComponent.SPECIFICATION_PHASE) { %>
+        </c:when>
+        <c:when test="${pt == SPECIFICATION_PROJECT_TYPE}">
             <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="m_specification_competitions"/>
             </jsp:include>
-    <% } else if(phaseId == SoftwareComponent.ARCHITECTURE_PHASE) { %>
+        </c:when>
+        <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
             <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="m_architecture_competitions"/>
             </jsp:include>
-    <% } else if(phaseId == SoftwareComponent.TEST_SUITES_PHASE) { %>
+        </c:when>
+        <c:when test="${pt == TEST_SUITES_PROJECT_TYPE}">
             <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="m_test_suites_competitions"/>
             </jsp:include>
-    <% } else if(phaseId == SoftwareComponent.TEST_SCENARIOS_PHASE) { %>
+        </c:when>
+        <c:when test="${pt == TEST_SCENARIOS_PROJECT_TYPE}">
             <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="m_test_scenarios_competitions"/>
             </jsp:include>
-    <% } else if(phaseId == SoftwareComponent.UI_PROTOTYPE_PHASE) { %>
+        </c:when>
+        <c:when test="${pt == UI_PROTOTYPE_PROJECT_TYPE}">
             <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="m_ui_prototype_competitions"/>
             </jsp:include>
-    <% } else if(phaseId == SoftwareComponent.RIA_BUILD_PHASE) { %>
+        </c:when>
+        <c:when test="${pt == RIA_BUILD_PROJECT_TYPE}">
             <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="m_ria_build_competitions"/>
             </jsp:include>
-    <% } else if(phaseId == SoftwareComponent.CONTENT_CREATION_PHASE) { %>
+        </c:when>
+        <c:when test="${pt == CONTENT_CREATION_PROJECT_TYPE}">
             <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="m_content_creation_competitions"/>
             </jsp:include>
-    <% } else if(phaseId == SoftwareComponent.REPORTING_PHASE) { %>
+        </c:when>
+        <c:when test="${pt == REPORTING_PROJECT_TYPE}">
             <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="m_reporting_competitions"/>
             </jsp:include>
-    <% } %>
+        </c:when>
+    </c:choose>
     <!-- Left nav ends -->
-</td>
-<!-- Left Column Ends -->
+</TD>
 
 <!-- Center Column Begins -->
 <td class="statTableSpacer" width="100%" valign="top">
-    <% if(phaseId == SoftwareComponent.DESIGN_PHASE) { %>
-            <jsp:include page="/page_title.jsp">
+
+    <c:choose>
+        <c:when test="${pt == DESIGN_PROJECT_TYPE}">
+            <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="comp_design"/>
                 <jsp:param name="title" value="Reliability Detail"/>
             </jsp:include>
-    <% } else if(phaseId == SoftwareComponent.DEV_PHASE) { %>
-            <jsp:include page="/page_title.jsp">
+        </c:when>
+        <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE}">
+            <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="comp_development"/>
                 <jsp:param name="title" value="Reliability Detail"/>
             </jsp:include>
-    <% } else if(phaseId == SoftwareComponent.ASSEMBLY_PHASE ) { %>
-            <jsp:include page="/page_title.jsp">
+        </c:when>
+        <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
+            <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="assembly"/>
                 <jsp:param name="title" value="Reliability Detail"/>
             </jsp:include>
-    <% } else if(phaseId == SoftwareComponent.CONCEPTUALIZATION_PHASE) { %>
-            <jsp:include page="/page_title.jsp">
+        </c:when>
+        <c:when test="${pt == CONCEPTUALIZATION_PROJECT_TYPE}">
+            <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="conceptualization"/>
                 <jsp:param name="title" value="Reliability Detail"/>
             </jsp:include>
-    <% } else if(phaseId == SoftwareComponent.SPECIFICATION_PHASE) { %>
-            <jsp:include page="/page_title.jsp">
+        </c:when>
+        <c:when test="${pt == SPECIFICATION_PROJECT_TYPE}">
+            <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="specification"/>
                 <jsp:param name="title" value="Reliability Detail"/>
             </jsp:include>
-    <% } else if(phaseId == SoftwareComponent.ARCHITECTURE_PHASE) { %>
-            <jsp:include page="/page_title.jsp">
+        </c:when>
+        <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
+            <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="architecture"/>
                 <jsp:param name="title" value="Reliability Detail"/>
             </jsp:include>
-    <% } else if(phaseId == SoftwareComponent.TEST_SUITES_PHASE) { %>
-            <jsp:include page="/page_title.jsp">
+        </c:when>
+        <c:when test="${pt == TEST_SUITES_PROJECT_TYPE}">
+            <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="test_suites"/>
                 <jsp:param name="title" value="Reliability Detail"/>
             </jsp:include>
-    <% } else if(phaseId == SoftwareComponent.TEST_SCENARIOS_PHASE) { %>
-            <jsp:include page="/page_title.jsp">
+        </c:when>
+        <c:when test="${pt == TEST_SCENARIOS_PROJECT_TYPE}">
+            <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="test_scenarios"/>
                 <jsp:param name="title" value="Reliability Detail"/>
             </jsp:include>
-    <% } else if(phaseId == SoftwareComponent.UI_PROTOTYPE_PHASE) { %>
-            <jsp:include page="/page_title.jsp">
+        </c:when>
+        <c:when test="${pt == UI_PROTOTYPE_PROJECT_TYPE}">
+            <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="ui_prototype"/>
                 <jsp:param name="title" value="Reliability Detail"/>
             </jsp:include>
-    <% } else if(phaseId == SoftwareComponent.RIA_BUILD_PHASE) { %>
-            <jsp:include page="/page_title.jsp">
+        </c:when>
+        <c:when test="${pt == RIA_BUILD_PROJECT_TYPE}">
+            <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="ria_build"/>
                 <jsp:param name="title" value="Reliability Detail"/>
             </jsp:include>
-    <% } else if(phaseId == SoftwareComponent.CONTENT_CREATION_PHASE) { %>
-            <jsp:include page="/page_title.jsp">
+        </c:when>
+        <c:when test="${pt == CONTENT_CREATION_PROJECT_TYPE}">
+            <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="content_creation"/>
                 <jsp:param name="title" value="Reliability Detail"/>
             </jsp:include>
-    <% } else if(phaseId == SoftwareComponent.REPORTING_PHASE) { %>
-            <jsp:include page="/page_title.jsp">
+        </c:when>
+        <c:when test="${pt == REPORTING_PROJECT_TYPE}">
+            <jsp:include page="../page_title.jsp">
                 <jsp:param name="image" value="reporting"/>
                 <jsp:param name="title" value="Reliability Detail"/>
             </jsp:include>
-    <% } %>
+        </c:when>
+    </c:choose>
 
-<span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='<%=coderId%>' context='<%=type%>'/></span>
-<br>
-    <% if(phaseId == SoftwareComponent.DESIGN_PHASE) { %>
+    <span class="bigHandle">Coder:&#160;<tc-webtag:handle coderId='${cr}' context='${type}'/></span>
+    <br>
+    <c:choose>
+        <c:when test="${pt == DESIGN_PROJECT_TYPE}">
             <span class="bodySubtitle">Design Statistics&#160;>&#160;</span><br>
-    <% } else if(phaseId == SoftwareComponent.DEV_PHASE) { %>
-            <span class="bodySubtitle">Design Statistics&#160;>&#160;</span><br>
-    <% } else if(phaseId == SoftwareComponent.ASSEMBLY_PHASE ) { %>
+        </c:when>
+        <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE}">
+            <span class="bodySubtitle">Development Statistics&#160;>&#160;</span><br>
+        </c:when>
+        <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
             <span class="bodySubtitle">Assembly Statistics&#160;>&#160;</span><br>
-    <% } else if(phaseId == SoftwareComponent.CONCEPTUALIZATION_PHASE) { %>
+        </c:when>
+        <c:when test="${pt == CONCEPTUALIZATION_PROJECT_TYPE}">
             <span class="bodySubtitle">Conceptualization Statistics&#160;>&#160;</span><br>
-    <% } else if(phaseId == SoftwareComponent.SPECIFICATION_PHASE) { %>
+        </c:when>
+        <c:when test="${pt == SPECIFICATION_PROJECT_TYPE}">
             <span class="bodySubtitle">Specification Statistics&#160;>&#160;</span><br>
-    <% } else if(phaseId == SoftwareComponent.ARCHITECTURE_PHASE) { %>
+        </c:when>
+        <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
             <span class="bodySubtitle">Architecture Statistics&#160;>&#160;</span><br>
-    <% } else if(phaseId == SoftwareComponent.TEST_SUITES_PHASE) { %>
+        </c:when>
+        <c:when test="${pt == TEST_SUITES_PROJECT_TYPE}">
             <span class="bodySubtitle">Test Suites Statistics&#160;>&#160;</span><br>
-    <% } else if(phaseId == SoftwareComponent.TEST_SCENARIOS_PHASE) { %>
+        </c:when>
+        <c:when test="${pt == TEST_SCENARIOS_PROJECT_TYPE}">
             <span class="bodySubtitle">Test Scenarios Statistics&#160;>&#160;</span><br>
-    <% } else if(phaseId == SoftwareComponent.UI_PROTOTYPE_PHASE) { %>
+        </c:when>
+        <c:when test="${pt == UI_PROTOTYPE_PROJECT_TYPE}">
             <span class="bodySubtitle">UI Prototype Statistics&#160;>&#160;</span><br>
-    <% } else if(phaseId == SoftwareComponent.RIA_BUILD_PHASE) { %>
+        </c:when>
+        <c:when test="${pt == RIA_BUILD_PROJECT_TYPE}">
             <span class="bodySubtitle">RIA Build Statistics&#160;>&#160;</span><br>
-    <% } else if(phaseId == SoftwareComponent.CONTENT_CREATION_PHASE) { %>
+        </c:when>
+        <c:when test="${pt == CONTENT_CREATION_PROJECT_TYPE}">
             <span class="bodySubtitle">Content Creation Statistics&#160;>&#160;</span><br>
-    <% } else if(phaseId == SoftwareComponent.REPORTING_PHASE) { %>
+        </c:when>
+        <c:when test="${pt == REPORTING_PROJECT_TYPE}">
             <span class="bodySubtitle">Reporting Statistics&#160;>&#160;</span><br>
-    <% } %>
-                <span class="bc">
-                <A HREF="/tc?module=MemberProfile&cr=<%=coderId%>" class="bcLink">Member Profile</A>
-             | <A HREF="/tc?module=CompetitionHistory&pt=${pt}&cr=<%=coderId%>" class="bcLink">Competition
-                    History</A>
-             | <A HREF="/tc?module=OutstandingProjects&cr=<%=coderId%>&pt=${pt}" class="bcLink">Current
-                    Contests</A>
-                    | Reliability Detail
+        </c:when>
+    </c:choose>
+
+    <span class="bc">
+    <A HREF="/tc?module=MemberProfile&cr=${cr}" class="bcLink">Member Profile</A>
+ | <A HREF="/tc?module=CompetitionHistory&pt=${pt}&cr=${cr}" class="bcLink">Competition History</A>
+ | <A HREF="/tc?module=OutstandingProjects&pt=${pt}&cr=${cr}" class="bcLink">Current Contests</A>
+ | Reliability Detail
+ | <A HREF="/tc?module=ReviewerRatingHistory&pt=${pt}&cr=${cr}" class="bcLink">Reviewer Rating History</A>
             </span>
 
 <div class="pagingBox" style="clear:both;">&nbsp;</div>
@@ -206,11 +260,7 @@
             Catalog
         </td>
         <td class="header" width="30%">
-            <% if(phaseId == SoftwareComponent.DESIGN_PHASE || phaseId == SoftwareComponent.DEV_PHASE ) { %>
-                    Component
-            <% } else { %>
-                    Application
-            <% } %>
+            Contest
         </td>
         <td class="headerC" width="5%">
             Reliable
@@ -234,12 +284,15 @@
     <rsc:iterator list="<%=contests%>" id="resultRow">
         <tr class="<%=even?"dark":"light"%>">
             <td class="valueC">
-            <% if(phaseId == SoftwareComponent.DESIGN_PHASE || phaseId == SoftwareComponent.DEV_PHASE ) { %>
-                <tc_tags:languageIcon catalogName = "<%=resultRow.getStringItem("catalog_name")%>" aolBrand="<%=(resultRow.getItem("aol_brand").getResultData() != null)%>"
-                                      paypalBrand="<%=(resultRow.getItem("paypal_brand") != null && resultRow.getItem("paypal_brand").getResultData() != null)%>"/>
-            <% } else { %>
-                Application
-            <% } %>
+                <c:choose>
+                    <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE || pt == DESIGN_PROJECT_TYPE}">
+                        <tc_tags:languageIcon catalogName = "<%=resultRow.getStringItem("catalog_name")%>" aolBrand="<%=(resultRow.getItem("aol_brand").getResultData() != null)%>"
+                            paypalBrand="<%=(resultRow.getItem("paypal_brand") != null && resultRow.getItem("paypal_brand").getResultData() != null)%>"/>
+                    </c:when>
+                    <c:otherwise>
+                        Application
+                    </c:otherwise>
+                </c:choose>
             </td>
             <td class="value">
                 <% if (resultRow.getIntItem("viewable") == 1) { %>
@@ -272,16 +325,9 @@
     </rsc:iterator>
 </table>
 <br>
-            <% if(phaseId == SoftwareComponent.DESIGN_PHASE  ) { %>
-                    <div class="bodySubtitle" align="center">Have a question about
-    <A href="/wiki/display/tc/Reliability+Ratings+and+Bonuses">reliability ratings</A>?</div>
-            <% } else if(phaseId == SoftwareComponent.DEV_PHASE ) { %>
-                  <div class="bodySubtitle" align="center">Have a question about
-    <A href="/wiki/display/tc/Reliability+Ratings+and+Bonuses">reliability ratings</A>?</div>
-            <% } else { %>
-            <div class="bodySubtitle" align="center">Have a question about
-    <A href="/wiki/display/tc/Reliability+Ratings+and+Bonuses">reliability ratings</A>?</div>
-            <% } %>
+<div class="bodySubtitle" align="center">Have a question about
+    <A href="/wiki/display/tc/Reliability+Ratings+and+Bonuses">reliability ratings</A>?
+</div>
 <p><br/></p>
 
 

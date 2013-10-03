@@ -11,8 +11,6 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.*;
-import com.topcoder.web.common.model.SoftwareComponent;
-import com.topcoder.web.common.tag.HandleTag;
 import com.topcoder.web.tc.Constants;
 
 import java.util.Map;
@@ -44,7 +42,7 @@ import java.util.Map;
  * @author pulky, elkhawajah, VolodymyrK
  * @version 1.3
  */
-public class OutstandingProjects extends BaseProcessor {
+public class OutstandingProjects extends Base {
     /**
      * The logger to log to.
      */
@@ -57,71 +55,15 @@ public class OutstandingProjects extends BaseProcessor {
      * @since Member Profile Enhancement assembly
      */
     protected void businessProcessing() throws Exception {
-        int projectTypeId;
+        //todo smarten this up.  if we do the sorting in memory, we wouldn't have to make a db hit for every
+        //todo different sort.  we'd cache less, and hit the db less.  WAY better
+
         // user should be authenticated.
         if (getUser().isAnonymous()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 
-        if (hasParameter(Constants.PHASE_ID)
-            && !getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DEV_PHASE))
-            && !getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DESIGN_PHASE))
-            && !getRequest().getParameter(Constants.PHASE_ID).equals(
-                String.valueOf(SoftwareComponent.CONCEPTUALIZATION_PHASE))
-            && !getRequest().getParameter(Constants.PHASE_ID).equals(
-                String.valueOf(SoftwareComponent.SPECIFICATION_PHASE))
-            && !getRequest().getParameter(Constants.PHASE_ID).equals(
-                String.valueOf(SoftwareComponent.ARCHITECTURE_PHASE))
-            && !getRequest().getParameter(Constants.PHASE_ID)
-                .equals(String.valueOf(SoftwareComponent.ASSEMBLY_PHASE))
-            && !getRequest().getParameter(Constants.PHASE_ID).equals(
-                String.valueOf(SoftwareComponent.TEST_SUITES_PHASE))
-            && !getRequest().getParameter(Constants.PHASE_ID).equals(
-                String.valueOf(SoftwareComponent.TEST_SCENARIOS_PHASE))
-            && !getRequest().getParameter(Constants.PHASE_ID).equals(
-                String.valueOf(SoftwareComponent.UI_PROTOTYPE_PHASE))
-            && !getRequest().getParameter(Constants.PHASE_ID).equals(
-                String.valueOf(SoftwareComponent.RIA_BUILD_PHASE))
-            && !getRequest().getParameter(Constants.PHASE_ID).equals(
-                String.valueOf(SoftwareComponent.CONTENT_CREATION_PHASE))
-            && !getRequest().getParameter(Constants.PHASE_ID).equals(
-                String.valueOf(SoftwareComponent.REPORTING_PHASE))) {
-            throw new TCWebException("invalid " + Constants.PHASE_ID + " parameter.");
-        }
-
-        if (!hasParameter(Constants.PHASE_ID)) {
-            if (!getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(
-                String.valueOf(Constants.DESIGN_PROJECT_TYPE))
-                && !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(
-                    String.valueOf(Constants.DEVELOPMENT_PROJECT_TYPE))
-                && !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(
-                    String.valueOf(Constants.ASSEMBLY_PROJECT_TYPE))
-                && !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(
-                    String.valueOf(Constants.CONCEPTUALIZATION_PROJECT_TYPE))
-                && !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(
-                    String.valueOf(Constants.SPECIFICATION_PROJECT_TYPE))
-                && !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(
-                    String.valueOf(Constants.ARCHITECTURE_PROJECT_TYPE))
-                && !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(
-                    String.valueOf(Constants.TEST_SUITES_PROJECT_TYPE))
-                && !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(
-                    String.valueOf(Constants.TEST_SCENARIOS_PROJECT_TYPE))
-                && !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(
-                    String.valueOf(Constants.UI_PROTOTYPE_PROJECT_TYPE))
-                && !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(
-                    String.valueOf(Constants.RIA_BUILD_PROJECT_TYPE))
-                && !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(
-                    String.valueOf(Constants.CONTENT_CREATION_PROJECT_TYPE))
-                && !getRequest().getParameter(Constants.PROJECT_TYPE_ID).equals(
-                    String.valueOf(Constants.REPORTING_PROJECT_TYPE))) {
-                throw new TCWebException("invalid " + Constants.PROJECT_TYPE_ID + " parameter.");
-            }
-
-            projectTypeId = Integer.parseInt(getRequest().getParameter(Constants.PROJECT_TYPE_ID));
-        } else {
-            projectTypeId = Integer.parseInt(getRequest().getParameter(Constants.PHASE_ID)) - 111;
-        }
-
+        int projectTypeId = getProjectTypeId();
         if (!hasParameter(Constants.CODER_ID)) {
             throw new TCWebException("parameter " + Constants.CODER_ID + " expected.");
         }
@@ -145,15 +87,7 @@ public class OutstandingProjects extends BaseProcessor {
             r.setProperty(DataAccessConstants.SORT_QUERY, outstandingProjectCommand);
         }
         r.setProperty(Constants.CODER_ID, getRequest().getParameter(Constants.CODER_ID));
-
-        String projectTypeIds;
-        // add component testing project to the development page
-        if (Constants.DEVELOPMENT_PROJECT_TYPE == projectTypeId) {
-            projectTypeIds = projectTypeId + ", " + Constants.COMPONENT_TESTING_PROJECT_TYPE;
-        } else {
-            projectTypeIds = String.valueOf(projectTypeId);
-        }
-        r.setProperty(Constants.PROJECT_TYPES_ID, projectTypeIds);
+        r.setProperty(Constants.PROJECT_TYPES_ID, String.valueOf(projectTypeId));
 
         if (hasParameter(Constants.STAGE_ID)) {
             r.setProperty(Constants.STAGE_ID, getRequest().getParameter(Constants.STAGE_ID));
@@ -173,46 +107,8 @@ public class OutstandingProjects extends BaseProcessor {
 
         // sets attributes for the jsp
         getRequest().setAttribute(Constants.HISTORY_LIST_KEY, history);
-        String handleType = "";
-        switch (projectTypeId) {
-            case Constants.DESIGN_PROJECT_TYPE:
-                handleType = HandleTag.DESIGN;
-                break;
-            case Constants.DEVELOPMENT_PROJECT_TYPE:
-                handleType = HandleTag.DEVELOPMENT;
-                break;
-            case Constants.ASSEMBLY_PROJECT_TYPE:
-                handleType = HandleTag.ASSEMBLY;
-                break;
-            case Constants.CONCEPTUALIZATION_PROJECT_TYPE:
-                handleType = HandleTag.CONCEPTUALIZATION;
-                break;
-            case Constants.SPECIFICATION_PROJECT_TYPE:
-                handleType = HandleTag.SPECIFICATION;
-                break;
-            case Constants.ARCHITECTURE_PROJECT_TYPE:
-                handleType = HandleTag.ARCHITECTURE;
-                break;
-            case Constants.TEST_SUITES_PROJECT_TYPE:
-                handleType = HandleTag.TEST_SUITES;
-                break;
-            case Constants.TEST_SCENARIOS_PROJECT_TYPE:
-                handleType = HandleTag.TEST_SCENARIOS;
-                break;
-            case Constants.UI_PROTOTYPE_PROJECT_TYPE:
-                handleType = HandleTag.UI_PROTOTYPE;
-                break;
-            case Constants.RIA_BUILD_PROJECT_TYPE:
-                handleType = HandleTag.RIA_BUILD;
-                break;
-            case Constants.CONTENT_CREATION_PROJECT_TYPE:
-                handleType = HandleTag.CONTENT_CREATION;
-                break;
-            case Constants.REPORTING_PROJECT_TYPE:
-                handleType = HandleTag.REPORTING;
-                break;
-        }
-        getRequest().setAttribute(Constants.TYPE_KEY, handleType);
+
+        getRequest().setAttribute(Constants.TYPE_KEY, getHandleType(projectTypeId));
         getRequest().setAttribute(Constants.CODER_ID, getRequest().getParameter(Constants.CODER_ID));
         getRequest().setAttribute(Constants.PROJECT_TYPE_ID, projectTypeId);
 

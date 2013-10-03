@@ -231,6 +231,10 @@ public class Constants implements WebConstants {
 
     public static String VIEW_COMPETITION_HISTORY_PAGE;
 
+    public static String VIEW_RELIABILITY_DETAIL_PAGE;
+
+    public static String VIEW_REVIEWER_RATING_HISTORY_PAGE;
+
     public static String VIEW_CURRENT_PROJECTS_PAGE;
 
     public static String VIEW_ALGO_COMPETITION_HISTORY_PAGE;
@@ -246,6 +250,10 @@ public class Constants implements WebConstants {
     public static String COMPETITION_HISTORY_COMMAND;
 
     public static String COMPETITION_HISTORY_QUERY;
+
+    public static String REVIEWER_RATING_HISTORY_COMMAND;
+
+    public static String REVIEWER_RATING_HISTORY_QUERY;
 
     public static String ALGO_COMPETITION_HISTORY_COMMAND;
 
