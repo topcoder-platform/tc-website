@@ -30,6 +30,15 @@
     <script type="text/javascript" src="/js/popup.js"></script>
 </HEAD>
 
+<BODY>
+<jsp:include page="../top.jsp"/>
+
+<%
+    ResultSetContainer rsc2 = (ResultSetContainer) request.getAttribute(Constants.HISTORY_LIST_KEY);
+%>
+
+<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+<TR valign="top">
 
 <c:set value="<%=Constants.DESIGN_PROJECT_TYPE%>" var="DESIGN_PROJECT_TYPE"/>
 <c:set value="<%=Constants.DEVELOPMENT_PROJECT_TYPE%>" var="DEVELOPMENT_PROJECT_TYPE"/>
@@ -44,15 +53,6 @@
 <c:set value="<%=Constants.CONTENT_CREATION_PROJECT_TYPE%>" var="CONTENT_CREATION_PROJECT_TYPE"/>
 <c:set value="<%=Constants.REPORTING_PROJECT_TYPE%>" var="REPORTING_PROJECT_TYPE"/>
 
-<BODY>
-<jsp:include page="../top.jsp"/>
-
-<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-<TR valign="top">
-<%
-    ResultSetContainer rsc2 = (ResultSetContainer) request.getAttribute(Constants.HISTORY_LIST_KEY);
-    //String type = (String) request.getAttribute(Constants.TYPE_KEY);
-%>
 <TD WIDTH="180">
     <!-- Left nav begins -->
     <c:choose>
@@ -122,7 +122,6 @@
 
 <!-- Center Column Begins -->
 <td class="statTableSpacer" width="100%" valign="top">
-
 
     <c:choose>
         <c:when test="${pt == DESIGN_PROJECT_TYPE}">
@@ -239,48 +238,13 @@
             <span class="bodySubtitle">Reporting Statistics&#160;>&#160;</span><br>
         </c:when>
     </c:choose>
+
     <span class="bc">
     <A HREF="/tc?module=MemberProfile&cr=${cr}" class="bcLink">Member Profile</A>
  | <A HREF="/tc?module=CompetitionHistory&pt=${pt}&cr=${cr}" class="bcLink">Competition History</A>
  | Current Contests
-     <c:choose>
-        <c:when test="${pt == DESIGN_PROJECT_TYPE}">
-             | <A HREF="/tc?module=ReliabilityDetail&ph=112&uid=${cr}" class="bcLink">Reliability Detail</A>
-        </c:when>
-        <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE}">
-             | <A HREF="/tc?module=ReliabilityDetail&ph=113&uid=${cr}" class="bcLink">Reliability Detail</A>
-        </c:when>
-        <c:when test="${pt == ASSEMBLY_PROJECT_TYPE}">
-             | <A HREF="/tc?module=ReliabilityDetail&ph=125&uid=${cr}" class="bcLink">Reliability Detail</A>
-        </c:when>
-        <c:when test="${pt == CONCEPTUALIZATION_PROJECT_TYPE}">
-            | <A HREF="/tc?module=ReliabilityDetail&ph=134&uid=${cr}" class="bcLink">Reliability Detail</A>
-        </c:when>
-        <c:when test="${pt == SPECIFICATION_PROJECT_TYPE}">
-            | <A HREF="/tc?module=ReliabilityDetail&ph=117&uid=${cr}" class="bcLink">Reliability Detail</A>
-        </c:when>
-        <c:when test="${pt == ARCHITECTURE_PROJECT_TYPE}">
-            | <A HREF="/tc?module=ReliabilityDetail&ph=118&uid=${cr}" class="bcLink">Reliability Detail</A>
-        </c:when>
-        <c:when test="${pt == TEST_SUITES_PROJECT_TYPE}">
-            | <A HREF="/tc?module=ReliabilityDetail&ph=124&uid=${cr}" class="bcLink">Reliability Detail</A>
-        </c:when>
-        <c:when test="${pt == TEST_SCENARIOS_PROJECT_TYPE}">
-            | <A HREF="/tc?module=ReliabilityDetail&ph=137&uid=${cr}" class="bcLink">Reliability Detail</A>
-        </c:when>
-        <c:when test="${pt == UI_PROTOTYPE_PROJECT_TYPE}">
-            | <A HREF="/tc?module=ReliabilityDetail&ph=130&uid=${cr}" class="bcLink">Reliability Detail</A>
-        </c:when>
-        <c:when test="${pt == RIA_BUILD_PROJECT_TYPE}">
-            | <A HREF="/tc?module=ReliabilityDetail&ph=135&uid=${cr}" class="bcLink">Reliability Detail</A>
-        </c:when>
-        <c:when test="${pt == CONTENT_CREATION_PROJECT_TYPE}">
-            | <A HREF="/tc?module=ReliabilityDetail&ph=146&uid=${cr}" class="bcLink">Reliability Detail</A>
-        </c:when>
-        <c:when test="${pt == REPORTING_PROJECT_TYPE}">
-            | <A HREF="/tc?module=ReliabilityDetail&ph=147&uid=${cr}" class="bcLink">Reliability Detail</A>
-        </c:when>
-    </c:choose>
+ | <A HREF="/tc?module=ReliabilityDetail&pt=${pt}&cr=${cr}" class="bcLink">Reliability Detail</A>
+ | <A HREF="/tc?module=ReviewerRatingHistory&pt=${pt}&cr=${cr}" class="bcLink">Reviewer Rating History</A>
    </span>
 
     <div class="pagingBox" style="clear:both;">&#160;</div>
@@ -335,14 +299,7 @@
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Date</a>
             </TD>
             <TD CLASS="header" width="40%">
-                <c:choose>
-                    <c:when test="${pt == DEVELOPMENT_PROJECT_TYPE || pt == DESIGN_PROJECT_TYPE}">
-                        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Component</a>
-                    </c:when>
-                    <c:otherwise>
-                        <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Application</a>
-                    </c:otherwise>
-                </c:choose>
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Contest</a>
             </TD>
             <TD CLASS="headerC" width="20%">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>">Submissions</a>

@@ -98,15 +98,6 @@ public class CompList extends Base {
                 throw new TCWebException("Invalid project_type_id (" + projectTypeId + ") parameter");
             }
 
-            String projectTypeIds;
-            // add component testing project to the development page
-            if (Constants.DEVELOPMENT_PROJECT_TYPE==projectTypeId) {
-                projectTypeIds = projectTypeId + ", " + Constants.COMPONENT_TESTING_PROJECT_TYPE;
-            } else {
-                projectTypeIds = String.valueOf(projectTypeId);
-            }
-
-
             ArrayList<ResultFilter> filters = new ArrayList<ResultFilter>(1);
             String contestName = StringUtils.checkNull(getRequest().getParameter(Constants.CONTEST_NAME));
             if (!contestName.equals("")) {
@@ -131,7 +122,7 @@ public class CompList extends Base {
             int endRank = Integer.parseInt(startRank) + Integer.parseInt(numRecords) - 1;
 
             r.setContentHandle("comp_list");
-            r.setProperty(Constants.PROJECT_TYPES_ID, projectTypeIds);
+            r.setProperty(Constants.PROJECT_TYPES_ID, String.valueOf(projectTypeId));
 
             Map result = getDataAccess(true).getData(r);
 
