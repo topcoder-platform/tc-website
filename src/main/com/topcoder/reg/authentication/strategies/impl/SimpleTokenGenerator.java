@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2013 TopCoder Inc., All Rights Reserved.
  */
-package com.topcoder.web.tc.controller.request.authentication.strategies.impl;
+package com.topcoder.reg.authentication.strategies.impl;
 
 import java.util.Date;
 import java.util.Random;
