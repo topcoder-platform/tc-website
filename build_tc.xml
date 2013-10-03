@@ -187,6 +187,11 @@
 		<pathelement location="${jars.dir}/commons-httpclient-3.0.1.jar"/>
 		<pathelement location="${jars.dir}/jackson/1.9.7/jackson-core-asl.jar"/>
 		<pathelement location="${jars.dir}/jackson/1.9.7/jackson-mapper-asl.jar"/>
+		<pathelement location="${jars.dir}/json-lib-2.3-jdk15.jar"/>
+		<pathelement location="${jars.dir}/commons-io-2.0.1.jar"/>
+		<pathelement location="${jars.dir}/commons-lang-2.4.jar"/>
+		<pathelement location="${jars.dir}/commons-collections-3.2.jar"/>
+		<pathelement location="${jars.dir}/commons-beanutils-1.8.0.jar"/>
 
         <pathelement location="${jars.dir}/TestServices.jar"/>
         <pathelement location="${jars.dir}/asyncservices.jar"/>
@@ -795,6 +800,12 @@
 		<copy todir="${jboss_lib}" file="${jars.dir}/commons-httpclient-3.0.1.jar"/>
 		<copy todir="${jboss_lib}" file="${jars.dir}/jackson/1.9.7/jackson-core-asl.jar"/>
 		<copy todir="${jboss_lib}" file="${jars.dir}/jackson/1.9.7/jackson-mapper-asl.jar"/>
+		<copy todir="${jboss_lib}" file="${jars.dir}/json-lib-2.3-jdk15.jar"/>
+		<copy todir="${jboss_lib}" file="${jars.dir}/commons-io-2.0.1.jar"/>
+		<copy todir="${jboss_lib}" file="${jars.dir}/commons-collections-3.2.jar"/>
+		<copy todir="${jboss_lib}" file="${jars.dir}/commons-beanutils-1.8.0.jar"/>
+		<copy todir="${jboss_lib}" file="${jars.dir}/commons-lang-2.4.jar"/>
+		
 
         <copy todir="${jboss_lib}" file="${jars.dir}/hibernate-3.0/hibernate-validator.jar"/>
         
