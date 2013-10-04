@@ -90,7 +90,7 @@
                                 </span></li>
                                 
                                 <li><strong>Reliability</strong><span class="red">
-                                    <a href='/tc?module=ReliabilityDetail&ph=<%=request.getParameter("phase_id")%>&uid=<%=request.getParameter("cr")%>' class="redlink">
+                                    <a href='/tc?module=ReliabilityDetail&ph=<%=request.getParameter("phase_id")%>&cr=<%=request.getParameter("cr")%>' class="redlink">
                                         <rsc:item name="reliability" set="<%=rscTrackData%>" format="#.##%" ifNull="n/a"/>
                                     </a>
                                 </span></li>

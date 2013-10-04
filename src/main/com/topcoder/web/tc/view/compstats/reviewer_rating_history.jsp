@@ -332,17 +332,17 @@
             Reviewer Rating History
         </td></tr>
         <tr>
-            <TD CLASS="header">
+            <TD CLASS="header" WIDTH="80">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Review Date</a>
             </TD>
-            <TD CLASS="header" WIDTH="50%">
+            <TD CLASS="header">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">Contest</a>
             </TD>
             <TD CLASS="headerC" WIDTH="12%">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Feedback Score</a>
             </TD>
             <TD CLASS="headerR" WIDTH="12%">
-                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Reviewer Rating</a>
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Rating</a>
             </TD>
             <TD CLASS="headerR" WIDTH="12%" align="right">&#160;</TD>
         </tr>
@@ -353,10 +353,10 @@
                 <TD class="value">
                     <rsc:item name="project_name" row="<%=resultRow%>"/>
                 </TD>
-                <TD class="valueC"><rsc:item name="score" row="<%=resultRow%>"/></TD>
-                <TD class="valueR"><rsc:item name="new_rating" row="<%=resultRow%>" format="0.00"/></TD>
+                <TD class="valueC"><rsc:item name="score" row="<%=resultRow%>" ifNull=""/></TD>
+                <TD class="valueR"><rsc:item name="new_rating" row="<%=resultRow%>" format="0.00" ifNull=""/></TD>
                 <TD class="valueR" nowrap="nowrap">
-                <A HREF="/tc?module=ProjectDetail&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>&tab=results" CLASS="statLink">
+                <A HREF="/tc?module=ReviewFeedbackDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>" CLASS="statLink">
                     Feedback Details
                 </A>
                 </TD>

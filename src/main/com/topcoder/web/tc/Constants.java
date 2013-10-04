@@ -235,6 +235,8 @@ public class Constants implements WebConstants {
 
     public static String VIEW_REVIEWER_RATING_HISTORY_PAGE;
 
+    public static String VIEW_REVIEW_FEEDBACK_DETAILS_PAGE;
+
     public static String VIEW_CURRENT_PROJECTS_PAGE;
 
     public static String VIEW_ALGO_COMPETITION_HISTORY_PAGE;
@@ -254,6 +256,12 @@ public class Constants implements WebConstants {
     public static String REVIEWER_RATING_HISTORY_COMMAND;
 
     public static String REVIEWER_RATING_HISTORY_QUERY;
+
+    public static String REVIEW_FEEDBACK_KEY;
+
+    public static String REVIEW_FEEDBACK_DETAILS_COMMAND;
+
+    public static String REVIEW_FEEDBACK_DETAILS_QUERY;
 
     public static String ALGO_COMPETITION_HISTORY_COMMAND;
 
