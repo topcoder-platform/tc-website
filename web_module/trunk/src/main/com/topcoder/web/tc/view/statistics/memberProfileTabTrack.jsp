@@ -1,7 +1,7 @@
 <%--
   - Author: TCSASSEMBLER
   - Version: 1.1
-  - Copyright (C) 2012 TopCoder Inc., All Rights Reserved.
+  - Copyright (C) 2012-2013 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page displays the member profile track contest page.
   -
@@ -105,7 +105,9 @@
 
                                 <li><strong>Reviewer Rating</strong><span class="gray">
                                     <% if (reviewerRating != null) { %>
-                                        <%=reviewerRating%>
+                                        <a href='/tc?module=ReviewerRatingHistory&ph=<%=request.getParameter("phase_id")%>&cr=<%=request.getParameter("cr")%>' class="redlink">
+                                            <%=reviewerRating%>
+                                        </a>
                                     <% } else { %>not rated<% } %> 
                                 </span></li>
                             </ul>
