@@ -663,8 +663,10 @@ mso-fareast-font-family:"Times New Roman";color:black'><o:p></o:p></span></p>
      "Times New Roman"'>Strong communication skills<o:p></o:p></span></li>
 </ul>
 
+<!--
 <p><a href="/tc?module=JobHit&jid=534&jt=1" class="button" style="width: 70px;">Apply Now</a></p>
 <p class=MsoNormal><o:p>&nbsp;</o:p></p>
+-->
 
 </div>
 
