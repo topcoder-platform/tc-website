@@ -34,10 +34,10 @@ String section = request.getParameter("section") == null ? "" : request.getParam
                 <div class="userPanelC">
                     <c:choose>
                         <c:when test="${sessionInfo.anonymous}">
-                            Hello, <strong>Guest</strong> | <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Login">login</a> | <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/">Register</a>
+                            Hello, <strong>Guest</strong> | <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Login">login</a> | <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/">Register</a> | <a href="http://community.topcoder.com/studio/members/">Members</a> | <a href="http://community.topcoder.com/studio/help/">Studio Help</a> | <a href="http://www.topcoder.com/">About TopCoder</a>
                         </c:when>
                         <c:otherwise>
-                            Hello, <studio:handle coderId="${sessionInfo.userId}" styleClass="userLink" /> | <a href="http://community.topcoder.com/studio/the-process/">Studio Help</a> | <a href="/?module=MyStudioHome">My Studio</a> | <a href="http://www.topcoder.com/">About TopCoder</a> | <a href="/?module=Logout">Log out</a>
+                            Hello, <studio:handle coderId="${sessionInfo.userId}" styleClass="userLink" /> | <a href="http://community.topcoder.com/studio/help/">Studio Help</a> | <a href="/?module=MyStudioHome">My Studio</a> | <a href="https://community.topcoder.com/studio/members/">Members</a> | <a href="http://www.topcoder.com/">About TopCoder</a> | <a href="/?module=Logout">Log out</a>
                         </c:otherwise>
                     </c:choose>
                 </div>
