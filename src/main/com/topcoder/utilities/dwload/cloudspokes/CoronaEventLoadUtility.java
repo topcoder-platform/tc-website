@@ -368,9 +368,10 @@ public class CoronaEventLoadUtility extends DBUtility {
 			}
 			
 			
-			postMethod.setRequestHeader("Authorization", "Token token=" + ((String) params.get(TOKEN)));   
+			postMethod.setRequestHeader("Authorization", "Token token=" + ((String) params.get(TOKEN))); 
+			// TO SWITCH
 			String jsonStr = "{ \"data\": { \"content\": \"" + content + "\", \"country\": \"" + country + "\", \"eventType\": \"" + event + "\", \"long\": \""
-			               + longitude + "\", \"lat\": \"" +latitude + "\", \"profile_pic\": \"" +profilePic +"\"} }";
+			               + longitude + "\", \"lat\": \"" + latitude + "\", \"profile_pic\": \"" +profilePic +"\"} }";
 			StringRequestEntity requestEntity = new StringRequestEntity(jsonStr,"application/json",	"UTF-8");
 
 
@@ -410,10 +411,19 @@ public class CoronaEventLoadUtility extends DBUtility {
 				int status = maphttpClient.executeMethod(getMethod);
 				log.info("Google API Code for api:" + status);
 				
+				if (status != HttpStatus.SC_OK)
+				{
+					return null;
+				}
+				
 				InputStream is = getMethod.getResponseBodyAsStream();
 				String responseMessage = IOUtils.toString(is);
 
 				JSONObject json = (JSONObject) JSONSerializer.toJSON(responseMessage); 
+				if (json.getJSONArray("results").size() <=0 )
+				{	System.out.println("--empty --"+responseMessage);
+					return null;
+				}
 				JSONObject res = (JSONObject)json.getJSONArray("results").get(0);
 				JSONObject geometry = res.getJSONObject("geometry");
 				JSONObject location = geometry.getJSONObject("location");

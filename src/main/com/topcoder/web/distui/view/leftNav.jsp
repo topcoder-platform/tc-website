@@ -1,5 +1,5 @@
 <%--
- * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2013 TopCoder Inc., All Rights Reserved.
  *
  * This JSP renders TopCoder web site's left navigation bar.
  *
@@ -9,7 +9,8 @@
  * Add bug hunt contest type to left side panel (Release Assembly - TopCoder BugHunt Competition Integration)
  * Updated "Review Opportunities" links to point to newly added ViewReviewAuctions controller 
  * (Review Application Integration assembly)
- *
+ * Add "CloudSpokes" node for CloudSpokes contests
+ * (Release Assembly - TopCoder and CloudSpokes Platform Integration Phase 1)
 --%>
 <%@ page language="java"%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
@@ -207,7 +208,15 @@
                     nav.search("m_bughunt_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewReviewAuctions&amp;pt=" +  WebConstants.BUG_HUNT_PROJECT_TYPE, "Review Opportunities", "bug_hunt_review"));
                     nav.search("m_bughunt_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ReviewBoard&amp;pt=" + WebConstants.BUG_HUNT_PROJECT_TYPE, "Meet the Review Board", "bug_hunt_review_board"));
 
-            nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'competition_algo')", "Algorithm", "competition_algo"));
+                nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_cs_competitions')", "CloudSpokes", "m_cs_competitions"));
+                    nav.search("m_cs_competitions").addChild(new NavNode("http://www.cloudspokes.com/how-it-works-members", "Overview", "cs_overview"));
+                    nav.search("m_cs_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CloudSpokes&amp;page=activeContests", "Active Contests", "cs_active_contests"));
+                    nav.search("m_cs_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CloudSpokes&amp;page=contestStatus", "Contest Status", "cs_contest_status"));
+                    nav.search("m_cs_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CloudSpokes&amp;page=pastContests", "Past Contests", "cs_past_contests"));
+                    nav.search("m_cs_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CloudSpokes&amp;page=Review", "Review Opportunities", "cs_review"));
+
+
+    nav.search("m_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'competition_algo')", "Algorithm", "competition_algo"));
                 nav.search("competition_algo").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_algo_competitions')", "Single Round Matches (SRM)", "m_algo_competitions"));
                     nav.search("m_algo_competitions").addChild(new NavNode("http://apps.topcoder.com/wiki/display/tc/Algorithm+Overview", "Overview", "algo_overview"));
                      nav.search("m_algo_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_algo_support')", "Track Information", "m_algo_support"));
@@ -251,6 +260,7 @@
                             nav.search("m_hs_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=hs&amp;d2=support&amp;d3=dataFeed", "Data Feeds", "hs_data_feeds"));
                     nav.search("m_hs_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=hs&d2=spotlightSessions", "Spotlight Sessions", "hs_spotlight"));
                     nav.search("m_hs_competitions").addChild(new NavNode("javascript:arena();", "Launch Arena", "hs_compete"));
+
             nav.search("m_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/dr", "The Digital Run", "digital_run"));
             nav.search("m_competitions").addChild(new NavNode("http://"+ApplicationServer.SOFTWARE_SERVER_NAME+"/review", "Submit &amp; Review", "online_review"));
 

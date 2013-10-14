@@ -623,6 +623,7 @@
                 <include name="Email.properties"/>
                 <include name="EmailEngineConfig.properties"/>
                 <include name="LDAP.properties"/>
+                <include name="CloudSpokes.properties"/>
             </fileset>
         </copy>
         <copy todir="${jboss_conf}">
