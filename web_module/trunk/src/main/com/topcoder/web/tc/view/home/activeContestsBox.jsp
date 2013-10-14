@@ -47,6 +47,7 @@
 <c:set var="contentcreation" value="<%=Home.CONTENT_CREATION%>"/>
 <c:set var="reporting" value="<%=Home.REPORTING%>"/>
 <c:set var="bughunt" value="<%=Home.BUG_HUNT%>"/>
+<c:set var="cloudspokes" value="<%=Home.CLOUDSPOKES%>"/>
 
 <div>
     <img src="/i/interface/rightNavTop.png" alt="" style="display: block;"/>
@@ -65,6 +66,16 @@
                                 <div class="prizes"><fmt:formatNumber value="${activeContestsSummary[dr].prizeTotal}" pattern="#,###,###"/> pts</div>
                                 <a href="/dr" class="gMetal">Digital Run</a>
                                 (${activeContestsSummary[dr].contestCount})
+                            </td>
+                        </tr>
+                    </c:if>
+                    <c:if test="${activeContestsSummary[cloudspokes].contestCount>0}">
+                        <tr>
+                            <td class="value">
+                                <div class="prizes">
+                                    <fmt:formatNumber value="${activeContestsSummary[cloudspokes].prizeTotal}" pattern="$###,###"/></div>
+                                <a href="/tc?module=CloudSpokes&page=activeContests" class="gMetal">CloudSpokes</a>
+                                (${activeContestsSummary[cloudspokes].contestCount})
                             </td>
                         </tr>
                     </c:if>

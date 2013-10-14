@@ -120,6 +120,9 @@ public class Home extends Base {
     public static final String BUGS = "bugs";
     public static final String DR = "dr";
     public static final String MM = "mm";
+
+    public static final String CLOUDSPOKES = "cloudspokes";
+
     public static final String NEXT_ALGO = "nextalgo";
 
     protected void businessProcessing() throws TCWebException {

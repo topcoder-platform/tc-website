@@ -4,6 +4,7 @@
 package com.topcoder.web.tc.controller.request;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.topcoder.shared.dataAccess.Request;
@@ -12,8 +13,13 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.cache.MaxAge;
+import com.topcoder.web.tc.CloudSpokesConstants;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.request.contest.CloudSpokes;
 import com.topcoder.web.tc.model.ActiveContestsSummary;
+import com.topcoder.web.tc.model.cloudspokes.CloudSpokesChallenge;
+import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.NameValuePair;
 
 /**
  * <p>
@@ -56,7 +62,7 @@ public class HomeHelper {
         ret.put(Home.STUDIO, getStudioSummary());
         ret.put(Home.BUGS, getBugRaceSummary());
         ret.put(Home.MM, getMMSummary());
-
+        ret.put(Home.CLOUDSPOKES, getCloudSpokesSummary());
         return ret;
     }
 
@@ -271,6 +277,26 @@ public class HomeHelper {
         ret.setName("Marathon Matches");
         return ret;
 
+    }
+
+    public static ActiveContestsSummary getCloudSpokesSummary() throws Exception {
+        ActiveContestsSummary ret = new ActiveContestsSummary();
+        NameValuePair[] queries = new NameValuePair[]{new NameValuePair("limit",
+                String.valueOf(CloudSpokesConstants.ACTIVE_CONTESTS_MAX_LIMIT))};
+        List<CloudSpokesChallenge> activeChallenges =
+                CloudSpokes.getDataFromCloudSpokesAPI(new HttpClient(), "cloud spokes summary",
+                        CloudSpokesConstants.CLOUD_SPOKES_API_BASE +
+                                CloudSpokesConstants.CLOUD_SPOKES_OPEN_CHALLENGES_API,
+                        null, queries, CloudSpokesChallenge.class, true);
+        ret.setContestCount(activeChallenges.size());
+        ret.setName("CloudSpokes");
+        Float prize = 0f;
+        for(CloudSpokesChallenge c : activeChallenges) {
+            prize += (float) c.getPrize();
+        }
+        ret.setPrizeTotal(prize);
+
+        return ret;
     }
 
     public static ActiveContestsSummary getBugRaceSummary() throws Exception {
