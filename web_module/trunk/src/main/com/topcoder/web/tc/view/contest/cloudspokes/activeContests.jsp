@@ -73,12 +73,13 @@
 <table class="stat" cellpadding="0" cellspacing="0" width="100%" id="cloudSpokesActiveContests">
     <thead>
         <tr>
-            <th class="title" colspan="5">
+            <th class="title" colspan="6">
                 Active CloudSpokes Contests
             </th>
         </tr>
         <tr>
-            <th class="header" width="40%"><a href="javascript:;">Contest</a></th>
+            <th class="header" width="30%"><a href="javascript:;">Contest</a></th>
+			<td class="header" width="10%">&#160;</td>
             <th class="headerC" width="15%" style="text-align: center"><a href="javascript:;">Register by</a></th>
             <th class="headerC" width="15%" style="text-align: center"><a href="javascript:;">Submit by</a></th>
             <th class="headerC" width="15%" style="text-align: center"><a href="javascript:;">Payment</a></th>
@@ -90,6 +91,13 @@
     <c:forEach var="challenge" items="${challenges}">
         <tr class="<%=even?"light":"dark"%>">
             <td class="value"><a target="_blank" href="http://www.cloudspokes.com/challenges/${challenge.challengeId}"><c:out value="${challenge.name}"/></a></td>
+			 <td class="value">
+          
+                <div align="center">
+                  <a target="_blank" href="http://www.cloudspokes.com/challenges/${challenge.challengeId}"><img class="emblem" src="/i/cloudspokes_contest_icon.png" alt="" border="0" onMouseOver="postPopUpText('globalPopupText','CloudSpokes Challenge'); popUp(this,'globalPopup');" onMouseOut="popHide()" /></a>
+                </div>
+			 
+            </td>
             <fmt:setTimeZone value="America/New_York" />
             <td class="valueC" nowrap="nowrap">
                 <fmt:formatDate value="${challenge.endDate}" pattern="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/></td>
