@@ -47,6 +47,10 @@
                </td><td class="bodyText" nowrap=nowrap><a href="/wiki/display/tc/General+Software+Competition+Tutorial"><strong>General Software Competition Tutorial</strong></a></td>
             </tr>
             <tr valign="top"><td class="bodyText">
+               <tc-webtag:handle coderId="15247903"/> &amp; <tc-webtag:handle coderId="23050531"/>
+               </td><td class="bodyText" nowrap=nowrap><a href="/wiki/display/tc/Conceptualization+Competition+Tutorial"><strong>Conceptualization Competition Tutorial</strong></a></td>
+            </tr>
+            <tr valign="top"><td class="bodyText">
                <tc-webtag:handle coderId="152342" context="design"/>
                </td><td class="bodyText" nowrap=nowrap><a href="/wiki/display/tc/Component+Design+Tutorial"><strong>Design Tutorial</strong></a><br>
                Check out the Design Tutorial Movie (Flash required):<br>
