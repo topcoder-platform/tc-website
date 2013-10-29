@@ -415,7 +415,7 @@ public class ApplyRBoardRules extends DBUtility {
             if (userEmail != null && userEmail != "") {
                 if (sendMails.equalsIgnoreCase("true")) {
                     sendMail(systemEmail, userEmail, emailSubject, mail.toString());
-                    log.debug("Sending disq. mail to: " + userEmail);
+                    log.debug("Sending activation mail to: " + userEmail);
                 }
             } else {
                 log.debug("Warning!!! null email for: " + handle);
