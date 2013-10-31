@@ -34,6 +34,8 @@ import org.apache.log4j.Logger;
 import org.supercsv.io.CsvMapReader;
 import org.supercsv.prefs.CsvPreference;
 
+import com.topcoder.security.ldap.LDAPClient;
+import com.topcoder.security.ldap.LDAPClientException;
 import com.topcoder.util.config.ConfigManager;
 import com.topcoder.util.config.UnknownNamespaceException;
 import com.topcoder.util.idgenerator.IDGenerationException;
@@ -48,7 +50,7 @@ import com.topcoder.util.idgenerator.IDGeneratorFactory;
  * <p>
  * <strong>Command line usage:</strong>
  * <pre>
- * java -jar bin/CloudSpokesAccountsLoader.jar [-t] sourceFile outputFolder
+ * java -jar bin/CloudSpokesUsersLoader.jar [-t] sourceFile outputFolder
  *
  *     Loads CloudSpokes user data into TopCoder's user database.
  *
@@ -56,7 +58,7 @@ import com.topcoder.util.idgenerator.IDGeneratorFactory;
  *     sourceFile    Source CSV file.
  *     outputFolder  Path of the folder to which the report, errors and warnings files will be written.
  *
- * java -jar CloudSpokesAccountsLoader.jar -h
+ * java -jar CloudSpokesUsersLoader.jar -h
  *
  *     Prints usage information (this screen).
  * </pre>
@@ -173,11 +175,6 @@ public class CloudSpokesUsersLoader {
     private static final long[] SECURITY_GROUP_IDS = new long[] {
         10L, 14L, 2000116L
     };
-
-    /**
-     * Default password for CloudSpokes users.
-     */
-    private static final String DEFAULT_PASSWORD = "4EjPjy6o+/C+dqNPnxIy9A==";
 
     /**
      * Constant for 'Decline to answer' response.
@@ -557,6 +554,16 @@ public class CloudSpokesUsersLoader {
     private static final long AGE_RANGE_ID_45_AND_UP = 5;
 
     /**
+     * Default password hash for CloudSpokes users.
+     */
+    private static String defaultPasswordHash = "4EjPjy6o+/C+dqNPnxIy9A==";
+
+    /**
+     * Default password for CloudSpokes users.
+     */
+    private static String defaultPassword = "password";
+
+    /**
      * Country codes lookup map.
      * Key is country name in lower case, value is country code.
      */
@@ -654,9 +661,9 @@ public class CloudSpokesUsersLoader {
     private static PreparedStatement alreadyImportedStmt = null;
 
     /**
-     * Search email statement.
+     * Search handle statement.
      */
-    private static PreparedStatement searchEmailStmt = null;
+    private static PreparedStatement searchHandleStmt = null;
 
     /**
      * Insert school statement.
@@ -811,32 +818,32 @@ public class CloudSpokesUsersLoader {
      * @param curUserIndex Index of current user in the input file.
      * @return Parsed value.
      */
-    private static String parseEmail(String value, int curUserIndex) {
+    private static String parseEmail(String value, int curUserIndex, String info) {
         String email = value;
         if (email.length() == 0) {
-            printImportError("email is not specified", curUserIndex);
+            printImportError("email is not specified", curUserIndex, info);
             return null;
         }
         if (email.length() > MAX_LENGTH_EMAIL) {
             printImportError("email is longer than " + MAX_LENGTH_EMAIL
-                    + " characters", curUserIndex);
+                    + " characters", curUserIndex, info);
             return null;
         }
         if (inputEmailIndices.containsKey(email.toLowerCase())) {
             printImportError(String.format("email '%s' already used by CloudSpokes user from line %d",
-                    email, inputEmailIndices.get(email.toLowerCase()) + 1), curUserIndex);
+                    email, inputEmailIndices.get(email.toLowerCase()) + 1), curUserIndex, info);
             return null;
         }
         String emailOwner = null;
         try {
             emailOwner = getEmailOwnerHandle(email);
         } catch (SQLException e) {
-            printImportError("error during checking email uniqueness", curUserIndex);
+            printImportError("error during checking email uniqueness", curUserIndex, info);
             return null;
         }
         if (emailOwner != null) {
             printImportError(String.format("email '%s' is assigned to existing TC user '%s'",
-                    email, emailOwner), curUserIndex);
+                    email, emailOwner), curUserIndex, info);
             return null;
         }
         return email;
@@ -849,32 +856,32 @@ public class CloudSpokesUsersLoader {
      * @param curUserIndex Index of current user in the input file.
      * @return Parsed value.
      */
-    private static String parseHandle(String value, int curUserIndex) {
+    private static String parseHandle(String value, int curUserIndex, String info) {
         String handle = value;
         if (handle.length() == 0) {
-            printImportError("handle is not specified", curUserIndex);
+            printImportError("handle is not specified", curUserIndex, info);
             return null;
         }
         if (handle.length() > MAX_LENGTH_HANDLE) {
             printImportError("handle is longer than " + MAX_LENGTH_HANDLE
-                    + " characters", curUserIndex);
+                    + " characters", curUserIndex, info);
             return null;
         }
         if (inputHandleIndices.containsKey(handle.toLowerCase())) {
             printImportError(String.format("handle '%s' already used by CloudSpokes user from line %d",
-                    handle, inputHandleIndices.get(handle.toLowerCase()) + 1), curUserIndex);
+                    handle, inputHandleIndices.get(handle.toLowerCase()) + 1), curUserIndex, info);
             return null;
         }
         boolean handleOccupied = false;
         try {
             handleOccupied = handleExist(handle);
         } catch (SQLException e) {
-            printImportError("error during checking handle uniqueness", curUserIndex);
+            printImportError("error during checking handle uniqueness", curUserIndex, info);
             return null;
         }
         if (handleOccupied) {
             printImportError(String.format("handle '%s' is already occupied by TC user",
-                    handle), curUserIndex);
+                    handle), curUserIndex, info);
             return null;
         }
         return handle;
@@ -1005,7 +1012,7 @@ public class CloudSpokesUsersLoader {
     private static String parseResourceID(String value, int curUserIndex) {
         String id = value;
         if (id.length() > MAX_LENGTH_RESOURCE_ID) {
-            printImportError("ID may not be longer than " + MAX_LENGTH_RESOURCE_ID + " characters", curUserIndex);
+            printImportError("ID may not be longer than " + MAX_LENGTH_RESOURCE_ID + " characters", curUserIndex, "");
             return null;
         }
         if (id.length() == 0) {
@@ -1191,11 +1198,11 @@ public class CloudSpokesUsersLoader {
      * @param curUserIndex Index of current user in the input file.
      * @return Parsed value.
      */
-    private static String parseGithubUsername(String value, int curUserIndex) {
+    private static String parseGithubUsername(String value, int curUserIndex, String info) {
         String username = value;
         if (username.length() > MAX_LENGTH_CONTACT_INFO) {
             printImportError("Github username is longer than " + MAX_LENGTH_CONTACT_INFO
-                    + " characters", curUserIndex);
+                    + " characters", curUserIndex, info);
             return null;
         } else if (username.length() == 0) {
             username = null;
@@ -1210,11 +1217,11 @@ public class CloudSpokesUsersLoader {
      * @param curUserIndex Index of current user in the input file.
      * @return Parsed value.
      */
-    private static String parseSocialUsername(String value, int curUserIndex) {
+    private static String parseSocialUsername(String value, int curUserIndex, String info) {
         String username = value;
         if (username.length() > MAX_LENGTH_THIRD_PARTY_USERNAME) {
             printImportError("3rd party username is longer than " + MAX_LENGTH_THIRD_PARTY_USERNAME
-                    + " characters", curUserIndex);
+                    + " characters", curUserIndex, info);
             return null;
         } else if (username.length() == 0) {
             username = null;
@@ -1232,7 +1239,7 @@ public class CloudSpokesUsersLoader {
         // Validate input values.
         warnings = new StringBuilder();
         if (inputLine.size() != HEADER_LINE.length) {
-            printImportError("Invalid amount of columns.", curUserIndex);
+            printImportError("Invalid amount of columns.", curUserIndex, "");
             return;
         }
         for (String header : HEADER_LINE) {
@@ -1256,16 +1263,18 @@ public class CloudSpokesUsersLoader {
                 } catch (SQLException ex) {
                     LOG.error("Error during rolling back the changes.", ex);
                 }
-                printImportError("DB operation failed.", curUserIndex);
+                printImportError("DB operation failed.", curUserIndex, "");
                 return;
             }
         }
-        String email = parseEmail(inputLine.get(CSV_COLUMN_EMAIL).trim(), curUserIndex);
-        String handle = parseHandle(inputLine.get(CSV_COLUMN_HANDLE).trim(), curUserIndex);
+		String info = "("+resourceID+","+inputLine.get(CSV_COLUMN_HANDLE).trim()+","+inputLine.get(CSV_COLUMN_EMAIL).trim()+")";
+        String email = parseEmail(inputLine.get(CSV_COLUMN_EMAIL).trim(), curUserIndex, info);
+        String handle = parseHandle(inputLine.get(CSV_COLUMN_HANDLE).trim(), curUserIndex, info);
         if (totalError != totalErrorBefore) {
+            totalError = totalErrorBefore + 1;
             return;
         }
-        String githubUsername = parseGithubUsername(inputLine.get(CSV_COLUMN_GITHUB).trim(), curUserIndex);
+        String githubUsername = parseGithubUsername(inputLine.get(CSV_COLUMN_GITHUB).trim(), curUserIndex, info);
         if (totalError != totalErrorBefore) {
             return;
         }
@@ -1282,6 +1291,8 @@ public class CloudSpokesUsersLoader {
             if (US_COUNTRY_CODE.equals(countryCode)) {
                 if (stateCodes.containsKey(stateName.toLowerCase())) {
                     stateCode = stateCodes.get(stateName.toLowerCase());
+                } else if (stateCodes.containsValue(stateName)) {
+                    stateCode = (stateName.toLowerCase());
                 } else {
                     warnings.append(String.format("; unknown state '%s'", stateName));
                 }
@@ -1324,7 +1335,7 @@ public class CloudSpokesUsersLoader {
             }
         }
         String socialUsername = parseSocialUsername(
-                inputLine.get(CSV_COLUMN_THIRD_PARTY_USERNAME).trim(), curUserIndex);
+                inputLine.get(CSV_COLUMN_THIRD_PARTY_USERNAME).trim(), curUserIndex, info);
 
         // Save processed email and handle.
         inputEmailIndices.put(email.toLowerCase(), curUserIndex);
@@ -1346,8 +1357,9 @@ public class CloudSpokesUsersLoader {
                 if (workPhoneNumber != null) {
                     persistPhone(userID, workPhoneNumber, WORK_PHONE_TYPE_ID, createDate);
                 }
-                persistCoder(userID, quote, countryCode, createDate);
-                if (imageURL != null) {
+                persistCoder(userID, quote, countryCode, createDate); 
+                if (imageURL != null && !imageURL.endsWith("default_cs_member_image.png") && 
+										!imageURL.endsWith("default_appirio_member_image.png")) {
                     persistImage(userID, imageURL);
                 }
                 if (githubUsername != null) {
@@ -1363,14 +1375,31 @@ public class CloudSpokesUsersLoader {
                 if (socialLoginProviderID != null) {
                     persistSocialLogin(userID, socialLoginProviderID, socialUsername, createDate);
                 }
-                conn.commit();
-            } catch (Exception e) {
+                // Add user to LDAP.
+                addUserToLDAP(userID, handle);
+            } catch (LDAPClientException e) {
                 try {
                     conn.rollback();
                 } catch (SQLException ex) {
                     LOG.error("Error during rolling back the changes.", ex);
                 }
-                printImportError("DB operation failed.", curUserIndex);
+                printImportError("LDAP operation failed.", curUserIndex, info);
+                return;
+            } catch (IDGenerationException e) {
+                try {
+                    conn.rollback();
+                } catch (SQLException ex) {
+                    LOG.error("Error during rolling back the changes.", ex);
+                }
+                printImportError("ID generation failed.", curUserIndex, info);
+                return;
+            } catch (SQLException e) {
+                try {
+                    conn.rollback();
+                } catch (SQLException ex) {
+                    LOG.error("Error during rolling back the changes.", ex);
+                }
+                printImportError("DB operation failed.", curUserIndex, info);
                 return;
             }
         }
@@ -1380,6 +1409,31 @@ public class CloudSpokesUsersLoader {
             printImportWarning(warnings.toString().substring(2), curUserIndex);
         } else {
             totalSuccess++;
+        }
+    }
+
+    /**
+     * Adds user to LDAP.
+     *
+     * @param userId User ID.
+     * @param handle User handle.
+     * @throws LDAPClientException If any error occurs with LDAP.
+     */
+    private static void addUserToLDAP(long userId, String handle) throws LDAPClientException {
+        LDAPClient ldapClient = new LDAPClient();
+        try {
+            ldapClient.connect();
+            ldapClient.addTopCoderMemberProfile(userId, handle, defaultPassword, "U");
+			ldapClient.activateTopCoderMemberProfile(userId);
+        } catch (LDAPClientException e) {
+            LOG.error("LDAP error", e);
+            throw e;
+        } finally {
+            try {
+                ldapClient.disconnect();
+            } catch (Exception e) {
+                LOG.error("Disconnect from LDAP failed.", e);
+            }
         }
     }
 
@@ -1475,6 +1529,16 @@ public class CloudSpokesUsersLoader {
         } finally {
             close(stmt, rs);
         }
+        // Add custom time zones.
+        timeZoneIDByName.put("Pacific Time (US & Canada)".toLowerCase(), 553L); // US/Pacific
+        timeZoneIDByName.put("International Date Line West".toLowerCase(), 555L); // US/Samoa
+        timeZoneIDByName.put("Mountain Time (US & Canada)".toLowerCase(), 552L); // US/Mountain
+        timeZoneIDByName.put("Central Time (US & Canada)".toLowerCase(), 546L); // US/Central
+        timeZoneIDByName.put("Eastern Time (US & Canada)".toLowerCase(), 548L); // US/Eastern
+        timeZoneIDByName.put("Alaska".toLowerCase(), 543L); // US/Alaska
+        timeZoneIDByName.put("Arizona".toLowerCase(), 545L); // US/Arizona
+        timeZoneIDByName.put("Indiana (East)".toLowerCase(), 547L); // US/East-Indiana
+        timeZoneIDByName.put("Hawaii".toLowerCase(), 544L); // US/Aleutian
 
         // Load social login providers.
         try {
@@ -1525,7 +1589,7 @@ public class CloudSpokesUsersLoader {
                 insertUserStmt = conn.prepareStatement(
                     "INSERT INTO user (user_id,first_name,last_name,handle,timezone_id,status,"
                     + "reg_source,activation_code,create_date,open_id) "
-                    + "VALUES (?,?,?,?,?,'U','cloudspokes',?,?,?);");
+                    + "VALUES (?,?,?,?,?,'A','cloudspokes',?,?,?);");
             }
             int index = 1;
             insertUserStmt.setLong(index++, userID);
@@ -1827,7 +1891,7 @@ public class CloudSpokesUsersLoader {
     private static long persistImagePath(String path)
         throws SQLException, IDGenerationException {
         // Try find existing path.
-        ResultSet rs = null;
+        /*ResultSet rs = null;
         try {
             if (searchPathStmt == null) {
                 searchPathStmt = conn.prepareStatement(
@@ -1844,7 +1908,7 @@ public class CloudSpokesUsersLoader {
             throw e;
         } finally {
             close(null, rs);
-        }
+        } */
 
         // Generate path ID.
         long pathID;
@@ -1915,7 +1979,7 @@ public class CloudSpokesUsersLoader {
             } else {
                 insertImageStmt.setNull(index++, Types.BIGINT);
             }
-            insertImageStmt.executeUpdate();
+            insertImageStmt.executeUpdate(); 
         } catch (SQLException e) {
             LOG.error("Error inserting record to image table.", e);
             throw e;
@@ -1995,8 +2059,8 @@ public class CloudSpokesUsersLoader {
             int index = 1;
             insertSecurityUserStmt.setLong(index++, userID);
             insertSecurityUserStmt.setString(index++, handle);
-            insertSecurityUserStmt.setString(index++, DEFAULT_PASSWORD);
-            insertSecurityUserStmt.executeUpdate();
+            insertSecurityUserStmt.setString(index++, defaultPasswordHash);
+            insertSecurityUserStmt.executeUpdate(); 
         } catch (SQLException e) {
             LOG.error("Error inserting record to security_user table.", e);
             throw e;
@@ -2108,11 +2172,11 @@ public class CloudSpokesUsersLoader {
     private static boolean handleExist(String handle) throws SQLException {
         ResultSet rs = null;
         try {
-            if (searchEmailStmt == null) {
-                searchEmailStmt = conn.prepareStatement("SELECT 1 FROM user WHERE handle_lower = ?");
+            if (searchHandleStmt == null) {
+                searchHandleStmt = conn.prepareStatement("SELECT 1 FROM user WHERE handle_lower = ?");
             }
-            searchEmailStmt.setString(1, handle.toLowerCase());
-            rs = searchEmailStmt.executeQuery();
+            searchHandleStmt.setString(1, handle.toLowerCase());
+            rs = searchHandleStmt.executeQuery();
             return rs.next();
         } catch (SQLException e) {
             LOG.error("Error searching user handle in DB.", e);
@@ -2128,8 +2192,8 @@ public class CloudSpokesUsersLoader {
      * @param message Error message.
      * @param curUserIndex Index of user (in the input CSV file) on which the error occurred.
      */
-    private static void printImportError(String message, int curUserIndex) {
-        message = String.format("Error importing user from line %d: %s", curUserIndex + 1, message);
+    private static void printImportError(String message, int curUserIndex, String info) {
+        message = String.format("Error importing user from line %d: %s", curUserIndex + 1, info+message);
         LOG.error(message);
         errorWriter.println(message);
         totalError++;
@@ -2240,7 +2304,7 @@ public class CloudSpokesUsersLoader {
      * Prints help screen (usage info).
      */
     private static void printHelp() {
-        System.out.println("java -jar bin/CloudSpokesAccountsLoader.jar [-t] sourceFile outputFolder");
+        System.out.println("java -jar bin/CloudSpokesUsersLoader.jar [-t] sourceFile outputFolder");
         System.out.println();
         System.out.println("\tLoads CloudSpokes user data into TopCoder's user database.");
         System.out.println();
@@ -2250,7 +2314,7 @@ public class CloudSpokesUsersLoader {
         System.out.println("\t\toutputFolder  Path of the folder to which "
                 + "the report, errors and warnings files will be written.");
         System.out.println();
-        System.out.println("java -jar bin/CloudSpokesAccountsLoader.jar -h");
+        System.out.println("java -jar bin/CloudSpokesUsersLoader.jar -h");
         System.out.println();
         System.out.println("\tPrints usage information (this screen).");
     }
@@ -2344,7 +2408,7 @@ public class CloudSpokesUsersLoader {
         try {
             conn = new com.topcoder.db.connectionfactory.DBConnectionFactoryImpl(
                     DB_CONNECTION_FACTORY_NAMESPACE).createConnection(DB_CONNECTION_NAME);
-            conn.setAutoCommit(isTestMode);
+            conn.setAutoCommit(false);
         } catch (Exception e) {
             fail("Failed to establish DB connection.", e);
         }
@@ -2364,7 +2428,7 @@ public class CloudSpokesUsersLoader {
      * @param totalUsers Amount of users in the input file.
      */
     private static void process(int totalUsers) {
-     // Process input file line by line.
+        // Process input file line by line.
         System.out.println("Progress 0%");
         Map<String, String> curLine = null;
         int curUserIndex = 1;
@@ -2384,7 +2448,7 @@ public class CloudSpokesUsersLoader {
             if ((100 * curUserIndex / totalUsers) > (100 * (curUserIndex - 1) / totalUsers)) {
                 System.out.println(String.format("Progress %d%%", 100 * curUserIndex / totalUsers));
             }
-            if (!isTestMode && curUserIndex % transactionItemCount == 0) {
+            if (!isTestMode && (curUserIndex % transactionItemCount == 0 || curUserIndex == totalUsers)) {
                 LOG.debug("Committing transaction after importing user number " + curUserIndex);
                 try {
                     conn.commit();
@@ -2403,7 +2467,7 @@ public class CloudSpokesUsersLoader {
         reportWriter.print(sb.toString());
         System.out.print(sb.toString());
 
-        // Commit changes and quit successfully.
+        // Release resources quit successfully.
         close(insertUserStmt, null);
         close(insertSchoolStmt, null);
         close(insertAddressStmt, null);
@@ -2463,11 +2527,40 @@ public class CloudSpokesUsersLoader {
     }
 
     /**
+     * Loads configuration.
+     */
+    private static void loadConfiguration() {
+        try {
+            String transactionItemCountString = (String) ConfigManager.getInstance().getProperty(
+                    CloudSpokesUsersLoader.class.getCanonicalName(), "transaction_item_count");
+            if (transactionItemCountString != null) {
+                transactionItemCount = Integer.valueOf(transactionItemCountString);
+            }
+            String configPassword = (String) ConfigManager.getInstance().getProperty(
+                    CloudSpokesUsersLoader.class.getCanonicalName(), "default_password");
+            if (configPassword != null) {
+                defaultPassword = configPassword;
+            }
+            String configPasswordHash = (String) ConfigManager.getInstance().getProperty(
+                    CloudSpokesUsersLoader.class.getCanonicalName(), "default_password_hash");
+            if (configPasswordHash != null) {
+                defaultPasswordHash = configPasswordHash;
+            }
+        } catch (UnknownNamespaceException e) {
+            fail("Failed to load and parse transaction item count in configuration.", e);
+        }
+        if (transactionItemCount <= 0) {
+            fail("Transaction item count must be positive.");
+        }
+    }
+
+    /**
      * Command line application entry point.
      *
      * @param args Command line arguments.
+     * @throws LDAPClientException 
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws LDAPClientException {
         // Process command line arguments.
         String inputFilename = null;
         String outputFolder = null;
@@ -2498,7 +2591,9 @@ public class CloudSpokesUsersLoader {
             fail("Incorrect usage. Use -h to get help.");
         }
 
-        
+        // Load configuration.
+        loadConfiguration();
+
         // Count amount of users to be loaded.
         System.out.println("Checking input file...");
         int totalUsers = countUsers(inputFilename);
