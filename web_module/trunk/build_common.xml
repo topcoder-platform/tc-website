@@ -71,6 +71,7 @@
 		<pathelement location="${jars.dir}/commons-lang-2.4.jar"/>
 		<pathelement location="${jars.dir}/commons-collections-3.2.jar"/>
 		<pathelement location="${jars.dir}/commons-beanutils-1.8.0.jar"/>
+		<pathelement location="${jars.dir}/super-csv-2.1.0.jar"/>
 		
     	<path refid="openid4java.path" />
         <pathelement location="${jars.dir}/tcs/terms_of_use/1.1.0/terms_of_use.jar"/>
