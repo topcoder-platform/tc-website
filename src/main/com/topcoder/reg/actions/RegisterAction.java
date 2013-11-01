@@ -19,6 +19,7 @@ import com.topcoder.commons.utils.LoggingWrapperUtility;
 import com.topcoder.reg.CaptchaGenerator;
 import com.topcoder.reg.EmailSetting;
 import com.topcoder.reg.RegistrationHelper;
+import com.topcoder.reg.dto.SocialAccountDTO;
 import com.topcoder.reg.dto.UserDTO;
 import com.topcoder.reg.services.PersistenceException;
 import com.topcoder.reg.util.DataProvider;
@@ -31,12 +32,22 @@ import com.topcoder.reg.Constants;
 /**
  * This action will be used to create new user account into persistence given user instance.
  * <p>
- * <strong>Thread Safety:</strong> Technically speaking, this class is mutable and not thread-safe. But Struts only uses
- * this class in thread-safe manner.
+ * <strong>Thread Safety:</strong> Technically speaking, this class is mutable and not thread-safe. But Struts only
+ * uses this class in thread-safe manner.
  * </p>
  * 
- * @author sampath01, leo_lol
- * @version 1.0
+ * <p>
+ * Change in v1.1 (Release Assembly - TopCoder Website Social Login)
+ * <ol>
+ * <li>If it's a GET request, then retrieve the <code>SocialAccountDTO</code> instance from session and display it
+ * on JSP page.</li>
+ * <li>If it's a POST request, then store the <code>SocialAccountDTO</code> instance inside session into database
+ * as one step of registeration.</li>
+ * <ol>
+ * <p>
+ * 
+ * @author sampath01, leo_lol, ecnu_haozi
+ * @version 1.1
  * @since 1.0
  */
 public class RegisterAction extends BaseAction implements Preparable {
@@ -72,6 +83,12 @@ public class RegisterAction extends BaseAction implements Preparable {
     private List<String> messages;
 
     /**
+     * The current logged in social account data.
+     * @since 1.1
+     */
+    private SocialAccountDTO social;
+
+    /**
      * This method would create and persist new user according user input data.
      * 
      * @throws Exception
@@ -90,13 +107,22 @@ public class RegisterAction extends BaseAction implements Preparable {
         if (null != redirectURL && redirectURL.trim().length() > 0) {
             session.setAttribute(RegistrationHelper.NEXT_PAGE_SESSION_KEY, redirectURL);
         }
-
+        //The GET request is to display registration page.
+        if (request.getMethod().equals("GET")) {
+            setSocial((SocialAccountDTO) session.getAttribute(RegistrationHelper.SOCIAL_ACCOUNT_SESSION_KEY));
+        }
+        //The POST request is to do registration process.
         if (request.getMethod().equals("POST")) {
-
+            //To eliminate NULL field.
             if (null == messages) {
                 messages = new ArrayList<String>();
             }
-
+            if (null == user) {
+                user = new UserDTO();
+            }
+            if (null == social) {
+                social = new SocialAccountDTO();
+            }
             // validate handle
             if (RegistrationHelper.isNullOrEmptyString(user.getHandle())) {
                 messages.add("Handle is requried");
@@ -104,7 +130,7 @@ public class RegisterAction extends BaseAction implements Preparable {
                 final int handleLen = user.getHandle().length();
                 if (handleLen > Constants.MAX_HANDLE_LENGTH || handleLen < Constants.MIN_HANDLE_LENGTH) {
                     messages.add("Length of handle in character should be between " + Constants.MIN_HANDLE_LENGTH
-                            + " and" + Constants.MAX_HANDLE_LENGTH);
+                        + " and" + Constants.MAX_HANDLE_LENGTH);
                 } else {
                     // Check if the handle is invalid.
                     String result = RegistrationHelper.validateHandle(user.getHandle());
@@ -158,7 +184,7 @@ public class RegisterAction extends BaseAction implements Preparable {
                 final int passwordLen = user.getPassword().length();
                 if (passwordLen > Constants.MAX_PASSWORD_LENGTH || passwordLen < Constants.MIN_PASSWORD_LENGTH) {
                     messages.add("Length of password should be between " + Constants.MIN_PASSWORD_LENGTH + " and "
-                            + Constants.MAX_PASSWORD_LENGTH);
+                        + Constants.MAX_PASSWORD_LENGTH);
                 } else {
                     // length OK, check password strength.
                     int strength = RegistrationHelper.calculatePasswordStrength(user.getPassword());
@@ -184,8 +210,8 @@ public class RegisterAction extends BaseAction implements Preparable {
             if (RegistrationHelper.isNullOrEmptyString(user.getVerificationCode())) {
                 messages.add("Captcha code is required");
             } else {
-                if (!user.getVerificationCode()
-                        .equalsIgnoreCase(session.getAttribute(captchaWordSessionKey).toString())) {
+                if (!user.getVerificationCode().equalsIgnoreCase(
+                    session.getAttribute(captchaWordSessionKey).toString())) {
                     messages.add("Captcha code error");
                 }
             }
@@ -204,12 +230,24 @@ public class RegisterAction extends BaseAction implements Preparable {
                 user.setStatus('U');
                 user.setSource(regSource);
                 try {
-                    userService.registerUser(user);
-                    String url = ApplicationServer.SERVER_NAME + "/" + regSource + "/activate.action?"
+                    //Try to register.
+                    long userId = userService.registerUser(user);
+                    
+                    //If there a social account exist, then store the mapping between this social account and the TC account.
+                    SocialAccountDTO socialAccountInSession =
+                        (SocialAccountDTO) session.getAttribute(RegistrationHelper.SOCIAL_ACCOUNT_SESSION_KEY);
+                    if (socialAccountInSession != null) {
+                        socialAccountInSession.setUserId(userId);
+                        getSocialService().storeSocialAccount(socialAccountInSession);
+                    }
+                    
+                    String url =
+                        ApplicationServer.SERVER_NAME + "/" + regSource + "/activate.action?"
                             + WebConstants.ACTIVATION_CODE + "=" + user.getActivationCode();
                     // send activation mail
                     RegistrationHelper.sendActivationEmail(setting.getEmailSubject(), user.getActivationCode(),
-                            setting.getEmailBodyTemplateFile(), user.getEmail(), setting.getEmailFromAddress(), setting.getSenderName(), url);
+                        setting.getEmailBodyTemplateFile(), user.getEmail(), setting.getEmailFromAddress(),
+                        setting.getSenderName(), url);
                 } catch (PersistenceException e) {
                     LoggingWrapperUtility.logException(logger, signature, e);
                     messages.add(e.getMessage());
@@ -224,7 +262,8 @@ public class RegisterAction extends BaseAction implements Preparable {
                 }
             }
         }
-        LoggingWrapperUtility.logExit(logger, signature, new String[] { SUCCESS });
+        //No matter the registration is successful or fail, the same struts result can handle them.
+        LoggingWrapperUtility.logExit(logger, signature, new String[] {SUCCESS});
         return SUCCESS;
     }
 
@@ -340,6 +379,29 @@ public class RegisterAction extends BaseAction implements Preparable {
      */
     public void setMessages(List<String> messages) {
         this.messages = messages;
+    }
+
+    /**
+     * <p>
+     * The getter method for field social.
+     * </p>
+     * @since 1.1
+     * @return the social
+     */
+    public SocialAccountDTO getSocial() {
+        return social;
+    }
+
+    /**
+     * <p>
+     * The setter method for field social.
+     * </p>
+     * @since 1.1
+     * @param social
+     *            the social to set
+     */
+    public void setSocial(SocialAccountDTO social) {
+        this.social = social;
     }
 
 }

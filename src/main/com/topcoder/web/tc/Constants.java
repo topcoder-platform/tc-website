@@ -98,8 +98,18 @@ import java.util.MissingResourceException;
  *   </ol>
  * </p>
  *
- * @author pulky, isv, VolodymyrK, TCSASSEMBLER
- * @version 2.0
+ * <p>
+ *   Version 2.1 (Release Assembly - TopCoder Website Social Login) change log:
+ *   <ol>
+ *     <li>Add CLIENT_ID_AUTH0 constant</li>
+ *     <li>Add CLIENT_SECRET_AUTH0 constant</li>
+ *     <li>Add REDIRECT_URL_AUTH0 constant</li>
+ *     <li>Add DOMAIN_AUTH0 constant</li>
+ *   </ol>
+ * </p>
+ *
+ * @author pulky, isv, VolodymyrK, ecnu_haozi
+ * @version 2.1
  */
 public class Constants implements WebConstants {
 
@@ -975,7 +985,37 @@ public class Constants implements WebConstants {
      * @since 1.8
      */
     public static String ARTICLES_ARCHIVE_CATEGORY;
-        
+
+    /**
+     * <p>A <code>String</code> providing the client id in auth0.com to enable login with 
+     * social accounts like Google, Facebook.</p>
+     *
+     * @since 2.1
+     */
+    public static String CLIENT_ID_AUTH0;
+
+    /**
+     * <p>The credential of the Auth0 account.</p>
+     * 
+     * @since 2.1
+     */
+    public static String CLIENT_SECRET_AUTH0;
+    
+
+    /**
+     * <p>The callback url of the Auth0 account.</p>
+     * 
+     * @since 2.1
+     */
+    public static String REDIRECT_URL_AUTH0;
+    
+    /**
+     * <p>The domain of the Auth0 account.</p>
+     * 
+     *  @since 2.1
+     */
+    public static String DOMAIN_AUTH0;
+    
     static {
         initialize();
     }

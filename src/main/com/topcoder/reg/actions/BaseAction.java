@@ -8,6 +8,7 @@ import javax.annotation.PostConstruct;
 import com.opensymphony.xwork2.ActionSupport;
 import com.topcoder.reg.RegistrationHelper;
 import com.topcoder.reg.services.ConfigurationException;
+import com.topcoder.reg.services.SocialAccountService;
 import com.topcoder.reg.services.UserService;
 import com.topcoder.util.log.Log;
 import com.topcoder.util.log.LogFactory;
@@ -21,8 +22,14 @@ import com.topcoder.util.log.LogFactory;
  * this class in thread-safe manner.
  * </p>
  * 
- * @author sampath01, leo_lol
- * @version 1.0
+ * <p>
+ * Change in v1.1 (Release Assembly - TopCoder Website Social Login)
+ * <ol>
+ * <li>Add SocialAccountService instance to support social account single sign-in related operations.</li>
+ * <ol>
+ * <p>
+ * @author sampath01, leo_lol, ecnu_haozi
+ * @version 1.1
  * @since 1.0
  */
 public class BaseAction extends ActionSupport {
@@ -36,6 +43,12 @@ public class BaseAction extends ActionSupport {
      * It has getter/setter and will be injected by Spring.
      */
     protected UserService userService;
+
+    /**
+     * It has getter/setter and will be injected by Spring.
+     * @since 1.1
+     */
+    protected SocialAccountService socialService;
 
     /**
      * {@link Log} instance, which will be injected by Spring. Not null after IoC.
@@ -245,6 +258,29 @@ public class BaseAction extends ActionSupport {
      */
     public void setRegSource(String regSource) {
         this.regSource = regSource;
+    }
+
+    /**
+     * <p>
+     * The getter method for field socialService.
+     * </p>
+     * @since 1.1
+     * @return the socialService
+     */
+    public SocialAccountService getSocialService() {
+        return socialService;
+    }
+
+    /**
+     * <p>
+     * The setter method for field socialService.
+     * </p>
+     * @since 1.1
+     * @param socialService
+     *            the socialService to set
+     */
+    public void setSocialService(SocialAccountService socialService) {
+        this.socialService = socialService;
     }
 
 }

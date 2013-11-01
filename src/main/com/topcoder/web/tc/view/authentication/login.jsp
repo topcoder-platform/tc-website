@@ -1,5 +1,16 @@
+<%--
+   - Copyright (C) 2013 TopCoder Inc., All Rights Reserved.
+   - This is the login page for authentication.
+   -
+   - Change in 1.1 (Release Assembly - TopCoder Website Social Login)
+   - - Add a Auth0 login widget in div.
+   -
+   - Version: 1.1 
+   - Author: ecnu_haozi
+ --%>
 <%@ page contentType="text/html; charset=ISO-8859-1"
-         import="com.topcoder.web.common.BaseServlet,
+         import="com.topcoder.shared.util.ApplicationServer,
+                 com.topcoder.web.common.BaseServlet,
                  com.topcoder.web.common.StringUtils,
                  com.topcoder.web.tc.Constants" %>
 <%@ page import="com.topcoder.web.tc.controller.request.authentication.Login" %>
@@ -35,7 +46,14 @@
             } else return true;
         }
     </SCRIPT>
+    <%--This script should be put above ../top.jsp to override the latter's auth0.js.--%>
+    <script id="auth0" src="https://sdk.auth0.com/auth0.js#client=<%=Constants.CLIENT_ID_AUTH0%>&amp;state=http://<%=ApplicationServer.SERVER_NAME%><%= request.getAttribute("javax.servlet.forward.request_uri")%>&amp;container=root&amp;redirect_uri=https://<%=ApplicationServer.SERVER_NAME%><%=Constants.REDIRECT_URL_AUTH0%>"></script>
 
+    <script>
+        window.Auth0.ready(function(){
+            window.Auth0.signIn({ onestep: true, theme: 'static', standalone: true });
+        });
+    </script>
 </head>
 
 <body>
@@ -144,7 +162,11 @@
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-<td width="170"><img src="/i/clear.gif" width="170" height="1" alt="" border="0"></td>
+<td width="400">
+    <img src="/i/clear.gif" width="400" height="1" alt="" border="0">
+    <div id="root" style="width: 400px; height: 460px; margin: -50px auto;">
+    </div>
+</td>
 <!-- Left Column Ends -->
 
 <!-- Gutter -->

@@ -41,6 +41,24 @@
             <result>/activate-success.jsp</result>
         </action>
         
+        <action name="callback" class="callbackAction">
+            <result name="register" type="redirectAction">
+                <param name="actionName">showRegister</param>
+                <param name="namespace">/</param>
+            </result>
+            <result name="login" type="chain" >
+                <param name="actionName">login</param>
+                <param name="namespace">/</param>
+            </result>
+            <result name="callbackfail">/callback-fail.jsp</result>
+        </action>
+
+        <action name="login" class="loginAction">
+            <interceptor-ref name="chain" />
+            <result name="success" type="redirect">${nextPage}</result>
+            <result name="loginfail">/login-fail.jsp</result>
+        </action>
+
         <action name="logout" class="logoutAction">
         	<result type="chain">
         		<param name="actionName">showRegister</param>
@@ -78,7 +96,10 @@
         </action>
         
         <action name="login" class="loginAction">
-            <result type="json">
+            <result name="success" type="json">
+                <param name="includeProperties">message, nextPage</param>
+            </result>
+            <result name="loginfail" type="json">
                 <param name="includeProperties">message, nextPage</param>
             </result>
         </action>
