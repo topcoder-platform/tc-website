@@ -7,19 +7,16 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.util.GregorianCalendar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.topcoder.reg.dto.UserDTO;
 import com.topcoder.reg.services.PersistenceException;
 import com.topcoder.reg.util.DataProvider;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.util.idgenerator.IDGeneratorFactory;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.model.User;
+
 /**
  * This class contains a collection of helper method.
  * <p>
@@ -27,12 +24,17 @@ import com.topcoder.web.common.model.User;
  * </p>
  * 
  * <p>
- * Version 1.1(Release Assembly - TopCoder Reg2 Password Recovery Revamp and Misc Bug Fixes) change log:
- * Updated sendResetPasswordEmail method to send the reset password token in the body of email.
+ * Version 1.1(Release Assembly - TopCoder Reg2 Password Recovery Revamp and Misc Bug Fixes) change log: Updated
+ * sendResetPasswordEmail method to send the reset password token in the body of email.
  * </p>
- *
- * @author sampath01, leo_lol, Urmass ,TCSASSEMBLER
- * @version 1.1
+ * <p>
+ * Change in v1.2 (Release Assembly - TopCoder Website Social Login)
+ * <ol>
+ * <li>Add a session key <code>SOCIAL_ACCOUNT_SESSION_KEY</code> for the current logged in social account.</li>
+ * <ol>
+ * </p>
+ * @author sampath01, leo_lol, Urmass ,ecnu_haozi
+ * @version 1.2
  * @since 1.0
  */
 public final class RegistrationHelper {
@@ -41,9 +43,9 @@ public final class RegistrationHelper {
      * Email regular expression.
      */
     public static final String EMAIL_REGEX = "\\b(^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@([A-Za-z0-9-])+((\\.com)"
-            + "|(\\.net)|(\\.org)|(\\.info)|(\\.edu)|(\\.mil)|(\\.gov)|(\\.biz)|(\\.ws)|(\\.us)|(\\.tv)|(\\.cc)"
-            + "|(\\.aero)|(\\.arpa)|(\\.coop)|(\\.int)|(\\.jobs)|(\\.museum)|(\\.name)|(\\.pro)|(\\.travel)|(\\.nato)"
-            + "|(\\..{2,3})|(\\.([A-Za-z0-9-])+\\..{2,3}))$)\\b";
+        + "|(\\.net)|(\\.org)|(\\.info)|(\\.edu)|(\\.mil)|(\\.gov)|(\\.biz)|(\\.ws)|(\\.us)|(\\.tv)|(\\.cc)"
+        + "|(\\.aero)|(\\.arpa)|(\\.coop)|(\\.int)|(\\.jobs)|(\\.museum)|(\\.name)|(\\.pro)|(\\.travel)|(\\.nato)"
+        + "|(\\..{2,3})|(\\.([A-Za-z0-9-])+\\..{2,3}))$)\\b";
 
     /**
      * Email pattern.
@@ -78,8 +80,8 @@ public final class RegistrationHelper {
      * Initialized in a place and never changed after.
      * </p>
      */
-    private static final Pattern[] INVALID_HANDLE_PATTERNS = new Pattern[] { Pattern.compile("(.*?)es"),
-            Pattern.compile("(.*?)s"), Pattern.compile("_*(.*?)_*") };
+    private static final Pattern[] INVALID_HANDLE_PATTERNS = new Pattern[] {Pattern.compile("(.*?)es"),
+        Pattern.compile("(.*?)s"), Pattern.compile("_*(.*?)_*")};
 
     /**
      * Represents the logger.
@@ -102,6 +104,12 @@ public final class RegistrationHelper {
     public static final String NEXT_PAGE_SESSION_KEY = "next_page_session_key";
 
     /**
+     * Key to hold current logged in social account.
+     * @since 1.2
+     */
+    public static final String SOCIAL_ACCOUNT_SESSION_KEY = "social_account_session_key";
+
+    /**
      * Handle punctuation.
      */
     public final static String HANDLE_PUNCTUATION = "-_.{}[]";
@@ -110,7 +118,7 @@ public final class RegistrationHelper {
      * Permit handle chars.
      */
     public final static String HANDLE_ALPHABET = StringUtils.ALPHABET_ALPHA_EN + StringUtils.ALPHABET_DIGITS_EN
-            + HANDLE_PUNCTUATION;
+        + HANDLE_PUNCTUATION;
 
     /**
      * Method to calculate the strength of the password.
@@ -201,7 +209,7 @@ public final class RegistrationHelper {
      */
     static <T extends Throwable> T constructException(String msg, Class<T> clazz) {
         try {
-            Constructor<T> ctor = clazz.getConstructor(new Class[] { String.class });
+            Constructor<T> ctor = clazz.getConstructor(new Class[] {String.class});
             return ctor.newInstance(msg);
         } catch (SecurityException e) {
             // drop all exceptions quietly.
@@ -231,11 +239,12 @@ public final class RegistrationHelper {
      * @param fromAddress
      *            the from address
      * @param senderName
-     *            the sender's name 
+     *            the sender's name
      * @throws Exception
      *             if any errors occurs while sending email
      */
-    public static void sendEmail(String subject, String content, String toAddress, String fromAddress, String senderName) throws Exception {
+    public static void sendEmail(String subject, String content, String toAddress, String fromAddress,
+        String senderName) throws Exception {
         TCSEmailMessage mail = new TCSEmailMessage();
         mail.setSubject(subject);
         mail.setBody(content);
@@ -263,7 +272,8 @@ public final class RegistrationHelper {
      *             if any exception occurs while sending the email
      */
     public static void sendActivationEmail(String subject, String activationCode,
-            String activationEmailBodyTemplateFile, String toAddress, String fromAddress, String senderName, String url) throws Exception {
+        String activationEmailBodyTemplateFile, String toAddress, String fromAddress, String senderName, String url)
+        throws Exception {
         TCSEmailMessage mail = new TCSEmailMessage();
         mail.setSubject(subject);
         String msg = readFileAsString(activationEmailBodyTemplateFile);
@@ -272,7 +282,8 @@ public final class RegistrationHelper {
     }
 
     /**
-     * Sends the reset password email. This method was updated to send the reset password token in the body of email.
+     * Sends the reset password email. This method was updated to send the reset password token in the body of
+     * email.
      * 
      * @param emailSetting
      *            the email setting
@@ -287,11 +298,14 @@ public final class RegistrationHelper {
      * @throws Exception
      *             if any exception occurs while sending the mail.
      */
-    public static void sendResetPasswordEmail(EmailSetting emailSetting, String toEmail, String token, String handle, String expire) throws Exception{
+    public static void sendResetPasswordEmail(EmailSetting emailSetting, String toEmail, String token, String handle,
+        String expire) throws Exception {
         // send the email
-        String msg = readFileAsString(emailSetting.getEmailBodyTemplateFile()).
-                replace("{token}", token).replace("{handle}", handle).replace("{expire}", expire);
-        sendEmail(emailSetting.getEmailSubject(), msg, toEmail, emailSetting.getEmailFromAddress(), emailSetting.getSenderName());
+        String msg =
+            readFileAsString(emailSetting.getEmailBodyTemplateFile()).replace("{token}", token)
+                .replace("{handle}", handle).replace("{expire}", expire);
+        sendEmail(emailSetting.getEmailSubject(), msg, toEmail, emailSetting.getEmailFromAddress(),
+            emailSetting.getSenderName());
     }
 
     /**
@@ -307,8 +321,8 @@ public final class RegistrationHelper {
      */
     public static String readFileAsString(String filePath) throws Exception {
         StringBuilder buf = new StringBuilder();
-        BufferedReader in = new BufferedReader(new InputStreamReader(RegistrationHelper.class.getResourceAsStream("/"
-                + filePath)));
+        BufferedReader in =
+            new BufferedReader(new InputStreamReader(RegistrationHelper.class.getResourceAsStream("/" + filePath)));
         try {
             String s;
             while ((s = in.readLine()) != null) {
@@ -327,8 +341,8 @@ public final class RegistrationHelper {
      *            The handle to check, assumed not null.
      * @param action
      *            The action needing validation to perform.
-     * @return null if the given handle is available, valid and non-offensive; error description there there is at least
-     *         one violated discipline.
+     * @return null if the given handle is available, valid and non-offensive; error description there there is at
+     *         least one violated discipline.
      * @throws PersistenceException
      *             If there is any error while validating against DB for invalid handles.
      */
@@ -381,14 +395,15 @@ public final class RegistrationHelper {
      * Checks given handle against table of invalid handles.
      * </p>
      * <p>
-     * Finds such invalid handle that could be made from given handle removing leading and trailing numbers or adding
-     * plural affixes.
+     * Finds such invalid handle that could be made from given handle removing leading and trailing numbers or
+     * adding plural affixes.
      * </p>
      * 
      * @param handle
      *            the handle to check
-     * @return true, if given handle literally match invalid handle or founded such invalid handle that could be made
-     *         from given handle removing leading and trailing numbers or adding plural affixes, false otherwise
+     * @return true, if given handle literally match invalid handle or founded such invalid handle that could be
+     *         made from given handle removing leading and trailing numbers or adding plural affixes, false
+     *         otherwise
      * @throws PersistenceException
      *             If there is any persistence tier error.
      */
@@ -411,8 +426,8 @@ public final class RegistrationHelper {
      * 
      * @param handle
      *            the handle to check
-     * @return true if given handle without some quantity of leading/trailing numbers equal to invalid handle, false
-     *         otherwise
+     * @return true if given handle without some quantity of leading/trailing numbers equal to invalid handle,
+     *         false otherwise
      * @throws PersistenceException
      *             If there is any persistence error.
      */
@@ -451,7 +466,8 @@ public final class RegistrationHelper {
      *            the handle to check
      * @param pattern
      *            the pattern to be extracted from handle
-     * @return true if given handle with extracted group matches given pattern equal to invalid handle, false otherwise
+     * @return true if given handle with extracted group matches given pattern equal to invalid handle, false
+     *         otherwise
      * @throws PersistenceException
      *             If there is any Persistence error.
      */

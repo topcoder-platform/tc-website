@@ -11,12 +11,9 @@ import java.util.Map;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.InvalidResultSetAccessException;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-
 
 import com.topcoder.commons.utils.LoggingWrapperUtility;
 import com.topcoder.reg.dto.UserDTO;
@@ -41,9 +38,14 @@ import com.topcoder.web.common.StringUtils;
  * Version 1.1(Release Assembly - TopCoder Reg2 Password Recovery Revamp and Misc Bug Fixes) change log:
  * Updated to reflect changes to UserDTO.
  * </p>
- *
- * @author sampath01, leo_lol, Urmass ,TCSASSEMBLER
- * @version 1.1
+ * <p>
+ * Change in v1.2 (Release Assembly - TopCoder Website Social Login)
+ * <ol>
+ * <li>Add a method to obtain password.</li>
+ * <ol>
+ * </p>
+ * @author sampath01, leo_lol, Urmass ,ecnu_haozi
+ * @version 1.2
  * @since 1.0
  */
 public class UserServiceImpl extends BaseImpl implements UserService {
@@ -71,7 +73,14 @@ public class UserServiceImpl extends BaseImpl implements UserService {
      */
     private static final String SQL_INSERT_SECURITY_USER = "INSERT INTO security_user(login_id, user_id, password, "
             + "create_user_id) VALUES(?, ?, ?, ?)";
-
+    
+    /**
+     * SQL to retrieve password according to user id.
+     * 
+     * @since 1.2
+     */
+    private static final String SQL_GET_PASSWORD_BY_USER_ID = "SELECT password FROM security_user WHERE login_id = ?";
+   
     /**
      * SQL to insert new email record to email table when registering new user. The default email status_id is 2,
      * meaning inactive.
@@ -544,4 +553,30 @@ public class UserServiceImpl extends BaseImpl implements UserService {
         LoggingWrapperUtility.logExit(logger, signature, null);
     }
 
+    /**
+     * Get password according to user id.
+     * 
+     * @param userId
+     *            the user id.
+     * @return the password.
+     * @throws PersistenceException
+     *             If there is any error.
+     * @since 1.2
+     */
+    public String getPasswordByUserId(long userId) throws PersistenceException {
+        final String signature = CLASS_NAME + "#getPasswordByUserId(long UserId)";
+        LoggingWrapperUtility.logEntrance(logger, signature, new String[] {"userId"}, new Object[] {userId});
+        try {
+            String password = jdbcTemplate.queryForObject(SQL_GET_PASSWORD_BY_USER_ID, String.class, userId);
+            password = Util.decodePassword(password, "users");
+            LoggingWrapperUtility.logExit(logger, signature, new Object[] {password});
+            return password;
+        } catch (DataAccessException e) {
+            LoggingWrapperUtility.logException(logger, signature, e);
+            throw new PersistenceException("Error while getting user password from DB", e);
+        } catch (Exception e) {
+            LoggingWrapperUtility.logException(logger, signature, e);
+            throw new PersistenceException("Error while decrypting password.", e);
+        }
+    }
 }

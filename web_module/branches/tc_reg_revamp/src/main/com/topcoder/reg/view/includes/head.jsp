@@ -1,16 +1,22 @@
 <%--
    - Copyright (C) 2013 TopCoder Inc., All Rights Reserved.
    - This is the head section of registration app. All pages share the same structure should reuse it.
-   - Version 1.0
-   - Author: leo_lol 
+   - - Change in 1.1 (Release Assembly - TopCoder Website Social Login)
+   - - Change the LOGIN / REGISTER button to SOCIAL LOGIN button.
+   -
+   - Version 1.1
+   - Author: leo_lol , ecnu_haozi
  --%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
+ import="com.topcoder.shared.util.ApplicationServer,
+                 com.topcoder.web.tc.Constants" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 		<header id="header"> 
       		<nav class="top">
 	            <a href="#" class="logo"></a>
-	          	<a class="redBtn" href="showRegister.action">
-					<span class="buttonMask"><span class="text">LOGIN / REGISTER</span></span>
+	            <script id="auth0" src="https://sdk.auth0.com/auth0.js#client=<%=Constants.CLIENT_ID_AUTH0%>&amp;state=https://<%=ApplicationServer.SERVER_NAME%>/tc&amp;redirect_uri=https://<%=ApplicationServer.SERVER_NAME%><%=Constants.REDIRECT_URL_AUTH0%>"></script>
+	          	<a class="redBtn" href="javascript:window.Auth0.signIn({ onestep: true,signupLink: '<%=ApplicationServer.SERVER_NAME%>/reg2/showRegister.action' });">
+					<span class="buttonMask"><span class="text">SOCIAL LOGIN</span></span>
 				</a>
 	            <ul>
 	                <li>

@@ -12,8 +12,14 @@ import com.topcoder.web.common.model.User;
  * <strong>Thread Safety:</strong> Implementation of this interface should be effectively thread-safe.
  * </p>
  * 
- * @author leo_lol
- * @version 1.0
+ * <p>
+ * Change in v1.1 (Release Assembly - TopCoder Website Social Login)
+ * <ol>
+ * <li>Add a method to obtain password.</li>
+ * <ol>
+ * </p>
+ * @author leo_lol, ecnu_haozi
+ * @version 1.1
  * @since 1.0
  */
 public interface UserService {
@@ -103,5 +109,17 @@ public interface UserService {
      * @throws PersistenceException
      *             If there Any error. Say activation code wrong.
      */
-    public void activate(String activationCode) throws PersistenceException;	
+    public void activate(String activationCode) throws PersistenceException;
+    
+    /**
+     * Get password according to user id.
+     * 
+     * @param userId
+     *            the user id.
+     * @return the password.
+     * @throws PersistenceException
+     *             If there is any error.
+     * @since 1.1
+     */
+    public String getPasswordByUserId(long userId) throws PersistenceException;
 }

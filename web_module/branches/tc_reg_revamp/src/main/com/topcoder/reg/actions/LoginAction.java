@@ -34,8 +34,14 @@ import com.topcoder.web.common.security.SessionPersistor;
  * this class in thread-safe manner.
  * </p>
  * 
- * @author sampath01, leo_lol
- * @version 1.0
+ * <p>
+ * Change in v1.1 (Release Assembly - TopCoder Website Social Login)
+ * <ol>
+ * <li>Deal the login successful result and fail result separately.</li>
+ * <ol>
+ * <p>
+ * @author sampath01, leo_lol, ecnu_haozi
+ * @version 1.1
  * @since 1.0
  */
 public class LoginAction extends BaseAction {
@@ -48,6 +54,12 @@ public class LoginAction extends BaseAction {
      * Qualified name of this class.
      */
     private static final String CLASS_NAME = LoginAction.class.getName();
+    
+    /**
+     * The struts result page to go if the login failed.
+     * @since 1.1
+     */
+    private static final String LOGIN_FAIL = "loginfail";
 
     /**
      * Field to store user name from front-end.
@@ -90,9 +102,9 @@ public class LoginAction extends BaseAction {
             LoginRemote login = (LoginRemote) Constants.createEJB(LoginRemote.class);
             tcSubject = login.login(handle, password, DBMS.JTS_OLTP_DATASOURCE_NAME);
         } catch (Exception e) {
-            message = "handle or password is wrong";
+            message = "handle or password is wrong, or email is inactive.";
             LoggingWrapperUtility.logException(logger, signature, e);
-            return SUCCESS;
+            return LOGIN_FAIL;
         }
 
         HttpServletRequest request = ServletActionContext.getRequest();
@@ -107,7 +119,7 @@ public class LoginAction extends BaseAction {
                 authentication.logout();
                 message = "Your email is inactive";
                 LoggingWrapperUtility.logExit(logger, signature, new String[] { SUCCESS });
-                return SUCCESS;
+                return LOGIN_FAIL;
             }
             
             authentication.login(new SimpleUser(0, handle, password), rememberMe);
@@ -129,13 +141,13 @@ public class LoginAction extends BaseAction {
         if (Arrays.binarySearch(WebConstants.INACTIVE_STATI, info.getUserStatus()) > 0) {
             message = "Account is inactive";
             LoggingWrapperUtility.logExit(logger, signature, new String[] { SUCCESS });
-            return SUCCESS;
+            return LOGIN_FAIL;
         }
 
         if (Arrays.binarySearch(WebConstants.UNACTIVE_STATI, info.getUserStatus()) > 0) {
             message = "Account is not activated after registeration step one";
             LoggingWrapperUtility.logExit(logger, signature, new String[] { SUCCESS });
-            return SUCCESS;
+            return LOGIN_FAIL;
         }
         message = "System Internal Error";
         LoggingWrapperUtility.logExit(logger, signature, new String[] { ERROR });

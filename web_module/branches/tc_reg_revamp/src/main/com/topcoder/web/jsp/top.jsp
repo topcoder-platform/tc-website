@@ -5,11 +5,16 @@
  *
  * Changes in Content Creation Contest Online Review and TC Site Integration Assembly 1.0:
  * Add content creation shortcut icon.
+ * 
+ * Changes in ( Release Assembly - TopCoder Website Social Login ) 1.1
+ * 1. Modify the login link to open Auth0 login widget so the users can login with their social accounts. 
+ *
 --%>
 <%@  page
   language="java"
   import="com.topcoder.shared.util.ApplicationServer,
-          com.topcoder.web.common.BaseServlet" %>
+          com.topcoder.web.common.BaseServlet,
+          com.topcoder.web.tc.Constants" %>
 <%@ page import="com.topcoder.web.common.SessionInfo"%>
 <%@ page import="java.text.DecimalFormat"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -40,10 +45,12 @@
 
 <div id="globalPopup" class="popUp"><div id="globalPopupText"></div></div>
 
+<script id="auth0" src="https://sdk.auth0.com/auth0.js#client=<%=Constants.CLIENT_ID_AUTH0%>&amp;state=http://<%=ApplicationServer.SERVER_NAME%><%= request.getAttribute("javax.servlet.forward.request_uri")%>&amp;redirect_uri=https://<%=ApplicationServer.SERVER_NAME%><%=Constants.REDIRECT_URL_AUTH0%>"></script>
+
 <% if ( !sessionInfo.isAnonymous() ) { %>
 <div style="position: absolute; right:0px; top:31px;"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=MyHome"><img src="/i/interface/myTopCoder.png" alt="My TopCoder" style="display:block;"/></a></div>
 <% } else { %>
-<div style="position: absolute; right:0px; top:31px;"><a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/"><img src="/i/interface/register_now.gif" alt="Register Now" style="display:block;"/></a></div>
+<div style="position: absolute; right:0px; top:31px;"><a href="javascript:window.Auth0.signIn({ onestep: true,signupLink: '<%=ApplicationServer.SERVER_NAME%>/reg2/showRegister.action' });"><img src="/i/interface/register_now.gif" alt="Register Now" style="display:block;"/></a></div>
 <%}%>
 
 <div align="center" style="margin: 0px 290px 0px 280px;">

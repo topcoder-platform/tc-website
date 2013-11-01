@@ -1,7 +1,11 @@
 <%--
    - Copyright (C) 2013 TopCoder Inc., All Rights Reserved.
    - This is the home page of registration app.
-   - Version: 1.0
+   -
+   - Change in v1.1 (Release Assembly - TopCoder Website Social Login)
+   - - Add some struts tags to pre-fill regiteration form data.
+   -
+   - Version: 1.1
    - Author: leo_lol
  --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -36,11 +40,11 @@
 					    <s:form id="register_user_form" method="post" action="register" theme="simple" namespace="/ajax">
 						<div class="row">
 							<label>First Name</label>
-							<s:textfield name="user.firstName" id="txtFName" cssClass="text" type="text" theme="simple"></s:textfield>
+							<s:textfield name="user.firstName" id="txtFName" cssClass="text" type="text" theme="simple" value="%{social.givenName}"></s:textfield>
 						</div>
 						<div class="row">
 							<label>Last Name</label>
-							<s:textfield name="user.lastName" id="txtLName" cssClass="text" type="text" theme="simple"></s:textfield>
+							<s:textfield name="user.lastName" id="txtLName" cssClass="text" type="text" theme="simple" value="%{social.familyName}"></s:textfield>
 						</div>
 						<div class="row">
 							<label>Handle</label>
@@ -54,7 +58,7 @@
 						</div>
 						<div class="row">
 							<label>Email</label>
-							<s:textfield id="txtEmail" type="text" cssClass="text" name="user.email" theme="simple"></s:textfield>
+							<s:textfield id="txtEmail" type="text" cssClass="text" name="user.email" theme="simple" value="%{social.email}"></s:textfield>
 							<span class="reg_msg"></span>
 						</div>
 						<div class="row">
