@@ -89,8 +89,8 @@ public class CoderSessionInfo extends SessionInfo {
         countReq.setContentHandle("member_count");
         memberCount = ((ResultSetContainer) countDai.getData(countReq).get("member_count")).getIntItem(0, "member_count");
 		
-		int csCount = loadCSMemberCount();
-		memberCount = memberCount + csCount;
+		//int csCount = loadCSMemberCount();
+		//memberCount = memberCount + csCount;
 		
     }
 

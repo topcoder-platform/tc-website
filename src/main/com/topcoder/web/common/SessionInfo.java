@@ -197,7 +197,7 @@ public class SessionInfo implements Serializable {
         Request countReq = new Request();
         countReq.setContentHandle("member_count");
         int mc = ((ResultSetContainer) countDai.getData(countReq).get("member_count")).getIntItem(0, "member_count");
-		mc = mc + loadCSMemberCount();
+		//mc = mc + loadCSMemberCount();
 		return mc;
     }
 	
