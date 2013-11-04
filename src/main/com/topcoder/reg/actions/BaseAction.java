@@ -12,6 +12,7 @@ import com.topcoder.reg.services.SocialAccountService;
 import com.topcoder.reg.services.UserService;
 import com.topcoder.util.log.Log;
 import com.topcoder.util.log.LogFactory;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * This action is responsible for holding common data like logger. It implements checkConfiguration method which will be
@@ -53,7 +54,9 @@ public class BaseAction extends ActionSupport {
     /**
      * {@link Log} instance, which will be injected by Spring. Not null after IoC.
      */
-    protected Log logger;
+    //protected Log logger;
+	
+	private static final Logger logger = Logger.getLogger(BaseAction.class);
 
     /**
      * Key used to store user into session. It'll be injected by Spring.
@@ -98,7 +101,7 @@ public class BaseAction extends ActionSupport {
      */
     @PostConstruct
     public void checkConfiguration() throws ConfigurationException {
-        logger = LogFactory.getInstance().getLog("BaseAction");
+        //logger = LogFactory.getInstance().getLog("BaseAction");
         RegistrationHelper.checkNotNull("logger", logger, ConfigurationException.class);
 
         RegistrationHelper.checkNotNullOrEmpty("userSessionKey", userSessionKey, ConfigurationException.class);
@@ -106,25 +109,6 @@ public class BaseAction extends ActionSupport {
                 ConfigurationException.class);
         RegistrationHelper.checkNotNullOrEmpty("authenticationSessionKey", authenticationSessionKey,
                 ConfigurationException.class);
-    }
-
-    /**
-     * Getter of the name-sake field.
-     * 
-     * @return the value of name-sake field.
-     */
-    public Log getLogger() {
-        return logger;
-    }
-
-    /**
-     * Setter of the name-sake field.
-     * 
-     * @param logger
-     *            the name-sake field to set
-     */
-    public void setLogger(Log logger) {
-        this.logger = logger;
     }
 
     /**

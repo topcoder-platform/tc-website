@@ -25,6 +25,7 @@ import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.Constants;
 import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * This action will be used to perform user authentication given user-name, password and remember me flag(all are
@@ -54,6 +55,8 @@ public class LoginAction extends BaseAction {
      * Qualified name of this class.
      */
     private static final String CLASS_NAME = LoginAction.class.getName();
+	
+	private static final Logger logger = Logger.getLogger(LoginAction.class);
     
     /**
      * The struts result page to go if the login failed.
@@ -96,14 +99,14 @@ public class LoginAction extends BaseAction {
     @Override
     public String execute() throws Exception {
         final String signature = CLASS_NAME + "#execute()";
-        LoggingWrapperUtility.logEntrance(logger, signature, null, null);
+        logger.info(signature);
         TCSubject tcSubject = null;
         try {
             LoginRemote login = (LoginRemote) Constants.createEJB(LoginRemote.class);
             tcSubject = login.login(handle, password, DBMS.JTS_OLTP_DATASOURCE_NAME);
         } catch (Exception e) {
             message = "handle or password is wrong, or email is inactive.";
-            LoggingWrapperUtility.logException(logger, signature, e);
+            logger.error(signature+e);
             return LOGIN_FAIL;
         }
 
@@ -118,7 +121,7 @@ public class LoginAction extends BaseAction {
             if (info.getEmailStatus() != WebConstants.ACTIVE_EMAIL_STATUS) {
                 authentication.logout();
                 message = "Your email is inactive";
-                LoggingWrapperUtility.logExit(logger, signature, new String[] { SUCCESS });
+                //LoggingWrapperUtility.logExit(logger, signature, new String[] { SUCCESS });
                 return LOGIN_FAIL;
             }
             
@@ -133,24 +136,24 @@ public class LoginAction extends BaseAction {
                 session.removeAttribute(RegistrationHelper.NEXT_PAGE_SESSION_KEY);
             }
             message = "OK";
-            LoggingWrapperUtility.logExit(logger, signature, new String[] { SUCCESS });
+            //LoggingWrapperUtility.logExit(logger, signature, new String[] { SUCCESS });
             return SUCCESS;
         }
 
         authentication.logout();
         if (Arrays.binarySearch(WebConstants.INACTIVE_STATI, info.getUserStatus()) > 0) {
             message = "Account is inactive";
-            LoggingWrapperUtility.logExit(logger, signature, new String[] { SUCCESS });
+            //LoggingWrapperUtility.logExit(logger, signature, new String[] { SUCCESS });
             return LOGIN_FAIL;
         }
 
         if (Arrays.binarySearch(WebConstants.UNACTIVE_STATI, info.getUserStatus()) > 0) {
             message = "Account is not activated after registeration step one";
-            LoggingWrapperUtility.logExit(logger, signature, new String[] { SUCCESS });
+            //LoggingWrapperUtility.logExit(logger, signature, new String[] { SUCCESS });
             return LOGIN_FAIL;
         }
         message = "System Internal Error";
-        LoggingWrapperUtility.logExit(logger, signature, new String[] { ERROR });
+        //LoggingWrapperUtility.logExit(logger, signature, new String[] { ERROR });
         return ERROR;
     }
 

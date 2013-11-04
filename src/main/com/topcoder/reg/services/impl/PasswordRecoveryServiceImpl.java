@@ -18,6 +18,7 @@ import com.topcoder.reg.services.PersistenceException;
 import com.topcoder.reg.services.ServiceException;
 import com.topcoder.web.common.model.PasswordRecovery;
 import com.topcoder.web.common.model.User;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * This class provides an implementation for {@link PasswordRecoveryService} on basis of {@link JdbcTemplate}.
@@ -35,6 +36,8 @@ public class PasswordRecoveryServiceImpl extends BaseImpl implements PasswordRec
      * Qualified name of this class.
      */
     private static final String CLASS_NAME = PasswordRecoveryServiceImpl.class.getName();
+	
+	private static final Logger logger = Logger.getLogger(PasswordRecoveryServiceImpl.class);
 
     /**
      * SQL to insert new password recovery record.
@@ -65,13 +68,12 @@ public class PasswordRecoveryServiceImpl extends BaseImpl implements PasswordRec
     @Transactional(rollbackFor = ServiceException.class, propagation = Propagation.REQUIRED)
     public void create(PasswordRecovery passwordRecovery) throws ServiceException {
         final String signature = CLASS_NAME + "#create(PasswordRecovery passwordRecovery)";
-        LoggingWrapperUtility.logEntrance(logger, signature, new String[] { "passwordRecovery" },
-                new Object[] { passwordRecovery });
+        logger.info(signature);
         try {
             jdbcTemplate.update(SQL_INSERT_PASSWORD_RECOVERY, passwordRecovery.getId(), passwordRecovery.getUser()
                     .getId(), passwordRecovery.getExpireDate(), passwordRecovery.getRecoveryAddress());
         } catch (DataAccessException e) {
-            LoggingWrapperUtility.logException(logger, signature, e);
+            logger.error(signature+e);
             throw new PersistenceException("Error while inserting password recovery record into DB", e);
         }
     }
@@ -88,8 +90,7 @@ public class PasswordRecoveryServiceImpl extends BaseImpl implements PasswordRec
     @Transactional(readOnly = true)
     public PasswordRecovery find(final long passwordRecoveryId) throws ServiceException {
         final String signature = CLASS_NAME + "#find(long passwordRecoveryId) ";
-        LoggingWrapperUtility.logEntrance(logger, signature, new String[] { "passwordRecoveryId" },
-                new Object[] { passwordRecoveryId });
+        logger.info(signature);
 
         PasswordRecovery passwordRecovery = null;
         try {
@@ -116,11 +117,11 @@ public class PasswordRecoveryServiceImpl extends BaseImpl implements PasswordRec
                         }
                     }, passwordRecoveryId);
         } catch (DataAccessException e) {
-            LoggingWrapperUtility.logException(logger, signature, e);
+            logger.error(signature, e);
             throw new PersistenceException("Error while getting password recovery record from DB", e);
         }
 
-        LoggingWrapperUtility.logExit(logger, signature, new Object[] { passwordRecovery });
+        //.logExit(logger, signature, new Object[] { passwordRecovery });
         return passwordRecovery;
     }
 
@@ -134,13 +135,12 @@ public class PasswordRecoveryServiceImpl extends BaseImpl implements PasswordRec
      */
     public void use(long passwordRecoveryId) throws PersistenceException {
         final String signature = CLASS_NAME + "#use(long passwordRecoveryId)";
-        LoggingWrapperUtility.logEntrance(logger, signature, new String[] { "passwordRecoveryId" },
-                new Object[] { passwordRecoveryId });
+        logger.info(signature);
         try {
             jdbcTemplate.update(SQL_UPDATE_PASSWORD_RECOVERY_USE, passwordRecoveryId);
-            LoggingWrapperUtility.logExit(logger, signature, null);
+            //LoggingWrapperUtility.logExit(logger, signature, null);
         } catch (DataAccessException e) {
-            LoggingWrapperUtility.logException(logger, signature, e);
+            logger.error(signature, e);
             throw new PersistenceException("Error while updating password recovery use state", e);
         }
     }

@@ -114,6 +114,36 @@ public class Constants implements WebConstants {
     public static int MAX_REFERRAL_OTHER_LENGTH;
 
     public static int REG_TERMS_ID;
+	
+	 /**
+     * <p>A <code>String</code> providing the client id in auth0.com to enable login with 
+     * social accounts like Google, Facebook.</p>
+     *
+     * @since 2.1
+     */
+    public static String CLIENT_ID_AUTH0;
+
+    /**
+     * <p>The credential of the Auth0 account.</p>
+     * 
+     * @since 2.1
+     */
+    public static String CLIENT_SECRET_AUTH0;
+    
+
+    /**
+     * <p>The callback url of the Auth0 account.</p>
+     * 
+     * @since 2.1
+     */
+    public static String REDIRECT_URL_AUTH0;
+    
+    /**
+     * <p>The domain of the Auth0 account.</p>
+     * 
+     *  @since 2.1
+     */
+    public static String DOMAIN_AUTH0;
 
 
     private Constants() {

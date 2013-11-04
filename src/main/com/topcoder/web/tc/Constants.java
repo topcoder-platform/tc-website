@@ -117,11 +117,28 @@ public class Constants implements WebConstants {
     private static final TCResourceBundle bundle = new TCResourceBundle("TC");
     private static final Logger log = Logger.getLogger(Constants.class);
 
+    /**
+     * Developer portal main page.
+     */
+    public static String DEVELOPER_PORTAL;
+
+    /**
+     * Developer portal welcome page.
+     */
+    public static String DEVELOPER_PORTAL_WELCOME;
+
     public static String DEFAULT_PAGE;
     public static String HOME_PAGE;
     public static String VIEW_LEADER_BOARD_PAGE;
     public static String VIEW_ROOKIE_BOARD_PAGE;
     public static String VIEW_COMPETITION_HISTORY_PAGE;
+
+    public static String VIEW_RELIABILITY_DETAIL_PAGE;
+
+    public static String VIEW_REVIEWER_RATING_HISTORY_PAGE;
+
+    public static String VIEW_REVIEW_FEEDBACK_DETAILS_PAGE;
+
     public static String VIEW_CURRENT_PROJECTS_PAGE;
     public static String VIEW_ALGO_COMPETITION_HISTORY_PAGE;
     public static String VIEW_PAYMENT_SUMMARY_PAGE;
@@ -131,6 +148,17 @@ public class Constants implements WebConstants {
     public static String HISTORY_LIST_KEY;
     public static String COMPETITION_HISTORY_COMMAND;
     public static String COMPETITION_HISTORY_QUERY;
+
+    public static String REVIEWER_RATING_HISTORY_COMMAND;
+
+    public static String REVIEWER_RATING_HISTORY_QUERY;
+
+    public static String REVIEW_FEEDBACK_KEY;
+
+    public static String REVIEW_FEEDBACK_DETAILS_COMMAND;
+
+    public static String REVIEW_FEEDBACK_DETAILS_QUERY;
+
     public static String ALGO_COMPETITION_HISTORY_COMMAND;
     public static String ALGO_COMPETITION_HISTORY_QUERY;
     public static String CURRENT_PERIOD_COMMAND;
@@ -199,6 +227,43 @@ public class Constants implements WebConstants {
     public static String SEASON_ID;
     public static String REVIEW_RESP_ID;
 
+    public static String DOCUMENT_ID;
+
+    /**
+     * <p>
+     * A <code>String</code> providing the name of request parameter with ID of review auction.
+     * </p>
+     * 
+     * @since 1.9.7
+     */
+    public static String REVIEW_AUCTION_ID;
+
+    /**
+     * <p>
+     * A <code>String</code> providing the name of request parameter with ID of review application role.
+     * </p>
+     * 
+     * @since 1.9.7
+     */
+    public static String REVIEW_APPLICATION_ROLE_ID;
+
+    /**
+     * <p>
+     * A <code>String</code> providing the fully-qualified name of class implementing
+     * <code>ProjectPaymentCalculator</code> interface to be used for calculating the payments for projects.
+     * </p>
+     * 
+     * @since 1.9.8
+     */
+    public static String PROJECT_PAYMENT_CALCULATOR_CLASS_NAME;
+
+    /**
+     * Represents the resource role IDs parameter name in query tool.
+     * 
+     * @since 1.9.1
+     */
+    public static String RESOURCE_ROLE_IDS;
+
     public static String STAGE_ID;
     public static String PRIMARY_FLAG;
     public static String REVIEWER_TYPE_ID;
@@ -263,6 +328,16 @@ public class Constants implements WebConstants {
     public static String PLACEMENT_INFO_DETAIL;
     public static String NOTE_LIST;
     public static String NOTE_EDIT;
+
+    /**
+     * <p>
+     * A <code>String</code> referencing the view for editing the government issued ID document.
+     * </p>
+     * 
+     * @since 1.9.4
+     */
+    public static String GOVERNMENT_ID_EDIT;
+
     public static String CONTACT_DATE;
     public static String TCS_SURVEY_RESULTS;
 
@@ -290,6 +365,10 @@ public class Constants implements WebConstants {
 
     public static String DOWNLOAD_SUBMISSION;
     public static String DOWNLOAD_SUBMISSION_TERMS;
+
+    public static String ACTIVE_BUGRACE_COMPETITIONS;
+
+    public static String AGREE_TO_TERMS;
 
     /**
      * Represents the jsp page for request processor view copilot pool. 
@@ -539,6 +618,68 @@ public class Constants implements WebConstants {
      * @since 1.9
      */
     public static String MAX_RIA_BUILD_RATING;	
+
+    public static String MIN_CONTENT_CREATION_RATING;
+
+    public static String MAX_CONTENT_CREATION_RATING;
+
+    public static String MIN_REPORTING_RATING;
+
+    public static String MAX_REPORTING_RATING;
+
+    /**
+     * <p>
+     * A <code>String</code> providing the namespace of terms of use DAO implementation.
+     * </p>
+     * 
+     * @since 1.9.1
+     */
+    public static String TERMS_OF_USE_DAO_NS;
+
+    /**
+     * <p>
+     * A <code>String</code> providing the namespace of user terms of use DAO implementation.
+     * </p>
+     * 
+     * @since 1.9.1
+     */
+    public static String USER_TERMS_OF_USE_DAO_NS;
+
+    /**
+     * <p>
+     * A <code>String</code> providing the namespace of project terms of use DAO implementation.
+     * </p>
+     * 
+     * @since 1.9.1
+     */
+    public static String PROJECT_TERMS_OF_USE_DAO_NS;
+
+    /**
+     * <p>
+     * The id of the non agreeable terms type.
+     * </p>
+     * 
+     * @since 1.9.1
+     */
+    public static int NON_AGREEABLE_TERMS_TYPE_ID;
+
+    /**
+     * <p>
+     * The id of the non-electronically agreeable terms type.
+     * </p>
+     * 
+     * @since 1.9.1
+     */
+    public static int NON_ELEC_AGREEABLE_TERMS_TYPE_ID;
+
+    /**
+     * <p>
+     * The id of the electronically agreeable terms type.
+     * </p>
+     * 
+     * @since 1.9.1
+     */
+    public static int ELEC_AGREEABLE_TERMS_TYPE_ID;
 
     /* misc constants */
     public static int SRM_SURVEY_QUESTION;
@@ -986,35 +1127,370 @@ public class Constants implements WebConstants {
      */
     public static String ARTICLES_ARCHIVE_CATEGORY;
 
-    /**
-     * <p>A <code>String</code> providing the client id in auth0.com to enable login with 
-     * social accounts like Google, Facebook.</p>
-     *
-     * @since 2.1
-     */
-    public static String CLIENT_ID_AUTH0;
+	 public static final String CONFIGURATION_FILE = "com/topcoder/util/config/ConfigManager.properties";
 
     /**
-     * <p>The credential of the Auth0 account.</p>
+     * <p>
+     * A <code>String</code> providing the template for confirmation message when user with PayPal preferred wants
+     * to process payments.
+     * </p>
      * 
-     * @since 2.1
+     * @since 1.9.3
      */
-    public static String CLIENT_SECRET_AUTH0;
-    
+    public static String PAYME_CONFIRMATION_MESSAGE_TEMPLATE_PAYPAL;
 
     /**
-     * <p>The callback url of the Auth0 account.</p>
+     * <p>
+     * A <code>String</code> providing the template for confirmation message when user with Payoneer preferred
+     * wants to process payments.
+     * </p>
      * 
-     * @since 2.1
+     * @since 1.9.3
      */
-    public static String REDIRECT_URL_AUTH0;
+    public static String PAYME_CONFIRMATION_MESSAGE_TEMPLATE_PAYONEER;
+
+    /**
+     * <p>
+     * A <code>String</code> providing the template for confirmation message when user with Western Union preferred
+     * wants to process payments.
+     * </p>
+     * 
+     * @since 1.9.3
+     */
+    public static String PAYME_CONFIRMATION_MESSAGE_TEMPLATE_WESTERN_UNION;
+
+    /**
+     * <p>
+     * A <code>String</code> providing the subject for email message to be sent to intended recipient in case of
+     * insufficient balance encountered while processing user payments.
+     * </p>
+     * 
+     * @since 1.9.3
+     */
+    public static String INSUFFICIENT_BALANCE_EMAIL_SUBJECT;
+
+    /**
+     * <p>
+     * A <code>String</code> providing the FROM address for email message to be sent to intended recipient in case
+     * of insufficient balance encountered while processing user payments.
+     * </p>
+     * 
+     * @since 1.9.3
+     */
+    public static String INSUFFICIENT_BALANCE_EMAIL_FROM_ADDRESS;
+
+    /**
+     * <p>
+     * A <code>String</code> providing the TO address for email message to be sent to intended recipient in case of
+     * insufficient balance encountered while processing user payments.
+     * </p>
+     * 
+     * @since 1.9.3
+     */
+    public static String INSUFFICIENT_BALANCE_EMAIL_TO_ADDRESS;
+
+    /**
+     * <p>
+     * A <code>String</code> providing the tab index to show for contest detail page.
+     * </p>
+     * 
+     * @since 1.9.2
+     */
+    public static final String TAB_INDEX = "tab";
+
+    /**
+     * <p>
+     * A <code>String</code> providing the name of the request attribute providing the ID for government issued ID
+     * document.
+     * </p>
+     * 
+     * @since 1.9.4
+     */
+    public static final String GOVERNMENT_ID = "gov_id";
+
+    /**
+     * <p>
+     * A <code>String</code> providing the name of the request attribute providing the number for government issued
+     * ID document.
+     * </p>
+     * 
+     * @since 1.9.4
+     */
+    public static final String GOVERNMENT_ID_NUMBER = "gov_id_num";
+
+    /**
+     * <p>
+     * A <code>String</code> providing the name of the request attribute providing the date of receiving for
+     * government issued ID document.
+     * </p>
+     * 
+     * @since 1.9.4
+     */
+    public static final String GOVERNMENT_ID_EXPIRES = "gov_id_exp";
+
+    /**
+     * <p>
+     * A <code>String</code> providing the name of the request attribute providing the date for expiration for
+     * government issued ID document.
+     * </p>
+     * 
+     * @since 1.9.4
+     */
+    public static final String GOVERNMENT_ID_RECEIVED = "gov_id_rcv";
+
+    /**
+     * <p>
+     * A <code>String</code> providing the subject for email message to be sent to intended recipient in case of
+     * modifications to their payment preferences.
+     * </p>
+     * 
+     * @since 1.9.5
+     */
+    public static String PAYMENT_PREFS_UPDATE_EMAIL_SUBJECT;
+
+    /**
+     * <p>
+     * A <code>String</code> providing the FROM address for email message to be sent to intended recipient in case
+     * of modifications to their payment preferences.
+     * </p>
+     * 
+     * @since 1.9.5
+     */
+    public static String PAYMENT_PREFS_UPDATE_EMAIL_FROM_ADDRESS;
+
+    /**
+     * <p>
+     * A <code>String</code> providing the name of request attribute providing the list of countries.
+     * </p>
+     * 
+     * @since 1.9.4
+     */
+    public static final String COUNTRIES = "countries";
+
+    /**
+     * The agree to terms page.
+     */
+    public static final String AGREE_TO_TERMS_PAGE = "/terms/agree_to_terms.jsp";
+
+    /**
+     * The is_agree attribute in request.
+     */
+    public static final String IS_AGREE = "is_agree";
+
+    /**
+     * The terms content key in attribute.
+     */
+    public static final String TERMS_CONTENT = "terms.content";
+
+    /**
+     * The origin key in request.
+     */
+    public static final String TERMS_ORIGIN_PAGE_KEY = "origin";
+
+    /**
+     * The the filename key in download request.
+     */
+    public static final String FILE_NAME = "filename";
+
+    /**
+     * The file download terms id.
+     */
+    public static String FILE_DOWNLOAD_TERMS_ID;
+
+    /**
+     * The default page attribute in request.
+     */
+    public static String AGREE_TO_TERMS_DEFAULT_PAGE;
+
+    public static String FILE_TO_DOWNLOAD_PATH;
+
+    /**
+     * <p>
+     * The number of seconds the Resend Token button should be disabled after a click.
+     * </p>
+     * 
+     * @since 1.9.9
+     */
+    public static int RESEND_BUTTON_DELAY_SECONDS;
+
+    /**
+     * <p>
+     *The ID of the email type for the primary email.
+     * </p>
+     * 
+     * @since 1.9.9
+     */
+    public static int PRIMARY_EMAIL_TYPE_ID;
+
+    /**
+     * <p>
+     *The ID of the email type for the second email.
+     * </p>
+     * 
+     * @since 1.9.9
+     */
+    public static int SECOND_EMAIL_TYPE_ID;
+
+    /**
+     * <p>
+     *The full name of the in-use class that implements TokenGenerator interface
+     * </p>
+     * 
+     * @since 1.9.9
+     */
+    public static String RESET_TOKEN_GENERATOR_CLASS;
+
+    /**
+     * <p>
+     *The number of seconds after which the new reset tokens should expire.
+     * </p>
+     * 
+     * @since 1.9.9
+     */
+    public static int RESET_TOKEN_AGE;
+
+
+    /**
+     * <p>
+     *The subject of the mail that is used to notify the user the reset token.
+     * </p>
+     * 
+     * @since 1.9.9
+     */
+    public static String RESET_TOKEN_NOTIFY_MAIL_SUBJECT;
+
+    /**
+     * <p>
+     *The body of the mail that is used to notify the user the reset token.
+     *It supports a variable {token} which is supposed to be replaced by the real token.
+     * </p>
+     * 
+     * @since 1.9.9
+     */
+    public static String RESET_TOKEN_NOTIFY_MAIL_BODY;
+
+    /**
+     * <p>
+     *The number of seconds after which the new send email requests should expire.
+     * </p>
+     * 
+     * @since 1.9.9
+     */
+    public static int SECOND_EMAIL_REQUEST_AGE;
+
+    /**
+     * <p>
+     *The subject of the mail that is used to verify the second mail.
+     * </p>
+     * 
+     * @since 1.9.9
+     */
+    public static String SECOND_EMAIL_VERIFY_MAIL_SUBJECT;
+
+    /**
+     * <p>
+     *The body of the mail that is used to verify the second mail.
+     *It supports variables - {userId}, {key} and {expiredAt}  that are used to construct the verification link.
+     * </p>
+     * 
+     * @since 1.9.9
+     */
+    public static String SECOND_EMAIL_VERIFY_MAIL_BODY;
     
     /**
-     * <p>The domain of the Auth0 account.</p>
+     * <p>
+     * The page to add second email .
+     * </p>
      * 
-     *  @since 2.1
+     * @since 1.9.9
      */
-    public static String DOMAIN_AUTH0;
+    public static String SECOND_EMAIL_PAGE;
+    
+    /**
+     * <p>
+     * The page to notify the add second page request is accepted and waited for verification. 
+     * </p>
+     * 
+     * @since 1.9.9
+     */
+    public static String SECOND_EMAIL_PAGE_CONFIRM;
+    
+    /**
+     * <p>
+     *The verification failed page.
+     * </p>
+     * 
+     * @since 1.9.9
+     */
+    public static String UNVERIFY_PAGE ;
+
+    /**
+     * <p>
+     *The verification pass page.
+     * </p>
+     * 
+     * @since 1.9.9
+     */
+    public static String VERIFY_PAGE;
+    
+    /**
+     * <p>The maximum length of the query input text field for FindUser controller.</p>
+     * @since 1.9.9
+     */
+    public static int FIND_USER_QUERY_MAX_LENGTH;
+    /**
+     * <p>
+     * The recovery by email page.
+     * </p>
+     * 
+     * @since 1.9.9
+     */
+    public static String RECOVER_BY_EMAIL;
+
+    /**
+     * <p>The reset token notify mail from address.</p>
+     * @since 1.9.9
+     */
+    public static String RESET_TOKEN_NOTIFY_MAIL_FROM_ADDRESS;
+
+    /**
+     * <p>The second email verify from address.</p>
+     * @since 1.9.9
+     */
+    public static String SECOND_EMAIL_VERIFY_MAIL_FROM_ADDRESS;
+
+    /**
+     * <p>The PERMISSION session key.</p>
+     * @since 1.9.11
+     */
+    public static String PERMISSION = "reg_permission";
+    
+        /**
+     * <p>The reset token notify mail from personal.</p>
+     * @since 1.9.11
+     */
+    public static String RESET_TOKEN_NOTIFY_MAIL_FROM_PERSONAL;
+    /**
+     * <p>The email change notify mail from address.</p>
+     * @since 1.9.11
+     */
+    public static String EMAIL_CHANGE_NOTIFY_MAIL_FROM_ADDRESS;
+    /**
+     * <p>The email change notify mail from personal.</p>
+     * @since 1.9.11
+     */
+    public static String EMAIL_CHANGE_NOTIFY_MAIL_FROM_PERSONAL;
+    /**
+     * <p>The email change notify mail subject.</p>
+     * @since 1.9.11
+     */
+    public static String EMAIL_CHANGE_NOTIFY_MAIL_SUBJECT;
+    /**
+     * <p>The email change notify mail body.</p>
+     * @since 1.9.11
+     */
+    public static String EMAIL_CHANGE_NOTIFY_MAIL_BODY;
+
     
     static {
         initialize();

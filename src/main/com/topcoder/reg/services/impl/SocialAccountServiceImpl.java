@@ -21,7 +21,8 @@ import com.topcoder.reg.services.PersistenceException;
 import com.topcoder.reg.services.SocialAccountException;
 import com.topcoder.reg.services.SocialAccountService;
 import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.web.tc.Constants;
+import com.topcoder.reg.Constants;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * This class provides an implementation for {@link SocialAccountService}.
@@ -39,6 +40,8 @@ public class SocialAccountServiceImpl extends BaseImpl implements SocialAccountS
      * Qualified name of this class.
      */
     private static final String CLASS_NAME = SocialAccountServiceImpl.class.getName();
+	
+	private static final Logger logger = Logger.getLogger(SocialAccountServiceImpl.class);
     
     /**
      * The facebook id.
@@ -110,7 +113,7 @@ public class SocialAccountServiceImpl extends BaseImpl implements SocialAccountS
     @Transactional(readOnly = true)
     public Long getUserId(SocialAccountDTO social) throws SocialAccountException, PersistenceException {
         final String signature = CLASS_NAME + "#getUserId(SocialAccountDTO social)";
-        LoggingWrapperUtility.logEntrance(logger, signature, new String[] {"social"}, new Object[] {social});
+        logger.info(signature);
 
         try {
             String emailOrScreenName = "";
@@ -137,7 +140,7 @@ public class SocialAccountServiceImpl extends BaseImpl implements SocialAccountS
                         emailOrScreenName, social.isEmailVerified());
             }
 
-            LoggingWrapperUtility.logExit(logger, signature, new Object[] {userId});
+            //LoggingWrapperUtility.logExit(logger, signature, new Object[] {userId});
             return userId;
         } catch (DataAccessException e) {
             // the exception is logged by caller.
@@ -158,8 +161,7 @@ public class SocialAccountServiceImpl extends BaseImpl implements SocialAccountS
     @Transactional(rollbackFor = PersistenceException.class, propagation = Propagation.REQUIRED)
     public void storeSocialAccount(SocialAccountDTO socialAccount) throws PersistenceException {
         final String signature = CLASS_NAME + "#storeSocialAccount(SocialAccountDTO socialAccount)";
-        LoggingWrapperUtility.logEntrance(logger, signature, new String[] {"socialAccount"},
-            new Object[] {socialAccount});
+        logger.info(signature);
 
         try {
             String emailOrScreenName = "";
@@ -173,7 +175,7 @@ public class SocialAccountServiceImpl extends BaseImpl implements SocialAccountS
 
             jdbcTemplate.update(SQL_INSERT_SOCIAL_ACCOUNT, socialAccount.getUserId(), socialAccount.getProviderId(),
                 socialAccount.getName(), emailOrScreenName, socialAccount.isEmailVerified());
-            LoggingWrapperUtility.logExit(logger, signature, null);
+            //LoggingWrapperUtility.logExit(logger, signature, null);
         } catch (DataAccessException e) {
             // the exception is logged by caller.
             throw new PersistenceException("Error while insert social account", e);
@@ -193,19 +195,19 @@ public class SocialAccountServiceImpl extends BaseImpl implements SocialAccountS
      */
     public SocialAccountDTO getCurrentUserInfo(String code) throws SocialAccountException, PersistenceException {
         final String signature = CLASS_NAME + "#getCurrentUserInfo(String code)";
-        LoggingWrapperUtility.logEntrance(logger, signature, new String[] {"code"}, new Object[] {code});
+        logger.info(signature);
 
         SocialAccountDTO social = new SocialAccountDTO();
-        String accessToken = getAccessToken(code);
+        String accessToken = getAccessToken(code);  System.out.println("---------accessToken-------"+accessToken);
         String jsonString;
         try {
             jsonString =
                 restTemplate.getForObject("https://" + Constants.DOMAIN_AUTH0 + "/userinfo?access_token="
                     + accessToken, String.class);
-        } catch (RestClientException e) {
+        } catch (RestClientException e) { System.out.println("----------------"+e);
             throw new SocialAccountException("Fail to obtain current social account info from Auth0.", e);
         }
-
+System.out.println("---------jsonString-------"+jsonString);
         JSONObject rootNode = getJsonNode(jsonString);
 
         social.setProviderId(getProviderId(rootNode.getString("user_id")));
@@ -255,7 +257,7 @@ public class SocialAccountServiceImpl extends BaseImpl implements SocialAccountS
         // The user id of the linked TC account if available, NULL otherwise.
         social.setUserId(getUserId(social));
 
-        LoggingWrapperUtility.logExit(logger, signature, new Object[] {social});
+        //LoggingWrapperUtility.logExit(logger, signature, new Object[] {social});
         return social;
     }
 

@@ -9,6 +9,7 @@ import org.apache.struts2.ServletActionContext;
 
 import com.topcoder.commons.utils.LoggingWrapperUtility;
 import com.topcoder.shared.security.Authentication;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * This action will be used to clear the user session.
@@ -32,6 +33,8 @@ public class LogoutAction extends BaseAction {
      * This field represents the qualified name of this class.
      */
     private static final String CLASS_NAME = LogoutAction.class.getName();
+	
+	private static final Logger logger = Logger.getLogger(LogoutAction.class);
 
     /**
      * This method will logs user out and clear cookies.
@@ -42,7 +45,7 @@ public class LogoutAction extends BaseAction {
     @Override
     public String execute() throws Exception {
         final String signature = CLASS_NAME + "#execute()";
-        LoggingWrapperUtility.logEntrance(logger, signature, null, null);
+        logger.info(signature);
         HttpSession session = ServletActionContext.getRequest().getSession();
         Authentication authentication = (Authentication) session.getAttribute(authenticationSessionKey);
         if(null != authentication) {
@@ -50,7 +53,7 @@ public class LogoutAction extends BaseAction {
         }
         session.removeAttribute(userSessionKey);
         session.removeAttribute(userHandleSessionKey);
-        LoggingWrapperUtility.logExit(logger, signature, new String[]{SUCCESS});
+        //LoggingWrapperUtility.logExit(logger, signature, new String[]{SUCCESS});
         return SUCCESS;
     }
 

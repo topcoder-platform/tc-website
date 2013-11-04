@@ -19,6 +19,7 @@ import com.topcoder.reg.RegistrationHelper;
 import com.topcoder.reg.services.ConfigurationException;
 import com.topcoder.util.log.Log;
 import com.topcoder.util.log.LogFactory;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * This action will intercept the user action, checks user session present or not, if not present it redirect to login
@@ -51,7 +52,9 @@ public class AuthenticationInterceptor extends AbstractInterceptor {
     /**
      * Instance of {@link Log} for logging.
      */
-    private Log logger;
+    //private Log logger;
+	
+	private static final Logger logger = Logger.getLogger(AuthenticationInterceptor.class);
 
     /**
      * This method is to check user session presence and redirect to login page if otherwise.
@@ -64,8 +67,7 @@ public class AuthenticationInterceptor extends AbstractInterceptor {
     @Override
     public String intercept(ActionInvocation actionInvocation) throws Exception {
         final String signature = CLASS_NAME + "#intercept(ActionInvocation actionInvocation)";
-        LoggingWrapperUtility.logEntrance(logger, signature, new String[] { "actionInvocation" },
-                new Object[] { actionInvocation });
+	    logger.info(signature + actionInvocation);
         HttpServletRequest request = ServletActionContext.getRequest(); 
         HttpSession session = request.getSession();
         
@@ -85,11 +87,11 @@ public class AuthenticationInterceptor extends AbstractInterceptor {
             }
             session.setAttribute(RegistrationHelper.NEXT_PAGE_SESSION_KEY, sb.toString());
             
-            LoggingWrapperUtility.logExit(logger, signature, new String[] { ActionSupport.INPUT });
+            
             return ActionSupport.INPUT;
         }
         String result = actionInvocation.invoke();
-        LoggingWrapperUtility.logExit(logger, signature, new String[] { result });
+        
         return result;
     }
 
@@ -103,8 +105,8 @@ public class AuthenticationInterceptor extends AbstractInterceptor {
     @PostConstruct
     public void checkConfiguration() throws ConfigurationException {
         RegistrationHelper.checkNotNullOrEmpty("userHandleSessionKey", userHandleSessionKey, ConfigurationException.class);
-        logger = LogFactory.getInstance().getLog(CLASS_NAME);
-        RegistrationHelper.checkNotNull("logger", logger, ConfigurationException.class);
+        //logger = LogFactory.getInstance().getLog(CLASS_NAME);
+        //RegistrationHelper.checkNotNull("logger", logger, ConfigurationException.class);
     }
 
     /**
@@ -126,23 +128,5 @@ public class AuthenticationInterceptor extends AbstractInterceptor {
         this.userHandleSessionKey = userHandleSessionKey;
     }
 
-    /**
-     * Getter of the name-sake field.
-     * 
-     * @return the value of name-sake field.
-     */
-    public Log getLogger() {
-        return logger;
-    }
-
-    /**
-     * Setter of the name-sake field.
-     * 
-     * @param logger
-     *            the name-sake field to set
-     */
-    public void setLogger(Log logger) {
-        this.logger = logger;
-    }
-
+ 
 }

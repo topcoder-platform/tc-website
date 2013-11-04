@@ -18,6 +18,7 @@ import com.topcoder.commons.utils.LoggingWrapperUtility;
 import com.topcoder.reg.services.PasswordResetTokenService;
 import com.topcoder.reg.dto.PasswordResetTokenDTO;
 import com.topcoder.reg.services.PersistenceException;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * This class provides an implementation for {@link PasswordResetTokenService}.
@@ -34,6 +35,8 @@ public class PasswordResetTokenServiceImpl extends BaseImpl implements PasswordR
      * Qualified name of this class.
      */
     private static final String CLASS_NAME = PasswordResetTokenServiceImpl.class.getName();
+	
+	private static final Logger logger = Logger.getLogger(PasswordResetTokenServiceImpl.class);
 
     /**
      * This query should be used to insert the token.
@@ -76,7 +79,7 @@ public class PasswordResetTokenServiceImpl extends BaseImpl implements PasswordR
     @Transactional(rollbackFor = PersistenceException.class, propagation = Propagation.REQUIRED)
     public void save(PasswordResetTokenDTO token) throws PersistenceException {
         final String signature = CLASS_NAME + "#save(long userId)";
-        LoggingWrapperUtility.logEntrance(logger, signature, new String[] { "token" }, new Object[] { token });
+        logger.info(signature);
         try {
             int updateCnt = jdbcTemplate.update(SQL_UPDATE_PASSWORD_RESET_TOKEN, token.getToken(),
                     token.getExpiredAt(), token.getUserId(), token.getEmailTypeId());
@@ -84,7 +87,7 @@ public class PasswordResetTokenServiceImpl extends BaseImpl implements PasswordR
                 jdbcTemplate.update(SQL_INSERT_PASSWORD_RESET_TOKEN, token.getUserId(), token.getEmailTypeId(), 
                         token.getToken(), token.getExpiredAt());
             }
-            LoggingWrapperUtility.logExit(logger, signature, new Object[] { token });
+            //LoggingWrapperUtility.logExit(logger, signature, new Object[] { token });
         } catch (DataAccessException e) {
             throw new PersistenceException("Error while persisting password reset code", e);
         } catch (Exception e) {
@@ -108,14 +111,14 @@ public class PasswordResetTokenServiceImpl extends BaseImpl implements PasswordR
     public PasswordResetTokenDTO find(long userId, long emailTypeId) throws PersistenceException {
 
         final String signature = CLASS_NAME + "#find(long userId, long emailTypeId)";
-        LoggingWrapperUtility.logEntrance(logger, signature, new String[] { "userId", "emailTypeId" }, new Object[] { userId, emailTypeId });
+        logger.info(signature);
         PasswordResetTokenDTO token = null;
         try {
             token = jdbcTemplate.queryForObject(SQL_GET_PASSWORD_RESET_TOKEN_BY_USER_ID,
                     new PasswordResetTokenDTORowMapper(), userId, emailTypeId);
-            LoggingWrapperUtility.logExit(logger, signature, new Object[] { userId, emailTypeId });
+            //LoggingWrapperUtility.logExit(logger, signature, new Object[] { userId, emailTypeId });
         } catch (DataAccessException e) {
-            LoggingWrapperUtility.logException(logger, signature, e);
+            logger.error(signature+e);
             //throw new PersistenceException("Error while getting password reset code from DB", e);
         }
         return token;
@@ -132,10 +135,10 @@ public class PasswordResetTokenServiceImpl extends BaseImpl implements PasswordR
     @Transactional(rollbackFor = PersistenceException.class, propagation = Propagation.REQUIRED)
     public void expire(long userId, long emailTypeId) throws PersistenceException {
         final String signature = CLASS_NAME + "#expire(long userId, long emailTypeId)";
-        LoggingWrapperUtility.logEntrance(logger, signature, new String[] { "userId", "emailTypeId"}, new Object[] { userId, emailTypeId });
+        logger.info(signature);
         try {
             jdbcTemplate.update(SQL_EXPIRE_PASSWORD_RESET_TOKEN, new Date(), userId, emailTypeId);
-            LoggingWrapperUtility.logExit(logger, signature, new Object[] { userId, emailTypeId });
+            //LoggingWrapperUtility.logExit(logger, signature, new Object[] { userId, emailTypeId });
         } catch (DataAccessException e) {
             throw new PersistenceException("Error while expiring password reset code", e);
         } catch (Exception e) {

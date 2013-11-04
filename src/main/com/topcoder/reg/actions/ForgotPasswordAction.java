@@ -27,6 +27,7 @@ import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.reg.authentication.strategies.TokenGenerator;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.common.validation.StringInput;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.util.Date;
 import java.util.TimeZone;
@@ -73,6 +74,9 @@ public class ForgotPasswordAction extends BaseAction {
      * Qualified name of this class.
      */
     private static final String CLASS_NAME = ForgotPasswordAction.class.getName();
+	
+	private static final Logger logger = Logger.getLogger(ForgotPasswordAction.class);
+
 
     
     /**
@@ -151,7 +155,7 @@ public class ForgotPasswordAction extends BaseAction {
     @Override
     public String execute() throws Exception {
         final String signature = CLASS_NAME + "#execute()";
-        LoggingWrapperUtility.logEntrance(logger, signature, null, null);
+        logger.info(signature);
 
 
         HttpSession session = ServletActionContext.getRequest().getSession();
@@ -199,7 +203,7 @@ public class ForgotPasswordAction extends BaseAction {
                 msg = "OK";
             }
         }
-        LoggingWrapperUtility.logExit(logger, signature, new String[] { SUCCESS });
+        //LoggingWrapperUtility.logExit(logger, signature, new String[] { SUCCESS });
         return SUCCESS;
     }
 
@@ -212,7 +216,7 @@ public class ForgotPasswordAction extends BaseAction {
      */
     public String ajaxFindUser() throws Exception {
         final String signature = CLASS_NAME + "#ajaxFindUser()";
-        LoggingWrapperUtility.logEntrance(logger, signature, null, null);
+        logger.info(signature);
 
         HttpServletRequest request = ServletActionContext.getRequest();
         HttpSession session = request.getSession();
@@ -264,7 +268,7 @@ public class ForgotPasswordAction extends BaseAction {
         
         session.setAttribute(Constants.USER_DTO_SESSION_KEY, userDTO);
 
-        LoggingWrapperUtility.logExit(logger, signature, new String[] { SUCCESS });
+        //LoggingWrapperUtility.logExit(logger, signature, new String[] { SUCCESS });
         return SUCCESS;
 
     }

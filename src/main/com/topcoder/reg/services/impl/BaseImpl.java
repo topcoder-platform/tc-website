@@ -11,6 +11,7 @@ import com.topcoder.reg.RegistrationHelper;
 import com.topcoder.reg.services.ConfigurationException;
 import com.topcoder.util.log.Log;
 import com.topcoder.util.log.LogFactory;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * This class provides basic infrastructure.
@@ -31,7 +32,8 @@ public abstract class BaseImpl {
     /**
      * Instance of Log for logging. It's injected by spring.
      */
-    protected Log logger;
+    //protected Logger logger;
+	private static final Logger logger = Logger.getLogger(BaseImpl.class);
 
     /**
      * This method validates success of IoC.
@@ -42,8 +44,8 @@ public abstract class BaseImpl {
     @PostConstruct
     public void checkConfiguration() throws ConfigurationException {
         RegistrationHelper.checkNotNull("jdbcTempalte", jdbcTemplate, ConfigurationException.class);
-        logger = LogFactory.getInstance().getLog("BaseImpl");
-        RegistrationHelper.checkNotNull("logger", logger, ConfigurationException.class);
+        //logger = LogFactory.getInstance().getLog("BaseImpl");
+        //RegistrationHelper.checkNotNull("logger", logger, ConfigurationException.class);
     }
 
     /**
@@ -65,23 +67,6 @@ public abstract class BaseImpl {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    /**
-     * Getter of the name-sake field.
-     * 
-     * @return the value of name-sake field.
-     */
-    public Log getLogger() {
-        return logger;
-    }
 
-    /**
-     * Setter of the name-sake field.
-     * 
-     * @param logger
-     *            the name-sake field to set
-     */
-    public void setLogger(Log logger) {
-        this.logger = logger;
-    }
 
 }
