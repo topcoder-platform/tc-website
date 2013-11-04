@@ -11,6 +11,7 @@ import com.topcoder.reg.services.PersistenceException;
 import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.reg.dto.UserDTO;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * This method would validate the activation code and then activate the the account if nothing wrong detected.
@@ -44,6 +45,8 @@ public class ActivateAction extends BaseAction {
      * Represents the activation code.
      */
     private String code;
+	
+	private static final Logger logger = Logger.getLogger(ActivateAction.class);
     
     /**
      * This method would validate activation code and activate the account if there is no error.
@@ -55,7 +58,7 @@ public class ActivateAction extends BaseAction {
     @Override
     public String execute() throws Exception {
         final String signature = CLASS_NAME + "#execute()";
-        LoggingWrapperUtility.logEntrance(logger, signature, null, null);        
+        logger.info(signature);        
         
         if (null == code || code.trim().length() == 0) {
             addActionError("Empty activation code");
@@ -69,11 +72,11 @@ public class ActivateAction extends BaseAction {
             ServletActionContext.getRequest().setAttribute(USER_HANDLE_KEY, userDTO.getHandle());
         } catch (PersistenceException e) {
             addActionError(e.getMessage());
-            LoggingWrapperUtility.logException(logger, signature, e);
+            logger.error(e);
             throw e;
         }
 
-        LoggingWrapperUtility.logExit(logger, signature, new String[] { SUCCESS });
+        //LoggingWrapperUtility.logExit(logger, signature, new String[] { SUCCESS });
         return SUCCESS;
     }
     

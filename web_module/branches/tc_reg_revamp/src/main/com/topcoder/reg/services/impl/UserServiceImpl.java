@@ -27,6 +27,8 @@ import com.topcoder.util.idgenerator.IDGenerator;
 import com.topcoder.util.idgenerator.IDGeneratorFactory;
 import com.topcoder.util.log.Level;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.shared.util.logging.Logger;
+
 
 /**
  * This class provides an implementation for {@link UserService}.
@@ -54,6 +56,8 @@ public class UserServiceImpl extends BaseImpl implements UserService {
      * Qualified name of this class.
      */
     private static final String CLASS_NAME = UserServiceImpl.class.getName();
+	
+	private static final Logger logger = Logger.getLogger(UserServiceImpl.class);
 
     /**
      * SQL to insert a new user.
@@ -186,7 +190,7 @@ public class UserServiceImpl extends BaseImpl implements UserService {
     @Transactional(rollbackFor = PersistenceException.class, propagation = Propagation.REQUIRED)
     public long registerUser(UserDTO user) throws PersistenceException {
         final String signature = CLASS_NAME + "#registerUser(User user)";
-        LoggingWrapperUtility.logEntrance(logger, signature, new String[] { "user" }, new Object[] { user });
+        logger.info(signature);
         try {
             long userId = IDGeneratorFactory.getIDGenerator("USER_SEQ").getNextID();
             user.setUserId(userId);
@@ -202,7 +206,7 @@ public class UserServiceImpl extends BaseImpl implements UserService {
             addTopCoderMemberProfile(userId, user.getHandle(), user.getPassword());
 
             addUserToGroups(userId, new long[] { ANONYMOUS_GROUP_ID, USERS_GROUP_ID });
-            LoggingWrapperUtility.logExit(logger, signature, new Object[] { userId });
+            //LoggingWrapperUtility.logExit(logger, signature, new Object[] { userId });
             return userId;
         } catch (IDGenerationException e) {
             throw new PersistenceException("Unable to generate id for new user", e);
@@ -253,15 +257,15 @@ public class UserServiceImpl extends BaseImpl implements UserService {
     @Transactional(readOnly = true)
     public UserDTO getUserByHandle(final String handle) throws PersistenceException {
         final String signature = CLASS_NAME + "#getUserByHandle(String handle)";
-        LoggingWrapperUtility.logEntrance(logger, signature, new String[] { "handle" }, new String[] { handle });
+        logger.info(signature);
         UserDTO user = null;
         try {
             Object[] args = new Object[] { handle, handle, handle };
             user = jdbcTemplate.queryForObject(SQL_GET_USER_BY_HANDLE, args, new UserDTORowMapper());
-            LoggingWrapperUtility.logExit(logger, signature, new Object[] { user });
+            //LoggingWrapperUtility.logExit(logger, signature, new Object[] { user });
             return user;
         } catch (DataAccessException e) {
-            LoggingWrapperUtility.logException(logger, signature, e);
+            logger.error(signature+ e);
             throw new PersistenceException("Error while getting user from DB", e);
         }
 
@@ -278,15 +282,15 @@ public class UserServiceImpl extends BaseImpl implements UserService {
 	@Transactional(readOnly = true)
 	public boolean handleExists(String handle) throws PersistenceException {
 		final String signature = CLASS_NAME + "handleExists(String handle)";
-        LoggingWrapperUtility.logEntrance(logger, signature, new String[] { "handle" }, new String[] { handle });
+        logger.info(signature);
         
         try {
              java.util.List<Integer>
 					result = jdbcTemplate.queryForList(SQL_CHECK_USER_HANDLE_EXISTENCE, Integer.class, handle);
-            LoggingWrapperUtility.logExit(logger, signature, null);
+            //LoggingWrapperUtility.logExit(logger, signature, null);
             return result.size() > 0;
         } catch (DataAccessException e) {
-            LoggingWrapperUtility.logException(logger, signature, e);
+            logger.error(signature+e);
             throw new PersistenceException("Error while checking user handle existence", e);
         }
 	}
@@ -302,14 +306,14 @@ public class UserServiceImpl extends BaseImpl implements UserService {
 	@Transactional(readOnly = true)
 	public boolean multipleUsers(String email) throws PersistenceException {
 		final String signature = CLASS_NAME + "multipleUsers(String handle)";
-        LoggingWrapperUtility.logEntrance(logger, signature, new String[] { "email" }, new String[] { email });
+        logger.info(signature);
 
         try {
              int result = jdbcTemplate.queryForInt(SQL_MULTIPLE_USERS_BY_EMAIL, new Object[] {email});
-            LoggingWrapperUtility.logExit(logger, signature, null);
+            //LoggingWrapperUtility.logExit(logger, signature, null);
             return result > 1;
         } catch (DataAccessException e) {
-            LoggingWrapperUtility.logException(logger, signature, e);
+            logger.error(signature+ e);
             throw new PersistenceException("Error while checking multiple", e);
         }
 	}
@@ -326,16 +330,16 @@ public class UserServiceImpl extends BaseImpl implements UserService {
     @Transactional(readOnly = true)
     public UserDTO getUserByEmail(final String email) throws PersistenceException {
         final String signature = CLASS_NAME + "#getUserByEmail(final String email)";
-        LoggingWrapperUtility.logEntrance(logger, signature, new String[] { "email" }, new String[] { email });
+       logger.info(signature);
         UserDTO user = null;
 
         try {
             Object[] args = new Object[] { email, email, email };
             user = jdbcTemplate.queryForObject(SQL_GET_USER_BY_EMAIL, args, new UserDTORowMapper());
-            LoggingWrapperUtility.logExit(logger, signature, new Object[] { user });
+            //LoggingWrapperUtility.logExit(logger, signature, new Object[] { user });
             return user;
         } catch (DataAccessException e) {
-            LoggingWrapperUtility.logException(logger, signature, e);
+            logger.error(signature+ e);
             throw new PersistenceException("Error while getting user from DB", e);
         }
 
@@ -353,15 +357,15 @@ public class UserServiceImpl extends BaseImpl implements UserService {
     @Transactional(readOnly = true)
     public UserDTO getUserByUserId(long userId) throws PersistenceException {
         final String signature = CLASS_NAME + "#getUserByUserId(long userId)";
-        LoggingWrapperUtility.logEntrance(logger, signature, new String[] { "userId" }, new Object[] { userId });
+        logger.info(signature);
         UserDTO user = null;
         try {
             Object[] args = new Object[] { userId, userId, userId };
             user = jdbcTemplate.queryForObject(SQL_GET_USER_BY_USER_ID, args, new UserDTORowMapper());
-            LoggingWrapperUtility.logExit(logger, signature, new Object[] { user });
+            //LoggingWrapperUtility.logExit(logger, signature, new Object[] { user });
             return user;
         } catch (DataAccessException e) {
-            LoggingWrapperUtility.logException(logger, signature, e);
+            logger.error(signature+ e);
             throw new PersistenceException("Error while getting user from DB", e);
         }
 
@@ -417,10 +421,9 @@ public class UserServiceImpl extends BaseImpl implements UserService {
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = PersistenceException.class)
     public void addUserToGroups(long userId, long[] groupIds) throws PersistenceException {
         final String signature = CLASS_NAME + "#addUserToGroups(long userId, long[] groupIds)";
-        LoggingWrapperUtility.logEntrance(logger, signature, new String[] { "userId", "groupIds" }, new Object[] {
-                userId, groupIds });
+        logger.info(signature);
         if (null == groupIds || groupIds.length == 0) {
-            LoggingWrapperUtility.logExit(logger, signature, null);
+            //LoggingWrapperUtility.logExit(logger, signature, null);
             return;
         }
 
@@ -440,14 +443,14 @@ public class UserServiceImpl extends BaseImpl implements UserService {
             }
 
         } catch (IDGenerationException e) {
-            LoggingWrapperUtility.logException(logger, signature, e);
+            logger.error(signature+e);
             throw new PersistenceException("Error while generating user_group_xref#user_group_id using id_generator", e);
         } catch (DataAccessException e) {
-            LoggingWrapperUtility.logException(logger, signature, e);
+            logger.error(signature+e);
             throw new PersistenceException("Error while joining user to groups", e);
         }
 
-        LoggingWrapperUtility.logExit(logger, signature, null);
+        //LoggingWrapperUtility.logExit(logger, signature, null);
     }
 
     /**
@@ -483,8 +486,7 @@ public class UserServiceImpl extends BaseImpl implements UserService {
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = PersistenceException.class)
     public void activate(String activationCode) throws PersistenceException {
         final String signature = CLASS_NAME + "#activate(String activationCode)";
-        LoggingWrapperUtility.logEntrance(logger, signature, new String[] { "activationCode" },
-                new String[] { activationCode });
+        logger.info(signature);
         long userId = StringUtils.getCoderId(activationCode);
         try {
             SqlRowSet rowSet = jdbcTemplate.queryForRowSet(SQL_USER_STATUS, userId);
@@ -511,16 +513,16 @@ public class UserServiceImpl extends BaseImpl implements UserService {
             jdbcTemplate.update(SQL_ACTIVATE_EMAIL, userId);
             activateLDAPEntry(userId);
         } catch (InvalidResultSetAccessException e) {
-            LoggingWrapperUtility.logException(logger, signature, e);
+            logger.error(signature+ e);
             throw new PersistenceException("Error while activating account", e);
         } catch (DataAccessException e) {
-            LoggingWrapperUtility.logException(logger, signature, e);
+             logger.error(signature+ e);
             throw new PersistenceException("Error while activating account", e);
         } catch (LDAPClientException e) {
-            LoggingWrapperUtility.logException(logger, signature, e);
+             logger.error(signature+ e);
             throw new PersistenceException("Error while activating LDAP status", e);
         }
-        LoggingWrapperUtility.logExit(logger, signature, null);
+        //LoggingWrapperUtility.logExit(logger, signature, null);
     }
 
     /**
@@ -536,7 +538,7 @@ public class UserServiceImpl extends BaseImpl implements UserService {
      */
     private void activateLDAPEntry(long userId) throws LDAPClientException {
         final String signature = CLASS_NAME + "#activateLDAPEntry(long userId)";
-        LoggingWrapperUtility.logEntrance(logger, signature, new String[] { "userId" }, new Object[] { userId });
+        logger.info(signature);
         LDAPClient ldapClient = new LDAPClient();
         try {
             ldapClient.connect();
@@ -545,12 +547,12 @@ public class UserServiceImpl extends BaseImpl implements UserService {
             try {
                 ldapClient.disconnect();
             } catch (LDAPClientException e) {
-                LoggingWrapperUtility.logException(logger, signature, e);
-                logger.log(Level.ERROR, "Failed to disconnect from LDAP server while activating user account. "
+                //LoggingWrapperUtility.logException(logger, signature, e);
+                logger.error("Failed to disconnect from LDAP server while activating user account. "
                         + "The process is not interrupted.");
             }
         }
-        LoggingWrapperUtility.logExit(logger, signature, null);
+        //LoggingWrapperUtility.logExit(logger, signature, null);
     }
 
     /**
@@ -565,17 +567,17 @@ public class UserServiceImpl extends BaseImpl implements UserService {
      */
     public String getPasswordByUserId(long userId) throws PersistenceException {
         final String signature = CLASS_NAME + "#getPasswordByUserId(long UserId)";
-        LoggingWrapperUtility.logEntrance(logger, signature, new String[] {"userId"}, new Object[] {userId});
+        logger.info(signature);
         try {
             String password = jdbcTemplate.queryForObject(SQL_GET_PASSWORD_BY_USER_ID, String.class, userId);
             password = Util.decodePassword(password, "users");
-            LoggingWrapperUtility.logExit(logger, signature, new Object[] {password});
+            //LoggingWrapperUtility.logExit(logger, signature, new Object[] {password});
             return password;
         } catch (DataAccessException e) {
-            LoggingWrapperUtility.logException(logger, signature, e);
+            logger.error(signature+e);
             throw new PersistenceException("Error while getting user password from DB", e);
         } catch (Exception e) {
-            LoggingWrapperUtility.logException(logger, signature, e);
+            logger.error(signature+e);
             throw new PersistenceException("Error while decrypting password.", e);
         }
     }

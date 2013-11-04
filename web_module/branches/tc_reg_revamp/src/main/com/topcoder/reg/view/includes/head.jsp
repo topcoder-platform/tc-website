@@ -9,7 +9,7 @@
  --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
  import="com.topcoder.shared.util.ApplicationServer,
-                 com.topcoder.web.tc.Constants" %>
+                 com.topcoder.reg.Constants" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 		<header id="header"> 
       		<nav class="top">

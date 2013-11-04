@@ -17,6 +17,7 @@ import com.topcoder.reg.dto.SocialAccountDTO;
 import com.topcoder.reg.dto.UserDTO;
 import com.topcoder.reg.services.PersistenceException;
 import com.topcoder.reg.services.SocialAccountException;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * <p>
@@ -43,6 +44,8 @@ public class CallbackAction extends BaseAction {
      * This field represents the qualified name of this class.
      */
     private static final String CLASS_NAME = CallbackAction.class.getName();
+	
+	private static final Logger logger = Logger.getLogger(CallbackAction.class);
 
     /**
      * The struts result page to go if the social account doesn't bind to a TC account.
@@ -99,7 +102,7 @@ public class CallbackAction extends BaseAction {
     @Override
     public String execute() throws Exception {
         final String signature = CLASS_NAME + "#execute()";
-        LoggingWrapperUtility.logEntrance(logger, signature, null, null);
+        logger.info(signature);
 
         if (null == messages) {
             messages = new ArrayList<String>();
@@ -124,24 +127,27 @@ public class CallbackAction extends BaseAction {
 
                 // store the page to redirect after login successfully into session.
                 session.setAttribute(RegistrationHelper.NEXT_PAGE_SESSION_KEY, state);
-                LoggingWrapperUtility.logExit(logger, signature, new String[] {LOGIN});
+                //LoggingWrapperUtility.logExit(logger, signature, new String[] {LOGIN});
                 return LOGIN;
             }
         } catch (PersistenceException e) {
-            LoggingWrapperUtility.logException(logger, signature, e);
+            //LoggingWrapperUtility.logException(logger, signature, e);
+			logger.error(signature+e);
             messages.add(e.getMessage());
             return FAIL;
         } catch (SocialAccountException e) {
-            LoggingWrapperUtility.logException(logger, signature, e);
+            //LoggingWrapperUtility.logException(logger, signature, e);
+			logger.error(signature+e);
             messages.add(e.getMessage());
             return FAIL;
         } catch (Exception e) {
-            LoggingWrapperUtility.logException(logger, signature, e);
+            //LoggingWrapperUtility.logException(logger, signature, e);
+			logger.error(signature+e);
             messages.add(e.getMessage());
             return FAIL;
         }
 
-        LoggingWrapperUtility.logExit(logger, signature, new String[] {REGISTER});
+        //LoggingWrapperUtility.logExit(logger, signature, new String[] {REGISTER});
         return REGISTER;
     }
 

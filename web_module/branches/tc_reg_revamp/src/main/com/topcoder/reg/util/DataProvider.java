@@ -18,6 +18,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.util.log.Log;
 import com.topcoder.util.log.LogFactory;
 import com.topcoder.web.common.model.Country;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * This class contains a collection of data access methods.
@@ -44,7 +45,9 @@ public final class DataProvider {
     /**
      * Log instance for this class.
      */
-    private static Log logger = LogFactory.getInstance().getLog(CLASS_NAME);
+    //private static Log logger = LogFactory.getInstance().getLog(CLASS_NAME);
+	
+	private static final Logger logger = Logger.getLogger(DataProvider.class);
 
 
     /**
@@ -60,7 +63,7 @@ public final class DataProvider {
      */
     public static UserInfoDTO getUserStatusByHandle(String handle) throws EntityNotFoundException, PersistenceException {
         final String signature = CLASS_NAME + "#getUserStatusByHandle(String handle)";
-        LoggingWrapperUtility.logEntrance(logger, signature, new String[] { "handle" }, new String[] { handle });
+        logger.info(signature);
 
         try {
             Request r = new Request();
@@ -80,16 +83,16 @@ public final class DataProvider {
                 info.setHandle(handle);
                 info.setUserId(row.getLongItem("user_id"));
 
-                LoggingWrapperUtility.logExit(logger, signature, new Object[] { info });
+               //LoggingWrapperUtility.logExit(logger, signature, new Object[] { info });
                 return info;
             } else {
                 EntityNotFoundException e = new EntityNotFoundException(
                         "User/email status for the given handle is not found");
-                LoggingWrapperUtility.logException(logger, signature, e);
+                //LoggingWrapperUtility.logException(logger, signature, e);
                 throw e;
             }
         } catch (Exception e) {
-            LoggingWrapperUtility.logException(logger, signature, e);
+            logger.error(signature+ e);
             throw new PersistenceException("Error while retrieving user/email status for the given handle: " + handle,
                     e);
         }
@@ -105,7 +108,7 @@ public final class DataProvider {
      */
     public static List<Country> getAllCountries() throws PersistenceException {
         final String signature = CLASS_NAME + "#getAllCountries()";
-        LoggingWrapperUtility.logEntrance(logger, signature, null, null);
+        logger.info(signature);
         try {
             Request r = new Request();
             r.setContentHandle("country_list");
@@ -121,7 +124,7 @@ public final class DataProvider {
             }
             return countries;
         } catch (Exception e) {
-            LoggingWrapperUtility.logException(logger, signature, e);
+            logger.error(signature+ e);
             throw new PersistenceException("Error while retrieving country list", e);
         }
 
@@ -138,7 +141,7 @@ public final class DataProvider {
      */
     public static boolean isEmailAvailable(String email) throws PersistenceException {
         final String signature = CLASS_NAME + "#isEmailAvailable(String email)";
-        LoggingWrapperUtility.logEntrance(logger, signature, new String[] { "email" }, new String[] { email });
+        logger.info(signature);
         try {
             Request r = new Request();
             r.setContentHandle("reg_email_available");
@@ -146,10 +149,10 @@ public final class DataProvider {
             DataAccess dataAccess = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
             ResultSetContainer rsc = dataAccess.getData(r).get("reg_email_available");
             boolean available = rsc.getBooleanItem(0, "available");
-            LoggingWrapperUtility.logExit(logger, signature, new Object[] { available });
+            //LoggingWrapperUtility.logExit(logger, signature, new Object[] { available });
             return available;
         } catch (Exception e) {
-            LoggingWrapperUtility.logException(logger, signature, e);
+            logger.error(signature+ e);
             throw new PersistenceException("Error while retrieving country list", e);
         }
     }
@@ -165,7 +168,7 @@ public final class DataProvider {
      */
     public static boolean isExactInvalidHandle(String handle) throws PersistenceException {
         final String signature = CLASS_NAME + "#isExactInvalidHandle(String handle)";
-        LoggingWrapperUtility.logEntrance(logger, signature, new String[] { "handle" }, new String[] { handle });
+        logger.info(signature);
         try {
             Request r = new Request();
             r.setContentHandle("invalid_handle");
@@ -173,10 +176,10 @@ public final class DataProvider {
             DataAccess dataAccess = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
             ResultSetContainer rsc = dataAccess.getData(r).get("invalid_handle");
             boolean isInvalid = !rsc.isEmpty();
-            LoggingWrapperUtility.logExit(logger, signature, new Object[] { isInvalid });
+            //LoggingWrapperUtility.logExit(logger, signature, new Object[] { isInvalid });
             return isInvalid;
         } catch (Exception e) {
-            LoggingWrapperUtility.logException(logger, signature, e);
+            logger.error(signature+ e);
             throw new PersistenceException("Error while validating invalid handle", e);
         }
     }

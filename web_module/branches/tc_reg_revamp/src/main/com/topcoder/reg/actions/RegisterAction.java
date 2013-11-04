@@ -28,6 +28,7 @@ import com.topcoder.util.log.Level;
 import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.common.model.Country;
 import com.topcoder.reg.Constants;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * This action will be used to create new user account into persistence given user instance.
@@ -61,6 +62,8 @@ public class RegisterAction extends BaseAction implements Preparable {
      * This field represents the qualified name of this class.
      */
     private static final String CLASS_NAME = RegisterAction.class.getName();
+	
+	private static final Logger logger = Logger.getLogger(RegisterAction.class);
 
     /**
      * Instance of {@link UserDTO}.
@@ -98,7 +101,7 @@ public class RegisterAction extends BaseAction implements Preparable {
     @Override
     public String execute() throws Exception {
         final String signature = CLASS_NAME + "#execute()";
-        LoggingWrapperUtility.logEntrance(logger, signature, null, null);
+        logger.info(signature);
 
         HttpServletRequest request = ServletActionContext.getRequest();
         HttpSession session = ServletActionContext.getRequest().getSession();
@@ -249,21 +252,21 @@ public class RegisterAction extends BaseAction implements Preparable {
                         setting.getEmailBodyTemplateFile(), user.getEmail(), setting.getEmailFromAddress(),
                         setting.getSenderName(), url);
                 } catch (PersistenceException e) {
-                    LoggingWrapperUtility.logException(logger, signature, e);
+                    logger.error(signature+ e);
                     messages.add(e.getMessage());
                 } catch (Exception e) {
-                    LoggingWrapperUtility.logException(logger, signature, e);
+                    logger.error(signature+ e);
                     messages.add(e.getMessage());
                 }
             } else {
-                logger.log(Level.ERROR, "Validation error found: ");
+                
                 for (String s : messages) {
-                    logger.log(Level.ERROR, s);
+                    logger.error(s);
                 }
             }
         }
         //No matter the registration is successful or fail, the same struts result can handle them.
-        LoggingWrapperUtility.logExit(logger, signature, new String[] {SUCCESS});
+        //LoggingWrapperUtility.logExit(logger, signature, new String[] {SUCCESS});
         return SUCCESS;
     }
 

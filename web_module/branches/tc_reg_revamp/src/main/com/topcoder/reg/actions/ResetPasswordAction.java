@@ -24,6 +24,7 @@ import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * This action will be used to reset user's password per request.
@@ -58,6 +59,8 @@ public class ResetPasswordAction extends BaseAction {
      * This field represents the qualified name of this class.
      */
     private static final String CLASS_NAME = ResetPasswordAction.class.getName();
+	
+	private static final Logger logger = Logger.getLogger(ResetPasswordAction.class);
 
     /**
      * Message to serialize.
@@ -97,7 +100,7 @@ public class ResetPasswordAction extends BaseAction {
     @Override
     public String execute() throws Exception {
         final String signature = CLASS_NAME + "#execute()";
-        LoggingWrapperUtility.logEntrance(logger, signature, null, null);
+        logger.info(signature);
 
         HttpSession session = ServletActionContext.getRequest().getSession();
         UserDTO userDTO = (UserDTO) session.getAttribute(Constants.USER_DTO_SESSION_KEY);
@@ -106,26 +109,26 @@ public class ResetPasswordAction extends BaseAction {
         msg = null;
         if (null == userDTO) {
             msg = "Internal error";
-            LoggingWrapperUtility.logExit(logger, signature, new String[] { SUCCESS });
+            //LoggingWrapperUtility.logExit(logger, signature, new String[] { SUCCESS });
             return SUCCESS;
         }
         // find the reset code
         PasswordResetTokenDTO passwordResetToken = passwordResetTokenService.find(userDTO.getUserId(), emailTypeId);
         if (null == passwordResetToken) {
             msg = "Invalid password reset request";
-            LoggingWrapperUtility.logExit(logger, signature, new String[] { SUCCESS });
+            //LoggingWrapperUtility.logExit(logger, signature, new String[] { SUCCESS });
             return SUCCESS;
         }
 
         // validate reset code
         if (!passwordResetToken.getToken().equals(resetToken)) {
             msg = "Code is incorrect";
-            LoggingWrapperUtility.logExit(logger, signature, new String[] { SUCCESS });
+            //LoggingWrapperUtility.logExit(logger, signature, new String[] { SUCCESS });
             return SUCCESS;
         }
         if (passwordResetToken.getExpiredAt().before(new Date())) {
             msg = "Time expired for password reset";
-            LoggingWrapperUtility.logExit(logger, signature, new String[] { SUCCESS });
+            //LoggingWrapperUtility.logExit(logger, signature, new String[] { SUCCESS });
             return SUCCESS;
         }
 
@@ -154,7 +157,7 @@ public class ResetPasswordAction extends BaseAction {
             }
         }
         if (msg != null) {
-            LoggingWrapperUtility.logExit(logger, signature, new String[] { SUCCESS });
+            //LoggingWrapperUtility.logExit(logger, signature, new String[] { SUCCESS });
             return SUCCESS;
         }
 
@@ -168,7 +171,7 @@ public class ResetPasswordAction extends BaseAction {
         }
 
         if (msg != null) {
-            LoggingWrapperUtility.logExit(logger, signature, new String[] { SUCCESS });
+            //LoggingWrapperUtility.logExit(logger, signature, new String[] { SUCCESS });
             return SUCCESS;
         }
 
@@ -187,7 +190,7 @@ public class ResetPasswordAction extends BaseAction {
         pmr.editPassword(myPrincipal, password, tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
 
         msg = "OK";
-        LoggingWrapperUtility.logExit(logger, signature, new String[] { SUCCESS });
+        //LoggingWrapperUtility.logExit(logger, signature, new String[] { SUCCESS });
         return SUCCESS;
     }
 
