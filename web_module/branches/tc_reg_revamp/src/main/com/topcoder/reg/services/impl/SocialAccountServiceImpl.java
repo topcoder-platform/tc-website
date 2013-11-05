@@ -40,6 +40,8 @@ public class SocialAccountServiceImpl extends BaseImpl implements SocialAccountS
      * Qualified name of this class.
      */
     private static final String CLASS_NAME = SocialAccountServiceImpl.class.getName();
+	
+	private static final Logger logger = Logger.getLogger(SocialAccountServiceImpl.class);
 
     /**
      * The facebook id.
@@ -184,8 +186,7 @@ public class SocialAccountServiceImpl extends BaseImpl implements SocialAccountS
     @Transactional(rollbackFor = PersistenceException.class, propagation = Propagation.REQUIRED)
     public void bindUserWithSocialAccount(long userId, SocialAccount socialAccount) throws PersistenceException {
         final String signature = CLASS_NAME + "#bindUserWithSocialAccount(long userId, SocialAccount socialAccount)";
-        LoggingWrapperUtility.logEntrance(logger, signature, new String[] {"userId", "socialAccount"}, new Object[] {
-            userId, socialAccount});
+        logger.info(signature);
 
         try {
             jdbcTemplate.update(SQL_INSERT_SOCIAL_ACCOUNT, userId, socialAccount.getProviderId(),
