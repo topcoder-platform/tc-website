@@ -26,7 +26,7 @@ import java.util.MissingResourceException;
  *     <li>Add CLIENT_SECRET_AUTH0 constant</li>
  *     <li>Add REDIRECT_URL_AUTH0 constant</li>
  *     <li>Add DOMAIN_AUTH0 constant</li>
- *     <li>Add TRUNK_SERVER_NAME constant</li>
+ *     <li>Add TC_SERVER_NAME constant</li>
  *   </ol>
  * </p>
  * @author dok, ecnu_haozi
@@ -165,11 +165,11 @@ public class Constants implements WebConstants {
     public static String DOMAIN_AUTH0;
 
     /**
-     * <p>The server name of trunk host.</p>
+     * <p>The server name of /tc host.</p>
      * 
      *  @since 1.2
      */
-    public static String TRUNK_SERVER_NAME;
+    public static String TC_SERVER_NAME;
     
     private Constants() {
 
