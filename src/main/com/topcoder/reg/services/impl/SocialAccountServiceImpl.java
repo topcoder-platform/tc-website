@@ -21,10 +21,9 @@ import com.topcoder.reg.services.PersistenceException;
 import com.topcoder.reg.services.SocialAccountException;
 import com.topcoder.reg.services.SocialAccountService;
 import com.topcoder.shared.util.ApplicationServer;
-<<<<<<< .mineimport com.topcoder.reg.Constants;
-=======import com.topcoder.reg.Constants;
+import com.topcoder.reg.Constants;
 import com.topcoder.shared.util.logging.Logger;
->>>>>>> .theirs
+
 /**
  * This class provides an implementation for {@link SocialAccountService}.
  * <p>
