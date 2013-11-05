@@ -256,12 +256,14 @@ $(document).ready(function() {
 		
 	function validateItem( item)
 	{
-		item.parent().removeClass("error accepted");
+		if(item.length != 0){
+			item.parent().removeClass("error accepted");
 		
-		if(item.val().length==0) {
-			item.parent().addClass("error");
-		}else {
-			item.parent().addClass("accepted");			
+			if(item.val().length==0) {
+				item.parent().addClass("error");
+			}else {
+				item.parent().addClass("accepted");			
+			}
 		}
 	}
 	
@@ -277,9 +279,11 @@ $(document).ready(function() {
 	
 	function validatePassword( item, origItem)
 	{
-		item.parent().removeClass("error accepted");
-		if(item.val().length==0||item.val()!=origItem.val())item.parent().addClass("error");
-		else item.parent().addClass("accepted");
+		if(item.length != 0 && origItem.length !=0){
+			item.parent().removeClass("error accepted");
+			if(item.val().length==0||item.val()!=origItem.val())item.parent().addClass("error");
+			else item.parent().addClass("accepted");
+		}
 	}
 	function validateCaptcha( item) { 
 		item.parent().removeClass("error accepted");

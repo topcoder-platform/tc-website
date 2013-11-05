@@ -13,7 +13,8 @@ import org.apache.struts2.ServletActionContext;
 
 import com.topcoder.commons.utils.LoggingWrapperUtility;
 import com.topcoder.reg.RegistrationHelper;
-import com.topcoder.reg.dto.SocialAccountDTO;
+import com.topcoder.reg.dto.SessionSocialAccount;
+import com.topcoder.reg.dto.SocialAccount;
 import com.topcoder.reg.dto.UserDTO;
 import com.topcoder.reg.services.PersistenceException;
 import com.topcoder.reg.services.SocialAccountException;
@@ -65,7 +66,7 @@ public class CallbackAction extends BaseAction {
     /**
      * The social account information.
      */
-    private SocialAccountDTO social;
+    private SocialAccount social;
 
     /**
      * Field to store user name from front-end.
@@ -110,19 +111,21 @@ public class CallbackAction extends BaseAction {
 
         // set this action's data fields.
         try {
-            // retrieve social data according to the code value. The code is disposable.
-            social = socialService.getCurrentUserInfo(code);
-
+            // retrieve social data according to the code value.
+            social = socialService.getSocialAccount(code);
+            Long userIdBoundWithSocialAccount = socialService.findUserBySocialAccount(social);
+            SessionSocialAccount socialAccountInSession = new SessionSocialAccount(social, false);
+            
             // Store the social account into session.
             HttpSession session = ServletActionContext.getRequest().getSession();
-            session.setAttribute(RegistrationHelper.SOCIAL_ACCOUNT_SESSION_KEY, social);
+            session.setAttribute(RegistrationHelper.SOCIAL_ACCOUNT_SESSION_KEY, socialAccountInSession);
 
             // If the social account binds to a TC account.
-            if (social.getUserId() != null) {
-                UserDTO user = userService.getUserByUserId(social.getUserId());
+            if (userIdBoundWithSocialAccount != null) {
+                UserDTO user = userService.getUserByUserId(userIdBoundWithSocialAccount);
                 handle = user.getHandle();
 
-                user.setPassword(userService.getPasswordByUserId(social.getUserId()));
+                user.setPassword(userService.getPasswordByUserId(userIdBoundWithSocialAccount));
                 password = user.getPassword();
 
                 // store the page to redirect after login successfully into session.
@@ -158,7 +161,7 @@ public class CallbackAction extends BaseAction {
      * 
      * @return the social
      */
-    public SocialAccountDTO getSocial() {
+    public SocialAccount getSocial() {
         return social;
     }
 
@@ -170,7 +173,7 @@ public class CallbackAction extends BaseAction {
      * @param social
      *            the social to set
      */
-    public void setSocial(SocialAccountDTO social) {
+    public void setSocial(SocialAccount social) {
         this.social = social;
     }
 

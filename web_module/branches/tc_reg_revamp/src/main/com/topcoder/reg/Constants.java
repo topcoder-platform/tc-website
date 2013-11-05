@@ -18,11 +18,20 @@ import java.util.MissingResourceException;
  *
  * Version 1.1(Release Assembly - TopCoder Reg2 Password Recovery Revamp and Misc Bug Fixes) change log:
  * Removed the SecretQuestion related code and added reset code related code.
- *
- * @author dok, TCSASSEMBLER
  * 
- * @version $Revision: 77355 $ Date: 2005/01/01 00:00:00
- *          Create Date: Mar 29, 2006
+ * <p>
+ *   Version 1.2 (Release Assembly - TopCoder Website Social Login) change log:
+ *   <ol>
+ *     <li>Add CLIENT_ID_AUTH0 constant</li>
+ *     <li>Add CLIENT_SECRET_AUTH0 constant</li>
+ *     <li>Add REDIRECT_URL_AUTH0 constant</li>
+ *     <li>Add DOMAIN_AUTH0 constant</li>
+ *     <li>Add TRUNK_SERVER_NAME constant</li>
+ *   </ol>
+ * </p>
+ * @author dok, ecnu_haozi
+ * 
+ * @version 1.2
  */
 public class Constants implements WebConstants {
 
@@ -123,19 +132,20 @@ public class Constants implements WebConstants {
     public static int MAX_REFERRAL_OTHER_LENGTH;
 
     public static int REG_TERMS_ID;
-	
-	/**
+
+
+    /**
      * <p>A <code>String</code> providing the client id in auth0.com to enable login with 
      * social accounts like Google, Facebook.</p>
      *
-     * @since 2.1
+     * @since 1.2
      */
     public static String CLIENT_ID_AUTH0;
 
     /**
      * <p>The credential of the Auth0 account.</p>
      * 
-     * @since 2.1
+     * @since 1.2
      */
     public static String CLIENT_SECRET_AUTH0;
     
@@ -143,20 +153,24 @@ public class Constants implements WebConstants {
     /**
      * <p>The callback url of the Auth0 account.</p>
      * 
-     * @since 2.1
+     * @since 1.2
      */
     public static String REDIRECT_URL_AUTH0;
     
     /**
      * <p>The domain of the Auth0 account.</p>
      * 
-     *  @since 2.1
+     *  @since 1.2
      */
     public static String DOMAIN_AUTH0;
-	
-	
 
-
+    /**
+     * <p>The server name of trunk host.</p>
+     * 
+     *  @since 1.2
+     */
+    public static String TRUNK_SERVER_NAME;
+    
     private Constants() {
 
     }

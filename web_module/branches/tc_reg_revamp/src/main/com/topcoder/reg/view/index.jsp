@@ -61,6 +61,7 @@
 							<s:textfield id="txtEmail" type="text" cssClass="text" name="user.email" theme="simple" value="%{social.email}"></s:textfield>
 							<span class="reg_msg"></span>
 						</div>
+						<s:if test="%{social == null}">
 						<div class="row">
 							<label>Password</label>
 							<s:password id="txtPassword" cssClass="password text" name="user.password" theme="simple"></s:password>
@@ -70,6 +71,7 @@
 							<label>Confirm Password</label>
 							<s:password id="txtCPassword" cssClass="password text" name="user.confirmPassword" theme="simple"></s:password>
 						</div>
+						</s:if>
 						<div class="row">
 							<label>Verification Code</label>
 							<s:textfield id="txtCaptcha" cssClass="text" type="text" name="user.verificationCode" theme="simple"></s:textfield>

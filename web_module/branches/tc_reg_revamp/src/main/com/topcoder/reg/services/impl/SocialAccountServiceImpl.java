@@ -16,14 +16,15 @@ import com.topcoder.commons.utils.LoggingWrapperUtility;
 import com.topcoder.json.object.JSONObject;
 import com.topcoder.json.object.io.JSONDecodingException;
 import com.topcoder.json.object.io.StandardJSONDecoder;
-import com.topcoder.reg.dto.SocialAccountDTO;
+import com.topcoder.reg.dto.SocialAccount;
 import com.topcoder.reg.services.PersistenceException;
 import com.topcoder.reg.services.SocialAccountException;
 import com.topcoder.reg.services.SocialAccountService;
 import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.reg.Constants;
+<<<<<<< .mineimport com.topcoder.reg.Constants;
+=======import com.topcoder.reg.Constants;
 import com.topcoder.shared.util.logging.Logger;
-
+>>>>>>> .theirs
 /**
  * This class provides an implementation for {@link SocialAccountService}.
  * <p>
@@ -40,50 +41,57 @@ public class SocialAccountServiceImpl extends BaseImpl implements SocialAccountS
      * Qualified name of this class.
      */
     private static final String CLASS_NAME = SocialAccountServiceImpl.class.getName();
-	
-	private static final Logger logger = Logger.getLogger(SocialAccountServiceImpl.class);
-    
+
     /**
      * The facebook id.
      */
     private static final int FACEBOOK_PROVIDER_ID = 1;
-    
+
     /**
      * The google id.
      */
     private static final int GOOGLE_PROVIDER_ID = 2;
-    
+
     /**
      * The twitter id.
      */
     private static final int TWITTER_PROVIDER_ID = 3;
-    
+
     /**
      * The github id.
      */
     private static final int GITHUB_PROVIDER_ID = 4;
-    
+
     /**
      * The salesforce id.
      */
     private static final int SALESFORCE_PROVIDER_ID = 5;
 
     /**
-     * Find the user id according to the social account information. Use email or screen_name if email is absent as
-     * query criteria is sufficient, and there may be dangerous if some account's user name can be change. So no
-     * use user name.
+     * Find the user id according to the social account email information.
      */
-    private static final String SQL_GET_ID_BY_SOCIAL_ACCOUNT =
+    private static final String SQL_GET_ID_BY_SOCIAL_ACCOUNT_EMAIL =
         "SELECT user_id FROM user_social_login WHERE social_login_provider_id = ? "
             + "AND social_email = ? AND social_email_verified = ?";
 
     /**
-     * Check if mapped social account exists. Use email or screen_name if email is absent as query criteria is
-     * sufficient, and there may be dangerous if some account's user name can be change. So no use user name.
+     * Find the user id according to the social account name information.
      */
-    private static final String SQL_COUNT_SOCIAL_ACCOUNT =
+    private static final String SQL_GET_ID_BY_SOCIAL_ACCOUNT_NAME =
+        "SELECT user_id FROM user_social_login WHERE social_login_provider_id = ? " + "AND social_user_name = ? ";
+
+    /**
+     * Check if mapped social account exists by its email.
+     */
+    private static final String SQL_COUNT_SOCIAL_ACCOUNT_EMAIL =
         "SELECT COUNT(*) FROM user_social_login WHERE social_login_provider_id = ? "
             + "AND social_email = ? AND social_email_verified = ?";
+
+    /**
+     * Check if mapped social account exists by its name.
+     */
+    private static final String SQL_COUNT_SOCIAL_ACCOUNT_NAME =
+        "SELECT COUNT(*) FROM user_social_login WHERE social_login_provider_id = ? " + "AND social_user_name = ? ";
 
     /**
      * Persist the social account, which also include the mapping with TC account by the field user_id.
@@ -111,35 +119,24 @@ public class SocialAccountServiceImpl extends BaseImpl implements SocialAccountS
      *             if other abnormal thing occurs.
      */
     @Transactional(readOnly = true)
-    public Long getUserId(SocialAccountDTO social) throws SocialAccountException, PersistenceException {
-        final String signature = CLASS_NAME + "#getUserId(SocialAccountDTO social)";
+    public Long findUserBySocialAccount(SocialAccount social) throws SocialAccountException, PersistenceException {
+        final String signature = CLASS_NAME + "#findUserBySocialAccount(SocialAccount social)";
         logger.info(signature);
 
         try {
-            String emailOrScreenName = "";
-            if (social.getProviderId() == TWITTER_PROVIDER_ID) {
-                // Use the screen name as query criteria. Only for twitter case.
-                emailOrScreenName = social.getScreenName();
-            } else {
-                // Otherwise use the field email instead.
-                emailOrScreenName = social.getEmail();
-            }
-
-            // Use email or screen_name as query criteria is sufficient, and there may be dangerous if some
-            // account's user name can be change. So no use user name.
-            int count =
-                jdbcTemplate.queryForInt(SQL_COUNT_SOCIAL_ACCOUNT, social.getProviderId(), emailOrScreenName,
-                    social.isEmailVerified());
-
             Long userId;
-            if (count == 0) {
-                userId = null;
-            } else {
+            if (!social.getEmail().equals("")) {
                 userId =
-                    jdbcTemplate.queryForObject(SQL_GET_ID_BY_SOCIAL_ACCOUNT, Long.class, social.getProviderId(),
-                        emailOrScreenName, social.isEmailVerified());
+                    queryUserId(SQL_COUNT_SOCIAL_ACCOUNT_EMAIL, SQL_GET_ID_BY_SOCIAL_ACCOUNT_EMAIL,
+                        social.getProviderId(), social.getEmail(), social.isEmailVerified());
+            } else if (!social.getName().equals("")) {
+                userId =
+                    queryUserId(SQL_COUNT_SOCIAL_ACCOUNT_NAME, SQL_GET_ID_BY_SOCIAL_ACCOUNT_NAME,
+                        social.getProviderId(), social.getName());
+            } else {
+                throw new SocialAccountException(
+                    "The social account should have at least one valid email or one valid username.");
             }
-
             //LoggingWrapperUtility.logExit(logger, signature, new Object[] {userId});
             return userId;
         } catch (DataAccessException e) {
@@ -150,31 +147,50 @@ public class SocialAccountServiceImpl extends BaseImpl implements SocialAccountS
     }
 
     /**
-     * Persist the social account into database, of which the field <code>userId</code> is the mapping between the
-     * TC account and it.
+     * The template to query user id by the social account information.
      * 
+     * @param countSql
+     *            the count sql statement.
+     * @param retrieveSql
+     *            the retrieve sql statement.
+     * @param args
+     *            the social account information arguments.
+     * @return the result user id.
+     * @throws DataAccessException
+     *             if the query fails
+     * @throws IncorrectResultSizeDataAccessException
+     *             if the query does not return exactly one row, or does not return exactly one column in that row
+     */
+    private Long queryUserId(String countSql, String retrieveSql, Object... args) throws DataAccessException {
+        Long userId;
+        int count = jdbcTemplate.queryForInt(countSql, args);
+        if (count == 0) {
+            userId = null;
+        } else {
+            userId = jdbcTemplate.queryForObject(retrieveSql, Long.class, args);
+        }
+        return userId;
+    }
+
+    /**
+     * Bind the TC account, which is identified by its user id, with the social account.
+     * 
+     * @param userId
+     *            the TC account's identity.
      * @param socialAccount
      *            the social account to persist.
      * @throws PersistenceException
      *             if there is any database related error.
      */
     @Transactional(rollbackFor = PersistenceException.class, propagation = Propagation.REQUIRED)
-    public void storeSocialAccount(SocialAccountDTO socialAccount) throws PersistenceException {
-        final String signature = CLASS_NAME + "#storeSocialAccount(SocialAccountDTO socialAccount)";
-        logger.info(signature);
+    public void bindUserWithSocialAccount(long userId, SocialAccount socialAccount) throws PersistenceException {
+        final String signature = CLASS_NAME + "#bindUserWithSocialAccount(long userId, SocialAccount socialAccount)";
+        LoggingWrapperUtility.logEntrance(logger, signature, new String[] {"userId", "socialAccount"}, new Object[] {
+            userId, socialAccount});
 
         try {
-            String emailOrScreenName = "";
-            if (socialAccount.getProviderId() == TWITTER_PROVIDER_ID) {
-                // Store the screen name. Only for twitter case.
-                emailOrScreenName = socialAccount.getScreenName();
-            } else {
-                // Otherwise store the field email instead.
-                emailOrScreenName = socialAccount.getEmail();
-            }
-
-            jdbcTemplate.update(SQL_INSERT_SOCIAL_ACCOUNT, socialAccount.getUserId(), socialAccount.getProviderId(),
-                socialAccount.getName(), emailOrScreenName, socialAccount.isEmailVerified());
+            jdbcTemplate.update(SQL_INSERT_SOCIAL_ACCOUNT, userId, socialAccount.getProviderId(),
+                socialAccount.getName(), socialAccount.getEmail(), socialAccount.isEmailVerified());
             //LoggingWrapperUtility.logExit(logger, signature, null);
         } catch (DataAccessException e) {
             // the exception is logged by caller.
@@ -193,11 +209,11 @@ public class SocialAccountServiceImpl extends BaseImpl implements SocialAccountS
      * @throws SocialAccountException
      *             if other abnormal thing occurs.
      */
-    public SocialAccountDTO getCurrentUserInfo(String code) throws SocialAccountException, PersistenceException {
-        final String signature = CLASS_NAME + "#getCurrentUserInfo(String code)";
+    public SocialAccount getSocialAccount(String code) throws SocialAccountException, PersistenceException {
+        final String signature = CLASS_NAME + "#getSocialAccount(String code)";
         logger.info(signature);
 
-        SocialAccountDTO social = new SocialAccountDTO();
+        SocialAccount social = new SocialAccount();
         String accessToken = getAccessToken(code);  System.out.println("---------accessToken-------"+accessToken);
         String jsonString;
         try {
@@ -212,19 +228,25 @@ System.out.println("---------jsonString-------"+jsonString);
 
         social.setProviderId(getProviderId(rootNode.getString("user_id")));
 
+        // try to find an unique name if available.
+        switch (social.getProviderId()) {
+        case TWITTER_PROVIDER_ID:
+            social.setName(rootNode.getString("screen_name"));
+            break;
+        case GITHUB_PROVIDER_ID:
+            social.setName(rootNode.getString("nickname"));
+            break;
+        //You can add unique user name for other social provider if needed here.
+        default:
+            social.setName("");
+        }
+
         // Field email will be absent in Twitter case, in which the screen_name is used instead.
         // The other cases all have email fields.
         if (rootNode.isKeyDefined("email") && rootNode.isAvailableAsString("email")) {
             social.setEmail(rootNode.getString("email"));
         } else {
             social.setEmail("");
-        }
-
-        // For twitter case.
-        if (rootNode.isKeyDefined("screen_name") && rootNode.isAvailableAsString("screen_name")) {
-            social.setScreenName(rootNode.getString("screen_name"));
-        } else {
-            social.setScreenName("");
         }
 
         // email_verified can be absent in Twitter case.
@@ -247,15 +269,6 @@ System.out.println("---------jsonString-------"+jsonString);
         } else {
             social.setGivenName("");
         }
-
-        if (rootNode.isKeyDefined("name") && rootNode.isAvailableAsString("name")) {
-            social.setName(rootNode.getString("name"));
-        } else {
-            social.setName("");
-        }
-
-        // The user id of the linked TC account if available, NULL otherwise.
-        social.setUserId(getUserId(social));
 
         //LoggingWrapperUtility.logExit(logger, signature, new Object[] {social});
         return social;
@@ -303,7 +316,7 @@ System.out.println("---------jsonString-------"+jsonString);
      * @throws SocialAccountException
      *             if the parameter can not be parsed as a json string.
      */
-    JSONObject getJsonNode(String jsonString) throws SocialAccountException {
+    private JSONObject getJsonNode(String jsonString) throws SocialAccountException {
         JSONObject rootNode;
         try {
             rootNode = new StandardJSONDecoder().decodeObject(jsonString);

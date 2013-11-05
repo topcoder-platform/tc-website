@@ -3,7 +3,8 @@
  */
 package com.topcoder.reg.services;
 
-import com.topcoder.reg.dto.SocialAccountDTO;
+import com.topcoder.reg.dto.SocialAccount;
+import com.topcoder.reg.services.PersistenceException;
 
 /**
  * This class defines the social account related operations.
@@ -28,18 +29,19 @@ public interface SocialAccountService {
      * @throws SocialAccountException
      *             if other abnormal thing occurs.
      */
-    public Long getUserId(SocialAccountDTO socialAccount) throws SocialAccountException, PersistenceException;
+    public Long findUserBySocialAccount(SocialAccount socialAccount) throws SocialAccountException, PersistenceException;
 
     /**
-     * Persist the social account into database, of which the field <code>userId</code> is the mapping between the
-     * TC account and it.
+     * Bind the TC account, which is identified by its user id, with the social account.
      * 
+     * @param userId
+     *            the TC account's identity.
      * @param socialAccount
      *            the social account to persist.
      * @throws PersistenceException
      *             if there is any database related error.
      */
-    public void storeSocialAccount(SocialAccountDTO socialAccount) throws PersistenceException;
+    public void bindUserWithSocialAccount(long userId, SocialAccount socialAccount) throws PersistenceException;
 
     /**
      * Get the soical account information according to the authorization code given by Auth0.
@@ -52,5 +54,5 @@ public interface SocialAccountService {
      * @throws SocialAccountException
      *             if other abnormal thing occurs.
      */
-    public SocialAccountDTO getCurrentUserInfo(String code) throws SocialAccountException, PersistenceException;
+    public SocialAccount getSocialAccount(String code) throws SocialAccountException, PersistenceException;
 }
