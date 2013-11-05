@@ -1,16 +1,22 @@
 <%--
-  - Author: vangavroche, TCSASSEMBLER
-  - Version: 1.1 (Release Assembly - TopCoder Password Recovery Revamp v1.0)
   - Copyright (C) 2010 - 2013 TopCoder Inc., All Rights Reserved.
   -
   - Description: Login page.
+  -
   - Changes in 1.1 (Release Assembly - TopCoder Password Recovery Revamp v1.0 )
   - - Change the entry link of password recovery from /tc?module=RecoverPassword" to /tc?module=FindUser".
   - - Add this code document
+  -
+  - Change in 1.2 (Release Assembly - TopCoder Website Social Login)
+  - - Add a Auth0 login widget in div.
+  -
+  - Version: 1.2
+  - Author: vangavroche, ecnu_haozi
   - 
 --%>
 <%@ page contentType="text/html; charset=ISO-8859-1"
-         import="com.topcoder.web.common.BaseServlet,
+         import="com.topcoder.shared.util.ApplicationServer,
+                 com.topcoder.web.common.BaseServlet,
                  com.topcoder.web.common.StringUtils,
                  com.topcoder.web.tc.Constants" %>
 <%@ page import="com.topcoder.web.tc.controller.request.authentication.Login" %>
@@ -47,7 +53,14 @@
             } else return true;
         }
     </SCRIPT>
+    <%--This script should be put above ../top.jsp to override the latter's auth0.js.--%>
+    <script id="auth0" src="https://sdk.auth0.com/auth0.js#client=<%=Constants.CLIENT_ID_AUTH0%>&amp;state=https://<%=ApplicationServer.SERVER_NAME%><%= request.getAttribute("javax.servlet.forward.request_uri")%>&amp;container=root&amp;redirect_uri=https://<%=Constants.REG_SERVER_NAME%><%=Constants.REDIRECT_URL_AUTH0%>"></script>
 
+    <script>
+        window.Auth0.ready(function(){
+            window.Auth0.signIn({ onestep: true, theme: 'static', standalone: true, title: "TopCoder/CloudSpokes", top: true , icon: 'http://www.topcoder.com/i/24x24_brackets.png'});
+        });
+    </script>
 </head>
 
 <body>
@@ -84,7 +97,7 @@
 					<dd class="iconMagnifier">View past competitions and statistics</dd>
 					<dd class="iconDiscuss">Have full access to the community forums</dd>
 				</dl>
-                <div class="regLink"><a href="http://www.topcoder.com/reg/">Register for a TopCoder account here.</a></div>
+                <div class="regLink"><a href="https://<%=Constants.REG_SERVER_NAME%>/reg2/">Register for a TopCoder account here.</a></div>
 			</div>
 			<div class="loginRightSide">
 				<div class="loginFormWrapper">
@@ -121,20 +134,14 @@
 					</form>
 				</div>
 			</div>
+      <div id="root" class="loginThird">
+      </div>
 			<div class="clear"></div>
 		</div>
 
     </div>
 </td>
 <!-- Center Column ends -->
-
-<!-- Gutter -->
-<td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-<!-- Gutter Ends -->
-
-<!-- Right Column Begins -->
-<td width="170"><img src="/i/clear.gif" width="170" height="1" alt="" border="0"></td>
-<!-- Left Column Ends -->
 
 <!-- Gutter -->
 <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
