@@ -202,8 +202,19 @@ import java.util.MissingResourceException;
  *   </ol>
  * </p>
  *
- * @author pulky, isv, VolodymyrK, TrePe, gevak, TCSASSEMBLER
- * @version 1.9.11
+ * <p>
+ *   Version 1.9.12 (Release Assembly - TopCoder Website Social Login) change log:
+ *   <ol>
+ *     <li>Add CLIENT_ID_AUTH0 constant</li>
+ *     <li>Add CLIENT_SECRET_AUTH0 constant</li>
+ *     <li>Add REDIRECT_URL_AUTH0 constant</li>
+ *     <li>Add DOMAIN_AUTH0 constant</li>
+ *     <li>Add REG_SERVER_NAME constant.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author pulky, isv, VolodymyrK, TrePe, gevak, ecnu_haozi
+ * @version 1.9.12
  */
 public class Constants implements WebConstants {
 
@@ -1781,6 +1792,44 @@ public class Constants implements WebConstants {
      * @since 1.9.11
      */
     public static String EMAIL_CHANGE_NOTIFY_MAIL_BODY;
+
+    /**
+     * <p>A <code>String</code> providing the client id in auth0.com to enable login with 
+     * social accounts like Google, Facebook.</p>
+     *
+     * @since 1.9.12
+     */
+    public static String CLIENT_ID_AUTH0;
+
+    /**
+     * <p>The credential of the Auth0 account.</p>
+     * 
+     * @since 1.9.12
+     */
+    public static String CLIENT_SECRET_AUTH0;
+    
+
+    /**
+     * <p>The callback url of the Auth0 account.</p>
+     * 
+     * @since 1.9.12
+     */
+    public static String REDIRECT_URL_AUTH0;
+    
+    /**
+     * <p>The domain of the Auth0 account.</p>
+     * 
+     *  @since 1.9.12
+     */
+    public static String DOMAIN_AUTH0;
+    
+
+    /**
+     * <p>The server name of tc_reg_revamp host.</p>
+     * 
+     *  @since 1.9.12
+     */
+    public static String REG_SERVER_NAME;
 
     static {
         initialize();
