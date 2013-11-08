@@ -88,8 +88,17 @@ import java.util.MissingResourceException;
  *   </ol>
  * </p>
  *
- * @author dok, pulky, isv, pvmagacho
- * @version 1.10
+ * <p>
+ *   Version 1.11 (TCCC-5798) change log:
+ *   <ol>
+ *     <li>Add CLIENT_ID_AUTH0 constant</li>
+ *     <li>Add REDIRECT_URL_AUTH0 constant</li>
+ *     <li>Add REG_SERVER_NAME constant.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author dok, pulky, isv, pvmagacho, ecnu_haozi
+ * @version 1.11
  */
 public class Constants implements WebConstants {
     private static final TCResourceBundle bundle = new TCResourceBundle("Studio");
@@ -733,6 +742,30 @@ public class Constants implements WebConstants {
      * @since 1.9
      */
     public static final String CONFIGURATION_FILE = "com/topcoder/util/config/ConfigManager.properties";
+
+
+    /**
+     * <p>A <code>String</code> providing the client id in auth0.com to enable login with 
+     * social accounts like Google, Facebook.</p>
+     *
+     * @since 1.11
+     */
+    public static String CLIENT_ID_AUTH0;
+    
+
+    /**
+     * <p>The callback url of the Auth0 account.</p>
+     * 
+     * @since 1.11
+     */
+    public static String REDIRECT_URL_AUTH0;
+
+    /**
+     * <p>The server name of tc_reg_revamp host.</p>
+     * 
+     *  @since 1.11
+     */
+    public static String REG_SERVER_NAME;
     
     static {
         initialize();
