@@ -34,7 +34,10 @@ String section = request.getParameter("section") == null ? "" : request.getParam
                 <div class="userPanelC">
                     <c:choose>
                         <c:when test="${sessionInfo.anonymous}">
-                            Hello, <strong>Guest</strong> | <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Login">login</a> | <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/">Register</a> | <a href="http://community.topcoder.com/studio/members/">Members</a> | <a href="http://community.topcoder.com/studio/help/">Studio Help</a> | <a href="http://www.topcoder.com/">About TopCoder</a>
+                            <%--This script should be put above ../top.jsp to override the latter's auth0.js.--%>
+                            <script id="auth0" src="https://sdk.auth0.com/auth0.js#client=<%=Constants.CLIENT_ID_AUTH0%>&amp;state=https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/&amp;redirect_uri=https://<%=Constants.REG_SERVER_NAME%><%=Constants.REDIRECT_URL_AUTH0%>"></script>
+
+                            Hello, <strong>Guest</strong> | <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=Login">login</a> | <a class="redBtn" href="javascript:window.Auth0.signIn({ onestep: true,signupLink: '<%=Constants.REG_SERVER_NAME%>/reg2/showRegister.action',title: 'TopCoder/CloudSpokes', icon: 'http://www.topcoder.com/i/24x24_brackets.png', showIcon: true});">Social login</a> | <a href="http://<%=ApplicationServer.SERVER_NAME%>/reg/">Register</a> | <a href="http://community.topcoder.com/studio/members/">Members</a> | <a href="http://community.topcoder.com/studio/help/">Studio Help</a> | <a href="http://www.topcoder.com/">About TopCoder</a>
                         </c:when>
                         <c:otherwise>
                             Hello, <studio:handle coderId="${sessionInfo.userId}" styleClass="userLink" /> | <a href="http://community.topcoder.com/studio/help/">Studio Help</a> | <a href="/?module=MyStudioHome">My Studio</a> | <a href="https://community.topcoder.com/studio/members/">Members</a> | <a href="http://www.topcoder.com/">About TopCoder</a> | <a href="/?module=Logout">Log out</a>

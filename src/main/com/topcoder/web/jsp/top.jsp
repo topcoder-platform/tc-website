@@ -9,11 +9,16 @@
  * Add Reporting shortcut icon.
  *
  * Add Bug Hunt shortcut icon (Release Assembly - TopCoder BugHunt Competition Integration)
+ *
+ * Changes in ( Release Assembly - TopCoder Website Social Login ) 1.1
+ * 1. Modify the login link to open Auth0 login widget so the users can login with their social accounts. 
+ *
 --%>
 <%@  page
   language="java"
   import="com.topcoder.shared.util.ApplicationServer,
-          com.topcoder.web.common.BaseServlet" %>
+          com.topcoder.web.common.BaseServlet,
+          com.topcoder.web.tc.Constants" %>
 <%@ page import="com.topcoder.web.common.SessionInfo"%>
 <%@ page import="java.text.DecimalFormat"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -45,6 +50,16 @@
 </div>
 
 <div id="globalPopup" class="popUp"><div id="globalPopupText"></div></div>
+
+<script id="auth0" src="https://sdk.auth0.com/auth0.js#client=<%=Constants.CLIENT_ID_AUTH0%>&amp;state=http://<%=ApplicationServer.SERVER_NAME%><%= request.getAttribute("javax.servlet.forward.request_uri")%>&amp;redirect_uri=https://<%=ApplicationServer.SERVER_NAME%><%=Constants.REDIRECT_URL_AUTH0%>"></script>
+
+<script>
+  $(function () {
+        $('.social-login').click( function () {
+              window.Auth0.signIn({ onestep: true, title: "TopCoder/CloudSpokes", icon: 'http://www.topcoder.com/i/24x24_brackets.png', showIcon: true});
+        });
+    });
+</script>
 
 <% if ( !sessionInfo.isAnonymous() ) { %>
 <div style="position: absolute; right:0px; top:31px;"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=MyHome"><img src="/i/interface/myTopCoder.png" alt="My TopCoder" style="display:block;"/></a></div>
