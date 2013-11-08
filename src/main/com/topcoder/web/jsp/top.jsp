@@ -93,11 +93,11 @@ Member Count: <%=new DecimalFormat("#,##0").format(sessionInfo.getMemberCount())
             <% } %>
         <% } else {
             if (level1.equals("long")) {%>
-                <a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Login">Login</a>
+                <a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Login">Login</a> | <a class="gMetal social-login" href="javascript:;">Social Login</a>
             <% } else if (level1.equals("forums")) { %>
-                <a class="gMetal" href="?module=Login">Login</a>
+                <a class="gMetal" href="?module=Login">Login</a> | <a class="gMetal social-login" href="javascript:;">Social Login</a>
             <% } else { %>
-                <a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?&amp;module=Login">Login</a>
+                <a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?&amp;module=Login">Login</a> | <a class="gMetal social-login" href="javascript:;">Social Login</a>
             <% } %>
         <%}%>
     </div>
