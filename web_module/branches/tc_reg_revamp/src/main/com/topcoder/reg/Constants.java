@@ -170,6 +170,13 @@ public class Constants implements WebConstants {
      *  @since 1.2
      */
     public static String TC_SERVER_NAME;
+	
+	 /**
+     * <p>The server name of /tc host.</p>
+     * 
+     *  @since 1.2
+     */
+    public static String DEFAULT_PASSWORD;
     
     private Constants() {
 

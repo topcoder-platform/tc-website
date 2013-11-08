@@ -62,6 +62,8 @@ public class CallbackAction extends BaseAction {
      * The struts result page to go if abnormal situation happens.
      */
     private static final String FAIL = "callbackfail";
+	
+	private String regUrl;
 
     /**
      * The social account information.
@@ -104,6 +106,8 @@ public class CallbackAction extends BaseAction {
     public String execute() throws Exception {
         final String signature = CLASS_NAME + "#execute()";
         logger.info(signature);
+		
+		HttpServletRequest req = ServletActionContext.getRequest();
 
         if (null == messages) {
             messages = new ArrayList<String>();
@@ -116,8 +120,8 @@ public class CallbackAction extends BaseAction {
             Long userIdBoundWithSocialAccount = socialService.findUserBySocialAccount(social);
             SessionSocialAccount socialAccountInSession = new SessionSocialAccount(social, false);
             
-            // Store the social account into session.
-            HttpSession session = ServletActionContext.getRequest().getSession();
+            
+            HttpSession session = req.getSession();
             session.setAttribute(RegistrationHelper.SOCIAL_ACCOUNT_SESSION_KEY, socialAccountInSession);
 
             // If the social account binds to a TC account.
@@ -151,6 +155,7 @@ public class CallbackAction extends BaseAction {
         }
 
         //LoggingWrapperUtility.logExit(logger, signature, new String[] {REGISTER});
+		regUrl = "https://" + req.getServerName() + "/reg2/showRegister.action";
         return REGISTER;
     }
 
@@ -290,6 +295,15 @@ public class CallbackAction extends BaseAction {
      */
     public void setMessages(List<String> messages) {
         this.messages = messages;
+    }
+	
+	public String getRegUrl() {
+        return regUrl;
+    }
+
+
+    public void setRegUrl(String regUrl) {
+        this.regUrl = regUrl;
     }
 
 }

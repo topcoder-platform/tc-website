@@ -107,7 +107,6 @@
      <bean id="registerAction" class="com.topcoder.reg.actions.RegisterAction" 
      	parent="baseAction" scope="prototype" init-method="checkConfiguration">
      	<property name="setting" ref="regEmailSetting" />
-        <property name="defaultPassword" value="Q1F2,l.5gR0sTb?fawfjiaf213F"/>
      </bean>
      
      <bean id="forgotPasswordAction" class="com.topcoder.reg.actions.ForgotPasswordAction"

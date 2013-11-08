@@ -46,6 +46,10 @@
                 <param name="actionName">showRegister</param>
                 <param name="namespace">/</param>
             </result>
+			<result name="register" type="httpheader">
+				<param name="status">301</param>
+				<param name="headers.Location">${regUrl}</param>
+			</result>
             <result name="login" type="chain" >
                 <param name="actionName">login</param>
                 <param name="namespace">/</param>
