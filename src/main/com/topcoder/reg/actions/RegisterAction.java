@@ -82,11 +82,6 @@ public class RegisterAction extends BaseAction implements Preparable {
     private EmailSetting setting;
 
     /**
-     * The default password when register via social account. It'll be injected by Spring.
-     */
-    private String defaultPassword;
-
-    /**
      * Validation messages for front-end to display.
      */
     private List<String> messages;
@@ -152,7 +147,8 @@ public class RegisterAction extends BaseAction implements Preparable {
             validateVerificationCode();
             
             if(socialAccountInSession != null){
-                user.setPassword( defaultPassword );
+			    String pwd = Constants.DEFAULT_PASSWORD;
+                user.setPassword(pwd);
             }else{
                 validatePassword();
             }
@@ -351,7 +347,7 @@ public class RegisterAction extends BaseAction implements Preparable {
     public void checkConfiguration() throws ConfigurationException {
         super.checkConfiguration();
         RegistrationHelper.checkNotNull("setting", setting, ConfigurationException.class);
-        RegistrationHelper.checkNotNullOrEmpty("defaultPassword", defaultPassword, ConfigurationException.class);
+       
     }
 
     /**
@@ -404,17 +400,7 @@ public class RegisterAction extends BaseAction implements Preparable {
         this.setting = setting;
     }
 
-    /**
-     * <p>
-     * The setter method for field defaultPassword.
-     * </p>
-     * 
-     * @param defaultPassword
-     *            the defaultPassword to set
-     */
-    public void setDefaultPassword(String defaultPassword) {
-        this.defaultPassword = defaultPassword;
-    }
+   
 
     /**
      * Populate countries before performing validation and executing action.
