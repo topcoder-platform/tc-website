@@ -60,8 +60,9 @@ public class Login extends Base {
                     try {
                         TCSubject sub = null;
                         //we need to check if they got the right user name and password before we check anything else
+                        LoginRemote login = null;
                         try {
-                            LoginRemote login = (LoginRemote) com.topcoder.web.common.security.Constants.createEJB(LoginRemote.class);
+                            login = (LoginRemote) com.topcoder.web.common.security.Constants.createEJB(LoginRemote.class);
                             sub = login.login(username, password);
                             if (log.isDebugEnabled()) {
                                 log.debug("correct user name and password");
@@ -70,7 +71,16 @@ public class Login extends Base {
                             if (log.isDebugEnabled()) {
                                 e.printStackTrace();
                             }
-                            throw new LoginException("Username or password incorrect.");
+                            
+                            if(login.isCloudSpokesUser(username)) {
+                            	getRequest().getSession().setAttribute(WebConstants.IS_CLOUDSPOKES_USER_KEY, true);
+                            	String path = getRequest().getScheme() + "://" + getRequest().getServerName() + ":" + getRequest().getServerPort()
+                            			+ getRequest().getContextPath() + getRequest().getServletPath() + "?" + Constants.MODULE_KEY + "=FindUser";
+                            	getResponse().sendRedirect(path);
+                            	return;
+                            } else {
+                            	throw new LoginException("Username or password incorrect.");
+                            }
                         }
                         char status = getStatus(sub.getUserId());
                         if (log.isDebugEnabled()) {

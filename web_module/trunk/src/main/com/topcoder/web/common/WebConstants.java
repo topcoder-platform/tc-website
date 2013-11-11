@@ -114,8 +114,14 @@ package com.topcoder.web.common;
  *     <li>Added constants {@link #VERIFY_PAGE}, {@link #UNVERIFY_PAGE}, {@link #SECOND_EMAIL_ADDRESS_ON_EDIT}</li>
  *   </ol>
  * </p>
- * @author dok, pulky, snow01, FireIce, lmmortal, Standlove, TCSASSEMBLER
- * @version 1.6.9
+ * 
+ * <p>
+ *  Version 1.6.10 (BUGR-9941)
+ *  <li>Add constant {@link #IS_CLOUDSPOKES_USER_KEY}.
+ * </p>
+ * 
+ * @author dok, pulky, snow01, FireIce, lmmortal, Standlove, TCSASSEMBLER, KeSyren
+ * @version 1.6.10
  */
 public interface WebConstants {
     public static final String HANDLE = "ha";
@@ -935,4 +941,10 @@ public interface WebConstants {
      * @since 1.6.9
      */      
     public static final String UNVERIFY_PAGE = "/mail_unverified.jsp";
+    
+    /**
+     * <p>The key holding if the user is CloudSpokes user.</p>
+     * @since 1.6.10
+     */
+    public static final String IS_CLOUDSPOKES_USER_KEY = "cloudspokers_user_session_key";
 }

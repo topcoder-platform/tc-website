@@ -4,6 +4,7 @@
 package com.topcoder.web.tc.controller.request.authentication;
 
 import com.topcoder.web.common.ShortHibernateProcessor;
+import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.UserDAO;
 import com.topcoder.web.common.model.User;
@@ -27,8 +28,16 @@ import java.util.List;
  * previous code is nearly totally removed.
  * </p>
  * 
- * @author vangavroche, TCSASSEMBLER
- * @version 1.1
+ * <p>
+ * Version 1.2(BUGR-9941) change note:
+ *    <ol>
+ *       <li>Add {@link #CLOUDSPOKES_USER_MIGRATION_MESSAGE}</li>
+ *       <li>Modify {@link #dbProcessing()} to lead CloudSpoks user to update password.</li>
+ *    <ol>
+ * </p>
+ * 
+ * @author vangavroche, KeSyren, TCSASSEMBLER
+ * @version 1.2
  */
 public class FindUser extends ShortHibernateProcessor {
 
@@ -41,6 +50,12 @@ public class FindUser extends ShortHibernateProcessor {
 
     private final static String MULTIPLE_USER_ERROR =
         "We found multiple accounts associated with %s while we allow one account for each member only. please contact support@topcoder.com to unify your accounts first.";
+    
+    /**
+     * Message to show for migrated CloudSpokes user.
+     */
+    private static final String CLOUDSPOKES_USER_MIGRATION_MESSAGE = "Welcome CloudSpokes member, you are a CloudSpokes" +
+    		" member that has been migrated to TopCoder, please reset your password here.";
 
     /**
      * <p>
@@ -58,6 +73,12 @@ public class FindUser extends ShortHibernateProcessor {
         String queryString = getRequest().getParameter(Constants.FIND_USER_QUERY);
 
         if (queryString == null) {
+        	
+          Object isCSUserObj = getRequest().getSession().getAttribute(WebConstants.IS_CLOUDSPOKES_USER_KEY);
+          if(null != isCSUserObj && (Boolean)isCSUserObj) {
+        	 renderView(Constants.RECOVER_PASSWORD, CLOUDSPOKES_USER_MIGRATION_MESSAGE, true); 
+          }
+        	
             // first came into this page.
             renderView(Constants.RECOVER_PASSWORD, null, true);
             return;
