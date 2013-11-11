@@ -11,10 +11,12 @@ import com.topcoder.security.TCSubject;
 import com.topcoder.security.Util;
 import com.topcoder.security.ldap.LDAPClient;
 import com.topcoder.security.ldap.LDAPClientException;
+
 import org.apache.log4j.Logger;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -37,9 +39,16 @@ import java.util.Set;
  *     <li>Updated {@link #login(String, String, String)} method to support impersonated logins.</li>
  *   </ol>
  * </p>
+ * 
+ * <p>
+ * Version 2.2(BUGR-9941) Change notes:
+ *    <ol>
+ *       <li>Add {@link #isCloudSpokesUser(String)} method.
+ *    </ol>
+ * </p>
  *
- * @author Heather Van Aelst, isv
- * @version 2.1
+ * @author Heather Van Aelst, isv, KeSyren
+ * @version 2.2
  */
 public class LoginBean extends BaseEJB {
 
@@ -297,5 +306,36 @@ public class LoginBean extends BaseEJB {
                                                    + "unexpected error", e);
             }
         }
+    }
+    
+    /**
+     * This method checks if the given handle is user migrated from CloudSpokes.
+     * @throws GeneralSecurityException If there is any general security error.
+     */
+    public boolean isCloudSpokesUser(String handle) throws GeneralSecurityException {
+    	 InitialContext ctx = null;
+         ResultSet rs = null;
+         PreparedStatement pst = null;
+         Connection conn = null;
+         try {
+             ctx = new InitialContext();
+             conn = Util.getConnection(ctx, DATA_SOURCE);
+             String query = "SELECT reg_source FROM user WHERE handle = ?";
+             pst = conn.prepareStatement(query);
+             pst.setString(1, handle);
+             rs = pst.executeQuery();
+             if(rs.next()) {
+            	 return "cloudspokes".equalsIgnoreCase(rs.getString("reg_source"));
+             }
+         } catch (Exception e) {
+             throw new GeneralSecurityException(e);
+         } finally {
+             close(rs);
+             close(pst);
+             close(conn);
+             close(ctx);
+         }
+    	
+    	return false;
     }
 }
