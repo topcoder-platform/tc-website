@@ -54,8 +54,9 @@ public class FindUser extends ShortHibernateProcessor {
     /**
      * Message to show for migrated CloudSpokes user.
      */
-    private static final String CLOUDSPOKES_USER_MIGRATION_MESSAGE = "Welcome CloudSpokes member, you are a CloudSpokes" +
-    		" member that has been migrated to TopCoder, please reset your password here.";
+    private static final String CLOUDSPOKES_USER_MIGRATION_MESSAGE = "Hello and welcome! We have identified your CloudSpokes" + 
+            " user and have migrated your user data to the TopCoder Platform. In order to complete the process, please reset" +
+            " your password by completing the form below. Don't forget to check your email to confirm.";
 
     /**
      * <p>
