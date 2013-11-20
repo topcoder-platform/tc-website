@@ -3,20 +3,10 @@
  */
 package com.topcoder.reg.actions;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Matcher;
-
-import javax.annotation.PostConstruct;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
-import org.apache.struts2.ServletActionContext;
-
 import com.opensymphony.xwork2.Preparable;
 import com.opensymphony.xwork2.config.ConfigurationException;
-import com.topcoder.commons.utils.LoggingWrapperUtility;
 import com.topcoder.reg.CaptchaGenerator;
+import com.topcoder.reg.Constants;
 import com.topcoder.reg.EmailSetting;
 import com.topcoder.reg.RegistrationHelper;
 import com.topcoder.reg.dto.SessionSocialAccount;
@@ -25,11 +15,17 @@ import com.topcoder.reg.dto.UserDTO;
 import com.topcoder.reg.services.PersistenceException;
 import com.topcoder.reg.util.DataProvider;
 import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.util.log.Level;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.common.model.Country;
-import com.topcoder.reg.Constants;
-import com.topcoder.shared.util.logging.Logger;
+import org.apache.struts2.ServletActionContext;
+
+import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
 
 /**
  * This action will be used to create new user account into persistence given user instance.
@@ -47,9 +43,18 @@ import com.topcoder.shared.util.logging.Logger;
  * as one step of registeration.</li>
  * <ol>
  * <p>
+ *
+ * <p>
+ *     version 1.2(BugR 10042) change log:
+ *     <ol>
+ *         <li>Add {@link #utm_source} field and its getter/setter method.</li>
+ *         <li>Add {@link #utm_medium} field and its getter/setter method.</li>
+ *         <li>Add {@link #utm_campaign} field and its getter/setter method.</li>
+ *     </ol>
+ * </p>
  * 
- * @author sampath01, leo_lol, ecnu_haozi
- * @version 1.1
+ * @author sampath01, leo_lol, ecnu_haozi, KeSyren
+ * @version 1.2
  * @since 1.0
  */
 public class RegisterAction extends BaseAction implements Preparable {
@@ -93,6 +98,22 @@ public class RegisterAction extends BaseAction implements Preparable {
     private SocialAccount social;
 
     /**
+     *  Identify the advertiser, site, publication, etc. that is sending traffic to your property, e.g. google,
+     *  city search, newsletter4, billboard.
+     */
+    private String utm_source;
+
+    /**
+     * The advertising or marketing medium, e.g.: cpc, referral, email.
+     */
+    private String utm_medium;
+
+    /**
+     * The individual campaign name, slogan, promo code, etc. for a product.
+     */
+    private String utm_campaign;
+
+    /**
      * This method would create and persist new user according user input data.
      * 
      * @throws Exception
@@ -129,6 +150,14 @@ public class RegisterAction extends BaseAction implements Preparable {
                 }
             }
         }
+
+        //put tracking attributes into session.
+        if(null != utm_source) {
+            session.setAttribute("utm_source", utm_source);
+            session.setAttribute("utm_medium", utm_medium);
+            session.setAttribute("utm_campaign", utm_campaign);
+        }
+
         //The POST request is to do registration process.
         if (request.getMethod().equals("POST")) {
             //To eliminate NULL field.
@@ -460,4 +489,57 @@ public class RegisterAction extends BaseAction implements Preparable {
         this.social = social;
     }
 
+    /**
+     * Gets namesake field.
+     *
+     * @return the namesake value.
+     */
+    public String getUtm_source() {
+        return utm_source;
+    }
+
+    /**
+     * Gets namesake field.
+     *
+     * @return the namesake value.
+     */
+    public String getUtm_medium() {
+        return utm_medium;
+    }
+
+    /**
+     * Gets namesake field.
+     *
+     * @return the namesake value.
+     */
+    public String getUtm_campaign() {
+        return utm_campaign;
+    }
+
+    /**
+     * Sets the namesake field.
+     *
+     * @param utm_source the source
+     */
+    public void setUtm_source(String utm_source) {
+        this.utm_source = utm_source;
+    }
+
+    /**
+     * Sets the namesake field.
+     *
+     * @param utm_medium the medium
+     */
+    public void setUtm_medium(String utm_medium) {
+        this.utm_medium = utm_medium;
+    }
+
+    /**
+     * Sets the namesake field.
+     *
+     * @param utm_campaign the campaign.
+     */
+    public void setUtm_campaign(String utm_campaign) {
+        this.utm_campaign = utm_campaign;
+    }
 }

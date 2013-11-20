@@ -3,11 +3,17 @@
  */
 package com.topcoder.reg.services.impl;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
-import java.util.Map;
-
+import com.topcoder.reg.dto.UserDTO;
+import com.topcoder.reg.services.PersistenceException;
+import com.topcoder.reg.services.UserService;
+import com.topcoder.security.Util;
+import com.topcoder.security.ldap.LDAPClient;
+import com.topcoder.security.ldap.LDAPClientException;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.util.idgenerator.IDGenerationException;
+import com.topcoder.util.idgenerator.IDGenerator;
+import com.topcoder.util.idgenerator.IDGeneratorFactory;
+import com.topcoder.web.common.StringUtils;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.InvalidResultSetAccessException;
 import org.springframework.jdbc.core.RowMapper;
@@ -15,19 +21,10 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.topcoder.commons.utils.LoggingWrapperUtility;
-import com.topcoder.reg.dto.UserDTO;
-import com.topcoder.reg.services.PersistenceException;
-import com.topcoder.reg.services.UserService;
-import com.topcoder.security.Util;
-import com.topcoder.security.ldap.LDAPClient;
-import com.topcoder.security.ldap.LDAPClientException;
-import com.topcoder.util.idgenerator.IDGenerationException;
-import com.topcoder.util.idgenerator.IDGenerator;
-import com.topcoder.util.idgenerator.IDGeneratorFactory;
-import com.topcoder.util.log.Level;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.shared.util.logging.Logger;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -46,8 +43,15 @@ import com.topcoder.shared.util.logging.Logger;
  * <li>Add a method to obtain password.</li>
  * <ol>
  * </p>
- * @author sampath01, leo_lol, Urmass ,ecnu_haozi
- * @version 1.2
+ *
+ * <p>
+ *     Version 1.3(BugR 10042) Change log:
+ *     <ol>
+ *         <li>Modify {@link #SQL_INSERT_USER} to persist utm_source, utm_medium and utm_campaign if present.</li>
+ *     </ol>
+ * </p>
+ * @author sampath01, leo_lol, Urmass ,ecnu_haozi, KeSyren
+ * @version 1.3
  * @since 1.0
  */
 public class UserServiceImpl extends BaseImpl implements UserService {
@@ -63,7 +67,8 @@ public class UserServiceImpl extends BaseImpl implements UserService {
      * SQL to insert a new user.
      */
     private static final String SQL_INSERT_USER = "INSERT INTO user(user_id, first_name, last_name, handle, status, "
-            + "activation_code, reg_source) VALUES (?, ?, ?, ?, 'U', ?, ?)";
+            + "activation_code, reg_source, utm_source, utm_medium, utm_campaign) " +
+            "VALUES (?, ?, ?, ?, 'U', ?, ?, ?, ?, ?)";
 
     /**
      * SQL to insert new coder while registering new user.
@@ -196,7 +201,8 @@ public class UserServiceImpl extends BaseImpl implements UserService {
             user.setUserId(userId);
             user.setActivationCode(StringUtils.getActivationCode(userId));
             jdbcTemplate.update(SQL_INSERT_USER, userId, user.getFirstName(), user.getLastName(), user.getHandle(),
-                    user.getActivationCode(), user.getSource());
+                    user.getActivationCode(), user.getSource(), user.getUtm_source(), user.getUtm_medium(),
+                    user.getUtm_campaign());
             jdbcTemplate.update(SQL_INSERT_CODER, userId, user.getCountry());
             jdbcTemplate.update(SQL_INSERT_SECURITY_USER, userId, user.getHandle(),
                     Util.encodePassword(user.getPassword(), "users"), null);

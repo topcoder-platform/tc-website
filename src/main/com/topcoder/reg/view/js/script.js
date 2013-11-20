@@ -4,8 +4,11 @@
  * Version 1.1(Release Assembly - TopCoder Reg2 Password Recovery Revamp and Misc Bug Fixes) change log:
  * Updated to use reset code instead of secret question for recovery password
  *
- * Version: 1.1
- * Author: TCSASSEMBLER
+ * Version 1.2 (BugR 10042) change log:
+ * Gather and pass utm_source, utm_medium and utm_campaign value to backend action to persist.
+ *
+ * Version: 1.2
+ * Author: leo_lol, KeSyren
  *
  **/
 
@@ -208,11 +211,16 @@ $(document).ready(function() {
 			var password = $("#txtPassword").val();
 			var confirmPassword = $("#txtCPassword").val();
 			var captcha = $("#txtCaptcha").val();
+                        var utm_source = $("#utm_source").val();
+                        var utm_medium = $("#utm_medium").val();
+                        var utm_campaign = $("#utm_campaign").val();
+
 			
 			$.post("ajax/register.action", 
 			   {"user.firstName":firstName, "user.lastName":lastName,
 				"user.handle":handle, "user.country":country, "user.email":email, "user.password":password,
-				"user.confirmPassword":confirmPassword, "user.verificationCode":captcha
+				"user.confirmPassword":confirmPassword, "user.verificationCode":captcha, "user.utm_source":utm_source,
+                                "user.utm_medium":utm_medium, "user.utm_campaign":utm_campaign
 				}, 
 			   
 				function(data){
