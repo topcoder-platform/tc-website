@@ -5,8 +5,11 @@
    - Change in v1.1 (Release Assembly - TopCoder Website Social Login)
    - - Add some struts tags to pre-fill regiteration form data.
    -
-   - Version: 1.1
-   - Author: leo_lol
+   - Changes in v1.2(BugR 10042)
+   - - Add utm_source, utm_medium, utm_campaign hidden fields.
+   -
+   - Version: 1.2
+   - Author: leo_lol, KeSyren
  --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
@@ -38,6 +41,9 @@
 			<div class="rightSide">
 					<div class="form">
 					    <s:form id="register_user_form" method="post" action="register" theme="simple" namespace="/ajax">
+			                        <input type="hidden" name="utm_source" id="utm_source" value="${utm_source}">
+			                        <input type="hidden" name="utm_medium" id="utm_medium" value="${utm_medium}">
+			                        <input type="hidden" name="utm_campaign" id="utm_campaign" value="${utm_campaign}">
 						<div class="row">
 							<label>First Name</label>
 							<s:textfield name="user.firstName" id="txtFName" cssClass="text" type="text" theme="simple" value="%{social.givenName}"></s:textfield>

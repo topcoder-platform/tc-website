@@ -14,8 +14,17 @@ package com.topcoder.reg.dto;
  * Added secondEmail attribute
  * </p>
  *
- * @author sampath01, leo_lol, Urmass ,TCSASSEMBLER
- * @version 1.1
+ * <p>
+ *     version 1.2(BugR 10042) change log:
+ *     <ol>
+ *         <li>Add {@link #utm_source} field and its getter/setter method.</li>
+ *         <li>Add {@link #utm_medium} field and its getter/setter method.</li>
+ *         <li>Add {@link #utm_campaign} field and its getter/setter method.</li>
+ *     </ol>
+ * </p>
+ *
+ * @author sampath01, leo_lol, Urmass ,TCSASSEMBLER, KeSyren
+ * @version 1.2
  * @since 1.0
  */
 public class UserDTO {
@@ -84,6 +93,22 @@ public class UserDTO {
      * Source of registration. Default to reg2.
      */
     private String source = "reg2";
+
+    /**
+     *  Identify the advertiser, site, publication, etc. that is sending traffic to your property, e.g. google,
+     *  city search, newsletter4, billboard.
+     */
+    private String utm_source;
+
+    /**
+     * The advertising or marketing medium, e.g.: cpc, referral, email.
+     */
+    private String utm_medium;
+
+    /**
+     * The individual campaign name, slogan, promo code, etc. for a product.
+     */
+    private String utm_campaign;
 
     /**
      * Getter of the name-sake field.
@@ -332,4 +357,57 @@ public class UserDTO {
         this.source = source;
     }
 
+    /**
+     * Gets namesake field.
+     *
+     * @return the namesake value.
+     */
+    public String getUtm_source() {
+        return utm_source;
+    }
+
+    /**
+     * Gets namesake field.
+     *
+     * @return the namesake value.
+     */
+    public String getUtm_medium() {
+        return utm_medium;
+    }
+
+    /**
+     * Gets namesake field.
+     *
+     * @return the namesake value.
+     */
+    public String getUtm_campaign() {
+        return utm_campaign;
+    }
+
+    /**
+     * Sets the namesake field.
+     *
+     * @param utm_source the source
+     */
+    public void setUtm_source(String utm_source) {
+        this.utm_source = utm_source;
+    }
+
+    /**
+     * Sets the namesake field.
+     *
+     * @param utm_medium the medium
+     */
+    public void setUtm_medium(String utm_medium) {
+        this.utm_medium = utm_medium;
+    }
+
+    /**
+     * Sets the namesake field.
+     *
+     * @param utm_campaign the campaign.
+     */
+    public void setUtm_campaign(String utm_campaign) {
+        this.utm_campaign = utm_campaign;
+    }
 }
