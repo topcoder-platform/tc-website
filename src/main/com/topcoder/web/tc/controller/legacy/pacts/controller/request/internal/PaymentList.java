@@ -921,6 +921,9 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                     if (arg0.getType() == null) {
                         return 1;
                     }
+                    if (arg1.getType() == null) {
+                        return -1;
+                    }
                     return arg0.getType().toUpperCase().compareTo(arg1.getType().toUpperCase());
                 }
             });
@@ -930,6 +933,9 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
                     if (arg0.getRecentStatus() == null) {
                         return 1;
+                    }
+                    if (arg1.getRecentStatus() == null) {
+                        return -1;
                     }
                     return arg0.getRecentStatus().toUpperCase().compareTo(arg1.getRecentStatus().toUpperCase());
                 }
@@ -941,6 +947,9 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                     if (arg0.getMethod() == null) {
                         return 1;
                     }
+                    if (arg1.getMethod() == null) {
+                        return -1;
+                    }
                     return arg0.getMethod().toUpperCase().compareTo(arg1.getMethod().toUpperCase());
                 }
             });
@@ -950,6 +959,9 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
                     if (arg0.getClient() == null) {
                         return 1;
+                    }
+                    if (arg1.getClient() == null) {
+                        return -1;
                     }
                     return arg0.getClient().toUpperCase().compareTo(arg1.getClient().toUpperCase());
                 }
