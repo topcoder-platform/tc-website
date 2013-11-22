@@ -134,6 +134,10 @@
       <td class="value">27
       </td>
       <td class="value">28
+        <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=15820">SRM 602</A></strong><br />
+         12:00
+        </div>
       </td>
    </tr>
 
