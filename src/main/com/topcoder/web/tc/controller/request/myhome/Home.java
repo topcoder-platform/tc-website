@@ -1,21 +1,18 @@
 /*
- * Copyright (C) 2007 - 2012 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2007 - 2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.tc.controller.request.myhome;
 
-import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.HSRegistrationHelper;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
-
-import java.util.*;
 
 /**
  * <p>
@@ -33,9 +30,16 @@ import java.util.*;
  *     <li>Update dbProcessing method to retrieve image path info.</li>
  *   </ol>
  * </p>
- * 
- * @author Pablo Wolfus (pulky), pvmagacho, VolodymyrK
- * @version 1.1
+ *
+ * <p>
+ *   Version 1.2 (Release Assembly - Social Login Linking for Existing User) Change notes:
+ *   <ol>
+ *      <li>Set hasSocialAccount field.</li>
+ *   </ol>
+ * </p>
+ *
+ * @author Pablo Wolfus (pulky), pvmagacho, VolodymyrK, TCSASSEMBLER
+ * @version 1.2
  */
 public class Home extends ShortHibernateProcessor {
 
@@ -69,6 +73,9 @@ public class Home extends ShortHibernateProcessor {
             
         }
         getRequest().setAttribute("userImage", image);
+
+        getRequest().setAttribute("hasSocialAccount",
+                !DAOUtil.getFactory().getUserSocialLoginDAO().findByUserId(getUser().getId()).isEmpty());
 
         setNextPage("/my_home/index.jsp");
         setIsNextPageInContext(true);

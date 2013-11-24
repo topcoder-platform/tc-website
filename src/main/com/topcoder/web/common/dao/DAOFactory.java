@@ -35,8 +35,16 @@ package com.topcoder.web.common.dao;
  *     <li>Changed {@link getEmailRequestDAO()} to use the new {@link EmailRequestDAO} entity.</li>
  *   </ol>
  * </p>
+ *
+ * <p>
+ *   Version 1.5 (Release Assembly - Social Login Linking for Existing User) Change notes:
+ *   <ol>
+ *      <li>Added {@link #getUserSocialLoginDAO()} method.</li>
+ *   </ol>
+ * </p>
+ *
  * @author dok, TCSDEVELOPER, VolodymyrK, isv, Standlove, TCSASSEMBLER
- * @version 1.3
+ * @version 1.5
  */
 public interface DAOFactory {
     /**
@@ -205,4 +213,11 @@ public interface DAOFactory {
      */
     GovernmentIDDAO getGovernmentIdDAO();
 
+    /**
+     * Gets the instance of {@link UserSocialLoginDAO}.
+     *
+     * @return the dao.
+     * @since 1.5
+     */
+    UserSocialLoginDAO getUserSocialLoginDAO();
 }

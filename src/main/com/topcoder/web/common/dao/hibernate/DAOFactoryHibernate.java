@@ -42,8 +42,15 @@ import com.topcoder.web.common.dao.*;
  *   </ol>
  * </p>
  *
+ * <p>
+ *   Version 1.5 (Release Assembly - Social Login Linking for Existing User) Change notes:
+ *   <ol>
+ *      <li>Added {@link #getUserSocialLoginDAO()} method.</li>
+ *   </ol>
+ * </p>
+ *
  * @author dok, TCSDEVELOPER, isv, Standlove, TCSASSEMBLER
- * @version 1.4
+ * @version 1.5
  */
 public class DAOFactoryHibernate implements DAOFactory {
     /**
@@ -347,5 +354,15 @@ public class DAOFactoryHibernate implements DAOFactory {
      */
     public GovernmentIDDAO getGovernmentIdDAO() {
         return new GovernmentIDAOHibernate();
+    }
+
+    /**
+     * Gets the instance of {@link UserSocialLoginDAO}.
+     *
+     * @return the dao.
+     * @since 1.5
+     */
+    public UserSocialLoginDAO getUserSocialLoginDAO() {
+        return new UserSocialLoginDAOHibernate();
     }
 }

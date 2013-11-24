@@ -14,6 +14,7 @@
     <property name="lib.dir" value="lib"/>
     <property name="jars.dir" value="${lib.dir}/jars"/>
     <property name="openid4java.dir" value="${jars.dir}/openid4java" />
+    <property name="poi.dir" value="${jars.dir}/poi-3.9"/>
     <property name="jive.dir" value="lib/jars/jive"/>
     <property name="struts.dir" value="${lib.dir}/jakarta-struts-1.1/lib"/>
     <property name="bin" value="lib/bin"/>
@@ -96,6 +97,18 @@
         <pathelement location="${struts.dir}/commons-beanutils.jar"/>
         <pathelement location="${struts.dir}/commons-collections.jar"/>
         <pathelement location="${struts.dir}/struts.jar"/>
+
+        <pathelement location="${jars.dir}/super-csv-2.1.0.jar"/>
+
+        <!-- Apache POI -->
+        <pathelement location="${poi.dir}/poi-3.9.jar"/>
+        <pathelement location="${poi.dir}/dom4j-1.6.1.jar"/>
+        <pathelement location="${poi.dir}/poi-ooxml-3.9.jar"/>
+        <pathelement location="${poi.dir}/poi-ooxml-schemas-3.9.jar"/>
+        <pathelement location="${poi.dir}/stax-api-1.0.1.jar"/>
+        <pathelement location="${poi.dir}/xmlbeans-2.3.0.jar"/>
+        
+        <pathelement location="${jars.dir}/cxf/cxf-2.6.10.jar"/>
 
         <!-- TCS Components -->
 
@@ -1463,6 +1476,15 @@
 				<include name="copilot_pool_and_profiles_common.jar"/>
 				<include name="copilot_pool_and_profiles_services.jar"/>
 			</lib>
+            <lib dir="${jars.dir}/cxf">
+                <include name="cxf-2.6.10.jar" />
+                <include name="jsr311-api-1.1.1.jar" />
+                <include name="neethi-3.0.2.jar" />
+                <include name="geronimo-jaxws_2.2_spec-1.1.jar" />
+                <include name="jaxb-api-2.2.5.jar" />
+                <include name="jsr173_1.0_api.jar" />
+                <include name="xmlbeans-2.5.0.jar" />
+            </lib>
 			<lib dir="${external.jars.dir}">
 				<include name="base_exception-2.0.0.jar"/>
 			</lib>

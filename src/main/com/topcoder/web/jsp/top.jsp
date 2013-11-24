@@ -1,5 +1,8 @@
 <%--
- * Copyright (C) 2004 - 2012 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2004 - 2013 TopCoder Inc., All Rights Reserved.
+ *
+ * Author: TCSASSEMBLER
+ * Version: 1.2
  *
  * This JSP renders TopCoder web site's shortcut bar.
  *
@@ -13,6 +16,8 @@
  * Changes in ( Release Assembly - TopCoder Website Social Login ) 1.1
  * 1. Modify the login link to open Auth0 login widget so the users can login with their social accounts. 
  *
+ * Changes in ( Release Assembly - Social Login Linking for Existing User ) 1.2
+ * Only load auth0 script when user is anonymous.
 --%>
 <%@  page
   language="java"
@@ -25,7 +30,6 @@
 <%
     SessionInfo sessionInfo = (SessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);
     String level1 = request.getParameter("level1")==null?"competition":request.getParameter("level1");
-
 %>
 
 <script type="text/javascript" src="/js/popup.js"></script>
@@ -51,15 +55,17 @@
 
 <div id="globalPopup" class="popUp"><div id="globalPopupText"></div></div>
 
-<script id="auth0" src="https://sdk.auth0.com/auth0.js#client=<%=Constants.CLIENT_ID_AUTH0%>&amp;state=http://<%=ApplicationServer.SERVER_NAME%><%= request.getAttribute("javax.servlet.forward.request_uri")%>&amp;redirect_uri=https://<%=ApplicationServer.SERVER_NAME%><%=Constants.REDIRECT_URL_AUTH0%>"></script>
+<% if ( sessionInfo.isAnonymous() ) { %>
+    <script id="auth0" src="https://sdk.auth0.com/auth0.js#client=<%=Constants.CLIENT_ID_AUTH0%>&amp;state=http://<%=ApplicationServer.SERVER_NAME%><%= request.getAttribute("javax.servlet.forward.request_uri")%>&amp;redirect_uri=https://<%=ApplicationServer.SERVER_NAME%><%=Constants.REDIRECT_URL_AUTH0%>"></script>
 
-<script>
-  $(function () {
-        $('.social-login').click( function () {
-              window.Auth0.signIn({ onestep: true, title: "TopCoder/CloudSpokes", icon: 'http://www.topcoder.com/i/24x24_brackets.png', showIcon: true});
+    <script>
+      $(function () {
+            $('.social-login').click( function () {
+                  window.Auth0.signIn({ onestep: true, title: "TopCoder/CloudSpokes", icon: 'http://www.topcoder.com/i/24x24_brackets.png', showIcon: true});
+            });
         });
-    });
-</script>
+    </script>
+<% } %>
 
 <% if ( !sessionInfo.isAnonymous() ) { %>
 <div style="position: absolute; right:0px; top:31px;"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=MyHome"><img src="/i/interface/myTopCoder.png" alt="My TopCoder" style="display:block;"/></a></div>
