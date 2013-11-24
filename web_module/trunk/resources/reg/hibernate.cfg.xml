@@ -152,6 +152,8 @@
 
         <mapping class="com.topcoder.web.common.model.educ.Professor"/>
         <mapping class="com.topcoder.web.common.model.educ.ProfessorStatus"/>
+        
+        <mapping resource="com/topcoder/web/common/model/UserSocialLogin.hbm.xml"/>
 
         <!-- If education platform is deployed in a different server than reg, these
              two mappings need to be uncommented only in the education platform server.

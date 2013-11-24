@@ -213,8 +213,15 @@ import java.util.MissingResourceException;
  *   </ol>
  * </p>
  *
- * @author pulky, isv, VolodymyrK, TrePe, gevak, ecnu_haozi
- * @version 1.9.12
+ * <p>
+ *   Version 1.9.13 (Release Assembly - Social Login Linking for Existing User) change log:
+ *   <ol>
+ *     <li>Add BIND_CALLBACK_URL_AUTH0 constant</li>
+ *   </ol>
+ * </p>
+ *
+ * @author pulky, isv, VolodymyrK, TrePe, gevak, ecnu_haozi, tangzx
+ * @version 1.9.13
  */
 public class Constants implements WebConstants {
 
@@ -1830,6 +1837,13 @@ public class Constants implements WebConstants {
      *  @since 1.9.12
      */
     public static String REG_SERVER_NAME;
+
+    /**
+     * The bind callback url of auth0.
+     *
+     * @since 1.9.13
+     */
+    public static String BIND_CALLBACK_URL_AUTH0;
 
     static {
         initialize();

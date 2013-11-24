@@ -1,6 +1,6 @@
 <%--
-  - Author: isv, pvmagacho
-  - Version: 1.4 (BUG#TCCC-3348)
+  - Author: isv, pvmagacho, TCSASSEMBLER
+  - Version: 1.5
   - Copyright (C) 2010 - 2013 TopCoder Inc., All Rights Reserved.
   -
   - Description: This page renders the Home page displayed to TopCoder member. It renders the details on user
@@ -22,6 +22,9 @@
   -
   - Changes in 1.4 (Release Assembly - TopCoder Password Recovery Revamp v1.0 ):
   - - Add a link to add second mail.
+  -
+  - Changes in 1.5 (Release Assembly - Social Login Linking for Existing User):
+  - - Add Add/Remove social login link and auth0 logic.
 --%>
 
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
@@ -50,7 +53,23 @@
     <script type="text/javascript" src="/js/jquery.form.js"></script>
     <script type="text/javascript" src="/js/jquery.Jcrop.js"></script>
     <script type="text/javascript" src="/js/photo.js"></script>
-
+    
+    <script src="https://sdk.auth0.com/auth0.js#client=<%=Constants.CLIENT_ID_AUTH0%>&amp;state=https://<%=ApplicationServer.SERVER_NAME%>/tc&amp;redirect_uri=https://<%=ApplicationServer.SERVER_NAME%><%=Constants.BIND_CALLBACK_URL_AUTH0%>"></script>
+    
+    <script type="text/javascript">
+        $(function() {
+            $('#addSocialLink').click(function() {
+                window.Auth0.signIn({
+                    onestep: true,
+                    signupLink: 'https://<%=ApplicationServer.SERVER_NAME%>/reg2/showRegister.action',
+                    title: 'TopCoder/CloudSpokes',
+                    icon: 'https://www.topcoder.com/i/24x24_brackets.png',
+                    showIcon: true
+                });
+            });
+        });
+    </script>    
+    
     <link type="text/css" href="/css/jquery.Jcrop.css" rel="stylesheet"/>
     <link type="text/css" href="/css/photo.css" rel="stylesheet"/>
 
@@ -231,6 +250,16 @@
                                     </form>
                                     <a href="#" onclick="javascript:$('#addfrm').submit();">Update Secondary Email</a>
                                 </c:otherwise>
+                                </c:choose>
+                            </p>
+                            <p>
+                                <c:choose>
+                                    <c:when test="${hasSocialAccount}">
+                                        <a href="/tc?module=RemoveSocialLogin">Remove Social Login</a>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <a href="javascript:;" id="addSocialLink">Add Social Login</a>
+                                    </c:otherwise>
                                 </c:choose>
                             </p>
                         </td>

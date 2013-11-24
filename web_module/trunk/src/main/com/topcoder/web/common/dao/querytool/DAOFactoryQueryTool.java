@@ -37,8 +37,16 @@ import com.topcoder.web.common.dao.*;
  *     <li>Renamed <code>getSecondEmailRequestDAO</code> to {@link getEmailRequestDAO()}.</li>
  *   </ol>
  * </p>
+ *
+ * <p>
+ *   Version 1.5 (Release Assembly - Social Login Linking for Existing User) Change notes:
+ *   <ol>
+ *      <li>Added {@link #getUserSocialLoginDAO()} method.</li>
+ *   </ol>
+ * </p>
+ *
  * @author pulky, TCSDEVELOPER, isv, Standlove, TCSASSEMBLER
- * @version 1.4
+ * @version 1.5
  */
 public class DAOFactoryQueryTool implements DAOFactory {
 
@@ -334,6 +342,17 @@ public class DAOFactoryQueryTool implements DAOFactory {
     public GovernmentIDDAO getGovernmentIdDAO() {
         throw new RuntimeException("Not supported");
     }
+
+    /**
+     * Gets the instance of {@link UserSocialLoginDAO}.
+     *
+     * @return nothing, will throw exception.
+     * @since 1.5
+     */
+    public UserSocialLoginDAO getUserSocialLoginDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
     /**
      * <p>Gets the instance of {@link PasswordResetTokenDAO}.</p>
      *

@@ -25,7 +25,7 @@ public class ForumReplyEmailRetrievalJobCommandTool {
     /**
      * Represents the execution interval for {@link #JobProcessor}.
      */
-    private static final int JOB_PROCESSOR_EXECUTE_INTERVAL = 2000;
+    private static final int JOB_PROCESSOR_EXECUTE_INTERVAL = 30000;
 
     /**
      * Represents the namespace of the job scheduler.

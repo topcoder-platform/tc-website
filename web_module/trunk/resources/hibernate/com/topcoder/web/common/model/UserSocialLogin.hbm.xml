@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+
+    <class name="UserSocialLogin" table="user_social_login" >
+        <composite-id name="id" class="UserSocialLogin$Identifier">
+            <key-property name="userId" column="user_id" />
+            <key-property name="socialLoginProviderId" column="social_login_provider_id" />
+        </composite-id>
+        
+        <property name="socialUserName" column="social_user_name" access="field"/>
+        <property name="socialEmail" column="social_email" access="field"/>
+        <property name="socialEmailVerified" column="social_email_verified" access="field"/>
+    </class>
+</hibernate-mapping>
