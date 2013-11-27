@@ -112,11 +112,11 @@ public class CloudSpokesContestLoader extends TCLoad {
     private static final String PLACE_CS_PRIZE_FILE_COLUMN_HEADER = "Place__c";
 
     /**
-     * Header of the challenge code column in the CS prizes file.
+     * Header of the ID column in the CS prizes file.
      *
      * @since 1.1
      */
-    private static final String CHALLENGE_CODE_CS_PRIZE_FILE_COLUMN_HEADER = "Challenge__c";
+    private static final String ID_CS_PRIZE_FILE_COLUMN_HEADER = "Challenge__c";
 
     /**
      * Header of the total prize column in the input file.
@@ -251,6 +251,15 @@ public class CloudSpokesContestLoader extends TCLoad {
      * @since 1.1
      */
     private static final String COMMUNITY_COLUMN_HEADER = "Community__c";
+
+    /**
+     * Header of the CS prize ID column in the input file.
+     *
+     * @since 1.1
+     */
+    private static final String CS_PRIZE_ID_COLUMN_HEADER = "Id";
+	
+	
 
     /**
      * Header of the Appirio payment column in the input file.
@@ -482,6 +491,11 @@ public class CloudSpokesContestLoader extends TCLoad {
     private static final String WARNINGS_FILENAME_PARAMETER = "warnings_filename";
 
     /**
+     * Name of score-card ID configuration parameter.
+     */
+    private static final String SCORECARD_ID_PARAMETER = "scorecard_id";
+
+    /**
      * Name of errors filename configuration parameter.
      */
     private static final String ERRORS_FILENAME_PARAMETER = "errors_filename";
@@ -548,6 +562,9 @@ public class CloudSpokesContestLoader extends TCLoad {
      * See {@link #insertCompVersionDate(long)} for details.
      */
     private static final int DEFAULT_VERSION_DATES_COUNT = 9;
+	
+	
+	private static final SimpleDateFormat resource_info_fomate = new SimpleDateFormat("MM.dd.yyyy hh:mm a");
 
     /**
      * Phase time value to be populated into the database tables.
@@ -630,6 +647,13 @@ public class CloudSpokesContestLoader extends TCLoad {
     private String warningsFilename;
 
     /**
+     * Score-card ID.
+     * It's set by {@link #setParameters(Hashtable)} method according to configuration and not mutated afterwards.
+     * Not null/empty once initialized.
+     */
+    private String scorecardId;
+
+    /**
      * Report writer.
      * It's initialized by {@link #initializeWriters()} method and not mutated afterwards.
      * Not null once initialized.
@@ -674,6 +698,13 @@ public class CloudSpokesContestLoader extends TCLoad {
     }));
 
     /**
+     * Mapping of user handles by IDs.
+     * Key is a user ID, value is a handle.
+     * It's not null, doesn't contain null/empty keys/values.
+     */
+    private final Map<Long, String> handleByUserId = new HashMap<Long, String>();
+
+    /**
      * Mapping of column indices by names.
      * Key is a column name (determined from column header), value is a column index.
      * It's initialized by {@link #checkInputFile()} method and not mutated afterwards.
@@ -706,7 +737,7 @@ public class CloudSpokesContestLoader extends TCLoad {
 
     /**
      * CS prizes map.
-     * Key is a CS challenge code, inner key is a placement, inner value is a prize amount.
+     * Key is a CS prize ID, inner key is a placement, inner value is a prize amount.
      * It's initialized by {@link #loadCSPrizes()} method and not mutated afterwards.
      * Once initialized, it's not null, doesn't contain null/empty keys (including inner keys),
      * all values are not null.
@@ -729,6 +760,8 @@ public class CloudSpokesContestLoader extends TCLoad {
      * ID of user to be used by default if created / modified by user is not specified.
      */
     private Long defaultUserId = null;
+	
+	private String defaultUserHandle = "";
 
     /**
      * Counter of records, imported successfully without warnings.
@@ -963,6 +996,16 @@ public class CloudSpokesContestLoader extends TCLoad {
     private PreparedStatement insertProjectPhaseStmt = null;
 
     /**
+     * Prepared statement for inserting a record to the phase_criteria table.
+     * It's set during first invocation of {@link #insertPhaseCriteria(long, long, long, Timestamp)}
+     * method and not mutated afterwards.
+     * Not null once initialized.
+     *
+     * @since 1.1
+     */
+    private PreparedStatement insertPhaseCriteriaStmt = null;
+
+    /**
      * Prepared statement for inserting a record to the project_spec table.
      * It's set during first invocation of {@link #insertProjectSpec(long, String, String,
      * String, long, long, Timestamp)}
@@ -1134,6 +1177,7 @@ public class CloudSpokesContestLoader extends TCLoad {
         reportFilename = (String) params.get(REPORT_FILENAME_PARAMETER);
         errorsFilename = (String) params.get(ERRORS_FILENAME_PARAMETER);
         warningsFilename = (String) params.get(WARNINGS_FILENAME_PARAMETER);
+        scorecardId = (String) params.get(SCORECARD_ID_PARAMETER);
         if (params.containsKey("transaction_item_count")) {
             try {
                 transactionItemCount = Integer.valueOf(((String) params.get("transaction_item_count")).trim());
@@ -1160,11 +1204,26 @@ public class CloudSpokesContestLoader extends TCLoad {
                 return false;
             }
         }
+		if (params.containsKey("default_user_handle")) {
+            try {
+                defaultUserHandle = ((String) params.get("default_user_handle")).trim();
+            } catch (Exception e) {
+               String message = "error readying default handle." + "\n" + USAGE_MESSAGE;
+                System.err.println(message);
+                setReasonFailed(message);
+                return false;
+            }
+        }
+		
+		if (defaultUserId != null && defaultUserHandle != null && !defaultUserHandle.equals("")) {
+				handleByUserId.put(defaultUserId, defaultUserHandle); System.out.println("---adding "+defaultUserHandle);
+		}
         return checkRequiredParameter(INPUT_FILENAME_PARAMETER, inputFilename)
                 && checkRequiredParameter(CS_PRIZES_FILENAME_PARAMETER, csPrizesFilename)
                 && checkRequiredParameter(REPORT_FILENAME_PARAMETER, reportFilename)
                 && checkRequiredParameter(ERRORS_FILENAME_PARAMETER, errorsFilename)
-                && checkRequiredParameter(WARNINGS_FILENAME_PARAMETER, warningsFilename);
+                && checkRequiredParameter(WARNINGS_FILENAME_PARAMETER, warningsFilename)
+                && checkRequiredParameter(SCORECARD_ID_PARAMETER, scorecardId);
     }
 
     /**
@@ -1431,7 +1490,10 @@ public class CloudSpokesContestLoader extends TCLoad {
      *
      * @since 1.1
      */
-    private String parseProjectInfoValue(Row row, String name) {
+    private String parseProjectInfoValue(Row row, String name) { 
+		System.out.println("----------------------"+row);
+		System.out.println("--------------name--------"+name);
+		System.out.println("--------------name--------"+columnIndexByName.get(name));
         String value = getStringCellValue(row.getCell(columnIndexByName.get(name)));
         if (isStringNullEmpty(value)) {
             value = null;
@@ -1530,6 +1592,7 @@ public class CloudSpokesContestLoader extends TCLoad {
                     errors.append("; record already migrated");
                 }
             } catch (SQLException e) {
+			    System.out.println("---error ----------------"+e);
                 errors.append("; DB error during checking if record is already migrated");
             }
         }
@@ -1564,6 +1627,10 @@ public class CloudSpokesContestLoader extends TCLoad {
         String requirementsText = parseRequirementsText(row);
         String submissionDeliverablesText = parseSubmissionDeliverablesText(row);
         String community = parseProjectInfoValue(row, COMMUNITY_COLUMN_HEADER);
+        String challengeSFDCId = parseProjectInfoValue(row, CS_PRIZE_ID_COLUMN_HEADER);
+        if (challengeSFDCId == null) {
+            errors.append("; CS prize is not specified");
+        }
         // Project info.
         Map<Long, String> projectInfoValues = getProjectInfoValues(
                 row, compName, csProjectId, community, reviewEndDate);
@@ -1579,12 +1646,10 @@ public class CloudSpokesContestLoader extends TCLoad {
         try {
             challengeInfoJson = callCSAPI(String.format(
                     CHALLENGE_INFO_CS_API_URL, URLEncoder.encode(csProjectId, DEFAULT_ENCODING)));
-            if ("true".equalsIgnoreCase(getStringCellValue(row.getCell(
-                    columnIndexByName.get(COMMUNITY_JUDGING_COLUMN_HEADER))))) {
-                outcomeInfoJson = callCSAPI(String.format(
-                        OUTCOME_INFO_CS_API_URL, URLEncoder.encode(csProjectId, DEFAULT_ENCODING)));
-            }
+            outcomeInfoJson = callCSAPI(String.format(
+                    OUTCOME_INFO_CS_API_URL, URLEncoder.encode(csProjectId, DEFAULT_ENCODING)));
         } catch (Exception e) {
+			System.out.println("---error rrrrr----------------"+e);
             errors.append("; failed to retrieve information from CS API");
         }
         if (errors.length() > 0) {
@@ -1607,6 +1672,7 @@ public class CloudSpokesContestLoader extends TCLoad {
                 try {
                     directProjectId = searchDirectProject(directProjectName);
                 } catch (SQLException e) {
+					System.out.println("---errorrrrr ----------------"+e);
                     errors.append("; DB error during searching TC direct project");
                 }
                 if (directProjectId == null) {
@@ -1621,6 +1687,7 @@ public class CloudSpokesContestLoader extends TCLoad {
             // Project info.
             projectInfoValues.put(1L, "" + compVersionId); // External reference ID.
             projectInfoValues.put(2L, "" + compId); // Component ID.
+            projectInfoValues.put(74L, challengeSFDCId); // CloudSpokes Challenge SFDC Id.
             for (Map.Entry<Long, String> projectInfoValue : projectInfoValues.entrySet()) {
                 if (projectInfoValue.getValue() != null) {
                     insertProjectInfo(projectId, projectInfoValue.getKey(), projectInfoValue.getValue(),
@@ -1640,15 +1707,17 @@ public class CloudSpokesContestLoader extends TCLoad {
                     createUserId, modifyUserId, createDate);
             long reviewPhaseId = insertProjectPhase(projectId, REVIEW_PHASE_TYPE_ID, submissionEndDate, reviewEndDate,
                     createUserId, modifyUserId, createDate);
+            insertPhaseCriteria(reviewPhaseId, createUserId, modifyUserId, createDate);
 
             // User resources.
             insertUserResources(projectId, ownerUserId, Arrays.asList(new Long[] {
-                createUserId, modifyUserId, contactUserId }), createUserId, modifyUserId, createDate);
+                createUserId, modifyUserId, contactUserId }), submissionStartDate, createUserId,
+                modifyUserId, createDate);
 
             // Outcome (registrants, reviewers, scores, places, prizes) tables.
             try {
-                insertOutcome(projectId, challengeInfoJson, outcomeInfoJson, reviewPhaseId,
-                        createUserId, modifyUserId, createDate);
+                insertOutcome(projectId, challengeSFDCId, challengeInfoJson, outcomeInfoJson, reviewPhaseId,
+                        submissionStartDate, createUserId, modifyUserId, createDate);
             } catch (Exception e) {
                 String message = "CS API response processing failed";
                 LOG.error(message, e);
@@ -1657,6 +1726,7 @@ public class CloudSpokesContestLoader extends TCLoad {
         } catch (IDGenerationException e) {
             errors.append("; ID generation failed");
         } catch (SQLException e) {
+			System.out.println("---SQLException ----------------"+e);
             errors.append("; DB operation failed");
         }
 
@@ -1701,7 +1771,8 @@ public class CloudSpokesContestLoader extends TCLoad {
         projectInfoValues.put(13L, "No"); // Rated.
         projectInfoValues.put(14L, "Open"); // Eligibility.
         projectInfoValues.put(17L, ""); // Notes.
-        projectInfoValues.put(26L, parseDRFlag(row)); // Digital run flag.
+        projectInfoValues.put(26L, "Off"); // Digital run flag.
+        projectInfoValues.put(30L, "0"); // DR points.
         if (completedDate != null) {
          // Completion time-stamp.
             projectInfoValues.put(21L, projectInfoCompletionDateFormat.format(completedDate));
@@ -1711,6 +1782,7 @@ public class CloudSpokesContestLoader extends TCLoad {
         projectInfoValues.put(42L, "No"); // Requires other fixes.
         projectInfoValues.put(43L, "No"); // Send winner emails.
         projectInfoValues.put(44L, "No"); // Post-mortem Required.
+        projectInfoValues.put(45L, "false"); // Reliability Bonus Eligible.
 
         // CloudSpokes information.
         projectInfoValues.put(64L, csProjectId);
@@ -1731,9 +1803,11 @@ public class CloudSpokesContestLoader extends TCLoad {
      * Inserts project outcome (registrants, reviewers, scores, places, prizes) information to TC DB.
      *
      * @param projectId Project ID.
+     * @param csPrizeId CS prize ID.
      * @param challengeInfoJson Challenge info JSON.
      * @param outcomeInfoJson Outcome info JSON.
      * @param reviewPhaseId Review phase ID.
+     * @param startDate Start date.
      * @param createUserId Create user ID.
      * @param modifyUserId Modify user ID.
      * @param createDate Create date.
@@ -1745,24 +1819,19 @@ public class CloudSpokesContestLoader extends TCLoad {
      *
      * @since 1.1
      */
-    private void insertOutcome(long projectId, JSONObject challengeInfoJson, JSONObject outcomeInfoJson,
-        long reviewPhaseId, long createUserId, long modifyUserId, Timestamp createDate) throws Exception {
+    private void insertOutcome(long projectId, String csPrizeId, JSONObject challengeInfoJson, JSONObject outcomeInfoJson,
+        long reviewPhaseId, Timestamp startDate, long createUserId, long modifyUserId,
+        Timestamp createDate) throws Exception {
         // Insert registrants and get the challenge code.
-        Map<String, Long> registrantResourceIdByCSUserId = insertRegistrants(projectId, challengeInfoJson,
+        Map<String, Long> registrantResourceIdByCSUserId = insertRegistrants(projectId, challengeInfoJson, startDate,
                 createUserId, modifyUserId, createDate);
-        String challengeCode = challengeInfoJson.getJSONObject(CS_API_RESPONSE_ROOT_FIELD).getString("id");
-        if (isStringNullEmpty(challengeCode)) {
-            Exception e = new Exception("'id' field not found in the CS API response.");
-            LOG.error(e.getMessage(), e);
-            throw e;
-        }
 
         if (outcomeInfoJson != null) {
             // Insert reviewers.
-            insertReviewers(projectId, outcomeInfoJson, createUserId, modifyUserId, createDate);
+            insertReviewers(projectId, outcomeInfoJson, startDate, createUserId, modifyUserId, createDate);
 
             // Insert prizes.
-            Map<Integer, Long> prizeMap = insertPrizes(projectId, challengeCode,
+            Map<Integer, Long> prizeMap = insertPrizes(projectId, csPrizeId,
                     createUserId, modifyUserId, createDate);
 
             // Insert uploads and submissions.
@@ -1775,7 +1844,7 @@ public class CloudSpokesContestLoader extends TCLoad {
      * Inserts prizes to TC DB.
      *
      * @param projectId Project ID.
-     * @param challengeCode Challenge code.
+     * @param csPrizeId CS prize ID.
      * @param createUserId Create user ID.
      * @param modifyUserId Modify user ID.
      * @param createDate Create date.
@@ -1787,17 +1856,16 @@ public class CloudSpokesContestLoader extends TCLoad {
      *
      * @since 1.1
      */
-    private Map<Integer, Long> insertPrizes(long projectId, String challengeCode, long createUserId, long modifyUserId,
+    private Map<Integer, Long> insertPrizes(long projectId, String prizeId, long createUserId, long modifyUserId,
             Timestamp createDate) throws Exception {
-        if (!csPrizes.containsKey(challengeCode)) {
-            Exception e = new Exception("Prize not found for challenge wiht code '" + challengeCode + "'.");
-            LOG.error(e.getMessage(), e);
-            throw e;
-        }
         Map<Integer, Long> prizeMap = new HashMap<Integer, Long>();
-        for (Map.Entry<Integer, Double> kvp : csPrizes.get(challengeCode).entrySet()) {
-            prizeMap.put(kvp.getKey(), insertPrize(projectId, kvp.getKey(), kvp.getValue(),
-                    createUserId, modifyUserId, createDate));
+        if (csPrizes.containsKey(prizeId)) {
+            for (Map.Entry<Integer, Double> kvp : csPrizes.get(prizeId).entrySet()) {
+                prizeMap.put(kvp.getKey(), insertPrize(projectId, kvp.getKey(), kvp.getValue(),
+                        createUserId, modifyUserId, createDate));
+            }
+        } else {
+            warnings.append("; prize not found for CS prize ID '" + prizeId + "'");
         }
         return prizeMap;
     }
@@ -1847,6 +1915,7 @@ public class CloudSpokesContestLoader extends TCLoad {
      *
      * @param projectId Project ID.
      * @param challengeInfoJson Challenge info JSON.
+     * @param startDate Start date.
      * @param createUserId Create user ID.
      * @param modifyUserId Modify user ID.
      * @param createDate Create date.
@@ -1858,7 +1927,7 @@ public class CloudSpokesContestLoader extends TCLoad {
      *
      * @since 1.1
      */
-    private Map<String, Long> insertRegistrants(long projectId, JSONObject challengeInfoJson,
+    private Map<String, Long> insertRegistrants(long projectId, JSONObject challengeInfoJson, Timestamp startDate,
             long createUserId, long modifyUserId, Timestamp createDate) throws Exception {
         // Extract registrant records from JSON.
         JSONArray membersArray = challengeInfoJson.getJSONObject(CS_API_RESPONSE_ROOT_FIELD).getJSONObject(
@@ -1885,8 +1954,8 @@ public class CloudSpokesContestLoader extends TCLoad {
         // Assign registrants as resources to the project.
         Map<String, Long> registrantResourceIdByCSUserId = new HashMap<String, Long>();
         for (Map.Entry<String, Long> kvp : registrantTCUserIdByCSUserId.entrySet()) {
-            registrantResourceIdByCSUserId.put(kvp.getKey(), insertResource(projectId, kvp.getValue(),
-                    SUBMITTER_RESOURCE_ROLE_ID, createUserId, modifyUserId, createDate));
+            registrantResourceIdByCSUserId.put(kvp.getKey(), insertResource(projectId,
+                    SUBMITTER_RESOURCE_ROLE_ID, kvp.getValue(), startDate, createUserId, modifyUserId, createDate));
         }
         return registrantResourceIdByCSUserId;
     }
@@ -1896,6 +1965,7 @@ public class CloudSpokesContestLoader extends TCLoad {
      *
      * @param projectId Project ID.
      * @param outcomeInfoJson Outcome info JSON.
+     * @param startDate Start date.
      * @param createUserId Create user ID.
      * @param modifyUserId Modify user ID.
      * @param createDate Create date.
@@ -1906,39 +1976,42 @@ public class CloudSpokesContestLoader extends TCLoad {
      *
      * @since 1.1
      */
-    private void insertReviewers(long projectId, JSONObject outcomeInfoJson,
+    private void insertReviewers(long projectId, JSONObject outcomeInfoJson, Timestamp startDate,
             long createUserId, long modifyUserId, Timestamp createDate) throws Exception {
         // Extract reviewer records from JSON.
         JSONArray outcomesArray = outcomeInfoJson.getJSONArray(CS_API_RESPONSE_ROOT_FIELD);
         Set<String> addedCSUserIds = new HashSet<String>();
         List<Long> reviewerTCUserIds = new ArrayList<Long>();
         for (Object outcomeJson : outcomesArray) {
-            JSONArray recordsArray = ((JSONObject) outcomeJson).getJSONObject("scorecard__r").getJSONArray("records");
-            for (Object recordJson : recordsArray) {
-                String csUserId = ((JSONObject) recordJson).getString("reviewer");
-                if (isStringNullEmpty(csUserId)) {
-                    throw new Exception("Error in CS API response: CS user ID not specified.");
-                }
-                if (!addedCSUserIds.contains(csUserId)) {
-                    Long tcUserId = null;
-                    // Search reviewer in TC DB.
-                    try {
-                        tcUserId = searchCSUserTCId(csUserId);
-                    } catch (SQLException e) {
-                        throw new Exception("; DB error during searching project reviewer CS user '"
-                                + csUserId + "' in TC DB", e);
+            if (((JSONObject) outcomeJson).getJSONObject("scorecard__r") != null
+                    && ((JSONObject) outcomeJson).getJSONObject("scorecard__r").containsKey("records")) {
+                JSONArray recordsArray = ((JSONObject) outcomeJson).getJSONObject("scorecard__r").getJSONArray("records");
+                for (Object recordJson : recordsArray) {
+                    String csUserId = ((JSONObject) recordJson).getString("reviewer");
+                    if (isStringNullEmpty(csUserId)) {
+                        throw new Exception("Error in CS API response: CS user ID not specified.");
                     }
-                    if (tcUserId != null) {
-                        reviewerTCUserIds.add(tcUserId);
+                    if (!addedCSUserIds.contains(csUserId)) {
+                        Long tcUserId = null;
+                        // Search reviewer in TC DB.
+                        try {
+                            tcUserId = searchCSUserTCId(csUserId);
+                        } catch (SQLException e) {
+                            throw new Exception("; DB error during searching project reviewer CS user '"
+                                    + csUserId + "' in TC DB", e);
+                        }
+                        if (tcUserId != null) {
+                            reviewerTCUserIds.add(tcUserId);
+                        }
+                        addedCSUserIds.add(csUserId);
                     }
-                    addedCSUserIds.add(csUserId);
                 }
             }
         }
 
         // Assign reviewers as resources to the project.
         for (long reviewerTCUserId : reviewerTCUserIds) {
-            insertResource(projectId, reviewerTCUserId, REVIEWER_RESOURCE_ROLE_ID,
+            insertResource(projectId, REVIEWER_RESOURCE_ROLE_ID, reviewerTCUserId, startDate,
                     createUserId, modifyUserId, createDate);
         }
     }
@@ -1955,25 +2028,25 @@ public class CloudSpokesContestLoader extends TCLoad {
      */
     private JSONObject callCSAPI(String urlString) throws Exception {
         // Create HTTP connection.
-        HttpURLConnection httpConn = null; System.out.println("------------------"+urlString);
+        HttpURLConnection httpConn = null;
         try {
             httpConn = (HttpURLConnection) new URL(urlString).openConnection();
             httpConn.setRequestMethod("GET");
             httpConn.setRequestProperty(HTTP_ACCEPT_HEADER, JSON_MIME_TYPE);
         } catch (Exception e) {
-            LOG.error("Error calling CS API, "+urlString, e);
+            LOG.error("Error calling CS API.", e);
             throw e;
         } finally {
             if (httpConn != null) {
                 httpConn.disconnect();
             }
         }
-System.out.println("-------hhhhhhhhhhhhhhhhh-----------"+urlString);
+
         // Retrieve response.
         String responseString = null;
         InputStream responseStream = null;
         try {
-            int responseCode = httpConn.getResponseCode();System.out.println("-------responseCode-----------"+responseCode);
+            int responseCode = httpConn.getResponseCode();
             responseStream = (responseCode == HttpURLConnection.HTTP_OK)
                     ? httpConn.getInputStream() : httpConn.getErrorStream();
             responseString = IOUtils.toString(responseStream, DEFAULT_ENCODING);
@@ -1983,7 +2056,7 @@ System.out.println("-------hhhhhhhhhhhhhhhhh-----------"+urlString);
                 throw e;
             }
         } catch (IOException e) {
-            LOG.error("Error reading CS API response." +e, e);
+            LOG.error("Error reading CS API response.", e);
             throw e;
         } finally {
             close("responseStream", responseStream);
@@ -2005,6 +2078,7 @@ System.out.println("-------hhhhhhhhhhhhhhhhh-----------"+urlString);
      * @param projectId Project ID.
      * @param managerUserId User ID of manager.
      * @param observerUserIds User ID of observers.
+     * @param startDate Start date.
      * @param createUserId Create user ID.
      * @param modifyUserId Modify user ID.
      * @param createDate Create date.
@@ -2015,13 +2089,13 @@ System.out.println("-------hhhhhhhhhhhhhhhhh-----------"+urlString);
      * @since 1.1
      */
     private void insertUserResources(long projectId, Long managerUserId, List<Long> observerUserIds,
-        long createUserId, long modifyUserId, Timestamp createDate)
+        Timestamp startDate, long createUserId, long modifyUserId, Timestamp createDate)
         throws IDGenerationException, SQLException {
         Set<Long> assignedUserIds = new HashSet<Long>();
 
         // Insert managers.
         if (managerUserId != null) {
-            insertResource(projectId, managerUserId, MANAGER_RESOURCE_ROLE_ID,
+            insertResource(projectId, MANAGER_RESOURCE_ROLE_ID, managerUserId, startDate,
                     createUserId, modifyUserId, createDate);
             assignedUserIds.add(managerUserId);
         }
@@ -2029,7 +2103,7 @@ System.out.println("-------hhhhhhhhhhhhhhhhh-----------"+urlString);
         // Insert observers.
         for (Long userId : observerUserIds) {
             if (userId != null && !assignedUserIds.contains(userId)) {
-                insertResource(projectId, userId, OBSERVER_RESOURCE_ROLE_ID,
+                insertResource(projectId, OBSERVER_RESOURCE_ROLE_ID, userId, startDate,
                         createUserId, modifyUserId, createDate);
                 assignedUserIds.add(userId);
             }
@@ -2083,11 +2157,12 @@ System.out.println("-------hhhhhhhhhhhhhhhhh-----------"+urlString);
         try {
             if (searchCSUserTCIdStmt == null) {
                 searchCSUserTCIdStmt = conn.prepareStatement(
-                        "SELECT user_id FROM user WHERE open_id = ?");
+                        "SELECT user_id, handle FROM user WHERE open_id = ?");
             }
             searchCSUserTCIdStmt.setString(1, csId);
             rs = searchCSUserTCIdStmt.executeQuery();
             if (rs.next()) {
+                handleByUserId.put(rs.getLong(1), rs.getString(2));
                 return rs.getLong(1);
             } else {
                 return null;
@@ -2455,6 +2530,42 @@ System.out.println("-------hhhhhhhhhhhhhhhhh-----------"+urlString);
     }
 
     /**
+     * Inserts a record to the phase_criteria table.
+     *
+     * @param phaseId Project ID.
+     * @param createUserId Create user ID.
+     * @param modifyUserId Modify user ID.
+     * @param createDate Create date.
+     *
+     * @throws SQLException If any error occurs in the database.
+     * @throws IDGenerationException If any error occurs with ID generation.
+     *
+     * @since 1.1
+     */
+    private void insertPhaseCriteria(long phaseId, long createUserId, long modifyUserId, Timestamp createDate)
+        throws SQLException, IDGenerationException {
+        try {
+            if (insertPhaseCriteriaStmt == null) {
+                insertPhaseCriteriaStmt = conn.prepareStatement(
+                    "INSERT INTO phase_criteria (project_phase_id,phase_criteria_type_id,parameter,"
+                    + "create_user,modify_user,create_date,modify_date) "
+                    + "VALUES (?,1,?,?,?,?,?);");
+            }
+            int index = 1;
+            insertPhaseCriteriaStmt.setLong(index++, phaseId);
+            insertPhaseCriteriaStmt.setString(index++, scorecardId);
+            insertPhaseCriteriaStmt.setLong(index++, createUserId);
+            insertPhaseCriteriaStmt.setLong(index++, modifyUserId);
+            insertPhaseCriteriaStmt.setTimestamp(index++, createDate);
+            insertPhaseCriteriaStmt.setTimestamp(index++, createDate);
+            insertPhaseCriteriaStmt.executeUpdate();
+        } catch (SQLException e) {
+            LOG.error("Error inserting record to phase_criteria table.", e);
+            throw e;
+        }
+    }
+
+    /**
      * Inserts a record to the project_spec table.
      *
      * @param projectId Project ID.
@@ -2513,8 +2624,9 @@ System.out.println("-------hhhhhhhhhhhhhhhhh-----------"+urlString);
      * Inserts a record to the resource and resource_info tables.
      *
      * @param projectId Project ID.
+     * @param roleId Role ID.
      * @param userId User ID.
-     * @param roleId Direct User role ID.
+     * @param startDate Start date.
      * @param createUserId Create user ID.
      * @param modifyUserId Modify user ID.
      * @param createDate Create date.
@@ -2525,7 +2637,7 @@ System.out.println("-------hhhhhhhhhhhhhhhhh-----------"+urlString);
      *
      * @since 1.1
      */
-    private long insertResource(long projectId, long userId, long roleId,
+    private long insertResource(long projectId, long roleId, long userId, Timestamp startDate,
             long createUserId, long modifyUserId, Timestamp createDate) throws IDGenerationException, SQLException {
         // Generate ID (primary key).
         long resourceId;
@@ -2565,20 +2677,35 @@ System.out.println("-------hhhhhhhhhhhhhhhhh-----------"+urlString);
                 insertResourceInfoStmt = conn.prepareStatement(
                     "INSERT INTO resource_info (resource_id,resource_info_type_id,value,"
                     + "create_user,modify_user,create_date,modify_date) "
-                    + "VALUES (?,1,?,?,?,?,?);");
+                    + "VALUES (?,?,?,?,?,?,?);");
             }
             int index = 1;
             insertResourceInfoStmt.setLong(index++, resourceId);
-            insertResourceInfoStmt.setLong(index++, userId);
+            insertResourceInfoStmt.setLong(index++, 1);
+            insertResourceInfoStmt.setString(index++, "" + userId);
             insertResourceInfoStmt.setLong(index++, createUserId);
             insertResourceInfoStmt.setLong(index++, modifyUserId);
             insertResourceInfoStmt.setTimestamp(index++, createDate);
             insertResourceInfoStmt.setTimestamp(index++, createDate);
+            // External ID.
+            insertResourceInfoStmt.executeUpdate();
+            // Handle.
+            insertResourceInfoStmt.setLong(2, 2);
+            insertResourceInfoStmt.setString(3, handleByUserId.get(userId));
+            insertResourceInfoStmt.executeUpdate();
+            // Start date.
+            insertResourceInfoStmt.setLong(2, 6);
+            insertResourceInfoStmt.setString(3, (startDate != null) ? resource_info_fomate.format(startDate) : resource_info_fomate.format(createDate));
+            insertResourceInfoStmt.executeUpdate();
+            // Appeals completed early.
+            insertResourceInfoStmt.setLong(2, 15);
+            insertResourceInfoStmt.setString(3, "No");
             insertResourceInfoStmt.executeUpdate();
         } catch (SQLException e) {
             LOG.error("Error inserting record to resource_info table.", e);
             throw e;
         }
+
         return resourceId;
     }
 
@@ -3027,10 +3154,10 @@ System.out.println("-------hhhhhhhhhhhhhhhhh-----------"+urlString);
                     break;
                 }
                 // Get values.
-                String challengeCode = line.get(CHALLENGE_CODE_CS_PRIZE_FILE_COLUMN_HEADER);
+                String csPrizeId = line.get(ID_CS_PRIZE_FILE_COLUMN_HEADER);
                 String placeString = line.get(PLACE_CS_PRIZE_FILE_COLUMN_HEADER);
                 String prizeString = line.get(VALUE_CS_PRIZE_FILE_COLUMN_HEADER);
-                if (isStringNullEmpty(challengeCode) || isStringNullEmpty(placeString)
+                if (isStringNullEmpty(csPrizeId) || isStringNullEmpty(placeString)
                         || isStringNullEmpty(prizeString)) {
                     fail(String.format("Required cell at line number %d in CS prizes file is empty.",
                             reader.getLineNumber()));
@@ -3046,10 +3173,10 @@ System.out.println("-------hhhhhhhhhhhhhhhhh-----------"+urlString);
                                 + "can't be parsed to a number.", reader.getLineNumber()), e);
                     }
                     // Save prizes.
-                    if (!csPrizes.containsKey(challengeCode)) {
-                        csPrizes.put(challengeCode, new HashMap<Integer, Double>());
+                    if (!csPrizes.containsKey(csPrizeId)) {
+                        csPrizes.put(csPrizeId, new HashMap<Integer, Double>());
                     }
-                    csPrizes.get(challengeCode).put(place, prize);
+                    csPrizes.get(csPrizeId).put(place, prize);
                 }
             }
         } finally {
@@ -3310,7 +3437,7 @@ System.out.println("-------hhhhhhhhhhhhhhhhh-----------"+urlString);
             try {
                 resource.close();
             } catch (IOException e) {
-                LOG.error("Error during closing '" + "'.", e);
+                LOG.error("Error during closing '" + name + "'.", e);
             }
         }
     }
