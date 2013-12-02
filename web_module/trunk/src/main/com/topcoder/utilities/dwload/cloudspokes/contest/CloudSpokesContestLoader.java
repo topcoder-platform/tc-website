@@ -3265,7 +3265,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
                 insertProjectPlatformStmt = conn.prepareStatement(
                     "INSERT INTO project_platform (project_id,create_user,"
                     + "modify_user,create_date,modify_date,project_platform_id)"
-                    + "VALUES (?,?,?,?,?,current);");
+                    + "VALUES (?,?,?,?,current,?);");
             }
         } catch (SQLException e) {
             LOG.error("Error preparing statement for populating project_platform table.", e);
