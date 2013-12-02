@@ -2767,7 +2767,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
                 insertProjectStmt = conn.prepareStatement(
                     "INSERT INTO project (project_id,project_status_id,project_category_id,tc_direct_project_id,"
                     + "create_user,modify_user,create_date,modify_date) "
-                    + "VALUES (?,?,?,?,?,?,?,?);");
+                    + "VALUES (?,?,?,?,?,?,?,current);");
             }
             int index = 1;
             insertProjectStmt.setLong(index++, pk);
@@ -2781,7 +2781,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
             insertProjectStmt.setLong(index++, createUserId);
             insertProjectStmt.setLong(index++, modifyUserId);
             insertProjectStmt.setTimestamp(index++, createDate);
-            insertProjectStmt.setTimestamp(index++, createDate);
+           // insertProjectStmt.setTimestamp(index++, createDate);
             insertProjectStmt.executeUpdate();
         } catch (SQLException e) {
             LOG.error("Error inserting record to project table.", e);
