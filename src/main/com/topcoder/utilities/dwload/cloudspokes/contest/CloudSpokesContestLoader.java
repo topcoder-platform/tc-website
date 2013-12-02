@@ -2365,13 +2365,13 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
             if (insertDirectProjectStmt == null) {
                 insertDirectProjectStmt = conn.prepareStatement(
                     "INSERT INTO tc_direct_project (project_id,name,user_id,create_date,modify_date) "
-                    + "VALUES (corporate_oltp:project_sequence.NEXTVAL,?,?,?,?)");
+                    + "VALUES (corporate_oltp:project_sequence.NEXTVAL,?,?,?,current)");
             }
             int index = 1;
             insertDirectProjectStmt.setString(index++, name);
             insertDirectProjectStmt.setLong(index++, userId);
             insertDirectProjectStmt.setTimestamp(index++, createDate);
-            insertDirectProjectStmt.setTimestamp(index++, createDate);
+            //insertDirectProjectStmt.setTimestamp(index++, createDate);
             insertDirectProjectStmt.executeUpdate();
             rs = conn.createStatement().executeQuery(
                     "SELECT FIRST 1 corporate_oltp:project_sequence.CURRVAL FROM tc_direct_project");
@@ -2407,7 +2407,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
                 insertProjectResultStmt = conn.prepareStatement(
                     "INSERT INTO project_result (project_id,user_id,raw_score,final_score,placed,rating_ind,"
                     + "valid_submission_ind,passed_review_ind,create_date,modify_date) "
-                    + "VALUES (?,?,?,?,?,0,1,1,?,?)");
+                    + "VALUES (?,?,?,?,?,0,1,1,?,current)");
             }
             int index = 1;
             insertProjectResultStmt.setLong(index++, projectId);
@@ -2416,7 +2416,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
             insertProjectResultStmt.setDouble(index++, score);
             insertProjectResultStmt.setInt(index++, place);
             insertProjectResultStmt.setTimestamp(index++, createDate);
-            insertProjectResultStmt.setTimestamp(index++, createDate);
+            //insertProjectResultStmt.setTimestamp(index++, createDate);
             insertProjectResultStmt.executeUpdate();
         } catch (SQLException e) {
             LOG.error("Error inserting record to project_result table.", e);
@@ -2451,7 +2451,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
                 insertReviewStmt = conn.prepareStatement(
                     "INSERT INTO review (review_id,resource_id,submission_id,project_phase_id,scorecard_id,"
                     + "committed,score,initial_score,create_user,modify_user,create_date,modify_date) "
-                    + "VALUES (?,?,?,?,?,1,?,?,?,?,?,?)");
+                    + "VALUES (?,?,?,?,?,1,?,?,?,?,?,current)");
             }
             int index = 1;
             insertReviewStmt.setLong(index++, reviewId);
@@ -2464,7 +2464,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
             insertReviewStmt.setLong(index++, createUserId);
             insertReviewStmt.setLong(index++, modifyUserId);
             insertReviewStmt.setTimestamp(index++, createDate);
-            insertReviewStmt.setTimestamp(index++, createDate);
+            //insertReviewStmt.setTimestamp(index++, createDate);
             insertReviewStmt.executeUpdate();
         } catch (SQLException e) {
             LOG.error("Error inserting record to review table.", e);
@@ -2487,7 +2487,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
                 insertReviewItemStmt = conn.prepareStatement(
                     "INSERT INTO review_item (review_item_id,review_id,scorecard_question_id,upload_id,answer,sort,"
                     + "create_user,modify_user,create_date,modify_date) "
-                    + "VALUES (?,?,?,?,?,0,?,?,?,?)");
+                    + "VALUES (?,?,?,?,?,0,?,?,?,current)");
             }
             int index = 1;
             insertReviewItemStmt.setLong(index++, reviewItemId);
@@ -2498,7 +2498,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
             insertReviewItemStmt.setLong(index++, createUserId);
             insertReviewItemStmt.setLong(index++, modifyUserId);
             insertReviewItemStmt.setTimestamp(index++, createDate);
-            insertReviewItemStmt.setTimestamp(index++, createDate);
+            //insertReviewItemStmt.setTimestamp(index++, createDate);
             insertReviewItemStmt.executeUpdate();
         } catch (SQLException e) {
             LOG.error("Error inserting record to review_item table.", e);
@@ -2521,7 +2521,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
                 insertReviewItemCommentStmt = conn.prepareStatement(
                     "INSERT INTO review_item_comment (review_item_comment_id,resource_id,review_item_id,"
                     + "comment_type_id,content,sort,create_user,modify_user,create_date,modify_date) "
-                    + "VALUES (?,?,?,1,'Ok',0,?,?,?,?)");
+                    + "VALUES (?,?,?,1,'Ok',0,?,?,?,current)");
             }
             int index = 1;
             insertReviewItemCommentStmt.setLong(index++, reviewItemCommentId);
@@ -2530,7 +2530,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
             insertReviewItemCommentStmt.setLong(index++, createUserId);
             insertReviewItemCommentStmt.setLong(index++, modifyUserId);
             insertReviewItemCommentStmt.setTimestamp(index++, createDate);
-            insertReviewItemCommentStmt.setTimestamp(index++, createDate);
+            //insertReviewItemCommentStmt.setTimestamp(index++, createDate);
             insertReviewItemCommentStmt.executeUpdate();
         } catch (SQLException e) {
             LOG.error("Error inserting record to review_item_comment table.", e);
@@ -2599,7 +2599,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
                 insertSubmissionStmt = conn.prepareStatement(
                     "INSERT INTO submission (submission_id,upload_id,submission_status_id,initial_score,"
                     + "final_score,placement,prize_id,submission_type_id,create_user,modify_user,create_date,modify_date) "
-                    + "VALUES (?,?,?,?,?,?,?,1,?,?,?,?);");
+                    + "VALUES (?,?,?,?,?,?,?,1,?,?,?,current);");
             }
             int index = 1;
             insertSubmissionStmt.setLong(index++, pk);
@@ -2617,7 +2617,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
             insertSubmissionStmt.setLong(index++, createUserId);
             insertSubmissionStmt.setLong(index++, modifyUserId);
             insertSubmissionStmt.setTimestamp(index++, createDate);
-            insertSubmissionStmt.setTimestamp(index++, createDate);
+            //insertSubmissionStmt.setTimestamp(index++, createDate);
             insertSubmissionStmt.executeUpdate();
         } catch (SQLException e) {
             LOG.error("Error inserting record to submission table.", e);
@@ -2661,7 +2661,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
                 insertUploadStmt = conn.prepareStatement(
                     "INSERT INTO upload (upload_id,project_id,resource_id,upload_type_id,upload_status_id,parameter,"
                     + "project_phase_id,create_user,modify_user,create_date,modify_date) "
-                    + "VALUES (?,?,?,1,1,'',?,?,?,?,?);");
+                    + "VALUES (?,?,?,1,1,'',?,?,?,?,current);");
             }
             int index = 1;
             insertUploadStmt.setLong(index++, pk);
@@ -2671,7 +2671,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
             insertUploadStmt.setLong(index++, createUserId);
             insertUploadStmt.setLong(index++, modifyUserId);
             insertUploadStmt.setTimestamp(index++, createDate);
-            insertUploadStmt.setTimestamp(index++, createDate);
+            //insertUploadStmt.setTimestamp(index++, createDate);
             insertUploadStmt.executeUpdate();
         } catch (SQLException e) {
             LOG.error("Error inserting record to upload table.", e);
@@ -2714,7 +2714,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
                 insertPrizeStmt = conn.prepareStatement(
                     "INSERT INTO prize (prize_id,project_id,place,prize_amount,prize_type_id,number_of_submissions,"
                     + "create_user,modify_user,create_date,modify_date) "
-                    + "VALUES (?,?,?,?,15,1,?,?,?,?);");
+                    + "VALUES (?,?,?,?,15,1,?,?,?,current);");
             }
             int index = 1;
             insertPrizeStmt.setLong(index++, pk);
@@ -2724,7 +2724,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
             insertPrizeStmt.setLong(index++, createUserId);
             insertPrizeStmt.setLong(index++, modifyUserId);
             insertPrizeStmt.setTimestamp(index++, createDate);
-            insertPrizeStmt.setTimestamp(index++, createDate);
+            //insertPrizeStmt.setTimestamp(index++, createDate);
             insertPrizeStmt.executeUpdate();
         } catch (SQLException e) {
             LOG.error("Error inserting record to prize table.", e);
@@ -2827,7 +2827,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
                     "INSERT INTO project_phase (project_phase_id,project_id,phase_type_id,phase_status_id,"
                     + "fixed_start_time,scheduled_start_time,actual_start_time,scheduled_end_time,actual_end_time,"
                     + "duration,create_user,modify_user,create_date,modify_date) "
-                    + "VALUES (?,?,?,3,?,?,?,?,?,?,?,?,?,?);");
+                    + "VALUES (?,?,?,3,?,?,?,?,?,?,?,?,?,current);");
             }
             int index = 1;
             insertProjectPhaseStmt.setLong(index++, pk);
@@ -2846,7 +2846,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
             insertProjectPhaseStmt.setLong(index++, createUserId);
             insertProjectPhaseStmt.setLong(index++, modifyUserId);
             insertProjectPhaseStmt.setTimestamp(index++, createDate);
-            insertProjectPhaseStmt.setTimestamp(index++, createDate);
+           //insertProjectPhaseStmt.setTimestamp(index++, createDate);
             insertProjectPhaseStmt.executeUpdate();
         } catch (SQLException e) {
             LOG.error("Error inserting record to project_phase table.", e);
@@ -2875,7 +2875,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
                 insertPhaseCriteriaStmt = conn.prepareStatement(
                     "INSERT INTO phase_criteria (project_phase_id,phase_criteria_type_id,parameter,"
                     + "create_user,modify_user,create_date,modify_date) "
-                    + "VALUES (?,1,?,?,?,?,?);");
+                    + "VALUES (?,1,?,?,?,?,current);");
             }
             int index = 1;
             insertPhaseCriteriaStmt.setLong(index++, phaseId);
@@ -2883,7 +2883,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
             insertPhaseCriteriaStmt.setLong(index++, createUserId);
             insertPhaseCriteriaStmt.setLong(index++, modifyUserId);
             insertPhaseCriteriaStmt.setTimestamp(index++, createDate);
-            insertPhaseCriteriaStmt.setTimestamp(index++, createDate);
+            //insertPhaseCriteriaStmt.setTimestamp(index++, createDate);
             insertPhaseCriteriaStmt.executeUpdate();
         } catch (SQLException e) {
             LOG.error("Error inserting record to phase_criteria table.", e);
@@ -2927,7 +2927,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
                     "INSERT INTO project_spec (project_spec_id,project_id,version,detailed_requirements,"
                     + "detailed_requirements_text,submission_deliverables_text,"
                     + "create_user,modify_user,create_date,modify_date) "
-                    + "VALUES (?,?,1,?,?,?,?,?,?,?);");
+                    + "VALUES (?,?,1,?,?,?,?,?,?,current);");
             }
             int index = 1;
             insertProjectSpecStmt.setLong(index++, pk);
@@ -2938,7 +2938,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
             insertProjectSpecStmt.setLong(index++, createUserId);
             insertProjectSpecStmt.setLong(index++, modifyUserId);
             insertProjectSpecStmt.setTimestamp(index++, createDate);
-            insertProjectSpecStmt.setTimestamp(index++, createDate);
+            //insertProjectSpecStmt.setTimestamp(index++, createDate);
             insertProjectSpecStmt.executeUpdate();
         } catch (SQLException e) {
             LOG.error("Error inserting record to project_spec table.", e);
@@ -2981,7 +2981,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
                 insertResourceStmt = conn.prepareStatement(
                     "INSERT INTO resource (resource_id,resource_role_id,project_id,"
                     + "create_user,modify_user,create_date,modify_date) "
-                    + "VALUES (?,?,?,?,?,?,?);");
+                    + "VALUES (?,?,?,?,?,?,current);");
             }
             int index = 1;
             insertResourceStmt.setLong(index++, resourceId);
@@ -2990,7 +2990,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
             insertResourceStmt.setLong(index++, createUserId);
             insertResourceStmt.setLong(index++, modifyUserId);
             insertResourceStmt.setTimestamp(index++, createDate);
-            insertResourceStmt.setTimestamp(index++, createDate);
+            //insertResourceStmt.setTimestamp(index++, createDate);
             insertResourceStmt.executeUpdate();
         } catch (SQLException e) {
             LOG.error("Error inserting record to resource table.", e);
@@ -3003,7 +3003,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
                 insertResourceInfoStmt = conn.prepareStatement(
                     "INSERT INTO resource_info (resource_id,resource_info_type_id,value,"
                     + "create_user,modify_user,create_date,modify_date) "
-                    + "VALUES (?,?,?,?,?,?,?);");
+                    + "VALUES (?,?,?,?,?,?,current);");
             }
             int index = 1;
             insertResourceInfoStmt.setLong(index++, resourceId);
@@ -3012,7 +3012,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
             insertResourceInfoStmt.setLong(index++, createUserId);
             insertResourceInfoStmt.setLong(index++, modifyUserId);
             insertResourceInfoStmt.setTimestamp(index++, createDate);
-            insertResourceInfoStmt.setTimestamp(index++, createDate);
+            //insertResourceInfoStmt.setTimestamp(index++, createDate);
             // External ID.
             insertResourceInfoStmt.executeUpdate();
             // Handle.
@@ -3060,7 +3060,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
                 insertProjectInfoStmt = conn.prepareStatement(
                     "INSERT INTO project_info (project_id,project_info_type_id,value,"
                     + "create_user,modify_user,create_date,modify_date) "
-                    + "VALUES (?,?,?,?,?,?,?);");
+                    + "VALUES (?,?,?,?,?,?,current);");
             }
             int index = 1;
             insertProjectInfoStmt.setLong(index++, projectId);
@@ -3069,7 +3069,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
             insertProjectInfoStmt.setLong(index++, createUserId);
             insertProjectInfoStmt.setLong(index++, modifyUserId);
             insertProjectInfoStmt.setTimestamp(index++, createDate);
-            insertProjectInfoStmt.setTimestamp(index++, createDate);
+            //insertProjectInfoStmt.setTimestamp(index++, createDate);
             insertProjectInfoStmt.executeUpdate();
         } catch (SQLException e) {
             LOG.error("Error inserting record to project_info table.", e);
@@ -3104,13 +3104,13 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
                 insertCompCatalogStmt = conn.prepareStatement(
                     "INSERT INTO comp_catalog (component_id,component_name,current_version,status_id,"
                     + "root_category_id,short_desc,description,create_time,modify_date) "
-                    + "VALUES (?,?,1,102,9926572,'NA','NA',?,?);");
+                    + "VALUES (?,?,1,102,9926572,'NA','NA',?,current);");
             }
             int index = 1;
             insertCompCatalogStmt.setLong(index++, compId);
             insertCompCatalogStmt.setString(index++, compName);
             insertCompCatalogStmt.setTimestamp(index++, createDate);
-            insertCompCatalogStmt.setTimestamp(index++, createDate);
+            //insertCompCatalogStmt.setTimestamp(index++, createDate);
             insertCompCatalogStmt.executeUpdate();
         } catch (SQLException e) {
             LOG.error("Error inserting record to comp_catalog table.", e);
@@ -3146,14 +3146,14 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
                 insertCompVersionStmt = conn.prepareStatement(
                     "INSERT INTO comp_versions (comp_vers_id,component_id,version,version_text,phase_id,price,"
                     + "phase_time,create_time,modify_date) "
-                    + "VALUES (?,?,1,'1.0',112,0.00,?,?,?);");
+                    + "VALUES (?,?,1,'1.0',112,0.00,?,?,current);");
             }
             int index = 1;
             insertCompVersionStmt.setLong(index++, compVersionId);
             insertCompVersionStmt.setLong(index++, compId);
             insertCompVersionStmt.setTimestamp(index++, PHASE_TIME);
             insertCompVersionStmt.setTimestamp(index++, createDate);
-            insertCompVersionStmt.setTimestamp(index++, createDate);
+            //insertCompVersionStmt.setTimestamp(index++, createDate);
             insertCompVersionStmt.executeUpdate();
         } catch (SQLException e) {
             LOG.error("Error inserting record to comp_versions table.", e);
@@ -3191,7 +3191,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
                     + "price,status_id,level_id,initial_submission_date,winner_announced_date,"
                     + "final_submission_date,estimated_dev_date,review_complete_date,aggregation_complete_date,"
                     + "phase_complete_date,production_date,screening_complete_date,create_time,modify_date)"
-                    + "VALUES (?,?,?,112,0.00,301,100,?,?,?,?,?,?,?,?,?,?,?);");
+                    + "VALUES (?,?,?,112,0.00,301,100,?,?,?,?,?,?,?,?,?,?,current);");
             }
             int index = 1;
             insertCompVersionDateStmt.setLong(index++, compVersionDateId);
@@ -3201,7 +3201,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
                 insertCompVersionDateStmt.setTimestamp(index++, DEFAULT_VERSION_DATE);
             }
             insertCompVersionDateStmt.setTimestamp(index++, createDate);
-            insertCompVersionDateStmt.setTimestamp(index++, createDate);
+            //insertCompVersionDateStmt.setTimestamp(index++, createDate);
             insertCompVersionDateStmt.executeUpdate();
         } catch (SQLException e) {
             LOG.error("Error inserting record to comp_version_dates table.", e);
@@ -3265,7 +3265,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
                 insertProjectPlatformStmt = conn.prepareStatement(
                     "INSERT INTO project_platform (project_id,create_user,"
                     + "modify_user,create_date,modify_date,project_platform_id)"
-                    + "VALUES (?,?,?,?,?,?);");
+                    + "VALUES (?,?,?,?,?,current);");
             }
         } catch (SQLException e) {
             LOG.error("Error preparing statement for populating project_platform table.", e);
@@ -3276,7 +3276,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
         insertProjectPlatformStmt.setLong(index++, createUserId);
         insertProjectPlatformStmt.setLong(index++, modifyUserId);
         insertProjectPlatformStmt.setTimestamp(index++, createDate);
-        insertProjectPlatformStmt.setTimestamp(index++, createDate);
+        //insertProjectPlatformStmt.setTimestamp(index++, createDate);
         for (long platformId : platformIds) {
             try {
                 insertProjectPlatformStmt.setLong(index, platformId);
