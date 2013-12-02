@@ -47,9 +47,17 @@ import com.jivesoftware.forum.ForumNotFoundException;
  *     <li>Added {@link #deleteTopCoderDirectProjectForum(long, long)} to delete a direct project forum.</li>
  *   </ol>
  * </p>
+ *
+ * <p>
+ * Version 1.5 (Module Assembly - CloudSpokes Challenge Discussions Loader Assembly)
+ * <ul>
+ *     <li>Added interface
+ *     {@link #migrateCloudSpokesForumData(long, long, String, ForumThreadData, Long[], Long[], long)}</li>
+ * </ul>
+ * </p>
  * 
- * @author TCSASSEMBER, duxiaoyang
- * @version 1.4
+ * @author duxiaoyang, TCSASSEMBLER
+ * @version 1.5
  */
 public interface Forums extends EJBObject {
     
@@ -214,4 +222,25 @@ public interface Forums extends EJBObject {
      * @since 1.4
      */
     public void deleteTopCoderDirectProjectForum(long forumCategoryId, long forumId) throws EJBException, RemoteException, Exception;
+
+    /**
+     * Migrate the CloudSpokes Challenge discussions data to TopCoder forum.
+     *
+     * @param contestId the id of the TopCoder contest
+     * @param compVersionId the component version id
+     * @param contestName the contest name
+     * @param forumData the forum data
+     * @param userIds the user ids to give the forum user permission
+     * @param adminIds the user ids to give the forum admin permission
+     * @param postUserId the user id to post the thread
+     * @throws EJBException if an unexpected error occurs.
+     * @throws RemoteException if an unexpected error occurs.
+     * @throws Exception if an unexpected error occurs.
+     * @return the forum category id created
+     * @since 1.5
+     */
+    public long migrateCloudSpokesForumData(long contestId, long compVersionId, String contestName,
+                                            ForumThreadData forumData, Long[] userIds,
+                                            Long[] adminIds, long postUserId)
+            throws EJBException, RemoteException, Exception;
 }

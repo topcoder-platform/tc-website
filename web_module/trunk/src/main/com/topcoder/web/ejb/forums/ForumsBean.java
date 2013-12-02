@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 TopCoder Inc., All Rights Reserved.
+ * Copyright (C) 2012 - 2013 TopCoder Inc., All Rights Reserved.
  */
 package com.topcoder.web.ejb.forums;
 
@@ -95,8 +95,16 @@ import java.util.Map;
  *   </ol>
  * </p>
  *
- * @author mtong, TCSASSEMBER, duxiaoyang
- * @version 1.4
+ * <p>
+ * Version 1.5 (Module Assembly - CloudSpokes Challenge Discussions Loader Assembly)
+ * <ul>
+ *     <li>Added implementation for method
+ *     {@link #migrateCloudSpokesForumData(long, long, String, ForumThreadData, Long[], Long[], long)}</li>
+ * </ul>
+ * </p>
+ *
+ * @author mtong, duxiaoyang, TCSASSEMBLER
+ * @version 1.5
  */
 
 public class ForumsBean extends BaseEJB {
@@ -903,7 +911,7 @@ public class ForumsBean extends BaseEJB {
 			if (rs.next()) {
 				phaseID = rs.getLong("phase_id");
 			} else {
-				throw new RowNotFoundException("no row found for " + ps.toString());
+				throw new RowNotFoundException("no row found for compVersID:" + compVersID);
 			}
 			return phaseID;
 		} catch (SQLException e) {
@@ -1932,6 +1940,209 @@ public class ForumsBean extends BaseEJB {
 		}
 	}
 
+
+    /**
+     * Migrate the CloudSpokes Challenge discussions data to TopCoder forum. It creates a software forum and inserts
+     * the given forum data into the software forum and assign permission for the contest users and admins. Finally
+     * it updates the contest info (project_info) to link the created forum to the contest.
+     *
+     * @param contestId the id of the TopCoder contest
+     * @param compVersionId the component version id
+     * @param contestName the contest name
+     * @param forumData the forum data
+     * @param userIds the user ids to give the forum user permission
+     * @param adminIds the user ids to give the forum admin permission
+     * @param postUserId the user id to post the thread
+     * @throws ForumsException if there is any error
+     * @return the forum category id created
+     * @since 1.5
+     */
+    public long migrateCloudSpokesForumData(long contestId, long compVersionId, String contestName,
+                                            ForumThreadData forumData, Long[] userIds,
+                                            Long[] adminIds, long postUserId) throws ForumsException {
+        log.info("Start migration of CloudSpokes forum data for contest ID:" + contestId + " contest name:" +
+                contestName);
+        try {
+            // 1) create forum category
+            String forumCategoryName = contestName; // use contest name as the forum name
+
+            ForumCategory forumCategory = forumFactory.getForumCategory(TCS_FORUMS_ROOT_CATEGORY_ID).createCategory(
+                    forumCategoryName + " v1.0", "");
+
+            forumCategory.setProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS,
+                    ForumConstants.PROPERTY_ARCHIVAL_STATUS_ACTIVE);
+            forumCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_ID, String.valueOf(contestId));
+            forumCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_ID, String.valueOf(compVersionId));
+            // already assume version 1.0
+            forumCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_TEXT, "1.0");
+            forumCategory.setProperty(ForumConstants.PROPERTY_MODIFY_FORUMS, String.valueOf(true));
+
+            log.info("Created forum category id:" + forumCategory.getID());
+
+            // create forum "Challenge Discussions" under the forum category
+            Forum forum = forumFactory.createForum("Challenge Discussions", "Challenge Discussions",
+                    forumCategory);
+
+            // 2) create permission groups for the forum category
+            createSoftwareComponentPermissions(forumCategory, false);
+
+            // 3) assign userIds and admin ids with forum category permission
+            String forumPermissionGroupName = ForumConstants.GROUP_SOFTWARE_USERS_PREFIX + forumCategory.getID();
+            for(long userId : userIds) {
+                assignRole(userId,  forumPermissionGroupName);
+            }
+            for(long adminId: adminIds) {
+                assignRole(adminId, ForumConstants.GROUP_SOFTWARE_MODERATORS_PREFIX + forumCategory.getID());
+            }
+
+            // 4) Create thread with the given forumData
+            User forumUser = forumFactory.getUserManager().getUser(postUserId);
+            ForumMessage rootMessage = forum.createMessage(forumUser);
+            rootMessage.setSubject("Discussions");
+            rootMessage.setBody("The discussions thread for challenge: " + contestName);
+
+            rootMessage.setCreationDate(forumData.getRootMessage().getCreationTime());
+            rootMessage.setModificationDate(forumData.getRootMessage().getCreationTime());
+
+            ForumThread thread = forum.createThread(rootMessage);
+            thread.setCreationDate(rootMessage.getCreationDate());
+            forum.addThread(thread);
+
+            Date lastUpdateDate = new Date(0);
+
+            for(ForumMessageData messageData : forumData.getRootMessage().getReplies()) {
+                User topLevelUser = forumFactory.getUserManager().getUser(messageData.getCreatorId());
+                ForumMessage topLevelComment = forum.createMessage(topLevelUser);
+                topLevelComment.setSubject("Re: Discussions");
+                topLevelComment.setBody(messageData.getContent());
+                topLevelComment.setCreationDate(messageData.getCreationTime());
+                topLevelComment.setModificationDate(messageData.getModificationTime());
+
+                if(messageData.getCreationTime().after(lastUpdateDate)) {
+                    lastUpdateDate = messageData.getCreationTime();
+                }
+
+                thread.addMessage(rootMessage, topLevelComment);
+
+                // add replies for top level comment
+                for(ForumMessageData subMessageData : messageData.getReplies()) {
+                    User subUser = forumFactory.getUserManager().getUser(subMessageData.getCreatorId());
+                    ForumMessage subMessage = forum.createMessage(subUser);
+                    subMessage.setSubject("Re: Discussions");
+                    subMessage.setBody(subMessageData.getContent());
+                    subMessage.setCreationDate(subMessageData.getCreationTime());
+                    subMessage.setModificationDate(subMessageData.getModificationTime());
+                    thread.addMessage(topLevelComment, subMessage);
+
+                    if(subMessageData.getCreationTime().after(lastUpdateDate)) {
+                        lastUpdateDate = subMessageData.getCreationTime();
+                    }
+                }
+            }
+
+            Connection conn = null;
+            PreparedStatement checkProjectInfoExist = null;
+            PreparedStatement updateProjectInfo = null;
+            PreparedStatement insertProjectInfo = null;
+            PreparedStatement checkCompVerJiveCategoryExist = null;
+            PreparedStatement updateCompVerJiveCategory = null;
+            PreparedStatement insertCompVerJiveCategory = null;
+            ResultSet rs1 = null;
+            ResultSet rs2 = null;
+
+            try {
+                conn = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
+                conn.setAutoCommit(false);
+
+                // 5) insert or update record of project_info (type 4)
+                checkProjectInfoExist = conn.prepareStatement("SELECT pi.value FROM project_info pi WHERE pi.project_info_type_id = 4 and pi.project_id = ?");
+
+                checkProjectInfoExist.setLong(1, contestId);
+
+                rs1 = checkProjectInfoExist.executeQuery();
+
+                if(rs1.next()) {
+                    updateProjectInfo = conn.prepareStatement("UPDATE project_info SET value = ?" +
+                            " WHERE project_info_type_id = 4 AND project_id = ?");
+                    updateProjectInfo.setString(1, String.valueOf(forumCategory.getID()));
+                    updateProjectInfo.setLong(2, contestId);
+                    updateProjectInfo.executeUpdate();
+                } else {
+                    insertProjectInfo = conn.prepareStatement(
+                            "INSERT INTO project_info (project_id, project_info_type_id, value, create_user, create_date, modify_user, " +
+                                    " modify_date) VALUES (?, 4, ?, ?, CURRENT, ?, CURRENT)");
+
+                    insertProjectInfo.setLong(1, contestId);
+                    insertProjectInfo.setLong(2, forumCategory.getID());
+                    insertProjectInfo.setLong(3, postUserId);
+                    insertProjectInfo.setLong(4, postUserId);
+
+                    insertProjectInfo.executeUpdate();
+                }
+
+
+                // 6) insert or update record in comp_jive_category_xref
+                checkCompVerJiveCategoryExist = conn.prepareStatement(
+                        "SELECT comp_vers_id FROM comp_jive_category_xref where comp_vers_id = ?");
+
+                checkCompVerJiveCategoryExist.setLong(1, compVersionId);
+
+                rs2 = checkCompVerJiveCategoryExist.executeQuery();
+
+                if(rs2.next()) {
+                    // record exists - do the update
+                    updateCompVerJiveCategory = conn.prepareStatement(
+                            "UPDATE comp_jive_category_xref SET jive_category_id = ? WHERE comp_vers_id = ?");
+                    updateCompVerJiveCategory.setLong(1, forumCategory.getID());
+                    updateCompVerJiveCategory.setLong(2, compVersionId);
+                    updateCompVerJiveCategory.executeUpdate();
+                } else {
+                    // record does not exist - do the insert
+                    insertCompVerJiveCategory = conn.prepareStatement(
+                            "INSERT INTO comp_jive_category_xref(comp_vers_id, jive_category_id) VALUES(?, ?)");
+                    insertCompVerJiveCategory.setLong(1, compVersionId);
+                    insertCompVerJiveCategory.setLong(2, forumCategory.getID());
+                    insertCompVerJiveCategory.executeUpdate();
+                }
+
+                // commit the update
+                conn.commit();
+
+                log.info("Forum Data Migration finished for contest ID:" + contestId + " contest name:" +
+                        contestName);
+
+                // update the forum category update time
+                thread.setModificationDate(lastUpdateDate);
+                forumCategory.setModificationDate(lastUpdateDate);
+
+                return forumCategory.getID();
+
+            } catch (SQLException sqle) {
+                conn.rollback();
+                logException(sqle, "Error occurs when adding / updating project forum information");
+                throw sqle;
+
+            } finally {
+                close(rs1);
+                close(checkProjectInfoExist);
+                close(updateProjectInfo);
+                close(insertProjectInfo);
+                close(insertProjectInfo);
+                close(rs2);
+                close(checkCompVerJiveCategoryExist);
+                close(updateCompVerJiveCategory);
+                close(insertCompVerJiveCategory);
+                close(conn);
+            }
+
+        } catch (Exception e) {
+            logException(e, "Error occurs in creating software component forums");
+            throw new ForumsException("Error occurs when migrate the CloudSpokes challenge forum data.", e);
+        }
+    }
+
+
+
 	/**
 	 * <p>
 	 * Retrieves the specification review forum from the given
@@ -1943,7 +2154,7 @@ public class ForumsBean extends BaseEJB {
 	 *            from.
 	 * @return The specification review forum.
 	 * 
-	 * @throws SpecReviewCommentServiceException
+	 * @throws ForumsException
 	 *             If no specification review forum was found in the given
 	 *             category.
 	 */
