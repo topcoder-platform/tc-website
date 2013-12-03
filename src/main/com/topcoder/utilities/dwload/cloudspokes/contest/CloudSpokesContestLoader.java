@@ -2032,10 +2032,12 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
                 int place = outcomeJson.getInt("place");
                 long submissionId = insertSubmission(uploadId, score, place,
                         prizeMap.get(place), createUserId, modifyUserId, createDate);
-                // Insert project result.
-                insertProjectResult(projectId, resourceId, score, place, createDate);
-                // Insert winner / runner up.
+				// Insert winner / runner up.
                 long tcUserId = searchCSUserTCId(csUserId);
+				
+                // Insert project result.
+                insertProjectResult(projectId, tcUserId, score, place, createDate);
+                
                 if (place == 1) {
                     // Winner External Reference ID.
                     insertProjectInfo(projectId, 23L, "" + tcUserId,
