@@ -60,11 +60,12 @@ public class CloudSpokesChallengeDiscussionsLoader extends TCLoad {
             "SELECT p.project_id as contest_id, cid.value::INTEGER as challenge_id, cvid.value::INTEGER as comp_vers_id\n" +
                     "FROM project p \n" +
                     "LEFT OUTER JOIN project_info fid ON p.project_id = fid.project_id and fid.project_info_type_id = 4 ,\n" +
-                    "project_info cid, project_info cvid\n" +
+                    "project_info cid, project_info pi2, project_info cvid\n" +
                     "WHERE p.project_id = cid.project_id AND cid.project_info_type_id = 64 \n" +
                     "AND cid.value IS NOT NULL   \n" +
                     "AND (fid.value IS NULL or fid.value = '0')\n" +
-                    "AND cvid.project_id = p.project_id and cvid.project_info_type_id = 1;";
+                    "AND cvid.project_id = p.project_id and cvid.project_info_type_id = 1  " +
+					"AND pi2.project_id = p.project_id and pi2.project_info_type_id =2;";
 
     /**
      * The SQL script to get the mapping from CloudSpokes user id to TopCoder user id.
@@ -179,7 +180,7 @@ public class CloudSpokesChallengeDiscussionsLoader extends TCLoad {
                 String cloudSpokesUserID = userMappingResult.getString("open_id");
                 long topcoderUserID = userMappingResult.getLong("user_id");
 
-                log.info("CloudSpokes UserID:" + cloudSpokesUserID + " -> TopCoder User ID:" + topcoderUserID);
+                //log.info("CloudSpokes UserID:" + cloudSpokesUserID + " -> TopCoder User ID:" + topcoderUserID);
 
                 userMappings.put(cloudSpokesUserID, topcoderUserID);
             }
