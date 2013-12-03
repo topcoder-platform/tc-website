@@ -257,7 +257,7 @@ public class CloudSpokesContestLoader extends TCLoad {
      *
      * @since 1.1
      */
-    private static final String CS_PRIZE_ID_COLUMN_HEADER = "Id";
+    private static final String CS_PRIZE_ID_COLUMN_HEADER = "id";
 	
 	
 
@@ -1609,7 +1609,10 @@ public class CloudSpokesContestLoader extends TCLoad {
      * @since 1.1
      */
     private String parseProjectInfoValue(Row row, String name) { 
-
+        if (!columnIndexByName.containsKey(name) ||
+            row.getCell(columnIndexByName.get(name)) == null) {
+            return null;
+        }
         String value = getStringCellValue(row.getCell(columnIndexByName.get(name)));
         if (isStringNullEmpty(value)) {
             value = null;
@@ -1752,6 +1755,11 @@ public class CloudSpokesContestLoader extends TCLoad {
         if (challengeSFDCId == null) {
             errors.append("; CS prize is not specified");
         }
+        
+        if (challengeSFDCId != null && challengeSFDCId.equals("a0BU0000004fcbfMAA")) {
+            challengeSFDCId = "a0GU0000004xbItMAI";
+        }
+        
         // Project info.
         Map<Long, String> projectInfoValues = getProjectInfoValues(
                 row, compName, csProjectId, community, reviewEndDate);
@@ -2032,12 +2040,10 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
                 int place = outcomeJson.getInt("place");
                 long submissionId = insertSubmission(uploadId, score, place,
                         prizeMap.get(place), createUserId, modifyUserId, createDate);
-				// Insert winner / runner up.
-                long tcUserId = searchCSUserTCId(csUserId);
-				
                 // Insert project result.
-                insertProjectResult(projectId, tcUserId, score, place, createDate);
-                
+                insertProjectResult(projectId, resourceId, score, place, createDate);
+                // Insert winner / runner up.
+                long tcUserId = searchCSUserTCId(csUserId);
                 if (place == 1) {
                     // Winner External Reference ID.
                     insertProjectInfo(projectId, 23L, "" + tcUserId,
@@ -3267,7 +3273,7 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
                 insertProjectPlatformStmt = conn.prepareStatement(
                     "INSERT INTO project_platform (project_id,create_user,"
                     + "modify_user,create_date,modify_date,project_platform_id)"
-                    + "VALUES (?,?,?,?,current,?);");
+                    + "VALUES (?,?,?,?,?,current);");
             }
         } catch (SQLException e) {
             LOG.error("Error preparing statement for populating project_platform table.", e);
@@ -3599,6 +3605,15 @@ System.out.println("---------------------------"+reviewerResourceIdByCSUserId.ge
             boolean empty = true;
             while (cellIterator.hasNext()) {
                 Cell cell = cellIterator.next();
+                Date dateValue = null;
+                try {
+                    dateValue = cell.getDateCellValue();
+                } catch (Exception e) {
+                }
+                cell.setCellType(Cell.CELL_TYPE_STRING);
+                if (dateValue != null) {
+                    cell.setCellValue(simpleFormat.format(dateValue));
+                }
                 cell.setCellType(Cell.CELL_TYPE_STRING);
                 String value = getStringCellValue(cell);
                 if (!isStringNullEmpty(value)) {

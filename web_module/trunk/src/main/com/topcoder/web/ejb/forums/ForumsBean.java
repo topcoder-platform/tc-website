@@ -1965,13 +1965,45 @@ public class ForumsBean extends BaseEJB {
         try {
             // 1) create forum category
             String forumCategoryName = contestName; // use contest name as the forum name
+			
+			// get component id
+			
+			PreparedStatement getCompId = null;
+			Connection conn1 = null;
+			ResultSet rs = null;
+			long compenentId = 0;
+			try {
+                conn1 = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
+
+                // get project_info (type 2)
+                getCompId = conn1.prepareStatement("SELECT pi.value as comp_id FROM project_info pi WHERE pi.project_info_type_id = 2 and pi.project_id = ?");
+
+                getCompId.setLong(1, contestId);
+
+                rs = getCompId.executeQuery();
+				
+				if (rs.next())
+				{
+					compenentId = rs.getLong("comp_id");
+				}
+				
+			} catch (SQLException sqle) {
+                logException(sqle, "Error occurs in getCompId");
+                throw sqle;
+
+            } finally {
+                close(rs);
+                close(getCompId);
+                close(conn1);
+            }
+
 
             ForumCategory forumCategory = forumFactory.getForumCategory(TCS_FORUMS_ROOT_CATEGORY_ID).createCategory(
                     forumCategoryName + " v1.0", "");
 
             forumCategory.setProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS,
                     ForumConstants.PROPERTY_ARCHIVAL_STATUS_ACTIVE);
-            forumCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_ID, String.valueOf(contestId));
+            forumCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_ID, String.valueOf(compenentId));
             forumCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_ID, String.valueOf(compVersionId));
             // already assume version 1.0
             forumCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_TEXT, "1.0");
