@@ -34,4 +34,6 @@ public interface UserSocialLoginDAO extends GenericDAO<UserSocialLogin, UserSoci
      * @return retrieved list
      */
     List<UserSocialLogin> findByUserId(long userId);
+    UserSocialLogin findByProviderIdAndName(long providerId, String name);
+    UserSocialLogin findByProviderIdAndVerifiedEmail(long providerId, String email);
 }

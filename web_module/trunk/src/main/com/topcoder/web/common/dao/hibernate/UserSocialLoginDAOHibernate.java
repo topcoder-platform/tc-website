@@ -5,7 +5,9 @@ package com.topcoder.web.common.dao.hibernate;
 
 import com.topcoder.web.common.dao.UserSocialLoginDAO;
 import com.topcoder.web.common.model.UserSocialLogin;
+import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.hibernate.criterion.Restrictions;
 
 import java.util.List;
 
@@ -42,5 +44,20 @@ public class UserSocialLoginDAOHibernate extends GenericBase<UserSocialLogin, Us
                 " where id.userId = " + userId ).setCacheable(false);
 
         return q.list();
+    }
+    public UserSocialLogin findByProviderIdAndName(long providerId, String name) {
+        Criteria c = getSession().createCriteria(UserSocialLogin.class)
+                .add(Restrictions.eq("id.socialLoginProviderId", providerId))
+                .add(Restrictions.eq("socialUserName", name));
+        List ret = c.list();
+        return ret.isEmpty() ? null : (UserSocialLogin) ret.get(0);
+    }
+    public UserSocialLogin findByProviderIdAndVerifiedEmail(long providerId, String email) {
+        Criteria c = getSession().createCriteria(UserSocialLogin.class)
+                .add(Restrictions.eq("id.socialLoginProviderId", providerId))
+                .add(Restrictions.eq("socialEmail", email))
+                .add(Restrictions.eq("socialEmailVerified", true));
+        List ret = c.list();
+        return ret.isEmpty() ? null : (UserSocialLogin) ret.get(0);
     }
 }
