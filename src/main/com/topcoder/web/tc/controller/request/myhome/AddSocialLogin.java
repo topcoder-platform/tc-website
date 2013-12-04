@@ -142,7 +142,21 @@ public class AddSocialLogin extends ShortHibernateProcessor {
 
             // we should check whether this social login is associated with someone else.
             // but we can't make sure user name is unique across identity providers for now,
-            // so leave it here.
+            boolean alreadyAssociated = false;
+            if (socialLogin.getId().getSocialLoginProviderId() == TWITTER_PROVIDER_ID) {
+                if (StringUtils.isNotEmpty(socialLogin.getSocialUserName())) {
+                    alreadyAssociated =
+                        userSocialLoginDAO.findByProviderIdAndName(TWITTER_PROVIDER_ID, socialLogin.getSocialUserName()) != null;
+                }
+            } else {
+                if (StringUtils.isNotEmpty(socialLogin.getSocialEmail())) {
+                    alreadyAssociated =
+                        userSocialLoginDAO.findByProviderIdAndVerifiedEmail(socialLogin.getId().getSocialLoginProviderId(), socialLogin.getSocialEmail()) != null;
+                }
+            }
+            if (alreadyAssociated) {
+                throw new NavigationException("The social account is already associated with someone else.", "/tc?module=MyHome");
+            }
             userSocialLoginDAO.saveOrUpdate(socialLogin);
         }
         setNextPage("/tc?module=MyHome");
